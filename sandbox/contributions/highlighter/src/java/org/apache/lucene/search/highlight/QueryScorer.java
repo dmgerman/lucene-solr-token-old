@@ -106,6 +106,12 @@ name|totalScore
 init|=
 literal|0
 decl_stmt|;
+DECL|field|maxTermWeight
+name|float
+name|maxTermWeight
+init|=
+literal|0
+decl_stmt|;
 DECL|field|termsToFind
 specifier|private
 name|HashMap
@@ -208,6 +214,23 @@ name|weightedTerms
 index|[
 name|i
 index|]
+argument_list|)
+expr_stmt|;
+name|maxTermWeight
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|maxTermWeight
+argument_list|,
+name|weightedTerms
+index|[
+name|i
+index|]
+operator|.
+name|getWeight
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -333,6 +356,17 @@ name|allFragmentsProcessed
 parameter_list|()
 block|{
 comment|//this class has no special operations to perform at end of processing
+block|}
+comment|/** 	 *  	 * @return The highest weighted term (useful for passing to GradientFormatter to set 	 * top end of coloring scale.   	 */
+DECL|method|getMaxTermWeight
+specifier|public
+name|float
+name|getMaxTermWeight
+parameter_list|()
+block|{
+return|return
+name|maxTermWeight
+return|;
 block|}
 block|}
 end_class
