@@ -397,7 +397,9 @@ operator|+
 name|query
 operator|.
 name|toString
-argument_list|()
+argument_list|(
+name|s
+argument_list|)
 operator|+
 literal|")"
 return|;
