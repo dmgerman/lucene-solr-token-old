@@ -71,12 +71,7 @@ operator|.
 name|intern
 argument_list|()
 decl_stmt|;
-return|return
-operator|new
-name|ScoreDocComparator
-argument_list|()
-block|{
-specifier|protected
+specifier|final
 name|Comparable
 index|[]
 name|cachedValues
@@ -96,6 +91,11 @@ operator|.
 name|this
 argument_list|)
 decl_stmt|;
+return|return
+operator|new
+name|ScoreDocComparator
+argument_list|()
+block|{
 specifier|public
 name|int
 name|compare
