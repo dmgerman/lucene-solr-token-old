@@ -909,6 +909,36 @@ return|return
 name|size
 return|;
 block|}
+DECL|method|isEmpty
+specifier|public
+name|boolean
+name|isEmpty
+parameter_list|()
+block|{
+return|return
+name|size
+operator|==
+literal|0
+return|;
+block|}
+DECL|method|clear
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+while|while
+condition|(
+operator|!
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|remove
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 comment|/**      * testing      *      * @param args  The command line arguments      */
 DECL|method|main
 specifier|public
@@ -1034,7 +1064,7 @@ name|RuntimeException
 block|{ }
 end_class
 begin_comment
-comment|/**  * Testklasse. Enthält einige Tests für die Funktionalität der CachingQueue  *  * @author    Administrator  * @created   3. Januar 2002  */
+comment|/**  * Testklasse. contains some tests for the caching queue  *  * @author    Administrator  * @created   3. Januar 2002  */
 end_comment
 begin_class
 DECL|class|CachingQueueTester
@@ -1931,7 +1961,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"CachingQueueTester.textExceptions: Store 1 nicht vorhanden. Filename geändert?"
+literal|"CachingQueueTester.textExceptions: Store 1 deleted. file name changed?"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1956,7 +1986,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"CachingQueueTester.textExceptions: Store 2 nicht vorhanden. Filename geändert?"
+literal|"CachingQueueTester.textExceptions: Store 2 deleted. file name changed?"
 argument_list|)
 expr_stmt|;
 block|}
