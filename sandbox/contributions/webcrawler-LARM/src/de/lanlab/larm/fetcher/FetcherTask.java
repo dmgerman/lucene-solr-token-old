@@ -142,19 +142,6 @@ import|;
 end_import
 begin_import
 import|import
-name|de
-operator|.
-name|lanlab
-operator|.
-name|larm
-operator|.
-name|net
-operator|.
-name|HttpTimeoutFactory
-import|;
-end_import
-begin_import
-import|import
 name|HTTPClient
 operator|.
 name|*
@@ -220,6 +207,19 @@ operator|.
 name|parser
 operator|.
 name|LinkHandler
+import|;
+end_import
+begin_import
+import|import
+name|de
+operator|.
+name|lanlab
+operator|.
+name|larm
+operator|.
+name|net
+operator|.
+name|*
 import|;
 end_import
 begin_comment
@@ -607,12 +607,19 @@ argument_list|()
 return|;
 block|}
 DECL|field|log
+specifier|volatile
 name|SimpleLogger
 name|log
 decl_stmt|;
 DECL|field|errorLog
+specifier|volatile
 name|SimpleLogger
 name|errorLog
+decl_stmt|;
+DECL|field|hostManager
+specifier|volatile
+name|HostManager
+name|hostManager
 decl_stmt|;
 comment|//private long startTime;
 comment|/**      * this will be called by the fetcher thread and will do all the work      *      * @TODO probably split this up into different processing steps      * @param thread  Description of the Parameter      */
@@ -640,9 +647,8 @@ operator|.
 name|getLog
 argument_list|()
 expr_stmt|;
-name|HostManager
-name|hm
-init|=
+name|hostManager
+operator|=
 operator|(
 operator|(
 name|FetcherThread
@@ -652,7 +658,8 @@ operator|)
 operator|.
 name|getHostManager
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+comment|//HostManager hm = ((FetcherThread)thread).getHostManager();
 name|errorLog
 operator|=
 name|thread
@@ -705,6 +712,9 @@ name|contextUrl
 operator|.
 name|getHost
 argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
 decl_stmt|;
 name|int
 name|hostPos
@@ -727,7 +737,7 @@ decl_stmt|;
 name|HostInfo
 name|hi
 init|=
-name|hm
+name|hostManager
 operator|.
 name|getHostInfo
 argument_list|(
@@ -946,6 +956,11 @@ name|contentLength
 init|=
 literal|0
 decl_stmt|;
+name|Date
+name|date
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|statusCode
@@ -986,6 +1001,15 @@ argument_list|(
 literal|"Content-Length"
 argument_list|)
 decl_stmt|;
+name|date
+operator|=
+name|response
+operator|.
+name|getHeaderAsDate
+argument_list|(
+literal|"Last-Modified"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|length
@@ -1022,6 +1046,21 @@ name|FETCHERTASK_MAXFILESIZE
 argument_list|)
 expr_stmt|;
 comment|// max. 2 MB
+name|base
+operator|=
+name|contextUrl
+operator|=
+name|response
+operator|.
+name|getEffectiveURI
+argument_list|()
+operator|.
+name|toURL
+argument_list|()
+expr_stmt|;
+comment|// may have changed after a 30x result code
+comment|// to do: record the link between original and effective URL
+comment|// like this the effectiveURL may be crawled twice
 if|if
 condition|(
 name|fullBuffer
@@ -1231,6 +1270,8 @@ argument_list|,
 name|contentLength
 argument_list|,
 name|title
+argument_list|,
+name|hostManager
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2015,16 +2056,11 @@ argument_list|,
 name|isFrame
 argument_list|,
 name|anchor
+argument_list|,
+name|hostManager
 argument_list|)
 decl_stmt|;
-name|String
-name|urlString
-init|=
-name|urlMessage
-operator|.
-name|getURLString
-argument_list|()
-decl_stmt|;
+comment|//String urlString = urlMessage.getURLString();
 name|foundUrls
 operator|.
 name|add
