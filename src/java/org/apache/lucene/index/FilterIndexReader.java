@@ -380,6 +380,12 @@ name|directory
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|segmentInfos
+operator|=
+name|in
+operator|.
+name|segmentInfos
+expr_stmt|;
 name|this
 operator|.
 name|in
