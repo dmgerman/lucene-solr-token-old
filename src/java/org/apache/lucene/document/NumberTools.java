@@ -76,7 +76,7 @@ name|POSITIVE_PREFIX
 operator|+
 literal|"1y2p0ij32e8e7"
 decl_stmt|;
-comment|/**      * the length of (all) strings returned by {@link #longToString}      */
+comment|/**      * The length of (all) strings returned by {@link #longToString}      */
 DECL|field|STR_SIZE
 specifier|public
 specifier|static
@@ -215,7 +215,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Converts a String that was returned by {@link #longToString}back to a      * long.      *       * @throws IllegalArgumentException      *             if the input is null      * @throws NumberFormatException      *             if the input does not parse (it was not a String returned by      *             longToString()).      */
+comment|/**      * Converts a String that was returned by {@link #longToString} back to a      * long.      *       * @throws IllegalArgumentException      *             if the input is null      * @throws NumberFormatException      *             if the input does not parse (it was not a String returned by      *             longToString()).      */
 DECL|method|stringToLong
 specifier|public
 specifier|static
@@ -235,7 +235,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|NullPointerException
 argument_list|(
 literal|"string cannot be null"
 argument_list|)
