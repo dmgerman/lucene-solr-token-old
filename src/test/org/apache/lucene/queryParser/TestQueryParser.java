@@ -759,7 +759,7 @@ name|Analyzer
 name|a
 init|=
 operator|new
-name|NullAnalyzer
+name|WhitespaceAnalyzer
 argument_list|()
 decl_stmt|;
 name|assertQueryEquals
