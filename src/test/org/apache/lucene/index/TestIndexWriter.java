@@ -209,7 +209,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// delete 50 documents
+comment|// delete 40 documents
 name|reader
 operator|=
 name|IndexReader
@@ -227,7 +227,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|50
+literal|40
 condition|;
 name|i
 operator|++
@@ -246,6 +246,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// test doc count before segments are merged/index is optimized
 name|writer
 operator|=
 operator|new
@@ -296,7 +297,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|50
+literal|60
 argument_list|,
 name|reader
 operator|.
@@ -309,6 +310,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// optimize the index and check that the new doc count is correct
 name|writer
 operator|=
 operator|new
@@ -330,7 +332,7 @@ argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|50
+literal|60
 argument_list|,
 name|writer
 operator|.
@@ -343,6 +345,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// check that the index reader gives the same numbers.
 name|reader
 operator|=
 name|IndexReader
@@ -354,7 +357,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|50
+literal|60
 argument_list|,
 name|reader
 operator|.
@@ -364,7 +367,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|50
+literal|60
 argument_list|,
 name|reader
 operator|.
