@@ -248,6 +248,7 @@ name|DocumentStorage
 name|storage
 parameter_list|)
 block|{
+comment|// FIXME: use JDK 1.4 asserts instead?
 if|if
 condition|(
 name|isOpen
@@ -279,6 +280,7 @@ name|LinkStorage
 name|storage
 parameter_list|)
 block|{
+comment|// FIXME: use JDK 1.4 asserts instead?
 if|if
 condition|(
 name|isOpen
