@@ -65,8 +65,6 @@ name|byte
 index|[]
 name|norms
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
