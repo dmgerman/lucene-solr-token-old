@@ -618,10 +618,13 @@ argument_list|)
 operator|.
 name|storeTermVector
 condition|)
+block|{
 name|hasVectors
 operator|=
 literal|true
 expr_stmt|;
+break|break;
+block|}
 block|}
 return|return
 name|hasVectors
