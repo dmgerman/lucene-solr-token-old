@@ -480,8 +480,6 @@ name|term
 argument_list|()
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 while|while
 condition|(
 name|termDocs
@@ -501,15 +499,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
-name|termDocs
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -526,6 +515,11 @@ block|}
 finally|finally
 block|{
 name|enumerator
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|termDocs
 operator|.
 name|close
 argument_list|()
