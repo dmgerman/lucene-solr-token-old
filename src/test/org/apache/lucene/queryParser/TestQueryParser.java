@@ -190,9 +190,10 @@ name|TokenStream
 name|in
 parameter_list|)
 block|{
-name|input
-operator|=
+name|super
+argument_list|(
 name|in
+argument_list|)
 expr_stmt|;
 block|}
 DECL|field|inPhrase
