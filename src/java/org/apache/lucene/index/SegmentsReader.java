@@ -362,7 +362,7 @@ index|[
 name|i
 index|]
 operator|.
-name|delete
+name|doDelete
 argument_list|(
 name|n
 operator|-
