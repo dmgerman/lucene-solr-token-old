@@ -41,15 +41,6 @@ operator|.
 name|Hashtable
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
 begin_comment
 comment|/**  * Removes stop words from a token stream.  */
 end_comment
@@ -64,7 +55,7 @@ name|TokenFilter
 block|{
 DECL|field|stopWords
 specifier|private
-name|Set
+name|HashSet
 name|stopWords
 decl_stmt|;
 comment|/**    * Constructs a filter which removes words from the input    * TokenStream that are named in the array of words.    */
@@ -95,7 +86,7 @@ name|stopWords
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs a filter which removes words from the input    * TokenStream that are named in the Hashtable.    *    * @deprecated Use {@link #StopFilter(TokenStream, Set)} StopFilter(TokenStream,Map)} instead    */
+comment|/**    * Constructs a filter which removes words from the input    * TokenStream that are named in the Hashtable.    *    * @deprecated Use {@link #StopFilter(TokenStream, HashSet)} StopFilter(TokenStream,Map)} instead    */
 DECL|method|StopFilter
 specifier|public
 name|StopFilter
@@ -132,7 +123,7 @@ parameter_list|(
 name|TokenStream
 name|in
 parameter_list|,
-name|Set
+name|HashSet
 name|stopWords
 parameter_list|)
 block|{
@@ -145,11 +136,7 @@ name|this
 operator|.
 name|stopWords
 operator|=
-operator|new
-name|HashSet
-argument_list|(
 name|stopWords
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds a Hashtable from an array of stop words,    * appropriate for passing into the StopFilter constructor.    * This permits this table construction to be cached once when    * an Analyzer is constructed.    *    * @deprecated Use {@link #makeStopSet(String[] makeStopSet) instead.    */
@@ -216,7 +203,7 @@ DECL|method|makeStopSet
 specifier|public
 specifier|static
 specifier|final
-name|Set
+name|HashSet
 name|makeStopSet
 parameter_list|(
 name|String
@@ -224,7 +211,7 @@ index|[]
 name|stopWords
 parameter_list|)
 block|{
-name|Set
+name|HashSet
 name|stopTable
 init|=
 operator|new
