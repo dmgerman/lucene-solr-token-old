@@ -93,7 +93,7 @@ parameter_list|)
 function_decl|;
 comment|/** Equality measure on the term */
 DECL|method|difference
-specifier|protected
+specifier|public
 specifier|abstract
 name|float
 name|difference

@@ -1581,7 +1581,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0
+name|FuzzyQuery
+operator|.
+name|defaultPrefixLength
 argument_list|,
 name|fq
 operator|.
@@ -1615,7 +1617,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0
+name|FuzzyQuery
+operator|.
+name|defaultPrefixLength
 argument_list|,
 name|fq
 operator|.
