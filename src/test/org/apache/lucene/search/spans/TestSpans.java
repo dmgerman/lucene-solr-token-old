@@ -197,6 +197,7 @@ name|searcher
 decl_stmt|;
 DECL|field|field
 specifier|public
+specifier|static
 specifier|final
 name|String
 name|field
