@@ -586,7 +586,7 @@ index|]
 operator|.
 name|equals
 argument_list|(
-literal|"test2"
+literal|"test1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -599,7 +599,7 @@ index|]
 operator|.
 name|equals
 argument_list|(
-literal|"test1"
+literal|"test2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -612,7 +612,7 @@ index|]
 operator|.
 name|equals
 argument_list|(
-literal|"test2"
+literal|"test1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -625,7 +625,7 @@ index|]
 operator|.
 name|equals
 argument_list|(
-literal|"test1"
+literal|"test2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -638,7 +638,7 @@ index|]
 operator|.
 name|equals
 argument_list|(
-literal|"test2"
+literal|"test1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -651,7 +651,7 @@ index|]
 operator|.
 name|equals
 argument_list|(
-literal|"test1"
+literal|"test2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -672,7 +672,7 @@ index|]
 operator|.
 name|equals
 argument_list|(
-literal|"test2"
+literal|"test1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -685,7 +685,7 @@ index|]
 operator|.
 name|equals
 argument_list|(
-literal|"test1"
+literal|"test2"
 argument_list|)
 argument_list|)
 expr_stmt|;
