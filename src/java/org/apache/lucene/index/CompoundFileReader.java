@@ -541,7 +541,7 @@ name|fileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Removes an existing file in the directory. */
+comment|/** Not implemented      * @throws UnsupportedOperationException */
 DECL|method|deleteFile
 specifier|public
 name|void
@@ -557,7 +557,7 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-comment|/** Renames an existing file in the directory.     If a file already exists with the new name, then it is replaced.     This replacement should be atomic. */
+comment|/** Not implemented      * @throws UnsupportedOperationException */
 DECL|method|renameFile
 specifier|public
 name|void
@@ -576,7 +576,7 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-comment|/** Returns the length of a file in the directory. */
+comment|/** Returns the length of a file in the directory.      * @throws IOException if the file does not exist */
 DECL|method|fileLength
 specifier|public
 name|long
@@ -624,7 +624,7 @@ operator|.
 name|length
 return|;
 block|}
-comment|/** Creates a new, empty file in the directory with the given name.       Returns a stream writing this file. */
+comment|/** Not implemented      * @throws UnsupportedOperationException */
 DECL|method|createFile
 specifier|public
 name|OutputStream
@@ -640,7 +640,7 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-comment|/** Construct a {@link Lock}.      * @param name the name of the lock file      */
+comment|/** Not implemented      * @throws UnsupportedOperationException */
 DECL|method|makeLock
 specifier|public
 name|Lock
