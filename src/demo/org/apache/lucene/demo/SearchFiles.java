@@ -20,15 +20,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|BufferedReader
 import|;
 end_import
@@ -373,29 +364,30 @@ name|out
 operator|.
 name|println
 argument_list|(
+operator|(
 name|i
+operator|+
+literal|1
+operator|)
 operator|+
 literal|". "
 operator|+
 name|path
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
 name|String
-name|url
+name|title
 init|=
 name|doc
 operator|.
 name|get
 argument_list|(
-literal|"url"
+literal|"title"
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|url
+name|title
 operator|!=
 literal|null
 condition|)
@@ -406,20 +398,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-name|i
-operator|+
-literal|". "
-operator|+
-name|url
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"   - "
+literal|"   Title: "
 operator|+
 name|doc
 operator|.
@@ -430,6 +409,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 else|else
 block|{
 name|System
@@ -438,14 +418,17 @@ name|out
 operator|.
 name|println
 argument_list|(
+operator|(
 name|i
+operator|+
+literal|1
+operator|)
 operator|+
 literal|". "
 operator|+
-literal|"No path nor URL for this document"
+literal|"No path for this document"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if
