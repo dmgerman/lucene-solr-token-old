@@ -24,28 +24,30 @@ name|Reader
 import|;
 end_import
 begin_comment
-comment|/** LowerCaseTokenizer performs the function of LetterTokenizer   and LowerCaseFilter together.  It divides text at non-letters and converts   them to lower case.  While it is functionally equivalent to the combination   of LetterTokenizer and LowerCaseFilter, there is a performance advantage   to doing the two tasks at once, hence this (redundent) implementation.    Note: this does a decent job for most European languages, but does a terrible   job for some Asian languages, where words are not separated by spaces. */
+comment|/** An abstract base class for simple, character-oriented tokenizers.*/
 end_comment
 begin_class
-DECL|class|NullTokenizer
+DECL|class|CharTokenizer
 specifier|public
-specifier|final
+specifier|abstract
 class|class
-name|NullTokenizer
+name|CharTokenizer
 extends|extends
 name|Tokenizer
 block|{
-DECL|method|NullTokenizer
+DECL|method|CharTokenizer
 specifier|public
-name|NullTokenizer
+name|CharTokenizer
 parameter_list|(
 name|Reader
-name|in
+name|input
 parameter_list|)
 block|{
+name|this
+operator|.
 name|input
 operator|=
-name|in
+name|input
 expr_stmt|;
 block|}
 DECL|field|offset
@@ -109,6 +111,32 @@ index|[
 name|IO_BUFFER_SIZE
 index|]
 decl_stmt|;
+comment|/** Returns true iff a character should be included in a token.  This    * tokenizer generates as tokens adjacent sequences of characters which    * satisfy this predicate.  Characters for which this is false are used to    * define token boundaries and are not included in tokens. */
+DECL|method|isTokenChar
+specifier|protected
+specifier|abstract
+name|boolean
+name|isTokenChar
+parameter_list|(
+name|char
+name|c
+parameter_list|)
+function_decl|;
+comment|/** Called on each token character to normalize it before it is added to the    * token.  The default implementation does nothing.  Subclasses may use this    * to, e.g., lowercase tokens. */
+DECL|method|normalize
+specifier|protected
+name|char
+name|normalize
+parameter_list|(
+name|char
+name|c
+parameter_list|)
+block|{
+return|return
+name|c
+return|;
+block|}
+comment|/** Returns the next token in the stream, or null at EOS. */
 DECL|method|next
 specifier|public
 specifier|final
@@ -200,24 +228,13 @@ index|]
 expr_stmt|;
 if|if
 condition|(
-name|Character
-operator|.
-name|isWhitespace
+name|isTokenChar
 argument_list|(
 name|c
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|length
-operator|>
-literal|0
-condition|)
-break|break;
-else|else
-continue|continue;
-block|}
+comment|// if it's a token char
 if|if
 condition|(
 name|length
@@ -237,9 +254,12 @@ name|length
 operator|++
 index|]
 operator|=
+name|normalize
+argument_list|(
 name|c
+argument_list|)
 expr_stmt|;
-comment|// buffer it
+comment|// buffer it, normalized
 if|if
 condition|(
 name|length
@@ -248,6 +268,17 @@ name|MAX_WORD_LEN
 condition|)
 comment|// buffer overflow!
 break|break;
+block|}
+elseif|else
+if|if
+condition|(
+name|length
+operator|>
+literal|0
+condition|)
+comment|// at non-Letter w/ chars
+break|break;
+comment|// return 'em
 block|}
 return|return
 operator|new
