@@ -1776,7 +1776,7 @@ return|return
 name|storeTermVector
 return|;
 block|}
-comment|/**    * True iff terms are stored as term vector together with their offsets     * (start and end positon in source text).    * @return    */
+comment|/**    * True iff terms are stored as term vector together with their offsets     * (start and end positon in source text).    */
 DECL|method|isStoreOffsetWithTermVector
 specifier|public
 name|boolean
@@ -1787,7 +1787,7 @@ return|return
 name|storeOffsetWithTermVector
 return|;
 block|}
-comment|/**    * True iff terms are stored as term vector together with their token positions.    * @return    */
+comment|/**    * True iff terms are stored as term vector together with their token positions.    */
 DECL|method|isStorePositionWithTermVector
 specifier|public
 name|boolean
