@@ -564,7 +564,7 @@ operator|.
 name|size
 argument_list|()
 operator|==
-literal|7
+literal|6
 argument_list|)
 expr_stmt|;
 for|for
@@ -717,7 +717,7 @@ operator|.
 name|size
 argument_list|()
 operator|==
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 comment|//Get all indexed fields that are storing term vectors
