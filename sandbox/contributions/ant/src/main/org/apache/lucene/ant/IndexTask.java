@@ -681,7 +681,8 @@ name|fs
 operator|.
 name|getDirectoryScanner
 argument_list|(
-name|project
+name|getProject
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|String
