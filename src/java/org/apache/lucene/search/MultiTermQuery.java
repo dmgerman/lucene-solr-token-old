@@ -125,12 +125,6 @@ name|term
 operator|=
 name|term
 expr_stmt|;
-name|this
-operator|.
-name|query
-operator|=
-name|query
-expr_stmt|;
 block|}
 comment|/** Set the TermEnum to be used */
 DECL|method|setEnum
@@ -215,6 +209,9 @@ name|scorer
 parameter_list|(
 name|IndexReader
 name|reader
+parameter_list|,
+name|Similarity
+name|similarity
 parameter_list|)
 throws|throws
 name|IOException
@@ -226,6 +223,8 @@ operator|.
 name|scorer
 argument_list|(
 name|reader
+argument_list|,
+name|similarity
 argument_list|)
 return|;
 block|}

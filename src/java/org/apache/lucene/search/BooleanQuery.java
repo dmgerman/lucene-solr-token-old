@@ -304,6 +304,9 @@ name|scorer
 parameter_list|(
 name|IndexReader
 name|reader
+parameter_list|,
+name|Similarity
+name|similarity
 parameter_list|)
 throws|throws
 name|IOException
@@ -348,6 +351,8 @@ operator|.
 name|scorer
 argument_list|(
 name|reader
+argument_list|,
+name|similarity
 argument_list|)
 return|;
 block|}
@@ -356,7 +361,9 @@ name|result
 init|=
 operator|new
 name|BooleanScorer
-argument_list|()
+argument_list|(
+name|similarity
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -399,6 +406,8 @@ operator|.
 name|scorer
 argument_list|(
 name|reader
+argument_list|,
+name|similarity
 argument_list|)
 decl_stmt|;
 if|if

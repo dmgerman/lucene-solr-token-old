@@ -119,7 +119,10 @@ name|IOException
 block|{
 name|idf
 operator|=
-name|Similarity
+name|searcher
+operator|.
+name|getSimilarity
+argument_list|()
 operator|.
 name|idf
 argument_list|(
@@ -167,6 +170,9 @@ name|scorer
 parameter_list|(
 name|IndexReader
 name|reader
+parameter_list|,
+name|Similarity
+name|similarity
 parameter_list|)
 throws|throws
 name|IOException
@@ -195,6 +201,8 @@ operator|new
 name|TermScorer
 argument_list|(
 name|termDocs
+argument_list|,
+name|similarity
 argument_list|,
 name|reader
 operator|.
