@@ -205,7 +205,7 @@ name|detail
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Render an explanation as HTML. */
+comment|/** Render an explanation as text. */
 DECL|method|toString
 specifier|public
 name|String
