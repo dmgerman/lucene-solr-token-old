@@ -425,12 +425,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|boolean
-name|MONITOR
-init|=
-literal|false
-decl_stmt|;
+comment|//     final boolean MONITOR = false;
 name|int
 name|count
 init|=
@@ -486,13 +481,9 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|MONITOR
-condition|)
-name|count
-operator|++
-expr_stmt|;
+comment|//       if (MONITOR) {
+comment|//         count++;
+comment|//       }
 block|}
 do|while
 condition|(
@@ -507,21 +498,8 @@ name|lastModified
 operator|=
 name|ts2
 expr_stmt|;
-if|if
-condition|(
-name|MONITOR
-condition|)
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"SLEEP COUNT: "
-operator|+
-name|count
-argument_list|)
-expr_stmt|;
+comment|//     if (MONITOR)
+comment|//         System.out.println("SLEEP COUNT: " + count);
 block|}
 comment|/** Returns the length in bytes of a file in the directory. */
 DECL|method|fileLength
