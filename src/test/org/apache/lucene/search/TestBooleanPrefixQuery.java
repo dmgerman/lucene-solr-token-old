@@ -409,9 +409,11 @@ name|add
 argument_list|(
 name|query
 argument_list|,
-literal|true
-argument_list|,
-literal|false
+name|BooleanClause
+operator|.
+name|Occur
+operator|.
+name|MUST
 argument_list|)
 expr_stmt|;
 name|rw2
