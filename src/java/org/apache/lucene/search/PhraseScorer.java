@@ -164,6 +164,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|pq
 operator|.
 name|put
@@ -180,6 +181,7 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|pqToList
 argument_list|()
 expr_stmt|;
@@ -464,7 +466,7 @@ parameter_list|,
 name|float
 name|score
 parameter_list|)
-block|{}
+block|{             }
 block|}
 argument_list|,
 name|doc
