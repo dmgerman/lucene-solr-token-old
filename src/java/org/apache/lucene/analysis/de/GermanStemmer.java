@@ -35,14 +35,6 @@ operator|new
 name|StringBuffer
 argument_list|()
 decl_stmt|;
-comment|/**      * Indicates if a term is handled as a noun.      */
-DECL|field|uppercase
-specifier|private
-name|boolean
-name|uppercase
-init|=
-literal|false
-decl_stmt|;
 comment|/**      * Amount of characters that are removed with<tt>substitute()</tt> while stemming.      */
 DECL|field|substCount
 specifier|private
@@ -61,21 +53,6 @@ name|String
 name|term
 parameter_list|)
 block|{
-comment|// Mark a possible noun.
-name|uppercase
-operator|=
-name|Character
-operator|.
-name|isUpperCase
-argument_list|(
-name|term
-operator|.
-name|charAt
-argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// Use lowercase for medium stemming.
 name|term
 operator|=
@@ -502,9 +479,6 @@ literal|1
 argument_list|)
 operator|==
 literal|'t'
-operator|&&
-operator|!
-name|uppercase
 condition|)
 block|{
 name|buffer
