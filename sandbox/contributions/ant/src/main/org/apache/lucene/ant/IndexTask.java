@@ -939,13 +939,6 @@ argument_list|,
 name|create
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|create
-operator|&&
-name|useCompoundIndex
-condition|)
-block|{
 name|writer
 operator|.
 name|setUseCompoundFile
@@ -953,7 +946,6 @@ argument_list|(
 name|useCompoundIndex
 argument_list|)
 expr_stmt|;
-block|}
 name|int
 name|totalFiles
 init|=
@@ -1209,6 +1201,7 @@ name|lastModified
 argument_list|()
 condition|)
 block|{
+comment|// TODO: remove existing document
 name|indexIt
 operator|=
 literal|false
