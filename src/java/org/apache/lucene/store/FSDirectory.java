@@ -1243,12 +1243,7 @@ decl_stmt|;
 return|return
 operator|new
 name|Lock
-argument_list|(
-name|lockFile
-operator|.
-name|getAbsolutePath
 argument_list|()
-argument_list|)
 block|{
 specifier|public
 name|boolean
