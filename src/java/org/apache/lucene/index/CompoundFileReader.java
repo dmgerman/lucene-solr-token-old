@@ -111,7 +111,6 @@ comment|/**  * Class for accessing a compound stream.  * This class implements a
 end_comment
 begin_class
 DECL|class|CompoundFileReader
-specifier|public
 class|class
 name|CompoundFileReader
 extends|extends

@@ -278,7 +278,9 @@ block|{
 throw|throw
 operator|new
 name|UnsupportedOperationException
-argument_list|()
+argument_list|(
+literal|"TermPositions does not support processing multiple documents in one call. Use TermDocs instead."
+argument_list|)
 throw|;
 block|}
 comment|/** Called by super.skipTo(). */
