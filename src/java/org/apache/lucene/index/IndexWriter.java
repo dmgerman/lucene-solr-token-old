@@ -854,6 +854,13 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|writeLock
+operator|!=
+literal|null
+condition|)
+block|{
 name|writeLock
 operator|.
 name|release
@@ -864,6 +871,7 @@ name|writeLock
 operator|=
 literal|null
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|closeDir
