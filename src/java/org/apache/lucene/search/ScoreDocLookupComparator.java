@@ -19,6 +19,7 @@ comment|/**  * Expert: Compares two ScoreDoc objects for sorting using a lookup 
 end_comment
 begin_interface
 DECL|interface|ScoreDocLookupComparator
+specifier|public
 interface|interface
 name|ScoreDocLookupComparator
 extends|extends
