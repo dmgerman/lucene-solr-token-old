@@ -1243,7 +1243,9 @@ decl_stmt|;
 return|return
 operator|new
 name|Lock
-argument_list|()
+argument_list|(
+name|lockFile
+argument_list|)
 block|{
 specifier|public
 name|boolean
