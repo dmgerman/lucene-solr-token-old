@@ -86,12 +86,13 @@ name|Analyzer
 block|{
 comment|//~ Static fields/initializers ---------------------------------------------
 comment|/**    * An array containing some common English words that are not usually    * useful for searching. and some double-byte interpunctions.....    */
-DECL|field|stopWords
-specifier|private
+DECL|field|STOP_WORDS
+specifier|public
+specifier|final
 specifier|static
 name|String
 index|[]
-name|stopWords
+name|STOP_WORDS
 init|=
 block|{
 literal|"a"
@@ -175,7 +176,7 @@ name|Set
 name|stopTable
 decl_stmt|;
 comment|//~ Constructors -----------------------------------------------------------
-comment|/**    * Builds an analyzer which removes words in STOP_WORDS.    */
+comment|/**    * Builds an analyzer which removes words in {@link #STOP_WORDS}.    */
 DECL|method|CJKAnalyzer
 specifier|public
 name|CJKAnalyzer
@@ -187,7 +188,7 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
-name|stopWords
+name|STOP_WORDS
 argument_list|)
 expr_stmt|;
 block|}
