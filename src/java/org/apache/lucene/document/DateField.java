@@ -37,7 +37,6 @@ specifier|private
 name|DateField
 parameter_list|()
 block|{}
-empty_stmt|;
 comment|// make date strings long enough to last a millenium
 DECL|field|DATE_LEN
 specifier|private
