@@ -96,6 +96,11 @@ specifier|private
 name|int
 name|skipInterval
 decl_stmt|;
+DECL|field|numSkips
+specifier|private
+name|int
+name|numSkips
+decl_stmt|;
 DECL|field|skipCount
 specifier|private
 name|int
@@ -308,6 +313,12 @@ expr_stmt|;
 name|skipCount
 operator|=
 literal|0
+expr_stmt|;
+name|numSkips
+operator|=
+name|df
+operator|/
+name|skipInterval
 expr_stmt|;
 name|freqPointer
 operator|=
@@ -705,6 +716,10 @@ condition|(
 name|target
 operator|>
 name|skipDoc
+operator|&&
+name|skipCount
+operator|<
+name|numSkips
 condition|)
 block|{
 name|lastSkipDoc
@@ -733,20 +748,6 @@ name|numSkipped
 operator|+=
 name|skipInterval
 expr_stmt|;
-if|if
-condition|(
-operator|(
-name|count
-operator|+
-name|numSkipped
-operator|+
-name|skipInterval
-operator|)
-operator|>=
-name|df
-condition|)
-break|break;
-comment|// no more skips
 name|skipDoc
 operator|+=
 name|skipStream
