@@ -377,15 +377,12 @@ control|)
 block|{
 if|if
 condition|(
-operator|!
-operator|(
-name|target
-operator|>
 name|docs
 index|[
 name|pointer
 index|]
-operator|)
+operator|>=
+name|target
 condition|)
 block|{
 name|doc
