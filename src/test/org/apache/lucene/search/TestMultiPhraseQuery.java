@@ -249,6 +249,13 @@ operator|new
 name|Document
 argument_list|()
 decl_stmt|;
+name|Document
+name|doc6
+init|=
+operator|new
+name|Document
+argument_list|()
+decl_stmt|;
 name|doc1
 operator|.
 name|add
@@ -349,7 +356,7 @@ name|TOKENIZED
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|doc4
+name|doc5
 operator|.
 name|add
 argument_list|(
@@ -374,7 +381,7 @@ name|TOKENIZED
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|doc5
+name|doc6
 operator|.
 name|add
 argument_list|(
@@ -432,6 +439,13 @@ operator|.
 name|addDocument
 argument_list|(
 name|doc5
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|addDocument
+argument_list|(
+name|doc6
 argument_list|)
 expr_stmt|;
 name|writer
@@ -799,7 +813,7 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// blueberry pizza, blueberry chewing gum
+comment|// blueberry pizza, bluebird pizza
 name|assertEquals
 argument_list|(
 literal|"body:\"(blueberry bluebird) pizza\""
