@@ -181,7 +181,7 @@ name|QPTestFilter
 extends|extends
 name|TokenFilter
 block|{
-comment|/**      * Filter which discards the token 'stop' and which expands the      * token 'phrase' into 'phrase1 phrase2'      */
+comment|/** 	 * Filter which discards the token 'stop' and which expands the 	 * token 'phrase' into 'phrase1 phrase2' 	 */
 DECL|method|QPTestFilter
 specifier|public
 name|QPTestFilter
@@ -263,6 +263,7 @@ operator|.
 name|next
 argument_list|()
 control|)
+block|{
 if|if
 condition|(
 name|token
@@ -323,6 +324,7 @@ condition|)
 return|return
 name|token
 return|;
+block|}
 return|return
 literal|null
 return|;
@@ -340,7 +342,7 @@ DECL|method|QPTestAnalyzer
 specifier|public
 name|QPTestAnalyzer
 parameter_list|()
-block|{     }
+block|{ 	}
 comment|/** Filters LowerCaseTokenizer with StopFilter. */
 DECL|method|tokenStream
 specifier|public
