@@ -2071,7 +2071,7 @@ return|;
 block|}
 return|return
 operator|(
-name|String
+name|Comparable
 index|[]
 operator|)
 name|ret
