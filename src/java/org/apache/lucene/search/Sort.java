@@ -34,7 +34,7 @@ name|Sort
 implements|implements
 name|Serializable
 block|{
-comment|/** Represents sorting by computed relevance. Using this sort criteria 	 * returns the same results as calling {@link Searcher#search(Query) Searcher#search()} 	 * without a sort criteria, only with slightly more overhead. */
+comment|/**    * Represents sorting by computed relevance. Using this sort criteria returns    * the same results as calling    * {@link Searcher#search(Query) Searcher#search()}without a sort criteria,    * only with slightly more overhead.    */
 DECL|field|RELEVANCE
 specifier|public
 specifier|static
@@ -68,7 +68,7 @@ name|SortField
 index|[]
 name|fields
 decl_stmt|;
-comment|/** Sorts by computed relevance.  This is the same sort criteria as 	 * calling {@link Searcher#search(Query) Searcher#search()} without a sort criteria, only with 	 * slightly more overhead. */
+comment|/**    * Sorts by computed relevance. This is the same sort criteria as calling    * {@link Searcher#search(Query) Searcher#search()}without a sort criteria,    * only with slightly more overhead.    */
 DECL|method|Sort
 specifier|public
 name|Sort
@@ -91,7 +91,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Sorts by the terms in<code>field</code> then by index order (document 	 * number). The type of value in<code>field</code> is determined 	 * automatically. 	 * @see SortField#AUTO 	 */
+comment|/**    * Sorts by the terms in<code>field</code> then by index order (document    * number). The type of value in<code>field</code> is determined    * automatically.    *     * @see SortField#AUTO    */
 DECL|method|Sort
 specifier|public
 name|Sort
@@ -108,7 +108,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Sorts possibly in reverse by the terms in<code>field</code> then by 	 * index order (document number). The type of value in<code>field</code> is determined 	 * automatically. 	 * @see SortField#AUTO 	 */
+comment|/**    * Sorts possibly in reverse by the terms in<code>field</code> then by    * index order (document number). The type of value in<code>field</code> is    * determined automatically.    *     * @see SortField#AUTO    */
 DECL|method|Sort
 specifier|public
 name|Sort
@@ -128,7 +128,7 @@ name|reverse
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Sorts in succession by the terms in each field. 	 * The type of value in<code>field</code> is determined 	 * automatically. 	 * @see SortField#AUTO 	 */
+comment|/**    * Sorts in succession by the terms in each field. The type of value in    *<code>field</code> is determined automatically.    *     * @see SortField#AUTO    */
 DECL|method|Sort
 specifier|public
 name|Sort
@@ -175,7 +175,7 @@ name|fields
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Sets the sort to the terms in<code>field</code> then by index order 	 * (document number). */
+comment|/**    * Sets the sort to the terms in<code>field</code> then by index order    * (document number).    */
 DECL|method|setSort
 specifier|public
 specifier|final
@@ -194,7 +194,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Sets the sort to the terms in<code>field</code> possibly in reverse, 	 * then by index order (document number). */
+comment|/**    * Sets the sort to the terms in<code>field</code> possibly in reverse,    * then by index order (document number).    */
 DECL|method|setSort
 specifier|public
 name|void
