@@ -176,6 +176,7 @@ specifier|public
 class|class
 name|IndexWriter
 block|{
+comment|/**    * Default value is 1000.  Use<code>org.apache.lucene.writeLockTimeout</code>    * system property to override.    */
 DECL|field|WRITE_LOCK_TIMEOUT
 specifier|public
 specifier|static
@@ -196,6 +197,7 @@ literal|"1000"
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|/**    * Default value is 10000.  Use<code>org.apache.lucene.commitLockTimeout</code>    * system property to override.    */
 DECL|field|COMMIT_LOCK_TIMEOUT
 specifier|public
 specifier|static
@@ -234,8 +236,9 @@ name|COMMIT_LOCK_NAME
 init|=
 literal|"commit.lock"
 decl_stmt|;
+comment|/**    * Default value is 10.  Use<code>org.apache.lucene.mergeFactor</code>    * system property to override.    */
 DECL|field|DEFAULT_MERGE_FACTOR
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -255,8 +258,9 @@ literal|"10"
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|/**    * Default value is 10.  Use<code>org.apache.lucene.minMergeDocs</code>    * system property to override.    */
 DECL|field|DEFAULT_MIN_MERGE_DOCS
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -276,29 +280,9 @@ literal|"10"
 argument_list|)
 argument_list|)
 decl_stmt|;
-DECL|field|DEFAULT_MAX_FIELD_LENGTH
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_MAX_FIELD_LENGTH
-init|=
-name|Integer
-operator|.
-name|parseInt
-argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"org.apache.lucene.maxFieldLength"
-argument_list|,
-literal|"10000"
-argument_list|)
-argument_list|)
-decl_stmt|;
+comment|/**    * Default value is {@link Integer#MAX_VALUE}.    * Use<code>org.apache.lucene.maxMergeDocs</code> system property to override.    */
 DECL|field|DEFAULT_MAX_MERGE_DOCS
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -322,6 +306,28 @@ name|Integer
 operator|.
 name|MAX_VALUE
 argument_list|)
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|/**    * Default value is 10000.  Use<code>org.apache.lucene.maxFieldLength</code>    * system property to override.    */
+DECL|field|DEFAULT_MAX_FIELD_LENGTH
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_MAX_FIELD_LENGTH
+init|=
+name|Integer
+operator|.
+name|parseInt
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"org.apache.lucene.maxFieldLength"
+argument_list|,
+literal|"10000"
 argument_list|)
 argument_list|)
 decl_stmt|;
