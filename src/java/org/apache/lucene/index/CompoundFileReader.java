@@ -297,6 +297,12 @@ if|if
 condition|(
 operator|!
 name|success
+operator|&&
+operator|(
+name|stream
+operator|!=
+literal|null
+operator|)
 condition|)
 block|{
 try|try
