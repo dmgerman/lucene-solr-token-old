@@ -385,11 +385,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-argument_list|,
-name|reader
-operator|.
-name|maxDoc
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|ScoreDoc
@@ -563,11 +558,6 @@ operator|.
 name|score
 argument_list|(
 name|collector
-argument_list|,
-name|reader
-operator|.
-name|maxDoc
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
