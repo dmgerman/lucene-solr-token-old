@@ -613,8 +613,6 @@ name|String
 index|[]
 name|list
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|directory
@@ -633,8 +631,6 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|File
 name|file
@@ -664,8 +660,6 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|File
 name|file
@@ -699,8 +693,6 @@ parameter_list|,
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|File
 name|file
@@ -729,8 +721,6 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|File
 name|file
@@ -764,8 +754,6 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|File
 name|file
@@ -1480,8 +1468,6 @@ specifier|synchronized
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -1777,8 +1763,6 @@ parameter_list|(
 name|long
 name|position
 parameter_list|)
-throws|throws
-name|IOException
 block|{   }
 DECL|method|finalize
 specifier|protected
