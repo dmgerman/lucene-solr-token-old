@@ -44,7 +44,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Hashtable
+name|Set
 import|;
 end_import
 begin_comment
@@ -58,10 +58,10 @@ name|StandardAnalyzer
 extends|extends
 name|Analyzer
 block|{
-DECL|field|stopTable
+DECL|field|stopSet
 specifier|private
-name|Hashtable
-name|stopTable
+name|Set
+name|stopSet
 decl_stmt|;
 comment|/** An array containing some common English words that are usually not   useful for searching. */
 DECL|field|STOP_WORDS
@@ -98,11 +98,11 @@ index|[]
 name|stopWords
 parameter_list|)
 block|{
-name|stopTable
+name|stopSet
 operator|=
 name|StopFilter
 operator|.
-name|makeStopTable
+name|makeStopSet
 argument_list|(
 name|stopWords
 argument_list|)
@@ -153,7 +153,7 @@ name|StopFilter
 argument_list|(
 name|result
 argument_list|,
-name|stopTable
+name|stopSet
 argument_list|)
 expr_stmt|;
 return|return
