@@ -443,7 +443,7 @@ literal|"cannot load SegmentReader class: "
 operator|+
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|)
 throw|;
@@ -578,7 +578,7 @@ literal|"cannot load SegmentReader class: "
 operator|+
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|)
 throw|;
