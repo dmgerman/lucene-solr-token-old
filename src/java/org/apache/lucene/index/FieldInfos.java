@@ -294,7 +294,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|add
-specifier|private
 specifier|final
 name|void
 name|add

@@ -207,8 +207,9 @@ expr_stmt|;
 else|else
 name|store
 operator|=
-operator|new
 name|FSDirectory
+operator|.
+name|getDirectory
 argument_list|(
 literal|"test.store"
 argument_list|,
@@ -364,8 +365,9 @@ name|ram
 condition|)
 name|store
 operator|=
-operator|new
 name|FSDirectory
+operator|.
+name|getDirectory
 argument_list|(
 literal|"test.store"
 argument_list|,
