@@ -81,7 +81,6 @@ class|class
 name|TermVectorsWriter
 block|{
 DECL|field|STORE_POSITIONS_WITH_TERMVECTOR
-specifier|public
 specifier|static
 specifier|final
 name|byte
@@ -90,7 +89,6 @@ init|=
 literal|0x1
 decl_stmt|;
 DECL|field|STORE_OFFSET_WITH_TERMVECTOR
-specifier|public
 specifier|static
 specifier|final
 name|byte
@@ -99,7 +97,6 @@ init|=
 literal|0x2
 decl_stmt|;
 DECL|field|FORMAT_VERSION
-specifier|public
 specifier|static
 specifier|final
 name|int
@@ -109,7 +106,6 @@ literal|2
 decl_stmt|;
 comment|//The size in bytes that the FORMAT_VERSION will take up at the beginning of each file
 DECL|field|FORMAT_SIZE
-specifier|public
 specifier|static
 specifier|final
 name|int
@@ -118,7 +114,6 @@ init|=
 literal|4
 decl_stmt|;
 DECL|field|TVX_EXTENSION
-specifier|public
 specifier|static
 specifier|final
 name|String
@@ -127,7 +122,6 @@ init|=
 literal|".tvx"
 decl_stmt|;
 DECL|field|TVD_EXTENSION
-specifier|public
 specifier|static
 specifier|final
 name|String
@@ -136,7 +130,6 @@ init|=
 literal|".tvd"
 decl_stmt|;
 DECL|field|TVF_EXTENSION
-specifier|public
 specifier|static
 specifier|final
 name|String
