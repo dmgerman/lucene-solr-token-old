@@ -112,7 +112,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|InputStream
+name|IndexInput
 import|;
 end_import
 begin_import
@@ -2359,12 +2359,12 @@ condition|)
 return|return
 name|result
 return|;
-name|InputStream
+name|IndexInput
 name|input
 init|=
 name|directory
 operator|.
-name|openFile
+name|openInput
 argument_list|(
 literal|"deletable"
 argument_list|)

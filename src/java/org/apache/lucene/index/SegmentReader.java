@@ -100,7 +100,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|InputStream
+name|IndexInput
 import|;
 end_import
 begin_import
@@ -203,11 +203,11 @@ init|=
 literal|false
 decl_stmt|;
 DECL|field|freqStream
-name|InputStream
+name|IndexInput
 name|freqStream
 decl_stmt|;
 DECL|field|proxStream
-name|InputStream
+name|IndexInput
 name|proxStream
 decl_stmt|;
 comment|// Compound File Reader when based on a compound file segment
@@ -226,7 +226,7 @@ DECL|method|Norm
 specifier|public
 name|Norm
 parameter_list|(
-name|InputStream
+name|IndexInput
 name|in
 parameter_list|,
 name|int
@@ -248,7 +248,7 @@ expr_stmt|;
 block|}
 DECL|field|in
 specifier|private
-name|InputStream
+name|IndexInput
 name|in
 decl_stmt|;
 DECL|field|bytes
@@ -541,7 +541,7 @@ name|freqStream
 operator|=
 name|cfsDir
 operator|.
-name|openFile
+name|openInput
 argument_list|(
 name|segment
 operator|+
@@ -552,7 +552,7 @@ name|proxStream
 operator|=
 name|cfsDir
 operator|.
-name|openFile
+name|openInput
 argument_list|(
 name|segment
 operator|+
@@ -1813,11 +1813,11 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|InputStream
+name|IndexInput
 name|normStream
 init|=
 operator|(
-name|InputStream
+name|IndexInput
 operator|)
 name|norm
 operator|.
@@ -1962,7 +1962,7 @@ name|Norm
 argument_list|(
 name|d
 operator|.
-name|openFile
+name|openInput
 argument_list|(
 name|fileName
 argument_list|)

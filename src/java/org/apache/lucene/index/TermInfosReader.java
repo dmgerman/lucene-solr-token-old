@@ -113,7 +113,7 @@ name|SegmentTermEnum
 argument_list|(
 name|directory
 operator|.
-name|openFile
+name|openInput
 argument_list|(
 name|segment
 operator|+
@@ -133,6 +133,21 @@ name|size
 expr_stmt|;
 name|readIndex
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|finalize
+specifier|protected
+name|void
+name|finalize
+parameter_list|()
+block|{
+comment|// patch for pre-1.4.2 JVMs, whose ThreadLocals leak
+name|enumerators
+operator|.
+name|set
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getSkipInterval
@@ -253,7 +268,7 @@ name|SegmentTermEnum
 argument_list|(
 name|directory
 operator|.
-name|openFile
+name|openInput
 argument_list|(
 name|segment
 operator|+

@@ -45,7 +45,7 @@ specifier|static
 name|boolean
 name|isFSInputStream
 parameter_list|(
-name|InputStream
+name|IndexInput
 name|is
 parameter_list|)
 block|{
@@ -62,7 +62,7 @@ specifier|static
 name|boolean
 name|isFSInputStreamClone
 parameter_list|(
-name|InputStream
+name|IndexInput
 name|is
 parameter_list|)
 block|{
@@ -99,7 +99,7 @@ specifier|static
 name|boolean
 name|isFSInputStreamOpen
 parameter_list|(
-name|InputStream
+name|IndexInput
 name|is
 parameter_list|)
 throws|throws

@@ -35,7 +35,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|InputStream
+name|IndexInput
 import|;
 end_import
 begin_import
@@ -421,12 +421,12 @@ literal|0x7F
 argument_list|)
 decl_stmt|;
 comment|//System.out.println("reading " + name + " with " + length + " of " + b);
-name|InputStream
+name|IndexInput
 name|file
 init|=
 name|store
 operator|.
-name|openFile
+name|openInput
 argument_list|(
 name|name
 argument_list|)

@@ -33,7 +33,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|InputStream
+name|IndexInput
 import|;
 end_import
 begin_class
@@ -48,7 +48,7 @@ name|TermPositions
 block|{
 DECL|field|proxStream
 specifier|private
-name|InputStream
+name|IndexInput
 name|proxStream
 decl_stmt|;
 DECL|field|proxCount
@@ -80,7 +80,7 @@ operator|.
 name|proxStream
 operator|=
 operator|(
-name|InputStream
+name|IndexInput
 operator|)
 name|parent
 operator|.

@@ -37,7 +37,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|InputStream
+name|IndexInput
 import|;
 end_import
 begin_import
@@ -64,17 +64,17 @@ name|fieldInfos
 decl_stmt|;
 DECL|field|tvx
 specifier|private
-name|InputStream
+name|IndexInput
 name|tvx
 decl_stmt|;
 DECL|field|tvd
 specifier|private
-name|InputStream
+name|IndexInput
 name|tvd
 decl_stmt|;
 DECL|field|tvf
 specifier|private
-name|InputStream
+name|IndexInput
 name|tvf
 decl_stmt|;
 DECL|field|size
@@ -115,7 +115,7 @@ name|tvx
 operator|=
 name|d
 operator|.
-name|openFile
+name|openInput
 argument_list|(
 name|segment
 operator|+
@@ -133,7 +133,7 @@ name|tvd
 operator|=
 name|d
 operator|.
-name|openFile
+name|openInput
 argument_list|(
 name|segment
 operator|+
@@ -151,7 +151,7 @@ name|tvf
 operator|=
 name|d
 operator|.
-name|openFile
+name|openInput
 argument_list|(
 name|segment
 operator|+
@@ -190,7 +190,7 @@ specifier|private
 name|void
 name|checkValidFormat
 parameter_list|(
-name|InputStream
+name|IndexInput
 name|in
 parameter_list|)
 throws|throws
