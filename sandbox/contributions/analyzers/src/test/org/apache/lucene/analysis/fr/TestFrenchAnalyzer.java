@@ -22,6 +22,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|Reader
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|StringReader
 import|;
 end_import
@@ -74,7 +83,7 @@ name|TokenStream
 import|;
 end_import
 begin_comment
-comment|/**  * Test case for FrenchAnalyzer.  *  * @author    Jean-FranÌ¤ois Halleux  */
+comment|/**  * Test case for FrenchAnalyzer.  *  * @author    Jean-François Halleux  * @version   $version$  */
 end_comment
 begin_class
 DECL|class|TestFrenchAnalyzer
@@ -84,6 +93,7 @@ name|TestFrenchAnalyzer
 extends|extends
 name|TestCase
 block|{
+comment|// Method copied from TestAnalyzers, maybe should be refactored
 DECL|method|assertAnalyzesTo
 specifier|public
 name|void
@@ -233,7 +243,7 @@ expr_stmt|;
 comment|// test null fieldname
 name|iaeFlag
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 try|try
 block|{
@@ -281,7 +291,7 @@ argument_list|,
 operator|new
 name|String
 index|[]
-block|{     }
+block|{ 		}
 argument_list|)
 expr_stmt|;
 name|assertAnalyzesTo
@@ -369,14 +379,12 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// let's do some french specific tests now
-comment|// 1. couldn't resist
-comment|// I would expect this to stay one term as in French the minus sign
-comment|// is often used for composing words
+comment|/* 1. couldn't resist 		 I would expect this to stay one term as in French the minus  		sign is often used for composing words */
 name|assertAnalyzesTo
 argument_list|(
 name|fa
 argument_list|,
-literal|"Jean-FranÌ¤ois"
+literal|"Jean-François"
 argument_list|,
 operator|new
 name|String
@@ -384,7 +392,7 @@ index|[]
 block|{
 literal|"jean"
 block|,
-literal|"franÌ¤ois"
+literal|"françois"
 block|}
 argument_list|)
 expr_stmt|;
@@ -393,7 +401,7 @@ name|assertAnalyzesTo
 argument_list|(
 name|fa
 argument_list|,
-literal|"le la chien les aux chat du des ÌÊ cheval"
+literal|"le la chien les aux chat du des à cheval"
 argument_list|,
 operator|new
 name|String
@@ -412,7 +420,7 @@ name|assertAnalyzesTo
 argument_list|(
 name|fa
 argument_list|,
-literal|"lances chismes habitable chiste Ì©lÌ©ments captifs"
+literal|"lances chismes habitable chiste éléments captifs"
 argument_list|,
 operator|new
 name|String
@@ -426,7 +434,7 @@ literal|"habit"
 block|,
 literal|"chist"
 block|,
-literal|"Ì©lÌ©ment"
+literal|"élément"
 block|,
 literal|"captif"
 block|}
@@ -457,7 +465,7 @@ name|assertAnalyzesTo
 argument_list|(
 name|fa
 argument_list|,
-literal|"C3PO aujourd'hui oeuf ÌøÌ¢Ì¦ÌÈÌÊÌ? anticonstitutionnellement Java++"
+literal|"C3PO aujourd'hui oeuf ïâöûàä anticonstitutionnellement Java++ "
 argument_list|,
 operator|new
 name|String
@@ -469,7 +477,7 @@ literal|"aujourd'hui"
 block|,
 literal|"oeuf"
 block|,
-literal|"ÌøÌ¢Ì¦ÌÈÌÊÌ?"
+literal|"ïâöûàä"
 block|,
 literal|"anticonstitutionnel"
 block|,
