@@ -25,6 +25,24 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|text
+operator|.
+name|*
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|*
+import|;
+end_import
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -67,6 +85,19 @@ operator|.
 name|search
 operator|.
 name|*
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|DateField
 import|;
 end_import
 begin_import
@@ -1150,7 +1181,7 @@ name|Exception
 block|{
 name|assertQueryEquals
 argument_list|(
-literal|"[ a z]"
+literal|"[ a TO z]"
 argument_list|,
 literal|null
 argument_list|,
@@ -1161,7 +1192,7 @@ name|assertTrue
 argument_list|(
 name|getQuery
 argument_list|(
-literal|"[ a z]"
+literal|"[ a TO z]"
 argument_list|,
 literal|null
 argument_list|)
@@ -1171,7 +1202,7 @@ argument_list|)
 expr_stmt|;
 name|assertQueryEquals
 argument_list|(
-literal|"[ a z ]"
+literal|"[ a TO z ]"
 argument_list|,
 literal|null
 argument_list|,
@@ -1180,7 +1211,7 @@ argument_list|)
 expr_stmt|;
 name|assertQueryEquals
 argument_list|(
-literal|"{ a z}"
+literal|"{ a TO z}"
 argument_list|,
 literal|null
 argument_list|,
@@ -1189,7 +1220,7 @@ argument_list|)
 expr_stmt|;
 name|assertQueryEquals
 argument_list|(
-literal|"{ a z }"
+literal|"{ a TO z }"
 argument_list|,
 literal|null
 argument_list|,
@@ -1198,7 +1229,7 @@ argument_list|)
 expr_stmt|;
 name|assertQueryEquals
 argument_list|(
-literal|"{ a z }^2.0"
+literal|"{ a TO z }^2.0"
 argument_list|,
 literal|null
 argument_list|,
@@ -1207,7 +1238,7 @@ argument_list|)
 expr_stmt|;
 name|assertQueryEquals
 argument_list|(
-literal|"[ a z] OR bar"
+literal|"[ a TO z] OR bar"
 argument_list|,
 literal|null
 argument_list|,
@@ -1216,7 +1247,7 @@ argument_list|)
 expr_stmt|;
 name|assertQueryEquals
 argument_list|(
-literal|"[ a z] AND bar"
+literal|"[ a TO z] AND bar"
 argument_list|,
 literal|null
 argument_list|,
@@ -1225,7 +1256,7 @@ argument_list|)
 expr_stmt|;
 name|assertQueryEquals
 argument_list|(
-literal|"( bar blar { a z}) "
+literal|"( bar blar { a TO z}) "
 argument_list|,
 literal|null
 argument_list|,
@@ -1234,11 +1265,103 @@ argument_list|)
 expr_stmt|;
 name|assertQueryEquals
 argument_list|(
-literal|"gack ( bar blar { a z}) "
+literal|"gack ( bar blar { a TO z}) "
 argument_list|,
 literal|null
 argument_list|,
 literal|"gack (bar blar {a-z})"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getDate
+specifier|public
+name|String
+name|getDate
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|DateFormat
+name|df
+init|=
+name|DateFormat
+operator|.
+name|getDateInstance
+argument_list|(
+name|DateFormat
+operator|.
+name|SHORT
+argument_list|)
+decl_stmt|;
+return|return
+name|DateField
+operator|.
+name|dateToString
+argument_list|(
+name|df
+operator|.
+name|parse
+argument_list|(
+name|s
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|testDateRange
+specifier|public
+name|void
+name|testDateRange
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertQueryEquals
+argument_list|(
+literal|"[ 1/1/02 TO 1/4/02]"
+argument_list|,
+literal|null
+argument_list|,
+literal|"["
+operator|+
+name|getDate
+argument_list|(
+literal|"1/1/02"
+argument_list|)
+operator|+
+literal|"-"
+operator|+
+name|getDate
+argument_list|(
+literal|"1/4/02"
+argument_list|)
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"{  1/1/02    1/4/02   }"
+argument_list|,
+literal|null
+argument_list|,
+literal|"{"
+operator|+
+name|getDate
+argument_list|(
+literal|"1/1/02"
+argument_list|)
+operator|+
+literal|"-"
+operator|+
+name|getDate
+argument_list|(
+literal|"1/4/02"
+argument_list|)
+operator|+
+literal|"}"
 argument_list|)
 expr_stmt|;
 block|}
