@@ -1379,11 +1379,6 @@ init|=
 name|newSegmentName
 argument_list|()
 decl_stmt|;
-name|int
-name|mergedDocCount
-init|=
-literal|0
-decl_stmt|;
 if|if
 condition|(
 name|infoStream
@@ -1520,14 +1515,15 @@ name|reader
 argument_list|)
 expr_stmt|;
 comment|// queue segment for deletion
-name|mergedDocCount
-operator|+=
-name|reader
-operator|.
-name|numDocs
-argument_list|()
-expr_stmt|;
 block|}
+name|int
+name|mergedDocCount
+init|=
+name|merger
+operator|.
+name|merge
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|infoStream
@@ -1556,11 +1552,6 @@ literal|" docs)"
 argument_list|)
 expr_stmt|;
 block|}
-name|merger
-operator|.
-name|merge
-argument_list|()
-expr_stmt|;
 name|segmentInfos
 operator|.
 name|setSize
