@@ -45,6 +45,7 @@ specifier|private
 name|Throwable
 name|cause
 decl_stmt|;
+comment|/**      * Default constructor.      */
 DECL|method|DocumentHandlerException
 specifier|public
 name|DocumentHandlerException
@@ -54,6 +55,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Constructs with message.      */
 DECL|method|DocumentHandlerException
 specifier|public
 name|DocumentHandlerException
@@ -68,6 +70,7 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs with chained exception.      */
 DECL|method|DocumentHandlerException
 specifier|public
 name|DocumentHandlerException
@@ -91,6 +94,7 @@ operator|=
 name|cause
 expr_stmt|;
 block|}
+comment|/**      * Retrieves nested exception.      */
 DECL|method|getException
 specifier|public
 name|Throwable
@@ -101,7 +105,6 @@ return|return
 name|cause
 return|;
 block|}
-comment|// Override stack trace methods to show original cause:
 DECL|method|printStackTrace
 specifier|public
 name|void
