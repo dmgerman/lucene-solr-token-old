@@ -60,10 +60,11 @@ specifier|private
 name|FieldInfos
 name|fieldInfos
 decl_stmt|;
+DECL|field|enumerator
 specifier|private
 name|SegmentTermEnum
-name|enum
-type|;
+name|enumerator
+decl_stmt|;
 DECL|field|size
 specifier|private
 name|int
@@ -96,7 +97,8 @@ name|fieldInfos
 operator|=
 name|fis
 expr_stmt|;
-enum_decl|enum =
+name|enumerator
+operator|=
 operator|new
 name|SegmentTermEnum
 argument_list|(
@@ -116,7 +118,7 @@ argument_list|)
 expr_stmt|;
 name|size
 operator|=
-expr|enum
+name|enumerator
 operator|.
 name|size
 expr_stmt|;
@@ -133,11 +135,13 @@ throws|throws
 name|IOException
 block|{
 if|if
-condition|(enum
+condition|(
+name|enumerator
 operator|!=
 literal|null
 condition|)
-enum_decl|enum.
+name|enumerator
+operator|.
 name|close
 argument_list|()
 expr_stmt|;
@@ -393,7 +397,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-enum_decl|enum.
+name|enumerator
+operator|.
 name|seek
 argument_list|(
 name|indexPointers
@@ -445,9 +450,10 @@ condition|)
 return|return
 literal|null
 return|;
-comment|// optimize sequential access: first try scanning cached enum w/o seeking
+comment|// optimize sequential access: first try scanning cached enumerator w/o seeking
 if|if
-condition|(enum
+condition|(
+name|enumerator
 operator|.
 name|term
 argument_list|()
@@ -457,7 +463,7 @@ comment|// term is at or past current
 operator|&&
 operator|(
 operator|(
-expr|enum
+name|enumerator
 operator|.
 name|prev
 operator|!=
@@ -467,7 +473,7 @@ name|term
 operator|.
 name|compareTo
 argument_list|(
-expr|enum
+name|enumerator
 operator|.
 name|prev
 argument_list|)
@@ -479,7 +485,7 @@ name|term
 operator|.
 name|compareTo
 argument_list|(
-expr|enum
+name|enumerator
 operator|.
 name|term
 argument_list|()
@@ -493,7 +499,7 @@ name|int
 name|enumOffset
 init|=
 operator|(
-expr|enum
+name|enumerator
 operator|.
 name|position
 operator|/
@@ -568,7 +574,7 @@ name|term
 operator|.
 name|compareTo
 argument_list|(
-expr|enum
+name|enumerator
 operator|.
 name|term
 argument_list|()
@@ -576,14 +582,15 @@ argument_list|)
 operator|>
 literal|0
 operator|&&
-expr|enum
+name|enumerator
 operator|.
 name|next
 argument_list|()
 condition|)
 block|{}
 if|if
-condition|(enum
+condition|(
+name|enumerator
 operator|.
 name|term
 argument_list|()
@@ -594,7 +601,7 @@ name|term
 operator|.
 name|compareTo
 argument_list|(
-expr|enum
+name|enumerator
 operator|.
 name|term
 argument_list|()
@@ -602,7 +609,8 @@ argument_list|)
 operator|==
 literal|0
 condition|)
-return|return enum
+return|return
+name|enumerator
 operator|.
 name|termInfo
 argument_list|()
@@ -635,11 +643,12 @@ return|return
 literal|null
 return|;
 if|if
-condition|(enum
+condition|(
+name|enumerator
 operator|!=
 literal|null
 operator|&&
-expr|enum
+name|enumerator
 operator|.
 name|term
 argument_list|()
@@ -648,14 +657,14 @@ literal|null
 operator|&&
 name|position
 operator|>=
-expr|enum
+name|enumerator
 operator|.
 name|position
 operator|&&
 name|position
 operator|<
 operator|(
-expr|enum
+name|enumerator
 operator|.
 name|position
 operator|+
@@ -701,7 +710,8 @@ throws|throws
 name|IOException
 block|{
 while|while
-condition|(enum
+condition|(
+name|enumerator
 operator|.
 name|position
 operator|<
@@ -710,7 +720,7 @@ condition|)
 if|if
 condition|(
 operator|!
-expr|enum
+name|enumerator
 operator|.
 name|next
 argument_list|()
@@ -718,7 +728,8 @@ condition|)
 return|return
 literal|null
 return|;
-return|return enum
+return|return
+name|enumerator
 operator|.
 name|term
 argument_list|()
@@ -766,7 +777,7 @@ name|term
 operator|.
 name|compareTo
 argument_list|(
-expr|enum
+name|enumerator
 operator|.
 name|term
 argument_list|()
@@ -774,7 +785,7 @@ argument_list|)
 operator|>
 literal|0
 operator|&&
-expr|enum
+name|enumerator
 operator|.
 name|next
 argument_list|()
@@ -786,7 +797,7 @@ name|term
 operator|.
 name|compareTo
 argument_list|(
-expr|enum
+name|enumerator
 operator|.
 name|term
 argument_list|()
@@ -794,7 +805,8 @@ argument_list|)
 operator|==
 literal|0
 condition|)
-return|return enum
+return|return
+name|enumerator
 operator|.
 name|position
 return|;
@@ -815,7 +827,8 @@ throws|throws
 name|IOException
 block|{
 if|if
-condition|(enum
+condition|(
+name|enumerator
 operator|.
 name|position
 operator|!=
@@ -833,7 +846,7 @@ return|return
 operator|(
 name|SegmentTermEnum
 operator|)
-expr|enum
+name|enumerator
 operator|.
 name|clone
 argument_list|()
@@ -857,12 +870,12 @@ argument_list|(
 name|term
 argument_list|)
 expr_stmt|;
-comment|// seek enum to term
+comment|// seek enumerator to term
 return|return
 operator|(
 name|SegmentTermEnum
 operator|)
-expr|enum
+name|enumerator
 operator|.
 name|clone
 argument_list|()

@@ -88,7 +88,7 @@ specifier|private
 name|boolean
 name|inclusive
 decl_stmt|;
-comment|/** Constructs a query selecting all terms greater than       *<code>lowerTerm</code> but less than<code>upperTerm</code>.      * There must be at least one term and either term may be null--      * in which case there is no bound on that side, but if there are       * two term, both terms<b>must</b> be for the same field.      */
+comment|/** Constructs a query selecting all terms greater than      *<code>lowerTerm</code> but less than<code>upperTerm</code>.      * There must be at least one term and either term may be null--      * in which case there is no bound on that side, but if there are      * two term, both terms<b>must</b> be for the same field.      */
 DECL|method|RangeQuery
 specifier|public
 name|RangeQuery
@@ -207,14 +207,14 @@ literal|""
 argument_list|)
 expr_stmt|;
 name|TermEnum
-name|enum
-type|=
+name|enumerator
+init|=
 name|reader
 operator|.
 name|terms
-decl|(
+argument_list|(
 name|lowerTerm
-decl|)
+argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -294,7 +294,8 @@ do|do
 block|{
 name|Term
 name|term
-init|= enum
+init|=
+name|enumerator
 operator|.
 name|term
 argument_list|()
@@ -411,7 +412,8 @@ break|break;
 block|}
 block|}
 do|while
-condition|(enum
+condition|(
+name|enumerator
 operator|.
 name|next
 argument_list|()
@@ -420,7 +422,8 @@ do|;
 block|}
 finally|finally
 block|{
-enum_decl|enum.
+name|enumerator
+operator|.
 name|close
 argument_list|()
 expr_stmt|;
