@@ -54,7 +54,7 @@ argument_list|(
 operator|new
 name|StringReader
 argument_list|(
-literal|"Ã¼"
+literal|"\u00FC"
 argument_list|)
 argument_list|)
 decl_stmt|;
