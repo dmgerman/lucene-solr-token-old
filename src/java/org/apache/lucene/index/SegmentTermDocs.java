@@ -380,6 +380,17 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|skipStream
+operator|!=
+literal|null
+condition|)
+name|skipStream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|doc
 specifier|public
@@ -652,7 +663,7 @@ block|{
 if|if
 condition|(
 name|df
-operator|>
+operator|>=
 name|skipInterval
 condition|)
 block|{

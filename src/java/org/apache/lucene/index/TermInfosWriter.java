@@ -80,7 +80,7 @@ name|int
 name|FORMAT
 init|=
 operator|-
-literal|1
+literal|2
 decl_stmt|;
 DECL|field|fieldInfos
 specifier|private
@@ -116,7 +116,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|size
 specifier|private
-name|int
+name|long
 name|size
 init|=
 literal|0
@@ -301,12 +301,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// leave space for size
-if|if
-condition|(
-operator|!
-name|isIndex
-condition|)
-block|{
 name|output
 operator|.
 name|writeInt
@@ -323,7 +317,6 @@ name|skipInterval
 argument_list|)
 expr_stmt|;
 comment|// write skipInterval
-block|}
 block|}
 comment|/** Adds a new<Term, TermInfo> pair to the set.     Term must be lexicographically greater than all previous Terms added.     TermInfo pointers must be positive and greater than all previous.*/
 DECL|method|add
@@ -461,16 +454,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|isIndex
-condition|)
-block|{
-if|if
-condition|(
 name|ti
 operator|.
 name|docFreq
-operator|>
+operator|>=
 name|skipInterval
 condition|)
 block|{
@@ -483,7 +470,6 @@ operator|.
 name|skipOffset
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
