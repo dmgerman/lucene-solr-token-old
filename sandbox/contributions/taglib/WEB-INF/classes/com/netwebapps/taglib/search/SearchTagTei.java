@@ -12,7 +12,7 @@ name|search
 package|;
 end_package
 begin_comment
-comment|/**  * @author Network Web Application  * @author Bryan LaPlante   *  */
+comment|/**  * @company Network Web Application  * @url http://www.netwebapps.com  * @author Bryan LaPlante   *  */
 end_comment
 begin_import
 import|import
