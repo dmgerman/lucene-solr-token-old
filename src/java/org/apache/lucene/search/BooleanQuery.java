@@ -56,8 +56,9 @@ name|BooleanQuery
 extends|extends
 name|Query
 block|{
+comment|/**    * Default value is 1024.  Use<code>org.apache.lucene.maxClauseCount</code>    * system property to override.    */
 DECL|field|maxClauseCount
-specifier|private
+specifier|public
 specifier|static
 name|int
 name|maxClauseCount
