@@ -78,8 +78,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|de
-operator|.
 name|WordlistLoader
 import|;
 end_import
