@@ -359,23 +359,23 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|field|baseReader
+DECL|field|in
 specifier|protected
 name|IndexReader
-name|baseReader
+name|in
 decl_stmt|;
-comment|/**    *<p>Construct a FilterIndexReader based on the specified base reader.    * Directory locking for delete, undeleteAll, and setNorm operations is    * left to the base reader.</p>    *<p>Note that base reader is closed if this FilterIndexReader is closed.</p>    * @param baseReader specified base reader.    */
+comment|/**    *<p>Construct a FilterIndexReader based on the specified base reader.    * Directory locking for delete, undeleteAll, and setNorm operations is    * left to the base reader.</p>    *<p>Note that base reader is closed if this FilterIndexReader is closed.</p>    * @param in specified base reader.    */
 DECL|method|FilterIndexReader
 specifier|public
 name|FilterIndexReader
 parameter_list|(
 name|IndexReader
-name|baseReader
+name|in
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|baseReader
+name|in
 operator|.
 name|directory
 argument_list|()
@@ -383,9 +383,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|baseReader
+name|in
 operator|=
-name|baseReader
+name|in
 expr_stmt|;
 block|}
 DECL|method|getTermFreqVectors
@@ -401,7 +401,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|getTermFreqVectors
 argument_list|(
@@ -424,7 +424,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|getTermFreqVector
 argument_list|(
@@ -441,7 +441,7 @@ name|numDocs
 parameter_list|()
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|numDocs
 argument_list|()
@@ -454,7 +454,7 @@ name|maxDoc
 parameter_list|()
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|maxDoc
 argument_list|()
@@ -472,7 +472,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|document
 argument_list|(
@@ -490,7 +490,7 @@ name|n
 parameter_list|)
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|isDeleted
 argument_list|(
@@ -505,7 +505,7 @@ name|hasDeletions
 parameter_list|()
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|hasDeletions
 argument_list|()
@@ -519,7 +519,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|baseReader
+name|in
 operator|.
 name|undeleteAll
 argument_list|()
@@ -538,7 +538,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|norms
 argument_list|(
@@ -564,7 +564,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|baseReader
+name|in
 operator|.
 name|norms
 argument_list|(
@@ -593,7 +593,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|baseReader
+name|in
 operator|.
 name|setNorm
 argument_list|(
@@ -614,7 +614,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|terms
 argument_list|()
@@ -632,7 +632,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|terms
 argument_list|(
@@ -652,7 +652,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|docFreq
 argument_list|(
@@ -669,7 +669,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|termDocs
 argument_list|()
@@ -684,7 +684,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|termPositions
 argument_list|()
@@ -701,7 +701,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|baseReader
+name|in
 operator|.
 name|delete
 argument_list|(
@@ -717,7 +717,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|baseReader
+name|in
 operator|.
 name|commit
 argument_list|()
@@ -731,7 +731,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|baseReader
+name|in
 operator|.
 name|close
 argument_list|()
@@ -746,7 +746,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|getFieldNames
 argument_list|()
@@ -764,7 +764,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|getFieldNames
 argument_list|(
@@ -783,7 +783,7 @@ name|storedTermVector
 parameter_list|)
 block|{
 return|return
-name|baseReader
+name|in
 operator|.
 name|getIndexedFieldNames
 argument_list|(
