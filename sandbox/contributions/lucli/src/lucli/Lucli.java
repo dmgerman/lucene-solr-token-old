@@ -94,7 +94,7 @@ name|HISTORYFILE
 init|=
 literal|".lucli"
 decl_stmt|;
-comment|//directory "index" under the current directory
+comment|//history file in user's home directory
 DECL|field|MAX_TERMS
 specifier|public
 specifier|final
@@ -1454,7 +1454,7 @@ parameter_list|()
 block|{
 name|message
 argument_list|(
-literal|"Usage: lucli [-j]"
+literal|"Usage: lucli [-r]"
 argument_list|)
 expr_stmt|;
 name|message
