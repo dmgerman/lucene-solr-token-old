@@ -152,7 +152,7 @@ operator|=
 name|f
 expr_stmt|;
 block|}
-comment|/**      * Constructs a filter for field<code>f</code> matching dates      * between<code>from</code> and<code>to</code> inclusively.      */
+comment|/**    * Constructs a filter for field<code>f</code> matching dates    * between<code>from</code> and<code>to</code> inclusively.    */
 DECL|method|DateFilter
 specifier|public
 name|DateFilter
@@ -190,7 +190,7 @@ name|to
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs a filter for field<code>f</code> matching times      * between<code>from</code> and<code>to</code> inclusively.      */
+comment|/**    * Constructs a filter for field<code>f</code> matching times    * between<code>from</code> and<code>to</code> inclusively.    */
 DECL|method|DateFilter
 specifier|public
 name|DateFilter
@@ -228,7 +228,7 @@ name|to
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs a filter for field<code>f</code> matching      * dates on or before before<code>date</code>.      */
+comment|/**    * Constructs a filter for field<code>f</code> matching    * dates on or before before<code>date</code>.    */
 DECL|method|Before
 specifier|public
 specifier|static
@@ -266,7 +266,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Constructs a filter for field<code>f</code> matching times      * on or before<code>time</code>.      */
+comment|/**    * Constructs a filter for field<code>f</code> matching times    * on or before<code>time</code>.    */
 DECL|method|Before
 specifier|public
 specifier|static
@@ -304,7 +304,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Constructs a filter for field<code>f</code> matching      * dates on or after<code>date</code>.      */
+comment|/**    * Constructs a filter for field<code>f</code> matching    * dates on or after<code>date</code>.    */
 DECL|method|After
 specifier|public
 specifier|static
@@ -342,7 +342,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Constructs a filter for field<code>f</code> matching      * times on or after<code>time</code>.      */
+comment|/**    * Constructs a filter for field<code>f</code> matching    * times on or after<code>time</code>.    */
 DECL|method|After
 specifier|public
 specifier|static
@@ -380,7 +380,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Returns a BitSet with true for documents which should be      * permitted in search results, and false for those that should      * not.      */
+comment|/**    * Returns a BitSet with true for documents which should be    * permitted in search results, and false for those that should    * not.    */
 DECL|method|bits
 specifier|public
 name|BitSet
