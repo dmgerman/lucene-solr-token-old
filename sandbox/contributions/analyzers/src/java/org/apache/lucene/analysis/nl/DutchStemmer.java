@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Map
 import|;
 end_import
 begin_comment
@@ -51,7 +51,7 @@ name|_removedE
 decl_stmt|;
 DECL|field|_stemDict
 specifier|private
-name|HashMap
+name|Map
 name|_stemDict
 decl_stmt|;
 DECL|field|_R1
@@ -1960,7 +1960,7 @@ DECL|method|setStemDictionary
 name|void
 name|setStemDictionary
 parameter_list|(
-name|HashMap
+name|Map
 name|dict
 parameter_list|)
 block|{

@@ -70,6 +70,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Hashtable
 import|;
 end_import
@@ -79,11 +88,11 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|Set
 import|;
 end_import
 begin_comment
-comment|/**  * Based on (copied) the GermanStemFilter  *  *  * @author    João Kramer  *  *  * A filter that stemms german words. It supports a table of words that should  * not be stemmed at all.  *  * @author    Gerhard Schwarz  */
+comment|/**  * Based on (copied) the GermanStemFilter  *  * @author João Kramer  *<p/>  *<p/>  *         A filter that stemms german words. It supports a table of words that should  *         not be stemmed at all.  * @author Gerhard Schwarz  */
 end_comment
 begin_class
 DECL|class|BrazilianStemFilter
@@ -94,7 +103,7 @@ name|BrazilianStemFilter
 extends|extends
 name|TokenFilter
 block|{
-comment|/** 	 * The actual token in the input stream. 	 */
+comment|/**    * The actual token in the input stream.    */
 DECL|field|token
 specifier|private
 name|Token
@@ -111,7 +120,7 @@ literal|null
 decl_stmt|;
 DECL|field|exclusions
 specifier|private
-name|HashSet
+name|Set
 name|exclusions
 init|=
 literal|null
@@ -136,7 +145,7 @@ name|BrazilianStemmer
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Builds a BrazilianStemFilter that uses an exclusiontable.    *     * @deprecated 	 */
+comment|/**    * Builds a BrazilianStemFilter that uses an exclusiontable.    *    * @deprecated    */
 DECL|method|BrazilianStemFilter
 specifier|public
 name|BrazilianStemFilter
@@ -174,7 +183,7 @@ parameter_list|(
 name|TokenStream
 name|in
 parameter_list|,
-name|HashSet
+name|Set
 name|exclusiontable
 parameter_list|)
 block|{
@@ -190,7 +199,7 @@ operator|=
 name|exclusiontable
 expr_stmt|;
 block|}
-comment|/** 	 * @return  Returns the next token in the stream, or null at EOS. 	 */
+comment|/**    * @return Returns the next token in the stream, or null at EOS.    */
 DECL|method|next
 specifier|public
 specifier|final
