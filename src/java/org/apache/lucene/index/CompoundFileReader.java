@@ -694,8 +694,6 @@ specifier|final
 name|long
 name|length
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.
@@ -717,7 +715,7 @@ name|length
 expr_stmt|;
 comment|// variable in the superclass
 block|}
-comment|/** Expert: implements buffer refill.  Reads bytes from the current          *  position in the input.          * @param b the array to read bytes into          * @param offset the offset in the array to start storing bytes          * @param length the number of bytes to read          */
+comment|/** Expert: implements buffer refill.  Reads bytes from the current          *  position in the input.          * @param b the array to read bytes into          * @param offset the offset in the array to start storing bytes          * @param len the number of bytes to read          */
 DECL|method|readInternal
 specifier|protected
 name|void
@@ -793,8 +791,6 @@ parameter_list|(
 name|long
 name|pos
 parameter_list|)
-throws|throws
-name|IOException
 block|{}
 comment|/** Closes the stream to futher operations. */
 DECL|method|close
@@ -802,8 +798,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|IOException
 block|{}
 block|}
 block|}
