@@ -554,7 +554,7 @@ name|Query
 name|query1
 init|=
 operator|new
-name|TermQuery
+name|WildcardQuery
 argument_list|(
 operator|new
 name|Term
