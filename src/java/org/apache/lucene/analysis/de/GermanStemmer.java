@@ -529,7 +529,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Does some optimizations on the term. This optimisations are      * contextual.      *      * @return  The term with the optimizations applied.      */
+comment|/**      * Does some optimizations on the term. This optimisations are      * contextual.      */
 DECL|method|optimize
 specifier|private
 name|void
