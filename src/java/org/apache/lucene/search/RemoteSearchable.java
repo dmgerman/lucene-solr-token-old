@@ -104,10 +104,10 @@ begin_comment
 comment|/** A remote searchable implementation. */
 end_comment
 begin_class
-DECL|class|RemoteSearchableImpl
+DECL|class|RemoteSearchable
 specifier|public
 class|class
-name|RemoteSearchableImpl
+name|RemoteSearchable
 extends|extends
 name|UnicastRemoteObject
 implements|implements
@@ -119,9 +119,9 @@ name|Searchable
 name|local
 decl_stmt|;
 comment|/** Constructs and exports a remote searcher. */
-DECL|method|RemoteSearchableImpl
+DECL|method|RemoteSearchable
 specifier|public
-name|RemoteSearchableImpl
+name|RemoteSearchable
 parameter_list|(
 name|Searchable
 name|local
@@ -314,11 +314,11 @@ literal|0
 index|]
 argument_list|)
 decl_stmt|;
-name|RemoteSearchableImpl
+name|RemoteSearchable
 name|impl
 init|=
 operator|new
-name|RemoteSearchableImpl
+name|RemoteSearchable
 argument_list|(
 name|local
 argument_list|)

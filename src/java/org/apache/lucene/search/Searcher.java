@@ -63,7 +63,7 @@ name|IndexReader
 import|;
 end_import
 begin_comment
-comment|/** The abstract base class for search implementations.  *  *<p>Subclasses implement search over a single index, over multiple indices,  * and over indices on remote servers.  */
+comment|/** An abstract base class for search implementations.  * Implements some common utility methods.  */
 end_comment
 begin_class
 DECL|class|Searcher
