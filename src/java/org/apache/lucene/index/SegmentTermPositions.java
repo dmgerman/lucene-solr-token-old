@@ -67,8 +67,6 @@ parameter_list|(
 name|SegmentReader
 name|p
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -271,8 +269,6 @@ name|int
 index|[]
 name|freqs
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 throw|throw
 operator|new
