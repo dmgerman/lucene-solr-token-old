@@ -1482,7 +1482,7 @@ index|[
 name|i
 index|]
 decl_stmt|;
-name|SegmentTermEnum
+name|TermEnum
 name|termEnum
 decl_stmt|;
 if|if
@@ -1494,9 +1494,6 @@ condition|)
 block|{
 name|termEnum
 operator|=
-operator|(
-name|SegmentTermEnum
-operator|)
 name|reader
 operator|.
 name|terms
@@ -1508,9 +1505,6 @@ block|}
 else|else
 name|termEnum
 operator|=
-operator|(
-name|SegmentTermEnum
-operator|)
 name|reader
 operator|.
 name|terms
@@ -1772,18 +1766,18 @@ name|pointer
 init|=
 literal|0
 decl_stmt|;
-DECL|field|segTermDocs
+DECL|field|readerTermDocs
 specifier|private
-name|SegmentTermDocs
+name|TermDocs
 index|[]
-name|segTermDocs
+name|readerTermDocs
 decl_stmt|;
 DECL|field|current
 specifier|protected
-name|SegmentTermDocs
+name|TermDocs
 name|current
 decl_stmt|;
-comment|// == segTermDocs[pointer]
+comment|// == readerTermDocs[pointer]
 DECL|method|MultiTermDocs
 specifier|public
 name|MultiTermDocs
@@ -1805,10 +1799,10 @@ name|starts
 operator|=
 name|s
 expr_stmt|;
-name|segTermDocs
+name|readerTermDocs
 operator|=
 operator|new
-name|SegmentTermDocs
+name|TermDocs
 index|[
 name|r
 operator|.
@@ -1828,6 +1822,7 @@ operator|+
 name|current
 operator|.
 name|doc
+argument_list|()
 return|;
 block|}
 DECL|method|freq
@@ -1840,6 +1835,7 @@ return|return
 name|current
 operator|.
 name|freq
+argument_list|()
 return|;
 block|}
 DECL|method|seek
@@ -2119,7 +2115,7 @@ return|;
 block|}
 DECL|method|termDocs
 specifier|private
-name|SegmentTermDocs
+name|TermDocs
 name|termDocs
 parameter_list|(
 name|int
@@ -2137,10 +2133,10 @@ condition|)
 return|return
 literal|null
 return|;
-name|SegmentTermDocs
+name|TermDocs
 name|result
 init|=
-name|segTermDocs
+name|readerTermDocs
 index|[
 name|i
 index|]
@@ -2153,7 +2149,7 @@ literal|null
 condition|)
 name|result
 operator|=
-name|segTermDocs
+name|readerTermDocs
 index|[
 name|i
 index|]
@@ -2179,7 +2175,7 @@ return|;
 block|}
 DECL|method|termDocs
 specifier|protected
-name|SegmentTermDocs
+name|TermDocs
 name|termDocs
 parameter_list|(
 name|IndexReader
@@ -2189,9 +2185,6 @@ throws|throws
 name|IOException
 block|{
 return|return
-operator|(
-name|SegmentTermDocs
-operator|)
 name|reader
 operator|.
 name|termDocs
@@ -2215,7 +2208,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|segTermDocs
+name|readerTermDocs
 operator|.
 name|length
 condition|;
@@ -2225,14 +2218,14 @@ control|)
 block|{
 if|if
 condition|(
-name|segTermDocs
+name|readerTermDocs
 index|[
 name|i
 index|]
 operator|!=
 literal|null
 condition|)
-name|segTermDocs
+name|readerTermDocs
 index|[
 name|i
 index|]
@@ -2276,7 +2269,7 @@ expr_stmt|;
 block|}
 DECL|method|termDocs
 specifier|protected
-name|SegmentTermDocs
+name|TermDocs
 name|termDocs
 parameter_list|(
 name|IndexReader
@@ -2287,7 +2280,7 @@ name|IOException
 block|{
 return|return
 operator|(
-name|SegmentTermDocs
+name|TermDocs
 operator|)
 name|reader
 operator|.
@@ -2306,7 +2299,7 @@ block|{
 return|return
 operator|(
 operator|(
-name|SegmentTermPositions
+name|TermPositions
 operator|)
 name|current
 operator|)
