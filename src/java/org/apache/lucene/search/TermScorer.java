@@ -289,7 +289,7 @@ name|score
 operator|*=
 name|Similarity
 operator|.
-name|norm
+name|decodeNorm
 argument_list|(
 name|norms
 index|[
