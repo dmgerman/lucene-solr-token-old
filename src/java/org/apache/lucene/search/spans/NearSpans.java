@@ -1394,7 +1394,7 @@ block|}
 block|}
 throw|throw
 operator|new
-name|AssertionError
+name|RuntimeException
 argument_list|(
 literal|"Unexpected: ordered"
 argument_list|)
