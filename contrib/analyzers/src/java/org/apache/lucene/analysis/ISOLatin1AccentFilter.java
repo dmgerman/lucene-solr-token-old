@@ -15,7 +15,7 @@ begin_comment
 comment|/**  * Copyright 2005 The Apache Software Foundation  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * A filter that replace accented characters in the ISO Latin 1 character set by  * their unaccented equivalent. The case will not be altered.  *<p>  * For instance, 'à' will be replaced by 'a'.  *<p>  */
+comment|/**  * A filter that replace accented characters in the ISO Latin 1 character set by  * their unaccented equivalent. The case will not be altered.  *<p>  * For instance, 'Ã ' will be replaced by 'a'.  *<p>  */
 end_comment
 begin_class
 DECL|class|ISOLatin1AccentFilter
@@ -152,27 +152,27 @@ block|{
 case|case
 literal|'\u00C0'
 case|:
-comment|// À
+comment|// Ã
 case|case
 literal|'\u00C1'
 case|:
-comment|// Á
+comment|// Ã
 case|case
 literal|'\u00C2'
 case|:
-comment|// Â
+comment|// Ã
 case|case
 literal|'\u00C3'
 case|:
-comment|// Ã
+comment|// Ã
 case|case
 literal|'\u00C4'
 case|:
-comment|// Ä
+comment|// Ã
 case|case
 literal|'\u00C5'
 case|:
-comment|// Å
+comment|// Ã
 name|output
 operator|.
 name|append
@@ -184,7 +184,7 @@ break|break;
 case|case
 literal|'\u00C6'
 case|:
-comment|// Æ
+comment|// Ã
 name|output
 operator|.
 name|append
@@ -196,7 +196,7 @@ break|break;
 case|case
 literal|'\u00C7'
 case|:
-comment|// Ç
+comment|// Ã
 name|output
 operator|.
 name|append
@@ -208,19 +208,19 @@ break|break;
 case|case
 literal|'\u00C8'
 case|:
-comment|// È
+comment|// Ã
 case|case
 literal|'\u00C9'
 case|:
-comment|// É
+comment|// Ã
 case|case
 literal|'\u00CA'
 case|:
-comment|// Ê
+comment|// Ã
 case|case
 literal|'\u00CB'
 case|:
-comment|// Ë
+comment|// Ã
 name|output
 operator|.
 name|append
@@ -232,19 +232,19 @@ break|break;
 case|case
 literal|'\u00CC'
 case|:
-comment|// Ì
+comment|// Ã
 case|case
 literal|'\u00CD'
 case|:
-comment|// Í
+comment|// Ã
 case|case
 literal|'\u00CE'
 case|:
-comment|// Î
+comment|// Ã
 case|case
 literal|'\u00CF'
 case|:
-comment|// Ï
+comment|// Ã
 name|output
 operator|.
 name|append
@@ -256,7 +256,7 @@ break|break;
 case|case
 literal|'\u00D0'
 case|:
-comment|// Ð
+comment|// Ã
 name|output
 operator|.
 name|append
@@ -268,7 +268,7 @@ break|break;
 case|case
 literal|'\u00D1'
 case|:
-comment|// Ñ
+comment|// Ã
 name|output
 operator|.
 name|append
@@ -280,27 +280,27 @@ break|break;
 case|case
 literal|'\u00D2'
 case|:
-comment|// Ò
+comment|// Ã
 case|case
 literal|'\u00D3'
 case|:
-comment|// Ó
+comment|// Ã
 case|case
 literal|'\u00D4'
 case|:
-comment|// Ô
+comment|// Ã
 case|case
 literal|'\u00D5'
 case|:
-comment|// Õ
+comment|// Ã
 case|case
 literal|'\u00D6'
 case|:
-comment|// Ö
+comment|// Ã
 case|case
 literal|'\u00D8'
 case|:
-comment|// Ø
+comment|// Ã
 name|output
 operator|.
 name|append
@@ -312,7 +312,7 @@ break|break;
 case|case
 literal|'\u0152'
 case|:
-comment|// 
+comment|// Å
 name|output
 operator|.
 name|append
@@ -324,7 +324,7 @@ break|break;
 case|case
 literal|'\u00DE'
 case|:
-comment|// Þ
+comment|// Ã
 name|output
 operator|.
 name|append
@@ -336,19 +336,19 @@ break|break;
 case|case
 literal|'\u00D9'
 case|:
-comment|// Ù
+comment|// Ã
 case|case
 literal|'\u00DA'
 case|:
-comment|// Ú
+comment|// Ã
 case|case
 literal|'\u00DB'
 case|:
-comment|// Û
+comment|// Ã
 case|case
 literal|'\u00DC'
 case|:
-comment|// Ü
+comment|// Ã
 name|output
 operator|.
 name|append
@@ -360,11 +360,11 @@ break|break;
 case|case
 literal|'\u00DD'
 case|:
-comment|// Ý
+comment|// Ã
 case|case
 literal|'\u0178'
 case|:
-comment|// 
+comment|// Å¸
 name|output
 operator|.
 name|append
@@ -376,27 +376,27 @@ break|break;
 case|case
 literal|'\u00E0'
 case|:
-comment|// à
+comment|// Ã 
 case|case
 literal|'\u00E1'
 case|:
-comment|// á
+comment|// Ã¡
 case|case
 literal|'\u00E2'
 case|:
-comment|// â
+comment|// Ã¢
 case|case
 literal|'\u00E3'
 case|:
-comment|// ã
+comment|// Ã£
 case|case
 literal|'\u00E4'
 case|:
-comment|// ä
+comment|// Ã¤
 case|case
 literal|'\u00E5'
 case|:
-comment|// å
+comment|// Ã¥
 name|output
 operator|.
 name|append
@@ -408,7 +408,7 @@ break|break;
 case|case
 literal|'\u00E6'
 case|:
-comment|// æ
+comment|// Ã¦
 name|output
 operator|.
 name|append
@@ -420,7 +420,7 @@ break|break;
 case|case
 literal|'\u00E7'
 case|:
-comment|// ç
+comment|// Ã§
 name|output
 operator|.
 name|append
@@ -432,19 +432,19 @@ break|break;
 case|case
 literal|'\u00E8'
 case|:
-comment|// è
+comment|// Ã¨
 case|case
 literal|'\u00E9'
 case|:
-comment|// é
+comment|// Ã©
 case|case
 literal|'\u00EA'
 case|:
-comment|// ê
+comment|// Ãª
 case|case
 literal|'\u00EB'
 case|:
-comment|// ë
+comment|// Ã«
 name|output
 operator|.
 name|append
@@ -456,19 +456,19 @@ break|break;
 case|case
 literal|'\u00EC'
 case|:
-comment|// ì
+comment|// Ã¬
 case|case
 literal|'\u00ED'
 case|:
-comment|// í
+comment|// Ã­
 case|case
 literal|'\u00EE'
 case|:
-comment|// î
+comment|// Ã®
 case|case
 literal|'\u00EF'
 case|:
-comment|// ï
+comment|// Ã¯
 name|output
 operator|.
 name|append
@@ -480,7 +480,7 @@ break|break;
 case|case
 literal|'\u00F0'
 case|:
-comment|// ð
+comment|// Ã°
 name|output
 operator|.
 name|append
@@ -492,7 +492,7 @@ break|break;
 case|case
 literal|'\u00F1'
 case|:
-comment|// ñ
+comment|// Ã±
 name|output
 operator|.
 name|append
@@ -504,27 +504,27 @@ break|break;
 case|case
 literal|'\u00F2'
 case|:
-comment|// ò
+comment|// Ã²
 case|case
 literal|'\u00F3'
 case|:
-comment|// ó
+comment|// Ã³
 case|case
 literal|'\u00F4'
 case|:
-comment|// ô
+comment|// Ã´
 case|case
 literal|'\u00F5'
 case|:
-comment|// õ
+comment|// Ãµ
 case|case
 literal|'\u00F6'
 case|:
-comment|// ö
+comment|// Ã¶
 case|case
 literal|'\u00F8'
 case|:
-comment|// ø
+comment|// Ã¸
 name|output
 operator|.
 name|append
@@ -536,7 +536,7 @@ break|break;
 case|case
 literal|'\u0153'
 case|:
-comment|// 
+comment|// Å
 name|output
 operator|.
 name|append
@@ -548,7 +548,7 @@ break|break;
 case|case
 literal|'\u00DF'
 case|:
-comment|// ß
+comment|// Ã
 name|output
 operator|.
 name|append
@@ -560,7 +560,7 @@ break|break;
 case|case
 literal|'\u00FE'
 case|:
-comment|// þ
+comment|// Ã¾
 name|output
 operator|.
 name|append
@@ -572,19 +572,19 @@ break|break;
 case|case
 literal|'\u00F9'
 case|:
-comment|// ù
+comment|// Ã¹
 case|case
 literal|'\u00FA'
 case|:
-comment|// ú
+comment|// Ãº
 case|case
 literal|'\u00FB'
 case|:
-comment|// û
+comment|// Ã»
 case|case
 literal|'\u00FC'
 case|:
-comment|// 
+comment|// Ã¼
 name|output
 operator|.
 name|append
@@ -596,11 +596,11 @@ break|break;
 case|case
 literal|'\u00FD'
 case|:
-comment|// ý
+comment|// Ã½
 case|case
 literal|'\u00FF'
 case|:
-comment|// ÿ
+comment|// Ã¿
 name|output
 operator|.
 name|append
