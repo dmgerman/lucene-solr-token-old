@@ -424,7 +424,9 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"IndexWriter.WRITE_LOCK_NAME"
+name|IndexWriter
+operator|.
+name|WRITE_LOCK_NAME
 argument_list|)
 decl_stmt|;
 if|if
@@ -469,7 +471,9 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"COMMIT_LOCK_NAME"
+name|IndexWriter
+operator|.
+name|COMMIT_LOCK_NAME
 argument_list|)
 argument_list|,
 name|COMMIT_LOCK_TIMEOUT
@@ -1426,7 +1430,9 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"COMMIT_LOCK_NAME"
+name|IndexWriter
+operator|.
+name|COMMIT_LOCK_NAME
 argument_list|)
 argument_list|,
 name|COMMIT_LOCK_TIMEOUT

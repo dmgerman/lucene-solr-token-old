@@ -242,7 +242,9 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"IndexWriter.COMMIT_LOCK_NAME"
+name|IndexWriter
+operator|.
+name|COMMIT_LOCK_NAME
 argument_list|)
 argument_list|,
 name|IndexWriter
@@ -731,7 +733,9 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"IndexWriter.WRITE_LOCK_NAME"
+name|IndexWriter
+operator|.
+name|WRITE_LOCK_NAME
 argument_list|)
 decl_stmt|;
 if|if
@@ -995,7 +999,9 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"IndexWriter.WRITE_LOCK_NAME"
+name|IndexWriter
+operator|.
+name|WRITE_LOCK_NAME
 argument_list|)
 operator|.
 name|isLocked
@@ -1005,7 +1011,9 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"IndexWriter.COMMIT_LOCK_NAME"
+name|IndexWriter
+operator|.
+name|COMMIT_LOCK_NAME
 argument_list|)
 operator|.
 name|isLocked
@@ -1056,7 +1064,9 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"IndexWriter.WRITE_LOCK_NAME"
+name|IndexWriter
+operator|.
+name|WRITE_LOCK_NAME
 argument_list|)
 operator|.
 name|release
@@ -1066,7 +1076,9 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"IndexWriter.COMMIT_LOCK_NAME"
+name|IndexWriter
+operator|.
+name|COMMIT_LOCK_NAME
 argument_list|)
 operator|.
 name|release
