@@ -534,6 +534,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+comment|// FIXME: at least take SimpleLogger, if not something else
 name|File
 name|logDir
 init|=
@@ -1077,12 +1078,19 @@ name|System
 operator|.
 name|out
 operator|.
-name|println
+name|print
 argument_list|(
 name|sb
 operator|+
 literal|"\nBytes total:          "
-operator|+
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|print
+argument_list|(
 name|formatBytes
 argument_list|(
 name|overallBytesRead
@@ -1117,7 +1125,14 @@ argument_list|)
 argument_list|)
 operator|+
 literal|" per second since start)"
-operator|+
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|print
+argument_list|(
 literal|"\nBytes per Second:     "
 operator|+
 name|formatBytes
@@ -1129,14 +1144,38 @@ name|bytesPerSecond
 argument_list|)
 operator|+
 literal|" (50 secs)"
-operator|+
+argument_list|)
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|print
+argument_list|(
 literal|"\nDocs per Second:      "
 operator|+
 name|docsPerSecond
-operator|+
+argument_list|)
+expr_stmt|;
+name|String
+name|bs
+init|=
+name|bytesReadString
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|print
+argument_list|(
 literal|"\nBytes per Thread:     "
 operator|+
-name|bytesReadString
+name|bs
+operator|+
+literal|"\n"
 argument_list|)
 expr_stmt|;
 name|double
@@ -1544,7 +1583,7 @@ if|if
 condition|(
 name|nothingReadCount
 operator|>
-literal|3
+literal|20
 condition|)
 block|{
 name|SimpleLoggerManager
@@ -1623,6 +1662,33 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchMethodError
+name|e
+parameter_list|)
+block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
+comment|//System.out.println("cause: " + e.getCause());
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"msg: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
