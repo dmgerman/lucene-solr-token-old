@@ -17,7 +17,7 @@ begin_comment
 comment|/**  * Copyright 2004 The Apache Software Foundation  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * A stemmer for German words. The algorithm is based on the report  * "A Fast and Simple Stemming Algorithm for German Words" by Jörg  * Caumanns (joerg.caumanns@isst.fhg.de).  *  * @author    Gerhard Schwarz  * @version   $Id$  */
+comment|/**  * A stemmer for German words. The algorithm is based on the report  * "A Fast and Simple Stemming Algorithm for German Words" by JÃ¶rg  * Caumanns (joerg.caumanns@isst.fhg.de).  *  * @author    Gerhard Schwarz  * @version   $Id$  */
 end_comment
 begin_class
 DECL|class|GermanStemmer
@@ -675,7 +675,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Do some substitutions for the term to reduce overstemming:      *      * - Substitute Umlauts with their corresponding vowel: äöü -> aou,      *   "ß" is substituted by "ss"      * - Substitute a second char of a pair of equal characters with      *   an asterisk: ?? -> ?*      * - Substitute some common character combinations with a token:      *   sch/ch/ei/ie/ig/st -> $/§/%/&/#/!      */
+comment|/**      * Do some substitutions for the term to reduce overstemming:      *      * - Substitute Umlauts with their corresponding vowel: Ã¤Ã¶Ã¼ -> aou,      *   "Ã" is substituted by "ss"      * - Substitute a second char of a pair of equal characters with      *   an asterisk: ?? -> ?*      * - Substitute some common character combinations with a token:      *   sch/ch/ei/ie/ig/st -> $/Â§/%/&/#/!      */
 DECL|method|substitute
 specifier|private
 name|void
@@ -752,7 +752,7 @@ argument_list|(
 name|c
 argument_list|)
 operator|==
-literal|'ä'
+literal|'Ã¤'
 condition|)
 block|{
 name|buffer
@@ -775,7 +775,7 @@ argument_list|(
 name|c
 argument_list|)
 operator|==
-literal|'ö'
+literal|'Ã¶'
 condition|)
 block|{
 name|buffer
@@ -798,7 +798,7 @@ argument_list|(
 name|c
 argument_list|)
 operator|==
-literal|'ü'
+literal|'Ã¼'
 condition|)
 block|{
 name|buffer
@@ -833,7 +833,7 @@ argument_list|(
 name|c
 argument_list|)
 operator|==
-literal|'ß'
+literal|'Ã'
 condition|)
 block|{
 name|buffer
@@ -965,7 +965,7 @@ name|setCharAt
 argument_list|(
 name|c
 argument_list|,
-literal|'§'
+literal|'Â§'
 argument_list|)
 expr_stmt|;
 name|buffer
@@ -1168,7 +1168,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Undoes the changes made by substitute(). That are character pairs and      * character combinations. Umlauts will remain as their corresponding vowel,      * as "ß" remains as "ss".      */
+comment|/**      * Undoes the changes made by substitute(). That are character pairs and      * character combinations. Umlauts will remain as their corresponding vowel,      * as "Ã" remains as "ss".      */
 DECL|method|resubstitute
 specifier|private
 name|void
@@ -1285,7 +1285,7 @@ argument_list|(
 name|c
 argument_list|)
 operator|==
-literal|'§'
+literal|'Â§'
 condition|)
 block|{
 name|buffer
