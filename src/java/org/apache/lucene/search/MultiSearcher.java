@@ -72,7 +72,7 @@ name|PriorityQueue
 import|;
 end_import
 begin_comment
-comment|/** Implements search over a set of Searcher's. */
+comment|/** Implements search over a set of<code>Searchers</code>. */
 end_comment
 begin_class
 DECL|class|MultiSearcher
@@ -179,7 +179,7 @@ operator|=
 name|maxDoc
 expr_stmt|;
 block|}
-comment|/** Frees resources associated with this Searcher. */
+comment|/** Frees resources associated with this<code>Searcher</code>. */
 DECL|method|close
 specifier|public
 specifier|final
