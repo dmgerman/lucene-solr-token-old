@@ -43,10 +43,10 @@ name|void
 name|open
 parameter_list|()
 function_decl|;
-comment|/**      * called to store a web document      *      * @param doc  the document      */
+comment|/**      * called to store a web document      *      * @param doc  the document      * @return the document itself or a changed version. Only makes sense if      * storage pipeline is used; usually the storage would return the document      * as is.      */
 DECL|method|store
 specifier|public
-name|void
+name|WebDocument
 name|store
 parameter_list|(
 name|WebDocument

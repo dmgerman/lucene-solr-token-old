@@ -50,6 +50,7 @@ comment|/**  * contains a HashMap of all URLs already passed. Adds each URL to t
 end_comment
 begin_class
 DECL|class|URLVisitedFilter
+specifier|public
 class|class
 name|URLVisitedFilter
 extends|extends
@@ -66,22 +67,8 @@ parameter_list|(
 name|MessageHandler
 name|handler
 parameter_list|)
-block|{
-name|this
-operator|.
-name|messageHandler
-operator|=
-name|handler
-expr_stmt|;
-block|}
-DECL|field|messageHandler
-name|MessageHandler
-name|messageHandler
-decl_stmt|;
-DECL|field|log
-name|SimpleLogger
-name|log
-decl_stmt|;
+block|{     }
+comment|//SimpleLogger log;
 DECL|field|urlHash
 name|HashSet
 name|urlHash
@@ -104,9 +91,6 @@ name|URLVisitedFilter
 parameter_list|(
 name|int
 name|initialHashCapacity
-parameter_list|,
-name|SimpleLogger
-name|log
 parameter_list|)
 block|{
 name|urlHash
@@ -116,12 +100,6 @@ name|HashSet
 argument_list|(
 name|initialHashCapacity
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|log
-operator|=
-name|log
 expr_stmt|;
 comment|//urlVector = new Vector(initialHashCapacity);
 block|}
@@ -196,24 +174,6 @@ comment|//System.out.println("URLVisitedFilter: " + urlString + " already presen
 name|filtered
 operator|++
 expr_stmt|;
-if|if
-condition|(
-name|log
-operator|!=
-literal|null
-condition|)
-block|{
-name|log
-operator|.
-name|log
-argument_list|(
-name|urlMessage
-operator|.
-name|getInfo
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 literal|null
 return|;
