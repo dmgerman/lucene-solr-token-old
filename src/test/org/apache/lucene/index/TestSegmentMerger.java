@@ -367,6 +367,11 @@ operator|.
 name|merge
 argument_list|()
 decl_stmt|;
+name|merger
+operator|.
+name|closeReaders
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|docsMerged
