@@ -42,7 +42,7 @@ index|[]
 name|chars
 decl_stmt|;
 comment|// used by readString()
-comment|/** Reads and returns a single byte.    * @see OutputStream#writeByte(byte)    */
+comment|/** Reads and returns a single byte.    * @see IndexOutput#writeByte(byte)    */
 DECL|method|readByte
 specifier|public
 specifier|abstract
@@ -52,7 +52,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Reads a specified number of bytes into an array at the specified offset.    * @param b the array to read bytes into    * @param offset the offset in the array to start storing bytes    * @param len the number of bytes to read    * @see OutputStream#writeBytes(byte[],int)    */
+comment|/** Reads a specified number of bytes into an array at the specified offset.    * @param b the array to read bytes into    * @param offset the offset in the array to start storing bytes    * @param len the number of bytes to read    * @see IndexOutput#writeBytes(byte[],int)    */
 DECL|method|readBytes
 specifier|public
 specifier|abstract
@@ -72,7 +72,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Reads four bytes and returns an int.    * @see OutputStream#writeInt(int)    */
+comment|/** Reads four bytes and returns an int.    * @see IndexOutput#writeInt(int)    */
 DECL|method|readInt
 specifier|public
 name|int
@@ -123,7 +123,7 @@ literal|0xFF
 operator|)
 return|;
 block|}
-comment|/** Reads an int stored in variable-length format.  Reads between one and    * five bytes.  Smaller values take fewer bytes.  Negative numbers are not    * supported.    * @see OutputStream#writeVInt(int)    */
+comment|/** Reads an int stored in variable-length format.  Reads between one and    * five bytes.  Smaller values take fewer bytes.  Negative numbers are not    * supported.    * @see IndexOutput#writeVInt(int)    */
 DECL|method|readVInt
 specifier|public
 name|int
@@ -185,7 +185,7 @@ return|return
 name|i
 return|;
 block|}
-comment|/** Reads eight bytes and returns a long.    * @see OutputStream#writeLong(long)    */
+comment|/** Reads eight bytes and returns a long.    * @see IndexOutput#writeLong(long)    */
 DECL|method|readLong
 specifier|public
 name|long
@@ -277,7 +277,7 @@ return|return
 name|i
 return|;
 block|}
-comment|/** Reads a string.    * @see OutputStream#writeString(String)    */
+comment|/** Reads a string.    * @see IndexOutput#writeString(String)    */
 DECL|method|readString
 specifier|public
 name|String
@@ -333,7 +333,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/** Reads UTF-8 encoded characters into an array.    * @param buffer the array to read characters into    * @param start the offset in the array to start storing characters    * @param length the number of characters to read    * @see OutputStream#writeChars(String,int,int)    */
+comment|/** Reads UTF-8 encoded characters into an array.    * @param buffer the array to read characters into    * @param start the offset in the array to start storing characters    * @param length the number of characters to read    * @see IndexOutput#writeChars(String,int,int)    */
 DECL|method|readChars
 specifier|public
 name|void

@@ -24,7 +24,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * A memory-resident {@link OutputStream} implementation.  *  * @version $Id$  */
+comment|/**  * A memory-resident {@link IndexOutput} implementation.  *  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|RAMOutputStream
@@ -78,7 +78,7 @@ specifier|public
 name|void
 name|writeTo
 parameter_list|(
-name|OutputStream
+name|IndexOutput
 name|out
 parameter_list|)
 throws|throws

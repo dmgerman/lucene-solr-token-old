@@ -125,7 +125,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|OutputStream
+name|IndexOutput
 import|;
 end_import
 begin_import
@@ -2426,12 +2426,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|OutputStream
+name|IndexOutput
 name|output
 init|=
 name|directory
 operator|.
-name|createFile
+name|createOutput
 argument_list|(
 literal|"deleteable.new"
 argument_list|)

@@ -33,7 +33,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|OutputStream
+name|IndexOutput
 import|;
 end_import
 begin_import
@@ -89,7 +89,7 @@ name|fieldInfos
 decl_stmt|;
 DECL|field|output
 specifier|private
-name|OutputStream
+name|IndexOutput
 name|output
 decl_stmt|;
 DECL|field|lastTerm
@@ -272,7 +272,7 @@ name|output
 operator|=
 name|directory
 operator|.
-name|createFile
+name|createOutput
 argument_list|(
 name|segment
 operator|+

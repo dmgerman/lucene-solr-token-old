@@ -81,7 +81,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|OutputStream
+name|IndexOutput
 import|;
 end_import
 begin_class
@@ -97,12 +97,12 @@ name|fieldInfos
 decl_stmt|;
 DECL|field|fieldsStream
 specifier|private
-name|OutputStream
+name|IndexOutput
 name|fieldsStream
 decl_stmt|;
 DECL|field|indexStream
 specifier|private
-name|OutputStream
+name|IndexOutput
 name|indexStream
 decl_stmt|;
 DECL|method|FieldsWriter
@@ -128,7 +128,7 @@ name|fieldsStream
 operator|=
 name|d
 operator|.
-name|createFile
+name|createOutput
 argument_list|(
 name|segment
 operator|+
@@ -139,7 +139,7 @@ name|indexStream
 operator|=
 name|d
 operator|.
-name|createFile
+name|createOutput
 argument_list|(
 name|segment
 operator|+

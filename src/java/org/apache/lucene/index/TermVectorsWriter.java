@@ -37,7 +37,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|OutputStream
+name|IndexOutput
 import|;
 end_import
 begin_import
@@ -131,7 +131,7 @@ DECL|field|tvx
 DECL|field|tvd
 DECL|field|tvf
 specifier|private
-name|OutputStream
+name|IndexOutput
 name|tvx
 init|=
 literal|null
@@ -200,7 +200,7 @@ name|tvx
 operator|=
 name|directory
 operator|.
-name|createFile
+name|createOutput
 argument_list|(
 name|segment
 operator|+
@@ -218,7 +218,7 @@ name|tvd
 operator|=
 name|directory
 operator|.
-name|createFile
+name|createOutput
 argument_list|(
 name|segment
 operator|+
@@ -236,7 +236,7 @@ name|tvf
 operator|=
 name|directory
 operator|.
-name|createFile
+name|createOutput
 argument_list|(
 name|segment
 operator|+

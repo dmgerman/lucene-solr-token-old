@@ -113,7 +113,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|OutputStream
+name|IndexOutput
 import|;
 end_import
 begin_import
@@ -275,13 +275,13 @@ throws|throws
 name|IOException
 block|{
 comment|// NOTE: norms are re-written in regular directory, not cfs
-name|OutputStream
+name|IndexOutput
 name|out
 init|=
 name|directory
 argument_list|()
 operator|.
-name|createFile
+name|createOutput
 argument_list|(
 name|segment
 operator|+

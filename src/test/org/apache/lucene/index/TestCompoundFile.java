@@ -69,7 +69,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|OutputStream
+name|IndexOutput
 import|;
 end_import
 begin_import
@@ -226,12 +226,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|OutputStream
+name|IndexOutput
 name|os
 init|=
 name|dir
 operator|.
-name|createFile
+name|createOutput
 argument_list|(
 name|name
 argument_list|)
@@ -301,12 +301,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|OutputStream
+name|IndexOutput
 name|os
 init|=
 name|dir
 operator|.
-name|createFile
+name|createOutput
 argument_list|(
 name|name
 argument_list|)
@@ -1617,12 +1617,12 @@ throws|throws
 name|IOException
 block|{
 comment|// Setup the test file - we need more than 1024 bytes
-name|OutputStream
+name|IndexOutput
 name|os
 init|=
 name|fsdir
 operator|.
-name|createFile
+name|createOutput
 argument_list|(
 name|file
 argument_list|)
