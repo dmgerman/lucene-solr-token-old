@@ -1,8 +1,12 @@
 begin_unit
 begin_package
-DECL|package|demo.HTMLParser
+DECL|package|org.apache.lucene.HTMLParser
 package|package
-name|demo
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
 operator|.
 name|HTMLParser
 package|;
