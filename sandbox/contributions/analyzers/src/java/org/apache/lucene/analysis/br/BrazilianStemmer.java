@@ -51,24 +51,6 @@ specifier|private
 name|String
 name|RV
 decl_stmt|;
-comment|/** 	 * Buffer for the terms while stemming them. 	 */
-DECL|field|sb
-specifier|private
-name|StringBuffer
-name|sb
-init|=
-operator|new
-name|StringBuffer
-argument_list|()
-decl_stmt|;
-comment|/** 	 * Amount of characters that are removed with<tt>substitute()</tt> while stemming. 	 */
-DECL|field|substCount
-specifier|private
-name|int
-name|substCount
-init|=
-literal|0
-decl_stmt|;
 DECL|method|BrazilianStemmer
 specifier|public
 name|BrazilianStemmer
@@ -332,11 +314,6 @@ decl_stmt|;
 name|int
 name|j
 decl_stmt|;
-name|String
-name|r1
-init|=
-literal|null
-decl_stmt|;
 comment|// be-safe !!!
 if|if
 condition|(
@@ -474,11 +451,6 @@ name|i
 decl_stmt|;
 name|int
 name|j
-decl_stmt|;
-name|String
-name|r1
-init|=
-literal|null
 decl_stmt|;
 comment|// be-safe !!!
 if|if
@@ -687,9 +659,6 @@ name|String
 name|value
 parameter_list|)
 block|{
-name|int
-name|i
-decl_stmt|;
 name|int
 name|j
 decl_stmt|;
