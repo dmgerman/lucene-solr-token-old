@@ -240,7 +240,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|//found a query term - is it unique in this doc?
+comment|//found a query term - is it unique in this fragment?
 if|if
 condition|(
 operator|!
