@@ -305,6 +305,9 @@ name|bits
 argument_list|(
 name|reader
 argument_list|)
+operator|.
+name|clone
+argument_list|()
 expr_stmt|;
 operator|++
 name|i
@@ -419,6 +422,9 @@ name|bits
 argument_list|(
 name|reader
 argument_list|)
+operator|.
+name|clone
+argument_list|()
 expr_stmt|;
 operator|++
 name|i
