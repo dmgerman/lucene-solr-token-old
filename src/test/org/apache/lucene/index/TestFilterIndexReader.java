@@ -134,8 +134,6 @@ parameter_list|(
 name|TermEnum
 name|termEnum
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -203,8 +201,6 @@ parameter_list|(
 name|TermPositions
 name|in
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

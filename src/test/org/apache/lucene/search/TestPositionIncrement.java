@@ -185,15 +185,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|StringReader
 import|;
 end_import
@@ -294,8 +285,6 @@ specifier|public
 name|Token
 name|next
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
