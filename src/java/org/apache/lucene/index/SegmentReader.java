@@ -142,6 +142,9 @@ operator|.
 name|BitVector
 import|;
 end_import
+begin_comment
+comment|/**  * FIXME: Describe class<code>SegmentReader</code> here.  *  * @version $Id$  */
+end_comment
 begin_class
 DECL|class|SegmentReader
 specifier|final
@@ -438,7 +441,7 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"commit.lock"
+literal|"IndexWriter.COMMIT_LOCK_NAME"
 argument_list|)
 argument_list|,
 name|IndexWriter
