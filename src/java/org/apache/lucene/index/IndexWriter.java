@@ -1206,6 +1206,7 @@ init|=
 name|newSegmentName
 argument_list|()
 decl_stmt|;
+specifier|final
 name|SegmentMerger
 name|merger
 init|=
@@ -1215,8 +1216,6 @@ argument_list|(
 name|directory
 argument_list|,
 name|mergedName
-argument_list|,
-name|useCompoundFile
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1384,6 +1383,15 @@ name|segmentsToDelete
 argument_list|)
 expr_stmt|;
 comment|// delete now-unused segments
+if|if
+condition|(
+name|useCompoundFile
+condition|)
+name|merger
+operator|.
+name|createCompoundFile
+argument_list|()
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1641,6 +1649,7 @@ argument_list|(
 literal|"merging segments"
 argument_list|)
 expr_stmt|;
+specifier|final
 name|SegmentMerger
 name|merger
 init|=
@@ -1650,8 +1659,6 @@ argument_list|(
 name|directory
 argument_list|,
 name|mergedName
-argument_list|,
-name|useCompoundFile
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1869,6 +1876,15 @@ name|segmentsToDelete
 argument_list|)
 expr_stmt|;
 comment|// delete now-unused segments
+if|if
+condition|(
+name|useCompoundFile
+condition|)
+name|merger
+operator|.
+name|createCompoundFile
+argument_list|()
+expr_stmt|;
 return|return
 literal|null
 return|;
