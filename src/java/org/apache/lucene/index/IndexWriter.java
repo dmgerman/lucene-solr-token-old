@@ -1216,8 +1216,21 @@ name|directory
 argument_list|,
 name|mergedName
 argument_list|,
-literal|false
+name|useCompoundFile
 argument_list|)
+decl_stmt|;
+specifier|final
+name|Vector
+name|segmentsToDelete
+init|=
+operator|new
+name|Vector
+argument_list|()
+decl_stmt|;
+name|IndexReader
+name|sReader
+init|=
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1228,11 +1241,10 @@ argument_list|()
 operator|==
 literal|1
 condition|)
+block|{
 comment|// add existing index, if any
-name|merger
-operator|.
-name|add
-argument_list|(
+name|sReader
+operator|=
 operator|new
 name|SegmentReader
 argument_list|(
@@ -1243,8 +1255,23 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|merger
+operator|.
+name|add
+argument_list|(
+name|sReader
 argument_list|)
 expr_stmt|;
+name|segmentsToDelete
+operator|.
+name|addElement
+argument_list|(
+name|sReader
+argument_list|)
+expr_stmt|;
+comment|// queue segment for deletion
+block|}
 for|for
 control|(
 name|int
@@ -1304,6 +1331,17 @@ name|directory
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|sReader
+operator|!=
+literal|null
+condition|)
+name|sReader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 synchronized|synchronized
 init|(
 name|directory
@@ -1340,6 +1378,12 @@ name|directory
 argument_list|)
 expr_stmt|;
 comment|// commit changes
+name|deleteSegments
+argument_list|(
+name|segmentsToDelete
+argument_list|)
+expr_stmt|;
+comment|// delete now-unused segments
 return|return
 literal|null
 return|;
