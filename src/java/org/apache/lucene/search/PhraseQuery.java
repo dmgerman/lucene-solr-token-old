@@ -285,7 +285,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns the relative positions of terms in this phrase.    * @return    */
+comment|/**    * Returns the relative positions of terms in this phrase.    */
 DECL|method|getPositions
 specifier|public
 name|int
