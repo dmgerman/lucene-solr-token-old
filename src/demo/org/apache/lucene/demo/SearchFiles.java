@@ -1,12 +1,14 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene
+DECL|package|org.apache.lucene.demo
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|lucene
+operator|.
+name|demo
 package|;
 end_package
 begin_comment
@@ -62,7 +64,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|StopAnalyzer
+name|standard
+operator|.
+name|StandardAnalyzer
 import|;
 end_import
 begin_import
@@ -174,7 +178,7 @@ name|Analyzer
 name|analyzer
 init|=
 operator|new
-name|StopAnalyzer
+name|StandardAnalyzer
 argument_list|()
 decl_stmt|;
 name|BufferedReader
