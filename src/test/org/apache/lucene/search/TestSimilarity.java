@@ -29,7 +29,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Vector
+name|Collection
 import|;
 end_import
 begin_import
@@ -216,7 +216,7 @@ specifier|public
 name|float
 name|idf
 parameter_list|(
-name|Vector
+name|Collection
 name|terms
 parameter_list|,
 name|Searcher
