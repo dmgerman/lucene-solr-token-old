@@ -33,7 +33,7 @@ name|Hashtable
 import|;
 end_import
 begin_comment
-comment|/** Removes stop words from a token stream. */
+comment|/**  * Removes stop words from a token stream.  Position increments  * on tokens emitted are adjusted to account for words  * removed.  Exact phrase queries will not match across holes left  * by stop word removal, but sloppy phrase queries may match.  */
 end_comment
 begin_class
 DECL|class|StopFilter
@@ -49,7 +49,7 @@ specifier|private
 name|Hashtable
 name|table
 decl_stmt|;
-comment|/** Constructs a filter which removes words from the input     TokenStream that are named in the array of words. */
+comment|/** Constructs a filter which removes words from the input    TokenStream that are named in the array of words. */
 DECL|method|StopFilter
 specifier|public
 name|StopFilter
@@ -75,7 +75,7 @@ name|stopWords
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Constructs a filter which removes words from the input     TokenStream that are named in the Hashtable. */
+comment|/** Constructs a filter which removes words from the input    TokenStream that are named in the Hashtable. */
 DECL|method|StopFilter
 specifier|public
 name|StopFilter
@@ -97,7 +97,7 @@ operator|=
 name|stopTable
 expr_stmt|;
 block|}
-comment|/** Builds a Hashtable from an array of stop words, appropriate for passing     into the StopFilter constructor.  This permits this table construction to     be cached once when an Analyzer is constructed. */
+comment|/** Builds a Hashtable from an array of stop words, appropriate for passing    into the StopFilter constructor.  This permits this table construction to    be cached once when an Analyzer is constructed. */
 DECL|method|makeStopTable
 specifier|public
 specifier|static
@@ -166,6 +166,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|int
+name|position
+init|=
+literal|1
+decl_stmt|;
 comment|// return the first non-stop word found
 for|for
 control|(
@@ -188,6 +193,7 @@ operator|.
 name|next
 argument_list|()
 control|)
+block|{
 if|if
 condition|(
 name|table
@@ -201,9 +207,26 @@ argument_list|)
 operator|==
 literal|null
 condition|)
+block|{
+name|token
+operator|.
+name|setPositionIncrement
+argument_list|(
+name|position
+argument_list|)
+expr_stmt|;
+name|position
+operator|=
+literal|1
+expr_stmt|;
 return|return
 name|token
 return|;
+block|}
+name|position
+operator|++
+expr_stmt|;
+block|}
 comment|// reached EOS -- return null
 return|return
 literal|null
