@@ -34,7 +34,9 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|apache
 operator|.
 name|lucene
 operator|.
@@ -43,7 +45,9 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|apache
 operator|.
 name|lucene
 operator|.
@@ -54,7 +58,9 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|apache
 operator|.
 name|lucene
 operator|.
@@ -65,7 +71,9 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|apache
 operator|.
 name|lucene
 operator|.
@@ -76,7 +84,9 @@ import|;
 end_import
 begin_import
 import|import
-name|com
+name|org
+operator|.
+name|apache
 operator|.
 name|lucene
 operator|.
