@@ -189,6 +189,17 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|SIGRAM
+case|:
+name|token
+operator|=
+name|jj_consume_token
+argument_list|(
+name|SIGRAM
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
 literal|0
 case|:
 name|token
@@ -349,7 +360,7 @@ operator|new
 name|int
 index|[]
 block|{
-literal|0xff
+literal|0x4ff
 block|,}
 expr_stmt|;
 block|}
@@ -844,7 +855,7 @@ init|=
 operator|new
 name|boolean
 index|[
-literal|14
+literal|16
 index|]
 decl_stmt|;
 for|for
@@ -856,7 +867,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|14
+literal|16
 condition|;
 name|i
 operator|++
@@ -968,7 +979,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|14
+literal|16
 condition|;
 name|i
 operator|++
