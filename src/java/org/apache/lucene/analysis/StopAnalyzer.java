@@ -61,6 +61,8 @@ init|=
 block|{
 literal|"a"
 block|,
+literal|"an"
+block|,
 literal|"and"
 block|,
 literal|"are"
