@@ -1663,11 +1663,6 @@ block|{
 name|infoStream
 operator|.
 name|println
-argument_list|()
-expr_stmt|;
-name|infoStream
-operator|.
-name|println
 argument_list|(
 literal|" into "
 operator|+
