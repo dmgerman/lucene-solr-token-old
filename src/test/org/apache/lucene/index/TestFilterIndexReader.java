@@ -389,7 +389,7 @@ return|return
 operator|new
 name|TestTermEnum
 argument_list|(
-name|in
+name|baseReader
 operator|.
 name|terms
 argument_list|()
@@ -409,7 +409,7 @@ return|return
 operator|new
 name|TestTermPositions
 argument_list|(
-name|in
+name|baseReader
 operator|.
 name|termPositions
 argument_list|()
