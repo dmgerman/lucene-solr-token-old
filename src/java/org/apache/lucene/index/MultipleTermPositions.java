@@ -459,7 +459,6 @@ name|IntQueue
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Describe<code>next</code> method here.      *      * @return a<code>boolean</code> value      * @exception IOException if an error occurs      * @see TermDocs#next()      */
 DECL|method|next
 specifier|public
 specifier|final
@@ -597,7 +596,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Describe<code>nextPosition</code> method here.      *      * @return an<code>int</code> value      * @see TermPositions#nextPosition()      */
 DECL|method|nextPosition
 specifier|public
 specifier|final
@@ -612,7 +610,6 @@ name|next
 argument_list|()
 return|;
 block|}
-comment|/**      * Describe<code>skipTo</code> method here.      *      * @param target an<code>int</code> value      * @return a<code>boolean</code> value      * @exception IOException if an error occurs      * @see TermDocs#skipTo(int)      */
 DECL|method|skipTo
 specifier|public
 specifier|final
@@ -677,7 +674,6 @@ name|next
 argument_list|()
 return|;
 block|}
-comment|/**      * Describe<code>doc</code> method here.      *      * @return an<code>int</code> value      * @see TermDocs#doc()      */
 DECL|method|doc
 specifier|public
 specifier|final
@@ -689,7 +685,6 @@ return|return
 name|_doc
 return|;
 block|}
-comment|/**      * Describe<code>freq</code> method here.      *      * @return an<code>int</code> value      * @see TermDocs#freq()      */
 DECL|method|freq
 specifier|public
 specifier|final
@@ -701,7 +696,6 @@ return|return
 name|_freq
 return|;
 block|}
-comment|/**      * Describe<code>close</code> method here.      *      * @exception IOException if an error occurs      * @see TermDocs#close()      */
 DECL|method|close
 specifier|public
 specifier|final
@@ -734,7 +728,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Describe<code>seek</code> method here.      *      * @param arg0 a<code>Term</code> value      * @exception IOException if an error occurs      * @see TermDocs#seek(Term)      */
+comment|/** Not implemented.      * @throws UnsupportedOperationException      */
 DECL|method|seek
 specifier|public
 name|void
@@ -752,6 +746,7 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+comment|/** Not implemented.      * @throws UnsupportedOperationException      */
 DECL|method|seek
 specifier|public
 name|void
@@ -769,7 +764,7 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-comment|/**      * Describe<code>read</code> method here.      *      * @param arg0 an<code>int[]</code> value      * @param arg1 an<code>int[]</code> value      * @return an<code>int</code> value      * @exception IOException if an error occurs      * @see TermDocs#read(int[], int[])      */
+comment|/** Not implemented.      * @throws UnsupportedOperationException      */
 DECL|method|read
 specifier|public
 name|int
