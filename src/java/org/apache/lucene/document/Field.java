@@ -790,7 +790,7 @@ literal|null
 condition|)
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|NullPointerException
 argument_list|(
 literal|"name cannot be null"
 argument_list|)
@@ -803,7 +803,7 @@ literal|null
 condition|)
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|NullPointerException
 argument_list|(
 literal|"value cannot be null"
 argument_list|)
@@ -1104,7 +1104,7 @@ literal|null
 condition|)
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|NullPointerException
 argument_list|(
 literal|"name cannot be null"
 argument_list|)
@@ -1117,7 +1117,7 @@ literal|null
 condition|)
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|NullPointerException
 argument_list|(
 literal|"value cannot be null"
 argument_list|)
@@ -1195,7 +1195,7 @@ literal|null
 condition|)
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|NullPointerException
 argument_list|(
 literal|"name cannot be null"
 argument_list|)
@@ -1208,7 +1208,7 @@ literal|null
 condition|)
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|NullPointerException
 argument_list|(
 literal|"value cannot be null"
 argument_list|)
