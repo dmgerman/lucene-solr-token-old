@@ -53,6 +53,7 @@ decl_stmt|,
 name|fgBMax
 decl_stmt|;
 DECL|field|highlightForeground
+specifier|protected
 name|boolean
 name|highlightForeground
 decl_stmt|;
@@ -77,6 +78,7 @@ decl_stmt|,
 name|bgBMax
 decl_stmt|;
 DECL|field|highlightBackground
+specifier|protected
 name|boolean
 name|highlightBackground
 decl_stmt|;
