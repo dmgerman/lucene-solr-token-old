@@ -401,7 +401,9 @@ argument_list|(
 name|s
 argument_list|)
 operator|+
-literal|")"
+literal|")->"
+operator|+
+name|filter
 return|;
 block|}
 comment|/** Returns true iff<code>o</code> is equal to this. */
