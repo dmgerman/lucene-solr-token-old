@@ -468,7 +468,7 @@ name|clauses
 operator|.
 name|elementAt
 argument_list|(
-literal|0
+name|i
 argument_list|)
 decl_stmt|;
 name|Weight
@@ -601,7 +601,7 @@ name|clauses
 operator|.
 name|elementAt
 argument_list|(
-literal|0
+name|i
 argument_list|)
 decl_stmt|;
 name|Weight
