@@ -107,7 +107,7 @@ name|IndexReader
 import|;
 end_import
 begin_comment
-comment|/**  * A Filter that restricts search results to a range of time.  *  *<p>For this to work, documents must have been indexed with a  * {@link DateField}.  */
+comment|/**  * A Filter that restricts search results to a range of time.  *  *<p>For this to work, documents must have been indexed with a  * {@link DateField}.</p>  *   * @deprecated Instead, use {@link RangeFilter} combined with   *             {@link org.apache.lucene.document.DateTools}.  */
 end_comment
 begin_class
 DECL|class|DateFilter
