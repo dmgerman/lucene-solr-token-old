@@ -261,7 +261,7 @@ name|float
 index|[]
 name|normDecoder
 init|=
-name|similarity
+name|Similarity
 operator|.
 name|getNormDecoder
 argument_list|()
