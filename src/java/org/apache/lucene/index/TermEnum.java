@@ -43,7 +43,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Returns the current Term in the enumeration.     Initially invalid, valid after next() called for the first time.*/
+comment|/** Returns the current Term in the enumeration.*/
 DECL|method|term
 specifier|abstract
 specifier|public
@@ -51,7 +51,7 @@ name|Term
 name|term
 parameter_list|()
 function_decl|;
-comment|/** Returns the docFreq of the current Term in the enumeration.     Initially invalid, valid after next() called for the first time.*/
+comment|/** Returns the docFreq of the current Term in the enumeration.*/
 DECL|method|docFreq
 specifier|abstract
 specifier|public
