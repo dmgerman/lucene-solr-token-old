@@ -242,14 +242,14 @@ name|value
 decl_stmt|;
 try|try
 block|{
+name|value
+operator|=
 name|mergeFields
 argument_list|()
 expr_stmt|;
 name|mergeTerms
 argument_list|()
 expr_stmt|;
-name|value
-operator|=
 name|mergeNorms
 argument_list|()
 expr_stmt|;
@@ -497,7 +497,7 @@ block|}
 DECL|method|mergeFields
 specifier|private
 specifier|final
-name|void
+name|int
 name|mergeFields
 parameter_list|()
 throws|throws
@@ -510,6 +510,11 @@ name|FieldInfos
 argument_list|()
 expr_stmt|;
 comment|// merge field names
+name|int
+name|docCount
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -660,6 +665,7 @@ argument_list|(
 name|j
 argument_list|)
 condition|)
+block|{
 comment|// skip deleted docs
 name|fieldsWriter
 operator|.
@@ -673,6 +679,10 @@ name|j
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|docCount
+operator|++
+expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally
@@ -683,6 +693,9 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+return|return
+name|docCount
+return|;
 block|}
 DECL|field|freqOutput
 specifier|private
@@ -1405,17 +1418,12 @@ block|}
 DECL|method|mergeNorms
 specifier|private
 specifier|final
-name|int
+name|void
 name|mergeNorms
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|int
-name|docCount
-init|=
-literal|0
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -1569,9 +1577,6 @@ argument_list|(
 name|norm
 argument_list|)
 expr_stmt|;
-name|docCount
-operator|++
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -1586,9 +1591,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-return|return
-name|docCount
-return|;
 block|}
 block|}
 end_class
