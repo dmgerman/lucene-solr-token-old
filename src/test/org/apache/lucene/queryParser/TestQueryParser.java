@@ -1569,7 +1569,7 @@ literal|"[ a TO z]"
 argument_list|,
 literal|null
 argument_list|,
-literal|"[a-z]"
+literal|"[a TO z]"
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1590,7 +1590,7 @@ literal|"[ a TO z ]"
 argument_list|,
 literal|null
 argument_list|,
-literal|"[a-z]"
+literal|"[a TO z]"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1599,7 +1599,7 @@ literal|"{ a TO z}"
 argument_list|,
 literal|null
 argument_list|,
-literal|"{a-z}"
+literal|"{a TO z}"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1608,7 +1608,7 @@ literal|"{ a TO z }"
 argument_list|,
 literal|null
 argument_list|,
-literal|"{a-z}"
+literal|"{a TO z}"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1617,7 +1617,7 @@ literal|"{ a TO z }^2.0"
 argument_list|,
 literal|null
 argument_list|,
-literal|"{a-z}^2.0"
+literal|"{a TO z}^2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1626,7 +1626,7 @@ literal|"[ a TO z] OR bar"
 argument_list|,
 literal|null
 argument_list|,
-literal|"[a-z] bar"
+literal|"[a TO z] bar"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1635,7 +1635,7 @@ literal|"[ a TO z] AND bar"
 argument_list|,
 literal|null
 argument_list|,
-literal|"+[a-z] +bar"
+literal|"+[a TO z] +bar"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1644,7 +1644,7 @@ literal|"( bar blar { a TO z}) "
 argument_list|,
 literal|null
 argument_list|,
-literal|"bar blar {a-z}"
+literal|"bar blar {a TO z}"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1653,7 +1653,7 @@ literal|"gack ( bar blar { a TO z}) "
 argument_list|,
 literal|null
 argument_list|,
-literal|"gack (bar blar {a-z})"
+literal|"gack (bar blar {a TO z})"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1805,7 +1805,7 @@ argument_list|(
 name|startDate
 argument_list|)
 operator|+
-literal|"-"
+literal|" TO "
 operator|+
 name|getDate
 argument_list|(
@@ -1836,7 +1836,7 @@ argument_list|(
 name|startDate
 argument_list|)
 operator|+
-literal|"-"
+literal|" TO "
 operator|+
 name|getDate
 argument_list|(
