@@ -295,10 +295,12 @@ name|Directory
 name|cfsDir
 init|=
 name|directory
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
 name|directory
+argument_list|()
 operator|.
 name|fileExists
 argument_list|(
@@ -314,6 +316,7 @@ operator|new
 name|CompoundFileReader
 argument_list|(
 name|directory
+argument_list|()
 argument_list|,
 name|segment
 operator|+
@@ -376,6 +379,7 @@ operator|new
 name|BitVector
 argument_list|(
 name|directory
+argument_list|()
 argument_list|,
 name|segment
 operator|+
@@ -413,6 +417,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|doClose
+specifier|protected
 specifier|final
 specifier|synchronized
 name|void
@@ -429,6 +434,7 @@ block|{
 synchronized|synchronized
 init|(
 name|directory
+argument_list|()
 init|)
 block|{
 comment|// in-& inter-process sync
@@ -438,6 +444,7 @@ operator|.
 name|With
 argument_list|(
 name|directory
+argument_list|()
 operator|.
 name|makeLock
 argument_list|(
@@ -463,6 +470,7 @@ operator|.
 name|write
 argument_list|(
 name|directory
+argument_list|()
 argument_list|,
 name|segment
 operator|+
@@ -470,6 +478,7 @@ literal|".tmp"
 argument_list|)
 expr_stmt|;
 name|directory
+argument_list|()
 operator|.
 name|renameFile
 argument_list|(
@@ -483,6 +492,7 @@ literal|".del"
 argument_list|)
 expr_stmt|;
 name|directory
+argument_list|()
 operator|.
 name|touchFile
 argument_list|(
@@ -555,6 +565,7 @@ condition|(
 name|closeDirectory
 condition|)
 name|directory
+argument_list|()
 operator|.
 name|close
 argument_list|()
@@ -587,6 +598,18 @@ literal|".del"
 argument_list|)
 return|;
 block|}
+DECL|method|hasDeletions
+specifier|public
+name|boolean
+name|hasDeletions
+parameter_list|()
+block|{
+return|return
+name|deletedDocs
+operator|!=
+literal|null
+return|;
+block|}
 DECL|method|usesCompoundFile
 specifier|static
 specifier|final
@@ -615,6 +638,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|doDelete
+specifier|protected
 specifier|final
 specifier|synchronized
 name|void
@@ -730,6 +754,7 @@ decl_stmt|;
 if|if
 condition|(
 name|directory
+argument_list|()
 operator|.
 name|fileExists
 argument_list|(
