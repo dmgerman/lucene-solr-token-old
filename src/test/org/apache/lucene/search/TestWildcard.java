@@ -565,7 +565,6 @@ literal|"m?tal"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// 1
 name|Query
 name|query2
 init|=
@@ -581,7 +580,6 @@ literal|"metal?"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// 2
 name|Query
 name|query3
 init|=
@@ -597,7 +595,6 @@ literal|"metals?"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// 1
 name|Query
 name|query4
 init|=
@@ -613,7 +610,6 @@ literal|"m?t?ls"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// 3
 name|Hits
 name|result
 decl_stmt|;
