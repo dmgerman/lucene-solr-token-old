@@ -823,11 +823,6 @@ specifier|private
 name|int
 name|nDocs
 decl_stmt|;
-DECL|field|hits
-specifier|private
-name|int
-name|hits
-decl_stmt|;
 DECL|field|docs
 specifier|private
 name|TopDocs
