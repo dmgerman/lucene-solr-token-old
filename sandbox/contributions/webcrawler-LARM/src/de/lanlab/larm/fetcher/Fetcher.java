@@ -147,6 +147,11 @@ DECL|field|storage
 name|DocumentStorage
 name|storage
 decl_stmt|;
+comment|/**      * the storage where the links are saved to      */
+DECL|field|linkStorage
+name|LinkStorage
+name|linkStorage
+decl_stmt|;
 comment|/**      * the host manager keeps track of host information      */
 DECL|field|hostManager
 name|HostManager
@@ -175,6 +180,12 @@ operator|.
 name|storage
 operator|=
 name|storage
+expr_stmt|;
+name|this
+operator|.
+name|linkStorage
+operator|=
+name|linkStorage
 expr_stmt|;
 name|FetcherTask
 operator|.
