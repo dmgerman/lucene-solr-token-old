@@ -89,6 +89,9 @@ operator|.
 name|OutputStream
 import|;
 end_import
+begin_comment
+comment|/** A memory-resident {@link Directory} implementation. */
+end_comment
 begin_class
 DECL|class|RAMDirectory
 specifier|final
@@ -106,6 +109,7 @@ operator|new
 name|Hashtable
 argument_list|()
 decl_stmt|;
+comment|/** Constructs an empty {@link Directory}. */
 DECL|method|RAMDirectory
 specifier|public
 name|RAMDirectory
