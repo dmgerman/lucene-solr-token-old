@@ -145,8 +145,6 @@ name|byte
 index|[]
 name|norms
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -298,8 +296,6 @@ specifier|public
 name|float
 name|score
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|int
 name|f
