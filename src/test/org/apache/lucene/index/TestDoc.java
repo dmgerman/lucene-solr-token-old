@@ -809,8 +809,9 @@ decl_stmt|;
 name|SegmentReader
 name|r1
 init|=
-operator|new
 name|SegmentReader
+operator|.
+name|get
 argument_list|(
 operator|new
 name|SegmentInfo
@@ -826,8 +827,9 @@ decl_stmt|;
 name|SegmentReader
 name|r2
 init|=
-operator|new
 name|SegmentReader
+operator|.
+name|get
 argument_list|(
 operator|new
 name|SegmentInfo
@@ -957,8 +959,9 @@ decl_stmt|;
 name|SegmentReader
 name|reader
 init|=
-operator|new
 name|SegmentReader
+operator|.
+name|get
 argument_list|(
 operator|new
 name|SegmentInfo
