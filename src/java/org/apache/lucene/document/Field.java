@@ -41,6 +41,12 @@ specifier|public
 specifier|final
 class|class
 name|Field
+implements|implements
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
 block|{
 DECL|field|name
 specifier|private

@@ -32,6 +32,12 @@ specifier|public
 specifier|final
 class|class
 name|Document
+implements|implements
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
 block|{
 DECL|field|fieldList
 name|DocumentFieldList
@@ -259,6 +265,12 @@ DECL|class|DocumentFieldList
 specifier|final
 class|class
 name|DocumentFieldList
+implements|implements
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
 block|{
 DECL|method|DocumentFieldList
 name|DocumentFieldList
