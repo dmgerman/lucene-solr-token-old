@@ -173,6 +173,7 @@ argument_list|()
 operator|>
 name|min
 condition|)
+block|{
 name|min
 operator|=
 name|hitDocs
@@ -180,6 +181,7 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
+block|}
 name|int
 name|n
 init|=
@@ -236,6 +238,7 @@ name|score
 operator|>
 literal|1.0f
 condition|)
+block|{
 name|scoreNorm
 operator|=
 literal|1.0f
@@ -247,6 +250,7 @@ index|]
 operator|.
 name|score
 expr_stmt|;
+block|}
 name|int
 name|end
 init|=
@@ -279,6 +283,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|hitDocs
 operator|.
 name|addElement
@@ -305,6 +310,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 comment|/** Returns the total number of hits available in this set. */
 DECL|method|length
 specifier|public
@@ -317,7 +323,7 @@ return|return
 name|length
 return|;
 block|}
-comment|/** Returns the nth document in this set.<p>Documents are cached, so that repeated requests for the same element may     return the same Document object. */
+comment|/** Returns the nth document in this set.<p>Documents are cached, so that repeated requests for the same element may      return the same Document object. */
 DECL|method|doc
 specifier|public
 specifier|final
@@ -386,6 +392,7 @@ name|doc
 operator|==
 literal|null
 condition|)
+block|{
 name|hitDoc
 operator|.
 name|doc
@@ -400,6 +407,7 @@ name|id
 argument_list|)
 expr_stmt|;
 comment|// cache miss: read document
+block|}
 return|return
 name|hitDoc
 operator|.
@@ -468,6 +476,7 @@ name|n
 operator|>=
 name|length
 condition|)
+block|{
 throw|throw
 operator|new
 name|IndexOutOfBoundsException
@@ -477,6 +486,7 @@ operator|+
 name|n
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|n
@@ -486,11 +496,13 @@ operator|.
 name|size
 argument_list|()
 condition|)
+block|{
 name|getMoreDocs
 argument_list|(
 name|n
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 operator|(
 name|HitDoc
@@ -520,17 +532,21 @@ name|first
 operator|==
 literal|null
 condition|)
+block|{
 name|last
 operator|=
 name|hitDoc
 expr_stmt|;
+block|}
 else|else
+block|{
 name|first
 operator|.
 name|prev
 operator|=
 name|hitDoc
 expr_stmt|;
+block|}
 name|hitDoc
 operator|.
 name|next
@@ -570,9 +586,11 @@ name|doc
 operator|==
 literal|null
 condition|)
+block|{
 comment|// it's not in the list
 return|return;
 comment|// abort
+block|}
 if|if
 condition|(
 name|hitDoc
@@ -581,13 +599,16 @@ name|next
 operator|==
 literal|null
 condition|)
+block|{
 name|last
 operator|=
 name|hitDoc
 operator|.
 name|prev
 expr_stmt|;
+block|}
 else|else
+block|{
 name|hitDoc
 operator|.
 name|next
@@ -598,6 +619,7 @@ name|hitDoc
 operator|.
 name|prev
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|hitDoc
@@ -606,13 +628,16 @@ name|prev
 operator|==
 literal|null
 condition|)
+block|{
 name|first
 operator|=
 name|hitDoc
 operator|.
 name|next
 expr_stmt|;
+block|}
 else|else
+block|{
 name|hitDoc
 operator|.
 name|prev
@@ -623,6 +648,7 @@ name|hitDoc
 operator|.
 name|next
 expr_stmt|;
+block|}
 name|numDocs
 operator|--
 expr_stmt|;
