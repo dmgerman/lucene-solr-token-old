@@ -203,7 +203,12 @@ block|{
 throw|throw
 operator|new
 name|RuntimeException
+argument_list|(
+name|e
+operator|.
+name|toString
 argument_list|()
+argument_list|)
 throw|;
 block|}
 block|}
@@ -265,7 +270,12 @@ block|{
 throw|throw
 operator|new
 name|RuntimeException
+argument_list|(
+name|e
+operator|.
+name|toString
 argument_list|()
+argument_list|)
 throw|;
 block|}
 return|return
