@@ -71,6 +71,7 @@ init|=
 literal|null
 decl_stmt|;
 DECL|method|Lock
+specifier|public
 name|Lock
 parameter_list|(
 name|File
@@ -85,6 +86,7 @@ name|lockFile
 expr_stmt|;
 block|}
 DECL|method|Lock
+specifier|public
 name|Lock
 parameter_list|()
 block|{   }
