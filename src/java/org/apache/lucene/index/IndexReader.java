@@ -232,6 +232,10 @@ name|makeLock
 argument_list|(
 literal|"commit.lock"
 argument_list|)
+argument_list|,
+name|IndexWriter
+operator|.
+name|COMMIT_LOCK_TIMEOUT
 argument_list|)
 block|{
 specifier|public
@@ -700,7 +704,11 @@ operator|!
 name|writeLock
 operator|.
 name|obtain
-argument_list|()
+argument_list|(
+name|IndexWriter
+operator|.
+name|WRITE_LOCK_TIMEOUT
+argument_list|)
 condition|)
 comment|// obtain write lock
 throw|throw
