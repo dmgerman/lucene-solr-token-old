@@ -110,7 +110,7 @@ begin_comment
 comment|// for javadoc
 end_comment
 begin_comment
-comment|/** IndexReader is an abstract class, providing an interface for accessing an   index.  Search of an index is done entirely through this abstract interface,   so that any subclass which implements it is searchable.<p> Concrete subclasses of IndexReader are usually constructed with a call to   the static method {@link #open}.<p> For efficiency, in this API documents are often referred to via<i>document numbers</i>, non-negative integers which each name a unique   document in the index.  These document numbers are ephemeral--they may change   as documents are added to and deleted from an index.  Clients should thus not   rely on a given document having the same number between sessions. */
+comment|/** IndexReader is an abstract class, providing an interface for accessing an   index.  Search of an index is done entirely through this abstract interface,   so that any subclass which implements it is searchable.<p> Concrete subclasses of IndexReader are usually constructed with a call to   the static method {@link #open}.<p> For efficiency, in this API documents are often referred to via<i>document numbers</i>, non-negative integers which each name a unique   document in the index.  These document numbers are ephemeral--they may change   as documents are added to and deleted from an index.  Clients should thus not   rely on a given document having the same number between sessions.    @author Doug Cutting   @version $Id$ */
 end_comment
 begin_class
 DECL|class|IndexReader
@@ -242,7 +242,7 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"commit.lock"
+literal|"IndexWriter.COMMIT_LOCK_NAME"
 argument_list|)
 argument_list|,
 name|IndexWriter
@@ -731,7 +731,7 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"write.lock"
+literal|"IndexWriter.WRITE_LOCK_NAME"
 argument_list|)
 decl_stmt|;
 if|if
@@ -995,7 +995,7 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"write.lock"
+literal|"IndexWriter.WRITE_LOCK_NAME"
 argument_list|)
 operator|.
 name|isLocked
@@ -1005,7 +1005,7 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"commit.lock"
+literal|"IndexWriter.COMMIT_LOCK_NAME"
 argument_list|)
 operator|.
 name|isLocked
@@ -1056,7 +1056,7 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"write.lock"
+literal|"IndexWriter.WRITE_LOCK_NAME"
 argument_list|)
 operator|.
 name|release
@@ -1066,7 +1066,7 @@ name|directory
 operator|.
 name|makeLock
 argument_list|(
-literal|"commit.lock"
+literal|"IndexWriter.COMMIT_LOCK_NAME"
 argument_list|)
 operator|.
 name|release
