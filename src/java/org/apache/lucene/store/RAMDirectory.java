@@ -73,7 +73,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|InputStream
+name|IndexInput
 import|;
 end_import
 begin_import
@@ -86,7 +86,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|OutputStream
+name|IndexOutput
 import|;
 end_import
 begin_comment
@@ -175,10 +175,10 @@ operator|++
 control|)
 block|{
 comment|// make place on ram disk
-name|OutputStream
+name|IndexOutput
 name|os
 init|=
-name|createFile
+name|createOutput
 argument_list|(
 name|files
 index|[
@@ -187,12 +187,12 @@ index|]
 argument_list|)
 decl_stmt|;
 comment|// read current file
-name|InputStream
+name|IndexInput
 name|is
 init|=
 name|dir
 operator|.
-name|openFile
+name|openInput
 argument_list|(
 name|files
 index|[
@@ -611,11 +611,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Creates a new, empty file in the directory with the given name.       Returns a stream writing this file. */
-DECL|method|createFile
+DECL|method|createOutput
 specifier|public
 specifier|final
-name|OutputStream
-name|createFile
+name|IndexOutput
+name|createOutput
 parameter_list|(
 name|String
 name|name
@@ -646,11 +646,11 @@ argument_list|)
 return|;
 block|}
 comment|/** Returns a stream reading an existing file. */
-DECL|method|openFile
+DECL|method|openInput
 specifier|public
 specifier|final
-name|InputStream
-name|openFile
+name|IndexInput
+name|openInput
 parameter_list|(
 name|String
 name|name
@@ -715,7 +715,7 @@ name|name
 argument_list|)
 condition|)
 block|{
-name|createFile
+name|createOutput
 argument_list|(
 name|name
 argument_list|)

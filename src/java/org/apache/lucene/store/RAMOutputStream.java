@@ -32,7 +32,7 @@ specifier|public
 class|class
 name|RAMOutputStream
 extends|extends
-name|OutputStream
+name|BufferedIndexOutput
 block|{
 DECL|field|file
 specifier|private

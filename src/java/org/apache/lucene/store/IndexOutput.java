@@ -24,7 +24,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** Abstract base class for output to a file in a Directory.  A random-access  * output stream.  Used for all Lucene index output operations.  * @see Directory  * @see InputStream  */
+comment|/** Abstract base class for output to a file in a Directory.  A random-access  * output stream.  Used for all Lucene index output operations.  * @see Directory  * @see IndexInput  */
 end_comment
 begin_class
 DECL|class|IndexOutput
@@ -33,7 +33,7 @@ specifier|abstract
 class|class
 name|IndexOutput
 block|{
-comment|/** Writes a single byte.    * @see InputStream#readByte()    */
+comment|/** Writes a single byte.    * @see IndexInput#readByte()    */
 DECL|method|writeByte
 specifier|public
 specifier|abstract
@@ -46,7 +46,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Writes an array of bytes.    * @param b the bytes to write    * @param length the number of bytes to write    * @see InputStream#readBytes(byte[],int,int)    */
+comment|/** Writes an array of bytes.    * @param b the bytes to write    * @param length the number of bytes to write    * @see IndexInput#readBytes(byte[],int,int)    */
 DECL|method|writeBytes
 specifier|public
 specifier|abstract
@@ -63,7 +63,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Writes an int as four bytes.    * @see InputStream#readInt()    */
+comment|/** Writes an int as four bytes.    * @see IndexInput#readInt()    */
 DECL|method|writeInt
 specifier|public
 name|void
@@ -120,7 +120,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Writes an int in a variable-length format.  Writes between one and    * five bytes.  Smaller values take fewer bytes.  Negative numbers are not    * supported.    * @see InputStream#readVInt()    */
+comment|/** Writes an int in a variable-length format.  Writes between one and    * five bytes.  Smaller values take fewer bytes.  Negative numbers are not    * supported.    * @see IndexInput#readVInt()    */
 DECL|method|writeVInt
 specifier|public
 name|void
@@ -174,7 +174,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Writes a long as eight bytes.    * @see InputStream#readLong()    */
+comment|/** Writes a long as eight bytes.    * @see IndexInput#readLong()    */
 DECL|method|writeLong
 specifier|public
 name|void
@@ -207,7 +207,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Writes an long in a variable-length format.  Writes between one and five    * bytes.  Smaller values take fewer bytes.  Negative numbers are not    * supported.    * @see InputStream#readVLong()    */
+comment|/** Writes an long in a variable-length format.  Writes between one and five    * bytes.  Smaller values take fewer bytes.  Negative numbers are not    * supported.    * @see IndexInput#readVLong()    */
 DECL|method|writeVLong
 specifier|public
 name|void
@@ -261,7 +261,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Writes a string.    * @see InputStream#readString()    */
+comment|/** Writes a string.    * @see IndexInput#readString()    */
 DECL|method|writeString
 specifier|public
 name|void
@@ -296,7 +296,7 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Writes a sequence of UTF-8 encoded characters from a string.    * @param s the source of the characters    * @param start the first character in the sequence    * @param length the number of characters in the sequence    * @see InputStream#readChars(char[],int,int)    */
+comment|/** Writes a sequence of UTF-8 encoded characters from a string.    * @param s the source of the characters    * @param start the first character in the sequence    * @param length the number of characters in the sequence    * @see IndexInput#readChars(char[],int,int)    */
 DECL|method|writeChars
 specifier|public
 name|void
