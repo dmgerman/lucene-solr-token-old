@@ -115,6 +115,19 @@ operator|.
 name|*
 import|;
 end_import
+begin_import
+import|import
+name|de
+operator|.
+name|lanlab
+operator|.
+name|larm
+operator|.
+name|net
+operator|.
+name|*
+import|;
+end_import
 begin_comment
 comment|/**  * this factory simply creates fetcher threads. It's gonna be passed to the  * ThreadPool because the pool is creating the threads on its own  *  * @author    Administrator  * @created   17. Februar 2002  * @version $Id$  */
 end_comment
@@ -320,6 +333,9 @@ name|url
 operator|.
 name|getHost
 argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -360,7 +376,8 @@ name|Integer
 argument_list|(
 name|h
 operator|.
-name|id
+name|getId
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -390,9 +407,7 @@ comment|//log.logThreadSafe("handleRequest: other thread is loading");
 comment|// assert h.queuedRequests != null
 name|h
 operator|.
-name|queuedRequests
-operator|.
-name|insert
+name|insertIntoQueue
 argument_list|(
 name|message
 argument_list|)
@@ -605,7 +620,8 @@ literal|": starting to load "
 operator|+
 name|hostInfo
 operator|.
-name|hostName
+name|getHostName
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//hostInfo.setLoadingRobotsTxt(true);
@@ -641,7 +657,8 @@ name|HTTPConnection
 argument_list|(
 name|hostInfo
 operator|.
-name|hostName
+name|getHostName
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|conn
@@ -1014,9 +1031,7 @@ literal|": now put "
 operator|+
 name|hostInfo
 operator|.
-name|queuedRequests
-operator|.
-name|size
+name|getQueueSize
 argument_list|()
 operator|+
 literal|" queueud requests back"
@@ -1024,9 +1039,10 @@ argument_list|)
 expr_stmt|;
 name|hostInfo
 operator|.
-name|isLoadingRobotsTxt
-operator|=
+name|setLoadingRobotsTxt
+argument_list|(
 literal|false
+argument_list|)
 expr_stmt|;
 name|putBackURLs
 argument_list|()
@@ -1072,9 +1088,7 @@ literal|": now put "
 operator|+
 name|hostInfo
 operator|.
-name|queuedRequests
-operator|.
-name|size
+name|getQueueSize
 argument_list|()
 operator|+
 literal|" queueud requests back"
@@ -1082,9 +1096,10 @@ argument_list|)
 expr_stmt|;
 name|hostInfo
 operator|.
-name|isLoadingRobotsTxt
-operator|=
+name|setLoadingRobotsTxt
+argument_list|(
 literal|false
+argument_list|)
 expr_stmt|;
 name|putBackURLs
 argument_list|()
@@ -1104,9 +1119,7 @@ while|while
 condition|(
 name|hostInfo
 operator|.
-name|queuedRequests
-operator|.
-name|size
+name|getQueueSize
 argument_list|()
 operator|>
 literal|0
@@ -1121,9 +1134,7 @@ name|Message
 operator|)
 name|hostInfo
 operator|.
-name|queuedRequests
-operator|.
-name|remove
+name|removeFromQueue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1147,9 +1158,8 @@ argument_list|)
 expr_stmt|;
 name|hostInfo
 operator|.
-name|queuedRequests
-operator|=
-literal|null
+name|removeQueue
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**          * this parses the robots.txt file. It was taken from the PERL implementation          * Since this is only rarely called, it's not optimized for speed          *          * @param r                the robots.txt file          * @return                 the disallows          * @exception IOException  any IOException          */

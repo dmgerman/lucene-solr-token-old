@@ -337,6 +337,31 @@ operator|new
 name|FetcherTaskQueue
 argument_list|()
 decl_stmt|;
+name|de
+operator|.
+name|lanlab
+operator|.
+name|larm
+operator|.
+name|net
+operator|.
+name|HostManager
+name|hm
+init|=
+operator|new
+name|de
+operator|.
+name|lanlab
+operator|.
+name|larm
+operator|.
+name|net
+operator|.
+name|HostManager
+argument_list|(
+literal|10
+argument_list|)
+decl_stmt|;
 name|System
 operator|.
 name|out
@@ -369,6 +394,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -394,6 +421,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -419,6 +448,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -444,6 +475,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -469,6 +502,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -494,6 +529,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -519,6 +556,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -744,6 +783,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -769,6 +810,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -794,6 +837,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -914,6 +959,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -939,6 +986,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -964,6 +1013,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1106,6 +1157,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|hm
 argument_list|)
 argument_list|)
 argument_list|)
