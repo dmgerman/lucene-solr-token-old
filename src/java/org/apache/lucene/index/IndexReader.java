@@ -1489,7 +1489,6 @@ function_decl|;
 comment|/** Release the write lock, if needed. */
 DECL|method|finalize
 specifier|protected
-specifier|final
 name|void
 name|finalize
 parameter_list|()
