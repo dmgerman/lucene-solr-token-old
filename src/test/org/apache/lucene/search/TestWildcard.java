@@ -124,7 +124,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  *  *  */
+comment|/**  * TestWildcard tests the '*' and '?' wildard characters.  *  * @author Otis Gospodnetic  */
 end_comment
 begin_class
 DECL|class|TestWildcard
@@ -148,7 +148,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      *      */
+comment|/**      *      */
 DECL|method|testAsterisk
 specifier|public
 name|void
@@ -238,6 +238,11 @@ expr_stmt|;
 name|writer
 operator|.
 name|optimize
+argument_list|()
+expr_stmt|;
+name|writer
+operator|.
+name|close
 argument_list|()
 expr_stmt|;
 name|IndexSearcher
@@ -388,11 +393,6 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|testQuestionmark
 specifier|public
@@ -539,6 +539,11 @@ expr_stmt|;
 name|writer
 operator|.
 name|optimize
+argument_list|()
+expr_stmt|;
+name|writer
+operator|.
+name|close
 argument_list|()
 expr_stmt|;
 name|IndexSearcher
@@ -688,11 +693,6 @@ operator|.
 name|length
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}
