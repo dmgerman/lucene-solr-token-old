@@ -722,6 +722,10 @@ expr_stmt|;
 if|if
 condition|(
 name|skipDoc
+operator|!=
+literal|0
+operator|&&
+name|skipDoc
 operator|>=
 name|doc
 condition|)
