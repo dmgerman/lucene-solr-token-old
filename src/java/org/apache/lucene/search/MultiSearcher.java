@@ -72,22 +72,23 @@ name|PriorityQueue
 import|;
 end_import
 begin_comment
-comment|/** Implements search over a set of<code>Searchers</code>. */
+comment|/** Implements search over a set of<code>Searchables</code>.  *  *<p>Applications usually need only call the inherited {@link #search(Query)}  * or {@link #search(Query,Filter)} methods.  */
 end_comment
 begin_class
 DECL|class|MultiSearcher
 specifier|public
-specifier|final
 class|class
 name|MultiSearcher
 extends|extends
 name|Searcher
+implements|implements
+name|Searchable
 block|{
-DECL|field|searchers
+DECL|field|searchables
 specifier|private
-name|Searcher
+name|Searchable
 index|[]
-name|searchers
+name|searchables
 decl_stmt|;
 DECL|field|starts
 specifier|private
@@ -102,30 +103,30 @@ name|maxDoc
 init|=
 literal|0
 decl_stmt|;
-comment|/** Creates a searcher which searches<i>searchers</i>. */
+comment|/** Creates a searcher which searches<i>searchables</i>. */
 DECL|method|MultiSearcher
 specifier|public
 name|MultiSearcher
 parameter_list|(
-name|Searcher
+name|Searchable
 index|[]
-name|searchers
+name|searchables
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 name|this
 operator|.
-name|searchers
+name|searchables
 operator|=
-name|searchers
+name|searchables
 expr_stmt|;
 name|starts
 operator|=
 operator|new
 name|int
 index|[
-name|searchers
+name|searchables
 operator|.
 name|length
 operator|+
@@ -142,7 +143,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|searchers
+name|searchables
 operator|.
 name|length
 condition|;
@@ -159,7 +160,7 @@ name|maxDoc
 expr_stmt|;
 name|maxDoc
 operator|+=
-name|searchers
+name|searchables
 index|[
 name|i
 index|]
@@ -171,7 +172,7 @@ comment|// compute maxDocs
 block|}
 name|starts
 index|[
-name|searchers
+name|searchables
 operator|.
 name|length
 index|]
@@ -182,7 +183,6 @@ block|}
 comment|/** Frees resources associated with this<code>Searcher</code>. */
 DECL|method|close
 specifier|public
-specifier|final
 name|void
 name|close
 parameter_list|()
@@ -198,14 +198,14 @@ literal|0
 init|;
 name|i
 operator|<
-name|searchers
+name|searchables
 operator|.
 name|length
 condition|;
 name|i
 operator|++
 control|)
-name|searchers
+name|searchables
 index|[
 name|i
 index|]
@@ -215,7 +215,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|docFreq
-specifier|final
+specifier|public
 name|int
 name|docFreq
 parameter_list|(
@@ -239,7 +239,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|searchers
+name|searchables
 operator|.
 name|length
 condition|;
@@ -248,7 +248,7 @@ operator|++
 control|)
 name|docFreq
 operator|+=
-name|searchers
+name|searchables
 index|[
 name|i
 index|]
@@ -265,7 +265,6 @@ block|}
 comment|/** For use by {@link HitCollector} implementations. */
 DECL|method|doc
 specifier|public
-specifier|final
 name|Document
 name|doc
 parameter_list|(
@@ -285,7 +284,7 @@ argument_list|)
 decl_stmt|;
 comment|// find searcher index
 return|return
-name|searchers
+name|searchables
 index|[
 name|i
 index|]
@@ -305,7 +304,6 @@ block|}
 comment|/** For use by {@link HitCollector} implementations to identify the    * index of the sub-searcher that a particular hit came from. */
 DECL|method|searcherIndex
 specifier|public
-specifier|final
 name|int
 name|searcherIndex
 parameter_list|(
@@ -324,7 +322,7 @@ comment|// search starts array
 name|int
 name|hi
 init|=
-name|searchers
+name|searchables
 operator|.
 name|length
 operator|-
@@ -393,7 +391,7 @@ name|hi
 return|;
 block|}
 DECL|method|maxDoc
-specifier|final
+specifier|public
 name|int
 name|maxDoc
 parameter_list|()
@@ -405,7 +403,7 @@ name|maxDoc
 return|;
 block|}
 DECL|method|search
-specifier|final
+specifier|public
 name|TopDocs
 name|search
 parameter_list|(
@@ -449,7 +447,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|searchers
+name|searchables
 operator|.
 name|length
 condition|;
@@ -461,7 +459,7 @@ comment|// search each searcher
 name|TopDocs
 name|docs
 init|=
-name|searchers
+name|searchables
 index|[
 name|i
 index|]
@@ -641,7 +639,6 @@ block|}
 comment|/** Lower-level search API.    *    *<p>{@link HitCollector#collect(int,float)} is called for every non-zero    * scoring document.    *    *<p>Applications should only use this if they need<i>all</i> of the    * matching documents.  The high-level search API ({@link    * Searcher#search(Query)}) is usually more efficient, as it skips    * non-high-scoring hits.    *    * @param query to match documents    * @param filter if non-null, a bitset used to eliminate some documents    * @param results to receive hits    */
 DECL|method|search
 specifier|public
-specifier|final
 name|void
 name|search
 parameter_list|(
@@ -667,7 +664,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|searchers
+name|searchables
 operator|.
 name|length
 condition|;
@@ -684,7 +681,7 @@ index|[
 name|i
 index|]
 decl_stmt|;
-name|searchers
+name|searchables
 index|[
 name|i
 index|]

@@ -67,7 +67,6 @@ comment|/** A Query that matches documents containing a term.   This may be comb
 end_comment
 begin_class
 DECL|class|TermQuery
-specifier|final
 specifier|public
 class|class
 name|TermQuery

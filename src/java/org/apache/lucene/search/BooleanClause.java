@@ -20,7 +20,6 @@ end_comment
 begin_class
 DECL|class|BooleanClause
 specifier|public
-specifier|final
 class|class
 name|BooleanClause
 block|{

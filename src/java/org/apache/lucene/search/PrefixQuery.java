@@ -80,7 +80,6 @@ comment|/** A Query that matches documents containing terms with a specified pre
 end_comment
 begin_class
 DECL|class|PrefixQuery
-specifier|final
 specifier|public
 class|class
 name|PrefixQuery

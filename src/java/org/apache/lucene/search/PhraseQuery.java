@@ -89,7 +89,6 @@ comment|/** A Query that matches documents containing a particular sequence of t
 end_comment
 begin_class
 DECL|class|PhraseQuery
-specifier|final
 specifier|public
 class|class
 name|PhraseQuery
@@ -140,7 +139,6 @@ block|{   }
 comment|/** Sets the number of other words permitted between words in query phrase.     If zero, then this is an exact phrase search.  For larger values this works     like a<code>WITHIN</code> or<code>NEAR</code> operator.<p>The slop is in fact an edit-distance, where the units correspond to     moves of terms in the query phrase out of position.  For example, to switch     the order of two words requires two moves (the first move places the words     atop one another), so to permit re-orderings of phrases, the slop must be     at least two.<p>More exact matches are scored higher than sloppier matches, thus search     results are sorted by exactness.<p>The slop is zero by default, requiring exact matches.*/
 DECL|method|setSlop
 specifier|public
-specifier|final
 name|void
 name|setSlop
 parameter_list|(
@@ -156,7 +154,6 @@ block|}
 comment|/** Returns the slop.  See setSlop(). */
 DECL|method|getSlop
 specifier|public
-specifier|final
 name|int
 name|getSlop
 parameter_list|()
@@ -168,7 +165,6 @@ block|}
 comment|/** Adds a term to the end of the query phrase. */
 DECL|method|add
 specifier|public
-specifier|final
 name|void
 name|add
 parameter_list|(
@@ -499,7 +495,6 @@ block|}
 comment|/** Prints a user-readable version of this query. */
 DECL|method|toString
 specifier|public
-specifier|final
 name|String
 name|toString
 parameter_list|(

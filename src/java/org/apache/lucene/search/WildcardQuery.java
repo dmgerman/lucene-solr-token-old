@@ -54,7 +54,6 @@ comment|/** Implements the wildcard search query */
 end_comment
 begin_class
 DECL|class|WildcardQuery
-specifier|final
 specifier|public
 class|class
 name|WildcardQuery
