@@ -105,7 +105,6 @@ end_comment
 begin_class
 DECL|class|FSDirectory
 specifier|public
-specifier|final
 class|class
 name|FSDirectory
 extends|extends
@@ -608,7 +607,6 @@ block|}
 comment|/** Returns an array of strings, one for each file in the directory. */
 DECL|method|list
 specifier|public
-specifier|final
 name|String
 index|[]
 name|list
@@ -624,7 +622,6 @@ block|}
 comment|/** Returns true iff a file with the given name exists. */
 DECL|method|fileExists
 specifier|public
-specifier|final
 name|boolean
 name|fileExists
 parameter_list|(
@@ -653,7 +650,6 @@ block|}
 comment|/** Returns the time the named file was last modified. */
 DECL|method|fileModified
 specifier|public
-specifier|final
 name|long
 name|fileModified
 parameter_list|(
@@ -683,7 +679,6 @@ comment|/** Returns the time the named file was last modified. */
 DECL|method|fileModified
 specifier|public
 specifier|static
-specifier|final
 name|long
 name|fileModified
 parameter_list|(
@@ -747,7 +742,6 @@ block|}
 comment|/** Returns the length in bytes of a file in the directory. */
 DECL|method|fileLength
 specifier|public
-specifier|final
 name|long
 name|fileLength
 parameter_list|(
@@ -776,7 +770,6 @@ block|}
 comment|/** Removes an existing file in the directory. */
 DECL|method|deleteFile
 specifier|public
-specifier|final
 name|void
 name|deleteFile
 parameter_list|(
@@ -818,7 +811,6 @@ block|}
 comment|/** Renames an existing file in the directory. */
 DECL|method|renameFile
 specifier|public
-specifier|final
 specifier|synchronized
 name|void
 name|renameFile
@@ -1084,7 +1076,6 @@ block|}
 comment|/** Creates a new, empty file in the directory with the given name.       Returns a stream writing this file. */
 DECL|method|createFile
 specifier|public
-specifier|final
 name|OutputStream
 name|createFile
 parameter_list|(
@@ -1111,7 +1102,6 @@ block|}
 comment|/** Returns a stream reading an existing file. */
 DECL|method|openFile
 specifier|public
-specifier|final
 name|InputStream
 name|openFile
 parameter_list|(
@@ -1181,7 +1171,6 @@ decl_stmt|;
 comment|/** Constructs a {@link Lock} with the specified name.  Locks are implemented    * with {@link File#createNewFile() }.    *    *<p>In JDK 1.1 or if system property<I>disableLuceneLocks</I> is the    * string "true", locks are disabled.  Assigning this property any other    * string will<B>not</B> prevent creation of lock files.  This is useful for    * using Lucene on read-only medium, such as CD-ROM.    *    * @param name the name of the lock file    * @return an instance of<code>Lock</code> holding the lock    */
 DECL|method|makeLock
 specifier|public
-specifier|final
 name|Lock
 name|makeLock
 parameter_list|(
@@ -1463,7 +1452,6 @@ block|}
 comment|/** Closes the store to future operations. */
 DECL|method|close
 specifier|public
-specifier|final
 specifier|synchronized
 name|void
 name|close
@@ -1519,7 +1507,6 @@ block|}
 end_class
 begin_class
 DECL|class|FSInputStream
-specifier|final
 class|class
 name|FSInputStream
 extends|extends
@@ -1623,7 +1610,6 @@ block|}
 comment|/** InputStream methods */
 DECL|method|readInternal
 specifier|protected
-specifier|final
 name|void
 name|readInternal
 parameter_list|(
@@ -1735,7 +1721,6 @@ block|}
 block|}
 DECL|method|close
 specifier|public
-specifier|final
 name|void
 name|close
 parameter_list|()
@@ -1756,7 +1741,6 @@ block|}
 comment|/** Random-access methods */
 DECL|method|seekInternal
 specifier|protected
-specifier|final
 name|void
 name|seekInternal
 parameter_list|(
@@ -1766,7 +1750,6 @@ parameter_list|)
 block|{   }
 DECL|method|finalize
 specifier|protected
-specifier|final
 name|void
 name|finalize
 parameter_list|()
@@ -1827,7 +1810,6 @@ block|}
 end_class
 begin_class
 DECL|class|FSOutputStream
-specifier|final
 class|class
 name|FSOutputStream
 extends|extends
@@ -1863,7 +1845,6 @@ block|}
 comment|/** output methods: */
 DECL|method|flushBuffer
 specifier|public
-specifier|final
 name|void
 name|flushBuffer
 parameter_list|(
@@ -1891,7 +1872,6 @@ expr_stmt|;
 block|}
 DECL|method|close
 specifier|public
-specifier|final
 name|void
 name|close
 parameter_list|()
@@ -1912,7 +1892,6 @@ block|}
 comment|/** Random-access methods */
 DECL|method|seek
 specifier|public
-specifier|final
 name|void
 name|seek
 parameter_list|(
@@ -1939,7 +1918,6 @@ expr_stmt|;
 block|}
 DECL|method|length
 specifier|public
-specifier|final
 name|long
 name|length
 parameter_list|()
@@ -1955,7 +1933,6 @@ return|;
 block|}
 DECL|method|finalize
 specifier|protected
-specifier|final
 name|void
 name|finalize
 parameter_list|()
