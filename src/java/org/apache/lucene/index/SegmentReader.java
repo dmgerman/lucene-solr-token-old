@@ -926,8 +926,6 @@ parameter_list|(
 name|int
 name|docNum
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -966,8 +964,6 @@ specifier|final
 name|void
 name|doUndeleteAll
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|deletedDocs
 operator|=
@@ -1138,8 +1134,6 @@ specifier|final
 name|TermEnum
 name|terms
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|tis
@@ -1353,8 +1347,6 @@ specifier|public
 name|Collection
 name|getFieldNames
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 comment|// maintain a unique set of field names
 name|Set
@@ -1415,8 +1407,6 @@ parameter_list|(
 name|boolean
 name|indexed
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 comment|// maintain a unique set of field names
 name|Set
@@ -1975,8 +1965,6 @@ parameter_list|,
 name|String
 name|field
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 comment|// Check if this field is invalid or has no stored term vector
 name|FieldInfo
@@ -2024,8 +2012,6 @@ parameter_list|(
 name|int
 name|docNumber
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
