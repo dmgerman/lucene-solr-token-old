@@ -72,7 +72,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Hashtable
+name|Set
 import|;
 end_import
 begin_comment
@@ -91,10 +91,10 @@ specifier|private
 name|String
 name|name
 decl_stmt|;
-DECL|field|stopTable
+DECL|field|stopSet
 specifier|private
-name|Hashtable
-name|stopTable
+name|Set
+name|stopSet
 decl_stmt|;
 comment|/** Builds the named analyzer with no stop words. */
 DECL|method|SnowballAnalyzer
@@ -130,11 +130,11 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-name|stopTable
+name|stopSet
 operator|=
 name|StopFilter
 operator|.
-name|makeStopTable
+name|makeStopSet
 argument_list|(
 name|stopWords
 argument_list|)
@@ -180,7 +180,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|stopTable
+name|stopSet
 operator|!=
 literal|null
 condition|)
@@ -191,7 +191,7 @@ name|StopFilter
 argument_list|(
 name|result
 argument_list|,
-name|stopTable
+name|stopSet
 argument_list|)
 expr_stmt|;
 name|result
