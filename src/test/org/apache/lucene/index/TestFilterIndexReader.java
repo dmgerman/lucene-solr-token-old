@@ -243,16 +243,16 @@ specifier|public
 name|TestTermEnum
 parameter_list|(
 name|TermEnum
-name|enum
-constructor|)
+name|termEnum
+parameter_list|)
 throws|throws
 name|IOException
 block|{
 name|super
 argument_list|(
-expr|enum
+name|termEnum
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 block|}
 comment|/** Scan for terms containing the letter 'e'.*/
 DECL|method|next
@@ -417,11 +417,7 @@ argument_list|)
 return|;
 block|}
 block|}
-end_class
-begin_comment
 comment|/** Main for running test case by itself. */
-end_comment
-begin_function
 DECL|method|main
 specifier|public
 specifier|static
@@ -447,11 +443,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_comment
 comment|/**    * Tests the IndexReader.getFieldNames implementation    * @throws Exception on error    */
-end_comment
-begin_function
 DECL|method|testFilterIndexReader
 specifier|public
 name|void
@@ -671,6 +663,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-unit|}
+block|}
+end_class
 end_unit
