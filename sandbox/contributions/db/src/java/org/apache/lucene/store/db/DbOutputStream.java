@@ -160,6 +160,11 @@ name|files
 decl_stmt|,
 name|blocks
 decl_stmt|;
+DECL|field|flags
+specifier|protected
+name|int
+name|flags
+decl_stmt|;
 DECL|method|DbOutputStream
 specifier|protected
 name|DbOutputStream
@@ -172,6 +177,9 @@ name|blocks
 parameter_list|,
 name|DbTxn
 name|txn
+parameter_list|,
+name|int
+name|flags
 parameter_list|,
 name|String
 name|name
@@ -203,6 +211,12 @@ name|txn
 operator|=
 name|txn
 expr_stmt|;
+name|this
+operator|.
+name|flags
+operator|=
+name|flags
+expr_stmt|;
 name|file
 operator|=
 operator|new
@@ -213,6 +227,8 @@ argument_list|,
 name|blocks
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|,
 name|name
 argument_list|,
@@ -246,6 +262,8 @@ argument_list|(
 name|blocks
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 block|}
@@ -273,6 +291,8 @@ argument_list|(
 name|blocks
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 name|file
@@ -282,6 +302,8 @@ argument_list|(
 name|files
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|,
 name|length
 argument_list|,
@@ -365,6 +387,8 @@ argument_list|(
 name|blocks
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 name|len
@@ -393,6 +417,8 @@ argument_list|(
 name|blocks
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 name|blockPos
@@ -528,6 +554,8 @@ argument_list|(
 name|blocks
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 name|block
@@ -544,6 +572,8 @@ argument_list|(
 name|blocks
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 name|position

@@ -203,7 +203,12 @@ specifier|protected
 name|DbTxn
 name|txn
 decl_stmt|;
-comment|/**      * Instantiate a DbDirectory. The same threading rules that apply to      * Berkeley DB handles apply to instances of DbDirectory.      *      * @param txn a transaction handle that is going to be used for all db      * operations done by this instance. This parameter may be      *<code>null</code>.      * @param files a db handle to store file records.      * @param blocks a db handle to store file data blocks.      */
+DECL|field|flags
+specifier|protected
+name|int
+name|flags
+decl_stmt|;
+comment|/**      * Instantiate a DbDirectory. The same threading rules that apply to      * Berkeley DB handles apply to instances of DbDirectory.      *      * @param txn a transaction handle that is going to be used for all db      * operations done by this instance. This parameter may be      *<code>null</code>.      * @param files a db handle to store file records.      * @param blocks a db handle to store file data blocks.      * @param flags flags used for db read operations.      */
 DECL|method|DbDirectory
 specifier|public
 name|DbDirectory
@@ -216,6 +221,9 @@ name|files
 parameter_list|,
 name|Db
 name|blocks
+parameter_list|,
+name|int
+name|flags
 parameter_list|)
 block|{
 name|super
@@ -226,6 +234,12 @@ operator|.
 name|txn
 operator|=
 name|txn
+expr_stmt|;
+name|this
+operator|.
+name|flags
+operator|=
+name|flags
 expr_stmt|;
 name|this
 operator|.
@@ -269,6 +283,8 @@ name|blocks
 argument_list|,
 name|txn
 argument_list|,
+name|flags
+argument_list|,
 name|name
 argument_list|,
 literal|true
@@ -299,6 +315,8 @@ argument_list|,
 name|blocks
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|)
 expr_stmt|;
 block|}
@@ -325,6 +343,8 @@ argument_list|(
 name|files
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|)
 return|;
 block|}
@@ -357,6 +377,8 @@ argument_list|(
 name|files
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|)
 condition|)
 return|return
@@ -404,6 +426,8 @@ argument_list|(
 name|files
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|)
 condition|)
 return|return
@@ -493,7 +517,7 @@ name|cursor
 argument_list|(
 name|txn
 argument_list|,
-literal|0
+name|flags
 argument_list|)
 expr_stmt|;
 if|if
@@ -509,6 +533,8 @@ argument_list|,
 name|Db
 operator|.
 name|DB_SET_RANGE
+operator||
+name|flags
 argument_list|)
 operator|!=
 name|Db
@@ -570,6 +596,8 @@ argument_list|,
 name|Db
 operator|.
 name|DB_NEXT
+operator||
+name|flags
 argument_list|)
 operator|!=
 name|Db
@@ -691,6 +719,8 @@ name|blocks
 argument_list|,
 name|txn
 argument_list|,
+name|flags
+argument_list|,
 name|name
 argument_list|)
 return|;
@@ -738,6 +768,8 @@ name|blocks
 argument_list|,
 name|txn
 argument_list|,
+name|flags
+argument_list|,
 name|to
 argument_list|)
 expr_stmt|;
@@ -776,6 +808,8 @@ argument_list|(
 name|files
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|)
 condition|)
 name|length
@@ -792,6 +826,8 @@ argument_list|(
 name|files
 argument_list|,
 name|txn
+argument_list|,
+name|flags
 argument_list|,
 name|length
 argument_list|,
