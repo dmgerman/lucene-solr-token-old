@@ -296,6 +296,9 @@ condition|)
 block|{
 name|result
 operator|=
+operator|(
+name|BitSet
+operator|)
 name|chain
 index|[
 name|i
@@ -413,6 +416,9 @@ condition|)
 block|{
 name|result
 operator|=
+operator|(
+name|BitSet
+operator|)
 name|chain
 index|[
 name|i
