@@ -153,7 +153,7 @@ name|next
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**       * Returns the docFreq of the current Term in the enumeration.      * Initially invalid, valid after next() called for the first time.       */
+comment|/**       * Returns the docFreq of the current Term in the enumeration.      * Returns -1 if no Term matches or all terms have been enumerated.      */
 DECL|method|docFreq
 specifier|public
 name|int
@@ -261,7 +261,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/** Returns the current Term in the enumeration.      * Initially invalid, valid after next() called for the first time. */
+comment|/** Returns the current Term in the enumeration.      * Returns null if no Term matches or all terms have been enumerated. */
 DECL|method|term
 specifier|public
 name|Term
