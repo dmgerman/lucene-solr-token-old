@@ -176,7 +176,7 @@ literal|"das"
 block|,
 literal|"dass"
 block|,
-literal|"da§"
+literal|"daß"
 block|,
 literal|"du"
 block|,
@@ -228,7 +228,7 @@ literal|"ihres"
 block|,
 literal|"als"
 block|,
-literal|"fr"
+literal|"für"
 block|,
 literal|"von"
 block|,
