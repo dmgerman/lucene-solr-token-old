@@ -73,6 +73,15 @@ operator|.
 name|Hashtable
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
 begin_comment
 comment|/**  * Filters CJKTokenizer with StopFilter.  *  * @author Che, Dong  */
 end_comment
@@ -171,7 +180,7 @@ comment|//~ Instance fields ----------------------------------------------------
 comment|/** stop word list */
 DECL|field|stopTable
 specifier|private
-name|Hashtable
+name|HashSet
 name|stopTable
 decl_stmt|;
 comment|//~ Constructors -----------------------------------------------------------
@@ -185,7 +194,7 @@ name|stopTable
 operator|=
 name|StopFilter
 operator|.
-name|makeStopTable
+name|makeStopSet
 argument_list|(
 name|stopWords
 argument_list|)
@@ -205,7 +214,7 @@ name|stopTable
 operator|=
 name|StopFilter
 operator|.
-name|makeStopTable
+name|makeStopSet
 argument_list|(
 name|stopWords
 argument_list|)

@@ -70,11 +70,20 @@ name|java
 operator|.
 name|util
 operator|.
-name|Hashtable
+name|HashMap
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
 import|;
 end_import
 begin_comment
-comment|/**  *  * @author Edwin de Jonge  *  * A filter that stems Dutch words. It supports a table of words that should  * not be stemmed at all. The stemmer used can be changed at runtime after the  * filter object is created (as long as it is a DutchStemmer).  */
+comment|/**  * @author Edwin de Jonge  *<p/>  *         A filter that stems Dutch words. It supports a table of words that should  *         not be stemmed at all. The stemmer used can be changed at runtime after the  *         filter object is created (as long as it is a DutchStemmer).  */
 end_comment
 begin_class
 DECL|class|DutchStemFilter
@@ -85,7 +94,7 @@ name|DutchStemFilter
 extends|extends
 name|TokenFilter
 block|{
-comment|/** 	 * The actual token in the input stream. 	 */
+comment|/**    * The actual token in the input stream.    */
 DECL|field|token
 specifier|private
 name|Token
@@ -102,7 +111,7 @@ literal|null
 decl_stmt|;
 DECL|field|exclusions
 specifier|private
-name|Hashtable
+name|HashSet
 name|exclusions
 init|=
 literal|null
@@ -127,7 +136,7 @@ name|DutchStemmer
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Builds a DutchStemFilter that uses an exclusiontable. 	 */
+comment|/**    * Builds a DutchStemFilter that uses an exclusiontable.    */
 DECL|method|DutchStemFilter
 specifier|public
 name|DutchStemFilter
@@ -135,7 +144,7 @@ parameter_list|(
 name|TokenStream
 name|_in
 parameter_list|,
-name|Hashtable
+name|HashSet
 name|exclusiontable
 parameter_list|)
 block|{
@@ -149,7 +158,7 @@ operator|=
 name|exclusiontable
 expr_stmt|;
 block|}
-comment|/** 	 * @param stemdictionary Dictionary of word stem pairs, that overrule the algorithm 	 */
+comment|/**    * @param stemdictionary Dictionary of word stem pairs, that overrule the algorithm    */
 DECL|method|DutchStemFilter
 specifier|public
 name|DutchStemFilter
@@ -157,10 +166,10 @@ parameter_list|(
 name|TokenStream
 name|_in
 parameter_list|,
-name|Hashtable
+name|HashSet
 name|exclusiontable
 parameter_list|,
-name|Hashtable
+name|HashMap
 name|stemdictionary
 parameter_list|)
 block|{
@@ -179,7 +188,7 @@ name|stemdictionary
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * @return Returns the next token in the stream, or null at EOS 	 */
+comment|/**    * @return Returns the next token in the stream, or null at EOS    */
 DECL|method|next
 specifier|public
 name|Token
@@ -287,7 +296,7 @@ name|token
 return|;
 block|}
 block|}
-comment|/** 	 * Set a alternative/custom DutchStemmer for this filter. 	 */
+comment|/**    * Set a alternative/custom DutchStemmer for this filter.    */
 DECL|method|setStemmer
 specifier|public
 name|void
@@ -312,13 +321,13 @@ name|stemmer
 expr_stmt|;
 block|}
 block|}
-comment|/** 	 * Set an alternative exclusion list for this filter. 	 */
+comment|/**    * Set an alternative exclusion list for this filter.    */
 DECL|method|setExclusionTable
 specifier|public
 name|void
 name|setExclusionTable
 parameter_list|(
-name|Hashtable
+name|HashSet
 name|exclusiontable
 parameter_list|)
 block|{
@@ -327,13 +336,13 @@ operator|=
 name|exclusiontable
 expr_stmt|;
 block|}
-comment|/** 	 * Set dictionary for stemming, this dictionary overrules the algorithm, 	 * so you can correct for a particular unwanted word-stem pair. 	 */
+comment|/**    * Set dictionary for stemming, this dictionary overrules the algorithm,    * so you can correct for a particular unwanted word-stem pair.    */
 DECL|method|setStemDictionary
 specifier|public
 name|void
 name|setStemDictionary
 parameter_list|(
-name|Hashtable
+name|HashMap
 name|dict
 parameter_list|)
 block|{
