@@ -93,7 +93,34 @@ name|java
 operator|.
 name|io
 operator|.
+name|BufferedOutputStream
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileOutputStream
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|File
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|PrintStream
 import|;
 end_import
 begin_import
@@ -177,8 +204,17 @@ operator|.
 name|TreeSet
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeMap
+import|;
+end_import
 begin_comment
-comment|/**  * Convert the prolog file wn_s.pl from the wordnet prolog download  * into a Lucene index suitable for looking up synonyms.  * The index is named 'syn_index' and has fields named "word"  * and "syn".  *<p>  * The source word (such as 'big') can be looked up in the  * "word" field, and if present there will be fields named "syn"  * for every synonym.  *</p>  *<p>  * While the wordnet file distinguishes groups of synonyms with  * related meanings we don't do that here.  *</p>  *<p>  * By default, with no args, we expect the prolog  * file to be at 'c:/proj/wordnet/prolog/wn_s.pl' and will  * write to an index named 'syn_index' in the current dir.  * See constants at the bottom of this file to change these.  *</p>  * See also:  *<br/>  * http://www.cogsci.princeton.edu/~wn/  *<br/>  * http://www.tropo.com/techno/java/lucene/wordnet.html  *  * @author Dave Spencer, dave@lumos.com  */
+comment|/**  * Convert the prolog file wn_s.pl from the<a href="http://www.cogsci.princeton.edu/~wn/obtain.shtml">WordNet prolog download</a>  * into a Lucene index suitable for looking up synonyms and performing query expansion.  *  * The index has fields named "word" ({@see #F_WORD})  * and "syn" ({@see #F_SYN}).  *<p>  * The source word (such as 'big') can be looked up in the  * "word" field, and if present there will be fields named "syn"  * for every synonym. What's tricky here is that there could be<b>multiple</b>  * fields with the same name, in the general case for words that have multiple synonyms.  * That's not a problem with Lucene, you just use {@see org.apache.lucene.document.Document#getValues}  *</p>  *<p>  * While the WordNet file distinguishes groups of synonyms with  * related meanings we don't do that here.  *</p>  *  * This can take 8 minutes to execute and build an index on a "fast" system and the index takes up almost 3 MB.  * If you boost the minMergeDocuments and mergeFactor of the index writer than you can get this down to under 4 minutes.  *  * @author Dave Spencer, dave&#064;searchmorph.com  * @see<a href="http://www.cogsci.princeton.edu/~wn/">WordNet home page</a>  * @see<a href="http://www.cogsci.princeton.edu/~wn/man/prologdb.5WN.html">prologdb man page</a>  * @see<a href="http://www.hostmon.com/rfc/advanced.jsp">sample site that uses it</a>  */
 end_comment
 begin_class
 DECL|class|Syns2Index
@@ -186,6 +222,51 @@ specifier|public
 class|class
 name|Syns2Index
 block|{
+comment|/** 	 * 	 */
+DECL|field|o
+specifier|private
+specifier|static
+specifier|final
+name|PrintStream
+name|o
+init|=
+name|System
+operator|.
+name|out
+decl_stmt|;
+comment|/** 	 * 	 */
+DECL|field|err
+specifier|private
+specifier|static
+specifier|final
+name|PrintStream
+name|err
+init|=
+name|System
+operator|.
+name|err
+decl_stmt|;
+comment|/** 	 * 	 */
+DECL|field|F_SYN
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|F_SYN
+init|=
+literal|"syn"
+decl_stmt|;
+comment|/** 	 * 	 */
+DECL|field|F_WORD
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|F_WORD
+init|=
+literal|"word"
+decl_stmt|;
+comment|/** 	 * 	 */
 DECL|field|ana
 specifier|private
 specifier|static
@@ -217,6 +298,7 @@ name|prologFilename
 init|=
 literal|null
 decl_stmt|;
+comment|// name of file "wn_s.pl"
 name|String
 name|indexDir
 init|=
@@ -275,8 +357,6 @@ name|canRead
 argument_list|()
 condition|)
 block|{
-name|System
-operator|.
 name|err
 operator|.
 name|println
@@ -309,8 +389,6 @@ name|isDirectory
 argument_list|()
 condition|)
 block|{
-name|System
-operator|.
 name|err
 operator|.
 name|println
@@ -320,8 +398,6 @@ operator|+
 name|indexDir
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
 name|err
 operator|.
 name|println
@@ -337,9 +413,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
+name|o
 operator|.
 name|println
 argument_list|(
@@ -381,7 +455,7 @@ name|Map
 name|word2Nums
 init|=
 operator|new
-name|HashMap
+name|TreeMap
 argument_list|()
 decl_stmt|;
 comment|// maps a group to all the words in it
@@ -390,7 +464,7 @@ name|Map
 name|num2Words
 init|=
 operator|new
-name|HashMap
+name|TreeMap
 argument_list|()
 decl_stmt|;
 comment|// number of rejected words
@@ -411,6 +485,15 @@ init|=
 literal|1
 decl_stmt|;
 comment|// parse prolog file
+name|o
+operator|.
+name|println
+argument_list|(
+literal|"[1/2] Parsing "
+operator|+
+name|prologFilename
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 operator|(
@@ -437,18 +520,17 @@ name|mod
 operator|==
 literal|0
 condition|)
+comment|// periodically print out line we read in
 block|{
 name|mod
 operator|*=
 literal|2
 expr_stmt|;
-name|System
-operator|.
-name|out
+name|o
 operator|.
 name|println
 argument_list|(
-literal|""
+literal|"\t"
 operator|+
 name|row
 operator|+
@@ -488,8 +570,6 @@ literal|"s("
 argument_list|)
 condition|)
 block|{
-name|System
-operator|.
 name|err
 operator|.
 name|println
@@ -718,6 +798,27 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// create the index
+name|o
+operator|.
+name|println
+argument_list|(
+literal|"[2/2] Building index to store synonyms, "
+operator|+
+literal|" map sizes are "
+operator|+
+name|word2Nums
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" and "
+operator|+
+name|num2Words
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|index
 argument_list|(
 name|indexDir
@@ -837,6 +938,18 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|writer
+operator|.
+name|mergeFactor
+operator|*=
+literal|2
+expr_stmt|;
+name|writer
+operator|.
+name|minMergeDocs
+operator|*=
+literal|2
+expr_stmt|;
 name|Iterator
 name|i1
 init|=
@@ -900,13 +1013,24 @@ name|doc
 operator|.
 name|add
 argument_list|(
+operator|new
 name|Field
-operator|.
-name|Keyword
 argument_list|(
-literal|"word"
+name|F_WORD
 argument_list|,
 name|g
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|YES
+argument_list|,
+name|Field
+operator|.
+name|Index
+operator|.
+name|UN_TOKENIZED
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -922,15 +1046,20 @@ operator|==
 literal|0
 condition|)
 block|{
-name|System
-operator|.
-name|out
+name|o
 operator|.
 name|println
 argument_list|(
-literal|"row="
+literal|"\trow="
 operator|+
 name|row
+operator|+
+literal|"/"
+operator|+
+name|word2Nums
+operator|.
+name|size
+argument_list|()
 operator|+
 literal|" doc= "
 operator|+
@@ -952,6 +1081,13 @@ expr_stmt|;
 block|}
 comment|// else degenerate
 block|}
+name|o
+operator|.
+name|println
+argument_list|(
+literal|"Optimizing.."
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|optimize
@@ -1104,13 +1240,24 @@ name|doc
 operator|.
 name|add
 argument_list|(
+operator|new
 name|Field
-operator|.
-name|UnIndexed
 argument_list|(
-literal|"syn"
+name|F_SYN
 argument_list|,
 name|cur
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|YES
+argument_list|,
+name|Field
+operator|.
+name|Index
+operator|.
+name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1119,6 +1266,7 @@ return|return
 name|num
 return|;
 block|}
+comment|/** 	 * 	 */
 DECL|method|usage
 specifier|private
 specifier|static
@@ -1126,9 +1274,7 @@ name|void
 name|usage
 parameter_list|()
 block|{
-name|System
-operator|.
-name|out
+name|o
 operator|.
 name|println
 argument_list|(
