@@ -102,6 +102,10 @@ name|TermPositions
 index|[]
 name|tps
 parameter_list|,
+name|int
+index|[]
+name|positions
+parameter_list|,
 name|Similarity
 name|similarity
 parameter_list|,
@@ -165,7 +169,10 @@ index|[
 name|i
 index|]
 argument_list|,
+name|positions
+index|[
 name|i
+index|]
 argument_list|)
 decl_stmt|;
 if|if

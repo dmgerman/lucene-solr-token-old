@@ -59,6 +59,10 @@ name|TermPositions
 index|[]
 name|tps
 parameter_list|,
+name|int
+index|[]
+name|positions
+parameter_list|,
 name|Similarity
 name|similarity
 parameter_list|,
@@ -75,6 +79,8 @@ argument_list|(
 name|weight
 argument_list|,
 name|tps
+argument_list|,
+name|positions
 argument_list|,
 name|similarity
 argument_list|,
