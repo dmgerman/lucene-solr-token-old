@@ -157,10 +157,10 @@ name|IOException
 block|{
 name|idf
 operator|=
-name|searcher
-operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+name|searcher
+argument_list|)
 operator|.
 name|idf
 argument_list|(
@@ -251,10 +251,10 @@ name|this
 argument_list|,
 name|termDocs
 argument_list|,
-name|searcher
-operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+name|searcher
+argument_list|)
 argument_list|,
 name|reader
 operator|.
