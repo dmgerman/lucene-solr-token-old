@@ -42,18 +42,20 @@ name|R1
 decl_stmt|,
 name|R2
 decl_stmt|;
-comment|// letters
+comment|// letters (currently unused letters are commented out)
 DECL|field|A
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|A
 init|=
 literal|0
 decl_stmt|;
-comment|//private static char B = 1;
+comment|//private final static char B = 1;
 DECL|field|V
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|V
@@ -62,25 +64,28 @@ literal|2
 decl_stmt|;
 DECL|field|G
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|G
 init|=
 literal|3
 decl_stmt|;
-comment|//private static char D = 4;
+comment|//private final static char D = 4;
 DECL|field|E
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|E
 init|=
 literal|5
 decl_stmt|;
-comment|//private static char ZH = 6;
-comment|//private static char Z = 7;
+comment|//private final static char ZH = 6;
+comment|//private final static char Z = 7;
 DECL|field|I
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|I
@@ -89,15 +94,17 @@ literal|8
 decl_stmt|;
 DECL|field|I_
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|I_
 init|=
 literal|9
 decl_stmt|;
-comment|//private static char K = 10;
+comment|//private final static char K = 10;
 DECL|field|L
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|L
@@ -106,6 +113,7 @@ literal|11
 decl_stmt|;
 DECL|field|M
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|M
@@ -114,6 +122,7 @@ literal|12
 decl_stmt|;
 DECL|field|N
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|N
@@ -122,16 +131,18 @@ literal|13
 decl_stmt|;
 DECL|field|O
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|O
 init|=
 literal|14
 decl_stmt|;
-comment|//private static char P = 15;
-comment|//private static char R = 16;
+comment|//private final static char P = 15;
+comment|//private final static char R = 16;
 DECL|field|S
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|S
@@ -140,6 +151,7 @@ literal|17
 decl_stmt|;
 DECL|field|T
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|T
@@ -148,25 +160,28 @@ literal|18
 decl_stmt|;
 DECL|field|U
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|U
 init|=
 literal|19
 decl_stmt|;
-comment|//private static char F = 20;
+comment|//private final static char F = 20;
 DECL|field|X
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|X
 init|=
 literal|21
 decl_stmt|;
-comment|//private static char TS = 22;
-comment|//private static char CH = 23;
+comment|//private final static char TS = 22;
+comment|//private final static char CH = 23;
 DECL|field|SH
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|SH
@@ -175,15 +190,17 @@ literal|24
 decl_stmt|;
 DECL|field|SHCH
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|SHCH
 init|=
 literal|25
 decl_stmt|;
-comment|//private static char HARD = 26;
+comment|//private final static char HARD = 26;
 DECL|field|Y
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|Y
@@ -192,6 +209,7 @@ literal|27
 decl_stmt|;
 DECL|field|SOFT
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|SOFT
@@ -200,6 +218,7 @@ literal|28
 decl_stmt|;
 DECL|field|AE
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|AE
@@ -208,6 +227,7 @@ literal|29
 decl_stmt|;
 DECL|field|IU
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|IU
@@ -216,6 +236,7 @@ literal|30
 decl_stmt|;
 DECL|field|IA
 specifier|private
+specifier|final
 specifier|static
 name|char
 name|IA
