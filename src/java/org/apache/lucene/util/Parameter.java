@@ -100,7 +100,7 @@ name|String
 name|name
 parameter_list|)
 block|{
-comment|//  typesafe enum pattern, no public constructor
+comment|// typesafe enum pattern, no public constructor
 name|this
 operator|.
 name|name
