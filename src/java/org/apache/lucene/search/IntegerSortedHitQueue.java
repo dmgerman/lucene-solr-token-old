@@ -76,7 +76,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Expert: A sorted hit queue for fields that contain strictly integer values.  * Hits are sorted into the queue by the values in the field and then by document number.  *  *<p>Created: Jan 30, 2004 3:35:09 PM   *   * @author  Tim Jones (Nacimiento Software)  * @since   lucene 1.4  * @version $Id$  */
+comment|/**  * Expert: A sorted hit queue for fields that contain strictly integer values.  * Hits are sorted into the queue by the values in the field and then by document number.  *  *<p>Created: Jan 30, 2004 3:35:09 PM  *  * @author  Tim Jones (Nacimiento Software)  * @since   lucene 1.4  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|IntegerSortedHitQueue
@@ -137,7 +137,7 @@ name|field
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Returns a comparator for sorting hits according to a field containing integers. 	 * @param reader  Index to use. 	 * @param field  Field containg integer values. 	 * @return  Comparator for sorting hits. 	 * @throws IOException If an error occurs reading the index. 	 */
+comment|/** 	 * Returns a comparator for sorting hits according to a field containing integers. 	 * @param reader  Index to use. 	 * @param fieldname  Field containg integer values. 	 * @return  Comparator for sorting hits. 	 * @throws IOException If an error occurs reading the index. 	 */
 DECL|method|comparator
 specifier|static
 name|ScoreDocLookupComparator
@@ -149,11 +149,20 @@ name|reader
 parameter_list|,
 specifier|final
 name|String
-name|field
+name|fieldname
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
+name|String
+name|field
+init|=
+name|fieldname
+operator|.
+name|intern
+argument_list|()
+decl_stmt|;
 return|return
 operator|new
 name|ScoreDocLookupComparator
@@ -496,7 +505,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/** 	 * Returns a comparator for sorting hits according to a field containing integers using the given enumerator 	 * to collect term values. 	 * @param reader  Index to use. 	 * @param field  Field containg integer values. 	 * @return  Comparator for sorting hits. 	 * @throws IOException If an error occurs reading the index. 	 */
+comment|/** 	 * Returns a comparator for sorting hits according to a field containing integers using the given enumerator 	 * to collect term values. 	 * @param reader  Index to use. 	 * @param fieldname  Field containg integer values. 	 * @return  Comparator for sorting hits. 	 * @throws IOException If an error occurs reading the index. 	 */
 DECL|method|comparator
 specifier|static
 name|ScoreDocLookupComparator
@@ -512,11 +521,20 @@ name|enumerator
 parameter_list|,
 specifier|final
 name|String
-name|field
+name|fieldname
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
+name|String
+name|field
+init|=
+name|fieldname
+operator|.
+name|intern
+argument_list|()
+decl_stmt|;
 return|return
 operator|new
 name|ScoreDocLookupComparator

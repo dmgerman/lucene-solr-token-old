@@ -160,6 +160,9 @@ operator|.
 name|field
 operator|=
 name|field
+operator|.
+name|intern
+argument_list|()
 expr_stmt|;
 block|}
 comment|/** Creates a sort, possibly in reverse, by terms in the given field where    * the type of term value is determined dynamically ({@link #AUTO AUTO}).    * @param field Name of field to sort by, cannot be<code>null</code>.    * @param reverse True if natural order should be reversed.    */
@@ -179,6 +182,9 @@ operator|.
 name|field
 operator|=
 name|field
+operator|.
+name|intern
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -203,6 +209,17 @@ name|this
 operator|.
 name|field
 operator|=
+operator|(
+name|field
+operator|!=
+literal|null
+operator|)
+condition|?
+name|field
+operator|.
+name|intern
+argument_list|()
+else|:
 name|field
 expr_stmt|;
 name|this
@@ -231,6 +248,17 @@ name|this
 operator|.
 name|field
 operator|=
+operator|(
+name|field
+operator|!=
+literal|null
+operator|)
+condition|?
+name|field
+operator|.
+name|intern
+argument_list|()
+else|:
 name|field
 expr_stmt|;
 name|this
