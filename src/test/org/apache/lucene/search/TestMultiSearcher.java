@@ -713,7 +713,7 @@ name|assertEquals
 argument_list|(
 literal|4
 argument_list|,
-name|hits
+name|hits2
 operator|.
 name|length
 argument_list|()
@@ -903,7 +903,7 @@ name|assertEquals
 argument_list|(
 literal|3
 argument_list|,
-name|hits
+name|hits3
 operator|.
 name|length
 argument_list|()
