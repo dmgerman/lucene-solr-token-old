@@ -83,7 +83,7 @@ name|TokenStream
 import|;
 end_import
 begin_comment
-comment|/**  * Test case for FrenchAnalyzer.  *  * @author    Jean-François Halleux  * @version   $version$  */
+comment|/**  * Test case for FrenchAnalyzer.  *  * @author    Jean-FranÃ§ois Halleux  * @version   $version$  */
 end_comment
 begin_class
 DECL|class|TestFrenchAnalyzer
@@ -384,7 +384,7 @@ name|assertAnalyzesTo
 argument_list|(
 name|fa
 argument_list|,
-literal|"Jean-François"
+literal|"Jean-FranÃ§ois"
 argument_list|,
 operator|new
 name|String
@@ -392,7 +392,7 @@ index|[]
 block|{
 literal|"jean"
 block|,
-literal|"françois"
+literal|"franÃ§ois"
 block|}
 argument_list|)
 expr_stmt|;
@@ -401,7 +401,7 @@ name|assertAnalyzesTo
 argument_list|(
 name|fa
 argument_list|,
-literal|"le la chien les aux chat du des à cheval"
+literal|"le la chien les aux chat du des Ã  cheval"
 argument_list|,
 operator|new
 name|String
@@ -420,7 +420,7 @@ name|assertAnalyzesTo
 argument_list|(
 name|fa
 argument_list|,
-literal|"lances chismes habitable chiste éléments captifs"
+literal|"lances chismes habitable chiste Ã©lÃ©ments captifs"
 argument_list|,
 operator|new
 name|String
@@ -434,7 +434,7 @@ literal|"habit"
 block|,
 literal|"chist"
 block|,
-literal|"élément"
+literal|"Ã©lÃ©ment"
 block|,
 literal|"captif"
 block|}
@@ -465,7 +465,7 @@ name|assertAnalyzesTo
 argument_list|(
 name|fa
 argument_list|,
-literal|"C3PO aujourd'hui oeuf ïâöûàä anticonstitutionnellement Java++ "
+literal|"C3PO aujourd'hui oeuf Ã¯Ã¢Ã¶Ã»Ã Ã¤ anticonstitutionnellement Java++ "
 argument_list|,
 operator|new
 name|String
@@ -477,7 +477,7 @@ literal|"aujourd'hui"
 block|,
 literal|"oeuf"
 block|,
-literal|"ïâöûàä"
+literal|"Ã¯Ã¢Ã¶Ã»Ã Ã¤"
 block|,
 literal|"anticonstitutionnel"
 block|,
