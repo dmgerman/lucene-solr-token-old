@@ -74,19 +74,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|HitCollector
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|Directory
@@ -103,19 +90,6 @@ operator|.
 name|analysis
 operator|.
 name|Analyzer
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|StopAnalyzer
 import|;
 end_import
 begin_import
@@ -157,15 +131,6 @@ operator|.
 name|queryParser
 operator|.
 name|ParseException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Vector
 import|;
 end_import
 begin_import
@@ -269,12 +234,7 @@ literal|null
 decl_stmt|;
 comment|// static Logger logger = Logger.getLogger(SearchBean.class.getName());
 comment|// static Logger searchLogger = Logger.getLogger("searchLog");
-DECL|method|SearchBean
-specifier|private
-name|SearchBean
-parameter_list|()
-block|{     }
-comment|/** Creates new SearchBean      * @param path to index      */
+comment|/** Creates new SearchBean      */
 DECL|method|SearchBean
 specifier|public
 name|SearchBean
@@ -654,7 +614,6 @@ operator|+
 name|querySortField
 return|;
 block|}
-comment|/** setter for queryString      */
 DECL|method|setQueryString
 specifier|public
 name|void
@@ -671,7 +630,6 @@ operator|=
 name|queryString
 expr_stmt|;
 block|}
-comment|/** getter for queryString      */
 DECL|method|getQueryString
 specifier|public
 name|String
@@ -682,7 +640,7 @@ return|return
 name|queryString
 return|;
 block|}
-comment|/** getter for Lucene Query      */
+comment|/** Parses the query      * @todo allow for user defined analyzer      */
 DECL|method|getQuery
 specifier|private
 name|Query
@@ -724,7 +682,6 @@ return|return
 name|query
 return|;
 block|}
-comment|/** Getter for property defaulSearchField.      * @return Value of property defaulSearchField.      */
 DECL|method|getDefaultSearchField
 specifier|public
 name|String
@@ -735,16 +692,11 @@ return|return
 name|defaultSearchField
 return|;
 block|}
-comment|/** Setter for property defaulSearchField.      * @param defaulSearchField New value of property defaulSearchField.      */
 DECL|method|setDefaultSearchField
 specifier|public
 name|void
 name|setDefaultSearchField
 parameter_list|(
-name|java
-operator|.
-name|lang
-operator|.
 name|String
 name|defaultSearchField
 parameter_list|)
@@ -756,7 +708,6 @@ operator|=
 name|defaultSearchField
 expr_stmt|;
 block|}
-comment|/** Getter for property searchTime.      * @return Value of property searchTime.      */
 DECL|method|getSearchTime
 specifier|public
 name|long
@@ -767,7 +718,6 @@ return|return
 name|searchTime
 return|;
 block|}
-comment|/** Setter for property searchTime.      * @param searchTime New value of property searchTime.      */
 DECL|method|setSearchTime
 specifier|public
 name|void
@@ -784,7 +734,6 @@ operator|=
 name|searchTime
 expr_stmt|;
 block|}
-comment|/** Getter for property querySortField.      * @return Value of property querySortField.      */
 DECL|method|getQuerySortField
 specifier|public
 name|java
@@ -799,7 +748,6 @@ return|return
 name|querySortField
 return|;
 block|}
-comment|/** Setter for property querySortField.      * @param querySortField New value of property querySortField.      */
 DECL|method|setQuerySortField
 specifier|public
 name|void
@@ -816,7 +764,6 @@ operator|=
 name|querySortField
 expr_stmt|;
 block|}
-comment|/** Getter for property hitsIterator.      * @return Value of property hitsIterator.      */
 DECL|method|getHitsIterator
 specifier|public
 name|HitsIterator
@@ -827,7 +774,6 @@ return|return
 name|hitsIterator
 return|;
 block|}
-comment|/** Setter for property hitsIterator.      * @param hitsIterator New value of property hitsIterator.      */
 DECL|method|setHitsIterator
 specifier|public
 name|void
@@ -844,13 +790,8 @@ operator|=
 name|hitsIterator
 expr_stmt|;
 block|}
-comment|/** Getter for property queryType.      * @return Value of property queryType.      */
 DECL|method|getQueryType
 specifier|public
-name|java
-operator|.
-name|lang
-operator|.
 name|String
 name|getQueryType
 parameter_list|()
@@ -859,16 +800,11 @@ return|return
 name|queryType
 return|;
 block|}
-comment|/** Setter for property queryType.      * @param queryType New value of property queryType.      */
 DECL|method|setQueryType
 specifier|public
 name|void
 name|setQueryType
 parameter_list|(
-name|java
-operator|.
-name|lang
-operator|.
 name|String
 name|queryType
 parameter_list|)
@@ -880,17 +816,8 @@ operator|=
 name|queryType
 expr_stmt|;
 block|}
-comment|/** Getter for property directory.      * @return Value of property directory.      */
 DECL|method|getDirectory
 specifier|public
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
 name|Directory
 name|getDirectory
 parameter_list|()
@@ -899,20 +826,11 @@ return|return
 name|directory
 return|;
 block|}
-comment|/** Setter for property directory.      * @param directory New value of property directory.      */
 DECL|method|setDirectory
 specifier|public
 name|void
 name|setDirectory
 parameter_list|(
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
 name|Directory
 name|directory
 parameter_list|)
