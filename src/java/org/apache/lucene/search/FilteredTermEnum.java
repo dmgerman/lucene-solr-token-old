@@ -156,6 +156,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|term
+operator|!=
+literal|null
+operator|&&
 name|termCompare
 argument_list|(
 name|term

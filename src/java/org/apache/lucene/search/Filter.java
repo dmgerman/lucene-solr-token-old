@@ -50,8 +50,8 @@ comment|/** Abstract base class providing a mechanism to restrict searches to a 
 end_comment
 begin_class
 DECL|class|Filter
-specifier|abstract
 specifier|public
+specifier|abstract
 class|class
 name|Filter
 implements|implements
@@ -63,8 +63,8 @@ name|Serializable
 block|{
 comment|/** Returns a BitSet with true for documents which should be permitted in     search results, and false for those that should not. */
 DECL|method|bits
-specifier|abstract
 specifier|public
+specifier|abstract
 name|BitSet
 name|bits
 parameter_list|(

@@ -28,8 +28,8 @@ comment|/** An Analyzer builds TokenStreams, which analyze text.  It thus repres
 end_comment
 begin_class
 DECL|class|Analyzer
-specifier|abstract
 specifier|public
+specifier|abstract
 class|class
 name|Analyzer
 block|{

@@ -28,14 +28,14 @@ comment|/** Abstract class for output to a file in a Directory.  A random-access
 end_comment
 begin_class
 DECL|class|OutputStream
-specifier|abstract
 specifier|public
+specifier|abstract
 class|class
 name|OutputStream
 block|{
 DECL|field|BUFFER_SIZE
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|BUFFER_SIZE
 init|=
@@ -593,8 +593,8 @@ expr_stmt|;
 block|}
 comment|/** Expert: implements buffer write.  Writes bytes at the current position in    * the output.    * @param b the bytes to write    * @param len the number of bytes to write    */
 DECL|method|flushBuffer
-specifier|abstract
 specifier|protected
+specifier|abstract
 name|void
 name|flushBuffer
 parameter_list|(
@@ -659,8 +659,8 @@ expr_stmt|;
 block|}
 comment|/** The number of bytes in the file. */
 DECL|method|length
-specifier|abstract
 specifier|public
+specifier|abstract
 name|long
 name|length
 parameter_list|()

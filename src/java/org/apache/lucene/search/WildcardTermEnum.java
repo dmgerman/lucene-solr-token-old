@@ -257,8 +257,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|termCompare
-specifier|final
 specifier|protected
+specifier|final
 name|boolean
 name|termCompare
 parameter_list|(
@@ -317,8 +317,8 @@ literal|false
 return|;
 block|}
 DECL|method|difference
-specifier|final
 specifier|public
+specifier|final
 name|float
 name|difference
 parameter_list|()
@@ -328,8 +328,8 @@ literal|1.0f
 return|;
 block|}
 DECL|method|endEnum
-specifier|final
 specifier|public
+specifier|final
 name|boolean
 name|endEnum
 parameter_list|()

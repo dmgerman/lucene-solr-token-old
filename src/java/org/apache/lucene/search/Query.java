@@ -63,8 +63,8 @@ comment|/** The abstract base class for queries.<p>Instantiable subclasses are:<
 end_comment
 begin_class
 DECL|class|Query
-specifier|abstract
 specifier|public
+specifier|abstract
 class|class
 name|Query
 implements|implements
@@ -216,8 +216,8 @@ return|;
 block|}
 comment|/**      * Prints a query to a string, with<code>field</code> as the default field      * for terms.      *<p>The representation used is one that is readable by      * {@link org.apache.lucene.queryParser.QueryParser QueryParser}      * (although, if the query was created by the parser, the printed      * representation may not be exactly what was parsed).      */
 DECL|method|toString
-specifier|abstract
 specifier|public
+specifier|abstract
 name|String
 name|toString
 parameter_list|(

@@ -906,8 +906,8 @@ name|array
 return|;
 block|}
 DECL|method|quickSort
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|void
 name|quickSort

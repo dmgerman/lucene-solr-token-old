@@ -28,15 +28,15 @@ comment|/** A TokenStream enumerates the sequence of tokens, either from   field
 end_comment
 begin_class
 DECL|class|TokenStream
-specifier|abstract
 specifier|public
+specifier|abstract
 class|class
 name|TokenStream
 block|{
 comment|/** Returns the next token in the stream, or null at EOS. */
 DECL|method|next
-specifier|abstract
 specifier|public
+specifier|abstract
 name|Token
 name|next
 parameter_list|()

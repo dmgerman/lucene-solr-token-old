@@ -37,8 +37,8 @@ comment|/** A Tokenizer is a TokenStream whose input is a Reader.<p>   This is a
 end_comment
 begin_class
 DECL|class|Tokenizer
-specifier|abstract
 specifier|public
+specifier|abstract
 class|class
 name|Tokenizer
 extends|extends

@@ -28,8 +28,8 @@ comment|/** A TokenFilter is a TokenStream whose input is another token stream.<
 end_comment
 begin_class
 DECL|class|TokenFilter
-specifier|abstract
 specifier|public
+specifier|abstract
 class|class
 name|TokenFilter
 extends|extends

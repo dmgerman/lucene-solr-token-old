@@ -67,8 +67,8 @@ comment|/** Subclass of FilteredTermEnum for enumerating all terms that are simi
 end_comment
 begin_class
 DECL|class|FuzzyTermEnum
-specifier|final
 specifier|public
+specifier|final
 class|class
 name|FuzzyTermEnum
 extends|extends
@@ -179,8 +179,8 @@ expr_stmt|;
 block|}
 comment|/**      The termCompare method in FuzzyTermEnum uses Levenshtein distance to       calculate the distance between the given term and the comparing term.       */
 DECL|method|termCompare
-specifier|final
 specifier|protected
+specifier|final
 name|boolean
 name|termCompare
 parameter_list|(
@@ -268,8 +268,8 @@ literal|false
 return|;
 block|}
 DECL|method|difference
-specifier|final
 specifier|protected
+specifier|final
 name|float
 name|difference
 parameter_list|()
@@ -290,8 +290,8 @@ argument_list|)
 return|;
 block|}
 DECL|method|endEnum
-specifier|final
 specifier|public
+specifier|final
 name|boolean
 name|endEnum
 parameter_list|()
@@ -328,8 +328,8 @@ decl_stmt|;
 comment|/**      Finds and returns the smallest of three integers       */
 DECL|method|min
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|int
 name|min
 parameter_list|(

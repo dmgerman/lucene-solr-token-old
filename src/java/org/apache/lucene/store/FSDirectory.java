@@ -77,8 +77,8 @@ comment|/**  * Straightforward implementation of {@link Directory} as a director
 end_comment
 begin_class
 DECL|class|FSDirectory
-specifier|final
 specifier|public
+specifier|final
 class|class
 name|FSDirectory
 extends|extends
@@ -522,8 +522,6 @@ name|name
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|SecurityException
 block|{
 name|File
 name|file
