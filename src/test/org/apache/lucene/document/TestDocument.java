@@ -165,15 +165,6 @@ operator|.
 name|Hits
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
 begin_comment
 comment|/**  * Copyright 2004 The Apache Software Foundation  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
@@ -188,7 +179,7 @@ name|TestDocument
 extends|extends
 name|TestCase
 block|{
-comment|/**    * Tests {@link Document#remove()} method for a brand new Document    * that has not been indexed yet.    *    * @throws Exception on error    */
+comment|/**    * Tests {@link Document#removeField(String)} method for a brand new Document    * that has not been indexed yet.    *    * @throws Exception on error    */
 DECL|method|testRemoveForNewDocument
 specifier|public
 name|void
@@ -398,7 +389,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Tests {@link Document#getValues()} method for a brand new Document      * that has not been indexed yet.      *      * @throws Exception on error      */
+comment|/**      * Tests {@link Document#getValues(String)} method for a brand new Document      * that has not been indexed yet.      *      * @throws Exception on error      */
 DECL|method|testGetValuesForNewDocument
 specifier|public
 name|void
@@ -416,7 +407,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Tests {@link Document#getValues()} method for a Document retrieved from      * an index.      *      * @throws Exception on error      */
+comment|/**      * Tests {@link Document#getValues(String)} method for a Document retrieved from      * an index.      *      * @throws Exception on error      */
 DECL|method|testGetValuesForIndexedDocument
 specifier|public
 name|void
@@ -560,8 +551,6 @@ specifier|private
 name|Document
 name|makeDocumentWithFields
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|Document
 name|doc
@@ -602,13 +591,24 @@ name|doc
 operator|.
 name|add
 argument_list|(
+operator|new
 name|Field
-operator|.
-name|Text
 argument_list|(
 literal|"text"
 argument_list|,
 literal|"test1"
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|YES
+argument_list|,
+name|Field
+operator|.
+name|Index
+operator|.
+name|TOKENIZED
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -616,13 +616,24 @@ name|doc
 operator|.
 name|add
 argument_list|(
+operator|new
 name|Field
-operator|.
-name|Text
 argument_list|(
 literal|"text"
 argument_list|,
 literal|"test2"
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|YES
+argument_list|,
+name|Field
+operator|.
+name|Index
+operator|.
+name|TOKENIZED
 argument_list|)
 argument_list|)
 expr_stmt|;
