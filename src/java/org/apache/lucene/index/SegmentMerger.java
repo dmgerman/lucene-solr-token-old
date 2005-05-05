@@ -1761,8 +1761,6 @@ specifier|private
 name|void
 name|resetSkip
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|skipBuffer
 operator|.

@@ -560,8 +560,6 @@ specifier|public
 name|float
 name|sumOfSquaredWeights
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|queryWeight
 operator|=
