@@ -173,7 +173,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|testCase
+name|TestCase
 operator|.
 name|assertEquals
 argument_list|(
@@ -213,7 +213,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|testCase
+name|TestCase
 operator|.
 name|assertEquals
 argument_list|(
@@ -248,7 +248,7 @@ name|i
 operator|++
 control|)
 block|{
-name|testCase
+name|TestCase
 operator|.
 name|assertEquals
 argument_list|(
@@ -368,7 +368,7 @@ operator|>
 name|scoreTolerance
 condition|)
 block|{
-name|testCase
+name|TestCase
 operator|.
 name|fail
 argument_list|(
