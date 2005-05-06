@@ -136,10 +136,11 @@ name|LuceneIterator
 implements|implements
 name|Iterator
 block|{
+DECL|field|termEnum
 specifier|private
 name|TermEnum
-name|enum
-type|;
+name|termEnum
+decl_stmt|;
 DECL|field|actualTerm
 specifier|private
 name|Term
@@ -157,7 +158,8 @@ parameter_list|()
 block|{
 try|try
 block|{
-enum_decl|enum =
+name|termEnum
+operator|=
 name|reader
 operator|.
 name|terms
@@ -236,7 +238,7 @@ comment|// if there is still words
 if|if
 condition|(
 operator|!
-expr|enum
+name|termEnum
 operator|.
 name|next
 argument_list|()
@@ -253,7 +255,7 @@ block|}
 comment|//  if the next word are in the field
 name|actualTerm
 operator|=
-expr|enum
+name|termEnum
 operator|.
 name|term
 argument_list|()
