@@ -75,9 +75,6 @@ parameter_list|,
 name|int
 index|[]
 name|results
-parameter_list|,
-name|TestCase
-name|testCase
 parameter_list|)
 throws|throws
 name|IOException
@@ -206,9 +203,6 @@ name|results
 parameter_list|,
 name|Hits
 name|hits
-parameter_list|,
-name|TestCase
-name|testCase
 parameter_list|)
 throws|throws
 name|IOException
@@ -292,9 +286,6 @@ parameter_list|,
 name|int
 index|[]
 name|results
-parameter_list|,
-name|TestCase
-name|testCase
 parameter_list|)
 throws|throws
 name|IOException
@@ -306,8 +297,6 @@ argument_list|,
 name|results
 argument_list|,
 name|hits1
-argument_list|,
-name|testCase
 argument_list|)
 expr_stmt|;
 name|checkDocIds
@@ -317,8 +306,6 @@ argument_list|,
 name|results
 argument_list|,
 name|hits2
-argument_list|,
-name|testCase
 argument_list|)
 expr_stmt|;
 specifier|final

@@ -368,8 +368,6 @@ argument_list|,
 name|hits2
 argument_list|,
 name|expDocNrs
-argument_list|,
-name|this
 argument_list|)
 expr_stmt|;
 block|}
