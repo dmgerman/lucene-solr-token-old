@@ -194,7 +194,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**    * @param path      Path to the wordlist    * @param wordfile  Name of the wordlist    *     * @deprecated Use {@link #getWordSet(File)} getWordSet(File)} instead    */
+comment|/**    * @param path      Path to the wordlist    * @param wordfile  Name of the wordlist    *     * @deprecated Use {@link #getWordSet(File)} instead    */
 DECL|method|getWordtable
 specifier|public
 specifier|static
@@ -223,7 +223,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**    * @param wordfile  Complete path to the wordlist    *     * @deprecated Use {@link #getWordSet(File)} getWordSet(File)} instead    */
+comment|/**    * @param wordfile  Complete path to the wordlist    *     * @deprecated Use {@link #getWordSet(File)} instead    */
 DECL|method|getWordtable
 specifier|public
 specifier|static
@@ -247,7 +247,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**    * @param wordfile  File object that points to the wordlist    *    * @deprecated Use {@link #getWordSet(File)} getWordSet(File)} instead    */
+comment|/**    * @param wordfile  File object that points to the wordlist    *    * @deprecated Use {@link #getWordSet(File)} instead    */
 DECL|method|getWordtable
 specifier|public
 specifier|static
