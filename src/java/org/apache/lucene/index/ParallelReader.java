@@ -1318,14 +1318,15 @@ specifier|private
 name|String
 name|field
 decl_stmt|;
+DECL|field|termEnum
 specifier|private
 name|TermEnum
-name|enum
-type|;
+name|termEnum
+decl_stmt|;
 DECL|method|ParallelTermEnum
 specifier|public
 name|ParallelTermEnum
-decl|()
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -1338,14 +1339,15 @@ name|fieldToReader
 operator|.
 name|firstKey
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|field
 operator|!=
 literal|null
 condition|)
-enum_decl|enum =
+name|termEnum
+operator|=
 operator|(
 operator|(
 name|IndexReader
@@ -1379,7 +1381,8 @@ operator|.
 name|field
 argument_list|()
 expr_stmt|;
-enum_decl|enum =
+name|termEnum
+operator|=
 operator|(
 operator|(
 name|IndexReader
@@ -1417,7 +1420,8 @@ literal|false
 return|;
 name|boolean
 name|next
-init|= enum
+init|=
+name|termEnum
 operator|.
 name|next
 argument_list|()
@@ -1427,7 +1431,7 @@ if|if
 condition|(
 name|next
 operator|&&
-expr|enum
+name|termEnum
 operator|.
 name|term
 argument_list|()
@@ -1441,11 +1445,12 @@ return|return
 literal|true
 return|;
 comment|// yes, keep going
-enum_decl|enum.
+name|termEnum
+operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// close old enum
+comment|// close old termEnum
 comment|// find the next field, if any
 name|field
 operator|=
@@ -1469,7 +1474,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-enum_decl|enum =
+name|termEnum
+operator|=
 operator|(
 operator|(
 name|IndexReader
@@ -1500,7 +1506,8 @@ name|Term
 name|term
 parameter_list|()
 block|{
-return|return enum
+return|return
+name|termEnum
 operator|.
 name|term
 argument_list|()
@@ -1512,7 +1519,8 @@ name|int
 name|docFreq
 parameter_list|()
 block|{
-return|return enum
+return|return
+name|termEnum
 operator|.
 name|docFreq
 argument_list|()
@@ -1526,17 +1534,14 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-enum_decl|enum.
+name|termEnum
+operator|.
 name|close
 argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_class
-begin_comment
 comment|// wrap a TermDocs in order to support seek(Term)
-end_comment
-begin_class
 DECL|class|ParallelTermDocs
 specifier|private
 class|class
@@ -1729,8 +1734,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_class
-begin_class
 DECL|class|ParallelTermPositions
 specifier|private
 class|class
@@ -1816,6 +1819,6 @@ argument_list|()
 return|;
 block|}
 block|}
+block|}
 end_class
-unit|}
 end_unit
