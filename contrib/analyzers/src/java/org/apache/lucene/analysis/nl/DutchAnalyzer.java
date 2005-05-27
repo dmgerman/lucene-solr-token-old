@@ -140,7 +140,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * @author Edwin de Jonge  *<p/>  *         Analyzer for Dutch language. Supports an external list of stopwords (words that  *         will not be indexed at all), an external list of exclusions (word that will  *         not be stemmed, but indexed) and an external list of word-stem pairs that overrule  *         the algorithm (dictionary stemming).  *         A default set of stopwords is used unless an alternative list is specified, the  *         exclusion list is empty by default.  *         As start for the Analyzer the German Analyzer was used. The stemming algorithm  *         implemented can be found at @link  */
+comment|/**  * Analyzer for Dutch language. Supports an external list of stopwords (words that  * will not be indexed at all), an external list of exclusions (word that will  * not be stemmed, but indexed) and an external list of word-stem pairs that overrule  * the algorithm (dictionary stemming).  * A default set of stopwords is used unless an alternative list is specified, the  * exclusion list is empty by default.  *   * @author Edwin de Jonge  */
 end_comment
 begin_class
 DECL|class|DutchAnalyzer
@@ -589,7 +589,7 @@ name|stemdict
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates a TokenStream which tokenizes all the text in the provided TextReader.    *    * @return A TokenStream build from a StandardTokenizer filtered with StandardFilter, StopFilter, GermanStemFilter    */
+comment|/**    * Creates a TokenStream which tokenizes all the text in the provided TextReader.    *    * @return A TokenStream build from a StandardTokenizer filtered with StandardFilter,    * StopFilter, DutchStemFilter    */
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
