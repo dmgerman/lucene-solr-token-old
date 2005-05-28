@@ -63,7 +63,7 @@ name|IndexReader
 import|;
 end_import
 begin_comment
-comment|/** A Query that matches documents containing terms with a specified prefix. */
+comment|/** A Query that matches documents containing terms with a specified prefix. A PrefixQuery  * is built by QueryParser for input like<code>app*</code>. */
 end_comment
 begin_class
 DECL|class|PrefixQuery
