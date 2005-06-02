@@ -101,6 +101,13 @@ block|{
 if|if
 condition|(
 name|numTokens
+operator|<
+name|MAX_NUM_TOKENS_PER_GROUP
+condition|)
+block|{
+if|if
+condition|(
+name|numTokens
 operator|==
 literal|0
 condition|)
@@ -168,6 +175,7 @@ expr_stmt|;
 name|numTokens
 operator|++
 expr_stmt|;
+block|}
 block|}
 DECL|method|isDistinct
 name|boolean
