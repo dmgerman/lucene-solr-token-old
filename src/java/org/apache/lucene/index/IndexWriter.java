@@ -2730,9 +2730,9 @@ name|directory
 operator|.
 name|fileExists
 argument_list|(
-name|Constants
+name|IndexFileNames
 operator|.
-name|INDEX_DELETABLE_FILENAME
+name|DELETABLE
 argument_list|)
 condition|)
 return|return
@@ -2745,9 +2745,9 @@ name|directory
 operator|.
 name|openInput
 argument_list|(
-name|Constants
+name|IndexFileNames
 operator|.
-name|INDEX_DELETABLE_FILENAME
+name|DELETABLE
 argument_list|)
 decl_stmt|;
 try|try
@@ -2874,9 +2874,9 @@ name|renameFile
 argument_list|(
 literal|"deleteable.new"
 argument_list|,
-name|Constants
+name|IndexFileNames
 operator|.
-name|INDEX_DELETABLE_FILENAME
+name|DELETABLE
 argument_list|)
 expr_stmt|;
 block|}

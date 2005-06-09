@@ -1225,7 +1225,9 @@ literal|0
 init|;
 name|i
 operator|<
-name|FILENAME_EXTENSIONS
+name|IndexFileNames
+operator|.
+name|INDEX_EXTENSIONS
 operator|.
 name|length
 condition|;
@@ -1240,7 +1242,9 @@ name|segment
 operator|+
 literal|"."
 operator|+
-name|FILENAME_EXTENSIONS
+name|IndexFileNames
+operator|.
+name|INDEX_EXTENSIONS
 index|[
 name|i
 index|]

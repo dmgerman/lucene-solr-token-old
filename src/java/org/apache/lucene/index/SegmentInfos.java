@@ -162,9 +162,9 @@ name|directory
 operator|.
 name|openInput
 argument_list|(
-name|Constants
+name|IndexFileNames
 operator|.
-name|INDEX_SEGMENTS_FILENAME
+name|SEGMENTS
 argument_list|)
 decl_stmt|;
 try|try
@@ -435,9 +435,9 @@ name|renameFile
 argument_list|(
 literal|"segments.new"
 argument_list|,
-name|Constants
+name|IndexFileNames
 operator|.
-name|INDEX_SEGMENTS_FILENAME
+name|SEGMENTS
 argument_list|)
 expr_stmt|;
 block|}
@@ -472,9 +472,9 @@ name|directory
 operator|.
 name|openInput
 argument_list|(
-name|Constants
+name|IndexFileNames
 operator|.
-name|INDEX_SEGMENTS_FILENAME
+name|SEGMENTS
 argument_list|)
 decl_stmt|;
 name|int
