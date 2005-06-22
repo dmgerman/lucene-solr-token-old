@@ -126,7 +126,7 @@ name|stopWords
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the stop words from the given file. */
+comment|/** Builds an analyzer with the stop words from the given file.    * @see WordlistLoader#getWordSet(File)    */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
@@ -147,6 +147,7 @@ name|stopwords
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Builds an analyzer with the stop words from the given reader.    * @see WordlistLoader#getWordSet(Reader)    */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
