@@ -186,7 +186,7 @@ name|stopWords
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the stop words from the given file. */
+comment|/** Builds an analyzer with the stop words from the given file.    * @see WordlistLoader#getWordSet(File)    */
 DECL|method|StopAnalyzer
 specifier|public
 name|StopAnalyzer
@@ -204,6 +204,27 @@ operator|.
 name|getWordSet
 argument_list|(
 name|stopwordsFile
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** Builds an analyzer with the stop words from the given reader.    * @see WordlistLoader#getWordSet(Reader)    */
+DECL|method|StopAnalyzer
+specifier|public
+name|StopAnalyzer
+parameter_list|(
+name|Reader
+name|stopwords
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|stopWords
+operator|=
+name|WordlistLoader
+operator|.
+name|getWordSet
+argument_list|(
+name|stopwords
 argument_list|)
 expr_stmt|;
 block|}
