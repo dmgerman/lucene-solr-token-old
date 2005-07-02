@@ -566,7 +566,7 @@ name|unStoredField2
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Writes the document to the directory using a segment named "test"    * @param dir    * @param doc    */
+comment|/**    * Writes the document to the directory using a segment named "test"    * @param dir    * @param doc    * @throws IOException    */
 DECL|method|writeDoc
 specifier|public
 specifier|static
@@ -579,6 +579,8 @@ parameter_list|,
 name|Document
 name|doc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|writeDoc
 argument_list|(
@@ -590,7 +592,7 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Writes the document to the directory in the given segment    * @param dir    * @param segment    * @param doc    */
+comment|/**    * Writes the document to the directory in the given segment    * @param dir    * @param segment    * @param doc    * @throws IOException    */
 DECL|method|writeDoc
 specifier|public
 specifier|static
@@ -606,6 +608,8 @@ parameter_list|,
 name|Document
 name|doc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|Analyzer
 name|analyzer
@@ -636,7 +640,7 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Writes the document to the directory segment named "test" using the specified analyzer and similarity    * @param dir    * @param analyzer    * @param similarity    * @param doc    */
+comment|/**    * Writes the document to the directory segment named "test" using the specified analyzer and similarity    * @param dir    * @param analyzer    * @param similarity    * @param doc    * @throws IOException    */
 DECL|method|writeDoc
 specifier|public
 specifier|static
@@ -655,6 +659,8 @@ parameter_list|,
 name|Document
 name|doc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|writeDoc
 argument_list|(
@@ -670,7 +676,7 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Writes the document to the directory segment using the analyzer and the similarity score    * @param dir    * @param analyzer    * @param similarity    * @param segment    * @param doc    */
+comment|/**    * Writes the document to the directory segment using the analyzer and the similarity score    * @param dir    * @param analyzer    * @param similarity    * @param segment    * @param doc    * @throws IOException    */
 DECL|method|writeDoc
 specifier|public
 specifier|static
@@ -692,6 +698,8 @@ parameter_list|,
 name|Document
 name|doc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|DocumentWriter
 name|writer
@@ -708,8 +716,6 @@ argument_list|,
 literal|50
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|writer
 operator|.
 name|addDocument
@@ -719,19 +725,6 @@ argument_list|,
 name|doc
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|numFields
 specifier|public

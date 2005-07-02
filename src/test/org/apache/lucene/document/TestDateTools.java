@@ -178,7 +178,7 @@ name|ParseException
 name|e
 parameter_list|)
 block|{
-comment|/* expected excpetion */
+comment|/* expected exception */
 block|}
 try|try
 block|{
@@ -202,7 +202,7 @@ name|ParseException
 name|e
 parameter_list|)
 block|{
-comment|/* expected excpetion */
+comment|/* expected exception */
 block|}
 try|try
 block|{
@@ -226,7 +226,7 @@ name|ParseException
 name|e
 parameter_list|)
 block|{
-comment|/* expected excpetion */
+comment|/* expected exception */
 block|}
 block|}
 DECL|method|testStringtoTime
