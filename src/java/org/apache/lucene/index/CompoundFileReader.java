@@ -37,19 +37,6 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|FSDirectory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
 name|IndexInput
 import|;
 end_import
@@ -98,15 +85,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -117,15 +95,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileOutputStream
 import|;
 end_import
 begin_comment
@@ -544,7 +513,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/** Returns the time the named file was last modified. */
+comment|/** Returns the time the compound file was last modified. */
 DECL|method|fileModified
 specifier|public
 name|long
@@ -565,7 +534,7 @@ name|fileName
 argument_list|)
 return|;
 block|}
-comment|/** Set the modified time of an existing file to now. */
+comment|/** Set the modified time of the compound file to now. */
 DECL|method|touchFile
 specifier|public
 name|void
