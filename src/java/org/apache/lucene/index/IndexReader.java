@@ -107,19 +107,6 @@ import|;
 end_import
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Constants
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -2040,7 +2027,7 @@ name|release
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Prints the filename and size of each file within a given compound file.    * Add the -extract flag to extract files to the current working directory.    * In order to make the extracted version of the index work, you have to copy    * the segments file from the compound index into the directory where the extracted files are stored.    * @param args    */
+comment|/**    * Prints the filename and size of each file within a given compound file.    * Add the -extract flag to extract files to the current working directory.    * In order to make the extracted version of the index work, you have to copy    * the segments file from the compound index into the directory where the extracted files are stored.    * @param args Usage: org.apache.lucene.index.IndexReader [-extract]&lt;cfsfile&gt;    */
 DECL|method|main
 specifier|public
 specifier|static
@@ -2053,10 +2040,6 @@ name|args
 parameter_list|)
 block|{
 name|String
-name|dirname
-init|=
-literal|null
-decl_stmt|,
 name|filename
 init|=
 literal|null
@@ -2104,22 +2087,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|dirname
-operator|==
-literal|null
-condition|)
-block|{
-name|dirname
-operator|=
-name|args
-index|[
-name|i
-index|]
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
 name|filename
 operator|==
 literal|null
@@ -2136,10 +2103,6 @@ block|}
 block|}
 if|if
 condition|(
-name|dirname
-operator|==
-literal|null
-operator|||
 name|filename
 operator|==
 literal|null
@@ -2151,7 +2114,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Usage: org.apache.lucene.index.IndexReader [-extract]<directory><cfsfile>"
+literal|"Usage: org.apache.lucene.index.IndexReader [-extract]<cfsfile>"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2168,6 +2131,33 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|filename
+argument_list|)
+decl_stmt|;
+name|String
+name|dirname
+init|=
+name|file
+operator|.
+name|getAbsoluteFile
+argument_list|()
+operator|.
+name|getParent
+argument_list|()
+decl_stmt|;
+name|filename
+operator|=
+name|file
+operator|.
+name|getName
+argument_list|()
+expr_stmt|;
 name|dir
 operator|=
 name|FSDirectory
