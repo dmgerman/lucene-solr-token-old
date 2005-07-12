@@ -153,6 +153,24 @@ name|reader
 argument_list|)
 return|;
 block|}
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"PerFieldAnalyzerWrapper("
+operator|+
+name|analyzerMap
+operator|+
+literal|", default="
+operator|+
+name|defaultAnalyzer
+operator|+
+literal|")"
+return|;
+block|}
 block|}
 end_class
 end_unit
