@@ -202,6 +202,7 @@ literal|1
 decl_stmt|;
 comment|// make it possible to call setDefaultOperator() without accessing
 comment|// the nested class:
+comment|/** Alternative form of QueryParser.Operator.AND */
 DECL|field|AND_OPERATOR
 specifier|public
 specifier|static
@@ -213,6 +214,7 @@ name|Operator
 operator|.
 name|AND
 decl_stmt|;
+comment|/** Alternative form of QueryParser.Operator.OR */
 DECL|field|OR_OPERATOR
 specifier|public
 specifier|static
@@ -277,8 +279,10 @@ operator|.
 name|getDefault
 argument_list|()
 decl_stmt|;
+comment|/** The default operator for parsing queries.     * Use {@link QueryParser#setDefaultOperator} to change it.    */
 DECL|class|Operator
 specifier|static
+specifier|public
 specifier|final
 class|class
 name|Operator
@@ -301,6 +305,7 @@ expr_stmt|;
 block|}
 DECL|field|OR
 specifier|static
+specifier|public
 specifier|final
 name|Operator
 name|OR
@@ -313,6 +318,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|AND
 specifier|static
+specifier|public
 specifier|final
 name|Operator
 name|AND
@@ -324,7 +330,7 @@ literal|"AND"
 argument_list|)
 decl_stmt|;
 block|}
-comment|/** Parses a query string, returning a {@link org.apache.lucene.search.Query}.    *  @param query  the query string to be parsed.    *  @param field  the default field for query terms.    *  @param analyzer   used to find terms in the query text.    *  @throws ParseException if the parsing fails    */
+comment|/** Parses a query string, returning a {@link org.apache.lucene.search.Query}.    *  @param query  the query string to be parsed.    *  @param field  the default field for query terms.    *  @param analyzer   used to find terms in the query text.    *  @throws ParseException if the parsing fails    *    *  @deprecated Use an instance of QueryParser and the {@link #parse(String)} method instead.    */
 DECL|method|parse
 specifier|static
 specifier|public
