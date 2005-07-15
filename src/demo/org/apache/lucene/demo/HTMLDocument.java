@@ -119,7 +119,7 @@ name|DateTools
 operator|.
 name|Resolution
 operator|.
-name|MINUTE
+name|SECOND
 argument_list|)
 return|;
 block|}
