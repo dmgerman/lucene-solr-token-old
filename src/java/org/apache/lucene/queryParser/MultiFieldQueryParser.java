@@ -102,7 +102,7 @@ name|Query
 import|;
 end_import
 begin_comment
-comment|/**  * A QueryParser which constructs queries to search multiple fields.  *  * @author<a href="mailto:kelvin@relevanz.com">Kelvin Tan</a>  * @version $Revision$  */
+comment|/**  * A QueryParser which constructs queries to search multiple fields.  *  * @author<a href="mailto:kelvin@relevanz.com">Kelvin Tan</a>, Daniel Naber  * @version $Revision$  */
 end_comment
 begin_class
 DECL|class|MultiFieldQueryParser
@@ -829,7 +829,7 @@ name|PROHIBITED_FIELD
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * @deprecated use {@link #MultiFieldQueryParser(String[], Analyzer)} instead      */
+comment|/**    * @deprecated use {@link #MultiFieldQueryParser(String[], Analyzer)} instead    */
 DECL|method|MultiFieldQueryParser
 specifier|public
 name|MultiFieldQueryParser
@@ -844,7 +844,7 @@ name|tm
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @deprecated use {@link #MultiFieldQueryParser(String[], Analyzer)} instead      */
+comment|/**    * @deprecated use {@link #MultiFieldQueryParser(String[], Analyzer)} instead    */
 DECL|method|MultiFieldQueryParser
 specifier|public
 name|MultiFieldQueryParser
@@ -859,7 +859,7 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @deprecated use {@link #MultiFieldQueryParser(String[], Analyzer)} instead      */
+comment|/**    * @deprecated use {@link #MultiFieldQueryParser(String[], Analyzer)} instead    */
 DECL|method|MultiFieldQueryParser
 specifier|public
 name|MultiFieldQueryParser
@@ -879,7 +879,7 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *<p>Parses a query which searches on the fields specified.      * If x fields are specified, this effectively constructs:</p>      *      *<code>      * (field1:query) (field2:query) (field3:query)...(fieldx:query)      *</code>      *      * @param query Query string to parse      * @param fields Fields to search on      * @param analyzer Analyzer to use      * @throws ParseException if query parsing fails      * @throws TokenMgrError if query parsing fails      * @deprecated use {@link #parse(String)} instead but note that it      *  returns a different query for queries where all terms are required:      *  its query excepts all terms, no matter in what field they occur whereas      *  the query built by this (deprecated) method expected all terms in all fields       *  at the same time.      */
+comment|/**    * Parses a query which searches on the fields specified.    * If x fields are specified, this effectively constructs:    *    *<code>    * (field1:query) (field2:query) (field3:query)...(fieldx:query)    *</code>    *    * @param query Query string to parse    * @param fields Fields to search on    * @param analyzer Analyzer to use    * @throws ParseException if query parsing fails    * @throws TokenMgrError if query parsing fails    * @deprecated use {@link #parse(String)} instead but note that it    *  returns a different query for queries where all terms are required:    *  its query excepts all terms, no matter in what field they occur whereas    *  the query built by this (deprecated) method expected all terms in all fields     *  at the same time.    */
 DECL|method|parse
 specifier|public
 specifier|static
@@ -956,7 +956,7 @@ return|return
 name|bQuery
 return|;
 block|}
-comment|/**      *<p>      * Parses a query which searches on the fields specified.      *<p>      * If x fields are specified, this effectively constructs:      *<pre>      *<code>      * (field1:query1) (field2:query2) (field3:query3)...(fieldx:queryx)      *</code>      *</pre>      * @param queries Queries strings to parse      * @param fields Fields to search on      * @param analyzer Analyzer to use      * @throws ParseException if query parsing fails      * @throws TokenMgrError if query parsing fails      * @throws IllegalArgumentException if the length of the queries array differs      *  from the length of the fields array      */
+comment|/**    * Parses a query which searches on the fields specified.    *<p>    * If x fields are specified, this effectively constructs:    *<pre>    *<code>    * (field1:query1) (field2:query2) (field3:query3)...(fieldx:queryx)    *</code>    *</pre>    * @param queries Queries strings to parse    * @param fields Fields to search on    * @param analyzer Analyzer to use    * @throws ParseException if query parsing fails    * @throws TokenMgrError if query parsing fails    * @throws IllegalArgumentException if the length of the queries array differs    *  from the length of the fields array    */
 DECL|method|parse
 specifier|public
 specifier|static
@@ -1063,7 +1063,7 @@ return|return
 name|bQuery
 return|;
 block|}
-comment|/**      *<p>      * Parses a query, searching on the fields specified.      * Use this if you need to specify certain fields as required,      * and others as prohibited.      *<p><pre>      * Usage:      *<code>      * String[] fields = {"filename", "contents", "description"};      * int[] flags = {MultiFieldQueryParser.NORMAL_FIELD,      *                MultiFieldQueryParser.REQUIRED_FIELD,      *                MultiFieldQueryParser.PROHIBITED_FIELD,};      * parse(query, fields, flags, analyzer);      *</code>      *</pre>      *<p>      * The code above would construct a query:      *<pre>      *<code>      * (filename:query) +(contents:query) -(description:query)      *</code>      *</pre>      *      * @param query Query string to parse      * @param fields Fields to search on      * @param flags Flags describing the fields      * @param analyzer Analyzer to use      * @throws ParseException if query parsing fails      * @throws TokenMgrError if query parsing fails      * @throws IllegalArgumentException if the length of the fields array differs      *  from the length of the flags array      */
+comment|/**    * Parses a query, searching on the fields specified.    * Use this if you need to specify certain fields as required,    * and others as prohibited.    *<p><pre>    * Usage:    *<code>    * String[] fields = {"filename", "contents", "description"};    * int[] flags = {MultiFieldQueryParser.NORMAL_FIELD,    *                MultiFieldQueryParser.REQUIRED_FIELD,    *                MultiFieldQueryParser.PROHIBITED_FIELD,};    * parse(query, fields, flags, analyzer);    *</code>    *</pre>    *<p>    * The code above would construct a query:    *<pre>    *<code>    * (filename:query) +(contents:query) -(description:query)    *</code>    *</pre>    *    * @param query Query string to parse    * @param fields Fields to search on    * @param flags Flags describing the fields    * @param analyzer Analyzer to use    * @throws ParseException if query parsing fails    * @throws TokenMgrError if query parsing fails    * @throws IllegalArgumentException if the length of the fields array differs    *  from the length of the flags array    */
 DECL|method|parse
 specifier|public
 specifier|static
@@ -1220,7 +1220,7 @@ return|return
 name|bQuery
 return|;
 block|}
-comment|/**      *<p>      * Parses a query, searching on the fields specified.      * Use this if you need to specify certain fields as required,      * and others as prohibited.      *<p><pre>      * Usage:      *<code>      * String[] fields = {"filename", "contents", "description"};      * int[] flags = {MultiFieldQueryParser.NORMAL_FIELD,      *                MultiFieldQueryParser.REQUIRED_FIELD,      *                MultiFieldQueryParser.PROHIBITED_FIELD,};      * parse(query, fields, flags, analyzer);      *</code>      *</pre>      *<p>      * The code above would construct a query:      *<pre>      *<code>      * (filename:query1) +(contents:query2) -(description:query3)      *</code>      *</pre>      *      * @param queries Queries string to parse      * @param fields Fields to search on      * @param flags Flags describing the fields      * @param analyzer Analyzer to use      * @throws ParseException if query parsing fails      * @throws TokenMgrError if query parsing fails      * @throws IllegalArgumentException if the length of the queries, fields,      *  and flags array differ      */
+comment|/**    * Parses a query, searching on the fields specified.    * Use this if you need to specify certain fields as required,    * and others as prohibited.    *<p><pre>    * Usage:    *<code>    * String[] fields = {"filename", "contents", "description"};    * int[] flags = {MultiFieldQueryParser.NORMAL_FIELD,    *                MultiFieldQueryParser.REQUIRED_FIELD,    *                MultiFieldQueryParser.PROHIBITED_FIELD,};    * parse(query, fields, flags, analyzer);    *</code>    *</pre>    *<p>    * The code above would construct a query:    *<pre>    *<code>    * (filename:query1) +(contents:query2) -(description:query3)    *</code>    *</pre>    *    * @param queries Queries string to parse    * @param fields Fields to search on    * @param flags Flags describing the fields    * @param analyzer Analyzer to use    * @throws ParseException if query parsing fails    * @throws TokenMgrError if query parsing fails    * @throws IllegalArgumentException if the length of the queries, fields,    *  and flags array differ    */
 DECL|method|parse
 specifier|public
 specifier|static
