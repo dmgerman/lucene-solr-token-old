@@ -190,7 +190,7 @@ name|token
 operator|.
 name|startOffset
 argument_list|()
-operator|>
+operator|>=
 name|endOffset
 return|;
 block|}
