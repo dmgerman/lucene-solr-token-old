@@ -680,7 +680,7 @@ if|if
 condition|(
 name|rewrittenExclude
 operator|!=
-name|include
+name|exclude
 condition|)
 block|{
 if|if
