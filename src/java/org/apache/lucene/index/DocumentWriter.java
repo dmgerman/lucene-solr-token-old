@@ -2178,6 +2178,11 @@ condition|(
 name|fi
 operator|.
 name|isIndexed
+operator|&&
+operator|!
+name|fi
+operator|.
+name|omitNorms
 condition|)
 block|{
 name|float

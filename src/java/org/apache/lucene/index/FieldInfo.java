@@ -45,6 +45,11 @@ DECL|field|storePositionWithTermVector
 name|boolean
 name|storePositionWithTermVector
 decl_stmt|;
+DECL|field|omitNorms
+name|boolean
+name|omitNorms
+decl_stmt|;
+comment|// omit norms associated with indexed fields
 DECL|method|FieldInfo
 name|FieldInfo
 parameter_list|(
@@ -65,6 +70,9 @@ name|storePositionWithTermVector
 parameter_list|,
 name|boolean
 name|storeOffsetWithTermVector
+parameter_list|,
+name|boolean
+name|omitNorms
 parameter_list|)
 block|{
 name|name
@@ -96,6 +104,12 @@ operator|.
 name|storePositionWithTermVector
 operator|=
 name|storePositionWithTermVector
+expr_stmt|;
+name|this
+operator|.
+name|omitNorms
+operator|=
+name|omitNorms
 expr_stmt|;
 block|}
 block|}
