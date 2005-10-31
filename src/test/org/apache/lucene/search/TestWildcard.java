@@ -111,7 +111,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * TestWildcard tests the '*' and '?' wildcard characters.  *  * @author Otis Gospodnetic  */
+comment|/**  * TestWildcard tests the '*' and '?' wildcard characters.  *  * @version $Id$  * @author Otis Gospodnetic  */
 end_comment
 begin_class
 DECL|class|TestWildcard
@@ -671,6 +671,21 @@ literal|"M?t?ls"
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|Query
+name|query6
+init|=
+operator|new
+name|WildcardQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+literal|"body"
+argument_list|,
+literal|"meta??"
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|assertMatches
 argument_list|(
 name|searcher
@@ -686,7 +701,7 @@ name|searcher
 argument_list|,
 name|query2
 argument_list|,
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 name|assertMatches
@@ -695,7 +710,7 @@ name|searcher
 argument_list|,
 name|query3
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertMatches
@@ -716,6 +731,16 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|assertMatches
+argument_list|(
+name|searcher
+argument_list|,
+name|query6
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// Query: 'meta??' matches 'metals' not 'metal'
 block|}
 DECL|method|getIndexStore
 specifier|private
