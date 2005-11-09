@@ -858,7 +858,7 @@ break|break;
 name|int
 name|termval
 init|=
-name|Integer
+name|parser
 operator|.
 name|parseInt
 argument_list|(
@@ -1105,7 +1105,7 @@ break|break;
 name|float
 name|termval
 init|=
-name|Float
+name|parser
 operator|.
 name|parseFloat
 argument_list|(
