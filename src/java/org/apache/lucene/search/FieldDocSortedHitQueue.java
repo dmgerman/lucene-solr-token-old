@@ -484,7 +484,7 @@ index|]
 decl_stmt|;
 comment|// null values need to be sorted first, because of how FieldCache.getStringIndex()
 comment|// works - in that routine, any documents without a value in the given field are
-comment|// put first.
+comment|// put first.  If both are null, the next SortField is used
 if|if
 condition|(
 name|s1
@@ -493,10 +493,17 @@ literal|null
 condition|)
 name|c
 operator|=
+operator|(
+name|s2
+operator|==
+literal|null
+operator|)
+condition|?
+literal|0
+else|:
 operator|-
 literal|1
 expr_stmt|;
-comment|// could be null if there are
 elseif|else
 if|if
 condition|(
@@ -508,7 +515,7 @@ name|c
 operator|=
 literal|1
 expr_stmt|;
-comment|// no terms in the given field
+comment|//
 elseif|else
 if|if
 condition|(
