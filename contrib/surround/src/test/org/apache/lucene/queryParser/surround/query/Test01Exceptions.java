@@ -156,7 +156,7 @@ block|{
 name|String
 name|m
 init|=
-name|ExceptionQueryTest
+name|ExceptionQueryTst
 operator|.
 name|getFailQueries
 argument_list|(

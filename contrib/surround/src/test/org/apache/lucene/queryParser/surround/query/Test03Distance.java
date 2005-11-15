@@ -123,7 +123,7 @@ block|{
 name|String
 name|m
 init|=
-name|ExceptionQueryTest
+name|ExceptionQueryTst
 operator|.
 name|getFailQueries
 argument_list|(
@@ -227,11 +227,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|BooleanQueryTest
+name|BooleanQueryTst
 name|bqt
 init|=
 operator|new
-name|BooleanQueryTest
+name|BooleanQueryTst
 argument_list|(
 name|query
 argument_list|,
@@ -278,11 +278,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|BooleanQueryTest
+name|BooleanQueryTst
 name|bqt
 init|=
 operator|new
-name|BooleanQueryTest
+name|BooleanQueryTst
 argument_list|(
 name|query
 argument_list|,

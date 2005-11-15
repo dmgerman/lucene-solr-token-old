@@ -50,10 +50,10 @@ name|QueryParser
 import|;
 end_import
 begin_class
-DECL|class|ExceptionQueryTest
+DECL|class|ExceptionQueryTst
 specifier|public
 class|class
-name|ExceptionQueryTest
+name|ExceptionQueryTst
 block|{
 DECL|field|queryText
 specifier|private
@@ -65,9 +65,9 @@ specifier|private
 name|boolean
 name|verbose
 decl_stmt|;
-DECL|method|ExceptionQueryTest
+DECL|method|ExceptionQueryTst
 specifier|public
-name|ExceptionQueryTest
+name|ExceptionQueryTst
 parameter_list|(
 name|String
 name|queryText
@@ -257,7 +257,7 @@ operator|++
 control|)
 block|{
 operator|new
-name|ExceptionQueryTest
+name|ExceptionQueryTst
 argument_list|(
 name|exceptionQueries
 index|[
