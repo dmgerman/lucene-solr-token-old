@@ -256,7 +256,7 @@ name|score
 parameter_list|)
 block|{
 comment|/* System.out.println(docNr + " '" + dBase.getDocs()[docNr] + "': " + score); */
-name|testCase
+name|TestCase
 operator|.
 name|assertTrue
 argument_list|(
@@ -269,7 +269,7 @@ operator|>
 literal|0.0
 argument_list|)
 expr_stmt|;
-name|testCase
+name|TestCase
 operator|.
 name|assertTrue
 argument_list|(
@@ -342,7 +342,7 @@ operator|.
 name|length
 condition|)
 block|{
-name|testCase
+name|TestCase
 operator|.
 name|assertTrue
 argument_list|(
@@ -365,7 +365,7 @@ name|void
 name|checkNrHits
 parameter_list|()
 block|{
-name|testCase
+name|TestCase
 operator|.
 name|assertEquals
 argument_list|(
@@ -390,13 +390,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|QueryParser
-name|parser
-init|=
-operator|new
-name|QueryParser
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|verbose
@@ -426,7 +419,7 @@ block|}
 name|SrndQuery
 name|lq
 init|=
-name|parser
+name|QueryParser
 operator|.
 name|parse
 argument_list|(
