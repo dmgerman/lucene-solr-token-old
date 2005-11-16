@@ -553,11 +553,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|log
-argument_list|(
-literal|"Run testFieldSortCustomSearcher"
-argument_list|)
-expr_stmt|;
+comment|// log("Run testFieldSortCustomSearcher");
 comment|// define the sort criteria
 name|Sort
 name|custSort
@@ -610,11 +606,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|log
-argument_list|(
-literal|"Run testFieldSortSingleSearcher"
-argument_list|)
-expr_stmt|;
+comment|// log("Run testFieldSortSingleSearcher");
 comment|// define the sort criteria
 name|Sort
 name|custSort
@@ -676,11 +668,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|log
-argument_list|(
-literal|"Run testFieldSortMultiCustomSearcher"
-argument_list|)
-expr_stmt|;
+comment|// log("Run testFieldSortMultiCustomSearcher");
 comment|// define the sort criteria
 name|Sort
 name|custSort
@@ -945,11 +933,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|log
-argument_list|(
-literal|"All hits matched"
-argument_list|)
-expr_stmt|;
+comment|// log("All hits matched");
 block|}
 else|else
 block|{
