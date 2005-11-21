@@ -97,7 +97,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Expert: Low-level search implementation.    * @deprecated use {@link Searcher#search(Query, Filter, HitCollector)} instead.    */
+comment|/** Expert: Low-level search implementation.    * @deprecated use {@link Searcher#search(Weight, Filter, HitCollector)} instead.    */
 DECL|method|search
 name|void
 name|search
@@ -171,7 +171,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Expert: Low-level search implementation.    * @deprecated use {@link Searcher#search(Query, Filter, int)} instead.    */
+comment|/** Expert: Low-level search implementation.    * @deprecated use {@link Searcher#search(Weight, Filter, int)} instead.    */
 DECL|method|search
 name|TopDocs
 name|search
@@ -224,7 +224,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * @deprecated use {@link Searcher#explain(Query, int)} instead.    */
+comment|/**    * @deprecated use {@link Searcher#explain(Weight, int)} instead.    */
 DECL|method|explain
 name|Explanation
 name|explain
@@ -258,7 +258,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Expert: Low-level search implementation.    * @deprecated use {@link Searcher#search(Query, Filter, int, Sort)} instead.    */
+comment|/** Expert: Low-level search implementation.    * @deprecated use {@link Searcher#search(Weight, Filter, int, Sort)} instead.    */
 DECL|method|search
 name|TopFieldDocs
 name|search
