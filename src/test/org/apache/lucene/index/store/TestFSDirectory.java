@@ -75,10 +75,10 @@ begin_comment
 comment|/**  * Test to illustrate the problem found when trying to open an IndexWriter in  * a situation where the the property<code>org.apache.lucene.lockDir</code>  * was not set and the one specified by<code>java.io.tmpdir</code> had been  * set to a non-existent path. What I observed is that this combination of  * conditions resulted in a<code>NullPointerException</code> being thrown in  * the<code>create()</code> method in<code>FSDirectory</code>, where  *<code>files.length</code> is de-referenced, but<code>files</code> is  *</code>null</code>.  *  * @author Michael Goddard  */
 end_comment
 begin_class
-DECL|class|FSDirectoryTest
+DECL|class|TestFSDirectory
 specifier|public
 class|class
-name|FSDirectoryTest
+name|TestFSDirectory
 extends|extends
 name|TestCase
 block|{
