@@ -422,6 +422,8 @@ name|prefix
 operator|.
 name|hashCode
 argument_list|()
+operator|^
+literal|0x6634D93C
 return|;
 block|}
 block|}
