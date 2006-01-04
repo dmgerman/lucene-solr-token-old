@@ -381,6 +381,14 @@ name|term
 operator|.
 name|hashCode
 argument_list|()
+operator|+
+name|Float
+operator|.
+name|floatToRawIntBits
+argument_list|(
+name|getBoost
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
