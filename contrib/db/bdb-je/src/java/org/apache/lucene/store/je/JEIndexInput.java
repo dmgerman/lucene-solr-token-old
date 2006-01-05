@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.store.db
+DECL|package|org.apache.lucene.store.je
 package|package
 name|org
 operator|.
@@ -10,11 +10,11 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|db
+name|je
 package|;
 end_package
 begin_comment
-comment|/**  * Copyright 2002-2005 The Apache Software Foundation  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Copyright 2002-2006 The Apache Software Foundation  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_import
 import|import
@@ -39,13 +39,13 @@ name|IndexInput
 import|;
 end_import
 begin_comment
-comment|/**  * @author Andi Vajda  */
+comment|/**  * Port of Andi Vajda's DbDirectory to Java Edition of Berkeley Database  *   * @author Aaron Donovan  */
 end_comment
 begin_class
-DECL|class|DbIndexInput
+DECL|class|JEIndexInput
 specifier|public
 class|class
-name|DbIndexInput
+name|JEIndexInput
 extends|extends
 name|IndexInput
 block|{
@@ -63,7 +63,7 @@ literal|0L
 decl_stmt|;
 DECL|field|directory
 specifier|protected
-name|DbDirectory
+name|JEDirectory
 name|directory
 decl_stmt|;
 DECL|field|block
@@ -76,11 +76,11 @@ specifier|protected
 name|File
 name|file
 decl_stmt|;
-DECL|method|DbIndexInput
+DECL|method|JEIndexInput
 specifier|protected
-name|DbIndexInput
+name|JEIndexInput
 parameter_list|(
-name|DbDirectory
+name|JEDirectory
 name|directory
 parameter_list|,
 name|String
@@ -158,11 +158,11 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|DbIndexInput
+name|JEIndexInput
 name|clone
 init|=
 operator|(
-name|DbIndexInput
+name|JEIndexInput
 operator|)
 name|super
 operator|.
@@ -257,7 +257,12 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Reading past end of file"
+name|file
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": Reading past end of file"
 argument_list|)
 throw|;
 name|int
@@ -270,7 +275,7 @@ argument_list|(
 name|position
 operator|++
 operator|&
-name|DbIndexOutput
+name|JEIndexOutput
 operator|.
 name|BLOCK_MASK
 argument_list|)
@@ -292,7 +297,7 @@ name|blockPos
 operator|+
 literal|1
 operator|==
-name|DbIndexOutput
+name|JEIndexOutput
 operator|.
 name|BLOCK_LEN
 condition|)
@@ -360,7 +365,7 @@ call|)
 argument_list|(
 name|position
 operator|&
-name|DbIndexOutput
+name|JEIndexOutput
 operator|.
 name|BLOCK_MASK
 argument_list|)
@@ -371,7 +376,7 @@ name|blockPos
 operator|+
 name|len
 operator|>=
-name|DbIndexOutput
+name|JEIndexOutput
 operator|.
 name|BLOCK_LEN
 condition|)
@@ -379,7 +384,7 @@ block|{
 name|int
 name|blockLen
 init|=
-name|DbIndexOutput
+name|JEIndexOutput
 operator|.
 name|BLOCK_LEN
 operator|-
@@ -495,7 +500,7 @@ condition|(
 operator|(
 name|pos
 operator|>>>
-name|DbIndexOutput
+name|JEIndexOutput
 operator|.
 name|BLOCK_SHIFT
 operator|)
@@ -503,7 +508,7 @@ operator|!=
 operator|(
 name|position
 operator|>>>
-name|DbIndexOutput
+name|JEIndexOutput
 operator|.
 name|BLOCK_SHIFT
 operator|)
