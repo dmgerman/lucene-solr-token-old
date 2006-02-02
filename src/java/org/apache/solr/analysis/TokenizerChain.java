@@ -83,7 +83,7 @@ specifier|public
 class|class
 name|TokenizerChain
 extends|extends
-name|Analyzer
+name|SolrAnalyzer
 block|{
 DECL|field|tokenizer
 specifier|final
