@@ -441,6 +441,12 @@ specifier|final
 name|IndexSchema
 name|schema
 decl_stmt|;
+DECL|field|dataDir
+specifier|private
+specifier|final
+name|String
+name|dataDir
+decl_stmt|;
 DECL|field|index_path
 specifier|private
 specifier|final
@@ -680,10 +686,20 @@ return|return
 name|schema
 return|;
 block|}
-DECL|method|getDir
+DECL|method|getDataDir
 specifier|public
 name|String
-name|getDir
+name|getDataDir
+parameter_list|()
+block|{
+return|return
+name|index_path
+return|;
+block|}
+DECL|method|getIndexDir
+specifier|public
+name|String
+name|getIndexDir
 parameter_list|()
 block|{
 return|return
@@ -817,7 +833,7 @@ name|schema
 argument_list|,
 name|name
 argument_list|,
-name|getDir
+name|getDataDir
 argument_list|()
 argument_list|,
 literal|false
@@ -837,7 +853,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|getDir
+name|getIndexDir
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -899,7 +915,7 @@ name|warning
 argument_list|(
 literal|"WARNING: Solr index directory '"
 operator|+
-name|getDir
+name|getDataDir
 argument_list|()
 operator|+
 literal|"' is locked.  Unlocking..."
@@ -943,7 +959,7 @@ name|SolrIndexWriter
 argument_list|(
 literal|"SolrCore.initIndex"
 argument_list|,
-name|getDir
+name|getDataDir
 argument_list|()
 argument_list|,
 literal|true
@@ -1114,7 +1130,7 @@ specifier|public
 name|SolrCore
 parameter_list|(
 name|String
-name|index_path
+name|dataDir
 parameter_list|,
 name|IndexSchema
 name|schema
@@ -1138,12 +1154,12 @@ try|try
 block|{
 if|if
 condition|(
-name|index_path
+name|dataDir
 operator|==
 literal|null
 condition|)
 block|{
-name|index_path
+name|dataDir
 operator|=
 name|SolrConfig
 operator|.
@@ -1151,9 +1167,9 @@ name|config
 operator|.
 name|get
 argument_list|(
-literal|"indexDir"
+literal|"dataDir"
 argument_list|,
-literal|"index"
+literal|"data"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1161,9 +1177,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Opening new SolrCore at "
+literal|"Opening new SolrCore with data directory at "
 operator|+
-name|index_path
+name|dataDir
 argument_list|)
 expr_stmt|;
 if|if
@@ -1190,9 +1206,19 @@ name|schema
 expr_stmt|;
 name|this
 operator|.
+name|dataDir
+operator|=
+name|dataDir
+expr_stmt|;
+name|this
+operator|.
 name|index_path
 operator|=
-name|index_path
+name|dataDir
+operator|+
+literal|"/"
+operator|+
+literal|"index"
 expr_stmt|;
 name|parseListeners
 argument_list|()

@@ -137,7 +137,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Loaded Config solarconfig.xml"
+literal|"Loaded Config solrconfig.xml"
 argument_list|)
 expr_stmt|;
 block|}
