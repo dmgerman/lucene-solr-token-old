@@ -1150,8 +1150,6 @@ operator|=
 name|this
 expr_stmt|;
 comment|// set singleton
-try|try
-block|{
 if|if
 condition|(
 name|dataDir
@@ -1275,9 +1273,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
-finally|finally
-block|{         }
 block|}
 block|}
 DECL|method|close
