@@ -42,6 +42,7 @@ name|io
 operator|.
 name|Serializable
 block|{
+comment|/** Specifies how terms may occur in matching documents. */
 DECL|class|Occur
 specifier|public
 specifier|static
