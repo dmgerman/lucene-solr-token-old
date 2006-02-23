@@ -220,7 +220,11 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"time too early"
+literal|"time '"
+operator|+
+name|time
+operator|+
+literal|"' is too early, must be>= 0"
 argument_list|)
 throw|;
 name|String
@@ -250,7 +254,15 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"time too late"
+literal|"time '"
+operator|+
+name|time
+operator|+
+literal|"' is too late, length of string "
+operator|+
+literal|"representation must be<= "
+operator|+
+name|DATE_LEN
 argument_list|)
 throw|;
 comment|// Pad with leading zeros
