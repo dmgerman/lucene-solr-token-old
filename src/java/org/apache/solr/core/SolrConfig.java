@@ -52,6 +52,8 @@ literal|"solrconfig.xml"
 decl_stmt|;
 name|InputStream
 name|is
+init|=
+literal|null
 decl_stmt|;
 try|try
 block|{
@@ -80,6 +82,8 @@ operator|=
 literal|"solarconfig.xml"
 expr_stmt|;
 comment|// backward compat
+try|try
+block|{
 name|is
 operator|=
 name|Config
@@ -89,6 +93,13 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|eee
+parameter_list|)
+block|{}
 block|}
 if|if
 condition|(
@@ -147,6 +158,8 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
+literal|"Can't find Solr config file ./conf/solrconfig.xml"
+argument_list|,
 name|e
 argument_list|)
 throw|;
