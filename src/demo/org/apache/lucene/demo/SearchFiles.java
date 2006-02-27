@@ -191,8 +191,12 @@ operator|.
 name|QueryParser
 import|;
 end_import
+begin_comment
+comment|/** Simple command-line based search demo. */
+end_comment
 begin_class
 DECL|class|SearchFiles
+specifier|public
 class|class
 name|SearchFiles
 block|{
@@ -257,6 +261,12 @@ argument_list|)
 return|;
 block|}
 block|}
+DECL|method|SearchFiles
+specifier|private
+name|SearchFiles
+parameter_list|()
+block|{}
+comment|/** Simple command-line based search demo. */
 DECL|method|main
 specifier|public
 specifier|static

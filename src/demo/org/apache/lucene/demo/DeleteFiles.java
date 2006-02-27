@@ -69,11 +69,22 @@ end_import
 begin_comment
 comment|//import org.apache.lucene.index.Term;
 end_comment
+begin_comment
+comment|/** Deletes documents from an index that do not contain a term. */
+end_comment
 begin_class
 DECL|class|DeleteFiles
+specifier|public
 class|class
 name|DeleteFiles
 block|{
+DECL|method|DeleteFiles
+specifier|private
+name|DeleteFiles
+parameter_list|()
+block|{}
+comment|// singleton
+comment|/** Deletes documents from an index that do not contain a term. */
 DECL|method|main
 specifier|public
 specifier|static

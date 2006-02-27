@@ -78,11 +78,20 @@ operator|.
 name|Date
 import|;
 end_import
+begin_comment
+comment|/** Index all text files under a directory. */
+end_comment
 begin_class
 DECL|class|IndexFiles
+specifier|public
 class|class
 name|IndexFiles
 block|{
+DECL|method|IndexFiles
+specifier|private
+name|IndexFiles
+parameter_list|()
+block|{}
 DECL|field|INDEX_DIR
 specifier|static
 specifier|final
@@ -95,6 +104,7 @@ argument_list|(
 literal|"index"
 argument_list|)
 decl_stmt|;
+comment|/** Index all text files under a directory. */
 DECL|method|main
 specifier|public
 specifier|static
@@ -340,7 +350,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|indexDocs
-specifier|public
 specifier|static
 name|void
 name|indexDocs

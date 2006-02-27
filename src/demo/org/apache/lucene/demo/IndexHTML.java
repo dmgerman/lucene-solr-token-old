@@ -121,11 +121,20 @@ operator|.
 name|Arrays
 import|;
 end_import
+begin_comment
+comment|/** Indexer for HTML files. */
+end_comment
 begin_class
 DECL|class|IndexHTML
+specifier|public
 class|class
 name|IndexHTML
 block|{
+DECL|method|IndexHTML
+specifier|private
+name|IndexHTML
+parameter_list|()
+block|{}
 DECL|field|deleting
 specifier|private
 specifier|static
@@ -156,6 +165,7 @@ name|TermEnum
 name|uidIter
 decl_stmt|;
 comment|// document id iterator
+comment|/** Indexer for HTML files.*/
 DECL|method|main
 specifier|public
 specifier|static
