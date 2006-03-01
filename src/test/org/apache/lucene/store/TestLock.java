@@ -112,8 +112,6 @@ specifier|public
 name|boolean
 name|obtain
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|lockAttempts
 operator|++
