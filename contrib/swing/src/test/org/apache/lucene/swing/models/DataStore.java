@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
+name|ArrayList
 import|;
 end_import
 begin_import
@@ -40,16 +40,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|math
-operator|.
-name|BigDecimal
+name|Iterator
 import|;
 end_import
 begin_comment
