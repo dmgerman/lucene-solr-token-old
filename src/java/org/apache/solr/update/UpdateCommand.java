@@ -28,7 +28,7 @@ name|Document
 import|;
 end_import
 begin_comment
-comment|/** An index update command encapsulated in an object (Command pattern)  *  * @author yonik  * @version $Id: UpdateCommand.java,v 1.4 2005/05/25 04:26:47 yonik Exp $  */
+comment|/** An index update command encapsulated in an object (Command pattern)  *  * @author yonik  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|UpdateCommand

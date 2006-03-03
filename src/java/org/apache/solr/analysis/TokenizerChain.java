@@ -63,7 +63,7 @@ name|Reader
 import|;
 end_import
 begin_comment
-comment|/**  * @author yonik  * @version $Id: TokenizerChain.java,v 1.3 2005/08/26 05:21:08 yonik Exp $  */
+comment|/**  * @author yonik  * @version $Id$  */
 end_comment
 begin_comment
 comment|//

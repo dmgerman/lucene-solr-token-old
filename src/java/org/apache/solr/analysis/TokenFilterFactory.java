@@ -37,7 +37,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Factory to create a token filter that transforms one TokenStream to another.  *   * @author yonik  * @version $Id: TokenFilterFactory.java,v 1.3 2005/09/20 04:58:28 yonik Exp $  */
+comment|/**  * Factory to create a token filter that transforms one TokenStream to another.  *   * @author yonik  * @version $Id$  */
 end_comment
 begin_interface
 DECL|interface|TokenFilterFactory

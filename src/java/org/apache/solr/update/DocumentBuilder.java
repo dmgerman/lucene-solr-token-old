@@ -89,7 +89,7 @@ name|HashMap
 import|;
 end_import
 begin_comment
-comment|/**  * @author yonik  * @version $Id: DocumentBuilder.java,v 1.7 2005/12/02 04:31:06 yonik Exp $  */
+comment|/**  * @author yonik  * @version $Id$  */
 end_comment
 begin_comment
 comment|// Not thread safe - by design.  Create a new builder for each thread.

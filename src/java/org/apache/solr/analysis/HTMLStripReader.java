@@ -60,7 +60,7 @@ name|HashMap
 import|;
 end_import
 begin_comment
-comment|/**  * A Reader that wraps another reader and attempts to strip out HTML constructs.  *  *  * @author yonik  * @version $Id: HTMLStripReader.java,v 1.2 2005/08/30 15:31:42 yonik Exp $  */
+comment|/**  * A Reader that wraps another reader and attempts to strip out HTML constructs.  *  *  * @author yonik  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|HTMLStripReader

@@ -24,7 +24,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * @author yonik  * @version $Id: BaseTokenizerFactory.java,v 1.3 2005/09/20 04:57:50 yonik Exp $  */
+comment|/**  * @author yonik  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|BaseTokenizerFactory

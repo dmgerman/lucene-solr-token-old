@@ -37,7 +37,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * @author ronp  * @version $Id: SolrInfoMBean.java,v 1.3 2005/05/04 19:15:23 ronp Exp $  */
+comment|/**  * @author ronp  * @version $Id$  */
 end_comment
 begin_comment
 comment|// MBean interface for getting various ui friendly strings and URLs
@@ -58,13 +58,10 @@ begin_comment
 comment|// description - simple one or two line description
 end_comment
 begin_comment
-comment|// cvsId       - yes, really the CVS Id      (type 'man co')
+comment|// SourceId    - CVS Id, SVN Id, etc
 end_comment
 begin_comment
-comment|// cvsName     - yes, really the CVS Name    (type 'man co')
-end_comment
-begin_comment
-comment|// cvsSource   - yes, really the CVS Source  (type 'man co')
+comment|// Source      - CVS Source, SVN Source, etc
 end_comment
 begin_comment
 comment|// docs        - URL list: TWIKI, Faq, Design doc, something! :)
@@ -120,22 +117,16 @@ name|Category
 name|getCategory
 parameter_list|()
 function_decl|;
-DECL|method|getCvsId
+DECL|method|getSourceId
 specifier|public
 name|String
-name|getCvsId
+name|getSourceId
 parameter_list|()
 function_decl|;
-DECL|method|getCvsName
+DECL|method|getSource
 specifier|public
 name|String
-name|getCvsName
-parameter_list|()
-function_decl|;
-DECL|method|getCvsSource
-specifier|public
-name|String
-name|getCvsSource
+name|getSource
 parameter_list|()
 function_decl|;
 DECL|method|getDocs

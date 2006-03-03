@@ -95,7 +95,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * @author yonik  * @version $Id: PrefixFilter.java,v 1.1 2005/06/10 05:47:32 yonik Exp $  */
+comment|/**  * @author yonik  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|PrefixFilter

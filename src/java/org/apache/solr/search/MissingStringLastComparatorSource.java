@@ -50,7 +50,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link SortComparatorSource} for strings that orders null values after non-null values.  * Based on FieldSortedHitQueue.comparatorString  *<p>  *  * @author Chris Hostetter  * @author yonik  * @version $Id: MissingStringLastComparatorSource.java,v 1.1 2005/06/02 04:43:06 yonik Exp $  *  */
+comment|/**  * A {@link SortComparatorSource} for strings that orders null values after non-null values.  * Based on FieldSortedHitQueue.comparatorString  *<p>  *  * @author Chris Hostetter  * @author yonik  * @version $Id$  *  */
 end_comment
 begin_comment
 comment|// move to apache package and make public if it is accepted as a patch

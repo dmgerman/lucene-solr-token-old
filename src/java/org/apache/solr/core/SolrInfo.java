@@ -37,7 +37,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * @author ronp  * @version $Id: SolrInfo.java,v 1.3 2005/05/02 19:04:59 ronp Exp $  */
+comment|/**  * @author ronp  * @version $Id$  */
 end_comment
 begin_comment
 comment|// MBean pattern for holding various ui friendly strings and URLs
@@ -83,7 +83,7 @@ specifier|static
 name|String
 name|_cvsId
 init|=
-literal|"$Id: SolrInfo.java,v 1.3 2005/05/02 19:04:59 ronp Exp $"
+literal|"$Id$"
 decl_stmt|;
 DECL|field|_cvsSource
 specifier|public
@@ -151,10 +151,10 @@ operator|.
 name|QUERYHANDLER
 return|;
 block|}
-DECL|method|getCvsId
+DECL|method|getSourceId
 specifier|public
 name|String
-name|getCvsId
+name|getSourceId
 parameter_list|()
 block|{
 return|return
@@ -175,10 +175,10 @@ operator|.
 name|cvsName
 return|;
 block|}
-DECL|method|getCvsSource
+DECL|method|getSource
 specifier|public
 name|String
-name|getCvsSource
+name|getSource
 parameter_list|()
 block|{
 return|return
