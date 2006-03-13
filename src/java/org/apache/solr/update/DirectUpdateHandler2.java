@@ -1675,7 +1675,7 @@ block|{
 comment|// special case - delete all the docs as we see them.
 name|reader
 operator|.
-name|delete
+name|deleteDocument
 argument_list|(
 name|tdocs
 operator|.
@@ -1716,7 +1716,7 @@ condition|)
 block|{
 name|reader
 operator|.
-name|delete
+name|deleteDocument
 argument_list|(
 name|prev
 argument_list|)

@@ -595,7 +595,7 @@ name|num
 operator|=
 name|ir
 operator|.
-name|delete
+name|deleteDocuments
 argument_list|(
 name|idTerm
 argument_list|(
