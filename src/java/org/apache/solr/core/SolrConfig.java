@@ -40,7 +40,7 @@ name|config
 decl_stmt|;
 static|static
 block|{
-name|Exception
+name|RuntimeException
 name|e
 init|=
 literal|null
@@ -69,7 +69,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|RuntimeException
 name|ee
 parameter_list|)
 block|{
@@ -99,15 +99,12 @@ parameter_list|(
 name|Exception
 name|eee
 parameter_list|)
-block|{}
-block|}
-if|if
-condition|(
-name|is
-operator|!=
-literal|null
-condition|)
 block|{
+throw|throw
+name|e
+throw|;
+block|}
+block|}
 try|try
 block|{
 name|config
@@ -138,6 +135,8 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
+literal|"Error in solrconfig.xml"
+argument_list|,
 name|ee
 argument_list|)
 throw|;
@@ -151,19 +150,6 @@ argument_list|(
 literal|"Loaded Config solrconfig.xml"
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"Can't find Solr config file ./conf/solrconfig.xml"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 block|}
 end_class
