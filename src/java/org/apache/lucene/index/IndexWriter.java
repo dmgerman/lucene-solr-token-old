@@ -176,7 +176,7 @@ specifier|public
 class|class
 name|IndexWriter
 block|{
-comment|/**    * Default value is 1,000.    */
+comment|/**    * Default value for the write lock timeout (1,000).    */
 DECL|field|WRITE_LOCK_TIMEOUT
 specifier|public
 specifier|final
@@ -186,7 +186,14 @@ name|WRITE_LOCK_TIMEOUT
 init|=
 literal|1000
 decl_stmt|;
-comment|/**    * Default value is 10,000.    */
+DECL|field|writeLockTimeout
+specifier|private
+name|long
+name|writeLockTimeout
+init|=
+name|WRITE_LOCK_TIMEOUT
+decl_stmt|;
+comment|/**    * Default value for the commit lock timeout (10,000).    */
 DECL|field|COMMIT_LOCK_TIMEOUT
 specifier|public
 specifier|final
@@ -195,6 +202,13 @@ name|long
 name|COMMIT_LOCK_TIMEOUT
 init|=
 literal|10000
+decl_stmt|;
+DECL|field|commitLockTimeout
+specifier|private
+name|long
+name|commitLockTimeout
+init|=
+name|COMMIT_LOCK_TIMEOUT
 decl_stmt|;
 DECL|field|WRITE_LOCK_NAME
 specifier|public
@@ -583,7 +597,7 @@ name|writeLock
 operator|.
 name|obtain
 argument_list|(
-name|WRITE_LOCK_TIMEOUT
+name|writeLockTimeout
 argument_list|)
 condition|)
 comment|// obtain write lock
@@ -623,7 +637,7 @@ operator|.
 name|COMMIT_LOCK_NAME
 argument_list|)
 argument_list|,
-name|COMMIT_LOCK_TIMEOUT
+name|commitLockTimeout
 argument_list|)
 block|{
 specifier|public
@@ -827,6 +841,62 @@ parameter_list|()
 block|{
 return|return
 name|infoStream
+return|;
+block|}
+comment|/**    * Sets the maximum time to wait for a commit lock (in milliseconds).    */
+DECL|method|setCommitLockTimeout
+specifier|public
+name|void
+name|setCommitLockTimeout
+parameter_list|(
+name|long
+name|commitLockTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|commitLockTimeout
+operator|=
+name|commitLockTimeout
+expr_stmt|;
+block|}
+comment|/**    * @see #setCommitLockTimeout    */
+DECL|method|getCommitLockTimeout
+specifier|public
+name|long
+name|getCommitLockTimeout
+parameter_list|()
+block|{
+return|return
+name|commitLockTimeout
+return|;
+block|}
+comment|/**    * Sets the maximum time to wait for a write lock (in milliseconds).    */
+DECL|method|setWriteLockTimeout
+specifier|public
+name|void
+name|setWriteLockTimeout
+parameter_list|(
+name|long
+name|writeLockTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|writeLockTimeout
+operator|=
+name|writeLockTimeout
+expr_stmt|;
+block|}
+comment|/**    * @see #setWriteLockTimeout    */
+DECL|method|getWriteLockTimeout
+specifier|public
+name|long
+name|getWriteLockTimeout
+parameter_list|()
+block|{
+return|return
+name|writeLockTimeout
 return|;
 block|}
 comment|/** Flushes all changes to an index and closes all associated files. */
@@ -1605,7 +1675,7 @@ argument_list|(
 name|COMMIT_LOCK_NAME
 argument_list|)
 argument_list|,
-name|COMMIT_LOCK_TIMEOUT
+name|commitLockTimeout
 argument_list|)
 block|{
 specifier|public
@@ -1675,7 +1745,7 @@ argument_list|(
 name|COMMIT_LOCK_NAME
 argument_list|)
 argument_list|,
-name|COMMIT_LOCK_TIMEOUT
+name|commitLockTimeout
 argument_list|)
 block|{
 specifier|public
@@ -2205,7 +2275,7 @@ argument_list|(
 name|COMMIT_LOCK_NAME
 argument_list|)
 argument_list|,
-name|COMMIT_LOCK_TIMEOUT
+name|commitLockTimeout
 argument_list|)
 block|{
 specifier|public
@@ -2275,7 +2345,7 @@ argument_list|(
 name|COMMIT_LOCK_NAME
 argument_list|)
 argument_list|,
-name|COMMIT_LOCK_TIMEOUT
+name|commitLockTimeout
 argument_list|)
 block|{
 specifier|public
