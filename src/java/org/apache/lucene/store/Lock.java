@@ -16,19 +16,6 @@ comment|/**  * Copyright 2004 The Apache Software Foundation  *  * Licensed unde
 end_comment
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexWriter
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -197,25 +184,6 @@ specifier|private
 name|long
 name|lockWaitTimeout
 decl_stmt|;
-comment|/** Constructs an executor that will grab the named lock.      *  Defaults lockWaitTimeout to Lock.COMMIT_LOCK_TIMEOUT.      *  @deprecated Kept only to avoid breaking existing code.      */
-DECL|method|With
-specifier|public
-name|With
-parameter_list|(
-name|Lock
-name|lock
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|lock
-argument_list|,
-name|IndexWriter
-operator|.
-name|COMMIT_LOCK_TIMEOUT
-argument_list|)
-expr_stmt|;
-block|}
 comment|/** Constructs an executor that will grab the named lock. */
 DECL|method|With
 specifier|public

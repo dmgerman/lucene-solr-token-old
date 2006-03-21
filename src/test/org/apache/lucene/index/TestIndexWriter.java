@@ -235,7 +235,7 @@ control|)
 block|{
 name|reader
 operator|.
-name|delete
+name|deleteDocument
 argument_list|(
 name|i
 argument_list|)

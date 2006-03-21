@@ -172,7 +172,7 @@ name|deleted
 init|=
 name|reader
 operator|.
-name|delete
+name|deleteDocuments
 argument_list|(
 name|term
 argument_list|)
