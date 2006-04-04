@@ -89,46 +89,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|BooleanClause
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|BooleanQuery
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Hits
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Query
+name|*
 import|;
 end_import
 begin_comment
@@ -142,6 +103,10 @@ name|TestSpansAdvanced2
 extends|extends
 name|TestSpansAdvanced
 block|{
+DECL|field|searcher2
+name|IndexSearcher
+name|searcher2
+decl_stmt|;
 comment|/**      * Initializes the tests by adding documents to the index.      */
 DECL|method|setUp
 specifier|protected
@@ -214,6 +179,15 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// re-open the searcher since we added more docs
+name|searcher2
+operator|=
+operator|new
+name|IndexSearcher
+argument_list|(
+name|mDirectory
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Verifies that the index has the correct number of documents.      *      * @throws Exception      */
 DECL|method|testVerifyIndex
@@ -277,15 +251,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|Hits
-name|hits
-init|=
-name|executeQuery
-argument_list|(
-name|spanQuery
-argument_list|)
-decl_stmt|;
-specifier|final
 name|String
 index|[]
 name|expectedIds
@@ -335,7 +300,9 @@ block|, }
 decl_stmt|;
 name|assertHits
 argument_list|(
-name|hits
+name|searcher2
+argument_list|,
+name|spanQuery
 argument_list|,
 literal|"single span query"
 argument_list|,
@@ -421,15 +388,6 @@ name|MUST
 argument_list|)
 expr_stmt|;
 specifier|final
-name|Hits
-name|hits
-init|=
-name|executeQuery
-argument_list|(
-name|query
-argument_list|)
-decl_stmt|;
-specifier|final
 name|String
 index|[]
 name|expectedIds
@@ -438,11 +396,13 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"A"
-block|,
 literal|"D"
+block|,
+literal|"A"
 block|}
 decl_stmt|;
+comment|// these values were pre LUCENE-413
+comment|// final float[] expectedScores = new float[] { 0.93163157f, 0.20698164f };
 specifier|final
 name|float
 index|[]
@@ -452,14 +412,16 @@ operator|new
 name|float
 index|[]
 block|{
-literal|0.93163157f
+literal|1.0191123f
 block|,
-literal|0.20698164f
+literal|0.93163157f
 block|}
 decl_stmt|;
 name|assertHits
 argument_list|(
-name|hits
+name|searcher2
+argument_list|,
+name|query
 argument_list|,
 literal|"multiple different span queries"
 argument_list|,
@@ -480,6 +442,8 @@ name|IOException
 block|{
 name|doTestBooleanQueryWithSpanQueries
 argument_list|(
+name|searcher2
+argument_list|,
 literal|0.73500174f
 argument_list|)
 expr_stmt|;
