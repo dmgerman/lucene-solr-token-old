@@ -1080,6 +1080,8 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|outer
+label|:
 while|while
 condition|(
 name|cursor
@@ -1130,7 +1132,9 @@ index|[
 name|i
 index|]
 condition|)
-return|return;
+break|break
+name|outer
+break|;
 name|cursor
 operator|.
 name|del
