@@ -409,6 +409,8 @@ argument_list|(
 literal|"cannot load SegmentReader class: "
 operator|+
 name|e
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -447,6 +449,8 @@ name|RuntimeException
 argument_list|(
 literal|"cannot load default SegmentReader class: "
 operator|+
+name|e
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -580,6 +584,8 @@ name|RuntimeException
 argument_list|(
 literal|"cannot load SegmentReader class: "
 operator|+
+name|e
+argument_list|,
 name|e
 argument_list|)
 throw|;
