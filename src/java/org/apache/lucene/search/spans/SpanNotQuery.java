@@ -347,7 +347,10 @@ specifier|private
 name|boolean
 name|moreExclude
 init|=
-literal|true
+name|excludeSpans
+operator|.
+name|next
+argument_list|()
 decl_stmt|;
 specifier|public
 name|boolean
