@@ -45,6 +45,15 @@ operator|.
 name|BitSet
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
 begin_comment
 comment|/**  * A query that wraps a filter and simply returns a constant score equal to the  * query boost for every document in the filter.  *  * @author yonik  * @version $Id$  */
 end_comment
@@ -91,6 +100,18 @@ block|{
 return|return
 name|this
 return|;
+block|}
+DECL|method|extractTerms
+specifier|public
+name|void
+name|extractTerms
+parameter_list|(
+name|Set
+name|terms
+parameter_list|)
+block|{
+comment|// OK to not add any terms when used for MultiSearcher,
+comment|// but may not be OK for highlighting
 block|}
 DECL|class|ConstantWeight
 specifier|protected
