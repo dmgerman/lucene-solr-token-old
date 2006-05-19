@@ -51,6 +51,15 @@ operator|.
 name|IOException
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
 begin_comment
 comment|/**  * Returns a score for each document based on a ValueSource,  * often some function of the value of a field.  *  * @author yonik  * @version $Id$  */
 end_comment
@@ -97,6 +106,15 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|extractTerms
+specifier|public
+name|void
+name|extractTerms
+parameter_list|(
+name|Set
+name|terms
+parameter_list|)
+block|{}
 DECL|class|FunctionWeight
 specifier|protected
 class|class
