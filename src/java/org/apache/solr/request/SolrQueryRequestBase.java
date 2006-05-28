@@ -80,7 +80,7 @@ name|SolrException
 import|;
 end_import
 begin_comment
-comment|/** * @author yonik * @version $Id$ */
+comment|/**  * Base implimentation of<code>SolrQueryRequest</code> that provides some  * convinience methods for accessing parameters, and manages an IndexSearcher  * refrence.  *  *<p>  * The<code>close()</code> method must be called on any instance of this  * class once it is no longer in use.  *</p>  *  *  * @author yonik  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|SolrQueryRequestBase
@@ -461,6 +461,7 @@ name|getSchema
 argument_list|()
 return|;
 block|}
+comment|/**   * Frees resources associated with this request, this method<b>must</b>   * be called when the object is no longer in use.   */
 DECL|method|close
 specifier|public
 name|void
