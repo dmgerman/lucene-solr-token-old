@@ -16,24 +16,6 @@ comment|/**  * Copyright 2004 The Apache Software Foundation  *  * Licensed unde
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|*
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -55,7 +37,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Field
+name|Fieldable
 import|;
 end_import
 begin_import
@@ -81,7 +63,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|IndexOutput
+name|IndexInput
 import|;
 end_import
 begin_import
@@ -94,11 +76,29 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|IndexInput
+name|IndexOutput
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|*
 import|;
 end_import
 begin_comment
-comment|/** Access to the Field Info file that describes document fields and whether or  *  not they are indexed. Each segment has a separate Field Info file. Objects  *  of this class are thread-safe for multiple readers, but only one thread can  *  be adding documents at a time, with no other reader or writer threads  *  accessing this object.  */
+comment|/** Access to the Fieldable Info file that describes document fields and whether or  *  not they are indexed. Each segment has a separate Fieldable Info file. Objects  *  of this class are thread-safe for multiple readers, but only one thread can  *  be adding documents at a time, with no other reader or writer threads  *  accessing this object.  */
 end_comment
 begin_class
 DECL|class|FieldInfos
@@ -234,11 +234,11 @@ name|hasMoreElements
 argument_list|()
 condition|)
 block|{
-name|Field
+name|Fieldable
 name|field
 init|=
 operator|(
-name|Field
+name|Fieldable
 operator|)
 name|fields
 operator|.
@@ -380,7 +380,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Calls 5 parameter add with false for all TermVector parameters.    *     * @param name The name of the Field    * @param isIndexed true if the field is indexed    * @see #add(String, boolean, boolean, boolean, boolean)    */
+comment|/**    * Calls 5 parameter add with false for all TermVector parameters.    *     * @param name The name of the Fieldable    * @param isIndexed true if the field is indexed    * @see #add(String, boolean, boolean, boolean, boolean)    */
 DECL|method|add
 specifier|public
 name|void

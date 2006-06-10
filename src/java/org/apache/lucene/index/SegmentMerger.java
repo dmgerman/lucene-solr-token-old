@@ -382,7 +382,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Field norm files
+comment|// Fieldable norm files
 for|for
 control|(
 name|int
