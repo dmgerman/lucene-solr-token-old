@@ -1755,9 +1755,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|String
-name|defName
-init|=
+name|defaultSearchFieldName
+operator|=
 name|node
 operator|.
 name|getNodeValue
@@ -1765,19 +1764,18 @@ argument_list|()
 operator|.
 name|trim
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+comment|// throw exception if specified, but not found or not indexed
+if|if
+condition|(
 name|defaultSearchFieldName
-operator|=
-name|getIndexedField
-argument_list|(
-name|defName
-argument_list|)
 operator|!=
 literal|null
-condition|?
-name|defName
-else|:
-literal|null
+condition|)
+name|getIndexedField
+argument_list|(
+name|defaultSearchFieldName
+argument_list|)
 expr_stmt|;
 name|log
 operator|.
@@ -1785,7 +1783,7 @@ name|info
 argument_list|(
 literal|"default search field is "
 operator|+
-name|defName
+name|defaultSearchFieldName
 argument_list|)
 expr_stmt|;
 block|}
