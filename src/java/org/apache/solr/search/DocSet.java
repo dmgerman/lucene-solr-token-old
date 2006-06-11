@@ -545,7 +545,6 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|// subclasses have more efficient implementations
 DECL|method|unionSize
 specifier|public
 name|int
@@ -556,13 +555,22 @@ name|other
 parameter_list|)
 block|{
 return|return
-name|union
-argument_list|(
-name|other
-argument_list|)
+name|this
 operator|.
 name|size
 argument_list|()
+operator|+
+name|other
+operator|.
+name|size
+argument_list|()
+operator|-
+name|this
+operator|.
+name|intersectionSize
+argument_list|(
+name|other
+argument_list|)
 return|;
 block|}
 DECL|method|andNot
