@@ -1140,7 +1140,7 @@ name|HashDocSet
 condition|)
 block|{
 comment|// set "a" to the smallest doc set for the most efficient
-comment|// intersection.
+comment|// union count.
 specifier|final
 name|HashDocSet
 name|a
@@ -1300,6 +1300,8 @@ name|resultCount
 return|;
 block|}
 block|}
+comment|// don't implement andNotSize() on purpose... if one of the sets is a HashDocSet,
+comment|// its easier to get the intersection size and subtract (implementation in BaseDocSet)
 block|}
 end_class
 end_unit
