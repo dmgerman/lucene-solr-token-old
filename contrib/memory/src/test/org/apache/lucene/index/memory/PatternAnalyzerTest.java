@@ -303,7 +303,7 @@ block|,
 literal|"src/test/org/apache/lucene/queryParser/*.java"
 block|,
 literal|"src/org/apache/lucene/index/memory/*.java"
-block|, 		}
+block|,     }
 argument_list|)
 decl_stmt|;
 name|System
@@ -345,7 +345,7 @@ block|,
 literal|"2"
 block|,
 literal|"2"
-block|, 		}
+block|,     }
 decl_stmt|;
 name|String
 index|[]
