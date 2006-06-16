@@ -690,6 +690,7 @@ name|StringBuilder
 argument_list|()
 decl_stmt|;
 DECL|method|XMLWriter
+specifier|public
 name|XMLWriter
 parameter_list|(
 name|Writer
