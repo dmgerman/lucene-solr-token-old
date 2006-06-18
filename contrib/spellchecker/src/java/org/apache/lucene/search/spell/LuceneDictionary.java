@@ -85,10 +85,12 @@ implements|implements
 name|Dictionary
 block|{
 DECL|field|reader
+specifier|private
 name|IndexReader
 name|reader
 decl_stmt|;
 DECL|field|field
+specifier|private
 name|String
 name|field
 decl_stmt|;
@@ -114,6 +116,9 @@ operator|.
 name|field
 operator|=
 name|field
+operator|.
+name|intern
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getWordsIterator
@@ -152,7 +157,6 @@ name|boolean
 name|hasNextCalled
 decl_stmt|;
 DECL|method|LuceneIterator
-specifier|public
 name|LuceneIterator
 parameter_list|()
 block|{
@@ -177,10 +181,10 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|ex
+name|e
 parameter_list|)
 block|{
-name|ex
+name|e
 operator|.
 name|printStackTrace
 argument_list|()
@@ -234,7 +238,7 @@ literal|true
 expr_stmt|;
 try|try
 block|{
-comment|// if there is still words
+comment|// if there are no more words
 if|if
 condition|(
 operator|!
@@ -252,7 +256,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|//  if the next word are in the field
+comment|// if the next word is in the field
 name|actualTerm
 operator|=
 name|termEnum
@@ -261,7 +265,7 @@ name|term
 argument_list|()
 expr_stmt|;
 name|String
-name|fieldt
+name|currentField
 init|=
 name|actualTerm
 operator|.
@@ -270,7 +274,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|fieldt
+name|currentField
 operator|!=
 name|field
 condition|)
@@ -290,10 +294,10 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-name|ex
+name|e
 parameter_list|)
 block|{
-name|ex
+name|e
 operator|.
 name|printStackTrace
 argument_list|()
@@ -308,7 +312,7 @@ specifier|public
 name|void
 name|remove
 parameter_list|()
-block|{     }
+block|{}
 block|}
 block|}
 end_class
