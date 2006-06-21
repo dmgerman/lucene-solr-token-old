@@ -421,6 +421,8 @@ name|IOException
 block|{
 if|if
 condition|(
+name|this
+operator|.
 name|doc
 argument_list|()
 operator|>
@@ -429,6 +431,8 @@ condition|)
 block|{
 name|lastScoredDoc
 operator|=
+name|this
+operator|.
 name|doc
 argument_list|()
 expr_stmt|;
@@ -552,6 +556,8 @@ name|IOException
 block|{
 if|if
 condition|(
+name|this
+operator|.
 name|doc
 argument_list|()
 operator|>
@@ -560,6 +566,8 @@ condition|)
 block|{
 name|lastScoredDoc
 operator|=
+name|this
+operator|.
 name|doc
 argument_list|()
 expr_stmt|;
@@ -636,6 +644,8 @@ name|IOException
 block|{
 if|if
 condition|(
+name|this
+operator|.
 name|doc
 argument_list|()
 operator|>
@@ -644,6 +654,8 @@ condition|)
 block|{
 name|lastScoredDoc
 operator|=
+name|this
+operator|.
 name|doc
 argument_list|()
 expr_stmt|;
