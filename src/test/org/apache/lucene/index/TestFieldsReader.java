@@ -620,7 +620,7 @@ name|field
 init|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 name|DocHelper
 operator|.
@@ -689,7 +689,7 @@ name|field
 operator|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 name|DocHelper
 operator|.
@@ -721,7 +721,7 @@ name|field
 operator|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 name|DocHelper
 operator|.
@@ -781,7 +781,7 @@ name|field
 operator|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 name|DocHelper
 operator|.
@@ -841,7 +841,7 @@ name|field
 operator|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 name|DocHelper
 operator|.
@@ -1307,7 +1307,7 @@ name|field
 init|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 name|DocHelper
 operator|.
@@ -1429,7 +1429,7 @@ name|field
 operator|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 name|DocHelper
 operator|.
