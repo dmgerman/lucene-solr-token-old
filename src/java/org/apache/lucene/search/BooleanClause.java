@@ -42,7 +42,7 @@ name|io
 operator|.
 name|Serializable
 block|{
-comment|/** Specifies how terms may occur in matching documents. */
+comment|/** Specifies how clauses are to occur in matching documents. */
 DECL|class|Occur
 specifier|public
 specifier|static
@@ -101,7 +101,7 @@ return|return
 literal|""
 return|;
 block|}
-comment|/** Use this operator for terms that<i>must</i> appear in the matching documents. */
+comment|/** Use this operator for clauses that<i>must</i> appear in the matching documents. */
 DECL|field|MUST
 specifier|public
 specifier|static
@@ -115,7 +115,7 @@ argument_list|(
 literal|"MUST"
 argument_list|)
 decl_stmt|;
-comment|/** Use this operator for terms that<i>should</i> appear in the       * matching documents. For a BooleanQuery with two<code>SHOULD</code>       * subqueries, at least one of the queries must appear in the matching documents. */
+comment|/** Use this operator for clauses that<i>should</i> appear in the       * matching documents. For a BooleanQuery with two<code>SHOULD</code>       * subqueries, at least one of the clauses must appear in the matching documents. */
 DECL|field|SHOULD
 specifier|public
 specifier|static
@@ -129,7 +129,7 @@ argument_list|(
 literal|"SHOULD"
 argument_list|)
 decl_stmt|;
-comment|/** Use this operator for terms that<i>must not</i> appear in the matching documents.      * Note that it is not possible to search for queries that only consist      * of a<code>MUST_NOT</code> query. */
+comment|/** Use this operator for clauses that<i>must not</i> appear in the matching documents.      * Note that it is not possible to search for queries that only consist      * of a<code>MUST_NOT</code> clause. */
 DECL|field|MUST_NOT
 specifier|public
 specifier|static
@@ -150,15 +150,10 @@ specifier|private
 name|Query
 name|query
 decl_stmt|;
-comment|// TODO: decrease visibility for Lucene 2.0
 DECL|field|occur
 specifier|private
 name|Occur
 name|occur
-init|=
-name|Occur
-operator|.
-name|SHOULD
 decl_stmt|;
 comment|/** Constructs a BooleanClause.   */
 DECL|method|BooleanClause
