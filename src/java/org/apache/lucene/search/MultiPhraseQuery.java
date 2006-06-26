@@ -871,11 +871,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Explanation
+name|ComplexExplanation
 name|result
 init|=
 operator|new
-name|Explanation
+name|ComplexExplanation
 argument_list|()
 decl_stmt|;
 name|result
@@ -1009,11 +1009,11 @@ name|queryExpl
 argument_list|)
 expr_stmt|;
 comment|// explain field weight
-name|Explanation
+name|ComplexExplanation
 name|fieldExpl
 init|=
 operator|new
-name|Explanation
+name|ComplexExplanation
 argument_list|()
 decl_stmt|;
 name|fieldExpl
@@ -1127,6 +1127,21 @@ argument_list|)
 expr_stmt|;
 name|fieldExpl
 operator|.
+name|setMatch
+argument_list|(
+name|Boolean
+operator|.
+name|valueOf
+argument_list|(
+name|tfExpl
+operator|.
+name|isMatch
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|fieldExpl
+operator|.
 name|setValue
 argument_list|(
 name|tfExpl
@@ -1150,6 +1165,16 @@ operator|.
 name|addDetail
 argument_list|(
 name|fieldExpl
+argument_list|)
+expr_stmt|;
+name|result
+operator|.
+name|setMatch
+argument_list|(
+name|fieldExpl
+operator|.
+name|getMatch
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// combine them
