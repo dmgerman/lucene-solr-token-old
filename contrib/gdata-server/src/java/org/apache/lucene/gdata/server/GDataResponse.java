@@ -36,6 +36,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+begin_import
+import|import
 name|javax
 operator|.
 name|servlet
@@ -64,6 +73,21 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|gdata
+operator|.
+name|utils
+operator|.
+name|DateFormater
+import|;
+end_import
+begin_import
+import|import
 name|com
 operator|.
 name|google
@@ -86,6 +110,19 @@ operator|.
 name|data
 operator|.
 name|BaseFeed
+import|;
+end_import
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|gdata
+operator|.
+name|data
+operator|.
+name|DateTime
 import|;
 end_import
 begin_import
@@ -138,7 +175,7 @@ name|Namespace
 import|;
 end_import
 begin_comment
-comment|/**   * The FeedRequest Class wraps the curren HttpServletResponse. Any action on the   * HttpServletRequest will be executed via this class. This represents an   * abstraction on the plain {@link HttpServletResponse}. Any action which has   * to be performed on the underlaying {@link HttpServletResponse} will be   * executed within this class.   *<p>   * The GData basicly writes two different kinds ouf reponse to the output   * stream.   *<ol>   *<li>update, delete or insert requests will respond with a statuscode and if   * successful the feed entry modified or created</li>   *<li>get requests will respond with a statuscode and if successful the   * requested feed</li>   *</ol>   *    * For this purpose the {@link GDataResponse} class provides the overloaded   * method   * {@link org.apache.lucene.gdata.server.GDataResponse#sendResponse(BaseEntry, ExtensionProfile)}   * which sends the entry e.g feed to the output stream.   *</p>   *    *    *    *    * @author Simon Willnauer   *    */
+comment|/**  * The FeedRequest Class wraps the curren HttpServletResponse. Any action on the  * HttpServletRequest will be executed via this class. This represents an  * abstraction on the plain {@link HttpServletResponse}. Any action which has  * to be performed on the underlaying {@link HttpServletResponse} will be  * executed within this class.  *<p>  * The GData basicly writes two different kinds ouf reponse to the output  * stream.  *<ol>  *<li>update, delete or insert requests will respond with a statuscode and if  * successful the feed entry modified or created</li>  *<li>get requests will respond with a statuscode and if successful the  * requested feed</li>  *</ol>  *   * For this purpose the {@link GDataResponse} class provides the overloaded  * method  * {@link org.apache.lucene.gdata.server.GDataResponse#sendResponse(BaseEntry, ExtensionProfile)}  * which sends the entry e.g feed to the output stream.  *</p>  *<p>  * This class will set the HTTP<tt>Last-Modified</tt> Header to enable  * clients to send<tt>If-Modified-Since</tt> request header to avoid  * retrieving the content again if it hasn't changed. If the content hasn't  * changed since the If-Modified-Since time, then the GData service returns a  * 304 (Not Modified) HTTP response.  *</p>  *   *   *   *   * @author Simon Willnauer  *   */
 end_comment
 begin_class
 DECL|class|GDataResponse
@@ -174,6 +211,24 @@ specifier|final
 name|HttpServletResponse
 name|response
 decl_stmt|;
+DECL|field|XMLMIME_ATOM
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|XMLMIME_ATOM
+init|=
+literal|"text/xml"
+decl_stmt|;
+DECL|field|XMLMIME_RSS
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|XMLMIME_RSS
+init|=
+literal|"text/xml"
+decl_stmt|;
 DECL|field|DEFAUL_NAMESPACE_URI
 specifier|private
 specifier|static
@@ -198,7 +253,16 @@ argument_list|,
 name|DEFAUL_NAMESPACE_URI
 argument_list|)
 decl_stmt|;
-comment|/**       * Creates a new GDataResponse       *        * @param response -       *            The underlaying {@link HttpServletResponse}       */
+DECL|field|HEADER_LASTMODIFIED
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|HEADER_LASTMODIFIED
+init|=
+literal|"Last-Modified"
+decl_stmt|;
+comment|/**      * Creates a new GDataResponse      *       * @param response -      *            The underlaying {@link HttpServletResponse}      */
 DECL|method|GDataResponse
 specifier|public
 name|GDataResponse
@@ -226,17 +290,8 @@ name|response
 operator|=
 name|response
 expr_stmt|;
-name|this
-operator|.
-name|response
-operator|.
-name|setContentType
-argument_list|(
-literal|"text/xml"
-argument_list|)
-expr_stmt|;
 block|}
-comment|/**       * Sets an error code to this FeedResponse.       *        * @param errorCode -       *            {@link HttpServletResponse} error code       */
+comment|/**      * Sets an error code to this FeedResponse.      *       * @param errorCode -      *            {@link HttpServletResponse} error code      */
 DECL|method|setError
 specifier|public
 name|void
@@ -259,7 +314,7 @@ operator|=
 name|errorCode
 expr_stmt|;
 block|}
-comment|/**       * Sets the status of the underlaying response       * @see HttpServletResponse       * @param responseCode - the status of the response       */
+comment|/**      * Sets the status of the underlaying response      *       * @see HttpServletResponse      * @param responseCode -      *            the status of the response      */
 DECL|method|setResponseCode
 specifier|public
 name|void
@@ -279,7 +334,7 @@ name|responseCode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       * This method sends the specified error to the user if set       *        * @throws IOException -       *             if an I/O Exception occures       */
+comment|/**      * This method sends the specified error to the user if set      *       * @throws IOException -      *             if an I/O Exception occures      */
 DECL|method|sendError
 specifier|public
 name|void
@@ -306,7 +361,7 @@ name|error
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       * @return - the {@link HttpServletResponse} writer       * @throws IOException -       *             If an I/O exception occures       */
+comment|/**      * @return - the {@link HttpServletResponse} writer      * @throws IOException -      *             If an I/O exception occures      */
 DECL|method|getWriter
 specifier|public
 name|Writer
@@ -324,7 +379,7 @@ name|getWriter
 argument_list|()
 return|;
 block|}
-comment|/**       * Sends a response for a get e.g. query request. This method must not       * invoked in a case of an error performing the requeste action.       *        * @param feed -       *            the feed to respond to the client       * @param profile -       *            the extension profil for the feed to write       * @throws IOException -       *             if an I/O exception accures, often caused by an already       *             closed Writer or OutputStream       *        */
+comment|/**      * Sends a response for a get e.g. query request. This method must not      * invoked in a case of an error performing the requeste action.      *       * @param feed -      *            the feed to respond to the client      * @param profile -      *            the extension profil for the feed to write      * @throws IOException -      *             if an I/O exception accures, often caused by an already      *             closed Writer or OutputStream      *       */
 DECL|method|sendResponse
 specifier|public
 name|void
@@ -365,6 +420,28 @@ argument_list|(
 literal|"extension profil must not be null"
 argument_list|)
 throw|;
+name|DateTime
+name|time
+init|=
+name|feed
+operator|.
+name|getUpdated
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|time
+operator|!=
+literal|null
+condition|)
+name|setLastModifiedHeader
+argument_list|(
+name|time
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|XmlWriter
 name|writer
 init|=
@@ -384,6 +461,16 @@ operator|.
 name|ATOM
 argument_list|)
 condition|)
+block|{
+name|this
+operator|.
+name|response
+operator|.
+name|setContentType
+argument_list|(
+name|XMLMIME_ATOM
+argument_list|)
+expr_stmt|;
 name|feed
 operator|.
 name|generateAtom
@@ -393,7 +480,18 @@ argument_list|,
 name|profile
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
+name|this
+operator|.
+name|response
+operator|.
+name|setContentType
+argument_list|(
+name|XMLMIME_RSS
+argument_list|)
+expr_stmt|;
 name|feed
 operator|.
 name|generateRss
@@ -404,7 +502,8 @@ name|profile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**       *        * Sends a response for an update, insert or delete request. This method       * must not invoked in a case of an error performing the requeste action.       * If the specified response format is ATOM the default namespace will be set to ATOM.       * @param entry -       *            the modified / created entry to send       * @param profile -       *            the entries extension profile       * @throws IOException -       *             if an I/O exception accures, often caused by an already       *             closed Writer or OutputStream       */
+block|}
+comment|/**      *       * Sends a response for an update, insert or delete request. This method      * must not invoked in a case of an error performing the requeste action. If      * the specified response format is ATOM the default namespace will be set      * to ATOM.      *       * @param entry -      *            the modified / created entry to send      * @param profile -      *            the entries extension profile      * @throws IOException -      *             if an I/O exception accures, often caused by an already      *             closed Writer or OutputStream      */
 DECL|method|sendResponse
 specifier|public
 name|void
@@ -445,6 +544,28 @@ argument_list|(
 literal|"extension profil must not be null"
 argument_list|)
 throw|;
+name|DateTime
+name|time
+init|=
+name|entry
+operator|.
+name|getUpdated
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|time
+operator|!=
+literal|null
+condition|)
+name|setLastModifiedHeader
+argument_list|(
+name|time
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|XmlWriter
 name|writer
 init|=
@@ -531,7 +652,7 @@ return|return
 name|writer
 return|;
 block|}
-comment|/**       * This encoding will be used to encode the xml representation of feed or       * entry written to the {@link HttpServletResponse} output stream.       *        * @return - the entry / feed encoding       */
+comment|/**      * This encoding will be used to encode the xml representation of feed or      * entry written to the {@link HttpServletResponse} output stream.      *       * @return - the entry / feed encoding      */
 DECL|method|getEncoding
 specifier|public
 name|String
@@ -544,7 +665,7 @@ operator|.
 name|encoding
 return|;
 block|}
-comment|/**       * This encoding will be used to encode the xml representation of feed or       * entry written to the {@link HttpServletResponse} output stream.<i>UTF-8</i>       *<i>ISO-8859-1</i>       *        * @param encoding -       *            string represents the encoding       */
+comment|/**      * This encoding will be used to encode the xml representation of feed or      * entry written to the {@link HttpServletResponse} output stream.<i>UTF-8</i>      *<i>ISO-8859-1</i>      *       * @param encoding -      *            string represents the encoding      */
 DECL|method|setEncoding
 specifier|public
 name|void
@@ -561,7 +682,7 @@ operator|=
 name|encoding
 expr_stmt|;
 block|}
-comment|/**       * @return - the response       *         {@link org.apache.lucene.gdata.server.GDataRequest.OutputFormat}       */
+comment|/**      * @return - the response      *         {@link org.apache.lucene.gdata.server.GDataRequest.OutputFormat}      */
 DECL|method|getOutputFormat
 specifier|public
 name|OutputFormat
@@ -574,7 +695,7 @@ operator|.
 name|outputFormat
 return|;
 block|}
-comment|/**       * @param outputFormat -       *            the response       *            {@link org.apache.lucene.gdata.server.GDataRequest.OutputFormat}       */
+comment|/**      * @param outputFormat -      *            the response      *            {@link org.apache.lucene.gdata.server.GDataRequest.OutputFormat}      */
 DECL|method|setOutputFormat
 specifier|public
 name|void
@@ -591,7 +712,7 @@ operator|=
 name|outputFormat
 expr_stmt|;
 block|}
-comment|/**       * @see Object#toString()       */
+comment|/**      * @see Object#toString()      */
 annotation|@
 name|Override
 DECL|method|toString
@@ -656,6 +777,65 @@ operator|.
 name|toString
 argument_list|()
 return|;
+block|}
+DECL|method|setLastModifiedHeader
+specifier|protected
+name|void
+name|setLastModifiedHeader
+parameter_list|(
+name|long
+name|lastModified
+parameter_list|)
+block|{
+name|String
+name|lastMod
+init|=
+name|DateFormater
+operator|.
+name|formatDate
+argument_list|(
+operator|new
+name|Date
+argument_list|(
+name|lastModified
+argument_list|)
+argument_list|,
+name|DateFormater
+operator|.
+name|HTTP_HEADER_DATE_FORMAT
+argument_list|)
+decl_stmt|;
+name|this
+operator|.
+name|response
+operator|.
+name|setHeader
+argument_list|(
+name|HEADER_LASTMODIFIED
+argument_list|,
+name|lastMod
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * @see HttpServletResponse#setStatus(int)      * @param status - the request status code      */
+DECL|method|setStatus
+specifier|public
+name|void
+name|setStatus
+parameter_list|(
+name|int
+name|status
+parameter_list|)
+block|{
+name|this
+operator|.
+name|response
+operator|.
+name|setStatus
+argument_list|(
+name|status
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
