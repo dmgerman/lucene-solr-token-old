@@ -242,11 +242,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|merged
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|fail
 operator|=
 name|verifyIndex
@@ -255,6 +250,11 @@ name|merged
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+name|merged
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
