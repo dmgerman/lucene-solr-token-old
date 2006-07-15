@@ -107,6 +107,8 @@ argument_list|(
 name|fieldName
 argument_list|,
 name|nullStringLastComparatorSource
+argument_list|,
+literal|true
 argument_list|)
 return|;
 else|else
