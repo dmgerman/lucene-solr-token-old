@@ -320,7 +320,6 @@ decl_stmt|;
 comment|/** whether to highlight */
 DECL|field|highlight
 specifier|public
-specifier|static
 name|boolean
 name|highlight
 init|=
@@ -329,7 +328,6 @@ decl_stmt|;
 comment|/** fields to highlight */
 DECL|field|highlightFields
 specifier|public
-specifier|static
 name|String
 name|highlightFields
 init|=
@@ -338,7 +336,6 @@ decl_stmt|;
 comment|/** maximum highlight fragments to return */
 DECL|field|maxSnippets
 specifier|public
-specifier|static
 name|int
 name|maxSnippets
 init|=
@@ -347,7 +344,6 @@ decl_stmt|;
 comment|/** override default highlight Formatter class */
 DECL|field|highlightFormatterClass
 specifier|public
-specifier|static
 name|String
 name|highlightFormatterClass
 init|=
