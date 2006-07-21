@@ -204,7 +204,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  *   Spell Checker class  (Main class)<br/>  *   (initially inspired by the David Spencer code).  *</p>  *    *<p>Example Usage:  *   *<pre>  *  SpellChecker spellchecker = new SpellChecker(spellIndexDirectory);  *  // To index a field of a user index:  *  spellchecker.indexDictionary(new LuceneDictionary(my_lucene_reader, a_field));  *  // To index a file containing words:  *  spellchecker.indexDictionary(new PlainTextDictionary(new File("myfile.txt")));  *  String[] suggestions = spellchecker.suggestSimilar("misspelt", 5);  *</pre>  *   * @author Nicolas Maisonneuve  * @version 1.0  */
+comment|/**  *<p>  *   Spell Checker class  (Main class)<br/>  *  (initially inspired by the David Spencer code).  *</p>  *  *<p>Example Usage:  *   *<pre>  *  SpellChecker spellchecker = new SpellChecker(spellIndexDirectory);  *  // To index a field of a user index:  *  spellchecker.indexDictionary(new LuceneDictionary(my_lucene_reader, a_field));  *  // To index a file containing words:  *  spellchecker.indexDictionary(new PlainTextDictionary(new File("myfile.txt")));  *  String[] suggestions = spellchecker.suggestSimilar("misspelt", 5);  *</pre>  *   * @author Nicolas Maisonneuve  * @version 1.0  */
 end_comment
 begin_class
 DECL|class|SpellChecker
@@ -212,7 +212,7 @@ specifier|public
 class|class
 name|SpellChecker
 block|{
-comment|/**      * Field name for each word in the ngram index.      */
+comment|/**    * Field name for each word in the ngram index.    */
 DECL|field|F_WORD
 specifier|public
 specifier|static
@@ -222,12 +222,12 @@ name|F_WORD
 init|=
 literal|"word"
 decl_stmt|;
-comment|/**      * the spell index      */
+comment|/**    * the spell index    */
 DECL|field|spellindex
 name|Directory
 name|spellindex
 decl_stmt|;
-comment|/**      * Boost value for start and end grams      */
+comment|/**    * Boost value for start and end grams    */
 DECL|field|bStart
 specifier|private
 name|float
@@ -269,7 +269,7 @@ operator|=
 name|spellindex
 expr_stmt|;
 block|}
-comment|/**      *  Set the accuracy 0&lt; min&lt; 1; default 0.5      */
+comment|/**    *  Set the accuracy 0&lt; min&lt; 1; default 0.5    */
 DECL|method|setAccuraty
 specifier|public
 name|void
@@ -302,7 +302,7 @@ name|gramIndex
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Suggest similar words      * @param word String the word you want a spell check done on      * @param num_sug int the number of suggest words      * @throws IOException      * @return String[]      */
+comment|/**    * Suggest similar words    * @param word String the word you want a spell check done on    * @param num_sug int the number of suggest words    * @throws IOException    * @return String[]    */
 DECL|method|suggestSimilar
 specifier|public
 name|String
@@ -335,7 +335,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Suggest similar words (restricted or not to a field of a user index)      * @param word String the word you want a spell check done on      * @param num_sug int the number of suggest words      * @param ir the indexReader of the user index (can be null see field param)      * @param field String the field of the user index: if field is not null, the suggested      * words are restricted to the words present in this field.      * @param morePopular boolean return only the suggest words that are more frequent than the searched word      * (only if restricted mode = (indexReader!=null and field!=null)      * @throws IOException      * @return String[] the sorted list of the suggest words with this 2 criteria:      * first criteria: the edit distance, second criteria (only if restricted mode): the popularity      * of the suggest words in the field of the user index      */
+comment|/**    * Suggest similar words (restricted or not to a field of a user index)    * @param word String the word you want a spell check done on    * @param num_sug int the number of suggest words    * @param ir the indexReader of the user index (can be null see field param)    * @param field String the field of the user index: if field is not null, the suggested    * words are restricted to the words present in this field.    * @param morePopular boolean return only the suggest words that are more frequent than the searched word    * (only if restricted mode = (indexReader!=null and field!=null)    * @throws IOException    * @return String[] the sorted list of the suggest words with this 2 criteria:    * first criteria: the edit distance, second criteria (only if restricted mode): the popularity    * of the suggest words in the field of the user index    */
 DECL|method|suggestSimilar
 specifier|public
 name|String
@@ -884,7 +884,7 @@ return|return
 name|list
 return|;
 block|}
-comment|/**      * Add a clause to a boolean query.      */
+comment|/**    * Add a clause to a boolean query.    */
 DECL|method|add
 specifier|private
 specifier|static
@@ -944,7 +944,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a clause to a boolean query.      */
+comment|/**    * Add a clause to a boolean query.    */
 DECL|method|add
 specifier|private
 specifier|static
@@ -989,7 +989,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Form all ngrams for a given word.      * @param text the word to parse      * @param ng the ngram length e.g. 3      * @return an array of all ngrams in the word and note that duplicates are not removed      */
+comment|/**    * Form all ngrams for a given word.    * @param text the word to parse    * @param ng the ngram length e.g. 3    * @return an array of all ngrams in the word and note that duplicates are not removed    */
 DECL|method|formGrams
 specifier|private
 specifier|static
@@ -1100,7 +1100,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Check whether the word exists in the index.      * @param word String      * @throws IOException      * @return true iff the word exists in the index      */
+comment|/**    * Check whether the word exists in the index.    * @param word String    * @throws IOException    * @return true iff the word exists in the index    */
 DECL|method|exist
 specifier|public
 name|boolean
@@ -1146,7 +1146,7 @@ operator|>
 literal|0
 return|;
 block|}
-comment|/**      * Index a Dictionary      * @param dict the dictionary to index      * @throws IOException      */
+comment|/**    * Index a Dictionary    * @param dict the dictionary to index    * @throws IOException    */
 DECL|method|indexDictionary
 specifier|public
 name|void
@@ -1297,15 +1297,8 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// close reader
-name|reader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|reader
-operator|=
-literal|null
-expr_stmt|;
+comment|//        reader.close();
+comment|//        reader=null;
 block|}
 DECL|method|getMin
 specifier|private
