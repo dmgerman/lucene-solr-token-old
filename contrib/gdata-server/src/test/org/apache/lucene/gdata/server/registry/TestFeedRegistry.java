@@ -20,6 +20,15 @@ package|;
 end_package
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -122,20 +131,24 @@ name|gdata
 operator|.
 name|data
 operator|.
-name|Feed
+name|ExtensionProfile
 import|;
 end_import
 begin_import
 import|import
-name|junit
+name|com
 operator|.
-name|framework
+name|google
 operator|.
-name|TestCase
+name|gdata
+operator|.
+name|data
+operator|.
+name|Feed
 import|;
 end_import
 begin_comment
-comment|/**  * @author Simon Willnauer  *  */
+comment|/**  * @author Simon Willnauer  *   */
 end_comment
 begin_class
 DECL|class|TestFeedRegistry
@@ -202,8 +215,19 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|configurator
+operator|.
+name|setExtensionProfile
+argument_list|(
+operator|new
+name|ExtensionProfile
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
-comment|/** 	 * @see junit.framework.TestCase#tearDown() 	 */
+comment|/**      * @see junit.framework.TestCase#tearDown()      */
 annotation|@
 name|Override
 DECL|method|tearDown
@@ -222,7 +246,7 @@ name|flushRegistry
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** 	 * Test method for 'org.apache.lucene.gdata.server.registry.FeedRegistry.getRegistry()' 	 */
+comment|/**      * Test method for      * 'org.apache.lucene.gdata.server.registry.FeedRegistry.getRegistry()'      */
 DECL|method|testGetRegistry
 specifier|public
 name|void
@@ -249,7 +273,7 @@ name|reg1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Test method for 'org.apache.lucene.gdata.server.registry.FeedRegistry.registerFeed(FeedInstanceConfigurator)' 	 */
+comment|/**      * Test method for      * 'org.apache.lucene.gdata.server.registry.FeedRegistry.registerFeed(FeedInstanceConfigurator)'      */
 DECL|method|testRegisterService
 specifier|public
 name|void
@@ -324,7 +348,7 @@ block|{
 comment|//
 block|}
 block|}
-comment|/** 	 * Test method for 'org.apache.lucene.gdata.server.registry.FeedRegistry.getFeedConfigurator(String)' 	 */
+comment|/**      * Test method for      * 'org.apache.lucene.gdata.server.registry.FeedRegistry.getFeedConfigurator(String)'      */
 DECL|method|testFlushRegistry
 specifier|public
 name|void
@@ -381,7 +405,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 *  	 */
+comment|/**      *       */
 DECL|method|testIsFeedRegistered
 specifier|public
 name|void
@@ -490,6 +514,8 @@ argument_list|(
 name|StorageController
 operator|.
 name|class
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|fail
@@ -506,6 +532,12 @@ parameter_list|)
 block|{
 comment|//
 block|}
+operator|new
+name|GDataRequestListener
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 name|this
 operator|.
 name|reg
@@ -515,8 +547,24 @@ argument_list|(
 name|StorageCoreController
 operator|.
 name|class
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"no config"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// TODO: handle exception
+block|}
 name|this
 operator|.
 name|reg
@@ -526,6 +574,8 @@ argument_list|(
 name|DefaultRequestHandlerFactory
 operator|.
 name|class
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|RequestHandlerFactory
@@ -557,6 +607,8 @@ argument_list|(
 name|DefaultRequestHandlerFactory
 operator|.
 name|class
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|fail
@@ -582,6 +634,8 @@ argument_list|(
 name|ServiceFactory
 operator|.
 name|class
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|ServiceFactory

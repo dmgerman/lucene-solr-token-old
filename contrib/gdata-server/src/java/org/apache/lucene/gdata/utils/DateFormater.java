@@ -100,6 +100,7 @@ decl_stmt|;
 comment|/**      * Date format as it is used in Http Last modified header (Tue, 15 Nov 1994      * 12:45:26 GMT)      */
 DECL|field|HTTP_HEADER_DATE_FORMAT
 specifier|public
+specifier|final
 specifier|static
 name|String
 name|HTTP_HEADER_DATE_FORMAT
@@ -109,6 +110,7 @@ decl_stmt|;
 comment|/**      *  Date format as it is used in Http Last modified header (Tue, 15 Nov 1994      * 12:45:26 +0000)      */
 DECL|field|HTTP_HEADER_DATE_FORMAT_TIME_OFFSET
 specifier|public
+specifier|final
 specifier|static
 name|String
 name|HTTP_HEADER_DATE_FORMAT_TIME_OFFSET
@@ -116,7 +118,7 @@ init|=
 literal|"EEE, d MMM yyyy HH:mm:ss Z"
 decl_stmt|;
 DECL|method|DateFormater
-specifier|private
+specifier|protected
 name|DateFormater
 parameter_list|()
 block|{
@@ -171,13 +173,8 @@ argument_list|(
 name|format
 argument_list|)
 expr_stmt|;
-name|formater
-operator|.
-name|returnFomater
-argument_list|(
-name|inst
-argument_list|)
-expr_stmt|;
+try|try
+block|{
 return|return
 name|inst
 operator|.
@@ -186,6 +183,17 @@ argument_list|(
 name|date
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|formater
+operator|.
+name|returnFomater
+argument_list|(
+name|inst
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Parses the given string into one of the specified formates      * @param date - the string to parse      * @param formates - formates      * @return a {@link Date} instance representing the given string      * @throws ParseException - if the string can not be parsed      */
 DECL|method|parseDate
@@ -300,6 +308,8 @@ operator|.
 name|getFormater
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|inst
 operator|.
 name|applyPattern
@@ -316,8 +326,19 @@ name|dateString
 argument_list|)
 return|;
 block|}
+finally|finally
+block|{
+name|formater
+operator|.
+name|returnFomater
+argument_list|(
+name|inst
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|getFormater
-specifier|private
+specifier|protected
 name|SimpleDateFormat
 name|getFormater
 parameter_list|()
@@ -354,7 +375,7 @@ argument_list|()
 return|;
 block|}
 DECL|method|returnFomater
-specifier|private
+specifier|protected
 name|void
 name|returnFomater
 parameter_list|(

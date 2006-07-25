@@ -500,6 +500,15 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|o
+operator|==
+literal|null
+condition|)
+return|return
+literal|false
+return|;
+if|if
+condition|(
 name|this
 operator|==
 name|o
@@ -515,10 +524,6 @@ name|o
 operator|instanceof
 name|GDataAccount
 operator|)
-operator|||
-name|o
-operator|==
-literal|null
 condition|)
 return|return
 literal|false

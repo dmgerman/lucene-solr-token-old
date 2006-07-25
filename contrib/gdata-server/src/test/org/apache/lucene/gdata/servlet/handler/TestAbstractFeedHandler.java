@@ -385,6 +385,8 @@ argument_list|(
 name|StorageStub
 operator|.
 name|class
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|GDataServerRegistry
@@ -397,6 +399,8 @@ argument_list|(
 name|ServiceFactoryStub
 operator|.
 name|class
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

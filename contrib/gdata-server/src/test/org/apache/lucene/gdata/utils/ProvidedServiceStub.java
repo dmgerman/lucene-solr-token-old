@@ -142,6 +142,12 @@ return|return
 name|SERVICE_NAME
 return|;
 block|}
+DECL|method|destroy
+specifier|public
+name|void
+name|destroy
+parameter_list|()
+block|{     }
 block|}
 end_class
 end_unit

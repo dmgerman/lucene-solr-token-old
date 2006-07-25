@@ -160,6 +160,54 @@ name|StorageModifierStub
 extends|extends
 name|StorageModifier
 block|{
+DECL|field|throwException
+specifier|public
+name|boolean
+name|throwException
+init|=
+literal|false
+decl_stmt|;
+DECL|method|StorageModifierStub
+specifier|public
+name|StorageModifierStub
+parameter_list|()
+throws|throws
+name|IOException
+throws|,
+name|StorageException
+block|{
+name|super
+argument_list|(
+operator|new
+name|StorageCoreControllerStub
+argument_list|()
+argument_list|,
+operator|new
+name|IndexModifier
+argument_list|(
+operator|new
+name|RAMDirectory
+argument_list|()
+argument_list|,
+operator|new
+name|StandardAnalyzer
+argument_list|()
+argument_list|,
+literal|true
+argument_list|)
+argument_list|,
+operator|new
+name|StorageBuffer
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
+literal|1
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * @param controller      * @param modifier      * @param buffer      * @param persitsFactor      * @param optimizeInterval      * @throws IOException       * @throws StorageException       */
 DECL|method|StorageModifierStub
 specifier|public
@@ -188,7 +236,7 @@ block|{
 name|super
 argument_list|(
 operator|new
-name|StorageCoreController
+name|StorageCoreControllerStub
 argument_list|()
 argument_list|,
 operator|new
@@ -228,7 +276,17 @@ name|close
 parameter_list|()
 throws|throws
 name|IOException
-block|{                       }
+block|{
+if|if
+condition|(
+name|throwException
+condition|)
+throw|throw
+operator|new
+name|IOException
+argument_list|()
+throw|;
+block|}
 comment|/**      * @see org.apache.lucene.gdata.storage.lucenestorage.StorageModifier#createAccount(org.apache.lucene.gdata.storage.lucenestorage.StorageAccountWrapper)      */
 annotation|@
 name|Override
@@ -242,7 +300,17 @@ name|account
 parameter_list|)
 throws|throws
 name|StorageException
-block|{                       }
+block|{
+if|if
+condition|(
+name|throwException
+condition|)
+throw|throw
+operator|new
+name|StorageException
+argument_list|()
+throw|;
+block|}
 comment|/**      * @see org.apache.lucene.gdata.storage.lucenestorage.StorageModifier#createFeed(org.apache.lucene.gdata.storage.lucenestorage.StorageFeedWrapper)      */
 annotation|@
 name|Override
@@ -256,7 +324,17 @@ name|wrapper
 parameter_list|)
 throws|throws
 name|StorageException
-block|{                       }
+block|{
+if|if
+condition|(
+name|throwException
+condition|)
+throw|throw
+operator|new
+name|StorageException
+argument_list|()
+throw|;
+block|}
 comment|/**      * @see org.apache.lucene.gdata.storage.lucenestorage.StorageModifier#deleteAccount(java.lang.String)      */
 annotation|@
 name|Override
@@ -270,7 +348,17 @@ name|accountName
 parameter_list|)
 throws|throws
 name|StorageException
-block|{                       }
+block|{
+if|if
+condition|(
+name|throwException
+condition|)
+throw|throw
+operator|new
+name|StorageException
+argument_list|()
+throw|;
+block|}
 comment|/**      * @see org.apache.lucene.gdata.storage.lucenestorage.StorageModifier#deleteEntry(org.apache.lucene.gdata.storage.lucenestorage.StorageEntryWrapper)      */
 annotation|@
 name|Override
@@ -284,7 +372,17 @@ name|wrapper
 parameter_list|)
 throws|throws
 name|StorageException
-block|{                       }
+block|{
+if|if
+condition|(
+name|throwException
+condition|)
+throw|throw
+operator|new
+name|StorageException
+argument_list|()
+throw|;
+block|}
 comment|/**      * @see org.apache.lucene.gdata.storage.lucenestorage.StorageModifier#deleteFeed(java.lang.String)      */
 annotation|@
 name|Override
@@ -298,18 +396,38 @@ name|feedId
 parameter_list|)
 throws|throws
 name|StorageException
-block|{                       }
+block|{
+if|if
+condition|(
+name|throwException
+condition|)
+throw|throw
+operator|new
+name|StorageException
+argument_list|()
+throw|;
+block|}
 comment|/**      * @see org.apache.lucene.gdata.storage.lucenestorage.StorageModifier#forceWrite()      */
 annotation|@
 name|Override
 DECL|method|forceWrite
-specifier|protected
+specifier|public
 name|void
 name|forceWrite
 parameter_list|()
 throws|throws
 name|IOException
-block|{                       }
+block|{
+if|if
+condition|(
+name|throwException
+condition|)
+throw|throw
+operator|new
+name|IOException
+argument_list|()
+throw|;
+block|}
 comment|/**      * @see org.apache.lucene.gdata.storage.lucenestorage.StorageModifier#insertEntry(org.apache.lucene.gdata.storage.lucenestorage.StorageEntryWrapper)      */
 annotation|@
 name|Override
@@ -323,7 +441,17 @@ name|wrapper
 parameter_list|)
 throws|throws
 name|StorageException
-block|{                       }
+block|{
+if|if
+condition|(
+name|throwException
+condition|)
+throw|throw
+operator|new
+name|StorageException
+argument_list|()
+throw|;
+block|}
 comment|/**      * @see org.apache.lucene.gdata.storage.lucenestorage.StorageModifier#updateAccount(org.apache.lucene.gdata.storage.lucenestorage.StorageAccountWrapper)      */
 annotation|@
 name|Override
@@ -337,7 +465,17 @@ name|user
 parameter_list|)
 throws|throws
 name|StorageException
-block|{                       }
+block|{
+if|if
+condition|(
+name|throwException
+condition|)
+throw|throw
+operator|new
+name|StorageException
+argument_list|()
+throw|;
+block|}
 comment|/**      * @see org.apache.lucene.gdata.storage.lucenestorage.StorageModifier#updateEntry(org.apache.lucene.gdata.storage.lucenestorage.StorageEntryWrapper)      */
 annotation|@
 name|Override
@@ -351,7 +489,28 @@ name|wrapper
 parameter_list|)
 throws|throws
 name|StorageException
-block|{                       }
+block|{
+if|if
+condition|(
+name|throwException
+condition|)
+throw|throw
+operator|new
+name|StorageException
+argument_list|()
+throw|;
+if|if
+condition|(
+name|wrapper
+operator|!=
+literal|null
+condition|)
+name|wrapper
+operator|.
+name|getEntry
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * @see org.apache.lucene.gdata.storage.lucenestorage.StorageModifier#updateFeed(org.apache.lucene.gdata.storage.lucenestorage.StorageFeedWrapper)      */
 annotation|@
 name|Override
@@ -365,7 +524,17 @@ name|wrapper
 parameter_list|)
 throws|throws
 name|StorageException
-block|{                       }
+block|{
+if|if
+condition|(
+name|throwException
+condition|)
+throw|throw
+operator|new
+name|StorageException
+argument_list|()
+throw|;
+block|}
 block|}
 end_class
 end_unit

@@ -340,6 +340,11 @@ argument_list|(
 name|META_DATA_ENTRY_SEPARATOR
 argument_list|)
 expr_stmt|;
+name|writer
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|writeTimeStamp
 specifier|private
