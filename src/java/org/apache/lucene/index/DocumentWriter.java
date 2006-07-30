@@ -870,7 +870,7 @@ if|if
 condition|(
 operator|++
 name|length
-operator|>
+operator|>=
 name|maxFieldLength
 condition|)
 block|{
