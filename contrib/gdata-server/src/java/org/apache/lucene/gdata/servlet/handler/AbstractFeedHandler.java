@@ -158,6 +158,21 @@ name|gdata
 operator|.
 name|server
 operator|.
+name|GDataResponse
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|gdata
+operator|.
+name|server
+operator|.
 name|ServiceException
 import|;
 end_import
@@ -375,9 +390,9 @@ name|authenticated
 condition|)
 name|setError
 argument_list|(
-name|HttpServletResponse
+name|GDataResponse
 operator|.
-name|SC_UNAUTHORIZED
+name|UNAUTHORIZED
 argument_list|,
 literal|"Authorization failed"
 argument_list|)
@@ -429,9 +444,9 @@ condition|)
 block|{
 name|setError
 argument_list|(
-name|HttpServletResponse
+name|GDataResponse
 operator|.
-name|SC_NOT_FOUND
+name|NOT_FOUND
 argument_list|,
 literal|"no such service"
 argument_list|)
@@ -465,9 +480,9 @@ condition|)
 block|{
 name|setError
 argument_list|(
-name|HttpServletResponse
+name|GDataResponse
 operator|.
-name|SC_BAD_REQUEST
+name|BAD_REQUEST
 argument_list|,
 literal|"no such service"
 argument_list|)
@@ -538,9 +553,9 @@ argument_list|)
 expr_stmt|;
 name|setError
 argument_list|(
-name|HttpServletResponse
+name|GDataResponse
 operator|.
-name|SC_BAD_REQUEST
+name|BAD_REQUEST
 argument_list|,
 literal|"Can not read from input stream"
 argument_list|)
@@ -573,9 +588,9 @@ argument_list|)
 expr_stmt|;
 name|setError
 argument_list|(
-name|HttpServletResponse
+name|GDataResponse
 operator|.
-name|SC_BAD_REQUEST
+name|BAD_REQUEST
 argument_list|,
 literal|"incoming feed can not be parsed"
 argument_list|)
@@ -629,9 +644,9 @@ condition|)
 block|{
 name|setError
 argument_list|(
-name|HttpServletResponse
+name|GDataResponse
 operator|.
-name|SC_INTERNAL_SERVER_ERROR
+name|SERVER_ERROR
 argument_list|,
 literal|"Required server component not available"
 argument_list|)

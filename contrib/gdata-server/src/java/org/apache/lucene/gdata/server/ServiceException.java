@@ -17,7 +17,7 @@ name|server
 package|;
 end_package
 begin_comment
-comment|/**  * The ServiceException is used to encapsulate all {@link java.lang.Exception}  * throw by underlaying layers of the  * {@link org.apache.lucene.gdata.server.Service} layer.  *   * @author Simon Willnauer  *   */
+comment|/**  * The ServiceException is used to encapsulate all {@link java.lang.Exception}  * throw by underlying layers of the  * {@link org.apache.lucene.gdata.server.Service} layer.  *   * @author Simon Willnauer  *   */
 end_comment
 begin_class
 DECL|class|ServiceException
@@ -27,6 +27,11 @@ name|ServiceException
 extends|extends
 name|Exception
 block|{
+DECL|field|errorCode
+specifier|private
+name|int
+name|errorCode
+decl_stmt|;
 comment|/**      *       */
 DECL|field|serialVersionUID
 specifier|private
@@ -38,23 +43,35 @@ init|=
 operator|-
 literal|7099825107871876584L
 decl_stmt|;
-comment|/**      * Constructs a new ServiceException      */
+comment|/**      * Constructs a new ServiceException      * @param errorCode - gdata request error code      */
 DECL|method|ServiceException
 specifier|public
 name|ServiceException
-parameter_list|()
+parameter_list|(
+name|int
+name|errorCode
+parameter_list|)
 block|{
 name|super
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|errorCode
+operator|=
+name|errorCode
+expr_stmt|;
 block|}
-comment|/**      * Constructs a new ServiceException      * @param arg0 - the exception message      */
+comment|/**      * Constructs a new ServiceException      * @param arg0 - the exception message      * @param errorCode - gdata request error code      */
 DECL|method|ServiceException
 specifier|public
 name|ServiceException
 parameter_list|(
 name|String
 name|arg0
+parameter_list|,
+name|int
+name|errorCode
 parameter_list|)
 block|{
 name|super
@@ -62,8 +79,14 @@ argument_list|(
 name|arg0
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|errorCode
+operator|=
+name|errorCode
+expr_stmt|;
 block|}
-comment|/**      * Constructs a new ServiceException      * @param arg0 - the exceptin message      * @param arg1 - the exception cause      */
+comment|/**      * Constructs a new ServiceException      * @param arg0 - the exception message      * @param arg1 - the exception cause      * @param errorCode - gdata request error code      */
 DECL|method|ServiceException
 specifier|public
 name|ServiceException
@@ -73,6 +96,9 @@ name|arg0
 parameter_list|,
 name|Throwable
 name|arg1
+parameter_list|,
+name|int
+name|errorCode
 parameter_list|)
 block|{
 name|super
@@ -82,14 +108,23 @@ argument_list|,
 name|arg1
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|errorCode
+operator|=
+name|errorCode
+expr_stmt|;
 block|}
-comment|/**      * Constructs a new ServiceException      * @param arg0 - the exception cause      */
+comment|/**      * Constructs a new ServiceException      * @param arg0 - the exception cause      * @param errorCode - gdata request error code      */
 DECL|method|ServiceException
 specifier|public
 name|ServiceException
 parameter_list|(
 name|Throwable
 name|arg0
+parameter_list|,
+name|int
+name|errorCode
 parameter_list|)
 block|{
 name|super
@@ -97,6 +132,25 @@ argument_list|(
 name|arg0
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|errorCode
+operator|=
+name|errorCode
+expr_stmt|;
+block|}
+comment|/**      * @return Returns the errorCode.      */
+DECL|method|getErrorCode
+specifier|public
+name|int
+name|getErrorCode
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|errorCode
+return|;
 block|}
 block|}
 end_class

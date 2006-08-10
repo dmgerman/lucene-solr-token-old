@@ -25,6 +25,21 @@ name|lucene
 operator|.
 name|gdata
 operator|.
+name|search
+operator|.
+name|SearchComponent
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|gdata
+operator|.
 name|server
 operator|.
 name|ServiceFactory
@@ -80,7 +95,7 @@ name|StorageController
 import|;
 end_import
 begin_comment
-comment|/**  * The enmueration {@link ComponentType} defines the GDATA-Server Components   * available via {@link org.apache.lucene.gdata.server.registry.GDataServerRegistry#lookup(Class, ComponentType)}   * method.  * @see org.apache.lucene.gdata.server.registry.Component  * @see org.apache.lucene.gdata.server.registry.GDataServerRegistry   * @author Simon Willnauer  *  */
+comment|/**  * The enumeration {@link ComponentType} defines the GDATA-Server Components   * available via {@link org.apache.lucene.gdata.server.registry.GDataServerRegistry#lookup(Class, ComponentType)}   * method.  * @see org.apache.lucene.gdata.server.registry.Component  * @see org.apache.lucene.gdata.server.registry.GDataServerRegistry   * @author Simon Willnauer  *  */
 end_comment
 begin_enum
 DECL|enum|ComponentType
@@ -116,20 +131,19 @@ argument_list|)
 DECL|enum constant|REQUESTHANDLERFACTORY
 name|REQUESTHANDLERFACTORY
 block|,
-comment|/**      * INDEXER TYPE      *       */
-comment|// TODO not available yet
+comment|/**      * SearchComponent Type      * @see SearchComponent      */
 DECL|enum constant|SuperType
 annotation|@
 name|SuperType
 argument_list|(
 name|superType
 operator|=
-name|Object
+name|SearchComponent
 operator|.
 name|class
 argument_list|)
-DECL|enum constant|INDEXER
-name|INDEXER
+DECL|enum constant|SEARCHCONTROLLER
+name|SEARCHCONTROLLER
 block|,
 comment|/**      * ServiceFactory Type      *       * @see ServiceFactory      */
 DECL|enum constant|SuperType
@@ -145,7 +159,7 @@ argument_list|)
 DECL|enum constant|SERVICEFACTORY
 name|SERVICEFACTORY
 block|,
-comment|/**      * Supertype for AuthenticationController implementations      * @see AuthenticationController      */
+comment|/**      * Super type for AuthenticationController implementations      * @see AuthenticationController      */
 DECL|enum constant|SuperType
 annotation|@
 name|SuperType

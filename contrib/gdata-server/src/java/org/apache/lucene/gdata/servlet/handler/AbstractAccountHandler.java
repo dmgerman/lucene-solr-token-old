@@ -128,6 +128,21 @@ name|gdata
 operator|.
 name|server
 operator|.
+name|GDataResponse
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|gdata
+operator|.
+name|server
+operator|.
 name|ServiceException
 import|;
 end_import
@@ -375,18 +390,18 @@ condition|)
 block|{
 name|setError
 argument_list|(
-name|HttpServletResponse
+name|GDataResponse
 operator|.
-name|SC_INTERNAL_SERVER_ERROR
+name|SERVER_ERROR
 argument_list|,
-literal|"requiered server component not available"
+literal|"Required server component not available"
 argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
 name|AccountHandlerException
 argument_list|(
-literal|"requiered values are not set -- account can not be saved -- "
+literal|"Required values are not set -- account can not be saved -- "
 operator|+
 name|account
 argument_list|)
@@ -429,9 +444,10 @@ argument_list|)
 expr_stmt|;
 name|setError
 argument_list|(
-name|HttpServletResponse
+name|e
 operator|.
-name|SC_INTERNAL_SERVER_ERROR
+name|getErrorCode
+argument_list|()
 argument_list|,
 literal|""
 argument_list|)
@@ -439,7 +455,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|AccountHandlerException
 name|e
 parameter_list|)
 block|{
@@ -463,9 +479,9 @@ else|else
 block|{
 name|setError
 argument_list|(
-name|HttpServletResponse
+name|GDataResponse
 operator|.
-name|SC_UNAUTHORIZED
+name|UNAUTHORIZED
 argument_list|,
 literal|"Authorization failed"
 argument_list|)

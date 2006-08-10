@@ -773,7 +773,7 @@ argument_list|)
 operator|.
 name|minimumActivationDepth
 argument_list|(
-literal|10
+literal|1
 argument_list|)
 expr_stmt|;
 name|Db4o
@@ -790,7 +790,7 @@ argument_list|)
 operator|.
 name|minimumActivationDepth
 argument_list|(
-literal|10
+literal|1
 argument_list|)
 expr_stmt|;
 name|Db4o
@@ -854,6 +854,16 @@ argument_list|(
 name|this
 operator|.
 name|weakReferences
+argument_list|)
+expr_stmt|;
+name|Db4o
+operator|.
+name|configure
+argument_list|()
+operator|.
+name|optimizeNativeQueries
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 if|if
@@ -996,10 +1006,14 @@ name|StorageException
 name|e
 parameter_list|)
 block|{
-name|e
+name|LOG
 operator|.
-name|printStackTrace
-argument_list|()
+name|error
+argument_list|(
+literal|"Can not create admin account -- "
+argument_list|,
+name|e
+argument_list|)
 expr_stmt|;
 block|}
 block|}

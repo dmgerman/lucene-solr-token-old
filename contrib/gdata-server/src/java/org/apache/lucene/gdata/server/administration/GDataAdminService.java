@@ -86,6 +86,21 @@ name|gdata
 operator|.
 name|server
 operator|.
+name|GDataResponse
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|gdata
+operator|.
+name|server
+operator|.
 name|GDataService
 import|;
 end_import
@@ -188,6 +203,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Can not create feed -- feed is null"
+argument_list|,
+name|GDataResponse
+operator|.
+name|BAD_REQUEST
 argument_list|)
 throw|;
 if|if
@@ -201,6 +220,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Can not create feed -- account is null"
+argument_list|,
+name|GDataResponse
+operator|.
+name|UNAUTHORIZED
 argument_list|)
 throw|;
 if|if
@@ -217,6 +240,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Feed ID is null can not create feed"
+argument_list|,
+name|GDataResponse
+operator|.
+name|BAD_REQUEST
 argument_list|)
 throw|;
 if|if
@@ -233,6 +260,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Account name is null -- can't create feed"
+argument_list|,
+name|GDataResponse
+operator|.
+name|UNAUTHORIZED
 argument_list|)
 throw|;
 try|try
@@ -301,6 +332,10 @@ argument_list|(
 literal|"Can not save feed"
 argument_list|,
 name|e
+argument_list|,
+name|GDataResponse
+operator|.
+name|SERVER_ERROR
 argument_list|)
 throw|;
 block|}
@@ -331,6 +366,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Can not update null feed"
+argument_list|,
+name|GDataResponse
+operator|.
+name|BAD_REQUEST
 argument_list|)
 throw|;
 if|if
@@ -344,6 +383,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Can not update feed -- account is null"
+argument_list|,
+name|GDataResponse
+operator|.
+name|UNAUTHORIZED
 argument_list|)
 throw|;
 if|if
@@ -360,6 +403,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Feed ID is null can not update feed"
+argument_list|,
+name|GDataResponse
+operator|.
+name|BAD_REQUEST
 argument_list|)
 throw|;
 if|if
@@ -376,6 +423,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Account name is null -- can't update feed"
+argument_list|,
+name|GDataResponse
+operator|.
+name|UNAUTHORIZED
 argument_list|)
 throw|;
 try|try
@@ -444,6 +495,10 @@ argument_list|(
 literal|"Can not update feed"
 argument_list|,
 name|e
+argument_list|,
+name|GDataResponse
+operator|.
+name|SERVER_ERROR
 argument_list|)
 throw|;
 block|}
@@ -471,6 +526,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Can not delete null feed"
+argument_list|,
+name|GDataResponse
+operator|.
+name|BAD_REQUEST
 argument_list|)
 throw|;
 if|if
@@ -487,6 +546,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Feed ID is null can not delete feed"
+argument_list|,
+name|GDataResponse
+operator|.
+name|BAD_REQUEST
 argument_list|)
 throw|;
 try|try
@@ -538,6 +601,10 @@ argument_list|(
 literal|"Can not delete feed"
 argument_list|,
 name|e
+argument_list|,
+name|GDataResponse
+operator|.
+name|SERVER_ERROR
 argument_list|)
 throw|;
 block|}
@@ -565,6 +632,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Can not save null account"
+argument_list|,
+name|GDataResponse
+operator|.
+name|BAD_REQUEST
 argument_list|)
 throw|;
 try|try
@@ -613,6 +684,10 @@ argument_list|(
 literal|"Can not save account"
 argument_list|,
 name|e
+argument_list|,
+name|GDataResponse
+operator|.
+name|SERVER_ERROR
 argument_list|)
 throw|;
 block|}
@@ -640,6 +715,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Can not delete null account"
+argument_list|,
+name|GDataResponse
+operator|.
+name|BAD_REQUEST
 argument_list|)
 throw|;
 try|try
@@ -691,6 +770,10 @@ argument_list|(
 literal|"Can not save account"
 argument_list|,
 name|e
+argument_list|,
+name|GDataResponse
+operator|.
+name|SERVER_ERROR
 argument_list|)
 throw|;
 block|}
@@ -718,6 +801,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Can not update null account"
+argument_list|,
+name|GDataResponse
+operator|.
+name|BAD_REQUEST
 argument_list|)
 throw|;
 try|try
@@ -766,6 +853,10 @@ argument_list|(
 literal|"Can not save account"
 argument_list|,
 name|e
+argument_list|,
+name|GDataResponse
+operator|.
+name|SERVER_ERROR
 argument_list|)
 throw|;
 block|}
@@ -793,6 +884,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Can not get null account"
+argument_list|,
+name|GDataResponse
+operator|.
+name|BAD_REQUEST
 argument_list|)
 throw|;
 try|try
@@ -842,6 +937,10 @@ argument_list|(
 literal|"Can not get account"
 argument_list|,
 name|e
+argument_list|,
+name|GDataResponse
+operator|.
+name|SERVER_ERROR
 argument_list|)
 throw|;
 block|}
@@ -869,6 +968,10 @@ operator|new
 name|ServiceException
 argument_list|(
 literal|"Can not get account - feed id must not be null"
+argument_list|,
+name|GDataResponse
+operator|.
+name|BAD_REQUEST
 argument_list|)
 throw|;
 try|try
@@ -930,6 +1033,10 @@ argument_list|(
 literal|"Can not get account for the given feed id"
 argument_list|,
 name|e
+argument_list|,
+name|GDataResponse
+operator|.
+name|SERVER_ERROR
 argument_list|)
 throw|;
 block|}

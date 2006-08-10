@@ -126,6 +126,21 @@ name|gdata
 operator|.
 name|server
 operator|.
+name|GDataResponse
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|gdata
+operator|.
+name|server
+operator|.
 name|ServiceException
 import|;
 end_import
@@ -318,9 +333,9 @@ condition|)
 block|{
 name|setError
 argument_list|(
-name|HttpServletResponse
+name|GDataResponse
 operator|.
-name|SC_INTERNAL_SERVER_ERROR
+name|SERVER_ERROR
 argument_list|,
 literal|"required component is not available"
 argument_list|)
@@ -358,9 +373,10 @@ parameter_list|)
 block|{
 name|setError
 argument_list|(
-name|HttpServletResponse
+name|e
 operator|.
-name|SC_INTERNAL_SERVER_ERROR
+name|getErrorCode
+argument_list|()
 argument_list|,
 literal|"can not update feed"
 argument_list|)

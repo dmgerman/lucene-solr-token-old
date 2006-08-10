@@ -134,6 +134,21 @@ name|gdata
 operator|.
 name|storage
 operator|.
+name|ResourceNotFoundException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|gdata
+operator|.
+name|storage
+operator|.
 name|Storage
 import|;
 end_import
@@ -236,7 +251,7 @@ name|DateTime
 import|;
 end_import
 begin_comment
-comment|/**  *   * Storage implementaion for the DB4o storage component  * @author Simon Willnauer  *   */
+comment|/**  *   * Storage implementation for the DB4o storage component  * @author Simon Willnauer  *   */
 end_comment
 begin_class
 DECL|class|DB4oStorage
@@ -516,6 +531,11 @@ argument_list|(
 name|entry
 operator|.
 name|getFeedId
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getServiceType
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1115,6 +1135,11 @@ name|entry
 operator|.
 name|getFeedId
 argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getServiceType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|refreshPersistentObject
@@ -1387,6 +1412,11 @@ name|entry
 operator|.
 name|getFeedId
 argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getServiceType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|refreshPersistentObject
@@ -1643,7 +1673,7 @@ operator|.
 name|getId
 argument_list|()
 operator|+
-literal|"; startindex: "
+literal|"; start-index: "
 operator|+
 name|feed
 operator|.
@@ -1671,6 +1701,11 @@ argument_list|(
 name|feed
 operator|.
 name|getId
+argument_list|()
+argument_list|,
+name|feed
+operator|.
+name|getServiceType
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1774,7 +1809,7 @@ operator|.
 name|getId
 argument_list|()
 operator|+
-literal|"; startindex: "
+literal|"; start-index: "
 operator|+
 name|feed
 operator|.
@@ -1882,12 +1917,32 @@ name|BaseEntry
 argument_list|>
 name|getFeedOnly
 parameter_list|(
+specifier|final
 name|String
 name|feedId
+parameter_list|,
+specifier|final
+name|String
+name|serviceId
 parameter_list|)
 throws|throws
 name|StorageException
 block|{
+if|if
+condition|(
+operator|!
+name|checkService
+argument_list|(
+name|feedId
+argument_list|,
+name|serviceId
+argument_list|)
+condition|)
+throw|throw
+operator|new
+name|StorageException
+argument_list|()
+throw|;
 name|Query
 name|query
 init|=
@@ -1898,6 +1953,15 @@ operator|.
 name|query
 argument_list|()
 decl_stmt|;
+name|query
+operator|.
+name|constrain
+argument_list|(
+name|ServerBaseFeed
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|query
 operator|.
 name|constrain
@@ -1973,13 +2037,91 @@ argument_list|()
 return|;
 throw|throw
 operator|new
-name|StorageException
+name|ResourceNotFoundException
 argument_list|(
 literal|"can not find feed for given feed id -- "
 operator|+
 name|feedId
 argument_list|)
 throw|;
+block|}
+DECL|method|checkService
+specifier|private
+name|boolean
+name|checkService
+parameter_list|(
+name|String
+name|feedId
+parameter_list|,
+name|String
+name|serviceId
+parameter_list|)
+block|{
+name|Query
+name|query
+init|=
+name|this
+operator|.
+name|container
+operator|.
+name|query
+argument_list|()
+decl_stmt|;
+name|query
+operator|.
+name|constrain
+argument_list|(
+name|ServerBaseFeed
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|query
+operator|.
+name|descend
+argument_list|(
+literal|"feed"
+argument_list|)
+operator|.
+name|descend
+argument_list|(
+literal|"id"
+argument_list|)
+operator|.
+name|constrain
+argument_list|(
+name|feedId
+argument_list|)
+operator|.
+name|equal
+argument_list|()
+expr_stmt|;
+name|query
+operator|.
+name|descend
+argument_list|(
+literal|"serviceType"
+argument_list|)
+operator|.
+name|constrain
+argument_list|(
+name|serviceId
+argument_list|)
+operator|.
+name|equal
+argument_list|()
+expr_stmt|;
+return|return
+name|query
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+return|;
 block|}
 DECL|method|getEnriesForFeedID
 specifier|private
@@ -2204,7 +2346,7 @@ argument_list|()
 return|;
 throw|throw
 operator|new
-name|StorageException
+name|ResourceNotFoundException
 argument_list|(
 literal|"no entry with entryID: "
 operator|+
@@ -2561,7 +2703,7 @@ throw|throw
 operator|new
 name|StorageException
 argument_list|(
-literal|"can not delete account -- accountname is null"
+literal|"can not delete account -- account name is null"
 argument_list|)
 throw|;
 name|GDataAccount
@@ -2814,7 +2956,7 @@ argument_list|(
 name|account
 argument_list|)
 expr_stmt|;
-comment|/*          * service config not requiered in db4o storage.          * Entries/Feeds don't have to be build from xml          */
+comment|/*          * service config not required in db4o storage.          * Entries/Feeds don't have to be build from xml          */
 name|feed
 operator|.
 name|setServiceConfig
@@ -3358,7 +3500,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error occured on persisting changes -- rollback changes"
+literal|"Error occurred on persisting changes -- rollback changes"
 argument_list|)
 expr_stmt|;
 name|this
@@ -3426,7 +3568,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"retriving Service for feed -- feed id: "
+literal|"Retrieving Service for feed -- feed id: "
 operator|+
 name|feedId
 argument_list|)
@@ -3535,7 +3677,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"retrived Service for feed -- serviceType: "
+literal|"Retrieved Service for feed -- serviceType: "
 operator|+
 name|result
 operator|.
@@ -3572,7 +3714,7 @@ throw|throw
 operator|new
 name|StorageException
 argument_list|(
-literal|"Can not get account -- accountname is null"
+literal|"Can not get account -- account name is null"
 argument_list|)
 throw|;
 if|if
@@ -3661,7 +3803,7 @@ argument_list|()
 condition|)
 throw|throw
 operator|new
-name|StorageException
+name|ResourceNotFoundException
 argument_list|(
 literal|"No such account stored -- query returned not result for account name: "
 operator|+
@@ -3898,7 +4040,7 @@ name|next
 argument_list|()
 return|;
 block|}
-comment|/*      * !Caution! -- could instanciate a lot of objects if used with certain classes!!      * refreshs a persistend object with a depth of 100      *       */
+comment|/*      * !Caution! -- could instantiate a lot of objects if used with certain classes!!      * Refresh a persisted object with a depth of 100      *       */
 DECL|method|refreshPersistentObject
 specifier|private
 name|void

@@ -128,6 +128,21 @@ name|gdata
 operator|.
 name|server
 operator|.
+name|GDataResponse
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|gdata
+operator|.
+name|server
+operator|.
 name|ServiceException
 import|;
 end_import
@@ -149,7 +164,7 @@ name|GDataRequestType
 import|;
 end_import
 begin_comment
-comment|/**  * Default Handler implementation. This handler processes the incoming  * {@link org.apache.lucene.gdata.server.GDataRequest} and deletes the requested  * feed entry from the storage and the search component.  *<p>  * The handler sends following response to the client:  *</p>  *<ol>  *<li>if the entry could be deleted - HTTP status code<i>200 OK</i></li>  *<li>if an error occures - HTTP status code<i>500 INTERNAL SERVER ERROR</i></li>  *<li>if the resource could not found - HTTP status code<i>404 NOT FOUND</i></li>  *</ol>  *    * @author Simon Willnauer  *   */
+comment|/**  * Default Handler implementation. This handler processes the incoming  * {@link org.apache.lucene.gdata.server.GDataRequest} and deletes the requested  * feed entry from the storage and the search component.  *<p>  * The handler sends following response to the client:  *</p>  *<ol>  *<li>if the entry could be deleted - HTTP status code<i>200 OK</i></li>  *<li>if an error occurs - HTTP status code<i>500 INTERNAL SERVER ERROR</i></li>  *<li>if the resource could not found - HTTP status code<i>404 NOT FOUND</i></li>  *</ol>  *    * @author Simon Willnauer  *   */
 end_comment
 begin_class
 DECL|class|DefaultDeleteHandler
@@ -234,9 +249,9 @@ condition|)
 block|{
 name|setError
 argument_list|(
-name|HttpServletResponse
+name|GDataResponse
 operator|.
-name|SC_UNAUTHORIZED
+name|UNAUTHORIZED
 argument_list|)
 expr_stmt|;
 name|sendError
@@ -280,6 +295,14 @@ name|getMessage
 argument_list|()
 argument_list|,
 name|e
+argument_list|)
+expr_stmt|;
+name|setError
+argument_list|(
+name|e
+operator|.
+name|getErrorCode
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|sendError
