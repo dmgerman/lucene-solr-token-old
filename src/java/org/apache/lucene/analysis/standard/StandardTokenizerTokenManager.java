@@ -319,7 +319,7 @@ literal|0xffffffffffffffffL
 block|,
 literal|0xffffffffffffffffL
 block|,
-literal|0x3fffffffffffffL
+literal|0xffffffffffffffffL
 block|,
 literal|0x0L
 block|}
@@ -349,7 +349,7 @@ index|[]
 name|jjbitVec7
 init|=
 block|{
-literal|0x0L
+literal|0x20000L
 block|,
 literal|0x0L
 block|,
@@ -370,7 +370,7 @@ literal|0xffffffffffffffffL
 block|,
 literal|0xffffffffffffffffL
 block|,
-literal|0xfffffffffL
+literal|0xffffffffffffL
 block|,
 literal|0x0L
 block|}
