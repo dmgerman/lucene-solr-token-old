@@ -129,13 +129,30 @@ name|lucene
 operator|.
 name|gdata
 operator|.
+name|server
+operator|.
+name|registry
+operator|.
+name|ProvidedService
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|gdata
+operator|.
 name|storage
 operator|.
 name|StorageException
 import|;
 end_import
 begin_comment
-comment|/**  * default implementation of the {@link org.apache.lucene.gdata.server.administration.AdminService} interface.  * @author Simon Willnauer  *  */
+comment|/**  * default implementation of the  * {@link org.apache.lucene.gdata.server.administration.AdminService} interface.  *   * @author Simon Willnauer  *   */
 end_comment
 begin_class
 DECL|class|GDataAdminService
@@ -175,7 +192,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * @see org.apache.lucene.gdata.server.administration.AdminService#createFeed(org.apache.lucene.gdata.data.ServerBaseFeed, org.apache.lucene.gdata.data.GDataAccount)      */
+comment|/**      * @see org.apache.lucene.gdata.server.administration.AdminService#createFeed(org.apache.lucene.gdata.data.ServerBaseFeed,      *      org.apache.lucene.gdata.data.GDataAccount)      */
 DECL|method|createFeed
 specifier|public
 name|void
@@ -335,12 +352,12 @@ name|e
 argument_list|,
 name|GDataResponse
 operator|.
-name|SERVER_ERROR
+name|BAD_REQUEST
 argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * @see org.apache.lucene.gdata.server.administration.AdminService#updateFeed(org.apache.lucene.gdata.data.ServerBaseFeed, org.apache.lucene.gdata.data.GDataAccount)      */
+comment|/**      * @see org.apache.lucene.gdata.server.administration.AdminService#updateFeed(org.apache.lucene.gdata.data.ServerBaseFeed,      *      org.apache.lucene.gdata.data.GDataAccount)      */
 DECL|method|updateFeed
 specifier|public
 name|void
@@ -498,7 +515,7 @@ name|e
 argument_list|,
 name|GDataResponse
 operator|.
-name|SERVER_ERROR
+name|BAD_REQUEST
 argument_list|)
 throw|;
 block|}
@@ -552,8 +569,27 @@ operator|.
 name|BAD_REQUEST
 argument_list|)
 throw|;
+name|String
+name|serviceid
+init|=
+literal|null
+decl_stmt|;
 try|try
 block|{
+name|serviceid
+operator|=
+name|this
+operator|.
+name|storage
+operator|.
+name|getServiceForFeed
+argument_list|(
+name|feed
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|storage
@@ -604,10 +640,38 @@ name|e
 argument_list|,
 name|GDataResponse
 operator|.
-name|SERVER_ERROR
+name|BAD_REQUEST
 argument_list|)
 throw|;
 block|}
+name|ProvidedService
+name|service
+init|=
+name|this
+operator|.
+name|registry
+operator|.
+name|getProvidedService
+argument_list|(
+name|serviceid
+argument_list|)
+decl_stmt|;
+name|feed
+operator|.
+name|setServiceConfig
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|entryEventMediator
+operator|.
+name|allEntriesDeleted
+argument_list|(
+name|feed
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * @see org.apache.lucene.gdata.server.administration.AdminService#createAccount(org.apache.lucene.gdata.data.GDataAccount)      */
 DECL|method|createAccount
@@ -687,7 +751,7 @@ name|e
 argument_list|,
 name|GDataResponse
 operator|.
-name|SERVER_ERROR
+name|BAD_REQUEST
 argument_list|)
 throw|;
 block|}
@@ -773,7 +837,7 @@ name|e
 argument_list|,
 name|GDataResponse
 operator|.
-name|SERVER_ERROR
+name|BAD_REQUEST
 argument_list|)
 throw|;
 block|}
@@ -856,7 +920,7 @@ name|e
 argument_list|,
 name|GDataResponse
 operator|.
-name|SERVER_ERROR
+name|BAD_REQUEST
 argument_list|)
 throw|;
 block|}
@@ -940,7 +1004,7 @@ name|e
 argument_list|,
 name|GDataResponse
 operator|.
-name|SERVER_ERROR
+name|BAD_REQUEST
 argument_list|)
 throw|;
 block|}
@@ -1036,7 +1100,7 @@ name|e
 argument_list|,
 name|GDataResponse
 operator|.
-name|SERVER_ERROR
+name|BAD_REQUEST
 argument_list|)
 throw|;
 block|}
