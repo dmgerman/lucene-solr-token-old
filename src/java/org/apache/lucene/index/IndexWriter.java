@@ -322,6 +322,14 @@ name|RAMDirectory
 argument_list|()
 decl_stmt|;
 comment|// for temp segs
+DECL|field|singleDocSegmentsCount
+specifier|private
+name|int
+name|singleDocSegmentsCount
+init|=
+literal|0
+decl_stmt|;
+comment|// for speeding decision on merge candidates
 DECL|field|writeLock
 specifier|private
 name|Lock
@@ -721,7 +729,7 @@ return|return
 name|maxFieldLength
 return|;
 block|}
-comment|/** Determines the minimal number of documents required before the buffered    * in-memory documents are merging and a new Segment is created.    * Since Documents are merged in a {@link org.apache.lucene.store.RAMDirectory},    * large value gives faster indexing.  At the same time, mergeFactor limits    * the number of files open in a FSDirectory.    *    *<p> The default value is 10.    *     * @throws IllegalArgumentException if maxBufferedDocs is smaller than 2    */
+comment|/** Determines the minimal number of documents required before the buffered    * in-memory documents are merging and a new Segment is created.    * Since Documents are merged in a {@link org.apache.lucene.store.RAMDirectory},    * large value gives faster indexing.  At the same time, mergeFactor limits    * the number of files open in a FSDirectory.    *    *<p> The default value is 10.    *    * @throws IllegalArgumentException if maxBufferedDocs is smaller than 2    */
 DECL|method|setMaxBufferedDocs
 specifier|public
 name|void
@@ -964,6 +972,7 @@ block|{
 name|flushRamSegments
 argument_list|()
 expr_stmt|;
+comment|// testInvariants();
 name|ramDirectory
 operator|.
 name|close
@@ -1197,10 +1206,14 @@ name|ramDirectory
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|singleDocSegmentsCount
+operator|++
+expr_stmt|;
 name|maybeMergeSegments
 argument_list|()
 expr_stmt|;
 block|}
+comment|// testInvariants();
 block|}
 DECL|method|getSegmentsCounter
 specifier|final
@@ -1382,6 +1395,7 @@ name|minSegment
 argument_list|)
 expr_stmt|;
 block|}
+comment|// testInvariants();
 block|}
 comment|/** Merges all segments from an array of indexes into this index.    *    *<p>This may be used to parallelize batch indexing.  A large document    * collection can be broken into sub-collections.  Each sub-collection can be    * indexed in parallel, on a different thread, process or machine.  The    * complete index can then be created by merging sub-collection indexes    * with this method.    *    *<p>After this completes, the index is optimized. */
 DECL|method|addIndexes
@@ -1546,6 +1560,7 @@ name|optimize
 argument_list|()
 expr_stmt|;
 comment|// final cleanup
+comment|// testInvariants();
 block|}
 comment|/** Merges the provided indexes into this index.    *<p>After this completes, the index is optimized.</p>    *<p>The provided IndexReaders are not closed.</p>    */
 DECL|method|addIndexes
@@ -1836,6 +1851,7 @@ name|filesToDelete
 argument_list|)
 expr_stmt|;
 block|}
+comment|// testInvariants();
 block|}
 comment|/** Merges all RAM-resident segments. */
 DECL|method|flushRamSegments
@@ -1988,11 +2004,14 @@ name|segmentInfos
 operator|.
 name|size
 argument_list|()
+operator|-
+name|singleDocSegmentsCount
 decl_stmt|;
+comment|// top 1-doc segments are taken for sure
 name|int
 name|mergeDocs
 init|=
-literal|0
+name|singleDocSegmentsCount
 decl_stmt|;
 while|while
 condition|(
@@ -2034,6 +2053,7 @@ name|mergeDocs
 operator|>=
 name|targetMergeDocs
 condition|)
+block|{
 comment|// found a merge to do
 name|mergeSegments
 argument_list|(
@@ -2042,8 +2062,15 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+name|singleDocSegmentsCount
+operator|=
+literal|0
+expr_stmt|;
+block|}
 else|else
+block|{
 break|break;
+block|}
 name|targetMergeDocs
 operator|*=
 name|mergeFactor
@@ -2439,6 +2466,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/***   private synchronized void testInvariants() {     // index segments should decrease in size     int maxSegLevel = 0;     for (int i=segmentInfos.size()-1; i>=0; i--) {       SegmentInfo si = segmentInfos.info(i);       int segLevel = (si.docCount)/minMergeDocs;       if (segLevel< maxSegLevel) {          throw new RuntimeException("Segment #" + i + " is too small. " + segInfo());       }       maxSegLevel = Math.max(maxSegLevel,segLevel);     }      // check if merges needed     long targetMergeDocs = minMergeDocs;     int minSegment = segmentInfos.size();      while (targetMergeDocs<= maxMergeDocs&& minSegment>=0) {       int mergeDocs = 0;       while (--minSegment>= 0) {         SegmentInfo si = segmentInfos.info(minSegment);         if (si.docCount>= targetMergeDocs) break;         mergeDocs += si.docCount;       }        if (mergeDocs>= targetMergeDocs) {         throw new RuntimeException("Merge needed at level "+targetMergeDocs + " :"+segInfo());       }        targetMergeDocs *= mergeFactor;		  // increase target size     }   }    private String segInfo() {     StringBuffer sb = new StringBuffer("minMergeDocs="+minMergeDocs+" singleDocSegmentsCount="+singleDocSegmentsCount+" segsizes:");     for (int i=0; i<segmentInfos.size(); i++) {       sb.append(segmentInfos.info(i).docCount);       sb.append(",");     }     return sb.toString();   }   ***/
 comment|/*    * Some operating systems (e.g. Windows) don't permit a file to be deleted    * while it is opened for read (e.g. by another process or thread). So we    * assume that when a delete fails it is because the file is open in another    * process, and queue the file for subsequent deletion.    */
 DECL|method|deleteSegments
 specifier|private
