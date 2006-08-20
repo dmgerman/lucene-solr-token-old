@@ -240,6 +240,15 @@ name|RESPONSE_FORMAT_PARAMETER_RSS
 init|=
 literal|"rss"
 decl_stmt|;
+DECL|field|RESPONSE_FORMAT_PARAMETER_HTML
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|RESPONSE_FORMAT_PARAMETER_HTML
+init|=
+literal|"html"
+decl_stmt|;
 DECL|field|DEFAULT_ITEMS_PER_PAGE
 specifier|private
 specifier|static
@@ -1034,6 +1043,23 @@ name|OutputFormat
 operator|.
 name|RSS
 expr_stmt|;
+if|if
+condition|(
+name|formatParameter
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|RESPONSE_FORMAT_PARAMETER_HTML
+argument_list|)
+condition|)
+name|this
+operator|.
+name|responseFormat
+operator|=
+name|OutputFormat
+operator|.
+name|HTML
+expr_stmt|;
 block|}
 comment|/**      * @return - the number of returned items per page      */
 DECL|method|getItemsPerPage
@@ -1722,6 +1748,10 @@ block|,
 comment|/**          * Output format RSS          */
 DECL|enum constant|RSS
 name|RSS
+block|,
+comment|/**          * Output format html if user defined xsl style sheet is present           */
+DECL|enum constant|HTML
+name|HTML
 block|}
 comment|/**      * Returns the requested path including the domain name and the requested      * resource<i>http://www.apache.org/path/resource/</i>      *       * @return the context path      */
 DECL|method|getContextPath
