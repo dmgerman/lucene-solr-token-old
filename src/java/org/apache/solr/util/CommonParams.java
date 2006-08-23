@@ -35,45 +35,6 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|core
-operator|.
-name|SolrInfoMBean
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|core
-operator|.
-name|SolrException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|util
-operator|.
-name|StrUtils
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
 name|util
 operator|.
 name|NamedList
@@ -81,139 +42,30 @@ import|;
 end_import
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|logging
+name|solr
 operator|.
-name|Logger
-import|;
-end_import
-begin_import
-import|import
-name|java
+name|request
 operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Handler
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
+name|SolrParams
 import|;
 end_import
 begin_comment
-comment|/**    * A collection on common params, both for Plugin initialization and    * for Requests.    */
+comment|/**  * A collection on common params, both for Plugin initialization and  * for Requests.  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|CommonParams
 specifier|public
 class|class
 name|CommonParams
 block|{
-comment|/** query and init param for field list */
+annotation|@
+name|Deprecated
 DECL|field|FL
 specifier|public
 specifier|static
@@ -223,6 +75,8 @@ init|=
 literal|"fl"
 decl_stmt|;
 comment|/** default query field */
+annotation|@
+name|Deprecated
 DECL|field|DF
 specifier|public
 specifier|static
@@ -232,6 +86,8 @@ init|=
 literal|"df"
 decl_stmt|;
 comment|/** whether to include debug data */
+annotation|@
+name|Deprecated
 DECL|field|DEBUG_QUERY
 specifier|public
 specifier|static
@@ -241,6 +97,8 @@ init|=
 literal|"debugQuery"
 decl_stmt|;
 comment|/** another query to explain against */
+annotation|@
+name|Deprecated
 DECL|field|EXPLAIN_OTHER
 specifier|public
 specifier|static
@@ -250,6 +108,8 @@ init|=
 literal|"explainOther"
 decl_stmt|;
 comment|/** wether to highlight */
+annotation|@
+name|Deprecated
 DECL|field|HIGHLIGHT
 specifier|public
 specifier|static
@@ -259,6 +119,8 @@ init|=
 literal|"highlight"
 decl_stmt|;
 comment|/** fields to highlight */
+annotation|@
+name|Deprecated
 DECL|field|HIGHLIGHT_FIELDS
 specifier|public
 specifier|static
@@ -268,6 +130,8 @@ init|=
 literal|"highlightFields"
 decl_stmt|;
 comment|/** maximum highlight fragments to return */
+annotation|@
+name|Deprecated
 DECL|field|MAX_SNIPPETS
 specifier|public
 specifier|static
@@ -277,6 +141,8 @@ init|=
 literal|"maxSnippets"
 decl_stmt|;
 comment|/** override default highlight Formatter class */
+annotation|@
+name|Deprecated
 DECL|field|HIGHLIGHT_FORMATTER_CLASS
 specifier|public
 specifier|static
@@ -374,7 +240,7 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the params using values from a NamedList, usefull in the      * init method for your handler.      *      *<p>      * If any param is not of the expected type, a severe error is      * logged,and the param is skipped.      *</p>      *      *<p>      * If any param is not of in the NamedList, it is skipped and the      * old value is left alone.      *</p>      *      */
+comment|/**    * Sets the params using values from a NamedList, usefull in the    * init method for your handler.    *    *<p>    * If any param is not of the expected type, a severe error is    * logged,and the param is skipped.    *</p>    *    *<p>    * If any param is not of in the NamedList, it is skipped and the    * old value is left alone.    *</p>    *    */
 DECL|method|setValues
 specifier|public
 name|void
@@ -393,6 +259,8 @@ name|args
 operator|.
 name|get
 argument_list|(
+name|SolrParams
+operator|.
 name|FL
 argument_list|)
 expr_stmt|;
@@ -428,6 +296,8 @@ name|severe
 argument_list|(
 literal|"init param is not a str: "
 operator|+
+name|SolrParams
+operator|.
 name|FL
 argument_list|)
 expr_stmt|;
@@ -439,6 +309,8 @@ name|args
 operator|.
 name|get
 argument_list|(
+name|SolrParams
+operator|.
 name|DF
 argument_list|)
 expr_stmt|;
@@ -474,6 +346,8 @@ name|severe
 argument_list|(
 literal|"init param is not a str: "
 operator|+
+name|SolrParams
+operator|.
 name|DF
 argument_list|)
 expr_stmt|;
@@ -485,6 +359,8 @@ name|args
 operator|.
 name|get
 argument_list|(
+name|SolrParams
+operator|.
 name|DEBUG_QUERY
 argument_list|)
 expr_stmt|;
@@ -520,6 +396,8 @@ name|severe
 argument_list|(
 literal|"init param is not a str: "
 operator|+
+name|SolrParams
+operator|.
 name|DEBUG_QUERY
 argument_list|)
 expr_stmt|;
@@ -531,6 +409,8 @@ name|args
 operator|.
 name|get
 argument_list|(
+name|SolrParams
+operator|.
 name|EXPLAIN_OTHER
 argument_list|)
 expr_stmt|;
@@ -566,6 +446,8 @@ name|severe
 argument_list|(
 literal|"init param is not a str: "
 operator|+
+name|SolrParams
+operator|.
 name|EXPLAIN_OTHER
 argument_list|)
 expr_stmt|;
@@ -577,6 +459,8 @@ name|args
 operator|.
 name|get
 argument_list|(
+name|SolrParams
+operator|.
 name|HIGHLIGHT
 argument_list|)
 expr_stmt|;
@@ -636,6 +520,8 @@ name|severe
 argument_list|(
 literal|"init param is not a str: "
 operator|+
+name|SolrParams
+operator|.
 name|HIGHLIGHT
 argument_list|)
 expr_stmt|;
@@ -647,6 +533,8 @@ name|args
 operator|.
 name|get
 argument_list|(
+name|SolrParams
+operator|.
 name|HIGHLIGHT_FIELDS
 argument_list|)
 expr_stmt|;
@@ -682,6 +570,8 @@ name|severe
 argument_list|(
 literal|"init param is not a str: "
 operator|+
+name|SolrParams
+operator|.
 name|HIGHLIGHT
 argument_list|)
 expr_stmt|;
@@ -693,6 +583,8 @@ name|args
 operator|.
 name|get
 argument_list|(
+name|SolrParams
+operator|.
 name|MAX_SNIPPETS
 argument_list|)
 expr_stmt|;
@@ -733,6 +625,8 @@ name|severe
 argument_list|(
 literal|"init param is not an int: "
 operator|+
+name|SolrParams
+operator|.
 name|MAX_SNIPPETS
 argument_list|)
 expr_stmt|;
@@ -744,6 +638,8 @@ name|args
 operator|.
 name|get
 argument_list|(
+name|SolrParams
+operator|.
 name|HIGHLIGHT_FORMATTER_CLASS
 argument_list|)
 expr_stmt|;
@@ -779,6 +675,8 @@ name|severe
 argument_list|(
 literal|"init param is not a str: "
 operator|+
+name|SolrParams
+operator|.
 name|HIGHLIGHT_FORMATTER_CLASS
 argument_list|)
 expr_stmt|;
