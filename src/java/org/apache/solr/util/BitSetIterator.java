@@ -808,6 +808,7 @@ name|bitIndex
 return|;
 block|}
 DECL|method|next
+specifier|public
 name|int
 name|next
 parameter_list|(
