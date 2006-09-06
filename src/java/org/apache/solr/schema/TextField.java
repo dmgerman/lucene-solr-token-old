@@ -106,7 +106,7 @@ specifier|public
 class|class
 name|TextField
 extends|extends
-name|FieldType
+name|CompressableField
 block|{
 DECL|method|init
 specifier|protected
@@ -128,6 +128,15 @@ block|{
 name|properties
 operator||=
 name|TOKENIZED
+expr_stmt|;
+name|super
+operator|.
+name|init
+argument_list|(
+name|schema
+argument_list|,
+name|args
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getSortField

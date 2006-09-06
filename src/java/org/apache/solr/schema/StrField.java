@@ -106,7 +106,7 @@ specifier|public
 class|class
 name|StrField
 extends|extends
-name|FieldType
+name|CompressableField
 block|{
 DECL|method|init
 specifier|protected
@@ -124,7 +124,17 @@ name|String
 argument_list|>
 name|args
 parameter_list|)
-block|{   }
+block|{
+name|super
+operator|.
+name|init
+argument_list|(
+name|schema
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getSortField
 specifier|public
 name|SortField
