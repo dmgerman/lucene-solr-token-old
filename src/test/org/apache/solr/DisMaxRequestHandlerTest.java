@@ -184,6 +184,14 @@ argument_list|,
 literal|"version"
 argument_list|,
 literal|"2.0"
+argument_list|,
+literal|"facet"
+argument_list|,
+literal|"true"
+argument_list|,
+literal|"facet.field"
+argument_list|,
+literal|"t_s"
 argument_list|)
 expr_stmt|;
 block|}
@@ -210,6 +218,10 @@ argument_list|,
 literal|"subject"
 argument_list|,
 literal|"traveling in hell"
+argument_list|,
+literal|"t_s"
+argument_list|,
+literal|"movie"
 argument_list|,
 literal|"title"
 argument_list|,
@@ -241,6 +253,14 @@ literal|"subject"
 argument_list|,
 literal|"traveling the galaxy"
 argument_list|,
+literal|"t_s"
+argument_list|,
+literal|"movie"
+argument_list|,
+literal|"t_s"
+argument_list|,
+literal|"book"
+argument_list|,
 literal|"title"
 argument_list|,
 literal|"Hitch Hiker's Guide to the Galaxy"
@@ -270,6 +290,10 @@ argument_list|,
 literal|"subject"
 argument_list|,
 literal|"garbage"
+argument_list|,
+literal|"t_s"
+argument_list|,
+literal|"book"
 argument_list|,
 literal|"title"
 argument_list|,
@@ -301,6 +325,10 @@ literal|"subject"
 argument_list|,
 literal|"One Cool Hot Chick"
 argument_list|,
+literal|"t_s"
+argument_list|,
+literal|"song"
+argument_list|,
 literal|"title"
 argument_list|,
 literal|"Jenny"
@@ -331,6 +359,14 @@ literal|"guide"
 argument_list|)
 argument_list|,
 literal|"//*[@numFound='2']"
+argument_list|,
+literal|"//lst[@name='facet_fields']/lst[@name='t_s']"
+argument_list|,
+literal|"*[count(//lst[@name='t_s']/int)=3]"
+argument_list|,
+literal|"//lst[@name='t_s']/int[@name='book'][.='2']"
+argument_list|,
+literal|"//lst[@name='t_s']/int[@name='movie'][.='1']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -394,7 +430,7 @@ name|h
 operator|.
 name|getRequestFactory
 argument_list|(
-literal|"dismaxOldStyleDefaults"
+literal|"dismax"
 argument_list|,
 literal|0
 argument_list|,
@@ -403,6 +439,14 @@ argument_list|,
 literal|"version"
 argument_list|,
 literal|"2.0"
+argument_list|,
+literal|"facet"
+argument_list|,
+literal|"true"
+argument_list|,
+literal|"facet.field"
+argument_list|,
+literal|"t_s"
 argument_list|)
 expr_stmt|;
 name|testSomeStuff
