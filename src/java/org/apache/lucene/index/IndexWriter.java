@@ -2024,8 +2024,6 @@ operator|>
 literal|0
 condition|)
 block|{
-if|if
-condition|(
 name|mergeSegments
 argument_list|(
 name|ramSegmentInfos
@@ -2037,14 +2035,10 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-operator|>
-literal|0
-condition|)
-block|{
+expr_stmt|;
 name|maybeMergeSegments
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/** Incremental segment merger.  */
@@ -2060,7 +2054,8 @@ block|{
 name|long
 name|lowerBound
 init|=
-literal|0
+operator|-
+literal|1
 decl_stmt|;
 name|long
 name|upperBound
@@ -2222,13 +2217,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|docCount
-operator|>
-literal|0
-condition|)
+else|else
 block|{
 comment|// if the merged segment does not exceed upperBound, consider
 comment|// this segment for further merges on this same level
@@ -2306,11 +2295,6 @@ name|this
 argument_list|,
 name|mergedName
 argument_list|)
-decl_stmt|;
-name|boolean
-name|fromRAM
-init|=
-literal|false
 decl_stmt|;
 specifier|final
 name|Vector
@@ -2420,28 +2404,6 @@ name|reader
 argument_list|)
 expr_stmt|;
 comment|// queue segment for deletion
-if|if
-condition|(
-operator|!
-name|fromRAM
-operator|&&
-operator|(
-name|reader
-operator|.
-name|directory
-argument_list|()
-operator|==
-name|this
-operator|.
-name|ramDirectory
-operator|)
-condition|)
-block|{
-name|fromRAM
-operator|=
-literal|true
-expr_stmt|;
-block|}
 block|}
 name|int
 name|mergedDocCount
@@ -2489,7 +2451,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|fromRAM
+name|sourceSegments
+operator|==
+name|ramSegmentInfos
 condition|)
 block|{
 name|sourceSegments
@@ -2497,12 +2461,6 @@ operator|.
 name|removeAllElements
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|mergedDocCount
-operator|>
-literal|0
-condition|)
 name|segmentInfos
 operator|.
 name|addElement
@@ -2537,12 +2495,6 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|mergedDocCount
-operator|>
-literal|0
-condition|)
 name|segmentInfos
 operator|.
 name|set
@@ -2550,14 +2502,6 @@ argument_list|(
 name|minSegment
 argument_list|,
 name|newSegment
-argument_list|)
-expr_stmt|;
-else|else
-name|sourceSegments
-operator|.
-name|remove
-argument_list|(
-name|minSegment
 argument_list|)
 expr_stmt|;
 block|}
