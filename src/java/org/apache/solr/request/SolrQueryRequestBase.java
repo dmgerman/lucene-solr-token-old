@@ -79,6 +79,24 @@ operator|.
 name|SolrException
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
 begin_comment
 comment|/**  * Base implementation of<code>SolrQueryRequest</code> that provides some  * convenience methods for accessing parameters, and manages an IndexSearcher  * reference.  *  *<p>  * The<code>close()</code> method must be called on any instance of this  * class once it is no longer in use.  *</p>  *  *  * @author yonik  * @version $Id$  */
 end_comment
@@ -163,6 +181,16 @@ specifier|protected
 name|SolrParams
 name|params
 decl_stmt|;
+DECL|field|context
+specifier|protected
+name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
+name|context
+decl_stmt|;
 DECL|method|SolrQueryRequestBase
 specifier|public
 name|SolrQueryRequestBase
@@ -191,7 +219,39 @@ operator|=
 name|params
 expr_stmt|;
 block|}
-comment|/** returns the current request parameters */
+DECL|method|getContext
+specifier|public
+name|Map
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
+name|getContext
+parameter_list|()
+block|{
+comment|// SolrQueryRequest as a whole isn't thread safe, and this isn't either.
+if|if
+condition|(
+name|context
+operator|==
+literal|null
+condition|)
+name|context
+operator|=
+operator|new
+name|HashMap
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
+argument_list|()
+expr_stmt|;
+return|return
+name|context
+return|;
+block|}
 DECL|method|getParams
 specifier|public
 name|SolrParams
@@ -202,7 +262,6 @@ return|return
 name|params
 return|;
 block|}
-comment|/** Returns the original request parameters.  As this    * does not normally include configured defaults    * it's more suitable for logging.    */
 DECL|method|getOriginalParams
 specifier|public
 name|SolrParams
@@ -213,7 +272,6 @@ return|return
 name|origParams
 return|;
 block|}
-comment|/** Change the parameters for this request.  This does not affect    *  the original parameters returned by getOriginalParams()    */
 DECL|method|setParams
 specifier|public
 name|void
