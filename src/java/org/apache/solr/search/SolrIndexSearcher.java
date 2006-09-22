@@ -246,7 +246,7 @@ name|Logger
 import|;
 end_import
 begin_comment
-comment|/**  * SolrIndexSearcher adds schema awareness and caching functionality  * over the lucene IndexSearcher.   * @author yonik  * @version $Id$  * @since solr 0.9  */
+comment|/**  * SolrIndexSearcher adds schema awareness and caching functionality  * over the lucene IndexSearcher.  *  * @author yonik  * @version $Id$  * @since solr 0.9  */
 end_comment
 begin_comment
 comment|// Since the internal reader in IndexSearcher is
@@ -419,7 +419,6 @@ index|[
 literal|0
 index|]
 decl_stmt|;
-comment|/** Creates a searcher searching the index in the named directory. */
 comment|/** Creates a searcher searching the index in the named directory. */
 DECL|method|SolrIndexSearcher
 specifier|public
@@ -871,7 +870,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/*** Register sub-objects such as caches    */
+comment|/** Register sub-objects such as caches    */
 DECL|method|register
 specifier|public
 name|void
@@ -921,6 +920,7 @@ name|currentTimeMillis
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**    * Free's resources associated with this searcher.    *    * In particular, the underlying reader and any cache's in use are closed.    */
 DECL|method|close
 specifier|public
 name|void
@@ -1045,6 +1045,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/** Direct access to the IndexReader used by this searcher */
 DECL|method|getReader
 specifier|public
 name|IndexReader
@@ -1055,6 +1056,7 @@ return|return
 name|reader
 return|;
 block|}
+comment|/** Direct access to the IndexSchema for use with this searcher */
 DECL|method|getSchema
 specifier|public
 name|IndexSchema
@@ -1542,19 +1544,6 @@ argument_list|,
 name|newFilter
 argument_list|)
 expr_stmt|;
-comment|// TODO REMOVE
-if|if
-condition|(
-name|newFilter
-index|[
-literal|0
-index|]
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// System.out.println("OPTIMIZED QUERY: FILTER=" + newFilter[0]);
-block|}
 return|return
 name|searcher
 operator|.
@@ -1575,7 +1564,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/******    * Shouldn't be needed since IndexReader has it's own finalize method    * and there is nothing else to clean up here (for now at least)    *   protected void finalize() {     try {       close();       super.finalize();     } catch (Throwable e) {       SolrException.log(log,e);     }   }   ******/
 DECL|method|search
 specifier|public
 name|Hits
@@ -1626,7 +1614,6 @@ name|sort
 argument_list|)
 return|;
 block|}
-comment|/***  Replaced this one with one that does filter optimization   public Hits search(Query query, Filter filter, Sort sort) throws IOException {     return searcher.search(query, filter, sort);   }   ***/
 DECL|method|search
 specifier|public
 name|void
@@ -2645,6 +2632,7 @@ literal|0
 argument_list|)
 return|;
 block|}
+comment|/**    * Returns documents matching both<code>query</code> and the     * intersection of the<code>filterList</code>, sorted by<code>sort</code>.    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *    * @param query    * @param filterList may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocList meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
 DECL|method|getDocList
 specifier|public
 name|DocList
@@ -4978,6 +4966,7 @@ return|return
 name|filterList
 return|;
 block|}
+comment|/**    * Returns documents matching both<code>query</code> and the intersection     * of<code>filterList</code>, sorted by<code>sort</code>.      * Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code>     * (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param query    * @param filterList   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
 DECL|method|getDocListAndSet
 specifier|public
 name|DocListAndSet
@@ -5034,6 +5023,7 @@ return|return
 name|ret
 return|;
 block|}
+comment|/**    * Returns documents matching both<code>query</code> and the intersection     * of<code>filterList</code>, sorted by<code>sort</code>.      * Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code>     * (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param query    * @param filterList   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @param flags    user supplied flags for the result set    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
 DECL|method|getDocListAndSet
 specifier|public
 name|DocListAndSet
@@ -5149,6 +5139,7 @@ return|return
 name|ret
 return|;
 block|}
+comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>.  Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code> (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may make an insertion into the cache     * as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param query    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @param flags    user supplied flags for the result set    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
 DECL|method|getDocListAndSet
 specifier|public
 name|DocListAndSet
@@ -5425,8 +5416,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|// Takes a list of docs (the doc ids actually), and returns all of
-comment|// the stored fields.
+comment|/**    * Takes a list of docs (the doc ids actually), and returns an array     * of Documents containing all of the stored fields.    */
 DECL|method|readDocs
 specifier|public
 name|Document
@@ -5463,6 +5453,7 @@ return|return
 name|docs
 return|;
 block|}
+comment|/**    * Takes a list of docs (the doc ids actually), and reads them into an array     * of Documents.    */
 DECL|method|readDocs
 specifier|public
 name|void
