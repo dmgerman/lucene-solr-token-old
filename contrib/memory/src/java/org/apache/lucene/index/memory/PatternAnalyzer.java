@@ -1541,9 +1541,7 @@ name|output
 argument_list|,
 literal|0
 argument_list|,
-name|output
-operator|.
-name|length
+name|len
 argument_list|)
 return|;
 block|}
