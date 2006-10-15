@@ -178,16 +178,19 @@ name|FieldsReader
 block|{
 DECL|field|fieldInfos
 specifier|private
+specifier|final
 name|FieldInfos
 name|fieldInfos
 decl_stmt|;
 DECL|field|fieldsStream
 specifier|private
+specifier|final
 name|IndexInput
 name|fieldsStream
 decl_stmt|;
 DECL|field|indexStream
 specifier|private
+specifier|final
 name|IndexInput
 name|indexStream
 decl_stmt|;
@@ -198,7 +201,6 @@ name|size
 decl_stmt|;
 DECL|field|fieldsStreamTL
 specifier|private
-specifier|static
 name|ThreadLocal
 name|fieldsStreamTL
 init|=
