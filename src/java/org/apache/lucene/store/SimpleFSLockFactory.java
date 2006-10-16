@@ -183,6 +183,14 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|lockDir
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
 name|String
 index|[]
 name|files
@@ -279,6 +287,7 @@ operator|+
 name|lockFile
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}
