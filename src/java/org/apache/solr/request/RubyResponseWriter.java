@@ -29,6 +29,19 @@ operator|.
 name|IOException
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|util
+operator|.
+name|NamedList
+import|;
+end_import
 begin_class
 DECL|class|RubyResponseWriter
 specifier|public
@@ -44,6 +57,17 @@ name|CONTENT_TYPE_RUBY_UTF8
 init|=
 literal|"text/x-ruby;charset=UTF-8"
 decl_stmt|;
+DECL|method|init
+specifier|public
+name|void
+name|init
+parameter_list|(
+name|NamedList
+name|n
+parameter_list|)
+block|{
+comment|/* NOOP */
+block|}
 DECL|method|write
 specifier|public
 name|void
