@@ -243,7 +243,7 @@ name|rand
 operator|.
 name|nextInt
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 condition|)
 block|{
