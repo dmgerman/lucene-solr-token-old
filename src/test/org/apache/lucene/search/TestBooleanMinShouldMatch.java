@@ -438,6 +438,15 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QueryUtils
+operator|.
+name|check
+argument_list|(
+name|q
+argument_list|,
+name|s
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testAllOptional
 specifier|public
@@ -2667,6 +2676,24 @@ argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
+name|QueryUtils
+operator|.
+name|check
+argument_list|(
+name|q1
+argument_list|,
+name|s
+argument_list|)
+expr_stmt|;
+name|QueryUtils
+operator|.
+name|check
+argument_list|(
+name|q2
+argument_list|,
+name|s
+argument_list|)
+expr_stmt|;
 comment|// The constrained query
 comment|// should be a superset to the unconstrained query.
 if|if

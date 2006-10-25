@@ -292,7 +292,9 @@ parameter_list|)
 throws|throws
 name|ParseException
 block|{
-return|return
+name|Query
+name|q
+init|=
 operator|(
 operator|new
 name|QueryParser
@@ -309,6 +311,9 @@ name|parse
 argument_list|(
 name|queryText
 argument_list|)
+decl_stmt|;
+return|return
+name|q
 return|;
 block|}
 DECL|method|queriesTest
@@ -862,6 +867,15 @@ operator|.
 name|setUseScorer14
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+name|QueryUtils
+operator|.
+name|check
+argument_list|(
+name|q1
+argument_list|,
+name|searcher
 argument_list|)
 expr_stmt|;
 name|Hits
