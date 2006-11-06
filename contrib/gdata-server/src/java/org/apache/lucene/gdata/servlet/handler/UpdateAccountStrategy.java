@@ -78,10 +78,10 @@ begin_comment
 comment|/**  * @author Simon Willnauer  *  */
 end_comment
 begin_class
-DECL|class|UpdataAccountStrategy
+DECL|class|UpdateAccountStrategy
 specifier|public
 class|class
-name|UpdataAccountStrategy
+name|UpdateAccountStrategy
 extends|extends
 name|AbstractAccountHandler
 block|{
@@ -96,7 +96,7 @@ name|LogFactory
 operator|.
 name|getLog
 argument_list|(
-name|UpdataAccountStrategy
+name|UpdateAccountStrategy
 operator|.
 name|class
 argument_list|)
