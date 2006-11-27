@@ -37,7 +37,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Field
+name|Fieldable
 import|;
 end_import
 begin_import
@@ -71,7 +71,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|Field
+name|Fieldable
 name|f
 parameter_list|)
 throws|throws

@@ -680,6 +680,22 @@ name|flags
 argument_list|)
 expr_stmt|;
 block|}
+comment|// pre-fetch returned documents
+name|U
+operator|.
+name|optimizePreFetchDocs
+argument_list|(
+name|results
+operator|.
+name|docList
+argument_list|,
+name|query
+argument_list|,
+name|req
+argument_list|,
+name|rsp
+argument_list|)
+expr_stmt|;
 name|rsp
 operator|.
 name|add
@@ -836,7 +852,7 @@ name|SolrCore
 operator|.
 name|log
 argument_list|,
-literal|"Exception durring debug"
+literal|"Exception during debug"
 argument_list|,
 name|e
 argument_list|)

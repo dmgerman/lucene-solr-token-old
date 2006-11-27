@@ -61,6 +61,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|Fieldable
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|DefaultSimilarity
@@ -567,7 +580,7 @@ decl_stmt|;
 comment|/**    * The raw (field type encoded) value of the Unique Key field for    * the specified Document    * @return null if this schema has no unique key field    * @see #printableUniqueKey    */
 DECL|method|getUniqueKeyField
 specifier|public
-name|Field
+name|Fieldable
 name|getUniqueKeyField
 parameter_list|(
 name|org
@@ -585,7 +598,7 @@ block|{
 return|return
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 name|uniqueKeyFieldName
 argument_list|)
@@ -610,12 +623,12 @@ name|Document
 name|doc
 parameter_list|)
 block|{
-name|Field
+name|Fieldable
 name|f
 init|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 name|uniqueKeyFieldName
 argument_list|)

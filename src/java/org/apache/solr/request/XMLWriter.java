@@ -155,7 +155,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Field
+name|Fieldable
 import|;
 end_import
 begin_import
@@ -1096,19 +1096,19 @@ name|Object
 name|o1
 parameter_list|)
 block|{
-name|Field
+name|Fieldable
 name|f1
 init|=
 operator|(
-name|Field
+name|Fieldable
 operator|)
 name|o
 decl_stmt|;
-name|Field
+name|Fieldable
 name|f2
 init|=
 operator|(
-name|Field
+name|Fieldable
 operator|)
 name|o1
 decl_stmt|;
@@ -1193,14 +1193,6 @@ comment|// with the same name.
 comment|// The XML needs to represent these as
 comment|// an array.  The fastest way to detect multiple fields
 comment|// with the same name is to sort them first.
-name|Enumeration
-name|ee
-init|=
-name|doc
-operator|.
-name|fields
-argument_list|()
-decl_stmt|;
 comment|// using global tlst here, so we shouldn't call any other
 comment|// function that uses it until we are done.
 name|tlst
@@ -1208,24 +1200,24 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-while|while
-condition|(
-name|ee
+for|for
+control|(
+name|Object
+name|obj
+range|:
+name|doc
 operator|.
-name|hasMoreElements
+name|getFields
 argument_list|()
-condition|)
+control|)
 block|{
-name|Field
+name|Fieldable
 name|ff
 init|=
 operator|(
-name|Field
+name|Fieldable
 operator|)
-name|ee
-operator|.
-name|nextElement
-argument_list|()
+name|obj
 decl_stmt|;
 comment|// skip this field if it is not a field to be returned.
 if|if
@@ -1289,11 +1281,11 @@ operator|<
 name|sz
 condition|)
 block|{
-name|Field
+name|Fieldable
 name|f1
 init|=
 operator|(
-name|Field
+name|Fieldable
 operator|)
 name|tlst
 operator|.
@@ -1329,7 +1321,7 @@ name|equals
 argument_list|(
 operator|(
 operator|(
-name|Field
+name|Fieldable
 operator|)
 name|tlst
 operator|.
@@ -1502,7 +1494,7 @@ argument_list|,
 literal|null
 argument_list|,
 operator|(
-name|Field
+name|Fieldable
 operator|)
 name|tlst
 operator|.
@@ -1778,6 +1770,8 @@ operator|.
 name|doc
 argument_list|(
 name|id
+argument_list|,
+name|fields
 argument_list|)
 decl_stmt|;
 name|writeDoc

@@ -95,19 +95,6 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Field
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
 name|Fieldable
 import|;
 end_import
@@ -275,7 +262,7 @@ specifier|public
 name|String
 name|toExternal
 parameter_list|(
-name|Field
+name|Fieldable
 name|f
 parameter_list|)
 block|{
@@ -318,7 +305,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|Field
+name|Fieldable
 name|f
 parameter_list|)
 throws|throws
