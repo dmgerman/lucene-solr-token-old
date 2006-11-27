@@ -761,7 +761,7 @@ name|ArrayList
 argument_list|()
 decl_stmt|;
 name|TokenStream
-name|stream
+name|tokenStream
 init|=
 operator|new
 name|TokenFilter
@@ -821,7 +821,7 @@ name|tokens2
 argument_list|)
 expr_stmt|;
 return|return
-name|stream
+name|tokenStream
 return|;
 block|}
 else|else
