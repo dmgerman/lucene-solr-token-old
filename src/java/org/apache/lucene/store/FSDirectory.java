@@ -2010,6 +2010,13 @@ name|file
 init|=
 literal|null
 decl_stmt|;
+comment|// remember if the file is open, so that we don't try to close it
+comment|// more than once
+DECL|field|isOpen
+specifier|private
+name|boolean
+name|isOpen
+decl_stmt|;
 DECL|field|isClone
 name|boolean
 name|isClone
@@ -2038,6 +2045,10 @@ name|path
 argument_list|,
 literal|"r"
 argument_list|)
+expr_stmt|;
+name|isOpen
+operator|=
+literal|true
 expr_stmt|;
 name|length
 operator|=
@@ -2167,16 +2178,26 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// only close the file if this is not a clone and the
+comment|// file has not been closed yet
 if|if
 condition|(
 operator|!
 name|isClone
+operator|&&
+name|isOpen
 condition|)
+block|{
 name|file
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|isOpen
+operator|=
+literal|false
+expr_stmt|;
+block|}
 block|}
 DECL|method|seekInternal
 specifier|protected
@@ -2270,6 +2291,13 @@ name|file
 init|=
 literal|null
 decl_stmt|;
+comment|// remember if the file is open, so that we don't try to close it
+comment|// more than once
+DECL|field|isOpen
+specifier|private
+name|boolean
+name|isOpen
+decl_stmt|;
 DECL|method|FSIndexOutput
 specifier|public
 name|FSIndexOutput
@@ -2289,6 +2317,10 @@ name|path
 argument_list|,
 literal|"rw"
 argument_list|)
+expr_stmt|;
+name|isOpen
+operator|=
+literal|true
 expr_stmt|;
 block|}
 comment|/** output methods: */
@@ -2327,6 +2359,12 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// only close the file if it has not been closed yet
+if|if
+condition|(
+name|isOpen
+condition|)
+block|{
 name|super
 operator|.
 name|close
@@ -2337,6 +2375,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|isOpen
+operator|=
+literal|false
+expr_stmt|;
+block|}
 block|}
 comment|/** Random-access methods */
 DECL|method|seek
@@ -2388,8 +2431,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|file
-operator|.
 name|close
 argument_list|()
 expr_stmt|;
