@@ -1671,6 +1671,11 @@ literal|true
 expr_stmt|;
 try|try
 block|{
+name|boolean
+name|alreadyRegistered
+init|=
+literal|false
+decl_stmt|;
 synchronized|synchronized
 init|(
 name|searcherLock
@@ -1683,8 +1688,22 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// if there isn't a current searcher then register this one
-comment|// before warming is complete instead of waiting.
+comment|// if there isn't a current searcher then we may
+comment|// want to register this one before warming is complete instead of waiting.
+if|if
+condition|(
+name|SolrConfig
+operator|.
+name|config
+operator|.
+name|getBool
+argument_list|(
+literal|"query/useColdSearcher"
+argument_list|,
+literal|false
+argument_list|)
+condition|)
+block|{
 name|registerSearcher
 argument_list|(
 name|newSearchHolder
@@ -1697,6 +1716,11 @@ index|]
 operator|=
 literal|false
 expr_stmt|;
+name|alreadyRegistered
+operator|=
+literal|true
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1971,19 +1995,13 @@ name|currSearcherHolderF
 init|=
 name|currSearcherHolder
 decl_stmt|;
-name|Future
-name|finalFuture
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
-name|currSearcherHolder
-operator|!=
-literal|null
+operator|!
+name|alreadyRegistered
 condition|)
 block|{
-name|finalFuture
+name|future
 operator|=
 name|searcherExecutor
 operator|.
@@ -2004,7 +2022,7 @@ try|try
 block|{
 comment|// signal that we no longer need to decrement
 comment|// the count *before* registering the searcher since
-comment|// registertSearcher will decrement even if it errors.
+comment|// registerSearcher will decrement even if it errors.
 name|decrementOnDeckCount
 index|[
 literal|0
@@ -2040,6 +2058,12 @@ finally|finally
 block|{
 comment|// we are all done with the old searcher we used
 comment|// for warming...
+if|if
+condition|(
+name|currSearcherHolderF
+operator|!=
+literal|null
+condition|)
 name|currSearcherHolderF
 operator|.
 name|decref
@@ -2066,7 +2090,7 @@ index|[
 literal|0
 index|]
 operator|=
-name|finalFuture
+name|future
 expr_stmt|;
 block|}
 comment|// Return the searcher as the warming tasks run in parallel
