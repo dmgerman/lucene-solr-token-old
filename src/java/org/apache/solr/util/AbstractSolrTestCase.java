@@ -220,7 +220,7 @@ literal|20
 argument_list|,
 literal|"version"
 argument_list|,
-literal|"2.0"
+literal|"2.2"
 argument_list|)
 expr_stmt|;
 block|}
