@@ -156,7 +156,17 @@ name|generation
 init|=
 literal|0
 decl_stmt|;
-comment|// generation of the "segments_N" file we read
+comment|// generation of the "segments_N" for the next commit
+DECL|field|lastGeneration
+specifier|private
+name|long
+name|lastGeneration
+init|=
+literal|0
+decl_stmt|;
+comment|// generation of the "segments_N" file we last successfully read
+comment|// or wrote; this is normally the same as generation except if
+comment|// there was an IOException that had interrupted a commit
 comment|/**    * If non-null, information about loading segments_N files    * will be printed here.  @see #setInfoStream.    */
 DECL|field|infoStream
 specifier|private
@@ -447,7 +457,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**    * Get the segment_N filename in use by this segment infos.    */
+comment|/**    * Get the segments_N filename in use by this segment infos.    */
 DECL|method|getCurrentSegmentFileName
 specifier|public
 name|String
@@ -465,7 +475,54 @@ name|SEGMENTS
 argument_list|,
 literal|""
 argument_list|,
+name|lastGeneration
+argument_list|)
+return|;
+block|}
+comment|/**    * Get the next segments_N filename that will be written.    */
+DECL|method|getNextSegmentFileName
+specifier|public
+name|String
+name|getNextSegmentFileName
+parameter_list|()
+block|{
+name|long
+name|nextGeneration
+decl_stmt|;
+if|if
+condition|(
 name|generation
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|nextGeneration
+operator|=
+literal|1
+expr_stmt|;
+block|}
+else|else
+block|{
+name|nextGeneration
+operator|=
+name|generation
+operator|+
+literal|1
+expr_stmt|;
+block|}
+return|return
+name|IndexFileNames
+operator|.
+name|fileNameFromGeneration
+argument_list|(
+name|IndexFileNames
+operator|.
+name|SEGMENTS
+argument_list|,
+literal|""
+argument_list|,
+name|nextGeneration
 argument_list|)
 return|;
 block|}
@@ -545,6 +602,10 @@ name|MAX_RADIX
 argument_list|)
 expr_stmt|;
 block|}
+name|lastGeneration
+operator|=
+name|generation
+expr_stmt|;
 try|try
 block|{
 name|int
@@ -716,6 +777,8 @@ name|IOException
 block|{
 name|generation
 operator|=
+name|lastGeneration
+operator|=
 operator|-
 literal|1
 expr_stmt|;
@@ -764,6 +827,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|String
+name|segmentFileName
+init|=
+name|getNextSegmentFileName
+argument_list|()
+decl_stmt|;
 comment|// Always advance the generation on write:
 if|if
 condition|(
@@ -784,12 +853,6 @@ name|generation
 operator|++
 expr_stmt|;
 block|}
-name|String
-name|segmentFileName
-init|=
-name|getCurrentSegmentFileName
-argument_list|()
-decl_stmt|;
 name|IndexOutput
 name|output
 init|=
@@ -853,15 +916,10 @@ name|i
 operator|++
 control|)
 block|{
-name|SegmentInfo
-name|si
-init|=
 name|info
 argument_list|(
 name|i
 argument_list|)
-decl_stmt|;
-name|si
 operator|.
 name|write
 argument_list|(
@@ -927,6 +985,73 @@ block|{
 comment|// It's OK if we fail to write this file since it's
 comment|// used only as one of the retry fallbacks.
 block|}
+name|lastGeneration
+operator|=
+name|generation
+expr_stmt|;
+block|}
+comment|/**    * Returns a copy of this instance, also copying each    * SegmentInfo.    */
+DECL|method|clone
+specifier|public
+name|Object
+name|clone
+parameter_list|()
+block|{
+name|SegmentInfos
+name|sis
+init|=
+operator|(
+name|SegmentInfos
+operator|)
+name|super
+operator|.
+name|clone
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|sis
+operator|.
+name|size
+argument_list|()
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|sis
+operator|.
+name|setElementAt
+argument_list|(
+operator|(
+operator|(
+name|SegmentInfo
+operator|)
+name|sis
+operator|.
+name|elementAt
+argument_list|(
+name|i
+argument_list|)
+operator|)
+operator|.
+name|clone
+argument_list|()
+argument_list|,
+name|i
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|sis
+return|;
 block|}
 comment|/**    * version number when this SegmentInfos was generated.    */
 DECL|method|getVersion
@@ -1721,7 +1846,7 @@ operator|++
 expr_stmt|;
 name|message
 argument_list|(
-literal|"look ahead incremenent gen to "
+literal|"look ahead increment gen to "
 operator|+
 name|gen
 argument_list|)
