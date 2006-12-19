@@ -949,6 +949,8 @@ operator|.
 name|SEGMENTS_GEN
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|output
 operator|.
 name|writeInt
@@ -970,11 +972,15 @@ argument_list|(
 name|generation
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|output
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
