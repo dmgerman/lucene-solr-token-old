@@ -1000,6 +1000,10 @@ specifier|public
 name|void
 name|finalize
 parameter_list|()
+throws|throws
+name|Throwable
+block|{
+try|try
 block|{
 if|if
 condition|(
@@ -1008,6 +1012,15 @@ argument_list|()
 condition|)
 block|{
 name|release
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|super
+operator|.
+name|finalize
 argument_list|()
 expr_stmt|;
 block|}

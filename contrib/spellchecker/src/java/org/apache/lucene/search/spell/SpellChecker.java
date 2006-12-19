@@ -1666,6 +1666,8 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
+try|try
+block|{
 if|if
 condition|(
 name|reader
@@ -1676,6 +1678,15 @@ block|{
 name|reader
 operator|.
 name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|super
+operator|.
+name|finalize
 argument_list|()
 expr_stmt|;
 block|}
