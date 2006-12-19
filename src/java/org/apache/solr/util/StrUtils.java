@@ -402,6 +402,7 @@ name|ch
 operator|=
 literal|'\n'
 expr_stmt|;
+break|break;
 case|case
 literal|'t'
 case|:
@@ -409,6 +410,7 @@ name|ch
 operator|=
 literal|'\t'
 expr_stmt|;
+break|break;
 case|case
 literal|'r'
 case|:
@@ -416,6 +418,7 @@ name|ch
 operator|=
 literal|'\r'
 expr_stmt|;
+break|break;
 case|case
 literal|'b'
 case|:
@@ -423,6 +426,7 @@ name|ch
 operator|=
 literal|'\b'
 expr_stmt|;
+break|break;
 case|case
 literal|'f'
 case|:
@@ -430,6 +434,7 @@ name|ch
 operator|=
 literal|'\f'
 expr_stmt|;
+break|break;
 block|}
 block|}
 block|}
@@ -627,6 +632,7 @@ name|ch
 operator|=
 literal|'\n'
 expr_stmt|;
+break|break;
 case|case
 literal|'t'
 case|:
@@ -634,6 +640,7 @@ name|ch
 operator|=
 literal|'\t'
 expr_stmt|;
+break|break;
 case|case
 literal|'r'
 case|:
@@ -641,6 +648,7 @@ name|ch
 operator|=
 literal|'\r'
 expr_stmt|;
+break|break;
 case|case
 literal|'b'
 case|:
@@ -648,6 +656,7 @@ name|ch
 operator|=
 literal|'\b'
 expr_stmt|;
+break|break;
 case|case
 literal|'f'
 case|:
@@ -655,6 +664,7 @@ name|ch
 operator|=
 literal|'\f'
 expr_stmt|;
+break|break;
 block|}
 block|}
 block|}
