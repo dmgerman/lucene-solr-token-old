@@ -1852,11 +1852,6 @@ name|directory
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|deleter
-operator|.
-name|deleteFiles
-argument_list|()
-expr_stmt|;
 block|}
 if|if
 condition|(
