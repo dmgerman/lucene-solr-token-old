@@ -1236,6 +1236,8 @@ name|params
 parameter_list|)
 block|{
 name|name
+operator|=
+name|name
 operator|.
 name|toLowerCase
 argument_list|()
