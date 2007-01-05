@@ -1093,6 +1093,14 @@ block|}
 block|}
 comment|//TODO possible alternative step 3 - organize above booleans into a new layer of field-based
 comment|// booleans with a minimum-should-match of NumFields-1?
+name|bq
+operator|.
+name|setBoost
+argument_list|(
+name|getBoost
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|rewrittenQuery
