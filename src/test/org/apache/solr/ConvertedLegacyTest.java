@@ -3882,7 +3882,7 @@ literal|"//float[.='1.4142135'] "
 argument_list|,
 literal|"//float[@name='score'] "
 argument_list|,
-literal|"*[count(//doc/*)=10]"
+literal|"*[count(//doc/*)=13]"
 argument_list|)
 expr_stmt|;
 name|args
@@ -3945,7 +3945,7 @@ literal|"//float[.='1.4142135'] "
 argument_list|,
 literal|"//float[@name='score'] "
 argument_list|,
-literal|"*[count(//doc/*)=10]"
+literal|"*[count(//doc/*)=13]"
 argument_list|)
 expr_stmt|;
 name|args
@@ -4006,7 +4006,7 @@ literal|"//str[.='Yonik']  "
 argument_list|,
 literal|"//float[.='1.4142135'] "
 argument_list|,
-literal|"*[count(//doc/*)>=9]"
+literal|"*[count(//doc/*)>=12]"
 argument_list|)
 expr_stmt|;
 comment|// test maxScore
