@@ -1733,8 +1733,12 @@ expr_stmt|;
 comment|// convert to merged space
 if|if
 condition|(
+name|lastDoc
+operator|!=
+literal|0
+operator|&&
 name|doc
-operator|<
+operator|<=
 name|lastDoc
 condition|)
 throw|throw
@@ -1745,7 +1749,7 @@ literal|"docs out of order ("
 operator|+
 name|doc
 operator|+
-literal|"< "
+literal|"<= "
 operator|+
 name|lastDoc
 operator|+
