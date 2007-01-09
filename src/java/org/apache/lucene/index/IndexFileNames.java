@@ -95,8 +95,6 @@ literal|"tvd"
 block|,
 literal|"tvf"
 block|,
-literal|"tvp"
-block|,
 literal|"gen"
 block|,
 literal|"nrm"
