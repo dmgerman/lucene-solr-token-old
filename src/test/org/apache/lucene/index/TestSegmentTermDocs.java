@@ -316,7 +316,7 @@ name|SegmentInfo
 argument_list|(
 literal|"test"
 argument_list|,
-literal|3
+literal|1
 argument_list|,
 name|dir
 argument_list|)
@@ -388,7 +388,7 @@ name|SegmentInfo
 argument_list|(
 literal|"test"
 argument_list|,
-literal|3
+literal|1
 argument_list|,
 name|dir
 argument_list|)

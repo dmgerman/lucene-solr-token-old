@@ -452,6 +452,8 @@ argument_list|(
 name|out
 argument_list|,
 literal|"one"
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|indexDoc
@@ -466,6 +468,8 @@ argument_list|(
 name|out
 argument_list|,
 literal|"two"
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|merge
@@ -488,6 +492,8 @@ argument_list|(
 name|out
 argument_list|,
 literal|"merge"
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 name|merge
@@ -510,6 +516,8 @@ argument_list|(
 name|out
 argument_list|,
 literal|"merge2"
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 name|merge
@@ -532,6 +540,8 @@ argument_list|(
 name|out
 argument_list|,
 literal|"merge3"
+argument_list|,
+literal|4
 argument_list|)
 expr_stmt|;
 name|out
@@ -600,6 +610,8 @@ argument_list|(
 name|out
 argument_list|,
 literal|"one"
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|indexDoc
@@ -614,6 +626,8 @@ argument_list|(
 name|out
 argument_list|,
 literal|"two"
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|merge
@@ -636,6 +650,8 @@ argument_list|(
 name|out
 argument_list|,
 literal|"merge"
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 name|merge
@@ -658,6 +674,8 @@ argument_list|(
 name|out
 argument_list|,
 literal|"merge2"
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 name|merge
@@ -680,6 +698,8 @@ argument_list|(
 name|out
 argument_list|,
 literal|"merge3"
+argument_list|,
+literal|4
 argument_list|)
 expr_stmt|;
 name|out
@@ -970,6 +990,9 @@ name|out
 parameter_list|,
 name|String
 name|segment
+parameter_list|,
+name|int
+name|docCount
 parameter_list|)
 throws|throws
 name|Exception
@@ -998,7 +1021,7 @@ name|SegmentInfo
 argument_list|(
 name|segment
 argument_list|,
-literal|1
+name|docCount
 argument_list|,
 name|directory
 argument_list|)
