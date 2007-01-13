@@ -2322,11 +2322,14 @@ return|return
 name|lock
 return|;
 block|}
-DECL|method|clearAllLocks
+DECL|method|clearLock
 specifier|public
 name|void
-name|clearAllLocks
-parameter_list|()
+name|clearLock
+parameter_list|(
+name|String
+name|specificLockName
+parameter_list|)
 block|{}
 DECL|class|MockLock
 specifier|public
