@@ -1382,7 +1382,11 @@ literal|"Solr home defaulted to '"
 operator|+
 name|instanceDir
 operator|+
-literal|"'"
+literal|"' (system property "
+operator|+
+name|prop
+operator|+
+literal|" not set)"
 argument_list|)
 expr_stmt|;
 block|}
