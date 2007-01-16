@@ -375,6 +375,10 @@ argument_list|,
 name|docsMerged
 argument_list|,
 name|mergedDir
+argument_list|,
+literal|false
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 decl_stmt|;

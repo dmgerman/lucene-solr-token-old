@@ -119,7 +119,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/** This is the current file format written.  It differs    * slightly from the previous format in that file names    * are never re-used (write once).  Instead, each file is    * written to the next generation.  For example,    * segments_1, segments_2, etc.  This allows us to not use    * a commit lock.  See<a    * href="http://lucene.apache.org/java/docs/fileformats.html">file    * formats</a> for details.    */
+comment|/** This format adds details used for lockless commits.  It differs    * slightly from the previous format in that file names    * are never re-used (write once).  Instead, each file is    * written to the next generation.  For example,    * segments_1, segments_2, etc.  This allows us to not use    * a commit lock.  See<a    * href="http://lucene.apache.org/java/docs/fileformats.html">file    * formats</a> for details.    */
 DECL|field|FORMAT_LOCKLESS
 specifier|public
 specifier|static
@@ -129,6 +129,17 @@ name|FORMAT_LOCKLESS
 init|=
 operator|-
 literal|2
+decl_stmt|;
+comment|/** This is the current file format written.  It adds a    * "hasSingleNormFile" flag into each segment info.    * See<a href="http://issues.apache.org/jira/browse/LUCENE-756">LUCENE-756</a>    * for details.    */
+DECL|field|FORMAT_SINGLE_NORM_FILE
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|FORMAT_SINGLE_NORM_FILE
+init|=
+operator|-
+literal|3
 decl_stmt|;
 DECL|field|counter
 specifier|public
@@ -629,7 +640,7 @@ if|if
 condition|(
 name|format
 operator|<
-name|FORMAT_LOCKLESS
+name|FORMAT_SINGLE_NORM_FILE
 condition|)
 throw|throw
 operator|new
@@ -869,7 +880,7 @@ name|output
 operator|.
 name|writeInt
 argument_list|(
-name|FORMAT_LOCKLESS
+name|FORMAT_SINGLE_NORM_FILE
 argument_list|)
 expr_stmt|;
 comment|// write FORMAT
@@ -1144,7 +1155,7 @@ if|if
 condition|(
 name|format
 operator|<
-name|FORMAT_LOCKLESS
+name|FORMAT_SINGLE_NORM_FILE
 condition|)
 throw|throw
 operator|new
