@@ -487,8 +487,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|path
-argument_list|,
-literal|false
 argument_list|)
 argument_list|,
 literal|true
@@ -516,8 +514,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|path
-argument_list|,
-literal|false
 argument_list|)
 argument_list|,
 literal|true
@@ -947,8 +943,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|directory
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|long
@@ -2188,8 +2182,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|directory
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -2373,8 +2365,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|dirname
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|cfr

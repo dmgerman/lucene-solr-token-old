@@ -175,6 +175,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|_TestUtil
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -1480,8 +1493,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|indexDir
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|IndexWriter
@@ -1777,9 +1788,7 @@ name|Directory
 name|dir
 init|=
 name|getDirectory
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Term
 name|searchTerm
@@ -2264,10 +2273,7 @@ DECL|method|getDirectory
 specifier|private
 name|Directory
 name|getDirectory
-parameter_list|(
-name|boolean
-name|create
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -2288,8 +2294,6 @@ argument_list|)
 argument_list|,
 literal|"testIndex"
 argument_list|)
-argument_list|,
-name|create
 argument_list|)
 return|;
 block|}
@@ -2302,13 +2306,27 @@ throws|throws
 name|IOException
 block|{
 comment|// Create initial data set
+name|File
+name|dirFile
+init|=
+operator|new
+name|File
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"tempDir"
+argument_list|)
+argument_list|,
+literal|"testIndex"
+argument_list|)
+decl_stmt|;
 name|Directory
 name|dir
 init|=
 name|getDirectory
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|IndexWriter
 name|writer
@@ -2343,12 +2361,17 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// Try to erase the data - this ensures that the writer closed all files
+name|_TestUtil
+operator|.
+name|rmDir
+argument_list|(
+name|dirFile
+argument_list|)
+expr_stmt|;
 name|dir
 operator|=
 name|getDirectory
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// Now create the data set again, just as before
 name|writer
@@ -2386,9 +2409,7 @@ comment|// Now open existing directory and test that reader closes all files
 name|dir
 operator|=
 name|getDirectory
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|IndexReader
 name|reader1
@@ -2410,12 +2431,13 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// The following will fail if reader did not close all files
-name|dir
-operator|=
-name|getDirectory
+comment|// The following will fail if reader did not close
+comment|// all files
+name|_TestUtil
+operator|.
+name|rmDir
 argument_list|(
-literal|true
+name|dirFile
 argument_list|)
 expr_stmt|;
 block|}
@@ -4475,9 +4497,7 @@ name|Directory
 name|dir
 init|=
 name|getDirectory
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Term
 name|searchTerm1

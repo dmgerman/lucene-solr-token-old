@@ -139,8 +139,6 @@ operator|.
 name|getDirectory
 argument_list|(
 literal|"index"
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|IndexReader

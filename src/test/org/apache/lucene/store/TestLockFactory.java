@@ -1156,8 +1156,6 @@ name|getDirectory
 argument_list|(
 name|indexDirName
 argument_list|,
-literal|true
-argument_list|,
 name|lf
 argument_list|)
 decl_stmt|;
@@ -1172,8 +1170,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|indexDirName
-argument_list|,
-literal|true
 argument_list|,
 operator|new
 name|SingleInstanceLockFactory
@@ -1207,8 +1203,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|indexDirName
-argument_list|,
-literal|true
 argument_list|,
 name|lf
 argument_list|)
@@ -1325,8 +1319,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|indexDirName
-argument_list|,
-literal|true
 argument_list|,
 name|lockFactory
 argument_list|)
@@ -1588,8 +1580,6 @@ name|getDirectory
 argument_list|(
 literal|"TestLockFactory.8"
 argument_list|,
-literal|true
-argument_list|,
 operator|new
 name|NativeFSLockFactory
 argument_list|(
@@ -1605,8 +1595,6 @@ operator|.
 name|getDirectory
 argument_list|(
 literal|"TestLockFactory.9"
-argument_list|,
-literal|true
 argument_list|,
 operator|new
 name|NativeFSLockFactory
@@ -1675,7 +1663,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// Make sure we get identical instances:
+comment|// Make sure we get null prefix:
 name|Directory
 name|dir
 init|=
@@ -1684,8 +1672,6 @@ operator|.
 name|getDirectory
 argument_list|(
 literal|"TestLockFactory.10"
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|String

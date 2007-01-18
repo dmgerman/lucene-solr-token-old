@@ -377,8 +377,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 argument_list|,
 literal|true
@@ -403,8 +401,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 argument_list|,
 literal|true

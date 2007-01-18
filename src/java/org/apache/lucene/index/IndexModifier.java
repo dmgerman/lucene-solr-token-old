@@ -231,8 +231,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|dirName
-argument_list|,
-name|create
 argument_list|)
 decl_stmt|;
 name|init
@@ -270,8 +268,6 @@ operator|.
 name|getDirectory
 argument_list|(
 name|file
-argument_list|,
-name|create
 argument_list|)
 decl_stmt|;
 name|init
