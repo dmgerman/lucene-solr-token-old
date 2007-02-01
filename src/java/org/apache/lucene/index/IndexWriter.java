@@ -312,7 +312,7 @@ name|rollbackSegmentInfos
 decl_stmt|;
 comment|// segmentInfos we will fallback to if the commit fails
 DECL|field|segmentInfos
-specifier|private
+specifier|protected
 name|SegmentInfos
 name|segmentInfos
 init|=
@@ -322,7 +322,7 @@ argument_list|()
 decl_stmt|;
 comment|// the segments
 DECL|field|ramSegmentInfos
-specifier|private
+specifier|protected
 name|SegmentInfos
 name|ramSegmentInfos
 init|=
@@ -372,6 +372,16 @@ specifier|private
 name|boolean
 name|closeDir
 decl_stmt|;
+DECL|method|getDeleter
+specifier|protected
+name|IndexFileDeleter
+name|getDeleter
+parameter_list|()
+block|{
+return|return
+name|deleter
+return|;
+block|}
 comment|/** Get the current setting of whether to use the compound file format.    *  Note that this just returns the value you set with setUseCompoundFile(boolean)    *  or the default. You cannot use this to query the status of an existing index.    *  @see #setUseCompoundFile(boolean)    */
 DECL|method|getUseCompoundFile
 specifier|public
@@ -1413,6 +1423,47 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|SegmentInfo
+name|newSegmentInfo
+init|=
+name|buildSingleDocSegment
+argument_list|(
+name|doc
+argument_list|,
+name|analyzer
+argument_list|)
+decl_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+name|ramSegmentInfos
+operator|.
+name|addElement
+argument_list|(
+name|newSegmentInfo
+argument_list|)
+expr_stmt|;
+name|maybeFlushRamSegments
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|buildSingleDocSegment
+specifier|final
+name|SegmentInfo
+name|buildSingleDocSegment
+parameter_list|(
+name|Document
+name|doc
+parameter_list|,
+name|Analyzer
+name|analyzer
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|DocumentWriter
 name|dw
 init|=
@@ -1448,15 +1499,7 @@ argument_list|,
 name|doc
 argument_list|)
 expr_stmt|;
-synchronized|synchronized
-init|(
-name|this
-init|)
-block|{
-name|ramSegmentInfos
-operator|.
-name|addElement
-argument_list|(
+return|return
 operator|new
 name|SegmentInfo
 argument_list|(
@@ -1470,12 +1513,7 @@ literal|false
 argument_list|,
 literal|false
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|maybeFlushRamSegments
-argument_list|()
-expr_stmt|;
-block|}
+return|;
 block|}
 comment|// for test purpose
 DECL|method|getRAMSegmentCount
@@ -1493,7 +1531,6 @@ argument_list|()
 return|;
 block|}
 DECL|method|newRAMSegmentName
-specifier|private
 specifier|final
 specifier|synchronized
 name|String
@@ -1578,7 +1615,6 @@ return|;
 block|}
 block|}
 DECL|method|newSegmentName
-specifier|private
 specifier|final
 specifier|synchronized
 name|String
@@ -2978,8 +3014,61 @@ comment|// B for maxBufferedDocs, f(n) defined as ceil(log_M(ceil(n/B)))
 comment|//      1: If i (left*) and i+1 (right*) are two consecutive segments of doc
 comment|//         counts x and y, then f(x)>= f(y).
 comment|//      2: The number of committed segments on the same level (f(n))<= M.
+DECL|method|timeToFlushRam
+specifier|protected
+name|boolean
+name|timeToFlushRam
+parameter_list|()
+block|{
+return|return
+name|ramSegmentInfos
+operator|.
+name|size
+argument_list|()
+operator|>=
+name|minMergeDocs
+return|;
+block|}
+DECL|method|anythingToFlushRam
+specifier|protected
+name|boolean
+name|anythingToFlushRam
+parameter_list|()
+block|{
+return|return
+name|ramSegmentInfos
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+return|;
+block|}
+comment|// true if only buffered inserts, no buffered deletes
+DECL|method|onlyRamDocsToFlush
+specifier|protected
+name|boolean
+name|onlyRamDocsToFlush
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// whether the latest segment is the flushed merge of ram segments
+DECL|method|doAfterFlushRamSegments
+specifier|protected
+name|void
+name|doAfterFlushRamSegments
+parameter_list|(
+name|boolean
+name|flushedRamSegments
+parameter_list|)
+throws|throws
+name|IOException
+block|{   }
 DECL|method|maybeFlushRamSegments
-specifier|private
+specifier|protected
 specifier|final
 name|void
 name|maybeFlushRamSegments
@@ -2989,12 +3078,8 @@ name|IOException
 block|{
 if|if
 condition|(
-name|ramSegmentInfos
-operator|.
-name|size
+name|timeToFlushRam
 argument_list|()
-operator|>=
-name|minMergeDocs
 condition|)
 block|{
 name|flushRamSegments
@@ -3004,7 +3089,7 @@ block|}
 block|}
 comment|/** Expert:  Flushes all RAM-resident segments (buffered documents), then may merge segments. */
 DECL|method|flushRamSegments
-specifier|public
+specifier|private
 specifier|final
 specifier|synchronized
 name|void
@@ -3015,12 +3100,8 @@ name|IOException
 block|{
 if|if
 condition|(
-name|ramSegmentInfos
-operator|.
-name|size
+name|anythingToFlushRam
 argument_list|()
-operator|>
-literal|0
 condition|)
 block|{
 name|mergeSegments
@@ -3041,6 +3122,21 @@ name|minMergeDocs
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**    * Flush all in-memory buffered updates to the Directory.    * @throws IOException    */
+DECL|method|flush
+specifier|public
+specifier|final
+specifier|synchronized
+name|void
+name|flush
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|flushRamSegments
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** Expert:  Return the total size of all index files currently cached in memory.    * Useful for size management with flushRamDocs()    */
 DECL|method|ramSizeInBytes
@@ -3298,6 +3394,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|boolean
+name|mergeFlag
+init|=
+name|end
+operator|>
+literal|0
+decl_stmt|;
 specifier|final
 name|String
 name|mergedName
@@ -3305,29 +3408,10 @@ init|=
 name|newSegmentName
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|infoStream
-operator|!=
-literal|null
-condition|)
-name|infoStream
-operator|.
-name|print
-argument_list|(
-literal|"merging segments"
-argument_list|)
-expr_stmt|;
 name|SegmentMerger
 name|merger
 init|=
-operator|new
-name|SegmentMerger
-argument_list|(
-name|this
-argument_list|,
-name|mergedName
-argument_list|)
+literal|null
 decl_stmt|;
 specifier|final
 name|Vector
@@ -3360,10 +3444,40 @@ literal|null
 decl_stmt|;
 name|int
 name|mergedDocCount
+init|=
+literal|0
 decl_stmt|;
 comment|// This is try/finally to make sure merger's readers are closed:
 try|try
 block|{
+if|if
+condition|(
+name|mergeFlag
+condition|)
+block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+name|infoStream
+operator|.
+name|print
+argument_list|(
+literal|"merging segments"
+argument_list|)
+expr_stmt|;
+name|merger
+operator|=
+operator|new
+name|SegmentMerger
+argument_list|(
+name|this
+argument_list|,
+name|mergedName
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -3424,6 +3538,7 @@ argument_list|(
 name|si
 argument_list|)
 decl_stmt|;
+comment|// no need to set deleter (yet)
 name|merger
 operator|.
 name|add
@@ -3465,6 +3580,7 @@ argument_list|)
 expr_stmt|;
 comment|// queue segment for deletion
 block|}
+block|}
 name|SegmentInfos
 name|rollback
 init|=
@@ -3478,6 +3594,11 @@ decl_stmt|;
 comment|// This is try/finally to rollback our internal state
 comment|// if we hit exception when doing the merge:
 try|try
+block|{
+if|if
+condition|(
+name|mergeFlag
+condition|)
 block|{
 name|mergedDocCount
 operator|=
@@ -3525,6 +3646,41 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|inTransaction
+operator|&&
+operator|(
+name|sourceSegments
+operator|!=
+name|ramSegmentInfos
+operator|||
+operator|!
+name|onlyRamDocsToFlush
+argument_list|()
+operator|)
+condition|)
+block|{
+comment|// Now save the SegmentInfo instances that
+comment|// we are replacing:
+name|rollback
+operator|=
+operator|(
+name|SegmentInfos
+operator|)
+name|segmentInfos
+operator|.
+name|clone
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|mergeFlag
+condition|)
+block|{
 if|if
 condition|(
 name|sourceSegments
@@ -3542,25 +3698,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-name|inTransaction
-condition|)
-block|{
-comment|// Now save the SegmentInfo instances that
-comment|// we are replacing:
-name|rollback
-operator|=
-operator|(
-name|SegmentInfos
-operator|)
-name|segmentInfos
-operator|.
-name|clone
-argument_list|()
-expr_stmt|;
-block|}
 for|for
 control|(
 name|int
@@ -3592,6 +3729,27 @@ argument_list|(
 name|minSegment
 argument_list|,
 name|newSegment
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|sourceSegments
+operator|==
+name|ramSegmentInfos
+condition|)
+block|{
+comment|// Should not be necessary: no prior commit should
+comment|// have left pending files, so just defensive:
+name|deleter
+operator|.
+name|clearPendingFiles
+argument_list|()
+expr_stmt|;
+name|doAfterFlushRamSegments
+argument_list|(
+name|mergeFlag
 argument_list|)
 expr_stmt|;
 block|}
@@ -3659,6 +3817,9 @@ condition|(
 name|sourceSegments
 operator|==
 name|ramSegmentInfos
+operator|&&
+name|onlyRamDocsToFlush
+argument_list|()
 condition|)
 block|{
 comment|// Simple case: newSegment may or may not have
@@ -3731,6 +3892,13 @@ name|rollback
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Erase any pending files that we were going to delete:
+comment|// i.e. old del files added by SegmentReader.doCommit()
+name|deleter
+operator|.
+name|clearPendingFiles
+argument_list|()
+expr_stmt|;
 comment|// Delete any partially created files:
 name|deleter
 operator|.
@@ -3755,6 +3923,10 @@ block|}
 finally|finally
 block|{
 comment|// close readers before we attempt to delete now-obsolete segments
+if|if
+condition|(
+name|mergeFlag
+condition|)
 name|merger
 operator|.
 name|closeReaders
@@ -3767,6 +3939,7 @@ operator|!
 name|inTransaction
 condition|)
 block|{
+comment|// Attempt to delete all files we just obsoleted:
 name|deleter
 operator|.
 name|deleteFile
@@ -3783,6 +3956,12 @@ name|segmentsToDelete
 argument_list|)
 expr_stmt|;
 comment|// delete now-unused segments
+comment|// including the old del files
+name|deleter
+operator|.
+name|commitPendingFiles
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -3808,6 +3987,8 @@ block|}
 if|if
 condition|(
 name|useCompoundFile
+operator|&&
+name|mergeFlag
 condition|)
 block|{
 name|segmentsInfosFileName
