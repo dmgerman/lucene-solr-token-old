@@ -1249,7 +1249,7 @@ name|file
 argument_list|)
 throw|;
 block|}
-comment|/** Renames an existing file in the directory. */
+comment|/** Renames an existing file in the directory.     * Warning: This is not atomic.    * @deprecated     */
 DECL|method|renameFile
 specifier|public
 specifier|synchronized
