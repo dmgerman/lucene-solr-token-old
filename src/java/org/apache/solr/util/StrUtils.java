@@ -103,6 +103,11 @@ name|inString
 init|=
 literal|0
 decl_stmt|;
+name|char
+name|ch
+init|=
+literal|0
+decl_stmt|;
 while|while
 condition|(
 name|pos
@@ -111,8 +116,12 @@ name|end
 condition|)
 block|{
 name|char
-name|ch
+name|prevChar
 init|=
+name|ch
+decl_stmt|;
+name|ch
+operator|=
 name|s
 operator|.
 name|charAt
@@ -120,7 +129,7 @@ argument_list|(
 name|pos
 operator|++
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|ch
@@ -162,10 +171,25 @@ operator|==
 literal|'"'
 condition|)
 block|{
+comment|// If char is directly preceeded by a number or letter
+comment|// then don't treat it as the start of a string.
+comment|// Examples: 50" TV, or can't
+if|if
+condition|(
+operator|!
+name|Character
+operator|.
+name|isLetterOrDigit
+argument_list|(
+name|prevChar
+argument_list|)
+condition|)
+block|{
 name|inString
 operator|=
 name|ch
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
