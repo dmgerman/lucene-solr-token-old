@@ -2548,6 +2548,18 @@ name|info
 argument_list|(
 name|req
 operator|.
+name|getContext
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"path"
+argument_list|)
+operator|+
+literal|" "
+operator|+
+name|req
+operator|.
 name|getParamString
 argument_list|()
 operator|+
