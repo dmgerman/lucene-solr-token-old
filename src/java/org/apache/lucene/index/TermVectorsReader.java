@@ -107,6 +107,8 @@ name|FieldInfos
 name|fieldInfos
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 if|if
@@ -210,6 +212,8 @@ name|IndexInput
 name|in
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|int
@@ -231,7 +235,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|CorruptIndexException
 argument_list|(
 literal|"Incompatible format version: "
 operator|+

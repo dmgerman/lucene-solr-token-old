@@ -102,6 +102,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|LockObtainFailedException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|RAMDirectory
 import|;
 end_import
@@ -180,7 +193,7 @@ name|Entry
 import|;
 end_import
 begin_comment
-comment|/**   An IndexWriter creates and maintains an index.<p>The third argument (<code>create</code>) to the<a href="#IndexWriter(org.apache.lucene.store.Directory, org.apache.lucene.analysis.Analyzer, boolean)"><b>constructor</b></a>   determines whether a new index is created, or whether an existing index is   opened for the addition of new documents.  Note that you   can open an index with create=true even while readers are   using the index.  The old readers will continue to search   the "point in time" snapshot they had opened, and won't   see the newly created index until they re-open.</p><p>In either case, documents are added with the<a   href="#addDocument(org.apache.lucene.document.Document)"><b>addDocument</b></a> method.     When finished adding documents,<a href="#close()"><b>close</b></a> should be called.</p><p>If an index will not have more documents added for a while and optimal search   performance is desired, then the<a href="#optimize()"><b>optimize</b></a>   method should be called before the index is closed.</p><p>Opening an IndexWriter creates a lock file for the directory in use. Trying to open   another IndexWriter on the same directory will lead to an IOException. The IOException   is also thrown if an IndexReader on the same directory is used to delete documents   from the index.</p><p>As of<b>2.1</b>, IndexWriter can now delete documents   by {@link Term} (see {@link #deleteDocuments} ) and update   (delete then add) documents (see {@link #updateDocument}).   Deletes are buffered until {@link   #setMaxBufferedDeleteTerms}<code>Terms</code> at which   point they are flushed to the index.  Note that a flush   occurs when there are enough buffered deletes or enough   added documents, whichever is sooner.  When a flush   occurs, both pending deletes and added documents are   flushed to the index.</p>   */
+comment|/**   An IndexWriter creates and maintains an index.<p>The third argument (<code>create</code>) to the<a href="#IndexWriter(org.apache.lucene.store.Directory, org.apache.lucene.analysis.Analyzer, boolean)"><b>constructor</b></a>   determines whether a new index is created, or whether an existing index is   opened for the addition of new documents.  Note that you   can open an index with create=true even while readers are   using the index.  The old readers will continue to search   the "point in time" snapshot they had opened, and won't   see the newly created index until they re-open.</p><p>In either case, documents are added with the<a   href="#addDocument(org.apache.lucene.document.Document)"><b>addDocument</b></a> method.     When finished adding documents,<a href="#close()"><b>close</b></a> should be called.</p><p>If an index will not have more documents added for a while and optimal search   performance is desired, then the<a href="#optimize()"><b>optimize</b></a>   method should be called before the index is closed.</p><p>Opening an IndexWriter creates a lock file for the directory in use. Trying to open   another IndexWriter on the same directory will lead to a   {@link LockObtainFailedException}. The {@link LockObtainFailedException}   is also thrown if an IndexReader on the same directory is used to delete documents   from the index.</p><p>As of<b>2.1</b>, IndexWriter can now delete documents   by {@link Term} (see {@link #deleteDocuments} ) and update   (delete then add) documents (see {@link #updateDocument}).   Deletes are buffered until {@link   #setMaxBufferedDeleteTerms}<code>Terms</code> at which   point they are flushed to the index.  Note that a flush   occurs when there are enough buffered deletes or enough   added documents, whichever is sooner.  When a flush   occurs, both pending deletes and added documents are   flushed to the index.</p>   */
 end_comment
 begin_class
 DECL|class|IndexWriter
@@ -495,7 +508,7 @@ return|return
 name|termIndexInterval
 return|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in<code>path</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>path</code>, replacing the index already there, if any.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist, and<code>create</code> is    *<code>false</code>    */
+comment|/**    * Constructs an IndexWriter for the index in<code>path</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>path</code>, replacing the index already there, if any.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -510,6 +523,10 @@ name|boolean
 name|create
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
+name|LockObtainFailedException
+throws|,
 name|IOException
 block|{
 name|init
@@ -522,7 +539,7 @@ name|create
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in<code>path</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>path</code>, replacing the index already there, if any.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist, and<code>create</code> is    *<code>false</code>    */
+comment|/**    * Constructs an IndexWriter for the index in<code>path</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>path</code>, replacing the index already there, if any.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -537,6 +554,10 @@ name|boolean
 name|create
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
+name|LockObtainFailedException
+throws|,
 name|IOException
 block|{
 name|init
@@ -549,7 +570,7 @@ name|create
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>d</code>, replacing the index already there, if any.    *    * @param d the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist, and<code>create</code> is    *<code>false</code>    */
+comment|/**    * Constructs an IndexWriter for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>d</code>, replacing the index already there, if any.    *    * @param d the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -564,6 +585,10 @@ name|boolean
 name|create
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
+name|LockObtainFailedException
+throws|,
 name|IOException
 block|{
 name|init
@@ -578,7 +603,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in    *<code>path</code>, creating it first if it does not    * already exist, otherwise appending to the existing    * index.  Text will be analyzed with<code>a</code>.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @throws IOException if the directory cannot be    *  created or read/written to    */
+comment|/**    * Constructs an IndexWriter for the index in    *<code>path</code>, creating it first if it does not    * already exist, otherwise appending to the existing    * index.  Text will be analyzed with<code>a</code>.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -590,6 +615,10 @@ name|Analyzer
 name|a
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
+name|LockObtainFailedException
+throws|,
 name|IOException
 block|{
 if|if
@@ -625,7 +654,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Constructs an IndexWriter for the index in    *<code>path</code>, creating it first if it does not    * already exist, otherwise appending to the existing    * index.  Text will be analyzed with    *<code>a</code>.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @throws IOException if the directory cannot be    *  created or read/written to    */
+comment|/**    * Constructs an IndexWriter for the index in    *<code>path</code>, creating it first if it does not    * already exist, otherwise appending to the existing    * index.  Text will be analyzed with    *<code>a</code>.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -637,6 +666,10 @@ name|Analyzer
 name|a
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
+name|LockObtainFailedException
+throws|,
 name|IOException
 block|{
 if|if
@@ -672,7 +705,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Constructs an IndexWriter for the index in    *<code>d</code>, creating it first if it does not    * already exist, otherwise appending to the existing    * index.  Text will be analyzed with<code>a</code>.    *    * @param d the index directory    * @param a the analyzer to use    * @throws IOException if the directory cannot be    *  created or read/written to    */
+comment|/**    * Constructs an IndexWriter for the index in    *<code>d</code>, creating it first if it does not    * already exist, otherwise appending to the existing    * index.  Text will be analyzed with<code>a</code>.    *    * @param d the index directory    * @param a the analyzer to use    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -684,6 +717,10 @@ name|Analyzer
 name|a
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
+name|LockObtainFailedException
+throws|,
 name|IOException
 block|{
 if|if
@@ -739,6 +776,10 @@ name|boolean
 name|create
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
+name|LockObtainFailedException
+throws|,
 name|IOException
 block|{
 name|init
@@ -774,6 +815,10 @@ name|boolean
 name|create
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
+name|LockObtainFailedException
+throws|,
 name|IOException
 block|{
 name|init
@@ -812,6 +857,10 @@ name|boolean
 name|closeDir
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
+name|LockObtainFailedException
+throws|,
 name|IOException
 block|{
 name|this
@@ -869,7 +918,7 @@ condition|)
 comment|// obtain write lock
 throw|throw
 operator|new
-name|IOException
+name|LockObtainFailedException
 argument_list|(
 literal|"Index locked for write: "
 operator|+
@@ -1256,7 +1305,7 @@ operator|.
 name|WRITE_LOCK_TIMEOUT
 return|;
 block|}
-comment|/**    * Flushes all changes to an index and closes all    * associated files.    *    *<p> If an Exception is hit during close, eg due to disk    * full or some other reason, then both the on-disk index    * and the internal state of the IndexWriter instance will    * be consistent.  However, the close will not be complete    * even though part of it (flushing buffered documents)    * may have succeeded, so the write lock will still be    * held.</p>    *     *<p> If you can correct the underlying cause (eg free up    * some disk space) then you can call close() again.    * Failing that, if you want to force the write lock to be    * released (dangerous, because you may then lose buffered    * docs in the IndexWriter instance) then you can do    * something like this:</p>    *    *<pre>    * try {    *   writer.close();    * } finally {    *   if (IndexReader.isLocked(directory)) {    *     IndexReader.unlock(directory);    *   }    * }    *</pre>    *    * after which, you must be certain not to use the writer    * instance anymore.</p>    */
+comment|/**    * Flushes all changes to an index and closes all    * associated files.    *    *<p> If an Exception is hit during close, eg due to disk    * full or some other reason, then both the on-disk index    * and the internal state of the IndexWriter instance will    * be consistent.  However, the close will not be complete    * even though part of it (flushing buffered documents)    * may have succeeded, so the write lock will still be    * held.</p>    *     *<p> If you can correct the underlying cause (eg free up    * some disk space) then you can call close() again.    * Failing that, if you want to force the write lock to be    * released (dangerous, because you may then lose buffered    * docs in the IndexWriter instance) then you can do    * something like this:</p>    *    *<pre>    * try {    *   writer.close();    * } finally {    *   if (IndexReader.isLocked(directory)) {    *     IndexReader.unlock(directory);    *   }    * }    *</pre>    *    * after which, you must be certain not to use the writer    * instance anymore.</p>    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|close
 specifier|public
 specifier|synchronized
@@ -1264,6 +1313,8 @@ name|void
 name|close
 parameter_list|()
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|flushRamSegments
@@ -1426,7 +1477,7 @@ name|maxFieldLength
 init|=
 name|DEFAULT_MAX_FIELD_LENGTH
 decl_stmt|;
-comment|/**    * Adds a document to this index.  If the document contains more than    * {@link #setMaxFieldLength(int)} terms for a given field, the remainder are    * discarded.    *    *<p> Note that if an Exception is hit (for example disk full)    * then the index will be consistent, but this document    * may not have been added.  Furthermore, it's possible    * the index will have one segment in non-compound format    * even when using compound files (when a merge has    * partially succeeded).</p>    *    *<p> This method periodically flushes pending documents    * to the Directory (every {@link #setMaxBufferedDocs}),    * and also periodically merges segments in the index    * (every {@link #setMergeFactor} flushes).  When this    * occurs, the method will take more time to run (possibly    * a long time if the index is large), and will require    * free temporary space in the Directory to do the    * merging.</p>    *    *<p>The amount of free space required when a merge is    * triggered is up to 1X the size of all segments being    * merged, when no readers/searchers are open against the    * index, and up to 2X the size of all segments being    * merged when readers/searchers are open against the    * index (see {@link #optimize()} for details).  Most    * merges are small (merging the smallest segments    * together), but whenever a full merge occurs (all    * segments in the index, which is the worst case for    * temporary space usage) then the maximum free disk space    * required is the same as {@link #optimize}.</p>    */
+comment|/**    * Adds a document to this index.  If the document contains more than    * {@link #setMaxFieldLength(int)} terms for a given field, the remainder are    * discarded.    *    *<p> Note that if an Exception is hit (for example disk full)    * then the index will be consistent, but this document    * may not have been added.  Furthermore, it's possible    * the index will have one segment in non-compound format    * even when using compound files (when a merge has    * partially succeeded).</p>    *    *<p> This method periodically flushes pending documents    * to the Directory (every {@link #setMaxBufferedDocs}),    * and also periodically merges segments in the index    * (every {@link #setMergeFactor} flushes).  When this    * occurs, the method will take more time to run (possibly    * a long time if the index is large), and will require    * free temporary space in the Directory to do the    * merging.</p>    *    *<p>The amount of free space required when a merge is    * triggered is up to 1X the size of all segments being    * merged, when no readers/searchers are open against the    * index, and up to 2X the size of all segments being    * merged when readers/searchers are open against the    * index (see {@link #optimize()} for details).  Most    * merges are small (merging the smallest segments    * together), but whenever a full merge occurs (all    * segments in the index, which is the worst case for    * temporary space usage) then the maximum free disk space    * required is the same as {@link #optimize}.</p>    *    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|addDocument
 specifier|public
 name|void
@@ -1436,6 +1487,8 @@ name|Document
 name|doc
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|addDocument
@@ -1446,7 +1499,7 @@ name|analyzer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Adds a document to this index, using the provided analyzer instead of the    * value of {@link #getAnalyzer()}.  If the document contains more than    * {@link #setMaxFieldLength(int)} terms for a given field, the remainder are    * discarded.    *    *<p>See {@link #addDocument(Document)} for details on    * index and IndexWriter state after an Exception, and    * flushing/merging temporary free space requirements.</p>    */
+comment|/**    * Adds a document to this index, using the provided analyzer instead of the    * value of {@link #getAnalyzer()}.  If the document contains more than    * {@link #setMaxFieldLength(int)} terms for a given field, the remainder are    * discarded.    *    *<p>See {@link #addDocument(Document)} for details on    * index and IndexWriter state after an Exception, and    * flushing/merging temporary free space requirements.</p>    *    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|addDocument
 specifier|public
 name|void
@@ -1459,6 +1512,8 @@ name|Analyzer
 name|analyzer
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|SegmentInfo
@@ -1499,6 +1554,8 @@ name|Analyzer
 name|analyzer
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|DocumentWriter
@@ -1552,7 +1609,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**    * Deletes the document(s) containing<code>term</code>.    * @param term the term to identify the documents to be deleted    */
+comment|/**    * Deletes the document(s) containing<code>term</code>.    * @param term the term to identify the documents to be deleted    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|deleteDocuments
 specifier|public
 specifier|synchronized
@@ -1563,6 +1620,8 @@ name|Term
 name|term
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|bufferDeleteTerm
@@ -1574,7 +1633,7 @@ name|maybeFlushRamSegments
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Deletes the document(s) containing any of the    * terms. All deletes are flushed at the same time.    * @param terms array of terms to identify the documents    * to be deleted    */
+comment|/**    * Deletes the document(s) containing any of the    * terms. All deletes are flushed at the same time.    * @param terms array of terms to identify the documents    * to be deleted    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|deleteDocuments
 specifier|public
 specifier|synchronized
@@ -1586,6 +1645,8 @@ index|[]
 name|terms
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 for|for
@@ -1618,7 +1679,7 @@ name|maybeFlushRamSegments
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Updates a document by first deleting the document(s)    * containing<code>term</code> and then adding the new    * document.  The delete and then add are atomic as seen    * by a reader on the same index (flush may happen only after    * the add).    * @param term the term to identify the document(s) to be    * deleted    * @param doc the document to be added    */
+comment|/**    * Updates a document by first deleting the document(s)    * containing<code>term</code> and then adding the new    * document.  The delete and then add are atomic as seen    * by a reader on the same index (flush may happen only after    * the add).    * @param term the term to identify the document(s) to be    * deleted    * @param doc the document to be added    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|updateDocument
 specifier|public
 name|void
@@ -1631,6 +1692,8 @@ name|Document
 name|doc
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|updateDocument
@@ -1644,7 +1707,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Updates a document by first deleting the document(s)    * containing<code>term</code> and then adding the new    * document.  The delete and then add are atomic as seen    * by a reader on the same index (flush may happen only after    * the add).    * @param term the term to identify the document(s) to be    * deleted    * @param doc the document to be added    * @param analyzer the analyzer to use when analyzing the document    */
+comment|/**    * Updates a document by first deleting the document(s)    * containing<code>term</code> and then adding the new    * document.  The delete and then add are atomic as seen    * by a reader on the same index (flush may happen only after    * the add).    * @param term the term to identify the document(s) to be    * deleted    * @param doc the document to be added    * @param analyzer the analyzer to use when analyzing the document    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|updateDocument
 specifier|public
 name|void
@@ -1660,6 +1723,8 @@ name|Analyzer
 name|analyzer
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|SegmentInfo
@@ -1850,7 +1915,7 @@ name|infoStream
 init|=
 literal|null
 decl_stmt|;
-comment|/** Merges all segments together into a single segment,    * optimizing an index for search.    *     *<p>Note that this requires substantial temporary free    * space in the Directory (see<a target="_top"    * href="http://issues.apache.org/jira/browse/LUCENE-764">LUCENE-764</a>    * for details):</p>    *    *<ul>    *<li>    *     *<p>If no readers/searchers are open against the index,    * then free space required is up to 1X the total size of    * the starting index.  For example, if the starting    * index is 10 GB, then you must have up to 10 GB of free    * space before calling optimize.</p>    *    *<li>    *     *<p>If readers/searchers are using the index, then free    * space required is up to 2X the size of the starting    * index.  This is because in addition to the 1X used by    * optimize, the original 1X of the starting index is    * still consuming space in the Directory as the readers    * are holding the segments files open.  Even on Unix,    * where it will appear as if the files are gone ("ls"    * won't list them), they still consume storage due to    * "delete on last close" semantics.</p>    *     *<p>Furthermore, if some but not all readers re-open    * while the optimize is underway, this will cause> 2X    * temporary space to be consumed as those new readers    * will then hold open the partially optimized segments at    * that time.  It is best not to re-open readers while    * optimize is running.</p>    *    *</ul>    *    *<p>The actual temporary usage could be much less than    * these figures (it depends on many factors).</p>    *    *<p>Once the optimize completes, the total size of the    * index will be less than the size of the starting index.    * It could be quite a bit smaller (if there were many    * pending deletes) or just slightly smaller.</p>    *    *<p>If an Exception is hit during optimize(), for example    * due to disk full, the index will not be corrupt and no    * documents will have been lost.  However, it may have    * been partially optimized (some segments were merged but    * not all), and it's possible that one of the segments in    * the index will be in non-compound format even when    * using compound file format.  This will occur when the    * Exception is hit during conversion of the segment into    * compound format.</p>   */
+comment|/** Merges all segments together into a single segment,    * optimizing an index for search.    *     *<p>Note that this requires substantial temporary free    * space in the Directory (see<a target="_top"    * href="http://issues.apache.org/jira/browse/LUCENE-764">LUCENE-764</a>    * for details):</p>    *    *<ul>    *<li>    *     *<p>If no readers/searchers are open against the index,    * then free space required is up to 1X the total size of    * the starting index.  For example, if the starting    * index is 10 GB, then you must have up to 10 GB of free    * space before calling optimize.</p>    *    *<li>    *     *<p>If readers/searchers are using the index, then free    * space required is up to 2X the size of the starting    * index.  This is because in addition to the 1X used by    * optimize, the original 1X of the starting index is    * still consuming space in the Directory as the readers    * are holding the segments files open.  Even on Unix,    * where it will appear as if the files are gone ("ls"    * won't list them), they still consume storage due to    * "delete on last close" semantics.</p>    *     *<p>Furthermore, if some but not all readers re-open    * while the optimize is underway, this will cause> 2X    * temporary space to be consumed as those new readers    * will then hold open the partially optimized segments at    * that time.  It is best not to re-open readers while    * optimize is running.</p>    *    *</ul>    *    *<p>The actual temporary usage could be much less than    * these figures (it depends on many factors).</p>    *    *<p>Once the optimize completes, the total size of the    * index will be less than the size of the starting index.    * It could be quite a bit smaller (if there were many    * pending deletes) or just slightly smaller.</p>    *    *<p>If an Exception is hit during optimize(), for example    * due to disk full, the index will not be corrupt and no    * documents will have been lost.  However, it may have    * been partially optimized (some segments were merged but    * not all), and it's possible that one of the segments in    * the index will be in non-compound format even when    * using compound file format.  This will occur when the    * Exception is hit during conversion of the segment into    * compound format.</p>    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error   */
 DECL|method|optimize
 specifier|public
 specifier|synchronized
@@ -1858,6 +1923,8 @@ name|void
 name|optimize
 parameter_list|()
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|flushRamSegments
@@ -2181,7 +2248,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/** Merges all segments from an array of indexes into this index.    *    *<p>This may be used to parallelize batch indexing.  A large document    * collection can be broken into sub-collections.  Each sub-collection can be    * indexed in parallel, on a different thread, process or machine.  The    * complete index can then be created by merging sub-collection indexes    * with this method.    *    *<p>After this completes, the index is optimized.    *    *<p>This method is transactional in how Exceptions are    * handled: it does not commit a new segments_N file until    * all indexes are added.  This means if an Exception    * occurs (for example disk full), then either no indexes    * will have been added or they all will have been.</p>    *    *<p>If an Exception is hit, it's still possible that all    * indexes were successfully added.  This happens when the    * Exception is hit when trying to build a CFS file.  In    * this case, one segment in the index will be in non-CFS    * format, even when using compound file format.</p>    *    *<p>Also note that on an Exception, the index may still    * have been partially or fully optimized even though none    * of the input indexes were added.</p>    *    *<p>Note that this requires temporary free space in the    * Directory up to 2X the sum of all input indexes    * (including the starting index).  If readers/searchers    * are open against the starting index, then temporary    * free space required will be higher by the size of the    * starting index (see {@link #optimize()} for details).    *</p>    *    *<p>Once this completes, the final size of the index    * will be less than the sum of all input index sizes    * (including the starting index).  It could be quite a    * bit smaller (if there were many pending deletes) or    * just slightly smaller.</p>    *    *<p>See<a target="_top"    * href="http://issues.apache.org/jira/browse/LUCENE-702">LUCENE-702</a>    * for details.</p>    */
+comment|/** Merges all segments from an array of indexes into this index.    *    *<p>This may be used to parallelize batch indexing.  A large document    * collection can be broken into sub-collections.  Each sub-collection can be    * indexed in parallel, on a different thread, process or machine.  The    * complete index can then be created by merging sub-collection indexes    * with this method.    *    *<p>After this completes, the index is optimized.    *    *<p>This method is transactional in how Exceptions are    * handled: it does not commit a new segments_N file until    * all indexes are added.  This means if an Exception    * occurs (for example disk full), then either no indexes    * will have been added or they all will have been.</p>    *    *<p>If an Exception is hit, it's still possible that all    * indexes were successfully added.  This happens when the    * Exception is hit when trying to build a CFS file.  In    * this case, one segment in the index will be in non-CFS    * format, even when using compound file format.</p>    *    *<p>Also note that on an Exception, the index may still    * have been partially or fully optimized even though none    * of the input indexes were added.</p>    *    *<p>Note that this requires temporary free space in the    * Directory up to 2X the sum of all input indexes    * (including the starting index).  If readers/searchers    * are open against the starting index, then temporary    * free space required will be higher by the size of the    * starting index (see {@link #optimize()} for details).    *</p>    *    *<p>Once this completes, the final size of the index    * will be less than the sum of all input index sizes    * (including the starting index).  It could be quite a    * bit smaller (if there were many pending deletes) or    * just slightly smaller.</p>    *    *<p>See<a target="_top"    * href="http://issues.apache.org/jira/browse/LUCENE-702">LUCENE-702</a>    * for details.</p>    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|addIndexes
 specifier|public
 specifier|synchronized
@@ -2193,6 +2260,8 @@ index|[]
 name|dirs
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|optimize
@@ -2382,7 +2451,7 @@ argument_list|()
 expr_stmt|;
 comment|// final cleanup
 block|}
-comment|/**    * Merges all segments from an array of indexes into this index.    *<p>    * This is similar to addIndexes(Directory[]). However, no optimize()    * is called either at the beginning or at the end. Instead, merges    * are carried out as necessary.    *<p>    * This requires this index not be among those to be added, and the    * upper bound* of those segment doc counts not exceed maxMergeDocs.    *    *<p>See {@link #addIndexes(Directory[])} for    * details on transactional semantics, temporary free    * space required in the Directory, and non-CFS segments    * on an Exception.</p>    */
+comment|/**    * Merges all segments from an array of indexes into this index.    *<p>    * This is similar to addIndexes(Directory[]). However, no optimize()    * is called either at the beginning or at the end. Instead, merges    * are carried out as necessary.    *<p>    * This requires this index not be among those to be added, and the    * upper bound* of those segment doc counts not exceed maxMergeDocs.    *    *<p>See {@link #addIndexes(Directory[])} for    * details on transactional semantics, temporary free    * space required in the Directory, and non-CFS segments    * on an Exception.</p>    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|addIndexesNoOptimize
 specifier|public
 specifier|synchronized
@@ -2394,6 +2463,8 @@ index|[]
 name|dirs
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 comment|// Adding indexes can be viewed as adding a sequence of segments S to
@@ -2839,7 +2910,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** Merges the provided indexes into this index.    *<p>After this completes, the index is optimized.</p>    *<p>The provided IndexReaders are not closed.</p>     *<p>See {@link #addIndexes(Directory[])} for    * details on transactional semantics, temporary free    * space required in the Directory, and non-CFS segments    * on an Exception.</p>    */
+comment|/** Merges the provided indexes into this index.    *<p>After this completes, the index is optimized.</p>    *<p>The provided IndexReaders are not closed.</p>     *<p>See {@link #addIndexes(Directory[])} for    * details on transactional semantics, temporary free    * space required in the Directory, and non-CFS segments    * on an Exception.</p>    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|addIndexes
 specifier|public
 specifier|synchronized
@@ -2851,6 +2922,8 @@ index|[]
 name|readers
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|optimize
@@ -3210,6 +3283,8 @@ name|void
 name|maybeFlushRamSegments
 parameter_list|()
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 comment|// A flush is triggered if enough new documents are buffered or
@@ -3242,6 +3317,8 @@ name|void
 name|flushRamSegments
 parameter_list|()
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 if|if
@@ -3280,7 +3357,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Flush all in-memory buffered updates (adds and deletes)    * to the Directory.    * @throws IOException    */
+comment|/**    * Flush all in-memory buffered updates (adds and deletes)    * to the Directory.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|flush
 specifier|public
 specifier|final
@@ -3289,6 +3366,8 @@ name|void
 name|flush
 parameter_list|()
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|flushRamSegments
@@ -3337,6 +3416,8 @@ name|int
 name|startUpperBound
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|long
@@ -3549,6 +3630,8 @@ name|int
 name|end
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 comment|// We may be called solely because there are deletes
@@ -4301,6 +4384,8 @@ name|boolean
 name|doMerge
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 if|if
@@ -4743,6 +4828,8 @@ name|IndexReader
 name|reader
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|Iterator
@@ -4880,6 +4967,8 @@ name|IndexReader
 name|reader
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|Iterator

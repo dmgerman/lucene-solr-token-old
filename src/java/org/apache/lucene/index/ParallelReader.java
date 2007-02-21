@@ -548,6 +548,8 @@ name|int
 name|n
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 for|for
@@ -598,6 +600,8 @@ name|void
 name|doUndeleteAll
 parameter_list|()
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 for|for
@@ -652,6 +656,8 @@ name|FieldSelector
 name|fieldSelector
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|Document
@@ -1127,6 +1133,8 @@ name|byte
 name|value
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|IndexReader

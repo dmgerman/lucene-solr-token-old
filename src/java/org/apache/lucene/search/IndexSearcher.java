@@ -84,6 +84,19 @@ operator|.
 name|Term
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|CorruptIndexException
+import|;
+end_import
 begin_comment
 comment|/** Implements search over a single IndexReader.  *  *<p>Applications usually need only call the inherited {@link #search(Query)}  * or {@link #search(Query,Filter)} methods. For performance reasons it is   * recommended to open only one IndexSearcher and use it for all of your searches.  *   *<p>Note that you can only access Hits from an IndexSearcher as long as it is  * not yet closed, otherwise an IOException will be thrown.   */
 end_comment
@@ -104,7 +117,7 @@ specifier|private
 name|boolean
 name|closeReader
 decl_stmt|;
-comment|/** Creates a searcher searching the index in the named directory. */
+comment|/** Creates a searcher searching the index in the named directory.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|IndexSearcher
 specifier|public
 name|IndexSearcher
@@ -113,6 +126,8 @@ name|String
 name|path
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|this
@@ -128,7 +143,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Creates a searcher searching the index in the provided directory. */
+comment|/** Creates a searcher searching the index in the provided directory.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|IndexSearcher
 specifier|public
 name|IndexSearcher
@@ -137,6 +152,8 @@ name|Directory
 name|directory
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|this
@@ -252,6 +269,8 @@ name|int
 name|i
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 return|return

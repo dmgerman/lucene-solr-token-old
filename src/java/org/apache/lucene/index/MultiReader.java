@@ -462,6 +462,7 @@ return|return
 name|maxDoc
 return|;
 block|}
+comment|// inherit javadoc
 DECL|method|document
 specifier|public
 name|Document
@@ -474,6 +475,8 @@ name|FieldSelector
 name|fieldSelector
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|int
@@ -560,6 +563,8 @@ name|int
 name|n
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|numDocs
@@ -604,6 +609,8 @@ name|void
 name|doUndeleteAll
 parameter_list|()
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 for|for
@@ -1068,6 +1075,8 @@ name|byte
 name|value
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|normsCache

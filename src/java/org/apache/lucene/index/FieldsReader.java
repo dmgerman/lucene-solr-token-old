@@ -296,6 +296,8 @@ name|FieldSelector
 name|fieldSelector
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|indexStream
@@ -1107,6 +1109,8 @@ name|boolean
 name|tokenize
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 comment|//we have a binary stored field, and it may be compressed
@@ -2171,6 +2175,8 @@ index|[]
 name|input
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|Inflater
@@ -2250,11 +2256,11 @@ name|e
 parameter_list|)
 block|{
 comment|// this will happen if the field is not compressed
-name|IOException
+name|CorruptIndexException
 name|newException
 init|=
 operator|new
-name|IOException
+name|CorruptIndexException
 argument_list|(
 literal|"field data are in wrong format: "
 operator|+

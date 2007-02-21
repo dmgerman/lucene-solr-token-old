@@ -268,13 +268,15 @@ name|i
 argument_list|)
 return|;
 block|}
-comment|/**    * Merges the readers specified by the {@link #add} method into the directory passed to the constructor    * @return The number of documents that were merged    * @throws IOException    */
+comment|/**    * Merges the readers specified by the {@link #add} method into the directory passed to the constructor    * @return The number of documents that were merged    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|merge
 specifier|final
 name|int
 name|merge
 parameter_list|()
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|int
@@ -649,7 +651,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    *     * @return The number of documents in all of the readers    * @throws IOException    */
+comment|/**    *     * @return The number of documents in all of the readers    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|mergeFields
 specifier|private
 specifier|final
@@ -657,6 +659,8 @@ name|int
 name|mergeFields
 parameter_list|()
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|fieldInfos
@@ -1144,6 +1148,8 @@ name|void
 name|mergeTerms
 parameter_list|()
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 try|try
@@ -1260,6 +1266,8 @@ name|void
 name|mergeTermInfos
 parameter_list|()
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|int
@@ -1515,7 +1523,7 @@ name|TermInfo
 argument_list|()
 decl_stmt|;
 comment|// minimize consing
-comment|/** Merge one term found in one or more segments. The array<code>smis</code>    *  contains segments that are positioned at the same term.<code>N</code>    *  is the number of cells in the array actually occupied.    *    * @param smis array of segments    * @param n number of cells in the array actually occupied    */
+comment|/** Merge one term found in one or more segments. The array<code>smis</code>    *  contains segments that are positioned at the same term.<code>N</code>    *  is the number of cells in the array actually occupied.    *    * @param smis array of segments    * @param n number of cells in the array actually occupied    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|mergeTermInfo
 specifier|private
 specifier|final
@@ -1530,6 +1538,8 @@ name|int
 name|n
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|long
@@ -1609,7 +1619,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** Process postings from multiple segments all positioned on the    *  same term. Writes out merged entries into freqOutput and    *  the proxOutput streams.    *    * @param smis array of segments    * @param n number of cells in the array actually occupied    * @return number of documents across all segments where this term was found    */
+comment|/** Process postings from multiple segments all positioned on the    *  same term. Writes out merged entries into freqOutput and    *  the proxOutput streams.    *    * @param smis array of segments    * @param n number of cells in the array actually occupied    * @return number of documents across all segments where this term was found    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|appendPostings
 specifier|private
 specifier|final
@@ -1624,6 +1634,8 @@ name|int
 name|n
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|int
@@ -1749,7 +1761,7 @@ operator|)
 condition|)
 throw|throw
 operator|new
-name|IllegalStateException
+name|CorruptIndexException
 argument_list|(
 literal|"docs out of order ("
 operator|+

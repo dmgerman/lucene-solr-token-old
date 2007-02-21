@@ -531,6 +531,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|get
 specifier|public
 specifier|static
@@ -541,6 +542,8 @@ name|SegmentInfo
 name|si
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 return|return
@@ -560,6 +563,7 @@ literal|false
 argument_list|)
 return|;
 block|}
+comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|get
 specifier|public
 specifier|static
@@ -576,6 +580,8 @@ name|boolean
 name|closeDir
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 return|return
@@ -595,6 +601,7 @@ literal|true
 argument_list|)
 return|;
 block|}
+comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|get
 specifier|public
 specifier|static
@@ -617,6 +624,8 @@ name|boolean
 name|ownDir
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|SegmentReader
@@ -686,6 +695,8 @@ name|SegmentInfo
 name|si
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|segment
@@ -780,7 +791,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|CorruptIndexException
 argument_list|(
 literal|"doc counts differ for segment "
 operator|+
@@ -852,7 +863,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|CorruptIndexException
 argument_list|(
 literal|"number of deletes ("
 operator|+
@@ -1577,6 +1588,7 @@ name|t
 argument_list|)
 return|;
 block|}
+comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|document
 specifier|public
 specifier|synchronized
@@ -1590,6 +1602,8 @@ name|FieldSelector
 name|fieldSelector
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 if|if

@@ -143,6 +143,8 @@ name|boolean
 name|isi
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|input
@@ -212,7 +214,7 @@ name|FORMAT
 condition|)
 throw|throw
 operator|new
-name|IOException
+name|CorruptIndexException
 argument_list|(
 literal|"Unknown format version:"
 operator|+

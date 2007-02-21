@@ -350,6 +350,8 @@ name|TermInfo
 name|ti
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 if|if
@@ -368,7 +370,7 @@ literal|0
 condition|)
 throw|throw
 operator|new
-name|IOException
+name|CorruptIndexException
 argument_list|(
 literal|"term out of order (\""
 operator|+
@@ -393,7 +395,7 @@ name|freqPointer
 condition|)
 throw|throw
 operator|new
-name|IOException
+name|CorruptIndexException
 argument_list|(
 literal|"freqPointer out of order ("
 operator|+
@@ -422,7 +424,7 @@ name|proxPointer
 condition|)
 throw|throw
 operator|new
-name|IOException
+name|CorruptIndexException
 argument_list|(
 literal|"proxPointer out of order ("
 operator|+

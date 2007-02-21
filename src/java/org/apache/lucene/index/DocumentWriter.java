@@ -342,6 +342,8 @@ name|Document
 name|doc
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 comment|// write field names
@@ -1630,6 +1632,8 @@ name|String
 name|segment
 parameter_list|)
 throws|throws
+name|CorruptIndexException
+throws|,
 name|IOException
 block|{
 name|IndexOutput
