@@ -410,6 +410,11 @@ operator|instanceof
 name|HttpServletRequest
 condition|)
 block|{
+name|SolrQueryRequest
+name|solrReq
+init|=
+literal|null
+decl_stmt|;
 name|HttpServletRequest
 name|req
 init|=
@@ -504,11 +509,6 @@ name|idx
 argument_list|)
 expr_stmt|;
 block|}
-name|SolrQueryRequest
-name|solrReq
-init|=
-literal|null
-decl_stmt|;
 name|SolrRequestHandler
 name|handler
 init|=
@@ -736,6 +736,22 @@ name|ex
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|solrReq
+operator|!=
+literal|null
+condition|)
+block|{
+name|solrReq
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Otherwise let the webapp handle the request

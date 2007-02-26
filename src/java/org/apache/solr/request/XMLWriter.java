@@ -397,9 +397,6 @@ name|getSchema
 argument_list|()
 argument_list|,
 name|req
-operator|.
-name|getSearcher
-argument_list|()
 argument_list|,
 name|ver
 argument_list|)
@@ -713,13 +710,13 @@ name|IndexSchema
 name|schema
 decl_stmt|;
 comment|// needed to write fields of docs
-DECL|field|searcher
+DECL|field|request
 specifier|private
 specifier|final
-name|SolrIndexSearcher
-name|searcher
+name|SolrQueryRequest
+name|request
 decl_stmt|;
-comment|// needed to retrieve docs
+comment|// the request
 DECL|field|level
 specifier|private
 name|int
@@ -814,8 +811,8 @@ parameter_list|,
 name|IndexSchema
 name|schema
 parameter_list|,
-name|SolrIndexSearcher
-name|searcher
+name|SolrQueryRequest
+name|req
 parameter_list|,
 name|String
 name|version
@@ -835,9 +832,9 @@ name|schema
 expr_stmt|;
 name|this
 operator|.
-name|searcher
+name|request
 operator|=
-name|searcher
+name|req
 expr_stmt|;
 name|float
 name|ver
@@ -1846,6 +1843,14 @@ block|}
 name|incLevel
 argument_list|()
 expr_stmt|;
+name|SolrIndexSearcher
+name|searcher
+init|=
+name|request
+operator|.
+name|getSearcher
+argument_list|()
+decl_stmt|;
 name|DocIterator
 name|iterator
 init|=
