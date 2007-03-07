@@ -21,6 +21,7 @@ comment|/**  * Defines methods for regular expression supporting Querys to use. 
 end_comment
 begin_interface
 DECL|interface|RegexQueryCapable
+specifier|public
 interface|interface
 name|RegexQueryCapable
 block|{
