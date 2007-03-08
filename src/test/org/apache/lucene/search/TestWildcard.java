@@ -1067,11 +1067,11 @@ name|docs
 index|[]
 init|=
 block|{
-literal|"abcdefg1"
+literal|"\\ abcdefg1"
 block|,
-literal|"hijklmn1"
+literal|"\\79 hijklmn1"
 block|,
-literal|"opqrstu1"
+literal|"\\\\ opqrstu1"
 block|,     }
 decl_stmt|;
 comment|// queries that should find all docs
@@ -1095,7 +1095,9 @@ block|,
 literal|"**"
 block|,
 literal|"***"
-block|,     }
+block|,
+literal|"\\\\*"
+block|}
 decl_stmt|;
 comment|// queries that should find no docs
 name|String
@@ -1127,7 +1129,7 @@ block|,
 literal|"ab*"
 block|,
 literal|"abc*"
-block|}
+block|, }
 block|,
 comment|// these should find only doc 0
 block|{
@@ -1136,6 +1138,8 @@ block|,
 literal|"hi*"
 block|,
 literal|"hij*"
+block|,
+literal|"\\\\7*"
 block|}
 block|,
 comment|// these should find only doc 1
@@ -1145,6 +1149,8 @@ block|,
 literal|"op*"
 block|,
 literal|"opq*"
+block|,
+literal|"\\\\\\\\*"
 block|}
 block|,
 comment|// these should find only doc 2
@@ -1275,7 +1281,7 @@ name|NO
 argument_list|,
 name|Index
 operator|.
-name|UN_TOKENIZED
+name|TOKENIZED
 argument_list|)
 argument_list|)
 expr_stmt|;
