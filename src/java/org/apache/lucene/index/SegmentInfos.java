@@ -392,9 +392,11 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Cannot read directory "
+literal|"cannot read directory "
 operator|+
 name|directory
+operator|+
+literal|": list() returned null"
 argument_list|)
 throw|;
 return|return
@@ -1560,6 +1562,23 @@ operator|.
 name|list
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|files
+operator|==
+literal|null
+condition|)
+throw|throw
+operator|new
+name|FileNotFoundException
+argument_list|(
+literal|"cannot read directory "
+operator|+
+name|directory
+operator|+
+literal|": list() returned null"
+argument_list|)
+throw|;
 block|}
 else|else
 block|{
@@ -1570,21 +1589,19 @@ operator|.
 name|list
 argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|files
 operator|==
 literal|null
 condition|)
-block|{
 throw|throw
 operator|new
 name|FileNotFoundException
 argument_list|(
-literal|"no segments* file found in directory "
+literal|"cannot read directory "
 operator|+
-name|directory
+name|fileDirectory
 operator|+
 literal|": list() returned null"
 argument_list|)
