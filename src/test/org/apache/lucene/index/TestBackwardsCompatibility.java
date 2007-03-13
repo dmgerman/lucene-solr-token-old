@@ -208,7 +208,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/*   Verify we can read the pre-XXX file format, do searches   against it, and add documents to it. */
+comment|/*   Verify we can read the pre-2.1 file format, do searches   against it, and add documents to it. */
 end_comment
 begin_class
 DECL|class|TestBackwardsCompatibility
@@ -581,6 +581,36 @@ name|oldNames
 index|[
 name|i
 index|]
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|rmDir
+argument_list|(
+name|oldNames
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+name|unzip
+argument_list|(
+name|dirName
+argument_list|,
+name|oldNames
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+name|changeIndexNoAdds
+argument_list|(
+name|oldNames
+index|[
+name|i
+index|]
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|rmDir
@@ -654,6 +684,36 @@ name|oldNames
 index|[
 name|i
 index|]
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|rmDir
+argument_list|(
+name|oldNames
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+name|unzip
+argument_list|(
+name|dirName
+argument_list|,
+name|oldNames
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+name|changeIndexWithAdds
+argument_list|(
+name|oldNames
+index|[
+name|i
+index|]
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|rmDir
@@ -779,6 +839,9 @@ name|changeIndexWithAdds
 parameter_list|(
 name|String
 name|dirName
+parameter_list|,
+name|boolean
+name|autoCommit
 parameter_list|)
 throws|throws
 name|IOException
@@ -808,6 +871,8 @@ operator|new
 name|IndexWriter
 argument_list|(
 name|dir
+argument_list|,
+name|autoCommit
 argument_list|,
 operator|new
 name|WhitespaceAnalyzer
@@ -931,7 +996,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// make sure we can do another delete& another setNorm against this
+comment|// make sure we can do delete& setNorm against this
 comment|// pre-lockless segment:
 name|IndexReader
 name|reader
@@ -992,7 +1057,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// make sure 2nd delete& 2nd norm "took":
+comment|// make sure they "took":
 name|searcher
 operator|=
 operator|new
@@ -1067,6 +1132,8 @@ operator|new
 name|IndexWriter
 argument_list|(
 name|dir
+argument_list|,
+name|autoCommit
 argument_list|,
 operator|new
 name|WhitespaceAnalyzer
@@ -1166,6 +1233,9 @@ name|changeIndexNoAdds
 parameter_list|(
 name|String
 name|dirName
+parameter_list|,
+name|boolean
+name|autoCommit
 parameter_list|)
 throws|throws
 name|IOException
@@ -1258,7 +1328,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// make sure we can do another delete& another setNorm against this
+comment|// make sure we can do a delete& setNorm against this
 comment|// pre-lockless segment:
 name|IndexReader
 name|reader
@@ -1319,7 +1389,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// make sure 2nd delete& 2nd norm "took":
+comment|// make sure they "took":
 name|searcher
 operator|=
 operator|new
@@ -1395,6 +1465,8 @@ operator|new
 name|IndexWriter
 argument_list|(
 name|dir
+argument_list|,
+name|autoCommit
 argument_list|,
 operator|new
 name|WhitespaceAnalyzer
@@ -1642,7 +1714,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/* Verifies that the expected file names were produced */
-comment|// disable until hardcoded file names are fixes:
 DECL|method|testExactFileNames
 specifier|public
 name|void
@@ -1651,11 +1722,28 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+for|for
+control|(
+name|int
+name|pass
+init|=
+literal|0
+init|;
+name|pass
+operator|<
+literal|2
+condition|;
+name|pass
+operator|++
+control|)
+block|{
 name|String
 name|outputDir
 init|=
 literal|"lucene.backwardscompat0.index"
 decl_stmt|;
+try|try
+block|{
 name|Directory
 name|dir
 init|=
@@ -1669,6 +1757,13 @@ name|outputDir
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|boolean
+name|autoCommit
+init|=
+literal|0
+operator|==
+name|pass
+decl_stmt|;
 name|IndexWriter
 name|writer
 init|=
@@ -1677,6 +1772,8 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
+name|autoCommit
+argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -1684,6 +1781,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+comment|//IndexWriter writer = new IndexWriter(dir, new WhitespaceAnalyzer(), true);
 for|for
 control|(
 name|int
@@ -1906,6 +2004,20 @@ block|,
 literal|"segments.gen"
 block|}
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|autoCommit
+condition|)
+block|{
+name|expected
+index|[
+literal|6
+index|]
+operator|=
+literal|"segments_3"
+expr_stmt|;
+block|}
 name|String
 index|[]
 name|actual
@@ -1965,11 +2077,16 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|rmDir
 argument_list|(
 name|outputDir
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|asString
 specifier|private
