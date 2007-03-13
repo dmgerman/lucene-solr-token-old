@@ -51,7 +51,7 @@ name|QueryMaker
 import|;
 end_import
 begin_comment
-comment|/**  * Warm reader task.  */
+comment|/**  * Warm reader task.  *   *<p>Note: This task reuses the reader if it is already open.   * Otherwise a reader is opened at start and closed at the end.  */
 end_comment
 begin_class
 DECL|class|WarmTask
