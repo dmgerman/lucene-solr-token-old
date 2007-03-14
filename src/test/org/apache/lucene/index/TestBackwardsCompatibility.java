@@ -1572,6 +1572,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|rmDir
+argument_list|(
+name|dirName
+argument_list|)
+expr_stmt|;
 name|dirName
 operator|=
 name|fullDir
@@ -1742,6 +1747,11 @@ name|outputDir
 init|=
 literal|"lucene.backwardscompat0.index"
 decl_stmt|;
+name|rmDir
+argument_list|(
+name|outputDir
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|Directory
