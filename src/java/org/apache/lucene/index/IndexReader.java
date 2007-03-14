@@ -120,6 +120,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|AlreadyClosedException
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -448,11 +461,35 @@ specifier|private
 name|IndexDeletionPolicy
 name|deletionPolicy
 decl_stmt|;
-DECL|field|isClosed
+DECL|field|closed
 specifier|private
 name|boolean
-name|isClosed
+name|closed
 decl_stmt|;
+comment|/**    * @throws AlreadyClosedException if this IndexReader is closed    */
+DECL|method|ensureOpen
+specifier|protected
+specifier|final
+name|void
+name|ensureOpen
+parameter_list|()
+throws|throws
+name|AlreadyClosedException
+block|{
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+throw|throw
+operator|new
+name|AlreadyClosedException
+argument_list|(
+literal|"this IndexReader is closed"
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|field|segmentInfos
 specifier|private
 name|SegmentInfos
@@ -826,13 +863,16 @@ name|run
 argument_list|()
 return|;
 block|}
-comment|/** Returns the directory this index resides in. */
+comment|/** Returns the directory this index resides in.    */
 DECL|method|directory
 specifier|public
 name|Directory
 name|directory
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|directory
 return|;
@@ -1085,6 +1125,9 @@ name|long
 name|getVersion
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|segmentInfos
 operator|.
@@ -1103,6 +1146,9 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|SegmentInfos
 operator|.
@@ -1124,6 +1170,9 @@ name|boolean
 name|isOptimized
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|segmentInfos
 operator|.
@@ -1271,6 +1320,9 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|document
 argument_list|(
@@ -1332,6 +1384,9 @@ name|IOException
 block|{
 comment|// backward compatible implementation.
 comment|// SegmentReader has an efficient implementation.
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|norms
 argument_list|(
@@ -1375,7 +1430,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Expert: Resets the normalization factor for the named field of the named    * document.  The norm represents the product of the field's {@link    * org.apache.lucene.document.Fieldable#setBoost(float) boost} and its {@link Similarity#lengthNorm(String,    * int) length normalization}.  Thus, to preserve the length normalization    * values when resetting this, one should base the new value upon the old.    *    * @see #norms(String)    * @see Similarity#decodeNorm(byte)    * @throws StaleReaderException if the index has changed    *  since this reader was opened    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if this reader was closed already    *  or there is a low-level IO error    */
+comment|/** Expert: Resets the normalization factor for the named field of the named    * document.  The norm represents the product of the field's {@link    * org.apache.lucene.document.Fieldable#setBoost(float) boost} and its {@link Similarity#lengthNorm(String,    * int) length normalization}.  Thus, to preserve the length normalization    * values when resetting this, one should base the new value upon the old.    *    * @see #norms(String)    * @see Similarity#decodeNorm(byte)    * @throws StaleReaderException if the index has changed    *  since this reader was opened    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if there is a low-level IO error    */
 DECL|method|setNorm
 specifier|public
 specifier|final
@@ -1401,6 +1456,9 @@ name|LockObtainFailedException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|directoryOwner
@@ -1443,7 +1501,7 @@ name|CorruptIndexException
 throws|,
 name|IOException
 function_decl|;
-comment|/** Expert: Resets the normalization factor for the named field of the named    * document.    *    * @see #norms(String)    * @see Similarity#decodeNorm(byte)    *     * @throws StaleReaderException if the index has changed    *  since this reader was opened    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if this reader was closed already    *  or there is a low-level IO error    */
+comment|/** Expert: Resets the normalization factor for the named field of the named    * document.    *    * @see #norms(String)    * @see Similarity#decodeNorm(byte)    *     * @throws StaleReaderException if the index has changed    *  since this reader was opened    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if there is a low-level IO error    */
 DECL|method|setNorm
 specifier|public
 name|void
@@ -1467,6 +1525,9 @@ name|LockObtainFailedException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|setNorm
 argument_list|(
 name|doc
@@ -1482,7 +1543,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Returns an enumeration of all the terms in the index.    * The enumeration is ordered by Term.compareTo().  Each term    * is greater than all that precede it in the enumeration.    */
+comment|/** Returns an enumeration of all the terms in the index.    * The enumeration is ordered by Term.compareTo().  Each term    * is greater than all that precede it in the enumeration.    * @throws IOException if there is a low-level IO error    */
 DECL|method|terms
 specifier|public
 specifier|abstract
@@ -1492,7 +1553,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Returns an enumeration of all terms after a given term.    * The enumeration is ordered by Term.compareTo().  Each term    * is greater than all that precede it in the enumeration.    */
+comment|/** Returns an enumeration of all terms after a given term.    * The enumeration is ordered by Term.compareTo().  Each term    * is greater than all that precede it in the enumeration.    * @throws IOException if there is a low-level IO error    */
 DECL|method|terms
 specifier|public
 specifier|abstract
@@ -1505,7 +1566,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Returns the number of documents containing the term<code>t</code>. */
+comment|/** Returns the number of documents containing the term<code>t</code>.    * @throws IOException if there is a low-level IO error    */
 DECL|method|docFreq
 specifier|public
 specifier|abstract
@@ -1518,7 +1579,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Returns an enumeration of all the documents which contain    *<code>term</code>. For each document, the document number, the frequency of    * the term in that document is also provided, for use in search scoring.    * Thus, this method implements the mapping:    *<p><ul>    * Term&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&lt;docNum, freq&gt;<sup>*</sup>    *</ul>    *<p>The enumeration is ordered by document number.  Each document number    * is greater than all that precede it in the enumeration.    */
+comment|/** Returns an enumeration of all the documents which contain    *<code>term</code>. For each document, the document number, the frequency of    * the term in that document is also provided, for use in search scoring.    * Thus, this method implements the mapping:    *<p><ul>    * Term&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&lt;docNum, freq&gt;<sup>*</sup>    *</ul>    *<p>The enumeration is ordered by document number.  Each document number    * is greater than all that precede it in the enumeration.    * @throws IOException if there is a low-level IO error    */
 DECL|method|termDocs
 specifier|public
 name|TermDocs
@@ -1530,6 +1591,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|TermDocs
 name|termDocs
 init|=
@@ -1547,7 +1611,7 @@ return|return
 name|termDocs
 return|;
 block|}
-comment|/** Returns an unpositioned {@link TermDocs} enumerator. */
+comment|/** Returns an unpositioned {@link TermDocs} enumerator.    * @throws IOException if there is a low-level IO error    */
 DECL|method|termDocs
 specifier|public
 specifier|abstract
@@ -1557,7 +1621,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Returns an enumeration of all the documents which contain    *<code>term</code>.  For each document, in addition to the document number    * and frequency of the term in that document, a list of all of the ordinal    * positions of the term in the document is available.  Thus, this method    * implements the mapping:    *    *<p><ul>    * Term&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&lt;docNum, freq,    *&lt;pos<sub>1</sub>, pos<sub>2</sub>, ...    * pos<sub>freq-1</sub>&gt;    *&gt;<sup>*</sup>    *</ul>    *<p> This positional information faciliates phrase and proximity searching.    *<p>The enumeration is ordered by document number.  Each document number is    * greater than all that precede it in the enumeration.    */
+comment|/** Returns an enumeration of all the documents which contain    *<code>term</code>.  For each document, in addition to the document number    * and frequency of the term in that document, a list of all of the ordinal    * positions of the term in the document is available.  Thus, this method    * implements the mapping:    *    *<p><ul>    * Term&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&lt;docNum, freq,    *&lt;pos<sub>1</sub>, pos<sub>2</sub>, ...    * pos<sub>freq-1</sub>&gt;    *&gt;<sup>*</sup>    *</ul>    *<p> This positional information faciliates phrase and proximity searching.    *<p>The enumeration is ordered by document number.  Each document number is    * greater than all that precede it in the enumeration.    * @throws IOException if there is a low-level IO error    */
 DECL|method|termPositions
 specifier|public
 name|TermPositions
@@ -1569,6 +1633,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|TermPositions
 name|termPositions
 init|=
@@ -1586,7 +1653,7 @@ return|return
 name|termPositions
 return|;
 block|}
-comment|/** Returns an unpositioned {@link TermPositions} enumerator. */
+comment|/** Returns an unpositioned {@link TermPositions} enumerator.    * @throws IOException if there is a low-level IO error    */
 DECL|method|termPositions
 specifier|public
 specifier|abstract
@@ -1611,6 +1678,9 @@ name|LockObtainFailedException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|stale
@@ -1620,17 +1690,6 @@ operator|new
 name|StaleReaderException
 argument_list|(
 literal|"IndexReader out of date and no longer valid for delete, undelete, or setNorm operations"
-argument_list|)
-throw|;
-if|if
-condition|(
-name|isClosed
-condition|)
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"this reader is closed"
 argument_list|)
 throw|;
 if|if
@@ -1724,7 +1783,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/** Deletes the document numbered<code>docNum</code>.  Once a document is    * deleted it will not appear in TermDocs or TermPostitions enumerations.    * Attempts to read its field with the {@link #document}    * method will result in an error.  The presence of this document may still be    * reflected in the {@link #docFreq} statistic, though    * this will be corrected eventually as the index is further modified.    *    * @throws StaleReaderException if the index has changed    * since this reader was opened    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if this reader was closed already    *  or there is a low-level IO error    */
+comment|/** Deletes the document numbered<code>docNum</code>.  Once a document is    * deleted it will not appear in TermDocs or TermPostitions enumerations.    * Attempts to read its field with the {@link #document}    * method will result in an error.  The presence of this document may still be    * reflected in the {@link #docFreq} statistic, though    * this will be corrected eventually as the index is further modified.    *    * @throws StaleReaderException if the index has changed    * since this reader was opened    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if there is a low-level IO error    */
 DECL|method|deleteDocument
 specifier|public
 specifier|final
@@ -1744,6 +1803,9 @@ name|LockObtainFailedException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|directoryOwner
@@ -1776,7 +1838,7 @@ name|CorruptIndexException
 throws|,
 name|IOException
 function_decl|;
-comment|/** Deletes all documents that have a given<code>term</code> indexed.    * This is useful if one uses a document field to hold a unique ID string for    * the document.  Then to delete such a document, one merely constructs a    * term with the appropriate field and the unique ID string as its text and    * passes it to this method.    * See {@link #deleteDocument(int)} for information about when this deletion will     * become effective.    *    * @return the number of documents deleted    * @throws StaleReaderException if the index has changed    *  since this reader was opened    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if this reader was closed already    *  or there is a low-level IO error    */
+comment|/** Deletes all documents that have a given<code>term</code> indexed.    * This is useful if one uses a document field to hold a unique ID string for    * the document.  Then to delete such a document, one merely constructs a    * term with the appropriate field and the unique ID string as its text and    * passes it to this method.    * See {@link #deleteDocument(int)} for information about when this deletion will     * become effective.    *    * @return the number of documents deleted    * @throws StaleReaderException if the index has changed    *  since this reader was opened    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if there is a low-level IO error    */
 DECL|method|deleteDocuments
 specifier|public
 specifier|final
@@ -1795,6 +1857,9 @@ name|LockObtainFailedException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|TermDocs
 name|docs
 init|=
@@ -1852,7 +1917,7 @@ return|return
 name|n
 return|;
 block|}
-comment|/** Undeletes all documents currently marked as deleted in this index.    *    * @throws StaleReaderException if the index has changed    *  since this reader was opened    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if this reader was closed already    *  or there is a low-level IO error    */
+comment|/** Undeletes all documents currently marked as deleted in this index.    *    * @throws StaleReaderException if the index has changed    *  since this reader was opened    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|undeleteAll
 specifier|public
 specifier|final
@@ -1869,6 +1934,9 @@ name|LockObtainFailedException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|directoryOwner
@@ -2133,7 +2201,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Closes files associated with this index.    * Also saves any new deletions to disk.    * No other methods should be called after this has been called.    * @throws IOException if this reader was closed already    *  or there is a low-level IO error    */
+comment|/**    * Closes files associated with this index.    * Also saves any new deletions to disk.    * No other methods should be called after this has been called.    * @throws IOException if there is a low-level IO error    */
 DECL|method|close
 specifier|public
 specifier|final
@@ -2146,24 +2214,23 @@ name|IOException
 block|{
 if|if
 condition|(
-name|directoryOwner
-operator|&&
-name|isClosed
+operator|!
+name|closed
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"this reader is already closed"
-argument_list|)
-throw|;
-block|}
 name|commit
 argument_list|()
 expr_stmt|;
 name|doClose
 argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|directoryOwner
+condition|)
+name|closed
+operator|=
+literal|true
 expr_stmt|;
 if|if
 condition|(
@@ -2173,15 +2240,6 @@ name|directory
 operator|.
 name|close
 argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|directoryOwner
-condition|)
-block|{
-name|isClosed
-operator|=
-literal|true
 expr_stmt|;
 block|}
 block|}

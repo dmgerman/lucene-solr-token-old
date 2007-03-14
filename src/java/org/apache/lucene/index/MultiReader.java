@@ -312,7 +312,6 @@ operator|=
 name|maxDoc
 expr_stmt|;
 block|}
-comment|/** Return an array of term frequency vectors for the specified document.    *  The array contains a vector for each vectorized field in the document.    *  Each vector vector contains term numbers and frequencies for all terms    *  in a given vectorized field.    *  If no such fields existed, the method returns null.    */
 DECL|method|getTermFreqVectors
 specifier|public
 name|TermFreqVector
@@ -325,6 +324,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|int
 name|i
 init|=
@@ -366,6 +368,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|int
 name|i
 init|=
@@ -401,6 +406,7 @@ name|int
 name|numDocs
 parameter_list|()
 block|{
+comment|// Don't call ensureOpen() here (it could affect performance)
 if|if
 condition|(
 name|numDocs
@@ -458,6 +464,7 @@ name|int
 name|maxDoc
 parameter_list|()
 block|{
+comment|// Don't call ensureOpen() here (it could affect performance)
 return|return
 name|maxDoc
 return|;
@@ -479,6 +486,9 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|int
 name|i
 init|=
@@ -517,6 +527,7 @@ name|int
 name|n
 parameter_list|)
 block|{
+comment|// Don't call ensureOpen() here (it could affect performance)
 name|int
 name|i
 init|=
@@ -550,6 +561,7 @@ name|boolean
 name|hasDeletions
 parameter_list|()
 block|{
+comment|// Don't call ensureOpen() here (it could affect performance)
 return|return
 name|hasDeletions
 return|;
@@ -773,6 +785,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -856,6 +871,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|byte
 index|[]
 name|bytes
@@ -968,6 +986,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|byte
 index|[]
 name|bytes
@@ -1125,6 +1146,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|MultiTermEnum
@@ -1148,6 +1172,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|MultiTermEnum
@@ -1171,6 +1198,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|int
 name|total
 init|=
@@ -1217,6 +1247,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|MultiTermDocs
@@ -1235,6 +1268,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|MultiTermPositions
@@ -1386,7 +1422,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * @see IndexReader#getFieldNames(IndexReader.FieldOption)    */
 DECL|method|getFieldNames
 specifier|public
 name|Collection
@@ -1399,6 +1434,9 @@ name|fieldNames
 parameter_list|)
 block|{
 comment|// maintain a unique set of field names
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|Set
 name|fieldSet
 init|=
