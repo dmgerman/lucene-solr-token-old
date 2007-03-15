@@ -139,7 +139,7 @@ name|Collections
 import|;
 end_import
 begin_comment
-comment|/*  * This class keeps track of each SegmentInfos instance that  * is still "live", either because it corresponds to a  * segments_N in the Directory (a real commit) or because  * it's the in-memory SegmentInfos that a writer is actively  * updating but has not yet committed (currently this only  * applies when autoCommit=false in IndexWriter).  This  * class uses simple reference counting to map the live  * SegmentInfos instances to individual files in the  * Directory.  *  * A separate deletion policy interface  * (IndexDeletionPolicy) is consulted on creation (onInit)  * and once per commit (onCommit), to decide when a commit  * should be removed.  *   * The current default deletion policy is {@link  * KeepOnlyLastCommitDeletionPolicy}, which removes all  * prior commits when a new commit has completed.  This  * matches the behavior before 2.2.  *  * Note that you must hold the write.lock before  * instantiating this class.  It opens segments_N file(s)  * directly with no retry logic.  */
+comment|/*  * This class keeps track of each SegmentInfos instance that  * is still "live", either because it corresponds to a   * segments_N file in the Directory (a "commit", i.e. a   * committed SegmentInfos) or because it's the in-memory SegmentInfos   * that a writer is actively updating but has not yet committed   * (currently this only applies when autoCommit=false in IndexWriter).  * This class uses simple reference counting to map the live  * SegmentInfos instances to individual files in the Directory.   *   * The same directory file may be referenced by more than  * one IndexCommitPoints, i.e. more than one SegmentInfos.  * Therefore we count how many commits reference each file.  * When all the commits referencing a certain file have been  * deleted, the refcount for that file becomes zero, and the  * file is deleted.  *  * A separate deletion policy interface  * (IndexDeletionPolicy) is consulted on creation (onInit)  * and once per commit (onCommit), to decide when a commit  * should be removed.  *   * It is the business of the IndexDeletionPolicy to choose  * when to delete commit points.  The actual mechanics of  * file deletion, retrying, etc, derived from the deletion  * of commit points is the business of the IndexFileDeleter.  *   * The current default deletion policy is {@link  * KeepOnlyLastCommitDeletionPolicy}, which removes all  * prior commits when a new commit has completed.  This  * matches the behavior before 2.2.  *  * Note that you must hold the write.lock before  * instantiating this class.  It opens segments_N file(s)  * directly with no retry logic.  */
 end_comment
 begin_class
 DECL|class|IndexFileDeleter
@@ -153,7 +153,7 @@ specifier|private
 name|List
 name|deletable
 decl_stmt|;
-comment|/* Reference count for all files in the index.  Maps    * String to RefCount (class below) instances: */
+comment|/* Reference count for all files in the index.      * Counts how many existing commits reference a file.    * Maps String to RefCount (class below) instances: */
 DECL|field|refCounts
 specifier|private
 name|Map
@@ -183,19 +183,20 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
-DECL|field|infoStream
-specifier|private
-name|PrintStream
-name|infoStream
-decl_stmt|;
-DECL|field|toDelete
+comment|/* Commits that the IndexDeletionPolicy have decided to delete: */
+DECL|field|commitsToDelete
 specifier|private
 name|List
-name|toDelete
+name|commitsToDelete
 init|=
 operator|new
 name|ArrayList
 argument_list|()
+decl_stmt|;
+DECL|field|infoStream
+specifier|private
+name|PrintStream
+name|infoStream
 decl_stmt|;
 DECL|field|directory
 specifier|private
@@ -633,7 +634,7 @@ name|deleteCommits
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Remove the CommitPoints in the toDelete List by    * DecRef'ing all files from each SegmentInfos.    */
+comment|/**    * Remove the CommitPoints in the commitsToDelete List by    * DecRef'ing all files from each SegmentInfos.    */
 DECL|method|deleteCommits
 specifier|private
 name|void
@@ -645,7 +646,7 @@ block|{
 name|int
 name|size
 init|=
-name|toDelete
+name|commitsToDelete
 operator|.
 name|size
 argument_list|()
@@ -680,7 +681,7 @@ init|=
 operator|(
 name|CommitPoint
 operator|)
-name|toDelete
+name|commitsToDelete
 operator|.
 name|get
 argument_list|(
@@ -757,12 +758,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|toDelete
+name|commitsToDelete
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|// Now compact commits to remove deleted ones:
+comment|// Now compact commits to remove deleted ones (preserving the sort):
 name|size
 operator|=
 name|commits
@@ -984,7 +985,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Writer calls this when it has made a "consistent    * change" to the index, meaning new files are written to    * the index and the in-memory SegmentInfos have been    * modified to point to those files.    *    * This may or may not be a commit (segments_N may or may    * not have been written).    *    * We simply incref the files referenced by the new    * SegmentInfos and decref the files we had previously    * seen (if any).    *    * If this is a commit, we also call the policy to give it    * a chance to remove other commits.  If any commits are    * removed, we decref their files as well.    */
+comment|/**    * For definition of "check point" see IndexWriter comments:    * "Clarification: Check Points (and commits)".    *     * Writer calls this when it has made a "consistent    * change" to the index, meaning new files are written to    * the index and the in-memory SegmentInfos have been    * modified to point to those files.    *    * This may or may not be a commit (segments_N may or may    * not have been written).    *    * We simply incref the files referenced by the new    * SegmentInfos and decref the files we had previously    * seen (if any).    *    * If this is a commit, we also call the policy to give it    * a chance to remove other commits.  If any commits are    * removed, we decref their files as well.    */
 DECL|method|checkpoint
 specifier|public
 name|void
@@ -1721,7 +1722,7 @@ operator|++
 control|)
 block|{
 name|List
-name|toDelete
+name|filestoDelete
 init|=
 operator|(
 operator|(
@@ -1741,7 +1742,7 @@ decl_stmt|;
 name|int
 name|size2
 init|=
-name|toDelete
+name|filestoDelete
 operator|.
 name|size
 argument_list|()
@@ -1768,7 +1769,7 @@ argument_list|(
 operator|(
 name|String
 operator|)
-name|toDelete
+name|filestoDelete
 operator|.
 name|get
 argument_list|(
@@ -1958,7 +1959,7 @@ name|deleted
 operator|=
 literal|true
 expr_stmt|;
-name|toDelete
+name|commitsToDelete
 operator|.
 name|add
 argument_list|(

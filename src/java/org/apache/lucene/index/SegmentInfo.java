@@ -86,6 +86,43 @@ specifier|final
 class|class
 name|SegmentInfo
 block|{
+DECL|field|NO
+specifier|static
+specifier|final
+name|int
+name|NO
+init|=
+operator|-
+literal|1
+decl_stmt|;
+comment|// e.g. no norms; no deletes;
+DECL|field|YES
+specifier|static
+specifier|final
+name|int
+name|YES
+init|=
+literal|1
+decl_stmt|;
+comment|// e.g. have norms; have deletes;
+DECL|field|CHECK_DIR
+specifier|static
+specifier|final
+name|int
+name|CHECK_DIR
+init|=
+literal|0
+decl_stmt|;
+comment|// e.g. must check dir to see if there are norms/deletions
+DECL|field|WITHOUT_GEN
+specifier|static
+specifier|final
+name|int
+name|WITHOUT_GEN
+init|=
+literal|0
+decl_stmt|;
+comment|// a file name that has no GEN in it.
 DECL|field|name
 specifier|public
 name|String
@@ -116,9 +153,9 @@ specifier|private
 name|long
 name|delGen
 decl_stmt|;
-comment|// current generation of del file; -1 if there
-comment|// are no deletes; 0 if it's a pre-2.1 segment
-comment|// (and we must check filesystem); 1 or higher if
+comment|// current generation of del file; NO if there
+comment|// are no deletes; CHECK_DIR if it's a pre-2.1 segment
+comment|// (and we must check filesystem); YES or higher if
 comment|// there are deletes at generation N
 DECL|field|normGen
 specifier|private
@@ -126,16 +163,20 @@ name|long
 index|[]
 name|normGen
 decl_stmt|;
-comment|// current generations of each field's norm file.
-comment|// If this array is null, we must check filesystem
-comment|// when preLockLess is true.  Else,
-comment|// there are no separate norms
+comment|// current generation of each field's norm file.
+comment|// If this array is null, for lockLess this means no
+comment|// separate norms.  For preLockLess this means we must
+comment|// check filesystem. If this array is not null, its
+comment|// values mean: NO says this field has no separate
+comment|// norms; CHECK_DIR says it is a preLockLess segment and
+comment|// filesystem must be checked;>= YES says this field
+comment|// has separate norms with the specified generation
 DECL|field|isCompoundFile
 specifier|private
 name|byte
 name|isCompoundFile
 decl_stmt|;
-comment|// -1 if it is not; 1 if it is; 0 if it's
+comment|// NO if it is not; YES if it is; CHECK_DIR if it's
 comment|// pre-2.1 (ie, must check file system to see
 comment|// if<name>.cfs and<name>.nrm exist)
 DECL|field|hasSingleNormFile
@@ -189,12 +230,11 @@ name|dir
 expr_stmt|;
 name|delGen
 operator|=
-operator|-
-literal|1
+name|NO
 expr_stmt|;
 name|isCompoundFile
 operator|=
-literal|0
+name|CHECK_DIR
 expr_stmt|;
 name|preLockless
 operator|=
@@ -244,10 +284,9 @@ call|)
 argument_list|(
 name|isCompoundFile
 condition|?
-literal|1
+name|YES
 else|:
-operator|-
-literal|1
+name|NO
 argument_list|)
 expr_stmt|;
 name|this
@@ -459,8 +498,7 @@ if|if
 condition|(
 name|numNormGen
 operator|==
-operator|-
-literal|1
+name|NO
 condition|)
 block|{
 name|normGen
@@ -514,16 +552,18 @@ argument_list|()
 expr_stmt|;
 name|preLockless
 operator|=
+operator|(
 name|isCompoundFile
 operator|==
-literal|0
+name|CHECK_DIR
+operator|)
 expr_stmt|;
 block|}
 else|else
 block|{
 name|delGen
 operator|=
-literal|0
+name|CHECK_DIR
 expr_stmt|;
 name|normGen
 operator|=
@@ -531,7 +571,7 @@ literal|null
 expr_stmt|;
 name|isCompoundFile
 operator|=
-literal|0
+name|CHECK_DIR
 expr_stmt|;
 name|preLockless
 operator|=
@@ -571,9 +611,13 @@ index|]
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|preLockless
 condition|)
+block|{
+comment|// Do nothing: thus leaving normGen[k]==CHECK_DIR (==0), so that later we know
+comment|// we have to check filesystem for norm files, because this is prelockless.
+block|}
+else|else
 block|{
 comment|// This is a FORMAT_LOCKLESS segment, which means
 comment|// there are no separate norms:
@@ -597,8 +641,7 @@ index|[
 name|i
 index|]
 operator|=
-operator|-
-literal|1
+name|NO
 expr_stmt|;
 block|}
 block|}
@@ -613,15 +656,15 @@ name|IOException
 block|{
 comment|// Cases:
 comment|//
-comment|//   delGen == -1: this means this segment was written
+comment|//   delGen == NO: this means this segment was written
 comment|//     by the LOCKLESS code and for certain does not have
 comment|//     deletions yet
 comment|//
-comment|//   delGen == 0: this means this segment was written by
+comment|//   delGen == CHECK_DIR: this means this segment was written by
 comment|//     pre-LOCKLESS code which means we must check
 comment|//     directory to see if .del file exists
 comment|//
-comment|//   delGen> 0: this means this segment was written by
+comment|//   delGen>= YES: this means this segment was written by
 comment|//     the LOCKLESS code and for certain has
 comment|//     deletions
 comment|//
@@ -629,8 +672,7 @@ if|if
 condition|(
 name|delGen
 operator|==
-operator|-
-literal|1
+name|NO
 condition|)
 block|{
 return|return
@@ -641,8 +683,8 @@ elseif|else
 if|if
 condition|(
 name|delGen
-operator|>
-literal|0
+operator|>=
+name|YES
 condition|)
 block|{
 return|return
@@ -672,13 +714,12 @@ if|if
 condition|(
 name|delGen
 operator|==
-operator|-
-literal|1
+name|NO
 condition|)
 block|{
 name|delGen
 operator|=
-literal|1
+name|YES
 expr_stmt|;
 block|}
 else|else
@@ -699,8 +740,7 @@ parameter_list|()
 block|{
 name|delGen
 operator|=
-operator|-
-literal|1
+name|NO
 expr_stmt|;
 name|files
 operator|=
@@ -784,8 +824,7 @@ if|if
 condition|(
 name|delGen
 operator|==
-operator|-
-literal|1
+name|NO
 condition|)
 block|{
 comment|// In this case we know there is no deletion filename
@@ -796,7 +835,7 @@ return|;
 block|}
 else|else
 block|{
-comment|// If delGen is 0, it's the pre-lockless-commit file format
+comment|// If delGen is CHECK_DIR, it's the pre-lockless-commit file format
 return|return
 name|IndexFileNames
 operator|.
@@ -846,7 +885,7 @@ index|[
 name|fieldNumber
 index|]
 operator|==
-literal|0
+name|CHECK_DIR
 operator|)
 condition|)
 block|{
@@ -881,8 +920,7 @@ index|[
 name|fieldNumber
 index|]
 operator|==
-operator|-
-literal|1
+name|NO
 condition|)
 block|{
 return|return
@@ -1027,8 +1065,8 @@ block|}
 else|else
 block|{
 comment|// This means this segment was saved with LOCKLESS
-comment|// code so we first check whether any normGen's are>
-comment|// 0 (meaning they definitely have separate norms):
+comment|// code so we first check whether any normGen's are>= 1
+comment|// (meaning they definitely have separate norms):
 for|for
 control|(
 name|int
@@ -1052,8 +1090,8 @@ name|normGen
 index|[
 name|i
 index|]
-operator|>
-literal|0
+operator|>=
+name|YES
 condition|)
 block|{
 return|return
@@ -1087,7 +1125,7 @@ index|[
 name|i
 index|]
 operator|==
-literal|0
+name|CHECK_DIR
 condition|)
 block|{
 if|if
@@ -1125,8 +1163,7 @@ index|[
 name|fieldIndex
 index|]
 operator|==
-operator|-
-literal|1
+name|NO
 condition|)
 block|{
 name|normGen
@@ -1134,7 +1171,7 @@ index|[
 name|fieldIndex
 index|]
 operator|=
-literal|1
+name|YES
 expr_stmt|;
 block|}
 else|else
@@ -1177,7 +1214,7 @@ condition|)
 block|{
 name|gen
 operator|=
-literal|0
+name|CHECK_DIR
 expr_stmt|;
 block|}
 else|else
@@ -1241,7 +1278,7 @@ name|name
 argument_list|,
 name|prefix
 argument_list|,
-literal|0
+name|WITHOUT_GEN
 argument_list|)
 return|;
 block|}
@@ -1261,7 +1298,7 @@ name|prefix
 operator|+
 name|number
 argument_list|,
-literal|0
+name|WITHOUT_GEN
 argument_list|)
 return|;
 block|}
@@ -1283,7 +1320,7 @@ name|this
 operator|.
 name|isCompoundFile
 operator|=
-literal|1
+name|YES
 expr_stmt|;
 block|}
 else|else
@@ -1292,8 +1329,7 @@ name|this
 operator|.
 name|isCompoundFile
 operator|=
-operator|-
-literal|1
+name|NO
 expr_stmt|;
 block|}
 name|files
@@ -1313,8 +1349,7 @@ if|if
 condition|(
 name|isCompoundFile
 operator|==
-operator|-
-literal|1
+name|NO
 condition|)
 block|{
 return|return
@@ -1326,7 +1361,7 @@ if|if
 condition|(
 name|isCompoundFile
 operator|==
-literal|1
+name|YES
 condition|)
 block|{
 return|return
@@ -1410,8 +1445,7 @@ name|output
 operator|.
 name|writeInt
 argument_list|(
-operator|-
-literal|1
+name|NO
 argument_list|)
 expr_stmt|;
 block|}
@@ -1601,8 +1635,8 @@ literal|null
 operator|&&
 operator|(
 name|delGen
-operator|>
-literal|0
+operator|>=
+name|YES
 operator|||
 name|dir
 operator|.
@@ -1621,7 +1655,7 @@ name|delFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Careful logic for norms files:
+comment|// Careful logic for norms files
 if|if
 condition|(
 name|normGen
@@ -1657,8 +1691,8 @@ decl_stmt|;
 if|if
 condition|(
 name|gen
-operator|>
-literal|0
+operator|>=
+name|YES
 condition|)
 block|{
 comment|// Definitely a separate norm file, with generation:
@@ -1688,13 +1722,12 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|-
-literal|1
+name|NO
 operator|==
 name|gen
 condition|)
 block|{
-comment|// No separate norms but maybe non-separate norms
+comment|// No separate norms but maybe plain norms
 comment|// in the non compound file case:
 if|if
 condition|(
@@ -1714,7 +1747,7 @@ literal|"."
 operator|+
 name|IndexFileNames
 operator|.
-name|SINGLE_NORMS_EXTENSION
+name|PLAIN_NORMS_EXTENSION
 operator|+
 name|i
 decl_stmt|;
@@ -1741,7 +1774,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|0
+name|CHECK_DIR
 operator|==
 name|gen
 condition|)
@@ -1785,7 +1818,7 @@ literal|"."
 operator|+
 name|IndexFileNames
 operator|.
-name|SINGLE_NORMS_EXTENSION
+name|PLAIN_NORMS_EXTENSION
 operator|+
 name|i
 expr_stmt|;
@@ -1857,7 +1890,7 @@ literal|"."
 operator|+
 name|IndexFileNames
 operator|.
-name|SINGLE_NORMS_EXTENSION
+name|PLAIN_NORMS_EXTENSION
 expr_stmt|;
 name|int
 name|prefixLength
