@@ -2298,6 +2298,9 @@ index|[]
 name|b
 parameter_list|,
 name|int
+name|offset
+parameter_list|,
+name|int
 name|size
 parameter_list|)
 throws|throws
@@ -2309,7 +2312,7 @@ name|write
 argument_list|(
 name|b
 argument_list|,
-literal|0
+name|offset
 argument_list|,
 name|size
 argument_list|)

@@ -595,6 +595,9 @@ name|storePositionWithTermVector
 parameter_list|,
 name|boolean
 name|storeOffsetWithTermVector
+parameter_list|,
+name|boolean
+name|storePayloads
 parameter_list|)
 throws|throws
 name|IOException
@@ -647,6 +650,8 @@ name|hasNorms
 argument_list|(
 name|field
 argument_list|)
+argument_list|,
+name|storePayloads
 argument_list|)
 expr_stmt|;
 block|}
@@ -728,6 +733,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addIndexed
@@ -750,6 +757,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -776,6 +785,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|addIndexed
@@ -800,6 +811,34 @@ argument_list|,
 literal|false
 argument_list|,
 literal|false
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|addIndexed
+argument_list|(
+name|reader
+argument_list|,
+name|fieldInfos
+argument_list|,
+name|reader
+operator|.
+name|getFieldNames
+argument_list|(
+name|IndexReader
+operator|.
+name|FieldOption
+operator|.
+name|STORES_PAYLOADS
+argument_list|)
+argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|addIndexed
@@ -818,6 +857,8 @@ name|FieldOption
 operator|.
 name|INDEXED
 argument_list|)
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -1619,6 +1660,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|field|payloadBuffer
+specifier|private
+name|byte
+index|[]
+name|payloadBuffer
+init|=
+literal|null
+decl_stmt|;
 comment|/** Process postings from multiple segments all positioned on the    *  same term. Writes out merged entries into freqOutput and    *  the proxOutput streams.    *    * @param smis array of segments    * @param n number of cells in the array actually occupied    * @return number of documents across all segments where this term was found    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|appendPostings
 specifier|private
@@ -1652,6 +1701,32 @@ comment|// number of docs w/ term
 name|resetSkip
 argument_list|()
 expr_stmt|;
+name|boolean
+name|storePayloads
+init|=
+name|fieldInfos
+operator|.
+name|fieldInfo
+argument_list|(
+name|smis
+index|[
+literal|0
+index|]
+operator|.
+name|term
+operator|.
+name|field
+argument_list|)
+operator|.
+name|storePayloads
+decl_stmt|;
+name|int
+name|lastPayloadLength
+init|=
+operator|-
+literal|1
+decl_stmt|;
+comment|// ensures that we write the first length
 for|for
 control|(
 name|int
@@ -1791,6 +1866,10 @@ block|{
 name|bufferSkip
 argument_list|(
 name|lastDoc
+argument_list|,
+name|storePayloads
+argument_list|,
+name|lastPayloadLength
 argument_list|)
 expr_stmt|;
 block|}
@@ -1855,6 +1934,7 @@ argument_list|)
 expr_stmt|;
 comment|// write frequency in doc
 block|}
+comment|/** See {@link DocumentWriter#writePostings(Posting[], String) for           *  documentation about the encoding of positions and payloads          */
 name|int
 name|lastPosition
 init|=
@@ -1884,15 +1964,129 @@ operator|.
 name|nextPosition
 argument_list|()
 decl_stmt|;
+name|int
+name|delta
+init|=
+name|position
+operator|-
+name|lastPosition
+decl_stmt|;
+if|if
+condition|(
+name|storePayloads
+condition|)
+block|{
+name|int
+name|payloadLength
+init|=
+name|postings
+operator|.
+name|getPayloadLength
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|payloadLength
+operator|==
+name|lastPayloadLength
+condition|)
+block|{
 name|proxOutput
 operator|.
 name|writeVInt
 argument_list|(
-name|position
-operator|-
-name|lastPosition
+name|delta
+operator|*
+literal|2
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|proxOutput
+operator|.
+name|writeVInt
+argument_list|(
+name|delta
+operator|*
+literal|2
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+name|proxOutput
+operator|.
+name|writeVInt
+argument_list|(
+name|payloadLength
+argument_list|)
+expr_stmt|;
+name|lastPayloadLength
+operator|=
+name|payloadLength
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|payloadLength
+operator|>
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|payloadBuffer
+operator|==
+literal|null
+operator|||
+name|payloadBuffer
+operator|.
+name|length
+operator|<
+name|payloadLength
+condition|)
+block|{
+name|payloadBuffer
+operator|=
+operator|new
+name|byte
+index|[
+name|payloadLength
+index|]
+expr_stmt|;
+block|}
+name|postings
+operator|.
+name|getPayload
+argument_list|(
+name|payloadBuffer
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|proxOutput
+operator|.
+name|writeBytes
+argument_list|(
+name|payloadBuffer
+argument_list|,
+literal|0
+argument_list|,
+name|payloadLength
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|proxOutput
+operator|.
+name|writeVInt
+argument_list|(
+name|delta
+argument_list|)
+expr_stmt|;
+block|}
 name|lastPosition
 operator|=
 name|position
@@ -1917,6 +2111,11 @@ DECL|field|lastSkipDoc
 specifier|private
 name|int
 name|lastSkipDoc
+decl_stmt|;
+DECL|field|lastSkipPayloadLength
+specifier|private
+name|int
+name|lastSkipPayloadLength
 decl_stmt|;
 DECL|field|lastSkipFreqPointer
 specifier|private
@@ -1943,6 +2142,12 @@ name|lastSkipDoc
 operator|=
 literal|0
 expr_stmt|;
+name|lastSkipPayloadLength
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+comment|// we don't have to write the first length in the skip list
 name|lastSkipFreqPointer
 operator|=
 name|freqOutput
@@ -1965,6 +2170,12 @@ name|bufferSkip
 parameter_list|(
 name|int
 name|doc
+parameter_list|,
+name|boolean
+name|storePayloads
+parameter_list|,
+name|int
+name|payloadLength
 parameter_list|)
 throws|throws
 name|IOException
@@ -1985,6 +2196,88 @@ operator|.
 name|getFilePointer
 argument_list|()
 decl_stmt|;
+comment|// To efficiently store payloads in the posting lists we do not store the length of
+comment|// every payload. Instead we omit the length for a payload if the previous payload had
+comment|// the same length.
+comment|// However, in order to support skipping the payload length at every skip point must be known.
+comment|// So we use the same length encoding that we use for the posting lists for the skip data as well:
+comment|// Case 1: current field does not store payloads
+comment|//           SkipDatum                 --> DocSkip, FreqSkip, ProxSkip
+comment|//           DocSkip,FreqSkip,ProxSkip --> VInt
+comment|//           DocSkip records the document number before every SkipInterval th  document in TermFreqs.
+comment|//           Document numbers are represented as differences from the previous value in the sequence.
+comment|// Case 2: current field stores payloads
+comment|//           SkipDatum                 --> DocSkip, PayloadLength?, FreqSkip,ProxSkip
+comment|//           DocSkip,FreqSkip,ProxSkip --> VInt
+comment|//           PayloadLength             --> VInt
+comment|//         In this case DocSkip/2 is the difference between
+comment|//         the current and the previous value. If DocSkip
+comment|//         is odd, then a PayloadLength encoded as VInt follows,
+comment|//         if DocSkip is even, then it is assumed that the
+comment|//         current payload length equals the length at the previous
+comment|//         skip point
+if|if
+condition|(
+name|storePayloads
+condition|)
+block|{
+name|int
+name|delta
+init|=
+name|doc
+operator|-
+name|lastSkipDoc
+decl_stmt|;
+if|if
+condition|(
+name|payloadLength
+operator|==
+name|lastSkipPayloadLength
+condition|)
+block|{
+comment|// the current payload length equals the length at the previous skip point,
+comment|// so we don't store the length again
+name|skipBuffer
+operator|.
+name|writeVInt
+argument_list|(
+name|delta
+operator|*
+literal|2
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// the payload length is different from the previous one. We shift the DocSkip,
+comment|// set the lowest bit and store the current payload length as VInt.
+name|skipBuffer
+operator|.
+name|writeVInt
+argument_list|(
+name|delta
+operator|*
+literal|2
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+name|skipBuffer
+operator|.
+name|writeVInt
+argument_list|(
+name|payloadLength
+argument_list|)
+expr_stmt|;
+name|lastSkipPayloadLength
+operator|=
+name|payloadLength
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// current field does not store payloads
 name|skipBuffer
 operator|.
 name|writeVInt
@@ -1994,6 +2287,7 @@ operator|-
 name|lastSkipDoc
 argument_list|)
 expr_stmt|;
+block|}
 name|skipBuffer
 operator|.
 name|writeVInt
