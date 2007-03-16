@@ -388,6 +388,11 @@ literal|' '
 argument_list|)
 expr_stmt|;
 block|}
+name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|addBytes
 argument_list|(
 name|f

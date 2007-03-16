@@ -105,6 +105,15 @@ name|java
 operator|.
 name|text
 operator|.
+name|ParseException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|text
+operator|.
 name|SimpleDateFormat
 import|;
 end_import
@@ -115,6 +124,15 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
 import|;
 end_import
 begin_import
@@ -849,6 +867,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// this is the next document, so parse it
+comment|// TODO use a more robust html parser (current one aborts parsing quite easily).
 name|HTMLParser
 name|p
 init|=
@@ -948,6 +967,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|r
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|addBytes
 argument_list|(
 name|bodyBuf
@@ -963,6 +987,8 @@ operator|new
 name|DocData
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|dd
 operator|.
 name|date
@@ -977,6 +1003,35 @@ name|trim
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ParseException
+name|e
+parameter_list|)
+block|{
+comment|// do not fail test just because a date could not be parsed
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"ignoring date parse exception (assigning 'now') for: "
+operator|+
+name|dateStr
+argument_list|)
+expr_stmt|;
+name|dd
+operator|.
+name|date
+operator|=
+operator|new
+name|Date
+argument_list|()
+expr_stmt|;
+comment|// now
+block|}
 name|dd
 operator|.
 name|name
