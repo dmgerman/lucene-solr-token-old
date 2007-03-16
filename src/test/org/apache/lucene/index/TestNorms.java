@@ -184,7 +184,7 @@ name|ArrayList
 import|;
 end_import
 begin_comment
-comment|/**  * Test that norms info is preserved during index life - incluidng seprate norms, addDocument, addIndexes, optimize.  */
+comment|/**  * Test that norms info is preserved during index life - including  * separate norms, addDocument, addIndexes, optimize.  */
 end_comment
 begin_class
 DECL|class|TestNorms
