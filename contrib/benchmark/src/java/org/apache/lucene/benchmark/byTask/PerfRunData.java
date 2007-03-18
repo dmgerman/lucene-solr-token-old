@@ -306,7 +306,7 @@ name|get
 argument_list|(
 literal|"doc.maker"
 argument_list|,
-literal|"org.apache.lucene.benchmark.byTask.utils.SimpleDocMaker"
+literal|"org.apache.lucene.benchmark.byTask.feeds.SimpleDocMaker"
 argument_list|)
 argument_list|)
 operator|.
@@ -335,7 +335,7 @@ name|get
 argument_list|(
 literal|"query.maker"
 argument_list|,
-literal|"org.apache.lucene.benchmark.byTask.utils.SimpleQueryMaker"
+literal|"org.apache.lucene.benchmark.byTask.feeds.SimpleQueryMaker"
 argument_list|)
 argument_list|)
 decl_stmt|;
