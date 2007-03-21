@@ -384,6 +384,7 @@ argument_list|()
 operator|==
 name|prefixField
 condition|)
+comment|// interned comparison
 block|{
 name|termDocs
 operator|.
