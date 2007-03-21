@@ -99,7 +99,7 @@ name|Config
 import|;
 end_import
 begin_comment
-comment|/**  * Create an index.  * Other side effects: index writer object in perfRunData is set.  */
+comment|/**  * Create an index.  *<br>Other side effects: index writer object in perfRunData is set.  *<br>Relevant properties:<code>merge.factor , max.buffered</code>.  */
 end_comment
 begin_class
 DECL|class|CreateIndexTask
@@ -192,7 +192,9 @@ name|get
 argument_list|(
 literal|"merge.factor"
 argument_list|,
-literal|10
+name|OpenIndexTask
+operator|.
+name|DEFAULT_MERGE_PFACTOR
 argument_list|)
 decl_stmt|;
 name|int
@@ -204,7 +206,9 @@ name|get
 argument_list|(
 literal|"max.buffered"
 argument_list|,
-literal|10
+name|OpenIndexTask
+operator|.
+name|DEFAULT_MAX_BUFFERED
 argument_list|)
 decl_stmt|;
 name|iw

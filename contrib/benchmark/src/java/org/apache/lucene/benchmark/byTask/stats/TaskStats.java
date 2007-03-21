@@ -461,7 +461,7 @@ block|}
 block|}
 comment|/* (non-Javadoc)    * @see java.lang.Object#clone()    */
 DECL|method|clone
-specifier|protected
+specifier|public
 name|Object
 name|clone
 parameter_list|()
@@ -477,6 +477,7 @@ return|;
 block|}
 comment|/**    * @return the round number.    */
 DECL|method|getRound
+specifier|public
 name|int
 name|getRound
 parameter_list|()

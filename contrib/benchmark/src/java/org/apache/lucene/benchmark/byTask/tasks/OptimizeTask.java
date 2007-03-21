@@ -47,7 +47,7 @@ name|IndexWriter
 import|;
 end_import
 begin_comment
-comment|/**  * Optimize the index.  * Other side effects: none.  */
+comment|/**  * Optimize the index.  *<br>Other side effects: none.  */
 end_comment
 begin_class
 DECL|class|OptimizeTask
