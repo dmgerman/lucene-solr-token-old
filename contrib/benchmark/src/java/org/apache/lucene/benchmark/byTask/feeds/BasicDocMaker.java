@@ -104,6 +104,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -137,7 +146,7 @@ name|Properties
 import|;
 end_import
 begin_comment
-comment|/**  * Create documents for the test.  * Maintains counters of chars etc. so that sub-classes just need to   * provide textual content, and the create-by-size is handled here.  */
+comment|/**  * Create documents for the test.  * Maintains counters of chars etc. so that sub-classes just need to   * provide textual content, and the create-by-size is handled here.  *  *<p/>  * Config Params (default is in caps):  * doc.stored=true|FALSE<br/>  * doc.tokenized=TRUE|false<br/>  * doc.term.vector=true|FALSE<br/>  * doc.store.bytes=true|FALSE //Store the body contents raw UTF-8 bytes as a field<br/>  */
 end_comment
 begin_class
 DECL|class|BasicDocMaker
@@ -154,6 +163,13 @@ name|int
 name|numDocsCreated
 init|=
 literal|0
+decl_stmt|;
+DECL|field|storeBytes
+specifier|private
+name|boolean
+name|storeBytes
+init|=
+literal|false
 decl_stmt|;
 DECL|class|DocData
 specifier|static
@@ -175,11 +191,6 @@ decl_stmt|;
 DECL|field|body
 name|String
 name|body
-decl_stmt|;
-DECL|field|bytes
-name|byte
-index|[]
-name|bytes
 decl_stmt|;
 DECL|field|props
 name|Properties
@@ -353,6 +364,8 @@ parameter_list|,
 name|int
 name|cnt
 parameter_list|)
+throws|throws
+name|UnsupportedEncodingException
 block|{
 name|int
 name|docid
@@ -671,22 +684,11 @@ name|termVecVal
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
-name|docData
-operator|.
-name|bytes
-operator|!=
-literal|null
-operator|&&
-name|docData
-operator|.
-name|bytes
-operator|.
-name|length
-operator|!=
-literal|0
+name|storeBytes
+operator|==
+literal|true
 condition|)
 block|{
 name|doc
@@ -698,9 +700,12 @@ name|Field
 argument_list|(
 literal|"bytes"
 argument_list|,
-name|docData
+name|bdy
 operator|.
-name|bytes
+name|getBytes
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|,
 name|Field
 operator|.
@@ -710,6 +715,7 @@ name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1129,6 +1135,17 @@ name|TermVector
 operator|.
 name|NO
 operator|)
+expr_stmt|;
+name|storeBytes
+operator|=
+name|config
+operator|.
+name|get
+argument_list|(
+literal|"doc.store.body.bytes"
+argument_list|,
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 comment|/*    *  (non-Javadoc)    * @see DocMaker#resetIinputs()    */
