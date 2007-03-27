@@ -1623,7 +1623,7 @@ block|{
 return|return
 literal|"DisjunctionMax Request Handler: Does relevancy based queries "
 operator|+
-literal|"accross a variety of fields using configured boosts"
+literal|"across a variety of fields using configured boosts"
 return|;
 block|}
 annotation|@
