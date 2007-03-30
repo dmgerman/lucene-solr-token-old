@@ -1226,6 +1226,17 @@ argument_list|(
 name|HEADER
 argument_list|)
 decl_stmt|;
+name|skipLines
+operator|=
+name|params
+operator|.
+name|getInt
+argument_list|(
+name|SKIP
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|fieldnames
@@ -1276,8 +1287,7 @@ operator|&&
 name|hasHeader
 condition|)
 name|skipLines
-operator|=
-literal|1
+operator|++
 expr_stmt|;
 name|prepareFields
 argument_list|()
