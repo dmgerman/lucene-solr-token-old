@@ -448,6 +448,21 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|RequestHandlerUtils
+operator|.
+name|handleCommit
+argument_list|(
+name|req
+argument_list|,
+name|rsp
+argument_list|,
+literal|false
+argument_list|)
+condition|)
+block|{
 throw|throw
 operator|new
 name|SolrException
@@ -457,6 +472,8 @@ argument_list|,
 literal|"missing content stream"
 argument_list|)
 throw|;
+block|}
+return|return;
 block|}
 comment|// Cycle through each stream
 for|for
@@ -506,6 +523,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// perhaps commit when we are done
+name|RequestHandlerUtils
+operator|.
+name|handleCommit
+argument_list|(
+name|req
+argument_list|,
+name|rsp
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|update
 specifier|public
