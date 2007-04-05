@@ -122,13 +122,13 @@ extends|extends
 name|QueryParser
 block|{
 DECL|field|fields
-specifier|private
+specifier|protected
 name|String
 index|[]
 name|fields
 decl_stmt|;
 DECL|field|boosts
-specifier|private
+specifier|protected
 name|Map
 name|boosts
 decl_stmt|;
@@ -240,8 +240,6 @@ block|{
 name|Query
 name|q
 init|=
-name|super
-operator|.
 name|getFieldQuery
 argument_list|(
 name|fields
@@ -475,8 +473,6 @@ argument_list|(
 operator|new
 name|BooleanClause
 argument_list|(
-name|super
-operator|.
 name|getFuzzyQuery
 argument_list|(
 name|fields
@@ -572,8 +568,6 @@ argument_list|(
 operator|new
 name|BooleanClause
 argument_list|(
-name|super
-operator|.
 name|getPrefixQuery
 argument_list|(
 name|fields
@@ -665,8 +659,6 @@ argument_list|(
 operator|new
 name|BooleanClause
 argument_list|(
-name|super
-operator|.
 name|getWildcardQuery
 argument_list|(
 name|fields
@@ -764,8 +756,6 @@ argument_list|(
 operator|new
 name|BooleanClause
 argument_list|(
-name|super
-operator|.
 name|getRangeQuery
 argument_list|(
 name|fields
