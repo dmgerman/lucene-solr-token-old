@@ -22,6 +22,22 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|IndexWriter
+import|;
+end_import
+begin_comment
+comment|// for javadoc
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|Parameter
@@ -738,7 +754,7 @@ name|termVector
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Create a tokenized and indexed field that is not stored. Term vectors will    * not be stored.  The Reader is read only when the Document is added to the index.    *     * @param name The name of the field    * @param reader The reader with the content    * @throws NullPointerException if name or reader is<code>null</code>    */
+comment|/**    * Create a tokenized and indexed field that is not stored. Term vectors will    * not be stored.  The Reader is read only when the Document is added to the index,    * i.e. you may not close the Reader until {@link IndexWriter#addDocument(Document)}    * has been called.    *     * @param name The name of the field    * @param reader The reader with the content    * @throws NullPointerException if name or reader is<code>null</code>    */
 DECL|method|Field
 specifier|public
 name|Field
@@ -762,7 +778,7 @@ name|NO
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Create a tokenized and indexed field that is not stored, optionally with     * storing term vectors.  The Reader is read only when the Document is added to the index.    *     * @param name The name of the field    * @param reader The reader with the content    * @param termVector Whether term vector should be stored    * @throws NullPointerException if name or reader is<code>null</code>    */
+comment|/**    * Create a tokenized and indexed field that is not stored, optionally with     * storing term vectors.  The Reader is read only when the Document is added to the index,    * i.e. you may not close the Reader until {@link IndexWriter#addDocument(Document)}    * has been called.    *     * @param name The name of the field    * @param reader The reader with the content    * @param termVector Whether term vector should be stored    * @throws NullPointerException if name or reader is<code>null</code>    */
 DECL|method|Field
 specifier|public
 name|Field
