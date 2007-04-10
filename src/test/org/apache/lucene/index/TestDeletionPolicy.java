@@ -931,6 +931,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|long
+name|lastDeleteTime
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -946,6 +951,15 @@ name|i
 operator|++
 control|)
 block|{
+comment|// Record last time when writer performed deletes of
+comment|// past commits
+name|lastDeleteTime
+operator|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+expr_stmt|;
 name|writer
 operator|=
 operator|new
@@ -1060,16 +1074,6 @@ argument_list|,
 name|gen
 argument_list|)
 decl_stmt|;
-name|long
-name|newestModTime
-init|=
-name|dir
-operator|.
-name|fileModified
-argument_list|(
-name|fileName
-argument_list|)
-decl_stmt|;
 while|while
 condition|(
 name|gen
@@ -1127,7 +1131,7 @@ name|SECONDS
 operator|+
 literal|" seconds but did not get deleted"
 argument_list|,
-name|newestModTime
+name|lastDeleteTime
 operator|-
 name|modTime
 operator|<
