@@ -1408,9 +1408,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|finalizer
+annotation|@
+name|Override
+DECL|method|finalize
+specifier|protected
 name|void
-name|finalizer
+name|finalize
 parameter_list|()
 block|{
 name|close
