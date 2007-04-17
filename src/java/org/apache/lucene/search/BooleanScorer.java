@@ -83,6 +83,12 @@ name|nextMask
 init|=
 literal|1
 decl_stmt|;
+DECL|field|minNrShouldMatch
+specifier|private
+specifier|final
+name|int
+name|minNrShouldMatch
+decl_stmt|;
 DECL|method|BooleanScorer
 name|BooleanScorer
 parameter_list|(
@@ -90,10 +96,34 @@ name|Similarity
 name|similarity
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|similarity
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|BooleanScorer
+name|BooleanScorer
+parameter_list|(
+name|Similarity
+name|similarity
+parameter_list|,
+name|int
+name|minNrShouldMatch
+parameter_list|)
+block|{
 name|super
 argument_list|(
 name|similarity
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|minNrShouldMatch
+operator|=
+name|minNrShouldMatch
 expr_stmt|;
 block|}
 DECL|class|SubScorer
@@ -492,6 +522,15 @@ name|tmp
 expr_stmt|;
 continue|continue;
 block|}
+if|if
+condition|(
+name|current
+operator|.
+name|coord
+operator|>=
+name|minNrShouldMatch
+condition|)
+block|{
 name|hc
 operator|.
 name|collect
@@ -512,6 +551,7 @@ name|coord
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|current
 operator|=
@@ -686,7 +726,7 @@ operator|.
 name|next
 expr_stmt|;
 comment|// pop the queue
-comment|// check prohibited& required
+comment|// check prohibited& required, and minNrShouldMatch
 if|if
 condition|(
 operator|(
@@ -708,6 +748,12 @@ name|requiredMask
 operator|)
 operator|==
 name|requiredMask
+operator|&&
+name|current
+operator|.
+name|coord
+operator|>=
+name|minNrShouldMatch
 condition|)
 block|{
 return|return
