@@ -56,7 +56,7 @@ name|tps
 parameter_list|,
 name|int
 index|[]
-name|positions
+name|offsets
 parameter_list|,
 name|Similarity
 name|similarity
@@ -72,7 +72,7 @@ name|weight
 argument_list|,
 name|tps
 argument_list|,
-name|positions
+name|offsets
 argument_list|,
 name|similarity
 argument_list|,
@@ -90,6 +90,11 @@ throws|throws
 name|IOException
 block|{
 comment|// sort list with pq
+name|pq
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|PhrasePositions
@@ -126,6 +131,8 @@ name|pqToList
 argument_list|()
 expr_stmt|;
 comment|// rebuild list from pq
+comment|// for counting how many times the exact phrase is found in current document,
+comment|// just count how many times all PhrasePosition's have exactly the same position.
 name|int
 name|freq
 init|=
