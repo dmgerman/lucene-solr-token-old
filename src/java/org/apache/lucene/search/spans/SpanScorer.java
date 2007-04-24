@@ -288,7 +288,7 @@ argument_list|()
 return|;
 block|}
 DECL|method|setFreqCurrentDoc
-specifier|private
+specifier|protected
 name|boolean
 name|setFreqCurrentDoc
 parameter_list|()
