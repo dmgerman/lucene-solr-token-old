@@ -152,6 +152,9 @@ name|dfMap
 parameter_list|,
 name|int
 name|maxDoc
+parameter_list|,
+name|Similarity
+name|similarity
 parameter_list|)
 block|{
 name|this
@@ -165,6 +168,11 @@ operator|.
 name|maxDoc
 operator|=
 name|maxDoc
+expr_stmt|;
+name|setSimilarity
+argument_list|(
+name|similarity
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|docFreq
@@ -439,7 +447,6 @@ argument_list|()
 throw|;
 block|}
 block|}
-empty_stmt|;
 DECL|field|searchables
 specifier|private
 name|Searchable
@@ -1711,6 +1718,9 @@ argument_list|(
 name|dfMap
 argument_list|,
 name|numDocs
+argument_list|,
+name|getSimilarity
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
