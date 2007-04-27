@@ -2547,7 +2547,7 @@ name|getVersion
 parameter_list|()
 block|{
 return|return
-literal|"$Revision: 501512 $"
+literal|"$Revision$"
 return|;
 block|}
 annotation|@
@@ -2559,7 +2559,7 @@ name|getSourceId
 parameter_list|()
 block|{
 return|return
-literal|"$Id: IndexInfoRequestHandler.java 487199 2006-12-14 13:03:40Z bdelacretaz $"
+literal|"$Id$"
 return|;
 block|}
 annotation|@
@@ -2571,7 +2571,7 @@ name|getSource
 parameter_list|()
 block|{
 return|return
-literal|"$URL: https://svn.apache.org/repos/asf/lucene/solr/trunk/src/java/org/apache/solr/request/IndexInfoRequestHandler.java $"
+literal|"$URL$"
 return|;
 block|}
 annotation|@
