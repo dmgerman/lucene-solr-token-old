@@ -1383,7 +1383,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|isInstanceDirInitalized
+name|isInstanceDirInitialized
 argument_list|()
 condition|)
 block|{
@@ -1552,11 +1552,11 @@ return|return
 name|instanceDir
 return|;
 block|}
-DECL|method|isInstanceDirInitalized
+DECL|method|isInstanceDirInitialized
 specifier|public
 specifier|static
 name|boolean
-name|isInstanceDirInitalized
+name|isInstanceDirInitialized
 parameter_list|()
 block|{
 return|return
