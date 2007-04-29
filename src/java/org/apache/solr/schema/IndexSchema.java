@@ -3342,7 +3342,7 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|1
+literal|400
 argument_list|,
 literal|"undefined field "
 operator|+
