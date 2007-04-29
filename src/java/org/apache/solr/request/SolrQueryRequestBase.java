@@ -355,6 +355,9 @@ name|name
 argument_list|)
 return|;
 block|}
+comment|/**    * use getParams().required().getInt( name ) instead    */
+annotation|@
+name|Deprecated
 DECL|method|getIntParam
 specifier|public
 name|int
@@ -404,6 +407,9 @@ name|s
 argument_list|)
 return|;
 block|}
+comment|/**    * use getParams().required().getInt( name ) instead    */
+annotation|@
+name|Deprecated
 DECL|method|getIntParam
 specifier|public
 name|int
@@ -439,6 +445,9 @@ name|s
 argument_list|)
 return|;
 block|}
+comment|/**    * use getParams().required().getParam( name ) instead    */
+annotation|@
+name|Deprecated
 DECL|method|getStrParam
 specifier|public
 name|String
@@ -483,6 +492,9 @@ return|return
 name|s
 return|;
 block|}
+comment|/**    * use getParams().required().getParam( name ) instead    */
+annotation|@
+name|Deprecated
 DECL|method|getStrParam
 specifier|public
 name|String
