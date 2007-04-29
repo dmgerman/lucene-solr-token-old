@@ -22,6 +22,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|analysis
+operator|.
+name|TokenStream
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|document
 operator|.
 name|*
@@ -1899,7 +1912,7 @@ return|return
 name|localFieldsStream
 return|;
 block|}
-comment|/**      * The value of the field in Binary, or null.  If null, the Reader or      * String value is used.  Exactly one of stringValue(), readerValue() and      * binaryValue() must be set.      */
+comment|/** The value of the field in Binary, or null.  If null, the Reader value,      * String value, or TokenStream value is used. Exactly one of stringValue(),       * readerValue(), binaryValue(), and tokenStreamValue() must be set. */
 DECL|method|binaryValue
 specifier|public
 name|byte
@@ -2011,7 +2024,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**      * The value of the field as a Reader, or null.  If null, the String value      * or binary value is  used.  Exactly one of stringValue(), readerValue(),      * and binaryValue() must be set.      */
+comment|/** The value of the field as a Reader, or null.  If null, the String value,      * binary value, or TokenStream value is used.  Exactly one of stringValue(),       * readerValue(), binaryValue(), and tokenStreamValue() must be set. */
 DECL|method|readerValue
 specifier|public
 name|Reader
@@ -2034,7 +2047,30 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**      * The value of the field as a String, or null.  If null, the Reader value      * or binary value is used.  Exactly one of stringValue(), readerValue(), and      * binaryValue() must be set.      */
+comment|/** The value of the field as a TokesStream, or null.  If null, the Reader value,      * String value, or binary value is used. Exactly one of stringValue(),       * readerValue(), binaryValue(), and tokenStreamValue() must be set. */
+DECL|method|tokenStreamValue
+specifier|public
+name|TokenStream
+name|tokenStreamValue
+parameter_list|()
+block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
+return|return
+name|fieldsData
+operator|instanceof
+name|TokenStream
+condition|?
+operator|(
+name|TokenStream
+operator|)
+name|fieldsData
+else|:
+literal|null
+return|;
+block|}
+comment|/** The value of the field as a String, or null.  If null, the Reader value,      * binary value, or TokenStream value is used.  Exactly one of stringValue(),       * readerValue(), binaryValue(), and tokenStreamValue() must be set. */
 DECL|method|stringValue
 specifier|public
 name|String
@@ -2420,6 +2456,17 @@ operator|)
 name|this
 operator|.
 name|fieldsData
+return|;
+block|}
+DECL|method|tokenStreamValue
+specifier|public
+name|TokenStream
+name|tokenStreamValue
+parameter_list|()
+block|{
+comment|// not needed for merge
+return|return
+literal|null
 return|;
 block|}
 DECL|method|FieldForMerge
