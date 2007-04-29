@@ -50,19 +50,6 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Field
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
 name|Fieldable
 import|;
 end_import
@@ -490,6 +477,22 @@ name|SchemaField
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|requiredFields
+specifier|private
+specifier|final
+name|Collection
+argument_list|<
+name|SchemaField
+argument_list|>
+name|requiredFields
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|SchemaField
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|/**    * Provides direct access to the Map containing all explicit    * (ie: non-dynamic) fields in the index, keyed on field name.    *    *<p>    * Modifying this Map (or any item in it) will affect the real schema    *</p>    */
 DECL|method|getFields
 specifier|public
@@ -534,6 +537,20 @@ parameter_list|()
 block|{
 return|return
 name|fieldsWithDefaultValue
+return|;
+block|}
+comment|/**    * Provides direct access to the List containing all required fields.  This    * list contains all fields with default values.    */
+DECL|method|getRequiredFields
+specifier|public
+name|Collection
+argument_list|<
+name|SchemaField
+argument_list|>
+name|getRequiredFields
+parameter_list|()
+block|{
+return|return
+name|requiredFields
 return|;
 block|}
 DECL|field|similarity
@@ -1498,6 +1515,24 @@ name|ft
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Hang on to the fields that say if they are required -- this lets us set a reasonable default for the unique key
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Boolean
+argument_list|>
+name|explicitRequiredProp
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Boolean
+argument_list|>
+argument_list|()
+decl_stmt|;
 name|ArrayList
 argument_list|<
 name|DynamicField
@@ -1663,6 +1698,38 @@ argument_list|,
 literal|"type"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|args
+operator|.
+name|get
+argument_list|(
+literal|"required"
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+name|explicitRequiredProp
+operator|.
+name|put
+argument_list|(
+name|name
+argument_list|,
+name|Boolean
+operator|.
+name|valueOf
+argument_list|(
+name|args
+operator|.
+name|get
+argument_list|(
+literal|"required"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|SchemaField
 name|f
 init|=
@@ -1743,6 +1810,31 @@ name|f
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|f
+operator|.
+name|isRequired
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|fine
+argument_list|(
+name|name
+operator|+
+literal|" is required in this schema"
+argument_list|)
+expr_stmt|;
+name|requiredFields
+operator|.
+name|add
+argument_list|(
+name|f
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -1791,6 +1883,17 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|//fields with default values are by definition required
+comment|//add them to required fields, and we only have to loop once
+comment|// in DocumentBuilder.getDoc()
+name|requiredFields
+operator|.
+name|addAll
+argument_list|(
+name|getFieldsWithDefaultValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// OK, now sort the dynamic fields largest to smallest size so we don't get
 comment|// any false matches.  We want to act like a compiler tool and try and match
 comment|// the largest string possible.
@@ -2100,6 +2203,35 @@ operator|+
 name|uniqueKeyFieldName
 argument_list|)
 expr_stmt|;
+comment|// Unless the uniqueKeyField is marked 'required=false' then make sure it exists
+if|if
+condition|(
+name|Boolean
+operator|.
+name|FALSE
+operator|!=
+name|explicitRequiredProp
+operator|.
+name|get
+argument_list|(
+name|uniqueKeyFieldName
+argument_list|)
+condition|)
+block|{
+name|uniqueKeyField
+operator|.
+name|required
+operator|=
+literal|true
+expr_stmt|;
+name|requiredFields
+operator|.
+name|add
+argument_list|(
+name|uniqueKeyField
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/////////////// parse out copyField commands ///////////////
 comment|// Map<String,ArrayList<SchemaField>> cfields = new HashMap<String,ArrayList<SchemaField>>();
