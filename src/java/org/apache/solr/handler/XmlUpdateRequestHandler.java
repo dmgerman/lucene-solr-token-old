@@ -29,15 +29,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStreamReader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|Reader
 import|;
 end_import
@@ -364,8 +355,6 @@ specifier|private
 name|XmlPullParserFactory
 name|factory
 decl_stmt|;
-comment|// This must be called AFTER solrCore has initalized!
-comment|// otherwise you get a big bad error loop
 DECL|method|init
 specifier|public
 name|void
