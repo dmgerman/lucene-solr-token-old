@@ -355,6 +355,8 @@ specifier|private
 name|XmlPullParserFactory
 name|factory
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -486,20 +488,18 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|rsp
-operator|.
-name|add
-argument_list|(
-literal|"update"
-argument_list|,
+name|NamedList
+name|out
+init|=
 name|this
 operator|.
 name|update
 argument_list|(
 name|reader
 argument_list|)
-argument_list|)
-expr_stmt|;
+decl_stmt|;
+comment|// TODO -- return useful info.
+comment|// rsp.add( "update", out );
 block|}
 finally|finally
 block|{
