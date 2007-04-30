@@ -628,7 +628,7 @@ argument_list|(
 name|qslop
 argument_list|)
 expr_stmt|;
-comment|/* for parsing slopy phrases using DisjunctionMaxQueries */
+comment|/* for parsing sloppy phrases using DisjunctionMaxQueries */
 name|U
 operator|.
 name|DisjunctionMaxQueryParser
