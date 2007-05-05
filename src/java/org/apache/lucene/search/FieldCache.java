@@ -109,7 +109,7 @@ name|lookup
 expr_stmt|;
 block|}
 block|}
-comment|/** Interface to parse ints from document fields.    * @see #getInts(IndexReader, String, IntParser)    */
+comment|/** Interface to parse ints from document fields.    * @see FieldCache#getInts(IndexReader, String, FieldCache.IntParser)    */
 DECL|interface|IntParser
 specifier|public
 interface|interface
@@ -126,7 +126,7 @@ name|string
 parameter_list|)
 function_decl|;
 block|}
-comment|/** Interface to parse floats from document fields.    * @see #getFloats(IndexReader, String, FloatParser)    */
+comment|/** Interface to parse floats from document fields.    * @see FieldCache#getFloats(IndexReader, String, FieldCache.FloatParser)    */
 DECL|interface|FloatParser
 specifier|public
 interface|interface

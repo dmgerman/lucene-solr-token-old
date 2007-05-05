@@ -37,7 +37,7 @@ name|File
 import|;
 end_import
 begin_comment
-comment|/**  *  A DocumentHandler implementation to delegate responsibility to  *  based on a files extension.  Currently only .html and .txt  *  files are handled, other extensions ignored.  *  *@author     Erik Hatcher  *@created    October 28, 2001  *@todo Implement dynamic document type lookup  */
+comment|/**  *  A DocumentHandler implementation to delegate responsibility to  *  based on a files extension.  Currently only .html and .txt  *  files are handled, other extensions ignored.  *  *@author     Erik Hatcher  *@since      October 28, 2001  *@todo Implement dynamic document type lookup  */
 end_comment
 begin_class
 DECL|class|FileExtensionDocumentHandler

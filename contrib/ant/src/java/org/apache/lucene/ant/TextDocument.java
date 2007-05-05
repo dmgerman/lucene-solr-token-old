@@ -86,7 +86,7 @@ name|StringWriter
 import|;
 end_import
 begin_comment
-comment|/**  *  A utility for making Lucene Documents from a File.  *  *@author     Erik Hatcher  *@created    December 6, 2001  *@todo       Fix JavaDoc comments here  */
+comment|/**  *  A utility for making Lucene Documents from a File.  *  *@author     Erik Hatcher  *@since      December 6, 2001  *@todo       Fix JavaDoc comments here  */
 end_comment
 begin_class
 DECL|class|TextDocument
