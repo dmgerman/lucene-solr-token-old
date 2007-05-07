@@ -47,15 +47,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|UnsupportedEncodingException
 import|;
 end_import
@@ -1213,14 +1204,22 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// The javadocs for HttpServletRequest are clear that req.getReader() should take
+comment|// care of any character encoding issues.  BUT, there are problems while running on
+comment|// some servlet containers: including Tomcat 5 and resin.
+comment|//
+comment|// Rather than return req.getReader(), this uses the default ContentStreamBase method
+comment|// that checks for charset definitions in the ContentType.
 name|streams
 operator|.
 name|add
 argument_list|(
 operator|new
-name|ContentStream
+name|ContentStreamBase
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getContentType
@@ -1233,6 +1232,8 @@ name|getContentType
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getName
@@ -1241,8 +1242,10 @@ block|{
 return|return
 literal|null
 return|;
-comment|// Is there any meaningfull name?
+comment|// Is there any meaningful name?
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getSourceInfo
@@ -1251,8 +1254,10 @@ block|{
 return|return
 literal|null
 return|;
-comment|// Is there any meaningfull name?
+comment|// Is there any meaningful source?
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Long
 name|getSize
@@ -1299,20 +1304,6 @@ return|return
 name|req
 operator|.
 name|getInputStream
-argument_list|()
-return|;
-block|}
-specifier|public
-name|Reader
-name|getReader
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|req
-operator|.
-name|getReader
 argument_list|()
 return|;
 block|}
