@@ -98,6 +98,15 @@ operator|.
 name|AbstractSolrTestCase
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
 begin_comment
 comment|/**  * @author yonik  * @version $Id$  */
 end_comment
@@ -188,8 +197,10 @@ operator|==
 name|q
 argument_list|)
 expr_stmt|;
+name|List
+argument_list|<
 name|BooleanClause
-index|[]
+argument_list|>
 name|clauses
 init|=
 operator|(
@@ -205,7 +216,7 @@ operator|)
 name|q
 operator|)
 operator|.
-name|getClauses
+name|clauses
 argument_list|()
 else|:
 literal|null
@@ -221,7 +232,8 @@ if|if
 condition|(
 name|clauses
 operator|.
-name|length
+name|size
+argument_list|()
 operator|!=
 literal|0
 condition|)
