@@ -174,7 +174,7 @@ name|stopWords
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * @param docId      * @param moreLikeFields      */
+comment|/**      * @param moreLikeFields      */
 DECL|method|MoreLikeThisQuery
 specifier|public
 name|MoreLikeThisQuery
