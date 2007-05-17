@@ -49,7 +49,7 @@ name|Config
 import|;
 end_import
 begin_comment
-comment|/**  * Create documents for the test.  *<br>Each call to makeDocument would create the next document.  * When input is exhausted, the DocMaker iterates over the input again,   * does provifing a source for unlimited number of documents,   * though not all of them are unique.   */
+comment|/**  * Create documents for the test.  *<br>Each call to makeDocument would create the next document.  * When input is exhausted, the DocMaker iterates over the input again,  * providing a source for unlimited number of documents,  * though not all of them are unique.   */
 end_comment
 begin_interface
 DECL|interface|DocMaker
