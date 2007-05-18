@@ -2999,6 +2999,24 @@ argument_list|(
 literal|"t_s"
 argument_list|)
 expr_stmt|;
+name|doFacets
+argument_list|(
+literal|"t_s"
+argument_list|,
+literal|"facet.enum.cache.minDf"
+argument_list|,
+literal|"2"
+argument_list|)
+expr_stmt|;
+name|doFacets
+argument_list|(
+literal|"t_s"
+argument_list|,
+literal|"facet.enum.cache.minDf"
+argument_list|,
+literal|"100"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testFacetSingleValued
 specifier|public
@@ -3019,6 +3037,10 @@ name|doFacets
 parameter_list|(
 name|String
 name|f
+parameter_list|,
+name|String
+modifier|...
+name|params
 parameter_list|)
 block|{
 name|String
@@ -3247,6 +3269,8 @@ literal|"check counts for unlimited facet"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -3297,6 +3321,8 @@ literal|"check counts for facet with generous limit"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -3351,6 +3377,8 @@ literal|"check counts for limited facet"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -3385,6 +3413,8 @@ literal|"check offset"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -3419,6 +3449,8 @@ literal|"test sorted facet paging with zero (don't count in limit)"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -3481,6 +3513,8 @@ literal|"test sorted facet paging with zero (test offset correctness)"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -3531,6 +3565,8 @@ literal|"test facet unsorted paging"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -3597,6 +3633,8 @@ literal|"test facet unsorted paging"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -3647,6 +3685,8 @@ literal|"test facet unsorted paging, mincount=2"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -3699,6 +3739,24 @@ argument_list|(
 literal|"t_s"
 argument_list|)
 expr_stmt|;
+name|doFacetPrefix
+argument_list|(
+literal|"t_s"
+argument_list|,
+literal|"facet.enum.cache.minDf"
+argument_list|,
+literal|"3"
+argument_list|)
+expr_stmt|;
+name|doFacetPrefix
+argument_list|(
+literal|"t_s"
+argument_list|,
+literal|"facet.enum.cache.minDf"
+argument_list|,
+literal|"100"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testFacetPrefixSingleValued
 specifier|public
@@ -3719,6 +3777,10 @@ name|doFacetPrefix
 parameter_list|(
 name|String
 name|f
+parameter_list|,
+name|String
+modifier|...
+name|params
 parameter_list|)
 block|{
 name|String
@@ -3924,6 +3986,8 @@ literal|"test facet.prefix middle, exact match first term"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -3982,6 +4046,8 @@ literal|"test facet.prefix middle, exact match first term, unsorted"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4040,6 +4106,8 @@ literal|"test facet.prefix middle, exact match first term, unsorted"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4098,6 +4166,8 @@ literal|"test facet.prefix middle, paging"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4152,6 +4222,8 @@ literal|"test facet.prefix middle, paging"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4202,6 +4274,8 @@ literal|"test facet.prefix middle, paging"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4252,6 +4326,8 @@ literal|"test facet.prefix end, not exact match"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4306,6 +4382,8 @@ literal|"test facet.prefix end, exact match"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4360,6 +4438,8 @@ literal|"test facet.prefix past end"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4406,6 +4486,8 @@ literal|"test facet.prefix past end"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4452,6 +4534,8 @@ literal|"test facet.prefix at start, exact match"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4502,6 +4586,8 @@ literal|"test facet.prefix at Start, not exact match"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4552,6 +4638,8 @@ literal|"test facet.prefix at Start, not exact match"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4602,6 +4690,8 @@ literal|"test facet.prefix before start"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
@@ -4648,6 +4738,8 @@ literal|"test facet.prefix before start"
 argument_list|,
 name|req
 argument_list|(
+name|params
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:[* TO *]"
