@@ -3882,6 +3882,25 @@ argument_list|,
 literal|"\\[ a\\\\ TO a\\* \\]"
 argument_list|)
 expr_stmt|;
+comment|// LUCENE-881
+name|assertEscapedQueryEquals
+argument_list|(
+literal|"|| abc ||"
+argument_list|,
+name|a
+argument_list|,
+literal|"\\|\\| abc \\|\\|"
+argument_list|)
+expr_stmt|;
+name|assertEscapedQueryEquals
+argument_list|(
+literal|"&& abc&&"
+argument_list|,
+name|a
+argument_list|,
+literal|"\\&\\& abc \\&\\&"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|testTabNewlineCarriageReturn
 specifier|public
