@@ -582,6 +582,18 @@ operator|.
 name|getParams
 argument_list|()
 decl_stmt|;
+name|int
+name|numTerms
+init|=
+name|params
+operator|.
+name|getInt
+argument_list|(
+name|NUMTERMS
+argument_list|,
+name|DEFAULT_COUNT
+argument_list|)
+decl_stmt|;
 comment|// Always show the core lucene info
 name|rsp
 operator|.
@@ -592,6 +604,10 @@ argument_list|,
 name|getIndexInfo
 argument_list|(
 name|reader
+argument_list|,
+name|numTerms
+operator|>
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -816,18 +832,6 @@ block|}
 else|else
 block|{
 comment|// If no doc is given, show all fields and top terms
-name|int
-name|numTerms
-init|=
-name|params
-operator|.
-name|getInt
-argument_list|(
-name|NUMTERMS
-argument_list|,
-name|DEFAULT_COUNT
-argument_list|)
-decl_stmt|;
 name|Set
 argument_list|<
 name|String
@@ -2079,7 +2083,7 @@ operator|.
 name|getSchema
 argument_list|()
 decl_stmt|;
-comment|// Walk the term enum and keep a priority quey for each map in our set
+comment|// Walk the term enum and keep a priority queue for each map in our set
 name|Map
 argument_list|<
 name|String
@@ -2088,6 +2092,17 @@ name|TopTermQueue
 argument_list|>
 name|ttinfo
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|numTerms
+operator|>
+literal|0
+condition|)
+block|{
+name|ttinfo
+operator|=
 name|getTopTerms
 argument_list|(
 name|reader
@@ -2098,7 +2113,8 @@ name|numTerms
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 name|SimpleOrderedMap
 argument_list|<
 name|Object
@@ -2226,6 +2242,14 @@ name|sfield
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// If numTerms==0, the call is just asking for a quick field list
+if|if
+condition|(
+name|ttinfo
+operator|!=
+literal|null
+condition|)
+block|{
 name|Query
 name|q
 init|=
@@ -2433,6 +2457,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 comment|// Add the field
 name|finfo
 operator|.
@@ -2459,36 +2484,13 @@ name|getIndexInfo
 parameter_list|(
 name|IndexReader
 name|reader
+parameter_list|,
+name|boolean
+name|countTerms
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// Count the terms
-name|TermEnum
-name|te
-init|=
-name|reader
-operator|.
-name|terms
-argument_list|()
-decl_stmt|;
-name|int
-name|numTerms
-init|=
-literal|0
-decl_stmt|;
-while|while
-condition|(
-name|te
-operator|.
-name|next
-argument_list|()
-condition|)
-block|{
-name|numTerms
-operator|++
-expr_stmt|;
-block|}
 name|Directory
 name|dir
 init|=
@@ -2534,6 +2536,36 @@ name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|countTerms
+condition|)
+block|{
+name|TermEnum
+name|te
+init|=
+name|reader
+operator|.
+name|terms
+argument_list|()
+decl_stmt|;
+name|int
+name|numTerms
+init|=
+literal|0
+decl_stmt|;
+while|while
+condition|(
+name|te
+operator|.
+name|next
+argument_list|()
+condition|)
+block|{
+name|numTerms
+operator|++
+expr_stmt|;
+block|}
 name|indexInfo
 operator|.
 name|add
@@ -2543,6 +2575,7 @@ argument_list|,
 name|numTerms
 argument_list|)
 expr_stmt|;
+block|}
 name|indexInfo
 operator|.
 name|add
@@ -3431,7 +3464,7 @@ operator|>=
 name|numTerms
 condition|)
 block|{
-comment|// if tiq overfull
+comment|// if tiq full
 name|tiq
 operator|.
 name|pop
