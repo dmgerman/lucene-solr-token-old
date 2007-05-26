@@ -26,7 +26,7 @@ name|Iterator
 import|;
 end_import
 begin_comment
-comment|/**  * A simple interface representing a Dictionary  * @author Nicolas Maisonneuve  * @version 1.0  */
+comment|/**  * A simple interface representing a Dictionary. A Dictionary  * here is just a list of words.  *   * @author Nicolas Maisonneuve  * @version 1.0  */
 end_comment
 begin_interface
 DECL|interface|Dictionary
