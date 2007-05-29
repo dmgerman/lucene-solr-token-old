@@ -144,6 +144,10 @@ name|newSize
 parameter_list|)
 block|{
 assert|assert
+name|buffer
+operator|==
+literal|null
+operator|||
 name|bufferSize
 operator|==
 name|buffer
