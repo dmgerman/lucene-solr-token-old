@@ -329,7 +329,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"Unsupported Operation"
 argument_list|)
@@ -349,7 +353,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"Unsupported Operation"
 argument_list|)

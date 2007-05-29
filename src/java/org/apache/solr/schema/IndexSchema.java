@@ -1537,7 +1537,11 @@ init|=
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 name|msg
 argument_list|)
@@ -1725,7 +1729,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|400
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|,
 literal|"Unknown fieldtype '"
 operator|+
@@ -1860,7 +1868,11 @@ init|=
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 name|msg
 argument_list|)
@@ -2018,7 +2030,11 @@ init|=
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 name|msg
 argument_list|)
@@ -2633,7 +2649,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"copyField dynamic destination must match a dynamicField."
 argument_list|)
@@ -2685,7 +2705,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 name|msg
 argument_list|)
@@ -2827,7 +2851,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"Schema Parsing Failed"
 argument_list|,
@@ -3054,7 +3082,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"analyzer without class or tokenizer& filter list"
 argument_list|)
@@ -3068,7 +3100,7 @@ argument_list|(
 name|tokNode
 argument_list|)
 decl_stmt|;
-comment|/******     // oops, getChildNodes() includes text (newlines, etc) in addition     // to the actual child elements     NodeList nList = node.getChildNodes();     TokenizerFactory tfac = readTokenizerFactory(nList.item(0));      if (tfac==null) {        throw new SolrException(500,"TokenizerFactory must be specified first in analyzer");      }     ******/
+comment|/******     // oops, getChildNodes() includes text (newlines, etc) in addition     // to the actual child elements     NodeList nList = node.getChildNodes();     TokenizerFactory tfac = readTokenizerFactory(nList.item(0));      if (tfac==null) {        throw new SolrException( SolrException.StatusCode.SERVER_ERROR,"TokenizerFactory must be specified first in analyzer");      }     ******/
 name|ArrayList
 argument_list|<
 name|TokenFilterFactory
@@ -4003,7 +4035,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|400
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|,
 literal|"undefined field "
 operator|+
@@ -4129,7 +4165,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|400
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|,
 literal|"undefined field "
 operator|+

@@ -458,7 +458,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|400
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|,
 literal|"missing content stream"
 argument_list|)
@@ -1610,7 +1614,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|400
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|,
 literal|"unexpected XML tag /delete/"
 operator|+
@@ -1825,7 +1833,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|400
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|,
 literal|"unexpected XML tag doc/"
 operator|+

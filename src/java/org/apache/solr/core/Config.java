@@ -538,7 +538,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"Error in xpath:"
 operator|+
@@ -690,7 +694,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"Error in xpath:"
 operator|+
@@ -739,7 +747,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"Error in xpath:"
 operator|+
@@ -1240,7 +1252,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"Error loading class '"
 operator|+
@@ -1298,7 +1314,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"Error instantiating class "
 operator|+

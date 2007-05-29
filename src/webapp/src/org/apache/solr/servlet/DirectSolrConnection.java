@@ -386,7 +386,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"can not find logging file: "
 operator|+
@@ -434,7 +438,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"already initalized: "
 operator|+
@@ -658,7 +666,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|400
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|,
 literal|"unknown handler: "
 operator|+
@@ -679,7 +691,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|400
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|,
 literal|"unknown handler: "
 operator|+

@@ -698,7 +698,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|404
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|NOT_FOUND
 argument_list|,
 literal|"Can't find document: "
 operator|+
@@ -754,7 +758,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|404
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|NOT_FOUND
 argument_list|,
 literal|"Can't find document: "
 operator|+

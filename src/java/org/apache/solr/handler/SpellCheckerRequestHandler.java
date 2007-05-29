@@ -607,7 +607,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|400
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|,
 literal|"Unrecognized Command: "
 operator|+
@@ -767,7 +771,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"can't rebuild spellchecker index without termSourceField configured"
 argument_list|)

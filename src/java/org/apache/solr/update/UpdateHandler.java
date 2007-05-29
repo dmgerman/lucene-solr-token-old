@@ -431,7 +431,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"error parsing event listevers"
 argument_list|,
@@ -562,7 +566,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"error parsing event listeners"
 argument_list|,
@@ -761,7 +769,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|400
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|,
 literal|"Operation requires schema to have a unique key field"
 argument_list|)
@@ -798,7 +810,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|400
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|,
 literal|"Document is missing uniqueKey field "
 operator|+
@@ -820,7 +836,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|400
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
 argument_list|,
 literal|"Document specifies multiple unique ids! "
 operator|+
@@ -1023,7 +1043,11 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|500
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
 argument_list|,
 literal|"Error deleting doc# "
 operator|+
