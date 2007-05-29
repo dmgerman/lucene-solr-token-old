@@ -431,7 +431,7 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|1
+literal|500
 argument_list|,
 literal|"error parsing event listevers"
 argument_list|,
@@ -562,7 +562,7 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-literal|1
+literal|500
 argument_list|,
 literal|"error parsing event listeners"
 argument_list|,
