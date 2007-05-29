@@ -437,7 +437,7 @@ init|=
 operator|new
 name|byte
 index|[
-literal|1024
+literal|16384
 index|]
 decl_stmt|;
 name|it
