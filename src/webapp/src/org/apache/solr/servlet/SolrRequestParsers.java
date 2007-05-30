@@ -702,6 +702,7 @@ operator|!
 name|enableRemoteStreams
 condition|)
 block|{
+throw|throw
 operator|new
 name|SolrException
 argument_list|(
@@ -713,7 +714,7 @@ name|BAD_REQUEST
 argument_list|,
 literal|"Remote Streaming is disabled."
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 for|for
 control|(
@@ -788,6 +789,7 @@ operator|!
 name|enableRemoteStreams
 condition|)
 block|{
+throw|throw
 operator|new
 name|SolrException
 argument_list|(
@@ -799,7 +801,7 @@ name|BAD_REQUEST
 argument_list|,
 literal|"Remote Streaming is disabled."
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 for|for
 control|(
@@ -1489,6 +1491,7 @@ name|req
 argument_list|)
 condition|)
 block|{
+throw|throw
 operator|new
 name|SolrException
 argument_list|(
@@ -1505,7 +1508,7 @@ operator|.
 name|getContentType
 argument_list|()
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 name|MultiMapSolrParams
 name|params
