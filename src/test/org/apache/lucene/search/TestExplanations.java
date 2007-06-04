@@ -369,6 +369,7 @@ name|queryText
 argument_list|)
 return|;
 block|}
+comment|/** check the expDocNrs first, then check the query (and the explanations) */
 DECL|method|qtest
 specifier|public
 name|void
@@ -395,6 +396,7 @@ name|expDocNrs
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** check the expDocNrs first, then check the query (and the explanations) */
 DECL|method|qtest
 specifier|public
 name|void
@@ -410,7 +412,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// check that the expDocNrs first, then check the explanations
 name|CheckHits
 operator|.
 name|checkHitCollector
@@ -422,17 +423,6 @@ argument_list|,
 name|searcher
 argument_list|,
 name|expDocNrs
-argument_list|)
-expr_stmt|;
-name|CheckHits
-operator|.
-name|checkExplanations
-argument_list|(
-name|q
-argument_list|,
-name|FIELD
-argument_list|,
-name|searcher
 argument_list|)
 expr_stmt|;
 block|}

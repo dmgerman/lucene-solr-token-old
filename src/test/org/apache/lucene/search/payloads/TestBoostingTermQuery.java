@@ -761,6 +761,8 @@ argument_list|,
 literal|"field"
 argument_list|,
 name|searcher
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|Spans
@@ -998,6 +1000,8 @@ argument_list|,
 literal|"field"
 argument_list|,
 name|searcher
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|Spans
