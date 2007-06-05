@@ -652,9 +652,9 @@ name|System
 operator|.
 name|out
 operator|.
-name|print
+name|println
 argument_list|(
-literal|"Query: "
+literal|"Enter query: "
 argument_list|)
 expr_stmt|;
 name|String
@@ -678,6 +678,23 @@ argument_list|()
 operator|==
 operator|-
 literal|1
+condition|)
+break|break;
+name|line
+operator|=
+name|line
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|line
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
 condition|)
 break|break;
 name|Query
@@ -1013,7 +1030,7 @@ name|System
 operator|.
 name|out
 operator|.
-name|print
+name|println
 argument_list|(
 literal|"more (y/n) ? "
 argument_list|)
