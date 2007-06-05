@@ -20,6 +20,7 @@ specifier|public
 class|class
 name|ToStringUtils
 block|{
+comment|/** for printing boost only if not 1.0 */
 DECL|method|boost
 specifier|public
 specifier|static
