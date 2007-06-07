@@ -464,7 +464,7 @@ name|this
 operator|.
 name|doc
 argument_list|()
-operator|>
+operator|>=
 name|lastScoredDoc
 condition|)
 block|{
@@ -600,7 +600,7 @@ name|this
 operator|.
 name|doc
 argument_list|()
-operator|>
+operator|>=
 name|lastScoredDoc
 condition|)
 block|{
@@ -688,7 +688,7 @@ name|this
 operator|.
 name|doc
 argument_list|()
-operator|>
+operator|>=
 name|lastScoredDoc
 condition|)
 block|{
