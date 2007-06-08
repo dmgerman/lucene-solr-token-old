@@ -50,7 +50,6 @@ comment|/**  * Implements the skip list reader for the default posting list form
 end_comment
 begin_class
 DECL|class|DefaultSkipListReader
-specifier|public
 class|class
 name|DefaultSkipListReader
 extends|extends
