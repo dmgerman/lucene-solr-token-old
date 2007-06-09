@@ -467,7 +467,7 @@ specifier|private
 name|boolean
 name|closed
 decl_stmt|;
-comment|/**    * @throws AlreadyClosedException if this IndexWriter is closed    */
+comment|/**    * Used internally to throw an {@link    * AlreadyClosedException} if this IndexWriter has been    * closed.    * @throws AlreadyClosedException if this IndexWriter is    */
 DECL|method|ensureOpen
 specifier|protected
 specifier|final
@@ -1298,7 +1298,7 @@ operator|=
 name|maxMergeDocs
 expr_stmt|;
 block|}
-comment|/**    * @see #setMaxMergeDocs    */
+comment|/**    * Returns the largest number of documents allowed in a    * single segment.    * @see #setMaxMergeDocs    */
 DECL|method|getMaxMergeDocs
 specifier|public
 name|int
@@ -1332,7 +1332,7 @@ operator|=
 name|maxFieldLength
 expr_stmt|;
 block|}
-comment|/**    * @see #setMaxFieldLength    */
+comment|/**    * Returns the maximum number of terms that will be    * indexed for a single field in a document.    * @see #setMaxFieldLength    */
 DECL|method|getMaxFieldLength
 specifier|public
 name|int
@@ -1379,7 +1379,7 @@ operator|=
 name|maxBufferedDocs
 expr_stmt|;
 block|}
-comment|/**    * @see #setMaxBufferedDocs    */
+comment|/**    * Returns the number of buffered added documents that will    * trigger a flush.    * @see #setMaxBufferedDocs    */
 DECL|method|getMaxBufferedDocs
 specifier|public
 name|int
@@ -1426,7 +1426,7 @@ operator|=
 name|maxBufferedDeleteTerms
 expr_stmt|;
 block|}
-comment|/**    * @see #setMaxBufferedDeleteTerms    */
+comment|/**    * Returns the number of buffered deleted terms that will    * trigger a flush.    * @see #setMaxBufferedDeleteTerms    */
 DECL|method|getMaxBufferedDeleteTerms
 specifier|public
 name|int
@@ -1473,7 +1473,7 @@ operator|=
 name|mergeFactor
 expr_stmt|;
 block|}
-comment|/**    * @see #setMergeFactor    */
+comment|/**    * Returns the number of segments that are merged at once    * and also controls the total number of segments allowed    * to accumulate in the index.    * @see #setMergeFactor    */
 DECL|method|getMergeFactor
 specifier|public
 name|int
@@ -1505,7 +1505,7 @@ operator|=
 name|infoStream
 expr_stmt|;
 block|}
-comment|/**    * @see #setDefaultInfoStream    */
+comment|/**    * Returns the current default infoStream for newly    * instantiated IndexWriters.    * @see #setDefaultInfoStream    */
 DECL|method|getDefaultInfoStream
 specifier|public
 specifier|static
@@ -1546,7 +1546,7 @@ name|infoStream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * @see #setInfoStream    */
+comment|/**    * Returns the current infoStream in use by this writer.    * @see #setInfoStream    */
 DECL|method|getInfoStream
 specifier|public
 name|PrintStream
@@ -1580,7 +1580,7 @@ operator|=
 name|writeLockTimeout
 expr_stmt|;
 block|}
-comment|/**    * @see #setWriteLockTimeout    */
+comment|/**    * Returns allowed timeout when acquiring the write lock.    * @see #setWriteLockTimeout    */
 DECL|method|getWriteLockTimeout
 specifier|public
 name|long
@@ -1612,7 +1612,7 @@ operator|=
 name|writeLockTimeout
 expr_stmt|;
 block|}
-comment|/**    * @see #setDefaultWriteLockTimeout    */
+comment|/**    * Returns default write lock timeout for newly    * instantiated IndexWriters.    * @see #setDefaultWriteLockTimeout    */
 DECL|method|getDefaultWriteLockTimeout
 specifier|public
 specifier|static
@@ -3681,6 +3681,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{   }
+comment|/**    * Used internally to trigger a flush if the number of    * buffered added documents or buffered deleted terms are    * large enough.    */
 DECL|method|maybeFlushRamSegments
 specifier|protected
 specifier|final
