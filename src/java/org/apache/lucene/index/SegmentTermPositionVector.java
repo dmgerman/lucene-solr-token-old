@@ -16,7 +16,6 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_class
 DECL|class|SegmentTermPositionVector
-specifier|public
 class|class
 name|SegmentTermPositionVector
 extends|extends
