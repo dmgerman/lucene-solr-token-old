@@ -63,22 +63,26 @@ name|Payload
 implements|implements
 name|Serializable
 block|{
+comment|/** the byte array containing the payload data */
 DECL|field|data
 specifier|protected
 name|byte
 index|[]
 name|data
 decl_stmt|;
+comment|/** the offset within the byte array */
 DECL|field|offset
 specifier|protected
 name|int
 name|offset
 decl_stmt|;
+comment|/** the length of the payload data */
 DECL|field|length
 specifier|protected
 name|int
 name|length
 decl_stmt|;
+comment|/** Creates an empty payload and does not allocate a byte array. */
 DECL|method|Payload
 specifier|protected
 name|Payload
@@ -164,6 +168,7 @@ operator|=
 name|length
 expr_stmt|;
 block|}
+comment|/**      * Returns the length of the payload data.       */
 DECL|method|length
 specifier|public
 name|int
