@@ -75,7 +75,7 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|core
+name|common
 operator|.
 name|SolrException
 import|;

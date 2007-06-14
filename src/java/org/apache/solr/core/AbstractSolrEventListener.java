@@ -22,9 +22,11 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|search
+name|common
 operator|.
-name|SolrIndexSearcher
+name|util
+operator|.
+name|NamedList
 import|;
 end_import
 begin_import
@@ -35,9 +37,9 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|util
+name|search
 operator|.
-name|NamedList
+name|SolrIndexSearcher
 import|;
 end_import
 begin_comment

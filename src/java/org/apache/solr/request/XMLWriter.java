@@ -22,6 +22,8 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|NamedList
@@ -34,6 +36,8 @@ operator|.
 name|apache
 operator|.
 name|solr
+operator|.
+name|common
 operator|.
 name|util
 operator|.
