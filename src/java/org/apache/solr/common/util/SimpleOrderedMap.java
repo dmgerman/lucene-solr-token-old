@@ -67,6 +67,8 @@ name|nameValuePairs
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|SimpleOrderedMap
