@@ -48,9 +48,11 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|core
+name|common
 operator|.
-name|SolrCore
+name|util
+operator|.
+name|StrUtils
 import|;
 end_import
 begin_import
@@ -61,9 +63,9 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|util
+name|core
 operator|.
-name|StrUtils
+name|SolrCore
 import|;
 end_import
 begin_import
