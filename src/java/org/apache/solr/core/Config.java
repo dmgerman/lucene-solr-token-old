@@ -1101,6 +1101,8 @@ literal|"analysis."
 block|,
 literal|"schema."
 block|,
+literal|"handler."
+block|,
 literal|"search."
 block|,
 literal|"update."
@@ -1108,8 +1110,6 @@ block|,
 literal|"core."
 block|,
 literal|"request."
-block|,
-literal|"handler."
 block|,
 literal|"util."
 block|}
