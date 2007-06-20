@@ -143,6 +143,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|request
+operator|.
+name|SolrRequestHandler
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|schema
 operator|.
 name|IndexSchema
@@ -368,6 +381,7 @@ name|DocumentBuilder
 name|builder
 decl_stmt|;
 DECL|field|updater
+specifier|public
 name|XmlUpdateRequestHandler
 name|updater
 decl_stmt|;
