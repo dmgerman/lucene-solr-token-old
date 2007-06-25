@@ -278,8 +278,7 @@ name|tracker
 operator|.
 name|timeUpperBound
 operator|=
-operator|-
-literal|1
+literal|100000
 expr_stmt|;
 name|tracker
 operator|.
