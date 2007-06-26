@@ -100,7 +100,6 @@ expr_stmt|;
 block|}
 DECL|field|logStep
 specifier|private
-specifier|static
 name|int
 name|logStep
 init|=
@@ -111,6 +110,12 @@ DECL|field|docSize
 specifier|private
 name|int
 name|docSize
+init|=
+literal|0
+decl_stmt|;
+DECL|field|count
+name|int
+name|count
 init|=
 literal|0
 decl_stmt|;
@@ -182,21 +187,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|DocMaker
-name|docMaker
-init|=
-name|getRunData
-argument_list|()
-operator|.
-name|getDocMaker
-argument_list|()
-decl_stmt|;
 name|log
 argument_list|(
-name|docMaker
-operator|.
-name|getCount
-argument_list|()
+operator|++
+name|count
 argument_list|)
 expr_stmt|;
 name|doc
@@ -248,7 +242,7 @@ operator|<
 literal|0
 condition|)
 block|{
-comment|// avoid sync although race possible here
+comment|// init once per instance
 name|logStep
 operator|=
 name|getRunData
@@ -286,7 +280,17 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"--> processed (add) "
+literal|"--> "
+operator|+
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" processed (add) "
 operator|+
 name|count
 operator|+
