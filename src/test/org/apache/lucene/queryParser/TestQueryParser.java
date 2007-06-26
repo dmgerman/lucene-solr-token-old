@@ -2319,6 +2319,24 @@ name|Exception
 block|{
 name|assertQueryEquals
 argument_list|(
+literal|"term term^3.0 term"
+argument_list|,
+name|qpAnalyzer
+argument_list|,
+literal|"term term^3.0 term"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"term stop^3.0 term"
+argument_list|,
+name|qpAnalyzer
+argument_list|,
+literal|"term term"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
 literal|"term term term"
 argument_list|,
 name|qpAnalyzer
@@ -2338,6 +2356,33 @@ expr_stmt|;
 name|assertQueryEquals
 argument_list|(
 literal|"term -stop term"
+argument_list|,
+name|qpAnalyzer
+argument_list|,
+literal|"term term"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"drop AND (stop) AND roll"
+argument_list|,
+name|qpAnalyzer
+argument_list|,
+literal|"+drop +roll"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"term +(stop) term"
+argument_list|,
+name|qpAnalyzer
+argument_list|,
+literal|"term term"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"term -(stop) term"
 argument_list|,
 name|qpAnalyzer
 argument_list|,
@@ -2373,7 +2418,70 @@ argument_list|)
 expr_stmt|;
 name|assertQueryEquals
 argument_list|(
+literal|"stop^3"
+argument_list|,
+name|qpAnalyzer
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
 literal|"stop"
+argument_list|,
+name|qpAnalyzer
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"(stop)^3"
+argument_list|,
+name|qpAnalyzer
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"((stop))^3"
+argument_list|,
+name|qpAnalyzer
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"(stop^3)"
+argument_list|,
+name|qpAnalyzer
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"((stop)^3)"
+argument_list|,
+name|qpAnalyzer
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"(stop)"
+argument_list|,
+name|qpAnalyzer
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"((stop))"
 argument_list|,
 name|qpAnalyzer
 argument_list|,
