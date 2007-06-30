@@ -373,12 +373,12 @@ begin_comment
 comment|/**  * Add documents to solr using the STAX XML parser.  *   * To change the UpdateRequestProcessor implementation, add the configuration parameter:  *   *<requestHandler name="/update" class="solr.StaxUpdateRequestHandler">  *<str name="update.processor.class">org.apache.solr.handler.UpdateRequestProcessor</str>  *<lst name="update.processor.args">  *     ... (optionally pass in arguments to the factory init method) ...  *</lst>   *</requestHandler>  */
 end_comment
 begin_class
-DECL|class|StaxUpdateRequestHandler
+DECL|class|XmlUpdateRequestHandler
 specifier|public
 class|class
-name|StaxUpdateRequestHandler
-extends|extends
 name|XmlUpdateRequestHandler
+extends|extends
+name|RequestHandlerBase
 block|{
 DECL|field|log
 specifier|public
@@ -390,7 +390,7 @@ name|Logger
 operator|.
 name|getLogger
 argument_list|(
-name|StaxUpdateRequestHandler
+name|XmlUpdateRequestHandler
 operator|.
 name|class
 operator|.
