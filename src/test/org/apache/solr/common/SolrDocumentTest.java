@@ -867,7 +867,7 @@ literal|"f1"
 argument_list|,
 name|c0
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc
@@ -878,7 +878,7 @@ literal|"f2"
 argument_list|,
 name|c0
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1012,7 +1012,7 @@ literal|"f"
 argument_list|,
 name|fval0
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc
@@ -1023,7 +1023,7 @@ literal|"f"
 argument_list|,
 name|fval1
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc
@@ -1034,7 +1034,7 @@ literal|"f"
 argument_list|,
 name|fval2
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 block|}
@@ -1119,7 +1119,7 @@ literal|"f"
 argument_list|,
 name|fval0
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc
@@ -1130,7 +1130,7 @@ literal|"f"
 argument_list|,
 name|fval1
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc
@@ -1141,7 +1141,7 @@ literal|"f"
 argument_list|,
 name|fval2
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 block|}

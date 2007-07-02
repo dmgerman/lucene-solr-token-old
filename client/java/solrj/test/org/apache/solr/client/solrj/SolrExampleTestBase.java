@@ -242,7 +242,7 @@ literal|"id"
 argument_list|,
 name|docID
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc
@@ -253,7 +253,7 @@ literal|"name"
 argument_list|,
 literal|"my name!"
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|Assert
@@ -474,7 +474,7 @@ literal|"id"
 argument_list|,
 literal|"2"
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc2
@@ -485,7 +485,7 @@ literal|"inStock"
 argument_list|,
 literal|true
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc2
@@ -496,7 +496,7 @@ literal|"price"
 argument_list|,
 literal|2
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc2
@@ -513,7 +513,7 @@ operator|.
 name|Date
 argument_list|()
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|docs
@@ -538,7 +538,7 @@ literal|"id"
 argument_list|,
 literal|"3"
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc3
@@ -549,7 +549,7 @@ literal|"inStock"
 argument_list|,
 literal|false
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc3
@@ -560,7 +560,7 @@ literal|"price"
 argument_list|,
 literal|3
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc3
@@ -577,7 +577,7 @@ operator|.
 name|Date
 argument_list|()
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|docs
@@ -602,7 +602,7 @@ literal|"id"
 argument_list|,
 literal|"4"
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc4
@@ -613,7 +613,7 @@ literal|"inStock"
 argument_list|,
 literal|true
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc4
@@ -624,7 +624,7 @@ literal|"price"
 argument_list|,
 literal|4
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc4
@@ -641,7 +641,7 @@ operator|.
 name|Date
 argument_list|()
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|docs
@@ -666,7 +666,7 @@ literal|"id"
 argument_list|,
 literal|"5"
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc5
@@ -677,7 +677,7 @@ literal|"inStock"
 argument_list|,
 literal|false
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc5
@@ -688,7 +688,7 @@ literal|"price"
 argument_list|,
 literal|5
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|doc5
@@ -705,7 +705,7 @@ operator|.
 name|Date
 argument_list|()
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 name|docs
@@ -1188,7 +1188,7 @@ name|i
 operator|+
 literal|"& 222"
 argument_list|,
-literal|null
+literal|1.0f
 argument_list|)
 expr_stmt|;
 block|}
