@@ -40,15 +40,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|logging
 operator|.
 name|Logger
@@ -229,7 +220,7 @@ index|[]
 block|{}
 return|;
 block|}
-comment|/**    * Create a plugin from an XML configuration.  Plugins are defined using:    *<plugin name="name1" class="solr.ClassName" arg1="val1">    *      ...    *</plugin>    *     * @param name - The registered name.  In the above example: "name1"    * @param className - class name for requested plugin.  In the above example: "solr.ClassName"    * @param params - the parameters specified in the XML.  In the example above,    * this would be a map containing [name=name1, class=solr.ClassName, arg1=val1]    * @param node - the XML node defining this plugin    */
+comment|/**    * Create a plugin from an XML configuration.  Plugins are defined using:    *<plugin name="name1" class="solr.ClassName">    *      ...    *</plugin>    *     * @param name - The registered name.  In the above example: "name1"    * @param className - class name for requested plugin.  In the above example: "solr.ClassName"    * @param node - the XML node defining this plugin    */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -245,14 +236,6 @@ name|name
 parameter_list|,
 name|String
 name|className
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|params
 parameter_list|,
 name|Node
 name|node
@@ -291,7 +274,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**    * Initialize the plugin.  For example, given the configuration:    *     *<plugin name="name1" class="solr.ClassName" arg1="val1">    *      ...    *</plugin>    *     * @param plugin - the plugin to initialize    * @param params - the parameters specified in the XML.  In the example above,    * this would be a map containing [name=name1, class=solr.ClassName, arg1=val1]    * @param node - the XML node defining this plugin    */
+comment|/**    * Initialize the plugin.      *     * @param plugin - the plugin to initialize    * @param node - the XML node defining this plugin    */
 DECL|method|init
 specifier|abstract
 specifier|protected
@@ -300,14 +283,6 @@ name|init
 parameter_list|(
 name|T
 name|plugin
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|params
 parameter_list|,
 name|Node
 name|node
@@ -424,28 +399,6 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|params
-init|=
-name|DOMUtil
-operator|.
-name|toMapExcept
-argument_list|(
-name|node
-operator|.
-name|getAttributes
-argument_list|()
-argument_list|,
-literal|"name"
-argument_list|,
-literal|"class"
-argument_list|)
-decl_stmt|;
 name|T
 name|plugin
 init|=
@@ -454,8 +407,6 @@ argument_list|(
 name|name
 argument_list|,
 name|className
-argument_list|,
-name|params
 argument_list|,
 name|node
 argument_list|)
@@ -494,8 +445,6 @@ name|PluginInitInfo
 argument_list|(
 name|plugin
 argument_list|,
-name|params
-argument_list|,
 name|node
 argument_list|)
 argument_list|)
@@ -506,8 +455,6 @@ block|{
 name|init
 argument_list|(
 name|plugin
-argument_list|,
-name|params
 argument_list|,
 name|node
 argument_list|)
@@ -653,10 +600,6 @@ name|plugin
 argument_list|,
 name|pinfo
 operator|.
-name|params
-argument_list|,
-name|pinfo
-operator|.
 name|node
 argument_list|)
 expr_stmt|;
@@ -704,16 +647,6 @@ specifier|final
 name|T
 name|plugin
 decl_stmt|;
-DECL|field|params
-specifier|final
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|params
-decl_stmt|;
 DECL|field|node
 specifier|final
 name|Node
@@ -725,14 +658,6 @@ parameter_list|(
 name|T
 name|plugin
 parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|params
-parameter_list|,
 name|Node
 name|node
 parameter_list|)
@@ -742,12 +667,6 @@ operator|.
 name|plugin
 operator|=
 name|plugin
-expr_stmt|;
-name|this
-operator|.
-name|params
-operator|=
-name|params
 expr_stmt|;
 name|this
 operator|.
