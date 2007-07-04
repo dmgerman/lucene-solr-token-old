@@ -1154,10 +1154,6 @@ name|segment
 operator|=
 literal|null
 expr_stmt|;
-name|hasNorms
-operator|=
-literal|false
-expr_stmt|;
 name|numDocsInRAM
 operator|=
 literal|0
@@ -8346,10 +8342,6 @@ name|segmentName
 argument_list|,
 name|numDocsInRAM
 argument_list|)
-expr_stmt|;
-name|hasNorms
-operator|=
-literal|false
 expr_stmt|;
 name|flushedFiles
 operator|.
