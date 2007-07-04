@@ -665,7 +665,7 @@ literal|0
 argument_list|,
 name|modifier
 operator|.
-name|getRamSegmentCount
+name|getNumBufferedDocuments
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2620,6 +2620,8 @@ name|KeepOnlyLastCommitDeletionPolicy
 argument_list|()
 argument_list|,
 name|infos
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)
