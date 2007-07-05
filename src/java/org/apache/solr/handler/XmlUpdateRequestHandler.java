@@ -1139,6 +1139,12 @@ argument_list|(
 literal|"adding doc..."
 argument_list|)
 expr_stmt|;
+name|addCmd
+operator|.
+name|indexedId
+operator|=
+literal|null
+expr_stmt|;
 name|SolrInputDocument
 name|doc
 init|=
