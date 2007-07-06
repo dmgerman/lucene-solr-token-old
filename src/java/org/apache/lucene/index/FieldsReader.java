@@ -401,8 +401,8 @@ name|indexStream
 operator|.
 name|length
 argument_list|()
-operator|/
-literal|8
+operator|>>
+literal|3
 argument_list|)
 expr_stmt|;
 block|}
