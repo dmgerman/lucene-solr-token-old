@@ -3202,7 +3202,8 @@ name|this
 operator|.
 name|indexer
 operator|.
-name|writer
+name|getWriter
+argument_list|()
 operator|!=
 literal|null
 condition|)
