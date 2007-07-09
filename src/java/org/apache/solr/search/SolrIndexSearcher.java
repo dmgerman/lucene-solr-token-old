@@ -1496,6 +1496,25 @@ argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
+DECL|field|queryResultMaxDocsCached
+specifier|private
+specifier|static
+name|int
+name|queryResultMaxDocsCached
+init|=
+name|SolrConfig
+operator|.
+name|config
+operator|.
+name|getInt
+argument_list|(
+literal|"query/queryResultMaxDocsCached"
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
+argument_list|)
+decl_stmt|;
 DECL|method|search
 specifier|public
 name|Hits
@@ -3990,12 +4009,20 @@ name|len
 argument_list|)
 expr_stmt|;
 block|}
-comment|// lastly, put the superset in the cache
+comment|// lastly, put the superset in the cache if the size is less than or equal
+comment|// to queryResultMaxDocsCached
 if|if
 condition|(
 name|key
 operator|!=
 literal|null
+operator|&&
+name|superset
+operator|.
+name|size
+argument_list|()
+operator|<=
+name|queryResultMaxDocsCached
 condition|)
 block|{
 name|queryResultCache
