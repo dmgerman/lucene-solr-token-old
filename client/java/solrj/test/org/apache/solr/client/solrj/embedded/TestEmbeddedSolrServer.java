@@ -62,7 +62,7 @@ name|SolrCore
 import|;
 end_import
 begin_comment
-comment|/**  * This runs SolrServer test using   *   * @author ryan  * @version $Id$  * @since solr 1.3  */
+comment|/**  * This runs SolrServer test using   *   * @version $Id$  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|TestEmbeddedSolrServer

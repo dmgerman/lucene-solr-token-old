@@ -289,7 +289,7 @@ name|Logger
 import|;
 end_import
 begin_comment
-comment|/**  * SolrIndexSearcher adds schema awareness and caching functionality  * over the lucene IndexSearcher.  *  * @author yonik  * @version $Id$  * @since solr 0.9  */
+comment|/**  * SolrIndexSearcher adds schema awareness and caching functionality  * over the lucene IndexSearcher.  *  * @version $Id$  * @since solr 0.9  */
 end_comment
 begin_comment
 comment|// Since the internal reader in IndexSearcher is

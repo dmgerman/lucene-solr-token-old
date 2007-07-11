@@ -61,7 +61,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Creates new instances of {@link EdgeNGramTokenizer}.  * @author Otis Gospodnetic  * @author Adam Hiatt  */
+comment|/**  * Creates new instances of {@link EdgeNGramTokenizer}.  */
 end_comment
 begin_class
 DECL|class|EdgeNGramTokenizerFactory

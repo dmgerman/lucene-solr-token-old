@@ -535,7 +535,7 @@ name|NodeList
 import|;
 end_import
 begin_comment
-comment|/**  * @author yonik  * @author<a href='mailto:mbaranczak@epublishing.com'> Mike Baranczak</a>   * @version $Id$  */
+comment|/**  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|SolrCore

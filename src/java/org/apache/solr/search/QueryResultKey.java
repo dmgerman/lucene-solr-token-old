@@ -63,7 +63,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/** A hash key encapsulating a query, a list of filters, and a sort  * @author yonik  * @version $Id$  */
+comment|/** A hash key encapsulating a query, a list of filters, and a sort  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|QueryResultKey

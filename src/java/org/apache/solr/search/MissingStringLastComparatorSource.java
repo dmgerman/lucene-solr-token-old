@@ -50,7 +50,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link SortComparatorSource} for strings that orders null values after non-null values.  * Based on FieldSortedHitQueue.comparatorString  *<p>  *  * @author Chris Hostetter  * @author yonik  * @version $Id$  *  */
+comment|/**  * A {@link SortComparatorSource} for strings that orders null values after non-null values.  * Based on FieldSortedHitQueue.comparatorString  *<p>  *  * @version $Id$  *  */
 end_comment
 begin_comment
 comment|// move to apache package and make public if it is accepted as a patch

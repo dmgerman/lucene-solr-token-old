@@ -37,7 +37,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * @author ronp  * @version $Id$  */
+comment|/**  * @version $Id$  */
 end_comment
 begin_comment
 comment|// A Registry to hold a collection of SolrInfo objects

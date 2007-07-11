@@ -3,7 +3,7 @@ begin_comment
 comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * @author yonik  */
+comment|/**  */
 end_comment
 begin_package
 DECL|package|org.apache.solr.update
@@ -251,7 +251,7 @@ name|SolrCore
 import|;
 end_import
 begin_comment
-comment|/**  *<code>DirectUpdateHandler</code> implements an UpdateHandler where documents are added  * directly to the main lucene index as opposed to adding to a separate smaller index.  * For this reason, not all combinations to/from pending and committed are supported.  *  * @author yonik  * @version $Id$  * @since solr 0.9  */
+comment|/**  *<code>DirectUpdateHandler</code> implements an UpdateHandler where documents are added  * directly to the main lucene index as opposed to adding to a separate smaller index.  * For this reason, not all combinations to/from pending and committed are supported.  *  * @version $Id$  * @since solr 0.9  */
 end_comment
 begin_class
 DECL|class|DirectUpdateHandler

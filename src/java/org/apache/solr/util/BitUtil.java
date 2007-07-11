@@ -15,7 +15,7 @@ name|util
 package|;
 end_package
 begin_comment
-comment|/**  A variety of high efficiencly bit twiddling routines.  *  * @author yonik  * @version $Id$  */
+comment|/**  A variety of high efficiencly bit twiddling routines.  *  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|BitUtil

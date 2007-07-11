@@ -243,7 +243,7 @@ name|XML
 import|;
 end_import
 begin_comment
-comment|/**  * TODO? should this go in common?  *   * @author ryan  * @version $Id$  * @since solr 1.3  */
+comment|/**  * TODO? should this go in common?  *   * @version $Id$  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|ClientUtils

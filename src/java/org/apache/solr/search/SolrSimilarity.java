@@ -37,7 +37,7 @@ name|HashMap
 import|;
 end_import
 begin_comment
-comment|/**  * @author yonik  */
+comment|/**  */
 end_comment
 begin_comment
 comment|// don't make it public for now... easier to change later.

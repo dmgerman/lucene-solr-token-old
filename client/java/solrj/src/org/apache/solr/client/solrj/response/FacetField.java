@@ -37,7 +37,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**   * A utility class to hold the facet response.  It could use the NamedList container,   * but for JSTL, it is nice to have something that implements List so it can be iterated   *    * @author ryan   * @version $Id$   * @since solr 1.3   */
+comment|/**   * A utility class to hold the facet response.  It could use the NamedList container,   * but for JSTL, it is nice to have something that implements List so it can be iterated   *    * @version $Id$   * @since solr 1.3   */
 end_comment
 begin_class
 DECL|class|FacetField

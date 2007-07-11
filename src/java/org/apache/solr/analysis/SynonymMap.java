@@ -37,7 +37,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/** Mapping rules for use with {@link org.apache.solr.analysis.SynonymFilter}  *  * @author yonik  * @version $Id$  */
+comment|/** Mapping rules for use with {@link org.apache.solr.analysis.SynonymFilter}  *  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|SynonymMap
