@@ -2701,7 +2701,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*    * Begin a transaction.  During a transaction, any segment    * merges that happen (or ram segments flushed) will not    * write a new segments file and will not remove any files    * that were present at the start of the transaction.  You    * must make a matched (try/finally) call to    * commitTransaction() or rollbackTransaction() to finish    * the transaction.    */
+comment|/*    * Begin a transaction.  During a transaction, any segment    * merges that happen (or ram segments flushed) will not    * write a new segments file and will not remove any files    * that were present at the start of the transaction.  You    * must make a matched (try/finally) call to    * commitTransaction() or rollbackTransaction() to finish    * the transaction.    *    * Note that buffered documents and delete terms are not handled    * within the transactions, so they must be flushed before the    * transaction is started.    */
 DECL|method|startTransaction
 specifier|private
 name|void
@@ -2710,6 +2710,23 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|numBufferedDeleteTerms
+operator|==
+literal|0
+operator|:
+literal|"calling startTransaction with buffered delete terms not supported"
+assert|;
+assert|assert
+name|docWriter
+operator|.
+name|getNumDocsInRAM
+argument_list|()
+operator|==
+literal|0
+operator|:
+literal|"calling startTransaction with buffered documents not supported"
+assert|;
 name|localRollbackSegmentInfos
 operator|=
 operator|(
@@ -4208,6 +4225,16 @@ name|rollback
 init|=
 literal|null
 decl_stmt|;
+name|HashMap
+name|saveBufferedDeleteTerms
+init|=
+literal|null
+decl_stmt|;
+name|int
+name|saveNumBufferedDeleteTerms
+init|=
+literal|0
+decl_stmt|;
 if|if
 condition|(
 name|flushDeletes
@@ -4322,6 +4349,14 @@ comment|// we should be able to change this so we can
 comment|// buffer deletes longer and then flush them to
 comment|// multiple flushed segments, when
 comment|// autoCommit=false
+name|saveBufferedDeleteTerms
+operator|=
+name|bufferedDeleteTerms
+expr_stmt|;
+name|saveNumBufferedDeleteTerms
+operator|=
+name|numBufferedDeleteTerms
+expr_stmt|;
 name|applyDeletes
 argument_list|(
 name|flushDocs
@@ -4367,6 +4402,22 @@ argument_list|(
 name|rollback
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|saveBufferedDeleteTerms
+operator|!=
+literal|null
+condition|)
+block|{
+name|numBufferedDeleteTerms
+operator|=
+name|saveNumBufferedDeleteTerms
+expr_stmt|;
+name|bufferedDeleteTerms
+operator|=
+name|saveBufferedDeleteTerms
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -5699,9 +5750,14 @@ block|}
 block|}
 block|}
 comment|// Clean up bufferedDeleteTerms.
+comment|// Rollbacks of buffered deletes are based on restoring the old
+comment|// map, so don't modify this one. Rare enough that the gc
+comment|// overhead is almost certainly lower than the alternate, which
+comment|// would be clone to support rollback.
 name|bufferedDeleteTerms
-operator|.
-name|clear
+operator|=
+operator|new
+name|HashMap
 argument_list|()
 expr_stmt|;
 name|numBufferedDeleteTerms
