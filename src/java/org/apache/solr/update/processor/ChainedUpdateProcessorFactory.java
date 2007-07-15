@@ -157,6 +157,7 @@ extends|extends
 name|UpdateRequestProcessorFactory
 block|{
 DECL|field|factory
+specifier|protected
 name|UpdateRequestProcessorFactory
 index|[]
 name|factory
