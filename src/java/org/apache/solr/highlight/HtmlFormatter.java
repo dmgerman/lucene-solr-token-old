@@ -179,7 +179,7 @@ name|getDescription
 parameter_list|()
 block|{
 return|return
-literal|"GapFragmenter"
+literal|"HtmlFormatter"
 return|;
 block|}
 annotation|@
