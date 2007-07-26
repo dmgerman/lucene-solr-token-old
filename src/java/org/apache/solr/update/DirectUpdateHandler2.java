@@ -2361,6 +2361,13 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|tracker
+operator|.
+name|scheduler
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 name|doDeletions
 argument_list|()
 expr_stmt|;
