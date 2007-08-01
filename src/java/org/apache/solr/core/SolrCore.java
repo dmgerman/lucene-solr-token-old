@@ -224,7 +224,7 @@ name|common
 operator|.
 name|params
 operator|.
-name|SolrParams
+name|CommonParams
 import|;
 end_import
 begin_import
@@ -240,6 +240,21 @@ operator|.
 name|params
 operator|.
 name|SolrParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|CommonParams
 operator|.
 name|EchoParamStyle
 import|;
@@ -3319,7 +3334,7 @@ name|params
 operator|.
 name|getBool
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|HEADER_ECHO_HANDLER
 argument_list|,
@@ -3348,7 +3363,7 @@ name|params
 operator|.
 name|get
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|HEADER_ECHO_PARAMS
 argument_list|,
@@ -3395,7 +3410,7 @@ name|ep
 operator|+
 literal|"' for "
 operator|+
-name|SolrParams
+name|CommonParams
 operator|.
 name|HEADER_ECHO_PARAMS
 operator|+

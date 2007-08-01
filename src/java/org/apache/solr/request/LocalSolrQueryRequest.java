@@ -26,6 +26,21 @@ name|common
 operator|.
 name|params
 operator|.
+name|CommonParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
 name|MultiMapSolrParams
 import|;
 end_import
@@ -275,7 +290,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|Q
 argument_list|,
@@ -297,7 +312,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|QT
 argument_list|,
@@ -313,7 +328,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|START
 argument_list|,
@@ -334,7 +349,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|ROWS
 argument_list|,

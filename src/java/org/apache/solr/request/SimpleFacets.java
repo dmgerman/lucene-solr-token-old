@@ -117,7 +117,7 @@ name|common
 operator|.
 name|params
 operator|.
-name|SolrParams
+name|FacetParams
 import|;
 end_import
 begin_import
@@ -133,6 +133,21 @@ operator|.
 name|params
 operator|.
 name|SolrParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|FacetParams
 operator|.
 name|FacetDateOther
 import|;
@@ -178,19 +193,6 @@ operator|.
 name|core
 operator|.
 name|SolrCore
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|core
-operator|.
-name|SolrConfig
 import|;
 end_import
 begin_import
@@ -435,7 +437,7 @@ name|params
 operator|.
 name|getBool
 argument_list|(
-name|params
+name|FacetParams
 operator|.
 name|FACET
 argument_list|,
@@ -563,7 +565,7 @@ name|params
 operator|.
 name|getParams
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_QUERY
 argument_list|)
@@ -636,7 +638,7 @@ name|getFieldInt
 argument_list|(
 name|field
 argument_list|,
-name|params
+name|FacetParams
 operator|.
 name|FACET_OFFSET
 argument_list|,
@@ -652,7 +654,7 @@ name|getFieldInt
 argument_list|(
 name|field
 argument_list|,
-name|params
+name|FacetParams
 operator|.
 name|FACET_LIMIT
 argument_list|,
@@ -668,7 +670,7 @@ name|getFieldInt
 argument_list|(
 name|field
 argument_list|,
-name|params
+name|FacetParams
 operator|.
 name|FACET_MINCOUNT
 argument_list|)
@@ -689,7 +691,7 @@ name|getFieldBool
 argument_list|(
 name|field
 argument_list|,
-name|params
+name|FacetParams
 operator|.
 name|FACET_ZEROS
 argument_list|)
@@ -721,7 +723,7 @@ name|getFieldBool
 argument_list|(
 name|field
 argument_list|,
-name|params
+name|FacetParams
 operator|.
 name|FACET_MISSING
 argument_list|,
@@ -738,7 +740,7 @@ name|getFieldBool
 argument_list|(
 name|field
 argument_list|,
-name|params
+name|FacetParams
 operator|.
 name|FACET_SORT
 argument_list|,
@@ -756,7 +758,7 @@ name|getFieldParam
 argument_list|(
 name|field
 argument_list|,
-name|params
+name|FacetParams
 operator|.
 name|FACET_PREFIX
 argument_list|)
@@ -883,7 +885,7 @@ name|params
 operator|.
 name|getParams
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_FIELD
 argument_list|)
@@ -1691,7 +1693,7 @@ name|getFieldInt
 argument_list|(
 name|field
 argument_list|,
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_ENUM_CACHE_MINDF
 argument_list|,
@@ -2210,7 +2212,7 @@ name|params
 operator|.
 name|getParams
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_DATE
 argument_list|)
@@ -2328,7 +2330,7 @@ name|getFieldParam
 argument_list|(
 name|f
 argument_list|,
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_DATE_START
 argument_list|)
@@ -2385,7 +2387,7 @@ name|getFieldParam
 argument_list|(
 name|f
 argument_list|,
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_DATE_END
 argument_list|)
@@ -2472,7 +2474,7 @@ name|getFieldParam
 argument_list|(
 name|f
 argument_list|,
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_DATE_GAP
 argument_list|)
@@ -2574,7 +2576,7 @@ name|getFieldBool
 argument_list|(
 name|f
 argument_list|,
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_DATE_HARD_END
 argument_list|,
@@ -2714,7 +2716,7 @@ name|getFieldParams
 argument_list|(
 name|f
 argument_list|,
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_DATE_OTHER
 argument_list|)

@@ -14,6 +14,36 @@ operator|.
 name|request
 package|;
 end_package
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|CommonParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|FacetParams
+import|;
+end_import
 begin_comment
 comment|/**  * This class is scheduled for deletion.  Please update your code to the moved package.  */
 end_comment
@@ -37,6 +67,11 @@ operator|.
 name|params
 operator|.
 name|SolrParams
+implements|implements
+name|FacetParams
+implements|,
+name|CommonParams
+comment|// keep the same constants it used to have
 block|{    }
 end_class
 end_unit

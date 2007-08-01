@@ -28,6 +28,36 @@ name|common
 operator|.
 name|params
 operator|.
+name|CommonParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|FacetParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
 name|HighlightParams
 import|;
 end_import
@@ -44,21 +74,6 @@ operator|.
 name|params
 operator|.
 name|ModifiableSolrParams
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|common
-operator|.
-name|params
-operator|.
-name|SolrParams
 import|;
 end_import
 begin_comment
@@ -127,7 +142,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|Q
 argument_list|,
@@ -149,7 +164,7 @@ name|this
 operator|.
 name|add
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_FIELD
 argument_list|,
@@ -160,7 +175,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET
 argument_list|,
@@ -188,7 +203,7 @@ name|this
 operator|.
 name|getParams
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_FIELD
 argument_list|)
@@ -211,7 +226,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_FIELD
 argument_list|,
@@ -224,7 +239,7 @@ name|this
 operator|.
 name|get
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_FIELD
 argument_list|)
@@ -235,7 +250,7 @@ name|this
 operator|.
 name|get
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_QUERY
 argument_list|)
@@ -274,7 +289,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET
 argument_list|,
@@ -288,7 +303,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET
 argument_list|)
@@ -297,7 +312,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_MINCOUNT
 argument_list|)
@@ -306,7 +321,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_FIELD
 argument_list|)
@@ -315,7 +330,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_LIMIT
 argument_list|)
@@ -324,7 +339,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_MISSING
 argument_list|)
@@ -333,7 +348,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_OFFSET
 argument_list|)
@@ -342,7 +357,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_PREFIX
 argument_list|)
@@ -351,7 +366,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_QUERY
 argument_list|)
@@ -360,7 +375,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_SORT
 argument_list|)
@@ -369,7 +384,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_ZEROS
 argument_list|)
@@ -378,7 +393,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_PREFIX
 argument_list|)
@@ -399,7 +414,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_PREFIX
 argument_list|,
@@ -429,7 +444,7 @@ name|field
 operator|+
 literal|"."
 operator|+
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_PREFIX
 argument_list|,
@@ -451,7 +466,7 @@ name|this
 operator|.
 name|add
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_QUERY
 argument_list|,
@@ -472,7 +487,7 @@ name|this
 operator|.
 name|getParams
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_QUERY
 argument_list|)
@@ -495,7 +510,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_QUERY
 argument_list|,
@@ -508,7 +523,7 @@ name|this
 operator|.
 name|get
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_FIELD
 argument_list|)
@@ -519,7 +534,7 @@ name|this
 operator|.
 name|get
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_QUERY
 argument_list|)
@@ -553,7 +568,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_LIMIT
 argument_list|,
@@ -573,7 +588,7 @@ name|this
 operator|.
 name|getInt
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_LIMIT
 argument_list|,
@@ -595,7 +610,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_MINCOUNT
 argument_list|,
@@ -615,7 +630,7 @@ name|this
 operator|.
 name|getInt
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_LIMIT
 argument_list|,
@@ -636,7 +651,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_MISSING
 argument_list|,
@@ -656,7 +671,7 @@ name|this
 operator|.
 name|getBool
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_SORT
 argument_list|,
@@ -678,7 +693,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|FacetParams
 operator|.
 name|FACET_SORT
 argument_list|,
@@ -1002,7 +1017,7 @@ parameter_list|)
 block|{
 name|addValueToParam
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|SORT
 argument_list|,
@@ -1034,7 +1049,7 @@ name|this
 operator|.
 name|get
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|SORT
 argument_list|)
@@ -1095,7 +1110,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|SORT
 argument_list|,
@@ -1146,7 +1161,7 @@ name|this
 operator|.
 name|get
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|SORT
 argument_list|)
@@ -1166,7 +1181,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|FQ
 argument_list|,
@@ -1188,7 +1203,7 @@ name|this
 operator|.
 name|add
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|FQ
 argument_list|,
@@ -1210,7 +1225,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|FQ
 argument_list|,
@@ -1230,7 +1245,7 @@ name|this
 operator|.
 name|getParams
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|FQ
 argument_list|)
@@ -1371,7 +1386,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|FL
 argument_list|,
@@ -1390,7 +1405,7 @@ parameter_list|)
 block|{
 name|addValueToParam
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|FL
 argument_list|,
@@ -1411,7 +1426,7 @@ name|this
 operator|.
 name|get
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|FL
 argument_list|)
@@ -1457,7 +1472,7 @@ name|this
 operator|.
 name|add
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|FL
 argument_list|,
@@ -1471,7 +1486,7 @@ name|this
 operator|.
 name|remove
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|FL
 argument_list|,
@@ -1493,7 +1508,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|Q
 argument_list|,
@@ -1514,7 +1529,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|ROWS
 argument_list|,
@@ -1535,7 +1550,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|DEBUG_QUERY
 argument_list|,
@@ -1550,7 +1565,7 @@ expr_stmt|;
 block|}
 comment|// use addSortField( sort, order
 comment|//  public void setSort(String ... sort) {
-comment|//    this.set(SolrParams.SORT, sort);
+comment|//    this.set(CommonParams.SORT, sort);
 comment|//  }
 DECL|method|setStart
 specifier|public
@@ -1565,7 +1580,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|START
 argument_list|,
@@ -1586,7 +1601,7 @@ name|this
 operator|.
 name|set
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|QT
 argument_list|,
@@ -1605,7 +1620,7 @@ name|this
 operator|.
 name|get
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|QT
 argument_list|)

@@ -137,6 +137,21 @@ name|common
 operator|.
 name|params
 operator|.
+name|CommonParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
 name|MultiMapSolrParams
 import|;
 end_import
@@ -316,7 +331,7 @@ name|args
 operator|.
 name|put
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|STREAM_BODY
 argument_list|,
@@ -399,7 +414,7 @@ name|args
 operator|.
 name|put
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|STREAM_BODY
 argument_list|,
@@ -592,7 +607,7 @@ name|args
 operator|.
 name|put
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|STREAM_CONTENTTYPE
 argument_list|,
@@ -716,7 +731,7 @@ name|args
 operator|.
 name|put
 argument_list|(
-name|SolrParams
+name|CommonParams
 operator|.
 name|STREAM_URL
 argument_list|,
