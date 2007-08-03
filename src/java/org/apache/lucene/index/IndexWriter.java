@@ -1714,6 +1714,26 @@ name|directory
 argument_list|)
 expr_stmt|;
 comment|// now commit changes
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+name|infoStream
+operator|.
+name|println
+argument_list|(
+literal|"close: wrote segments file \""
+operator|+
+name|segmentInfos
+operator|.
+name|getCurrentSegmentFileName
+argument_list|()
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
 name|deleter
 operator|.
 name|checkpoint
@@ -3042,6 +3062,26 @@ operator|.
 name|write
 argument_list|(
 name|directory
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+name|infoStream
+operator|.
+name|println
+argument_list|(
+literal|"checkpoint: wrote segments file \""
+operator|+
+name|segmentInfos
+operator|.
+name|getCurrentSegmentFileName
+argument_list|()
+operator|+
+literal|"\""
 argument_list|)
 expr_stmt|;
 block|}

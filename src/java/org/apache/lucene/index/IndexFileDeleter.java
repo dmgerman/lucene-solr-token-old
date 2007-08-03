@@ -81,6 +81,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileNotFoundException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|PrintStream
 import|;
 end_import
@@ -296,6 +305,24 @@ name|infoStream
 operator|=
 name|infoStream
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+name|message
+argument_list|(
+literal|"init: current segments file is \""
+operator|+
+name|segmentInfos
+operator|.
+name|getCurrentSegmentFileName
+argument_list|()
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|policy
@@ -461,6 +488,8 @@ operator|new
 name|SegmentInfos
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|sis
 operator|.
 name|read
@@ -470,6 +499,49 @@ argument_list|,
 name|fileName
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+name|e
+parameter_list|)
+block|{
+comment|// LUCENE-948: on NFS (and maybe others), if
+comment|// you have writers switching back and forth
+comment|// between machines, it's very likely that the
+comment|// dir listing will be stale and will claim a
+comment|// file segments_X exists when in fact it
+comment|// doesn't.  So, we catch this and handle it
+comment|// as if the file does not exist
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"init: hit FileNotFoundException when loading commit \""
+operator|+
+name|fileName
+operator|+
+literal|"\"; skipping this commit point"
+argument_list|)
+expr_stmt|;
+block|}
+name|sis
+operator|=
+literal|null
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|sis
+operator|!=
+literal|null
+condition|)
+block|{
 name|CommitPoint
 name|commitPoint
 init|=
@@ -511,6 +583,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
