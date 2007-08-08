@@ -29,16 +29,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Calendar
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
+name|*
 import|;
 end_import
 begin_import
@@ -887,6 +878,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyy MMM dd"
+argument_list|,
+name|Locale
+operator|.
+name|US
 argument_list|)
 operator|.
 name|parse
