@@ -919,6 +919,11 @@ name|name
 argument_list|)
 decl_stmt|;
 comment|// load each field value
+name|boolean
+name|hasField
+init|=
+literal|false
+decl_stmt|;
 for|for
 control|(
 name|Object
@@ -927,11 +932,24 @@ range|:
 name|field
 control|)
 block|{
+if|if
+condition|(
+name|v
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|String
 name|val
 init|=
 literal|null
 decl_stmt|;
+name|hasField
+operator|=
+literal|true
+expr_stmt|;
 comment|// TODO!!! HACK -- date conversion
 if|if
 condition|(
@@ -1134,6 +1152,8 @@ if|if
 condition|(
 operator|!
 name|used
+operator|&&
+name|hasField
 condition|)
 block|{
 throw|throw
