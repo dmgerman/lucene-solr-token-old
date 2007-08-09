@@ -87,7 +87,7 @@ name|Filter
 import|;
 end_import
 begin_comment
-comment|/**   * The {@link ModifiedEntryFilter} filters the given entryIds from the lucene   * {@link org.apache.lucene.search.Hits} set. This filter is used to prevent the   * storage from retrieving already deleted or updated entries still remaining in   * the {@link org.apache.lucene.gdata.storage.lucenestorage.StorageBuffer}.   *    * @see org.apache.lucene.search.Filter   *    * @author Simon Willnauer   *    */
+comment|/**   * The {@link ModifiedEntryFilter} filters the given entryIds from the lucene   * {@link org.apache.lucene.search.Hits} set. This filter is used to prevent the   * storage from retrieving already deleted or updated entries still remaining in   * the {@link org.apache.lucene.gdata.storage.lucenestorage.StorageBuffer}.   *    * @see org.apache.lucene.search.Filter   *    *  *    */
 end_comment
 begin_class
 DECL|class|ModifiedEntryFilter

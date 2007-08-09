@@ -19,7 +19,7 @@ name|index
 package|;
 end_package
 begin_comment
-comment|/**  * This enum defines all possible actions on a GData index.  *   * @see org.apache.lucene.gdata.search.index.IndexDocument  * @see org.apache.lucene.gdata.search.index.IndexDocumentBuilderTask  * @author Simon Willnauer  *   */
+comment|/**  * This enum defines all possible actions on a GData index.  *   * @see org.apache.lucene.gdata.search.index.IndexDocument  * @see org.apache.lucene.gdata.search.index.IndexDocumentBuilderTask  *  *   */
 end_comment
 begin_enum
 DECL|enum|IndexAction

@@ -48,7 +48,7 @@ name|Query
 import|;
 end_import
 begin_comment
-comment|/**  * @author Simon Willnauer  * @param<T>   *  */
+comment|/**  *  * @param<T>   *  */
 end_comment
 begin_interface
 DECL|interface|GDataSearcher

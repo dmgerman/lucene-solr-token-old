@@ -116,7 +116,7 @@ name|DateTime
 import|;
 end_import
 begin_comment
-comment|/**  * This content strategy retrieves a so called GData Date from a RFC 3339  * timestamp format. The format will be parsed and indexed as a timestamp value.  *   * @author Simon Willnauer  *   */
+comment|/**  * This content strategy retrieves a so called GData Date from a RFC 3339  * timestamp format. The format will be parsed and indexed as a timestamp value.  *   *  *   */
 end_comment
 begin_class
 DECL|class|GdataDateStrategy

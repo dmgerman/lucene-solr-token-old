@@ -19,7 +19,7 @@ name|analysis
 package|;
 end_package
 begin_comment
-comment|/**  * This exception will be thrown by ContentStrategy instances if an exception  * occurs while retrieving content from entries  *   * @author Simon Willnauer  *   */
+comment|/**  * This exception will be thrown by ContentStrategy instances if an exception  * occurs while retrieving content from entries  *   *  *   */
 end_comment
 begin_class
 DECL|class|NotIndexableException

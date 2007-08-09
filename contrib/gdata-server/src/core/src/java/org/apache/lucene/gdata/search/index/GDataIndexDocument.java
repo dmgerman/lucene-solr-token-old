@@ -93,7 +93,7 @@ name|Term
 import|;
 end_import
 begin_comment
-comment|/**  * Simple implementation  *   * @author Simon Willnauer  * @see org.apache.lucene.gdata.search.index.IndexDocument  */
+comment|/**  * Simple implementation  *   *  * @see org.apache.lucene.gdata.search.index.IndexDocument  */
 end_comment
 begin_class
 DECL|class|GDataIndexDocument

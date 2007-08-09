@@ -19,7 +19,7 @@ name|index
 package|;
 end_package
 begin_comment
-comment|/**  * This exception will be thrown if an exception in the indexing component  * occurs  *   * @author Simon Willnauer  *   */
+comment|/**  * This exception will be thrown if an exception in the indexing component  * occurs  *   *  *   */
 end_comment
 begin_class
 DECL|class|GdataIndexerException

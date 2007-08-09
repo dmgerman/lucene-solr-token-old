@@ -76,7 +76,7 @@ name|DateTime
 import|;
 end_import
 begin_comment
-comment|/**  * Simple static methods to translate the http query to a lucene query string.  * @author Simon Willnauer  *   */
+comment|/**  * Simple static methods to translate the http query to a lucene query string.  *  *   */
 end_comment
 begin_class
 DECL|class|QueryTranslator

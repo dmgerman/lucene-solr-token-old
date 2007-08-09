@@ -294,7 +294,7 @@ name|SingleInstanceLockFactory
 import|;
 end_import
 begin_comment
-comment|/**  * @author goller  * @version $Id$  */
+comment|/**  *  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|TestIndexWriter

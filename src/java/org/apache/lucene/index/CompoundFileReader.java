@@ -98,7 +98,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Class for accessing a compound stream.  * This class implements a directory, but is limited to only read operations.  * Directory methods that would normally modify data throw an exception.  *  * @author Dmitry Serebrennikov  * @version $Id$  */
+comment|/**  * Class for accessing a compound stream.  * This class implements a directory, but is limited to only read operations.  * Directory methods that would normally modify data throw an exception.  *  *  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|CompoundFileReader

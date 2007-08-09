@@ -100,7 +100,7 @@ name|LogFactory
 import|;
 end_import
 begin_comment
-comment|/**  *   * Class to be used inside a  * {@link org.apache.lucene.gdata.search.index.GDataIndexer} to process the task  * queue. This class calls the commit method of the indexer if commit is  * scheduled.  *   * @author Simon Willnauer  *   */
+comment|/**  *   * Class to be used inside a  * {@link org.apache.lucene.gdata.search.index.GDataIndexer} to process the task  * queue. This class calls the commit method of the indexer if commit is  * scheduled.  *   *  *   */
 end_comment
 begin_class
 DECL|class|IndexTask

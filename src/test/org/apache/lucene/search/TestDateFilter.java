@@ -124,7 +124,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**   * DateFilter JUnit tests.   *   * @author Otis Gospodnetic   * @version $Revision$   */
+comment|/**   * DateFilter JUnit tests.   *   *   * @version $Revision$   */
 end_comment
 begin_class
 DECL|class|TestDateFilter

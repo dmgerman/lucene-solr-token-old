@@ -111,7 +111,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * A QueryParser which constructs queries to search multiple fields.  *  * @author<a href="mailto:kelvin@relevanz.com">Kelvin Tan</a>, Daniel Naber  * @version $Revision$  */
+comment|/**  * A QueryParser which constructs queries to search multiple fields.  *  *  * @version $Revision$  */
 end_comment
 begin_class
 DECL|class|MultiFieldQueryParser

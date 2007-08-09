@@ -102,7 +102,7 @@ name|Field
 import|;
 end_import
 begin_comment
-comment|/** Similarity unit test.  *  * @author Doug Cutting  * @version $Revision$  */
+comment|/** Similarity unit test.  *  *  * @version $Revision$  */
 end_comment
 begin_class
 DECL|class|TestNot

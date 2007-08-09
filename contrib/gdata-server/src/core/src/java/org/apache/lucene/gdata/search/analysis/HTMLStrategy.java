@@ -195,7 +195,7 @@ name|Node
 import|;
 end_import
 begin_comment
-comment|/**  * This ContentStrategy applies the path to the Indexable and retrieves the  * plain string content from the returning node. All of the nodes text content  * will cleaned from any html tags.  *   * @author Simon Willnauer  *   */
+comment|/**  * This ContentStrategy applies the path to the Indexable and retrieves the  * plain string content from the returning node. All of the nodes text content  * will cleaned from any html tags.  *   *  *   */
 end_comment
 begin_class
 DECL|class|HTMLStrategy

@@ -17,7 +17,7 @@ name|utils
 package|;
 end_package
 begin_comment
-comment|/**  * Basic interface to be implemented by ObjectPool implementations. Pools should  * provide a constructor with a  * {@link org.apache.lucene.gdata.utils.PoolObjectFactory} as a mandatory  * parameter to create and destory the pooled objects.  *   * @see org.apache.lucene.gdata.utils.PoolObjectFactory  *   * @author Simon Willnauer  * @param<Type> -  *            the type of the pooled objects  *   */
+comment|/**  * Basic interface to be implemented by ObjectPool implementations. Pools should  * provide a constructor with a  * {@link org.apache.lucene.gdata.utils.PoolObjectFactory} as a mandatory  * parameter to create and destory the pooled objects.  *   * @see org.apache.lucene.gdata.utils.PoolObjectFactory  *   *  * @param<Type> -  *            the type of the pooled objects  *   */
 end_comment
 begin_interface
 DECL|interface|Pool

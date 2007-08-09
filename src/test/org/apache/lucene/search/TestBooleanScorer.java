@@ -111,7 +111,7 @@ name|TestCase
 import|;
 end_import
 begin_comment
-comment|/**  * @author Christoph Goller  * @version $rcs = ' $Id$ ' ;  */
+comment|/**  *  * @version $rcs = ' $Id$ ' ;  */
 end_comment
 begin_class
 DECL|class|TestBooleanScorer

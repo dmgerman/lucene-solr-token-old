@@ -19,7 +19,7 @@ name|lucenestorage
 package|;
 end_package
 begin_comment
-comment|/**  *   * @author Simon Willnauer  *  */
+comment|/**  *   *  *  */
 end_comment
 begin_interface
 DECL|interface|ConcurrentStorageLock

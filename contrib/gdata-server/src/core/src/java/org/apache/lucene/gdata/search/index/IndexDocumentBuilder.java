@@ -30,7 +30,7 @@ name|Callable
 import|;
 end_import
 begin_comment
-comment|/**  * Interface for DocumentBuilders  * @author Simon Willnauer  * @param<T> IndexDocument implementation  *  */
+comment|/**  * Interface for DocumentBuilders  *  * @param<T> IndexDocument implementation  *  */
 end_comment
 begin_interface
 DECL|interface|IndexDocumentBuilder

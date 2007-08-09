@@ -36,7 +36,7 @@ name|IndexSchemaField
 import|;
 end_import
 begin_comment
-comment|/**  * @author Simon Willnauer  * @see org.apache.lucene.gdata.search.analysis.TestHTMLStrategy  */
+comment|/**  *  * @see org.apache.lucene.gdata.search.analysis.TestHTMLStrategy  */
 end_comment
 begin_class
 DECL|class|XHtmlStrategy
