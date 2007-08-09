@@ -444,7 +444,7 @@ argument_list|,
 name|rsp
 argument_list|)
 expr_stmt|;
-comment|// Wait longer then the autocommit time
+comment|// Wait longer than the autocommit time
 name|Thread
 operator|.
 name|sleep
@@ -858,7 +858,7 @@ argument_list|,
 literal|"//result[@numFound=0]"
 argument_list|)
 expr_stmt|;
-comment|// Wait longer then the autocommit time
+comment|// Wait longer than the autocommit time
 name|Thread
 operator|.
 name|sleep
@@ -947,7 +947,7 @@ argument_list|,
 literal|"//result[@numFound=1]"
 argument_list|)
 expr_stmt|;
-comment|// Wait longer then the autocommit time
+comment|// Wait longer than the autocommit time
 name|Thread
 operator|.
 name|sleep
@@ -1032,7 +1032,7 @@ operator|.
 name|autoCommitCount
 argument_list|)
 expr_stmt|;
-comment|// Wait longer then the autocommit time
+comment|// Wait longer than the autocommit time
 name|Thread
 operator|.
 name|sleep
