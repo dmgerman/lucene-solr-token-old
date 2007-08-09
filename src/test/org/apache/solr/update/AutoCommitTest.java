@@ -449,7 +449,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|1000
 argument_list|)
 expr_stmt|;
 comment|// blocks until commit is complete
@@ -632,7 +632,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|500
+literal|1000
 argument_list|)
 expr_stmt|;
 comment|// add request will block if commit has already started or completed
