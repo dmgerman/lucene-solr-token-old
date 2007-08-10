@@ -84,7 +84,10 @@ specifier|public
 specifier|final
 name|Token
 name|next
-parameter_list|()
+parameter_list|(
+name|Token
+name|result
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -97,7 +100,9 @@ init|=
 name|input
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|result
+argument_list|)
 init|;
 name|token
 operator|!=
@@ -108,7 +113,9 @@ operator|=
 name|input
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|result
+argument_list|)
 control|)
 block|{
 name|int
@@ -116,10 +123,7 @@ name|len
 init|=
 name|token
 operator|.
-name|termText
-argument_list|()
-operator|.
-name|length
+name|termLength
 argument_list|()
 decl_stmt|;
 if|if

@@ -267,13 +267,7 @@ name|token
 init|=
 operator|new
 name|Token
-argument_list|(
-literal|""
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|method|doLogic
 specifier|public
@@ -434,7 +428,7 @@ name|stream
 operator|=
 name|analyzer
 operator|.
-name|tokenStream
+name|reusableTokenStream
 argument_list|(
 name|field
 operator|.
@@ -456,7 +450,9 @@ condition|(
 name|stream
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|token
+argument_list|)
 operator|!=
 literal|null
 condition|)
