@@ -14,19 +14,6 @@ operator|.
 name|update
 package|;
 end_package
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|Document
-import|;
-end_import
 begin_comment
 comment|/** An index update command encapsulated in an object (Command pattern)  *  * @version $Id$  */
 end_comment

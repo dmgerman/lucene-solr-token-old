@@ -75,15 +75,6 @@ operator|.
 name|List
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
 begin_comment
 comment|/**  * @version $Id$  */
 end_comment
