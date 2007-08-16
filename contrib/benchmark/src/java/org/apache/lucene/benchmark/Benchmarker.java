@@ -16,15 +16,6 @@ comment|/**  * Copyright 2005 The Apache Software Foundation  *  * Licensed unde
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -38,8 +29,17 @@ operator|.
 name|TestData
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
 begin_comment
-comment|/**  *  *  **/
+comment|/**  *  * @deprecated Use the Task based benchmarker  **/
 end_comment
 begin_interface
 DECL|interface|Benchmarker
