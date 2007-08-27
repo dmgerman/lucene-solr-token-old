@@ -205,7 +205,7 @@ name|Stack
 import|;
 end_import
 begin_comment
-comment|/**  * Tests for the "IndexModifier" class, including accesses from two threads at the  * same time.  *   * @author Daniel Naber  */
+comment|/**  * Tests for the "IndexModifier" class, including accesses from two threads at the  * same time.  *   * @author Daniel Naber  * @deprecated  */
 end_comment
 begin_class
 DECL|class|TestIndexModifier
