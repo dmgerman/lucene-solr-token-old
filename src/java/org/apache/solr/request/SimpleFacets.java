@@ -1269,6 +1269,13 @@ condition|(
 name|nTerms
 operator|>
 literal|0
+operator|&&
+name|docs
+operator|.
+name|size
+argument_list|()
+operator|>=
+name|mincount
 condition|)
 block|{
 comment|// count collection array only needs to be as big as the number of terms we are
@@ -1863,6 +1870,16 @@ operator|.
 name|termDocs
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|docs
+operator|.
+name|size
+argument_list|()
+operator|>=
+name|mincount
+condition|)
+block|{
 do|do
 block|{
 name|Term
@@ -2101,6 +2118,7 @@ name|next
 argument_list|()
 condition|)
 do|;
+block|}
 if|if
 condition|(
 name|sort
