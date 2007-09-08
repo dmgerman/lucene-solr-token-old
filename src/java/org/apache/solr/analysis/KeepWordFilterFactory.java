@@ -24,7 +24,7 @@ name|solr
 operator|.
 name|core
 operator|.
-name|Config
+name|SolrConfig
 import|;
 end_import
 begin_import
@@ -125,6 +125,9 @@ specifier|public
 name|void
 name|init
 parameter_list|(
+name|SolrConfig
+name|config
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -138,6 +141,8 @@ name|super
 operator|.
 name|init
 argument_list|(
+name|config
+argument_list|,
 name|args
 argument_list|)
 expr_stmt|;
@@ -175,7 +180,7 @@ name|String
 argument_list|>
 name|wlist
 init|=
-name|Config
+name|config
 operator|.
 name|getLines
 argument_list|(

@@ -73,7 +73,7 @@ specifier|public
 class|class
 name|TestRemoveDuplicatesTokenFilter
 extends|extends
-name|TestCase
+name|AnalysisTestCase
 block|{
 DECL|method|tok
 specifier|public

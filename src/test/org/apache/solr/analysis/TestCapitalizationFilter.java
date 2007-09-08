@@ -33,7 +33,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * @version $Id:$  */
+comment|/**  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|TestCapitalizationFilter
@@ -101,6 +101,8 @@ name|factory
 operator|.
 name|init
 argument_list|(
+name|solrConfig
+argument_list|,
 name|args
 argument_list|)
 expr_stmt|;
@@ -309,6 +311,8 @@ name|factory
 operator|.
 name|init
 argument_list|(
+name|solrConfig
+argument_list|,
 name|args
 argument_list|)
 expr_stmt|;

@@ -104,7 +104,7 @@ specifier|abstract
 class|class
 name|BaseTokenTestCase
 extends|extends
-name|TestCase
+name|AnalysisTestCase
 block|{
 DECL|method|tsToString
 specifier|public

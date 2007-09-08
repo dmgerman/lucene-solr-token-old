@@ -186,6 +186,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|SolrCore
+name|core
+init|=
+name|h
+operator|.
+name|getCore
+argument_list|()
+decl_stmt|;
 name|assertU
 argument_list|(
 name|adoc
@@ -289,10 +297,7 @@ init|=
 operator|new
 name|LocalSolrQueryRequest
 argument_list|(
-name|SolrCore
-operator|.
-name|getSolrCore
-argument_list|()
+name|core
 argument_list|,
 operator|new
 name|MapSolrParams

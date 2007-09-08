@@ -115,6 +115,7 @@ comment|/**  * Contains the knowledge of how cache config is  * stored in the so
 end_comment
 begin_class
 DECL|class|CacheConfig
+specifier|public
 class|class
 name|CacheConfig
 block|{
@@ -193,6 +194,9 @@ name|CacheConfig
 index|[]
 name|getMultipleConfigs
 parameter_list|(
+name|SolrConfig
+name|solrConfig
+parameter_list|,
 name|String
 name|configPath
 parameter_list|)
@@ -203,9 +207,7 @@ init|=
 operator|(
 name|NodeList
 operator|)
-name|SolrConfig
-operator|.
-name|config
+name|solrConfig
 operator|.
 name|evaluate
 argument_list|(
@@ -289,6 +291,9 @@ specifier|static
 name|CacheConfig
 name|getConfig
 parameter_list|(
+name|SolrConfig
+name|solrConfig
+parameter_list|,
 name|String
 name|xpath
 parameter_list|)
@@ -299,9 +304,7 @@ init|=
 operator|(
 name|Node
 operator|)
-name|SolrConfig
-operator|.
-name|config
+name|solrConfig
 operator|.
 name|getNode
 argument_list|(

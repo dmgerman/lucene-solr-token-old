@@ -64,6 +64,19 @@ operator|.
 name|SolrCore
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|core
+operator|.
+name|SolrConfig
+import|;
+end_import
 begin_comment
 comment|/**  * Factory for SnowballFilters, with configurable language  *   * Browsing the code, SnowballFilter uses reflection to adapt to Lucene... don't  * use this if you are concerned about speed. Use EnglishPorterFilterFactory.  *   * @version $Id$  */
 end_comment
@@ -87,6 +100,9 @@ specifier|public
 name|void
 name|init
 parameter_list|(
+name|SolrConfig
+name|solrConfig
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -100,6 +116,8 @@ name|super
 operator|.
 name|init
 argument_list|(
+name|solrConfig
+argument_list|,
 name|args
 argument_list|)
 expr_stmt|;

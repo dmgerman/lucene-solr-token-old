@@ -125,9 +125,9 @@ block|{
 name|SolrCore
 name|core
 init|=
-name|SolrCore
+name|h
 operator|.
-name|getSolrCore
+name|getCore
 argument_list|()
 decl_stmt|;
 comment|// undefined field

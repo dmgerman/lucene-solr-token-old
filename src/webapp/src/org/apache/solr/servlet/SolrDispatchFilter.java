@@ -380,10 +380,6 @@ operator|new
 name|SolrRequestParsers
 argument_list|(
 name|core
-argument_list|,
-name|SolrConfig
-operator|.
-name|config
 argument_list|)
 expr_stmt|;
 block|}

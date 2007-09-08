@@ -446,9 +446,6 @@ name|SolrRequestParsers
 parameter_list|(
 name|SolrCore
 name|core
-parameter_list|,
-name|Config
-name|config
 parameter_list|)
 block|{
 name|this
@@ -457,12 +454,18 @@ name|core
 operator|=
 name|core
 expr_stmt|;
+name|Config
+name|config
+init|=
+name|core
+operator|.
+name|getSolrConfig
+argument_list|()
+decl_stmt|;
 comment|// Read the configuration
 name|long
 name|uploadLimitKB
 init|=
-name|SolrConfig
-operator|.
 name|config
 operator|.
 name|getInt
@@ -477,8 +480,6 @@ name|this
 operator|.
 name|enableRemoteStreams
 operator|=
-name|SolrConfig
-operator|.
 name|config
 operator|.
 name|getBool

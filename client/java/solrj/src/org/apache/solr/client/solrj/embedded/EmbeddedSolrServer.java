@@ -222,19 +222,6 @@ name|solr
 operator|.
 name|core
 operator|.
-name|SolrConfig
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|core
-operator|.
 name|SolrCore
 import|;
 end_import
@@ -358,10 +345,6 @@ operator|new
 name|SolrRequestParsers
 argument_list|(
 name|core
-argument_list|,
-name|SolrConfig
-operator|.
-name|config
 argument_list|)
 expr_stmt|;
 comment|// by default use the XML one
