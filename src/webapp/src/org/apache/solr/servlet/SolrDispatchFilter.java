@@ -371,9 +371,10 @@ name|this
 operator|.
 name|handleSelect
 operator|=
-name|SolrConfig
+name|core
 operator|.
-name|config
+name|getSolrConfig
+argument_list|()
 operator|.
 name|getBool
 argument_list|(
@@ -424,9 +425,10 @@ comment|// Optionally abort if we found a sever error
 name|boolean
 name|abortOnConfigurationError
 init|=
-name|SolrConfig
+name|core
 operator|.
-name|config
+name|getSolrConfig
+argument_list|()
 operator|.
 name|getBool
 argument_list|(
