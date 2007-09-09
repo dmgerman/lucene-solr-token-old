@@ -442,7 +442,7 @@ return|return
 name|solrConfig
 return|;
 block|}
-comment|/**    * Direct acess to the InputStream for the schemaFile used by this instance.    *    * @see Config#openResource    */
+comment|/**    * Direct access to the InputStream for the schemaFile used by this instance.    *    * @see Config#openResource    */
 DECL|method|getInputStream
 specifier|public
 name|InputStream
@@ -1218,6 +1218,7 @@ specifier|private
 name|void
 name|readSchema
 parameter_list|(
+specifier|final
 name|SolrConfig
 name|solrConfig
 parameter_list|)
@@ -1354,8 +1355,8 @@ specifier|protected
 name|FieldType
 name|create
 parameter_list|(
-name|SolrCore
-name|core
+name|Config
+name|config
 parameter_list|,
 name|String
 name|name
@@ -1375,7 +1376,7 @@ init|=
 operator|(
 name|FieldType
 operator|)
-name|Config
+name|solrConfig
 operator|.
 name|newInstance
 argument_list|(
@@ -1610,6 +1611,8 @@ name|loader
 operator|.
 name|load
 argument_list|(
+name|solrConfig
+argument_list|,
 name|nodes
 argument_list|)
 expr_stmt|;

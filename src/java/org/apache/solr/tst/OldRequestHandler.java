@@ -190,6 +190,8 @@ begin_comment
 comment|/**  * @version $Id$  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|OldRequestHandler
 specifier|public
 class|class
@@ -197,10 +199,6 @@ name|OldRequestHandler
 implements|implements
 name|SolrRequestHandler
 block|{
-DECL|field|core
-name|SolrCore
-name|core
-decl_stmt|;
 DECL|field|numRequests
 name|long
 name|numRequests
@@ -209,21 +207,6 @@ DECL|field|numErrors
 name|long
 name|numErrors
 decl_stmt|;
-DECL|method|OldRequestHandler
-specifier|public
-name|OldRequestHandler
-parameter_list|(
-name|SolrCore
-name|core
-parameter_list|)
-block|{
-name|this
-operator|.
-name|core
-operator|=
-name|core
-expr_stmt|;
-block|}
 DECL|method|init
 specifier|public
 name|void

@@ -1456,7 +1456,6 @@ block|}
 decl_stmt|;
 DECL|method|findClass
 specifier|public
-specifier|static
 name|Class
 name|findClass
 parameter_list|(
@@ -1615,7 +1614,6 @@ block|}
 block|}
 DECL|method|newInstance
 specifier|public
-specifier|static
 name|Object
 name|newInstance
 parameter_list|(
@@ -1637,6 +1635,36 @@ argument_list|,
 name|subpackages
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|clazz
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
+argument_list|,
+literal|"Can not find class: "
+operator|+
+name|cname
+operator|+
+literal|" in "
+operator|+
+name|getClassLoader
+argument_list|()
+argument_list|,
+literal|false
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 return|return
@@ -1652,6 +1680,11 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
 name|SolrException
@@ -1662,9 +1695,14 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|"Error instantiating class "
+literal|"Error instantiating class: '"
 operator|+
 name|clazz
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"'"
 argument_list|,
 name|e
 argument_list|,
@@ -1675,7 +1713,6 @@ block|}
 block|}
 DECL|field|instanceDir
 specifier|private
-specifier|static
 name|String
 name|instanceDir
 decl_stmt|;
@@ -1730,7 +1767,6 @@ return|;
 block|}
 DECL|method|setInstanceDir
 specifier|public
-specifier|static
 name|void
 name|setInstanceDir
 parameter_list|(
@@ -1763,7 +1799,6 @@ expr_stmt|;
 block|}
 DECL|method|getInstanceDir
 specifier|public
-specifier|static
 name|String
 name|getInstanceDir
 parameter_list|()
@@ -1942,7 +1977,6 @@ return|;
 block|}
 DECL|method|isInstanceDirInitialized
 specifier|public
-specifier|static
 name|boolean
 name|isInstanceDirInitialized
 parameter_list|()
@@ -1964,7 +1998,6 @@ literal|null
 decl_stmt|;
 comment|/**    * Returns the singleton classloader to be use when loading resources    * specified in any configs.    *    *<p>    * This loader will delegate to the context classloader when possible,    * otherwise it will attempt to resolve resources useing any jar files    * found in the "lib/" directory in the "Solr Home" directory.    *<p>    */
 DECL|method|getClassLoader
-specifier|static
 name|ClassLoader
 name|getClassLoader
 parameter_list|()

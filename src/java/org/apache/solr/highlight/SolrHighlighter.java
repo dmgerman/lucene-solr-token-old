@@ -497,6 +497,9 @@ operator|.
 name|NodeList
 import|;
 end_import
+begin_comment
+comment|/**  *   * @since solr 1.3  */
+end_comment
 begin_class
 DECL|class|SolrHighlighter
 specifier|public
@@ -578,6 +581,7 @@ specifier|public
 name|void
 name|initalize
 parameter_list|(
+specifier|final
 name|Config
 name|config
 parameter_list|)
@@ -622,6 +626,8 @@ name|fragloader
 operator|.
 name|load
 argument_list|(
+name|config
+argument_list|,
 operator|(
 name|NodeList
 operator|)
@@ -698,6 +704,8 @@ name|fmtloader
 operator|.
 name|load
 argument_list|(
+name|config
+argument_list|,
 operator|(
 name|NodeList
 operator|)
