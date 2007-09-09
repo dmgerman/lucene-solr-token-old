@@ -337,22 +337,6 @@ argument_list|(
 literal|"path-prefix"
 argument_list|)
 expr_stmt|;
-comment|// Let this filter take care of /select?xxx format
-name|this
-operator|.
-name|handleSelect
-operator|=
-name|SolrConfig
-operator|.
-name|config
-operator|.
-name|getBool
-argument_list|(
-literal|"requestDispatcher/@handleSelect"
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
 name|log
 operator|.
 name|info
@@ -380,6 +364,22 @@ operator|new
 name|SolrRequestParsers
 argument_list|(
 name|core
+argument_list|)
+expr_stmt|;
+comment|// Let this filter take care of /select?xxx format
+name|this
+operator|.
+name|handleSelect
+operator|=
+name|SolrConfig
+operator|.
+name|config
+operator|.
+name|getBool
+argument_list|(
+literal|"requestDispatcher/@handleSelect"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
