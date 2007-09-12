@@ -264,14 +264,14 @@ specifier|private
 name|boolean
 name|overwriteCommitted
 init|=
-literal|false
+literal|true
 decl_stmt|;
 DECL|field|overwritePending
 specifier|private
 name|boolean
 name|overwritePending
 init|=
-literal|false
+literal|true
 decl_stmt|;
 DECL|field|action
 specifier|private
