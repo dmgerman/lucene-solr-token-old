@@ -72,6 +72,39 @@ name|TermVectorsReader
 implements|implements
 name|Cloneable
 block|{
+DECL|field|FORMAT_VERSION
+specifier|static
+specifier|final
+name|int
+name|FORMAT_VERSION
+init|=
+literal|2
+decl_stmt|;
+comment|//The size in bytes that the FORMAT_VERSION will take up at the beginning of each file
+DECL|field|FORMAT_SIZE
+specifier|static
+specifier|final
+name|int
+name|FORMAT_SIZE
+init|=
+literal|4
+decl_stmt|;
+DECL|field|STORE_POSITIONS_WITH_TERMVECTOR
+specifier|static
+specifier|final
+name|byte
+name|STORE_POSITIONS_WITH_TERMVECTOR
+init|=
+literal|0x1
+decl_stmt|;
+DECL|field|STORE_OFFSET_WITH_TERMVECTOR
+specifier|static
+specifier|final
+name|byte
+name|STORE_OFFSET_WITH_TERMVECTOR
+init|=
+literal|0x2
+decl_stmt|;
 DECL|field|fieldInfos
 specifier|private
 name|FieldInfos
@@ -225,9 +258,11 @@ name|fileExists
 argument_list|(
 name|segment
 operator|+
-name|TermVectorsWriter
+literal|"."
+operator|+
+name|IndexFileNames
 operator|.
-name|TVX_EXTENSION
+name|VECTORS_INDEX_EXTENSION
 argument_list|)
 condition|)
 block|{
@@ -239,9 +274,11 @@ name|openInput
 argument_list|(
 name|segment
 operator|+
-name|TermVectorsWriter
+literal|"."
+operator|+
+name|IndexFileNames
 operator|.
-name|TVX_EXTENSION
+name|VECTORS_INDEX_EXTENSION
 argument_list|,
 name|readBufferSize
 argument_list|)
@@ -259,9 +296,11 @@ name|openInput
 argument_list|(
 name|segment
 operator|+
-name|TermVectorsWriter
+literal|"."
+operator|+
+name|IndexFileNames
 operator|.
-name|TVD_EXTENSION
+name|VECTORS_DOCUMENTS_EXTENSION
 argument_list|,
 name|readBufferSize
 argument_list|)
@@ -281,9 +320,11 @@ name|openInput
 argument_list|(
 name|segment
 operator|+
-name|TermVectorsWriter
+literal|"."
+operator|+
+name|IndexFileNames
 operator|.
-name|TVF_EXTENSION
+name|VECTORS_FIELDS_EXTENSION
 argument_list|,
 name|readBufferSize
 argument_list|)
@@ -418,8 +459,6 @@ if|if
 condition|(
 name|format
 operator|>
-name|TermVectorsWriter
-operator|.
 name|FORMAT_VERSION
 condition|)
 block|{
@@ -433,8 +472,6 @@ name|format
 operator|+
 literal|" expected "
 operator|+
-name|TermVectorsWriter
-operator|.
 name|FORMAT_VERSION
 operator|+
 literal|" or less"
@@ -630,8 +667,6 @@ operator|*
 literal|8L
 operator|)
 operator|+
-name|TermVectorsWriter
-operator|.
 name|FORMAT_SIZE
 argument_list|)
 expr_stmt|;
@@ -693,8 +728,6 @@ if|if
 condition|(
 name|tvdFormat
 operator|==
-name|TermVectorsWriter
-operator|.
 name|FORMAT_VERSION
 condition|)
 name|number
@@ -857,8 +890,6 @@ operator|*
 literal|8L
 operator|)
 operator|+
-name|TermVectorsWriter
-operator|.
 name|FORMAT_SIZE
 argument_list|)
 expr_stmt|;
@@ -927,8 +958,6 @@ if|if
 condition|(
 name|tvdFormat
 operator|==
-name|TermVectorsWriter
-operator|.
 name|FORMAT_VERSION
 condition|)
 name|number
@@ -1056,8 +1085,6 @@ operator|*
 literal|8L
 operator|)
 operator|+
-name|TermVectorsWriter
-operator|.
 name|FORMAT_SIZE
 argument_list|)
 expr_stmt|;
@@ -1126,8 +1153,6 @@ if|if
 condition|(
 name|tvdFormat
 operator|==
-name|TermVectorsWriter
-operator|.
 name|FORMAT_VERSION
 condition|)
 name|number
@@ -1412,8 +1437,6 @@ if|if
 condition|(
 name|tvfFormat
 operator|==
-name|TermVectorsWriter
-operator|.
 name|FORMAT_VERSION
 condition|)
 block|{
@@ -1430,8 +1453,6 @@ operator|=
 operator|(
 name|bits
 operator|&
-name|TermVectorsWriter
-operator|.
 name|STORE_POSITIONS_WITH_TERMVECTOR
 operator|)
 operator|!=
@@ -1442,8 +1463,6 @@ operator|=
 operator|(
 name|bits
 operator|&
-name|TermVectorsWriter
-operator|.
 name|STORE_OFFSET_WITH_TERMVECTOR
 operator|)
 operator|!=
