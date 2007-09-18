@@ -37,7 +37,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|RAMDirectory
+name|MockRAMDirectory
 import|;
 end_import
 begin_import
@@ -125,14 +125,14 @@ name|Directory
 name|indexA
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 name|Directory
 name|indexB
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 name|fillIndex
@@ -198,7 +198,7 @@ name|Directory
 name|merged
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 name|IndexWriter
@@ -386,6 +386,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 return|return
 name|fail
 return|;
