@@ -84,6 +84,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|MatchAllDocsQuery
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -591,6 +604,46 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// must only be called when iwCommit lock held
+DECL|method|deleteAll
+specifier|private
+name|void
+name|deleteAll
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|SolrCore
+operator|.
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"REMOVING ALL DOCUMENTS FROM INDEX"
+argument_list|)
+expr_stmt|;
+name|closeWriter
+argument_list|()
+expr_stmt|;
+name|closeSearcher
+argument_list|()
+expr_stmt|;
+name|pset
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+comment|// ignore docs marked for deletion since we are removing all
+name|writer
+operator|=
+name|createMainIndexWriter
+argument_list|(
+literal|"DirectUpdateHandler2"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|// must only be called when iwCommit lock held
 DECL|method|openWriter
 specifier|protected
 name|void
@@ -611,6 +664,8 @@ operator|=
 name|createMainIndexWriter
 argument_list|(
 literal|"DirectUpdateHandler2"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1424,6 +1479,11 @@ name|madeIt
 init|=
 literal|false
 decl_stmt|;
+name|boolean
+name|delAll
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|Query
@@ -1440,6 +1500,17 @@ argument_list|,
 name|schema
 argument_list|)
 decl_stmt|;
+name|delAll
+operator|=
+name|MatchAllDocsQuery
+operator|.
+name|class
+operator|==
+name|q
+operator|.
+name|getClass
+argument_list|()
+expr_stmt|;
 name|int
 name|totDeleted
 init|=
@@ -1451,6 +1522,17 @@ name|lock
 argument_list|()
 expr_stmt|;
 try|try
+block|{
+if|if
+condition|(
+name|delAll
+condition|)
+block|{
+name|deleteAll
+argument_list|()
+expr_stmt|;
+block|}
+else|else
 block|{
 comment|// we need to do much of the commit logic (mainly doing queued
 comment|// deletes since deleteByQuery can throw off our counts.
@@ -1493,6 +1575,7 @@ operator|.
 name|deleted
 expr_stmt|;
 block|}
+block|}
 finally|finally
 block|{
 name|iwCommit
@@ -1501,6 +1584,12 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|delAll
+condition|)
+block|{
 if|if
 condition|(
 name|SolrCore
@@ -1534,6 +1623,7 @@ argument_list|(
 name|totDeleted
 argument_list|)
 expr_stmt|;
+block|}
 name|madeIt
 operator|=
 literal|true

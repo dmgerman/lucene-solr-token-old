@@ -703,6 +703,9 @@ name|createMainIndexWriter
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|boolean
+name|removeAllExisting
 parameter_list|)
 throws|throws
 name|IOException
@@ -720,7 +723,7 @@ operator|.
 name|getIndexDir
 argument_list|()
 argument_list|,
-literal|false
+name|removeAllExisting
 argument_list|,
 name|schema
 argument_list|,

@@ -347,6 +347,8 @@ operator|=
 name|createMainIndexWriter
 argument_list|(
 literal|"DirectUpdateHandler"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
