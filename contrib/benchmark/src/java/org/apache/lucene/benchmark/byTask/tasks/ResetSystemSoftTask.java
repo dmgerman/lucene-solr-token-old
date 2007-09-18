@@ -42,7 +42,7 @@ specifier|public
 class|class
 name|ResetSystemSoftTask
 extends|extends
-name|PerfTask
+name|ResetInputsTask
 block|{
 DECL|method|ResetSystemSoftTask
 specifier|public
@@ -76,17 +76,6 @@ argument_list|)
 expr_stmt|;
 return|return
 literal|0
-return|;
-block|}
-comment|/*    * (non-Javadoc)    * @see org.apache.lucene.benchmark.byTask.tasks.PerfTask#shouldNotRecordStats()    */
-DECL|method|shouldNotRecordStats
-specifier|protected
-name|boolean
-name|shouldNotRecordStats
-parameter_list|()
-block|{
-return|return
-literal|true
 return|;
 block|}
 block|}
