@@ -532,11 +532,6 @@ name|ALLOW_DUPS
 init|=
 literal|"allowDups"
 decl_stmt|;
-DECL|field|inputFactory
-specifier|private
-name|XMLInputFactory
-name|inputFactory
-decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -559,13 +554,6 @@ name|init
 argument_list|(
 name|args
 argument_list|)
-expr_stmt|;
-name|inputFactory
-operator|=
-name|BaseXMLInputFactory
-operator|.
-name|newInstance
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -705,6 +693,14 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+name|XMLInputFactory
+name|inputFactory
+init|=
+name|BaseXMLInputFactory
+operator|.
+name|newInstance
+argument_list|()
+decl_stmt|;
 name|XMLStreamReader
 name|parser
 init|=
@@ -2129,6 +2125,14 @@ name|SolrQueryResponse
 argument_list|()
 decl_stmt|;
 comment|// ignored
+name|XMLInputFactory
+name|inputFactory
+init|=
+name|BaseXMLInputFactory
+operator|.
+name|newInstance
+argument_list|()
+decl_stmt|;
 name|XMLStreamReader
 name|parser
 init|=
