@@ -1494,6 +1494,13 @@ name|SolrCore
 name|getSolrCore
 parameter_list|()
 block|{
+synchronized|synchronized
+init|(
+name|SolrCore
+operator|.
+name|class
+init|)
+block|{
 if|if
 condition|(
 name|instance
@@ -1503,6 +1510,7 @@ condition|)
 block|{
 try|try
 block|{
+comment|// sets 'instance' to the latest solr core
 name|instance
 operator|=
 operator|new
@@ -1538,6 +1546,7 @@ expr_stmt|;
 return|return
 literal|null
 return|;
+block|}
 block|}
 block|}
 return|return
