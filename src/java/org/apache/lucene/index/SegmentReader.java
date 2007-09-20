@@ -144,7 +144,7 @@ DECL|class|SegmentReader
 class|class
 name|SegmentReader
 extends|extends
-name|IndexReader
+name|DirectoryIndexReader
 block|{
 DECL|field|segment
 specifier|private
@@ -534,17 +534,6 @@ throw|;
 block|}
 block|}
 block|}
-DECL|method|SegmentReader
-specifier|protected
-name|SegmentReader
-parameter_list|()
-block|{
-name|super
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|get
 specifier|public
@@ -874,8 +863,6 @@ argument_list|,
 name|sis
 argument_list|,
 name|closeDir
-argument_list|,
-name|ownDir
 argument_list|)
 expr_stmt|;
 name|instance
@@ -1359,10 +1346,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|doCommit
+DECL|method|commitChanges
 specifier|protected
 name|void
-name|doCommit
+name|commitChanges
 parameter_list|()
 throws|throws
 name|IOException
@@ -1574,6 +1561,12 @@ condition|)
 name|storeCFSReader
 operator|.
 name|close
+argument_list|()
+expr_stmt|;
+comment|// maybe close directory
+name|super
+operator|.
+name|doClose
 argument_list|()
 expr_stmt|;
 block|}
