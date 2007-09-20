@@ -3392,7 +3392,7 @@ name|name
 parameter_list|()
 block|{
 return|return
-literal|"log"
+literal|"abs"
 return|;
 block|}
 specifier|protected
