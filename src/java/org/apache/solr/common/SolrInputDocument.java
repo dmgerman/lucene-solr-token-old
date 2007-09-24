@@ -123,7 +123,7 @@ block|}
 comment|///////////////////////////////////////////////////////////////////
 comment|// Add / Set fields
 comment|///////////////////////////////////////////////////////////////////
-comment|/**     * Add a field with implied null value for boost.    *     * @see addField(String, Object, Float)    * @param name name of the field to add    * @param value value of the field    */
+comment|/**     * Add a field with implied null value for boost.    *     * @see #addField(String, Object, float)    * @param name name of the field to add    * @param value value of the field    */
 DECL|method|addField
 specifier|public
 name|void
@@ -242,7 +242,7 @@ name|keySet
 argument_list|()
 return|;
 block|}
-comment|/** Set a field with implied null value for boost.    *     * @see setField(String, Object, Float)    * @param name name of the field to set    * @param value value of the field    */
+comment|/** Set a field with implied null value for boost.    *     * @see #setField(String, Object, float)    * @param name name of the field to set    * @param value value of the field    */
 DECL|method|setField
 specifier|public
 name|void
@@ -370,7 +370,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Remove a field from the document    *     * @param key The field name whose field is to be removed from the document    * @return the previous field with<tt>name</tt>, or    *<tt>null</tt> if there was no field for<tt>key</tt>.    */
+comment|/**    * Remove a field from the document    *     * @param name The field name whose field is to be removed from the document    * @return the previous field with<tt>name</tt>, or    *<tt>null</tt> if there was no field for<tt>key</tt>.    */
 DECL|method|removeField
 specifier|public
 name|SolrInputField
