@@ -227,15 +227,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ListIterator
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 operator|.
 name|Entry
@@ -291,7 +282,18 @@ name|LogMergePolicy
 operator|.
 name|DEFAULT_MERGE_FACTOR
 decl_stmt|;
-comment|/**    * Default value is 0 (because IndexWriter flushes by RAM    * usage by default). Change using {@link #setMaxBufferedDocs(int)}.    */
+comment|/**    * Value to denote a flush trigger is disabled    */
+DECL|field|DISABLE_AUTO_FLUSH
+specifier|public
+specifier|final
+specifier|static
+name|int
+name|DISABLE_AUTO_FLUSH
+init|=
+operator|-
+literal|1
+decl_stmt|;
+comment|/**    * Disabled by default (because IndexWriter flushes by RAM usage    * by default). Change using {@link #setMaxBufferedDocs(int)}.    */
 DECL|field|DEFAULT_MAX_BUFFERED_DOCS
 specifier|public
 specifier|final
@@ -299,7 +301,7 @@ specifier|static
 name|int
 name|DEFAULT_MAX_BUFFERED_DOCS
 init|=
-literal|0
+name|DISABLE_AUTO_FLUSH
 decl_stmt|;
 comment|/**    * Default value is 16 MB (which means flush when buffered    * docs consume 16 MB RAM).  Change using {@link #setRAMBufferSizeMB}.    */
 DECL|field|DEFAULT_RAM_BUFFER_SIZE_MB
@@ -311,7 +313,7 @@ name|DEFAULT_RAM_BUFFER_SIZE_MB
 init|=
 literal|16.0
 decl_stmt|;
-comment|/**    * Default value is 1000. Change using {@link #setMaxBufferedDeleteTerms(int)}.    */
+comment|/**    * Disabled by default (because IndexWriter flushes by RAM usage    * by default). Change using {@link #setMaxBufferedDeleteTerms(int)}.    */
 DECL|field|DEFAULT_MAX_BUFFERED_DELETE_TERMS
 specifier|public
 specifier|final
@@ -319,7 +321,7 @@ specifier|static
 name|int
 name|DEFAULT_MAX_BUFFERED_DELETE_TERMS
 init|=
-literal|1000
+name|DISABLE_AUTO_FLUSH
 decl_stmt|;
 comment|/**    * @deprecated    * @see LogDocMergePolicy#DEFAULT_MAX_MERGE_DOCS    */
 DECL|field|DEFAULT_MAX_MERGE_DOCS
@@ -1660,7 +1662,7 @@ return|return
 name|maxFieldLength
 return|;
 block|}
-comment|/** Determines the minimal number of documents required    * before the buffered in-memory documents are flushed as    * a new Segment.  Large values generally gives faster    * indexing.    *    *<p>When this is set, the writer will flush every    * maxBufferedDocs added documents and never flush by RAM    * usage.</p>    *    *<p> The default value is 0 (writer flushes by RAM    * usage).</p>    *    * @throws IllegalArgumentException if maxBufferedDocs is    * smaller than 2    * @see #setRAMBufferSizeMB    */
+comment|/** Determines the minimal number of documents required    * before the buffered in-memory documents are flushed as    * a new Segment.  Large values generally gives faster    * indexing.    *    *<p>When this is set, the writer will flush every    * maxBufferedDocs added documents.  Pass in {@link    * #DISABLE_AUTO_FLUSH} to prevent triggering a flush due    * to number of buffered documents.  Note that if flushing    * by RAM usage is also enabled, then the flush will be    * triggered by whichever comes first.</p>    *    *<p>Disabled by default (writer flushes by RAM usage).</p>    *    * @throws IllegalArgumentException if maxBufferedDocs is    * enabled but smaller than 2, or it disables maxBufferedDocs    * when ramBufferSize is already disabled    * @see #setRAMBufferSizeMB    */
 DECL|method|setMaxBufferedDocs
 specifier|public
 name|void
@@ -1676,6 +1678,10 @@ expr_stmt|;
 if|if
 condition|(
 name|maxBufferedDocs
+operator|!=
+name|DISABLE_AUTO_FLUSH
+operator|&&
+name|maxBufferedDocs
 operator|<
 literal|2
 condition|)
@@ -1683,7 +1689,25 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"maxBufferedDocs must at least be 2"
+literal|"maxBufferedDocs must at least be 2 when enabled"
+argument_list|)
+throw|;
+if|if
+condition|(
+name|maxBufferedDocs
+operator|==
+name|DISABLE_AUTO_FLUSH
+operator|&&
+name|getRAMBufferSizeMB
+argument_list|()
+operator|==
+name|DISABLE_AUTO_FLUSH
+condition|)
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"at least one of ramBufferSize and maxBufferedDocs must be enabled"
 argument_list|)
 throw|;
 name|docWriter
@@ -1708,10 +1732,10 @@ if|if
 condition|(
 name|docWriter
 operator|.
-name|getRAMBufferSizeMB
+name|getMaxBufferedDocs
 argument_list|()
-operator|==
-literal|0.0
+operator|!=
+name|DISABLE_AUTO_FLUSH
 condition|)
 block|{
 specifier|final
@@ -1780,7 +1804,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**    * Returns 0 if this writer is flushing by RAM usage, else    * returns the number of buffered added documents that will    * trigger a flush.    * @see #setMaxBufferedDocs    */
+comment|/**    * Returns the number of buffered added documents that will    * trigger a flush if enabled.    * @see #setMaxBufferedDocs    */
 DECL|method|getMaxBufferedDocs
 specifier|public
 name|int
@@ -1797,7 +1821,7 @@ name|getMaxBufferedDocs
 argument_list|()
 return|;
 block|}
-comment|/** Determines the amount of RAM that may be used for    * buffering added documents before they are flushed as a    * new Segment.  Generally for faster indexing performance    * it's best to flush by RAM usage instead of document    * count and use as large a RAM buffer as you can.    *    *<p>When this is set, the writer will flush whenever    * buffered documents use this much RAM.</p>    *    *<p> The default value is {@link #DEFAULT_RAM_BUFFER_SIZE_MB}.</p>    */
+comment|/** Determines the amount of RAM that may be used for    * buffering added documents before they are flushed as a    * new Segment.  Generally for faster indexing performance    * it's best to flush by RAM usage instead of document    * count and use as large a RAM buffer as you can.    *    *<p>When this is set, the writer will flush whenever    * buffered documents use this much RAM.  Pass in {@link    * #DISABLE_AUTO_FLUSH} to prevent triggering a flush due    * to RAM usage.  Note that if flushing by document count    * is also enabled, then the flush will be triggered by    * whichever comes first.</p>    *    *<p> The default value is {@link #DEFAULT_RAM_BUFFER_SIZE_MB}.</p>    *     * @throws IllegalArgumentException if ramBufferSize is    * enabled but non-positive, or it disables ramBufferSize    * when maxBufferedDocs is already disabled    */
 DECL|method|setRAMBufferSizeMB
 specifier|public
 name|void
@@ -1810,6 +1834,10 @@ block|{
 if|if
 condition|(
 name|mb
+operator|!=
+name|DISABLE_AUTO_FLUSH
+operator|&&
+name|mb
 operator|<=
 literal|0.0
 condition|)
@@ -1817,7 +1845,25 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"ramBufferSize should be> 0.0 MB"
+literal|"ramBufferSize should be> 0.0 MB when enabled"
+argument_list|)
+throw|;
+if|if
+condition|(
+name|mb
+operator|==
+name|DISABLE_AUTO_FLUSH
+operator|&&
+name|getMaxBufferedDocs
+argument_list|()
+operator|==
+name|DISABLE_AUTO_FLUSH
+condition|)
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"at least one of ramBufferSize and maxBufferedDocs must be enabled"
 argument_list|)
 throw|;
 name|docWriter
@@ -1828,7 +1874,7 @@ name|mb
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Returns 0.0 if this writer is flushing by document    * count, else returns the value set by {@link    * #setRAMBufferSizeMB}.    */
+comment|/**    * Returns the value set by {@link #setRAMBufferSizeMB} if enabled.    */
 DECL|method|getRAMBufferSizeMB
 specifier|public
 name|double
@@ -1842,7 +1888,7 @@ name|getRAMBufferSizeMB
 argument_list|()
 return|;
 block|}
-comment|/**    *<p>Determines the minimal number of delete terms required before the buffered    * in-memory delete terms are applied and flushed. If there are documents    * buffered in memory at the time, they are merged and a new segment is    * created.</p>     *<p>The default value is {@link #DEFAULT_MAX_BUFFERED_DELETE_TERMS}.    * @throws IllegalArgumentException if maxBufferedDeleteTerms is smaller than 1</p>    */
+comment|/**    *<p>Determines the minimal number of delete terms required before the buffered    * in-memory delete terms are applied and flushed. If there are documents    * buffered in memory at the time, they are merged and a new segment is    * created.</p>     *<p>Disabled by default (writer flushes by RAM usage).</p>    *     * @throws IllegalArgumentException if maxBufferedDeleteTerms    * is enabled but smaller than 1    * @see #setRAMBufferSizeMB    */
 DECL|method|setMaxBufferedDeleteTerms
 specifier|public
 name|void
@@ -1855,6 +1901,23 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|maxBufferedDeleteTerms
+operator|!=
+name|DISABLE_AUTO_FLUSH
+operator|&&
+name|maxBufferedDeleteTerms
+operator|<
+literal|1
+condition|)
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"maxBufferedDeleteTerms must at least be 1 when enabled"
+argument_list|)
+throw|;
 name|docWriter
 operator|.
 name|setMaxBufferedDeleteTerms
@@ -1863,7 +1926,7 @@ name|maxBufferedDeleteTerms
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Returns the number of buffered deleted terms that will    * trigger a flush.    * @see #setMaxBufferedDeleteTerms    */
+comment|/**    * Returns the number of buffered deleted terms that will    * trigger a flush if enabled.    * @see #setMaxBufferedDeleteTerms    */
 DECL|method|getMaxBufferedDeleteTerms
 specifier|public
 name|int
@@ -3330,19 +3393,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Determines amount of RAM usage by the buffered docs at    * which point we trigger a flush to the index.    */
-DECL|field|ramBufferSize
-specifier|private
-name|double
-name|ramBufferSize
-init|=
-name|DEFAULT_RAM_BUFFER_SIZE_MB
-operator|*
-literal|1024F
-operator|*
-literal|1024F
-decl_stmt|;
-comment|/** If non-null, information about merges will be printed to this.     */
+comment|/** If non-null, information about merges will be printed to this.    */
 DECL|field|infoStream
 specifier|private
 name|PrintStream
