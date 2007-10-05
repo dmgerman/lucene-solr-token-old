@@ -27,7 +27,6 @@ specifier|public
 interface|interface
 name|ConcurrentStorageLock
 block|{
-comment|/**      * @param key      * @return      */
 DECL|method|setLock
 specifier|public
 specifier|abstract
@@ -39,7 +38,6 @@ name|String
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * @param key      * @return      */
 DECL|method|releaseLock
 specifier|public
 specifier|abstract
@@ -51,7 +49,6 @@ name|String
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * @return      */
 DECL|method|releaseThreadLocks
 specifier|public
 specifier|abstract
@@ -59,7 +56,6 @@ name|boolean
 name|releaseThreadLocks
 parameter_list|()
 function_decl|;
-comment|/**      * @param key      * @return      */
 DECL|method|isKeyLocked
 specifier|public
 specifier|abstract
@@ -71,7 +67,6 @@ name|String
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      *       */
 DECL|method|close
 specifier|public
 specifier|abstract

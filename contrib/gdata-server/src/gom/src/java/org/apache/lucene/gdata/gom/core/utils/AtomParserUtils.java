@@ -235,7 +235,6 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** 	 * @param aMediaType 	 * @return 	 */
 DECL|method|isAtomMediaType
 specifier|public
 specifier|static
@@ -273,7 +272,6 @@ name|matches
 argument_list|()
 return|;
 block|}
-comment|/** 	 * @param aMediaType 	 * @return 	 */
 DECL|method|getAtomMediaType
 specifier|public
 specifier|static
@@ -344,7 +342,6 @@ operator|.
 name|BINARY
 return|;
 block|}
-comment|/** 	 * @param xmlBase 	 * @param atomUri 	 * @return 	 * @throws URISyntaxException 	 */
 DECL|method|getAbsolutAtomURI
 specifier|public
 specifier|static
