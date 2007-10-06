@@ -2467,9 +2467,11 @@ argument_list|(
 literal|"now flush at close"
 argument_list|)
 expr_stmt|;
+comment|// Only allow a new merge to be triggered if we are
+comment|// going to wait for merges:
 name|flush
 argument_list|(
-literal|true
+name|waitForMerges
 argument_list|,
 literal|true
 argument_list|)
@@ -4705,7 +4707,13 @@ operator|.
 name|hasNext
 argument_list|()
 condition|)
-operator|(
+block|{
+specifier|final
+name|MergePolicy
+operator|.
+name|OneMerge
+name|merge
+init|=
 operator|(
 name|MergePolicy
 operator|.
@@ -4715,11 +4723,31 @@ name|it
 operator|.
 name|next
 argument_list|()
-operator|)
+decl_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+name|message
+argument_list|(
+literal|"now abort pending merge "
+operator|+
+name|merge
+operator|.
+name|segString
+argument_list|(
+name|directory
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|merge
 operator|.
 name|abort
 argument_list|()
 expr_stmt|;
+block|}
 name|pendingMerges
 operator|.
 name|clear
@@ -4739,7 +4767,13 @@ operator|.
 name|hasNext
 argument_list|()
 condition|)
-operator|(
+block|{
+specifier|final
+name|MergePolicy
+operator|.
+name|OneMerge
+name|merge
+init|=
 operator|(
 name|MergePolicy
 operator|.
@@ -4749,11 +4783,31 @@ name|it
 operator|.
 name|next
 argument_list|()
-operator|)
+decl_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+name|message
+argument_list|(
+literal|"now abort running merge "
+operator|+
+name|merge
+operator|.
+name|segString
+argument_list|(
+name|directory
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|merge
 operator|.
 name|abort
 argument_list|()
 expr_stmt|;
+block|}
 name|runningMerges
 operator|.
 name|clear
@@ -9013,6 +9067,7 @@ name|mergedDocCount
 return|;
 block|}
 DECL|method|addMergeException
+specifier|synchronized
 name|void
 name|addMergeException
 parameter_list|(

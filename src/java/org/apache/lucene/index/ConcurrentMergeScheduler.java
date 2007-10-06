@@ -366,11 +366,14 @@ condition|;
 name|i
 operator|++
 control|)
-block|{
-specifier|final
-name|MergeThread
-name|mergeThread
-init|=
+name|message
+argument_list|(
+literal|"    "
+operator|+
+name|i
+operator|+
+literal|": "
+operator|+
 operator|(
 operator|(
 name|MergeThread
@@ -382,26 +385,8 @@ argument_list|(
 name|i
 argument_list|)
 operator|)
-decl_stmt|;
-name|message
-argument_list|(
-literal|"    "
-operator|+
-name|i
-operator|+
-literal|": "
-operator|+
-name|mergeThread
-operator|.
-name|merge
-operator|.
-name|segString
-argument_list|(
-name|dir
-argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 try|try
 block|{
@@ -697,11 +682,17 @@ DECL|field|writer
 name|IndexWriter
 name|writer
 decl_stmt|;
-DECL|field|merge
+DECL|field|startMerge
 name|MergePolicy
 operator|.
 name|OneMerge
-name|merge
+name|startMerge
+decl_stmt|;
+DECL|field|runningMerge
+name|MergePolicy
+operator|.
+name|OneMerge
+name|runningMerge
 decl_stmt|;
 DECL|method|MergeThread
 specifier|public
@@ -713,7 +704,7 @@ parameter_list|,
 name|MergePolicy
 operator|.
 name|OneMerge
-name|merge
+name|startMerge
 parameter_list|)
 throws|throws
 name|IOException
@@ -726,10 +717,40 @@ name|writer
 expr_stmt|;
 name|this
 operator|.
+name|startMerge
+operator|=
+name|startMerge
+expr_stmt|;
+block|}
+DECL|method|setRunningMerge
+specifier|public
+specifier|synchronized
+name|void
+name|setRunningMerge
+parameter_list|(
+name|MergePolicy
+operator|.
+name|OneMerge
 name|merge
+parameter_list|)
+block|{
+name|runningMerge
 operator|=
 name|merge
 expr_stmt|;
+block|}
+DECL|method|getRunningMerge
+specifier|public
+specifier|synchronized
+name|MergePolicy
+operator|.
+name|OneMerge
+name|getRunningMerge
+parameter_list|()
+block|{
+return|return
+name|runningMerge
+return|;
 block|}
 DECL|method|run
 specifier|public
@@ -737,6 +758,17 @@ name|void
 name|run
 parameter_list|()
 block|{
+comment|// First time through the while loop we do the merge
+comment|// that we were started with:
+name|MergePolicy
+operator|.
+name|OneMerge
+name|merge
+init|=
+name|this
+operator|.
+name|startMerge
+decl_stmt|;
 try|try
 block|{
 if|if
@@ -748,22 +780,16 @@ argument_list|(
 literal|"  merge thread: start"
 argument_list|)
 expr_stmt|;
-comment|// First time through the while loop we do the merge
-comment|// that we were started with:
-name|MergePolicy
-operator|.
-name|OneMerge
-name|merge
-init|=
-name|this
-operator|.
-name|merge
-decl_stmt|;
 while|while
 condition|(
 literal|true
 condition|)
 block|{
+name|setRunningMerge
+argument_list|(
+name|merge
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|merge
@@ -833,6 +859,13 @@ block|{
 comment|// When a merge was aborted& IndexWriter closed,
 comment|// it's possible to get various IOExceptions,
 comment|// NullPointerExceptions, AlreadyClosedExceptions:
+if|if
+condition|(
+name|merge
+operator|!=
+literal|null
+condition|)
+block|{
 name|merge
 operator|.
 name|setException
@@ -847,8 +880,13 @@ argument_list|(
 name|merge
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
+name|merge
+operator|==
+literal|null
+operator|||
 operator|!
 name|merge
 operator|.
@@ -858,6 +896,13 @@ condition|)
 block|{
 comment|// If the merge was not aborted then the exception
 comment|// is real
+synchronized|synchronized
+init|(
+name|ConcurrentMergeScheduler
+operator|.
+name|this
+init|)
+block|{
 name|exceptions
 operator|.
 name|add
@@ -865,6 +910,7 @@ argument_list|(
 name|exc
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -915,6 +961,24 @@ name|String
 name|toString
 parameter_list|()
 block|{
+name|MergePolicy
+operator|.
+name|OneMerge
+name|merge
+init|=
+name|getRunningMerge
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|merge
+operator|==
+literal|null
+condition|)
+name|merge
+operator|=
+name|startMerge
+expr_stmt|;
 return|return
 literal|"merge thread: "
 operator|+

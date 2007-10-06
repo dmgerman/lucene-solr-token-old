@@ -222,6 +222,15 @@ specifier|private
 name|DocumentsWriter
 name|docWriter
 decl_stmt|;
+comment|/** Change to true to see details of reference counts when    *  infoStream != null */
+DECL|field|VERBOSE_REF_COUNTS
+specifier|public
+specifier|static
+name|boolean
+name|VERBOSE_REF_COUNTS
+init|=
+literal|false
+decl_stmt|;
 DECL|method|setInfoStream
 name|void
 name|setInfoStream
@@ -1296,6 +1305,24 @@ name|i
 operator|++
 control|)
 block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+name|message
+argument_list|(
+literal|"delete pending file "
+operator|+
+name|oldDeletable
+operator|.
+name|get
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|deleteFile
 argument_list|(
 operator|(
@@ -1706,6 +1733,8 @@ condition|(
 name|infoStream
 operator|!=
 literal|null
+operator|&&
+name|VERBOSE_REF_COUNTS
 condition|)
 block|{
 name|message
@@ -1801,6 +1830,8 @@ condition|(
 name|infoStream
 operator|!=
 literal|null
+operator|&&
+name|VERBOSE_REF_COUNTS
 condition|)
 block|{
 name|message
