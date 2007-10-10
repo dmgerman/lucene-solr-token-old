@@ -3627,6 +3627,8 @@ name|hasScores
 argument_list|()
 condition|)
 block|{
+comment|// NOTE: subset() returns null if the DocList has fewer docs than
+comment|// requested
 name|out
 operator|.
 name|docList
