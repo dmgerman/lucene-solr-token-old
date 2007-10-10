@@ -16,11 +16,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -195,7 +199,7 @@ specifier|public
 class|class
 name|TestNorms
 extends|extends
-name|TestCase
+name|LuceneTestCase
 block|{
 DECL|class|SimilarityOne
 specifier|private
@@ -292,8 +296,13 @@ name|void
 name|setUp
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 name|similarityOne
 operator|=
 operator|new
@@ -307,14 +316,6 @@ name|StandardAnalyzer
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|tearDown
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|IOException
-block|{   }
 comment|/**    * Test that norms values are preserved as the index is maintained.    * Including separate norms.    * Including merging indexes with seprate norms.     * Including optimize.     */
 DECL|method|testNorms
 specifier|public

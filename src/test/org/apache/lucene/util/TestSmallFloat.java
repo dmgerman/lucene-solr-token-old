@@ -16,11 +16,15 @@ comment|/**  * Copyright 2005 The Apache Software Foundation  *  * Licensed unde
 end_comment
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -41,7 +45,7 @@ specifier|public
 class|class
 name|TestSmallFloat
 extends|extends
-name|TestCase
+name|LuceneTestCase
 block|{
 comment|// original lucene byteToFloat
 DECL|method|orig_byteToFloat

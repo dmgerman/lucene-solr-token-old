@@ -16,11 +16,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -128,7 +132,7 @@ specifier|public
 class|class
 name|TestPhraseQuery
 extends|extends
-name|TestCase
+name|LuceneTestCase
 block|{
 comment|/** threshold for comparing floats */
 DECL|field|SCORE_COMP_THRESH
@@ -163,6 +167,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 name|directory
 operator|=
 operator|new
@@ -450,6 +459,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
 name|searcher
 operator|.
 name|close

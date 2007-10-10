@@ -16,11 +16,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -226,7 +230,7 @@ specifier|public
 class|class
 name|TestMultiSearcher
 extends|extends
-name|TestCase
+name|LuceneTestCase
 block|{
 DECL|method|TestMultiSearcher
 specifier|public
