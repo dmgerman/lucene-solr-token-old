@@ -124,6 +124,36 @@ name|useCompoundDocStore
 init|=
 literal|true
 decl_stmt|;
+DECL|field|writer
+specifier|private
+name|IndexWriter
+name|writer
+decl_stmt|;
+DECL|method|message
+specifier|private
+name|void
+name|message
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+if|if
+condition|(
+name|writer
+operator|!=
+literal|null
+condition|)
+name|writer
+operator|.
+name|message
+argument_list|(
+literal|"LMP: "
+operator|+
+name|message
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**<p>Returns the number of segments that are merged at    * once and also controls the total number of segments    * allowed to accumulate in the index.</p> */
 DECL|method|getMergeFactor
 specifier|public
@@ -638,6 +668,21 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+name|this
+operator|.
+name|writer
+operator|=
+name|writer
+expr_stmt|;
+name|message
+argument_list|(
+literal|"findMerges: "
+operator|+
+name|numSegments
+operator|+
+literal|" segments"
+argument_list|)
+expr_stmt|;
 comment|// Compute levels, which is just log (base mergeFactor)
 comment|// of the size of each segment
 name|float
@@ -975,6 +1020,29 @@ name|upto
 operator|--
 expr_stmt|;
 block|}
+name|message
+argument_list|(
+literal|"  level "
+operator|+
+name|levelBottom
+operator|+
+literal|" to "
+operator|+
+name|maxLevel
+operator|+
+literal|": "
+operator|+
+operator|(
+literal|1
+operator|+
+name|upto
+operator|-
+name|start
+operator|)
+operator|+
+literal|" segments"
+argument_list|)
+expr_stmt|;
 comment|// Finally, record all merges that are viable at this level:
 name|int
 name|end
@@ -1059,6 +1127,19 @@ operator|new
 name|MergeSpecification
 argument_list|()
 expr_stmt|;
+name|message
+argument_list|(
+literal|"    "
+operator|+
+name|start
+operator|+
+literal|" to "
+operator|+
+name|end
+operator|+
+literal|": add this merge"
+argument_list|)
+expr_stmt|;
 name|spec
 operator|.
 name|add
@@ -1080,6 +1161,20 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+name|message
+argument_list|(
+literal|"    "
+operator|+
+name|start
+operator|+
+literal|" to "
+operator|+
+name|end
+operator|+
+literal|": contains segment over maxMergeSize or maxMergeDocs; skipping"
+argument_list|)
+expr_stmt|;
 name|start
 operator|=
 name|end
