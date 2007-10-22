@@ -68,15 +68,6 @@ specifier|private
 name|String
 name|field
 decl_stmt|;
-DECL|field|cache
-specifier|private
-name|FieldCache
-name|cache
-init|=
-name|FieldCache
-operator|.
-name|DEFAULT
-decl_stmt|;
 comment|/**    * Create a cached field source for the input field.      */
 DECL|method|FieldCacheSource
 specifier|public
@@ -109,7 +100,9 @@ block|{
 return|return
 name|getCachedFieldValues
 argument_list|(
-name|cache
+name|FieldCache
+operator|.
+name|DEFAULT
 argument_list|,
 name|field
 argument_list|,
@@ -183,14 +176,6 @@ decl_stmt|;
 return|return
 name|this
 operator|.
-name|cache
-operator|==
-name|other
-operator|.
-name|cache
-operator|&&
-name|this
-operator|.
 name|field
 operator|.
 name|equals
@@ -215,11 +200,6 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
-name|cache
-operator|.
-name|hashCode
-argument_list|()
-operator|+
 name|field
 operator|.
 name|hashCode
