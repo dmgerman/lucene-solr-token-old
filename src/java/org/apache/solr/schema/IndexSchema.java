@@ -1347,6 +1347,10 @@ name|FieldType
 argument_list|>
 argument_list|(
 literal|"[schema.xml] fieldType"
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 block|{
 annotation|@
