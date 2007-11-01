@@ -766,7 +766,7 @@ return|;
 block|}
 DECL|method|create
 specifier|public
-name|TokenStream
+name|CapitalizationFilter
 name|create
 parameter_list|(
 name|TokenStream
