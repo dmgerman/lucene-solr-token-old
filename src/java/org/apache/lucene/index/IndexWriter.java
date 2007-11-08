@@ -5120,7 +5120,6 @@ expr_stmt|;
 name|flush
 argument_list|()
 expr_stmt|;
-comment|/* new merge policy     if (startUpperBound == 0)       startUpperBound = 10;     */
 name|boolean
 name|success
 init|=
