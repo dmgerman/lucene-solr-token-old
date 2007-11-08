@@ -574,7 +574,6 @@ return|;
 block|}
 comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|get
-specifier|public
 specifier|static
 name|SegmentReader
 name|get
@@ -654,7 +653,6 @@ return|;
 block|}
 comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|get
-specifier|public
 specifier|static
 name|SegmentReader
 name|get
