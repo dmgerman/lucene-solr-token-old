@@ -9244,7 +9244,7 @@ DECL|class|MyMergeScheduler
 specifier|private
 class|class
 name|MyMergeScheduler
-implements|implements
+extends|extends
 name|MergeScheduler
 block|{
 DECL|method|merge
