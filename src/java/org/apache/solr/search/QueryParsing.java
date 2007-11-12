@@ -960,6 +960,10 @@ name|ParseException
 block|{
 if|if
 condition|(
+name|txt
+operator|==
+literal|null
+operator|||
 operator|!
 name|txt
 operator|.
