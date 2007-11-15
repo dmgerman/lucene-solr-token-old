@@ -244,7 +244,7 @@ name|solr
 operator|.
 name|util
 operator|.
-name|HiFrequencyDictionary
+name|HighFrequencyDictionary
 import|;
 end_import
 begin_import
@@ -1005,6 +1005,18 @@ condition|(
 name|extendedResults
 condition|)
 block|{
+name|rsp
+operator|.
+name|add
+argument_list|(
+literal|"numDocs"
+argument_list|,
+name|indexReader
+operator|.
+name|numDocs
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|SimpleOrderedMap
 argument_list|<
 name|Object
@@ -1363,7 +1375,7 @@ name|Dictionary
 name|dictionary
 init|=
 operator|new
-name|HiFrequencyDictionary
+name|HighFrequencyDictionary
 argument_list|(
 name|indexReader
 argument_list|,

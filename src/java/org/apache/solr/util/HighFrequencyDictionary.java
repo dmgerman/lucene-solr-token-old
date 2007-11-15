@@ -90,10 +90,10 @@ begin_comment
 comment|/**  * Hi Frequency Dictionary: terms taken from the given field  * of a Lucene index, which appear in a number of documents  * above a given threshold.  *  * When using IndexReader.terms(Term) the code must not call next() on TermEnum  * as the first call to TermEnum, see: http://issues.apache.org/jira/browse/LUCENE-6  *  * Threshold is a value in [0..1] representing the minimum  * number of documents (of the total) where a term should appear.  *  * @author Mike Krimerman  *  * Based on LuceneDictionary, by  * @author Nicolas Maisonneuve  * @author Christian Mallwitz  */
 end_comment
 begin_class
-DECL|class|HiFrequencyDictionary
+DECL|class|HighFrequencyDictionary
 specifier|public
 class|class
-name|HiFrequencyDictionary
+name|HighFrequencyDictionary
 implements|implements
 name|Dictionary
 block|{
@@ -112,9 +112,9 @@ specifier|private
 name|float
 name|thresh
 decl_stmt|;
-DECL|method|HiFrequencyDictionary
+DECL|method|HighFrequencyDictionary
 specifier|public
-name|HiFrequencyDictionary
+name|HighFrequencyDictionary
 parameter_list|(
 name|IndexReader
 name|reader
@@ -157,14 +157,14 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|HiFrequencyIterator
+name|HighFrequencyIterator
 argument_list|()
 return|;
 block|}
-DECL|class|HiFrequencyIterator
+DECL|class|HighFrequencyIterator
 specifier|final
 class|class
-name|HiFrequencyIterator
+name|HighFrequencyIterator
 implements|implements
 name|Iterator
 block|{
@@ -188,8 +188,8 @@ specifier|private
 name|int
 name|minNumDocs
 decl_stmt|;
-DECL|method|HiFrequencyIterator
-name|HiFrequencyIterator
+DECL|method|HighFrequencyIterator
+name|HighFrequencyIterator
 parameter_list|()
 block|{
 try|try
