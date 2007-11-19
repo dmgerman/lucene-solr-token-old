@@ -737,9 +737,6 @@ name|lst
 operator|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Token
-argument_list|>
 argument_list|()
 expr_stmt|;
 for|for
