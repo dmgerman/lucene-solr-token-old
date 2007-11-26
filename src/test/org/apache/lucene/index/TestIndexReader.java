@@ -2205,13 +2205,9 @@ argument_list|)
 decl_stmt|;
 name|IndexWriter
 name|writer
-init|=
-literal|null
 decl_stmt|;
 name|IndexReader
 name|reader
-init|=
-literal|null
 decl_stmt|;
 name|Term
 name|searchTerm

@@ -315,7 +315,10 @@ operator|.
 name|append
 argument_list|(
 literal|" into "
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|info
 operator|.
 name|name
@@ -427,15 +430,22 @@ operator|.
 name|append
 argument_list|(
 literal|"  "
-operator|+
-operator|(
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|1
 operator|+
 name|i
-operator|)
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|": "
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 operator|(
 operator|(
 name|OneMerge
