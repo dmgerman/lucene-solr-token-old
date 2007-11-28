@@ -59,6 +59,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Sort
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|common
@@ -612,8 +625,6 @@ annotation|@
 name|Override
 DECL|method|getSort
 specifier|public
-name|QueryParsing
-operator|.
 name|SortSpec
 name|getSort
 parameter_list|(
@@ -623,8 +634,6 @@ parameter_list|)
 throws|throws
 name|ParseException
 block|{
-name|QueryParsing
-operator|.
 name|SortSpec
 name|sort
 init|=
@@ -656,9 +665,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|QueryParsing
-operator|.
-name|SortSpec
+name|Sort
 name|oldSort
 init|=
 name|QueryParsing
@@ -686,8 +693,6 @@ operator|.
 name|sort
 operator|=
 name|oldSort
-operator|.
-name|sort
 expr_stmt|;
 block|}
 block|}

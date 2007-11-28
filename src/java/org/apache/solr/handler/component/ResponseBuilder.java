@@ -95,7 +95,7 @@ name|solr
 operator|.
 name|search
 operator|.
-name|QueryParsing
+name|SortSpec
 import|;
 end_import
 begin_import
@@ -177,8 +177,6 @@ literal|null
 decl_stmt|;
 DECL|field|sortSpec
 specifier|private
-name|QueryParsing
-operator|.
 name|SortSpec
 name|sortSpec
 init|=
@@ -516,8 +514,6 @@ expr_stmt|;
 block|}
 DECL|method|getSortSpec
 specifier|public
-name|QueryParsing
-operator|.
 name|SortSpec
 name|getSortSpec
 parameter_list|()
@@ -531,8 +527,6 @@ specifier|public
 name|void
 name|setSortSpec
 parameter_list|(
-name|QueryParsing
-operator|.
 name|SortSpec
 name|sort
 parameter_list|)
