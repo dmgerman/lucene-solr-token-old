@@ -4957,14 +4957,6 @@ expr_stmt|;
 name|flush
 argument_list|()
 expr_stmt|;
-name|int
-name|start
-init|=
-name|segmentInfos
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
 name|boolean
 name|success
 init|=
@@ -6814,15 +6806,6 @@ name|merge
 operator|.
 name|segments
 decl_stmt|;
-specifier|final
-name|int
-name|numSegments
-init|=
-name|segmentInfos
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
 name|start
 operator|=
 name|ensureContiguousMerge
@@ -7597,9 +7580,6 @@ name|merge
 operator|.
 name|registerDone
 assert|;
-name|int
-name|mergedDocCount
-decl_stmt|;
 name|boolean
 name|success
 init|=
@@ -7643,8 +7623,6 @@ name|segString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|mergedDocCount
-operator|=
 name|mergeMiddle
 argument_list|(
 name|merge
@@ -7958,24 +7936,11 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-specifier|final
-name|int
-name|numSegments
-init|=
-name|segmentInfos
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
-specifier|final
-name|int
-name|start
-init|=
 name|ensureContiguousMerge
 argument_list|(
 name|merge
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// Check whether this merge will allow us to skip
 comment|// merging the doc stores (stored field& vectors).
 comment|// This is a very substantial optimization (saves tons
@@ -8448,14 +8413,6 @@ init|=
 name|merge
 operator|.
 name|segments
-decl_stmt|;
-specifier|final
-name|SegmentInfos
-name|sourceSegmentsClone
-init|=
-name|merge
-operator|.
-name|segmentsClone
 decl_stmt|;
 specifier|final
 name|int

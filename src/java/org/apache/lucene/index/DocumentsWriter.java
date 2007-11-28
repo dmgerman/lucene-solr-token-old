@@ -2998,15 +2998,6 @@ operator|=
 name|field
 expr_stmt|;
 block|}
-specifier|final
-name|int
-name|numFields
-init|=
-name|fieldInfos
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
 comment|// Maybe init the local& global fieldsWriter
 if|if
 condition|(
@@ -3193,7 +3184,6 @@ block|}
 block|}
 comment|/** Do in-place sort of Posting array */
 DECL|method|doPostingSort
-specifier|final
 name|void
 name|doPostingSort
 parameter_list|(
@@ -3218,7 +3208,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|quickSort
-specifier|final
 name|void
 name|quickSort
 parameter_list|(
@@ -3520,7 +3509,6 @@ expr_stmt|;
 block|}
 comment|/** Do in-place sort of PostingVector array */
 DECL|method|doVectorSort
-specifier|final
 name|void
 name|doVectorSort
 parameter_list|(
@@ -3545,7 +3533,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|quickSort
-specifier|final
 name|void
 name|quickSort
 parameter_list|(
@@ -4587,11 +4574,6 @@ name|int
 name|i
 parameter_list|)
 block|{
-name|int
-name|upto
-init|=
-literal|0
-decl_stmt|;
 while|while
 condition|(
 operator|(
@@ -4644,11 +4626,6 @@ name|int
 name|i
 parameter_list|)
 block|{
-name|int
-name|upto
-init|=
-literal|0
-decl_stmt|;
 while|while
 condition|(
 operator|(
@@ -4941,11 +4918,6 @@ name|int
 name|i
 parameter_list|)
 block|{
-name|int
-name|upto
-init|=
-literal|0
-decl_stmt|;
 while|while
 condition|(
 operator|(
@@ -5067,11 +5039,6 @@ name|int
 name|i
 parameter_list|)
 block|{
-name|int
-name|upto
-init|=
-literal|0
-decl_stmt|;
 while|while
 condition|(
 operator|(
@@ -5514,12 +5481,6 @@ name|boost
 operator|=
 name|docBoost
 expr_stmt|;
-specifier|final
-name|int
-name|startNumPostings
-init|=
-name|numPostings
-decl_stmt|;
 specifier|final
 name|int
 name|maxFieldLength
@@ -6231,11 +6192,6 @@ argument_list|()
 decl_stmt|;
 name|int
 name|code
-init|=
-literal|0
-decl_stmt|;
-name|int
-name|code2
 init|=
 literal|0
 decl_stmt|;
@@ -9118,11 +9074,6 @@ assert|assert
 name|result
 assert|;
 block|}
-name|Posting
-name|lastPosting
-init|=
-literal|null
-decl_stmt|;
 specifier|final
 name|int
 name|skipInterval

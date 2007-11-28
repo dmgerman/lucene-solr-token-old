@@ -473,15 +473,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|Directory
-name|dir
-init|=
-name|writer
-operator|.
-name|getDirectory
-argument_list|()
-decl_stmt|;
 name|MergeSpecification
 name|spec
 decl_stmt|;
