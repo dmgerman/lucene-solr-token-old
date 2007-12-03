@@ -36,7 +36,7 @@ name|SinkTokenizer
 name|sink
 decl_stmt|;
 DECL|method|TeeTokenFilter
-specifier|protected
+specifier|public
 name|TeeTokenFilter
 parameter_list|(
 name|TokenStream
