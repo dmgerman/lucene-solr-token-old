@@ -18,6 +18,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -63,6 +72,8 @@ name|Iterable
 argument_list|<
 name|SolrInputField
 argument_list|>
+implements|,
+name|Serializable
 block|{
 DECL|field|_fields
 specifier|private

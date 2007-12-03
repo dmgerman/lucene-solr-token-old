@@ -20,6 +20,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -95,6 +104,8 @@ specifier|public
 specifier|abstract
 class|class
 name|SolrParams
+implements|implements
+name|Serializable
 block|{
 comment|/** returns the String value of a param, or null if not set */
 DECL|method|get
