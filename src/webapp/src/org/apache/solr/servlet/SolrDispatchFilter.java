@@ -310,7 +310,7 @@ name|pathPrefix
 init|=
 literal|null
 decl_stmt|;
-comment|// strip this from the begging of a path
+comment|// strip this from the beginning of a path
 DECL|field|abortErrorMessage
 specifier|protected
 name|String
