@@ -1352,7 +1352,16 @@ parameter_list|(
 name|InterruptedException
 name|e
 parameter_list|)
-block|{         }
+block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1815,6 +1824,10 @@ DECL|field|doFlushAfter
 name|boolean
 name|doFlushAfter
 decl_stmt|;
+DECL|field|abortOnExc
+name|boolean
+name|abortOnExc
+decl_stmt|;
 DECL|method|ThreadState
 specifier|public
 name|ThreadState
@@ -1971,6 +1984,14 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// If we hit an exception while appending to the
+comment|// stored fields or term vectors files, we have to
+comment|// abort because it means those files are possibly
+comment|// inconsistent.
+name|abortOnExc
+operator|=
+literal|true
+expr_stmt|;
 comment|// Append stored fields to the real FieldsWriter:
 name|fieldsWriter
 operator|.
@@ -2117,6 +2138,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|abortOnExc
+operator|=
+literal|false
+expr_stmt|;
 comment|// Append norms for the fields we saw:
 for|for
 control|(
@@ -2245,6 +2270,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|abortOnExc
+operator|=
+literal|false
+expr_stmt|;
 name|this
 operator|.
 name|docID
@@ -5247,6 +5276,10 @@ DECL|field|doVectorOffsets
 name|boolean
 name|doVectorOffsets
 decl_stmt|;
+DECL|field|postingsCompacted
+name|boolean
+name|postingsCompacted
+decl_stmt|;
 DECL|field|numPostings
 name|int
 name|numPostings
@@ -5314,6 +5347,14 @@ name|void
 name|resetPostingArrays
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|postingsCompacted
+condition|)
+name|compactPostings
+argument_list|()
+expr_stmt|;
 name|recyclePostings
 argument_list|(
 name|this
@@ -5337,6 +5378,10 @@ name|length
 argument_list|,
 literal|null
 argument_list|)
+expr_stmt|;
+name|postingsCompacted
+operator|=
+literal|false
 expr_stmt|;
 name|numPostings
 operator|=
@@ -5404,12 +5449,10 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/** Collapse the hash table& sort in-place. */
-DECL|method|sortPostings
-specifier|public
-name|Posting
-index|[]
-name|sortPostings
+DECL|method|compactPostings
+specifier|private
+name|void
+name|compactPostings
 parameter_list|()
 block|{
 name|int
@@ -5456,11 +5499,27 @@ name|upto
 operator|==
 name|numPostings
 assert|;
+name|postingsCompacted
+operator|=
+literal|true
+expr_stmt|;
+block|}
+comment|/** Collapse the hash table& sort in-place. */
+DECL|method|sortPostings
+specifier|public
+name|Posting
+index|[]
+name|sortPostings
+parameter_list|()
+block|{
+name|compactPostings
+argument_list|()
+expr_stmt|;
 name|doPostingSort
 argument_list|(
 name|postingsHash
 argument_list|,
-name|upto
+name|numPostings
 argument_list|)
 expr_stmt|;
 return|return
@@ -5517,7 +5576,10 @@ name|docFieldsFinal
 init|=
 name|docFields
 decl_stmt|;
-comment|// Walk through all occurrences in this doc for this field:
+comment|// Walk through all occurrences in this doc for this
+comment|// field:
+try|try
+block|{
 for|for
 control|(
 name|int
@@ -5581,6 +5643,9 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
 if|if
 condition|(
 name|postingsVectorsUpto
@@ -5613,6 +5678,7 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|field|offsetEnd
@@ -6243,6 +6309,10 @@ name|code
 operator|&
 name|postingsHashMask
 decl_stmt|;
+assert|assert
+operator|!
+name|postingsCompacted
+assert|;
 comment|// Locate Posting in hash
 name|p
 operator|=
@@ -6324,6 +6394,14 @@ specifier|final
 name|int
 name|proxCode
 decl_stmt|;
+comment|// If we hit an exception below, it's possible the
+comment|// posting list or term vectors data will be
+comment|// partially written and thus inconsistent if
+comment|// flushed, so we have to abort:
+name|abortOnExc
+operator|=
+literal|true
+expr_stmt|;
 if|if
 condition|(
 name|p
@@ -6622,6 +6700,10 @@ expr_stmt|;
 comment|// Just skip this term; we will throw an
 comment|// exception after processing all accepted
 comment|// terms in the doc
+name|abortOnExc
+operator|=
+literal|false
+expr_stmt|;
 return|return;
 block|}
 name|charPool
@@ -7062,6 +7144,10 @@ name|BYTE_BLOCK_NOT_MASK
 operator|)
 expr_stmt|;
 block|}
+name|abortOnExc
+operator|=
+literal|false
+expr_stmt|;
 block|}
 comment|/** Called when postings hash is too small (> 50%        *  occupied) or too large (< 20% occupied). */
 DECL|method|rehashPostings
@@ -10035,7 +10121,16 @@ parameter_list|(
 name|InterruptedException
 name|e
 parameter_list|)
-block|{}
+block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|segment
@@ -10115,6 +10210,37 @@ name|nextDocID
 operator|++
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|delTerm
+operator|!=
+literal|null
+condition|)
+block|{
+name|addDeleteTerm
+argument_list|(
+name|delTerm
+argument_list|,
+name|state
+operator|.
+name|docID
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|state
+operator|.
+name|doFlushAfter
+condition|)
+name|state
+operator|.
+name|doFlushAfter
+operator|=
+name|timeToFlushDeletes
+argument_list|()
+expr_stmt|;
+block|}
 name|success
 operator|=
 literal|true
@@ -10127,6 +10253,11 @@ condition|(
 operator|!
 name|success
 condition|)
+block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
 block|{
 name|state
 operator|.
@@ -10152,42 +10283,10 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-name|abort
+name|notifyAll
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-name|delTerm
-operator|!=
-literal|null
-condition|)
-block|{
-name|addDeleteTerm
-argument_list|(
-name|delTerm
-argument_list|,
-name|state
-operator|.
-name|docID
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|state
-operator|.
-name|doFlushAfter
-condition|)
-block|{
-name|state
-operator|.
-name|doFlushAfter
-operator|=
-name|timeToFlushDeletes
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 return|return
@@ -10291,6 +10390,8 @@ decl_stmt|;
 try|try
 block|{
 comment|// This call is not synchronized and does all the work
+try|try
+block|{
 name|state
 operator|.
 name|processDocument
@@ -10298,18 +10399,22 @@ argument_list|(
 name|analyzer
 argument_list|)
 expr_stmt|;
-comment|// This call synchronized but fast
+block|}
+finally|finally
+block|{
 name|maxTermHit
 operator|=
 name|state
 operator|.
 name|maxTermHit
 expr_stmt|;
+comment|// This call synchronized but fast
 name|finishDocument
 argument_list|(
 name|state
 argument_list|)
 expr_stmt|;
+block|}
 name|success
 operator|=
 literal|true
@@ -10323,15 +10428,30 @@ operator|!
 name|success
 condition|)
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 name|state
 operator|.
 name|isIdle
 operator|=
 literal|true
 expr_stmt|;
+if|if
+condition|(
+name|state
+operator|.
+name|abortOnExc
+condition|)
 name|abort
 argument_list|()
 expr_stmt|;
+name|notifyAll
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 name|int
@@ -10437,7 +10557,16 @@ parameter_list|(
 name|InterruptedException
 name|e
 parameter_list|)
-block|{}
+block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+block|}
 for|for
 control|(
 name|int
@@ -10499,7 +10628,16 @@ parameter_list|(
 name|InterruptedException
 name|e
 parameter_list|)
-block|{}
+block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+block|}
 name|addDeleteTerm
 argument_list|(
 name|term
