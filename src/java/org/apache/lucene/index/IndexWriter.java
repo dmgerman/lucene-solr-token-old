@@ -6936,14 +6936,6 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
-block|{
-if|if
-condition|(
-name|merge
-operator|.
-name|isAborted
-argument_list|()
-condition|)
 name|message
 argument_list|(
 literal|"commitMerge: skipping merge "
@@ -6958,7 +6950,6 @@ operator|+
 literal|": it was aborted"
 argument_list|)
 expr_stmt|;
-block|}
 assert|assert
 name|merge
 operator|.
@@ -8135,9 +8126,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// Bind a new segment name here so even with
-comment|// ConcurrentMergePolicy we keep deterministic segment
-comment|// names.
+if|if
+condition|(
+name|merge
+operator|.
+name|isAborted
+argument_list|()
+condition|)
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"merge is aborted"
+argument_list|)
+throw|;
 assert|assert
 name|merge
 operator|.
@@ -8573,6 +8575,9 @@ name|mergeDocStores
 operator|=
 name|mergeDocStores
 expr_stmt|;
+comment|// Bind a new segment name here so even with
+comment|// ConcurrentMergePolicy we keep deterministic segment
+comment|// names.
 name|merge
 operator|.
 name|info
@@ -8856,6 +8861,20 @@ literal|" docs"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|merge
+operator|.
+name|isAborted
+argument_list|()
+condition|)
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"merge is aborted"
+argument_list|)
+throw|;
 name|mergedDocCount
 operator|=
 name|merge
