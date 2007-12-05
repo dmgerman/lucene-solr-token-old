@@ -316,10 +316,6 @@ name|TermPositionVector
 name|tpVector
 decl_stmt|;
 specifier|final
-name|TermFreqVector
-name|tfVector
-decl_stmt|;
-specifier|final
 name|byte
 name|bits
 decl_stmt|;
@@ -351,10 +347,6 @@ name|vectors
 index|[
 name|i
 index|]
-expr_stmt|;
-name|tfVector
-operator|=
-literal|null
 expr_stmt|;
 name|storePositions
 operator|=
@@ -425,13 +417,6 @@ block|{
 name|tpVector
 operator|=
 literal|null
-expr_stmt|;
-name|tfVector
-operator|=
-name|vectors
-index|[
-name|i
-index|]
 expr_stmt|;
 name|bits
 operator|=

@@ -2005,11 +2005,6 @@ name|ParallelArrayTermVectorMapper
 extends|extends
 name|TermVectorMapper
 block|{
-DECL|field|numTerms
-specifier|private
-name|int
-name|numTerms
-decl_stmt|;
 DECL|field|terms
 specifier|private
 name|String
@@ -2028,8 +2023,6 @@ name|int
 name|positions
 index|[]
 index|[]
-init|=
-literal|null
 decl_stmt|;
 DECL|field|offsets
 specifier|private
@@ -2037,8 +2030,6 @@ name|TermVectorOffsetInfo
 name|offsets
 index|[]
 index|[]
-init|=
-literal|null
 decl_stmt|;
 DECL|field|currentPosition
 specifier|private
@@ -2078,12 +2069,6 @@ name|boolean
 name|storePositions
 parameter_list|)
 block|{
-name|this
-operator|.
-name|numTerms
-operator|=
-name|numTerms
-expr_stmt|;
 name|this
 operator|.
 name|field
