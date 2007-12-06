@@ -78,6 +78,7 @@ expr_stmt|;
 block|}
 comment|/** Expert: Constructs a TopDocs.*/
 DECL|method|TopDocs
+specifier|public
 name|TopDocs
 parameter_list|(
 name|int
