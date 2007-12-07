@@ -102,6 +102,13 @@ name|String
 name|getPath
 parameter_list|()
 function_decl|;
+DECL|method|getCore
+specifier|public
+name|String
+name|getCore
+parameter_list|()
+function_decl|;
+comment|// the name of requested core
 DECL|method|getMethod
 specifier|public
 name|METHOD

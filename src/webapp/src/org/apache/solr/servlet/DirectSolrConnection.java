@@ -460,6 +460,8 @@ operator|=
 operator|new
 name|SolrCore
 argument_list|(
+literal|"core"
+argument_list|,
 name|dataDir
 argument_list|,
 name|config
