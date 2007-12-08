@@ -1480,6 +1480,7 @@ literal|0
 decl_stmt|;
 DECL|method|getNextDocData
 specifier|protected
+specifier|synchronized
 name|DocData
 name|getNextDocData
 parameter_list|()
