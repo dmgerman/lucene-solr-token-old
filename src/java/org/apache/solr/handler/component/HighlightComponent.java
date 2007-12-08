@@ -22,19 +22,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
-operator|.
-name|queryParser
-operator|.
-name|ParseException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|solr
 operator|.
 name|common
@@ -168,6 +155,15 @@ name|HighlightComponent
 extends|extends
 name|SearchComponent
 block|{
+DECL|field|COMPONENT_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COMPONENT_NAME
+init|=
+literal|"highlight"
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|prepare
@@ -181,10 +177,6 @@ parameter_list|,
 name|SolrQueryResponse
 name|rsp
 parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|ParseException
 block|{        }
 annotation|@
 name|Override
