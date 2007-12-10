@@ -4441,13 +4441,7 @@ name|termVectorsReaderOrig
 operator|==
 literal|null
 condition|)
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"field does not contain term vectors"
-argument_list|)
-throw|;
+return|return;
 name|TermVectorsReader
 name|termVectorsReader
 init|=
@@ -4461,13 +4455,7 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Cannot open a reader for the term vectors"
-argument_list|)
-throw|;
+return|return;
 block|}
 name|termVectorsReader
 operator|.
