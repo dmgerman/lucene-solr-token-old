@@ -197,12 +197,7 @@ decl_stmt|;
 return|return
 operator|new
 name|DocValues
-argument_list|(
-name|reader
-operator|.
-name|maxDoc
 argument_list|()
-argument_list|)
 block|{
 comment|/*(non-Javadoc) @see org.apache.lucene.search.function.DocValues#floatVal(int) */
 specifier|public
