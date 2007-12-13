@@ -728,6 +728,7 @@ return|;
 block|}
 DECL|method|getNextDocData
 specifier|protected
+specifier|synchronized
 name|DocData
 name|getNextDocData
 parameter_list|()
