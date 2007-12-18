@@ -1851,9 +1851,9 @@ decl_stmt|;
 name|Object
 name|lookupArray
 init|=
-name|FieldCache
+name|ExtendedFieldCache
 operator|.
-name|DEFAULT
+name|EXT_DEFAULT
 operator|.
 name|getAuto
 argument_list|(
