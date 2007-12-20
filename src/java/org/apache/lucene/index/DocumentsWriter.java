@@ -1986,8 +1986,8 @@ name|IOException
 block|{
 comment|// If we hit an exception while appending to the
 comment|// stored fields or term vectors files, we have to
-comment|// abort because it means those files are possibly
-comment|// inconsistent.
+comment|// abort all documents since we last flushed because
+comment|// it means those files are possibly inconsistent.
 name|abortOnExc
 operator|=
 literal|true
@@ -1997,6 +1997,8 @@ name|fieldsWriter
 operator|.
 name|flushDocument
 argument_list|(
+name|numStoredFields
+argument_list|,
 name|fdtLocal
 argument_list|)
 expr_stmt|;
@@ -2004,6 +2006,10 @@ name|fdtLocal
 operator|.
 name|reset
 argument_list|()
+expr_stmt|;
+name|numStoredFields
+operator|=
+literal|0
 expr_stmt|;
 comment|// Append term vectors to the real outputs:
 if|if
@@ -2138,10 +2144,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|abortOnExc
-operator|=
-literal|false
-expr_stmt|;
 comment|// Append norms for the fields we saw:
 for|for
 control|(
@@ -2238,6 +2240,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|abortOnExc
+operator|=
+literal|false
+expr_stmt|;
 if|if
 condition|(
 name|bufferIsFull
@@ -2303,6 +2309,22 @@ name|maxTermHit
 operator|=
 literal|0
 expr_stmt|;
+assert|assert
+literal|0
+operator|==
+name|fdtLocal
+operator|.
+name|length
+argument_list|()
+assert|;
+assert|assert
+literal|0
+operator|==
+name|tvfLocal
+operator|.
+name|length
+argument_list|()
+assert|;
 name|List
 name|docFields
 init|=
@@ -2397,17 +2419,6 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|numStoredFields
-operator|+=
-name|field
-operator|.
-name|isStored
-argument_list|()
-condition|?
-literal|1
-else|:
-literal|0
-expr_stmt|;
 if|if
 condition|(
 name|fi
@@ -4269,13 +4280,14 @@ name|numFields
 init|=
 name|numFieldData
 decl_stmt|;
+assert|assert
+literal|0
+operator|==
 name|fdtLocal
 operator|.
-name|writeVInt
-argument_list|(
-name|numStoredFields
-argument_list|)
-expr_stmt|;
+name|length
+argument_list|()
+assert|;
 if|if
 condition|(
 name|tvx
@@ -5626,6 +5638,17 @@ operator|.
 name|isStored
 argument_list|()
 condition|)
+block|{
+name|numStoredFields
+operator|++
+expr_stmt|;
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
 name|localFieldsWriter
 operator|.
 name|writeField
@@ -5635,6 +5658,36 @@ argument_list|,
 name|field
 argument_list|)
 expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// If we hit an exception inside
+comment|// localFieldsWriter.writeField, the
+comment|// contents of fdtLocal can be corrupt, so
+comment|// we must discard all stored fields for
+comment|// this document:
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+block|{
+name|numStoredFields
+operator|=
+literal|0
+expr_stmt|;
+name|fdtLocal
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
 name|docFieldsFinal
 index|[
 name|j
@@ -5654,11 +5707,45 @@ literal|0
 condition|)
 block|{
 comment|// Add term vectors for this field
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
 name|writeVectors
 argument_list|(
 name|fieldInfo
 argument_list|)
 expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+block|{
+comment|// If we hit an exception inside
+comment|// writeVectors, the contents of tvfLocal
+comment|// can be corrupt, so we must discard all
+comment|// term vectors for this document:
+name|numVectorFields
+operator|=
+literal|0
+expr_stmt|;
+name|tvfLocal
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|postingsVectorsUpto
@@ -5678,6 +5765,7 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -6397,7 +6485,8 @@ decl_stmt|;
 comment|// If we hit an exception below, it's possible the
 comment|// posting list or term vectors data will be
 comment|// partially written and thus inconsistent if
-comment|// flushed, so we have to abort:
+comment|// flushed, so we have to abort all documents
+comment|// since the last flush:
 name|abortOnExc
 operator|=
 literal|true
@@ -10384,9 +10473,9 @@ name|maxTermHit
 decl_stmt|;
 try|try
 block|{
-comment|// This call is not synchronized and does all the work
 try|try
 block|{
+comment|// This call is not synchronized and does all the work
 name|state
 operator|.
 name|processDocument
@@ -10403,7 +10492,7 @@ name|state
 operator|.
 name|maxTermHit
 expr_stmt|;
-comment|// This call synchronized but fast
+comment|// This call is synchronized but fast
 name|finishDocument
 argument_list|(
 name|state

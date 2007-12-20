@@ -1141,6 +1141,10 @@ name|size
 argument_list|()
 index|]
 decl_stmt|;
+comment|// If this reader is a SegmentReader, and all of its
+comment|// field name -> number mappings match the "merged"
+comment|// FieldInfos, then we can do a bulk copy of the
+comment|// stored fields:
 for|for
 control|(
 name|int
@@ -1172,35 +1176,11 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|boolean
-name|same
-init|=
-name|reader
-operator|.
-name|getFieldNames
-argument_list|(
-name|IndexReader
-operator|.
-name|FieldOption
-operator|.
-name|ALL
-argument_list|)
-operator|.
-name|size
-argument_list|()
-operator|==
-name|fieldInfos
-operator|.
-name|size
-argument_list|()
-operator|&&
+if|if
+condition|(
 name|reader
 operator|instanceof
 name|SegmentReader
-decl_stmt|;
-if|if
-condition|(
-name|same
 condition|)
 block|{
 name|SegmentReader
@@ -1210,6 +1190,19 @@ operator|(
 name|SegmentReader
 operator|)
 name|reader
+decl_stmt|;
+name|boolean
+name|same
+init|=
+literal|true
+decl_stmt|;
+name|FieldInfos
+name|segmentFieldInfos
+init|=
+name|segmentReader
+operator|.
+name|getFieldInfos
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1222,7 +1215,7 @@ name|same
 operator|&&
 name|j
 operator|<
-name|fieldInfos
+name|segmentFieldInfos
 operator|.
 name|size
 argument_list|()
@@ -1241,10 +1234,7 @@ argument_list|)
 operator|.
 name|equals
 argument_list|(
-name|segmentReader
-operator|.
-name|getFieldInfos
-argument_list|()
+name|segmentFieldInfos
 operator|.
 name|fieldName
 argument_list|(
@@ -1256,6 +1246,7 @@ if|if
 condition|(
 name|same
 condition|)
+block|{
 name|matchingSegmentReaders
 index|[
 name|i
@@ -1263,6 +1254,7 @@ index|]
 operator|=
 name|segmentReader
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Used for bulk-reading raw bytes for stored fields
