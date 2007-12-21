@@ -215,7 +215,7 @@ operator|.
 name|getCore
 argument_list|()
 operator|.
-name|getIndexDir
+name|getDataDir
 argument_list|()
 decl_stmt|;
 name|String
