@@ -45,6 +45,16 @@ name|PERSISTENT
 init|=
 literal|"persistent"
 decl_stmt|;
+comment|/** The name of the the core to swap names with **/
+DECL|field|WITH
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|WITH
+init|=
+literal|"with"
+decl_stmt|;
 comment|/** What action **/
 DECL|field|ACTION
 specifier|public
@@ -72,8 +82,8 @@ block|,
 DECL|enum constant|RELOAD
 name|RELOAD
 block|,
-DECL|enum constant|SETASDEFAULT
-name|SETASDEFAULT
+DECL|enum constant|SWAP
+name|SWAP
 block|;
 DECL|method|get
 specifier|public
