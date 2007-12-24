@@ -236,6 +236,8 @@ return|;
 block|}
 DECL|class|SavedStreams
 specifier|private
+specifier|static
+specifier|final
 class|class
 name|SavedStreams
 block|{
@@ -248,7 +250,6 @@ name|TokenStream
 name|filteredTokenStream
 decl_stmt|;
 block|}
-empty_stmt|;
 DECL|method|reusableTokenStream
 specifier|public
 name|TokenStream
