@@ -460,7 +460,7 @@ operator|=
 operator|new
 name|SolrCore
 argument_list|(
-literal|"core"
+literal|null
 argument_list|,
 name|dataDir
 argument_list|,
