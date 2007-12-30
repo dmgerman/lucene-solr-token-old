@@ -122,6 +122,11 @@ name|upto
 init|=
 literal|0
 decl_stmt|;
+name|result
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|char
 index|[]
 name|buffer
