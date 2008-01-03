@@ -99,6 +99,13 @@ name|numGoodPoints
 init|=
 literal|0
 decl_stmt|;
+DECL|field|mrr
+specifier|private
+name|double
+name|mrr
+init|=
+literal|0
+decl_stmt|;
 DECL|field|searchTime
 specifier|private
 name|long
@@ -294,6 +301,28 @@ name|numGoodPoints
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|recallPoints
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+operator|&&
+name|n
+operator|<=
+literal|5
+condition|)
+block|{
+comment|// first point, but only within 5 top scores.
+name|mrr
+operator|=
+literal|1.0
+operator|/
+name|n
+expr_stmt|;
+block|}
 block|}
 name|numPoints
 operator|=
@@ -417,7 +446,7 @@ name|n
 index|]
 return|;
 block|}
-comment|/**    * Return the average precision at recall points: sum of precision at recall points / maxGoodPoints.    */
+comment|/**    * Return the average precision at recall points.    */
 DECL|method|getAvp
 specifier|public
 name|double
@@ -719,6 +748,31 @@ name|prefix
 operator|+
 name|format
 argument_list|(
+literal|"MRR: "
+argument_list|,
+name|M
+argument_list|)
+operator|+
+name|fracFormat
+argument_list|(
+name|nf
+operator|.
+name|format
+argument_list|(
+name|getMRR
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|println
+argument_list|(
+name|prefix
+operator|+
+name|format
+argument_list|(
 literal|"Recall: "
 argument_list|,
 name|M
@@ -969,6 +1023,20 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|stats
+operator|.
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+comment|// weired, no stats to average!
+return|return
+name|avg
+return|;
+block|}
 name|int
 name|m
 init|=
@@ -1077,6 +1145,18 @@ name|recall
 expr_stmt|;
 name|avg
 operator|.
+name|mrr
+operator|+=
+name|stats
+index|[
+name|i
+index|]
+operator|.
+name|getMRR
+argument_list|()
+expr_stmt|;
+name|avg
+operator|.
 name|maxGoodPoints
 operator|+=
 name|stats
@@ -1164,6 +1244,12 @@ expr_stmt|;
 name|avg
 operator|.
 name|recall
+operator|/=
+name|m
+expr_stmt|;
+name|avg
+operator|.
+name|mrr
 operator|/=
 name|m
 expr_stmt|;
@@ -1289,6 +1375,17 @@ index|[
 literal|0
 index|]
 argument_list|)
+return|;
+block|}
+comment|/**    * Returns the Mean reciprocal rank over the queries or RR for a single query.    *<p>    * Reciprocal rank is defined as<code>1/r</code> where<code>r</code> is the     * rank of the first correct result, or<code>0</code> if there are no correct     * results within the top 5 results.     *<p>    * This follows the definition in     *<a href="http://www.cnlp.org/publications/02cnlptrec10.pdf">     * Question Answering - CNLP at the TREC-10 Question Answering Track</a>.    */
+DECL|method|getMRR
+specifier|public
+name|double
+name|getMRR
+parameter_list|()
+block|{
+return|return
+name|mrr
 return|;
 block|}
 comment|/**    * Returns the search time in milliseconds for the measured query.    */

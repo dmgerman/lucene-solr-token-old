@@ -324,6 +324,13 @@ argument_list|,
 name|docNameField
 argument_list|)
 decl_stmt|;
+name|qrun
+operator|.
+name|setMaxResults
+argument_list|(
+name|maxResults
+argument_list|)
+expr_stmt|;
 name|SubmissionReport
 name|submitLog
 init|=
@@ -337,8 +344,6 @@ name|qrun
 operator|.
 name|execute
 argument_list|(
-name|maxResults
-argument_list|,
 name|judge
 argument_list|,
 name|submitLog
