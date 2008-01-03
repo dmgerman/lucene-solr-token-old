@@ -157,10 +157,10 @@ name|PerfTask
 index|[]
 name|tasksArray
 decl_stmt|;
-DECL|field|anyExhaustableTasks
+DECL|field|anyExhaustibleTasks
 specifier|private
 name|boolean
-name|anyExhaustableTasks
+name|anyExhaustibleTasks
 decl_stmt|;
 DECL|method|TaskSequence
 specifier|public
@@ -289,7 +289,7 @@ argument_list|(
 name|k
 argument_list|)
 expr_stmt|;
-name|anyExhaustableTasks
+name|anyExhaustibleTasks
 operator||=
 name|tasksArray
 index|[
@@ -298,7 +298,7 @@ index|]
 operator|instanceof
 name|ResetInputsTask
 expr_stmt|;
-name|anyExhaustableTasks
+name|anyExhaustibleTasks
 operator||=
 name|tasksArray
 index|[
@@ -528,7 +528,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|anyExhaustableTasks
+name|anyExhaustibleTasks
 condition|)
 name|updateExhausted
 argument_list|(
@@ -683,7 +683,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|anyExhaustableTasks
+name|anyExhaustibleTasks
 condition|)
 name|updateExhausted
 argument_list|(
