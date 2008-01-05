@@ -123,11 +123,6 @@ argument_list|<
 name|String
 argument_list|>
 name|escapedTags
-init|=
-name|Collections
-operator|.
-name|emptySet
-argument_list|()
 decl_stmt|;
 comment|// pushback buffer
 DECL|field|pushed
@@ -1445,6 +1440,10 @@ block|}
 if|if
 condition|(
 name|escapedTags
+operator|!=
+literal|null
+operator|&&
+name|escapedTags
 operator|.
 name|contains
 argument_list|(
@@ -1895,9 +1894,19 @@ block|{
 name|StringBuilder
 name|builder
 init|=
+operator|(
+name|checkEscaped
+operator|&&
+name|escapedTags
+operator|!=
+literal|null
+operator|)
+condition|?
 operator|new
 name|StringBuilder
 argument_list|()
+else|:
+literal|null
 decl_stmt|;
 name|int
 name|ch
@@ -1905,6 +1914,12 @@ init|=
 name|read
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|builder
+operator|!=
+literal|null
+condition|)
 name|builder
 operator|.
 name|append
@@ -1931,6 +1946,12 @@ operator|=
 name|read
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|builder
+operator|!=
+literal|null
+condition|)
 name|builder
 operator|.
 name|append
@@ -1954,6 +1975,12 @@ operator|=
 name|read
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|builder
+operator|!=
+literal|null
+condition|)
 name|builder
 operator|.
 name|append
@@ -1982,7 +2009,9 @@ block|}
 comment|//strip off the trailing>
 if|if
 condition|(
-name|checkEscaped
+name|builder
+operator|!=
+literal|null
 operator|&&
 name|escapedTags
 operator|.
