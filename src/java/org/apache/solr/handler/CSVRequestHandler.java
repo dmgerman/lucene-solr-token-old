@@ -993,7 +993,7 @@ name|ErrorCode
 operator|.
 name|BAD_REQUEST
 argument_list|,
-literal|""
+name|e
 argument_list|)
 throw|;
 block|}
