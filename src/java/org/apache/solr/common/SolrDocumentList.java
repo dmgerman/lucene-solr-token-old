@@ -39,14 +39,14 @@ argument_list|>
 block|{
 DECL|field|numFound
 specifier|private
-name|int
+name|long
 name|numFound
 init|=
 literal|0
 decl_stmt|;
 DECL|field|start
 specifier|private
-name|int
+name|long
 name|start
 init|=
 literal|0
@@ -86,7 +86,7 @@ expr_stmt|;
 block|}
 DECL|method|getNumFound
 specifier|public
-name|int
+name|long
 name|getNumFound
 parameter_list|()
 block|{
@@ -99,7 +99,7 @@ specifier|public
 name|void
 name|setNumFound
 parameter_list|(
-name|int
+name|long
 name|numFound
 parameter_list|)
 block|{
@@ -112,7 +112,7 @@ expr_stmt|;
 block|}
 DECL|method|getStart
 specifier|public
-name|int
+name|long
 name|getStart
 parameter_list|()
 block|{
@@ -125,7 +125,7 @@ specifier|public
 name|void
 name|setStart
 parameter_list|(
-name|int
+name|long
 name|start
 parameter_list|)
 block|{
