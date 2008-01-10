@@ -223,6 +223,10 @@ DECL|field|t
 name|Thread
 name|t
 decl_stmt|;
+DECL|field|threadDone
+name|boolean
+name|threadDone
+decl_stmt|;
 DECL|method|run
 specifier|public
 name|void
@@ -382,6 +386,22 @@ name|ioe
 argument_list|)
 throw|;
 block|}
+finally|finally
+block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+name|threadDone
+operator|=
+literal|true
+expr_stmt|;
+name|notify
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|field|tuple
 name|String
@@ -407,6 +427,10 @@ operator|==
 literal|null
 condition|)
 block|{
+name|threadDone
+operator|=
+literal|false
+expr_stmt|;
 name|t
 operator|=
 operator|new
@@ -446,6 +470,9 @@ operator|&&
 name|nmde
 operator|==
 literal|null
+operator|&&
+operator|!
+name|threadDone
 condition|)
 block|{
 try|try
@@ -478,6 +505,23 @@ throw|throw
 name|nmde
 throw|;
 block|}
+if|if
+condition|(
+name|t
+operator|!=
+literal|null
+operator|&&
+name|threadDone
+condition|)
+comment|// The thread has exited yet did not hit end of
+comment|// data, so this means it hit an exception.  We
+comment|// throw NoMorDataException here to force
+comment|// benchmark to stop the current alg:
+throw|throw
+operator|new
+name|NoMoreDataException
+argument_list|()
+throw|;
 name|result
 operator|=
 name|tuple
