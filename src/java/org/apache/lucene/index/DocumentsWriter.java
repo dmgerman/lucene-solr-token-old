@@ -367,6 +367,7 @@ name|numWaiting
 decl_stmt|;
 DECL|field|waitingThreadStates
 specifier|private
+specifier|final
 name|ThreadState
 index|[]
 name|waitingThreadStates
@@ -374,7 +375,7 @@ init|=
 operator|new
 name|ThreadState
 index|[
-literal|1
+name|MAX_THREAD_STATE
 index|]
 decl_stmt|;
 DECL|field|pauseThreads
@@ -396,6 +397,12 @@ name|boolean
 name|bufferIsFull
 decl_stmt|;
 comment|// True when it's time to write segment
+DECL|field|aborting
+specifier|private
+name|boolean
+name|aborting
+decl_stmt|;
+comment|// True while abort is running
 DECL|field|infoStream
 specifier|private
 name|PrintStream
@@ -988,14 +995,42 @@ return|return
 name|files
 return|;
 block|}
-comment|/** Called if we hit an exception when adding docs,    *  flushing, etc.  This resets our state, discarding any    *  docs added since last flush. */
+DECL|method|setAborting
+specifier|synchronized
+name|void
+name|setAborting
+parameter_list|()
+block|{
+name|aborting
+operator|=
+literal|true
+expr_stmt|;
+block|}
+comment|/** Called if we hit an exception when adding docs,    *  flushing, etc.  This resets our state, discarding any    *  docs added since last flush.  If ae is non-null, it    *  contains the root cause exception (which we re-throw    *  after we are done aborting). */
 DECL|method|abort
 specifier|synchronized
 name|void
 name|abort
-parameter_list|()
+parameter_list|(
+name|AbortException
+name|ae
+parameter_list|)
 throws|throws
 name|IOException
+block|{
+comment|// Anywhere that throws an AbortException must first
+comment|// mark aborting to make sure while the exception is
+comment|// unwinding the un-synchronized stack, no thread grabs
+comment|// the corrupt ThreadState that hit the aborting
+comment|// exception:
+assert|assert
+name|ae
+operator|==
+literal|null
+operator|||
+name|aborting
+assert|;
+try|try
 block|{
 if|if
 condition|(
@@ -1038,9 +1073,17 @@ name|numWaiting
 operator|=
 literal|0
 expr_stmt|;
+comment|// Wait for all other threads to finish with DocumentsWriter:
 name|pauseAllThreads
 argument_list|()
 expr_stmt|;
+assert|assert
+literal|0
+operator|==
+name|numWaiting
+assert|;
+try|try
+block|{
 name|bufferedDeleteTerms
 operator|.
 name|clear
@@ -1055,8 +1098,6 @@ name|numBufferedDeleteTerms
 operator|=
 literal|0
 expr_stmt|;
-try|try
-block|{
 name|abortedFiles
 operator|=
 name|files
@@ -1147,22 +1188,73 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|tvx
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|tvf
-operator|.
-name|close
-argument_list|()
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{           }
+name|tvx
+operator|=
+literal|null
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|tvd
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
 name|tvd
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|tvx
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{           }
+name|tvd
+operator|=
+literal|null
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|tvf
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|tvf
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{           }
+name|tvf
 operator|=
 literal|null
 expr_stmt|;
@@ -1175,20 +1267,25 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|fieldsWriter
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{           }
 name|fieldsWriter
 operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|// Reset all postings data
-name|resetPostingsData
-argument_list|()
-expr_stmt|;
 comment|// Clear vectors& fields from ThreadStates
 for|for
 control|(
@@ -1253,6 +1350,10 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Reset all postings data
+name|resetPostingsData
+argument_list|()
+expr_stmt|;
 name|docStoreSegment
 operator|=
 literal|null
@@ -1265,6 +1366,81 @@ block|}
 finally|finally
 block|{
 name|resumeAllThreads
+argument_list|()
+expr_stmt|;
+block|}
+comment|// If we have a root cause exception, re-throw it now:
+if|if
+condition|(
+name|ae
+operator|!=
+literal|null
+condition|)
+block|{
+name|Throwable
+name|t
+init|=
+name|ae
+operator|.
+name|getCause
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|t
+operator|instanceof
+name|IOException
+condition|)
+throw|throw
+operator|(
+name|IOException
+operator|)
+name|t
+throw|;
+elseif|else
+if|if
+condition|(
+name|t
+operator|instanceof
+name|RuntimeException
+condition|)
+throw|throw
+operator|(
+name|RuntimeException
+operator|)
+name|t
+throw|;
+elseif|else
+if|if
+condition|(
+name|t
+operator|instanceof
+name|Error
+condition|)
+throw|throw
+operator|(
+name|Error
+operator|)
+name|t
+throw|;
+else|else
+comment|// Should not get here
+assert|assert
+literal|false
+operator|:
+literal|"unknown exception: "
+operator|+
+name|t
+assert|;
+block|}
+block|}
+finally|finally
+block|{
+name|aborting
+operator|=
+literal|false
+expr_stmt|;
+name|notifyAll
 argument_list|()
 expr_stmt|;
 block|}
@@ -1359,22 +1535,16 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|// Returns true if an abort is in progress
 DECL|method|pauseAllThreads
 specifier|synchronized
-name|void
+name|boolean
 name|pauseAllThreads
 parameter_list|()
 block|{
 name|pauseThreads
 operator|++
 expr_stmt|;
-if|if
-condition|(
-literal|1
-operator|==
-name|pauseThreads
-condition|)
-block|{
 while|while
 condition|(
 operator|!
@@ -1404,7 +1574,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-block|}
+return|return
+name|aborting
+return|;
 block|}
 DECL|method|resumeAllThreads
 specifier|synchronized
@@ -1482,6 +1654,7 @@ name|newFiles
 decl_stmt|;
 comment|/** Flush all pending docs to a new segment */
 DECL|method|flush
+specifier|synchronized
 name|int
 name|flush
 parameter_list|(
@@ -1519,36 +1692,6 @@ name|docStoreOffset
 operator|=
 name|numDocsInStore
 expr_stmt|;
-if|if
-condition|(
-name|closeDocStore
-condition|)
-block|{
-assert|assert
-name|docStoreSegment
-operator|!=
-literal|null
-assert|;
-assert|assert
-name|docStoreSegment
-operator|.
-name|equals
-argument_list|(
-name|segment
-argument_list|)
-assert|;
-name|newFiles
-operator|.
-name|addAll
-argument_list|(
-name|files
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|closeDocStore
-argument_list|()
-expr_stmt|;
-block|}
 name|int
 name|docCount
 decl_stmt|;
@@ -1583,6 +1726,36 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|closeDocStore
+condition|)
+block|{
+assert|assert
+name|docStoreSegment
+operator|!=
+literal|null
+assert|;
+assert|assert
+name|docStoreSegment
+operator|.
+name|equals
+argument_list|(
+name|segment
+argument_list|)
+assert|;
+name|newFiles
+operator|.
+name|addAll
+argument_list|(
+name|files
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|closeDocStore
+argument_list|()
+expr_stmt|;
+block|}
 name|fieldInfos
 operator|.
 name|write
@@ -1619,7 +1792,9 @@ operator|!
 name|success
 condition|)
 name|abort
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -1866,10 +2041,6 @@ DECL|field|doFlushAfter
 name|boolean
 name|doFlushAfter
 decl_stmt|;
-DECL|field|abortOnExc
-name|boolean
-name|abortOnExc
-decl_stmt|;
 DECL|method|ThreadState
 specifier|public
 name|ThreadState
@@ -1950,6 +2121,10 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|fieldGen
+operator|=
+literal|0
+expr_stmt|;
 name|maxPostingsVectors
 operator|=
 literal|0
@@ -2025,15 +2200,15 @@ name|writeDocument
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|AbortException
 block|{
 comment|// If we hit an exception while appending to the
 comment|// stored fields or term vectors files, we have to
 comment|// abort all documents since we last flushed because
 comment|// it means those files are possibly inconsistent.
-name|abortOnExc
-operator|=
-literal|true
-expr_stmt|;
+try|try
+block|{
 comment|// Append stored fields to the real FieldsWriter:
 name|fieldsWriter
 operator|.
@@ -2048,10 +2223,6 @@ name|fdtLocal
 operator|.
 name|reset
 argument_list|()
-expr_stmt|;
-name|numStoredFields
-operator|=
-literal|0
 expr_stmt|;
 comment|// Append term vectors to the real outputs:
 if|if
@@ -2282,10 +2453,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|abortOnExc
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// Forcefully idle this threadstate -- its state will
+comment|// be reset by abort()
+name|isIdle
 operator|=
-literal|false
+literal|true
 expr_stmt|;
+throw|throw
+operator|new
+name|AbortException
+argument_list|(
+name|t
+argument_list|,
+name|DocumentsWriter
+operator|.
+name|this
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|bufferIsFull
@@ -2304,6 +2496,10 @@ literal|true
 expr_stmt|;
 block|}
 block|}
+DECL|field|fieldGen
+name|int
+name|fieldGen
+decl_stmt|;
 comment|/** Initializes shared state for this new document */
 DECL|method|init
 name|void
@@ -2317,11 +2513,13 @@ name|docID
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|AbortException
 block|{
-name|abortOnExc
-operator|=
-literal|false
-expr_stmt|;
+assert|assert
+operator|!
+name|isIdle
+assert|;
 name|this
 operator|.
 name|docID
@@ -2362,11 +2560,34 @@ assert|;
 assert|assert
 literal|0
 operator|==
+name|fdtLocal
+operator|.
+name|getFilePointer
+argument_list|()
+assert|;
+assert|assert
+literal|0
+operator|==
 name|tvfLocal
 operator|.
 name|length
 argument_list|()
 assert|;
+assert|assert
+literal|0
+operator|==
+name|tvfLocal
+operator|.
+name|getFilePointer
+argument_list|()
+assert|;
+specifier|final
+name|int
+name|thisFieldGen
+init|=
+name|fieldGen
+operator|++
+decl_stmt|;
 name|List
 name|docFields
 init|=
@@ -2663,6 +2884,15 @@ operator|*
 literal|1.5
 argument_list|)
 decl_stmt|;
+name|int
+name|newHashSize
+init|=
+name|fieldDataHash
+operator|.
+name|length
+operator|*
+literal|2
+decl_stmt|;
 name|FieldData
 name|newArray
 index|[]
@@ -2671,6 +2901,16 @@ operator|new
 name|FieldData
 index|[
 name|newSize
+index|]
+decl_stmt|;
+name|FieldData
+name|newHashArray
+index|[]
+init|=
+operator|new
+name|FieldData
+index|[
+name|newHashSize
 index|]
 decl_stmt|;
 name|System
@@ -2688,27 +2928,7 @@ argument_list|,
 name|numAllFieldData
 argument_list|)
 expr_stmt|;
-name|allFieldDataArray
-operator|=
-name|newArray
-expr_stmt|;
 comment|// Rehash
-name|newSize
-operator|=
-name|fieldDataHash
-operator|.
-name|length
-operator|*
-literal|2
-expr_stmt|;
-name|newArray
-operator|=
-operator|new
-name|FieldData
-index|[
-name|newSize
-index|]
-expr_stmt|;
 name|fieldDataHashMask
 operator|=
 name|newSize
@@ -2771,12 +2991,12 @@ name|fp0
 operator|.
 name|next
 operator|=
-name|newArray
+name|newHashArray
 index|[
 name|hashPos
 index|]
 expr_stmt|;
-name|newArray
+name|newHashArray
 index|[
 name|hashPos
 index|]
@@ -2789,9 +3009,13 @@ name|nextFP0
 expr_stmt|;
 block|}
 block|}
-name|fieldDataHash
+name|allFieldDataArray
 operator|=
 name|newArray
+expr_stmt|;
+name|fieldDataHash
+operator|=
+name|newHashArray
 expr_stmt|;
 block|}
 name|allFieldDataArray
@@ -2815,19 +3039,19 @@ assert|;
 block|}
 if|if
 condition|(
-name|docID
+name|thisFieldGen
 operator|!=
 name|fp
 operator|.
-name|lastDocID
+name|lastGen
 condition|)
 block|{
 comment|// First time we're seeing this field for this doc
 name|fp
 operator|.
-name|lastDocID
+name|lastGen
 operator|=
-name|docID
+name|thisFieldGen
 expr_stmt|;
 name|fp
 operator|.
@@ -3119,6 +3343,12 @@ name|docStoreSegment
 operator|=
 name|segment
 expr_stmt|;
+comment|// If we hit an exception while init'ing the
+comment|// fieldsWriter, we must abort this segment
+comment|// because those files will be in an unknown
+comment|// state:
+try|try
+block|{
 name|fieldsWriter
 operator|=
 operator|new
@@ -3131,6 +3361,25 @@ argument_list|,
 name|fieldInfos
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|AbortException
+argument_list|(
+name|t
+argument_list|,
+name|DocumentsWriter
+operator|.
+name|this
+argument_list|)
+throw|;
+block|}
 name|files
 operator|=
 literal|null
@@ -3168,6 +3417,12 @@ name|docStoreSegment
 operator|!=
 literal|null
 assert|;
+comment|// If we hit an exception while init'ing the term
+comment|// vector output files, we must abort this segment
+comment|// because those files will be in an unknown
+comment|// state:
+try|try
+block|{
 name|tvx
 operator|=
 name|directory
@@ -3240,10 +3495,6 @@ operator|.
 name|FORMAT_VERSION
 argument_list|)
 expr_stmt|;
-name|files
-operator|=
-literal|null
-expr_stmt|;
 comment|// We must "catch up" for all docIDs that had no
 comment|// vectors before this one
 for|for
@@ -3266,6 +3517,29 @@ name|writeLong
 argument_list|(
 literal|0
 argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|AbortException
+argument_list|(
+name|t
+argument_list|,
+name|DocumentsWriter
+operator|.
+name|this
+argument_list|)
+throw|;
+block|}
+name|files
+operator|=
+literal|null
 expr_stmt|;
 block|}
 name|numVectorFields
@@ -3982,7 +4256,7 @@ if|if
 condition|(
 name|fp
 operator|.
-name|lastDocID
+name|lastGen
 operator|==
 operator|-
 literal|1
@@ -4091,7 +4365,7 @@ block|{
 comment|// Reset
 name|fp
 operator|.
-name|lastDocID
+name|lastGen
 operator|=
 operator|-
 literal|1
@@ -4311,6 +4585,8 @@ name|analyzer
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|AbortException
 block|{
 specifier|final
 name|int
@@ -5324,9 +5600,9 @@ index|[
 literal|1
 index|]
 decl_stmt|;
-DECL|field|lastDocID
+DECL|field|lastGen
 name|int
-name|lastDocID
+name|lastGen
 init|=
 operator|-
 literal|1
@@ -5612,6 +5888,8 @@ name|analyzer
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|AbortException
 block|{
 name|length
 operator|=
@@ -5738,17 +6016,11 @@ condition|(
 operator|!
 name|success
 condition|)
-block|{
-name|numStoredFields
-operator|=
-literal|0
-expr_stmt|;
 name|fdtLocal
 operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 name|docFieldsFinal
@@ -5862,6 +6134,8 @@ name|maxFieldLength
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|AbortException
 block|{
 if|if
 condition|(
@@ -6432,6 +6706,8 @@ parameter_list|(
 name|Token
 name|token
 parameter_list|)
+throws|throws
+name|AbortException
 block|{
 specifier|final
 name|Payload
@@ -6593,10 +6869,8 @@ comment|// posting list or term vectors data will be
 comment|// partially written and thus inconsistent if
 comment|// flushed, so we have to abort all documents
 comment|// since the last flush:
-name|abortOnExc
-operator|=
-literal|true
-expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|p
@@ -6893,10 +7167,6 @@ comment|// possible during indexing.  A TokenFilter
 comment|// can be inserted into the analyzer chain if
 comment|// other behavior is wanted (pruning the term
 comment|// to a prefix, throwing an exception, etc).
-name|abortOnExc
-operator|=
-literal|false
-expr_stmt|;
 if|if
 condition|(
 name|maxTermPrefix
@@ -7359,10 +7629,25 @@ name|BYTE_BLOCK_NOT_MASK
 operator|)
 expr_stmt|;
 block|}
-name|abortOnExc
-operator|=
-literal|false
-expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|AbortException
+argument_list|(
+name|t
+argument_list|,
+name|DocumentsWriter
+operator|.
+name|this
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/** Called when postings hash is too small (> 50%        *  occupied) or too large (< 20% occupied). */
 DECL|method|rehashPostings
@@ -10105,6 +10390,9 @@ name|closed
 operator|=
 literal|true
 expr_stmt|;
+name|notifyAll
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** Returns a free (idle) ThreadState that may be used for    * indexing this one document.  This call also pauses if a    * flush is pending.  If delTerm is non-null then we    * buffer this deleted term after the thread state has    * been acquired. */
 DECL|method|getThreadState
@@ -10307,6 +10595,10 @@ comment|// not be paused nor a flush pending:
 while|while
 condition|(
 operator|!
+name|closed
+operator|&&
+operator|(
+operator|!
 name|state
 operator|.
 name|isIdle
@@ -10316,6 +10608,9 @@ operator|!=
 literal|0
 operator|||
 name|flushPending
+operator|||
+name|aborting
+operator|)
 condition|)
 try|try
 block|{
@@ -10411,6 +10706,8 @@ name|isIdle
 operator|=
 literal|false
 expr_stmt|;
+try|try
+block|{
 name|boolean
 name|success
 init|=
@@ -10425,7 +10722,6 @@ argument_list|(
 name|doc
 argument_list|,
 name|nextDocID
-operator|++
 argument_list|)
 expr_stmt|;
 if|if
@@ -10459,6 +10755,10 @@ name|timeToFlushDeletes
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Only increment nextDocID on successful init
+name|nextDocID
+operator|++
+expr_stmt|;
 name|success
 operator|=
 literal|true
@@ -10472,16 +10772,15 @@ operator|!
 name|success
 condition|)
 block|{
-synchronized|synchronized
-init|(
-name|this
-init|)
-block|{
+comment|// Forcefully idle this ThreadState:
 name|state
 operator|.
 name|isIdle
 operator|=
 literal|true
+expr_stmt|;
+name|notifyAll
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -10501,11 +10800,20 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-name|notifyAll
-argument_list|()
+block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|AbortException
+name|ae
+parameter_list|)
+block|{
+name|abort
+argument_list|(
+name|ae
+argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 return|return
 name|state
@@ -10597,6 +10905,8 @@ argument_list|,
 name|delTerm
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|boolean
 name|success
 init|=
@@ -10642,23 +10952,6 @@ init|(
 name|this
 init|)
 block|{
-name|state
-operator|.
-name|isIdle
-operator|=
-literal|true
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|.
-name|abortOnExc
-condition|)
-comment|// Abort all buffered docs since last flush
-name|abort
-argument_list|()
-expr_stmt|;
-else|else
 comment|// Immediately mark this document as deleted
 comment|// since likely it was partially added.  This
 comment|// keeps indexing as "all or none" (atomic) when
@@ -10670,11 +10963,21 @@ operator|.
 name|docID
 argument_list|)
 expr_stmt|;
-name|notifyAll
-argument_list|()
+block|}
+block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|AbortException
+name|ae
+parameter_list|)
+block|{
+name|abort
+argument_list|(
+name|ae
+argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 return|return
 name|state
@@ -11170,7 +11473,27 @@ name|state
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|AbortException
 block|{
+if|if
+condition|(
+name|aborting
+condition|)
+block|{
+comment|// Forcefully idle this threadstate -- its state will
+comment|// be reset by abort()
+name|state
+operator|.
+name|isIdle
+operator|=
+literal|true
+expr_stmt|;
+name|notifyAll
+argument_list|()
+expr_stmt|;
+return|return;
+block|}
 comment|// Now write the indexed document to the real files.
 if|if
 condition|(
@@ -11182,18 +11505,21 @@ name|docID
 condition|)
 block|{
 comment|// It's my turn, so write everything now:
-name|state
-operator|.
-name|isIdle
-operator|=
-literal|true
-expr_stmt|;
 name|nextWriteDocID
 operator|++
 expr_stmt|;
 name|state
 operator|.
 name|writeDocument
+argument_list|()
+expr_stmt|;
+name|state
+operator|.
+name|isIdle
+operator|=
+literal|true
+expr_stmt|;
+name|notifyAll
 argument_list|()
 expr_stmt|;
 comment|// If any states were waiting on me, sweep through and
@@ -11205,16 +11531,20 @@ operator|>
 literal|0
 condition|)
 block|{
+name|boolean
+name|any
+init|=
+literal|true
+decl_stmt|;
 while|while
 condition|(
-literal|true
+name|any
 condition|)
 block|{
-name|int
-name|upto
-init|=
-literal|0
-decl_stmt|;
+name|any
+operator|=
+literal|false
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -11226,10 +11556,9 @@ name|i
 operator|<
 name|numWaiting
 condition|;
-name|i
-operator|++
 control|)
 block|{
+specifier|final
 name|ThreadState
 name|s
 init|=
@@ -11249,6 +11578,11 @@ condition|)
 block|{
 name|s
 operator|.
+name|writeDocument
+argument_list|()
+expr_stmt|;
+name|s
+operator|.
 name|isIdle
 operator|=
 literal|true
@@ -11256,94 +11590,62 @@ expr_stmt|;
 name|nextWriteDocID
 operator|++
 expr_stmt|;
-name|s
-operator|.
-name|writeDocument
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-comment|// Compact as we go
-name|waitingThreadStates
-index|[
-name|upto
-operator|++
-index|]
+name|any
 operator|=
+literal|true
+expr_stmt|;
+if|if
+condition|(
+name|numWaiting
+operator|>
+name|i
+operator|+
+literal|1
+condition|)
+comment|// Swap in the last waiting state to fill in
+comment|// the hole we just created.  It's important
+comment|// to do this as-we-go and not at the end of
+comment|// the loop, because if we hit an aborting
+comment|// exception in one of the s.writeDocument
+comment|// calls (above), it leaves this array in an
+comment|// inconsistent state:
 name|waitingThreadStates
 index|[
 name|i
 index|]
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|upto
-operator|==
-name|numWaiting
-condition|)
-break|break;
-name|numWaiting
 operator|=
-name|upto
+name|waitingThreadStates
+index|[
+name|numWaiting
+operator|-
+literal|1
+index|]
+expr_stmt|;
+name|numWaiting
+operator|--
+expr_stmt|;
+block|}
+else|else
+block|{
+assert|assert
+operator|!
+name|s
+operator|.
+name|isIdle
+assert|;
+name|i
+operator|++
 expr_stmt|;
 block|}
 block|}
-comment|// Now notify any incoming calls to addDocument
-comment|// (above) that are waiting on our line to
-comment|// shrink
-name|notifyAll
-argument_list|()
-expr_stmt|;
+block|}
+block|}
 block|}
 else|else
 block|{
 comment|// Another thread got a docID before me, but, it
 comment|// hasn't finished its processing.  So add myself to
 comment|// the line but don't hold up this thread.
-if|if
-condition|(
-name|numWaiting
-operator|==
-name|waitingThreadStates
-operator|.
-name|length
-condition|)
-block|{
-name|ThreadState
-index|[]
-name|newWaiting
-init|=
-operator|new
-name|ThreadState
-index|[
-literal|2
-operator|*
-name|waitingThreadStates
-operator|.
-name|length
-index|]
-decl_stmt|;
-name|System
-operator|.
-name|arraycopy
-argument_list|(
-name|waitingThreadStates
-argument_list|,
-literal|0
-argument_list|,
-name|newWaiting
-argument_list|,
-literal|0
-argument_list|,
-name|numWaiting
-argument_list|)
-expr_stmt|;
-name|waitingThreadStates
-operator|=
-name|newWaiting
-expr_stmt|;
-block|}
 name|waitingThreadStates
 index|[
 name|numWaiting
@@ -14388,6 +14690,43 @@ name|int
 name|posUpto
 decl_stmt|;
 comment|// Next write address for positions
+block|}
+block|}
+end_class
+begin_comment
+comment|// Used only internally to DW to call abort "up the stack"
+end_comment
+begin_class
+DECL|class|AbortException
+class|class
+name|AbortException
+extends|extends
+name|IOException
+block|{
+DECL|method|AbortException
+specifier|public
+name|AbortException
+parameter_list|(
+name|Throwable
+name|cause
+parameter_list|,
+name|DocumentsWriter
+name|docWriter
+parameter_list|)
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+name|initCause
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
+name|docWriter
+operator|.
+name|setAborting
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

@@ -2765,7 +2765,9 @@ expr_stmt|;
 name|docWriter
 operator|.
 name|abort
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -4813,7 +4815,9 @@ expr_stmt|;
 name|docWriter
 operator|.
 name|abort
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 comment|// Ask deleter to locate unreferenced files& remove
 comment|// them:
@@ -6011,11 +6015,25 @@ throws|,
 name|IOException
 block|{
 comment|// Make sure no threads are actively adding a document
+comment|// Returns true if docWriter is currently aborting, in
+comment|// which case we skip flushing this segment
+if|if
+condition|(
 name|docWriter
 operator|.
 name|pauseAllThreads
 argument_list|()
+condition|)
+block|{
+name|docWriter
+operator|.
+name|resumeAllThreads
+argument_list|()
 expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 try|try
 block|{
 name|SegmentInfo
@@ -6534,7 +6552,9 @@ condition|)
 name|docWriter
 operator|.
 name|abort
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 name|deletePartialSegmentsFile
 argument_list|()
