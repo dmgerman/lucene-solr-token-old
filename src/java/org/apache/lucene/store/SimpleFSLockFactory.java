@@ -359,6 +359,11 @@ name|LockReleaseFailedException
 block|{
 if|if
 condition|(
+name|lockFile
+operator|.
+name|exists
+argument_list|()
+operator|&&
 operator|!
 name|lockFile
 operator|.

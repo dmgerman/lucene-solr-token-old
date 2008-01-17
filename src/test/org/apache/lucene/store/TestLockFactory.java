@@ -883,11 +883,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"writer2.close() should have hit LockReleaseFailedException"
-argument_list|)
-expr_stmt|;
+comment|// expected
 block|}
 catch|catch
 parameter_list|(
@@ -895,7 +891,11 @@ name|LockReleaseFailedException
 name|e
 parameter_list|)
 block|{
-comment|// expected
+name|fail
+argument_list|(
+literal|"writer2.close() should not have hit LockReleaseFailedException"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// Cleanup
