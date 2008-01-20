@@ -1358,6 +1358,14 @@ name|docStoreSegment
 operator|=
 literal|null
 expr_stmt|;
+name|numDocsInStore
+operator|=
+literal|0
+expr_stmt|;
+name|docStoreOffset
+operator|=
+literal|0
+expr_stmt|;
 name|files
 operator|=
 literal|null
