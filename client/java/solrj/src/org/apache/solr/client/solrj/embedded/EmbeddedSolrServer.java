@@ -87,7 +87,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServerException
+name|SolrServer
 import|;
 end_import
 begin_import
@@ -102,9 +102,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|impl
-operator|.
-name|BaseSolrServer
+name|SolrServerException
 import|;
 end_import
 begin_import
@@ -312,7 +310,7 @@ specifier|public
 class|class
 name|EmbeddedSolrServer
 extends|extends
-name|BaseSolrServer
+name|SolrServer
 block|{
 DECL|field|_invariantParams
 specifier|protected
