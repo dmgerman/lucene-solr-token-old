@@ -659,7 +659,7 @@ throw|throw
 operator|new
 name|Exception
 argument_list|(
-literal|"expexted repetitions number: - "
+literal|"expected repetitions number: - "
 operator|+
 name|stok
 operator|.
@@ -728,7 +728,7 @@ throw|throw
 operator|new
 name|Exception
 argument_list|(
-literal|"expexted rate number: - "
+literal|"expected rate number: - "
 operator|+
 name|stok
 operator|.
@@ -798,7 +798,7 @@ throw|throw
 operator|new
 name|Exception
 argument_list|(
-literal|"expexted rate unit: 'min' or 'sec' - "
+literal|"expected rate unit: 'min' or 'sec' - "
 operator|+
 name|stok
 operator|.
@@ -885,7 +885,7 @@ throw|throw
 operator|new
 name|Exception
 argument_list|(
-literal|"expexted rate unit: 'min' or 'sec' - "
+literal|"expected rate unit: 'min' or 'sec' - "
 operator|+
 name|stok
 operator|.
