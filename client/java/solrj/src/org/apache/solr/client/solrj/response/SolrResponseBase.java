@@ -57,7 +57,7 @@ specifier|public
 specifier|abstract
 class|class
 name|SolrResponseBase
-implements|implements
+extends|extends
 name|SolrResponse
 block|{
 DECL|field|elapsedTime

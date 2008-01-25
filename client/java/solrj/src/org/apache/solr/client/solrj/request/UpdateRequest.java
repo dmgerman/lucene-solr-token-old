@@ -105,6 +105,21 @@ name|client
 operator|.
 name|solrj
 operator|.
+name|SolrRequest
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|client
+operator|.
+name|solrj
+operator|.
 name|response
 operator|.
 name|UpdateResponse
@@ -224,7 +239,7 @@ specifier|public
 class|class
 name|UpdateRequest
 extends|extends
-name|RequestBase
+name|SolrRequest
 block|{
 DECL|enum|ACTION
 specifier|public
@@ -649,6 +664,7 @@ operator|+
 literal|"\" "
 argument_list|)
 expr_stmt|;
+comment|// TODO: remove these when deprecations are removed
 name|writer
 operator|.
 name|write
@@ -1095,6 +1111,8 @@ operator|=
 name|allowDups
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|isOverwriteCommitted
 specifier|public
 name|boolean
@@ -1124,6 +1142,8 @@ operator|=
 name|overwriteCommitted
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|isOverwritePending
 specifier|public
 name|boolean
