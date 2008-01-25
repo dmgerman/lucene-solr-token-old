@@ -101,6 +101,8 @@ operator|=
 name|res
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getElapsedTime
 specifier|public
 name|long
@@ -127,6 +129,8 @@ operator|=
 name|elapsedTime
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getResponse
 specifier|public
 name|NamedList

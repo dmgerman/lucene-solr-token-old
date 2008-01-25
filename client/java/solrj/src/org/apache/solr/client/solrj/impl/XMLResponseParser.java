@@ -294,6 +294,8 @@ specifier|public
 name|XMLResponseParser
 parameter_list|()
 block|{}
+annotation|@
+name|Override
 DECL|method|getWriterType
 specifier|public
 name|String
@@ -304,6 +306,8 @@ return|return
 literal|"xml"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|processResponse
 specifier|public
 name|NamedList
@@ -362,6 +366,8 @@ name|parser
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|processResponse
 specifier|public
 name|NamedList

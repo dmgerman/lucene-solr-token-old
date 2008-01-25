@@ -186,6 +186,8 @@ operator|=
 name|body
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContentStreams
 specifier|public
 name|Collection
@@ -208,6 +210,8 @@ name|TEXT_XML
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getParams
 specifier|public
 name|SolrParams
@@ -218,6 +222,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|process
 specifier|public
 name|UpdateResponse

@@ -165,6 +165,8 @@ name|ModifiableSolrParams
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContentStreams
 specifier|public
 name|Collection
@@ -178,6 +180,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getParams
 specifier|public
 name|ModifiableSolrParams
@@ -188,6 +192,8 @@ return|return
 name|params
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|process
 specifier|public
 name|SolrPingResponse
