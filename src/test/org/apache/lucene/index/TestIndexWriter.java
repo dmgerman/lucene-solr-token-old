@@ -11382,6 +11382,7 @@ name|numDel
 operator|++
 expr_stmt|;
 else|else
+block|{
 name|reader
 operator|.
 name|document
@@ -11396,6 +11397,7 @@ argument_list|(
 name|j
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|reader
 operator|.
@@ -11578,6 +11580,7 @@ name|numDel
 operator|++
 expr_stmt|;
 else|else
+block|{
 name|reader
 operator|.
 name|document
@@ -11592,6 +11595,7 @@ argument_list|(
 name|j
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|reader
 operator|.
@@ -12157,6 +12161,7 @@ name|numDel
 operator|++
 expr_stmt|;
 else|else
+block|{
 name|reader
 operator|.
 name|document
@@ -12171,6 +12176,7 @@ argument_list|(
 name|j
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|reader
 operator|.
@@ -12353,6 +12359,7 @@ name|numDel
 operator|++
 expr_stmt|;
 else|else
+block|{
 name|reader
 operator|.
 name|document
@@ -12367,6 +12374,7 @@ argument_list|(
 name|j
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|reader
 operator|.

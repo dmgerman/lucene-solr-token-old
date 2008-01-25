@@ -2250,6 +2250,16 @@ name|getFilePointer
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|tvx
+operator|.
+name|writeLong
+argument_list|(
+name|tvf
+operator|.
+name|getFilePointer
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|tvd
 operator|.
 name|writeVInt
@@ -2296,16 +2306,6 @@ index|[
 literal|0
 index|]
 assert|;
-name|tvd
-operator|.
-name|writeVLong
-argument_list|(
-name|tvf
-operator|.
-name|getFilePointer
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|long
 name|lastPos
 init|=
@@ -3452,7 +3452,7 @@ name|writeInt
 argument_list|(
 name|TermVectorsReader
 operator|.
-name|FORMAT_VERSION
+name|FORMAT_VERSION2
 argument_list|)
 expr_stmt|;
 name|tvd
@@ -3476,7 +3476,7 @@ name|writeInt
 argument_list|(
 name|TermVectorsReader
 operator|.
-name|FORMAT_VERSION
+name|FORMAT_VERSION2
 argument_list|)
 expr_stmt|;
 name|tvf
@@ -3500,7 +3500,7 @@ name|writeInt
 argument_list|(
 name|TermVectorsReader
 operator|.
-name|FORMAT_VERSION
+name|FORMAT_VERSION2
 argument_list|)
 expr_stmt|;
 comment|// We must "catch up" for all docIDs that had no
@@ -3519,6 +3519,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|tvx
 operator|.
 name|writeLong
@@ -3526,6 +3527,14 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|tvx
+operator|.
+name|writeLong
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
