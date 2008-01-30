@@ -180,7 +180,7 @@ literal|"line.separator"
 argument_list|)
 decl_stmt|;
 DECL|field|dateFormat
-specifier|private
+specifier|protected
 name|ThreadLocal
 name|dateFormat
 init|=
@@ -189,14 +189,14 @@ name|ThreadLocal
 argument_list|()
 decl_stmt|;
 DECL|field|dataDir
-specifier|private
+specifier|protected
 name|File
 name|dataDir
 init|=
 literal|null
 decl_stmt|;
 DECL|field|inputFiles
-specifier|private
+specifier|protected
 name|ArrayList
 name|inputFiles
 init|=
@@ -205,21 +205,21 @@ name|ArrayList
 argument_list|()
 decl_stmt|;
 DECL|field|nextFile
-specifier|private
+specifier|protected
 name|int
 name|nextFile
 init|=
 literal|0
 decl_stmt|;
 DECL|field|iteration
-specifier|private
+specifier|protected
 name|int
 name|iteration
 init|=
 literal|0
 decl_stmt|;
 DECL|field|reader
-specifier|private
+specifier|protected
 name|BufferedReader
 name|reader
 decl_stmt|;
@@ -356,7 +356,7 @@ throw|;
 block|}
 block|}
 DECL|method|openNextFile
-specifier|private
+specifier|protected
 name|void
 name|openNextFile
 parameter_list|()
@@ -531,7 +531,7 @@ block|}
 block|}
 block|}
 DECL|method|closeInputs
-specifier|private
+specifier|protected
 name|void
 name|closeInputs
 parameter_list|()
@@ -625,7 +625,7 @@ block|}
 block|}
 comment|// read until finding a line that starts with the specified prefix
 DECL|method|read
-specifier|private
+specifier|protected
 name|StringBuffer
 name|read
 parameter_list|(
@@ -939,7 +939,7 @@ name|docData
 return|;
 block|}
 DECL|method|getDateFormat
-specifier|private
+specifier|protected
 name|DateFormat
 name|getDateFormat
 parameter_list|(
@@ -1039,7 +1039,7 @@ index|]
 return|;
 block|}
 DECL|method|parseDate
-specifier|private
+specifier|protected
 name|Date
 name|parseDate
 parameter_list|(
