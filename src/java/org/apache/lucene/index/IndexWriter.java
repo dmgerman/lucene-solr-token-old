@@ -6132,6 +6132,8 @@ operator|.
 name|name
 operator|+
 literal|" exists in external directory yet the MergeScheduler executed the merge in a separate thread"
+argument_list|,
+name|directory
 argument_list|)
 throw|;
 block|}
@@ -7327,6 +7329,8 @@ operator|.
 name|name
 operator|+
 literal|" in current segments"
+argument_list|,
+name|directory
 argument_list|)
 throw|;
 specifier|final
@@ -7426,6 +7430,8 @@ operator|.
 name|name
 operator|+
 literal|") that is not in the index"
+argument_list|,
+name|directory
 argument_list|)
 throw|;
 else|else
@@ -7445,6 +7451,8 @@ name|segString
 argument_list|()
 operator|+
 literal|"), which IndexWriter (currently) cannot handle"
+argument_list|,
+name|directory
 argument_list|)
 throw|;
 block|}
