@@ -181,12 +181,12 @@ name|dateFilter
 decl_stmt|;
 DECL|field|bobFilter
 specifier|private
-name|QueryFilter
+name|QueryWrapperFilter
 name|bobFilter
 decl_stmt|;
 DECL|field|sueFilter
 specifier|private
-name|QueryFilter
+name|QueryWrapperFilter
 name|sueFilter
 decl_stmt|;
 DECL|method|setUp
@@ -473,7 +473,7 @@ expr_stmt|;
 name|bobFilter
 operator|=
 operator|new
-name|QueryFilter
+name|QueryWrapperFilter
 argument_list|(
 operator|new
 name|TermQuery
@@ -491,7 +491,7 @@ expr_stmt|;
 name|sueFilter
 operator|=
 operator|new
-name|QueryFilter
+name|QueryWrapperFilter
 argument_list|(
 operator|new
 name|TermQuery

@@ -76,7 +76,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|QueryFilter
+name|QueryWrapperFilter
 import|;
 end_import
 begin_import
@@ -388,7 +388,7 @@ block|{
 name|cachedFilter
 operator|=
 operator|new
-name|QueryFilter
+name|QueryWrapperFilter
 argument_list|(
 name|q
 argument_list|)

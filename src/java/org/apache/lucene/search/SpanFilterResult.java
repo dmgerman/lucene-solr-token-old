@@ -50,10 +50,16 @@ specifier|public
 class|class
 name|SpanFilterResult
 block|{
+comment|/** @deprecated */
 DECL|field|bits
 specifier|private
 name|BitSet
 name|bits
+decl_stmt|;
+DECL|field|docIdSet
+specifier|private
+name|DocIdSet
+name|docIdSet
 decl_stmt|;
 DECL|field|positions
 specifier|private
@@ -61,7 +67,7 @@ name|List
 name|positions
 decl_stmt|;
 comment|//Spans spans;
-comment|/**    *    * @param bits The bits for the Filter    * @param positions A List of {@link org.apache.lucene.search.SpanFilterResult.PositionInfo} objects    */
+comment|/**    *    * @param bits The bits for the Filter    * @param positions A List of {@link org.apache.lucene.search.SpanFilterResult.PositionInfo} objects    * @deprecated Use {@link #SpanFilterResult(DocIdSet, List)} instead    */
 DECL|method|SpanFilterResult
 specifier|public
 name|SpanFilterResult
@@ -86,6 +92,31 @@ operator|=
 name|positions
 expr_stmt|;
 block|}
+comment|/**   *   * @param docIdSet The DocIdSet for the Filter   * @param positions A List of {@link org.apache.lucene.search.SpanFilterResult.PositionInfo} objects   */
+DECL|method|SpanFilterResult
+specifier|public
+name|SpanFilterResult
+parameter_list|(
+name|DocIdSet
+name|docIdSet
+parameter_list|,
+name|List
+name|positions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|docIdSet
+operator|=
+name|docIdSet
+expr_stmt|;
+name|this
+operator|.
+name|positions
+operator|=
+name|positions
+expr_stmt|;
+block|}
 comment|/**    * The first entry in the array corresponds to the first "on" bit.    * Entries are increasing by document order    * @return A List of PositionInfo objects    */
 DECL|method|getPositions
 specifier|public
@@ -97,6 +128,7 @@ return|return
 name|positions
 return|;
 block|}
+comment|/**     * @deprecated Use {@link #getDocIdSet()}    */
 DECL|method|getBits
 specifier|public
 name|BitSet
@@ -105,6 +137,17 @@ parameter_list|()
 block|{
 return|return
 name|bits
+return|;
+block|}
+comment|/** Returns the docIdSet */
+DECL|method|getDocIdSet
+specifier|public
+name|DocIdSet
+name|getDocIdSet
+parameter_list|()
+block|{
+return|return
+name|docIdSet
 return|;
 block|}
 DECL|class|PositionInfo
