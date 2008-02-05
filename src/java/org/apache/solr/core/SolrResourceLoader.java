@@ -464,6 +464,9 @@ name|instanceDir
 operator|==
 literal|null
 condition|)
+block|{
+name|this
+operator|.
 name|instanceDir
 operator|=
 name|SolrResourceLoader
@@ -471,6 +474,9 @@ operator|.
 name|locateInstanceDir
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
 name|this
 operator|.
 name|instanceDir
@@ -480,6 +486,7 @@ argument_list|(
 name|instanceDir
 argument_list|)
 expr_stmt|;
+block|}
 name|log
 operator|.
 name|info
@@ -1412,6 +1419,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**    * Finds the instanceDir based on looking up the value in one of three places:    *<ol>    *<li>JNDI: via java:comp/env/solr/home</li>    *<li>The system property solr.solr.home</li>    *<li>Look in the current working directory for a solr/ directory</li>     *</ol>    *    * The return value is normalized.  Normalization essentially means it ends in a trailing slash.    * @return A normalized instanceDir    *    * @see #normalizeDir(String)     */
 DECL|method|locateInstanceDir
 specifier|public
 specifier|static
@@ -1532,14 +1540,11 @@ literal|".solr.home"
 decl_stmt|;
 name|home
 operator|=
-name|normalizeDir
-argument_list|(
 name|System
 operator|.
 name|getProperty
 argument_list|(
 name|prop
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
