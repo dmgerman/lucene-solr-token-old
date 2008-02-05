@@ -356,6 +356,12 @@ argument_list|,
 name|analyzer
 argument_list|,
 name|create
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 expr_stmt|;
 name|open
@@ -433,6 +439,12 @@ argument_list|,
 name|analyzer
 argument_list|,
 literal|false
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 expr_stmt|;
 comment|// IndexModifier cannot use ConcurrentMergeScheduler

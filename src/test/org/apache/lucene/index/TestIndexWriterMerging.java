@@ -218,6 +218,12 @@ name|StandardAnalyzer
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 decl_stmt|;
 name|writer
@@ -429,6 +435,12 @@ name|StandardAnalyzer
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 decl_stmt|;
 name|writer

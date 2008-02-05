@@ -210,9 +210,15 @@ name|WhitespaceAnalyzer
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 expr_stmt|;
-comment|// add 100 documents with term : aaa
+comment|// ADD 100 documents with term : aaa
 comment|// add 100 documents with terms: aaa bbb
 comment|// Therefore, term 'aaa' has document frequency of 200 and term 'bbb' 100
 for|for
@@ -267,6 +273,12 @@ name|WhitespaceAnalyzer
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 expr_stmt|;
 name|writer
@@ -312,6 +324,12 @@ name|WhitespaceAnalyzer
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 decl_stmt|;
 name|addDoc

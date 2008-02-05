@@ -1488,6 +1488,12 @@ argument_list|(
 name|dir
 argument_list|,
 name|analyzer
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 decl_stmt|;
 name|writer

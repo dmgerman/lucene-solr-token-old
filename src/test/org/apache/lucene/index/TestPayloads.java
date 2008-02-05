@@ -557,6 +557,12 @@ argument_list|,
 name|analyzer
 argument_list|,
 literal|true
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 decl_stmt|;
 name|Document
@@ -785,6 +791,12 @@ argument_list|,
 name|analyzer
 argument_list|,
 literal|true
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 expr_stmt|;
 name|d
@@ -1092,6 +1104,12 @@ argument_list|,
 name|analyzer
 argument_list|,
 literal|true
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 decl_stmt|;
 comment|// should be in sync with value in TermInfosWriter
@@ -1867,6 +1885,12 @@ argument_list|,
 name|analyzer
 argument_list|,
 literal|true
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 expr_stmt|;
 name|String
@@ -2888,6 +2912,12 @@ argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|LIMITED
 argument_list|)
 decl_stmt|;
 specifier|final
