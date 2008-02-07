@@ -1000,6 +1000,8 @@ specifier|final
 name|int
 name|docID
 init|=
+name|docStoreOffset
+operator|+
 name|startDocID
 operator|+
 name|count
