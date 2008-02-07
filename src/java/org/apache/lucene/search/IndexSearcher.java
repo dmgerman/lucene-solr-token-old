@@ -504,7 +504,7 @@ expr_stmt|;
 return|return;
 block|}
 name|DocIdSetIterator
-name|docIdSetIterator
+name|filterDocIdIterator
 init|=
 name|filter
 operator|.
@@ -520,7 +520,7 @@ comment|// CHECKME: use ConjunctionScorer here?
 name|boolean
 name|more
 init|=
-name|docIdSetIterator
+name|filterDocIdIterator
 operator|.
 name|next
 argument_list|()
@@ -529,7 +529,7 @@ name|scorer
 operator|.
 name|skipTo
 argument_list|(
-name|docIdSetIterator
+name|filterDocIdIterator
 operator|.
 name|doc
 argument_list|()
@@ -543,7 +543,7 @@ block|{
 name|int
 name|filterDocId
 init|=
-name|docIdSetIterator
+name|filterDocIdIterator
 operator|.
 name|doc
 argument_list|()
@@ -603,7 +603,7 @@ argument_list|)
 expr_stmt|;
 name|more
 operator|=
-name|docIdSetIterator
+name|filterDocIdIterator
 operator|.
 name|next
 argument_list|()
@@ -613,7 +613,7 @@ else|else
 block|{
 name|more
 operator|=
-name|docIdSetIterator
+name|filterDocIdIterator
 operator|.
 name|skipTo
 argument_list|(
