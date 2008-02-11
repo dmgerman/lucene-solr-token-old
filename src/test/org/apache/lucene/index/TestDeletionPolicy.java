@@ -1386,21 +1386,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|autoCommit
 condition|)
-block|{
-name|assertTrue
-argument_list|(
-name|policy
-operator|.
-name|numOnCommit
-operator|>
-literal|2
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 comment|// If we are not auto committing then there should
 comment|// be exactly 2 commits (one per close above):
 name|assertEquals
@@ -1412,7 +1400,6 @@ operator|.
 name|numOnCommit
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Simplistic check: just verify all segments_N's still
 comment|// exist, and, I can open a reader on each:
 name|dir
@@ -1726,21 +1713,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|autoCommit
 condition|)
-block|{
-name|assertTrue
-argument_list|(
-name|policy
-operator|.
-name|numOnCommit
-operator|>
-literal|2
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 comment|// If we are not auto committing then there should
 comment|// be exactly 2 commits (one per close above):
 name|assertEquals
@@ -1752,7 +1727,6 @@ operator|.
 name|numOnCommit
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Simplistic check: just verify the index is in fact
 comment|// readable:
 name|IndexReader
@@ -2444,29 +2418,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|autoCommit
 condition|)
-block|{
-name|assertTrue
-argument_list|(
-name|policy
-operator|.
-name|numOnCommit
-operator|>
-literal|2
-operator|*
-operator|(
-name|N
-operator|+
-literal|2
-operator|)
-operator|-
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|assertEquals
 argument_list|(
 literal|2
@@ -2484,7 +2438,6 @@ operator|.
 name|numOnCommit
 argument_list|)
 expr_stmt|;
-block|}
 name|IndexSearcher
 name|searcher
 init|=
@@ -3045,29 +2998,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|autoCommit
 condition|)
-block|{
-name|assertTrue
-argument_list|(
-name|policy
-operator|.
-name|numOnCommit
-operator|>
-literal|3
-operator|*
-operator|(
-name|N
-operator|+
-literal|1
-operator|)
-operator|-
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|assertEquals
 argument_list|(
 literal|2
@@ -3083,7 +3016,6 @@ operator|.
 name|numOnCommit
 argument_list|)
 expr_stmt|;
-block|}
 name|IndexSearcher
 name|searcher
 init|=

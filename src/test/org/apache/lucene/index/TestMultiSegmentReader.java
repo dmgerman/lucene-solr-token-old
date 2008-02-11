@@ -202,9 +202,6 @@ argument_list|(
 name|doc2
 argument_list|)
 expr_stmt|;
-name|SegmentInfo
-name|info1
-init|=
 name|DocHelper
 operator|.
 name|writeDoc
@@ -213,10 +210,7 @@ name|dir
 argument_list|,
 name|doc1
 argument_list|)
-decl_stmt|;
-name|SegmentInfo
-name|info2
-init|=
+expr_stmt|;
 name|DocHelper
 operator|.
 name|writeDoc
@@ -225,7 +219,7 @@ name|dir
 argument_list|,
 name|doc2
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|sis
 operator|=
 operator|new
@@ -540,7 +534,7 @@ comment|// MultiReader does not "own" the directory so it does
 comment|// not write the changes to sis on commit:
 name|sis
 operator|.
-name|write
+name|commit
 argument_list|(
 name|dir
 argument_list|)
@@ -604,7 +598,7 @@ comment|// MultiReader does not "own" the directory so it does
 comment|// not write the changes to sis on commit:
 name|sis
 operator|.
-name|write
+name|commit
 argument_list|(
 name|dir
 argument_list|)

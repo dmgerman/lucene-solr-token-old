@@ -198,7 +198,7 @@ specifier|static
 name|int
 name|NUM_ITER
 init|=
-literal|2
+literal|1
 decl_stmt|;
 comment|//private final static int NUM_ITER = 10;
 DECL|field|NUM_ITER2
@@ -208,7 +208,7 @@ specifier|static
 name|int
 name|NUM_ITER2
 init|=
-literal|2
+literal|1
 decl_stmt|;
 comment|//private final static int NUM_ITER2 = 5;
 DECL|field|failed
@@ -889,7 +889,9 @@ name|directory
 argument_list|,
 literal|false
 argument_list|,
-literal|null
+operator|new
+name|SerialMergeScheduler
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|runTest
@@ -898,7 +900,9 @@ name|directory
 argument_list|,
 literal|true
 argument_list|,
-literal|null
+operator|new
+name|SerialMergeScheduler
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|runTest
@@ -973,7 +977,9 @@ name|directory
 argument_list|,
 literal|false
 argument_list|,
-literal|null
+operator|new
+name|SerialMergeScheduler
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|runTest
@@ -982,7 +988,9 @@ name|directory
 argument_list|,
 literal|true
 argument_list|,
-literal|null
+operator|new
+name|SerialMergeScheduler
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|runTest
