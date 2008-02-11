@@ -143,6 +143,13 @@ name|maxBufferedDocs
 init|=
 literal|3
 decl_stmt|;
+DECL|field|seed
+specifier|static
+name|int
+name|seed
+init|=
+literal|0
+decl_stmt|;
 DECL|field|r
 specifier|static
 name|Random
@@ -272,6 +279,9 @@ literal|3
 argument_list|)
 operator|+
 literal|2
+expr_stmt|;
+name|seed
+operator|++
 expr_stmt|;
 name|int
 name|nThreads
@@ -2188,6 +2198,8 @@ argument_list|(
 name|base
 operator|+
 name|range
+operator|+
+name|seed
 argument_list|)
 expr_stmt|;
 for|for
