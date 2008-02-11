@@ -24,7 +24,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** Expert: {@link IndexWriter} uses an instance  *  implementing this interface to execute the merges  *  selected by a {@link MergePolicy}.  The default  *  MergeScheduler is {@link ConcurrentMergeScheduler}. */
+comment|/**<p>Expert: {@link IndexWriter} uses an instance  *  implementing this interface to execute the merges  *  selected by a {@link MergePolicy}.  The default  *  MergeScheduler is {@link ConcurrentMergeScheduler}.</p>  *<p><b>NOTE:</b> This API is new and still experimental  * (subject to change suddenly in the next release)</p> */
 end_comment
 begin_class
 DECL|class|MergeScheduler
