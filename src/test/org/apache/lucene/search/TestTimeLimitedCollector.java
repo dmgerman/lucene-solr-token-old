@@ -1132,6 +1132,11 @@ name|doTestSearch
 argument_list|()
 expr_stmt|;
 block|}
+synchronized|synchronized
+init|(
+name|success
+init|)
+block|{
 name|success
 operator|.
 name|set
@@ -1139,6 +1144,7 @@ argument_list|(
 name|num
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 expr_stmt|;
