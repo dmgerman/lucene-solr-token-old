@@ -221,11 +221,11 @@ name|INIT_COMPONENTS
 init|=
 literal|"components"
 decl_stmt|;
-DECL|field|INIT_FISRT_COMPONENTS
+DECL|field|INIT_FIRST_COMPONENTS
 specifier|static
 specifier|final
 name|String
-name|INIT_FISRT_COMPONENTS
+name|INIT_FIRST_COMPONENTS
 init|=
 literal|"first-components"
 decl_stmt|;
@@ -409,7 +409,7 @@ name|initArgs
 operator|.
 name|get
 argument_list|(
-name|INIT_FISRT_COMPONENTS
+name|INIT_FIRST_COMPONENTS
 argument_list|)
 decl_stmt|;
 name|List
