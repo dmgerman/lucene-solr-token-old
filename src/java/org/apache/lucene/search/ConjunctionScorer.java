@@ -516,8 +516,6 @@ name|length
 operator|-
 literal|1
 operator|)
-operator|-
-literal|1
 decl_stmt|;
 for|for
 control|(
@@ -556,6 +554,8 @@ index|[
 name|end
 operator|-
 name|i
+operator|-
+literal|1
 index|]
 expr_stmt|;
 name|scorers
@@ -563,6 +563,8 @@ index|[
 name|end
 operator|-
 name|i
+operator|-
+literal|1
 index|]
 operator|=
 name|tmp
