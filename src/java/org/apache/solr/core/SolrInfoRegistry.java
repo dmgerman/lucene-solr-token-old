@@ -50,7 +50,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * @version $Id$  */
+comment|/**  * @version $Id$  *  * @deprecated Solr now supports multiple cores and no longer uses a static singleton for SolrCore.   */
 end_comment
 begin_comment
 comment|// A Registry to hold a collection of SolrInfo objects

@@ -15,7 +15,7 @@ name|core
 package|;
 end_package
 begin_comment
-comment|/**  * This class is scheduled for deletion.  Please update your code to the moved package.  */
+comment|/**  * This class is scheduled for deletion.  Please update your code to the moved package.  *  * @deprecated Use org.apache.solr.common.SolrException  */
 end_comment
 begin_class
 annotation|@

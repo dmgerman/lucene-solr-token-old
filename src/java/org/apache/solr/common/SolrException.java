@@ -274,6 +274,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+comment|/**    * @deprecated Use {@link #SolrException(ErrorCode,String)}.    */
 annotation|@
 name|Deprecated
 DECL|method|SolrException
@@ -299,6 +300,7 @@ operator|=
 name|code
 expr_stmt|;
 block|}
+comment|/**    * @deprecated Use {@link #SolrException(ErrorCode,String,boolean)}.    */
 annotation|@
 name|Deprecated
 DECL|method|SolrException
@@ -333,6 +335,7 @@ operator|=
 name|alreadyLogged
 expr_stmt|;
 block|}
+comment|/**    * @deprecated Use {@link #SolrException(ErrorCode,String,Throwable,boolean)}.    */
 annotation|@
 name|Deprecated
 DECL|method|SolrException
@@ -370,6 +373,7 @@ operator|=
 name|alreadyLogged
 expr_stmt|;
 block|}
+comment|/**    * @deprecated Use {@link #SolrException(ErrorCode,String,Throwable)}.    */
 annotation|@
 name|Deprecated
 DECL|method|SolrException
@@ -398,6 +402,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * @deprecated Use {@link #SolrException(ErrorCode,Throwable)}.    */
 annotation|@
 name|Deprecated
 DECL|method|SolrException

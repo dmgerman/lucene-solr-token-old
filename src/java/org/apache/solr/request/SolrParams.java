@@ -45,7 +45,7 @@ name|FacetParams
 import|;
 end_import
 begin_comment
-comment|/**  * This class is scheduled for deletion.  Please update your code to the moved package.  */
+comment|/**  * This class is scheduled for deletion.  Please update your code to the moved package.  *  * @deprecated Use org.apache.solr.common.params.SolrParams.  */
 end_comment
 begin_class
 annotation|@
