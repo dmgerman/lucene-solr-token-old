@@ -51,7 +51,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** A {@link IndexDeletionPolicy} that wraps around any other  *  {@link IndexDeletionPolicy} and adds the ability to hold and  *  later release a single "snapshot" of an index.  While  *  the snapshot is held, the {@link IndexWriter} will not  *  remove any files associated with it even if the index is  *  otherwise being actively, arbitrarily changed.  Because  *  we wrap another arbitrary {@link IndexDeletionPolicy}, this  *  gives you the freedom to continue using whatever {@link  *  IndexDeletionPolicy} you would normally want to use with your  *  index. */
+comment|/** A {@link IndexDeletionPolicy} that wraps around any other  *  {@link IndexDeletionPolicy} and adds the ability to hold and  *  later release a single "snapshot" of an index.  While  *  the snapshot is held, the {@link IndexWriter} will not  *  remove any files associated with it even if the index is  *  otherwise being actively, arbitrarily changed.  Because  *  we wrap another arbitrary {@link IndexDeletionPolicy}, this  *  gives you the freedom to continue using whatever {@link  *  IndexDeletionPolicy} you would normally want to use with your  *  index.  Note that you can re-use a single instance of  *  SnapshotDeletionPolicy across multiple writers as long  *  as they are against the same index Directory.  Any  *  snapshot held when a writer is closed will "survive"  *  when the next writer is opened. */
 end_comment
 begin_class
 DECL|class|SnapshotDeletionPolicy
@@ -73,7 +73,7 @@ name|primary
 decl_stmt|;
 DECL|field|snapshot
 specifier|private
-name|IndexCommitPoint
+name|String
 name|snapshot
 decl_stmt|;
 DECL|method|SnapshotDeletionPolicy
@@ -188,6 +188,9 @@ condition|)
 name|snapshot
 operator|=
 name|lastCommit
+operator|.
+name|getSegmentsFileName
+argument_list|()
 expr_stmt|;
 else|else
 throw|throw
@@ -198,7 +201,7 @@ literal|"snapshot is already set; please call release() first"
 argument_list|)
 throw|;
 return|return
-name|snapshot
+name|lastCommit
 return|;
 block|}
 comment|/** Release the currently held snapshot. */
@@ -299,8 +302,17 @@ comment|// our current snapshot.
 if|if
 condition|(
 name|snapshot
-operator|!=
-name|cp
+operator|==
+literal|null
+operator|||
+operator|!
+name|snapshot
+operator|.
+name|equals
+argument_list|(
+name|getSegmentsFileName
+argument_list|()
+argument_list|)
 condition|)
 name|cp
 operator|.
