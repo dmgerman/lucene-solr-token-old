@@ -2425,6 +2425,15 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+name|includeScore
+operator|=
+name|includeScore
+operator|&&
+name|ids
+operator|.
+name|hasScores
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int

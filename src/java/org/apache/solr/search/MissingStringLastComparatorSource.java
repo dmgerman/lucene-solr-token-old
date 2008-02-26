@@ -57,6 +57,7 @@ comment|// move to apache package and make public if it is accepted as a patch
 end_comment
 begin_class
 DECL|class|MissingStringLastComparatorSource
+specifier|public
 class|class
 name|MissingStringLastComparatorSource
 implements|implements

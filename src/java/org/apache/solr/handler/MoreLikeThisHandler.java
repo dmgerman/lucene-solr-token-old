@@ -1217,7 +1217,7 @@ init|=
 operator|new
 name|SimpleFacets
 argument_list|(
-name|searcher
+name|req
 argument_list|,
 name|mltDocs
 operator|.
