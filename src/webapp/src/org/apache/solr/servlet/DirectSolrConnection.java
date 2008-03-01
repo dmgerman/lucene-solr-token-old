@@ -740,6 +740,12 @@ block|}
 name|SolrQueryRequest
 name|req
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|req
+operator|=
 name|parser
 operator|.
 name|buildRequestFrom
@@ -750,7 +756,7 @@ name|params
 argument_list|,
 name|streams
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|SolrQueryResponse
 name|rsp
 init|=
@@ -821,6 +827,23 @@ operator|.
 name|toString
 argument_list|()
 return|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|req
+operator|!=
+literal|null
+condition|)
+block|{
+name|req
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 comment|/**    * Use this method to close the underlying SolrCore.    *     * @since solr 1.3    */
 DECL|method|close
