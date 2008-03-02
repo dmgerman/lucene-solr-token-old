@@ -1240,7 +1240,13 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|indexReader
+operator|!=
+literal|null
+condition|)
 block|{
 name|indexReader
 operator|.
