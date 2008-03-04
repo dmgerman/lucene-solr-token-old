@@ -239,7 +239,7 @@ name|IndexSchema
 import|;
 end_import
 begin_comment
-comment|/**  * DirectSolrConnection provides an interface to solr that is similar to   * the the HTTP interface, but does not require an HTTP connection.  *   * This class is designed to be as simple as possible and alow for more flexibility  * in how you interface to solr.  *   * @version $Id$  * @since solr 1.2  */
+comment|/**  * DirectSolrConnection provides an interface to solr that is similar to   * the the HTTP interface, but does not require an HTTP connection.  *   * This class is designed to be as simple as possible and allow for more flexibility  * in how you interface to solr.  *   * @version $Id$  * @since solr 1.2  */
 end_comment
 begin_class
 DECL|class|DirectSolrConnection
@@ -263,23 +263,12 @@ specifier|public
 name|DirectSolrConnection
 parameter_list|()
 block|{
-name|core
-operator|=
+name|this
+argument_list|(
 name|SolrCore
 operator|.
 name|getSolrCore
 argument_list|()
-expr_stmt|;
-name|parser
-operator|=
-operator|new
-name|SolrRequestParsers
-argument_list|(
-literal|true
-argument_list|,
-name|Long
-operator|.
-name|MAX_VALUE
 argument_list|)
 expr_stmt|;
 block|}
@@ -301,11 +290,10 @@ operator|=
 operator|new
 name|SolrRequestParsers
 argument_list|(
-literal|true
-argument_list|,
-name|Long
+name|c
 operator|.
-name|MAX_VALUE
+name|getSolrConfig
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -409,7 +397,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// Initalize SolrConfig
+comment|// Initialize SolrConfig
 name|SolrConfig
 name|config
 init|=
@@ -453,6 +441,8 @@ argument_list|,
 name|instanceDir
 operator|+
 literal|"/conf/schema.xml"
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|core
@@ -474,11 +464,7 @@ operator|=
 operator|new
 name|SolrRequestParsers
 argument_list|(
-literal|true
-argument_list|,
-name|Long
-operator|.
-name|MAX_VALUE
+name|config
 argument_list|)
 expr_stmt|;
 block|}
