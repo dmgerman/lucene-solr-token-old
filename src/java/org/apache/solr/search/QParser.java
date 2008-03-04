@@ -466,6 +466,9 @@ name|recurseCount
 operator|=
 name|recurseCount
 expr_stmt|;
+name|recurseCount
+operator|--
+expr_stmt|;
 return|return
 name|nestedParser
 return|;
