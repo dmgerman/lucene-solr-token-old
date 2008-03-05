@@ -710,9 +710,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|SolrIndexWriter
-name|writer
-init|=
+return|return
 operator|new
 name|SolrIndexWriter
 argument_list|(
@@ -734,9 +732,6 @@ argument_list|()
 operator|.
 name|mainIndexConfig
 argument_list|)
-decl_stmt|;
-return|return
-name|writer
 return|;
 block|}
 DECL|method|idTerm
