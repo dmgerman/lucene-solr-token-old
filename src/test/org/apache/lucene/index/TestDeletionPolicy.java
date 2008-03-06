@@ -218,7 +218,7 @@ name|generationFromSegmentsFileName
 argument_list|(
 operator|(
 operator|(
-name|IndexCommitPoint
+name|IndexCommit
 operator|)
 name|commits
 operator|.
@@ -259,7 +259,7 @@ name|generationFromSegmentsFileName
 argument_list|(
 operator|(
 operator|(
-name|IndexCommitPoint
+name|IndexCommit
 operator|)
 name|commits
 operator|.
@@ -390,7 +390,7 @@ condition|)
 block|{
 operator|(
 operator|(
-name|IndexCommitPoint
+name|IndexCommit
 operator|)
 name|it
 operator|.
@@ -445,7 +445,7 @@ control|)
 block|{
 operator|(
 operator|(
-name|IndexCommitPoint
+name|IndexCommit
 operator|)
 name|commits
 operator|.
@@ -581,7 +581,7 @@ name|fileName
 init|=
 operator|(
 operator|(
-name|IndexCommitPoint
+name|IndexCommit
 operator|)
 name|commits
 operator|.
@@ -657,7 +657,7 @@ control|)
 block|{
 operator|(
 operator|(
-name|IndexCommitPoint
+name|IndexCommit
 operator|)
 name|commits
 operator|.
@@ -757,11 +757,11 @@ argument_list|(
 name|commits
 argument_list|)
 expr_stmt|;
-name|IndexCommitPoint
+name|IndexCommit
 name|lastCommit
 init|=
 operator|(
-name|IndexCommitPoint
+name|IndexCommit
 operator|)
 name|commits
 operator|.
@@ -809,11 +809,11 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|IndexCommitPoint
+name|IndexCommit
 name|commit
 init|=
 operator|(
-name|IndexCommitPoint
+name|IndexCommit
 operator|)
 name|it
 operator|.
