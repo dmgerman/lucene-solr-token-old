@@ -5746,6 +5746,7 @@ block|}
 comment|/*    * Begin a transaction.  During a transaction, any segment    * merges that happen (or ram segments flushed) will not    * write a new segments file and will not remove any files    * that were present at the start of the transaction.  You    * must make a matched (try/finally) call to    * commitTransaction() or rollbackTransaction() to finish    * the transaction.    *    * Note that buffered documents and delete terms are not handled    * within the transactions, so they must be flushed before the    * transaction is started.    */
 DECL|method|startTransaction
 specifier|private
+specifier|synchronized
 name|void
 name|startTransaction
 parameter_list|()
@@ -5851,6 +5852,7 @@ block|}
 comment|/*    * Rolls back the transaction and restores state to where    * we were at the start.    */
 DECL|method|rollbackTransaction
 specifier|private
+specifier|synchronized
 name|void
 name|rollbackTransaction
 parameter_list|()
@@ -5942,6 +5944,7 @@ block|}
 comment|/*    * Commits the transaction.  This will write the new    * segments file and remove and pending deletions we have    * accumulated during the transaction    */
 DECL|method|commitTransaction
 specifier|private
+specifier|synchronized
 name|void
 name|commitTransaction
 parameter_list|()
@@ -6452,10 +6455,9 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Merges all segments from an array of indexes into this index.    *    *<p>This may be used to parallelize batch indexing.  A large document    * collection can be broken into sub-collections.  Each sub-collection can be    * indexed in parallel, on a different thread, process or machine.  The    * complete index can then be created by merging sub-collection indexes    * with this method.    *    *<p><b>NOTE:</b> the index in each Directory must not be    * changed (opened by a writer) while this method is    * running.  This method does not acquire a write lock in    * each input Directory, so it is up to the caller to    * enforce this.    *    *<p>After this completes, the index is optimized.    *    *<p>This method is transactional in how Exceptions are    * handled: it does not commit a new segments_N file until    * all indexes are added.  This means if an Exception    * occurs (for example disk full), then either no indexes    * will have been added or they all will have been.</p>    *    *<p>If an Exception is hit, it's still possible that all    * indexes were successfully added.  This happens when the    * Exception is hit when trying to build a CFS file.  In    * this case, one segment in the index will be in non-CFS    * format, even when using compound file format.</p>    *    *<p>Also note that on an Exception, the index may still    * have been partially or fully optimized even though none    * of the input indexes were added.</p>    *    *<p>Note that this requires temporary free space in the    * Directory up to 2X the sum of all input indexes    * (including the starting index).  If readers/searchers    * are open against the starting index, then temporary    * free space required will be higher by the size of the    * starting index (see {@link #optimize()} for details).    *</p>    *    *<p>Once this completes, the final size of the index    * will be less than the sum of all input index sizes    * (including the starting index).  It could be quite a    * bit smaller (if there were many pending deletes) or    * just slightly smaller.</p>    *    *<p>See<a target="_top"    * href="http://issues.apache.org/jira/browse/LUCENE-702">LUCENE-702</a>    * for details.</p>    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/** Merges all segments from an array of indexes into this index.    *    *<p>This may be used to parallelize batch indexing.  A large document    * collection can be broken into sub-collections.  Each sub-collection can be    * indexed in parallel, on a different thread, process or machine.  The    * complete index can then be created by merging sub-collection indexes    * with this method.    *    *<p><b>NOTE:</b> the index in each Directory must not be    * changed (opened by a writer) while this method is    * running.  This method does not acquire a write lock in    * each input Directory, so it is up to the caller to    * enforce this.    *    *<p><b>NOTE:</b> while this is running, any attempts to    * add or delete documents (with another thread) will be    * paused until this method completes.    *    *<p>After this completes, the index is optimized.    *    *<p>This method is transactional in how Exceptions are    * handled: it does not commit a new segments_N file until    * all indexes are added.  This means if an Exception    * occurs (for example disk full), then either no indexes    * will have been added or they all will have been.</p>    *    *<p>If an Exception is hit, it's still possible that all    * indexes were successfully added.  This happens when the    * Exception is hit when trying to build a CFS file.  In    * this case, one segment in the index will be in non-CFS    * format, even when using compound file format.</p>    *    *<p>Also note that on an Exception, the index may still    * have been partially or fully optimized even though none    * of the input indexes were added.</p>    *    *<p>Note that this requires temporary free space in the    * Directory up to 2X the sum of all input indexes    * (including the starting index).  If readers/searchers    * are open against the starting index, then temporary    * free space required will be higher by the size of the    * starting index (see {@link #optimize()} for details).    *</p>    *    *<p>Once this completes, the final size of the index    * will be less than the sum of all input index sizes    * (including the starting index).  It could be quite a    * bit smaller (if there were many pending deletes) or    * just slightly smaller.</p>    *    *<p>See<a target="_top"    * href="http://issues.apache.org/jira/browse/LUCENE-702">LUCENE-702</a>    * for details.</p>    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|addIndexes
 specifier|public
-specifier|synchronized
 name|void
 name|addIndexes
 parameter_list|(
@@ -6469,6 +6471,12 @@ throws|,
 name|IOException
 block|{
 name|ensureOpen
+argument_list|()
+expr_stmt|;
+comment|// Do not allow add docs or deletes while we are running:
+name|docWriter
+operator|.
+name|pauseAllThreads
 argument_list|()
 expr_stmt|;
 try|try
@@ -6508,6 +6516,11 @@ name|docCount
 init|=
 literal|0
 decl_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 for|for
 control|(
 name|int
@@ -6588,6 +6601,7 @@ expr_stmt|;
 comment|// add each info
 block|}
 block|}
+block|}
 comment|// Notify DocumentsWriter that the flushed count just increased
 name|docWriter
 operator|.
@@ -6637,6 +6651,14 @@ throw|throw
 name|oom
 throw|;
 block|}
+finally|finally
+block|{
+name|docWriter
+operator|.
+name|resumeAllThreads
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|resetMergeExceptions
 specifier|private
@@ -6655,10 +6677,9 @@ name|mergeGen
 operator|++
 expr_stmt|;
 block|}
-comment|/**    * Merges all segments from an array of indexes into this index.    *<p>    * This is similar to addIndexes(Directory[]). However, no optimize()    * is called either at the beginning or at the end. Instead, merges    * are carried out as necessary.    *    *<p><b>NOTE:</b> the index in each Directory must not be    * changed (opened by a writer) while this method is    * running.  This method does not acquire a write lock in    * each input Directory, so it is up to the caller to    * enforce this.    *    *<p>    * This requires this index not be among those to be added, and the    * upper bound* of those segment doc counts not exceed maxMergeDocs.    *    *<p>See {@link #addIndexes(Directory[])} for    * details on transactional semantics, temporary free    * space required in the Directory, and non-CFS segments    * on an Exception.</p>    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/**    * Merges all segments from an array of indexes into this index.    *<p>    * This is similar to addIndexes(Directory[]). However, no optimize()    * is called either at the beginning or at the end. Instead, merges    * are carried out as necessary.    *    *<p><b>NOTE:</b> the index in each Directory must not be    * changed (opened by a writer) while this method is    * running.  This method does not acquire a write lock in    * each input Directory, so it is up to the caller to    * enforce this.    *    *<p><b>NOTE:</b> while this is running, any attempts to    * add or delete documents (with another thread) will be    * paused until this method completes.    *    *<p>    * This requires this index not be among those to be added, and the    * upper bound* of those segment doc counts not exceed maxMergeDocs.    *    *<p>See {@link #addIndexes(Directory[])} for    * details on transactional semantics, temporary free    * space required in the Directory, and non-CFS segments    * on an Exception.</p>    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|addIndexesNoOptimize
 specifier|public
-specifier|synchronized
 name|void
 name|addIndexesNoOptimize
 parameter_list|(
@@ -6672,6 +6693,12 @@ throws|,
 name|IOException
 block|{
 name|ensureOpen
+argument_list|()
+expr_stmt|;
+comment|// Do not allow add docs or deletes while we are running:
+name|docWriter
+operator|.
+name|pauseAllThreads
 argument_list|()
 expr_stmt|;
 try|try
@@ -6711,6 +6738,11 @@ name|docCount
 init|=
 literal|0
 decl_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 for|for
 control|(
 name|int
@@ -6809,6 +6841,7 @@ expr_stmt|;
 comment|// add each info
 block|}
 block|}
+block|}
 comment|// Notify DocumentsWriter that the flushed count just increased
 name|docWriter
 operator|.
@@ -6866,11 +6899,18 @@ throw|throw
 name|oom
 throw|;
 block|}
+finally|finally
+block|{
+name|docWriter
+operator|.
+name|resumeAllThreads
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/* If any of our segments are using a directory != ours    * then copy them over.  Currently this is only used by    * addIndexesNoOptimize(). */
 DECL|method|copyExternalSegments
 specifier|private
-specifier|synchronized
 name|void
 name|copyExternalSegments
 parameter_list|()
@@ -6878,6 +6918,28 @@ throws|throws
 name|CorruptIndexException
 throws|,
 name|IOException
+block|{
+while|while
+condition|(
+literal|true
+condition|)
+block|{
+name|SegmentInfo
+name|info
+init|=
+literal|null
+decl_stmt|;
+name|MergePolicy
+operator|.
+name|OneMerge
+name|merge
+init|=
+literal|null
+decl_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
 block|{
 specifier|final
 name|int
@@ -6903,16 +6965,15 @@ name|i
 operator|++
 control|)
 block|{
-name|SegmentInfo
 name|info
-init|=
+operator|=
 name|segmentInfos
 operator|.
 name|info
 argument_list|(
 name|i
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|info
@@ -6922,11 +6983,8 @@ operator|!=
 name|directory
 condition|)
 block|{
-name|MergePolicy
-operator|.
-name|OneMerge
 name|merge
-init|=
+operator|=
 operator|new
 name|MergePolicy
 operator|.
@@ -6948,7 +7006,18 @@ operator|.
 name|getUseCompoundFile
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+break|break;
+block|}
+block|}
+block|}
+if|if
+condition|(
+name|merge
+operator|!=
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|registerMerge
@@ -7004,12 +7073,14 @@ name|directory
 argument_list|)
 throw|;
 block|}
+else|else
+comment|// No more external segments
+break|break;
 block|}
 block|}
-comment|/** Merges the provided indexes into this index.    *<p>After this completes, the index is optimized.</p>    *<p>The provided IndexReaders are not closed.</p>     *<p>See {@link #addIndexes(Directory[])} for    * details on transactional semantics, temporary free    * space required in the Directory, and non-CFS segments    * on an Exception.</p>    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/** Merges the provided indexes into this index.    *<p>After this completes, the index is optimized.</p>    *<p>The provided IndexReaders are not closed.</p>     *<p><b>NOTE:</b> the index in each Directory must not be    * changed (opened by a writer) while this method is    * running.  This method does not acquire a write lock in    * each input Directory, so it is up to the caller to    * enforce this.    *    *<p><b>NOTE:</b> while this is running, any attempts to    * add or delete documents (with another thread) will be    * paused until this method completes.    *    *<p>See {@link #addIndexes(Directory[])} for    * details on transactional semantics, temporary free    * space required in the Directory, and non-CFS segments    * on an Exception.</p>    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|addIndexes
 specifier|public
-specifier|synchronized
 name|void
 name|addIndexes
 parameter_list|(
@@ -7023,6 +7094,12 @@ throws|,
 name|IOException
 block|{
 name|ensureOpen
+argument_list|()
+expr_stmt|;
+comment|// Do not allow add docs or deletes while we are running:
+name|docWriter
+operator|.
+name|pauseAllThreads
 argument_list|()
 expr_stmt|;
 try|try
@@ -7061,6 +7138,11 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 if|if
 condition|(
 name|segmentInfos
@@ -7093,6 +7175,7 @@ argument_list|(
 name|sReader
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 for|for
 control|(
@@ -7157,6 +7240,11 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 name|segmentInfos
 operator|.
 name|setSize
@@ -7195,6 +7283,7 @@ argument_list|(
 name|info
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Notify DocumentsWriter that the flushed count just increased
 name|docWriter
 operator|.
@@ -7284,6 +7373,11 @@ operator|+
 literal|".cfs"
 argument_list|)
 expr_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 name|info
 operator|.
 name|setUseCompoundFile
@@ -7291,6 +7385,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
@@ -7337,6 +7432,14 @@ expr_stmt|;
 throw|throw
 name|oom
 throw|;
+block|}
+finally|finally
+block|{
+name|docWriter
+operator|.
+name|resumeAllThreads
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 comment|// This is called after pending added and deleted
