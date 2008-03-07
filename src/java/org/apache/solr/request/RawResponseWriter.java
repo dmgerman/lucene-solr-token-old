@@ -294,7 +294,7 @@ name|copy
 argument_list|(
 name|content
 operator|.
-name|getStream
+name|getReader
 argument_list|()
 argument_list|,
 name|writer
