@@ -1651,7 +1651,7 @@ block|}
 block|}
 name|log
 operator|.
-name|info
+name|fine
 argument_list|(
 literal|"no handler or core retrieved for "
 operator|+
