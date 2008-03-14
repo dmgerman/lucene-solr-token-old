@@ -16,45 +16,6 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Hits
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Searcher
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -525,7 +486,21 @@ return|return
 name|fields
 return|;
 block|}
-comment|/**    * Returns an array of {@link Field}s with the given name.    * This method can return<code>null</code>.    * Do not use with lazy loaded fields.    *    * @param name the name of the field    * @return a<code>Field[]</code> array    */
+DECL|field|NO_FIELDS
+specifier|private
+specifier|final
+specifier|static
+name|Field
+index|[]
+name|NO_FIELDS
+init|=
+operator|new
+name|Field
+index|[
+literal|0
+index|]
+decl_stmt|;
+comment|/**    * Returns an array of {@link Field}s with the given name.    * Do not use with lazy loaded fields.    *    * @param name the name of the field    * @return a<code>Field[]</code> array    */
 DECL|method|getFields
 specifier|public
 specifier|final
@@ -607,7 +582,7 @@ operator|==
 literal|0
 condition|)
 return|return
-literal|null
+name|NO_FIELDS
 return|;
 return|return
 operator|(
@@ -629,7 +604,21 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns an array of {@link Fieldable}s with the given name.    * This method can return<code>null</code>.    *    * @param name the name of the field    * @return a<code>Fieldable[]</code> array or<code>null</code>    */
+DECL|field|NO_FIELDABLES
+specifier|private
+specifier|final
+specifier|static
+name|Fieldable
+index|[]
+name|NO_FIELDABLES
+init|=
+operator|new
+name|Fieldable
+index|[
+literal|0
+index|]
+decl_stmt|;
+comment|/**    * Returns an array of {@link Fieldable}s with the given name.    *    * @param name the name of the field    * @return a<code>Fieldable[]</code> array or<code>null</code>    */
 DECL|method|getFieldables
 specifier|public
 name|Fieldable
@@ -710,7 +699,7 @@ operator|==
 literal|0
 condition|)
 return|return
-literal|null
+name|NO_FIELDABLES
 return|;
 return|return
 operator|(
@@ -732,7 +721,21 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns an array of values of the field specified as the method parameter.    * This method can return<code>null</code>.    *    * @param name the name of the field    * @return a<code>String[]</code> of field values or<code>null</code>    */
+DECL|field|NO_STRINGS
+specifier|private
+specifier|final
+specifier|static
+name|String
+index|[]
+name|NO_STRINGS
+init|=
+operator|new
+name|String
+index|[
+literal|0
+index|]
+decl_stmt|;
+comment|/**    * Returns an array of values of the field specified as the method parameter.    *    * @param name the name of the field    * @return a<code>String[]</code> of field values or<code>null</code>    */
 DECL|method|getValues
 specifier|public
 specifier|final
@@ -823,7 +826,7 @@ operator|==
 literal|0
 condition|)
 return|return
-literal|null
+name|NO_STRINGS
 return|;
 return|return
 operator|(
@@ -845,7 +848,23 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**   * Returns an array of byte arrays for of the fields that have the name specified   * as the method parameter. This method will return<code>null</code> if no   * binary fields with the specified name are available.   *   * @param name the name of the field   * @return a<code>byte[][]</code> of binary field values or<code>null</code>   */
+DECL|field|NO_BYTES
+specifier|private
+specifier|final
+specifier|static
+name|byte
+index|[]
+index|[]
+name|NO_BYTES
+init|=
+operator|new
+name|byte
+index|[
+literal|0
+index|]
+index|[]
+decl_stmt|;
+comment|/**   * Returns an array of byte arrays for of the fields that have the name specified   * as the method parameter.   *   * @param name the name of the field   * @return a<code>byte[][]</code> of binary field values or<code>null</code>   */
 DECL|method|getBinaryValues
 specifier|public
 specifier|final
@@ -936,7 +955,7 @@ operator|==
 literal|0
 condition|)
 return|return
-literal|null
+name|NO_BYTES
 return|;
 return|return
 operator|(
