@@ -1291,6 +1291,14 @@ name|long
 name|smallestCount
 init|=
 name|counts
+operator|.
+name|length
+operator|==
+literal|0
+condition|?
+literal|0
+else|:
+name|counts
 index|[
 name|ntop
 operator|-
