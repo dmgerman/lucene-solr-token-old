@@ -765,11 +765,9 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
-name|infoStream
-operator|.
-name|println
+name|message
 argument_list|(
-literal|"\ncloseDocStore: "
+literal|"closeDocStore: "
 operator|+
 name|flushedFiles
 operator|.
@@ -1002,6 +1000,24 @@ return|return
 name|abortedFiles
 return|;
 block|}
+DECL|method|message
+name|void
+name|message
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|writer
+operator|.
+name|message
+argument_list|(
+literal|"DW: "
+operator|+
+name|message
+argument_list|)
+expr_stmt|;
+block|}
 comment|/* Returns list of files in use by this instance,    * including any flushed segments. */
 DECL|method|files
 specifier|synchronized
@@ -1165,9 +1181,7 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
-name|infoStream
-operator|.
-name|println
+name|message
 argument_list|(
 literal|"docWriter: now abort"
 argument_list|)
@@ -1852,11 +1866,9 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
-name|infoStream
-operator|.
-name|println
+name|message
 argument_list|(
-literal|"\nflush postings as segment "
+literal|"flush postings as segment "
 operator|+
 name|segment
 operator|+
@@ -2782,9 +2794,7 @@ argument_list|)
 operator|+
 literal|"%"
 decl_stmt|;
-name|infoStream
-operator|.
-name|println
+name|message
 argument_list|(
 name|message
 argument_list|)
@@ -4887,9 +4897,7 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
-name|infoStream
-operator|.
-name|println
+name|message
 argument_list|(
 literal|"apply "
 operator|+
@@ -6718,9 +6726,7 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
-name|infoStream
-operator|.
-name|println
+name|message
 argument_list|(
 literal|"  RAM: now balance allocations: usedMB="
 operator|+
@@ -6855,9 +6861,7 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
-name|infoStream
-operator|.
-name|println
+name|message
 argument_list|(
 literal|"    nothing to free; now set bufferIsFull"
 argument_list|)
@@ -7010,9 +7014,7 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
-name|infoStream
-operator|.
-name|println
+name|message
 argument_list|(
 literal|"    after free: freedMB="
 operator|+
@@ -7079,9 +7081,7 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
-name|infoStream
-operator|.
-name|println
+name|message
 argument_list|(
 literal|"  RAM: now flush @ usedMB="
 operator|+
