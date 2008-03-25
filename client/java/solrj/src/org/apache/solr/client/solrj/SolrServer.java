@@ -29,6 +29,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -188,6 +197,8 @@ specifier|public
 specifier|abstract
 class|class
 name|SolrServer
+implements|implements
+name|Serializable
 block|{
 DECL|method|add
 specifier|public
