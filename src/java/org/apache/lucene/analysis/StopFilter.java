@@ -242,7 +242,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**    *      * @param stopWords    * @param ignoreCase If true, all words are lower cased first.      * @return a Set containing the words    */
+comment|/**    *     * @param stopWords    * @param ignoreCase If true, all words are lower cased first.      * @return a Set containing the words    */
 DECL|method|makeStopSet
 specifier|public
 specifier|static
