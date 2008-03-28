@@ -3198,11 +3198,6 @@ operator|.
 name|next
 expr_stmt|;
 block|}
-assert|assert
-name|fp0
-operator|!=
-literal|null
-assert|;
 if|if
 condition|(
 name|last
