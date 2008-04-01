@@ -120,7 +120,10 @@ specifier|public
 specifier|final
 name|Token
 name|next
-parameter_list|()
+parameter_list|(
+name|Token
+name|in
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -132,7 +135,9 @@ init|=
 name|input
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|in
+argument_list|)
 init|;
 name|token
 operator|!=
@@ -143,7 +148,9 @@ operator|=
 name|input
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|in
+argument_list|)
 control|)
 block|{
 specifier|final
