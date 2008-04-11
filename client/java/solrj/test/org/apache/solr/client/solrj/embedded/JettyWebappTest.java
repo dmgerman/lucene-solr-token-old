@@ -109,14 +109,11 @@ extends|extends
 name|TestCase
 block|{
 DECL|field|port
-specifier|static
-specifier|final
 name|int
 name|port
 init|=
-literal|8985
+literal|0
 decl_stmt|;
-comment|// not 8983
 DECL|field|context
 specifier|static
 specifier|final
@@ -202,7 +199,7 @@ name|connector
 operator|.
 name|setPort
 argument_list|(
-name|port
+literal|0
 argument_list|)
 expr_stmt|;
 name|server
@@ -227,6 +224,13 @@ expr_stmt|;
 name|server
 operator|.
 name|start
+argument_list|()
+expr_stmt|;
+name|port
+operator|=
+name|connector
+operator|.
+name|getLocalPort
 argument_list|()
 expr_stmt|;
 block|}
