@@ -204,6 +204,21 @@ operator|.
 name|NamedList
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|SimpleOrderedMap
+import|;
+end_import
 begin_comment
 comment|/**  *   * @version $Id$  * @since solr 1.3  */
 end_comment
@@ -550,7 +565,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|NamedList
+name|SimpleOrderedMap
 argument_list|<
 name|Object
 argument_list|>
@@ -1076,7 +1091,7 @@ argument_list|>
 name|nl
 init|=
 operator|new
-name|NamedList
+name|SimpleOrderedMap
 argument_list|<
 name|Object
 argument_list|>

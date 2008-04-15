@@ -744,7 +744,7 @@ operator|.
 name|removeNulls
 argument_list|(
 operator|new
-name|NamedList
+name|SimpleOrderedMap
 argument_list|(
 name|Arrays
 operator|.

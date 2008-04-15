@@ -154,6 +154,21 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|SimpleOrderedMap
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|request
 operator|.
 name|SolrQueryRequest
@@ -560,7 +575,7 @@ argument_list|>
 name|result
 init|=
 operator|new
-name|NamedList
+name|SimpleOrderedMap
 argument_list|<
 name|Object
 argument_list|>
@@ -659,7 +674,7 @@ argument_list|>
 name|theTokens
 init|=
 operator|new
-name|NamedList
+name|SimpleOrderedMap
 argument_list|<
 name|NamedList
 argument_list|<
@@ -813,6 +828,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// outer is namedList since order of tokens is important
 name|NamedList
 argument_list|<
 name|NamedList
@@ -860,7 +876,7 @@ argument_list|>
 name|token
 init|=
 operator|new
-name|NamedList
+name|SimpleOrderedMap
 argument_list|<
 name|Object
 argument_list|>
