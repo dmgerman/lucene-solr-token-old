@@ -391,7 +391,7 @@ literal|2
 operator|+
 name|handler
 operator|.
-name|getDefaultComponets
+name|getDefaultComponents
 argument_list|()
 operator|.
 name|size
