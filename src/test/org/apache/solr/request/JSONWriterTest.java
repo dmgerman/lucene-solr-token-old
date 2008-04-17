@@ -188,7 +188,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-literal|"{'responseHeader':{},'data1':float('NaN'),'data2':-float('Inf'),'data3':float('Inf')}"
+literal|"{'data1':float('NaN'),'data2':-float('Inf'),'data3':float('Inf')}"
 argument_list|)
 expr_stmt|;
 name|w
@@ -221,7 +221,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-literal|"{'responseHeader'=>{},'data1'=>(0.0/0.0),'data2'=>-(1.0/0.0),'data3'=>(1.0/0.0)}"
+literal|"{'data1'=>(0.0/0.0),'data2'=>-(1.0/0.0),'data3'=>(1.0/0.0)}"
 argument_list|)
 expr_stmt|;
 block|}
