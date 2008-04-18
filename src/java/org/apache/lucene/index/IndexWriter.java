@@ -4708,7 +4708,7 @@ name|optimize
 argument_list|(
 literal|1
 argument_list|,
-literal|true
+name|doWait
 argument_list|)
 expr_stmt|;
 block|}
