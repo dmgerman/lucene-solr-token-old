@@ -270,7 +270,7 @@ name|Pattern
 import|;
 end_import
 begin_comment
-comment|/**  * Collection of static utilities usefull for query parsing.  *  * @version $Id$  */
+comment|/**  * Collection of static utilities useful for query parsing.  *  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|QueryParsing
