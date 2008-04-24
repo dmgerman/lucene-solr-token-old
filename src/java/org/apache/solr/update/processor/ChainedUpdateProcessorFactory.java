@@ -476,6 +476,17 @@ return|return
 name|last
 return|;
 block|}
+DECL|method|getFactories
+specifier|public
+name|UpdateRequestProcessorFactory
+index|[]
+name|getFactories
+parameter_list|()
+block|{
+return|return
+name|factory
+return|;
+block|}
 block|}
 end_class
 end_unit
