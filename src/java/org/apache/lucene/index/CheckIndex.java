@@ -498,12 +498,23 @@ name|SegmentInfos
 operator|.
 name|FORMAT_CHECKSUM
 condition|)
-block|{
 name|sFormat
 operator|=
 literal|"FORMAT_CHECKSUM [Lucene 2.4]"
 expr_stmt|;
-block|}
+elseif|else
+if|if
+condition|(
+name|format
+operator|==
+name|SegmentInfos
+operator|.
+name|FORMAT_DEL_COUNT
+condition|)
+name|sFormat
+operator|=
+literal|"FORMAT_DEL_COUNT [Lucene 2.4]"
+expr_stmt|;
 elseif|else
 if|if
 condition|(
@@ -511,7 +522,7 @@ name|format
 operator|<
 name|SegmentInfos
 operator|.
-name|FORMAT_CHECKSUM
+name|CURRENT_FORMAT
 condition|)
 block|{
 name|sFormat
@@ -909,6 +920,42 @@ operator|.
 name|hasDeletions
 argument_list|()
 condition|)
+block|{
+if|if
+condition|(
+name|info
+operator|.
+name|docCount
+operator|-
+name|numDocs
+operator|!=
+name|info
+operator|.
+name|getDelCount
+argument_list|()
+condition|)
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"delete count mismatch: info="
+operator|+
+name|info
+operator|.
+name|getDelCount
+argument_list|()
+operator|+
+literal|" vs reader="
+operator|+
+operator|(
+name|info
+operator|.
+name|docCount
+operator|-
+name|numDocs
+operator|)
+argument_list|)
+throw|;
 name|out
 operator|.
 name|println
@@ -926,7 +973,40 @@ operator|+
 literal|" deleted docs]"
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
+if|if
+condition|(
+name|info
+operator|.
+name|getDelCount
+argument_list|()
+operator|!=
+literal|0
+condition|)
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"delete count mismatch: info="
+operator|+
+name|info
+operator|.
+name|getDelCount
+argument_list|()
+operator|+
+literal|" vs reader="
+operator|+
+operator|(
+name|info
+operator|.
+name|docCount
+operator|-
+name|numDocs
+operator|)
+argument_list|)
+throw|;
 name|out
 operator|.
 name|println
@@ -934,6 +1014,7 @@ argument_list|(
 literal|"OK"
 argument_list|)
 expr_stmt|;
+block|}
 name|out
 operator|.
 name|print
