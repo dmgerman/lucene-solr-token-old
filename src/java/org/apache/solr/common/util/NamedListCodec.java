@@ -367,7 +367,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|readOrderedMap
-specifier|private
+specifier|public
 name|SimpleOrderedMap
 name|readOrderedMap
 parameter_list|(
@@ -441,7 +441,7 @@ name|nl
 return|;
 block|}
 DECL|method|readNamedList
-specifier|private
+specifier|public
 name|NamedList
 name|readNamedList
 parameter_list|(
@@ -515,7 +515,7 @@ name|nl
 return|;
 block|}
 DECL|method|writeNamedList
-specifier|private
+specifier|public
 name|void
 name|writeNamedList
 parameter_list|(
@@ -679,7 +679,7 @@ name|byte
 name|tagByte
 decl_stmt|;
 DECL|method|readVal
-specifier|private
+specifier|public
 name|Object
 name|readVal
 parameter_list|(
@@ -915,7 +915,7 @@ argument_list|)
 throw|;
 block|}
 DECL|method|writeKnownType
-specifier|private
+specifier|public
 name|boolean
 name|writeKnownType
 parameter_list|(
@@ -1177,7 +1177,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|writeByteArray
-specifier|private
+specifier|public
 name|void
 name|writeByteArray
 parameter_list|(
@@ -1214,7 +1214,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|readByteArray
-specifier|private
+specifier|public
 name|byte
 index|[]
 name|readByteArray
@@ -1322,7 +1322,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|readSolrDocument
-specifier|private
+specifier|public
 name|SolrDocument
 name|readSolrDocument
 parameter_list|(
@@ -1403,7 +1403,7 @@ name|doc
 return|;
 block|}
 DECL|method|readSolrDocumentList
-specifier|private
+specifier|public
 name|SolrDocumentList
 name|readSolrDocumentList
 parameter_list|(
@@ -1499,7 +1499,7 @@ name|solrDocs
 return|;
 block|}
 DECL|method|writeSolrDocumentList
-specifier|private
+specifier|public
 name|void
 name|writeSolrDocumentList
 parameter_list|(
@@ -1565,7 +1565,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|readMap
-specifier|private
+specifier|public
 name|Map
 name|readMap
 parameter_list|(
@@ -1636,7 +1636,7 @@ name|m
 return|;
 block|}
 DECL|method|writeIterator
-specifier|private
+specifier|public
 name|void
 name|writeIterator
 parameter_list|(
@@ -1781,7 +1781,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|readArray
-specifier|private
+specifier|public
 name|List
 name|readArray
 parameter_list|(
@@ -1840,7 +1840,7 @@ return|;
 block|}
 comment|/** write the string as tag+length, with length being the number of UTF-16 characters,    * followed by the string encoded in modified-UTF8     */
 DECL|method|writeStr
-specifier|private
+specifier|public
 name|void
 name|writeStr
 parameter_list|(
@@ -1862,6 +1862,7 @@ argument_list|(
 name|NULL
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 comment|// Can't use string serialization or toUTF()... it's limited to 64K
 comment|// plus it's bigger than it needs to be for small strings anyway
@@ -1962,7 +1963,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|writeInt
-specifier|private
+specifier|public
 name|void
 name|writeInt
 parameter_list|(
@@ -2048,7 +2049,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|readSmallInt
-specifier|private
+specifier|public
 name|int
 name|readSmallInt
 parameter_list|(
@@ -2093,7 +2094,7 @@ name|v
 return|;
 block|}
 DECL|method|writeLong
-specifier|private
+specifier|public
 name|void
 name|writeLong
 parameter_list|(
@@ -2186,7 +2187,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|readSmallLong
-specifier|private
+specifier|public
 name|long
 name|readSmallLong
 parameter_list|(
@@ -2231,7 +2232,7 @@ name|v
 return|;
 block|}
 DECL|method|writePrimitive
-specifier|private
+specifier|public
 name|boolean
 name|writePrimitive
 parameter_list|(
@@ -2572,7 +2573,7 @@ literal|false
 return|;
 block|}
 DECL|method|writeMap
-specifier|private
+specifier|public
 name|void
 name|writeMap
 parameter_list|(
@@ -2632,7 +2633,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|readSize
-specifier|private
+specifier|public
 name|int
 name|readSize
 parameter_list|(
@@ -2668,7 +2669,7 @@ return|;
 block|}
 comment|/**    * Special method for variable length int (copied from lucene). Usually used for writing the length of a collection/array/map    * In most of the cases the length can be represented in one byte (length< 127) so it saves 3 bytes/object    *    * @param i    * @param out    * @throws IOException    */
 DECL|method|writeVInt
-specifier|private
+specifier|public
 specifier|static
 name|void
 name|writeVInt
@@ -2799,7 +2800,7 @@ name|i
 return|;
 block|}
 DECL|method|writeVLong
-specifier|private
+specifier|public
 specifier|static
 name|void
 name|writeVLong
@@ -2860,7 +2861,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|readVLong
-specifier|private
+specifier|public
 specifier|static
 name|long
 name|readVLong
