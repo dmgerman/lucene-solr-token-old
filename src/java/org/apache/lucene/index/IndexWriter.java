@@ -512,6 +512,17 @@ specifier|private
 name|HashMap
 name|rollbackSegments
 decl_stmt|;
+DECL|field|pendingCommit
+specifier|volatile
+name|SegmentInfos
+name|pendingCommit
+decl_stmt|;
+comment|// set when a commit is pending (after prepareCommit()& before commit())
+DECL|field|pendingCommitChangeCount
+specifier|volatile
+name|long
+name|pendingCommitChangeCount
+decl_stmt|;
 DECL|field|localRollbackSegmentInfos
 specifier|private
 name|SegmentInfos
@@ -747,7 +758,10 @@ specifier|private
 specifier|synchronized
 name|void
 name|setMessageID
-parameter_list|()
+parameter_list|(
+name|PrintStream
+name|infoStream
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -773,6 +787,12 @@ operator|++
 expr_stmt|;
 block|}
 block|}
+name|this
+operator|.
+name|infoStream
+operator|=
+name|infoStream
+expr_stmt|;
 block|}
 comment|/**    * Casts current mergePolicy to LogMergePolicy, and throws    * an exception if the mergePolicy is not a LogMergePolicy.    */
 DECL|method|getLogMergePolicy
@@ -1998,20 +2018,16 @@ name|analyzer
 operator|=
 name|a
 expr_stmt|;
-name|this
-operator|.
-name|infoStream
-operator|=
-name|defaultInfoStream
-expr_stmt|;
-name|this
-operator|.
-name|maxFieldLength
-operator|=
-name|maxFieldLength
-expr_stmt|;
 name|setMessageID
-argument_list|()
+argument_list|(
+name|defaultInfoStream
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|maxFieldLength
+operator|=
+name|maxFieldLength
 expr_stmt|;
 if|if
 condition|(
@@ -3011,14 +3027,10 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
-name|infoStream
-operator|=
-name|infoStream
-expr_stmt|;
 name|setMessageID
-argument_list|()
+argument_list|(
+name|infoStream
+argument_list|)
 expr_stmt|;
 name|docWriter
 operator|.
@@ -3380,8 +3392,6 @@ argument_list|)
 expr_stmt|;
 name|commit
 argument_list|(
-literal|true
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -6093,8 +6103,6 @@ try|try
 block|{
 name|commit
 argument_list|(
-literal|true
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -6142,11 +6150,24 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**    * Close the<code>IndexWriter</code> without committing    * any of the changes that have occurred since it was    * opened. This removes any temporary files that had been    * created, after which the state of the index will be the    * same as it was when this writer was first opened.  This    * can only be called when this IndexWriter was opened    * with<code>autoCommit=false</code>.    * @throws IllegalStateException if this is called when    *  the writer was opened with<code>autoCommit=true</code>.    * @throws IOException if there is a low-level IO error    */
+comment|/**    * @deprecated Please use {@link #rollback} instead.    */
 DECL|method|abort
 specifier|public
 name|void
 name|abort
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|rollback
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**    * Close the<code>IndexWriter</code> without committing    * any of the changes that have occurred since it was    * opened. This removes any temporary files that had been    * created, after which the state of the index will be the    * same as it was when this writer was first opened.  This    * can only be called when this IndexWriter was opened    * with<code>autoCommit=false</code>.  This also clears a    * previous call to {@link #prepareCommit}.    * @throws IllegalStateException if this is called when    *  the writer was opened with<code>autoCommit=true</code>.    * @throws IOException if there is a low-level IO error    */
+DECL|method|rollback
+specifier|public
+name|void
+name|rollback
 parameter_list|()
 throws|throws
 name|IOException
@@ -6173,6 +6194,35 @@ init|(
 name|this
 init|)
 block|{
+if|if
+condition|(
+name|pendingCommit
+operator|!=
+literal|null
+condition|)
+block|{
+name|pendingCommit
+operator|.
+name|rollbackCommit
+argument_list|(
+name|directory
+argument_list|)
+expr_stmt|;
+name|deleter
+operator|.
+name|decRef
+argument_list|(
+name|pendingCommit
+argument_list|)
+expr_stmt|;
+name|pendingCommit
+operator|=
+literal|null
+expr_stmt|;
+name|notifyAll
+argument_list|()
+expr_stmt|;
+block|}
 comment|// Ensure that only one thread actually gets to do the closing:
 if|if
 condition|(
@@ -7608,7 +7658,120 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    *<p>Commits all pending updates (added& deleted documents)    * to the index, and syncs all referenced index files,    * such that a reader will see the changes.  Note that    * this does not wait for any running background merges to    * finish.  This may be a costly operation, so you should    * test the cost in your application and do it only when    * really necessary.</p>    *    *<p> Note that this operation calls Directory.sync on    * the index files.  That call should not return until the    * file contents& metadata are on stable storage.  For    * FSDirectory, this calls the OS's fsync.  But, beware:    * some hardware devices may in fact cache writes even    * during fsync, and return before the bits are actually    * on stable storage, to give the appearance of faster    * performance.  If you have such a device, and it does    * not have a battery backup (for example) then on power    * loss it may still lose data.  Lucene cannot guarantee    * consistency on such devices.</p>    */
+comment|/**<p>Expert: prepare for commit.  This does the first    *  phase of 2-phase commit.  You can only call this when    *  autoCommit is false.  This method does all steps    *  necessary to commit changes since this writer was    *  opened: flushes pending added and deleted docs, syncs    *  the index files, writes most of next segments_N file.    *  After calling this you must call either {@link    *  #commit()} to finish the commit, or {@link    *  #rollback()} to revert the commit and undo all changes    *  done since the writer was opened.</p>    *    * You can also just call {@link #commit()} directly    * without prepareCommit first in which case that method    * will internally call prepareCommit.    */
+DECL|method|prepareCommit
+specifier|public
+specifier|final
+name|void
+name|prepareCommit
+parameter_list|()
+throws|throws
+name|CorruptIndexException
+throws|,
+name|IOException
+block|{
+name|prepareCommit
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|prepareCommit
+specifier|private
+specifier|final
+name|void
+name|prepareCommit
+parameter_list|(
+name|boolean
+name|internal
+parameter_list|)
+throws|throws
+name|CorruptIndexException
+throws|,
+name|IOException
+block|{
+if|if
+condition|(
+name|hitOOM
+condition|)
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"this writer hit an OutOfMemoryError; cannot commit"
+argument_list|)
+throw|;
+if|if
+condition|(
+name|autoCommit
+operator|&&
+operator|!
+name|internal
+condition|)
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"this method can only be used when autoCommit is false"
+argument_list|)
+throw|;
+if|if
+condition|(
+operator|!
+name|autoCommit
+operator|&&
+name|pendingCommit
+operator|!=
+literal|null
+condition|)
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"prepareCommit was already called with no corresponding call to commit"
+argument_list|)
+throw|;
+name|message
+argument_list|(
+literal|"prepareCommit: flush"
+argument_list|)
+expr_stmt|;
+name|flush
+argument_list|(
+literal|true
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|startCommit
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|commit
+specifier|private
+name|void
+name|commit
+parameter_list|(
+name|long
+name|sizeInBytes
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|startCommit
+argument_list|(
+name|sizeInBytes
+argument_list|)
+expr_stmt|;
+name|finishCommit
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**    *<p>Commits all pending updates (added& deleted    * documents) to the index, and syncs all referenced index    * files, such that a reader will see the changes and the    * index updates will survive an OS or machine crash or    * power loss (though, see the note below).  Note that    * this does not wait for any running background merges to    * finish.  This may be a costly operation, so you should    * test the cost in your application and do it only when    * really necessary.</p>    *    *<p> Note that this operation calls Directory.sync on    * the index files.  That call should not return until the    * file contents& metadata are on stable storage.  For    * FSDirectory, this calls the OS's fsync.  But, beware:    * some hardware devices may in fact cache writes even    * during fsync, and return before the bits are actually    * on stable storage, to give the appearance of faster    * performance.  If you have such a device, and it does    * not have a battery backup (for example) then on power    * loss it may still lose data.  Lucene cannot guarantee    * consistency on such devices.</p>    */
 DECL|method|commit
 specifier|public
 specifier|final
@@ -7620,40 +7783,125 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
-name|commit
+name|message
+argument_list|(
+literal|"commit: start"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|autoCommit
+operator|||
+name|pendingCommit
+operator|==
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"commit: now prepare"
+argument_list|)
+expr_stmt|;
+name|prepareCommit
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|commit
+else|else
+name|message
+argument_list|(
+literal|"commit: already prepared"
+argument_list|)
+expr_stmt|;
+name|finishCommit
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|finishCommit
 specifier|private
+specifier|synchronized
 specifier|final
 name|void
-name|commit
-parameter_list|(
-name|boolean
-name|triggerMerges
-parameter_list|)
+name|finishCommit
+parameter_list|()
 throws|throws
 name|CorruptIndexException
 throws|,
 name|IOException
 block|{
-name|flush
+if|if
+condition|(
+name|pendingCommit
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|message
 argument_list|(
-name|triggerMerges
-argument_list|,
-literal|true
+literal|"commit: pendingCommit != null"
+argument_list|)
+expr_stmt|;
+name|pendingCommit
+operator|.
+name|finishCommit
+argument_list|(
+name|directory
+argument_list|)
+expr_stmt|;
+name|lastCommitChangeCount
+operator|=
+name|pendingCommitChangeCount
+expr_stmt|;
+name|segmentInfos
+operator|.
+name|updateGeneration
+argument_list|(
+name|pendingCommit
+argument_list|)
+expr_stmt|;
+name|setRollbackSegmentInfos
+argument_list|()
+expr_stmt|;
+name|deleter
+operator|.
+name|checkpoint
+argument_list|(
+name|pendingCommit
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|commit
+block|}
+finally|finally
+block|{
+name|deleter
+operator|.
+name|decRef
 argument_list|(
-literal|true
-argument_list|,
-literal|0
+name|pendingCommit
+argument_list|)
+expr_stmt|;
+name|pendingCommit
+operator|=
+literal|null
+expr_stmt|;
+name|notifyAll
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+else|else
+name|message
+argument_list|(
+literal|"commit: pendingCommit == null; skip"
+argument_list|)
+expr_stmt|;
+name|message
+argument_list|(
+literal|"commit: done"
 argument_list|)
 expr_stmt|;
 block|}
@@ -7738,13 +7986,9 @@ comment|// When autoCommit=true we must always flush deletes
 comment|// when flushing a segment; otherwise deletes may become
 comment|// visible before their corresponding added document
 comment|// from an updateDocument call
-if|if
-condition|(
-name|autoCommit
-condition|)
 name|flushDeletes
-operator|=
-literal|true
+operator||=
+name|autoCommit
 expr_stmt|;
 comment|// Returns true if docWriter is currently aborting, in
 comment|// which case we skip flushing this segment
@@ -10899,8 +11143,6 @@ expr_stmt|;
 block|}
 name|commit
 argument_list|(
-literal|false
-argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
@@ -11091,8 +11333,6 @@ expr_stmt|;
 block|}
 name|commit
 argument_list|(
-literal|false
-argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
@@ -11829,15 +12069,12 @@ block|}
 block|}
 block|}
 block|}
-comment|/** Walk through all files referenced by the current    *  segmentInfos, minus flushes, and ask the Directory to    *  sync each file, if it wasn't already.  If that    *  succeeds, then we write a new segments_N file& sync    *  that. */
-DECL|method|commit
+comment|/** Walk through all files referenced by the current    *  segmentInfos and ask the Directory to sync each file,    *  if it wasn't already.  If that succeeds, then we    *  prepare a new segments_N file but do not fully commit    *  it. */
+DECL|method|startCommit
 specifier|private
 name|void
-name|commit
+name|startCommit
 parameter_list|(
-name|boolean
-name|skipWait
-parameter_list|,
 name|long
 name|sizeInBytes
 parameter_list|)
@@ -11847,7 +12084,7 @@ block|{
 assert|assert
 name|testPoint
 argument_list|(
-literal|"startCommit"
+literal|"startStartCommit"
 argument_list|)
 assert|;
 if|if
@@ -11865,19 +12102,16 @@ literal|null
 condition|)
 name|message
 argument_list|(
-literal|"start commit() skipWait="
-operator|+
-name|skipWait
-operator|+
-literal|" sizeInBytes="
+literal|"startCommit(): start sizeInBytes="
 operator|+
 name|sizeInBytes
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|skipWait
+name|sizeInBytes
+operator|>
+literal|0
 condition|)
 name|syncPause
 argument_list|(
@@ -11918,7 +12152,7 @@ literal|null
 condition|)
 name|message
 argument_list|(
-literal|"  skip commit(): no changes pending"
+literal|"  skip startCommit(): no changes pending"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -11928,6 +12162,26 @@ comment|// to sync, then, without locking, we sync() each file
 comment|// referenced by toSync, in the background.  Multiple
 comment|// threads can be doing this at once, if say a large
 comment|// merge and a small merge finish at the same time:
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+name|message
+argument_list|(
+literal|"startCommit index="
+operator|+
+name|segString
+argument_list|(
+name|segmentInfos
+argument_list|)
+operator|+
+literal|" changeCount="
+operator|+
+name|changeCount
+argument_list|)
+expr_stmt|;
 name|toSync
 operator|=
 operator|(
@@ -11952,28 +12206,17 @@ operator|=
 name|changeCount
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|infoStream
-operator|!=
-literal|null
-condition|)
-name|message
-argument_list|(
-literal|"commit index="
-operator|+
-name|segString
-argument_list|(
-name|toSync
-argument_list|)
-argument_list|)
-expr_stmt|;
 assert|assert
 name|testPoint
 argument_list|(
-literal|"midCommit"
+literal|"midStartCommit"
 argument_list|)
 assert|;
+name|boolean
+name|setPending
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 comment|// Loop until all files toSync references are sync'd:
@@ -12137,7 +12380,7 @@ block|}
 assert|assert
 name|testPoint
 argument_list|(
-literal|"midCommit2"
+literal|"midStartCommit2"
 argument_list|)
 assert|;
 synchronized|synchronized
@@ -12154,8 +12397,53 @@ condition|(
 name|myChangeCount
 operator|>
 name|lastCommitChangeCount
+operator|&&
+operator|(
+name|pendingCommit
+operator|==
+literal|null
+operator|||
+name|myChangeCount
+operator|>
+name|pendingCommitChangeCount
+operator|)
 condition|)
 block|{
+comment|// Wait now for any current pending commit to complete:
+while|while
+condition|(
+name|pendingCommit
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"wait for existing pendingCommit to finish..."
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|wait
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|ie
+parameter_list|)
+block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 if|if
 condition|(
 name|segmentInfos
@@ -12182,12 +12470,49 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+comment|// Exception here means nothing is prepared
+comment|// (this method unwinds everything it did on
+comment|// an exception)
+try|try
+block|{
 name|toSync
 operator|.
-name|commit
+name|prepareCommit
 argument_list|(
 name|directory
 argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// Have our master segmentInfos record the
+comment|// generations we just prepared.  We do this
+comment|// on error or success so we don't
+comment|// double-write a segments_N file.
+name|segmentInfos
+operator|.
+name|updateGeneration
+argument_list|(
+name|toSync
+argument_list|)
+expr_stmt|;
+block|}
+assert|assert
+name|pendingCommit
+operator|==
+literal|null
+assert|;
+name|setPending
+operator|=
+literal|true
+expr_stmt|;
+name|pendingCommit
+operator|=
+name|toSync
+expr_stmt|;
+name|pendingCommitChangeCount
+operator|=
+name|myChangeCount
 expr_stmt|;
 name|success
 operator|=
@@ -12196,15 +12521,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// Have our master segmentInfos record the
-comment|// generations we just sync'd
-name|segmentInfos
-operator|.
-name|updateGeneration
-argument_list|(
-name|toSync
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -12216,27 +12532,6 @@ literal|"hit exception committing segments file"
 argument_list|)
 expr_stmt|;
 block|}
-name|message
-argument_list|(
-literal|"commit complete"
-argument_list|)
-expr_stmt|;
-name|lastCommitChangeCount
-operator|=
-name|myChangeCount
-expr_stmt|;
-name|deleter
-operator|.
-name|checkpoint
-argument_list|(
-name|toSync
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-name|setRollbackSegmentInfos
-argument_list|()
-expr_stmt|;
 block|}
 else|else
 name|message
@@ -12253,7 +12548,7 @@ expr_stmt|;
 assert|assert
 name|testPoint
 argument_list|(
-literal|"midCommitSuccess"
+literal|"midStartCommitSuccess"
 argument_list|)
 assert|;
 block|}
@@ -12264,6 +12559,11 @@ init|(
 name|this
 init|)
 block|{
+if|if
+condition|(
+operator|!
+name|setPending
+condition|)
 name|deleter
 operator|.
 name|decRef
@@ -12291,7 +12591,7 @@ block|}
 assert|assert
 name|testPoint
 argument_list|(
-literal|"finishCommit"
+literal|"finishStartCommit"
 argument_list|)
 assert|;
 block|}
@@ -12509,11 +12809,11 @@ block|}
 comment|// Used only by assert for testing.  Current points:
 comment|//   startDoFlush
 comment|//   startCommitMerge
-comment|//   startCommit
-comment|//   midCommit
-comment|//   midCommit2
-comment|//   midCommitSuccess
-comment|//   finishCommit
+comment|//   startStartCommit
+comment|//   midStartCommit
+comment|//   midStartCommit2
+comment|//   midStartCommitSuccess
+comment|//   finishStartCommit
 comment|//   startCommitMergeDeletes
 comment|//   startMergeInit
 comment|//   startApplyDeletes

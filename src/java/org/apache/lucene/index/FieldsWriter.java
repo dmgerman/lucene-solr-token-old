@@ -276,9 +276,22 @@ operator|!
 name|success
 condition|)
 block|{
+try|try
+block|{
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// Suppress so we keep throwing the original exception
+block|}
+try|try
+block|{
 name|d
 operator|.
 name|deleteFile
@@ -286,6 +299,15 @@ argument_list|(
 name|fieldsName
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// Suppress so we keep throwing the original exception
+block|}
 block|}
 block|}
 name|success
@@ -335,9 +357,20 @@ operator|!
 name|success
 condition|)
 block|{
+try|try
+block|{
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{             }
+try|try
+block|{
 name|d
 operator|.
 name|deleteFile
@@ -345,6 +378,17 @@ argument_list|(
 name|fieldsName
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// Suppress so we keep throwing the original exception
+block|}
+try|try
+block|{
 name|d
 operator|.
 name|deleteFile
@@ -352,6 +396,15 @@ argument_list|(
 name|indexName
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// Suppress so we keep throwing the original exception
+block|}
 block|}
 block|}
 name|doClose
