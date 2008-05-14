@@ -162,6 +162,27 @@ block|,
 literal|'\u042E'
 block|,
 literal|'\u042F'
+block|,
+comment|// numbers
+literal|'0'
+block|,
+literal|'1'
+block|,
+literal|'2'
+block|,
+literal|'3'
+block|,
+literal|'4'
+block|,
+literal|'5'
+block|,
+literal|'6'
+block|,
+literal|'7'
+block|,
+literal|'8'
+block|,
+literal|'9'
 block|}
 decl_stmt|;
 comment|// KOI8 charset
@@ -301,6 +322,27 @@ block|,
 literal|0xe0
 block|,
 literal|0xf1
+block|,
+comment|// numbers
+literal|'0'
+block|,
+literal|'1'
+block|,
+literal|'2'
+block|,
+literal|'3'
+block|,
+literal|'4'
+block|,
+literal|'5'
+block|,
+literal|'6'
+block|,
+literal|'7'
+block|,
+literal|'8'
+block|,
+literal|'9'
 block|}
 decl_stmt|;
 comment|// CP1251 eharset
@@ -440,6 +482,27 @@ block|,
 literal|0xDE
 block|,
 literal|0xDF
+block|,
+comment|// numbers
+literal|'0'
+block|,
+literal|'1'
+block|,
+literal|'2'
+block|,
+literal|'3'
+block|,
+literal|'4'
+block|,
+literal|'5'
+block|,
+literal|'6'
+block|,
+literal|'7'
+block|,
+literal|'8'
+block|,
+literal|'9'
 block|}
 decl_stmt|;
 DECL|method|toLowerCase
