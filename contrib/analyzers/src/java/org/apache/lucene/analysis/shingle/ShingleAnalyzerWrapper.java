@@ -67,7 +67,7 @@ name|StandardAnalyzer
 import|;
 end_import
 begin_comment
-comment|/**  * A ShingleAnalyzerWrapper wraps a ShingleFilter around another analyzer.  A shingle is another term for a token based  * n-gram.  */
+comment|/**  * A ShingleAnalyzerWrapper wraps a ShingleFilter around another analyzer. A  * shingle is another namefor a token based n-gram.  */
 end_comment
 begin_class
 DECL|class|ShingleAnalyzerWrapper
@@ -137,6 +137,7 @@ operator|=
 name|maxShingleSize
 expr_stmt|;
 block|}
+comment|/**    * Wraps {@link StandardAnalyzer}.     */
 DECL|method|ShingleAnalyzerWrapper
 specifier|public
 name|ShingleAnalyzerWrapper
@@ -172,7 +173,7 @@ operator|=
 name|nGramSize
 expr_stmt|;
 block|}
-comment|/**    * The max shingle (ngram) size    * @return The max shingle (ngram) size    */
+comment|/**    * The max shingle (ngram) size    *     * @return The max shingle (ngram) size    */
 DECL|method|getMaxShingleSize
 specifier|public
 name|int
@@ -183,7 +184,7 @@ return|return
 name|maxShingleSize
 return|;
 block|}
-comment|/**    * Set the maximum size of output shingles (default: 2)    *    * @param maxShingleSize max shingle size    */
+comment|/**    * Set the maximum size of output shingles    *     * @param maxShingleSize max shingle size    */
 DECL|method|setMaxShingleSize
 specifier|public
 name|void
@@ -210,7 +211,7 @@ return|return
 name|outputUnigrams
 return|;
 block|}
-comment|/**    * Shall the filter pass the original tokens (the "unigrams") to the output    * stream? (default: true)    *    * @param outputUnigrams Whether or not the filter shall pass the original    *                       tokens to the output stream    */
+comment|/**    * Shall the filter pass the original tokens (the "unigrams") to the output    * stream?    *     * @param outputUnigrams Whether or not the filter shall pass the original    *        tokens to the output stream    */
 DECL|method|setOutputUnigrams
 specifier|public
 name|void
