@@ -6354,8 +6354,16 @@ init|=
 operator|~
 name|BYTE_BLOCK_MASK
 decl_stmt|;
-DECL|field|freeByteBlocks
+DECL|class|ByteBlockAllocator
 specifier|private
+class|class
+name|ByteBlockAllocator
+extends|extends
+name|ByteBlockPool
+operator|.
+name|Allocator
+block|{
+DECL|field|freeByteBlocks
 name|ArrayList
 name|freeByteBlocks
 init|=
@@ -6365,7 +6373,6 @@ argument_list|()
 decl_stmt|;
 comment|/* Allocate another byte[] from the shared pool */
 DECL|method|getByteBlock
-specifier|synchronized
 name|byte
 index|[]
 name|getByteBlock
@@ -6373,6 +6380,13 @@ parameter_list|(
 name|boolean
 name|trackAllocations
 parameter_list|)
+block|{
+synchronized|synchronized
+init|(
+name|DocumentsWriter
+operator|.
+name|this
+init|)
 block|{
 specifier|final
 name|int
@@ -6444,9 +6458,9 @@ return|return
 name|b
 return|;
 block|}
+block|}
 comment|/* Return byte[]'s to the pool */
 DECL|method|recycleByteBlocks
-specifier|synchronized
 name|void
 name|recycleByteBlocks
 parameter_list|(
@@ -6461,6 +6475,13 @@ parameter_list|,
 name|int
 name|end
 parameter_list|)
+block|{
+synchronized|synchronized
+init|(
+name|DocumentsWriter
+operator|.
+name|this
+init|)
 block|{
 for|for
 control|(
@@ -6487,6 +6508,16 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+DECL|field|byteBlockAllocator
+name|ByteBlockAllocator
+name|byteBlockAllocator
+init|=
+operator|new
+name|ByteBlockAllocator
+argument_list|()
+decl_stmt|;
 comment|/* Initial chunk size of the shared char[] blocks used to      store term text */
 DECL|field|CHAR_BLOCK_SHIFT
 specifier|final
@@ -6794,6 +6825,8 @@ literal|" byteBlockFree="
 operator|+
 name|toMB
 argument_list|(
+name|byteBlockAllocator
+operator|.
 name|freeByteBlocks
 operator|.
 name|size
@@ -6858,6 +6891,8 @@ if|if
 condition|(
 literal|0
 operator|==
+name|byteBlockAllocator
+operator|.
 name|freeByteBlocks
 operator|.
 name|size
@@ -6903,6 +6938,8 @@ operator|%
 literal|3
 operator|)
 operator|&&
+name|byteBlockAllocator
+operator|.
 name|freeByteBlocks
 operator|.
 name|size
@@ -6911,10 +6948,14 @@ operator|>
 literal|0
 condition|)
 block|{
+name|byteBlockAllocator
+operator|.
 name|freeByteBlocks
 operator|.
 name|remove
 argument_list|(
+name|byteBlockAllocator
+operator|.
 name|freeByteBlocks
 operator|.
 name|size
