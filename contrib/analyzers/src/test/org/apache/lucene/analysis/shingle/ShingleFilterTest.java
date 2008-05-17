@@ -1005,15 +1005,15 @@ name|void
 name|shingleFilterTest
 parameter_list|(
 name|int
-name|n
+name|maxSize
 parameter_list|,
 name|Token
 index|[]
-name|testToken
+name|tokensToShingle
 parameter_list|,
 name|Token
 index|[]
-name|tokens
+name|tokensToCompare
 parameter_list|,
 name|int
 index|[]
@@ -1035,10 +1035,10 @@ argument_list|(
 operator|new
 name|TestTokenStream
 argument_list|(
-name|testToken
+name|tokensToShingle
 argument_list|)
 argument_list|,
-name|n
+name|maxSize
 argument_list|)
 decl_stmt|;
 name|Token
@@ -1088,7 +1088,7 @@ init|=
 operator|new
 name|String
 argument_list|(
-name|tokens
+name|tokensToCompare
 index|[
 name|i
 index|]
@@ -1098,7 +1098,7 @@ argument_list|()
 argument_list|,
 literal|0
 argument_list|,
-name|tokens
+name|tokensToCompare
 index|[
 name|i
 index|]
@@ -1124,7 +1124,7 @@ name|termText
 operator|+
 literal|"\""
 argument_list|,
-name|tokens
+name|tokensToCompare
 index|[
 name|i
 index|]
@@ -1146,7 +1146,7 @@ name|termText
 operator|+
 literal|"\""
 argument_list|,
-name|tokens
+name|tokensToCompare
 index|[
 name|i
 index|]
