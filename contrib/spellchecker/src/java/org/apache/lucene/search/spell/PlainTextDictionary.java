@@ -35,7 +35,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * Dictionary represented by a text file.  *   *<p/>Format allowed: 1 word per line:<br/>  * word1<br/>  * word2<br/>  * word3<br/>  *  *  */
+comment|/**  * Dictionary represented by a text file.  *   *<p/>Format allowed: 1 word per line:<br/>  * word1<br/>  * word2<br/>  * word3<br/>  */
 end_comment
 begin_class
 DECL|class|PlainTextDictionary
@@ -104,9 +104,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Create a dictionary based on a reader. Used by the test case.    */
+comment|/**    * Creates a dictionary based on a reader.    */
 DECL|method|PlainTextDictionary
-specifier|protected
+specifier|public
 name|PlainTextDictionary
 parameter_list|(
 name|Reader
