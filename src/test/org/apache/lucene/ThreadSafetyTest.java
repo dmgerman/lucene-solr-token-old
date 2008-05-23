@@ -662,7 +662,8 @@ argument_list|,
 name|ANALYZER
 argument_list|)
 decl_stmt|;
-name|Hits
+name|ScoreDoc
+index|[]
 name|hits
 init|=
 name|searcher
@@ -680,7 +681,13 @@ argument_list|(
 name|n
 argument_list|)
 argument_list|)
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 decl_stmt|;
 name|System
 operator|.
@@ -697,7 +704,6 @@ operator|+
 name|hits
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -718,7 +724,6 @@ argument_list|,
 name|hits
 operator|.
 name|length
-argument_list|()
 argument_list|)
 condition|;
 name|j
@@ -737,11 +742,16 @@ name|n
 operator|+
 literal|": "
 operator|+
-name|hits
+name|searcher
 operator|.
 name|doc
 argument_list|(
+name|hits
+index|[
 name|j
+index|]
+operator|.
+name|doc
 argument_list|)
 operator|.
 name|get

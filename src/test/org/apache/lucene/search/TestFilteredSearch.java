@@ -330,15 +330,8 @@ argument_list|(
 name|directory
 argument_list|)
 decl_stmt|;
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Hits
+name|ScoreDoc
+index|[]
 name|hits
 init|=
 name|indexSearcher
@@ -348,7 +341,11 @@ argument_list|(
 name|booleanQuery
 argument_list|,
 name|filter
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -359,7 +356,6 @@ argument_list|,
 name|hits
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

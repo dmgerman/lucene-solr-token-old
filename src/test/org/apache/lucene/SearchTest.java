@@ -257,11 +257,6 @@ comment|// 	"\"a c\"",
 literal|"\"a c e\""
 block|,       }
 decl_stmt|;
-name|Hits
-name|hits
-init|=
-literal|null
-decl_stmt|;
 name|QueryParser
 name|parser
 init|=
@@ -330,15 +325,25 @@ comment|//DateFilter filter =
 comment|//  new DateFilter("modified", Time(1997,0,1), Time(1998,0,1));
 comment|//DateFilter filter = DateFilter.Before("modified", Time(1997,00,01));
 comment|//System.out.println(filter);
+name|ScoreDoc
+index|[]
 name|hits
-operator|=
+init|=
 name|searcher
 operator|.
 name|search
 argument_list|(
 name|query
+argument_list|,
+literal|null
+argument_list|,
+name|docs
+operator|.
+name|length
 argument_list|)
-expr_stmt|;
+operator|.
+name|scoreDocs
+decl_stmt|;
 name|System
 operator|.
 name|out
@@ -348,7 +353,6 @@ argument_list|(
 name|hits
 operator|.
 name|length
-argument_list|()
 operator|+
 literal|" total results"
 argument_list|)
@@ -365,7 +369,6 @@ operator|<
 name|hits
 operator|.
 name|length
-argument_list|()
 operator|&&
 name|i
 operator|<
@@ -378,11 +381,16 @@ block|{
 name|Document
 name|d
 init|=
-name|hits
+name|searcher
 operator|.
 name|doc
 argument_list|(
+name|hits
+index|[
 name|i
+index|]
+operator|.
+name|doc
 argument_list|)
 decl_stmt|;
 name|System
@@ -396,11 +404,11 @@ operator|+
 literal|" "
 operator|+
 name|hits
+index|[
+name|i
+index|]
 operator|.
 name|score
-argument_list|(
-name|i
-argument_list|)
 comment|// 			   + " " + DateField.stringToDate(d.get("modified"))
 operator|+
 literal|" "

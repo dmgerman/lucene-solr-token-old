@@ -39,19 +39,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Hits
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|IndexSearcher
 import|;
 end_import
@@ -281,7 +268,8 @@ argument_list|,
 name|s
 argument_list|)
 expr_stmt|;
-name|Hits
+name|ScoreDoc
+index|[]
 name|h
 init|=
 name|s
@@ -289,7 +277,13 @@ operator|.
 name|search
 argument_list|(
 name|q
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -300,7 +294,6 @@ argument_list|,
 name|h
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|String
@@ -326,7 +319,6 @@ operator|<
 name|h
 operator|.
 name|length
-argument_list|()
 condition|;
 name|i
 operator|++
@@ -335,11 +327,16 @@ block|{
 name|String
 name|resID
 init|=
-name|h
+name|s
 operator|.
 name|doc
 argument_list|(
+name|h
+index|[
 name|i
+index|]
+operator|.
+name|doc
 argument_list|)
 operator|.
 name|get
@@ -354,11 +351,11 @@ operator|+
 literal|".   score="
 operator|+
 name|h
+index|[
+name|i
+index|]
 operator|.
 name|score
-argument_list|(
-name|i
-argument_list|)
 operator|+
 literal|"  -  "
 operator|+
@@ -374,11 +371,11 @@ argument_list|(
 name|q
 argument_list|,
 name|h
-operator|.
-name|id
-argument_list|(
+index|[
 name|i
-argument_list|)
+index|]
+operator|.
+name|doc
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -849,7 +846,8 @@ argument_list|(
 name|vs
 argument_list|)
 decl_stmt|;
-name|Hits
+name|ScoreDoc
+index|[]
 name|h
 init|=
 name|s
@@ -857,7 +855,13 @@ operator|.
 name|search
 argument_list|(
 name|q
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 decl_stmt|;
 try|try
 block|{
@@ -870,7 +874,6 @@ argument_list|,
 name|h
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -991,7 +994,8 @@ decl_stmt|;
 name|ValueSourceQuery
 name|q
 decl_stmt|;
-name|Hits
+name|ScoreDoc
+index|[]
 name|h
 decl_stmt|;
 comment|// verify that different values are loaded for a different field
@@ -1051,7 +1055,13 @@ operator|.
 name|search
 argument_list|(
 name|q
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -1062,7 +1072,6 @@ argument_list|,
 name|h
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
@@ -1197,7 +1206,13 @@ operator|.
 name|search
 argument_list|(
 name|q
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -1208,7 +1223,6 @@ argument_list|,
 name|h
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 try|try

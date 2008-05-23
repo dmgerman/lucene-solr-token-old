@@ -414,7 +414,8 @@ literal|"sunny"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Hits
+name|ScoreDoc
+index|[]
 name|result
 decl_stmt|;
 comment|// ensure that queries return expected results without DateFilter first
@@ -425,7 +426,13 @@ operator|.
 name|search
 argument_list|(
 name|query1
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -434,7 +441,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|result
@@ -444,7 +450,13 @@ operator|.
 name|search
 argument_list|(
 name|query2
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -453,7 +465,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// run queries with DateFilter
@@ -466,7 +477,11 @@ argument_list|(
 name|query1
 argument_list|,
 name|df1
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -475,7 +490,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|result
@@ -487,7 +501,11 @@ argument_list|(
 name|query1
 argument_list|,
 name|df2
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -496,7 +514,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|result
@@ -508,7 +525,11 @@ argument_list|(
 name|query2
 argument_list|,
 name|df1
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -517,7 +538,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|result
@@ -529,7 +549,11 @@ argument_list|(
 name|query2
 argument_list|,
 name|df2
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -538,7 +562,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -806,7 +829,8 @@ literal|"sunny"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Hits
+name|ScoreDoc
+index|[]
 name|result
 decl_stmt|;
 comment|// ensure that queries return expected results without DateFilter first
@@ -817,7 +841,13 @@ operator|.
 name|search
 argument_list|(
 name|query1
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -826,7 +856,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|result
@@ -836,7 +865,13 @@ operator|.
 name|search
 argument_list|(
 name|query2
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -845,7 +880,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// run queries with DateFilter
@@ -858,7 +892,11 @@ argument_list|(
 name|query1
 argument_list|,
 name|df1
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -867,7 +905,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|result
@@ -879,7 +916,11 @@ argument_list|(
 name|query1
 argument_list|,
 name|df2
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -888,7 +929,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|result
@@ -900,7 +940,11 @@ argument_list|(
 name|query2
 argument_list|,
 name|df1
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -909,7 +953,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|result
@@ -921,7 +964,11 @@ argument_list|(
 name|query2
 argument_list|,
 name|df2
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -930,7 +977,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

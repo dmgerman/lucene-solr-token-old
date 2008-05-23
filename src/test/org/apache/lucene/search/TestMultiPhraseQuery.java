@@ -485,7 +485,8 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Hits
+name|ScoreDoc
+index|[]
 name|result
 decl_stmt|;
 name|result
@@ -495,7 +496,13 @@ operator|.
 name|search
 argument_list|(
 name|query1
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -504,7 +511,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|result
@@ -514,7 +520,13 @@ operator|.
 name|search
 argument_list|(
 name|query2
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -523,7 +535,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// search for "blue* pizza":
@@ -636,7 +647,13 @@ operator|.
 name|search
 argument_list|(
 name|query3
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -645,7 +662,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// blueberry pizza, bluebird pizza
@@ -674,7 +690,13 @@ operator|.
 name|search
 argument_list|(
 name|query3
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -683,7 +705,6 @@ argument_list|,
 name|result
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// blueberry pizza, bluebird pizza, bluebird foobar pizza
@@ -957,7 +978,8 @@ name|MUST
 argument_list|)
 expr_stmt|;
 comment|// exception will be thrown here without fix
-name|Hits
+name|ScoreDoc
+index|[]
 name|hits
 init|=
 name|searcher
@@ -965,7 +987,13 @@ operator|.
 name|search
 argument_list|(
 name|q
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -976,7 +1004,6 @@ argument_list|,
 name|hits
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|searcher
@@ -1149,7 +1176,8 @@ name|MUST
 argument_list|)
 expr_stmt|;
 comment|// exception will be thrown here without fix for #35626:
-name|Hits
+name|ScoreDoc
+index|[]
 name|hits
 init|=
 name|searcher
@@ -1157,7 +1185,13 @@ operator|.
 name|search
 argument_list|(
 name|q
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1168,7 +1202,6 @@ argument_list|,
 name|hits
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|searcher

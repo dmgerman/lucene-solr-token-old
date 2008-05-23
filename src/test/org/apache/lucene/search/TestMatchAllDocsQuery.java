@@ -198,7 +198,8 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|Hits
+name|ScoreDoc
+index|[]
 name|hits
 init|=
 name|is
@@ -208,7 +209,13 @@ argument_list|(
 operator|new
 name|MatchAllDocsQuery
 argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -217,7 +224,6 @@ argument_list|,
 name|hits
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// some artificial queries to trigger the use of skipTo():
@@ -265,7 +271,13 @@ operator|.
 name|search
 argument_list|(
 name|bq
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -274,7 +286,6 @@ argument_list|,
 name|hits
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|bq
@@ -328,7 +339,13 @@ operator|.
 name|search
 argument_list|(
 name|bq
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -337,7 +354,6 @@ argument_list|,
 name|hits
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// delete a document:
@@ -360,7 +376,13 @@ argument_list|(
 operator|new
 name|MatchAllDocsQuery
 argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+literal|1000
 argument_list|)
+operator|.
+name|scoreDocs
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -369,7 +391,6 @@ argument_list|,
 name|hits
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|is
