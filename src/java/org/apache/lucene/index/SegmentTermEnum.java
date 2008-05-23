@@ -644,10 +644,10 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** Optimized scan, without allocating new terms. */
+comment|/** Optimized scan, without allocating new terms.     *  Return number of invocations to next(). */
 DECL|method|scanTo
 specifier|final
-name|void
+name|int
 name|scanTo
 parameter_list|(
 name|Term
@@ -663,6 +663,11 @@ argument_list|(
 name|term
 argument_list|)
 expr_stmt|;
+name|int
+name|count
+init|=
+literal|0
+decl_stmt|;
 while|while
 condition|(
 name|scanBuffer
@@ -677,7 +682,14 @@ operator|&&
 name|next
 argument_list|()
 condition|)
-block|{}
+block|{
+name|count
+operator|++
+expr_stmt|;
+block|}
+return|return
+name|count
+return|;
 block|}
 comment|/** Returns the current Term in the enumeration.    Initially invalid, valid after next() called for the first time.*/
 DECL|method|term
