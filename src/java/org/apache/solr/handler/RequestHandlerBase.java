@@ -187,6 +187,8 @@ implements|,
 name|SolrInfoMBean
 block|{
 comment|// statistics
+comment|// TODO: should we bother synchronizing these, or is an off-by-one error
+comment|// acceptable every million requests or so?
 DECL|field|numRequests
 specifier|volatile
 name|long
@@ -196,13 +198,6 @@ DECL|field|numErrors
 specifier|volatile
 name|long
 name|numErrors
-decl_stmt|;
-DECL|field|totalTime
-specifier|volatile
-name|long
-name|totalTime
-init|=
-literal|0
 decl_stmt|;
 DECL|field|initArgs
 specifier|protected
@@ -225,6 +220,13 @@ DECL|field|invariants
 specifier|protected
 name|SolrParams
 name|invariants
+decl_stmt|;
+DECL|field|totalTime
+specifier|volatile
+name|long
+name|totalTime
+init|=
+literal|0
 decl_stmt|;
 DECL|field|handlerStart
 name|long
