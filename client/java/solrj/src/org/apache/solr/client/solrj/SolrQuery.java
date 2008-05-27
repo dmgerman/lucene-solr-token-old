@@ -150,7 +150,7 @@ name|q
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** add a field for facet computation    *     * @param f the field name from the IndexSchema    */
+comment|/** add a field for facet computation    *     * @param fields the field name from the IndexSchema    */
 DECL|method|addFacetField
 specifier|public
 name|void
