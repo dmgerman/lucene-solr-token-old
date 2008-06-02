@@ -4210,7 +4210,7 @@ index|[
 name|i
 index|]
 operator|.
-name|getId
+name|getName
 argument_list|()
 operator|+
 literal|":\n"
