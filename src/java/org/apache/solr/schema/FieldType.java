@@ -1596,6 +1596,7 @@ name|field
 argument_list|)
 return|;
 block|}
+comment|/**    * @deprecated use {@link #getValueSource(SchemaField, QParser)}    */
 annotation|@
 name|Deprecated
 DECL|method|getValueSource
