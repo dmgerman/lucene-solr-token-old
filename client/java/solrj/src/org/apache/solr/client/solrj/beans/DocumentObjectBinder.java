@@ -99,6 +99,17 @@ operator|.
 name|*
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
+import|;
+end_import
 begin_comment
 comment|/**  * A class to map objects to and from solr documents.  *   * @version $Id: ClientUtils.java 601900 2007-12-06 22:55:47Z ryan $  * @since solr 1.3  */
 end_comment
@@ -122,12 +133,8 @@ argument_list|>
 argument_list|>
 name|infocache
 init|=
-name|Collections
-operator|.
-name|synchronizedMap
-argument_list|(
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<
 name|Class
 argument_list|,
@@ -137,7 +144,6 @@ name|DocField
 argument_list|>
 argument_list|>
 argument_list|()
-argument_list|)
 decl_stmt|;
 DECL|method|DocumentObjectBinder
 specifier|public
