@@ -1455,6 +1455,13 @@ argument_list|(
 literal|"Search using components: "
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|components
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|SearchComponent
@@ -1480,6 +1487,7 @@ argument_list|(
 literal|","
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|sb
