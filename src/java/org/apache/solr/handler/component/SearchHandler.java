@@ -1196,9 +1196,13 @@ block|{
 name|ModifiableSolrParams
 name|params
 init|=
+operator|new
+name|ModifiableSolrParams
+argument_list|(
 name|sreq
 operator|.
 name|params
+argument_list|)
 decl_stmt|;
 name|params
 operator|.
