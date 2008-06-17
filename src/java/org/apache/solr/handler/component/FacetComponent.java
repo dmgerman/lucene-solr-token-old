@@ -848,6 +848,15 @@ operator|.
 name|FACET_OFFSET
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|dff
+operator|.
+name|limit
+operator|>
+literal|0
+condition|)
+block|{
 comment|// set the initial limit higher in increase accuracy
 name|dff
 operator|.
@@ -878,9 +887,21 @@ argument_list|)
 operator|+
 literal|10
 expr_stmt|;
+block|}
+else|else
+block|{
+name|dff
+operator|.
+name|initialLimit
+operator|=
+name|dff
+operator|.
+name|limit
+expr_stmt|;
+block|}
 comment|// Uncomment the following line when testing to supress over-requesting facets and
 comment|// thus cause more facet refinement queries.
-comment|// dff.initialLimit = dff.offset + dff.limit;
+comment|// if (dff.limit> 0) dff.initialLimit = dff.offset + dff.limit;
 name|sreq
 operator|.
 name|params
@@ -1277,6 +1298,16 @@ name|values
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+name|dff
+operator|.
+name|limit
+operator|<=
+literal|0
+condition|)
+continue|continue;
+comment|// no need to check these facets for refinement
 name|ShardFacetCount
 index|[]
 name|counts
@@ -1580,18 +1611,7 @@ operator|.
 name|responses
 control|)
 block|{
-name|int
-name|shardNum
-init|=
-name|rb
-operator|.
-name|getShardNum
-argument_list|(
-name|srsp
-operator|.
-name|shard
-argument_list|)
-decl_stmt|;
+comment|// int shardNum = rb.getShardNum(srsp.shard);
 name|NamedList
 name|facet_counts
 init|=
@@ -1928,6 +1948,10 @@ name|countSorted
 decl_stmt|;
 if|if
 condition|(
+name|counts
+operator|==
+literal|null
+operator|||
 name|dff
 operator|.
 name|needRefinements
