@@ -197,7 +197,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|parse
-specifier|protected
+specifier|public
 name|Query
 name|parse
 parameter_list|()
