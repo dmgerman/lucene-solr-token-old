@@ -1903,7 +1903,7 @@ else|else
 block|{
 if|if
 condition|(
-name|a
+name|b
 operator|.
 name|getMaxScore
 argument_list|()
@@ -1913,7 +1913,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|b
+name|a
 operator|.
 name|getMaxScore
 argument_list|()
@@ -3043,6 +3043,15 @@ operator|+
 literal|" desc"
 argument_list|)
 expr_stmt|;
+name|handle
+operator|.
+name|put
+argument_list|(
+literal|"maxScore"
+argument_list|,
+name|SKIPVAL
+argument_list|)
+expr_stmt|;
 name|query
 argument_list|(
 literal|"q"
@@ -3050,6 +3059,15 @@ argument_list|,
 literal|"{!func}"
 operator|+
 name|i1
+argument_list|)
+expr_stmt|;
+comment|// does not expect maxScore. So if it comes ,ignore it. NamedListCodec.writeSolrDocumentList()
+comment|//is agnostic of request params.
+name|handle
+operator|.
+name|remove
+argument_list|(
+literal|"maxScore"
 argument_list|)
 expr_stmt|;
 name|query
@@ -3082,6 +3100,15 @@ argument_list|(
 literal|"response"
 argument_list|,
 name|UNORDERED
+argument_list|)
+expr_stmt|;
+name|handle
+operator|.
+name|put
+argument_list|(
+literal|"maxScore"
+argument_list|,
+name|SKIPVAL
 argument_list|)
 expr_stmt|;
 name|query
@@ -3135,15 +3162,6 @@ argument_list|,
 literal|"start"
 argument_list|,
 literal|"100"
-argument_list|)
-expr_stmt|;
-name|handle
-operator|.
-name|put
-argument_list|(
-literal|"maxScore"
-argument_list|,
-name|SKIPVAL
 argument_list|)
 expr_stmt|;
 name|handle
