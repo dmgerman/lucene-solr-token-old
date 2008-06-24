@@ -173,7 +173,7 @@ comment|//----------------------------------------------------------------
 comment|/**    * Replace any existing parameter with the given name.  if val==null remove key from params completely.    */
 DECL|method|set
 specifier|public
-name|void
+name|ModifiableSolrParams
 name|set
 parameter_list|(
 name|String
@@ -226,10 +226,13 @@ name|val
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|this
+return|;
 block|}
 DECL|method|set
 specifier|public
-name|void
+name|ModifiableSolrParams
 name|set
 parameter_list|(
 name|String
@@ -251,10 +254,13 @@ name|val
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|set
 specifier|public
-name|void
+name|ModifiableSolrParams
 name|set
 parameter_list|(
 name|String
@@ -276,11 +282,14 @@ name|val
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**    * Add the given values to any existing name    */
 DECL|method|add
 specifier|public
-name|void
+name|ModifiableSolrParams
 name|add
 parameter_list|(
 name|String
@@ -441,6 +450,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+name|this
+return|;
 block|}
 DECL|method|add
 specifier|public

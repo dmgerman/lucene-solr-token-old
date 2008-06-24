@@ -150,10 +150,10 @@ name|q
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** add a field for facet computation    *     * @param fields the field name from the IndexSchema    */
+comment|/** add a field for facet computation    *     * @param fields the field name from the IndexSchema    * @return this    */
 DECL|method|addFacetField
 specifier|public
-name|void
+name|SolrQuery
 name|addFacetField
 parameter_list|(
 name|String
@@ -192,6 +192,9 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/** get the facet fields    *     * @return string array of facet fields or null if not set/empty    */
 DECL|method|getFacetFields
@@ -273,10 +276,10 @@ return|return
 name|b
 return|;
 block|}
-comment|/** enable/disable faceting.      *     * @param b flag to indicate faceting should be enabled.  if b==false removes all other faceting parameters    */
+comment|/** enable/disable faceting.      *     * @param b flag to indicate faceting should be enabled.  if b==false removes all other faceting parameters    * @return this    */
 DECL|method|setFacet
 specifier|public
-name|void
+name|SolrQuery
 name|setFacet
 parameter_list|(
 name|boolean
@@ -403,10 +406,13 @@ argument_list|)
 expr_stmt|;
 comment|// does not include the individual fields...
 block|}
+return|return
+name|this
+return|;
 block|}
 DECL|method|setFacetPrefix
 specifier|public
-name|void
+name|SolrQuery
 name|setFacetPrefix
 parameter_list|(
 name|String
@@ -424,10 +430,13 @@ argument_list|,
 name|prefix
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|setFacetPrefix
 specifier|public
-name|void
+name|SolrQuery
 name|setFacetPrefix
 parameter_list|(
 name|String
@@ -454,11 +463,14 @@ argument_list|,
 name|prefix
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/** add a faceting query    *     * @param f facet query    */
 DECL|method|addFacetQuery
 specifier|public
-name|void
+name|SolrQuery
 name|addFacetQuery
 parameter_list|(
 name|String
@@ -476,6 +488,9 @@ argument_list|,
 name|f
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/** get facet queries    *     * @return all facet queries or null if not set/empty    */
 DECL|method|getFacetQuery
@@ -560,7 +575,7 @@ block|}
 comment|/** se the facet limit    *     * @param lim number facet items to return    */
 DECL|method|setFacetLimit
 specifier|public
-name|void
+name|SolrQuery
 name|setFacetLimit
 parameter_list|(
 name|int
@@ -578,6 +593,9 @@ argument_list|,
 name|lim
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/** get current facet limit    *     * @return facet limit or default of 25    */
 DECL|method|getFacetLimit
@@ -602,7 +620,7 @@ block|}
 comment|/** set facet minimum count    *     * @param cnt facets having less that cnt hits will be excluded from teh facet list    */
 DECL|method|setFacetMinCount
 specifier|public
-name|void
+name|SolrQuery
 name|setFacetMinCount
 parameter_list|(
 name|int
@@ -620,6 +638,9 @@ argument_list|,
 name|cnt
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/** get facet minimum count    *     * @return facet minimum count or default of 1    */
 DECL|method|getFacetMinCount
@@ -643,7 +664,7 @@ return|;
 block|}
 DECL|method|setMissing
 specifier|public
-name|void
+name|SolrQuery
 name|setMissing
 parameter_list|(
 name|String
@@ -661,6 +682,9 @@ argument_list|,
 name|fld
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/** get facet sort    *     * @return facet sort or default of true    */
 DECL|method|getFacetSort
@@ -682,10 +706,10 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/** set facet sort    *     * @param sort sort facets    */
+comment|/** set facet sort    *     * @param sort sort facets    * @return this    */
 DECL|method|setFacetSort
 specifier|public
-name|void
+name|SolrQuery
 name|setFacetSort
 parameter_list|(
 name|Boolean
@@ -703,11 +727,14 @@ argument_list|,
 name|sort
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/** add highlight field    *     * @param f field to enable for highlighting    */
 DECL|method|addHighlightField
 specifier|public
-name|void
+name|SolrQuery
 name|addHighlightField
 parameter_list|(
 name|String
@@ -736,6 +763,9 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/** remove a field for highlighting    *     * @param f field name to not highlight    * @return true if removed, false otherwise    */
 DECL|method|removeHighlightField
@@ -808,7 +838,7 @@ return|;
 block|}
 DECL|method|setHighlightSnippets
 specifier|public
-name|void
+name|SolrQuery
 name|setHighlightSnippets
 parameter_list|(
 name|int
@@ -826,6 +856,9 @@ argument_list|,
 name|num
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|getHighlightSnippets
 specifier|public
@@ -848,7 +881,7 @@ return|;
 block|}
 DECL|method|setHighlightFragsize
 specifier|public
-name|void
+name|SolrQuery
 name|setHighlightFragsize
 parameter_list|(
 name|int
@@ -866,6 +899,9 @@ argument_list|,
 name|num
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|getHighlightFragsize
 specifier|public
@@ -888,7 +924,7 @@ return|;
 block|}
 DECL|method|setHighlightRequireFieldMatch
 specifier|public
-name|void
+name|SolrQuery
 name|setHighlightRequireFieldMatch
 parameter_list|(
 name|boolean
@@ -906,6 +942,9 @@ argument_list|,
 name|flag
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|setHighlightRequireFieldMatch
 specifier|public
@@ -928,7 +967,7 @@ return|;
 block|}
 DECL|method|setHighlightSimplePre
 specifier|public
-name|void
+name|SolrQuery
 name|setHighlightSimplePre
 parameter_list|(
 name|String
@@ -946,6 +985,9 @@ argument_list|,
 name|f
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|getHighlightSimplePre
 specifier|public
@@ -968,7 +1010,7 @@ return|;
 block|}
 DECL|method|setHighlightSimplePost
 specifier|public
-name|void
+name|SolrQuery
 name|setHighlightSimplePost
 parameter_list|(
 name|String
@@ -986,6 +1028,9 @@ argument_list|,
 name|f
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|getHighlightSimplePost
 specifier|public
@@ -1008,7 +1053,7 @@ return|;
 block|}
 DECL|method|setSortField
 specifier|public
-name|void
+name|SolrQuery
 name|setSortField
 parameter_list|(
 name|String
@@ -1041,10 +1086,13 @@ name|order
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|addSortField
 specifier|public
-name|void
+name|SolrQuery
 name|addSortField
 parameter_list|(
 name|String
@@ -1054,6 +1102,7 @@ name|ORDER
 name|order
 parameter_list|)
 block|{
+return|return
 name|addValueToParam
 argument_list|(
 name|CommonParams
@@ -1067,11 +1116,11 @@ argument_list|,
 name|order
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|removeSortField
 specifier|public
-name|void
+name|SolrQuery
 name|removeSortField
 parameter_list|(
 name|String
@@ -1157,6 +1206,9 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|this
+return|;
 block|}
 DECL|method|getSortFields
 specifier|public
@@ -1208,7 +1260,7 @@ return|;
 block|}
 DECL|method|setFilterQueries
 specifier|public
-name|void
+name|SolrQuery
 name|setFilterQueries
 parameter_list|(
 name|String
@@ -1227,10 +1279,13 @@ argument_list|,
 name|fq
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|addFilterQuery
 specifier|public
-name|void
+name|SolrQuery
 name|addFilterQuery
 parameter_list|(
 name|String
@@ -1249,6 +1304,9 @@ argument_list|,
 name|fq
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|removeFilterQuery
 specifier|public
@@ -1311,7 +1369,7 @@ return|;
 block|}
 DECL|method|setHighlight
 specifier|public
-name|void
+name|SolrQuery
 name|setHighlight
 parameter_list|(
 name|boolean
@@ -1410,10 +1468,13 @@ name|SNIPPETS
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|this
+return|;
 block|}
 DECL|method|setFields
 specifier|public
-name|void
+name|SolrQuery
 name|setFields
 parameter_list|(
 name|String
@@ -1510,16 +1571,20 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|addField
 specifier|public
-name|void
+name|SolrQuery
 name|addField
 parameter_list|(
 name|String
 name|field
 parameter_list|)
 block|{
+return|return
 name|addValueToParam
 argument_list|(
 name|CommonParams
@@ -1528,7 +1593,7 @@ name|FL
 argument_list|,
 name|field
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|getFields
 specifier|public
@@ -1573,7 +1638,7 @@ return|;
 block|}
 DECL|method|setIncludeScore
 specifier|public
-name|void
+name|SolrQuery
 name|setIncludeScore
 parameter_list|(
 name|boolean
@@ -1611,10 +1676,13 @@ literal|"score"
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|this
+return|;
 block|}
 DECL|method|setQuery
 specifier|public
-name|void
+name|SolrQuery
 name|setQuery
 parameter_list|(
 name|String
@@ -1632,6 +1700,9 @@ argument_list|,
 name|query
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|getQuery
 specifier|public
@@ -1652,7 +1723,7 @@ return|;
 block|}
 DECL|method|setRows
 specifier|public
-name|void
+name|SolrQuery
 name|setRows
 parameter_list|(
 name|Integer
@@ -1690,6 +1761,9 @@ name|rows
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|this
+return|;
 block|}
 DECL|method|getRows
 specifier|public
@@ -1740,7 +1814,7 @@ comment|//    this.set(CommonParams.SORT, sort);
 comment|//  }
 DECL|method|setStart
 specifier|public
-name|void
+name|SolrQuery
 name|setStart
 parameter_list|(
 name|Integer
@@ -1778,6 +1852,9 @@ name|start
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|this
+return|;
 block|}
 DECL|method|getStart
 specifier|public
@@ -1798,7 +1875,7 @@ return|;
 block|}
 DECL|method|setQueryType
 specifier|public
-name|void
+name|SolrQuery
 name|setQueryType
 parameter_list|(
 name|String
@@ -1816,6 +1893,9 @@ argument_list|,
 name|qt
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|getQueryType
 specifier|public
@@ -1836,7 +1916,7 @@ return|;
 block|}
 DECL|method|setParam
 specifier|public
-name|void
+name|SolrQuery
 name|setParam
 parameter_list|(
 name|String
@@ -1856,10 +1936,13 @@ argument_list|,
 name|values
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|setParam
 specifier|public
-name|void
+name|SolrQuery
 name|setParam
 parameter_list|(
 name|String
@@ -1878,6 +1961,9 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/** get a deep copy of this object * */
 DECL|method|getCopy
@@ -2042,7 +2128,7 @@ return|;
 block|}
 DECL|method|addValueToParam
 specifier|private
-name|void
+name|SolrQuery
 name|addValueToParam
 parameter_list|(
 name|String
@@ -2082,6 +2168,9 @@ argument_list|,
 name|tmp
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|join
 specifier|private
