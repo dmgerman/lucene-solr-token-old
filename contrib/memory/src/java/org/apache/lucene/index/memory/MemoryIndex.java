@@ -352,6 +352,8 @@ DECL|class|MemoryIndex
 specifier|public
 class|class
 name|MemoryIndex
+implements|implements
+name|Serializable
 block|{
 comment|/** info for each field: Map<String fieldName, Info field> */
 DECL|field|fields
