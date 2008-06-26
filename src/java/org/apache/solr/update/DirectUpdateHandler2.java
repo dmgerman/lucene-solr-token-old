@@ -1355,7 +1355,11 @@ expr_stmt|;
 name|writer
 operator|.
 name|optimize
-argument_list|()
+argument_list|(
+name|cmd
+operator|.
+name|maxOptimizeSegments
+argument_list|)
 expr_stmt|;
 block|}
 name|closeSearcher
@@ -1510,7 +1514,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return;
 block|}
 DECL|method|close
 specifier|public
@@ -1966,6 +1969,7 @@ name|waitSearcher
 operator|=
 literal|true
 expr_stmt|;
+comment|//no need for command.maxOptimizeSegments = 1;  since it is not optimizing
 name|commit
 argument_list|(
 name|command

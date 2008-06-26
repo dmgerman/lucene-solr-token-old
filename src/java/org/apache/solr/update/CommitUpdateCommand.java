@@ -42,6 +42,14 @@ name|waitSearcher
 init|=
 literal|true
 decl_stmt|;
+comment|/**    * During optimize, optimize down to<= this many segments.  Must be>= 1    *    * @see {@link org.apache.lucene.index.IndexWriter#optimize(int)}    */
+DECL|field|maxOptimizeSegments
+specifier|public
+name|int
+name|maxOptimizeSegments
+init|=
+literal|1
+decl_stmt|;
 DECL|method|CommitUpdateCommand
 specifier|public
 name|CommitUpdateCommand
