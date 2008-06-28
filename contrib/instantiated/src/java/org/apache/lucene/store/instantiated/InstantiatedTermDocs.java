@@ -433,7 +433,7 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-block|{    }
+block|{   }
 block|}
 end_class
 end_unit
