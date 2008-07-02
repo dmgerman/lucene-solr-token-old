@@ -1321,7 +1321,6 @@ name|storeDir
 operator|=
 literal|null
 expr_stmt|;
-comment|// No compound file exists - use the multi-file format
 name|fieldInfos
 operator|=
 operator|new
