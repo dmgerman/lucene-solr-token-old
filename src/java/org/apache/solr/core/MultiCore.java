@@ -2137,7 +2137,7 @@ name|writer
 operator|.
 name|write
 argument_list|(
-literal|" libDir='"
+literal|" sharedLib='"
 argument_list|)
 expr_stmt|;
 name|XML
