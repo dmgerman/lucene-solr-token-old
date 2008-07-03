@@ -83,6 +83,12 @@ name|splitOnCaseChange
 init|=
 literal|0
 decl_stmt|;
+DECL|field|preserveOriginal
+name|int
+name|preserveOriginal
+init|=
+literal|0
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|init
@@ -160,6 +166,15 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|preserveOriginal
+operator|=
+name|getInt
+argument_list|(
+literal|"preserveOriginal"
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|create
 specifier|public
@@ -187,6 +202,8 @@ argument_list|,
 name|catenateAll
 argument_list|,
 name|splitOnCaseChange
+argument_list|,
+name|preserveOriginal
 argument_list|)
 return|;
 block|}
