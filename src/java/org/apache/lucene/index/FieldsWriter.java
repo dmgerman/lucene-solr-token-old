@@ -1006,6 +1006,18 @@ index|[]
 name|input
 parameter_list|)
 block|{
+comment|/*        * Create an expandable byte array to hold the compressed data.        * You cannot use an array that's the same size as the orginal because        * there is no guarantee that the compressed data will be smaller than        * the uncompressed data.        */
+name|ByteArrayOutputStream
+name|bos
+init|=
+operator|new
+name|ByteArrayOutputStream
+argument_list|(
+name|input
+operator|.
+name|length
+argument_list|)
+decl_stmt|;
 comment|// Create the compressor with highest level of compression
 name|Deflater
 name|compressor
@@ -1014,6 +1026,8 @@ operator|new
 name|Deflater
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|compressor
 operator|.
 name|setLevel
@@ -1036,18 +1050,6 @@ operator|.
 name|finish
 argument_list|()
 expr_stmt|;
-comment|/*        * Create an expandable byte array to hold the compressed data.        * You cannot use an array that's the same size as the orginal because        * there is no guarantee that the compressed data will be smaller than        * the uncompressed data.        */
-name|ByteArrayOutputStream
-name|bos
-init|=
-operator|new
-name|ByteArrayOutputStream
-argument_list|(
-name|input
-operator|.
-name|length
-argument_list|)
-decl_stmt|;
 comment|// Compress the data
 name|byte
 index|[]
@@ -1090,11 +1092,15 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
 name|compressor
 operator|.
 name|end
 argument_list|()
 expr_stmt|;
+block|}
 comment|// Get the compressed data
 return|return
 name|bos

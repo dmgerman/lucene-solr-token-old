@@ -2873,20 +2873,6 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
-name|Inflater
-name|decompressor
-init|=
-operator|new
-name|Inflater
-argument_list|()
-decl_stmt|;
-name|decompressor
-operator|.
-name|setInput
-argument_list|(
-name|input
-argument_list|)
-expr_stmt|;
 comment|// Create an expandable byte array to hold the decompressed data
 name|ByteArrayOutputStream
 name|bos
@@ -2899,6 +2885,22 @@ operator|.
 name|length
 argument_list|)
 decl_stmt|;
+name|Inflater
+name|decompressor
+init|=
+operator|new
+name|Inflater
+argument_list|()
+decl_stmt|;
+try|try
+block|{
+name|decompressor
+operator|.
+name|setInput
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
 comment|// Decompress the data
 name|byte
 index|[]
@@ -2976,11 +2978,15 @@ name|newException
 throw|;
 block|}
 block|}
+block|}
+finally|finally
+block|{
 name|decompressor
 operator|.
 name|end
 argument_list|()
 expr_stmt|;
+block|}
 comment|// Get the decompressed data
 return|return
 name|bos
