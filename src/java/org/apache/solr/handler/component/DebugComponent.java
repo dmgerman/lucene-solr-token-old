@@ -765,7 +765,7 @@ block|{
 name|info
 operator|=
 operator|new
-name|NamedList
+name|SimpleOrderedMap
 argument_list|()
 expr_stmt|;
 block|}
