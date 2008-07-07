@@ -393,6 +393,21 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|util
+operator|.
+name|plugin
+operator|.
+name|SolrCoreAware
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -1091,6 +1106,7 @@ literal|"//listener[@event=\"newSearcher\"]"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * NOTE: this function is not thread safe.  However, it is safe to call within the    *<code>inform( SolrCore core )</code> function for<code>SolrCoreAware</code> classes.    * Outside<code>inform</code>, this could potentially throw a ConcurrentModificationException    *     * @see SolrCoreAware    */
 DECL|method|registerFirstSearcherListener
 specifier|public
 name|void
@@ -1108,6 +1124,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * NOTE: this function is not thread safe.  However, it is safe to call within the    *<code>inform( SolrCore core )</code> function for<code>SolrCoreAware</code> classes.    * Outside<code>inform</code>, this could potentially throw a ConcurrentModificationException    *     * @see SolrCoreAware    */
 DECL|method|registerNewSearcherListener
 specifier|public
 name|void
@@ -1125,6 +1142,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * NOTE: this function is not thread safe.  However, it is safe to call within the    *<code>inform( SolrCore core )</code> function for<code>SolrCoreAware</code> classes.    * Outside<code>inform</code>, this could potentially throw a ConcurrentModificationException    *     * @see SolrCoreAware    */
 DECL|method|registerResponseWriter
 specifier|public
 name|void

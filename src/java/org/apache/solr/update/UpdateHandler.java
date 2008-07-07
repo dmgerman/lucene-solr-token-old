@@ -1102,6 +1102,7 @@ throw|;
 block|}
 block|}
 block|}
+comment|/**    * NOTE: this function is not thread safe.  However, it is safe to call within the    *<code>inform( SolrCore core )</code> function for<code>SolrCoreAware</code> classes.    * Outside<code>inform</code>, this could potentially throw a ConcurrentModificationException    *     * @see SolrCoreAware    */
 DECL|method|registerCommitCallback
 specifier|public
 name|void
@@ -1119,6 +1120,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * NOTE: this function is not thread safe.  However, it is safe to call within the    *<code>inform( SolrCore core )</code> function for<code>SolrCoreAware</code> classes.    * Outside<code>inform</code>, this could potentially throw a ConcurrentModificationException    *     * @see SolrCoreAware    */
 DECL|method|registerOptimizeCallback
 specifier|public
 name|void
