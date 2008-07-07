@@ -2261,6 +2261,10 @@ operator|.
 name|length
 decl_stmt|;
 return|return
+name|s
+operator|!=
+literal|0
+operator|&&
 name|columnRowCounters
 index|[
 name|s
