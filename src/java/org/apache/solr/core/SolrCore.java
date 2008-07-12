@@ -35,6 +35,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|IndexWriter
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|BooleanQuery
@@ -1233,6 +1246,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|indexExists
+operator|&&
 name|removeLocks
 condition|)
 block|{
@@ -1241,19 +1256,25 @@ comment|// if it didn't exist already...
 name|Directory
 name|dir
 init|=
-name|FSDirectory
+name|SolrIndexWriter
 operator|.
 name|getDirectory
 argument_list|(
-name|dirFile
+name|getIndexDir
+argument_list|()
 argument_list|,
-operator|!
-name|indexExists
+name|solrConfig
+operator|.
+name|mainIndexConfig
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|IndexReader
+name|dir
+operator|!=
+literal|null
+operator|&&
+name|IndexWriter
 operator|.
 name|isLocked
 argument_list|(
@@ -1275,7 +1296,7 @@ operator|+
 literal|"' is locked.  Unlocking..."
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|IndexWriter
 operator|.
 name|unlock
 argument_list|(
@@ -1284,8 +1305,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Create the index if it doesn't exist. Note that indexExists was tested *before*
-comment|// lock removal, since that will result in the creation of the directory.
+comment|// Create the index if it doesn't exist.
 if|if
 condition|(
 operator|!
