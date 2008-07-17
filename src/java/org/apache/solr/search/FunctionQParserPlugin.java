@@ -58,7 +58,7 @@ name|SolrQueryRequest
 import|;
 end_import
 begin_comment
-comment|/**  * Create a function query from the input value.  *<br>Other parameters: none  *<br>Example:<code>&lt;!func&gt;log(foo)</code>  */
+comment|/**  * Create a function query from the input value.  *<br>Other parameters: none  *<br>Example:<code>{!func}log(foo)</code>  */
 end_comment
 begin_class
 DECL|class|FunctionQParserPlugin
