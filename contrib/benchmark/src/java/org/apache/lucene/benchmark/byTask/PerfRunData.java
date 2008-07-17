@@ -899,6 +899,7 @@ block|}
 block|}
 comment|/**    * @return Returns the queryMaker by read task type (class)    */
 DECL|method|getQueryMaker
+specifier|synchronized
 specifier|public
 name|QueryMaker
 name|getQueryMaker
