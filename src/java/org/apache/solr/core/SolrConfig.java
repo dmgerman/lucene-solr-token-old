@@ -37,6 +37,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|handler
+operator|.
+name|PingRequestHandler
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|request
 operator|.
 name|LocalSolrQueryRequest
@@ -828,7 +841,7 @@ return|return
 name|params
 return|;
 block|}
-comment|/**    * Returns a Request object based on the admin/pingQuery section    * of the Solr config file.    *     * @use {@link PingRequestHandler} instead     */
+comment|/**    * Returns a Request object based on the admin/pingQuery section    * of the Solr config file.    *     * @deprecated use {@link PingRequestHandler} instead     */
 annotation|@
 name|Deprecated
 DECL|method|getPingQueryRequest
