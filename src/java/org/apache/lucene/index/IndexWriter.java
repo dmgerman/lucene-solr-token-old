@@ -883,6 +883,13 @@ name|similarity
 operator|=
 name|similarity
 expr_stmt|;
+name|docWriter
+operator|.
+name|setSimilarity
+argument_list|(
+name|similarity
+argument_list|)
+expr_stmt|;
 block|}
 comment|/** Expert: Return the Similarity implementation used by this IndexWriter.    *    *<p>This defaults to the current value of {@link Similarity#getDefault()}.    */
 DECL|method|getSimilarity
@@ -2227,6 +2234,13 @@ argument_list|(
 name|infoStream
 argument_list|)
 expr_stmt|;
+name|docWriter
+operator|.
+name|setMaxFieldLength
+argument_list|(
+name|maxFieldLength
+argument_list|)
+expr_stmt|;
 comment|// Default deleter (for backwards compatibility) is
 comment|// KeepOnlyLastCommitDeleter:
 name|deleter
@@ -2573,6 +2587,13 @@ operator|.
 name|maxFieldLength
 operator|=
 name|maxFieldLength
+expr_stmt|;
+name|docWriter
+operator|.
+name|setMaxFieldLength
+argument_list|(
+name|maxFieldLength
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -3521,29 +3542,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|List
-name|files
-init|=
-name|docWriter
-operator|.
-name|files
-argument_list|()
-decl_stmt|;
 name|boolean
 name|useCompoundDocStore
 init|=
 literal|false
 decl_stmt|;
-if|if
-condition|(
-name|files
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
 name|String
 name|docStoreSegment
 decl_stmt|;
@@ -3585,13 +3588,6 @@ argument_list|(
 literal|"hit exception closing doc store segment"
 argument_list|)
 expr_stmt|;
-name|docWriter
-operator|.
-name|abort
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 name|useCompoundDocStore
@@ -3610,6 +3606,16 @@ operator|&&
 name|docStoreSegment
 operator|!=
 literal|null
+operator|&&
+name|docWriter
+operator|.
+name|closedFiles
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|!=
+literal|0
 condition|)
 block|{
 comment|// Now build compound doc store file
@@ -3652,28 +3658,24 @@ name|compoundFileName
 argument_list|)
 decl_stmt|;
 specifier|final
-name|int
-name|size
+name|Iterator
+name|it
 init|=
-name|files
+name|docWriter
 operator|.
-name|size
+name|closedFiles
+argument_list|()
+operator|.
+name|iterator
 argument_list|()
 decl_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|size
-condition|;
-name|i
-operator|++
-control|)
+while|while
+condition|(
+name|it
+operator|.
+name|hasNext
+argument_list|()
+condition|)
 name|cfsWriter
 operator|.
 name|addFile
@@ -3681,12 +3683,10 @@ argument_list|(
 operator|(
 name|String
 operator|)
-name|files
+name|it
 operator|.
-name|get
-argument_list|(
-name|i
-argument_list|)
+name|next
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Perform the merge
@@ -3786,7 +3786,18 @@ block|}
 name|checkpoint
 argument_list|()
 expr_stmt|;
-block|}
+comment|// In case the files we just merged into a CFS were
+comment|// not previously checkpointed:
+name|deleter
+operator|.
+name|deleteNewFiles
+argument_list|(
+name|docWriter
+operator|.
+name|closedFiles
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|useCompoundDocStore
@@ -4182,7 +4193,7 @@ literal|null
 condition|)
 block|{
 specifier|final
-name|List
+name|Collection
 name|files
 init|=
 name|docWriter
@@ -4549,7 +4560,7 @@ block|{
 comment|// If docWriter has some aborted files that were
 comment|// never incref'd, then we clean them up here
 specifier|final
-name|List
+name|Collection
 name|files
 init|=
 name|docWriter
@@ -6293,9 +6304,7 @@ expr_stmt|;
 name|docWriter
 operator|.
 name|abort
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// Ask deleter to locate unreferenced files& remove
 comment|// them:
@@ -8257,13 +8266,6 @@ argument_list|(
 literal|"hit exception flushing segment "
 operator|+
 name|segment
-argument_list|)
-expr_stmt|;
-name|docWriter
-operator|.
-name|abort
-argument_list|(
-literal|null
 argument_list|)
 expr_stmt|;
 name|deleter
@@ -10360,10 +10362,12 @@ argument_list|(
 name|currentDocStoreSegment
 argument_list|)
 condition|)
+block|{
 name|doFlushDocStore
 operator|=
 literal|true
 expr_stmt|;
+block|}
 block|}
 specifier|final
 name|int
@@ -10452,18 +10456,17 @@ literal|null
 condition|)
 name|message
 argument_list|(
-literal|"flush at merge"
+literal|"now flush at merge"
 argument_list|)
 expr_stmt|;
-name|flush
+name|doFlush
 argument_list|(
-literal|false
-argument_list|,
 literal|true
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|//flush(false, true, false);
 block|}
 comment|// We must take a full copy at this point so that we can
 comment|// properly merge deletes in commitMerge()
