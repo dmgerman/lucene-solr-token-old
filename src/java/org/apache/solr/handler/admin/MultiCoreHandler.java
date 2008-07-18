@@ -438,7 +438,9 @@ name|dcore
 init|=
 operator|new
 name|CoreDescriptor
-argument_list|()
+argument_list|(
+name|manager
+argument_list|)
 decl_stmt|;
 name|dcore
 operator|.

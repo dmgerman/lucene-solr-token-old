@@ -623,7 +623,9 @@ name|p
 init|=
 operator|new
 name|CoreDescriptor
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 name|p
 operator|.
@@ -1332,6 +1334,8 @@ argument_list|,
 name|config
 argument_list|,
 name|schema
+argument_list|,
+name|dcore
 argument_list|)
 decl_stmt|;
 name|dcore
