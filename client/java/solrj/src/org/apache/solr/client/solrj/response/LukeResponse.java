@@ -52,6 +52,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Serializable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|*
@@ -73,6 +82,8 @@ specifier|public
 specifier|static
 class|class
 name|FieldTypeInfo
+implements|implements
+name|Serializable
 block|{
 DECL|field|name
 name|String
@@ -344,6 +355,8 @@ specifier|public
 specifier|static
 class|class
 name|FieldInfo
+implements|implements
+name|Serializable
 block|{
 DECL|field|name
 name|String
