@@ -249,6 +249,19 @@ operator|.
 name|HighFrequencyDictionary
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|search
+operator|.
+name|SolrIndexSearcher
+import|;
+end_import
 begin_comment
 comment|/**  *<p>  * A spell checker implementation which can load words from a text   * file (one word per line).  *</p>  *  * @since solr 1.3  **/
 end_comment
@@ -372,6 +385,9 @@ name|build
 parameter_list|(
 name|SolrCore
 name|core
+parameter_list|,
+name|SolrIndexSearcher
+name|searcher
 parameter_list|)
 block|{
 try|try

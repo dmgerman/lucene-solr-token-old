@@ -326,6 +326,9 @@ name|build
 parameter_list|(
 name|SolrCore
 name|core
+parameter_list|,
+name|SolrIndexSearcher
+name|searcher
 parameter_list|)
 block|{
 name|IndexReader
@@ -343,17 +346,6 @@ literal|null
 condition|)
 block|{
 comment|// Load from Solr's index
-name|SolrIndexSearcher
-name|searcher
-init|=
-name|core
-operator|.
-name|getSearcher
-argument_list|()
-operator|.
-name|get
-argument_list|()
-decl_stmt|;
 name|reader
 operator|=
 name|searcher
