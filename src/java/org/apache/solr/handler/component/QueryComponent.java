@@ -2251,7 +2251,8 @@ name|SolrDocumentList
 operator|)
 name|srsp
 operator|.
-name|rsp
+name|getSolrResponse
+argument_list|()
 operator|.
 name|getResponse
 argument_list|()
@@ -2312,7 +2313,8 @@ call|)
 argument_list|(
 name|srsp
 operator|.
-name|rsp
+name|getSolrResponse
+argument_list|()
 operator|.
 name|getResponse
 argument_list|()
@@ -2377,7 +2379,8 @@ name|id
 argument_list|,
 name|srsp
 operator|.
-name|shard
+name|getShard
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -2420,7 +2423,8 @@ name|shard
 operator|=
 name|srsp
 operator|.
-name|shard
+name|getShard
+argument_list|()
 expr_stmt|;
 name|shardDoc
 operator|.
@@ -3069,7 +3073,8 @@ name|SolrDocumentList
 operator|)
 name|srsp
 operator|.
-name|rsp
+name|getSolrResponse
+argument_list|()
 operator|.
 name|getResponse
 argument_list|()

@@ -1048,7 +1048,8 @@ name|getShardNum
 argument_list|(
 name|srsp
 operator|.
-name|shard
+name|getShard
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|NamedList
@@ -1059,7 +1060,8 @@ name|NamedList
 operator|)
 name|srsp
 operator|.
-name|rsp
+name|getSolrResponse
+argument_list|()
 operator|.
 name|getResponse
 argument_list|()
@@ -1620,7 +1622,8 @@ name|NamedList
 operator|)
 name|srsp
 operator|.
-name|rsp
+name|getSolrResponse
+argument_list|()
 operator|.
 name|getResponse
 argument_list|()
