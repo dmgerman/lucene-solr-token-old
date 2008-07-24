@@ -50,7 +50,7 @@ name|TestCase
 import|;
 end_import
 begin_comment
-comment|/**  *  * @author hbiestro  */
+comment|/**  *  */
 end_comment
 begin_class
 DECL|class|AnalysisTestCase
