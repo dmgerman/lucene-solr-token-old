@@ -56,6 +56,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|regex
 operator|.
 name|Matcher
@@ -133,6 +142,21 @@ name|String
 name|original
 parameter_list|)
 block|{
+if|if
+condition|(
+name|original
+operator|==
+literal|null
+condition|)
+block|{
+comment|// this can happen with q.alt = and no query
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
 name|Collection
 argument_list|<
 name|Token
