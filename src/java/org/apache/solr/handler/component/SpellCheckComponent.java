@@ -1746,7 +1746,7 @@ name|init
 argument_list|(
 name|spellchecker
 argument_list|,
-name|loader
+name|core
 argument_list|)
 decl_stmt|;
 if|if
