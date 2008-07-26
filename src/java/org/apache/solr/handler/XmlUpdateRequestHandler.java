@@ -392,7 +392,7 @@ name|update
 operator|.
 name|processor
 operator|.
-name|UpdateRequestProcessor
+name|UpdateRequestProcessorChain
 import|;
 end_import
 begin_import
@@ -407,7 +407,7 @@ name|update
 operator|.
 name|processor
 operator|.
-name|UpdateRequestProcessorFactory
+name|UpdateRequestProcessor
 import|;
 end_import
 begin_comment
@@ -602,7 +602,7 @@ name|log
 operator|.
 name|fine
 argument_list|(
-literal|"Unable to set the 'reuse-instance' property for the input factory: "
+literal|"Unable to set the 'reuse-instance' property for the input chain: "
 operator|+
 name|inputFactory
 argument_list|)
@@ -640,15 +640,15 @@ operator|.
 name|getParams
 argument_list|()
 decl_stmt|;
-name|UpdateRequestProcessorFactory
-name|processorFactory
+name|UpdateRequestProcessorChain
+name|processingChain
 init|=
 name|req
 operator|.
 name|getCore
 argument_list|()
 operator|.
-name|getUpdateProcessorFactory
+name|getUpdateProcessingChain
 argument_list|(
 name|params
 operator|.
@@ -663,15 +663,13 @@ decl_stmt|;
 name|UpdateRequestProcessor
 name|processor
 init|=
-name|processorFactory
+name|processingChain
 operator|.
-name|getInstance
+name|createProcessor
 argument_list|(
 name|req
 argument_list|,
 name|rsp
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|Iterable
@@ -2153,12 +2151,12 @@ name|getSolrCore
 argument_list|()
 decl_stmt|;
 comment|// Old style requests do not choose a custom handler
-name|UpdateRequestProcessorFactory
+name|UpdateRequestProcessorChain
 name|processorFactory
 init|=
 name|core
 operator|.
-name|getUpdateProcessorFactory
+name|getUpdateProcessingChain
 argument_list|(
 literal|null
 argument_list|)
@@ -2214,13 +2212,11 @@ name|processor
 init|=
 name|processorFactory
 operator|.
-name|getInstance
+name|createProcessor
 argument_list|(
 name|req
 argument_list|,
 name|rsp
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|this
