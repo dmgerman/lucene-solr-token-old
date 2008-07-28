@@ -414,11 +414,11 @@ name|similarity
 decl_stmt|;
 DECL|field|weights
 specifier|protected
-name|Vector
+name|ArrayList
 name|weights
 init|=
 operator|new
-name|Vector
+name|ArrayList
 argument_list|()
 decl_stmt|;
 DECL|method|BooleanWeight
@@ -563,7 +563,7 @@ name|Weight
 operator|)
 name|weights
 operator|.
-name|elementAt
+name|get
 argument_list|(
 name|i
 argument_list|)
@@ -646,7 +646,7 @@ name|Weight
 operator|)
 name|weights
 operator|.
-name|elementAt
+name|get
 argument_list|(
 name|i
 argument_list|)
@@ -725,7 +725,7 @@ name|Weight
 operator|)
 name|weights
 operator|.
-name|elementAt
+name|get
 argument_list|(
 name|i
 argument_list|)
@@ -882,7 +882,7 @@ name|Weight
 operator|)
 name|weights
 operator|.
-name|elementAt
+name|get
 argument_list|(
 name|i
 argument_list|)
