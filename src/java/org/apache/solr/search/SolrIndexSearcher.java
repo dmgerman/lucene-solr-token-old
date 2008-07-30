@@ -330,6 +330,13 @@ name|registerTime
 init|=
 literal|0
 decl_stmt|;
+DECL|field|warmupTime
+specifier|private
+name|long
+name|warmupTime
+init|=
+literal|0
+decl_stmt|;
 DECL|field|searcher
 specifier|private
 specifier|final
@@ -7086,6 +7093,14 @@ operator|.
 name|INFO
 argument_list|)
 decl_stmt|;
+name|long
+name|warmingStartTime
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
 comment|// warm the caches in order...
 for|for
 control|(
@@ -7172,6 +7187,15 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+name|warmupTime
+operator|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|warmingStartTime
+expr_stmt|;
 block|}
 comment|/**    * return the named generic cache    */
 DECL|method|getCache
@@ -7490,6 +7514,15 @@ name|Date
 argument_list|(
 name|registerTime
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|lst
+operator|.
+name|add
+argument_list|(
+literal|"warmupTime"
+argument_list|,
+name|warmupTime
 argument_list|)
 expr_stmt|;
 return|return
