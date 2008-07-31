@@ -501,7 +501,6 @@ block|}
 block|}
 DECL|method|put
 specifier|public
-specifier|synchronized
 name|Object
 name|put
 parameter_list|(
@@ -511,6 +510,11 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
+block|{
+synchronized|synchronized
+init|(
+name|map
+init|)
 block|{
 if|if
 condition|(
@@ -529,11 +533,6 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 block|}
-synchronized|synchronized
-init|(
-name|map
-init|)
-block|{
 comment|// increment local inserts regardless of state???
 comment|// it does make it more consistent with the current size...
 name|inserts
