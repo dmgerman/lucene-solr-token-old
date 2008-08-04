@@ -156,7 +156,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|getSimplCacheData
+name|getSimpleCacheData
 argument_list|(
 name|query
 argument_list|)
