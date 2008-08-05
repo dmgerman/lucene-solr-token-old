@@ -198,6 +198,14 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|currentFieldOmitTf
+condition|)
+comment|// This field does not store term freq, positions, payloads
+return|return
+literal|0
+return|;
 comment|// perform lazy skips if neccessary
 name|lazySkip
 argument_list|()
@@ -402,6 +410,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+operator|!
+name|currentFieldOmitTf
+assert|;
 for|for
 control|(
 name|int

@@ -229,6 +229,12 @@ operator|.
 name|getFilePointer
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|proxOutput
+operator|!=
+literal|null
+condition|)
 name|this
 operator|.
 name|curProxPointer
@@ -282,6 +288,12 @@ name|getFilePointer
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|proxOutput
+operator|!=
+literal|null
+condition|)
 name|Arrays
 operator|.
 name|fill

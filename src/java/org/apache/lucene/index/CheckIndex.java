@@ -478,9 +478,6 @@ literal|"FORMAT_SHARED_DOC_STORE [Lucene 2.3]"
 expr_stmt|;
 else|else
 block|{
-comment|// LUCENE-1255: All versions before 2.3.2/2.4 were
-comment|// able to create position=-1 when the very first
-comment|// Token has positionIncrement 0
 if|if
 condition|(
 name|format
@@ -505,6 +502,19 @@ condition|)
 name|sFormat
 operator|=
 literal|"FORMAT_DEL_COUNT [Lucene 2.4]"
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|format
+operator|==
+name|SegmentInfos
+operator|.
+name|FORMAT_HAS_PROX
+condition|)
+name|sFormat
+operator|=
+literal|"FORMAT_HAS_PROX [Lucene 2.4]"
 expr_stmt|;
 elseif|else
 if|if
@@ -749,6 +759,18 @@ operator|+
 name|info
 operator|.
 name|getUseCompoundFile
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"    hasProx="
+operator|+
+name|info
+operator|.
+name|getHasProx
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1262,7 +1284,7 @@ literal|": doc "
 operator|+
 name|doc
 operator|+
-literal|"< lastDoc "
+literal|"<= lastDoc "
 operator|+
 name|lastDoc
 argument_list|)
