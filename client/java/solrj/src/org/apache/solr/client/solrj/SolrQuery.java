@@ -702,7 +702,7 @@ name|FacetParams
 operator|.
 name|FACET_SORT
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 return|;
 block|}
