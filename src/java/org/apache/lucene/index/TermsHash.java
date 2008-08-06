@@ -127,10 +127,12 @@ name|DocumentsWriter
 name|docWriter
 decl_stmt|;
 DECL|field|primaryTermsHash
+specifier|private
 name|TermsHash
 name|primaryTermsHash
 decl_stmt|;
 DECL|field|postingsFreeList
+specifier|private
 name|RawPostingList
 index|[]
 name|postingsFreeList
@@ -142,10 +144,12 @@ literal|1
 index|]
 decl_stmt|;
 DECL|field|postingsFreeCount
+specifier|private
 name|int
 name|postingsFreeCount
 decl_stmt|;
 DECL|field|postingsAllocCount
+specifier|private
 name|int
 name|postingsAllocCount
 decl_stmt|;
@@ -792,8 +796,6 @@ return|return
 name|any
 return|;
 block|}
-comment|// USE ONLY FOR DEBUGGING!
-comment|/*     public String getPostingText() {     char[] text = charPool.buffers[p.textStart>> CHAR_BLOCK_SHIFT];     int upto = p.textStart& CHAR_BLOCK_MASK;     while(text[upto] != 0xffff)     upto++;     return new String(text, p.textStart, upto-(p.textStart& BYTE_BLOCK_MASK));     }   */
 DECL|method|recyclePostings
 specifier|synchronized
 specifier|public
@@ -962,7 +964,7 @@ comment|// Directly allocate the remainder if any
 if|if
 condition|(
 name|numToCopy
-operator|<
+operator|!=
 name|postings
 operator|.
 name|length
@@ -986,27 +988,6 @@ name|postingsAllocCount
 operator|+
 name|extra
 decl_stmt|;
-if|if
-condition|(
-name|newPostingsAllocCount
-operator|>
-name|postingsFreeList
-operator|.
-name|length
-condition|)
-name|postingsFreeList
-operator|=
-operator|new
-name|RawPostingList
-index|[
-name|ArrayUtil
-operator|.
-name|getNextSize
-argument_list|(
-name|newPostingsAllocCount
-argument_list|)
-index|]
-expr_stmt|;
 name|consumer
 operator|.
 name|createPostings
@@ -1044,6 +1025,29 @@ name|extra
 operator|*
 name|bytesPerPosting
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|newPostingsAllocCount
+operator|>
+name|postingsFreeList
+operator|.
+name|length
+condition|)
+comment|// Pre-allocate the postingsFreeList so it's large
+comment|// enough to hold all postings we've given out
+name|postingsFreeList
+operator|=
+operator|new
+name|RawPostingList
+index|[
+name|ArrayUtil
+operator|.
+name|getNextSize
+argument_list|(
+name|newPostingsAllocCount
+argument_list|)
+index|]
 expr_stmt|;
 block|}
 name|postingsFreeCount
