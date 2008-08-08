@@ -63,7 +63,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * An implementation for the Context  *</p>  *<p/>  *<b>This API is experimental and subject to change</b>  *  * @version $Id$  * @since solr 1.3  */
+comment|/**  *<p>  * An implementation for the Context  *</p>  *<b>This API is experimental and subject to change</b>  *  * @version $Id$  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|ContextImpl
