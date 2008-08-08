@@ -466,6 +466,16 @@ name|initSourceReader
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|getThreshold
+specifier|public
+name|float
+name|getThreshold
+parameter_list|()
+block|{
+return|return
+name|threshold
+return|;
+block|}
 block|}
 end_class
 end_unit

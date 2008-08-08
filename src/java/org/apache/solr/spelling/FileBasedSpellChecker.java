@@ -706,6 +706,16 @@ comment|// Ignore
 block|}
 block|}
 block|}
+DECL|method|getCharacterEncoding
+specifier|public
+name|String
+name|getCharacterEncoding
+parameter_list|()
+block|{
+return|return
+name|characterEncoding
+return|;
+block|}
 block|}
 end_class
 end_unit
