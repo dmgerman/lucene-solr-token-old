@@ -20,6 +20,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -119,6 +128,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|core
+operator|.
+name|SolrResourceLoader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|request
 operator|.
 name|QueryResponseWriter
@@ -180,6 +202,13 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|hasMulticore
+specifier|private
+name|boolean
+name|hasMulticore
+init|=
+literal|false
+decl_stmt|;
 DECL|method|init
 specifier|public
 name|void
@@ -194,6 +223,34 @@ name|info
 argument_list|(
 literal|"SolrServlet.init()"
 argument_list|)
+expr_stmt|;
+comment|// Check if the "multicore.xml" file exists -- if so, this is an invalid servlet
+comment|// (even if there is only one core...)
+name|String
+name|instanceDir
+init|=
+name|SolrResourceLoader
+operator|.
+name|locateInstanceDir
+argument_list|()
+decl_stmt|;
+name|File
+name|fconf
+init|=
+operator|new
+name|File
+argument_list|(
+name|instanceDir
+argument_list|,
+literal|"multicore.xml"
+argument_list|)
+decl_stmt|;
+name|hasMulticore
+operator|=
+name|fconf
+operator|.
+name|exists
+argument_list|()
 expr_stmt|;
 comment|// we deliberately do not initialize a SolrCore because of SOLR-597
 comment|// https://issues.apache.org/jira/browse/SOLR-597
@@ -245,6 +302,22 @@ name|ServletException
 throws|,
 name|IOException
 block|{
+if|if
+condition|(
+name|hasMulticore
+condition|)
+block|{
+name|response
+operator|.
+name|sendError
+argument_list|(
+literal|400
+argument_list|,
+literal|"Missing solr core name in path"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 specifier|final
 name|SolrCore
 name|core
