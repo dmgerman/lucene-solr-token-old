@@ -41,7 +41,7 @@ name|Logger
 import|;
 end_import
 begin_comment
-comment|/**  * A collection on common params, both for Plugin initialization and  * for Requests.  */
+comment|/**  * A collection on common params, both for Plugin initialization and  * for Requests.  * @deprecated Use {@link org.apache.solr.common.params.CommonParams} instead.  */
 end_comment
 begin_class
 annotation|@

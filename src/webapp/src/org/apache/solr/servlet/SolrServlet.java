@@ -173,7 +173,7 @@ name|SolrRequestHandler
 import|;
 end_import
 begin_comment
-comment|/**  */
+comment|/**  * @deprecated Register a standard request handler instead of using this  *             servlet. Add&lt;requestHandler name="standard"  *             class="solr.StandardRequestHandler" default="true"&gt; to  *             solrconfig.xml.  */
 end_comment
 begin_class
 annotation|@
