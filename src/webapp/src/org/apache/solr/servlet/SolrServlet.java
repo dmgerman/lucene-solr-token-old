@@ -242,7 +242,7 @@ name|File
 argument_list|(
 name|instanceDir
 argument_list|,
-literal|"multicore.xml"
+literal|"solr.xml"
 argument_list|)
 decl_stmt|;
 name|hasMulticore
