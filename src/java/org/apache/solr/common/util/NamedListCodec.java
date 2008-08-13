@@ -1195,6 +1195,9 @@ name|iterator
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 return|return
 literal|false
