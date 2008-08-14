@@ -59,7 +59,7 @@ name|common
 operator|.
 name|params
 operator|.
-name|MultiCoreParams
+name|CoreAdminParams
 import|;
 end_import
 begin_import
@@ -89,9 +89,9 @@ name|common
 operator|.
 name|params
 operator|.
-name|MultiCoreParams
+name|CoreAdminParams
 operator|.
-name|MultiCoreAction
+name|CoreAdminAction
 import|;
 end_import
 begin_import
@@ -353,10 +353,10 @@ operator|.
 name|required
 argument_list|()
 decl_stmt|;
-name|MultiCoreAction
+name|CoreAdminAction
 name|action
 init|=
-name|MultiCoreAction
+name|CoreAdminAction
 operator|.
 name|STATUS
 decl_stmt|;
@@ -367,7 +367,7 @@ name|params
 operator|.
 name|get
 argument_list|(
-name|MultiCoreParams
+name|CoreAdminParams
 operator|.
 name|ACTION
 argument_list|)
@@ -381,7 +381,7 @@ condition|)
 block|{
 name|action
 operator|=
-name|MultiCoreAction
+name|CoreAdminAction
 operator|.
 name|get
 argument_list|(
@@ -407,7 +407,7 @@ name|BAD_REQUEST
 argument_list|,
 literal|"Unknown 'action' value.  Use: "
 operator|+
-name|MultiCoreAction
+name|CoreAdminAction
 operator|.
 name|values
 argument_list|()
@@ -422,7 +422,7 @@ name|params
 operator|.
 name|get
 argument_list|(
-name|MultiCoreParams
+name|CoreAdminParams
 operator|.
 name|CORE
 argument_list|)
@@ -453,7 +453,7 @@ name|params
 operator|.
 name|get
 argument_list|(
-name|MultiCoreParams
+name|CoreAdminParams
 operator|.
 name|NAME
 argument_list|)
@@ -462,7 +462,7 @@ name|params
 operator|.
 name|get
 argument_list|(
-name|MultiCoreParams
+name|CoreAdminParams
 operator|.
 name|INSTANCE_DIR
 argument_list|)
@@ -476,7 +476,7 @@ name|params
 operator|.
 name|get
 argument_list|(
-name|MultiCoreParams
+name|CoreAdminParams
 operator|.
 name|CONFIG
 argument_list|)
@@ -500,7 +500,7 @@ name|params
 operator|.
 name|get
 argument_list|(
-name|MultiCoreParams
+name|CoreAdminParams
 operator|.
 name|SCHEMA
 argument_list|)
@@ -681,7 +681,7 @@ name|params
 operator|.
 name|getBool
 argument_list|(
-name|MultiCoreParams
+name|CoreAdminParams
 operator|.
 name|PERSISTENT
 argument_list|,
@@ -698,7 +698,7 @@ name|required
 operator|.
 name|get
 argument_list|(
-name|MultiCoreParams
+name|CoreAdminParams
 operator|.
 name|WITH
 argument_list|)

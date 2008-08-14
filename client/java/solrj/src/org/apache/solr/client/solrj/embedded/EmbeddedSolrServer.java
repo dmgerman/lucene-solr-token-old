@@ -351,7 +351,7 @@ specifier|final
 name|CoreContainer
 name|multicore
 decl_stmt|;
-comment|// either multicore
+comment|// either cores
 DECL|field|core
 specifier|protected
 specifier|final
@@ -565,7 +565,7 @@ operator|=
 literal|"/select"
 expr_stmt|;
 block|}
-comment|// Check for multicore action
+comment|// Check for cores action
 name|SolrCore
 name|core
 init|=
