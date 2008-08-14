@@ -263,7 +263,7 @@ name|SolrIndexSearcher
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * A spell checker implementation which can load words from a text   * file (one word per line).  *</p>  *  * @since solr 1.3  **/
+comment|/**  *<p>  * A spell checker implementation that loads words from a text file (one word per line).  *</p>  *  * @since solr 1.3  **/
 end_comment
 begin_class
 DECL|class|FileBasedSpellChecker
