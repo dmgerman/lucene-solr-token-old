@@ -441,6 +441,8 @@ block|,
 literal|"util."
 block|,
 literal|"spelling."
+block|,
+literal|"handler.component."
 block|}
 decl_stmt|;
 DECL|field|classLoader
