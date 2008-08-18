@@ -111,8 +111,10 @@ name|EmbeddedSolrServer
 argument_list|(
 name|h
 operator|.
-name|getCore
+name|getCoreContainer
 argument_list|()
+argument_list|,
+literal|""
 argument_list|)
 return|;
 block|}
