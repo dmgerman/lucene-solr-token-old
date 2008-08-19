@@ -431,8 +431,6 @@ operator|new
 name|Term
 argument_list|(
 name|fieldName
-argument_list|,
-literal|""
 argument_list|)
 argument_list|)
 decl_stmt|;

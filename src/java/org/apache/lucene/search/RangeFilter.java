@@ -351,8 +351,6 @@ operator|new
 name|Term
 argument_list|(
 name|fieldName
-argument_list|,
-literal|""
 argument_list|)
 argument_list|)
 operator|)
@@ -613,8 +611,6 @@ operator|new
 name|Term
 argument_list|(
 name|fieldName
-argument_list|,
-literal|""
 argument_list|)
 argument_list|)
 operator|)

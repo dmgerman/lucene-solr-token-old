@@ -192,8 +192,6 @@ name|upperTerm
 operator|.
 name|field
 argument_list|()
-argument_list|,
-literal|""
 argument_list|)
 expr_stmt|;
 block|}

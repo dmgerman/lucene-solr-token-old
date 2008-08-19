@@ -2622,8 +2622,6 @@ operator|new
 name|Term
 argument_list|(
 literal|""
-argument_list|,
-literal|""
 argument_list|)
 decl_stmt|;
 comment|/**    * Search support for Lucene framework integration; implements all methods    * required by the Lucene IndexReader contracts.    */
@@ -3326,8 +3324,6 @@ operator|new
 name|Term
 argument_list|(
 name|fieldName
-argument_list|,
-literal|""
 argument_list|)
 expr_stmt|;
 name|info
