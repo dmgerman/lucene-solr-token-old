@@ -676,7 +676,9 @@ init|=
 operator|new
 name|Field
 argument_list|(
-literal|"noPayLoad"
+name|PayloadHelper
+operator|.
+name|NO_PAYLOAD_FIELD
 argument_list|,
 name|English
 operator|.
@@ -948,7 +950,9 @@ name|checkExplanations
 argument_list|(
 name|query
 argument_list|,
-literal|"field"
+name|PayloadHelper
+operator|.
+name|FIELD
 argument_list|,
 name|searcher
 argument_list|,
@@ -1009,7 +1013,9 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
-literal|"multiField"
+name|PayloadHelper
+operator|.
+name|MULTI_FIELD
 argument_list|,
 literal|"seventy"
 argument_list|)
@@ -1279,7 +1285,9 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
-literal|"field"
+name|PayloadHelper
+operator|.
+name|FIELD
 argument_list|,
 literal|"junk"
 argument_list|)
@@ -1345,7 +1353,9 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
-literal|"noPayLoad"
+name|PayloadHelper
+operator|.
+name|NO_PAYLOAD_FIELD
 argument_list|,
 literal|"zero"
 argument_list|)
@@ -1360,7 +1370,9 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
-literal|"noPayLoad"
+name|PayloadHelper
+operator|.
+name|NO_PAYLOAD_FIELD
 argument_list|,
 literal|"foo"
 argument_list|)
@@ -1483,7 +1495,9 @@ name|checkHitCollector
 argument_list|(
 name|query
 argument_list|,
-literal|"noPayLoad"
+name|PayloadHelper
+operator|.
+name|NO_PAYLOAD_FIELD
 argument_list|,
 name|searcher
 argument_list|,
