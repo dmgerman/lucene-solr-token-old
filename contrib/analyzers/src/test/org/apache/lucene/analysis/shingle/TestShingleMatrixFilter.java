@@ -214,14 +214,6 @@ name|defaultSettingsCodec
 operator|=
 literal|null
 expr_stmt|;
-name|Token
-name|token
-init|=
-operator|new
-name|Token
-argument_list|()
-decl_stmt|;
-comment|// for debug use only
 name|TokenStream
 name|ts
 decl_stmt|;
@@ -254,7 +246,11 @@ argument_list|(
 name|ts
 operator|.
 name|next
+argument_list|(
+operator|new
+name|Token
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|TokenListStream
@@ -266,7 +262,7 @@ name|Token
 argument_list|>
 name|tokens
 decl_stmt|;
-comment|// test a plain old token stream with synonyms tranlated to rows.
+comment|// test a plain old token stream with synonyms translated to rows.
 name|tokens
 operator|=
 operator|new
@@ -280,8 +276,7 @@ name|tokens
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Token
+name|createToken
 argument_list|(
 literal|"please"
 argument_list|,
@@ -295,8 +290,7 @@ name|tokens
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Token
+name|createToken
 argument_list|(
 literal|"divide"
 argument_list|,
@@ -310,8 +304,7 @@ name|tokens
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Token
+name|createToken
 argument_list|(
 literal|"this"
 argument_list|,
@@ -325,8 +318,7 @@ name|tokens
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Token
+name|createToken
 argument_list|(
 literal|"sentence"
 argument_list|,
@@ -340,8 +332,7 @@ name|tokens
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Token
+name|createToken
 argument_list|(
 literal|"into"
 argument_list|,
@@ -355,8 +346,7 @@ name|tokens
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Token
+name|createToken
 argument_list|(
 literal|"shingles"
 argument_list|,
@@ -397,9 +387,18 @@ name|OneDimensionalNonWeightedTokenSettingsCodec
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Token
+name|reusableToken
+init|=
+operator|new
+name|Token
+argument_list|()
+decl_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"please"
 argument_list|,
@@ -412,6 +411,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"please divide"
 argument_list|,
 literal|0
@@ -422,6 +423,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"divide"
 argument_list|,
@@ -434,6 +437,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"divide this"
 argument_list|,
 literal|7
@@ -444,6 +449,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"this"
 argument_list|,
@@ -456,6 +463,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"this sentence"
 argument_list|,
 literal|14
@@ -466,6 +475,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"sentence"
 argument_list|,
@@ -478,6 +489,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"sentence into"
 argument_list|,
 literal|19
@@ -488,6 +501,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"into"
 argument_list|,
@@ -500,6 +515,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"into shingles"
 argument_list|,
 literal|28
@@ -510,6 +527,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"shingles"
 argument_list|,
@@ -523,7 +542,9 @@ argument_list|(
 name|ts
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|reusableToken
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -543,14 +564,6 @@ operator|=
 literal|null
 expr_stmt|;
 comment|//new ShingleMatrixFilter.SimpleThreeDimensionalTokenSettingsCodec();
-name|Token
-name|token
-init|=
-operator|new
-name|Token
-argument_list|()
-decl_stmt|;
-comment|// for debug use only
 name|TokenStream
 name|ts
 decl_stmt|;
@@ -684,9 +697,19 @@ name|TwoDimensionalNonWeightedSynonymTokenSettingsCodec
 argument_list|()
 argument_list|)
 expr_stmt|;
+specifier|final
+name|Token
+name|reusableToken
+init|=
+operator|new
+name|Token
+argument_list|()
+decl_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_world"
 argument_list|)
@@ -695,12 +718,16 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings_world"
 argument_list|)
 expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_earth"
 argument_list|)
@@ -709,6 +736,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings_earth"
 argument_list|)
 expr_stmt|;
@@ -716,12 +745,16 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"hello_tellus"
 argument_list|)
 expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"greetings_tellus"
 argument_list|)
@@ -731,7 +764,9 @@ argument_list|(
 name|ts
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|reusableToken
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// bi-grams with no spacer character, start offset, end offset
@@ -766,6 +801,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"helloworld"
 argument_list|,
 literal|0
@@ -776,6 +813,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"greetingsworld"
 argument_list|,
@@ -788,6 +827,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"helloearth"
 argument_list|,
 literal|0
@@ -798,6 +839,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"greetingsearth"
 argument_list|,
@@ -810,6 +853,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"hellotellus"
 argument_list|,
 literal|0
@@ -820,6 +865,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"greetingstellus"
 argument_list|,
@@ -833,7 +880,9 @@ argument_list|(
 name|ts
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|reusableToken
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// add ^_prefix_and_suffix_$
@@ -1054,13 +1103,15 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|//
-comment|//    while ((token = ts.next(token)) != null) {
-comment|//      System.out.println("assertNext(ts, \"" + token.termText() + "\", " + token.getPositionIncrement() + ", " + (token.getPayload() == null ? "1.0" : PayloadHelper.decodeFloat(token.getPayload().getData())) + "f, " + token.startOffset() + ", " + token.endOffset() + ");");
+comment|//    for (Token token = ts.next(new Token()); token != null; token = ts.next(token)) {
+comment|//      System.out.println("assertNext(ts, \"" + token.term() + "\", " + token.getPositionIncrement() + ", " + (token.getPayload() == null ? "1.0" : PayloadHelper.decodeFloat(token.getPayload().getData())) + "f, " + token.startOffset() + ", " + token.endOffset() + ");");
 comment|//      token.clear();
 comment|//    }
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_hello"
 argument_list|,
@@ -1077,6 +1128,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_greetings"
 argument_list|,
 literal|1
@@ -1091,6 +1144,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_world"
 argument_list|,
@@ -1107,6 +1162,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings_world"
 argument_list|,
 literal|1
@@ -1121,6 +1178,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_earth"
 argument_list|,
@@ -1137,6 +1196,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings_earth"
 argument_list|,
 literal|1
@@ -1151,6 +1212,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_tellus"
 argument_list|,
@@ -1167,6 +1230,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings_tellus"
 argument_list|,
 literal|1
@@ -1181,6 +1246,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"world_$"
 argument_list|,
@@ -1197,6 +1264,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"earth_$"
 argument_list|,
 literal|1
@@ -1211,6 +1280,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"tellus_$"
 argument_list|,
@@ -1228,7 +1299,9 @@ argument_list|(
 name|ts
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|reusableToken
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// test unlimited size and allow single boundary token as shingle
@@ -1256,13 +1329,15 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|//
-comment|//    while ((token = ts.next(token)) != null) {
-comment|//      System.out.println("assertNext(ts, \"" + token.termText() + "\", " + token.getPositionIncrement() + ", " + (token.getPayload() == null ? "1.0" : PayloadHelper.decodeFloat(token.getPayload().getData())) + "f, " + token.startOffset() + ", " + token.endOffset() + ");");
+comment|//  for (Token token = ts.next(new Token()); token != null; token = ts.next(token)) {
+comment|//      System.out.println("assertNext(ts, \"" + token.term() + "\", " + token.getPositionIncrement() + ", " + (token.getPayload() == null ? "1.0" : PayloadHelper.decodeFloat(token.getPayload().getData())) + "f, " + token.startOffset() + ", " + token.endOffset() + ");");
 comment|//      token.clear();
 comment|//    }
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^"
 argument_list|,
@@ -1279,6 +1354,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_hello"
 argument_list|,
 literal|1
@@ -1293,6 +1370,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_hello_world"
 argument_list|,
@@ -1309,6 +1388,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_hello_world_$"
 argument_list|,
 literal|1
@@ -1323,6 +1404,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello"
 argument_list|,
@@ -1339,6 +1422,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"hello_world"
 argument_list|,
 literal|1
@@ -1353,6 +1438,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_world_$"
 argument_list|,
@@ -1369,6 +1456,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"world"
 argument_list|,
 literal|1
@@ -1383,6 +1472,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"world_$"
 argument_list|,
@@ -1399,6 +1490,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"$"
 argument_list|,
 literal|1
@@ -1413,6 +1506,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_greetings"
 argument_list|,
@@ -1429,6 +1524,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_greetings_world"
 argument_list|,
 literal|1
@@ -1443,6 +1540,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_greetings_world_$"
 argument_list|,
@@ -1459,6 +1558,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings"
 argument_list|,
 literal|1
@@ -1473,6 +1574,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"greetings_world"
 argument_list|,
@@ -1489,6 +1592,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings_world_$"
 argument_list|,
 literal|1
@@ -1503,6 +1608,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_hello_earth"
 argument_list|,
@@ -1519,6 +1626,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_hello_earth_$"
 argument_list|,
 literal|1
@@ -1533,6 +1642,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_earth"
 argument_list|,
@@ -1549,6 +1660,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"hello_earth_$"
 argument_list|,
 literal|1
@@ -1563,6 +1676,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"earth"
 argument_list|,
@@ -1579,6 +1694,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"earth_$"
 argument_list|,
 literal|1
@@ -1593,6 +1710,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_greetings_earth"
 argument_list|,
@@ -1609,6 +1728,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_greetings_earth_$"
 argument_list|,
 literal|1
@@ -1623,6 +1744,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"greetings_earth"
 argument_list|,
@@ -1639,6 +1762,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings_earth_$"
 argument_list|,
 literal|1
@@ -1653,6 +1778,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_hello_tellus"
 argument_list|,
@@ -1669,6 +1796,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_hello_tellus_$"
 argument_list|,
 literal|1
@@ -1683,6 +1812,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_tellus"
 argument_list|,
@@ -1699,6 +1830,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"hello_tellus_$"
 argument_list|,
 literal|1
@@ -1713,6 +1846,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"tellus"
 argument_list|,
@@ -1729,6 +1864,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"tellus_$"
 argument_list|,
 literal|1
@@ -1743,6 +1880,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_greetings_tellus"
 argument_list|,
@@ -1759,6 +1898,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_greetings_tellus_$"
 argument_list|,
 literal|1
@@ -1774,6 +1915,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings_tellus"
 argument_list|,
 literal|1
@@ -1788,6 +1931,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"greetings_tellus_$"
 argument_list|,
@@ -1805,7 +1950,9 @@ argument_list|(
 name|ts
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|reusableToken
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// test unlimited size but don't allow single boundary token as shingle
@@ -1832,13 +1979,15 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|//    while ((token = ts.next(token)) != null) {
-comment|//      System.out.println("assertNext(ts, \"" + token.termText() + "\", " + token.getPositionIncrement() + ", " + (token.getPayload() == null ? "1.0" : PayloadHelper.decodeFloat(token.getPayload().getData())) + "f, " + token.startOffset() + ", " + token.endOffset() + ");");
+comment|//  for (Token token = ts.next(new Token()); token != null; token = ts.next(token)) {
+comment|//      System.out.println("assertNext(ts, \"" + token.term() + "\", " + token.getPositionIncrement() + ", " + (token.getPayload() == null ? "1.0" : PayloadHelper.decodeFloat(token.getPayload().getData())) + "f, " + token.startOffset() + ", " + token.endOffset() + ");");
 comment|//      token.clear();
 comment|//    }
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_hello"
 argument_list|,
@@ -1855,6 +2004,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_hello_world"
 argument_list|,
 literal|1
@@ -1869,6 +2020,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_hello_world_$"
 argument_list|,
@@ -1885,6 +2038,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"hello"
 argument_list|,
 literal|1
@@ -1899,6 +2054,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_world"
 argument_list|,
@@ -1915,6 +2072,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"hello_world_$"
 argument_list|,
 literal|1
@@ -1929,6 +2088,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"world"
 argument_list|,
@@ -1945,6 +2106,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"world_$"
 argument_list|,
 literal|1
@@ -1959,6 +2122,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_greetings"
 argument_list|,
@@ -1975,6 +2140,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_greetings_world"
 argument_list|,
 literal|1
@@ -1989,6 +2156,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_greetings_world_$"
 argument_list|,
@@ -2005,6 +2174,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings"
 argument_list|,
 literal|1
@@ -2019,6 +2190,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"greetings_world"
 argument_list|,
@@ -2035,6 +2208,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings_world_$"
 argument_list|,
 literal|1
@@ -2049,6 +2224,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_hello_earth"
 argument_list|,
@@ -2065,6 +2242,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_hello_earth_$"
 argument_list|,
 literal|1
@@ -2079,6 +2258,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_earth"
 argument_list|,
@@ -2095,6 +2276,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"hello_earth_$"
 argument_list|,
 literal|1
@@ -2109,6 +2292,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"earth"
 argument_list|,
@@ -2125,6 +2310,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"earth_$"
 argument_list|,
 literal|1
@@ -2139,6 +2326,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_greetings_earth"
 argument_list|,
@@ -2155,6 +2344,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_greetings_earth_$"
 argument_list|,
 literal|1
@@ -2169,6 +2360,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"greetings_earth"
 argument_list|,
@@ -2185,6 +2378,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings_earth_$"
 argument_list|,
 literal|1
@@ -2199,6 +2394,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_hello_tellus"
 argument_list|,
@@ -2215,6 +2412,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_hello_tellus_$"
 argument_list|,
 literal|1
@@ -2229,6 +2428,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_tellus"
 argument_list|,
@@ -2245,6 +2446,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"hello_tellus_$"
 argument_list|,
 literal|1
@@ -2259,6 +2462,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"tellus"
 argument_list|,
@@ -2275,6 +2480,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"tellus_$"
 argument_list|,
 literal|1
@@ -2289,6 +2496,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"^_greetings_tellus"
 argument_list|,
@@ -2305,6 +2514,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"^_greetings_tellus_$"
 argument_list|,
 literal|1
@@ -2320,6 +2531,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings_tellus"
 argument_list|,
 literal|1
@@ -2334,6 +2547,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"greetings_tellus_$"
 argument_list|,
@@ -2351,7 +2566,9 @@ argument_list|(
 name|ts
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|reusableToken
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|System
@@ -2568,14 +2785,16 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//    while ((token = ts.next(token)) != null) {
-comment|//      System.out.println("assertNext(ts, \"" + token.termText() + "\", " + token.getPositionIncrement() + ", " + (token.getPayload() == null ? "1.0" : PayloadHelper.decodeFloat(token.getPayload().getData())) + "f, " + token.startOffset() + ", " + token.endOffset() + ");");
+comment|//  for (Token token = ts.next(new Token()); token != null; token = ts.next(token)) {
+comment|//      System.out.println("assertNext(ts, \"" + token.term() + "\", " + token.getPositionIncrement() + ", " + (token.getPayload() == null ? "1.0" : PayloadHelper.decodeFloat(token.getPayload().getData())) + "f, " + token.startOffset() + ", " + token.endOffset() + ");");
 comment|//      token.clear();
 comment|//    }
 comment|// shingle, position increment, weight, start offset, end offset
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_world"
 argument_list|,
@@ -2592,6 +2811,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"greetings_and"
 argument_list|,
 literal|1
@@ -2606,6 +2827,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"greetings_and_salutations"
 argument_list|,
@@ -2622,6 +2845,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"and_salutations"
 argument_list|,
 literal|1
@@ -2636,6 +2861,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"and_salutations_world"
 argument_list|,
@@ -2652,6 +2879,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"salutations_world"
 argument_list|,
 literal|1
@@ -2666,6 +2895,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"hello_earth"
 argument_list|,
@@ -2682,6 +2913,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"and_salutations_earth"
 argument_list|,
 literal|1
@@ -2696,6 +2929,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"salutations_earth"
 argument_list|,
@@ -2712,6 +2947,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"hello_tellus"
 argument_list|,
 literal|1
@@ -2727,6 +2964,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"and_salutations_tellus"
 argument_list|,
 literal|1
@@ -2741,6 +2980,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"salutations_tellus"
 argument_list|,
@@ -2758,7 +2999,9 @@ argument_list|(
 name|ts
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|reusableToken
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|System
@@ -3008,14 +3251,23 @@ name|SimpleThreeDimensionalTokenSettingsCodec
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//    Token token = new Token();
-comment|//    while ((token = ts.next(token)) != null) {
-comment|//      System.out.println("assertNext(ts, \"" + token.termText() + "\", " + token.getPositionIncrement() + ", " + (token.getPayload() == null ? "1.0" : PayloadHelper.decodeFloat(token.getPayload().getData())) + "f, " + token.startOffset() + ", " + token.endOffset() + ");");
+comment|//  for (Token token = ts.next(new Token()); token != null; token = ts.next(token)) {
+comment|//      System.out.println("assertNext(ts, \"" + token.term() + "\", " + token.getPositionIncrement() + ", " + (token.getPayload() == null ? "1.0" : PayloadHelper.decodeFloat(token.getPayload().getData())) + "f, " + token.startOffset() + ", " + token.endOffset() + ");");
 comment|//      token.clear();
 comment|//    }
+specifier|final
+name|Token
+name|reusableToken
+init|=
+operator|new
+name|Token
+argument_list|()
+decl_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"no_surprise"
 argument_list|,
@@ -3032,6 +3284,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"no_surprise_to"
 argument_list|,
 literal|1
@@ -3046,6 +3300,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"no_surprise_to_see"
 argument_list|,
@@ -3062,6 +3318,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"surprise_to"
 argument_list|,
 literal|1
@@ -3076,6 +3334,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"surprise_to_see"
 argument_list|,
@@ -3092,6 +3352,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"surprise_to_see_england"
 argument_list|,
 literal|1
@@ -3106,6 +3368,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"to_see"
 argument_list|,
@@ -3122,6 +3386,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"to_see_england"
 argument_list|,
 literal|1
@@ -3136,6 +3402,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"to_see_england_manager"
 argument_list|,
@@ -3152,6 +3420,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"see_england"
 argument_list|,
 literal|1
@@ -3166,6 +3436,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"see_england_manager"
 argument_list|,
@@ -3182,6 +3454,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"see_england_manager_svennis"
 argument_list|,
 literal|1
@@ -3196,6 +3470,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"england_manager"
 argument_list|,
@@ -3212,6 +3488,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"england_manager_svennis"
 argument_list|,
 literal|1
@@ -3226,6 +3504,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"england_manager_svennis_in"
 argument_list|,
@@ -3242,6 +3522,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"manager_svennis"
 argument_list|,
 literal|1
@@ -3256,6 +3538,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"manager_svennis_in"
 argument_list|,
@@ -3272,6 +3556,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"manager_svennis_in_the"
 argument_list|,
 literal|1
@@ -3286,6 +3572,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"svennis_in"
 argument_list|,
@@ -3302,6 +3590,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"svennis_in_the"
 argument_list|,
 literal|1
@@ -3316,6 +3606,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"svennis_in_the_croud"
 argument_list|,
@@ -3332,6 +3624,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"in_the"
 argument_list|,
 literal|1
@@ -3346,6 +3640,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"in_the_croud"
 argument_list|,
@@ -3362,6 +3658,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"the_croud"
 argument_list|,
 literal|1
@@ -3376,6 +3674,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"see_england_manager_sven"
 argument_list|,
@@ -3392,6 +3692,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"england_manager_sven"
 argument_list|,
 literal|1
@@ -3406,6 +3708,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"england_manager_sven_gÃ¶ran"
 argument_list|,
@@ -3422,6 +3726,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"manager_sven"
 argument_list|,
 literal|1
@@ -3436,6 +3742,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"manager_sven_gÃ¶ran"
 argument_list|,
@@ -3452,6 +3760,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"manager_sven_gÃ¶ran_eriksson"
 argument_list|,
 literal|1
@@ -3466,6 +3776,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"sven_gÃ¶ran"
 argument_list|,
@@ -3482,6 +3794,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"sven_gÃ¶ran_eriksson"
 argument_list|,
 literal|1
@@ -3496,6 +3810,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"sven_gÃ¶ran_eriksson_in"
 argument_list|,
@@ -3512,6 +3828,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"gÃ¶ran_eriksson"
 argument_list|,
 literal|1
@@ -3526,6 +3844,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"gÃ¶ran_eriksson_in"
 argument_list|,
@@ -3542,6 +3862,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"gÃ¶ran_eriksson_in_the"
 argument_list|,
 literal|1
@@ -3556,6 +3878,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"eriksson_in"
 argument_list|,
@@ -3572,6 +3896,8 @@ name|assertNext
 argument_list|(
 name|ts
 argument_list|,
+name|reusableToken
+argument_list|,
 literal|"eriksson_in_the"
 argument_list|,
 literal|1
@@ -3586,6 +3912,8 @@ expr_stmt|;
 name|assertNext
 argument_list|(
 name|ts
+argument_list|,
+name|reusableToken
 argument_list|,
 literal|"eriksson_in_the_croud"
 argument_list|,
@@ -3603,7 +3931,9 @@ argument_list|(
 name|ts
 operator|.
 name|next
-argument_list|()
+argument_list|(
+name|reusableToken
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3660,11 +3990,15 @@ name|token
 init|=
 operator|new
 name|Token
-argument_list|()
+argument_list|(
+name|startOffset
+argument_list|,
+name|endOffset
+argument_list|)
 decl_stmt|;
 name|token
 operator|.
-name|setTermText
+name|setTermBuffer
 argument_list|(
 name|text
 argument_list|)
@@ -3674,20 +4008,6 @@ operator|.
 name|setPositionIncrement
 argument_list|(
 name|posIncr
-argument_list|)
-expr_stmt|;
-name|token
-operator|.
-name|setStartOffset
-argument_list|(
-name|startOffset
-argument_list|)
-expr_stmt|;
-name|token
-operator|.
-name|setEndOffset
-argument_list|(
-name|endOffset
 argument_list|)
 expr_stmt|;
 return|return
@@ -3777,11 +4097,15 @@ name|token
 init|=
 operator|new
 name|Token
-argument_list|()
+argument_list|(
+name|startOffset
+argument_list|,
+name|endOffset
+argument_list|)
 decl_stmt|;
 name|token
 operator|.
-name|setTermText
+name|setTermBuffer
 argument_list|(
 name|text
 argument_list|)
@@ -3802,20 +4126,6 @@ argument_list|(
 name|token
 argument_list|,
 name|weight
-argument_list|)
-expr_stmt|;
-name|token
-operator|.
-name|setStartOffset
-argument_list|(
-name|startOffset
-argument_list|)
-expr_stmt|;
-name|token
-operator|.
-name|setEndOffset
-argument_list|(
-name|endOffset
 argument_list|)
 expr_stmt|;
 return|return
@@ -3853,11 +4163,15 @@ name|token
 init|=
 operator|new
 name|Token
-argument_list|()
+argument_list|(
+name|startOffset
+argument_list|,
+name|endOffset
+argument_list|)
 decl_stmt|;
 name|token
 operator|.
-name|setTermText
+name|setTermBuffer
 argument_list|(
 name|text
 argument_list|)
@@ -3878,20 +4192,6 @@ argument_list|(
 name|token
 argument_list|,
 name|weight
-argument_list|)
-expr_stmt|;
-name|token
-operator|.
-name|setStartOffset
-argument_list|(
-name|startOffset
-argument_list|)
-expr_stmt|;
-name|token
-operator|.
-name|setEndOffset
-argument_list|(
-name|endOffset
 argument_list|)
 expr_stmt|;
 name|ShingleMatrixFilter
@@ -3918,6 +4218,10 @@ parameter_list|(
 name|TokenStream
 name|ts
 parameter_list|,
+specifier|final
+name|Token
+name|reusableToken
+parameter_list|,
 name|String
 name|text
 parameter_list|)
@@ -3925,45 +4229,32 @@ throws|throws
 name|IOException
 block|{
 name|Token
-name|token
+name|nextToken
 init|=
 name|ts
 operator|.
 name|next
 argument_list|(
-operator|new
-name|Token
-argument_list|()
+name|reusableToken
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|token
+name|nextToken
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 name|text
 argument_list|,
-operator|new
-name|String
-argument_list|(
-name|token
+name|nextToken
 operator|.
-name|termBuffer
+name|term
 argument_list|()
-argument_list|,
-literal|0
-argument_list|,
-name|token
-operator|.
-name|termLength
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-name|token
+name|nextToken
 return|;
 block|}
 DECL|method|assertNext
@@ -3973,6 +4264,10 @@ name|assertNext
 parameter_list|(
 name|TokenStream
 name|ts
+parameter_list|,
+specifier|final
+name|Token
+name|reusableToken
 parameter_list|,
 name|String
 name|text
@@ -3987,48 +4282,35 @@ throws|throws
 name|IOException
 block|{
 name|Token
-name|token
+name|nextToken
 init|=
 name|ts
 operator|.
 name|next
 argument_list|(
-operator|new
-name|Token
-argument_list|()
+name|reusableToken
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|token
+name|nextToken
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 name|text
 argument_list|,
-operator|new
-name|String
-argument_list|(
-name|token
+name|nextToken
 operator|.
-name|termBuffer
+name|term
 argument_list|()
-argument_list|,
-literal|0
-argument_list|,
-name|token
-operator|.
-name|termLength
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 name|positionIncrement
 argument_list|,
-name|token
+name|nextToken
 operator|.
 name|getPositionIncrement
 argument_list|()
@@ -4038,7 +4320,7 @@ name|assertEquals
 argument_list|(
 name|boost
 argument_list|,
-name|token
+name|nextToken
 operator|.
 name|getPayload
 argument_list|()
@@ -4051,7 +4333,7 @@ name|PayloadHelper
 operator|.
 name|decodeFloat
 argument_list|(
-name|token
+name|nextToken
 operator|.
 name|getPayload
 argument_list|()
@@ -4062,7 +4344,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-name|token
+name|nextToken
 return|;
 block|}
 DECL|method|assertNext
@@ -4072,6 +4354,10 @@ name|assertNext
 parameter_list|(
 name|TokenStream
 name|ts
+parameter_list|,
+specifier|final
+name|Token
+name|reusableToken
 parameter_list|,
 name|String
 name|text
@@ -4092,48 +4378,35 @@ throws|throws
 name|IOException
 block|{
 name|Token
-name|token
+name|nextToken
 init|=
 name|ts
 operator|.
 name|next
 argument_list|(
-operator|new
-name|Token
-argument_list|()
+name|reusableToken
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|token
+name|nextToken
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 name|text
 argument_list|,
-operator|new
-name|String
-argument_list|(
-name|token
+name|nextToken
 operator|.
-name|termBuffer
+name|term
 argument_list|()
-argument_list|,
-literal|0
-argument_list|,
-name|token
-operator|.
-name|termLength
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 name|positionIncrement
 argument_list|,
-name|token
+name|nextToken
 operator|.
 name|getPositionIncrement
 argument_list|()
@@ -4143,7 +4416,7 @@ name|assertEquals
 argument_list|(
 name|boost
 argument_list|,
-name|token
+name|nextToken
 operator|.
 name|getPayload
 argument_list|()
@@ -4156,7 +4429,7 @@ name|PayloadHelper
 operator|.
 name|decodeFloat
 argument_list|(
-name|token
+name|nextToken
 operator|.
 name|getPayload
 argument_list|()
@@ -4170,7 +4443,7 @@ name|assertEquals
 argument_list|(
 name|startOffset
 argument_list|,
-name|token
+name|nextToken
 operator|.
 name|startOffset
 argument_list|()
@@ -4180,14 +4453,14 @@ name|assertEquals
 argument_list|(
 name|endOffset
 argument_list|,
-name|token
+name|nextToken
 operator|.
 name|endOffset
 argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|token
+name|nextToken
 return|;
 block|}
 DECL|method|assertNext
@@ -4197,6 +4470,10 @@ name|assertNext
 parameter_list|(
 name|TokenStream
 name|ts
+parameter_list|,
+specifier|final
+name|Token
+name|reusableToken
 parameter_list|,
 name|String
 name|text
@@ -4211,61 +4488,86 @@ throws|throws
 name|IOException
 block|{
 name|Token
-name|token
+name|nextToken
 init|=
 name|ts
 operator|.
 name|next
 argument_list|(
-operator|new
-name|Token
-argument_list|()
+name|reusableToken
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|token
+name|nextToken
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 name|text
 argument_list|,
-operator|new
+name|nextToken
+operator|.
+name|term
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|startOffset
+argument_list|,
+name|nextToken
+operator|.
+name|startOffset
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|endOffset
+argument_list|,
+name|nextToken
+operator|.
+name|endOffset
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|nextToken
+return|;
+block|}
+DECL|method|createToken
+specifier|private
+specifier|static
+name|Token
+name|createToken
+parameter_list|(
 name|String
+name|term
+parameter_list|,
+name|int
+name|start
+parameter_list|,
+name|int
+name|offset
+parameter_list|)
+block|{
+name|Token
+name|token
+init|=
+operator|new
+name|Token
 argument_list|(
+name|start
+argument_list|,
+name|offset
+argument_list|)
+decl_stmt|;
 name|token
 operator|.
-name|termBuffer
-argument_list|()
-argument_list|,
-literal|0
-argument_list|,
-name|token
-operator|.
-name|termLength
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertEquals
+name|setTermBuffer
 argument_list|(
-name|startOffset
-argument_list|,
-name|token
-operator|.
-name|startOffset
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-name|endOffset
-argument_list|,
-name|token
-operator|.
-name|endOffset
-argument_list|()
+name|term
 argument_list|)
 expr_stmt|;
 return|return
@@ -4307,32 +4609,51 @@ name|Token
 argument_list|>
 argument_list|()
 expr_stmt|;
+specifier|final
 name|Token
-name|token
+name|reusableToken
+init|=
+operator|new
+name|Token
+argument_list|()
 decl_stmt|;
-while|while
-condition|(
-operator|(
-name|token
+for|for
+control|(
+name|Token
+name|nextToken
+init|=
+name|ts
+operator|.
+name|next
+argument_list|(
+name|reusableToken
+argument_list|)
+init|;
+name|nextToken
+operator|!=
+literal|null
+condition|;
+name|nextToken
 operator|=
 name|ts
 operator|.
 name|next
 argument_list|(
-operator|new
-name|Token
-argument_list|()
+name|reusableToken
 argument_list|)
-operator|)
-operator|!=
-literal|null
-condition|)
+control|)
 block|{
 name|tokens
 operator|.
 name|add
 argument_list|(
-name|token
+operator|(
+name|Token
+operator|)
+name|nextToken
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4367,10 +4688,19 @@ DECL|method|next
 specifier|public
 name|Token
 name|next
-parameter_list|()
+parameter_list|(
+specifier|final
+name|Token
+name|reusableToken
+parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|reusableToken
+operator|!=
+literal|null
+assert|;
 if|if
 condition|(
 name|iterator
@@ -4399,10 +4729,24 @@ return|return
 literal|null
 return|;
 block|}
-return|return
+name|Token
+name|nextToken
+init|=
+operator|(
+name|Token
+operator|)
 name|iterator
 operator|.
 name|next
+argument_list|()
+decl_stmt|;
+return|return
+operator|(
+name|Token
+operator|)
+name|nextToken
+operator|.
+name|clone
 argument_list|()
 return|;
 block|}

@@ -2128,7 +2128,11 @@ DECL|method|next
 specifier|public
 name|Token
 name|next
-parameter_list|()
+parameter_list|(
+specifier|final
+name|Token
+name|reusableToken
+parameter_list|)
 block|{
 return|return
 literal|null
