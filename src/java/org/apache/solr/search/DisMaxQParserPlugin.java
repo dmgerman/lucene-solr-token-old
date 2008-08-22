@@ -296,28 +296,6 @@ name|IMPOSSIBLE_FIELD_NAME
 init|=
 literal|"\uFFFC\uFFFC\uFFFC"
 decl_stmt|;
-comment|/** shorten the class references for utilities */
-DECL|class|U
-specifier|private
-specifier|static
-class|class
-name|U
-extends|extends
-name|SolrPluginUtils
-block|{
-comment|/* :NOOP */
-block|}
-comment|/** shorten the class references for utilities */
-DECL|interface|DMP
-specifier|private
-specifier|static
-interface|interface
-name|DMP
-extends|extends
-name|DisMaxParams
-block|{
-comment|/* :NOOP */
-block|}
 DECL|method|DismaxQParser
 specifier|public
 name|DismaxQParser
@@ -419,7 +397,7 @@ argument_list|()
 decl_stmt|;
 name|queryFields
 operator|=
-name|U
+name|SolrPluginUtils
 operator|.
 name|parseFieldBoosts
 argument_list|(
@@ -427,7 +405,7 @@ name|solrParams
 operator|.
 name|getParams
 argument_list|(
-name|DMP
+name|DisMaxParams
 operator|.
 name|QF
 argument_list|)
@@ -441,7 +419,7 @@ name|Float
 argument_list|>
 name|phraseFields
 init|=
-name|U
+name|SolrPluginUtils
 operator|.
 name|parseFieldBoosts
 argument_list|(
@@ -449,7 +427,7 @@ name|solrParams
 operator|.
 name|getParams
 argument_list|(
-name|DMP
+name|DisMaxParams
 operator|.
 name|PF
 argument_list|)
@@ -462,7 +440,7 @@ name|solrParams
 operator|.
 name|getFloat
 argument_list|(
-name|DMP
+name|DisMaxParams
 operator|.
 name|TIE
 argument_list|,
@@ -476,7 +454,7 @@ name|solrParams
 operator|.
 name|getInt
 argument_list|(
-name|DMP
+name|DisMaxParams
 operator|.
 name|PS
 argument_list|,
@@ -490,7 +468,7 @@ name|solrParams
 operator|.
 name|getInt
 argument_list|(
-name|DMP
+name|DisMaxParams
 operator|.
 name|QS
 argument_list|,
@@ -509,13 +487,13 @@ literal|null
 argument_list|)
 decl_stmt|;
 comment|/* a parser for dealing with user input, which will convert      * things to DisjunctionMaxQueries      */
-name|U
+name|SolrPluginUtils
 operator|.
 name|DisjunctionMaxQueryParser
 name|up
 init|=
 operator|new
-name|U
+name|SolrPluginUtils
 operator|.
 name|DisjunctionMaxQueryParser
 argument_list|(
@@ -543,13 +521,13 @@ name|qslop
 argument_list|)
 expr_stmt|;
 comment|/* for parsing sloppy phrases using DisjunctionMaxQueries */
-name|U
+name|SolrPluginUtils
 operator|.
 name|DisjunctionMaxQueryParser
 name|pp
 init|=
 operator|new
-name|U
+name|SolrPluginUtils
 operator|.
 name|DisjunctionMaxQueryParser
 argument_list|(
@@ -626,7 +604,7 @@ name|solrParams
 operator|.
 name|get
 argument_list|(
-name|DMP
+name|DisMaxParams
 operator|.
 name|ALTQ
 argument_list|)
@@ -690,11 +668,11 @@ block|{
 comment|// There is a valid query string
 name|userQuery
 operator|=
-name|U
+name|SolrPluginUtils
 operator|.
 name|partialEscape
 argument_list|(
-name|U
+name|SolrPluginUtils
 operator|.
 name|stripUnbalancedQuotes
 argument_list|(
@@ -707,7 +685,7 @@ argument_list|()
 expr_stmt|;
 name|userQuery
 operator|=
-name|U
+name|SolrPluginUtils
 operator|.
 name|stripIllegalOperators
 argument_list|(
@@ -724,7 +702,7 @@ name|solrParams
 operator|.
 name|get
 argument_list|(
-name|DMP
+name|DisMaxParams
 operator|.
 name|MM
 argument_list|,
@@ -759,7 +737,7 @@ operator|new
 name|BooleanQuery
 argument_list|()
 decl_stmt|;
-name|U
+name|SolrPluginUtils
 operator|.
 name|flattenBooleanQuery
 argument_list|(
@@ -771,7 +749,7 @@ operator|)
 name|dis
 argument_list|)
 expr_stmt|;
-name|U
+name|SolrPluginUtils
 operator|.
 name|setMinShouldMatch
 argument_list|(
@@ -856,12 +834,12 @@ name|solrParams
 operator|.
 name|getParams
 argument_list|(
-name|DMP
+name|DisMaxParams
 operator|.
 name|BQ
 argument_list|)
 expr_stmt|;
-comment|//List<Query> boostQueries = U.parseQueryStrings(req, boostParams);
+comment|//List<Query> boostQueries = SolrPluginUtils.parseQueryStrings(req, boostParams);
 name|boostQueries
 operator|=
 literal|null
@@ -1060,7 +1038,7 @@ name|solrParams
 operator|.
 name|getParams
 argument_list|(
-name|DMP
+name|DisMaxParams
 operator|.
 name|BF
 argument_list|)
