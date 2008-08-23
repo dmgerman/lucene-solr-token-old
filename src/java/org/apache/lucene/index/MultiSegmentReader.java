@@ -191,6 +191,9 @@ name|sis
 parameter_list|,
 name|boolean
 name|closeDirectory
+parameter_list|,
+name|boolean
+name|readOnly
 parameter_list|)
 throws|throws
 name|IOException
@@ -202,6 +205,8 @@ argument_list|,
 name|sis
 argument_list|,
 name|closeDirectory
+argument_list|,
+name|readOnly
 argument_list|)
 expr_stmt|;
 comment|// To reduce the chance of hitting FileNotFound
@@ -252,6 +257,8 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
+name|readOnly
+argument_list|,
 name|sis
 operator|.
 name|info
@@ -338,6 +345,9 @@ name|oldStarts
 parameter_list|,
 name|Map
 name|oldNormsCache
+parameter_list|,
+name|boolean
+name|readOnly
 parameter_list|)
 throws|throws
 name|IOException
@@ -349,6 +359,8 @@ argument_list|,
 name|infos
 argument_list|,
 name|closeDirectory
+argument_list|,
+name|readOnly
 argument_list|)
 expr_stmt|;
 comment|// we put the old SegmentReaders in a map, that allows us
@@ -556,6 +568,8 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
+name|readOnly
+argument_list|,
 name|infos
 operator|.
 name|info
@@ -1073,14 +1087,14 @@ literal|1
 condition|)
 block|{
 comment|// The index has only one segment now, so we can't refresh the MultiSegmentReader.
-comment|// Return a new SegmentReader instead
-name|SegmentReader
-name|newReader
-init|=
+comment|// Return a new [ReadOnly]SegmentReader instead
+return|return
 name|SegmentReader
 operator|.
 name|get
 argument_list|(
+name|readOnly
+argument_list|,
 name|infos
 argument_list|,
 name|infos
@@ -1092,9 +1106,30 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|readOnly
+condition|)
+block|{
 return|return
-name|newReader
+operator|new
+name|ReadOnlyMultiSegmentReader
+argument_list|(
+name|directory
+argument_list|,
+name|infos
+argument_list|,
+name|closeDirectory
+argument_list|,
+name|subReaders
+argument_list|,
+name|starts
+argument_list|,
+name|normsCache
+argument_list|)
 return|;
 block|}
 else|else
@@ -1114,6 +1149,8 @@ argument_list|,
 name|starts
 argument_list|,
 name|normsCache
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -1437,6 +1474,7 @@ name|n
 parameter_list|)
 block|{
 comment|// Don't call ensureOpen() here (it could affect performance)
+specifier|final
 name|int
 name|i
 init|=
@@ -1597,6 +1635,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|readerIndex
+specifier|final
 specifier|static
 name|int
 name|readerIndex

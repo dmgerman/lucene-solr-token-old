@@ -7388,6 +7388,8 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
+literal|true
+argument_list|,
 name|segmentInfos
 operator|.
 name|info
@@ -11058,6 +11060,8 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
+literal|true
+argument_list|,
 name|si
 argument_list|,
 name|MERGE_READ_BUFFER_SIZE
