@@ -3,11 +3,11 @@ begin_comment
 comment|// This file was generated automatically by the Snowball to Java compiler
 end_comment
 begin_package
-DECL|package|net.sf.snowball.ext
+DECL|package|org.tartarus.snowball.ext
 package|package
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -16,9 +16,9 @@ package|;
 end_package
 begin_import
 import|import
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -27,9 +27,9 @@ import|;
 end_import
 begin_import
 import|import
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -40,10 +40,10 @@ begin_comment
 comment|/**  * Generated class implementing code defined by a snowball script.  */
 end_comment
 begin_class
-DECL|class|DanishStemmer
+DECL|class|NorwegianStemmer
 specifier|public
 class|class
-name|DanishStemmer
+name|NorwegianStemmer
 extends|extends
 name|SnowballProgram
 block|{
@@ -57,36 +57,7 @@ block|{
 operator|new
 name|Among
 argument_list|(
-literal|"hed"
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"ethed"
-argument_list|,
-literal|0
-argument_list|,
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"ered"
+literal|"a"
 argument_list|,
 operator|-
 literal|1
@@ -116,9 +87,23 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"erede"
+literal|"ede"
 argument_list|,
-literal|3
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"ande"
+argument_list|,
+literal|1
 argument_list|,
 literal|1
 argument_list|,
@@ -132,7 +117,7 @@ name|Among
 argument_list|(
 literal|"ende"
 argument_list|,
-literal|3
+literal|1
 argument_list|,
 literal|1
 argument_list|,
@@ -144,9 +129,9 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"erende"
+literal|"ane"
 argument_list|,
-literal|5
+literal|1
 argument_list|,
 literal|1
 argument_list|,
@@ -160,7 +145,7 @@ name|Among
 argument_list|(
 literal|"ene"
 argument_list|,
-literal|3
+literal|1
 argument_list|,
 literal|1
 argument_list|,
@@ -172,9 +157,9 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"erne"
+literal|"hetene"
 argument_list|,
-literal|3
+literal|6
 argument_list|,
 literal|1
 argument_list|,
@@ -186,11 +171,11 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"ere"
-argument_list|,
-literal|3
+literal|"erte"
 argument_list|,
 literal|1
+argument_list|,
+literal|3
 argument_list|,
 literal|""
 argument_list|,
@@ -215,9 +200,9 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"heden"
+literal|"heten"
 argument_list|,
-literal|10
+literal|9
 argument_list|,
 literal|1
 argument_list|,
@@ -229,9 +214,10 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"eren"
+literal|"ar"
 argument_list|,
-literal|10
+operator|-
+literal|1
 argument_list|,
 literal|1
 argument_list|,
@@ -258,23 +244,9 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"heder"
+literal|"heter"
 argument_list|,
-literal|13
-argument_list|,
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"erer"
-argument_list|,
-literal|13
+literal|12
 argument_list|,
 literal|1
 argument_list|,
@@ -301,9 +273,9 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"heds"
+literal|"as"
 argument_list|,
-literal|16
+literal|14
 argument_list|,
 literal|1
 argument_list|,
@@ -316,6 +288,20 @@ operator|new
 name|Among
 argument_list|(
 literal|"es"
+argument_list|,
+literal|14
+argument_list|,
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"edes"
 argument_list|,
 literal|16
 argument_list|,
@@ -331,21 +317,7 @@ name|Among
 argument_list|(
 literal|"endes"
 argument_list|,
-literal|18
-argument_list|,
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"erendes"
-argument_list|,
-literal|19
+literal|16
 argument_list|,
 literal|1
 argument_list|,
@@ -359,7 +331,7 @@ name|Among
 argument_list|(
 literal|"enes"
 argument_list|,
-literal|18
+literal|16
 argument_list|,
 literal|1
 argument_list|,
@@ -371,23 +343,9 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"ernes"
+literal|"hetenes"
 argument_list|,
-literal|18
-argument_list|,
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"eres"
-argument_list|,
-literal|18
+literal|19
 argument_list|,
 literal|1
 argument_list|,
@@ -401,7 +359,7 @@ name|Among
 argument_list|(
 literal|"ens"
 argument_list|,
-literal|16
+literal|14
 argument_list|,
 literal|1
 argument_list|,
@@ -413,23 +371,9 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"hedens"
+literal|"hetens"
 argument_list|,
-literal|24
-argument_list|,
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"erens"
-argument_list|,
-literal|24
+literal|21
 argument_list|,
 literal|1
 argument_list|,
@@ -443,7 +387,7 @@ name|Among
 argument_list|(
 literal|"ers"
 argument_list|,
-literal|16
+literal|14
 argument_list|,
 literal|1
 argument_list|,
@@ -457,21 +401,7 @@ name|Among
 argument_list|(
 literal|"ets"
 argument_list|,
-literal|16
-argument_list|,
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"erets"
-argument_list|,
-literal|28
+literal|14
 argument_list|,
 literal|1
 argument_list|,
@@ -498,9 +428,39 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"eret"
+literal|"het"
 argument_list|,
-literal|30
+literal|25
+argument_list|,
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"ert"
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|3
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"ast"
+argument_list|,
+operator|-
+literal|1
 argument_list|,
 literal|1
 argument_list|,
@@ -520,22 +480,6 @@ block|{
 operator|new
 name|Among
 argument_list|(
-literal|"gd"
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
 literal|"dt"
 argument_list|,
 operator|-
@@ -552,23 +496,7 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"gt"
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"kt"
+literal|"vt"
 argument_list|,
 operator|-
 literal|1
@@ -592,6 +520,35 @@ block|{
 operator|new
 name|Among
 argument_list|(
+literal|"leg"
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"eleg"
+argument_list|,
+literal|0
+argument_list|,
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
 literal|"ig"
 argument_list|,
 operator|-
@@ -607,9 +564,23 @@ block|,
 operator|new
 name|Among
 argument_list|(
+literal|"eig"
+argument_list|,
+literal|2
+argument_list|,
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
 literal|"lig"
 argument_list|,
-literal|0
+literal|2
 argument_list|,
 literal|1
 argument_list|,
@@ -623,7 +594,7 @@ name|Among
 argument_list|(
 literal|"elig"
 argument_list|,
-literal|1
+literal|4
 argument_list|,
 literal|1
 argument_list|,
@@ -650,12 +621,54 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"l\u00F8st"
+literal|"lov"
 argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|2
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"elov"
+argument_list|,
+literal|7
+argument_list|,
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"slov"
+argument_list|,
+literal|7
+argument_list|,
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"hetslov"
+argument_list|,
+literal|9
+argument_list|,
+literal|1
 argument_list|,
 literal|""
 argument_list|,
@@ -720,75 +733,45 @@ name|g_s_ending
 index|[]
 init|=
 block|{
-literal|239
+literal|119
 block|,
-literal|254
+literal|125
 block|,
-literal|42
+literal|149
 block|,
-literal|3
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|16
+literal|1
 block|}
+decl_stmt|;
+DECL|field|I_x
+specifier|private
+name|int
+name|I_x
 decl_stmt|;
 DECL|field|I_p1
 specifier|private
 name|int
 name|I_p1
 decl_stmt|;
-DECL|field|S_ch
-specifier|private
-name|StringBuffer
-name|S_ch
-init|=
-operator|new
-name|StringBuffer
-argument_list|()
-decl_stmt|;
 DECL|method|copy_from
 specifier|private
 name|void
 name|copy_from
 parameter_list|(
-name|DanishStemmer
+name|NorwegianStemmer
 name|other
 parameter_list|)
 block|{
-name|I_p1
+name|I_x
 operator|=
 name|other
 operator|.
-name|I_p1
+name|I_x
 expr_stmt|;
-name|S_ch
+name|I_p1
 operator|=
 name|other
 operator|.
-name|S_ch
+name|I_p1
 expr_stmt|;
 name|super
 operator|.
@@ -807,12 +790,59 @@ block|{
 name|int
 name|v_1
 decl_stmt|;
-comment|// (, line 29
+name|int
+name|v_2
+decl_stmt|;
+comment|// (, line 26
 name|I_p1
 operator|=
 name|limit
 expr_stmt|;
-comment|// goto, line 33
+comment|// test, line 30
+name|v_1
+operator|=
+name|cursor
+expr_stmt|;
+comment|// (, line 30
+comment|// hop, line 30
+block|{
+name|int
+name|c
+init|=
+name|cursor
+operator|+
+literal|3
+decl_stmt|;
+if|if
+condition|(
+literal|0
+operator|>
+name|c
+operator|||
+name|c
+operator|>
+name|limit
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+name|cursor
+operator|=
+name|c
+expr_stmt|;
+block|}
+comment|// setmark x, line 30
+name|I_x
+operator|=
+name|cursor
+expr_stmt|;
+name|cursor
+operator|=
+name|v_1
+expr_stmt|;
+comment|// goto, line 31
 name|golab0
 label|:
 while|while
@@ -820,7 +850,7 @@ condition|(
 literal|true
 condition|)
 block|{
-name|v_1
+name|v_2
 operator|=
 name|cursor
 expr_stmt|;
@@ -849,7 +879,7 @@ break|;
 block|}
 name|cursor
 operator|=
-name|v_1
+name|v_2
 expr_stmt|;
 break|break
 name|golab0
@@ -862,7 +892,7 @@ condition|)
 do|;
 name|cursor
 operator|=
-name|v_1
+name|v_2
 expr_stmt|;
 if|if
 condition|(
@@ -879,7 +909,7 @@ name|cursor
 operator|++
 expr_stmt|;
 block|}
-comment|// gopast, line 33
+comment|// gopast, line 31
 name|golab2
 label|:
 while|while
@@ -934,24 +964,24 @@ name|cursor
 operator|++
 expr_stmt|;
 block|}
-comment|// setmark p1, line 33
+comment|// setmark p1, line 31
 name|I_p1
 operator|=
 name|cursor
 expr_stmt|;
-comment|// try, line 34
+comment|// try, line 32
 name|lab4
 label|:
 do|do
 block|{
-comment|// (, line 34
+comment|// (, line 32
 if|if
 condition|(
 operator|!
 operator|(
 name|I_p1
 operator|<
-literal|3
+name|I_x
 operator|)
 condition|)
 block|{
@@ -961,7 +991,7 @@ break|;
 block|}
 name|I_p1
 operator|=
-literal|3
+name|I_x
 expr_stmt|;
 block|}
 do|while
@@ -988,15 +1018,18 @@ decl_stmt|;
 name|int
 name|v_2
 decl_stmt|;
-comment|// (, line 39
-comment|// setlimit, line 40
+name|int
+name|v_3
+decl_stmt|;
+comment|// (, line 37
+comment|// setlimit, line 38
 name|v_1
 operator|=
 name|limit
 operator|-
 name|cursor
 expr_stmt|;
-comment|// tomark, line 40
+comment|// tomark, line 38
 if|if
 condition|(
 name|cursor
@@ -1026,20 +1059,20 @@ name|limit
 operator|-
 name|v_1
 expr_stmt|;
-comment|// (, line 40
-comment|// [, line 40
+comment|// (, line 38
+comment|// [, line 38
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-comment|// substring, line 40
+comment|// substring, line 38
 name|among_var
 operator|=
 name|find_among_b
 argument_list|(
 name|a_0
 argument_list|,
-literal|32
+literal|29
 argument_list|)
 expr_stmt|;
 if|if
@@ -1057,7 +1090,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|// ], line 40
+comment|// ], line 38
 name|bra
 operator|=
 name|cursor
@@ -1080,8 +1113,8 @@ return|;
 case|case
 literal|1
 case|:
-comment|// (, line 47
-comment|// delete, line 47
+comment|// (, line 44
+comment|// delete, line 44
 name|slice_del
 argument_list|()
 expr_stmt|;
@@ -1089,7 +1122,22 @@ break|break;
 case|case
 literal|2
 case|:
-comment|// (, line 49
+comment|// (, line 46
+comment|// or, line 46
+name|lab0
+label|:
+do|do
+block|{
+name|v_3
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+name|lab1
+label|:
+do|do
+block|{
 if|if
 condition|(
 operator|!
@@ -1098,9 +1146,43 @@ name|in_grouping_b
 argument_list|(
 name|g_s_ending
 argument_list|,
-literal|97
+literal|98
 argument_list|,
-literal|229
+literal|122
+argument_list|)
+operator|)
+condition|)
+block|{
+break|break
+name|lab1
+break|;
+block|}
+break|break
+name|lab0
+break|;
+block|}
+do|while
+condition|(
+literal|false
+condition|)
+do|;
+name|cursor
+operator|=
+name|limit
+operator|-
+name|v_3
+expr_stmt|;
+comment|// (, line 46
+comment|// literal, line 46
+if|if
+condition|(
+operator|!
+operator|(
+name|eq_s_b
+argument_list|(
+literal|1
+argument_list|,
+literal|"k"
 argument_list|)
 operator|)
 condition|)
@@ -1109,9 +1191,45 @@ return|return
 literal|false
 return|;
 block|}
-comment|// delete, line 49
+if|if
+condition|(
+operator|!
+operator|(
+name|out_grouping_b
+argument_list|(
+name|g_v
+argument_list|,
+literal|97
+argument_list|,
+literal|248
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+do|while
+condition|(
+literal|false
+condition|)
+do|;
+comment|// delete, line 46
 name|slice_del
 argument_list|()
+expr_stmt|;
+break|break;
+case|case
+literal|3
+case|:
+comment|// (, line 48
+comment|//<-, line 48
+name|slice_from
+argument_list|(
+literal|"er"
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
@@ -1134,23 +1252,23 @@ decl_stmt|;
 name|int
 name|v_3
 decl_stmt|;
-comment|// (, line 53
-comment|// test, line 54
+comment|// (, line 52
+comment|// test, line 53
 name|v_1
 operator|=
 name|limit
 operator|-
 name|cursor
 expr_stmt|;
-comment|// (, line 54
-comment|// setlimit, line 55
+comment|// (, line 53
+comment|// setlimit, line 54
 name|v_2
 operator|=
 name|limit
 operator|-
 name|cursor
 expr_stmt|;
-comment|// tomark, line 55
+comment|// tomark, line 54
 if|if
 condition|(
 name|cursor
@@ -1180,20 +1298,20 @@ name|limit
 operator|-
 name|v_2
 expr_stmt|;
-comment|// (, line 55
-comment|// [, line 55
+comment|// (, line 54
+comment|// [, line 54
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-comment|// substring, line 55
+comment|// substring, line 54
 if|if
 condition|(
 name|find_among_b
 argument_list|(
 name|a_1
 argument_list|,
-literal|4
+literal|2
 argument_list|)
 operator|==
 literal|0
@@ -1207,7 +1325,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|// ], line 55
+comment|// ], line 54
 name|bra
 operator|=
 name|cursor
@@ -1222,7 +1340,7 @@ name|limit
 operator|-
 name|v_1
 expr_stmt|;
-comment|// next, line 61
+comment|// next, line 59
 if|if
 condition|(
 name|cursor
@@ -1237,12 +1355,12 @@ block|}
 name|cursor
 operator|--
 expr_stmt|;
-comment|// ], line 61
+comment|// ], line 59
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// delete, line 61
+comment|// delete, line 59
 name|slice_del
 argument_list|()
 expr_stmt|;
@@ -1265,95 +1383,15 @@ decl_stmt|;
 name|int
 name|v_2
 decl_stmt|;
-name|int
-name|v_3
-decl_stmt|;
-name|int
-name|v_4
-decl_stmt|;
-comment|// (, line 64
-comment|// do, line 65
+comment|// (, line 62
+comment|// setlimit, line 63
 name|v_1
 operator|=
 name|limit
 operator|-
 name|cursor
 expr_stmt|;
-name|lab0
-label|:
-do|do
-block|{
-comment|// (, line 65
-comment|// [, line 65
-name|ket
-operator|=
-name|cursor
-expr_stmt|;
-comment|// literal, line 65
-if|if
-condition|(
-operator|!
-operator|(
-name|eq_s_b
-argument_list|(
-literal|2
-argument_list|,
-literal|"st"
-argument_list|)
-operator|)
-condition|)
-block|{
-break|break
-name|lab0
-break|;
-block|}
-comment|// ], line 65
-name|bra
-operator|=
-name|cursor
-expr_stmt|;
-comment|// literal, line 65
-if|if
-condition|(
-operator|!
-operator|(
-name|eq_s_b
-argument_list|(
-literal|2
-argument_list|,
-literal|"ig"
-argument_list|)
-operator|)
-condition|)
-block|{
-break|break
-name|lab0
-break|;
-block|}
-comment|// delete, line 65
-name|slice_del
-argument_list|()
-expr_stmt|;
-block|}
-do|while
-condition|(
-literal|false
-condition|)
-do|;
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_1
-expr_stmt|;
-comment|// setlimit, line 66
-name|v_2
-operator|=
-name|limit
-operator|-
-name|cursor
-expr_stmt|;
-comment|// tomark, line 66
+comment|// tomark, line 63
 if|if
 condition|(
 name|cursor
@@ -1369,7 +1407,7 @@ name|cursor
 operator|=
 name|I_p1
 expr_stmt|;
-name|v_3
+name|v_2
 operator|=
 name|limit_backward
 expr_stmt|;
@@ -1381,22 +1419,22 @@ name|cursor
 operator|=
 name|limit
 operator|-
-name|v_2
+name|v_1
 expr_stmt|;
-comment|// (, line 66
-comment|// [, line 66
+comment|// (, line 63
+comment|// [, line 63
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-comment|// substring, line 66
+comment|// substring, line 63
 name|among_var
 operator|=
 name|find_among_b
 argument_list|(
 name|a_2
 argument_list|,
-literal|5
+literal|11
 argument_list|)
 expr_stmt|;
 if|if
@@ -1408,20 +1446,20 @@ condition|)
 block|{
 name|limit_backward
 operator|=
-name|v_3
+name|v_2
 expr_stmt|;
 return|return
 literal|false
 return|;
 block|}
-comment|// ], line 66
+comment|// ], line 63
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
 name|limit_backward
 operator|=
-name|v_3
+name|v_2
 expr_stmt|;
 switch|switch
 condition|(
@@ -1437,179 +1475,13 @@ return|;
 case|case
 literal|1
 case|:
-comment|// (, line 69
-comment|// delete, line 69
+comment|// (, line 67
+comment|// delete, line 67
 name|slice_del
 argument_list|()
 expr_stmt|;
-comment|// do, line 69
-name|v_4
-operator|=
-name|limit
-operator|-
-name|cursor
-expr_stmt|;
-name|lab1
-label|:
-do|do
-block|{
-comment|// call consonant_pair, line 69
-if|if
-condition|(
-operator|!
-name|r_consonant_pair
-argument_list|()
-condition|)
-block|{
-break|break
-name|lab1
-break|;
-block|}
-block|}
-do|while
-condition|(
-literal|false
-condition|)
-do|;
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_4
-expr_stmt|;
-break|break;
-case|case
-literal|2
-case|:
-comment|// (, line 71
-comment|//<-, line 71
-name|slice_from
-argument_list|(
-literal|"l\u00F8s"
-argument_list|)
-expr_stmt|;
 break|break;
 block|}
-return|return
-literal|true
-return|;
-block|}
-DECL|method|r_undouble
-specifier|private
-name|boolean
-name|r_undouble
-parameter_list|()
-block|{
-name|int
-name|v_1
-decl_stmt|;
-name|int
-name|v_2
-decl_stmt|;
-comment|// (, line 74
-comment|// setlimit, line 75
-name|v_1
-operator|=
-name|limit
-operator|-
-name|cursor
-expr_stmt|;
-comment|// tomark, line 75
-if|if
-condition|(
-name|cursor
-operator|<
-name|I_p1
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-name|cursor
-operator|=
-name|I_p1
-expr_stmt|;
-name|v_2
-operator|=
-name|limit_backward
-expr_stmt|;
-name|limit_backward
-operator|=
-name|cursor
-expr_stmt|;
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_1
-expr_stmt|;
-comment|// (, line 75
-comment|// [, line 75
-name|ket
-operator|=
-name|cursor
-expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
-name|out_grouping_b
-argument_list|(
-name|g_v
-argument_list|,
-literal|97
-argument_list|,
-literal|248
-argument_list|)
-operator|)
-condition|)
-block|{
-name|limit_backward
-operator|=
-name|v_2
-expr_stmt|;
-return|return
-literal|false
-return|;
-block|}
-comment|// ], line 75
-name|bra
-operator|=
-name|cursor
-expr_stmt|;
-comment|// -> ch, line 75
-name|S_ch
-operator|=
-name|slice_to
-argument_list|(
-name|S_ch
-argument_list|)
-expr_stmt|;
-name|limit_backward
-operator|=
-name|v_2
-expr_stmt|;
-comment|// name ch, line 76
-if|if
-condition|(
-operator|!
-operator|(
-name|eq_v_b
-argument_list|(
-name|S_ch
-argument_list|)
-operator|)
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-comment|// delete, line 77
-name|slice_del
-argument_list|()
-expr_stmt|;
 return|return
 literal|true
 return|;
@@ -1632,11 +1504,8 @@ decl_stmt|;
 name|int
 name|v_4
 decl_stmt|;
-name|int
-name|v_5
-decl_stmt|;
-comment|// (, line 81
-comment|// do, line 83
+comment|// (, line 72
+comment|// do, line 74
 name|v_1
 operator|=
 name|cursor
@@ -1645,7 +1514,7 @@ name|lab0
 label|:
 do|do
 block|{
-comment|// call mark_regions, line 83
+comment|// call mark_regions, line 74
 if|if
 condition|(
 operator|!
@@ -1667,7 +1536,7 @@ name|cursor
 operator|=
 name|v_1
 expr_stmt|;
-comment|// backwards, line 84
+comment|// backwards, line 75
 name|limit_backward
 operator|=
 name|cursor
@@ -1676,8 +1545,8 @@ name|cursor
 operator|=
 name|limit
 expr_stmt|;
-comment|// (, line 84
-comment|// do, line 85
+comment|// (, line 75
+comment|// do, line 76
 name|v_2
 operator|=
 name|limit
@@ -1688,7 +1557,7 @@ name|lab1
 label|:
 do|do
 block|{
-comment|// call main_suffix, line 85
+comment|// call main_suffix, line 76
 if|if
 condition|(
 operator|!
@@ -1712,7 +1581,7 @@ name|limit
 operator|-
 name|v_2
 expr_stmt|;
-comment|// do, line 86
+comment|// do, line 77
 name|v_3
 operator|=
 name|limit
@@ -1723,7 +1592,7 @@ name|lab2
 label|:
 do|do
 block|{
-comment|// call consonant_pair, line 86
+comment|// call consonant_pair, line 77
 if|if
 condition|(
 operator|!
@@ -1747,7 +1616,7 @@ name|limit
 operator|-
 name|v_3
 expr_stmt|;
-comment|// do, line 87
+comment|// do, line 78
 name|v_4
 operator|=
 name|limit
@@ -1758,7 +1627,7 @@ name|lab3
 label|:
 do|do
 block|{
-comment|// call other_suffix, line 87
+comment|// call other_suffix, line 78
 if|if
 condition|(
 operator|!
@@ -1781,41 +1650,6 @@ operator|=
 name|limit
 operator|-
 name|v_4
-expr_stmt|;
-comment|// do, line 88
-name|v_5
-operator|=
-name|limit
-operator|-
-name|cursor
-expr_stmt|;
-name|lab4
-label|:
-do|do
-block|{
-comment|// call undouble, line 88
-if|if
-condition|(
-operator|!
-name|r_undouble
-argument_list|()
-condition|)
-block|{
-break|break
-name|lab4
-break|;
-block|}
-block|}
-do|while
-condition|(
-literal|false
-condition|)
-do|;
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_5
 expr_stmt|;
 name|cursor
 operator|=

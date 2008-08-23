@@ -3,11 +3,11 @@ begin_comment
 comment|// This file was generated automatically by the Snowball to Java compiler
 end_comment
 begin_package
-DECL|package|net.sf.snowball.ext
+DECL|package|org.tartarus.snowball.ext
 package|package
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -16,9 +16,9 @@ package|;
 end_package
 begin_import
 import|import
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -27,9 +27,9 @@ import|;
 end_import
 begin_import
 import|import
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -1507,12 +1507,12 @@ block|,
 literal|8
 block|}
 decl_stmt|;
-DECL|field|g_v
+DECL|field|g_V1
 specifier|private
 specifier|static
 specifier|final
 name|char
-name|g_v
+name|g_V1
 index|[]
 init|=
 block|{
@@ -1555,12 +1555,12 @@ block|,
 literal|32
 block|}
 decl_stmt|;
-DECL|field|g_V
+DECL|field|g_V2
 specifier|private
 specifier|static
 specifier|final
 name|char
-name|g_V
+name|g_V2
 index|[]
 init|=
 block|{
@@ -1759,7 +1759,7 @@ operator|!
 operator|(
 name|in_grouping
 argument_list|(
-name|g_v
+name|g_V1
 argument_list|,
 literal|97
 argument_list|,
@@ -1822,7 +1822,7 @@ operator|!
 operator|(
 name|out_grouping
 argument_list|(
-name|g_v
+name|g_V1
 argument_list|,
 literal|97
 argument_list|,
@@ -1886,7 +1886,7 @@ operator|!
 operator|(
 name|in_grouping
 argument_list|(
-name|g_v
+name|g_V1
 argument_list|,
 literal|97
 argument_list|,
@@ -1949,7 +1949,7 @@ operator|!
 operator|(
 name|out_grouping
 argument_list|(
-name|g_v
+name|g_V1
 argument_list|,
 literal|97
 argument_list|,
@@ -2528,7 +2528,7 @@ operator|!
 operator|(
 name|in_grouping_b
 argument_list|(
-name|g_V
+name|g_V2
 argument_list|,
 literal|97
 argument_list|,
@@ -2545,10 +2545,10 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|r_case
+DECL|method|r_case_ending
 specifier|private
 name|boolean
-name|r_case
+name|r_case_ending
 parameter_list|()
 block|{
 name|int
@@ -2940,7 +2940,7 @@ operator|!
 operator|(
 name|in_grouping_b
 argument_list|(
-name|g_v
+name|g_V1
 argument_list|,
 literal|97
 argument_list|,
@@ -2959,7 +2959,7 @@ operator|!
 operator|(
 name|out_grouping_b
 argument_list|(
-name|g_v
+name|g_V1
 argument_list|,
 literal|97
 argument_list|,
@@ -3382,7 +3382,7 @@ operator|!
 operator|(
 name|in_grouping_b
 argument_list|(
-name|g_v
+name|g_V1
 argument_list|,
 literal|97
 argument_list|,
@@ -3759,7 +3759,7 @@ operator|!
 operator|(
 name|out_grouping_b
 argument_list|(
-name|g_v
+name|g_V1
 argument_list|,
 literal|97
 argument_list|,
@@ -4018,7 +4018,7 @@ operator|!
 operator|(
 name|out_grouping_b
 argument_list|(
-name|g_v
+name|g_V1
 argument_list|,
 literal|97
 argument_list|,
@@ -4285,11 +4285,11 @@ name|lab3
 label|:
 do|do
 block|{
-comment|// call case, line 190
+comment|// call case_ending, line 190
 if|if
 condition|(
 operator|!
-name|r_case
+name|r_case_ending
 argument_list|()
 condition|)
 block|{

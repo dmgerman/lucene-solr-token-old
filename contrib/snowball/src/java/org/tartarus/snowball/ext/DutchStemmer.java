@@ -3,11 +3,11 @@ begin_comment
 comment|// This file was generated automatically by the Snowball to Java compiler
 end_comment
 begin_package
-DECL|package|net.sf.snowball.ext
+DECL|package|org.tartarus.snowball.ext
 package|package
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -16,9 +16,9 @@ package|;
 end_package
 begin_import
 import|import
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -27,9 +27,9 @@ import|;
 end_import
 begin_import
 import|import
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -40,10 +40,10 @@ begin_comment
 comment|/**  * Generated class implementing code defined by a snowball script.  */
 end_comment
 begin_class
-DECL|class|GermanStemmer
+DECL|class|DutchStemmer
 specifier|public
 class|class
-name|GermanStemmer
+name|DutchStemmer
 extends|extends
 name|SnowballProgram
 block|{
@@ -72,21 +72,7 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"U"
-argument_list|,
-literal|0
-argument_list|,
-literal|2
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"Y"
+literal|"\u00E1"
 argument_list|,
 literal|0
 argument_list|,
@@ -104,7 +90,77 @@ literal|"\u00E4"
 argument_list|,
 literal|0
 argument_list|,
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"\u00E9"
+argument_list|,
+literal|0
+argument_list|,
+literal|2
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"\u00EB"
+argument_list|,
+literal|0
+argument_list|,
+literal|2
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"\u00ED"
+argument_list|,
+literal|0
+argument_list|,
 literal|3
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"\u00EF"
+argument_list|,
+literal|0
+argument_list|,
+literal|3
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"\u00F3"
+argument_list|,
+literal|0
+argument_list|,
+literal|4
 argument_list|,
 literal|""
 argument_list|,
@@ -119,6 +175,20 @@ argument_list|,
 literal|0
 argument_list|,
 literal|4
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"\u00FA"
+argument_list|,
+literal|0
+argument_list|,
+literal|5
 argument_list|,
 literal|""
 argument_list|,
@@ -150,12 +220,12 @@ block|{
 operator|new
 name|Among
 argument_list|(
-literal|"e"
+literal|""
 argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|1
+literal|3
 argument_list|,
 literal|""
 argument_list|,
@@ -165,70 +235,9 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"em"
+literal|"I"
 argument_list|,
-operator|-
-literal|1
-argument_list|,
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"en"
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"ern"
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"er"
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-literal|1
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"s"
-argument_list|,
-operator|-
-literal|1
+literal|0
 argument_list|,
 literal|2
 argument_list|,
@@ -240,9 +249,9 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"es"
+literal|"Y"
 argument_list|,
-literal|5
+literal|0
 argument_list|,
 literal|1
 argument_list|,
@@ -262,11 +271,12 @@ block|{
 operator|new
 name|Among
 argument_list|(
-literal|"en"
+literal|"dd"
 argument_list|,
 operator|-
 literal|1
 argument_list|,
+operator|-
 literal|1
 argument_list|,
 literal|""
@@ -277,11 +287,12 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"er"
+literal|"kk"
 argument_list|,
 operator|-
 literal|1
 argument_list|,
+operator|-
 literal|1
 argument_list|,
 literal|""
@@ -292,25 +303,12 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"st"
+literal|"tt"
 argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|2
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"est"
-argument_list|,
-literal|2
-argument_list|,
+operator|-
 literal|1
 argument_list|,
 literal|""
@@ -329,10 +327,54 @@ block|{
 operator|new
 name|Among
 argument_list|(
-literal|"ig"
+literal|"ene"
 argument_list|,
 operator|-
 literal|1
+argument_list|,
+literal|2
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"se"
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|3
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"en"
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|2
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"heden"
+argument_list|,
+literal|2
 argument_list|,
 literal|1
 argument_list|,
@@ -344,12 +386,12 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"lich"
+literal|"s"
 argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|1
+literal|3
 argument_list|,
 literal|""
 argument_list|,
@@ -397,7 +439,7 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"ung"
+literal|"ing"
 argument_list|,
 operator|-
 literal|1
@@ -412,52 +454,7 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"lich"
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-literal|3
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"isch"
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-literal|2
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"ik"
-argument_list|,
-operator|-
-literal|1
-argument_list|,
-literal|2
-argument_list|,
-literal|""
-argument_list|,
-name|this
-argument_list|)
-block|,
-operator|new
-name|Among
-argument_list|(
-literal|"heit"
+literal|"lijk"
 argument_list|,
 operator|-
 literal|1
@@ -472,12 +469,99 @@ block|,
 operator|new
 name|Among
 argument_list|(
-literal|"keit"
+literal|"baar"
 argument_list|,
 operator|-
 literal|1
 argument_list|,
 literal|4
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"bar"
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|5
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|}
+decl_stmt|;
+DECL|field|a_5
+specifier|private
+name|Among
+name|a_5
+index|[]
+init|=
+block|{
+operator|new
+name|Among
+argument_list|(
+literal|"aa"
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"ee"
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"oo"
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|""
+argument_list|,
+name|this
+argument_list|)
+block|,
+operator|new
+name|Among
+argument_list|(
+literal|"uu"
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+operator|-
+literal|1
 argument_list|,
 literal|""
 argument_list|,
@@ -526,45 +610,101 @@ literal|0
 block|,
 literal|0
 block|,
-literal|8
+literal|128
+block|}
+decl_stmt|;
+DECL|field|g_v_I
+specifier|private
+specifier|static
+specifier|final
+name|char
+name|g_v_I
+index|[]
+init|=
+block|{
+literal|1
 block|,
 literal|0
 block|,
-literal|32
+literal|0
 block|,
-literal|8
+literal|17
+block|,
+literal|65
+block|,
+literal|16
+block|,
+literal|1
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|128
 block|}
 decl_stmt|;
-DECL|field|g_s_ending
+DECL|field|g_v_j
 specifier|private
 specifier|static
 specifier|final
 name|char
-name|g_s_ending
+name|g_v_j
 index|[]
 init|=
 block|{
-literal|117
+literal|17
 block|,
-literal|30
+literal|67
 block|,
-literal|5
-block|}
-decl_stmt|;
-DECL|field|g_st_ending
-specifier|private
-specifier|static
-specifier|final
-name|char
-name|g_st_ending
-index|[]
-init|=
-block|{
-literal|117
+literal|16
 block|,
-literal|30
+literal|1
 block|,
-literal|4
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|128
 block|}
 decl_stmt|;
 DECL|field|I_p2
@@ -577,12 +717,17 @@ specifier|private
 name|int
 name|I_p1
 decl_stmt|;
+DECL|field|B_e_found
+specifier|private
+name|boolean
+name|B_e_found
+decl_stmt|;
 DECL|method|copy_from
 specifier|private
 name|void
 name|copy_from
 parameter_list|(
-name|GermanStemmer
+name|DutchStemmer
 name|other
 parameter_list|)
 block|{
@@ -597,6 +742,12 @@ operator|=
 name|other
 operator|.
 name|I_p1
+expr_stmt|;
+name|B_e_found
+operator|=
+name|other
+operator|.
+name|B_e_found
 expr_stmt|;
 name|super
 operator|.
@@ -613,6 +764,9 @@ name|r_prelude
 parameter_list|()
 block|{
 name|int
+name|among_var
+decl_stmt|;
+name|int
 name|v_1
 decl_stmt|;
 name|int
@@ -630,13 +784,13 @@ decl_stmt|;
 name|int
 name|v_6
 decl_stmt|;
-comment|// (, line 28
-comment|// test, line 30
+comment|// (, line 41
+comment|// test, line 42
 name|v_1
 operator|=
 name|cursor
 expr_stmt|;
-comment|// repeat, line 30
+comment|// repeat, line 42
 name|replab0
 label|:
 while|while
@@ -652,69 +806,109 @@ name|lab1
 label|:
 do|do
 block|{
-comment|// (, line 30
-comment|// or, line 33
-name|lab2
-label|:
-do|do
-block|{
-name|v_3
-operator|=
-name|cursor
-expr_stmt|;
-name|lab3
-label|:
-do|do
-block|{
-comment|// (, line 31
-comment|// [, line 32
+comment|// (, line 42
+comment|// [, line 43
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// literal, line 32
+comment|// substring, line 43
+name|among_var
+operator|=
+name|find_among
+argument_list|(
+name|a_0
+argument_list|,
+literal|11
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-operator|!
-operator|(
-name|eq_s
-argument_list|(
-literal|1
-argument_list|,
-literal|"\u00DF"
-argument_list|)
-operator|)
+name|among_var
+operator|==
+literal|0
 condition|)
 block|{
 break|break
-name|lab3
+name|lab1
 break|;
 block|}
-comment|// ], line 32
+comment|// ], line 43
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-comment|//<-, line 32
+switch|switch
+condition|(
+name|among_var
+condition|)
+block|{
+case|case
+literal|0
+case|:
+break|break
+name|lab1
+break|;
+case|case
+literal|1
+case|:
+comment|// (, line 45
+comment|//<-, line 45
 name|slice_from
 argument_list|(
-literal|"ss"
+literal|"a"
 argument_list|)
 expr_stmt|;
-break|break
-name|lab2
-break|;
-block|}
-do|while
-condition|(
-literal|false
-condition|)
-do|;
-name|cursor
-operator|=
-name|v_3
+break|break;
+case|case
+literal|2
+case|:
+comment|// (, line 47
+comment|//<-, line 47
+name|slice_from
+argument_list|(
+literal|"e"
+argument_list|)
 expr_stmt|;
-comment|// next, line 33
+break|break;
+case|case
+literal|3
+case|:
+comment|// (, line 49
+comment|//<-, line 49
+name|slice_from
+argument_list|(
+literal|"i"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+literal|4
+case|:
+comment|// (, line 51
+comment|//<-, line 51
+name|slice_from
+argument_list|(
+literal|"o"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+literal|5
+case|:
+comment|// (, line 53
+comment|//<-, line 53
+name|slice_from
+argument_list|(
+literal|"u"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+literal|6
+case|:
+comment|// (, line 54
+comment|// next, line 54
 if|if
 condition|(
 name|cursor
@@ -729,12 +923,8 @@ block|}
 name|cursor
 operator|++
 expr_stmt|;
+break|break;
 block|}
-do|while
-condition|(
-literal|false
-condition|)
-do|;
 continue|continue
 name|replab0
 continue|;
@@ -756,8 +946,62 @@ name|cursor
 operator|=
 name|v_1
 expr_stmt|;
-comment|// repeat, line 36
-name|replab4
+comment|// try, line 57
+name|v_3
+operator|=
+name|cursor
+expr_stmt|;
+name|lab2
+label|:
+do|do
+block|{
+comment|// (, line 57
+comment|// [, line 57
+name|bra
+operator|=
+name|cursor
+expr_stmt|;
+comment|// literal, line 57
+if|if
+condition|(
+operator|!
+operator|(
+name|eq_s
+argument_list|(
+literal|1
+argument_list|,
+literal|"y"
+argument_list|)
+operator|)
+condition|)
+block|{
+name|cursor
+operator|=
+name|v_3
+expr_stmt|;
+break|break
+name|lab2
+break|;
+block|}
+comment|// ], line 57
+name|ket
+operator|=
+name|cursor
+expr_stmt|;
+comment|//<-, line 57
+name|slice_from
+argument_list|(
+literal|"Y"
+argument_list|)
+expr_stmt|;
+block|}
+do|while
+condition|(
+literal|false
+condition|)
+do|;
+comment|// repeat, line 58
+name|replab3
 label|:
 while|while
 condition|(
@@ -768,12 +1012,12 @@ name|v_4
 operator|=
 name|cursor
 expr_stmt|;
-name|lab5
+name|lab4
 label|:
 do|do
 block|{
-comment|// goto, line 36
-name|golab6
+comment|// goto, line 58
+name|golab5
 label|:
 while|while
 condition|(
@@ -784,11 +1028,11 @@ name|v_5
 operator|=
 name|cursor
 expr_stmt|;
-name|lab7
+name|lab6
 label|:
 do|do
 block|{
-comment|// (, line 36
+comment|// (, line 58
 if|if
 condition|(
 operator|!
@@ -799,22 +1043,22 @@ name|g_v
 argument_list|,
 literal|97
 argument_list|,
-literal|252
+literal|232
 argument_list|)
 operator|)
 condition|)
 block|{
 break|break
-name|lab7
+name|lab6
 break|;
 block|}
-comment|// [, line 37
+comment|// [, line 59
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// or, line 37
-name|lab8
+comment|// or, line 59
+name|lab7
 label|:
 do|do
 block|{
@@ -822,12 +1066,12 @@ name|v_6
 operator|=
 name|cursor
 expr_stmt|;
-name|lab9
+name|lab8
 label|:
 do|do
 block|{
-comment|// (, line 37
-comment|// literal, line 37
+comment|// (, line 59
+comment|// literal, line 59
 if|if
 condition|(
 operator|!
@@ -836,16 +1080,16 @@ name|eq_s
 argument_list|(
 literal|1
 argument_list|,
-literal|"u"
+literal|"i"
 argument_list|)
 operator|)
 condition|)
 block|{
 break|break
-name|lab9
+name|lab8
 break|;
 block|}
-comment|// ], line 37
+comment|// ], line 59
 name|ket
 operator|=
 name|cursor
@@ -860,23 +1104,23 @@ name|g_v
 argument_list|,
 literal|97
 argument_list|,
-literal|252
+literal|232
 argument_list|)
 operator|)
 condition|)
 block|{
 break|break
-name|lab9
+name|lab8
 break|;
 block|}
-comment|//<-, line 37
+comment|//<-, line 59
 name|slice_from
 argument_list|(
-literal|"U"
+literal|"I"
 argument_list|)
 expr_stmt|;
 break|break
-name|lab8
+name|lab7
 break|;
 block|}
 do|while
@@ -888,8 +1132,8 @@ name|cursor
 operator|=
 name|v_6
 expr_stmt|;
-comment|// (, line 38
-comment|// literal, line 38
+comment|// (, line 60
+comment|// literal, line 60
 if|if
 condition|(
 operator|!
@@ -904,34 +1148,15 @@ operator|)
 condition|)
 block|{
 break|break
-name|lab7
+name|lab6
 break|;
 block|}
-comment|// ], line 38
+comment|// ], line 60
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
-name|in_grouping
-argument_list|(
-name|g_v
-argument_list|,
-literal|97
-argument_list|,
-literal|252
-argument_list|)
-operator|)
-condition|)
-block|{
-break|break
-name|lab7
-break|;
-block|}
-comment|//<-, line 38
+comment|//<-, line 60
 name|slice_from
 argument_list|(
 literal|"Y"
@@ -948,7 +1173,7 @@ operator|=
 name|v_5
 expr_stmt|;
 break|break
-name|golab6
+name|golab5
 break|;
 block|}
 do|while
@@ -968,7 +1193,7 @@ name|limit
 condition|)
 block|{
 break|break
-name|lab5
+name|lab4
 break|;
 block|}
 name|cursor
@@ -976,7 +1201,7 @@ operator|++
 expr_stmt|;
 block|}
 continue|continue
-name|replab4
+name|replab3
 continue|;
 block|}
 do|while
@@ -989,7 +1214,7 @@ operator|=
 name|v_4
 expr_stmt|;
 break|break
-name|replab4
+name|replab3
 break|;
 block|}
 return|return
@@ -1002,7 +1227,7 @@ name|boolean
 name|r_mark_regions
 parameter_list|()
 block|{
-comment|// (, line 42
+comment|// (, line 64
 name|I_p1
 operator|=
 name|limit
@@ -1011,7 +1236,7 @@ name|I_p2
 operator|=
 name|limit
 expr_stmt|;
-comment|// gopast, line 47
+comment|// gopast, line 69
 name|golab0
 label|:
 while|while
@@ -1033,7 +1258,7 @@ name|g_v
 argument_list|,
 literal|97
 argument_list|,
-literal|252
+literal|232
 argument_list|)
 operator|)
 condition|)
@@ -1066,7 +1291,7 @@ name|cursor
 operator|++
 expr_stmt|;
 block|}
-comment|// gopast, line 47
+comment|// gopast, line 69
 name|golab2
 label|:
 while|while
@@ -1088,7 +1313,7 @@ name|g_v
 argument_list|,
 literal|97
 argument_list|,
-literal|252
+literal|232
 argument_list|)
 operator|)
 condition|)
@@ -1121,17 +1346,17 @@ name|cursor
 operator|++
 expr_stmt|;
 block|}
-comment|// setmark p1, line 47
+comment|// setmark p1, line 69
 name|I_p1
 operator|=
 name|cursor
 expr_stmt|;
-comment|// try, line 48
+comment|// try, line 70
 name|lab4
 label|:
 do|do
 block|{
-comment|// (, line 48
+comment|// (, line 70
 if|if
 condition|(
 operator|!
@@ -1156,7 +1381,7 @@ condition|(
 literal|false
 condition|)
 do|;
-comment|// gopast, line 49
+comment|// gopast, line 71
 name|golab5
 label|:
 while|while
@@ -1178,7 +1403,7 @@ name|g_v
 argument_list|,
 literal|97
 argument_list|,
-literal|252
+literal|232
 argument_list|)
 operator|)
 condition|)
@@ -1211,7 +1436,7 @@ name|cursor
 operator|++
 expr_stmt|;
 block|}
-comment|// gopast, line 49
+comment|// gopast, line 71
 name|golab7
 label|:
 while|while
@@ -1233,7 +1458,7 @@ name|g_v
 argument_list|,
 literal|97
 argument_list|,
-literal|252
+literal|232
 argument_list|)
 operator|)
 condition|)
@@ -1266,7 +1491,7 @@ name|cursor
 operator|++
 expr_stmt|;
 block|}
-comment|// setmark p2, line 49
+comment|// setmark p2, line 71
 name|I_p2
 operator|=
 name|cursor
@@ -1287,7 +1512,7 @@ decl_stmt|;
 name|int
 name|v_1
 decl_stmt|;
-comment|// repeat, line 53
+comment|// repeat, line 75
 name|replab0
 label|:
 while|while
@@ -1303,20 +1528,20 @@ name|lab1
 label|:
 do|do
 block|{
-comment|// (, line 53
-comment|// [, line 55
+comment|// (, line 75
+comment|// [, line 77
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// substring, line 55
+comment|// substring, line 77
 name|among_var
 operator|=
 name|find_among
 argument_list|(
-name|a_0
+name|a_1
 argument_list|,
-literal|6
+literal|3
 argument_list|)
 expr_stmt|;
 if|if
@@ -1330,7 +1555,7 @@ break|break
 name|lab1
 break|;
 block|}
-comment|// ], line 55
+comment|// ], line 77
 name|ket
 operator|=
 name|cursor
@@ -1349,8 +1574,8 @@ break|;
 case|case
 literal|1
 case|:
-comment|// (, line 56
-comment|//<-, line 56
+comment|// (, line 78
+comment|//<-, line 78
 name|slice_from
 argument_list|(
 literal|"y"
@@ -1360,52 +1585,19 @@ break|break;
 case|case
 literal|2
 case|:
-comment|// (, line 57
-comment|//<-, line 57
+comment|// (, line 79
+comment|//<-, line 79
 name|slice_from
 argument_list|(
-literal|"u"
+literal|"i"
 argument_list|)
 expr_stmt|;
 break|break;
 case|case
 literal|3
 case|:
-comment|// (, line 58
-comment|//<-, line 58
-name|slice_from
-argument_list|(
-literal|"a"
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|4
-case|:
-comment|// (, line 59
-comment|//<-, line 59
-name|slice_from
-argument_list|(
-literal|"o"
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|5
-case|:
-comment|// (, line 60
-comment|//<-, line 60
-name|slice_from
-argument_list|(
-literal|"u"
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-literal|6
-case|:
-comment|// (, line 61
-comment|// next, line 61
+comment|// (, line 80
+comment|// next, line 80
 if|if
 condition|(
 name|cursor
@@ -1491,6 +1683,314 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|r_undouble
+specifier|private
+name|boolean
+name|r_undouble
+parameter_list|()
+block|{
+name|int
+name|v_1
+decl_stmt|;
+comment|// (, line 90
+comment|// test, line 91
+name|v_1
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+comment|// among, line 91
+if|if
+condition|(
+name|find_among_b
+argument_list|(
+name|a_2
+argument_list|,
+literal|3
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+name|cursor
+operator|=
+name|limit
+operator|-
+name|v_1
+expr_stmt|;
+comment|// [, line 91
+name|ket
+operator|=
+name|cursor
+expr_stmt|;
+comment|// next, line 91
+if|if
+condition|(
+name|cursor
+operator|<=
+name|limit_backward
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+name|cursor
+operator|--
+expr_stmt|;
+comment|// ], line 91
+name|bra
+operator|=
+name|cursor
+expr_stmt|;
+comment|// delete, line 91
+name|slice_del
+argument_list|()
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+DECL|method|r_e_ending
+specifier|private
+name|boolean
+name|r_e_ending
+parameter_list|()
+block|{
+name|int
+name|v_1
+decl_stmt|;
+comment|// (, line 94
+comment|// unset e_found, line 95
+name|B_e_found
+operator|=
+literal|false
+expr_stmt|;
+comment|// [, line 96
+name|ket
+operator|=
+name|cursor
+expr_stmt|;
+comment|// literal, line 96
+if|if
+condition|(
+operator|!
+operator|(
+name|eq_s_b
+argument_list|(
+literal|1
+argument_list|,
+literal|"e"
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// ], line 96
+name|bra
+operator|=
+name|cursor
+expr_stmt|;
+comment|// call R1, line 96
+if|if
+condition|(
+operator|!
+name|r_R1
+argument_list|()
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// test, line 96
+name|v_1
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|out_grouping_b
+argument_list|(
+name|g_v
+argument_list|,
+literal|97
+argument_list|,
+literal|232
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+name|cursor
+operator|=
+name|limit
+operator|-
+name|v_1
+expr_stmt|;
+comment|// delete, line 96
+name|slice_del
+argument_list|()
+expr_stmt|;
+comment|// set e_found, line 97
+name|B_e_found
+operator|=
+literal|true
+expr_stmt|;
+comment|// call undouble, line 98
+if|if
+condition|(
+operator|!
+name|r_undouble
+argument_list|()
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+return|return
+literal|true
+return|;
+block|}
+DECL|method|r_en_ending
+specifier|private
+name|boolean
+name|r_en_ending
+parameter_list|()
+block|{
+name|int
+name|v_1
+decl_stmt|;
+name|int
+name|v_2
+decl_stmt|;
+comment|// (, line 101
+comment|// call R1, line 102
+if|if
+condition|(
+operator|!
+name|r_R1
+argument_list|()
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// and, line 102
+name|v_1
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|out_grouping_b
+argument_list|(
+name|g_v
+argument_list|,
+literal|97
+argument_list|,
+literal|232
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+name|cursor
+operator|=
+name|limit
+operator|-
+name|v_1
+expr_stmt|;
+comment|// not, line 102
+block|{
+name|v_2
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+name|lab0
+label|:
+do|do
+block|{
+comment|// literal, line 102
+if|if
+condition|(
+operator|!
+operator|(
+name|eq_s_b
+argument_list|(
+literal|3
+argument_list|,
+literal|"gem"
+argument_list|)
+operator|)
+condition|)
+block|{
+break|break
+name|lab0
+break|;
+block|}
+return|return
+literal|false
+return|;
+block|}
+do|while
+condition|(
+literal|false
+condition|)
+do|;
+name|cursor
+operator|=
+name|limit
+operator|-
+name|v_2
+expr_stmt|;
+block|}
+comment|// delete, line 102
+name|slice_del
+argument_list|()
+expr_stmt|;
+comment|// call undouble, line 103
+if|if
+condition|(
+operator|!
+name|r_undouble
+argument_list|()
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+return|return
+literal|true
+return|;
+block|}
 DECL|method|r_standard_suffix
 specifier|private
 name|boolean
@@ -1527,251 +2027,140 @@ decl_stmt|;
 name|int
 name|v_9
 decl_stmt|;
-comment|// (, line 71
-comment|// do, line 72
-name|v_1
-operator|=
-name|limit
-operator|-
-name|cursor
-expr_stmt|;
-name|lab0
-label|:
-do|do
-block|{
-comment|// (, line 72
-comment|// [, line 73
-name|ket
-operator|=
-name|cursor
-expr_stmt|;
-comment|// substring, line 73
-name|among_var
-operator|=
-name|find_among_b
-argument_list|(
-name|a_1
-argument_list|,
-literal|7
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|among_var
-operator|==
-literal|0
-condition|)
-block|{
-break|break
-name|lab0
-break|;
-block|}
-comment|// ], line 73
-name|bra
-operator|=
-name|cursor
-expr_stmt|;
-comment|// call R1, line 73
-if|if
-condition|(
-operator|!
-name|r_R1
-argument_list|()
-condition|)
-block|{
-break|break
-name|lab0
-break|;
-block|}
-switch|switch
-condition|(
-name|among_var
-condition|)
-block|{
-case|case
-literal|0
-case|:
-break|break
-name|lab0
-break|;
-case|case
-literal|1
-case|:
-comment|// (, line 75
-comment|// delete, line 75
-name|slice_del
-argument_list|()
-expr_stmt|;
-break|break;
-case|case
-literal|2
-case|:
-comment|// (, line 78
-if|if
-condition|(
-operator|!
-operator|(
-name|in_grouping_b
-argument_list|(
-name|g_s_ending
-argument_list|,
-literal|98
-argument_list|,
-literal|116
-argument_list|)
-operator|)
-condition|)
-block|{
-break|break
-name|lab0
-break|;
-block|}
-comment|// delete, line 78
-name|slice_del
-argument_list|()
-expr_stmt|;
-break|break;
-block|}
-block|}
-do|while
-condition|(
-literal|false
-condition|)
-do|;
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_1
-expr_stmt|;
-comment|// do, line 82
-name|v_2
-operator|=
-name|limit
-operator|-
-name|cursor
-expr_stmt|;
-name|lab1
-label|:
-do|do
-block|{
-comment|// (, line 82
-comment|// [, line 83
-name|ket
-operator|=
-name|cursor
-expr_stmt|;
-comment|// substring, line 83
-name|among_var
-operator|=
-name|find_among_b
-argument_list|(
-name|a_2
-argument_list|,
-literal|4
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|among_var
-operator|==
-literal|0
-condition|)
-block|{
-break|break
-name|lab1
-break|;
-block|}
-comment|// ], line 83
-name|bra
-operator|=
-name|cursor
-expr_stmt|;
-comment|// call R1, line 83
-if|if
-condition|(
-operator|!
-name|r_R1
-argument_list|()
-condition|)
-block|{
-break|break
-name|lab1
-break|;
-block|}
-switch|switch
-condition|(
-name|among_var
-condition|)
-block|{
-case|case
-literal|0
-case|:
-break|break
-name|lab1
-break|;
-case|case
-literal|1
-case|:
-comment|// (, line 85
-comment|// delete, line 85
-name|slice_del
-argument_list|()
-expr_stmt|;
-break|break;
-case|case
-literal|2
-case|:
-comment|// (, line 88
-if|if
-condition|(
-operator|!
-operator|(
-name|in_grouping_b
-argument_list|(
-name|g_st_ending
-argument_list|,
-literal|98
-argument_list|,
-literal|116
-argument_list|)
-operator|)
-condition|)
-block|{
-break|break
-name|lab1
-break|;
-block|}
-comment|// hop, line 88
-block|{
 name|int
-name|c
-init|=
-name|cursor
-operator|-
-literal|3
+name|v_10
 decl_stmt|;
+comment|// (, line 106
+comment|// do, line 107
+name|v_1
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+name|lab0
+label|:
+do|do
+block|{
+comment|// (, line 107
+comment|// [, line 108
+name|ket
+operator|=
+name|cursor
+expr_stmt|;
+comment|// substring, line 108
+name|among_var
+operator|=
+name|find_among_b
+argument_list|(
+name|a_3
+argument_list|,
+literal|5
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-name|limit_backward
-operator|>
-name|c
-operator|||
-name|c
-operator|>
-name|limit
+name|among_var
+operator|==
+literal|0
 condition|)
 block|{
 break|break
-name|lab1
+name|lab0
 break|;
 block|}
-name|cursor
+comment|// ], line 108
+name|bra
 operator|=
-name|c
+name|cursor
 expr_stmt|;
+switch|switch
+condition|(
+name|among_var
+condition|)
+block|{
+case|case
+literal|0
+case|:
+break|break
+name|lab0
+break|;
+case|case
+literal|1
+case|:
+comment|// (, line 110
+comment|// call R1, line 110
+if|if
+condition|(
+operator|!
+name|r_R1
+argument_list|()
+condition|)
+block|{
+break|break
+name|lab0
+break|;
 block|}
-comment|// delete, line 88
+comment|//<-, line 110
+name|slice_from
+argument_list|(
+literal|"heid"
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+literal|2
+case|:
+comment|// (, line 113
+comment|// call en_ending, line 113
+if|if
+condition|(
+operator|!
+name|r_en_ending
+argument_list|()
+condition|)
+block|{
+break|break
+name|lab0
+break|;
+block|}
+break|break;
+case|case
+literal|3
+case|:
+comment|// (, line 116
+comment|// call R1, line 116
+if|if
+condition|(
+operator|!
+name|r_R1
+argument_list|()
+condition|)
+block|{
+break|break
+name|lab0
+break|;
+block|}
+if|if
+condition|(
+operator|!
+operator|(
+name|out_grouping_b
+argument_list|(
+name|g_v_j
+argument_list|,
+literal|97
+argument_list|,
+literal|232
+argument_list|)
+operator|)
+condition|)
+block|{
+break|break
+name|lab0
+break|;
+block|}
+comment|// delete, line 116
 name|slice_del
 argument_list|()
 expr_stmt|;
@@ -1787,9 +2176,44 @@ name|cursor
 operator|=
 name|limit
 operator|-
+name|v_1
+expr_stmt|;
+comment|// do, line 120
+name|v_2
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+name|lab1
+label|:
+do|do
+block|{
+comment|// call e_ending, line 120
+if|if
+condition|(
+operator|!
+name|r_e_ending
+argument_list|()
+condition|)
+block|{
+break|break
+name|lab1
+break|;
+block|}
+block|}
+do|while
+condition|(
+literal|false
+condition|)
+do|;
+name|cursor
+operator|=
+name|limit
+operator|-
 name|v_2
 expr_stmt|;
-comment|// do, line 92
+comment|// do, line 122
 name|v_3
 operator|=
 name|limit
@@ -1800,39 +2224,36 @@ name|lab2
 label|:
 do|do
 block|{
-comment|// (, line 92
-comment|// [, line 93
+comment|// (, line 122
+comment|// [, line 122
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-comment|// substring, line 93
-name|among_var
-operator|=
-name|find_among_b
-argument_list|(
-name|a_4
-argument_list|,
-literal|8
-argument_list|)
-expr_stmt|;
+comment|// literal, line 122
 if|if
 condition|(
-name|among_var
-operator|==
-literal|0
+operator|!
+operator|(
+name|eq_s_b
+argument_list|(
+literal|4
+argument_list|,
+literal|"heid"
+argument_list|)
+operator|)
 condition|)
 block|{
 break|break
 name|lab2
 break|;
 block|}
-comment|// ], line 93
+comment|// ], line 122
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// call R2, line 93
+comment|// call R2, line 122
 if|if
 condition|(
 operator|!
@@ -1844,26 +2265,8 @@ break|break
 name|lab2
 break|;
 block|}
-switch|switch
-condition|(
-name|among_var
-condition|)
+comment|// not, line 122
 block|{
-case|case
-literal|0
-case|:
-break|break
-name|lab2
-break|;
-case|case
-literal|1
-case|:
-comment|// (, line 95
-comment|// delete, line 95
-name|slice_del
-argument_list|()
-expr_stmt|;
-comment|// try, line 96
 name|v_4
 operator|=
 name|limit
@@ -1874,54 +2277,7 @@ name|lab3
 label|:
 do|do
 block|{
-comment|// (, line 96
-comment|// [, line 96
-name|ket
-operator|=
-name|cursor
-expr_stmt|;
-comment|// literal, line 96
-if|if
-condition|(
-operator|!
-operator|(
-name|eq_s_b
-argument_list|(
-literal|2
-argument_list|,
-literal|"ig"
-argument_list|)
-operator|)
-condition|)
-block|{
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_4
-expr_stmt|;
-break|break
-name|lab3
-break|;
-block|}
-comment|// ], line 96
-name|bra
-operator|=
-name|cursor
-expr_stmt|;
-comment|// not, line 96
-block|{
-name|v_5
-operator|=
-name|limit
-operator|-
-name|cursor
-expr_stmt|;
-name|lab4
-label|:
-do|do
-block|{
-comment|// literal, line 96
+comment|// literal, line 122
 if|if
 condition|(
 operator|!
@@ -1930,98 +2286,13 @@ name|eq_s_b
 argument_list|(
 literal|1
 argument_list|,
-literal|"e"
+literal|"c"
 argument_list|)
 operator|)
 condition|)
 block|{
 break|break
-name|lab4
-break|;
-block|}
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_4
-expr_stmt|;
-break|break
 name|lab3
-break|;
-block|}
-do|while
-condition|(
-literal|false
-condition|)
-do|;
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_5
-expr_stmt|;
-block|}
-comment|// call R2, line 96
-if|if
-condition|(
-operator|!
-name|r_R2
-argument_list|()
-condition|)
-block|{
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_4
-expr_stmt|;
-break|break
-name|lab3
-break|;
-block|}
-comment|// delete, line 96
-name|slice_del
-argument_list|()
-expr_stmt|;
-block|}
-do|while
-condition|(
-literal|false
-condition|)
-do|;
-break|break;
-case|case
-literal|2
-case|:
-comment|// (, line 99
-comment|// not, line 99
-block|{
-name|v_6
-operator|=
-name|limit
-operator|-
-name|cursor
-expr_stmt|;
-name|lab5
-label|:
-do|do
-block|{
-comment|// literal, line 99
-if|if
-condition|(
-operator|!
-operator|(
-name|eq_s_b
-argument_list|(
-literal|1
-argument_list|,
-literal|"e"
-argument_list|)
-operator|)
-condition|)
-block|{
-break|break
-name|lab5
 break|;
 block|}
 break|break
@@ -2037,88 +2308,19 @@ name|cursor
 operator|=
 name|limit
 operator|-
-name|v_6
+name|v_4
 expr_stmt|;
 block|}
-comment|// delete, line 99
+comment|// delete, line 122
 name|slice_del
 argument_list|()
 expr_stmt|;
-break|break;
-case|case
-literal|3
-case|:
-comment|// (, line 102
-comment|// delete, line 102
-name|slice_del
-argument_list|()
-expr_stmt|;
-comment|// try, line 103
-name|v_7
-operator|=
-name|limit
-operator|-
-name|cursor
-expr_stmt|;
-name|lab6
-label|:
-do|do
-block|{
-comment|// (, line 103
-comment|// [, line 104
+comment|// [, line 123
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-comment|// or, line 104
-name|lab7
-label|:
-do|do
-block|{
-name|v_8
-operator|=
-name|limit
-operator|-
-name|cursor
-expr_stmt|;
-name|lab8
-label|:
-do|do
-block|{
-comment|// literal, line 104
-if|if
-condition|(
-operator|!
-operator|(
-name|eq_s_b
-argument_list|(
-literal|2
-argument_list|,
-literal|"er"
-argument_list|)
-operator|)
-condition|)
-block|{
-break|break
-name|lab8
-break|;
-block|}
-break|break
-name|lab7
-break|;
-block|}
-do|while
-condition|(
-literal|false
-condition|)
-do|;
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_8
-expr_stmt|;
-comment|// literal, line 104
+comment|// literal, line 123
 if|if
 condition|(
 operator|!
@@ -2132,165 +2334,26 @@ argument_list|)
 operator|)
 condition|)
 block|{
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_7
-expr_stmt|;
 break|break
-name|lab6
+name|lab2
 break|;
 block|}
-block|}
-do|while
-condition|(
-literal|false
-condition|)
-do|;
-comment|// ], line 104
+comment|// ], line 123
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// call R1, line 104
+comment|// call en_ending, line 123
 if|if
 condition|(
 operator|!
-name|r_R1
+name|r_en_ending
 argument_list|()
 condition|)
 block|{
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_7
-expr_stmt|;
 break|break
-name|lab6
+name|lab2
 break|;
-block|}
-comment|// delete, line 104
-name|slice_del
-argument_list|()
-expr_stmt|;
-block|}
-do|while
-condition|(
-literal|false
-condition|)
-do|;
-break|break;
-case|case
-literal|4
-case|:
-comment|// (, line 108
-comment|// delete, line 108
-name|slice_del
-argument_list|()
-expr_stmt|;
-comment|// try, line 109
-name|v_9
-operator|=
-name|limit
-operator|-
-name|cursor
-expr_stmt|;
-name|lab9
-label|:
-do|do
-block|{
-comment|// (, line 109
-comment|// [, line 110
-name|ket
-operator|=
-name|cursor
-expr_stmt|;
-comment|// substring, line 110
-name|among_var
-operator|=
-name|find_among_b
-argument_list|(
-name|a_3
-argument_list|,
-literal|2
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|among_var
-operator|==
-literal|0
-condition|)
-block|{
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_9
-expr_stmt|;
-break|break
-name|lab9
-break|;
-block|}
-comment|// ], line 110
-name|bra
-operator|=
-name|cursor
-expr_stmt|;
-comment|// call R2, line 110
-if|if
-condition|(
-operator|!
-name|r_R2
-argument_list|()
-condition|)
-block|{
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_9
-expr_stmt|;
-break|break
-name|lab9
-break|;
-block|}
-switch|switch
-condition|(
-name|among_var
-condition|)
-block|{
-case|case
-literal|0
-case|:
-name|cursor
-operator|=
-name|limit
-operator|-
-name|v_9
-expr_stmt|;
-break|break
-name|lab9
-break|;
-case|case
-literal|1
-case|:
-comment|// (, line 112
-comment|// delete, line 112
-name|slice_del
-argument_list|()
-expr_stmt|;
-break|break;
-block|}
-block|}
-do|while
-condition|(
-literal|false
-condition|)
-do|;
-break|break;
 block|}
 block|}
 do|while
@@ -2303,6 +2366,510 @@ operator|=
 name|limit
 operator|-
 name|v_3
+expr_stmt|;
+comment|// do, line 126
+name|v_5
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+name|lab4
+label|:
+do|do
+block|{
+comment|// (, line 126
+comment|// [, line 127
+name|ket
+operator|=
+name|cursor
+expr_stmt|;
+comment|// substring, line 127
+name|among_var
+operator|=
+name|find_among_b
+argument_list|(
+name|a_4
+argument_list|,
+literal|6
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|among_var
+operator|==
+literal|0
+condition|)
+block|{
+break|break
+name|lab4
+break|;
+block|}
+comment|// ], line 127
+name|bra
+operator|=
+name|cursor
+expr_stmt|;
+switch|switch
+condition|(
+name|among_var
+condition|)
+block|{
+case|case
+literal|0
+case|:
+break|break
+name|lab4
+break|;
+case|case
+literal|1
+case|:
+comment|// (, line 129
+comment|// call R2, line 129
+if|if
+condition|(
+operator|!
+name|r_R2
+argument_list|()
+condition|)
+block|{
+break|break
+name|lab4
+break|;
+block|}
+comment|// delete, line 129
+name|slice_del
+argument_list|()
+expr_stmt|;
+comment|// or, line 130
+name|lab5
+label|:
+do|do
+block|{
+name|v_6
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+name|lab6
+label|:
+do|do
+block|{
+comment|// (, line 130
+comment|// [, line 130
+name|ket
+operator|=
+name|cursor
+expr_stmt|;
+comment|// literal, line 130
+if|if
+condition|(
+operator|!
+operator|(
+name|eq_s_b
+argument_list|(
+literal|2
+argument_list|,
+literal|"ig"
+argument_list|)
+operator|)
+condition|)
+block|{
+break|break
+name|lab6
+break|;
+block|}
+comment|// ], line 130
+name|bra
+operator|=
+name|cursor
+expr_stmt|;
+comment|// call R2, line 130
+if|if
+condition|(
+operator|!
+name|r_R2
+argument_list|()
+condition|)
+block|{
+break|break
+name|lab6
+break|;
+block|}
+comment|// not, line 130
+block|{
+name|v_7
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+name|lab7
+label|:
+do|do
+block|{
+comment|// literal, line 130
+if|if
+condition|(
+operator|!
+operator|(
+name|eq_s_b
+argument_list|(
+literal|1
+argument_list|,
+literal|"e"
+argument_list|)
+operator|)
+condition|)
+block|{
+break|break
+name|lab7
+break|;
+block|}
+break|break
+name|lab6
+break|;
+block|}
+do|while
+condition|(
+literal|false
+condition|)
+do|;
+name|cursor
+operator|=
+name|limit
+operator|-
+name|v_7
+expr_stmt|;
+block|}
+comment|// delete, line 130
+name|slice_del
+argument_list|()
+expr_stmt|;
+break|break
+name|lab5
+break|;
+block|}
+do|while
+condition|(
+literal|false
+condition|)
+do|;
+name|cursor
+operator|=
+name|limit
+operator|-
+name|v_6
+expr_stmt|;
+comment|// call undouble, line 130
+if|if
+condition|(
+operator|!
+name|r_undouble
+argument_list|()
+condition|)
+block|{
+break|break
+name|lab4
+break|;
+block|}
+block|}
+do|while
+condition|(
+literal|false
+condition|)
+do|;
+break|break;
+case|case
+literal|2
+case|:
+comment|// (, line 133
+comment|// call R2, line 133
+if|if
+condition|(
+operator|!
+name|r_R2
+argument_list|()
+condition|)
+block|{
+break|break
+name|lab4
+break|;
+block|}
+comment|// not, line 133
+block|{
+name|v_8
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+name|lab8
+label|:
+do|do
+block|{
+comment|// literal, line 133
+if|if
+condition|(
+operator|!
+operator|(
+name|eq_s_b
+argument_list|(
+literal|1
+argument_list|,
+literal|"e"
+argument_list|)
+operator|)
+condition|)
+block|{
+break|break
+name|lab8
+break|;
+block|}
+break|break
+name|lab4
+break|;
+block|}
+do|while
+condition|(
+literal|false
+condition|)
+do|;
+name|cursor
+operator|=
+name|limit
+operator|-
+name|v_8
+expr_stmt|;
+block|}
+comment|// delete, line 133
+name|slice_del
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+literal|3
+case|:
+comment|// (, line 136
+comment|// call R2, line 136
+if|if
+condition|(
+operator|!
+name|r_R2
+argument_list|()
+condition|)
+block|{
+break|break
+name|lab4
+break|;
+block|}
+comment|// delete, line 136
+name|slice_del
+argument_list|()
+expr_stmt|;
+comment|// call e_ending, line 136
+if|if
+condition|(
+operator|!
+name|r_e_ending
+argument_list|()
+condition|)
+block|{
+break|break
+name|lab4
+break|;
+block|}
+break|break;
+case|case
+literal|4
+case|:
+comment|// (, line 139
+comment|// call R2, line 139
+if|if
+condition|(
+operator|!
+name|r_R2
+argument_list|()
+condition|)
+block|{
+break|break
+name|lab4
+break|;
+block|}
+comment|// delete, line 139
+name|slice_del
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+literal|5
+case|:
+comment|// (, line 142
+comment|// call R2, line 142
+if|if
+condition|(
+operator|!
+name|r_R2
+argument_list|()
+condition|)
+block|{
+break|break
+name|lab4
+break|;
+block|}
+comment|// Boolean test e_found, line 142
+if|if
+condition|(
+operator|!
+operator|(
+name|B_e_found
+operator|)
+condition|)
+block|{
+break|break
+name|lab4
+break|;
+block|}
+comment|// delete, line 142
+name|slice_del
+argument_list|()
+expr_stmt|;
+break|break;
+block|}
+block|}
+do|while
+condition|(
+literal|false
+condition|)
+do|;
+name|cursor
+operator|=
+name|limit
+operator|-
+name|v_5
+expr_stmt|;
+comment|// do, line 146
+name|v_9
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+name|lab9
+label|:
+do|do
+block|{
+comment|// (, line 146
+if|if
+condition|(
+operator|!
+operator|(
+name|out_grouping_b
+argument_list|(
+name|g_v_I
+argument_list|,
+literal|73
+argument_list|,
+literal|232
+argument_list|)
+operator|)
+condition|)
+block|{
+break|break
+name|lab9
+break|;
+block|}
+comment|// test, line 148
+name|v_10
+operator|=
+name|limit
+operator|-
+name|cursor
+expr_stmt|;
+comment|// (, line 148
+comment|// among, line 149
+if|if
+condition|(
+name|find_among_b
+argument_list|(
+name|a_5
+argument_list|,
+literal|4
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+break|break
+name|lab9
+break|;
+block|}
+if|if
+condition|(
+operator|!
+operator|(
+name|out_grouping_b
+argument_list|(
+name|g_v
+argument_list|,
+literal|97
+argument_list|,
+literal|232
+argument_list|)
+operator|)
+condition|)
+block|{
+break|break
+name|lab9
+break|;
+block|}
+name|cursor
+operator|=
+name|limit
+operator|-
+name|v_10
+expr_stmt|;
+comment|// [, line 152
+name|ket
+operator|=
+name|cursor
+expr_stmt|;
+comment|// next, line 152
+if|if
+condition|(
+name|cursor
+operator|<=
+name|limit_backward
+condition|)
+block|{
+break|break
+name|lab9
+break|;
+block|}
+name|cursor
+operator|--
+expr_stmt|;
+comment|// ], line 152
+name|bra
+operator|=
+name|cursor
+expr_stmt|;
+comment|// delete, line 152
+name|slice_del
+argument_list|()
+expr_stmt|;
+block|}
+do|while
+condition|(
+literal|false
+condition|)
+do|;
+name|cursor
+operator|=
+name|limit
+operator|-
+name|v_9
 expr_stmt|;
 return|return
 literal|true
@@ -2326,8 +2893,8 @@ decl_stmt|;
 name|int
 name|v_4
 decl_stmt|;
-comment|// (, line 122
-comment|// do, line 123
+comment|// (, line 157
+comment|// do, line 159
 name|v_1
 operator|=
 name|cursor
@@ -2336,7 +2903,7 @@ name|lab0
 label|:
 do|do
 block|{
-comment|// call prelude, line 123
+comment|// call prelude, line 159
 if|if
 condition|(
 operator|!
@@ -2358,7 +2925,7 @@ name|cursor
 operator|=
 name|v_1
 expr_stmt|;
-comment|// do, line 124
+comment|// do, line 160
 name|v_2
 operator|=
 name|cursor
@@ -2367,7 +2934,7 @@ name|lab1
 label|:
 do|do
 block|{
-comment|// call mark_regions, line 124
+comment|// call mark_regions, line 160
 if|if
 condition|(
 operator|!
@@ -2389,7 +2956,7 @@ name|cursor
 operator|=
 name|v_2
 expr_stmt|;
-comment|// backwards, line 125
+comment|// backwards, line 161
 name|limit_backward
 operator|=
 name|cursor
@@ -2398,7 +2965,7 @@ name|cursor
 operator|=
 name|limit
 expr_stmt|;
-comment|// do, line 126
+comment|// do, line 162
 name|v_3
 operator|=
 name|limit
@@ -2409,7 +2976,7 @@ name|lab2
 label|:
 do|do
 block|{
-comment|// call standard_suffix, line 126
+comment|// call standard_suffix, line 162
 if|if
 condition|(
 operator|!
@@ -2437,7 +3004,7 @@ name|cursor
 operator|=
 name|limit_backward
 expr_stmt|;
-comment|// do, line 127
+comment|// do, line 163
 name|v_4
 operator|=
 name|cursor
@@ -2446,7 +3013,7 @@ name|lab3
 label|:
 do|do
 block|{
-comment|// call postlude, line 127
+comment|// call postlude, line 163
 if|if
 condition|(
 operator|!

@@ -3,11 +3,11 @@ begin_comment
 comment|// This file was generated automatically by the Snowball to Java compiler
 end_comment
 begin_package
-DECL|package|net.sf.snowball.ext
+DECL|package|org.tartarus.snowball.ext
 package|package
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -16,9 +16,9 @@ package|;
 end_package
 begin_import
 import|import
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -27,9 +27,9 @@ import|;
 end_import
 begin_import
 import|import
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -660,6 +660,11 @@ block|,
 literal|4
 block|}
 decl_stmt|;
+DECL|field|I_x
+specifier|private
+name|int
+name|I_x
+decl_stmt|;
 DECL|field|I_p2
 specifier|private
 name|int
@@ -679,6 +684,12 @@ name|German2Stemmer
 name|other
 parameter_list|)
 block|{
+name|I_x
+operator|=
+name|other
+operator|.
+name|I_x
+expr_stmt|;
 name|I_p2
 operator|=
 name|other
@@ -1154,6 +1165,9 @@ name|boolean
 name|r_mark_regions
 parameter_list|()
 block|{
+name|int
+name|v_1
+decl_stmt|;
 comment|// (, line 48
 name|I_p1
 operator|=
@@ -1163,7 +1177,51 @@ name|I_p2
 operator|=
 name|limit
 expr_stmt|;
-comment|// gopast, line 53
+comment|// test, line 53
+name|v_1
+operator|=
+name|cursor
+expr_stmt|;
+comment|// (, line 53
+comment|// hop, line 53
+block|{
+name|int
+name|c
+init|=
+name|cursor
+operator|+
+literal|3
+decl_stmt|;
+if|if
+condition|(
+literal|0
+operator|>
+name|c
+operator|||
+name|c
+operator|>
+name|limit
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+name|cursor
+operator|=
+name|c
+expr_stmt|;
+block|}
+comment|// setmark x, line 53
+name|I_x
+operator|=
+name|cursor
+expr_stmt|;
+name|cursor
+operator|=
+name|v_1
+expr_stmt|;
+comment|// gopast, line 55
 name|golab0
 label|:
 while|while
@@ -1218,7 +1276,7 @@ name|cursor
 operator|++
 expr_stmt|;
 block|}
-comment|// gopast, line 53
+comment|// gopast, line 55
 name|golab2
 label|:
 while|while
@@ -1273,24 +1331,24 @@ name|cursor
 operator|++
 expr_stmt|;
 block|}
-comment|// setmark p1, line 53
+comment|// setmark p1, line 55
 name|I_p1
 operator|=
 name|cursor
 expr_stmt|;
-comment|// try, line 54
+comment|// try, line 56
 name|lab4
 label|:
 do|do
 block|{
-comment|// (, line 54
+comment|// (, line 56
 if|if
 condition|(
 operator|!
 operator|(
 name|I_p1
 operator|<
-literal|3
+name|I_x
 operator|)
 condition|)
 block|{
@@ -1300,7 +1358,7 @@ break|;
 block|}
 name|I_p1
 operator|=
-literal|3
+name|I_x
 expr_stmt|;
 block|}
 do|while
@@ -1308,7 +1366,7 @@ condition|(
 literal|false
 condition|)
 do|;
-comment|// gopast, line 55
+comment|// gopast, line 57
 name|golab5
 label|:
 while|while
@@ -1363,7 +1421,7 @@ name|cursor
 operator|++
 expr_stmt|;
 block|}
-comment|// gopast, line 55
+comment|// gopast, line 57
 name|golab7
 label|:
 while|while
@@ -1418,7 +1476,7 @@ name|cursor
 operator|++
 expr_stmt|;
 block|}
-comment|// setmark p2, line 55
+comment|// setmark p2, line 57
 name|I_p2
 operator|=
 name|cursor
@@ -1439,7 +1497,7 @@ decl_stmt|;
 name|int
 name|v_1
 decl_stmt|;
-comment|// repeat, line 59
+comment|// repeat, line 61
 name|replab0
 label|:
 while|while
@@ -1455,13 +1513,13 @@ name|lab1
 label|:
 do|do
 block|{
-comment|// (, line 59
-comment|// [, line 61
+comment|// (, line 61
+comment|// [, line 63
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// substring, line 61
+comment|// substring, line 63
 name|among_var
 operator|=
 name|find_among
@@ -1482,7 +1540,7 @@ break|break
 name|lab1
 break|;
 block|}
-comment|// ], line 61
+comment|// ], line 63
 name|ket
 operator|=
 name|cursor
@@ -1501,8 +1559,8 @@ break|;
 case|case
 literal|1
 case|:
-comment|// (, line 62
-comment|//<-, line 62
+comment|// (, line 64
+comment|//<-, line 64
 name|slice_from
 argument_list|(
 literal|"y"
@@ -1512,8 +1570,8 @@ break|break;
 case|case
 literal|2
 case|:
-comment|// (, line 63
-comment|//<-, line 63
+comment|// (, line 65
+comment|//<-, line 65
 name|slice_from
 argument_list|(
 literal|"u"
@@ -1523,8 +1581,8 @@ break|break;
 case|case
 literal|3
 case|:
-comment|// (, line 64
-comment|//<-, line 64
+comment|// (, line 66
+comment|//<-, line 66
 name|slice_from
 argument_list|(
 literal|"a"
@@ -1534,8 +1592,8 @@ break|break;
 case|case
 literal|4
 case|:
-comment|// (, line 65
-comment|//<-, line 65
+comment|// (, line 67
+comment|//<-, line 67
 name|slice_from
 argument_list|(
 literal|"o"
@@ -1545,8 +1603,8 @@ break|break;
 case|case
 literal|5
 case|:
-comment|// (, line 66
-comment|//<-, line 66
+comment|// (, line 68
+comment|//<-, line 68
 name|slice_from
 argument_list|(
 literal|"u"
@@ -1556,8 +1614,8 @@ break|break;
 case|case
 literal|6
 case|:
-comment|// (, line 67
-comment|// next, line 67
+comment|// (, line 69
+comment|// next, line 69
 if|if
 condition|(
 name|cursor
@@ -1679,8 +1737,8 @@ decl_stmt|;
 name|int
 name|v_9
 decl_stmt|;
-comment|// (, line 77
-comment|// do, line 78
+comment|// (, line 79
+comment|// do, line 80
 name|v_1
 operator|=
 name|limit
@@ -1691,13 +1749,13 @@ name|lab0
 label|:
 do|do
 block|{
-comment|// (, line 78
-comment|// [, line 79
+comment|// (, line 80
+comment|// [, line 81
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-comment|// substring, line 79
+comment|// substring, line 81
 name|among_var
 operator|=
 name|find_among_b
@@ -1718,12 +1776,12 @@ break|break
 name|lab0
 break|;
 block|}
-comment|// ], line 79
+comment|// ], line 81
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// call R1, line 79
+comment|// call R1, line 81
 if|if
 condition|(
 operator|!
@@ -1749,8 +1807,8 @@ break|;
 case|case
 literal|1
 case|:
-comment|// (, line 81
-comment|// delete, line 81
+comment|// (, line 83
+comment|// delete, line 83
 name|slice_del
 argument_list|()
 expr_stmt|;
@@ -1758,7 +1816,7 @@ break|break;
 case|case
 literal|2
 case|:
-comment|// (, line 84
+comment|// (, line 86
 if|if
 condition|(
 operator|!
@@ -1778,7 +1836,7 @@ break|break
 name|lab0
 break|;
 block|}
-comment|// delete, line 84
+comment|// delete, line 86
 name|slice_del
 argument_list|()
 expr_stmt|;
@@ -1796,7 +1854,7 @@ name|limit
 operator|-
 name|v_1
 expr_stmt|;
-comment|// do, line 88
+comment|// do, line 90
 name|v_2
 operator|=
 name|limit
@@ -1807,13 +1865,13 @@ name|lab1
 label|:
 do|do
 block|{
-comment|// (, line 88
-comment|// [, line 89
+comment|// (, line 90
+comment|// [, line 91
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-comment|// substring, line 89
+comment|// substring, line 91
 name|among_var
 operator|=
 name|find_among_b
@@ -1834,12 +1892,12 @@ break|break
 name|lab1
 break|;
 block|}
-comment|// ], line 89
+comment|// ], line 91
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// call R1, line 89
+comment|// call R1, line 91
 if|if
 condition|(
 operator|!
@@ -1865,8 +1923,8 @@ break|;
 case|case
 literal|1
 case|:
-comment|// (, line 91
-comment|// delete, line 91
+comment|// (, line 93
+comment|// delete, line 93
 name|slice_del
 argument_list|()
 expr_stmt|;
@@ -1874,7 +1932,7 @@ break|break;
 case|case
 literal|2
 case|:
-comment|// (, line 94
+comment|// (, line 96
 if|if
 condition|(
 operator|!
@@ -1894,7 +1952,7 @@ break|break
 name|lab1
 break|;
 block|}
-comment|// hop, line 94
+comment|// hop, line 96
 block|{
 name|int
 name|c
@@ -1923,7 +1981,7 @@ operator|=
 name|c
 expr_stmt|;
 block|}
-comment|// delete, line 94
+comment|// delete, line 96
 name|slice_del
 argument_list|()
 expr_stmt|;
@@ -1941,7 +1999,7 @@ name|limit
 operator|-
 name|v_2
 expr_stmt|;
-comment|// do, line 98
+comment|// do, line 100
 name|v_3
 operator|=
 name|limit
@@ -1952,13 +2010,13 @@ name|lab2
 label|:
 do|do
 block|{
-comment|// (, line 98
-comment|// [, line 99
+comment|// (, line 100
+comment|// [, line 101
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-comment|// substring, line 99
+comment|// substring, line 101
 name|among_var
 operator|=
 name|find_among_b
@@ -1979,12 +2037,12 @@ break|break
 name|lab2
 break|;
 block|}
-comment|// ], line 99
+comment|// ], line 101
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// call R2, line 99
+comment|// call R2, line 101
 if|if
 condition|(
 operator|!
@@ -2010,12 +2068,12 @@ break|;
 case|case
 literal|1
 case|:
-comment|// (, line 101
-comment|// delete, line 101
+comment|// (, line 103
+comment|// delete, line 103
 name|slice_del
 argument_list|()
 expr_stmt|;
-comment|// try, line 102
+comment|// try, line 104
 name|v_4
 operator|=
 name|limit
@@ -2026,13 +2084,13 @@ name|lab3
 label|:
 do|do
 block|{
-comment|// (, line 102
-comment|// [, line 102
+comment|// (, line 104
+comment|// [, line 104
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-comment|// literal, line 102
+comment|// literal, line 104
 if|if
 condition|(
 operator|!
@@ -2056,12 +2114,12 @@ break|break
 name|lab3
 break|;
 block|}
-comment|// ], line 102
+comment|// ], line 104
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// not, line 102
+comment|// not, line 104
 block|{
 name|v_5
 operator|=
@@ -2073,7 +2131,7 @@ name|lab4
 label|:
 do|do
 block|{
-comment|// literal, line 102
+comment|// literal, line 104
 if|if
 condition|(
 operator|!
@@ -2113,7 +2171,7 @@ operator|-
 name|v_5
 expr_stmt|;
 block|}
-comment|// call R2, line 102
+comment|// call R2, line 104
 if|if
 condition|(
 operator|!
@@ -2131,7 +2189,7 @@ break|break
 name|lab3
 break|;
 block|}
-comment|// delete, line 102
+comment|// delete, line 104
 name|slice_del
 argument_list|()
 expr_stmt|;
@@ -2145,8 +2203,8 @@ break|break;
 case|case
 literal|2
 case|:
-comment|// (, line 105
-comment|// not, line 105
+comment|// (, line 107
+comment|// not, line 107
 block|{
 name|v_6
 operator|=
@@ -2158,7 +2216,7 @@ name|lab5
 label|:
 do|do
 block|{
-comment|// literal, line 105
+comment|// literal, line 107
 if|if
 condition|(
 operator|!
@@ -2192,7 +2250,7 @@ operator|-
 name|v_6
 expr_stmt|;
 block|}
-comment|// delete, line 105
+comment|// delete, line 107
 name|slice_del
 argument_list|()
 expr_stmt|;
@@ -2200,12 +2258,12 @@ break|break;
 case|case
 literal|3
 case|:
-comment|// (, line 108
-comment|// delete, line 108
+comment|// (, line 110
+comment|// delete, line 110
 name|slice_del
 argument_list|()
 expr_stmt|;
-comment|// try, line 109
+comment|// try, line 111
 name|v_7
 operator|=
 name|limit
@@ -2216,13 +2274,13 @@ name|lab6
 label|:
 do|do
 block|{
-comment|// (, line 109
-comment|// [, line 110
+comment|// (, line 111
+comment|// [, line 112
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-comment|// or, line 110
+comment|// or, line 112
 name|lab7
 label|:
 do|do
@@ -2237,7 +2295,7 @@ name|lab8
 label|:
 do|do
 block|{
-comment|// literal, line 110
+comment|// literal, line 112
 if|if
 condition|(
 operator|!
@@ -2270,7 +2328,7 @@ name|limit
 operator|-
 name|v_8
 expr_stmt|;
-comment|// literal, line 110
+comment|// literal, line 112
 if|if
 condition|(
 operator|!
@@ -2300,12 +2358,12 @@ condition|(
 literal|false
 condition|)
 do|;
-comment|// ], line 110
+comment|// ], line 112
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// call R1, line 110
+comment|// call R1, line 112
 if|if
 condition|(
 operator|!
@@ -2323,7 +2381,7 @@ break|break
 name|lab6
 break|;
 block|}
-comment|// delete, line 110
+comment|// delete, line 112
 name|slice_del
 argument_list|()
 expr_stmt|;
@@ -2337,12 +2395,12 @@ break|break;
 case|case
 literal|4
 case|:
-comment|// (, line 114
-comment|// delete, line 114
+comment|// (, line 116
+comment|// delete, line 116
 name|slice_del
 argument_list|()
 expr_stmt|;
-comment|// try, line 115
+comment|// try, line 117
 name|v_9
 operator|=
 name|limit
@@ -2353,13 +2411,13 @@ name|lab9
 label|:
 do|do
 block|{
-comment|// (, line 115
-comment|// [, line 116
+comment|// (, line 117
+comment|// [, line 118
 name|ket
 operator|=
 name|cursor
 expr_stmt|;
-comment|// substring, line 116
+comment|// substring, line 118
 name|among_var
 operator|=
 name|find_among_b
@@ -2386,12 +2444,12 @@ break|break
 name|lab9
 break|;
 block|}
-comment|// ], line 116
+comment|// ], line 118
 name|bra
 operator|=
 name|cursor
 expr_stmt|;
-comment|// call R2, line 116
+comment|// call R2, line 118
 if|if
 condition|(
 operator|!
@@ -2429,8 +2487,8 @@ break|;
 case|case
 literal|1
 case|:
-comment|// (, line 118
-comment|// delete, line 118
+comment|// (, line 120
+comment|// delete, line 120
 name|slice_del
 argument_list|()
 expr_stmt|;
@@ -2478,8 +2536,8 @@ decl_stmt|;
 name|int
 name|v_4
 decl_stmt|;
-comment|// (, line 128
-comment|// do, line 129
+comment|// (, line 130
+comment|// do, line 131
 name|v_1
 operator|=
 name|cursor
@@ -2488,7 +2546,7 @@ name|lab0
 label|:
 do|do
 block|{
-comment|// call prelude, line 129
+comment|// call prelude, line 131
 if|if
 condition|(
 operator|!
@@ -2510,7 +2568,7 @@ name|cursor
 operator|=
 name|v_1
 expr_stmt|;
-comment|// do, line 130
+comment|// do, line 132
 name|v_2
 operator|=
 name|cursor
@@ -2519,7 +2577,7 @@ name|lab1
 label|:
 do|do
 block|{
-comment|// call mark_regions, line 130
+comment|// call mark_regions, line 132
 if|if
 condition|(
 operator|!
@@ -2541,7 +2599,7 @@ name|cursor
 operator|=
 name|v_2
 expr_stmt|;
-comment|// backwards, line 131
+comment|// backwards, line 133
 name|limit_backward
 operator|=
 name|cursor
@@ -2550,7 +2608,7 @@ name|cursor
 operator|=
 name|limit
 expr_stmt|;
-comment|// do, line 132
+comment|// do, line 134
 name|v_3
 operator|=
 name|limit
@@ -2561,7 +2619,7 @@ name|lab2
 label|:
 do|do
 block|{
-comment|// call standard_suffix, line 132
+comment|// call standard_suffix, line 134
 if|if
 condition|(
 operator|!
@@ -2589,7 +2647,7 @@ name|cursor
 operator|=
 name|limit_backward
 expr_stmt|;
-comment|// do, line 133
+comment|// do, line 135
 name|v_4
 operator|=
 name|cursor
@@ -2598,7 +2656,7 @@ name|lab3
 label|:
 do|do
 block|{
-comment|// call postlude, line 133
+comment|// call postlude, line 135
 if|if
 condition|(
 operator|!
