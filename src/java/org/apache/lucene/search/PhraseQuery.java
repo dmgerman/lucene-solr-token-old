@@ -1243,6 +1243,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|field
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|field
 operator|.
