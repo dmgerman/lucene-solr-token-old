@@ -357,9 +357,9 @@ name|protWords
 decl_stmt|;
 DECL|field|stemmer
 specifier|private
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
@@ -393,9 +393,9 @@ expr_stmt|;
 name|stemmer
 operator|=
 operator|new
-name|net
+name|org
 operator|.
-name|sf
+name|tartarus
 operator|.
 name|snowball
 operator|.
