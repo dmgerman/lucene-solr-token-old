@@ -269,7 +269,7 @@ argument_list|()
 decl_stmt|;
 name|di
 operator|.
-name|rumCmd
+name|runCmd
 argument_list|(
 name|rp
 argument_list|,
@@ -540,7 +540,7 @@ argument_list|()
 decl_stmt|;
 name|di
 operator|.
-name|rumCmd
+name|runCmd
 argument_list|(
 name|rp
 argument_list|,
@@ -936,7 +936,7 @@ argument_list|()
 decl_stmt|;
 name|di
 operator|.
-name|rumCmd
+name|runCmd
 argument_list|(
 name|rp
 argument_list|,
