@@ -3177,7 +3177,7 @@ operator||
 operator|(
 name|h
 operator|>>>
-literal|31
+literal|63
 operator|)
 expr_stmt|;
 comment|// rotate left
