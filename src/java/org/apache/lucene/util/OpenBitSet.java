@@ -371,7 +371,7 @@ operator|!=
 literal|0
 return|;
 block|}
-comment|/** Returns true or false for the specified bit index   * The index should be less than the OpenBitSet size   */
+comment|/** Returns true or false for the specified bit index   */
 DECL|method|get
 specifier|public
 name|boolean
@@ -436,7 +436,7 @@ operator|!=
 literal|0
 return|;
 block|}
-comment|/** Returns true or false for the specified bit index.  Allows specifying    * an index outside the current size. */
+comment|/** Returns true or false for the specified bit index.    * The index should be less than the OpenBitSet size.    */
 DECL|method|fastGet
 specifier|public
 name|boolean
