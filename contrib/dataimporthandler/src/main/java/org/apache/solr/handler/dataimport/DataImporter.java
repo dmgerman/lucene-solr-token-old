@@ -330,7 +330,6 @@ name|DataImporter
 parameter_list|()
 block|{   }
 DECL|method|DataImporter
-specifier|public
 name|DataImporter
 parameter_list|(
 name|String
@@ -1380,7 +1379,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|getConfig
-specifier|public
 name|DataConfig
 name|getConfig
 parameter_list|()
@@ -1390,7 +1388,6 @@ name|config
 return|;
 block|}
 DECL|method|getIndexStartTime
-specifier|public
 name|Date
 name|getIndexStartTime
 parameter_list|()
@@ -1400,7 +1397,6 @@ name|indexStartTime
 return|;
 block|}
 DECL|method|setIndexStartTime
-specifier|public
 name|void
 name|setIndexStartTime
 parameter_list|(
@@ -1416,7 +1412,6 @@ name|indextStartTime
 expr_stmt|;
 block|}
 DECL|method|getLastIndexTime
-specifier|public
 name|Date
 name|getLastIndexTime
 parameter_list|()
@@ -1426,7 +1421,6 @@ name|lastIndexTime
 return|;
 block|}
 DECL|method|setLastIndexTime
-specifier|public
 name|void
 name|setLastIndexTime
 parameter_list|(
@@ -1442,7 +1436,6 @@ name|lastIndexTime
 expr_stmt|;
 block|}
 DECL|method|store
-specifier|public
 name|void
 name|store
 parameter_list|(
@@ -1464,7 +1457,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|retrieve
-specifier|public
 name|Object
 name|retrieve
 parameter_list|(
@@ -1679,6 +1671,9 @@ operator|.
 name|loadClass
 argument_list|(
 name|impl
+argument_list|,
+name|getCore
+argument_list|()
 argument_list|)
 operator|.
 name|newInstance
@@ -2371,7 +2366,6 @@ name|result
 return|;
 block|}
 DECL|method|getDocBuilder
-specifier|public
 name|DocBuilder
 name|getDocBuilder
 parameter_list|()
@@ -2381,7 +2375,6 @@ name|docBuilder
 return|;
 block|}
 DECL|field|QUERY_COUNT
-specifier|public
 specifier|static
 specifier|final
 name|ThreadLocal
@@ -2968,7 +2961,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|getCore
-specifier|public
 name|SolrCore
 name|getCore
 parameter_list|()

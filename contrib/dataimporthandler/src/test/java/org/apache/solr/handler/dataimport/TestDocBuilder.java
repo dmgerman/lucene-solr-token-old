@@ -127,6 +127,8 @@ operator|.
 name|loadClass
 argument_list|(
 literal|"RegexTransformer"
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Assert
