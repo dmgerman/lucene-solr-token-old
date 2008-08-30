@@ -1897,7 +1897,11 @@ index|[]
 block|{
 name|aux
 block|,
+operator|new
+name|RAMDirectory
+argument_list|(
 name|aux
+argument_list|)
 block|}
 argument_list|)
 expr_stmt|;
@@ -2051,7 +2055,11 @@ index|[]
 block|{
 name|aux
 block|,
+operator|new
+name|RAMDirectory
+argument_list|(
 name|aux
+argument_list|)
 block|}
 argument_list|)
 expr_stmt|;

@@ -494,7 +494,7 @@ specifier|volatile
 name|long
 name|changeCount
 decl_stmt|;
-comment|// increments every a change is completed
+comment|// increments every time a change is completed
 DECL|field|lastCommitChangeCount
 specifier|private
 name|long
@@ -689,19 +689,152 @@ name|maxSyncPauseSeconds
 init|=
 name|DEFAULT_MAX_SYNC_PAUSE_SECONDS
 decl_stmt|;
+comment|// Used to only allow one addIndexes to proceed at once
+comment|// TODO: use ReadWriteLock once we are on 5.0
+DECL|field|readCount
+specifier|private
+name|int
+name|readCount
+decl_stmt|;
+comment|// count of how many threads are holding read lock
+DECL|field|writeThread
+specifier|private
+name|Thread
+name|writeThread
+decl_stmt|;
+comment|// non-null if any thread holds write lock
+DECL|method|acquireWrite
+specifier|synchronized
+name|void
+name|acquireWrite
+parameter_list|()
+block|{
+while|while
+condition|(
+name|writeThread
+operator|!=
+literal|null
+operator|||
+name|readCount
+operator|>
+literal|0
+condition|)
+name|doWait
+argument_list|()
+expr_stmt|;
+comment|// We could have been closed while we were waiting:
+name|ensureOpen
+argument_list|()
+expr_stmt|;
+name|writeThread
+operator|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|releaseWrite
+specifier|synchronized
+name|void
+name|releaseWrite
+parameter_list|()
+block|{
+assert|assert
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|==
+name|writeThread
+assert|;
+name|writeThread
+operator|=
+literal|null
+expr_stmt|;
+name|notifyAll
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|acquireRead
+specifier|synchronized
+name|void
+name|acquireRead
+parameter_list|()
+block|{
+specifier|final
+name|Thread
+name|current
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+name|writeThread
+operator|!=
+literal|null
+operator|&&
+name|writeThread
+operator|!=
+name|current
+condition|)
+name|doWait
+argument_list|()
+expr_stmt|;
+name|readCount
+operator|++
+expr_stmt|;
+block|}
+DECL|method|releaseRead
+specifier|synchronized
+name|void
+name|releaseRead
+parameter_list|()
+block|{
+name|readCount
+operator|--
+expr_stmt|;
+assert|assert
+name|readCount
+operator|>=
+literal|0
+assert|;
+if|if
+condition|(
+literal|0
+operator|==
+name|readCount
+condition|)
+name|notifyAll
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**    * Used internally to throw an {@link    * AlreadyClosedException} if this IndexWriter has been    * closed.    * @throws AlreadyClosedException if this IndexWriter is    */
 DECL|method|ensureOpen
 specifier|protected
+specifier|synchronized
 specifier|final
 name|void
 name|ensureOpen
-parameter_list|()
+parameter_list|(
+name|boolean
+name|includePendingClose
+parameter_list|)
 throws|throws
 name|AlreadyClosedException
 block|{
 if|if
 condition|(
 name|closed
+operator|||
+operator|(
+name|includePendingClose
+operator|&&
+name|closing
+operator|)
 condition|)
 block|{
 throw|throw
@@ -712,6 +845,22 @@ literal|"this IndexWriter is closed"
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|ensureOpen
+specifier|protected
+specifier|synchronized
+specifier|final
+name|void
+name|ensureOpen
+parameter_list|()
+throws|throws
+name|AlreadyClosedException
+block|{
+name|ensureOpen
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**    * Prints a message to the infoStream (if non-null),    * prefixed with the identifying information for this    * writer and the thread that's calling it.    */
 DECL|method|message
@@ -934,8 +1083,11 @@ name|int
 name|getTermIndexInterval
 parameter_list|()
 block|{
+comment|// We pass false because this method is called by SegmentMerger while we are in the process of closing
 name|ensureOpen
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 return|return
 name|termIndexInterval
@@ -2215,7 +2367,9 @@ operator|=
 name|autoCommit
 expr_stmt|;
 name|setRollbackSegmentInfos
-argument_list|()
+argument_list|(
+name|segmentInfos
+argument_list|)
 expr_stmt|;
 name|docWriter
 operator|=
@@ -2315,20 +2469,31 @@ block|}
 block|}
 DECL|method|setRollbackSegmentInfos
 specifier|private
+specifier|synchronized
 name|void
 name|setRollbackSegmentInfos
-parameter_list|()
+parameter_list|(
+name|SegmentInfos
+name|infos
+parameter_list|)
 block|{
 name|rollbackSegmentInfos
 operator|=
 operator|(
 name|SegmentInfos
 operator|)
-name|segmentInfos
+name|infos
 operator|.
 name|clone
 argument_list|()
 expr_stmt|;
+assert|assert
+operator|!
+name|hasExternalSegments
+argument_list|(
+name|rollbackSegmentInfos
+argument_list|)
+assert|;
 name|rollbackSegments
 operator|=
 operator|new
@@ -2451,6 +2616,7 @@ return|;
 block|}
 comment|/**    * Expert: set the merge scheduler used by this writer.    */
 DECL|method|setMergeScheduler
+specifier|synchronized
 specifier|public
 name|void
 name|setMergeScheduler
@@ -3309,18 +3475,9 @@ block|{
 comment|// Another thread is presently trying to close;
 comment|// wait until it finishes one way (closes
 comment|// successfully) or another (fails to close)
-try|try
-block|{
-name|wait
+name|doWait
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|ie
-parameter_list|)
-block|{           }
 block|}
 block|}
 else|else
@@ -3342,6 +3499,11 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+name|docWriter
+operator|.
+name|pauseAllThreads
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 if|if
@@ -3514,7 +3676,21 @@ if|if
 condition|(
 operator|!
 name|closed
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
+name|docWriter
+operator|!=
+literal|null
+condition|)
+name|docWriter
+operator|.
+name|resumeAllThreads
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
 name|infoStream
 operator|!=
 literal|null
@@ -3524,6 +3700,7 @@ argument_list|(
 literal|"hit exception while closing"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -3844,8 +4021,11 @@ name|Directory
 name|getDirectory
 parameter_list|()
 block|{
+comment|// Pass false because the flush during closing calls getDirectory
 name|ensureOpen
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 return|return
 name|directory
@@ -5045,27 +5225,9 @@ name|optimizeMergesPending
 argument_list|()
 condition|)
 block|{
-try|try
-block|{
-name|wait
+name|doWait
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|ie
-parameter_list|)
-block|{
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|interrupt
-argument_list|()
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|mergeExceptions
@@ -5173,6 +5335,13 @@ block|}
 block|}
 block|}
 block|}
+comment|// If close is called while we are still
+comment|// running, throw an exception so the calling
+comment|// thread will know the optimize did not
+comment|// complete
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 block|}
 comment|// NOTE: in the ConcurrentMergeScheduler case, when
 comment|// doWait is false, we can return immediately while
@@ -5402,6 +5571,9 @@ condition|(
 name|running
 condition|)
 block|{
+comment|// Check each merge that MergePolicy asked us to
+comment|// do, to see if any of them are still running and
+comment|// if any of them have hit an exception.
 name|running
 operator|=
 literal|false
@@ -5504,33 +5676,14 @@ name|ioe
 throw|;
 block|}
 block|}
+comment|// If any of our merges are still running, wait:
 if|if
 condition|(
 name|running
 condition|)
-block|{
-try|try
-block|{
-name|wait
+name|doWait
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|ie
-parameter_list|)
-block|{
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|interrupt
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 block|}
 block|}
 block|}
@@ -5867,15 +6020,111 @@ name|merge
 return|;
 block|}
 block|}
+comment|/** Like getNextMerge() except only returns a merge if it's    *  external. */
+DECL|method|getNextExternalMerge
+specifier|private
+specifier|synchronized
+name|MergePolicy
+operator|.
+name|OneMerge
+name|getNextExternalMerge
+parameter_list|()
+block|{
+if|if
+condition|(
+name|pendingMerges
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|)
+return|return
+literal|null
+return|;
+else|else
+block|{
+name|Iterator
+name|it
+init|=
+name|pendingMerges
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+name|it
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+comment|// Advance the merge from pending to running
+name|MergePolicy
+operator|.
+name|OneMerge
+name|merge
+init|=
+operator|(
+name|MergePolicy
+operator|.
+name|OneMerge
+operator|)
+name|it
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|merge
+operator|.
+name|isExternal
+condition|)
+block|{
+name|it
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
+name|runningMerges
+operator|.
+name|add
+argument_list|(
+name|merge
+argument_list|)
+expr_stmt|;
+return|return
+name|merge
+return|;
+block|}
+block|}
+comment|// All existing merges do not involve external segments
+return|return
+literal|null
+return|;
+block|}
+block|}
 comment|/*    * Begin a transaction.  During a transaction, any segment    * merges that happen (or ram segments flushed) will not    * write a new segments file and will not remove any files    * that were present at the start of the transaction.  You    * must make a matched (try/finally) call to    * commitTransaction() or rollbackTransaction() to finish    * the transaction.    *    * Note that buffered documents and delete terms are not handled    * within the transactions, so they must be flushed before the    * transaction is started.    */
 DECL|method|startTransaction
 specifier|private
 specifier|synchronized
 name|void
 name|startTransaction
-parameter_list|()
+parameter_list|(
+name|boolean
+name|haveWriteLock
+parameter_list|)
 throws|throws
 name|IOException
+block|{
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
 block|{
 if|if
 condition|(
@@ -5896,7 +6145,12 @@ argument_list|()
 operator|==
 literal|0
 operator|:
-literal|"calling startTransaction with buffered delete terms not supported"
+literal|"calling startTransaction with buffered delete terms not supported: numBufferedDeleteTerms="
+operator|+
+name|docWriter
+operator|.
+name|getNumBufferedDeleteTerms
+argument_list|()
 assert|;
 assert|assert
 name|docWriter
@@ -5906,8 +6160,66 @@ argument_list|()
 operator|==
 literal|0
 operator|:
-literal|"calling startTransaction with buffered documents not supported"
+literal|"calling startTransaction with buffered documents not supported: numDocsInRAM="
+operator|+
+name|docWriter
+operator|.
+name|getNumDocsInRAM
+argument_list|()
 assert|;
+name|ensureOpen
+argument_list|()
+expr_stmt|;
+comment|// If a transaction is trying to roll back (because
+comment|// addIndexes hit an exception) then wait here until
+comment|// that's done:
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+while|while
+condition|(
+name|stopMerges
+condition|)
+name|doWait
+argument_list|()
+expr_stmt|;
+block|}
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// Releaes the write lock if our caller held it, on
+comment|// hitting an exception
+if|if
+condition|(
+operator|!
+name|success
+operator|&&
+name|haveWriteLock
+condition|)
+name|releaseWrite
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|haveWriteLock
+condition|)
+name|acquireWrite
+argument_list|()
+expr_stmt|;
+name|success
+operator|=
+literal|false
+expr_stmt|;
+try|try
+block|{
 name|localRollbackSegmentInfos
 operator|=
 operator|(
@@ -5918,6 +6230,13 @@ operator|.
 name|clone
 argument_list|()
 expr_stmt|;
+assert|assert
+operator|!
+name|hasExternalSegments
+argument_list|(
+name|segmentInfos
+argument_list|)
+assert|;
 name|localAutoCommit
 operator|=
 name|autoCommit
@@ -5972,6 +6291,22 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+name|finishAddIndexes
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/*    * Rolls back the transaction and restores state to where    * we were at the start.    */
 DECL|method|rollbackTransaction
@@ -6006,6 +6341,15 @@ argument_list|(
 name|localFlushedDocCount
 argument_list|)
 expr_stmt|;
+comment|// Must finish merges before rolling back segmentInfos
+comment|// so merges don't hit exceptions on trying to commit
+comment|// themselves, don't get files deleted out from under
+comment|// them, etc:
+name|finishMerges
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 comment|// Keep the same segmentInfos instance but replace all
 comment|// of its SegmentInfo instances.  This is so the next
 comment|// attempt to commit using this instance of IndexWriter
@@ -6025,6 +6369,12 @@ expr_stmt|;
 name|localRollbackSegmentInfos
 operator|=
 literal|null
+expr_stmt|;
+comment|// This must come after we rollback segmentInfos, so
+comment|// that if a commit() kicks off it does not see the
+comment|// segmentInfos with external segments
+name|finishAddIndexes
+argument_list|()
 expr_stmt|;
 comment|// Ask deleter to locate unreferenced files we had
 comment|// created& remove them:
@@ -6050,20 +6400,24 @@ argument_list|(
 name|segmentInfos
 argument_list|)
 expr_stmt|;
+comment|// Also ask deleter to remove any newly created files
+comment|// that were never incref'd; this "garbage" is created
+comment|// when a merge kicks off but aborts part way through
+comment|// before it had a chance to incRef the files it had
+comment|// partially created
 name|deleter
 operator|.
 name|refresh
 argument_list|()
 expr_stmt|;
-name|finishMerges
-argument_list|(
-literal|false
-argument_list|)
+name|notifyAll
+argument_list|()
 expr_stmt|;
-name|stopMerges
-operator|=
-literal|false
-expr_stmt|;
+assert|assert
+operator|!
+name|hasExternalSegments
+argument_list|()
+assert|;
 block|}
 comment|/*    * Commits the transaction.  This will write the new    * segments file and remove and pending deletions we have    * accumulated during the transaction    */
 DECL|method|commitTransaction
@@ -6155,6 +6509,14 @@ name|localRollbackSegmentInfos
 operator|=
 literal|null
 expr_stmt|;
+assert|assert
+operator|!
+name|hasExternalSegments
+argument_list|()
+assert|;
+name|finishAddIndexes
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * @deprecated Please use {@link #rollback} instead.    */
 DECL|method|abort
@@ -6215,6 +6577,11 @@ name|success
 init|=
 literal|false
 decl_stmt|;
+name|docWriter
+operator|.
+name|pauseAllThreads
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|finishMerges
@@ -6286,6 +6653,11 @@ argument_list|(
 name|rollbackSegmentInfos
 argument_list|)
 expr_stmt|;
+assert|assert
+operator|!
+name|hasExternalSegments
+argument_list|()
+assert|;
 name|docWriter
 operator|.
 name|abort
@@ -6350,6 +6722,11 @@ operator|!
 name|success
 condition|)
 block|{
+name|docWriter
+operator|.
+name|resumeAllThreads
+argument_list|()
+expr_stmt|;
 name|closing
 operator|=
 literal|false
@@ -6521,6 +6898,15 @@ name|abort
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Ensure any running addIndexes finishes.  It's fine
+comment|// if a new one attempts to start because its merges
+comment|// will quickly see the stopMerges == true and abort.
+name|acquireRead
+argument_list|()
+expr_stmt|;
+name|releaseRead
+argument_list|()
+expr_stmt|;
 comment|// These merges periodically check whether they have
 comment|// been aborted, and stop if so.  We wait here to make
 comment|// sure they all stop.  It should not take very long
@@ -6554,28 +6940,17 @@ operator|+
 literal|" running merge to abort"
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|wait
+name|doWait
 argument_list|()
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|ie
-parameter_list|)
-block|{
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|interrupt
+name|stopMerges
+operator|=
+literal|false
+expr_stmt|;
+name|notifyAll
 argument_list|()
 expr_stmt|;
-block|}
-block|}
 assert|assert
 literal|0
 operator|==
@@ -6598,6 +6973,17 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// Ensure any running addIndexes finishes.  It's fine
+comment|// if a new one attempts to start because from our
+comment|// caller above the call will see that we are in the
+comment|// process of closing, and will throw an
+comment|// AlreadyClosedException.
+name|acquireRead
+argument_list|()
+expr_stmt|;
+name|releaseRead
+argument_list|()
+expr_stmt|;
 while|while
 condition|(
 name|pendingMerges
@@ -6614,20 +7000,9 @@ argument_list|()
 operator|>
 literal|0
 condition|)
-block|{
-try|try
-block|{
-name|wait
+name|doWait
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|ie
-parameter_list|)
-block|{         }
-block|}
 assert|assert
 literal|0
 operator|==
@@ -6661,6 +7036,69 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|finishAddIndexes
+specifier|private
+name|void
+name|finishAddIndexes
+parameter_list|()
+block|{
+name|releaseWrite
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|blockAddIndexes
+specifier|private
+name|void
+name|blockAddIndexes
+parameter_list|(
+name|boolean
+name|includePendingClose
+parameter_list|)
+block|{
+name|acquireRead
+argument_list|()
+expr_stmt|;
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
+comment|// Make sure we are still open since we could have
+comment|// waited quite a while for last addIndexes to finish
+name|ensureOpen
+argument_list|(
+name|includePendingClose
+argument_list|)
+expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+name|releaseRead
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|resumeAddIndexes
+specifier|private
+name|void
+name|resumeAddIndexes
+parameter_list|()
+block|{
+name|releaseRead
+argument_list|()
+expr_stmt|;
+block|}
 comment|/** Merges all segments from an array of indexes into this index.    * @deprecated Use {@link #addIndexesNoOptimize} instead,    * then separately call {@link #optimize} afterwards if    * you need to.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|addIndexes
 specifier|public
@@ -6678,6 +7116,11 @@ name|IOException
 block|{
 name|ensureOpen
 argument_list|()
+expr_stmt|;
+name|noDupDirs
+argument_list|(
+name|dirs
+argument_list|)
 expr_stmt|;
 comment|// Do not allow add docs or deletes while we are running:
 name|docWriter
@@ -6713,7 +7156,9 @@ init|=
 literal|false
 decl_stmt|;
 name|startTransaction
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 try|try
 block|{
@@ -6727,6 +7172,9 @@ init|(
 name|this
 init|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -6797,6 +7245,15 @@ name|info
 operator|.
 name|docCount
 expr_stmt|;
+assert|assert
+operator|!
+name|segmentInfos
+operator|.
+name|contains
+argument_list|(
+name|info
+argument_list|)
+assert|;
 name|segmentInfos
 operator|.
 name|addElement
@@ -6883,6 +7340,94 @@ name|mergeGen
 operator|++
 expr_stmt|;
 block|}
+DECL|method|noDupDirs
+specifier|private
+name|void
+name|noDupDirs
+parameter_list|(
+name|Directory
+index|[]
+name|dirs
+parameter_list|)
+block|{
+name|HashSet
+name|dups
+init|=
+operator|new
+name|HashSet
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|dirs
+operator|.
+name|length
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|dups
+operator|.
+name|contains
+argument_list|(
+name|dirs
+index|[
+name|i
+index|]
+argument_list|)
+condition|)
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Directory "
+operator|+
+name|dirs
+index|[
+name|i
+index|]
+operator|+
+literal|" appears more than once"
+argument_list|)
+throw|;
+if|if
+condition|(
+name|dirs
+index|[
+name|i
+index|]
+operator|==
+name|directory
+condition|)
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot add directory to itself"
+argument_list|)
+throw|;
+name|dups
+operator|.
+name|add
+argument_list|(
+name|dirs
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|/**    * Merges all segments from an array of indexes into this    * index.    *    *<p>This may be used to parallelize batch indexing.  A large document    * collection can be broken into sub-collections.  Each sub-collection can be    * indexed in parallel, on a different thread, process or machine.  The    * complete index can then be created by merging sub-collection indexes    * with this method.    *    *<p><b>NOTE:</b> the index in each Directory must not be    * changed (opened by a writer) while this method is    * running.  This method does not acquire a write lock in    * each input Directory, so it is up to the caller to    * enforce this.    *    *<p><b>NOTE:</b> while this is running, any attempts to    * add or delete documents (with another thread) will be    * paused until this method completes.    *    *<p>This method is transactional in how Exceptions are    * handled: it does not commit a new segments_N file until    * all indexes are added.  This means if an Exception    * occurs (for example disk full), then either no indexes    * will have been added or they all will have been.</p>    *    *<p>Note that this requires temporary free space in the    * Directory up to 2X the sum of all input indexes    * (including the starting index).  If readers/searchers    * are open against the starting index, then temporary    * free space required will be higher by the size of the    * starting index (see {@link #optimize()} for details).    *</p>    *    *<p>Once this completes, the final size of the index    * will be less than the sum of all input index sizes    * (including the starting index).  It could be quite a    * bit smaller (if there were many pending deletes) or    * just slightly smaller.</p>    *     *<p>    * This requires this index not be among those to be added.    *    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|addIndexesNoOptimize
 specifier|public
@@ -6900,6 +7445,11 @@ name|IOException
 block|{
 name|ensureOpen
 argument_list|()
+expr_stmt|;
+name|noDupDirs
+argument_list|(
+name|dirs
+argument_list|)
 expr_stmt|;
 comment|// Do not allow add docs or deletes while we are running:
 name|docWriter
@@ -6935,7 +7485,9 @@ init|=
 literal|false
 decl_stmt|;
 name|startTransaction
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 try|try
 block|{
@@ -6949,6 +7501,9 @@ init|(
 name|this
 init|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -7031,6 +7586,27 @@ argument_list|(
 name|j
 argument_list|)
 decl_stmt|;
+assert|assert
+operator|!
+name|segmentInfos
+operator|.
+name|contains
+argument_list|(
+name|info
+argument_list|)
+operator|:
+literal|"dup info dir="
+operator|+
+name|info
+operator|.
+name|dir
+operator|+
+literal|" name="
+operator|+
+name|info
+operator|.
+name|name
+assert|;
 name|docCount
 operator|+=
 name|info
@@ -7059,12 +7635,18 @@ expr_stmt|;
 name|maybeMerge
 argument_list|()
 expr_stmt|;
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 comment|// If after merging there remain segments in the index
 comment|// that are in a different directory, just copy these
 comment|// over into our index.  This is necessary (before
 comment|// finishing the transaction) to avoid leaving the
 comment|// index in an unusable (inconsistent) state.
-name|copyExternalSegments
+name|resolveExternalSegments
+argument_list|()
+expr_stmt|;
+name|ensureOpen
 argument_list|()
 expr_stmt|;
 name|success
@@ -7114,11 +7696,76 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/* If any of our segments are using a directory != ours    * then copy them over.  Currently this is only used by    * addIndexesNoOptimize(). */
-DECL|method|copyExternalSegments
+DECL|method|hasExternalSegments
+specifier|private
+name|boolean
+name|hasExternalSegments
+parameter_list|()
+block|{
+return|return
+name|hasExternalSegments
+argument_list|(
+name|segmentInfos
+argument_list|)
+return|;
+block|}
+DECL|method|hasExternalSegments
+specifier|private
+name|boolean
+name|hasExternalSegments
+parameter_list|(
+name|SegmentInfos
+name|infos
+parameter_list|)
+block|{
+specifier|final
+name|int
+name|numSegments
+init|=
+name|infos
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|numSegments
+condition|;
+name|i
+operator|++
+control|)
+if|if
+condition|(
+name|infos
+operator|.
+name|info
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|dir
+operator|!=
+name|directory
+condition|)
+return|return
+literal|true
+return|;
+return|return
+literal|false
+return|;
+block|}
+comment|/* If any of our segments are using a directory != ours    * then we have to either copy them over one by one, merge    * them (if merge policy has chosen to) or wait until    * currently running merges (in the background) complete.    * We don't return until the SegmentInfos has no more    * external segments.  Currently this is only used by    * addIndexesNoOptimize(). */
+DECL|method|resolveExternalSegments
 specifier|private
 name|void
-name|copyExternalSegments
+name|resolveExternalSegments
 parameter_list|()
 throws|throws
 name|CorruptIndexException
@@ -7130,9 +7777,15 @@ name|any
 init|=
 literal|false
 decl_stmt|;
+name|boolean
+name|done
+init|=
+literal|false
+decl_stmt|;
 while|while
 condition|(
-literal|true
+operator|!
+name|done
 condition|)
 block|{
 name|SegmentInfo
@@ -7152,6 +7805,19 @@ init|(
 name|this
 init|)
 block|{
+if|if
+condition|(
+name|stopMerges
+condition|)
+throw|throw
+operator|new
+name|MergePolicy
+operator|.
+name|MergeAbortedException
+argument_list|(
+literal|"rollback() was called or addIndexes* hit an unhandled exception"
+argument_list|)
+throw|;
 specifier|final
 name|int
 name|numSegments
@@ -7161,6 +7827,10 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+name|done
+operator|=
+literal|true
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -7194,8 +7864,16 @@ operator|!=
 name|directory
 condition|)
 block|{
-name|merge
+name|done
 operator|=
+literal|false
+expr_stmt|;
+specifier|final
+name|MergePolicy
+operator|.
+name|OneMerge
+name|newMerge
+init|=
 operator|new
 name|MergePolicy
 operator|.
@@ -7217,26 +7895,26 @@ operator|.
 name|getUseCompoundFile
 argument_list|()
 argument_list|)
-expr_stmt|;
-break|break;
-block|}
-block|}
-block|}
-if|if
-condition|(
-name|merge
-operator|!=
-literal|null
-condition|)
-block|{
+decl_stmt|;
+comment|// Returns true if no running merge conflicts
+comment|// with this one (and, records this merge as
+comment|// pending), ie, this segment is not currently
+comment|// being merged:
 if|if
 condition|(
 name|registerMerge
 argument_list|(
-name|merge
+name|newMerge
 argument_list|)
 condition|)
 block|{
+name|merge
+operator|=
+name|newMerge
+expr_stmt|;
+comment|// If this segment is not currently being
+comment|// merged, then advance it to running& run
+comment|// the merge ourself (below):
 name|pendingMerges
 operator|.
 name|remove
@@ -7251,6 +7929,53 @@ argument_list|(
 name|merge
 argument_list|)
 expr_stmt|;
+break|break;
+block|}
+block|}
+block|}
+if|if
+condition|(
+operator|!
+name|done
+operator|&&
+name|merge
+operator|==
+literal|null
+condition|)
+comment|// We are not yet done (external segments still
+comment|// exist in segmentInfos), yet, all such segments
+comment|// are currently "covered" by a pending or running
+comment|// merge.  We now try to grab any pending merge
+comment|// that involves external segments:
+name|merge
+operator|=
+name|getNextExternalMerge
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|done
+operator|&&
+name|merge
+operator|==
+literal|null
+condition|)
+comment|// We are not yet done, and, all external segments
+comment|// fall under merges that the merge scheduler is
+comment|// currently running.  So, we now wait and check
+comment|// back to see if the merge has completed.
+name|doWait
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|merge
+operator|!=
+literal|null
+condition|)
+block|{
 name|any
 operator|=
 literal|true
@@ -7261,36 +7986,6 @@ name|merge
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-comment|// This means there is a bug in the
-comment|// MergeScheduler.  MergeSchedulers in general are
-comment|// not allowed to run a merge involving segments
-comment|// external to this IndexWriter's directory in the
-comment|// background because this would put the index
-comment|// into an inconsistent state (where segmentInfos
-comment|// has been written with such external segments
-comment|// that an IndexReader would fail to load).
-throw|throw
-operator|new
-name|MergePolicy
-operator|.
-name|MergeException
-argument_list|(
-literal|"segment \""
-operator|+
-name|info
-operator|.
-name|name
-operator|+
-literal|" exists in external directory yet the MergeScheduler executed the merge in a separate thread"
-argument_list|,
-name|directory
-argument_list|)
-throw|;
-block|}
-else|else
-comment|// No more external segments
-break|break;
 block|}
 if|if
 condition|(
@@ -7330,22 +8025,86 @@ operator|.
 name|pauseAllThreads
 argument_list|()
 expr_stmt|;
-try|try
-block|{
-name|optimize
+comment|// We must pre-acquire the write lock here (and not in
+comment|// startTransaction below) so that no other addIndexes
+comment|// is allowed to start up after we have flushed&
+comment|// optimized but before we then start our transaction.
+comment|// This is because the merging below requires that only
+comment|// one segment is present in the index:
+name|acquireWrite
 argument_list|()
 expr_stmt|;
-comment|// start with zero or 1 seg
-specifier|final
+try|try
+block|{
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+name|SegmentInfo
+name|info
+init|=
+literal|null
+decl_stmt|;
 name|String
 name|mergedName
 init|=
-name|newSegmentName
-argument_list|()
+literal|null
 decl_stmt|;
 name|SegmentMerger
 name|merger
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|flush
+argument_list|(
+literal|true
+argument_list|,
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|optimize
+argument_list|()
+expr_stmt|;
+comment|// start with zero or 1 seg
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// Take care to release the write lock if we hit an
+comment|// exception before starting the transaction
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+name|releaseWrite
+argument_list|()
+expr_stmt|;
+block|}
+comment|// true means we already have write lock; if this call
+comment|// hits an exception it will release the write lock:
+name|startTransaction
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|mergedName
+operator|=
+name|newSegmentName
+argument_list|()
+expr_stmt|;
+name|merger
+operator|=
 operator|new
 name|SegmentMerger
 argument_list|(
@@ -7355,17 +8114,12 @@ name|mergedName
 argument_list|,
 literal|null
 argument_list|)
-decl_stmt|;
-name|SegmentInfo
-name|info
-decl_stmt|;
+expr_stmt|;
 name|IndexReader
 name|sReader
 init|=
 literal|null
 decl_stmt|;
-try|try
-block|{
 synchronized|synchronized
 init|(
 name|this
@@ -7398,6 +8152,16 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+try|try
+block|{
+if|if
+condition|(
+name|sReader
+operator|!=
+literal|null
+condition|)
 name|merger
 operator|.
 name|add
@@ -7405,8 +8169,6 @@ argument_list|(
 name|sReader
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 for|for
 control|(
 name|int
@@ -7434,16 +8196,6 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-name|boolean
-name|success
-init|=
-literal|false
-decl_stmt|;
-name|startTransaction
-argument_list|()
-expr_stmt|;
-try|try
-block|{
 name|int
 name|docCount
 init|=
@@ -7536,6 +8288,23 @@ finally|finally
 block|{
 if|if
 condition|(
+name|sReader
+operator|!=
+literal|null
+condition|)
+block|{
+name|sReader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+finally|finally
+block|{
+if|if
+condition|(
 operator|!
 name|success
 condition|)
@@ -7562,23 +8331,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|sReader
-operator|!=
-literal|null
-condition|)
-block|{
-name|sReader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 if|if
 condition|(
 name|mergePolicy
@@ -7589,13 +8341,61 @@ name|getUseCompoundFile
 argument_list|()
 condition|)
 block|{
-name|boolean
-name|success
+name|List
+name|files
 init|=
-literal|false
+literal|null
 decl_stmt|;
-name|startTransaction
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+comment|// Must incRef our files so that if another thread
+comment|// is running merge/optimize, it doesn't delete our
+comment|// segment's files before we have a change to
+comment|// finish making the compound file.
+if|if
+condition|(
+name|segmentInfos
+operator|.
+name|contains
+argument_list|(
+name|info
+argument_list|)
+condition|)
+block|{
+name|files
+operator|=
+name|info
+operator|.
+name|files
 argument_list|()
+expr_stmt|;
+name|deleter
+operator|.
+name|incRef
+argument_list|(
+name|files
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|files
+operator|!=
+literal|null
+condition|)
+block|{
+name|success
+operator|=
+literal|false
+expr_stmt|;
+name|startTransaction
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 try|try
 block|{
@@ -7628,6 +8428,13 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+name|deleter
+operator|.
+name|decRef
+argument_list|(
+name|files
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -7654,6 +8461,7 @@ block|{
 name|commitTransaction
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -7725,6 +8533,9 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|prepareCommit
 argument_list|(
 literal|false
@@ -7827,6 +8638,46 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**    *<p>Commits all pending updates (added& deleted    * documents) to the index, and syncs all referenced index    * files, such that a reader will see the changes and the    * index updates will survive an OS or machine crash or    * power loss (though, see the note below).  Note that    * this does not wait for any running background merges to    * finish.  This may be a costly operation, so you should    * test the cost in your application and do it only when    * really necessary.</p>    *    *<p> Note that this operation calls Directory.sync on    * the index files.  That call should not return until the    * file contents& metadata are on stable storage.  For    * FSDirectory, this calls the OS's fsync.  But, beware:    * some hardware devices may in fact cache writes even    * during fsync, and return before the bits are actually    * on stable storage, to give the appearance of faster    * performance.  If you have such a device, and it does    * not have a battery backup (for example) then on power    * loss it may still lose data.  Lucene cannot guarantee    * consistency on such devices.</p>    */
+DECL|field|committing
+specifier|private
+name|boolean
+name|committing
+decl_stmt|;
+DECL|method|waitForCommit
+specifier|synchronized
+specifier|private
+name|void
+name|waitForCommit
+parameter_list|()
+block|{
+comment|// Only allow a single thread to do the commit, at a time:
+while|while
+condition|(
+name|committing
+condition|)
+name|doWait
+argument_list|()
+expr_stmt|;
+name|committing
+operator|=
+literal|true
+expr_stmt|;
+block|}
+DECL|method|doneCommit
+specifier|synchronized
+specifier|private
+name|void
+name|doneCommit
+parameter_list|()
+block|{
+name|committing
+operator|=
+literal|false
+expr_stmt|;
+name|notifyAll
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|commit
 specifier|public
 specifier|final
@@ -7837,6 +8688,15 @@ throws|throws
 name|CorruptIndexException
 throws|,
 name|IOException
+block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
+comment|// Only let one thread do the prepare/finish at a time
+name|waitForCommit
+argument_list|()
+expr_stmt|;
+try|try
 block|{
 name|message
 argument_list|(
@@ -7872,6 +8732,13 @@ expr_stmt|;
 name|finishCommit
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|doneCommit
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|finishCommit
 specifier|private
@@ -7918,7 +8785,9 @@ name|pendingCommit
 argument_list|)
 expr_stmt|;
 name|setRollbackSegmentInfos
-argument_list|()
+argument_list|(
+name|pendingCommit
+argument_list|)
 expr_stmt|;
 name|deleter
 operator|.
@@ -7981,8 +8850,11 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+comment|// We can be called during close, when closing==true, so we must pass false to ensureOpen:
 name|ensureOpen
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -8020,7 +8892,11 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
-comment|// Make sure no threads are actively adding a document
+name|ensureOpen
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 assert|assert
 name|testPoint
 argument_list|(
@@ -8030,6 +8906,7 @@ assert|;
 name|flushCount
 operator|++
 expr_stmt|;
+comment|// Make sure no threads are actively adding a document
 name|flushDeletes
 operator||=
 name|docWriter
@@ -8751,6 +9628,11 @@ argument_list|(
 literal|"MergePolicy selected non-contiguous segments to merge ("
 operator|+
 name|merge
+operator|.
+name|segString
+argument_list|(
+name|directory
+argument_list|)
 operator|+
 literal|" vs "
 operator|+
@@ -8768,7 +9650,7 @@ return|return
 name|first
 return|;
 block|}
-comment|/** Carefully merges deletes for the segments we just    *  merged.  This is tricky because, although merging will    *  clear all deletes (compacts the documents), new    *  deletes may have been flushed to the segments since    *  the merge was started.  This method "carries over"    *  such new deletes onto the newly merged segment, and    *  saves the results deletes file (incrementing the    *  delete generation for merge.info).  If no deletes were    *  flushed, no new deletes file is saved. */
+comment|/** Carefully merges deletes for the segments we just    *  merged.  This is tricky because, although merging will    *  clear all deletes (compacts the documents), new    *  deletes may have been flushed to the segments since    *  the merge was started.  This method "carries over"    *  such new deletes onto the newly merged segment, and    *  saves the resulting deletes file (incrementing the    *  delete generation for merge.info).  If no deletes were    *  flushed, no new deletes file is saved. */
 DECL|method|commitMergedDeletes
 specifier|synchronized
 specifier|private
@@ -9268,6 +10150,11 @@ name|segString
 argument_list|(
 name|directory
 argument_list|)
+operator|+
+literal|" index="
+operator|+
+name|segString
+argument_list|()
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -9496,6 +10383,17 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+assert|assert
+operator|!
+name|segmentInfos
+operator|.
+name|contains
+argument_list|(
+name|merge
+operator|.
+name|info
+argument_list|)
+assert|;
 name|segmentInfos
 operator|.
 name|add
@@ -9675,6 +10573,10 @@ argument_list|(
 name|directory
 argument_list|)
 operator|+
+literal|"\n  merge="
+operator|+
+name|merge
+operator|+
 literal|"\n  index="
 operator|+
 name|segString
@@ -9833,12 +10735,6 @@ argument_list|(
 name|merge
 argument_list|)
 expr_stmt|;
-comment|// Optimize may be waiting on the final optimize
-comment|// merge to finish; and finishMerges() may be
-comment|// waiting for all merges to finish:
-name|notifyAll
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -9870,6 +10766,10 @@ operator|.
 name|OneMerge
 name|merge
 parameter_list|)
+throws|throws
+name|MergePolicy
+operator|.
+name|MergeAbortedException
 block|{
 if|if
 condition|(
@@ -9880,6 +10780,33 @@ condition|)
 return|return
 literal|true
 return|;
+if|if
+condition|(
+name|stopMerges
+condition|)
+block|{
+name|merge
+operator|.
+name|abort
+argument_list|()
+expr_stmt|;
+throw|throw
+operator|new
+name|MergePolicy
+operator|.
+name|MergeAbortedException
+argument_list|(
+literal|"merge is aborted: "
+operator|+
+name|merge
+operator|.
+name|segString
+argument_list|(
+name|directory
+argument_list|)
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|int
 name|count
@@ -9964,6 +10891,11 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+name|ensureContiguousMerge
+argument_list|(
+name|merge
+argument_list|)
+expr_stmt|;
 name|pendingMerges
 operator|.
 name|add
@@ -10842,6 +11774,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// Optimize, addIndexes or finishMerges may be waiting
+comment|// on merges to finish.
+name|notifyAll
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|merge
@@ -11246,6 +12183,39 @@ name|success
 operator|=
 literal|true
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+if|if
+condition|(
+name|merge
+operator|.
+name|isAborted
+argument_list|()
+condition|)
+block|{
+comment|// This can happen if rollback or close(false)
+comment|// is called -- fall through to logic below to
+comment|// remove the partially created CFS:
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+throw|throw
+name|ioe
+throw|;
+block|}
 block|}
 finally|finally
 block|{
@@ -11746,21 +12716,42 @@ literal|' '
 argument_list|)
 expr_stmt|;
 block|}
-name|buffer
-operator|.
-name|append
-argument_list|(
+specifier|final
+name|SegmentInfo
+name|info
+init|=
 name|infos
 operator|.
 name|info
 argument_list|(
 name|i
 argument_list|)
+decl_stmt|;
+name|buffer
+operator|.
+name|append
+argument_list|(
+name|info
 operator|.
 name|segString
 argument_list|(
 name|directory
 argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|info
+operator|.
+name|dir
+operator|!=
+name|directory
+condition|)
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|"**"
 argument_list|)
 expr_stmt|;
 block|}
@@ -12139,6 +13130,43 @@ block|}
 block|}
 block|}
 block|}
+DECL|method|doWait
+specifier|private
+specifier|synchronized
+name|void
+name|doWait
+parameter_list|()
+block|{
+try|try
+block|{
+comment|// NOTE: the callers of this method should in theory
+comment|// be able to do simply wait(), but, as a defense
+comment|// against thread timing hazards where notifyAll()
+comment|// falls to be called, we wait for at most 1 second
+comment|// and then return so caller can check if wait
+comment|// conditions are satisified:
+name|wait
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|ie
+parameter_list|)
+block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 comment|/** Walk through all files referenced by the current    *  segmentInfos and ask the Directory to sync each file,    *  if it wasn't already.  If that succeeds, then we    *  prepare a new segments_N file but do not fully commit    *  it. */
 DECL|method|startCommit
 specifier|private
@@ -12201,6 +13229,21 @@ synchronized|synchronized
 init|(
 name|this
 init|)
+block|{
+comment|// Wait for any running addIndexes to complete
+comment|// first, then block any from running until we've
+comment|// copied the segmentInfos we intend to sync:
+name|blockAddIndexes
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+assert|assert
+operator|!
+name|hasExternalSegments
+argument_list|()
+assert|;
+try|try
 block|{
 assert|assert
 name|lastCommitChangeCount
@@ -12275,6 +13318,13 @@ name|myChangeCount
 operator|=
 name|changeCount
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|resumeAddIndexes
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 assert|assert
 name|testPoint
@@ -12399,6 +13449,14 @@ name|fileExists
 argument_list|(
 name|fileName
 argument_list|)
+operator|:
+literal|"file '"
+operator|+
+name|fileName
+operator|+
+literal|"' does not exist dir="
+operator|+
+name|directory
 assert|;
 name|message
 argument_list|(
@@ -12492,27 +13550,9 @@ argument_list|(
 literal|"wait for existing pendingCommit to finish..."
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|wait
+name|doWait
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|ie
-parameter_list|)
-block|{
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|interrupt
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
