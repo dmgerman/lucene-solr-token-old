@@ -2133,7 +2133,7 @@ extends|extends
 name|BufferedIndexInput
 block|{
 DECL|class|Descriptor
-specifier|private
+specifier|protected
 specifier|static
 class|class
 name|Descriptor
@@ -2143,7 +2143,8 @@ block|{
 comment|// remember if the file is open, so that we don't try to close it
 comment|// more than once
 DECL|field|isOpen
-specifier|private
+specifier|protected
+specifier|volatile
 name|boolean
 name|isOpen
 decl_stmt|;
@@ -2235,7 +2236,7 @@ block|}
 block|}
 block|}
 DECL|field|file
-specifier|private
+specifier|protected
 specifier|final
 name|Descriptor
 name|file
@@ -2510,6 +2511,7 @@ comment|// remember if the file is open, so that we don't try to close it
 comment|// more than once
 DECL|field|isOpen
 specifier|private
+specifier|volatile
 name|boolean
 name|isOpen
 decl_stmt|;
