@@ -217,6 +217,8 @@ parameter_list|(
 name|List
 name|commits
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|IndexCommit
@@ -263,6 +265,14 @@ init|=
 name|firstCommit
 operator|.
 name|getVersion
+argument_list|()
+decl_stmt|;
+name|long
+name|lastTimestamp
+init|=
+name|firstCommit
+operator|.
+name|getTimestamp
 argument_list|()
 decl_stmt|;
 for|for
@@ -320,6 +330,14 @@ operator|.
 name|getVersion
 argument_list|()
 decl_stmt|;
+name|long
+name|nowTimestamp
+init|=
+name|commit
+operator|.
+name|getTimestamp
+argument_list|()
+decl_stmt|;
 name|assertTrue
 argument_list|(
 literal|"SegmentInfos commits are out-of-order"
@@ -338,6 +356,21 @@ operator|>
 name|lastVersion
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"SegmentInfos timestamps are out-of-order: now="
+operator|+
+name|nowTimestamp
+operator|+
+literal|" vs last="
+operator|+
+name|lastTimestamp
+argument_list|,
+name|nowTimestamp
+operator|>=
+name|lastTimestamp
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|now
@@ -351,6 +384,14 @@ expr_stmt|;
 name|last
 operator|=
 name|now
+expr_stmt|;
+name|lastVersion
+operator|=
+name|nowVersion
+expr_stmt|;
+name|lastTimestamp
+operator|=
+name|nowTimestamp
 expr_stmt|;
 block|}
 block|}
@@ -380,6 +421,8 @@ parameter_list|(
 name|List
 name|commits
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|verifyCommitOrder
 argument_list|(
@@ -494,6 +537,8 @@ parameter_list|(
 name|List
 name|commits
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|verifyCommitOrder
 argument_list|(
@@ -555,6 +600,8 @@ parameter_list|(
 name|List
 name|commits
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|verifyCommitOrder
 argument_list|(
@@ -661,6 +708,8 @@ parameter_list|(
 name|List
 name|commits
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|verifyCommitOrder
 argument_list|(
@@ -687,6 +736,8 @@ parameter_list|(
 name|List
 name|commits
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|verifyCommitOrder
 argument_list|(
