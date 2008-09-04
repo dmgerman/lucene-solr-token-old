@@ -668,7 +668,7 @@ decl_stmt|;
 name|String
 name|url
 init|=
-literal|"http://svn.apache.org/repos/asf/lucene/solr/trunk/"
+literal|"http://www.apache.org/dist/lucene/solr/"
 decl_stmt|;
 name|String
 name|txt
