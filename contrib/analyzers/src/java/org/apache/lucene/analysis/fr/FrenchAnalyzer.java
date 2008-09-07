@@ -153,7 +153,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Hashtable
+name|Map
 import|;
 end_import
 begin_import
@@ -724,13 +724,13 @@ name|exclusionlist
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Builds an exclusionlist from a Hashtable.    */
+comment|/**    * Builds an exclusionlist from a Map.    */
 DECL|method|setStemExclusionTable
 specifier|public
 name|void
 name|setStemExclusionTable
 parameter_list|(
-name|Hashtable
+name|Map
 name|exclusionlist
 parameter_list|)
 block|{

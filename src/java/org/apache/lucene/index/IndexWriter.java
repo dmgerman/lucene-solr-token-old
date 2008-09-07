@@ -7262,7 +7262,7 @@ argument_list|)
 assert|;
 name|segmentInfos
 operator|.
-name|addElement
+name|add
 argument_list|(
 name|info
 argument_list|)
@@ -7621,7 +7621,7 @@ name|docCount
 expr_stmt|;
 name|segmentInfos
 operator|.
-name|addElement
+name|add
 argument_list|(
 name|info
 argument_list|)
@@ -8235,10 +8235,8 @@ init|)
 block|{
 name|segmentInfos
 operator|.
-name|setSize
-argument_list|(
-literal|0
-argument_list|)
+name|clear
+argument_list|()
 expr_stmt|;
 comment|// pop old infos& add new
 name|info
@@ -8271,7 +8269,7 @@ argument_list|)
 expr_stmt|;
 name|segmentInfos
 operator|.
-name|addElement
+name|add
 argument_list|(
 name|info
 argument_list|)
@@ -9287,7 +9285,7 @@ name|flushDocs
 condition|)
 name|segmentInfos
 operator|.
-name|addElement
+name|add
 argument_list|(
 name|newSegment
 argument_list|)

@@ -61,7 +61,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Hashtable
+name|Map
 import|;
 end_import
 begin_import
@@ -347,7 +347,7 @@ DECL|method|GermanAnalyzer
 specifier|public
 name|GermanAnalyzer
 parameter_list|(
-name|Hashtable
+name|Map
 name|stopwords
 parameter_list|)
 block|{
@@ -411,7 +411,7 @@ specifier|public
 name|void
 name|setStemExclusionTable
 parameter_list|(
-name|Hashtable
+name|Map
 name|exclusionlist
 parameter_list|)
 block|{

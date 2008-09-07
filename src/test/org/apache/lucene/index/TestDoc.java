@@ -888,7 +888,7 @@ condition|(
 name|useCompoundFile
 condition|)
 block|{
-name|Vector
+name|List
 name|filesToDelete
 init|=
 name|merger

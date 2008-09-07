@@ -22,7 +22,16 @@ name|java
 operator|.
 name|util
 operator|.
-name|Hashtable
+name|HashMap
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 begin_import
@@ -151,7 +160,7 @@ block|}
 decl_stmt|;
 DECL|field|stopTable
 specifier|private
-name|Hashtable
+name|Map
 name|stopTable
 decl_stmt|;
 DECL|method|ChineseFilter
@@ -170,7 +179,7 @@ expr_stmt|;
 name|stopTable
 operator|=
 operator|new
-name|Hashtable
+name|HashMap
 argument_list|(
 name|STOP_WORDS
 operator|.
