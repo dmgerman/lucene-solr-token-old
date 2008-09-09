@@ -2959,6 +2959,13 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|SpanScorer
+operator|.
+name|setHighlightCnstScrRngQuery
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|scorer
 operator|=
 operator|new
@@ -2974,13 +2981,6 @@ operator|(
 name|CachingTokenFilter
 operator|)
 name|tokenStream
-argument_list|)
-expr_stmt|;
-name|scorer
-operator|.
-name|setHighlightCnstScrRngQuery
-argument_list|(
-literal|true
 argument_list|)
 expr_stmt|;
 name|Highlighter

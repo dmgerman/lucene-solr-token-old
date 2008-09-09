@@ -1233,6 +1233,8 @@ block|}
 elseif|else
 if|if
 condition|(
+name|highlightCnstScrRngQuery
+operator|&&
 name|query
 operator|instanceof
 name|ConstantScoreRangeQuery
