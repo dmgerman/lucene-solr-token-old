@@ -413,7 +413,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 decl_stmt|;
 name|d
@@ -444,7 +444,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 decl_stmt|;
 name|f2
@@ -682,7 +682,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 decl_stmt|;
 name|d
@@ -713,7 +713,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 decl_stmt|;
 name|f2
@@ -975,7 +975,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 decl_stmt|;
 name|d
@@ -1006,7 +1006,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 decl_stmt|;
 name|d
@@ -1287,7 +1287,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 decl_stmt|;
 name|f1
@@ -1518,7 +1518,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 decl_stmt|;
 name|noTf
@@ -1567,7 +1567,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 decl_stmt|;
 name|d

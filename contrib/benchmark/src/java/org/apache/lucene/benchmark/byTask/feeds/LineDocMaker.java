@@ -219,7 +219,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|termVecVal
 argument_list|)
@@ -241,7 +241,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|termVecVal
 argument_list|)
@@ -263,7 +263,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|termVecVal
 argument_list|)
@@ -289,7 +289,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|NO_NORMS
+name|NOT_ANALYZED_NO_NORMS
 argument_list|)
 expr_stmt|;
 name|doc
@@ -503,7 +503,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|termVecVal
 argument_list|)
@@ -526,7 +526,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|termVecVal
 argument_list|)
@@ -549,7 +549,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|termVecVal
 argument_list|)

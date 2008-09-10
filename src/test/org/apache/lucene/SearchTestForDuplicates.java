@@ -317,7 +317,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -347,7 +347,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 argument_list|)
 expr_stmt|;

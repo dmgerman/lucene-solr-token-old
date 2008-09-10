@@ -295,7 +295,7 @@ name|NO
 argument_list|,
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 argument_list|)
 expr_stmt|;

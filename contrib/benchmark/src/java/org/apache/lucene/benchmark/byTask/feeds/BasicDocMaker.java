@@ -291,7 +291,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 decl_stmt|;
 DECL|field|termVecVal
 specifier|protected
@@ -1157,13 +1157,13 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 else|:
 name|Field
 operator|.
 name|Index
 operator|.
-name|UN_TOKENIZED
+name|NOT_ANALYZED
 operator|)
 expr_stmt|;
 name|boolean

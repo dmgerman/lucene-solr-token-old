@@ -3086,7 +3086,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|NO_NORMS
+name|NOT_ANALYZED_NO_NORMS
 argument_list|)
 decl_stmt|;
 name|fields
@@ -3227,7 +3227,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|NO_NORMS
+name|NOT_ANALYZED_NO_NORMS
 argument_list|,
 name|tvVal
 argument_list|)
@@ -3266,7 +3266,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|tvVal
 argument_list|)
@@ -3348,7 +3348,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|tvVal
 argument_list|)

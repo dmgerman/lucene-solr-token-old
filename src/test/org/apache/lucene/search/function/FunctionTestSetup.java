@@ -487,7 +487,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|UN_TOKENIZED
+name|NOT_ANALYZED
 argument_list|)
 expr_stmt|;
 comment|// for debug purposes
@@ -531,7 +531,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 expr_stmt|;
 comment|// for regular search
@@ -570,7 +570,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|UN_TOKENIZED
+name|NOT_ANALYZED
 argument_list|)
 expr_stmt|;
 comment|// for function scoring
@@ -609,7 +609,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|UN_TOKENIZED
+name|NOT_ANALYZED
 argument_list|)
 expr_stmt|;
 comment|// for function scoring

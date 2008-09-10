@@ -234,7 +234,7 @@ operator|new
 name|Document
 argument_list|()
 decl_stmt|;
-comment|//    doc.add(new Field("field", "the quick brown fox jumps over the lazy dog", Field.Store.NO, Field.Index.TOKENIZED));
+comment|//    doc.add(new Field("field", "the quick brown fox jumps over the lazy dog", Field.Store.NO, Field.Index.ANALYZED));
 comment|//    writer.addDocument(doc);
 comment|//    doc = new Document();
 name|doc
@@ -258,7 +258,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -296,7 +296,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 argument_list|)
 expr_stmt|;

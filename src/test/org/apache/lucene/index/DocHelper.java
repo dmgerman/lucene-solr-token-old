@@ -187,7 +187,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|Field
 operator|.
@@ -254,7 +254,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|Field
 operator|.
@@ -321,7 +321,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|Field
 operator|.
@@ -371,7 +371,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 decl_stmt|;
 static|static
@@ -425,7 +425,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|UN_TOKENIZED
+name|NOT_ANALYZED
 argument_list|)
 decl_stmt|;
 DECL|field|NO_NORMS_TEXT
@@ -469,7 +469,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|NO_NORMS
+name|NOT_ANALYZED_NO_NORMS
 argument_list|)
 decl_stmt|;
 DECL|field|UNINDEXED_FIELD_TEXT
@@ -557,7 +557,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|Field
 operator|.
@@ -607,7 +607,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|Field
 operator|.
@@ -679,7 +679,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 decl_stmt|;
 DECL|field|LARGE_LAZY_FIELD_KEY
@@ -745,7 +745,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|Field
 operator|.
@@ -812,7 +812,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|,
 name|Field
 operator|.
@@ -1068,7 +1068,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|TOKENIZED
+name|ANALYZED
 argument_list|)
 expr_stmt|;
 name|fields
