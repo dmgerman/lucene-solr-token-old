@@ -1127,7 +1127,7 @@ argument_list|()
 operator|.
 name|docList
 operator|.
-name|size
+name|matches
 argument_list|()
 argument_list|)
 expr_stmt|;
