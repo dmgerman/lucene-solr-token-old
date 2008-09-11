@@ -230,7 +230,11 @@ literal|1
 argument_list|,
 literal|2
 argument_list|,
+operator|new
+name|Character
+argument_list|(
 literal|' '
+argument_list|)
 argument_list|,
 literal|false
 argument_list|,
@@ -257,9 +261,6 @@ name|TokenListStream
 name|tls
 decl_stmt|;
 name|LinkedList
-argument_list|<
-name|Token
-argument_list|>
 name|tokens
 decl_stmt|;
 comment|// test a plain old token stream with synonyms translated to rows.
@@ -267,9 +268,6 @@ name|tokens
 operator|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Token
-argument_list|>
 argument_list|()
 expr_stmt|;
 name|tokens
@@ -376,7 +374,11 @@ literal|1
 argument_list|,
 literal|2
 argument_list|,
+operator|new
+name|Character
+argument_list|(
 literal|' '
+argument_list|)
 argument_list|,
 literal|false
 argument_list|,
@@ -571,9 +573,6 @@ name|TokenListStream
 name|tls
 decl_stmt|;
 name|LinkedList
-argument_list|<
-name|Token
-argument_list|>
 name|tokens
 decl_stmt|;
 comment|// test a plain old token stream with synonyms tranlated to rows.
@@ -581,9 +580,6 @@ name|tokens
 operator|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Token
-argument_list|>
 argument_list|()
 expr_stmt|;
 name|tokens
@@ -686,7 +682,11 @@ literal|2
 argument_list|,
 literal|2
 argument_list|,
+operator|new
+name|Character
+argument_list|(
 literal|'_'
+argument_list|)
 argument_list|,
 literal|false
 argument_list|,
@@ -902,9 +902,6 @@ name|tokens
 operator|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Token
-argument_list|>
 argument_list|()
 expr_stmt|;
 name|tokens
@@ -1097,7 +1094,11 @@ literal|2
 argument_list|,
 literal|2
 argument_list|,
+operator|new
+name|Character
+argument_list|(
 literal|'_'
+argument_list|)
 argument_list|,
 literal|false
 argument_list|)
@@ -1323,7 +1324,11 @@ name|Integer
 operator|.
 name|MAX_VALUE
 argument_list|,
+operator|new
+name|Character
+argument_list|(
 literal|'_'
+argument_list|)
 argument_list|,
 literal|false
 argument_list|)
@@ -1974,7 +1979,11 @@ name|Integer
 operator|.
 name|MAX_VALUE
 argument_list|,
+operator|new
+name|Character
+argument_list|(
 literal|'_'
+argument_list|)
 argument_list|,
 literal|true
 argument_list|)
@@ -2587,9 +2596,6 @@ name|tokens
 operator|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Token
-argument_list|>
 argument_list|()
 expr_stmt|;
 name|tokens
@@ -2780,7 +2786,11 @@ literal|2
 argument_list|,
 literal|3
 argument_list|,
+operator|new
+name|Character
+argument_list|(
 literal|'_'
+argument_list|)
 argument_list|,
 literal|false
 argument_list|)
@@ -3240,7 +3250,11 @@ literal|2
 argument_list|,
 literal|4
 argument_list|,
+operator|new
+name|Character
+argument_list|(
 literal|'_'
+argument_list|)
 argument_list|,
 literal|true
 argument_list|,
@@ -4341,6 +4355,8 @@ operator|.
 name|getData
 argument_list|()
 argument_list|)
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 return|return
@@ -4437,6 +4453,8 @@ operator|.
 name|getData
 argument_list|()
 argument_list|)
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -4585,9 +4603,6 @@ block|{
 DECL|field|tokens
 specifier|private
 name|Collection
-argument_list|<
-name|Token
-argument_list|>
 name|tokens
 decl_stmt|;
 DECL|method|TokenListStream
@@ -4604,9 +4619,6 @@ name|tokens
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Token
-argument_list|>
 argument_list|()
 expr_stmt|;
 specifier|final
@@ -4663,9 +4675,6 @@ specifier|public
 name|TokenListStream
 parameter_list|(
 name|Collection
-argument_list|<
-name|Token
-argument_list|>
 name|tokens
 parameter_list|)
 block|{
@@ -4679,9 +4688,6 @@ block|}
 DECL|field|iterator
 specifier|private
 name|Iterator
-argument_list|<
-name|Token
-argument_list|>
 name|iterator
 decl_stmt|;
 DECL|method|next
