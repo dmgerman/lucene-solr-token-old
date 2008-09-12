@@ -4467,6 +4467,15 @@ name|Throwable
 name|r
 parameter_list|)
 block|{
+name|r
+operator|.
+name|printStackTrace
+argument_list|(
+name|System
+operator|.
+name|out
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|error
