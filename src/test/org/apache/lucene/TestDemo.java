@@ -206,7 +206,7 @@ name|_TestUtil
 import|;
 end_import
 begin_comment
-comment|/**  * A very simple demo used in the API documentation (src/java/overview.html).  *   * @author Daniel Naber  */
+comment|/**  * A very simple demo used in the API documentation (src/java/overview.html).  *  */
 end_comment
 begin_class
 DECL|class|TestDemo

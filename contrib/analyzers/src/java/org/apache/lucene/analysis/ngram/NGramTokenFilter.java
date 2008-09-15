@@ -74,7 +74,7 @@ name|LinkedList
 import|;
 end_import
 begin_comment
-comment|/**  * Tokenizes the input into n-grams of the given size(s).  * @author Otis Gospodnetic  */
+comment|/**  * Tokenizes the input into n-grams of the given size(s).  */
 end_comment
 begin_class
 DECL|class|NGramTokenFilter

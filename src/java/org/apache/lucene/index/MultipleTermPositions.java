@@ -73,7 +73,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * Describe class<code>MultipleTermPositions</code> here.  *   * @author Anders Nielsen  * @version 1.0  */
+comment|/**  * Describe class<code>MultipleTermPositions</code> here.  *  * @version 1.0  */
 end_comment
 begin_class
 DECL|class|MultipleTermPositions

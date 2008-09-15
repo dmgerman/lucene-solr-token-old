@@ -74,7 +74,7 @@ name|Set
 import|;
 end_import
 begin_comment
-comment|/**  * Filters CJKTokenizer with StopFilter.  *  * @author Che, Dong  */
+comment|/**  * Filters CJKTokenizer with StopFilter.  *  */
 end_comment
 begin_class
 DECL|class|CJKAnalyzer

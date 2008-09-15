@@ -74,7 +74,7 @@ name|TokenStream
 import|;
 end_import
 begin_comment
-comment|/**  * Test case for FrenchAnalyzer.  *  * @author    Jean-FranÃ§ois Halleux  * @version   $version$  */
+comment|/**  * Test case for FrenchAnalyzer.  *  * @version   $version$  */
 end_comment
 begin_class
 DECL|class|TestFrenchAnalyzer

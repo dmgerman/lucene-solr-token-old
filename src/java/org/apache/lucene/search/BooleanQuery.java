@@ -84,7 +84,6 @@ name|BooleanQuery
 extends|extends
 name|Query
 block|{
-comment|/**     */
 DECL|field|maxClauseCount
 specifier|private
 specifier|static

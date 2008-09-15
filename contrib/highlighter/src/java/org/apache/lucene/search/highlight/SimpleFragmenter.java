@@ -30,7 +30,7 @@ name|Token
 import|;
 end_import
 begin_comment
-comment|/**  * {@link Fragmenter} implementation which breaks text up into same-size   * fragments with no concerns over spotting sentence boundaries.  * @author mark@searcharea.co.uk  */
+comment|/**  * {@link Fragmenter} implementation which breaks text up into same-size   * fragments with no concerns over spotting sentence boundaries.  */
 end_comment
 begin_class
 DECL|class|SimpleFragmenter

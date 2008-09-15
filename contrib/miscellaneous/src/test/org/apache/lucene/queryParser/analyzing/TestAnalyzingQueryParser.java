@@ -130,7 +130,7 @@ name|ParseException
 import|;
 end_import
 begin_comment
-comment|/**  * @author  Ronnie Kolehmainen (ronnie.kolehmainen at ub.uu.se)  * @version $Revision$, $Date$  */
+comment|/**  * @version $Revision$, $Date$  */
 end_comment
 begin_class
 DECL|class|TestAnalyzingQueryParser

@@ -137,7 +137,7 @@ name|Transaction
 import|;
 end_import
 begin_comment
-comment|/**  * Port of Andi Vajda's DbDirectory to Java Edition of Berkeley Database  *   * @author Aaron Donovan  */
+comment|/**  * Port of Andi Vajda's DbDirectory to Java Edition of Berkeley Database  *  */
 end_comment
 begin_class
 DECL|class|File

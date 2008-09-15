@@ -145,7 +145,7 @@ name|RAMDirectory
 import|;
 end_import
 begin_comment
-comment|/*******************************************************************************  * Tests the span query bug in Lucene. It demonstrates that SpanTermQuerys don't  * work correctly in a BooleanQuery.  *  * @author Reece Wilton  */
+comment|/*******************************************************************************  * Tests the span query bug in Lucene. It demonstrates that SpanTermQuerys don't  * work correctly in a BooleanQuery.  *  */
 end_comment
 begin_class
 DECL|class|TestSpansAdvanced

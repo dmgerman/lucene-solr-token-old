@@ -33,7 +33,7 @@ name|RawData
 import|;
 end_import
 begin_comment
-comment|/** Native file-based {@link IndexInput} implementation, using GCJ.  *  * @author Doug Cutting  */
+comment|/** Native file-based {@link IndexInput} implementation, using GCJ.  *  */
 end_comment
 begin_class
 DECL|class|GCJIndexInput

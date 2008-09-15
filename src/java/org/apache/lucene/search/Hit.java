@@ -50,7 +50,7 @@ name|CorruptIndexException
 import|;
 end_import
 begin_comment
-comment|/**  * Wrapper used by {@link HitIterator} to provide a lazily loaded hit  * from {@link Hits}.  *  * @deprecated Hits will be removed in Lucene 3.0. Use {@link TopDocCollector} and {@link TopDocs} instead.   * @author Jeremy Rayner  */
+comment|/**  * Wrapper used by {@link HitIterator} to provide a lazily loaded hit  * from {@link Hits}.  *  * @deprecated Hits will be removed in Lucene 3.0. Use {@link TopDocCollector} and {@link TopDocs} instead.  */
 end_comment
 begin_class
 DECL|class|Hit

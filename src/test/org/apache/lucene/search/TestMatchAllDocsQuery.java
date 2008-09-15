@@ -117,7 +117,7 @@ name|LuceneTestCase
 import|;
 end_import
 begin_comment
-comment|/**  * Tests MatchAllDocsQuery.  *   * @author Daniel Naber  */
+comment|/**  * Tests MatchAllDocsQuery.  *  */
 end_comment
 begin_class
 DECL|class|TestMatchAllDocsQuery

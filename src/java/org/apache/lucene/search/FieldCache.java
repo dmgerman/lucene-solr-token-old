@@ -37,7 +37,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Expert: Maintains caches of term values.  *  *<p>Created: May 19, 2004 11:13:14 AM  *  * @author  Tim Jones (Nacimiento Software)  * @since   lucene 1.4  * @version $Id$  */
+comment|/**  * Expert: Maintains caches of term values.  *  *<p>Created: May 19, 2004 11:13:14 AM  *  * @since   lucene 1.4  * @version $Id$  */
 end_comment
 begin_interface
 DECL|interface|FieldCache

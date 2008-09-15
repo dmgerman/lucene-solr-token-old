@@ -200,7 +200,7 @@ name|ArrayList
 import|;
 end_import
 begin_comment
-comment|/**  * See table searcher explanation.  *  * @author Jonathan Simon - jonathan_s_simon@yahoo.com  */
+comment|/**  * See table searcher explanation.  *  */
 end_comment
 begin_class
 DECL|class|ListSearcher

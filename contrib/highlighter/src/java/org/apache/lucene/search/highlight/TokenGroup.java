@@ -30,7 +30,7 @@ name|Token
 import|;
 end_import
 begin_comment
-comment|/**  * One, or several overlapping tokens, along with the score(s) and the  * scope of the original text  * @author MAHarwood  */
+comment|/**  * One, or several overlapping tokens, along with the score(s) and the  * scope of the original text  */
 end_comment
 begin_class
 DECL|class|TokenGroup

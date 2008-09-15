@@ -30,7 +30,7 @@ name|Token
 import|;
 end_import
 begin_comment
-comment|/**  * Adds to the score for a fragment based on its tokens  * @author mark@searcharea.co.uk  */
+comment|/**  * Adds to the score for a fragment based on its tokens  */
 end_comment
 begin_interface
 DECL|interface|Scorer

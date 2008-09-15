@@ -375,7 +375,7 @@ name|ParseException
 import|;
 end_import
 begin_comment
-comment|/**  *  Ant task to index files with Lucene  *  *@author Erik Hatcher  */
+comment|/**  *  Ant task to index files with Lucene  *  */
 end_comment
 begin_class
 DECL|class|IndexTask

@@ -241,7 +241,7 @@ name|LuceneTestCase
 import|;
 end_import
 begin_comment
-comment|/**  * Tests QueryParser.  * @author Daniel Naber  */
+comment|/**  * Tests QueryParser.  */
 end_comment
 begin_class
 DECL|class|TestMultiFieldQueryParser

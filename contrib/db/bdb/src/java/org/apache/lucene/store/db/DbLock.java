@@ -30,7 +30,7 @@ name|Lock
 import|;
 end_import
 begin_comment
-comment|/**  * This implementation of {@link org.apache.lucene.store.Lock Lock} is  * trivial as {@link DbDirectory} operations are managed by the Berkeley DB  * locking system.  *  * @author Andi Vajda  */
+comment|/**  * This implementation of {@link org.apache.lucene.store.Lock Lock} is  * trivial as {@link DbDirectory} operations are managed by the Berkeley DB  * locking system.  *  */
 end_comment
 begin_class
 DECL|class|DbLock

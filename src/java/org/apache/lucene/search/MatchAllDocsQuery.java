@@ -128,7 +128,7 @@ name|Set
 import|;
 end_import
 begin_comment
-comment|/**  * A query that matches all documents.  *   * @author John Wang  */
+comment|/**  * A query that matches all documents.  *  */
 end_comment
 begin_class
 DECL|class|MatchAllDocsQuery

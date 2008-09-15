@@ -76,9 +76,6 @@ operator|.
 name|Set
 import|;
 end_import
-begin_comment
-comment|/**  * @author yonik  */
-end_comment
 begin_class
 DECL|class|TestStopFilter
 specifier|public

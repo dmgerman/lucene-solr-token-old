@@ -46,7 +46,7 @@ name|Locale
 import|;
 end_import
 begin_comment
-comment|/**  * Expert: Collects sorted results from Searchable's and collates them.  * The elements put into this queue must be of type FieldDoc.  *  *<p>Created: Feb 11, 2004 2:04:21 PM  *  * @author  Tim Jones (Nacimiento Software)  * @since   lucene 1.4  * @version $Id$  */
+comment|/**  * Expert: Collects sorted results from Searchable's and collates them.  * The elements put into this queue must be of type FieldDoc.  *  *<p>Created: Feb 11, 2004 2:04:21 PM  *  * @since   lucene 1.4  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|FieldDocSortedHitQueue

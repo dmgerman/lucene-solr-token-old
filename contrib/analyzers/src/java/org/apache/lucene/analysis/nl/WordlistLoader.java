@@ -62,7 +62,7 @@ name|HashMap
 import|;
 end_import
 begin_comment
-comment|/**  *<p/>  *         Loads a text file and adds every line as an entry to a Hashtable. Every line  *         should contain only one word. If the file is not found or on any error, an  *         empty table is returned.  *           * @author Gerhard Schwarz  * @deprecated use {@link org.apache.lucene.analysis.WordlistLoader} instead  */
+comment|/**  *<p/>  *         Loads a text file and adds every line as an entry to a Hashtable. Every line  *         should contain only one word. If the file is not found or on any error, an  *         empty table is returned.  *  * @deprecated use {@link org.apache.lucene.analysis.WordlistLoader} instead  */
 end_comment
 begin_class
 DECL|class|WordlistLoader

@@ -127,7 +127,7 @@ name|MoreLikeThis
 import|;
 end_import
 begin_comment
-comment|/**  * A simple wrapper for MoreLikeThis for use in scenarios where a Query object is required eg  * in custom QueryParser extensions. At query.rewrite() time the reader is used to construct the  * actual MoreLikeThis object and obtain the real Query object.  * @author maharwood  */
+comment|/**  * A simple wrapper for MoreLikeThis for use in scenarios where a Query object is required eg  * in custom QueryParser extensions. At query.rewrite() time the reader is used to construct the  * actual MoreLikeThis object and obtain the real Query object.  */
 end_comment
 begin_class
 DECL|class|MoreLikeThisQuery

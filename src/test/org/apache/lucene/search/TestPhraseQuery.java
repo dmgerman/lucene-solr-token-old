@@ -124,7 +124,7 @@ name|Reader
 import|;
 end_import
 begin_comment
-comment|/**  * Tests {@link PhraseQuery}.  *  * @see TestPositionIncrement  * @author Erik Hatcher  */
+comment|/**  * Tests {@link PhraseQuery}.  *  * @see TestPositionIncrement  */
 end_comment
 begin_class
 DECL|class|TestPhraseQuery
