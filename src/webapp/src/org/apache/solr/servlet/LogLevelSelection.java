@@ -1206,6 +1206,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// avoid NPE
 continue|continue;
 block|}
 if|if
@@ -1218,19 +1219,13 @@ name|l
 argument_list|)
 condition|)
 block|{
-name|level
-operator|=
+comment|// return first level loggable
+return|return
 name|l
-expr_stmt|;
+return|;
 block|}
 block|}
 return|return
-name|level
-operator|!=
-literal|null
-condition|?
-name|level
-else|:
 name|Level
 operator|.
 name|OFF
