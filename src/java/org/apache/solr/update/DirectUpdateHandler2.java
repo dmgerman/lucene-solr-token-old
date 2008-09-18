@@ -178,17 +178,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|io
 operator|.
 name|IOException
@@ -1929,7 +1918,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|severe
+name|error
 argument_list|(
 literal|"auto commit error..."
 argument_list|)

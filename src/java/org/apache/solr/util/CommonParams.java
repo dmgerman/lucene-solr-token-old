@@ -31,13 +31,20 @@ import|;
 end_import
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
-operator|.
-name|logging
+name|slf4j
 operator|.
 name|Logger
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 begin_comment
@@ -69,16 +76,13 @@ specifier|static
 name|Logger
 name|log
 init|=
-name|Logger
+name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
 name|CommonParams
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|/** the default field list to be used */
@@ -218,7 +222,7 @@ else|else
 block|{
 name|log
 operator|.
-name|severe
+name|error
 argument_list|(
 literal|"init param is not a str: "
 operator|+
@@ -262,7 +266,7 @@ else|else
 block|{
 name|log
 operator|.
-name|severe
+name|error
 argument_list|(
 literal|"init param is not a str: "
 operator|+
@@ -306,7 +310,7 @@ else|else
 block|{
 name|log
 operator|.
-name|severe
+name|error
 argument_list|(
 literal|"init param is not a str: "
 operator|+
@@ -350,7 +354,7 @@ else|else
 block|{
 name|log
 operator|.
-name|severe
+name|error
 argument_list|(
 literal|"init param is not a str: "
 operator|+

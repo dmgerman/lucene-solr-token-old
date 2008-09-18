@@ -60,24 +60,20 @@ import|;
 end_import
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|logging
-operator|.
-name|Level
+name|Logger
 import|;
 end_import
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|logging
-operator|.
-name|Logger
+name|LoggerFactory
 import|;
 end_import
 begin_comment
@@ -109,16 +105,13 @@ specifier|final
 name|Logger
 name|LOG
 init|=
-name|Logger
+name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
 name|JdbcDataSource
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|factory
@@ -271,12 +264,8 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 literal|"Invalid batch size: "
 operator|+
 name|bsz
@@ -783,12 +772,8 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 name|msg
 argument_list|,
 name|e
@@ -938,7 +923,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|finer
+name|debug
 argument_list|(
 literal|"Executing SQL: "
 operator|+
@@ -973,7 +958,7 @@ expr_stmt|;
 block|}
 name|LOG
 operator|.
-name|finest
+name|trace
 argument_list|(
 literal|"Time taken for sql :"
 operator|+

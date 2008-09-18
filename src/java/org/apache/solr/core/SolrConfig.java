@@ -173,17 +173,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|regex
 operator|.
 name|Pattern
@@ -1074,12 +1063,8 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 literal|"Unrecognized value for lastModFrom: "
 operator|+
 name|s
@@ -1266,12 +1251,8 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 literal|"Ignoring exception while attempting to "
 operator|+
 literal|"extract max-age from cacheControl config: "

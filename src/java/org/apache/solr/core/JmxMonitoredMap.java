@@ -132,24 +132,20 @@ import|;
 end_import
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|logging
-operator|.
-name|Level
+name|Logger
 import|;
 end_import
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|slf4j
 operator|.
-name|logging
-operator|.
-name|Logger
+name|LoggerFactory
 import|;
 end_import
 begin_comment
@@ -180,7 +176,7 @@ specifier|final
 name|Logger
 name|LOG
 init|=
-name|Logger
+name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
@@ -595,12 +591,8 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 literal|"Failed to register info bean: "
 operator|+
 name|key
@@ -669,12 +661,8 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 literal|"Failed to unregister info bean: "
 operator|+
 name|key
@@ -1106,12 +1094,8 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|log
+name|warn
 argument_list|(
-name|Level
-operator|.
-name|WARNING
-argument_list|,
 literal|"Could not getStatistics on info bean "
 operator|+
 name|infoBean
@@ -1358,7 +1342,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|warning
+name|warn
 argument_list|(
 literal|"Could not get attibute "
 operator|+

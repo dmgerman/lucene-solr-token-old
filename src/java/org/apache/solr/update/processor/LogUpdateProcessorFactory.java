@@ -45,17 +45,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|logging
-operator|.
-name|Level
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -247,14 +236,10 @@ name|LogUpdateProcessor
 operator|.
 name|log
 operator|.
-name|isLoggable
-argument_list|(
-name|Level
-operator|.
-name|INFO
-argument_list|)
+name|isInfoEnabled
+argument_list|()
 decl_stmt|;
-comment|// LogUpdateProcessor.log.severe("Will Log=" + doLog);
+comment|// LogUpdateProcessor.log.error("Will Log=" + doLog);
 if|if
 condition|(
 name|doLog

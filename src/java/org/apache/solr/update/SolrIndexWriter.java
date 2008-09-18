@@ -107,13 +107,20 @@ import|;
 end_import
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
-operator|.
-name|logging
+name|slf4j
 operator|.
 name|Logger
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
 import|;
 end_import
 begin_import
@@ -142,16 +149,13 @@ specifier|static
 name|Logger
 name|log
 init|=
-name|Logger
+name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
 name|SolrIndexWriter
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|name
@@ -181,7 +185,7 @@ name|IOException
 block|{
 name|log
 operator|.
-name|fine
+name|debug
 argument_list|(
 literal|"Opened Writer "
 operator|+
@@ -467,7 +471,7 @@ block|{
 comment|// we default to "simple" for backwards compatiblitiy
 name|log
 operator|.
-name|warning
+name|warn
 argument_list|(
 literal|"No lockType configured for "
 operator|+
@@ -586,7 +590,7 @@ block|{
 comment|// recipie for disaster
 name|log
 operator|.
-name|severe
+name|error
 argument_list|(
 literal|"CONFIGURATION WARNING: locks are disabled on "
 operator|+
@@ -737,7 +741,7 @@ name|IOException
 block|{
 name|log
 operator|.
-name|fine
+name|debug
 argument_list|(
 literal|"Closing Writer "
 operator|+
