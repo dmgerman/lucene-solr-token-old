@@ -656,7 +656,7 @@ name|getInt
 argument_list|(
 name|FacetParams
 operator|.
-name|FACET_LIMIT
+name|FACET_MINCOUNT
 argument_list|,
 literal|1
 argument_list|)
