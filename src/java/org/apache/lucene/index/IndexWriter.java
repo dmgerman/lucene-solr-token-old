@@ -10528,6 +10528,117 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|handleMergeException
+specifier|final
+specifier|private
+name|void
+name|handleMergeException
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|,
+name|MergePolicy
+operator|.
+name|OneMerge
+name|merge
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// Set the exception on the merge, so if
+comment|// optimize() is waiting on us it sees the root
+comment|// cause exception:
+name|merge
+operator|.
+name|setException
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
+name|addMergeException
+argument_list|(
+name|merge
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|t
+operator|instanceof
+name|MergePolicy
+operator|.
+name|MergeAbortedException
+condition|)
+block|{
+comment|// We can ignore this exception (it happens when
+comment|// close(false) or rollback is called), unless the
+comment|// merge involves segments from external directories,
+comment|// in which case we must throw it so, for example, the
+comment|// rollbackTransaction code in addIndexes* is
+comment|// executed.
+if|if
+condition|(
+name|merge
+operator|.
+name|isExternal
+condition|)
+throw|throw
+operator|(
+name|MergePolicy
+operator|.
+name|MergeAbortedException
+operator|)
+name|t
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|t
+operator|instanceof
+name|IOException
+condition|)
+throw|throw
+operator|(
+name|IOException
+operator|)
+name|t
+throw|;
+elseif|else
+if|if
+condition|(
+name|t
+operator|instanceof
+name|RuntimeException
+condition|)
+throw|throw
+operator|(
+name|RuntimeException
+operator|)
+name|t
+throw|;
+elseif|else
+if|if
+condition|(
+name|t
+operator|instanceof
+name|Error
+condition|)
+throw|throw
+operator|(
+name|Error
+operator|)
+name|t
+throw|;
+else|else
+comment|// Should not get here
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|t
+argument_list|)
+throw|;
+block|}
 comment|/**    * Merges the indicated segments, replacing them in the stack with a    * single segment.    */
 DECL|method|merge
 specifier|final
@@ -10599,38 +10710,17 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|MergePolicy
-operator|.
-name|MergeAbortedException
-name|e
+name|Throwable
+name|t
 parameter_list|)
 block|{
-name|merge
-operator|.
-name|setException
+name|handleMergeException
 argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-name|addMergeException
-argument_list|(
+name|t
+argument_list|,
 name|merge
 argument_list|)
 expr_stmt|;
-comment|// We can ignore this exception, unless the merge
-comment|// involves segments from external directories, in
-comment|// which case we must throw it so, for example, the
-comment|// rollbackTransaction code in addIndexes* is
-comment|// executed.
-if|if
-condition|(
-name|merge
-operator|.
-name|isExternal
-condition|)
-throw|throw
-name|e
-throw|;
 block|}
 block|}
 finally|finally
@@ -10662,11 +10752,6 @@ condition|)
 name|message
 argument_list|(
 literal|"hit exception during merge"
-argument_list|)
-expr_stmt|;
-name|addMergeException
-argument_list|(
-name|merge
 argument_list|)
 expr_stmt|;
 if|if
@@ -12216,10 +12301,28 @@ literal|true
 expr_stmt|;
 block|}
 else|else
-throw|throw
+name|handleMergeException
+argument_list|(
 name|ioe
-throw|;
+argument_list|,
+name|merge
+argument_list|)
+expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|handleMergeException
+argument_list|(
+name|t
+argument_list|,
+name|merge
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -12245,11 +12348,6 @@ init|(
 name|this
 init|)
 block|{
-name|addMergeException
-argument_list|(
-name|merge
-argument_list|)
-expr_stmt|;
 name|deleter
 operator|.
 name|deleteFile
@@ -12396,6 +12494,14 @@ name|OneMerge
 name|merge
 parameter_list|)
 block|{
+assert|assert
+name|merge
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+assert|;
 if|if
 condition|(
 operator|!
