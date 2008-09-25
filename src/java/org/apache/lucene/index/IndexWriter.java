@@ -257,7 +257,7 @@ name|Iterator
 import|;
 end_import
 begin_comment
-comment|/**   An<code>IndexWriter</code> creates and maintains an index.<p>The<code>create</code> argument to the<a href="#IndexWriter(org.apache.lucene.store.Directory, org.apache.lucene.analysis.Analyzer, boolean)"><b>constructor</b></a>   determines whether a new index is created, or whether an existing index is   opened.  Note that you   can open an index with<code>create=true</code> even while readers are   using the index.  The old readers will continue to search   the "point in time" snapshot they had opened, and won't   see the newly created index until they re-open.  There are   also<a href="#IndexWriter(org.apache.lucene.store.Directory, org.apache.lucene.analysis.Analyzer)"><b>constructors</b></a>   with no<code>create</code> argument which   will create a new index if there is not already an index at the   provided path and otherwise open the existing index.</p><p>In either case, documents are added with<a   href="#addDocument(org.apache.lucene.document.Document)"><b>addDocument</b></a>   and removed with<a   href="#deleteDocuments(org.apache.lucene.index.Term)"><b>deleteDocuments(Term)</b></a>   or<a   href="#deleteDocuments(org.apache.lucene.search.Query)"><b>deleteDocuments(Query)</b></a>.   A document can be updated with<a href="#updateDocument(org.apache.lucene.index.Term, org.apache.lucene.document.Document)"><b>updateDocument</b></a>    (which just deletes and then adds the entire document).   When finished adding, deleting and updating documents,<a href="#close()"><b>close</b></a> should be called.</p><a name="flush"></a><p>These changes are buffered in memory and periodically   flushed to the {@link Directory} (during the above method   calls).  A flush is triggered when there are enough   buffered deletes (see {@link #setMaxBufferedDeleteTerms})   or enough added documents since the last flush, whichever   is sooner.  For the added documents, flushing is triggered   either by RAM usage of the documents (see {@link   #setRAMBufferSizeMB}) or the number of added documents.   The default is to flush when RAM usage hits 16 MB.  For   best indexing speed you should flush by RAM usage with a   large RAM buffer.  Note that flushing just moves the   internal buffered state in IndexWriter into the index, but   these changes are not visible to IndexReader until either   {@link #commit()} or {@link #close} is called.  A flush may   also trigger one or more segment merges which by default   run with a background thread so as not to block the   addDocument calls (see<a href="#mergePolicy">below</a>   for changing the {@link MergeScheduler}).</p><a name="autoCommit"></a><p>The optional<code>autoCommit</code> argument to the<a   href="#IndexWriter(org.apache.lucene.store.Directory,   boolean,   org.apache.lucene.analysis.Analyzer)"><b>constructors</b></a>   controls visibility of the changes to {@link IndexReader}   instances reading the same index.  When this is<code>false</code>, changes are not visible until {@link   #close()} or {@link #commit()} is called.  Note that changes will still be   flushed to the {@link org.apache.lucene.store.Directory}   as new files, but are not committed (no new<code>segments_N</code> file is written referencing the   new files, nor are the files sync'd to stable storage)   until {@link #close()} or {@link #commit()} is called.  If something   goes terribly wrong (for example the JVM crashes), then   the index will reflect none of the changes made since the   last commit, or the starting state if commit was not called.   You can also call {@link #rollback}, which closes the writer   without committing any changes, and removes any index   files that had been flushed but are now unreferenced.   This mode is useful for preventing readers from refreshing   at a bad time (for example after you've done all your   deletes but before you've done your adds).  It can also be   used to implement simple single-writer transactional   semantics ("all or none").  You can do a two-phase commit   by calling {@link #prepareCommit()}   followed by {@link #commit()}. This is necessary when   Lucene is working with an external resource (for example,   a database) and both must either commit or rollback the   transaction.</p><p>When<code>autoCommit</code> is<code>true</code> then   the writer will periodically commit on its own.  [<b>Deprecated</b>: Note that in 3.0, IndexWriter will   no longer accept autoCommit=true (it will be hardwired to   false).  You can always call {@link IndexWriter#commit()} yourself   when needed]. There is   no guarantee when exactly an auto commit will occur (it   used to be after every flush, but it is now after every   completed merge, as of 2.4).  If you want to force a   commit, call {@link #commit()}, or, close the writer.  Once   a commit has finished, newly opened {@link IndexReader} instances will   see the changes to the index as of that commit.  When   running in this mode, be careful not to refresh your   readers while optimize or segment merges are taking place   as this can tie up substantial disk space.</p><p>Regardless of<code>autoCommit</code>, an {@link   IndexReader} or {@link org.apache.lucene.search.IndexSearcher} will only see the   index as of the "point in time" that it was opened.  Any   changes committed to the index after the reader was opened   are not visible until the reader is re-opened.</p><p>If an index will not have more documents added for a while and optimal search   performance is desired, then either the full<a href="#optimize()"><b>optimize</b></a>   method or partial {@link #optimize(int)} method should be   called before the index is closed.</p><p>Opening an<code>IndexWriter</code> creates a lock file for the directory in use. Trying to open   another<code>IndexWriter</code> on the same directory will lead to a   {@link LockObtainFailedException}. The {@link LockObtainFailedException}   is also thrown if an IndexReader on the same directory is used to delete documents   from the index.</p><a name="deletionPolicy"></a><p>Expert:<code>IndexWriter</code> allows an optional   {@link IndexDeletionPolicy} implementation to be   specified.  You can use this to control when prior commits   are deleted from the index.  The default policy is {@link   KeepOnlyLastCommitDeletionPolicy} which removes all prior   commits as soon as a new commit is done (this matches   behavior before 2.2).  Creating your own policy can allow   you to explicitly keep previous "point in time" commits   alive in the index for some time, to allow readers to   refresh to the new commit without having the old commit   deleted out from under them.  This is necessary on   filesystems like NFS that do not support "delete on last   close" semantics, which Lucene's "point in time" search   normally relies on.</p><a name="mergePolicy"></a><p>Expert:<code>IndexWriter</code> allows you to separately change   the {@link MergePolicy} and the {@link MergeScheduler}.   The {@link MergePolicy} is invoked whenever there are   changes to the segments in the index.  Its role is to   select which merges to do, if any, and return a {@link   MergePolicy.MergeSpecification} describing the merges.  It   also selects merges to do for optimize().  (The default is   {@link LogByteSizeMergePolicy}.  Then, the {@link   MergeScheduler} is invoked with the requested merges and   it decides when and how to run the merges.  The default is   {@link ConcurrentMergeScheduler}.</p> */
+comment|/**   An<code>IndexWriter</code> creates and maintains an index.<p>The<code>create</code> argument to the<a href="#IndexWriter(org.apache.lucene.store.Directory, org.apache.lucene.analysis.Analyzer, boolean)"><b>constructor</b></a>   determines whether a new index is created, or whether an existing index is   opened.  Note that you   can open an index with<code>create=true</code> even while readers are   using the index.  The old readers will continue to search   the "point in time" snapshot they had opened, and won't   see the newly created index until they re-open.  There are   also<a href="#IndexWriter(org.apache.lucene.store.Directory, org.apache.lucene.analysis.Analyzer)"><b>constructors</b></a>   with no<code>create</code> argument which   will create a new index if there is not already an index at the   provided path and otherwise open the existing index.</p><p>In either case, documents are added with<a   href="#addDocument(org.apache.lucene.document.Document)"><b>addDocument</b></a>   and removed with<a   href="#deleteDocuments(org.apache.lucene.index.Term)"><b>deleteDocuments(Term)</b></a>   or<a   href="#deleteDocuments(org.apache.lucene.search.Query)"><b>deleteDocuments(Query)</b></a>.   A document can be updated with<a href="#updateDocument(org.apache.lucene.index.Term, org.apache.lucene.document.Document)"><b>updateDocument</b></a>    (which just deletes and then adds the entire document).   When finished adding, deleting and updating documents,<a href="#close()"><b>close</b></a> should be called.</p><a name="flush"></a><p>These changes are buffered in memory and periodically   flushed to the {@link Directory} (during the above method   calls).  A flush is triggered when there are enough   buffered deletes (see {@link #setMaxBufferedDeleteTerms})   or enough added documents since the last flush, whichever   is sooner.  For the added documents, flushing is triggered   either by RAM usage of the documents (see {@link   #setRAMBufferSizeMB}) or the number of added documents.   The default is to flush when RAM usage hits 16 MB.  For   best indexing speed you should flush by RAM usage with a   large RAM buffer.  Note that flushing just moves the   internal buffered state in IndexWriter into the index, but   these changes are not visible to IndexReader until either   {@link #commit()} or {@link #close} is called.  A flush may   also trigger one or more segment merges which by default   run with a background thread so as not to block the   addDocument calls (see<a href="#mergePolicy">below</a>   for changing the {@link MergeScheduler}).</p><a name="autoCommit"></a><p>The optional<code>autoCommit</code> argument to the<a   href="#IndexWriter(org.apache.lucene.store.Directory,   boolean,   org.apache.lucene.analysis.Analyzer)"><b>constructors</b></a>   controls visibility of the changes to {@link IndexReader}   instances reading the same index.  When this is<code>false</code>, changes are not visible until {@link   #close()} or {@link #commit()} is called.  Note that changes will still be   flushed to the {@link org.apache.lucene.store.Directory}   as new files, but are not committed (no new<code>segments_N</code> file is written referencing the   new files, nor are the files sync'd to stable storage)   until {@link #close()} or {@link #commit()} is called.  If something   goes terribly wrong (for example the JVM crashes), then   the index will reflect none of the changes made since the   last commit, or the starting state if commit was not called.   You can also call {@link #rollback}, which closes the writer   without committing any changes, and removes any index   files that had been flushed but are now unreferenced.   This mode is useful for preventing readers from refreshing   at a bad time (for example after you've done all your   deletes but before you've done your adds).  It can also be   used to implement simple single-writer transactional   semantics ("all or none").  You can do a two-phase commit   by calling {@link #prepareCommit()}   followed by {@link #commit()}. This is necessary when   Lucene is working with an external resource (for example,   a database) and both must either commit or rollback the   transaction.</p><p>When<code>autoCommit</code> is<code>true</code> then   the writer will periodically commit on its own.  [<b>Deprecated</b>: Note that in 3.0, IndexWriter will   no longer accept autoCommit=true (it will be hardwired to   false).  You can always call {@link #commit()} yourself   when needed]. There is   no guarantee when exactly an auto commit will occur (it   used to be after every flush, but it is now after every   completed merge, as of 2.4).  If you want to force a   commit, call {@link #commit()}, or, close the writer.  Once   a commit has finished, newly opened {@link IndexReader} instances will   see the changes to the index as of that commit.  When   running in this mode, be careful not to refresh your   readers while optimize or segment merges are taking place   as this can tie up substantial disk space.</p><p>Regardless of<code>autoCommit</code>, an {@link   IndexReader} or {@link org.apache.lucene.search.IndexSearcher} will only see the   index as of the "point in time" that it was opened.  Any   changes committed to the index after the reader was opened   are not visible until the reader is re-opened.</p><p>If an index will not have more documents added for a while and optimal search   performance is desired, then either the full<a href="#optimize()"><b>optimize</b></a>   method or partial {@link #optimize(int)} method should be   called before the index is closed.</p><p>Opening an<code>IndexWriter</code> creates a lock file for the directory in use. Trying to open   another<code>IndexWriter</code> on the same directory will lead to a   {@link LockObtainFailedException}. The {@link LockObtainFailedException}   is also thrown if an IndexReader on the same directory is used to delete documents   from the index.</p><a name="deletionPolicy"></a><p>Expert:<code>IndexWriter</code> allows an optional   {@link IndexDeletionPolicy} implementation to be   specified.  You can use this to control when prior commits   are deleted from the index.  The default policy is {@link   KeepOnlyLastCommitDeletionPolicy} which removes all prior   commits as soon as a new commit is done (this matches   behavior before 2.2).  Creating your own policy can allow   you to explicitly keep previous "point in time" commits   alive in the index for some time, to allow readers to   refresh to the new commit without having the old commit   deleted out from under them.  This is necessary on   filesystems like NFS that do not support "delete on last   close" semantics, which Lucene's "point in time" search   normally relies on.</p><a name="mergePolicy"></a><p>Expert:<code>IndexWriter</code> allows you to separately change   the {@link MergePolicy} and the {@link MergeScheduler}.   The {@link MergePolicy} is invoked whenever there are   changes to the segments in the index.  Its role is to   select which merges to do, if any, and return a {@link   MergePolicy.MergeSpecification} describing the merges.  It   also selects merges to do for optimize().  (The default is   {@link LogByteSizeMergePolicy}.  Then, the {@link   MergeScheduler} is invoked with the requested merges and   it decides when and how to run the merges.  The default is   {@link ConcurrentMergeScheduler}.</p> */
 end_comment
 begin_comment
 comment|/*  * Clarification: Check Points (and commits)  * Being able to set autoCommit=false allows IndexWriter to flush and   * write new index files to the directory without writing a new segments_N  * file which references these new files. It also means that the state of   * the in memory SegmentInfos object is different than the most recent  * segments_N file written to the directory.  *   * Each time the SegmentInfos is changed, and matches the (possibly   * modified) directory files, we have a new "check point".   * If the modified/new SegmentInfos is written to disk - as a new   * (generation of) segments_N file - this check point is also an   * IndexCommit.  *   * With autoCommit=true, every checkPoint is also a CommitPoint.  * With autoCommit=false, some checkPoints may not be commits.  *   * A new checkpoint always replaces the previous checkpoint and   * becomes the new "front" of the index. This allows the IndexFileDeleter   * to delete files that are referenced only by stale checkpoints.  * (files that were created since the last commit, but are no longer  * referenced by the "front" of the index). For this, IndexFileDeleter   * keeps track of the last non commit checkpoint.  */
@@ -1093,7 +1093,7 @@ return|return
 name|termIndexInterval
 return|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in<code>path</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>path</code>, replacing the index already there,    * if any.  Note that autoCommit defaults to true, but    * starting in 3.0 it will be hardwired to false.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    */
+comment|/**    * Constructs an IndexWriter for the index in<code>path</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>path</code>, replacing the index already there,    * if any.    *    *<p><b>NOTE</b>: autoCommit (see<a    * href="#autoCommit">above</a>) is set to false with this    * constructor.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1134,7 +1134,7 @@ literal|true
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 name|mfl
 operator|.
@@ -1143,7 +1143,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in<code>path</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>path</code>, replacing the index already there, if any.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link #IndexWriter(String,Analyzer,boolean,MaxFieldLength)} instead.    */
+comment|/**    * Constructs an IndexWriter for the index in<code>path</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>path</code>, replacing the index already there, if any.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link    *  #IndexWriter(String,Analyzer,boolean,MaxFieldLength)}    *  instead, and call {@link #commit()} when needed.    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1187,7 +1187,7 @@ name|DEFAULT_MAX_FIELD_LENGTH
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in<code>path</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>path</code>, replacing the index already there, if any.    * Note that autoCommit defaults to true, but starting in 3.0    * it will be hardwired to false.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    */
+comment|/**    * Constructs an IndexWriter for the index in<code>path</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>path</code>, replacing the index already there, if any.    *    *<p><b>NOTE</b>: autoCommit (see<a    * href="#autoCommit">above</a>) is set to false with this    * constructor.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1228,7 +1228,7 @@ literal|true
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 name|mfl
 operator|.
@@ -1237,7 +1237,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in<code>path</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>path</code>, replacing the index already there, if any.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link #IndexWriter(File,Analyzer,boolean,MaxFieldLength)} instead.    */
+comment|/**    * Constructs an IndexWriter for the index in<code>path</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>path</code>, replacing the index already there, if any.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link    *  #IndexWriter(File,Analyzer,boolean,MaxFieldLength)}    *  instead, and call {@link #commit()} when needed.    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1281,7 +1281,7 @@ name|DEFAULT_MAX_FIELD_LENGTH
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>d</code>, replacing the index already there, if any.    * Note that autoCommit defaults to true, but starting in 3.0    * it will be hardwired to false.    *    * @param d the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    */
+comment|/**    * Constructs an IndexWriter for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>d</code>, replacing the index already there, if any.    *    *<p><b>NOTE</b>: autoCommit (see<a    * href="#autoCommit">above</a>) is set to false with this    * constructor.    *    * @param d the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1317,7 +1317,7 @@ literal|false
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 name|mfl
 operator|.
@@ -1326,7 +1326,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>d</code>, replacing the index already there, if any.    *    * @param d the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link #IndexWriter(Directory,Analyzer,boolean,MaxFieldLength)} instead.    */
+comment|/**    * Constructs an IndexWriter for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>d</code>, replacing the index already there, if any.    *    * @param d the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0    *  release, and call {@link #commit()} when needed.    *  Use {@link #IndexWriter(Directory,Analyzer,boolean,MaxFieldLength)} instead.    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1365,7 +1365,7 @@ name|DEFAULT_MAX_FIELD_LENGTH
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in    *<code>path</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    * Note that autoCommit defaults to true, but starting in 3.0    * it will be hardwired to false.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    */
+comment|/**    * Constructs an IndexWriter for the index in    *<code>path</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    *    *<p><b>NOTE</b>: autoCommit (see<a    * href="#autoCommit">above</a>) is set to false with this    * constructor.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1401,7 +1401,7 @@ literal|true
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 name|mfl
 operator|.
@@ -1410,7 +1410,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in    *<code>path</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link #IndexWriter(String,Analyzer,MaxFieldLength)} instead.    */
+comment|/**    * Constructs an IndexWriter for the index in    *<code>path</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0    *  release, and call {@link #commit()} when needed.    *  Use {@link #IndexWriter(String,Analyzer,MaxFieldLength)} instead.    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1449,7 +1449,7 @@ name|DEFAULT_MAX_FIELD_LENGTH
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in    *<code>path</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    * Note that autoCommit defaults to true, but starting in 3.0    * it will be hardwired to false.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    */
+comment|/**    * Constructs an IndexWriter for the index in    *<code>path</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    *    *<p><b>NOTE</b>: autoCommit (see<a    * href="#autoCommit">above</a>) is set to false with this    * constructor.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1485,7 +1485,7 @@ literal|true
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 name|mfl
 operator|.
@@ -1494,7 +1494,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in    *<code>path</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link #IndexWriter(File,Analyzer,MaxFieldLength)} instead.    */
+comment|/**    * Constructs an IndexWriter for the index in    *<code>path</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    *    * @param path the path to the index directory    * @param a the analyzer to use    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link #IndexWriter(File,Analyzer,MaxFieldLength)}    *  instead, and call {@link #commit()} when needed.    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1533,7 +1533,7 @@ name|DEFAULT_MAX_FIELD_LENGTH
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in    *<code>d</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    * Note that autoCommit defaults to true, but starting in 3.0    * it will be hardwired to false.    *    * @param d the index directory    * @param a the analyzer to use    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    */
+comment|/**    * Constructs an IndexWriter for the index in    *<code>d</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    *    *<p><b>NOTE</b>: autoCommit (see<a    * href="#autoCommit">above</a>) is set to false with this    * constructor.    *    * @param d the index directory    * @param a the analyzer to use    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1564,7 +1564,7 @@ literal|false
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 name|mfl
 operator|.
@@ -1573,7 +1573,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in    *<code>d</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    *    * @param d the index directory    * @param a the analyzer to use    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link #IndexWriter(Directory,Analyzer,MaxFieldLength)} instead.    */
+comment|/**    * Constructs an IndexWriter for the index in    *<code>d</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    *    * @param d the index directory    * @param a the analyzer to use    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link    *  #IndexWriter(Directory,Analyzer,MaxFieldLength)}    *  instead, and call {@link #commit()} when needed.    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1607,50 +1607,7 @@ name|DEFAULT_MAX_FIELD_LENGTH
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in    *<code>d</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    *    * @param d the index directory    * @param autoCommit see<a href="#autoCommit">above</a>    * @param a the analyzer to use    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    * @deprecated This will be removed in 3.0, when    * autoCommit will be hardwired to false.  Use {@link    * #IndexWriter(Directory,Analyzer,MaxFieldLength)}    * instead, and call {@link #commit()} when needed.    */
-DECL|method|IndexWriter
-specifier|public
-name|IndexWriter
-parameter_list|(
-name|Directory
-name|d
-parameter_list|,
-name|boolean
-name|autoCommit
-parameter_list|,
-name|Analyzer
-name|a
-parameter_list|,
-name|MaxFieldLength
-name|mfl
-parameter_list|)
-throws|throws
-name|CorruptIndexException
-throws|,
-name|LockObtainFailedException
-throws|,
-name|IOException
-block|{
-name|init
-argument_list|(
-name|d
-argument_list|,
-name|a
-argument_list|,
-literal|false
-argument_list|,
-literal|null
-argument_list|,
-name|autoCommit
-argument_list|,
-name|mfl
-operator|.
-name|getLimit
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**    * Constructs an IndexWriter for the index in    *<code>d</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    *    * @param d the index directory    * @param autoCommit see<a href="#autoCommit">above</a>    * @param a the analyzer to use    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link #IndexWriter(Directory,Analyzer,MaxFieldLength)} instead.    */
+comment|/**    * Constructs an IndexWriter for the index in    *<code>d</code>, first creating it if it does not    * already exist.  Text will be analyzed with    *<code>a</code>.    *    * @param d the index directory    * @param autoCommit see<a href="#autoCommit">above</a>    * @param a the analyzer to use    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link    *  #IndexWriter(Directory,Analyzer,MaxFieldLength)}    *  instead, and call {@link #commit()} when needed.    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1687,55 +1644,7 @@ name|DEFAULT_MAX_FIELD_LENGTH
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructs an IndexWriter for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>d</code>, replacing the index already there, if any.    *    * @param d the index directory    * @param autoCommit see<a href="#autoCommit">above</a>    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    * @deprecated This will be removed in 3.0, when    * autoCommit will be hardwired to false.  Use {@link    * #IndexWriter(Directory,Analyzer,boolean,MaxFieldLength)}    * instead, and call {@link #commit()} when needed.    */
-DECL|method|IndexWriter
-specifier|public
-name|IndexWriter
-parameter_list|(
-name|Directory
-name|d
-parameter_list|,
-name|boolean
-name|autoCommit
-parameter_list|,
-name|Analyzer
-name|a
-parameter_list|,
-name|boolean
-name|create
-parameter_list|,
-name|MaxFieldLength
-name|mfl
-parameter_list|)
-throws|throws
-name|CorruptIndexException
-throws|,
-name|LockObtainFailedException
-throws|,
-name|IOException
-block|{
-name|init
-argument_list|(
-name|d
-argument_list|,
-name|a
-argument_list|,
-name|create
-argument_list|,
-literal|false
-argument_list|,
-literal|null
-argument_list|,
-name|autoCommit
-argument_list|,
-name|mfl
-operator|.
-name|getLimit
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**    * Constructs an IndexWriter for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>d</code>, replacing the index already there, if any.    *    * @param d the index directory    * @param autoCommit see<a href="#autoCommit">above</a>    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link #IndexWriter(Directory,Analyzer,boolean,MaxFieldLength)} instead.    */
+comment|/**    * Constructs an IndexWriter for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If<code>create</code>    * is true, then a new, empty index will be created in    *<code>d</code>, replacing the index already there, if any.    *    * @param d the index directory    * @param autoCommit see<a href="#autoCommit">above</a>    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link    *  #IndexWriter(Directory,Analyzer,boolean,MaxFieldLength)}    *  instead, and call {@link #commit()} when needed.    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1777,7 +1686,7 @@ name|DEFAULT_MAX_FIELD_LENGTH
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Expert: constructs an IndexWriter with a custom {@link    * IndexDeletionPolicy}, for the index in<code>d</code>,    * first creating it if it does not already exist.  Text    * will be analyzed with<code>a</code>.    * Note that autoCommit defaults to true, but starting in 3.0    * it will be hardwired to false.    *    * @param d the index directory    * @param a the analyzer to use    * @param deletionPolicy see<a href="#deletionPolicy">above</a>    * @param mfl whether or not to limit field lengths    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    */
+comment|/**    * Expert: constructs an IndexWriter with a custom {@link    * IndexDeletionPolicy}, for the index in<code>d</code>,    * first creating it if it does not already exist.  Text    * will be analyzed with<code>a</code>.    *    *<p><b>NOTE</b>: autoCommit (see<a    * href="#autoCommit">above</a>) is set to false with this    * constructor.    *    * @param d the index directory    * @param a the analyzer to use    * @param deletionPolicy see<a href="#deletionPolicy">above</a>    * @param mfl whether or not to limit field lengths    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1811,54 +1720,8 @@ literal|false
 argument_list|,
 name|deletionPolicy
 argument_list|,
-literal|true
-argument_list|,
-name|mfl
-operator|.
-name|getLimit
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**    * Expert: constructs an IndexWriter with a custom {@link    * IndexDeletionPolicy}, for the index in<code>d</code>,    * first creating it if it does not already exist.  Text    * will be analyzed with<code>a</code>.    *    * @param d the index directory    * @param autoCommit see<a href="#autoCommit">above</a>    * @param a the analyzer to use    * @param deletionPolicy see<a href="#deletionPolicy">above</a>    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    * @deprecated This will be removed in 3.0, when    * autoCommit will be hardwired to false.  Use {@link    * #IndexWriter(Directory,Analyzer,IndexDeletionPolicy,MaxFieldLength)}    * instead, and call {@link #commit()} when needed.    */
-DECL|method|IndexWriter
-specifier|public
-name|IndexWriter
-parameter_list|(
-name|Directory
-name|d
-parameter_list|,
-name|boolean
-name|autoCommit
-parameter_list|,
-name|Analyzer
-name|a
-parameter_list|,
-name|IndexDeletionPolicy
-name|deletionPolicy
-parameter_list|,
-name|MaxFieldLength
-name|mfl
-parameter_list|)
-throws|throws
-name|CorruptIndexException
-throws|,
-name|LockObtainFailedException
-throws|,
-name|IOException
-block|{
-name|init
-argument_list|(
-name|d
-argument_list|,
-name|a
-argument_list|,
 literal|false
 argument_list|,
-name|deletionPolicy
-argument_list|,
-name|autoCommit
-argument_list|,
 name|mfl
 operator|.
 name|getLimit
@@ -1866,7 +1729,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Expert: constructs an IndexWriter with a custom {@link    * IndexDeletionPolicy}, for the index in<code>d</code>,    * first creating it if it does not already exist.  Text    * will be analyzed with<code>a</code>.    *    * @param d the index directory    * @param autoCommit see<a href="#autoCommit">above</a>    * @param a the analyzer to use    * @param deletionPolicy see<a href="#deletionPolicy">above</a>    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link #IndexWriter(Directory,Analyzer,IndexDeletionPolicy,MaxFieldLength)} instead.    */
+comment|/**    * Expert: constructs an IndexWriter with a custom {@link    * IndexDeletionPolicy}, for the index in<code>d</code>,    * first creating it if it does not already exist.  Text    * will be analyzed with<code>a</code>.    *    * @param d the index directory    * @param autoCommit see<a href="#autoCommit">above</a>    * @param a the analyzer to use    * @param deletionPolicy see<a href="#deletionPolicy">above</a>    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be    *  read/written to or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link    *  #IndexWriter(Directory,Analyzer,IndexDeletionPolicy,MaxFieldLength)}    *  instead, and call {@link #commit()} when needed.    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1906,7 +1769,7 @@ name|DEFAULT_MAX_FIELD_LENGTH
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Expert: constructs an IndexWriter with a custom {@link    * IndexDeletionPolicy}, for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If    *<code>create</code> is true, then a new, empty index    * will be created in<code>d</code>, replacing the index    * already there, if any.    * Note that autoCommit defaults to true, but starting in 3.0    * it will be hardwired to false.    *    * @param d the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @param deletionPolicy see<a href="#deletionPolicy">above</a>    * @param mfl whether or not to limit field lengths    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    */
+comment|/**    * Expert: constructs an IndexWriter with a custom {@link    * IndexDeletionPolicy}, for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If    *<code>create</code> is true, then a new, empty index    * will be created in<code>d</code>, replacing the index    * already there, if any.    *    *<p><b>NOTE</b>: autoCommit (see<a    * href="#autoCommit">above</a>) is set to false with this    * constructor.    *    * @param d the index directory    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @param deletionPolicy see<a href="#deletionPolicy">above</a>    * @param mfl whether or not to limit field lengths    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -1945,59 +1808,8 @@ literal|false
 argument_list|,
 name|deletionPolicy
 argument_list|,
-literal|true
-argument_list|,
-name|mfl
-operator|.
-name|getLimit
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**    * Expert: constructs an IndexWriter with a custom {@link    * IndexDeletionPolicy}, for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If    *<code>create</code> is true, then a new, empty index    * will be created in<code>d</code>, replacing the index    * already there, if any.    *    * @param d the index directory    * @param autoCommit see<a href="#autoCommit">above</a>    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @param deletionPolicy see<a href="#deletionPolicy">above</a>    * @param mfl Maximum field length: LIMITED, UNLIMITED, or user-specified    *   via the MaxFieldLength constructor.    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    * @deprecated This will be removed in 3.0, when    * autoCommit will be hardwired to false.  Use {@link    * #IndexWriter(Directory,Analyzer,boolean,IndexDeletionPolicy,MaxFieldLength)}    * instead, and call {@link #commit()} when needed.    */
-DECL|method|IndexWriter
-specifier|public
-name|IndexWriter
-parameter_list|(
-name|Directory
-name|d
-parameter_list|,
-name|boolean
-name|autoCommit
-parameter_list|,
-name|Analyzer
-name|a
-parameter_list|,
-name|boolean
-name|create
-parameter_list|,
-name|IndexDeletionPolicy
-name|deletionPolicy
-parameter_list|,
-name|MaxFieldLength
-name|mfl
-parameter_list|)
-throws|throws
-name|CorruptIndexException
-throws|,
-name|LockObtainFailedException
-throws|,
-name|IOException
-block|{
-name|init
-argument_list|(
-name|d
-argument_list|,
-name|a
-argument_list|,
-name|create
-argument_list|,
 literal|false
 argument_list|,
-name|deletionPolicy
-argument_list|,
-name|autoCommit
-argument_list|,
 name|mfl
 operator|.
 name|getLimit
@@ -2005,7 +1817,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Expert: constructs an IndexWriter with a custom {@link    * IndexDeletionPolicy}, for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If    *<code>create</code> is true, then a new, empty index    * will be created in<code>d</code>, replacing the index    * already there, if any.    *    * @param d the index directory    * @param autoCommit see<a href="#autoCommit">above</a>    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @param deletionPolicy see<a href="#deletionPolicy">above</a>    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link #IndexWriter(Directory,Analyzer,boolean,IndexDeletionPolicy,MaxFieldLength)} instead.    */
+comment|/**    * Expert: constructs an IndexWriter with a custom {@link    * IndexDeletionPolicy}, for the index in<code>d</code>.    * Text will be analyzed with<code>a</code>.  If    *<code>create</code> is true, then a new, empty index    * will be created in<code>d</code>, replacing the index    * already there, if any.    *    * @param d the index directory    * @param autoCommit see<a href="#autoCommit">above</a>    * @param a the analyzer to use    * @param create<code>true</code> to create the index or overwrite    *  the existing one;<code>false</code> to append to the existing    *  index    * @param deletionPolicy see<a href="#deletionPolicy">above</a>    * @throws CorruptIndexException if the index is corrupt    * @throws LockObtainFailedException if another writer    *  has this index open (<code>write.lock</code> could not    *  be obtained)    * @throws IOException if the directory cannot be read/written to, or    *  if it does not exist and<code>create</code> is    *<code>false</code> or if there is any other low-level    *  IO error    * @deprecated This constructor will be removed in the 3.0 release.    *  Use {@link    *  #IndexWriter(Directory,Analyzer,boolean,IndexDeletionPolicy,MaxFieldLength)}    *  instead, and call {@link #commit()} when needed.    */
 DECL|method|IndexWriter
 specifier|public
 name|IndexWriter
@@ -2735,7 +2547,7 @@ name|getMaxMergeDocs
 argument_list|()
 return|;
 block|}
-comment|/**    * The maximum number of terms that will be indexed for a single field in a    * document.  This limits the amount of memory required for indexing, so that    * collections with very large files will not crash the indexing process by    * running out of memory.  This setting refers to the number of running terms,    * not to the number of different terms.<p/>    *<strong>Note:</strong> this silently truncates large documents, excluding from the    * index all terms that occur further in the document.  If you know your source    * documents are large, be sure to set this value high enough to accomodate    * the expected size.  If you set it to Integer.MAX_VALUE, then the only limit    * is your memory, but you should anticipate an OutOfMemoryError.<p/>    * By default, no more than {@link IndexWriter#DEFAULT_MAX_FIELD_LENGTH} terms    * will be indexed for a field.    */
+comment|/**    * The maximum number of terms that will be indexed for a single field in a    * document.  This limits the amount of memory required for indexing, so that    * collections with very large files will not crash the indexing process by    * running out of memory.  This setting refers to the number of running terms,    * not to the number of different terms.<p/>    *<strong>Note:</strong> this silently truncates large documents, excluding from the    * index all terms that occur further in the document.  If you know your source    * documents are large, be sure to set this value high enough to accomodate    * the expected size.  If you set it to Integer.MAX_VALUE, then the only limit    * is your memory, but you should anticipate an OutOfMemoryError.<p/>    * By default, no more than {@link #DEFAULT_MAX_FIELD_LENGTH} terms    * will be indexed for a field.    */
 DECL|method|setMaxFieldLength
 specifier|public
 name|void
@@ -6199,7 +6011,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// Releaes the write lock if our caller held it, on
+comment|// Release the write lock if our caller held it, on
 comment|// hitting an exception
 if|if
 condition|(
@@ -13921,7 +13733,7 @@ name|release
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Specifies maximum field length in {@link IndexWriter} constructors.    * {@link IndexWriter#setMaxFieldLength(int)} overrides the value set by    * the constructor.    */
+comment|/**    * Specifies maximum field length in {@link IndexWriter} constructors.    * {@link #setMaxFieldLength(int)} overrides the value set by    * the constructor.    */
 DECL|class|MaxFieldLength
 specifier|public
 specifier|static
@@ -14023,7 +13835,7 @@ operator|.
 name|MAX_VALUE
 argument_list|)
 decl_stmt|;
-comment|/**      *  Sets the maximum field length to       * {@link IndexWriter#DEFAULT_MAX_FIELD_LENGTH}       * */
+comment|/**      *  Sets the maximum field length to       * {@link #DEFAULT_MAX_FIELD_LENGTH}       * */
 DECL|field|LIMITED
 specifier|public
 specifier|static

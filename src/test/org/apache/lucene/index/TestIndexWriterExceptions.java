@@ -746,8 +746,6 @@ name|super
 argument_list|(
 name|dir
 argument_list|,
-literal|false
-argument_list|,
 name|a
 argument_list|,
 name|create

@@ -378,12 +378,6 @@ name|StandardAnalyzer
 argument_list|()
 argument_list|,
 name|dp
-argument_list|,
-name|IndexWriter
-operator|.
-name|MaxFieldLength
-operator|.
-name|LIMITED
 argument_list|)
 decl_stmt|;
 comment|// Force frequent commits
@@ -497,12 +491,6 @@ name|StandardAnalyzer
 argument_list|()
 argument_list|,
 name|dp
-argument_list|,
-name|IndexWriter
-operator|.
-name|MaxFieldLength
-operator|.
-name|LIMITED
 argument_list|)
 expr_stmt|;
 name|copyFiles
@@ -571,12 +559,6 @@ name|StandardAnalyzer
 argument_list|()
 argument_list|,
 name|dp
-argument_list|,
-name|IndexWriter
-operator|.
-name|MaxFieldLength
-operator|.
-name|LIMITED
 argument_list|)
 expr_stmt|;
 name|writer
@@ -663,12 +645,6 @@ name|StandardAnalyzer
 argument_list|()
 argument_list|,
 name|dp
-argument_list|,
-name|IndexWriter
-operator|.
-name|MaxFieldLength
-operator|.
-name|LIMITED
 argument_list|)
 decl_stmt|;
 comment|// Force frequent commits

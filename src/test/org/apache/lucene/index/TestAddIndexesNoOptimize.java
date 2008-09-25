@@ -2390,17 +2390,13 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
+literal|true
+argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
 argument_list|,
 name|create
-argument_list|,
-name|IndexWriter
-operator|.
-name|MaxFieldLength
-operator|.
-name|LIMITED
 argument_list|)
 decl_stmt|;
 name|writer
@@ -2880,8 +2876,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-literal|false
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -3137,8 +3131,6 @@ operator|new
 name|IndexWriter
 argument_list|(
 name|dir2
-argument_list|,
-literal|false
 argument_list|,
 operator|new
 name|WhitespaceAnalyzer
