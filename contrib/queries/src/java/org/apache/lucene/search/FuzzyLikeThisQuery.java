@@ -653,13 +653,10 @@ do|;
 if|if
 condition|(
 name|numVariants
-operator|==
+operator|>
 literal|0
 condition|)
 block|{
-comment|//no variants to rank here
-break|break;
-block|}
 name|int
 name|avgDf
 init|=
@@ -682,7 +679,8 @@ expr_stmt|;
 comment|//use avg df of all variants
 block|}
 comment|// take the top variants (scored by edit distance) and reset the score
-comment|// to include an IDF factor then add to the global queue for ranking overall top query terms
+comment|// to include an IDF factor then add to the global queue for ranking
+comment|// overall top query terms
 name|int
 name|size
 init|=
@@ -747,6 +745,7 @@ argument_list|(
 name|st
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
