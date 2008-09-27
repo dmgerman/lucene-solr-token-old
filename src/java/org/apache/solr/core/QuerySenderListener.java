@@ -324,6 +324,7 @@ block|{
 comment|// do nothing... we want to continue with the other requests.
 comment|// the failure should have already been logged.
 block|}
+block|}
 name|log
 operator|.
 name|info
@@ -331,7 +332,6 @@ argument_list|(
 literal|"QuerySenderListener done."
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class
