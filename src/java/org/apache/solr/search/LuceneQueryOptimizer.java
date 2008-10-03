@@ -340,9 +340,13 @@ comment|// miss
 name|filter
 operator|=
 operator|new
-name|QueryFilter
+name|CachingWrapperFilter
+argument_list|(
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 name|filterQuery
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// construct new entry

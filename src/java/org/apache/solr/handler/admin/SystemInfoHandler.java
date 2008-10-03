@@ -422,7 +422,7 @@ literal|null
 condition|?
 name|schema
 operator|.
-name|getName
+name|getSchemaName
 argument_list|()
 else|:
 literal|"no schema!"

@@ -306,7 +306,12 @@ operator|.
 name|getSchema
 argument_list|()
 operator|.
-name|getDefaultSearchFieldName
+name|getSolrQueryParser
+argument_list|(
+literal|null
+argument_list|)
+operator|.
+name|getField
 argument_list|()
 expr_stmt|;
 block|}
@@ -375,7 +380,12 @@ operator|.
 name|getSchema
 argument_list|()
 operator|.
-name|getQueryParserDefaultOperator
+name|getSolrQueryParser
+argument_list|(
+literal|null
+argument_list|)
+operator|.
+name|getField
 argument_list|()
 decl_stmt|;
 name|lparser
