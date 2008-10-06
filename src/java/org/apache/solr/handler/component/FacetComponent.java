@@ -490,7 +490,7 @@ operator|.
 name|shards
 operator|!=
 literal|null
-operator|&
+operator|&&
 name|sreq
 operator|.
 name|shards
