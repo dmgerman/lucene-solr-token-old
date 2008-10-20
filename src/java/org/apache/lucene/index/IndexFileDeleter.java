@@ -2310,6 +2310,11 @@ specifier|final
 name|boolean
 name|isOptimized
 decl_stmt|;
+DECL|field|userData
+specifier|final
+name|String
+name|userData
+decl_stmt|;
 DECL|method|CommitPoint
 specifier|public
 name|CommitPoint
@@ -2337,6 +2342,13 @@ operator|.
 name|commitsToDelete
 operator|=
 name|commitsToDelete
+expr_stmt|;
+name|userData
+operator|=
+name|segmentInfos
+operator|.
+name|getUserData
+argument_list|()
 expr_stmt|;
 name|segmentsFileName
 operator|=
@@ -2521,6 +2533,16 @@ parameter_list|()
 block|{
 return|return
 name|generation
+return|;
+block|}
+DECL|method|getUserData
+specifier|public
+name|String
+name|getUserData
+parameter_list|()
+block|{
+return|return
+name|userData
 return|;
 block|}
 comment|/**      * Called only be the deletion policy, to remove this      * commit point from the index.      */
