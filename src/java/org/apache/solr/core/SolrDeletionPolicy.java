@@ -774,7 +774,6 @@ continue|continue;
 block|}
 try|try
 block|{
-comment|//TODO: replace LHS of if condition with commit.getTimestamp()
 if|if
 condition|(
 name|maxCommitAge
@@ -785,16 +784,8 @@ if|if
 condition|(
 name|commit
 operator|.
-name|getDirectory
+name|getTimestamp
 argument_list|()
-operator|.
-name|fileModified
-argument_list|(
-name|commit
-operator|.
-name|getSegmentsFileName
-argument_list|()
-argument_list|)
 operator|<
 name|dmp
 operator|.
