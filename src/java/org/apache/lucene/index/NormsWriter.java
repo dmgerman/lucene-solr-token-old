@@ -194,9 +194,7 @@ parameter_list|(
 name|Map
 name|threadsAndFields
 parameter_list|,
-name|DocumentsWriter
-operator|.
-name|FlushState
+name|SegmentWriteState
 name|state
 parameter_list|)
 throws|throws
@@ -658,7 +656,7 @@ name|minDocID
 operator|<
 name|state
 operator|.
-name|numDocsInRAM
+name|numDocs
 assert|;
 comment|// Fill hole
 for|for
@@ -777,7 +775,7 @@ name|upto
 operator|<
 name|state
 operator|.
-name|numDocsInRAM
+name|numDocs
 condition|;
 name|upto
 operator|++
@@ -814,7 +812,7 @@ name|upto
 operator|<
 name|state
 operator|.
-name|numDocsInRAM
+name|numDocs
 condition|;
 name|upto
 operator|++
@@ -834,7 +832,7 @@ name|normCount
 operator|*
 name|state
 operator|.
-name|numDocsInRAM
+name|numDocs
 operator|==
 name|normsOut
 operator|.
@@ -850,7 +848,7 @@ name|normCount
 operator|*
 name|state
 operator|.
-name|numDocsInRAM
+name|numDocs
 operator|)
 operator|+
 literal|" actual="
@@ -875,9 +873,7 @@ DECL|method|closeDocStore
 name|void
 name|closeDocStore
 parameter_list|(
-name|DocumentsWriter
-operator|.
-name|FlushState
+name|SegmentWriteState
 name|state
 parameter_list|)
 block|{}

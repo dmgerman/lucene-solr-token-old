@@ -125,9 +125,7 @@ specifier|public
 name|void
 name|closeDocStore
 parameter_list|(
-name|DocumentsWriter
-operator|.
-name|FlushState
+name|SegmentWriteState
 name|state
 parameter_list|)
 throws|throws
@@ -149,9 +147,7 @@ parameter_list|(
 name|Collection
 name|threads
 parameter_list|,
-name|DocumentsWriter
-operator|.
-name|FlushState
+name|SegmentWriteState
 name|state
 parameter_list|)
 throws|throws
@@ -226,6 +222,19 @@ comment|// Important to save after asking consumer to flush so
 comment|// consumer can alter the FieldInfo* if necessary.  EG,
 comment|// FreqProxTermsWriter does this with
 comment|// FieldInfo.storePayload.
+specifier|final
+name|String
+name|fileName
+init|=
+name|state
+operator|.
+name|segmentFileName
+argument_list|(
+name|IndexFileNames
+operator|.
+name|FIELD_INFOS_EXTENSION
+argument_list|)
+decl_stmt|;
 name|fieldInfos
 operator|.
 name|write
@@ -234,11 +243,16 @@ name|state
 operator|.
 name|directory
 argument_list|,
+name|fileName
+argument_list|)
+expr_stmt|;
 name|state
 operator|.
-name|segmentName
-operator|+
-literal|".fnm"
+name|flushedFiles
+operator|.
+name|add
+argument_list|(
+name|fileName
 argument_list|)
 expr_stmt|;
 block|}
