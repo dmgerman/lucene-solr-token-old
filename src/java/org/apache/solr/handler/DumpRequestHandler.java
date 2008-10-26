@@ -215,7 +215,7 @@ name|stream
 operator|.
 name|add
 argument_list|(
-literal|"fieldName"
+literal|"sourceInfo"
 argument_list|,
 name|content
 operator|.
