@@ -749,7 +749,7 @@ expr_stmt|;
 name|SolrConfig
 name|solrConfig
 init|=
-name|schema
+name|core
 operator|.
 name|getSolrConfig
 argument_list|()

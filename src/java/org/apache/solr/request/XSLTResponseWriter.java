@@ -578,10 +578,7 @@ name|solrConfig
 init|=
 name|request
 operator|.
-name|getSearcher
-argument_list|()
-operator|.
-name|getSchema
+name|getCore
 argument_list|()
 operator|.
 name|getSolrConfig
