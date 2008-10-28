@@ -2204,7 +2204,7 @@ if|if
 condition|(
 name|importLock
 operator|.
-name|isLocked
+name|tryLock
 argument_list|()
 condition|)
 return|return;
