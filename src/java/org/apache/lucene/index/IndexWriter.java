@@ -3522,6 +3522,13 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+comment|// Ensure that only one thread actually gets to do the closing:
+if|if
+condition|(
+name|shouldClose
+argument_list|()
+condition|)
+block|{
 comment|// If any methods have hit OutOfMemoryError, then abort
 comment|// on close, in case the internal state of IndexWriter
 comment|// or DocumentsWriter is corrupt
@@ -3529,23 +3536,16 @@ if|if
 condition|(
 name|hitOOM
 condition|)
-block|{
-name|rollback
+name|rollbackInternal
 argument_list|()
 expr_stmt|;
-return|return;
-block|}
-comment|// Ensure that only one thread actually gets to do the closing:
-if|if
-condition|(
-name|shouldClose
-argument_list|()
-condition|)
+else|else
 name|closeInternal
 argument_list|(
 name|waitForMerges
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// Returns true if this thread should attempt to close, or
 comment|// false if IndexWriter is now closed; else, waits until
@@ -8627,6 +8627,17 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+if|if
+condition|(
+name|hitOOM
+condition|)
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"this writer hit an OutOfMemoryError; cannot flush"
+argument_list|)
+throw|;
 name|flush
 argument_list|(
 literal|true
