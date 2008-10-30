@@ -495,7 +495,7 @@ decl_stmt|;
 if|if
 condition|(
 name|oldCacheEntry
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
