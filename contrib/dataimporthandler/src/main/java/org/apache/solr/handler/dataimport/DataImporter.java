@@ -2612,7 +2612,9 @@ specifier|public
 name|int
 name|rows
 init|=
-literal|10
+name|Integer
+operator|.
+name|MAX_VALUE
 decl_stmt|;
 DECL|field|clean
 specifier|public
@@ -2701,6 +2703,10 @@ block|{
 name|debug
 operator|=
 literal|true
+expr_stmt|;
+name|rows
+operator|=
+literal|10
 expr_stmt|;
 comment|// Set default values suitable for debug mode
 name|commit
