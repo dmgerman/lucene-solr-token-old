@@ -475,7 +475,7 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
-name|closeDirectory
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -494,7 +494,7 @@ name|directory
 argument_list|,
 name|infos
 argument_list|,
-name|closeDirectory
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -509,7 +509,7 @@ name|directory
 argument_list|,
 name|infos
 argument_list|,
-name|closeDirectory
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -522,19 +522,33 @@ argument_list|(
 name|deletionPolicy
 argument_list|)
 expr_stmt|;
+name|reader
+operator|.
+name|closeDirectory
+operator|=
+name|closeDirectory
+expr_stmt|;
 return|return
 name|reader
 return|;
 block|}
 block|}
 decl_stmt|;
+name|DirectoryIndexReader
+name|reader
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|commit
 operator|==
 literal|null
 condition|)
-return|return
+name|reader
+operator|=
 operator|(
 name|DirectoryIndexReader
 operator|)
@@ -542,7 +556,7 @@ name|finder
 operator|.
 name|run
 argument_list|()
-return|;
+expr_stmt|;
 else|else
 block|{
 if|if
@@ -563,7 +577,8 @@ argument_list|)
 throw|;
 comment|// This can& will directly throw IOException if the
 comment|// specified commit point has been deleted:
-return|return
+name|reader
+operator|=
 operator|(
 name|DirectoryIndexReader
 operator|)
@@ -576,8 +591,47 @@ operator|.
 name|getSegmentsFileName
 argument_list|()
 argument_list|)
-return|;
+expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
+comment|// We passed false above for closeDirectory so that
+comment|// the directory would not be closed before we were
+comment|// done retrying, so at this point if we truly failed
+comment|// to open a reader, which means an exception is being
+comment|// thrown, then close the directory now:
+if|if
+condition|(
+name|reader
+operator|==
+literal|null
+operator|&&
+name|closeDirectory
+condition|)
+block|{
+try|try
+block|{
+name|directory
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{
+comment|// suppress, so we keep throwing original failure
+comment|// from opening the reader
+block|}
+block|}
+block|}
+return|return
+name|reader
+return|;
 block|}
 DECL|method|reopen
 specifier|public
