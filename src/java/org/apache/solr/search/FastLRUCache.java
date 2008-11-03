@@ -250,7 +250,6 @@ argument_list|(
 literal|"size"
 argument_list|)
 decl_stmt|;
-specifier|final
 name|int
 name|limit
 init|=
@@ -313,6 +312,28 @@ name|str
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|minLimit
+operator|==
+literal|0
+condition|)
+name|minLimit
+operator|=
+literal|1
+expr_stmt|;
+if|if
+condition|(
+name|limit
+operator|<=
+name|minLimit
+condition|)
+name|limit
+operator|=
+name|minLimit
+operator|+
+literal|1
+expr_stmt|;
 name|int
 name|acceptableLimit
 decl_stmt|;
@@ -359,6 +380,17 @@ name|str
 argument_list|)
 expr_stmt|;
 block|}
+name|acceptableLimit
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|limit
+argument_list|,
+name|acceptableLimit
+argument_list|)
+expr_stmt|;
 name|str
 operator|=
 operator|(
@@ -379,7 +411,7 @@ name|str
 operator|==
 literal|null
 condition|?
-literal|1024
+name|limit
 else|:
 name|Integer
 operator|.
@@ -424,6 +456,14 @@ operator|+
 literal|", initialSize="
 operator|+
 name|initialSize
+operator|+
+literal|", minSize="
+operator|+
+name|minLimit
+operator|+
+literal|", acceptableSize="
+operator|+
+name|acceptableLimit
 expr_stmt|;
 if|if
 condition|(
