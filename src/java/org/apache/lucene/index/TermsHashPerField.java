@@ -103,8 +103,6 @@ name|docState
 decl_stmt|;
 DECL|field|fieldState
 specifier|final
-name|DocInverter
-operator|.
 name|FieldInvertState
 name|fieldState
 decl_stmt|;

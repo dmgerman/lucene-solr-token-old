@@ -80,14 +80,10 @@ name|docState
 decl_stmt|;
 DECL|field|fieldState
 specifier|final
-name|DocInverter
-operator|.
 name|FieldInvertState
 name|fieldState
 init|=
 operator|new
-name|DocInverter
-operator|.
 name|FieldInvertState
 argument_list|()
 decl_stmt|;
