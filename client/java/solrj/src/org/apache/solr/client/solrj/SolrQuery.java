@@ -1678,6 +1678,9 @@ operator|.
 name|FL
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 name|StringBuilder
 name|sb
