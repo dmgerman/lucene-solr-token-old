@@ -107,7 +107,7 @@ name|XMLWriter
 import|;
 end_import
 begin_comment
-comment|/**  * This FieldType accepts UUID string values, as well as the special value   * of "NEW" which triggers generation of a new random UUID.  *  * @see UUID#toString  * @see UUID#randomUUID  * @version $Id:$  */
+comment|/**  * This FieldType accepts UUID string values, as well as the special value   * of "NEW" which triggers generation of a new random UUID.  *  * @see UUID#toString  * @see UUID#randomUUID  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|UUIDField
