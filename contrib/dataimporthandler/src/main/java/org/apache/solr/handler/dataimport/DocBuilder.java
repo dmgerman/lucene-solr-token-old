@@ -156,7 +156,6 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|dataImporter
-specifier|private
 name|DataImporter
 name|dataImporter
 decl_stmt|;
@@ -1342,28 +1341,6 @@ name|getCore
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|DataSource
-name|ds
-init|=
-name|entity
-operator|.
-name|dataSrc
-decl_stmt|;
-if|if
-condition|(
-name|verboseDebug
-condition|)
-block|{
-name|ds
-operator|=
-name|DebugLogger
-operator|.
-name|wrapDs
-argument_list|(
-name|ds
-argument_list|)
-expr_stmt|;
-block|}
 name|ContextImpl
 name|ctx
 init|=
@@ -1374,7 +1351,7 @@ name|entity
 argument_list|,
 name|vr
 argument_list|,
-name|ds
+literal|null
 argument_list|,
 name|pk
 operator|==
@@ -1388,15 +1365,11 @@ name|Context
 operator|.
 name|DELTA_DUMP
 argument_list|,
-name|requestParameters
-operator|.
-name|requestParams
-argument_list|,
 name|session
 argument_list|,
 name|parentCtx
 argument_list|,
-name|dataImporter
+name|this
 argument_list|)
 decl_stmt|;
 name|entityProcessor
@@ -2556,6 +2529,7 @@ argument_list|>
 name|deletedRows
 parameter_list|)
 block|{
+comment|//someone called abort
 if|if
 condition|(
 name|stop
@@ -2612,6 +2586,7 @@ operator|.
 name|entities
 control|)
 block|{
+comment|//this ensures that we start from the leaf nodes
 name|myModifiedPks
 operator|.
 name|addAll
@@ -2694,23 +2669,17 @@ name|entity
 argument_list|,
 name|resolver
 argument_list|,
-name|entity
-operator|.
-name|dataSrc
+literal|null
 argument_list|,
 name|Context
 operator|.
 name|FIND_DELTA
 argument_list|,
-name|requestParameters
-operator|.
-name|requestParams
-argument_list|,
 name|session
 argument_list|,
 literal|null
 argument_list|,
-name|dataImporter
+name|this
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2730,6 +2699,7 @@ name|count
 init|=
 literal|0
 decl_stmt|;
+comment|//get the modified rows in this entity
 while|while
 condition|(
 literal|true
@@ -2804,6 +2774,7 @@ operator|.
 name|name
 argument_list|)
 expr_stmt|;
+comment|//get the deleted rows for this entity
 name|Set
 argument_list|<
 name|Map
@@ -2915,6 +2886,8 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|//all that we have captured is useless (in a sub-entity) if no rows in the parent is modified because of these
+comment|//so propogate up the changes in the chain
 if|if
 condition|(
 name|parentEntity
@@ -2950,23 +2923,17 @@ name|parentEntity
 argument_list|,
 name|resolver
 argument_list|,
-name|parentEntity
-operator|.
-name|dataSrc
+literal|null
 argument_list|,
 name|Context
 operator|.
 name|FIND_DELTA
 argument_list|,
-name|requestParameters
-operator|.
-name|requestParams
-argument_list|,
 name|session
 argument_list|,
 literal|null
 argument_list|,
-name|dataImporter
+name|this
 argument_list|)
 argument_list|)
 expr_stmt|;
