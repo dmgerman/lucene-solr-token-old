@@ -27,6 +27,19 @@ operator|.
 name|Similarity
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|AttributeSource
+import|;
+end_import
 begin_comment
 comment|/**  * This class tracks the number and position / offset parameters of terms  * being added to the index. The information collected in this class is  * also used to calculate the normalization factor for a field.  *   *<p><b>WARNING</b>: This API is new and experimental, and may suddenly  * change.</p>  */
 end_comment
@@ -56,6 +69,10 @@ decl_stmt|;
 DECL|field|boost
 name|float
 name|boost
+decl_stmt|;
+DECL|field|attributeSource
+name|AttributeSource
+name|attributeSource
 decl_stmt|;
 DECL|method|FieldInvertState
 specifier|public
@@ -142,6 +159,10 @@ name|boost
 operator|=
 name|docBoost
 expr_stmt|;
+name|attributeSource
+operator|=
+literal|null
+expr_stmt|;
 block|}
 comment|/**    * Get the last processed term position.    * @return the position    */
 DECL|method|getPosition
@@ -196,6 +217,16 @@ parameter_list|()
 block|{
 return|return
 name|boost
+return|;
+block|}
+DECL|method|getAttributeSource
+specifier|public
+name|AttributeSource
+name|getAttributeSource
+parameter_list|()
+block|{
+return|return
+name|attributeSource
 return|;
 block|}
 block|}
