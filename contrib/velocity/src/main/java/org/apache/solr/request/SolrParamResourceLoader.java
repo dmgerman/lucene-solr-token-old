@@ -209,7 +209,7 @@ name|name
 operator|.
 name|startsWith
 argument_list|(
-literal|"template."
+literal|"v.template."
 argument_list|)
 condition|)
 block|{
@@ -221,7 +221,7 @@ name|name
 operator|.
 name|substring
 argument_list|(
-literal|9
+literal|11
 argument_list|)
 operator|+
 literal|".vm"
@@ -277,7 +277,7 @@ else|:
 operator|new
 name|ByteArrayInputStream
 argument_list|(
-name|s
+name|template
 operator|.
 name|getBytes
 argument_list|()
