@@ -16,15 +16,6 @@ package|;
 end_package
 begin_import
 import|import
-name|javanet
-operator|.
-name|staxutils
-operator|.
-name|BaseXMLInputFactory
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -415,7 +406,7 @@ argument_list|)
 expr_stmt|;
 name|inputFactory
 operator|=
-name|BaseXMLInputFactory
+name|XMLInputFactory
 operator|.
 name|newInstance
 argument_list|()
