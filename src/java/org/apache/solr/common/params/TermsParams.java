@@ -25,6 +25,7 @@ specifier|public
 class|class
 name|TermsParams
 block|{
+comment|/**    * The component name.  Set to true to turn on the TermsComponent    */
 DECL|field|TERMS
 specifier|public
 specifier|static
@@ -34,6 +35,7 @@ name|TERMS
 init|=
 literal|"terms"
 decl_stmt|;
+comment|/**    * Used for building up the other terms    */
 DECL|field|TERMS_PREFIX
 specifier|public
 specifier|static
@@ -91,7 +93,7 @@ name|TERMS_UPPER_INCLUSIVE
 init|=
 name|TERMS_PREFIX
 operator|+
-literal|"upr.incl"
+literal|"upper.incl"
 decl_stmt|;
 comment|/**    * Optional.  If true, include the lower bound term in the results, otherwise skip to the next one.  True by default.    */
 DECL|field|TERMS_LOWER_INCLUSIVE
@@ -103,7 +105,7 @@ name|TERMS_LOWER_INCLUSIVE
 init|=
 name|TERMS_PREFIX
 operator|+
-literal|"lwr.incl"
+literal|"lower.incl"
 decl_stmt|;
 comment|/**    * Optional.  The number of results to return.  If not specified, looks for {@link org.apache.solr.common.params.CommonParams#ROWS}.  If that's not specified, uses 10.    */
 DECL|field|TERMS_ROWS
@@ -116,6 +118,17 @@ init|=
 name|TERMS_PREFIX
 operator|+
 literal|"rows"
+decl_stmt|;
+DECL|field|TERMS_PREFIX_STR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TERMS_PREFIX_STR
+init|=
+name|TERMS_PREFIX
+operator|+
+literal|"prefix"
 decl_stmt|;
 block|}
 end_class
