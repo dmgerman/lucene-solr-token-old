@@ -249,6 +249,11 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|setEnablePositionIncrements
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|SolrQueryParser
 specifier|public
@@ -328,6 +333,11 @@ expr_stmt|;
 name|setLowercaseExpandedTerms
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+name|setEnablePositionIncrements
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
