@@ -1465,9 +1465,6 @@ comment|// Different lock factory instance should hit IOException:
 try|try
 block|{
 name|FSDirectory
-name|fs2
-init|=
-name|FSDirectory
 operator|.
 name|getDirectory
 argument_list|(
@@ -1477,7 +1474,7 @@ operator|new
 name|SingleInstanceLockFactory
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should have hit an IOException because LockFactory instances differ"
@@ -1757,20 +1754,6 @@ name|IOException
 block|{
 name|NativeFSLockFactory
 name|f
-init|=
-operator|new
-name|NativeFSLockFactory
-argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"tempDir"
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|NativeFSLockFactory
-name|f2
 init|=
 operator|new
 name|NativeFSLockFactory
@@ -2344,13 +2327,6 @@ name|searcher
 init|=
 literal|null
 decl_stmt|;
-name|WhitespaceAnalyzer
-name|analyzer
-init|=
-operator|new
-name|WhitespaceAnalyzer
-argument_list|()
-decl_stmt|;
 name|Query
 name|query
 init|=
@@ -2771,6 +2747,13 @@ name|list
 argument_list|()
 decl_stmt|;
 comment|// clear old files
+if|if
+condition|(
+name|files
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|int
@@ -2813,6 +2796,7 @@ operator|.
 name|delete
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
