@@ -34,15 +34,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|BitSet
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -67,19 +58,6 @@ operator|.
 name|BooleanClause
 operator|.
 name|Occur
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|DocIdBitSet
 import|;
 end_import
 begin_import
@@ -596,7 +574,9 @@ return|return
 name|emptyDocIdSet
 return|;
 block|}
-comment|/** Provide a SortedVIntList when it is definitely smaller than an OpenBitSet */
+comment|// TODO: in 3.0, instead of removing this deprecated
+comment|// method, make it a no-op and mark it final
+comment|/** Provide a SortedVIntList when it is definitely smaller    * than an OpenBitSet.    * @deprecated Either use CachingWrapperFilter, or    * switch to a different DocIdSet implementation yourself. */
 DECL|method|finalResult
 specifier|protected
 name|DocIdSet
