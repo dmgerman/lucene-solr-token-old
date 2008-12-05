@@ -1516,7 +1516,7 @@ name|up
 operator|.
 name|setCommitWithin
 argument_list|(
-literal|10
+literal|100
 argument_list|)
 expr_stmt|;
 name|up
