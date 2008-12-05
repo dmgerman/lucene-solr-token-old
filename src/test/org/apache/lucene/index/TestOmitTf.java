@@ -1164,7 +1164,7 @@ name|files
 init|=
 name|dir
 operator|.
-name|list
+name|listAll
 argument_list|()
 decl_stmt|;
 for|for

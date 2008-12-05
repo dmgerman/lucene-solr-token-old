@@ -1781,7 +1781,7 @@ name|preCount
 init|=
 name|dir
 operator|.
-name|list
+name|listAll
 argument_list|()
 operator|.
 name|length
@@ -1818,7 +1818,7 @@ name|postCount
 init|=
 name|dir
 operator|.
-name|list
+name|listAll
 argument_list|()
 operator|.
 name|length
