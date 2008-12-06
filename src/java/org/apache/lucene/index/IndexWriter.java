@@ -2387,6 +2387,12 @@ expr_stmt|;
 name|changeCount
 operator|++
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"init: loaded commit \""
@@ -3438,6 +3444,19 @@ return|return
 name|infoStream
 return|;
 block|}
+comment|/** Returns true if verbosing is enabled (i.e., infoStream != null). */
+DECL|method|verbose
+specifier|public
+name|boolean
+name|verbose
+parameter_list|()
+block|{
+return|return
+name|infoStream
+operator|!=
+literal|null
+return|;
+block|}
 comment|/**    * Sets the maximum time to wait for a write lock (in milliseconds) for this instance of IndexWriter.  @see    * @see #setDefaultWriteLockTimeout to change the default value for all instances of IndexWriter.    */
 DECL|method|setWriteLockTimeout
 specifier|public
@@ -3872,14 +3891,12 @@ if|if
 condition|(
 operator|!
 name|success
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|message
 argument_list|(
 literal|"hit exception closing doc store segment"
@@ -8763,6 +8780,12 @@ argument_list|(
 literal|"prepareCommit was already called with no corresponding call to commit"
 argument_list|)
 throw|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"prepareCommit: flush"
@@ -8889,6 +8912,12 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"commit: start"
@@ -8903,6 +8932,12 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"commit: now prepare"
@@ -8916,7 +8951,13 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"commit: already prepared"
@@ -8954,6 +8995,12 @@ condition|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"commit: pendingCommit != null"
@@ -8966,6 +9013,12 @@ argument_list|(
 name|directory
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"commit: wrote segments file \""
@@ -9032,12 +9085,24 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"commit: pendingCommit == null; skip"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"commit: done"
@@ -10270,6 +10335,12 @@ operator|.
 name|advanceDelGen
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"commit merge deletes to "
@@ -13809,6 +13880,12 @@ literal|"' does not exist dir="
 operator|+
 name|directory
 assert|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"now sync "
@@ -13896,6 +13973,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"wait for existing pendingCommit to finish..."
@@ -13986,6 +14069,10 @@ if|if
 condition|(
 operator|!
 name|success
+operator|&&
+name|infoStream
+operator|!=
+literal|null
 condition|)
 name|message
 argument_list|(
@@ -13994,13 +14081,25 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"sync superseded by newer infos"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 name|message
 argument_list|(
 literal|"done all syncs"
