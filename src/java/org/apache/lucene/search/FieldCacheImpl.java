@@ -357,7 +357,7 @@ specifier|final
 name|Object
 name|custom
 decl_stmt|;
-comment|// which custom comparator
+comment|// which custom comparator or parser
 DECL|field|locale
 specifier|final
 name|Locale
@@ -406,7 +406,7 @@ operator|=
 name|locale
 expr_stmt|;
 block|}
-comment|/** Creates one of these objects for a custom comparator. */
+comment|/** Creates one of these objects for a custom comparator/parser. */
 DECL|method|Entry
 name|Entry
 parameter_list|(
@@ -439,6 +439,48 @@ operator|.
 name|custom
 operator|=
 name|custom
+expr_stmt|;
+name|this
+operator|.
+name|locale
+operator|=
+literal|null
+expr_stmt|;
+block|}
+comment|/** Creates one of these objects for a custom type with parser, needed by FieldSortedHitQueue. */
+DECL|method|Entry
+name|Entry
+parameter_list|(
+name|String
+name|field
+parameter_list|,
+name|int
+name|type
+parameter_list|,
+name|Parser
+name|parser
+parameter_list|)
+block|{
+name|this
+operator|.
+name|field
+operator|=
+name|field
+operator|.
+name|intern
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+name|this
+operator|.
+name|custom
+operator|=
+name|parser
 expr_stmt|;
 name|this
 operator|.
