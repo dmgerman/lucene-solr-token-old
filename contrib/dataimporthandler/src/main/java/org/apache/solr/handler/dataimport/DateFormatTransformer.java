@@ -283,14 +283,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|String
-name|value
-init|=
-operator|(
-name|String
-operator|)
-name|o
-decl_stmt|;
 name|aRow
 operator|.
 name|put
@@ -299,7 +291,10 @@ name|column
 argument_list|,
 name|process
 argument_list|(
-name|value
+name|o
+operator|.
+name|toString
+argument_list|()
 argument_list|,
 name|fmt
 argument_list|)
