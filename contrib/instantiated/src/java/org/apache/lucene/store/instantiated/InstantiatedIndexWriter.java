@@ -2886,6 +2886,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// reset the TokenStream to the first token
+name|tokenStream
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 specifier|final
 name|Token
 name|reusableToken
