@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.solr.handler
+DECL|package|org.apache.solr.handler.extraction
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|solr
 operator|.
 name|handler
+operator|.
+name|extraction
 package|;
 end_package
 begin_import
@@ -319,7 +321,7 @@ name|UUID
 import|;
 end_import
 begin_comment
-comment|/**  * This class is not thread-safe.  It is responsible for responding to Tika extraction events and producing a Solr document  */
+comment|/**  * The class responsible for handling Tika events and translating them into {@link org.apache.solr.common.SolrInputDocument}s.  *<B>This class is not thread-safe.</B>  *<p/>  *  * User's may wish to override this class to provide their own functionality.  *  * @see org.apache.solr.handler.extraction.SolrContentHandlerFactory  * @see org.apache.solr.handler.extraction.ExtractingRequestHandler  * @see org.apache.solr.handler.extraction.ExtractingDocumentLoader  *  */
 end_comment
 begin_class
 DECL|class|SolrContentHandler
@@ -545,8 +547,6 @@ name|params
 operator|.
 name|getBool
 argument_list|(
-name|ExtractingParams
-operator|.
 name|IGNORE_UNDECLARED_FIELDS
 argument_list|,
 literal|false
@@ -560,8 +560,6 @@ name|params
 operator|.
 name|getBool
 argument_list|(
-name|ExtractingParams
-operator|.
 name|INDEX_ATTRIBUTES
 argument_list|,
 literal|false
@@ -575,8 +573,6 @@ name|params
 operator|.
 name|get
 argument_list|(
-name|ExtractingParams
-operator|.
 name|DEFAULT_FIELDNAME
 argument_list|)
 expr_stmt|;
@@ -588,8 +584,6 @@ name|params
 operator|.
 name|get
 argument_list|(
-name|ExtractingParams
-operator|.
 name|METADATA_PREFIX
 argument_list|,
 literal|""
@@ -606,8 +600,6 @@ name|params
 operator|.
 name|getBool
 argument_list|(
-name|ExtractingParams
-operator|.
 name|EXTRACT_ONLY
 argument_list|,
 literal|false
@@ -638,8 +630,6 @@ name|params
 operator|.
 name|getParams
 argument_list|(
-name|ExtractingParams
-operator|.
 name|CAPTURE_FIELDS
 argument_list|)
 decl_stmt|;
@@ -1247,7 +1237,7 @@ return|return
 name|document
 return|;
 block|}
-comment|/**    * Generate an ID for the document.  First try to get    * {@link org.apache.solr.handler.ExtractingMetadataConstants#STREAM_NAME} from the    * {@link org.apache.tika.metadata.Metadata}, then try {@link ExtractingMetadataConstants#STREAM_SOURCE_INFO}    * then try {@link org.apache.tika.metadata.Metadata#IDENTIFIER}.    * If those all are null, then generate a random UUID using {@link java.util.UUID#randomUUID()}.    *    * @param uniqueField The SchemaField representing the unique field.    * @return The id as a string    */
+comment|/**    * Generate an ID for the document.  First try to get    * {@link ExtractingMetadataConstants#STREAM_NAME} from the    * {@link org.apache.tika.metadata.Metadata}, then try {@link ExtractingMetadataConstants#STREAM_SOURCE_INFO}    * then try {@link org.apache.tika.metadata.Metadata#IDENTIFIER}.    * If those all are null, then generate a random UUID using {@link java.util.UUID#randomUUID()}.    *    * @param uniqueField The SchemaField representing the unique field.    * @return The id as a string    */
 DECL|method|generateId
 specifier|protected
 name|String
@@ -1893,8 +1883,6 @@ name|params
 operator|.
 name|get
 argument_list|(
-name|ExtractingParams
-operator|.
 name|MAP_PREFIX
 operator|+
 name|name
@@ -1920,8 +1908,6 @@ name|params
 operator|.
 name|get
 argument_list|(
-name|ExtractingParams
-operator|.
 name|MAP_PREFIX
 operator|+
 name|name

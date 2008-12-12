@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.solr.handler
+DECL|package|org.apache.solr.handler.extraction
 package|package
 name|org
 operator|.
@@ -9,10 +9,12 @@ operator|.
 name|solr
 operator|.
 name|handler
+operator|.
+name|extraction
 package|;
 end_package
 begin_comment
-comment|/**  *  *  **/
+comment|/**  * Constants used internally by the {@link ExtractingRequestHandler}.  *  **/
 end_comment
 begin_interface
 DECL|interface|ExtractingMetadataConstants
