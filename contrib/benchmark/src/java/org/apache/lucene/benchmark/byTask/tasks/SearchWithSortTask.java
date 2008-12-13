@@ -212,6 +212,8 @@ name|field
 operator|.
 name|substring
 argument_list|(
+literal|1
+operator|+
 name|index
 argument_list|,
 name|field
