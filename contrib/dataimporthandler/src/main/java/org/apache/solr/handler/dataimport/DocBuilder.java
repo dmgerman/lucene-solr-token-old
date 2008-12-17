@@ -962,12 +962,6 @@ argument_list|(
 literal|"Rolledback"
 argument_list|)
 expr_stmt|;
-name|requestParameters
-operator|.
-name|optimize
-operator|=
-literal|false
-expr_stmt|;
 block|}
 annotation|@
 name|SuppressWarnings
