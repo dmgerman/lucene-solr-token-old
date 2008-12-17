@@ -2541,7 +2541,7 @@ expr_stmt|;
 name|infoRegistry
 operator|=
 operator|new
-name|LinkedHashMap
+name|ConcurrentHashMap
 argument_list|<
 name|String
 argument_list|,
