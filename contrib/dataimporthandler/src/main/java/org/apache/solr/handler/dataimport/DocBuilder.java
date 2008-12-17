@@ -941,6 +941,13 @@ operator|.
 name|rollback
 argument_list|()
 expr_stmt|;
+name|writer
+operator|.
+name|commit
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|statusMessages
 operator|.
 name|put
@@ -954,6 +961,12 @@ name|addStatusMessage
 argument_list|(
 literal|"Rolledback"
 argument_list|)
+expr_stmt|;
+name|requestParameters
+operator|.
+name|optimize
+operator|=
+literal|false
 expr_stmt|;
 block|}
 annotation|@
