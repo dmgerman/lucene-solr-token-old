@@ -56,17 +56,6 @@ name|STATS
 operator|+
 literal|".facet"
 decl_stmt|;
-DECL|field|STATS_TWOPASS
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|STATS_TWOPASS
-init|=
-name|STATS
-operator|+
-literal|".twopass"
-decl_stmt|;
 block|}
 end_interface
 end_unit
