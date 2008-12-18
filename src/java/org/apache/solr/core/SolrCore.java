@@ -1866,6 +1866,9 @@ argument_list|(
 name|getIndexDir
 argument_list|()
 argument_list|,
+name|getDirectoryFactory
+argument_list|()
+argument_list|,
 name|solrConfig
 operator|.
 name|mainIndexConfig
@@ -1876,7 +1879,10 @@ condition|(
 name|dir
 operator|!=
 literal|null
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|IndexWriter
 operator|.
 name|isLocked
@@ -1905,6 +1911,12 @@ name|unlock
 argument_list|(
 name|dir
 argument_list|)
+expr_stmt|;
+block|}
+name|dir
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
