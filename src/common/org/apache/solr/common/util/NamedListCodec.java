@@ -61,7 +61,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * The class is designed to optimaly serialize/deserialize a NamedList. As we know there are only  * a limited type of items this class can do it with very minimal amount of payload and code. There are  * 15 known types and if there is an object in the object tree which does not fall into these types, It must be  * converted to one of these. Implement an ObjectResolver and pass it over  * It is expected that this class is used on both end of the pipes.  * The class has one read method and one write method for each of the datatypes  *  */
+comment|/**  * The class is designed to optimaly serialize/deserialize a NamedList. As we know there are only  * a limited type of items this class can do it with very minimal amount of payload and code. There are  * 15 known types and if there is an object in the object tree which does not fall into these types, It must be  * converted to one of these. Implement an ObjectResolver and pass it over  * It is expected that this class is used on both end of the pipes.  * The class has one read method and one write method for each of the datatypes  *  * Note -- Never re-use an instance of this class for more than one marshal or unmarshall operation.  * Always create a new instance.  *  */
 end_comment
 begin_class
 DECL|class|NamedListCodec
@@ -256,6 +256,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|VERSION
 specifier|private
+specifier|static
 name|byte
 name|VERSION
 init|=
@@ -267,7 +268,7 @@ name|ObjectResolver
 name|resolver
 decl_stmt|;
 DECL|field|daos
-specifier|private
+specifier|protected
 name|FastOutputStream
 name|daos
 decl_stmt|;
@@ -296,7 +297,7 @@ specifier|public
 name|void
 name|marshal
 parameter_list|(
-name|NamedList
+name|Object
 name|nl
 parameter_list|,
 name|OutputStream
@@ -323,7 +324,7 @@ argument_list|(
 name|VERSION
 argument_list|)
 expr_stmt|;
-name|writeNamedList
+name|writeVal
 argument_list|(
 name|nl
 argument_list|)
@@ -338,9 +339,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+DECL|field|version
+name|byte
+name|version
+decl_stmt|;
 DECL|method|unmarshal
 specifier|public
-name|NamedList
+name|Object
 name|unmarshal
 parameter_list|(
 name|InputStream
@@ -359,17 +364,31 @@ argument_list|(
 name|is
 argument_list|)
 decl_stmt|;
-name|byte
 name|version
-init|=
+operator|=
 name|dis
 operator|.
 name|readByte
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+if|if
+condition|(
+name|version
+operator|!=
+name|VERSION
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Invalid version or the data in not in 'javabin' format"
+argument_list|)
+throw|;
+block|}
 return|return
 operator|(
-name|NamedList
+name|Object
 operator|)
 name|readVal
 argument_list|(
@@ -686,7 +705,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|field|END_OBJ
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|Object
@@ -2169,7 +2188,7 @@ index|[]
 name|charArr
 decl_stmt|;
 DECL|method|readStr
-specifier|private
+specifier|public
 name|String
 name|readStr
 parameter_list|(

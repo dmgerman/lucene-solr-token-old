@@ -441,6 +441,9 @@ argument_list|()
 decl_stmt|;
 name|nl
 operator|=
+operator|(
+name|NamedList
+operator|)
 operator|new
 name|NamedListCodec
 argument_list|()
@@ -749,6 +752,9 @@ argument_list|()
 decl_stmt|;
 name|nl
 operator|=
+operator|(
+name|NamedList
+operator|)
 operator|new
 name|NamedListCodec
 argument_list|()
@@ -924,6 +930,9 @@ block|{
 name|NamedList
 name|result
 init|=
+operator|(
+name|NamedList
+operator|)
 operator|new
 name|NamedListCodec
 argument_list|()
@@ -1598,6 +1607,9 @@ decl_stmt|;
 comment|// System.out.println(arr.length);
 name|res
 operator|=
+operator|(
+name|NamedList
+operator|)
 operator|new
 name|NamedListCodec
 argument_list|()
