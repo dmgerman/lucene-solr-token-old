@@ -542,14 +542,12 @@ block|,
 literal|"CloseReader"
 block|,     }
 decl_stmt|;
-name|long
-name|t0
-init|=
-name|System
+name|CountingSearchTestTask
 operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
+name|numSearches
+operator|=
+literal|0
+expr_stmt|;
 name|Benchmark
 name|benchmark
 init|=
@@ -557,14 +555,6 @@ name|execBenchmark
 argument_list|(
 name|algLines
 argument_list|)
-decl_stmt|;
-name|long
-name|t1
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -578,16 +568,22 @@ expr_stmt|;
 name|long
 name|elapsed
 init|=
-name|t1
+name|CountingSearchTestTask
+operator|.
+name|lastMillis
 operator|-
-name|t0
+name|CountingSearchTestTask
+operator|.
+name|startMillis
 decl_stmt|;
 name|assertTrue
 argument_list|(
+literal|"elapsed time was "
+operator|+
 name|elapsed
-operator|>
-literal|1500
-operator|&&
+operator|+
+literal|" msec"
+argument_list|,
 name|elapsed
 operator|<
 literal|2000
