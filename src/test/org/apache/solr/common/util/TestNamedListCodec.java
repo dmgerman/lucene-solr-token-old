@@ -75,15 +75,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -418,7 +409,7 @@ name|doc
 argument_list|)
 expr_stmt|;
 operator|new
-name|NamedListCodec
+name|JavaBinCodec
 argument_list|(
 literal|null
 argument_list|)
@@ -445,7 +436,7 @@ operator|(
 name|NamedList
 operator|)
 operator|new
-name|NamedListCodec
+name|JavaBinCodec
 argument_list|()
 operator|.
 name|unmarshal
@@ -729,7 +720,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 operator|new
-name|NamedListCodec
+name|JavaBinCodec
 argument_list|(
 literal|null
 argument_list|)
@@ -756,7 +747,7 @@ operator|(
 name|NamedList
 operator|)
 operator|new
-name|NamedListCodec
+name|JavaBinCodec
 argument_list|()
 operator|.
 name|unmarshal
@@ -904,7 +895,7 @@ literal|"the end"
 argument_list|)
 expr_stmt|;
 operator|new
-name|NamedListCodec
+name|JavaBinCodec
 argument_list|(
 literal|null
 argument_list|)
@@ -934,7 +925,7 @@ operator|(
 name|NamedList
 operator|)
 operator|new
-name|NamedListCodec
+name|JavaBinCodec
 argument_list|()
 operator|.
 name|unmarshal
@@ -1583,7 +1574,7 @@ name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
 operator|new
-name|NamedListCodec
+name|JavaBinCodec
 argument_list|(
 literal|null
 argument_list|)
@@ -1611,7 +1602,7 @@ operator|(
 name|NamedList
 operator|)
 operator|new
-name|NamedListCodec
+name|JavaBinCodec
 argument_list|()
 operator|.
 name|unmarshal
