@@ -353,6 +353,7 @@ name|COMMIT_WITHIN
 init|=
 literal|"commitWithin"
 decl_stmt|;
+comment|/**    * @deprecated use {@link #OVERWRITE}    */
 DECL|field|OVERWRITE_COMMITTED
 specifier|public
 specifier|static
@@ -362,7 +363,7 @@ name|OVERWRITE_COMMITTED
 init|=
 literal|"overwriteCommitted"
 decl_stmt|;
-comment|// @Deprecated
+comment|/**    * @deprecated use {@link #OVERWRITE}    */
 DECL|field|OVERWRITE_PENDING
 specifier|public
 specifier|static
@@ -372,7 +373,7 @@ name|OVERWRITE_PENDING
 init|=
 literal|"overwritePending"
 decl_stmt|;
-comment|// @Deprecated
+comment|/**    * @deprecated use {@link #OVERWRITE}    */
 DECL|field|ALLOW_DUPS
 specifier|public
 specifier|static
