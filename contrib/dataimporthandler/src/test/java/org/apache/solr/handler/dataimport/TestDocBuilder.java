@@ -979,6 +979,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|Assert
+operator|.
+name|assertEquals
+argument_list|(
+name|map
+operator|.
+name|get
+argument_list|(
+literal|"desc"
+argument_list|)
+argument_list|,
+name|doc
+operator|.
+name|getFieldValue
+argument_list|(
+literal|"desc_s"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 name|Assert
 operator|.
@@ -1170,6 +1189,8 @@ operator|+
 literal|"<field column=\"id\"/>\n"
 operator|+
 literal|"<field column=\"desc\"/>\n"
+operator|+
+literal|"<field column=\"desc\" name=\"desc_s\" />"
 operator|+
 literal|"</entity>\n"
 operator|+
