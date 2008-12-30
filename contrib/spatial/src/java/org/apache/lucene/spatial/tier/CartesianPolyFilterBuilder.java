@@ -130,10 +130,10 @@ begin_comment
 comment|/**  *  */
 end_comment
 begin_class
-DECL|class|CartesianPolyFilter
+DECL|class|CartesianPolyFilterBuilder
 specifier|public
 class|class
-name|CartesianPolyFilter
+name|CartesianPolyFilterBuilder
 block|{
 DECL|field|projector
 specifier|private
