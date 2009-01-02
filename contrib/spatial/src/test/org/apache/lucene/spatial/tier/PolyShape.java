@@ -67,7 +67,9 @@ name|cpf
 init|=
 operator|new
 name|CartesianPolyFilterBuilder
-argument_list|()
+argument_list|(
+literal|"_localTier"
+argument_list|)
 decl_stmt|;
 name|cpf
 operator|.

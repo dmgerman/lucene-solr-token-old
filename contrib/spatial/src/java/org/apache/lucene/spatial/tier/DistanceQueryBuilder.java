@@ -154,6 +154,9 @@ parameter_list|,
 name|String
 name|lngField
 parameter_list|,
+name|String
+name|tierFieldPrefix
+parameter_list|,
 name|boolean
 name|needPrecise
 parameter_list|)
@@ -181,7 +184,9 @@ name|cpf
 init|=
 operator|new
 name|CartesianPolyFilterBuilder
-argument_list|()
+argument_list|(
+name|tierFieldPrefix
+argument_list|)
 decl_stmt|;
 name|cartesianFilter
 operator|=
