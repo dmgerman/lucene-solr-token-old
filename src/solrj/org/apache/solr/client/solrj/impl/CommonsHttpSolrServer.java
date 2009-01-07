@@ -1986,7 +1986,7 @@ block|}
 block|}
 comment|//-------------------------------------------------------------------
 comment|//-------------------------------------------------------------------
-comment|/**    * Parameters are added to ever request regardless.  This may be a place to add     * something like an authentication token.    */
+comment|/**    * Parameters are added to every request regardless.  This may be a place to add     * something like an authentication token.    */
 DECL|method|getInvariantParams
 specifier|public
 name|ModifiableSolrParams
