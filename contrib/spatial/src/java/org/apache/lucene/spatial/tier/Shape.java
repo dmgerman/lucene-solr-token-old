@@ -35,7 +35,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * @author pjaol  *  */
+comment|/**  *  */
 end_comment
 begin_class
 DECL|class|Shape
