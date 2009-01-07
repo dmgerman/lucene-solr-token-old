@@ -470,6 +470,7 @@ operator|.
 name|lock
 argument_list|()
 expr_stmt|;
+comment|// info is ok since this should only happen once for each thread
 name|log
 operator|.
 name|info
@@ -576,7 +577,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"sending: {}"
 argument_list|,
