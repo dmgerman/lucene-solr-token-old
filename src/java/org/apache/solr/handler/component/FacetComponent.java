@@ -477,7 +477,7 @@ condition|(
 name|refList
 operator|==
 literal|null
-operator||
+operator|||
 name|refList
 operator|.
 name|size
