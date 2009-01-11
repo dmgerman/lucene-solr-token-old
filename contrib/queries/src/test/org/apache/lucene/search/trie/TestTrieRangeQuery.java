@@ -543,9 +543,6 @@ literal|"Found "
 operator|+
 name|q
 operator|.
-name|getFilter
-argument_list|()
-operator|.
 name|getLastNumberOfTerms
 argument_list|()
 operator|+
@@ -819,9 +816,6 @@ argument_list|(
 literal|"Found "
 operator|+
 name|q
-operator|.
-name|getFilter
-argument_list|()
 operator|.
 name|getLastNumberOfTerms
 argument_list|()
