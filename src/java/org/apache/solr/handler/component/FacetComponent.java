@@ -534,6 +534,8 @@ name|commandPrefix
 operator|+
 name|termsKey
 operator|+
+literal|" "
+operator|+
 name|dff
 operator|.
 name|facetStr
