@@ -224,6 +224,13 @@ range|:
 name|inputs
 control|)
 block|{
+if|if
+condition|(
+name|input
+operator|==
+literal|null
+condition|)
+continue|continue;
 name|Object
 name|o
 init|=
