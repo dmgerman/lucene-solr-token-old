@@ -3464,6 +3464,11 @@ condition|)
 return|return
 literal|false
 return|;
+name|boolean
+name|isSuccess
+init|=
+literal|true
+decl_stmt|;
 name|File
 name|contents
 index|[]
@@ -3509,9 +3514,21 @@ condition|(
 operator|!
 name|success
 condition|)
-return|return
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to delete directory : "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+name|isSuccess
+operator|=
 literal|false
-return|;
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -3528,13 +3545,30 @@ condition|(
 operator|!
 name|success
 condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to delete file : "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+name|isSuccess
+operator|=
+literal|false
+expr_stmt|;
 return|return
 literal|false
 return|;
 block|}
 block|}
 block|}
+block|}
 return|return
+name|isSuccess
+operator|&&
 name|dir
 operator|.
 name|delete
@@ -4752,6 +4786,19 @@ name|e
 parameter_list|)
 block|{
 comment|/* noop */
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Error closing the file stream: "
+operator|+
+name|this
+operator|.
+name|saveAs
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
