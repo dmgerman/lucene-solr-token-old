@@ -164,6 +164,11 @@ operator|.
 name|clone
 argument_list|()
 expr_stmt|;
+synchronized|synchronized
+init|(
+name|parent
+init|)
+block|{
 name|this
 operator|.
 name|deletedDocs
@@ -172,6 +177,7 @@ name|parent
 operator|.
 name|deletedDocs
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|skipInterval
