@@ -3382,11 +3382,15 @@ argument_list|>
 name|out
 init|=
 operator|new
-name|LinkedList
+name|ArrayList
 argument_list|<
 name|Query
 argument_list|>
-argument_list|()
+argument_list|(
+name|queries
+operator|.
+name|length
+argument_list|)
 decl_stmt|;
 for|for
 control|(
