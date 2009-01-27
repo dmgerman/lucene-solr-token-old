@@ -37,7 +37,7 @@ name|IndexReader
 import|;
 end_import
 begin_comment
-comment|/** A {@link HitCollector} implementation that collects the top-sorting  * documents, returning them as a {@link TopFieldDocs}.  This is used by {@link  * IndexSearcher} to implement {@link TopFieldDocs}-based search.  *  *<p>This may be extended, overriding the collect method to, e.g.,  * conditionally invoke<code>super()</code> in order to filter which  * documents are collected.  **/
+comment|/** A {@link HitCollector} implementation that collects the top-sorting  * documents, returning them as a {@link TopFieldDocs}.  This is used by {@link  * IndexSearcher} to implement {@link TopFieldDocs}-based search.  *  *<p>This may be extended, overriding the collect method to, e.g.,  * conditionally invoke<code>super()</code> in order to filter which  * documents are collected.  *  * @deprecated Please use {@link TopFieldCollector} instead.  **/
 end_comment
 begin_class
 DECL|class|TopFieldDocCollector
@@ -45,7 +45,7 @@ specifier|public
 class|class
 name|TopFieldDocCollector
 extends|extends
-name|TopDocCollector
+name|TopScoreDocCollector
 block|{
 DECL|field|reusableFD
 specifier|private
@@ -120,13 +120,15 @@ operator|new
 name|FieldDoc
 argument_list|(
 name|doc
+operator|+
+name|docBase
 argument_list|,
 name|score
 argument_list|)
 expr_stmt|;
 else|else
 block|{
-comment|// Whereas TopDocCollector can skip this if the
+comment|// Whereas TopScoreDocCollector can skip this if the
 comment|// score is not competitive, we cannot because the
 comment|// comparators in the FieldSortedHitQueue.lessThan
 comment|// aren't in general congruent with "higher score
@@ -142,6 +144,8 @@ operator|.
 name|doc
 operator|=
 name|doc
+operator|+
+name|docBase
 expr_stmt|;
 block|}
 name|reusableFD

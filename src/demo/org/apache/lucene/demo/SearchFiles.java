@@ -214,7 +214,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TopDocCollector
+name|TopScoreDocCollector
 import|;
 end_import
 begin_comment
@@ -1036,11 +1036,11 @@ throws|throws
 name|IOException
 block|{
 comment|// Collect enough docs to show 5 pages
-name|TopDocCollector
+name|TopScoreDocCollector
 name|collector
 init|=
 operator|new
-name|TopDocCollector
+name|TopScoreDocCollector
 argument_list|(
 literal|5
 operator|*
@@ -1177,7 +1177,7 @@ block|}
 name|collector
 operator|=
 operator|new
-name|TopDocCollector
+name|TopScoreDocCollector
 argument_list|(
 name|numTotalHits
 argument_list|)

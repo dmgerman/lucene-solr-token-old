@@ -59,15 +59,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|io
 operator|.
 name|IOException
@@ -260,6 +251,15 @@ operator|.
 name|LIMITED
 argument_list|)
 decl_stmt|;
+name|iw
+operator|.
+name|addDocument
+argument_list|(
+operator|new
+name|Document
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|iw
 operator|.
 name|close
@@ -634,7 +634,7 @@ specifier|static
 class|class
 name|CountingHitCollector
 extends|extends
-name|HitCollector
+name|MultiReaderHitCollector
 block|{
 DECL|field|count
 name|int
@@ -647,6 +647,14 @@ name|int
 name|sum
 init|=
 literal|0
+decl_stmt|;
+DECL|field|docBase
+specifier|protected
+name|int
+name|docBase
+init|=
+operator|-
+literal|1
 decl_stmt|;
 DECL|method|collect
 specifier|public
@@ -665,6 +673,8 @@ operator|++
 expr_stmt|;
 name|sum
 operator|+=
+name|docBase
+operator|+
 name|doc
 expr_stmt|;
 comment|// use it to avoid any possibility of being optimized away
@@ -688,6 +698,23 @@ block|{
 return|return
 name|sum
 return|;
+block|}
+DECL|method|setNextReader
+specifier|public
+name|void
+name|setNextReader
+parameter_list|(
+name|IndexReader
+name|reader
+parameter_list|,
+name|int
+name|base
+parameter_list|)
+block|{
+name|docBase
+operator|=
+name|base
+expr_stmt|;
 block|}
 block|}
 DECL|class|MatchingHitCollector
@@ -752,6 +779,8 @@ condition|(
 name|pos
 operator|!=
 name|doc
+operator|+
+name|docBase
 condition|)
 block|{
 throw|throw
@@ -765,6 +794,8 @@ operator|+
 literal|" but got "
 operator|+
 name|doc
+operator|+
+name|docBase
 argument_list|)
 throw|;
 block|}

@@ -126,7 +126,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|HitCollector
+name|IndexSearcher
 import|;
 end_import
 begin_import
@@ -139,7 +139,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|IndexSearcher
+name|MultiReaderHitCollector
 import|;
 end_import
 begin_import
@@ -1991,7 +1991,7 @@ specifier|static
 class|class
 name|CountingHitCollector
 extends|extends
-name|HitCollector
+name|MultiReaderHitCollector
 block|{
 DECL|field|count
 specifier|static
@@ -2006,6 +2006,14 @@ name|int
 name|sum
 init|=
 literal|0
+decl_stmt|;
+DECL|field|docBase
+specifier|private
+name|int
+name|docBase
+init|=
+operator|-
+literal|1
 decl_stmt|;
 DECL|method|CountingHitCollector
 name|CountingHitCollector
@@ -2038,6 +2046,8 @@ expr_stmt|;
 name|sum
 operator|+=
 name|doc
+operator|+
+name|docBase
 expr_stmt|;
 comment|// use it to avoid any possibility of being optimized away
 block|}
@@ -2062,6 +2072,25 @@ block|{
 return|return
 name|sum
 return|;
+block|}
+DECL|method|setNextReader
+specifier|public
+name|void
+name|setNextReader
+parameter_list|(
+name|IndexReader
+name|reader
+parameter_list|,
+name|int
+name|docBase
+parameter_list|)
+block|{
+name|this
+operator|.
+name|docBase
+operator|=
+name|docBase
+expr_stmt|;
 block|}
 block|}
 block|}

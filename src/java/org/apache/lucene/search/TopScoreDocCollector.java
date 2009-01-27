@@ -22,21 +22,34 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|IndexReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|PriorityQueue
 import|;
 end_import
 begin_comment
-comment|/** A {@link HitCollector} implementation that collects the top-scoring  * documents, returning them as a {@link TopDocs}.  This is used by {@link  * IndexSearcher} to implement {@link TopDocs}-based search.  *  *<p>This may be extended, overriding the collect method to, e.g.,  * conditionally invoke<code>super()</code> in order to filter which  * documents are collected.  *  * @deprecated Please use {@link TopScoreDocCollector}  * instead, which has better performance.  **/
+comment|/** A {@link MultiReaderHitCollector} implementation that  *  collects the top-scoring documents, returning them as a  *  {@link TopDocs}.  This is used by {@link IndexSearcher}  *  to implement {@link TopDocs}-based search.  *  *<p>This may be extended, overriding the {@link  *  MultiReaderHitCollector#collect} method to, e.g.,  *  conditionally invoke<code>super()</code> in order to  *  filter which documents are collected, but sure you  *  either take docBase into account, or also override  *  {@link MultiReaderHitCollector#setNextReader} method. */
 end_comment
 begin_class
-DECL|class|TopDocCollector
+DECL|class|TopScoreDocCollector
 specifier|public
 class|class
-name|TopDocCollector
+name|TopScoreDocCollector
 extends|extends
-name|HitCollector
+name|MultiReaderHitCollector
 block|{
 DECL|field|reusableSD
 specifier|private
@@ -55,10 +68,17 @@ specifier|protected
 name|PriorityQueue
 name|hq
 decl_stmt|;
+DECL|field|docBase
+specifier|protected
+name|int
+name|docBase
+init|=
+literal|0
+decl_stmt|;
 comment|/** Construct to collect a given number of hits.    * @param numHits the maximum number of hits to collect    */
-DECL|method|TopDocCollector
+DECL|method|TopScoreDocCollector
 specifier|public
-name|TopDocCollector
+name|TopScoreDocCollector
 parameter_list|(
 name|int
 name|numHits
@@ -74,28 +94,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** @deprecated use TopDocCollector(hq) instead. numHits is not used by this    * constructor. It will be removed in a future release.    */
-DECL|method|TopDocCollector
-name|TopDocCollector
-parameter_list|(
-name|int
-name|numHits
-parameter_list|,
-name|PriorityQueue
-name|hq
-parameter_list|)
-block|{
-name|this
-operator|.
-name|hq
-operator|=
-name|hq
-expr_stmt|;
-block|}
 comment|/** Constructor to collect the top-scoring documents by using the given PQ.    * @param hq the PQ to use by this instance.    */
-DECL|method|TopDocCollector
+DECL|method|TopScoreDocCollector
 specifier|protected
-name|TopDocCollector
+name|TopScoreDocCollector
 parameter_list|(
 name|PriorityQueue
 name|hq
@@ -144,6 +146,8 @@ operator|new
 name|ScoreDoc
 argument_list|(
 name|doc
+operator|+
+name|docBase
 argument_list|,
 name|score
 argument_list|)
@@ -167,6 +171,8 @@ operator|.
 name|doc
 operator|=
 name|doc
+operator|+
+name|docBase
 expr_stmt|;
 name|reusableSD
 operator|.
@@ -243,6 +249,7 @@ condition|;
 name|i
 operator|--
 control|)
+block|{
 comment|// put docs in array
 name|scoreDocs
 index|[
@@ -257,6 +264,7 @@ operator|.
 name|pop
 argument_list|()
 expr_stmt|;
+block|}
 name|float
 name|maxScore
 init|=
@@ -288,6 +296,23 @@ argument_list|,
 name|maxScore
 argument_list|)
 return|;
+block|}
+DECL|method|setNextReader
+specifier|public
+name|void
+name|setNextReader
+parameter_list|(
+name|IndexReader
+name|reader
+parameter_list|,
+name|int
+name|base
+parameter_list|)
+block|{
+name|docBase
+operator|=
+name|base
+expr_stmt|;
 block|}
 block|}
 end_class
