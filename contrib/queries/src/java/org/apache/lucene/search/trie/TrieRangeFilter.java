@@ -125,6 +125,19 @@ operator|.
 name|OpenBitSet
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|SortedVIntList
+import|;
+end_import
 begin_comment
 comment|/**  * Implementation of a Lucene {@link Filter} that implements trie-based range filtering.  * This filter depends on a specific structure of terms in the index that can only be created  * by {@link TrieUtils} methods.  * For more information, how the algorithm works, see the package description {@link org.apache.lucene.search.trie}.  */
 end_comment
@@ -1428,6 +1441,29 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|min
+operator|.
+name|compareTo
+argument_list|(
+name|max
+argument_list|)
+operator|>
+literal|0
+condition|)
+block|{
+comment|// shortcut: if min>max, no docs will match!
+name|lastNumberOfTerms
+operator|=
+literal|0
+expr_stmt|;
+return|return
+name|EMPTY_DOCIDSET
+return|;
+block|}
+else|else
+block|{
 specifier|final
 name|OpenBitSet
 name|bits
@@ -1485,7 +1521,6 @@ name|max
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("Found "+lastNumberOfTerms+" distinct terms in filtered range for field '"+field+"'.");
 block|}
 finally|finally
 block|{
@@ -1498,6 +1533,7 @@ block|}
 return|return
 name|bits
 return|;
+block|}
 block|}
 comment|/**    * EXPERT: Return the number of terms visited during the last execution of {@link #getDocIdSet}.    * This may be used for performance comparisons of different trie variants and their effectiveness.    * This method is not thread safe, be sure to only call it when no query is running!    * @throws IllegalStateException if {@link #getDocIdSet} was not yet executed.    */
 DECL|method|getLastNumberOfTerms
@@ -1564,6 +1600,23 @@ name|lastNumberOfTerms
 init|=
 operator|-
 literal|1
+decl_stmt|;
+DECL|field|EMPTY_DOCIDSET
+specifier|private
+specifier|static
+specifier|final
+name|DocIdSet
+name|EMPTY_DOCIDSET
+init|=
+operator|new
+name|SortedVIntList
+argument_list|(
+operator|new
+name|int
+index|[
+literal|0
+index|]
+argument_list|)
 decl_stmt|;
 block|}
 end_class
