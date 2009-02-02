@@ -187,6 +187,8 @@ name|path
 argument_list|)
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -213,6 +215,8 @@ name|directory
 argument_list|)
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -230,6 +234,30 @@ argument_list|(
 name|r
 argument_list|,
 literal|false
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** Expert: Creates a searcher searching the provided    *  index, specifying whether searches must visit the    *  documents in order.  By default, segments are searched    *  in order of decreasing numDocs(); if you pass true for    *  docsInOrder, they will instead be searched in their    *  natural (unsorted) order.*/
+DECL|method|IndexSearcher
+specifier|public
+name|IndexSearcher
+parameter_list|(
+name|IndexReader
+name|r
+parameter_list|,
+name|boolean
+name|docsInOrder
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|r
+argument_list|,
+literal|false
+argument_list|,
+name|docsInOrder
 argument_list|)
 expr_stmt|;
 block|}
@@ -242,6 +270,9 @@ name|r
 parameter_list|,
 name|boolean
 name|closeReader
+parameter_list|,
+name|boolean
+name|docsInOrder
 parameter_list|)
 block|{
 name|reader
@@ -255,7 +286,9 @@ operator|=
 name|closeReader
 expr_stmt|;
 name|sortSubReaders
-argument_list|()
+argument_list|(
+name|docsInOrder
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|gatherSubReaders
@@ -345,7 +378,10 @@ DECL|method|sortSubReaders
 specifier|protected
 name|void
 name|sortSubReaders
-parameter_list|()
+parameter_list|(
+name|boolean
+name|docsInOrder
+parameter_list|)
 block|{
 name|List
 name|subReadersList
@@ -431,6 +467,12 @@ argument_list|()
 expr_stmt|;
 comment|// compute maxDocs
 block|}
+if|if
+condition|(
+operator|!
+name|docsInOrder
+condition|)
+block|{
 comment|// sort readers and starts
 name|SorterTemplate
 name|sorter
@@ -570,6 +612,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/** Return the {@link IndexReader} this searches. */
 DECL|method|getIndexReader
