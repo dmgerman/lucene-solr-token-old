@@ -291,6 +291,7 @@ name|excludes
 operator|!=
 literal|null
 condition|)
+block|{
 name|excludes
 operator|=
 name|resolver
@@ -300,12 +301,6 @@ argument_list|(
 name|excludes
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|excludes
-operator|!=
-literal|null
-condition|)
 name|excludesPattern
 operator|=
 name|Pattern
@@ -315,6 +310,7 @@ argument_list|(
 name|excludes
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getDate
 specifier|private
@@ -662,6 +658,10 @@ argument_list|>
 name|fileDetails
 parameter_list|)
 block|{
+comment|// Fetch an array of file objects that pass the filter, however the
+comment|// returned array is never populated; accept() always returns false.
+comment|// Rather we make use of the fileDetails array which is populated as
+comment|// a side affect of the accept method.
 name|dir
 operator|.
 name|list
@@ -681,6 +681,38 @@ name|String
 name|name
 parameter_list|)
 block|{
+name|File
+name|fileObj
+init|=
+operator|new
+name|File
+argument_list|(
+name|dir
+argument_list|,
+name|name
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|fileObj
+operator|.
+name|isDirectory
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|recursive
+condition|)
+name|getFolderFiles
+argument_list|(
+name|fileObj
+argument_list|,
+name|fileDetails
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|fileNamePattern
@@ -697,10 +729,8 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
 block|}
+elseif|else
 if|if
 condition|(
 name|fileNamePattern
@@ -809,22 +839,7 @@ operator|.
 name|isDirectory
 argument_list|()
 condition|)
-block|{
-if|if
-condition|(
-operator|!
-name|recursive
-condition|)
 return|return;
-name|getFolderFiles
-argument_list|(
-name|aFile
-argument_list|,
-name|files
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
 name|long
 name|sz
 init|=
