@@ -3843,8 +3843,7 @@ specifier|final
 name|Random
 name|rnd
 init|=
-operator|new
-name|Random
+name|newRandom
 argument_list|()
 decl_stmt|;
 name|ReaderThread
@@ -6006,11 +6005,8 @@ decl_stmt|;
 name|Random
 name|r
 init|=
-operator|new
-name|Random
-argument_list|(
-literal|42
-argument_list|)
+name|newRandom
+argument_list|()
 decl_stmt|;
 for|for
 control|(

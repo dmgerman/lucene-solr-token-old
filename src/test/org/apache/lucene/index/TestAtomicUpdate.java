@@ -140,14 +140,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|RANDOM
 specifier|private
-specifier|static
-specifier|final
 name|Random
 name|RANDOM
-init|=
-operator|new
-name|Random
-argument_list|()
 decl_stmt|;
 DECL|class|MockIndexWriter
 specifier|public
@@ -976,6 +970,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|RANDOM
+operator|=
+name|newRandom
+argument_list|()
+expr_stmt|;
 name|Directory
 name|directory
 decl_stmt|;

@@ -245,11 +245,8 @@ decl_stmt|;
 name|Random
 name|r
 init|=
-operator|new
-name|Random
-argument_list|(
-literal|1
-argument_list|)
+name|newRandom
+argument_list|()
 decl_stmt|;
 name|ByteSliceReader
 name|reader

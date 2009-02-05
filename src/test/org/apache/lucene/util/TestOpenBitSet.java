@@ -16,15 +16,6 @@ package|;
 end_package
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -50,16 +41,11 @@ specifier|public
 class|class
 name|TestOpenBitSet
 extends|extends
-name|TestCase
+name|LuceneTestCase
 block|{
 DECL|field|rand
-specifier|static
 name|Random
 name|rand
-init|=
-operator|new
-name|Random
-argument_list|()
 decl_stmt|;
 DECL|method|doGet
 name|void
@@ -1265,6 +1251,11 @@ name|void
 name|testSmall
 parameter_list|()
 block|{
+name|rand
+operator|=
+name|newRandom
+argument_list|()
+expr_stmt|;
 name|doRandomSets
 argument_list|(
 literal|1200
@@ -1291,6 +1282,7 @@ name|testBig
 parameter_list|()
 block|{
 comment|// uncomment to run a bigger test (~2 minutes).
+comment|// rand = newRandom();
 comment|// doRandomSets(2000,200000, 1);
 comment|// doRandomSets(2000,200000, 2);
 block|}
@@ -1300,6 +1292,11 @@ name|void
 name|testEquals
 parameter_list|()
 block|{
+name|rand
+operator|=
+name|newRandom
+argument_list|()
+expr_stmt|;
 name|OpenBitSet
 name|b1
 init|=
@@ -1466,6 +1463,11 @@ name|void
 name|testBitUtils
 parameter_list|()
 block|{
+name|rand
+operator|=
+name|newRandom
+argument_list|()
+expr_stmt|;
 name|long
 name|num
 init|=
