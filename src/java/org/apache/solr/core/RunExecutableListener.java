@@ -350,6 +350,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+comment|/**    * External executable listener.    *     * @param callback Unused (As of solr 1.4-dev)    * @return Error code indicating if the command has executed successfully.<br />    *  0 , indicates normal termination.<br />    *  non-zero , otherwise.    */
 DECL|method|exec
 specifier|protected
 name|int
@@ -439,6 +440,10 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+name|ret
+operator|=
+name|INVALID_PROCESS_RETURN_CODE
+expr_stmt|;
 block|}
 block|}
 if|if
@@ -482,6 +487,10 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+name|ret
+operator|=
+name|INVALID_PROCESS_RETURN_CODE
+expr_stmt|;
 block|}
 return|return
 name|ret
@@ -520,6 +529,16 @@ literal|"newSearcher"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Non-zero value for an invalid return code **/
+DECL|field|INVALID_PROCESS_RETURN_CODE
+specifier|private
+specifier|static
+name|int
+name|INVALID_PROCESS_RETURN_CODE
+init|=
+operator|-
+literal|1
+decl_stmt|;
 block|}
 end_class
 end_unit
