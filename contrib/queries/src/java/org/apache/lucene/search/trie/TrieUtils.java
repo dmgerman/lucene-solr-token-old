@@ -1423,9 +1423,6 @@ argument_list|,
 name|minBound
 argument_list|,
 name|maxBound
-argument_list|,
-literal|0
-comment|/* start with no shift */
 argument_list|)
 expr_stmt|;
 block|}
@@ -1487,9 +1484,6 @@ operator|(
 name|long
 operator|)
 name|maxBound
-argument_list|,
-literal|0
-comment|/* start with no shift */
 argument_list|)
 expr_stmt|;
 block|}
@@ -1512,18 +1506,25 @@ specifier|final
 name|int
 name|precisionStep
 parameter_list|,
-specifier|final
 name|long
 name|minBound
 parameter_list|,
-specifier|final
 name|long
 name|maxBound
-parameter_list|,
-specifier|final
+parameter_list|)
+block|{
+for|for
+control|(
 name|int
 name|shift
-parameter_list|)
+init|=
+literal|0
+init|;
+condition|;
+name|shift
+operator|+=
+name|precisionStep
+control|)
 block|{
 comment|// calculate new bounds for inner precision
 specifier|final
@@ -1639,9 +1640,9 @@ argument_list|,
 name|shift
 argument_list|)
 expr_stmt|;
+comment|// exit the split recursion loop
+break|break;
 block|}
-else|else
-block|{
 if|if
 condition|(
 name|hasLower
@@ -1685,23 +1686,14 @@ argument_list|,
 name|shift
 argument_list|)
 expr_stmt|;
-comment|// recurse down to next precision
-name|splitRange
-argument_list|(
-name|builder
-argument_list|,
-name|valSize
-argument_list|,
-name|precisionStep
-argument_list|,
+comment|// recurse to next precision
+name|minBound
+operator|=
 name|nextMinBound
-argument_list|,
+expr_stmt|;
+name|maxBound
+operator|=
 name|nextMaxBound
-argument_list|,
-name|shift
-operator|+
-name|precisionStep
-argument_list|)
 expr_stmt|;
 block|}
 block|}
