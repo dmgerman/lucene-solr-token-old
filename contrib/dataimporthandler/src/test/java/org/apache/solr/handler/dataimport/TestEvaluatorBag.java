@@ -78,6 +78,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Date
 import|;
 end_import
@@ -100,7 +109,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * Test for EvaluatorBag  *</p>  *  * @version $Id$  * @since solr 1.3  */
+comment|/**  *<p> Test for EvaluatorBag</p>  *  * @version $Id$  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|TestEvaluatorBag
@@ -271,7 +280,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Test method for    * {@link EvaluatorBag#getSqlEscapingEvaluator()}.    */
+comment|/**    * Test method for {@link EvaluatorBag#getSqlEscapingEvaluator()}.    */
 annotation|@
 name|Test
 DECL|method|testGetSqlEscapingEvaluator
@@ -296,7 +305,7 @@ name|sqlEscaper
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Test method for    * {@link EvaluatorBag#getUrlEvaluator()}.    */
+comment|/**    * Test method for {@link EvaluatorBag#getUrlEvaluator()}.    */
 annotation|@
 name|Test
 DECL|method|testGetUrlEvaluator
@@ -323,7 +332,7 @@ name|urlEvaluator
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Test method for    * {@link EvaluatorBag#getDateFormatEvaluator()}.    */
+comment|/**    * Test method for {@link EvaluatorBag#getDateFormatEvaluator()}.    */
 annotation|@
 name|Test
 annotation|@
@@ -342,6 +351,30 @@ operator|.
 name|getDateFormatEvaluator
 argument_list|()
 decl_stmt|;
+name|resolver
+operator|.
+name|context
+operator|=
+operator|new
+name|ContextImpl
+argument_list|(
+literal|null
+argument_list|,
+name|resolver
+argument_list|,
+literal|null
+argument_list|,
+literal|0
+argument_list|,
+name|Collections
+operator|.
+name|EMPTY_MAP
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 operator|new
@@ -361,9 +394,11 @@ name|dateFormatEval
 operator|.
 name|evaluate
 argument_list|(
-name|resolver
-argument_list|,
 literal|"'NOW',yyyy-MM-dd HH:mm"
+argument_list|,
+name|resolver
+operator|.
+name|context
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -423,9 +458,11 @@ name|dateFormatEval
 operator|.
 name|evaluate
 argument_list|(
-name|resolver
-argument_list|,
 literal|"A.key, yyyy-MM-dd HH:mm"
+argument_list|,
+name|resolver
+operator|.
+name|context
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -447,6 +484,35 @@ name|Evaluator
 name|evaluator
 parameter_list|)
 block|{
+name|ContextImpl
+name|ctx
+init|=
+operator|new
+name|ContextImpl
+argument_list|(
+literal|null
+argument_list|,
+name|resolver
+argument_list|,
+literal|null
+argument_list|,
+literal|0
+argument_list|,
+name|Collections
+operator|.
+name|EMPTY_MAP
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
+name|resolver
+operator|.
+name|context
+operator|=
+name|ctx
+expr_stmt|;
 for|for
 control|(
 name|Map
@@ -521,9 +587,9 @@ name|evaluator
 operator|.
 name|evaluate
 argument_list|(
-name|resolver
-argument_list|,
 literal|"A.key"
+argument_list|,
+name|ctx
 argument_list|)
 decl_stmt|;
 name|assertEquals

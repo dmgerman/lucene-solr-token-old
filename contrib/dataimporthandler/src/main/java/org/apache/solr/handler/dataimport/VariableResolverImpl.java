@@ -75,6 +75,11 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/**    * Used for creating Evaluators    */
+DECL|field|context
+name|ContextImpl
+name|context
+decl_stmt|;
 DECL|field|TEMPLATE_STRING
 specifier|private
 specifier|static
@@ -91,6 +96,23 @@ specifier|public
 name|VariableResolverImpl
 parameter_list|()
 block|{   }
+comment|/**    * The current resolver instance    */
+DECL|field|CURRENT_VARIABLE_RESOLVER
+specifier|static
+specifier|final
+name|ThreadLocal
+argument_list|<
+name|VariableResolverImpl
+argument_list|>
+name|CURRENT_VARIABLE_RESOLVER
+init|=
+operator|new
+name|ThreadLocal
+argument_list|<
+name|VariableResolverImpl
+argument_list|>
+argument_list|()
+decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -397,6 +419,15 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
+name|CURRENT_VARIABLE_RESOLVER
+operator|.
+name|set
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+try|try
+block|{
 name|Map
 argument_list|<
 name|String
@@ -507,6 +538,17 @@ literal|null
 return|;
 block|}
 block|}
+block|}
+block|}
+finally|finally
+block|{
+name|CURRENT_VARIABLE_RESOLVER
+operator|.
+name|set
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 literal|null
