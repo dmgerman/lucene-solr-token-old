@@ -105,19 +105,6 @@ name|concurrent
 operator|.
 name|atomic
 operator|.
-name|AtomicInteger
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
 name|AtomicLong
 import|;
 end_import
@@ -1512,6 +1499,15 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
+comment|// check for abort
+if|if
+condition|(
+name|stop
+operator|.
+name|get
+argument_list|()
+condition|)
+break|break;
 block|}
 if|if
 condition|(
@@ -1739,12 +1735,6 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-name|vr
-operator|.
-name|context
-operator|=
-name|ctx
-expr_stmt|;
 name|entityProcessor
 operator|.
 name|init
@@ -3050,6 +3040,19 @@ name|deletedRows
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//someone called abort
+if|if
+condition|(
+name|stop
+operator|.
+name|get
+argument_list|()
+condition|)
+return|return
+operator|new
+name|HashSet
+argument_list|()
+return|;
 block|}
 block|}
 comment|// identifying the modified rows for this entities
@@ -3190,6 +3193,19 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
+comment|// check for abort
+if|if
+condition|(
+name|stop
+operator|.
+name|get
+argument_list|()
+condition|)
+return|return
+operator|new
+name|HashSet
+argument_list|()
+return|;
 block|}
 comment|//get the deleted rows for this entity
 name|Set
@@ -3324,6 +3340,19 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
+comment|// check for abort
+if|if
+condition|(
+name|stop
+operator|.
+name|get
+argument_list|()
+condition|)
+return|return
+operator|new
+name|HashSet
+argument_list|()
+return|;
 block|}
 comment|//asymmetric Set difference
 name|deltaSet
@@ -3474,6 +3503,7 @@ name|row
 range|:
 name|myModifiedPks
 control|)
+block|{
 name|getModifiedParentRows
 argument_list|(
 name|resolver
@@ -3496,6 +3526,20 @@ argument_list|,
 name|parentKeyList
 argument_list|)
 expr_stmt|;
+comment|// check for abort
+if|if
+condition|(
+name|stop
+operator|.
+name|get
+argument_list|()
+condition|)
+return|return
+operator|new
+name|HashSet
+argument_list|()
+return|;
+block|}
 comment|// running the same for deletedrows
 for|for
 control|(
@@ -3532,6 +3576,19 @@ argument_list|,
 name|parentKeyList
 argument_list|)
 expr_stmt|;
+comment|// check for abort
+if|if
+condition|(
+name|stop
+operator|.
+name|get
+argument_list|()
+condition|)
+return|return
+operator|new
+name|HashSet
+argument_list|()
+return|;
 block|}
 block|}
 name|LOG
@@ -3647,6 +3704,15 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
+comment|// check for abort
+if|if
+condition|(
+name|stop
+operator|.
+name|get
+argument_list|()
+condition|)
+return|return;
 block|}
 block|}
 finally|finally
