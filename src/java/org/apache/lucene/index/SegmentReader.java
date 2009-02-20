@@ -3172,6 +3172,18 @@ return|return
 name|this
 return|;
 block|}
+comment|// When cloning, the incoming SegmentInfos should not
+comment|// have any changes in it:
+assert|assert
+operator|!
+name|doClone
+operator|||
+operator|(
+name|normsUpToDate
+operator|&&
+name|deletionsUpToDate
+operator|)
+assert|;
 comment|// clone reader
 name|SegmentReader
 name|clone
