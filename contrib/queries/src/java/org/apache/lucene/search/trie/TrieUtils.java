@@ -1516,14 +1516,17 @@ block|{
 for|for
 control|(
 name|int
+name|level
+init|=
+literal|0
+init|,
 name|shift
 init|=
 literal|0
 init|;
 condition|;
-name|shift
-operator|+=
-name|precisionStep
+name|level
+operator|++
 control|)
 block|{
 comment|// calculate new bounds for inner precision
@@ -1631,13 +1634,13 @@ name|builder
 argument_list|,
 name|valSize
 argument_list|,
-name|precisionStep
-argument_list|,
 name|minBound
 argument_list|,
 name|maxBound
 argument_list|,
 name|shift
+argument_list|,
+name|level
 argument_list|)
 expr_stmt|;
 comment|// exit the split recursion loop
@@ -1653,8 +1656,6 @@ name|builder
 argument_list|,
 name|valSize
 argument_list|,
-name|precisionStep
-argument_list|,
 name|minBound
 argument_list|,
 name|minBound
@@ -1662,6 +1663,8 @@ operator||
 name|mask
 argument_list|,
 name|shift
+argument_list|,
+name|level
 argument_list|)
 expr_stmt|;
 if|if
@@ -1674,8 +1677,6 @@ name|builder
 argument_list|,
 name|valSize
 argument_list|,
-name|precisionStep
-argument_list|,
 name|maxBound
 operator|&
 operator|~
@@ -1684,6 +1685,8 @@ argument_list|,
 name|maxBound
 argument_list|,
 name|shift
+argument_list|,
+name|level
 argument_list|)
 expr_stmt|;
 comment|// recurse to next precision
@@ -1694,6 +1697,10 @@ expr_stmt|;
 name|maxBound
 operator|=
 name|nextMaxBound
+expr_stmt|;
+name|shift
+operator|+=
+name|precisionStep
 expr_stmt|;
 block|}
 block|}
@@ -1712,10 +1719,6 @@ specifier|final
 name|int
 name|valSize
 parameter_list|,
-specifier|final
-name|int
-name|precisionStep
-parameter_list|,
 name|long
 name|minBound
 parameter_list|,
@@ -1725,6 +1728,10 @@ parameter_list|,
 specifier|final
 name|int
 name|shift
+parameter_list|,
+specifier|final
+name|int
+name|level
 parameter_list|)
 block|{
 comment|// for the max bound set all lower bits (that were shifted away):
@@ -1759,13 +1766,13 @@ operator|)
 operator|.
 name|addRange
 argument_list|(
-name|precisionStep
-argument_list|,
 name|minBound
 argument_list|,
 name|maxBound
 argument_list|,
 name|shift
+argument_list|,
+name|level
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1781,8 +1788,6 @@ operator|)
 operator|.
 name|addRange
 argument_list|(
-name|precisionStep
-argument_list|,
 operator|(
 name|int
 operator|)
@@ -1794,6 +1799,8 @@ operator|)
 name|maxBound
 argument_list|,
 name|shift
+argument_list|,
+name|level
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1808,7 +1815,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Expert: Callback for {@link #splitLongRange}.    * You need to overwrite only one of the methods.    */
+comment|/**    * Expert: Callback for {@link #splitLongRange}.    * You need to overwrite only one of the methods.    *<p><font color="red">WARNING: This is a very low-level interface,    * the method signatures may change in later versions.</font>    */
 DECL|class|LongRangeBuilder
 specifier|public
 specifier|static
@@ -1845,10 +1852,6 @@ name|void
 name|addRange
 parameter_list|(
 specifier|final
-name|int
-name|precisionStep
-parameter_list|,
-specifier|final
 name|long
 name|min
 parameter_list|,
@@ -1859,6 +1862,10 @@ parameter_list|,
 specifier|final
 name|int
 name|shift
+parameter_list|,
+specifier|final
+name|int
+name|level
 parameter_list|)
 block|{
 comment|/*System.out.println(Long.toHexString((min^0x8000000000000000L)>>> shift)+".."+         Long.toHexString((max^0x8000000000000000L)>>> shift));*/
@@ -1878,14 +1885,12 @@ argument_list|,
 name|shift
 argument_list|)
 argument_list|,
-name|shift
-operator|/
-name|precisionStep
+name|level
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Expert: Callback for {@link #splitIntRange}.    * You need to overwrite only one of the methods.    */
+comment|/**    * Expert: Callback for {@link #splitIntRange}.    * You need to overwrite only one of the methods.    *<p><font color="red">WARNING: This is a very low-level interface,    * the method signatures may change in later versions.</font>    */
 DECL|class|IntRangeBuilder
 specifier|public
 specifier|static
@@ -1923,10 +1928,6 @@ name|addRange
 parameter_list|(
 specifier|final
 name|int
-name|precisionStep
-parameter_list|,
-specifier|final
-name|int
 name|min
 parameter_list|,
 specifier|final
@@ -1936,6 +1937,10 @@ parameter_list|,
 specifier|final
 name|int
 name|shift
+parameter_list|,
+specifier|final
+name|int
+name|level
 parameter_list|)
 block|{
 comment|/*System.out.println(Integer.toHexString((min^0x80000000)>>> shift)+".."+         Integer.toHexString((max^0x80000000)>>> shift));*/
@@ -1955,9 +1960,7 @@ argument_list|,
 name|shift
 argument_list|)
 argument_list|,
-name|shift
-operator|/
-name|precisionStep
+name|level
 argument_list|)
 expr_stmt|;
 block|}
