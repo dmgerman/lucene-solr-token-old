@@ -879,7 +879,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|NumberFormatException
+name|RuntimeException
 name|e
 parameter_list|)
 block|{
