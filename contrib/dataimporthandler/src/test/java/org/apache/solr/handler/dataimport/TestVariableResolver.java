@@ -437,7 +437,7 @@ name|vri
 operator|.
 name|replaceTokens
 argument_list|(
-literal|"${dataimporter.functions.formatDate(A.dt,yyyy-MM-dd HH:mm:ss)}"
+literal|"${dataimporter.functions.formatDate(A.dt,'yyyy-MM-dd HH:mm:ss')}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -511,7 +511,7 @@ name|vri
 operator|.
 name|replaceTokens
 argument_list|(
-literal|"${dataimporter.functions.formatDate('NOW',yyyy-MM-dd HH:mm)}"
+literal|"${dataimporter.functions.formatDate('NOW','yyyy-MM-dd HH:mm')}"
 argument_list|)
 decl_stmt|;
 name|Assert
@@ -804,7 +804,7 @@ name|resolver
 operator|.
 name|replaceTokens
 argument_list|(
-literal|"${dataimporter.functions.formatDate('NOW',yyyy-MM-dd HH:mm)}"
+literal|"${dataimporter.functions.formatDate('NOW','yyyy-MM-dd HH:mm')}"
 argument_list|)
 decl_stmt|;
 name|Assert
