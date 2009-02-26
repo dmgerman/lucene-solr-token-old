@@ -3886,6 +3886,7 @@ extends|extends
 name|FieldComparatorSource
 block|{
 DECL|method|newComparator
+specifier|public
 name|FieldComparator
 name|newComparator
 parameter_list|(
