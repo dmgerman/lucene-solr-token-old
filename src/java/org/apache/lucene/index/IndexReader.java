@@ -2040,6 +2040,29 @@ name|commit
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**    * @param commitUserData Opaque String that's recorded    *  into the segments file in the index, and retrievable    *  by {@link IndexReader#getCommitUserData}.    * @throws IOException    */
+DECL|method|flush
+specifier|public
+specifier|final
+specifier|synchronized
+name|void
+name|flush
+parameter_list|(
+name|String
+name|commitUserData
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
+name|commit
+argument_list|(
+name|commitUserData
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**    * Commit changes resulting from delete, undeleteAll, or    * setNorm operations    *    * If an exception is hit, then either no changes or all    * changes will have been committed to the index    * (transactional semantics).    * @throws IOException if there is a low-level IO error    */
 DECL|method|commit
 specifier|protected
@@ -2051,13 +2074,35 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|commit
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**    * Commit changes resulting from delete, undeleteAll, or    * setNorm operations    *    * If an exception is hit, then either no changes or all    * changes will have been committed to the index    * (transactional semantics).    * @throws IOException if there is a low-level IO error    */
+DECL|method|commit
+specifier|protected
+specifier|final
+specifier|synchronized
+name|void
+name|commit
+parameter_list|(
+name|String
+name|commitUserData
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 if|if
 condition|(
 name|hasChanges
 condition|)
 block|{
 name|doCommit
-argument_list|()
+argument_list|(
+name|commitUserData
+argument_list|)
 expr_stmt|;
 block|}
 name|hasChanges
@@ -2065,7 +2110,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/** Implements commit. */
+comment|/** Implements commit.    *  @deprecated Please implement {@link #doCommit(String)    *  instead}. */
 DECL|method|doCommit
 specifier|protected
 specifier|abstract
@@ -2075,6 +2120,23 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/** Implements commit.  NOTE: subclasses should override    *  this.  In 3.0 this will become an abstract method. */
+DECL|method|doCommit
+name|void
+name|doCommit
+parameter_list|(
+name|String
+name|commitUserData
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// Default impl discards commitUserData; all Lucene
+comment|// subclasses override this (do not discard it).
+name|doCommit
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**    * Closes files associated with this index.    * Also saves any new deletions to disk.    * No other methods should be called after this has been called.    * @throws IOException if there is a low-level IO error    */
 DECL|method|close
 specifier|public
