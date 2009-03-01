@@ -130,9 +130,6 @@ name|bits
 parameter_list|,
 name|int
 name|size
-parameter_list|,
-name|int
-name|count
 parameter_list|)
 block|{
 name|this
@@ -146,12 +143,6 @@ operator|.
 name|size
 operator|=
 name|size
-expr_stmt|;
-name|this
-operator|.
-name|count
-operator|=
-name|count
 expr_stmt|;
 block|}
 DECL|method|clone
@@ -196,8 +187,6 @@ argument_list|(
 name|copyBits
 argument_list|,
 name|size
-argument_list|,
-name|count
 argument_list|)
 return|;
 block|}
