@@ -3635,7 +3635,7 @@ literal|1
 argument_list|,
 literal|"facet.sort"
 argument_list|,
-literal|"lex"
+literal|"index"
 argument_list|)
 expr_stmt|;
 name|query
