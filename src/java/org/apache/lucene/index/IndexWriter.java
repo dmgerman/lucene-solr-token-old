@@ -8261,6 +8261,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|success
+operator|=
+literal|false
+expr_stmt|;
 try|try
 block|{
 if|if
@@ -12136,11 +12140,6 @@ argument_list|,
 name|merge
 argument_list|)
 expr_stmt|;
-name|boolean
-name|success
-init|=
-literal|false
-decl_stmt|;
 comment|// This is try/finally to make sure merger's readers are
 comment|// closed:
 try|try
@@ -12256,10 +12255,6 @@ name|mergedDocCount
 operator|==
 name|totDocCount
 assert|;
-name|success
-operator|=
-literal|true
-expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -12339,10 +12334,11 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
 name|success
-operator|=
+init|=
 literal|false
-expr_stmt|;
+decl_stmt|;
 specifier|final
 name|String
 name|compoundFileName
