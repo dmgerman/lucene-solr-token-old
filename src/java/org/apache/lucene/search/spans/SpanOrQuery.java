@@ -665,6 +665,12 @@ return|;
 if|if
 condition|(
 operator|!
+name|clauses
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+operator|!
 name|field
 operator|.
 name|equals
