@@ -122,6 +122,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|_TestUtil
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -2336,9 +2349,9 @@ name|doc
 operator|+
 literal|" oldFields="
 operator|+
-name|Arrays
+name|_TestUtil
 operator|.
-name|toString
+name|arrayToString
 argument_list|(
 name|oldHit
 operator|.
@@ -2347,9 +2360,9 @@ argument_list|)
 operator|+
 literal|" newFields="
 operator|+
-name|Arrays
+name|_TestUtil
 operator|.
-name|toString
+name|arrayToString
 argument_list|(
 name|newHit
 operator|.

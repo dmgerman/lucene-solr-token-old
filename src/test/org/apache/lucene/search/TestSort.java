@@ -1854,11 +1854,11 @@ name|int
 name|high
 parameter_list|)
 block|{
-name|StringBuilder
+name|StringBuffer
 name|sb
 init|=
 operator|new
-name|StringBuilder
+name|StringBuffer
 argument_list|()
 decl_stmt|;
 for|for
@@ -1931,11 +1931,11 @@ name|int
 name|end
 parameter_list|)
 block|{
-name|StringBuilder
+name|StringBuffer
 name|sb
 init|=
 operator|new
-name|StringBuilder
+name|StringBuffer
 argument_list|()
 decl_stmt|;
 for|for
