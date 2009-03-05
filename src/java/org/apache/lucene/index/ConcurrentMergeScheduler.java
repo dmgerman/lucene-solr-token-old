@@ -1319,7 +1319,10 @@ specifier|final
 name|int
 name|size
 init|=
-literal|0
+name|allInstances
+operator|.
+name|size
+argument_list|()
 decl_stmt|;
 name|int
 name|upto
