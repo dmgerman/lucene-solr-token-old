@@ -1879,12 +1879,6 @@ operator|.
 name|RUNNING_FULL_DUMP
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|requestParams
-operator|.
-name|commit
-condition|)
 name|setIndexStartTime
 argument_list|(
 operator|new
