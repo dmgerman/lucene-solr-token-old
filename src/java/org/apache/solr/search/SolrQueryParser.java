@@ -517,6 +517,8 @@ name|ft
 operator|.
 name|getRangeQuery
 argument_list|(
+name|parser
+argument_list|,
 name|field
 argument_list|,
 literal|"*"
