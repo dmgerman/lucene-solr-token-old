@@ -526,6 +526,19 @@ name|String
 name|value
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isBinary
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"cannot set a String value on a binary field"
+argument_list|)
+throw|;
+block|}
 name|fieldsData
 operator|=
 name|value
@@ -541,6 +554,32 @@ name|Reader
 name|value
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isBinary
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"cannot set a Reader value on a binary field"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|isStored
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"cannot set a Reader value on a stored field"
+argument_list|)
+throw|;
+block|}
 name|fieldsData
 operator|=
 name|value
@@ -557,6 +596,20 @@ index|[]
 name|value
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|isBinary
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"cannot set a byte[] value on a non-binary field"
+argument_list|)
+throw|;
+block|}
 name|fieldsData
 operator|=
 name|value
@@ -589,6 +642,20 @@ name|int
 name|length
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|isBinary
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"cannot set a byte[] value on a non-binary field"
+argument_list|)
+throw|;
+block|}
 name|fieldsData
 operator|=
 name|value
@@ -612,6 +679,32 @@ name|TokenStream
 name|value
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isBinary
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"cannot set a TokenStream value on a binary field"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|isStored
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"cannot set a TokenStream value on a stored field"
+argument_list|)
+throw|;
+block|}
 name|fieldsData
 operator|=
 name|value
