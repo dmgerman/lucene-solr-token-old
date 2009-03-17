@@ -135,7 +135,6 @@ decl_stmt|,
 name|docSession
 decl_stmt|;
 DECL|field|docBuilder
-specifier|private
 name|DocBuilder
 name|docBuilder
 decl_stmt|;
