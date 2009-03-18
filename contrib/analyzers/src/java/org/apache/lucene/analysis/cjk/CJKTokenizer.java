@@ -342,7 +342,6 @@ operator|.
 name|HALFWIDTH_AND_FULLWIDTH_FORMS
 condition|)
 block|{
-comment|/** convert  HALFWIDTH_AND_FULLWIDTH_FORMS to BASIC_LATIN */
 name|int
 name|i
 init|=
@@ -351,6 +350,18 @@ name|int
 operator|)
 name|c
 decl_stmt|;
+if|if
+condition|(
+name|i
+operator|>=
+literal|65281
+operator|&&
+name|i
+operator|<=
+literal|65374
+condition|)
+block|{
+comment|/** convert certain HALFWIDTH_AND_FULLWIDTH_FORMS to BASIC_LATIN */
 name|i
 operator|=
 name|i
@@ -364,6 +375,7 @@ name|char
 operator|)
 name|i
 expr_stmt|;
+block|}
 block|}
 comment|// if the current character is a letter or "_" "+" "#"
 if|if
