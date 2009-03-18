@@ -532,10 +532,10 @@ name|TestIndexWriter
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|method|testDocCount
+DECL|method|xxxtestDocCount
 specifier|public
 name|void
-name|testDocCount
+name|xxxtestDocCount
 parameter_list|()
 throws|throws
 name|IOException
@@ -1027,10 +1027,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*       Test: make sure when we run out of disk space or hit       random IOExceptions in any of the addIndexes(*) calls       that 1) index is not corrupt (searcher can open/search       it) and 2) transactional semantics are followed:       either all or none of the incoming documents were in       fact added.     */
-DECL|method|testAddIndexOnDiskFull
+DECL|method|xxxtestAddIndexOnDiskFull
 specifier|public
 name|void
-name|testAddIndexOnDiskFull
+name|xxxtestAddIndexOnDiskFull
 parameter_list|()
 throws|throws
 name|IOException
@@ -2504,10 +2504,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/*      * Make sure IndexWriter cleans up on hitting a disk      * full exception in addDocument.      */
-DECL|method|testAddDocumentOnDiskFull
+DECL|method|xxxtestAddDocumentOnDiskFull
 specifier|public
 name|void
-name|testAddDocumentOnDiskFull
+name|xxxtestAddDocumentOnDiskFull
 parameter_list|()
 throws|throws
 name|IOException
@@ -2947,10 +2947,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Make sure we skip wicked long terms.     */
-DECL|method|testWickedLongTerm
+DECL|method|xxxtestWickedLongTerm
 specifier|public
 name|void
-name|testWickedLongTerm
+name|xxxtestWickedLongTerm
 parameter_list|()
 throws|throws
 name|IOException
@@ -3371,10 +3371,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testOptimizeMaxNumSegments
+DECL|method|xxxtestOptimizeMaxNumSegments
 specifier|public
 name|void
-name|testOptimizeMaxNumSegments
+name|xxxtestOptimizeMaxNumSegments
 parameter_list|()
 throws|throws
 name|IOException
@@ -3629,10 +3629,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testOptimizeMaxNumSegments2
+DECL|method|xxxtestOptimizeMaxNumSegments2
 specifier|public
 name|void
-name|testOptimizeMaxNumSegments2
+name|xxxtestOptimizeMaxNumSegments2
 parameter_list|()
 throws|throws
 name|IOException
@@ -3881,10 +3881,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Make sure optimize doesn't use any more than 1X      * starting index size as its temporary free space      * required.      */
-DECL|method|testOptimizeTempSpaceUsage
+DECL|method|xxxtestOptimizeTempSpaceUsage
 specifier|public
 name|void
-name|testOptimizeTempSpaceUsage
+name|xxxtestOptimizeTempSpaceUsage
 parameter_list|()
 throws|throws
 name|IOException
@@ -4124,10 +4124,10 @@ block|}
 comment|// Make sure we can open an index for create even when a
 comment|// reader holds it open (this fails pre lock-less
 comment|// commits on windows):
-DECL|method|testCreateWithReader
+DECL|method|xxxtestCreateWithReader
 specifier|public
 name|void
-name|testCreateWithReader
+name|xxxtestCreateWithReader
 parameter_list|()
 throws|throws
 name|IOException
@@ -4332,10 +4332,10 @@ block|}
 block|}
 comment|// Same test as above, but use IndexWriter constructor
 comment|// that takes File:
-DECL|method|testCreateWithReader2
+DECL|method|xxxtestCreateWithReader2
 specifier|public
 name|void
-name|testCreateWithReader2
+name|xxxtestCreateWithReader2
 parameter_list|()
 throws|throws
 name|IOException
@@ -4530,10 +4530,10 @@ block|}
 block|}
 comment|// Same test as above, but use IndexWriter constructor
 comment|// that takes String:
-DECL|method|testCreateWithReader3
+DECL|method|xxxtestCreateWithReader3
 specifier|public
 name|void
-name|testCreateWithReader3
+name|xxxtestCreateWithReader3
 parameter_list|()
 throws|throws
 name|IOException
@@ -4730,10 +4730,10 @@ comment|// Simulate a writer that crashed while writing segments
 comment|// file: make sure we can still open the index (ie,
 comment|// gracefully fallback to the previous segments file),
 comment|// and that we can add to the index:
-DECL|method|testSimulatedCrashedWriter
+DECL|method|xxxtestSimulatedCrashedWriter
 specifier|public
 name|void
-name|testSimulatedCrashedWriter
+name|xxxtestSimulatedCrashedWriter
 parameter_list|()
 throws|throws
 name|IOException
@@ -5017,10 +5017,10 @@ block|}
 comment|// Simulate a corrupt index by removing last byte of
 comment|// latest segments file and make sure we get an
 comment|// IOException trying to open the index:
-DECL|method|testSimulatedCorruptIndex1
+DECL|method|xxxtestSimulatedCorruptIndex1
 specifier|public
 name|void
-name|testSimulatedCorruptIndex1
+name|xxxtestSimulatedCorruptIndex1
 parameter_list|()
 throws|throws
 name|IOException
@@ -5249,10 +5249,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|testChangesAfterClose
+DECL|method|xxxtestChangesAfterClose
 specifier|public
 name|void
-name|testChangesAfterClose
+name|xxxtestChangesAfterClose
 parameter_list|()
 throws|throws
 name|IOException
@@ -5325,10 +5325,10 @@ block|}
 comment|// Simulate a corrupt index by removing one of the cfs
 comment|// files and make sure we get an IOException trying to
 comment|// open the index:
-DECL|method|testSimulatedCorruptIndex2
+DECL|method|xxxtestSimulatedCorruptIndex2
 specifier|public
 name|void
-name|testSimulatedCorruptIndex2
+name|xxxtestSimulatedCorruptIndex2
 parameter_list|()
 throws|throws
 name|IOException
@@ -5509,10 +5509,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/*      * Simple test for "commit on close": open writer with      * autoCommit=false, so it will only commit on close,      * then add a bunch of docs, making sure reader does not      * see these docs until writer is closed.      */
-DECL|method|testCommitOnClose
+DECL|method|xxxtestCommitOnClose
 specifier|public
 name|void
-name|testCommitOnClose
+name|xxxtestCommitOnClose
 parameter_list|()
 throws|throws
 name|IOException
@@ -5807,10 +5807,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/*      * Simple test for "commit on close": open writer with      * autoCommit=false, so it will only commit on close,      * then add a bunch of docs, making sure reader does not      * see them until writer has closed.  Then instead of      * closing the writer, call abort and verify reader sees      * nothing was added.  Then verify we can open the index      * and add docs to it.      */
-DECL|method|testCommitOnCloseAbort
+DECL|method|xxxtestCommitOnCloseAbort
 specifier|public
 name|void
-name|testCommitOnCloseAbort
+name|xxxtestCommitOnCloseAbort
 parameter_list|()
 throws|throws
 name|IOException
@@ -6261,10 +6261,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/*      * Verify that a writer with "commit on close" indeed      * cleans up the temp segments created after opening      * that are not referenced by the starting segments      * file.  We check this by using MockRAMDirectory to      * measure max temp disk space used.      */
-DECL|method|testCommitOnCloseDiskUsage
+DECL|method|xxxtestCommitOnCloseDiskUsage
 specifier|public
 name|void
-name|testCommitOnCloseDiskUsage
+name|xxxtestCommitOnCloseDiskUsage
 parameter_list|()
 throws|throws
 name|IOException
@@ -6484,10 +6484,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * Verify that calling optimize when writer is open for      * "commit on close" works correctly both for abort()      * and close().      */
-DECL|method|testCommitOnCloseOptimize
+DECL|method|xxxtestCommitOnCloseOptimize
 specifier|public
 name|void
-name|testCommitOnCloseOptimize
+name|xxxtestCommitOnCloseOptimize
 parameter_list|()
 throws|throws
 name|IOException
@@ -6711,10 +6711,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testIndexNoDocuments
+DECL|method|xxxtestIndexNoDocuments
 specifier|public
 name|void
-name|testIndexNoDocuments
+name|xxxtestIndexNoDocuments
 parameter_list|()
 throws|throws
 name|IOException
@@ -6857,10 +6857,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testManyFields
+DECL|method|xxxtestManyFields
 specifier|public
 name|void
-name|testManyFields
+name|xxxtestManyFields
 parameter_list|()
 throws|throws
 name|IOException
@@ -7286,10 +7286,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testSmallRAMBuffer
+DECL|method|xxxtestSmallRAMBuffer
 specifier|public
 name|void
-name|testSmallRAMBuffer
+name|xxxtestSmallRAMBuffer
 parameter_list|()
 throws|throws
 name|IOException
@@ -7432,10 +7432,10 @@ expr_stmt|;
 block|}
 comment|// Make sure it's OK to change RAM buffer size and
 comment|// maxBufferedDocs in a write session
-DECL|method|testChangingRAMBuffer
+DECL|method|xxxtestChangingRAMBuffer
 specifier|public
 name|void
-name|testChangingRAMBuffer
+name|xxxtestChangingRAMBuffer
 parameter_list|()
 throws|throws
 name|IOException
@@ -7821,10 +7821,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testChangingRAMBuffer2
+DECL|method|xxxtestChangingRAMBuffer2
 specifier|public
 name|void
-name|testChangingRAMBuffer2
+name|xxxtestChangingRAMBuffer2
 parameter_list|()
 throws|throws
 name|IOException
@@ -8255,10 +8255,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testDiverseDocs
+DECL|method|xxxtestDiverseDocs
 specifier|public
 name|void
-name|testDiverseDocs
+name|xxxtestDiverseDocs
 parameter_list|()
 throws|throws
 name|IOException
@@ -8625,10 +8625,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testEnablingNorms
+DECL|method|xxxtestEnablingNorms
 specifier|public
 name|void
-name|testEnablingNorms
+name|xxxtestEnablingNorms
 parameter_list|()
 throws|throws
 name|IOException
@@ -8974,10 +8974,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testHighFreqTerm
+DECL|method|xxxtestHighFreqTerm
 specifier|public
 name|void
-name|testHighFreqTerm
+name|xxxtestHighFreqTerm
 parameter_list|()
 throws|throws
 name|IOException
@@ -9224,10 +9224,10 @@ comment|// not use LockFactory at all (ie overrides makeLock and
 comment|// implements its own private locking) works OK.  This
 comment|// was raised on java-dev as loss of backwards
 comment|// compatibility.
-DECL|method|testNullLockFactory
+DECL|method|xxxtestNullLockFactory
 specifier|public
 name|void
-name|testNullLockFactory
+name|xxxtestNullLockFactory
 parameter_list|()
 throws|throws
 name|IOException
@@ -9416,10 +9416,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testFlushWithNoMerging
+DECL|method|xxxtestFlushWithNoMerging
 specifier|public
 name|void
-name|testFlushWithNoMerging
+name|xxxtestFlushWithNoMerging
 parameter_list|()
 throws|throws
 name|IOException
@@ -9561,10 +9561,10 @@ assert|;
 block|}
 comment|// Make sure we can flush segment w/ norms, then add
 comment|// empty doc (no norms) and flush
-DECL|method|testEmptyDocAfterFlushingRealDoc
+DECL|method|xxxtestEmptyDocAfterFlushingRealDoc
 specifier|public
 name|void
-name|testEmptyDocAfterFlushingRealDoc
+name|xxxtestEmptyDocAfterFlushingRealDoc
 parameter_list|()
 throws|throws
 name|IOException
@@ -9692,10 +9692,10 @@ block|}
 comment|// Test calling optimize(false) whereby optimize is kicked
 comment|// off but we don't wait for it to finish (but
 comment|// writer.close()) does wait
-DECL|method|testBackgroundOptimize
+DECL|method|xxxtestBackgroundOptimize
 specifier|public
 name|void
-name|testBackgroundOptimize
+name|xxxtestBackgroundOptimize
 parameter_list|()
 throws|throws
 name|IOException
@@ -10006,10 +10006,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Test that no NullPointerException will be raised,    * when adding one document with a single, empty field    * and term vectors enabled.    * @throws IOException    *    */
-DECL|method|testBadSegment
+DECL|method|xxxtestBadSegment
 specifier|public
 name|void
-name|testBadSegment
+name|xxxtestBadSegment
 parameter_list|()
 throws|throws
 name|IOException
@@ -10099,10 +10099,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1008
-DECL|method|testNoTermVectorAfterTermVector
+DECL|method|xxxtestNoTermVectorAfterTermVector
 specifier|public
 name|void
-name|testNoTermVectorAfterTermVector
+name|xxxtestNoTermVectorAfterTermVector
 parameter_list|()
 throws|throws
 name|IOException
@@ -10291,10 +10291,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1010
-DECL|method|testNoTermVectorAfterTermVectorMerge
+DECL|method|xxxtestNoTermVectorAfterTermVectorMerge
 specifier|public
 name|void
-name|testNoTermVectorAfterTermVectorMerge
+name|xxxtestNoTermVectorAfterTermVectorMerge
 parameter_list|()
 throws|throws
 name|IOException
@@ -10493,10 +10493,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1036
-DECL|method|testMaxThreadPriority
+DECL|method|xxxtestMaxThreadPriority
 specifier|public
 name|void
-name|testMaxThreadPriority
+name|xxxtestMaxThreadPriority
 parameter_list|()
 throws|throws
 name|IOException
@@ -10742,10 +10742,10 @@ parameter_list|()
 block|{}
 block|}
 comment|// LUCENE-1013
-DECL|method|testSetMaxMergeDocs
+DECL|method|xxxtestSetMaxMergeDocs
 specifier|public
 name|void
-name|testSetMaxMergeDocs
+name|xxxtestSetMaxMergeDocs
 parameter_list|()
 throws|throws
 name|IOException
@@ -10874,10 +10874,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1072
-DECL|method|testExceptionFromTokenStream
+DECL|method|xxxtestExceptionFromTokenStream
 specifier|public
 name|void
-name|testExceptionFromTokenStream
+name|xxxtestExceptionFromTokenStream
 parameter_list|()
 throws|throws
 name|IOException
@@ -11392,10 +11392,10 @@ block|}
 block|}
 comment|// LUCENE-1072: make sure an errant exception on flushing
 comment|// one segment only takes out those docs in that one flush
-DECL|method|testDocumentsWriterAbort
+DECL|method|xxxtestDocumentsWriterAbort
 specifier|public
 name|void
-name|testDocumentsWriterAbort
+name|xxxtestDocumentsWriterAbort
 parameter_list|()
 throws|throws
 name|IOException
@@ -11676,10 +11676,10 @@ literal|0
 expr_stmt|;
 block|}
 block|}
-DECL|method|testDocumentsWriterExceptions
+DECL|method|xxxtestDocumentsWriterExceptions
 specifier|public
 name|void
-name|testDocumentsWriterExceptions
+name|xxxtestDocumentsWriterExceptions
 parameter_list|()
 throws|throws
 name|IOException
@@ -12284,10 +12284,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|testDocumentsWriterExceptionThreads
+DECL|method|xxxtestDocumentsWriterExceptionThreads
 specifier|public
 name|void
-name|testDocumentsWriterExceptionThreads
+name|xxxtestDocumentsWriterExceptionThreads
 parameter_list|()
 throws|throws
 name|IOException
@@ -13075,10 +13075,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|testVariableSchema
+DECL|method|xxxtestVariableSchema
 specifier|public
 name|void
-name|testVariableSchema
+name|xxxtestVariableSchema
 parameter_list|()
 throws|throws
 name|IOException
@@ -13419,10 +13419,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|testNoWaitClose
+DECL|method|xxxtestNoWaitClose
 specifier|public
 name|void
-name|testNoWaitClose
+name|xxxtestNoWaitClose
 parameter_list|()
 throws|throws
 name|Throwable
@@ -14219,10 +14219,10 @@ comment|// LUCENE-1130: make sure we can close() even while
 comment|// threads are trying to add documents.  Strictly
 comment|// speaking, this isn't valid us of Lucene's APIs, but we
 comment|// still want to be robust to this case:
-DECL|method|testCloseWithThreads
+DECL|method|xxxtestCloseWithThreads
 specifier|public
 name|void
-name|testCloseWithThreads
+name|xxxtestCloseWithThreads
 parameter_list|()
 throws|throws
 name|IOException
@@ -14576,10 +14576,10 @@ block|}
 comment|// LUCENE-1130: make sure immeidate disk full on creating
 comment|// an IndexWriter (hit during DW.ThreadState.init()) is
 comment|// OK:
-DECL|method|testImmediateDiskFull
+DECL|method|xxxtestImmediateDiskFull
 specifier|public
 name|void
-name|testImmediateDiskFull
+name|xxxtestImmediateDiskFull
 parameter_list|()
 throws|throws
 name|IOException
@@ -14734,10 +14734,10 @@ block|}
 comment|// LUCENE-1130: make sure immediate disk full on creating
 comment|// an IndexWriter (hit during DW.ThreadState.init()), with
 comment|// multiple threads, is OK:
-DECL|method|testImmediateDiskFullWithThreads
+DECL|method|xxxtestImmediateDiskFullWithThreads
 specifier|public
 name|void
-name|testImmediateDiskFullWithThreads
+name|xxxtestImmediateDiskFullWithThreads
 parameter_list|()
 throws|throws
 name|IOException
@@ -15667,10 +15667,10 @@ block|}
 block|}
 comment|// LUCENE-1130: make sure initial IOException, and then 2nd
 comment|// IOException during abort(), is OK:
-DECL|method|testIOExceptionDuringAbort
+DECL|method|xxxtestIOExceptionDuringAbort
 specifier|public
 name|void
-name|testIOExceptionDuringAbort
+name|xxxtestIOExceptionDuringAbort
 parameter_list|()
 throws|throws
 name|IOException
@@ -15687,10 +15687,10 @@ expr_stmt|;
 block|}
 comment|// LUCENE-1130: make sure initial IOException, and then 2nd
 comment|// IOException during abort(), is OK:
-DECL|method|testIOExceptionDuringAbortOnlyOnce
+DECL|method|xxxtestIOExceptionDuringAbortOnlyOnce
 specifier|public
 name|void
-name|testIOExceptionDuringAbortOnlyOnce
+name|xxxtestIOExceptionDuringAbortOnlyOnce
 parameter_list|()
 throws|throws
 name|IOException
@@ -15707,10 +15707,10 @@ expr_stmt|;
 block|}
 comment|// LUCENE-1130: make sure initial IOException, and then 2nd
 comment|// IOException during abort(), with multiple threads, is OK:
-DECL|method|testIOExceptionDuringAbortWithThreads
+DECL|method|xxxtestIOExceptionDuringAbortWithThreads
 specifier|public
 name|void
-name|testIOExceptionDuringAbortWithThreads
+name|xxxtestIOExceptionDuringAbortWithThreads
 parameter_list|()
 throws|throws
 name|IOException
@@ -15727,10 +15727,10 @@ expr_stmt|;
 block|}
 comment|// LUCENE-1130: make sure initial IOException, and then 2nd
 comment|// IOException during abort(), with multiple threads, is OK:
-DECL|method|testIOExceptionDuringAbortWithThreadsOnlyOnce
+DECL|method|xxxtestIOExceptionDuringAbortWithThreadsOnlyOnce
 specifier|public
 name|void
-name|testIOExceptionDuringAbortWithThreadsOnlyOnce
+name|xxxtestIOExceptionDuringAbortWithThreadsOnlyOnce
 parameter_list|()
 throws|throws
 name|IOException
@@ -15857,10 +15857,10 @@ block|}
 block|}
 block|}
 comment|// LUCENE-1130: test IOException in closeDocStore
-DECL|method|testIOExceptionDuringCloseDocStore
+DECL|method|xxxtestIOExceptionDuringCloseDocStore
 specifier|public
 name|void
-name|testIOExceptionDuringCloseDocStore
+name|xxxtestIOExceptionDuringCloseDocStore
 parameter_list|()
 throws|throws
 name|IOException
@@ -15876,10 +15876,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// LUCENE-1130: test IOException in closeDocStore
-DECL|method|testIOExceptionDuringCloseDocStoreOnlyOnce
+DECL|method|xxxtestIOExceptionDuringCloseDocStoreOnlyOnce
 specifier|public
 name|void
-name|testIOExceptionDuringCloseDocStoreOnlyOnce
+name|xxxtestIOExceptionDuringCloseDocStoreOnlyOnce
 parameter_list|()
 throws|throws
 name|IOException
@@ -15895,10 +15895,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// LUCENE-1130: test IOException in closeDocStore, with threads
-DECL|method|testIOExceptionDuringCloseDocStoreWithThreads
+DECL|method|xxxtestIOExceptionDuringCloseDocStoreWithThreads
 specifier|public
 name|void
-name|testIOExceptionDuringCloseDocStoreWithThreads
+name|xxxtestIOExceptionDuringCloseDocStoreWithThreads
 parameter_list|()
 throws|throws
 name|IOException
@@ -15914,10 +15914,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// LUCENE-1130: test IOException in closeDocStore, with threads
-DECL|method|testIOExceptionDuringCloseDocStoreWithThreadsOnlyOnce
+DECL|method|xxxtestIOExceptionDuringCloseDocStoreWithThreadsOnlyOnce
 specifier|public
 name|void
-name|testIOExceptionDuringCloseDocStoreWithThreadsOnlyOnce
+name|xxxtestIOExceptionDuringCloseDocStoreWithThreadsOnlyOnce
 parameter_list|()
 throws|throws
 name|IOException
@@ -16057,10 +16057,10 @@ block|}
 block|}
 block|}
 comment|// LUCENE-1130: test IOException in writeSegment
-DECL|method|testIOExceptionDuringWriteSegment
+DECL|method|xxxtestIOExceptionDuringWriteSegment
 specifier|public
 name|void
-name|testIOExceptionDuringWriteSegment
+name|xxxtestIOExceptionDuringWriteSegment
 parameter_list|()
 throws|throws
 name|IOException
@@ -16076,10 +16076,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// LUCENE-1130: test IOException in writeSegment
-DECL|method|testIOExceptionDuringWriteSegmentOnlyOnce
+DECL|method|xxxtestIOExceptionDuringWriteSegmentOnlyOnce
 specifier|public
 name|void
-name|testIOExceptionDuringWriteSegmentOnlyOnce
+name|xxxtestIOExceptionDuringWriteSegmentOnlyOnce
 parameter_list|()
 throws|throws
 name|IOException
@@ -16095,10 +16095,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// LUCENE-1130: test IOException in writeSegment, with threads
-DECL|method|testIOExceptionDuringWriteSegmentWithThreads
+DECL|method|xxxtestIOExceptionDuringWriteSegmentWithThreads
 specifier|public
 name|void
-name|testIOExceptionDuringWriteSegmentWithThreads
+name|xxxtestIOExceptionDuringWriteSegmentWithThreads
 parameter_list|()
 throws|throws
 name|IOException
@@ -16114,10 +16114,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// LUCENE-1130: test IOException in writeSegment, with threads
-DECL|method|testIOExceptionDuringWriteSegmentWithThreadsOnlyOnce
+DECL|method|xxxtestIOExceptionDuringWriteSegmentWithThreadsOnlyOnce
 specifier|public
 name|void
-name|testIOExceptionDuringWriteSegmentWithThreadsOnlyOnce
+name|xxxtestIOExceptionDuringWriteSegmentWithThreadsOnlyOnce
 parameter_list|()
 throws|throws
 name|IOException
@@ -16133,10 +16133,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// LUCENE-1084: test unlimited field length
-DECL|method|testUnlimitedMaxFieldLength
+DECL|method|xxxtestUnlimitedMaxFieldLength
 specifier|public
 name|void
-name|testUnlimitedMaxFieldLength
+name|xxxtestUnlimitedMaxFieldLength
 parameter_list|()
 throws|throws
 name|IOException
@@ -16294,10 +16294,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1044: Simulate checksum error in segments_N
-DECL|method|testSegmentsChecksumError
+DECL|method|xxxtestSegmentsChecksumError
 specifier|public
 name|void
-name|testSegmentsChecksumError
+name|xxxtestSegmentsChecksumError
 parameter_list|()
 throws|throws
 name|IOException
@@ -16518,10 +16518,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1044: test writer.commit() when ac=false
-DECL|method|testForceCommit
+DECL|method|xxxtestForceCommit
 specifier|public
 name|void
-name|testForceCommit
+name|xxxtestForceCommit
 parameter_list|()
 throws|throws
 name|IOException
@@ -16848,10 +16848,10 @@ block|}
 block|}
 block|}
 comment|// LUCENE-1044: test exception during sync
-DECL|method|testExceptionDuringSync
+DECL|method|xxxtestExceptionDuringSync
 specifier|public
 name|void
-name|testExceptionDuringSync
+name|xxxtestExceptionDuringSync
 parameter_list|()
 throws|throws
 name|IOException
@@ -17004,10 +17004,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1168
-DECL|method|testTermVectorCorruption
+DECL|method|xxxtestTermVectorCorruption
 specifier|public
 name|void
-name|testTermVectorCorruption
+name|xxxtestTermVectorCorruption
 parameter_list|()
 throws|throws
 name|IOException
@@ -17338,10 +17338,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1168
-DECL|method|testTermVectorCorruption2
+DECL|method|xxxtestTermVectorCorruption2
 specifier|public
 name|void
-name|testTermVectorCorruption2
+name|xxxtestTermVectorCorruption2
 parameter_list|()
 throws|throws
 name|IOException
@@ -17603,10 +17603,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1168
-DECL|method|testTermVectorCorruption3
+DECL|method|xxxtestTermVectorCorruption3
 specifier|public
 name|void
-name|testTermVectorCorruption3
+name|xxxtestTermVectorCorruption3
 parameter_list|()
 throws|throws
 name|IOException
@@ -17911,10 +17911,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1084: test user-specified field length
-DECL|method|testUserSpecifiedMaxFieldLength
+DECL|method|xxxtestUserSpecifiedMaxFieldLength
 specifier|public
 name|void
-name|testUserSpecifiedMaxFieldLength
+name|xxxtestUserSpecifiedMaxFieldLength
 parameter_list|()
 throws|throws
 name|IOException
@@ -18075,10 +18075,10 @@ expr_stmt|;
 block|}
 comment|// LUCENE-325: test expungeDeletes, when 2 singular merges
 comment|// are required
-DECL|method|testExpungeDeletes
+DECL|method|xxxtestExpungeDeletes
 specifier|public
 name|void
-name|testExpungeDeletes
+name|xxxtestExpungeDeletes
 parameter_list|()
 throws|throws
 name|IOException
@@ -18388,10 +18388,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-325: test expungeDeletes, when many adjacent merges are required
-DECL|method|testExpungeDeletes2
+DECL|method|xxxtestExpungeDeletes2
 specifier|public
 name|void
-name|testExpungeDeletes2
+name|xxxtestExpungeDeletes2
 parameter_list|()
 throws|throws
 name|IOException
@@ -18704,10 +18704,10 @@ expr_stmt|;
 block|}
 comment|// LUCENE-325: test expungeDeletes without waiting, when
 comment|// many adjacent merges are required
-DECL|method|testExpungeDeletes3
+DECL|method|xxxtestExpungeDeletes3
 specifier|public
 name|void
-name|testExpungeDeletes3
+name|xxxtestExpungeDeletes3
 parameter_list|()
 throws|throws
 name|IOException
@@ -19012,10 +19012,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1179
-DECL|method|testEmptyFieldName
+DECL|method|xxxtestEmptyFieldName
 specifier|public
 name|void
-name|testEmptyFieldName
+name|xxxtestEmptyFieldName
 parameter_list|()
 throws|throws
 name|IOException
@@ -19159,10 +19159,10 @@ literal|true
 return|;
 block|}
 block|}
-DECL|method|testExceptionDocumentsWriterInit
+DECL|method|xxxtestExceptionDocumentsWriterInit
 specifier|public
 name|void
-name|testExceptionDocumentsWriterInit
+name|xxxtestExceptionDocumentsWriterInit
 parameter_list|()
 throws|throws
 name|IOException
@@ -19282,10 +19282,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1208
-DECL|method|testExceptionJustBeforeFlush
+DECL|method|xxxtestExceptionJustBeforeFlush
 specifier|public
 name|void
-name|testExceptionJustBeforeFlush
+name|xxxtestExceptionJustBeforeFlush
 parameter_list|()
 throws|throws
 name|IOException
@@ -19557,10 +19557,10 @@ return|;
 block|}
 block|}
 comment|// LUCENE-1210
-DECL|method|testExceptionOnMergeInit
+DECL|method|xxxtestExceptionOnMergeInit
 specifier|public
 name|void
-name|testExceptionOnMergeInit
+name|xxxtestExceptionOnMergeInit
 parameter_list|()
 throws|throws
 name|IOException
@@ -19774,10 +19774,10 @@ expr_stmt|;
 block|}
 block|}
 comment|// LUCENE-1222
-DECL|method|testDoAfterFlush
+DECL|method|xxxtestDoAfterFlush
 specifier|public
 name|void
-name|testDoAfterFlush
+name|xxxtestDoAfterFlush
 parameter_list|()
 throws|throws
 name|IOException
@@ -20110,10 +20110,10 @@ block|}
 block|}
 block|}
 comment|// LUCENE-1214
-DECL|method|testExceptionsDuringCommit
+DECL|method|xxxtestExceptionsDuringCommit
 specifier|public
 name|void
-name|testExceptionsDuringCommit
+name|xxxtestExceptionsDuringCommit
 parameter_list|()
 throws|throws
 name|Throwable
@@ -20339,10 +20339,10 @@ literal|"\ufffd\ud917\udc17\ufffd"
 block|}
 decl_stmt|;
 comment|// LUCENE-510
-DECL|method|testInvalidUTF16
+DECL|method|xxxtestInvalidUTF16
 specifier|public
 name|void
-name|testInvalidUTF16
+name|xxxtestInvalidUTF16
 parameter_list|()
 throws|throws
 name|Throwable
@@ -20561,10 +20561,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-510
-DECL|method|testAllUnicodeChars
+DECL|method|xxxtestAllUnicodeChars
 specifier|public
 name|void
-name|testAllUnicodeChars
+name|xxxtestAllUnicodeChars
 parameter_list|()
 throws|throws
 name|Throwable
@@ -21283,10 +21283,10 @@ name|hasIllegal
 return|;
 block|}
 comment|// LUCENE-510
-DECL|method|testRandomUnicodeStrings
+DECL|method|xxxtestRandomUnicodeStrings
 specifier|public
 name|void
-name|testRandomUnicodeStrings
+name|xxxtestRandomUnicodeStrings
 parameter_list|()
 throws|throws
 name|Throwable
@@ -21506,10 +21506,10 @@ expr_stmt|;
 block|}
 block|}
 comment|// LUCENE-510
-DECL|method|testIncrementalUnicodeStrings
+DECL|method|xxxtestIncrementalUnicodeStrings
 specifier|public
 name|void
-name|testIncrementalUnicodeStrings
+name|xxxtestIncrementalUnicodeStrings
 parameter_list|()
 throws|throws
 name|Throwable
@@ -21952,10 +21952,10 @@ return|;
 block|}
 block|}
 comment|// LUCENE-1255
-DECL|method|testNegativePositions
+DECL|method|xxxtestNegativePositions
 specifier|public
 name|void
-name|testNegativePositions
+name|xxxtestNegativePositions
 parameter_list|()
 throws|throws
 name|Throwable
@@ -22408,10 +22408,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1274: test writer.prepareCommit()
-DECL|method|testPrepareCommit
+DECL|method|xxxtestPrepareCommit
 specifier|public
 name|void
-name|testPrepareCommit
+name|xxxtestPrepareCommit
 parameter_list|()
 throws|throws
 name|IOException
@@ -22701,10 +22701,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1274: test writer.prepareCommit()
-DECL|method|testPrepareCommitRollback
+DECL|method|xxxtestPrepareCommitRollback
 specifier|public
 name|void
-name|testPrepareCommitRollback
+name|xxxtestPrepareCommitRollback
 parameter_list|()
 throws|throws
 name|IOException
@@ -23019,10 +23019,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1274
-DECL|method|testPrepareCommitNoChanges
+DECL|method|xxxtestPrepareCommitNoChanges
 specifier|public
 name|void
-name|testPrepareCommitNoChanges
+name|xxxtestPrepareCommitNoChanges
 parameter_list|()
 throws|throws
 name|IOException
@@ -23710,10 +23710,10 @@ block|}
 block|}
 comment|// LUCENE-1335: test simultaneous addIndexes& commits
 comment|// from multiple threads
-DECL|method|testAddIndexesWithThreads
+DECL|method|xxxtestAddIndexesWithThreads
 specifier|public
 name|void
-name|testAddIndexesWithThreads
+name|xxxtestAddIndexesWithThreads
 parameter_list|()
 throws|throws
 name|Throwable
@@ -23955,10 +23955,10 @@ block|}
 block|}
 block|}
 comment|// LUCENE-1335: test simultaneous addIndexes& close
-DECL|method|testAddIndexesWithClose
+DECL|method|xxxtestAddIndexesWithClose
 specifier|public
 name|void
-name|testAddIndexesWithClose
+name|xxxtestAddIndexesWithClose
 parameter_list|()
 throws|throws
 name|Throwable
@@ -24222,10 +24222,10 @@ block|}
 block|}
 block|}
 comment|// LUCENE-1335: test simultaneous addIndexes& close
-DECL|method|testAddIndexesWithCloseNoWait
+DECL|method|xxxtestAddIndexesWithCloseNoWait
 specifier|public
 name|void
-name|testAddIndexesWithCloseNoWait
+name|xxxtestAddIndexesWithCloseNoWait
 parameter_list|()
 throws|throws
 name|Throwable
@@ -24496,10 +24496,10 @@ return|;
 block|}
 block|}
 comment|// LUCENE-1347
-DECL|method|testRollbackExceptionHang
+DECL|method|xxxtestRollbackExceptionHang
 specifier|public
 name|void
-name|testRollbackExceptionHang
+name|xxxtestRollbackExceptionHang
 parameter_list|()
 throws|throws
 name|Throwable
@@ -24577,10 +24577,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1219
-DECL|method|testBinaryFieldOffsetLength
+DECL|method|xxxtestBinaryFieldOffsetLength
 specifier|public
 name|void
-name|testBinaryFieldOffsetLength
+name|xxxtestBinaryFieldOffsetLength
 parameter_list|()
 throws|throws
 name|IOException
@@ -24818,10 +24818,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1374
-DECL|method|testMergeCompressedFields
+DECL|method|xxxtestMergeCompressedFields
 specifier|public
 name|void
-name|testMergeCompressedFields
+name|xxxtestMergeCompressedFields
 parameter_list|()
 throws|throws
 name|IOException
@@ -25128,10 +25128,10 @@ expr_stmt|;
 block|}
 block|}
 comment|// LUCENE-1382
-DECL|method|testCommitUserData
+DECL|method|xxxtestCommitUserData
 specifier|public
 name|void
-name|testCommitUserData
+name|xxxtestCommitUserData
 parameter_list|()
 throws|throws
 name|IOException
@@ -25369,10 +25369,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testOptimizeExceptions
+DECL|method|xxxtestOptimizeExceptions
 specifier|public
 name|void
-name|testOptimizeExceptions
+name|xxxtestOptimizeExceptions
 parameter_list|()
 throws|throws
 name|IOException
@@ -25547,10 +25547,10 @@ expr_stmt|;
 block|}
 block|}
 comment|// LUCENE-1429
-DECL|method|testOutOfMemoryErrorCausesCloseToFail
+DECL|method|xxxtestOutOfMemoryErrorCausesCloseToFail
 specifier|public
 name|void
-name|testOutOfMemoryErrorCausesCloseToFail
+name|xxxtestOutOfMemoryErrorCausesCloseToFail
 parameter_list|()
 throws|throws
 name|Exception
@@ -25667,10 +25667,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// LUCENE-1442
-DECL|method|testDoubleOffsetCounting
+DECL|method|xxxtestDoubleOffsetCounting
 specifier|public
 name|void
-name|testDoubleOffsetCounting
+name|xxxtestDoubleOffsetCounting
 parameter_list|()
 throws|throws
 name|Exception
@@ -25870,10 +25870,10 @@ expr_stmt|;
 block|}
 comment|// LUCENE-1468 -- make sure opening an IndexWriter with
 comment|// create=true does not remove non-index files
-DECL|method|testOtherFiles
+DECL|method|xxxtestOtherFiles
 specifier|public
 name|void
-name|testOtherFiles
+name|xxxtestOtherFiles
 parameter_list|()
 throws|throws
 name|Throwable
@@ -26002,10 +26002,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testDeadlock
+DECL|method|xxxtestDeadlock
 specifier|public
 name|void
-name|testDeadlock
+name|xxxtestDeadlock
 parameter_list|()
 throws|throws
 name|Exception
