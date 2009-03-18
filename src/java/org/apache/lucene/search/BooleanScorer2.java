@@ -574,6 +574,8 @@ parameter_list|,
 name|int
 name|minNrShouldMatch
 parameter_list|)
+throws|throws
+name|IOException
 comment|// each scorer from the list counted as a single matcher
 block|{
 return|return
@@ -1092,6 +1094,8 @@ parameter_list|(
 name|Scorer
 name|requiredCountingSumScorer
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 operator|(
