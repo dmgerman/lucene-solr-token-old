@@ -433,6 +433,8 @@ block|,
 literal|"spelling."
 block|,
 literal|"handler.component."
+block|,
+literal|"handler.dataimport"
 block|}
 decl_stmt|;
 DECL|field|classLoader
