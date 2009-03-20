@@ -115,7 +115,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|factory
-specifier|private
+specifier|protected
 name|Callable
 argument_list|<
 name|Connection
@@ -503,8 +503,11 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|createConnectionFactory
-specifier|private
-name|void
+specifier|protected
+name|Callable
+argument_list|<
+name|Connection
+argument_list|>
 name|createConnectionFactory
 parameter_list|(
 specifier|final
@@ -661,6 +664,7 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+return|return
 name|factory
 operator|=
 operator|new
@@ -1023,7 +1027,7 @@ name|c
 return|;
 block|}
 block|}
-expr_stmt|;
+return|;
 block|}
 DECL|method|resolveVariables
 specifier|private
