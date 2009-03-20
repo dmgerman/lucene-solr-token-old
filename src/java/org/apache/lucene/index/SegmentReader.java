@@ -2253,7 +2253,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|omitTf
+name|omitTermFreqAndPositions
 condition|)
 name|anyProx
 operator|=
@@ -4385,7 +4385,7 @@ if|if
 condition|(
 name|fi
 operator|.
-name|omitTf
+name|omitTermFreqAndPositions
 operator|&&
 name|fieldOption
 operator|==
@@ -4393,7 +4393,7 @@ name|IndexReader
 operator|.
 name|FieldOption
 operator|.
-name|OMIT_TF
+name|OMIT_TERM_FREQ_AND_POSITIONS
 condition|)
 block|{
 name|fieldSet

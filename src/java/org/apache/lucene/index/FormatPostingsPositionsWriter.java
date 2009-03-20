@@ -67,9 +67,9 @@ specifier|final
 name|IndexOutput
 name|out
 decl_stmt|;
-DECL|field|omitTF
+DECL|field|omitTermFreqAndPositions
 name|boolean
-name|omitTF
+name|omitTermFreqAndPositions
 decl_stmt|;
 DECL|field|storePayloads
 name|boolean
@@ -100,11 +100,11 @@ name|parent
 operator|=
 name|parent
 expr_stmt|;
-name|omitTF
+name|omitTermFreqAndPositions
 operator|=
 name|parent
 operator|.
-name|omitTF
+name|omitTermFreqAndPositions
 expr_stmt|;
 if|if
 condition|(
@@ -211,9 +211,9 @@ name|IOException
 block|{
 assert|assert
 operator|!
-name|omitTF
+name|omitTermFreqAndPositions
 operator|:
-literal|"omitTF is true"
+literal|"omitTermFreqAndPositions is true"
 assert|;
 assert|assert
 name|out
@@ -312,15 +312,15 @@ name|FieldInfo
 name|fieldInfo
 parameter_list|)
 block|{
-name|omitTF
+name|omitTermFreqAndPositions
 operator|=
 name|fieldInfo
 operator|.
-name|omitTf
+name|omitTermFreqAndPositions
 expr_stmt|;
 name|storePayloads
 operator|=
-name|omitTF
+name|omitTermFreqAndPositions
 condition|?
 literal|false
 else|:

@@ -154,11 +154,11 @@ name|STORE_PAYLOADS
 init|=
 literal|0x20
 decl_stmt|;
-DECL|field|OMIT_TF
+DECL|field|OMIT_TERM_FREQ_AND_POSITIONS
 specifier|static
 specifier|final
 name|byte
-name|OMIT_TF
+name|OMIT_TERM_FREQ_AND_POSITIONS
 init|=
 literal|0x40
 decl_stmt|;
@@ -392,7 +392,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** Returns true if any fields do not omitTf */
+comment|/** Returns true if any fields do not omitTermFreqAndPositions */
 DECL|method|hasProx
 name|boolean
 name|hasProx
@@ -429,7 +429,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|omitTf
+name|omitTermFreqAndPositions
 condition|)
 return|return
 literal|true
@@ -688,7 +688,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** If the field is not yet known, adds it. If it is known, checks to make    *  sure that the isIndexed flag is the same as was given previously for this    *  field. If not - marks it as being indexed.  Same goes for the TermVector    * parameters.    *    * @param name The name of the field    * @param isIndexed true if the field is indexed    * @param storeTermVector true if the term vector should be stored    * @param storePositionWithTermVector true if the term vector with positions should be stored    * @param storeOffsetWithTermVector true if the term vector with offsets should be stored    * @param omitNorms true if the norms for the indexed field should be omitted    * @param storePayloads true if payloads should be stored for this field    * @param omitTf true if term freqs should be omitted for this field    */
+comment|/** If the field is not yet known, adds it. If it is known, checks to make    *  sure that the isIndexed flag is the same as was given previously for this    *  field. If not - marks it as being indexed.  Same goes for the TermVector    * parameters.    *    * @param name The name of the field    * @param isIndexed true if the field is indexed    * @param storeTermVector true if the term vector should be stored    * @param storePositionWithTermVector true if the term vector with positions should be stored    * @param storeOffsetWithTermVector true if the term vector with offsets should be stored    * @param omitNorms true if the norms for the indexed field should be omitted    * @param storePayloads true if payloads should be stored for this field    * @param omitTermFreqAndPositions true if term freqs should be omitted for this field    */
 DECL|method|add
 specifier|synchronized
 specifier|public
@@ -717,7 +717,7 @@ name|boolean
 name|storePayloads
 parameter_list|,
 name|boolean
-name|omitTf
+name|omitTermFreqAndPositions
 parameter_list|)
 block|{
 name|FieldInfo
@@ -752,7 +752,7 @@ name|omitNorms
 argument_list|,
 name|storePayloads
 argument_list|,
-name|omitTf
+name|omitTermFreqAndPositions
 argument_list|)
 return|;
 block|}
@@ -774,7 +774,7 @@ name|omitNorms
 argument_list|,
 name|storePayloads
 argument_list|,
-name|omitTf
+name|omitTermFreqAndPositions
 argument_list|)
 expr_stmt|;
 block|}
@@ -809,7 +809,7 @@ name|boolean
 name|storePayloads
 parameter_list|,
 name|boolean
-name|omitTf
+name|omitTermFreqAndPositions
 parameter_list|)
 block|{
 name|FieldInfo
@@ -837,7 +837,7 @@ name|omitNorms
 argument_list|,
 name|storePayloads
 argument_list|,
-name|omitTf
+name|omitTermFreqAndPositions
 argument_list|)
 decl_stmt|;
 name|byNumber
@@ -1189,11 +1189,11 @@ if|if
 condition|(
 name|fi
 operator|.
-name|omitTf
+name|omitTermFreqAndPositions
 condition|)
 name|bits
 operator||=
-name|OMIT_TF
+name|OMIT_TERM_FREQ_AND_POSITIONS
 expr_stmt|;
 name|output
 operator|.
@@ -1334,12 +1334,12 @@ operator|!=
 literal|0
 decl_stmt|;
 name|boolean
-name|omitTf
+name|omitTermFreqAndPositions
 init|=
 operator|(
 name|bits
 operator|&
-name|OMIT_TF
+name|OMIT_TERM_FREQ_AND_POSITIONS
 operator|)
 operator|!=
 literal|0
@@ -1360,7 +1360,7 @@ name|omitNorms
 argument_list|,
 name|storePayloads
 argument_list|,
-name|omitTf
+name|omitTermFreqAndPositions
 argument_list|)
 expr_stmt|;
 block|}

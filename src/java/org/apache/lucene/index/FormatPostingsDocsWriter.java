@@ -90,9 +90,9 @@ specifier|final
 name|int
 name|totalNumDocs
 decl_stmt|;
-DECL|field|omitTF
+DECL|field|omitTermFreqAndPositions
 name|boolean
-name|omitTF
+name|omitTermFreqAndPositions
 decl_stmt|;
 DECL|field|storePayloads
 name|boolean
@@ -227,11 +227,11 @@ name|fieldInfo
 operator|=
 name|fieldInfo
 expr_stmt|;
-name|omitTF
+name|omitTermFreqAndPositions
 operator|=
 name|fieldInfo
 operator|.
-name|omitTf
+name|omitTermFreqAndPositions
 expr_stmt|;
 name|storePayloads
 operator|=
@@ -361,7 +361,7 @@ name|docID
 expr_stmt|;
 if|if
 condition|(
-name|omitTF
+name|omitTermFreqAndPositions
 condition|)
 name|out
 operator|.
