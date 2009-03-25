@@ -919,7 +919,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * This method intended for use with<tt>testHighlightingWithDefaultField()</tt>    */
+comment|/**    * This method intended for use with<tt>testHighlightingWithDefaultField()</tt>  * @throws InvalidTokenOffsetsException     */
 DECL|method|highlightField
 specifier|private
 specifier|static
@@ -937,6 +937,8 @@ name|text
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|InvalidTokenOffsetsException
 block|{
 name|CachingTokenFilter
 name|tokenStream
@@ -8078,6 +8080,8 @@ throws|throws
 name|IOException
 throws|,
 name|ParseException
+throws|,
+name|InvalidTokenOffsetsException
 block|{
 name|makeIndex
 argument_list|()
@@ -8270,6 +8274,8 @@ throws|throws
 name|IOException
 throws|,
 name|ParseException
+throws|,
+name|InvalidTokenOffsetsException
 block|{
 name|String
 name|q
