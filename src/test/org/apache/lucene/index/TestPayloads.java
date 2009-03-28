@@ -2924,7 +2924,7 @@ name|void
 name|testThreadSafety
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|rnd
 operator|=
@@ -3124,8 +3124,6 @@ name|i
 operator|++
 control|)
 block|{
-try|try
-block|{
 name|ingesters
 index|[
 name|i
@@ -3134,13 +3132,6 @@ operator|.
 name|join
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{}
 block|}
 name|writer
 operator|.

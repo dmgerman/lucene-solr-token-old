@@ -212,6 +212,8 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
+comment|// In 3.0 we will change this to throw
+comment|// InterruptedException instead
 throw|throw
 operator|new
 name|IOException

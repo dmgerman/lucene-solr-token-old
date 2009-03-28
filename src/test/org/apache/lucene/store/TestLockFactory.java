@@ -1562,7 +1562,7 @@ name|void
 name|testStressLocks
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|_testStressLocks
 argument_list|(
@@ -1582,7 +1582,7 @@ name|void
 name|testStressLocksNativeFSLockFactory
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|_testStressLocks
 argument_list|(
@@ -1608,7 +1608,7 @@ name|String
 name|indexDirName
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|FSDirectory
 name|fs1
@@ -1699,8 +1699,6 @@ name|isAlive
 argument_list|()
 condition|)
 block|{
-try|try
-block|{
 name|Thread
 operator|.
 name|sleep
@@ -1708,13 +1706,6 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{             }
 block|}
 name|assertTrue
 argument_list|(
