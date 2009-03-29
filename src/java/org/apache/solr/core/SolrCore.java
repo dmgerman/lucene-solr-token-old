@@ -4581,6 +4581,9 @@ name|getIndexDir
 argument_list|()
 argument_list|)
 operator|.
+name|getCanonicalFile
+argument_list|()
+operator|.
 name|equals
 argument_list|(
 operator|new
@@ -4588,6 +4591,9 @@ name|File
 argument_list|(
 name|newIndexDir
 argument_list|)
+operator|.
+name|getCanonicalFile
+argument_list|()
 argument_list|)
 condition|)
 block|{
