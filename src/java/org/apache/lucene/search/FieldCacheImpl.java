@@ -173,6 +173,15 @@ decl_stmt|;
 name|Object
 name|value
 decl_stmt|;
+specifier|final
+name|Object
+name|readerKey
+init|=
+name|reader
+operator|.
+name|getFieldCacheKey
+argument_list|()
+decl_stmt|;
 synchronized|synchronized
 init|(
 name|readerCache
@@ -187,7 +196,7 @@ name|readerCache
 operator|.
 name|get
 argument_list|(
-name|reader
+name|readerKey
 argument_list|)
 expr_stmt|;
 if|if
@@ -207,7 +216,7 @@ name|readerCache
 operator|.
 name|put
 argument_list|(
-name|reader
+name|readerKey
 argument_list|,
 name|innerCache
 argument_list|)
