@@ -43,6 +43,15 @@ operator|.
 name|RandomAccessFile
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FileNotFoundException
+import|;
+end_import
 begin_comment
 comment|/**  * @version $Id$  */
 end_comment
@@ -107,6 +116,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|fullFile
+operator|==
+literal|null
+operator|||
+operator|!
+name|fullFile
+operator|.
+name|exists
+argument_list|()
+condition|)
+throw|throw
+operator|new
+name|FileNotFoundException
+argument_list|(
+literal|"File does not exist "
+operator|+
+name|fullFile
+argument_list|)
+throw|;
 name|boolean
 name|success
 init|=
