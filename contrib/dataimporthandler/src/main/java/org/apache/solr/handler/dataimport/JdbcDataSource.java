@@ -652,7 +652,7 @@ block|{
 if|if
 condition|(
 name|jndiName
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
