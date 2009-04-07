@@ -1268,9 +1268,6 @@ name|max
 parameter_list|,
 name|int
 name|shift
-parameter_list|,
-name|int
-name|level
 parameter_list|)
 block|{
 name|assertTrue
@@ -1865,9 +1862,6 @@ name|max
 parameter_list|,
 name|int
 name|shift
-parameter_list|,
-name|int
-name|level
 parameter_list|)
 block|{
 name|assertTrue
