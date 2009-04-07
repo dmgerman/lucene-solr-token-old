@@ -124,7 +124,7 @@ name|NumberUtils
 import|;
 end_import
 begin_comment
-comment|/**  * An implementation of org.apache.lucene.search.RangeFilter that  * caches values extracted from the index.  *   */
+comment|/**  * An implementation of org.apache.lucene.search.RangeFilter that  * caches values extracted from the index.  * @deprecated  * @see CartesianShapeFilter  */
 end_comment
 begin_class
 DECL|class|BoundaryBoxFilter
