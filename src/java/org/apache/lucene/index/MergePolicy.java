@@ -95,11 +95,6 @@ name|boolean
 name|optimize
 decl_stmt|;
 comment|// used by IndexWriter
-DECL|field|segmentsClone
-name|SegmentInfos
-name|segmentsClone
-decl_stmt|;
-comment|// used by IndexWriter
 DECL|field|increfDone
 name|boolean
 name|increfDone
@@ -123,6 +118,18 @@ comment|// used by IndexWriter
 DECL|field|maxNumSegmentsOptimize
 name|int
 name|maxNumSegmentsOptimize
+decl_stmt|;
+comment|// used by IndexWriter
+DECL|field|readers
+name|SegmentReader
+index|[]
+name|readers
+decl_stmt|;
+comment|// used by IndexWriter
+DECL|field|readersClone
+name|SegmentReader
+index|[]
+name|readersClone
 decl_stmt|;
 comment|// used by IndexWriter
 DECL|field|segments

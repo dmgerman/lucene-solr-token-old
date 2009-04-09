@@ -336,6 +336,11 @@ argument_list|(
 name|dir2
 argument_list|)
 expr_stmt|;
+name|dir2
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testReuseAcrossWriters
 specifier|public
