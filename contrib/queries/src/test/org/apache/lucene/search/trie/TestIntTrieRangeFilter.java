@@ -1954,7 +1954,11 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Average number of terms during random search: "
+literal|"Average number of terms during random search on '"
+operator|+
+name|field
+operator|+
+literal|"': "
 operator|+
 operator|(
 operator|(
