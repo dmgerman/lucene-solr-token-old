@@ -483,7 +483,7 @@ argument_list|>
 name|args
 parameter_list|)
 block|{
-comment|// default to STORED, INDEXED, OMIT_TF and MULTIVALUED depending on schema version
+comment|// default to STORED, INDEXED, OMIT_TF_POSITIONS and MULTIVALUED depending on schema version
 name|properties
 operator|=
 operator|(
@@ -516,7 +516,7 @@ literal|1.1f
 condition|)
 name|properties
 operator||=
-name|OMIT_TF
+name|OMIT_TF_POSITIONS
 expr_stmt|;
 name|this
 operator|.
@@ -1019,7 +1019,7 @@ argument_list|)
 expr_stmt|;
 name|f
 operator|.
-name|setOmitTf
+name|setOmitTermFreqAndPositions
 argument_list|(
 name|field
 operator|.
