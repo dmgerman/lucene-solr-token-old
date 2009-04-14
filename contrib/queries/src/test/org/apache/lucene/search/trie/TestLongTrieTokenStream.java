@@ -108,6 +108,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// use getAttribute to test if attributes really exist, if not an IAE will be throwed
 specifier|final
 name|ShiftAttribute
 name|shiftAtt
@@ -124,13 +125,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Has shift attribute"
-argument_list|,
-name|shiftAtt
-argument_list|)
-expr_stmt|;
 specifier|final
 name|TermAttribute
 name|termAtt
@@ -147,13 +141,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"Has term attribute"
-argument_list|,
-name|termAtt
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
