@@ -308,7 +308,7 @@ parameter_list|,
 name|DataSource
 name|parentDataSource
 parameter_list|,
-name|int
+name|String
 name|currProcess
 parameter_list|,
 specifier|final
@@ -650,7 +650,7 @@ return|;
 block|}
 DECL|method|currentProcess
 specifier|public
-name|int
+name|String
 name|currentProcess
 parameter_list|()
 block|{
