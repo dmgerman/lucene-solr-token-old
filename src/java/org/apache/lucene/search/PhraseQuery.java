@@ -1054,7 +1054,7 @@ name|doc
 index|]
 argument_list|)
 else|:
-literal|0.0f
+literal|1.0f
 decl_stmt|;
 name|fieldNormExpl
 operator|.
