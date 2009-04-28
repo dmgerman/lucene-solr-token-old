@@ -274,15 +274,10 @@ argument_list|)
 expr_stmt|;
 name|offsetAttribute
 operator|.
-name|setStartOffset
+name|setOffset
 argument_list|(
 name|startOffset
-argument_list|)
-expr_stmt|;
-name|offsetAttribute
-operator|.
-name|setEndOffset
-argument_list|(
+argument_list|,
 name|endOffset
 argument_list|)
 expr_stmt|;
