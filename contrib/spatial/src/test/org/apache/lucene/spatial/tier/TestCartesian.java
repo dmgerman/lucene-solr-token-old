@@ -1095,7 +1095,12 @@ init|=
 operator|new
 name|CustomScoreQuery
 argument_list|(
+name|dq
+operator|.
+name|getQuery
+argument_list|(
 name|tq
+argument_list|)
 argument_list|,
 name|fsQuery
 argument_list|)
@@ -1227,10 +1232,7 @@ name|search
 argument_list|(
 name|customScore
 argument_list|,
-name|dq
-operator|.
-name|getFilter
-argument_list|()
+literal|null
 argument_list|,
 name|sort
 argument_list|)
