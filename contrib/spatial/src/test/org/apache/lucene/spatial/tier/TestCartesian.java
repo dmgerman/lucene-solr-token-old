@@ -1305,7 +1305,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Distances should be 14 "
+literal|"Distances should be 7 "
 operator|+
 name|distances
 operator|.
@@ -1326,7 +1326,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|14
+literal|7
 argument_list|,
 name|distances
 operator|.
@@ -1334,6 +1334,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// fixed a store of only needed distances
 name|assertEquals
 argument_list|(
 literal|7
