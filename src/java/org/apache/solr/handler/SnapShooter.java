@@ -145,6 +145,13 @@ name|solrCore
 operator|=
 name|core
 expr_stmt|;
+name|snapDir
+operator|=
+name|core
+operator|.
+name|getDataDir
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|createSnapAsync
 name|void
