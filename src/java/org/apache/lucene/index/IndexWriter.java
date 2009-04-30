@@ -4604,6 +4604,12 @@ argument_list|()
 expr_stmt|;
 comment|// Only allow a new merge to be triggered if we are
 comment|// going to wait for merges:
+if|if
+condition|(
+operator|!
+name|hitOOM
+condition|)
+block|{
 name|flush
 argument_list|(
 name|waitForMerges
@@ -4613,6 +4619,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|waitForMerges
@@ -4652,11 +4659,18 @@ argument_list|(
 literal|"now call final commit()"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|hitOOM
+condition|)
+block|{
 name|commit
 argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|infoStream
@@ -4735,13 +4749,13 @@ name|OutOfMemoryError
 name|oom
 parameter_list|)
 block|{
-name|hitOOM
-operator|=
-literal|true
-expr_stmt|;
-throw|throw
+name|handleOOM
+argument_list|(
 name|oom
-throw|;
+argument_list|,
+literal|"closeInternal"
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -5517,13 +5531,13 @@ name|OutOfMemoryError
 name|oom
 parameter_list|)
 block|{
-name|hitOOM
-operator|=
-literal|true
-expr_stmt|;
-throw|throw
+name|handleOOM
+argument_list|(
 name|oom
-throw|;
+argument_list|,
+literal|"addDocument"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**    * Deletes the document(s) containing<code>term</code>.    *    *<p><b>NOTE</b>: if this method hits an OutOfMemoryError    * you should immediately close the writer.  See<a    * href="#OOME">above</a> for details.</p>    *    * @param term the term to identify the documents to be deleted    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
@@ -5575,13 +5589,13 @@ name|OutOfMemoryError
 name|oom
 parameter_list|)
 block|{
-name|hitOOM
-operator|=
-literal|true
-expr_stmt|;
-throw|throw
+name|handleOOM
+argument_list|(
 name|oom
-throw|;
+argument_list|,
+literal|"deleteDocuments(Term)"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**    * Deletes the document(s) containing any of the    * terms. All deletes are flushed at the same time.    *    *<p><b>NOTE</b>: if this method hits an OutOfMemoryError    * you should immediately close the writer.  See<a    * href="#OOME">above</a> for details.</p>    *    * @param terms array of terms to identify the documents    * to be deleted    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
@@ -5634,13 +5648,13 @@ name|OutOfMemoryError
 name|oom
 parameter_list|)
 block|{
-name|hitOOM
-operator|=
-literal|true
-expr_stmt|;
-throw|throw
+name|handleOOM
+argument_list|(
 name|oom
-throw|;
+argument_list|,
+literal|"deleteDocuments(Term[])"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**    * Deletes the document(s) matching the provided query.    *    *<p><b>NOTE</b>: if this method hits an OutOfMemoryError    * you should immediately close the writer.  See<a    * href="#OOME">above</a> for details.</p>    *    * @param query the query to identify the documents to be deleted    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
@@ -5883,13 +5897,13 @@ name|OutOfMemoryError
 name|oom
 parameter_list|)
 block|{
-name|hitOOM
-operator|=
-literal|true
-expr_stmt|;
-throw|throw
+name|handleOOM
+argument_list|(
 name|oom
-throw|;
+argument_list|,
+literal|"updateDocument"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// for test purpose
@@ -6330,6 +6344,19 @@ condition|)
 block|{
 if|if
 condition|(
+name|hitOOM
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"this writer hit an OutOfMemoryError; cannot complete optimize"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|mergeExceptions
 operator|.
 name|size
@@ -6681,6 +6708,19 @@ condition|(
 name|running
 condition|)
 block|{
+if|if
+condition|(
+name|hitOOM
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"this writer hit an OutOfMemoryError; cannot complete expungeDeletes"
+argument_list|)
+throw|;
+block|}
 comment|// Check each merge that MergePolicy asked us to
 comment|// do, to see if any of them are still running and
 comment|// if any of them have hit an exception.
@@ -6920,6 +6960,14 @@ condition|(
 name|stopMerges
 condition|)
 return|return;
+comment|// Do not start new merges if we've hit OOME
+if|if
+condition|(
+name|hitOOM
+condition|)
+block|{
+return|return;
+block|}
 specifier|final
 name|MergePolicy
 operator|.
@@ -7832,13 +7880,13 @@ name|OutOfMemoryError
 name|oom
 parameter_list|)
 block|{
-name|hitOOM
-operator|=
-literal|true
-expr_stmt|;
-throw|throw
+name|handleOOM
+argument_list|(
 name|oom
-throw|;
+argument_list|,
+literal|"rollbackInternal"
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -8437,13 +8485,13 @@ name|OutOfMemoryError
 name|oom
 parameter_list|)
 block|{
-name|hitOOM
-operator|=
-literal|true
-expr_stmt|;
-throw|throw
+name|handleOOM
+argument_list|(
 name|oom
-throw|;
+argument_list|,
+literal|"addIndexes(Directory[])"
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -8818,13 +8866,13 @@ name|OutOfMemoryError
 name|oom
 parameter_list|)
 block|{
-name|hitOOM
-operator|=
-literal|true
-expr_stmt|;
-throw|throw
+name|handleOOM
+argument_list|(
 name|oom
-throw|;
+argument_list|,
+literal|"addIndexesNoOptimize"
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -9558,13 +9606,13 @@ name|OutOfMemoryError
 name|oom
 parameter_list|)
 block|{
-name|hitOOM
-operator|=
-literal|true
-expr_stmt|;
-throw|throw
+name|handleOOM
+argument_list|(
 name|oom
-throw|;
+argument_list|,
+literal|"addIndexes(IndexReader[])"
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -9609,6 +9657,7 @@ if|if
 condition|(
 name|hitOOM
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalStateException
@@ -9616,6 +9665,7 @@ argument_list|(
 literal|"this writer hit an OutOfMemoryError; cannot flush"
 argument_list|)
 throw|;
+block|}
 name|flush
 argument_list|(
 literal|true
@@ -9691,6 +9741,7 @@ if|if
 condition|(
 name|hitOOM
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalStateException
@@ -9698,6 +9749,7 @@ argument_list|(
 literal|"this writer hit an OutOfMemoryError; cannot commit"
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|autoCommit
@@ -10067,6 +10119,60 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+try|try
+block|{
+return|return
+name|doFlushInternal
+argument_list|(
+name|flushDocStores
+argument_list|,
+name|flushDeletes
+argument_list|)
+return|;
+block|}
+finally|finally
+block|{
+name|docWriter
+operator|.
+name|clearFlushPending
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+comment|// TODO: this method should not have to be entirely
+comment|// synchronized, ie, merges should be allowed to commit
+comment|// even while a flush is happening
+DECL|method|doFlushInternal
+specifier|private
+specifier|synchronized
+specifier|final
+name|boolean
+name|doFlushInternal
+parameter_list|(
+name|boolean
+name|flushDocStores
+parameter_list|,
+name|boolean
+name|flushDeletes
+parameter_list|)
+throws|throws
+name|CorruptIndexException
+throws|,
+name|IOException
+block|{
+if|if
+condition|(
+name|hitOOM
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"this writer hit an OutOfMemoryError; cannot flush"
+argument_list|)
+throw|;
+block|}
 name|ensureOpen
 argument_list|(
 literal|false
@@ -10583,21 +10689,20 @@ name|OutOfMemoryError
 name|oom
 parameter_list|)
 block|{
-name|hitOOM
-operator|=
-literal|true
-expr_stmt|;
-throw|throw
+name|handleOOM
+argument_list|(
 name|oom
-throw|;
+argument_list|,
+literal|"doFlush"
+argument_list|)
+expr_stmt|;
+comment|// never hit
+return|return
+literal|false
+return|;
 block|}
 finally|finally
 block|{
-name|docWriter
-operator|.
-name|clearFlushPending
-argument_list|()
-expr_stmt|;
 name|docWriter
 operator|.
 name|resumeAllThreads
@@ -11173,9 +11278,15 @@ if|if
 condition|(
 name|hitOOM
 condition|)
-return|return
-literal|false
-return|;
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"this writer hit an OutOfMemoryError; cannot complete merge"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|infoStream
@@ -11823,13 +11934,13 @@ name|OutOfMemoryError
 name|oom
 parameter_list|)
 block|{
-name|hitOOM
-operator|=
-literal|true
-expr_stmt|;
-throw|throw
+name|handleOOM
+argument_list|(
 name|oom
-throw|;
+argument_list|,
+literal|"merge"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/** Checks whether this merge involves any segments    *  already participating in a merge.  If not, this merge    *  is "registered", meaning we record that its segments    *  are now participating in a merge, and true is    *  returned.  Else (the merge conflicts) false is    *  returned. */
@@ -12149,6 +12260,19 @@ name|maxNumSegmentsOptimize
 operator|>
 literal|0
 assert|;
+if|if
+condition|(
+name|hitOOM
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"this writer hit an OutOfMemoryError; cannot merge"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|merge
@@ -14708,7 +14832,15 @@ if|if
 condition|(
 name|hitOOM
 condition|)
-return|return;
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"this writer hit an OutOfMemoryError; cannot commit"
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 if|if
@@ -15277,13 +15409,13 @@ name|OutOfMemoryError
 name|oom
 parameter_list|)
 block|{
-name|hitOOM
-operator|=
-literal|true
-expr_stmt|;
-throw|throw
+name|handleOOM
+argument_list|(
 name|oom
-throw|;
+argument_list|,
+literal|"startCommit"
+argument_list|)
+expr_stmt|;
 block|}
 assert|assert
 name|testPoint
@@ -15554,6 +15686,41 @@ block|{
 return|return
 name|mergedSegmentWarmer
 return|;
+block|}
+DECL|method|handleOOM
+specifier|private
+name|void
+name|handleOOM
+parameter_list|(
+name|OutOfMemoryError
+name|oom
+parameter_list|,
+name|String
+name|location
+parameter_list|)
+block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"hit OutOfMemoryError inside "
+operator|+
+name|location
+argument_list|)
+expr_stmt|;
+block|}
+name|hitOOM
+operator|=
+literal|true
+expr_stmt|;
+throw|throw
+name|oom
+throw|;
 block|}
 comment|// Used only by assert for testing.  Current points:
 comment|//   startDoFlush
