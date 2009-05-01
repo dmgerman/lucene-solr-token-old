@@ -3209,15 +3209,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|w
-operator|.
-name|setMergePolicy
-argument_list|(
-operator|new
-name|LogDocMergePolicy
-argument_list|()
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
