@@ -194,6 +194,7 @@ literal|0x40
 decl_stmt|;
 DECL|field|byNumber
 specifier|private
+specifier|final
 name|ArrayList
 name|byNumber
 init|=
@@ -203,6 +204,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|byName
 specifier|private
+specifier|final
 name|HashMap
 name|byName
 init|=
@@ -283,15 +285,13 @@ name|setModifiedUTF8StringsMode
 argument_list|()
 expr_stmt|;
 name|byNumber
-operator|=
-operator|new
-name|ArrayList
+operator|.
+name|clear
 argument_list|()
 expr_stmt|;
 name|byName
-operator|=
-operator|new
-name|HashMap
+operator|.
+name|clear
 argument_list|()
 expr_stmt|;
 try|try
@@ -315,6 +315,14 @@ throw|throw
 name|ioe
 throw|;
 block|}
+block|}
+else|else
+block|{
+comment|// The IOException cannot be caused by
+comment|// LUCENE-1623, so re-throw it
+throw|throw
+name|ioe
+throw|;
 block|}
 block|}
 block|}
