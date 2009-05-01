@@ -3853,7 +3853,7 @@ name|autoCommit
 condition|)
 name|assertEquals
 argument_list|(
-literal|2
+literal|3
 operator|*
 operator|(
 name|N
