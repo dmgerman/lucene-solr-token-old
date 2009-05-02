@@ -17,6 +17,23 @@ name|dataimport
 package|;
 end_package
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|handler
+operator|.
+name|dataimport
+operator|.
+name|DataImporter
+operator|.
+name|IMPORT_CMD
+import|;
+end_import
+begin_import
 import|import
 name|org
 operator|.
@@ -1031,6 +1048,13 @@ operator|||
 name|DataImporter
 operator|.
 name|DELTA_IMPORT_CMD
+operator|.
+name|equals
+argument_list|(
+name|command
+argument_list|)
+operator|||
+name|IMPORT_CMD
 operator|.
 name|equals
 argument_list|(
