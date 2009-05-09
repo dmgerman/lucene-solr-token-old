@@ -1468,6 +1468,12 @@ argument_list|(
 name|info
 argument_list|)
 expr_stmt|;
+name|segInfoStat
+operator|.
+name|openReaderPassed
+operator|=
+literal|true
+expr_stmt|;
 specifier|final
 name|int
 name|numDocs
