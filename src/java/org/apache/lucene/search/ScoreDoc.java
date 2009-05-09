@@ -66,6 +66,23 @@ operator|=
 name|score
 expr_stmt|;
 block|}
+comment|// A convenience method for debugging.
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"doc="
+operator|+
+name|doc
+operator|+
+literal|" score="
+operator|+
+name|score
+return|;
+block|}
 block|}
 end_class
 end_unit

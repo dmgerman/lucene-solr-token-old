@@ -266,12 +266,15 @@ decl_stmt|;
 name|TopDocsCollector
 name|tdc
 init|=
-operator|new
 name|TopScoreDocCollector
+operator|.
+name|create
 argument_list|(
 name|scores
 operator|.
 name|length
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Collector

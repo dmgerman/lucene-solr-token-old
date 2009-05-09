@@ -85,18 +85,9 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
-operator|new
-name|SortField
-index|[]
-block|{
 name|SortField
 operator|.
 name|FIELD_SCORE
-block|,
-name|SortField
-operator|.
-name|FIELD_DOC
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -216,10 +207,8 @@ name|boolean
 name|reverse
 parameter_list|)
 block|{
-name|SortField
-index|[]
-name|nfields
-init|=
+name|fields
+operator|=
 operator|new
 name|SortField
 index|[]
@@ -235,15 +224,7 @@ name|AUTO
 argument_list|,
 name|reverse
 argument_list|)
-block|,
-name|SortField
-operator|.
-name|FIELD_DOC
 block|}
-decl_stmt|;
-name|fields
-operator|=
-name|nfields
 expr_stmt|;
 block|}
 comment|/** Sets the sort to the terms in each field in succession. */

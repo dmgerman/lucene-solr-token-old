@@ -582,6 +582,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// TODO: change the following to create TFC with in/out-of order
+comment|// according to whether the query's Scorer.
 name|TopFieldCollector
 name|collector
 init|=
@@ -600,6 +602,8 @@ argument_list|()
 argument_list|,
 name|withMaxScore
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|searcher
