@@ -1299,6 +1299,14 @@ name|Throwable
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|this
+operator|.
+name|aliveCheckExecutor
+operator|!=
+literal|null
+condition|)
 name|this
 operator|.
 name|aliveCheckExecutor
