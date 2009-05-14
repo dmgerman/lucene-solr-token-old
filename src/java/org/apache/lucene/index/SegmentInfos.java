@@ -1031,9 +1031,9 @@ expr_stmt|;
 block|}
 comment|// Only non-null after prepareCommit has been called and
 comment|// before finishCommit is called
-DECL|field|pendingOutput
+DECL|field|pendingSegnOutput
 name|ChecksumIndexOutput
-name|pendingOutput
+name|pendingSegnOutput
 decl_stmt|;
 DECL|method|write
 specifier|private
@@ -1074,7 +1074,7 @@ operator|++
 expr_stmt|;
 block|}
 name|ChecksumIndexOutput
-name|output
+name|segnOutput
 init|=
 operator|new
 name|ChecksumIndexOutput
@@ -1094,7 +1094,7 @@ literal|false
 decl_stmt|;
 try|try
 block|{
-name|output
+name|segnOutput
 operator|.
 name|writeInt
 argument_list|(
@@ -1102,7 +1102,7 @@ name|CURRENT_FORMAT
 argument_list|)
 expr_stmt|;
 comment|// write FORMAT
-name|output
+name|segnOutput
 operator|.
 name|writeLong
 argument_list|(
@@ -1112,7 +1112,7 @@ argument_list|)
 expr_stmt|;
 comment|// every write changes
 comment|// the index
-name|output
+name|segnOutput
 operator|.
 name|writeInt
 argument_list|(
@@ -1120,7 +1120,7 @@ name|counter
 argument_list|)
 expr_stmt|;
 comment|// write counter
-name|output
+name|segnOutput
 operator|.
 name|writeInt
 argument_list|(
@@ -1152,7 +1152,7 @@ argument_list|)
 operator|.
 name|write
 argument_list|(
-name|output
+name|segnOutput
 argument_list|)
 expr_stmt|;
 block|}
@@ -1162,7 +1162,7 @@ name|userData
 operator|==
 literal|null
 condition|)
-name|output
+name|segnOutput
 operator|.
 name|writeByte
 argument_list|(
@@ -1174,7 +1174,7 @@ argument_list|)
 expr_stmt|;
 else|else
 block|{
-name|output
+name|segnOutput
 operator|.
 name|writeByte
 argument_list|(
@@ -1184,7 +1184,7 @@ operator|)
 literal|1
 argument_list|)
 expr_stmt|;
-name|output
+name|segnOutput
 operator|.
 name|writeString
 argument_list|(
@@ -1192,7 +1192,7 @@ name|userData
 argument_list|)
 expr_stmt|;
 block|}
-name|output
+name|segnOutput
 operator|.
 name|prepareCommit
 argument_list|()
@@ -1201,9 +1201,9 @@ name|success
 operator|=
 literal|true
 expr_stmt|;
-name|pendingOutput
+name|pendingSegnOutput
 operator|=
-name|output
+name|segnOutput
 expr_stmt|;
 block|}
 finally|finally
@@ -1218,7 +1218,7 @@ comment|// We hit an exception above; try to close the file
 comment|// but suppress any exception:
 try|try
 block|{
-name|output
+name|segnOutput
 operator|.
 name|close
 argument_list|()
@@ -2602,14 +2602,14 @@ name|IOException
 block|{
 if|if
 condition|(
-name|pendingOutput
+name|pendingSegnOutput
 operator|!=
 literal|null
 condition|)
 block|{
 try|try
 block|{
-name|pendingOutput
+name|pendingSegnOutput
 operator|.
 name|close
 argument_list|()
@@ -2662,7 +2662,7 @@ block|{
 comment|// Suppress so we keep throwing the original exception
 comment|// in our caller
 block|}
-name|pendingOutput
+name|pendingSegnOutput
 operator|=
 literal|null
 expr_stmt|;
@@ -2683,7 +2683,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|pendingOutput
+name|pendingSegnOutput
 operator|!=
 literal|null
 condition|)
@@ -2809,7 +2809,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|pendingOutput
+name|pendingSegnOutput
 operator|==
 literal|null
 condition|)
@@ -2827,17 +2827,17 @@ literal|false
 decl_stmt|;
 try|try
 block|{
-name|pendingOutput
+name|pendingSegnOutput
 operator|.
 name|finishCommit
 argument_list|()
 expr_stmt|;
-name|pendingOutput
+name|pendingSegnOutput
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|pendingOutput
+name|pendingSegnOutput
 operator|=
 literal|null
 expr_stmt|;
