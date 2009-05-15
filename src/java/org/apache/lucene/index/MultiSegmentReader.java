@@ -2529,6 +2529,8 @@ return|return
 operator|new
 name|MultiTermEnum
 argument_list|(
+name|this
+argument_list|,
 name|subReaders
 argument_list|,
 name|starts
@@ -2555,6 +2557,8 @@ return|return
 operator|new
 name|MultiTermEnum
 argument_list|(
+name|this
+argument_list|,
 name|subReaders
 argument_list|,
 name|starts
@@ -2630,6 +2634,8 @@ return|return
 operator|new
 name|MultiTermDocs
 argument_list|(
+name|this
+argument_list|,
 name|subReaders
 argument_list|,
 name|starts
@@ -2651,6 +2657,8 @@ return|return
 operator|new
 name|MultiTermPositions
 argument_list|(
+name|this
+argument_list|,
 name|subReaders
 argument_list|,
 name|starts
@@ -3032,6 +3040,11 @@ name|MultiTermEnum
 extends|extends
 name|TermEnum
 block|{
+DECL|field|topReader
+name|IndexReader
+name|topReader
+decl_stmt|;
+comment|// used for matching TermEnum to TermDocs
 DECL|field|queue
 specifier|private
 name|SegmentMergeQueue
@@ -3059,6 +3072,9 @@ specifier|public
 name|MultiTermEnum
 parameter_list|(
 name|IndexReader
+name|topReader
+parameter_list|,
+name|IndexReader
 index|[]
 name|readers
 parameter_list|,
@@ -3072,6 +3088,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|this
+operator|.
+name|topReader
+operator|=
+name|topReader
+expr_stmt|;
 name|queue
 operator|=
 operator|new
@@ -3436,6 +3458,11 @@ name|MultiTermDocs
 implements|implements
 name|TermDocs
 block|{
+DECL|field|topReader
+name|IndexReader
+name|topReader
+decl_stmt|;
+comment|// used for matching TermEnum to TermDocs
 DECL|field|readers
 specifier|protected
 name|IndexReader
@@ -3500,6 +3527,9 @@ specifier|public
 name|MultiTermDocs
 parameter_list|(
 name|IndexReader
+name|topReader
+parameter_list|,
+name|IndexReader
 index|[]
 name|r
 parameter_list|,
@@ -3508,6 +3538,12 @@ index|[]
 name|s
 parameter_list|)
 block|{
+name|this
+operator|.
+name|topReader
+operator|=
+name|topReader
+expr_stmt|;
 name|readers
 operator|=
 name|r
@@ -3633,14 +3669,24 @@ operator|instanceof
 name|MultiTermEnum
 condition|)
 block|{
-name|this
-operator|.
 name|tenum
 operator|=
 operator|(
 name|MultiTermEnum
 operator|)
 name|termEnum
+expr_stmt|;
+if|if
+condition|(
+name|topReader
+operator|!=
+name|tenum
+operator|.
+name|topReader
+condition|)
+name|tenum
+operator|=
+literal|null
 expr_stmt|;
 block|}
 block|}
@@ -4211,6 +4257,9 @@ specifier|public
 name|MultiTermPositions
 parameter_list|(
 name|IndexReader
+name|topReader
+parameter_list|,
+name|IndexReader
 index|[]
 name|r
 parameter_list|,
@@ -4221,6 +4270,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|topReader
+argument_list|,
 name|r
 argument_list|,
 name|s

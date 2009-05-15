@@ -1648,6 +1648,8 @@ return|return
 operator|new
 name|MultiTermEnum
 argument_list|(
+name|this
+argument_list|,
 name|subReaders
 argument_list|,
 name|starts
@@ -1674,6 +1676,8 @@ return|return
 operator|new
 name|MultiTermEnum
 argument_list|(
+name|this
+argument_list|,
 name|subReaders
 argument_list|,
 name|starts
@@ -1749,6 +1753,8 @@ return|return
 operator|new
 name|MultiTermDocs
 argument_list|(
+name|this
+argument_list|,
 name|subReaders
 argument_list|,
 name|starts
@@ -1770,6 +1776,8 @@ return|return
 operator|new
 name|MultiTermPositions
 argument_list|(
+name|this
+argument_list|,
 name|subReaders
 argument_list|,
 name|starts
