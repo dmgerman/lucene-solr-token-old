@@ -267,7 +267,7 @@ name|reader
 operator|.
 name|isDeleted
 argument_list|(
-name|maxDoc
+name|doc
 argument_list|)
 operator|)
 operator|&&
