@@ -107,8 +107,6 @@ block|{
 synchronized|synchronized
 init|(
 name|dir
-operator|.
-name|openFiles
 init|)
 block|{
 name|Integer
