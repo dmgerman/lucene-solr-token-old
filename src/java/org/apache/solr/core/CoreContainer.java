@@ -2349,6 +2349,8 @@ return|;
 block|}
 block|}
 comment|/**    * Sets the preferred core used to handle MultiCore admin tasks.    */
+annotation|@
+name|Deprecated
 DECL|method|setAdminCore
 specifier|public
 name|void
@@ -2383,6 +2385,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**    * Ensures there is a valid core to handle MultiCore admin taks and    * increase its refcount.    * @see SolrCore#close()     * @return the acquired admin core, null if no core is available    */
+annotation|@
+name|Deprecated
 DECL|method|getAdminCore
 specifier|public
 name|SolrCore
