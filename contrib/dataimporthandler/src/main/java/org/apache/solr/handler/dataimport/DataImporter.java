@@ -2172,7 +2172,16 @@ operator|.
 name|tryLock
 argument_list|()
 condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Import command failed . another import is running"
+argument_list|)
+expr_stmt|;
 return|return;
+block|}
 try|try
 block|{
 name|Date
