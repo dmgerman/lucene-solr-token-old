@@ -1172,18 +1172,6 @@ name|getWriterType
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|parser
-operator|.
-name|getClass
-argument_list|()
-operator|!=
-name|BinaryResponseParser
-operator|.
-name|class
-condition|)
-block|{
 name|wparams
 operator|.
 name|set
@@ -1198,7 +1186,6 @@ name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|params
