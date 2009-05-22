@@ -1040,6 +1040,7 @@ throws|throws
 name|IOException
 function_decl|;
 DECL|class|DeleteHitCollector
+specifier|static
 class|class
 name|DeleteHitCollector
 extends|extends
