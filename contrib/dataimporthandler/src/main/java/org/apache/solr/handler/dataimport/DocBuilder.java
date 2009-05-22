@@ -1448,24 +1448,6 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|deleteAll
-argument_list|(
-name|deletedKeys
-argument_list|)
-expr_stmt|;
-name|importStatistics
-operator|.
-name|deletedDocCount
-operator|.
-name|addAndGet
-argument_list|(
-name|deletedKeys
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// Make sure that documents are not re-created
 name|allPks
 operator|.
 name|removeAll
@@ -1473,6 +1455,12 @@ argument_list|(
 name|deletedKeys
 argument_list|)
 expr_stmt|;
+name|deleteAll
+argument_list|(
+name|deletedKeys
+argument_list|)
+expr_stmt|;
+comment|// Make sure that documents are not re-created
 block|}
 name|deletedKeys
 operator|=
@@ -1668,6 +1656,13 @@ operator|.
 name|pk
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|importStatistics
+operator|.
+name|deletedDocCount
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 name|iter
 operator|.
