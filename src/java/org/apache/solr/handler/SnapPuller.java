@@ -1358,6 +1358,9 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 name|long
 name|latestVersion
