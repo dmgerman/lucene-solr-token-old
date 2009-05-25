@@ -2247,7 +2247,7 @@ name|isOptimized
 decl_stmt|;
 DECL|field|userData
 specifier|final
-name|String
+name|Map
 name|userData
 decl_stmt|;
 DECL|method|CommitPoint
@@ -2423,7 +2423,7 @@ return|;
 block|}
 DECL|method|getUserData
 specifier|public
-name|String
+name|Map
 name|getUserData
 parameter_list|()
 block|{
