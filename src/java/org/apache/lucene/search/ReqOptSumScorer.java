@@ -28,7 +28,6 @@ comment|/** A Scorer for queries with a required part and an optional part.  * D
 end_comment
 begin_class
 DECL|class|ReqOptSumScorer
-specifier|public
 class|class
 name|ReqOptSumScorer
 extends|extends

@@ -24,25 +24,26 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** A Scorer for queries with a required subscorer and an excluding (prohibited) subscorer.  *<br>  * This<code>Scorer</code> implements {@link Scorer#skipTo(int)},  * and it uses the skipTo() on the given scorers.  */
+comment|/** A Scorer for queries with a required subscorer  * and an excluding (prohibited) sub DocIdSetIterator.  *<br>  * This<code>Scorer</code> implements {@link Scorer#skipTo(int)},  * and it uses the skipTo() on the given scorers.  */
 end_comment
 begin_class
 DECL|class|ReqExclScorer
-specifier|public
 class|class
 name|ReqExclScorer
 extends|extends
 name|Scorer
 block|{
 DECL|field|reqScorer
-DECL|field|exclScorer
 specifier|private
 name|Scorer
 name|reqScorer
-decl_stmt|,
-name|exclScorer
 decl_stmt|;
-comment|/** Construct a<code>ReqExclScorer</code>.    * @param reqScorer The scorer that must match, except where    * @param exclScorer indicates exclusion.    */
+DECL|field|exclDisi
+specifier|private
+name|DocIdSetIterator
+name|exclDisi
+decl_stmt|;
+comment|/** Construct a<code>ReqExclScorer</code>.    * @param reqScorer The scorer that must match, except where    * @param exclDisi indicates exclusion.    */
 DECL|method|ReqExclScorer
 specifier|public
 name|ReqExclScorer
@@ -50,8 +51,8 @@ parameter_list|(
 name|Scorer
 name|reqScorer
 parameter_list|,
-name|Scorer
-name|exclScorer
+name|DocIdSetIterator
+name|exclDisi
 parameter_list|)
 block|{
 name|super
@@ -68,9 +69,9 @@ name|reqScorer
 expr_stmt|;
 name|this
 operator|.
-name|exclScorer
+name|exclDisi
 operator|=
-name|exclScorer
+name|exclDisi
 expr_stmt|;
 block|}
 DECL|field|firstTime
@@ -96,13 +97,13 @@ block|{
 if|if
 condition|(
 operator|!
-name|exclScorer
+name|exclDisi
 operator|.
 name|next
 argument_list|()
 condition|)
 block|{
-name|exclScorer
+name|exclDisi
 operator|=
 literal|null
 expr_stmt|;
@@ -144,7 +145,7 @@ return|;
 block|}
 if|if
 condition|(
-name|exclScorer
+name|exclDisi
 operator|==
 literal|null
 condition|)
@@ -159,7 +160,7 @@ name|toNonExcluded
 argument_list|()
 return|;
 block|}
-comment|/** Advance to non excluded doc.    *<br>On entry:    *<ul>    *<li>reqScorer != null,    *<li>exclScorer != null,    *<li>reqScorer was advanced once via next() or skipTo()    *      and reqScorer.doc() may still be excluded.    *</ul>    * Advances reqScorer a non excluded required doc, if any.    * @return true iff there is a non excluded required doc.    */
+comment|/** Advance to non excluded doc.    *<br>On entry:    *<ul>    *<li>reqScorer != null,    *<li>exclDisi != null,    *<li>reqScorer was advanced once via next() or skipTo()    *      and reqScorer.doc() may still be excluded.    *</ul>    * Advances reqScorer a non excluded required doc, if any.    * @return true iff there is a non excluded required doc.    */
 DECL|method|toNonExcluded
 specifier|private
 name|boolean
@@ -171,7 +172,7 @@ block|{
 name|int
 name|exclDoc
 init|=
-name|exclScorer
+name|exclDisi
 operator|.
 name|doc
 argument_list|()
@@ -210,7 +211,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|exclScorer
+name|exclDisi
 operator|.
 name|skipTo
 argument_list|(
@@ -218,7 +219,7 @@ name|reqDoc
 argument_list|)
 condition|)
 block|{
-name|exclScorer
+name|exclDisi
 operator|=
 literal|null
 expr_stmt|;
@@ -229,7 +230,7 @@ return|;
 block|}
 name|exclDoc
 operator|=
-name|exclScorer
+name|exclDisi
 operator|.
 name|doc
 argument_list|()
@@ -320,7 +321,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|exclScorer
+name|exclDisi
 operator|.
 name|skipTo
 argument_list|(
@@ -328,7 +329,7 @@ name|target
 argument_list|)
 condition|)
 block|{
-name|exclScorer
+name|exclDisi
 operator|=
 literal|null
 expr_stmt|;
@@ -348,7 +349,7 @@ return|;
 block|}
 if|if
 condition|(
-name|exclScorer
+name|exclDisi
 operator|==
 literal|null
 condition|)
@@ -406,7 +407,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|exclScorer
+name|exclDisi
 operator|.
 name|skipTo
 argument_list|(
@@ -414,7 +415,7 @@ name|doc
 argument_list|)
 operator|&&
 operator|(
-name|exclScorer
+name|exclDisi
 operator|.
 name|doc
 argument_list|()
