@@ -146,7 +146,7 @@ block|}
 DECL|field|nullStringLastComparatorSource
 specifier|static
 specifier|final
-name|SortComparatorSource
+name|FieldComparatorSource
 name|nullStringLastComparatorSource
 init|=
 operator|new
