@@ -1416,8 +1416,6 @@ literal|null
 argument_list|,
 name|resolver
 argument_list|,
-name|dataImporter
-argument_list|,
 name|deletedKeys
 argument_list|)
 decl_stmt|;
@@ -3389,9 +3387,6 @@ parameter_list|,
 name|VariableResolverImpl
 name|resolver
 parameter_list|,
-name|DataImporter
-name|dataImporter
-parameter_list|,
 name|Set
 argument_list|<
 name|Map
@@ -3473,8 +3468,6 @@ argument_list|,
 name|entity
 argument_list|,
 name|resolver
-argument_list|,
-name|dataImporter
 argument_list|,
 name|deletedRows
 argument_list|)
