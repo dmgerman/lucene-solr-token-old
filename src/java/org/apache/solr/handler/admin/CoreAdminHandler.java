@@ -1578,7 +1578,6 @@ return|;
 block|}
 DECL|method|getCoreStatus
 specifier|protected
-specifier|static
 name|NamedList
 argument_list|<
 name|Object
@@ -1715,6 +1714,8 @@ operator|.
 name|getSearcher
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|info
 operator|.
 name|add
@@ -1737,11 +1738,15 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|searcher
 operator|.
 name|decref
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
