@@ -1558,7 +1558,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated    */
 DECL|method|get
 specifier|public
 specifier|static
@@ -1576,7 +1576,7 @@ block|{
 return|return
 name|get
 argument_list|(
-name|READ_ONLY_DEFAULT
+literal|false
 argument_list|,
 name|si
 operator|.
@@ -1641,7 +1641,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated    */
 DECL|method|get
 specifier|static
 name|SegmentReader
@@ -1661,7 +1661,7 @@ block|{
 return|return
 name|get
 argument_list|(
-name|READ_ONLY_DEFAULT
+literal|false
 argument_list|,
 name|si
 operator|.
@@ -1683,7 +1683,7 @@ name|doOpenStores
 argument_list|)
 return|;
 block|}
-comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated    */
 DECL|method|get
 specifier|public
 specifier|static
@@ -1704,7 +1704,7 @@ block|{
 return|return
 name|get
 argument_list|(
-name|READ_ONLY_DEFAULT
+literal|false
 argument_list|,
 name|si
 operator|.
@@ -1724,7 +1724,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated    */
 DECL|method|get
 specifier|static
 name|SegmentReader
@@ -1747,7 +1747,7 @@ block|{
 return|return
 name|get
 argument_list|(
-name|READ_ONLY_DEFAULT
+literal|false
 argument_list|,
 name|si
 operator|.
@@ -1862,7 +1862,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/**    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated    */
 DECL|method|get
 specifier|public
 specifier|static
@@ -1895,7 +1895,7 @@ block|{
 return|return
 name|get
 argument_list|(
-name|READ_ONLY_DEFAULT
+literal|false
 argument_list|,
 name|dir
 argument_list|,
