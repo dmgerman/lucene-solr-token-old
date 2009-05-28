@@ -456,6 +456,8 @@ argument_list|,
 name|Constants
 operator|.
 name|LUCENE_MAIN_VERSION
+operator|+
+literal|"-dev"
 argument_list|)
 expr_stmt|;
 name|assertTrue
