@@ -792,6 +792,8 @@ condition|)
 block|{
 name|doSnapShoot
 argument_list|(
+name|solrParams
+argument_list|,
 name|rsp
 argument_list|)
 expr_stmt|;
@@ -1558,6 +1560,9 @@ specifier|private
 name|void
 name|doSnapShoot
 parameter_list|(
+name|SolrParams
+name|params
+parameter_list|,
 name|SolrQueryResponse
 name|rsp
 parameter_list|)
@@ -1586,6 +1591,13 @@ operator|new
 name|SnapShooter
 argument_list|(
 name|core
+argument_list|,
+name|params
+operator|.
+name|get
+argument_list|(
+literal|"location"
+argument_list|)
 argument_list|)
 operator|.
 name|createSnapAsync
@@ -5374,6 +5386,8 @@ operator|new
 name|SnapShooter
 argument_list|(
 name|core
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|snapShooter
