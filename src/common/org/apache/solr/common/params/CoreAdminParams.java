@@ -125,6 +125,16 @@ name|FILE
 init|=
 literal|"file"
 decl_stmt|;
+comment|/** If you merge indexes, what are the index directories.    * The directories are separated by ",". */
+DECL|field|INDEX_DIRS
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|INDEX_DIRS
+init|=
+literal|"indexDirs"
+decl_stmt|;
 DECL|enum|CoreAdminAction
 specifier|public
 enum|enum
@@ -156,6 +166,9 @@ name|RENAME
 block|,
 DECL|enum constant|ALIAS
 name|ALIAS
+block|,
+DECL|enum constant|MERGEINDEXES
+name|MERGEINDEXES
 block|;
 DECL|method|get
 specifier|public
