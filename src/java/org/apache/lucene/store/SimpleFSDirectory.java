@@ -497,11 +497,11 @@ name|Object
 name|clone
 parameter_list|()
 block|{
-name|FSIndexInput
+name|SimpleFSIndexInput
 name|clone
 init|=
 operator|(
-name|FSIndexInput
+name|SimpleFSIndexInput
 operator|)
 name|super
 operator|.
