@@ -4191,7 +4191,7 @@ name|dir
 init|=
 name|FSDirectory
 operator|.
-name|getDirectory
+name|open
 argument_list|(
 name|indexDir
 argument_list|)
@@ -24628,7 +24628,7 @@ name|dir
 init|=
 name|FSDirectory
 operator|.
-name|getDirectory
+name|open
 argument_list|(
 name|indexDir
 argument_list|)

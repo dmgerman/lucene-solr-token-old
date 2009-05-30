@@ -1388,7 +1388,7 @@ name|dir
 operator|=
 name|FSDirectory
 operator|.
-name|getDirectory
+name|open
 argument_list|(
 name|path
 argument_list|)
