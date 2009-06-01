@@ -112,7 +112,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|FSDirectory
+name|SimpleFSDirectory
 import|;
 end_import
 begin_import
@@ -229,14 +229,35 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
+comment|// use a simple FSDir here, to be sure to have SimpleFSInputs
 name|dir
 operator|=
-name|FSDirectory
-operator|.
-name|open
+operator|new
+name|SimpleFSDirectory
 argument_list|(
 name|file
+argument_list|,
+literal|null
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|tearDown
+specifier|public
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|dir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
+argument_list|()
 expr_stmt|;
 block|}
 comment|/** Creates a file of the specified size with random data. */
@@ -1624,9 +1645,6 @@ name|IOException
 block|{
 name|demo_FSIndexInputBug
 argument_list|(
-operator|(
-name|FSDirectory
-operator|)
 name|dir
 argument_list|,
 literal|"test"
@@ -1638,7 +1656,7 @@ specifier|private
 name|void
 name|demo_FSIndexInputBug
 parameter_list|(
-name|FSDirectory
+name|Directory
 name|fsdir
 parameter_list|,
 name|String
@@ -1808,7 +1826,7 @@ decl_stmt|;
 return|return
 name|_TestHelper
 operator|.
-name|isFSIndexInputOpen
+name|isSimpleFSIndexInputOpen
 argument_list|(
 name|cis
 operator|.
@@ -1857,21 +1875,21 @@ literal|"f11"
 argument_list|)
 decl_stmt|;
 comment|// this test only works for FSIndexInput
-if|if
-condition|(
-name|_TestHelper
-operator|.
-name|isFSIndexInput
-argument_list|(
-name|expected
-argument_list|)
-condition|)
-block|{
 name|assertTrue
 argument_list|(
 name|_TestHelper
 operator|.
-name|isFSIndexInputOpen
+name|isSimpleFSIndexInput
+argument_list|(
+name|expected
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|_TestHelper
+operator|.
+name|isSimpleFSIndexInputOpen
 argument_list|(
 name|expected
 argument_list|)
@@ -2044,7 +2062,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|//assertSameStreams("basic clone two/4", expected, two);
-block|}
 name|expected
 operator|.
 name|close

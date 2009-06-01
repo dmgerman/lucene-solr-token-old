@@ -206,7 +206,7 @@ literal|0
 index|]
 operator|=
 operator|new
-name|FSDirectory
+name|SimpleFSDirectory
 argument_list|(
 name|path
 argument_list|,
@@ -640,7 +640,7 @@ name|Directory
 name|dir
 init|=
 operator|new
-name|FSDirectory
+name|SimpleFSDirectory
 argument_list|(
 name|path
 argument_list|,
@@ -828,7 +828,7 @@ name|Directory
 name|fsDir
 init|=
 operator|new
-name|FSDirectory
+name|SimpleFSDirectory
 argument_list|(
 name|path
 argument_list|,
@@ -892,7 +892,7 @@ name|Directory
 name|fsDir
 init|=
 operator|new
-name|FSDirectory
+name|SimpleFSDirectory
 argument_list|(
 name|path
 argument_list|,
@@ -929,7 +929,7 @@ expr_stmt|;
 try|try
 block|{
 operator|new
-name|FSDirectory
+name|SimpleFSDirectory
 argument_list|(
 operator|new
 name|File
