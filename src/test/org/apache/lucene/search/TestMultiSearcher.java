@@ -736,9 +736,6 @@ name|i
 operator|++
 control|)
 block|{
-name|Document
-name|d
-init|=
 name|mSearcher
 operator|.
 name|doc
@@ -750,7 +747,7 @@ index|]
 operator|.
 name|doc
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 name|mSearcher
 operator|.
@@ -887,9 +884,6 @@ operator|++
 control|)
 block|{
 comment|// no exception should happen at this point
-name|Document
-name|d
-init|=
 name|mSearcher2
 operator|.
 name|doc
@@ -901,7 +895,7 @@ index|]
 operator|.
 name|doc
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 comment|// test the subSearcher() method:
 name|Query
@@ -1185,9 +1179,6 @@ name|i
 operator|++
 control|)
 block|{
-name|Document
-name|d
-init|=
 name|mSearcher3
 operator|.
 name|doc
@@ -1199,7 +1190,7 @@ index|]
 operator|.
 name|doc
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 block|}
 name|mSearcher3
 operator|.
@@ -1914,6 +1905,15 @@ argument_list|(
 name|ramDirectory1
 argument_list|)
 expr_stmt|;
+name|indexSearcher1
+operator|.
+name|setDefaultFieldSortScoring
+argument_list|(
+literal|true
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 name|hits
 operator|=
 name|indexSearcher1
@@ -2041,12 +2041,30 @@ argument_list|(
 name|ramDirectory1
 argument_list|)
 expr_stmt|;
+name|indexSearcher1
+operator|.
+name|setDefaultFieldSortScoring
+argument_list|(
+literal|true
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 name|indexSearcher2
 operator|=
 operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDirectory2
+argument_list|)
+expr_stmt|;
+name|indexSearcher2
+operator|.
+name|setDefaultFieldSortScoring
+argument_list|(
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|Searcher
