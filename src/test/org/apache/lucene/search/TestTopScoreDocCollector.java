@@ -319,6 +319,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+literal|"org.apache.lucene.search.TopScoreDocCollector$"
+operator|+
 name|actualTSDCClass
 index|[
 name|i
@@ -329,7 +331,7 @@ operator|.
 name|getClass
 argument_list|()
 operator|.
-name|getSimpleName
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
