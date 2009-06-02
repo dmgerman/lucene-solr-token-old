@@ -313,7 +313,7 @@ name|maxdocs
 init|=
 name|reader
 operator|.
-name|numDocs
+name|maxDoc
 argument_list|()
 decl_stmt|;
 name|BitSet
