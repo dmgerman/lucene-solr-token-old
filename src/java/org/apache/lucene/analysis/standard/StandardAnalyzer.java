@@ -95,6 +95,17 @@ specifier|static
 name|boolean
 name|defaultReplaceInvalidAcronym
 decl_stmt|;
+DECL|field|enableStopPositionIncrements
+specifier|private
+name|boolean
+name|enableStopPositionIncrements
+decl_stmt|;
+comment|// @deprecated
+DECL|field|useDefaultStopPositionIncrements
+specifier|private
+name|boolean
+name|useDefaultStopPositionIncrements
+decl_stmt|;
 comment|// Default to true (fixed the bug), unless the system prop is set
 static|static
 block|{
@@ -173,7 +184,7 @@ name|StopAnalyzer
 operator|.
 name|ENGLISH_STOP_WORDS
 decl_stmt|;
-comment|/** Builds an analyzer with the default stop words ({@link #STOP_WORDS}). */
+comment|/** Builds an analyzer with the default stop words ({@link    * #STOP_WORDS}).    * @deprecated Use {@link #StandardAnalyzer(boolean, String[])},    * passing in null for the stop words, instead */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
@@ -185,7 +196,7 @@ name|STOP_WORDS
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the given stop words. */
+comment|/** Builds an analyzer with the given stop words.    * @deprecated Use {@link #StandardAnalyzer(boolean, Set)}    * instead */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
@@ -198,12 +209,78 @@ name|stopSet
 operator|=
 name|stopWords
 expr_stmt|;
+name|useDefaultStopPositionIncrements
+operator|=
+literal|true
+expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the given stop words. */
+comment|/** Builds an analyzer with the given stop words.    * @param enableStopPositionIncrements See {@link    * StopFilter#setEnablePositionIncrements}    * @param stopWords stop words */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
 parameter_list|(
+name|boolean
+name|enableStopPositionIncrements
+parameter_list|,
+name|Set
+name|stopWords
+parameter_list|)
+block|{
+name|stopSet
+operator|=
+name|stopWords
+expr_stmt|;
+name|this
+operator|.
+name|enableStopPositionIncrements
+operator|=
+name|enableStopPositionIncrements
+expr_stmt|;
+block|}
+comment|/** Builds an analyzer with the given stop words.    * @deprecated Use {@link #StandardAnalyzer(boolean,    * String[])} instead */
+DECL|method|StandardAnalyzer
+specifier|public
+name|StandardAnalyzer
+parameter_list|(
+name|String
+index|[]
+name|stopWords
+parameter_list|)
+block|{
+if|if
+condition|(
+name|stopWords
+operator|==
+literal|null
+condition|)
+block|{
+name|stopWords
+operator|=
+name|STOP_WORDS
+expr_stmt|;
+block|}
+name|stopSet
+operator|=
+name|StopFilter
+operator|.
+name|makeStopSet
+argument_list|(
+name|stopWords
+argument_list|)
+expr_stmt|;
+name|useDefaultStopPositionIncrements
+operator|=
+literal|true
+expr_stmt|;
+block|}
+comment|/** Builds an analyzer with the given stop words.    * @param enableStopPositionIncrements See {@link    * StopFilter#setEnablePositionIncrements}    * @param stopWords Array of stop words */
+DECL|method|StandardAnalyzer
+specifier|public
+name|StandardAnalyzer
+parameter_list|(
+name|boolean
+name|enableStopPositionIncrements
+parameter_list|,
 name|String
 index|[]
 name|stopWords
@@ -218,8 +295,14 @@ argument_list|(
 name|stopWords
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|enableStopPositionIncrements
+operator|=
+name|enableStopPositionIncrements
+expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the stop words from the given file.    * @see WordlistLoader#getWordSet(File)    */
+comment|/** Builds an analyzer with the stop words from the given file.    * @see WordlistLoader#getWordSet(File)    * @deprecated Use {@link #StandardAnalyzer(boolean, File)}    * instead    */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
@@ -239,8 +322,42 @@ argument_list|(
 name|stopwords
 argument_list|)
 expr_stmt|;
+name|useDefaultStopPositionIncrements
+operator|=
+literal|true
+expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the stop words from the given reader.    * @see WordlistLoader#getWordSet(Reader)    */
+comment|/** Builds an analyzer with the stop words from the given file.    * @see WordlistLoader#getWordSet(File)    * @param enableStopPositionIncrements See {@link    * StopFilter#setEnablePositionIncrements}    * @param stopwords File to read stop words from */
+DECL|method|StandardAnalyzer
+specifier|public
+name|StandardAnalyzer
+parameter_list|(
+name|boolean
+name|enableStopPositionIncrements
+parameter_list|,
+name|File
+name|stopwords
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|stopSet
+operator|=
+name|WordlistLoader
+operator|.
+name|getWordSet
+argument_list|(
+name|stopwords
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|enableStopPositionIncrements
+operator|=
+name|enableStopPositionIncrements
+expr_stmt|;
+block|}
+comment|/** Builds an analyzer with the stop words from the given reader.    * @see WordlistLoader#getWordSet(Reader)    * @deprecated Use {@link #StandardAnalyzer(boolean, Reader)}    * instead    */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
@@ -259,6 +376,40 @@ name|getWordSet
 argument_list|(
 name|stopwords
 argument_list|)
+expr_stmt|;
+name|useDefaultStopPositionIncrements
+operator|=
+literal|true
+expr_stmt|;
+block|}
+comment|/** Builds an analyzer with the stop words from the given reader.    * @see WordlistLoader#getWordSet(Reader)    * @param enableStopPositionIncrements See {@link    * StopFilter#setEnablePositionIncrements}    * @param stopwords Reader to read stop words from */
+DECL|method|StandardAnalyzer
+specifier|public
+name|StandardAnalyzer
+parameter_list|(
+name|boolean
+name|enableStopPositionIncrements
+parameter_list|,
+name|Reader
+name|stopwords
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|stopSet
+operator|=
+name|WordlistLoader
+operator|.
+name|getWordSet
+argument_list|(
+name|stopwords
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|enableStopPositionIncrements
+operator|=
+name|enableStopPositionIncrements
 expr_stmt|;
 block|}
 comment|/**    *    * @param replaceInvalidAcronym Set to true if this analyzer should replace mischaracterized acronyms in the StandardTokenizer    *    * See https://issues.apache.org/jira/browse/LUCENE-1068    *    * @deprecated Remove in 3.X and make true the only valid value    */
@@ -280,6 +431,10 @@ operator|.
 name|replaceInvalidAcronym
 operator|=
 name|replaceInvalidAcronym
+expr_stmt|;
+name|useDefaultStopPositionIncrements
+operator|=
+literal|true
 expr_stmt|;
 block|}
 comment|/**    *  @param stopwords The stopwords to use    * @param replaceInvalidAcronym Set to true if this analyzer should replace mischaracterized acronyms in the StandardTokenizer    *    * See https://issues.apache.org/jira/browse/LUCENE-1068    *    * @deprecated Remove in 3.X and make true the only valid value    */
@@ -307,6 +462,10 @@ name|replaceInvalidAcronym
 operator|=
 name|replaceInvalidAcronym
 expr_stmt|;
+name|useDefaultStopPositionIncrements
+operator|=
+literal|true
+expr_stmt|;
 block|}
 comment|/**    * @param stopwords The stopwords to use    * @param replaceInvalidAcronym Set to true if this analyzer should replace mischaracterized acronyms in the StandardTokenizer    *    * See https://issues.apache.org/jira/browse/LUCENE-1068    *    * @deprecated Remove in 3.X and make true the only valid value    */
 DECL|method|StandardAnalyzer
@@ -332,6 +491,10 @@ operator|.
 name|replaceInvalidAcronym
 operator|=
 name|replaceInvalidAcronym
+expr_stmt|;
+name|useDefaultStopPositionIncrements
+operator|=
+literal|true
 expr_stmt|;
 block|}
 comment|/**    *    * @param stopwords The stopwords to use    * @param replaceInvalidAcronym Set to true if this analyzer should replace mischaracterized acronyms in the StandardTokenizer    *    * See https://issues.apache.org/jira/browse/LUCENE-1068    *    * @deprecated Remove in 3.X and make true the only valid value    */
@@ -360,6 +523,10 @@ name|replaceInvalidAcronym
 operator|=
 name|replaceInvalidAcronym
 expr_stmt|;
+name|useDefaultStopPositionIncrements
+operator|=
+literal|true
+expr_stmt|;
 block|}
 comment|/**    * @param stopwords The stopwords to use    * @param replaceInvalidAcronym Set to true if this analyzer should replace mischaracterized acronyms in the StandardTokenizer    *    * See https://issues.apache.org/jira/browse/LUCENE-1068    *    * @deprecated Remove in 3.X and make true the only valid value    */
 DECL|method|StandardAnalyzer
@@ -385,6 +552,10 @@ operator|.
 name|replaceInvalidAcronym
 operator|=
 name|replaceInvalidAcronym
+expr_stmt|;
+name|useDefaultStopPositionIncrements
+operator|=
+literal|true
 expr_stmt|;
 block|}
 comment|/** Constructs a {@link StandardTokenizer} filtered by a {@link   StandardFilter}, a {@link LowerCaseFilter} and a {@link StopFilter}. */
@@ -435,6 +606,11 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|useDefaultStopPositionIncrements
+condition|)
+block|{
 name|result
 operator|=
 operator|new
@@ -445,6 +621,22 @@ argument_list|,
 name|stopSet
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|result
+operator|=
+operator|new
+name|StopFilter
+argument_list|(
+name|enableStopPositionIncrements
+argument_list|,
+name|result
+argument_list|,
+name|stopSet
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|result
 return|;
@@ -583,6 +775,11 @@ operator|.
 name|filteredTokenStream
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|useDefaultStopPositionIncrements
+condition|)
+block|{
 name|streams
 operator|.
 name|filteredTokenStream
@@ -597,6 +794,26 @@ argument_list|,
 name|stopSet
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|streams
+operator|.
+name|filteredTokenStream
+operator|=
+operator|new
+name|StopFilter
+argument_list|(
+name|enableStopPositionIncrements
+argument_list|,
+name|streams
+operator|.
+name|filteredTokenStream
+argument_list|,
+name|stopSet
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
