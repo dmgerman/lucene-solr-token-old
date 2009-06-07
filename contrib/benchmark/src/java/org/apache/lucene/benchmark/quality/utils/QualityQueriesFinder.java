@@ -206,7 +206,7 @@ name|QualityQueriesFinder
 argument_list|(
 name|FSDirectory
 operator|.
-name|getDirectory
+name|open
 argument_list|(
 operator|new
 name|File

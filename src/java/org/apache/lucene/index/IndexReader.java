@@ -494,7 +494,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** Returns a read/write IndexReader reading the index in an FSDirectory in the named    *  path.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated Use {@link #open(Directory, boolean)} instead    * @param path the path to the index directory */
+comment|/** Returns a read/write IndexReader reading the index in an FSDirectory in the named    *  path.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #open(Directory, boolean)} instead    * @param path the path to the index directory */
 DECL|method|open
 specifier|public
 specifier|static
@@ -529,7 +529,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/** Returns an IndexReader reading the index in an    *  FSDirectory in the named path.  You should pass    *  readOnly=true, since it gives much better concurrent    *  performance, unless you intend to do write operations    *  (delete documents or change norms) with the reader.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @param path the path to the index directory    * @param readOnly true if this should be a readOnly    * reader    * @deprecated Use {@link #open(Directory, boolean)} instead*/
+comment|/** Returns an IndexReader reading the index in an    *  FSDirectory in the named path.  You should pass    *  readOnly=true, since it gives much better concurrent    *  performance, unless you intend to do write operations    *  (delete documents or change norms) with the reader.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @param path the path to the index directory    * @param readOnly true if this should be a readOnly    * reader    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #open(Directory, boolean)} instead    */
 DECL|method|open
 specifier|public
 specifier|static
@@ -567,7 +567,7 @@ name|readOnly
 argument_list|)
 return|;
 block|}
-comment|/** Returns a read/write IndexReader reading the index in an FSDirectory in the named    *  path.    * @param path the path to the index directory    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated Use {@link #open(Directory, boolean)} instead    */
+comment|/** Returns a read/write IndexReader reading the index in an FSDirectory in the named    *  path.    * @param path the path to the index directory    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #open(Directory, boolean)} instead    */
 DECL|method|open
 specifier|public
 specifier|static
@@ -602,7 +602,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/** Returns an IndexReader reading the index in an    *  FSDirectory in the named path.  You should pass    *  readOnly=true, since it gives much better concurrent    *  performance, unless you intend to do write operations    *  (delete documents or change norms) with the reader.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @param path the path to the index directory    * @param readOnly true if this should be a readOnly    * reader    * @deprecated Use {@link #open(Directory, boolean)}    * instead */
+comment|/** Returns an IndexReader reading the index in an    *  FSDirectory in the named path.  You should pass    *  readOnly=true, since it gives much better concurrent    *  performance, unless you intend to do write operations    *  (delete documents or change norms) with the reader.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @param path the path to the index directory    * @param readOnly true if this should be a readOnly    * reader    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #open(Directory, boolean)} instead    */
 DECL|method|open
 specifier|public
 specifier|static
@@ -640,7 +640,7 @@ name|readOnly
 argument_list|)
 return|;
 block|}
-comment|/** Returns a read/write IndexReader reading the index in    *  the given Directory.    * @param directory the index directory    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated Use {@link #open(Directory, boolean)} instead    */
+comment|/** Returns a read/write IndexReader reading the index in    *  the given Directory.    * @param directory the index directory    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #open(Directory, boolean)} instead    */
 DECL|method|open
 specifier|public
 specifier|static
@@ -705,7 +705,7 @@ name|readOnly
 argument_list|)
 return|;
 block|}
-comment|/** Expert: returns a read/write IndexReader reading the index in the given    * {@link IndexCommit}.    * @param commit the commit point to open    * @throws CorruptIndexException if the index is corrupt    * @deprecated Use {@link #open(IndexCommit, boolean)} instead    * @throws IOException if there is a low-level IO error    */
+comment|/** Expert: returns a read/write IndexReader reading the index in the given    * {@link IndexCommit}.    * @param commit the commit point to open    * @throws CorruptIndexException if the index is corrupt    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #open(IndexCommit, boolean)} instead    * @throws IOException if there is a low-level IO error    */
 DECL|method|open
 specifier|public
 specifier|static
@@ -776,7 +776,7 @@ name|readOnly
 argument_list|)
 return|;
 block|}
-comment|/** Expert: returns a read/write IndexReader reading the index in the given    *  Directory, with a custom {@link IndexDeletionPolicy}.    * @param directory the index directory    * @param deletionPolicy a custom deletion policy (only used    *  if you use this reader to perform deletes or to set    *  norms); see {@link IndexWriter} for details.    * @deprecated Use {@link #open(Directory,    * IndexDeletionPolicy, boolean)} instead    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/** Expert: returns a read/write IndexReader reading the index in the given    *  Directory, with a custom {@link IndexDeletionPolicy}.    * @param directory the index directory    * @param deletionPolicy a custom deletion policy (only used    *  if you use this reader to perform deletes or to set    *  norms); see {@link IndexWriter} for details.    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #open(Directory, IndexDeletionPolicy, boolean)} instead    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|open
 specifier|public
 specifier|static
@@ -847,7 +847,7 @@ name|readOnly
 argument_list|)
 return|;
 block|}
-comment|/** Expert: returns a read/write IndexReader reading the index in the given    * Directory, using a specific commit and with a custom    * {@link IndexDeletionPolicy}.    * @param commit the specific {@link IndexCommit} to open;    * see {@link IndexReader#listCommits} to list all commits    * in a directory    * @param deletionPolicy a custom deletion policy (only used    *  if you use this reader to perform deletes or to set    *  norms); see {@link IndexWriter} for details.    * @deprecated Use {@link #open(IndexCommit,    * IndexDeletionPolicy, boolean)} instead    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/** Expert: returns a read/write IndexReader reading the index in the given    * Directory, using a specific commit and with a custom    * {@link IndexDeletionPolicy}.    * @param commit the specific {@link IndexCommit} to open;    * see {@link IndexReader#listCommits} to list all commits    * in a directory    * @param deletionPolicy a custom deletion policy (only used    *  if you use this reader to perform deletes or to set    *  norms); see {@link IndexWriter} for details.    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #open(IndexCommit, IndexDeletionPolicy, boolean)} instead    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|open
 specifier|public
 specifier|static
@@ -1110,7 +1110,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Returns the time the index in the named directory was last modified.    * Do not use this to check whether the reader is still up-to-date, use    * {@link #isCurrent()} instead.     * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/**    * Returns the time the index in the named directory was last modified.    * Do not use this to check whether the reader is still up-to-date, use    * {@link #isCurrent()} instead.     * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #lastModified(Directory)} instead    */
 DECL|method|lastModified
 specifier|public
 specifier|static
@@ -1136,7 +1136,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns the time the index in the named directory was last modified.     * Do not use this to check whether the reader is still up-to-date, use    * {@link #isCurrent()} instead.     * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/**    * Returns the time the index in the named directory was last modified.     * Do not use this to check whether the reader is still up-to-date, use    * {@link #isCurrent()} instead.     * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #lastModified(Directory)} instead    */
 DECL|method|lastModified
 specifier|public
 specifier|static
@@ -1151,51 +1151,34 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
-return|return
-operator|(
-operator|(
-name|Long
-operator|)
-operator|new
-name|SegmentInfos
-operator|.
-name|FindSegmentsFile
-argument_list|(
-name|fileDirectory
-argument_list|)
-block|{
-specifier|public
-name|Object
-name|doBody
-parameter_list|(
-name|String
-name|segmentFileName
-parameter_list|)
-block|{
-return|return
-operator|new
-name|Long
-argument_list|(
+name|Directory
+name|dir
+init|=
 name|FSDirectory
 operator|.
-name|fileModified
+name|getDirectory
 argument_list|(
 name|fileDirectory
-argument_list|,
-name|segmentFileName
 argument_list|)
+decl_stmt|;
+comment|// use new static method here
+try|try
+block|{
+return|return
+name|lastModified
+argument_list|(
+name|dir
 argument_list|)
 return|;
 block|}
+finally|finally
+block|{
+name|dir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
-operator|.
-name|run
-argument_list|()
-operator|)
-operator|.
-name|longValue
-argument_list|()
-return|;
 block|}
 comment|/**    * Returns the time the index in the named directory was last modified.     * Do not use this to check whether the reader is still up-to-date, use    * {@link #isCurrent()} instead.     * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
 DECL|method|lastModified
@@ -1259,7 +1242,7 @@ name|longValue
 argument_list|()
 return|;
 block|}
-comment|/**    * Reads version number from segments files. The version number is    * initialized with a timestamp and then increased by one for each change of    * the index.    *     * @param directory where the index resides.    * @return version number.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+comment|/**    * Reads version number from segments files. The version number is    * initialized with a timestamp and then increased by one for each change of    * the index.    *     * @param directory where the index resides.    * @return version number.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #getCurrentVersion(Directory)} instead    */
 DECL|method|getCurrentVersion
 specifier|public
 specifier|static
@@ -1285,7 +1268,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**    * Reads version number from segments files. The version number is    * initialized with a timestamp and then increased by one for each change of    * the index.    *     * @param directory where the index resides.    * @return version number.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated Use {@link #getCurrentVersion(Directory)} instead    */
+comment|/**    * Reads version number from segments files. The version number is    * initialized with a timestamp and then increased by one for each change of    * the index.    *     * @param directory where the index resides.    * @return version number.    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #getCurrentVersion(Directory)} instead    */
 DECL|method|getCurrentVersion
 specifier|public
 specifier|static
@@ -1539,7 +1522,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Returns<code>true</code> if an index exists at the specified directory.    * If the directory does not exist or if there is no index in it.    *<code>false</code> is returned.    * @param  directory the directory to check for an index    * @return<code>true</code> if an index exists;<code>false</code> otherwise    */
+comment|/**    * Returns<code>true</code> if an index exists at the specified directory.    * If the directory does not exist or if there is no index in it.    *<code>false</code> is returned.    * @param  directory the directory to check for an index    * @return<code>true</code> if an index exists;<code>false</code> otherwise    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #indexExists(Directory)} instead    */
 DECL|method|indexExists
 specifier|public
 specifier|static
@@ -1561,7 +1544,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns<code>true</code> if an index exists at the specified directory.    * If the directory does not exist or if there is no index in it.    * @param  directory the directory to check for an index    * @return<code>true</code> if an index exists;<code>false</code> otherwise    */
+comment|/**    * Returns<code>true</code> if an index exists at the specified directory.    * If the directory does not exist or if there is no index in it.    * @param  directory the directory to check for an index    * @return<code>true</code> if an index exists;<code>false</code> otherwise    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #indexExists(Directory)} instead    */
 DECL|method|indexExists
 specifier|public
 specifier|static
@@ -2339,7 +2322,7 @@ name|FieldOption
 name|fldOption
 parameter_list|)
 function_decl|;
-comment|/**    * Returns<code>true</code> iff the index in the named directory is    * currently locked.    * @param directory the directory to check for a lock    * @throws IOException if there is a low-level IO error    * @deprecated Please use {@link IndexWriter#isLocked(Directory)} instead    */
+comment|/**    * Returns<code>true</code> iff the index in the named directory is    * currently locked.    * @param directory the directory to check for a lock    * @throws IOException if there is a low-level IO error    * @deprecated This method will be removed in the 3.0 release.    * Please use {@link IndexWriter#isLocked(Directory)} instead    */
 DECL|method|isLocked
 specifier|public
 specifier|static
@@ -2366,7 +2349,7 @@ name|isLocked
 argument_list|()
 return|;
 block|}
-comment|/**    * Returns<code>true</code> iff the index in the named directory is    * currently locked.    * @param directory the directory to check for a lock    * @throws IOException if there is a low-level IO error    * @deprecated Please use {@link IndexWriter#isLocked(Directory)} instead    */
+comment|/**    * Returns<code>true</code> iff the index in the named directory is    * currently locked.    * @param directory the directory to check for a lock    * @throws IOException if there is a low-level IO error    * @deprecated This method will be removed in the 3.0 release.    * Use {@link #isLocked(Directory)} instead    */
 DECL|method|isLocked
 specifier|public
 specifier|static
@@ -2406,7 +2389,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**    * Forcibly unlocks the index in the named directory.    *<P>    * Caution: this should only be used by failure recovery code,    * when it is known that no other process nor thread is in fact    * currently accessing this index.    * @deprecated Please use {@link IndexWriter#unlock(Directory)} instead    */
+comment|/**    * Forcibly unlocks the index in the named directory.    *<P>    * Caution: this should only be used by failure recovery code,    * when it is known that no other process nor thread is in fact    * currently accessing this index.    * @deprecated This method will be removed in the 3.0 release.    * Please use {@link IndexWriter#unlock(Directory)} instead    */
 DECL|method|unlock
 specifier|public
 specifier|static
@@ -2584,9 +2567,13 @@ name|dir
 operator|=
 name|FSDirectory
 operator|.
-name|getDirectory
+name|open
+argument_list|(
+operator|new
+name|File
 argument_list|(
 name|dirname
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|cfr
