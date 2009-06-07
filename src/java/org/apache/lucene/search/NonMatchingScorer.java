@@ -45,6 +45,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// no similarity used
+comment|/** @deprecated use {@link #docID()} instead. */
 DECL|method|doc
 specifier|public
 name|int
@@ -57,6 +58,17 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+DECL|method|docID
+specifier|public
+name|int
+name|docID
+parameter_list|()
+block|{
+return|return
+name|NO_MORE_DOCS
+return|;
+block|}
+comment|/** @deprecated use {@link #nextDoc()} instead. */
 DECL|method|next
 specifier|public
 name|boolean
@@ -67,6 +79,18 @@ name|IOException
 block|{
 return|return
 literal|false
+return|;
+block|}
+DECL|method|nextDoc
+specifier|public
+name|int
+name|nextDoc
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|NO_MORE_DOCS
 return|;
 block|}
 DECL|method|score
@@ -81,6 +105,7 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+comment|/** @deprecated use {@link #advance(int)} instead. */
 DECL|method|skipTo
 specifier|public
 name|boolean
@@ -92,6 +117,19 @@ parameter_list|)
 block|{
 return|return
 literal|false
+return|;
+block|}
+DECL|method|advance
+specifier|public
+name|int
+name|advance
+parameter_list|(
+name|int
+name|target
+parameter_list|)
+block|{
+return|return
+name|NO_MORE_DOCS
 return|;
 block|}
 DECL|method|explain
