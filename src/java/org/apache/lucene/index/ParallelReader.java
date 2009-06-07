@@ -1432,9 +1432,6 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|ensureOpen
-argument_list|()
-expr_stmt|;
 name|Iterator
 name|i
 init|=
