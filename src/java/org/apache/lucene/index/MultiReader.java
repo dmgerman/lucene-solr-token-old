@@ -95,7 +95,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|MultiSegmentReader
+name|DirectoryReader
 operator|.
 name|MultiTermDocs
 import|;
@@ -110,7 +110,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|MultiSegmentReader
+name|DirectoryReader
 operator|.
 name|MultiTermEnum
 import|;
@@ -125,7 +125,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|MultiSegmentReader
+name|DirectoryReader
 operator|.
 name|MultiTermPositions
 import|;
@@ -1179,7 +1179,7 @@ parameter_list|)
 block|{
 comment|// find reader for doc n:
 return|return
-name|MultiSegmentReader
+name|DirectoryReader
 operator|.
 name|readerIndex
 argument_list|(
@@ -1908,7 +1908,7 @@ name|ensureOpen
 argument_list|()
 expr_stmt|;
 return|return
-name|MultiSegmentReader
+name|DirectoryReader
 operator|.
 name|getFieldNames
 argument_list|(

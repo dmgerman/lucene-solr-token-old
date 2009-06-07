@@ -1948,7 +1948,7 @@ name|assertTrue
 argument_list|(
 name|reader0
 operator|instanceof
-name|MultiSegmentReader
+name|DirectoryReader
 argument_list|)
 expr_stmt|;
 name|IndexReader
@@ -2027,7 +2027,7 @@ name|assertTrue
 argument_list|(
 name|reader1
 operator|instanceof
-name|MultiSegmentReader
+name|DirectoryReader
 argument_list|)
 expr_stmt|;
 name|IndexReader
@@ -2153,7 +2153,7 @@ name|assertTrue
 argument_list|(
 name|reader2
 operator|instanceof
-name|MultiSegmentReader
+name|DirectoryReader
 argument_list|)
 expr_stmt|;
 name|IndexReader
@@ -2331,7 +2331,7 @@ name|assertTrue
 argument_list|(
 name|reader3
 operator|instanceof
-name|MultiSegmentReader
+name|DirectoryReader
 argument_list|)
 expr_stmt|;
 name|IndexReader
@@ -3264,17 +3264,24 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|SegmentReader
+name|IndexReader
 name|reader1
 init|=
-operator|(
-name|SegmentReader
-operator|)
 name|IndexReader
 operator|.
 name|open
 argument_list|(
 name|dir1
+argument_list|)
+decl_stmt|;
+name|SegmentReader
+name|segmentReader1
+init|=
+name|SegmentReader
+operator|.
+name|getOnlySegmentReader
+argument_list|(
+name|reader1
 argument_list|)
 decl_stmt|;
 name|IndexReader
@@ -3299,12 +3306,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|SegmentReader
+name|IndexReader
 name|reader2
 init|=
-operator|(
-name|SegmentReader
-operator|)
 name|reader1
 operator|.
 name|reopen
@@ -3346,16 +3350,23 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|SegmentReader
+name|IndexReader
 name|reader3
 init|=
-operator|(
-name|SegmentReader
-operator|)
 name|reader2
 operator|.
 name|reopen
 argument_list|()
+decl_stmt|;
+name|SegmentReader
+name|segmentReader3
+init|=
+name|SegmentReader
+operator|.
+name|getOnlySegmentReader
+argument_list|(
+name|reader3
+argument_list|)
 decl_stmt|;
 name|modifier
 operator|=
@@ -3378,12 +3389,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|SegmentReader
+name|IndexReader
 name|reader4
 init|=
-operator|(
-name|SegmentReader
-operator|)
 name|reader3
 operator|.
 name|reopen
@@ -3410,12 +3418,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|SegmentReader
+name|IndexReader
 name|reader5
 init|=
-operator|(
-name|SegmentReader
-operator|)
 name|reader3
 operator|.
 name|reopen
@@ -3432,7 +3437,7 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-name|reader1
+name|segmentReader1
 operator|.
 name|normsClosed
 argument_list|()
@@ -3452,7 +3457,7 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-name|reader1
+name|segmentReader1
 operator|.
 name|normsClosed
 argument_list|()
@@ -3473,7 +3478,7 @@ expr_stmt|;
 comment|// now the norms for field1 and field2 should be closed
 name|assertTrue
 argument_list|(
-name|reader1
+name|segmentReader1
 operator|.
 name|normsClosed
 argument_list|(
@@ -3483,7 +3488,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|reader1
+name|segmentReader1
 operator|.
 name|normsClosed
 argument_list|(
@@ -3494,7 +3499,7 @@ expr_stmt|;
 comment|// but the norms for field3 and field4 should still be open
 name|assertFalse
 argument_list|(
-name|reader1
+name|segmentReader1
 operator|.
 name|normsClosed
 argument_list|(
@@ -3504,7 +3509,7 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-name|reader1
+name|segmentReader1
 operator|.
 name|normsClosed
 argument_list|(
@@ -3526,7 +3531,7 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-name|reader3
+name|segmentReader3
 operator|.
 name|normsClosed
 argument_list|()
@@ -3546,7 +3551,7 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-name|reader3
+name|segmentReader3
 operator|.
 name|normsClosed
 argument_list|()
@@ -3567,7 +3572,7 @@ expr_stmt|;
 comment|// and now all norms that reader1 used should be closed
 name|assertTrue
 argument_list|(
-name|reader1
+name|segmentReader1
 operator|.
 name|normsClosed
 argument_list|()
@@ -3578,7 +3583,7 @@ comment|// the norms that those three readers shared should be
 comment|// closed as well
 name|assertTrue
 argument_list|(
-name|reader3
+name|segmentReader3
 operator|.
 name|normsClosed
 argument_list|()
@@ -5021,8 +5026,13 @@ block|{
 name|assertTrue
 argument_list|(
 name|r
-operator|instanceof
-name|MultiSegmentReader
+operator|.
+name|getSequentialSubReaders
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -5031,8 +5041,13 @@ block|{
 name|assertTrue
 argument_list|(
 name|r
-operator|instanceof
-name|SegmentReader
+operator|.
+name|getSequentialSubReaders
+argument_list|()
+operator|.
+name|length
+operator|==
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -5598,7 +5613,7 @@ if|if
 condition|(
 name|reader
 operator|instanceof
-name|MultiSegmentReader
+name|DirectoryReader
 condition|)
 block|{
 name|IndexReader
@@ -5742,7 +5757,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/*   private void assertReaderOpen(IndexReader reader) {     reader.ensureOpen();          if (reader instanceof MultiSegmentReader) {       IndexReader[] subReaders = reader.getSequentialSubReaders();       for (int i = 0; i< subReaders.length; i++) {         assertReaderOpen(subReaders[i]);       }     }   }   */
+comment|/*   private void assertReaderOpen(IndexReader reader) {     reader.ensureOpen();          if (reader instanceof DirectoryReader) {       IndexReader[] subReaders = reader.getSequentialSubReaders();       for (int i = 0; i< subReaders.length; i++) {         assertReaderOpen(subReaders[i]);       }     }   }   */
 DECL|method|assertRefCountEquals
 specifier|private
 name|void
@@ -6494,10 +6509,12 @@ decl_stmt|;
 name|SegmentReader
 name|sr1
 init|=
-operator|(
 name|SegmentReader
-operator|)
+operator|.
+name|getOnlySegmentReader
+argument_list|(
 name|r1
+argument_list|)
 decl_stmt|;
 name|SegmentReader
 name|sr2
