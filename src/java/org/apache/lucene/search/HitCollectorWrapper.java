@@ -41,6 +41,7 @@ comment|/**  * Wrapper for ({@link HitCollector}) implementations, which  * simp
 end_comment
 begin_class
 DECL|class|HitCollectorWrapper
+specifier|public
 class|class
 name|HitCollectorWrapper
 extends|extends
