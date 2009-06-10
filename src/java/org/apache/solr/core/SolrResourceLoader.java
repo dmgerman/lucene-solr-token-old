@@ -826,7 +826,9 @@ operator|)
 condition|?
 name|path
 operator|+
-literal|'/'
+name|File
+operator|.
+name|separator
 else|:
 name|path
 return|;
