@@ -163,7 +163,7 @@ name|solr
 operator|.
 name|core
 operator|.
-name|Config
+name|SolrConfig
 import|;
 end_import
 begin_import
@@ -285,8 +285,7 @@ specifier|abstract
 name|void
 name|initalize
 parameter_list|(
-specifier|final
-name|Config
+name|SolrConfig
 name|config
 parameter_list|)
 function_decl|;
