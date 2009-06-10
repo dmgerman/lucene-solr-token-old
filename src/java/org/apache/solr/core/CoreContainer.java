@@ -3686,7 +3686,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"<property name='"
+literal|"<property"
 argument_list|)
 expr_stmt|;
 name|writeAttribute
