@@ -7108,6 +7108,11 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
+name|dir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|deleteReaderReaderConflict
 specifier|private
@@ -9694,7 +9699,7 @@ name|dir
 init|=
 name|FSDirectory
 operator|.
-name|open
+name|getDirectory
 argument_list|(
 name|indexDir
 argument_list|)
@@ -10223,6 +10228,11 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
+name|dir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|// LUCENE-1509
 DECL|method|testNoDupCommitFileNames
