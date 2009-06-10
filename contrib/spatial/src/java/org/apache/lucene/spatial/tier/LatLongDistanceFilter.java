@@ -181,12 +181,6 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|field|offset
-name|int
-name|offset
-init|=
-literal|0
-decl_stmt|;
 DECL|field|nextOffset
 name|int
 name|nextOffset
@@ -352,6 +346,14 @@ argument_list|(
 name|maxdocs
 argument_list|)
 decl_stmt|;
+name|long
+name|start
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
 name|String
 index|[]
 name|latIndex
@@ -396,6 +398,25 @@ argument_list|(
 name|maxdocs
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|distances
+operator|==
+literal|null
+condition|)
+block|{
+name|distances
+operator|=
+operator|new
+name|HashMap
+argument_list|<
+name|Integer
+argument_list|,
+name|Double
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
 for|for
 control|(
 name|int
@@ -540,6 +561,7 @@ argument_list|,
 name|d
 argument_list|)
 expr_stmt|;
+comment|// why was i storing all distances again?
 if|if
 condition|(
 name|d
@@ -554,8 +576,90 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
+name|distances
+operator|.
+name|put
+argument_list|(
+name|i
+operator|+
+name|nextOffset
+argument_list|,
+name|d
+argument_list|)
+expr_stmt|;
+comment|// include nextOffset for multi segment reader
 block|}
+name|i
+operator|=
+name|bits
+operator|.
+name|nextSetBit
+argument_list|(
+name|i
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
+name|int
+name|size
+init|=
+name|bits
+operator|.
+name|cardinality
+argument_list|()
+decl_stmt|;
+name|nextOffset
+operator|+=
+name|reader
+operator|.
+name|maxDoc
+argument_list|()
+expr_stmt|;
+comment|// this should be something that's part of indexReader
+name|long
+name|end
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
+name|log
+operator|.
+name|fine
+argument_list|(
+literal|"Bits 1: Time taken : "
+operator|+
+operator|(
+name|end
+operator|-
+name|start
+operator|)
+operator|+
+literal|", results : "
+operator|+
+name|distances
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|", cached : "
+operator|+
+name|cdistance
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|", incoming size: "
+operator|+
+name|size
+operator|+
+literal|", nextOffset: "
+operator|+
+name|nextOffset
+argument_list|)
+expr_stmt|;
 return|return
 name|bits
 return|;
@@ -614,19 +718,6 @@ argument_list|(
 name|size
 argument_list|)
 decl_stmt|;
-comment|/* store calculated distances for reuse by other components */
-name|boolean
-name|db
-init|=
-literal|false
-decl_stmt|;
-name|offset
-operator|+=
-name|reader
-operator|.
-name|maxDoc
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|distances
@@ -644,13 +735,6 @@ argument_list|,
 name|Double
 argument_list|>
 argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|db
-operator|=
-literal|true
 expr_stmt|;
 block|}
 name|long
@@ -851,18 +935,23 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
+name|int
+name|did
+init|=
+name|i
+operator|+
+name|nextOffset
+decl_stmt|;
 name|distances
 operator|.
 name|put
 argument_list|(
-name|i
-operator|+
-name|nextOffset
+name|did
 argument_list|,
 name|d
 argument_list|)
 expr_stmt|;
-comment|// include nextOffset for multireader
+comment|// include nextOffset for multi segment reader
 block|}
 name|i
 operator|=
@@ -884,6 +973,14 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
+name|nextOffset
+operator|+=
+name|reader
+operator|.
+name|maxDoc
+argument_list|()
+expr_stmt|;
+comment|// this should be something that's part of indexReader
 name|log
 operator|.
 name|fine
@@ -913,17 +1010,16 @@ operator|+
 literal|", incoming size: "
 operator|+
 name|size
+operator|+
+literal|", nextOffset: "
+operator|+
+name|nextOffset
 argument_list|)
 expr_stmt|;
 name|cdistance
 operator|=
 literal|null
 expr_stmt|;
-name|nextOffset
-operator|+=
-name|offset
-expr_stmt|;
-comment|// this should be something that's part of indexReader
 return|return
 name|result
 return|;

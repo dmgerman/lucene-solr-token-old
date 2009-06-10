@@ -220,6 +220,13 @@ specifier|private
 name|double
 name|bottom
 decl_stmt|;
+DECL|field|offset
+specifier|private
+name|int
+name|offset
+init|=
+literal|0
+decl_stmt|;
 DECL|method|DistanceScoreDocLookupComparator
 specifier|public
 name|DistanceScoreDocLookupComparator
@@ -322,7 +329,6 @@ name|int
 name|doc
 parameter_list|)
 block|{
-specifier|final
 name|double
 name|v2
 init|=
@@ -331,6 +337,8 @@ operator|.
 name|getDistance
 argument_list|(
 name|doc
+operator|+
+name|offset
 argument_list|)
 decl_stmt|;
 if|if
@@ -385,6 +393,8 @@ operator|.
 name|getDistance
 argument_list|(
 name|doc
+operator|+
+name|offset
 argument_list|)
 expr_stmt|;
 block|}
@@ -428,7 +438,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// TODO Auto-generated method stub
+comment|// each reader in a segmented base
+comment|// has an offset based on the maxDocs of previous readers
+name|offset
+operator|=
+name|docBase
+expr_stmt|;
 block|}
 annotation|@
 name|Override
