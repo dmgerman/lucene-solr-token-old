@@ -3456,7 +3456,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"='"
+literal|"=\""
 argument_list|)
 expr_stmt|;
 name|XML
@@ -3475,7 +3475,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"'"
+literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
