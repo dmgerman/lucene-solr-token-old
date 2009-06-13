@@ -404,13 +404,18 @@ name|isOptimized
 argument_list|()
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
+name|System
+operator|.
+name|out
+operator|.
+name|println
 argument_list|(
+operator|(
 literal|"Source index is not optimized."
+operator|)
 argument_list|)
-throw|;
+expr_stmt|;
+comment|//throw new IOException("Source index is not optimized.");
 block|}
 name|initialize
 argument_list|()
@@ -854,7 +859,7 @@ name|InstantiatedDocument
 index|[
 name|sourceIndexReader
 operator|.
-name|numDocs
+name|maxDoc
 argument_list|()
 index|]
 expr_stmt|;
@@ -870,7 +875,7 @@ name|i
 operator|<
 name|sourceIndexReader
 operator|.
-name|numDocs
+name|maxDoc
 argument_list|()
 condition|;
 name|i
@@ -879,7 +884,6 @@ control|)
 block|{
 if|if
 condition|(
-operator|!
 name|sourceIndexReader
 operator|.
 name|isDeleted
@@ -887,6 +891,16 @@ argument_list|(
 name|i
 argument_list|)
 condition|)
+block|{
+name|deletedDocuments
+operator|.
+name|add
+argument_list|(
+name|i
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|InstantiatedDocument
 name|document
@@ -1529,6 +1543,16 @@ name|getDocumentsByNumber
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+name|document
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+comment|// deleted
+block|}
 for|for
 control|(
 name|Field
