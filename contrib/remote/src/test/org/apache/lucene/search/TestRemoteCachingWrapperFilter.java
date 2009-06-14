@@ -139,7 +139,7 @@ name|RAMDirectory
 import|;
 end_import
 begin_comment
-comment|/**  * Tests that the index is cached on the searcher side of things.  * NOTE: This is copied from TestRemoteSearchable since it already had a remote index set up.  */
+comment|/**  * Tests that the index is cached on the searcher side of things.  * NOTE: This is copied from TestRemoteSearchable since it already had a remote index set up.  *   * @version $Id:$  */
 end_comment
 begin_class
 DECL|class|TestRemoteCachingWrapperFilter
