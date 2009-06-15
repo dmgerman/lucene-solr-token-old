@@ -31,6 +31,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -66,7 +79,7 @@ name|Set
 import|;
 end_import
 begin_comment
-comment|/**  * Filters {@link StandardTokenizer} with {@link StandardFilter}, {@link  * LowerCaseFilter} and {@link StopFilter}, using a list of English stop words.  *  * @version $Id$  */
+comment|/**  * Filters {@link StandardTokenizer} with {@link StandardFilter}, {@link  * LowerCaseFilter} and {@link StopFilter}, using a list of  * English stop words.  *  *<a name="version"/>  *<p>You must specify the required {@link Version}  * compatibility when creating StandardAnalyzer:  *<ul>  *<li> As of 2.9, StopFilter preserves position  *        increments by default  *<li> As of 2.9, Tokens incorrectly identified as acronyms  *        are corrected (see<a href="https://issues.apache.org/jira/browse/LUCENE-1068">LUCENE-1608</a>  *</ul>  *  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|StandardAnalyzer
@@ -80,6 +93,11 @@ DECL|field|stopSet
 specifier|private
 name|Set
 name|stopSet
+decl_stmt|;
+DECL|field|matchVersion
+specifier|private
+name|Version
+name|matchVersion
 decl_stmt|;
 comment|/**    * Specifies whether deprecated acronyms should be replaced with HOST type.    * This is false by default to support backward compatibility.    *     * @deprecated this should be removed in the next release (3.0).    *    * See https://issues.apache.org/jira/browse/LUCENE-1068    */
 DECL|field|replaceInvalidAcronym
@@ -184,7 +202,7 @@ name|StopAnalyzer
 operator|.
 name|ENGLISH_STOP_WORDS
 decl_stmt|;
-comment|/** Builds an analyzer with the default stop words ({@link    * #STOP_WORDS}).    * @deprecated Use {@link #StandardAnalyzer(boolean, String[])},    * passing in null for the stop words, instead */
+comment|/** Builds an analyzer with the default stop words ({@link    * #STOP_WORDS}).    * @deprecated Use {@link #StandardAnalyzer(Version)},    * instead. */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
@@ -192,11 +210,32 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_24
+argument_list|,
 name|STOP_WORDS
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the given stop words.    * @deprecated Use {@link #StandardAnalyzer(boolean, Set)}    * instead */
+comment|/** Builds an analyzer with the default stop words ({@link    * #STOP_WORDS}).    * @param matchVersion Lucene version to match See {@link    *<a href="#version">above</a>}    */
+DECL|method|StandardAnalyzer
+specifier|public
+name|StandardAnalyzer
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|matchVersion
+argument_list|,
+name|STOP_WORDS
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** Builds an analyzer with the given stop words.    * @deprecated Use {@link #StandardAnalyzer(Version, Set)}    * instead */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
@@ -205,22 +244,23 @@ name|Set
 name|stopWords
 parameter_list|)
 block|{
-name|stopSet
-operator|=
+name|this
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_24
+argument_list|,
 name|stopWords
-expr_stmt|;
-name|useDefaultStopPositionIncrements
-operator|=
-literal|true
+argument_list|)
 expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the given stop words.    * @param enableStopPositionIncrements See {@link    * StopFilter#setEnablePositionIncrements}    * @param stopWords stop words */
+comment|/** Builds an analyzer with the given stop words.    * @param matchVersion Lucene version to match See {@link    *<a href="#version">above</a>}    * @param stopWords stop words */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
 parameter_list|(
-name|boolean
-name|enableStopPositionIncrements
+name|Version
+name|matchVersion
 parameter_list|,
 name|Set
 name|stopWords
@@ -230,18 +270,40 @@ name|stopSet
 operator|=
 name|stopWords
 expr_stmt|;
-name|this
-operator|.
-name|enableStopPositionIncrements
-operator|=
-name|enableStopPositionIncrements
+name|init
+argument_list|(
+name|matchVersion
+argument_list|)
 expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the given stop words.    * @deprecated Use {@link #StandardAnalyzer(boolean,    * String[])} instead */
+comment|/** Builds an analyzer with the given stop words.    * @deprecated Use {@link #StandardAnalyzer(Version,    * String[])} instead */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
 parameter_list|(
+name|String
+index|[]
+name|stopWords
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_24
+argument_list|,
+name|stopWords
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** Builds an analyzer with the given stop words.    * @param matchVersion Lucene version to match See {@link    *<a href="#version">above</a>}    * @param stopWords Array of stop words */
+DECL|method|StandardAnalyzer
+specifier|public
+name|StandardAnalyzer
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
 name|String
 index|[]
 name|stopWords
@@ -268,41 +330,13 @@ argument_list|(
 name|stopWords
 argument_list|)
 expr_stmt|;
-name|useDefaultStopPositionIncrements
-operator|=
-literal|true
-expr_stmt|;
-block|}
-comment|/** Builds an analyzer with the given stop words.    * @param enableStopPositionIncrements See {@link    * StopFilter#setEnablePositionIncrements}    * @param stopWords Array of stop words */
-DECL|method|StandardAnalyzer
-specifier|public
-name|StandardAnalyzer
-parameter_list|(
-name|boolean
-name|enableStopPositionIncrements
-parameter_list|,
-name|String
-index|[]
-name|stopWords
-parameter_list|)
-block|{
-name|stopSet
-operator|=
-name|StopFilter
-operator|.
-name|makeStopSet
+name|init
 argument_list|(
-name|stopWords
+name|matchVersion
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|enableStopPositionIncrements
-operator|=
-name|enableStopPositionIncrements
-expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the stop words from the given file.    * @see WordlistLoader#getWordSet(File)    * @deprecated Use {@link #StandardAnalyzer(boolean, File)}    * instead    */
+comment|/** Builds an analyzer with the stop words from the given file.    * @see WordlistLoader#getWordSet(File)    * @deprecated Use {@link #StandardAnalyzer(Version, File)}    * instead    */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
@@ -313,27 +347,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|stopSet
-operator|=
-name|WordlistLoader
-operator|.
-name|getWordSet
+name|this
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_24
+argument_list|,
 name|stopwords
 argument_list|)
 expr_stmt|;
-name|useDefaultStopPositionIncrements
-operator|=
-literal|true
-expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the stop words from the given file.    * @see WordlistLoader#getWordSet(File)    * @param enableStopPositionIncrements See {@link    * StopFilter#setEnablePositionIncrements}    * @param stopwords File to read stop words from */
+comment|/** Builds an analyzer with the stop words from the given file.    * @see WordlistLoader#getWordSet(File)    * @param matchVersion Lucene version to match See {@link    *<a href="#version">above</a>}    * @param stopwords File to read stop words from */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
 parameter_list|(
-name|boolean
-name|enableStopPositionIncrements
+name|Version
+name|matchVersion
 parameter_list|,
 name|File
 name|stopwords
@@ -350,14 +380,13 @@ argument_list|(
 name|stopwords
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|enableStopPositionIncrements
-operator|=
-name|enableStopPositionIncrements
+name|init
+argument_list|(
+name|matchVersion
+argument_list|)
 expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the stop words from the given reader.    * @see WordlistLoader#getWordSet(Reader)    * @deprecated Use {@link #StandardAnalyzer(boolean, Reader)}    * instead    */
+comment|/** Builds an analyzer with the stop words from the given reader.    * @see WordlistLoader#getWordSet(Reader)    * @deprecated Use {@link #StandardAnalyzer(Version, Reader)}    * instead    */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
@@ -368,27 +397,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|stopSet
-operator|=
-name|WordlistLoader
-operator|.
-name|getWordSet
+name|this
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_24
+argument_list|,
 name|stopwords
 argument_list|)
 expr_stmt|;
-name|useDefaultStopPositionIncrements
-operator|=
-literal|true
-expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the stop words from the given reader.    * @see WordlistLoader#getWordSet(Reader)    * @param enableStopPositionIncrements See {@link    * StopFilter#setEnablePositionIncrements}    * @param stopwords Reader to read stop words from */
+comment|/** Builds an analyzer with the stop words from the given reader.    * @see WordlistLoader#getWordSet(Reader)    * @param matchVersion Lucene version to match See {@link    *<a href="#version">above</a>}    * @param stopwords Reader to read stop words from */
 DECL|method|StandardAnalyzer
 specifier|public
 name|StandardAnalyzer
 parameter_list|(
-name|boolean
-name|enableStopPositionIncrements
+name|Version
+name|matchVersion
 parameter_list|,
 name|Reader
 name|stopwords
@@ -405,11 +430,10 @@ argument_list|(
 name|stopwords
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|enableStopPositionIncrements
-operator|=
-name|enableStopPositionIncrements
+name|init
+argument_list|(
+name|matchVersion
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**    *    * @param replaceInvalidAcronym Set to true if this analyzer should replace mischaracterized acronyms in the StandardTokenizer    *    * See https://issues.apache.org/jira/browse/LUCENE-1068    *    * @deprecated Remove in 3.X and make true the only valid value    */
@@ -423,6 +447,10 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_24
+argument_list|,
 name|STOP_WORDS
 argument_list|)
 expr_stmt|;
@@ -431,10 +459,6 @@ operator|.
 name|replaceInvalidAcronym
 operator|=
 name|replaceInvalidAcronym
-expr_stmt|;
-name|useDefaultStopPositionIncrements
-operator|=
-literal|true
 expr_stmt|;
 block|}
 comment|/**    *  @param stopwords The stopwords to use    * @param replaceInvalidAcronym Set to true if this analyzer should replace mischaracterized acronyms in the StandardTokenizer    *    * See https://issues.apache.org/jira/browse/LUCENE-1068    *    * @deprecated Remove in 3.X and make true the only valid value    */
@@ -453,6 +477,10 @@ name|IOException
 block|{
 name|this
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_24
+argument_list|,
 name|stopwords
 argument_list|)
 expr_stmt|;
@@ -461,10 +489,6 @@ operator|.
 name|replaceInvalidAcronym
 operator|=
 name|replaceInvalidAcronym
-expr_stmt|;
-name|useDefaultStopPositionIncrements
-operator|=
-literal|true
 expr_stmt|;
 block|}
 comment|/**    * @param stopwords The stopwords to use    * @param replaceInvalidAcronym Set to true if this analyzer should replace mischaracterized acronyms in the StandardTokenizer    *    * See https://issues.apache.org/jira/browse/LUCENE-1068    *    * @deprecated Remove in 3.X and make true the only valid value    */
@@ -483,6 +507,10 @@ name|IOException
 block|{
 name|this
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_24
+argument_list|,
 name|stopwords
 argument_list|)
 expr_stmt|;
@@ -491,10 +519,6 @@ operator|.
 name|replaceInvalidAcronym
 operator|=
 name|replaceInvalidAcronym
-expr_stmt|;
-name|useDefaultStopPositionIncrements
-operator|=
-literal|true
 expr_stmt|;
 block|}
 comment|/**    *    * @param stopwords The stopwords to use    * @param replaceInvalidAcronym Set to true if this analyzer should replace mischaracterized acronyms in the StandardTokenizer    *    * See https://issues.apache.org/jira/browse/LUCENE-1068    *    * @deprecated Remove in 3.X and make true the only valid value    */
@@ -514,6 +538,10 @@ name|IOException
 block|{
 name|this
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_24
+argument_list|,
 name|stopwords
 argument_list|)
 expr_stmt|;
@@ -522,10 +550,6 @@ operator|.
 name|replaceInvalidAcronym
 operator|=
 name|replaceInvalidAcronym
-expr_stmt|;
-name|useDefaultStopPositionIncrements
-operator|=
-literal|true
 expr_stmt|;
 block|}
 comment|/**    * @param stopwords The stopwords to use    * @param replaceInvalidAcronym Set to true if this analyzer should replace mischaracterized acronyms in the StandardTokenizer    *    * See https://issues.apache.org/jira/browse/LUCENE-1068    *    * @deprecated Remove in 3.X and make true the only valid value    */
@@ -544,6 +568,10 @@ name|IOException
 block|{
 name|this
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_24
+argument_list|,
 name|stopwords
 argument_list|)
 expr_stmt|;
@@ -553,10 +581,47 @@ name|replaceInvalidAcronym
 operator|=
 name|replaceInvalidAcronym
 expr_stmt|;
+block|}
+DECL|method|init
+specifier|private
+specifier|final
+name|void
+name|init
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|matchVersion
+operator|=
+name|matchVersion
+expr_stmt|;
+if|if
+condition|(
+name|matchVersion
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_29
+argument_list|)
+condition|)
+block|{
+name|enableStopPositionIncrements
+operator|=
+literal|true
+expr_stmt|;
+block|}
+else|else
+block|{
 name|useDefaultStopPositionIncrements
 operator|=
 literal|true
 expr_stmt|;
+block|}
 block|}
 comment|/** Constructs a {@link StandardTokenizer} filtered by a {@link   StandardFilter}, a {@link LowerCaseFilter} and a {@link StopFilter}. */
 DECL|method|tokenStream
@@ -700,6 +765,7 @@ return|return
 name|maxTokenLength
 return|;
 block|}
+comment|/** @deprecated Use {@link #tokenStream} instead */
 DECL|method|reusableTokenStream
 specifier|public
 name|TokenStream
