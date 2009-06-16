@@ -29,6 +29,15 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
+begin_import
+import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|Assert
+import|;
+end_import
 begin_comment
 comment|/**  * DocValues TestCase    */
 end_comment
@@ -130,6 +139,8 @@ name|docValues
 operator|.
 name|getMinValue
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// test with without values - NaN
@@ -207,6 +218,8 @@ name|docValues
 operator|.
 name|getMaxValue
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|innerArray
@@ -244,6 +257,8 @@ name|docValues
 operator|.
 name|getMaxValue
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|innerArray
@@ -295,6 +310,8 @@ name|docValues
 operator|.
 name|getMaxValue
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// test with without values - NaN
@@ -371,6 +388,8 @@ name|docValues
 operator|.
 name|getAverageValue
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|innerArray
@@ -410,6 +429,8 @@ name|docValues
 operator|.
 name|getAverageValue
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// test with negative values
@@ -443,6 +464,8 @@ name|docValues
 operator|.
 name|getAverageValue
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// test with without values - NaN
