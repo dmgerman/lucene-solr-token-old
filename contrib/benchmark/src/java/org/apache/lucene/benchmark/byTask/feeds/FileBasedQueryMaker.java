@@ -151,7 +151,7 @@ name|get
 argument_list|(
 literal|"file.query.maker.default.field"
 argument_list|,
-name|BasicDocMaker
+name|DocMaker
 operator|.
 name|BODY_FIELD
 argument_list|)
@@ -209,10 +209,6 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|file
-operator|!=
-literal|null
-operator|&&
 name|file
 operator|.
 name|exists

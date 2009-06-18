@@ -129,7 +129,7 @@ name|byTask
 operator|.
 name|feeds
 operator|.
-name|BasicDocMaker
+name|DocData
 import|;
 end_import
 begin_import
@@ -146,7 +146,7 @@ name|byTask
 operator|.
 name|feeds
 operator|.
-name|DocData
+name|DocMaker
 import|;
 end_import
 begin_import
@@ -258,7 +258,7 @@ specifier|final
 class|class
 name|WriteLineDocMaker
 extends|extends
-name|BasicDocMaker
+name|DocMaker
 block|{
 DECL|method|getNextDocData
 specifier|protected

@@ -22,6 +22,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|StringReader
 import|;
 end_import
@@ -118,7 +127,7 @@ name|byTask
 operator|.
 name|feeds
 operator|.
-name|ReutersDocMaker
+name|ReutersContentSource
 import|;
 end_import
 begin_import
@@ -548,14 +557,11 @@ name|numSearches
 operator|=
 literal|0
 expr_stmt|;
-name|Benchmark
-name|benchmark
-init|=
 name|execBenchmark
 argument_list|(
 name|algLines
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|CountingSearchTestTask
@@ -606,9 +612,9 @@ init|=
 block|{
 literal|"doc.stored=true"
 block|,
-literal|"doc.maker="
+literal|"content.source="
 operator|+
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 operator|.
 name|class
 operator|.
@@ -798,9 +804,9 @@ block|,
 comment|//doc storage is required in order to have text to highlight
 literal|"doc.term.vector.offsets=true"
 block|,
-literal|"doc.maker="
+literal|"content.source="
 operator|+
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 operator|.
 name|class
 operator|.
@@ -987,9 +993,9 @@ init|=
 block|{
 literal|"doc.stored=false"
 block|,
-literal|"doc.maker="
+literal|"content.source="
 operator|+
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 operator|.
 name|class
 operator|.
@@ -1074,10 +1080,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**    * Test Exhasting Doc Maker logic    */
-DECL|method|testExhaustDocMaker
+DECL|method|testExhaustContentSource
 specifier|public
 name|void
-name|testExhaustDocMaker
+name|testExhaustContentSource
 parameter_list|()
 throws|throws
 name|Exception
@@ -1090,13 +1096,13 @@ init|=
 block|{
 literal|"# ----- properties "
 block|,
-literal|"doc.maker=org.apache.lucene.benchmark.byTask.feeds.SimpleDocMaker"
+literal|"content.source=org.apache.lucene.benchmark.byTask.feeds.SingleDocSource"
 block|,
-literal|"doc.add.log.step=1"
+literal|"content.source.log.step=1"
 block|,
 literal|"doc.term.vector=false"
 block|,
-literal|"doc.maker.forever=false"
+literal|"content.source.forever=false"
 block|,
 literal|"directory=RAMDirectory"
 block|,
@@ -1253,20 +1259,20 @@ init|=
 block|{
 literal|"# ----- properties "
 block|,
-literal|"doc.maker="
+literal|"content.source="
 operator|+
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
 block|,
-literal|"doc.add.log.step=3"
+literal|"content.source.log.step=3"
 block|,
 literal|"doc.term.vector=false"
 block|,
-literal|"doc.maker.forever=false"
+literal|"content.source.forever=false"
 block|,
 literal|"directory=FSDirectory"
 block|,
@@ -1314,7 +1320,7 @@ name|ndocsExpected
 init|=
 literal|20
 decl_stmt|;
-comment|// Reuters20DocMaker exhausts after 20 docs.
+comment|// Reuters20ContentSource exhausts after 20 docs.
 name|assertEquals
 argument_list|(
 literal|"wrong number of docs in the index!"
@@ -1373,9 +1379,9 @@ init|=
 block|{
 literal|"# ----- properties "
 block|,
-literal|"doc.maker=org.apache.lucene.benchmark.byTask.feeds.ReutersDocMaker"
+literal|"content.source=org.apache.lucene.benchmark.byTask.feeds.ReutersContentSource"
 block|,
-literal|"doc.maker.forever=false"
+literal|"content.source.forever=false"
 block|,
 literal|"line.file.out="
 operator|+
@@ -1490,7 +1496,7 @@ argument_list|,
 literal|'/'
 argument_list|)
 block|,
-literal|"doc.maker.forever=false"
+literal|"content.source.forever=false"
 block|,
 literal|"doc.reuse.fields=false"
 block|,
@@ -1623,7 +1629,7 @@ literal|"# ----- properties "
 block|,
 literal|"analyzer=org.apache.lucene.analysis.WhitespaceAnalyzer"
 block|,
-literal|"doc.maker=org.apache.lucene.benchmark.byTask.feeds.ReutersDocMaker"
+literal|"content.source=org.apache.lucene.benchmark.byTask.feeds.ReutersContentSource"
 block|,
 literal|"# ----- alg "
 block|,
@@ -1836,20 +1842,20 @@ init|=
 block|{
 literal|"# ----- properties "
 block|,
-literal|"doc.maker="
+literal|"content.source="
 operator|+
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
 block|,
-literal|"doc.add.log.step=3"
+literal|"content.source.log.step=3"
 block|,
 literal|"doc.term.vector=false"
 block|,
-literal|"doc.maker.forever=false"
+literal|"content.source.forever=false"
 block|,
 literal|"directory=RAMDirectory"
 block|,
@@ -1905,7 +1911,7 @@ literal|2
 operator|*
 literal|20
 decl_stmt|;
-comment|// Reuters20DocMaker exhausts after 20 docs.
+comment|// Reuters20ContentSource exhausts after 20 docs.
 name|assertEquals
 argument_list|(
 literal|"wrong number of docs in the index!"
@@ -2116,13 +2122,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** use reuters and the exhaust mechanism, but to be faster, add 20 docs only... */
-DECL|class|Reuters20DocMaker
+DECL|class|Reuters20ContentSource
 specifier|public
 specifier|static
 class|class
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 extends|extends
-name|ReutersDocMaker
+name|ReutersContentSource
 block|{
 DECL|field|nDocs
 specifier|private
@@ -2132,13 +2138,18 @@ init|=
 literal|0
 decl_stmt|;
 DECL|method|getNextDocData
-specifier|protected
+specifier|public
 specifier|synchronized
 name|DocData
 name|getNextDocData
-parameter_list|()
+parameter_list|(
+name|DocData
+name|docData
+parameter_list|)
 throws|throws
-name|Exception
+name|NoMoreDataException
+throws|,
+name|IOException
 block|{
 if|if
 condition|(
@@ -2163,7 +2174,9 @@ return|return
 name|super
 operator|.
 name|getNextDocData
-argument_list|()
+argument_list|(
+name|docData
+argument_list|)
 return|;
 block|}
 DECL|method|resetInputs
@@ -2172,6 +2185,8 @@ specifier|synchronized
 name|void
 name|resetInputs
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|super
 operator|.
@@ -2201,20 +2216,20 @@ init|=
 block|{
 literal|"# ----- properties "
 block|,
-literal|"doc.maker="
+literal|"content.source="
 operator|+
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
 block|,
-literal|"doc.add.log.step=3"
+literal|"content.source.log.step=3"
 block|,
 literal|"doc.term.vector=false"
 block|,
-literal|"doc.maker.forever=false"
+literal|"content.source.forever=false"
 block|,
 literal|"directory=RAMDirectory"
 block|,
@@ -2270,7 +2285,7 @@ name|ndocsExpected
 init|=
 literal|20
 decl_stmt|;
-comment|// Reuters20DocMaker exhausts after 20 docs.
+comment|// Reuters20ContentSource exhausts after 20 docs.
 name|assertEquals
 argument_list|(
 literal|"wrong number of docs in the index!"
@@ -2306,9 +2321,9 @@ init|=
 block|{
 literal|"# ----- properties "
 block|,
-literal|"doc.maker="
+literal|"content.source="
 operator|+
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 operator|.
 name|class
 operator|.
@@ -2319,11 +2334,11 @@ literal|"ram.flush.mb=-1"
 block|,
 literal|"max.buffered=2"
 block|,
-literal|"doc.add.log.step=3"
+literal|"content.source.log.step=3"
 block|,
 literal|"doc.term.vector=false"
 block|,
-literal|"doc.maker.forever=false"
+literal|"content.source.forever=false"
 block|,
 literal|"directory=RAMDirectory"
 block|,
@@ -2379,7 +2394,7 @@ name|ndocsExpected
 init|=
 literal|20
 decl_stmt|;
-comment|// Reuters20DocMaker exhausts after 20 docs.
+comment|// Reuters20ContentSource exhausts after 20 docs.
 name|assertEquals
 argument_list|(
 literal|"wrong number of docs in the index!"
@@ -2441,20 +2456,20 @@ init|=
 block|{
 literal|"# ----- properties "
 block|,
-literal|"doc.maker="
+literal|"content.source="
 operator|+
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
 block|,
-literal|"doc.add.log.step=3"
+literal|"content.source.log.step=3"
 block|,
 literal|"doc.term.vector=false"
 block|,
-literal|"doc.maker.forever=false"
+literal|"content.source.forever=false"
 block|,
 literal|"directory=RAMDirectory"
 block|,
@@ -2551,7 +2566,7 @@ name|ndocsExpected
 init|=
 literal|20
 decl_stmt|;
-comment|// Reuters20DocMaker exhausts after 20 docs.
+comment|// Reuters20ContentSource exhausts after 20 docs.
 name|assertEquals
 argument_list|(
 literal|"wrong number of docs in the index!"
@@ -2613,16 +2628,16 @@ init|=
 block|{
 literal|"# ----- properties "
 block|,
-literal|"doc.maker="
+literal|"content.source="
 operator|+
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
 block|,
-literal|"doc.add.log.step=3"
+literal|"content.source.log.step=3"
 block|,
 literal|"ram.flush.mb=-1"
 block|,
@@ -2630,7 +2645,7 @@ literal|"max.buffered=2"
 block|,
 literal|"doc.term.vector=false"
 block|,
-literal|"doc.maker.forever=false"
+literal|"content.source.forever=false"
 block|,
 literal|"directory=RAMDirectory"
 block|,
@@ -2727,7 +2742,7 @@ name|ndocsExpected
 init|=
 literal|20
 decl_stmt|;
-comment|// Reuters20DocMaker exhausts after 20 docs.
+comment|// Reuters20ContentSource exhausts after 20 docs.
 name|assertEquals
 argument_list|(
 literal|"wrong number of docs in the index!"
@@ -2763,16 +2778,16 @@ init|=
 block|{
 literal|"# ----- properties "
 block|,
-literal|"doc.maker="
+literal|"content.source="
 operator|+
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
 block|,
-literal|"doc.add.log.step=3"
+literal|"content.source.log.step=3"
 block|,
 literal|"ram.flush.mb=-1"
 block|,
@@ -2782,7 +2797,7 @@ literal|"compound=cmpnd:true:false"
 block|,
 literal|"doc.term.vector=vector:false:true"
 block|,
-literal|"doc.maker.forever=false"
+literal|"content.source.forever=false"
 block|,
 literal|"directory=RAMDirectory"
 block|,
@@ -2947,16 +2962,16 @@ init|=
 block|{
 literal|"# ----- properties "
 block|,
-literal|"doc.maker="
+literal|"content.source="
 operator|+
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
 block|,
-literal|"doc.add.log.step=3"
+literal|"content.source.log.step=3"
 block|,
 literal|"ram.flush.mb=-1"
 block|,
@@ -2964,7 +2979,7 @@ literal|"max.buffered=3"
 block|,
 literal|"doc.term.vector=false"
 block|,
-literal|"doc.maker.forever=false"
+literal|"content.source.forever=false"
 block|,
 literal|"directory=RAMDirectory"
 block|,
@@ -3024,7 +3039,7 @@ name|ndocsExpected
 init|=
 literal|20
 decl_stmt|;
-comment|// Reuters20DocMaker exhausts after 20 docs.
+comment|// Reuters20ContentSource exhausts after 20 docs.
 name|assertEquals
 argument_list|(
 literal|"wrong number of docs in the index!"
@@ -3338,20 +3353,20 @@ index|[]
 block|{
 literal|"# ----- properties "
 block|,
-literal|"doc.maker="
+literal|"content.source="
 operator|+
-name|Reuters20DocMaker
+name|Reuters20ContentSource
 operator|.
 name|class
 operator|.
 name|getName
 argument_list|()
 block|,
-literal|"doc.add.log.step=30"
+literal|"content.source.log.step=30"
 block|,
 literal|"doc.term.vector=false"
 block|,
-literal|"doc.maker.forever=false"
+literal|"content.source.forever=false"
 block|,
 literal|"directory=RAMDirectory"
 block|,
