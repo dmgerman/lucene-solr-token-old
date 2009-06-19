@@ -230,7 +230,7 @@ name|setEndOffset
 argument_list|(
 name|thaiToken
 operator|.
-name|endOffset
+name|startOffset
 argument_list|()
 operator|+
 name|end
