@@ -549,6 +549,16 @@ name|ids
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|deleteById
+operator|.
+name|addAll
+argument_list|(
+name|ids
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|this
 return|;
