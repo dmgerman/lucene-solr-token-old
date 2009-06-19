@@ -408,9 +408,7 @@ name|normalizeDir
 argument_list|(
 name|coreContainer
 operator|.
-name|loader
-operator|.
-name|getInstanceDir
+name|getSolrHome
 argument_list|()
 operator|+
 name|SolrResourceLoader
