@@ -677,7 +677,7 @@ argument_list|()
 operator|.
 name|setSoTimeout
 argument_list|(
-name|connTimeout
+name|readTimeout
 operator|==
 literal|null
 condition|?
@@ -687,7 +687,7 @@ name|Integer
 operator|.
 name|parseInt
 argument_list|(
-name|connTimeout
+name|readTimeout
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -699,7 +699,7 @@ argument_list|()
 operator|.
 name|setConnectionTimeout
 argument_list|(
-name|readTimeout
+name|connTimeout
 operator|==
 literal|null
 condition|?
@@ -709,7 +709,7 @@ name|Integer
 operator|.
 name|parseInt
 argument_list|(
-name|readTimeout
+name|connTimeout
 argument_list|)
 argument_list|)
 expr_stmt|;
