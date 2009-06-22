@@ -1888,7 +1888,7 @@ operator|.
 name|getLocalPort
 argument_list|()
 operator|+
-literal|"/solr/replication?command=snappull&masterUrl="
+literal|"/solr/replication?command=fetchindex&masterUrl="
 decl_stmt|;
 name|masterUrl
 operator|+=
