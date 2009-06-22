@@ -1,14 +1,9 @@
 begin_unit
 begin_comment
-DECL|package|org.apache.lucene.spatial.tier
-DECL|class|PolyShape
-DECL|field|lat
-DECL|field|lng
-DECL|field|miles
-DECL|method|main
 comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
+DECL|package|org.apache.lucene.spatial.tier
 package|package
 name|org
 operator|.
@@ -25,10 +20,12 @@ begin_comment
 comment|/**  *  */
 end_comment
 begin_class
+DECL|class|PolyShape
 specifier|public
 class|class
 name|PolyShape
 block|{
+DECL|field|lat
 specifier|private
 specifier|static
 name|double
@@ -36,6 +33,7 @@ name|lat
 init|=
 literal|38.969398
 decl_stmt|;
+DECL|field|lng
 specifier|private
 specifier|static
 name|double
@@ -44,6 +42,7 @@ init|=
 operator|-
 literal|77.386398
 decl_stmt|;
+DECL|field|miles
 specifier|private
 specifier|static
 name|int
@@ -52,6 +51,7 @@ init|=
 literal|1000
 decl_stmt|;
 comment|/**    * @param args    */
+DECL|method|main
 specifier|public
 specifier|static
 name|void
