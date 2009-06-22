@@ -1929,7 +1929,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|dcore
+name|solrLoader
 operator|.
 name|getInstanceDir
 argument_list|()
