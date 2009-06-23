@@ -135,7 +135,7 @@ name|MultiSearcher
 extends|extends
 name|Searcher
 block|{
-comment|/**      * Document Frequency cache acting as a Dummy-Searcher.      * This class is no full-fledged Searcher, but only supports      * the methods necessary to initialize Weights.      */
+comment|/**    * Document Frequency cache acting as a Dummy-Searcher. This class is no    * full-fledged Searcher, but only supports the methods necessary to    * initialize Weights.    */
 DECL|class|CachedDfSource
 specifier|private
 specifier|static
@@ -380,7 +380,7 @@ specifier|public
 name|Explanation
 name|explain
 parameter_list|(
-name|Weight
+name|QueryWeight
 name|weight
 parameter_list|,
 name|int
@@ -393,41 +393,19 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-comment|/** @deprecated use {@link #search(Weight, Filter, Collector)} instead. */
 DECL|method|search
 specifier|public
 name|void
 name|search
 parameter_list|(
-name|Weight
-name|weight
-parameter_list|,
-name|Filter
-name|filter
-parameter_list|,
-name|HitCollector
-name|results
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-block|}
-DECL|method|search
-specifier|public
-name|void
-name|search
-parameter_list|(
-name|Weight
+name|QueryWeight
 name|weight
 parameter_list|,
 name|Filter
 name|filter
 parameter_list|,
 name|Collector
-name|collector
+name|results
 parameter_list|)
 block|{
 throw|throw
@@ -441,7 +419,7 @@ specifier|public
 name|TopDocs
 name|search
 parameter_list|(
-name|Weight
+name|QueryWeight
 name|weight
 parameter_list|,
 name|Filter
@@ -462,7 +440,7 @@ specifier|public
 name|TopFieldDocs
 name|search
 parameter_list|(
-name|Weight
+name|QueryWeight
 name|weight
 parameter_list|,
 name|Filter
@@ -501,7 +479,7 @@ name|maxDoc
 init|=
 literal|0
 decl_stmt|;
-comment|/** Creates a searcher which searches<i>searchables</i>. */
+comment|/** Creates a searcher which searches<i>searchers</i>. */
 DECL|method|MultiSearcher
 specifier|public
 name|MultiSearcher
@@ -926,7 +904,7 @@ specifier|public
 name|TopDocs
 name|search
 parameter_list|(
-name|Weight
+name|QueryWeight
 name|weight
 parameter_list|,
 name|Filter
@@ -1137,7 +1115,7 @@ specifier|public
 name|TopFieldDocs
 name|search
 parameter_list|(
-name|Weight
+name|QueryWeight
 name|weight
 parameter_list|,
 name|Filter
@@ -1474,46 +1452,12 @@ argument_list|)
 return|;
 block|}
 comment|// inherit javadoc
-comment|/** @deprecated use {@link #search(Weight, Filter, Collector)} instead. */
 DECL|method|search
 specifier|public
 name|void
 name|search
 parameter_list|(
-name|Weight
-name|weight
-parameter_list|,
-name|Filter
-name|filter
-parameter_list|,
-specifier|final
-name|HitCollector
-name|results
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|search
-argument_list|(
-name|weight
-argument_list|,
-name|filter
-argument_list|,
-operator|new
-name|HitCollectorWrapper
-argument_list|(
-name|results
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-comment|// inherit javadoc
-DECL|method|search
-specifier|public
-name|void
-name|search
-parameter_list|(
-name|Weight
+name|QueryWeight
 name|weight
 parameter_list|,
 name|Filter
@@ -1621,6 +1565,18 @@ name|docBase
 argument_list|)
 expr_stmt|;
 block|}
+specifier|public
+name|boolean
+name|acceptsDocsOutOfOrder
+parameter_list|()
+block|{
+return|return
+name|collector
+operator|.
+name|acceptsDocsOutOfOrder
+argument_list|()
+return|;
+block|}
 block|}
 decl_stmt|;
 name|searchables
@@ -1712,7 +1668,7 @@ specifier|public
 name|Explanation
 name|explain
 parameter_list|(
-name|Weight
+name|QueryWeight
 name|weight
 parameter_list|,
 name|int
@@ -1751,10 +1707,10 @@ return|;
 comment|// dispatch to searcher
 block|}
 comment|/**    * Create weight in multiple index scenario.    *     * Distributed query processing is done in the following steps:    * 1. rewrite query    * 2. extract necessary terms    * 3. collect dfs for these terms from the Searchables    * 4. create query weight using aggregate dfs.    * 5. distribute that weight to Searchables    * 6. merge results    *    * Steps 1-4 are done here, 5+6 in the search() methods    *    * @return rewritten queries    */
-DECL|method|createWeight
+DECL|method|createQueryWeight
 specifier|protected
-name|Weight
-name|createWeight
+name|QueryWeight
+name|createQueryWeight
 parameter_list|(
 name|Query
 name|original
@@ -1948,7 +1904,7 @@ decl_stmt|;
 return|return
 name|rewrittenQuery
 operator|.
-name|weight
+name|queryWeight
 argument_list|(
 name|cacheSim
 argument_list|)

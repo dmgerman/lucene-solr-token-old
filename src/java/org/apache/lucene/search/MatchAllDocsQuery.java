@@ -155,7 +155,7 @@ parameter_list|,
 name|Similarity
 name|similarity
 parameter_list|,
-name|Weight
+name|QueryWeight
 name|w
 parameter_list|,
 name|byte
@@ -355,8 +355,8 @@ DECL|class|MatchAllDocsWeight
 specifier|private
 class|class
 name|MatchAllDocsWeight
-implements|implements
-name|Weight
+extends|extends
+name|QueryWeight
 block|{
 DECL|field|similarity
 specifier|private
@@ -475,6 +475,12 @@ name|scorer
 parameter_list|(
 name|IndexReader
 name|reader
+parameter_list|,
+name|boolean
+name|scoreDocsInOrder
+parameter_list|,
+name|boolean
+name|topScorer
 parameter_list|)
 throws|throws
 name|IOException
@@ -572,10 +578,10 @@ name|queryExpl
 return|;
 block|}
 block|}
-DECL|method|createWeight
-specifier|protected
-name|Weight
-name|createWeight
+DECL|method|createQueryWeight
+specifier|public
+name|QueryWeight
+name|createQueryWeight
 parameter_list|(
 name|Searcher
 name|searcher
