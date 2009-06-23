@@ -726,7 +726,10 @@ name|tme
 parameter_list|)
 block|{
 comment|// rethrow to include the original query:
-throw|throw
+comment|// rethrow to include the original query:
+name|ParseException
+name|e
+init|=
 operator|new
 name|ParseException
 argument_list|(
@@ -741,6 +744,16 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|e
+operator|.
+name|initCause
+argument_list|(
+name|tme
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
 throw|;
 block|}
 catch|catch
@@ -749,7 +762,9 @@ name|TokenMgrError
 name|tme
 parameter_list|)
 block|{
-throw|throw
+name|ParseException
+name|e
+init|=
 operator|new
 name|ParseException
 argument_list|(
@@ -764,6 +779,16 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|e
+operator|.
+name|initCause
+argument_list|(
+name|tme
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
 throw|;
 block|}
 catch|catch
@@ -774,7 +799,9 @@ name|TooManyClauses
 name|tmc
 parameter_list|)
 block|{
-throw|throw
+name|ParseException
+name|e
+init|=
 operator|new
 name|ParseException
 argument_list|(
@@ -784,6 +811,16 @@ name|query
 operator|+
 literal|"': too many boolean clauses"
 argument_list|)
+decl_stmt|;
+name|e
+operator|.
+name|initCause
+argument_list|(
+name|tmc
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
 throw|;
 block|}
 block|}
