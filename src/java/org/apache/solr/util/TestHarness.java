@@ -837,7 +837,7 @@ name|SolrResourceLoader
 argument_list|(
 name|SolrResourceLoader
 operator|.
-name|locateInstanceDir
+name|locateSolrHome
 argument_list|()
 argument_list|)
 argument_list|)
