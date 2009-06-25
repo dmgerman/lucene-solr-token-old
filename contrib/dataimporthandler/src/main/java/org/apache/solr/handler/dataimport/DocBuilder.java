@@ -1862,12 +1862,6 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-name|vr
-operator|.
-name|context
-operator|=
-name|ctx
-expr_stmt|;
 name|entityProcessor
 operator|.
 name|init
@@ -2090,11 +2084,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|entityProcessor
-operator|.
-name|destroy
-argument_list|()
-expr_stmt|;
 break|break;
 block|}
 comment|// Support for start parameter in debug mode
@@ -2527,6 +2516,11 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+name|entityProcessor
+operator|.
+name|destroy
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|class|DocWrapper
@@ -3520,12 +3514,6 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-name|resolver
-operator|.
-name|context
-operator|=
-name|context1
-expr_stmt|;
 name|entityProcessor
 operator|.
 name|init
