@@ -354,7 +354,6 @@ name|hasChanges
 decl_stmt|;
 DECL|field|refCount
 specifier|private
-specifier|volatile
 name|int
 name|refCount
 decl_stmt|;
