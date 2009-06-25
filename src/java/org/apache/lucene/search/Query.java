@@ -175,7 +175,7 @@ return|return
 operator|new
 name|QueryWeightWrapper
 argument_list|(
-name|weight
+name|createWeight
 argument_list|(
 name|searcher
 argument_list|)
