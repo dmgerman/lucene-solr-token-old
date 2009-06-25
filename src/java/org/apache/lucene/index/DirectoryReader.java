@@ -4012,6 +4012,10 @@ name|ioe
 init|=
 literal|null
 decl_stmt|;
+name|normsCache
+operator|=
+literal|null
+expr_stmt|;
 for|for
 control|(
 name|int

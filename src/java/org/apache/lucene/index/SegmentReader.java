@@ -3391,6 +3391,11 @@ operator|.
 name|decRef
 argument_list|()
 expr_stmt|;
+comment|// null so if an app hangs on to us we still free most ram
+name|deletedDocs
+operator|=
+literal|null
+expr_stmt|;
 block|}
 name|Iterator
 name|it
@@ -3447,6 +3452,11 @@ name|tis
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+comment|// null so if an app hangs on to us we still free most ram
+name|tis
+operator|=
+literal|null
 expr_stmt|;
 block|}
 if|if
