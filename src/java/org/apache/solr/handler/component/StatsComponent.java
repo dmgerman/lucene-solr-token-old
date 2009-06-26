@@ -1350,7 +1350,7 @@ name|max
 operator|=
 name|Double
 operator|.
-name|MIN_VALUE
+name|NEGATIVE_INFINITY
 expr_stmt|;
 name|sum
 operator|=
