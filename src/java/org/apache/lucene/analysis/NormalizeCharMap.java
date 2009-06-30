@@ -131,7 +131,7 @@ name|submap
 operator|.
 name|get
 argument_list|(
-name|Character
+name|CharacterCache
 operator|.
 name|valueOf
 argument_list|(
