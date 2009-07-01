@@ -18,6 +18,53 @@ operator|.
 name|smart
 package|;
 end_package
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|cn
+operator|.
+name|smart
+operator|.
+name|hhmm
+operator|.
+name|BiSegGraph
+import|;
+end_import
+begin_comment
+comment|// for javadoc
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|cn
+operator|.
+name|smart
+operator|.
+name|hhmm
+operator|.
+name|SegTokenFilter
+import|;
+end_import
+begin_comment
+comment|// for javadoc
+end_comment
+begin_comment
+comment|/**  * SmartChineseAnalyzer utility constants and methods  */
+end_comment
 begin_class
 DECL|class|Utility
 specifier|public
@@ -92,6 +139,7 @@ operator|.
 name|toCharArray
 argument_list|()
 decl_stmt|;
+comment|/**    * Delimiters will be filtered to this character by {@link SegTokenFilter}    */
 DECL|field|COMMON_DELIMITER
 specifier|public
 specifier|static
@@ -107,7 +155,7 @@ block|{
 literal|','
 block|}
 decl_stmt|;
-comment|/**    * éè¦è·³è¿çç¬¦å·ï¼ä¾å¦å¶è¡¨ç¬¦ï¼åè½¦ï¼æ¢è¡ç­ç­ã    */
+comment|/**    * Space-like characters that need to be skipped: such as space, tab, newline, carriage return.    */
 DECL|field|SPACES
 specifier|public
 specifier|static
@@ -117,6 +165,7 @@ name|SPACES
 init|=
 literal|" ã\t\r\n"
 decl_stmt|;
+comment|/**    * Maximum bigram frequency (used in the {@link BiSegGraph} smoothing function).     */
 DECL|field|MAX_FREQUENCE
 specifier|public
 specifier|static
@@ -128,7 +177,7 @@ literal|2079997
 operator|+
 literal|80000
 decl_stmt|;
-comment|/**    * æ¯è¾ä¸¤ä¸ªæ´æ°æ°ç»çå¤§å°, åå«ä»æ°ç»çä¸å®ä½ç½®å¼å§éä¸ªæ¯è¾, å½ä¾æ¬¡ç¸ç­ä¸é½å°è¾¾æ«å°¾æ¶, è¿åç¸ç­, å¦åæªå°è¾¾æ«å°¾çå¤§äºå°è¾¾æ«å°¾ç;    * å½æªå°è¾¾æ«å°¾æ¶æä¸ä½ä¸ç¸ç­, è¯¥ä½ç½®æ°å¼å¤§çæ°ç»å¤§äºå°ç    *     * @param larray    * @param lstartIndex larrayçèµ·å§ä½ç½®    * @param rarray    * @param rstartIndex rarrayçèµ·å§ä½ç½®    * @return 0è¡¨ç¤ºç¸ç­ï¼1è¡¨ç¤ºlarray> rarray, -1è¡¨ç¤ºlarray< rarray    */
+comment|/**    * compare two arrays starting at the specified offsets.    *     * @param larray left array    * @param lstartIndex start offset into larray    * @param rarray right array    * @param rstartIndex start offset into rarray    * @return 0 if the arrays are equalï¼1 if larray> rarray, -1 if larray< rarray    */
 DECL|method|compareArray
 specifier|public
 specifier|static
@@ -264,15 +313,14 @@ operator|.
 name|length
 condition|)
 block|{
-comment|// ä¸¤èä¸ç´ç¸ç­å°æ«å°¾ï¼å æ­¤è¿åç¸ç­ï¼ä¹å°±æ¯ç»æ0
+comment|// Both arrays are equivalent, return 0.
 return|return
 literal|0
 return|;
 block|}
 else|else
 block|{
-comment|// æ­¤æ¶ä¸å¯è½ri>rarray.lengthå æ­¤åªæri<rarray.length
-comment|// è¡¨ç¤ºlarrayå·²ç»ç»æï¼rarrayæ²¡æç»æï¼å æ­¤larray< rarrayï¼è¿å-1
+comment|// larray< rarray because larray has ended first.
 return|return
 operator|-
 literal|1
@@ -281,7 +329,7 @@ block|}
 block|}
 else|else
 block|{
-comment|// æ­¤æ¶ä¸å¯è½li>larray.lengthå æ­¤åªæli< larray.lengthï¼è¡¨ç¤ºliæ²¡æå°è¾¾larrayæ«å°¾
+comment|// differing lengths
 if|if
 condition|(
 name|ri
@@ -291,15 +339,14 @@ operator|.
 name|length
 condition|)
 block|{
-comment|// larrayæ²¡æç»æï¼ä½æ¯rarrayå·²ç»ç»æï¼å æ­¤larray> rarray
+comment|// larray> rarray because rarray has ended first.
 return|return
 literal|1
 return|;
 block|}
 else|else
 block|{
-comment|// æ­¤æ¶ä¸å¯è½ri>rarray.lengthå æ­¤åªæri< rarray.length
-comment|// è¡¨ç¤ºlarrayårarrayé½æ²¡æç»æï¼å æ­¤æä¸ä¸ä¸ªæ°çå¤§å°å¤æ­
+comment|// determine by comparison
 if|if
 condition|(
 name|larray
@@ -323,7 +370,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/**    * æ ¹æ®åç¼æ¥å¤æ­ä¸¤ä¸ªå­ç¬¦æ°ç»çå¤§å°ï¼å½åèä¸ºåèçåç¼æ¶ï¼è¡¨ç¤ºç¸ç­ï¼å½ä¸ä¸ºåç¼æ¶ï¼æç§æ®éå­ç¬¦ä¸²æ¹å¼æ¯è¾    *     * @param shortArray    * @param shortIndex    * @param longArray    * @param longIndex    * @return    */
+comment|/**    * Compare two arrays, starting at the specified offsets, but treating shortArray as a prefix to longArray.    * As long as shortArray is a prefix of longArray, return 0.    * Otherwise, behave as {@link Utility#compareArray(char[], int, char[], int)}    *     * @param shortArray prefix array    * @param shortIndex offset into shortArray    * @param longArray long array (word)    * @param longIndex offset into longArray    * @return 0 if shortArray is a prefix of longArray, otherwise act as {@link Utility#compareArray(char[], int, char[], int)}    */
 DECL|method|compareArrayByPrefix
 specifier|public
 specifier|static
@@ -345,7 +392,7 @@ name|int
 name|longIndex
 parameter_list|)
 block|{
-comment|// ç©ºæ°ç»æ¯æææ°ç»çåç¼ï¼ä¸èèindex
+comment|// a null prefix is a prefix of longArray
 if|if
 condition|(
 name|shortArray
@@ -425,16 +472,14 @@ operator|.
 name|length
 condition|)
 block|{
-comment|// shortArray æ¯ longArrayçprefix
+comment|// shortArray is a prefix of longArray
 return|return
 literal|0
 return|;
 block|}
 else|else
 block|{
-comment|// æ­¤æ¶ä¸å¯è½si>shortArray.lengthå æ­¤åªæsi<
-comment|// shortArray.lengthï¼è¡¨ç¤ºsiæ²¡æå°è¾¾shortArrayæ«å°¾
-comment|// shortArrayæ²¡æç»æï¼ä½æ¯longArrayå·²ç»ç»æï¼å æ­¤shortArray> longArray
+comment|// shortArray> longArray because longArray ended first.
 if|if
 condition|(
 name|li
@@ -447,8 +492,7 @@ return|return
 literal|1
 return|;
 else|else
-comment|// æ­¤æ¶ä¸å¯è½li>longArray.lengthå æ­¤åªæli< longArray.length
-comment|// è¡¨ç¤ºshortArrayålongArrayé½æ²¡æç»æï¼å æ­¤æä¸ä¸ä¸ªæ°çå¤§å°å¤æ­
+comment|// determine by comparison
 return|return
 operator|(
 name|shortArray
@@ -469,6 +513,7 @@ literal|1
 return|;
 block|}
 block|}
+comment|/**    * Return the internal {@link CharType} constant of a given character.     * @param ch input character    * @return constant from {@link CharType} describing the character type.    *     * @see CharType    */
 DECL|method|getCharType
 specifier|public
 specifier|static
@@ -479,7 +524,7 @@ name|char
 name|ch
 parameter_list|)
 block|{
-comment|// æå¤çæ¯æ±å­
+comment|// Most (but not all!) of these are Han Ideographic Characters
 if|if
 condition|(
 name|ch
@@ -564,7 +609,7 @@ name|CharType
 operator|.
 name|SPACE_LIKE
 return|;
-comment|// æåé¢çå¶å®çé½æ¯æ ç¹ç¬¦å·äº
+comment|// Punctuation Marks
 if|if
 condition|(
 operator|(
@@ -602,7 +647,7 @@ name|CharType
 operator|.
 name|DELIMITER
 return|;
-comment|// å¨è§å­ç¬¦åºå
+comment|// Full-Width range
 if|if
 condition|(
 operator|(

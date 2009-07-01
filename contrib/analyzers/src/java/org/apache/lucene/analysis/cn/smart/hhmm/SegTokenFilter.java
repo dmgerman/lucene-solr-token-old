@@ -54,12 +54,16 @@ operator|.
 name|WordType
 import|;
 end_import
+begin_comment
+comment|/**  *<p>  * Filters a {@link SegToken} by converting full-width latin to half-width, then lowercasing latin.  * Additionally, all punctuation is converted into {@link Utility#COMMON_DELIMITER}  *</p>  */
+end_comment
 begin_class
 DECL|class|SegTokenFilter
 specifier|public
 class|class
 name|SegTokenFilter
 block|{
+comment|/**    * Filter an input {@link SegToken}    *<p>    * Full-width latin will be converted to half-width, then all latin will be lowercased.    * All punctuation is converted into {@link Utility#COMMON_DELIMITER}    *</p>    *     * @param token input {@link SegToken}    * @return normalized {@link SegToken}    */
 DECL|method|filter
 specifier|public
 name|SegToken
@@ -86,6 +90,7 @@ name|WordType
 operator|.
 name|FULLWIDTH_STRING
 case|:
+comment|/* first convert full-width -> half-width */
 for|for
 control|(
 name|int
@@ -145,6 +150,7 @@ index|]
 operator|<=
 literal|0x005A
 condition|)
+comment|/* lowercase latin */
 name|token
 operator|.
 name|charArray
@@ -200,6 +206,7 @@ index|]
 operator|<=
 literal|0x005A
 condition|)
+comment|/* lowercase latin */
 name|token
 operator|.
 name|charArray
@@ -216,6 +223,7 @@ name|WordType
 operator|.
 name|DELIMITER
 case|:
+comment|/* convert all punctuation to Utility.COMMON_DELIMITER */
 name|token
 operator|.
 name|charArray
