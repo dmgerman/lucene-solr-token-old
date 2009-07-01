@@ -1633,7 +1633,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Registers a SolrCore descriptor in the registry using the specified name.    * If returnPrev==false, the old core, if different, is closed. if true, it is returned w/o closing the core    *    * @return a previous core having the same name if it existed    */
+comment|/**    * Registers a SolrCore descriptor in the registry using the specified name.    * If returnPrevNotClosed==false, the old core, if different, is closed. if true, it is returned w/o closing the core    *    * @return a previous core having the same name if it existed    */
 DECL|method|register
 specifier|public
 name|SolrCore
@@ -1646,7 +1646,7 @@ name|SolrCore
 name|core
 parameter_list|,
 name|boolean
-name|returnPrev
+name|returnPrevNotClosed
 parameter_list|)
 block|{
 if|if
@@ -1766,7 +1766,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|returnPrev
+name|returnPrevNotClosed
 condition|)
 block|{
 name|old
