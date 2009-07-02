@@ -784,9 +784,9 @@ if|if
 condition|(
 name|command
 operator|.
-name|equals
+name|equalsIgnoreCase
 argument_list|(
-name|CMD_SNAP_SHOOT
+name|CMD_BACKUP
 argument_list|)
 condition|)
 block|{
@@ -844,7 +844,7 @@ if|if
 condition|(
 name|command
 operator|.
-name|equals
+name|equalsIgnoreCase
 argument_list|(
 name|CMD_DISABLE_POLL
 argument_list|)
@@ -867,7 +867,7 @@ if|if
 condition|(
 name|command
 operator|.
-name|equals
+name|equalsIgnoreCase
 argument_list|(
 name|CMD_ENABLE_POLL
 argument_list|)
@@ -4612,7 +4612,7 @@ name|details
 operator|.
 name|add
 argument_list|(
-name|CMD_SNAP_SHOOT
+name|CMD_BACKUP
 argument_list|,
 name|snapshotStats
 argument_list|)
@@ -6058,14 +6058,14 @@ name|CMD_DETAILS
 init|=
 literal|"details"
 decl_stmt|;
-DECL|field|CMD_SNAP_SHOOT
+DECL|field|CMD_BACKUP
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|CMD_SNAP_SHOOT
+name|CMD_BACKUP
 init|=
-literal|"snapshoot"
+literal|"backup"
 decl_stmt|;
 DECL|field|CMD_FETCH_INDEX
 specifier|public
