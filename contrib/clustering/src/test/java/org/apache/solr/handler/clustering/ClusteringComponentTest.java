@@ -325,12 +325,9 @@ operator|.
 name|getValues
 argument_list|()
 decl_stmt|;
-name|NamedList
+name|Object
 name|clusters
 init|=
-operator|(
-name|NamedList
-operator|)
 name|values
 operator|.
 name|get
@@ -448,9 +445,6 @@ argument_list|()
 expr_stmt|;
 name|clusters
 operator|=
-operator|(
-name|NamedList
-operator|)
 name|values
 operator|.
 name|get
