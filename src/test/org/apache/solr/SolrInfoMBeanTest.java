@@ -518,7 +518,7 @@ block|}
 block|}
 name|assertTrue
 argument_list|(
-literal|"there are at leaset 10 SolrInfoMBean that should be found in the classpath."
+literal|"there are at least 10 SolrInfoMBean that should be found in the classpath."
 argument_list|,
 name|checked
 operator|>
@@ -605,10 +605,6 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-name|URLDecoder
-operator|.
-name|decode
-argument_list|(
 name|resources
 operator|.
 name|nextElement
@@ -616,9 +612,6 @@ argument_list|()
 operator|.
 name|getPath
 argument_list|()
-argument_list|,
-literal|"UTF-8"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
