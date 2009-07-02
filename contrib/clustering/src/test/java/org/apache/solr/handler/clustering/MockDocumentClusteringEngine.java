@@ -23,9 +23,9 @@ name|solr
 operator|.
 name|common
 operator|.
-name|util
+name|params
 operator|.
-name|NamedList
+name|SolrParams
 import|;
 end_import
 begin_import
@@ -38,9 +38,9 @@ name|solr
 operator|.
 name|common
 operator|.
-name|params
+name|util
 operator|.
-name|SolrParams
+name|NamedList
 import|;
 end_import
 begin_import
