@@ -199,6 +199,13 @@ index|]
 operator|=
 name|EMPTY
 expr_stmt|;
+name|int
+name|end
+init|=
+name|offset
+operator|+
+name|len
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -208,7 +215,7 @@ name|offset
 init|;
 name|i
 operator|<
-name|len
+name|end
 condition|;
 name|i
 operator|++
