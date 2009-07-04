@@ -196,10 +196,10 @@ name|Collator
 import|;
 end_import
 begin_class
-DECL|class|TestRangeQuery
+DECL|class|TestTermRangeQuery
 specifier|public
 class|class
-name|TestRangeQuery
+name|TestTermRangeQuery
 extends|extends
 name|LuceneTestCase
 block|{
@@ -247,7 +247,7 @@ name|Query
 name|query
 init|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -588,7 +588,7 @@ name|Query
 name|query
 init|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -767,7 +767,7 @@ name|Query
 name|query
 init|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -791,7 +791,7 @@ name|Query
 name|other
 init|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -866,7 +866,7 @@ expr_stmt|;
 name|other
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"notcontent"
 argument_list|,
@@ -894,7 +894,7 @@ expr_stmt|;
 name|other
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -922,7 +922,7 @@ expr_stmt|;
 name|other
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -950,7 +950,7 @@ expr_stmt|;
 name|query
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -966,7 +966,7 @@ expr_stmt|;
 name|other
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1006,7 +1006,7 @@ expr_stmt|;
 name|query
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1022,7 +1022,7 @@ expr_stmt|;
 name|other
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1062,7 +1062,7 @@ expr_stmt|;
 name|query
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1078,7 +1078,7 @@ expr_stmt|;
 name|other
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1106,7 +1106,7 @@ expr_stmt|;
 name|query
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1122,7 +1122,7 @@ expr_stmt|;
 name|other
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1150,7 +1150,7 @@ expr_stmt|;
 name|query
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1166,7 +1166,7 @@ expr_stmt|;
 name|other
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1209,7 +1209,7 @@ name|Query
 name|query
 init|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1399,7 +1399,7 @@ name|Query
 name|query
 init|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1606,7 +1606,7 @@ name|Query
 name|query
 init|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1623,7 +1623,7 @@ argument_list|)
 decl_stmt|;
 comment|// Unicode order would include U+0633 in [ U+062F - U+0698 ], but Farsi
 comment|// orders the U+0698 character before the U+0633 character, so the single
-comment|// index Term below should NOT be returned by a RangeQuery with a Farsi
+comment|// index Term below should NOT be returned by a TermRangeQuery with a Farsi
 comment|// Collator (or an Arabic one for the case when Farsi is not supported).
 name|initializeIndex
 argument_list|(
@@ -1675,7 +1675,7 @@ expr_stmt|;
 name|query
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1764,7 +1764,7 @@ name|Query
 name|query
 init|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -1826,7 +1826,7 @@ expr_stmt|;
 name|query
 operator|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -2348,17 +2348,15 @@ name|Query
 name|query
 init|=
 operator|new
-name|RangeQuery
-argument_list|(
-literal|null
-argument_list|,
-operator|new
-name|Term
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
+literal|null
+argument_list|,
 literal|"C"
-argument_list|)
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -2541,17 +2539,15 @@ name|Query
 name|query
 init|=
 operator|new
-name|RangeQuery
-argument_list|(
-literal|null
-argument_list|,
-operator|new
-name|Term
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
+literal|null
+argument_list|,
 literal|"C"
-argument_list|)
+argument_list|,
+literal|true
 argument_list|,
 literal|true
 argument_list|)

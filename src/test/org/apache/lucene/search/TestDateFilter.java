@@ -298,11 +298,11 @@ argument_list|)
 decl_stmt|;
 comment|// filter that should preserve matches
 comment|//DateFilter df1 = DateFilter.Before("datefield", now);
-name|RangeFilter
+name|TermRangeFilter
 name|df1
 init|=
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"datefield"
 argument_list|,
@@ -341,11 +341,11 @@ argument_list|)
 decl_stmt|;
 comment|// filter that should discard matches
 comment|//DateFilter df2 = DateFilter.Before("datefield", now - 999999);
-name|RangeFilter
+name|TermRangeFilter
 name|df2
 init|=
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"datefield"
 argument_list|,
@@ -711,11 +711,11 @@ argument_list|)
 decl_stmt|;
 comment|// filter that should preserve matches
 comment|//DateFilter df1 = DateFilter.After("datefield", now);
-name|RangeFilter
+name|TermRangeFilter
 name|df1
 init|=
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"datefield"
 argument_list|,
@@ -754,11 +754,11 @@ argument_list|)
 decl_stmt|;
 comment|// filter that should discard matches
 comment|//DateFilter df2 = DateFilter.After("datefield", now + 999999);
-name|RangeFilter
+name|TermRangeFilter
 name|df2
 init|=
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"datefield"
 argument_list|,

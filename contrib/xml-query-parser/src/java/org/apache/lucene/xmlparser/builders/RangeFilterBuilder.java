@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|RangeFilter
+name|TermRangeFilter
 import|;
 end_import
 begin_import
@@ -176,7 +176,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 name|fieldName
 argument_list|,

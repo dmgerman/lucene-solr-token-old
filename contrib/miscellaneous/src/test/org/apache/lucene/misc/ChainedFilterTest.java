@@ -221,7 +221,7 @@ decl_stmt|;
 comment|// private DateFilter dateFilter;   DateFilter was deprecated and removed
 DECL|field|dateFilter
 specifier|private
-name|RangeFilter
+name|TermRangeFilter
 name|dateFilter
 decl_stmt|;
 DECL|field|bobFilter
@@ -495,7 +495,7 @@ comment|// just treat dates as strings and select the whole range for now...
 name|dateFilter
 operator|=
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"date"
 argument_list|,

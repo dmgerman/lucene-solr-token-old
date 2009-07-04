@@ -493,7 +493,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|RangeFilter
+name|TermRangeFilter
 import|;
 end_import
 begin_import
@@ -3021,7 +3021,7 @@ name|FIELD_NAME
 operator|+
 literal|":[kannedy TO kznnedy]"
 decl_stmt|;
-comment|// Need to explicitly set the QueryParser property to use RangeQuery
+comment|// Need to explicitly set the QueryParser property to use TermRangeQuery
 comment|// rather
 comment|// than RangeFilters
 name|QueryParser
@@ -4240,11 +4240,11 @@ name|numHighlights
 operator|=
 literal|0
 expr_stmt|;
-name|RangeFilter
+name|TermRangeFilter
 name|rf
 init|=
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"contents"
 argument_list|,
@@ -4378,11 +4378,11 @@ name|numHighlights
 operator|=
 literal|0
 expr_stmt|;
-name|RangeFilter
+name|TermRangeFilter
 name|rf
 init|=
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"contents"
 argument_list|,

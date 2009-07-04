@@ -172,7 +172,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|RangeFilter
+name|TermRangeFilter
 import|;
 end_import
 begin_import
@@ -574,7 +574,7 @@ name|Filter
 name|f
 init|=
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 name|field
 argument_list|,

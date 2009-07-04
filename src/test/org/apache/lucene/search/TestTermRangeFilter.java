@@ -133,19 +133,19 @@ name|RAMDirectory
 import|;
 end_import
 begin_comment
-comment|/**  * A basic 'positive' Unit test class for the RangeFilter class.  *  *<p>  * NOTE: at the moment, this class only tests for 'positive' results,  * it does not verify the results to ensure there are no 'false positives',  * nor does it adequately test 'negative' results.  It also does not test  * that garbage in results in an Exception.  */
+comment|/**  * A basic 'positive' Unit test class for the TermRangeFilter class.  *  *<p>  * NOTE: at the moment, this class only tests for 'positive' results,  * it does not verify the results to ensure there are no 'false positives',  * nor does it adequately test 'negative' results.  It also does not test  * that garbage in results in an Exception.  */
 end_comment
 begin_class
-DECL|class|TestRangeFilter
+DECL|class|TestTermRangeFilter
 specifier|public
 class|class
-name|TestRangeFilter
+name|TestTermRangeFilter
 extends|extends
 name|BaseTestRangeFilter
 block|{
-DECL|method|TestRangeFilter
+DECL|method|TestTermRangeFilter
 specifier|public
-name|TestRangeFilter
+name|TestTermRangeFilter
 parameter_list|(
 name|String
 name|name
@@ -157,9 +157,9 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|TestRangeFilter
+DECL|method|TestTermRangeFilter
 specifier|public
-name|TestRangeFilter
+name|TestTermRangeFilter
 parameter_list|()
 block|{
 name|super
@@ -282,7 +282,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -320,7 +320,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -360,7 +360,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -400,7 +400,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -440,7 +440,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -482,7 +482,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -525,7 +525,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -563,7 +563,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -601,7 +601,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -641,7 +641,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -681,7 +681,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -721,7 +721,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -762,7 +762,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -800,7 +800,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -838,7 +838,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -876,7 +876,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -914,7 +914,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -952,7 +952,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -990,7 +990,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1028,7 +1028,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1185,7 +1185,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1222,7 +1222,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1261,7 +1261,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1300,7 +1300,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1339,7 +1339,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1380,7 +1380,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1422,7 +1422,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1459,7 +1459,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1496,7 +1496,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1535,7 +1535,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1574,7 +1574,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1613,7 +1613,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1653,7 +1653,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1690,7 +1690,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1727,7 +1727,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1764,7 +1764,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1801,7 +1801,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1838,7 +1838,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1875,7 +1875,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1912,7 +1912,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"id"
 argument_list|,
@@ -2040,7 +2040,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2078,7 +2078,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2118,7 +2118,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2158,7 +2158,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2199,7 +2199,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2237,7 +2237,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2275,7 +2275,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2315,7 +2315,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2356,7 +2356,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2394,7 +2394,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2432,7 +2432,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2470,7 +2470,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2508,7 +2508,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2546,7 +2546,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2687,7 +2687,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2724,7 +2724,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2763,7 +2763,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2802,7 +2802,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2842,7 +2842,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2879,7 +2879,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2916,7 +2916,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2955,7 +2955,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -2995,7 +2995,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -3032,7 +3032,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -3069,7 +3069,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -3106,7 +3106,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -3143,7 +3143,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -3180,7 +3180,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"rand"
 argument_list|,
@@ -3373,7 +3373,7 @@ argument_list|)
 decl_stmt|;
 comment|// Unicode order would include U+0633 in [ U+062F - U+0698 ], but Farsi
 comment|// orders the U+0698 character before the U+0633 character, so the single
-comment|// index Term below should NOT be returned by a RangeFilter with a Farsi
+comment|// index Term below should NOT be returned by a TermRangeFilter with a Farsi
 comment|// Collator (or an Arabic one for the case when Farsi is not supported).
 name|Hits
 name|result
@@ -3385,7 +3385,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"content"
 argument_list|,
@@ -3422,7 +3422,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"content"
 argument_list|,
@@ -3656,7 +3656,7 @@ name|Query
 name|query
 init|=
 operator|new
-name|RangeQuery
+name|TermRangeQuery
 argument_list|(
 literal|"content"
 argument_list|,
@@ -3683,7 +3683,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"content"
 argument_list|,
@@ -3720,7 +3720,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|RangeFilter
+name|TermRangeFilter
 argument_list|(
 literal|"content"
 argument_list|,
