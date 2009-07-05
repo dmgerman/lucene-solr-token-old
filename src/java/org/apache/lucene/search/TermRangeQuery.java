@@ -298,8 +298,6 @@ name|TermRangeTermEnum
 argument_list|(
 name|reader
 argument_list|,
-name|collator
-argument_list|,
 name|field
 argument_list|,
 name|lowerTerm
@@ -309,6 +307,8 @@ argument_list|,
 name|includeLower
 argument_list|,
 name|includeUpper
+argument_list|,
+name|collator
 argument_list|)
 return|;
 block|}
