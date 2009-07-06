@@ -162,11 +162,11 @@ name|File
 argument_list|(
 name|dataDir
 argument_list|,
-literal|"/org/apache/lucene/analysis/ru/wordsUnicode.txt"
+literal|"/org/apache/lucene/analysis/ru/wordsUTF8.txt"
 argument_list|)
 argument_list|)
 argument_list|,
-literal|"Unicode"
+literal|"UTF-8"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -215,11 +215,11 @@ name|File
 argument_list|(
 name|dataDir
 argument_list|,
-literal|"/org/apache/lucene/analysis/ru/stemsUnicode.txt"
+literal|"/org/apache/lucene/analysis/ru/stemsUTF8.txt"
 argument_list|)
 argument_list|)
 argument_list|,
-literal|"Unicode"
+literal|"UTF-8"
 argument_list|)
 argument_list|)
 decl_stmt|;
