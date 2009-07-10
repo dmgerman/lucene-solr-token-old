@@ -317,6 +317,11 @@ specifier|public
 name|String
 name|pk
 decl_stmt|;
+DECL|field|pkMappingFromSchema
+specifier|public
+name|String
+name|pkMappingFromSchema
+decl_stmt|;
 DECL|field|dataSource
 specifier|public
 name|String
