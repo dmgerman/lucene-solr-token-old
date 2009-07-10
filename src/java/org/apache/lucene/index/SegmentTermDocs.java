@@ -159,6 +159,8 @@ name|IndexInput
 operator|)
 name|parent
 operator|.
+name|core
+operator|.
 name|freqStream
 operator|.
 name|clone
@@ -184,6 +186,8 @@ name|skipInterval
 operator|=
 name|parent
 operator|.
+name|core
+operator|.
 name|tis
 operator|.
 name|getSkipInterval
@@ -194,6 +198,8 @@ operator|.
 name|maxSkipLevels
 operator|=
 name|parent
+operator|.
+name|core
 operator|.
 name|tis
 operator|.
@@ -216,6 +222,8 @@ name|TermInfo
 name|ti
 init|=
 name|parent
+operator|.
+name|core
 operator|.
 name|tis
 operator|.
@@ -267,6 +275,8 @@ name|fieldInfos
 operator|==
 name|parent
 operator|.
+name|core
+operator|.
 name|fieldInfos
 condition|)
 block|{
@@ -310,6 +320,8 @@ name|ti
 operator|=
 name|parent
 operator|.
+name|core
+operator|.
 name|tis
 operator|.
 name|get
@@ -347,6 +359,8 @@ name|FieldInfo
 name|fi
 init|=
 name|parent
+operator|.
+name|core
 operator|.
 name|fieldInfos
 operator|.

@@ -279,7 +279,7 @@ name|PrintStream
 name|infoStream
 decl_stmt|;
 DECL|class|HeavyAtomicInt
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|HeavyAtomicInt
