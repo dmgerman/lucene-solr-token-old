@@ -188,7 +188,8 @@ name|parent
 operator|.
 name|core
 operator|.
-name|tis
+name|getTermsReader
+argument_list|()
 operator|.
 name|getSkipInterval
 argument_list|()
@@ -201,7 +202,8 @@ name|parent
 operator|.
 name|core
 operator|.
-name|tis
+name|getTermsReader
+argument_list|()
 operator|.
 name|getMaxSkipLevels
 argument_list|()
@@ -225,7 +227,8 @@ name|parent
 operator|.
 name|core
 operator|.
-name|tis
+name|getTermsReader
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -322,7 +325,8 @@ name|parent
 operator|.
 name|core
 operator|.
-name|tis
+name|getTermsReader
+argument_list|()
 operator|.
 name|get
 argument_list|(

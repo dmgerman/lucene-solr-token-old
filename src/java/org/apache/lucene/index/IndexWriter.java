@@ -765,6 +765,27 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+return|return
+name|getReader
+argument_list|(
+name|IndexReader
+operator|.
+name|DEFAULT_TERMS_INDEX_DIVISOR
+argument_list|)
+return|;
+block|}
+comment|/** Expert: like {@link #getReader}, except you can    *  specify which termInfosIndexDivisor should be used for    *  any newly opened readers.    * @param termInfosIndexDivisor Subsambles which indexed    *  terms are loaded into RAM. This has the same effect as {@link    *  IndexWriter#setTermIndexInterval} except that setting    *  must be done at indexing time while this setting can be    *  set per reader.  When set to N, then one in every    *  N*termIndexInterval terms in the index is loaded into    *  memory.  By setting this to a value> 1 you can reduce    *  memory usage, at the expense of higher latency when    *  loading a TermInfo.  The default value is 1.  Set this    *  to -1 to skip loading the terms index entirely. */
+DECL|method|getReader
+specifier|public
+name|IndexReader
+name|getReader
+parameter_list|(
+name|int
+name|termInfosIndexDivisor
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 if|if
 condition|(
 name|infoStream
@@ -809,6 +830,8 @@ argument_list|(
 name|this
 argument_list|,
 name|segmentInfos
+argument_list|,
+name|termInfosIndexDivisor
 argument_list|)
 return|;
 block|}
@@ -1463,6 +1486,9 @@ name|info
 parameter_list|,
 name|boolean
 name|doOpenStores
+parameter_list|,
+name|int
+name|termInfosIndexDivisor
 parameter_list|)
 throws|throws
 name|IOException
@@ -1475,6 +1501,12 @@ argument_list|(
 name|info
 argument_list|,
 name|doOpenStores
+argument_list|,
+name|BufferedIndexInput
+operator|.
+name|BUFFER_SIZE
+argument_list|,
+name|termInfosIndexDivisor
 argument_list|)
 decl_stmt|;
 try|try
@@ -1526,6 +1558,10 @@ argument_list|,
 name|BufferedIndexInput
 operator|.
 name|BUFFER_SIZE
+argument_list|,
+name|IndexReader
+operator|.
+name|DEFAULT_TERMS_INDEX_DIVISOR
 argument_list|)
 return|;
 block|}
@@ -1543,6 +1579,9 @@ name|doOpenStores
 parameter_list|,
 name|int
 name|readBufferSize
+parameter_list|,
+name|int
+name|termsIndexDivisor
 parameter_list|)
 throws|throws
 name|IOException
@@ -1593,6 +1632,8 @@ argument_list|,
 name|readBufferSize
 argument_list|,
 name|doOpenStores
+argument_list|,
+name|termsIndexDivisor
 argument_list|)
 expr_stmt|;
 name|readerMap
@@ -1605,7 +1646,8 @@ name|sr
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
+else|else
+block|{
 if|if
 condition|(
 name|doOpenStores
@@ -1616,6 +1658,35 @@ operator|.
 name|openDocStores
 argument_list|()
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|termsIndexDivisor
+operator|!=
+operator|-
+literal|1
+operator|&&
+operator|!
+name|sr
+operator|.
+name|termsIndexLoaded
+argument_list|()
+condition|)
+block|{
+comment|// If this reader was originally opened because we
+comment|// needed to merge it, we didn't load the terms
+comment|// index.  But now, if the caller wants the terms
+comment|// index (eg because it's doing deletes, or an NRT
+comment|// reader is being opened) we ask the reader to
+comment|// load its terms index.
+name|sr
+operator|.
+name|loadTermsIndex
+argument_list|(
+name|termsIndexDivisor
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// Return a ref to our caller
 name|sr
@@ -9465,6 +9536,13 @@ literal|0
 argument_list|)
 argument_list|,
 literal|true
+argument_list|,
+name|BufferedIndexInput
+operator|.
+name|BUFFER_SIZE
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -13598,6 +13676,9 @@ operator|.
 name|mergeDocStores
 argument_list|,
 name|MERGE_READ_BUFFER_SIZE
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 decl_stmt|;
 comment|// We clone the segment readers because other
@@ -13840,6 +13921,13 @@ operator|.
 name|info
 argument_list|,
 literal|false
+argument_list|,
+name|BufferedIndexInput
+operator|.
+name|BUFFER_SIZE
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 decl_stmt|;
 try|try
