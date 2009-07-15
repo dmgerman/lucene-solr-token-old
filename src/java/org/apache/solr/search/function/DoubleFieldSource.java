@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ExtendedFieldCache
+name|FieldCache
 import|;
 end_import
 begin_import
@@ -64,7 +64,7 @@ name|FieldCacheSource
 block|{
 DECL|field|parser
 specifier|protected
-name|ExtendedFieldCache
+name|FieldCache
 operator|.
 name|DoubleParser
 name|parser
@@ -92,7 +92,7 @@ parameter_list|(
 name|String
 name|field
 parameter_list|,
-name|ExtendedFieldCache
+name|FieldCache
 operator|.
 name|DoubleParser
 name|parser
@@ -148,7 +148,7 @@ operator|)
 condition|?
 operator|(
 operator|(
-name|ExtendedFieldCache
+name|FieldCache
 operator|)
 name|cache
 operator|)
@@ -162,7 +162,7 @@ argument_list|)
 else|:
 operator|(
 operator|(
-name|ExtendedFieldCache
+name|FieldCache
 operator|)
 name|cache
 operator|)

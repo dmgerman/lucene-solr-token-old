@@ -40,6 +40,19 @@ operator|.
 name|OpenBitSetIterator
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|DocIdSetIterator
+import|;
+end_import
 begin_comment
 comment|/**  *<code>BitDocSet</code> represents an unordered set of Lucene Document Ids  * using a BitSet.  A set bit represents inclusion in the set for that document.  *  * @version $Id$  * @since solr 0.9  */
 end_comment
@@ -158,8 +171,10 @@ parameter_list|()
 block|{
 return|return
 name|pos
-operator|>=
-literal|0
+operator|!=
+name|DocIdSetIterator
+operator|.
+name|NO_MORE_DOCS
 return|;
 block|}
 specifier|public

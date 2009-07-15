@@ -54,6 +54,19 @@ operator|.
 name|OpenBitSetIterator
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|DocIdSetIterator
+import|;
+end_import
 begin_comment
 comment|/**  * @deprecated  * @version $Id$  */
 end_comment
@@ -293,6 +306,15 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
+name|aa
+operator|==
+operator|-
+literal|1
+condition|?
+name|DocIdSetIterator
+operator|.
+name|NO_MORE_DOCS
+else|:
 name|aa
 argument_list|,
 name|bb
