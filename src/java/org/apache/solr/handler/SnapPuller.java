@@ -392,7 +392,7 @@ name|InflaterInputStream
 import|;
 end_import
 begin_comment
-comment|/**  *<p/> Provides functionality equivalent to the snappull script as well as a timer for scheduling pulls from the  * master.</p>  *  * @version $Id$  * @since solr 1.4  */
+comment|/**  *<p/> Provides functionality of downloading changed index files as well as config files and a timer for scheduling fetches from the  * master.</p>  *  * @version $Id$  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|SnapPuller
@@ -1015,7 +1015,7 @@ argument_list|()
 expr_stmt|;
 name|replicationHandler
 operator|.
-name|doSnapPull
+name|doFetch
 argument_list|(
 literal|null
 argument_list|)
@@ -1658,7 +1658,7 @@ expr_stmt|;
 comment|// if the generateion of master is older than that of the slave , it means they are not compatible to be copied
 comment|// then a new index direcory to be created and all the files need to be copied
 name|boolean
-name|isSnapNeeded
+name|isFullCopyNeeded
 init|=
 name|commit
 operator|.
@@ -1680,7 +1680,7 @@ condition|(
 name|isIndexStale
 argument_list|()
 condition|)
-name|isSnapNeeded
+name|isFullCopyNeeded
 operator|=
 literal|true
 expr_stmt|;
@@ -1710,7 +1710,7 @@ argument_list|)
 decl_stmt|;
 name|downloadIndexFiles
 argument_list|(
-name|isSnapNeeded
+name|isFullCopyNeeded
 argument_list|,
 name|tmpIndexDir
 argument_list|,
@@ -1773,7 +1773,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|isSnapNeeded
+name|isFullCopyNeeded
 condition|)
 block|{
 name|modifyIndexProps
@@ -1827,7 +1827,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|isSnapNeeded
+name|isFullCopyNeeded
 condition|)
 block|{
 name|successfulInstall
@@ -2483,7 +2483,7 @@ name|core
 parameter_list|)
 block|{
 name|String
-name|snapName
+name|tmpIdxDirName
 init|=
 literal|"index."
 operator|+
@@ -2503,7 +2503,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|File
-name|snapDir
+name|tmpIdxDir
 init|=
 operator|new
 name|File
@@ -2513,16 +2513,16 @@ operator|.
 name|getDataDir
 argument_list|()
 argument_list|,
-name|snapName
+name|tmpIdxDirName
 argument_list|)
 decl_stmt|;
-name|snapDir
+name|tmpIdxDir
 operator|.
 name|mkdirs
 argument_list|()
 expr_stmt|;
 return|return
-name|snapDir
+name|tmpIdxDir
 return|;
 block|}
 DECL|method|reloadCore
@@ -2797,7 +2797,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Download the index files. If a new index is needed, download all the files.    *    * @param downloadCompleteIndex is it a fresh index copy    * @param snapDir               the directory to which files need to be downloadeed to    * @param latestVersion         the version number    */
+comment|/**    * Download the index files. If a new index is needed, download all the files.    *    * @param downloadCompleteIndex is it a fresh index copy    * @param tmpIdxDir               the directory to which files need to be downloadeed to    * @param latestVersion         the version number    */
 DECL|method|downloadIndexFiles
 specifier|private
 name|void
@@ -2807,7 +2807,7 @@ name|boolean
 name|downloadCompleteIndex
 parameter_list|,
 name|File
-name|snapDir
+name|tmpIdxDir
 parameter_list|,
 name|long
 name|latestVersion
@@ -2866,7 +2866,7 @@ operator|=
 operator|new
 name|FileFetcher
 argument_list|(
-name|snapDir
+name|tmpIdxDir
 argument_list|,
 name|file
 argument_list|,
@@ -3008,7 +3008,7 @@ name|boolean
 name|copyAFile
 parameter_list|(
 name|File
-name|snapDir
+name|tmpIdxDir
 parameter_list|,
 name|File
 name|indexDir
@@ -3024,12 +3024,12 @@ name|copiedfiles
 parameter_list|)
 block|{
 name|File
-name|indexFileInSnap
+name|indexFileInTmpDir
 init|=
 operator|new
 name|File
 argument_list|(
-name|snapDir
+name|tmpIdxDir
 argument_list|,
 name|fname
 argument_list|)
@@ -3048,7 +3048,7 @@ decl_stmt|;
 name|boolean
 name|success
 init|=
-name|indexFileInSnap
+name|indexFileInTmpDir
 operator|.
 name|renameTo
 argument_list|(
@@ -3067,7 +3067,7 @@ name|error
 argument_list|(
 literal|"Unable to move index file from: "
 operator|+
-name|indexFileInSnap
+name|indexFileInTmpDir
 operator|+
 literal|" to: "
 operator|+
@@ -3108,7 +3108,7 @@ expr_stmt|;
 block|}
 name|delTree
 argument_list|(
-name|snapDir
+name|tmpIdxDir
 argument_list|)
 expr_stmt|;
 return|return
@@ -3126,7 +3126,7 @@ name|boolean
 name|copyIndexFiles
 parameter_list|(
 name|File
-name|snapDir
+name|tmpIdxDir
 parameter_list|,
 name|File
 name|indexDir
@@ -3204,7 +3204,7 @@ condition|(
 operator|!
 name|copyAFile
 argument_list|(
-name|snapDir
+name|tmpIdxDir
 argument_list|,
 name|indexDir
 argument_list|,
@@ -3237,7 +3237,7 @@ condition|(
 operator|!
 name|copyAFile
 argument_list|(
-name|snapDir
+name|tmpIdxDir
 argument_list|,
 name|indexDir
 argument_list|,
@@ -3449,7 +3449,7 @@ name|boolean
 name|modifyIndexProps
 parameter_list|(
 name|String
-name|snap
+name|tmpIdxDirName
 parameter_list|)
 block|{
 name|LOG
@@ -3542,7 +3542,7 @@ name|put
 argument_list|(
 literal|"index"
 argument_list|,
-name|snap
+name|tmpIdxDirName
 argument_list|)
 expr_stmt|;
 name|FileOutputStream
@@ -4432,9 +4432,10 @@ name|includeChecksum
 init|=
 literal|true
 decl_stmt|;
-DECL|field|snapDir
+DECL|field|copy2Dir
+specifier|private
 name|File
-name|snapDir
+name|copy2Dir
 decl_stmt|;
 DECL|field|fileName
 name|String
@@ -4538,7 +4539,7 @@ name|FileNotFoundException
 block|{
 name|this
 operator|.
-name|snapDir
+name|copy2Dir
 operator|=
 name|dir
 expr_stmt|;
@@ -4618,7 +4619,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|snapDir
+name|copy2Dir
 argument_list|,
 name|saveAs
 argument_list|)
@@ -5063,7 +5064,7 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|"Snappull failed for file:"
+literal|"Fetch failed for file:"
 operator|+
 name|fileName
 argument_list|,
