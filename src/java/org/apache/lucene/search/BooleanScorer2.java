@@ -1171,9 +1171,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|int
-name|doc
-decl_stmt|;
 while|while
 condition|(
 operator|(
@@ -1245,12 +1242,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// null pointer exception when next() was not called before:
-name|int
-name|docNr
-init|=
+name|doc
+operator|=
 name|firstDocID
-decl_stmt|;
+expr_stmt|;
 name|collector
 operator|.
 name|setScorer
@@ -1260,7 +1255,7 @@ argument_list|)
 expr_stmt|;
 while|while
 condition|(
-name|docNr
+name|doc
 operator|<
 name|max
 condition|)
@@ -1269,10 +1264,10 @@ name|collector
 operator|.
 name|collect
 argument_list|(
-name|docNr
+name|doc
 argument_list|)
 expr_stmt|;
-name|docNr
+name|doc
 operator|=
 name|countingSumScorer
 operator|.
@@ -1281,7 +1276,7 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|docNr
+name|doc
 operator|!=
 name|NO_MORE_DOCS
 return|;
