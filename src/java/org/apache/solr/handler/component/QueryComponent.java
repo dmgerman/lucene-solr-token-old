@@ -1360,6 +1360,11 @@ operator|.
 name|getLeafReaders
 argument_list|()
 decl_stmt|;
+name|SolrIndexReader
+name|subReader
+init|=
+name|reader
+decl_stmt|;
 if|if
 condition|(
 name|readers
@@ -1368,10 +1373,20 @@ name|length
 operator|==
 literal|1
 condition|)
+block|{
+comment|// if there is a single segment, use that subReader and avoid looking up each time
+name|subReader
+operator|=
+name|readers
+index|[
+literal|0
+index|]
+expr_stmt|;
 name|readers
 operator|=
 literal|null
 expr_stmt|;
+block|}
 name|int
 index|[]
 name|offsets
@@ -1504,11 +1519,6 @@ name|docList
 operator|.
 name|iterator
 argument_list|()
-decl_stmt|;
-name|SolrIndexReader
-name|subReader
-init|=
-name|reader
 decl_stmt|;
 name|int
 name|offset
