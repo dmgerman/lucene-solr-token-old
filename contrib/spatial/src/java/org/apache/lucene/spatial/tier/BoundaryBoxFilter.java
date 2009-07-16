@@ -118,9 +118,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|spatial
+name|util
 operator|.
-name|NumberUtils
+name|NumericUtils
 import|;
 end_import
 begin_comment
@@ -638,9 +638,9 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-name|NumberUtils
+name|NumericUtils
 operator|.
-name|SortableStr2double
+name|prefixCodedToDouble
 argument_list|(
 name|lowerTerm
 argument_list|)
@@ -665,9 +665,9 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-name|NumberUtils
+name|NumericUtils
 operator|.
-name|SortableStr2double
+name|prefixCodedToDouble
 argument_list|(
 name|upperTerm
 argument_list|)

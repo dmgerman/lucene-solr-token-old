@@ -155,9 +155,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|spatial
+name|util
 operator|.
-name|NumberUtils
+name|NumericUtils
 import|;
 end_import
 begin_import
@@ -358,9 +358,9 @@ name|Field
 argument_list|(
 name|latField
 argument_list|,
-name|NumberUtils
+name|NumericUtils
 operator|.
-name|double2sortableStr
+name|doubleToPrefixCoded
 argument_list|(
 name|lat
 argument_list|)
@@ -388,9 +388,9 @@ name|Field
 argument_list|(
 name|lngField
 argument_list|,
-name|NumberUtils
+name|NumericUtils
 operator|.
-name|double2sortableStr
+name|doubleToPrefixCoded
 argument_list|(
 name|lng
 argument_list|)
