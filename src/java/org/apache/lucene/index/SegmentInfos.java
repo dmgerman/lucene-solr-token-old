@@ -173,8 +173,12 @@ operator|.
 name|Map
 import|;
 end_import
+begin_comment
+comment|/**  * A collection of segmentInfo objects with methods for operating on  * those segments in relation to the file system.  *   *<p><b>NOTE:</b> This API is new and still experimental  * (subject to change suddenly in the next release)</p>  */
+end_comment
 begin_class
 DECL|class|SegmentInfos
+specifier|public
 specifier|final
 class|class
 name|SegmentInfos
@@ -2619,7 +2623,6 @@ name|version
 expr_stmt|;
 block|}
 DECL|method|rollbackCommit
-specifier|public
 specifier|final
 name|void
 name|rollbackCommit
@@ -2700,7 +2703,6 @@ block|}
 block|}
 comment|/** Call this to start a commit.  This writes the new    *  segments file, but writes an invalid checksum at the    *  end, so that it is not visible to readers.  Once this    *  is called you must call {@link #finishCommit} to complete    *  the commit or {@link #rollbackCommit} to abort it. */
 DECL|method|prepareCommit
-specifier|public
 specifier|final
 name|void
 name|prepareCommit
@@ -2826,7 +2828,6 @@ name|files
 return|;
 block|}
 DECL|method|finishCommit
-specifier|public
 specifier|final
 name|void
 name|finishCommit
@@ -3024,7 +3025,6 @@ block|}
 block|}
 comment|/** Writes& syncs to the Directory dir, taking care to    *  remove the segments file on exception */
 DECL|method|commit
-specifier|public
 specifier|final
 name|void
 name|commit
@@ -3047,6 +3047,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|segString
+specifier|public
 specifier|synchronized
 name|String
 name|segString
@@ -3154,7 +3155,6 @@ name|userData
 return|;
 block|}
 DECL|method|setUserData
-specifier|public
 name|void
 name|setUserData
 parameter_list|(
@@ -3210,6 +3210,7 @@ expr_stmt|;
 block|}
 comment|// Used only for testing
 DECL|method|hasExternalSegments
+specifier|public
 name|boolean
 name|hasExternalSegments
 parameter_list|(
