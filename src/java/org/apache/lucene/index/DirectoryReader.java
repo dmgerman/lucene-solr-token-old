@@ -4288,6 +4288,16 @@ return|return
 name|directory
 return|;
 block|}
+DECL|method|getTermInfosIndexDivisor
+specifier|public
+name|int
+name|getTermInfosIndexDivisor
+parameter_list|()
+block|{
+return|return
+name|termInfosIndexDivisor
+return|;
+block|}
 comment|/**    * Expert: return the IndexCommit that this reader has opened.    *<p/>    *<p><b>WARNING</b>: this API is new and experimental and may suddenly change.</p>    */
 DECL|method|getIndexCommit
 specifier|public

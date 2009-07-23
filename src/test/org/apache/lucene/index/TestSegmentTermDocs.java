@@ -252,6 +252,16 @@ operator|!=
 literal|null
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+name|indexDivisor
+argument_list|,
+name|reader
+operator|.
+name|getTermInfosIndexDivisor
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|SegmentTermDocs
 name|segTermDocs
 init|=

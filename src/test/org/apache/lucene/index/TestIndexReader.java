@@ -11486,6 +11486,17 @@ name|termsIndexLoaded
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+name|r
+operator|.
+name|getTermInfosIndexDivisor
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|writer
 operator|=
 operator|new
