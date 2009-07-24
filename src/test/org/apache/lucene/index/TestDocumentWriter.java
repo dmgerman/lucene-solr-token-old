@@ -1031,6 +1031,8 @@ init|=
 literal|true
 decl_stmt|;
 name|AttributeSource
+operator|.
+name|State
 name|state
 decl_stmt|;
 specifier|public
@@ -1047,11 +1049,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|state
-operator|.
 name|restoreState
 argument_list|(
-name|this
+name|state
 argument_list|)
 expr_stmt|;
 name|payloadAtt
