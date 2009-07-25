@@ -43,7 +43,7 @@ name|Attribute
 import|;
 end_import
 begin_comment
-comment|/**  * The payload of a Token. See also {@link Payload}.  *   *<p><font color="#FF0000">  * WARNING: The status of the new TokenStream, AttributeSource and Attributes is experimental.   * The APIs introduced in these classes with Lucene 2.9 might change in the future.   * We will make our best efforts to keep the APIs backwards-compatible.</font>  */
+comment|/**  * The payload of a Token. See also {@link Payload}.  */
 end_comment
 begin_interface
 DECL|interface|PayloadAttribute
