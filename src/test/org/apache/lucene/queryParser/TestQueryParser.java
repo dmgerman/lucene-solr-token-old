@@ -358,6 +358,19 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|MultiTermQuery
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|FuzzyQuery
 import|;
 end_import
@@ -2839,8 +2852,12 @@ argument_list|,
 literal|"[a TO z]"
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+name|MultiTermQuery
+operator|.
+name|CONSTANT_SCORE_AUTO_REWRITE_DEFAULT
+argument_list|,
 operator|(
 operator|(
 name|TermRangeQuery
@@ -2853,7 +2870,7 @@ literal|null
 argument_list|)
 operator|)
 operator|.
-name|getConstantScoreRewrite
+name|getRewriteMethod
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2872,13 +2889,19 @@ argument_list|)
 decl_stmt|;
 name|qp
 operator|.
-name|setConstantScoreRewrite
+name|setMultiTermRewriteMethod
 argument_list|(
-literal|false
+name|MultiTermQuery
+operator|.
+name|SCORING_BOOLEAN_QUERY_REWRITE
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertEquals
 argument_list|(
+name|MultiTermQuery
+operator|.
+name|SCORING_BOOLEAN_QUERY_REWRITE
+argument_list|,
 operator|(
 operator|(
 name|TermRangeQuery
@@ -2891,7 +2914,7 @@ literal|"[ a TO z]"
 argument_list|)
 operator|)
 operator|.
-name|getConstantScoreRewrite
+name|getRewriteMethod
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3102,9 +3125,11 @@ comment|// supported).
 comment|// Test ConstantScoreRangeQuery
 name|qp
 operator|.
-name|setConstantScoreRewrite
+name|setMultiTermRewriteMethod
 argument_list|(
-literal|true
+name|MultiTermQuery
+operator|.
+name|CONSTANT_SCORE_FILTER_REWRITE
 argument_list|)
 expr_stmt|;
 name|ScoreDoc
@@ -3174,9 +3199,11 @@ expr_stmt|;
 comment|// Test TermRangeQuery
 name|qp
 operator|.
-name|setConstantScoreRewrite
+name|setMultiTermRewriteMethod
 argument_list|(
-literal|false
+name|MultiTermQuery
+operator|.
+name|SCORING_BOOLEAN_QUERY_REWRITE
 argument_list|)
 expr_stmt|;
 name|result
