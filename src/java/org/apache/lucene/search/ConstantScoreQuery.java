@@ -465,9 +465,11 @@ condition|)
 block|{
 name|docIdSetIterator
 operator|=
-name|EmptyDocIdSetIterator
+name|DocIdSet
 operator|.
-name|getInstance
+name|EMPTY_DOCIDSET
+operator|.
+name|iterator
 argument_list|()
 expr_stmt|;
 block|}
@@ -490,9 +492,11 @@ condition|)
 block|{
 name|docIdSetIterator
 operator|=
-name|EmptyDocIdSetIterator
+name|DocIdSet
 operator|.
-name|getInstance
+name|EMPTY_DOCIDSET
+operator|.
+name|iterator
 argument_list|()
 expr_stmt|;
 block|}
