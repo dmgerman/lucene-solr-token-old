@@ -344,6 +344,13 @@ argument_list|,
 name|reader
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|docIdSet
+operator|!=
+literal|null
+condition|)
+block|{
 synchronized|synchronized
 init|(
 name|cache
@@ -359,6 +366,7 @@ argument_list|,
 name|docIdSet
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|docIdSet

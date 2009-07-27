@@ -723,6 +723,15 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|scorer
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 comment|// FUTURE: ensure scorer.doc()==-1
 specifier|final
 name|int
@@ -1540,6 +1549,13 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|scorer
+operator|!=
+literal|null
+condition|)
+block|{
 name|boolean
 name|more
 init|=
@@ -1595,6 +1611,7 @@ argument_list|,
 name|more
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

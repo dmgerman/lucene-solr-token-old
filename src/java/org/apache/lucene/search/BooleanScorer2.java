@@ -787,26 +787,6 @@ throws|throws
 name|IOException
 block|{
 comment|// No required scorers
-if|if
-condition|(
-name|optionalScorers
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-operator|new
-name|NonMatchingScorer
-argument_list|()
-return|;
-comment|// no clauses or only prohibited clauses
-block|}
-else|else
-block|{
-comment|// No required scorers. At least one optional scorer.
 comment|// minNrShouldMatch optional scorers are required, but at least 1
 name|int
 name|nrOptRequired
@@ -821,55 +801,39 @@ literal|1
 else|:
 name|minNrShouldMatch
 decl_stmt|;
+name|Scorer
+name|requiredCountingSumScorer
+decl_stmt|;
 if|if
 condition|(
 name|optionalScorers
 operator|.
 name|size
 argument_list|()
-operator|<
-name|nrOptRequired
-condition|)
-block|{
-return|return
-operator|new
-name|NonMatchingScorer
-argument_list|()
-return|;
-comment|// fewer optional clauses than minimum (at least 1) that should match
-block|}
-else|else
-block|{
-comment|// optionalScorers.size()>= nrOptRequired, no required scorers
-name|Scorer
-name|requiredCountingSumScorer
-init|=
-operator|(
-name|optionalScorers
-operator|.
-name|size
-argument_list|()
 operator|>
 name|nrOptRequired
-operator|)
-condition|?
+condition|)
+name|requiredCountingSumScorer
+operator|=
 name|countingDisjunctionSumScorer
 argument_list|(
 name|optionalScorers
 argument_list|,
 name|nrOptRequired
 argument_list|)
-else|:
-comment|// optionalScorers.size() == nrOptRequired (all optional scorers are required), no required scorers
-operator|(
+expr_stmt|;
+elseif|else
+if|if
+condition|(
 name|optionalScorers
 operator|.
 name|size
 argument_list|()
 operator|==
 literal|1
-operator|)
-condition|?
+condition|)
+name|requiredCountingSumScorer
+operator|=
 operator|new
 name|SingleMatchScorer
 argument_list|(
@@ -883,20 +847,21 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
-else|:
+expr_stmt|;
+else|else
+name|requiredCountingSumScorer
+operator|=
 name|countingConjunctionSumScorer
 argument_list|(
 name|optionalScorers
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 return|return
 name|addProhibitedScorers
 argument_list|(
 name|requiredCountingSumScorer
 argument_list|)
 return|;
-block|}
-block|}
 block|}
 DECL|method|makeCountingSumScorerSomeReq
 specifier|private
@@ -907,24 +872,6 @@ throws|throws
 name|IOException
 block|{
 comment|// At least one required scorer.
-if|if
-condition|(
-name|optionalScorers
-operator|.
-name|size
-argument_list|()
-operator|<
-name|minNrShouldMatch
-condition|)
-block|{
-return|return
-operator|new
-name|NonMatchingScorer
-argument_list|()
-return|;
-comment|// fewer optional clauses than minimum that should match
-block|}
-elseif|else
 if|if
 condition|(
 name|optionalScorers
@@ -968,14 +915,12 @@ comment|// optionalScorers.size()> minNrShouldMatch, and at least one required s
 name|Scorer
 name|requiredCountingSumScorer
 init|=
-operator|(
 name|requiredScorers
 operator|.
 name|size
 argument_list|()
 operator|==
 literal|1
-operator|)
 condition|?
 operator|new
 name|SingleMatchScorer
@@ -1034,15 +979,12 @@ argument_list|(
 name|requiredCountingSumScorer
 argument_list|)
 argument_list|,
-operator|(
-operator|(
 name|optionalScorers
 operator|.
 name|size
 argument_list|()
 operator|==
 literal|1
-operator|)
 condition|?
 operator|new
 name|SingleMatchScorer
@@ -1057,6 +999,7 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
+comment|// require 1 in combined, optional scorer.
 else|:
 name|countingDisjunctionSumScorer
 argument_list|(
@@ -1064,10 +1007,8 @@ name|optionalScorers
 argument_list|,
 literal|1
 argument_list|)
-operator|)
 argument_list|)
 return|;
-comment|// require 1 in combined, optional scorer.
 block|}
 block|}
 block|}
