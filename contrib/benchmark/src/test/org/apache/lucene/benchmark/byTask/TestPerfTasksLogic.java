@@ -1339,7 +1339,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Test WriteLineDoc and LineDocMaker.    */
+comment|/**    * Test WriteLineDoc and LineDocSource.    */
 DECL|method|testLineDocFile
 specifier|public
 name|void
@@ -1480,7 +1480,7 @@ literal|"# ----- properties "
 block|,
 literal|"analyzer=org.apache.lucene.analysis.SimpleAnalyzer"
 block|,
-literal|"doc.maker=org.apache.lucene.benchmark.byTask.feeds.LineDocMaker"
+literal|"content.source=org.apache.lucene.benchmark.byTask.feeds.LineDocSource"
 block|,
 literal|"docs.file="
 operator|+
@@ -1574,7 +1574,7 @@ name|assertEquals
 argument_list|(
 name|numLines
 operator|+
-literal|" lines were were created but "
+literal|" lines were created but "
 operator|+
 name|ir
 operator|.
