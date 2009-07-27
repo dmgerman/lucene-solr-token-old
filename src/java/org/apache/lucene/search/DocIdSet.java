@@ -23,19 +23,6 @@ operator|.
 name|IOException
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|SortedVIntList
-import|;
-end_import
 begin_comment
 comment|/**  * A DocIdSet contains a set of doc ids. Implementing classes must  * only implement {@link #iterator} to provide access to the set.   */
 end_comment
@@ -46,7 +33,7 @@ specifier|abstract
 class|class
 name|DocIdSet
 block|{
-comment|/** An empty {@code DocIdSet} instance for easy use (this is currently    * implemented using a {@link SortedVIntList}). */
+comment|/** An empty {@code DocIdSet} instance for easy use, e.g. in Filters that hit no documents. */
 DECL|field|EMPTY_DOCIDSET
 specifier|public
 specifier|static
@@ -114,7 +101,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|/** Provides a {@link DocIdSetIterator} to access the set.    * This may (but is not required to) return null if there    * are no docs that match. */
+comment|/** Provides a {@link DocIdSetIterator} to access the set.    * This implementation can return<code>null</code> or    *<code>{@linkplain #EMPTY_DOCIDSET}.iterator()</code> if there    * are no docs that match. */
 DECL|method|iterator
 specifier|public
 specifier|abstract
