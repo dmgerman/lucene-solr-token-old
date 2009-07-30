@@ -317,7 +317,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TermRangeQuery
+name|TermQuery
 import|;
 end_import
 begin_import
@@ -330,7 +330,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TermQuery
+name|TermRangeQuery
 import|;
 end_import
 begin_import
@@ -2232,6 +2232,7 @@ expr_stmt|;
 block|}
 comment|/**    * This class makes sure that if both position sensitive and insensitive    * versions of the same term are added, the position insensitive one wins.    */
 DECL|class|PositionCheckingMap
+specifier|static
 specifier|private
 class|class
 name|PositionCheckingMap

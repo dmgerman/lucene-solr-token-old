@@ -26,11 +26,26 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|Token
+name|TokenStream
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|tokenattributes
+operator|.
+name|OffsetAttribute
 import|;
 end_import
 begin_comment
-comment|/**  * {@link Fragmenter} implementation which breaks text up into same-size   * fragments with no concerns over spotting sentence boundaries.  */
+comment|/**  * {@link Fragmenter} implementation which breaks text up into same-size  * fragments with no concerns over spotting sentence boundaries.  */
 end_comment
 begin_class
 DECL|class|SimpleFragmenter
@@ -59,6 +74,11 @@ specifier|private
 name|int
 name|fragmentSize
 decl_stmt|;
+DECL|field|offsetAtt
+specifier|private
+name|OffsetAttribute
+name|offsetAtt
+decl_stmt|;
 DECL|method|SimpleFragmenter
 specifier|public
 name|SimpleFragmenter
@@ -70,7 +90,7 @@ name|DEFAULT_FRAGMENT_SIZE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 *  	 * @param fragmentSize size in number of characters of each fragment 	 */
+comment|/**    *     * @param fragmentSize size in number of characters of each fragment    */
 DECL|method|SimpleFragmenter
 specifier|public
 name|SimpleFragmenter
@@ -86,7 +106,7 @@ operator|=
 name|fragmentSize
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc) 	 * @see org.apache.lucene.search.highlight.TextFragmenter#start(java.lang.String) 	 */
+comment|/* (non-Javadoc)    * @see org.apache.lucene.search.highlight.Fragmenter#start(java.lang.String, org.apache.lucene.analysis.TokenStream)    */
 DECL|method|start
 specifier|public
 name|void
@@ -94,27 +114,41 @@ name|start
 parameter_list|(
 name|String
 name|originalText
+parameter_list|,
+name|TokenStream
+name|stream
 parameter_list|)
 block|{
+name|offsetAtt
+operator|=
+operator|(
+name|OffsetAttribute
+operator|)
+name|stream
+operator|.
+name|getAttribute
+argument_list|(
+name|OffsetAttribute
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|currentNumFrags
 operator|=
 literal|1
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc) 	 * @see org.apache.lucene.search.highlight.TextFragmenter#isNewFragment(org.apache.lucene.analysis.Token) 	 */
+comment|/* (non-Javadoc)    * @see org.apache.lucene.search.highlight.Fragmenter#isNewFragment()    */
 DECL|method|isNewFragment
 specifier|public
 name|boolean
 name|isNewFragment
-parameter_list|(
-name|Token
-name|token
-parameter_list|)
+parameter_list|()
 block|{
 name|boolean
 name|isNewFrag
 init|=
-name|token
+name|offsetAtt
 operator|.
 name|endOffset
 argument_list|()
@@ -138,7 +172,7 @@ return|return
 name|isNewFrag
 return|;
 block|}
-comment|/** 	 * @return size in number of characters of each fragment 	 */
+comment|/**    * @return size in number of characters of each fragment    */
 DECL|method|getFragmentSize
 specifier|public
 name|int
@@ -149,7 +183,7 @@ return|return
 name|fragmentSize
 return|;
 block|}
-comment|/** 	 * @param size size in characters of each fragment 	 */
+comment|/**    * @param size size in characters of each fragment    */
 DECL|method|setFragmentSize
 specifier|public
 name|void
