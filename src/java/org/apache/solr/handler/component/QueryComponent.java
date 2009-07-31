@@ -1934,6 +1934,7 @@ argument_list|,
 name|fieldname
 argument_list|)
 expr_stmt|;
+comment|// comparator = sortField.getComparatorSource().newComparator(fieldname,2,1,false);
 break|break;
 default|default:
 throw|throw
