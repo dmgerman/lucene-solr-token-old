@@ -653,6 +653,10 @@ block|}
 if|if
 condition|(
 name|keep
+operator|!=
+literal|null
+operator|&&
+name|keep
 operator|.
 name|contains
 argument_list|(
