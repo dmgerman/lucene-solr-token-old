@@ -531,7 +531,9 @@ name|mp
 init|=
 operator|new
 name|LogDocMergePolicy
-argument_list|()
+argument_list|(
+name|writer
+argument_list|)
 decl_stmt|;
 name|writer
 operator|.

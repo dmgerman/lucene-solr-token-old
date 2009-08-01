@@ -179,7 +179,9 @@ name|setMergePolicy
 argument_list|(
 operator|new
 name|LogDocMergePolicy
-argument_list|()
+argument_list|(
+name|writer
+argument_list|)
 argument_list|)
 expr_stmt|;
 for|for
@@ -271,7 +273,9 @@ name|setMergePolicy
 argument_list|(
 operator|new
 name|LogDocMergePolicy
-argument_list|()
+argument_list|(
+name|writer
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -392,7 +396,9 @@ name|mp
 init|=
 operator|new
 name|LogDocMergePolicy
-argument_list|()
+argument_list|(
+name|writer
+argument_list|)
 decl_stmt|;
 name|mp
 operator|.
@@ -550,7 +556,9 @@ name|setMergePolicy
 argument_list|(
 operator|new
 name|LogDocMergePolicy
-argument_list|()
+argument_list|(
+name|writer
+argument_list|)
 argument_list|)
 expr_stmt|;
 for|for
@@ -673,7 +681,9 @@ name|setMergePolicy
 argument_list|(
 operator|new
 name|LogDocMergePolicy
-argument_list|()
+argument_list|(
+name|writer
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// leftmost* segment has 1 doc
@@ -760,7 +770,9 @@ name|setMergePolicy
 argument_list|(
 operator|new
 name|LogDocMergePolicy
-argument_list|()
+argument_list|(
+name|writer
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -877,7 +889,9 @@ name|setMergePolicy
 argument_list|(
 operator|new
 name|LogDocMergePolicy
-argument_list|()
+argument_list|(
+name|writer
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|writer
@@ -975,7 +989,9 @@ name|setMergePolicy
 argument_list|(
 operator|new
 name|LogDocMergePolicy
-argument_list|()
+argument_list|(
+name|writer
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|writer
