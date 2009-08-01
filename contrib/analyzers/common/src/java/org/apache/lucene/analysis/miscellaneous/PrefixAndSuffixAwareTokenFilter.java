@@ -52,7 +52,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Links two PrefixAwareTokenFilter  */
+comment|/**  * Links two PrefixAwareTokenFilter  * @deprecated  */
 end_comment
 begin_class
 DECL|class|PrefixAndSuffixAwareTokenFilter
