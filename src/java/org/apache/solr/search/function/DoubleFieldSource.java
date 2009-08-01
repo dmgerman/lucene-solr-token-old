@@ -284,7 +284,7 @@ argument_list|()
 operator|+
 literal|'='
 operator|+
-name|floatVal
+name|doubleVal
 argument_list|(
 name|doc
 argument_list|)

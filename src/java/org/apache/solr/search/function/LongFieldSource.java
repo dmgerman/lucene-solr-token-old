@@ -259,7 +259,7 @@ name|doc
 parameter_list|)
 block|{
 return|return
-name|Double
+name|Long
 operator|.
 name|toString
 argument_list|(
@@ -284,7 +284,7 @@ argument_list|()
 operator|+
 literal|'='
 operator|+
-name|floatVal
+name|longVal
 argument_list|(
 name|doc
 argument_list|)
