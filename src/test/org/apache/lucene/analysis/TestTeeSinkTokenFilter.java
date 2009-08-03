@@ -1797,7 +1797,7 @@ block|}
 DECL|class|ModuloSinkFilter
 class|class
 name|ModuloSinkFilter
-implements|implements
+extends|extends
 name|TeeSinkTokenFilter
 operator|.
 name|SinkFilter
