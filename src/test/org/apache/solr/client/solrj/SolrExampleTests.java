@@ -2213,6 +2213,11 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// make sure it got in
+name|String
+name|f
+init|=
+literal|"val_pi"
+decl_stmt|;
 name|int
 name|i
 init|=
@@ -2290,7 +2295,7 @@ name|doc
 operator|.
 name|setField
 argument_list|(
-literal|"popularity"
+name|f
 argument_list|,
 name|num
 argument_list|)
@@ -2338,7 +2343,7 @@ name|query
 operator|.
 name|setGetFieldStatistics
 argument_list|(
-literal|"popularity"
+name|f
 argument_list|)
 expr_stmt|;
 name|QueryResponse
@@ -2361,7 +2366,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"popularity"
+name|f
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2521,7 +2526,7 @@ name|doc
 operator|.
 name|setField
 argument_list|(
-literal|"popularity"
+name|f
 argument_list|,
 name|num
 argument_list|)
@@ -2567,7 +2572,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"popularity"
+name|f
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -2732,7 +2737,7 @@ name|doc
 operator|.
 name|setField
 argument_list|(
-literal|"popularity"
+name|f
 argument_list|,
 name|num
 argument_list|)
@@ -2782,7 +2787,7 @@ name|query
 operator|.
 name|addStatsFieldFacets
 argument_list|(
-literal|"popularity"
+name|f
 argument_list|,
 literal|"inStock"
 argument_list|)
@@ -2805,7 +2810,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"popularity"
+name|f
 argument_list|)
 expr_stmt|;
 name|assertNotNull
