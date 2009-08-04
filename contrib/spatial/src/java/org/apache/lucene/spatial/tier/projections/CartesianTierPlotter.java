@@ -229,7 +229,7 @@ return|return
 name|tierVerticalPosDivider
 return|;
 block|}
-comment|/**    * TierBoxId is latitude box id + longitude box id    * where latitude box id, and longitude box id are transposded in to position    * coordinates.    *     * @param latitude    * @param longitude    * @return    */
+comment|/**    * TierBoxId is latitude box id + longitude box id    * where latitude box id, and longitude box id are transposded in to position    * coordinates.    *     * @param latitude    * @param longitude    */
 DECL|method|getTierBoxId
 specifier|public
 name|double
@@ -340,7 +340,7 @@ operator|)
 argument_list|)
 return|;
 block|}
-comment|/**    * get the string name representing current tier    * _localTier&lt;tiedId&gt;    * @return    */
+comment|/**    * get the string name representing current tier    * _localTier&lt;tiedId&gt;    */
 DECL|method|getTierFieldName
 specifier|public
 name|String
@@ -355,7 +355,7 @@ operator|.
 name|tierLevel
 return|;
 block|}
-comment|/**    * get the string name representing tierId    * _localTier&lt;tierId&gt;    * @param tierId    * @return    */
+comment|/**    * get the string name representing tierId    * _localTier&lt;tierId&gt;    * @param tierId    */
 DECL|method|getTierFieldName
 specifier|public
 name|String
@@ -371,13 +371,13 @@ operator|+
 name|tierId
 return|;
 block|}
-comment|/**    * Find the tier with the best fit for a bounding box    * Best fit is defined as the ceiling of    *  log2 (circumference of earth / distance)     *  distance is defined as the smallest box fitting    *  the corner between a radius and a bounding box.    *      *  Distances less than a mile return 15, finer granularity is    *  in accurate    *     * @param latitude    * @param longitude    * @return    */
+comment|/**    * Find the tier with the best fit for a bounding box    * Best fit is defined as the ceiling of    *  log2 (circumference of earth / distance)     *  distance is defined as the smallest box fitting    *  the corner between a radius and a bounding box.    *      *  Distances less than a mile return 15, finer granularity is    *  in accurate    */
 DECL|method|bestFit
 specifier|public
 name|int
 name|bestFit
 parameter_list|(
-name|int
+name|double
 name|miles
 parameter_list|)
 block|{
@@ -415,17 +415,6 @@ operator|/
 literal|2.0d
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"corner "
-operator|+
-name|corner
-argument_list|)
-expr_stmt|;
 name|double
 name|times
 init|=
@@ -468,7 +457,7 @@ return|return
 name|bestFit
 return|;
 block|}
-comment|/**    * a log to the base 2 formula    *<code>Math.log(value) / Math.log(2)</code>    * @param value    * @return    */
+comment|/**    * a log to the base 2 formula    *<code>Math.log(value) / Math.log(2)</code>    * @param value    */
 DECL|method|log2
 specifier|public
 name|double
