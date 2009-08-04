@@ -1198,19 +1198,9 @@ name|boolean
 name|maxInclusive
 parameter_list|)
 block|{
-comment|// don't use a precisionStep if the field is multiValued
 name|int
 name|ps
 init|=
-name|field
-operator|.
-name|multiValued
-argument_list|()
-condition|?
-name|Integer
-operator|.
-name|MAX_VALUE
-else|:
 name|precisionStep
 decl_stmt|;
 name|Query
@@ -2506,15 +2496,6 @@ block|}
 name|int
 name|ps
 init|=
-name|field
-operator|.
-name|multiValued
-argument_list|()
-condition|?
-name|Integer
-operator|.
-name|MAX_VALUE
-else|:
 name|precisionStep
 decl_stmt|;
 name|byte
