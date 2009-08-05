@@ -30,7 +30,7 @@ name|Payload
 import|;
 end_import
 begin_comment
-comment|/**  *  Encode a character array Float as a {@link org.apache.lucene.index.Payload}.  *  * @see {@link org.apache.lucene.analysis.payloads.PayloadHelper#encodeFloat(float, byte[], int)}  *  **/
+comment|/**  *  Encode a character array Float as a {@link org.apache.lucene.index.Payload}.  *<p/>  * @see {@link org.apache.lucene.analysis.payloads.PayloadHelper#encodeFloat(float, byte[], int)}  *  **/
 end_comment
 begin_class
 DECL|class|FloatEncoder
