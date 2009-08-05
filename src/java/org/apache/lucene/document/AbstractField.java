@@ -58,6 +58,19 @@ operator|.
 name|TokenStream
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
 begin_comment
 comment|// for javadocs
 end_comment
@@ -234,10 +247,12 @@ name|this
 operator|.
 name|name
 operator|=
-name|name
+name|StringHelper
 operator|.
 name|intern
-argument_list|()
+argument_list|(
+name|name
+argument_list|)
 expr_stmt|;
 comment|// field names are interned
 if|if
