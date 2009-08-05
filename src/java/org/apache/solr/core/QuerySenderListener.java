@@ -193,6 +193,16 @@ block|{
 try|try
 block|{
 comment|// bind the request to a particular searcher (the newSearcher)
+name|NamedList
+name|params
+init|=
+name|addEventParms
+argument_list|(
+name|currentSearcher
+argument_list|,
+name|nlst
+argument_list|)
+decl_stmt|;
 name|LocalSolrQueryRequest
 name|req
 init|=
@@ -201,7 +211,7 @@ name|LocalSolrQueryRequest
 argument_list|(
 name|core
 argument_list|,
-name|nlst
+name|params
 argument_list|)
 block|{
 annotation|@
