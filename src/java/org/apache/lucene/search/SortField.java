@@ -1542,7 +1542,7 @@ return|return
 name|hash
 return|;
 block|}
-comment|/** Returns the {@link FieldComparator} to use for sorting.    * @param numHits number of top hits the queue will store    * @param sortPos position of this SortField within {@link    *   Sort}.  The comparator is primary if sortPos==0,    *   secondary if sortPos==1, etc.  Some comparators can    *   optimize themselves when they are the primary sort.    * @param reversed True if the SortField is reversed    * @return {@link FieldComparator} to use when sorting    */
+comment|/** Returns the {@link FieldComparator} to use for    * sorting.    *    *<b>NOTE:</b> This API is experimental and might change in    * incompatible ways in the next release.    *    * @param numHits number of top hits the queue will store    * @param sortPos position of this SortField within {@link    *   Sort}.  The comparator is primary if sortPos==0,    *   secondary if sortPos==1, etc.  Some comparators can    *   optimize themselves when they are the primary sort.    * @return {@link FieldComparator} to use when sorting    */
 DECL|method|getComparator
 specifier|public
 name|FieldComparator
@@ -1555,10 +1555,6 @@ parameter_list|,
 specifier|final
 name|int
 name|sortPos
-parameter_list|,
-specifier|final
-name|boolean
-name|reversed
 parameter_list|)
 throws|throws
 name|IOException
@@ -1753,7 +1749,7 @@ name|numHits
 argument_list|,
 name|sortPos
 argument_list|,
-name|reversed
+name|reverse
 argument_list|)
 return|;
 case|case
@@ -1773,7 +1769,7 @@ name|field
 argument_list|,
 name|sortPos
 argument_list|,
-name|reversed
+name|reverse
 argument_list|)
 return|;
 case|case

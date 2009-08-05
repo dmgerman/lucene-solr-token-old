@@ -160,7 +160,7 @@ name|StringIndex
 import|;
 end_import
 begin_comment
-comment|/**  * A FieldComparator compares hits across multiple IndexReaders.  *   * A comparator can compare a hit at hit 'slot a' with hit 'slot b',  * compare a hit on 'doc i' with hit 'slot a', or copy a hit at 'doc i'  * to 'slot a'. Each slot refers to a hit while each doc refers to the  * current IndexReader.  *  *<b>NOTE:</b> This API is experimental and might change in  * incompatible ways in the next release.  */
+comment|/**  * Expert: a FieldComparator compares hits so as to determine their  * sort order when collecting the top results with {@link  * TopFieldCollector}.  The concrete public FieldComparator  * classes here correspond to the SortField types.  *  *<p>This API is designed to achieve high performance  * sorting, by exposing a tight interaction with {@link  * FieldValueHitQueue} as it visits hits.  Whenever a hit is  * competitive, it's enrolled into a virtual slot, which is  * an int ranging from 0 to numHits-1.  The {@link  * FieldComparator} is made aware of segment transitions  * during searching in case any internal state it's tracking  * needs to be recomputed during these transitions.</p>  *  *<p>A comparator must define these functions:</p>  *  *<ul>  *  *<li> {@link #compare} Compare a hit at 'slot a'  *       with hit 'slot b'.  *  *<li> {@link #setBottom} This method is called by  *       {@link FieldValueHitQueue} to notify the  *       FieldComparator of the current weakest ("bottom")  *       slot.  Note that this slot may not hold the weakest  *       value according to your comparator, in cases where  *       your comparator is not the primary one (ie, is only  *       used to break ties from the comparators before it).  *  *<li> {@link #compareBottom} Compare a new hit (docID)  *       against the "weakest" (bottom) entry in the queue.  *  *<li> {@link #copy} Installs a new hit into the  *       priority queue.  The {@link FieldValueHitQueue}  *       calls this method when a new hit is competitive.  *  *<li> {@link #setNextReader} Invoked  *       when the search is switching to the next segment.  *       You may need to update internal state of the  *       comparator, for example retrieving new values from  *       the {@link FieldCache}.  *  *<li> {@link #value} Return the sort value stored in  *       the specified slot.  This is only called at the end  *       of the search, in order to populate {@link  *       FieldDoc#fields} when returning the top results.  *</ul>  *  *<b>NOTE:</b> This API is experimental and might change in  * incompatible ways in the next release.  */
 end_comment
 begin_class
 DECL|class|FieldComparator
@@ -322,9 +322,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 throws|throws
 name|IOException
@@ -364,18 +361,6 @@ index|[
 name|bottom
 index|]
 expr_stmt|;
-block|}
-DECL|method|sortType
-specifier|public
-name|int
-name|sortType
-parameter_list|()
-block|{
-return|return
-name|SortField
-operator|.
-name|BYTE
-return|;
 block|}
 DECL|method|value
 specifier|public
@@ -518,9 +503,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 block|{
 comment|// TODO: can we "map" our docIDs to the current
@@ -552,18 +534,6 @@ index|[
 name|bottom
 index|]
 expr_stmt|;
-block|}
-DECL|method|sortType
-specifier|public
-name|int
-name|sortType
-parameter_list|()
-block|{
-return|return
-name|SortField
-operator|.
-name|DOC
-return|;
 block|}
 DECL|method|value
 specifier|public
@@ -807,9 +777,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 throws|throws
 name|IOException
@@ -849,18 +816,6 @@ index|[
 name|bottom
 index|]
 expr_stmt|;
-block|}
-DECL|method|sortType
-specifier|public
-name|int
-name|sortType
-parameter_list|()
-block|{
-return|return
-name|SortField
-operator|.
-name|DOUBLE
-return|;
 block|}
 DECL|method|value
 specifier|public
@@ -1108,9 +1063,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 throws|throws
 name|IOException
@@ -1150,18 +1102,6 @@ index|[
 name|bottom
 index|]
 expr_stmt|;
-block|}
-DECL|method|sortType
-specifier|public
-name|int
-name|sortType
-parameter_list|()
-block|{
-return|return
-name|SortField
-operator|.
-name|FLOAT
-return|;
 block|}
 DECL|method|value
 specifier|public
@@ -1414,9 +1354,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 throws|throws
 name|IOException
@@ -1456,18 +1393,6 @@ index|[
 name|bottom
 index|]
 expr_stmt|;
-block|}
-DECL|method|sortType
-specifier|public
-name|int
-name|sortType
-parameter_list|()
-block|{
-return|return
-name|SortField
-operator|.
-name|INT
-return|;
 block|}
 DECL|method|value
 specifier|public
@@ -1715,9 +1640,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 throws|throws
 name|IOException
@@ -1757,18 +1679,6 @@ index|[
 name|bottom
 index|]
 expr_stmt|;
-block|}
-DECL|method|sortType
-specifier|public
-name|int
-name|sortType
-parameter_list|()
-block|{
-return|return
-name|SortField
-operator|.
-name|LONG
-return|;
 block|}
 DECL|method|value
 specifier|public
@@ -1956,9 +1866,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 block|{     }
 DECL|method|setBottom
@@ -2002,18 +1909,6 @@ argument_list|(
 name|scorer
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|sortType
-specifier|public
-name|int
-name|sortType
-parameter_list|()
-block|{
-return|return
-name|SortField
-operator|.
-name|SCORE
-return|;
 block|}
 DECL|method|value
 specifier|public
@@ -2189,9 +2084,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 throws|throws
 name|IOException
@@ -2231,18 +2123,6 @@ index|[
 name|bottom
 index|]
 expr_stmt|;
-block|}
-DECL|method|sortType
-specifier|public
-name|int
-name|sortType
-parameter_list|()
-block|{
-return|return
-name|SortField
-operator|.
-name|BYTE
-return|;
 block|}
 DECL|method|value
 specifier|public
@@ -2514,9 +2394,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 throws|throws
 name|IOException
@@ -2555,18 +2432,6 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
-DECL|method|sortType
-specifier|public
-name|int
-name|sortType
-parameter_list|()
-block|{
-return|return
-name|SortField
-operator|.
-name|STRING
-return|;
-block|}
 DECL|method|value
 specifier|public
 name|Comparable
@@ -2584,9 +2449,7 @@ index|]
 return|;
 block|}
 block|}
-comment|// NOTE: there were a number of other interesting String
-comment|// comparators explored, but this one seemed to perform
-comment|// best all around.  See LUCENE-1483 for details.
+comment|/** Sorts by field's natural String sort order, using    *  ordinals.  This is functionally equivalent to {@link    *  StringValComparator}, but it first resolves the string    *  to their relative ordinal positions (using the index    *  returned by {@link FieldCache#getStringIndex}), and    *  does most comparisons using the ordinals.  For medium    *  to large results, this comparator will be much faster    *  than {@link StringValComparator}.  For very small    *  result sets it may be slower. */
 DECL|class|StringOrdValComparator
 specifier|public
 specifier|static
@@ -3151,9 +3014,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 throws|throws
 name|IOException
@@ -3272,18 +3132,6 @@ index|[
 name|bottom
 index|]
 expr_stmt|;
-block|}
-DECL|method|sortType
-specifier|public
-name|int
-name|sortType
-parameter_list|()
-block|{
-return|return
-name|SortField
-operator|.
-name|STRING
-return|;
 block|}
 DECL|method|value
 specifier|public
@@ -3560,9 +3408,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 throws|throws
 name|IOException
@@ -3600,18 +3445,6 @@ index|[
 name|bottom
 index|]
 expr_stmt|;
-block|}
-DECL|method|sortType
-specifier|public
-name|int
-name|sortType
-parameter_list|()
-block|{
-return|return
-name|SortField
-operator|.
-name|STRING_VAL
-return|;
 block|}
 DECL|method|value
 specifier|public
@@ -3776,7 +3609,7 @@ literal|1
 operator|)
 return|;
 block|}
-comment|/**    * Compare hit at slot1 with hit at slot2.  Return     *     * @param slot1 first slot to compare    * @param slot2 second slot to compare    * @return any N< 0 if slot2's value is sorted after    * slot1, any N> 0 if the slot2's value is sorted before    * slot1 and 0 if they are equal    */
+comment|/**    * Compare hit at slot1 with hit at slot2.    *     * @param slot1 first slot to compare    * @param slot2 second slot to compare    * @return any N< 0 if slot2's value is sorted after    * slot1, any N> 0 if the slot2's value is sorted before    * slot1 and 0 if they are equal    */
 DECL|method|compare
 specifier|public
 specifier|abstract
@@ -3790,7 +3623,7 @@ name|int
 name|slot2
 parameter_list|)
 function_decl|;
-comment|/**    * Set the bottom queue slot, ie the "weakest" (sorted    * last) entry in the queue.    *     * @param slot the currently weakest (sorted lost) slot in the queue    */
+comment|/**    * Set the bottom slot, ie the "weakest" (sorted last)    * entry in the queue.  When {@link #compareBottom} is    * called, you should compare against this slot.  This    * will always be called before {@link #compareBottom}.    *     * @param slot the currently weakest (sorted last) slot in the queue    */
 DECL|method|setBottom
 specifier|public
 specifier|abstract
@@ -3802,7 +3635,7 @@ name|int
 name|slot
 parameter_list|)
 function_decl|;
-comment|/**    * Compare the bottom of the queue with doc.  This will    * only invoked after setBottom has been called.      *     * @param doc that was hit    * @return any N< 0 if the doc's value is sorted after    * the bottom entry (not competitive), any N> 0 if the    * doc's value is sorted before the bottom entry and 0 if    * they are equal.    */
+comment|/**    * Compare the bottom of the queue with doc.  This will    * only invoked after setBottom has been called.  This    * should return the same result as {@link    * #compare(int,int)}} as if bottom were slot1 and the new    * document were slot 2.    *        *<p>For a search that hits many results, this method    * will be the hotspot (invoked by far the most    * frequently).</p>    *     * @param doc that was hit    * @return any N< 0 if the doc's value is sorted after    * the bottom entry (not competitive), any N> 0 if the    * doc's value is sorted before the bottom entry and 0 if    * they are equal.    */
 DECL|method|compareBottom
 specifier|public
 specifier|abstract
@@ -3815,7 +3648,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Copy hit (doc,score) to hit slot.    *     * @param slot which slot to copy the hit to    * @param doc docID relative to current reader    */
+comment|/**    * This method is called when a new hit is competitive.    * You should copy any state associated with this document    * that will be required for future comparisons, into the    * specified slot.    *     * @param slot which slot to copy the hit to    * @param doc docID relative to current reader    */
 DECL|method|copy
 specifier|public
 specifier|abstract
@@ -3843,14 +3676,11 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Sets the Scorer to use in case a document's score is needed. */
+comment|/** Sets the Scorer to use in case a document's score is    *  needed.    *     * @param scorer Scorer instance that you should use to    * obtain the current hit's score, if necessary. */
 DECL|method|setScorer
 specifier|public
 name|void
@@ -3863,15 +3693,7 @@ block|{
 comment|// Empty implementation since most comparators don't need the score. This
 comment|// can be overridden by those that need it.
 block|}
-comment|/**    * @return SortField.TYPE    */
-DECL|method|sortType
-specifier|public
-specifier|abstract
-name|int
-name|sortType
-parameter_list|()
-function_decl|;
-comment|/**    * Return the actual value at slot.    *     * @param slot the value    * @return value in this slot upgraded to Comparable    */
+comment|/**    * Return the actual value in the slot.    *    * @param slot the value    * @return value in this slot upgraded to Comparable    */
 DECL|method|value
 specifier|public
 specifier|abstract

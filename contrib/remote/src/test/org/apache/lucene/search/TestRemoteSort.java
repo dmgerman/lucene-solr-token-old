@@ -1909,9 +1909,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 throws|throws
 name|IOException
@@ -1962,16 +1959,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|sortType
-specifier|public
-name|int
-name|sortType
-parameter_list|()
-block|{
-return|return
-literal|0
-return|;
 block|}
 DECL|method|value
 specifier|public
