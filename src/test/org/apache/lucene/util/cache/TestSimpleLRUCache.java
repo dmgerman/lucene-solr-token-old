@@ -18,11 +18,15 @@ comment|/** * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 import|;
 end_import
 begin_class
@@ -31,7 +35,7 @@ specifier|public
 class|class
 name|TestSimpleLRUCache
 extends|extends
-name|TestCase
+name|LuceneTestCase
 block|{
 DECL|method|testLRUCache
 specifier|public

@@ -289,11 +289,6 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 name|dir
 operator|=
 literal|null

@@ -158,7 +158,14 @@ specifier|protected
 name|void
 name|setUp
 parameter_list|()
+throws|throws
+name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 name|tokens1
 operator|=
 operator|new
@@ -288,12 +295,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|tearDown
-specifier|protected
-name|void
-name|tearDown
-parameter_list|()
-block|{    }
 DECL|method|test
 specifier|public
 name|void

@@ -25,11 +25,15 @@ import|;
 end_import
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -184,7 +188,7 @@ specifier|public
 class|class
 name|TestSearchHitsWithDeletions
 extends|extends
-name|TestCase
+name|LuceneTestCase
 block|{
 DECL|field|VERBOSE
 specifier|private
@@ -226,6 +230,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 comment|// Create an index writer.
 name|directory
 operator|=
