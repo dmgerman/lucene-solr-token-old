@@ -899,6 +899,8 @@ name|isShowMatch
 argument_list|()
 condition|)
 block|{
+try|try
+block|{
 name|List
 argument_list|<
 name|Token
@@ -938,6 +940,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore analysis exceptions since we are applying arbitrary text to all fields
+block|}
+block|}
 if|if
 condition|(
 name|request
@@ -947,6 +958,8 @@ argument_list|()
 operator|!=
 literal|null
 condition|)
+block|{
+try|try
 block|{
 name|AnalysisContext
 name|analysisContext
@@ -994,6 +1007,15 @@ argument_list|,
 name|tokens
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore analysis exceptions since we are applying arbitrary text to all fields
+block|}
 block|}
 name|Analyzer
 name|analyzer

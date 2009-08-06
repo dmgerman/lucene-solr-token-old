@@ -3063,7 +3063,7 @@ operator|.
 name|tie
 argument_list|)
 decl_stmt|;
-comment|/* we might not get any valid queries from delegation,          * in which we should return null          */
+comment|/* we might not get any valid queries from delegation,          * in which case we should return null          */
 name|boolean
 name|ok
 init|=
@@ -3151,6 +3151,8 @@ return|;
 block|}
 else|else
 block|{
+try|try
+block|{
 return|return
 name|super
 operator|.
@@ -3161,6 +3163,17 @@ argument_list|,
 name|queryText
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 block|}
 block|}
