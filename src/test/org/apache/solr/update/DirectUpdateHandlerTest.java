@@ -201,7 +201,7 @@ name|getSchemaFile
 parameter_list|()
 block|{
 return|return
-literal|"schema.xml"
+literal|"schema12.xml"
 return|;
 block|}
 DECL|method|getSolrConfigFile
@@ -686,7 +686,7 @@ name|req
 argument_list|,
 literal|"//*[@numFound='1']"
 argument_list|,
-literal|"//result/doc[1]/int[@name='id'][.='A']"
+literal|"//result/doc[1]/str[@name='id'][.='A']"
 argument_list|)
 expr_stmt|;
 block|}
@@ -808,9 +808,9 @@ name|req
 argument_list|,
 literal|"//*[@numFound='2']"
 argument_list|,
-literal|"//result/doc[1]/int[@name='id'][.='A']"
+literal|"//result/doc[1]/str[@name='id'][.='A']"
 argument_list|,
-literal|"//result/doc[2]/int[@name='id'][.='B']"
+literal|"//result/doc[2]/str[@name='id'][.='B']"
 argument_list|)
 expr_stmt|;
 comment|// delete "B"
@@ -828,9 +828,9 @@ name|req
 argument_list|,
 literal|"//*[@numFound='2']"
 argument_list|,
-literal|"//result/doc[1]/int[@name='id'][.='A']"
+literal|"//result/doc[1]/str[@name='id'][.='A']"
 argument_list|,
-literal|"//result/doc[2]/int[@name='id'][.='B']"
+literal|"//result/doc[2]/str[@name='id'][.='B']"
 argument_list|)
 expr_stmt|;
 comment|// commit
@@ -850,7 +850,7 @@ name|req
 argument_list|,
 literal|"//*[@numFound='1']"
 argument_list|,
-literal|"//result/doc[1]/int[@name='id'][.='A']"
+literal|"//result/doc[1]/str[@name='id'][.='A']"
 argument_list|)
 expr_stmt|;
 block|}
@@ -987,7 +987,7 @@ name|req
 argument_list|,
 literal|"//*[@numFound='1']"
 argument_list|,
-literal|"//result/doc[1]/int[@name='id'][.='A']"
+literal|"//result/doc[1]/str[@name='id'][.='A']"
 argument_list|)
 expr_stmt|;
 comment|// Add a doc after the rollback to make sure we can continue to add/delete documents
@@ -1016,7 +1016,7 @@ argument_list|)
 argument_list|,
 literal|"//*[@numFound='1']"
 argument_list|,
-literal|"//result/doc[1]/int[@name='id'][.='ZZZ']"
+literal|"//result/doc[1]/str[@name='id'][.='ZZZ']"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1138,9 +1138,9 @@ name|req
 argument_list|,
 literal|"//*[@numFound='2']"
 argument_list|,
-literal|"//result/doc[1]/int[@name='id'][.='A']"
+literal|"//result/doc[1]/str[@name='id'][.='A']"
 argument_list|,
-literal|"//result/doc[2]/int[@name='id'][.='B']"
+literal|"//result/doc[2]/str[@name='id'][.='B']"
 argument_list|)
 expr_stmt|;
 comment|// delete "B"
@@ -1158,9 +1158,9 @@ name|req
 argument_list|,
 literal|"//*[@numFound='2']"
 argument_list|,
-literal|"//result/doc[1]/int[@name='id'][.='A']"
+literal|"//result/doc[1]/str[@name='id'][.='A']"
 argument_list|,
-literal|"//result/doc[2]/int[@name='id'][.='B']"
+literal|"//result/doc[2]/str[@name='id'][.='B']"
 argument_list|)
 expr_stmt|;
 comment|// rollback "B"
@@ -1187,9 +1187,9 @@ name|req
 argument_list|,
 literal|"//*[@numFound='2']"
 argument_list|,
-literal|"//result/doc[1]/int[@name='id'][.='A']"
+literal|"//result/doc[1]/str[@name='id'][.='A']"
 argument_list|,
-literal|"//result/doc[2]/int[@name='id'][.='B']"
+literal|"//result/doc[2]/str[@name='id'][.='B']"
 argument_list|)
 expr_stmt|;
 comment|// Add a doc after the rollback to make sure we can continue to add/delete documents
@@ -1218,7 +1218,7 @@ argument_list|)
 argument_list|,
 literal|"//*[@numFound='1']"
 argument_list|,
-literal|"//result/doc[1]/int[@name='id'][.='ZZZ']"
+literal|"//result/doc[1]/str[@name='id'][.='ZZZ']"
 argument_list|)
 expr_stmt|;
 block|}
