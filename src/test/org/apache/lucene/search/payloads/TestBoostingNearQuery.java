@@ -1286,6 +1286,9 @@ specifier|public
 name|float
 name|scorePayload
 parameter_list|(
+name|int
+name|docId
+parameter_list|,
 name|String
 name|fieldName
 parameter_list|,
