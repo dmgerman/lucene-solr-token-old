@@ -511,7 +511,7 @@ comment|/**     * @deprecated use DefaultSolrHighlighter     * @see DefaultSolrH
 DECL|method|getQueryScorer
 specifier|public
 specifier|static
-name|QueryScorer
+name|QueryTermScorer
 name|getQueryScorer
 parameter_list|(
 name|Query
@@ -725,7 +725,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|getQueryScorerX
-name|QueryScorer
+name|QueryTermScorer
 name|getQueryScorerX
 parameter_list|(
 name|Query

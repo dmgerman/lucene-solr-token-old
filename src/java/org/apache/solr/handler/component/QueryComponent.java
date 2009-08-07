@@ -1590,11 +1590,6 @@ argument_list|(
 literal|1
 argument_list|,
 literal|0
-argument_list|,
-name|sortField
-operator|.
-name|getReverse
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|comparator
@@ -1604,8 +1599,6 @@ argument_list|(
 name|subReader
 argument_list|,
 name|offset
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 if|if

@@ -2934,9 +2934,6 @@ name|reader
 parameter_list|,
 name|int
 name|docBase
-parameter_list|,
-name|int
-name|numSlotsFull
 parameter_list|)
 throws|throws
 name|IOException
