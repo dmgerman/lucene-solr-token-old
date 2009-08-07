@@ -88,11 +88,11 @@ name|lucene
 operator|.
 name|queryParser
 operator|.
-name|original
+name|standard
 operator|.
 name|builders
 operator|.
-name|OriginalQueryBuilder
+name|StandardQueryBuilder
 import|;
 end_import
 begin_import
@@ -119,7 +119,7 @@ specifier|public
 class|class
 name|SpanTermQueryNodeBuilder
 implements|implements
-name|OriginalQueryBuilder
+name|StandardQueryBuilder
 block|{
 DECL|method|build
 specifier|public

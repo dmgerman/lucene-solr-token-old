@@ -125,7 +125,7 @@ name|lucene
 operator|.
 name|queryParser
 operator|.
-name|original
+name|standard
 operator|.
 name|parser
 operator|.
