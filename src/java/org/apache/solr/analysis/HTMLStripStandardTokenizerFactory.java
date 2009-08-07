@@ -52,9 +52,11 @@ name|Reader
 import|;
 end_import
 begin_comment
-comment|/**  * @version $Id$  */
+comment|/**  * @version $Id$  * @deprecated Use {@link HTMLStripCharFilterFactory} and {@link StandardTokenizerFactory}  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|HTMLStripStandardTokenizerFactory
 specifier|public
 class|class
