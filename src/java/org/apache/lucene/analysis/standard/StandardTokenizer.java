@@ -509,11 +509,6 @@ operator|<=
 name|maxTokenLength
 condition|)
 block|{
-name|termAtt
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|posIncrAtt
 operator|.
 name|setPositionIncrement
