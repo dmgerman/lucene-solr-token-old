@@ -199,7 +199,7 @@ specifier|protected
 class|class
 name|DisjunctionMaxWeight
 extends|extends
-name|QueryWeight
+name|Weight
 block|{
 comment|/** The Similarity implementation. */
 DECL|field|similarity
@@ -217,6 +217,7 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
+comment|// The Weight's for our subqueries, in 1-1 correspondence with disjuncts
 comment|/* Construct the Weight for this Query searched by searcher.  Recursively construct subquery weights. */
 DECL|method|DisjunctionMaxWeight
 specifier|public
@@ -268,7 +269,7 @@ name|next
 argument_list|()
 operator|)
 operator|.
-name|createQueryWeight
+name|createWeight
 argument_list|(
 name|searcher
 argument_list|)
@@ -341,7 +342,7 @@ name|sub
 init|=
 operator|(
 operator|(
-name|QueryWeight
+name|Weight
 operator|)
 name|iter
 operator|.
@@ -431,7 +432,7 @@ control|)
 block|{
 operator|(
 operator|(
-name|QueryWeight
+name|Weight
 operator|)
 name|iter
 operator|.
@@ -499,11 +500,11 @@ argument_list|()
 condition|;
 control|)
 block|{
-name|QueryWeight
+name|Weight
 name|w
 init|=
 operator|(
-name|QueryWeight
+name|Weight
 operator|)
 name|iter
 operator|.
@@ -585,6 +586,9 @@ specifier|public
 name|Explanation
 name|explain
 parameter_list|(
+name|Searcher
+name|searcher
+parameter_list|,
 name|IndexReader
 name|reader
 parameter_list|,
@@ -606,7 +610,7 @@ condition|)
 return|return
 operator|(
 operator|(
-name|QueryWeight
+name|Weight
 operator|)
 name|weights
 operator|.
@@ -618,6 +622,8 @@ operator|)
 operator|.
 name|explain
 argument_list|(
+name|searcher
+argument_list|,
 name|reader
 argument_list|,
 name|doc
@@ -678,7 +684,7 @@ name|e
 init|=
 operator|(
 operator|(
-name|QueryWeight
+name|Weight
 operator|)
 name|iter
 operator|.
@@ -688,6 +694,8 @@ operator|)
 operator|.
 name|explain
 argument_list|(
+name|searcher
+argument_list|,
 name|reader
 argument_list|,
 name|doc
@@ -761,11 +769,11 @@ return|;
 block|}
 block|}
 comment|// end of DisjunctionMaxWeight inner class
-comment|/* Create the QueryWeight used to score us */
-DECL|method|createQueryWeight
+comment|/* Create the Weight used to score us */
+DECL|method|createWeight
 specifier|public
-name|QueryWeight
-name|createQueryWeight
+name|Weight
+name|createWeight
 parameter_list|(
 name|Searcher
 name|searcher

@@ -79,7 +79,7 @@ decl_stmt|;
 DECL|method|SloppyPhraseScorer
 name|SloppyPhraseScorer
 parameter_list|(
-name|QueryWeight
+name|Weight
 name|weight
 parameter_list|,
 name|TermPositions

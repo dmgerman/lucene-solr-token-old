@@ -143,7 +143,7 @@ specifier|public
 name|TopDocs
 name|search
 parameter_list|(
-name|QueryWeight
+name|Weight
 name|weight
 parameter_list|,
 name|Filter
@@ -418,7 +418,7 @@ specifier|public
 name|TopFieldDocs
 name|search
 parameter_list|(
-name|QueryWeight
+name|Weight
 name|weight
 parameter_list|,
 name|Filter
@@ -708,7 +708,7 @@ specifier|public
 name|void
 name|search
 parameter_list|(
-name|QueryWeight
+name|Weight
 name|weight
 parameter_list|,
 name|Filter
@@ -886,7 +886,7 @@ name|searchable
 decl_stmt|;
 DECL|field|weight
 specifier|private
-name|QueryWeight
+name|Weight
 name|weight
 decl_stmt|;
 DECL|field|filter
@@ -937,7 +937,7 @@ parameter_list|(
 name|Searchable
 name|searchable
 parameter_list|,
-name|QueryWeight
+name|Weight
 name|weight
 parameter_list|,
 name|Filter
@@ -1015,7 +1015,7 @@ parameter_list|(
 name|Searchable
 name|searchable
 parameter_list|,
-name|QueryWeight
+name|Weight
 name|weight
 parameter_list|,
 name|Filter

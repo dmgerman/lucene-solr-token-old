@@ -49,7 +49,7 @@ name|Scorer
 block|{
 DECL|field|weight
 specifier|private
-name|QueryWeight
+name|Weight
 name|weight
 decl_stmt|;
 DECL|field|norms
@@ -99,7 +99,7 @@ comment|//prhase frequency in current doc as computed by phraseFreq().
 DECL|method|PhraseScorer
 name|PhraseScorer
 parameter_list|(
-name|QueryWeight
+name|Weight
 name|weight
 parameter_list|,
 name|TermPositions

@@ -495,7 +495,7 @@ specifier|private
 class|class
 name|MultiPhraseWeight
 extends|extends
-name|QueryWeight
+name|Weight
 block|{
 DECL|field|similarity
 specifier|private
@@ -862,6 +862,9 @@ specifier|public
 name|Explanation
 name|explain
 parameter_list|(
+name|Searcher
+name|searcher
+parameter_list|,
 name|IndexReader
 name|reader
 parameter_list|,
@@ -1337,10 +1340,10 @@ name|this
 return|;
 block|}
 block|}
-DECL|method|createQueryWeight
+DECL|method|createWeight
 specifier|public
-name|QueryWeight
-name|createQueryWeight
+name|Weight
+name|createWeight
 parameter_list|(
 name|Searcher
 name|searcher
