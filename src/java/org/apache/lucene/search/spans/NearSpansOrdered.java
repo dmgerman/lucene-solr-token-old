@@ -118,7 +118,7 @@ DECL|class|NearSpansOrdered
 specifier|public
 class|class
 name|NearSpansOrdered
-implements|implements
+extends|extends
 name|Spans
 block|{
 DECL|field|allowedSlop

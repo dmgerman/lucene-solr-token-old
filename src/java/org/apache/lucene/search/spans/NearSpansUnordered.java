@@ -104,7 +104,7 @@ DECL|class|NearSpansUnordered
 specifier|public
 class|class
 name|NearSpansUnordered
-implements|implements
+extends|extends
 name|Spans
 block|{
 DECL|field|query
@@ -275,7 +275,7 @@ DECL|class|SpansCell
 specifier|private
 class|class
 name|SpansCell
-implements|implements
+extends|extends
 name|Spans
 block|{
 DECL|field|spans
