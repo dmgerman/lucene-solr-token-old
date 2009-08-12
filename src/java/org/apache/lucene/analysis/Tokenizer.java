@@ -16,6 +16,19 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|AttributeSource
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -159,6 +172,21 @@ operator|.
 name|input
 operator|=
 name|input
+expr_stmt|;
+block|}
+comment|/** Construct a token stream processing the given input using the given AttributeSource. */
+DECL|method|Tokenizer
+specifier|protected
+name|Tokenizer
+parameter_list|(
+name|AttributeSource
+name|source
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|source
+argument_list|)
 expr_stmt|;
 block|}
 comment|/** By default, closes the input Reader. */
