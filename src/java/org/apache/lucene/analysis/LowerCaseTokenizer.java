@@ -50,7 +50,7 @@ name|in
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Collects only characters which satisfy    * {@link Character#isLetter(char)}.*/
+comment|/** Converts char to lower case    * {@link Character#toLowerCase(char)}.*/
 DECL|method|normalize
 specifier|protected
 name|char
