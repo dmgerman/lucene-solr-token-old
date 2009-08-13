@@ -208,9 +208,13 @@ block|{
 name|vs
 operator|=
 operator|new
+name|MultiValueSource
+argument_list|(
+operator|new
 name|OrdFieldSource
 argument_list|(
 name|field
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -219,9 +223,13 @@ block|{
 name|vs
 operator|=
 operator|new
+name|MultiValueSource
+argument_list|(
+operator|new
 name|ReverseOrdFieldSource
 argument_list|(
 name|field
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
