@@ -22,13 +22,6 @@ DECL|interface|Attribute
 specifier|public
 interface|interface
 name|Attribute
-block|{
-DECL|method|clear
-specifier|public
-name|void
-name|clear
-parameter_list|()
-function_decl|;
-block|}
+block|{ }
 end_interface
 end_unit

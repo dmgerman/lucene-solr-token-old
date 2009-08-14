@@ -204,6 +204,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 name|int
 name|length
 init|=
@@ -214,11 +217,6 @@ name|start
 init|=
 name|bufferIndex
 decl_stmt|;
-name|termAtt
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|char
 index|[]
 name|buffer

@@ -506,7 +506,7 @@ name|payload
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TokenAttribute
+comment|// AttributeImpl
 DECL|method|clear
 specifier|public
 name|void
@@ -519,7 +519,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|// AttributeImpl
 DECL|method|toString
 specifier|public
 name|String

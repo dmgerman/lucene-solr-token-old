@@ -468,6 +468,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 name|int
 name|posIncr
 init|=

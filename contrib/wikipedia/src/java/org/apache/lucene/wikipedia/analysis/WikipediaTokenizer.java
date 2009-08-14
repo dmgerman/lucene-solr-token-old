@@ -838,6 +838,9 @@ return|return
 literal|true
 return|;
 block|}
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 name|int
 name|tokenType
 init|=

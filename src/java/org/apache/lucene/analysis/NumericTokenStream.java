@@ -450,6 +450,9 @@ condition|)
 return|return
 literal|false
 return|;
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 specifier|final
 name|char
 index|[]

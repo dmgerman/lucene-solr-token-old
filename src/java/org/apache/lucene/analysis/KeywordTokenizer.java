@@ -187,6 +187,9 @@ operator|!
 name|done
 condition|)
 block|{
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 name|done
 operator|=
 literal|true
