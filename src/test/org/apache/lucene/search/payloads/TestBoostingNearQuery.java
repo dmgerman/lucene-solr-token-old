@@ -1281,6 +1281,7 @@ name|BoostingSimilarity
 extends|extends
 name|DefaultSimilarity
 block|{
+comment|// TODO: Remove warning after API has been finalized
 DECL|method|scorePayload
 specifier|public
 name|float
@@ -1291,6 +1292,12 @@ name|docId
 parameter_list|,
 name|String
 name|fieldName
+parameter_list|,
+name|int
+name|start
+parameter_list|,
+name|int
+name|end
 parameter_list|,
 name|byte
 index|[]
@@ -1303,6 +1310,7 @@ name|int
 name|length
 parameter_list|)
 block|{
+comment|//we know it is size 4 here, so ignore the offset/length
 return|return
 name|payload
 index|[
