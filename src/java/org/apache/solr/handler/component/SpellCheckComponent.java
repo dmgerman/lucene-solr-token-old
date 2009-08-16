@@ -1011,7 +1011,7 @@ name|ts
 init|=
 name|analyzer
 operator|.
-name|tokenStream
+name|reusableTokenStream
 argument_list|(
 literal|""
 argument_list|,
@@ -1022,6 +1022,11 @@ name|q
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|ts
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 while|while
 condition|(
 operator|(
