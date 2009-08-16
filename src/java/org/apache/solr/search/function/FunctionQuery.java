@@ -143,7 +143,7 @@ DECL|class|FunctionWeight
 specifier|protected
 class|class
 name|FunctionWeight
-implements|implements
+extends|extends
 name|Weight
 block|{
 DECL|field|searcher
@@ -246,6 +246,12 @@ name|scorer
 parameter_list|(
 name|IndexReader
 name|reader
+parameter_list|,
+name|boolean
+name|scoreDocsInOrder
+parameter_list|,
+name|boolean
+name|topScorer
 parameter_list|)
 throws|throws
 name|IOException
@@ -270,6 +276,9 @@ specifier|public
 name|Explanation
 name|explain
 parameter_list|(
+name|Searcher
+name|searcher
+parameter_list|,
 name|IndexReader
 name|reader
 parameter_list|,
@@ -332,6 +341,10 @@ name|subReaders
 index|[
 name|readerPos
 index|]
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|explain
