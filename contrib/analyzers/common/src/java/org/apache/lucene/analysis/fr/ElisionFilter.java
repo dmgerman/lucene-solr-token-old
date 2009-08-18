@@ -71,6 +71,24 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|standard
+operator|.
+name|StandardTokenizer
+import|;
+end_import
+begin_comment
+comment|// for javadocs
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|Token
 import|;
 end_import
@@ -116,7 +134,7 @@ name|TermAttribute
 import|;
 end_import
 begin_comment
-comment|/**  * Removes elisions from a token stream. For example, "l'avion" (the plane) will be  * tokenized as "avion" (plane).  *<p>  * Note that StandardTokenizer sees " ' " as a space, and cuts it out.  *   * @see<a href="http://fr.wikipedia.org/wiki/%C3%89lision">Elision in Wikipedia</a>  */
+comment|/**  * Removes elisions from a {@link TokenStream}. For example, "l'avion" (the plane) will be  * tokenized as "avion" (plane).  *<p>  * Note that {@link StandardTokenizer} sees " ' " as a space, and cuts it out.  *   * @see<a href="http://fr.wikipedia.org/wiki/%C3%89lision">Elision in Wikipedia</a>  */
 end_comment
 begin_class
 DECL|class|ElisionFilter
@@ -345,7 +363,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Returns the next input Token with term() without elisioned start    */
+comment|/**    * Increments the {@link TokenStream} with a {@link TermAttribute} without elisioned start    */
 DECL|method|incrementToken
 specifier|public
 specifier|final

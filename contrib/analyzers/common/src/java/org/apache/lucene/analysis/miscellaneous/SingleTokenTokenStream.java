@@ -142,7 +142,7 @@ name|TypeAttribute
 import|;
 end_import
 begin_comment
-comment|/**  * A token stream containing a single token.  */
+comment|/**  * A {@link TokenStream} containing a single token.  */
 end_comment
 begin_class
 DECL|class|SingleTokenTokenStream

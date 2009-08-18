@@ -67,7 +67,7 @@ name|TermAttribute
 import|;
 end_import
 begin_comment
-comment|/**  * A TokenFilter that applies {@link PersianNormalizer} to normalize the  * orthography.  *   */
+comment|/**  * A {@link TokenFilter} that applies {@link PersianNormalizer} to normalize the  * orthography.  *   */
 end_comment
 begin_class
 DECL|class|PersianNormalizationFilter

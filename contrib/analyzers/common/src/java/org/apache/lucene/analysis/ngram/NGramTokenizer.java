@@ -166,7 +166,7 @@ specifier|private
 name|OffsetAttribute
 name|offsetAtt
 decl_stmt|;
-comment|/**    * Creates NGramTokenizer with given min and max n-grams.    * @param input Reader holding the input to be tokenized    * @param minGram the smallest n-gram to generate    * @param maxGram the largest n-gram to generate    */
+comment|/**    * Creates NGramTokenizer with given min and max n-grams.    * @param input {@link Reader} holding the input to be tokenized    * @param minGram the smallest n-gram to generate    * @param maxGram the largest n-gram to generate    */
 DECL|method|NGramTokenizer
 specifier|public
 name|NGramTokenizer
@@ -257,7 +257,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates NGramTokenizer with default min and max n-grams.    * @param input Reader holding the input to be tokenized    */
+comment|/**    * Creates NGramTokenizer with default min and max n-grams.    * @param input {@link Reader} holding the input to be tokenized    */
 DECL|method|NGramTokenizer
 specifier|public
 name|NGramTokenizer

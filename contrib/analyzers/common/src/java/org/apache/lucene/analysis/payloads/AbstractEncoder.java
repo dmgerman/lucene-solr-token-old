@@ -27,7 +27,7 @@ name|Payload
 import|;
 end_import
 begin_comment
-comment|/**  *  *  **/
+comment|/**  * Base class for payload encoders.  *  **/
 end_comment
 begin_class
 DECL|class|AbstractEncoder

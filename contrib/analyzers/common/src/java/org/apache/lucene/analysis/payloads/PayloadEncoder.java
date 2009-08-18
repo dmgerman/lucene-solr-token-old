@@ -30,7 +30,7 @@ name|Payload
 import|;
 end_import
 begin_comment
-comment|/**  * Mainly for use with the DelimitedPayloadTokenFilter, converts char buffers to Payload  *<p/>  * NOTE: This interface is subject to change   *  **/
+comment|/**  * Mainly for use with the DelimitedPayloadTokenFilter, converts char buffers to Payload.  *<p/>  * NOTE: This interface is subject to change   *  **/
 end_comment
 begin_interface
 DECL|interface|PayloadEncoder
@@ -47,7 +47,7 @@ index|[]
 name|buffer
 parameter_list|)
 function_decl|;
-comment|/**    * Convert a char array to a {@link org.apache.lucene.index.Payload}    * @param buffer    * @param offset    * @param length    * @return    */
+comment|/**    * Convert a char array to a {@link org.apache.lucene.index.Payload}    * @param buffer    * @param offset    * @param length    * @return encoded {@link Payload}    */
 DECL|method|encode
 name|Payload
 name|encode

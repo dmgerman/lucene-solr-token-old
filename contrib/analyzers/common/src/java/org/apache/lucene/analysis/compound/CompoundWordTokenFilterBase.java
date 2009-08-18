@@ -672,7 +672,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Create a set of words from an array    * The resulting Set does case insensitive matching    * TODO We should look for a faster dictionary lookup approach.    * @param dictionary    * @return    */
+comment|/**    * Create a set of words from an array    * The resulting Set does case insensitive matching    * TODO We should look for a faster dictionary lookup approach.    * @param dictionary     * @return {@link Set} of lowercased terms     */
 DECL|method|makeDictionary
 specifier|public
 specifier|static
@@ -686,6 +686,7 @@ index|[]
 name|dictionary
 parameter_list|)
 block|{
+comment|// is the below really case insensitive?
 name|CharArraySet
 name|dict
 init|=
