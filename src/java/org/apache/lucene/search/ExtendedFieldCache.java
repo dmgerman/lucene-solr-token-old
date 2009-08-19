@@ -37,7 +37,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * This interface is obsolete, use {@link FieldCache} instead.  * @deprecated Will be removed in Lucene 3.0  **/
+comment|/**  * This interface is obsolete, use {@link FieldCache} instead.  *   * @deprecated Use {@link FieldCache}, this will be removed in Lucene 3.0  **/
 end_comment
 begin_interface
 DECL|interface|ExtendedFieldCache
