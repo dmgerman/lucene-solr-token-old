@@ -478,23 +478,6 @@ name|queryParser
 operator|.
 name|core
 operator|.
-name|nodes
-operator|.
-name|WildcardQueryNode
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|queryParser
-operator|.
-name|core
-operator|.
 name|processors
 operator|.
 name|QueryNodeProcessorImpl
@@ -534,6 +517,23 @@ operator|.
 name|DefaultOperatorAttribute
 operator|.
 name|Operator
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|queryParser
+operator|.
+name|standard
+operator|.
+name|nodes
+operator|.
+name|WildcardQueryNode
 import|;
 end_import
 begin_import
@@ -4694,6 +4694,15 @@ decl_stmt|;
 comment|/*      * assertQueryEquals("\\[brackets", a, "\\[brackets");      * assertQueryEquals("\\[brackets", null, "brackets");      * assertQueryEquals("\\\\", a, "\\\\"); assertQueryEquals("\\+blah", a,      * "\\+blah"); assertQueryEquals("\\(blah", a, "\\(blah");      *       * assertQueryEquals("\\-blah", a, "\\-blah"); assertQueryEquals("\\!blah",      * a, "\\!blah"); assertQueryEquals("\\{blah", a, "\\{blah");      * assertQueryEquals("\\}blah", a, "\\}blah"); assertQueryEquals("\\:blah",      * a, "\\:blah"); assertQueryEquals("\\^blah", a, "\\^blah");      * assertQueryEquals("\\[blah", a, "\\[blah"); assertQueryEquals("\\]blah",      * a, "\\]blah"); assertQueryEquals("\\\"blah", a, "\\\"blah");      * assertQueryEquals("\\(blah", a, "\\(blah"); assertQueryEquals("\\)blah",      * a, "\\)blah"); assertQueryEquals("\\~blah", a, "\\~blah");      * assertQueryEquals("\\*blah", a, "\\*blah"); assertQueryEquals("\\?blah",      * a, "\\?blah"); //assertQueryEquals("foo \\&\\& bar", a,      * "foo \\&\\& bar"); //assertQueryEquals("foo \\|| bar", a,      * "foo \\|| bar"); //assertQueryEquals("foo \\AND bar", a,      * "foo \\AND bar");      */
 name|assertQueryEquals
 argument_list|(
+literal|"\\*"
+argument_list|,
+name|a
+argument_list|,
+literal|"*"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
 literal|"\\a"
 argument_list|,
 name|a
@@ -5743,6 +5752,12 @@ name|Exception
 block|{
 name|assertQueryNodeException
 argument_list|(
+literal|"*leadingWildcard"
+argument_list|)
+expr_stmt|;
+comment|// disallowed by default
+name|assertQueryNodeException
+argument_list|(
 literal|"\"some phrase"
 argument_list|)
 expr_stmt|;
@@ -5771,12 +5786,6 @@ argument_list|(
 literal|"secret AND illegal) AND access:confidential"
 argument_list|)
 expr_stmt|;
-name|assertQueryNodeException
-argument_list|(
-literal|"*leadingWildcard"
-argument_list|)
-expr_stmt|;
-comment|// disallowed by default
 block|}
 DECL|method|testCustomQueryParserWildcard
 specifier|public

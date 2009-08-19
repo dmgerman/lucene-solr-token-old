@@ -168,6 +168,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getTermEscaped
+specifier|protected
 name|CharSequence
 name|getTermEscaped
 parameter_list|(
@@ -196,6 +197,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|getTermEscapeQuoted
+specifier|protected
 name|CharSequence
 name|getTermEscapeQuoted
 parameter_list|(
