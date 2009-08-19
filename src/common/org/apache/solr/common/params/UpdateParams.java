@@ -99,6 +99,15 @@ name|MAX_OPTIMIZE_SEGMENTS
 init|=
 literal|"maxSegments"
 decl_stmt|;
+DECL|field|EXPUNGE_DELETES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|EXPUNGE_DELETES
+init|=
+literal|"expungeDeletes"
+decl_stmt|;
 block|}
 end_interface
 end_unit
