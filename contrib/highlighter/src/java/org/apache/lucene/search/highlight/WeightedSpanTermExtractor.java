@@ -435,7 +435,7 @@ name|StringHelper
 import|;
 end_import
 begin_comment
-comment|/**  * Class used to extract {@link WeightedSpanTerm}s from a {@link Query} based on whether Terms from the query are contained in a supplied TokenStream.  */
+comment|/**  * Class used to extract {@link WeightedSpanTerm}s from a {@link Query} based on whether   * {@link Term}s from the {@link Query} are contained in a supplied {@link TokenStream}.  */
 end_comment
 begin_class
 DECL|class|WeightedSpanTermExtractor
