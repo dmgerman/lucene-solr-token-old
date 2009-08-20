@@ -24,13 +24,26 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|analysis
+operator|.
+name|Tokenizer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|Attribute
 import|;
 end_import
 begin_comment
-comment|/**  * This attribute can be used to pass different flags down the tokenizer chain,  * e. g. from one TokenFilter to another one.   */
+comment|/**  * This attribute can be used to pass different flags down the {@link Tokenizer} chain,  * eg from one TokenFilter to another one.   */
 end_comment
 begin_interface
 DECL|interface|FlagsAttribute
