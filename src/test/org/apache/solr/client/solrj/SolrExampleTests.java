@@ -601,7 +601,7 @@ name|doc2
 operator|.
 name|addField
 argument_list|(
-literal|"timestamp"
+literal|"timestamp_dt"
 argument_list|,
 operator|new
 name|java
@@ -665,7 +665,7 @@ name|doc3
 operator|.
 name|addField
 argument_list|(
-literal|"timestamp"
+literal|"timestamp_dt"
 argument_list|,
 operator|new
 name|java
@@ -729,7 +729,7 @@ name|doc4
 operator|.
 name|addField
 argument_list|(
-literal|"timestamp"
+literal|"timestamp_dt"
 argument_list|,
 operator|new
 name|java
@@ -793,7 +793,7 @@ name|doc5
 operator|.
 name|addField
 argument_list|(
-literal|"timestamp"
+literal|"timestamp_dt"
 argument_list|,
 operator|new
 name|java
@@ -969,7 +969,7 @@ name|query
 operator|.
 name|addFacetField
 argument_list|(
-literal|"timestamp"
+literal|"timestamp_dt"
 argument_list|)
 expr_stmt|;
 name|query
