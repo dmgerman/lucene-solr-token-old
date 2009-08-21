@@ -1002,6 +1002,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|stream
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 while|while
 condition|(
 name|stream
@@ -1130,6 +1135,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|stream
+operator|.
+name|end
+argument_list|()
+expr_stmt|;
 comment|// ensure infos.numTokens> 0 invariant; needed for correct operation of terms()
 if|if
 condition|(
