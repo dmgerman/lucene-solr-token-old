@@ -710,7 +710,7 @@ return|;
 block|}
 comment|// check that all attributes are implemented by the same TokenWrapper instance
 specifier|final
-name|AttributeImpl
+name|Attribute
 name|att
 init|=
 name|addAttribute
