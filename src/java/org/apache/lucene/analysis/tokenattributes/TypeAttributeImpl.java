@@ -215,11 +215,7 @@ name|t
 operator|.
 name|setType
 argument_list|(
-operator|new
-name|String
-argument_list|(
 name|type
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
