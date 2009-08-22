@@ -1079,7 +1079,7 @@ operator|new
 name|HashSet
 argument_list|()
 decl_stmt|;
-comment|/**      * Charset for Greek letters.      * Represents encoding for 24 lowercase Greek letters.      * Predefined charsets can be taken from {@link GreekCharsets} class      */
+comment|/**      * Charset for Greek letters.      * Represents encoding for 24 lowercase Greek letters.      * Predefined charsets can be taken from {@link GreekCharsets} class      * @deprecated Support for non-Unicode encodings will be removed in Lucene 3.0      */
 DECL|field|charset
 specifier|private
 name|char
@@ -1112,7 +1112,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Builds an analyzer.      */
+comment|/**      * Builds an analyzer.      * @deprecated Use {@link #GreekAnalyzer()} instead.      */
 DECL|method|GreekAnalyzer
 specifier|public
 name|GreekAnalyzer
@@ -1141,7 +1141,33 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Builds an analyzer with the given stop words.      */
+comment|/**      * Builds an analyzer with the given stop words.      * @param stopwords Array of stopwords to use.      */
+DECL|method|GreekAnalyzer
+specifier|public
+name|GreekAnalyzer
+parameter_list|(
+name|String
+index|[]
+name|stopwords
+parameter_list|)
+block|{
+name|charset
+operator|=
+name|GreekCharsets
+operator|.
+name|UnicodeGreek
+expr_stmt|;
+name|stopSet
+operator|=
+name|StopFilter
+operator|.
+name|makeStopSet
+argument_list|(
+name|stopwords
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Builds an analyzer with the given stop words.      * @deprecated Use {@link #GreekAnalyzer(String[])} instead.      */
 DECL|method|GreekAnalyzer
 specifier|public
 name|GreekAnalyzer
@@ -1171,8 +1197,7 @@ name|stopwords
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Takes greek stop words and translates them to a String array, using
-comment|// the given charset
+comment|/**      * Takes greek stop words and translates them to a String array, using      * the given charset.      * @deprecated Support for non-Unicode encodings will be removed in Lucene 3.0      */
 DECL|method|makeStopWords
 specifier|private
 specifier|static
@@ -1277,7 +1302,7 @@ return|return
 name|res
 return|;
 block|}
-comment|/**      * Builds an analyzer with the given stop words.      */
+comment|/**      * Builds an analyzer with the given stop words.      * @deprecated Use {@link #GreekAnalyzer(Map)} instead.      */
 DECL|method|GreekAnalyzer
 specifier|public
 name|GreekAnalyzer
@@ -1295,6 +1320,33 @@ operator|.
 name|charset
 operator|=
 name|charset
+expr_stmt|;
+name|stopSet
+operator|=
+operator|new
+name|HashSet
+argument_list|(
+name|stopwords
+operator|.
+name|keySet
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Builds an analyzer with the given stop words.      */
+DECL|method|GreekAnalyzer
+specifier|public
+name|GreekAnalyzer
+parameter_list|(
+name|Map
+name|stopwords
+parameter_list|)
+block|{
+name|charset
+operator|=
+name|GreekCharsets
+operator|.
+name|UnicodeGreek
 expr_stmt|;
 name|stopSet
 operator|=

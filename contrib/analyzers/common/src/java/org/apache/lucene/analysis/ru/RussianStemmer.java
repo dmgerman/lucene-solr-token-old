@@ -24,6 +24,7 @@ DECL|class|RussianStemmer
 class|class
 name|RussianStemmer
 block|{
+comment|/**      * @deprecated Support for non-Unicode encodings will be removed in Lucene 3.0       */
 DECL|field|charset
 specifier|private
 name|char
@@ -1323,7 +1324,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * RussianStemmer constructor comment.      */
+comment|/**      * RussianStemmer constructor comment.      * @deprecated Use {@link #RussianStemmer()} instead.      */
 DECL|method|RussianStemmer
 specifier|public
 name|RussianStemmer
@@ -2214,7 +2215,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Insert the method's description here.      * Creation date: (16/03/2002 10:58:42 PM)      * @param newCharset char[]      */
+comment|/**      * Insert the method's description here.      * Creation date: (16/03/2002 10:58:42 PM)      * @param newCharset char[]      * @deprecated Support for non-Unicode encodings will be removed in Lucene 3.0      */
 DECL|method|setCharset
 specifier|public
 name|void
@@ -2457,7 +2458,7 @@ name|verbEndings2
 argument_list|)
 return|;
 block|}
-comment|/**      * Static method for stemming with different charsets      */
+comment|/**      * Static method for stemming with different charsets      * @deprecated Use {@link #stemWord(String)} instead.      */
 DECL|method|stem
 specifier|public
 specifier|static
@@ -2484,6 +2485,42 @@ operator|.
 name|setCharset
 argument_list|(
 name|charset
+argument_list|)
+expr_stmt|;
+return|return
+name|stemmer
+operator|.
+name|stem
+argument_list|(
+name|theWord
+argument_list|)
+return|;
+block|}
+comment|/**      * Static method for stemming.      */
+DECL|method|stemWord
+specifier|public
+specifier|static
+name|String
+name|stemWord
+parameter_list|(
+name|String
+name|theWord
+parameter_list|)
+block|{
+name|RussianStemmer
+name|stemmer
+init|=
+operator|new
+name|RussianStemmer
+argument_list|()
+decl_stmt|;
+name|stemmer
+operator|.
+name|setCharset
+argument_list|(
+name|RussianCharsets
+operator|.
+name|UnicodeRussian
 argument_list|)
 expr_stmt|;
 return|return
