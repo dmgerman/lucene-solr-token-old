@@ -1294,7 +1294,7 @@ name|fieldState
 operator|.
 name|attributeSource
 operator|.
-name|getAttribute
+name|addAttribute
 argument_list|(
 name|TermAttribute
 operator|.

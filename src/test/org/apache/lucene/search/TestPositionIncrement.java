@@ -296,9 +296,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|analysis
 operator|.
-name|LuceneTestCase
+name|BaseTokenStreamTestCase
 import|;
 end_import
 begin_import
@@ -424,7 +424,7 @@ specifier|public
 class|class
 name|TestPositionIncrement
 extends|extends
-name|LuceneTestCase
+name|BaseTokenStreamTestCase
 block|{
 DECL|method|testSetPosition
 specifier|public

@@ -269,7 +269,7 @@ name|TermAttribute
 operator|)
 name|stream
 operator|.
-name|getAttribute
+name|addAttribute
 argument_list|(
 name|TermAttribute
 operator|.

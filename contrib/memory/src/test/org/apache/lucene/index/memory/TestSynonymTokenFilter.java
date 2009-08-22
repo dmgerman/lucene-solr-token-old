@@ -173,11 +173,15 @@ import|;
 end_import
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|BaseTokenStreamTestCase
 import|;
 end_import
 begin_class
@@ -186,7 +190,7 @@ specifier|public
 class|class
 name|TestSynonymTokenFilter
 extends|extends
-name|TestCase
+name|BaseTokenStreamTestCase
 block|{
 DECL|field|dataDir
 name|File

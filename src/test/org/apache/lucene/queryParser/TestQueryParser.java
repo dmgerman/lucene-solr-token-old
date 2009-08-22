@@ -512,9 +512,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|analysis
 operator|.
-name|LuceneTestCase
+name|BaseTokenStreamTestCase
 import|;
 end_import
 begin_comment
@@ -526,7 +526,7 @@ specifier|public
 class|class
 name|TestQueryParser
 extends|extends
-name|LuceneTestCase
+name|BaseTokenStreamTestCase
 block|{
 DECL|field|qpAnalyzer
 specifier|public

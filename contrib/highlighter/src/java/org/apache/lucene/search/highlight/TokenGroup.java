@@ -166,7 +166,7 @@ name|OffsetAttribute
 operator|)
 name|tokenStream
 operator|.
-name|getAttribute
+name|addAttribute
 argument_list|(
 name|OffsetAttribute
 operator|.
@@ -180,7 +180,7 @@ name|TermAttribute
 operator|)
 name|tokenStream
 operator|.
-name|getAttribute
+name|addAttribute
 argument_list|(
 name|TermAttribute
 operator|.
