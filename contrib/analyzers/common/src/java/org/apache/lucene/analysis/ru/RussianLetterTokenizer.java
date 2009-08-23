@@ -153,10 +153,6 @@ name|source
 parameter_list|,
 name|Reader
 name|in
-parameter_list|,
-name|char
-index|[]
-name|charset
 parameter_list|)
 block|{
 name|super
@@ -170,7 +166,9 @@ name|this
 operator|.
 name|charset
 operator|=
-name|charset
+name|RussianCharsets
+operator|.
+name|UnicodeRussian
 expr_stmt|;
 block|}
 DECL|method|RussianLetterTokenizer
@@ -182,10 +180,6 @@ name|factory
 parameter_list|,
 name|Reader
 name|in
-parameter_list|,
-name|char
-index|[]
-name|charset
 parameter_list|)
 block|{
 name|super
@@ -199,7 +193,9 @@ name|this
 operator|.
 name|charset
 operator|=
-name|charset
+name|RussianCharsets
+operator|.
+name|UnicodeRussian
 expr_stmt|;
 block|}
 comment|/**      * Collects only characters which satisfy      * {@link Character#isLetter(char)}.      */
