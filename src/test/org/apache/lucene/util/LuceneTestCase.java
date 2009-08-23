@@ -600,10 +600,11 @@ name|seed
 argument_list|)
 return|;
 block|}
-DECL|method|runTest
-specifier|protected
+comment|// @Override
+DECL|method|runBare
+specifier|public
 name|void
-name|runTest
+name|runBare
 parameter_list|()
 throws|throws
 name|Throwable
@@ -616,7 +617,7 @@ literal|null
 expr_stmt|;
 name|super
 operator|.
-name|runTest
+name|runBare
 argument_list|()
 expr_stmt|;
 block|}
