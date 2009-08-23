@@ -162,6 +162,28 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// @Override
+DECL|method|tearDown
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|TokenStream
+operator|.
+name|setOnlyUseNewAPI
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+block|}
+comment|// @Override
 DECL|method|runBare
 specifier|public
 name|void
@@ -195,12 +217,12 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Test failure of "
+literal|"Test failure of '"
 operator|+
 name|getName
 argument_list|()
 operator|+
-literal|" occurred with onlyUseNewAPI=false"
+literal|"' occurred with onlyUseNewAPI=false"
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -247,12 +269,12 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Test failure of "
+literal|"Test failure of '"
 operator|+
 name|getName
 argument_list|()
 operator|+
-literal|" occurred with onlyUseNewAPI=true"
+literal|"' occurred with onlyUseNewAPI=true"
 argument_list|)
 expr_stmt|;
 throw|throw
