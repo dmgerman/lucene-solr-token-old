@@ -36,11 +36,15 @@ import|;
 end_import
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|BaseTokenStreamTestCase
 import|;
 end_import
 begin_import
@@ -120,7 +124,7 @@ specifier|public
 class|class
 name|TestCJKTokenizer
 extends|extends
-name|TestCase
+name|BaseTokenStreamTestCase
 block|{
 DECL|class|TestToken
 class|class

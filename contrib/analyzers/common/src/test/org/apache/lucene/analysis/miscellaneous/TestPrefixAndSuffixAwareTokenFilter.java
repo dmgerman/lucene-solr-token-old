@@ -18,11 +18,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|junit
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|BaseTokenStreamTestCase
 import|;
 end_import
 begin_import
@@ -118,7 +122,7 @@ specifier|public
 class|class
 name|TestPrefixAndSuffixAwareTokenFilter
 extends|extends
-name|TestCase
+name|BaseTokenStreamTestCase
 block|{
 DECL|method|test
 specifier|public
