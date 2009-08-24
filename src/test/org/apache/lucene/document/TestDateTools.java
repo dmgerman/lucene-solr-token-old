@@ -58,6 +58,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1286,6 +1295,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyy-MM-dd HH:mm:ss:SSS"
+argument_list|,
+name|Locale
+operator|.
+name|US
 argument_list|)
 decl_stmt|;
 name|sdf
