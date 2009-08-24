@@ -525,8 +525,6 @@ parameter_list|)
 block|{
 name|Map
 argument_list|<
-name|SolrConfig
-operator|.
 name|PluginInfo
 argument_list|,
 name|SolrRequestHandler
@@ -536,8 +534,6 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|SolrConfig
-operator|.
 name|PluginInfo
 argument_list|,
 name|SolrRequestHandler
@@ -546,8 +542,6 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|SolrConfig
-operator|.
 name|PluginInfo
 name|info
 range|:
@@ -803,8 +797,6 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|SolrConfig
-operator|.
 name|PluginInfo
 argument_list|,
 name|SolrRequestHandler

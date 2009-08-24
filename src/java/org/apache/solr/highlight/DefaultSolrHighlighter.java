@@ -304,6 +304,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|core
+operator|.
+name|PluginInfo
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|request
 operator|.
 name|SolrQueryRequest
@@ -420,8 +433,6 @@ literal|null
 decl_stmt|;
 for|for
 control|(
-name|SolrConfig
-operator|.
 name|PluginInfo
 name|info
 range|:
@@ -517,8 +528,6 @@ literal|null
 decl_stmt|;
 for|for
 control|(
-name|SolrConfig
-operator|.
 name|PluginInfo
 name|info
 range|:

@@ -1204,8 +1204,6 @@ name|void
 name|initDeletionPolicy
 parameter_list|()
 block|{
-name|SolrConfig
-operator|.
 name|PluginInfo
 name|info
 init|=
@@ -1292,8 +1290,6 @@ name|parseListener
 parameter_list|(
 name|List
 argument_list|<
-name|SolrConfig
-operator|.
 name|PluginInfo
 argument_list|>
 name|path
@@ -1314,8 +1310,6 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|SolrConfig
-operator|.
 name|PluginInfo
 name|info
 range|:
@@ -1533,8 +1527,6 @@ block|{
 name|DirectoryFactory
 name|dirFactory
 decl_stmt|;
-name|SolrConfig
-operator|.
 name|PluginInfo
 name|info
 init|=
@@ -1599,8 +1591,6 @@ block|{
 name|IndexReaderFactory
 name|indexReaderFactory
 decl_stmt|;
-name|SolrConfig
-operator|.
 name|PluginInfo
 name|info
 init|=
@@ -2767,8 +2757,6 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|SolrConfig
-operator|.
 name|PluginInfo
 argument_list|>
 argument_list|>
@@ -2795,8 +2783,6 @@ literal|false
 decl_stmt|;
 name|List
 argument_list|<
-name|SolrConfig
-operator|.
 name|PluginInfo
 argument_list|>
 name|defProcessorChainInfo
@@ -2819,8 +2805,6 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|SolrConfig
-operator|.
 name|PluginInfo
 argument_list|>
 argument_list|>
@@ -2837,8 +2821,6 @@ control|)
 block|{
 name|List
 argument_list|<
-name|SolrConfig
-operator|.
 name|PluginInfo
 argument_list|>
 name|processorsInfo
@@ -2902,8 +2884,6 @@ name|i
 operator|++
 control|)
 block|{
-name|SolrConfig
-operator|.
 name|PluginInfo
 name|info
 init|=
@@ -6596,8 +6576,6 @@ name|initPlugins
 parameter_list|(
 name|List
 argument_list|<
-name|SolrConfig
-operator|.
 name|PluginInfo
 argument_list|>
 name|pluginInfos
@@ -6624,8 +6602,6 @@ literal|null
 decl_stmt|;
 for|for
 control|(
-name|SolrConfig
-operator|.
 name|PluginInfo
 name|info
 range|:
