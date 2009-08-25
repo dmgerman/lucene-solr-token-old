@@ -588,10 +588,7 @@ name|DateFormat
 operator|.
 name|SHORT
 argument_list|,
-name|Locale
-operator|.
-name|getDefault
-argument_list|()
+name|locale
 argument_list|)
 decl_stmt|;
 name|df
