@@ -75,21 +75,6 @@ operator|.
 name|AttributeSource
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|AttributeSource
-operator|.
-name|AttributeFactory
-import|;
-end_import
 begin_comment
 comment|/** An abstract base class for simple, character-oriented tokenizers.*/
 end_comment
