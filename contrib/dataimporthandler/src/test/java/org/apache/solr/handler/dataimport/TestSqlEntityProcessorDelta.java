@@ -1358,7 +1358,7 @@ literal|"<dataConfig>\n"
 operator|+
 literal|"<document>\n"
 operator|+
-literal|"<entity name=\"x\" pk=\"id\" transformer=\"TemplateTransformer\""
+literal|"<entity name=\"x\" transformer=\"TemplateTransformer\""
 operator|+
 literal|"				query=\""
 operator|+
