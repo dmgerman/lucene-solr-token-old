@@ -202,6 +202,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Version
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|_TestUtil
 import|;
 end_import
@@ -231,7 +244,11 @@ name|analyzer
 init|=
 operator|new
 name|StandardAnalyzer
-argument_list|()
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|)
 decl_stmt|;
 comment|// Store the index in memory:
 name|Directory
@@ -242,7 +259,7 @@ name|RAMDirectory
 argument_list|()
 decl_stmt|;
 comment|// To store an index on disk, use this instead:
-comment|//Directory directory = FSDirectory.open(new File("/tmp/testindex"));
+comment|//Directory directory = FSDirectory.open("/tmp/testindex");
 name|IndexWriter
 name|iwriter
 init|=
@@ -313,13 +330,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|_TestUtil
-operator|.
-name|checkIndex
-argument_list|(
-name|directory
-argument_list|)
-expr_stmt|;
 comment|// Now search the index:
 name|IndexSearcher
 name|isearcher
@@ -328,8 +338,11 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
+comment|// read-only=true
 comment|// Parse a simple query that searches for "text":
 name|QueryParser
 name|parser
