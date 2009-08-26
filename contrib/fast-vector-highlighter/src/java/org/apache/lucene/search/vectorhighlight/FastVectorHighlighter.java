@@ -390,7 +390,7 @@ name|fragCharSize
 argument_list|)
 return|;
 block|}
-comment|/**    * return whether phraseHighlight or not.    *     * @return    */
+comment|/**    * return whether phraseHighlight or not.    *     * @return whether phraseHighlight or not    */
 DECL|method|isPhraseHighlight
 specifier|public
 name|boolean
@@ -401,7 +401,7 @@ return|return
 name|phraseHighlight
 return|;
 block|}
-comment|/**    * return whether fieldMatch or not.    *     * @return    */
+comment|/**    * return whether fieldMatch or not.    *     * @return whether fieldMatch or not    */
 DECL|method|isFieldMatch
 specifier|public
 name|boolean

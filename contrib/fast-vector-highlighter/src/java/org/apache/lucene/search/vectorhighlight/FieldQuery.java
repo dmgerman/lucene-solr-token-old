@@ -1345,7 +1345,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**    *     * @param fieldName    * @param term    * @return    */
+comment|/**    *     * @param fieldName    * @param term    * @return QueryPhraseMap    */
 DECL|method|getFieldTermMap
 specifier|public
 name|QueryPhraseMap
@@ -1383,7 +1383,7 @@ name|term
 argument_list|)
 return|;
 block|}
-comment|/**    *     * @param fieldName    * @param phraseCandidate    * @return    */
+comment|/**    *     * @param fieldName    * @param phraseCandidate    * @return QueryPhraseMap    */
 DECL|method|searchPhrase
 specifier|public
 name|QueryPhraseMap
