@@ -1572,6 +1572,13 @@ return|return
 name|properties
 return|;
 block|}
+DECL|field|isShutDown
+specifier|private
+name|boolean
+name|isShutDown
+init|=
+literal|false
+decl_stmt|;
 comment|/**    * Stops all cores.    */
 DECL|method|shutdown
 specifier|public
@@ -1583,6 +1590,8 @@ synchronized|synchronized
 init|(
 name|cores
 init|)
+block|{
+try|try
 block|{
 for|for
 control|(
@@ -1607,6 +1616,14 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|isShutDown
+operator|=
+literal|true
+expr_stmt|;
+block|}
+block|}
 block|}
 annotation|@
 name|Override
@@ -1620,9 +1637,23 @@ name|Throwable
 block|{
 try|try
 block|{
+if|if
+condition|(
+operator|!
+name|isShutDown
+condition|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"CoreContainer was not shutdown prior to finalize(), indicates a bug -- POSSIBLE RESOURCE LEAK!!!"
+argument_list|)
+expr_stmt|;
 name|shutdown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{

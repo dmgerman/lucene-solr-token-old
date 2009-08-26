@@ -380,6 +380,11 @@ operator|.
 name|LIVE
 argument_list|)
 expr_stmt|;
+name|sc
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|scNew
 operator|.
 name|put
@@ -503,6 +508,11 @@ argument_list|(
 literal|"cumulative_inserts"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|scNew
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testOldestItems
@@ -644,6 +654,11 @@ argument_list|(
 literal|2
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|cache
+operator|.
+name|destroy
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|doPerfTest
@@ -816,6 +831,11 @@ name|sz
 expr_stmt|;
 block|}
 block|}
+name|cache
+operator|.
+name|destroy
+argument_list|()
+expr_stmt|;
 name|long
 name|end
 init|=
