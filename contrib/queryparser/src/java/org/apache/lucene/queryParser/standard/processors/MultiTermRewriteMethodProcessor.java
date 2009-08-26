@@ -126,7 +126,7 @@ name|MultiTermQuery
 import|;
 end_import
 begin_comment
-comment|/**  * This processor instates the default {@link  * MultiTermQuery.RewriteMethod}, {@link  * MultiTermQuery#CONSTANT_SCORE_AUTO_REWRITE_DEFAULT}, for  * multi-term query nodes.  */
+comment|/**  * This processor instates the default {@link  * org.apache.lucene.search.MultiTermQuery.RewriteMethod}, {@link  * MultiTermQuery#CONSTANT_SCORE_AUTO_REWRITE_DEFAULT}, for  * multi-term query nodes.  */
 end_comment
 begin_class
 DECL|class|MultiTermRewriteMethodProcessor
