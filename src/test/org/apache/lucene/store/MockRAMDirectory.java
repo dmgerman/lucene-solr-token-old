@@ -114,7 +114,7 @@ name|Arrays
 import|;
 end_import
 begin_comment
-comment|/**  * This is a subclass of RAMDirectory that adds methods  * intented to be used only by unit tests.  * @version $Id: RAMDirectory.java 437897 2006-08-29 01:13:10Z yonik $  */
+comment|/**  * This is a subclass of RAMDirectory that adds methods  * intended to be used only by unit tests.  * @version $Id: RAMDirectory.java 437897 2006-08-29 01:13:10Z yonik $  */
 end_comment
 begin_class
 DECL|class|MockRAMDirectory
@@ -347,7 +347,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Simulates a crash of OS or machine by overwriting    *  unsycned files. */
+comment|/** Simulates a crash of OS or machine by overwriting    *  unsynced files. */
 DECL|method|crash
 specifier|public
 specifier|synchronized
