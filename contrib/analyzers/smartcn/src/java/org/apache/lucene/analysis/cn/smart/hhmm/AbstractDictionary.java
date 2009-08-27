@@ -30,7 +30,7 @@ name|UnsupportedEncodingException
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * SmartChineseAnalyzer abstract dictionary implementation.  *</p>  *<p>  * Contains methods for dealing with GB2312 encoding.  *</p>  *<p><font color="#FF0000">  * WARNING: The status of the analyzers/smartcn<b>analysis.cn</b> package is experimental.   * The APIs introduced here might change in the future and will not be   * supported anymore in such a case.</font>  *</p>  */
+comment|/**  *<p>  * SmartChineseAnalyzer abstract dictionary implementation.  *</p>  *<p>  * Contains methods for dealing with GB2312 encoding.  *</p>  *<p><font color="#FF0000">  * WARNING: The status of the analyzers/smartcn<b>analysis.cn</b> package is experimental.   * The APIs and file formats introduced here might change in the future and will not be   * supported anymore in such a case.</font>  *</p>  */
 end_comment
 begin_class
 DECL|class|AbstractDictionary
