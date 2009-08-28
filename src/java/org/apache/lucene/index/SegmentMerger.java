@@ -1683,13 +1683,9 @@ argument_list|()
 expr_stmt|;
 block|}
 specifier|final
-name|long
-name|fdxFileLength
+name|String
+name|fileName
 init|=
-name|directory
-operator|.
-name|fileLength
-argument_list|(
 name|segment
 operator|+
 literal|"."
@@ -1697,6 +1693,16 @@ operator|+
 name|IndexFileNames
 operator|.
 name|FIELDS_INDEX_EXTENSION
+decl_stmt|;
+specifier|final
+name|long
+name|fdxFileLength
+init|=
+name|directory
+operator|.
+name|fileLength
+argument_list|(
+name|fileName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1730,6 +1736,19 @@ operator|+
 literal|" but fdx file size is "
 operator|+
 name|fdxFileLength
+operator|+
+literal|" file="
+operator|+
+name|fileName
+operator|+
+literal|" file exists?="
+operator|+
+name|directory
+operator|.
+name|fileExists
+argument_list|(
+name|fileName
+argument_list|)
 operator|+
 literal|"; now aborting this merge to prevent index corruption"
 argument_list|)
@@ -2317,13 +2336,9 @@ argument_list|()
 expr_stmt|;
 block|}
 specifier|final
-name|long
-name|tvxSize
+name|String
+name|fileName
 init|=
-name|directory
-operator|.
-name|fileLength
-argument_list|(
 name|segment
 operator|+
 literal|"."
@@ -2331,6 +2346,16 @@ operator|+
 name|IndexFileNames
 operator|.
 name|VECTORS_INDEX_EXTENSION
+decl_stmt|;
+specifier|final
+name|long
+name|tvxSize
+init|=
+name|directory
+operator|.
+name|fileLength
+argument_list|(
+name|fileName
 argument_list|)
 decl_stmt|;
 if|if
@@ -2364,6 +2389,19 @@ operator|+
 literal|" but tvx size is "
 operator|+
 name|tvxSize
+operator|+
+literal|" file="
+operator|+
+name|fileName
+operator|+
+literal|" file exists?="
+operator|+
+name|directory
+operator|.
+name|fileExists
+argument_list|(
+name|fileName
+argument_list|)
 operator|+
 literal|"; now aborting this merge to prevent index corruption"
 argument_list|)
