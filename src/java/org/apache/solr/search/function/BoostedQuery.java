@@ -221,7 +221,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createWeight
-specifier|protected
+specifier|public
 name|Weight
 name|createWeight
 parameter_list|(
@@ -307,6 +307,8 @@ name|getBoost
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sumOfSquaredWeights
 specifier|public
 name|float
@@ -335,6 +337,8 @@ return|return
 name|sum
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|normalize
 specifier|public
 name|void
@@ -357,6 +361,8 @@ name|norm
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|scorer
 specifier|public
 name|Scorer
@@ -411,14 +417,13 @@ name|boostVal
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|Explanation
 name|explain
 parameter_list|(
-name|Searcher
-name|searcher
-parameter_list|,
 name|IndexReader
 name|reader
 parameter_list|,
@@ -481,8 +486,6 @@ name|qWeight
 operator|.
 name|explain
 argument_list|(
-name|searcher
-argument_list|,
 name|reader
 argument_list|,
 name|doc
@@ -822,8 +825,6 @@ name|qWeight
 operator|.
 name|explain
 argument_list|(
-name|searcher
-argument_list|,
 name|reader
 argument_list|,
 name|doc
