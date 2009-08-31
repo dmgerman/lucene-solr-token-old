@@ -207,6 +207,9 @@ argument_list|(
 literal|"Could not instantiate class "
 operator|+
 name|attClass
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -223,6 +226,9 @@ argument_list|(
 literal|"Could not instantiate class "
 operator|+
 name|attClass
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 throw|;
 block|}
