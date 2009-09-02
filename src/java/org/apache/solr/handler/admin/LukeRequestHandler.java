@@ -4248,7 +4248,7 @@ control|(
 name|int
 name|bucket
 init|=
-literal|2
+literal|1
 init|;
 name|bucket
 operator|<=
