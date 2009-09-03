@@ -48,7 +48,7 @@ begin_comment
 comment|/**  * Copyright 2006 The Apache Software Foundation  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * There is one instance of this class per indexed term in a document  * and it contains the meta data about each occurance of a term in a docment.  *  * It is the inner glue of the inverted index.  *  *<pre>  * [Term]-- {0..*} | {0..*} --(field)[Document]  *&lt;&lt;ordered>>  *                 |  *    [TermDocumentInformation]  *       +payloads  *       +termPositions  *       +termOffsets  *</pre>  *   */
+comment|/**  * There is one instance of this class per indexed term in a document  * and it contains the meta data about each occurrence of a term in a document.  *  * It is the inner glue of the inverted index.  *  *<pre>  * [Term]-- {0..*} | {0..*} --(field)[Document]  *&lt;&lt;ordered>>  *                 |  *    [TermDocumentInformation]  *       +payloads  *       +termPositions  *       +termOffsets  *</pre>  *   */
 end_comment
 begin_class
 DECL|class|InstantiatedTermDocumentInformation

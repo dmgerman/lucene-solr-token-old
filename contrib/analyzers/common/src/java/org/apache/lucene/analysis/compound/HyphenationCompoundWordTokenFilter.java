@@ -431,7 +431,7 @@ name|Token
 name|token
 parameter_list|)
 block|{
-comment|// get the hpyphenation points
+comment|// get the hyphenation points
 name|Hyphenation
 name|hyphens
 init|=

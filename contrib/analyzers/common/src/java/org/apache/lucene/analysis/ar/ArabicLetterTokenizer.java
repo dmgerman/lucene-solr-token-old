@@ -52,7 +52,7 @@ name|AttributeSource
 import|;
 end_import
 begin_comment
-comment|/**  * The problem with the standard Letter tokenizer is that it fails on diacritics.  * Handling similar to this is necessary for Indic Scripts, Hebrew, Thaana, etc.  *   *  */
+comment|/**  * Tokenizer that breaks text into runs of letters and diacritics.  *<p>  * The problem with the standard Letter tokenizer is that it fails on diacritics.  * Handling similar to this is necessary for Indic Scripts, Hebrew, Thaana, etc.  *</p>  *  */
 end_comment
 begin_class
 DECL|class|ArabicLetterTokenizer
