@@ -33,7 +33,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** An Analyzer that filters LetterTokenizer with LowerCaseFilter. */
+comment|/** An {@link Analyzer} that filters {@link LetterTokenizer}   *  with {@link LowerCaseFilter} */
 end_comment
 begin_class
 DECL|class|SimpleAnalyzer

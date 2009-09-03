@@ -47,7 +47,7 @@ name|WhitespaceTokenizer
 extends|extends
 name|CharTokenizer
 block|{
-comment|/** Construct a new WhitespaceTokenizer using a given {@link AttributeSource}. */
+comment|/** Construct a new WhitespaceTokenizer. */
 DECL|method|WhitespaceTokenizer
 specifier|public
 name|WhitespaceTokenizer
