@@ -120,6 +120,9 @@ operator|.
 name|DistanceUtils
 import|;
 end_import
+begin_comment
+comment|/**<p><font color="red"><b>NOTE:</b> This API is still in  * flux and might change in incompatible ways in the next  * release.</font>  */
+end_comment
 begin_class
 DECL|class|GeoHashDistanceFilter
 specifier|public

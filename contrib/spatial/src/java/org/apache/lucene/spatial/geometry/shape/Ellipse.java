@@ -19,7 +19,7 @@ name|shape
 package|;
 end_package
 begin_comment
-comment|/**  * Ellipse shape. From C++ gl.  */
+comment|/**  * Ellipse shape. From C++ gl.  *  *<p><font color="red"><b>NOTE:</b> This API is still in  * flux and might change in incompatible ways in the next  * release.</font>  */
 end_comment
 begin_class
 DECL|class|Ellipse

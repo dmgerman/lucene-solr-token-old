@@ -19,7 +19,7 @@ name|shape
 package|;
 end_package
 begin_comment
-comment|/**  * Common set of operations available on 2d shapes.  */
+comment|/**  * Common set of operations available on 2d shapes.  *  *<p><font color="red"><b>NOTE:</b> This API is still in  * flux and might change in incompatible ways in the next  * release.</font>  */
 end_comment
 begin_interface
 DECL|interface|Geometry2D
