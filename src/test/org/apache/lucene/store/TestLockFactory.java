@@ -1890,7 +1890,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
-comment|// Make sure we can obtain first one again:
+comment|// Make sure we can obtain first one again, test isLocked():
 name|assertTrue
 argument_list|(
 literal|"failed to obtain lock"
@@ -1901,14 +1901,45 @@ name|obtain
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+name|l
+operator|.
+name|isLocked
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|l2
+operator|.
+name|isLocked
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|l
 operator|.
 name|release
 argument_list|()
 expr_stmt|;
+name|assertFalse
+argument_list|(
+name|l
+operator|.
+name|isLocked
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|l2
+operator|.
+name|isLocked
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
-comment|// Verify: NativeFSLockFactory assigns different lock
-comment|// prefixes to different directories:
+comment|// Verify: NativeFSLockFactory assigns null as lockPrefix if the lockDir is inside directory
 DECL|method|testNativeFSLockFactoryPrefix
 specifier|public
 name|void
@@ -1917,7 +1948,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// Make sure we get identical instances:
 name|File
 name|fdir1
 init|=
@@ -1928,22 +1958,6 @@ argument_list|(
 literal|"TestLockFactory.8"
 argument_list|)
 decl_stmt|;
-name|Directory
-name|dir1
-init|=
-name|FSDirectory
-operator|.
-name|open
-argument_list|(
-name|fdir1
-argument_list|,
-operator|new
-name|NativeFSLockFactory
-argument_list|(
-name|fdir1
-argument_list|)
-argument_list|)
-decl_stmt|;
 name|File
 name|fdir2
 init|=
@@ -1951,9 +1965,26 @@ name|_TestUtil
 operator|.
 name|getTempDir
 argument_list|(
-literal|"TestLockFactory.9"
+literal|"TestLockFactory.8.Lockdir"
 argument_list|)
 decl_stmt|;
+name|Directory
+name|dir1
+init|=
+name|FSDirectory
+operator|.
+name|open
+argument_list|(
+name|fdir1
+argument_list|,
+operator|new
+name|NativeFSLockFactory
+argument_list|(
+name|fdir1
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// same directory, but locks are stored somewhere else. The prefix of the lock factory should != null
 name|Directory
 name|dir2
 init|=
@@ -1961,7 +1992,7 @@ name|FSDirectory
 operator|.
 name|open
 argument_list|(
-name|fdir2
+name|fdir1
 argument_list|,
 operator|new
 name|NativeFSLockFactory
@@ -1981,6 +2012,13 @@ operator|.
 name|getLockPrefix
 argument_list|()
 decl_stmt|;
+name|assertNull
+argument_list|(
+literal|"Lock prefix for lockDir same as directory should be null"
+argument_list|,
+name|prefix1
+argument_list|)
+expr_stmt|;
 name|String
 name|prefix2
 init|=
@@ -1992,21 +2030,11 @@ operator|.
 name|getLockPrefix
 argument_list|()
 decl_stmt|;
-name|assertTrue
+name|assertNotNull
 argument_list|(
-literal|"Native Lock Factories are incorrectly shared: dir1 and dir2 have same lock prefix '"
-operator|+
-name|prefix1
-operator|+
-literal|"'; they should be different"
+literal|"Lock prefix for lockDir outside of directory should be not null"
 argument_list|,
-operator|!
-name|prefix1
-operator|.
-name|equals
-argument_list|(
 name|prefix2
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|_TestUtil
