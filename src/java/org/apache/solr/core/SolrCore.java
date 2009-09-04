@@ -1532,7 +1532,7 @@ name|info
 init|=
 name|solrConfig
 operator|.
-name|getDirectoryfactoryInfo
+name|getDirectoryFactoryInfo
 argument_list|()
 decl_stmt|;
 if|if
