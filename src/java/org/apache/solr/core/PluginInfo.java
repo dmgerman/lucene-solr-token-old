@@ -220,6 +220,9 @@ name|err
 parameter_list|,
 name|boolean
 name|requireName
+parameter_list|,
+name|boolean
+name|requireClass
 parameter_list|)
 block|{
 name|type
@@ -256,7 +259,11 @@ name|node
 argument_list|,
 literal|"class"
 argument_list|,
+name|requireClass
+condition|?
 name|err
+else|:
+literal|null
 argument_list|)
 expr_stmt|;
 name|isDefault
