@@ -648,6 +648,17 @@ operator|.
 name|initTermBuffer
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|termLength
+operator|!=
+name|o
+operator|.
+name|termLength
+condition|)
+return|return
+literal|false
+return|;
 for|for
 control|(
 name|int
