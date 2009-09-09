@@ -1728,17 +1728,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"val null for "
-operator|+
-name|name
-argument_list|)
-expr_stmt|;
 return|return;
 block|}
 if|if
