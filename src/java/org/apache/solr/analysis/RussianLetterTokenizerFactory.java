@@ -55,6 +55,8 @@ name|RussianLetterTokenizerFactory
 extends|extends
 name|BaseTokenizerFactory
 block|{
+annotation|@
+name|Deprecated
 DECL|field|charset
 specifier|private
 name|char
