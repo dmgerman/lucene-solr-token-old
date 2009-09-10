@@ -359,6 +359,10 @@ name|QueryParserMessages
 operator|.
 name|LEADING_WILDCARD_NOT_ALLOWED
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|node
 operator|.
 name|toQueryString
@@ -367,6 +371,7 @@ operator|new
 name|EscapeQuerySyntaxImpl
 argument_list|()
 argument_list|)
+block|}
 argument_list|)
 argument_list|)
 throw|;

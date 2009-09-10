@@ -84,7 +84,7 @@ name|String
 name|key
 parameter_list|,
 name|Object
-modifier|...
+index|[]
 name|args
 parameter_list|)
 block|{
