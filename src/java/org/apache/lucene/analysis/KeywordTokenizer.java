@@ -357,8 +357,6 @@ argument_list|)
 expr_stmt|;
 name|finalOffset
 operator|=
-name|input
-operator|.
 name|correctOffset
 argument_list|(
 name|upto
@@ -368,8 +366,6 @@ name|offsetAtt
 operator|.
 name|setOffset
 argument_list|(
-name|input
-operator|.
 name|correctOffset
 argument_list|(
 literal|0
