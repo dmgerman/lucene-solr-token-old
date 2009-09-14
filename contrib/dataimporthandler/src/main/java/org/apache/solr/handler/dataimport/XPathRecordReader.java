@@ -112,7 +112,7 @@ name|Pattern
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * A streaming xpath parser which uses StAX for XML parsing. It supports only a  * subset of xpath syntax.  *</p>  *<p/>  *<b>This API is experimental and may change in the future.</b>  *  * @version $Id$  * @since solr 1.3  */
+comment|/**  *<p>  * A streaming xpath parser which uses StAX for XML parsing. It supports only a  * subset of xpath syntax.  *</p>  * /a/b/subject[@qualifier='fullTitle']  * /a/b/subject/@qualifier  * /a/b/c  *  * Keep in mind that the wild-card syntax  '//' is not supported  *  *<p/>  *<b>This API is experimental and may change in the future.</b>  * This class is thread-safe for parsing xml . But adding fields is not thread-safe. The recommended usage is  * to addField() in one thread and then share the instance across threads.  *  * @version $Id$  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|XPathRecordReader
@@ -133,6 +133,7 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+comment|/**Use this flag in the addField() method to fetch all the cdata under a specific tag    *    */
 DECL|field|FLATTEN
 specifier|public
 specifier|static
@@ -142,6 +143,7 @@ name|FLATTEN
 init|=
 literal|1
 decl_stmt|;
+comment|/**    * @param forEachXpath  The XPATH for which a record is emitted. At the start of this xpath tag, it starts collecting the fields and at the close    * of the tag ,a record is emitted and the fields collected since the tag start is included in the record. If there    * are fields collected in the parent tag(s) they also will be included in the record but not cleared after emitting the record.    * It can use the ' | ' syntax of XPATH to pass in multiple xpaths.    */
 DECL|method|XPathRecordReader
 specifier|public
 name|XPathRecordReader
@@ -253,6 +255,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**Add a field's XPATH and its name.    * @param name . The name by which this field is referred in the emitted record    * @param xpath . The xpath  to this field    * @param multiValued . If this is 'true' , then the emitted record will have a List<String> as value    * @param flags . The only supported flag is 'FLATTEN'    */
 DECL|method|addField
 specifier|public
 specifier|synchronized
@@ -460,6 +463,7 @@ return|return
 name|results
 return|;
 block|}
+comment|/** Stream records as and when they are colected    * @param r The reader    * @param handler The callback instance    */
 DECL|method|streamRecords
 specifier|public
 name|void
@@ -530,34 +534,49 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**For each node/leaf in the tree there is one object of this class    */
 DECL|class|Node
 specifier|private
 class|class
 name|Node
 block|{
+comment|/**name of the tag/attribute*/
 DECL|field|name
-DECL|field|fieldName
-DECL|field|xpathName
-DECL|field|forEachPath
 name|String
 name|name
-decl_stmt|,
+decl_stmt|;
+comment|/**The field name as passed in the addField() . This will be used in the record*/
+DECL|field|fieldName
+name|String
 name|fieldName
-decl_stmt|,
+decl_stmt|;
+comment|/**stores the xpath name such as '@attr='xyz'*/
+DECL|field|xpathName
+name|String
 name|xpathName
-decl_stmt|,
+decl_stmt|;
+comment|/**The xpath of the record. if this is a record node */
+DECL|field|forEachPath
+name|String
 name|forEachPath
 decl_stmt|;
+comment|/**child attribute nodes */
 DECL|field|attributes
-DECL|field|childNodes
 name|List
 argument_list|<
 name|Node
 argument_list|>
 name|attributes
-decl_stmt|,
+decl_stmt|;
+comment|/**child nodes*/
+DECL|field|childNodes
+name|List
+argument_list|<
+name|Node
+argument_list|>
 name|childNodes
 decl_stmt|;
+comment|/**if attribs are used in the xpath their names and values*/
 DECL|field|attribAndValues
 name|List
 argument_list|<
@@ -572,6 +591,7 @@ argument_list|>
 argument_list|>
 name|attribAndValues
 decl_stmt|;
+comment|/**Parent node of this node */
 DECL|field|parent
 name|Node
 name|parent
@@ -654,6 +674,7 @@ operator|=
 name|multiValued
 expr_stmt|;
 block|}
+comment|/**This is the method where all the parsing happens. For each tag/subtag this gets called recursively.      */
 DECL|method|parse
 specifier|private
 name|void
@@ -1195,6 +1216,7 @@ block|}
 block|}
 finally|finally
 block|{
+comment|/*If a record has ended  (tag closed) then clearup all the fields found         in this record after this tag started */
 name|Set
 argument_list|<
 name|String
@@ -1249,6 +1271,7 @@ block|}
 block|}
 block|}
 block|}
+comment|/**if a new tag is encountered, check if it is of interest of not (if there is a matching child Node).      * if yes continue parsing else skip      */
 DECL|method|handleStartElement
 specifier|private
 name|void
@@ -1338,6 +1361,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**check if the current tag is to be parsed or not. if yes return the Node object      */
 DECL|method|getMatchingChild
 specifier|private
 name|Node
@@ -1504,6 +1528,7 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**If there is no value available for a field in a subtag then add a null      * TODO : needs better explanation      */
 DECL|method|putNulls
 specifier|private
 name|void
@@ -1594,6 +1619,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**Handle multivalued fields by adding List<String>      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1693,6 +1719,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**Skip a tag w/o processing the tag or its subtags      */
 DECL|method|skipTag
 specifier|private
 name|void
@@ -1736,8 +1763,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**Build the node structure from the xpath      * @param paths the xpaths split by '/'      * @param fieldName name of the field      * @param multiValued . is multiValued or not      * @param record is this xpath a record or a field      * @param flags extra flags      */
 DECL|method|build
-specifier|public
+specifier|private
 name|void
 name|build
 parameter_list|(
@@ -2121,6 +2149,7 @@ name|n
 return|;
 block|}
 block|}
+comment|/**If a field has List then they have to be deep-copied for thread safety    */
 DECL|method|getDeepCopy
 specifier|private
 name|Map
@@ -2446,12 +2475,14 @@ name|FALSE
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**Implement this interface to stream records as and when it is found.    *    */
 DECL|interface|Handler
 specifier|public
 specifier|static
 interface|interface
 name|Handler
 block|{
+comment|/**      * @param record The record map . The key is the field name as provided in the addField() methods. The value      * can be a single String (for single valued) or a List<String> (for multiValued)      * if an Exception is thrown from this method the parsing will be aborted      * @param xpath . The forEach XPATH for which this record is being emitted      */
 DECL|method|handle
 specifier|public
 name|void
