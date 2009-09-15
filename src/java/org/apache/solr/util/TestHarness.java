@@ -1923,6 +1923,7 @@ literal|null
 argument_list|,
 operator|(
 name|Object
+index|[]
 operator|)
 name|args
 argument_list|)
