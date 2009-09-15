@@ -148,7 +148,7 @@ name|SolrIndexSearcher
 import|;
 end_import
 begin_comment
-comment|/**  * A description of the PHP serialization format can be found here:  * http://www.hurring.com/scott/code/perl/serialize/  */
+comment|/**  * A description of the PHP serialization format can be found here:  * http://www.hurring.com/scott/code/perl/serialize/  *  *<p>  * If the Writer passed will result in an output of CESU-8 (UTF=8 w/o support for large code points outside of the BMP), then  * the "CESU8" system property should be set by the user.  If the "CESU8" property is not set, a guess is made based on  * other system properties.  Currently Solr assumes that all Jetty servlet containers use CESU-8 instead of UTF-8 (verified  * to the current release of 6.1.20).  Jetty is detected by checking the "jetty.home" system property.  */
 end_comment
 begin_class
 DECL|class|PHPSerializedResponseWriter
@@ -165,19 +165,13 @@ name|CONTENT_TYPE_PHP_UTF8
 init|=
 literal|"text/x-php-serialized;charset=UTF-8"
 decl_stmt|;
-DECL|field|modifiedUTF8
-specifier|static
+comment|// Is this servlet container's UTF-8 encoding actually CESU-8 (i.e. lacks support for
+comment|// large characters outside the BMP).
+DECL|field|CESU8
 name|boolean
-name|modifiedUTF8
+name|CESU8
 init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"jetty.home"
-argument_list|)
-operator|!=
-literal|null
+literal|false
 decl_stmt|;
 DECL|method|init
 specifier|public
@@ -188,7 +182,49 @@ name|NamedList
 name|n
 parameter_list|)
 block|{
-comment|/* NOOP */
+name|String
+name|cesu8Setting
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"CESU8"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|cesu8Setting
+operator|!=
+literal|null
+condition|)
+block|{
+name|CESU8
+operator|=
+literal|"true"
+operator|.
+name|equals
+argument_list|(
+name|cesu8Setting
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// guess at the setting.
+comment|// Jetty up until 6.1.20 at least (and probably versions after) uses CESU8
+name|CESU8
+operator|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"jetty.home"
+argument_list|)
+operator|!=
+literal|null
+expr_stmt|;
+block|}
 block|}
 DECL|method|write
 specifier|public
@@ -219,7 +255,7 @@ name|req
 argument_list|,
 name|rsp
 argument_list|,
-name|modifiedUTF8
+name|CESU8
 argument_list|)
 decl_stmt|;
 try|try
@@ -264,11 +300,11 @@ name|PHPSerializedWriter
 extends|extends
 name|JSONWriter
 block|{
-DECL|field|modifiedUTF8
+DECL|field|CESU8
 specifier|final
 specifier|private
 name|boolean
-name|modifiedUTF8
+name|CESU8
 decl_stmt|;
 DECL|field|utf8
 specifier|final
@@ -291,7 +327,7 @@ name|SolrQueryResponse
 name|rsp
 parameter_list|,
 name|boolean
-name|modifiedUTF8
+name|CESU8
 parameter_list|)
 block|{
 name|super
@@ -305,15 +341,15 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|modifiedUTF8
+name|CESU8
 operator|=
-name|modifiedUTF8
+name|CESU8
 expr_stmt|;
 name|this
 operator|.
 name|utf8
 operator|=
-name|modifiedUTF8
+name|CESU8
 condition|?
 literal|null
 else|:
@@ -1529,7 +1565,7 @@ name|nBytes
 decl_stmt|;
 if|if
 condition|(
-name|modifiedUTF8
+name|CESU8
 condition|)
 block|{
 name|nBytes
