@@ -105,6 +105,8 @@ name|ValueSource
 implements|implements
 name|Serializable
 block|{
+annotation|@
+name|Deprecated
 DECL|method|getValues
 specifier|public
 name|DocValues
