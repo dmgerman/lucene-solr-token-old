@@ -1308,6 +1308,10 @@ block|{
 if|if
 condition|(
 name|subpackages
+operator|==
+literal|null
+operator|||
+name|subpackages
 operator|.
 name|length
 operator|==
