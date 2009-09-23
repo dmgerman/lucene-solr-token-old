@@ -3865,6 +3865,13 @@ name|NamedList
 name|initArgs
 parameter_list|)
 block|{
+if|if
+condition|(
+name|initArgs
+operator|==
+literal|null
+condition|)
+return|return;
 name|Class
 name|clazz
 init|=
