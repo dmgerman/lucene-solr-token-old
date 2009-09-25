@@ -510,6 +510,12 @@ name|i
 operator|++
 control|)
 block|{
+name|ts
+operator|.
+name|clearAttributes
+argument_list|()
+expr_stmt|;
+comment|// extra safety to enforce, that the state is not preserved
 name|assertTrue
 argument_list|(
 literal|"token "
@@ -643,6 +649,11 @@ operator|.
 name|incrementToken
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|ts
+operator|.
+name|end
+argument_list|()
 expr_stmt|;
 name|ts
 operator|.
