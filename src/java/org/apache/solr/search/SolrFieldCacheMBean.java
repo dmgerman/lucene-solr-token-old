@@ -136,7 +136,7 @@ name|Insanity
 import|;
 end_import
 begin_comment
-comment|/**  * A SolrInfoMBean that provides introspection of the Lucene FiledCache, this is<b>NOT</b> a cache that is manged by Solr.  *  * @version $Id:$  */
+comment|/**  * A SolrInfoMBean that provides introspection of the Lucene FiledCache, this is<b>NOT</b> a cache that is manged by Solr.  *  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|SolrFieldCacheMBean
@@ -214,7 +214,7 @@ name|getSourceId
 parameter_list|()
 block|{
 return|return
-literal|"$Id:$"
+literal|"$Id$"
 return|;
 block|}
 DECL|method|getSource
@@ -224,7 +224,7 @@ name|getSource
 parameter_list|()
 block|{
 return|return
-literal|"$URL:$"
+literal|"$URL$"
 return|;
 block|}
 DECL|method|getDocs
@@ -333,7 +333,7 @@ name|stats
 operator|.
 name|add
 argument_list|(
-literal|"instanity_count"
+literal|"insanity_count"
 argument_list|,
 name|insanity
 operator|.
