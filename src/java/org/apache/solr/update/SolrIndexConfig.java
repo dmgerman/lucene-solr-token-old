@@ -626,6 +626,10 @@ operator|+
 literal|"/mergeScheduler"
 argument_list|,
 name|solrConfig
+argument_list|,
+name|def
+operator|.
+name|mergeSchedulerInfo
 argument_list|)
 expr_stmt|;
 block|}
@@ -723,6 +727,10 @@ operator|+
 literal|"/mergePolicy"
 argument_list|,
 name|solrConfig
+argument_list|,
+name|def
+operator|.
+name|mergePolicyInfo
 argument_list|)
 expr_stmt|;
 block|}
@@ -809,6 +817,9 @@ name|path
 parameter_list|,
 name|SolrConfig
 name|solrConfig
+parameter_list|,
+name|PluginInfo
+name|def
 parameter_list|)
 block|{
 name|List
@@ -834,7 +845,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|?
-literal|null
+name|def
 else|:
 name|l
 operator|.
