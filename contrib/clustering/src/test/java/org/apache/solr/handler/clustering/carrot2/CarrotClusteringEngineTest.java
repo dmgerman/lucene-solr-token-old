@@ -246,7 +246,7 @@ argument_list|(
 literal|"default"
 argument_list|)
 argument_list|,
-literal|9
+literal|10
 argument_list|)
 expr_stmt|;
 block|}
@@ -265,7 +265,7 @@ argument_list|(
 literal|"stc"
 argument_list|)
 argument_list|,
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
