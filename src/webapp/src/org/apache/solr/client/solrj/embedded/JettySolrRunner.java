@@ -409,7 +409,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/** Waits until a ping query to the solr server succeeds,    * retrying every 200 milliseconds for a total of 20 seconds.    */
+comment|/** Waits until a ping query to the solr server succeeds,    * retrying every 200 milliseconds up to 2 minutes.    */
 DECL|method|waitForSolr
 specifier|public
 name|void
@@ -458,7 +458,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|600
 condition|;
 name|i
 operator|++
