@@ -292,9 +292,7 @@ literal|"solr"
 operator|+
 name|i
 argument_list|,
-literal|43000
-operator|+
-name|i
+literal|0
 argument_list|)
 expr_stmt|;
 name|solr
@@ -1464,6 +1462,15 @@ expr_stmt|;
 name|jetty
 operator|.
 name|start
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|port
+operator|=
+name|jetty
+operator|.
+name|getLocalPort
 argument_list|()
 expr_stmt|;
 comment|//      System.out.println("waiting.........");
