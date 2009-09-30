@@ -594,6 +594,14 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+name|long
+name|time
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
 name|assertEquals
 argument_list|(
 operator|new
@@ -606,14 +614,22 @@ name|format
 argument_list|(
 operator|new
 name|Date
-argument_list|()
+argument_list|(
+name|time
+operator|-
+literal|2
+operator|*
+literal|86400
+operator|*
+literal|1000
+argument_list|)
 argument_list|)
 argument_list|,
 name|dateFormatEval
 operator|.
 name|evaluate
 argument_list|(
-literal|"'NOW','yyyy-MM-dd HH:mm'"
+literal|"'NOW-2DAYS','yyyy-MM-dd HH:mm'"
 argument_list|,
 name|resolver
 operator|.
@@ -646,7 +662,9 @@ literal|"key"
 argument_list|,
 operator|new
 name|Date
-argument_list|()
+argument_list|(
+name|time
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|resolver
@@ -670,7 +688,9 @@ name|format
 argument_list|(
 operator|new
 name|Date
-argument_list|()
+argument_list|(
+name|time
+argument_list|)
 argument_list|)
 argument_list|,
 name|dateFormatEval
