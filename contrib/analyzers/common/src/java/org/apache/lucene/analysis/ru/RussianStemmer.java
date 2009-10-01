@@ -24,13 +24,6 @@ DECL|class|RussianStemmer
 class|class
 name|RussianStemmer
 block|{
-comment|/**      * @deprecated Support for non-Unicode encodings will be removed in Lucene 3.0       */
-DECL|field|charset
-specifier|private
-name|char
-index|[]
-name|charset
-decl_stmt|;
 comment|// positions of RV, R1 and R2 respectively
 DECL|field|RV
 DECL|field|R1
@@ -51,9 +44,9 @@ specifier|static
 name|char
 name|A
 init|=
-literal|0
+literal|'\u0430'
 decl_stmt|;
-comment|//private final static char B = 1;
+comment|//private final static char B = '\u0431';
 DECL|field|V
 specifier|private
 specifier|final
@@ -61,7 +54,7 @@ specifier|static
 name|char
 name|V
 init|=
-literal|2
+literal|'\u0432'
 decl_stmt|;
 DECL|field|G
 specifier|private
@@ -70,9 +63,9 @@ specifier|static
 name|char
 name|G
 init|=
-literal|3
+literal|'\u0433'
 decl_stmt|;
-comment|//private final static char D = 4;
+comment|//private final static char D = '\u0434';
 DECL|field|E
 specifier|private
 specifier|final
@@ -80,10 +73,10 @@ specifier|static
 name|char
 name|E
 init|=
-literal|5
+literal|'\u0435'
 decl_stmt|;
-comment|//private final static char ZH = 6;
-comment|//private final static char Z = 7;
+comment|//private final static char ZH = '\u0436';
+comment|//private final static char Z = '\u0437';
 DECL|field|I
 specifier|private
 specifier|final
@@ -91,7 +84,7 @@ specifier|static
 name|char
 name|I
 init|=
-literal|8
+literal|'\u0438'
 decl_stmt|;
 DECL|field|I_
 specifier|private
@@ -100,9 +93,9 @@ specifier|static
 name|char
 name|I_
 init|=
-literal|9
+literal|'\u0439'
 decl_stmt|;
-comment|//private final static char K = 10;
+comment|//private final static char K = '\u043A';
 DECL|field|L
 specifier|private
 specifier|final
@@ -110,7 +103,7 @@ specifier|static
 name|char
 name|L
 init|=
-literal|11
+literal|'\u043B'
 decl_stmt|;
 DECL|field|M
 specifier|private
@@ -119,7 +112,7 @@ specifier|static
 name|char
 name|M
 init|=
-literal|12
+literal|'\u043C'
 decl_stmt|;
 DECL|field|N
 specifier|private
@@ -128,7 +121,7 @@ specifier|static
 name|char
 name|N
 init|=
-literal|13
+literal|'\u043D'
 decl_stmt|;
 DECL|field|O
 specifier|private
@@ -137,10 +130,10 @@ specifier|static
 name|char
 name|O
 init|=
-literal|14
+literal|'\u043E'
 decl_stmt|;
-comment|//private final static char P = 15;
-comment|//private final static char R = 16;
+comment|//private final static char P = '\u043F';
+comment|//private final static char R = '\u0440';
 DECL|field|S
 specifier|private
 specifier|final
@@ -148,7 +141,7 @@ specifier|static
 name|char
 name|S
 init|=
-literal|17
+literal|'\u0441'
 decl_stmt|;
 DECL|field|T
 specifier|private
@@ -157,7 +150,7 @@ specifier|static
 name|char
 name|T
 init|=
-literal|18
+literal|'\u0442'
 decl_stmt|;
 DECL|field|U
 specifier|private
@@ -166,9 +159,9 @@ specifier|static
 name|char
 name|U
 init|=
-literal|19
+literal|'\u0443'
 decl_stmt|;
-comment|//private final static char F = 20;
+comment|//private final static char F = '\u0444';
 DECL|field|X
 specifier|private
 specifier|final
@@ -176,10 +169,10 @@ specifier|static
 name|char
 name|X
 init|=
-literal|21
+literal|'\u0445'
 decl_stmt|;
-comment|//private final static char TS = 22;
-comment|//private final static char CH = 23;
+comment|//private final static char TS = '\u0446';
+comment|//private final static char CH = '\u0447';
 DECL|field|SH
 specifier|private
 specifier|final
@@ -187,7 +180,7 @@ specifier|static
 name|char
 name|SH
 init|=
-literal|24
+literal|'\u0448'
 decl_stmt|;
 DECL|field|SHCH
 specifier|private
@@ -196,9 +189,9 @@ specifier|static
 name|char
 name|SHCH
 init|=
-literal|25
+literal|'\u0449'
 decl_stmt|;
-comment|//private final static char HARD = 26;
+comment|//private final static char HARD = '\u044A';
 DECL|field|Y
 specifier|private
 specifier|final
@@ -206,7 +199,7 @@ specifier|static
 name|char
 name|Y
 init|=
-literal|27
+literal|'\u044B'
 decl_stmt|;
 DECL|field|SOFT
 specifier|private
@@ -215,7 +208,7 @@ specifier|static
 name|char
 name|SOFT
 init|=
-literal|28
+literal|'\u044C'
 decl_stmt|;
 DECL|field|AE
 specifier|private
@@ -224,7 +217,7 @@ specifier|static
 name|char
 name|AE
 init|=
-literal|29
+literal|'\u044D'
 decl_stmt|;
 DECL|field|IU
 specifier|private
@@ -233,7 +226,7 @@ specifier|static
 name|char
 name|IU
 init|=
-literal|30
+literal|'\u044E'
 decl_stmt|;
 DECL|field|IA
 specifier|private
@@ -242,7 +235,7 @@ specifier|static
 name|char
 name|IA
 init|=
-literal|31
+literal|'\u044F'
 decl_stmt|;
 comment|// stem definitions
 DECL|field|vowels
@@ -1324,26 +1317,6 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * RussianStemmer constructor comment.      * @deprecated Use {@link #RussianStemmer()} instead.      */
-DECL|method|RussianStemmer
-specifier|public
-name|RussianStemmer
-parameter_list|(
-name|char
-index|[]
-name|charset
-parameter_list|)
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|charset
-operator|=
-name|charset
-expr_stmt|;
-block|}
 comment|/**      * Adjectival ending is an adjective ending,      * optionally preceded by participle ending.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuffer      */
 DECL|method|adjectival
 specifier|private
@@ -1572,12 +1545,9 @@ name|stemmingIndex
 operator|--
 argument_list|)
 operator|!=
-name|charset
-index|[
 name|theEnding
 index|[
 name|j
-index|]
 index|]
 condition|)
 block|{
@@ -2013,12 +1983,9 @@ if|if
 condition|(
 name|letter
 operator|==
-name|charset
-index|[
 name|vowels
 index|[
 name|i
-index|]
 index|]
 condition|)
 return|return
@@ -2126,10 +2093,7 @@ operator|-
 literal|1
 argument_list|)
 operator|==
-name|charset
-index|[
 name|I
-index|]
 condition|)
 block|{
 name|stemmingZone
@@ -2186,10 +2150,7 @@ operator|-
 literal|1
 argument_list|)
 operator|==
-name|charset
-index|[
 name|SOFT
-index|]
 condition|)
 block|{
 name|stemmingZone
@@ -2214,22 +2175,6 @@ return|return
 literal|false
 return|;
 block|}
-block|}
-comment|/**      * Insert the method's description here.      * Creation date: (16/03/2002 10:58:42 PM)      * @param newCharset char[]      * @deprecated Support for non-Unicode encodings will be removed in Lucene 3.0      */
-DECL|method|setCharset
-specifier|public
-name|void
-name|setCharset
-parameter_list|(
-name|char
-index|[]
-name|newCharset
-parameter_list|)
-block|{
-name|charset
-operator|=
-name|newCharset
-expr_stmt|;
 block|}
 comment|/**      * Finds the stem for given Russian word.      * Creation date: (16/03/2002 3:36:48 PM)      * @return java.lang.String      * @param input java.lang.String      */
 DECL|method|stem
@@ -2458,44 +2403,6 @@ name|verbEndings2
 argument_list|)
 return|;
 block|}
-comment|/**      * Static method for stemming with different charsets      * @deprecated Use {@link #stemWord(String)} instead.      */
-DECL|method|stem
-specifier|public
-specifier|static
-name|String
-name|stem
-parameter_list|(
-name|String
-name|theWord
-parameter_list|,
-name|char
-index|[]
-name|charset
-parameter_list|)
-block|{
-name|RussianStemmer
-name|stemmer
-init|=
-operator|new
-name|RussianStemmer
-argument_list|()
-decl_stmt|;
-name|stemmer
-operator|.
-name|setCharset
-argument_list|(
-name|charset
-argument_list|)
-expr_stmt|;
-return|return
-name|stemmer
-operator|.
-name|stem
-argument_list|(
-name|theWord
-argument_list|)
-return|;
-block|}
 comment|/**      * Static method for stemming.      */
 DECL|method|stemWord
 specifier|public
@@ -2514,15 +2421,6 @@ operator|new
 name|RussianStemmer
 argument_list|()
 decl_stmt|;
-name|stemmer
-operator|.
-name|setCharset
-argument_list|(
-name|RussianCharsets
-operator|.
-name|UnicodeRussian
-argument_list|)
-expr_stmt|;
 return|return
 name|stemmer
 operator|.
