@@ -99,9 +99,6 @@ name|max
 expr_stmt|;
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -154,7 +151,7 @@ return|;
 block|}
 comment|// note: else we ignore it but should we index each part of it?
 block|}
-comment|// reached EOS -- return null
+comment|// reached EOS -- return false
 return|return
 literal|false
 return|;

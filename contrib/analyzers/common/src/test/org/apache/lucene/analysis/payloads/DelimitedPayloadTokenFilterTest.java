@@ -151,9 +151,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|filter
 operator|.
 name|getAttribute
@@ -166,9 +163,6 @@ decl_stmt|;
 name|PayloadAttribute
 name|payAtt
 init|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|filter
 operator|.
 name|getAttribute
@@ -555,9 +549,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|filter
 operator|.
 name|getAttribute
@@ -570,9 +561,6 @@ decl_stmt|;
 name|PayloadAttribute
 name|payAtt
 init|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|filter
 operator|.
 name|getAttribute
@@ -795,9 +783,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|filter
 operator|.
 name|getAttribute
@@ -810,9 +795,6 @@ decl_stmt|;
 name|PayloadAttribute
 name|payAtt
 init|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|filter
 operator|.
 name|getAttribute
@@ -1011,9 +993,6 @@ block|{
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|stream
 operator|.
 name|getAttribute
@@ -1026,9 +1005,6 @@ decl_stmt|;
 name|PayloadAttribute
 name|payloadAtt
 init|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|stream
 operator|.
 name|getAttribute

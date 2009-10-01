@@ -345,9 +345,6 @@ specifier|private
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -359,9 +356,6 @@ specifier|private
 name|PositionIncrementAttribute
 name|posIncrAtt
 init|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PositionIncrementAttribute
@@ -373,9 +367,6 @@ specifier|private
 name|OffsetAttribute
 name|offsetAtt
 init|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|OffsetAttribute
@@ -387,9 +378,6 @@ specifier|private
 name|TypeAttribute
 name|typeAtt
 init|=
-operator|(
-name|TypeAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TypeAttribute
@@ -1076,9 +1064,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|stream
 operator|.
 name|addAttribute

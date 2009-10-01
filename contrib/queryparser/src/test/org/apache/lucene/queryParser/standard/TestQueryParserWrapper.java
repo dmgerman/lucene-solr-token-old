@@ -803,9 +803,6 @@ argument_list|)
 expr_stmt|;
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -815,9 +812,6 @@ argument_list|)
 expr_stmt|;
 name|offsetAtt
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|OffsetAttribute

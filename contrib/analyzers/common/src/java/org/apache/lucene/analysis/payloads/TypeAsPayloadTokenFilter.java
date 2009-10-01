@@ -143,9 +143,6 @@ argument_list|)
 expr_stmt|;
 name|payloadAtt
 operator|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PayloadAttribute
@@ -155,9 +152,6 @@ argument_list|)
 expr_stmt|;
 name|typeAtt
 operator|=
-operator|(
-name|TypeAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TypeAttribute

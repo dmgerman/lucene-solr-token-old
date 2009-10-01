@@ -393,9 +393,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|source
 operator|.
 name|addAttribute
@@ -744,9 +741,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|source
 operator|.
 name|addAttribute
@@ -907,9 +901,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|source
 operator|.
 name|addAttribute
@@ -1066,9 +1057,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|source
 operator|.
 name|addAttribute
@@ -1174,9 +1162,6 @@ argument_list|)
 expr_stmt|;
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|source
 operator|.
 name|addAttribute

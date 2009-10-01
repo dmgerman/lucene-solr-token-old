@@ -278,9 +278,6 @@ decl_stmt|;
 name|TermAttribute
 name|text
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|in
 operator|.
 name|getAttribute
@@ -293,9 +290,6 @@ decl_stmt|;
 name|TermAttribute
 name|sampleText
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|sample
 operator|.
 name|getAttribute
@@ -451,9 +445,6 @@ decl_stmt|;
 name|TermAttribute
 name|text
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|in
 operator|.
 name|getAttribute
@@ -466,9 +457,6 @@ decl_stmt|;
 name|TermAttribute
 name|sampleText
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|sample
 operator|.
 name|getAttribute
@@ -623,9 +611,6 @@ decl_stmt|;
 name|TermAttribute
 name|text
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|in
 operator|.
 name|getAttribute
@@ -638,9 +623,6 @@ decl_stmt|;
 name|TermAttribute
 name|sampleText
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|sample
 operator|.
 name|getAttribute
@@ -744,9 +726,6 @@ decl_stmt|;
 name|TermAttribute
 name|termText
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|stream
 operator|.
 name|getAttribute

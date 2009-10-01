@@ -337,9 +337,6 @@ parameter_list|)
 block|{
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|tokenStream
 operator|.
 name|addAttribute

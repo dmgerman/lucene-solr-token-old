@@ -308,9 +308,6 @@ condition|)
 block|{
 name|payloadAttribute
 operator|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|fieldState
 operator|.
 name|attributeSource

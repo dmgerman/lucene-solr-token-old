@@ -111,9 +111,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|filter
 operator|.
 name|getAttribute
@@ -5433,9 +5430,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|filter
 operator|.
 name|getAttribute

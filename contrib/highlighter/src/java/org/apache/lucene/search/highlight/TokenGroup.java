@@ -161,9 +161,6 @@ parameter_list|)
 block|{
 name|offsetAtt
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|tokenStream
 operator|.
 name|addAttribute
@@ -175,9 +172,6 @@ argument_list|)
 expr_stmt|;
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|tokenStream
 operator|.
 name|addAttribute

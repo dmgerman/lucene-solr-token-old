@@ -239,10 +239,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|(
-operator|(
-name|LowercaseExpandedTermsAttribute
-operator|)
 name|getQueryConfigHandler
 argument_list|()
 operator|.
@@ -252,7 +248,6 @@ name|LowercaseExpandedTermsAttribute
 operator|.
 name|class
 argument_list|)
-operator|)
 operator|.
 name|isLowercaseExpandedTerms
 argument_list|()

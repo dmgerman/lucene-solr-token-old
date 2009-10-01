@@ -600,9 +600,6 @@ expr_stmt|;
 name|OffsetAttribute
 name|offsetAttribute
 init|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|fieldState
 operator|.
 name|attributeSource
@@ -617,9 +614,6 @@ decl_stmt|;
 name|PositionIncrementAttribute
 name|posIncrAttribute
 init|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|fieldState
 operator|.
 name|attributeSource

@@ -884,9 +884,6 @@ condition|)
 block|{
 name|offsetAttribute
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|fieldState
 operator|.
 name|attributeSource

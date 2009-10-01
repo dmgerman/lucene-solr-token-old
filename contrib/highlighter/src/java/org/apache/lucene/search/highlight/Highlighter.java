@@ -643,9 +643,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|tokenStream
 operator|.
 name|addAttribute
@@ -658,9 +655,6 @@ decl_stmt|;
 name|OffsetAttribute
 name|offsetAtt
 init|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|tokenStream
 operator|.
 name|addAttribute

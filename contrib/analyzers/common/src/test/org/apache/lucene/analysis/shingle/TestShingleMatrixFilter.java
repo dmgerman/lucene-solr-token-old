@@ -3974,9 +3974,6 @@ block|{
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -4028,9 +4025,6 @@ block|{
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -4043,9 +4037,6 @@ decl_stmt|;
 name|PositionIncrementAttribute
 name|posIncrAtt
 init|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -4058,9 +4049,6 @@ decl_stmt|;
 name|PayloadAttribute
 name|payloadAtt
 init|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -4157,9 +4145,6 @@ block|{
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -4172,9 +4157,6 @@ decl_stmt|;
 name|PositionIncrementAttribute
 name|posIncrAtt
 init|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -4187,9 +4169,6 @@ decl_stmt|;
 name|PayloadAttribute
 name|payloadAtt
 init|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -4202,9 +4181,6 @@ decl_stmt|;
 name|OffsetAttribute
 name|offsetAtt
 init|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -4315,9 +4291,6 @@ block|{
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -4330,9 +4303,6 @@ decl_stmt|;
 name|OffsetAttribute
 name|offsetAtt
 init|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -4472,9 +4442,6 @@ name|tokens
 expr_stmt|;
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -4484,9 +4451,6 @@ argument_list|)
 expr_stmt|;
 name|posIncrAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PositionIncrementAttribute
@@ -4496,9 +4460,6 @@ argument_list|)
 expr_stmt|;
 name|payloadAtt
 operator|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PayloadAttribute
@@ -4508,9 +4469,6 @@ argument_list|)
 expr_stmt|;
 name|offsetAtt
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|OffsetAttribute
@@ -4520,9 +4478,6 @@ argument_list|)
 expr_stmt|;
 name|typeAtt
 operator|=
-operator|(
-name|TypeAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TypeAttribute
@@ -4532,9 +4487,6 @@ argument_list|)
 expr_stmt|;
 name|flagsAtt
 operator|=
-operator|(
-name|FlagsAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|FlagsAttribute

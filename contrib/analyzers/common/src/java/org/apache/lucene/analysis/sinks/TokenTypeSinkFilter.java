@@ -110,9 +110,6 @@ condition|)
 block|{
 name|typeAtt
 operator|=
-operator|(
-name|TypeAttribute
-operator|)
 name|source
 operator|.
 name|addAttribute

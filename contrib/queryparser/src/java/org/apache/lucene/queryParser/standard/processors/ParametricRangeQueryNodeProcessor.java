@@ -417,10 +417,6 @@ condition|)
 block|{
 name|collator
 operator|=
-operator|(
-operator|(
-name|RangeCollatorAttribute
-operator|)
 name|getQueryConfigHandler
 argument_list|()
 operator|.
@@ -430,7 +426,6 @@ name|RangeCollatorAttribute
 operator|.
 name|class
 argument_list|)
-operator|)
 operator|.
 name|getRangeCollator
 argument_list|()
@@ -451,10 +446,6 @@ condition|)
 block|{
 name|locale
 operator|=
-operator|(
-operator|(
-name|LocaleAttribute
-operator|)
 name|getQueryConfigHandler
 argument_list|()
 operator|.
@@ -464,7 +455,6 @@ name|LocaleAttribute
 operator|.
 name|class
 argument_list|)
-operator|)
 operator|.
 name|getLocale
 argument_list|()
@@ -505,10 +495,6 @@ condition|)
 block|{
 name|dateRes
 operator|=
-operator|(
-operator|(
-name|DateResolutionAttribute
-operator|)
 name|fieldConfig
 operator|.
 name|getAttribute
@@ -517,7 +503,6 @@ name|DateResolutionAttribute
 operator|.
 name|class
 argument_list|)
-operator|)
 operator|.
 name|getDateResolution
 argument_list|()

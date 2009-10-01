@@ -263,9 +263,6 @@ name|this
 operator|.
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -277,9 +274,6 @@ name|this
 operator|.
 name|typeAtt
 operator|=
-operator|(
-name|TypeAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TypeAttribute
@@ -291,9 +285,6 @@ name|this
 operator|.
 name|posIncrAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PositionIncrementAttribute

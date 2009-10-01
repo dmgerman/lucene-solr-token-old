@@ -314,10 +314,6 @@ name|CharSequence
 index|[]
 name|fields
 init|=
-operator|(
-operator|(
-name|MultiFieldAttribute
-operator|)
 name|getQueryConfigHandler
 argument_list|()
 operator|.
@@ -327,7 +323,6 @@ name|MultiFieldAttribute
 operator|.
 name|class
 argument_list|)
-operator|)
 operator|.
 name|getFields
 argument_list|()

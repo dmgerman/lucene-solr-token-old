@@ -586,9 +586,6 @@ name|settingsCodec
 expr_stmt|;
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -598,9 +595,6 @@ argument_list|)
 expr_stmt|;
 name|posIncrAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PositionIncrementAttribute
@@ -610,9 +604,6 @@ argument_list|)
 expr_stmt|;
 name|payloadAtt
 operator|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PayloadAttribute
@@ -622,9 +613,6 @@ argument_list|)
 expr_stmt|;
 name|offsetAtt
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|OffsetAttribute
@@ -634,9 +622,6 @@ argument_list|)
 expr_stmt|;
 name|typeAtt
 operator|=
-operator|(
-name|TypeAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TypeAttribute
@@ -646,9 +631,6 @@ argument_list|)
 expr_stmt|;
 name|flagsAtt
 operator|=
-operator|(
-name|FlagsAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|FlagsAttribute
@@ -667,9 +649,6 @@ argument_list|()
 expr_stmt|;
 name|in_termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|input
 operator|.
 name|addAttribute
@@ -681,9 +660,6 @@ argument_list|)
 expr_stmt|;
 name|in_posIncrAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|input
 operator|.
 name|addAttribute
@@ -695,9 +671,6 @@ argument_list|)
 expr_stmt|;
 name|in_payloadAtt
 operator|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|input
 operator|.
 name|addAttribute
@@ -709,9 +682,6 @@ argument_list|)
 expr_stmt|;
 name|in_offsetAtt
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|input
 operator|.
 name|addAttribute
@@ -723,9 +693,6 @@ argument_list|)
 expr_stmt|;
 name|in_typeAtt
 operator|=
-operator|(
-name|TypeAttribute
-operator|)
 name|input
 operator|.
 name|addAttribute
@@ -737,9 +704,6 @@ argument_list|)
 expr_stmt|;
 name|in_flagsAtt
 operator|=
-operator|(
-name|FlagsAttribute
-operator|)
 name|input
 operator|.
 name|addAttribute
@@ -908,9 +872,6 @@ name|settingsCodec
 expr_stmt|;
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -920,9 +881,6 @@ argument_list|)
 expr_stmt|;
 name|posIncrAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PositionIncrementAttribute
@@ -932,9 +890,6 @@ argument_list|)
 expr_stmt|;
 name|payloadAtt
 operator|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PayloadAttribute
@@ -944,9 +899,6 @@ argument_list|)
 expr_stmt|;
 name|offsetAtt
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|OffsetAttribute
@@ -956,9 +908,6 @@ argument_list|)
 expr_stmt|;
 name|typeAtt
 operator|=
-operator|(
-name|TypeAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TypeAttribute
@@ -968,9 +917,6 @@ argument_list|)
 expr_stmt|;
 name|flagsAtt
 operator|=
-operator|(
-name|FlagsAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|FlagsAttribute
@@ -980,9 +926,6 @@ argument_list|)
 expr_stmt|;
 name|in_termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|input
 operator|.
 name|addAttribute
@@ -994,9 +937,6 @@ argument_list|)
 expr_stmt|;
 name|in_posIncrAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|input
 operator|.
 name|addAttribute
@@ -1008,9 +948,6 @@ argument_list|)
 expr_stmt|;
 name|in_payloadAtt
 operator|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|input
 operator|.
 name|addAttribute
@@ -1022,9 +959,6 @@ argument_list|)
 expr_stmt|;
 name|in_offsetAtt
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|input
 operator|.
 name|addAttribute
@@ -1036,9 +970,6 @@ argument_list|)
 expr_stmt|;
 name|in_typeAtt
 operator|=
-operator|(
-name|TypeAttribute
-operator|)
 name|input
 operator|.
 name|addAttribute
@@ -1050,9 +981,6 @@ argument_list|)
 expr_stmt|;
 name|in_flagsAtt
 operator|=
-operator|(
-name|FlagsAttribute
-operator|)
 name|input
 operator|.
 name|addAttribute

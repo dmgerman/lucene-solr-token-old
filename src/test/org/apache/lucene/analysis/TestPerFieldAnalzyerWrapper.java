@@ -100,9 +100,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|tokenStream
 operator|.
 name|getAttribute
@@ -149,9 +146,6 @@ argument_list|)
 expr_stmt|;
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|tokenStream
 operator|.
 name|getAttribute

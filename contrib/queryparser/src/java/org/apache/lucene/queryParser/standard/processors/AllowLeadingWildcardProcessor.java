@@ -236,9 +236,6 @@ block|{
 name|AllowLeadingWildcardAttribute
 name|alwAttr
 init|=
-operator|(
-name|AllowLeadingWildcardAttribute
-operator|)
 name|getQueryConfigHandler
 argument_list|()
 operator|.

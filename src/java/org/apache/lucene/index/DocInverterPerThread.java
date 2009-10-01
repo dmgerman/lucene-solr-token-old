@@ -123,9 +123,6 @@ parameter_list|()
 block|{
 name|termAttribute
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -135,9 +132,6 @@ argument_list|)
 expr_stmt|;
 name|offsetAttribute
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|OffsetAttribute

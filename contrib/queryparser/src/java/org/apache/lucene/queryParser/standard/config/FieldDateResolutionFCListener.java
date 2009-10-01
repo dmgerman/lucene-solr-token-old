@@ -83,7 +83,7 @@ name|QueryConfigHandler
 import|;
 end_import
 begin_comment
-comment|/**  * This listener listens for every field configuration request and assign a  * {@link DateResolutionAttribute} to the equivalent {@link FieldConfig} based on a  * defined map: fieldName -> DateTools.Resolution stored in {@link FieldDateResolutionMapAttribute}  * in the {@link DateResolutionAttribute}.  *   * @see DateResolutionAttribute  * @see FieldDateResolutionMapAttribute  * @see FieldConfig  * @see FieldConfigListener  */
+comment|/**  * This listener listens for every field configuration request and assign a  * {@link DateResolutionAttribute} to the equivalent {@link FieldConfig} based  * on a defined map: fieldName -> DateTools.Resolution stored in  * {@link FieldDateResolutionMapAttribute} in the  * {@link DateResolutionAttribute}.  *   * @see DateResolutionAttribute  * @see FieldDateResolutionMapAttribute  * @see FieldConfig  * @see FieldConfigListener  */
 end_comment
 begin_class
 DECL|class|FieldDateResolutionFCListener
@@ -137,9 +137,6 @@ block|{
 name|DateResolutionAttribute
 name|fieldDateResAttr
 init|=
-operator|(
-name|DateResolutionAttribute
-operator|)
 name|fieldConfig
 operator|.
 name|addAttribute
@@ -173,9 +170,6 @@ block|{
 name|FieldDateResolutionMapAttribute
 name|dateResMapAttr
 init|=
-operator|(
-name|FieldDateResolutionMapAttribute
-operator|)
 name|this
 operator|.
 name|config
@@ -230,9 +224,6 @@ block|{
 name|DateResolutionAttribute
 name|dateResAttr
 init|=
-operator|(
-name|DateResolutionAttribute
-operator|)
 name|this
 operator|.
 name|config

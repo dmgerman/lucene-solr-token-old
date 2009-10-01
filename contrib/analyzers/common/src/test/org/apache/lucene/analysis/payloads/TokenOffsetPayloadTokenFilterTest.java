@@ -163,9 +163,6 @@ decl_stmt|;
 name|PayloadAttribute
 name|payloadAtt
 init|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|nptf
 operator|.
 name|getAttribute
@@ -178,9 +175,6 @@ decl_stmt|;
 name|OffsetAttribute
 name|offsetAtt
 init|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|nptf
 operator|.
 name|getAttribute

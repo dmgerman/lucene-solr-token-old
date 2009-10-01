@@ -264,9 +264,6 @@ expr_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|stream
 operator|.
 name|addAttribute

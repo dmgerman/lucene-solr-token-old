@@ -812,9 +812,6 @@ expr_stmt|;
 name|PayloadAttribute
 name|payloadAtt
 init|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|stream
 operator|.
 name|addAttribute
@@ -827,9 +824,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|stream
 operator|.
 name|addAttribute
@@ -1843,9 +1837,6 @@ comment|// and now we also use incrementToken()... (very bad, but should work)
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|stream
 operator|.
 name|getAttribute
@@ -1965,9 +1956,6 @@ decl_stmt|;
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|stream
 operator|.
 name|getAttribute

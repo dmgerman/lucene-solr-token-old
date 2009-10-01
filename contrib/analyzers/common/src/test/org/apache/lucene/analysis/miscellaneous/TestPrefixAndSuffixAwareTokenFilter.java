@@ -251,9 +251,6 @@ block|{
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -266,9 +263,6 @@ decl_stmt|;
 name|OffsetAttribute
 name|offsetAtt
 init|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute

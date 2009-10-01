@@ -107,9 +107,6 @@ specifier|final
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|stream
 operator|.
 name|getAttribute
@@ -123,9 +120,6 @@ specifier|final
 name|TypeAttribute
 name|typeAtt
 init|=
-operator|(
-name|TypeAttribute
-operator|)
 name|stream
 operator|.
 name|getAttribute
@@ -244,9 +238,6 @@ specifier|final
 name|TermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|stream
 operator|.
 name|getAttribute
@@ -260,9 +251,6 @@ specifier|final
 name|TypeAttribute
 name|typeAtt
 init|=
-operator|(
-name|TypeAttribute
-operator|)
 name|stream
 operator|.
 name|getAttribute

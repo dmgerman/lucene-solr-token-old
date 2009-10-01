@@ -231,10 +231,6 @@ name|this
 operator|.
 name|defaultPhraseSlop
 operator|=
-operator|(
-operator|(
-name|DefaultPhraseSlopAttribute
-operator|)
 name|queryConfig
 operator|.
 name|getAttribute
@@ -243,7 +239,6 @@ name|DefaultPhraseSlopAttribute
 operator|.
 name|class
 argument_list|)
-operator|)
 operator|.
 name|getDefaultPhraseSlop
 argument_list|()

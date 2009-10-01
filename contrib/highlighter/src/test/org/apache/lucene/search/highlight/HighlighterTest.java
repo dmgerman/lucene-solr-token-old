@@ -7923,9 +7923,6 @@ decl_stmt|;
 block|{
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -7935,9 +7932,6 @@ argument_list|)
 expr_stmt|;
 name|posIncrAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PositionIncrementAttribute
@@ -7947,9 +7941,6 @@ argument_list|)
 expr_stmt|;
 name|offsetAtt
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|OffsetAttribute
@@ -8205,9 +8196,6 @@ decl_stmt|;
 block|{
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -8217,9 +8205,6 @@ argument_list|)
 expr_stmt|;
 name|posIncrAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PositionIncrementAttribute
@@ -8229,9 +8214,6 @@ argument_list|)
 expr_stmt|;
 name|offsetAtt
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|OffsetAttribute
@@ -10251,9 +10233,6 @@ name|synonyms
 expr_stmt|;
 name|realTermAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|realStream
 operator|.
 name|addAttribute
@@ -10265,9 +10244,6 @@ argument_list|)
 expr_stmt|;
 name|realPosIncrAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|realStream
 operator|.
 name|addAttribute
@@ -10279,9 +10255,6 @@ argument_list|)
 expr_stmt|;
 name|realOffsetAtt
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|realStream
 operator|.
 name|addAttribute
@@ -10293,9 +10266,6 @@ argument_list|)
 expr_stmt|;
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -10305,9 +10275,6 @@ argument_list|)
 expr_stmt|;
 name|posIncrAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PositionIncrementAttribute
@@ -10317,9 +10284,6 @@ argument_list|)
 expr_stmt|;
 name|offsetAtt
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|OffsetAttribute

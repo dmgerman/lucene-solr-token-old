@@ -691,9 +691,6 @@ literal|1
 expr_stmt|;
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|tokenStream
 operator|.
 name|addAttribute
@@ -705,9 +702,6 @@ argument_list|)
 expr_stmt|;
 name|posIncAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|tokenStream
 operator|.
 name|addAttribute
