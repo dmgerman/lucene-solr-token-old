@@ -130,7 +130,8 @@ operator|=
 name|query
 expr_stmt|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -145,7 +146,8 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 specifier|final
@@ -213,7 +215,8 @@ return|return
 literal|false
 return|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 specifier|final
@@ -431,7 +434,8 @@ parameter_list|)
 function_decl|;
 block|}
 comment|/**    * Returns a BitSet with true for documents which should be    * permitted in search results, and false for those that should    * not.    * @deprecated Use {@link #getDocIdSet(IndexReader)} instead.    */
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|bits
 specifier|public
 name|BitSet
@@ -512,7 +516,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**    * Returns a DocIdSet with documents that should be    * permitted in search results.    */
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|getDocIdSet
 specifier|public
 name|DocIdSet

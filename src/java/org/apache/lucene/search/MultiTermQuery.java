@@ -869,6 +869,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -899,6 +901,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -1000,6 +1004,8 @@ operator|new
 name|ConstantScoreAutoRewrite
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setTermCountCutoff
@@ -1016,6 +1022,8 @@ literal|"Please create a private instance"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setDocCountPercent
@@ -1150,6 +1158,8 @@ argument_list|)
 return|;
 block|}
 comment|/* Prints a user-readable version of this query.    * Implemented for back compat in case MultiTermQuery    * subclasses do no implement.    */
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1272,7 +1282,8 @@ operator|=
 name|method
 expr_stmt|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -1321,7 +1332,8 @@ return|return
 name|result
 return|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean

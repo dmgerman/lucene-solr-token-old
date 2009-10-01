@@ -320,6 +320,8 @@ literal|null
 return|;
 block|}
 comment|/** Returns always<code>null</code> for numeric fields */
+annotation|@
+name|Override
 DECL|method|getBinaryValue
 specifier|public
 name|byte
@@ -432,8 +434,9 @@ argument_list|)
 expr_stmt|;
 name|fieldsData
 operator|=
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|value
 argument_list|)
@@ -462,8 +465,9 @@ argument_list|)
 expr_stmt|;
 name|fieldsData
 operator|=
-operator|new
 name|Double
+operator|.
+name|valueOf
 argument_list|(
 name|value
 argument_list|)
@@ -492,8 +496,9 @@ argument_list|)
 expr_stmt|;
 name|fieldsData
 operator|=
-operator|new
 name|Float
+operator|.
+name|valueOf
 argument_list|(
 name|value
 argument_list|)

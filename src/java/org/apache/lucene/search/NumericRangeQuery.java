@@ -130,7 +130,7 @@ name|Term
 import|;
 end_import
 begin_comment
-comment|/**  *<p>A {@link Query} that matches numeric values within a  * specified range.  To use this, you must first index the  * numeric values using {@link NumericField} (expert: {@link  * NumericTokenStream}).  If your terms are instead textual,  * you should use {@link TermRangeQuery}.  {@link  * NumericRangeFilter} is the filter equivalent of this  * query.</p>  *  *<p>You create a new NumericRangeQuery with the static  * factory methods, eg:  *  *<pre>  * Query q = NumericRangeQuery.newFloatRange("weight",  *                                           new Float(0.3f), new Float(0.10f),  *                                           true, true);  *</pre>  *  * matches all documents whose float valued "weight" field  * ranges from 0.3 to 0.10, inclusive.  *  *<p>The performance of NumericRangeQuery is much better  * than the corresponding {@link TermRangeQuery} because the  * number of terms that must be searched is usually far  * fewer, thanks to trie indexing, described below.</p>  *  *<p>You can optionally specify a<a  * href="#precisionStepDesc"><code>precisionStep</code></a>  * when creating this query.  This is necessary if you've  * changed this configuration from its default (4) during  * indexing.  Lower values consume more disk space but speed  * up searching.  Suitable values are between<b>1</b> and  *<b>8</b>. A good starting point to test is<b>4</b>,  * which is the default value for all<code>Numeric*</code>  * classes.  See<a href="#precisionStepDesc">below</a> for  * details.  *  *<p>This query defaults to {@linkplain  * MultiTermQuery#CONSTANT_SCORE_AUTO_REWRITE_DEFAULT} for  * 32 bit (int/float) ranges with precisionStep&le;8 and 64  * bit (long/double) ranges with precisionStep&le;6.  * Otherwise it uses {@linkplain  * MultiTermQuery#CONSTANT_SCORE_FILTER_REWRITE} as the  * number of terms is likely to be high.  With precision  * steps of&le;4, this query can be run with one of the  * BooleanQuery rewrite methods without changing  * BooleanQuery's default max clause count.  *  *<p><font color="red"><b>NOTE:</b> This API is experimental and  * might change in incompatible ways in the next release.</font>  *  *<br><h3>How it works</h3>  *  *<p>See the publication about<a target="_blank" href="http://www.panfmp.org">panFMP</a>,  * where this algorithm was described (referred to as<code>TrieRangeQuery</code>):  *  *<blockquote><strong>Schindler, U, Diepenbroek, M</strong>, 2008.  *<em>Generic XML-based Framework for Metadata Portals.</em>  * Computers&amp; Geosciences 34 (12), 1947-1955.  *<a href="http://dx.doi.org/10.1016/j.cageo.2008.02.023"  * target="_blank">doi:10.1016/j.cageo.2008.02.023</a></blockquote>  *  *<p><em>A quote from this paper:</em> Because Apache Lucene is a full-text  * search engine and not a conventional database, it cannot handle numerical ranges  * (e.g., field value is inside user defined bounds, even dates are numerical values).  * We have developed an extension to Apache Lucene that stores  * the numerical values in a special string-encoded format with variable precision  * (all numerical values like doubles, longs, floats, and ints are converted to  * lexicographic sortable string representations and stored with different precisions  * (for a more detailed description of how the values are stored,  * see {@link NumericUtils}). A range is then divided recursively into multiple intervals for searching:  * The center of the range is searched only with the lowest possible precision in the<em>trie</em>,  * while the boundaries are matched more exactly. This reduces the number of terms dramatically.</p>  *  *<p>For the variant that stores long values in 8 different precisions (each reduced by 8 bits) that  * uses a lowest precision of 1 byte, the index contains only a maximum of 256 distinct values in the  * lowest precision. Overall, a range could consist of a theoretical maximum of  *<code>7*255*2 + 255 = 3825</code> distinct terms (when there is a term for every distinct value of an  * 8-byte-number in the index and the range covers almost all of them; a maximum of 255 distinct values is used  * because it would always be possible to reduce the full 256 values to one term with degraded precision).  * In practice, we have seen up to 300 terms in most cases (index with 500,000 metadata records  * and a uniform value distribution).</p>  *  *<a name="precisionStepDesc"><h3>Precision Step</h3>  *<p>You can choose any<code>precisionStep</code> when encoding values.  * Lower step values mean more precisions and so more terms in index (and index gets larger).  * On the other hand, the maximum number of terms to match reduces, which optimized query speed.  * The formula to calculate the maximum term count is:  *<pre>  *  n = [ (bitsPerValue/precisionStep - 1) * (2^precisionStep - 1 ) * 2 ] + (2^precisionStep - 1 )  *</pre>  *<p><em>(this formula is only correct, when<code>bitsPerValue/precisionStep</code> is an integer;  * in other cases, the value must be rounded up and the last summand must contain the modulo of the division as  * precision step)</em>.  * For longs stored using a precision step of 4,<code>n = 15*15*2 + 15 = 465</code>, and for a precision  * step of 2,<code>n = 31*3*2 + 3 = 189</code>. But the faster search speed is reduced by more seeking  * in the term enum of the index. Because of this, the ideal<code>precisionStep</code> value can only  * be found out by testing.<b>Important:</b> You can index with a lower precision step value and test search speed  * using a multiple of the original step value.</p>  *  *<p>Good values for<code>precisionStep</code> are depending on usage and data type:  *<ul>  *<li>The default for all data types is<b>4</b>, which is used, when no<code>precisionStep</code> is given.  *<li>Ideal value in most cases for<em>64 bit</em> data types<em>(long, double)</em> is<b>6</b> or<b>8</b>.  *<li>Ideal value in most cases for<em>32 bit</em> data types<em>(int, float)</em> is<b>4</b>.  *<li>For low cardinality fields larger precision steps are good. If the cardinality is&lt; 100, it is  *  fair to use {@link Integer#MAX_VALUE} (see below).  *<li>Steps<b>&ge;64</b> for<em>long/double</em> and<b>&ge;32</b> for<em>int/float</em> produces one token  *  per value in the index and querying is as slow as a conventional {@link TermRangeQuery}. But it can be used  *  to produce fields, that are solely used for sorting (in this case simply use {@link Integer#MAX_VALUE} as  *<code>precisionStep</code>). Using {@link NumericField NumericFields} for sorting  *  is ideal, because building the field cache is much faster than with text-only numbers.  *  These fields have one term per value and therefore also work with term enumeration for building distinct lists  *  (e.g. facets / preselected values to search for).  *  Sorting is also possible with range query optimized fields using one of the above<code>precisionSteps</code>.  *</ul>  *  *<p>Comparisons of the different types of RangeQueries on an index with about 500,000 docs showed  * that {@link TermRangeQuery} in boolean rewrite mode (with raised {@link BooleanQuery} clause count)  * took about 30-40 secs to complete, {@link TermRangeQuery} in constant score filter rewrite mode took 5 secs  * and executing this class took&lt;100ms to complete (on an Opteron64 machine, Java 1.5, 8 bit  * precision step). This query type was developed for a geographic portal, where the performance for  * e.g. bounding boxes or exact date/time stamps is important.</p>  *  * @since 2.9  **/
+comment|/**  *<p>A {@link Query} that matches numeric values within a  * specified range.  To use this, you must first index the  * numeric values using {@link NumericField} (expert: {@link  * NumericTokenStream}).  If your terms are instead textual,  * you should use {@link TermRangeQuery}.  {@link  * NumericRangeFilter} is the filter equivalent of this  * query.</p>  *  *<p>You create a new NumericRangeQuery with the static  * factory methods, eg:  *  *<pre>  * Query q = NumericRangeQuery.newFloatRange("weight", 0.3f, 0.10f, true, true);  *</pre>  *  * matches all documents whose float valued "weight" field  * ranges from 0.3 to 0.10, inclusive.  *  *<p>The performance of NumericRangeQuery is much better  * than the corresponding {@link TermRangeQuery} because the  * number of terms that must be searched is usually far  * fewer, thanks to trie indexing, described below.</p>  *  *<p>You can optionally specify a<a  * href="#precisionStepDesc"><code>precisionStep</code></a>  * when creating this query.  This is necessary if you've  * changed this configuration from its default (4) during  * indexing.  Lower values consume more disk space but speed  * up searching.  Suitable values are between<b>1</b> and  *<b>8</b>. A good starting point to test is<b>4</b>,  * which is the default value for all<code>Numeric*</code>  * classes.  See<a href="#precisionStepDesc">below</a> for  * details.  *  *<p>This query defaults to {@linkplain  * MultiTermQuery#CONSTANT_SCORE_AUTO_REWRITE_DEFAULT} for  * 32 bit (int/float) ranges with precisionStep&le;8 and 64  * bit (long/double) ranges with precisionStep&le;6.  * Otherwise it uses {@linkplain  * MultiTermQuery#CONSTANT_SCORE_FILTER_REWRITE} as the  * number of terms is likely to be high.  With precision  * steps of&le;4, this query can be run with one of the  * BooleanQuery rewrite methods without changing  * BooleanQuery's default max clause count.  *  *<p><font color="red"><b>NOTE:</b> This API is experimental and  * might change in incompatible ways in the next release.</font>  *  *<br><h3>How it works</h3>  *  *<p>See the publication about<a target="_blank" href="http://www.panfmp.org">panFMP</a>,  * where this algorithm was described (referred to as<code>TrieRangeQuery</code>):  *  *<blockquote><strong>Schindler, U, Diepenbroek, M</strong>, 2008.  *<em>Generic XML-based Framework for Metadata Portals.</em>  * Computers&amp; Geosciences 34 (12), 1947-1955.  *<a href="http://dx.doi.org/10.1016/j.cageo.2008.02.023"  * target="_blank">doi:10.1016/j.cageo.2008.02.023</a></blockquote>  *  *<p><em>A quote from this paper:</em> Because Apache Lucene is a full-text  * search engine and not a conventional database, it cannot handle numerical ranges  * (e.g., field value is inside user defined bounds, even dates are numerical values).  * We have developed an extension to Apache Lucene that stores  * the numerical values in a special string-encoded format with variable precision  * (all numerical values like doubles, longs, floats, and ints are converted to  * lexicographic sortable string representations and stored with different precisions  * (for a more detailed description of how the values are stored,  * see {@link NumericUtils}). A range is then divided recursively into multiple intervals for searching:  * The center of the range is searched only with the lowest possible precision in the<em>trie</em>,  * while the boundaries are matched more exactly. This reduces the number of terms dramatically.</p>  *  *<p>For the variant that stores long values in 8 different precisions (each reduced by 8 bits) that  * uses a lowest precision of 1 byte, the index contains only a maximum of 256 distinct values in the  * lowest precision. Overall, a range could consist of a theoretical maximum of  *<code>7*255*2 + 255 = 3825</code> distinct terms (when there is a term for every distinct value of an  * 8-byte-number in the index and the range covers almost all of them; a maximum of 255 distinct values is used  * because it would always be possible to reduce the full 256 values to one term with degraded precision).  * In practice, we have seen up to 300 terms in most cases (index with 500,000 metadata records  * and a uniform value distribution).</p>  *  *<a name="precisionStepDesc"><h3>Precision Step</h3>  *<p>You can choose any<code>precisionStep</code> when encoding values.  * Lower step values mean more precisions and so more terms in index (and index gets larger).  * On the other hand, the maximum number of terms to match reduces, which optimized query speed.  * The formula to calculate the maximum term count is:  *<pre>  *  n = [ (bitsPerValue/precisionStep - 1) * (2^precisionStep - 1 ) * 2 ] + (2^precisionStep - 1 )  *</pre>  *<p><em>(this formula is only correct, when<code>bitsPerValue/precisionStep</code> is an integer;  * in other cases, the value must be rounded up and the last summand must contain the modulo of the division as  * precision step)</em>.  * For longs stored using a precision step of 4,<code>n = 15*15*2 + 15 = 465</code>, and for a precision  * step of 2,<code>n = 31*3*2 + 3 = 189</code>. But the faster search speed is reduced by more seeking  * in the term enum of the index. Because of this, the ideal<code>precisionStep</code> value can only  * be found out by testing.<b>Important:</b> You can index with a lower precision step value and test search speed  * using a multiple of the original step value.</p>  *  *<p>Good values for<code>precisionStep</code> are depending on usage and data type:  *<ul>  *<li>The default for all data types is<b>4</b>, which is used, when no<code>precisionStep</code> is given.  *<li>Ideal value in most cases for<em>64 bit</em> data types<em>(long, double)</em> is<b>6</b> or<b>8</b>.  *<li>Ideal value in most cases for<em>32 bit</em> data types<em>(int, float)</em> is<b>4</b>.  *<li>For low cardinality fields larger precision steps are good. If the cardinality is&lt; 100, it is  *  fair to use {@link Integer#MAX_VALUE} (see below).  *<li>Steps<b>&ge;64</b> for<em>long/double</em> and<b>&ge;32</b> for<em>int/float</em> produces one token  *  per value in the index and querying is as slow as a conventional {@link TermRangeQuery}. But it can be used  *  to produce fields, that are solely used for sorting (in this case simply use {@link Integer#MAX_VALUE} as  *<code>precisionStep</code>). Using {@link NumericField NumericFields} for sorting  *  is ideal, because building the field cache is much faster than with text-only numbers.  *  These fields have one term per value and therefore also work with term enumeration for building distinct lists  *  (e.g. facets / preselected values to search for).  *  Sorting is also possible with range query optimized fields using one of the above<code>precisionSteps</code>.  *</ul>  *  *<p>Comparisons of the different types of RangeQueries on an index with about 500,000 docs showed  * that {@link TermRangeQuery} in boolean rewrite mode (with raised {@link BooleanQuery} clause count)  * took about 30-40 secs to complete, {@link TermRangeQuery} in constant score filter rewrite mode took 5 secs  * and executing this class took&lt;100ms to complete (on an Opteron64 machine, Java 1.5, 8 bit  * precision step). This query type was developed for a geographic portal, where the performance for  * e.g. bounding boxes or exact date/time stamps is important.</p>  *  * @since 2.9  **/
 end_comment
 begin_class
 DECL|class|NumericRangeQuery
@@ -138,6 +138,11 @@ specifier|public
 specifier|final
 class|class
 name|NumericRangeQuery
+parameter_list|<
+name|T
+extends|extends
+name|Number
+parameter_list|>
 extends|extends
 name|MultiTermQuery
 block|{
@@ -157,10 +162,10 @@ specifier|final
 name|int
 name|valSize
 parameter_list|,
-name|Number
+name|T
 name|min
 parameter_list|,
-name|Number
+name|T
 name|max
 parameter_list|,
 specifier|final
@@ -302,6 +307,9 @@ DECL|method|newLongRange
 specifier|public
 specifier|static
 name|NumericRangeQuery
+argument_list|<
+name|Long
+argument_list|>
 name|newLongRange
 parameter_list|(
 specifier|final
@@ -330,6 +338,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeQuery
+argument_list|<
+name|Long
+argument_list|>
 argument_list|(
 name|field
 argument_list|,
@@ -352,6 +363,9 @@ DECL|method|newLongRange
 specifier|public
 specifier|static
 name|NumericRangeQuery
+argument_list|<
+name|Long
+argument_list|>
 name|newLongRange
 parameter_list|(
 specifier|final
@@ -376,6 +390,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeQuery
+argument_list|<
+name|Long
+argument_list|>
 argument_list|(
 name|field
 argument_list|,
@@ -400,6 +417,9 @@ DECL|method|newIntRange
 specifier|public
 specifier|static
 name|NumericRangeQuery
+argument_list|<
+name|Integer
+argument_list|>
 name|newIntRange
 parameter_list|(
 specifier|final
@@ -428,6 +448,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeQuery
+argument_list|<
+name|Integer
+argument_list|>
 argument_list|(
 name|field
 argument_list|,
@@ -450,6 +473,9 @@ DECL|method|newIntRange
 specifier|public
 specifier|static
 name|NumericRangeQuery
+argument_list|<
+name|Integer
+argument_list|>
 name|newIntRange
 parameter_list|(
 specifier|final
@@ -474,6 +500,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeQuery
+argument_list|<
+name|Integer
+argument_list|>
 argument_list|(
 name|field
 argument_list|,
@@ -498,6 +527,9 @@ DECL|method|newDoubleRange
 specifier|public
 specifier|static
 name|NumericRangeQuery
+argument_list|<
+name|Double
+argument_list|>
 name|newDoubleRange
 parameter_list|(
 specifier|final
@@ -526,6 +558,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeQuery
+argument_list|<
+name|Double
+argument_list|>
 argument_list|(
 name|field
 argument_list|,
@@ -548,6 +583,9 @@ DECL|method|newDoubleRange
 specifier|public
 specifier|static
 name|NumericRangeQuery
+argument_list|<
+name|Double
+argument_list|>
 name|newDoubleRange
 parameter_list|(
 specifier|final
@@ -572,6 +610,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeQuery
+argument_list|<
+name|Double
+argument_list|>
 argument_list|(
 name|field
 argument_list|,
@@ -596,6 +637,9 @@ DECL|method|newFloatRange
 specifier|public
 specifier|static
 name|NumericRangeQuery
+argument_list|<
+name|Float
+argument_list|>
 name|newFloatRange
 parameter_list|(
 specifier|final
@@ -624,6 +668,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeQuery
+argument_list|<
+name|Float
+argument_list|>
 argument_list|(
 name|field
 argument_list|,
@@ -646,6 +693,9 @@ DECL|method|newFloatRange
 specifier|public
 specifier|static
 name|NumericRangeQuery
+argument_list|<
+name|Float
+argument_list|>
 name|newFloatRange
 parameter_list|(
 specifier|final
@@ -670,6 +720,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeQuery
+argument_list|<
+name|Float
+argument_list|>
 argument_list|(
 name|field
 argument_list|,
@@ -689,7 +742,8 @@ name|maxInclusive
 argument_list|)
 return|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|getEnum
 specifier|protected
 name|FilteredTermEnum
@@ -746,7 +800,7 @@ block|}
 comment|/** Returns the lower value of this range query */
 DECL|method|getMin
 specifier|public
-name|Number
+name|T
 name|getMin
 parameter_list|()
 block|{
@@ -757,7 +811,7 @@ block|}
 comment|/** Returns the upper value of this range query */
 DECL|method|getMax
 specifier|public
-name|Number
+name|T
 name|getMax
 parameter_list|()
 block|{
@@ -765,7 +819,8 @@ return|return
 name|max
 return|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -883,7 +938,8 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 specifier|final
@@ -1007,7 +1063,8 @@ return|return
 literal|false
 return|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 specifier|final
@@ -1115,7 +1172,7 @@ decl_stmt|;
 DECL|field|min
 DECL|field|max
 specifier|final
-name|Number
+name|T
 name|min
 decl_stmt|,
 name|max
@@ -1147,12 +1204,16 @@ DECL|field|rangeBounds
 specifier|private
 specifier|final
 name|LinkedList
-comment|/*<String>*/
+argument_list|<
+name|String
+argument_list|>
 name|rangeBounds
 init|=
 operator|new
 name|LinkedList
-comment|/*<String>*/
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|currentUpperBound
@@ -1331,7 +1392,8 @@ operator|.
 name|LongRangeBuilder
 argument_list|()
 block|{
-comment|//@Override
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -1518,7 +1580,8 @@ operator|.
 name|IntRangeBuilder
 argument_list|()
 block|{
-comment|//@Override
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -1572,7 +1635,8 @@ name|next
 argument_list|()
 expr_stmt|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|difference
 specifier|public
 name|float
@@ -1584,7 +1648,8 @@ literal|1.0f
 return|;
 block|}
 comment|/** this is a dummy, it is not used by this class. */
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|endEnum
 specifier|protected
 name|boolean
@@ -1604,7 +1669,8 @@ operator|)
 return|;
 block|}
 comment|/**      * Compares if current upper bound is reached,      * this also updates the term count for statistics.      * In contrast to {@link FilteredTermEnum}, a return value      * of<code>false</code> ends iterating the current enum      * and forwards to the next sub-range.      */
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|termCompare
 specifier|protected
 name|boolean
@@ -1638,7 +1704,8 @@ operator|)
 return|;
 block|}
 comment|/** Increments the enumeration to the next element.  True if one exists. */
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|boolean
@@ -1728,9 +1795,6 @@ specifier|final
 name|String
 name|lowerBound
 init|=
-operator|(
-name|String
-operator|)
 name|rangeBounds
 operator|.
 name|removeFirst
@@ -1740,9 +1804,6 @@ name|this
 operator|.
 name|currentUpperBound
 operator|=
-operator|(
-name|String
-operator|)
 name|rangeBounds
 operator|.
 name|removeFirst
@@ -1777,7 +1838,8 @@ operator|)
 return|;
 block|}
 comment|/** Closes the enumeration to further activity, freeing resources.  */
-comment|//@Override
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

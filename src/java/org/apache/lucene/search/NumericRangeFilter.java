@@ -63,7 +63,7 @@ begin_comment
 comment|// for javadocs
 end_comment
 begin_comment
-comment|/**  * A {@link Filter} that only accepts numeric values within  * a specified range. To use this, you must first index the  * numeric values using {@link NumericField} (expert: {@link  * NumericTokenStream}).  *  *<p>You create a new NumericRangeFilter with the static  * factory methods, eg:  *  *<pre>  * Filter f = NumericRangeFilter.newFloatRange("weight",  *                                             new Float(0.3f), new Float(0.10f),  *                                             true, true);  *</pre>  *  * accepts all documents whose float valued "weight" field  * ranges from 0.3 to 0.10, inclusive.  * See {@link NumericRangeQuery} for details on how Lucene  * indexes and searches numeric valued fields.  *  *<p><font color="red"><b>NOTE:</b> This API is experimental and  * might change in incompatible ways in the next  * release.</font>  *  * @since 2.9  **/
+comment|/**  * A {@link Filter} that only accepts numeric values within  * a specified range. To use this, you must first index the  * numeric values using {@link NumericField} (expert: {@link  * NumericTokenStream}).  *  *<p>You create a new NumericRangeFilter with the static  * factory methods, eg:  *  *<pre>  * Filter f = NumericRangeFilter.newFloatRange("weight", 0.3f, 0.10f, true, true);  *</pre>  *  * accepts all documents whose float valued "weight" field  * ranges from 0.3 to 0.10, inclusive.  * See {@link NumericRangeQuery} for details on how Lucene  * indexes and searches numeric valued fields.  *  *<p><font color="red"><b>NOTE:</b> This API is experimental and  * might change in incompatible ways in the next  * release.</font>  *  * @since 2.9  **/
 end_comment
 begin_class
 DECL|class|NumericRangeFilter
@@ -71,6 +71,11 @@ specifier|public
 specifier|final
 class|class
 name|NumericRangeFilter
+parameter_list|<
+name|T
+extends|extends
+name|Number
+parameter_list|>
 extends|extends
 name|MultiTermQueryWrapperFilter
 block|{
@@ -80,6 +85,9 @@ name|NumericRangeFilter
 parameter_list|(
 specifier|final
 name|NumericRangeQuery
+argument_list|<
+name|T
+argument_list|>
 name|query
 parameter_list|)
 block|{
@@ -94,6 +102,9 @@ DECL|method|newLongRange
 specifier|public
 specifier|static
 name|NumericRangeFilter
+argument_list|<
+name|Long
+argument_list|>
 name|newLongRange
 parameter_list|(
 specifier|final
@@ -122,6 +133,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
+argument_list|<
+name|Long
+argument_list|>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -147,6 +161,9 @@ DECL|method|newLongRange
 specifier|public
 specifier|static
 name|NumericRangeFilter
+argument_list|<
+name|Long
+argument_list|>
 name|newLongRange
 parameter_list|(
 specifier|final
@@ -171,6 +188,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
+argument_list|<
+name|Long
+argument_list|>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -194,6 +214,9 @@ DECL|method|newIntRange
 specifier|public
 specifier|static
 name|NumericRangeFilter
+argument_list|<
+name|Integer
+argument_list|>
 name|newIntRange
 parameter_list|(
 specifier|final
@@ -222,6 +245,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
+argument_list|<
+name|Integer
+argument_list|>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -247,6 +273,9 @@ DECL|method|newIntRange
 specifier|public
 specifier|static
 name|NumericRangeFilter
+argument_list|<
+name|Integer
+argument_list|>
 name|newIntRange
 parameter_list|(
 specifier|final
@@ -271,6 +300,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
+argument_list|<
+name|Integer
+argument_list|>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -294,6 +326,9 @@ DECL|method|newDoubleRange
 specifier|public
 specifier|static
 name|NumericRangeFilter
+argument_list|<
+name|Double
+argument_list|>
 name|newDoubleRange
 parameter_list|(
 specifier|final
@@ -322,6 +357,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
+argument_list|<
+name|Double
+argument_list|>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -347,6 +385,9 @@ DECL|method|newDoubleRange
 specifier|public
 specifier|static
 name|NumericRangeFilter
+argument_list|<
+name|Double
+argument_list|>
 name|newDoubleRange
 parameter_list|(
 specifier|final
@@ -371,6 +412,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
+argument_list|<
+name|Double
+argument_list|>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -394,6 +438,9 @@ DECL|method|newFloatRange
 specifier|public
 specifier|static
 name|NumericRangeFilter
+argument_list|<
+name|Float
+argument_list|>
 name|newFloatRange
 parameter_list|(
 specifier|final
@@ -422,6 +469,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
+argument_list|<
+name|Float
+argument_list|>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -447,6 +497,9 @@ DECL|method|newFloatRange
 specifier|public
 specifier|static
 name|NumericRangeFilter
+argument_list|<
+name|Float
+argument_list|>
 name|newFloatRange
 parameter_list|(
 specifier|final
@@ -471,6 +524,9 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
+argument_list|<
+name|Float
+argument_list|>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -490,6 +546,11 @@ argument_list|)
 return|;
 block|}
 comment|/** Returns the field name for this filter */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getField
 specifier|public
 name|String
@@ -500,6 +561,9 @@ return|return
 operator|(
 operator|(
 name|NumericRangeQuery
+argument_list|<
+name|T
+argument_list|>
 operator|)
 name|query
 operator|)
@@ -509,6 +573,11 @@ argument_list|()
 return|;
 block|}
 comment|/** Returns<code>true</code> if the lower endpoint is inclusive */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|includesMin
 specifier|public
 name|boolean
@@ -519,6 +588,9 @@ return|return
 operator|(
 operator|(
 name|NumericRangeQuery
+argument_list|<
+name|T
+argument_list|>
 operator|)
 name|query
 operator|)
@@ -528,6 +600,11 @@ argument_list|()
 return|;
 block|}
 comment|/** Returns<code>true</code> if the upper endpoint is inclusive */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|includesMax
 specifier|public
 name|boolean
@@ -538,6 +615,9 @@ return|return
 operator|(
 operator|(
 name|NumericRangeQuery
+argument_list|<
+name|T
+argument_list|>
 operator|)
 name|query
 operator|)
@@ -547,9 +627,14 @@ argument_list|()
 return|;
 block|}
 comment|/** Returns the lower value of this range filter */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getMin
 specifier|public
-name|Number
+name|T
 name|getMin
 parameter_list|()
 block|{
@@ -557,6 +642,9 @@ return|return
 operator|(
 operator|(
 name|NumericRangeQuery
+argument_list|<
+name|T
+argument_list|>
 operator|)
 name|query
 operator|)
@@ -566,9 +654,14 @@ argument_list|()
 return|;
 block|}
 comment|/** Returns the upper value of this range filter */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getMax
 specifier|public
-name|Number
+name|T
 name|getMax
 parameter_list|()
 block|{
@@ -576,6 +669,9 @@ return|return
 operator|(
 operator|(
 name|NumericRangeQuery
+argument_list|<
+name|T
+argument_list|>
 operator|)
 name|query
 operator|)
