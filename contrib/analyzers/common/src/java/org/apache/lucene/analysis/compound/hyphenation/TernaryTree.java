@@ -2098,9 +2098,9 @@ DECL|field|ns
 name|Stack
 name|ns
 decl_stmt|;
-comment|/**      * key stack implemented with a StringBuffer      */
+comment|/**      * key stack implemented with a StringBuilder      */
 DECL|field|ks
-name|StringBuffer
+name|StringBuilder
 name|ks
 decl_stmt|;
 DECL|method|Iterator
@@ -2122,7 +2122,7 @@ expr_stmt|;
 name|ks
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 expr_stmt|;
 name|rewind
@@ -2584,11 +2584,11 @@ block|}
 block|}
 comment|// The current node should be a data node and
 comment|// the key should be in the key stack (at least partially)
-name|StringBuffer
+name|StringBuilder
 name|buf
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|ks
 operator|.

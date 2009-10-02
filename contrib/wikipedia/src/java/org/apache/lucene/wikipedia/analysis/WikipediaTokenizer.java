@@ -1027,11 +1027,11 @@ throws|throws
 name|IOException
 block|{
 comment|//collapse
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|32
 argument_list|)
@@ -1320,11 +1320,11 @@ throws|throws
 name|IOException
 block|{
 comment|//collapse
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|32
 argument_list|)

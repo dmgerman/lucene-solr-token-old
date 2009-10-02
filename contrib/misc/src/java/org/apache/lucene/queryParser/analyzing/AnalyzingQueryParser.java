@@ -222,11 +222,11 @@ literal|"*"
 argument_list|)
 operator|)
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|tmpBuffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|char
@@ -612,11 +612,11 @@ block|}
 else|else
 block|{
 comment|/* the term was tokenized, let's rebuild to one token        * with wildcards put back in postion */
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 for|for

@@ -1052,11 +1052,11 @@ name|luceneId
 argument_list|)
 condition|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|message
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|prefix
 argument_list|)

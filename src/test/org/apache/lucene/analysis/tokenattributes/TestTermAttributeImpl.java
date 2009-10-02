@@ -145,11 +145,11 @@ operator|new
 name|TermAttributeImpl
 argument_list|()
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|buf
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"ab"
 argument_list|)
@@ -263,7 +263,7 @@ expr_stmt|;
 name|buf
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"ab"
 argument_list|)
@@ -368,7 +368,7 @@ expr_stmt|;
 name|buf
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"ab"
 argument_list|)
@@ -466,7 +466,7 @@ expr_stmt|;
 name|buf
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"a"
 argument_list|)
@@ -564,7 +564,7 @@ expr_stmt|;
 name|buf
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"a"
 argument_list|)

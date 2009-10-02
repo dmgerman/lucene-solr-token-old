@@ -819,11 +819,11 @@ name|int
 name|num
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|temp
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|String

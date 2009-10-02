@@ -177,7 +177,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|shingles
 specifier|private
-name|StringBuffer
+name|StringBuilder
 index|[]
 name|shingles
 decl_stmt|;
@@ -406,7 +406,7 @@ block|}
 name|shingles
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 index|[
 name|maxShingleSize
 index|]
@@ -434,7 +434,7 @@ name|i
 index|]
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 expr_stmt|;
 block|}
@@ -445,7 +445,7 @@ operator|=
 name|maxShingleSize
 expr_stmt|;
 block|}
-comment|/**    * Clear the StringBuffers that are used for storing the output shingles.    */
+comment|/**    * Clear the StringBuilders that are used for storing the output shingles.    */
 DECL|method|clearShingles
 specifier|private
 name|void
@@ -620,7 +620,7 @@ name|shingleBufferPosition
 index|]
 argument_list|)
 expr_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|buf
 init|=
 name|shingles

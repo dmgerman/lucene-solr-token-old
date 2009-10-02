@@ -760,18 +760,18 @@ operator|+
 literal|"), product of:"
 argument_list|)
 expr_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|docFreqs
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|query
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|query
@@ -1275,11 +1275,11 @@ name|String
 name|f
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 if|if

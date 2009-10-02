@@ -1599,7 +1599,7 @@ specifier|final
 name|int
 name|setText
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|buffer
 parameter_list|)
 block|{

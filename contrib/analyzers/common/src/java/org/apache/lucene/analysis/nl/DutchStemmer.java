@@ -37,11 +37,11 @@ block|{
 comment|/**    * Buffer for the terms while stemming them.    */
 DECL|field|sb
 specifier|private
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 DECL|field|_removedE
@@ -132,7 +132,7 @@ else|else
 return|return
 literal|null
 return|;
-comment|// Reset the StringBuffer.
+comment|// Reset the StringBuilder.
 name|sb
 operator|.
 name|delete
@@ -236,7 +236,7 @@ specifier|private
 name|boolean
 name|enEnding
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|)
 block|{
@@ -357,7 +357,7 @@ specifier|private
 name|void
 name|step1
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|)
 block|{
@@ -537,7 +537,7 @@ specifier|private
 name|void
 name|step2
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|)
 block|{
@@ -628,7 +628,7 @@ specifier|private
 name|void
 name|step3a
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|)
 block|{
@@ -710,7 +710,7 @@ specifier|private
 name|void
 name|step3b
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|)
 block|{
@@ -1027,7 +1027,7 @@ specifier|private
 name|void
 name|step4
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|)
 block|{
@@ -1211,7 +1211,7 @@ specifier|private
 name|void
 name|substitute
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|buffer
 parameter_list|)
 block|{
@@ -1336,13 +1336,13 @@ block|}
 block|}
 block|}
 block|}
-comment|/*private boolean isValidSEnding(StringBuffer sb) {     return isValidSEnding(sb, sb.length() - 1);   }*/
+comment|/*private boolean isValidSEnding(StringBuilder sb) {     return isValidSEnding(sb, sb.length() - 1);   }*/
 DECL|method|isValidSEnding
 specifier|private
 name|boolean
 name|isValidSEnding
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|,
 name|int
@@ -1377,13 +1377,13 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*private boolean isValidEnEnding(StringBuffer sb) {     return isValidEnEnding(sb, sb.length() - 1);   }*/
+comment|/*private boolean isValidEnEnding(StringBuilder sb) {     return isValidEnEnding(sb, sb.length() - 1);   }*/
 DECL|method|isValidEnEnding
 specifier|private
 name|boolean
 name|isValidEnEnding
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|,
 name|int
@@ -1460,7 +1460,7 @@ specifier|private
 name|void
 name|unDouble
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|)
 block|{
@@ -1480,7 +1480,7 @@ specifier|private
 name|void
 name|unDouble
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|,
 name|int
@@ -1562,7 +1562,7 @@ specifier|private
 name|int
 name|getRIndex
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|,
 name|int
@@ -1643,7 +1643,7 @@ specifier|private
 name|void
 name|storeYandI
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|)
 block|{
@@ -1816,7 +1816,7 @@ specifier|private
 name|void
 name|reStoreYandI
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|)
 block|{

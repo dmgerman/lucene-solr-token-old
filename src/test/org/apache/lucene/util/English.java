@@ -30,11 +30,11 @@ name|int
 name|i
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|result
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|intToEnglish
@@ -60,7 +60,7 @@ parameter_list|(
 name|int
 name|i
 parameter_list|,
-name|StringBuffer
+name|StringBuilder
 name|result
 parameter_list|)
 block|{

@@ -1317,13 +1317,13 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Adjectival ending is an adjective ending,      * optionally preceded by participle ending.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuffer      */
+comment|/**      * Adjectival ending is an adjective ending,      * optionally preceded by participle ending.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuilder      */
 DECL|method|adjectival
 specifier|private
 name|boolean
 name|adjectival
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|)
 block|{
@@ -1367,13 +1367,13 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Derivational endings      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuffer      */
+comment|/**      * Derivational endings      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuilder      */
 DECL|method|derivational
 specifier|private
 name|boolean
 name|derivational
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|)
 block|{
@@ -1444,7 +1444,7 @@ specifier|private
 name|int
 name|findEnding
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|,
 name|int
@@ -1584,7 +1584,7 @@ specifier|private
 name|int
 name|findEnding
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|,
 name|char
@@ -1615,7 +1615,7 @@ specifier|private
 name|boolean
 name|findAndRemoveEnding
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|,
 name|char
@@ -1670,7 +1670,7 @@ specifier|private
 name|boolean
 name|findAndRemoveEnding
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|,
 name|char
@@ -1996,13 +1996,13 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Noun endings.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuffer      */
+comment|/**      * Noun endings.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuilder      */
 DECL|method|noun
 specifier|private
 name|boolean
 name|noun
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|)
 block|{
@@ -2015,13 +2015,13 @@ name|nounEndings
 argument_list|)
 return|;
 block|}
-comment|/**      * Perfective gerund endings.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuffer      */
+comment|/**      * Perfective gerund endings.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuilder      */
 DECL|method|perfectiveGerund
 specifier|private
 name|boolean
 name|perfectiveGerund
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|)
 block|{
@@ -2043,13 +2043,13 @@ name|perfectiveGerundEndings2
 argument_list|)
 return|;
 block|}
-comment|/**      * Reflexive endings.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuffer      */
+comment|/**      * Reflexive endings.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuilder      */
 DECL|method|reflexive
 specifier|private
 name|boolean
 name|reflexive
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|)
 block|{
@@ -2062,13 +2062,13 @@ name|reflexiveEndings
 argument_list|)
 return|;
 block|}
-comment|/**      * Insert the method's description here.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuffer      */
+comment|/**      * Insert the method's description here.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuilder      */
 DECL|method|removeI
 specifier|private
 name|boolean
 name|removeI
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|)
 block|{
@@ -2119,13 +2119,13 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Insert the method's description here.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuffer      */
+comment|/**      * Insert the method's description here.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuilder      */
 DECL|method|removeSoft
 specifier|private
 name|boolean
 name|removeSoft
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|)
 block|{
@@ -2201,11 +2201,11 @@ return|return
 name|input
 return|;
 comment|//RV wasn't detected, nothing to stem
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|input
 operator|.
@@ -2298,13 +2298,13 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Superlative endings.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuffer      */
+comment|/**      * Superlative endings.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuilder      */
 DECL|method|superlative
 specifier|private
 name|boolean
 name|superlative
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|)
 block|{
@@ -2317,13 +2317,13 @@ name|superlativeEndings
 argument_list|)
 return|;
 block|}
-comment|/**      * Undoubles N.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuffer      */
+comment|/**      * Undoubles N.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuilder      */
 DECL|method|undoubleN
 specifier|private
 name|boolean
 name|undoubleN
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|)
 block|{
@@ -2375,13 +2375,13 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Verb endings.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuffer      */
+comment|/**      * Verb endings.      * Creation date: (17/03/2002 12:14:58 AM)      * @param stemmingZone java.lang.StringBuilder      */
 DECL|method|verb
 specifier|private
 name|boolean
 name|verb
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|stemmingZone
 parameter_list|)
 block|{

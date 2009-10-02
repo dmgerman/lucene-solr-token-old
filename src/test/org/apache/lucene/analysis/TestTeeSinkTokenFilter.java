@@ -149,12 +149,12 @@ name|BaseTokenStreamTestCase
 block|{
 DECL|field|buffer1
 specifier|protected
-name|StringBuffer
+name|StringBuilder
 name|buffer1
 decl_stmt|;
 DECL|field|buffer2
 specifier|protected
-name|StringBuffer
+name|StringBuilder
 name|buffer2
 decl_stmt|;
 DECL|field|tokens1
@@ -249,7 +249,7 @@ expr_stmt|;
 name|buffer1
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 expr_stmt|;
 for|for
@@ -288,7 +288,7 @@ block|}
 name|buffer2
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 expr_stmt|;
 for|for
@@ -1077,11 +1077,11 @@ name|k
 operator|++
 control|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|buffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|System

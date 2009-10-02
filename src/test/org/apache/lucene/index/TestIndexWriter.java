@@ -8522,11 +8522,11 @@ name|j
 operator|++
 control|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|b
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|String
@@ -9067,11 +9067,11 @@ literal|0.01
 argument_list|)
 expr_stmt|;
 comment|// Massive doc that has 128 K a's
-name|StringBuffer
+name|StringBuilder
 name|b
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|1024
 operator|*
@@ -16037,11 +16037,11 @@ operator|new
 name|Document
 argument_list|()
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|b
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 for|for
@@ -17827,11 +17827,11 @@ operator|new
 name|Document
 argument_list|()
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|b
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 for|for
