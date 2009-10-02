@@ -1970,8 +1970,9 @@ name|slot
 parameter_list|)
 block|{
 return|return
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|slotValues
 index|[
@@ -3791,8 +3792,9 @@ index|[
 literal|0
 index|]
 argument_list|,
-operator|new
 name|Float
+operator|.
+name|valueOf
 argument_list|(
 name|hits
 index|[

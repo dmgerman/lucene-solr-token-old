@@ -152,8 +152,9 @@ name|ignore
 operator|.
 name|add
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|results
 index|[
@@ -192,8 +193,9 @@ name|ignore
 operator|.
 name|contains
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|doc
 argument_list|)
@@ -320,8 +322,9 @@ name|correct
 operator|.
 name|add
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|results
 index|[
@@ -569,8 +572,9 @@ name|bag
 operator|.
 name|add
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|doc
 operator|+
@@ -692,8 +696,9 @@ name|correct
 operator|.
 name|add
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|results
 index|[
@@ -731,8 +736,9 @@ name|actual
 operator|.
 name|add
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|hits
 index|[

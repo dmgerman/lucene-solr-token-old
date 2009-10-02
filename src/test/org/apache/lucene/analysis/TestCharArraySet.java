@@ -357,8 +357,9 @@ decl_stmt|;
 name|Integer
 name|val
 init|=
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|1
 argument_list|)
@@ -386,8 +387,9 @@ name|set
 operator|.
 name|contains
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|1
 argument_list|)
@@ -420,8 +422,9 @@ name|set
 operator|.
 name|contains
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|1
 argument_list|)

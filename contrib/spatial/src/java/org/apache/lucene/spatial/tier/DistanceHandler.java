@@ -322,8 +322,9 @@ decl_stmt|;
 name|String
 name|k
 init|=
-operator|new
 name|Double
+operator|.
+name|valueOf
 argument_list|(
 name|xLat
 argument_list|)
@@ -333,8 +334,9 @@ argument_list|()
 operator|+
 literal|","
 operator|+
-operator|new
 name|Double
+operator|.
+name|valueOf
 argument_list|(
 name|xLng
 argument_list|)

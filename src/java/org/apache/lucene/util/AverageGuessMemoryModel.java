@@ -61,8 +61,9 @@ name|boolean
 operator|.
 name|class
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|1
 argument_list|)
@@ -74,8 +75,9 @@ name|byte
 operator|.
 name|class
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|1
 argument_list|)
@@ -87,8 +89,9 @@ name|char
 operator|.
 name|class
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|2
 argument_list|)
@@ -100,8 +103,9 @@ name|short
 operator|.
 name|class
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|2
 argument_list|)
@@ -113,8 +117,9 @@ name|int
 operator|.
 name|class
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|4
 argument_list|)
@@ -126,8 +131,9 @@ name|float
 operator|.
 name|class
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|4
 argument_list|)
@@ -139,8 +145,9 @@ name|double
 operator|.
 name|class
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|8
 argument_list|)
@@ -152,8 +159,9 @@ name|long
 operator|.
 name|class
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|8
 argument_list|)

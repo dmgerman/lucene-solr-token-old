@@ -448,8 +448,9 @@ name|put
 argument_list|(
 name|term
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|j
 operator|++
@@ -467,8 +468,9 @@ name|tmpFreqs
 operator|.
 name|add
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|1
 argument_list|)
@@ -502,8 +504,9 @@ operator|.
 name|intValue
 argument_list|()
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|integer
 operator|.

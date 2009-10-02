@@ -107,8 +107,9 @@ name|tokenListTable
 operator|.
 name|get
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|s
 argument_list|)
@@ -135,8 +136,9 @@ name|tokenListTable
 operator|.
 name|get
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|s
 argument_list|)
@@ -217,8 +219,9 @@ name|tokenListTable
 operator|.
 name|get
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|s
 argument_list|)
@@ -329,8 +332,9 @@ call|(
 name|Object
 call|)
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|s
 argument_list|)
@@ -356,8 +360,9 @@ call|(
 name|Object
 call|)
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|s
 argument_list|)
@@ -441,8 +446,9 @@ name|tokenListTable
 operator|.
 name|get
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|s
 argument_list|)

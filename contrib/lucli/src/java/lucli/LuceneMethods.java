@@ -1802,8 +1802,9 @@ name|put
 argument_list|(
 name|name
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|1
 argument_list|)
@@ -1827,8 +1828,9 @@ name|put
 argument_list|(
 name|name
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|count
 operator|+
@@ -2009,8 +2011,9 @@ operator|.
 name|text
 argument_list|()
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 operator|(
 name|terms

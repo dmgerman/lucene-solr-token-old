@@ -916,8 +916,9 @@ name|put
 argument_list|(
 literal|"b"
 argument_list|,
-operator|new
 name|Float
+operator|.
+name|valueOf
 argument_list|(
 literal|5
 argument_list|)
@@ -929,8 +930,9 @@ name|put
 argument_list|(
 literal|"t"
 argument_list|,
-operator|new
 name|Float
+operator|.
+name|valueOf
 argument_list|(
 literal|10
 argument_list|)

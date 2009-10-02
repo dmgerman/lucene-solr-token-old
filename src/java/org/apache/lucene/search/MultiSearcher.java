@@ -1181,8 +1181,9 @@ index|[
 name|j
 index|]
 operator|=
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 operator|(
 operator|(
@@ -1787,8 +1788,9 @@ index|[
 name|i
 index|]
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|aggregatedDfs
 index|[

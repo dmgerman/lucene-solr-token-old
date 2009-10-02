@@ -133,8 +133,9 @@ name|singleBuffers
 operator|.
 name|get
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|size
 argument_list|)
@@ -160,8 +161,9 @@ name|singleBuffers
 operator|.
 name|put
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|size
 argument_list|)

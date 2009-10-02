@@ -406,8 +406,9 @@ specifier|final
 name|Integer
 name|valId
 init|=
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|System
 operator|.

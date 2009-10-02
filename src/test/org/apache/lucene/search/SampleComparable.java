@@ -149,8 +149,9 @@ argument_list|)
 expr_stmt|;
 name|int_part
 operator|=
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|s
 operator|.

@@ -372,8 +372,9 @@ name|slot
 parameter_list|)
 block|{
 return|return
-operator|new
 name|Byte
+operator|.
+name|valueOf
 argument_list|(
 name|values
 index|[
@@ -545,8 +546,9 @@ name|slot
 parameter_list|)
 block|{
 return|return
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|docIDs
 index|[
@@ -827,8 +829,9 @@ name|slot
 parameter_list|)
 block|{
 return|return
-operator|new
 name|Double
+operator|.
+name|valueOf
 argument_list|(
 name|values
 index|[
@@ -1113,8 +1116,9 @@ name|slot
 parameter_list|)
 block|{
 return|return
-operator|new
 name|Float
+operator|.
+name|valueOf
 argument_list|(
 name|values
 index|[
@@ -1404,8 +1408,9 @@ name|slot
 parameter_list|)
 block|{
 return|return
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|values
 index|[
@@ -1690,8 +1695,9 @@ name|slot
 parameter_list|)
 block|{
 return|return
-operator|new
 name|Long
+operator|.
+name|valueOf
 argument_list|(
 name|values
 index|[
@@ -1920,8 +1926,9 @@ name|slot
 parameter_list|)
 block|{
 return|return
-operator|new
 name|Float
+operator|.
+name|valueOf
 argument_list|(
 name|scores
 index|[
@@ -2134,8 +2141,9 @@ name|slot
 parameter_list|)
 block|{
 return|return
-operator|new
 name|Short
+operator|.
+name|valueOf
 argument_list|(
 name|values
 index|[

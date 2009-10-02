@@ -319,8 +319,9 @@ name|put
 argument_list|(
 name|field
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|min
 argument_list|)
@@ -332,8 +333,9 @@ name|put
 argument_list|(
 name|field
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|max
 argument_list|)
@@ -345,8 +347,9 @@ name|put
 argument_list|(
 name|field
 argument_list|,
-operator|new
 name|Float
+operator|.
+name|valueOf
 argument_list|(
 name|steepness
 argument_list|)

@@ -1470,8 +1470,9 @@ name|set
 argument_list|(
 name|i
 argument_list|,
-operator|new
 name|Float
+operator|.
+name|valueOf
 argument_list|(
 name|newNorm
 argument_list|)
@@ -1483,8 +1484,9 @@ name|set
 argument_list|(
 name|k
 argument_list|,
-operator|new
 name|Float
+operator|.
+name|valueOf
 argument_list|(
 name|origNorm
 argument_list|)
@@ -1927,8 +1929,9 @@ name|add
 argument_list|(
 name|numDocNorms
 argument_list|,
-operator|new
 name|Float
+operator|.
+name|valueOf
 argument_list|(
 name|norm
 argument_list|)
@@ -1940,8 +1943,9 @@ name|add
 argument_list|(
 name|numDocNorms
 argument_list|,
-operator|new
 name|Float
+operator|.
+name|valueOf
 argument_list|(
 name|norm
 argument_list|)

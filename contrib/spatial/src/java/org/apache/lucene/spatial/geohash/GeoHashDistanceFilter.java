@@ -505,8 +505,9 @@ block|{
 name|int
 name|h
 init|=
-operator|new
 name|Double
+operator|.
+name|valueOf
 argument_list|(
 name|distance
 argument_list|)
@@ -523,8 +524,9 @@ argument_list|()
 expr_stmt|;
 name|h
 operator|^=
-operator|new
 name|Double
+operator|.
+name|valueOf
 argument_list|(
 name|lat
 argument_list|)
@@ -534,8 +536,9 @@ argument_list|()
 expr_stmt|;
 name|h
 operator|^=
-operator|new
 name|Double
+operator|.
+name|valueOf
 argument_list|(
 name|lng
 argument_list|)

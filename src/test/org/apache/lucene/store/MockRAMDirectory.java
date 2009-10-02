@@ -1074,8 +1074,9 @@ argument_list|)
 decl_stmt|;
 name|v
 operator|=
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|v
 operator|.
@@ -1103,8 +1104,9 @@ name|put
 argument_list|(
 name|name
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 literal|1
 argument_list|)

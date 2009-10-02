@@ -817,8 +817,9 @@ name|resultMap
 operator|.
 name|put
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|hitsByRank
 index|[
@@ -829,8 +830,9 @@ name|doc
 argument_list|)
 argument_list|,
 comment|// Key:   Lucene Document ID
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|hitid
 argument_list|)
@@ -887,8 +889,9 @@ block|{
 name|Integer
 name|idHitDate
 init|=
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|resultSort
 index|[
@@ -1031,8 +1034,9 @@ literal|null
 decl_stmt|;
 name|luceneId
 operator|=
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|hits
 index|[
@@ -1133,8 +1137,9 @@ name|put
 argument_list|(
 name|luceneId
 argument_list|,
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|docnum
 argument_list|)

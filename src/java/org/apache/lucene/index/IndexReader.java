@@ -1358,8 +1358,9 @@ throws|throws
 name|IOException
 block|{
 return|return
-operator|new
 name|Long
+operator|.
+name|valueOf
 argument_list|(
 name|directory2
 operator|.

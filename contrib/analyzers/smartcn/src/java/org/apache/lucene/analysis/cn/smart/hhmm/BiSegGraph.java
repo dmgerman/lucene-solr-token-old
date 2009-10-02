@@ -547,8 +547,9 @@ name|tokenPairListTable
 operator|.
 name|get
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|to
 argument_list|)
@@ -575,8 +576,9 @@ name|tokenPairListTable
 operator|.
 name|get
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|to
 argument_list|)
@@ -627,8 +629,9 @@ name|tokenPairListTable
 operator|.
 name|put
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|to
 argument_list|)
@@ -649,8 +652,9 @@ name|tokenPairListTable
 operator|.
 name|get
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|to
 argument_list|)
@@ -905,8 +909,9 @@ name|rpath
 operator|.
 name|add
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|current
 argument_list|)
@@ -942,8 +947,9 @@ name|rpath
 operator|.
 name|add
 argument_list|(
-operator|new
 name|Integer
+operator|.
+name|valueOf
 argument_list|(
 name|preNode
 argument_list|)
