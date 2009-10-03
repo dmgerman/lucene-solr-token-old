@@ -174,7 +174,7 @@ name|frequency
 init|=
 literal|0
 decl_stmt|;
-comment|// wordçåºç°æ¬¡æ°
+comment|// the number of times word appears.
 name|boolean
 name|hasFullWidth
 decl_stmt|;
@@ -243,7 +243,9 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// ä¸ç®¡åä¸ªæ±å­è½ä¸è½ææè¯ï¼é½å°åä¸ªæ±å­å­å°segGraphä¸­å»ï¼å¦åä¼é æåæ­¤å¾æ­å­
+comment|// It doesn't matter if a single Chinese character (Hanzi) can form a phrase or not,
+comment|// it will store that single Chinese character (Hanzi) in the SegGraph.  Otherwise, it will
+comment|// cause word division.
 name|wordBuf
 operator|.
 name|append
@@ -343,7 +345,8 @@ operator|>
 literal|1
 condition|)
 block|{
-comment|// å°±æ¯æä»¬è¦æ¾çè¯ï¼ ä¹å°±æ¯è¯´æ¾å°äºä»iå°jçä¸ä¸ªæè¯SegTokenï¼å¹¶ä¸ä¸æ¯åå­è¯
+comment|// It is the phrase we are looking for; In other words, we have found a phrase SegToken
+comment|// from i to j.  It is not a monosyllabic word (single word).
 name|frequency
 operator|=
 name|wordDict
@@ -451,9 +454,9 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// idArrayä½ä¸ºåç¼å·²ç»æ¾å°è¿(foundWordIndex!=-1),
-comment|// å æ­¤å é¿è¿åçidArrayåªå¯è½åºç°å¨foundWordIndexä»¥å,
-comment|// æä»foundWordIndexä¹åå¼å§æ¥æ¾
+comment|// idArray has been found (foundWordIndex!=-1) as a prefix before.
+comment|// Therefore, idArray after it has been lengthened can only appear after foundWordIndex.
+comment|// So start searching after foundWordIndex.
 name|foundIndex
 operator|=
 name|wordDict
@@ -544,7 +547,7 @@ name|j
 operator|++
 expr_stmt|;
 block|}
-comment|// æ¾å°äºä»iå°jçä¸ä¸ªTokenï¼ç±»åä¸ºLETTERçå­ç¬¦ä¸²
+comment|// Found a Token from i to j. Type is LETTER char string.
 name|charArray
 operator|=
 name|Utility
@@ -666,7 +669,7 @@ name|j
 operator|++
 expr_stmt|;
 block|}
-comment|// æ¾å°äºä»iå°jçä¸ä¸ªTokenï¼ç±»åä¸ºNUMBERçå­ç¬¦ä¸²
+comment|// Found a Token from i to j. Type is NUMBER char string.
 name|charArray
 operator|=
 name|Utility
@@ -733,7 +736,7 @@ name|i
 operator|+
 literal|1
 expr_stmt|;
-comment|// æ ç¹ç¬¦å·çweightä¸ç¨æ¥äºï¼éä¸ªæå¤§çé¢çå³å¯
+comment|// No need to search the weight for the punctuation.  Picking the highest frequency will work.
 name|frequency
 operator|=
 name|Utility
@@ -791,7 +794,8 @@ name|i
 operator|+
 literal|1
 expr_stmt|;
-comment|// æä¸è®¤è¯çå­ç¬¦å½ä½æªç¥ä¸²çå¾ï¼ä¾å¦GB2312ç¼ç ä¹å¤çå­ç¬¦ï¼æ¯ä¸ªå­ç¬¦å½ä½ä¸ä¸ª
+comment|// Treat the unrecognized char symbol as unknown string.
+comment|// For example, any symbol not in GB2312 is treated as one of these.
 name|charArray
 operator|=
 name|Utility
@@ -839,7 +843,7 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-comment|// ä¸ºsegGraphå¢å ä¸¤ä¸ªæ°Tokenï¼ "å§##å§","æ«##æ«"
+comment|// Add two more Tokens: "beginning xx beginning"
 name|charArray
 operator|=
 name|Utility
@@ -881,7 +885,7 @@ argument_list|(
 name|token
 argument_list|)
 expr_stmt|;
-comment|// "æ«##æ«"
+comment|// "end xx end"
 name|charArray
 operator|=
 name|Utility
