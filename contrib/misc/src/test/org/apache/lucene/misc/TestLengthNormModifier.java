@@ -562,6 +562,8 @@ operator|.
 name|open
 argument_list|(
 name|store
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|byte
@@ -687,6 +689,8 @@ operator|.
 name|open
 argument_list|(
 name|store
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|norms
@@ -801,6 +805,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|store
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|searcher
@@ -1019,6 +1025,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|store
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|searcher

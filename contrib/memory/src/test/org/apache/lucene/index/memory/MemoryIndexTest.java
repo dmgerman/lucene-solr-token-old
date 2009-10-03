@@ -1978,6 +1978,8 @@ operator|(
 name|Directory
 operator|)
 name|index
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 else|else
@@ -2136,7 +2138,7 @@ name|fileNames
 init|=
 name|dir
 operator|.
-name|list
+name|listAll
 argument_list|()
 decl_stmt|;
 for|for

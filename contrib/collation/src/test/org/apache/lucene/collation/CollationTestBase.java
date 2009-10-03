@@ -514,6 +514,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|AnalyzingQueryParser
@@ -812,6 +814,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Query
@@ -1022,6 +1026,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Query
@@ -1243,6 +1249,8 @@ operator|.
 name|open
 argument_list|(
 name|farsiIndex
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|IndexSearcher
@@ -1891,6 +1899,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|indexStore
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Sort

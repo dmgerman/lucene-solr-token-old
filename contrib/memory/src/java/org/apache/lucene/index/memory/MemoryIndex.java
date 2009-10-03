@@ -2776,9 +2776,7 @@ name|MemoryIndexReader
 parameter_list|()
 block|{
 name|super
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// avoid as much superclass baggage as possible
 block|}

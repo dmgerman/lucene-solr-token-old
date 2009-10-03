@@ -909,7 +909,7 @@ name|IndexSearcher
 argument_list|(
 name|ramDir
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|TopDocs
@@ -3504,6 +3504,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// can't rewrite ConstantScoreRangeQuery if you want to highlight it -
@@ -3728,6 +3730,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// can't rewrite ConstantScore if you want to highlight it -
@@ -6663,6 +6667,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|Analyzer
@@ -7316,6 +7322,8 @@ operator|.
 name|open
 argument_list|(
 name|ramDir1
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// setup index 2
@@ -7401,6 +7409,8 @@ operator|.
 name|open
 argument_list|(
 name|ramDir2
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|IndexSearcher
@@ -7422,6 +7432,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDir1
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|searchers
@@ -7433,6 +7445,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDir2
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|MultiSearcher
@@ -9411,6 +9425,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// This scorer can return negative idf -> null fragment
@@ -9533,7 +9549,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*    *     * public void testBigramAnalyzer() throws IOException, ParseException {    * //test to ensure analyzers with none-consecutive start/end offsets //dont    * double-highlight text //setup index 1 RAMDirectory ramDir = new    * RAMDirectory(); Analyzer bigramAnalyzer=new CJKAnalyzer(); IndexWriter    * writer = new IndexWriter(ramDir,bigramAnalyzer , true); Document d = new    * Document(); Field f = new Field(FIELD_NAME, "java abc def", true, true,    * true); d.add(f); writer.addDocument(d); writer.close(); IndexReader reader =    * IndexReader.open(ramDir);    *     * IndexSearcher searcher=new IndexSearcher(reader); query =    * QueryParser.parse("abc", FIELD_NAME, bigramAnalyzer);    * System.out.println("Searching for: " + query.toString(FIELD_NAME)); hits =    * searcher.search(query);    *     * Highlighter highlighter = new Highlighter(this,new    * QueryFragmentScorer(query));    *     * for (int i = 0; i< hits.length(); i++) { String text =    * hits.doc(i).get(FIELD_NAME); TokenStream    * tokenStream=bigramAnalyzer.tokenStream(FIELD_NAME,new StringReader(text));    * String highlightedText = highlighter.getBestFragment(tokenStream,text);    * System.out.println(highlightedText); } }    */
+comment|/*    *     * public void testBigramAnalyzer() throws IOException, ParseException {    * //test to ensure analyzers with none-consecutive start/end offsets //dont    * double-highlight text //setup index 1 RAMDirectory ramDir = new    * RAMDirectory(); Analyzer bigramAnalyzer=new CJKAnalyzer(); IndexWriter    * writer = new IndexWriter(ramDir,bigramAnalyzer , true); Document d = new    * Document(); Field f = new Field(FIELD_NAME, "java abc def", true, true,    * true); d.add(f); writer.addDocument(d); writer.close(); IndexReader reader =    * IndexReader.open(ramDir, true);    *     * IndexSearcher searcher=new IndexSearcher(reader); query =    * QueryParser.parse("abc", FIELD_NAME, bigramAnalyzer);    * System.out.println("Searching for: " + query.toString(FIELD_NAME)); hits =    * searcher.search(query);    *     * Highlighter highlighter = new Highlighter(this,new    * QueryFragmentScorer(query));    *     * for (int i = 0; i< hits.length(); i++) { String text =    * hits.doc(i).get(FIELD_NAME); TokenStream    * tokenStream=bigramAnalyzer.tokenStream(FIELD_NAME,new StringReader(text));    * String highlightedText = highlighter.getBestFragment(tokenStream,text);    * System.out.println(highlightedText); } }    */
 DECL|method|highlightTerm
 specifier|public
 name|String
@@ -9637,6 +9653,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// for any multi-term queries to work (prefix, wildcard, range,fuzzy etc)
@@ -9895,6 +9913,8 @@ operator|.
 name|open
 argument_list|(
 name|ramDir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|numHighlights

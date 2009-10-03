@@ -379,6 +379,8 @@ argument_list|(
 name|this
 operator|.
 name|spellIndex
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1213,6 +1215,8 @@ argument_list|(
 name|this
 operator|.
 name|spellIndex
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1403,6 +1407,8 @@ argument_list|(
 name|this
 operator|.
 name|spellIndex
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

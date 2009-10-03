@@ -335,6 +335,8 @@ operator|.
 name|open
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
