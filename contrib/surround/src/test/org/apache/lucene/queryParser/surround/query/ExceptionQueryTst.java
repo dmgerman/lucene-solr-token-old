@@ -97,7 +97,7 @@ specifier|public
 name|void
 name|doTest
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|failQueries
 parameter_list|)
 block|{
@@ -235,11 +235,11 @@ name|boolean
 name|verbose
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|failQueries
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 for|for

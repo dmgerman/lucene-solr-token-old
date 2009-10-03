@@ -202,7 +202,7 @@ specifier|protected
 name|void
 name|suffixToString
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|r
 parameter_list|)
 block|{
@@ -215,11 +215,11 @@ name|String
 name|toString
 parameter_list|()
 block|{
-name|StringBuffer
+name|StringBuilder
 name|r
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 if|if
