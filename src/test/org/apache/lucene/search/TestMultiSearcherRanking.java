@@ -655,6 +655,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|d1
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|s
@@ -666,6 +668,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|d2
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|multiSearcher
@@ -726,6 +730,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|d
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

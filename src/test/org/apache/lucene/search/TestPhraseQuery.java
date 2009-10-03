@@ -461,6 +461,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|query
@@ -1415,6 +1417,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// valid exact phrase query
@@ -1713,6 +1717,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|PhraseQuery
@@ -2019,6 +2025,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|termQuery
@@ -2417,6 +2425,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|PhraseQuery

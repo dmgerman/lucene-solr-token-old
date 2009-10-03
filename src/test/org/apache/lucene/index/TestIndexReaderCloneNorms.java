@@ -702,6 +702,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|verifyIndex
@@ -725,7 +727,7 @@ operator|.
 name|clone
 argument_list|()
 decl_stmt|;
-comment|// IndexReader.open(dir);//ir.clone();
+comment|// IndexReader.open(dir, false);//ir.clone();
 name|verifyIndex
 argument_list|(
 name|irc
@@ -928,6 +930,8 @@ operator|.
 name|open
 argument_list|(
 name|dir1
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|IndexReader
@@ -1366,6 +1370,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|modifyNormsForF1
@@ -1542,6 +1548,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|verifyIndex

@@ -252,6 +252,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -702,6 +704,8 @@ operator|.
 name|open
 argument_list|(
 name|ramDir1
+argument_list|,
+literal|false
 argument_list|)
 block|,
 name|IndexReader
@@ -709,6 +713,8 @@ operator|.
 name|open
 argument_list|(
 name|ramDir2
+argument_list|,
+literal|false
 argument_list|)
 block|}
 decl_stmt|;
@@ -860,6 +866,8 @@ operator|.
 name|open
 argument_list|(
 name|ramDir1
+argument_list|,
+literal|false
 argument_list|)
 block|,
 name|IndexReader
@@ -867,6 +875,8 @@ operator|.
 name|open
 argument_list|(
 name|ramDir3
+argument_list|,
+literal|false
 argument_list|)
 block|}
 decl_stmt|;
@@ -883,6 +893,8 @@ operator|.
 name|open
 argument_list|(
 name|ramDir1
+argument_list|,
+literal|false
 argument_list|)
 block|,
 name|IndexReader
@@ -890,6 +902,8 @@ operator|.
 name|open
 argument_list|(
 name|ramDir2
+argument_list|,
+literal|false
 argument_list|)
 block|,
 name|IndexReader
@@ -897,6 +911,8 @@ operator|.
 name|open
 argument_list|(
 name|ramDir3
+argument_list|,
+literal|false
 argument_list|)
 block|}
 decl_stmt|;

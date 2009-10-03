@@ -762,6 +762,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TopDocs
