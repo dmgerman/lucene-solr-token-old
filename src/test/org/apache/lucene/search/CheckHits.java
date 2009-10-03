@@ -2106,6 +2106,8 @@ block|{
 name|super
 argument_list|(
 name|d
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

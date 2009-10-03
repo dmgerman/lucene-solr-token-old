@@ -3720,7 +3720,7 @@ name|assertTrue
 argument_list|(
 literal|"locked"
 argument_list|,
-name|IndexReader
+name|IndexWriter
 operator|.
 name|isLocked
 argument_list|(
@@ -3739,7 +3739,7 @@ argument_list|(
 literal|"not locked"
 argument_list|,
 operator|!
-name|IndexReader
+name|IndexWriter
 operator|.
 name|isLocked
 argument_list|(
@@ -3779,7 +3779,7 @@ name|assertTrue
 argument_list|(
 literal|"locked"
 argument_list|,
-name|IndexReader
+name|IndexWriter
 operator|.
 name|isLocked
 argument_list|(
@@ -3798,7 +3798,7 @@ argument_list|(
 literal|"not locked"
 argument_list|,
 operator|!
-name|IndexReader
+name|IndexWriter
 operator|.
 name|isLocked
 argument_list|(
@@ -4722,16 +4722,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assertFalse
-argument_list|(
-name|IndexReader
-operator|.
-name|indexExists
-argument_list|(
-literal|"there_is_no_such_index"
-argument_list|)
-argument_list|)
-expr_stmt|;
 specifier|final
 name|File
 name|fileDir
@@ -4826,7 +4816,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|IndexReader
+name|IndexWriter
 operator|.
 name|isLocked
 argument_list|(
@@ -4864,7 +4854,7 @@ argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(
-name|IndexReader
+name|IndexWriter
 operator|.
 name|isLocked
 argument_list|(
@@ -4897,7 +4887,7 @@ name|IndexReader
 operator|.
 name|lastModified
 argument_list|(
-name|fileDir
+name|dir
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -5025,16 +5015,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|assertFalse
-argument_list|(
-name|IndexReader
-operator|.
-name|indexExists
-argument_list|(
-literal|"there_is_no_such_index"
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|Directory
 name|dir
 init|=
@@ -5080,7 +5060,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|IndexReader
+name|IndexWriter
 operator|.
 name|isLocked
 argument_list|(
@@ -5118,7 +5098,7 @@ argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(
-name|IndexReader
+name|IndexWriter
 operator|.
 name|isLocked
 argument_list|(
@@ -5322,7 +5302,7 @@ parameter_list|)
 block|{
 comment|// expected exception
 block|}
-name|IndexReader
+name|IndexWriter
 operator|.
 name|unlock
 argument_list|(
@@ -6897,7 +6877,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|IndexReader
+name|IndexWriter
 operator|.
 name|isLocked
 argument_list|(
@@ -6959,7 +6939,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|IndexReader
+name|IndexWriter
 operator|.
 name|isLocked
 argument_list|(
