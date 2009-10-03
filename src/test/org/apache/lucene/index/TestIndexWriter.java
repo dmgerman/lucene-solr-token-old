@@ -761,6 +761,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 for|for
@@ -831,6 +833,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -931,6 +935,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1395,6 +1401,8 @@ operator|.
 name|open
 argument_list|(
 name|startDir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1937,6 +1945,8 @@ name|dirs
 index|[
 name|i
 index|]
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -2182,6 +2192,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -2915,6 +2927,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|close
@@ -3233,6 +3247,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// Make sure all terms< max size were indexed
@@ -3455,6 +3471,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -4314,6 +4332,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -4391,6 +4411,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -4421,354 +4443,6 @@ block|{
 name|rmDir
 argument_list|(
 name|indexDir
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|// Same test as above, but use IndexWriter constructor
-comment|// that takes File:
-DECL|method|testCreateWithReader2
-specifier|public
-name|void
-name|testCreateWithReader2
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|File
-name|indexDir
-init|=
-name|_TestUtil
-operator|.
-name|getTempDir
-argument_list|(
-literal|"lucenetestindexwriter"
-argument_list|)
-decl_stmt|;
-try|try
-block|{
-comment|// add one document& close writer
-name|IndexWriter
-name|writer
-init|=
-operator|new
-name|IndexWriter
-argument_list|(
-name|indexDir
-argument_list|,
-operator|new
-name|WhitespaceAnalyzer
-argument_list|()
-argument_list|,
-literal|true
-argument_list|,
-name|IndexWriter
-operator|.
-name|MaxFieldLength
-operator|.
-name|LIMITED
-argument_list|)
-decl_stmt|;
-name|addDoc
-argument_list|(
-name|writer
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-comment|// now open reader:
-name|IndexReader
-name|reader
-init|=
-name|IndexReader
-operator|.
-name|open
-argument_list|(
-name|indexDir
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"should be one document"
-argument_list|,
-name|reader
-operator|.
-name|numDocs
-argument_list|()
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-comment|// now open index for create:
-name|writer
-operator|=
-operator|new
-name|IndexWriter
-argument_list|(
-name|indexDir
-argument_list|,
-operator|new
-name|WhitespaceAnalyzer
-argument_list|()
-argument_list|,
-literal|true
-argument_list|,
-name|IndexWriter
-operator|.
-name|MaxFieldLength
-operator|.
-name|LIMITED
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"should be zero documents"
-argument_list|,
-name|writer
-operator|.
-name|docCount
-argument_list|()
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-name|addDoc
-argument_list|(
-name|writer
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"should be one document"
-argument_list|,
-name|reader
-operator|.
-name|numDocs
-argument_list|()
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-name|IndexReader
-name|reader2
-init|=
-name|IndexReader
-operator|.
-name|open
-argument_list|(
-name|indexDir
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"should be one document"
-argument_list|,
-name|reader2
-operator|.
-name|numDocs
-argument_list|()
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-name|reader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|reader2
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|rmDir
-argument_list|(
-name|indexDir
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|// Same test as above, but use IndexWriter constructor
-comment|// that takes String:
-DECL|method|testCreateWithReader3
-specifier|public
-name|void
-name|testCreateWithReader3
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|File
-name|dirName
-init|=
-name|_TestUtil
-operator|.
-name|getTempDir
-argument_list|(
-literal|"lucenetestindexwriter"
-argument_list|)
-decl_stmt|;
-try|try
-block|{
-comment|// add one document& close writer
-name|IndexWriter
-name|writer
-init|=
-operator|new
-name|IndexWriter
-argument_list|(
-name|dirName
-argument_list|,
-operator|new
-name|WhitespaceAnalyzer
-argument_list|()
-argument_list|,
-literal|true
-argument_list|,
-name|IndexWriter
-operator|.
-name|MaxFieldLength
-operator|.
-name|LIMITED
-argument_list|)
-decl_stmt|;
-name|addDoc
-argument_list|(
-name|writer
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-comment|// now open reader:
-name|IndexReader
-name|reader
-init|=
-name|IndexReader
-operator|.
-name|open
-argument_list|(
-name|dirName
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"should be one document"
-argument_list|,
-name|reader
-operator|.
-name|numDocs
-argument_list|()
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-comment|// now open index for create:
-name|writer
-operator|=
-operator|new
-name|IndexWriter
-argument_list|(
-name|dirName
-argument_list|,
-operator|new
-name|WhitespaceAnalyzer
-argument_list|()
-argument_list|,
-literal|true
-argument_list|,
-name|IndexWriter
-operator|.
-name|MaxFieldLength
-operator|.
-name|LIMITED
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"should be zero documents"
-argument_list|,
-name|writer
-operator|.
-name|docCount
-argument_list|()
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-name|addDoc
-argument_list|(
-name|writer
-argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"should be one document"
-argument_list|,
-name|reader
-operator|.
-name|numDocs
-argument_list|()
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-name|IndexReader
-name|reader2
-init|=
-name|IndexReader
-operator|.
-name|open
-argument_list|(
-name|dirName
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"should be one document"
-argument_list|,
-name|reader2
-operator|.
-name|numDocs
-argument_list|()
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-name|reader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|reader2
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|rmDir
-argument_list|(
-name|dirName
 argument_list|)
 expr_stmt|;
 block|}
@@ -4977,6 +4651,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -5268,6 +4944,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|fail
@@ -5527,6 +5205,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|fail
@@ -5636,6 +5316,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|ScoreDoc
@@ -5683,6 +5365,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|writer
@@ -5745,6 +5429,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|hits
@@ -5815,6 +5501,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|hits
@@ -5941,6 +5629,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|ScoreDoc
@@ -6042,6 +5732,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|hits
@@ -6098,6 +5790,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|hits
@@ -6215,6 +5909,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|hits
@@ -6264,6 +5960,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|hits
@@ -6472,6 +6170,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|close
@@ -6636,6 +6336,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// Reader should see index as unoptimized at this
@@ -6676,6 +6378,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// Reader should still see index as unoptimized:
@@ -6739,6 +6443,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// Reader should still see index as unoptimized:
@@ -6812,6 +6518,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -6876,6 +6584,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -7158,6 +6868,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -8623,6 +8335,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|ScoreDoc
@@ -8814,6 +8528,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|ScoreDoc
@@ -8965,6 +8681,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|hits
@@ -9008,6 +8726,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|reader
@@ -9183,6 +8903,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -9393,6 +9115,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|ScoreDoc
@@ -9723,6 +9447,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -9899,6 +9625,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -9946,6 +9674,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -11167,6 +10897,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -11602,6 +11334,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -12012,6 +11746,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|int
@@ -12218,6 +11954,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|expected
@@ -12774,6 +12512,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|int
@@ -12990,6 +12730,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|expected
@@ -13381,6 +13123,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|reader
@@ -13860,6 +13604,8 @@ operator|.
 name|open
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|reader
@@ -14482,6 +14228,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TermDocs
@@ -15468,6 +15216,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 for|for
@@ -16120,6 +15870,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Term
@@ -16350,6 +16102,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -16456,6 +16210,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -16547,6 +16303,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -16576,6 +16334,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -16843,6 +16603,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -17083,6 +16845,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 for|for
@@ -17421,6 +17185,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -17740,6 +17506,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 for|for
@@ -17910,6 +17678,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Term
@@ -18111,6 +17881,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -18227,6 +17999,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -18431,6 +18205,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -18542,6 +18318,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -18747,6 +18525,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -18851,6 +18631,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -19778,6 +19560,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -20331,6 +20115,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Document
@@ -21974,6 +21760,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|PhraseQuery
@@ -22236,6 +22024,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -22261,6 +22051,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -22367,6 +22159,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -22396,6 +22190,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -22425,6 +22221,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -22536,6 +22334,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -22561,6 +22361,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -22685,6 +22487,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -22714,6 +22518,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -22743,6 +22549,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -22829,6 +22637,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -23064,6 +22874,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -23577,6 +23389,8 @@ argument_list|(
 name|c
 operator|.
 name|dir2
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -24452,6 +24266,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|doc
@@ -24731,6 +24547,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 try|try
@@ -24917,6 +24735,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// commit(Map) never called for this index
@@ -25034,6 +24854,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -25552,6 +25374,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TermVectorOffsetInfo
@@ -25838,6 +25662,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TermVectorOffsetInfo
@@ -26040,6 +25866,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TermVectorOffsetInfo
@@ -26255,6 +26083,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TermVectorOffsetInfo
@@ -26495,6 +26325,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TermVectorOffsetInfo
@@ -26697,6 +26529,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TermVectorOffsetInfo
@@ -26928,6 +26762,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TermPositionVector
@@ -27208,6 +27044,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TermPositionVector
@@ -27484,6 +27322,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TermPositionVector
@@ -27876,6 +27716,8 @@ operator|.
 name|open
 argument_list|(
 name|dir2
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|IndexReader
@@ -27916,6 +27758,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -28331,6 +28175,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|//System.out.println("doc count=" + r.numDocs());
@@ -28739,6 +28585,8 @@ operator|.
 name|open
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|doc

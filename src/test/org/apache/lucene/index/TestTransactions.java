@@ -835,6 +835,8 @@ operator|.
 name|open
 argument_list|(
 name|dir1
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|r2
@@ -844,6 +846,8 @@ operator|.
 name|open
 argument_list|(
 name|dir2
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

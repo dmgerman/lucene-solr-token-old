@@ -341,6 +341,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|indexStore
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Query
@@ -417,6 +419,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|indexStore
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Query
@@ -730,6 +734,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|indexStore
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Query
@@ -1327,6 +1333,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// test queries that must find all

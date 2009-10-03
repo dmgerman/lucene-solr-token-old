@@ -1003,6 +1003,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|searcher
@@ -2080,6 +2082,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|SpanTermQuery
@@ -2352,6 +2356,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|SpanTermQuery
@@ -2629,6 +2635,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|SpanTermQuery
@@ -2952,6 +2960,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|IndexReader
@@ -3427,6 +3437,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|directory
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 return|return

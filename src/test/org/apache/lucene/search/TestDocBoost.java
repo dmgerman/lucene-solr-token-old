@@ -355,6 +355,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|store
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|search

@@ -669,6 +669,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|indexStoreB
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|searchers
@@ -680,6 +682,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|indexStoreA
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// creating the multiSearcher
@@ -816,6 +820,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|indexStoreB
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|searchers2
@@ -827,6 +833,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|indexStoreA
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// creating the mulitSearcher
@@ -1047,6 +1055,8 @@ operator|.
 name|open
 argument_list|(
 name|indexStoreB
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|readerB
@@ -1112,6 +1122,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|indexStoreB
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|searchers3
@@ -1123,6 +1135,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|indexStoreA
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// creating the mulitSearcher
@@ -1487,6 +1501,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDirectory1
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|indexSearcher2
@@ -1495,6 +1511,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDirectory2
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|MultiSearcher
@@ -1903,6 +1921,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDirectory1
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|indexSearcher1
@@ -2039,6 +2059,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDirectory1
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|indexSearcher1
@@ -2056,6 +2078,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|ramDirectory2
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|indexSearcher2
@@ -2271,6 +2295,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|MultiSearcher

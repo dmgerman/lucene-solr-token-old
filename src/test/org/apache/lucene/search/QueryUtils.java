@@ -730,6 +730,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 name|IndexReader
@@ -740,6 +742,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 operator|new
@@ -763,6 +767,8 @@ literal|4
 else|:
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 name|IndexReader
@@ -773,6 +779,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 literal|0
@@ -789,6 +797,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|}
 argument_list|)
@@ -807,6 +817,8 @@ literal|0
 else|:
 literal|7
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 name|IndexReader
@@ -817,6 +829,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 operator|new
@@ -840,6 +854,8 @@ literal|0
 else|:
 literal|5
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 name|IndexReader
@@ -850,6 +866,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 literal|0
@@ -866,6 +884,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|}
 argument_list|)
@@ -939,6 +959,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 operator|new
@@ -961,6 +983,8 @@ literal|65
 else|:
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 operator|new
@@ -970,6 +994,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 literal|0
@@ -985,6 +1011,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|}
 argument_list|)
@@ -1002,6 +1030,8 @@ literal|0
 else|:
 literal|3
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 operator|new
@@ -1011,6 +1041,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 operator|new
@@ -1033,6 +1065,8 @@ literal|0
 else|:
 literal|5
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 operator|new
@@ -1042,6 +1076,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|,
 literal|0
@@ -1057,6 +1093,8 @@ name|makeEmptyIndex
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 block|}
 argument_list|)
@@ -1227,6 +1265,8 @@ operator|.
 name|open
 argument_list|(
 name|d
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Assert
