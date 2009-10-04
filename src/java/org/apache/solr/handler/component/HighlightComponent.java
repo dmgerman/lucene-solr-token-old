@@ -438,6 +438,8 @@ argument_list|(
 name|HighlightParams
 operator|.
 name|USE_PHRASE_HIGHLIGHTER
+argument_list|,
+literal|"true"
 argument_list|)
 argument_list|)
 operator|&&
@@ -455,6 +457,8 @@ argument_list|(
 name|HighlightParams
 operator|.
 name|HIGHLIGHT_MULTI_TERM
+argument_list|,
+literal|"true"
 argument_list|)
 argument_list|)
 operator|)
