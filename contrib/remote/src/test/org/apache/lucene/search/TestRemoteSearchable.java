@@ -152,9 +152,6 @@ operator|.
 name|HashSet
 import|;
 end_import
-begin_comment
-comment|/**  *  @version $Id$  */
-end_comment
 begin_class
 DECL|class|TestRemoteSearchable
 specifier|public

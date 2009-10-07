@@ -190,7 +190,7 @@ name|FieldCacheSanityChecker
 import|;
 end_import
 begin_comment
-comment|/**  * Expert: The default cache implementation, storing all values in memory.  * A WeakHashMap is used for storage.  *  *<p>Created: May 19, 2004 4:40:36 PM  *  * @since   lucene 1.4  * @version $Id$  */
+comment|/**  * Expert: The default cache implementation, storing all values in memory.  * A WeakHashMap is used for storage.  *  *<p>Created: May 19, 2004 4:40:36 PM  *  * @since   lucene 1.4  */
 end_comment
 begin_comment
 comment|// TODO: change interface to FieldCache in 3.0 when removed

@@ -50,7 +50,7 @@ name|Term
 import|;
 end_import
 begin_comment
-comment|/**  * Subclass of FilteredTermEnum for enumerating all terms that match the  * specified wildcard filter term.  *<p>  * Term enumerations are always ordered by Term.compareTo().  Each term in  * the enumeration is greater than all that precede it.  *  * @version $Id$  */
+comment|/**  * Subclass of FilteredTermEnum for enumerating all terms that match the  * specified wildcard filter term.  *<p>  * Term enumerations are always ordered by Term.compareTo().  Each term in  * the enumeration is greater than all that precede it.  */
 end_comment
 begin_class
 DECL|class|WildcardTermEnum

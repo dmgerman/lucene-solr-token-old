@@ -222,7 +222,7 @@ name|Set
 import|;
 end_import
 begin_comment
-comment|/**  * Tests {@link MultiSearcher} class.  *  * @version $Id$  */
+comment|/**  * Tests {@link MultiSearcher} class.  */
 end_comment
 begin_class
 DECL|class|TestMultiSearcher

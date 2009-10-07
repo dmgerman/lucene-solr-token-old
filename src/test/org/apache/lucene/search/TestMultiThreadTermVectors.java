@@ -127,9 +127,6 @@ operator|.
 name|IOException
 import|;
 end_import
-begin_comment
-comment|/**  *  * @version $rcs = ' $Id$ ' ;  */
-end_comment
 begin_class
 DECL|class|TestMultiThreadTermVectors
 specifier|public

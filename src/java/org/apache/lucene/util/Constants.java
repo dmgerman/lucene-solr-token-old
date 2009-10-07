@@ -26,7 +26,7 @@ name|LucenePackage
 import|;
 end_import
 begin_comment
-comment|/**  * Some useful constants.  *  *  * @version $Id$  **/
+comment|/**  * Some useful constants.  **/
 end_comment
 begin_class
 DECL|class|Constants

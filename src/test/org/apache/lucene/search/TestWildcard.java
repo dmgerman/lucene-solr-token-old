@@ -171,7 +171,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * TestWildcard tests the '*' and '?' wildcard characters.  *  * @version $Id$  *   */
+comment|/**  * TestWildcard tests the '*' and '?' wildcard characters.  */
 end_comment
 begin_class
 DECL|class|TestWildcard

@@ -39,7 +39,7 @@ name|TermAttribute
 import|;
 end_import
 begin_comment
-comment|/**  * Removes words that are too long or too short from the stream.  *  *  * @version $Id$  */
+comment|/**  * Removes words that are too long or too short from the stream.  */
 end_comment
 begin_class
 DECL|class|LengthFilter

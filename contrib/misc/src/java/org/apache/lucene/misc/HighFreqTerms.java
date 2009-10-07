@@ -89,7 +89,7 @@ name|File
 import|;
 end_import
 begin_comment
-comment|/**  *<code>HighFreqTerms</code> class extracts terms and their frequencies out  * of an existing Lucene index.  *  * @version $Id$  */
+comment|/**  *<code>HighFreqTerms</code> class extracts terms and their frequencies out  * of an existing Lucene index.  */
 end_comment
 begin_class
 DECL|class|HighFreqTerms

@@ -101,7 +101,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link TokenFilter} that stems Russian words.   *<p>  * The implementation was inspired by GermanStemFilter.  * The input should be filtered by {@link LowerCaseFilter} before passing it to RussianStemFilter ,  * because RussianStemFilter only works with lowercase characters.  *</p>  *  * @version   $Id$  */
+comment|/**  * A {@link TokenFilter} that stems Russian words.   *<p>  * The implementation was inspired by GermanStemFilter.  * The input should be filtered by {@link LowerCaseFilter} before passing it to RussianStemFilter ,  * because RussianStemFilter only works with lowercase characters.  *</p>  */
 end_comment
 begin_class
 DECL|class|RussianStemFilter

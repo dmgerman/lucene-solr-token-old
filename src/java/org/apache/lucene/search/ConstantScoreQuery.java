@@ -46,7 +46,7 @@ name|Set
 import|;
 end_import
 begin_comment
-comment|/**  * A query that wraps a filter and simply returns a constant score equal to the  * query boost for every document in the filter.  *  *  * @version $Id$  */
+comment|/**  * A query that wraps a filter and simply returns a constant score equal to the  * query boost for every document in the filter.  */
 end_comment
 begin_class
 DECL|class|ConstantScoreQuery

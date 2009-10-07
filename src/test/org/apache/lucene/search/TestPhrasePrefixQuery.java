@@ -150,7 +150,7 @@ name|LinkedList
 import|;
 end_import
 begin_comment
-comment|/**  * This class tests PhrasePrefixQuery class.  *  *  * @version $Id$  */
+comment|/**  * This class tests PhrasePrefixQuery class.  */
 end_comment
 begin_class
 DECL|class|TestPhrasePrefixQuery

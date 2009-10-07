@@ -78,7 +78,7 @@ name|HashSet
 import|;
 end_import
 begin_comment
-comment|/**  * Loader for text files that represent a list of stopwords.  *  *  * @version $Id$  */
+comment|/**  * Loader for text files that represent a list of stopwords.  */
 end_comment
 begin_class
 DECL|class|WordlistLoader

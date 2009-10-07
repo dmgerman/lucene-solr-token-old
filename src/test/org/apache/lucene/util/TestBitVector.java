@@ -63,7 +63,7 @@ name|RAMDirectory
 import|;
 end_import
 begin_comment
-comment|/**  *<code>TestBitVector</code> tests the<code>BitVector</code>, obviously.  *  *   * @version $Id$  */
+comment|/**  *<code>TestBitVector</code> tests the<code>BitVector</code>, obviously.  */
 end_comment
 begin_class
 DECL|class|TestBitVector

@@ -125,7 +125,7 @@ name|TermAttribute
 import|;
 end_import
 begin_comment
-comment|/**  * Test case for RussianAnalyzer.  *  *  * @version   $Id$  */
+comment|/**  * Test case for RussianAnalyzer.  */
 end_comment
 begin_class
 DECL|class|TestRussianAnalyzer

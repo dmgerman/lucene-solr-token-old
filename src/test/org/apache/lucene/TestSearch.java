@@ -149,7 +149,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/** JUnit adaptation of an older test case SearchTest.  *  * @version $Id$  */
+comment|/** JUnit adaptation of an older test case SearchTest. */
 end_comment
 begin_class
 DECL|class|TestSearch

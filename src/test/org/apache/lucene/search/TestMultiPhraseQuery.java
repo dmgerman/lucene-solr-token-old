@@ -187,7 +187,7 @@ name|LinkedList
 import|;
 end_import
 begin_comment
-comment|/**  * This class tests the MultiPhraseQuery class.  *  *  * @version $Id$  */
+comment|/**  * This class tests the MultiPhraseQuery class.  *  *  */
 end_comment
 begin_class
 DECL|class|TestMultiPhraseQuery
