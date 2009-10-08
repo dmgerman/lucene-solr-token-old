@@ -529,7 +529,7 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-comment|/**    * This is useful for adding to a big index w/ autoCommit    * false when you know readers are not using it.    */
+comment|/**    * This is useful for adding to a big index when you know    * readers are not using it.    */
 DECL|class|KeepNoneOnInitDeletionPolicy
 class|class
 name|KeepNoneOnInitDeletionPolicy
@@ -1087,11 +1087,6 @@ init|=
 literal|2.0
 decl_stmt|;
 name|boolean
-name|autoCommit
-init|=
-literal|false
-decl_stmt|;
-name|boolean
 name|useCompoundFile
 init|=
 literal|true
@@ -1122,8 +1117,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -1131,6 +1124,12 @@ argument_list|,
 literal|true
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 decl_stmt|;
 name|writer
@@ -1181,8 +1180,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -1190,6 +1187,12 @@ argument_list|,
 literal|false
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 expr_stmt|;
 name|writer
@@ -1431,19 +1434,12 @@ literal|0
 init|;
 name|pass
 operator|<
-literal|4
+literal|2
 condition|;
 name|pass
 operator|++
 control|)
 block|{
-name|boolean
-name|autoCommit
-init|=
-name|pass
-operator|<
-literal|2
-decl_stmt|;
 name|boolean
 name|useCompoundFile
 init|=
@@ -1452,7 +1448,7 @@ name|pass
 operator|%
 literal|2
 operator|)
-operator|>
+operator|!=
 literal|0
 decl_stmt|;
 comment|// Never deletes a commit
@@ -1484,8 +1480,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -1493,6 +1487,12 @@ argument_list|,
 literal|true
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 decl_stmt|;
 name|writer
@@ -1538,21 +1538,6 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|autoCommit
-operator|&&
-name|i
-operator|%
-literal|10
-operator|==
-literal|0
-condition|)
-name|writer
-operator|.
-name|commit
-argument_list|()
-expr_stmt|;
 block|}
 name|writer
 operator|.
@@ -1566,8 +1551,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -1575,6 +1558,12 @@ argument_list|,
 literal|false
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 expr_stmt|;
 name|writer
@@ -1603,11 +1592,6 @@ operator|.
 name|numOnInit
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|autoCommit
-condition|)
 comment|// If we are not auto committing then there should
 comment|// be exactly 2 commits (one per close above):
 name|assertEquals
@@ -1630,28 +1614,10 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|autoCommit
-condition|)
 comment|// 1 from opening writer + 2 from closing writer
 name|assertEquals
 argument_list|(
 literal|3
-argument_list|,
-name|commits
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-else|else
-comment|// 1 from opening writer + 2 from closing writer +
-comment|// 11 from calling writer.commit() explicitly above
-name|assertEquals
-argument_list|(
-literal|14
 argument_list|,
 name|commits
 operator|.
@@ -2439,7 +2405,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/* Test keeping NO commit points.  This is a viable and    * useful case eg where you want to build a big index with    * autoCommit false and you know there are no readers.    */
+comment|/* Test keeping NO commit points.  This is a viable and    * useful case eg where you want to build a big index and    * you know there are no readers.    */
 DECL|method|testKeepNoneOnInitDeletionPolicy
 specifier|public
 name|void
@@ -2457,19 +2423,12 @@ literal|0
 init|;
 name|pass
 operator|<
-literal|4
+literal|2
 condition|;
 name|pass
 operator|++
 control|)
 block|{
-name|boolean
-name|autoCommit
-init|=
-name|pass
-operator|<
-literal|2
-decl_stmt|;
 name|boolean
 name|useCompoundFile
 init|=
@@ -2478,7 +2437,7 @@ name|pass
 operator|%
 literal|2
 operator|)
-operator|>
+operator|!=
 literal|0
 decl_stmt|;
 name|KeepNoneOnInitDeletionPolicy
@@ -2503,8 +2462,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -2512,6 +2469,12 @@ argument_list|,
 literal|true
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 decl_stmt|;
 name|writer
@@ -2561,8 +2524,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -2570,6 +2531,12 @@ argument_list|,
 literal|false
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 expr_stmt|;
 name|writer
@@ -2598,11 +2565,6 @@ operator|.
 name|numOnInit
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|autoCommit
-condition|)
 comment|// If we are not auto committing then there should
 comment|// be exactly 2 commits (one per close above):
 name|assertEquals
@@ -2664,19 +2626,12 @@ literal|0
 init|;
 name|pass
 operator|<
-literal|4
+literal|2
 condition|;
 name|pass
 operator|++
 control|)
 block|{
-name|boolean
-name|autoCommit
-init|=
-name|pass
-operator|<
-literal|2
-decl_stmt|;
 name|boolean
 name|useCompoundFile
 init|=
@@ -2685,7 +2640,7 @@ name|pass
 operator|%
 literal|2
 operator|)
-operator|>
+operator|!=
 literal|0
 decl_stmt|;
 name|Directory
@@ -2729,8 +2684,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -2738,6 +2691,12 @@ argument_list|,
 literal|true
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 decl_stmt|;
 name|writer
@@ -2806,23 +2765,6 @@ operator|.
 name|numOnInit
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|autoCommit
-condition|)
-block|{
-name|assertTrue
-argument_list|(
-name|policy
-operator|.
-name|numOnCommit
-operator|>
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|assertEquals
 argument_list|(
 name|N
@@ -2834,7 +2776,6 @@ operator|.
 name|numOnCommit
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Simplistic check: just verify only the past N segments_N's still
 comment|// exist, and, I can open a reader on each:
 name|dir
@@ -2987,19 +2928,12 @@ literal|0
 init|;
 name|pass
 operator|<
-literal|4
+literal|2
 condition|;
 name|pass
 operator|++
 control|)
 block|{
-name|boolean
-name|autoCommit
-init|=
-name|pass
-operator|<
-literal|2
-decl_stmt|;
 name|boolean
 name|useCompoundFile
 init|=
@@ -3008,7 +2942,7 @@ name|pass
 operator|%
 literal|2
 operator|)
-operator|>
+operator|!=
 literal|0
 decl_stmt|;
 name|KeepLastNDeletionPolicy
@@ -3035,8 +2969,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -3044,6 +2976,12 @@ argument_list|,
 literal|true
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 decl_stmt|;
 name|writer
@@ -3102,8 +3040,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -3111,6 +3047,12 @@ argument_list|,
 literal|false
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 expr_stmt|;
 name|writer
@@ -3141,7 +3083,7 @@ name|writer
 argument_list|)
 expr_stmt|;
 block|}
-comment|// this is a commit when autoCommit=false:
+comment|// this is a commit
 name|writer
 operator|.
 name|close
@@ -3228,7 +3170,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-comment|// this is a commit when autoCommit=false:
+comment|// this is a commit
 name|reader
 operator|.
 name|close
@@ -3247,8 +3189,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -3256,6 +3196,12 @@ argument_list|,
 literal|false
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 expr_stmt|;
 name|writer
@@ -3270,7 +3216,7 @@ operator|.
 name|optimize
 argument_list|()
 expr_stmt|;
-comment|// this is a commit when autoCommit=false:
+comment|// this is a commit
 name|writer
 operator|.
 name|close
@@ -3291,11 +3237,6 @@ operator|.
 name|numOnInit
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|autoCommit
-condition|)
 name|assertEquals
 argument_list|(
 literal|2
@@ -3408,14 +3349,7 @@ literal|true
 argument_list|)
 decl_stmt|;
 comment|// Work backwards in commits on what the expected
-comment|// count should be.  Only check this in the
-comment|// autoCommit false case:
-if|if
-condition|(
-operator|!
-name|autoCommit
-condition|)
-block|{
+comment|// count should be.
 name|searcher
 operator|=
 operator|new
@@ -3482,7 +3416,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
 name|reader
 operator|.
 name|close
@@ -3581,19 +3514,12 @@ literal|0
 init|;
 name|pass
 operator|<
-literal|4
+literal|2
 condition|;
 name|pass
 operator|++
 control|)
 block|{
-name|boolean
-name|autoCommit
-init|=
-name|pass
-operator|<
-literal|2
-decl_stmt|;
 name|boolean
 name|useCompoundFile
 init|=
@@ -3602,7 +3528,7 @@ name|pass
 operator|%
 literal|2
 operator|)
-operator|>
+operator|!=
 literal|0
 decl_stmt|;
 name|KeepLastNDeletionPolicy
@@ -3629,8 +3555,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -3638,6 +3562,12 @@ argument_list|,
 literal|true
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 decl_stmt|;
 name|writer
@@ -3703,8 +3633,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -3712,6 +3640,12 @@ argument_list|,
 literal|false
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 expr_stmt|;
 name|writer
@@ -3749,7 +3683,7 @@ name|writer
 argument_list|)
 expr_stmt|;
 block|}
-comment|// this is a commit when autoCommit=false:
+comment|// this is a commit
 name|writer
 operator|.
 name|close
@@ -3822,7 +3756,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-comment|// this is a commit when autoCommit=false:
+comment|// this is a commit
 name|reader
 operator|.
 name|close
@@ -3840,8 +3774,6 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|autoCommit
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
@@ -3849,6 +3781,12 @@ argument_list|,
 literal|true
 argument_list|,
 name|policy
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 expr_stmt|;
 comment|// This will not commit: there are no changes
@@ -3876,11 +3814,6 @@ operator|.
 name|numOnInit
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|autoCommit
-condition|)
 name|assertEquals
 argument_list|(
 literal|3
@@ -3991,14 +3924,7 @@ literal|true
 argument_list|)
 decl_stmt|;
 comment|// Work backwards in commits on what the expected
-comment|// count should be.  Only check this in the
-comment|// autoCommit false case:
-if|if
-condition|(
-operator|!
-name|autoCommit
-condition|)
-block|{
+comment|// count should be.
 name|searcher
 operator|=
 operator|new
@@ -4073,7 +3999,6 @@ name|expectedCount
 operator|=
 literal|0
 expr_stmt|;
-block|}
 block|}
 name|reader
 operator|.

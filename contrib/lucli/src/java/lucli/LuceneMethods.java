@@ -1115,6 +1115,12 @@ name|createAnalyzer
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|IndexWriter
+operator|.
+name|MaxFieldLength
+operator|.
+name|UNLIMITED
 argument_list|)
 decl_stmt|;
 name|message
