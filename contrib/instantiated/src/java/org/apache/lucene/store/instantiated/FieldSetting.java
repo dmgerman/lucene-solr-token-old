@@ -81,12 +81,6 @@ name|tokenized
 init|=
 literal|false
 decl_stmt|;
-DECL|field|compressed
-name|boolean
-name|compressed
-init|=
-literal|false
-decl_stmt|;
 DECL|method|FieldSetting
 name|FieldSetting
 parameter_list|()
