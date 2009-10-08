@@ -1207,7 +1207,7 @@ if|if
 condition|(
 name|f
 operator|.
-name|getOmitTf
+name|getOmitTermFreqAndPositions
 argument_list|()
 condition|)
 name|add

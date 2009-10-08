@@ -462,7 +462,7 @@ name|assertTrue
 argument_list|(
 name|field
 operator|.
-name|getOmitTf
+name|getOmitTermFreqAndPositions
 argument_list|()
 operator|==
 literal|false
@@ -530,7 +530,7 @@ name|assertTrue
 argument_list|(
 name|field
 operator|.
-name|getOmitTf
+name|getOmitTermFreqAndPositions
 argument_list|()
 operator|==
 literal|false
@@ -598,7 +598,7 @@ name|assertTrue
 argument_list|(
 name|field
 operator|.
-name|getOmitTf
+name|getOmitTermFreqAndPositions
 argument_list|()
 operator|==
 literal|true
@@ -1023,7 +1023,7 @@ name|bytes
 init|=
 name|field
 operator|.
-name|binaryValue
+name|getBinaryValue
 argument_list|()
 decl_stmt|;
 name|assertTrue
@@ -2102,7 +2102,7 @@ argument_list|()
 argument_list|,
 name|f1
 operator|.
-name|binaryValue
+name|getBinaryValue
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2128,7 +2128,7 @@ name|length
 argument_list|,
 name|fb
 operator|.
-name|binaryValue
+name|getBinaryValue
 argument_list|()
 argument_list|)
 expr_stmt|;
