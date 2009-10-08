@@ -267,7 +267,6 @@ specifier|public
 class|class
 name|QueryParsing
 block|{
-comment|/** the SolrParam used to override the QueryParser "default operator" */
 DECL|field|OP
 specifier|public
 specifier|static
@@ -277,6 +276,7 @@ name|OP
 init|=
 literal|"q.op"
 decl_stmt|;
+comment|// the SolrParam used to override the QueryParser "default operator"
 DECL|field|V
 specifier|public
 specifier|static
@@ -334,6 +334,15 @@ name|char
 name|LOCALPARAM_END
 init|=
 literal|'}'
+decl_stmt|;
+DECL|field|DOCID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DOCID
+init|=
+literal|"_docid_"
 decl_stmt|;
 comment|/**     * Helper utility for parsing a query using the Lucene QueryParser syntax.     * @param qs query expression in standard Lucene syntax    * @param schema used for default operator (overridden by params) and passed to the query parser for field format analysis information    */
 DECL|method|parseQuery
@@ -1375,7 +1384,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"#"
+name|DOCID
 operator|.
 name|equals
 argument_list|(
