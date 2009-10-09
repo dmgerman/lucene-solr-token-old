@@ -1207,7 +1207,16 @@ name|CLOSE_CURSORS_AT_COMMIT
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+literal|"HOLD_CURSORS_OVER_COMMIT"
+operator|.
+name|equals
+argument_list|(
+name|holdability
+argument_list|)
+condition|)
 block|{
 name|c
 operator|.
