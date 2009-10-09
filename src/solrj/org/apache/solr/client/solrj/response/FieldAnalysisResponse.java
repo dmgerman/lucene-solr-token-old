@@ -585,7 +585,7 @@ specifier|private
 name|Analysis
 parameter_list|()
 block|{     }
-comment|/**      * Returns the number of query time analysis phases in this analysis or {@code -1) if query time analysis      * doesn't exist.      *      * @return Returns the number of query time analysis phases in this analysis or {@code -1) if query time      *         analysis doesn't exist.      */
+comment|/**      * Returns the number of query time analysis phases in this analysis or       * {@code -1} if query time analysis doesn't exist.      *      * @return Returns the number of query time analysis phases in this       *         analysis or {@code -1} if query time analysis doesn't exist.      */
 DECL|method|getQueryPhasesCount
 specifier|public
 name|int
@@ -606,7 +606,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the query time analysis phases for this analysis or {@code null} if query time analysis doesn't      * exist.      *      * @return The query time analysis phases for this analysis or {@code null} if query time analysis doesn't      *         exist.      */
+comment|/**      * Returns the query time analysis phases for this analysis or {@code null}      * if query time analysis doesn't exist.      *       *      * @return The query time analysis phases for this analysis or {@code null}      *         if query time analysis doesn't exist.      *               */
 DECL|method|getQueryPhases
 specifier|public
 name|Iterable
