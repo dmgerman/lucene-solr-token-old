@@ -718,16 +718,6 @@ name|s
 expr_stmt|;
 block|}
 block|}
-comment|/** @deprecated use {@link #docID()} instead. */
-specifier|public
-name|int
-name|doc
-parameter_list|()
-block|{
-return|return
-name|lastInt
-return|;
-block|}
 specifier|public
 name|int
 name|docID
@@ -735,19 +725,6 @@ parameter_list|()
 block|{
 return|return
 name|doc
-return|;
-block|}
-comment|/** @deprecated use {@link #nextDoc()} instead. */
-specifier|public
-name|boolean
-name|next
-parameter_list|()
-block|{
-return|return
-name|nextDoc
-argument_list|()
-operator|!=
-name|NO_MORE_DOCS
 return|;
 block|}
 specifier|public
@@ -779,24 +756,6 @@ expr_stmt|;
 block|}
 return|return
 name|doc
-return|;
-block|}
-comment|/** @deprecated use {@link #advance(int)} instead. */
-specifier|public
-name|boolean
-name|skipTo
-parameter_list|(
-name|int
-name|docNr
-parameter_list|)
-block|{
-return|return
-name|advance
-argument_list|(
-name|docNr
-argument_list|)
-operator|!=
-name|NO_MORE_DOCS
 return|;
 block|}
 specifier|public
