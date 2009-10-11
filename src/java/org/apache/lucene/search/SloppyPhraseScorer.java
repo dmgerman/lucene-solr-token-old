@@ -331,7 +331,7 @@ name|position
 expr_stmt|;
 name|pq
 operator|.
-name|put
+name|add
 argument_list|(
 name|pp
 argument_list|)
@@ -408,7 +408,7 @@ control|)
 block|{
 name|pq
 operator|.
-name|insert
+name|insertWithOverflow
 argument_list|(
 name|tmpPos
 index|[
@@ -420,7 +420,7 @@ block|}
 comment|//insert pp back
 name|pq
 operator|.
-name|put
+name|add
 argument_list|(
 name|pp
 argument_list|)
@@ -498,7 +498,7 @@ name|position
 expr_stmt|;
 name|pq
 operator|.
-name|put
+name|add
 argument_list|(
 name|pp
 argument_list|)
@@ -795,7 +795,7 @@ name|position
 expr_stmt|;
 name|pq
 operator|.
-name|put
+name|add
 argument_list|(
 name|pp
 argument_list|)

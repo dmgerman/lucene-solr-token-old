@@ -920,7 +920,7 @@ block|}
 block|}
 name|sugQueue
 operator|.
-name|insert
+name|insertWithOverflow
 argument_list|(
 name|sugWord
 argument_list|)

@@ -1084,7 +1084,7 @@ condition|)
 block|{
 name|queue
 operator|.
-name|put
+name|add
 argument_list|(
 name|spans
 argument_list|)
@@ -1149,7 +1149,7 @@ block|{
 comment|// move to next
 name|queue
 operator|.
-name|adjustTop
+name|updateTop
 argument_list|()
 expr_stmt|;
 return|return
@@ -1246,7 +1246,7 @@ condition|)
 block|{
 name|queue
 operator|.
-name|adjustTop
+name|updateTop
 argument_list|()
 expr_stmt|;
 block|}
@@ -1321,7 +1321,6 @@ name|end
 argument_list|()
 return|;
 block|}
-comment|// TODO: Remove warning after API has been finalized
 specifier|public
 name|Collection
 comment|/*<byte[]>*/
@@ -1369,7 +1368,6 @@ return|return
 name|result
 return|;
 block|}
-comment|// TODO: Remove warning after API has been finalized
 specifier|public
 name|boolean
 name|isPayloadAvailable

@@ -4887,7 +4887,7 @@ literal|null
 condition|)
 name|queue
 operator|.
-name|put
+name|add
 argument_list|(
 name|smi
 argument_list|)
@@ -4968,7 +4968,7 @@ argument_list|()
 condition|)
 name|queue
 operator|.
-name|put
+name|add
 argument_list|(
 name|smi
 argument_list|)
