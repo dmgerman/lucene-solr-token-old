@@ -348,17 +348,6 @@ return|return
 name|NO_MORE_DOCS
 return|;
 block|}
-comment|/** @deprecated use {@link #docID()} instead. */
-DECL|method|doc
-specifier|public
-name|int
-name|doc
-parameter_list|()
-block|{
-return|return
-name|doc
-return|;
-block|}
 DECL|method|docID
 specifier|public
 name|int
@@ -384,19 +373,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** @deprecated use {@link #nextDoc()} instead. */
-DECL|method|next
-specifier|public
-name|boolean
-name|next
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-literal|false
-return|;
-block|}
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -419,22 +395,6 @@ name|IOException
 block|{
 return|return
 name|score
-return|;
-block|}
-comment|/** @deprecated use {@link #advance(int)} instead. */
-DECL|method|skipTo
-specifier|public
-name|boolean
-name|skipTo
-parameter_list|(
-name|int
-name|target
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-literal|false
 return|;
 block|}
 block|}
@@ -1293,19 +1253,6 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-comment|/** @deprecated use {@link #docID()} instead. */
-DECL|method|doc
-specifier|public
-name|int
-name|doc
-parameter_list|()
-block|{
-return|return
-name|current
-operator|.
-name|doc
-return|;
-block|}
 DECL|method|docID
 specifier|public
 name|int
@@ -1330,22 +1277,6 @@ operator|new
 name|UnsupportedOperationException
 argument_list|()
 throw|;
-block|}
-comment|/** @deprecated use {@link #nextDoc()} instead. */
-DECL|method|next
-specifier|public
-name|boolean
-name|next
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|nextDoc
-argument_list|()
-operator|!=
-name|NO_MORE_DOCS
-return|;
 block|}
 DECL|method|nextDoc
 specifier|public
@@ -1592,22 +1523,6 @@ name|hc
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-comment|/** @deprecated use {@link #advance(int)} instead. */
-DECL|method|skipTo
-specifier|public
-name|boolean
-name|skipTo
-parameter_list|(
-name|int
-name|target
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
 block|}
 DECL|method|toString
 specifier|public

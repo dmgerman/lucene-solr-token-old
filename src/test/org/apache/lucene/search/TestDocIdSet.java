@@ -268,16 +268,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/** @deprecated use {@link #docID()} instead. */
-specifier|public
-name|int
-name|doc
-parameter_list|()
-block|{
-return|return
-name|docid
-return|;
-block|}
 specifier|public
 name|int
 name|docID
@@ -285,21 +275,6 @@ parameter_list|()
 block|{
 return|return
 name|docid
-return|;
-block|}
-comment|/** @deprecated use {@link #nextDoc()} instead. */
-specifier|public
-name|boolean
-name|next
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|nextDoc
-argument_list|()
-operator|!=
-name|NO_MORE_DOCS
 return|;
 block|}
 comment|//@Override
@@ -325,26 +300,6 @@ name|docid
 operator|=
 name|NO_MORE_DOCS
 operator|)
-return|;
-block|}
-comment|/** @deprecated use {@link #advance(int)} instead. */
-specifier|public
-name|boolean
-name|skipTo
-parameter_list|(
-name|int
-name|target
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|advance
-argument_list|(
-name|target
-argument_list|)
-operator|!=
-name|NO_MORE_DOCS
 return|;
 block|}
 comment|//@Override
