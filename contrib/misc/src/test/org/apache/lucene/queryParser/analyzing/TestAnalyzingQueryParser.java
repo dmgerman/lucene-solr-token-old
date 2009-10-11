@@ -57,7 +57,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|ISOLatin1AccentFilter
+name|ASCIIFoldingFilter
 import|;
 end_import
 begin_import
@@ -648,7 +648,7 @@ expr_stmt|;
 name|result
 operator|=
 operator|new
-name|ISOLatin1AccentFilter
+name|ASCIIFoldingFilter
 argument_list|(
 name|result
 argument_list|)
