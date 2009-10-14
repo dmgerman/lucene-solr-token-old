@@ -741,7 +741,7 @@ literal|100
 argument_list|,
 name|writer
 operator|.
-name|docCount
+name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -814,7 +814,7 @@ literal|100
 argument_list|,
 name|writer
 operator|.
-name|docCount
+name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1148,7 +1148,7 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*       Test: make sure when we run out of disk space or hit       random IOExceptions in any of the addIndexes(*) calls       that 1) index is not corrupt (searcher can open/search       it) and 2) transactional semantics are followed:       either all or none of the incoming documents were in       fact added.     */
+comment|/*       Test: make sure when we run out of disk space or hit       random IOExceptions in any of the addIndexesNoOptimize(*) calls       that 1) index is not corrupt (searcher can open/search       it) and 2) transactional semantics are followed:       either all or none of the incoming documents were in       fact added.     */
 DECL|method|testAddIndexOnDiskFull
 specifier|public
 name|void
@@ -1182,7 +1182,7 @@ init|=
 literal|false
 decl_stmt|;
 comment|// Build up a bunch of dirs that have indexes which we
-comment|// will then merge together by calling addIndexes(*):
+comment|// will then merge together by calling addIndexesNoOptimize(*):
 name|Directory
 index|[]
 name|dirs
@@ -1325,7 +1325,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// Now, build a starting index that has START_COUNT docs.  We
-comment|// will then try to addIndexes into a copy of this:
+comment|// will then try to addIndexesNoOptimize into a copy of this:
 name|RAMDirectory
 name|startDir
 init|=
@@ -1473,12 +1473,12 @@ argument_list|()
 expr_stmt|;
 comment|// Iterate with larger and larger amounts of free
 comment|// disk space.  With little free disk space,
-comment|// addIndexes will certainly run out of space&
+comment|// addIndexesNoOptimize will certainly run out of space&
 comment|// fail.  Verify that when this happens, index is
 comment|// not corrupt and index in fact has added no
 comment|// documents.  Then, we increase disk space by 2000
 comment|// bytes each iteration.  At some point there is
-comment|// enough free disk space and addIndexes should
+comment|// enough free disk space and addIndexesNoOptimize should
 comment|// succeed and index should show all documents were
 comment|// added.
 comment|// String[] files = startDir.listAll();
@@ -1599,7 +1599,7 @@ condition|)
 block|{
 name|methodName
 operator|=
-literal|"addIndexes(Directory[])"
+literal|"addIndexes(Directory[]) + optimize()"
 expr_stmt|;
 block|}
 elseif|else
@@ -1879,10 +1879,15 @@ condition|)
 block|{
 name|writer
 operator|.
-name|addIndexes
+name|addIndexesNoOptimize
 argument_list|(
 name|dirs
 argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|optimize
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -2747,7 +2752,7 @@ condition|)
 block|{
 name|writer
 operator|.
-name|abort
+name|rollback
 argument_list|()
 expr_stmt|;
 block|}
@@ -4273,7 +4278,7 @@ literal|"should be zero documents"
 argument_list|,
 name|writer
 operator|.
-name|docCount
+name|maxDoc
 argument_list|()
 argument_list|,
 literal|0
@@ -5672,14 +5677,14 @@ expr_stmt|;
 comment|// Now, close the writer:
 name|writer
 operator|.
-name|abort
+name|rollback
 argument_list|()
 expr_stmt|;
 name|assertNoUnreferencedFiles
 argument_list|(
 name|dir
 argument_list|,
-literal|"unreferenced files remain after abort()"
+literal|"unreferenced files remain after rollback()"
 argument_list|)
 expr_stmt|;
 name|searcher
@@ -6128,7 +6133,7 @@ name|startDiskUsage
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * Verify that calling optimize when writer is open for      * "commit on close" works correctly both for abort()      * and close().      */
+comment|/*      * Verify that calling optimize when writer is open for      * "commit on close" works correctly both for rollback()      * and close().      */
 DECL|method|testCommitOnCloseOptimize
 specifier|public
 name|void
@@ -6258,7 +6263,7 @@ expr_stmt|;
 comment|// Abort the writer:
 name|writer
 operator|.
-name|abort
+name|rollback
 argument_list|()
 expr_stmt|;
 name|assertNoUnreferencedFiles
@@ -15189,7 +15194,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// LUCENE-1130: make sure initial IOException, and then 2nd
-comment|// IOException during abort(), is OK:
+comment|// IOException during rollback(), is OK:
 DECL|method|testIOExceptionDuringAbort
 specifier|public
 name|void
@@ -15209,7 +15214,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// LUCENE-1130: make sure initial IOException, and then 2nd
-comment|// IOException during abort(), is OK:
+comment|// IOException during rollback(), is OK:
 DECL|method|testIOExceptionDuringAbortOnlyOnce
 specifier|public
 name|void
@@ -15229,7 +15234,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// LUCENE-1130: make sure initial IOException, and then 2nd
-comment|// IOException during abort(), with multiple threads, is OK:
+comment|// IOException during rollback(), with multiple threads, is OK:
 DECL|method|testIOExceptionDuringAbortWithThreads
 specifier|public
 name|void
@@ -15249,7 +15254,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// LUCENE-1130: make sure initial IOException, and then 2nd
-comment|// IOException during abort(), with multiple threads, is OK:
+comment|// IOException during rollback(), with multiple threads, is OK:
 DECL|method|testIOExceptionDuringAbortWithThreadsOnlyOnce
 specifier|public
 name|void
@@ -16895,10 +16900,15 @@ block|}
 decl_stmt|;
 name|writer
 operator|.
-name|addIndexes
+name|addIndexesNoOptimize
 argument_list|(
 name|indexDirs
 argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|optimize
+argument_list|()
 expr_stmt|;
 name|writer
 operator|.
@@ -19844,7 +19854,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|abort
+name|rollback
 argument_list|()
 expr_stmt|;
 name|dir
@@ -23156,10 +23166,15 @@ literal|0
 case|:
 name|writer2
 operator|.
-name|addIndexes
+name|addIndexesNoOptimize
 argument_list|(
 name|dirs
 argument_list|)
+expr_stmt|;
+name|writer2
+operator|.
+name|optimize
+argument_list|()
 expr_stmt|;
 break|break;
 case|case
@@ -23566,10 +23581,15 @@ literal|0
 case|:
 name|writer2
 operator|.
-name|addIndexes
+name|addIndexesNoOptimize
 argument_list|(
 name|dirs
 argument_list|)
+expr_stmt|;
+name|writer2
+operator|.
+name|optimize
+argument_list|()
 expr_stmt|;
 break|break;
 case|case

@@ -2542,10 +2542,15 @@ literal|0
 case|:
 name|mainWriter
 operator|.
-name|addIndexes
+name|addIndexesNoOptimize
 argument_list|(
 name|dirs
 argument_list|)
+expr_stmt|;
+name|mainWriter
+operator|.
+name|optimize
+argument_list|()
 expr_stmt|;
 break|break;
 case|case

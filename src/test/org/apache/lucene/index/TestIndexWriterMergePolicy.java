@@ -1105,7 +1105,7 @@ literal|10
 argument_list|,
 name|writer
 operator|.
-name|docCount
+name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;

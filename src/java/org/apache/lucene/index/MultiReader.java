@@ -213,7 +213,7 @@ specifier|public
 name|MultiReader
 parameter_list|(
 name|IndexReader
-index|[]
+modifier|...
 name|subReaders
 parameter_list|)
 block|{
@@ -1769,21 +1769,6 @@ argument_list|,
 name|starts
 argument_list|)
 return|;
-block|}
-comment|/** @deprecated */
-DECL|method|doCommit
-specifier|protected
-name|void
-name|doCommit
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|doCommit
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|doCommit
 specifier|protected

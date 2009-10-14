@@ -563,15 +563,6 @@ name|fieldState
 operator|.
 name|length
 decl_stmt|;
-comment|// deprecated
-specifier|final
-name|boolean
-name|allowMinus1Position
-init|=
-name|docState
-operator|.
-name|allowMinus1Position
-decl_stmt|;
 try|try
 block|{
 name|int
@@ -667,8 +658,6 @@ name|posIncr
 expr_stmt|;
 if|if
 condition|(
-name|allowMinus1Position
-operator|||
 name|fieldState
 operator|.
 name|position
