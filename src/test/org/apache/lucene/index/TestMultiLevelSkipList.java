@@ -311,7 +311,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|flush
+name|commit
 argument_list|()
 expr_stmt|;
 name|writer

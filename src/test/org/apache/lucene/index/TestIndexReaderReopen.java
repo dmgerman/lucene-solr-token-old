@@ -5076,7 +5076,7 @@ condition|)
 block|{
 name|w
 operator|.
-name|flush
+name|commit
 argument_list|()
 expr_stmt|;
 block|}

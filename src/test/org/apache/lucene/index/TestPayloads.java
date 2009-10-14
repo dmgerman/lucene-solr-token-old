@@ -1382,7 +1382,7 @@ block|}
 comment|// make sure we create more than one segment to test merging
 name|writer
 operator|.
-name|flush
+name|commit
 argument_list|()
 expr_stmt|;
 comment|// now we make sure to have different payload lengths next at the next skip point

@@ -6400,7 +6400,7 @@ argument_list|)
 decl_stmt|;
 name|writer
 operator|.
-name|flush
+name|commit
 argument_list|()
 expr_stmt|;
 name|writer
@@ -6467,7 +6467,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|flush
+name|commit
 argument_list|()
 expr_stmt|;
 name|writer
@@ -9313,7 +9313,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|flush
+name|commit
 argument_list|()
 expr_stmt|;
 name|writer
@@ -9902,7 +9902,7 @@ expr_stmt|;
 comment|// Make first segment
 name|iw
 operator|.
-name|flush
+name|commit
 argument_list|()
 expr_stmt|;
 name|document
@@ -9946,7 +9946,7 @@ expr_stmt|;
 comment|// Make 2nd segment
 name|iw
 operator|.
-name|flush
+name|commit
 argument_list|()
 expr_stmt|;
 name|iw
@@ -10049,7 +10049,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|flush
+name|commit
 argument_list|()
 expr_stmt|;
 name|document
@@ -10099,7 +10099,7 @@ expr_stmt|;
 comment|// Make first segment
 name|iw
 operator|.
-name|flush
+name|commit
 argument_list|()
 expr_stmt|;
 name|iw
@@ -10148,7 +10148,7 @@ expr_stmt|;
 comment|// Make 2nd segment
 name|iw
 operator|.
-name|flush
+name|commit
 argument_list|()
 expr_stmt|;
 name|iw

@@ -1010,7 +1010,7 @@ argument_list|)
 expr_stmt|;
 name|modifier
 operator|.
-name|flush
+name|commit
 argument_list|()
 expr_stmt|;
 name|modifier
