@@ -2971,12 +2971,6 @@ return|return
 literal|false
 return|;
 block|}
-DECL|field|ones
-specifier|private
-name|byte
-index|[]
-name|ones
-decl_stmt|;
 DECL|method|norms
 specifier|public
 specifier|synchronized
