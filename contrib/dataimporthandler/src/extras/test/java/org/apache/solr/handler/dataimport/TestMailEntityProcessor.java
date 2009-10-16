@@ -235,7 +235,7 @@ argument_list|()
 decl_stmt|;
 name|di
 operator|.
-name|loadDataConfig
+name|loadAndInit
 argument_list|(
 name|getConfigFromMap
 argument_list|(
@@ -364,7 +364,7 @@ argument_list|()
 decl_stmt|;
 name|di
 operator|.
-name|loadDataConfig
+name|loadAndInit
 argument_list|(
 name|getConfigFromMap
 argument_list|(
@@ -502,7 +502,7 @@ argument_list|()
 decl_stmt|;
 name|di
 operator|.
-name|loadDataConfig
+name|loadAndInit
 argument_list|(
 name|getConfigFromMap
 argument_list|(
@@ -640,7 +640,7 @@ argument_list|()
 decl_stmt|;
 name|di
 operator|.
-name|loadDataConfig
+name|loadAndInit
 argument_list|(
 name|getConfigFromMap
 argument_list|(
@@ -787,7 +787,7 @@ argument_list|()
 decl_stmt|;
 name|di
 operator|.
-name|loadDataConfig
+name|loadAndInit
 argument_list|(
 name|getConfigFromMap
 argument_list|(
@@ -927,7 +927,7 @@ argument_list|()
 decl_stmt|;
 name|di
 operator|.
-name|loadDataConfig
+name|loadAndInit
 argument_list|(
 name|getConfigFromMap
 argument_list|(
