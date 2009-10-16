@@ -618,6 +618,8 @@ name|length
 return|;
 block|}
 comment|/** This DocIdSet implementation is cacheable. */
+annotation|@
+name|Override
 DECL|method|isCacheable
 specifier|public
 name|boolean
@@ -629,6 +631,8 @@ literal|true
 return|;
 block|}
 comment|/**    * @return    An iterator over the sorted integers.    */
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|DocIdSetIterator

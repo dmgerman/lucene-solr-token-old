@@ -442,7 +442,8 @@ operator|new
 name|IDFExplanation
 argument_list|()
 block|{
-comment|//@Override
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getIdf
@@ -452,7 +453,8 @@ return|return
 name|idf
 return|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 specifier|public
 name|String
 name|explain
@@ -501,7 +503,8 @@ operator|new
 name|IDFExplanation
 argument_list|()
 block|{
-comment|//@Override
+annotation|@
+name|Override
 specifier|public
 name|String
 name|explain
@@ -519,7 +522,8 @@ operator|+
 literal|")"
 return|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getIdf
@@ -626,7 +630,8 @@ operator|new
 name|IDFExplanation
 argument_list|()
 block|{
-comment|//@Override
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getIdf
@@ -636,7 +641,8 @@ return|return
 name|idf
 return|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 specifier|public
 name|String
 name|explain
@@ -761,7 +767,8 @@ operator|new
 name|IDFExplanation
 argument_list|()
 block|{
-comment|//@Override
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getIdf
@@ -771,7 +778,8 @@ return|return
 name|fIdf
 return|;
 block|}
-comment|//@Override
+annotation|@
+name|Override
 specifier|public
 name|String
 name|explain

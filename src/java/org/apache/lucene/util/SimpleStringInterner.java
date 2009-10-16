@@ -141,7 +141,8 @@ name|maxChainLength
 argument_list|)
 expr_stmt|;
 block|}
-comment|// @Override
+annotation|@
+name|Override
 DECL|method|intern
 specifier|public
 name|String
