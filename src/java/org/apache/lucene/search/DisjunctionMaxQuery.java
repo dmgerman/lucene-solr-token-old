@@ -949,6 +949,9 @@ name|disjuncts
 operator|=
 operator|(
 name|ArrayList
+argument_list|<
+name|Query
+argument_list|>
 operator|)
 name|this
 operator|.

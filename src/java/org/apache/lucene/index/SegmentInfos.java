@@ -184,6 +184,9 @@ class|class
 name|SegmentInfos
 extends|extends
 name|Vector
+argument_list|<
+name|SegmentInfo
+argument_list|>
 block|{
 comment|/** The file format version, a negative number. */
 comment|/* Works since counter, the old 1st entry, is always>= 0 */
@@ -334,11 +337,22 @@ comment|// there was an IOException that had interrupted a commit
 DECL|field|userData
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|userData
 init|=
 name|Collections
 operator|.
-name|EMPTY_MAP
+expr|<
+name|String
+decl_stmt|,
+name|String
+decl|>
+name|emptyMap
+argument_list|()
 decl_stmt|;
 comment|// Opaque Map<String, String> that user can specify during IndexWriter.commit
 comment|/**    * If non-null, information about loading segments_N files    * will be printed here.  @see #setInfoStream.    */
@@ -956,7 +970,13 @@ name|userData
 operator|=
 name|Collections
 operator|.
-name|EMPTY_MAP
+expr|<
+name|String
+operator|,
+name|String
+operator|>
+name|emptyMap
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -966,7 +986,13 @@ name|userData
 operator|=
 name|Collections
 operator|.
-name|EMPTY_MAP
+expr|<
+name|String
+operator|,
+name|String
+operator|>
+name|emptyMap
+argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -1330,6 +1356,9 @@ name|set
 argument_list|(
 name|i
 argument_list|,
+operator|(
+name|SegmentInfo
+operator|)
 name|sis
 operator|.
 name|info
@@ -1348,6 +1377,11 @@ name|userData
 operator|=
 operator|new
 name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|(
 name|userData
 argument_list|)
@@ -1553,6 +1587,11 @@ DECL|method|readCurrentUserData
 specifier|public
 specifier|static
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|readCurrentUserData
 parameter_list|(
 name|Directory
@@ -2738,6 +2777,9 @@ comment|/** Returns all file names referenced by SegmentInfo    *  instances mat
 DECL|method|files
 specifier|public
 name|Collection
+argument_list|<
+name|String
+argument_list|>
 name|files
 parameter_list|(
 name|Directory
@@ -2750,10 +2792,16 @@ throws|throws
 name|IOException
 block|{
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 name|files
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 if|if
@@ -3149,6 +3197,11 @@ block|}
 DECL|method|getUserData
 specifier|public
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|getUserData
 parameter_list|()
 block|{
@@ -3161,6 +3214,11 @@ name|void
 name|setUserData
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|data
 parameter_list|)
 block|{
@@ -3175,7 +3233,13 @@ name|userData
 operator|=
 name|Collections
 operator|.
-name|EMPTY_MAP
+expr|<
+name|String
+operator|,
+name|String
+operator|>
+name|emptyMap
+argument_list|()
 expr_stmt|;
 block|}
 else|else
