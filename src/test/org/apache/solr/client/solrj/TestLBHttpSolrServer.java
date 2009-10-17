@@ -540,7 +540,7 @@ name|lbHttpSolrServer
 operator|.
 name|setAliveCheckInterval
 argument_list|(
-literal|1000
+literal|500
 argument_list|)
 expr_stmt|;
 name|SolrQuery
@@ -857,7 +857,7 @@ name|lbHttpSolrServer
 operator|.
 name|setAliveCheckInterval
 argument_list|(
-literal|1000
+literal|500
 argument_list|)
 expr_stmt|;
 name|SolrQuery
