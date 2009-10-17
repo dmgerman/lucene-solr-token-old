@@ -3999,7 +3999,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"            whÃ¡tÃ«vÃªr              "
+literal|"  whÃ¡tÃ«vÃªr  "
 argument_list|,
 name|indexPart
 operator|.
@@ -4011,7 +4011,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"            whatever              "
+literal|"  whatever  "
 argument_list|,
 name|indexPart
 operator|.
@@ -4042,7 +4042,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Expcting WhitespaceTokenizer analysis breakdown"
+literal|"Expecting WhitespaceTokenizer analysis breakdown"
 argument_list|,
 name|tokenList
 argument_list|)
