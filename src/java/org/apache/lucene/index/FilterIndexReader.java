@@ -985,6 +985,11 @@ name|void
 name|doCommit
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|commitUserData
 parameter_list|)
 throws|throws
@@ -1015,6 +1020,9 @@ block|}
 DECL|method|getFieldNames
 specifier|public
 name|Collection
+argument_list|<
+name|String
+argument_list|>
 name|getFieldNames
 parameter_list|(
 name|IndexReader

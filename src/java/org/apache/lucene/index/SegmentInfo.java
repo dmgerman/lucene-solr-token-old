@@ -287,6 +287,11 @@ comment|// True if this segment has any fields with omitTermFreqAndPositions==fa
 DECL|field|diagnostics
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|diagnostics
 decl_stmt|;
 DECL|method|toString
@@ -680,6 +685,11 @@ name|void
 name|setDiagnostics
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|diagnostics
 parameter_list|)
 block|{
@@ -694,6 +704,11 @@ comment|// returns Map<String, String>
 DECL|method|getDiagnostics
 specifier|public
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|getDiagnostics
 parameter_list|()
 block|{
