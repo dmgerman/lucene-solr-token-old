@@ -42,6 +42,9 @@ name|void
 name|onInit
 parameter_list|(
 name|List
+argument_list|<
+name|IndexCommit
+argument_list|>
 name|commits
 parameter_list|)
 block|{
@@ -59,6 +62,9 @@ name|void
 name|onCommit
 parameter_list|(
 name|List
+argument_list|<
+name|IndexCommit
+argument_list|>
 name|commits
 parameter_list|)
 block|{
