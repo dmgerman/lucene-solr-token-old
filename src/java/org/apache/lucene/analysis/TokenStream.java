@@ -25,6 +25,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -112,6 +121,8 @@ class|class
 name|TokenStream
 extends|extends
 name|AttributeSource
+implements|implements
+name|Closeable
 block|{
 comment|/**    * A TokenStream using the default attribute factory.    */
 DECL|method|TokenStream

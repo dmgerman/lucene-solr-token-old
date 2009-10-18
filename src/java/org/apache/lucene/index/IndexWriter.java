@@ -174,6 +174,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|PrintStream
 import|;
 end_import
@@ -269,6 +278,8 @@ DECL|class|IndexWriter
 specifier|public
 class|class
 name|IndexWriter
+implements|implements
+name|Closeable
 block|{
 comment|/**    * Default value for the write lock timeout (1,000).    * @see #setDefaultWriteLockTimeout    */
 DECL|field|WRITE_LOCK_TIMEOUT
