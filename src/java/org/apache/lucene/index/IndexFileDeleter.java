@@ -150,10 +150,16 @@ comment|/* Holds all commits (segments_N) currently in the index.    * This will
 DECL|field|commits
 specifier|private
 name|List
+argument_list|<
+name|CommitPoint
+argument_list|>
 name|commits
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|CommitPoint
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/* Holds files we had incref'd from the previous    * non-commit checkpoint: */
@@ -182,10 +188,16 @@ comment|/* Commits that the IndexDeletionPolicy have decided to delete: */
 DECL|field|commitsToDelete
 specifier|private
 name|List
+argument_list|<
+name|CommitPoint
+argument_list|>
 name|commitsToDelete
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|CommitPoint
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|infoStream
@@ -2137,7 +2149,7 @@ decl_stmt|;
 DECL|field|commitsToDelete
 name|Collection
 argument_list|<
-name|IndexCommit
+name|CommitPoint
 argument_list|>
 name|commitsToDelete
 decl_stmt|;
@@ -2170,7 +2182,7 @@ name|CommitPoint
 parameter_list|(
 name|Collection
 argument_list|<
-name|IndexCommit
+name|CommitPoint
 argument_list|>
 name|commitsToDelete
 parameter_list|,
