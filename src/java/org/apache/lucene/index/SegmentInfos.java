@@ -373,9 +373,6 @@ name|i
 parameter_list|)
 block|{
 return|return
-operator|(
-name|SegmentInfo
-operator|)
 name|get
 argument_list|(
 name|i

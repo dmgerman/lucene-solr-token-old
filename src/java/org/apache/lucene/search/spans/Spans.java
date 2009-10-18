@@ -97,7 +97,10 @@ DECL|method|getPayload
 specifier|public
 specifier|abstract
 name|Collection
-comment|/*<byte[]>*/
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|getPayload
 parameter_list|()
 throws|throws

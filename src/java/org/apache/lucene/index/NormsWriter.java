@@ -167,6 +167,9 @@ name|void
 name|files
 parameter_list|(
 name|Collection
+argument_list|<
+name|String
+argument_list|>
 name|files
 parameter_list|)
 block|{}

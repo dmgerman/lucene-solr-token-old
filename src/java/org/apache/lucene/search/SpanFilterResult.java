@@ -29,15 +29,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|BitSet
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -58,6 +49,9 @@ decl_stmt|;
 DECL|field|positions
 specifier|private
 name|List
+argument_list|<
+name|PositionInfo
+argument_list|>
 name|positions
 decl_stmt|;
 comment|//Spans spans;
@@ -70,6 +64,9 @@ name|DocIdSet
 name|docIdSet
 parameter_list|,
 name|List
+argument_list|<
+name|PositionInfo
+argument_list|>
 name|positions
 parameter_list|)
 block|{
@@ -90,6 +87,9 @@ comment|/**    * The first entry in the array corresponds to the first "on" bit.
 DECL|method|getPositions
 specifier|public
 name|List
+argument_list|<
+name|PositionInfo
+argument_list|>
 name|getPositions
 parameter_list|()
 block|{
@@ -122,6 +122,9 @@ decl_stmt|;
 DECL|field|positions
 specifier|private
 name|List
+argument_list|<
+name|StartEnd
+argument_list|>
 name|positions
 decl_stmt|;
 DECL|method|PositionInfo
@@ -142,6 +145,9 @@ name|positions
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|StartEnd
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
@@ -181,10 +187,13 @@ return|return
 name|doc
 return|;
 block|}
-comment|/**      *      * @return A List of {@link org.apache.lucene.search.SpanFilterResult.StartEnd} objects      */
+comment|/**      *      * @return Positions      */
 DECL|method|getPositions
 specifier|public
 name|List
+argument_list|<
+name|StartEnd
+argument_list|>
 name|getPositions
 parameter_list|()
 block|{

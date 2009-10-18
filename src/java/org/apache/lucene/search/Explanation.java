@@ -62,6 +62,9 @@ comment|// what it represents
 DECL|field|details
 specifier|private
 name|ArrayList
+argument_list|<
+name|Explanation
+argument_list|>
 name|details
 decl_stmt|;
 comment|// sub-explanations
@@ -201,10 +204,6 @@ return|return
 literal|null
 return|;
 return|return
-operator|(
-name|Explanation
-index|[]
-operator|)
 name|details
 operator|.
 name|toArray
@@ -237,6 +236,9 @@ name|details
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Explanation
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|details

@@ -824,9 +824,6 @@ expr_stmt|;
 name|Norm
 name|r1norm
 init|=
-operator|(
-name|Norm
-operator|)
 name|reader1
 operator|.
 name|norms
@@ -971,9 +968,6 @@ comment|// load the norms for the field
 name|Norm
 name|reader2CNorm
 init|=
-operator|(
-name|Norm
-operator|)
 name|segmentReader2C
 operator|.
 name|norms
@@ -1027,9 +1021,6 @@ decl_stmt|;
 name|Norm
 name|reader3CCNorm
 init|=
-operator|(
-name|Norm
-operator|)
 name|segmentReader3C
 operator|.
 name|norms
@@ -1163,9 +1154,6 @@ expr_stmt|;
 name|Norm
 name|reader4CCNorm
 init|=
-operator|(
-name|Norm
-operator|)
 name|segmentReader4C
 operator|.
 name|norms
@@ -1225,9 +1213,6 @@ decl_stmt|;
 name|Norm
 name|reader5CCNorm
 init|=
-operator|(
-name|Norm
-operator|)
 name|segmentReader5C
 operator|.
 name|norms

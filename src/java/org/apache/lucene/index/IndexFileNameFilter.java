@@ -65,11 +65,17 @@ decl_stmt|;
 DECL|field|extensions
 specifier|private
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 name|extensions
 decl_stmt|;
 DECL|field|extensionsInCFS
 specifier|private
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 name|extensionsInCFS
 decl_stmt|;
 comment|// Prevent instantiation.
@@ -82,6 +88,9 @@ name|extensions
 operator|=
 operator|new
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 for|for
@@ -120,6 +129,9 @@ name|extensionsInCFS
 operator|=
 operator|new
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 for|for

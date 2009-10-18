@@ -52,15 +52,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -83,19 +74,6 @@ operator|.
 name|index
 operator|.
 name|Term
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|ToStringUtils
 import|;
 end_import
 begin_import
@@ -605,10 +583,16 @@ comment|// cutoffs, we use ConstantBooleanQueryRewrite; else,
 comment|// ConstantFilterRewrite:
 specifier|final
 name|Collection
+argument_list|<
+name|Term
+argument_list|>
 name|pendingTerms
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Term
+argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -760,14 +744,6 @@ block|{
 comment|// Enumeration is done, and we hit a small
 comment|// enough number of terms& docs -- just make a
 comment|// BooleanQuery, now
-name|Iterator
-name|it
-init|=
-name|pendingTerms
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
 name|BooleanQuery
 name|bq
 init|=
@@ -777,13 +753,14 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
+for|for
+control|(
+specifier|final
+name|Term
+name|term
+range|:
+name|pendingTerms
+control|)
 block|{
 name|TermQuery
 name|tq
@@ -791,13 +768,7 @@ init|=
 operator|new
 name|TermQuery
 argument_list|(
-operator|(
-name|Term
-operator|)
-name|it
-operator|.
-name|next
-argument_list|()
+name|term
 argument_list|)
 decl_stmt|;
 name|bq

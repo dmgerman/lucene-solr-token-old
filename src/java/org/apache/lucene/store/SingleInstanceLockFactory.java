@@ -46,10 +46,16 @@ block|{
 DECL|field|locks
 specifier|private
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 name|locks
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|makeLock
@@ -129,6 +135,9 @@ decl_stmt|;
 DECL|field|locks
 specifier|private
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 name|locks
 decl_stmt|;
 DECL|method|SingleInstanceLock
@@ -136,6 +145,9 @@ specifier|public
 name|SingleInstanceLock
 parameter_list|(
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 name|locks
 parameter_list|,
 name|String

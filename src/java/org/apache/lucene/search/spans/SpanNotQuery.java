@@ -702,13 +702,20 @@ block|}
 comment|// TODO: Remove warning after API has been finalized
 specifier|public
 name|Collection
-comment|/*<byte[]>*/
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|getPayload
 parameter_list|()
 throws|throws
 name|IOException
 block|{
 name|ArrayList
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 name|result
 init|=
 literal|null
@@ -725,6 +732,10 @@ name|result
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|byte
+index|[]
+argument_list|>
 argument_list|(
 name|includeSpans
 operator|.
