@@ -21,6 +21,11 @@ begin_comment
 comment|/** Token Manager Error. */
 end_comment
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"serial"
+argument_list|)
 DECL|class|TokenMgrError
 specifier|public
 class|class
@@ -466,6 +471,6 @@ block|}
 block|}
 end_class
 begin_comment
-comment|/* JavaCC - OriginalChecksum=55cddb2336a66b376c0bb59d916b326d (do not edit this line) */
+comment|/* JavaCC - OriginalChecksum=1c94e13236c7e0121e49427992341ee3 (do not edit this line) */
 end_comment
 end_unit

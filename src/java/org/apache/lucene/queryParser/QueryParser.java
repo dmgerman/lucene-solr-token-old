@@ -7251,6 +7251,10 @@ operator|.
 name|util
 operator|.
 name|List
+argument_list|<
+name|int
+index|[]
+argument_list|>
 name|jj_expentries
 init|=
 operator|new
@@ -7259,6 +7263,10 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+argument_list|<
+name|int
+index|[]
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|jj_expentry
@@ -7726,10 +7734,6 @@ index|[
 name|i
 index|]
 operator|=
-operator|(
-name|int
-index|[]
-operator|)
 name|jj_expentries
 operator|.
 name|get
