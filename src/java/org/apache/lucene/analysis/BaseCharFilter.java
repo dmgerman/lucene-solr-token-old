@@ -44,10 +44,12 @@ name|BaseCharFilter
 extends|extends
 name|CharFilter
 block|{
-comment|//private List<OffCorrectMap> pcmList;
 DECL|field|pcmList
 specifier|private
 name|List
+argument_list|<
+name|OffCorrectMap
+argument_list|>
 name|pcmList
 decl_stmt|;
 DECL|method|BaseCharFilter
@@ -213,6 +215,9 @@ name|pcmList
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|OffCorrectMap
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}

@@ -110,10 +110,16 @@ DECL|field|threadResources
 specifier|private
 specifier|final
 name|CloseableThreadLocal
+argument_list|<
+name|ThreadResources
+argument_list|>
 name|threadResources
 init|=
 operator|new
 name|CloseableThreadLocal
+argument_list|<
+name|ThreadResources
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|origEnum
@@ -564,9 +570,6 @@ block|{
 name|ThreadResources
 name|resources
 init|=
-operator|(
-name|ThreadResources
-operator|)
 name|threadResources
 operator|.
 name|get
