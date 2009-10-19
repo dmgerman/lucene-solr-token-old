@@ -47,6 +47,9 @@ class|class
 name|TopScoreDocCollector
 extends|extends
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 block|{
 comment|// Assumes docs are scored in order.
 DECL|class|InOrderTopScoreDocCollector
@@ -123,9 +126,6 @@ name|score
 expr_stmt|;
 name|pqTop
 operator|=
-operator|(
-name|ScoreDoc
-operator|)
 name|pq
 operator|.
 name|updateTop
@@ -231,9 +231,6 @@ name|score
 expr_stmt|;
 name|pqTop
 operator|=
-operator|(
-name|ScoreDoc
-operator|)
 name|pq
 operator|.
 name|updateTop
@@ -327,9 +324,6 @@ comment|// HitQueue implements getSentinelObject to return a ScoreDoc, so we kno
 comment|// that at this point top() is already initialized.
 name|pqTop
 operator|=
-operator|(
-name|ScoreDoc
-operator|)
 name|pq
 operator|.
 name|top
@@ -416,15 +410,10 @@ expr_stmt|;
 block|}
 name|maxScore
 operator|=
-operator|(
-operator|(
-name|ScoreDoc
-operator|)
 name|pq
 operator|.
 name|pop
 argument_list|()
-operator|)
 operator|.
 name|score
 expr_stmt|;

@@ -75,6 +75,9 @@ class|class
 name|TopFieldCollector
 extends|extends
 name|TopDocsCollector
+argument_list|<
+name|Entry
+argument_list|>
 block|{
 comment|// TODO: one optimization we could do is to pre-fill
 comment|// the queue with sentinel value that guaranteed to
@@ -165,9 +168,6 @@ name|doc
 expr_stmt|;
 name|bottom
 operator|=
-operator|(
-name|Entry
-operator|)
 name|pq
 operator|.
 name|updateTop
@@ -585,9 +585,6 @@ name|score
 expr_stmt|;
 name|bottom
 operator|=
-operator|(
-name|Entry
-operator|)
 name|pq
 operator|.
 name|updateTop
@@ -1028,9 +1025,6 @@ name|score
 expr_stmt|;
 name|bottom
 operator|=
-operator|(
-name|Entry
-operator|)
 name|pq
 operator|.
 name|updateTop
@@ -1480,9 +1474,6 @@ name|doc
 expr_stmt|;
 name|bottom
 operator|=
-operator|(
-name|Entry
-operator|)
 name|pq
 operator|.
 name|updateTop
@@ -2214,9 +2205,6 @@ name|score
 expr_stmt|;
 name|bottom
 operator|=
-operator|(
-name|Entry
-operator|)
 name|pq
 operator|.
 name|updateTop
@@ -2917,9 +2905,6 @@ name|score
 expr_stmt|;
 name|bottom
 operator|=
-operator|(
-name|Entry
-operator|)
 name|pq
 operator|.
 name|updateTop
@@ -3636,6 +3621,9 @@ specifier|private
 name|TopFieldCollector
 parameter_list|(
 name|PriorityQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|pq
 parameter_list|,
 name|int
@@ -3970,9 +3958,6 @@ parameter_list|)
 block|{
 name|bottom
 operator|=
-operator|(
-name|Entry
-operator|)
 name|pq
 operator|.
 name|add
@@ -4084,9 +4069,6 @@ block|{
 name|Entry
 name|entry
 init|=
-operator|(
-name|Entry
-operator|)
 name|pq
 operator|.
 name|pop
