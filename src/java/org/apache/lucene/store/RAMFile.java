@@ -236,10 +236,6 @@ name|index
 parameter_list|)
 block|{
 return|return
-operator|(
-name|byte
-index|[]
-operator|)
 name|buffers
 operator|.
 name|get

@@ -987,9 +987,6 @@ name|min
 parameter_list|()
 block|{
 return|return
-operator|(
-name|SpansCell
-operator|)
 name|queue
 operator|.
 name|top
@@ -1366,9 +1363,6 @@ condition|)
 block|{
 name|addToList
 argument_list|(
-operator|(
-name|SpansCell
-operator|)
 name|queue
 operator|.
 name|pop

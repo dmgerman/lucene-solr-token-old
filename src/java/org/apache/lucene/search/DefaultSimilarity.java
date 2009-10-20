@@ -80,10 +80,7 @@ name|getLength
 argument_list|()
 expr_stmt|;
 return|return
-call|(
-name|float
-call|)
-argument_list|(
+operator|(
 name|state
 operator|.
 name|getBoost
@@ -95,7 +92,7 @@ name|field
 argument_list|,
 name|numTerms
 argument_list|)
-argument_list|)
+operator|)
 return|;
 block|}
 comment|/** Implemented as<code>1/sqrt(numTerms)</code>. */

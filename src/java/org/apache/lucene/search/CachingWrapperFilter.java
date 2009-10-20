@@ -235,9 +235,6 @@ literal|null
 condition|)
 block|{
 return|return
-operator|(
-name|DocIdSet
-operator|)
 name|cached
 return|;
 block|}

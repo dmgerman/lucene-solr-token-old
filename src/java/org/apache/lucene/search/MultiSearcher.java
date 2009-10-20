@@ -994,9 +994,6 @@ index|[
 name|i
 index|]
 operator|=
-operator|(
-name|ScoreDoc
-operator|)
 name|hq
 operator|.
 name|pop
@@ -1355,9 +1352,6 @@ index|[
 name|i
 index|]
 operator|=
-operator|(
-name|ScoreDoc
-operator|)
 name|hq
 operator|.
 name|pop

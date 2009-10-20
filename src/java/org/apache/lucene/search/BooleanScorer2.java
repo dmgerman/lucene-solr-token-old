@@ -806,9 +806,6 @@ operator|=
 operator|new
 name|SingleMatchScorer
 argument_list|(
-operator|(
-name|Scorer
-operator|)
 name|optionalScorers
 operator|.
 name|get
@@ -900,9 +897,6 @@ condition|?
 operator|new
 name|SingleMatchScorer
 argument_list|(
-operator|(
-name|Scorer
-operator|)
 name|requiredScorers
 operator|.
 name|get
@@ -964,9 +958,6 @@ condition|?
 operator|new
 name|SingleMatchScorer
 argument_list|(
-operator|(
-name|Scorer
-operator|)
 name|optionalScorers
 operator|.
 name|get

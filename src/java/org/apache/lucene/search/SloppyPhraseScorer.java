@@ -160,9 +160,6 @@ block|{
 name|PhrasePositions
 name|pp
 init|=
-operator|(
-name|PhrasePositions
-operator|)
 name|pq
 operator|.
 name|pop
@@ -178,15 +175,10 @@ decl_stmt|;
 name|int
 name|next
 init|=
-operator|(
-operator|(
-name|PhrasePositions
-operator|)
 name|pq
 operator|.
 name|top
 argument_list|()
-operator|)
 operator|.
 name|position
 decl_stmt|;
@@ -371,9 +363,6 @@ condition|(
 operator|(
 name|pp3
 operator|=
-operator|(
-name|PhrasePositions
-operator|)
 name|pq
 operator|.
 name|pop

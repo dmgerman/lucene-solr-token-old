@@ -168,10 +168,6 @@ name|IndexReader
 index|[]
 name|subReaders
 init|=
-operator|(
-name|IndexReader
-index|[]
-operator|)
 name|subReadersList
 operator|.
 name|toArray
@@ -292,10 +288,6 @@ name|IndexReader
 index|[]
 name|subReaders
 init|=
-operator|(
-name|IndexReader
-index|[]
-operator|)
 name|subReadersList
 operator|.
 name|toArray

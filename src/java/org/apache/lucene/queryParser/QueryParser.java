@@ -1237,11 +1237,6 @@ operator|.
 name|Resolution
 name|resolution
 init|=
-operator|(
-name|DateTools
-operator|.
-name|Resolution
-operator|)
 name|fieldToDateResolution
 operator|.
 name|get
