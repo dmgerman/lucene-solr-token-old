@@ -3449,9 +3449,11 @@ argument_list|)
 decl_stmt|;
 name|parser
 operator|.
-name|setUseOldRangeQuery
+name|setMultiTermRewriteMethod
 argument_list|(
-literal|true
+name|MultiTermQuery
+operator|.
+name|SCORING_BOOLEAN_QUERY_REWRITE
 argument_list|)
 expr_stmt|;
 name|query
