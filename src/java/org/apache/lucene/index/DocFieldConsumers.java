@@ -84,7 +84,15 @@ end_import
 begin_comment
 comment|/** This is just a "splitter" class: it lets you wrap two  *  DocFieldConsumer instances as a single consumer. */
 end_comment
+begin_comment
+comment|// TODO: Fix the unchecked collections, I do not understand the whole code here -- Uwe
+end_comment
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|class|DocFieldConsumers
 specifier|final
 class|class

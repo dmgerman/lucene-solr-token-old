@@ -197,9 +197,6 @@ block|{
 name|Fieldable
 name|field
 init|=
-operator|(
-name|Fieldable
-operator|)
 name|it
 operator|.
 name|next
@@ -260,9 +257,6 @@ block|{
 name|Fieldable
 name|field
 init|=
-operator|(
-name|Fieldable
-operator|)
 name|it
 operator|.
 name|next
@@ -498,10 +492,6 @@ return|return
 name|NO_FIELDS
 return|;
 return|return
-operator|(
-name|Field
-index|[]
-operator|)
 name|result
 operator|.
 name|toArray
@@ -598,10 +588,6 @@ return|return
 name|NO_FIELDABLES
 return|;
 return|return
-operator|(
-name|Fieldable
-index|[]
-operator|)
 name|result
 operator|.
 name|toArray
@@ -708,10 +694,6 @@ return|return
 name|NO_STRINGS
 return|;
 return|return
-operator|(
-name|String
-index|[]
-operator|)
 name|result
 operator|.
 name|toArray
@@ -822,11 +804,6 @@ return|return
 name|NO_BYTES
 return|;
 return|return
-operator|(
-name|byte
-index|[]
-index|[]
-operator|)
 name|result
 operator|.
 name|toArray

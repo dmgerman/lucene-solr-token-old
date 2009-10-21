@@ -1402,6 +1402,11 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/* Returns Collection of files in use by this instance,    * including any flushed segments. */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|openFiles
 specifier|synchronized
 name|List
@@ -1432,6 +1437,11 @@ name|clone
 argument_list|()
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|closedFiles
 specifier|synchronized
 name|List
