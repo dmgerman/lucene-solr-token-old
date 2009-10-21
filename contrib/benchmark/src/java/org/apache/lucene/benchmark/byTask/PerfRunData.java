@@ -192,6 +192,23 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|benchmark
+operator|.
+name|byTask
+operator|.
+name|tasks
+operator|.
+name|NewAnalyzerTask
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|IndexReader
@@ -350,12 +367,9 @@ expr_stmt|;
 comment|// analyzer (default is standard analyzer)
 name|analyzer
 operator|=
-operator|(
-name|Analyzer
-operator|)
-name|Class
+name|NewAnalyzerTask
 operator|.
-name|forName
+name|createAnalyzer
 argument_list|(
 name|config
 operator|.
@@ -366,9 +380,6 @@ argument_list|,
 literal|"org.apache.lucene.analysis.standard.StandardAnalyzer"
 argument_list|)
 argument_list|)
-operator|.
-name|newInstance
-argument_list|()
 expr_stmt|;
 comment|// doc maker
 name|docMaker

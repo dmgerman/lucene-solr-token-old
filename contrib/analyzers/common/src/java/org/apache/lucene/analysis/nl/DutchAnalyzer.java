@@ -481,7 +481,7 @@ specifier|public
 name|DutchAnalyzer
 parameter_list|(
 name|String
-index|[]
+modifier|...
 name|stopwords
 parameter_list|)
 block|{
@@ -582,7 +582,7 @@ name|void
 name|setStemExclusionTable
 parameter_list|(
 name|String
-index|[]
+modifier|...
 name|exclusionlist
 parameter_list|)
 block|{
@@ -762,6 +762,8 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
+literal|false
+argument_list|,
 name|result
 argument_list|,
 name|stoptable
@@ -881,6 +883,8 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
+literal|false
+argument_list|,
 name|streams
 operator|.
 name|result

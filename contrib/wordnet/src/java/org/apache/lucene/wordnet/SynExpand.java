@@ -298,6 +298,19 @@ operator|.
 name|FSDirectory
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
 begin_comment
 comment|/**  * Expand a query by looking up synonyms for every term.  * You need to invoke {@link Syns2Index} first to build the synonym index.  *  * @see Syns2Index  */
 end_comment
@@ -393,7 +406,11 @@ name|searcher
 argument_list|,
 operator|new
 name|StandardAnalyzer
-argument_list|()
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|)
 argument_list|,
 name|field
 argument_list|,
@@ -494,7 +511,11 @@ name|a
 operator|=
 operator|new
 name|StandardAnalyzer
-argument_list|()
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|)
 expr_stmt|;
 comment|// [1] Parse query into separate words so that when we expand we can avoid dups
 name|TokenStream

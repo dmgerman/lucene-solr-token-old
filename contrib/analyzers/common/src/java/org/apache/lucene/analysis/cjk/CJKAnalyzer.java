@@ -194,6 +194,7 @@ comment|//~ Instance fields ----------------------------------------------------
 comment|/**    * stop word list    */
 DECL|field|stopTable
 specifier|private
+specifier|final
 name|Set
 name|stopTable
 decl_stmt|;
@@ -220,7 +221,7 @@ specifier|public
 name|CJKAnalyzer
 parameter_list|(
 name|String
-index|[]
+modifier|...
 name|stopWords
 parameter_list|)
 block|{
@@ -253,6 +254,8 @@ return|return
 operator|new
 name|StopFilter
 argument_list|(
+literal|false
+argument_list|,
 operator|new
 name|CJKTokenizer
 argument_list|(
@@ -334,6 +337,8 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
+literal|false
+argument_list|,
 name|streams
 operator|.
 name|source

@@ -755,6 +755,17 @@ name|BaseTokenStreamTestCase
 implements|implements
 name|Formatter
 block|{
+comment|// TODO: change to CURRENT, does not work because posIncr:
+DECL|field|TEST_VERSION
+specifier|static
+specifier|final
+name|Version
+name|TEST_VERSION
+init|=
+name|Version
+operator|.
+name|LUCENE_24
+decl_stmt|;
 DECL|field|reader
 specifier|private
 name|IndexReader
@@ -791,12 +802,15 @@ init|=
 literal|0
 decl_stmt|;
 DECL|field|analyzer
+specifier|final
 name|Analyzer
 name|analyzer
 init|=
 operator|new
 name|StandardAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION
+argument_list|)
 decl_stmt|;
 DECL|field|hits
 name|TopDocs
@@ -1052,9 +1066,7 @@ argument_list|,
 operator|new
 name|StandardAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1204,9 +1216,7 @@ init|=
 operator|new
 name|StandardAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION
 argument_list|)
 operator|.
 name|tokenStream
@@ -3442,9 +3452,7 @@ name|QueryParser
 argument_list|(
 name|FIELD_NAME
 argument_list|,
-operator|new
-name|StandardAnalyzer
-argument_list|()
+name|analyzer
 argument_list|)
 decl_stmt|;
 name|parser
@@ -4340,9 +4348,7 @@ name|hg
 operator|.
 name|getBestFragment
 argument_list|(
-operator|new
-name|StandardAnalyzer
-argument_list|()
+name|analyzer
 argument_list|,
 literal|"data"
 argument_list|,
@@ -6237,6 +6243,8 @@ argument_list|,
 operator|new
 name|StandardAnalyzer
 argument_list|(
+name|TEST_VERSION
+argument_list|,
 name|stopWords
 argument_list|)
 operator|.
@@ -6285,6 +6293,8 @@ argument_list|(
 operator|new
 name|StandardAnalyzer
 argument_list|(
+name|TEST_VERSION
+argument_list|,
 name|stopWords
 argument_list|)
 argument_list|,
@@ -6339,6 +6349,8 @@ argument_list|(
 operator|new
 name|StandardAnalyzer
 argument_list|(
+name|TEST_VERSION
+argument_list|,
 name|stopWords
 argument_list|)
 argument_list|,
@@ -6456,6 +6468,8 @@ argument_list|,
 operator|new
 name|StandardAnalyzer
 argument_list|(
+name|TEST_VERSION
+argument_list|,
 name|stopWords
 argument_list|)
 operator|.
@@ -6499,6 +6513,8 @@ argument_list|(
 operator|new
 name|StandardAnalyzer
 argument_list|(
+name|TEST_VERSION
+argument_list|,
 name|stopWords
 argument_list|)
 argument_list|,
@@ -6571,7 +6587,9 @@ name|analyzer
 init|=
 operator|new
 name|StandardAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION
+argument_list|)
 decl_stmt|;
 name|QueryParser
 name|parser
@@ -6623,7 +6641,7 @@ comment|// create an instance of the highlighter with the tags used to surround
 comment|// highlighted text
 comment|// QueryHighlightExtractor highlighter = new
 comment|// QueryHighlightExtractor(this,
-comment|// query, new StandardAnalyzer());
+comment|// query, new StandardAnalyzer(TEST_VERSION));
 name|int
 name|maxNumFragmentsRequired
 init|=
@@ -7160,7 +7178,9 @@ name|ramDir1
 argument_list|,
 operator|new
 name|StandardAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION
+argument_list|)
 argument_list|,
 literal|true
 argument_list|,
@@ -7255,7 +7275,9 @@ name|ramDir2
 argument_list|,
 operator|new
 name|StandardAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION
+argument_list|)
 argument_list|,
 literal|true
 argument_list|,
@@ -7385,7 +7407,9 @@ name|FIELD_NAME
 argument_list|,
 operator|new
 name|StandardAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|parser
@@ -7436,7 +7460,7 @@ argument_list|,
 literal|1000
 argument_list|)
 expr_stmt|;
-comment|// query = QueryParser.parse("multi*", FIELD_NAME, new StandardAnalyzer());
+comment|// query = QueryParser.parse("multi*", FIELD_NAME, new StandardAnalyzer(TEST_VERSION));
 name|Query
 name|expandedQueries
 index|[]
@@ -9534,9 +9558,7 @@ name|QueryParser
 argument_list|(
 name|FIELD_NAME
 argument_list|,
-operator|new
-name|StandardAnalyzer
-argument_list|()
+name|analyzer
 argument_list|)
 decl_stmt|;
 name|parser
@@ -9800,7 +9822,9 @@ name|ramDir
 argument_list|,
 operator|new
 name|StandardAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION
+argument_list|)
 argument_list|,
 literal|true
 argument_list|,
