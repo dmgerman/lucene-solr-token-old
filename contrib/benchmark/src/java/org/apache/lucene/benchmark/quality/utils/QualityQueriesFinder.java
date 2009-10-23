@@ -655,9 +655,6 @@ block|{
 name|TermDf
 name|tdf
 init|=
-operator|(
-name|TermDf
-operator|)
 name|pq
 operator|.
 name|pop

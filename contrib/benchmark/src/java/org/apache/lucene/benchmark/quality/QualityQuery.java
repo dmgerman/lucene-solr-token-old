@@ -47,6 +47,11 @@ decl_stmt|;
 DECL|field|nameValPairs
 specifier|private
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|nameValPairs
 decl_stmt|;
 comment|/**    * Create a QualityQuery with given ID and name-value pairs.    * @param queryID ID of this quality query.    * @param nameValPairs the contents of this quality query.    */
@@ -58,6 +63,11 @@ name|String
 name|queryID
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 name|nameValPairs
 parameter_list|)
 block|{
@@ -83,10 +93,6 @@ name|getNames
 parameter_list|()
 block|{
 return|return
-operator|(
-name|String
-index|[]
-operator|)
 name|nameValPairs
 operator|.
 name|keySet
@@ -113,9 +119,6 @@ name|name
 parameter_list|)
 block|{
 return|return
-operator|(
-name|String
-operator|)
 name|nameValPairs
 operator|.
 name|get

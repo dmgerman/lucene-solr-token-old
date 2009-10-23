@@ -616,9 +616,6 @@ block|{
 name|TermPositions
 name|tp
 init|=
-operator|(
-name|TermPositions
-operator|)
 name|_termPositionsQueue
 operator|.
 name|pop
@@ -692,15 +689,10 @@ argument_list|()
 operator|>
 literal|0
 condition|)
-operator|(
-operator|(
-name|TermPositions
-operator|)
 name|_termPositionsQueue
 operator|.
 name|pop
 argument_list|()
-operator|)
 operator|.
 name|close
 argument_list|()

@@ -183,6 +183,9 @@ block|}
 DECL|field|recallPoints
 specifier|private
 name|ArrayList
+argument_list|<
+name|RecallPoint
+argument_list|>
 name|recallPoints
 decl_stmt|;
 comment|/**    * Construct a QualityStats object with anticipated maximal number of relevant hits.     * @param maxGoodPoints maximal possible relevant hits.    */
@@ -215,6 +218,9 @@ name|recallPoints
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|RecallPoint
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|pAt
@@ -1361,10 +1367,6 @@ name|getRecallPoints
 parameter_list|()
 block|{
 return|return
-operator|(
-name|RecallPoint
-index|[]
-operator|)
 name|recallPoints
 operator|.
 name|toArray

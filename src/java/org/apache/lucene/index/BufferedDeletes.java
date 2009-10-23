@@ -581,9 +581,6 @@ block|{
 name|Integer
 name|num
 init|=
-operator|(
-name|Integer
-operator|)
 name|entry
 operator|.
 name|getValue

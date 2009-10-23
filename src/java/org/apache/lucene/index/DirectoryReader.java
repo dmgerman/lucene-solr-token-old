@@ -1125,9 +1125,6 @@ comment|// find SegmentReader for this segment
 name|Integer
 name|oldReaderIndex
 init|=
-operator|(
-name|Integer
-operator|)
 name|segmentReaders
 operator|.
 name|get
@@ -1431,9 +1428,6 @@ block|{
 name|String
 name|field
 init|=
-operator|(
-name|String
-operator|)
 name|entry
 operator|.
 name|getKey
@@ -1454,10 +1448,6 @@ name|byte
 index|[]
 name|oldBytes
 init|=
-operator|(
-name|byte
-index|[]
-operator|)
 name|entry
 operator|.
 name|getValue
@@ -1494,10 +1484,6 @@ block|{
 name|Integer
 name|oldReaderIndex
 init|=
-operator|(
-operator|(
-name|Integer
-operator|)
 name|segmentReaders
 operator|.
 name|get
@@ -1510,7 +1496,6 @@ operator|.
 name|getSegmentName
 argument_list|()
 argument_list|)
-operator|)
 decl_stmt|;
 comment|// this SegmentReader was not re-opened, we can copy all of its norms
 if|if
@@ -2068,9 +2053,6 @@ name|openReadOnly
 condition|)
 block|{
 return|return
-operator|(
-name|IndexReader
-operator|)
 name|clone
 argument_list|(
 name|openReadOnly
@@ -2100,9 +2082,6 @@ condition|)
 block|{
 comment|// Just fallback to clone
 return|return
-operator|(
-name|IndexReader
-operator|)
 name|clone
 argument_list|(
 name|openReadOnly
@@ -2164,9 +2143,6 @@ condition|)
 block|{
 comment|// Just fallback to clone
 return|return
-operator|(
-name|IndexReader
-operator|)
 name|clone
 argument_list|(
 name|openReadOnly
@@ -3016,10 +2992,6 @@ name|byte
 index|[]
 name|bytes
 init|=
-operator|(
-name|byte
-index|[]
-operator|)
 name|normsCache
 operator|.
 name|get
@@ -3130,10 +3102,6 @@ name|byte
 index|[]
 name|bytes
 init|=
-operator|(
-name|byte
-index|[]
-operator|)
 name|normsCache
 operator|.
 name|get
@@ -4955,9 +4923,6 @@ expr_stmt|;
 name|SegmentMergeInfo
 name|top
 init|=
-operator|(
-name|SegmentMergeInfo
-operator|)
 name|queue
 operator|.
 name|top
@@ -5031,9 +4996,6 @@ expr_stmt|;
 comment|// increment freq
 name|top
 operator|=
-operator|(
-name|SegmentMergeInfo
-operator|)
 name|queue
 operator|.
 name|top
@@ -5925,9 +5887,6 @@ throws|throws
 name|IOException
 block|{
 return|return
-operator|(
-name|TermDocs
-operator|)
 name|reader
 operator|.
 name|termPositions

@@ -845,9 +845,6 @@ block|{
 name|CommitPoint
 name|commit
 init|=
-operator|(
-name|CommitPoint
-operator|)
 name|commitsToDelete
 operator|.
 name|get
@@ -926,9 +923,6 @@ block|{
 name|CommitPoint
 name|commit
 init|=
-operator|(
-name|CommitPoint
-operator|)
 name|commits
 operator|.
 name|get

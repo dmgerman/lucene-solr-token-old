@@ -120,7 +120,9 @@ block|{
 DECL|field|analyzerClassNames
 specifier|private
 name|List
-comment|/*<String>*/
+argument_list|<
+name|String
+argument_list|>
 name|analyzerClassNames
 decl_stmt|;
 DECL|field|current
@@ -145,6 +147,9 @@ name|analyzerClassNames
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
@@ -262,9 +267,6 @@ expr_stmt|;
 block|}
 name|className
 operator|=
-operator|(
-name|String
-operator|)
 name|analyzerClassNames
 operator|.
 name|get

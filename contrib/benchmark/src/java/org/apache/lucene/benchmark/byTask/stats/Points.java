@@ -90,10 +90,16 @@ comment|// later might optimize to collect only native data.
 DECL|field|points
 specifier|private
 name|ArrayList
+argument_list|<
+name|TaskStats
+argument_list|>
 name|points
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|TaskStats
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|nextTaskRunNum
@@ -123,6 +129,9 @@ comment|/**    * Return the current task stats.    * the actual task stats are r
 DECL|method|taskStats
 specifier|public
 name|List
+argument_list|<
+name|TaskStats
+argument_list|>
 name|taskStats
 parameter_list|()
 block|{

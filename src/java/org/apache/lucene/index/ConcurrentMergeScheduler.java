@@ -261,9 +261,6 @@ block|{
 name|MergeThread
 name|merge
 init|=
-operator|(
-name|MergeThread
-operator|)
 name|mergeThreads
 operator|.
 name|get
@@ -446,17 +443,12 @@ name|i
 operator|+
 literal|": "
 operator|+
-operator|(
-operator|(
-name|MergeThread
-operator|)
 name|mergeThreads
 operator|.
 name|get
 argument_list|(
 name|i
 argument_list|)
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -529,17 +521,12 @@ operator|++
 control|)
 if|if
 condition|(
-operator|(
-operator|(
-name|MergeThread
-operator|)
 name|mergeThreads
 operator|.
 name|get
 argument_list|(
 name|i
 argument_list|)
-operator|)
 operator|.
 name|isAlive
 argument_list|()

@@ -164,9 +164,6 @@ block|{
 name|TermVectorEntry
 name|entry
 init|=
-operator|(
-name|TermVectorEntry
-operator|)
 name|termToTVE
 operator|.
 name|get
