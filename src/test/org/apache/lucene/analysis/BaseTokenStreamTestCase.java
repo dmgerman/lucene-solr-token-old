@@ -70,7 +70,7 @@ name|LuceneTestCase
 import|;
 end_import
 begin_comment
-comment|/**   * Base class for all Lucene unit tests that use TokenStreams.    *<p>  * This class runs all tests twice, one time with {@link TokenStream#setOnlyUseNewAPI}<code>false</code>  * and after that one time with<code>true</code>.  */
+comment|/**   * Base class for all Lucene unit tests that use TokenStreams.    */
 end_comment
 begin_class
 DECL|class|BaseTokenStreamTestCase
@@ -96,37 +96,6 @@ name|BaseTokenStreamTestCase
 parameter_list|(
 name|String
 name|name
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-block|}
-comment|/** @deprecated */
-DECL|method|BaseTokenStreamTestCase
-specifier|public
-name|BaseTokenStreamTestCase
-parameter_list|(
-name|Set
-name|testWithNewAPI
-parameter_list|)
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
-comment|/** @deprecated */
-DECL|method|BaseTokenStreamTestCase
-specifier|public
-name|BaseTokenStreamTestCase
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|Set
-name|testWithNewAPI
 parameter_list|)
 block|{
 name|super
