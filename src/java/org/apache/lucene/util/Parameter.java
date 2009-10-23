@@ -60,7 +60,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * A serializable Enum class.  * @deprecated Use Java 5 enum  */
+comment|/**  * A serializable Enum class.  * @deprecated Use Java 5 enum, will be removed in a later Lucene 3.x release.  */
 end_comment
 begin_class
 annotation|@
