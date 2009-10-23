@@ -91,6 +91,19 @@ operator|.
 name|TokenStream
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
 begin_comment
 comment|/**  * Test the CzechAnalyzer  *   * CzechAnalyzer is like a StandardAnalyzer with a custom stopword list.  *  */
 end_comment
@@ -143,7 +156,11 @@ name|assertAnalyzesTo
 argument_list|(
 operator|new
 name|CzechAnalyzer
-argument_list|()
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|)
 argument_list|,
 literal|"Pokud mluvime o volnem"
 argument_list|,
@@ -171,7 +188,11 @@ name|analyzer
 init|=
 operator|new
 name|CzechAnalyzer
-argument_list|()
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|)
 decl_stmt|;
 name|assertAnalyzesToReuse
 argument_list|(
@@ -243,7 +264,11 @@ name|cz
 init|=
 operator|new
 name|CzechAnalyzer
-argument_list|()
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|)
 decl_stmt|;
 name|cz
 operator|.
@@ -291,7 +316,11 @@ name|cz
 init|=
 operator|new
 name|CzechAnalyzer
-argument_list|()
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|)
 decl_stmt|;
 name|assertAnalyzesToReuse
 argument_list|(

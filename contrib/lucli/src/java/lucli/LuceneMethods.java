@@ -1275,6 +1275,10 @@ init|=
 operator|new
 name|MultiFieldQueryParser
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|indexedArray
 argument_list|,
 name|analyzer
@@ -1395,6 +1399,10 @@ init|=
 operator|new
 name|MultiFieldQueryParser
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|fieldsArray
 argument_list|,
 name|analyzer

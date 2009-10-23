@@ -139,6 +139,19 @@ operator|.
 name|TermAttribute
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
 begin_comment
 comment|/**  *   */
 end_comment
@@ -169,6 +182,10 @@ init|=
 operator|new
 name|StandardTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 operator|new
 name|StringReader
 argument_list|(

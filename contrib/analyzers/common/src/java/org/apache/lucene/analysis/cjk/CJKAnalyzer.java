@@ -70,6 +70,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -198,12 +211,21 @@ specifier|final
 name|Set
 name|stopTable
 decl_stmt|;
+DECL|field|matchVersion
+specifier|private
+specifier|final
+name|Version
+name|matchVersion
+decl_stmt|;
 comment|//~ Constructors -----------------------------------------------------------
 comment|/**    * Builds an analyzer which removes words in {@link #STOP_WORDS}.    */
 DECL|method|CJKAnalyzer
 specifier|public
 name|CJKAnalyzer
-parameter_list|()
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|)
 block|{
 name|stopTable
 operator|=
@@ -214,12 +236,21 @@ argument_list|(
 name|STOP_WORDS
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|matchVersion
+operator|=
+name|matchVersion
+expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer which removes words in the provided array.    *    * @param stopWords stop word array    */
 DECL|method|CJKAnalyzer
 specifier|public
 name|CJKAnalyzer
 parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
 name|String
 modifier|...
 name|stopWords
@@ -233,6 +264,12 @@ name|makeStopSet
 argument_list|(
 name|stopWords
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|matchVersion
+operator|=
+name|matchVersion
 expr_stmt|;
 block|}
 comment|//~ Methods ----------------------------------------------------------------
@@ -254,7 +291,12 @@ return|return
 operator|new
 name|StopFilter
 argument_list|(
-literal|false
+name|StopFilter
+operator|.
+name|getEnablePositionIncrementsVersionDefault
+argument_list|(
+name|matchVersion
+argument_list|)
 argument_list|,
 operator|new
 name|CJKTokenizer
@@ -337,7 +379,12 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
-literal|false
+name|StopFilter
+operator|.
+name|getEnablePositionIncrementsVersionDefault
+argument_list|(
+name|matchVersion
+argument_list|)
 argument_list|,
 name|streams
 operator|.

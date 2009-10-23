@@ -6079,6 +6079,10 @@ argument_list|,
 operator|new
 name|StopAnalyzer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|StopFilter
 operator|.
 name|makeStopSet
@@ -6087,8 +6091,6 @@ literal|"the"
 argument_list|,
 literal|"foo"
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -6269,6 +6271,10 @@ argument_list|,
 operator|new
 name|StopAnalyzer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|StopFilter
 operator|.
 name|makeStopSet
@@ -6281,8 +6287,6 @@ literal|"are"
 argument_list|,
 literal|"this"
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 decl_stmt|;

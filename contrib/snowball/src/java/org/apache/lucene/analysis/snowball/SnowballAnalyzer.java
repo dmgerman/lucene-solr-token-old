@@ -46,6 +46,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -72,7 +85,7 @@ name|Set
 import|;
 end_import
 begin_comment
-comment|/** Filters {@link StandardTokenizer} with {@link StandardFilter}, {@link  * LowerCaseFilter}, {@link StopFilter} and {@link SnowballFilter}.  *  * Available stemmers are listed in org.tartarus.snowball.ext.  The name of a  * stemmer is the part of the class name before "Stemmer", e.g., the stemmer in  * {@link org.tartarus.snowball.ext.EnglishStemmer} is named "English".  */
+comment|/** Filters {@link StandardTokenizer} with {@link StandardFilter}, {@link  * LowerCaseFilter}, {@link StopFilter} and {@link SnowballFilter}.  *  * Available stemmers are listed in org.tartarus.snowball.ext.  The name of a  * stemmer is the part of the class name before "Stemmer", e.g., the stemmer in  * {@link org.tartarus.snowball.ext.EnglishStemmer} is named "English".  *  *<p><b>NOTE</b>: This class uses the same {@link Version}  * dependent settings as {@link StandardAnalyzer}.</p>  */
 end_comment
 begin_class
 DECL|class|SnowballAnalyzer
@@ -92,11 +105,20 @@ specifier|private
 name|Set
 name|stopSet
 decl_stmt|;
+DECL|field|matchVersion
+specifier|private
+specifier|final
+name|Version
+name|matchVersion
+decl_stmt|;
 comment|/** Builds the named analyzer with no stop words. */
 DECL|method|SnowballAnalyzer
 specifier|public
 name|SnowballAnalyzer
 parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
 name|String
 name|name
 parameter_list|)
@@ -114,12 +136,21 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|matchVersion
+operator|=
+name|matchVersion
+expr_stmt|;
 block|}
 comment|/** Builds the named analyzer with the given stop words. */
 DECL|method|SnowballAnalyzer
 specifier|public
 name|SnowballAnalyzer
 parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
 name|String
 name|name
 parameter_list|,
@@ -130,6 +161,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|matchVersion
+argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
@@ -162,6 +195,8 @@ init|=
 operator|new
 name|StandardTokenizer
 argument_list|(
+name|matchVersion
+argument_list|,
 name|reader
 argument_list|)
 decl_stmt|;
@@ -192,7 +227,12 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
-literal|false
+name|StopFilter
+operator|.
+name|getEnablePositionIncrementsVersionDefault
+argument_list|(
+name|matchVersion
+argument_list|)
 argument_list|,
 name|result
 argument_list|,
@@ -289,6 +329,8 @@ operator|=
 operator|new
 name|StandardTokenizer
 argument_list|(
+name|matchVersion
+argument_list|,
 name|reader
 argument_list|)
 expr_stmt|;
@@ -329,7 +371,12 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
-literal|false
+name|StopFilter
+operator|.
+name|getEnablePositionIncrementsVersionDefault
+argument_list|(
+name|matchVersion
+argument_list|)
 argument_list|,
 name|streams
 operator|.
