@@ -29,9 +29,6 @@ comment|/** Expert: The values which are used to sort the referenced document. 	
 DECL|field|fields
 specifier|public
 name|Comparable
-argument_list|<
-name|?
-argument_list|>
 index|[]
 name|fields
 decl_stmt|;
@@ -67,9 +64,6 @@ name|float
 name|score
 parameter_list|,
 name|Comparable
-argument_list|<
-name|?
-argument_list|>
 index|[]
 name|fields
 parameter_list|)
