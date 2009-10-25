@@ -124,9 +124,6 @@ argument_list|)
 expr_stmt|;
 name|maxNumSegments
 operator|=
-operator|(
-name|int
-operator|)
 name|Double
 operator|.
 name|valueOf

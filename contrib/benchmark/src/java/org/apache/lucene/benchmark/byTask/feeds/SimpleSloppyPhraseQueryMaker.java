@@ -102,10 +102,16 @@ name|words
 index|[]
 decl_stmt|;
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 name|w
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|StringTokenizer
@@ -147,10 +153,6 @@ expr_stmt|;
 block|}
 name|words
 operator|=
-operator|(
-name|String
-index|[]
-operator|)
 name|w
 operator|.
 name|toArray
@@ -164,10 +166,16 @@ argument_list|)
 expr_stmt|;
 comment|// create queries (that would find stuff) with varying slops
 name|ArrayList
+argument_list|<
+name|Query
+argument_list|>
 name|queries
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Query
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -394,10 +402,6 @@ block|}
 block|}
 block|}
 return|return
-operator|(
-name|Query
-index|[]
-operator|)
 name|queries
 operator|.
 name|toArray

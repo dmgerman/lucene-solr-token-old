@@ -209,10 +209,16 @@ name|anlzr
 argument_list|)
 decl_stmt|;
 name|ArrayList
+argument_list|<
+name|Query
+argument_list|>
 name|qq
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Query
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|Query
@@ -384,10 +390,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Query
-index|[]
-operator|)
 name|qq
 operator|.
 name|toArray
