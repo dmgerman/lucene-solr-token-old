@@ -208,20 +208,8 @@ operator|=
 name|norms
 expr_stmt|;
 block|}
-DECL|method|explain
-specifier|public
-name|Explanation
-name|explain
-parameter_list|(
-name|int
-name|doc
-parameter_list|)
-block|{
-return|return
-literal|null
-return|;
-comment|// not called... see MatchAllDocsWeight.explain()
-block|}
+annotation|@
+name|Override
 DECL|method|docID
 specifier|public
 name|int
@@ -232,6 +220,8 @@ return|return
 name|doc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -256,6 +246,8 @@ else|:
 name|NO_MORE_DOCS
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|score
 specifier|public
 name|float
@@ -283,6 +275,8 @@ index|]
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|advance
 specifier|public
 name|int
@@ -353,6 +347,8 @@ name|getSimilarity
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -369,6 +365,8 @@ operator|+
 literal|")"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getQuery
 specifier|public
 name|Query
@@ -381,6 +379,8 @@ operator|.
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|float
@@ -391,6 +391,8 @@ return|return
 name|queryWeight
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sumOfSquaredWeights
 specifier|public
 name|float
@@ -408,6 +410,8 @@ operator|*
 name|queryWeight
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|normalize
 specifier|public
 name|void
@@ -430,6 +434,8 @@ operator|.
 name|queryNorm
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|scorer
 specifier|public
 name|Scorer
@@ -472,6 +478,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|Explanation
@@ -540,6 +548,8 @@ name|queryExpl
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createWeight
 specifier|public
 name|Weight
@@ -557,6 +567,8 @@ name|searcher
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|extractTerms
 specifier|public
 name|void
@@ -569,6 +581,8 @@ argument_list|>
 name|terms
 parameter_list|)
 block|{   }
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -612,6 +626,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -653,6 +669,8 @@ name|getBoost
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

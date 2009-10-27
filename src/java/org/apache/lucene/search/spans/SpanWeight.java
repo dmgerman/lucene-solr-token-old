@@ -216,6 +216,8 @@ name|getIdf
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getQuery
 specifier|public
 name|Query
@@ -226,6 +228,8 @@ return|return
 name|query
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|float
@@ -236,6 +240,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sumOfSquaredWeights
 specifier|public
 name|float
@@ -261,6 +267,8 @@ name|queryWeight
 return|;
 comment|// square it
 block|}
+annotation|@
+name|Override
 DECL|method|normalize
 specifier|public
 name|void
@@ -289,6 +297,8 @@ name|idf
 expr_stmt|;
 comment|// idf for document
 block|}
+annotation|@
+name|Override
 DECL|method|scorer
 specifier|public
 name|Scorer
@@ -333,6 +343,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|Explanation
@@ -545,6 +557,10 @@ expr_stmt|;
 name|Explanation
 name|tfExpl
 init|=
+operator|(
+operator|(
+name|SpanScorer
+operator|)
 name|scorer
 argument_list|(
 name|reader
@@ -553,6 +569,7 @@ literal|true
 argument_list|,
 literal|false
 argument_list|)
+operator|)
 operator|.
 name|explain
 argument_list|(

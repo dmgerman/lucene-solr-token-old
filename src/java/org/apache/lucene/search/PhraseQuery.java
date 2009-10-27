@@ -486,6 +486,8 @@ name|getIdf
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -502,6 +504,8 @@ operator|+
 literal|")"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getQuery
 specifier|public
 name|Query
@@ -514,6 +518,8 @@ operator|.
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|float
@@ -524,6 +530,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sumOfSquaredWeights
 specifier|public
 name|float
@@ -545,6 +553,8 @@ name|queryWeight
 return|;
 comment|// square it
 block|}
+annotation|@
+name|Override
 DECL|method|normalize
 specifier|public
 name|void
@@ -573,6 +583,8 @@ name|idf
 expr_stmt|;
 comment|// idf for document
 block|}
+annotation|@
+name|Override
 DECL|method|scorer
 specifier|public
 name|Scorer
@@ -719,6 +731,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|Explanation
@@ -992,9 +1006,12 @@ operator|+
 literal|"), product of:"
 argument_list|)
 expr_stmt|;
-name|Scorer
+name|PhraseScorer
 name|scorer
 init|=
+operator|(
+name|PhraseScorer
+operator|)
 name|scorer
 argument_list|(
 name|reader
@@ -1022,20 +1039,66 @@ argument_list|)
 return|;
 block|}
 name|Explanation
-name|tfExpl
+name|tfExplanation
+init|=
+operator|new
+name|Explanation
+argument_list|()
+decl_stmt|;
+name|int
+name|d
 init|=
 name|scorer
 operator|.
-name|explain
+name|advance
 argument_list|(
 name|doc
 argument_list|)
 decl_stmt|;
+name|float
+name|phraseFreq
+init|=
+operator|(
+name|d
+operator|==
+name|doc
+operator|)
+condition|?
+name|scorer
+operator|.
+name|currentFreq
+argument_list|()
+else|:
+literal|0.0f
+decl_stmt|;
+name|tfExplanation
+operator|.
+name|setValue
+argument_list|(
+name|similarity
+operator|.
+name|tf
+argument_list|(
+name|phraseFreq
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|tfExplanation
+operator|.
+name|setDescription
+argument_list|(
+literal|"tf(phraseFreq="
+operator|+
+name|phraseFreq
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
 name|fieldExpl
 operator|.
 name|addDetail
 argument_list|(
-name|tfExpl
+name|tfExplanation
 argument_list|)
 expr_stmt|;
 name|fieldExpl
@@ -1115,7 +1178,7 @@ name|fieldExpl
 operator|.
 name|setValue
 argument_list|(
-name|tfExpl
+name|tfExplanation
 operator|.
 name|getValue
 argument_list|()
@@ -1171,6 +1234,8 @@ name|result
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createWeight
 specifier|public
 name|Weight
@@ -1238,6 +1303,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see org.apache.lucene.search.Query#extractTerms(Set)    */
+annotation|@
+name|Override
 DECL|method|extractTerms
 specifier|public
 name|void
@@ -1259,6 +1326,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Prints a user-readable version of this query. */
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1530,6 +1599,8 @@ argument_list|()
 return|;
 block|}
 comment|/** Returns true iff<code>o</code> is equal to this. */
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -1606,6 +1677,8 @@ argument_list|)
 return|;
 block|}
 comment|/** Returns a hash code value for this object.*/
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

@@ -104,6 +104,8 @@ operator|=
 name|bucketTable
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 specifier|final
@@ -247,6 +249,8 @@ expr_stmt|;
 comment|// increment coord
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -261,6 +265,8 @@ parameter_list|)
 block|{
 comment|// not needed by this implementation
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -279,6 +285,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean
@@ -324,6 +332,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|advance
 specifier|public
 name|int
@@ -339,6 +349,8 @@ return|return
 name|NO_MORE_DOCS
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docID
 specifier|public
 name|int
@@ -349,21 +361,8 @@ return|return
 name|doc
 return|;
 block|}
-DECL|method|explain
-specifier|public
-name|Explanation
-name|explain
-parameter_list|(
-name|int
-name|doc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-literal|null
-return|;
-block|}
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -376,6 +375,8 @@ return|return
 name|NO_MORE_DOCS
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|score
 specifier|public
 name|float
@@ -886,6 +887,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// firstDocID is ignored since nextDoc() initializes 'current'
+annotation|@
+name|Override
 DECL|method|score
 specifier|protected
 name|boolean
@@ -1162,6 +1165,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|advance
 specifier|public
 name|int
@@ -1179,6 +1184,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|docID
 specifier|public
 name|int
@@ -1189,21 +1196,8 @@ return|return
 name|doc
 return|;
 block|}
-DECL|method|explain
-specifier|public
-name|Explanation
-name|explain
-parameter_list|(
-name|int
-name|doc
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-block|}
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -1385,6 +1379,8 @@ operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|score
 specifier|public
 name|float
@@ -1404,6 +1400,8 @@ name|coord
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|score
 specifier|public
 name|void
@@ -1428,6 +1426,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

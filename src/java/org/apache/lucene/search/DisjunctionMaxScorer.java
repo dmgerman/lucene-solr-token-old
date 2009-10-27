@@ -112,6 +112,8 @@ name|heapify
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -195,6 +197,8 @@ name|docID
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docID
 specifier|public
 name|int
@@ -206,6 +210,8 @@ name|doc
 return|;
 block|}
 comment|/** Determine the current document score.  Initially invalid, until {@link #next()} is called the first time.    * @return the score of the current generated document    */
+annotation|@
+name|Override
 DECL|method|score
 specifier|public
 name|float
@@ -418,6 +424,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|advance
 specifier|public
 name|int
@@ -505,24 +513,6 @@ operator|.
 name|docID
 argument_list|()
 return|;
-block|}
-comment|/** Explain a score that we computed.  UNSUPPORTED -- see explanation capability in DisjunctionMaxQuery.    * @param doc the number of a document we scored    * @return the Explanation for our score    */
-DECL|method|explain
-specifier|public
-name|Explanation
-name|explain
-parameter_list|(
-name|int
-name|doc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
 block|}
 comment|// Organize subScorers into a min heap with scorers generating the earliest document on top.
 DECL|method|heapify

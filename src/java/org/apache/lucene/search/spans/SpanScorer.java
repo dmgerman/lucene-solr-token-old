@@ -206,6 +206,8 @@ literal|false
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -230,6 +232,8 @@ return|return
 name|doc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|advance
 specifier|public
 name|int
@@ -370,6 +374,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docID
 specifier|public
 name|int
@@ -380,6 +386,8 @@ return|return
 name|doc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|score
 specifier|public
 name|float
@@ -423,8 +431,9 @@ argument_list|)
 return|;
 comment|// normalize
 block|}
+comment|/** This method is no longer an official member of {@link Scorer},    * but it is needed by SpanWeight to build an explanation. */
 DECL|method|explain
-specifier|public
+specifier|protected
 name|Explanation
 name|explain
 parameter_list|(

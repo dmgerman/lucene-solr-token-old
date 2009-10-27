@@ -92,22 +92,9 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|explain
-specifier|public
-name|Explanation
-name|explain
-parameter_list|(
-name|int
-name|doc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-literal|null
-return|;
-block|}
 DECL|method|score
+annotation|@
+name|Override
 specifier|public
 name|float
 name|score
@@ -138,6 +125,8 @@ index|]
 return|;
 block|}
 DECL|method|docID
+annotation|@
+name|Override
 specifier|public
 name|int
 name|docID
@@ -148,6 +137,8 @@ name|doc
 return|;
 block|}
 DECL|method|nextDoc
+annotation|@
+name|Override
 specifier|public
 name|int
 name|nextDoc
@@ -169,6 +160,8 @@ name|NO_MORE_DOCS
 return|;
 block|}
 DECL|method|advance
+annotation|@
+name|Override
 specifier|public
 name|int
 name|advance
@@ -240,6 +233,8 @@ index|]
 expr_stmt|;
 block|}
 DECL|method|collect
+annotation|@
+name|Override
 specifier|public
 name|void
 name|collect
@@ -298,6 +293,8 @@ name|idx
 expr_stmt|;
 block|}
 DECL|method|setNextReader
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setNextReader
@@ -312,6 +309,8 @@ throws|throws
 name|IOException
 block|{     }
 DECL|method|setScorer
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setScorer
@@ -334,6 +333,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|acceptsDocsOutOfOrder
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|acceptsDocsOutOfOrder

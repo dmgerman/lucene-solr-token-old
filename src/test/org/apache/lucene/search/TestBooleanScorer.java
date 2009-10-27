@@ -465,21 +465,11 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
-name|Explanation
-name|explain
-parameter_list|(
-name|int
-name|doc
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-literal|null
-return|;
-block|}
-function|public float score
+name|float
+name|score
 parameter_list|()
 throws|throws
 name|IOException
@@ -488,14 +478,14 @@ return|return
 literal|0
 return|;
 block|}
-function|public int docID
+function|@Override public int docID
 parameter_list|()
 block|{
 return|return
 name|doc
 return|;
 block|}
-function|public int nextDoc
+function|@Override public int nextDoc
 parameter_list|()
 throws|throws
 name|IOException
@@ -513,7 +503,7 @@ else|:
 name|NO_MORE_DOCS
 return|;
 block|}
-function|public int advance
+function|@Override public int advance
 parameter_list|(
 name|int
 name|target
