@@ -362,7 +362,7 @@ argument_list|()
 decl_stmt|;
 name|perThread
 operator|.
-name|singleTokenTokenStream
+name|singleToken
 operator|.
 name|reinit
 argument_list|(
@@ -379,7 +379,7 @@ name|attributeSource
 operator|=
 name|perThread
 operator|.
-name|singleTokenTokenStream
+name|singleToken
 expr_stmt|;
 name|consumer
 operator|.
