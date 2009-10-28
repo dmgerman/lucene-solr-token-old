@@ -416,6 +416,9 @@ name|int
 name|maxNumSegments
 parameter_list|,
 name|Set
+argument_list|<
+name|SegmentInfo
+argument_list|>
 name|segmentsToOptimize
 parameter_list|)
 throws|throws
@@ -567,6 +570,9 @@ name|int
 name|maxNumSegments
 parameter_list|,
 name|Set
+argument_list|<
+name|SegmentInfo
+argument_list|>
 name|segmentsToOptimize
 parameter_list|)
 throws|throws

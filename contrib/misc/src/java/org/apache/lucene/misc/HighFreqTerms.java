@@ -344,9 +344,6 @@ block|{
 name|TermInfo
 name|termInfo
 init|=
-operator|(
-name|TermInfo
-operator|)
 name|tiq
 operator|.
 name|pop
