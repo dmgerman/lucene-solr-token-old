@@ -659,11 +659,6 @@ specifier|protected
 name|boolean
 name|reuseFields
 decl_stmt|;
-DECL|field|localDocState
-specifier|protected
-name|DocState
-name|localDocState
-decl_stmt|;
 DECL|field|indexProperties
 specifier|protected
 name|boolean
@@ -714,12 +709,8 @@ specifier|final
 name|DocState
 name|ds
 init|=
-name|reuseFields
-condition|?
 name|getDocState
 argument_list|()
-else|:
-name|localDocState
 decl_stmt|;
 specifier|final
 name|Document
@@ -1295,7 +1286,7 @@ operator|=
 operator|new
 name|DocState
 argument_list|(
-literal|true
+name|reuseFields
 argument_list|,
 name|storeVal
 argument_list|,
@@ -1393,14 +1384,8 @@ name|source
 operator|.
 name|getNextDocData
 argument_list|(
-name|reuseFields
-condition|?
 name|getDocState
 argument_list|()
-operator|.
-name|docData
-else|:
-name|localDocState
 operator|.
 name|docData
 argument_list|)
@@ -1483,14 +1468,8 @@ block|}
 name|DocData
 name|docData
 init|=
-name|reuseFields
-condition|?
 name|getDocState
 argument_list|()
-operator|.
-name|docData
-else|:
-name|localDocState
 operator|.
 name|docData
 decl_stmt|;
@@ -2276,31 +2255,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|reuseFields
-condition|)
-block|{
-name|localDocState
-operator|=
-operator|new
-name|DocState
-argument_list|(
-literal|false
-argument_list|,
-name|storeVal
-argument_list|,
-name|indexVal
-argument_list|,
-name|bodyIndexVal
-argument_list|,
-name|termVecVal
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 comment|// In a multi-rounds run, it is important to reset DocState since settings
 comment|// of fields may change between rounds, and this is the only way to reset
 comment|// the cache of all threads.
@@ -2313,7 +2267,6 @@ name|DocState
 argument_list|>
 argument_list|()
 expr_stmt|;
-block|}
 name|indexProperties
 operator|=
 name|config

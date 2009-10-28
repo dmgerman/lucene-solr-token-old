@@ -1276,6 +1276,7 @@ block|}
 block|}
 DECL|method|getNextDocData
 specifier|public
+specifier|synchronized
 name|DocData
 name|getNextDocData
 parameter_list|(
