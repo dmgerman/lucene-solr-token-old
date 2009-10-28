@@ -363,6 +363,8 @@ name|MAX_PRIORITY
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -538,6 +540,8 @@ return|return
 name|count
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|merge
 specifier|public
 name|void
@@ -1002,6 +1006,8 @@ comment|// Ignore this because we will still run fine with
 comment|// normal thread priority
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|run
 specifier|public
 name|void
@@ -1172,6 +1178,8 @@ assert|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

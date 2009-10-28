@@ -263,6 +263,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|difference
 specifier|public
 name|float
@@ -273,6 +275,8 @@ return|return
 literal|1.0f
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|endEnum
 specifier|protected
 name|boolean
@@ -283,6 +287,8 @@ return|return
 name|endEnum
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|termCompare
 specifier|protected
 name|boolean

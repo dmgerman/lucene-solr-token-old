@@ -59,6 +59,8 @@ operator|=
 name|delegee
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|computeNorm
 specifier|public
 name|float
@@ -82,6 +84,8 @@ name|state
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|lengthNorm
 specifier|public
 name|float
@@ -105,6 +109,8 @@ name|numTerms
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|queryNorm
 specifier|public
 name|float
@@ -123,6 +129,8 @@ name|sumOfSquaredWeights
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|tf
 specifier|public
 name|float
@@ -141,6 +149,8 @@ name|freq
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sloppyFreq
 specifier|public
 name|float
@@ -159,6 +169,8 @@ name|distance
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|idf
 specifier|public
 name|float
@@ -182,6 +194,8 @@ name|numDocs
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|coord
 specifier|public
 name|float
@@ -205,6 +219,8 @@ name|maxOverlap
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|scorePayload
 specifier|public
 name|float

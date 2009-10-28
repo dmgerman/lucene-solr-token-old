@@ -103,6 +103,8 @@ operator|=
 name|score
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -233,6 +235,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns whether<code>a</code> is less relevant than<code>b</code>.      * @param a ScoreDoc      * @param b ScoreDoc      * @return<code>true</code> if document<code>a</code> should be sorted after document<code>b</code>.      */
+annotation|@
+name|Override
 DECL|method|lessThan
 specifier|protected
 name|boolean
@@ -399,6 +403,8 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|lessThan
 specifier|protected
 name|boolean
@@ -654,6 +660,8 @@ name|int
 index|[]
 name|reverseMul
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|lessThan
 specifier|protected
 specifier|abstract

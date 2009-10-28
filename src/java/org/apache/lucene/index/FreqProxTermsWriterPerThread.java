@@ -53,6 +53,8 @@ operator|=
 name|perThread
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addField
 specifier|public
 name|TermsHashConsumerPerField
@@ -77,11 +79,15 @@ name|fieldInfo
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|startDocument
 name|void
 name|startDocument
 parameter_list|()
 block|{   }
+annotation|@
+name|Override
 DECL|method|finishDocument
 name|DocumentsWriter
 operator|.
@@ -93,6 +99,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|abort
 specifier|public
 name|void

@@ -113,6 +113,8 @@ return|return
 name|endOffset
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 name|void
@@ -128,6 +130,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -181,6 +185,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -204,6 +210,8 @@ return|return
 name|code
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copyTo
 specifier|public
 name|void

@@ -473,6 +473,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 specifier|synchronized
@@ -505,6 +507,8 @@ throw|;
 block|}
 block|}
 comment|/**    * Tries to reopen the subreaders.    *<br>    * If one or more subreaders could be re-opened (i. e. subReader.reopen()     * returned a new instance != subReader), then a new ParallelReader instance     * is returned, otherwise this instance is returned.    *<p>    * A re-opened instance might share one or more subreaders with the old     * instance. Index modification operations result in undefined behavior    * when performed before the old instance is closed.    * (see {@link IndexReader#reopen()}).    *<p>    * If subreaders are shared, then the reference count of those    * readers is increased to ensure that the subreaders remain open    * until the last referring reader is closed.    *     * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error     */
+annotation|@
+name|Override
 DECL|method|reopen
 specifier|public
 specifier|synchronized
@@ -840,6 +844,8 @@ name|this
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|numDocs
 specifier|public
 name|int
@@ -851,6 +857,8 @@ return|return
 name|numDocs
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|maxDoc
 specifier|public
 name|int
@@ -862,6 +870,8 @@ return|return
 name|maxDoc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasDeletions
 specifier|public
 name|boolean
@@ -874,6 +884,8 @@ name|hasDeletions
 return|;
 block|}
 comment|// check first reader
+annotation|@
+name|Override
 DECL|method|isDeleted
 specifier|public
 name|boolean
@@ -911,6 +923,8 @@ literal|false
 return|;
 block|}
 comment|// delete in all readers
+annotation|@
+name|Override
 DECL|method|doDelete
 specifier|protected
 name|void
@@ -947,6 +961,8 @@ literal|true
 expr_stmt|;
 block|}
 comment|// undeleteAll in all readers
+annotation|@
+name|Override
 DECL|method|doUndeleteAll
 specifier|protected
 name|void
@@ -978,6 +994,8 @@ literal|false
 expr_stmt|;
 block|}
 comment|// append fields from storedFieldReaders
+annotation|@
+name|Override
 DECL|method|document
 specifier|public
 name|Document
@@ -1116,6 +1134,8 @@ name|result
 return|;
 block|}
 comment|// get all vectors
+annotation|@
+name|Override
 DECL|method|getTermFreqVectors
 specifier|public
 name|TermFreqVector
@@ -1221,6 +1241,8 @@ index|]
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVector
 specifier|public
 name|TermFreqVector
@@ -1265,6 +1287,8 @@ name|field
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVector
 specifier|public
 name|void
@@ -1315,6 +1339,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVector
 specifier|public
 name|void
@@ -1380,6 +1406,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|hasNorms
 specifier|public
 name|boolean
@@ -1419,6 +1447,8 @@ name|field
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|norms
 specifier|public
 name|byte
@@ -1459,6 +1489,8 @@ name|field
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|norms
 specifier|public
 name|void
@@ -1508,6 +1540,8 @@ name|offset
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doSetNorm
 specifier|protected
 name|void
@@ -1555,6 +1589,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|terms
 specifier|public
 name|TermEnum
@@ -1572,6 +1608,8 @@ name|ParallelTermEnum
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|terms
 specifier|public
 name|TermEnum
@@ -1594,6 +1632,8 @@ name|term
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docFreq
 specifier|public
 name|int
@@ -1636,6 +1676,8 @@ name|term
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|termDocs
 specifier|public
 name|TermDocs
@@ -1658,6 +1700,8 @@ name|term
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|termDocs
 specifier|public
 name|TermDocs
@@ -1675,6 +1719,8 @@ name|ParallelTermDocs
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|termPositions
 specifier|public
 name|TermPositions
@@ -1697,6 +1743,8 @@ name|term
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|termPositions
 specifier|public
 name|TermPositions
@@ -1715,6 +1763,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * Checks recursively if all subreaders are up to date.     */
+annotation|@
+name|Override
 DECL|method|isCurrent
 specifier|public
 name|boolean
@@ -1754,6 +1804,8 @@ literal|true
 return|;
 block|}
 comment|/**    * Checks recursively if all subindexes are optimized     */
+annotation|@
+name|Override
 DECL|method|isOptimized
 specifier|public
 name|boolean
@@ -1789,6 +1841,8 @@ literal|true
 return|;
 block|}
 comment|/** Not implemented.    * @throws UnsupportedOperationException    */
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|long
@@ -1826,6 +1880,8 @@ index|]
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doCommit
 specifier|protected
 name|void
@@ -1858,6 +1914,8 @@ name|commitUserData
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doClose
 specifier|protected
 specifier|synchronized
@@ -1924,6 +1982,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getFieldNames
 specifier|public
 name|Collection
@@ -2101,6 +2161,8 @@ name|term
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|boolean
@@ -2245,6 +2307,8 @@ literal|false
 return|;
 comment|// no more fields
 block|}
+annotation|@
+name|Override
 DECL|method|term
 specifier|public
 name|Term
@@ -2267,6 +2331,8 @@ name|term
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docFreq
 specifier|public
 name|int
@@ -2289,6 +2355,8 @@ name|docFreq
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -2600,6 +2668,8 @@ name|term
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|seek
 specifier|public
 name|void

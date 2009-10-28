@@ -104,6 +104,8 @@ operator|=
 name|endConsumer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setFieldInfos
 name|void
 name|setFieldInfos
@@ -134,6 +136,8 @@ name|fieldInfos
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|flush
 name|void
 name|flush
@@ -340,6 +344,8 @@ name|state
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|closeDocStore
 specifier|public
 name|void
@@ -366,6 +372,8 @@ name|state
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|abort
 name|void
 name|abort
@@ -382,6 +390,8 @@ name|abort
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|freeRAM
 specifier|public
 name|boolean
@@ -395,6 +405,8 @@ name|freeRAM
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addThread
 specifier|public
 name|DocFieldConsumerPerThread

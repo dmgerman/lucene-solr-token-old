@@ -170,6 +170,8 @@ operator|=
 name|maskedField
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getField
 specifier|public
 name|String
@@ -192,6 +194,8 @@ return|;
 block|}
 comment|// :NOTE: getBoost and setBoost are not proxied to the maskedQuery
 comment|// ...this is done to be more consistent with things like SpanFirstQuery
+annotation|@
+name|Override
 DECL|method|getSpans
 specifier|public
 name|Spans
@@ -212,6 +216,8 @@ name|reader
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|extractTerms
 specifier|public
 name|void
@@ -232,6 +238,8 @@ name|terms
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createWeight
 specifier|public
 name|Weight
@@ -252,6 +260,8 @@ name|searcher
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSimilarity
 specifier|public
 name|Similarity
@@ -270,6 +280,8 @@ name|searcher
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -341,6 +353,8 @@ name|this
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -419,6 +433,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -490,6 +506,8 @@ argument_list|)
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

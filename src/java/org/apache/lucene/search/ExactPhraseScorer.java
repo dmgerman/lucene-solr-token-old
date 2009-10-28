@@ -80,6 +80,8 @@ name|norms
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|phraseFreq
 specifier|protected
 specifier|final

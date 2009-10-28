@@ -126,6 +126,8 @@ name|fieldInfos
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|closeDocStore
 specifier|public
 name|void
@@ -152,6 +154,8 @@ name|state
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|flush
 specifier|public
 name|void
@@ -284,6 +288,8 @@ name|fileName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|abort
 specifier|public
 name|void
@@ -301,6 +307,8 @@ name|abort
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|freeRAM
 specifier|public
 name|boolean
@@ -314,6 +322,8 @@ name|freeRAM
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addThread
 specifier|public
 name|DocConsumerPerThread

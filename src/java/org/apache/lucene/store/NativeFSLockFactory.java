@@ -305,6 +305,8 @@ name|lockDir
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|makeLock
 specifier|public
 specifier|synchronized
@@ -342,6 +344,8 @@ name|lockName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clearLock
 specifier|public
 name|void
@@ -513,6 +517,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|obtain
 specifier|public
 specifier|synchronized
@@ -818,6 +824,8 @@ name|lockExists
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|release
 specifier|public
 specifier|synchronized
@@ -913,6 +921,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isLocked
 specifier|public
 specifier|synchronized
@@ -974,6 +984,8 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

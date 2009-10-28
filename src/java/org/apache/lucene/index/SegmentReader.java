@@ -1255,6 +1255,8 @@ argument_list|<
 name|FieldsReader
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|initialValue
 specifier|protected
 name|FieldsReader
@@ -1287,6 +1289,8 @@ name|refCount
 init|=
 literal|1
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1998,6 +2002,8 @@ return|;
 block|}
 comment|// Returns a copy of this Norm instance that shares
 comment|// IndexInput& bytes with the original one
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 specifier|synchronized
@@ -2611,6 +2617,8 @@ name|clone
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 specifier|final
@@ -2644,6 +2652,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 specifier|final
@@ -3154,6 +3164,8 @@ return|return
 name|clone
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doCommit
 specifier|protected
 name|void
@@ -3325,6 +3337,8 @@ name|get
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doClose
 specifier|protected
 name|void
@@ -3412,6 +3426,8 @@ name|hasDeletions
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasDeletions
 specifier|public
 name|boolean
@@ -3461,6 +3477,8 @@ name|hasSeparateNorms
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doDelete
 specifier|protected
 name|void
@@ -3548,6 +3566,8 @@ name|pendingDeleteCount
 operator|++
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doUndeleteAll
 specifier|protected
 name|void
@@ -3638,6 +3658,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|terms
 specifier|public
 name|TermEnum
@@ -3657,6 +3679,8 @@ name|terms
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|terms
 specifier|public
 name|TermEnum
@@ -3694,6 +3718,8 @@ operator|.
 name|fieldInfos
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|document
 specifier|public
 name|Document
@@ -3725,6 +3751,8 @@ name|fieldSelector
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isDeleted
 specifier|public
 specifier|synchronized
@@ -3750,6 +3778,8 @@ argument_list|)
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|termDocs
 specifier|public
 name|TermDocs
@@ -3788,6 +3818,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|termDocs
 specifier|public
 name|TermDocs
@@ -3807,6 +3839,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|termPositions
 specifier|public
 name|TermPositions
@@ -3826,6 +3860,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docFreq
 specifier|public
 name|int
@@ -3869,6 +3905,8 @@ return|return
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|numDocs
 specifier|public
 name|int
@@ -3899,6 +3937,8 @@ return|return
 name|n
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|maxDoc
 specifier|public
 name|int
@@ -3913,6 +3953,8 @@ name|docCount
 return|;
 block|}
 comment|/**    * @see IndexReader#getFieldNames(IndexReader.FieldOption fldOption)    */
+annotation|@
+name|Override
 DECL|method|getFieldNames
 specifier|public
 name|Collection
@@ -4304,6 +4346,8 @@ return|return
 name|fieldSet
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNorms
 specifier|public
 specifier|synchronized
@@ -4412,6 +4456,8 @@ argument_list|()
 return|;
 block|}
 comment|// returns fake norms if norms aren't available
+annotation|@
+name|Override
 DECL|method|norms
 specifier|public
 specifier|synchronized
@@ -4441,6 +4487,8 @@ return|return
 name|bytes
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doSetNorm
 specifier|protected
 name|void
@@ -4493,6 +4541,8 @@ expr_stmt|;
 comment|// set the value
 block|}
 comment|/** Read norms into a pre-allocated array. */
+annotation|@
+name|Override
 DECL|method|norms
 specifier|public
 specifier|synchronized
@@ -5008,6 +5058,8 @@ argument_list|()
 return|;
 block|}
 comment|/** Return a term frequency vector for the specified document and field. The    *  vector returned contains term numbers and frequencies for all terms in    *  the specified field of this document, if the field had storeTermVector    *  flag set.  If the flag was not set, the method returns null.    * @throws IOException    */
+annotation|@
+name|Override
 DECL|method|getTermFreqVector
 specifier|public
 name|TermFreqVector
@@ -5078,6 +5130,8 @@ name|field
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVector
 specifier|public
 name|void
@@ -5149,6 +5203,8 @@ name|mapper
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVector
 specifier|public
 name|void
@@ -5190,6 +5246,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Return an array of term frequency vectors for the specified document.    *  The array contains a vector for each vectorized field in the document.    *  Each vector vector contains term numbers and frequencies for all terms    *  in a given vectorized field.    *  If no such fields existed, the method returns null.    * @throws IOException    */
+annotation|@
+name|Override
 DECL|method|getTermFreqVectors
 specifier|public
 name|TermFreqVector
@@ -5350,6 +5408,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/** Returns the directory this index resides in. */
+annotation|@
+name|Override
 DECL|method|directory
 specifier|public
 name|Directory
@@ -5368,6 +5428,8 @@ block|}
 comment|// This is necessary so that cloned SegmentReaders (which
 comment|// share the underlying postings data) will map to the
 comment|// same entry in the FieldCache.  See LUCENE-1579.
+annotation|@
+name|Override
 DECL|method|getFieldCacheKey
 specifier|public
 specifier|final
@@ -5381,6 +5443,8 @@ operator|.
 name|freqStream
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUniqueTermCount
 specifier|public
 name|long

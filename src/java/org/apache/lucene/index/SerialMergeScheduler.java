@@ -35,6 +35,8 @@ extends|extends
 name|MergeScheduler
 block|{
 comment|/** Just do the merges in sequence. We do this    * "synchronized" so that even if the application is using    * multiple threads, only one merge may run at a time. */
+annotation|@
+name|Override
 DECL|method|merge
 specifier|synchronized
 specifier|public
@@ -80,6 +82,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

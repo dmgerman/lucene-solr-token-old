@@ -216,6 +216,8 @@ name|mergeFactor
 expr_stmt|;
 block|}
 comment|// Javadoc inherited
+annotation|@
+name|Override
 DECL|method|useCompoundFile
 specifier|public
 name|boolean
@@ -261,6 +263,8 @@ name|useCompoundFile
 return|;
 block|}
 comment|// Javadoc inherited
+annotation|@
+name|Override
 DECL|method|useCompoundDocStore
 specifier|public
 name|boolean
@@ -330,6 +334,8 @@ return|return
 name|calibrateSizeByDeletes
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -646,6 +652,8 @@ name|useCompoundFile
 return|;
 block|}
 comment|/** Returns the merges necessary to optimize the index.    *  This merge policy defines "optimized" to mean only one    *  segment in the index, where that segment has no    *  deletions pending nor separate norms, and it is in    *  compound file format if the current useCompoundFile    *  setting is true.  This method returns multiple merges    *  (mergeFactor at a time) so the {@link MergeScheduler}    *  in use may make use of concurrency. */
+annotation|@
+name|Override
 DECL|method|findMergesForOptimize
 specifier|public
 name|MergeSpecification
@@ -1016,6 +1024,8 @@ name|spec
 return|;
 block|}
 comment|/**    * Finds merges necessary to expunge all deletes from the    * index.  We simply merge adjacent segments that have    * deletes, up to mergeFactor at a time.    */
+annotation|@
+name|Override
 DECL|method|findMergesToExpungeDeletes
 specifier|public
 name|MergeSpecification
@@ -1312,6 +1322,8 @@ name|spec
 return|;
 block|}
 comment|/** Checks if any merges are now necessary and returns a    *  {@link MergePolicy.MergeSpecification} if so.  A merge    *  is necessary when there are more than {@link    *  #setMergeFactor} segments at a given level.  When    *  multiple levels have too many segments, this method    *  will return multiple merges, allowing the {@link    *  MergeScheduler} to use concurrency. */
+annotation|@
+name|Override
 DECL|method|findMerges
 specifier|public
 name|MergeSpecification

@@ -197,6 +197,8 @@ return|return
 name|exclude
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getField
 specifier|public
 name|String
@@ -210,6 +212,8 @@ name|getField
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|extractTerms
 specifier|public
 name|void
@@ -230,6 +234,8 @@ name|terms
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -311,6 +317,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object
@@ -352,6 +360,8 @@ return|return
 name|spanNotQuery
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpans
 specifier|public
 name|Spans
@@ -406,6 +416,8 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|next
@@ -533,6 +545,8 @@ return|return
 name|moreInclude
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|skipTo
@@ -663,6 +677,8 @@ argument_list|()
 return|;
 comment|// scan to next match
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|doc
@@ -675,6 +691,8 @@ name|doc
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|start
@@ -687,6 +705,8 @@ name|start
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|end
@@ -700,6 +720,8 @@ argument_list|()
 return|;
 block|}
 comment|// TODO: Remove warning after API has been finalized
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -749,6 +771,8 @@ name|result
 return|;
 block|}
 comment|// TODO: Remove warning after API has been finalized
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPayloadAvailable
@@ -761,6 +785,8 @@ name|isPayloadAvailable
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -782,6 +808,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -899,6 +927,8 @@ comment|// no clauses rewrote
 block|}
 block|}
 comment|/** Returns true iff<code>o</code> is equal to this. */
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -971,6 +1001,8 @@ name|getBoost
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

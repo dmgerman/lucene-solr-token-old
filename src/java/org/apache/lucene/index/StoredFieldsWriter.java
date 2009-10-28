@@ -814,6 +814,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|abort
 name|void
 name|abort
@@ -828,6 +830,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sizeInBytes
 specifier|public
 name|long
@@ -841,6 +845,8 @@ name|sizeInBytes
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|finish
 specifier|public
 name|void

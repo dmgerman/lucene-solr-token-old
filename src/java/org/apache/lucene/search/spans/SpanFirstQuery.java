@@ -174,6 +174,8 @@ return|return
 name|end
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getField
 specifier|public
 name|String
@@ -187,6 +189,8 @@ name|getField
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -263,6 +267,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object
@@ -298,6 +304,8 @@ return|return
 name|spanFirstQuery
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|extractTerms
 specifier|public
 name|void
@@ -318,6 +326,8 @@ name|terms
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpans
 specifier|public
 name|Spans
@@ -346,6 +356,8 @@ argument_list|(
 name|reader
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|next
@@ -377,6 +389,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|skipTo
@@ -412,6 +426,8 @@ name|next
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|doc
@@ -424,6 +440,8 @@ name|doc
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|start
@@ -436,6 +454,8 @@ name|start
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|end
@@ -449,6 +469,8 @@ argument_list|()
 return|;
 block|}
 comment|// TODO: Remove warning after API has been finalized
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -499,6 +521,8 @@ return|;
 comment|//TODO: any way to avoid the new construction?
 block|}
 comment|// TODO: Remove warning after API has been finalized
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPayloadAvailable
@@ -511,6 +535,8 @@ name|isPayloadAvailable
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -532,6 +558,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -605,6 +633,8 @@ return|;
 comment|// no clauses rewrote
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -674,6 +704,8 @@ name|getBoost
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

@@ -286,6 +286,8 @@ index|]
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getField
 specifier|public
 name|String
@@ -296,6 +298,8 @@ return|return
 name|field
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|extractTerms
 specifier|public
 name|void
@@ -326,6 +330,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object
@@ -405,6 +411,8 @@ return|return
 name|soq
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -519,6 +527,8 @@ return|;
 comment|// no clauses rewrote
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -625,6 +635,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -715,6 +727,8 @@ name|getBoost
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -781,6 +795,8 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|lessThan
 specifier|protected
 specifier|final
@@ -863,6 +879,8 @@ return|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getSpans
 specifier|public
 name|Spans
@@ -1015,6 +1033,8 @@ operator|!=
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|next
@@ -1098,6 +1118,8 @@ name|top
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|skipTo
@@ -1194,6 +1216,8 @@ name|next
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|doc
@@ -1207,6 +1231,8 @@ name|doc
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|start
@@ -1220,6 +1246,8 @@ name|start
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|end
@@ -1233,6 +1261,8 @@ name|end
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Collection
 argument_list|<
@@ -1291,6 +1321,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isPayloadAvailable
@@ -1313,6 +1345,8 @@ name|isPayloadAvailable
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString

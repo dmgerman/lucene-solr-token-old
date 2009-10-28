@@ -101,6 +101,8 @@ comment|/** Store the original field value in the index. This is useful for shor
 DECL|enum constant|YES
 name|YES
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isStored
@@ -116,6 +118,8 @@ comment|/** Do not store the field value in the index. */
 DECL|enum constant|NO
 name|NO
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isStored
@@ -146,6 +150,8 @@ comment|/** Do not index the field value. This field can thus not be searched,  
 DECL|enum constant|NO
 name|NO
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isIndexed
@@ -155,6 +161,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAnalyzed
@@ -164,6 +172,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|omitNorms
@@ -179,6 +189,8 @@ comment|/** Index the tokens produced by running the field's      * value throug
 DECL|enum constant|ANALYZED
 name|ANALYZED
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isIndexed
@@ -188,6 +200,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAnalyzed
@@ -197,6 +211,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|omitNorms
@@ -212,6 +228,8 @@ comment|/** Index the field's value without using an Analyzer, so it can be sear
 DECL|enum constant|NOT_ANALYZED
 name|NOT_ANALYZED
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isIndexed
@@ -221,6 +239,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAnalyzed
@@ -230,6 +250,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|omitNorms
@@ -245,6 +267,8 @@ comment|/** Expert: Index the field's value without an Analyzer,      * and also
 DECL|enum constant|NOT_ANALYZED_NO_NORMS
 name|NOT_ANALYZED_NO_NORMS
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isIndexed
@@ -254,6 +278,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAnalyzed
@@ -263,6 +289,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|omitNorms
@@ -278,6 +306,8 @@ comment|/** Expert: Index the tokens produced by running the      *  field's val
 DECL|enum constant|ANALYZED_NO_NORMS
 name|ANALYZED_NO_NORMS
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isIndexed
@@ -287,6 +317,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isAnalyzed
@@ -296,6 +328,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|omitNorms
@@ -437,6 +471,8 @@ comment|/** Do not store term vectors.       */
 DECL|enum constant|NO
 name|NO
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isStored
@@ -446,6 +482,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|withPositions
@@ -455,6 +493,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|withOffsets
@@ -470,6 +510,8 @@ comment|/** Store the term vectors of each document. A term vector is a list    
 DECL|enum constant|YES
 name|YES
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isStored
@@ -479,6 +521,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|withPositions
@@ -488,6 +532,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|withOffsets
@@ -503,6 +549,8 @@ comment|/**      * Store the term vector + token position information      *    
 DECL|enum constant|WITH_POSITIONS
 name|WITH_POSITIONS
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isStored
@@ -512,6 +560,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|withPositions
@@ -521,6 +571,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|withOffsets
@@ -536,6 +588,8 @@ comment|/**      * Store the term vector + Token offset information      *      
 DECL|enum constant|WITH_OFFSETS
 name|WITH_OFFSETS
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isStored
@@ -545,6 +599,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|withPositions
@@ -554,6 +610,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|withOffsets
@@ -569,6 +627,8 @@ comment|/**      * Store the term vector + Token position and offset information
 DECL|enum constant|WITH_POSITIONS_OFFSETS
 name|WITH_POSITIONS_OFFSETS
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isStored
@@ -578,6 +638,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|withPositions
@@ -587,6 +649,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|withOffsets

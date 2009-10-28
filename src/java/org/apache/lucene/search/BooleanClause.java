@@ -40,6 +40,8 @@ comment|/** Use this operator for clauses that<i>must</i> appear in the matching
 DECL|enum constant|MUST
 name|MUST
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -55,6 +57,8 @@ comment|/** Use this operator for clauses that<i>should</i> appear in the       
 DECL|enum constant|SHOULD
 name|SHOULD
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -70,6 +74,8 @@ comment|/** Use this operator for clauses that<i>must not</i> appear in the matc
 DECL|enum constant|MUST_NOT
 name|MUST_NOT
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -198,6 +204,8 @@ name|occur
 return|;
 block|}
 comment|/** Returns true if<code>o</code> is equal to this. */
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -253,6 +261,8 @@ name|occur
 return|;
 block|}
 comment|/** Returns a hash code value for this object.*/
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -290,6 +300,8 @@ literal|0
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

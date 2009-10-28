@@ -66,6 +66,8 @@ return|return
 name|singleton
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|makeLock
 specifier|public
 name|Lock
@@ -79,6 +81,8 @@ return|return
 name|singletonLock
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clearLock
 specifier|public
 name|void
@@ -101,6 +105,8 @@ name|NoLock
 extends|extends
 name|Lock
 block|{
+annotation|@
+name|Override
 DECL|method|obtain
 specifier|public
 name|boolean
@@ -113,12 +119,16 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|release
 specifier|public
 name|void
 name|release
 parameter_list|()
 block|{   }
+annotation|@
+name|Override
 DECL|method|isLocked
 specifier|public
 name|boolean
@@ -129,6 +139,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

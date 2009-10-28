@@ -208,6 +208,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|obtain
 specifier|public
 specifier|synchronized
@@ -248,6 +250,8 @@ return|return
 name|obtained
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|obtain
 specifier|public
 specifier|synchronized
@@ -266,6 +270,8 @@ name|obtain
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isLocked
 specifier|public
 specifier|synchronized
@@ -280,6 +286,8 @@ name|isLocked
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|release
 specifier|public
 specifier|synchronized
@@ -356,6 +364,8 @@ operator|=
 name|port
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|makeLock
 specifier|public
 specifier|synchronized
@@ -379,6 +389,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clearLock
 specifier|public
 specifier|synchronized

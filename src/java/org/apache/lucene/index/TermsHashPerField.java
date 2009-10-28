@@ -459,6 +459,8 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|abort
 specifier|synchronized
 specifier|public
@@ -1277,6 +1279,8 @@ specifier|private
 name|boolean
 name|doNextCall
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|start
 name|void
 name|start
@@ -1321,6 +1325,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|start
 name|boolean
 name|start
@@ -1713,6 +1719,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// Primary entry point (for first TermsHash)
+annotation|@
+name|Override
 DECL|method|add
 name|void
 name|add
@@ -2607,6 +2615,8 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|finish
 name|void
 name|finish

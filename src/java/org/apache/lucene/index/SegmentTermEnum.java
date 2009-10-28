@@ -372,6 +372,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|protected
 name|Object
@@ -512,6 +514,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Increments the enumeration to the next element.  True if one exists.*/
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 specifier|final
@@ -714,6 +718,8 @@ name|count
 return|;
 block|}
 comment|/** Returns the current Term in the enumeration.    Initially invalid, valid after next() called for the first time.*/
+annotation|@
+name|Override
 DECL|method|term
 specifier|public
 specifier|final
@@ -776,6 +782,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Returns the docFreq from the current TermInfo in the enumeration.    Initially invalid, valid after next() called for the first time.*/
+annotation|@
+name|Override
 DECL|method|docFreq
 specifier|public
 specifier|final
@@ -816,6 +824,8 @@ name|proxPointer
 return|;
 block|}
 comment|/** Closes the enumeration to further activity, freeing resources. */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 specifier|final

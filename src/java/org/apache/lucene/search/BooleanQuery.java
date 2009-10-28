@@ -124,6 +124,8 @@ specifier|public
 name|TooManyClauses
 parameter_list|()
 block|{}
+annotation|@
+name|Override
 DECL|method|getMessage
 specifier|public
 name|String
@@ -235,6 +237,8 @@ return|;
 block|}
 comment|// Implement coord disabling.
 comment|// Inherit javadoc.
+annotation|@
+name|Override
 DECL|method|getSimilarity
 specifier|public
 name|Similarity
@@ -268,6 +272,8 @@ argument_list|(
 name|result
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|coord

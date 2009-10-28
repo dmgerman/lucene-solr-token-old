@@ -2431,6 +2431,8 @@ operator|-
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object
@@ -3124,6 +3126,8 @@ argument_list|)
 return|;
 block|}
 comment|/** returns true if both sets have the same bits set */
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -3273,6 +3277,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

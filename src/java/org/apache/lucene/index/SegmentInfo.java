@@ -294,6 +294,8 @@ name|String
 argument_list|>
 name|diagnostics
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1340,6 +1342,8 @@ name|clearFiles
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object
@@ -3172,6 +3176,8 @@ name|docStore
 return|;
 block|}
 comment|/** We consider another SegmentInfo instance equal if it    *  has the same dir and same name. */
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -3221,6 +3227,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

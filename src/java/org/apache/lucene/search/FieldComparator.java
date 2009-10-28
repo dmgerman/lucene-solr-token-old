@@ -342,6 +342,8 @@ operator|)
 name|parser
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -366,6 +368,8 @@ name|slot2
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -384,6 +388,8 @@ name|doc
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -407,6 +413,8 @@ name|doc
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -437,6 +445,8 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -457,6 +467,8 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable
@@ -522,6 +534,8 @@ name|numHits
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -547,6 +561,8 @@ name|slot2
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -567,6 +583,8 @@ name|doc
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -589,6 +607,8 @@ operator|+
 name|doc
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -611,6 +631,8 @@ operator|=
 name|docBase
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -631,6 +653,8 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable
@@ -731,6 +755,8 @@ operator|)
 name|parser
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -792,6 +818,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -841,6 +869,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -864,6 +894,8 @@ name|doc
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -894,6 +926,8 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -914,6 +948,8 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable
@@ -1014,6 +1050,8 @@ operator|)
 name|parser
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -1077,6 +1115,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -1128,6 +1168,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -1151,6 +1193,8 @@ name|doc
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -1181,6 +1225,8 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -1201,6 +1247,8 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable
@@ -1302,6 +1350,8 @@ operator|)
 name|parser
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -1367,6 +1417,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -1420,6 +1472,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -1443,6 +1497,8 @@ name|doc
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -1473,6 +1529,8 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -1493,6 +1551,8 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable
@@ -1593,6 +1653,8 @@ operator|)
 name|parser
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -1656,6 +1718,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -1707,6 +1771,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -1730,6 +1796,8 @@ name|doc
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -1760,6 +1828,8 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -1780,6 +1850,8 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable
@@ -1845,6 +1917,8 @@ name|numHits
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -1894,6 +1968,8 @@ literal|0
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -1932,6 +2008,8 @@ literal|0
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -1957,6 +2035,8 @@ name|score
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -1969,6 +2049,8 @@ name|int
 name|docBase
 parameter_list|)
 block|{     }
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -1989,6 +2071,8 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -2011,6 +2095,8 @@ name|scorer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable
@@ -2111,6 +2197,8 @@ operator|)
 name|parser
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -2135,6 +2223,8 @@ name|slot2
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -2153,6 +2243,8 @@ name|doc
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -2176,6 +2268,8 @@ name|doc
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -2206,6 +2300,8 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -2226,6 +2322,8 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable
@@ -2324,6 +2422,8 @@ name|locale
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -2400,6 +2500,8 @@ name|val2
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -2464,6 +2566,8 @@ name|val2
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -2487,6 +2591,8 @@ name|doc
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -2515,6 +2621,8 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -2535,6 +2643,8 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable
@@ -2699,6 +2809,8 @@ operator|=
 name|field
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -2811,6 +2923,8 @@ name|val2
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -3056,6 +3170,8 @@ operator|=
 name|index
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -3107,6 +3223,8 @@ operator|=
 name|currentReaderGen
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -3179,6 +3297,8 @@ index|]
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -3236,6 +3356,8 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable
@@ -3342,6 +3464,8 @@ operator|=
 name|field
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -3416,6 +3540,8 @@ name|val2
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -3478,6 +3604,8 @@ name|val2
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -3501,6 +3629,8 @@ name|doc
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -3529,6 +3659,8 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -3549,6 +3681,8 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable

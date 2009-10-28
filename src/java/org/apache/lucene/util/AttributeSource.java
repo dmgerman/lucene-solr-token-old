@@ -204,6 +204,8 @@ specifier|private
 name|DefaultAttributeFactory
 parameter_list|()
 block|{}
+annotation|@
+name|Override
 DECL|method|createAttributeInstance
 specifier|public
 name|AttributeImpl
@@ -1141,6 +1143,8 @@ specifier|private
 name|State
 name|next
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object
@@ -1436,6 +1440,8 @@ literal|null
 condition|)
 do|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -1501,6 +1507,8 @@ return|return
 name|code
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -1698,6 +1706,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

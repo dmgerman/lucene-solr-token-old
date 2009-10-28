@@ -1382,6 +1382,8 @@ operator|=
 name|fieldName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -1402,6 +1404,8 @@ name|hashCode
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -1454,6 +1458,8 @@ argument_list|)
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1604,6 +1610,8 @@ name|entries
 return|;
 block|}
 comment|/**      * Multi-Line representation of this Insanity object, starting with       * the Type and Msg, followed by each CacheEntry.toString() on it's       * own line prefaced by a tab character      */
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1742,6 +1750,8 @@ operator|=
 name|label
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

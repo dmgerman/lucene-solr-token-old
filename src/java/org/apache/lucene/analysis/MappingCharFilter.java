@@ -134,6 +134,8 @@ operator|=
 name|normMap
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|read
 specifier|public
 name|int
@@ -569,6 +571,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|read
 specifier|public
 name|int

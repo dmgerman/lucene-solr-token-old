@@ -399,6 +399,8 @@ name|reader
 return|;
 block|}
 comment|/**    * Note that the underlying IndexReader is not closed, if    * IndexSearcher was constructed with IndexSearcher(IndexReader r).    * If the IndexReader was supplied implicitly by specifying a directory, then    * the IndexReader gets closed.    */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -418,6 +420,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// inherit javadoc
+annotation|@
+name|Override
 DECL|method|docFreq
 specifier|public
 name|int
@@ -439,6 +443,8 @@ argument_list|)
 return|;
 block|}
 comment|// inherit javadoc
+annotation|@
+name|Override
 DECL|method|doc
 specifier|public
 name|Document
@@ -490,6 +496,8 @@ argument_list|)
 return|;
 block|}
 comment|// inherit javadoc
+annotation|@
+name|Override
 DECL|method|maxDoc
 specifier|public
 name|int
@@ -506,6 +514,8 @@ argument_list|()
 return|;
 block|}
 comment|// inherit javadoc
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopDocs
@@ -571,6 +581,8 @@ name|topDocs
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopFieldDocs
@@ -725,6 +737,8 @@ name|topDocs
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|void
@@ -1086,6 +1100,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -1137,6 +1153,8 @@ return|return
 name|query
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|Explanation

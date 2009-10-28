@@ -173,6 +173,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// this is a dummy, to not throw an UOE because this class does not implement any iteration method
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean
@@ -258,6 +260,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|startDocument
 specifier|public
 name|void
@@ -277,6 +281,8 @@ name|startDocument
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|finishDocument
 specifier|public
 name|DocumentsWriter
@@ -301,6 +307,8 @@ name|finishDocument
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|abort
 name|void
 name|abort
@@ -323,6 +331,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addField
 specifier|public
 name|DocFieldConsumerPerField

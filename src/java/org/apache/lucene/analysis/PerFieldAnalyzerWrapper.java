@@ -171,6 +171,8 @@ name|analyzer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -216,6 +218,8 @@ name|reader
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reusableTokenStream
 specifier|public
 name|TokenStream
@@ -279,6 +283,8 @@ argument_list|)
 return|;
 block|}
 comment|/** Return the positionIncrementGap from the analyzer assigned to fieldName */
+annotation|@
+name|Override
 DECL|method|getPositionIncrementGap
 specifier|public
 name|int
@@ -317,6 +323,8 @@ name|fieldName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

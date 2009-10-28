@@ -58,6 +58,8 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|makeLock
 specifier|public
 name|Lock
@@ -80,6 +82,8 @@ name|lockName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clearLock
 specifier|public
 name|void
@@ -167,6 +171,8 @@ operator|=
 name|lockName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|obtain
 specifier|public
 name|boolean
@@ -190,6 +196,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|release
 specifier|public
 name|void
@@ -210,6 +218,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isLocked
 specifier|public
 name|boolean
@@ -231,6 +241,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

@@ -68,6 +68,8 @@ name|currentOff
 return|;
 block|}
 comment|/**    * Chains the corrected offset through the input    * CharFilter.    */
+annotation|@
+name|Override
 DECL|method|correctOffset
 specifier|public
 specifier|final
@@ -90,6 +92,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -104,6 +108,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|read
 specifier|public
 name|int
@@ -135,6 +141,8 @@ name|len
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|markSupported
 specifier|public
 name|boolean
@@ -148,6 +156,8 @@ name|markSupported
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|mark
 specifier|public
 name|void
@@ -167,6 +177,8 @@ name|readAheadLimit
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void

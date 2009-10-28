@@ -105,6 +105,8 @@ return|return
 name|prefix
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEnum
 specifier|protected
 name|FilteredTermEnum

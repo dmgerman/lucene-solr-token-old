@@ -98,6 +98,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|makeLock
 specifier|public
 name|Lock
@@ -133,6 +135,8 @@ name|lockName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clearLock
 specifier|public
 name|void
@@ -253,6 +257,8 @@ name|lockFileName
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|obtain
 specifier|public
 name|boolean
@@ -322,6 +328,8 @@ name|createNewFile
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|release
 specifier|public
 name|void
@@ -353,6 +361,8 @@ name|lockFile
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|isLocked
 specifier|public
 name|boolean
@@ -366,6 +376,8 @@ name|exists
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

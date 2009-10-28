@@ -117,6 +117,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * TODO: parallelize this one too    */
+annotation|@
+name|Override
 DECL|method|docFreq
 specifier|public
 name|int
@@ -138,6 +140,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * A search implementation which spans a new thread for each    * Searchable, waits for each search to complete and merge    * the results back together.    */
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopDocs
@@ -410,6 +414,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * A search implementation allowing sorting which spans a new thread for each    * Searchable, waits for each search to complete and merges    * the results back together.    */
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopFieldDocs
@@ -697,6 +703,8 @@ argument_list|)
 return|;
 block|}
 comment|/** Lower-level search API.   *   *<p>{@link Collector#collect(int)} is called for every matching document.   *   *<p>Applications should only use this if they need<i>all</i> of the   * matching documents.  The high-level search API ({@link   * Searcher#search(Query)}) is usually more efficient, as it skips   * non-high-scoring hits.   *   * @param weight to match documents   * @param filter if non-null, a bitset used to eliminate some documents   * @param collector to receive hits   *    * TODO: parallelize this one too   */
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|void
@@ -749,6 +757,8 @@ operator|new
 name|Collector
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setScorer
@@ -767,6 +777,8 @@ name|scorer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|collect
@@ -785,6 +797,8 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setNextReader
@@ -810,6 +824,8 @@ name|docBase
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|acceptsDocsOutOfOrder
@@ -841,6 +857,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/*    * TODO: this one could be parallelized too    * @see org.apache.lucene.search.Searchable#rewrite(org.apache.lucene.search.Query)    */
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -1094,6 +1112,8 @@ operator|=
 name|sort
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

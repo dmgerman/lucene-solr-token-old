@@ -54,6 +54,8 @@ operator|new
 name|DocIdSetIterator
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|advance
@@ -68,6 +70,8 @@ return|return
 name|NO_MORE_DOCS
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|docID
@@ -77,6 +81,8 @@ return|return
 name|NO_MORE_DOCS
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|nextDoc

@@ -211,6 +211,8 @@ name|similarity
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|docFreq
 specifier|public
 name|int
@@ -263,6 +265,8 @@ return|return
 name|df
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docFreqs
 specifier|public
 name|int
@@ -321,6 +325,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|maxDoc
 specifier|public
 name|int
@@ -331,6 +337,8 @@ return|return
 name|maxDoc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -348,6 +356,8 @@ return|return
 name|query
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -360,6 +370,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|doc
 specifier|public
 name|Document
@@ -393,6 +405,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|Explanation
@@ -411,6 +425,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|void
@@ -432,6 +448,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopDocs
@@ -453,6 +471,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopFieldDocs
@@ -598,6 +618,8 @@ name|starts
 return|;
 block|}
 comment|// inherit javadoc
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -631,6 +653,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|docFreq
 specifier|public
 name|int
@@ -680,6 +704,8 @@ name|docFreq
 return|;
 block|}
 comment|// inherit javadoc
+annotation|@
+name|Override
 DECL|method|doc
 specifier|public
 name|Document
@@ -810,6 +836,8 @@ argument_list|)
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|maxDoc
 specifier|public
 name|int
@@ -822,6 +850,8 @@ return|return
 name|maxDoc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopDocs
@@ -1031,6 +1061,8 @@ name|maxScore
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopFieldDocs
@@ -1375,6 +1407,8 @@ argument_list|)
 return|;
 block|}
 comment|// inherit javadoc
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|void
@@ -1427,6 +1461,8 @@ operator|new
 name|Collector
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setScorer
@@ -1445,6 +1481,8 @@ name|scorer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|collect
@@ -1463,6 +1501,8 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setNextReader
@@ -1488,6 +1528,8 @@ name|docBase
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|acceptsDocsOutOfOrder
@@ -1518,6 +1560,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -1586,6 +1630,8 @@ name|queries
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|Explanation
@@ -1630,6 +1676,8 @@ return|;
 comment|// dispatch to searcher
 block|}
 comment|/**    * Create weight in multiple index scenario.    *     * Distributed query processing is done in the following steps:    * 1. rewrite query    * 2. extract necessary terms    * 3. collect dfs for these terms from the Searchables    * 4. create query weight using aggregate dfs.    * 5. distribute that weight to Searchables    * 6. merge results    *    * Steps 1-4 are done here, 5+6 in the search() methods    *    * @return rewritten queries    */
+annotation|@
+name|Override
 DECL|method|createWeight
 specifier|protected
 name|Weight

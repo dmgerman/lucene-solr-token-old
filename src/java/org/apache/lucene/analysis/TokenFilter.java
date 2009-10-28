@@ -64,6 +64,8 @@ name|input
 expr_stmt|;
 block|}
 comment|/** Performs end-of-stream operations, if any, and calls then<code>end()</code> on the    * input TokenStream.<p/>     *<b>NOTE:</b> Be sure to call<code>super.end()</code> first when overriding this method.*/
+annotation|@
+name|Override
 DECL|method|end
 specifier|public
 name|void
@@ -79,6 +81,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/** Close the input TokenStream. */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -94,6 +98,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/** Reset the filter as well as the input TokenStream. */
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void

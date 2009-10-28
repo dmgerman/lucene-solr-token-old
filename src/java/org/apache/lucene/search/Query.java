@@ -131,6 +131,8 @@ name|field
 parameter_list|)
 function_decl|;
 comment|/** Prints a query to a string. */
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -612,6 +614,8 @@ argument_list|()
 return|;
 block|}
 comment|/** Returns a clone of this query. */
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object
@@ -647,6 +651,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -681,6 +687,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean

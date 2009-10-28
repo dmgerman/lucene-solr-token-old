@@ -143,6 +143,8 @@ operator|=
 name|docWriter
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addThread
 specifier|public
 name|TermsHashConsumerPerThread
@@ -162,6 +164,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createPostings
 name|void
 name|createPostings
@@ -209,6 +213,8 @@ name|PostingList
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|flush
 specifier|synchronized
 name|void
@@ -353,6 +359,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|closeDocStore
 specifier|synchronized
 name|void
@@ -1128,6 +1136,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|abort
 specifier|public
 name|void
@@ -1301,6 +1311,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|abort
 name|void
 name|abort
@@ -1373,6 +1385,8 @@ name|numVectorFields
 operator|++
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sizeInBytes
 specifier|public
 name|long
@@ -1386,6 +1400,8 @@ name|sizeInBytes
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|finish
 specifier|public
 name|void
@@ -1425,6 +1441,8 @@ name|lastPosition
 decl_stmt|;
 comment|// Last position where this term occurred
 block|}
+annotation|@
+name|Override
 DECL|method|bytesPerPosting
 name|int
 name|bytesPerPosting

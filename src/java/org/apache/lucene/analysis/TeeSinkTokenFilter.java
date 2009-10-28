@@ -299,6 +299,8 @@ argument_list|()
 condition|)
 empty_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean
@@ -393,6 +395,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|end
 specifier|public
 specifier|final
@@ -629,6 +633,8 @@ operator|=
 name|finalState
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 specifier|final
@@ -686,6 +692,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|end
 specifier|public
 specifier|final
@@ -709,6 +717,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 specifier|final
@@ -736,6 +746,8 @@ operator|new
 name|SinkFilter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept

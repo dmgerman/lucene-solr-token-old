@@ -203,6 +203,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Add a new field */
+annotation|@
+name|Override
 DECL|method|addField
 name|FormatPostingsTermsConsumer
 name|addField
@@ -223,6 +225,8 @@ name|termsWriter
 return|;
 block|}
 comment|/** Called when we are done adding everything. */
+annotation|@
+name|Override
 DECL|method|finish
 name|void
 name|finish

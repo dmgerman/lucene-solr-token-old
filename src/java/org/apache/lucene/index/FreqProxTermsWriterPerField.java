@@ -159,6 +159,8 @@ operator|.
 name|omitTermFreqAndPositions
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStreamCount
 name|int
 name|getStreamCount
@@ -178,6 +180,8 @@ return|return
 literal|2
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|finish
 name|void
 name|finish
@@ -187,6 +191,8 @@ DECL|field|hasPayloads
 name|boolean
 name|hasPayloads
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|skippingLongTerm
 name|void
 name|skippingLongTerm
@@ -236,6 +242,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|start
 name|boolean
 name|start
@@ -279,6 +287,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|start
 name|void
 name|start
@@ -447,6 +457,8 @@ operator|.
 name|position
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newTerm
 specifier|final
 name|void
@@ -529,6 +541,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addTerm
 specifier|final
 name|void

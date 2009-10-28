@@ -192,6 +192,8 @@ operator|.
 name|fieldState
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStreamCount
 name|int
 name|getStreamCount
@@ -201,6 +203,8 @@ return|return
 literal|2
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|start
 name|boolean
 name|start
@@ -392,6 +396,8 @@ name|abort
 parameter_list|()
 block|{}
 comment|/** Called once per field per document if term vectors    *  are enabled, to write the vectors to    *  RAMOutputStream, which is then quickly flushed to    *  * the real term vectors files in the Directory. */
+annotation|@
+name|Override
 DECL|method|finish
 name|void
 name|finish
@@ -869,6 +875,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|start
 name|void
 name|start
@@ -904,6 +912,8 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|newTerm
 name|void
 name|newTerm
@@ -1021,6 +1031,8 @@ name|position
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addTerm
 name|void
 name|addTerm
@@ -1145,6 +1157,8 @@ name|position
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|skippingLongTerm
 name|void
 name|skippingLongTerm

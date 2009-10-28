@@ -85,6 +85,8 @@ name|CRC32
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|readByte
 specifier|public
 name|byte
@@ -113,6 +115,8 @@ return|return
 name|b
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|readBytes
 specifier|public
 name|void
@@ -167,6 +171,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -181,6 +187,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFilePointer
 specifier|public
 name|long
@@ -194,6 +202,8 @@ name|getFilePointer
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|seek
 specifier|public
 name|void
@@ -211,6 +221,8 @@ literal|"not allowed"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|length
 specifier|public
 name|long

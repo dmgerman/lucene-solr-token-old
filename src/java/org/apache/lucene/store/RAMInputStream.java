@@ -133,6 +133,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -141,6 +143,8 @@ parameter_list|()
 block|{
 comment|// nothing to do here
 block|}
+annotation|@
+name|Override
 DECL|method|length
 specifier|public
 name|long
@@ -151,6 +155,8 @@ return|return
 name|length
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|readByte
 specifier|public
 name|byte
@@ -183,6 +189,8 @@ operator|++
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|readBytes
 specifier|public
 name|void
@@ -366,6 +374,8 @@ name|buflen
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getFilePointer
 specifier|public
 name|long
@@ -384,6 +394,8 @@ operator|+
 name|bufferPosition
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|seek
 specifier|public
 name|void

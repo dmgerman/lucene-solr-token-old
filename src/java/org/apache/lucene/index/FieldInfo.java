@@ -185,6 +185,8 @@ literal|false
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object

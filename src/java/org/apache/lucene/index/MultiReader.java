@@ -396,6 +396,8 @@ name|maxDoc
 expr_stmt|;
 block|}
 comment|/**    * Tries to reopen the subreaders.    *<br>    * If one or more subreaders could be re-opened (i. e. subReader.reopen()     * returned a new instance != subReader), then a new MultiReader instance     * is returned, otherwise this instance is returned.    *<p>    * A re-opened instance might share one or more subreaders with the old     * instance. Index modification operations result in undefined behavior    * when performed before the old instance is closed.    * (see {@link IndexReader#reopen()}).    *<p>    * If subreaders are shared, then the reference count of those    * readers is increased to ensure that the subreaders remain open    * until the last referring reader is closed.    *     * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error     */
+annotation|@
+name|Override
 DECL|method|reopen
 specifier|public
 specifier|synchronized
@@ -415,6 +417,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * Clones the subreaders.    * (see {@link IndexReader#clone()}).    *<br>    *<p>    * If subreaders are shared, then the reference count of those    * readers is increased to ensure that the subreaders remain open    * until the last referring reader is closed.    */
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 specifier|synchronized
@@ -717,6 +721,8 @@ name|this
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVectors
 specifier|public
 name|TermFreqVector
@@ -759,6 +765,8 @@ argument_list|)
 return|;
 comment|// dispatch to segment
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVector
 specifier|public
 name|TermFreqVector
@@ -804,6 +812,8 @@ name|field
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVector
 specifier|public
 name|void
@@ -853,6 +863,8 @@ name|mapper
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVector
 specifier|public
 name|void
@@ -897,6 +909,8 @@ name|mapper
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isOptimized
 specifier|public
 name|boolean
@@ -907,6 +921,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|numDocs
 specifier|public
 specifier|synchronized
@@ -966,6 +982,8 @@ return|return
 name|numDocs
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|maxDoc
 specifier|public
 name|int
@@ -978,6 +996,8 @@ name|maxDoc
 return|;
 block|}
 comment|// inherit javadoc
+annotation|@
+name|Override
 DECL|method|document
 specifier|public
 name|Document
@@ -1026,6 +1046,8 @@ argument_list|)
 return|;
 comment|// dispatch to segment reader
 block|}
+annotation|@
+name|Override
 DECL|method|isDeleted
 specifier|public
 name|boolean
@@ -1063,6 +1085,8 @@ argument_list|)
 return|;
 comment|// dispatch to segment reader
 block|}
+annotation|@
+name|Override
 DECL|method|hasDeletions
 specifier|public
 name|boolean
@@ -1074,6 +1098,8 @@ return|return
 name|hasDeletions
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doDelete
 specifier|protected
 name|void
@@ -1123,6 +1149,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doUndeleteAll
 specifier|protected
 name|void
@@ -1197,6 +1225,8 @@ name|length
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNorms
 specifier|public
 name|boolean
@@ -1281,6 +1311,8 @@ return|return
 name|ones
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|norms
 specifier|public
 specifier|synchronized
@@ -1385,6 +1417,8 @@ return|return
 name|bytes
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|norms
 specifier|public
 specifier|synchronized
@@ -1556,6 +1590,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doSetNorm
 specifier|protected
 name|void
@@ -1619,6 +1655,8 @@ argument_list|)
 expr_stmt|;
 comment|// dispatch
 block|}
+annotation|@
+name|Override
 DECL|method|terms
 specifier|public
 name|TermEnum
@@ -1644,6 +1682,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|terms
 specifier|public
 name|TermEnum
@@ -1672,6 +1712,8 @@ name|term
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docFreq
 specifier|public
 name|int
@@ -1724,6 +1766,8 @@ return|return
 name|total
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|termDocs
 specifier|public
 name|TermDocs
@@ -1747,6 +1791,8 @@ name|starts
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|termPositions
 specifier|public
 name|TermPositions
@@ -1770,6 +1816,8 @@ name|starts
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doCommit
 specifier|protected
 name|void
@@ -1813,6 +1861,8 @@ name|commitUserData
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doClose
 specifier|protected
 specifier|synchronized
@@ -1869,6 +1919,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getFieldNames
 specifier|public
 name|Collection
@@ -1900,6 +1952,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * Checks recursively if all subreaders are up to date.     */
+annotation|@
+name|Override
 DECL|method|isCurrent
 specifier|public
 name|boolean
@@ -1950,6 +2004,8 @@ literal|true
 return|;
 block|}
 comment|/** Not implemented.    * @throws UnsupportedOperationException    */
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|long
@@ -1964,6 +2020,8 @@ literal|"MultiReader does not support this method."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSequentialSubReaders
 specifier|public
 name|IndexReader

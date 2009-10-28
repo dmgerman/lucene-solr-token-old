@@ -400,6 +400,8 @@ return|return
 name|fileName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 specifier|synchronized
@@ -437,6 +439,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|openInput
 specifier|public
 specifier|synchronized
@@ -459,6 +463,8 @@ name|readBufferSize
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|openInput
 specifier|public
 specifier|synchronized
@@ -533,6 +539,8 @@ argument_list|)
 return|;
 block|}
 comment|/** Returns an array of strings, one for each file in the directory. */
+annotation|@
+name|Override
 DECL|method|listAll
 specifier|public
 name|String
@@ -566,6 +574,8 @@ argument_list|)
 return|;
 block|}
 comment|/** Returns true iff a file with the given name exists. */
+annotation|@
+name|Override
 DECL|method|fileExists
 specifier|public
 name|boolean
@@ -585,6 +595,8 @@ argument_list|)
 return|;
 block|}
 comment|/** Returns the time the compound file was last modified. */
+annotation|@
+name|Override
 DECL|method|fileModified
 specifier|public
 name|long
@@ -606,6 +618,8 @@ argument_list|)
 return|;
 block|}
 comment|/** Set the modified time of the compound file to now. */
+annotation|@
+name|Override
 DECL|method|touchFile
 specifier|public
 name|void
@@ -626,6 +640,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Not implemented      * @throws UnsupportedOperationException */
+annotation|@
+name|Override
 DECL|method|deleteFile
 specifier|public
 name|void
@@ -661,6 +677,8 @@ argument_list|()
 throw|;
 block|}
 comment|/** Returns the length of a file in the directory.      * @throws IOException if the file does not exist */
+annotation|@
+name|Override
 DECL|method|fileLength
 specifier|public
 name|long
@@ -706,6 +724,8 @@ name|length
 return|;
 block|}
 comment|/** Not implemented      * @throws UnsupportedOperationException */
+annotation|@
+name|Override
 DECL|method|createOutput
 specifier|public
 name|IndexOutput
@@ -722,6 +742,8 @@ argument_list|()
 throw|;
 block|}
 comment|/** Not implemented      * @throws UnsupportedOperationException */
+annotation|@
+name|Override
 DECL|method|makeLock
 specifier|public
 name|Lock
@@ -837,6 +859,8 @@ operator|=
 name|length
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object
@@ -883,6 +907,8 @@ name|clone
 return|;
 block|}
 comment|/** Expert: implements buffer refill.  Reads bytes from the current          *  position in the input.          * @param b the array to read bytes into          * @param offset the offset in the array to start storing bytes          * @param len the number of bytes to read          */
+annotation|@
+name|Override
 DECL|method|readInternal
 specifier|protected
 name|void
@@ -946,6 +972,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Expert: implements seek.  Sets current position in this file, where          *  the next {@link #readInternal(byte[],int,int)} will occur.          * @see #readInternal(byte[],int,int)          */
+annotation|@
+name|Override
 DECL|method|seekInternal
 specifier|protected
 name|void
@@ -956,6 +984,8 @@ name|pos
 parameter_list|)
 block|{}
 comment|/** Closes the stream to further operations. */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -970,6 +1000,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|length
 specifier|public
 name|long

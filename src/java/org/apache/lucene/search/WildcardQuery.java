@@ -173,6 +173,8 @@ literal|1
 operator|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEnum
 specifier|protected
 name|FilteredTermEnum

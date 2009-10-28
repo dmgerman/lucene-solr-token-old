@@ -141,6 +141,8 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|boolean
@@ -208,6 +210,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|skipTo
 specifier|public
 name|boolean
@@ -272,6 +276,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doc
 specifier|public
 name|int
@@ -282,6 +288,8 @@ return|return
 name|doc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|start
 specifier|public
 name|int
@@ -292,6 +300,8 @@ return|return
 name|position
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|end
 specifier|public
 name|int
@@ -305,6 +315,8 @@ literal|1
 return|;
 block|}
 comment|// TODO: Remove warning after API has been finalized
+annotation|@
+name|Override
 DECL|method|getPayload
 specifier|public
 name|Collection
@@ -351,6 +363,8 @@ argument_list|)
 return|;
 block|}
 comment|// TODO: Remove warning after API has been finalized
+annotation|@
+name|Override
 DECL|method|isPayloadAvailable
 specifier|public
 name|boolean
@@ -364,6 +378,8 @@ name|isPayloadAvailable
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

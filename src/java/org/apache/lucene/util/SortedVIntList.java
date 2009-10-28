@@ -722,6 +722,8 @@ name|s
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|docID
@@ -731,6 +733,8 @@ return|return
 name|doc
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|nextDoc
@@ -762,6 +766,8 @@ return|return
 name|doc
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|advance

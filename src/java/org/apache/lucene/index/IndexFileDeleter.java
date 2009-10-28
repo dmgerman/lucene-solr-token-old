@@ -2282,6 +2282,8 @@ name|directory
 argument_list|)
 assert|;
 block|}
+annotation|@
+name|Override
 DECL|method|isOptimized
 specifier|public
 name|boolean
@@ -2292,6 +2294,8 @@ return|return
 name|isOptimized
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSegmentsFileName
 specifier|public
 name|String
@@ -2302,6 +2306,8 @@ return|return
 name|segmentsFileName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFileNames
 specifier|public
 name|Collection
@@ -2317,6 +2323,8 @@ return|return
 name|files
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDirectory
 specifier|public
 name|Directory
@@ -2327,6 +2335,8 @@ return|return
 name|directory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|long
@@ -2337,6 +2347,8 @@ return|return
 name|version
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getGeneration
 specifier|public
 name|long
@@ -2347,6 +2359,8 @@ return|return
 name|generation
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getUserData
 specifier|public
 name|Map
@@ -2363,6 +2377,8 @@ name|userData
 return|;
 block|}
 comment|/**      * Called only be the deletion policy, to remove this      * commit point from the index.      */
+annotation|@
+name|Override
 DECL|method|delete
 specifier|public
 name|void
@@ -2388,6 +2404,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isDeleted
 specifier|public
 name|boolean

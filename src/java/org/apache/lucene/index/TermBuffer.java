@@ -640,6 +640,8 @@ return|return
 name|term
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|protected
 name|Object

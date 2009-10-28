@@ -414,6 +414,8 @@ expr_stmt|;
 comment|// kept for toString() only.
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|doc
 specifier|public
 name|int
@@ -425,6 +427,8 @@ name|matchDoc
 return|;
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|start
 specifier|public
 name|int
@@ -436,6 +440,8 @@ name|matchStart
 return|;
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|end
 specifier|public
 name|int
@@ -459,6 +465,8 @@ return|;
 block|}
 comment|// TODO: Remove warning after API has been finalized
 comment|// TODO: Would be nice to be able to lazy load payloads
+annotation|@
+name|Override
 DECL|method|getPayload
 specifier|public
 name|Collection
@@ -476,6 +484,8 @@ name|matchPayload
 return|;
 block|}
 comment|// TODO: Remove warning after API has been finalized
+annotation|@
+name|Override
 DECL|method|isPayloadAvailable
 specifier|public
 name|boolean
@@ -492,6 +502,8 @@ literal|false
 return|;
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|boolean
@@ -569,6 +581,8 @@ argument_list|()
 return|;
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|skipTo
 specifier|public
 name|boolean
@@ -1555,6 +1569,8 @@ name|match
 return|;
 comment|// ordered and allowed slop
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

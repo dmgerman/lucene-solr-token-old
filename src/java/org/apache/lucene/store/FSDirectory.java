@@ -604,6 +604,8 @@ name|result
 return|;
 block|}
 comment|/** Lists all files (not subdirectories) in the    * directory.    * @see #listAll(File) */
+annotation|@
+name|Override
 DECL|method|listAll
 specifier|public
 name|String
@@ -624,6 +626,8 @@ argument_list|)
 return|;
 block|}
 comment|/** Returns true iff a file with the given name exists. */
+annotation|@
+name|Override
 DECL|method|fileExists
 specifier|public
 name|boolean
@@ -655,6 +659,8 @@ argument_list|()
 return|;
 block|}
 comment|/** Returns the time the named file was last modified. */
+annotation|@
+name|Override
 DECL|method|fileModified
 specifier|public
 name|long
@@ -718,6 +724,8 @@ argument_list|()
 return|;
 block|}
 comment|/** Set the modified time of an existing file to now. */
+annotation|@
+name|Override
 DECL|method|touchFile
 specifier|public
 name|void
@@ -753,6 +761,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Returns the length in bytes of a file in the directory. */
+annotation|@
+name|Override
 DECL|method|fileLength
 specifier|public
 name|long
@@ -784,6 +794,8 @@ argument_list|()
 return|;
 block|}
 comment|/** Removes an existing file in the directory. */
+annotation|@
+name|Override
 DECL|method|deleteFile
 specifier|public
 name|void
@@ -827,6 +839,8 @@ name|file
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|sync
 specifier|public
 name|void
@@ -991,6 +1005,8 @@ name|exc
 throw|;
 block|}
 comment|// Inherit javadoc
+annotation|@
+name|Override
 DECL|method|openInput
 specifier|public
 name|IndexInput
@@ -1059,6 +1075,8 @@ block|,
 literal|'f'
 block|}
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getLockID
 specifier|public
 name|String
@@ -1199,6 +1217,8 @@ argument_list|()
 return|;
 block|}
 comment|/** Closes the store to future operations. */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 specifier|synchronized
@@ -1225,6 +1245,8 @@ name|directory
 return|;
 block|}
 comment|/** For debug output. */
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
