@@ -700,7 +700,7 @@ block|}
 return|return
 name|Arrays
 operator|.
-name|deepEquals
+name|equals
 argument_list|(
 name|valSrcQueries
 argument_list|,
@@ -734,7 +734,7 @@ argument_list|()
 operator|+
 name|Arrays
 operator|.
-name|deepHashCode
+name|hashCode
 argument_list|(
 name|valSrcQueries
 argument_list|)
