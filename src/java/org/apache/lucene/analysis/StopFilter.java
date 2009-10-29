@@ -508,8 +508,7 @@ name|Version
 name|matchVersion
 parameter_list|)
 block|{
-if|if
-condition|(
+return|return
 name|matchVersion
 operator|.
 name|onOrAfter
@@ -518,18 +517,7 @@ name|Version
 operator|.
 name|LUCENE_29
 argument_list|)
-condition|)
-block|{
-return|return
-literal|true
 return|;
-block|}
-else|else
-block|{
-return|return
-literal|false
-return|;
-block|}
 block|}
 comment|/**    * @see #setEnablePositionIncrements(boolean).     */
 DECL|method|getEnablePositionIncrements
