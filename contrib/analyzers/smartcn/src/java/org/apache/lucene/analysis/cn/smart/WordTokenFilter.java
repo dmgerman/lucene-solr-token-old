@@ -155,11 +155,17 @@ decl_stmt|;
 DECL|field|tokenIter
 specifier|private
 name|Iterator
+argument_list|<
+name|SegToken
+argument_list|>
 name|tokenIter
 decl_stmt|;
 DECL|field|tokenBuffer
 specifier|private
 name|List
+argument_list|<
+name|SegToken
+argument_list|>
 name|tokenBuffer
 decl_stmt|;
 DECL|field|termAtt
@@ -311,9 +317,6 @@ comment|// There are remaining tokens from the current sentence, return the next
 name|SegToken
 name|nextWord
 init|=
-operator|(
-name|SegToken
-operator|)
 name|tokenIter
 operator|.
 name|next

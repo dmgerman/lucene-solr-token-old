@@ -96,7 +96,7 @@ name|smart
 operator|.
 name|hhmm
 operator|.
-name|PathNode
+name|SegToken
 import|;
 end_import
 begin_comment
@@ -1000,10 +1000,13 @@ return|return
 name|charTypeArray
 return|;
 block|}
-comment|/**    * Return a list of {@link PathNode} representing the best segmentation of a sentence    * @param sentence input sentence    * @return best segmentation as a {@link List}    */
+comment|/**    * Return a list of {@link SegToken} representing the best segmentation of a sentence    * @param sentence input sentence    * @return best segmentation as a {@link List}    */
 DECL|method|process
 specifier|public
 name|List
+argument_list|<
+name|SegToken
+argument_list|>
 name|process
 parameter_list|(
 name|String
@@ -1028,6 +1031,9 @@ name|segGraph
 argument_list|)
 decl_stmt|;
 name|List
+argument_list|<
+name|SegToken
+argument_list|>
 name|shortPath
 init|=
 name|biSegGraph
