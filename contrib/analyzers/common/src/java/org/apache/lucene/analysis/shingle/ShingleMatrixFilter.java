@@ -265,8 +265,9 @@ specifier|static
 name|Character
 name|defaultSpacerCharacter
 init|=
-operator|new
 name|Character
+operator|.
+name|valueOf
 argument_list|(
 literal|'_'
 argument_list|)
