@@ -980,10 +980,6 @@ operator|.
 name|LUCENE_CURRENT
 argument_list|)
 block|,
-name|PatternAnalyzer
-operator|.
-name|DEFAULT_ANALYZER
-block|,
 comment|//        new WhitespaceAnalyzer(),
 comment|//        new PatternAnalyzer(PatternAnalyzer.NON_WORD_PATTERN, false, null),
 comment|//        new PatternAnalyzer(PatternAnalyzer.NON_WORD_PATTERN, true, stopWords),

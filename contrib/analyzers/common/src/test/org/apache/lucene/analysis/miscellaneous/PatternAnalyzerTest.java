@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index.memory
+DECL|package|org.apache.lucene.analysis.miscellaneous
 package|package
 name|org
 operator|.
@@ -8,9 +8,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|analysis
 operator|.
-name|memory
+name|miscellaneous
 package|;
 end_package
 begin_comment
