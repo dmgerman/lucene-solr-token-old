@@ -45,6 +45,24 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ObjectInputStream
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -118,7 +136,7 @@ name|nextDocBase
 decl_stmt|;
 DECL|field|distanceLookupCache
 specifier|protected
-specifier|final
+specifier|transient
 name|WeakHashMap
 argument_list|<
 name|String
@@ -185,6 +203,37 @@ expr_stmt|;
 comment|// create an intermediate cache to avoid recomputing
 comment|//   distances for the same point
 comment|//   TODO: Why is this a WeakHashMap?
+name|distanceLookupCache
+operator|=
+operator|new
+name|WeakHashMap
+argument_list|<
+name|String
+argument_list|,
+name|Double
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
+comment|/** needed for deserialization, because the cache is transient */
+DECL|method|readObject
+specifier|private
+name|void
+name|readObject
+parameter_list|(
+name|ObjectInputStream
+name|stream
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|ClassNotFoundException
+block|{
+name|stream
+operator|.
+name|defaultReadObject
+argument_list|()
+expr_stmt|;
 name|distanceLookupCache
 operator|=
 operator|new
