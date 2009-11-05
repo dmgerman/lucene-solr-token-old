@@ -419,6 +419,8 @@ name|PayloadAnalyzer
 extends|extends
 name|Analyzer
 block|{
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -509,6 +511,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean
@@ -675,6 +679,8 @@ name|inOrder
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void

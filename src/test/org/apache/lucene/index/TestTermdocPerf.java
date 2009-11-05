@@ -196,6 +196,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean
@@ -292,6 +294,8 @@ operator|new
 name|Analyzer
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|TokenStream
 name|tokenStream

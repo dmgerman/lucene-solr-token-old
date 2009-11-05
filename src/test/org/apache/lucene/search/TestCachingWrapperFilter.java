@@ -557,6 +557,8 @@ operator|new
 name|Filter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|DocIdSet
 name|getDocIdSet

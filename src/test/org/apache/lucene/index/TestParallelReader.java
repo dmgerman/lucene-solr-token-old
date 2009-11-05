@@ -258,6 +258,8 @@ specifier|private
 name|Searcher
 name|single
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void

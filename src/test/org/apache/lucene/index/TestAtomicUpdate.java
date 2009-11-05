@@ -183,6 +183,8 @@ name|mfl
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|testPoint
 name|boolean
 name|testPoint
@@ -268,6 +270,8 @@ operator|=
 name|threads
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|run
 specifier|public
 name|void
@@ -440,6 +444,8 @@ operator|=
 name|writer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doWork
 specifier|public
 name|void
@@ -595,6 +601,8 @@ operator|=
 name|directory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doWork
 specifier|public
 name|void

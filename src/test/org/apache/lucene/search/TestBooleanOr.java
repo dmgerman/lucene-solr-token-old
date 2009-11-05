@@ -364,7 +364,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 *<code>T:files T:deleting C:production C:optimize</code> 	 * it works. 	 * 	 * @throws IOException 	 */
+comment|/**    *<code>T:files T:deleting C:production C:optimize</code>    * it works.    *    * @throws IOException    */
 DECL|method|testFlat
 specifier|public
 name|void
@@ -459,7 +459,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 *<code>(T:files T:deleting) (+C:production +C:optimize)</code> 	 * it works. 	 * 	 * @throws IOException 	 */
+comment|/**    *<code>(T:files T:deleting) (+C:production +C:optimize)</code>    * it works.    *    * @throws IOException    */
 DECL|method|testParenthesisMust
 specifier|public
 name|void
@@ -594,7 +594,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 *<code>(T:files T:deleting) +(C:production C:optimize)</code> 	 * not working. results NO HIT. 	 * 	 * @throws IOException 	 */
+comment|/**    *<code>(T:files T:deleting) +(C:production C:optimize)</code>    * not working. results NO HIT.    *    * @throws IOException    */
 DECL|method|testParenthesisMust2
 specifier|public
 name|void
@@ -729,7 +729,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 *<code>(T:files T:deleting) (C:production C:optimize)</code> 	 * not working. results NO HIT. 	 * 	 * @throws IOException 	 */
+comment|/**    *<code>(T:files T:deleting) (C:production C:optimize)</code>    * not working. results NO HIT.    *    * @throws IOException    */
 DECL|method|testParenthesisShould
 specifier|public
 name|void
@@ -864,6 +864,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void
@@ -872,11 +874,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|super
 operator|.
 name|setUp

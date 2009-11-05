@@ -498,6 +498,8 @@ expr_stmt|;
 block|}
 comment|/**      * @see org.apache.lucene.search.function.DocValues#floatVal(int)      */
 comment|/* @Override */
+annotation|@
+name|Override
 DECL|method|floatVal
 specifier|public
 name|float
@@ -516,6 +518,8 @@ return|;
 block|}
 comment|/**      * @see org.apache.lucene.search.function.DocValues#toString(int)      */
 comment|/* @Override */
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

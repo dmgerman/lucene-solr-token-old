@@ -287,6 +287,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * initializes searcher with a document set    */
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void
@@ -466,6 +468,8 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|public
 name|void
@@ -1326,6 +1330,8 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -1510,6 +1516,8 @@ return|return
 name|lastDocCollected
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -1523,6 +1531,8 @@ name|IOException
 block|{
 comment|// scorer is not needed
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -1607,6 +1617,8 @@ operator|=
 name|docId
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -1624,6 +1636,8 @@ operator|=
 name|base
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean

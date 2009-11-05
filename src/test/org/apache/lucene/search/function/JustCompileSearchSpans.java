@@ -77,6 +77,8 @@ name|JustCompileDocValues
 extends|extends
 name|DocValues
 block|{
+annotation|@
+name|Override
 DECL|method|floatVal
 specifier|public
 name|float
@@ -94,6 +96,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -134,6 +138,8 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|cachedFieldSourceEquals
 specifier|public
 name|boolean
@@ -151,6 +157,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|cachedFieldSourceHashCode
 specifier|public
 name|int
@@ -165,6 +173,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCachedFieldValues
 specifier|public
 name|DocValues
@@ -199,6 +209,8 @@ name|JustCompileValueSource
 extends|extends
 name|ValueSource
 block|{
+annotation|@
+name|Override
 DECL|method|description
 specifier|public
 name|String
@@ -213,6 +225,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -230,6 +244,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValues
 specifier|public
 name|DocValues
@@ -249,6 +265,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

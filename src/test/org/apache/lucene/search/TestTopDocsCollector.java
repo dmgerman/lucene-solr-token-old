@@ -180,6 +180,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newTopDocs
 specifier|protected
 name|TopDocs
@@ -281,6 +283,8 @@ name|maxScore
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -315,6 +319,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -334,6 +340,8 @@ operator|=
 name|docBase
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -347,6 +355,8 @@ name|IOException
 block|{
 comment|// Don't do anything. Assign scores in random
 block|}
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean
@@ -507,6 +517,8 @@ return|return
 name|tdc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void
@@ -570,6 +582,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|protected
 name|void

@@ -276,6 +276,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/* @override */
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|protected
 name|void
@@ -299,6 +301,8 @@ literal|null
 expr_stmt|;
 block|}
 comment|/* @override */
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void

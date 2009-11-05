@@ -100,6 +100,8 @@ operator|.
 name|File
 name|__test_dir
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|public
 name|void
@@ -211,6 +213,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|public
 name|void

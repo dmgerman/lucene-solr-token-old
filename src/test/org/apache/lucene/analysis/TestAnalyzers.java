@@ -740,6 +740,8 @@ name|LUCENE_CURRENT
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -877,6 +879,8 @@ argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean

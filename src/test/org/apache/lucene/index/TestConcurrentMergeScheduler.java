@@ -151,6 +151,8 @@ DECL|field|hitExc
 name|boolean
 name|hitExc
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setDoFail
 specifier|public
 name|void
@@ -168,6 +170,8 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clearDoFail
 specifier|public
 name|void
@@ -181,6 +185,8 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|eval
 specifier|public
 name|void

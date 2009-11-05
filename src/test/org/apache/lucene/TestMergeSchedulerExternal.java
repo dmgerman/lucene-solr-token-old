@@ -243,6 +243,8 @@ literal|true
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getMergeThread
 specifier|protected
 name|MergeThread
@@ -296,6 +298,8 @@ return|return
 name|thread
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|handleMergeException
 specifier|protected
 name|void
@@ -310,6 +314,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doMerge
 specifier|protected
 name|void
@@ -346,6 +352,8 @@ name|MockRAMDirectory
 operator|.
 name|Failure
 block|{
+annotation|@
+name|Override
 DECL|method|eval
 specifier|public
 name|void

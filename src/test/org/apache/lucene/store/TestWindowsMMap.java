@@ -143,6 +143,8 @@ specifier|private
 name|Random
 name|random
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|public
 name|void

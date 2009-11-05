@@ -134,6 +134,8 @@ operator|new
 name|RAMDirectory
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void

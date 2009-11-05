@@ -214,6 +214,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void
@@ -431,6 +433,8 @@ specifier|private
 name|Scorer
 name|scorer
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setScorer
@@ -448,6 +452,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|collect
@@ -516,6 +522,8 @@ literal|5
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setNextReader
@@ -532,6 +540,8 @@ operator|=
 name|docBase
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|acceptsDocsOutOfOrder
@@ -900,6 +910,8 @@ operator|=
 name|score
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

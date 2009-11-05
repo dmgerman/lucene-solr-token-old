@@ -186,6 +186,8 @@ specifier|private
 name|Filter
 name|filter
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|public
 name|void
@@ -532,6 +534,8 @@ operator|new
 name|Filter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|DocIdSet
 name|getDocIdSet
@@ -574,6 +578,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|public
 name|void
@@ -1074,6 +1080,8 @@ operator|new
 name|Filter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|DocIdSet
 name|getDocIdSet

@@ -278,6 +278,8 @@ operator|new
 name|Query
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -1589,6 +1591,8 @@ specifier|private
 name|Scorer
 name|scorer
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setScorer
@@ -1606,6 +1610,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|collect
@@ -1970,6 +1976,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setNextReader
@@ -2002,6 +2010,8 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|acceptsDocsOutOfOrder
@@ -2234,6 +2244,8 @@ specifier|private
 name|IndexReader
 name|reader
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setScorer
@@ -2251,6 +2263,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|collect
@@ -2450,6 +2464,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setNextReader
@@ -2476,6 +2492,8 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|acceptsDocsOutOfOrder

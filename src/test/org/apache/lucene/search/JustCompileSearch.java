@@ -140,6 +140,8 @@ name|JustCompileSearcher
 extends|extends
 name|Searcher
 block|{
+annotation|@
+name|Override
 DECL|method|createWeight
 specifier|protected
 name|Weight
@@ -159,6 +161,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -175,6 +179,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|doc
 specifier|public
 name|Document
@@ -196,6 +202,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|docFreqs
 specifier|public
 name|int
@@ -217,6 +225,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|Explanation
@@ -239,6 +249,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSimilarity
 specifier|public
 name|Similarity
@@ -253,6 +265,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|void
@@ -275,6 +289,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|void
@@ -300,6 +316,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopDocs
@@ -325,6 +343,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopFieldDocs
@@ -353,6 +373,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopDocs
@@ -375,6 +397,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSimilarity
 specifier|public
 name|void
@@ -392,6 +416,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|docFreq
 specifier|public
 name|int
@@ -411,6 +437,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|Explanation
@@ -433,6 +461,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|maxDoc
 specifier|public
 name|int
@@ -449,6 +479,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -468,6 +500,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|void
@@ -493,6 +527,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopDocs
@@ -518,6 +554,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopFieldDocs
@@ -579,6 +617,8 @@ name|JustCompileCollector
 extends|extends
 name|Collector
 block|{
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -598,6 +638,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -620,6 +662,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -639,6 +683,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean
@@ -662,6 +708,8 @@ name|JustCompileDocIdSet
 extends|extends
 name|DocIdSet
 block|{
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|DocIdSetIterator
@@ -687,6 +735,8 @@ name|JustCompileDocIdSetIterator
 extends|extends
 name|DocIdSetIterator
 block|{
+annotation|@
+name|Override
 DECL|method|docID
 specifier|public
 name|int
@@ -701,6 +751,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -717,6 +769,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|advance
 specifier|public
 name|int
@@ -801,6 +855,8 @@ name|JustCompileFieldComparator
 extends|extends
 name|FieldComparator
 block|{
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -821,6 +877,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -840,6 +898,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -862,6 +922,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -879,6 +941,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -901,6 +965,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable
@@ -927,6 +993,8 @@ name|JustCompileFieldComparatorSource
 extends|extends
 name|FieldComparatorSource
 block|{
+annotation|@
+name|Override
 DECL|method|newComparator
 specifier|public
 name|FieldComparator
@@ -1006,6 +1074,8 @@ name|innerSet
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|match
 specifier|protected
 name|boolean
@@ -1046,6 +1116,8 @@ name|innerIter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|match
 specifier|protected
 name|boolean
@@ -1072,6 +1144,8 @@ name|JustCompileFilteredTermEnum
 extends|extends
 name|FilteredTermEnum
 block|{
+annotation|@
+name|Override
 DECL|method|difference
 specifier|public
 name|float
@@ -1086,6 +1160,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|endEnum
 specifier|protected
 name|boolean
@@ -1100,6 +1176,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|termCompare
 specifier|protected
 name|boolean
@@ -1162,6 +1240,8 @@ name|norms
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|phraseFreq
 specifier|protected
 name|float
@@ -1187,6 +1267,8 @@ name|JustCompileQuery
 extends|extends
 name|Query
 block|{
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1227,6 +1309,8 @@ name|similarity
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|score
 specifier|protected
 name|boolean
@@ -1252,6 +1336,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|score
 specifier|public
 name|float
@@ -1268,6 +1354,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|docID
 specifier|public
 name|int
@@ -1282,6 +1370,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -1298,6 +1388,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|advance
 specifier|public
 name|int
@@ -1326,6 +1418,8 @@ name|JustCompileSimilarity
 extends|extends
 name|Similarity
 block|{
+annotation|@
+name|Override
 DECL|method|coord
 specifier|public
 name|float
@@ -1346,6 +1440,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|idf
 specifier|public
 name|float
@@ -1366,6 +1462,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|lengthNorm
 specifier|public
 name|float
@@ -1386,6 +1484,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|queryNorm
 specifier|public
 name|float
@@ -1403,6 +1503,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|sloppyFreq
 specifier|public
 name|float
@@ -1420,6 +1522,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|tf
 specifier|public
 name|float
@@ -1446,6 +1550,8 @@ name|JustCompileSpanFilter
 extends|extends
 name|SpanFilter
 block|{
+annotation|@
+name|Override
 DECL|method|bitSpans
 specifier|public
 name|SpanFilterResult
@@ -1505,6 +1611,8 @@ name|pq
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -1524,6 +1632,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -1546,6 +1656,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -1565,6 +1677,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean
@@ -1588,6 +1702,8 @@ name|JustCompileWeight
 extends|extends
 name|Weight
 block|{
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|Explanation
@@ -1610,6 +1726,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getQuery
 specifier|public
 name|Query
@@ -1624,6 +1742,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|float
@@ -1638,6 +1758,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|normalize
 specifier|public
 name|void
@@ -1655,6 +1777,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|sumOfSquaredWeights
 specifier|public
 name|float
@@ -1671,6 +1795,8 @@ name|UNSUPPORTED_MSG
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|scorer
 specifier|public
 name|Scorer

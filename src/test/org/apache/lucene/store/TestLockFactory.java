@@ -1228,6 +1228,8 @@ operator|=
 name|dir
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|run
 specifier|public
 name|void
@@ -1528,6 +1530,8 @@ operator|=
 name|dir
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|run
 specifier|public
 name|void
@@ -1770,6 +1774,8 @@ name|makeLockCount
 init|=
 literal|0
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setLockPrefix
 specifier|public
 name|void
@@ -1791,6 +1797,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|makeLock
 specifier|synchronized
 specifier|public
@@ -1824,6 +1832,8 @@ return|return
 name|lock
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clearLock
 specifier|public
 name|void
@@ -1845,6 +1855,8 @@ specifier|public
 name|int
 name|lockAttempts
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|obtain
 specifier|public
 name|boolean
@@ -1858,6 +1870,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|release
 specifier|public
 name|void
@@ -1866,6 +1880,8 @@ parameter_list|()
 block|{
 comment|// do nothing
 block|}
+annotation|@
+name|Override
 DECL|method|isLocked
 specifier|public
 name|boolean

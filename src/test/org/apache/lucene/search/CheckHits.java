@@ -548,6 +548,8 @@ name|base
 init|=
 literal|0
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -559,6 +561,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -583,6 +587,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -600,6 +606,8 @@ operator|=
 name|docBase
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean
@@ -2158,6 +2166,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopFieldDocs
@@ -2198,6 +2208,8 @@ name|sort
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|void
@@ -2227,6 +2239,8 @@ name|results
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|void
@@ -2261,6 +2275,8 @@ name|results
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|search
 specifier|public
 name|TopDocs
@@ -2416,6 +2432,8 @@ operator|=
 name|deep
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -2434,6 +2452,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -2526,6 +2546,8 @@ name|exp
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -2543,6 +2565,8 @@ operator|=
 name|docBase
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean

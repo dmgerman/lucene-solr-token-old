@@ -413,6 +413,8 @@ operator|*
 name|TERM_FREQ
 index|]
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void
@@ -898,6 +900,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean
@@ -1002,6 +1006,8 @@ name|MyAnalyzer
 extends|extends
 name|Analyzer
 block|{
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -2966,6 +2972,8 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setExpectations
 specifier|public
 name|void
@@ -3001,6 +3009,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|map
 specifier|public
 name|void
@@ -3048,6 +3058,8 @@ return|return
 name|documentNumber
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDocumentNumber
 specifier|public
 name|void

@@ -84,6 +84,8 @@ operator|=
 name|dir
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -184,6 +186,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object

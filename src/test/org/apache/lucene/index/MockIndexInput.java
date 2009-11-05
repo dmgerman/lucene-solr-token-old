@@ -73,6 +73,8 @@ operator|.
 name|length
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|readInternal
 specifier|protected
 name|void
@@ -169,6 +171,8 @@ operator|+=
 name|len
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -177,6 +181,8 @@ parameter_list|()
 block|{
 comment|// ignore
 block|}
+annotation|@
+name|Override
 DECL|method|seekInternal
 specifier|protected
 name|void
@@ -194,6 +200,8 @@ operator|)
 name|pos
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|length
 specifier|public
 name|long

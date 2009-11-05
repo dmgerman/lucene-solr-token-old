@@ -236,6 +236,8 @@ name|SimilarityOne
 extends|extends
 name|DefaultSimilarity
 block|{
+annotation|@
+name|Override
 DECL|method|lengthNorm
 specifier|public
 name|float
@@ -318,6 +320,8 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void

@@ -2078,6 +2078,8 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -2593,6 +2595,8 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -3510,6 +3514,8 @@ DECL|field|warmCount
 name|int
 name|warmCount
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|warm
 specifier|public
 name|void
@@ -4241,6 +4247,8 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -4604,6 +4612,8 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run

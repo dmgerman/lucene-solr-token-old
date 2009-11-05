@@ -108,6 +108,8 @@ name|IndexSearcher
 name|searcher2
 decl_stmt|;
 comment|/**      * Initializes the tests by adding documents to the index.      */
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void
@@ -454,6 +456,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Tests two span queries.      *      * @throws IOException      */
+annotation|@
+name|Override
 DECL|method|testBooleanQueryWithSpanQueries
 specifier|public
 name|void

@@ -1849,6 +1849,8 @@ specifier|private
 name|Scorer
 name|scorer
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -1865,6 +1867,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -1918,6 +1922,8 @@ specifier|private
 name|Scorer
 name|scorer
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -1934,6 +1940,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -1989,6 +1997,8 @@ specifier|private
 name|Scorer
 name|scorer
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -2005,6 +2015,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -2067,6 +2079,8 @@ specifier|private
 name|Scorer
 name|scorer
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -2083,6 +2097,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -2170,6 +2186,8 @@ operator|new
 name|CountingHitCollector
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 specifier|final
 name|void
@@ -2257,6 +2275,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -2268,6 +2288,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -2312,6 +2334,8 @@ return|return
 name|sum
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -2331,6 +2355,8 @@ operator|=
 name|docBase
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean

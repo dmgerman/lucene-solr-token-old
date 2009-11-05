@@ -318,6 +318,8 @@ name|field
 init|=
 literal|"field"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|public
 name|void
@@ -2669,6 +2671,8 @@ operator|new
 name|DefaultSimilarity
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|sloppyFreq
@@ -2709,6 +2713,8 @@ argument_list|,
 name|ordered
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Similarity
 name|getSimilarity

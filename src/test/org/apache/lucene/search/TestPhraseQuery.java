@@ -185,6 +185,8 @@ specifier|private
 name|RAMDirectory
 name|directory
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|public
 name|void
@@ -211,6 +213,8 @@ operator|new
 name|Analyzer
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|TokenStream
 name|tokenStream
@@ -230,6 +234,8 @@ name|reader
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getPositionIncrementGap
@@ -485,6 +491,8 @@ name|PhraseQuery
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|public
 name|void

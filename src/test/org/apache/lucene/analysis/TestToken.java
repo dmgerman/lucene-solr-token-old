@@ -1633,6 +1633,8 @@ name|AttributeImpl
 implements|implements
 name|SenselessAttribute
 block|{
+annotation|@
+name|Override
 DECL|method|copyTo
 specifier|public
 name|void
@@ -1642,12 +1644,16 @@ name|AttributeImpl
 name|target
 parameter_list|)
 block|{}
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 name|void
 name|clear
 parameter_list|()
 block|{}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -1665,6 +1671,8 @@ name|SenselessAttributeImpl
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

@@ -282,6 +282,8 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sync
 specifier|public
 specifier|synchronized
@@ -680,6 +682,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|deleteFile
 specifier|public
 specifier|synchronized
@@ -787,6 +791,8 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createOutput
 specifier|public
 specifier|synchronized
@@ -981,6 +987,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|openInput
 specifier|public
 specifier|synchronized
@@ -1168,6 +1176,8 @@ return|return
 name|size
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 specifier|synchronized
