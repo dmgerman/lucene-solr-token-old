@@ -160,6 +160,8 @@ name|doc
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setup
 specifier|public
 name|void
@@ -190,6 +192,8 @@ name|makeDocument
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogMessage
 specifier|protected
 name|String
@@ -211,6 +215,8 @@ operator|+
 literal|" tokens"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|public
 name|void
@@ -229,6 +235,8 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doLogic
 specifier|public
 name|int
@@ -456,6 +464,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|read
 specifier|public
 name|int
@@ -479,6 +489,8 @@ name|length
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|read
 specifier|public
 name|int
@@ -580,6 +592,8 @@ name|r
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

@@ -248,6 +248,8 @@ operator|=
 name|field
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|cloneTree
 specifier|public
 name|QueryNode
@@ -287,6 +289,8 @@ return|return
 name|clone
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -390,6 +394,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toQueryString
 specifier|public
 name|CharSequence

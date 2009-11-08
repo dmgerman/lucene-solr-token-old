@@ -278,6 +278,8 @@ name|runData
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setup
 specifier|public
 name|void
@@ -340,6 +342,8 @@ name|DEFAULT_MAX_CHARS_TO_ANALYZE
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|withRetrieve
 specifier|public
 name|boolean
@@ -350,6 +354,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|numToHighlight
 specifier|public
 name|int
@@ -360,6 +366,8 @@ return|return
 name|numToHighlight
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBenchmarkHighlighter
 specifier|protected
 name|BenchmarkHighlighter
@@ -397,6 +405,8 @@ operator|new
 name|BenchmarkHighlighter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|doHighlight
@@ -472,6 +482,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFieldsToHighlight
 specifier|protected
 name|Collection
@@ -534,6 +546,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setParams
 specifier|public
 name|void

@@ -115,6 +115,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @see TestCase#setUp()      */
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void
@@ -256,6 +258,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * @see TestCase#tearDown()      */
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|protected
 name|void

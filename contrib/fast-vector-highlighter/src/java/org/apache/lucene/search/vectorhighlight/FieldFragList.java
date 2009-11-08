@@ -255,6 +255,8 @@ name|boost
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -396,6 +398,8 @@ operator|=
 name|seqnum
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

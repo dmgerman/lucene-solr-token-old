@@ -498,6 +498,8 @@ specifier|public
 name|String
 name|fileDir
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void
@@ -2072,6 +2074,8 @@ specifier|private
 name|Scorer
 name|scorer
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|collect
@@ -2093,6 +2097,8 @@ name|score
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setScorer
@@ -2110,6 +2116,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|acceptsDocsOutOfOrder
@@ -2119,6 +2127,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setNextReader

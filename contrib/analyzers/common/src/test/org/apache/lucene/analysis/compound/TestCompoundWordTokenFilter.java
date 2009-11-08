@@ -285,6 +285,8 @@ name|byte
 index|[]
 name|patternsFileContent
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void

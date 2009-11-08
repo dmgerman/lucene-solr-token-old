@@ -199,6 +199,8 @@ operator|=
 name|matchVersion
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -276,6 +278,8 @@ name|result
 decl_stmt|;
 block|}
 empty_stmt|;
+annotation|@
+name|Override
 DECL|method|reusableTokenStream
 specifier|public
 name|TokenStream

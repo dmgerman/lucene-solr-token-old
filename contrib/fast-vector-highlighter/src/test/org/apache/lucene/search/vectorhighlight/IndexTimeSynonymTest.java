@@ -2390,6 +2390,8 @@ operator|=
 name|tokens
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -2432,6 +2434,8 @@ name|p
 init|=
 literal|0
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|incrementToken

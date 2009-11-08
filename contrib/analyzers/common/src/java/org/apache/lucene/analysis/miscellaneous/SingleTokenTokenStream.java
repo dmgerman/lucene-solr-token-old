@@ -162,6 +162,8 @@ name|Token
 operator|)
 assert|;
 block|}
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 specifier|final
@@ -201,6 +203,8 @@ literal|true
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void

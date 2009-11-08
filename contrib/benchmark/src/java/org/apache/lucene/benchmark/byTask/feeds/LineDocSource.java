@@ -191,6 +191,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -217,6 +219,8 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getNextDocData
 specifier|public
 name|DocData
@@ -401,6 +405,8 @@ return|return
 name|docData
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetInputs
 specifier|public
 name|void
@@ -418,6 +424,8 @@ name|openFile
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setConfig
 specifier|public
 name|void

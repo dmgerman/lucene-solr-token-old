@@ -61,6 +61,8 @@ name|maxBackgroundColor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|highlightTerm
 specifier|public
 name|String

@@ -78,6 +78,8 @@ specifier|private
 name|List
 name|list
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void

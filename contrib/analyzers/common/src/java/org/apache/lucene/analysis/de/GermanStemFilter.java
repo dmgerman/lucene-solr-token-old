@@ -161,6 +161,8 @@ name|exclusionSet
 expr_stmt|;
 block|}
 comment|/**      * @return  Returns true for next token in the stream, or false at EOS      */
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean

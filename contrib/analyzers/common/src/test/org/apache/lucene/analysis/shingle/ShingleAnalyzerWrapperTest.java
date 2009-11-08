@@ -1358,6 +1358,8 @@ name|LUCENE_CURRENT
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -1456,6 +1458,8 @@ name|invocationCount
 init|=
 literal|0
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream

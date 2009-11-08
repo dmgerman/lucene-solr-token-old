@@ -115,6 +115,8 @@ specifier|protected
 name|String
 name|prefix
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|doLogic
 specifier|public
 name|int
@@ -382,6 +384,8 @@ name|prefix
 expr_stmt|;
 block|}
 comment|/* (non-Javadoc)    * @see PerfTask#toString()    */
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

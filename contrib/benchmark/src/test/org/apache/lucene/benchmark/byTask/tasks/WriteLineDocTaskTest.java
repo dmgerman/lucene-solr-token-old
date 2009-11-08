@@ -226,6 +226,8 @@ name|WriteLineDocMaker
 extends|extends
 name|DocMaker
 block|{
+annotation|@
+name|Override
 DECL|method|makeDocument
 specifier|public
 name|Document
@@ -319,6 +321,8 @@ name|NewLinesDocMaker
 extends|extends
 name|DocMaker
 block|{
+annotation|@
+name|Override
 DECL|method|makeDocument
 specifier|public
 name|Document
@@ -412,6 +416,8 @@ name|NoBodyDocMaker
 extends|extends
 name|DocMaker
 block|{
+annotation|@
+name|Override
 DECL|method|makeDocument
 specifier|public
 name|Document
@@ -484,6 +490,8 @@ name|NoTitleDocMaker
 extends|extends
 name|DocMaker
 block|{
+annotation|@
+name|Override
 DECL|method|makeDocument
 specifier|public
 name|Document
@@ -556,6 +564,8 @@ name|JustDateDocMaker
 extends|extends
 name|DocMaker
 block|{
+annotation|@
+name|Override
 DECL|method|makeDocument
 specifier|public
 name|Document

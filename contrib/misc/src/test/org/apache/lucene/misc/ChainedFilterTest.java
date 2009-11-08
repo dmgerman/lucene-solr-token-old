@@ -355,6 +355,8 @@ specifier|private
 name|QueryWrapperFilter
 name|sueFilter
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|public
 name|void

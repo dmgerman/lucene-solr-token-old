@@ -174,6 +174,8 @@ operator|new
 name|WhitespaceAnalyzer
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void

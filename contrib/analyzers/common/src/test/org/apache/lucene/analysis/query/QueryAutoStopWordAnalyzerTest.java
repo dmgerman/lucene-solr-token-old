@@ -343,6 +343,8 @@ DECL|field|protectedAnalyzer
 name|QueryAutoStopWordAnalyzer
 name|protectedAnalyzer
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void
@@ -525,6 +527,8 @@ name|appAnalyzer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|protected
 name|void
@@ -1022,6 +1026,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -1105,6 +1111,8 @@ name|invocationCount
 init|=
 literal|0
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream

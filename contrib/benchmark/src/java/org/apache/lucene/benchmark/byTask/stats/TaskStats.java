@@ -267,6 +267,8 @@ name|taskRunNum
 return|;
 block|}
 comment|/* (non-Javadoc)    * @see java.lang.Object#toString()    */
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -460,6 +462,8 @@ comment|// no meaning if aggregating tasks of different round.
 block|}
 block|}
 comment|/* (non-Javadoc)    * @see java.lang.Object#clone()    */
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object

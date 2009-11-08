@@ -292,6 +292,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Returns the next token in the stream, or null at EOS. */
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 specifier|final
@@ -550,6 +552,8 @@ name|tmp
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void

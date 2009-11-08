@@ -93,6 +93,8 @@ return|return
 literal|"[DELETEDCHILD]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -103,6 +105,8 @@ return|return
 literal|"<deleted/>"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|cloneTree
 specifier|public
 name|QueryNode

@@ -68,6 +68,8 @@ specifier|private
 name|String
 name|value
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|doLogic
 specifier|public
 name|int
@@ -122,6 +124,8 @@ literal|0
 return|;
 block|}
 comment|/**    * Set the params (property name and value).    * @param params property name and value separated by ','.    */
+annotation|@
+name|Override
 DECL|method|setParams
 specifier|public
 name|void
@@ -178,6 +182,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/* (non-Javadoc)    * @see org.apache.lucene.benchmark.byTask.tasks.PerfTask#supportsParams()    */
+annotation|@
+name|Override
 DECL|method|supportsParams
 specifier|public
 name|boolean

@@ -224,6 +224,8 @@ return|return
 name|field
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

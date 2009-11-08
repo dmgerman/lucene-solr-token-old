@@ -265,6 +265,8 @@ name|index
 decl_stmt|,
 name|blocks
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|public
 name|void
@@ -502,6 +504,8 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|public
 name|void

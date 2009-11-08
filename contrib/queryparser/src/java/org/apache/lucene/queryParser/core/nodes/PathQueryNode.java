@@ -163,6 +163,8 @@ operator|=
 name|end
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|QueryText
@@ -243,6 +245,8 @@ return|return
 name|end
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -593,6 +597,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -632,6 +638,8 @@ operator|+
 literal|"'/>"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|cloneTree
 specifier|public
 name|QueryNode

@@ -306,6 +306,8 @@ operator|new
 name|Analyzer
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|TokenStream
 name|tokenStream
@@ -383,6 +385,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|incrementToken
@@ -552,6 +556,8 @@ operator|new
 name|Analyzer
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|TokenStream
 name|tokenStream
@@ -583,6 +589,8 @@ name|todo
 init|=
 name|maxTokens
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|incrementToken
@@ -640,6 +648,8 @@ operator|new
 name|Analyzer
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|TokenStream
 name|tokenStream
@@ -747,6 +757,8 @@ operator|new
 name|Analyzer
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|TokenStream
 name|tokenStream
@@ -839,6 +851,8 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|TokenStream
 name|tokenStream
@@ -908,6 +922,8 @@ name|reader
 argument_list|)
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|incrementToken
@@ -976,6 +992,8 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|incrementToken
@@ -1482,6 +1500,8 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

@@ -100,6 +100,8 @@ name|byStep
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|doLogic
 specifier|public
 name|int
@@ -129,6 +131,8 @@ return|;
 comment|// one work item done here
 block|}
 comment|/* (non-Javadoc)    * @see org.apache.lucene.benchmark.byTask.tasks.PerfTask#setup()    */
+annotation|@
+name|Override
 DECL|method|setup
 specifier|public
 name|void
@@ -179,6 +183,8 @@ name|docid
 operator|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLogMessage
 specifier|protected
 name|String
@@ -199,6 +205,8 @@ name|lastDeleted
 return|;
 block|}
 comment|/**    * Set the params (docid only)    * @param params docid to delete, or -1 for deleting by delete gap settings.    */
+annotation|@
+name|Override
 DECL|method|setParams
 specifier|public
 name|void
@@ -237,6 +245,8 @@ operator|)
 expr_stmt|;
 block|}
 comment|/* (non-Javadoc)    * @see org.apache.lucene.benchmark.byTask.tasks.PerfTask#supportsParams()    */
+annotation|@
+name|Override
 DECL|method|supportsParams
 specifier|public
 name|boolean

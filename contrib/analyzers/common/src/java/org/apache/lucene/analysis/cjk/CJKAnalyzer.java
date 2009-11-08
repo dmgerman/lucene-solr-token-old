@@ -274,6 +274,8 @@ expr_stmt|;
 block|}
 comment|//~ Methods ----------------------------------------------------------------
 comment|/**    * Creates a {@link TokenStream} which tokenizes all the text in the provided {@link Reader}.    *    * @param fieldName lucene field name    * @param reader    input {@link Reader}    * @return A {@link TokenStream} built from {@link CJKTokenizer}, filtered with    *    {@link StopFilter}    */
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 specifier|final
@@ -324,6 +326,8 @@ decl_stmt|;
 block|}
 empty_stmt|;
 comment|/**    * Returns a (possibly reused) {@link TokenStream} which tokenizes all the text     * in the provided {@link Reader}.    *    * @param fieldName lucene field name    * @param reader    Input {@link Reader}    * @return A {@link TokenStream} built from {@link CJKTokenizer}, filtered with    *    {@link StopFilter}    */
+annotation|@
+name|Override
 DECL|method|reusableTokenStream
 specifier|public
 specifier|final

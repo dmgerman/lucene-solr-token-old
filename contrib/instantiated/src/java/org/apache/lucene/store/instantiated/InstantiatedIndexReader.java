@@ -298,6 +298,8 @@ name|index
 expr_stmt|;
 block|}
 comment|/**    * @return always true.    */
+annotation|@
+name|Override
 DECL|method|isOptimized
 specifier|public
 name|boolean
@@ -309,6 +311,8 @@ literal|true
 return|;
 block|}
 comment|/**    * An InstantiatedIndexReader is not a snapshot in time, it is completely in    * sync with the latest commit to the store!    *     * @return output from {@link InstantiatedIndex#getVersion()} in associated instantiated index.    */
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|long
@@ -322,6 +326,8 @@ name|getVersion
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|directory
 specifier|public
 name|Directory
@@ -335,6 +341,8 @@ argument_list|()
 throw|;
 block|}
 comment|/**    * An InstantiatedIndexReader is always current!    *     * Check whether this IndexReader is still using the current (i.e., most    * recently committed) version of the index. If a writer has committed any    * changes to the index since this reader was opened, this will return    *<code>false</code>, in which case you must open a new IndexReader in    * order to see the changes. See the description of the<a    * href="IndexWriter.html#autoCommit"><code>autoCommit</code></a> flag    * which controls when the {@link IndexWriter} actually commits changes to the    * index.    *     * @return always true    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    * @throws UnsupportedOperationException unless overridden in subclass    */
+annotation|@
+name|Override
 DECL|method|isCurrent
 specifier|public
 name|boolean
@@ -442,6 +450,8 @@ name|value
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|numDocs
 specifier|public
 name|int
@@ -471,6 +481,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|maxDoc
 specifier|public
 name|int
@@ -487,6 +499,8 @@ operator|.
 name|length
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isDeleted
 specifier|public
 name|boolean
@@ -516,6 +530,8 @@ name|n
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasDeletions
 specifier|public
 name|boolean
@@ -542,6 +558,8 @@ operator|>
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doDelete
 specifier|protected
 name|void
@@ -595,6 +613,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doUndeleteAll
 specifier|protected
 name|void
@@ -614,6 +634,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doCommit
 specifier|protected
 name|void
@@ -759,6 +781,8 @@ expr_stmt|;
 block|}
 comment|// todo unlock read/writelock
 block|}
+annotation|@
+name|Override
 DECL|method|doClose
 specifier|protected
 name|void
@@ -770,6 +794,8 @@ block|{
 comment|// ignored
 comment|// todo perhaps release all associated instances?
 block|}
+annotation|@
+name|Override
 DECL|method|getFieldNames
 specifier|public
 name|Collection
@@ -1110,6 +1136,8 @@ name|fieldSet
 return|;
 block|}
 comment|/**    * Return the {@link org.apache.lucene.document.Document} at the<code>n</code><sup>th</sup>    * position.<p>    *<b>Warning!</b>    * The resulting document is the actual stored document instance    * and not a deserialized clone as retuned by an IndexReader    * over a {@link org.apache.lucene.store.Directory}.    * I.e., if you need to touch the document, clone it first!    *<p>    * This can also be seen as a feature for live changes of stored values,    * but be careful! Adding a field with an name unknown to the index    * or to a field with previously no stored values will make    * {@link org.apache.lucene.store.instantiated.InstantiatedIndexReader#getFieldNames(org.apache.lucene.index.IndexReader.FieldOption)}    * out of sync, causing problems for instance when merging the    * instantiated index to another index.<p>    * This implementation ignores the field selector! All stored fields are always returned!    *<p>    *    * @param n document number    * @param fieldSelector ignored    * @return The stored fields of the {@link org.apache.lucene.document.Document} at the nth position    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    *     * @see org.apache.lucene.document.Fieldable    * @see org.apache.lucene.document.FieldSelector    * @see org.apache.lucene.document.SetBasedFieldSelector    * @see org.apache.lucene.document.LoadFirstFieldSelector    */
+annotation|@
+name|Override
 DECL|method|document
 specifier|public
 name|Document
@@ -1134,6 +1162,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * Returns the stored fields of the<code>n</code><sup>th</sup>    *<code>Document</code> in this index.    *<p>    *<b>Warning!</b>    * The resulting document is the actual stored document instance    * and not a deserialized clone as retuned by an IndexReader    * over a {@link org.apache.lucene.store.Directory}.    * I.e., if you need to touch the document, clone it first!    *<p>    * This can also be seen as a feature for live changes of stored values,    * but be careful! Adding a field with an name unknown to the index    * or to a field with previously no stored values will make    * {@link org.apache.lucene.store.instantiated.InstantiatedIndexReader#getFieldNames(org.apache.lucene.index.IndexReader.FieldOption)}    * out of sync, causing problems for instance when merging the    * instantiated index to another index.    *    * @throws CorruptIndexException if the index is corrupt    * @throws IOException if there is a low-level IO error    */
+annotation|@
+name|Override
 DECL|method|document
 specifier|public
 name|Document
@@ -1167,6 +1197,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * never ever touch these values. it is the true values, unless norms have    * been touched.    */
+annotation|@
+name|Override
 DECL|method|norms
 specifier|public
 name|byte
@@ -1270,6 +1302,8 @@ return|return
 name|norms
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|norms
 specifier|public
 name|void
@@ -1330,6 +1364,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doSetNorm
 specifier|protected
 name|void
@@ -1431,6 +1467,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|docFreq
 specifier|public
 name|int
@@ -1476,6 +1514,8 @@ name|length
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|terms
 specifier|public
 name|TermEnum
@@ -1492,6 +1532,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|terms
 specifier|public
 name|TermEnum
@@ -1581,6 +1623,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|termDocs
 specifier|public
 name|TermDocs
@@ -1597,6 +1641,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|termPositions
 specifier|public
 name|TermPositions
@@ -1613,6 +1659,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVectors
 specifier|public
 name|TermFreqVector
@@ -1729,6 +1777,8 @@ return|return
 name|ret
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVector
 specifier|public
 name|TermFreqVector
@@ -1794,6 +1844,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVector
 specifier|public
 name|void
@@ -1918,6 +1970,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getTermFreqVector
 specifier|public
 name|void

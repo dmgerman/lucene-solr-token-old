@@ -81,6 +81,8 @@ name|allocate
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -242,6 +244,8 @@ operator|+
 literal|"]]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|cloneTree
 specifier|public
 name|QueryNode

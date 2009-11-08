@@ -139,6 +139,8 @@ operator|.
 name|prefixLength
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toQueryString
 specifier|public
 name|CharSequence
@@ -193,6 +195,8 @@ name|similarity
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -237,6 +241,8 @@ operator|=
 name|similarity
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|cloneTree
 specifier|public
 name|FuzzyQueryNode

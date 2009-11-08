@@ -223,6 +223,8 @@ name|runData
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|retrieveDoc
 specifier|protected
 name|Document
@@ -262,6 +264,8 @@ return|return
 name|document
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBenchmarkHighlighter
 specifier|public
 name|BenchmarkHighlighter
@@ -292,6 +296,8 @@ operator|new
 name|BenchmarkHighlighter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|doHighlight

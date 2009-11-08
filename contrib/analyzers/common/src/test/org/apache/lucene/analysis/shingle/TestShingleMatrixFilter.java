@@ -4550,6 +4550,8 @@ specifier|private
 name|Iterator
 name|iterator
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean
@@ -4673,6 +4675,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void

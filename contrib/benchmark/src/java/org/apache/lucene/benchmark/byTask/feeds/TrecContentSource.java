@@ -1047,6 +1047,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -1108,6 +1110,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNextDocData
 specifier|public
 name|DocData
@@ -1454,6 +1458,8 @@ return|return
 name|docData
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetInputs
 specifier|public
 name|void
@@ -1485,6 +1491,8 @@ literal|0
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setConfig
 specifier|public
 name|void

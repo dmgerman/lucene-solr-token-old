@@ -1109,6 +1109,8 @@ name|stream
 return|;
 block|}
 comment|/**    * Creates a token stream that tokenizes all the text in the given Reader;    * This implementation forwards to<code>tokenStream(String, String)</code> and is    * less efficient than<code>tokenStream(String, String)</code>.    *     * @param fieldName    *            the name of the field to tokenize (currently ignored).    * @param reader    *            the reader delivering the text    * @return a new token stream    */
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -1181,6 +1183,8 @@ throw|;
 block|}
 block|}
 comment|/**    * Indicates whether some other object is "equal to" this one.    *     * @param other    *            the reference object with which to compare.    * @return true if equal, false otherwise    */
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -1271,6 +1275,8 @@ literal|false
 return|;
 block|}
 comment|/**    * Returns a hash code value for the object.    *     * @return the hash code.    */
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -1746,6 +1752,8 @@ operator|=
 name|toLowerCase
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 specifier|final
@@ -1885,6 +1893,8 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|end
 specifier|public
 specifier|final
@@ -2035,6 +2045,8 @@ operator|=
 name|stopWords
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean
@@ -2225,6 +2237,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|end
 specifier|public
 specifier|final

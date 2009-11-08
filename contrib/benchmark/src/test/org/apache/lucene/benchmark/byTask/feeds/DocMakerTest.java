@@ -253,6 +253,8 @@ name|finish
 init|=
 literal|false
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -261,6 +263,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{     }
+annotation|@
+name|Override
 DECL|method|getNextDocData
 specifier|public
 name|DocData

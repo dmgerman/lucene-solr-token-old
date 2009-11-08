@@ -140,6 +140,8 @@ name|AbstractQueryMaker
 implements|implements
 name|QueryMaker
 block|{
+annotation|@
+name|Override
 DECL|method|prepareQueries
 specifier|protected
 name|Query

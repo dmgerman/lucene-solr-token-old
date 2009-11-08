@@ -120,6 +120,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/* (non-Javadoc)    * @see PerfTask#shouldNeverLogAtStart()    */
+annotation|@
+name|Override
 DECL|method|shouldNeverLogAtStart
 specifier|protected
 name|boolean
@@ -131,6 +133,8 @@ literal|true
 return|;
 block|}
 comment|/* (non-Javadoc)    * @see PerfTask#shouldNotRecordStats()    */
+annotation|@
+name|Override
 DECL|method|shouldNotRecordStats
 specifier|protected
 name|boolean

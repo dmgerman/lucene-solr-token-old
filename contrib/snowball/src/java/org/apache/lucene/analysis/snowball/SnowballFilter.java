@@ -216,6 +216,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Returns the next input Token, after being stemmed */
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 specifier|final

@@ -163,6 +163,8 @@ operator|=
 name|positionIncrement
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 specifier|final
@@ -211,6 +213,8 @@ literal|false
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void

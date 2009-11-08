@@ -224,6 +224,8 @@ operator|.
 name|message
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMessage
 specifier|public
 name|String
@@ -235,6 +237,8 @@ name|getLocalizedMessage
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLocalizedMessage
 specifier|public
 name|String
@@ -271,6 +275,8 @@ name|locale
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

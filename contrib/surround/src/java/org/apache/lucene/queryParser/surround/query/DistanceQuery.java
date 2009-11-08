@@ -312,6 +312,8 @@ name|snq
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|makeLuceneQueryFieldNoBoost
 specifier|public
 name|Query
@@ -331,6 +333,8 @@ operator|new
 name|Query
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -357,6 +361,8 @@ operator|+
 literal|"?)"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Query
 name|rewrite

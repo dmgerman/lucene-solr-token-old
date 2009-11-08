@@ -2534,6 +2534,8 @@ index|]
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|protected
 name|Object
@@ -2606,6 +2608,8 @@ return|return
 name|cl
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

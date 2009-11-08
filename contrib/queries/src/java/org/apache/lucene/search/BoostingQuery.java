@@ -180,6 +180,8 @@ argument_list|)
 expr_stmt|;
 comment|// ignore context-only matches
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -198,6 +200,8 @@ operator|new
 name|BooleanQuery
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Similarity
 name|getSimilarity
@@ -211,6 +215,8 @@ operator|new
 name|DefaultSimilarity
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|coord
@@ -284,6 +290,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -360,6 +368,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -503,6 +513,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

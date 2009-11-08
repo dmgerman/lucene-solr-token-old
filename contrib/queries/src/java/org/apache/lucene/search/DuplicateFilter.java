@@ -210,6 +210,8 @@ operator|=
 name|processingMode
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDocIdSet
 specifier|public
 name|DocIdSet
@@ -676,6 +678,8 @@ operator|=
 name|keepMode
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -762,6 +766,8 @@ operator|)
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

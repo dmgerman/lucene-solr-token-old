@@ -160,6 +160,8 @@ name|runData
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|withRetrieve
 specifier|public
 name|boolean
@@ -170,6 +172,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|retrieveDoc
 specifier|protected
 name|Document
@@ -195,6 +199,8 @@ name|fieldSelector
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setParams
 specifier|public
 name|void
@@ -278,6 +284,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/* (non-Javadoc)   * @see org.apache.lucene.benchmark.byTask.tasks.PerfTask#supportsParams()   */
+annotation|@
+name|Override
 DECL|method|supportsParams
 specifier|public
 name|boolean

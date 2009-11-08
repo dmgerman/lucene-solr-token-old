@@ -472,6 +472,8 @@ block|,
 literal|"\nWhen you talk about processing speed, the"
 block|}
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|protected
 name|void
@@ -527,6 +529,8 @@ name|RAMDirectory
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|protected
 name|void
@@ -906,6 +910,8 @@ name|BigramAnalyzer
 extends|extends
 name|Analyzer
 block|{
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -1174,6 +1180,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean
@@ -1233,6 +1241,8 @@ return|return
 name|nextStartOffset
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|end
 specifier|public
 specifier|final

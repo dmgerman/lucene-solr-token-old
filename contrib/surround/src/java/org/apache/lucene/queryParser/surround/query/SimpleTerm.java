@@ -204,6 +204,8 @@ block|{
 empty_stmt|;
 block|}
 comment|/* override for prefix query */
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -316,6 +318,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|makeLuceneQueryFieldNoBoost
 specifier|public
 name|Query
@@ -335,6 +339,8 @@ operator|new
 name|Query
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -361,6 +367,8 @@ operator|+
 literal|"?)"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Query
 name|rewrite

@@ -133,6 +133,8 @@ name|MOD_NOT
 block|,
 name|MOD_REQ
 block|;
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -333,6 +335,8 @@ operator|.
 name|modifier
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -466,6 +470,8 @@ name|rightParenthensis
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|cloneTree
 specifier|public
 name|QueryNode

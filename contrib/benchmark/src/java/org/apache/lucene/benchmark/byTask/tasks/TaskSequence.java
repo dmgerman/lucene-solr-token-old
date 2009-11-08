@@ -263,6 +263,8 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -514,6 +516,8 @@ name|parent
 return|;
 block|}
 comment|/*    * (non-Javadoc)    * @see org.apache.lucene.benchmark.byTask.tasks.PerfTask#doLogic()    */
+annotation|@
+name|Override
 DECL|method|doLogic
 specifier|public
 name|int
@@ -1029,6 +1033,8 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -1314,6 +1320,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/* (non-Javadoc)    * @see java.lang.Object#toString()    */
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1674,6 +1682,8 @@ literal|"_Par"
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String
@@ -1700,6 +1710,8 @@ name|tasks
 return|;
 block|}
 comment|/* (non-Javadoc)    * @see java.lang.Object#clone()    */
+annotation|@
+name|Override
 DECL|method|clone
 specifier|protected
 name|Object

@@ -158,6 +158,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toStringUnquoted
 specifier|public
 name|String
@@ -169,6 +171,8 @@ name|getPrefix
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|suffixToString
 specifier|protected
 name|void
@@ -187,6 +191,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|visitMatchingTerms
 specifier|public
 name|void

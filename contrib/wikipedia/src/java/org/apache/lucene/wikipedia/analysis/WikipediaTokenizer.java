@@ -793,6 +793,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*   * (non-Javadoc)   *   * @see org.apache.lucene.analysis.TokenStream#next()   */
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 specifier|final
@@ -1517,6 +1519,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*   * (non-Javadoc)   *   * @see org.apache.lucene.analysis.TokenStream#reset()   */
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void
@@ -1538,6 +1542,8 @@ name|input
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void

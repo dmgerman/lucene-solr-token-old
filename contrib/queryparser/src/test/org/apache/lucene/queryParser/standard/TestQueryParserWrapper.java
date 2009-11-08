@@ -859,6 +859,8 @@ name|savedEnd
 init|=
 literal|0
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean
@@ -988,6 +990,8 @@ extends|extends
 name|Analyzer
 block|{
 comment|/** Filters LowerCaseTokenizer with StopFilter. */
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 specifier|final
@@ -1085,6 +1089,8 @@ name|newProcessorPipeline
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFuzzyQuery
 specifier|protected
 name|Query
@@ -1110,6 +1116,8 @@ literal|"Fuzzy queries not allowed"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getWildcardQuery
 specifier|protected
 name|Query
@@ -1140,6 +1148,8 @@ name|QPTestParserQueryNodeProcessor
 extends|extends
 name|QueryNodeProcessorImpl
 block|{
+annotation|@
+name|Override
 DECL|method|postProcessNode
 specifier|protected
 name|QueryNode
@@ -1155,6 +1165,8 @@ return|return
 name|node
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|preProcessNode
 specifier|protected
 name|QueryNode
@@ -1195,6 +1207,8 @@ return|return
 name|node
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setChildrenOrder
 specifier|protected
 name|List
@@ -1223,6 +1237,8 @@ specifier|private
 name|int
 name|originalMaxClauses
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|public
 name|void
@@ -6708,6 +6724,8 @@ name|d
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|public
 name|void

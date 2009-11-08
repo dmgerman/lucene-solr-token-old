@@ -354,6 +354,8 @@ operator|.
 name|LUCENE_CURRENT
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -444,6 +446,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doPost
 specifier|protected
 name|void

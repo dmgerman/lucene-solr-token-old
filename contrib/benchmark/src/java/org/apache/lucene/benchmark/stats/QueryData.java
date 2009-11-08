@@ -286,6 +286,8 @@ return|return
 literal|"# Query data: R-reopen, W-warmup, T-retrieve, N-no"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

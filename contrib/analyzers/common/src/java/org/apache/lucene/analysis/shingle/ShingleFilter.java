@@ -501,6 +501,8 @@ index|[]
 name|endOffsets
 decl_stmt|;
 comment|/* (non-Javadoc)    * @see org.apache.lucene.analysis.TokenStream#next()    */
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 specifier|final
@@ -1192,6 +1194,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void

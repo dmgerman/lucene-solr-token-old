@@ -340,6 +340,8 @@ name|a
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFieldQuery
 specifier|protected
 name|Query
@@ -382,6 +384,8 @@ return|return
 name|cpq
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse
 specifier|public
 name|Query
@@ -525,6 +529,8 @@ comment|// There is No "getTermQuery throws ParseException" method to override s
 comment|// unfortunately need
 comment|// to throw a runtime exception here if a term for another field is embedded
 comment|// in phrase query
+annotation|@
+name|Override
 DECL|method|newTermQuery
 specifier|protected
 name|Query
@@ -622,6 +628,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getWildcardQuery
 specifier|protected
 name|Query
@@ -658,6 +666,8 @@ name|termStr
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRangeQuery
 specifier|protected
 name|Query
@@ -704,6 +714,8 @@ name|inclusive
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newRangeQuery
 specifier|protected
 name|Query
@@ -777,6 +789,8 @@ name|inclusive
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFuzzyQuery
 specifier|protected
 name|Query
@@ -908,6 +922,8 @@ name|phrasedQueryStringContents
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -1667,6 +1683,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1684,6 +1702,8 @@ operator|+
 literal|"\""
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -1755,6 +1775,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean

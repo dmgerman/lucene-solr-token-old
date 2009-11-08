@@ -45,6 +45,8 @@ parameter_list|()
 block|{
 comment|// empty constructor
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

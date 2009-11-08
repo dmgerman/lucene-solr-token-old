@@ -200,6 +200,8 @@ name|onlyLongestMatch
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|decomposeInternal
 specifier|protected
 name|void

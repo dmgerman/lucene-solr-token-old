@@ -360,6 +360,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean
@@ -520,6 +522,8 @@ break|break;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|end
 specifier|public
 specifier|final
@@ -546,6 +550,8 @@ name|finalOffset
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void
@@ -568,6 +574,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void

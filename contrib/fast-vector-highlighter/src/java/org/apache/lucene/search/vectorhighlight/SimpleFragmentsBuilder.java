@@ -86,6 +86,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * do nothing. return the source list.    */
+annotation|@
+name|Override
 DECL|method|getWeightedFragInfoList
 specifier|public
 name|List
