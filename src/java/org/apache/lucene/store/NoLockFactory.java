@@ -24,7 +24,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Use this {@link LockFactory} to disable locking entirely.  * This LockFactory is used when you call {@link FSDirectory#setDisableLocks}.  * Only one instance of this lock is created.  You should call {@link  * #getNoLockFactory()} to get the instance.  *  * @see LockFactory  */
+comment|/**  * Use this {@link LockFactory} to disable locking entirely.  * Only one instance of this lock is created.  You should call {@link  * #getNoLockFactory()} to get the instance.  *  * @see LockFactory  */
 end_comment
 begin_class
 DECL|class|NoLockFactory
