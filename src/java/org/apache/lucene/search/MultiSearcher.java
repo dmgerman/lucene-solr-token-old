@@ -747,6 +747,8 @@ return|;
 comment|// dispatch to searcher
 block|}
 comment|// inherit javadoc
+annotation|@
+name|Override
 DECL|method|doc
 specifier|public
 name|Document
