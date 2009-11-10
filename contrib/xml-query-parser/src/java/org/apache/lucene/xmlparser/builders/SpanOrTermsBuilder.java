@@ -249,10 +249,16 @@ decl_stmt|;
 try|try
 block|{
 name|ArrayList
+argument_list|<
+name|SpanQuery
+argument_list|>
 name|clausesList
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|SpanQuery
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|TokenStream
@@ -323,10 +329,6 @@ init|=
 operator|new
 name|SpanOrQuery
 argument_list|(
-operator|(
-name|SpanQuery
-index|[]
-operator|)
 name|clausesList
 operator|.
 name|toArray

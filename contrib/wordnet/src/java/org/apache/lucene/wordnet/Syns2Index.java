@@ -458,19 +458,51 @@ decl_stmt|;
 comment|// maps a word to all the "groups" it's in
 specifier|final
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|word2Nums
 init|=
 operator|new
 name|TreeMap
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// maps a group to all the words in it
 specifier|final
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|num2Words
 init|=
 operator|new
 name|TreeMap
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// number of rejected words
@@ -697,11 +729,11 @@ block|}
 comment|// 1/2: word2Nums map
 comment|// append to entry or add new one
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|lis
 init|=
-operator|(
-name|List
-operator|)
 name|word2Nums
 operator|.
 name|get
@@ -720,6 +752,9 @@ name|lis
 operator|=
 operator|new
 name|LinkedList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|lis
@@ -750,9 +785,6 @@ expr_stmt|;
 comment|// 2/2: num2Words map
 name|lis
 operator|=
-operator|(
-name|List
-operator|)
 name|num2Words
 operator|.
 name|get
@@ -771,6 +803,9 @@ name|lis
 operator|=
 operator|new
 name|LinkedList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|lis
@@ -912,9 +947,25 @@ name|String
 name|indexDir
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|word2Nums
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|num2Words
 parameter_list|)
 throws|throws
@@ -975,6 +1026,9 @@ argument_list|)
 expr_stmt|;
 comment|// why?
 name|Iterator
+argument_list|<
+name|String
+argument_list|>
 name|i1
 init|=
 name|word2Nums
@@ -997,9 +1051,6 @@ block|{
 name|String
 name|g
 init|=
-operator|(
-name|String
-operator|)
 name|i1
 operator|.
 name|next
@@ -1140,9 +1191,25 @@ name|int
 name|index
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|word2Nums
 parameter_list|,
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|num2Words
 parameter_list|,
 name|String
@@ -1155,11 +1222,11 @@ throws|throws
 name|Throwable
 block|{
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|keys
 init|=
-operator|(
-name|List
-operator|)
 name|word2Nums
 operator|.
 name|get
@@ -1169,6 +1236,9 @@ argument_list|)
 decl_stmt|;
 comment|// get list of key#'s
 name|Iterator
+argument_list|<
+name|String
+argument_list|>
 name|i2
 init|=
 name|keys
@@ -1177,10 +1247,16 @@ name|iterator
 argument_list|()
 decl_stmt|;
 name|Set
+argument_list|<
+name|String
+argument_list|>
 name|already
 init|=
 operator|new
 name|TreeSet
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// keep them sorted
@@ -1198,9 +1274,6 @@ name|already
 operator|.
 name|addAll
 argument_list|(
-operator|(
-name|List
-operator|)
 name|num2Words
 operator|.
 name|get
@@ -1228,6 +1301,9 @@ argument_list|)
 expr_stmt|;
 comment|// of course a word is it's own syn
 name|Iterator
+argument_list|<
+name|String
+argument_list|>
 name|it
 init|=
 name|already
@@ -1246,9 +1322,6 @@ block|{
 name|String
 name|cur
 init|=
-operator|(
-name|String
-operator|)
 name|it
 operator|.
 name|next
