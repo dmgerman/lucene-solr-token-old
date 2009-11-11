@@ -938,15 +938,10 @@ block|{
 comment|// if queue full, maintain the minScore score
 name|min
 operator|=
-operator|(
-operator|(
-name|SuggestWord
-operator|)
 name|sugQueue
 operator|.
 name|top
 argument_list|()
-operator|)
 operator|.
 name|score
 expr_stmt|;
@@ -997,15 +992,10 @@ index|[
 name|i
 index|]
 operator|=
-operator|(
-operator|(
-name|SuggestWord
-operator|)
 name|sugQueue
 operator|.
 name|pop
 argument_list|()
-operator|)
 operator|.
 name|string
 expr_stmt|;
@@ -1329,6 +1319,9 @@ name|ramMB
 argument_list|)
 expr_stmt|;
 name|Iterator
+argument_list|<
+name|String
+argument_list|>
 name|iter
 init|=
 name|dict
@@ -1347,9 +1340,6 @@ block|{
 name|String
 name|word
 init|=
-operator|(
-name|String
-operator|)
 name|iter
 operator|.
 name|next

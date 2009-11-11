@@ -204,6 +204,9 @@ name|String
 name|field
 parameter_list|,
 name|Set
+argument_list|<
+name|?
+argument_list|>
 name|stop
 parameter_list|)
 throws|throws
@@ -245,10 +248,16 @@ name|BooleanQuery
 argument_list|()
 decl_stmt|;
 name|Set
+argument_list|<
+name|String
+argument_list|>
 name|already
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// ignore dups

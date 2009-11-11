@@ -29,15 +29,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|BitSet
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Iterator
 import|;
 end_import
@@ -124,10 +115,16 @@ name|Filter
 block|{
 DECL|field|terms
 name|Set
+argument_list|<
+name|Term
+argument_list|>
 name|terms
 init|=
 operator|new
 name|TreeSet
+argument_list|<
+name|Term
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/** 	 * Adds a term to the list of acceptable terms    	 * @param term 	 */
@@ -187,6 +184,9 @@ block|{
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|Term
+argument_list|>
 name|iter
 init|=
 name|terms
@@ -204,9 +204,6 @@ block|{
 name|Term
 name|term
 init|=
-operator|(
-name|Term
-operator|)
 name|iter
 operator|.
 name|next
@@ -344,6 +341,9 @@ decl_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|Term
+argument_list|>
 name|iter
 init|=
 name|terms
@@ -361,9 +361,6 @@ block|{
 name|Term
 name|term
 init|=
-operator|(
-name|Term
-operator|)
 name|iter
 operator|.
 name|next

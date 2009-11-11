@@ -1010,9 +1010,6 @@ operator|==
 literal|1
 operator|)
 condition|?
-operator|(
-name|Scorer
-operator|)
 name|prohibitedScorers
 operator|.
 name|get

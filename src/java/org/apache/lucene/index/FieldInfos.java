@@ -1090,9 +1090,6 @@ operator|>=
 literal|0
 operator|)
 condition|?
-operator|(
-name|FieldInfo
-operator|)
 name|byNumber
 operator|.
 name|get

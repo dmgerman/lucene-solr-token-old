@@ -891,9 +891,6 @@ block|{
 name|PathNode
 name|currentPathNode
 init|=
-operator|(
-name|PathNode
-operator|)
 name|path
 operator|.
 name|get
