@@ -160,7 +160,7 @@ block|{
 comment|// bottom.score is already set to Float.NaN in add().
 name|bottom
 operator|.
-name|docID
+name|doc
 operator|=
 name|docBase
 operator|+
@@ -433,7 +433,7 @@ name|docBase
 operator|>
 name|bottom
 operator|.
-name|docID
+name|doc
 operator|)
 condition|)
 block|{
@@ -581,7 +581,7 @@ parameter_list|)
 block|{
 name|bottom
 operator|.
-name|docID
+name|doc
 operator|=
 name|docBase
 operator|+
@@ -854,7 +854,7 @@ name|docBase
 operator|>
 name|bottom
 operator|.
-name|docID
+name|doc
 operator|)
 condition|)
 block|{
@@ -1029,7 +1029,7 @@ parameter_list|)
 block|{
 name|bottom
 operator|.
-name|docID
+name|doc
 operator|=
 name|docBase
 operator|+
@@ -1324,7 +1324,7 @@ name|docBase
 operator|>
 name|bottom
 operator|.
-name|docID
+name|doc
 operator|)
 condition|)
 block|{
@@ -1492,7 +1492,7 @@ block|{
 comment|// bottom.score is already set to Float.NaN in add().
 name|bottom
 operator|.
-name|docID
+name|doc
 operator|=
 name|docBase
 operator|+
@@ -1985,7 +1985,7 @@ name|docBase
 operator|>
 name|bottom
 operator|.
-name|docID
+name|doc
 condition|)
 block|{
 comment|// Definitely not competitive
@@ -2227,7 +2227,7 @@ parameter_list|)
 block|{
 name|bottom
 operator|.
-name|docID
+name|doc
 operator|=
 name|docBase
 operator|+
@@ -2700,7 +2700,7 @@ name|docBase
 operator|>
 name|bottom
 operator|.
-name|docID
+name|doc
 condition|)
 block|{
 comment|// Definitely not competitive
@@ -2935,7 +2935,7 @@ parameter_list|)
 block|{
 name|bottom
 operator|.
-name|docID
+name|doc
 operator|=
 name|docBase
 operator|+
@@ -3386,7 +3386,7 @@ name|docBase
 operator|>
 name|bottom
 operator|.
-name|docID
+name|doc
 condition|)
 block|{
 comment|// Definitely not competitive
@@ -4137,7 +4137,7 @@ name|FieldDoc
 argument_list|(
 name|entry
 operator|.
-name|docID
+name|doc
 argument_list|,
 name|entry
 operator|.
