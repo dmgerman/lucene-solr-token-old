@@ -1305,6 +1305,14 @@ condition|)
 block|{
 name|assertTrue
 argument_list|(
+literal|"numSegments="
+operator|+
+name|numSegments
+operator|+
+literal|" vs mergeFactor="
+operator|+
+name|mergeFactor
+argument_list|,
 name|numSegments
 operator|<
 name|mergeFactor
