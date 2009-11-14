@@ -216,6 +216,11 @@ argument_list|(
 name|commitUserData
 argument_list|)
 expr_stmt|;
+name|r
+operator|.
+name|decRef
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{

@@ -76,6 +76,19 @@ operator|.
 name|Term
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexWriter
+import|;
+end_import
 begin_comment
 comment|/**  * Update a document, using IndexWriter.updateDocument,  * optionally with of a certain size.  *<br>Other side effects: none.  *<br>Takes optional param: document size.   */
 end_comment
@@ -226,11 +239,17 @@ literal|"document must define the docid field"
 argument_list|)
 throw|;
 block|}
+specifier|final
+name|IndexWriter
+name|iw
+init|=
 name|getRunData
 argument_list|()
 operator|.
 name|getIndexWriter
 argument_list|()
+decl_stmt|;
+name|iw
 operator|.
 name|updateDocument
 argument_list|(

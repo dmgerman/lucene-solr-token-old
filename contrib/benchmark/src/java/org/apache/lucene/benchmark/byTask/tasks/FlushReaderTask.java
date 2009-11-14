@@ -206,6 +206,11 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
+name|reader
+operator|.
+name|decRef
+argument_list|()
+expr_stmt|;
 return|return
 literal|1
 return|;
