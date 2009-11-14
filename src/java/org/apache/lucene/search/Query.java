@@ -506,7 +506,7 @@ name|Query
 name|mergeBooleanQueries
 parameter_list|(
 name|BooleanQuery
-index|[]
+modifier|...
 name|queries
 parameter_list|)
 block|{

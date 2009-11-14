@@ -95,7 +95,7 @@ name|String
 name|field
 parameter_list|,
 name|String
-index|[]
+modifier|...
 name|terms
 parameter_list|)
 block|{

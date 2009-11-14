@@ -125,7 +125,7 @@ name|Similarity
 name|similarity
 parameter_list|,
 name|Scorer
-index|[]
+modifier|...
 name|scorers
 parameter_list|)
 throws|throws
