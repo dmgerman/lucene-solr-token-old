@@ -52,6 +52,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -84,6 +93,19 @@ operator|.
 name|analysis
 operator|.
 name|Analyzer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|CharArraySet
 import|;
 end_import
 begin_import
@@ -223,7 +245,8 @@ name|GermanAnalyzer
 extends|extends
 name|Analyzer
 block|{
-comment|/**    * List of typical german stopwords.    */
+comment|/**    * List of typical german stopwords.    * @deprecated use {@link #getDefaultStopSet()} instead    */
+comment|//TODO make this private in 3.1
 DECL|field|GERMAN_STOP_WORDS
 specifier|public
 specifier|final
@@ -330,25 +353,78 @@ block|,
 literal|"wird"
 block|}
 decl_stmt|;
+comment|/**    * Returns a set of default German-stopwords     * @return a set of default German-stopwords     */
+DECL|method|getDefaultStopSet
+specifier|public
+specifier|static
+specifier|final
+name|Set
+argument_list|<
+name|?
+argument_list|>
+name|getDefaultStopSet
+parameter_list|()
+block|{
+return|return
+name|DefaultSetHolder
+operator|.
+name|DEFAULT_SET
+return|;
+block|}
+DECL|class|DefaultSetHolder
+specifier|private
+specifier|static
+class|class
+name|DefaultSetHolder
+block|{
+DECL|field|DEFAULT_SET
+specifier|private
+specifier|static
+specifier|final
+name|Set
+argument_list|<
+name|?
+argument_list|>
+name|DEFAULT_SET
+init|=
+name|CharArraySet
+operator|.
+name|unmodifiableSet
+argument_list|(
+operator|new
+name|CharArraySet
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|GERMAN_STOP_WORDS
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
+argument_list|)
+decl_stmt|;
+block|}
 comment|/**    * Contains the stopwords used with the {@link StopFilter}.    */
+comment|//TODO make this final in 3.1
 DECL|field|stopSet
 specifier|private
 name|Set
+argument_list|<
+name|?
+argument_list|>
 name|stopSet
-init|=
-operator|new
-name|HashSet
-argument_list|()
 decl_stmt|;
 comment|/**    * Contains words that should be indexed but not stemmed.    */
+comment|// TODO make this final in 3.1
 DECL|field|exclusionSet
 specifier|private
 name|Set
+argument_list|<
+name|?
+argument_list|>
 name|exclusionSet
-init|=
-operator|new
-name|HashSet
-argument_list|()
 decl_stmt|;
 DECL|field|matchVersion
 specifier|private
@@ -356,7 +432,7 @@ specifier|final
 name|Version
 name|matchVersion
 decl_stmt|;
-comment|/**    * Builds an analyzer with the default stop words:    * {@link #GERMAN_STOP_WORDS}.    */
+comment|/**    * Builds an analyzer with the default stop words:    * {@link #getDefaultStopSet()}.    */
 DECL|method|GermanAnalyzer
 specifier|public
 name|GermanAnalyzer
@@ -365,13 +441,90 @@ name|Version
 name|matchVersion
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|matchVersion
+argument_list|,
+name|DefaultSetHolder
+operator|.
+name|DEFAULT_SET
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**    * Builds an analyzer with the given stop words     *     * @param matchversion    *          lucene compatibility version    * @param stopwords    *          a stopword set    */
+DECL|method|GermanAnalyzer
+specifier|public
+name|GermanAnalyzer
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
+name|Set
+argument_list|<
+name|?
+argument_list|>
+name|stopwords
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|matchVersion
+argument_list|,
+name|stopwords
+argument_list|,
+name|CharArraySet
+operator|.
+name|EMPTY_SET
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**    * Builds an analyzer with the given stop words    *     * @param matchversion    *          lucene compatibility version    * @param stopwords    *          a stopword set    * @param stemExclutionSet    *          a stemming exclusion set    */
+DECL|method|GermanAnalyzer
+specifier|public
+name|GermanAnalyzer
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
+name|Set
+argument_list|<
+name|?
+argument_list|>
+name|stopwords
+parameter_list|,
+name|Set
+argument_list|<
+name|?
+argument_list|>
+name|stemExclusionSet
+parameter_list|)
+block|{
 name|stopSet
 operator|=
-name|StopFilter
+name|CharArraySet
 operator|.
-name|makeStopSet
+name|unmodifiableSet
 argument_list|(
-name|GERMAN_STOP_WORDS
+name|CharArraySet
+operator|.
+name|copy
+argument_list|(
+name|stopwords
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|exclusionSet
+operator|=
+name|CharArraySet
+operator|.
+name|unmodifiableSet
+argument_list|(
+name|CharArraySet
+operator|.
+name|copy
+argument_list|(
+name|stemExclusionSet
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|setOverridesTokenStreamMethod
@@ -388,7 +541,7 @@ operator|=
 name|matchVersion
 expr_stmt|;
 block|}
-comment|/**    * Builds an analyzer with the given stop words.    */
+comment|/**    * Builds an analyzer with the given stop words.    * @deprecated use {@link #GermanAnalyzer(Version, Set)}    */
 DECL|method|GermanAnalyzer
 specifier|public
 name|GermanAnalyzer
@@ -401,30 +554,20 @@ modifier|...
 name|stopwords
 parameter_list|)
 block|{
-name|stopSet
-operator|=
+name|this
+argument_list|(
+name|matchVersion
+argument_list|,
 name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
 name|stopwords
 argument_list|)
-expr_stmt|;
-name|setOverridesTokenStreamMethod
-argument_list|(
-name|GermanAnalyzer
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|matchVersion
-operator|=
-name|matchVersion
-expr_stmt|;
 block|}
-comment|/**    * Builds an analyzer with the given stop words.    */
+comment|/**    * Builds an analyzer with the given stop words.    * @deprecated use {@link #GermanAnalyzer(Version, Set)}    */
 DECL|method|GermanAnalyzer
 specifier|public
 name|GermanAnalyzer
@@ -433,35 +576,26 @@ name|Version
 name|matchVersion
 parameter_list|,
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|stopwords
 parameter_list|)
 block|{
-name|stopSet
-operator|=
-operator|new
-name|HashSet
+name|this
 argument_list|(
+name|matchVersion
+argument_list|,
 name|stopwords
 operator|.
 name|keySet
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setOverridesTokenStreamMethod
-argument_list|(
-name|GermanAnalyzer
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|matchVersion
-operator|=
-name|matchVersion
-expr_stmt|;
 block|}
-comment|/**    * Builds an analyzer with the given stop words.    */
+comment|/**    * Builds an analyzer with the given stop words.    * @deprecated use {@link #GermanAnalyzer(Version, Set)}    */
 DECL|method|GermanAnalyzer
 specifier|public
 name|GermanAnalyzer
@@ -475,30 +609,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|stopSet
-operator|=
+name|this
+argument_list|(
+name|matchVersion
+argument_list|,
 name|WordlistLoader
 operator|.
 name|getWordSet
 argument_list|(
 name|stopwords
 argument_list|)
-expr_stmt|;
-name|setOverridesTokenStreamMethod
-argument_list|(
-name|GermanAnalyzer
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|matchVersion
-operator|=
-name|matchVersion
-expr_stmt|;
 block|}
-comment|/**    * Builds an exclusionlist from an array of Strings.    */
+comment|/**    * Builds an exclusionlist from an array of Strings.    * @deprecated use {@link #GermanAnalyzer(Version, Set, Set)} instead    */
 DECL|method|setStemExclusionTable
 specifier|public
 name|void
@@ -525,7 +649,7 @@ argument_list|)
 expr_stmt|;
 comment|// force a new stemmer to be created
 block|}
-comment|/**    * Builds an exclusionlist from a {@link Map}    */
+comment|/**    * Builds an exclusionlist from a {@link Map}    * @deprecated use {@link #GermanAnalyzer(Version, Set, Set)} instead    */
 DECL|method|setStemExclusionTable
 specifier|public
 name|void
@@ -553,7 +677,7 @@ argument_list|)
 expr_stmt|;
 comment|// force a new stemmer to be created
 block|}
-comment|/**    * Builds an exclusionlist from the words contained in the given file.    */
+comment|/**    * Builds an exclusionlist from the words contained in the given file.    * @deprecated use {@link #GermanAnalyzer(Version, Set, Set)} instead    */
 DECL|method|setStemExclusionTable
 specifier|public
 name|void
