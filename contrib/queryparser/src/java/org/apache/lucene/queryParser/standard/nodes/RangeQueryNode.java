@@ -96,7 +96,7 @@ name|ParametricRangeQueryNodeProcessor
 import|;
 end_import
 begin_comment
-comment|/**  * This query node represents a range query. It also holds which collator will  * be used by the range query and if the constant score rewrite is enabled.<br/>  *   * @see ParametricRangeQueryNodeProcessor  * @see RangeCollatorAttribute  * @see org.apache.lucene.search.RangeQuery  */
+comment|/**  * This query node represents a range query. It also holds which collator will  * be used by the range query and if the constant score rewrite is enabled.<br/>  *   * @see ParametricRangeQueryNodeProcessor  * @see RangeCollatorAttribute  * @see org.apache.lucene.search.TermRangeQuery  */
 end_comment
 begin_class
 DECL|class|RangeQueryNode
