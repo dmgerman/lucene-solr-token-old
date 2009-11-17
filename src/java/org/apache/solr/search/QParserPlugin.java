@@ -135,6 +135,14 @@ name|DisMaxQParserPlugin
 operator|.
 name|class
 block|,
+name|ExtendedDismaxQParserPlugin
+operator|.
+name|NAME
+block|,
+name|ExtendedDismaxQParserPlugin
+operator|.
+name|class
+block|,
 name|FieldQParserPlugin
 operator|.
 name|NAME
