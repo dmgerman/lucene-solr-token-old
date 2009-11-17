@@ -60,6 +60,7 @@ name|ValueSource
 block|{
 DECL|field|string
 specifier|protected
+specifier|final
 name|String
 name|string
 decl_stmt|;
@@ -78,14 +79,15 @@ operator|=
 name|string
 expr_stmt|;
 block|}
-DECL|method|name
-specifier|protected
+comment|/** returns the literal value */
+DECL|method|getValue
+specifier|public
 name|String
-name|name
+name|getValue
 parameter_list|()
 block|{
 return|return
-literal|"literal"
+name|string
 return|;
 block|}
 annotation|@
@@ -140,6 +142,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|description
 specifier|public
 name|String
