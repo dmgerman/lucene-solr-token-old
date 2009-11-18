@@ -143,7 +143,10 @@ throws|throws
 name|IOException
 block|{
 return|return
-literal|null
+name|getValues
+argument_list|(
+name|reader
+argument_list|)
 return|;
 block|}
 DECL|method|equals
