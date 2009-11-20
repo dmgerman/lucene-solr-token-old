@@ -74,6 +74,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -636,7 +645,9 @@ name|deletesInRAM
 init|=
 operator|new
 name|BufferedDeletes
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 comment|// Deletes done before the last flush; these are still
 comment|// kept on abort
@@ -647,7 +658,9 @@ name|deletesFlushed
 init|=
 operator|new
 name|BufferedDeletes
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 comment|// The max number of delete terms that can be buffered before
 comment|// they must be flushed to disk.
@@ -3093,7 +3106,7 @@ block|}
 comment|// for testing
 DECL|method|getBufferedDeleteTerms
 specifier|synchronized
-name|HashMap
+name|Map
 argument_list|<
 name|Term
 argument_list|,
