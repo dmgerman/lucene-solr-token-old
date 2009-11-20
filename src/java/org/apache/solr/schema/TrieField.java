@@ -98,19 +98,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|solr
 operator|.
 name|analysis
@@ -180,19 +167,6 @@ name|solr
 operator|.
 name|search
 operator|.
-name|SolrQueryWrapper
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|search
-operator|.
 name|function
 operator|.
 name|*
@@ -223,15 +197,6 @@ operator|.
 name|util
 operator|.
 name|Date
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 begin_comment
@@ -1486,15 +1451,8 @@ literal|"Unknown type for trie field"
 argument_list|)
 throw|;
 block|}
-comment|// NumericRangeQuery extends MultiTermQuery but returns null for getTerm() which currently breaks
-comment|// the span based highlighter in Lucene 2.9.0.  Wrapping the query prevents the highlighter
-comment|// from calling getTerm()
 return|return
-operator|new
-name|SolrQueryWrapper
-argument_list|(
 name|query
-argument_list|)
 return|;
 block|}
 DECL|method|toInt
