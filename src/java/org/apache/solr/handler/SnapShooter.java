@@ -738,11 +738,6 @@ specifier|private
 name|IndexDeletionPolicyWrapper
 name|delPolicy
 decl_stmt|;
-DECL|field|reserveTime
-specifier|private
-name|int
-name|reserveTime
-decl_stmt|;
 DECL|method|FileCopier
 specifier|public
 name|FileCopier
@@ -765,12 +760,6 @@ operator|.
 name|indexCommit
 operator|=
 name|commit
-expr_stmt|;
-name|this
-operator|.
-name|reserveTime
-operator|=
-name|reserveTime
 expr_stmt|;
 block|}
 DECL|method|copyFiles
