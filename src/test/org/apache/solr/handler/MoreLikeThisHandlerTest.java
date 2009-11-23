@@ -278,6 +278,8 @@ specifier|public
 name|void
 name|testInterface
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|SolrCore
 name|core
@@ -433,46 +435,45 @@ name|assertU
 argument_list|(
 name|adoc
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"id"
-block|,
+argument_list|,
 literal|"42"
-block|,
+argument_list|,
 literal|"name"
-block|,
+argument_list|,
 literal|"Tom Cruise"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Top Gun"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Risky Business"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"The Color of Money"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Minority Report"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Days of Thunder"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Eyes Wide Shut"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Far and Away"
-block|}
+argument_list|,
+literal|"foo_ti"
+argument_list|,
+literal|"10"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -480,38 +481,37 @@ name|assertU
 argument_list|(
 name|adoc
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"id"
-block|,
+argument_list|,
 literal|"43"
-block|,
+argument_list|,
 literal|"name"
-block|,
+argument_list|,
 literal|"Tom Hanks"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"The Green Mile"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Forest Gump"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Philadelphia Story"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Big"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Cast Away"
-block|}
+argument_list|,
+literal|"foo_ti"
+argument_list|,
+literal|"10"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -519,34 +519,29 @@ name|assertU
 argument_list|(
 name|adoc
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"id"
-block|,
+argument_list|,
 literal|"44"
-block|,
+argument_list|,
 literal|"name"
-block|,
+argument_list|,
 literal|"Harrison Ford"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Star Wars"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Indiana Jones"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Patriot Games"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Regarding Henry"
-block|}
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -554,34 +549,29 @@ name|assertU
 argument_list|(
 name|adoc
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"id"
-block|,
+argument_list|,
 literal|"45"
-block|,
+argument_list|,
 literal|"name"
-block|,
+argument_list|,
 literal|"George Harrison"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Yellow Submarine"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Help"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Magical Mystery Tour"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Sgt. Peppers Lonley Hearts Club Band"
-block|}
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -589,34 +579,29 @@ name|assertU
 argument_list|(
 name|adoc
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"id"
-block|,
+argument_list|,
 literal|"46"
-block|,
+argument_list|,
 literal|"name"
-block|,
+argument_list|,
 literal|"Nicole Kidman"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Batman"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Days of Thunder"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Eyes Wide Shut"
-block|,
+argument_list|,
 literal|"subword"
-block|,
+argument_list|,
 literal|"Far and Away"
-block|}
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -670,7 +655,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"name,subword"
+literal|"name,subword,foo_ti"
 block|}
 argument_list|)
 expr_stmt|;
@@ -719,6 +704,20 @@ name|String
 index|[]
 block|{
 literal|"1"
+block|}
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"indent"
+argument_list|,
+operator|new
+name|String
+index|[]
+block|{
+literal|"true"
 block|}
 argument_list|)
 expr_stmt|;
@@ -815,6 +814,9 @@ argument_list|,
 literal|"//result/doc[2]/int[@name='id'][.='46']"
 argument_list|)
 expr_stmt|;
+comment|// params.put(MoreLikeThisParams.QF,new String[]{"foo_ti"});
+comment|// String response = h.query(mltreq);
+comment|// System.out.println(response);
 block|}
 block|}
 end_class
