@@ -131,7 +131,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DefaultSimilarity
+name|Similarity
 import|;
 end_import
 begin_import
@@ -4550,9 +4550,12 @@ name|bytes
 operator|.
 name|length
 argument_list|,
-name|DefaultSimilarity
+name|Similarity
 operator|.
-name|encodeNorm
+name|getDefault
+argument_list|()
+operator|.
+name|encodeNormValue
 argument_list|(
 literal|1.0f
 argument_list|)

@@ -37,6 +37,7 @@ name|DocIdSetIterator
 block|{
 DECL|field|similarity
 specifier|private
+specifier|final
 name|Similarity
 name|similarity
 decl_stmt|;

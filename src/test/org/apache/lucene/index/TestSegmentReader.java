@@ -99,7 +99,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DefaultSimilarity
+name|Similarity
 import|;
 end_import
 begin_import
@@ -1130,9 +1130,12 @@ decl_stmt|;
 name|byte
 name|norm1
 init|=
-name|DefaultSimilarity
+name|Similarity
 operator|.
-name|encodeNorm
+name|getDefault
+argument_list|()
+operator|.
+name|encodeNormValue
 argument_list|(
 literal|1.0f
 argument_list|)

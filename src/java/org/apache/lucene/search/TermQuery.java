@@ -124,6 +124,7 @@ name|Weight
 block|{
 DECL|field|similarity
 specifier|private
+specifier|final
 name|Similarity
 name|similarity
 decl_stmt|;
@@ -678,9 +679,9 @@ name|fieldNorms
 operator|!=
 literal|null
 condition|?
-name|Similarity
+name|similarity
 operator|.
-name|decodeNorm
+name|decodeNormValue
 argument_list|(
 name|fieldNorms
 index|[

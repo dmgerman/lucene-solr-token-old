@@ -639,9 +639,9 @@ name|d
 argument_list|,
 name|fieldName
 argument_list|,
-name|Similarity
+name|sim
 operator|.
-name|encodeNorm
+name|encodeNormValue
 argument_list|(
 name|sim
 operator|.
