@@ -1291,7 +1291,7 @@ name|addField
 argument_list|(
 literal|"name"
 argument_list|,
-literal|"doc2"
+literal|"h\u1234llo"
 argument_list|,
 literal|1.0f
 argument_list|)
@@ -1382,8 +1382,6 @@ argument_list|(
 name|query
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -1431,8 +1429,6 @@ argument_list|(
 name|query
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -1446,15 +1442,34 @@ name|getNumFound
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
+comment|// System.out.println( rsp.getResults() );
+comment|// query outside ascii range
+name|query
 operator|.
-name|out
-operator|.
-name|println
+name|setQuery
 argument_list|(
+literal|"name:h\u1234llo"
+argument_list|)
+expr_stmt|;
+name|rsp
+operator|=
+name|server
+operator|.
+name|query
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
 name|rsp
 operator|.
 name|getResults
+argument_list|()
+operator|.
+name|getNumFound
 argument_list|()
 argument_list|)
 expr_stmt|;
