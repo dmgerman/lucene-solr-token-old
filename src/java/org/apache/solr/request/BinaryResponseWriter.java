@@ -211,7 +211,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|KNOWN_TYPES
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|Set
