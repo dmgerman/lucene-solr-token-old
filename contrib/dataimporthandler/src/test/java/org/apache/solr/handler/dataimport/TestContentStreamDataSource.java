@@ -169,6 +169,15 @@ operator|.
 name|File
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
 begin_comment
 comment|/**  * Test for ContentStreamDataSource  *  * @version $Id$  * @since solr 1.4  */
 end_comment
@@ -395,11 +404,21 @@ name|assertEquals
 argument_list|(
 literal|"Hello C1"
 argument_list|,
+operator|(
+operator|(
+name|List
+operator|)
 name|doc
 operator|.
 name|getFieldValue
 argument_list|(
 literal|"desc"
+argument_list|)
+operator|)
+operator|.
+name|get
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
