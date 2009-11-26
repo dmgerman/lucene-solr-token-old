@@ -1135,15 +1135,6 @@ name|val
 argument_list|)
 expr_stmt|;
 block|}
-name|XML
-operator|.
-name|escapeAttributeValue
-argument_list|(
-name|val
-argument_list|,
-name|writer
-argument_list|)
-expr_stmt|;
 name|writer
 operator|.
 name|write
