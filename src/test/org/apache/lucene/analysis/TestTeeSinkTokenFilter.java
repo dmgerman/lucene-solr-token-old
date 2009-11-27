@@ -972,6 +972,10 @@ init|=
 operator|new
 name|LowerCaseFilter
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|source1
 argument_list|)
 decl_stmt|;
