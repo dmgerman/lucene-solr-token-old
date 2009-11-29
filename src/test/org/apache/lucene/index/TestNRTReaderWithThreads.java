@@ -272,8 +272,6 @@ decl_stmt|;
 name|long
 name|duration
 init|=
-literal|5
-operator|*
 literal|1000
 decl_stmt|;
 while|while

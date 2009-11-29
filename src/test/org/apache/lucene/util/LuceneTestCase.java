@@ -67,19 +67,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|analysis
-operator|.
-name|TokenStream
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|ConcurrentMergeScheduler
@@ -608,6 +595,7 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
+comment|//long t0 = System.currentTimeMillis();
 try|try
 block|{
 name|seed
@@ -654,6 +642,8 @@ throw|throw
 name|e
 throw|;
 block|}
+comment|//long t = System.currentTimeMillis() - t0;
+comment|//System.out.println(t + " msec for " + getName());
 block|}
 comment|// recorded seed
 DECL|field|seed

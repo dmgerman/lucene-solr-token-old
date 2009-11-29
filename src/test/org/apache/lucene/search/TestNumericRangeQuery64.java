@@ -1883,7 +1883,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|50
+literal|10
 condition|;
 name|i
 operator|++
@@ -2387,7 +2387,7 @@ name|termCountT
 operator|)
 operator|/
 operator|(
-literal|50
+literal|10
 operator|*
 literal|4
 operator|)
@@ -2411,7 +2411,7 @@ name|termCountC
 operator|)
 operator|/
 operator|(
-literal|50
+literal|10
 operator|*
 literal|4
 operator|)
@@ -2517,7 +2517,7 @@ literal|"ascfield"
 operator|+
 name|precisionStep
 decl_stmt|;
-comment|// 50 random tests
+comment|// 10 random tests
 for|for
 control|(
 name|int
@@ -2527,7 +2527,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|50
+literal|10
 condition|;
 name|i
 operator|++
