@@ -86,26 +86,13 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|analysis
-operator|.
-name|TokenStream
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|Version
 import|;
 end_import
 begin_comment
-comment|/**  * Test the CzechAnalyzer  *   * CzechAnalyzer is like a StandardAnalyzer with a custom stopword list.  *  */
+comment|/**  * Test the CzechAnalyzer  *   * Before Lucene 3.1, CzechAnalyzer was a StandardAnalyzer with a custom   * stopword list. As of 3.1 it also includes a stemmer.  *  */
 end_comment
 begin_class
 DECL|class|TestCzechAnalyzer
@@ -144,6 +131,38 @@ argument_list|,
 literal|"org/apache/lucene/analysis/cz/customStopWordFile.txt"
 argument_list|)
 decl_stmt|;
+comment|/**    * @deprecated Remove this test when support for 3.0 indexes is no longer needed.    */
+DECL|method|testStopWordLegacy
+specifier|public
+name|void
+name|testStopWordLegacy
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertAnalyzesTo
+argument_list|(
+operator|new
+name|CzechAnalyzer
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_30
+argument_list|)
+argument_list|,
+literal|"Pokud mluvime o volnem"
+argument_list|,
+operator|new
+name|String
+index|[]
+block|{
+literal|"mluvime"
+block|,
+literal|"volnem"
+block|}
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testStopWord
 specifier|public
 name|void
@@ -168,17 +187,18 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"mluvime"
+literal|"mluvim"
 block|,
-literal|"volnem"
+literal|"voln"
 block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testReusableTokenStream
+comment|/**    * @deprecated Remove this test when support for 3.0 indexes is no longer needed.    */
+DECL|method|testReusableTokenStreamLegacy
 specifier|public
 name|void
-name|testReusableTokenStream
+name|testReusableTokenStreamLegacy
 parameter_list|()
 throws|throws
 name|Exception
@@ -191,7 +211,7 @@ name|CzechAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_CURRENT
+name|LUCENE_30
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesToReuse
@@ -227,7 +247,59 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*    * An input stream that always throws IOException for testing.    */
+DECL|method|testReusableTokenStream
+specifier|public
+name|void
+name|testReusableTokenStream
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Analyzer
+name|analyzer
+init|=
+operator|new
+name|CzechAnalyzer
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|)
+decl_stmt|;
+name|assertAnalyzesToReuse
+argument_list|(
+name|analyzer
+argument_list|,
+literal|"Pokud mluvime o volnem"
+argument_list|,
+operator|new
+name|String
+index|[]
+block|{
+literal|"mluvim"
+block|,
+literal|"voln"
+block|}
+argument_list|)
+expr_stmt|;
+name|assertAnalyzesToReuse
+argument_list|(
+name|analyzer
+argument_list|,
+literal|"ÄeskÃ¡ Republika"
+argument_list|,
+operator|new
+name|String
+index|[]
+block|{
+literal|"Äesk"
+block|,
+literal|"republik"
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**    * An input stream that always throws IOException for testing.    * @deprecated Remove this class when the loadStopWords method is removed.    */
 DECL|class|UnreliableInputStream
 specifier|private
 class|class
@@ -252,7 +324,7 @@ argument_list|()
 throw|;
 block|}
 block|}
-comment|/*    * The loadStopWords method does not throw IOException on error,    * instead previously it set the stoptable to null (versus empty)    * this would cause a NPE when it is time to create the StopFilter.    */
+comment|/**    * The loadStopWords method does not throw IOException on error,    * instead previously it set the stoptable to null (versus empty)    * this would cause a NPE when it is time to create the StopFilter.    * @deprecated Remove this test when the loadStopWords method is removed.    */
 DECL|method|testInvalidStopWordFile
 specifier|public
 name|void
@@ -269,7 +341,7 @@ name|CzechAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_CURRENT
+name|LUCENE_30
 argument_list|)
 decl_stmt|;
 name|cz
@@ -304,7 +376,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*     * Test that changes to the stop table via loadStopWords are applied immediately    * when using reusable token streams.    */
+comment|/**     * Test that changes to the stop table via loadStopWords are applied immediately    * when using reusable token streams.    * @deprecated Remove this test when the loadStopWords method is removed.    */
 DECL|method|testStopWordFileReuse
 specifier|public
 name|void
@@ -321,7 +393,7 @@ name|CzechAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_CURRENT
+name|LUCENE_30
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesToReuse
