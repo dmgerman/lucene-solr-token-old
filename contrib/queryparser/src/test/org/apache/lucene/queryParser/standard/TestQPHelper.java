@@ -6262,6 +6262,10 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 literal|"the"
 argument_list|,
 literal|"foo"
@@ -6463,6 +6467,10 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 literal|"the"
 argument_list|,
 literal|"in"

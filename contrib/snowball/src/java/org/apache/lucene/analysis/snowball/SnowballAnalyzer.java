@@ -175,6 +175,8 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
+name|matchVersion
+argument_list|,
 name|stopWords
 argument_list|)
 expr_stmt|;
@@ -234,12 +236,7 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
-name|StopFilter
-operator|.
-name|getEnablePositionIncrementsVersionDefault
-argument_list|(
 name|matchVersion
-argument_list|)
 argument_list|,
 name|result
 argument_list|,
@@ -382,12 +379,7 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
-name|StopFilter
-operator|.
-name|getEnablePositionIncrementsVersionDefault
-argument_list|(
 name|matchVersion
-argument_list|)
 argument_list|,
 name|streams
 operator|.

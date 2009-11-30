@@ -82,7 +82,7 @@ name|Version
 import|;
 end_import
 begin_comment
-comment|/** Filters {@link LetterTokenizer} with {@link LowerCaseFilter} and {@link StopFilter}.  *  *<a name="version"/>  *<p>You must specify the required {@link Version}  * compatibility when creating StopAnalyzer:  *<ul>  *<li> As of 2.9, position increments are preserved  *</ul> */
+comment|/** Filters {@link LetterTokenizer} with {@link LowerCaseFilter} and {@link StopFilter}.  *  *<a name="version"/>  *<p>You must specify the required {@link Version}  * compatibility when creating StopAnalyzer:  *<ul>  *<li> As of 3.1, StopFilter correctly handles Unicode 4.0  *         supplementary characters in stopwords  *<li> As of 2.9, position increments are preserved  *</ul> */
 end_comment
 begin_class
 DECL|class|StopAnalyzer
@@ -102,11 +102,11 @@ name|?
 argument_list|>
 name|stopWords
 decl_stmt|;
-DECL|field|enablePositionIncrements
+DECL|field|matchVersion
 specifier|private
 specifier|final
-name|boolean
-name|enablePositionIncrements
+name|Version
+name|matchVersion
 decl_stmt|;
 comment|/** An unmodifiable set containing some common English words that are not usually useful   for searching.*/
 DECL|field|ENGLISH_STOP_WORDS_SET
@@ -206,6 +206,10 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|stopWords
 operator|.
 name|size
@@ -244,14 +248,11 @@ name|stopWords
 operator|=
 name|ENGLISH_STOP_WORDS_SET
 expr_stmt|;
-name|enablePositionIncrements
-operator|=
-name|StopFilter
+name|this
 operator|.
-name|getEnablePositionIncrementsVersionDefault
-argument_list|(
 name|matchVersion
-argument_list|)
+operator|=
+name|matchVersion
 expr_stmt|;
 block|}
 comment|/** Builds an analyzer with the stop words from the given set.    * @param matchVersion See<a href="#version">above</a>    * @param stopWords Set of stop words */
@@ -275,14 +276,11 @@ name|stopWords
 operator|=
 name|stopWords
 expr_stmt|;
-name|enablePositionIncrements
-operator|=
-name|StopFilter
+name|this
 operator|.
-name|getEnablePositionIncrementsVersionDefault
-argument_list|(
 name|matchVersion
-argument_list|)
+operator|=
+name|matchVersion
 expr_stmt|;
 block|}
 comment|/** Builds an analyzer with the stop words from the given file.    * @see WordlistLoader#getWordSet(File)    * @param matchVersion See<a href="#version">above</a>    * @param stopwordsFile File to load stop words from */
@@ -310,14 +308,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|enablePositionIncrements
-operator|=
-name|StopFilter
-operator|.
-name|getEnablePositionIncrementsVersionDefault
-argument_list|(
 name|matchVersion
-argument_list|)
+operator|=
+name|matchVersion
 expr_stmt|;
 block|}
 comment|/** Builds an analyzer with the stop words from the given reader.    * @see WordlistLoader#getWordSet(Reader)    * @param matchVersion See<a href="#version">above</a>    * @param stopwords Reader to load stop words from */
@@ -345,14 +338,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|enablePositionIncrements
-operator|=
-name|StopFilter
-operator|.
-name|getEnablePositionIncrementsVersionDefault
-argument_list|(
 name|matchVersion
-argument_list|)
+operator|=
+name|matchVersion
 expr_stmt|;
 block|}
 comment|/** Filters LowerCaseTokenizer with StopFilter. */
@@ -374,7 +362,7 @@ return|return
 operator|new
 name|StopFilter
 argument_list|(
-name|enablePositionIncrements
+name|matchVersion
 argument_list|,
 operator|new
 name|LowerCaseTokenizer
@@ -457,7 +445,7 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
-name|enablePositionIncrements
+name|matchVersion
 argument_list|,
 name|streams
 operator|.
