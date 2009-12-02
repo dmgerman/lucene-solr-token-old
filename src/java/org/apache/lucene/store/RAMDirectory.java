@@ -61,6 +61,19 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -113,10 +126,13 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|sizeInBytes
-name|long
+specifier|final
+name|AtomicLong
 name|sizeInBytes
 init|=
-literal|0
+operator|new
+name|AtomicLong
+argument_list|()
 decl_stmt|;
 comment|// *****
 comment|// Lock acquisition sequence:  RAMDirectory, then RAMFile
@@ -520,6 +536,9 @@ argument_list|()
 expr_stmt|;
 return|return
 name|sizeInBytes
+operator|.
+name|get
+argument_list|()
 return|;
 block|}
 comment|/** Removes an existing file in the directory.    * @throws IOException if the file does not exist    */
@@ -571,12 +590,15 @@ operator|=
 literal|null
 expr_stmt|;
 name|sizeInBytes
-operator|-=
+operator|.
+name|addAndGet
+argument_list|(
+operator|-
 name|file
 operator|.
 name|sizeInBytes
+argument_list|)
 expr_stmt|;
-comment|// updates to RAMFile.sizeInBytes synchronized on directory
 block|}
 else|else
 throw|throw
@@ -636,10 +658,13 @@ literal|null
 condition|)
 block|{
 name|sizeInBytes
-operator|-=
+operator|.
+name|addAndGet
+argument_list|(
 name|existing
 operator|.
 name|sizeInBytes
+argument_list|)
 expr_stmt|;
 name|existing
 operator|.
