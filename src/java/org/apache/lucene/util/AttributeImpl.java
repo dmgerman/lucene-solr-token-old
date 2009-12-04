@@ -86,6 +86,9 @@ name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|this

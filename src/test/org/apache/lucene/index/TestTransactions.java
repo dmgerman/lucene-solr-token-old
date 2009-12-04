@@ -1218,15 +1218,10 @@ control|)
 name|assertTrue
 argument_list|(
 operator|!
-operator|(
-operator|(
-name|TimedThread
-operator|)
 name|threads
 index|[
 name|i
 index|]
-operator|)
 operator|.
 name|failed
 argument_list|)

@@ -701,9 +701,6 @@ block|{
 name|AttributeImpl
 name|copy
 init|=
-operator|(
-name|AttributeImpl
-operator|)
 name|att
 operator|.
 name|getClass

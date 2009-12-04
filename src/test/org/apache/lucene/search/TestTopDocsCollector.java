@@ -145,6 +145,9 @@ class|class
 name|MyTopsDocCollector
 extends|extends
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 block|{
 DECL|field|idx
 specifier|private
@@ -258,15 +261,10 @@ expr_stmt|;
 block|}
 name|maxScore
 operator|=
-operator|(
-operator|(
-name|ScoreDoc
-operator|)
 name|pq
 operator|.
 name|pop
 argument_list|()
-operator|)
 operator|.
 name|score
 expr_stmt|;
@@ -464,6 +462,9 @@ decl_stmt|;
 DECL|method|doSearch
 specifier|private
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 name|doSearch
 parameter_list|(
 name|int
@@ -491,6 +492,9 @@ literal|true
 argument_list|)
 decl_stmt|;
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 name|tdc
 init|=
 operator|new
@@ -621,6 +625,9 @@ init|=
 literal|5
 decl_stmt|;
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 name|tdc
 init|=
 name|doSearch
@@ -731,6 +738,9 @@ throws|throws
 name|Exception
 block|{
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 name|tdc
 init|=
 operator|new
@@ -767,6 +777,9 @@ throws|throws
 name|Exception
 block|{
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 name|tdc
 init|=
 name|doSearch
@@ -802,6 +815,9 @@ throws|throws
 name|Exception
 block|{
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 name|tdc
 init|=
 name|doSearch
@@ -890,6 +906,9 @@ throws|throws
 name|Exception
 block|{
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 name|tdc
 init|=
 name|doSearch
@@ -921,6 +940,9 @@ throws|throws
 name|Exception
 block|{
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 name|tdc
 init|=
 name|doSearch
@@ -980,6 +1002,9 @@ name|Exception
 block|{
 comment|// ask for all results
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 name|tdc
 init|=
 name|doSearch
@@ -1048,6 +1073,9 @@ throws|throws
 name|Exception
 block|{
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 name|tdc
 init|=
 name|doSearch

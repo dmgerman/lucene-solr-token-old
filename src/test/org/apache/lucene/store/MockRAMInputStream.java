@@ -114,9 +114,6 @@ block|{
 name|Integer
 name|v
 init|=
-operator|(
-name|Integer
-operator|)
 name|dir
 operator|.
 name|openFiles

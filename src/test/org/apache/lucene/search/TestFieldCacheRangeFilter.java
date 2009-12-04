@@ -25,24 +25,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|text
-operator|.
-name|Collator
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -276,6 +258,9 @@ argument_list|)
 decl_stmt|;
 comment|// test id, bounded on both ends
 name|FieldCacheRangeFilter
+argument_list|<
+name|String
+argument_list|>
 name|fcrf
 decl_stmt|;
 name|result
@@ -1920,6 +1905,9 @@ argument_list|)
 decl_stmt|;
 comment|// test id, bounded on both ends
 name|FieldCacheRangeFilter
+argument_list|<
+name|Short
+argument_list|>
 name|fcrf
 decl_stmt|;
 name|result
@@ -3035,6 +3023,9 @@ argument_list|)
 decl_stmt|;
 comment|// test id, bounded on both ends
 name|FieldCacheRangeFilter
+argument_list|<
+name|Integer
+argument_list|>
 name|fcrf
 decl_stmt|;
 name|result
@@ -4150,6 +4141,9 @@ argument_list|)
 decl_stmt|;
 comment|// test id, bounded on both ends
 name|FieldCacheRangeFilter
+argument_list|<
+name|Long
+argument_list|>
 name|fcrf
 decl_stmt|;
 name|result
@@ -6032,6 +6026,9 @@ index|[]
 name|result
 decl_stmt|;
 name|FieldCacheRangeFilter
+argument_list|<
+name|Byte
+argument_list|>
 name|fcrf
 decl_stmt|;
 name|Query

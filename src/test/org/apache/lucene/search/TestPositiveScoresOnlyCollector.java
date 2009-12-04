@@ -265,6 +265,9 @@ name|SimpleScorer
 argument_list|()
 decl_stmt|;
 name|TopDocsCollector
+argument_list|<
+name|ScoreDoc
+argument_list|>
 name|tdc
 init|=
 name|TopScoreDocCollector

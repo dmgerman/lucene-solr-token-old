@@ -29,15 +29,6 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
 begin_comment
 comment|/**  * DocValues TestCase    */
 end_comment

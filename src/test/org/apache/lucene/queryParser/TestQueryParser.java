@@ -612,6 +612,9 @@ name|name
 argument_list|,
 operator|new
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 argument_list|(
 name|Arrays
 operator|.
@@ -5066,10 +5069,16 @@ throws|throws
 name|Exception
 block|{
 name|Set
+argument_list|<
+name|Object
+argument_list|>
 name|stopWords
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 literal|1
 argument_list|)

@@ -523,6 +523,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|Collection
+argument_list|<
+name|String
+argument_list|>
 name|fieldNames
 init|=
 name|pr

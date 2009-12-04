@@ -1713,10 +1713,16 @@ expr_stmt|;
 comment|//Should be one document from each directory
 comment|//they both have two fields, contents and other
 name|Set
+argument_list|<
+name|String
+argument_list|>
 name|ftl
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|ftl
@@ -1736,7 +1742,11 @@ name|ftl
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_SET
+expr|<
+name|String
+operator|>
+name|emptySet
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|document
@@ -1849,7 +1859,11 @@ name|ftl
 argument_list|,
 name|Collections
 operator|.
-name|EMPTY_SET
+expr|<
+name|String
+operator|>
+name|emptySet
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|document

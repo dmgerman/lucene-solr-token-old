@@ -29,15 +29,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|BitSet
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|WeakHashMap
 import|;
 end_import
@@ -136,6 +127,11 @@ name|cache
 operator|=
 operator|new
 name|WeakHashMap
+argument_list|<
+name|IndexReader
+argument_list|,
+name|DocIdSet
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
@@ -148,9 +144,6 @@ comment|// check cache
 name|DocIdSet
 name|cached
 init|=
-operator|(
-name|DocIdSet
-operator|)
 name|cache
 operator|.
 name|get

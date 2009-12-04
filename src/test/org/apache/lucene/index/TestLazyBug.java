@@ -158,10 +158,16 @@ DECL|field|dataset
 specifier|private
 specifier|static
 name|Set
+argument_list|<
+name|String
+argument_list|>
 name|dataset
 init|=
 operator|new
 name|HashSet
+argument_list|<
+name|String
+argument_list|>
 argument_list|(
 name|Arrays
 operator|.
@@ -471,6 +477,9 @@ name|MAGIC_FIELD
 argument_list|)
 expr_stmt|;
 name|List
+argument_list|<
+name|Fieldable
+argument_list|>
 name|fields
 init|=
 name|d
@@ -481,6 +490,9 @@ decl_stmt|;
 for|for
 control|(
 name|Iterator
+argument_list|<
+name|Fieldable
+argument_list|>
 name|fi
 init|=
 name|fields
@@ -504,9 +516,6 @@ try|try
 block|{
 name|f
 operator|=
-operator|(
-name|Fieldable
-operator|)
 name|fi
 operator|.
 name|next

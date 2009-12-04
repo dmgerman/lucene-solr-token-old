@@ -2053,10 +2053,6 @@ name|IndexReader
 index|[]
 name|readers
 init|=
-operator|(
-name|IndexReader
-index|[]
-operator|)
 name|readerList
 operator|.
 name|toArray
@@ -2535,10 +2531,6 @@ name|IndexReader
 index|[]
 name|readers
 init|=
-operator|(
-name|IndexReader
-index|[]
-operator|)
 name|readerList
 operator|.
 name|toArray

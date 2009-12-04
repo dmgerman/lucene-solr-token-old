@@ -5286,10 +5286,16 @@ block|}
 decl_stmt|;
 comment|// Construct input text and expected output tokens
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|expectedOutputTokens
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|StringBuilder
@@ -5440,6 +5446,9 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|String
+argument_list|>
 name|expectedIter
 init|=
 name|expectedOutputTokens
@@ -5458,9 +5467,6 @@ block|{
 empty_stmt|;
 name|assertTermEquals
 argument_list|(
-operator|(
-name|String
-operator|)
 name|expectedIter
 operator|.
 name|next
