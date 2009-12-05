@@ -27,15 +27,11 @@ import|;
 end_import
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|CorruptIndexException
+name|Map
 import|;
 end_import
 begin_import
@@ -116,10 +112,37 @@ operator|.
 name|TopDocs
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
+import|;
+end_import
 begin_comment
 comment|/**  * Test FieldScoreQuery search.  *<p>  * Tests here create an index with a few documents, each having  * an int value indexed  field and a float value indexed field.  * The values of these fields are later used for scoring.  *<p>  * The rank tests use Hits to verify that docs are ordered (by score) as expected.  *<p>  * The exact score tests use TopDocs top to verify the exact score.    */
 end_comment
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"UseOfSystemOutOrSystemErr"
+block|}
+argument_list|)
 DECL|class|TestFieldScoreQuery
 specifier|public
 class|class
@@ -127,30 +150,15 @@ name|TestFieldScoreQuery
 extends|extends
 name|FunctionTestSetup
 block|{
-comment|/* @override constructor */
-DECL|method|TestFieldScoreQuery
-specifier|public
-name|TestFieldScoreQuery
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-block|}
 comment|/** Test that FieldScoreQuery of Type.BYTE returns docs in expected order. */
+annotation|@
+name|Test
 DECL|method|testRankByte
 specifier|public
 name|void
 name|testRankByte
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 comment|// INT field values are small enough to be parsed as byte
@@ -167,14 +175,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Test that FieldScoreQuery of Type.SHORT returns docs in expected order. */
+annotation|@
+name|Test
 DECL|method|testRankShort
 specifier|public
 name|void
 name|testRankShort
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 comment|// INT field values are small enough to be parsed as short
@@ -191,14 +199,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Test that FieldScoreQuery of Type.INT returns docs in expected order. */
+annotation|@
+name|Test
 DECL|method|testRankInt
 specifier|public
 name|void
 name|testRankInt
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 name|doTestRank
@@ -214,14 +222,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Test that FieldScoreQuery of Type.FLOAT returns docs in expected order. */
+annotation|@
+name|Test
 DECL|method|testRankFloat
 specifier|public
 name|void
 name|testRankFloat
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 comment|// INT field can be parsed as float
@@ -264,8 +272,6 @@ name|Type
 name|tp
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 name|IndexSearcher
@@ -445,14 +451,14 @@ expr_stmt|;
 block|}
 block|}
 comment|/** Test that FieldScoreQuery of Type.BYTE returns the expected scores. */
+annotation|@
+name|Test
 DECL|method|testExactScoreByte
 specifier|public
 name|void
 name|testExactScoreByte
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 comment|// INT field values are small enough to be parsed as byte
@@ -469,14 +475,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Test that FieldScoreQuery of Type.SHORT returns the expected scores. */
+annotation|@
+name|Test
 DECL|method|testExactScoreShort
 specifier|public
 name|void
 name|testExactScoreShort
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 comment|// INT field values are small enough to be parsed as short
@@ -493,14 +499,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Test that FieldScoreQuery of Type.INT returns the expected scores. */
+annotation|@
+name|Test
 DECL|method|testExactScoreInt
 specifier|public
 name|void
 name|testExactScoreInt
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 name|doTestExactScore
@@ -516,14 +522,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Test that FieldScoreQuery of Type.FLOAT returns the expected scores. */
+annotation|@
+name|Test
 DECL|method|testExactScoreFloat
 specifier|public
 name|void
 name|testExactScoreFloat
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 comment|// INT field can be parsed as float
@@ -566,8 +572,6 @@ name|Type
 name|tp
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 name|IndexSearcher
@@ -627,28 +631,16 @@ name|scoreDocs
 decl_stmt|;
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
+name|ScoreDoc
+name|aSd
+range|:
 name|sd
-operator|.
-name|length
-condition|;
-name|i
-operator|++
 control|)
 block|{
 name|float
 name|score
 init|=
-name|sd
-index|[
-name|i
-index|]
+name|aSd
 operator|.
 name|score
 decl_stmt|;
@@ -660,10 +652,7 @@ name|explain
 argument_list|(
 name|q
 argument_list|,
-name|sd
-index|[
-name|i
-index|]
+name|aSd
 operator|.
 name|doc
 argument_list|)
@@ -679,10 +668,7 @@ argument_list|()
 operator|.
 name|document
 argument_list|(
-name|sd
-index|[
-name|i
-index|]
+name|aSd
 operator|.
 name|doc
 argument_list|)
@@ -725,14 +711,14 @@ expr_stmt|;
 block|}
 block|}
 comment|/** Test that FieldScoreQuery of Type.BYTE caches/reuses loaded values and consumes the proper RAM resources. */
+annotation|@
+name|Test
 DECL|method|testCachingByte
 specifier|public
 name|void
 name|testCachingByte
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 comment|// INT field values are small enough to be parsed as byte
@@ -749,14 +735,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Test that FieldScoreQuery of Type.SHORT caches/reuses loaded values and consumes the proper RAM resources. */
+annotation|@
+name|Test
 DECL|method|testCachingShort
 specifier|public
 name|void
 name|testCachingShort
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 comment|// INT field values are small enough to be parsed as short
@@ -773,14 +759,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Test that FieldScoreQuery of Type.INT caches/reuses loaded values and consumes the proper RAM resources. */
+annotation|@
+name|Test
 DECL|method|testCachingInt
 specifier|public
 name|void
 name|testCachingInt
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 name|doTestCaching
@@ -796,14 +782,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Test that FieldScoreQuery of Type.FLOAT caches/reuses loaded values and consumes the proper RAM resources. */
+annotation|@
+name|Test
 DECL|method|testCachingFloat
 specifier|public
 name|void
 name|testCachingFloat
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 comment|// INT field values can be parsed as float
@@ -846,8 +832,6 @@ name|Type
 name|tp
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
 block|{
 comment|// prepare expected array types for comparison

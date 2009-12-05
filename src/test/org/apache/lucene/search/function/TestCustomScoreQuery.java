@@ -18,37 +18,6 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|CorruptIndexException
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -68,9 +37,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|queryParser
 operator|.
-name|Explanation
+name|ParseException
 import|;
 end_import
 begin_import
@@ -83,46 +52,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|IndexSearcher
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Query
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|QueryUtils
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|TopDocs
+name|*
 import|;
 end_import
 begin_import
@@ -138,10 +68,75 @@ operator|.
 name|Version
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
 begin_comment
 comment|/**  * Test CustomScoreQuery search.  */
 end_comment
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"MagicNumber"
+block|}
+argument_list|)
 DECL|class|TestCustomScoreQuery
 specifier|public
 class|class
@@ -149,31 +144,18 @@ name|TestCustomScoreQuery
 extends|extends
 name|FunctionTestSetup
 block|{
-comment|/* @override constructor */
-DECL|method|TestCustomScoreQuery
-specifier|public
-name|TestCustomScoreQuery
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-block|}
-comment|/** Test that CustomScoreQuery of Type.BYTE returns the expected scores. */
+comment|/**    * Test that CustomScoreQuery of Type.BYTE returns the expected scores.    */
+annotation|@
+name|Test
 DECL|method|testCustomScoreByte
 specifier|public
 name|void
 name|testCustomScoreByte
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
+throws|,
+name|ParseException
 block|{
 comment|// INT field values are small enough to be parsed as byte
 name|doTestCustomScore
@@ -203,16 +185,18 @@ literal|2.0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Test that CustomScoreQuery of Type.SHORT returns the expected scores. */
+comment|/**    * Test that CustomScoreQuery of Type.SHORT returns the expected scores.    */
+annotation|@
+name|Test
 DECL|method|testCustomScoreShort
 specifier|public
 name|void
 name|testCustomScoreShort
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
+throws|,
+name|ParseException
 block|{
 comment|// INT field values are small enough to be parsed as short
 name|doTestCustomScore
@@ -242,16 +226,18 @@ literal|3.0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Test that CustomScoreQuery of Type.INT returns the expected scores. */
+comment|/**    * Test that CustomScoreQuery of Type.INT returns the expected scores.    */
+annotation|@
+name|Test
 DECL|method|testCustomScoreInt
 specifier|public
 name|void
 name|testCustomScoreInt
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
+throws|,
+name|ParseException
 block|{
 name|doTestCustomScore
 argument_list|(
@@ -280,16 +266,18 @@ literal|4.0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Test that CustomScoreQuery of Type.FLOAT returns the expected scores. */
+comment|/**    * Test that CustomScoreQuery of Type.FLOAT returns the expected scores.    */
+annotation|@
+name|Test
 DECL|method|testCustomScoreFloat
 specifier|public
 name|void
 name|testCustomScoreFloat
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
+throws|,
+name|ParseException
 block|{
 comment|// INT field can be parsed as float
 name|doTestCustomScore
@@ -347,6 +335,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// must have static class otherwise serialization tests fail
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"SerializableHasSerializationMethods"
+block|,
+literal|"serial"
+block|}
+argument_list|)
 DECL|class|CustomAddQuery
 specifier|private
 specifier|static
@@ -487,6 +484,15 @@ return|;
 block|}
 block|}
 comment|// must have static class otherwise serialization tests fail
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"SerializableHasSerializationMethods"
+block|,
+literal|"serial"
+block|}
+argument_list|)
 DECL|class|CustomMulAddQuery
 specifier|private
 specifier|static
@@ -757,9 +763,9 @@ name|double
 name|dboost
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|Exception
+throws|,
+name|ParseException
 block|{
 name|float
 name|boost
@@ -830,7 +836,7 @@ name|q1
 argument_list|)
 expr_stmt|;
 comment|// custom query, that should score the same as q1.
-name|CustomScoreQuery
+name|Query
 name|q2CustomNeutral
 init|=
 operator|new
@@ -1018,7 +1024,7 @@ literal|1000
 argument_list|)
 decl_stmt|;
 comment|// put results in map so we can verify the scores although they have changed
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1031,7 +1037,7 @@ argument_list|(
 name|td1
 argument_list|)
 decl_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1044,7 +1050,7 @@ argument_list|(
 name|td2CustomNeutral
 argument_list|)
 decl_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1057,7 +1063,7 @@ argument_list|(
 name|td3CustomMul
 argument_list|)
 decl_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1070,7 +1076,7 @@ argument_list|(
 name|td4CustomAdd
 argument_list|)
 decl_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1123,7 +1129,7 @@ parameter_list|,
 name|IndexSearcher
 name|s
 parameter_list|,
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1131,7 +1137,7 @@ name|Float
 argument_list|>
 name|h1
 parameter_list|,
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1139,7 +1145,7 @@ name|Float
 argument_list|>
 name|h2customNeutral
 parameter_list|,
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1147,7 +1153,7 @@ name|Float
 argument_list|>
 name|h3CustomMul
 parameter_list|,
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1155,7 +1161,7 @@ name|Float
 argument_list|>
 name|h4CustomAdd
 parameter_list|,
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1302,7 +1308,7 @@ for|for
 control|(
 specifier|final
 name|Integer
-name|x
+name|doc
 range|:
 name|h1
 operator|.
@@ -1310,14 +1316,6 @@ name|keySet
 argument_list|()
 control|)
 block|{
-name|int
-name|doc
-init|=
-name|x
-operator|.
-name|intValue
-argument_list|()
-decl_stmt|;
 name|log
 argument_list|(
 literal|"doc = "
@@ -1369,11 +1367,8 @@ name|h1
 operator|.
 name|get
 argument_list|(
-name|x
+name|doc
 argument_list|)
-operator|.
-name|floatValue
-argument_list|()
 decl_stmt|;
 name|logResult
 argument_list|(
@@ -1395,11 +1390,8 @@ name|h2customNeutral
 operator|.
 name|get
 argument_list|(
-name|x
+name|doc
 argument_list|)
-operator|.
-name|floatValue
-argument_list|()
 decl_stmt|;
 name|logResult
 argument_list|(
@@ -1434,11 +1426,8 @@ name|h3CustomMul
 operator|.
 name|get
 argument_list|(
-name|x
+name|doc
 argument_list|)
-operator|.
-name|floatValue
-argument_list|()
 decl_stmt|;
 name|logResult
 argument_list|(
@@ -1475,11 +1464,8 @@ name|h4CustomAdd
 operator|.
 name|get
 argument_list|(
-name|x
+name|doc
 argument_list|)
-operator|.
-name|floatValue
-argument_list|()
 decl_stmt|;
 name|logResult
 argument_list|(
@@ -1518,11 +1504,8 @@ name|h5CustomMulAdd
 operator|.
 name|get
 argument_list|(
-name|x
+name|doc
 argument_list|)
-operator|.
-name|floatValue
-argument_list|()
 decl_stmt|;
 name|logResult
 argument_list|(
@@ -1566,7 +1549,7 @@ parameter_list|(
 name|String
 name|msg
 parameter_list|,
-name|IndexSearcher
+name|Searcher
 name|s
 parameter_list|,
 name|Query
@@ -1614,7 +1597,7 @@ comment|// since custom scoring modifies the order of docs, map results
 comment|// by doc ids so that we can later compare/verify them
 DECL|method|topDocsToMap
 specifier|private
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1626,7 +1609,7 @@ name|TopDocs
 name|td
 parameter_list|)
 block|{
-name|HashMap
+name|Map
 argument_list|<
 name|Integer
 argument_list|,
@@ -1664,10 +1647,6 @@ name|h
 operator|.
 name|put
 argument_list|(
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
 name|td
 operator|.
 name|scoreDocs
@@ -1676,12 +1655,7 @@ name|i
 index|]
 operator|.
 name|doc
-argument_list|)
 argument_list|,
-name|Float
-operator|.
-name|valueOf
-argument_list|(
 name|td
 operator|.
 name|scoreDocs
@@ -1690,7 +1664,6 @@ name|i
 index|]
 operator|.
 name|score
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
