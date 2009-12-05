@@ -799,6 +799,9 @@ name|Override
 DECL|method|getFieldNames
 specifier|public
 name|Collection
+argument_list|<
+name|String
+argument_list|>
 name|getFieldNames
 parameter_list|(
 name|FieldOption
