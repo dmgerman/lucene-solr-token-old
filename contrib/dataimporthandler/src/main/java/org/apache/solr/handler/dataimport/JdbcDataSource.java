@@ -274,9 +274,6 @@ name|bsz
 operator|=
 name|context
 operator|.
-name|getVariableResolver
-argument_list|()
-operator|.
 name|replaceTokens
 argument_list|(
 name|bsz
@@ -569,18 +566,10 @@ name|Properties
 name|initProps
 parameter_list|)
 block|{
-specifier|final
-name|VariableResolver
-name|resolver
-init|=
-name|context
-operator|.
-name|getVariableResolver
-argument_list|()
-decl_stmt|;
+comment|//    final VariableResolver resolver = context.getVariableResolver();
 name|resolveVariables
 argument_list|(
-name|resolver
+name|context
 argument_list|,
 name|initProps
 argument_list|)
@@ -745,7 +734,7 @@ block|{
 comment|// Resolve variables again because the variables may have changed
 name|resolveVariables
 argument_list|(
-name|resolver
+name|context
 argument_list|,
 name|initProps
 argument_list|)
@@ -1257,8 +1246,8 @@ specifier|private
 name|void
 name|resolveVariables
 parameter_list|(
-name|VariableResolver
-name|resolver
+name|Context
+name|ctx
 parameter_list|,
 name|Properties
 name|initProps
@@ -1296,7 +1285,7 @@ name|entry
 operator|.
 name|setValue
 argument_list|(
-name|resolver
+name|ctx
 operator|.
 name|replaceTokens
 argument_list|(

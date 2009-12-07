@@ -122,7 +122,7 @@ return|;
 name|String
 name|query
 init|=
-name|resolver
+name|context
 operator|.
 name|replaceTokens
 argument_list|(
@@ -207,7 +207,7 @@ argument_list|()
 decl_stmt|;
 name|initQuery
 argument_list|(
-name|resolver
+name|context
 operator|.
 name|replaceTokens
 argument_list|(

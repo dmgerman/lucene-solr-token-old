@@ -183,7 +183,7 @@ condition|)
 block|{
 name|fileName
 operator|=
-name|resolver
+name|context
 operator|.
 name|replaceTokens
 argument_list|(
@@ -228,7 +228,7 @@ argument_list|)
 throw|;
 name|baseDir
 operator|=
-name|resolver
+name|context
 operator|.
 name|replaceTokens
 argument_list|(
@@ -310,7 +310,7 @@ condition|)
 block|{
 name|excludes
 operator|=
-name|resolver
+name|context
 operator|.
 name|replaceTokens
 argument_list|(
@@ -368,7 +368,7 @@ block|{
 name|Object
 name|o
 init|=
-name|resolver
+name|context
 operator|.
 name|resolve
 argument_list|(
@@ -404,7 +404,7 @@ else|else
 block|{
 name|dateStr
 operator|=
-name|resolver
+name|context
 operator|.
 name|replaceTokens
 argument_list|(
@@ -563,7 +563,7 @@ block|{
 name|Object
 name|o
 init|=
-name|resolver
+name|context
 operator|.
 name|resolve
 argument_list|(
@@ -609,7 +609,7 @@ else|else
 block|{
 name|sizeStr
 operator|=
-name|resolver
+name|context
 operator|.
 name|replaceTokens
 argument_list|(

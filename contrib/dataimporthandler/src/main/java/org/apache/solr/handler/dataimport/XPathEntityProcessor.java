@@ -518,7 +518,7 @@ condition|)
 block|{
 name|xslt
 operator|=
-name|resolver
+name|context
 operator|.
 name|replaceTokens
 argument_list|(
@@ -739,7 +739,7 @@ argument_list|)
 decl_stmt|;
 name|xpath
 operator|=
-name|resolver
+name|context
 operator|.
 name|replaceTokens
 argument_list|(
@@ -1087,7 +1087,7 @@ literal|null
 condition|)
 name|initQuery
 argument_list|(
-name|resolver
+name|context
 operator|.
 name|replaceTokens
 argument_list|(
@@ -1184,7 +1184,7 @@ argument_list|()
 expr_stmt|;
 name|initQuery
 argument_list|(
-name|resolver
+name|context
 operator|.
 name|replaceTokens
 argument_list|(
@@ -1362,7 +1362,15 @@ name|val
 argument_list|)
 expr_stmt|;
 block|}
-name|resolver
+operator|(
+operator|(
+name|VariableResolverImpl
+operator|)
+name|context
+operator|.
+name|getVariableResolver
+argument_list|()
+operator|)
 operator|.
 name|addNamespace
 argument_list|(

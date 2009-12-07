@@ -3794,9 +3794,6 @@ name|val
 operator|=
 name|context
 operator|.
-name|getVariableResolver
-argument_list|()
-operator|.
 name|replaceTokens
 argument_list|(
 name|val
@@ -3863,9 +3860,6 @@ name|val
 operator|=
 name|context
 operator|.
-name|getVariableResolver
-argument_list|()
-operator|.
 name|replaceTokens
 argument_list|(
 name|val
@@ -3922,9 +3916,6 @@ block|{
 name|val
 operator|=
 name|context
-operator|.
-name|getVariableResolver
-argument_list|()
 operator|.
 name|replaceTokens
 argument_list|(
