@@ -761,12 +761,9 @@ name|add
 argument_list|(
 literal|"... ("
 operator|+
-name|adds
-operator|.
-name|size
-argument_list|()
+name|numAdds
 operator|+
-literal|" added)"
+literal|" adds)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -787,12 +784,9 @@ name|add
 argument_list|(
 literal|"... ("
 operator|+
-name|deletes
-operator|.
-name|size
-argument_list|()
+name|numDeletes
 operator|+
-literal|" removed)"
+literal|" deletes)"
 argument_list|)
 expr_stmt|;
 block|}
