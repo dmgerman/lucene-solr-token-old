@@ -43,6 +43,19 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -873,9 +886,7 @@ argument_list|(
 literal|"field1"
 argument_list|)
 decl_stmt|;
-name|SegmentReader
-operator|.
-name|Ref
+name|AtomicInteger
 name|r1BytesRef
 init|=
 name|r1norm
@@ -903,7 +914,7 @@ operator|.
 name|bytesRef
 argument_list|()
 operator|.
-name|refCount
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -918,7 +929,7 @@ literal|1
 argument_list|,
 name|r1BytesRef
 operator|.
-name|refCount
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1031,7 +1042,7 @@ operator|.
 name|bytesRef
 argument_list|()
 operator|.
-name|refCount
+name|get
 argument_list|()
 operator|==
 literal|2
@@ -1079,7 +1090,7 @@ operator|.
 name|bytesRef
 argument_list|()
 operator|.
-name|refCount
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1114,7 +1125,7 @@ operator|.
 name|bytesRef
 argument_list|()
 operator|.
-name|refCount
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1218,7 +1229,7 @@ operator|.
 name|bytesRef
 argument_list|()
 operator|.
-name|refCount
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1231,7 +1242,7 @@ operator|.
 name|bytesRef
 argument_list|()
 operator|.
-name|refCount
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1288,7 +1299,7 @@ operator|.
 name|bytesRef
 argument_list|()
 operator|.
-name|refCount
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
