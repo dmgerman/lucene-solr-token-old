@@ -1075,6 +1075,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|getDocBuilder
+name|DocBuilder
+name|getDocBuilder
+parameter_list|()
+block|{
+return|return
+name|docBuilder
+return|;
+block|}
 DECL|method|resolve
 specifier|public
 name|Object
