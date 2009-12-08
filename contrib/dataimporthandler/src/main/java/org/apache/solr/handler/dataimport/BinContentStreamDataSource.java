@@ -139,7 +139,8 @@ name|contentStream
 operator|=
 name|context
 operator|.
-name|docBuilder
+name|getDocBuilder
+argument_list|()
 operator|.
 name|requestParameters
 operator|.
