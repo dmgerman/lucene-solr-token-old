@@ -79,6 +79,7 @@ end_comment
 begin_class
 DECL|class|ChineseAnalyzer
 specifier|public
+specifier|final
 class|class
 name|ChineseAnalyzer
 extends|extends

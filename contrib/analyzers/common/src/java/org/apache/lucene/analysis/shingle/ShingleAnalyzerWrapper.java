@@ -94,6 +94,7 @@ end_comment
 begin_class
 DECL|class|ShingleAnalyzerWrapper
 specifier|public
+specifier|final
 class|class
 name|ShingleAnalyzerWrapper
 extends|extends
@@ -134,13 +135,6 @@ operator|.
 name|defaultAnalyzer
 operator|=
 name|defaultAnalyzer
-expr_stmt|;
-name|setOverridesTokenStreamMethod
-argument_list|(
-name|ShingleAnalyzerWrapper
-operator|.
-name|class
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|ShingleAnalyzerWrapper
@@ -186,13 +180,6 @@ operator|new
 name|StandardAnalyzer
 argument_list|(
 name|matchVersion
-argument_list|)
-expr_stmt|;
-name|setOverridesTokenStreamMethod
-argument_list|(
-name|ShingleAnalyzerWrapper
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -382,23 +369,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|overridesTokenStreamMethod
-condition|)
-block|{
-comment|// LUCENE-1678: force fallback to tokenStream() if we
-comment|// have been subclassed and that subclass overrides
-comment|// tokenStream but not reusableTokenStream
-return|return
-name|tokenStream
-argument_list|(
-name|fieldName
-argument_list|,
-name|reader
-argument_list|)
-return|;
-block|}
 name|SavedStreams
 name|streams
 init|=

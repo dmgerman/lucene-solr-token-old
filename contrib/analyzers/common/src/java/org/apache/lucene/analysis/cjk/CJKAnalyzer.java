@@ -136,6 +136,7 @@ end_comment
 begin_class
 DECL|class|CJKAnalyzer
 specifier|public
+specifier|final
 class|class
 name|CJKAnalyzer
 extends|extends
