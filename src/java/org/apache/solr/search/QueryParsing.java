@@ -63,7 +63,150 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|*
+name|BooleanClause
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|BooleanQuery
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|ConstantScoreQuery
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|FuzzyQuery
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|NumericRangeQuery
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|PrefixQuery
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Query
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Sort
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|SortField
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|TermQuery
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|TermRangeQuery
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|WildcardQuery
 import|;
 end_import
 begin_import
@@ -331,7 +474,7 @@ name|DOCID
 init|=
 literal|"_docid_"
 decl_stmt|;
-comment|/**     * Helper utility for parsing a query using the Lucene QueryParser syntax.     * @param qs query expression in standard Lucene syntax    * @param schema used for default operator (overridden by params) and passed to the query parser for field format analysis information    */
+comment|/**    * Helper utility for parsing a query using the Lucene QueryParser syntax.    *    * @param qs     query expression in standard Lucene syntax    * @param schema used for default operator (overridden by params) and passed to the query parser for field format analysis information    */
 DECL|method|parseQuery
 specifier|public
 specifier|static
@@ -356,7 +499,7 @@ name|schema
 argument_list|)
 return|;
 block|}
-comment|/**     * Helper utility for parsing a query using the Lucene QueryParser syntax.     * @param qs query expression in standard Lucene syntax    * @param defaultField default field used for unqualified search terms in the query expression    * @param schema used for default operator (overridden by params) and passed to the query parser for field format analysis information    */
+comment|/**    * Helper utility for parsing a query using the Lucene QueryParser syntax.    *    * @param qs           query expression in standard Lucene syntax    * @param defaultField default field used for unqualified search terms in the query expression    * @param schema       used for default operator (overridden by params) and passed to the query parser for field format analysis information    */
 DECL|method|parseQuery
 specifier|public
 specifier|static
@@ -446,7 +589,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Helper utility for parsing a query using the Lucene QueryParser syntax.     * @param qs query expression in standard Lucene syntax    * @param defaultField default field used for unqualified search terms in the query expression    * @param params used to determine the default operator, overriding the schema specified operator    * @param schema used for default operator (overridden by params) and passed to the query parser for field format analysis information    */
+comment|/**    * Helper utility for parsing a query using the Lucene QueryParser syntax.    *    * @param qs           query expression in standard Lucene syntax    * @param defaultField default field used for unqualified search terms in the query expression    * @param params       used to determine the default operator, overriding the schema specified operator    * @param schema       used for default operator (overridden by params) and passed to the query parser for field format analysis information    */
 DECL|method|parseQuery
 specifier|public
 specifier|static
@@ -937,7 +1080,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    *  "foo" returns null    *  "{!prefix f=myfield}yes" returns type="prefix",f="myfield",v="yes"    *  "{!prefix f=myfield v=$p}" returns type="prefix",f="myfield",v=params.get("p")    */
+comment|/**    * "foo" returns null    * "{!prefix f=myfield}yes" returns type="prefix",f="myfield",v="yes"    * "{!prefix f=myfield v=$p}" returns type="prefix",f="myfield",v=params.get("p")    */
 DECL|method|getLocalParams
 specifier|public
 specifier|static
@@ -1081,7 +1224,7 @@ argument_list|(
 literal|","
 argument_list|)
 decl_stmt|;
-comment|/**    * Returns null if the sortSpec is the standard sort desc.    *    *<p>    * The form of the sort specification string currently parsed is:    *</p>    *<pre>>    * SortSpec ::= SingleSort [, SingleSort]*    * SingleSort ::=<fieldname> SortDirection    * SortDirection ::= top | desc | bottom | asc    *</pre>    * Examples:    *<pre>    *   score desc               #normal sort by score (will return null)    *   weight bottom            #sort by weight ascending     *   weight desc              #sort by weight descending    *   height desc,weight desc  #sort by height descending, and use weight descending to break any ties    *   height desc,weight asc   #sort by height descending, using weight ascending as a tiebreaker    *</pre>    *    */
+comment|/**    * Returns null if the sortSpec is the standard sort desc.    *<p/>    *<p>    * The form of the sort specification string currently parsed is:    *</p>    *<pre>>    * SortSpec ::= SingleSort [, SingleSort]*    * SingleSort ::=<fieldname> SortDirection    * SortDirection ::= top | desc | bottom | asc    *</pre>    * Examples:    *<pre>    *   score desc               #normal sort by score (will return null)    *   weight bottom            #sort by weight ascending    *   weight desc              #sort by weight descending    *   height desc,weight desc  #sort by height descending, and use weight descending to break any ties    *   height desc,weight asc   #sort by height descending, using weight ascending as a tiebreaker    *</pre>    */
 DECL|method|parseSort
 specifier|public
 specifier|static
@@ -1181,6 +1324,7 @@ name|top
 init|=
 literal|true
 decl_stmt|;
+comment|//determine the ordering, ascending or descending
 name|int
 name|idx
 init|=
@@ -1307,6 +1451,7 @@ literal|"Missing sort order."
 argument_list|)
 throw|;
 block|}
+comment|//figure out the field or score
 if|if
 condition|(
 literal|"score"
@@ -1653,7 +1798,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** @see #toString(Query,IndexSchema) */
+comment|/**    * @see #toString(Query,IndexSchema)    */
 DECL|method|toString
 specifier|public
 specifier|static
@@ -2525,7 +2670,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Formats a Query for debugging, using the IndexSchema to make     * complex field types readable.    *    *<p>    * The benefit of using this method instead of calling     *<code>Query.toString</code> directly is that it knows about the data    * types of each field, so any field which is encoded in a particularly     * complex way is still readable. The downside is that it only knows     * about built in Query types, and will not be able to format custom     * Query classes.    *</p>    */
+comment|/**    * Formats a Query for debugging, using the IndexSchema to make    * complex field types readable.    *<p/>    *<p>    * The benefit of using this method instead of calling    *<code>Query.toString</code> directly is that it knows about the data    * types of each field, so any field which is encoded in a particularly    * complex way is still readable. The downside is that it only knows    * about built in Query types, and will not be able to format custom    * Query classes.    *</p>    */
 DECL|method|toString
 specifier|public
 specifier|static
@@ -3678,7 +3823,7 @@ return|return
 name|out
 return|;
 block|}
-comment|/**     * Parse a function, returning a FunctionQuery    *    *<p>    * Syntax Examples....    *</p>    *    *<pre>    * // Numeric fields default to correct type    * // (ie: IntFieldSource or FloatFieldSource)    * // Others use explicit ord(...) to generate numeric field value    * myfield    *    * // OrdFieldSource    * ord(myfield)    *    * // ReverseOrdFieldSource    * rord(myfield)    *    * // LinearFloatFunction on numeric field value    * linear(myfield,1,2)    *    * // MaxFloatFunction of LinearFloatFunction on numeric field value or constant    * max(linear(myfield,1,2),100)    *    * // ReciprocalFloatFunction on numeric field value    * recip(myfield,1,2,3)    *    * // ReciprocalFloatFunction on ReverseOrdFieldSource    * recip(rord(myfield),1,2,3)    *    * // ReciprocalFloatFunction on LinearFloatFunction on ReverseOrdFieldSource    * recip(linear(rord(myfield),1,2),3,4,5)    *</pre>    */
+comment|/**    * Parse a function, returning a FunctionQuery    *<p/>    *<p>    * Syntax Examples....    *</p>    *<p/>    *<pre>    * // Numeric fields default to correct type    * // (ie: IntFieldSource or FloatFieldSource)    * // Others use explicit ord(...) to generate numeric field value    * myfield    *<p/>    * // OrdFieldSource    * ord(myfield)    *<p/>    * // ReverseOrdFieldSource    * rord(myfield)    *<p/>    * // LinearFloatFunction on numeric field value    * linear(myfield,1,2)    *<p/>    * // MaxFloatFunction of LinearFloatFunction on numeric field value or constant    * max(linear(myfield,1,2),100)    *<p/>    * // ReciprocalFloatFunction on numeric field value    * recip(myfield,1,2,3)    *<p/>    * // ReciprocalFloatFunction on ReverseOrdFieldSource    * recip(rord(myfield),1,2,3)    *<p/>    * // ReciprocalFloatFunction on LinearFloatFunction on ReverseOrdFieldSource    * recip(linear(rord(myfield),1,2),3,4,5)    *</pre>    */
 DECL|method|parseFunction
 specifier|public
 specifier|static
