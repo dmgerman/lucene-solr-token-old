@@ -14469,6 +14469,27 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{     }
+comment|// Make sure once disk space is avail again, we can
+comment|// cleanly close:
+name|dir
+operator|.
+name|setMaxSizeInBytes
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|close
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|dir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|// LUCENE-1130: make sure immediate disk full on creating
 comment|// an IndexWriter (hit during DW.ThreadState.init()), with
@@ -14673,8 +14694,15 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
+comment|// Make sure once disk space is avail again, we can
+comment|// cleanly close:
+name|dir
+operator|.
+name|setMaxSizeInBytes
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|close
@@ -14682,13 +14710,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ioe
-parameter_list|)
-block|{       }
 name|dir
 operator|.
 name|close
