@@ -217,6 +217,11 @@ specifier|public
 name|boolean
 name|doStats
 decl_stmt|;
+DECL|field|doTerms
+specifier|public
+name|boolean
+name|doTerms
+decl_stmt|;
 DECL|field|needDocList
 specifier|private
 name|boolean
@@ -596,6 +601,12 @@ decl_stmt|;
 DECL|field|_statsInfo
 name|StatsInfo
 name|_statsInfo
+decl_stmt|;
+DECL|field|_termsHelper
+name|TermsComponent
+operator|.
+name|TermsHelper
+name|_termsHelper
 decl_stmt|;
 comment|/**    * Utility function to add debugging info.  This will make sure a valid    * debugInfo exists before adding to it.    */
 DECL|method|addDebugInfo
