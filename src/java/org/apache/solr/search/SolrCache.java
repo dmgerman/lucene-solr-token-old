@@ -71,6 +71,11 @@ DECL|interface|SolrCache
 specifier|public
 interface|interface
 name|SolrCache
+parameter_list|<
+name|K
+parameter_list|,
+name|V
+parameter_list|>
 extends|extends
 name|SolrInfoMBean
 block|{
@@ -128,23 +133,23 @@ function_decl|;
 comment|/** :TODO: copy from Map */
 DECL|method|put
 specifier|public
-name|Object
+name|V
 name|put
 parameter_list|(
-name|Object
+name|K
 name|key
 parameter_list|,
-name|Object
+name|V
 name|value
 parameter_list|)
 function_decl|;
 comment|/** :TODO: copy from Map */
 DECL|method|get
 specifier|public
-name|Object
+name|V
 name|get
 parameter_list|(
-name|Object
+name|K
 name|key
 parameter_list|)
 function_decl|;
@@ -203,6 +208,11 @@ name|SolrIndexSearcher
 name|searcher
 parameter_list|,
 name|SolrCache
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 name|old
 parameter_list|)
 throws|throws
