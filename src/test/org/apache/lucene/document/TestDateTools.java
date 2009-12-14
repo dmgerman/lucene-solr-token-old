@@ -287,6 +287,11 @@ argument_list|()
 decl_stmt|;
 name|cal
 operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|cal
+operator|.
 name|set
 argument_list|(
 literal|1970
@@ -408,6 +413,11 @@ operator|new
 name|GregorianCalendar
 argument_list|()
 decl_stmt|;
+name|cal
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|cal
 operator|.
 name|setTimeZone
@@ -975,6 +985,11 @@ operator|new
 name|GregorianCalendar
 argument_list|()
 decl_stmt|;
+name|cal
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|cal
 operator|.
 name|setTimeZone

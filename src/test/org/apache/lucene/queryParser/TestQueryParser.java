@@ -3614,9 +3614,6 @@ name|month
 parameter_list|,
 name|int
 name|day
-parameter_list|,
-name|boolean
-name|extendLastDate
 parameter_list|)
 block|{
 name|DateFormat
@@ -3640,6 +3637,11 @@ argument_list|()
 decl_stmt|;
 name|calendar
 operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|calendar
+operator|.
 name|set
 argument_list|(
 name|year
@@ -3649,11 +3651,6 @@ argument_list|,
 name|day
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|extendLastDate
-condition|)
-block|{
 name|calendar
 operator|.
 name|set
@@ -3698,7 +3695,6 @@ argument_list|,
 literal|999
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|df
 operator|.
@@ -3730,8 +3726,6 @@ argument_list|,
 literal|1
 argument_list|,
 literal|1
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|String
@@ -3744,8 +3738,6 @@ argument_list|,
 literal|1
 argument_list|,
 literal|4
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|Calendar
@@ -3755,6 +3747,11 @@ operator|new
 name|GregorianCalendar
 argument_list|()
 decl_stmt|;
+name|endDateExpected
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|endDateExpected
 operator|.
 name|set
@@ -3881,8 +3878,6 @@ argument_list|,
 literal|1
 argument_list|,
 literal|1
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|String
@@ -3895,8 +3890,6 @@ argument_list|,
 literal|1
 argument_list|,
 literal|4
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|Calendar
@@ -3906,6 +3899,11 @@ operator|new
 name|GregorianCalendar
 argument_list|()
 decl_stmt|;
+name|endDateExpected
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|endDateExpected
 operator|.
 name|set
