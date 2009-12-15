@@ -4440,6 +4440,8 @@ return|return
 name|directory
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTermInfosIndexDivisor
 specifier|public
 name|int
