@@ -2403,6 +2403,21 @@ literal|"this reader does not implement getUniqueTermCount()"
 argument_list|)
 throw|;
 block|}
+comment|/** For IndexReader implementations that use    *  TermInfosReader to read terms, this returns the    *  current indexDivisor as specified when the reader was    *  opened.    */
+DECL|method|getTermInfosIndexDivisor
+specifier|public
+name|int
+name|getTermInfosIndexDivisor
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"This reader does not support this method."
+argument_list|)
+throw|;
+block|}
 block|}
 end_class
 end_unit
