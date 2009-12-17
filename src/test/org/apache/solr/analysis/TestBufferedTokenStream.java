@@ -311,7 +311,13 @@ argument_list|)
 condition|)
 name|write
 argument_list|(
+operator|(
+name|Token
+operator|)
 name|t
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
