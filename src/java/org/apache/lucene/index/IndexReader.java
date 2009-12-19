@@ -430,6 +430,24 @@ name|buffer
 init|=
 operator|new
 name|StringBuilder
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|hasChanges
+condition|)
+block|{
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|'*'
+argument_list|)
+expr_stmt|;
+block|}
+name|buffer
+operator|.
+name|append
 argument_list|(
 name|getClass
 argument_list|()
@@ -437,7 +455,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|buffer
 operator|.
 name|append
@@ -501,7 +519,7 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-literal|", "
+literal|" "
 argument_list|)
 operator|.
 name|append
