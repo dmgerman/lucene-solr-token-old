@@ -269,10 +269,6 @@ decl_stmt|;
 if|if
 condition|(
 name|fields
-operator|!=
-literal|null
-operator|&&
-name|fields
 operator|.
 name|length
 operator|>
