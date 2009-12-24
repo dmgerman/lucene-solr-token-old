@@ -110,6 +110,7 @@ literal|0
 argument_list|)
 block|;
 DECL|field|code
+specifier|public
 specifier|final
 name|int
 name|code

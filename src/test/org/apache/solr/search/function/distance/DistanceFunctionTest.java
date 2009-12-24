@@ -24,6 +24,21 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|geohash
+operator|.
+name|GeoHashUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|common
@@ -42,21 +57,6 @@ operator|.
 name|util
 operator|.
 name|AbstractSolrTestCase
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|spatial
-operator|.
-name|geohash
-operator|.
-name|GeoHashUtils
 import|;
 end_import
 begin_comment
@@ -275,6 +275,36 @@ argument_list|)
 expr_stmt|;
 name|assertU
 argument_list|(
+name|adoc
+argument_list|(
+literal|"id"
+argument_list|,
+literal|"5"
+argument_list|,
+literal|"x_td"
+argument_list|,
+literal|"45.0"
+argument_list|,
+literal|"y_td"
+argument_list|,
+literal|"45.0"
+argument_list|,
+literal|"gh_s"
+argument_list|,
+name|GeoHashUtils
+operator|.
+name|encode
+argument_list|(
+literal|32.7693246
+argument_list|,
+operator|-
+literal|81.9289094
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertU
+argument_list|(
 name|commit
 argument_list|()
 argument_list|)
@@ -290,7 +320,7 @@ literal|"*,score"
 argument_list|,
 literal|"q"
 argument_list|,
-literal|"{!func}hsin(x_td, y_td, 0, 0, 1)"
+literal|"{!func}hsin(1, x_td, y_td, 0, 0)"
 argument_list|,
 literal|"fq"
 argument_list|,
@@ -310,7 +340,7 @@ literal|"*,score"
 argument_list|,
 literal|"q"
 argument_list|,
-literal|"{!func}hsin(x_td, y_td, 0, 0, 1)"
+literal|"{!func}hsin(1, x_td, y_td, 0, 0)"
 argument_list|,
 literal|"fq"
 argument_list|,
@@ -343,7 +373,7 @@ literal|"*,score"
 argument_list|,
 literal|"q"
 argument_list|,
-literal|"{!func}hsin(x_td, y_td, 0, 0, 1)"
+literal|"{!func}hsin(1, x_td, y_td, 0, 0)"
 argument_list|,
 literal|"fq"
 argument_list|,
@@ -376,11 +406,31 @@ literal|"*,score"
 argument_list|,
 literal|"q"
 argument_list|,
-literal|"{!func}hsin(x_td, y_td, 0, 0, 1)"
+literal|"{!func}hsin(1, x_td, y_td, 0, 0)"
 argument_list|,
 literal|"fq"
 argument_list|,
 literal|"id:4"
+argument_list|)
+argument_list|,
+literal|"//float[@name='score']='1.0471976'"
+argument_list|)
+expr_stmt|;
+name|assertQ
+argument_list|(
+name|req
+argument_list|(
+literal|"fl"
+argument_list|,
+literal|"*,score"
+argument_list|,
+literal|"q"
+argument_list|,
+literal|"{!func}hsin(1, x_td, y_td, 0, 0, true)"
+argument_list|,
+literal|"fq"
+argument_list|,
+literal|"id:5"
 argument_list|)
 argument_list|,
 literal|"//float[@name='score']='1.0471976'"
@@ -398,7 +448,13 @@ literal|"*,score"
 argument_list|,
 literal|"q"
 argument_list|,
-literal|"{!func}ghhsin(gh_s, \""
+literal|"{!func}ghhsin("
+operator|+
+name|Constants
+operator|.
+name|EARTH_RADIUS_KM
+operator|+
+literal|", gh_s, \""
 operator|+
 name|GeoHashUtils
 operator|.
@@ -410,13 +466,7 @@ operator|-
 literal|79
 argument_list|)
 operator|+
-literal|"\","
-operator|+
-name|Constants
-operator|.
-name|EARTH_RADIUS_KM
-operator|+
-literal|")"
+literal|"\",)"
 argument_list|,
 literal|"fq"
 argument_list|,
@@ -436,13 +486,13 @@ literal|"*,score"
 argument_list|,
 literal|"q"
 argument_list|,
-literal|"{!func}ghhsin(gh_s, geohash(32, -79),"
+literal|"{!func}ghhsin("
 operator|+
 name|Constants
 operator|.
 name|EARTH_RADIUS_KM
 operator|+
-literal|")"
+literal|", gh_s, geohash(32, -79))"
 argument_list|,
 literal|"fq"
 argument_list|,
@@ -588,6 +638,34 @@ argument_list|,
 literal|"w_td"
 argument_list|,
 literal|"-2.4"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertU
+argument_list|(
+name|adoc
+argument_list|(
+literal|"id"
+argument_list|,
+literal|"6"
+argument_list|,
+literal|"point"
+argument_list|,
+literal|"1.0,0.0"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertU
+argument_list|(
+name|adoc
+argument_list|(
+literal|"id"
+argument_list|,
+literal|"7"
+argument_list|,
+literal|"point"
+argument_list|,
+literal|"5.5,10.9"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1277,6 +1355,62 @@ literal|2.3
 operator|+
 literal|5.5
 argument_list|)
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
+comment|//Do point tests:
+name|assertQ
+argument_list|(
+name|req
+argument_list|(
+literal|"fl"
+argument_list|,
+literal|"*,score"
+argument_list|,
+literal|"q"
+argument_list|,
+literal|"{!func}dist(1, toMultiVS(x_td, y_td), toMultiVS(0, 0))"
+argument_list|,
+literal|"fq"
+argument_list|,
+literal|"id:5"
+argument_list|)
+argument_list|,
+literal|"//float[@name='score']='"
+operator|+
+call|(
+name|float
+call|)
+argument_list|(
+literal|2.3
+operator|+
+literal|5.5
+argument_list|)
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
+name|assertQ
+argument_list|(
+name|req
+argument_list|(
+literal|"fl"
+argument_list|,
+literal|"*,score"
+argument_list|,
+literal|"q"
+argument_list|,
+literal|"{!func}dist(1, point, toMultiVS(0, 0))"
+argument_list|,
+literal|"fq"
+argument_list|,
+literal|"id:6"
+argument_list|)
+argument_list|,
+literal|"//float[@name='score']='"
+operator|+
+literal|0.0f
 operator|+
 literal|"'"
 argument_list|)
