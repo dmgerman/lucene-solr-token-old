@@ -1257,7 +1257,7 @@ argument_list|)
 expr_stmt|;
 name|addParser
 argument_list|(
-literal|"toMultiVS"
+literal|"vector"
 argument_list|,
 operator|new
 name|ValueSourceParser
@@ -1275,7 +1275,7 @@ name|ParseException
 block|{
 return|return
 operator|new
-name|ToMultiValueSource
+name|VectorValueSource
 argument_list|(
 name|fp
 operator|.
@@ -1492,7 +1492,7 @@ expr_stmt|;
 name|pv1
 operator|=
 operator|new
-name|ToMultiValueSource
+name|VectorValueSource
 argument_list|(
 name|s1
 argument_list|)
@@ -1543,7 +1543,7 @@ expr_stmt|;
 name|pv2
 operator|=
 operator|new
-name|ToMultiValueSource
+name|VectorValueSource
 argument_list|(
 name|s2
 argument_list|)
@@ -3150,7 +3150,7 @@ operator|.
 name|mv1
 operator|=
 operator|new
-name|ToMultiValueSource
+name|VectorValueSource
 argument_list|(
 name|Collections
 operator|.
@@ -3170,7 +3170,7 @@ operator|.
 name|mv2
 operator|=
 operator|new
-name|ToMultiValueSource
+name|VectorValueSource
 argument_list|(
 name|Collections
 operator|.
@@ -3246,7 +3246,7 @@ operator|.
 name|mv1
 operator|=
 operator|new
-name|ToMultiValueSource
+name|VectorValueSource
 argument_list|(
 name|sources1
 argument_list|)
@@ -3256,7 +3256,7 @@ operator|.
 name|mv2
 operator|=
 operator|new
-name|ToMultiValueSource
+name|VectorValueSource
 argument_list|(
 name|sources2
 argument_list|)

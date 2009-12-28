@@ -1370,7 +1370,7 @@ literal|"*,score"
 argument_list|,
 literal|"q"
 argument_list|,
-literal|"{!func}dist(1, toMultiVS(x_td, y_td), toMultiVS(0, 0))"
+literal|"{!func}dist(1, vector(x_td, y_td), vector(0, 0))"
 argument_list|,
 literal|"fq"
 argument_list|,
@@ -1401,7 +1401,7 @@ literal|"*,score"
 argument_list|,
 literal|"q"
 argument_list|,
-literal|"{!func}dist(1, point, toMultiVS(0, 0))"
+literal|"{!func}dist(1, point, vector(0, 0))"
 argument_list|,
 literal|"fq"
 argument_list|,
