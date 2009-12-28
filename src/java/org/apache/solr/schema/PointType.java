@@ -184,6 +184,8 @@ name|solr
 operator|.
 name|search
 operator|.
+name|function
+operator|.
 name|VectorValueSource
 import|;
 end_import

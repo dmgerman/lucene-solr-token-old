@@ -97,6 +97,8 @@ name|solr
 operator|.
 name|search
 operator|.
+name|function
+operator|.
 name|MultiValueSource
 import|;
 end_import
