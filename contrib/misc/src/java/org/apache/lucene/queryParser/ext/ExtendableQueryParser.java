@@ -289,6 +289,8 @@ argument_list|(
 operator|new
 name|ExtensionQuery
 argument_list|(
+name|this
+argument_list|,
 name|splitExtensionField
 operator|.
 name|cur
