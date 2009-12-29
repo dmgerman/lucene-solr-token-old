@@ -242,7 +242,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Could not instantiate class "
+literal|"Could not instantiate implementing class for "
 operator|+
 name|attClass
 operator|.
@@ -261,7 +261,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Could not instantiate class "
+literal|"Could not instantiate implementing class for "
 operator|+
 name|attClass
 operator|.
@@ -338,6 +338,13 @@ name|getName
 argument_list|()
 operator|+
 literal|"Impl"
+argument_list|,
+literal|true
+argument_list|,
+name|attClass
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 operator|.
 name|asSubclass
