@@ -282,6 +282,8 @@ name|StopwordAnalyzerBase
 block|{
 comment|/** 	 * List of typical Brazilian Portuguese stopwords. 	 * @deprecated use {@link #getDefaultStopSet()} instead 	 */
 comment|// TODO make this private in 3.1
+annotation|@
+name|Deprecated
 DECL|field|BRAZILIAN_STOP_WORDS
 specifier|public
 specifier|final
@@ -706,6 +708,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** 	 * Builds an analyzer with the given stop words. 	 * @deprecated use {@link #BrazilianAnalyzer(Version, Set)} instead 	 */
+annotation|@
+name|Deprecated
 DECL|method|BrazilianAnalyzer
 specifier|public
 name|BrazilianAnalyzer
@@ -734,6 +738,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.     * @deprecated use {@link #BrazilianAnalyzer(Version, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|BrazilianAnalyzer
 specifier|public
 name|BrazilianAnalyzer
@@ -762,6 +768,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.    * @deprecated use {@link #BrazilianAnalyzer(Version, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|BrazilianAnalyzer
 specifier|public
 name|BrazilianAnalyzer
@@ -789,6 +797,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** 	 * Builds an exclusionlist from an array of Strings. 	 * @deprecated use {@link #BrazilianAnalyzer(Version, Set, Set)} instead 	 */
+annotation|@
+name|Deprecated
 DECL|method|setStemExclusionTable
 specifier|public
 name|void
@@ -818,6 +828,8 @@ expr_stmt|;
 comment|// force a new stemmer to be created
 block|}
 comment|/** 	 * Builds an exclusionlist from a {@link Map}. 	 * @deprecated use {@link #BrazilianAnalyzer(Version, Set, Set)} instead 	 */
+annotation|@
+name|Deprecated
 DECL|method|setStemExclusionTable
 specifier|public
 name|void
@@ -854,6 +866,8 @@ expr_stmt|;
 comment|// force a new stemmer to be created
 block|}
 comment|/** 	 * Builds an exclusionlist from the words contained in the given file. 	 * @deprecated use {@link #BrazilianAnalyzer(Version, Set, Set)} instead 	 */
+annotation|@
+name|Deprecated
 DECL|method|setStemExclusionTable
 specifier|public
 name|void

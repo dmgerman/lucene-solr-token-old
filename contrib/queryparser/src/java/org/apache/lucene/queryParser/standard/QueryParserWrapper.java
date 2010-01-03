@@ -526,6 +526,8 @@ begin_comment
 comment|/**  * This class performs the query parsing using the new query parser  * implementation, but keeps the old {@link QueryParser} API.<br/>  *<br/>  * This class should be used when the new query parser features are and the old  * {@link QueryParser} API are needed at the same time.<br/>  *   * @deprecated this class will be removed soon, it's a temporary class to be  *             used along the transition from the old query parser to the new  *             one  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|QueryParserWrapper
 specifier|public
 class|class

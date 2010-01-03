@@ -86,6 +86,8 @@ begin_comment
 comment|/**  * Normalizes token text to lower case.  * @deprecated Use {@link LowerCaseFilter} instead, which has the same  *  functionality. This filter will be removed in Lucene 4.0  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|RussianLowerCaseFilter
 specifier|public
 specifier|final

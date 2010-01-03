@@ -20,6 +20,8 @@ begin_comment
 comment|/** @deprecated */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TestSimpleLRUCache
 specifier|public
 class|class

@@ -276,6 +276,8 @@ name|StopwordAnalyzerBase
 block|{
 comment|/**    * List of typical german stopwords.    * @deprecated use {@link #getDefaultStopSet()} instead    */
 comment|//TODO make this private in 3.1
+annotation|@
+name|Deprecated
 DECL|field|GERMAN_STOP_WORDS
 specifier|public
 specifier|final
@@ -542,6 +544,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.    * @deprecated use {@link #GermanAnalyzer(Version, Set)}    */
+annotation|@
+name|Deprecated
 DECL|method|GermanAnalyzer
 specifier|public
 name|GermanAnalyzer
@@ -570,6 +574,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.    * @deprecated use {@link #GermanAnalyzer(Version, Set)}    */
+annotation|@
+name|Deprecated
 DECL|method|GermanAnalyzer
 specifier|public
 name|GermanAnalyzer
@@ -598,6 +604,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.    * @deprecated use {@link #GermanAnalyzer(Version, Set)}    */
+annotation|@
+name|Deprecated
 DECL|method|GermanAnalyzer
 specifier|public
 name|GermanAnalyzer
@@ -625,6 +633,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an exclusionlist from an array of Strings.    * @deprecated use {@link #GermanAnalyzer(Version, Set, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|setStemExclusionTable
 specifier|public
 name|void
@@ -654,6 +664,8 @@ expr_stmt|;
 comment|// force a new stemmer to be created
 block|}
 comment|/**    * Builds an exclusionlist from a {@link Map}    * @deprecated use {@link #GermanAnalyzer(Version, Set, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|setStemExclusionTable
 specifier|public
 name|void
@@ -690,6 +702,8 @@ expr_stmt|;
 comment|// force a new stemmer to be created
 block|}
 comment|/**    * Builds an exclusionlist from the words contained in the given file.    * @deprecated use {@link #GermanAnalyzer(Version, Set, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|setStemExclusionTable
 specifier|public
 name|void

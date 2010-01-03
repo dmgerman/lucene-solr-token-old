@@ -47,6 +47,8 @@ begin_comment
 comment|/**  * Simple cache implementation that uses a HashMap to store (key, value) pairs.  * This cache is not synchronized, use {@link Cache#synchronizedCache(Cache)}  * if needed.  *  * @deprecated Lucene's internal use of this class has now  * switched to {@link DoubleBarrelLRUCache}.  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|SimpleMapCache
 specifier|public
 class|class

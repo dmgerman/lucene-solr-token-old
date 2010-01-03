@@ -466,6 +466,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Builds an analyzer with the given stop words.      * @param stopwords Array of stopwords to use.      * @deprecated use {@link #GreekAnalyzer(Version, Set)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|GreekAnalyzer
 specifier|public
 name|GreekAnalyzer
@@ -494,6 +496,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Builds an analyzer with the given stop words.      * @deprecated use {@link #GreekAnalyzer(Version, Set)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|GreekAnalyzer
 specifier|public
 name|GreekAnalyzer

@@ -249,6 +249,8 @@ extends|extends
 name|Analyzer
 block|{
 comment|/**    * List of typical Dutch stopwords.    * @deprecated use {@link #getDefaultStopSet()} instead    */
+annotation|@
+name|Deprecated
 DECL|field|DUTCH_STOP_WORDS
 specifier|public
 specifier|final
@@ -708,6 +710,8 @@ name|matchVersion
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.    *    * @param matchVersion    * @param stopwords    * @deprecated use {@link #DutchAnalyzer(Version, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|DutchAnalyzer
 specifier|public
 name|DutchAnalyzer
@@ -736,6 +740,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.    *    * @param stopwords    * @deprecated use {@link #DutchAnalyzer(Version, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|DutchAnalyzer
 specifier|public
 name|DutchAnalyzer
@@ -765,6 +771,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.    *    * @param stopwords    * @deprecated use {@link #DutchAnalyzer(Version, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|DutchAnalyzer
 specifier|public
 name|DutchAnalyzer
@@ -820,6 +828,8 @@ name|matchVersion
 expr_stmt|;
 block|}
 comment|/**    * Builds an exclusionlist from an array of Strings.    *    * @param exclusionlist    * @deprecated use {@link #DutchAnalyzer(Version, Set, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|setStemExclusionTable
 specifier|public
 name|void
@@ -849,6 +859,8 @@ expr_stmt|;
 comment|// force a new stemmer to be created
 block|}
 comment|/**    * Builds an exclusionlist from a Hashtable.    * @deprecated use {@link #DutchAnalyzer(Version, Set, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|setStemExclusionTable
 specifier|public
 name|void
@@ -873,6 +885,8 @@ expr_stmt|;
 comment|// force a new stemmer to be created
 block|}
 comment|/**    * Builds an exclusionlist from the words contained in the given file.    * @deprecated use {@link #DutchAnalyzer(Version, Set, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|setStemExclusionTable
 specifier|public
 name|void

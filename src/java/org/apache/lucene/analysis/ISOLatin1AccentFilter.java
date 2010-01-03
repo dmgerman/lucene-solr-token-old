@@ -33,6 +33,8 @@ begin_comment
 comment|/**  * A filter that replaces accented characters in the ISO Latin 1 character set   * (ISO-8859-1) by their unaccented equivalent. The case will not be altered.  *<p>  * For instance, '&agrave;' will be replaced by 'a'.  *<p>  *   * @deprecated If you build a new index, use {@link ASCIIFoldingFilter}  * which covers a superset of Latin 1.  * This class is included for use with existing  * indexes and will be removed in a future release (possibly Lucene 4.0).  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ISOLatin1AccentFilter
 specifier|public
 specifier|final

@@ -64,6 +64,8 @@ comment|/**  * A serializable Enum class.  * @deprecated Use Java 5 enum, will b
 end_comment
 begin_class
 annotation|@
+name|Deprecated
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"serial"

@@ -359,6 +359,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.    * @deprecated use {@link #PersianAnalyzer(Version, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|PersianAnalyzer
 specifier|public
 name|PersianAnalyzer
@@ -387,6 +389,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.    * @deprecated use {@link #PersianAnalyzer(Version, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|PersianAnalyzer
 specifier|public
 name|PersianAnalyzer
@@ -415,6 +419,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words. Lines can be commented out    * using {@link #STOPWORDS_COMMENT}    * @deprecated use {@link #PersianAnalyzer(Version, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|PersianAnalyzer
 specifier|public
 name|PersianAnalyzer

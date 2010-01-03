@@ -94,6 +94,8 @@ begin_comment
 comment|/**  * This class behaves as the as the lucene 2.4 MultiFieldQueryParser class, but uses the new  * query parser interface instead of the old one.<br/>  *<br/>  * This class should be used when the new query parser features are needed and  * also keep at the same time the old query parser interface.<br/>  *   * @deprecated this class will be removed soon, it's a temporary class to be  *             used along the transition from the old query parser to the new  *             one  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|MultiFieldQueryParserWrapper
 specifier|public
 class|class

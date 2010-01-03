@@ -240,6 +240,8 @@ name|ReusableAnalyzerBase
 block|{
 comment|/** 	 * List of typical stopwords. 	 * @deprecated use {@link #getDefaultStopSet()} instead 	 */
 comment|// TODO make this private in 3.1
+annotation|@
+name|Deprecated
 DECL|field|CZECH_STOP_WORDS
 specifier|public
 specifier|final
@@ -727,6 +729,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.    *     * @param matchVersion Lucene version to match See    *          {@link<a href="#version">above</a>}    * @param stopwords a stopword set    * @deprecated use {@link #CzechAnalyzer(Version, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|CzechAnalyzer
 specifier|public
 name|CzechAnalyzer
@@ -755,6 +759,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.    *     * @param matchVersion Lucene version to match See    *          {@link<a href="#version">above</a>}    * @param stopwords a stopword set    * @deprecated use {@link #CzechAnalyzer(Version, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|CzechAnalyzer
 specifier|public
 name|CzechAnalyzer
@@ -784,6 +790,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Builds an analyzer with the given stop words.    *     * @param matchVersion Lucene version to match See    *          {@link<a href="#version">above</a>}    * @param stopwords a file containing stopwords    * @deprecated use {@link #CzechAnalyzer(Version, Set)} instead    */
+annotation|@
+name|Deprecated
 DECL|method|CzechAnalyzer
 specifier|public
 name|CzechAnalyzer
@@ -818,6 +826,8 @@ expr_stmt|;
 block|}
 comment|/**      * Loads stopwords hash from resource stream (file, database...).      * @param   wordfile    File containing the wordlist      * @param   encoding    Encoding used (win-1250, iso-8859-2, ...), null for default system encoding      * @deprecated use {@link WordlistLoader#getWordSet(Reader, String) }      *             and {@link #CzechAnalyzer(Version, Set)} instead      */
 comment|// TODO extend StopwordAnalyzerBase once this method is gone!
+annotation|@
+name|Deprecated
 DECL|method|loadStopWords
 specifier|public
 name|void

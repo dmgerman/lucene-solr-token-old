@@ -22,6 +22,8 @@ begin_comment
 comment|/**  * Imported from mq java client.  No changes made.  *  *<p><font color="red"><b>NOTE:</b> This API is still in  * flux and might change in incompatible ways in the next  * release.</font>  *  * @deprecated This has been replaced with more accurate  * math in {@link LLRect}. This class will be removed in a future release.  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DistanceApproximation
 specifier|public
 class|class
