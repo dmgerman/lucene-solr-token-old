@@ -32,7 +32,7 @@ begin_comment
 comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * Useful distance utiltities.  * solr-internal: subject to change w/o notification.  *  **/
+comment|/**  * Useful distance utiltities.  * solr-internal: subject to change w/o notification.  */
 end_comment
 begin_class
 DECL|class|DistanceUtils
@@ -66,7 +66,7 @@ name|Math
 operator|.
 name|PI
 decl_stmt|;
-comment|/**    * @see org.apache.solr.search.function.distance.HaversineFunction    *     * @param x1 The x coordinate of the first point    * @param y1 The y coordinate of the first point    * @param x2 The x coordinate of the second point    * @param y2 The y coordinate of the second point    * @param radius The radius of the sphere    * @return The distance between the two points, as determined by the Haversine formula.    */
+comment|/**    * @param x1     The x coordinate of the first point    * @param y1     The y coordinate of the first point    * @param x2     The x coordinate of the second point    * @param y2     The y coordinate of the second point    * @param radius The radius of the sphere    * @return The distance between the two points, as determined by the Haversine formula.    * @see org.apache.solr.search.function.distance.HaversineFunction    */
 DECL|method|haversine
 specifier|public
 specifier|static
@@ -209,7 +209,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**    * Given a string containing<i>dimension</i> values encoded in it, separated by commas, return a String array of length<i>dimension</i>    * containing the values.    * @param out A preallocated array.  Must be size dimension.  If it is not it will be resized.    * @param externalVal The value to parse    * @param dimension The expected number of values for the point    * @return An array of the values that make up the point (aka vector)    *    * @throws {@link SolrException} if the dimension specified does not match the number of values in the externalValue.    */
+comment|/**    * Given a string containing<i>dimension</i> values encoded in it, separated by commas, return a String array of length<i>dimension</i>    * containing the values.    *    * @param out         A preallocated array.  Must be size dimension.  If it is not it will be resized.    * @param externalVal The value to parse    * @param dimension   The expected number of values for the point    * @return An array of the values that make up the point (aka vector)    * @throws {@link SolrException} if the dimension specified does not match the number of values in the externalValue.    */
 DECL|method|parsePoint
 specifier|public
 specifier|static
@@ -454,7 +454,7 @@ return|return
 name|out
 return|;
 block|}
-comment|/**    * extract (by calling {@link #parsePoint(String[], String, int)} and validate the latitude and longitude contained    * in the String by making sure the latitude is between 90& -90 and longitude is between -180 and 180    * @param latLon A preallocated array to hold the result    * @param latLonStr The string to parse    * @return The lat long    */
+comment|/**    * extract (by calling {@link #parsePoint(String[], String, int)} and validate the latitude and longitude contained    * in the String by making sure the latitude is between 90& -90 and longitude is between -180 and 180.    *<p/>    * The latitude is assumed to be the first part of the string and the longitude the second part.    *    * @param latLon    A preallocated array to hold the result    * @param latLonStr The string to parse    * @return The lat long    */
 DECL|method|parseLatitudeLongitude
 specifier|public
 specifier|static
