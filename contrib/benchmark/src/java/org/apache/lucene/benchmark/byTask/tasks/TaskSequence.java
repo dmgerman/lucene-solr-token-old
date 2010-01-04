@@ -874,6 +874,8 @@ name|bgTask
 operator|.
 name|setPriority
 argument_list|(
+name|task
+operator|.
 name|getBackgroundDeltaPriority
 argument_list|()
 operator|+
