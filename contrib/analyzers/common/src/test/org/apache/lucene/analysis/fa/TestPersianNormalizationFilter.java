@@ -63,7 +63,7 @@ name|ArabicLetterTokenizer
 import|;
 end_import
 begin_comment
-comment|/**  * Test the Arabic Normalization Filter  *   */
+comment|/**  * Test the Persian Normalization Filter  *   */
 end_comment
 begin_class
 DECL|class|TestPersianNormalizationFilter
