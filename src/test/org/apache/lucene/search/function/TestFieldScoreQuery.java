@@ -27,15 +27,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -150,6 +141,18 @@ name|TestFieldScoreQuery
 extends|extends
 name|FunctionTestSetup
 block|{
+comment|/* @override constructor */
+DECL|method|TestFieldScoreQuery
+specifier|public
+name|TestFieldScoreQuery
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** Test that FieldScoreQuery of Type.BYTE returns docs in expected order. */
 annotation|@
 name|Test
@@ -936,9 +939,22 @@ literal|true
 argument_list|)
 decl_stmt|;
 name|Object
+index|[]
 name|innerArray
 init|=
-literal|null
+operator|new
+name|Object
+index|[
+name|s
+operator|.
+name|getIndexReader
+argument_list|()
+operator|.
+name|getSequentialSubReaders
+argument_list|()
+operator|.
+name|length
+index|]
 decl_stmt|;
 name|boolean
 name|warned
@@ -1047,6 +1063,9 @@ literal|0
 condition|)
 block|{
 name|innerArray
+index|[
+name|j
+index|]
 operator|=
 name|q
 operator|.
@@ -1067,6 +1086,9 @@ operator|+
 literal|".  compare: "
 operator|+
 name|innerArray
+index|[
+name|j
+index|]
 operator|.
 name|getClass
 argument_list|()
@@ -1089,6 +1111,9 @@ argument_list|(
 literal|"field values should be cached in the correct array type!"
 argument_list|,
 name|innerArray
+index|[
+name|j
+index|]
 operator|.
 name|getClass
 argument_list|()
@@ -1114,6 +1139,9 @@ operator|+
 literal|".  compare: "
 operator|+
 name|innerArray
+index|[
+name|j
+index|]
 operator|+
 literal|" to "
 operator|+
@@ -1135,6 +1163,9 @@ argument_list|(
 literal|"field values should be cached and reused!"
 argument_list|,
 name|innerArray
+index|[
+name|j
+index|]
 argument_list|,
 name|q
 operator|.
