@@ -2722,7 +2722,7 @@ argument_list|)
 expr_stmt|;
 name|highlighter
 operator|=
-name|initHighLighter
+name|initHighlighter
 argument_list|()
 expr_stmt|;
 comment|// Handle things that should eventually go away
@@ -2893,10 +2893,10 @@ name|infoRegistry
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|initHighLighter
+DECL|method|initHighlighter
 specifier|private
 name|SolrHighlighter
-name|initHighLighter
+name|initHighlighter
 parameter_list|()
 block|{
 name|SolrHighlighter
