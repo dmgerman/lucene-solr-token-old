@@ -812,8 +812,7 @@ block|}
 block|}
 comment|/**    * @throws AlreadyClosedException if this FieldsReader is closed    */
 DECL|method|ensureOpen
-specifier|protected
-specifier|final
+specifier|private
 name|void
 name|ensureOpen
 parameter_list|()
