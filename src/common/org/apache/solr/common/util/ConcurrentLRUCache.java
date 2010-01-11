@@ -1812,11 +1812,6 @@ name|int
 name|n
 parameter_list|)
 block|{
-name|markAndSweepLock
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
 name|Map
 argument_list|<
 name|K
@@ -1847,6 +1842,11 @@ name|CacheEntry
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|markAndSweepLock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 for|for
@@ -1996,12 +1996,6 @@ name|int
 name|n
 parameter_list|)
 block|{
-comment|// we need to grab the lock since we are changing lastAccessedCopy
-name|markAndSweepLock
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
 name|Map
 argument_list|<
 name|K
@@ -2032,6 +2026,12 @@ name|CacheEntry
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// we need to grab the lock since we are changing lastAccessedCopy
+name|markAndSweepLock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 for|for
