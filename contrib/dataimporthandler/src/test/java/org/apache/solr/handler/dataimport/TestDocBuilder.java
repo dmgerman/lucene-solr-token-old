@@ -1725,6 +1725,8 @@ name|dc_singleEntity
 init|=
 literal|"<dataConfig>\n"
 operator|+
+literal|"<dataSource  type=\"MockDataSource\"/>\n"
+operator|+
 literal|"<document name=\"X\">\n"
 operator|+
 literal|"<entity name=\"x\" query=\"select * from x\">\n"
@@ -1749,6 +1751,8 @@ name|String
 name|dc_deltaConfig
 init|=
 literal|"<dataConfig>\n"
+operator|+
+literal|"<dataSource  type=\"MockDataSource\"/>\n"
 operator|+
 literal|"<document name=\"X\">\n"
 operator|+
