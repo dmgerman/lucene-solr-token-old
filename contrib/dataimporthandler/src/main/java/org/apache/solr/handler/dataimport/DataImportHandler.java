@@ -237,7 +237,7 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|request
+name|response
 operator|.
 name|RawResponseWriter
 import|;
@@ -263,7 +263,7 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|request
+name|response
 operator|.
 name|SolrQueryResponse
 import|;

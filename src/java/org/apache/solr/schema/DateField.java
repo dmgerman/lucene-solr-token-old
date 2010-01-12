@@ -130,7 +130,7 @@ name|solr
 operator|.
 name|request
 operator|.
-name|TextResponseWriter
+name|XMLWriter
 import|;
 end_import
 begin_import
@@ -141,9 +141,9 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|request
+name|response
 operator|.
-name|XMLWriter
+name|TextResponseWriter
 import|;
 end_import
 begin_import

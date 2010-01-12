@@ -159,7 +159,7 @@ name|solr
 operator|.
 name|request
 operator|.
-name|SolrQueryResponse
+name|SolrQueryRequest
 import|;
 end_import
 begin_import
@@ -170,9 +170,9 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|request
+name|response
 operator|.
-name|SolrQueryRequest
+name|SolrQueryResponse
 import|;
 end_import
 begin_comment
