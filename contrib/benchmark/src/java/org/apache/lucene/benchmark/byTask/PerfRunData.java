@@ -45,6 +45,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -301,6 +310,11 @@ DECL|field|docMaker
 specifier|private
 name|DocMaker
 name|docMaker
+decl_stmt|;
+DECL|field|locale
+specifier|private
+name|Locale
+name|locale
 decl_stmt|;
 comment|// we use separate (identical) instances for each "read" task type, so each can iterate the quries separately.
 DECL|field|readTaskQueryMaker
@@ -942,6 +956,34 @@ block|{
 return|return
 name|docMaker
 return|;
+block|}
+comment|/**    * @return the locale    */
+DECL|method|getLocale
+specifier|public
+name|Locale
+name|getLocale
+parameter_list|()
+block|{
+return|return
+name|locale
+return|;
+block|}
+comment|/**    * @param locale the locale to set    */
+DECL|method|setLocale
+specifier|public
+name|void
+name|setLocale
+parameter_list|(
+name|Locale
+name|locale
+parameter_list|)
+block|{
+name|this
+operator|.
+name|locale
+operator|=
+name|locale
+expr_stmt|;
 block|}
 comment|/**    * @return Returns the config.    */
 DECL|method|getConfig
