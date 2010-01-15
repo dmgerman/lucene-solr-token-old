@@ -1171,6 +1171,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|//TODO deprecated remove it later
 name|loadPluginInfo
 argument_list|(
 name|SolrHighlighter
@@ -1182,6 +1183,27 @@ argument_list|,
 literal|false
 argument_list|,
 literal|false
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|pluginStore
+operator|.
+name|containsKey
+argument_list|(
+name|SolrHighlighter
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+condition|)
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Deprecated syntax found.<highlighting/> should move to<searchComponent/>"
 argument_list|)
 expr_stmt|;
 name|updateHandlerInfo
