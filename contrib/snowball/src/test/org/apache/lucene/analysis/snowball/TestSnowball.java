@@ -827,6 +827,9 @@ name|boolean
 name|incrementToken
 parameter_list|()
 block|{
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 name|termAtt
 operator|.
 name|setTermBuffer

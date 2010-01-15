@@ -942,6 +942,9 @@ name|inPhrase
 operator|=
 literal|false
 expr_stmt|;
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 name|termAtt
 operator|.
 name|setTermBuffer
@@ -6986,6 +6989,9 @@ name|boolean
 name|incrementToken
 parameter_list|()
 block|{
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|upto

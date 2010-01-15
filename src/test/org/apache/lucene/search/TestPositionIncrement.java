@@ -575,6 +575,9 @@ condition|)
 return|return
 literal|false
 return|;
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 name|termAtt
 operator|.
 name|setTermBuffer

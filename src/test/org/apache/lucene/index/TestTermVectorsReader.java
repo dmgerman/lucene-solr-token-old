@@ -918,6 +918,9 @@ name|tokenUpto
 operator|++
 index|]
 decl_stmt|;
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 name|termAtt
 operator|.
 name|setTermBuffer

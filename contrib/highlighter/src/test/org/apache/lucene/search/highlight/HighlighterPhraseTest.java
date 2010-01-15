@@ -2057,6 +2057,9 @@ return|return
 literal|false
 return|;
 block|}
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 name|termAttribute
 operator|.
 name|setTermBuffer
@@ -2367,6 +2370,9 @@ return|return
 literal|false
 return|;
 block|}
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 name|termAttribute
 operator|.
 name|setTermBuffer
