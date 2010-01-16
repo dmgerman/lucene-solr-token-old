@@ -45,9 +45,6 @@ operator|.
 name|DocIdSetIterator
 import|;
 end_import
-begin_comment
-comment|/**  * @version $Id$  */
-end_comment
 begin_class
 DECL|class|TestOpenBitSet
 specifier|public

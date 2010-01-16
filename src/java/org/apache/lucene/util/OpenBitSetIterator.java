@@ -28,7 +28,7 @@ name|DocIdSetIterator
 import|;
 end_import
 begin_comment
-comment|/** An iterator to iterate over set bits in an OpenBitSet.  * This is faster than nextSetBit() for iterating over the complete set of bits,  * especially when the density of the bits set is high.  *  * @version $Id$  */
+comment|/** An iterator to iterate over set bits in an OpenBitSet.  * This is faster than nextSetBit() for iterating over the complete set of bits,  * especially when the density of the bits set is high.  */
 end_comment
 begin_class
 DECL|class|OpenBitSetIterator

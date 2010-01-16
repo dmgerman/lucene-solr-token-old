@@ -243,7 +243,7 @@ name|RAMDirectory
 import|;
 end_import
 begin_comment
-comment|/**  * Tests changing the norms after changing the simularity  *  * @version $Id:$  */
+comment|/**  * Tests changing the norms after changing the simularity  */
 end_comment
 begin_class
 DECL|class|TestLengthNormModifier
