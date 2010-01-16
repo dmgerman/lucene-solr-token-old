@@ -3285,12 +3285,13 @@ name|int
 name|hashCode
 parameter_list|()
 block|{
+comment|// Start with a zero hash and use a mix that results in zero if the input is zero.
+comment|// This effectively truncates trailing zeros without an explicit check.
 name|long
 name|h
 init|=
-literal|0x98761234
+literal|0
 decl_stmt|;
-comment|// something non-zero for length==0
 for|for
 control|(
 name|int
@@ -3330,6 +3331,8 @@ operator|)
 expr_stmt|;
 comment|// rotate left
 block|}
+comment|// fold leftmost bits into right and add a constant to prevent
+comment|// empty sets from returning 0, which is too common.
 return|return
 call|(
 name|int
@@ -3343,8 +3346,9 @@ operator|)
 operator|^
 name|h
 argument_list|)
+operator|+
+literal|0x98761234
 return|;
-comment|// fold leftmost bits into right
 block|}
 block|}
 end_class
