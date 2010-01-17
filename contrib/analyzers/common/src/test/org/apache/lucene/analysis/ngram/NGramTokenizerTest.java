@@ -255,6 +255,9 @@ literal|4
 block|,
 literal|5
 block|}
+argument_list|,
+literal|5
+comment|/* abcde */
 argument_list|)
 expr_stmt|;
 block|}
@@ -321,6 +324,9 @@ literal|4
 block|,
 literal|5
 block|}
+argument_list|,
+literal|5
+comment|/* abcde */
 argument_list|)
 expr_stmt|;
 block|}
@@ -435,6 +441,9 @@ literal|4
 block|,
 literal|5
 block|}
+argument_list|,
+literal|5
+comment|/* abcde */
 argument_list|)
 expr_stmt|;
 block|}
@@ -480,6 +489,9 @@ name|int
 index|[
 literal|0
 index|]
+argument_list|,
+literal|5
+comment|/* abcde */
 argument_list|)
 expr_stmt|;
 block|}
@@ -552,6 +564,9 @@ literal|4
 block|,
 literal|5
 block|}
+argument_list|,
+literal|5
+comment|/* abcde */
 argument_list|)
 expr_stmt|;
 name|tokenizer
@@ -613,6 +628,9 @@ literal|4
 block|,
 literal|5
 block|}
+argument_list|,
+literal|5
+comment|/* abcde */
 argument_list|)
 expr_stmt|;
 block|}
