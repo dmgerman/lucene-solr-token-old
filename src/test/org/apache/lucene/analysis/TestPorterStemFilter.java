@@ -97,7 +97,7 @@ name|void
 name|testPorterStemFilter
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 name|Tokenizer
 name|tokenizer
@@ -138,7 +138,7 @@ argument_list|(
 literal|"porterTestData.zip"
 argument_list|)
 operator|.
-name|getFile
+name|toURI
 argument_list|()
 argument_list|)
 argument_list|)
