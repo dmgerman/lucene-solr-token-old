@@ -239,10 +239,6 @@ name|SolrFormatter
 argument_list|>
 name|formatters
 init|=
-name|Collections
-operator|.
-name|synchronizedMap
-argument_list|(
 operator|new
 name|HashMap
 argument_list|<
@@ -251,7 +247,6 @@ argument_list|,
 name|SolrFormatter
 argument_list|>
 argument_list|()
-argument_list|)
 decl_stmt|;
 comment|// Thread safe registry
 DECL|field|fragmenters
@@ -265,10 +260,6 @@ name|SolrFragmenter
 argument_list|>
 name|fragmenters
 init|=
-name|Collections
-operator|.
-name|synchronizedMap
-argument_list|(
 operator|new
 name|HashMap
 argument_list|<
@@ -277,7 +268,6 @@ argument_list|,
 name|SolrFragmenter
 argument_list|>
 argument_list|()
-argument_list|)
 decl_stmt|;
 comment|// Thread safe registry
 DECL|field|fragListBuilders
@@ -291,10 +281,6 @@ name|SolrFragListBuilder
 argument_list|>
 name|fragListBuilders
 init|=
-name|Collections
-operator|.
-name|synchronizedMap
-argument_list|(
 operator|new
 name|HashMap
 argument_list|<
@@ -303,7 +289,6 @@ argument_list|,
 name|SolrFragListBuilder
 argument_list|>
 argument_list|()
-argument_list|)
 decl_stmt|;
 comment|// Thread safe registry
 DECL|field|fragmentsBuilders
@@ -317,10 +302,6 @@ name|SolrFragmentsBuilder
 argument_list|>
 name|fragmentsBuilders
 init|=
-name|Collections
-operator|.
-name|synchronizedMap
-argument_list|(
 operator|new
 name|HashMap
 argument_list|<
@@ -329,7 +310,6 @@ argument_list|,
 name|SolrFragmentsBuilder
 argument_list|>
 argument_list|()
-argument_list|)
 decl_stmt|;
 annotation|@
 name|Deprecated
