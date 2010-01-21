@@ -90,6 +90,19 @@ operator|.
 name|ArrayUtil
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|RamUsageEstimator
+import|;
+end_import
 begin_comment
 comment|/** This class implements {@link InvertedDocConsumer}, which  *  is passed each token produced by the analyzer on each  *  field.  It stores these tokens in a hash table, and  *  allocates separate byte streams per token.  Consumers of  *  this class, eg {@link FreqProxTermsWriter} and {@link  *  TermVectorsTermsWriter}, write their own byte streams  *  under each term.  */
 end_comment
@@ -384,6 +397,10 @@ operator|.
 name|length
 argument_list|,
 name|postingsAllocCount
+argument_list|,
+name|RamUsageEstimator
+operator|.
+name|NUM_BYTES_OBJECT_REF
 argument_list|)
 decl_stmt|;
 if|if
@@ -1095,9 +1112,13 @@ name|RawPostingList
 index|[
 name|ArrayUtil
 operator|.
-name|getNextSize
+name|oversize
 argument_list|(
 name|newPostingsAllocCount
+argument_list|,
+name|RamUsageEstimator
+operator|.
+name|NUM_BYTES_OBJECT_REF
 argument_list|)
 index|]
 expr_stmt|;

@@ -562,18 +562,6 @@ name|termLength
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1179654
-argument_list|,
-name|t
-operator|.
-name|termBuffer
-argument_list|()
-operator|.
-name|length
-argument_list|)
-expr_stmt|;
 comment|// now as a string, first variant
 name|t
 operator|=
@@ -667,18 +655,6 @@ name|termLength
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1179654
-argument_list|,
-name|t
-operator|.
-name|termBuffer
-argument_list|()
-operator|.
-name|length
-argument_list|)
-expr_stmt|;
 comment|// now as a string, second variant
 name|t
 operator|=
@@ -765,18 +741,6 @@ name|termLength
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|1179654
-argument_list|,
-name|t
-operator|.
-name|termBuffer
-argument_list|()
-operator|.
-name|length
-argument_list|)
-expr_stmt|;
 comment|// Test for slow growth to a long term
 name|t
 operator|=
@@ -863,18 +827,6 @@ name|termLength
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|20167
-argument_list|,
-name|t
-operator|.
-name|termBuffer
-argument_list|()
-operator|.
-name|length
-argument_list|)
-expr_stmt|;
 comment|// Test for slow growth to a long term
 name|t
 operator|=
@@ -959,18 +911,6 @@ name|t
 operator|.
 name|termLength
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|20167
-argument_list|,
-name|t
-operator|.
-name|termBuffer
-argument_list|()
-operator|.
-name|length
 argument_list|)
 expr_stmt|;
 block|}
