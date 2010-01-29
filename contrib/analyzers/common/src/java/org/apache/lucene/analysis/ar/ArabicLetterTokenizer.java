@@ -35,6 +35,19 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|CharTokenizer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|LetterTokenizer
 import|;
 end_import
@@ -51,8 +64,21 @@ operator|.
 name|AttributeSource
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
 begin_comment
-comment|/**  * Tokenizer that breaks text into runs of letters and diacritics.  *<p>  * The problem with the standard Letter tokenizer is that it fails on diacritics.  * Handling similar to this is necessary for Indic Scripts, Hebrew, Thaana, etc.  *</p>  *  */
+comment|/**  * Tokenizer that breaks text into runs of letters and diacritics.  *<p>  * The problem with the standard Letter tokenizer is that it fails on diacritics.  * Handling similar to this is necessary for Indic Scripts, Hebrew, Thaana, etc.  *</p>  *<p>  *<a name="version"/>  * You must specify the required {@link Version} compatibility when creating  * {@link ArabicLetterTokenizer}:  *<ul>  *<li>As of 3.1, {@link CharTokenizer} uses an int based API to normalize and  * detect token characters. See {@link #isTokenChar(int)} and  * {@link #normalize(int)} for details.</li>  *</ul>  */
 end_comment
 begin_class
 DECL|class|ArabicLetterTokenizer
@@ -62,6 +88,79 @@ name|ArabicLetterTokenizer
 extends|extends
 name|LetterTokenizer
 block|{
+comment|/**    * Construct a new ArabicLetterTokenizer.    * @param matchVersion Lucene version    * to match See {@link<a href="#version">above</a>}    *     * @param in    *          the input to split up into tokens    */
+DECL|method|ArabicLetterTokenizer
+specifier|public
+name|ArabicLetterTokenizer
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
+name|Reader
+name|in
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|matchVersion
+argument_list|,
+name|in
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**    * Construct a new ArabicLetterTokenizer using a given {@link AttributeSource}.    *     * @param matchVersion    *          Lucene version to match See {@link<a href="#version">above</a>}    * @param source    *          the attribute source to use for this Tokenizer    * @param in    *          the input to split up into tokens    */
+DECL|method|ArabicLetterTokenizer
+specifier|public
+name|ArabicLetterTokenizer
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
+name|AttributeSource
+name|source
+parameter_list|,
+name|Reader
+name|in
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|matchVersion
+argument_list|,
+name|source
+argument_list|,
+name|in
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**    * Construct a new ArabicLetterTokenizer using a given    * {@link org.apache.lucene.util.AttributeSource.AttributeFactory}. * @param    * matchVersion Lucene version to match See    * {@link<a href="#version">above</a>}    *     * @param factory    *          the attribute factory to use for this Tokenizer    * @param in    *          the input to split up into tokens    */
+DECL|method|ArabicLetterTokenizer
+specifier|public
+name|ArabicLetterTokenizer
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
+name|AttributeFactory
+name|factory
+parameter_list|,
+name|Reader
+name|in
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|matchVersion
+argument_list|,
+name|factory
+argument_list|,
+name|in
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**    * Construct a new ArabicLetterTokenizer.    *     * @deprecated use {@link #ArabicLetterTokenizer(Version, Reader)} instead. This will    *             be removed in Lucene 4.0.    */
+annotation|@
+name|Deprecated
 DECL|method|ArabicLetterTokenizer
 specifier|public
 name|ArabicLetterTokenizer
@@ -76,6 +175,9 @@ name|in
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Construct a new ArabicLetterTokenizer using a given {@link AttributeSource}.    *     * @deprecated use {@link #ArabicLetterTokenizer(Version, AttributeSource, Reader)}    *             instead. This will be removed in Lucene 4.0.    */
+annotation|@
+name|Deprecated
 DECL|method|ArabicLetterTokenizer
 specifier|public
 name|ArabicLetterTokenizer
@@ -95,6 +197,9 @@ name|in
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Construct a new ArabicLetterTokenizer using a given    * {@link org.apache.lucene.util.AttributeSource.AttributeFactory}.    *     * @deprecated use {@link #ArabicLetterTokenizer(Version, AttributeSource.AttributeFactory, Reader)}    *             instead. This will be removed in Lucene 4.0.    */
+annotation|@
+name|Deprecated
 DECL|method|ArabicLetterTokenizer
 specifier|public
 name|ArabicLetterTokenizer
@@ -114,7 +219,7 @@ name|in
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**     * Allows for Letter category or NonspacingMark category    * @see org.apache.lucene.analysis.LetterTokenizer#isTokenChar(char)    */
+comment|/**     * Allows for Letter category or NonspacingMark category    * @see org.apache.lucene.analysis.LetterTokenizer#isTokenChar(int)    */
 annotation|@
 name|Override
 DECL|method|isTokenChar
@@ -122,7 +227,7 @@ specifier|protected
 name|boolean
 name|isTokenChar
 parameter_list|(
-name|char
+name|int
 name|c
 parameter_list|)
 block|{
