@@ -375,6 +375,10 @@ argument_list|(
 operator|new
 name|LowerCaseTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 operator|new
 name|StringReader
 argument_list|(
@@ -469,6 +473,10 @@ argument_list|(
 operator|new
 name|LowerCaseTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 operator|new
 name|StringReader
 argument_list|(
@@ -566,6 +574,10 @@ argument_list|(
 operator|new
 name|LowerCaseTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 operator|new
 name|StringReader
 argument_list|(

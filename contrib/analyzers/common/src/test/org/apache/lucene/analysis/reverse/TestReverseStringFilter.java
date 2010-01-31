@@ -114,6 +114,10 @@ init|=
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 operator|new
 name|StringReader
 argument_list|(
@@ -128,6 +132,10 @@ init|=
 operator|new
 name|ReverseStringFilter
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|stream
 argument_list|)
 decl_stmt|;
@@ -256,6 +264,10 @@ init|=
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 operator|new
 name|StringReader
 argument_list|(
@@ -270,6 +282,10 @@ init|=
 operator|new
 name|ReverseStringFilter
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|stream
 argument_list|,
 literal|'\u0001'

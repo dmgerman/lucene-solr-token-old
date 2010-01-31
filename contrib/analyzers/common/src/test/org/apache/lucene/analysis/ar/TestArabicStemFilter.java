@@ -469,6 +469,10 @@ init|=
 operator|new
 name|ArabicLetterTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 operator|new
 name|StringReader
 argument_list|(
@@ -526,6 +530,10 @@ init|=
 operator|new
 name|ArabicLetterTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 operator|new
 name|StringReader
 argument_list|(

@@ -368,7 +368,11 @@ name|appAnalyzer
 operator|=
 operator|new
 name|WhitespaceAnalyzer
-argument_list|()
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|)
 expr_stmt|;
 name|IndexWriter
 name|writer
@@ -1041,6 +1045,10 @@ return|return
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|reader
 argument_list|)
 return|;
@@ -1049,6 +1057,10 @@ return|return
 operator|new
 name|LetterTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|reader
 argument_list|)
 return|;
@@ -1140,7 +1152,11 @@ name|LUCENE_CURRENT
 argument_list|,
 operator|new
 name|WhitespaceAnalyzer
-argument_list|()
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|a
