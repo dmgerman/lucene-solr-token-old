@@ -196,6 +196,10 @@ argument_list|,
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|reader
 argument_list|)
 argument_list|,
@@ -316,6 +320,10 @@ argument_list|,
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|reader
 argument_list|)
 argument_list|,
@@ -426,6 +434,10 @@ argument_list|,
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|reader
 argument_list|)
 argument_list|,
@@ -668,6 +680,10 @@ argument_list|,
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|reader
 argument_list|)
 argument_list|,
@@ -705,6 +721,10 @@ argument_list|,
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|reader
 argument_list|)
 argument_list|,
@@ -943,6 +963,10 @@ argument_list|,
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|reader
 argument_list|)
 argument_list|,

@@ -354,6 +354,8 @@ init|=
 operator|new
 name|LowerCaseTokenizer
 argument_list|(
+name|matchVersion
+argument_list|,
 name|reader
 argument_list|)
 decl_stmt|;

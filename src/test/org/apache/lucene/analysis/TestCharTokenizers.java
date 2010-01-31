@@ -515,7 +515,7 @@ name|LowerCaseTokenizer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_CURRENT
 argument_list|,
 name|reader
 argument_list|)
@@ -605,7 +605,7 @@ name|WhitespaceTokenizer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_CURRENT
 argument_list|,
 name|reader
 argument_list|)
