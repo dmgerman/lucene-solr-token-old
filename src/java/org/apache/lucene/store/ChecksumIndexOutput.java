@@ -46,7 +46,7 @@ name|Checksum
 import|;
 end_import
 begin_comment
-comment|/** Writes bytes through to a primary IndexOutput, computing  *  checksum.  Note that you cannot use seek().*/
+comment|/** Writes bytes through to a primary IndexOutput, computing  *  checksum.  Note that you cannot use seek().  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|ChecksumIndexOutput

@@ -33,7 +33,7 @@ name|Serializable
 import|;
 end_import
 begin_comment
-comment|/**  * Provides a {@link FieldComparator} for custom field sorting.  *  *<b>NOTE:</b> This API is experimental and might change in  * incompatible ways in the next release.  *  */
+comment|/**  * Provides a {@link FieldComparator} for custom field sorting.  *  * @lucene.experimental  *  */
 end_comment
 begin_class
 DECL|class|FieldComparatorSource

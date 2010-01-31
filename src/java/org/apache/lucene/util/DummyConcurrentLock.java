@@ -65,7 +65,7 @@ name|ReentrantLock
 import|;
 end_import
 begin_comment
-comment|/**  * A dummy lock as a replacement for {@link ReentrantLock} to disable locking  */
+comment|/**  * A dummy lock as a replacement for {@link ReentrantLock} to disable locking  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|DummyConcurrentLock

@@ -21,7 +21,7 @@ begin_comment
 comment|/*  * Copyright 2001-2004 Unicode, Inc.  *   * Disclaimer  *   * This source code is provided as is by Unicode, Inc. No claims are  * made as to fitness for any particular purpose. No warranties of any  * kind are expressed or implied. The recipient agrees to determine  * applicability of information provided. If this file has been  * purchased on magnetic or optical media from Unicode, Inc., the  * sole remedy for any claim will be exchange of defective media  * within 90 days of receipt.  *   * Limitations on Rights to Redistribute This Code  *   * Unicode, Inc. hereby grants the right to freely use the information  * supplied in this file in the creation of products supporting the  * Unicode Standard, and to make copies of this file in any form  * for internal or external distribution as long as this notice  * remains attached.  */
 end_comment
 begin_comment
-comment|/**  * Class to encode java's UTF16 char[] into UTF8 byte[]  * without always allocating a new byte[] as  * String.getBytes("UTF-8") does.  *  *<p><b>WARNING</b>: This API is a new and experimental and  * may suddenly change.</p>  */
+comment|/**  * Class to encode java's UTF16 char[] into UTF8 byte[]  * without always allocating a new byte[] as  * String.getBytes("UTF-8") does.  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|UnicodeUtil
@@ -111,6 +111,7 @@ name|HALF_MASK
 init|=
 literal|0x3FFL
 decl_stmt|;
+comment|/**    * @lucene.internal    */
 DECL|class|UTF8Result
 specifier|public
 specifier|static
@@ -171,6 +172,7 @@ name|newLength
 expr_stmt|;
 block|}
 block|}
+comment|/**    * @lucene.internal    */
 DECL|class|UTF16Result
 specifier|public
 specifier|static

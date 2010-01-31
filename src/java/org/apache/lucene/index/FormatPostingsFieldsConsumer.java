@@ -24,7 +24,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** Abstract API that consumes terms, doc, freq, prox and  *  payloads postings.  Concrete implementations of this  *  actually do "something" with the postings (write it into  *  the index in a specific format).  *  * NOTE: this API is experimental and will likely change  */
+comment|/** Abstract API that consumes terms, doc, freq, prox and  *  payloads postings.  Concrete implementations of this  *  actually do "something" with the postings (write it into  *  the index in a specific format).  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|FormatPostingsFieldsConsumer

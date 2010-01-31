@@ -28,7 +28,7 @@ name|AttributeSource
 import|;
 end_import
 begin_comment
-comment|/**  * This class tracks the number and position / offset parameters of terms  * being added to the index. The information collected in this class is  * also used to calculate the normalization factor for a field.  *   *<p><b>WARNING</b>: This API is new and experimental, and may suddenly  * change.</p>  */
+comment|/**  * This class tracks the number and position / offset parameters of terms  * being added to the index. The information collected in this class is  * also used to calculate the normalization factor for a field.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|FieldInvertState

@@ -26,7 +26,7 @@ name|Closeable
 import|;
 end_import
 begin_comment
-comment|/**  * Base class for cache implementations.  */
+comment|/**  * Base class for cache implementations.  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|Cache

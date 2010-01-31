@@ -46,7 +46,7 @@ name|IndexReader
 import|;
 end_import
 begin_comment
-comment|/**  * Common util methods for dealing with {@link IndexReader}s.  *  */
+comment|/**  * Common util methods for dealing with {@link IndexReader}s.  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|ReaderUtil

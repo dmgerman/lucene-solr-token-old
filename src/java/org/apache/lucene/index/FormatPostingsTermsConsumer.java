@@ -50,7 +50,7 @@ name|RamUsageEstimator
 import|;
 end_import
 begin_comment
-comment|/**  * NOTE: this API is experimental and will likely change  */
+comment|/**  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|FormatPostingsTermsConsumer

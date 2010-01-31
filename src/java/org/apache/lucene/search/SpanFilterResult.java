@@ -33,7 +33,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  *  The results of a SpanQueryFilter.  Wraps the BitSet and the position information from the SpanQuery  *  *<p/>  * NOTE: This API is still experimental and subject to change.   *  **/
+comment|/**  *  The results of a SpanQueryFilter.  Wraps the BitSet and the position information from the SpanQuery  *  * @lucene.experimental   *  **/
 end_comment
 begin_class
 DECL|class|SpanFilterResult

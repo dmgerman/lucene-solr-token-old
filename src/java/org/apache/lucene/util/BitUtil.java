@@ -19,7 +19,7 @@ DECL|package|org.apache.lucene.util
 comment|// from org.apache.solr.util rev 555343
 end_comment
 begin_comment
-comment|/**  A variety of high efficiency bit twiddling routines.  */
+comment|/**  A variety of high efficiency bit twiddling routines.  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|BitUtil
