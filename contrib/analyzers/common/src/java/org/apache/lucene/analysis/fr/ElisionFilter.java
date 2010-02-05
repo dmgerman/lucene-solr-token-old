@@ -273,7 +273,7 @@ expr_stmt|;
 block|}
 comment|/**    * Constructs an elision filter with standard stop words    */
 DECL|method|ElisionFilter
-specifier|protected
+specifier|public
 name|ElisionFilter
 parameter_list|(
 name|Version
@@ -297,7 +297,7 @@ comment|/**    * Constructs an elision filter with standard stop words    * @dep
 annotation|@
 name|Deprecated
 DECL|method|ElisionFilter
-specifier|protected
+specifier|public
 name|ElisionFilter
 parameter_list|(
 name|TokenStream
