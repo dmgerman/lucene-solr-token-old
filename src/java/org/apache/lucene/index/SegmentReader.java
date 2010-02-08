@@ -2605,6 +2605,12 @@ operator|+
 name|si
 operator|.
 name|docCount
+operator|+
+literal|" segment="
+operator|+
+name|si
+operator|.
+name|name
 argument_list|)
 throw|;
 block|}

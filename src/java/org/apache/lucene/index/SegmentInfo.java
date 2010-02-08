@@ -2193,6 +2193,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|delCount
+operator|<=
+name|docCount
+operator|:
+literal|"delCount="
+operator|+
+name|delCount
+operator|+
+literal|" docCount="
+operator|+
+name|docCount
+operator|+
+literal|" segment="
+operator|+
+name|name
+assert|;
 name|output
 operator|.
 name|writeString
