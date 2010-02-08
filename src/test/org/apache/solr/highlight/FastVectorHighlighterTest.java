@@ -284,6 +284,15 @@ argument_list|,
 literal|"2"
 argument_list|)
 expr_stmt|;
+name|args
+operator|.
+name|put
+argument_list|(
+literal|"hl.useFastVectorHighlighter"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
 name|TestHarness
 operator|.
 name|LocalRequestFactory

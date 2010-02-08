@@ -1942,7 +1942,6 @@ operator|.
 name|storeTermOffsets
 argument_list|()
 operator|&&
-operator|!
 name|params
 operator|.
 name|getFieldBool
@@ -1951,7 +1950,7 @@ name|fieldName
 argument_list|,
 name|HighlightParams
 operator|.
-name|USE_HIGHLIGHTER
+name|USE_FVH
 argument_list|,
 literal|false
 argument_list|)
