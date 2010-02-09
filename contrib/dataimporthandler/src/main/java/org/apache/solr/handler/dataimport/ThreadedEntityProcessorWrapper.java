@@ -157,6 +157,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|entityRunner
+specifier|final
 name|DocBuilder
 operator|.
 name|EntityRunner
@@ -164,6 +165,7 @@ name|entityRunner
 decl_stmt|;
 comment|/**For each child entity there is one EntityRunner    */
 DECL|field|children
+specifier|final
 name|Map
 argument_list|<
 name|DataConfig
