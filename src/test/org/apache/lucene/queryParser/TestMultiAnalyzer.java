@@ -222,9 +222,7 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 literal|""
 argument_list|,
@@ -797,9 +795,7 @@ init|=
 operator|new
 name|StandardTokenizer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|reader
 argument_list|)
@@ -817,9 +813,7 @@ operator|=
 operator|new
 name|LowerCaseFilter
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|result
 argument_list|)
@@ -1112,9 +1106,7 @@ init|=
 operator|new
 name|StandardTokenizer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|reader
 argument_list|)
@@ -1132,9 +1124,7 @@ operator|=
 operator|new
 name|LowerCaseFilter
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|result
 argument_list|)
@@ -1297,9 +1287,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|f
 argument_list|,

@@ -26,6 +26,21 @@ name|*
 import|;
 end_import
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCaseJ4
+operator|.
+name|TEST_VERSION_CURRENT
+import|;
+end_import
+begin_import
 import|import
 name|java
 operator|.
@@ -204,9 +219,7 @@ name|CharacterUtils
 operator|.
 name|getInstance
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_31
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -399,9 +412,7 @@ name|CharacterUtils
 operator|.
 name|getInstance
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_31
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -585,9 +596,7 @@ name|CharacterUtils
 operator|.
 name|getInstance
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_31
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -789,9 +798,7 @@ name|Version
 operator|.
 name|LUCENE_30
 block|,
-name|Version
-operator|.
-name|LUCENE_31
+name|TEST_VERSION_CURRENT
 block|}
 decl_stmt|;
 for|for
@@ -969,9 +976,7 @@ name|CharacterUtils
 operator|.
 name|getInstance
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_31
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|Reader

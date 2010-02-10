@@ -118,9 +118,7 @@ init|=
 operator|new
 name|StopAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 DECL|field|inValidTokens
@@ -470,9 +468,7 @@ init|=
 operator|new
 name|StopAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|stopWordsSet
 argument_list|)

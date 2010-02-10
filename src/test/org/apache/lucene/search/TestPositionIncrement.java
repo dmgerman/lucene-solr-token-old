@@ -1486,9 +1486,7 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 literal|"field"
 argument_list|,
@@ -1666,9 +1664,7 @@ operator|=
 operator|new
 name|QueryParser
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 literal|"field"
 argument_list|,
@@ -1743,9 +1739,7 @@ init|=
 operator|new
 name|WhitespaceAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 DECL|method|StopWhitespaceAnalyzer
@@ -1795,9 +1789,7 @@ name|StopFilter
 argument_list|(
 name|enablePositionIncrements
 condition|?
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 else|:
 name|Version
 operator|.
@@ -1808,9 +1800,7 @@ argument_list|,
 operator|new
 name|CharArraySet
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|Collections
 operator|.
@@ -2312,9 +2302,9 @@ init|=
 operator|new
 name|LowerCaseTokenizer
 argument_list|(
-name|Version
+name|LuceneTestCase
 operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|reader
 argument_list|)

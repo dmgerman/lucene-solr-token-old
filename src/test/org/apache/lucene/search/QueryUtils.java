@@ -159,7 +159,7 @@ name|RAMDirectory
 import|;
 end_import
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
@@ -168,7 +168,9 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Version
+name|LuceneTestCaseJ4
+operator|.
+name|TEST_VERSION_CURRENT
 import|;
 end_import
 begin_comment
@@ -1138,9 +1140,7 @@ argument_list|,
 operator|new
 name|WhitespaceAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 argument_list|,
 literal|true
