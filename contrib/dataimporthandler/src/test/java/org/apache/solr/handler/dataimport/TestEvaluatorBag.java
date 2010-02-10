@@ -170,6 +170,15 @@ name|sqlTests
 operator|.
 name|put
 argument_list|(
+literal|"foo\\"
+argument_list|,
+literal|"foo\\\\"
+argument_list|)
+expr_stmt|;
+name|sqlTests
+operator|.
+name|put
+argument_list|(
 literal|"foo'"
 argument_list|,
 literal|"foo''"

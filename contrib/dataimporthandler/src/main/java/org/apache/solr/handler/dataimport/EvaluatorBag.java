@@ -364,6 +364,9 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+comment|// escape single quote with two single quotes, double quote
+comment|// with two doule quotes, and backslash with double backslash.
+comment|// See:  http://dev.mysql.com/doc/refman/4.1/en/mysql-real-escape-string.html
 return|return
 name|s
 operator|.
@@ -379,6 +382,13 @@ argument_list|(
 literal|"\""
 argument_list|,
 literal|"\"\""
+argument_list|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\\\"
+argument_list|,
+literal|"\\\\\\\\"
 argument_list|)
 return|;
 block|}
