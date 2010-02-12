@@ -49,7 +49,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|IdentityHashMap
+name|WeakHashMap
 import|;
 end_import
 begin_import
@@ -124,7 +124,7 @@ decl_stmt|;
 DECL|field|cache
 specifier|private
 specifier|final
-name|IdentityHashMap
+name|WeakHashMap
 argument_list|<
 name|Class
 argument_list|<
@@ -138,7 +138,7 @@ argument_list|>
 name|cache
 init|=
 operator|new
-name|IdentityHashMap
+name|WeakHashMap
 argument_list|<
 name|Class
 argument_list|<
