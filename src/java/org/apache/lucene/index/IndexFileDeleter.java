@@ -1234,7 +1234,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|deletePendingFiles
-specifier|private
+specifier|public
 name|void
 name|deletePendingFiles
 parameter_list|()
