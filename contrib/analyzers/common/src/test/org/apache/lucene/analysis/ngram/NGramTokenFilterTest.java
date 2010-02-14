@@ -564,7 +564,7 @@ index|[]
 block|{
 literal|0
 block|,
-literal|0
+literal|7
 block|}
 argument_list|,
 operator|new
@@ -573,7 +573,7 @@ index|[]
 block|{
 literal|3
 block|,
-literal|3
+literal|10
 block|}
 argument_list|)
 expr_stmt|;
