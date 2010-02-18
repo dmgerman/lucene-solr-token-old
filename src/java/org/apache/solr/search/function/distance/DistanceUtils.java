@@ -746,7 +746,7 @@ argument_list|)
 expr_stmt|;
 name|start
 operator|=
-name|idx
+name|end
 operator|+
 literal|1
 expr_stmt|;
@@ -1001,7 +1001,7 @@ argument_list|)
 expr_stmt|;
 name|start
 operator|=
-name|idx
+name|end
 operator|+
 literal|1
 expr_stmt|;
