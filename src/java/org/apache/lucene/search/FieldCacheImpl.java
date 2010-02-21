@@ -479,6 +479,13 @@ operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|readerKey
+operator|==
+literal|null
+condition|)
+continue|continue;
 specifier|final
 name|Map
 argument_list|<
