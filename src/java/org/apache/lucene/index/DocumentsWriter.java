@@ -3924,6 +3924,18 @@ literal|null
 argument_list|)
 assert|;
 comment|// Delete by term
+if|if
+condition|(
+name|deletesFlushed
+operator|.
+name|terms
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|TermDocs
 name|docs
 init|=
@@ -4035,6 +4047,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 comment|// Delete by docID
 for|for
 control|(
@@ -4081,6 +4094,18 @@ expr_stmt|;
 block|}
 block|}
 comment|// Delete by query
+if|if
+condition|(
+name|deletesFlushed
+operator|.
+name|queries
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|IndexSearcher
 name|searcher
 init|=
@@ -4090,6 +4115,8 @@ argument_list|(
 name|reader
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 for|for
 control|(
 name|Entry
@@ -4199,11 +4226,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+finally|finally
+block|{
 name|searcher
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+block|}
 return|return
 name|any
 return|;
