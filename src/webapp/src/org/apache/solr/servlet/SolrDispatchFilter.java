@@ -547,7 +547,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Could not start SOLR. Check solr/home property"
+literal|"Could not start Solr. Check solr/home property"
 argument_list|,
 name|t
 argument_list|)
