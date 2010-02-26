@@ -15,16 +15,18 @@ begin_comment
 comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * Useful constants representing filenames and extensions used by lucene  */
+comment|/**  * This class contains useful constants representing filenames and extensions  * used by lucene, as well as convenience methods for querying whether a file  * name matches an extension ({@link #matchesExtension(String, String)  * matchesExtension}), as well as generating file names from a segment name,  * generation and extension (  * {@link #fileNameFromGeneration(String, String, long) fileNameFromGeneration},  * {@link #segmentFileName(String, String) segmentFileName}).  *   * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|IndexFileNames
+specifier|public
 specifier|final
 class|class
 name|IndexFileNames
 block|{
 comment|/** Name of the index segment file */
 DECL|field|SEGMENTS
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -34,6 +36,7 @@ literal|"segments"
 decl_stmt|;
 comment|/** Name of the generation reference file name */
 DECL|field|SEGMENTS_GEN
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -43,6 +46,7 @@ literal|"segments.gen"
 decl_stmt|;
 comment|/** Name of the index deletable file (only used in    * pre-lockless indices) */
 DECL|field|DELETABLE
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -52,6 +56,7 @@ literal|"deletable"
 decl_stmt|;
 comment|/** Extension of norms file */
 DECL|field|NORMS_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -61,6 +66,7 @@ literal|"nrm"
 decl_stmt|;
 comment|/** Extension of freq postings file */
 DECL|field|FREQ_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -70,6 +76,7 @@ literal|"frq"
 decl_stmt|;
 comment|/** Extension of prox postings file */
 DECL|field|PROX_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -79,6 +86,7 @@ literal|"prx"
 decl_stmt|;
 comment|/** Extension of terms file */
 DECL|field|TERMS_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -88,6 +96,7 @@ literal|"tis"
 decl_stmt|;
 comment|/** Extension of terms index file */
 DECL|field|TERMS_INDEX_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -97,6 +106,7 @@ literal|"tii"
 decl_stmt|;
 comment|/** Extension of stored fields index file */
 DECL|field|FIELDS_INDEX_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -106,6 +116,7 @@ literal|"fdx"
 decl_stmt|;
 comment|/** Extension of stored fields file */
 DECL|field|FIELDS_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -115,6 +126,7 @@ literal|"fdt"
 decl_stmt|;
 comment|/** Extension of vectors fields file */
 DECL|field|VECTORS_FIELDS_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -124,6 +136,7 @@ literal|"tvf"
 decl_stmt|;
 comment|/** Extension of vectors documents file */
 DECL|field|VECTORS_DOCUMENTS_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -133,6 +146,7 @@ literal|"tvd"
 decl_stmt|;
 comment|/** Extension of vectors index file */
 DECL|field|VECTORS_INDEX_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -142,6 +156,7 @@ literal|"tvx"
 decl_stmt|;
 comment|/** Extension of compound file */
 DECL|field|COMPOUND_FILE_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -151,6 +166,7 @@ literal|"cfs"
 decl_stmt|;
 comment|/** Extension of compound file for doc store files*/
 DECL|field|COMPOUND_FILE_STORE_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -160,6 +176,7 @@ literal|"cfx"
 decl_stmt|;
 comment|/** Extension of deletes */
 DECL|field|DELETES_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -169,6 +186,7 @@ literal|"del"
 decl_stmt|;
 comment|/** Extension of field infos */
 DECL|field|FIELD_INFOS_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -178,6 +196,7 @@ literal|"fnm"
 decl_stmt|;
 comment|/** Extension of plain norms */
 DECL|field|PLAIN_NORMS_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -187,6 +206,7 @@ literal|"f"
 decl_stmt|;
 comment|/** Extension of separate norms */
 DECL|field|SEPARATE_NORMS_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -196,6 +216,7 @@ literal|"s"
 decl_stmt|;
 comment|/** Extension of gen file */
 DECL|field|GEN_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -205,6 +226,7 @@ literal|"gen"
 decl_stmt|;
 comment|/**    * This array contains all filename extensions used by    * Lucene's index files, with two exceptions, namely the    * extension made up from<code>.f</code> + a number and    * from<code>.s</code> + a number.  Also note that    * Lucene's<code>segments_N</code> files do not have any    * filename extension.    */
 DECL|field|INDEX_EXTENSIONS
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -248,6 +270,7 @@ block|,   }
 decl_stmt|;
 comment|/** File extensions that are added to a compound file    * (same as above, minus "del", "gen", "cfs"). */
 DECL|field|INDEX_EXTENSIONS_IN_COMPOUND_FILE
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -282,6 +305,7 @@ name|NORMS_EXTENSION
 block|}
 decl_stmt|;
 DECL|field|STORE_INDEX_EXTENSIONS
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -304,6 +328,7 @@ name|FIELDS_EXTENSION
 block|}
 decl_stmt|;
 DECL|field|NON_STORE_INDEX_EXTENSIONS
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -329,6 +354,7 @@ block|}
 decl_stmt|;
 comment|/** File extensions of old-style index files */
 DECL|field|COMPOUND_EXTENSIONS
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -356,6 +382,7 @@ block|}
 decl_stmt|;
 comment|/** File extensions for term vector support */
 DECL|field|VECTOR_EXTENSIONS
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -373,8 +400,9 @@ block|,
 name|VECTORS_FIELDS_EXTENSION
 block|}
 decl_stmt|;
-comment|/**    * Computes the full file name from base, extension and    * generation.  If the generation is -1, the file name is    * null.  If it's 0, the file name is<base><extension>.    * If it's> 0, the file name is<base>_<generation><extension>.    *    * @param base -- main part of the file name    * @param extension -- extension of the filename (including .)    * @param gen -- generation    */
+comment|/**    * Computes the full file name from base, extension and generation. If the    * generation is -1, the file name is null. If it's 0, the file name is    *&lt;base&gt;.&lt;ext&gt;. If it's> 0, the file name is    *&lt;base&gt;_&lt;gen&gt;.&lt;ext&gt;.<br>    *<b>NOTE:</b> .&lt;ext&gt; is added to the name only if<code>ext</code> is    * not an empty string.    *     * @param base main part of the file name    * @param ext extension of the filename    * @param gen generation    */
 DECL|method|fileNameFromGeneration
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -384,7 +412,7 @@ name|String
 name|base
 parameter_list|,
 name|String
-name|extension
+name|ext
 parameter_list|,
 name|long
 name|gen
@@ -414,18 +442,50 @@ name|WITHOUT_GEN
 condition|)
 block|{
 return|return
+name|segmentFileName
+argument_list|(
 name|base
-operator|+
-name|extension
+argument_list|,
+name|ext
+argument_list|)
 return|;
 block|}
 else|else
 block|{
-return|return
+comment|// The '6' part in the length is: 1 for '.', 1 for '_' and 4 as estimate
+comment|// to the gen length as string (hopefully an upper limit so SB won't
+comment|// expand in the middle.
+name|StringBuilder
+name|res
+init|=
+operator|new
+name|StringBuilder
+argument_list|(
 name|base
+operator|.
+name|length
+argument_list|()
 operator|+
-literal|"_"
+literal|6
 operator|+
+name|ext
+operator|.
+name|length
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|base
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|'_'
+argument_list|)
+operator|.
+name|append
+argument_list|(
 name|Long
 operator|.
 name|toString
@@ -436,13 +496,42 @@ name|Character
 operator|.
 name|MAX_RADIX
 argument_list|)
-operator|+
-name|extension
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|ext
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|res
+operator|.
+name|append
+argument_list|(
+literal|'.'
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|ext
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|res
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 block|}
-comment|/**    * Returns true if the provided filename is one of the doc    * store files (ends with an extension in    * STORE_INDEX_EXTENSIONS).    */
+comment|/**    * Returns true if the provided filename is one of the doc store files (ends    * with an extension in {@link #STORE_INDEX_EXTENSIONS}).    */
 DECL|method|isDocStoreFile
+specifier|public
 specifier|static
 specifier|final
 name|boolean
@@ -466,41 +555,34 @@ literal|true
 return|;
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
+name|String
+name|ext
+range|:
 name|STORE_INDEX_EXTENSIONS
-operator|.
-name|length
-condition|;
-name|i
-operator|++
 control|)
+block|{
 if|if
 condition|(
 name|fileName
 operator|.
 name|endsWith
 argument_list|(
-name|STORE_INDEX_EXTENSIONS
-index|[
-name|i
-index|]
+name|ext
 argument_list|)
 condition|)
 return|return
 literal|true
 return|;
+block|}
 return|return
 literal|false
 return|;
 block|}
+comment|/**    * Returns the file name that matches the given segment name and extension.    * This method takes care to return the full file name in the form    *&lt;segmentName&gt;.&lt;ext&gt;, therefore you don't need to prefix the    * extension with a '.'.<br>    *<b>NOTE:</b> .&lt;ext&gt; is added to the result file name only if    *<code>ext</code> is not empty.    */
 DECL|method|segmentFileName
+specifier|public
 specifier|static
+specifier|final
 name|String
 name|segmentFileName
 parameter_list|(
@@ -511,12 +593,85 @@ name|String
 name|ext
 parameter_list|)
 block|{
+if|if
+condition|(
+name|ext
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+return|return
+operator|new
+name|StringBuilder
+argument_list|(
+name|segmentName
+operator|.
+name|length
+argument_list|()
+operator|+
+literal|1
+operator|+
+name|ext
+operator|.
+name|length
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|segmentName
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|'.'
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|ext
+argument_list|)
+operator|.
+name|toString
+argument_list|()
+return|;
+block|}
+else|else
+block|{
 return|return
 name|segmentName
-operator|+
+return|;
+block|}
+block|}
+comment|/**    * Returns true if the given filename ends with the given extension. One    * should provide a<i>pure</i> extension, withouth '.'.    */
+DECL|method|matchesExtension
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|matchesExtension
+parameter_list|(
+name|String
+name|filename
+parameter_list|,
+name|String
+name|ext
+parameter_list|)
+block|{
+comment|// It doesn't make a difference whether we allocate a StringBuilder ourself
+comment|// or not, since there's only 1 '+' operator.
+return|return
+name|filename
+operator|.
+name|endsWith
+argument_list|(
 literal|"."
 operator|+
 name|ext
+argument_list|)
 return|;
 block|}
 block|}
