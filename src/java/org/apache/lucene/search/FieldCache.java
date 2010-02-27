@@ -1429,6 +1429,9 @@ DECL|method|getCacheType
 specifier|public
 specifier|abstract
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getCacheType
 parameter_list|()
 function_decl|;

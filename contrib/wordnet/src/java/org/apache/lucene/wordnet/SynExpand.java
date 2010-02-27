@@ -623,9 +623,6 @@ comment|// [2a] add to level words in
 name|String
 name|word
 init|=
-operator|(
-name|String
-operator|)
 name|it
 operator|.
 name|next

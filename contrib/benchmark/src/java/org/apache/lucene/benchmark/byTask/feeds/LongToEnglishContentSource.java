@@ -68,6 +68,8 @@ name|MIN_VALUE
 operator|+
 literal|10
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -77,6 +79,8 @@ throws|throws
 name|IOException
 block|{    }
 comment|//TODO: reduce/clean up synchonization
+annotation|@
+name|Override
 DECL|method|getNextDocData
 specifier|public
 specifier|synchronized

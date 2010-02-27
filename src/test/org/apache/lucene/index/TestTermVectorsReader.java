@@ -1087,13 +1087,6 @@ argument_list|,
 name|fieldInfos
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|reader
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -1221,13 +1214,6 @@ argument_list|,
 name|fieldInfos
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|reader
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
 name|TermPositionVector
 name|vector
 decl_stmt|;
@@ -1594,13 +1580,6 @@ argument_list|,
 name|fieldInfos
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|reader
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
 name|TermPositionVector
 name|vector
 init|=
@@ -1866,13 +1845,6 @@ argument_list|,
 name|fieldInfos
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|reader
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
 name|SortedTermVectorMapper
 name|mapper
 init|=
@@ -2768,13 +2740,6 @@ argument_list|,
 name|fieldInfos
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|reader
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
 comment|//Bad document number, good field number
 name|reader
 operator|.
@@ -2815,13 +2780,6 @@ argument_list|,
 name|fieldInfos
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|reader
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
 comment|//Bad document number, no field
 name|reader
 operator|.
@@ -2857,13 +2815,6 @@ argument_list|,
 name|fieldInfos
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|reader
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
 comment|//good document number, bad field number
 name|TermFreqVector
 name|vector

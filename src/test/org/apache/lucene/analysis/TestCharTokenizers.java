@@ -852,6 +852,8 @@ argument_list|)
 return|;
 block|}
 annotation|@
+name|Deprecated
+annotation|@
 name|Override
 DECL|method|isTokenChar
 specifier|protected
@@ -898,6 +900,8 @@ name|input
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 annotation|@
 name|Override
 DECL|method|normalize
@@ -956,6 +960,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Deprecated
+annotation|@
 name|Override
 DECL|method|normalize
 specifier|protected
@@ -1005,6 +1011,8 @@ name|c
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
 annotation|@
 name|Override
 DECL|method|isTokenChar

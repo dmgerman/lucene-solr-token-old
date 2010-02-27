@@ -741,9 +741,7 @@ init|=
 operator|new
 name|DutchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|checkOneTermReuse
@@ -788,9 +786,7 @@ init|=
 operator|new
 name|DutchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|checkOneTermReuse
@@ -845,9 +841,7 @@ init|=
 operator|new
 name|DutchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|checkOneTermReuse
@@ -917,9 +911,7 @@ init|=
 operator|new
 name|DutchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|CharArraySet
 operator|.
@@ -949,9 +941,7 @@ operator|=
 operator|new
 name|DutchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|CharArraySet
 operator|.
@@ -992,9 +982,7 @@ init|=
 operator|new
 name|DutchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|checkOneTermReuse
@@ -1114,9 +1102,7 @@ argument_list|(
 operator|new
 name|DutchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 argument_list|,
 name|input

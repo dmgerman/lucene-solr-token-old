@@ -218,10 +218,6 @@ name|other
 operator|instanceof
 name|FieldDateResolutionMapAttributeImpl
 operator|&&
-name|other
-operator|!=
-literal|null
-operator|&&
 operator|(
 operator|(
 name|FieldDateResolutionMapAttributeImpl

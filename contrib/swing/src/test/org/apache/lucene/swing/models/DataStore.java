@@ -87,10 +87,16 @@ decl_stmt|;
 DECL|field|restaurants
 specifier|static
 name|Collection
+argument_list|<
+name|RestaurantInfo
+argument_list|>
 name|restaurants
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|RestaurantInfo
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|pinos
@@ -223,6 +229,9 @@ DECL|method|getRestaurants
 specifier|public
 specifier|static
 name|Iterator
+argument_list|<
+name|RestaurantInfo
+argument_list|>
 name|getRestaurants
 parameter_list|()
 block|{

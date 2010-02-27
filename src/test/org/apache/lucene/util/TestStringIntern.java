@@ -16,15 +16,6 @@ package|;
 end_package
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -207,12 +198,6 @@ name|iter
 init|=
 literal|1000000
 decl_stmt|;
-specifier|final
-name|boolean
-name|newStrings
-init|=
-literal|true
-decl_stmt|;
 comment|// try native intern
 comment|// StringHelper.interner = new StringInterner();
 name|Thread
@@ -320,10 +305,6 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-name|newStrings
-operator|==
-literal|true
-operator|&&
 name|rand
 operator|.
 name|nextBoolean
@@ -376,8 +357,6 @@ operator|!=
 name|interned
 condition|)
 block|{
-name|TestCase
-operator|.
 name|fail
 argument_list|()
 expr_stmt|;
@@ -401,8 +380,6 @@ operator|!=
 name|interned
 condition|)
 block|{
-name|TestCase
-operator|.
 name|fail
 argument_list|()
 expr_stmt|;

@@ -76,15 +76,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Locale
 import|;
 end_import
@@ -4249,9 +4240,6 @@ literal|""
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|TokenStream
-name|stream
-init|=
 name|benchmark
 operator|.
 name|getRunData
@@ -4270,7 +4258,10 @@ argument_list|(
 name|text
 argument_list|)
 argument_list|)
-decl_stmt|;
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|assertEqualShingle
 argument_list|(
 name|benchmark

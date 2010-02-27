@@ -356,13 +356,6 @@ decl_stmt|;
 name|assertTrue
 argument_list|(
 name|reader
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|reader
 operator|.
 name|size
 argument_list|()
@@ -649,13 +642,6 @@ argument_list|,
 name|fieldInfos
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|reader
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 name|reader
@@ -1144,13 +1130,6 @@ decl_stmt|;
 name|assertTrue
 argument_list|(
 name|reader
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|reader
 operator|.
 name|size
 argument_list|()
@@ -1363,13 +1342,6 @@ argument_list|,
 name|fieldInfos
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|reader
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 name|reader
@@ -1696,13 +1668,6 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|reader
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|reader
 operator|.
 name|size
 argument_list|()
@@ -1746,6 +1711,15 @@ operator|.
 name|LARGE_LAZY_FIELD_KEY
 argument_list|)
 decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"field is null and it shouldn't be"
+argument_list|,
+name|field
+operator|!=
+literal|null
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"field is lazy"
@@ -1794,15 +1768,6 @@ argument_list|(
 literal|"value is null and it shouldn't be"
 argument_list|,
 name|value
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"field is null and it shouldn't be"
-argument_list|,
-name|field
 operator|!=
 literal|null
 argument_list|)

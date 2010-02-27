@@ -2600,12 +2600,6 @@ argument_list|(
 literal|"bin1"
 argument_list|,
 name|bin
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3470,19 +3464,6 @@ name|tempDir
 init|=
 literal|"target/test"
 decl_stmt|;
-if|if
-condition|(
-name|tempDir
-operator|==
-literal|null
-condition|)
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"tempDir undefined, cannot run test"
-argument_list|)
-throw|;
 name|File
 name|indexDir
 init|=

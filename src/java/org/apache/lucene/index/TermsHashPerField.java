@@ -1745,7 +1745,6 @@ operator|.
 name|termBuffer
 argument_list|()
 decl_stmt|;
-empty_stmt|;
 specifier|final
 name|int
 name|tokenTextLen

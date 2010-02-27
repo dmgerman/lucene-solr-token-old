@@ -37,15 +37,6 @@ name|void
 name|testBasic
 parameter_list|()
 block|{
-name|String
-name|string
-init|=
-operator|new
-name|String
-argument_list|(
-literal|"test str"
-argument_list|)
-decl_stmt|;
 name|RamUsageEstimator
 name|rue
 init|=
@@ -53,35 +44,20 @@ operator|new
 name|RamUsageEstimator
 argument_list|()
 decl_stmt|;
-name|long
-name|size
-init|=
 name|rue
 operator|.
 name|estimateRamUsage
 argument_list|(
-name|string
+literal|"test str"
 argument_list|)
-decl_stmt|;
-comment|//System.out.println("size:" + size);
-name|string
-operator|=
-operator|new
-name|String
+expr_stmt|;
+name|rue
+operator|.
+name|estimateRamUsage
 argument_list|(
 literal|"test strin"
 argument_list|)
 expr_stmt|;
-name|size
-operator|=
-name|rue
-operator|.
-name|estimateRamUsage
-argument_list|(
-name|string
-argument_list|)
-expr_stmt|;
-comment|//System.out.println("size:" + size);
 name|Holder
 name|holder
 init|=
@@ -101,8 +77,6 @@ argument_list|,
 literal|5000L
 argument_list|)
 expr_stmt|;
-name|size
-operator|=
 name|rue
 operator|.
 name|estimateRamUsage
@@ -110,7 +84,6 @@ argument_list|(
 name|holder
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("size:" + size);
 name|String
 index|[]
 name|strings
@@ -138,8 +111,6 @@ literal|"catchmaster"
 argument_list|)
 block|}
 decl_stmt|;
-name|size
-operator|=
 name|rue
 operator|.
 name|estimateRamUsage
@@ -147,7 +118,6 @@ argument_list|(
 name|strings
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("size:" + size);
 block|}
 DECL|class|Holder
 specifier|private

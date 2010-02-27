@@ -432,9 +432,6 @@ specifier|final
 name|int
 name|code
 init|=
-operator|(
-name|int
-operator|)
 name|s
 operator|.
 name|charAt
@@ -620,9 +617,6 @@ specifier|final
 name|int
 name|code
 init|=
-operator|(
-name|int
-operator|)
 name|s
 index|[
 name|i
@@ -933,7 +927,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{}
-empty_stmt|;
 DECL|method|writeStringStringMap
 specifier|public
 name|void

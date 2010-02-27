@@ -182,10 +182,6 @@ name|other
 operator|instanceof
 name|PositionIncrementsAttributeImpl
 operator|&&
-name|other
-operator|!=
-literal|null
-operator|&&
 operator|(
 operator|(
 name|PositionIncrementsAttributeImpl

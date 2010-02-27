@@ -233,15 +233,12 @@ name|long
 call|)
 argument_list|(
 operator|(
-name|float
-operator|)
-name|byteSize
-operator|*
-operator|(
 literal|1.0f
 operator|-
 name|delRatio
 operator|)
+operator|*
+name|byteSize
 argument_list|)
 operator|)
 return|;

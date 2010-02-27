@@ -1628,12 +1628,6 @@ return|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|input
-operator|!=
-literal|null
-condition|)
 name|input
 operator|.
 name|close

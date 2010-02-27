@@ -1492,9 +1492,6 @@ name|queryTree
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Query
-operator|)
 name|this
 operator|.
 name|builder

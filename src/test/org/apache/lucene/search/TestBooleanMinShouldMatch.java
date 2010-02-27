@@ -16,15 +16,6 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -187,7 +178,7 @@ decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp
-specifier|public
+specifier|protected
 name|void
 name|setUp
 parameter_list|()
@@ -2818,8 +2809,6 @@ operator|.
 name|totalHits
 condition|)
 block|{
-name|TestCase
-operator|.
 name|fail
 argument_list|(
 literal|"Constrained results not a subset:\n"
@@ -2964,8 +2953,6 @@ operator|>
 literal|1.0e-6f
 condition|)
 block|{
-name|TestCase
-operator|.
 name|fail
 argument_list|(
 literal|"Doc "
@@ -3013,8 +3000,6 @@ condition|(
 operator|!
 name|found
 condition|)
-name|TestCase
-operator|.
 name|fail
 argument_list|(
 literal|"Doc "

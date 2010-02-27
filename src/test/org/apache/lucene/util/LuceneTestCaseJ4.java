@@ -220,7 +220,7 @@ name|fail
 import|;
 end_import
 begin_comment
-comment|/**  * Base class for all Lucene unit tests, Junit4 variant.  * Replaces LuceneTestCase.  *<p>  *</p>  *<p>  * If you  * override either<code>setUp()</code> or  *<code>tearDown()</code> in your unit test, make sure you  * call<code>super.setUp()</code> and  *<code>super.tearDown()</code>  *</p>  *  * @After - replaces setup  * @Before - replaces teardown  * @Test - any public method with this annotation is a test case, regardless  * of its name  *<p/>  *<p/>  * See Junit4 documentation for a complete list of features at  * http://junit.org/junit/javadoc/4.7/  *<p/>  * Import from org.junit rather than junit.framework.  *<p/>  * You should be able to use this class anywhere you used LuceneTestCase  * if you annotate your derived class correctly with the annotations above  * @see assertSaneFieldCaches  *<p/>  */
+comment|/**  * Base class for all Lucene unit tests, Junit4 variant.  * Replaces LuceneTestCase.  *<p>  *</p>  *<p>  * If you  * override either<code>setUp()</code> or  *<code>tearDown()</code> in your unit test, make sure you  * call<code>super.setUp()</code> and  *<code>super.tearDown()</code>  *</p>  *  * @After - replaces setup  * @Before - replaces teardown  * @Test - any public method with this annotation is a test case, regardless  * of its name  *<p>  *<p>  * See Junit4 documentation for a complete list of features at  * http://junit.org/junit/javadoc/4.7/  *<p>  * Import from org.junit rather than junit.framework.  *<p>  * You should be able to use this class anywhere you used LuceneTestCase  * if you annotate your derived class correctly with the annotations above  * @see #assertSaneFieldCaches(String)  */
 end_comment
 begin_comment
 comment|// If we really need functionality in runBare override from LuceneTestCase,
@@ -784,6 +784,9 @@ name|String
 name|label
 parameter_list|,
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|iter
 parameter_list|,
 name|PrintStream
@@ -853,7 +856,7 @@ literal|" ***"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Convinience method for logging an array.  Wraps the array in an iterator and delegates    *    * @see dumpIterator(String,Iterator,PrintStream)    */
+comment|/**    * Convinience method for logging an array.  Wraps the array in an iterator and delegates    *    * @see #dumpIterator(String,Iterator,PrintStream)    */
 DECL|method|dumpArray
 specifier|public
 specifier|static
@@ -872,6 +875,9 @@ name|stream
 parameter_list|)
 block|{
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|iter
 init|=
 operator|(

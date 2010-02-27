@@ -610,9 +610,6 @@ return|return
 literal|1.0f
 operator|-
 operator|(
-operator|(
-name|float
-operator|)
 name|p
 index|[
 name|sl

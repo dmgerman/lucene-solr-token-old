@@ -885,7 +885,6 @@ name|rnd
 argument_list|)
 return|;
 block|}
-empty_stmt|;
 block|}
 argument_list|)
 decl_stmt|;

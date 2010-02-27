@@ -1170,7 +1170,7 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * {@see #advance()}      * @return the current value.        */
+comment|/**      * @return the current value.        * @see #advance()      */
 DECL|method|getValue
 specifier|public
 name|int

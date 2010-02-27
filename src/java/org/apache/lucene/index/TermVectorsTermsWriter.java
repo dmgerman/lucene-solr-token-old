@@ -782,11 +782,6 @@ operator|==
 literal|null
 condition|)
 return|return;
-assert|assert
-name|docStoreSegment
-operator|!=
-literal|null
-assert|;
 comment|// If we hit an exception while init'ing the term
 comment|// vector output files, we must abort this segment
 comment|// because those files will be in an unknown
@@ -1081,7 +1076,7 @@ expr_stmt|;
 block|}
 name|perDoc
 operator|.
-name|tvf
+name|perDocTvf
 operator|.
 name|writeTo
 argument_list|(
@@ -1090,7 +1085,7 @@ argument_list|)
 expr_stmt|;
 name|perDoc
 operator|.
-name|tvf
+name|perDocTvf
 operator|.
 name|reset
 argument_list|()
@@ -1271,9 +1266,9 @@ name|DocWriter
 block|{
 comment|// TODO: use something more memory efficient; for small
 comment|// docs the 1024 buffer size of RAMOutputStream wastes alot
-DECL|field|tvf
+DECL|field|perDocTvf
 name|RAMOutputStream
-name|tvf
+name|perDocTvf
 init|=
 operator|new
 name|RAMOutputStream
@@ -1310,7 +1305,7 @@ name|void
 name|reset
 parameter_list|()
 block|{
-name|tvf
+name|perDocTvf
 operator|.
 name|reset
 argument_list|()
@@ -1395,7 +1390,7 @@ index|[
 name|numVectorFields
 index|]
 operator|=
-name|tvf
+name|perDocTvf
 operator|.
 name|getFilePointer
 argument_list|()
@@ -1413,7 +1408,7 @@ name|sizeInBytes
 parameter_list|()
 block|{
 return|return
-name|tvf
+name|perDocTvf
 operator|.
 name|sizeInBytes
 argument_list|()

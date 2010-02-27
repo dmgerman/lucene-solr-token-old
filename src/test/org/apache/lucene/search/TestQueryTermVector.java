@@ -130,13 +130,6 @@ argument_list|(
 name|queryTerm
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|result
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
 name|String
 index|[]
 name|terms
@@ -216,13 +209,6 @@ name|WhitespaceAnalyzer
 argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|result
-operator|!=
-literal|null
 argument_list|)
 expr_stmt|;
 name|terms

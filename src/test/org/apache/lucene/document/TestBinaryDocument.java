@@ -124,12 +124,6 @@ name|binaryValStored
 operator|.
 name|getBytes
 argument_list|()
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|YES
 argument_list|)
 decl_stmt|;
 name|Fieldable
@@ -190,9 +184,7 @@ parameter_list|(
 name|IllegalArgumentException
 name|iae
 parameter_list|)
-block|{
-empty_stmt|;
-block|}
+block|{     }
 name|Document
 name|doc
 init|=
@@ -400,12 +392,6 @@ operator|.
 name|getBytes
 argument_list|()
 argument_list|)
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|YES
 argument_list|)
 decl_stmt|;
 name|Fieldable
@@ -422,12 +408,6 @@ name|compressString
 argument_list|(
 name|binaryValCompressed
 argument_list|)
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|YES
 argument_list|)
 decl_stmt|;
 name|Document

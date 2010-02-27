@@ -452,10 +452,6 @@ name|clone
 operator|.
 name|data
 operator|=
-operator|(
-name|byte
-index|[]
-operator|)
 name|data
 operator|.
 name|clone

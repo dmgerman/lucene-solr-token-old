@@ -222,10 +222,7 @@ block|{
 name|long
 name|waitForMsec
 init|=
-call|(
-name|long
-call|)
-argument_list|(
+operator|(
 name|pauseMSec
 operator|-
 operator|(
@@ -236,7 +233,7 @@ argument_list|()
 operator|-
 name|t
 operator|)
-argument_list|)
+operator|)
 decl_stmt|;
 if|if
 condition|(

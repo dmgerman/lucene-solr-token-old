@@ -205,9 +205,6 @@ block|{
 name|String
 name|s
 init|=
-operator|(
-name|String
-operator|)
 name|decoder
 operator|.
 name|get
@@ -275,8 +272,8 @@ name|i
 operator|++
 control|)
 block|{
-name|char
-name|c
+name|int
+name|j
 init|=
 name|s
 operator|.
@@ -284,14 +281,6 @@ name|charAt
 argument_list|(
 name|i
 argument_list|)
-decl_stmt|;
-name|int
-name|j
-init|=
-operator|(
-name|int
-operator|)
-name|c
 decl_stmt|;
 if|if
 condition|(
@@ -338,7 +327,10 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-name|c
+operator|(
+name|char
+operator|)
+name|j
 argument_list|)
 expr_stmt|;
 comment|// use ASCII value
@@ -357,13 +349,8 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-operator|(
-name|int
-operator|)
-name|c
+name|j
 argument_list|)
-expr_stmt|;
-name|buffer
 operator|.
 name|append
 argument_list|(

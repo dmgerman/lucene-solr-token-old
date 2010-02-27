@@ -131,6 +131,15 @@ operator|.
 name|TestCase
 import|;
 end_import
+begin_import
+import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|Assert
+import|;
+end_import
 begin_class
 DECL|class|BooleanQueryTst
 specifier|public
@@ -376,7 +385,7 @@ operator|+=
 name|docBase
 expr_stmt|;
 comment|/* System.out.println(docNr + " '" + dBase.getDocs()[docNr] + "': " + score); */
-name|TestCase
+name|Assert
 operator|.
 name|assertTrue
 argument_list|(
@@ -389,7 +398,7 @@ operator|>
 literal|0.0
 argument_list|)
 expr_stmt|;
-name|TestCase
+name|Assert
 operator|.
 name|assertTrue
 argument_list|(
@@ -462,7 +471,7 @@ operator|.
 name|length
 condition|)
 block|{
-name|TestCase
+name|Assert
 operator|.
 name|assertTrue
 argument_list|(
@@ -485,7 +494,7 @@ name|void
 name|checkNrHits
 parameter_list|()
 block|{
-name|TestCase
+name|Assert
 operator|.
 name|assertEquals
 argument_list|(

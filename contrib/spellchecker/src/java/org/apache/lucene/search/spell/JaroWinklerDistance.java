@@ -512,9 +512,6 @@ decl_stmt|;
 name|float
 name|m
 init|=
-operator|(
-name|float
-operator|)
 name|mtp
 index|[
 literal|0

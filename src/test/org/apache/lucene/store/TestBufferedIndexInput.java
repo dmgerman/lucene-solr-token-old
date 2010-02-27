@@ -1789,9 +1789,6 @@ name|bufferSize
 init|=
 literal|1024
 operator|+
-operator|(
-name|int
-operator|)
 name|Math
 operator|.
 name|abs
@@ -1836,9 +1833,6 @@ name|bufferSize
 operator|=
 literal|1
 operator|+
-operator|(
-name|int
-operator|)
 name|Math
 operator|.
 name|abs

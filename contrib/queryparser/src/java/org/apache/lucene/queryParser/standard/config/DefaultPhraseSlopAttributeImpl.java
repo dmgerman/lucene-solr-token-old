@@ -182,10 +182,6 @@ name|other
 operator|instanceof
 name|DefaultPhraseSlopAttributeImpl
 operator|&&
-name|other
-operator|!=
-literal|null
-operator|&&
 operator|(
 operator|(
 name|DefaultPhraseSlopAttributeImpl

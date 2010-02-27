@@ -258,6 +258,9 @@ DECL|method|value
 specifier|public
 specifier|abstract
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|(
 name|int
@@ -472,6 +475,9 @@ name|Override
 DECL|method|value
 specifier|public
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|(
 name|int
@@ -658,6 +664,9 @@ name|Override
 DECL|method|value
 specifier|public
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|(
 name|int
@@ -953,6 +962,9 @@ name|Override
 DECL|method|value
 specifier|public
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|(
 name|int
@@ -1252,6 +1264,9 @@ name|Override
 DECL|method|value
 specifier|public
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|(
 name|int
@@ -1556,6 +1571,9 @@ name|Override
 DECL|method|value
 specifier|public
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|(
 name|int
@@ -1855,6 +1873,9 @@ name|Override
 DECL|method|value
 specifier|public
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|(
 name|int
@@ -2100,6 +2121,9 @@ name|Override
 DECL|method|value
 specifier|public
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|(
 name|int
@@ -2327,6 +2351,9 @@ name|Override
 DECL|method|value
 specifier|public
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|(
 name|int
@@ -2648,6 +2675,9 @@ name|Override
 DECL|method|value
 specifier|public
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|(
 name|int
@@ -3361,6 +3391,9 @@ name|Override
 DECL|method|value
 specifier|public
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|(
 name|int
@@ -3686,6 +3719,9 @@ name|Override
 DECL|method|value
 specifier|public
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|value
 parameter_list|(
 name|int

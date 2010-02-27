@@ -54,6 +54,9 @@ name|String
 name|word
 parameter_list|,
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 name|hyphenatedword
 parameter_list|)
 function_decl|;

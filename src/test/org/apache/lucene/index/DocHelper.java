@@ -1139,12 +1139,6 @@ argument_list|(
 name|LAZY_FIELD_BINARY_KEY
 argument_list|,
 name|LAZY_FIELD_BINARY_BYTES
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|YES
 argument_list|)
 expr_stmt|;
 name|fields

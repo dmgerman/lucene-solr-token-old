@@ -113,6 +113,9 @@ argument_list|<
 name|String
 argument_list|,
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 name|stoplist
 decl_stmt|;
@@ -142,6 +145,9 @@ argument_list|<
 name|String
 argument_list|,
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 argument_list|(
 literal|23
@@ -1476,6 +1482,9 @@ block|{
 comment|// assume only simple hyphens (Hyphen.pre="-", Hyphen.post = Hyphen.no =
 comment|// null)
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 name|hw
 init|=
 name|stoplist
@@ -1867,6 +1876,9 @@ name|String
 name|word
 parameter_list|,
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 name|hyphenatedword
 parameter_list|)
 block|{

@@ -525,10 +525,6 @@ name|bos
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|double
-index|[]
-name|doubles
-init|=
 name|cache
 operator|.
 name|getDoubles
@@ -537,11 +533,7 @@ name|reader
 argument_list|,
 literal|"theDouble"
 argument_list|)
-decl_stmt|;
-name|float
-index|[]
-name|floats
-init|=
+expr_stmt|;
 name|cache
 operator|.
 name|getFloats
@@ -550,7 +542,7 @@ name|reader
 argument_list|,
 literal|"theDouble"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|bos

@@ -496,18 +496,13 @@ block|}
 annotation|@
 name|Override
 DECL|method|tearDown
-specifier|public
+specifier|protected
 name|void
 name|tearDown
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 name|searcher
 operator|.
 name|close
@@ -516,6 +511,11 @@ expr_stmt|;
 name|directory
 operator|.
 name|close
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
@@ -3453,16 +3453,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|float
-name|score2
-init|=
-name|hits
-index|[
-literal|0
-index|]
-operator|.
-name|score
-decl_stmt|;
+comment|//float score2 = hits[0].score;
 comment|//System.out.println("palindrome: two three: "+score2);
 name|QueryUtils
 operator|.
@@ -3542,16 +3533,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|float
-name|score3
-init|=
-name|hits
-index|[
-literal|0
-index|]
-operator|.
-name|score
-decl_stmt|;
+comment|//float score3 = hits[0].score;
 comment|//System.out.println("palindrome: three two: "+score3);
 name|QueryUtils
 operator|.
@@ -3817,16 +3799,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|float
-name|score2
-init|=
-name|hits
-index|[
-literal|0
-index|]
-operator|.
-name|score
-decl_stmt|;
+comment|//float score2 = hits[0].score;
 comment|//System.out.println("palindrome: one two three: "+score2);
 name|QueryUtils
 operator|.
@@ -3919,16 +3892,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|float
-name|score3
-init|=
-name|hits
-index|[
-literal|0
-index|]
-operator|.
-name|score
-decl_stmt|;
+comment|//float score3 = hits[0].score;
 comment|//System.out.println("palindrome: three two one: "+score3);
 name|QueryUtils
 operator|.

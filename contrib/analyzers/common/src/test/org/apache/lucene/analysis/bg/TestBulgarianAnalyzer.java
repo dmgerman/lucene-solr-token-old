@@ -107,9 +107,7 @@ block|{
 operator|new
 name|BulgarianAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 expr_stmt|;
 block|}
@@ -127,9 +125,7 @@ init|=
 operator|new
 name|BulgarianAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
@@ -161,9 +157,7 @@ init|=
 operator|new
 name|BulgarianAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|Collections
 operator|.
@@ -204,9 +198,7 @@ init|=
 operator|new
 name|BulgarianAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesToReuse
@@ -253,9 +245,7 @@ init|=
 operator|new
 name|BulgarianAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
@@ -369,9 +359,7 @@ init|=
 operator|new
 name|BulgarianAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|CharArraySet
 operator|.

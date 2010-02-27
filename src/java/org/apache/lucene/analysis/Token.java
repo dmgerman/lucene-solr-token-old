@@ -1378,10 +1378,6 @@ name|t
 operator|.
 name|termBuffer
 operator|=
-operator|(
-name|char
-index|[]
-operator|)
 name|termBuffer
 operator|.
 name|clone

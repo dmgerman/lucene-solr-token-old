@@ -178,10 +178,6 @@ name|other
 operator|instanceof
 name|BoostAttributeImpl
 operator|&&
-name|other
-operator|!=
-literal|null
-operator|&&
 operator|(
 operator|(
 name|BoostAttributeImpl

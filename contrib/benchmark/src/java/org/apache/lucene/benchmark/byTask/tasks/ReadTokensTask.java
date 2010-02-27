@@ -609,7 +609,6 @@ name|void
 name|close
 parameter_list|()
 block|{}
-empty_stmt|;
 block|}
 block|}
 end_class

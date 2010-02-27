@@ -38,15 +38,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|text
-operator|.
-name|SimpleDateFormat
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Date
@@ -133,7 +124,7 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
-name|SimpleDateFormat
+name|DateFormat
 operator|.
 name|getDateInstance
 argument_list|()

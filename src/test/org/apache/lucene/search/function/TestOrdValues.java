@@ -79,13 +79,6 @@ begin_comment
 comment|/**  * Test search based on OrdFieldSource and ReverseOrdFieldSource.  *<p/>  * Tests here create an index with a few documents, each having  * an indexed "id" field.  * The ord values of this field are later used for scoring.  *<p/>  * The order tests use Hits to verify that docs are ordered as expected.  *<p/>  * The exact score tests use TopDocs top to verify the exact score.  */
 end_comment
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-block|{
-literal|"UseOfSystemOutOrSystemErr"
-block|}
-argument_list|)
 DECL|class|TestOrdValues
 specifier|public
 class|class

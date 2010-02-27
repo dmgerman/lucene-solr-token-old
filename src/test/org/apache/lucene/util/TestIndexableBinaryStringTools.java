@@ -2500,9 +2500,6 @@ name|Integer
 operator|.
 name|toHexString
 argument_list|(
-operator|(
-name|int
-operator|)
 name|binary
 index|[
 name|byteNum
@@ -2638,9 +2635,6 @@ name|Integer
 operator|.
 name|toHexString
 argument_list|(
-operator|(
-name|int
-operator|)
 name|charArray
 index|[
 name|charNum

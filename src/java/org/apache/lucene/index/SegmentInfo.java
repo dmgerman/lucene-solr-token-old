@@ -1389,10 +1389,6 @@ name|si
 operator|.
 name|normGen
 operator|=
-operator|(
-name|long
-index|[]
-operator|)
 name|normGen
 operator|.
 name|clone

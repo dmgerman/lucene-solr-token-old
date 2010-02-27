@@ -89,9 +89,7 @@ init|=
 operator|new
 name|FrenchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
@@ -586,9 +584,7 @@ init|=
 operator|new
 name|FrenchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 comment|// stopwords
@@ -651,9 +647,7 @@ init|=
 operator|new
 name|FrenchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesToReuse
@@ -711,9 +705,7 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 literal|1
 argument_list|,
@@ -733,9 +725,7 @@ init|=
 operator|new
 name|FrenchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|CharArraySet
 operator|.
@@ -765,9 +755,7 @@ operator|=
 operator|new
 name|FrenchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|CharArraySet
 operator|.
@@ -807,9 +795,7 @@ init|=
 operator|new
 name|FrenchAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo

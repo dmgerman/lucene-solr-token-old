@@ -193,7 +193,7 @@ decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp
-specifier|public
+specifier|protected
 name|void
 name|setUp
 parameter_list|()
@@ -243,7 +243,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|tearDown
-specifier|public
+specifier|protected
 name|void
 name|tearDown
 parameter_list|()
@@ -1719,14 +1719,11 @@ name|file
 argument_list|)
 decl_stmt|;
 comment|// This read primes the buffer in IndexInput
-name|byte
-name|b
-init|=
 name|in
 operator|.
 name|readByte
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 comment|// Close the file
 name|in
 operator|.
@@ -1735,8 +1732,6 @@ argument_list|()
 expr_stmt|;
 comment|// ERROR: this call should fail, but succeeds because the buffer
 comment|// is still filled
-name|b
-operator|=
 name|in
 operator|.
 name|readByte
@@ -1754,8 +1749,6 @@ try|try
 block|{
 comment|// OK: this call correctly fails. We are now past the 1024 internal
 comment|// buffer, so an actual IO is attempted, which fails
-name|b
-operator|=
 name|in
 operator|.
 name|readByte
@@ -2986,16 +2979,13 @@ decl_stmt|;
 comment|// Open two files
 try|try
 block|{
-name|IndexInput
-name|e1
-init|=
 name|cr
 operator|.
 name|openInput
 argument_list|(
 literal|"bogus"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"File not found"
@@ -3084,14 +3074,11 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|byte
-name|test
-init|=
 name|is
 operator|.
 name|readByte
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Single byte read past end of file"

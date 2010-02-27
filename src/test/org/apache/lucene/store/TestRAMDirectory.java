@@ -194,7 +194,7 @@ comment|// setup the index
 annotation|@
 name|Override
 DECL|method|setUp
-specifier|public
+specifier|protected
 name|void
 name|setUp
 parameter_list|()
@@ -869,18 +869,13 @@ block|}
 annotation|@
 name|Override
 DECL|method|tearDown
-specifier|public
+specifier|protected
 name|void
 name|tearDown
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 comment|// cleanup
 if|if
 condition|(
@@ -900,6 +895,11 @@ name|indexDir
 argument_list|)
 expr_stmt|;
 block|}
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
 block|}
 comment|// LUCENE-1196
 DECL|method|testIllegalEOF

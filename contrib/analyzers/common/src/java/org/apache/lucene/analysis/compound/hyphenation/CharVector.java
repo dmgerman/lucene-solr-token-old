@@ -211,10 +211,6 @@ init|=
 operator|new
 name|CharVector
 argument_list|(
-operator|(
-name|char
-index|[]
-operator|)
 name|array
 operator|.
 name|clone

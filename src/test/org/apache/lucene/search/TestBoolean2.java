@@ -235,7 +235,7 @@ decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp
-specifier|public
+specifier|protected
 name|void
 name|setUp
 parameter_list|()
@@ -604,7 +604,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|tearDown
-specifier|public
+specifier|protected
 name|void
 name|tearDown
 parameter_list|()
@@ -619,6 +619,11 @@ expr_stmt|;
 name|dir2
 operator|.
 name|close
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
 argument_list|()
 expr_stmt|;
 block|}

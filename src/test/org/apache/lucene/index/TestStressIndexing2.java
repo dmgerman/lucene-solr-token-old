@@ -129,7 +129,7 @@ name|junit
 operator|.
 name|framework
 operator|.
-name|TestCase
+name|Assert
 import|;
 end_import
 begin_class
@@ -4155,7 +4155,7 @@ operator|.
 name|printStackTrace
 argument_list|()
 expr_stmt|;
-name|TestCase
+name|Assert
 operator|.
 name|fail
 argument_list|(
