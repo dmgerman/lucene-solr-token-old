@@ -1664,6 +1664,7 @@ return|return
 name|infoStream
 return|;
 block|}
+comment|/**    * Prints the given message to the infoStream. Note, this method does not    * check for null infoStream. It assumes this check has been performed by the    * caller, which is recommended to avoid the (usually) expensive message    * creation.    */
 DECL|method|message
 specifier|private
 specifier|static
@@ -1673,13 +1674,6 @@ parameter_list|(
 name|String
 name|message
 parameter_list|)
-block|{
-if|if
-condition|(
-name|infoStream
-operator|!=
-literal|null
-condition|)
 block|{
 name|infoStream
 operator|.
@@ -1700,7 +1694,6 @@ operator|+
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**    * Utility class for executing code that needs to do    * something with the current segments file.  This is    * necessary with lock-less commits because from the time    * you locate the current segments file name, until you    * actually open it, read its contents, or check modified    * time, etc., it could have been deleted due to a writer    * commit finishing.    */
 DECL|class|FindSegmentsFile
@@ -1891,6 +1884,13 @@ argument_list|(
 name|files
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 argument_list|(
 literal|"directory listing genA="
@@ -1898,6 +1898,7 @@ operator|+
 name|genA
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Method 2: open segments.gen and read its
 comment|// contents.  Then we take the larger of the two
 comment|// gen's.  This way, if either approach is hitting
@@ -1949,6 +1950,13 @@ name|FileNotFoundException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 argument_list|(
 literal|"segments.gen open: FileNotFoundException "
@@ -1956,6 +1964,7 @@ operator|+
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 break|break;
 block|}
 catch|catch
@@ -1964,6 +1973,13 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 argument_list|(
 literal|"segments.gen open: IOException "
@@ -1971,6 +1987,7 @@ operator|+
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -2012,6 +2029,13 @@ operator|.
 name|readLong
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 argument_list|(
 literal|"fallback check: "
@@ -2023,6 +2047,7 @@ operator|+
 name|gen1
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|gen0
@@ -2081,6 +2106,13 @@ argument_list|)
 throw|;
 block|}
 block|}
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 argument_list|(
 name|IndexFileNames
@@ -2092,6 +2124,7 @@ operator|+
 name|genB
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Pick the larger of the two gen's:
 if|if
 condition|(
@@ -2177,6 +2210,13 @@ expr_stmt|;
 name|genLookaheadCount
 operator|++
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 argument_list|(
 literal|"look ahead increment gen to "
@@ -2184,6 +2224,7 @@ operator|+
 name|gen
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
@@ -2267,6 +2308,10 @@ condition|(
 name|exc
 operator|!=
 literal|null
+operator|&&
+name|infoStream
+operator|!=
+literal|null
 condition|)
 block|{
 name|message
@@ -2300,6 +2345,13 @@ operator|=
 name|err
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 argument_list|(
 literal|"primary Exception on '"
@@ -2319,6 +2371,7 @@ operator|+
 name|gen
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -2370,6 +2423,13 @@ condition|(
 name|prevExists
 condition|)
 block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 argument_list|(
 literal|"fallback to prior segment file '"
@@ -2379,6 +2439,7 @@ operator|+
 literal|"'"
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|Object
@@ -2389,6 +2450,13 @@ argument_list|(
 name|prevSegmentFileName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 argument_list|(
 literal|"success on fallback "
@@ -2396,6 +2464,7 @@ operator|+
 name|prevSegmentFileName
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|v
 return|;
@@ -2405,6 +2474,13 @@ parameter_list|(
 name|IOException
 name|err2
 parameter_list|)
+block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
 block|{
 name|message
 argument_list|(
@@ -2419,6 +2495,7 @@ operator|+
 literal|"'; will retry"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
