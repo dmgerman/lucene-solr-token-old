@@ -1428,7 +1428,7 @@ operator|==
 literal|'('
 operator|&&
 name|functionDepth
-operator|==
+operator|>=
 literal|0
 condition|)
 block|{
