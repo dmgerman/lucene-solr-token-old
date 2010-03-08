@@ -1104,7 +1104,8 @@ argument_list|)
 operator|==
 name|sr
 assert|;
-comment|// Drop caller's ref
+comment|// Drop caller's ref; for an external reader (not
+comment|// pooled), this decRef will close it
 name|sr
 operator|.
 name|decRef
@@ -1608,6 +1609,16 @@ argument_list|,
 name|termsIndexDivisor
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|info
+operator|.
+name|dir
+operator|==
+name|directory
+condition|)
+block|{
+comment|// Only pool if reader is not external
 name|readerMap
 operator|.
 name|put
@@ -1617,6 +1628,7 @@ argument_list|,
 name|sr
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1661,11 +1673,22 @@ expr_stmt|;
 block|}
 block|}
 comment|// Return a ref to our caller
+if|if
+condition|(
+name|info
+operator|.
+name|dir
+operator|==
+name|directory
+condition|)
+block|{
+comment|// Only incRef if we pooledd (reader is not external)
 name|sr
 operator|.
 name|incRef
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 name|sr
 return|;
