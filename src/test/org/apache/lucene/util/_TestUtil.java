@@ -298,6 +298,9 @@ name|syncConcurrentMerges
 argument_list|(
 name|writer
 operator|.
+name|getConfig
+argument_list|()
+operator|.
 name|getMergeScheduler
 argument_list|()
 argument_list|)
