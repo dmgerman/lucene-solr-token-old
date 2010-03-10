@@ -418,9 +418,9 @@ DECL|field|maxFieldLength
 name|int
 name|maxFieldLength
 init|=
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
-name|UNLIMITED_FIELD_LENGTH
+name|DEFAULT_MAX_FIELD_LENGTH
 decl_stmt|;
 DECL|field|similarity
 name|Similarity
@@ -683,11 +683,11 @@ name|documentsWriter
 parameter_list|)
 function_decl|;
 block|}
-DECL|field|defaultIndexingChain
+DECL|field|DefaultIndexingChain
 specifier|static
 specifier|final
 name|IndexingChain
-name|defaultIndexingChain
+name|DefaultIndexingChain
 init|=
 operator|new
 name|IndexingChain
@@ -818,7 +818,7 @@ specifier|private
 name|int
 name|maxBufferedDeleteTerms
 init|=
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DEFAULT_MAX_BUFFERED_DELETE_TERMS
 decl_stmt|;
@@ -833,7 +833,7 @@ call|(
 name|long
 call|)
 argument_list|(
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DEFAULT_RAM_BUFFER_SIZE_MB
 operator|*
@@ -881,7 +881,7 @@ call|(
 name|long
 call|)
 argument_list|(
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DEFAULT_RAM_BUFFER_SIZE_MB
 operator|*
@@ -901,7 +901,7 @@ call|(
 name|long
 call|)
 argument_list|(
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DEFAULT_RAM_BUFFER_SIZE_MB
 operator|*
@@ -919,7 +919,7 @@ specifier|private
 name|int
 name|maxBufferedDocs
 init|=
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DEFAULT_MAX_BUFFERED_DOCS
 decl_stmt|;
@@ -1004,9 +1004,6 @@ operator|.
 name|similarity
 operator|=
 name|writer
-operator|.
-name|getConfig
-argument_list|()
 operator|.
 name|getSimilarity
 argument_list|()
@@ -1210,14 +1207,14 @@ if|if
 condition|(
 name|mb
 operator|==
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DISABLE_AUTO_FLUSH
 condition|)
 block|{
 name|ramBufferSize
 operator|=
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DISABLE_AUTO_FLUSH
 expr_stmt|;
@@ -1309,7 +1306,7 @@ if|if
 condition|(
 name|ramBufferSize
 operator|==
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DISABLE_AUTO_FLUSH
 condition|)
@@ -2146,9 +2143,6 @@ name|numDocsInStore
 argument_list|,
 name|writer
 operator|.
-name|getConfig
-argument_list|()
-operator|.
 name|getTermIndexInterval
 argument_list|()
 argument_list|)
@@ -2899,7 +2893,7 @@ name|flushPending
 operator|&&
 name|maxBufferedDocs
 operator|!=
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DISABLE_AUTO_FLUSH
 operator|&&
@@ -3606,7 +3600,7 @@ return|return
 operator|(
 name|ramBufferSize
 operator|!=
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DISABLE_AUTO_FLUSH
 operator|&&
@@ -3628,7 +3622,7 @@ operator|||
 operator|(
 name|maxBufferedDeleteTerms
 operator|!=
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DISABLE_AUTO_FLUSH
 operator|&&
@@ -3668,7 +3662,7 @@ return|return
 operator|(
 name|ramBufferSize
 operator|!=
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DISABLE_AUTO_FLUSH
 operator|&&
@@ -3690,7 +3684,7 @@ operator|||
 operator|(
 name|maxBufferedDeleteTerms
 operator|!=
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DISABLE_AUTO_FLUSH
 operator|&&
@@ -4561,7 +4555,7 @@ block|{
 return|return
 name|ramBufferSize
 operator|!=
-name|IndexWriterConfig
+name|IndexWriter
 operator|.
 name|DISABLE_AUTO_FLUSH
 operator|&&
