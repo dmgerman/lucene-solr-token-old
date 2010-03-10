@@ -52,6 +52,15 @@ import|;
 end_import
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -69,7 +78,7 @@ specifier|public
 class|class
 name|TestSynonymMap
 extends|extends
-name|AnalysisTestCase
+name|TestCase
 block|{
 DECL|method|testInvalidMappingRules
 specifier|public
