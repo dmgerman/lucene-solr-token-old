@@ -107,7 +107,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|Term
+name|IndexWriterConfig
 import|;
 end_import
 begin_import
@@ -120,9 +120,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexWriter
-operator|.
-name|MaxFieldLength
+name|Term
 import|;
 end_import
 begin_import
@@ -209,13 +207,13 @@ name|IndexWriter
 argument_list|(
 name|directory
 argument_list|,
+operator|new
+name|IndexWriterConfig
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|analyzer
-argument_list|,
-literal|true
-argument_list|,
-name|MaxFieldLength
-operator|.
-name|UNLIMITED
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|//Add series of docs with misspelt names
