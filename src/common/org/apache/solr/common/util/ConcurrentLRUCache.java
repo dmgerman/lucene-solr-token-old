@@ -1675,7 +1675,7 @@ operator|<
 name|myMaxSize
 condition|)
 block|{
-name|put
+name|add
 argument_list|(
 name|element
 argument_list|)
@@ -1719,7 +1719,7 @@ index|]
 operator|=
 name|element
 expr_stmt|;
-name|adjustTop
+name|updateTop
 argument_list|()
 expr_stmt|;
 return|return

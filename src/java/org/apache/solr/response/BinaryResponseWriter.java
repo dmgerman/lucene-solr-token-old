@@ -923,7 +923,7 @@ name|val
 operator|=
 name|f
 operator|.
-name|binaryValue
+name|getBinaryValue
 argument_list|()
 expr_stmt|;
 else|else

@@ -383,6 +383,10 @@ name|readerPos
 index|]
 decl_stmt|;
 return|return
+operator|(
+operator|(
+name|AllScorer
+operator|)
 name|scorer
 argument_list|(
 name|subReaders
@@ -394,6 +398,7 @@ literal|true
 argument_list|,
 literal|true
 argument_list|)
+operator|)
 operator|.
 name|explain
 argument_list|(

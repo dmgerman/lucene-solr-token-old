@@ -256,7 +256,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ConstantScoreRangeQuery
+name|TermRangeQuery
 import|;
 end_import
 begin_import
@@ -1328,31 +1328,8 @@ else|:
 literal|'-'
 argument_list|)
 expr_stmt|;
-name|flags
-operator|.
-name|append
-argument_list|(
-operator|(
-name|f
-operator|!=
-literal|null
-operator|&&
-name|f
-operator|.
-name|isCompressed
-argument_list|()
-operator|)
-condition|?
-name|FieldFlag
-operator|.
-name|COMPRESSED
-operator|.
-name|getAbbreviation
-argument_list|()
-else|:
-literal|'-'
-argument_list|)
-expr_stmt|;
+comment|//nocommit: handle compressed
+comment|//flags.append( (f != null&& f.isCompressed())                  ? FieldFlag.COMPRESSED.getAbbreviation() : '-' );
 name|flags
 operator|.
 name|append
@@ -2813,7 +2790,7 @@ name|Query
 name|q
 init|=
 operator|new
-name|ConstantScoreRangeQuery
+name|TermRangeQuery
 argument_list|(
 name|fieldName
 argument_list|,
@@ -4976,7 +4953,7 @@ condition|)
 block|{
 name|tiq
 operator|.
-name|put
+name|add
 argument_list|(
 operator|new
 name|TopTermQueue
