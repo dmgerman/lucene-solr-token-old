@@ -1568,6 +1568,9 @@ name|attribute
 operator|.
 name|getClass
 argument_list|()
+operator|.
+name|getName
+argument_list|()
 operator|+
 literal|" that is not in in this AttributeSource"
 argument_list|)
@@ -2176,6 +2179,9 @@ operator|.
 name|attribute
 operator|.
 name|getClass
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 operator|+
 literal|" that is not in the target"
