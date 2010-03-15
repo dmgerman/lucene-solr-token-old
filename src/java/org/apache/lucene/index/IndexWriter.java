@@ -2975,6 +2975,11 @@ name|conf
 operator|.
 name|getIndexingChain
 argument_list|()
+argument_list|,
+name|conf
+operator|.
+name|getMaxThreadStates
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|docWriter

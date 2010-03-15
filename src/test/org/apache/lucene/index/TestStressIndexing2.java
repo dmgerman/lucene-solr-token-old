@@ -480,6 +480,18 @@ name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 comment|// mergeFactor=2; maxBufferedDocs=2; Map docs = indexRandom(1, 3, 2, dir1);
+name|int
+name|maxThreadStates
+init|=
+literal|1
+operator|+
+name|r
+operator|.
+name|nextInt
+argument_list|(
+literal|10
+argument_list|)
+decl_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -497,6 +509,8 @@ argument_list|,
 literal|100
 argument_list|,
 name|dir1
+argument_list|,
+name|maxThreadStates
 argument_list|)
 decl_stmt|;
 name|indexSerial
@@ -578,6 +592,18 @@ argument_list|)
 operator|+
 literal|2
 expr_stmt|;
+name|int
+name|maxThreadStates
+init|=
+literal|1
+operator|+
+name|r
+operator|.
+name|nextInt
+argument_list|(
+literal|10
+argument_list|)
+decl_stmt|;
 name|seed
 operator|++
 expr_stmt|;
@@ -648,6 +674,8 @@ argument_list|,
 name|range
 argument_list|,
 name|dir1
+argument_list|,
+name|maxThreadStates
 argument_list|)
 decl_stmt|;
 name|indexSerial
@@ -1074,6 +1102,9 @@ name|range
 parameter_list|,
 name|Directory
 name|dir
+parameter_list|,
+name|int
+name|maxThreadStates
 parameter_list|)
 throws|throws
 name|IOException
@@ -1147,6 +1178,11 @@ operator|.
 name|setMaxBufferedDocs
 argument_list|(
 name|maxBufferedDocs
+argument_list|)
+operator|.
+name|setMaxThreadStates
+argument_list|(
+name|maxThreadStates
 argument_list|)
 argument_list|)
 decl_stmt|;

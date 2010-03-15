@@ -341,15 +341,6 @@ decl_stmt|;
 comment|// # docs written to doc stores
 comment|// Max # ThreadState instances; if there are more threads
 comment|// than this they share ThreadStates
-DECL|field|MAX_THREAD_STATE
-specifier|private
-specifier|final
-specifier|static
-name|int
-name|MAX_THREAD_STATE
-init|=
-literal|5
-decl_stmt|;
 DECL|field|threadStates
 specifier|private
 name|DocumentsWriterThreadState
@@ -425,6 +416,14 @@ decl_stmt|;
 DECL|field|similarity
 name|Similarity
 name|similarity
+decl_stmt|;
+comment|// max # simultaneous threads; if there are more than
+comment|// this, they wait for others to finish first
+DECL|field|maxThreadStates
+specifier|private
+specifier|final
+name|int
+name|maxThreadStates
 decl_stmt|;
 DECL|field|newFiles
 name|List
@@ -983,6 +982,9 @@ name|writer
 parameter_list|,
 name|IndexingChain
 name|indexingChain
+parameter_list|,
+name|int
+name|maxThreadStates
 parameter_list|)
 throws|throws
 name|IOException
@@ -1010,6 +1012,12 @@ argument_list|()
 operator|.
 name|getSimilarity
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|maxThreadStates
+operator|=
+name|maxThreadStates
 expr_stmt|;
 name|flushedDocCount
 operator|=
@@ -2716,7 +2724,7 @@ name|threadStates
 operator|.
 name|length
 operator|>=
-name|MAX_THREAD_STATE
+name|maxThreadStates
 operator|)
 condition|)
 block|{
