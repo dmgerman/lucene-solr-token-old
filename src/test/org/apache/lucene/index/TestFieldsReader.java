@@ -2025,6 +2025,11 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -2063,6 +2068,7 @@ operator|+
 literal|" reads"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|testLoadSize
 specifier|public

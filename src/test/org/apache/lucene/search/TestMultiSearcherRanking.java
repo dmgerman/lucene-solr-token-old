@@ -166,15 +166,6 @@ name|TestMultiSearcherRanking
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|field|verbose
-specifier|private
-specifier|final
-name|boolean
-name|verbose
-init|=
-literal|false
-decl_stmt|;
-comment|// set to true to output hits
 DECL|field|FIELD_NAME
 specifier|private
 specifier|final
@@ -323,7 +314,7 @@ block|{
 comment|// check result hit ranking
 if|if
 condition|(
-name|verbose
+name|VERBOSE
 condition|)
 name|System
 operator|.
@@ -457,7 +448,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|verbose
+name|VERBOSE
 condition|)
 name|System
 operator|.
@@ -486,7 +477,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|verbose
+name|VERBOSE
 condition|)
 name|System
 operator|.
@@ -552,7 +543,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|verbose
+name|VERBOSE
 condition|)
 name|System
 operator|.

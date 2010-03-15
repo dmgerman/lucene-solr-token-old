@@ -224,11 +224,6 @@ name|fieldName
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|boolean
-name|expanded
-init|=
-literal|false
-decl_stmt|;
 try|try
 block|{
 do|do
@@ -278,10 +273,6 @@ argument_list|(
 name|term
 argument_list|)
 expr_stmt|;
-name|expanded
-operator|=
-literal|true
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -303,29 +294,6 @@ name|enumerator
 operator|.
 name|close
 argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|expanded
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"No terms in "
-operator|+
-name|fieldName
-operator|+
-literal|" field for: "
-operator|+
-name|toString
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 block|}

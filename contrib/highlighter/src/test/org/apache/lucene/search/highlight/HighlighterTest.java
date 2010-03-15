@@ -1119,6 +1119,10 @@ argument_list|,
 name|storedField
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1190,6 +1194,10 @@ argument_list|,
 name|s1
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1245,6 +1253,10 @@ argument_list|,
 name|s1
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1514,6 +1526,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1814,6 +1830,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1954,6 +1974,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2094,6 +2118,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2281,6 +2309,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2459,6 +2491,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2639,7 +2675,7 @@ argument_list|,
 literal|"..."
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("\t" + result);
+comment|//if (VERBOSE) System.out.println("\t" + result);
 block|}
 block|}
 DECL|method|testSimpleQueryScorerPhraseHighlighting2
@@ -2764,6 +2800,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2912,6 +2952,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -3062,6 +3106,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -3187,6 +3235,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -3323,6 +3375,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -3721,6 +3777,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -4482,6 +4542,10 @@ expr_stmt|;
 comment|// can't rewrite ConstantScore if you want to highlight it -
 comment|// it rewrites to ConstantScoreQuery which cannot be highlighted
 comment|// query = unReWrittenQuery.rewrite(reader);
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -4639,6 +4703,10 @@ argument_list|,
 name|fragmentSeparator
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -4808,6 +4876,10 @@ argument_list|,
 name|fragmentSeparator
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -4981,6 +5053,10 @@ argument_list|,
 name|fragmentSeparator
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -5832,6 +5908,10 @@ argument_list|,
 name|text
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -6673,6 +6753,10 @@ argument_list|,
 name|text
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -6907,6 +6991,10 @@ name|j
 operator|++
 control|)
 block|{
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -7593,6 +7681,10 @@ argument_list|(
 literal|"JF? or Kenned*"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -7728,6 +7820,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -8411,6 +8507,10 @@ argument_list|(
 literal|"multi*"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -8569,6 +8669,10 @@ argument_list|,
 name|text
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -10553,6 +10657,10 @@ literal|"t_text1"
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -10704,6 +10812,10 @@ argument_list|(
 name|reader
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -10854,6 +10966,10 @@ argument_list|,
 literal|"..."
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -12194,6 +12310,12 @@ argument_list|,
 name|fragmentSeparator
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|HighlighterTest
+operator|.
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -12222,6 +12344,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|HighlighterTest
+operator|.
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -12234,6 +12362,12 @@ expr_stmt|;
 name|run
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|HighlighterTest
+operator|.
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out

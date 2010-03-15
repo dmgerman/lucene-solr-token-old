@@ -441,15 +441,6 @@ name|TestPerfTasksLogic
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|field|DEBUG
-specifier|private
-specifier|static
-specifier|final
-name|boolean
-name|DEBUG
-init|=
-literal|false
-decl_stmt|;
 DECL|field|NEW_LINE
 specifier|static
 specifier|final
@@ -2488,7 +2479,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|DEBUG
+name|VERBOSE
 condition|)
 return|return;
 name|System

@@ -639,6 +639,10 @@ name|store
 init|=
 literal|null
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -797,6 +801,11 @@ operator|new
 name|Date
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|duration
 operator|=
 call|(
@@ -852,6 +861,7 @@ argument_list|(
 literal|" kb/s"
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|txn
@@ -1074,6 +1084,11 @@ operator|new
 name|Date
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|duration
 operator|=
 call|(
@@ -1129,6 +1144,7 @@ argument_list|(
 literal|" kb/s"
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|txn
@@ -1270,6 +1286,11 @@ operator|new
 name|Date
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -1322,6 +1343,7 @@ argument_list|(
 literal|" total milliseconds"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|testDelete
 specifier|public
@@ -1409,6 +1431,10 @@ name|store
 init|=
 literal|null
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1567,6 +1593,11 @@ operator|new
 name|Date
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|duration
 operator|=
 call|(
@@ -1622,6 +1653,7 @@ argument_list|(
 literal|" kb/s"
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|txn
@@ -1773,6 +1805,11 @@ operator|new
 name|Date
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -1854,6 +1891,7 @@ argument_list|(
 literal|" kb/s"
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|txn
@@ -2110,6 +2148,11 @@ operator|new
 name|Date
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|duration
 operator|=
 call|(
@@ -2165,6 +2208,7 @@ argument_list|(
 literal|" kb/s"
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|txn
@@ -2316,6 +2360,11 @@ operator|new
 name|Date
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -2368,6 +2417,7 @@ argument_list|(
 literal|" total milliseconds"
 argument_list|)
 expr_stmt|;
+block|}
 name|Cursor
 name|cursor
 init|=
@@ -2620,6 +2670,10 @@ name|store
 init|=
 literal|null
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2766,6 +2820,11 @@ operator|new
 name|Date
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|duration
 operator|=
 call|(
@@ -2821,6 +2880,7 @@ argument_list|(
 literal|" kb/s"
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|txn
@@ -3053,6 +3113,11 @@ operator|new
 name|Date
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|duration
 operator|=
 call|(
@@ -3108,6 +3173,7 @@ argument_list|(
 literal|" kb/s"
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 block|{
 name|txn
@@ -3249,6 +3315,11 @@ operator|new
 name|Date
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -3301,6 +3372,7 @@ argument_list|(
 literal|" total milliseconds"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

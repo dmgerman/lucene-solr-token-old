@@ -1263,11 +1263,6 @@ name|NUM_DIR
 operator|*
 literal|25
 decl_stmt|;
-name|boolean
-name|debug
-init|=
-literal|false
-decl_stmt|;
 comment|// Build up a bunch of dirs that have indexes which we
 comment|// will then merge together by calling addIndexesNoOptimize(*):
 name|Directory
@@ -1638,7 +1633,7 @@ control|)
 block|{
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 name|System
 operator|.
@@ -1896,7 +1891,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 name|testName
 operator|=
@@ -1923,7 +1918,7 @@ literal|0.0
 expr_stmt|;
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 name|testName
 operator|=
@@ -1936,7 +1931,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 name|System
 operator|.
@@ -2098,7 +2093,7 @@ literal|true
 expr_stmt|;
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 block|{
 name|System
@@ -2140,7 +2135,7 @@ name|e
 expr_stmt|;
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 block|{
 name|System
@@ -2200,7 +2195,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 block|{
 name|System
@@ -2472,7 +2467,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 block|{
 name|System
@@ -2501,7 +2496,7 @@ block|}
 block|}
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 block|{
 name|System
@@ -2644,11 +2639,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|boolean
-name|debug
-init|=
-literal|false
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -2666,7 +2656,7 @@ control|)
 block|{
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 name|System
 operator|.
@@ -2698,7 +2688,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 name|System
 operator|.
@@ -2813,7 +2803,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 block|{
 name|System
@@ -2874,7 +2864,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 block|{
 name|System

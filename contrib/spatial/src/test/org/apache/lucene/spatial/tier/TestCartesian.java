@@ -1195,6 +1195,11 @@ operator|.
 name|MILES
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -1215,6 +1220,7 @@ operator|+
 name|miles
 argument_list|)
 expr_stmt|;
+block|}
 name|assertEquals
 argument_list|(
 literal|2288.82495932794
@@ -1258,6 +1264,10 @@ operator|.
 name|MILES
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1314,6 +1324,10 @@ operator|=
 operator|-
 literal|158.0
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1348,6 +1362,10 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1436,6 +1454,10 @@ name|float
 name|valSrcScore
 parameter_list|)
 block|{
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1603,6 +1625,11 @@ comment|// distances calculated from filter first pass must be less than total
 comment|// docs, from the above test of 20 items, 12 will come from the boundary box
 comment|// filter, but only 5 are actually in the radius of the results.
 comment|// Note Boundary Box filtering, is not accurate enough for most systems.
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -1662,6 +1689,7 @@ operator|+
 name|results
 argument_list|)
 expr_stmt|;
+block|}
 name|assertEquals
 argument_list|(
 literal|2
@@ -1808,6 +1836,10 @@ argument_list|,
 name|rsLng
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1897,6 +1929,10 @@ operator|=
 operator|-
 literal|73.087749
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1931,6 +1967,10 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2019,6 +2059,10 @@ name|float
 name|valSrcScore
 parameter_list|)
 block|{
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2186,6 +2230,11 @@ comment|// distances calculated from filter first pass must be less than total
 comment|// docs, from the above test of 20 items, 12 will come from the boundary box
 comment|// filter, but only 5 are actually in the radius of the results.
 comment|// Note Boundary Box filtering, is not accurate enough for most systems.
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -2245,6 +2294,7 @@ operator|+
 name|results
 argument_list|)
 expr_stmt|;
+block|}
 name|assertEquals
 argument_list|(
 literal|18
@@ -2391,6 +2441,10 @@ argument_list|,
 name|rsLng
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2423,6 +2477,10 @@ operator|<
 literal|1
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2447,6 +2505,10 @@ name|miles
 operator|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2582,6 +2644,10 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2670,7 +2736,19 @@ name|float
 name|valSrcScore
 parameter_list|)
 block|{
-comment|//System.out.println(doc);
+if|if
+condition|(
+name|VERBOSE
+condition|)
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|doc
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|dq
@@ -2829,6 +2907,11 @@ comment|// distances calculated from filter first pass must be less than total
 comment|// docs, from the above test of 20 items, 12 will come from the boundary box
 comment|// filter, but only 5 are actually in the radius of the results.
 comment|// Note Boundary Box filtering, is not accurate enough for most systems.
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -2902,6 +2985,7 @@ operator|+
 name|results
 argument_list|)
 expr_stmt|;
+block|}
 name|assertEquals
 argument_list|(
 name|expected
@@ -3054,6 +3138,10 @@ argument_list|,
 name|rsLng
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -3214,6 +3302,10 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -3297,7 +3389,19 @@ name|float
 name|valSrcScore
 parameter_list|)
 block|{
-comment|//System.out.println(doc);
+if|if
+condition|(
+name|VERBOSE
+condition|)
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|doc
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|dq
@@ -3432,6 +3536,11 @@ comment|// distances calculated from filter first pass must be less than total
 comment|// docs, from the above test of 20 items, 12 will come from the boundary box
 comment|// filter, but only 5 are actually in the radius of the results.
 comment|// Note Boundary Box filtering, is not accurate enough for most systems.
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -3505,6 +3614,7 @@ operator|+
 name|results
 argument_list|)
 expr_stmt|;
+block|}
 name|assertEquals
 argument_list|(
 name|expected
@@ -3651,6 +3761,10 @@ argument_list|,
 name|rsLng
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out

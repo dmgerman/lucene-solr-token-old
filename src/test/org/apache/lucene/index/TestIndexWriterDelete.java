@@ -2485,11 +2485,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|boolean
-name|debug
-init|=
-literal|false
-decl_stmt|;
 name|Term
 name|searchTerm
 init|=
@@ -2807,7 +2802,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 block|{
 name|System
@@ -2845,7 +2840,7 @@ literal|0.0
 expr_stmt|;
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 block|{
 name|System
@@ -3057,7 +3052,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|debug
+name|VERBOSE
 condition|)
 block|{
 name|System

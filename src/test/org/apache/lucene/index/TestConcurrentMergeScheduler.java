@@ -255,7 +255,6 @@ name|hitExc
 operator|=
 literal|true
 expr_stmt|;
-comment|//new RuntimeException().printStackTrace(System.out);
 throw|throw
 operator|new
 name|IOException

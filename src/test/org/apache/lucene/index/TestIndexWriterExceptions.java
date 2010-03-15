@@ -131,15 +131,6 @@ name|TestIndexWriterExceptions
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|field|DEBUG
-specifier|final
-specifier|private
-specifier|static
-name|boolean
-name|DEBUG
-init|=
-literal|false
-decl_stmt|;
 DECL|class|IndexerThread
 specifier|private
 class|class
@@ -500,7 +491,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|DEBUG
+name|VERBOSE
 condition|)
 block|{
 name|System
@@ -780,7 +771,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|DEBUG
+name|VERBOSE
 condition|)
 block|{
 name|System
@@ -887,7 +878,7 @@ expr_stmt|;
 comment|//writer.setMaxBufferedDocs(10);
 if|if
 condition|(
-name|DEBUG
+name|VERBOSE
 condition|)
 name|writer
 operator|.
@@ -1117,7 +1108,7 @@ expr_stmt|;
 comment|//writer.setMaxBufferedDocs(10);
 if|if
 condition|(
-name|DEBUG
+name|VERBOSE
 condition|)
 name|writer
 operator|.

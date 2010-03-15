@@ -6275,6 +6275,10 @@ operator|instanceof
 name|BooleanQuery
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
