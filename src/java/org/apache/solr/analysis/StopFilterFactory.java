@@ -290,7 +290,6 @@ name|trim
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//TODO: once StopFilter.makeStopSet(List) method is available, switch to using that so we can avoid a toArray() call
 name|stopWords
 operator|.
 name|addAll
@@ -299,20 +298,7 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
-operator|(
-name|String
-index|[]
-operator|)
 name|wlist
-operator|.
-name|toArray
-argument_list|(
-operator|new
-name|String
-index|[
-literal|0
-index|]
-argument_list|)
 argument_list|,
 name|ignoreCase
 argument_list|)
@@ -351,7 +337,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//Force the use of a char array set, as it is the most performant, although this may break things if Lucene ever goes away from it.  See SOLR-1095
 DECL|field|stopWords
 specifier|private
 name|CharArraySet
@@ -390,6 +375,9 @@ block|}
 DECL|method|getStopWords
 specifier|public
 name|Set
+argument_list|<
+name|?
+argument_list|>
 name|getStopWords
 parameter_list|()
 block|{
