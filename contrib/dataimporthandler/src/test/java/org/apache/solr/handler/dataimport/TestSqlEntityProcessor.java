@@ -772,6 +772,9 @@ name|assertEquals
 argument_list|(
 literal|2
 argument_list|,
+operator|(
+name|int
+operator|)
 name|local
 operator|.
 name|get
