@@ -76,21 +76,13 @@ name|BINARY
 init|=
 literal|0x00000008
 decl_stmt|;
-DECL|field|COMPRESSED
-specifier|final
-specifier|static
-name|int
-name|COMPRESSED
-init|=
-literal|0x00000010
-decl_stmt|;
 DECL|field|OMIT_NORMS
 specifier|final
 specifier|static
 name|int
 name|OMIT_NORMS
 init|=
-literal|0x00000020
+literal|0x00000010
 decl_stmt|;
 DECL|field|OMIT_TF_POSITIONS
 specifier|final
@@ -98,7 +90,7 @@ specifier|static
 name|int
 name|OMIT_TF_POSITIONS
 init|=
-literal|0x00000040
+literal|0x00000020
 decl_stmt|;
 DECL|field|STORE_TERMVECTORS
 specifier|final
@@ -106,7 +98,7 @@ specifier|static
 name|int
 name|STORE_TERMVECTORS
 init|=
-literal|0x00000080
+literal|0x00000040
 decl_stmt|;
 DECL|field|STORE_TERMPOSITIONS
 specifier|final
@@ -114,7 +106,7 @@ specifier|static
 name|int
 name|STORE_TERMPOSITIONS
 init|=
-literal|0x00000100
+literal|0x00000080
 decl_stmt|;
 DECL|field|STORE_TERMOFFSETS
 specifier|final
@@ -122,7 +114,7 @@ specifier|static
 name|int
 name|STORE_TERMOFFSETS
 init|=
-literal|0x00000200
+literal|0x00000100
 decl_stmt|;
 DECL|field|MULTIVALUED
 specifier|final
@@ -130,7 +122,7 @@ specifier|static
 name|int
 name|MULTIVALUED
 init|=
-literal|0x00000400
+literal|0x00000200
 decl_stmt|;
 DECL|field|SORT_MISSING_FIRST
 specifier|final
@@ -138,7 +130,7 @@ specifier|static
 name|int
 name|SORT_MISSING_FIRST
 init|=
-literal|0x00000800
+literal|0x00000400
 decl_stmt|;
 DECL|field|SORT_MISSING_LAST
 specifier|final
@@ -146,7 +138,7 @@ specifier|static
 name|int
 name|SORT_MISSING_LAST
 init|=
-literal|0x00001000
+literal|0x00000800
 decl_stmt|;
 DECL|field|REQUIRED
 specifier|final
@@ -154,7 +146,7 @@ specifier|static
 name|int
 name|REQUIRED
 init|=
-literal|0x00002000
+literal|0x00001000
 decl_stmt|;
 DECL|field|propertyNames
 specifier|static
@@ -171,8 +163,6 @@ block|,
 literal|"stored"
 block|,
 literal|"binary"
-block|,
-literal|"compressed"
 block|,
 literal|"omitNorms"
 block|,
