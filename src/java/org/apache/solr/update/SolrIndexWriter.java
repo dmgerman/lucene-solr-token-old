@@ -993,7 +993,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Deprecated
-comment|// nocommit: remove?
 DECL|method|SolrIndexWriter
 specifier|public
 name|SolrIndexWriter
@@ -1053,7 +1052,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * @deprecated    */
-comment|// nocommit: remove?
 DECL|method|SolrIndexWriter
 specifier|public
 name|SolrIndexWriter
@@ -1105,7 +1103,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * @deprecated    */
-comment|// nocommit: remove?
 DECL|method|SolrIndexWriter
 specifier|public
 name|SolrIndexWriter
