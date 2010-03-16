@@ -105,23 +105,6 @@ argument_list|(
 literal|"ÐÐ¼ÐµÑÑÐµ Ñ ÑÐµÐ¼ Ð¾ ÑÐ¸Ð»Ðµ ÑÐ»ÐµÐºÑÑÐ¾Ð¼Ð°Ð³Ð½Ð¸ÑÐ½Ð¾Ð¹ 100"
 argument_list|)
 decl_stmt|;
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|args
-init|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
 name|RussianLetterTokenizerFactory
 name|factory
 init|=
@@ -133,7 +116,7 @@ name|factory
 operator|.
 name|init
 argument_list|(
-name|args
+name|DEFAULT_VERSION_PARAM
 argument_list|)
 expr_stmt|;
 name|Tokenizer
@@ -189,23 +172,6 @@ argument_list|(
 literal|"ÐÐ¼ÐµÑÑÐµ Ñ ÑÐµÐ¼ Ð¾ ÑÐ¸Ð»Ðµ ÑÐ»ÐµÐºÑÑÐ¾Ð¼Ð°Ð³Ð½Ð¸ÑÐ½Ð¾Ð¹ 100"
 argument_list|)
 decl_stmt|;
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|args
-init|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
 name|RussianLetterTokenizerFactory
 name|factory
 init|=
@@ -217,7 +183,7 @@ name|factory
 operator|.
 name|init
 argument_list|(
-name|args
+name|DEFAULT_VERSION_PARAM
 argument_list|)
 expr_stmt|;
 name|RussianLowerCaseFilterFactory
@@ -231,7 +197,7 @@ name|filterFactory
 operator|.
 name|init
 argument_list|(
-name|args
+name|DEFAULT_VERSION_PARAM
 argument_list|)
 expr_stmt|;
 name|Tokenizer
@@ -297,23 +263,6 @@ argument_list|(
 literal|"ÐÐ¼ÐµÑÑÐµ Ñ ÑÐµÐ¼ Ð¾ ÑÐ¸Ð»Ðµ ÑÐ»ÐµÐºÑÑÐ¾Ð¼Ð°Ð³Ð½Ð¸ÑÐ½Ð¾Ð¹ 100"
 argument_list|)
 decl_stmt|;
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|args
-init|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
 name|RussianLetterTokenizerFactory
 name|factory
 init|=
@@ -325,7 +274,7 @@ name|factory
 operator|.
 name|init
 argument_list|(
-name|args
+name|DEFAULT_VERSION_PARAM
 argument_list|)
 expr_stmt|;
 name|RussianLowerCaseFilterFactory
@@ -339,7 +288,7 @@ name|caseFactory
 operator|.
 name|init
 argument_list|(
-name|args
+name|DEFAULT_VERSION_PARAM
 argument_list|)
 expr_stmt|;
 name|RussianStemFilterFactory
@@ -353,7 +302,7 @@ name|stemFactory
 operator|.
 name|init
 argument_list|(
-name|args
+name|DEFAULT_VERSION_PARAM
 argument_list|)
 expr_stmt|;
 name|Tokenizer

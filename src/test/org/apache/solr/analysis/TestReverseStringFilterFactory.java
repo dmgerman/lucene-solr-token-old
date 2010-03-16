@@ -116,6 +116,13 @@ operator|new
 name|ReverseStringFilterFactory
 argument_list|()
 decl_stmt|;
+name|factory
+operator|.
+name|init
+argument_list|(
+name|DEFAULT_VERSION_PARAM
+argument_list|)
+expr_stmt|;
 name|TokenStream
 name|stream
 init|=
