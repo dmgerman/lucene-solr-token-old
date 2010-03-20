@@ -148,6 +148,8 @@ operator|==
 literal|1
 condition|)
 block|{
+name|super
+operator|.
 name|close
 argument_list|()
 expr_stmt|;
