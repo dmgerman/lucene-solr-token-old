@@ -210,15 +210,7 @@ argument_list|,
 name|ss
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"passes w/o FastInputStream"
-argument_list|)
-expr_stmt|;
+comment|// System.out.println("passes w/o FastInputStream");
 name|ByteArrayInputStream
 name|bis
 init|=
@@ -286,15 +278,7 @@ argument_list|,
 name|ss
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"passes w FastInputStream"
-argument_list|)
-expr_stmt|;
+comment|// System.out.println("passes w FastInputStream");
 block|}
 comment|//code copied from NamedListCodec#readChars
 DECL|method|readChars

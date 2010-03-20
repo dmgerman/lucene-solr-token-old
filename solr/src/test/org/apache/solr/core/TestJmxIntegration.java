@@ -215,11 +215,9 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Servers in testJmxRegistration: "
 operator|+
@@ -371,22 +369,18 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Servers in testJmxUpdate: "
 operator|+
 name|servers
 argument_list|)
 expr_stmt|;
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|info
 argument_list|(
 name|h
 operator|.
@@ -394,6 +388,9 @@ name|getCore
 argument_list|()
 operator|.
 name|getInfoRegistry
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -481,11 +478,9 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Mbeans in server: "
 operator|+
