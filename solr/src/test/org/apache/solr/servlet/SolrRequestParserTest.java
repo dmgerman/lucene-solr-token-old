@@ -268,7 +268,7 @@ name|Exception
 block|{
 name|initCore
 argument_list|(
-literal|"solrConfig.xml"
+literal|"solrconfig.xml"
 argument_list|,
 literal|"schema.xml"
 argument_list|)
