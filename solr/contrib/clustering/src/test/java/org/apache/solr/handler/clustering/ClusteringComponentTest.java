@@ -158,6 +158,26 @@ operator|.
 name|SolrRequestHandler
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
+import|;
+end_import
 begin_comment
 comment|/**  *  *  **/
 end_comment
@@ -169,6 +189,8 @@ name|ClusteringComponentTest
 extends|extends
 name|AbstractClusteringTest
 block|{
+annotation|@
+name|Test
 DECL|method|testComponent
 specifier|public
 name|void

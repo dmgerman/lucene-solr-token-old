@@ -225,6 +225,15 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -239,6 +248,17 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
 import|;
 end_import
 begin_comment
@@ -257,6 +277,8 @@ name|CarrotClusteringEngineTest
 extends|extends
 name|AbstractClusteringTest
 block|{
+annotation|@
+name|Test
 DECL|method|testCarrotLingo
 specifier|public
 name|void
@@ -276,6 +298,8 @@ literal|10
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testProduceSummary
 specifier|public
 name|void
@@ -344,6 +368,8 @@ name|solrParams
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCarrotStc
 specifier|public
 name|void
@@ -363,6 +389,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithoutSubclusters
 specifier|public
 name|void
@@ -393,6 +421,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testWithSubclusters
 specifier|public
 name|void
@@ -441,6 +471,8 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testNumDescriptions
 specifier|public
 name|void
@@ -509,6 +541,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testCarrotAttributePassing
 specifier|public
 name|void
