@@ -480,6 +480,9 @@ name|LogMergePolicy
 operator|)
 name|writer1
 operator|.
+name|getConfig
+argument_list|()
+operator|.
 name|getMergePolicy
 argument_list|()
 operator|)
@@ -538,6 +541,9 @@ operator|(
 name|LogMergePolicy
 operator|)
 name|writer2
+operator|.
+name|getConfig
+argument_list|()
 operator|.
 name|getMergePolicy
 argument_list|()

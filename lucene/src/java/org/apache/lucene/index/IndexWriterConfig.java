@@ -290,6 +290,11 @@ specifier|private
 name|IndexReaderWarmer
 name|mergedSegmentWarmer
 decl_stmt|;
+DECL|field|mergePolicy
+specifier|private
+name|MergePolicy
+name|mergePolicy
+decl_stmt|;
 DECL|field|maxThreadStates
 specifier|private
 name|int
@@ -387,6 +392,12 @@ expr_stmt|;
 name|mergedSegmentWarmer
 operator|=
 literal|null
+expr_stmt|;
+name|mergePolicy
+operator|=
+operator|new
+name|LogByteSizeMergePolicy
+argument_list|()
 expr_stmt|;
 name|maxThreadStates
 operator|=
@@ -940,7 +951,35 @@ return|return
 name|mergedSegmentWarmer
 return|;
 block|}
-comment|/** Sets the max number of simultaneous threads that may    *  be indexing documents at once in IndexWriter. */
+comment|/**    * Expert: {@link MergePolicy} is invoked whenever there are changes to the    * segments in the index. Its role is to select which merges to do, if any,    * and return a {@link MergePolicy.MergeSpecification} describing the merges.    * It also selects merges to do for optimize(). (The default is    * {@link LogByteSizeMergePolicy}.    */
+DECL|method|setMergePolicy
+specifier|public
+name|IndexWriterConfig
+name|setMergePolicy
+parameter_list|(
+name|MergePolicy
+name|mergePolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mergePolicy
+operator|=
+name|mergePolicy
+operator|==
+literal|null
+condition|?
+operator|new
+name|LogByteSizeMergePolicy
+argument_list|()
+else|:
+name|mergePolicy
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**    * Sets the max number of simultaneous threads that may be indexing documents    * at once in IndexWriter. Values&lt; 1 are invalid and if passed    *<code>maxThreadStates</code> will be set to    * {@link #DEFAULT_MAX_THREAD_STATES}.    */
 DECL|method|setMaxThreadStates
 specifier|public
 name|IndexWriterConfig
@@ -954,6 +993,12 @@ name|this
 operator|.
 name|maxThreadStates
 operator|=
+name|maxThreadStates
+operator|<
+literal|1
+condition|?
+name|DEFAULT_MAX_THREAD_STATES
+else|:
 name|maxThreadStates
 expr_stmt|;
 return|return
@@ -969,6 +1014,17 @@ parameter_list|()
 block|{
 return|return
 name|maxThreadStates
+return|;
+block|}
+comment|/**    * Returns the current MergePolicy in use by this writer.    *     * @see #setMergePolicy(MergePolicy)    */
+DECL|method|getMergePolicy
+specifier|public
+name|MergePolicy
+name|getMergePolicy
+parameter_list|()
+block|{
+return|return
+name|mergePolicy
 return|;
 block|}
 comment|/** Expert: sets the {@link DocConsumer} chain to be used to process documents. */
@@ -1307,6 +1363,23 @@ operator|.
 name|append
 argument_list|(
 name|mergedSegmentWarmer
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"mergePolicy="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|mergePolicy
 argument_list|)
 operator|.
 name|append

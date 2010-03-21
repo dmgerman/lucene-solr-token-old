@@ -729,6 +729,9 @@ name|LogMergePolicy
 operator|)
 name|writer
 operator|.
+name|getConfig
+argument_list|()
+operator|.
 name|getMergePolicy
 argument_list|()
 operator|)
@@ -1023,6 +1026,9 @@ operator|(
 name|LogMergePolicy
 operator|)
 name|writer
+operator|.
+name|getConfig
+argument_list|()
 operator|.
 name|getMergePolicy
 argument_list|()
@@ -1334,6 +1340,9 @@ name|LogMergePolicy
 operator|)
 name|writer
 operator|.
+name|getConfig
+argument_list|()
+operator|.
 name|getMergePolicy
 argument_list|()
 decl_stmt|;
@@ -1522,6 +1531,9 @@ operator|(
 name|LogMergePolicy
 operator|)
 name|writer
+operator|.
+name|getConfig
+argument_list|()
 operator|.
 name|getMergePolicy
 argument_list|()
