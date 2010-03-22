@@ -2675,6 +2675,13 @@ operator|.
 name|getMergedSegmentWarmer
 argument_list|()
 expr_stmt|;
+name|poolReaders
+operator|=
+name|conf
+operator|.
+name|getReaderPooling
+argument_list|()
+expr_stmt|;
 name|OpenMode
 name|mode
 init|=
