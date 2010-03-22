@@ -106,10 +106,17 @@ expr_stmt|;
 if|if
 condition|(
 name|saveProp
-operator|!=
+operator|==
 literal|null
 condition|)
-block|{
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"solr.directoryFactory"
+argument_list|)
+expr_stmt|;
+else|else
 name|System
 operator|.
 name|setProperty
@@ -119,7 +126,6 @@ argument_list|,
 name|saveProp
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
