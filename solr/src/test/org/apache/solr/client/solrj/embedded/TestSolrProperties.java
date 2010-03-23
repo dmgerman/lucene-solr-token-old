@@ -37,6 +37,17 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|SolrTestCaseJ4
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|client
 operator|.
 name|solrj
@@ -674,6 +685,13 @@ name|getSolrCore0
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|SolrTestCaseJ4
+operator|.
+name|ignoreException
+argument_list|(
+literal|"unknown field"
+argument_list|)
+expr_stmt|;
 comment|// You can't add it to core1
 try|try
 block|{
@@ -741,6 +759,13 @@ expr_stmt|;
 comment|// You can't add it to core1
 try|try
 block|{
+name|SolrTestCaseJ4
+operator|.
+name|ignoreException
+argument_list|(
+literal|"core0"
+argument_list|)
+expr_stmt|;
 name|up
 operator|.
 name|process
@@ -761,6 +786,11 @@ name|Exception
 name|ex
 parameter_list|)
 block|{     }
+name|SolrTestCaseJ4
+operator|.
+name|resetExceptionIgnores
+argument_list|()
+expr_stmt|;
 comment|// now Make sure AAA is in 0 and BBB in 1
 name|SolrQuery
 name|q
