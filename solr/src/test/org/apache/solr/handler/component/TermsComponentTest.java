@@ -1148,6 +1148,11 @@ name|SimpleOrderedMap
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|ignoreException
+argument_list|(
+literal|"No terms.fl parameter specified"
+argument_list|)
+expr_stmt|;
 name|handler
 operator|.
 name|handleRequest
@@ -1162,6 +1167,9 @@ argument_list|)
 argument_list|,
 name|rsp
 argument_list|)
+expr_stmt|;
+name|resetExceptionIgnores
+argument_list|()
 expr_stmt|;
 name|Exception
 name|exception
