@@ -91,6 +91,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ignoreException
+argument_list|(
+literal|"maxWarmingSearchers"
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|setUp
