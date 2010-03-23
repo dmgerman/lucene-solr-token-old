@@ -229,22 +229,6 @@ specifier|private
 name|IndexDeletionPolicy
 name|deletionPolicy
 decl_stmt|;
-DECL|field|synced
-specifier|private
-specifier|final
-name|HashSet
-argument_list|<
-name|String
-argument_list|>
-name|synced
-init|=
-operator|new
-name|HashSet
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
-decl_stmt|;
 DECL|field|writeLock
 specifier|private
 name|Lock
@@ -503,29 +487,6 @@ name|termInfosIndexDivisor
 operator|=
 name|termInfosIndexDivisor
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|readOnly
-condition|)
-block|{
-comment|// We assume that this segments_N was previously
-comment|// properly sync'd:
-name|synced
-operator|.
-name|addAll
-argument_list|(
-name|sis
-operator|.
-name|files
-argument_list|(
-name|directory
-argument_list|,
-literal|true
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 comment|// To reduce the chance of hitting FileNotFound
 comment|// (and having to retry), we open segments in
 comment|// reverse because IndexWriter merges& deletes
@@ -701,29 +662,6 @@ name|termInfosIndexDivisor
 operator|=
 name|termInfosIndexDivisor
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|readOnly
-condition|)
-block|{
-comment|// We assume that this segments_N was previously
-comment|// properly sync'd:
-name|synced
-operator|.
-name|addAll
-argument_list|(
-name|infos
-operator|.
-name|files
-argument_list|(
-name|directory
-argument_list|,
-literal|true
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 comment|// IndexWriter synchronizes externally before calling
 comment|// us, which ensures infos will not change; so there's
 comment|// no need to process segments in reverse order
@@ -987,29 +925,6 @@ name|termInfosIndexDivisor
 operator|=
 name|termInfosIndexDivisor
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|readOnly
-condition|)
-block|{
-comment|// We assume that this segments_N was previously
-comment|// properly sync'd:
-name|synced
-operator|.
-name|addAll
-argument_list|(
-name|infos
-operator|.
-name|files
-argument_list|(
-name|directory
-argument_list|,
-literal|true
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 comment|// we put the old SegmentReaders in a map, that allows us
 comment|// to lookup a reader using its segment name
 name|Map
@@ -4004,13 +3919,10 @@ name|commit
 argument_list|()
 expr_stmt|;
 comment|// Sync all files we just wrote
-specifier|final
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|files
-init|=
+name|directory
+operator|.
+name|sync
+argument_list|(
 name|segmentInfos
 operator|.
 name|files
@@ -4019,51 +3931,8 @@ name|directory
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
-for|for
-control|(
-specifier|final
-name|String
-name|fileName
-range|:
-name|files
-control|)
-block|{
-if|if
-condition|(
-operator|!
-name|synced
-operator|.
-name|contains
-argument_list|(
-name|fileName
-argument_list|)
-condition|)
-block|{
-assert|assert
-name|directory
-operator|.
-name|fileExists
-argument_list|(
-name|fileName
-argument_list|)
-assert|;
-name|directory
-operator|.
-name|sync
-argument_list|(
-name|fileName
 argument_list|)
 expr_stmt|;
-name|synced
-operator|.
-name|add
-argument_list|(
-name|fileName
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 name|segmentInfos
 operator|.
 name|commit
