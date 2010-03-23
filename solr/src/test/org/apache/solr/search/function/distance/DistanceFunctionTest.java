@@ -1143,6 +1143,11 @@ expr_stmt|;
 comment|//Pass in imbalanced list, throw exception
 try|try
 block|{
+name|ignoreException
+argument_list|(
+literal|"Illegal number of sources"
+argument_list|)
+expr_stmt|;
 name|assertQ
 argument_list|(
 name|req
@@ -1198,6 +1203,9 @@ name|SolrException
 argument_list|)
 expr_stmt|;
 block|}
+name|resetExceptionIgnores
+argument_list|()
+expr_stmt|;
 comment|//do one test of Euclidean
 comment|//two dimensions, notice how we only pass in 4 value sources
 name|assertQ
