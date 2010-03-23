@@ -451,11 +451,11 @@ return|;
 block|}
 annotation|@
 name|BeforeClass
-DECL|method|beforeClass
+DECL|method|beforeTests
 specifier|public
 specifier|static
 name|void
-name|beforeClass
+name|beforeTests
 parameter_list|()
 throws|throws
 name|Exception
@@ -1066,7 +1066,7 @@ specifier|final
 name|String
 name|tmp
 init|=
-literal|"BOO!"
+literal|"BOO! ignore_exception"
 decl_stmt|;
 name|SolrRequestHandler
 name|handler
