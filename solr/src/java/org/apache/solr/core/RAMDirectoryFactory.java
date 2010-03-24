@@ -76,6 +76,7 @@ name|StandardDirectoryFactory
 block|{
 DECL|field|directories
 specifier|private
+specifier|static
 name|Map
 argument_list|<
 name|String
@@ -108,7 +109,9 @@ name|IOException
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|RAMDirectoryFactory
+operator|.
+name|class
 init|)
 block|{
 name|RefCntRamDirectory
@@ -178,7 +181,9 @@ parameter_list|)
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|RAMDirectoryFactory
+operator|.
+name|class
 init|)
 block|{
 name|RefCntRamDirectory
