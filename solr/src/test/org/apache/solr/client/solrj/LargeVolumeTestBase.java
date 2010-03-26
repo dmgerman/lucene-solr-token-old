@@ -90,6 +90,26 @@ operator|.
 name|SolrInputDocument
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
+import|;
+end_import
 begin_comment
 comment|/**  * @version $Id$  * @since solr 1.3  */
 end_comment
@@ -100,14 +120,8 @@ specifier|abstract
 class|class
 name|LargeVolumeTestBase
 extends|extends
-name|SolrExampleTestBase
+name|SolrJettyTestBase
 block|{
-DECL|field|gserver
-name|SolrServer
-name|gserver
-init|=
-literal|null
-decl_stmt|;
 comment|// for real load testing, make these numbers bigger
 DECL|field|numdocs
 specifier|static
@@ -126,6 +140,8 @@ name|threadCount
 init|=
 literal|5
 decl_stmt|;
+annotation|@
+name|Test
 DECL|method|testMultiThreaded
 specifier|public
 name|void
@@ -134,13 +150,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|SolrServer
 name|gserver
-operator|=
+init|=
 name|this
 operator|.
 name|getSolrServer
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|gserver
 operator|.
 name|deleteByQuery
@@ -278,6 +295,14 @@ name|SolrServerException
 throws|,
 name|IOException
 block|{
+name|SolrServer
+name|gserver
+init|=
+name|this
+operator|.
+name|getSolrServer
+argument_list|()
+decl_stmt|;
 name|SolrQuery
 name|query
 init|=
