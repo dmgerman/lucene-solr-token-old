@@ -57,9 +57,6 @@ operator|.
 name|BeforeClass
 import|;
 end_import
-begin_comment
-comment|/**  * @version $Id$  * @since solr 1.3  */
-end_comment
 begin_class
 DECL|class|LargeVolumeEmbeddedTest
 specifier|public
@@ -88,27 +85,6 @@ argument_list|,
 name|EXAMPLE_HOME
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|createNewSolrServer
-specifier|protected
-name|SolrServer
-name|createNewSolrServer
-parameter_list|()
-block|{
-return|return
-operator|new
-name|EmbeddedSolrServer
-argument_list|(
-name|h
-operator|.
-name|getCoreContainer
-argument_list|()
-argument_list|,
-literal|""
-argument_list|)
-return|;
 block|}
 block|}
 end_class

@@ -126,7 +126,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|createNewSolrServer
-specifier|protected
+specifier|public
 name|SolrServer
 name|createNewSolrServer
 parameter_list|()
