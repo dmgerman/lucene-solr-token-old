@@ -256,11 +256,11 @@ specifier|final
 name|CharArraySet
 name|protWords
 decl_stmt|;
-DECL|field|termAtttribute
+DECL|field|termAttribute
 specifier|private
 specifier|final
 name|TermAttribute
-name|termAtttribute
+name|termAttribute
 init|=
 operator|(
 name|TermAttribute
@@ -1021,7 +1021,7 @@ block|}
 name|int
 name|termLength
 init|=
-name|termAtttribute
+name|termAttribute
 operator|.
 name|termLength
 argument_list|()
@@ -1030,7 +1030,7 @@ name|char
 index|[]
 name|termBuffer
 init|=
-name|termAtttribute
+name|termAttribute
 operator|.
 name|termBuffer
 argument_list|()
@@ -1460,7 +1460,7 @@ name|savedEndOffset
 operator|-
 name|savedStartOffset
 operator|!=
-name|termAtttribute
+name|termAttribute
 operator|.
 name|termLength
 argument_list|()
@@ -1479,7 +1479,7 @@ name|savedBuffer
 operator|.
 name|length
 operator|<
-name|termAtttribute
+name|termAttribute
 operator|.
 name|termLength
 argument_list|()
@@ -1494,7 +1494,7 @@ name|ArrayUtil
 operator|.
 name|oversize
 argument_list|(
-name|termAtttribute
+name|termAttribute
 operator|.
 name|termLength
 argument_list|()
@@ -1510,7 +1510,7 @@ name|System
 operator|.
 name|arraycopy
 argument_list|(
-name|termAtttribute
+name|termAttribute
 operator|.
 name|termBuffer
 argument_list|()
@@ -1521,7 +1521,7 @@ name|savedBuffer
 argument_list|,
 literal|0
 argument_list|,
-name|termAtttribute
+name|termAttribute
 operator|.
 name|termLength
 argument_list|()
@@ -1721,7 +1721,7 @@ block|{
 name|clearAttributes
 argument_list|()
 expr_stmt|;
-name|termAtttribute
+name|termAttribute
 operator|.
 name|setTermBuffer
 argument_list|(
@@ -2028,7 +2028,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|termAtttribute
+name|termAttribute
 operator|.
 name|termLength
 argument_list|()
@@ -2039,7 +2039,7 @@ name|length
 argument_list|()
 condition|)
 block|{
-name|termAtttribute
+name|termAttribute
 operator|.
 name|resizeTermBuffer
 argument_list|(
@@ -2054,7 +2054,7 @@ name|char
 name|termbuffer
 index|[]
 init|=
-name|termAtttribute
+name|termAttribute
 operator|.
 name|termBuffer
 argument_list|()
@@ -2075,7 +2075,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|termAtttribute
+name|termAttribute
 operator|.
 name|setTermLength
 argument_list|(
