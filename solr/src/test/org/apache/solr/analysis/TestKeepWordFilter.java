@@ -354,6 +354,12 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// Now force case
+name|factory
+operator|=
+operator|new
+name|KeepWordFilterFactory
+argument_list|()
+expr_stmt|;
 name|args
 operator|=
 operator|new
@@ -386,6 +392,13 @@ operator|.
 name|inform
 argument_list|(
 name|loader
+argument_list|)
+expr_stmt|;
+name|factory
+operator|.
+name|setWords
+argument_list|(
+name|words
 argument_list|)
 expr_stmt|;
 name|assertFalse
