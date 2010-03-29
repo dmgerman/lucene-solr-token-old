@@ -1234,6 +1234,10 @@ operator|new
 name|CartesianPolyFilterBuilder
 argument_list|(
 literal|""
+argument_list|,
+literal|4
+argument_list|,
+literal|15
 argument_list|)
 decl_stmt|;
 comment|//Get the box based on this point and our distance
