@@ -6185,6 +6185,13 @@ operator|.
 name|getLatestCommit
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|indexCommitPoint
+operator|!=
+literal|null
+condition|)
+block|{
 name|core
 operator|.
 name|getDeletionPolicy
@@ -6198,6 +6205,7 @@ name|getVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|oldCommitPoint
