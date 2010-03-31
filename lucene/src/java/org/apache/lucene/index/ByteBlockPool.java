@@ -27,6 +27,15 @@ name|Arrays
 import|;
 end_import
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+begin_import
 import|import static
 name|org
 operator|.
@@ -81,6 +90,19 @@ name|start
 parameter_list|,
 name|int
 name|end
+parameter_list|)
+function_decl|;
+DECL|method|recycleByteBlocks
+specifier|abstract
+name|void
+name|recycleByteBlocks
+parameter_list|(
+name|List
+argument_list|<
+name|byte
+index|[]
+argument_list|>
+name|blocks
 parameter_list|)
 function_decl|;
 DECL|method|getByteBlock
