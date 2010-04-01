@@ -468,6 +468,8 @@ comment|// generate shape
 comment|// iterate from startX->endX
 comment|//     iterate from startY -> endY
 comment|//      shape.add(currentLat.currentLong);
+comment|//for the edge cases (prime meridian and the 180th meridian), this call handles all tiles East of the meridian
+comment|//for all other cases, it handles the whole set of tiles
 name|shape
 operator|=
 name|getShapeLoop
@@ -492,7 +494,6 @@ operator|!=
 literal|0.0
 condition|)
 block|{
-comment|//We are around the prime meridian
 if|if
 condition|(
 name|longX
@@ -508,36 +509,21 @@ name|longY
 operator|=
 literal|0.0
 expr_stmt|;
-name|shape
-operator|=
-name|getShapeLoop
-argument_list|(
-name|shape
-argument_list|,
-name|ctp
-argument_list|,
-name|latX
-argument_list|,
-name|longX
-argument_list|,
-name|latY
-argument_list|,
-name|longY
-argument_list|)
-expr_stmt|;
+comment|//handles the lower left longitude to the prime meridian
+comment|//shape = getShapeLoop(shape, ctp, latX, longX, latY, longY);
 block|}
 else|else
 block|{
-comment|//we are around the 180th longitude
+comment|//this clause handles the lower left longitude up to the 180 meridian
 name|longX
 operator|=
 name|longX2
 expr_stmt|;
 name|longY
 operator|=
-operator|-
 literal|180.0
 expr_stmt|;
+block|}
 name|shape
 operator|=
 name|getShapeLoop
@@ -546,16 +532,15 @@ name|shape
 argument_list|,
 name|ctp
 argument_list|,
-name|latY
-argument_list|,
-name|longY
-argument_list|,
 name|latX
 argument_list|,
 name|longX
+argument_list|,
+name|latY
+argument_list|,
+name|longY
 argument_list|)
 expr_stmt|;
-block|}
 comment|//System.err.println("getBoxShape2:"+latY+"," + longY);
 comment|//System.err.println("getBoxShape2:"+latX+"," + longX);
 block|}
@@ -613,6 +598,27 @@ argument_list|,
 name|longY
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|beginAt
+operator|>
+name|endAt
+condition|)
+block|{
+name|double
+name|tmp
+init|=
+name|beginAt
+decl_stmt|;
+name|beginAt
+operator|=
+name|endAt
+expr_stmt|;
+name|endAt
+operator|=
+name|tmp
+expr_stmt|;
+block|}
 name|double
 name|tierVert
 init|=
