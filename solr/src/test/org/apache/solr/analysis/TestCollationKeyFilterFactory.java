@@ -964,9 +964,6 @@ block|{
 name|TermAttribute
 name|term1
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|stream1
 operator|.
 name|addAttribute
@@ -979,9 +976,6 @@ decl_stmt|;
 name|TermAttribute
 name|term2
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|stream2
 operator|.
 name|addAttribute

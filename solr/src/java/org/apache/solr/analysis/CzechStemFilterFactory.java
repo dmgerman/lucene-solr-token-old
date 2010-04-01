@@ -43,7 +43,7 @@ name|CzechStemFilter
 import|;
 end_import
 begin_comment
-comment|/** Factory for CzechStemFilter */
+comment|/** Factory for {@link CzechStemFilter} */
 end_comment
 begin_class
 DECL|class|CzechStemFilterFactory

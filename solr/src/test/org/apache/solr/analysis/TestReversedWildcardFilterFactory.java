@@ -321,6 +321,8 @@ argument_list|(
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|DEFAULT_VERSION
+argument_list|,
 operator|new
 name|StringReader
 argument_list|(
@@ -386,6 +388,8 @@ argument_list|(
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|DEFAULT_VERSION
+argument_list|,
 operator|new
 name|StringReader
 argument_list|(

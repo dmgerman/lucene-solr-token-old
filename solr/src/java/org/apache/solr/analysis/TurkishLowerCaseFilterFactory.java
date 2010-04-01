@@ -43,7 +43,7 @@ name|TurkishLowerCaseFilter
 import|;
 end_import
 begin_comment
-comment|/** Factory for TurkishLowerCaseFilter */
+comment|/** Factory for {@link TurkishLowerCaseFilter} */
 end_comment
 begin_class
 DECL|class|TurkishLowerCaseFilterFactory

@@ -43,7 +43,7 @@ name|BulgarianStemFilter
 import|;
 end_import
 begin_comment
-comment|/** Factory for BulgarianStemFilter */
+comment|/** Factory for {@link BulgarianStemFilter} */
 end_comment
 begin_class
 DECL|class|BulgarianStemFilterFactory

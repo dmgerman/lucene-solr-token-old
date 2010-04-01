@@ -41,7 +41,7 @@ name|BaseTokenFilterFactory
 import|;
 end_import
 begin_comment
-comment|/**  * Factory for HyphenatedWordsFilter  */
+comment|/**  * Factory for {@link HyphenatedWordsFilter}  */
 end_comment
 begin_class
 DECL|class|HyphenatedWordsFilterFactory

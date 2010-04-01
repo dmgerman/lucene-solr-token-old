@@ -102,9 +102,6 @@ specifier|final
 name|TypeAttribute
 name|typeAttribute
 init|=
-operator|(
-name|TypeAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TypeAttribute
@@ -118,9 +115,6 @@ specifier|final
 name|PositionIncrementAttribute
 name|posIncAttribute
 init|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PositionIncrementAttribute

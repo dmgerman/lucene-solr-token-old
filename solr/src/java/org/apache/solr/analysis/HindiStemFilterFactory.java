@@ -43,7 +43,7 @@ name|HindiStemFilter
 import|;
 end_import
 begin_comment
-comment|/** Factory for HindiStemFilter */
+comment|/** Factory for {@link HindiStemFilter} */
 end_comment
 begin_class
 DECL|class|HindiStemFilterFactory

@@ -24,19 +24,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
 name|ar
 operator|.
 name|ArabicLetterTokenizer
@@ -52,7 +39,7 @@ name|Reader
 import|;
 end_import
 begin_comment
-comment|/**  *  *  **/
+comment|/**  * Factory for {@link ArabicLetterTokenizer}  **/
 end_comment
 begin_class
 DECL|class|ArabicLetterTokenizerFactory

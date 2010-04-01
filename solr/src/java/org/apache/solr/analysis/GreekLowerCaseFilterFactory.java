@@ -79,6 +79,9 @@ operator|.
 name|ErrorCode
 import|;
 end_import
+begin_comment
+comment|/** Factory for {@link GreekLowerCaseFilter} */
+end_comment
 begin_class
 DECL|class|GreekLowerCaseFilterFactory
 specifier|public

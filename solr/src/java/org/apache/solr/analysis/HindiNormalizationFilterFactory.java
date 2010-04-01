@@ -43,7 +43,7 @@ name|HindiNormalizationFilter
 import|;
 end_import
 begin_comment
-comment|/** Factory for HindiNormalizationFilter */
+comment|/** Factory for {@link HindiNormalizationFilter} */
 end_comment
 begin_class
 DECL|class|HindiNormalizationFilterFactory

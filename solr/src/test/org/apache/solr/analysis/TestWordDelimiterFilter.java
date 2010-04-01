@@ -1521,9 +1521,6 @@ argument_list|)
 expr_stmt|;
 name|termAtt
 operator|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -1533,9 +1530,6 @@ argument_list|)
 expr_stmt|;
 name|posIncAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PositionIncrementAttribute
@@ -1620,6 +1614,8 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|DEFAULT_VERSION
+argument_list|,
 operator|new
 name|HashSet
 argument_list|<
@@ -1663,6 +1659,8 @@ argument_list|(
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|DEFAULT_VERSION
+argument_list|,
 name|reader
 argument_list|)
 argument_list|,
@@ -1874,6 +1872,8 @@ argument_list|(
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|DEFAULT_VERSION
+argument_list|,
 name|reader
 argument_list|)
 argument_list|)

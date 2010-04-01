@@ -43,7 +43,7 @@ name|ArabicNormalizationFilter
 import|;
 end_import
 begin_comment
-comment|/**  *  *  **/
+comment|/**  * Factory for {@link ArabicNormalizationFilter}  **/
 end_comment
 begin_class
 DECL|class|ArabicNormalizationFilterFactory

@@ -43,7 +43,7 @@ name|IndicNormalizationFilter
 import|;
 end_import
 begin_comment
-comment|/** Factory for IndicNormalizationFilter */
+comment|/** Factory for {@link IndicNormalizationFilter} */
 end_comment
 begin_class
 DECL|class|IndicNormalizationFilterFactory

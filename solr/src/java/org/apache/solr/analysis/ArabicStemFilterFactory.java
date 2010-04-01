@@ -43,7 +43,7 @@ name|ArabicStemFilter
 import|;
 end_import
 begin_comment
-comment|/**  *  *  **/
+comment|/**  * Factory for {@link ArabicStemFilter}  **/
 end_comment
 begin_class
 DECL|class|ArabicStemFilterFactory

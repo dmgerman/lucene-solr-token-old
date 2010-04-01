@@ -262,9 +262,6 @@ specifier|final
 name|TermAttribute
 name|termAttribute
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TermAttribute
@@ -278,9 +275,6 @@ specifier|final
 name|OffsetAttribute
 name|offsetAttribute
 init|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|OffsetAttribute
@@ -294,9 +288,6 @@ specifier|final
 name|PositionIncrementAttribute
 name|posIncAttribute
 init|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PositionIncrementAttribute
@@ -310,9 +301,6 @@ specifier|final
 name|TypeAttribute
 name|typeAttribute
 init|=
-operator|(
-name|TypeAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TypeAttribute
