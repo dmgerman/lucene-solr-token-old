@@ -541,7 +541,7 @@ operator|.
 name|nextElement
 argument_list|()
 operator|.
-name|getPath
+name|toURI
 argument_list|()
 argument_list|)
 argument_list|)
