@@ -1037,7 +1037,7 @@ name|get
 argument_list|(
 literal|"v.contentType"
 argument_list|,
-literal|"text/html"
+literal|"text/html;charset=UTF-8"
 argument_list|)
 return|;
 block|}
