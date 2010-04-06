@@ -637,15 +637,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// Recycle the blocks
-specifier|final
-name|int
-name|blockCount
-init|=
-name|buffers
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
 name|perDocAllocator
 operator|.
 name|recycleByteBlocks
@@ -2549,6 +2540,10 @@ name|void
 name|clearFlushPending
 parameter_list|()
 block|{
+name|bufferIsFull
+operator|=
+literal|false
+expr_stmt|;
 name|flushPending
 operator|=
 literal|false
@@ -3473,7 +3468,6 @@ argument_list|)
 throw|;
 block|}
 DECL|method|bufferDeleteTerms
-specifier|synchronized
 name|boolean
 name|bufferDeleteTerms
 parameter_list|(
@@ -3484,6 +3478,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 name|waitReady
 argument_list|(
 literal|null
@@ -3515,13 +3514,13 @@ argument_list|,
 name|numDocsInRAM
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|timeToFlushDeletes
 argument_list|()
 return|;
 block|}
 DECL|method|bufferDeleteTerm
-specifier|synchronized
 name|boolean
 name|bufferDeleteTerm
 parameter_list|(
@@ -3530,6 +3529,11 @@ name|term
 parameter_list|)
 throws|throws
 name|IOException
+block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
 block|{
 name|waitReady
 argument_list|(
@@ -3543,13 +3547,13 @@ argument_list|,
 name|numDocsInRAM
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|timeToFlushDeletes
 argument_list|()
 return|;
 block|}
 DECL|method|bufferDeleteQueries
-specifier|synchronized
 name|boolean
 name|bufferDeleteQueries
 parameter_list|(
@@ -3560,6 +3564,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 name|waitReady
 argument_list|(
 literal|null
@@ -3591,13 +3600,13 @@ argument_list|,
 name|numDocsInRAM
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|timeToFlushDeletes
 argument_list|()
 return|;
 block|}
 DECL|method|bufferDeleteQuery
-specifier|synchronized
 name|boolean
 name|bufferDeleteQuery
 parameter_list|(
@@ -3606,6 +3615,11 @@ name|query
 parameter_list|)
 throws|throws
 name|IOException
+block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
 block|{
 name|waitReady
 argument_list|(
@@ -3619,6 +3633,7 @@ argument_list|,
 name|numDocsInRAM
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|timeToFlushDeletes
 argument_list|()
@@ -3685,7 +3700,7 @@ name|doApplyDeletes
 parameter_list|()
 block|{
 comment|// Very similar to deletesFull(), except we don't count
-comment|// numBytesAlloc, because we are checking whether
+comment|// numBytesUsed, because we are checking whether
 comment|// deletes (alone) are consuming too many resources now
 comment|// and thus should be applied.  We apply deletes if RAM
 comment|// usage is> 1/2 of our allowed RAM buffer, to prevent
@@ -3741,11 +3756,18 @@ operator|)
 return|;
 block|}
 DECL|method|timeToFlushDeletes
-specifier|synchronized
 specifier|private
 name|boolean
 name|timeToFlushDeletes
 parameter_list|()
+block|{
+name|balanceRAM
+argument_list|()
+expr_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
 block|{
 return|return
 operator|(
@@ -3758,6 +3780,7 @@ operator|&&
 name|setFlushPending
 argument_list|()
 return|;
+block|}
 block|}
 DECL|method|setMaxBufferedDeleteTerms
 name|void
@@ -4730,37 +4753,6 @@ name|BYTES_PER_DEL_QUERY
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doBalanceRAM
-specifier|synchronized
-name|boolean
-name|doBalanceRAM
-parameter_list|()
-block|{
-return|return
-name|ramBufferSize
-operator|!=
-name|IndexWriterConfig
-operator|.
-name|DISABLE_AUTO_FLUSH
-operator|&&
-operator|!
-name|bufferIsFull
-operator|&&
-operator|(
-name|numBytesUsed
-operator|+
-name|deletesInRAM
-operator|.
-name|bytesUsed
-operator|+
-name|deletesFlushed
-operator|.
-name|bytesUsed
-operator|>=
-name|ramBufferSize
-operator|)
-return|;
-block|}
 comment|/** Does the synchronized work to finish/flush the    *  inverted document. */
 DECL|method|finishDocument
 specifier|private
@@ -4776,11 +4768,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|doBalanceRAM
-argument_list|()
-condition|)
 comment|// Must call this w/o holding synchronized(this) else
 comment|// we'll hit deadlock:
 name|balanceRAM
@@ -5638,9 +5625,33 @@ name|balanceRAM
 parameter_list|()
 block|{
 specifier|final
+name|boolean
+name|doBalance
+decl_stmt|;
+specifier|final
 name|long
 name|deletesRAMUsed
-init|=
+decl_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+if|if
+condition|(
+name|ramBufferSize
+operator|==
+name|IndexWriterConfig
+operator|.
+name|DISABLE_AUTO_FLUSH
+operator|||
+name|bufferIsFull
+condition|)
+block|{
+return|return;
+block|}
+name|deletesRAMUsed
+operator|=
 name|deletesInRAM
 operator|.
 name|bytesUsed
@@ -5648,14 +5659,19 @@ operator|+
 name|deletesFlushed
 operator|.
 name|bytesUsed
-decl_stmt|;
-if|if
-condition|(
+expr_stmt|;
+name|doBalance
+operator|=
 name|numBytesUsed
 operator|+
 name|deletesRAMUsed
-operator|>
+operator|>=
 name|ramBufferSize
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|doBalance
 condition|)
 block|{
 if|if
