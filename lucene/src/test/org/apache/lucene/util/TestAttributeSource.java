@@ -73,14 +73,14 @@ operator|new
 name|AttributeSource
 argument_list|()
 decl_stmt|;
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 init|=
 name|src
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -99,7 +99,7 @@ argument_list|)
 decl_stmt|;
 name|termAtt
 operator|.
-name|setTermBuffer
+name|append
 argument_list|(
 literal|"TestTerm"
 argument_list|)
@@ -133,7 +133,10 @@ decl_stmt|;
 comment|// modify the attributes
 name|termAtt
 operator|.
-name|setTermBuffer
+name|setEmpty
+argument_list|()
+operator|.
+name|append
 argument_list|(
 literal|"AnotherTestTerm"
 argument_list|)
@@ -170,7 +173,7 @@ literal|"TestTerm"
 argument_list|,
 name|termAtt
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -208,7 +211,7 @@ name|copy
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -290,7 +293,7 @@ name|src2
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -315,7 +318,7 @@ literal|"TestTerm"
 argument_list|,
 name|termAtt
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -355,7 +358,7 @@ name|src3
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -399,14 +402,14 @@ name|AttributeSource
 argument_list|()
 decl_stmt|;
 specifier|final
-name|TermAttribute
-name|termAtt
+name|FlagsAttribute
+name|flagsAtt
 init|=
 name|src
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|FlagsAttribute
 operator|.
 name|class
 argument_list|)
@@ -424,11 +427,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|termAtt
+name|flagsAtt
 operator|.
-name|setTermBuffer
+name|setFlags
 argument_list|(
-literal|"TestTerm"
+literal|1234
 argument_list|)
 expr_stmt|;
 name|typeAtt
@@ -466,9 +469,9 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"TermAttribute must be the first attribute"
+literal|"FlagsAttribute must be the first attribute"
 argument_list|,
-name|TermAttribute
+name|FlagsAttribute
 operator|.
 name|class
 argument_list|,
@@ -503,14 +506,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final
-name|TermAttribute
-name|termAtt2
+name|FlagsAttribute
+name|flagsAtt2
 init|=
 name|clone
 operator|.
 name|getAttribute
 argument_list|(
-name|TermAttribute
+name|FlagsAttribute
 operator|.
 name|class
 argument_list|)
@@ -530,11 +533,11 @@ argument_list|)
 decl_stmt|;
 name|assertNotSame
 argument_list|(
-literal|"TermAttribute of original and clone must be different instances"
+literal|"FlagsAttribute of original and clone must be different instances"
 argument_list|,
-name|termAtt2
+name|flagsAtt2
 argument_list|,
-name|termAtt
+name|flagsAtt
 argument_list|)
 expr_stmt|;
 name|assertNotSame
@@ -548,11 +551,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"TermAttribute of original and clone must be equal"
+literal|"FlagsAttribute of original and clone must be equal"
 argument_list|,
-name|termAtt2
+name|flagsAtt2
 argument_list|,
-name|termAtt
+name|flagsAtt
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -565,11 +568,11 @@ name|typeAtt
 argument_list|)
 expr_stmt|;
 comment|// test copy back
-name|termAtt2
+name|flagsAtt2
 operator|.
-name|setTermBuffer
+name|setFlags
 argument_list|(
-literal|"OtherTerm"
+literal|4711
 argument_list|)
 expr_stmt|;
 name|typeAtt2
@@ -588,13 +591,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"TermAttribute of original must now contain updated term"
+literal|"FlagsAttribute of original must now contain updated term"
 argument_list|,
-literal|"OtherTerm"
+literal|4711
 argument_list|,
-name|termAtt
+name|flagsAtt
 operator|.
-name|term
+name|getFlags
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -613,11 +616,11 @@ expr_stmt|;
 comment|// verify again:
 name|assertNotSame
 argument_list|(
-literal|"TermAttribute of original and clone must be different instances"
+literal|"FlagsAttribute of original and clone must be different instances"
 argument_list|,
-name|termAtt2
+name|flagsAtt2
 argument_list|,
-name|termAtt
+name|flagsAtt
 argument_list|)
 expr_stmt|;
 name|assertNotSame
@@ -631,11 +634,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"TermAttribute of original and clone must be equal"
+literal|"FlagsAttribute of original and clone must be equal"
 argument_list|,
-name|termAtt2
+name|flagsAtt2
 argument_list|,
-name|termAtt
+name|flagsAtt
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -661,14 +664,14 @@ operator|new
 name|AttributeSource
 argument_list|()
 decl_stmt|;
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 init|=
 name|src
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -687,7 +690,7 @@ argument_list|)
 decl_stmt|;
 name|termAtt
 operator|.
-name|setTermBuffer
+name|append
 argument_list|(
 literal|"TestTerm"
 argument_list|)
@@ -805,21 +808,21 @@ name|Token
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// this should not add a new attribute as Token implements TermAttribute, too
+comment|// this should not add a new attribute as Token implements CharTermAttribute, too
 name|termAtt
 operator|=
 name|src
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"TermAttribute should be implemented by Token"
+literal|"CharTermAttribute should be implemented by Token"
 argument_list|,
 name|termAtt
 operator|instanceof
@@ -857,7 +860,10 @@ argument_list|)
 expr_stmt|;
 name|termAtt
 operator|.
-name|setTermBuffer
+name|setEmpty
+argument_list|()
+operator|.
+name|append
 argument_list|(
 literal|"TestTerm"
 argument_list|)
@@ -899,18 +905,18 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"TermAttribute is not implemented by TermAttributeImpl"
+literal|"CharTermAttribute is not implemented by CharTermAttributeImpl"
 argument_list|,
 name|src
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
 operator|instanceof
-name|TermAttributeImpl
+name|CharTermAttributeImpl
 argument_list|)
 expr_stmt|;
 name|assertTrue

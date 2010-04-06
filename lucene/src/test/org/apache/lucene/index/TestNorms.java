@@ -1102,6 +1102,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|ir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|addDocs
 specifier|private

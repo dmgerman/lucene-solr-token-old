@@ -98,10 +98,11 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Class for accessing a compound stream.  * This class implements a directory, but is limited to only read operations.  * Directory methods that would normally modify data throw an exception.  */
+comment|/**  * Class for accessing a compound stream.  * This class implements a directory, but is limited to only read operations.  * Directory methods that would normally modify data throw an exception.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|CompoundFileReader
+specifier|public
 class|class
 name|CompoundFileReader
 extends|extends

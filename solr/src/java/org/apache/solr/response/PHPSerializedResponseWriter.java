@@ -77,6 +77,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRef
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|UnicodeUtil
 import|;
 end_import
@@ -336,9 +349,7 @@ name|CESU8
 decl_stmt|;
 DECL|field|utf8
 specifier|final
-name|UnicodeUtil
-operator|.
-name|UTF8Result
+name|BytesRef
 name|utf8
 decl_stmt|;
 DECL|method|PHPSerializedWriter
@@ -382,10 +393,10 @@ condition|?
 literal|null
 else|:
 operator|new
-name|UnicodeUtil
-operator|.
-name|UTF8Result
-argument_list|()
+name|BytesRef
+argument_list|(
+literal|10
+argument_list|)
 expr_stmt|;
 comment|// never indent serialized PHP data
 name|doIndent

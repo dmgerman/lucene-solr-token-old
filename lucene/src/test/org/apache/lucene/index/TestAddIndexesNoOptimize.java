@@ -137,6 +137,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|util
+operator|.
+name|_TestUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|PhraseQuery
@@ -234,6 +247,13 @@ name|writer
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|_TestUtil
+operator|.
+name|checkIndex
+argument_list|(
+name|dir
+argument_list|)
 expr_stmt|;
 name|writer
 operator|=
@@ -436,6 +456,13 @@ name|writer
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|_TestUtil
+operator|.
+name|checkIndex
+argument_list|(
+name|dir
+argument_list|)
 expr_stmt|;
 comment|// make sure the old index is correct
 name|verifyNumDocs
@@ -818,7 +845,7 @@ name|Directory
 name|dir
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 comment|// auxiliary directory
@@ -826,7 +853,7 @@ name|Directory
 name|aux
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 name|setUpDirs

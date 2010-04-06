@@ -53,6 +53,8 @@ begin_comment
 comment|/**  * Subclass of FilteredTermEnum for enumerating a single term.  *<p>  * This can be used by {@link MultiTermQuery}s that need only visit one term,  * but want to preserve MultiTermQuery semantics such as  * {@link MultiTermQuery#rewriteMethod}.  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|SingleTermEnum
 specifier|public
 class|class

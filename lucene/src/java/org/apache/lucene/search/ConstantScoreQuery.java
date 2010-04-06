@@ -649,13 +649,15 @@ operator|.
 name|toString
 argument_list|()
 operator|+
+literal|")"
+operator|+
 operator|(
 name|getBoost
 argument_list|()
 operator|==
 literal|1.0
 condition|?
-literal|")"
+literal|""
 else|:
 literal|"^"
 operator|+

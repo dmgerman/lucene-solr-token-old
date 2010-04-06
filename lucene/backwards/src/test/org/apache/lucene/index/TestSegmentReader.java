@@ -970,6 +970,14 @@ name|assertTrue
 argument_list|(
 name|positions
 operator|.
+name|next
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|positions
+operator|.
 name|doc
 argument_list|()
 operator|==

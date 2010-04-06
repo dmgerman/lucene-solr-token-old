@@ -33,7 +33,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|TermPositions
+name|DocsAndPositionsEnum
 import|;
 end_import
 begin_comment
@@ -102,9 +102,9 @@ parameter_list|(
 name|Weight
 name|weight
 parameter_list|,
-name|TermPositions
+name|DocsAndPositionsEnum
 index|[]
-name|tps
+name|postings
 parameter_list|,
 name|int
 index|[]
@@ -158,7 +158,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|tps
+name|postings
 operator|.
 name|length
 condition|;
@@ -172,7 +172,7 @@ init|=
 operator|new
 name|PhrasePositions
 argument_list|(
-name|tps
+name|postings
 index|[
 name|i
 index|]
@@ -215,7 +215,7 @@ operator|=
 operator|new
 name|PhraseQueue
 argument_list|(
-name|tps
+name|postings
 operator|.
 name|length
 argument_list|)

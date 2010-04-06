@@ -869,6 +869,11 @@ throw|;
 name|init
 argument_list|()
 expr_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 if|if
 condition|(
 name|preventDoubleWrite
@@ -899,6 +904,7 @@ operator|+
 literal|"\" was already written to"
 argument_list|)
 throw|;
+block|}
 if|if
 condition|(
 name|noDeleteOpenFile

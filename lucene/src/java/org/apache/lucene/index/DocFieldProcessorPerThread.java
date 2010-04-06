@@ -486,15 +486,12 @@ if|if
 condition|(
 name|state
 operator|.
-name|docWriter
-operator|.
 name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|state
-operator|.
-name|docWriter
 operator|.
 name|infoStream
 operator|.
@@ -509,6 +506,7 @@ operator|.
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 name|totalFieldCount
 operator|--
 expr_stmt|;
@@ -1203,11 +1201,11 @@ name|infoStream
 operator|.
 name|println
 argument_list|(
-literal|"WARNING: document contains at least one immense term (longer than the max length "
+literal|"WARNING: document contains at least one immense term (whose UTF8 encoding is longer than the max length "
 operator|+
 name|DocumentsWriter
 operator|.
-name|MAX_TERM_LENGTH
+name|MAX_TERM_LENGTH_UTF8
 operator|+
 literal|"), all of which were skipped.  Please correct the analyzer to not produce such terms.  The prefix of the first immense term is: '"
 operator|+

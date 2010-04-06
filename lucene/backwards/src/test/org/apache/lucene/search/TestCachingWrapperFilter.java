@@ -388,6 +388,12 @@ argument_list|,
 name|cachedSet
 operator|instanceof
 name|OpenBitSetDISI
+operator|||
+name|cachedSet
+operator|==
+name|DocIdSet
+operator|.
+name|EMPTY_DOCIDSET
 argument_list|)
 expr_stmt|;
 block|}

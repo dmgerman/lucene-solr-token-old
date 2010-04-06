@@ -73,6 +73,8 @@ class|class
 name|BitVector
 implements|implements
 name|Cloneable
+implements|,
+name|Bits
 block|{
 DECL|field|bits
 specifier|private
@@ -478,6 +480,17 @@ specifier|public
 specifier|final
 name|int
 name|size
+parameter_list|()
+block|{
+return|return
+name|size
+return|;
+block|}
+comment|// @Override -- not until Java 1.6
+DECL|method|length
+specifier|public
+name|int
+name|length
 parameter_list|()
 block|{
 return|return

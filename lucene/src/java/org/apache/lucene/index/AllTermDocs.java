@@ -27,9 +27,14 @@ operator|.
 name|BitVector
 import|;
 end_import
+begin_comment
+comment|/** @deprecated Switch to AllDocsEnum */
+end_comment
 begin_class
-DECL|class|AllTermDocs
+annotation|@
+name|Deprecated
 class|class
+DECL|class|AllTermDocs
 name|AllTermDocs
 extends|extends
 name|AbstractAllTermDocs

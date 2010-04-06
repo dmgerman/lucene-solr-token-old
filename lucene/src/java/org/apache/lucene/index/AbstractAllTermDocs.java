@@ -27,6 +27,8 @@ begin_comment
 comment|/** Base class for enumerating all but deleted docs.  *   *<p>NOTE: this class is meant only to be used internally  * by Lucene; it's only public so it can be shared across  * packages.  This means the API is freely subject to  * change, and, the class could be removed entirely, in any  * Lucene release.  Use directly at your own risk! */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|AbstractAllTermDocs
 specifier|public
 specifier|abstract
