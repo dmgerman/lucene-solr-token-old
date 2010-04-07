@@ -10122,7 +10122,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//Codec.DEBUG = true;
 name|Directory
 name|dir
 init|=

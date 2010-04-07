@@ -588,8 +588,6 @@ if|if
 condition|(
 name|newDoc
 operator|!=
-name|DocsEnum
-operator|.
 name|NO_MORE_DOCS
 condition|)
 block|{

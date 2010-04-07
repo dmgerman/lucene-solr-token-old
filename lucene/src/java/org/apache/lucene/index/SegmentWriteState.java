@@ -85,7 +85,7 @@ name|CodecProvider
 import|;
 end_import
 begin_comment
-comment|/**  * This class is not meant for public usage; it's only  * public in order to expose access across packages.  It's  * used internally when updating the index.  * @lucene.experimental  */
+comment|/**  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SegmentWriteState

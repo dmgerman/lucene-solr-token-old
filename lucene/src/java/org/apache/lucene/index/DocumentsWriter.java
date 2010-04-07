@@ -4132,8 +4132,6 @@ operator|>
 literal|0
 condition|)
 block|{
-try|try
-block|{
 name|Fields
 name|fields
 init|=
@@ -4142,6 +4140,18 @@ operator|.
 name|fields
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|fields
+operator|==
+literal|null
+condition|)
+block|{
+comment|// This reader has no postings
+return|return
+literal|false
+return|;
+block|}
 name|TermsEnum
 name|termsEnum
 init|=
@@ -4387,11 +4397,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-block|}
-finally|finally
-block|{
-comment|//docs.close();
 block|}
 block|}
 comment|// Delete by docID

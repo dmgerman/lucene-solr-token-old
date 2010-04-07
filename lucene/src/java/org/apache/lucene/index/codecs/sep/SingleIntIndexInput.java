@@ -230,13 +230,6 @@ specifier|private
 name|long
 name|fp
 decl_stmt|;
-comment|// nocmmit: only for asserts
-DECL|field|first
-name|boolean
-name|first
-init|=
-literal|true
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|read
@@ -265,17 +258,9 @@ operator|.
 name|readVLong
 argument_list|()
 expr_stmt|;
-name|first
-operator|=
-literal|false
-expr_stmt|;
 block|}
 else|else
 block|{
-assert|assert
-operator|!
-name|first
-assert|;
 name|fp
 operator|+=
 name|indexIn
@@ -308,10 +293,6 @@ name|other
 operator|)
 operator|.
 name|fp
-expr_stmt|;
-name|first
-operator|=
-literal|false
 expr_stmt|;
 block|}
 annotation|@
@@ -376,12 +357,6 @@ operator|new
 name|Index
 argument_list|()
 decl_stmt|;
-name|other
-operator|.
-name|first
-operator|=
-name|first
-expr_stmt|;
 name|other
 operator|.
 name|fp
