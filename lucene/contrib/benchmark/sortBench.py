@@ -275,7 +275,7 @@ newline|'\n'
 nl|'\n'
 name|'BASE_INDEX_ALG'
 op|'='
-string|'\'\'\'\nanalyzer=org.apache.lucene.analysis.standard.StandardAnalyzer\n\n$OTHER$\ndeletion.policy = org.apache.lucene.benchmark.utils.NoDeletionPolicy\ndoc.tokenized = false\ndoc.body.tokenized = true\ndoc.stored = true\ndoc.body.stored = false\ndoc.term.vector = false\nlog.step.AddDoc=10000\n\ndirectory=FSDirectory\nautocommit=false\ncompound=false\n\nwork.dir=$WORKDIR$\n\n{ "BuildIndex"\n  - CreateIndex\n  $INDEX_LINE$\n  - CommitIndex(dp0)\n  - CloseIndex\n  $DELETIONS$\n}\n\nRepSumByPrefRound BuildIndex\n\'\'\''
+string|'\'\'\'\nanalyzer=org.apache.lucene.analysis.standard.StandardAnalyzer\n\n$OTHER$\ndeletion.policy = org.apache.lucene.index.NoDeletionPolicy\ndoc.tokenized = false\ndoc.body.tokenized = true\ndoc.stored = true\ndoc.body.stored = false\ndoc.term.vector = false\nlog.step.AddDoc=10000\n\ndirectory=FSDirectory\nautocommit=false\ncompound=false\n\nwork.dir=$WORKDIR$\n\n{ "BuildIndex"\n  - CreateIndex\n  $INDEX_LINE$\n  - CommitIndex(dp0)\n  - CloseIndex\n  $DELETIONS$\n}\n\nRepSumByPrefRound BuildIndex\n\'\'\''
 newline|'\n'
 nl|'\n'
 DECL|class|RunAlgs
