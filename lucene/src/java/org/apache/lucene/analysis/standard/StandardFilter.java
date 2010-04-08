@@ -124,11 +124,11 @@ specifier|final
 name|String
 name|APOSTROPHE_TYPE
 init|=
-name|StandardTokenizerImpl
+name|StandardTokenizer
 operator|.
 name|TOKEN_TYPES
 index|[
-name|StandardTokenizerImpl
+name|StandardTokenizer
 operator|.
 name|APOSTROPHE
 index|]
@@ -140,11 +140,11 @@ specifier|final
 name|String
 name|ACRONYM_TYPE
 init|=
-name|StandardTokenizerImpl
+name|StandardTokenizer
 operator|.
 name|TOKEN_TYPES
 index|[
-name|StandardTokenizerImpl
+name|StandardTokenizer
 operator|.
 name|ACRONYM
 index|]
@@ -152,11 +152,13 @@ decl_stmt|;
 comment|// this filters uses attribute type
 DECL|field|typeAtt
 specifier|private
+specifier|final
 name|TypeAttribute
 name|typeAtt
 decl_stmt|;
 DECL|field|termAtt
 specifier|private
+specifier|final
 name|TermAttribute
 name|termAtt
 decl_stmt|;
