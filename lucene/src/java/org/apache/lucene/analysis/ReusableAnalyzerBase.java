@@ -162,11 +162,13 @@ class|class
 name|TokenStreamComponents
 block|{
 DECL|field|source
+specifier|protected
 specifier|final
 name|Tokenizer
 name|source
 decl_stmt|;
 DECL|field|sink
+specifier|protected
 specifier|final
 name|TokenStream
 name|sink

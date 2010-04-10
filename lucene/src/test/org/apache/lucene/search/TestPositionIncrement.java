@@ -177,7 +177,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_import
@@ -567,12 +567,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 init|=
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -610,7 +610,7 @@ argument_list|()
 expr_stmt|;
 name|termAtt
 operator|.
-name|setTermBuffer
+name|append
 argument_list|(
 name|TOKENS
 index|[
@@ -2467,7 +2467,7 @@ name|payloadAttr
 decl_stmt|;
 DECL|field|termAttr
 specifier|final
-name|TermAttribute
+name|CharTermAttribute
 name|termAttr
 decl_stmt|;
 DECL|method|PayloadFilter
@@ -2528,7 +2528,7 @@ name|input
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -2621,9 +2621,6 @@ argument_list|(
 literal|"term="
 operator|+
 name|termAttr
-operator|.
-name|term
-argument_list|()
 operator|+
 literal|" pos="
 operator|+
