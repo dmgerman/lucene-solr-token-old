@@ -113,7 +113,10 @@ DECL|method|initIndex
 specifier|private
 name|IndexWriter
 name|initIndex
-parameter_list|()
+parameter_list|(
+name|boolean
+name|initialCommit
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -123,6 +126,8 @@ argument_list|(
 operator|new
 name|MockRAMDirectory
 argument_list|()
+argument_list|,
+name|initialCommit
 argument_list|)
 return|;
 block|}
@@ -133,6 +138,9 @@ name|initIndex
 parameter_list|(
 name|MockRAMDirectory
 name|dir
+parameter_list|,
+name|boolean
+name|initialCommit
 parameter_list|)
 throws|throws
 name|IOException
@@ -189,6 +197,17 @@ operator|.
 name|setSuppressExceptions
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|initialCommit
+condition|)
+block|{
+name|writer
+operator|.
+name|commit
+argument_list|()
+expr_stmt|;
+block|}
 name|Document
 name|doc
 init|=
@@ -333,11 +352,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// This test relies on being able to open a reader before any commit
+comment|// happened, so we must create an initial commit just to allow that, but
+comment|// before any documents were added.
 name|IndexWriter
 name|writer
 init|=
 name|initIndex
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 name|MockRAMDirectory
 name|dir
@@ -386,11 +410,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// This test relies on being able to open a reader before any commit
+comment|// happened, so we must create an initial commit just to allow that, but
+comment|// before any documents were added.
 name|IndexWriter
 name|writer
 init|=
 name|initIndex
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 name|MockRAMDirectory
 name|dir
@@ -420,6 +449,8 @@ operator|=
 name|initIndex
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|writer
@@ -462,7 +493,9 @@ name|IndexWriter
 name|writer
 init|=
 name|initIndex
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 name|MockRAMDirectory
 name|dir
@@ -485,6 +518,8 @@ operator|=
 name|initIndex
 argument_list|(
 name|dir
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -538,7 +573,9 @@ name|IndexWriter
 name|writer
 init|=
 name|initIndex
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 name|MockRAMDirectory
 name|dir
@@ -597,7 +634,9 @@ name|IndexWriter
 name|writer
 init|=
 name|initIndex
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 name|MockRAMDirectory
 name|dir
@@ -658,7 +697,9 @@ name|IndexWriter
 name|writer
 init|=
 name|initIndex
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 name|MockRAMDirectory
 name|dir
@@ -737,7 +778,9 @@ name|IndexWriter
 name|writer
 init|=
 name|initIndex
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 name|MockRAMDirectory
 name|dir

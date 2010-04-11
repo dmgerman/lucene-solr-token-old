@@ -3651,9 +3651,7 @@ comment|// Now verify file names:
 name|String
 index|[]
 name|expected
-decl_stmt|;
-name|expected
-operator|=
+init|=
 operator|new
 name|String
 index|[]
@@ -3666,11 +3664,11 @@ literal|"_0_1.s"
 operator|+
 name|contentFieldIndex
 block|,
-literal|"segments_3"
+literal|"segments_2"
 block|,
 literal|"segments.gen"
 block|}
-expr_stmt|;
+decl_stmt|;
 name|String
 index|[]
 name|actual

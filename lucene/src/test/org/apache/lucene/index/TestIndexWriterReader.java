@@ -3459,6 +3459,11 @@ argument_list|)
 decl_stmt|;
 name|writer
 operator|.
+name|commit
+argument_list|()
+expr_stmt|;
+name|writer
+operator|.
 name|setInfoStream
 argument_list|(
 name|infoStream
