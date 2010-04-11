@@ -79,11 +79,11 @@ begin_comment
 comment|/**  * Marks terms as keywords via the {@link KeywordAttribute}. Each token  * contained in the provided is marked as a keyword by setting  * {@link KeywordAttribute#setKeyword(boolean)} to<code>true</code>.  *   * @see KeywordAttribute  */
 end_comment
 begin_class
-DECL|class|KeywordMarkerTokenFilter
+DECL|class|KeywordMarkerFilter
 specifier|public
 specifier|final
 class|class
-name|KeywordMarkerTokenFilter
+name|KeywordMarkerFilter
 extends|extends
 name|TokenFilter
 block|{
@@ -119,10 +119,10 @@ specifier|final
 name|CharArraySet
 name|keywordSet
 decl_stmt|;
-comment|/**    * Create a new KeywordMarkerTokenFilter, that marks the current token as a    * keyword if the tokens term buffer is contained in the given set via the    * {@link KeywordAttribute}.    *     * @param in    *          TokenStream to filter    * @param keywordSet    *          the keywords set to lookup the current termbuffer    */
-DECL|method|KeywordMarkerTokenFilter
+comment|/**    * Create a new KeywordMarkerFilter, that marks the current token as a    * keyword if the tokens term buffer is contained in the given set via the    * {@link KeywordAttribute}.    *     * @param in    *          TokenStream to filter    * @param keywordSet    *          the keywords set to lookup the current termbuffer    */
+DECL|method|KeywordMarkerFilter
 specifier|public
-name|KeywordMarkerTokenFilter
+name|KeywordMarkerFilter
 parameter_list|(
 specifier|final
 name|TokenStream
@@ -145,10 +145,10 @@ operator|=
 name|keywordSet
 expr_stmt|;
 block|}
-comment|/**    * Create a new KeywordMarkerTokenFilter, that marks the current token as a    * keyword if the tokens term buffer is contained in the given set via the    * {@link KeywordAttribute}.    *     * @param in    *          TokenStream to filter    * @param keywordSet    *          the keywords set to lookup the current termbuffer    */
-DECL|method|KeywordMarkerTokenFilter
+comment|/**    * Create a new KeywordMarkerFilter, that marks the current token as a    * keyword if the tokens term buffer is contained in the given set via the    * {@link KeywordAttribute}.    *     * @param in    *          TokenStream to filter    * @param keywordSet    *          the keywords set to lookup the current termbuffer    */
+DECL|method|KeywordMarkerFilter
 specifier|public
-name|KeywordMarkerTokenFilter
+name|KeywordMarkerFilter
 parameter_list|(
 specifier|final
 name|TokenStream

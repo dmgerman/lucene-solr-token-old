@@ -35,7 +35,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|KeywordMarkerTokenFilter
+name|KeywordMarkerFilter
 import|;
 end_import
 begin_comment
@@ -98,7 +98,7 @@ name|TermAttribute
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link TokenFilter} that applies {@link BulgarianStemmer} to stem Bulgarian  * words.  *<p>  * To prevent terms from being stemmed use an instance of  * {@link KeywordMarkerTokenFilter} or a custom {@link TokenFilter} that sets  * the {@link KeywordAttribute} before this {@link TokenStream}.  *</p>  */
+comment|/**  * A {@link TokenFilter} that applies {@link BulgarianStemmer} to stem Bulgarian  * words.  *<p>  * To prevent terms from being stemmed use an instance of  * {@link KeywordMarkerFilter} or a custom {@link TokenFilter} that sets  * the {@link KeywordAttribute} before this {@link TokenStream}.  *</p>  */
 end_comment
 begin_class
 DECL|class|BulgarianStemFilter

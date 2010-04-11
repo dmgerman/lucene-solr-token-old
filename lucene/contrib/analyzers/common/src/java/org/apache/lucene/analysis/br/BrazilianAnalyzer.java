@@ -137,7 +137,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|KeywordMarkerTokenFilter
+name|KeywordMarkerFilter
 import|;
 end_import
 begin_import
@@ -962,7 +962,7 @@ condition|)
 name|result
 operator|=
 operator|new
-name|KeywordMarkerTokenFilter
+name|KeywordMarkerFilter
 argument_list|(
 name|result
 argument_list|,
