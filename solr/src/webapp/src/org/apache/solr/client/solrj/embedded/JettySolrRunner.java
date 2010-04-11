@@ -162,7 +162,7 @@ name|Logger
 import|;
 end_import
 begin_comment
-comment|/**  * Run solr using jetty  *   * @version $Id$  * @since solr 1.3  */
+comment|/**  * Run solr using jetty  *   * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|JettySolrRunner
