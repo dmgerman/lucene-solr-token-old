@@ -76,7 +76,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_comment
@@ -85,6 +85,7 @@ end_comment
 begin_class
 DECL|class|ReversedWildcardFilter
 specifier|public
+specifier|final
 class|class
 name|ReversedWildcardFilter
 extends|extends
@@ -107,7 +108,7 @@ name|save
 decl_stmt|;
 DECL|field|termAtt
 specifier|private
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 decl_stmt|;
 DECL|field|posAtt
@@ -140,7 +141,7 @@ name|termAtt
 operator|=
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -217,7 +218,7 @@ name|oldLen
 init|=
 name|termAtt
 operator|.
-name|termLength
+name|length
 argument_list|()
 decl_stmt|;
 if|if
@@ -263,7 +264,7 @@ name|buffer
 init|=
 name|termAtt
 operator|.
-name|resizeTermBuffer
+name|resizeBuffer
 argument_list|(
 name|oldLen
 operator|+
@@ -297,7 +298,7 @@ argument_list|)
 expr_stmt|;
 name|termAtt
 operator|.
-name|setTermBuffer
+name|copyBuffer
 argument_list|(
 name|buffer
 argument_list|,

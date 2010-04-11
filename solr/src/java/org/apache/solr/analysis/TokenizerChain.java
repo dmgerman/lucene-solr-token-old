@@ -93,6 +93,7 @@ end_comment
 begin_class
 DECL|class|TokenizerChain
 specifier|public
+specifier|final
 class|class
 name|TokenizerChain
 extends|extends

@@ -95,7 +95,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_import
@@ -259,12 +259,12 @@ decl_stmt|;
 DECL|field|termAttribute
 specifier|private
 specifier|final
-name|TermAttribute
+name|CharTermAttribute
 name|termAttribute
 init|=
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -1011,7 +1011,7 @@ name|termLength
 init|=
 name|termAttribute
 operator|.
-name|termLength
+name|length
 argument_list|()
 decl_stmt|;
 name|char
@@ -1020,7 +1020,7 @@ name|termBuffer
 init|=
 name|termAttribute
 operator|.
-name|termBuffer
+name|buffer
 argument_list|()
 decl_stmt|;
 name|accumPosInc
@@ -1450,7 +1450,7 @@ name|savedStartOffset
 operator|!=
 name|termAttribute
 operator|.
-name|termLength
+name|length
 argument_list|()
 operator|)
 expr_stmt|;
@@ -1469,7 +1469,7 @@ name|length
 operator|<
 name|termAttribute
 operator|.
-name|termLength
+name|length
 argument_list|()
 condition|)
 block|{
@@ -1484,7 +1484,7 @@ name|oversize
 argument_list|(
 name|termAttribute
 operator|.
-name|termLength
+name|length
 argument_list|()
 argument_list|,
 name|RamUsageEstimator
@@ -1500,7 +1500,7 @@ name|arraycopy
 argument_list|(
 name|termAttribute
 operator|.
-name|termBuffer
+name|buffer
 argument_list|()
 argument_list|,
 literal|0
@@ -1511,7 +1511,7 @@ literal|0
 argument_list|,
 name|termAttribute
 operator|.
-name|termLength
+name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1711,7 +1711,7 @@ argument_list|()
 expr_stmt|;
 name|termAttribute
 operator|.
-name|setTermBuffer
+name|copyBuffer
 argument_list|(
 name|savedBuffer
 argument_list|,
@@ -2018,7 +2018,7 @@ if|if
 condition|(
 name|termAttribute
 operator|.
-name|termLength
+name|length
 argument_list|()
 operator|<
 name|buffer
@@ -2029,7 +2029,7 @@ condition|)
 block|{
 name|termAttribute
 operator|.
-name|resizeTermBuffer
+name|resizeBuffer
 argument_list|(
 name|buffer
 operator|.
@@ -2044,7 +2044,7 @@ index|[]
 init|=
 name|termAttribute
 operator|.
-name|termBuffer
+name|buffer
 argument_list|()
 decl_stmt|;
 name|buffer
@@ -2065,7 +2065,7 @@ argument_list|)
 expr_stmt|;
 name|termAttribute
 operator|.
-name|setTermLength
+name|setLength
 argument_list|(
 name|buffer
 operator|.

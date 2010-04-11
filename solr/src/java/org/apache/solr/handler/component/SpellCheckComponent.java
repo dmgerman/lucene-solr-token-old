@@ -256,7 +256,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_import
@@ -2415,17 +2415,14 @@ name|reset
 argument_list|()
 expr_stmt|;
 comment|// TODO: support custom attributes
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -2433,9 +2430,6 @@ decl_stmt|;
 name|OffsetAttribute
 name|offsetAtt
 init|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -2448,9 +2442,6 @@ decl_stmt|;
 name|TypeAttribute
 name|typeAtt
 init|=
-operator|(
-name|TypeAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -2463,9 +2454,6 @@ decl_stmt|;
 name|FlagsAttribute
 name|flagsAtt
 init|=
-operator|(
-name|FlagsAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -2478,9 +2466,6 @@ decl_stmt|;
 name|PayloadAttribute
 name|payloadAtt
 init|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -2493,9 +2478,6 @@ decl_stmt|;
 name|PositionIncrementAttribute
 name|posIncAtt
 init|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|ts
 operator|.
 name|addAttribute
@@ -2526,14 +2508,14 @@ name|setTermBuffer
 argument_list|(
 name|termAtt
 operator|.
-name|termBuffer
+name|buffer
 argument_list|()
 argument_list|,
 literal|0
 argument_list|,
 name|termAtt
 operator|.
-name|termLength
+name|length
 argument_list|()
 argument_list|)
 expr_stmt|;

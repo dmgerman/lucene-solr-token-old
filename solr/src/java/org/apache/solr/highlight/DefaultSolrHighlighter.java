@@ -2982,6 +2982,7 @@ comment|/** Orders Tokens in a window first by their startOffset ascending.  * e
 end_comment
 begin_class
 DECL|class|TokenOrderingFilter
+specifier|final
 class|class
 name|TokenOrderingFilter
 extends|extends
@@ -3320,6 +3321,7 @@ argument_list|)
 return|;
 block|}
 DECL|class|MultiValuedStream
+specifier|final
 class|class
 name|MultiValuedStream
 extends|extends

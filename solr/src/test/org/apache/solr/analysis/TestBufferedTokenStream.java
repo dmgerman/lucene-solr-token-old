@@ -78,7 +78,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_import
@@ -467,14 +467,14 @@ argument_list|(
 name|tokenizer
 argument_list|)
 decl_stmt|;
-name|TermAttribute
+name|CharTermAttribute
 name|term
 init|=
 name|ts
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -493,7 +493,7 @@ literal|"How"
 argument_list|,
 name|term
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -511,7 +511,7 @@ literal|"now"
 argument_list|,
 name|term
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -529,7 +529,7 @@ literal|"A"
 argument_list|,
 name|term
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -565,7 +565,7 @@ literal|"How"
 argument_list|,
 name|term
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -5160,6 +5160,7 @@ block|}
 end_class
 begin_class
 DECL|class|ExtendedAnalyzer
+specifier|final
 class|class
 name|ExtendedAnalyzer
 extends|extends

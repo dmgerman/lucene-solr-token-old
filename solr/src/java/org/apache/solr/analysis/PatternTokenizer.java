@@ -79,7 +79,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_import
@@ -125,12 +125,12 @@ block|{
 DECL|field|termAtt
 specifier|private
 specifier|final
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 init|=
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -297,7 +297,10 @@ condition|)
 continue|continue;
 name|termAtt
 operator|.
-name|setTermBuffer
+name|setEmpty
+argument_list|()
+operator|.
+name|append
 argument_list|(
 name|match
 argument_list|)
@@ -372,7 +375,10 @@ block|{
 comment|// found a non-zero-length token
 name|termAtt
 operator|.
-name|setTermBuffer
+name|setEmpty
+argument_list|()
+operator|.
+name|append
 argument_list|(
 name|str
 argument_list|,
@@ -382,8 +388,6 @@ name|matcher
 operator|.
 name|start
 argument_list|()
-operator|-
-name|index
 argument_list|)
 expr_stmt|;
 name|offsetAtt
@@ -448,7 +452,10 @@ return|;
 block|}
 name|termAtt
 operator|.
-name|setTermBuffer
+name|setEmpty
+argument_list|()
+operator|.
+name|append
 argument_list|(
 name|str
 argument_list|,
@@ -458,8 +465,6 @@ name|str
 operator|.
 name|length
 argument_list|()
-operator|-
-name|index
 argument_list|)
 expr_stmt|;
 name|offsetAtt

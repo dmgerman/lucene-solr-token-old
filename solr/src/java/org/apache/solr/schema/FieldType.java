@@ -78,7 +78,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_import
@@ -1596,6 +1596,7 @@ block|}
 comment|/**    * Default analyzer for types that only produce 1 verbatim token...    * A maximum size of chars to be read must be specified    */
 DECL|class|DefaultAnalyzer
 specifier|protected
+specifier|final
 class|class
 name|DefaultAnalyzer
 extends|extends
@@ -1653,15 +1654,12 @@ name|maxChars
 index|]
 decl_stmt|;
 specifier|final
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 init|=
-operator|(
-name|TermAttribute
-operator|)
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -1670,9 +1668,6 @@ specifier|final
 name|OffsetAttribute
 name|offsetAtt
 init|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|OffsetAttribute
@@ -1733,7 +1728,10 @@ argument_list|)
 decl_stmt|;
 name|termAtt
 operator|.
-name|setTermBuffer
+name|setEmpty
+argument_list|()
+operator|.
+name|append
 argument_list|(
 name|s
 argument_list|)

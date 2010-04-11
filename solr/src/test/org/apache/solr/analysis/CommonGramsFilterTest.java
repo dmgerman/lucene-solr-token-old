@@ -105,7 +105,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_comment
@@ -183,14 +183,14 @@ argument_list|,
 name|commonWords
 argument_list|)
 decl_stmt|;
-name|TermAttribute
+name|CharTermAttribute
 name|term
 init|=
 name|cgf
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -209,7 +209,7 @@ literal|"How"
 argument_list|,
 name|term
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -227,7 +227,7 @@ literal|"How_the"
 argument_list|,
 name|term
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -245,7 +245,7 @@ literal|"the"
 argument_list|,
 name|term
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -263,7 +263,7 @@ literal|"the_s"
 argument_list|,
 name|term
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -297,7 +297,7 @@ literal|"How"
 argument_list|,
 name|term
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -351,14 +351,14 @@ argument_list|(
 name|cgf
 argument_list|)
 decl_stmt|;
-name|TermAttribute
+name|CharTermAttribute
 name|term
 init|=
 name|wt
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -377,7 +377,7 @@ literal|"How_the"
 argument_list|,
 name|term
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -395,7 +395,7 @@ literal|"the_s"
 argument_list|,
 name|term
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -429,7 +429,7 @@ literal|"How_the"
 argument_list|,
 name|term
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
