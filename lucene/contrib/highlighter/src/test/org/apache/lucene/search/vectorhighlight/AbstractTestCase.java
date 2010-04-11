@@ -1018,6 +1018,7 @@ block|}
 block|}
 DECL|class|BigramAnalyzer
 specifier|static
+specifier|final
 class|class
 name|BigramAnalyzer
 extends|extends
@@ -1048,6 +1049,7 @@ block|}
 block|}
 DECL|class|BasicNGramTokenizer
 specifier|static
+specifier|final
 class|class
 name|BasicNGramTokenizer
 extends|extends

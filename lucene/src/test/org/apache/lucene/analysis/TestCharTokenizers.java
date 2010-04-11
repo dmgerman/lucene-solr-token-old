@@ -807,6 +807,7 @@ block|}
 block|}
 DECL|class|TestingCharTokenizer
 specifier|static
+specifier|final
 class|class
 name|TestingCharTokenizer
 extends|extends
@@ -876,6 +877,7 @@ block|}
 block|}
 DECL|class|TestingCharTokenizerNormalize
 specifier|static
+specifier|final
 class|class
 name|TestingCharTokenizerNormalize
 extends|extends
@@ -935,6 +937,7 @@ block|}
 block|}
 DECL|class|TestingCharTokenizerNormalizeIsTokenChar
 specifier|static
+specifier|final
 class|class
 name|TestingCharTokenizerNormalizeIsTokenChar
 extends|extends

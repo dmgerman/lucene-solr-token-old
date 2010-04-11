@@ -192,6 +192,7 @@ argument_list|)
 decl_stmt|;
 DECL|class|TestAnalyzer
 specifier|public
+specifier|final
 class|class
 name|TestAnalyzer
 extends|extends

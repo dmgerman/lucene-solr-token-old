@@ -262,6 +262,7 @@ block|}
 DECL|class|LowerCaseFilterMock
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|LowerCaseFilterMock
 extends|extends

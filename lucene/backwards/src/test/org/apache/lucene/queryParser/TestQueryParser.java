@@ -646,6 +646,7 @@ decl_stmt|;
 DECL|class|QPTestFilter
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|QPTestFilter
 extends|extends
@@ -834,6 +835,7 @@ block|}
 DECL|class|QPTestAnalyzer
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|QPTestAnalyzer
 extends|extends

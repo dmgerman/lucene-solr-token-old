@@ -243,6 +243,7 @@ literal|"field"
 decl_stmt|;
 DECL|class|PayloadAnalyzer
 specifier|public
+specifier|final
 class|class
 name|PayloadAnalyzer
 extends|extends
@@ -288,6 +289,7 @@ block|}
 block|}
 DECL|class|PayloadFilter
 specifier|public
+specifier|final
 class|class
 name|PayloadFilter
 extends|extends

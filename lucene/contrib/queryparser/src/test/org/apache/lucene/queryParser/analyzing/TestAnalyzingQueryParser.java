@@ -613,6 +613,7 @@ block|}
 end_class
 begin_class
 DECL|class|ASCIIAnalyzer
+specifier|final
 class|class
 name|ASCIIAnalyzer
 extends|extends

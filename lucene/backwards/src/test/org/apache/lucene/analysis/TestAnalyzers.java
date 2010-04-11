@@ -716,6 +716,7 @@ block|}
 end_class
 begin_class
 DECL|class|PayloadSetter
+specifier|final
 class|class
 name|PayloadSetter
 extends|extends

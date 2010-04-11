@@ -2364,6 +2364,7 @@ block|}
 DECL|class|TokenArrayAnalyzer
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|TokenArrayAnalyzer
 extends|extends
