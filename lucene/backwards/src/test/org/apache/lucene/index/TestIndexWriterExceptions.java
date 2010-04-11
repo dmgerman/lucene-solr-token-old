@@ -901,11 +901,6 @@ argument_list|(
 literal|0.1
 argument_list|)
 expr_stmt|;
-name|writer
-operator|.
-name|commit
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|DEBUG
@@ -1134,11 +1129,6 @@ name|setRAMBufferSizeMB
 argument_list|(
 literal|0.2
 argument_list|)
-expr_stmt|;
-name|writer
-operator|.
-name|commit
-argument_list|()
 expr_stmt|;
 if|if
 condition|(

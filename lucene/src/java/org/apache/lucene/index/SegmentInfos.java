@@ -2237,7 +2237,7 @@ block|{
 comment|// Neither approach found a generation
 throw|throw
 operator|new
-name|IndexNotFoundException
+name|FileNotFoundException
 argument_list|(
 literal|"no segments* file found in "
 operator|+
