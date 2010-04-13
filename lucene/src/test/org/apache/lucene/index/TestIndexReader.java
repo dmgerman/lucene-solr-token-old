@@ -3352,16 +3352,6 @@ operator|new
 name|RAMDirectory
 argument_list|()
 decl_stmt|;
-name|IndexWriter
-name|writer
-init|=
-literal|null
-decl_stmt|;
-name|IndexReader
-name|reader
-init|=
-literal|null
-decl_stmt|;
 name|Term
 name|searchTerm
 init|=
@@ -3374,8 +3364,9 @@ literal|"aaa"
 argument_list|)
 decl_stmt|;
 comment|//  add 11 documents with term : aaa
+name|IndexWriter
 name|writer
-operator|=
+init|=
 operator|new
 name|IndexWriter
 argument_list|(
@@ -3393,6 +3384,11 @@ name|TEST_VERSION_CURRENT
 argument_list|)
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|writer
+operator|.
+name|commit
+argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -3421,8 +3417,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Create reader:
+name|IndexReader
 name|reader
-operator|=
+init|=
 name|IndexReader
 operator|.
 name|open
@@ -3431,7 +3428,7 @@ name|dir
 argument_list|,
 literal|false
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// Try to make changes
 try|try
 block|{
@@ -11380,6 +11377,11 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|writer
+operator|.
+name|commit
+argument_list|()
+expr_stmt|;
 name|Document
 name|doc
 init|=
