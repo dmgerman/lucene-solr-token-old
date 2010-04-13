@@ -71,14 +71,14 @@ argument_list|()
 decl_stmt|;
 DECL|field|tierId
 specifier|private
-name|String
+name|int
 name|tierId
 decl_stmt|;
 DECL|method|Shape
 specifier|public
 name|Shape
 parameter_list|(
-name|String
+name|int
 name|tierId
 parameter_list|)
 block|{
@@ -121,7 +121,7 @@ return|;
 block|}
 DECL|method|getTierId
 specifier|public
-name|String
+name|int
 name|getTierId
 parameter_list|()
 block|{
