@@ -85,7 +85,7 @@ begin_comment
 comment|/**  * Wrap a CommonGramsFilter optimizing phrase queries by only returning single  * words when they are not a member of a bigram.  *   * Example:  *<ul>  *<li>query input to CommonGramsFilter: "the rain in spain falls mainly"  *<li>output of CommomGramsFilter/input to CommonGramsQueryFilter:  * |"the, "the-rain"|"rain" "rain-in"|"in, "in-spain"|"spain"|"falls"|"mainly"  *<li>output of CommonGramsQueryFilter:"the-rain", "rain-in" ,"in-spain",  * "falls", "mainly"  *</ul>  */
 end_comment
 begin_comment
-comment|/*  * See:http://hudson.zones  * .apache.org/hudson/job/Lucene-trunk/javadoc//all/org/apache  * /lucene/analysis/TokenStream.html and  * http://svn.apache.org/viewvc/lucene/java  * /trunk/src/java/org/apache/lucene/analysis/package.html?revision=718798  */
+comment|/*  * See:http://hudson.zones.apache.org/hudson/job/Lucene-trunk/javadoc//all/org/apache/lucene/analysis/TokenStream.html and  * http://svn.apache.org/viewvc/lucene/dev/trunk/lucene/src/java/org/apache/lucene/analysis/package.html?revision=718798  */
 end_comment
 begin_class
 DECL|class|CommonGramsQueryFilter
