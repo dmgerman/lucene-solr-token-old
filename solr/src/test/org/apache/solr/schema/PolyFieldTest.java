@@ -1359,6 +1359,10 @@ literal|"fl"
 argument_list|,
 literal|"*,score"
 argument_list|,
+literal|"indent"
+argument_list|,
+literal|"true"
+argument_list|,
 literal|"q"
 argument_list|,
 name|qry
