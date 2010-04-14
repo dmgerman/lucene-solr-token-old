@@ -40,6 +40,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileNotFoundException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -513,10 +522,8 @@ argument_list|()
 return|;
 throw|throw
 operator|new
-name|IOException
+name|FileNotFoundException
 argument_list|(
-literal|"File does not exist: "
-operator|+
 name|name
 argument_list|)
 throw|;
