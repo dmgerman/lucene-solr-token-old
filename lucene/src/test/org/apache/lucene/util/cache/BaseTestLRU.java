@@ -32,6 +32,7 @@ end_import
 begin_class
 DECL|class|BaseTestLRU
 specifier|public
+specifier|abstract
 class|class
 name|BaseTestLRU
 extends|extends

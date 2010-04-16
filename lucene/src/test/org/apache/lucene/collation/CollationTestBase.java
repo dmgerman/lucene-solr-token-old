@@ -299,6 +299,7 @@ end_import
 begin_class
 DECL|class|CollationTestBase
 specifier|public
+specifier|abstract
 class|class
 name|CollationTestBase
 extends|extends
