@@ -168,7 +168,7 @@ name|byTask
 operator|.
 name|utils
 operator|.
-name|StringBufferReader
+name|StringBuilderReader
 import|;
 end_import
 begin_import
@@ -195,7 +195,6 @@ name|TrecContentSource
 extends|extends
 name|ContentSource
 block|{
-comment|// TODO (3.0): change StringBuffer to StringBuilder
 DECL|class|DateFormatInfo
 specifier|private
 specifier|static
@@ -335,14 +334,14 @@ DECL|field|trecDocReader
 specifier|private
 name|ThreadLocal
 argument_list|<
-name|StringBufferReader
+name|StringBuilderReader
 argument_list|>
 name|trecDocReader
 init|=
 operator|new
 name|ThreadLocal
 argument_list|<
-name|StringBufferReader
+name|StringBuilderReader
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -350,14 +349,14 @@ DECL|field|trecDocBuffer
 specifier|private
 name|ThreadLocal
 argument_list|<
-name|StringBuffer
+name|StringBuilder
 argument_list|>
 name|trecDocBuffer
 init|=
 operator|new
 name|ThreadLocal
 argument_list|<
-name|StringBuffer
+name|StringBuilder
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -540,11 +539,11 @@ return|;
 block|}
 DECL|method|getDocBuffer
 specifier|private
-name|StringBuffer
+name|StringBuilder
 name|getDocBuffer
 parameter_list|()
 block|{
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 name|trecDocBuffer
@@ -562,7 +561,7 @@ block|{
 name|sb
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 expr_stmt|;
 name|trecDocBuffer
@@ -582,11 +581,11 @@ specifier|private
 name|Reader
 name|getTrecDocReader
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|docBuffer
 parameter_list|)
 block|{
-name|StringBufferReader
+name|StringBuilderReader
 name|r
 init|=
 name|trecDocReader
@@ -604,7 +603,7 @@ block|{
 name|r
 operator|=
 operator|new
-name|StringBufferReader
+name|StringBuilderReader
 argument_list|(
 name|docBuffer
 argument_list|)
@@ -637,7 +636,7 @@ specifier|private
 name|void
 name|read
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|buf
 parameter_list|,
 name|String
@@ -1176,7 +1175,7 @@ name|openNextFile
 argument_list|()
 expr_stmt|;
 block|}
-name|StringBuffer
+name|StringBuilder
 name|docBuf
 init|=
 name|getDocBuffer

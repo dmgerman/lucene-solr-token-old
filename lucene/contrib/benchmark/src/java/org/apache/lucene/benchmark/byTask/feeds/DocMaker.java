@@ -1697,13 +1697,11 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|Format
-operator|.
-name|simpleName
-argument_list|(
 name|getClass
 argument_list|()
-argument_list|)
+operator|.
+name|getSimpleName
+argument_list|()
 argument_list|)
 operator|.
 name|append
