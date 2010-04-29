@@ -1066,6 +1066,7 @@ block|}
 comment|/** Validates an update XML String is successful    */
 DECL|method|assertU
 specifier|public
+specifier|static
 name|void
 name|assertU
 parameter_list|(
@@ -1084,6 +1085,7 @@ block|}
 comment|/** Validates an update XML String is successful    */
 DECL|method|assertU
 specifier|public
+specifier|static
 name|void
 name|assertU
 parameter_list|(
@@ -1107,6 +1109,7 @@ block|}
 comment|/** Validates an update XML String failed    */
 DECL|method|assertFailedU
 specifier|public
+specifier|static
 name|void
 name|assertFailedU
 parameter_list|(
@@ -1125,6 +1128,7 @@ block|}
 comment|/** Validates an update XML String failed    */
 DECL|method|assertFailedU
 specifier|public
+specifier|static
 name|void
 name|assertFailedU
 parameter_list|(
@@ -1148,6 +1152,7 @@ block|}
 comment|/** Checks the success or failure of an update message    */
 DECL|method|checkUpdateU
 specifier|private
+specifier|static
 name|void
 name|checkUpdateU
 parameter_list|(
@@ -1258,6 +1263,7 @@ block|}
 comment|/** Validates a query matches some XPath test expressions and closes the query */
 DECL|method|assertQ
 specifier|public
+specifier|static
 name|void
 name|assertQ
 parameter_list|(
@@ -1282,6 +1288,7 @@ block|}
 comment|/** Validates a query matches some XPath test expressions and closes the query */
 DECL|method|assertQ
 specifier|public
+specifier|static
 name|void
 name|assertQ
 parameter_list|(
