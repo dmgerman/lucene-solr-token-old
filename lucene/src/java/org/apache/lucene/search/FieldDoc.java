@@ -166,7 +166,7 @@ literal|"]"
 argument_list|)
 expr_stmt|;
 return|return
-name|super
+name|sb
 operator|.
 name|toString
 argument_list|()
