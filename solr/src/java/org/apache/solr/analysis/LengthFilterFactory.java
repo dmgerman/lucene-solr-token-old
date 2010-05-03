@@ -37,6 +37,8 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|miscellaneous
+operator|.
 name|LengthFilter
 import|;
 end_import
