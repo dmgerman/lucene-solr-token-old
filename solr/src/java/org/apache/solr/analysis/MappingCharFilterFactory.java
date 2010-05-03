@@ -95,6 +95,8 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|charfilter
+operator|.
 name|MappingCharFilter
 import|;
 end_import
@@ -107,6 +109,8 @@ operator|.
 name|lucene
 operator|.
 name|analysis
+operator|.
+name|charfilter
 operator|.
 name|NormalizeCharMap
 import|;
