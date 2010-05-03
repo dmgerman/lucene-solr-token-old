@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.analysis
+DECL|package|org.apache.lucene.analysis.en
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|lucene
 operator|.
 name|analysis
+operator|.
+name|en
 package|;
 end_package
 begin_comment
