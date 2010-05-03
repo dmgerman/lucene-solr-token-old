@@ -90,7 +90,7 @@ operator|=
 name|EMPTY_BYTES
 expr_stmt|;
 block|}
-comment|/** bytes[] should not be null */
+comment|/** This instance will directly reference bytes w/o making a copy.    * bytes should not be null.    */
 DECL|method|BytesRef
 specifier|public
 name|BytesRef
@@ -130,7 +130,7 @@ operator|=
 name|length
 expr_stmt|;
 block|}
-comment|/** bytes[] should not be null */
+comment|/** This instance will directly reference bytes w/o making a copy.    * bytes should not be null */
 DECL|method|BytesRef
 specifier|public
 name|BytesRef
