@@ -235,7 +235,7 @@ name|String
 name|s
 decl_stmt|;
 DECL|field|c
-name|char
+name|int
 name|c
 decl_stmt|;
 DECL|field|min
@@ -250,7 +250,7 @@ name|digits
 decl_stmt|;
 DECL|field|from
 DECL|field|to
-name|char
+name|int
 name|from
 decl_stmt|,
 name|to
@@ -1452,7 +1452,7 @@ argument_list|(
 literal|"\\"
 argument_list|)
 operator|.
-name|append
+name|appendCodePoint
 argument_list|(
 name|c
 argument_list|)
@@ -1468,7 +1468,7 @@ argument_list|(
 literal|"[\\"
 argument_list|)
 operator|.
-name|append
+name|appendCodePoint
 argument_list|(
 name|from
 argument_list|)
@@ -1478,7 +1478,7 @@ argument_list|(
 literal|"-\\"
 argument_list|)
 operator|.
-name|append
+name|appendCodePoint
 argument_list|(
 name|to
 argument_list|)
@@ -2117,7 +2117,7 @@ expr_stmt|;
 else|else
 name|b
 operator|.
-name|append
+name|appendCodePoint
 argument_list|(
 name|exp1
 operator|.
@@ -2146,7 +2146,7 @@ expr_stmt|;
 else|else
 name|b
 operator|.
-name|append
+name|appendCodePoint
 argument_list|(
 name|exp2
 operator|.
@@ -2408,7 +2408,7 @@ specifier|static
 name|RegExp
 name|makeChar
 parameter_list|(
-name|char
+name|int
 name|c
 parameter_list|)
 block|{
@@ -2442,10 +2442,10 @@ specifier|static
 name|RegExp
 name|makeCharRange
 parameter_list|(
-name|char
+name|int
 name|from
 parameter_list|,
-name|char
+name|int
 name|to
 parameter_list|)
 block|{
@@ -2694,7 +2694,7 @@ name|indexOf
 argument_list|(
 name|b
 operator|.
-name|charAt
+name|codePointAt
 argument_list|(
 name|pos
 argument_list|)
@@ -2709,7 +2709,7 @@ specifier|private
 name|boolean
 name|match
 parameter_list|(
-name|char
+name|int
 name|c
 parameter_list|)
 block|{
@@ -2729,7 +2729,7 @@ if|if
 condition|(
 name|b
 operator|.
-name|charAt
+name|codePointAt
 argument_list|(
 name|pos
 argument_list|)
@@ -2738,7 +2738,13 @@ name|c
 condition|)
 block|{
 name|pos
-operator|++
+operator|+=
+name|Character
+operator|.
+name|charCount
+argument_list|(
+name|c
+argument_list|)
 expr_stmt|;
 return|return
 literal|true
@@ -2765,7 +2771,7 @@ return|;
 block|}
 DECL|method|next
 specifier|private
-name|char
+name|int
 name|next
 parameter_list|()
 throws|throws
@@ -2784,14 +2790,27 @@ argument_list|(
 literal|"unexpected end-of-string"
 argument_list|)
 throw|;
-return|return
+name|int
+name|ch
+init|=
 name|b
 operator|.
-name|charAt
+name|codePointAt
 argument_list|(
 name|pos
-operator|++
 argument_list|)
+decl_stmt|;
+name|pos
+operator|+=
+name|Character
+operator|.
+name|charCount
+argument_list|(
+name|ch
+argument_list|)
+expr_stmt|;
+return|return
+name|ch
 return|;
 block|}
 DECL|method|check
@@ -3334,7 +3353,7 @@ parameter_list|()
 throws|throws
 name|IllegalArgumentException
 block|{
-name|char
+name|int
 name|c
 init|=
 name|parseCharExp
@@ -3839,7 +3858,7 @@ return|;
 block|}
 DECL|method|parseCharExp
 specifier|final
-name|char
+name|int
 name|parseCharExp
 parameter_list|()
 throws|throws
