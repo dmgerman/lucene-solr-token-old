@@ -68,17 +68,6 @@ specifier|abstract
 class|class
 name|DataOutput
 block|{
-DECL|field|utf8Result
-specifier|private
-name|BytesRef
-name|utf8Result
-init|=
-operator|new
-name|BytesRef
-argument_list|(
-literal|10
-argument_list|)
-decl_stmt|;
 comment|/** Writes a single byte.    * @see IndexInput#readByte()    */
 DECL|method|writeByte
 specifier|public
@@ -348,6 +337,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
+name|BytesRef
+name|utf8Result
+init|=
+operator|new
+name|BytesRef
+argument_list|(
+literal|10
+argument_list|)
+decl_stmt|;
 name|UnicodeUtil
 operator|.
 name|UTF16toUTF8
