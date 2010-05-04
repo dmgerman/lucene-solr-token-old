@@ -22,9 +22,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|solr
+name|lucene
 operator|.
 name|analysis
+operator|.
+name|charfilter
 operator|.
 name|HTMLStripCharFilter
 import|;
