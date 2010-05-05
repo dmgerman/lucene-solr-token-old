@@ -24,7 +24,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * A memory-resident {@link IndexOutput} implementation.  */
+comment|/**  * A memory-resident {@link IndexOutput} implementation.  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|RAMOutputStream
