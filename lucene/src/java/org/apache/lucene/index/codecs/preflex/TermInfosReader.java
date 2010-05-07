@@ -120,21 +120,6 @@ operator|.
 name|DoubleBarrelLRUCache
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|cache
-operator|.
-name|Cache
-import|;
-end_import
 begin_comment
 comment|/** This stores a monotonically increasing set of<Term, TermInfo> pairs in a  * Directory.  Pairs are accessed either by Term or by ordinal position the  * set  * @deprecated This class has been replaced by  * FormatPostingsTermsDictReader, except for reading old segments.   * @lucene.experimental  */
 end_comment
@@ -271,7 +256,7 @@ block|}
 DECL|field|termsCache
 specifier|private
 specifier|final
-name|Cache
+name|DoubleBarrelLRUCache
 argument_list|<
 name|Term
 argument_list|,
@@ -661,11 +646,6 @@ name|close
 argument_list|()
 expr_stmt|;
 name|threadResources
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|termsCache
 operator|.
 name|close
 argument_list|()
