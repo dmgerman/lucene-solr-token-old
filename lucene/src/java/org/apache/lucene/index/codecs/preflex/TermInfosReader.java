@@ -115,8 +115,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|cache
-operator|.
 name|DoubleBarrelLRUCache
 import|;
 end_import
