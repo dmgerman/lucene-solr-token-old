@@ -3,15 +3,17 @@ begin_comment
 comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.solr.analysis
+DECL|package|org.apache.lucene.analysis.synonym
 package|package
 name|org
 operator|.
 name|apache
 operator|.
-name|solr
+name|lucene
 operator|.
 name|analysis
+operator|.
+name|synonym
 package|;
 end_package
 begin_import
@@ -163,7 +165,7 @@ name|LinkedList
 import|;
 end_import
 begin_comment
-comment|/** SynonymFilter handles multi-token synonyms with variable position increment offsets.  *<p>  * The matched tokens from the input stream may be optionally passed through (includeOrig=true)  * or discarded.  If the original tokens are included, the position increments may be modified  * to retain absolute positions after merging with the synonym tokenstream.  *<p>  * Generated synonyms will start at the same position as the first matched source token.  *  * @version $Id$  */
+comment|/** SynonymFilter handles multi-token synonyms with variable position increment offsets.  *<p>  * The matched tokens from the input stream may be optionally passed through (includeOrig=true)  * or discarded.  If the original tokens are included, the position increments may be modified  * to retain absolute positions after merging with the synonym tokenstream.  *<p>  * Generated synonyms will start at the same position as the first matched source token.  */
 end_comment
 begin_class
 DECL|class|SynonymFilter
