@@ -132,6 +132,19 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|_TestUtil
+import|;
+end_import
 begin_comment
 comment|/**  * Create an index with terms from 0000-9999.  * Generates random regexps according to simple patterns,  * and validates the correct number of hits are returned.  */
 end_comment
@@ -501,6 +514,11 @@ init|;
 name|i
 operator|<
 literal|100
+operator|*
+name|_TestUtil
+operator|.
+name|getRandomMultiplier
+argument_list|()
 condition|;
 name|i
 operator|++
@@ -552,6 +570,11 @@ init|;
 name|i
 operator|<
 literal|10
+operator|*
+name|_TestUtil
+operator|.
+name|getRandomMultiplier
+argument_list|()
 condition|;
 name|i
 operator|++

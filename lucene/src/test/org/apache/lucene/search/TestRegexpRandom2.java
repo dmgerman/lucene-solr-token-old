@@ -362,6 +362,11 @@ init|;
 name|i
 operator|<
 literal|2000
+operator|*
+name|_TestUtil
+operator|.
+name|getRandomMultiplier
+argument_list|()
 condition|;
 name|i
 operator|++
@@ -659,6 +664,11 @@ init|;
 name|i
 operator|<
 literal|1000
+operator|*
+name|_TestUtil
+operator|.
+name|getRandomMultiplier
+argument_list|()
 condition|;
 name|i
 operator|++
