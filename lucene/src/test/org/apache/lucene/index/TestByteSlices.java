@@ -109,10 +109,7 @@ specifier|synchronized
 name|byte
 index|[]
 name|getByteBlock
-parameter_list|(
-name|boolean
-name|trackAllocations
-parameter_list|)
+parameter_list|()
 block|{
 specifier|final
 name|int
@@ -274,8 +271,6 @@ argument_list|(
 operator|new
 name|ByteBlockAllocator
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 specifier|final

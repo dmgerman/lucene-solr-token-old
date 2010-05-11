@@ -609,9 +609,7 @@ return|return
 name|perDocAllocator
 operator|.
 name|getByteBlock
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 return|;
 block|}
 comment|/**      * Recycle the bytes used.      */
@@ -5221,10 +5219,7 @@ DECL|method|getByteBlock
 name|byte
 index|[]
 name|getByteBlock
-parameter_list|(
-name|boolean
-name|trackAllocations
-parameter_list|)
+parameter_list|()
 block|{
 synchronized|synchronized
 init|(
@@ -5262,12 +5257,6 @@ index|[
 name|blockSize
 index|]
 expr_stmt|;
-comment|// Always record a block allocated, even if
-comment|// trackAllocations is false.  This is necessary
-comment|// because this block will be shared between
-comment|// things that don't track allocations (term
-comment|// vectors) and things that do (freq/prox
-comment|// postings).
 name|numBytesUsed
 operator|+=
 name|blockSize
@@ -5453,10 +5442,7 @@ specifier|synchronized
 name|int
 index|[]
 name|getIntBlock
-parameter_list|(
-name|boolean
-name|trackAllocations
-parameter_list|)
+parameter_list|()
 block|{
 specifier|final
 name|int
@@ -5487,12 +5473,6 @@ index|[
 name|INT_BLOCK_SIZE
 index|]
 expr_stmt|;
-comment|// Always record a block allocated, even if
-comment|// trackAllocations is false.  This is necessary
-comment|// because this block will be shared between
-comment|// things that don't track allocations (term
-comment|// vectors) and things that do (freq/prox
-comment|// postings).
 name|numBytesUsed
 operator|+=
 name|INT_BLOCK_SIZE
