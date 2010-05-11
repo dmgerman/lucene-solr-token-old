@@ -46,7 +46,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|SimpleAnalyzer
+name|MockAnalyzer
 import|;
 end_import
 begin_import
@@ -373,7 +373,7 @@ name|setProperty
 argument_list|(
 literal|"analyzer"
 argument_list|,
-name|SimpleAnalyzer
+name|MockAnalyzer
 operator|.
 name|class
 operator|.
@@ -582,7 +582,7 @@ name|setProperty
 argument_list|(
 literal|"analyzer"
 argument_list|,
-name|SimpleAnalyzer
+name|MockAnalyzer
 operator|.
 name|class
 operator|.

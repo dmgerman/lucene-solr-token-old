@@ -25,15 +25,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -42,9 +33,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|standard
-operator|.
-name|StandardAnalyzer
+name|MockAnalyzer
 import|;
 end_import
 begin_import
@@ -148,19 +137,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Version
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|automaton
 operator|.
 name|Automaton
@@ -246,17 +222,8 @@ argument_list|(
 name|directory
 argument_list|,
 operator|new
-name|StandardAnalyzer
-argument_list|(
-name|Version
-operator|.
-name|LUCENE_CURRENT
-argument_list|,
-name|Collections
-operator|.
-name|emptySet
+name|MockAnalyzer
 argument_list|()
-argument_list|)
 argument_list|,
 literal|true
 argument_list|,
@@ -375,7 +342,7 @@ name|field
 operator|.
 name|setValue
 argument_list|(
-literal|"some text from doc two, a short piece. 5678.91"
+literal|"some text from doc two a short piece 5678.91"
 argument_list|)
 expr_stmt|;
 name|writer
@@ -391,7 +358,7 @@ name|setValue
 argument_list|(
 literal|"doc three has some different stuff"
 operator|+
-literal|": with numbers 1234 5678.9 and letter b"
+literal|" with numbers 1234 5678.9 and letter b"
 argument_list|)
 expr_stmt|;
 name|writer

@@ -163,7 +163,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|WhitespaceAnalyzer
+name|MockAnalyzer
 import|;
 end_import
 begin_import
@@ -1283,10 +1283,8 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1648,7 +1646,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//QueryParser parser = new QueryParser("contents", new WhitespaceAnalyzer());
+comment|//QueryParser parser = new QueryParser("contents", new MockAnalyzer());
 comment|//Query query = parser.parse("handle:1");
 name|dirName
 operator|=
@@ -2245,10 +2243,8 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 argument_list|)
 operator|.
 name|setOpenMode
@@ -2585,10 +2581,8 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 argument_list|)
 operator|.
 name|setOpenMode
@@ -2993,10 +2987,8 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 argument_list|)
 operator|.
 name|setOpenMode
@@ -3163,10 +3155,8 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 argument_list|)
 operator|.
 name|setMaxBufferedDocs
@@ -3264,10 +3254,8 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 argument_list|)
 operator|.
 name|setMaxBufferedDocs
@@ -3441,10 +3429,8 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;

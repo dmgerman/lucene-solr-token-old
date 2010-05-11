@@ -136,7 +136,7 @@ argument_list|(
 name|d
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
+name|MockAnalyzer
 argument_list|()
 argument_list|,
 name|IndexWriter
@@ -424,7 +424,7 @@ argument_list|(
 name|d
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
+name|MockAnalyzer
 argument_list|()
 argument_list|,
 name|IndexWriter

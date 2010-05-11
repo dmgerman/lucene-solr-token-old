@@ -355,10 +355,8 @@ name|Analyzer
 name|analyzer
 init|=
 operator|new
-name|SimpleAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 decl_stmt|;
 name|IndexWriterConfig
 name|conf
@@ -461,7 +459,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// NOTE: this ID_FIELD produces no tokens since
-comment|// SimpleAnalyzer discards numbers
+comment|// MockAnalyzer discards numbers
 name|d
 operator|.
 name|add

@@ -77,9 +77,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|standard
-operator|.
-name|StandardAnalyzer
+name|MockAnalyzer
 import|;
 end_import
 begin_import
@@ -378,10 +376,8 @@ expr_stmt|;
 name|anlzr
 operator|=
 operator|new
-name|StandardAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Test that norms values are preserved as the index is maintained. Including    * separate norms. Including merging indexes with seprate norms. Including    * optimize.    */

@@ -115,7 +115,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|WhitespaceAnalyzer
+name|MockAnalyzer
 import|;
 end_import
 begin_import
@@ -578,10 +578,8 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 argument_list|)
 operator|.
 name|setOpenMode
@@ -919,10 +917,8 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 argument_list|)
 operator|.
 name|setOpenMode
@@ -1120,10 +1116,8 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 argument_list|)
 operator|.
 name|setOpenMode
@@ -1394,10 +1388,8 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 argument_list|)
 operator|.
 name|setOpenMode
@@ -1824,7 +1816,7 @@ init|=
 block|{
 literal|"# ----- properties "
 block|,
-literal|"analyzer=org.apache.lucene.analysis.SimpleAnalyzer"
+literal|"analyzer=org.apache.lucene.analysis.MockAnalyzer"
 block|,
 literal|"content.source=org.apache.lucene.benchmark.byTask.feeds.LineDocSource"
 block|,
@@ -1888,10 +1880,8 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 argument_list|)
 operator|.
 name|setOpenMode
@@ -1982,7 +1972,7 @@ init|=
 block|{
 literal|"# ----- properties "
 block|,
-literal|"analyzer=org.apache.lucene.analysis.WhitespaceAnalyzer"
+literal|"analyzer=org.apache.lucene.analysis.MockAnalyzer"
 block|,
 literal|"content.source=org.apache.lucene.benchmark.byTask.feeds.LineDocSource"
 block|,
@@ -4285,14 +4275,14 @@ literal|"five six"
 block|}
 argument_list|)
 expr_stmt|;
-comment|// WhitespaceAnalyzer, default maxShingleSize and outputUnigrams
+comment|// MockAnalyzer, default maxShingleSize and outputUnigrams
 name|benchmark
 operator|=
 name|execBenchmark
 argument_list|(
 name|getShingleConfig
 argument_list|(
-literal|"analyzer:WhitespaceAnalyzer"
+literal|"analyzer:MockAnalyzer"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4328,14 +4318,14 @@ literal|"six"
 block|}
 argument_list|)
 expr_stmt|;
-comment|// WhitespaceAnalyzer, maxShingleSize=3 and outputUnigrams=false
+comment|// MockAnalyzer, maxShingleSize=3 and outputUnigrams=false
 name|benchmark
 operator|=
 name|execBenchmark
 argument_list|(
 name|getShingleConfig
 argument_list|(
-literal|"outputUnigrams:false,maxShingleSize:3,analyzer:WhitespaceAnalyzer"
+literal|"outputUnigrams:false,maxShingleSize:3,analyzer:MockAnalyzer"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|WhitespaceAnalyzer
+name|MockAnalyzer
 import|;
 end_import
 begin_import
@@ -346,7 +346,7 @@ argument_list|,
 name|searcher
 argument_list|,
 operator|new
-name|WhitespaceAnalyzer
+name|MockAnalyzer
 argument_list|()
 argument_list|,
 literal|"field"

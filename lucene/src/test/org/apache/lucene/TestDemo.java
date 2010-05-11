@@ -44,9 +44,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|standard
-operator|.
-name|StandardAnalyzer
+name|MockAnalyzer
 import|;
 end_import
 begin_import
@@ -256,10 +254,8 @@ name|Analyzer
 name|analyzer
 init|=
 operator|new
-name|StandardAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+name|MockAnalyzer
+argument_list|()
 decl_stmt|;
 comment|// Store the index in memory:
 name|Directory
