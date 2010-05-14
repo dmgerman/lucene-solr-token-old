@@ -3230,6 +3230,8 @@ specifier|public
 name|int
 name|getPayloadLength
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 operator|(

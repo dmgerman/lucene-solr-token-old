@@ -2954,10 +2954,8 @@ if|if
 condition|(
 name|postings
 operator|.
-name|getPayloadLength
+name|hasPayload
 argument_list|()
-operator|!=
-literal|0
 condition|)
 block|{
 name|postings
