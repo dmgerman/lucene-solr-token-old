@@ -227,7 +227,7 @@ name|LoggerFactory
 import|;
 end_import
 begin_comment
-comment|/**  * @since solr 1.4  */
+comment|/**  * @since solr 4.0  */
 end_comment
 begin_class
 DECL|class|JsonLoader
