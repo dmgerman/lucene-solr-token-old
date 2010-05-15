@@ -51,7 +51,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|KeywordAnalyzer
+name|MockAnalyzer
 import|;
 end_import
 begin_import
@@ -364,8 +364,14 @@ argument_list|(
 name|dir
 argument_list|,
 operator|new
-name|KeywordAnalyzer
-argument_list|()
+name|MockAnalyzer
+argument_list|(
+name|MockAnalyzer
+operator|.
+name|KEYWORD
+argument_list|,
+literal|false
+argument_list|)
 argument_list|,
 name|IndexWriter
 operator|.

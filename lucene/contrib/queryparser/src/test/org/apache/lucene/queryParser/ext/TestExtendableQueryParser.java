@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|SimpleAnalyzer
+name|MockAnalyzer
 import|;
 end_import
 begin_import
@@ -223,9 +223,13 @@ condition|)
 name|a
 operator|=
 operator|new
-name|SimpleAnalyzer
+name|MockAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
+name|MockAnalyzer
+operator|.
+name|SIMPLE
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|QueryParser
