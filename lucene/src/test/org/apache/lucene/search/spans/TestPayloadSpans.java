@@ -3604,7 +3604,7 @@ name|MockTokenizer
 argument_list|(
 name|reader
 argument_list|,
-name|MockAnalyzer
+name|MockTokenizer
 operator|.
 name|SIMPLE
 argument_list|,
@@ -3907,7 +3907,7 @@ name|MockTokenizer
 argument_list|(
 name|reader
 argument_list|,
-name|MockAnalyzer
+name|MockTokenizer
 operator|.
 name|SIMPLE
 argument_list|,
