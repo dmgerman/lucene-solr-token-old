@@ -2155,6 +2155,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyyMMddhhmmss"
+argument_list|,
+name|Locale
+operator|.
+name|US
 argument_list|)
 operator|.
 name|format
