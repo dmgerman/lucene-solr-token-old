@@ -201,6 +201,15 @@ operator|.
 name|Date
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
 begin_comment
 comment|/**  * An IndexWriter that is configured via Solr config mechanisms.  * * @version $Id$ * @since solr 0.9 */
 end_comment
@@ -741,7 +750,11 @@ init|=
 name|rawLockType
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
 operator|.
 name|trim
 argument_list|()

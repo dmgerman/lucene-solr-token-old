@@ -7159,7 +7159,11 @@ argument_list|(
 name|file
 operator|.
 name|toUpperCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -7192,7 +7196,11 @@ name|nextToken
 argument_list|()
 operator|.
 name|toUpperCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

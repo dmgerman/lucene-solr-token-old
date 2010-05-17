@@ -77,23 +77,6 @@ name|*
 import|;
 end_import
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|handler
-operator|.
-name|dataimport
-operator|.
-name|DataImportHandlerException
-operator|.
-name|wrapAndThrow
-import|;
-end_import
-begin_import
 import|import
 name|org
 operator|.
@@ -4442,7 +4425,11 @@ argument_list|(
 name|key
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

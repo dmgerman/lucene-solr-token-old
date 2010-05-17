@@ -174,6 +174,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -1433,7 +1442,11 @@ init|=
 name|matchVersion
 operator|.
 name|toUpperCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
 decl_stmt|;
 comment|// be lenient with the supplied version parameter
 name|parsedMatchVersion

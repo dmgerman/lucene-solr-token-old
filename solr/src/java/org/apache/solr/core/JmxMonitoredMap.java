@@ -1193,7 +1193,11 @@ literal|1
 argument_list|)
 operator|.
 name|toUpperCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
 operator|+
 name|attribute
 operator|.
