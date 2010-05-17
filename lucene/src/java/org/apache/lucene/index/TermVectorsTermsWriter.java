@@ -1036,13 +1036,6 @@ argument_list|)
 expr_stmt|;
 name|perDoc
 operator|.
-name|perDocTvf
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|perDoc
-operator|.
 name|numVectorFields
 operator|=
 literal|0
@@ -1062,6 +1055,11 @@ argument_list|()
 assert|;
 name|lastDocID
 operator|++
+expr_stmt|;
+name|perDoc
+operator|.
+name|reset
+argument_list|()
 expr_stmt|;
 name|free
 argument_list|(
