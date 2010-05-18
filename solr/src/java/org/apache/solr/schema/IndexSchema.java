@@ -2265,14 +2265,23 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"' ignoring: "
+literal|"' [[["
 operator|+
 name|old
 operator|.
 name|toString
 argument_list|()
+operator|+
+literal|"]]] and [[["
+operator|+
+name|f
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"]]]"
 decl_stmt|;
-name|Throwable
+name|SolrException
 name|t
 init|=
 operator|new
@@ -2307,6 +2316,9 @@ argument_list|(
 name|t
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 name|log
 operator|.
@@ -3293,14 +3305,9 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"' ignoring: "
-operator|+
-name|f
-operator|.
-name|toString
-argument_list|()
+literal|"'"
 decl_stmt|;
-name|Throwable
+name|SolrException
 name|t
 init|=
 operator|new
@@ -3335,6 +3342,9 @@ argument_list|(
 name|t
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 comment|/**    * Register one or more new Dynamic Field with the Schema.    * @param f The {@link org.apache.solr.schema.SchemaField}    */
