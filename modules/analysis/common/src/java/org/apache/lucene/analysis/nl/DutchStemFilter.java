@@ -71,6 +71,8 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|miscellaneous
+operator|.
 name|KeywordMarkerFilter
 import|;
 end_import
