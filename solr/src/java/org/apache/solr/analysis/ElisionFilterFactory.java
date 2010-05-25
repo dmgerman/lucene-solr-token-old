@@ -52,7 +52,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|CharArraySet
+name|fr
+operator|.
+name|*
 import|;
 end_import
 begin_import
@@ -65,9 +67,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|fr
+name|util
 operator|.
-name|*
+name|CharArraySet
 import|;
 end_import
 begin_import

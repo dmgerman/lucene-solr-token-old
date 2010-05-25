@@ -80,7 +80,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|CharArraySet
+name|Tokenizer
 import|;
 end_import
 begin_import
@@ -93,7 +93,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|Tokenizer
+name|util
+operator|.
+name|CharArraySet
 import|;
 end_import
 begin_import

@@ -65,7 +65,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|CharArraySet
+name|miscellaneous
+operator|.
+name|KeepWordFilter
 import|;
 end_import
 begin_import
@@ -78,9 +80,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|miscellaneous
+name|util
 operator|.
-name|KeepWordFilter
+name|CharArraySet
 import|;
 end_import
 begin_import

@@ -105,7 +105,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|CharArraySet
+name|core
+operator|.
+name|StopFilter
 import|;
 end_import
 begin_import
@@ -118,9 +120,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|core
+name|util
 operator|.
-name|StopFilter
+name|CharArraySet
 import|;
 end_import
 begin_import
