@@ -55,6 +55,8 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|core
+operator|.
 name|StopAnalyzer
 import|;
 end_import

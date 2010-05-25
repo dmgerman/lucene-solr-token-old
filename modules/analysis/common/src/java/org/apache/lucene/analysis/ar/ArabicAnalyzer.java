@@ -84,6 +84,21 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|CharArraySet
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|core
+operator|.
 name|LowerCaseFilter
 import|;
 end_import
@@ -97,7 +112,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|CharArraySet
+name|core
+operator|.
+name|StopFilter
 import|;
 end_import
 begin_import
@@ -125,7 +142,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|StopFilter
+name|util
+operator|.
+name|StopwordAnalyzerBase
 import|;
 end_import
 begin_import
@@ -138,7 +157,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|StopwordAnalyzerBase
+name|util
+operator|.
+name|WordlistLoader
 import|;
 end_import
 begin_import
@@ -165,19 +186,6 @@ operator|.
 name|analysis
 operator|.
 name|Tokenizer
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|WordlistLoader
 import|;
 end_import
 begin_import
@@ -492,7 +500,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates    * {@link org.apache.lucene.analysis.ReusableAnalyzerBase.TokenStreamComponents}    * used to tokenize all the text in the provided {@link Reader}.    *     * @return {@link org.apache.lucene.analysis.ReusableAnalyzerBase.TokenStreamComponents}    *         built from an {@link ArabicLetterTokenizer} filtered with    *         {@link LowerCaseFilter}, {@link StopFilter},    *         {@link ArabicNormalizationFilter}, {@link KeywordMarkerFilter}    *         if a stem exclusion set is provided and {@link ArabicStemFilter}.    */
+comment|/**    * Creates    * {@link org.apache.lucene.analysis.util.ReusableAnalyzerBase.TokenStreamComponents}    * used to tokenize all the text in the provided {@link Reader}.    *     * @return {@link org.apache.lucene.analysis.util.ReusableAnalyzerBase.TokenStreamComponents}    *         built from an {@link ArabicLetterTokenizer} filtered with    *         {@link LowerCaseFilter}, {@link StopFilter},    *         {@link ArabicNormalizationFilter}, {@link KeywordMarkerFilter}    *         if a stem exclusion set is provided and {@link ArabicStemFilter}.    */
 annotation|@
 name|Override
 DECL|method|createComponents

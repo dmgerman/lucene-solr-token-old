@@ -114,7 +114,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|KeywordTokenizer
+name|TokenStream
 import|;
 end_import
 begin_import
@@ -127,7 +127,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|core
+operator|.
+name|KeywordTokenizer
 import|;
 end_import
 begin_import

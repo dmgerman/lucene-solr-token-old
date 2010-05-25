@@ -107,6 +107,8 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|core
+operator|.
 name|WhitespaceTokenizer
 import|;
 end_import

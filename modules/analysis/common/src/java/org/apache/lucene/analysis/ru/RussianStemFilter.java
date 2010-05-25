@@ -26,14 +26,11 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|miscellaneous
+name|core
 operator|.
-name|KeywordMarkerFilter
+name|LowerCaseFilter
 import|;
 end_import
-begin_comment
-comment|// for javadoc
-end_comment
 begin_import
 import|import
 name|org
@@ -44,7 +41,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|LowerCaseFilter
+name|miscellaneous
+operator|.
+name|KeywordMarkerFilter
 import|;
 end_import
 begin_comment

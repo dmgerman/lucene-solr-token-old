@@ -97,7 +97,11 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|WhitespaceTokenizer
+name|compound
+operator|.
+name|hyphenation
+operator|.
+name|HyphenationTree
 import|;
 end_import
 begin_import
@@ -110,11 +114,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|compound
+name|core
 operator|.
-name|hyphenation
-operator|.
-name|HyphenationTree
+name|WhitespaceTokenizer
 import|;
 end_import
 begin_import

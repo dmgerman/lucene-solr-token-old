@@ -83,9 +83,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|miscellaneous
+name|core
 operator|.
-name|KeywordMarkerFilter
+name|LowerCaseTokenizer
 import|;
 end_import
 begin_import
@@ -98,7 +98,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|LowerCaseTokenizer
+name|miscellaneous
+operator|.
+name|KeywordMarkerFilter
 import|;
 end_import
 begin_comment

@@ -138,6 +138,8 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|core
+operator|.
 name|SimpleAnalyzer
 import|;
 end_import
@@ -151,6 +153,8 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|core
+operator|.
 name|StopAnalyzer
 import|;
 end_import
@@ -163,6 +167,8 @@ operator|.
 name|lucene
 operator|.
 name|analysis
+operator|.
+name|core
 operator|.
 name|WhitespaceAnalyzer
 import|;

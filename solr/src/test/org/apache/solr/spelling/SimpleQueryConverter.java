@@ -37,7 +37,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|WhitespaceAnalyzer
+name|TokenStream
 import|;
 end_import
 begin_import
@@ -50,7 +50,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|core
+operator|.
+name|WhitespaceAnalyzer
 import|;
 end_import
 begin_import

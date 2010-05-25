@@ -24,6 +24,8 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|core
+operator|.
 name|LetterTokenizer
 import|;
 end_import

@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index
+DECL|package|org.apache.lucene.analysis.util
 package|package
 name|org
 operator|.
@@ -8,7 +8,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|analysis
+operator|.
+name|util
 package|;
 end_package
 begin_comment
@@ -81,6 +83,8 @@ operator|.
 name|lucene
 operator|.
 name|analysis
+operator|.
+name|util
 operator|.
 name|WordlistLoader
 import|;
