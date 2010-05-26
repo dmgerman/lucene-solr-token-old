@@ -235,9 +235,6 @@ parameter_list|,
 specifier|final
 name|String
 name|queryText
-parameter_list|,
-name|boolean
-name|quoted
 parameter_list|)
 throws|throws
 name|ParseException
@@ -311,8 +308,6 @@ argument_list|(
 name|field
 argument_list|,
 name|queryText
-argument_list|,
-name|quoted
 argument_list|)
 return|;
 block|}

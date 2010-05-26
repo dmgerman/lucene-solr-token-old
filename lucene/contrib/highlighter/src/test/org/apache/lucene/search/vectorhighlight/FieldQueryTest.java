@@ -393,7 +393,7 @@ name|paB
 operator|.
 name|parse
 argument_list|(
-literal|"AA AND \"BCD\" OR \"EFGH\""
+literal|"AA AND BCD OR EFGH"
 argument_list|)
 decl_stmt|;
 name|FieldQuery
@@ -5614,7 +5614,7 @@ name|paB
 operator|.
 name|parse
 argument_list|(
-literal|"\"abc\" AND \"bcd\""
+literal|"abc AND bcd"
 argument_list|)
 decl_stmt|;
 comment|// phraseHighlight = true, fieldMatch = true
