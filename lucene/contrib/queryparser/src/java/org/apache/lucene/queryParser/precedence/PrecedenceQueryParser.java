@@ -1076,6 +1076,9 @@ name|field
 parameter_list|,
 name|String
 name|queryText
+parameter_list|,
+name|boolean
+name|quoted
 parameter_list|)
 throws|throws
 name|ParseException
@@ -1263,6 +1266,9 @@ block|{
 if|if
 condition|(
 name|severalTokensAtSamePosition
+operator|||
+operator|!
+name|quoted
 condition|)
 block|{
 if|if
@@ -1270,6 +1276,9 @@ condition|(
 name|positionCount
 operator|==
 literal|1
+operator|||
+operator|!
+name|quoted
 condition|)
 block|{
 comment|// no phrase query:
@@ -1278,7 +1287,36 @@ name|q
 init|=
 operator|new
 name|BooleanQuery
-argument_list|()
+argument_list|(
+name|positionCount
+operator|==
+literal|1
+argument_list|)
+decl_stmt|;
+name|BooleanClause
+operator|.
+name|Occur
+name|occur
+init|=
+name|positionCount
+operator|>
+literal|1
+operator|&&
+name|operator
+operator|==
+name|AND_OPERATOR
+condition|?
+name|BooleanClause
+operator|.
+name|Occur
+operator|.
+name|MUST
+else|:
+name|BooleanClause
+operator|.
+name|Occur
+operator|.
+name|SHOULD
 decl_stmt|;
 for|for
 control|(
@@ -1334,11 +1372,7 @@ name|add
 argument_list|(
 name|currentQuery
 argument_list|,
-name|BooleanClause
-operator|.
-name|Occur
-operator|.
-name|SHOULD
+name|occur
 argument_list|)
 expr_stmt|;
 block|}
@@ -1545,7 +1579,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/**    * Base implementation delegates to {@link #getFieldQuery(String,String)}.    * This method may be overridden, for example, to return    * a SpanNearQuery instead of a PhraseQuery.    *    * @exception ParseException throw in overridden method to disallow    */
+comment|/**    * Base implementation delegates to {@link #getFieldQuery(String,String,boolean)}.    * This method may be overridden, for example, to return    * a SpanNearQuery instead of a PhraseQuery.    *    * @exception ParseException throw in overridden method to disallow    */
 DECL|method|getFieldQuery
 specifier|protected
 name|Query
@@ -1571,6 +1605,8 @@ argument_list|(
 name|field
 argument_list|,
 name|queryText
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -3610,6 +3646,8 @@ argument_list|(
 name|field
 argument_list|,
 name|termImage
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
