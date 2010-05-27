@@ -266,6 +266,8 @@ name|state
 operator|.
 name|segmentName
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|FIELD_INFOS_EXTENSION

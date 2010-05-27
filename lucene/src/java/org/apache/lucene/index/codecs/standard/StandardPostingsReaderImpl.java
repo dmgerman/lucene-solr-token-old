@@ -227,6 +227,8 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
+literal|""
+argument_list|,
 name|StandardCodec
 operator|.
 name|FREQ_EXTENSION
@@ -263,6 +265,8 @@ argument_list|(
 name|segmentInfo
 operator|.
 name|name
+argument_list|,
+literal|""
 argument_list|,
 name|StandardCodec
 operator|.
@@ -334,6 +338,8 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
+literal|""
+argument_list|,
 name|StandardCodec
 operator|.
 name|FREQ_EXTENSION
@@ -359,6 +365,8 @@ argument_list|(
 name|segmentInfo
 operator|.
 name|name
+argument_list|,
+literal|""
 argument_list|,
 name|StandardCodec
 operator|.

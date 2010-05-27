@@ -949,7 +949,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 operator|new
 name|Directory
@@ -1192,7 +1192,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 operator|new
 name|Directory
@@ -1204,7 +1204,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 operator|new
 name|Directory
@@ -1216,7 +1216,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 operator|new
 name|Directory
@@ -1228,7 +1228,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 operator|new
 name|Directory
@@ -1240,7 +1240,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 operator|new
 name|Directory
@@ -1949,9 +1949,9 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-DECL|field|numAddIndexesNoOptimize
+DECL|field|numaddIndexes
 name|HeavyAtomicInt
-name|numAddIndexesNoOptimize
+name|numaddIndexes
 init|=
 operator|new
 name|HeavyAtomicInt
@@ -2321,7 +2321,7 @@ name|x
 operator|++
 control|)
 block|{
-comment|// only do addIndexesNoOptimize
+comment|// only do addIndexes
 name|doBody
 argument_list|(
 name|x
@@ -2401,7 +2401,7 @@ literal|0
 case|:
 name|mainWriter
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 name|dirs
 argument_list|)
@@ -2417,12 +2417,12 @@ literal|1
 case|:
 name|mainWriter
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 name|dirs
 argument_list|)
 expr_stmt|;
-name|numAddIndexesNoOptimize
+name|numaddIndexes
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -3953,7 +3953,7 @@ try|try
 block|{
 name|writer
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 name|dirs
 argument_list|)

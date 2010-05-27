@@ -854,6 +854,8 @@ name|segmentFileName
 argument_list|(
 name|seg
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|FIELD_INFOS_EXTENSION
@@ -1066,6 +1068,8 @@ name|segmentFileName
 argument_list|(
 name|seg
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|VECTORS_DOCUMENTS_EXTENSION
@@ -1084,6 +1088,8 @@ operator|.
 name|segmentFileName
 argument_list|(
 name|seg
+argument_list|,
+literal|""
 argument_list|,
 name|IndexFileNames
 operator|.

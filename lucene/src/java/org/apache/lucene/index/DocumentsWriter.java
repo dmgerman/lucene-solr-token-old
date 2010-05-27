@@ -2493,6 +2493,8 @@ name|segmentFileName
 argument_list|(
 name|segment
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|COMPOUND_FILE_EXTENSION

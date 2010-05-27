@@ -443,6 +443,8 @@ name|segmentFileName
 argument_list|(
 name|segment
 argument_list|,
+literal|""
+argument_list|,
 name|PreFlexCodec
 operator|.
 name|TERMS_EXTENSION
@@ -495,6 +497,8 @@ operator|.
 name|segmentFileName
 argument_list|(
 name|segment
+argument_list|,
+literal|""
 argument_list|,
 name|PreFlexCodec
 operator|.

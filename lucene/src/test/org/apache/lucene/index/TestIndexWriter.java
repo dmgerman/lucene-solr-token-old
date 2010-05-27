@@ -1230,7 +1230,7 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*       Test: make sure when we run out of disk space or hit       random IOExceptions in any of the addIndexesNoOptimize(*) calls       that 1) index is not corrupt (searcher can open/search       it) and 2) transactional semantics are followed:       either all or none of the incoming documents were in       fact added.     */
+comment|/*       Test: make sure when we run out of disk space or hit       random IOExceptions in any of the addIndexes(*) calls       that 1) index is not corrupt (searcher can open/search       it) and 2) transactional semantics are followed:       either all or none of the incoming documents were in       fact added.     */
 DECL|method|testAddIndexOnDiskFull
 specifier|public
 name|void
@@ -1259,7 +1259,7 @@ operator|*
 literal|25
 decl_stmt|;
 comment|// Build up a bunch of dirs that have indexes which we
-comment|// will then merge together by calling addIndexesNoOptimize(*):
+comment|// will then merge together by calling addIndexes(*):
 name|Directory
 index|[]
 name|dirs
@@ -1546,12 +1546,12 @@ argument_list|()
 expr_stmt|;
 comment|// Iterate with larger and larger amounts of free
 comment|// disk space.  With little free disk space,
-comment|// addIndexesNoOptimize will certainly run out of space&
+comment|// addIndexes will certainly run out of space&
 comment|// fail.  Verify that when this happens, index is
 comment|// not corrupt and index in fact has added no
 comment|// documents.  Then, we increase disk space by 2000
 comment|// bytes each iteration.  At some point there is
-comment|// enough free disk space and addIndexesNoOptimize should
+comment|// enough free disk space and addIndexes should
 comment|// succeed and index should show all documents were
 comment|// added.
 comment|// String[] files = startDir.listAll();
@@ -1692,7 +1692,7 @@ else|else
 block|{
 name|methodName
 operator|=
-literal|"addIndexesNoOptimize(Directory[])"
+literal|"addIndexes(Directory[])"
 expr_stmt|;
 block|}
 while|while
@@ -1960,7 +1960,7 @@ condition|)
 block|{
 name|writer
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 name|dirs
 argument_list|)
@@ -2070,7 +2070,7 @@ else|else
 block|{
 name|writer
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 name|dirs
 argument_list|)
@@ -16699,7 +16699,7 @@ block|}
 decl_stmt|;
 name|writer
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 name|indexDirs
 argument_list|)
@@ -22542,11 +22542,6 @@ index|[
 name|NUM_THREADS
 index|]
 decl_stmt|;
-DECL|field|cms
-specifier|final
-name|ConcurrentMergeScheduler
-name|cms
-decl_stmt|;
 DECL|method|RunAddIndexesThreads
 specifier|public
 name|RunAddIndexesThreads
@@ -22642,19 +22637,6 @@ expr_stmt|;
 name|writer2
 operator|.
 name|commit
-argument_list|()
-expr_stmt|;
-name|cms
-operator|=
-operator|(
-name|ConcurrentMergeScheduler
-operator|)
-name|writer2
-operator|.
-name|getConfig
-argument_list|()
-operator|.
-name|getMergeScheduler
 argument_list|()
 expr_stmt|;
 name|readers
@@ -23031,7 +23013,7 @@ switch|switch
 condition|(
 name|j
 operator|%
-literal|4
+literal|5
 condition|)
 block|{
 case|case
@@ -23039,7 +23021,7 @@ literal|0
 case|:
 name|writer2
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 name|dirs
 argument_list|)
@@ -23055,7 +23037,7 @@ literal|1
 case|:
 name|writer2
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 name|dirs
 argument_list|)
@@ -23074,6 +23056,22 @@ expr_stmt|;
 break|break;
 case|case
 literal|3
+case|:
+name|writer2
+operator|.
+name|addIndexes
+argument_list|(
+name|dirs
+argument_list|)
+expr_stmt|;
+name|writer2
+operator|.
+name|maybeMerge
+argument_list|()
+expr_stmt|;
+break|break;
+case|case
+literal|4
 case|:
 name|writer2
 operator|.
@@ -23097,7 +23095,7 @@ specifier|final
 name|int
 name|NUM_ITER
 init|=
-literal|12
+literal|15
 decl_stmt|;
 specifier|final
 name|int
@@ -23147,18 +23145,19 @@ operator|.
 name|joinThreads
 argument_list|()
 expr_stmt|;
-name|assertEquals
-argument_list|(
+name|int
+name|expectedNumDocs
+init|=
 literal|100
 operator|+
 name|NUM_COPY
 operator|*
 operator|(
-literal|3
+literal|4
 operator|*
 name|NUM_ITER
 operator|/
-literal|4
+literal|5
 operator|)
 operator|*
 name|RunAddIndexesThreads
@@ -23168,6 +23167,10 @@ operator|*
 name|RunAddIndexesThreads
 operator|.
 name|NUM_INIT_DOCS
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expectedNumDocs
 argument_list|,
 name|c
 operator|.
@@ -23221,25 +23224,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|100
-operator|+
-name|NUM_COPY
-operator|*
-operator|(
-literal|3
-operator|*
-name|NUM_ITER
-operator|/
-literal|4
-operator|)
-operator|*
-name|RunAddIndexesThreads
-operator|.
-name|NUM_THREADS
-operator|*
-name|RunAddIndexesThreads
-operator|.
-name|NUM_INIT_DOCS
+name|expectedNumDocs
 argument_list|,
 name|reader
 operator|.
@@ -23458,7 +23443,7 @@ literal|0
 case|:
 name|writer2
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 name|dirs
 argument_list|)
@@ -23474,7 +23459,7 @@ literal|1
 case|:
 name|writer2
 operator|.
-name|addIndexesNoOptimize
+name|addIndexes
 argument_list|(
 name|dirs
 argument_list|)

@@ -2035,6 +2035,8 @@ name|segmentFileName
 argument_list|(
 name|name
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|COMPOUND_FILE_EXTENSION
@@ -2208,6 +2210,9 @@ expr_stmt|;
 name|docStoreIsCompoundFile
 operator|=
 name|isCompoundFile
+expr_stmt|;
+name|clearFiles
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Save this segment's info.    */
@@ -2584,6 +2589,8 @@ name|segmentFileName
 argument_list|(
 name|name
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|COMPOUND_FILE_EXTENSION
@@ -2612,6 +2619,8 @@ operator|.
 name|segmentFileName
 argument_list|(
 name|name
+argument_list|,
+literal|""
 argument_list|,
 name|ext
 argument_list|)
@@ -2660,6 +2669,8 @@ name|segmentFileName
 argument_list|(
 name|docStoreSegment
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|COMPOUND_FILE_STORE_EXTENSION
@@ -2687,6 +2698,8 @@ operator|.
 name|segmentFileName
 argument_list|(
 name|docStoreSegment
+argument_list|,
+literal|""
 argument_list|,
 name|ext
 argument_list|)
@@ -2719,6 +2732,8 @@ operator|.
 name|segmentFileName
 argument_list|(
 name|name
+argument_list|,
+literal|""
 argument_list|,
 name|ext
 argument_list|)
@@ -2859,6 +2874,8 @@ name|segmentFileName
 argument_list|(
 name|name
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|PLAIN_NORMS_EXTENSION
@@ -2913,6 +2930,8 @@ name|segmentFileName
 argument_list|(
 name|name
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|SEPARATE_NORMS_EXTENSION
@@ -2935,6 +2954,8 @@ operator|.
 name|segmentFileName
 argument_list|(
 name|name
+argument_list|,
+literal|""
 argument_list|,
 name|IndexFileNames
 operator|.
@@ -3001,6 +3022,8 @@ name|segmentFileName
 argument_list|(
 name|name
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|SEPARATE_NORMS_EXTENSION
@@ -3016,6 +3039,8 @@ operator|.
 name|segmentFileName
 argument_list|(
 name|name
+argument_list|,
+literal|""
 argument_list|,
 name|IndexFileNames
 operator|.

@@ -253,6 +253,8 @@ name|state
 operator|.
 name|segmentName
 argument_list|,
+literal|""
+argument_list|,
 name|StandardCodec
 operator|.
 name|FREQ_EXTENSION
@@ -299,6 +301,8 @@ argument_list|(
 name|state
 operator|.
 name|segmentName
+argument_list|,
+literal|""
 argument_list|,
 name|StandardCodec
 operator|.

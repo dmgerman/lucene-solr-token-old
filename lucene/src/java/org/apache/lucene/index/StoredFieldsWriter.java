@@ -264,6 +264,8 @@ name|segmentFileName
 argument_list|(
 name|docStoreSegment
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|FIELDS_EXTENSION
@@ -279,6 +281,8 @@ operator|.
 name|segmentFileName
 argument_list|(
 name|docStoreSegment
+argument_list|,
+literal|""
 argument_list|,
 name|IndexFileNames
 operator|.
@@ -401,6 +405,8 @@ name|state
 operator|.
 name|docStoreSegmentName
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|FIELDS_EXTENSION
@@ -416,6 +422,8 @@ argument_list|(
 name|state
 operator|.
 name|docStoreSegmentName
+argument_list|,
+literal|""
 argument_list|,
 name|IndexFileNames
 operator|.

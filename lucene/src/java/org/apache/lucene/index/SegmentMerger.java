@@ -704,6 +704,8 @@ name|segmentFileName
 argument_list|(
 name|segment
 argument_list|,
+literal|""
+argument_list|,
 name|ext
 argument_list|)
 argument_list|)
@@ -776,6 +778,8 @@ name|segmentFileName
 argument_list|(
 name|segment
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|NORMS_EXTENSION
@@ -815,6 +819,8 @@ operator|.
 name|segmentFileName
 argument_list|(
 name|segment
+argument_list|,
+literal|""
 argument_list|,
 name|ext
 argument_list|)
@@ -1640,6 +1646,8 @@ name|segmentFileName
 argument_list|(
 name|segment
 argument_list|,
+literal|""
+argument_list|,
 name|IndexFileNames
 operator|.
 name|FIELDS_INDEX_EXTENSION
@@ -2274,6 +2282,8 @@ operator|.
 name|segmentFileName
 argument_list|(
 name|segment
+argument_list|,
+literal|""
 argument_list|,
 name|IndexFileNames
 operator|.
@@ -3515,6 +3525,8 @@ operator|.
 name|segmentFileName
 argument_list|(
 name|segment
+argument_list|,
+literal|""
 argument_list|,
 name|IndexFileNames
 operator|.
