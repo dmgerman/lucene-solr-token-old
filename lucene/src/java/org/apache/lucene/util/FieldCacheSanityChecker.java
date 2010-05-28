@@ -1322,7 +1322,7 @@ index|[
 name|j
 index|]
 operator|.
-name|getFieldCacheKey
+name|getCoreCacheKey
 argument_list|()
 argument_list|)
 expr_stmt|;

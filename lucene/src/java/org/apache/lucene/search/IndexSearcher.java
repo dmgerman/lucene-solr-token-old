@@ -588,7 +588,7 @@ name|nDocs
 argument_list|,
 name|reader
 operator|.
-name|numDocs
+name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -696,7 +696,7 @@ name|nDocs
 argument_list|,
 name|reader
 operator|.
-name|numDocs
+name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
