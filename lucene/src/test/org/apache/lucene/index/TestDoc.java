@@ -1030,8 +1030,6 @@ name|dir
 argument_list|,
 name|useCompoundFile
 argument_list|,
-literal|true
-argument_list|,
 operator|-
 literal|1
 argument_list|,

@@ -7624,8 +7624,6 @@ name|directory
 argument_list|,
 literal|false
 argument_list|,
-literal|true
-argument_list|,
 operator|-
 literal|1
 argument_list|,
@@ -8692,8 +8690,6 @@ argument_list|,
 name|directory
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|,
 name|docStoreOffset
 argument_list|,
@@ -10904,8 +10900,6 @@ argument_list|,
 name|directory
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|,
 name|docStoreOffset
 argument_list|,
