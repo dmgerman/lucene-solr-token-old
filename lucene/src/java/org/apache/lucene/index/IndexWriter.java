@@ -1711,7 +1711,7 @@ operator|==
 name|directory
 condition|)
 block|{
-comment|// Only incRef if we pooledd (reader is not external)
+comment|// Only incRef if we pooled (reader is not external)
 name|sr
 operator|.
 name|incRef
