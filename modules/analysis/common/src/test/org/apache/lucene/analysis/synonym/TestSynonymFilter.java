@@ -3146,9 +3146,6 @@ operator|.
 name|append
 argument_list|(
 name|token
-operator|.
-name|term
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|offsetAtt

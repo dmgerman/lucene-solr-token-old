@@ -396,7 +396,7 @@ if|if
 condition|(
 name|token
 operator|.
-name|termLength
+name|length
 argument_list|()
 operator|<
 name|this
@@ -414,7 +414,7 @@ name|makeLowerCaseCopy
 argument_list|(
 name|token
 operator|.
-name|termBuffer
+name|buffer
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -429,7 +429,7 @@ name|i
 operator|<
 name|token
 operator|.
-name|termLength
+name|length
 argument_list|()
 operator|-
 name|this
@@ -474,7 +474,7 @@ name|j
 operator|>
 name|token
 operator|.
-name|termLength
+name|length
 argument_list|()
 condition|)
 block|{
@@ -512,7 +512,7 @@ if|if
 condition|(
 name|longestMatchToken
 operator|.
-name|termLength
+name|length
 argument_list|()
 operator|<
 name|j

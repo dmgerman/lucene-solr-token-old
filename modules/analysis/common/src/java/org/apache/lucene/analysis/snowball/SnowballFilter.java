@@ -93,7 +93,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_import
@@ -146,12 +146,12 @@ decl_stmt|;
 DECL|field|termAtt
 specifier|private
 specifier|final
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 init|=
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -298,7 +298,7 @@ index|[]
 init|=
 name|termAtt
 operator|.
-name|termBuffer
+name|buffer
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -307,7 +307,7 @@ name|length
 init|=
 name|termAtt
 operator|.
-name|termLength
+name|length
 argument_list|()
 decl_stmt|;
 name|stemmer
@@ -351,7 +351,7 @@ name|termBuffer
 condition|)
 name|termAtt
 operator|.
-name|setTermBuffer
+name|copyBuffer
 argument_list|(
 name|finalTerm
 argument_list|,
@@ -363,7 +363,7 @@ expr_stmt|;
 else|else
 name|termAtt
 operator|.
-name|setTermLength
+name|setLength
 argument_list|(
 name|newLength
 argument_list|)

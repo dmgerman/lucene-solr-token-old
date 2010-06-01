@@ -59,7 +59,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_import
@@ -142,7 +142,7 @@ name|termsToFind
 decl_stmt|;
 DECL|field|termAtt
 specifier|private
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 decl_stmt|;
 comment|/**    *     * @param query a Lucene query (ideally rewritten using query.rewrite before    *        being passed to this class and the searcher)    */
@@ -351,7 +351,7 @@ name|tokenStream
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -400,7 +400,7 @@ name|termText
 init|=
 name|termAtt
 operator|.
-name|term
+name|toString
 argument_list|()
 decl_stmt|;
 name|WeightedTerm

@@ -755,14 +755,14 @@ name|hyphenate
 argument_list|(
 name|token
 operator|.
-name|termBuffer
+name|buffer
 argument_list|()
 argument_list|,
 literal|0
 argument_list|,
 name|token
 operator|.
-name|termLength
+name|length
 argument_list|()
 argument_list|,
 literal|1
@@ -798,7 +798,7 @@ name|makeLowerCaseCopy
 argument_list|(
 name|token
 operator|.
-name|termBuffer
+name|buffer
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -931,7 +931,7 @@ if|if
 condition|(
 name|longestMatchToken
 operator|.
-name|termLength
+name|length
 argument_list|()
 operator|<
 name|partLength
@@ -1022,7 +1022,7 @@ if|if
 condition|(
 name|longestMatchToken
 operator|.
-name|termLength
+name|length
 argument_list|()
 operator|<
 name|partLength

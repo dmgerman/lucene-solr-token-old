@@ -303,9 +303,6 @@ operator|.
 name|append
 argument_list|(
 name|tok
-operator|.
-name|term
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|offsetAtt

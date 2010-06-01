@@ -3107,7 +3107,10 @@ argument_list|)
 decl_stmt|;
 name|token
 operator|.
-name|setTermBuffer
+name|setEmpty
+argument_list|()
+operator|.
+name|append
 argument_list|(
 name|fieldVal
 argument_list|)
@@ -3334,7 +3337,7 @@ name|get
 argument_list|(
 name|token
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3357,7 +3360,7 @@ name|put
 argument_list|(
 name|token
 operator|.
-name|term
+name|toString
 argument_list|()
 argument_list|,
 name|termDocumentInformationFactory

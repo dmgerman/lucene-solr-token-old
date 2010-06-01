@@ -54,7 +54,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|OffsetAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_import
@@ -69,7 +69,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|OffsetAttribute
 import|;
 end_import
 begin_comment
@@ -148,7 +148,7 @@ name|offsetAtt
 decl_stmt|;
 DECL|field|termAtt
 specifier|private
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 decl_stmt|;
 DECL|method|TokenGroup
@@ -176,7 +176,7 @@ name|tokenStream
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)
@@ -334,12 +334,12 @@ argument_list|)
 decl_stmt|;
 name|token
 operator|.
-name|setTermBuffer
+name|setEmpty
+argument_list|()
+operator|.
+name|append
 argument_list|(
 name|termAtt
-operator|.
-name|term
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|tokens

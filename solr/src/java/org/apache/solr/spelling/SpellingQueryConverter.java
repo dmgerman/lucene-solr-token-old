@@ -528,7 +528,7 @@ argument_list|()
 decl_stmt|;
 name|token
 operator|.
-name|setTermBuffer
+name|copyBuffer
 argument_list|(
 name|termAtt
 operator|.

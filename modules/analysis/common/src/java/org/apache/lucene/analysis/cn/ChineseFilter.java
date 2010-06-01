@@ -87,7 +87,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_import
@@ -212,8 +212,15 @@ name|stopTable
 decl_stmt|;
 DECL|field|termAtt
 specifier|private
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
+init|=
+name|addAttribute
+argument_list|(
+name|CharTermAttribute
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 DECL|method|ChineseFilter
 specifier|public
@@ -247,15 +254,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|termAtt
-operator|=
-name|addAttribute
-argument_list|(
-name|TermAttribute
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -281,7 +279,7 @@ index|[]
 init|=
 name|termAtt
 operator|.
-name|termBuffer
+name|buffer
 argument_list|()
 decl_stmt|;
 name|int
@@ -289,7 +287,7 @@ name|termLength
 init|=
 name|termAtt
 operator|.
-name|termLength
+name|length
 argument_list|()
 decl_stmt|;
 comment|// why not key off token type here assuming ChineseTokenizer comes first?

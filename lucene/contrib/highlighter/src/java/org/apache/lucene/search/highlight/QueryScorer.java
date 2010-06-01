@@ -99,7 +99,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|PositionIncrementAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_import
@@ -114,7 +114,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|PositionIncrementAttribute
 import|;
 end_import
 begin_import
@@ -240,7 +240,7 @@ name|defaultField
 decl_stmt|;
 DECL|field|termAtt
 specifier|private
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
 decl_stmt|;
 DECL|field|posIncAtt
@@ -598,7 +598,7 @@ name|termText
 init|=
 name|termAtt
 operator|.
-name|term
+name|toString
 argument_list|()
 decl_stmt|;
 name|WeightedSpanTerm
@@ -702,7 +702,7 @@ name|tokenStream
 operator|.
 name|addAttribute
 argument_list|(
-name|TermAttribute
+name|CharTermAttribute
 operator|.
 name|class
 argument_list|)

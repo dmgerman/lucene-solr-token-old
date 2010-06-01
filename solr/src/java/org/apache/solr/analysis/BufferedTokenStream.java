@@ -554,7 +554,7 @@ argument_list|()
 decl_stmt|;
 name|token
 operator|.
-name|setTermBuffer
+name|copyBuffer
 argument_list|(
 name|termAtt
 operator|.
@@ -650,14 +650,14 @@ name|copyBuffer
 argument_list|(
 name|token
 operator|.
-name|termBuffer
+name|buffer
 argument_list|()
 argument_list|,
 literal|0
 argument_list|,
 name|token
 operator|.
-name|termLength
+name|length
 argument_list|()
 argument_list|)
 expr_stmt|;

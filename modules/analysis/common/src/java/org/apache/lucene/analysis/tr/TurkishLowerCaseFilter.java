@@ -63,7 +63,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|TermAttribute
+name|CharTermAttribute
 import|;
 end_import
 begin_comment
@@ -117,8 +117,15 @@ decl_stmt|;
 DECL|field|termAtt
 specifier|private
 specifier|final
-name|TermAttribute
+name|CharTermAttribute
 name|termAtt
+init|=
+name|addAttribute
+argument_list|(
+name|CharTermAttribute
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 comment|/**    * Create a new TurkishLowerCaseFilter, that normalizes Turkish token text     * to lower case.    *     * @param in TokenStream to filter    */
 DECL|method|TurkishLowerCaseFilter
@@ -132,15 +139,6 @@ block|{
 name|super
 argument_list|(
 name|in
-argument_list|)
-expr_stmt|;
-name|termAtt
-operator|=
-name|addAttribute
-argument_list|(
-name|TermAttribute
-operator|.
-name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -175,7 +173,7 @@ name|buffer
 init|=
 name|termAtt
 operator|.
-name|termBuffer
+name|buffer
 argument_list|()
 decl_stmt|;
 name|int
@@ -183,7 +181,7 @@ name|length
 init|=
 name|termAtt
 operator|.
-name|termLength
+name|length
 argument_list|()
 decl_stmt|;
 for|for
@@ -332,7 +330,7 @@ expr_stmt|;
 block|}
 name|termAtt
 operator|.
-name|setTermLength
+name|setLength
 argument_list|(
 name|length
 argument_list|)
