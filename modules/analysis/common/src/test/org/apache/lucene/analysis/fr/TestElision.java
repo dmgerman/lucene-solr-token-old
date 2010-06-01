@@ -139,21 +139,6 @@ operator|.
 name|CharTermAttribute
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|tokenattributes
-operator|.
-name|TermAttribute
-import|;
-end_import
 begin_comment
 comment|/**  *   */
 end_comment
