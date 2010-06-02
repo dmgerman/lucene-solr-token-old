@@ -1322,6 +1322,11 @@ operator|new
 name|MockAnalyzer
 argument_list|()
 argument_list|)
+operator|.
+name|setReaderTermsIndexDivisor
+argument_list|(
+literal|2
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|writer
