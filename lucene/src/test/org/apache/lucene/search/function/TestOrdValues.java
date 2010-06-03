@@ -1104,7 +1104,7 @@ argument_list|)
 expr_stmt|;
 name|assertNotSame
 argument_list|(
-literal|"different values shuold be loaded for a different field!"
+literal|"different values should be loaded for a different field!"
 argument_list|,
 name|innerArray
 argument_list|,

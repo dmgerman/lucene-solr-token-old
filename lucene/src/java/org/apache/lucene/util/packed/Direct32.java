@@ -76,11 +76,11 @@ name|PackedInts
 operator|.
 name|Mutable
 block|{
-DECL|field|blocks
+DECL|field|values
 specifier|private
 name|int
 index|[]
-name|blocks
+name|values
 decl_stmt|;
 DECL|field|BITS_PER_VALUE
 specifier|private
@@ -106,7 +106,7 @@ argument_list|,
 name|BITS_PER_VALUE
 argument_list|)
 expr_stmt|;
-name|blocks
+name|values
 operator|=
 operator|new
 name|int
@@ -137,7 +137,7 @@ argument_list|)
 expr_stmt|;
 name|int
 index|[]
-name|blocks
+name|values
 init|=
 operator|new
 name|int
@@ -160,7 +160,7 @@ name|i
 operator|++
 control|)
 block|{
-name|blocks
+name|values
 index|[
 name|i
 index|]
@@ -194,24 +194,24 @@ expr_stmt|;
 block|}
 name|this
 operator|.
-name|blocks
+name|values
 operator|=
-name|blocks
+name|values
 expr_stmt|;
 block|}
-comment|/**    * Creates an array backed by the given blocks.    *</p><p>    * Note: The blocks are used directly, so changes to the given block will    * affect the structure.    * @param blocks   used as the internal backing array.    */
+comment|/**    * Creates an array backed by the given values.    *</p><p>    * Note: The values are used directly, so changes to the given values will    * affect the structure.    * @param values   used as the internal backing array.    */
 DECL|method|Direct32
 specifier|public
 name|Direct32
 parameter_list|(
 name|int
 index|[]
-name|blocks
+name|values
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|blocks
+name|values
 operator|.
 name|length
 argument_list|,
@@ -220,9 +220,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|blocks
+name|values
 operator|=
-name|blocks
+name|values
 expr_stmt|;
 block|}
 DECL|method|get
@@ -238,7 +238,7 @@ block|{
 return|return
 literal|0xFFFFFFFFL
 operator|&
-name|blocks
+name|values
 index|[
 name|index
 index|]
@@ -258,7 +258,7 @@ name|long
 name|value
 parameter_list|)
 block|{
-name|blocks
+name|values
 index|[
 name|index
 index|]
@@ -284,7 +284,7 @@ name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_ARRAY_HEADER
 operator|+
-name|blocks
+name|values
 operator|.
 name|length
 operator|*
@@ -303,7 +303,7 @@ name|Arrays
 operator|.
 name|fill
 argument_list|(
-name|blocks
+name|values
 argument_list|,
 literal|0
 argument_list|)

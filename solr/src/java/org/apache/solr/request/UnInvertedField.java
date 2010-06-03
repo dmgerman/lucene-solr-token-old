@@ -3293,7 +3293,7 @@ decl_stmt|;
 comment|//Initialize facetstats, if facets have been passed in
 name|FieldCache
 operator|.
-name|StringIndex
+name|DocTermsIndex
 name|si
 decl_stmt|;
 for|for
@@ -3325,7 +3325,7 @@ name|FieldCache
 operator|.
 name|DEFAULT
 operator|.
-name|getStringIndex
+name|getTermsIndex
 argument_list|(
 name|searcher
 operator|.

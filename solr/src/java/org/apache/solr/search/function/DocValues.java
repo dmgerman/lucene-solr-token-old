@@ -42,28 +42,6 @@ operator|.
 name|IndexReader
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|util
-operator|.
-name|NumberUtils
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
 begin_comment
 comment|/**  * Represents field values as different types.  * Normally created via a {@link ValueSource} for a particular field and reader.  *  * @version $Id$  */
 end_comment
@@ -182,6 +160,7 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+comment|// TODO: should we make a termVal, returns BytesRef?
 DECL|method|strVal
 specifier|public
 name|String
@@ -322,6 +301,7 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+comment|// TODO: should we make a termVal, fills BytesRef[]?
 DECL|method|strVal
 specifier|public
 name|void
