@@ -3313,7 +3313,12 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10
+literal|100
+operator|*
+name|_TestUtil
+operator|.
+name|getRandomMultiplier
+argument_list|()
 condition|;
 name|i
 operator|++

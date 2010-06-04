@@ -1697,7 +1697,7 @@ DECL|method|incRef
 name|void
 name|incRef
 parameter_list|(
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>
