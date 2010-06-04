@@ -4019,7 +4019,7 @@ operator|.
 name|maxDoc
 argument_list|()
 argument_list|,
-literal|false
+name|fasterButMoreRAM
 argument_list|)
 decl_stmt|;
 comment|// 0 is reserved for "unset"
