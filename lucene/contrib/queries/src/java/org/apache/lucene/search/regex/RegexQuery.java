@@ -126,6 +126,14 @@ name|Term
 name|term
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|term
+operator|.
+name|field
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|term
