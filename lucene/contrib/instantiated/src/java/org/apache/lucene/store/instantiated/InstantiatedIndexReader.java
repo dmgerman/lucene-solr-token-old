@@ -322,8 +322,6 @@ operator|new
 name|Bits
 argument_list|()
 block|{
-annotation|@
-name|Override
 specifier|public
 name|boolean
 name|get
@@ -366,8 +364,6 @@ argument_list|)
 operator|)
 return|;
 block|}
-annotation|@
-name|Override
 specifier|public
 name|int
 name|length
