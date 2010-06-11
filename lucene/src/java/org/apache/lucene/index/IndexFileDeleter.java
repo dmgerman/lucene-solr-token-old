@@ -374,6 +374,15 @@ name|infoStream
 operator|=
 name|infoStream
 expr_stmt|;
+specifier|final
+name|String
+name|currentSegmentsFile
+init|=
+name|segmentInfos
+operator|.
+name|getCurrentSegmentFileName
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|infoStream
@@ -384,10 +393,7 @@ name|message
 argument_list|(
 literal|"init: current segments file is \""
 operator|+
-name|segmentInfos
-operator|.
-name|getCurrentSegmentFileName
-argument_list|()
+name|currentSegmentsFile
 operator|+
 literal|"\"; deletionPolicy="
 operator|+
@@ -428,11 +434,6 @@ name|CommitPoint
 name|currentCommitPoint
 init|=
 literal|null
-decl_stmt|;
-name|boolean
-name|seenIndexFiles
-init|=
-literal|false
 decl_stmt|;
 name|String
 index|[]
@@ -506,10 +507,6 @@ name|SEGMENTS_GEN
 argument_list|)
 condition|)
 block|{
-name|seenIndexFiles
-operator|=
-literal|true
-expr_stmt|;
 comment|// Add this file to refCounts with initial count 0:
 name|getRefCount
 argument_list|(
@@ -673,16 +670,15 @@ block|}
 block|}
 block|}
 block|}
-comment|// If we haven't seen any Lucene files, then currentCommitPoint is expected
-comment|// to be null, because it means it's a fresh Directory. Therefore it cannot
-comment|// be any NFS cache issues - so just ignore.
 if|if
 condition|(
 name|currentCommitPoint
 operator|==
 literal|null
 operator|&&
-name|seenIndexFiles
+name|currentSegmentsFile
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// We did not in fact see the segments_N file
@@ -707,10 +703,7 @@ name|read
 argument_list|(
 name|directory
 argument_list|,
-name|segmentInfos
-operator|.
-name|getCurrentSegmentFileName
-argument_list|()
+name|currentSegmentsFile
 argument_list|,
 name|codecs
 argument_list|)
@@ -856,7 +849,9 @@ comment|// Finally, give policy a chance to remove things on
 comment|// startup:
 if|if
 condition|(
-name|seenIndexFiles
+name|currentSegmentsFile
+operator|!=
+literal|null
 condition|)
 block|{
 name|policy
