@@ -750,7 +750,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
 name|SegmentDocsEnum
 name|docsEnum
 decl_stmt|;
@@ -759,6 +758,26 @@ condition|(
 name|reuse
 operator|==
 literal|null
+condition|)
+block|{
+name|docsEnum
+operator|=
+operator|new
+name|SegmentDocsEnum
+argument_list|(
+name|freqIn
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+operator|(
+name|reuse
+operator|instanceof
+name|SegmentDocsEnum
+operator|)
 condition|)
 block|{
 name|docsEnum
@@ -779,6 +798,27 @@ name|SegmentDocsEnum
 operator|)
 name|reuse
 expr_stmt|;
+if|if
+condition|(
+name|docsEnum
+operator|.
+name|freqIn
+operator|!=
+name|freqIn
+condition|)
+block|{
+comment|// If you are using ParellelReader, and pass in a
+comment|// reused DocsEnum, it could have come from another
+comment|// reader also using standard codec
+name|docsEnum
+operator|=
+operator|new
+name|SegmentDocsEnum
+argument_list|(
+name|freqIn
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|docsEnum
