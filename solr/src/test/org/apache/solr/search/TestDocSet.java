@@ -682,9 +682,9 @@ literal|0
 init|;
 name|i
 operator|<
-name|bs
+name|set
 operator|.
-name|capacity
+name|size
 argument_list|()
 condition|;
 name|i
