@@ -253,11 +253,11 @@ DECL|field|currentField
 name|FieldInfo
 name|currentField
 decl_stmt|;
-DECL|field|indexWriter
+DECL|field|termsIndexWriter
 specifier|private
 specifier|final
 name|StandardTermsIndexWriter
-name|indexWriter
+name|termsIndexWriter
 decl_stmt|;
 DECL|field|fields
 specifier|private
@@ -289,7 +289,7 @@ specifier|public
 name|StandardTermsDictWriter
 parameter_list|(
 name|StandardTermsIndexWriter
-name|indexWriter
+name|termsIndexWriter
 parameter_list|,
 name|SegmentWriteState
 name|state
@@ -327,9 +327,9 @@ argument_list|)
 decl_stmt|;
 name|this
 operator|.
-name|indexWriter
+name|termsIndexWriter
 operator|=
-name|indexWriter
+name|termsIndexWriter
 expr_stmt|;
 name|this
 operator|.
@@ -348,7 +348,7 @@ argument_list|(
 name|termsFileName
 argument_list|)
 expr_stmt|;
-name|indexWriter
+name|termsIndexWriter
 operator|.
 name|setTermsOutput
 argument_list|(
@@ -455,7 +455,7 @@ operator|.
 name|FieldWriter
 name|fieldIndexWriter
 init|=
-name|indexWriter
+name|termsIndexWriter
 operator|.
 name|addField
 argument_list|(
@@ -623,7 +623,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|indexWriter
+name|termsIndexWriter
 operator|.
 name|close
 argument_list|()
