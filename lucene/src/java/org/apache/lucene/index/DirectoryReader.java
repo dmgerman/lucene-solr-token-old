@@ -413,6 +413,14 @@ name|hasDeletions
 init|=
 literal|false
 decl_stmt|;
+comment|// Max version in index as of when we opened; this can be
+comment|//> our current segmentInfos version in case we were
+comment|// opened on a past IndexCommit:
+DECL|field|maxIndexVersion
+specifier|private
+name|long
+name|maxIndexVersion
+decl_stmt|;
 comment|//  static IndexReader open(final Directory directory, final IndexDeletionPolicy deletionPolicy, final IndexCommit commit, final boolean readOnly,
 comment|//      final int termInfosIndexDivisor) throws CorruptIndexException, IOException {
 comment|//    return open(directory, deletionPolicy, commit, readOnly, termInfosIndexDivisor, null);
@@ -2019,6 +2027,24 @@ index|]
 operator|=
 name|maxDoc
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|readOnly
+condition|)
+block|{
+name|maxIndexVersion
+operator|=
+name|SegmentInfos
+operator|.
+name|readCurrentVersion
+argument_list|(
+name|directory
+argument_list|,
+name|codecs
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -3931,10 +3957,7 @@ argument_list|,
 name|codecs
 argument_list|)
 operator|>
-name|segmentInfos
-operator|.
-name|getVersion
-argument_list|()
+name|maxIndexVersion
 condition|)
 block|{
 name|stale
@@ -4056,6 +4079,16 @@ argument_list|,
 name|codecs
 argument_list|)
 decl_stmt|;
+name|segmentInfos
+operator|.
+name|updateGeneration
+argument_list|(
+name|deleter
+operator|.
+name|getLastSegmentInfos
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Checkpoint the state we are about to change, in
 comment|// case we have to roll back:
 name|startCommit
@@ -4159,6 +4192,13 @@ expr_stmt|;
 name|deleter
 operator|.
 name|close
+argument_list|()
+expr_stmt|;
+name|maxIndexVersion
+operator|=
+name|segmentInfos
+operator|.
+name|getVersion
 argument_list|()
 expr_stmt|;
 if|if
