@@ -744,6 +744,16 @@ argument_list|)
 operator|.
 name|scoreDocs
 expr_stmt|;
+comment|// just make sure no exc:
+name|searcher
+operator|.
+name|explain
+argument_list|(
+name|query3
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|3
@@ -1050,6 +1060,16 @@ argument_list|,
 name|hits
 operator|.
 name|length
+argument_list|)
+expr_stmt|;
+comment|// just make sure no exc:
+name|searcher
+operator|.
+name|explain
+argument_list|(
+name|q
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|searcher
@@ -1386,6 +1406,16 @@ literal|1
 argument_list|)
 operator|.
 name|totalHits
+argument_list|)
+expr_stmt|;
+comment|// just make sure no exc:
+name|searcher
+operator|.
+name|explain
+argument_list|(
+name|q
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|searcher
