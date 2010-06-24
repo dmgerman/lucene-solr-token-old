@@ -2095,6 +2095,11 @@ name|this
 operator|.
 name|reader
 operator|=
+name|lastReader
+index|[
+literal|0
+index|]
+operator|=
 name|reader
 expr_stmt|;
 name|this
