@@ -114,7 +114,7 @@ literal|"actual bigger than last (BytesRef)"
 argument_list|,
 name|BytesRef
 operator|.
-name|getUTF8SortedAsUTF16Comparator
+name|getUTF8SortedAsUnicodeComparator
 argument_list|()
 operator|.
 name|compare
@@ -245,7 +245,7 @@ literal|"actual bigger than last (BytesRef)"
 argument_list|,
 name|BytesRef
 operator|.
-name|getUTF8SortedAsUTF16Comparator
+name|getUTF8SortedAsUnicodeComparator
 argument_list|()
 operator|.
 name|compare
@@ -520,7 +520,7 @@ literal|"check sort order"
 argument_list|,
 name|BytesRef
 operator|.
-name|getUTF8SortedAsUTF16Comparator
+name|getUTF8SortedAsUnicodeComparator
 argument_list|()
 operator|.
 name|compare
@@ -862,7 +862,7 @@ literal|"check sort order"
 argument_list|,
 name|BytesRef
 operator|.
-name|getUTF8SortedAsUTF16Comparator
+name|getUTF8SortedAsUnicodeComparator
 argument_list|()
 operator|.
 name|compare

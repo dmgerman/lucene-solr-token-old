@@ -640,7 +640,7 @@ block|{
 return|return
 name|BytesRef
 operator|.
-name|getUTF8SortedAsUTF16Comparator
+name|getUTF8SortedAsUnicodeComparator
 argument_list|()
 return|;
 block|}

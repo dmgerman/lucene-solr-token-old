@@ -198,6 +198,10 @@ DECL|field|skipInterval
 name|int
 name|skipInterval
 decl_stmt|;
+DECL|field|newSuffixStart
+name|int
+name|newSuffixStart
+decl_stmt|;
 DECL|field|maxSkipLevels
 name|int
 name|maxSkipLevels
@@ -593,6 +597,12 @@ name|input
 argument_list|,
 name|fieldInfos
 argument_list|)
+expr_stmt|;
+name|newSuffixStart
+operator|=
+name|termBuffer
+operator|.
+name|newSuffixStart
 expr_stmt|;
 name|termInfo
 operator|.
