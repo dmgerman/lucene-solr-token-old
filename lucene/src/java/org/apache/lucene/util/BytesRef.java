@@ -1223,7 +1223,7 @@ else|else
 block|{
 name|bytes
 operator|=
-literal|null
+name|EMPTY_BYTES
 expr_stmt|;
 block|}
 block|}
