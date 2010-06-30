@@ -128,6 +128,21 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|QueryElevationParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -577,14 +592,6 @@ name|CONFIG_FILE
 init|=
 literal|"config-file"
 decl_stmt|;
-DECL|field|FORCE_ELEVATION
-specifier|static
-specifier|final
-name|String
-name|FORCE_ELEVATION
-init|=
-literal|"forceElevation"
-decl_stmt|;
 DECL|field|EXCLUDE
 specifier|static
 specifier|final
@@ -594,14 +601,6 @@ init|=
 literal|"exclude"
 decl_stmt|;
 comment|// Runtime param -- should be in common?
-DECL|field|ENABLE
-specifier|static
-specifier|final
-name|String
-name|ENABLE
-init|=
-literal|"enableElevation"
-decl_stmt|;
 DECL|field|initArgs
 specifier|private
 name|SolrParams
@@ -1097,6 +1096,8 @@ name|initArgs
 operator|.
 name|getBool
 argument_list|(
+name|QueryElevationParams
+operator|.
 name|FORCE_ELEVATION
 argument_list|,
 name|forceElevation
@@ -2113,6 +2114,8 @@ name|params
 operator|.
 name|getBool
 argument_list|(
+name|QueryElevationParams
+operator|.
 name|ENABLE
 argument_list|,
 literal|true
@@ -2121,6 +2124,20 @@ condition|)
 block|{
 return|return;
 block|}
+name|boolean
+name|exclusive
+init|=
+name|params
+operator|.
+name|getBool
+argument_list|(
+name|QueryElevationParams
+operator|.
+name|EXCLUSIVE
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 comment|// A runtime parameter can alter the config value for forceElevation
 name|boolean
 name|force
@@ -2129,6 +2146,8 @@ name|params
 operator|.
 name|getBool
 argument_list|(
+name|QueryElevationParams
+operator|.
 name|FORCE_ELEVATION
 argument_list|,
 name|forceElevation
@@ -2236,6 +2255,26 @@ literal|null
 condition|)
 block|{
 comment|// Change the query to insert forced documents
+if|if
+condition|(
+name|exclusive
+operator|==
+literal|true
+condition|)
+block|{
+comment|//we only want these results
+name|rb
+operator|.
+name|setQuery
+argument_list|(
+name|booster
+operator|.
+name|include
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|BooleanQuery
 name|newq
 init|=
@@ -2308,6 +2347,7 @@ argument_list|(
 name|newq
 argument_list|)
 expr_stmt|;
+block|}
 comment|// if the sort is 'score desc' use a custom sorting method to
 comment|// insert documents in their proper place
 name|SortSpec
