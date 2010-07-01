@@ -343,7 +343,7 @@ name|Collections
 import|;
 end_import
 begin_comment
-comment|/**  * A factory that parses user queries to generate ValueSource instances.  * Intented usage is to create pluggable, named functions for use in function queries.  */
+comment|/**  * A factory that parses user queries to generate ValueSource instances.  * Intended usage is to create pluggable, named functions for use in function queries.  */
 end_comment
 begin_class
 DECL|class|ValueSourceParser
