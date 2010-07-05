@@ -1342,9 +1342,6 @@ argument_list|,
 name|topTerm
 operator|.
 name|term
-operator|.
-name|utf8ToString
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -2657,9 +2654,6 @@ argument_list|,
 name|tt
 operator|.
 name|term
-operator|.
-name|utf8ToString
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|,
@@ -3700,9 +3694,6 @@ argument_list|,
 name|tt
 operator|.
 name|term
-operator|.
-name|utf8ToString
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

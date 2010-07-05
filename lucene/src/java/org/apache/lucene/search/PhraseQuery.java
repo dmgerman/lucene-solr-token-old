@@ -852,19 +852,6 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-specifier|final
-name|BytesRef
-name|text
-init|=
-operator|new
-name|BytesRef
-argument_list|(
-name|t
-operator|.
-name|text
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|DocsAndPositionsEnum
 name|postingsEnum
 init|=
@@ -881,7 +868,10 @@ operator|.
 name|field
 argument_list|()
 argument_list|,
-name|text
+name|t
+operator|.
+name|bytes
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// PhraseQuery on a field that did not index
@@ -908,7 +898,10 @@ operator|.
 name|field
 argument_list|()
 argument_list|,
-name|text
+name|t
+operator|.
+name|bytes
+argument_list|()
 argument_list|)
 operator|!=
 literal|null
@@ -964,7 +957,10 @@ operator|.
 name|field
 argument_list|()
 argument_list|,
-name|text
+name|t
+operator|.
+name|bytes
+argument_list|()
 argument_list|)
 argument_list|,
 name|positions

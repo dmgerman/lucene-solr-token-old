@@ -24,6 +24,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRef
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|LuceneTestCase
 import|;
 end_import
@@ -928,7 +941,7 @@ name|getField
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|String
+name|BytesRef
 index|[]
 name|terms
 init|=
@@ -954,6 +967,9 @@ name|terms
 index|[
 literal|0
 index|]
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -964,6 +980,9 @@ name|terms
 index|[
 literal|1
 index|]
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -974,6 +993,9 @@ name|terms
 index|[
 literal|2
 index|]
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -1237,7 +1259,7 @@ index|[
 literal|0
 index|]
 decl_stmt|;
-name|String
+name|BytesRef
 index|[]
 name|terms
 init|=
@@ -1384,7 +1406,7 @@ index|[
 literal|0
 index|]
 decl_stmt|;
-name|String
+name|BytesRef
 index|[]
 name|terms
 init|=
@@ -2015,7 +2037,7 @@ operator|!=
 literal|null
 argument_list|)
 expr_stmt|;
-name|String
+name|BytesRef
 index|[]
 name|vTerms
 init|=
@@ -2060,6 +2082,9 @@ name|vTerms
 index|[
 name|i
 index|]
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -2185,7 +2210,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|//System.out.println("Vector: " + vector);
-name|String
+name|BytesRef
 index|[]
 name|terms
 init|=
@@ -2240,6 +2265,9 @@ name|terms
 index|[
 name|i
 index|]
+operator|.
+name|utf8ToString
+argument_list|()
 decl_stmt|;
 comment|//System.out.println("Term: " + term);
 name|int
@@ -2400,6 +2428,9 @@ argument_list|(
 name|tve
 operator|.
 name|getTerm
+argument_list|()
+operator|.
+name|utf8ToString
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3239,7 +3270,7 @@ literal|"field"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|String
+name|BytesRef
 index|[]
 name|terms
 init|=
@@ -3263,6 +3294,9 @@ name|terms
 index|[
 literal|0
 index|]
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|,
 literal|"one"
 argument_list|)
@@ -3442,7 +3476,7 @@ specifier|public
 name|void
 name|map
 parameter_list|(
-name|String
+name|BytesRef
 name|term
 parameter_list|,
 name|int

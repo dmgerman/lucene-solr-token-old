@@ -50,6 +50,19 @@ operator|.
 name|Map
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
+import|;
+end_import
 begin_comment
 comment|/**  * For each Field, store position by position information.  It ignores frequency information  *<p/>  * This is not thread-safe.  */
 end_comment
@@ -148,7 +161,7 @@ specifier|public
 name|void
 name|map
 parameter_list|(
-name|String
+name|BytesRef
 name|term
 parameter_list|,
 name|int
@@ -384,7 +397,7 @@ DECL|field|terms
 specifier|private
 name|List
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|terms
 decl_stmt|;
@@ -418,7 +431,7 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -442,7 +455,7 @@ DECL|method|addTerm
 name|void
 name|addTerm
 parameter_list|(
-name|String
+name|BytesRef
 name|term
 parameter_list|,
 name|TermVectorOffsetInfo
@@ -483,12 +496,12 @@ return|return
 name|position
 return|;
 block|}
-comment|/**      * Note, there may be multiple terms at the same position      * @return A List of Strings      */
+comment|/**      * Note, there may be multiple terms at the same position      * @return A List of BytesRefs      */
 DECL|method|getTerms
 specifier|public
 name|List
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|getTerms
 parameter_list|()

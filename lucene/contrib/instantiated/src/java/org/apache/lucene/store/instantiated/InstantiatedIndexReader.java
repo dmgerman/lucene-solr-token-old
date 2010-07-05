@@ -2143,7 +2143,10 @@ operator|.
 name|getTerm
 argument_list|()
 operator|.
-name|text
+name|getTerm
+argument_list|()
+operator|.
+name|bytes
 argument_list|()
 argument_list|,
 name|tdi
@@ -2261,7 +2264,10 @@ operator|.
 name|getTerm
 argument_list|()
 operator|.
-name|text
+name|getTerm
+argument_list|()
+operator|.
+name|bytes
 argument_list|()
 argument_list|,
 name|tdi

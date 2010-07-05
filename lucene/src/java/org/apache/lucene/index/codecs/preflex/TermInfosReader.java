@@ -837,7 +837,7 @@ name|delta
 init|=
 name|term
 operator|.
-name|compareTo
+name|compareToUTF16
 argument_list|(
 name|indexTerms
 index|[
@@ -1091,7 +1091,7 @@ literal|null
 operator|&&
 name|term
 operator|.
-name|compareTo
+name|compareToUTF16
 argument_list|(
 name|enumerator
 operator|.
@@ -1104,7 +1104,7 @@ operator|)
 operator|||
 name|term
 operator|.
-name|compareTo
+name|compareToUTF16
 argument_list|(
 name|enumerator
 operator|.
@@ -1143,7 +1143,7 @@ comment|// but before end of block
 operator|||
 name|term
 operator|.
-name|compareTo
+name|compareToUTF16
 argument_list|(
 name|indexTerms
 index|[
@@ -1180,7 +1180,7 @@ literal|null
 operator|&&
 name|term
 operator|.
-name|compareTo
+name|compareToUTF16
 argument_list|(
 name|enumerator
 operator|.
@@ -1342,7 +1342,7 @@ literal|null
 operator|&&
 name|term
 operator|.
-name|compareTo
+name|compareToUTF16
 argument_list|(
 name|enumerator
 operator|.
@@ -1593,7 +1593,7 @@ while|while
 condition|(
 name|term
 operator|.
-name|compareTo
+name|compareToUTF16
 argument_list|(
 name|enumerator
 operator|.
@@ -1613,7 +1613,7 @@ if|if
 condition|(
 name|term
 operator|.
-name|compareTo
+name|compareToUTF16
 argument_list|(
 name|enumerator
 operator|.
