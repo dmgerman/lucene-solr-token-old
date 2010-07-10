@@ -248,9 +248,6 @@ block|{
 return|return
 name|DistanceUtils
 operator|.
-name|getInstance
-argument_list|()
-operator|.
 name|getDistanceMi
 argument_list|(
 name|centerLat
@@ -373,9 +370,6 @@ block|}
 comment|//all else fails calculate the distances
 return|return
 name|DistanceUtils
-operator|.
-name|getInstance
-argument_list|()
 operator|.
 name|getDistanceMi
 argument_list|(

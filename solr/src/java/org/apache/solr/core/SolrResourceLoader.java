@@ -379,6 +379,19 @@ operator|.
 name|SolrCoreAware
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|search
+operator|.
+name|QParserPlugin
+import|;
+end_import
 begin_comment
 comment|/**  * @since solr 1.3  */
 end_comment
@@ -2958,6 +2971,10 @@ operator|.
 name|class
 block|,
 name|TokenizerFactory
+operator|.
+name|class
+block|,
+name|QParserPlugin
 operator|.
 name|class
 block|,

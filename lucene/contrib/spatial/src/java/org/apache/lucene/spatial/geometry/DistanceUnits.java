@@ -123,9 +123,16 @@ operator|.
 name|getUnit
 argument_list|()
 operator|.
-name|equals
+name|equalsIgnoreCase
 argument_list|(
 name|unit
+argument_list|)
+operator|||
+name|unit
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+literal|"mi"
 argument_list|)
 condition|)
 block|{
@@ -140,7 +147,7 @@ operator|.
 name|getUnit
 argument_list|()
 operator|.
-name|equals
+name|equalsIgnoreCase
 argument_list|(
 name|unit
 argument_list|)

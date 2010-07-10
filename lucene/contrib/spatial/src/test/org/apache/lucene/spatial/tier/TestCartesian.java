@@ -1813,9 +1813,6 @@ name|distance
 init|=
 name|DistanceUtils
 operator|.
-name|getInstance
-argument_list|()
-operator|.
 name|getDistanceMi
 argument_list|(
 name|lat
@@ -1831,9 +1828,6 @@ name|double
 name|llm
 init|=
 name|DistanceUtils
-operator|.
-name|getInstance
-argument_list|()
 operator|.
 name|getLLMDistance
 argument_list|(
@@ -2422,9 +2416,6 @@ name|distance
 init|=
 name|DistanceUtils
 operator|.
-name|getInstance
-argument_list|()
-operator|.
 name|getDistanceMi
 argument_list|(
 name|lat
@@ -2440,9 +2431,6 @@ name|double
 name|llm
 init|=
 name|DistanceUtils
-operator|.
-name|getInstance
-argument_list|()
 operator|.
 name|getLLMDistance
 argument_list|(
@@ -3123,9 +3111,6 @@ name|distance
 init|=
 name|DistanceUtils
 operator|.
-name|getInstance
-argument_list|()
-operator|.
 name|getDistanceMi
 argument_list|(
 name|lat
@@ -3141,9 +3126,6 @@ name|double
 name|llm
 init|=
 name|DistanceUtils
-operator|.
-name|getInstance
-argument_list|()
 operator|.
 name|getLLMDistance
 argument_list|(
@@ -3750,9 +3732,6 @@ name|distance
 init|=
 name|DistanceUtils
 operator|.
-name|getInstance
-argument_list|()
-operator|.
 name|getDistanceMi
 argument_list|(
 name|lat
@@ -3768,9 +3747,6 @@ name|double
 name|llm
 init|=
 name|DistanceUtils
-operator|.
-name|getInstance
-argument_list|()
 operator|.
 name|getLLMDistance
 argument_list|(
