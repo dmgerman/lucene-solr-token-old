@@ -89,7 +89,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexWriter
+name|IndexReader
 import|;
 end_import
 begin_import
@@ -103,6 +103,19 @@ operator|.
 name|index
 operator|.
 name|IndexWriterConfig
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|RandomIndexWriter
 import|;
 end_import
 begin_import
@@ -141,7 +154,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**   * DateFilter JUnit tests.   *   *   * @version $Revision$   */
+comment|/**  * DateFilter JUnit tests.  *   *   * @version $Revision$  */
 end_comment
 begin_class
 DECL|class|TestDateFilter
@@ -165,10 +178,9 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      *      */
+comment|/**    *    */
 DECL|method|testBefore
 specifier|public
-specifier|static
 name|void
 name|testBefore
 parameter_list|()
@@ -183,12 +195,15 @@ operator|new
 name|RAMDirectory
 argument_list|()
 decl_stmt|;
-name|IndexWriter
+name|RandomIndexWriter
 name|writer
 init|=
 operator|new
-name|IndexWriter
+name|RandomIndexWriter
 argument_list|(
+name|newRandom
+argument_list|()
+argument_list|,
 name|indexStore
 argument_list|,
 operator|new
@@ -288,11 +303,14 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+name|IndexReader
+name|reader
+init|=
 name|writer
 operator|.
-name|optimize
+name|getReader
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|writer
 operator|.
 name|close
@@ -304,13 +322,11 @@ init|=
 operator|new
 name|IndexSearcher
 argument_list|(
-name|indexStore
-argument_list|,
-literal|true
+name|reader
 argument_list|)
 decl_stmt|;
 comment|// filter that should preserve matches
-comment|//DateFilter df1 = DateFilter.Before("datefield", now);
+comment|// DateFilter df1 = DateFilter.Before("datefield", now);
 name|TermRangeFilter
 name|df1
 init|=
@@ -353,7 +369,7 @@ literal|true
 argument_list|)
 decl_stmt|;
 comment|// filter that should discard matches
-comment|//DateFilter df2 = DateFilter.Before("datefield", now - 999999);
+comment|// DateFilter df2 = DateFilter.Before("datefield", now - 999999);
 name|TermRangeFilter
 name|df2
 init|=
@@ -577,11 +593,20 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
+name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|indexStore
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
-comment|/**      *      */
+comment|/**    *    */
 DECL|method|testAfter
 specifier|public
-specifier|static
 name|void
 name|testAfter
 parameter_list|()
@@ -596,12 +621,15 @@ operator|new
 name|RAMDirectory
 argument_list|()
 decl_stmt|;
-name|IndexWriter
+name|RandomIndexWriter
 name|writer
 init|=
 operator|new
-name|IndexWriter
+name|RandomIndexWriter
 argument_list|(
+name|newRandom
+argument_list|()
+argument_list|,
 name|indexStore
 argument_list|,
 operator|new
@@ -701,11 +729,14 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+name|IndexReader
+name|reader
+init|=
 name|writer
 operator|.
-name|optimize
+name|getReader
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|writer
 operator|.
 name|close
@@ -717,13 +748,11 @@ init|=
 operator|new
 name|IndexSearcher
 argument_list|(
-name|indexStore
-argument_list|,
-literal|true
+name|reader
 argument_list|)
 decl_stmt|;
 comment|// filter that should preserve matches
-comment|//DateFilter df1 = DateFilter.After("datefield", now);
+comment|// DateFilter df1 = DateFilter.After("datefield", now);
 name|TermRangeFilter
 name|df1
 init|=
@@ -766,7 +795,7 @@ literal|false
 argument_list|)
 decl_stmt|;
 comment|// filter that should discard matches
-comment|//DateFilter df2 = DateFilter.After("datefield", now + 999999);
+comment|// DateFilter df2 = DateFilter.After("datefield", now + 999999);
 name|TermRangeFilter
 name|df2
 init|=
@@ -991,6 +1020,16 @@ name|result
 operator|.
 name|length
 argument_list|)
+expr_stmt|;
+name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|indexStore
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
