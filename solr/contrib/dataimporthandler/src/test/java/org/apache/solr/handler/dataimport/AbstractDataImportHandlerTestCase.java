@@ -119,11 +119,11 @@ begin_comment
 comment|/**  *<p>  * Abstract base class for DataImportHandler tests  *</p>  *<p/>  *<b>This API is experimental and subject to change</b>  *  * @version $Id$  * @since solr 1.3  */
 end_comment
 begin_class
-DECL|class|AbstractDataImportHandlerTest
+DECL|class|AbstractDataImportHandlerTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 extends|extends
 name|AbstractSolrTestCase
 block|{

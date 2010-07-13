@@ -70,7 +70,7 @@ specifier|public
 class|class
 name|TestSqlEntityProcessorDelta
 extends|extends
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 block|{
 DECL|field|FULLIMPORT_QUERY
 specifier|private

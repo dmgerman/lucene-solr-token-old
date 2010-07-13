@@ -92,7 +92,7 @@ specifier|public
 class|class
 name|TestDataConfig
 extends|extends
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 block|{
 annotation|@
 name|Override

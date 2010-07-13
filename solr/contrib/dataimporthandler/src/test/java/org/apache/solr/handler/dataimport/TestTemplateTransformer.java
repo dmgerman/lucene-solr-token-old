@@ -20,6 +20,17 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|SolrTestCaseJ4
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -78,6 +89,8 @@ DECL|class|TestTemplateTransformer
 specifier|public
 class|class
 name|TestTemplateTransformer
+extends|extends
+name|SolrTestCaseJ4
 block|{
 annotation|@
 name|Test
@@ -103,7 +116,7 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -117,7 +130,7 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -131,7 +144,7 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -145,7 +158,7 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -165,7 +178,7 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -186,7 +199,7 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -225,7 +238,7 @@ decl_stmt|;
 name|Map
 name|row
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -270,7 +283,7 @@ name|String
 argument_list|>
 name|entityAttrs
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -282,7 +295,7 @@ decl_stmt|;
 name|Context
 name|context
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(

@@ -70,7 +70,7 @@ specifier|public
 class|class
 name|TestSqlEntityProcessor2
 extends|extends
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 block|{
 annotation|@
 name|Override

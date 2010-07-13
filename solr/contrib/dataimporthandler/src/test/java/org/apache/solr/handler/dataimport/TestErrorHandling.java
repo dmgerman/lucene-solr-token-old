@@ -79,7 +79,7 @@ specifier|public
 class|class
 name|TestErrorHandling
 extends|extends
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 block|{
 DECL|method|testMalformedStreamingXml
 specifier|public
