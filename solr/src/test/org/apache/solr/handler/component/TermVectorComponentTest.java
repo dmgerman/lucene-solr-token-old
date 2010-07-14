@@ -776,6 +776,10 @@ operator|!=
 literal|null
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -1738,6 +1742,10 @@ operator|!=
 literal|null
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
 name|System
 operator|.
 name|out
@@ -2329,6 +2337,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ignoreException
+argument_list|(
+literal|"undefined field: foo"
+argument_list|)
+expr_stmt|;
 name|SolrCore
 name|core
 init|=
@@ -2476,6 +2489,9 @@ name|assertNotNull
 argument_list|(
 name|exception
 argument_list|)
+expr_stmt|;
+name|resetExceptionIgnores
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
