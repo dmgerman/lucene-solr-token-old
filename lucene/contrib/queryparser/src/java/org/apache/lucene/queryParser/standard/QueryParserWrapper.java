@@ -1973,6 +1973,34 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+comment|/** @deprecated Use {@link #getFieldQuery(String, String, boolean)} instead */
+annotation|@
+name|Deprecated
+DECL|method|getFieldQuery
+specifier|protected
+name|Query
+name|getFieldQuery
+parameter_list|(
+name|String
+name|field
+parameter_list|,
+name|String
+name|queryText
+parameter_list|)
+throws|throws
+name|ParseException
+block|{
+return|return
+name|getFieldQuery
+argument_list|(
+name|field
+argument_list|,
+name|queryText
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
 comment|/**    * @exception ParseException throw in overridden method to disallow    */
 DECL|method|getFieldQuery
 specifier|protected
@@ -1984,6 +2012,9 @@ name|field
 parameter_list|,
 name|String
 name|queryText
+parameter_list|,
+name|boolean
+name|quoted
 parameter_list|)
 throws|throws
 name|ParseException

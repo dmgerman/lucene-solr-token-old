@@ -390,6 +390,19 @@ operator|.
 name|Version
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|VirtualMethod
+import|;
+end_import
 begin_comment
 comment|/** Token Manager. */
 end_comment
