@@ -22,11 +22,7 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|NamedList
+name|SolrTestCaseJ4
 import|;
 end_import
 begin_import
@@ -37,9 +33,22 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
 name|util
 operator|.
-name|AbstractSolrTestCase
+name|NamedList
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
 import|;
 end_import
 begin_comment
@@ -52,7 +61,7 @@ specifier|abstract
 class|class
 name|AnalysisRequestHandlerTestBase
 extends|extends
-name|AbstractSolrTestCase
+name|SolrTestCaseJ4
 block|{
 DECL|method|assertToken
 specifier|protected
