@@ -162,8 +162,6 @@ name|lucene
 operator|.
 name|spatial
 operator|.
-name|tier
-operator|.
 name|DistanceUtils
 import|;
 end_import
