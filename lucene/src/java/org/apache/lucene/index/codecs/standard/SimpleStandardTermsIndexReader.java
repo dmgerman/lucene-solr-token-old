@@ -639,6 +639,10 @@ argument_list|,
 name|SimpleStandardTermsIndexWriter
 operator|.
 name|VERSION_START
+argument_list|,
+name|SimpleStandardTermsIndexWriter
+operator|.
+name|VERSION_START
 argument_list|)
 expr_stmt|;
 name|dirOffset
