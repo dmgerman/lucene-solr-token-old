@@ -153,7 +153,7 @@ specifier|public
 name|int
 name|byteUpto
 init|=
-name|DocumentsWriter
+name|DocumentsWriterRAMAllocator
 operator|.
 name|BYTE_BLOCK_SIZE
 decl_stmt|;
@@ -171,7 +171,7 @@ name|int
 name|byteOffset
 init|=
 operator|-
-name|DocumentsWriter
+name|DocumentsWriterRAMAllocator
 operator|.
 name|BYTE_BLOCK_SIZE
 decl_stmt|;
@@ -389,7 +389,7 @@ literal|0
 expr_stmt|;
 name|byteOffset
 operator|+=
-name|DocumentsWriter
+name|DocumentsWriterRAMAllocator
 operator|.
 name|BYTE_BLOCK_SIZE
 expr_stmt|;
@@ -408,7 +408,7 @@ if|if
 condition|(
 name|byteUpto
 operator|>
-name|DocumentsWriter
+name|DocumentsWriterRAMAllocator
 operator|.
 name|BYTE_BLOCK_SIZE
 operator|-
@@ -563,7 +563,7 @@ if|if
 condition|(
 name|byteUpto
 operator|>
-name|DocumentsWriter
+name|DocumentsWriterRAMAllocator
 operator|.
 name|BYTE_BLOCK_SIZE
 operator|-
@@ -741,7 +741,7 @@ name|buffers
 index|[
 name|textStart
 operator|>>
-name|DocumentsWriter
+name|DocumentsWriterRAMAllocator
 operator|.
 name|BYTE_BLOCK_SHIFT
 index|]
@@ -751,7 +751,7 @@ name|pos
 init|=
 name|textStart
 operator|&
-name|DocumentsWriter
+name|DocumentsWriterRAMAllocator
 operator|.
 name|BYTE_BLOCK_MASK
 decl_stmt|;

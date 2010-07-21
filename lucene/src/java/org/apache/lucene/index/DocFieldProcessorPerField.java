@@ -77,8 +77,8 @@ specifier|public
 name|DocFieldProcessorPerField
 parameter_list|(
 specifier|final
-name|DocFieldProcessorPerThread
-name|perThread
+name|DocFieldProcessor
+name|docFieldProcessor
 parameter_list|,
 specifier|final
 name|FieldInfo
@@ -89,7 +89,7 @@ name|this
 operator|.
 name|consumer
 operator|=
-name|perThread
+name|docFieldProcessor
 operator|.
 name|consumer
 operator|.

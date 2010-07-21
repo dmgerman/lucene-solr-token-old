@@ -136,7 +136,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|DocumentsWriter
+name|DocumentsWriterRAMAllocator
 operator|.
 name|BYTE_BLOCK_SIZE
 index|]
