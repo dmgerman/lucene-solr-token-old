@@ -218,9 +218,6 @@ argument_list|(
 name|field
 argument_list|,
 name|text
-operator|.
-name|utf8ToString
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|int
@@ -282,7 +279,7 @@ operator|.
 name|getTerm
 argument_list|()
 operator|.
-name|text
+name|bytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -640,7 +637,7 @@ block|{
 return|return
 name|BytesRef
 operator|.
-name|getUTF8SortedAsUTF16Comparator
+name|getUTF8SortedAsUnicodeComparator
 argument_list|()
 return|;
 block|}

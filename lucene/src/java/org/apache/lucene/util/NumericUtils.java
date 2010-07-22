@@ -1215,6 +1215,20 @@ operator|&
 operator|~
 name|mask
 decl_stmt|;
+specifier|final
+name|boolean
+name|lowerWrapped
+init|=
+name|nextMinBound
+argument_list|<
+name|minBound
+argument_list|,
+name|upperWrapped
+operator|=
+name|nextMaxBound
+argument_list|>
+name|maxBound
+decl_stmt|;
 if|if
 condition|(
 name|shift
@@ -1226,6 +1240,10 @@ operator|||
 name|nextMinBound
 operator|>
 name|nextMaxBound
+operator|||
+name|lowerWrapped
+operator|||
+name|upperWrapped
 condition|)
 block|{
 comment|// We are in the lowest precision or the next precision is not available.

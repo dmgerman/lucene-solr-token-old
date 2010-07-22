@@ -18,6 +18,19 @@ package|;
 end_package
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|DistanceUtils
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -248,9 +261,6 @@ block|{
 return|return
 name|DistanceUtils
 operator|.
-name|getInstance
-argument_list|()
-operator|.
 name|getDistanceMi
 argument_list|(
 name|centerLat
@@ -373,9 +383,6 @@ block|}
 comment|//all else fails calculate the distances
 return|return
 name|DistanceUtils
-operator|.
-name|getInstance
-argument_list|()
 operator|.
 name|getDistanceMi
 argument_list|(

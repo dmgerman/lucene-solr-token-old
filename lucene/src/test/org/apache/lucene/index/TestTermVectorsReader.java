@@ -188,6 +188,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRef
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|LuceneTestCase
 import|;
 end_import
@@ -1157,7 +1170,7 @@ operator|!=
 literal|null
 argument_list|)
 expr_stmt|;
-name|String
+name|BytesRef
 index|[]
 name|terms
 init|=
@@ -1208,6 +1221,9 @@ name|terms
 index|[
 name|i
 index|]
+operator|.
+name|utf8ToString
+argument_list|()
 decl_stmt|;
 comment|//System.out.println("Term: " + term);
 name|assertTrue
@@ -1250,7 +1266,7 @@ decl_stmt|;
 name|TermPositionVector
 name|vector
 decl_stmt|;
-name|String
+name|BytesRef
 index|[]
 name|terms
 decl_stmt|;
@@ -1327,6 +1343,9 @@ name|terms
 index|[
 name|i
 index|]
+operator|.
+name|utf8ToString
+argument_list|()
 decl_stmt|;
 comment|//System.out.println("Term: " + term);
 name|assertTrue
@@ -1575,6 +1594,9 @@ name|terms
 index|[
 name|i
 index|]
+operator|.
+name|utf8ToString
+argument_list|()
 decl_stmt|;
 comment|//System.out.println("Term: " + term);
 name|assertTrue
@@ -1638,7 +1660,7 @@ operator|!=
 literal|null
 argument_list|)
 expr_stmt|;
-name|String
+name|BytesRef
 index|[]
 name|terms
 init|=
@@ -1689,6 +1711,9 @@ name|terms
 index|[
 name|i
 index|]
+operator|.
+name|utf8ToString
+argument_list|()
 decl_stmt|;
 comment|//System.out.println("Term: " + term);
 name|assertTrue
@@ -2945,7 +2970,7 @@ specifier|public
 name|void
 name|map
 parameter_list|(
-name|String
+name|BytesRef
 name|term
 parameter_list|,
 name|int

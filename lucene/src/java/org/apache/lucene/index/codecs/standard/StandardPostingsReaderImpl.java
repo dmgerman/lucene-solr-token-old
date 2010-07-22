@@ -403,6 +403,10 @@ argument_list|,
 name|StandardPostingsWriterImpl
 operator|.
 name|VERSION_START
+argument_list|,
+name|StandardPostingsWriterImpl
+operator|.
+name|VERSION_START
 argument_list|)
 expr_stmt|;
 name|skipInterval
@@ -750,7 +754,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
 name|SegmentDocsEnum
 name|docsEnum
 decl_stmt|;
@@ -759,6 +762,13 @@ condition|(
 name|reuse
 operator|==
 literal|null
+operator|||
+operator|!
+operator|(
+name|reuse
+operator|instanceof
+name|SegmentDocsEnum
+operator|)
 condition|)
 block|{
 name|docsEnum
@@ -779,6 +789,27 @@ name|SegmentDocsEnum
 operator|)
 name|reuse
 expr_stmt|;
+if|if
+condition|(
+name|docsEnum
+operator|.
+name|startFreqIn
+operator|!=
+name|freqIn
+condition|)
+block|{
+comment|// If you are using ParellelReader, and pass in a
+comment|// reused DocsEnum, it could have come from another
+comment|// reader also using standard codec
+name|docsEnum
+operator|=
+operator|new
+name|SegmentDocsEnum
+argument_list|(
+name|freqIn
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|docsEnum
@@ -829,7 +860,6 @@ return|return
 literal|null
 return|;
 block|}
-specifier|final
 name|SegmentDocsAndPositionsEnum
 name|docsEnum
 decl_stmt|;
@@ -838,6 +868,13 @@ condition|(
 name|reuse
 operator|==
 literal|null
+operator|||
+operator|!
+operator|(
+name|reuse
+operator|instanceof
+name|SegmentDocsAndPositionsEnum
+operator|)
 condition|)
 block|{
 name|docsEnum
@@ -860,6 +897,29 @@ name|SegmentDocsAndPositionsEnum
 operator|)
 name|reuse
 expr_stmt|;
+if|if
+condition|(
+name|docsEnum
+operator|.
+name|startFreqIn
+operator|!=
+name|freqIn
+condition|)
+block|{
+comment|// If you are using ParellelReader, and pass in a
+comment|// reused DocsEnum, it could have come from another
+comment|// reader also using standard codec
+name|docsEnum
+operator|=
+operator|new
+name|SegmentDocsAndPositionsEnum
+argument_list|(
+name|freqIn
+argument_list|,
+name|proxIn
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|docsEnum
@@ -889,6 +949,11 @@ DECL|field|freqIn
 specifier|final
 name|IndexInput
 name|freqIn
+decl_stmt|;
+DECL|field|startFreqIn
+specifier|final
+name|IndexInput
+name|startFreqIn
 decl_stmt|;
 DECL|field|omitTF
 name|boolean
@@ -950,6 +1015,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|startFreqIn
+operator|=
+name|freqIn
+expr_stmt|;
 name|this
 operator|.
 name|freqIn
@@ -1497,6 +1566,11 @@ name|SegmentDocsAndPositionsEnum
 extends|extends
 name|DocsAndPositionsEnum
 block|{
+DECL|field|startFreqIn
+specifier|final
+name|IndexInput
+name|startFreqIn
+decl_stmt|;
 DECL|field|freqIn
 specifier|private
 specifier|final
@@ -1597,6 +1671,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|startFreqIn
+operator|=
+name|freqIn
+expr_stmt|;
 name|this
 operator|.
 name|freqIn

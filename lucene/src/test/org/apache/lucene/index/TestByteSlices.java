@@ -277,7 +277,12 @@ specifier|final
 name|int
 name|NUM_STREAM
 init|=
-literal|25
+literal|100
+operator|*
+name|_TestUtil
+operator|.
+name|getRandomMultiplier
+argument_list|()
 decl_stmt|;
 name|ByteSliceWriter
 name|writer
@@ -538,6 +543,17 @@ name|j
 operator|)
 argument_list|)
 expr_stmt|;
+comment|// write some large (incl. negative) ints:
+name|writer
+operator|.
+name|writeVInt
+argument_list|(
+name|r
+operator|.
+name|nextInt
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|writeVInt
@@ -550,7 +566,6 @@ operator|+
 name|j
 argument_list|)
 expr_stmt|;
-comment|//writer.writeVInt(ti);
 block|}
 name|counters
 index|[
@@ -632,6 +647,14 @@ index|[
 name|stream
 index|]
 operator|!=
+operator|-
+literal|1
+operator|&&
+name|starts
+index|[
+name|stream
+index|]
+operator|!=
 name|uptos
 index|[
 name|stream
@@ -672,6 +695,12 @@ condition|;
 name|j
 operator|++
 control|)
+block|{
+name|reader
+operator|.
+name|readVInt
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|j
@@ -682,7 +711,7 @@ name|readVInt
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//assertEquals(ti, reader.readVInt());
+block|}
 block|}
 block|}
 name|pool

@@ -58,7 +58,7 @@ specifier|public
 class|class
 name|TestThreaded
 extends|extends
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 block|{
 annotation|@
 name|Test

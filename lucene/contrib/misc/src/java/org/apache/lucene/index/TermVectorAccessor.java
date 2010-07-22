@@ -190,7 +190,7 @@ DECL|field|tokens
 specifier|private
 name|List
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 name|tokens
 decl_stmt|;
@@ -246,7 +246,7 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<
-name|String
+name|BytesRef
 argument_list|>
 argument_list|(
 literal|500
@@ -444,10 +444,11 @@ name|tokens
 operator|.
 name|add
 argument_list|(
+operator|new
+name|BytesRef
+argument_list|(
 name|text
-operator|.
-name|utf8ToString
-argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -711,7 +712,7 @@ specifier|public
 name|void
 name|map
 parameter_list|(
-name|String
+name|BytesRef
 name|term
 parameter_list|,
 name|int

@@ -28,9 +28,20 @@ name|handler
 operator|.
 name|dataimport
 operator|.
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|SolrTestCaseJ4
 import|;
 end_import
 begin_import
@@ -133,6 +144,8 @@ DECL|class|TestXPathEntityProcessor
 specifier|public
 class|class
 name|TestXPathEntityProcessor
+extends|extends
+name|SolrTestCaseJ4
 block|{
 DECL|field|simulateSlowReader
 name|boolean
@@ -282,7 +295,7 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
@@ -508,7 +521,7 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
@@ -690,7 +703,7 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
@@ -898,7 +911,7 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
@@ -1436,7 +1449,7 @@ decl_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(

@@ -121,6 +121,10 @@ argument_list|,
 name|SimpleIntBlockIndexOutput
 operator|.
 name|VERSION_START
+argument_list|,
+name|SimpleIntBlockIndexOutput
+operator|.
+name|VERSION_START
 argument_list|)
 expr_stmt|;
 name|init

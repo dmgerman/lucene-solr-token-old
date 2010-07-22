@@ -61,7 +61,7 @@ name|WeightedPhraseInfo
 import|;
 end_import
 begin_comment
-comment|/**  * A simple implementation of FragListBuilder.  */
+comment|/**  * A simple implementation of {@link FragListBuilder}.  */
 end_comment
 begin_class
 DECL|class|SimpleFragListBuilder

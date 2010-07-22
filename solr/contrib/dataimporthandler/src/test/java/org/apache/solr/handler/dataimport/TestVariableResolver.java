@@ -42,6 +42,17 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|SolrTestCaseJ4
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|util
 operator|.
 name|DateMathParser
@@ -73,6 +84,8 @@ DECL|class|TestVariableResolver
 specifier|public
 class|class
 name|TestVariableResolver
+extends|extends
+name|SolrTestCaseJ4
 block|{
 annotation|@
 name|Test

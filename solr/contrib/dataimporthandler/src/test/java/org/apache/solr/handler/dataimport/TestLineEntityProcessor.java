@@ -20,6 +20,17 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|SolrTestCaseJ4
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -78,6 +89,8 @@ DECL|class|TestLineEntityProcessor
 specifier|public
 class|class
 name|TestLineEntityProcessor
+extends|extends
+name|SolrTestCaseJ4
 block|{
 annotation|@
 name|Test
@@ -94,7 +107,7 @@ comment|/* we want to create the equiv of :-      *<entity name="list_all_files"
 name|Map
 name|attrs
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -120,7 +133,7 @@ decl_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
@@ -276,7 +289,7 @@ comment|/* we want to create the equiv of :-      *<entity name="list_all_files"
 name|Map
 name|attrs
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -302,7 +315,7 @@ decl_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
@@ -431,7 +444,7 @@ comment|/* we want to create the equiv of :-      *<entity name="list_all_files"
 name|Map
 name|attrs
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -457,7 +470,7 @@ decl_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
@@ -586,7 +599,7 @@ comment|/* we want to create the equiv of :-      *<entity name="list_all_files"
 name|Map
 name|attrs
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -606,7 +619,7 @@ decl_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(

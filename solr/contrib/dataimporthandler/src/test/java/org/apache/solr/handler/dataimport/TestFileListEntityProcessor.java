@@ -20,6 +20,17 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|SolrTestCaseJ4
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -78,6 +89,8 @@ DECL|class|TestFileListEntityProcessor
 specifier|public
 class|class
 name|TestFileListEntityProcessor
+extends|extends
+name|SolrTestCaseJ4
 block|{
 annotation|@
 name|Test
@@ -168,7 +181,7 @@ expr_stmt|;
 name|Map
 name|attrs
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -191,7 +204,7 @@ decl_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
@@ -473,7 +486,7 @@ block|}
 name|Map
 name|attrs
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -592,7 +605,7 @@ argument_list|)
 expr_stmt|;
 name|attrs
 operator|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -673,7 +686,7 @@ argument_list|)
 expr_stmt|;
 name|attrs
 operator|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -712,7 +725,7 @@ name|addNamespace
 argument_list|(
 literal|"a"
 argument_list|,
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -771,7 +784,7 @@ block|{
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
@@ -950,7 +963,7 @@ expr_stmt|;
 name|Map
 name|attrs
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -1003,7 +1016,7 @@ argument_list|)
 expr_stmt|;
 name|attrs
 operator|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -1053,7 +1066,7 @@ expr_stmt|;
 comment|// Use a variable for newerThan
 name|attrs
 operator|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -1116,7 +1129,7 @@ name|addNamespace
 argument_list|(
 literal|"a"
 argument_list|,
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(
@@ -1292,7 +1305,7 @@ expr_stmt|;
 name|Map
 name|attrs
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createMap
 argument_list|(

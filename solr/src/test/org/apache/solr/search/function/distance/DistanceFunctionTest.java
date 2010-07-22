@@ -28,6 +28,19 @@ name|lucene
 operator|.
 name|spatial
 operator|.
+name|DistanceUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
 name|geohash
 operator|.
 name|GeoHashUtils
@@ -499,9 +512,9 @@ literal|"q"
 argument_list|,
 literal|"{!func}ghhsin("
 operator|+
-name|Constants
+name|DistanceUtils
 operator|.
-name|EARTH_RADIUS_KM
+name|EARTH_MEAN_RADIUS_KM
 operator|+
 literal|", gh_s, \""
 operator|+
@@ -522,7 +535,7 @@ argument_list|,
 literal|"id:1"
 argument_list|)
 argument_list|,
-literal|"//float[@name='score']='122.309006'"
+literal|"//float[@name='score']='122.171875'"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -537,9 +550,9 @@ literal|"q"
 argument_list|,
 literal|"{!func}recip(ghhsin("
 operator|+
-name|Constants
+name|DistanceUtils
 operator|.
-name|EARTH_RADIUS_KM
+name|EARTH_MEAN_RADIUS_KM
 operator|+
 literal|", point_hash, \""
 operator|+
@@ -576,9 +589,9 @@ literal|"q"
 argument_list|,
 literal|"{!func}ghhsin("
 operator|+
-name|Constants
+name|DistanceUtils
 operator|.
-name|EARTH_RADIUS_KM
+name|EARTH_MEAN_RADIUS_KM
 operator|+
 literal|", gh_s, geohash(32, -79))"
 argument_list|,
@@ -587,7 +600,7 @@ argument_list|,
 literal|"id:1"
 argument_list|)
 argument_list|,
-literal|"//float[@name='score']='122.309006'"
+literal|"//float[@name='score']='122.171875'"
 argument_list|)
 expr_stmt|;
 block|}

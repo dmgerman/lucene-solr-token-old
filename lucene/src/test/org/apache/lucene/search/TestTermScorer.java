@@ -116,7 +116,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexWriter
+name|IndexWriterConfig
 import|;
 end_import
 begin_import
@@ -129,7 +129,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexWriterConfig
+name|RandomIndexWriter
 import|;
 end_import
 begin_import
@@ -248,12 +248,15 @@ operator|new
 name|RAMDirectory
 argument_list|()
 expr_stmt|;
-name|IndexWriter
+name|RandomIndexWriter
 name|writer
 init|=
 operator|new
-name|IndexWriter
+name|RandomIndexWriter
 argument_list|(
+name|newRandom
+argument_list|()
+argument_list|,
 name|directory
 argument_list|,
 operator|new
@@ -327,6 +330,13 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
+name|indexReader
+operator|=
+name|writer
+operator|.
+name|getReader
+argument_list|()
+expr_stmt|;
 name|writer
 operator|.
 name|close
@@ -337,16 +347,33 @@ operator|=
 operator|new
 name|IndexSearcher
 argument_list|(
-name|directory
-argument_list|,
-literal|false
+name|indexReader
 argument_list|)
 expr_stmt|;
-name|indexReader
-operator|=
+block|}
+annotation|@
+name|Override
+DECL|method|tearDown
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|indexSearcher
 operator|.
-name|getIndexReader
+name|close
+argument_list|()
+expr_stmt|;
+name|indexReader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|directory
+operator|.
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -405,7 +432,8 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|//we have 2 documents with the term all in them, one document for all the other values
+comment|// we have 2 documents with the term all in them, one document for all the
+comment|// other values
 specifier|final
 name|List
 argument_list|<
@@ -420,7 +448,7 @@ name|TestHit
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|//must call next first
+comment|// must call next first
 name|ts
 operator|.
 name|score
@@ -601,7 +629,7 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-comment|//The scores should be the same
+comment|// The scores should be the same
 name|assertTrue
 argument_list|(
 name|doc0
@@ -623,7 +651,7 @@ operator|.
 name|score
 argument_list|)
 expr_stmt|;
-comment|/*         Score should be (based on Default Sim.:         All floats are approximate         tf = 1         numDocs = 6         docFreq(all) = 2         idf = ln(6/3) + 1 = 1.693147         idf ^ 2 = 2.8667         boost = 1         lengthNorm = 1 //there is 1 term in every document         coord = 1         sumOfSquaredWeights = (idf * boost) ^ 2 = 1.693147 ^ 2 = 2.8667         queryNorm = 1 / (sumOfSquaredWeights)^0.5 = 1 /(1.693147) = 0.590           score = 1 * 2.8667 * 1 * 1 * 0.590 = 1.69          */
+comment|/*      * Score should be (based on Default Sim.: All floats are approximate tf = 1      * numDocs = 6 docFreq(all) = 2 idf = ln(6/3) + 1 = 1.693147 idf ^ 2 =      * 2.8667 boost = 1 lengthNorm = 1 //there is 1 term in every document coord      * = 1 sumOfSquaredWeights = (idf * boost) ^ 2 = 1.693147 ^ 2 = 2.8667      * queryNorm = 1 / (sumOfSquaredWeights)^0.5 = 1 /(1.693147) = 0.590      *       * score = 1 * 2.8667 * 1 * 1 * 0.590 = 1.69      */
 name|assertTrue
 argument_list|(
 name|doc0
@@ -835,7 +863,7 @@ operator|.
 name|NO_MORE_DOCS
 argument_list|)
 expr_stmt|;
-comment|//The next doc should be doc 5
+comment|// The next doc should be doc 5
 name|assertTrue
 argument_list|(
 literal|"doc should be number 5"

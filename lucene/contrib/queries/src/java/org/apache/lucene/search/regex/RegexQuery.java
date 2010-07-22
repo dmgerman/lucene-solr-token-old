@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilteredTermEnum
+name|FilteredTermsEnum
 import|;
 end_import
 begin_import
@@ -181,10 +181,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getEnum
+DECL|method|getTermsEnum
 specifier|protected
-name|FilteredTermEnum
-name|getEnum
+name|FilteredTermsEnum
+name|getTermsEnum
 parameter_list|(
 name|IndexReader
 name|reader
@@ -194,7 +194,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|RegexTermEnum
+name|RegexTermsEnum
 argument_list|(
 name|reader
 argument_list|,

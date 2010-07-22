@@ -1040,6 +1040,8 @@ name|finishDoc
 parameter_list|()
 block|{
 assert|assert
+name|omitTF
+operator|||
 name|currentDoc
 operator|.
 name|numPositions

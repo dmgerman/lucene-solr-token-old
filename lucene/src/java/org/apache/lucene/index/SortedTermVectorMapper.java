@@ -23,6 +23,19 @@ operator|.
 name|*
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
+import|;
+end_import
 begin_comment
 comment|/**  * Store a sorted collection of {@link org.apache.lucene.index.TermVectorEntry}s.  Collects all term information  * into a single, SortedSet.  *<br/>  * NOTE: This Mapper ignores all Field information for the Document.  This means that if you are using offset/positions you will not  * know what Fields they correlate with.  *<br/>  * This is not thread-safe    */
 end_comment
@@ -46,7 +59,7 @@ DECL|field|termToTVE
 specifier|private
 name|Map
 argument_list|<
-name|String
+name|BytesRef
 argument_list|,
 name|TermVectorEntry
 argument_list|>
@@ -55,7 +68,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|String
+name|BytesRef
 argument_list|,
 name|TermVectorEntry
 argument_list|>
@@ -148,7 +161,7 @@ specifier|public
 name|void
 name|map
 parameter_list|(
-name|String
+name|BytesRef
 name|term
 parameter_list|,
 name|int

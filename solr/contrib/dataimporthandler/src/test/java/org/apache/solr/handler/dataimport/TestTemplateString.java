@@ -20,6 +20,17 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|SolrTestCaseJ4
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -80,6 +91,8 @@ DECL|class|TestTemplateString
 specifier|public
 class|class
 name|TestTemplateString
+extends|extends
+name|SolrTestCaseJ4
 block|{
 annotation|@
 name|Test

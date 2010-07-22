@@ -293,7 +293,7 @@ name|LoggerFactory
 import|;
 end_import
 begin_comment
-comment|/**  * StreamingHttpSolrServer buffers all added documents and writes them  * into open HTTP connections. This class is thread safe.  *   * Although any SolrServer request can be made with this implementation,   * it is only recommended to use the {@link StreamingUpdateSolrServer} with  * /update requests.  The query interface is better suited for   *   * @version $Id: CommonsHttpSolrServer.java 724175 2008-12-07 19:07:11Z ryan $  * @since solr 1.4  */
+comment|/**  * {@link StreamingUpdateSolrServer} buffers all added documents and writes them  * into open HTTP connections. This class is thread safe.  *   * Although any SolrServer request can be made with this implementation,   * it is only recommended to use the {@link StreamingUpdateSolrServer} with  * /update requests.  The query interface is better suited for   *   * @version $Id: CommonsHttpSolrServer.java 724175 2008-12-07 19:07:11Z ryan $  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|StreamingUpdateSolrServer
@@ -492,6 +492,8 @@ decl_stmt|;
 try|try
 block|{
 do|do
+block|{
+try|try
 block|{
 name|RequestEntity
 name|request
@@ -883,6 +885,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+finally|finally
+block|{
+try|try
+block|{
+comment|// make sure to release the connection
+if|if
+condition|(
+name|method
+operator|!=
+literal|null
+condition|)
+name|method
+operator|.
+name|releaseConnection
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{}
+block|}
+block|}
 do|while
 condition|(
 operator|!
@@ -907,27 +934,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-try|try
-block|{
-comment|// make sure to release the connection
-if|if
-condition|(
-name|method
-operator|!=
-literal|null
-condition|)
-name|method
-operator|.
-name|releaseConnection
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|ex
-parameter_list|)
-block|{}
 comment|// remove it from the list of running things...
 synchronized|synchronized
 init|(

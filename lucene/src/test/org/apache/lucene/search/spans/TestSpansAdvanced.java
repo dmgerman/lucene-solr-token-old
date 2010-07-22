@@ -27,6 +27,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -113,7 +122,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexWriter
+name|IndexReader
 import|;
 end_import
 begin_import
@@ -127,6 +136,19 @@ operator|.
 name|index
 operator|.
 name|IndexWriterConfig
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|RandomIndexWriter
 import|;
 end_import
 begin_import
@@ -182,7 +204,7 @@ name|RAMDirectory
 import|;
 end_import
 begin_comment
-comment|/*******************************************************************************  * Tests the span query bug in Lucene. It demonstrates that SpanTermQuerys don't  * work correctly in a BooleanQuery.  *  */
+comment|/*******************************************************************************  * Tests the span query bug in Lucene. It demonstrates that SpanTermQuerys don't  * work correctly in a BooleanQuery.  *   */
 end_comment
 begin_class
 DECL|class|TestSpansAdvanced
@@ -198,10 +220,20 @@ specifier|protected
 name|Directory
 name|mDirectory
 decl_stmt|;
+DECL|field|reader
+specifier|protected
+name|IndexReader
+name|reader
+decl_stmt|;
 DECL|field|searcher
 specifier|protected
 name|IndexSearcher
 name|searcher
+decl_stmt|;
+DECL|field|random
+specifier|protected
+name|Random
+name|random
 decl_stmt|;
 comment|// field names in the index
 DECL|field|FIELD_ID
@@ -222,7 +254,7 @@ name|FIELD_TEXT
 init|=
 literal|"TEXT"
 decl_stmt|;
-comment|/**      * Initializes the tests by adding 4 identical documents to the index.      */
+comment|/**    * Initializes the tests by adding 4 identical documents to the index.    */
 annotation|@
 name|Override
 DECL|method|setUp
@@ -238,6 +270,11 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+name|random
+operator|=
+name|newRandom
+argument_list|()
+expr_stmt|;
 comment|// create test index
 name|mDirectory
 operator|=
@@ -246,12 +283,14 @@ name|RAMDirectory
 argument_list|()
 expr_stmt|;
 specifier|final
-name|IndexWriter
+name|RandomIndexWriter
 name|writer
 init|=
 operator|new
-name|IndexWriter
+name|RandomIndexWriter
 argument_list|(
+name|random
+argument_list|,
 name|mDirectory
 argument_list|,
 operator|new
@@ -313,6 +352,13 @@ argument_list|,
 literal|"I think it should work."
 argument_list|)
 expr_stmt|;
+name|reader
+operator|=
+name|writer
+operator|.
+name|getReader
+argument_list|()
+expr_stmt|;
 name|writer
 operator|.
 name|close
@@ -323,9 +369,7 @@ operator|=
 operator|new
 name|IndexSearcher
 argument_list|(
-name|mDirectory
-argument_list|,
-literal|true
+name|reader
 argument_list|)
 expr_stmt|;
 block|}
@@ -340,6 +384,11 @@ throws|throws
 name|Exception
 block|{
 name|searcher
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|reader
 operator|.
 name|close
 argument_list|()
@@ -359,14 +408,14 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Adds the document to the index.      *      * @param writer the Lucene index writer      * @param id the unique id of the document      * @param text the text of the document      * @throws IOException      */
+comment|/**    * Adds the document to the index.    *     * @param writer the Lucene index writer    * @param id the unique id of the document    * @param text the text of the document    * @throws IOException    */
 DECL|method|addDocument
 specifier|protected
 name|void
 name|addDocument
 parameter_list|(
 specifier|final
-name|IndexWriter
+name|RandomIndexWriter
 name|writer
 parameter_list|,
 specifier|final
@@ -446,7 +495,7 @@ name|document
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Tests two span queries.      *      * @throws IOException      */
+comment|/**    * Tests two span queries.    *     * @throws IOException    */
 DECL|method|testBooleanQueryWithSpanQueries
 specifier|public
 name|void
@@ -463,7 +512,7 @@ literal|0.3884282f
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Tests two span queries.      *      * @throws IOException      */
+comment|/**    * Tests two span queries.    *     * @throws IOException    */
 DECL|method|doTestBooleanQueryWithSpanQueries
 specifier|protected
 name|void
@@ -579,7 +628,7 @@ name|expectedScores
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Checks to see if the hits are what we expected.      *      * @param query the query to execute      * @param description the description of the search      * @param expectedIds the expected document ids of the hits      * @param expectedScores the expected scores of the hits      *      * @throws IOException      */
+comment|/**    * Checks to see if the hits are what we expected.    *     * @param query the query to execute    * @param description the description of the search    * @param expectedIds the expected document ids of the hits    * @param expectedScores the expected scores of the hits    *     * @throws IOException    */
 DECL|method|assertHits
 specifier|protected
 specifier|static
@@ -640,7 +689,7 @@ argument_list|,
 literal|10000
 argument_list|)
 decl_stmt|;
-comment|/*****         // display the hits         System.out.println(hits.length() + " hits for search: \"" + description + '\"');         for (int i = 0; i< hits.length(); i++) {             System.out.println("  " + FIELD_ID + ':' + hits.doc(i).get(FIELD_ID) + " (score:" + hits.score(i) + ')');         }         *****/
+comment|/*****      * // display the hits System.out.println(hits.length() +      * " hits for search: \"" + description + '\"'); for (int i = 0; i<      * hits.length(); i++) { System.out.println("  " + FIELD_ID + ':' +      * hits.doc(i).get(FIELD_ID) + " (score:" + hits.score(i) + ')'); }      *****/
 comment|// did we get the hits we expected
 name|assertEquals
 argument_list|(
@@ -670,8 +719,8 @@ name|i
 operator|++
 control|)
 block|{
-comment|//System.out.println(i + " exp: " + expectedIds[i]);
-comment|//System.out.println(i + " field: " + hits.doc(i).get(FIELD_ID));
+comment|// System.out.println(i + " exp: " + expectedIds[i]);
+comment|// System.out.println(i + " field: " + hits.doc(i).get(FIELD_ID));
 name|int
 name|id
 init|=

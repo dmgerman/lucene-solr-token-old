@@ -123,6 +123,10 @@ argument_list|,
 name|SingleIntIndexOutput
 operator|.
 name|VERSION_START
+argument_list|,
+name|SingleIntIndexOutput
+operator|.
+name|VERSION_START
 argument_list|)
 expr_stmt|;
 block|}

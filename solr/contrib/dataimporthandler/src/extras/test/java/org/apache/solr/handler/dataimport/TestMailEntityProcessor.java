@@ -33,6 +33,17 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|SolrTestCaseJ4
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|common
 operator|.
 name|SolrInputDocument
@@ -130,6 +141,8 @@ DECL|class|TestMailEntityProcessor
 specifier|public
 class|class
 name|TestMailEntityProcessor
+extends|extends
+name|SolrTestCaseJ4
 block|{
 comment|// Credentials
 DECL|field|user

@@ -287,7 +287,7 @@ return|return
 name|timeElapsed
 return|;
 block|}
-comment|/** Returns last doc that was collected when the search time exceeded. */
+comment|/** Returns last doc (absolute doc id) that was collected when the search time exceeded. */
 DECL|method|getLastDocCollected
 specifier|public
 name|int
@@ -338,6 +338,11 @@ specifier|private
 specifier|final
 name|Collector
 name|collector
+decl_stmt|;
+DECL|field|docBase
+specifier|private
+name|int
+name|docBase
 decl_stmt|;
 comment|/**    * Create a TimeLimitedCollector wrapper over another {@link Collector} with a specified timeout.    * @param collector the wrapped {@link Collector}    * @param timeAllowed max time allowed for collecting hits after which {@link TimeExceededException} is thrown    */
 DECL|method|TimeLimitingCollector
@@ -474,7 +479,7 @@ condition|(
 name|greedy
 condition|)
 block|{
-comment|//System.out.println(this+"  greedy: before failing, collecting doc: "+doc+"  "+(time-t0));
+comment|//System.out.println(this+"  greedy: before failing, collecting doc: "+(docBase + doc)+"  "+(time-t0));
 name|collector
 operator|.
 name|collect
@@ -483,7 +488,7 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-comment|//System.out.println(this+"  failing on:  "+doc+"  "+(time-t0));
+comment|//System.out.println(this+"  failing on:  "+(docBase + doc)+"  "+(time-t0));
 throw|throw
 operator|new
 name|TimeExceededException
@@ -496,11 +501,13 @@ name|time
 operator|-
 name|t0
 argument_list|,
+name|docBase
+operator|+
 name|doc
 argument_list|)
 throw|;
 block|}
-comment|//System.out.println(this+"  collecting: "+doc+"  "+(time-t0));
+comment|//System.out.println(this+"  collecting: "+(docBase + doc)+"  "+(time-t0));
 name|collector
 operator|.
 name|collect
@@ -533,6 +540,12 @@ name|reader
 argument_list|,
 name|base
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|docBase
+operator|=
+name|base
 expr_stmt|;
 block|}
 annotation|@

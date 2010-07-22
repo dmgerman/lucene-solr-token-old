@@ -90,6 +90,19 @@ operator|.
 name|DocIdSet
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|DistanceUtils
+import|;
+end_import
 begin_comment
 comment|/**  *<p><font color="red"><b>NOTE:</b> This API is still in  * flux and might change in incompatible ways in the next  * release.</font>  */
 end_comment
@@ -340,9 +353,6 @@ block|{
 name|d
 operator|=
 name|DistanceUtils
-operator|.
-name|getInstance
-argument_list|()
 operator|.
 name|getDistanceMi
 argument_list|(

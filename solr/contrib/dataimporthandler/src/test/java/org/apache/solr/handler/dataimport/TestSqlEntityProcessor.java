@@ -20,6 +20,17 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|SolrTestCaseJ4
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -51,6 +62,8 @@ DECL|class|TestSqlEntityProcessor
 specifier|public
 class|class
 name|TestSqlEntityProcessor
+extends|extends
+name|SolrTestCaseJ4
 block|{
 DECL|field|local
 specifier|private
@@ -135,7 +148,7 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
@@ -296,7 +309,7 @@ name|sep
 operator|.
 name|init
 argument_list|(
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
@@ -497,7 +510,7 @@ name|sep
 operator|.
 name|init
 argument_list|(
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
@@ -698,7 +711,7 @@ name|sep
 operator|.
 name|init
 argument_list|(
-name|AbstractDataImportHandlerTest
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|getContext
 argument_list|(
