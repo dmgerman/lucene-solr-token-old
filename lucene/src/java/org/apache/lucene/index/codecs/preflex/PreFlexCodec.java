@@ -148,6 +148,7 @@ name|Codec
 block|{
 comment|/** Extension of terms file */
 DECL|field|TERMS_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -157,6 +158,7 @@ literal|"tis"
 decl_stmt|;
 comment|/** Extension of terms index file */
 DECL|field|TERMS_INDEX_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -166,6 +168,7 @@ literal|"tii"
 decl_stmt|;
 comment|/** Extension of freq postings file */
 DECL|field|FREQ_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -175,6 +178,7 @@ literal|"frq"
 decl_stmt|;
 comment|/** Extension of prox postings file */
 DECL|field|PROX_EXTENSION
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -249,6 +253,8 @@ argument_list|,
 name|state
 operator|.
 name|termsIndexDivisor
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

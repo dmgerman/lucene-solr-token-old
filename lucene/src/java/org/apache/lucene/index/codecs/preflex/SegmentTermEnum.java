@@ -592,6 +592,7 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+comment|//System.out.println("  ste doSeek prev=" + prevBuffer.toTerm() + " this=" + this);
 name|termInfo
 operator|.
 name|set
@@ -610,6 +611,14 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|prevBuffer
+operator|.
+name|set
+argument_list|(
+name|termBuffer
+argument_list|)
+expr_stmt|;
+comment|//System.out.println("  ste setPrev=" + prev() + " this=" + this);
 if|if
 condition|(
 name|position
@@ -620,29 +629,16 @@ operator|-
 literal|1
 condition|)
 block|{
-name|prevBuffer
-operator|.
-name|set
-argument_list|(
-name|termBuffer
-argument_list|)
-expr_stmt|;
 name|termBuffer
 operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+comment|//System.out.println("    EOF");
 return|return
 literal|false
 return|;
 block|}
-name|prevBuffer
-operator|.
-name|set
-argument_list|(
-name|termBuffer
-argument_list|)
-expr_stmt|;
 name|termBuffer
 operator|.
 name|read
@@ -757,6 +753,7 @@ name|readVLong
 argument_list|()
 expr_stmt|;
 comment|// read index pointer
+comment|//System.out.println("  ste ret term=" + term());
 return|return
 literal|true
 return|;
