@@ -65,18 +65,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Close doc stores */
-DECL|method|closeDocStore
-specifier|abstract
-name|void
-name|closeDocStore
-parameter_list|(
-name|SegmentWriteState
-name|state
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 DECL|method|addField
 specifier|abstract
 name|InvertedDocConsumerPerField
@@ -99,9 +87,7 @@ name|IOException
 function_decl|;
 DECL|method|finishDocument
 specifier|abstract
-name|DocumentsWriterPerThread
-operator|.
-name|DocWriter
+name|void
 name|finishDocument
 parameter_list|()
 throws|throws

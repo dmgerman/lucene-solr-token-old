@@ -556,12 +556,12 @@ name|ie
 argument_list|)
 throw|;
 block|}
+name|pauseAllThreads
+argument_list|()
+expr_stmt|;
 name|globalLock
 operator|=
 literal|true
-expr_stmt|;
-name|pauseAllThreads
-argument_list|()
 expr_stmt|;
 block|}
 finally|finally
