@@ -574,9 +574,7 @@ name|register
 argument_list|(
 operator|new
 name|PreFlexRWCodec
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -672,9 +670,7 @@ name|unregister
 argument_list|(
 operator|new
 name|PreFlexRWCodec
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|CodecProvider
