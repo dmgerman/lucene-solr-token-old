@@ -330,6 +330,11 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|setAutoGeneratePhraseQueries
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|checkAllowLeadingWildcards
 argument_list|()
 expr_stmt|;
@@ -435,6 +440,11 @@ literal|false
 argument_list|)
 expr_stmt|;
 name|setEnablePositionIncrements
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|setAutoGeneratePhraseQueries
 argument_list|(
 literal|true
 argument_list|)
