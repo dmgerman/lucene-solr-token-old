@@ -347,7 +347,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-comment|// nocommit seed
 name|random
 operator|=
 name|newRandom

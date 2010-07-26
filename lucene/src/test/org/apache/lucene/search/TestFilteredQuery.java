@@ -199,7 +199,6 @@ operator|new
 name|RAMDirectory
 argument_list|()
 expr_stmt|;
-comment|// nocommit seed
 name|RandomIndexWriter
 name|writer
 init|=

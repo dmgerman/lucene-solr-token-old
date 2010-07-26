@@ -271,7 +271,6 @@ literal|"code.name is null"
 argument_list|)
 throw|;
 block|}
-comment|// nocommit
 if|if
 condition|(
 operator|!
@@ -282,15 +281,6 @@ argument_list|(
 name|codec
 operator|.
 name|name
-argument_list|)
-operator|||
-name|codec
-operator|.
-name|name
-operator|.
-name|equals
-argument_list|(
-literal|"PreFlex"
 argument_list|)
 condition|)
 block|{
@@ -370,7 +360,6 @@ literal|"code.name is null"
 argument_list|)
 throw|;
 block|}
-comment|// nocommit
 if|if
 condition|(
 name|codecs
@@ -398,18 +387,10 @@ decl_stmt|;
 if|if
 condition|(
 name|codec
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|isAssignableFrom
-argument_list|(
+operator|==
 name|c
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
 condition|)
+block|{
 name|codecs
 operator|.
 name|remove
@@ -419,7 +400,9 @@ operator|.
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -433,6 +416,7 @@ operator|+
 literal|"' is being impersonated by a different codec instance!!!"
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 DECL|method|getAllExtensions
@@ -641,9 +625,6 @@ name|getDefaultCodec
 argument_list|()
 argument_list|)
 return|;
-comment|//return lookup("Pulsing");
-comment|//return lookup("Sep");
-comment|//return lookup("IntBlock");
 block|}
 block|}
 end_class
