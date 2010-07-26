@@ -584,6 +584,36 @@ operator|.
 name|term
 argument_list|()
 expr_stmt|;
+assert|assert
+name|indexTerms
+index|[
+name|i
+index|]
+operator|!=
+literal|null
+assert|;
+assert|assert
+name|indexTerms
+index|[
+name|i
+index|]
+operator|.
+name|text
+argument_list|()
+operator|!=
+literal|null
+assert|;
+assert|assert
+name|indexTerms
+index|[
+name|i
+index|]
+operator|.
+name|field
+argument_list|()
+operator|!=
+literal|null
+assert|;
 name|indexInfos
 index|[
 name|i
@@ -707,7 +737,6 @@ name|maxSkipLevels
 return|;
 block|}
 DECL|method|close
-specifier|final
 name|void
 name|close
 parameter_list|()
@@ -733,7 +762,6 @@ expr_stmt|;
 block|}
 comment|/** Returns the number of term/value pairs in the set. */
 DECL|method|size
-specifier|final
 name|long
 name|size
 parameter_list|()
@@ -791,7 +819,6 @@ block|}
 comment|/** Returns the offset of the greatest index entry which is less than or equal to term.*/
 DECL|method|getIndexOffset
 specifier|private
-specifier|final
 name|int
 name|getIndexOffset
 parameter_list|(
@@ -832,6 +859,24 @@ operator|)
 operator|>>>
 literal|1
 decl_stmt|;
+assert|assert
+name|indexTerms
+index|[
+name|mid
+index|]
+operator|!=
+literal|null
+operator|:
+literal|"indexTerms = "
+operator|+
+name|indexTerms
+operator|.
+name|length
+operator|+
+literal|" mid="
+operator|+
+name|mid
+assert|;
 name|int
 name|delta
 init|=
@@ -881,7 +926,6 @@ return|;
 block|}
 DECL|method|seekEnum
 specifier|private
-specifier|final
 name|void
 name|seekEnum
 parameter_list|(
@@ -1069,6 +1113,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|size
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|// optimize sequential access: first try scanning cached enum w/o seeking
 if|if
 condition|(
@@ -1432,7 +1487,6 @@ block|}
 comment|// called only from asserts
 DECL|method|sameTermInfo
 specifier|private
-specifier|final
 name|boolean
 name|sameTermInfo
 parameter_list|(
@@ -1543,7 +1597,6 @@ block|}
 block|}
 comment|/** Returns the position of a Term in the set or -1. */
 DECL|method|getPosition
-specifier|final
 name|long
 name|getPosition
 parameter_list|(

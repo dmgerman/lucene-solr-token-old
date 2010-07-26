@@ -64,6 +64,15 @@ operator|.
 name|IOException
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
 begin_comment
 comment|/** Abstract API that consumes terms, doc, freq, prox and  *  payloads postings.  Concrete implementations of this  *  actually do "something" with the postings (write it into  *  the index in a specific format).  *  * @lucene.experimental  */
 end_comment
@@ -73,6 +82,8 @@ specifier|public
 specifier|abstract
 class|class
 name|FieldsConsumer
+implements|implements
+name|Closeable
 block|{
 comment|/** Add a new field */
 DECL|method|addField

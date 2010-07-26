@@ -382,7 +382,7 @@ name|dir
 argument_list|)
 decl_stmt|;
 name|IndexReader
-name|r
+name|reader
 init|=
 name|dw
 operator|.
@@ -402,12 +402,14 @@ name|verifyEquals
 argument_list|(
 name|r
 argument_list|,
+name|reader
+argument_list|,
 name|dir
 argument_list|,
 literal|"id"
 argument_list|)
 expr_stmt|;
-name|r
+name|reader
 operator|.
 name|close
 argument_list|()
@@ -1584,6 +1586,9 @@ specifier|static
 name|void
 name|verifyEquals
 parameter_list|(
+name|Random
+name|r
+parameter_list|,
 name|IndexReader
 name|r1
 parameter_list|,
@@ -1604,8 +1609,6 @@ operator|.
 name|open
 argument_list|(
 name|dir2
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|verifyEquals
