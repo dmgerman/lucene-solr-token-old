@@ -197,6 +197,13 @@ init|=
 name|newRandom
 argument_list|()
 decl_stmt|;
+name|int
+name|num
+init|=
+literal|10000
+operator|*
+name|RANDOM_MULTIPLIER
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -206,12 +213,7 @@ literal|0
 init|;
 name|iter
 operator|<
-literal|10000
-operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
+name|num
 condition|;
 name|iter
 operator|++

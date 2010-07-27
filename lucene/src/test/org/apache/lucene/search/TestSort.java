@@ -359,19 +359,6 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|_TestUtil
-import|;
-end_import
 begin_comment
 comment|/**  * Unit tests for sorting code.  *  *<p>Created: Feb 17, 2004 4:55:10 PM  *  * @since   lucene 1.4  */
 end_comment
@@ -394,10 +381,7 @@ name|NUM_STRINGS
 init|=
 literal|6000
 operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
+name|RANDOM_MULTIPLIER
 decl_stmt|;
 DECL|field|full
 specifier|private

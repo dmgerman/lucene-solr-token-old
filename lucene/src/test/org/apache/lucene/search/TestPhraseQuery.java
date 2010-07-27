@@ -4233,10 +4233,7 @@ name|NUM_DOCS
 init|=
 literal|10
 operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
+name|RANDOM_MULTIPLIER
 decl_stmt|;
 for|for
 control|(
@@ -4563,6 +4560,13 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// now search
+name|int
+name|num
+init|=
+literal|100
+operator|*
+name|RANDOM_MULTIPLIER
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -4572,12 +4576,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
-operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
+name|num
 condition|;
 name|i
 operator|++

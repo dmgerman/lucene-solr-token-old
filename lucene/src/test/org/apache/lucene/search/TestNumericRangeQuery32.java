@@ -196,19 +196,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|_TestUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -284,10 +271,7 @@ name|noDocs
 init|=
 literal|10000
 operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
+name|RANDOM_MULTIPLIER
 decl_stmt|;
 DECL|field|directory
 specifier|private
@@ -2719,6 +2703,13 @@ name|termCountC
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|num
+init|=
+literal|10
+operator|*
+name|RANDOM_MULTIPLIER
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -2728,12 +2719,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10
-operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
+name|num
 condition|;
 name|i
 operator|++
@@ -3399,6 +3385,13 @@ operator|+
 name|precisionStep
 decl_stmt|;
 comment|// 10 random tests
+name|int
+name|num
+init|=
+literal|10
+operator|*
+name|RANDOM_MULTIPLIER
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -3408,12 +3401,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10
-operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
+name|num
 condition|;
 name|i
 operator|++
@@ -3942,6 +3930,13 @@ name|precisionStep
 decl_stmt|;
 comment|// 10 random tests, the index order is ascending,
 comment|// so using a reverse sort field should retun descending documents
+name|int
+name|num
+init|=
+literal|10
+operator|*
+name|RANDOM_MULTIPLIER
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -3951,12 +3946,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10
-operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
+name|num
 condition|;
 name|i
 operator|++

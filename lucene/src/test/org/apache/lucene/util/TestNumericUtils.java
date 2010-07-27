@@ -2177,10 +2177,7 @@ name|num
 init|=
 literal|100L
 operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
+name|RANDOM_MULTIPLIER
 decl_stmt|;
 for|for
 control|(
@@ -2227,9 +2224,6 @@ decl_stmt|;
 name|long
 name|len
 init|=
-operator|(
-name|long
-operator|)
 name|random
 operator|.
 name|nextInt

@@ -35,19 +35,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
-operator|.
-name|_TestUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|document
 operator|.
 name|Document
@@ -2660,6 +2647,13 @@ block|}
 block|}
 decl_stmt|;
 comment|// increase number of iterations for more complete testing
+name|int
+name|num
+init|=
+literal|50
+operator|*
+name|RANDOM_MULTIPLIER
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -2669,12 +2663,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|50
-operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
+name|num
 condition|;
 name|i
 operator|++

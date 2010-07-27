@@ -194,21 +194,8 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|_TestUtil
-import|;
-end_import
 begin_comment
-comment|/**  * Unit test for sorting code.  *   */
+comment|/** Unit test for sorting code. */
 end_comment
 begin_class
 DECL|class|TestCustomSearcherSort
@@ -249,10 +236,7 @@ name|INDEX_SIZE
 init|=
 literal|2000
 operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
+name|RANDOM_MULTIPLIER
 decl_stmt|;
 comment|/**    * Create index and query for test cases.    */
 annotation|@
