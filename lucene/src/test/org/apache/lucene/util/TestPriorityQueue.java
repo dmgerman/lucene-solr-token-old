@@ -108,10 +108,7 @@ name|testPQ
 argument_list|(
 literal|10000
 operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
+name|RANDOM_MULTIPLIER
 argument_list|,
 name|newRandom
 argument_list|()

@@ -122,6 +122,10 @@ argument_list|(
 literal|1024
 argument_list|)
 decl_stmt|;
+name|num
+operator|*=
+name|RANDOM_MULTIPLIER
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -132,11 +136,6 @@ init|;
 name|i
 operator|<
 name|num
-operator|*
-name|_TestUtil
-operator|.
-name|getRandomMultiplier
-argument_list|()
 condition|;
 name|i
 operator|++
