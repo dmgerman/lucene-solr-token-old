@@ -270,11 +270,16 @@ block|{
 name|reset
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|consumer
 operator|.
 name|abort
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 if|if
 condition|(
 name|nextTermsHash
@@ -287,6 +292,7 @@ operator|.
 name|abort
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Clear all state
