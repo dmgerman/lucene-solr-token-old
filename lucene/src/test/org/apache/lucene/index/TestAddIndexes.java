@@ -309,25 +309,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// use one without a compound file
-operator|(
-operator|(
-name|LogMergePolicy
-operator|)
-name|writer
-operator|.
-name|getConfig
-argument_list|()
-operator|.
-name|getMergePolicy
-argument_list|()
-operator|)
-operator|.
-name|setUseCompoundDocStore
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// use one without a compound file
 comment|// add 40 documents in separate files
 name|addDocs
 argument_list|(
@@ -1773,25 +1754,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// use one without a compound file
-operator|(
-operator|(
-name|LogMergePolicy
-operator|)
-name|writer
-operator|.
-name|getConfig
-argument_list|()
-operator|.
-name|getMergePolicy
-argument_list|()
-operator|)
-operator|.
-name|setUseCompoundDocStore
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// use one without a compound file
 comment|// add 140 documents in separate files
 name|addDocs
 argument_list|(
@@ -1848,25 +1810,6 @@ argument_list|()
 operator|)
 operator|.
 name|setUseCompoundFile
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// use one without a compound file
-operator|(
-operator|(
-name|LogMergePolicy
-operator|)
-name|writer
-operator|.
-name|getConfig
-argument_list|()
-operator|.
-name|getMergePolicy
-argument_list|()
-operator|)
-operator|.
-name|setUseCompoundDocStore
 argument_list|(
 literal|false
 argument_list|)
@@ -3310,25 +3253,6 @@ name|getMergePolicy
 argument_list|()
 operator|)
 operator|.
-name|setUseCompoundDocStore
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// use one without a compound file
-operator|(
-operator|(
-name|LogMergePolicy
-operator|)
-name|writer
-operator|.
-name|getConfig
-argument_list|()
-operator|.
-name|getMergePolicy
-argument_list|()
-operator|)
-operator|.
 name|setMergeFactor
 argument_list|(
 literal|10
@@ -3423,25 +3347,6 @@ name|getMergePolicy
 argument_list|()
 operator|)
 operator|.
-name|setUseCompoundDocStore
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// use one without a compound file
-operator|(
-operator|(
-name|LogMergePolicy
-operator|)
-name|writer
-operator|.
-name|getConfig
-argument_list|()
-operator|.
-name|getMergePolicy
-argument_list|()
-operator|)
-operator|.
 name|setMergeFactor
 argument_list|(
 literal|10
@@ -3500,13 +3405,6 @@ decl_stmt|;
 name|lmp
 operator|.
 name|setUseCompoundFile
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|lmp
-operator|.
-name|setUseCompoundDocStore
 argument_list|(
 literal|false
 argument_list|)
@@ -3762,13 +3660,6 @@ expr_stmt|;
 name|lmp
 operator|.
 name|setUseCompoundFile
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|lmp
-operator|.
-name|setUseCompoundDocStore
 argument_list|(
 literal|false
 argument_list|)

@@ -1159,13 +1159,6 @@ argument_list|)
 expr_stmt|;
 name|lmp
 operator|.
-name|setUseCompoundDocStore
-argument_list|(
-name|useCompoundIndex
-argument_list|)
-expr_stmt|;
-name|lmp
-operator|.
 name|setMergeFactor
 argument_list|(
 name|mergeFactor
