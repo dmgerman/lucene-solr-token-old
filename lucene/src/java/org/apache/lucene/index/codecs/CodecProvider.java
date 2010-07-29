@@ -247,6 +247,7 @@ block|}
 decl_stmt|;
 DECL|method|register
 specifier|public
+specifier|synchronized
 name|void
 name|register
 parameter_list|(
@@ -336,6 +337,7 @@ block|}
 comment|/** @lucene.internal */
 DECL|method|unregister
 specifier|public
+specifier|synchronized
 name|void
 name|unregister
 parameter_list|(
@@ -434,6 +436,7 @@ return|;
 block|}
 DECL|method|lookup
 specifier|public
+specifier|synchronized
 name|Codec
 name|lookup
 parameter_list|(
@@ -531,6 +534,7 @@ block|}
 comment|/** Used for testing. @lucene.internal */
 DECL|method|setDefaultCodec
 specifier|public
+specifier|synchronized
 specifier|static
 name|void
 name|setDefaultCodec
@@ -547,6 +551,7 @@ block|}
 comment|/** Used for testing. @lucene.internal */
 DECL|method|getDefaultCodec
 specifier|public
+specifier|synchronized
 specifier|static
 name|String
 name|getDefaultCodec
