@@ -3260,7 +3260,7 @@ name|termCountT
 operator|)
 operator|/
 operator|(
-literal|10
+name|num
 operator|*
 literal|4
 operator|)
@@ -3284,7 +3284,7 @@ name|termCountC
 operator|)
 operator|/
 operator|(
-literal|10
+name|num
 operator|*
 literal|4
 operator|)
