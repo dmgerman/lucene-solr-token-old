@@ -258,7 +258,6 @@ operator|new
 name|MockRAMDirectory
 argument_list|()
 expr_stmt|;
-comment|// TODO: fix mocktokenizer to not extend chartokenizer, so you can have an 'empty' keyword.
 name|RandomIndexWriter
 name|writer
 init|=
@@ -307,7 +306,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|ANALYZED
+name|NOT_ANALYZED
 argument_list|)
 decl_stmt|;
 name|doc
