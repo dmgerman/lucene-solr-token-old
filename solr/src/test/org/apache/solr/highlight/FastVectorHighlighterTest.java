@@ -15,6 +15,28 @@ name|highlight
 package|;
 end_package
 begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertSame
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
+import|;
+end_import
+begin_import
 import|import
 name|java
 operator|.
@@ -32,19 +54,6 @@ operator|.
 name|solr
 operator|.
 name|SolrTestCaseJ4
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|util
-operator|.
-name|AbstractSolrTestCase
 import|;
 end_import
 begin_import
@@ -76,17 +85,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
 import|;
 end_import
 begin_class
@@ -219,7 +217,7 @@ literal|""
 argument_list|)
 decl_stmt|;
 name|SolrFragmentsBuilder
-name|solrFbColored
+name|solrFbSimple
 init|=
 name|highlighter
 operator|.
@@ -227,7 +225,7 @@ name|fragmentsBuilders
 operator|.
 name|get
 argument_list|(
-literal|"colored"
+literal|"simple"
 argument_list|)
 decl_stmt|;
 name|SolrFragmentsBuilder
@@ -258,9 +256,9 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|solrFbColored
+name|solrFbSimple
 operator|instanceof
-name|MultiColoredScoreOrderFragmentsBuilder
+name|SimpleFragmentsBuilder
 argument_list|)
 expr_stmt|;
 name|assertTrue
