@@ -10796,6 +10796,13 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|updatePendingMerges
+argument_list|(
+literal|1
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 name|merge
 operator|.
@@ -11690,6 +11697,13 @@ expr_stmt|;
 name|doFlush
 argument_list|(
 literal|true
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|updatePendingMerges
+argument_list|(
+literal|1
 argument_list|,
 literal|false
 argument_list|)
