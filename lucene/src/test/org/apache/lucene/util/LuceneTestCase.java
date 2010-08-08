@@ -151,6 +151,21 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|codecs
+operator|.
+name|Codec
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|BooleanQuery
@@ -288,7 +303,7 @@ literal|null
 decl_stmt|;
 DECL|field|codec
 specifier|private
-name|String
+name|Codec
 name|codec
 decl_stmt|;
 comment|/** Used to track if setUp and tearDown are called correctly from subclasses */
@@ -1167,16 +1182,6 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|TEST_CODEC
-operator|.
-name|equals
-argument_list|(
-literal|"random"
-argument_list|)
-condition|)
-block|{
 name|System
 operator|.
 name|out
@@ -1193,7 +1198,6 @@ operator|+
 name|codec
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|seed

@@ -74,32 +74,35 @@ name|IntsRef
 import|;
 end_import
 begin_comment
-comment|/** Abstract base class that reads fixed-size blocks of ints  *  from an IndexInput.  While this is a simple approach, a  *  more performant approach would directly create an impl  *  of IntIndexInput inside Directory.  Wrapping a generic  *  IndexInput will likely cost performance.  *  * @lucene.experimental  */
+comment|// TODO: much of this can be shared code w/ the fixed case
+end_comment
+begin_comment
+comment|/** Abstract base class that reads variable-size blocks of ints  *  from an IndexInput.  While this is a simple approach, a  *  more performant approach would directly create an impl  *  of IntIndexInput inside Directory.  Wrapping a generic  *  IndexInput will likely cost performance.  *  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|FixedIntBlockIndexInput
+DECL|class|VariableIntBlockIndexInput
 specifier|public
 specifier|abstract
 class|class
-name|FixedIntBlockIndexInput
+name|VariableIntBlockIndexInput
 extends|extends
 name|IntIndexInput
 block|{
 DECL|field|in
-specifier|private
+specifier|protected
 specifier|final
 name|IndexInput
 name|in
 decl_stmt|;
-DECL|field|blockSize
+DECL|field|maxBlockSize
 specifier|protected
 specifier|final
 name|int
-name|blockSize
+name|maxBlockSize
 decl_stmt|;
-DECL|method|FixedIntBlockIndexInput
-specifier|public
-name|FixedIntBlockIndexInput
+DECL|method|VariableIntBlockIndexInput
+specifier|protected
+name|VariableIntBlockIndexInput
 parameter_list|(
 specifier|final
 name|IndexInput
@@ -114,11 +117,11 @@ name|in
 operator|=
 name|in
 expr_stmt|;
-name|blockSize
+name|maxBlockSize
 operator|=
 name|in
 operator|.
-name|readVInt
+name|readInt
 argument_list|()
 expr_stmt|;
 block|}
@@ -140,7 +143,7 @@ init|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|maxBlockSize
 index|]
 decl_stmt|;
 specifier|final
@@ -228,15 +231,26 @@ name|BlockReader
 block|{
 DECL|method|readBlock
 specifier|public
-name|void
+name|int
 name|readBlock
 parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|seek
+specifier|public
+name|void
+name|seek
+parameter_list|(
+name|long
+name|pos
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 block|}
 DECL|class|Reader
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|Reader
@@ -252,7 +266,7 @@ name|IndexInput
 name|in
 decl_stmt|;
 DECL|field|pending
-specifier|protected
+specifier|public
 specifier|final
 name|int
 index|[]
@@ -282,17 +296,16 @@ specifier|private
 name|long
 name|lastBlockFP
 decl_stmt|;
+DECL|field|blockSize
+specifier|private
+name|int
+name|blockSize
+decl_stmt|;
 DECL|field|blockReader
 specifier|private
 specifier|final
 name|BlockReader
 name|blockReader
-decl_stmt|;
-DECL|field|blockSize
-specifier|private
-specifier|final
-name|int
-name|blockSize
 decl_stmt|;
 DECL|field|bulkResult
 specifier|private
@@ -336,14 +349,6 @@ name|pending
 operator|=
 name|pending
 expr_stmt|;
-name|this
-operator|.
-name|blockSize
-operator|=
-name|pending
-operator|.
-name|length
-expr_stmt|;
 name|bulkResult
 operator|.
 name|ints
@@ -355,10 +360,6 @@ operator|.
 name|blockReader
 operator|=
 name|blockReader
-expr_stmt|;
-name|upto
-operator|=
-name|blockSize
 expr_stmt|;
 block|}
 DECL|method|seek
@@ -373,7 +374,10 @@ specifier|final
 name|int
 name|upto
 parameter_list|)
+throws|throws
+name|IOException
 block|{
+comment|// TODO: should we do this in real-time, not lazy?
 name|pendingFP
 operator|=
 name|fp
@@ -382,6 +386,15 @@ name|pendingUpto
 operator|=
 name|upto
 expr_stmt|;
+assert|assert
+name|pendingUpto
+operator|>=
+literal|0
+operator|:
+literal|"pendingUpto="
+operator|+
+name|pendingUpto
+assert|;
 name|seekPending
 operator|=
 literal|true
@@ -389,6 +402,7 @@ expr_stmt|;
 block|}
 DECL|method|maybeSeek
 specifier|private
+specifier|final
 name|void
 name|maybeSeek
 parameter_list|()
@@ -415,10 +429,19 @@ argument_list|(
 name|pendingFP
 argument_list|)
 expr_stmt|;
+name|blockReader
+operator|.
+name|seek
+argument_list|(
+name|pendingFP
+argument_list|)
+expr_stmt|;
 name|lastBlockFP
 operator|=
 name|pendingFP
 expr_stmt|;
+name|blockSize
+operator|=
 name|blockReader
 operator|.
 name|readBlock
@@ -429,6 +452,39 @@ name|upto
 operator|=
 name|pendingUpto
 expr_stmt|;
+comment|// TODO: if we were more clever when writing the
+comment|// index, such that a seek point wouldn't be written
+comment|// until the int encoder "committed", we could avoid
+comment|// this (likely minor) inefficiency:
+comment|// This is necessary for int encoders that are
+comment|// non-causal, ie must see future int values to
+comment|// encode the current ones.
+while|while
+condition|(
+name|upto
+operator|>=
+name|blockSize
+condition|)
+block|{
+name|upto
+operator|-=
+name|blockSize
+expr_stmt|;
+name|lastBlockFP
+operator|=
+name|in
+operator|.
+name|getFilePointer
+argument_list|()
+expr_stmt|;
+name|blockSize
+operator|=
+name|blockReader
+operator|.
+name|readBlock
+argument_list|()
+expr_stmt|;
+block|}
 name|seekPending
 operator|=
 literal|false
@@ -464,6 +520,8 @@ operator|.
 name|getFilePointer
 argument_list|()
 expr_stmt|;
+name|blockSize
+operator|=
 name|blockReader
 operator|.
 name|readBlock
@@ -508,6 +566,15 @@ operator|==
 name|blockSize
 condition|)
 block|{
+name|lastBlockFP
+operator|=
+name|in
+operator|.
+name|getFilePointer
+argument_list|()
+expr_stmt|;
+name|blockSize
+operator|=
 name|blockReader
 operator|.
 name|readBlock
@@ -617,8 +684,10 @@ name|upto
 operator|=
 name|indexIn
 operator|.
-name|readVInt
+name|readByte
 argument_list|()
+operator|&
+literal|0xFF
 expr_stmt|;
 block|}
 else|else
@@ -641,11 +710,13 @@ condition|)
 block|{
 comment|// same block
 name|upto
-operator|+=
+operator|=
 name|indexIn
 operator|.
-name|readVInt
+name|readByte
 argument_list|()
+operator|&
+literal|0xFF
 expr_stmt|;
 block|}
 else|else
@@ -659,16 +730,38 @@ name|upto
 operator|=
 name|indexIn
 operator|.
-name|readVInt
+name|readByte
 argument_list|()
+operator|&
+literal|0xFF
 expr_stmt|;
 block|}
 block|}
-assert|assert
+comment|// TODO: we can't do this assert because non-causal
+comment|// int encoders can have upto over the buffer size
+comment|//assert upto< maxBlockSize: "upto=" + upto + " max=" + maxBlockSize;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"VarIntBlock.Index fp="
+operator|+
+name|fp
+operator|+
+literal|" upto="
+operator|+
 name|upto
-operator|<
-name|blockSize
-assert|;
+operator|+
+literal|" maxBlock="
+operator|+
+name|maxBlockSize
+return|;
 block|}
 annotation|@
 name|Override
