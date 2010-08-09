@@ -36,15 +36,6 @@ import|;
 end_import
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -94,6 +85,19 @@ operator|.
 name|Algorithm
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
 begin_comment
 comment|/** Test very simply that perf tasks are parses as expected. */
 end_comment
@@ -103,7 +107,7 @@ specifier|public
 class|class
 name|TestPerfTasksParse
 extends|extends
-name|TestCase
+name|LuceneTestCase
 block|{
 DECL|field|NEW_LINE
 specifier|static

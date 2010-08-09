@@ -22,6 +22,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|common
@@ -40,15 +53,6 @@ operator|.
 name|Assert
 import|;
 end_import
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
 begin_comment
 comment|/**  *   * @version $Id$  * @since solr 1.3  */
 end_comment
@@ -58,7 +62,7 @@ specifier|public
 class|class
 name|SolrQueryTest
 extends|extends
-name|TestCase
+name|LuceneTestCase
 block|{
 DECL|method|testSolrQueryMethods
 specifier|public
