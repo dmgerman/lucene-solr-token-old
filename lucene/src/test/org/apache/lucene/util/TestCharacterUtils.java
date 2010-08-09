@@ -99,6 +99,8 @@ DECL|class|TestCharacterUtils
 specifier|public
 class|class
 name|TestCharacterUtils
+extends|extends
+name|LuceneTestCase
 block|{
 annotation|@
 name|Test
