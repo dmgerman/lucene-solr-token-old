@@ -5997,6 +5997,9 @@ operator|new
 name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
+comment|// Must disable throwing exc on double-write: this
+comment|// test uses IW.rollback which easily results in
+comment|// writing to same file more than once
 name|dir
 operator|.
 name|setPreventDoubleWrite
@@ -6004,7 +6007,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// TODO: should this be disabled here?
 name|IndexWriter
 name|writer
 init|=
