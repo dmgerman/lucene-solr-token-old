@@ -141,7 +141,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|RAMDirectory
+name|MockRAMDirectory
 import|;
 end_import
 begin_import
@@ -242,11 +242,11 @@ name|Exception
 block|{
 comment|// Create a dummy index with nothing in it.
 comment|// This could possibly fail if Lucene starts checking for docid ranges...
-name|RAMDirectory
+name|MockRAMDirectory
 name|rd
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 name|IndexWriter

@@ -115,7 +115,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|RAMDirectory
+name|MockRAMDirectory
 import|;
 end_import
 begin_import
@@ -162,11 +162,11 @@ throws|throws
 name|IOException
 block|{
 comment|// create an index
-name|RAMDirectory
+name|MockRAMDirectory
 name|indexStore
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 name|RandomIndexWriter
@@ -578,11 +578,11 @@ throws|throws
 name|IOException
 block|{
 comment|// create an index
-name|RAMDirectory
+name|MockRAMDirectory
 name|indexStore
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 name|RandomIndexWriter

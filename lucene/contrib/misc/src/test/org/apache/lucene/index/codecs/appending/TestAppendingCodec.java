@@ -352,7 +352,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|RAMDirectory
+name|MockRAMDirectory
 import|;
 end_import
 begin_import
@@ -665,7 +665,7 @@ specifier|static
 class|class
 name|AppendingRAMDirectory
 extends|extends
-name|RAMDirectory
+name|MockRAMDirectory
 block|{
 annotation|@
 name|Override

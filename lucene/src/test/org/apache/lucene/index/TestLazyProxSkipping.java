@@ -159,7 +159,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|RAMDirectory
+name|MockRAMDirectory
 import|;
 end_import
 begin_import
@@ -244,7 +244,7 @@ specifier|private
 class|class
 name|SeekCountingDirectory
 extends|extends
-name|RAMDirectory
+name|MockRAMDirectory
 block|{
 annotation|@
 name|Override
@@ -733,7 +733,7 @@ name|Directory
 name|directory
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 name|IndexWriter

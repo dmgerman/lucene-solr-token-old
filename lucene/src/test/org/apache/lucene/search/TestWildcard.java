@@ -145,7 +145,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|RAMDirectory
+name|MockRAMDirectory
 import|;
 end_import
 begin_import
@@ -339,7 +339,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|RAMDirectory
+name|MockRAMDirectory
 name|indexStore
 init|=
 name|getIndexStore
@@ -582,7 +582,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|RAMDirectory
+name|MockRAMDirectory
 name|indexStore
 init|=
 name|getIndexStore
@@ -688,7 +688,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|RAMDirectory
+name|MockRAMDirectory
 name|indexStore
 init|=
 name|getIndexStore
@@ -818,7 +818,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|RAMDirectory
+name|MockRAMDirectory
 name|indexStore
 init|=
 name|getIndexStore
@@ -1129,7 +1129,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|RAMDirectory
+name|MockRAMDirectory
 name|indexStore
 init|=
 name|getIndexStore
@@ -1309,7 +1309,7 @@ comment|// Query: 'meta??' matches 'metals' not 'metal'
 block|}
 DECL|method|getIndexStore
 specifier|private
-name|RAMDirectory
+name|MockRAMDirectory
 name|getIndexStore
 parameter_list|(
 name|String
@@ -1322,11 +1322,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|RAMDirectory
+name|MockRAMDirectory
 name|indexStore
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 name|RandomIndexWriter
@@ -1644,11 +1644,11 @@ comment|// these should find only doc 2
 block|}
 decl_stmt|;
 comment|// prepare the index
-name|RAMDirectory
+name|MockRAMDirectory
 name|dir
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 name|RandomIndexWriter

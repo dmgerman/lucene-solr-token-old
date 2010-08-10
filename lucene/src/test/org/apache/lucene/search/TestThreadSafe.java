@@ -50,7 +50,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|RAMDirectory
+name|MockRAMDirectory
 import|;
 end_import
 begin_import
@@ -810,7 +810,7 @@ expr_stmt|;
 name|dir1
 operator|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 expr_stmt|;
 comment|// test w/ field sizes bigger than the buffer of an index input

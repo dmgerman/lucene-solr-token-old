@@ -124,7 +124,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|RAMDirectory
+name|MockRAMDirectory
 import|;
 end_import
 begin_import
@@ -182,11 +182,11 @@ init|=
 name|newRandom
 argument_list|()
 decl_stmt|;
-name|RAMDirectory
+name|MockRAMDirectory
 name|rd1
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 name|IndexWriter
@@ -290,11 +290,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|RAMDirectory
+name|MockRAMDirectory
 name|rd2
 init|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 decl_stmt|;
 name|IndexWriter

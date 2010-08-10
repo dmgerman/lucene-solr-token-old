@@ -129,7 +129,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|RAMDirectory
+name|MockRAMDirectory
 import|;
 end_import
 begin_class
@@ -142,7 +142,7 @@ name|LuceneTestCase
 block|{
 DECL|field|directory
 specifier|protected
-name|RAMDirectory
+name|MockRAMDirectory
 name|directory
 decl_stmt|;
 DECL|field|FIELD
@@ -219,7 +219,7 @@ expr_stmt|;
 name|directory
 operator|=
 operator|new
-name|RAMDirectory
+name|MockRAMDirectory
 argument_list|()
 expr_stmt|;
 name|RandomIndexWriter
