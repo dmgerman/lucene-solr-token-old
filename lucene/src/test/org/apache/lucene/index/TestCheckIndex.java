@@ -168,9 +168,11 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|newRandom
+argument_list|()
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -245,6 +247,11 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
+name|writer
+operator|.
+name|optimize
+argument_list|()
+expr_stmt|;
 name|writer
 operator|.
 name|close

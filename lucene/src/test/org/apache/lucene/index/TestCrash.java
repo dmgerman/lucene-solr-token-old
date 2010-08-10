@@ -25,6 +25,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -114,6 +123,9 @@ specifier|private
 name|IndexWriter
 name|initIndex
 parameter_list|(
+name|Random
+name|random
+parameter_list|,
 name|boolean
 name|initialCommit
 parameter_list|)
@@ -123,6 +135,8 @@ block|{
 return|return
 name|initIndex
 argument_list|(
+name|random
+argument_list|,
 operator|new
 name|MockRAMDirectory
 argument_list|()
@@ -136,6 +150,9 @@ specifier|private
 name|IndexWriter
 name|initIndex
 parameter_list|(
+name|Random
+name|random
+parameter_list|,
 name|MockRAMDirectory
 name|dir
 parameter_list|,
@@ -163,9 +180,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -176,6 +194,13 @@ operator|.
 name|setMaxBufferedDocs
 argument_list|(
 literal|10
+argument_list|)
+operator|.
+name|setMergeScheduler
+argument_list|(
+operator|new
+name|ConcurrentMergeScheduler
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -326,6 +351,11 @@ operator|.
 name|getMergeScheduler
 argument_list|()
 decl_stmt|;
+name|cms
+operator|.
+name|sync
+argument_list|()
+expr_stmt|;
 name|dir
 operator|.
 name|crash
@@ -358,6 +388,9 @@ name|writer
 init|=
 name|initIndex
 argument_list|(
+name|newRandom
+argument_list|()
+argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
@@ -411,11 +444,19 @@ block|{
 comment|// This test relies on being able to open a reader before any commit
 comment|// happened, so we must create an initial commit just to allow that, but
 comment|// before any documents were added.
+name|Random
+name|random
+init|=
+name|newRandom
+argument_list|()
+decl_stmt|;
 name|IndexWriter
 name|writer
 init|=
 name|initIndex
 argument_list|(
+name|random
+argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
@@ -446,6 +487,8 @@ name|writer
 operator|=
 name|initIndex
 argument_list|(
+name|random
+argument_list|,
 name|dir
 argument_list|,
 literal|false
@@ -487,11 +530,19 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|Random
+name|random
+init|=
+name|newRandom
+argument_list|()
+decl_stmt|;
 name|IndexWriter
 name|writer
 init|=
 name|initIndex
 argument_list|(
+name|random
+argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
@@ -515,6 +566,8 @@ name|writer
 operator|=
 name|initIndex
 argument_list|(
+name|random
+argument_list|,
 name|dir
 argument_list|,
 literal|false
@@ -572,6 +625,9 @@ name|writer
 init|=
 name|initIndex
 argument_list|(
+name|newRandom
+argument_list|()
+argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
@@ -633,6 +689,9 @@ name|writer
 init|=
 name|initIndex
 argument_list|(
+name|newRandom
+argument_list|()
+argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
@@ -696,6 +755,9 @@ name|writer
 init|=
 name|initIndex
 argument_list|(
+name|newRandom
+argument_list|()
+argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
@@ -777,6 +839,9 @@ name|writer
 init|=
 name|initIndex
 argument_list|(
+name|newRandom
+argument_list|()
+argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;

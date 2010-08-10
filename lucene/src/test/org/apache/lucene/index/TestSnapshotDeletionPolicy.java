@@ -44,6 +44,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|io
 operator|.
 name|File
@@ -296,6 +305,9 @@ specifier|protected
 name|IndexWriterConfig
 name|getConfig
 parameter_list|(
+name|Random
+name|random
+parameter_list|,
 name|IndexDeletionPolicy
 name|dp
 parameter_list|)
@@ -303,9 +315,10 @@ block|{
 name|IndexWriterConfig
 name|conf
 init|=
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -595,6 +608,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|newRandom
+argument_list|()
+decl_stmt|;
 name|File
 name|dir
 init|=
@@ -619,6 +638,8 @@ argument_list|)
 decl_stmt|;
 name|runTest
 argument_list|(
+name|random
+argument_list|,
 name|fsDir
 argument_list|)
 expr_stmt|;
@@ -647,6 +668,8 @@ argument_list|()
 decl_stmt|;
 name|runTest
 argument_list|(
+name|random
+argument_list|,
 name|dir2
 argument_list|)
 expr_stmt|;
@@ -661,6 +684,9 @@ specifier|private
 name|void
 name|runTest
 parameter_list|(
+name|Random
+name|random
+parameter_list|,
 name|Directory
 name|dir
 parameter_list|)
@@ -694,9 +720,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1237,6 +1264,12 @@ init|=
 name|getDeletionPolicy
 argument_list|()
 decl_stmt|;
+name|Random
+name|random
+init|=
+name|newRandom
+argument_list|()
+decl_stmt|;
 comment|// Create 3 snapshots: snapshot0, snapshot1, snapshot2
 name|Directory
 name|dir
@@ -1255,6 +1288,8 @@ name|dir
 argument_list|,
 name|getConfig
 argument_list|(
+name|random
+argument_list|,
 name|sdp
 argument_list|)
 argument_list|)
@@ -1317,6 +1352,8 @@ name|dir
 argument_list|,
 name|getConfig
 argument_list|(
+name|random
+argument_list|,
 name|sdp
 argument_list|)
 argument_list|)
@@ -1402,6 +1439,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|newRandom
+argument_list|()
+decl_stmt|;
 name|Directory
 name|dir
 init|=
@@ -1427,6 +1470,8 @@ name|dir
 argument_list|,
 name|getConfig
 argument_list|(
+name|random
+argument_list|,
 name|sdp
 argument_list|)
 argument_list|)
@@ -1627,6 +1672,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|newRandom
+argument_list|()
+decl_stmt|;
 name|int
 name|numSnapshots
 init|=
@@ -1655,6 +1706,8 @@ name|dir
 argument_list|,
 name|getConfig
 argument_list|(
+name|random
+argument_list|,
 name|sdp
 argument_list|)
 argument_list|)
@@ -1685,6 +1738,8 @@ name|dir
 argument_list|,
 name|getConfig
 argument_list|(
+name|random
+argument_list|,
 name|sdp
 argument_list|)
 operator|.
@@ -1760,6 +1815,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|newRandom
+argument_list|()
+decl_stmt|;
 name|Directory
 name|dir
 init|=
@@ -1783,6 +1844,8 @@ name|dir
 argument_list|,
 name|getConfig
 argument_list|(
+name|random
+argument_list|,
 name|sdp
 argument_list|)
 argument_list|)
@@ -1906,6 +1969,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|newRandom
+argument_list|()
+decl_stmt|;
 comment|// Tests the ability to construct a SDP from existing snapshots, and
 comment|// asserts that those snapshots/commit points are protected.
 name|int
@@ -1936,6 +2005,8 @@ name|dir
 argument_list|,
 name|getConfig
 argument_list|(
+name|random
+argument_list|,
 name|sdp
 argument_list|)
 argument_list|)
@@ -1976,6 +2047,8 @@ name|dir
 argument_list|,
 name|getConfig
 argument_list|(
+name|random
+argument_list|,
 name|sdp
 argument_list|)
 argument_list|)
@@ -2011,6 +2084,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|newRandom
+argument_list|()
+decl_stmt|;
 name|Directory
 name|dir
 init|=
@@ -2034,6 +2113,8 @@ name|dir
 argument_list|,
 name|getConfig
 argument_list|(
+name|random
+argument_list|,
 name|sdp
 argument_list|)
 argument_list|)
@@ -2141,6 +2222,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|newRandom
+argument_list|()
+decl_stmt|;
 comment|// Tests the behavior of SDP when commits that are given at ctor are missing
 comment|// on onInit().
 name|Directory
@@ -2166,6 +2253,8 @@ name|dir
 argument_list|,
 name|getConfig
 argument_list|(
+name|random
+argument_list|,
 name|sdp
 argument_list|)
 argument_list|)
@@ -2218,6 +2307,8 @@ name|dir
 argument_list|,
 name|getConfig
 argument_list|(
+name|random
+argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -2259,6 +2350,8 @@ name|dir
 argument_list|,
 name|getConfig
 argument_list|(
+name|random
+argument_list|,
 name|sdp
 argument_list|)
 argument_list|)

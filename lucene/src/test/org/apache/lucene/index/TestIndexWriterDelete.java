@@ -25,6 +25,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -174,6 +183,31 @@ name|TestIndexWriterDelete
 extends|extends
 name|LuceneTestCase
 block|{
+DECL|field|random
+name|Random
+name|random
+decl_stmt|;
+annotation|@
+name|Override
+DECL|method|setUp
+specifier|public
+name|void
+name|setUp
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|random
+operator|=
+name|newRandom
+argument_list|()
+expr_stmt|;
+block|}
 comment|// test the simple case
 DECL|method|testSimpleCase
 specifier|public
@@ -238,9 +272,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -505,9 +540,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -708,9 +744,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -829,9 +866,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1123,9 +1161,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1322,9 +1361,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1610,9 +1650,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1835,9 +1876,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -2014,9 +2056,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -2575,9 +2618,10 @@ name|IndexWriter
 argument_list|(
 name|startDir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -2740,9 +2784,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -2765,8 +2810,31 @@ name|setMaxBufferedDeleteTerms
 argument_list|(
 literal|1000
 argument_list|)
+operator|.
+name|setMergeScheduler
+argument_list|(
+operator|new
+name|ConcurrentMergeScheduler
+argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
+operator|(
+operator|(
+name|ConcurrentMergeScheduler
+operator|)
+name|modifier
+operator|.
+name|getConfig
+argument_list|()
+operator|.
+name|getMergeScheduler
+argument_list|()
+operator|)
+operator|.
+name|setSuppressExceptions
+argument_list|()
+expr_stmt|;
 comment|// For each disk size, first try to commit against
 comment|// dir that will hit random IOExceptions& disk
 comment|// full; after, give it infinite disk space& turn
@@ -3702,9 +3770,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -3721,6 +3790,11 @@ operator|.
 name|setMaxBufferedDeleteTerms
 argument_list|(
 literal|2
+argument_list|)
+operator|.
+name|setReaderPooling
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3977,10 +4051,10 @@ comment|// The failure object will fail on the first write after the del
 comment|// file gets created when processing the buffered delete
 comment|// in the ac case, this will be when writing the new segments
 comment|// files so we really don't need the new doc, but it's harmless
-comment|// in the !ac case, a new segments file won't be created but in
-comment|// this case, creation of the cfs file happens next so we need
-comment|// the doc (to test that it's okay that we don't lose deletes if
-comment|// failing while creating the cfs file)
+comment|// a new segments file won't be created but in this
+comment|// case, creation of the cfs file happens next so we
+comment|// need the doc (to test that it's okay that we don't
+comment|// lose deletes if failing while creating the cfs file)
 name|boolean
 name|failed
 init|=
@@ -4178,9 +4252,10 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
+name|random
+argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
