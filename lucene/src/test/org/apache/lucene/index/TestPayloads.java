@@ -638,9 +638,10 @@ expr_stmt|;
 name|Directory
 name|ram
 init|=
-operator|new
-name|MockRAMDirectory
-argument_list|()
+name|newDirectory
+argument_list|(
+name|rnd
+argument_list|)
 decl_stmt|;
 name|PayloadAnalyzer
 name|analyzer
@@ -1124,6 +1125,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|ram
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|// Tests if payloads are correctly stored and loaded using both RamDirectory and FSDirectory
 DECL|method|testPayloadsEncoding
@@ -1143,9 +1149,10 @@ comment|// first perform the test using a RAMDirectory
 name|Directory
 name|dir
 init|=
-operator|new
-name|MockRAMDirectory
-argument_list|()
+name|newDirectory
+argument_list|(
+name|rnd
+argument_list|)
 decl_stmt|;
 name|performTest
 argument_list|(
@@ -1153,6 +1160,11 @@ name|rnd
 argument_list|,
 name|dir
 argument_list|)
+expr_stmt|;
+name|dir
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 comment|// now use a FSDirectory and repeat same test
 name|File
@@ -1187,6 +1199,11 @@ name|rmDir
 argument_list|(
 name|dirName
 argument_list|)
+expr_stmt|;
+name|dir
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|// builds an index with payloads in the given Directory and performs
@@ -3144,9 +3161,10 @@ decl_stmt|;
 name|Directory
 name|dir
 init|=
-operator|new
-name|MockRAMDirectory
-argument_list|()
+name|newDirectory
+argument_list|(
+name|rnd
+argument_list|)
 decl_stmt|;
 specifier|final
 name|IndexWriter
@@ -3479,6 +3497,11 @@ block|}
 block|}
 block|}
 name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|dir
 operator|.
 name|close
 argument_list|()

@@ -52,6 +52,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -538,12 +547,19 @@ name|Exception
 block|{
 comment|// Tests that if a Filter produces a null DocIdSet, which is given to
 comment|// IndexSearcher, everything works fine. This came up in LUCENE-1754.
+name|Random
+name|random
+init|=
+name|newRandom
+argument_list|()
+decl_stmt|;
 name|Directory
 name|dir
 init|=
-operator|new
-name|MockRAMDirectory
-argument_list|()
+name|newDirectory
+argument_list|(
+name|random
+argument_list|)
 decl_stmt|;
 name|RandomIndexWriter
 name|writer
@@ -551,8 +567,7 @@ init|=
 operator|new
 name|RandomIndexWriter
 argument_list|(
-name|newRandom
-argument_list|()
+name|random
 argument_list|,
 name|dir
 argument_list|)

@@ -572,6 +572,16 @@ name|getBoost
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|searcher
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|indexStore
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Tests if a WildcardQuery with an empty term is rewritten to an empty BooleanQuery    */
 DECL|method|testEmptyTerm
@@ -677,6 +687,16 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|searcher
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|indexStore
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Tests if a WildcardQuery that has only a trailing * in the term is    * rewritten to a single PrefixQuery. The boost and rewriteMethod should be    * preserved.    */
@@ -807,6 +827,16 @@ argument_list|)
 operator|instanceof
 name|AutomatonTermsEnum
 argument_list|)
+expr_stmt|;
+name|searcher
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|indexStore
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Tests Wildcard queries with an asterisk.    */
@@ -1119,6 +1149,16 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+name|searcher
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|indexStore
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Tests Wildcard queries with a question mark.    *    * @throws IOException if an error occurs    */
 DECL|method|testQuestionmark
@@ -1306,6 +1346,16 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// Query: 'meta??' matches 'metals' not 'metal'
+name|searcher
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|indexStore
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|getIndexStore
 specifier|private
@@ -1325,9 +1375,10 @@ block|{
 name|MockRAMDirectory
 name|indexStore
 init|=
-operator|new
-name|MockRAMDirectory
-argument_list|()
+name|newDirectory
+argument_list|(
+name|random
+argument_list|)
 decl_stmt|;
 name|RandomIndexWriter
 name|writer
@@ -1647,9 +1698,10 @@ comment|// prepare the index
 name|MockRAMDirectory
 name|dir
 init|=
-operator|new
-name|MockRAMDirectory
-argument_list|()
+name|newDirectory
+argument_list|(
+name|random
+argument_list|)
 decl_stmt|;
 name|RandomIndexWriter
 name|iw
@@ -2215,6 +2267,11 @@ expr_stmt|;
 block|}
 block|}
 name|searcher
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|dir
 operator|.
 name|close
 argument_list|()

@@ -168,9 +168,10 @@ decl_stmt|;
 name|MockRAMDirectory
 name|directory
 init|=
-operator|new
-name|MockRAMDirectory
-argument_list|()
+name|newDirectory
+argument_list|(
+name|rnd
+argument_list|)
 decl_stmt|;
 name|RandomIndexWriter
 name|writer

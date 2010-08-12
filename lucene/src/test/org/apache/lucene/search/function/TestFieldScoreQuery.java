@@ -445,6 +445,11 @@ operator|=
 name|resID
 expr_stmt|;
 block|}
+name|s
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** Test that FieldScoreQuery of Type.BYTE returns the expected scores. */
 annotation|@
@@ -705,6 +710,11 @@ name|TEST_SCORE_TOLERANCE_DELTA
 argument_list|)
 expr_stmt|;
 block|}
+name|s
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/** Test that FieldScoreQuery of Type.BYTE caches/reuses loaded values and consumes the proper RAM resources. */
 annotation|@
@@ -1211,6 +1221,11 @@ block|}
 block|}
 block|}
 block|}
+name|s
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 comment|// verify new values are reloaded (not reused) for a new reader
 name|s
 operator|=
@@ -1376,6 +1391,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|s
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testName
 specifier|private

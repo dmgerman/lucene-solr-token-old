@@ -1939,9 +1939,11 @@ decl_stmt|;
 name|Directory
 name|ramDir
 init|=
-operator|new
-name|MockRAMDirectory
+name|newDirectory
+argument_list|(
+name|newRandom
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|IndexWriter
 name|iw
@@ -2081,6 +2083,11 @@ name|length
 argument_list|)
 expr_stmt|;
 name|is
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|ramDir
 operator|.
 name|close
 argument_list|()
