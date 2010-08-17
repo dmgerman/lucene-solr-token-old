@@ -260,6 +260,13 @@ block|{
 literal|"</b>"
 block|}
 decl_stmt|;
+DECL|field|multiValuedSeparator
+specifier|private
+name|char
+name|multiValuedSeparator
+init|=
+literal|' '
+decl_stmt|;
 DECL|method|BaseFragmentsBuilder
 specifier|protected
 name|BaseFragmentsBuilder
@@ -1187,7 +1194,7 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-literal|' '
+name|multiValuedSeparator
 argument_list|)
 expr_stmt|;
 name|buffer
@@ -1315,7 +1322,7 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-literal|' '
+name|multiValuedSeparator
 argument_list|)
 expr_stmt|;
 name|buffer
@@ -1362,6 +1369,30 @@ name|startOffset
 argument_list|,
 name|eo
 argument_list|)
+return|;
+block|}
+DECL|method|setMultiValuedSeparator
+specifier|public
+name|void
+name|setMultiValuedSeparator
+parameter_list|(
+name|char
+name|separator
+parameter_list|)
+block|{
+name|multiValuedSeparator
+operator|=
+name|separator
+expr_stmt|;
+block|}
+DECL|method|getMultiValuedSeparator
+specifier|public
+name|char
+name|getMultiValuedSeparator
+parameter_list|()
+block|{
+return|return
+name|multiValuedSeparator
 return|;
 block|}
 DECL|method|getPreTag
