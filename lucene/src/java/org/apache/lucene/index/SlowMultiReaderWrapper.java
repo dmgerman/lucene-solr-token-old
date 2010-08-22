@@ -89,6 +89,8 @@ parameter_list|(
 name|IndexReader
 name|reader
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|List
@@ -163,6 +165,8 @@ parameter_list|(
 name|IndexReader
 name|other
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -196,8 +200,6 @@ specifier|public
 name|Bits
 name|getDeletedDocs
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|MultiFields

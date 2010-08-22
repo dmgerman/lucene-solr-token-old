@@ -1797,6 +1797,17 @@ operator|.
 name|maxDoc
 argument_list|()
 decl_stmt|;
+specifier|final
+name|Bits
+name|delDocs
+init|=
+name|MultiFields
+operator|.
+name|getDeletedDocs
+argument_list|(
+name|reader
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|matchingFieldsReader
@@ -1820,9 +1831,9 @@ control|)
 block|{
 if|if
 condition|(
-name|reader
+name|delDocs
 operator|.
-name|isDeleted
+name|get
 argument_list|(
 name|j
 argument_list|)
@@ -1862,9 +1873,9 @@ condition|)
 break|break;
 if|if
 condition|(
-name|reader
+name|delDocs
 operator|.
-name|isDeleted
+name|get
 argument_list|(
 name|j
 argument_list|)
@@ -1942,9 +1953,9 @@ control|)
 block|{
 if|if
 condition|(
-name|reader
+name|delDocs
 operator|.
-name|isDeleted
+name|get
 argument_list|(
 name|j
 argument_list|)
@@ -2376,6 +2387,17 @@ operator|.
 name|maxDoc
 argument_list|()
 decl_stmt|;
+specifier|final
+name|Bits
+name|delDocs
+init|=
+name|MultiFields
+operator|.
+name|getDeletedDocs
+argument_list|(
+name|reader
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|matchingVectorsReader
@@ -2399,9 +2421,9 @@ control|)
 block|{
 if|if
 condition|(
-name|reader
+name|delDocs
 operator|.
-name|isDeleted
+name|get
 argument_list|(
 name|docNum
 argument_list|)
@@ -2441,9 +2463,9 @@ condition|)
 break|break;
 if|if
 condition|(
-name|reader
+name|delDocs
 operator|.
-name|isDeleted
+name|get
 argument_list|(
 name|docNum
 argument_list|)
@@ -2518,9 +2540,9 @@ control|)
 block|{
 if|if
 condition|(
-name|reader
+name|delDocs
 operator|.
-name|isDeleted
+name|get
 argument_list|(
 name|docNum
 argument_list|)
@@ -3184,14 +3206,22 @@ name|delCount
 init|=
 literal|0
 decl_stmt|;
+specifier|final
 name|Bits
-name|deletedDocs
+name|delDocs
 init|=
-name|reader
+name|MultiFields
 operator|.
 name|getDeletedDocs
-argument_list|()
+argument_list|(
+name|reader
+argument_list|)
 decl_stmt|;
+assert|assert
+name|delDocs
+operator|!=
+literal|null
+assert|;
 specifier|final
 name|int
 name|maxDoc
@@ -3241,7 +3271,7 @@ control|)
 block|{
 if|if
 condition|(
-name|deletedDocs
+name|delDocs
 operator|.
 name|get
 argument_list|(
@@ -3347,10 +3377,7 @@ decl_stmt|;
 comment|// NOTE: this is silly, yet, necessary -- we create a
 comment|// MultiBits as our skip docs only to have it broken
 comment|// apart when we step through the docs enums in
-comment|// MultidDcsEnum.... this only matters when we are
-comment|// interacting with a non-core IR subclass, because
-comment|// LegacyFieldsEnum.LegacyDocs[AndPositions]Enum checks
-comment|// that the skipDocs matches the delDocs for the reader
+comment|// MultiDocsEnum.
 name|mergeState
 operator|.
 name|multiDeletedDocs
@@ -3557,6 +3584,17 @@ operator|.
 name|maxDoc
 argument_list|()
 decl_stmt|;
+specifier|final
+name|Bits
+name|delDocs
+init|=
+name|MultiFields
+operator|.
+name|getDeletedDocs
+argument_list|(
+name|reader
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|normBuffer
@@ -3635,9 +3673,9 @@ block|{
 if|if
 condition|(
 operator|!
-name|reader
+name|delDocs
 operator|.
-name|isDeleted
+name|get
 argument_list|(
 name|k
 argument_list|)

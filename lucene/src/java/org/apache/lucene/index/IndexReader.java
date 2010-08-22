@@ -1628,17 +1628,6 @@ name|CorruptIndexException
 throws|,
 name|IOException
 function_decl|;
-comment|/** Returns true if document<i>n</i> has been deleted */
-DECL|method|isDeleted
-specifier|public
-specifier|abstract
-name|boolean
-name|isDeleted
-parameter_list|(
-name|int
-name|n
-parameter_list|)
-function_decl|;
 comment|/** Returns true if any documents have been deleted */
 DECL|method|hasDeletions
 specifier|public
@@ -2490,8 +2479,6 @@ specifier|abstract
 name|Bits
 name|getDeletedDocs
 parameter_list|()
-throws|throws
-name|IOException
 function_decl|;
 comment|/**    * Expert: return the IndexCommit that this reader has    * opened.  This method is only implemented by those    * readers that correspond to a Directory with its own    * segments_N file.    *    * @lucene.experimental    */
 DECL|method|getIndexCommit
@@ -3101,37 +3088,6 @@ parameter_list|()
 block|{
 return|return
 name|fields
-return|;
-block|}
-DECL|field|storedDelDocs
-specifier|private
-name|Bits
-name|storedDelDocs
-decl_stmt|;
-comment|/** @lucene.internal */
-DECL|method|storeDelDocs
-name|void
-name|storeDelDocs
-parameter_list|(
-name|Bits
-name|delDocs
-parameter_list|)
-block|{
-name|this
-operator|.
-name|storedDelDocs
-operator|=
-name|delDocs
-expr_stmt|;
-block|}
-comment|/** @lucene.internal */
-DECL|method|retrieveDelDocs
-name|Bits
-name|retrieveDelDocs
-parameter_list|()
-block|{
-return|return
-name|storedDelDocs
 return|;
 block|}
 block|}
