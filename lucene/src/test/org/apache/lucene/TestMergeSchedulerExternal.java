@@ -53,7 +53,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 import|;
 end_import
 begin_import
@@ -335,7 +335,7 @@ specifier|static
 class|class
 name|FailOnlyOnMerge
 extends|extends
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 block|{
@@ -346,7 +346,7 @@ specifier|public
 name|void
 name|eval
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 parameter_list|)
 throws|throws
@@ -419,7 +419,7 @@ init|=
 name|newRandom
 argument_list|()
 decl_stmt|;
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory

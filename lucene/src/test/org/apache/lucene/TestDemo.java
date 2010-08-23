@@ -213,7 +213,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|RAMDirectory
 import|;
 end_import
 begin_import
@@ -261,9 +261,11 @@ comment|// Store the index in memory:
 name|Directory
 name|directory
 init|=
-operator|new
-name|MockRAMDirectory
+name|newDirectory
+argument_list|(
+name|newRandom
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// To store an index on disk, use this instead:
 comment|//Directory directory = FSDirectory.open("/tmp/testindex");

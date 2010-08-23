@@ -145,19 +145,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexWriterConfig
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|LogMergePolicy
 import|;
 end_import
@@ -184,7 +171,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|Directory
 import|;
 end_import
 begin_import
@@ -256,7 +243,7 @@ decl_stmt|;
 DECL|field|indexStore
 specifier|private
 specifier|static
-name|MockRAMDirectory
+name|Directory
 name|indexStore
 decl_stmt|;
 DECL|field|queryX

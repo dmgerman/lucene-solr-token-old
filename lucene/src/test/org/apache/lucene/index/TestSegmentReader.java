@@ -125,7 +125,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|Directory
 import|;
 end_import
 begin_class
@@ -138,7 +138,7 @@ name|LuceneTestCase
 block|{
 DECL|field|dir
 specifier|private
-name|MockRAMDirectory
+name|Directory
 name|dir
 decl_stmt|;
 DECL|field|testDoc

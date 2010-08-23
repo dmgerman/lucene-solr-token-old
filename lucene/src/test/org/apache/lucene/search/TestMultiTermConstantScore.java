@@ -120,19 +120,6 @@ import|;
 end_import
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|MockRAMDirectory
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -5483,7 +5470,7 @@ throws|throws
 name|Exception
 block|{
 comment|/* build an index */
-name|MockRAMDirectory
+name|Directory
 name|farsiIndex
 init|=
 name|newDirectory
@@ -5725,7 +5712,7 @@ throws|throws
 name|Exception
 block|{
 comment|/* build an index */
-name|MockRAMDirectory
+name|Directory
 name|danishIndex
 init|=
 name|newDirectory

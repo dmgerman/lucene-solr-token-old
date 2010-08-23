@@ -122,7 +122,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 import|;
 end_import
 begin_import
@@ -135,7 +135,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|RAMDirectory
 import|;
 end_import
 begin_import
@@ -2453,9 +2453,13 @@ block|{
 name|aux
 block|,
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+argument_list|(
+operator|new
+name|RAMDirectory
 argument_list|(
 name|aux
+argument_list|)
 argument_list|)
 block|}
 argument_list|)
@@ -2650,9 +2654,13 @@ block|{
 name|aux
 block|,
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+argument_list|(
+operator|new
+name|RAMDirectory
 argument_list|(
 name|aux
+argument_list|)
 argument_list|)
 block|}
 argument_list|)

@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|Directory
 import|;
 end_import
 begin_import
@@ -81,7 +81,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|Directory
+name|MockDirectoryWrapper
 import|;
 end_import
 begin_import
@@ -832,7 +832,7 @@ init|=
 name|newRandom
 argument_list|()
 decl_stmt|;
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -1085,7 +1085,7 @@ init|=
 name|newRandom
 argument_list|()
 decl_stmt|;
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory

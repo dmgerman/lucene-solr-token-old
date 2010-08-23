@@ -377,7 +377,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 import|;
 end_import
 begin_import
@@ -391,6 +391,32 @@ operator|.
 name|store
 operator|.
 name|NoSuchDirectoryException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|RAMDirectory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|LockReleaseFailedException
 import|;
 end_import
 begin_import
@@ -531,7 +557,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|d
 init|=
 name|newDirectory
@@ -887,7 +913,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|d
 init|=
 name|newDirectory
@@ -1056,7 +1082,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|d
 init|=
 name|newDirectory
@@ -1795,7 +1821,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|d
 init|=
 name|newDirectory
@@ -5318,6 +5344,8 @@ parameter_list|)
 block|{
 comment|// expected exception
 block|}
+try|try
+block|{
 name|IndexWriter
 operator|.
 name|unlock
@@ -5326,6 +5354,19 @@ name|dir
 argument_list|)
 expr_stmt|;
 comment|// this should not be done in the real world!
+block|}
+catch|catch
+parameter_list|(
+name|LockReleaseFailedException
+name|lrfe
+parameter_list|)
+block|{
+name|writer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 name|reader
 operator|.
 name|deleteDocument
@@ -5784,7 +5825,7 @@ init|=
 literal|144
 decl_stmt|;
 comment|// First build up a starting index:
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|startDir
 init|=
 name|newDirectory
@@ -5920,12 +5961,7 @@ expr_stmt|;
 name|long
 name|diskUsage
 init|=
-operator|(
-operator|(
-name|MockRAMDirectory
-operator|)
 name|startDir
-operator|)
 operator|.
 name|getRecomputedActualSizeInBytes
 argument_list|()
@@ -5959,13 +5995,17 @@ operator|!
 name|done
 condition|)
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+argument_list|(
+operator|new
+name|RAMDirectory
 argument_list|(
 name|startDir
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// If IndexReader hits disk full, it can write to
@@ -6995,9 +7035,10 @@ block|{
 name|Directory
 name|dir
 init|=
-operator|new
-name|MockRAMDirectory
-argument_list|()
+name|newDirectory
+argument_list|(
+name|random
+argument_list|)
 decl_stmt|;
 name|RandomIndexWriter
 name|w
@@ -9362,7 +9403,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|d
 init|=
 name|newDirectory
@@ -9686,7 +9727,7 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
-name|MockRAMDirectory
+name|Directory
 name|d
 init|=
 name|newDirectory
@@ -10135,7 +10176,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory

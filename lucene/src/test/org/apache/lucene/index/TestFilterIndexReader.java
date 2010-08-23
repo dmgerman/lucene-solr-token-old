@@ -55,20 +55,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|MockRAMDirectory
+name|Directory
 import|;
 end_import
 begin_import
@@ -583,7 +570,7 @@ init|=
 name|newRandom
 argument_list|()
 decl_stmt|;
-name|MockRAMDirectory
+name|Directory
 name|directory
 init|=
 name|newDirectory
@@ -734,7 +721,7 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|//IndexReader reader = new TestReader(IndexReader.open(directory, true));
-name|MockRAMDirectory
+name|Directory
 name|target
 init|=
 name|newDirectory

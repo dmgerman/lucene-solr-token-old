@@ -129,19 +129,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|IndexWriterConfig
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|IndexSearcher
@@ -170,7 +157,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|Directory
 import|;
 end_import
 begin_import
@@ -241,7 +228,7 @@ name|searcher
 decl_stmt|;
 DECL|field|dir
 specifier|private
-name|MockRAMDirectory
+name|Directory
 name|dir
 decl_stmt|;
 comment|//A collection of documents' field values for use in our tests

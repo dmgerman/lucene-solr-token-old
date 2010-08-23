@@ -240,7 +240,7 @@ name|query
 decl_stmt|;
 DECL|field|directory
 specifier|private
-name|MockRAMDirectory
+name|Directory
 name|directory
 decl_stmt|;
 DECL|field|random
@@ -1428,7 +1428,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|directory
 init|=
 name|newDirectory
@@ -1697,7 +1697,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|directory
 init|=
 name|newDirectory

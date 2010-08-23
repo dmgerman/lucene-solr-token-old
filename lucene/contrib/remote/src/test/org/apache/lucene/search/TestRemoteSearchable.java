@@ -76,7 +76,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|Directory
 import|;
 end_import
 begin_import
@@ -164,7 +164,7 @@ block|{
 DECL|field|indexStore
 specifier|private
 specifier|static
-name|MockRAMDirectory
+name|Directory
 name|indexStore
 decl_stmt|;
 DECL|field|local

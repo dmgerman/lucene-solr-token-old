@@ -775,19 +775,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|store
-operator|.
-name|MockRAMDirectory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|automaton
@@ -888,7 +875,7 @@ name|Query
 name|query
 decl_stmt|;
 DECL|field|ramDir
-name|MockRAMDirectory
+name|Directory
 name|ramDir
 decl_stmt|;
 DECL|field|searcher
@@ -8335,7 +8322,7 @@ throws|throws
 name|Exception
 block|{
 comment|// setup index 1
-name|MockRAMDirectory
+name|Directory
 name|ramDir1
 init|=
 name|newDirectory
@@ -8442,7 +8429,7 @@ literal|true
 argument_list|)
 decl_stmt|;
 comment|// setup index 2
-name|MockRAMDirectory
+name|Directory
 name|ramDir2
 init|=
 name|newDirectory

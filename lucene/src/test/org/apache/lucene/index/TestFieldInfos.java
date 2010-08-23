@@ -50,7 +50,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|Directory
 import|;
 end_import
 begin_import
@@ -179,7 +179,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//this is all b/c we are using the no-arg constructor
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -211,8 +211,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|//Use a RAMOutputStream
-try|try
-block|{
 name|fieldInfos
 operator|.
 name|write
@@ -227,10 +225,12 @@ argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|output
+name|dir
 operator|.
-name|length
-argument_list|()
+name|fileLength
+argument_list|(
+name|name
+argument_list|)
 operator|>
 literal|0
 argument_list|)
@@ -401,19 +401,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|assertTrue
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 end_class

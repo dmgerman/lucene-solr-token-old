@@ -87,9 +87,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|store
 operator|.
-name|BytesRef
+name|Directory
 import|;
 end_import
 begin_import
@@ -100,9 +100,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|store
+name|util
 operator|.
-name|MockRAMDirectory
+name|BytesRef
 import|;
 end_import
 begin_import
@@ -210,7 +210,7 @@ init|=
 name|newRandom
 argument_list|()
 decl_stmt|;
-name|MockRAMDirectory
+name|Directory
 name|indexStore
 init|=
 name|newDirectory
@@ -809,7 +809,7 @@ init|=
 name|newRandom
 argument_list|()
 decl_stmt|;
-name|MockRAMDirectory
+name|Directory
 name|indexStore
 init|=
 name|newDirectory
@@ -1022,7 +1022,7 @@ init|=
 name|newRandom
 argument_list|()
 decl_stmt|;
-name|MockRAMDirectory
+name|Directory
 name|indexStore
 init|=
 name|newDirectory
@@ -1230,7 +1230,7 @@ init|=
 name|newRandom
 argument_list|()
 decl_stmt|;
-name|MockRAMDirectory
+name|Directory
 name|indexStore
 init|=
 name|newDirectory
@@ -1438,7 +1438,7 @@ init|=
 name|newRandom
 argument_list|()
 decl_stmt|;
-name|MockRAMDirectory
+name|Directory
 name|indexStore
 init|=
 name|newDirectory

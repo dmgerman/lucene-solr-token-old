@@ -653,7 +653,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|Directory
 import|;
 end_import
 begin_import
@@ -4018,7 +4018,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|ramDir
 init|=
 name|newDirectory
@@ -6446,7 +6446,7 @@ name|IOException
 throws|,
 name|ParseException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|ramDir
 init|=
 name|newDirectory

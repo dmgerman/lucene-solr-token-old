@@ -184,7 +184,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|Directory
 import|;
 end_import
 begin_import
@@ -320,7 +320,7 @@ index|[]
 decl_stmt|;
 DECL|field|dir
 specifier|private
-name|MockRAMDirectory
+name|Directory
 name|dir
 decl_stmt|;
 DECL|field|seg
@@ -1131,6 +1131,8 @@ specifier|public
 name|void
 name|test
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 comment|//Check to see the files were created properly in setup
 name|assertTrue

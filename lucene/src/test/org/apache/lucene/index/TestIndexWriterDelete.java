@@ -146,7 +146,20 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|RAMDirectory
 import|;
 end_import
 begin_import
@@ -2622,7 +2635,7 @@ init|=
 literal|144
 decl_stmt|;
 comment|// First build up a starting index:
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|startDir
 init|=
 name|newDirectory
@@ -2788,13 +2801,17 @@ operator|!
 name|done
 condition|)
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+argument_list|(
+operator|new
+name|RAMDirectory
 argument_list|(
 name|startDir
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|dir
@@ -3525,11 +3542,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|dir
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|result2
@@ -3540,12 +3552,12 @@ block|{
 break|break;
 block|}
 block|}
-name|modifier
+name|dir
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|startDir
+name|modifier
 operator|.
 name|close
 argument_list|()
@@ -3556,6 +3568,11 @@ operator|+=
 literal|10
 expr_stmt|;
 block|}
+name|startDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|// This test tests that buffered deletes are cleared when
 comment|// an Exception is hit during flush.
@@ -3567,13 +3584,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 name|failure
 init|=
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 argument_list|()
@@ -3591,7 +3608,7 @@ decl_stmt|;
 annotation|@
 name|Override
 specifier|public
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 name|reset
@@ -3615,7 +3632,7 @@ specifier|public
 name|void
 name|eval
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 parameter_list|)
 throws|throws
@@ -3807,7 +3824,7 @@ block|,
 literal|"Venice"
 block|}
 decl_stmt|;
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -4183,13 +4200,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 name|failure
 init|=
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 argument_list|()
@@ -4202,7 +4219,7 @@ decl_stmt|;
 annotation|@
 name|Override
 specifier|public
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 name|reset
@@ -4222,7 +4239,7 @@ specifier|public
 name|void
 name|eval
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 parameter_list|)
 throws|throws
@@ -4290,7 +4307,7 @@ block|,
 literal|"Venice"
 block|}
 decl_stmt|;
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory

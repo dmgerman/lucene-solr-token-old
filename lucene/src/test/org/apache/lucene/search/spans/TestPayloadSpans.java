@@ -409,19 +409,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|store
-operator|.
-name|MockRAMDirectory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|LuceneTestCase
@@ -923,7 +910,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|MockRAMDirectory
+name|Directory
 name|directory
 init|=
 name|newDirectory
@@ -2072,7 +2059,7 @@ name|LockObtainFailedException
 throws|,
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|directory
 init|=
 name|newDirectory
@@ -2367,7 +2354,7 @@ name|LockObtainFailedException
 throws|,
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|directory
 init|=
 name|newDirectory
@@ -2662,7 +2649,7 @@ name|LockObtainFailedException
 throws|,
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|directory
 init|=
 name|newDirectory
@@ -2978,7 +2965,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|directory
 init|=
 name|newDirectory

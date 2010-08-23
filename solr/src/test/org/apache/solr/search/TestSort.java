@@ -104,7 +104,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|Directory
 import|;
 end_import
 begin_import
@@ -251,7 +251,7 @@ init|=
 name|newRandom
 argument_list|()
 decl_stmt|;
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -1059,12 +1059,12 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 name|dir
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 DECL|method|randSet
 specifier|public

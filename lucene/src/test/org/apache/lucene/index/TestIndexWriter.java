@@ -626,19 +626,6 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
 name|NoLockFactory
 import|;
 end_import
@@ -652,7 +639,20 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|RAMDirectory
 import|;
 end_import
 begin_import
@@ -1486,7 +1486,7 @@ block|}
 block|}
 comment|// Now, build a starting index that has START_COUNT docs.  We
 comment|// will then try to addIndexesNoOptimize into a copy of this:
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|startDir
 init|=
 name|newDirectory
@@ -1789,13 +1789,17 @@ name|done
 condition|)
 block|{
 comment|// Make a new dir that will enforce disk usage:
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+argument_list|(
+operator|new
+name|RAMDirectory
 argument_list|(
 name|startDir
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|writer
@@ -2790,7 +2794,7 @@ operator|+
 name|diskFree
 argument_list|)
 expr_stmt|;
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -3181,7 +3185,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -3452,7 +3456,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -3723,7 +3727,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -4172,7 +4176,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -5347,7 +5351,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -5808,7 +5812,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*      * Verify that a writer with "commit on close" indeed      * cleans up the temp segments created after opening      * that are not referenced by the starting segments      * file.  We check this by using MockRAMDirectory to      * measure max temp disk space used.      */
+comment|/*      * Verify that a writer with "commit on close" indeed      * cleans up the temp segments created after opening      * that are not referenced by the starting segments      * file.  We check this by using MockDirectoryWrapper to      * measure max temp disk space used.      */
 DECL|method|testCommitOnCloseDiskUsage
 specifier|public
 name|void
@@ -5817,7 +5821,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -6084,7 +6088,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -6360,7 +6364,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -6521,7 +6525,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -6950,7 +6954,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -7108,7 +7112,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -7494,7 +7498,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -7922,7 +7926,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -8286,7 +8290,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -8643,7 +8647,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -8915,15 +8919,23 @@ specifier|final
 class|class
 name|MyRAMDirectory
 extends|extends
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 block|{
 specifier|private
 name|LockFactory
 name|myLockFactory
 decl_stmt|;
 name|MyRAMDirectory
-parameter_list|()
+parameter_list|(
+name|Directory
+name|delegate
+parameter_list|)
 block|{
+name|super
+argument_list|(
+name|delegate
+argument_list|)
+expr_stmt|;
 name|lockFactory
 operator|=
 literal|null
@@ -8960,7 +8972,11 @@ name|dir
 init|=
 operator|new
 name|MyRAMDirectory
+argument_list|(
+operator|new
+name|RAMDirectory
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|IndexWriter
 name|writer
@@ -9748,7 +9764,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -9835,7 +9851,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -10027,7 +10043,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -10242,7 +10258,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -10498,7 +10514,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -10647,7 +10663,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -11024,7 +11040,7 @@ specifier|static
 class|class
 name|FailOnlyOnFlush
 extends|extends
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 block|{
@@ -11075,7 +11091,7 @@ specifier|public
 name|void
 name|eval
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 parameter_list|)
 throws|throws
@@ -11213,7 +11229,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -11565,7 +11581,7 @@ name|i
 operator|++
 control|)
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -12209,7 +12225,7 @@ name|i
 operator|++
 control|)
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -12948,7 +12964,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -13342,7 +13358,7 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
-name|MockRAMDirectory
+name|Directory
 name|directory
 init|=
 name|newDirectory
@@ -14172,7 +14188,7 @@ name|iter
 operator|++
 control|)
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -14498,7 +14514,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -14711,7 +14727,7 @@ name|iter
 operator|++
 control|)
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -14930,7 +14946,7 @@ specifier|static
 class|class
 name|FailOnlyOnAbortOrFlush
 extends|extends
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 block|{
@@ -14961,7 +14977,7 @@ specifier|public
 name|void
 name|eval
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 parameter_list|)
 throws|throws
@@ -15058,7 +15074,7 @@ specifier|public
 name|void
 name|_testSingleThreadFailure
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 name|failure
@@ -15066,7 +15082,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -15243,7 +15259,7 @@ specifier|public
 name|void
 name|_testMultipleThreadsFailure
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 name|failure
@@ -15271,7 +15287,7 @@ name|iter
 operator|++
 control|)
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -15679,7 +15695,7 @@ specifier|static
 class|class
 name|FailOnlyInCloseDocStore
 extends|extends
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 block|{
@@ -15710,7 +15726,7 @@ specifier|public
 name|void
 name|eval
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 parameter_list|)
 throws|throws
@@ -15868,7 +15884,7 @@ specifier|static
 class|class
 name|FailOnlyInWriteSegment
 extends|extends
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 block|{
@@ -15899,7 +15915,7 @@ specifier|public
 name|void
 name|eval
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 parameter_list|)
 throws|throws
@@ -16705,14 +16721,14 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Throws IOException during MockRAMDirectory.sync
+comment|// Throws IOException during MockDirectoryWrapper.sync
 DECL|class|FailOnlyInSync
 specifier|private
 specifier|static
 class|class
 name|FailOnlyInSync
 extends|extends
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 block|{
@@ -16727,7 +16743,7 @@ specifier|public
 name|void
 name|eval
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 parameter_list|)
 throws|throws
@@ -16770,7 +16786,7 @@ if|if
 condition|(
 name|doFail
 operator|&&
-literal|"org.apache.lucene.store.MockRAMDirectory"
+literal|"org.apache.lucene.store.MockDirectoryWrapper"
 operator|.
 name|equals
 argument_list|(
@@ -16822,7 +16838,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -17312,9 +17328,13 @@ name|indexDirs
 init|=
 block|{
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+argument_list|(
+operator|new
+name|RAMDirectory
 argument_list|(
 name|dir
+argument_list|)
 argument_list|)
 block|}
 decl_stmt|;
@@ -19063,7 +19083,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -19217,7 +19237,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -19340,7 +19360,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -19615,7 +19635,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -19855,7 +19875,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -20039,7 +20059,7 @@ specifier|static
 class|class
 name|FailOnlyInCommit
 extends|extends
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 block|{
@@ -20057,7 +20077,7 @@ specifier|public
 name|void
 name|eval
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 parameter_list|)
 throws|throws
@@ -20135,7 +20155,7 @@ literal|true
 expr_stmt|;
 if|if
 condition|(
-literal|"org.apache.lucene.store.MockRAMDirectory"
+literal|"org.apache.lucene.store.MockDirectoryWrapper"
 operator|.
 name|equals
 argument_list|(
@@ -20215,7 +20235,7 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -20444,7 +20464,7 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -22122,7 +22142,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -22721,7 +22741,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory
@@ -23066,7 +23086,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -23236,8 +23256,12 @@ expr_stmt|;
 name|dir
 operator|=
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+argument_list|(
+operator|new
+name|RAMDirectory
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|IndexWriter
 name|writer
@@ -23290,8 +23314,12 @@ expr_stmt|;
 name|dir2
 operator|=
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+argument_list|(
+operator|new
+name|RAMDirectory
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|writer2
 operator|=
@@ -23426,9 +23454,13 @@ name|k
 index|]
 operator|=
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+argument_list|(
+operator|new
+name|RAMDirectory
 argument_list|(
 name|dir
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|int
@@ -24512,7 +24544,7 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -24598,7 +24630,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -25127,7 +25159,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|startDir
 init|=
 name|newDirectory
@@ -25219,13 +25251,17 @@ name|i
 operator|++
 control|)
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+argument_list|(
+operator|new
+name|RAMDirectory
 argument_list|(
 name|startDir
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|conf
@@ -25491,7 +25527,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -25824,7 +25860,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -26030,7 +26066,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -26236,7 +26272,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -26455,7 +26491,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -26673,7 +26709,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -26957,7 +26993,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -27206,7 +27242,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -27591,7 +27627,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -27689,7 +27725,7 @@ name|commit
 argument_list|()
 expr_stmt|;
 comment|// index has 2 segments
-name|MockRAMDirectory
+name|Directory
 name|dir2
 init|=
 name|newDirectory
@@ -27851,7 +27887,7 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 decl_stmt|;
 try|try
@@ -28305,11 +28341,28 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+try|try
+block|{
 name|dir
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 DECL|method|testThreadInterruptDeadlock
@@ -28426,7 +28479,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockRAMDirectory
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -33477,7 +33530,7 @@ specifier|static
 class|class
 name|FailTwiceDuringMerge
 extends|extends
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 block|{
@@ -33498,7 +33551,7 @@ specifier|public
 name|void
 name|eval
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 parameter_list|)
 throws|throws
@@ -33640,7 +33693,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 init|=
 name|newDirectory

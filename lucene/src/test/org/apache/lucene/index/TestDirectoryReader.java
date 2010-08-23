@@ -102,19 +102,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|store
-operator|.
-name|MockRAMDirectory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|BytesRef
@@ -746,7 +733,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|ramDir1
 init|=
 name|newDirectory
@@ -765,7 +752,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|MockRAMDirectory
+name|Directory
 name|ramDir2
 init|=
 name|newDirectory
@@ -912,7 +899,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockRAMDirectory
+name|Directory
 name|ramDir1
 init|=
 name|newDirectory
@@ -931,7 +918,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|MockRAMDirectory
+name|Directory
 name|ramDir2
 init|=
 name|newDirectory
@@ -950,7 +937,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|MockRAMDirectory
+name|Directory
 name|ramDir3
 init|=
 name|newDirectory
@@ -1241,7 +1228,7 @@ parameter_list|(
 name|Random
 name|random
 parameter_list|,
-name|MockRAMDirectory
+name|Directory
 name|ramDir1
 parameter_list|,
 name|String

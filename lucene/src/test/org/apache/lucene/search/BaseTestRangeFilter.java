@@ -135,7 +135,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|Directory
 import|;
 end_import
 begin_class
@@ -190,7 +190,7 @@ name|boolean
 name|allowNegativeRandomInts
 decl_stmt|;
 DECL|field|index
-name|MockRAMDirectory
+name|Directory
 name|index
 decl_stmt|;
 DECL|method|TestIndex

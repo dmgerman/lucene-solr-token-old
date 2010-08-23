@@ -94,7 +94,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 import|;
 end_import
 begin_import
@@ -161,7 +161,7 @@ specifier|private
 class|class
 name|RandomFailure
 extends|extends
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 operator|.
 name|Failure
 block|{
@@ -172,7 +172,7 @@ specifier|public
 name|void
 name|eval
 parameter_list|(
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir
 parameter_list|)
 throws|throws
@@ -1126,7 +1126,7 @@ operator|=
 name|newRandom
 argument_list|()
 expr_stmt|;
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir1
 init|=
 name|newDirectory
@@ -1134,7 +1134,7 @@ argument_list|(
 name|RANDOM
 argument_list|)
 decl_stmt|;
-name|MockRAMDirectory
+name|MockDirectoryWrapper
 name|dir2
 init|=
 name|newDirectory
