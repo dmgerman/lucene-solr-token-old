@@ -138,7 +138,13 @@ DECL|method|reload
 specifier|public
 name|void
 name|reload
-parameter_list|()
+parameter_list|(
+name|SolrCore
+name|core
+parameter_list|,
+name|SolrIndexSearcher
+name|searcher
+parameter_list|)
 throws|throws
 name|IOException
 block|{    }
