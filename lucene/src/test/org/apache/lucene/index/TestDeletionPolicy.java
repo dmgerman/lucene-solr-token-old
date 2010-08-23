@@ -1168,6 +1168,12 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+specifier|final
+name|int
+name|ITER
+init|=
+literal|8
+decl_stmt|;
 name|long
 name|lastDeleteTime
 init|=
@@ -1182,7 +1188,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|7
+name|ITER
 condition|;
 name|i
 operator|++
@@ -1282,6 +1288,15 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|i
+operator|<
+name|ITER
+operator|-
+literal|1
+condition|)
+block|{
 comment|// Make sure to sleep long enough so that some commit
 comment|// points will be deleted:
 name|Thread
@@ -1302,6 +1317,7 @@ operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// First, make sure the policy in fact deleted something:
 name|assertTrue
@@ -1354,6 +1370,11 @@ operator|.
 name|SEGMENTS_GEN
 argument_list|)
 expr_stmt|;
+name|boolean
+name|oneSecondResolution
+init|=
+literal|true
+decl_stmt|;
 while|while
 condition|(
 name|gen
@@ -1395,6 +1416,9 @@ argument_list|,
 name|gen
 argument_list|)
 expr_stmt|;
+comment|// if we are on a filesystem that seems to have only
+comment|// 1 second resolution, allow +1 second in commit
+comment|// age tolerance:
 name|long
 name|modTime
 init|=
@@ -1403,6 +1427,39 @@ operator|.
 name|fileModified
 argument_list|(
 name|fileName
+argument_list|)
+decl_stmt|;
+name|oneSecondResolution
+operator|&=
+operator|(
+name|modTime
+operator|%
+literal|1000
+operator|)
+operator|==
+literal|0
+expr_stmt|;
+specifier|final
+name|long
+name|leeway
+init|=
+call|(
+name|long
+call|)
+argument_list|(
+operator|(
+name|SECONDS
+operator|+
+operator|(
+name|oneSecondResolution
+condition|?
+literal|1.0
+else|:
+literal|0.0
+operator|)
+operator|)
+operator|*
+literal|1000
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1419,17 +1476,13 @@ operator|-
 name|modTime
 operator|)
 operator|+
-literal|" msec) but did not get deleted"
+literal|" msec) but did not get deleted "
 argument_list|,
 name|lastDeleteTime
 operator|-
 name|modTime
 operator|<=
-operator|(
-name|SECONDS
-operator|*
-literal|1000
-operator|)
+name|leeway
 argument_list|)
 expr_stmt|;
 block|}
