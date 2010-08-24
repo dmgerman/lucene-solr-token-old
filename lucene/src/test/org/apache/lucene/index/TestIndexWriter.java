@@ -2027,6 +2027,13 @@ argument_list|)
 expr_stmt|;
 name|dir
 operator|.
+name|setTrackDiskUsage
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|dir
+operator|.
 name|setMaxSizeInBytes
 argument_list|(
 name|thisDiskFree
@@ -3001,14 +3008,12 @@ block|}
 comment|//_TestUtil.syncConcurrentMerges(ms);
 if|if
 condition|(
+name|_TestUtil
+operator|.
+name|anyFilesExceptWriteLock
+argument_list|(
 name|dir
-operator|.
-name|listAll
-argument_list|()
-operator|.
-name|length
-operator|>
-literal|0
+argument_list|)
 condition|)
 block|{
 name|assertNoUnreferencedFiles
@@ -3836,6 +3841,13 @@ name|dir
 operator|.
 name|resetMaxUsedSizeInBytes
 argument_list|()
+expr_stmt|;
+name|dir
+operator|.
+name|setTrackDiskUsage
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|writer
 operator|=
@@ -5901,6 +5913,13 @@ name|dir
 operator|.
 name|resetMaxUsedSizeInBytes
 argument_list|()
+expr_stmt|;
+name|dir
+operator|.
+name|setTrackDiskUsage
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|long
 name|startDiskUsage
@@ -27919,11 +27938,6 @@ name|w
 init|=
 literal|null
 decl_stmt|;
-name|boolean
-name|first
-init|=
-literal|true
-decl_stmt|;
 while|while
 condition|(
 operator|!
@@ -27994,23 +28008,6 @@ argument_list|,
 name|conf
 argument_list|)
 expr_stmt|;
-comment|//((ConcurrentMergeScheduler) w.getMergeScheduler()).setSuppressExceptions();
-if|if
-condition|(
-operator|!
-name|first
-operator|&&
-operator|!
-name|allowInterrupt
-condition|)
-block|{
-comment|// tell main thread it can interrupt us any time,
-comment|// starting now
-name|allowInterrupt
-operator|=
-literal|true
-expr_stmt|;
-block|}
 name|Document
 name|doc
 init|=
@@ -28065,11 +28062,21 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|i
+operator|%
+literal|10
+operator|==
+literal|0
+condition|)
+block|{
 name|w
 operator|.
 name|commit
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|w
 operator|.
@@ -28095,14 +28102,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|first
-operator|&&
-operator|!
-name|allowInterrupt
-condition|)
-block|{
 comment|// Strangely, if we interrupt a thread before
 comment|// all classes are loaded, the class loader
 comment|// seems to do scary things with the interrupt
@@ -28116,11 +28115,6 @@ name|allowInterrupt
 operator|=
 literal|true
 expr_stmt|;
-name|first
-operator|=
-literal|false
-expr_stmt|;
-block|}
 block|}
 block|}
 catch|catch
@@ -28149,40 +28143,6 @@ condition|(
 name|finish
 condition|)
 block|{
-break|break;
-block|}
-comment|// Make sure IW cleared the interrupted bit
-comment|// TODO: remove that false once test is fixed for real
-if|if
-condition|(
-literal|false
-operator|&&
-name|interrupted
-argument_list|()
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"FAILED; InterruptedException hit but thread.interrupted() was true"
-argument_list|)
-expr_stmt|;
-name|e
-operator|.
-name|printStackTrace
-argument_list|(
-name|System
-operator|.
-name|out
-argument_list|)
-expr_stmt|;
-name|failed
-operator|=
-literal|true
-expr_stmt|;
 break|break;
 block|}
 block|}
@@ -28409,7 +28369,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1
+literal|10
 argument_list|)
 expr_stmt|;
 if|if
@@ -28421,12 +28381,6 @@ condition|)
 block|{
 name|i
 operator|++
-expr_stmt|;
-name|t
-operator|.
-name|allowInterrupt
-operator|=
-literal|false
 expr_stmt|;
 name|t
 operator|.
@@ -28446,12 +28400,6 @@ block|{
 break|break;
 block|}
 block|}
-name|t
-operator|.
-name|allowInterrupt
-operator|=
-literal|false
-expr_stmt|;
 name|t
 operator|.
 name|finish

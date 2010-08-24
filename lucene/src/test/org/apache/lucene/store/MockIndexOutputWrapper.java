@@ -23,15 +23,6 @@ operator|.
 name|IOException
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
 begin_comment
 comment|/**  * Used by MockRAMDirectory to create an output stream that  * will throw an IOException on fake disk full, track max  * disk space actually used, and maybe throw random  * IOExceptions.  */
 end_comment
@@ -132,6 +123,13 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|dir
+operator|.
+name|trackDiskUsage
+condition|)
+block|{
 comment|// Now compute actual disk usage& track the maxUsedSize
 comment|// in the MockDirectoryWrapper:
 name|long
@@ -157,6 +155,7 @@ name|maxUsedSize
 operator|=
 name|size
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
@@ -491,7 +490,6 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*   @Override   public void writeBytes(byte[] b, int length) throws IOException {     delegate.writeBytes(b, length);   }    @Override   public void writeInt(int i) throws IOException {     delegate.writeInt(i);   }    @Override   public void writeVInt(int i) throws IOException {     delegate.writeVInt(i);   }    @Override   public void writeLong(long i) throws IOException {     delegate.writeLong(i);   }    @Override   public void writeVLong(long i) throws IOException {     delegate.writeVLong(i);   }    @Override   public void writeString(String s) throws IOException {     delegate.writeString(s);   }    @Override   public void writeChars(String s, int start, int length) throws IOException {     delegate.writeChars(s, start, length);   }    @Override   public void writeChars(char[] s, int start, int length) throws IOException {     delegate.writeChars(s, start, length);   }    @Override   public void writeStringStringMap(Map<String,String> map) throws IOException {     delegate.writeStringStringMap(map);   }   */
 annotation|@
 name|Override
 DECL|method|copyBytes
