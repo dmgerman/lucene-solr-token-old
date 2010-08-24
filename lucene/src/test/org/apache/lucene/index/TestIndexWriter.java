@@ -2730,7 +2730,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*      * Make sure IndexWriter cleans up on hitting a disk      * full exception in addDocument.      */
+comment|/*      * Make sure IndexWriter cleans up on hitting a disk      * full exception in addDocument.      * TODO: how to do this on windows with FSDirectory?      */
 DECL|method|testAddDocumentOnDiskFull
 specifier|public
 name|void
@@ -2804,9 +2804,12 @@ expr_stmt|;
 name|MockDirectoryWrapper
 name|dir
 init|=
-name|newDirectory
+operator|new
+name|MockDirectoryWrapper
 argument_list|(
-name|random
+operator|new
+name|RAMDirectory
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|dir
