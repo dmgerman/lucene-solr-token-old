@@ -614,13 +614,6 @@ operator|new
 name|BucketTable
 argument_list|()
 decl_stmt|;
-DECL|field|maxCoord
-specifier|private
-name|int
-name|maxCoord
-init|=
-literal|1
-decl_stmt|;
 DECL|field|coordFactors
 specifier|private
 specifier|final
@@ -693,6 +686,9 @@ argument_list|<
 name|Scorer
 argument_list|>
 name|prohibitedScorers
+parameter_list|,
+name|int
+name|maxCoord
 parameter_list|)
 throws|throws
 name|IOException
@@ -730,9 +726,6 @@ range|:
 name|optionalScorers
 control|)
 block|{
-name|maxCoord
-operator|++
-expr_stmt|;
 if|if
 condition|(
 name|scorer
@@ -844,7 +837,12 @@ operator|=
 operator|new
 name|float
 index|[
-name|maxCoord
+name|optionalScorers
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|1
 index|]
 expr_stmt|;
 name|Similarity
@@ -862,7 +860,9 @@ literal|0
 init|;
 name|i
 operator|<
-name|maxCoord
+name|coordFactors
+operator|.
+name|length
 condition|;
 name|i
 operator|++
@@ -880,8 +880,6 @@ argument_list|(
 name|i
 argument_list|,
 name|maxCoord
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 block|}
