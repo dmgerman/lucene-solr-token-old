@@ -306,12 +306,6 @@ throws|throws
 name|IOException
 block|{
 comment|//this.path = path;
-name|bufferSize
-operator|=
-literal|1024
-operator|*
-literal|1024
-expr_stmt|;
 name|FileDescriptor
 name|fd
 init|=
@@ -919,12 +913,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|bufferSize
-operator|=
-literal|1024
-operator|*
-literal|1024
-expr_stmt|;
 name|FileDescriptor
 name|fd
 init|=
