@@ -1460,6 +1460,8 @@ name|LuceneTestCaseJ4
 operator|.
 name|newDirectoryImpl
 argument_list|(
+name|r
+argument_list|,
 name|TEST_DIRECTORY
 argument_list|)
 decl_stmt|;
@@ -1517,6 +1519,8 @@ name|LuceneTestCaseJ4
 operator|.
 name|newDirectoryImpl
 argument_list|(
+name|r
+argument_list|,
 name|TEST_DIRECTORY
 argument_list|)
 decl_stmt|;
