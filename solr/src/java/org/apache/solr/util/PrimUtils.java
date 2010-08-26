@@ -90,7 +90,7 @@ literal|0
 return|;
 block|}
 block|}
-comment|/** Sort the integer array from "start" inclusive to "end" exclusive in ascending order,    *  using the provided comparator.    */
+comment|/** Sort the integer array from "start" inclusive to "end" exclusive in ascending order,    *  using the provided comparator.    * TODO: is this an unstable sort?    */
 DECL|method|sort
 specifier|public
 specifier|static
