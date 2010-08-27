@@ -994,7 +994,7 @@ name|nrBuffers
 operator|*
 name|maxBufSize
 operator|)
-operator|<
+operator|<=
 name|length
 condition|)
 name|nrBuffers
