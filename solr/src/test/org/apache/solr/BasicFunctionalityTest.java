@@ -1296,7 +1296,9 @@ literal|"q"
 argument_list|,
 literal|"text:hello"
 argument_list|,
-literal|"debugQuery"
+name|CommonParams
+operator|.
+name|DEBUG_QUERY
 argument_list|,
 literal|"true"
 argument_list|)
@@ -1389,7 +1391,9 @@ literal|"q"
 argument_list|,
 literal|"text:hello"
 argument_list|,
-literal|"debugQuery"
+name|CommonParams
+operator|.
+name|DEBUG_QUERY
 argument_list|,
 literal|"true"
 argument_list|)
