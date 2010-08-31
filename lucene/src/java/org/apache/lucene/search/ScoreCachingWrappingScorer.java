@@ -36,6 +36,7 @@ name|Scorer
 block|{
 DECL|field|scorer
 specifier|private
+specifier|final
 name|Scorer
 name|scorer
 decl_stmt|;
