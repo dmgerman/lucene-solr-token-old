@@ -421,6 +421,15 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
+name|savedCommits
+operator|.
+name|put
+argument_list|(
+name|indexCommitVersion
+argument_list|,
+name|reserveCount
+argument_list|)
+expr_stmt|;
 block|}
 comment|/** Release a previously saved commit point */
 DECL|method|releaseCommitPoint
@@ -664,7 +673,7 @@ if|if
 condition|(
 name|savedCommits
 operator|.
-name|contains
+name|containsKey
 argument_list|(
 name|version
 argument_list|)
