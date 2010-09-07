@@ -51,10 +51,11 @@ begin_comment
 comment|/**  *  */
 end_comment
 begin_class
-DECL|class|AbstractClusteringTest
+DECL|class|AbstractClusteringTestCase
 specifier|public
+specifier|abstract
 class|class
-name|AbstractClusteringTest
+name|AbstractClusteringTestCase
 extends|extends
 name|SolrTestCaseJ4
 block|{
