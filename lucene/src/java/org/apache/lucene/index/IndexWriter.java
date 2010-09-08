@@ -13523,6 +13523,26 @@ return|return
 literal|false
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|infos
+operator|.
+name|getGeneration
+argument_list|()
+operator|!=
+name|segmentInfos
+operator|.
+name|getGeneration
+argument_list|()
+condition|)
+block|{
+comment|// if any commit took place since we were opened, we
+comment|// are stale
+return|return
+literal|false
+return|;
+block|}
 else|else
 block|{
 return|return
