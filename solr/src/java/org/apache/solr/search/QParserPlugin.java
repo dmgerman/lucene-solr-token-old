@@ -159,6 +159,14 @@ name|RawQParserPlugin
 operator|.
 name|class
 block|,
+name|TermQParserPlugin
+operator|.
+name|NAME
+block|,
+name|TermQParserPlugin
+operator|.
+name|class
+block|,
 name|NestedQParserPlugin
 operator|.
 name|NAME
