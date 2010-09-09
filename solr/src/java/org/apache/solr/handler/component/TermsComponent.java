@@ -783,6 +783,12 @@ name|Terms
 name|terms
 init|=
 name|lfields
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|lfields
 operator|.
 name|terms
 argument_list|(
