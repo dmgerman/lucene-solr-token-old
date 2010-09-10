@@ -530,7 +530,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|public
-name|void
+name|FieldComparator
 name|setNextReader
 parameter_list|(
 name|IndexReader
@@ -551,6 +551,9 @@ argument_list|,
 name|reader
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 specifier|public
 name|Comparable

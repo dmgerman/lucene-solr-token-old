@@ -397,7 +397,7 @@ annotation|@
 name|Override
 DECL|method|setNextReader
 specifier|public
-name|void
+name|FieldComparator
 name|setNextReader
 parameter_list|(
 name|IndexReader
@@ -415,6 +415,9 @@ name|offset
 operator|=
 name|docBase
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override

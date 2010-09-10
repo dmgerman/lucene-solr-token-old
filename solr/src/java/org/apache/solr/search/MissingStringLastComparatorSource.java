@@ -800,7 +800,7 @@ annotation|@
 name|Override
 DECL|method|setNextReader
 specifier|public
-name|void
+name|FieldComparator
 name|setNextReader
 parameter_list|(
 name|IndexReader
@@ -857,6 +857,9 @@ name|bottomSlot
 index|]
 expr_stmt|;
 block|}
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override
