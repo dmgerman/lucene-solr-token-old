@@ -42,15 +42,6 @@ operator|.
 name|UnicodeUtil
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
-import|;
-end_import
 begin_class
 DECL|class|TestBasicOperations
 specifier|public
@@ -511,13 +502,6 @@ throws|throws
 name|Throwable
 block|{
 specifier|final
-name|Random
-name|r
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
-specifier|final
 name|int
 name|ITER1
 init|=
@@ -556,7 +540,7 @@ name|AutomatonTestUtil
 operator|.
 name|randomRegexp
 argument_list|(
-name|r
+name|random
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -621,7 +605,7 @@ name|rx
 operator|.
 name|getRandomAcceptedString
 argument_list|(
-name|r
+name|random
 argument_list|)
 expr_stmt|;
 specifier|final

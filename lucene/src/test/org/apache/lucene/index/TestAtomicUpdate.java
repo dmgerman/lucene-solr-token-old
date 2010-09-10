@@ -982,8 +982,7 @@ name|MockIndexWriter
 operator|.
 name|RANDOM
 operator|=
-name|newRandom
-argument_list|()
+name|random
 expr_stmt|;
 name|Directory
 name|directory

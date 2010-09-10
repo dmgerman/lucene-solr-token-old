@@ -110,8 +110,7 @@ literal|10000
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|,
-name|newRandom
-argument_list|()
+name|random
 argument_list|)
 expr_stmt|;
 block|}

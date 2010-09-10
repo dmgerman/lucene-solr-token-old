@@ -85,11 +85,6 @@ name|TestUTF32ToUTF8
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|field|random
-specifier|private
-name|Random
-name|random
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp
@@ -103,11 +98,6 @@ block|{
 name|super
 operator|.
 name|setUp
-argument_list|()
-expr_stmt|;
-name|random
-operator|=
-name|newRandom
 argument_list|()
 expr_stmt|;
 block|}

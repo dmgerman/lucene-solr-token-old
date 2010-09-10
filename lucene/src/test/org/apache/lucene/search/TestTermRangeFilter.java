@@ -3188,9 +3188,7 @@ name|Directory
 name|farsiIndex
 init|=
 name|newDirectory
-argument_list|(
-name|rand
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|RandomIndexWriter
 name|writer
@@ -3198,7 +3196,7 @@ init|=
 operator|new
 name|RandomIndexWriter
 argument_list|(
-name|rand
+name|random
 argument_list|,
 name|farsiIndex
 argument_list|)
@@ -3431,9 +3429,7 @@ name|Directory
 name|danishIndex
 init|=
 name|newDirectory
-argument_list|(
-name|rand
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|RandomIndexWriter
 name|writer
@@ -3441,7 +3437,7 @@ init|=
 operator|new
 name|RandomIndexWriter
 argument_list|(
-name|rand
+name|random
 argument_list|,
 name|danishIndex
 argument_list|)

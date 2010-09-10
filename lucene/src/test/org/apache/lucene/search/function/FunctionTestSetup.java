@@ -148,15 +148,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|junit
@@ -379,18 +370,10 @@ name|setUp
 argument_list|()
 expr_stmt|;
 comment|// prepare a small index with just a few documents.
-name|Random
-name|r
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 name|dir
 operator|=
 name|newDirectory
-argument_list|(
-name|r
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|anlzr
 operator|=
@@ -403,8 +386,6 @@ name|iwc
 init|=
 name|newIndexWriterConfig
 argument_list|(
-name|r
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 name|anlzr
@@ -423,7 +404,7 @@ name|_TestUtil
 operator|.
 name|nextInt
 argument_list|(
-name|r
+name|random
 argument_list|,
 literal|2
 argument_list|,
@@ -438,7 +419,7 @@ init|=
 operator|new
 name|RandomIndexWriter
 argument_list|(
-name|r
+name|random
 argument_list|,
 name|dir
 argument_list|,

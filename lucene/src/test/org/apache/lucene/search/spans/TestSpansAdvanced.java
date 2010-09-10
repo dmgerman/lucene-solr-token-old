@@ -27,15 +27,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -204,11 +195,6 @@ specifier|protected
 name|IndexSearcher
 name|searcher
 decl_stmt|;
-DECL|field|random
-specifier|protected
-name|Random
-name|random
-decl_stmt|;
 comment|// field names in the index
 DECL|field|FIELD_ID
 specifier|private
@@ -244,18 +230,11 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|random
-operator|=
-name|newRandom
-argument_list|()
-expr_stmt|;
 comment|// create test index
 name|mDirectory
 operator|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 expr_stmt|;
 specifier|final
 name|RandomIndexWriter

@@ -91,12 +91,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Random
-name|r
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 name|int
 name|num
 init|=
@@ -123,9 +117,7 @@ name|Directory
 name|dir
 init|=
 name|newDirectory
-argument_list|(
-name|r
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|IndexWriter
 name|w
@@ -137,8 +129,6 @@ name|dir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|r
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -210,7 +200,7 @@ name|_TestUtil
 operator|.
 name|nextInt
 argument_list|(
-name|r
+name|random
 argument_list|,
 literal|1
 argument_list|,
@@ -289,7 +279,7 @@ expr_stmt|;
 name|boolean
 name|onlyUniqueTerms
 init|=
-name|r
+name|random
 operator|.
 name|nextBoolean
 argument_list|()
@@ -327,7 +317,7 @@ condition|(
 operator|!
 name|onlyUniqueTerms
 operator|&&
-name|r
+name|random
 operator|.
 name|nextBoolean
 argument_list|()
@@ -348,7 +338,7 @@ name|terms
 operator|.
 name|get
 argument_list|(
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -391,7 +381,7 @@ name|_TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
-name|r
+name|random
 argument_list|,
 literal|10
 argument_list|)
@@ -483,7 +473,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -505,7 +495,7 @@ name|i
 operator|>
 literal|0
 operator|&&
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -518,7 +508,7 @@ block|{
 name|int
 name|delID
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -696,7 +686,7 @@ name|terms
 operator|.
 name|get
 argument_list|(
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -796,19 +786,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Random
-name|random
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 name|Directory
 name|dir
 init|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|IndexWriter
 name|w
@@ -820,8 +802,6 @@ name|dir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new

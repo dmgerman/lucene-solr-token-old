@@ -20,15 +20,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Random
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|ArrayList
 import|;
 end_import
@@ -307,12 +298,6 @@ index|[
 name|NUM_STREAM
 index|]
 decl_stmt|;
-name|Random
-name|r
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 name|ByteSliceReader
 name|reader
 init|=
@@ -391,7 +376,7 @@ block|{
 name|int
 name|stream
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -485,7 +470,7 @@ expr_stmt|;
 name|int
 name|numValue
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -534,7 +519,7 @@ name|writer
 operator|.
 name|writeVInt
 argument_list|(
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|()

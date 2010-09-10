@@ -203,12 +203,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Random
-name|random
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 name|StringWriter
 name|sw
 init|=
@@ -333,9 +327,7 @@ name|Directory
 name|directory
 init|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Analyzer
 name|analyzer
@@ -349,8 +341,6 @@ name|conf
 init|=
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 name|analyzer

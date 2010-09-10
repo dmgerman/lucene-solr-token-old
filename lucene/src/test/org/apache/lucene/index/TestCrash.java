@@ -138,9 +138,7 @@ argument_list|(
 name|random
 argument_list|,
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 argument_list|,
 name|initialCommit
 argument_list|)
@@ -183,8 +181,6 @@ name|dir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -389,8 +385,7 @@ name|writer
 init|=
 name|initIndex
 argument_list|(
-name|newRandom
-argument_list|()
+name|random
 argument_list|,
 literal|true
 argument_list|)
@@ -455,12 +450,6 @@ block|{
 comment|// This test relies on being able to open a reader before any commit
 comment|// happened, so we must create an initial commit just to allow that, but
 comment|// before any documents were added.
-name|Random
-name|random
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 name|IndexWriter
 name|writer
 init|=
@@ -551,12 +540,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|Random
-name|random
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 name|IndexWriter
 name|writer
 init|=
@@ -656,8 +639,7 @@ name|writer
 init|=
 name|initIndex
 argument_list|(
-name|newRandom
-argument_list|()
+name|random
 argument_list|,
 literal|false
 argument_list|)
@@ -730,8 +712,7 @@ name|writer
 init|=
 name|initIndex
 argument_list|(
-name|newRandom
-argument_list|()
+name|random
 argument_list|,
 literal|false
 argument_list|)
@@ -806,8 +787,7 @@ name|writer
 init|=
 name|initIndex
 argument_list|(
-name|newRandom
-argument_list|()
+name|random
 argument_list|,
 literal|false
 argument_list|)
@@ -900,8 +880,7 @@ name|writer
 init|=
 name|initIndex
 argument_list|(
-name|newRandom
-argument_list|()
+name|random
 argument_list|,
 literal|false
 argument_list|)

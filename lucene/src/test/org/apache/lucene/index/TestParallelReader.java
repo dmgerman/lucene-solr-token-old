@@ -226,11 +226,6 @@ specifier|private
 name|IndexSearcher
 name|single
 decl_stmt|;
-DECL|field|random
-specifier|private
-name|Random
-name|random
-decl_stmt|;
 DECL|field|dir
 DECL|field|dir1
 DECL|field|dir2
@@ -255,11 +250,6 @@ block|{
 name|super
 operator|.
 name|setUp
-argument_list|()
-expr_stmt|;
-name|random
-operator|=
-name|newRandom
 argument_list|()
 expr_stmt|;
 name|single
@@ -903,9 +893,7 @@ name|Directory
 name|dir2
 init|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|IndexWriter
 name|w2
@@ -917,8 +905,6 @@ name|dir2
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1240,8 +1226,6 @@ name|dir1
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1318,8 +1302,6 @@ name|dir2
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1443,8 +1425,6 @@ name|dir1
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1520,8 +1500,6 @@ name|dir2
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1806,9 +1784,7 @@ block|{
 name|dir
 operator|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|IndexWriter
 name|w
@@ -1820,8 +1796,6 @@ name|dir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -2157,9 +2131,7 @@ name|Directory
 name|dir1
 init|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|IndexWriter
 name|w1
@@ -2171,8 +2143,6 @@ name|dir1
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -2333,9 +2303,7 @@ name|Directory
 name|dir2
 init|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|IndexWriter
 name|w2
@@ -2347,8 +2315,6 @@ name|dir2
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new

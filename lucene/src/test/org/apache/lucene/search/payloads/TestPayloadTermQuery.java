@@ -380,15 +380,6 @@ operator|.
 name|IOException
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
-import|;
-end_import
 begin_comment
 comment|/**  *  *  **/
 end_comment
@@ -703,18 +694,10 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|Random
-name|random
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 name|directory
 operator|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|RandomIndexWriter
 name|writer
@@ -728,8 +711,6 @@ name|directory
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new

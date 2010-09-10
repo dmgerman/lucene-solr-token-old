@@ -467,13 +467,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-specifier|final
-name|Random
-name|r
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 name|MyBufferedIndexInput
 name|input
 init|=
@@ -489,7 +482,7 @@ name|BufferedIndexInput
 operator|.
 name|BUFFER_SIZE
 argument_list|,
-name|r
+name|random
 argument_list|)
 expr_stmt|;
 comment|// This tests the workaround code for LUCENE-1566 where readBytesInternal
@@ -542,7 +535,7 @@ argument_list|)
 argument_list|,
 name|inputBufferSize
 argument_list|,
-name|r
+name|random
 argument_list|)
 expr_stmt|;
 comment|// run test with chunk size of 10 bytes
@@ -560,7 +553,7 @@ argument_list|)
 argument_list|,
 name|inputBufferSize
 argument_list|,
-name|r
+name|random
 argument_list|)
 expr_stmt|;
 block|}
@@ -1325,8 +1318,7 @@ name|MockFSDirectory
 argument_list|(
 name|indexDir
 argument_list|,
-name|newRandom
-argument_list|()
+name|random
 argument_list|)
 decl_stmt|;
 try|try

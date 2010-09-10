@@ -632,13 +632,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-specifier|final
-name|Random
-name|rnd
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -770,8 +763,6 @@ name|dir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|rnd
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -791,7 +782,7 @@ expr_stmt|;
 comment|// TODO: Make IndexWriter fail on open!
 if|if
 condition|(
-name|rnd
+name|random
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1073,12 +1064,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|Random
-name|random
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|String
@@ -1127,9 +1112,7 @@ name|Directory
 name|targetDir
 init|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|IndexWriter
 name|w
@@ -1141,8 +1124,6 @@ name|targetDir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1200,12 +1181,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|Random
-name|random
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|String
@@ -1264,9 +1239,7 @@ name|Directory
 name|targetDir
 init|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|IndexWriter
 name|w
@@ -1278,8 +1251,6 @@ name|targetDir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1410,12 +1381,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|Random
-name|random
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -1481,12 +1446,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|Random
-name|random
-init|=
-name|newRandom
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -2158,8 +2117,6 @@ name|dir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -2533,8 +2490,6 @@ name|dir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -2941,8 +2896,6 @@ name|dir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -3113,8 +3066,6 @@ name|conf
 init|=
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -3213,8 +3164,6 @@ name|conf
 operator|=
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -3389,9 +3338,6 @@ name|dir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|newRandom
-argument_list|()
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new

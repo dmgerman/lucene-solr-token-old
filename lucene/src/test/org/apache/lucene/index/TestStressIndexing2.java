@@ -269,10 +269,6 @@ name|seed
 init|=
 literal|0
 decl_stmt|;
-DECL|field|r
-name|Random
-name|r
-decl_stmt|;
 DECL|class|MockIndexWriter
 specifier|public
 class|class
@@ -314,7 +310,7 @@ block|{
 comment|//      if (name.equals("startCommit")) {
 if|if
 condition|(
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -341,18 +337,11 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
-name|r
-operator|=
-name|newRandom
-argument_list|()
-expr_stmt|;
 name|Directory
 name|dir
 init|=
 name|newDirectory
-argument_list|(
-name|r
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// TODO: verify equals using IW.getReader
 name|DocsAndWriter
@@ -388,7 +377,7 @@ argument_list|()
 expr_stmt|;
 name|verifyEquals
 argument_list|(
-name|r
+name|random
 argument_list|,
 name|reader
 argument_list|,
@@ -423,27 +412,18 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
-name|r
-operator|=
-name|newRandom
-argument_list|()
-expr_stmt|;
 name|Directory
 name|dir1
 init|=
 name|newDirectory
-argument_list|(
-name|r
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// dir1 = FSDirectory.open("foofoofoo");
 name|Directory
 name|dir2
 init|=
 name|newDirectory
-argument_list|(
-name|r
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// mergeFactor=2; maxBufferedDocs=2; Map docs = indexRandom(1, 3, 2, dir1);
 name|int
@@ -451,7 +431,7 @@ name|maxThreadStates
 init|=
 literal|1
 operator|+
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -461,7 +441,7 @@ decl_stmt|;
 name|boolean
 name|doReaderPooling
 init|=
-name|r
+name|random
 operator|.
 name|nextBoolean
 argument_list|()
@@ -491,7 +471,7 @@ argument_list|)
 decl_stmt|;
 name|indexSerial
 argument_list|(
-name|r
+name|random
 argument_list|,
 name|docs
 argument_list|,
@@ -530,11 +510,6 @@ throws|throws
 name|Throwable
 block|{
 comment|// test lots of smaller different params together
-name|r
-operator|=
-name|newRandom
-argument_list|()
-expr_stmt|;
 name|int
 name|num
 init|=
@@ -560,14 +535,14 @@ block|{
 comment|// increase iterations for better testing
 name|sameFieldOrder
 operator|=
-name|r
+name|random
 operator|.
 name|nextBoolean
 argument_list|()
 expr_stmt|;
 name|mergeFactor
 operator|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -578,7 +553,7 @@ literal|2
 expr_stmt|;
 name|maxBufferedDocs
 operator|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -592,7 +567,7 @@ name|maxThreadStates
 init|=
 literal|1
 operator|+
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -602,7 +577,7 @@ decl_stmt|;
 name|boolean
 name|doReaderPooling
 init|=
-name|r
+name|random
 operator|.
 name|nextBoolean
 argument_list|()
@@ -613,7 +588,7 @@ expr_stmt|;
 name|int
 name|nThreads
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -625,7 +600,7 @@ decl_stmt|;
 name|int
 name|iter
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -637,7 +612,7 @@ decl_stmt|;
 name|int
 name|range
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -650,17 +625,13 @@ name|Directory
 name|dir1
 init|=
 name|newDirectory
-argument_list|(
-name|r
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Directory
 name|dir2
 init|=
 name|newDirectory
-argument_list|(
-name|r
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Map
 argument_list|<
@@ -688,7 +659,7 @@ decl_stmt|;
 comment|//System.out.println("TEST: index serial");
 name|indexSerial
 argument_list|(
-name|r
+name|random
 argument_list|,
 name|docs
 argument_list|,
@@ -850,8 +821,6 @@ name|dir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|r
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1184,8 +1153,6 @@ name|dir
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|r
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -1465,6 +1432,8 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
+name|LuceneTestCaseJ4
+operator|.
 name|newIndexWriterConfig
 argument_list|(
 name|random

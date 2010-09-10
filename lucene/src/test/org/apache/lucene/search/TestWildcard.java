@@ -157,15 +157,6 @@ operator|.
 name|IOException
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
-import|;
-end_import
 begin_comment
 comment|/**  * TestWildcard tests the '*' and '?' wildcard characters.  */
 end_comment
@@ -177,11 +168,6 @@ name|TestWildcard
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|field|random
-specifier|private
-name|Random
-name|random
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp
@@ -195,11 +181,6 @@ block|{
 name|super
 operator|.
 name|setUp
-argument_list|()
-expr_stmt|;
-name|random
-operator|=
-name|newRandom
 argument_list|()
 expr_stmt|;
 block|}
@@ -1376,9 +1357,7 @@ name|Directory
 name|indexStore
 init|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|RandomIndexWriter
 name|writer
@@ -1699,9 +1678,7 @@ name|Directory
 name|dir
 init|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|RandomIndexWriter
 name|iw

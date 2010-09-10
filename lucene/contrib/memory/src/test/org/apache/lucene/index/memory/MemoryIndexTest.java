@@ -67,15 +67,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Random
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Set
 import|;
 end_import
@@ -287,11 +278,6 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|random
-specifier|private
-name|Random
-name|random
-decl_stmt|;
 DECL|field|ITERATIONS
 specifier|public
 specifier|static
@@ -337,11 +323,6 @@ argument_list|(
 literal|"testqueries2.txt"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|random
-operator|=
-name|newRandom
-argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * read a set of queries from a resource file    */
@@ -607,9 +588,7 @@ name|Directory
 name|ramdir
 init|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Analyzer
 name|analyzer
