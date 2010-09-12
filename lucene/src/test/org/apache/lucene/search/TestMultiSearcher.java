@@ -318,8 +318,7 @@ name|lDoc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"fulltext"
 argument_list|,
@@ -343,8 +342,7 @@ name|lDoc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -368,8 +366,7 @@ name|lDoc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"handle"
 argument_list|,
@@ -401,8 +398,7 @@ name|lDoc2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"fulltext"
 argument_list|,
@@ -426,8 +422,7 @@ name|lDoc2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -451,8 +446,7 @@ name|lDoc2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"handle"
 argument_list|,
@@ -484,8 +478,7 @@ name|lDoc3
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"fulltext"
 argument_list|,
@@ -509,8 +502,7 @@ name|lDoc3
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -534,8 +526,7 @@ name|lDoc3
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"handle"
 argument_list|,
@@ -1245,7 +1236,6 @@ expr_stmt|;
 block|}
 DECL|method|createDocument
 specifier|private
-specifier|static
 name|Document
 name|createDocument
 parameter_list|(
@@ -1267,8 +1257,7 @@ name|document
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"contents"
 argument_list|,
@@ -1292,8 +1281,7 @@ name|document
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"other"
 argument_list|,
@@ -1324,8 +1312,7 @@ name|document
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"contents"
 argument_list|,
@@ -1352,7 +1339,6 @@ return|;
 block|}
 DECL|method|initIndex
 specifier|private
-specifier|static
 name|void
 name|initIndex
 parameter_list|(

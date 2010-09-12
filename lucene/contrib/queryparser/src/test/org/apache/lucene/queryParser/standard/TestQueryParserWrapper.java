@@ -4062,8 +4062,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"content"
 argument_list|,
@@ -7200,7 +7199,6 @@ expr_stmt|;
 block|}
 DECL|method|addDateDoc
 specifier|private
-specifier|static
 name|void
 name|addDateDoc
 parameter_list|(
@@ -7242,8 +7240,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f"
 argument_list|,
@@ -7298,8 +7295,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"date"
 argument_list|,

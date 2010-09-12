@@ -381,8 +381,7 @@ comment|// this field will have Tf
 name|Field
 name|f1
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f1"
 argument_list|,
@@ -412,8 +411,7 @@ comment|// this field will NOT have Tf
 name|Field
 name|f2
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f2"
 argument_list|,
@@ -651,8 +649,7 @@ comment|// this field will have Tf
 name|Field
 name|f1
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f1"
 argument_list|,
@@ -682,8 +679,7 @@ comment|// this field will NOT have Tf
 name|Field
 name|f2
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f2"
 argument_list|,
@@ -945,8 +941,7 @@ comment|// this field will have Tf
 name|Field
 name|f1
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f1"
 argument_list|,
@@ -976,8 +971,7 @@ comment|// this field will NOT have Tf
 name|Field
 name|f2
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f2"
 argument_list|,
@@ -1268,8 +1262,7 @@ decl_stmt|;
 name|Field
 name|f1
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f1"
 argument_list|,
@@ -1490,8 +1483,7 @@ decl_stmt|;
 name|Field
 name|noTf
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"noTf"
 argument_list|,
@@ -1539,8 +1531,7 @@ expr_stmt|;
 name|Field
 name|tf
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"tf"
 argument_list|,

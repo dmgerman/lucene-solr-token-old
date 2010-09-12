@@ -288,8 +288,7 @@ decl_stmt|;
 name|Field
 name|docid
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"docid"
 argument_list|,
@@ -311,8 +310,7 @@ decl_stmt|;
 name|Field
 name|junk
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"junk"
 argument_list|,

@@ -3064,7 +3064,8 @@ decl_stmt|;
 name|IndexWriterConfig
 name|conf
 init|=
-name|newIndexWriterConfig
+operator|new
+name|IndexWriterConfig
 argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
@@ -3162,7 +3163,8 @@ expr_stmt|;
 comment|// open fresh writer so we get no prx file in the added segment
 name|conf
 operator|=
-name|newIndexWriterConfig
+operator|new
+name|IndexWriterConfig
 argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,

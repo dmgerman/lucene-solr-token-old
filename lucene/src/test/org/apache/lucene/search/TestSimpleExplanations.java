@@ -2521,8 +2521,7 @@ name|lDoc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"handle"
 argument_list|,
@@ -2553,8 +2552,7 @@ name|lDoc2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"handle"
 argument_list|,
@@ -2585,8 +2583,7 @@ name|lDoc3
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"handle"
 argument_list|,

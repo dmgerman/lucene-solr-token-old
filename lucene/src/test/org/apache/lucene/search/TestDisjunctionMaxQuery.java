@@ -329,8 +329,7 @@ name|d1
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -356,8 +355,7 @@ name|d1
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"hed"
 argument_list|,
@@ -382,8 +380,7 @@ name|d1
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"dek"
 argument_list|,
@@ -425,8 +422,7 @@ name|d2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -452,8 +448,7 @@ name|d2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"hed"
 argument_list|,
@@ -478,8 +473,7 @@ name|d2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"dek"
 argument_list|,
@@ -505,8 +499,7 @@ name|d2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"dek"
 argument_list|,
@@ -548,8 +541,7 @@ name|d3
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -575,8 +567,7 @@ name|d3
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"hed"
 argument_list|,
@@ -602,8 +593,7 @@ name|d3
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"hed"
 argument_list|,
@@ -645,8 +635,7 @@ name|d4
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -672,8 +661,7 @@ name|d4
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"hed"
 argument_list|,
@@ -699,8 +687,7 @@ name|d4
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"hed"
 argument_list|,
@@ -725,8 +712,7 @@ name|d4
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"dek"
 argument_list|,

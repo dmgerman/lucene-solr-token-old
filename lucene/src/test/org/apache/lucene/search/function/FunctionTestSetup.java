@@ -553,8 +553,7 @@ literal|1
 decl_stmt|;
 name|f
 operator|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 name|ID_FIELD
 argument_list|,
@@ -593,8 +592,7 @@ argument_list|)
 expr_stmt|;
 name|f
 operator|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 name|TEXT_FIELD
 argument_list|,
@@ -637,8 +635,7 @@ argument_list|)
 expr_stmt|;
 name|f
 operator|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 name|INT_FIELD
 argument_list|,
@@ -676,8 +673,7 @@ argument_list|)
 expr_stmt|;
 name|f
 operator|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 name|FLOAT_FIELD
 argument_list|,

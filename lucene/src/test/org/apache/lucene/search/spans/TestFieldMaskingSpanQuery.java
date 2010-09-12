@@ -250,7 +250,6 @@ return|;
 block|}
 DECL|method|field
 specifier|protected
-specifier|static
 name|Field
 name|field
 parameter_list|(
@@ -262,8 +261,7 @@ name|value
 parameter_list|)
 block|{
 return|return
-operator|new
-name|Field
+name|newField
 argument_list|(
 name|name
 argument_list|,

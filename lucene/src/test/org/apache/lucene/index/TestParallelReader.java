@@ -924,8 +924,7 @@ name|d3
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f3"
 argument_list|,
@@ -1260,8 +1259,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f1"
 argument_list|,
@@ -1335,8 +1333,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f2"
 argument_list|,
@@ -1815,8 +1812,7 @@ name|d1
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f1"
 argument_list|,
@@ -1840,8 +1836,7 @@ name|d1
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f2"
 argument_list|,
@@ -1865,8 +1860,7 @@ name|d1
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f3"
 argument_list|,
@@ -1890,8 +1884,7 @@ name|d1
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f4"
 argument_list|,
@@ -1929,8 +1922,7 @@ name|d2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f1"
 argument_list|,
@@ -1954,8 +1946,7 @@ name|d2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f2"
 argument_list|,
@@ -1979,8 +1970,7 @@ name|d2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f3"
 argument_list|,
@@ -2004,8 +1994,7 @@ name|d2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f4"
 argument_list|,
@@ -2162,8 +2151,7 @@ name|d1
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f1"
 argument_list|,
@@ -2187,8 +2175,7 @@ name|d1
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f2"
 argument_list|,
@@ -2226,8 +2213,7 @@ name|d2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f1"
 argument_list|,
@@ -2251,8 +2237,7 @@ name|d2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f2"
 argument_list|,
@@ -2334,8 +2319,7 @@ name|d3
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f3"
 argument_list|,
@@ -2359,8 +2343,7 @@ name|d3
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f4"
 argument_list|,
@@ -2398,8 +2381,7 @@ name|d4
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f3"
 argument_list|,
@@ -2423,8 +2405,7 @@ name|d4
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f4"
 argument_list|,

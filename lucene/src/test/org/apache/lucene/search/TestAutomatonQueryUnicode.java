@@ -217,8 +217,7 @@ decl_stmt|;
 name|Field
 name|titleField
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"title"
 argument_list|,
@@ -240,8 +239,7 @@ decl_stmt|;
 name|Field
 name|field
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 name|FN
 argument_list|,
@@ -263,8 +261,7 @@ decl_stmt|;
 name|Field
 name|footerField
 init|=
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"footer"
 argument_list|,

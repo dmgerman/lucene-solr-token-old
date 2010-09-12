@@ -252,8 +252,7 @@ name|doc1
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"body"
 argument_list|,
@@ -277,8 +276,7 @@ name|doc2
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"body"
 argument_list|,
@@ -302,8 +300,7 @@ name|doc3
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"body"
 argument_list|,
@@ -327,8 +324,7 @@ name|doc4
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"body"
 argument_list|,
@@ -352,8 +348,7 @@ name|doc5
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"body"
 argument_list|,
