@@ -131,7 +131,7 @@ specifier|public
 class|class
 name|TestIsCurrent
 extends|extends
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 block|{
 DECL|field|writer
 specifier|private

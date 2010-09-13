@@ -159,7 +159,7 @@ specifier|public
 class|class
 name|TestRemoteSearchable
 extends|extends
-name|RemoteTestCaseJ4
+name|RemoteTestCase
 block|{
 DECL|field|indexStore
 specifier|private

@@ -232,7 +232,7 @@ specifier|public
 class|class
 name|TestRemoteSort
 extends|extends
-name|RemoteTestCaseJ4
+name|RemoteTestCase
 block|{
 DECL|field|full
 specifier|private

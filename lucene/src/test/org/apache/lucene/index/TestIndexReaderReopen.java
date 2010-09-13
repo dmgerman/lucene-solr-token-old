@@ -324,7 +324,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 import|;
 end_import
 begin_class
@@ -5060,7 +5060,7 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|newIndexWriterConfig
 argument_list|(
@@ -5958,7 +5958,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|setUp
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()

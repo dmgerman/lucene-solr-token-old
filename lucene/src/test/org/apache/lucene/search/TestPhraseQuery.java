@@ -545,7 +545,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|tearDown
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

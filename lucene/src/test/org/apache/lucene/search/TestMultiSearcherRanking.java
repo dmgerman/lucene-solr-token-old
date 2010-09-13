@@ -527,7 +527,7 @@ comment|/**    * initializes multiSearcher and singleSearcher with the same docu
 annotation|@
 name|Override
 DECL|method|setUp
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -713,7 +713,7 @@ decl_stmt|;
 annotation|@
 name|Override
 DECL|method|tearDown
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

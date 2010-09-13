@@ -118,7 +118,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -274,13 +274,13 @@ name|r
 argument_list|,
 name|dir
 argument_list|,
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|newIndexWriterConfig
 argument_list|(
 name|r
 argument_list|,
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|TEST_VERSION_CURRENT
 argument_list|,
@@ -314,13 +314,13 @@ name|r
 argument_list|,
 name|dir
 argument_list|,
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|newIndexWriterConfig
 argument_list|(
 name|r
 argument_list|,
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|TEST_VERSION_CURRENT
 argument_list|,
@@ -355,7 +355,7 @@ name|r
 argument_list|,
 name|dir
 argument_list|,
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|newIndexWriterConfig
 argument_list|(
@@ -418,7 +418,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|VERBOSE
 condition|)
@@ -481,7 +481,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|VERBOSE
 condition|)
@@ -655,7 +655,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|VERBOSE
 condition|)
@@ -681,7 +681,7 @@ else|else
 block|{
 if|if
 condition|(
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|VERBOSE
 condition|)

@@ -127,7 +127,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 import|;
 end_import
 begin_comment
@@ -278,7 +278,7 @@ literal|false
 expr_stmt|;
 if|if
 condition|(
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|VERBOSE
 condition|)

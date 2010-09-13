@@ -11,6 +11,9 @@ operator|.
 name|core
 package|;
 end_package
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
 begin_import
 import|import
 name|java
@@ -86,13 +89,15 @@ name|AbstractSolrTestCase
 import|;
 end_import
 begin_class
-DECL|class|TestPropInject
+DECL|class|TestPropInjectDefaults
 specifier|public
 class|class
-name|TestPropInject
+name|TestPropInjectDefaults
 extends|extends
 name|AbstractSolrTestCase
 block|{
+annotation|@
+name|Override
 DECL|method|getSchemaFile
 specifier|public
 name|String
@@ -103,6 +108,8 @@ return|return
 literal|"schema.xml"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSolrConfigFile
 specifier|public
 name|String
@@ -110,7 +117,7 @@ name|getSolrConfigFile
 parameter_list|()
 block|{
 return|return
-literal|"solrconfig-propinject.xml"
+literal|"solrconfig-propinject-indexdefault.xml"
 return|;
 block|}
 DECL|class|ExposeWriterHandler
@@ -151,10 +158,10 @@ name|writer
 return|;
 block|}
 block|}
-DECL|method|testMergePolicy
+DECL|method|testMergePolicyDefaults
 specifier|public
 name|void
-name|testMergePolicy
+name|testMergePolicyDefaults
 parameter_list|()
 throws|throws
 name|Exception
@@ -187,7 +194,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|64.0
+literal|32.0
 argument_list|,
 name|mp
 operator|.
@@ -201,10 +208,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testProps
+DECL|method|testPropsDefaults
 specifier|public
 name|void
-name|testProps
+name|testPropsDefaults
 parameter_list|()
 throws|throws
 name|Exception
@@ -237,7 +244,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|4
 argument_list|,
 name|cms
 operator|.

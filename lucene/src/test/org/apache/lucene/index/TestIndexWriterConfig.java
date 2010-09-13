@@ -207,7 +207,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -225,7 +225,7 @@ specifier|public
 class|class
 name|TestIndexWriterConfig
 extends|extends
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 block|{
 DECL|class|MySimilarity
 specifier|private

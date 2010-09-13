@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -69,7 +69,7 @@ specifier|public
 class|class
 name|TestDocValues
 extends|extends
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 block|{
 annotation|@
 name|Test

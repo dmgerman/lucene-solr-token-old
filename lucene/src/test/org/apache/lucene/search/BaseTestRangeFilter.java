@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -195,7 +195,7 @@ specifier|public
 class|class
 name|BaseTestRangeFilter
 extends|extends
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 block|{
 DECL|field|F
 specifier|public

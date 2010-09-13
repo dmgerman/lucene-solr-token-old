@@ -230,6 +230,8 @@ name|IndexReader
 name|reader
 decl_stmt|;
 DECL|method|assertEquals
+specifier|static
+specifier|public
 name|void
 name|assertEquals
 parameter_list|(
