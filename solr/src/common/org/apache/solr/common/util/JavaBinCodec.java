@@ -740,6 +740,7 @@ name|Object
 argument_list|()
 decl_stmt|;
 DECL|field|tagByte
+specifier|protected
 name|byte
 name|tagByte
 decl_stmt|;
