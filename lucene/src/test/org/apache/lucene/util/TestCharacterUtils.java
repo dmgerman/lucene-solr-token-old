@@ -210,7 +210,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ArrayIndexOutOfBoundsException
+name|IndexOutOfBoundsException
 name|e
 parameter_list|)
 block|{     }
@@ -298,7 +298,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ArrayIndexOutOfBoundsException
+name|IndexOutOfBoundsException
 name|e
 parameter_list|)
 block|{     }
@@ -403,7 +403,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|StringIndexOutOfBoundsException
+name|IndexOutOfBoundsException
 name|e
 parameter_list|)
 block|{     }
@@ -491,7 +491,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|StringIndexOutOfBoundsException
+name|IndexOutOfBoundsException
 name|e
 parameter_list|)
 block|{     }
