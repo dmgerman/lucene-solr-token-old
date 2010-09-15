@@ -53,10 +53,36 @@ name|TestCollationKeyAnalyzer
 extends|extends
 name|CollationTestBase
 block|{
+comment|// the sort order of Ã versus U depends on the version of the rules being used
+comment|// for the inherited root locale: Ã's order isnt specified in Locale.US since
+comment|// its not used in english.
+specifier|private
+name|boolean
+name|oStrokeFirst
+init|=
+name|Collator
+operator|.
+name|getInstance
+argument_list|(
+operator|new
+name|Locale
+argument_list|(
+literal|""
+argument_list|)
+argument_list|)
+operator|.
+name|compare
+argument_list|(
+literal|"Ã"
+argument_list|,
+literal|"U"
+argument_list|)
+operator|<
+literal|0
+decl_stmt|;
 comment|// Neither Java 1.4.2 nor 1.5.0 has Farsi Locale collation available in
 comment|// RuleBasedCollator.  However, the Arabic Locale seems to order the Farsi
 comment|// characters properly.
-DECL|field|collator
 specifier|private
 name|Collator
 name|collator
@@ -72,7 +98,6 @@ literal|"ar"
 argument_list|)
 argument_list|)
 decl_stmt|;
-DECL|field|analyzer
 specifier|private
 name|Analyzer
 name|analyzer
@@ -83,7 +108,6 @@ argument_list|(
 name|collator
 argument_list|)
 decl_stmt|;
-DECL|field|firstRangeBeginning
 specifier|private
 name|String
 name|firstRangeBeginning
@@ -101,7 +125,6 @@ name|toByteArray
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|field|firstRangeEnd
 specifier|private
 name|String
 name|firstRangeEnd
@@ -119,7 +142,6 @@ name|toByteArray
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|field|secondRangeBeginning
 specifier|private
 name|String
 name|secondRangeBeginning
@@ -137,7 +159,6 @@ name|toByteArray
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|field|secondRangeEnd
 specifier|private
 name|String
 name|secondRangeEnd
@@ -155,7 +176,6 @@ name|toByteArray
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|method|testFarsiRangeFilterCollating
 specifier|public
 name|void
 name|testFarsiRangeFilterCollating
@@ -177,7 +197,6 @@ name|secondRangeEnd
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFarsiRangeQueryCollating
 specifier|public
 name|void
 name|testFarsiRangeQueryCollating
@@ -199,7 +218,6 @@ name|secondRangeEnd
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFarsiTermRangeQuery
 specifier|public
 name|void
 name|testFarsiTermRangeQuery
@@ -221,7 +239,6 @@ name|secondRangeEnd
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testCollationKeySort
 specifier|public
 name|void
 name|testCollationKeySort
@@ -301,7 +318,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// The ICU Collator and java.text.Collator implementations differ in their
+comment|// The ICU Collator and Sun java.text.Collator implementations differ in their
 comment|// orderings - "BFJDH" is the ordering for java.text.Collator for Locale.US.
 name|testCollationKeySort
 argument_list|(
@@ -313,6 +330,10 @@ name|swedenAnalyzer
 argument_list|,
 name|denmarkAnalyzer
 argument_list|,
+name|oStrokeFirst
+condition|?
+literal|"BFJHD"
+else|:
 literal|"BFJDH"
 argument_list|)
 expr_stmt|;
