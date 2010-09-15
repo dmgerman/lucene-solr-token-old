@@ -1113,11 +1113,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|reader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 comment|/********************Tests for getTotalTermFreq**********************************/
 DECL|method|testGetTotalTermFreq
@@ -1161,11 +1156,6 @@ argument_list|,
 name|termtext
 argument_list|)
 decl_stmt|;
-name|reader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"highTf tf should be 200"
@@ -1217,11 +1207,6 @@ argument_list|,
 name|termtext
 argument_list|)
 decl_stmt|;
-name|reader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"totalTermFreq should be 0 for term not in index"
