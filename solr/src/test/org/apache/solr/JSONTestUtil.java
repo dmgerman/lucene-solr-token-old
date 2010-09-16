@@ -1194,6 +1194,7 @@ break|break;
 block|}
 if|if
 condition|(
+operator|!
 name|entry
 operator|.
 name|getKey
