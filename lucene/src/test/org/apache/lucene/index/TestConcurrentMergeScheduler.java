@@ -180,6 +180,7 @@ if|if
 condition|(
 name|doFail
 operator|&&
+operator|(
 name|Thread
 operator|.
 name|currentThread
@@ -192,6 +193,20 @@ name|equals
 argument_list|(
 literal|"main"
 argument_list|)
+operator|||
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"Main Thread"
+argument_list|)
+operator|)
 condition|)
 block|{
 name|StackTraceElement
