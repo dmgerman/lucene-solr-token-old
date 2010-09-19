@@ -132,9 +132,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|standard
-operator|.
-name|SimpleStandardTermsIndexReader
+name|FixedGapTermsIndexReader
 import|;
 end_import
 begin_import
@@ -149,9 +147,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|standard
-operator|.
-name|SimpleStandardTermsIndexWriter
+name|FixedGapTermsIndexWriter
 import|;
 end_import
 begin_import
@@ -166,9 +162,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|standard
-operator|.
-name|StandardPostingsReader
+name|PostingsReaderBase
 import|;
 end_import
 begin_import
@@ -183,9 +177,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|standard
-operator|.
-name|StandardPostingsWriter
+name|PostingsWriterBase
 import|;
 end_import
 begin_import
@@ -200,9 +192,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|standard
-operator|.
-name|StandardTermsDictReader
+name|PrefixCodedTermsReader
 import|;
 end_import
 begin_import
@@ -217,9 +207,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|standard
-operator|.
-name|StandardTermsDictWriter
+name|PrefixCodedTermsWriter
 import|;
 end_import
 begin_import
@@ -234,9 +222,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|standard
-operator|.
-name|StandardTermsIndexReader
+name|TermsIndexReaderBase
 import|;
 end_import
 begin_import
@@ -251,9 +237,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|standard
-operator|.
-name|StandardTermsIndexWriter
+name|TermsIndexWriterBase
 import|;
 end_import
 begin_import
@@ -367,7 +351,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|StandardPostingsWriter
+name|PostingsWriterBase
 name|postingsWriter
 init|=
 operator|new
@@ -385,7 +369,7 @@ name|success
 init|=
 literal|false
 decl_stmt|;
-name|StandardTermsIndexWriter
+name|TermsIndexWriterBase
 name|indexWriter
 decl_stmt|;
 try|try
@@ -393,7 +377,7 @@ block|{
 name|indexWriter
 operator|=
 operator|new
-name|SimpleStandardTermsIndexWriter
+name|FixedGapTermsIndexWriter
 argument_list|(
 name|state
 argument_list|)
@@ -428,7 +412,7 @@ name|FieldsConsumer
 name|ret
 init|=
 operator|new
-name|StandardTermsDictWriter
+name|PrefixCodedTermsWriter
 argument_list|(
 name|indexWriter
 argument_list|,
@@ -490,7 +474,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|StandardPostingsReader
+name|PostingsReaderBase
 name|postingsReader
 init|=
 operator|new
@@ -513,7 +497,7 @@ name|MockSingleIntFactory
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|StandardTermsIndexReader
+name|TermsIndexReaderBase
 name|indexReader
 decl_stmt|;
 name|boolean
@@ -526,7 +510,7 @@ block|{
 name|indexReader
 operator|=
 operator|new
-name|SimpleStandardTermsIndexReader
+name|FixedGapTermsIndexReader
 argument_list|(
 name|state
 operator|.
@@ -582,7 +566,7 @@ name|FieldsProducer
 name|ret
 init|=
 operator|new
-name|StandardTermsDictReader
+name|PrefixCodedTermsReader
 argument_list|(
 name|indexReader
 argument_list|,
@@ -680,7 +664,7 @@ argument_list|,
 name|files
 argument_list|)
 expr_stmt|;
-name|StandardTermsDictReader
+name|PrefixCodedTermsReader
 operator|.
 name|files
 argument_list|(
@@ -691,7 +675,7 @@ argument_list|,
 name|files
 argument_list|)
 expr_stmt|;
-name|SimpleStandardTermsIndexReader
+name|FixedGapTermsIndexReader
 operator|.
 name|files
 argument_list|(
@@ -743,14 +727,14 @@ argument_list|(
 name|extensions
 argument_list|)
 expr_stmt|;
-name|StandardTermsDictReader
+name|PrefixCodedTermsReader
 operator|.
 name|getExtensions
 argument_list|(
 name|extensions
 argument_list|)
 expr_stmt|;
-name|SimpleStandardTermsIndexReader
+name|FixedGapTermsIndexReader
 operator|.
 name|getIndexExtensions
 argument_list|(

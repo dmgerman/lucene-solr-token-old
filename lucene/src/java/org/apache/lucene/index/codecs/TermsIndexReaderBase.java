@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index.codecs.standard
+DECL|package|org.apache.lucene.index.codecs
 package|package
 name|org
 operator|.
@@ -11,8 +11,6 @@ operator|.
 name|index
 operator|.
 name|codecs
-operator|.
-name|standard
 package|;
 end_package
 begin_comment
@@ -78,11 +76,11 @@ begin_comment
 comment|/**  * TermsDictReader interacts with an instance of this class  * to manage its terms index.  The writer must accept  * indexed terms (many pairs of CharSequence text + long  * fileOffset), and then this reader must be able to  * retrieve the nearest index term to a provided term  * text.   * @lucene.experimental */
 end_comment
 begin_class
-DECL|class|StandardTermsIndexReader
+DECL|class|TermsIndexReaderBase
 specifier|public
 specifier|abstract
 class|class
-name|StandardTermsIndexReader
+name|TermsIndexReaderBase
 block|{
 DECL|class|TermsIndexResult
 specifier|static

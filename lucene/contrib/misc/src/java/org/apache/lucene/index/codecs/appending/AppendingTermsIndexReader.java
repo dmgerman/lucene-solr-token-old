@@ -61,9 +61,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|standard
-operator|.
-name|SimpleStandardTermsIndexReader
+name|FixedGapTermsIndexReader
 import|;
 end_import
 begin_import
@@ -124,7 +122,7 @@ specifier|public
 class|class
 name|AppendingTermsIndexReader
 extends|extends
-name|SimpleStandardTermsIndexReader
+name|FixedGapTermsIndexReader
 block|{
 DECL|method|AppendingTermsIndexReader
 specifier|public
