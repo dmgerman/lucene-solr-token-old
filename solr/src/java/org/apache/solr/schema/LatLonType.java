@@ -746,9 +746,9 @@ name|options
 operator|.
 name|distance
 argument_list|,
-name|DistanceUtils
+name|options
 operator|.
-name|EARTH_MEAN_RADIUS_MI
+name|radius
 argument_list|)
 operator|*
 name|DistanceUtils
