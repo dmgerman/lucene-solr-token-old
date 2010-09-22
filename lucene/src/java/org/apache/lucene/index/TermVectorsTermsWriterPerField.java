@@ -352,8 +352,6 @@ name|getFilePointer
 argument_list|()
 assert|;
 block|}
-else|else
-block|{
 assert|assert
 name|perThread
 operator|.
@@ -373,6 +371,7 @@ name|numPostings
 operator|!=
 literal|0
 condition|)
+block|{
 comment|// Only necessary if previous doc hit a
 comment|// non-aborting exception while writing vectors in
 comment|// this field:
@@ -380,6 +379,15 @@ name|termsHashPerField
 operator|.
 name|reset
 argument_list|()
+expr_stmt|;
+name|perThread
+operator|.
+name|termsHashPerThread
+operator|.
+name|reset
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -395,7 +403,7 @@ name|void
 name|abort
 parameter_list|()
 block|{}
-comment|/** Called once per field per document if term vectors    *  are enabled, to write the vectors to    *  RAMOutputStream, which is then quickly flushed to    *  * the real term vectors files in the Directory. */
+comment|/** Called once per field per document if term vectors    *  are enabled, to write the vectors to    *  RAMOutputStream, which is then quickly flushed to    *  the real term vectors files in the Directory. */
 annotation|@
 name|Override
 DECL|method|finish
@@ -816,6 +824,11 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+comment|// NOTE: we clear, per-field, at the thread level,
+comment|// because term vectors fully write themselves on each
+comment|// field; this saves RAM (eg if large doc has two large
+comment|// fields w/ term vectors on) because we recycle/reuse
+comment|// all RAM after each field:
 name|perThread
 operator|.
 name|termsHashPerThread
