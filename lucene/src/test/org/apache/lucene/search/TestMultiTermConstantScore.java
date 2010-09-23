@@ -185,15 +185,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
-import|;
-end_import
-begin_import
-import|import
 name|junit
 operator|.
 name|framework
@@ -323,22 +314,10 @@ block|,
 literal|"X       4 5 6"
 block|}
 decl_stmt|;
-name|Random
-name|random
-init|=
-name|newStaticRandom
-argument_list|(
-name|TestMultiTermConstantScore
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|small
 operator|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|RandomIndexWriter
 name|writer
@@ -391,8 +370,6 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
-name|random
-argument_list|,
 literal|"id"
 argument_list|,
 name|String
@@ -423,8 +400,6 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
-name|random
-argument_list|,
 literal|"all"
 argument_list|,
 literal|"all"
@@ -460,8 +435,6 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
-name|random
-argument_list|,
 literal|"data"
 argument_list|,
 name|data

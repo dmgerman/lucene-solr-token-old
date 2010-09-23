@@ -16,15 +16,6 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -174,22 +165,10 @@ throws|throws
 name|Exception
 block|{
 comment|// construct an index
-name|Random
-name|random
-init|=
-name|newStaticRandom
-argument_list|(
-name|TestRemoteCachingWrapperFilter
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|indexStore
 operator|=
 name|newDirectory
-argument_list|(
-name|random
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|IndexWriter
 name|writer
@@ -201,8 +180,6 @@ name|indexStore
 argument_list|,
 name|newIndexWriterConfig
 argument_list|(
-name|random
-argument_list|,
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
@@ -224,8 +201,6 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
-name|random
-argument_list|,
 literal|"test"
 argument_list|,
 literal|"test text"
@@ -250,8 +225,6 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
-name|random
-argument_list|,
 literal|"type"
 argument_list|,
 literal|"A"
@@ -276,8 +249,6 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
-name|random
-argument_list|,
 literal|"other"
 argument_list|,
 literal|"other test text"
@@ -316,8 +287,6 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
-name|random
-argument_list|,
 literal|"test"
 argument_list|,
 literal|"test text"
@@ -342,8 +311,6 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
-name|random
-argument_list|,
 literal|"type"
 argument_list|,
 literal|"B"
@@ -368,8 +335,6 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
-name|random
-argument_list|,
 literal|"other"
 argument_list|,
 literal|"other test text"

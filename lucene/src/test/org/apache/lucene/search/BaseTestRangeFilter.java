@@ -464,16 +464,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Random
-name|random
-init|=
-name|newStaticRandom
-argument_list|(
-name|BaseTestRangeFilter
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|signedIndexDir
 operator|=
 operator|new
