@@ -620,11 +620,17 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+literal|"null version"
+argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
+literal|"Invalid version: "
+operator|+
+name|version
+argument_list|,
 name|version
 operator|.
 name|equals
@@ -633,7 +639,7 @@ name|Constants
 operator|.
 name|LUCENE_MAIN_VERSION
 operator|+
-literal|"-dev"
+literal|"-SNAPSHOT"
 argument_list|)
 operator|||
 name|version
@@ -648,6 +654,14 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
+name|version
+operator|+
+literal|" should start with: "
+operator|+
+name|Constants
+operator|.
+name|LUCENE_VERSION
+argument_list|,
 name|Constants
 operator|.
 name|LUCENE_VERSION
