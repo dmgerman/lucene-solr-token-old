@@ -162,19 +162,6 @@ name|solr
 operator|.
 name|schema
 operator|.
-name|IndexSchema
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|schema
-operator|.
 name|SchemaField
 import|;
 end_import
@@ -202,6 +189,11 @@ name|SpatialFilterQParser
 extends|extends
 name|QParser
 block|{
+DECL|field|bbox
+name|boolean
+name|bbox
+decl_stmt|;
+comment|// do bounding box only
 DECL|method|SpatialFilterQParser
 specifier|public
 name|SpatialFilterQParser
@@ -217,6 +209,9 @@ name|params
 parameter_list|,
 name|SolrQueryRequest
 name|req
+parameter_list|,
+name|boolean
+name|bbox
 parameter_list|)
 block|{
 name|super
@@ -229,6 +224,12 @@ name|params
 argument_list|,
 name|req
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|bbox
+operator|=
+name|bbox
 expr_stmt|;
 block|}
 annotation|@
@@ -495,6 +496,12 @@ operator|.
 name|KILOMETERS
 argument_list|)
 decl_stmt|;
+name|opts
+operator|.
+name|bbox
+operator|=
+name|bbox
+expr_stmt|;
 name|result
 operator|=
 operator|(
