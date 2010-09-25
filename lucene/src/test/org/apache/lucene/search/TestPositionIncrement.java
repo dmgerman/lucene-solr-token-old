@@ -2161,11 +2161,6 @@ literal|0
 expr_stmt|;
 for|for
 control|(
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 name|byte
 index|[]
 name|bytes
@@ -2178,13 +2173,8 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|VERBOSE
 condition|)
-block|{
-comment|// do nothing
-block|}
-else|else
 block|{
 name|System
 operator|.
@@ -2197,10 +2187,6 @@ operator|+
 operator|new
 name|String
 argument_list|(
-operator|(
-name|byte
-index|[]
-operator|)
 name|bytes
 argument_list|)
 argument_list|)
