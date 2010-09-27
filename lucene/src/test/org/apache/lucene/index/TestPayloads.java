@@ -88,15 +88,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1112,8 +1103,6 @@ argument_list|()
 decl_stmt|;
 name|performTest
 argument_list|(
-name|random
-argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
@@ -1144,8 +1133,6 @@ argument_list|)
 expr_stmt|;
 name|performTest
 argument_list|(
-name|random
-argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
@@ -1169,9 +1156,6 @@ specifier|private
 name|void
 name|performTest
 parameter_list|(
-name|Random
-name|random
-parameter_list|,
 name|Directory
 name|dir
 parameter_list|)
@@ -1660,6 +1644,13 @@ operator|.
 name|getPayload
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|br
+operator|!=
+literal|null
+condition|)
+block|{
 name|System
 operator|.
 name|arraycopy
@@ -1687,6 +1678,7 @@ name|br
 operator|.
 name|length
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
