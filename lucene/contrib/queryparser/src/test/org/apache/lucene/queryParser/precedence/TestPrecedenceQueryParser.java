@@ -3414,7 +3414,7 @@ literal|"a:b\\-c~"
 argument_list|,
 name|a
 argument_list|,
-literal|"a:b-c~0.5"
+literal|"a:b-c~2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -3423,7 +3423,7 @@ literal|"a:b\\+c~"
 argument_list|,
 name|a
 argument_list|,
-literal|"a:b+c~0.5"
+literal|"a:b+c~2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -3432,7 +3432,7 @@ literal|"a:b\\:c~"
 argument_list|,
 name|a
 argument_list|,
-literal|"a:b:c~0.5"
+literal|"a:b:c~2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -3441,7 +3441,7 @@ literal|"a:b\\\\c~"
 argument_list|,
 name|a
 argument_list|,
-literal|"a:b\\c~0.5"
+literal|"a:b\\c~2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
