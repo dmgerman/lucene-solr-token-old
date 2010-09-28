@@ -3665,6 +3665,14 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|cacheCurrentTerm
+specifier|public
+name|void
+name|cacheCurrentTerm
+parameter_list|()
+block|{       }
+annotation|@
+name|Override
 DECL|method|ord
 specifier|public
 name|long

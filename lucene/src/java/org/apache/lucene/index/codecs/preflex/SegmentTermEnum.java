@@ -201,7 +201,6 @@ argument_list|()
 decl_stmt|;
 comment|// used for scanning
 DECL|field|termInfo
-specifier|private
 name|TermInfo
 name|termInfo
 init|=
@@ -242,11 +241,6 @@ decl_stmt|;
 DECL|field|maxSkipLevels
 name|int
 name|maxSkipLevels
-decl_stmt|;
-DECL|field|formatM1SkipInterval
-specifier|private
-name|int
-name|formatM1SkipInterval
 decl_stmt|;
 DECL|method|SegmentTermEnum
 name|SegmentTermEnum

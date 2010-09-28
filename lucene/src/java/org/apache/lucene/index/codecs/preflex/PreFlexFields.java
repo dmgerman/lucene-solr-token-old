@@ -1621,6 +1621,8 @@ name|createTerm
 argument_list|(
 name|term
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// Test if the term we seek'd to in fact found a
@@ -1948,6 +1950,8 @@ name|seekTermEnum
 operator|.
 name|term
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|//newSuffixStart = downTo+4;
@@ -2195,6 +2199,8 @@ name|createTerm
 argument_list|(
 name|scratchTerm
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -2853,6 +2859,8 @@ name|createTerm
 argument_list|(
 name|scratchTerm
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|scratchTerm
@@ -3120,6 +3128,8 @@ name|seekTermEnum
 operator|.
 name|term
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|scratchTerm
@@ -3233,6 +3243,8 @@ argument_list|(
 name|termEnum
 argument_list|,
 name|protoTerm
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -3319,6 +3331,25 @@ name|getUTF8SortedAsUTF16Comparator
 argument_list|()
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|cacheCurrentTerm
+specifier|public
+name|void
+name|cacheCurrentTerm
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|getTermsDict
+argument_list|()
+operator|.
+name|cacheCurrentTerm
+argument_list|(
+name|termEnum
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -3430,6 +3461,8 @@ argument_list|(
 name|termEnum
 argument_list|,
 name|t0
+argument_list|,
+name|useCache
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -3633,6 +3666,8 @@ name|seekTermEnum
 operator|.
 name|term
 argument_list|()
+argument_list|,
+name|useCache
 argument_list|)
 expr_stmt|;
 name|newSuffixStart

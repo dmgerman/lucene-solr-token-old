@@ -207,6 +207,17 @@ operator|.
 name|BytesRef
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assume
+operator|.
+name|*
+import|;
+end_import
 begin_comment
 comment|/**  * Tests lazy skipping on the proximity file.  *  */
 end_comment
@@ -725,10 +736,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// test whether only the minimum amount of seeks()
-comment|// are performed
-if|if
-condition|(
+name|assumeTrue
+argument_list|(
 operator|!
 name|CodecProvider
 operator|.
@@ -739,8 +748,10 @@ name|equals
 argument_list|(
 literal|"SimpleText"
 argument_list|)
-condition|)
-block|{
+argument_list|)
+expr_stmt|;
+comment|// test whether only the minimum amount of seeks()
+comment|// are performed
 name|performTest
 argument_list|(
 literal|5
@@ -751,7 +762,6 @@ argument_list|(
 literal|10
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|testSeek
 specifier|public
