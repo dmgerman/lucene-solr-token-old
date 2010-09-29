@@ -434,6 +434,12 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|FaultyIndexInput
+operator|.
+name|doFail
+operator|=
+literal|false
+expr_stmt|;
 block|}
 annotation|@
 name|Override
