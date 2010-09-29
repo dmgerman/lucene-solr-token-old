@@ -959,7 +959,7 @@ name|method
 init|=
 name|exact
 condition|?
-literal|"sfilt"
+literal|"geofilt"
 else|:
 literal|"bbox"
 decl_stmt|;
@@ -985,7 +985,7 @@ literal|"{!"
 operator|+
 name|method
 operator|+
-literal|" fl="
+literal|" sfield="
 operator|+
 name|fieldName
 operator|+
