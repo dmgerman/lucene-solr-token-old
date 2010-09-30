@@ -1270,6 +1270,7 @@ operator|.
 name|GROUP_SORT
 argument_list|)
 decl_stmt|;
+comment|// TODO: don't use groupSort==null to test for the presense of a sort since "score desc" will normalize to null
 name|Sort
 name|groupSort
 init|=
@@ -1284,9 +1285,6 @@ argument_list|(
 name|groupSortStr
 argument_list|,
 name|req
-operator|.
-name|getSchema
-argument_list|()
 argument_list|)
 else|:
 literal|null

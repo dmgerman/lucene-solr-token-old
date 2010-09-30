@@ -634,9 +634,6 @@ name|sortStr
 argument_list|,
 name|getReq
 argument_list|()
-operator|.
-name|getSchema
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
