@@ -5744,6 +5744,11 @@ name|setMaxBufferedDocs
 argument_list|(
 literal|10
 argument_list|)
+operator|.
+name|setReaderPooling
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 decl_stmt|;
 operator|(
@@ -5842,6 +5847,11 @@ argument_list|(
 operator|new
 name|SerialMergeScheduler
 argument_list|()
+argument_list|)
+operator|.
+name|setReaderPooling
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
