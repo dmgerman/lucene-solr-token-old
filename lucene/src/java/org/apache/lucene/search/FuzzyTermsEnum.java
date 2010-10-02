@@ -1533,10 +1533,6 @@ name|boostAtt
 operator|.
 name|setBoost
 argument_list|(
-call|(
-name|float
-call|)
-argument_list|(
 operator|(
 name|similarity
 operator|-
@@ -1544,7 +1540,6 @@ name|minSimilarity
 operator|)
 operator|*
 name|scale_factor
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1840,10 +1835,6 @@ name|boostAtt
 operator|.
 name|setBoost
 argument_list|(
-call|(
-name|float
-call|)
-argument_list|(
 operator|(
 name|similarity
 operator|-
@@ -1851,7 +1842,6 @@ name|minSimilarity
 operator|)
 operator|*
 name|scale_factor
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
