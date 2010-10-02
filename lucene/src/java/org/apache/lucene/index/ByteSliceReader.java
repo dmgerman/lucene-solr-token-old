@@ -49,6 +49,19 @@ operator|.
 name|DataOutput
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|ByteBlockPool
+import|;
+end_import
 begin_comment
 comment|/* IndexInput that knows how to read the byte slices written  * by Posting and PostingVector.  We read the bytes in  * each slice until we hit the end of that slice at which  * point we read the forwarding address of the next slice  * and then jump to it.*/
 end_comment
@@ -148,7 +161,7 @@ name|bufferUpto
 operator|=
 name|startIndex
 operator|/
-name|DocumentsWriter
+name|ByteBlockPool
 operator|.
 name|BYTE_BLOCK_SIZE
 expr_stmt|;
@@ -156,7 +169,7 @@ name|bufferOffset
 operator|=
 name|bufferUpto
 operator|*
-name|DocumentsWriter
+name|ByteBlockPool
 operator|.
 name|BYTE_BLOCK_SIZE
 expr_stmt|;
@@ -173,7 +186,7 @@ name|upto
 operator|=
 name|startIndex
 operator|&
-name|DocumentsWriter
+name|ByteBlockPool
 operator|.
 name|BYTE_BLOCK_MASK
 expr_stmt|;
@@ -202,7 +215,7 @@ name|limit
 operator|=
 name|endIndex
 operator|&
-name|DocumentsWriter
+name|ByteBlockPool
 operator|.
 name|BYTE_BLOCK_MASK
 expr_stmt|;
@@ -450,7 +463,7 @@ name|bufferUpto
 operator|=
 name|nextIndex
 operator|/
-name|DocumentsWriter
+name|ByteBlockPool
 operator|.
 name|BYTE_BLOCK_SIZE
 expr_stmt|;
@@ -458,7 +471,7 @@ name|bufferOffset
 operator|=
 name|bufferUpto
 operator|*
-name|DocumentsWriter
+name|ByteBlockPool
 operator|.
 name|BYTE_BLOCK_SIZE
 expr_stmt|;
@@ -475,7 +488,7 @@ name|upto
 operator|=
 name|nextIndex
 operator|&
-name|DocumentsWriter
+name|ByteBlockPool
 operator|.
 name|BYTE_BLOCK_MASK
 expr_stmt|;

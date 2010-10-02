@@ -733,6 +733,15 @@ operator|.
 name|Bits
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assume
+import|;
+end_import
 begin_class
 DECL|class|TestIndexWriter
 specifier|public
