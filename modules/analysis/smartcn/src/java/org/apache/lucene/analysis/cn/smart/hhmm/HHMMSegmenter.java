@@ -123,6 +123,11 @@ name|getInstance
 argument_list|()
 decl_stmt|;
 comment|/**    * Create the {@link SegGraph} for a sentence.    *     * @param sentence input sentence, without start and end markers    * @return {@link SegGraph} corresponding to the input sentence.    */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"fallthrough"
+argument_list|)
 DECL|method|createSegGraph
 specifier|private
 name|SegGraph
@@ -490,6 +495,7 @@ name|hasFullWidth
 operator|=
 literal|true
 expr_stmt|;
+comment|/* intentional fallthrough */
 case|case
 name|CharType
 operator|.
@@ -612,6 +618,7 @@ name|hasFullWidth
 operator|=
 literal|true
 expr_stmt|;
+comment|/* intentional fallthrough */
 case|case
 name|CharType
 operator|.

@@ -23831,6 +23831,7 @@ operator|.
 name|optimize
 argument_list|()
 expr_stmt|;
+break|break;
 case|case
 literal|4
 case|:

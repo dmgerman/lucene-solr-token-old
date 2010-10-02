@@ -933,9 +933,6 @@ literal|0
 condition|)
 block|{
 return|return
-operator|(
-name|int
-operator|)
 operator|-
 name|a
 index|[
