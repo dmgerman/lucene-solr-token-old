@@ -1658,6 +1658,8 @@ block|}
 comment|/**    * @deprecated should be removed once all the deprecated setters are removed    *             from IndexWriter.    */
 annotation|@
 name|Test
+annotation|@
+name|Deprecated
 DECL|method|testIndexWriterSetters
 specifier|public
 name|void

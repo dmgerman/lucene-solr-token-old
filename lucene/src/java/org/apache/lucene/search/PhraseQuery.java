@@ -1307,9 +1307,6 @@ expr_stmt|;
 name|Scorer
 name|scorer
 init|=
-operator|(
-name|Scorer
-operator|)
 name|scorer
 argument_list|(
 name|reader

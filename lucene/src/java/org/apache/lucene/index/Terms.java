@@ -316,9 +316,6 @@ block|{
 name|TermsEnum
 name|termsEnum
 init|=
-operator|(
-name|TermsEnum
-operator|)
 name|threadEnums
 operator|.
 name|get

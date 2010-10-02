@@ -327,10 +327,6 @@ name|clone
 operator|.
 name|docs
 operator|=
-operator|(
-name|Document
-index|[]
-operator|)
 name|docs
 operator|.
 name|clone

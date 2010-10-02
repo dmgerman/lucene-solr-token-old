@@ -533,9 +533,6 @@ name|fieldName
 expr_stmt|;
 name|payAtt
 operator|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PayloadAttribute
