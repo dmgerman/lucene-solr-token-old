@@ -377,9 +377,6 @@ name|Character
 operator|.
 name|isWhitespace
 argument_list|(
-operator|(
-name|char
-operator|)
 name|ch
 argument_list|)
 condition|)

@@ -600,6 +600,11 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"fallthrough"
+argument_list|)
+annotation|@
 name|Override
 DECL|method|next
 specifier|public
