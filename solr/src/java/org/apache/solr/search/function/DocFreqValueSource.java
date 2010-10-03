@@ -915,7 +915,7 @@ block|}
 block|}
 end_class
 begin_comment
-comment|/**  *<code>DocFreqValueSource</code> returns the number of documents containing the term.  * @internal  */
+comment|/**  *<code>DocFreqValueSource</code> returns the number of documents containing the term.  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|DocFreqValueSource
