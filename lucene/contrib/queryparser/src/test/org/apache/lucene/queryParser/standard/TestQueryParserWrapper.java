@@ -738,6 +738,8 @@ name|LocalizedTestCaseRunner
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|TestQueryParserWrapper
 specifier|public
 class|class

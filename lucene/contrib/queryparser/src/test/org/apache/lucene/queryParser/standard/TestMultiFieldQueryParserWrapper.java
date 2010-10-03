@@ -261,6 +261,8 @@ begin_comment
 comment|/**  * Tests multi field query parsing using the  * {@link MultiFieldQueryParserWrapper}.  *   * @deprecated this tests test the deprecated MultiFieldQueryParserWrapper, so  *             when the latter is gone, so should this test.  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TestMultiFieldQueryParserWrapper
 specifier|public
 class|class

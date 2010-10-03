@@ -1713,9 +1713,6 @@ name|i
 operator|++
 index|]
 operator|=
-operator|(
-name|String
-operator|)
 name|iter
 operator|.
 name|nextElement
@@ -2283,9 +2280,6 @@ condition|)
 block|{
 name|i
 operator|=
-operator|(
-name|Item
-operator|)
 name|ns
 operator|.
 name|pop

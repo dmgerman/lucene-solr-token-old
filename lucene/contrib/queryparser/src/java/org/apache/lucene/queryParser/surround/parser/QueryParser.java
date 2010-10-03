@@ -400,6 +400,9 @@ name|SrndQuery
 name|q
 parameter_list|,
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 name|fieldNames
 parameter_list|)
 block|{
@@ -422,6 +425,9 @@ name|SrndQuery
 name|getOrQuery
 parameter_list|(
 name|List
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 parameter_list|,
 name|boolean
@@ -451,6 +457,9 @@ name|SrndQuery
 name|getAndQuery
 parameter_list|(
 name|List
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 parameter_list|,
 name|boolean
@@ -480,6 +489,9 @@ name|SrndQuery
 name|getNotQuery
 parameter_list|(
 name|List
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 parameter_list|,
 name|Token
@@ -590,6 +602,9 @@ name|SrndQuery
 name|getDistanceQuery
 parameter_list|(
 name|List
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 parameter_list|,
 name|boolean
@@ -851,6 +866,9 @@ name|SrndQuery
 name|q
 decl_stmt|;
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 name|fieldNames
 decl_stmt|;
 name|fieldNames
@@ -897,6 +915,9 @@ DECL|method|OptionalFields
 specifier|final
 specifier|public
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 name|OptionalFields
 parameter_list|()
 throws|throws
@@ -906,6 +927,9 @@ name|Token
 name|fieldName
 decl_stmt|;
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 name|fieldNames
 init|=
 literal|null
@@ -957,6 +981,9 @@ name|fieldNames
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
@@ -1000,6 +1027,9 @@ name|SrndQuery
 name|q
 decl_stmt|;
 name|ArrayList
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 init|=
 literal|null
@@ -1072,6 +1102,9 @@ name|queries
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|SrndQuery
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|queries
@@ -1141,6 +1174,9 @@ name|SrndQuery
 name|q
 decl_stmt|;
 name|ArrayList
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 init|=
 literal|null
@@ -1213,6 +1249,9 @@ name|queries
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|SrndQuery
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|queries
@@ -1282,6 +1321,9 @@ name|SrndQuery
 name|q
 decl_stmt|;
 name|ArrayList
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 init|=
 literal|null
@@ -1354,6 +1396,9 @@ name|queries
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|SrndQuery
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|queries
@@ -1420,6 +1465,9 @@ name|SrndQuery
 name|q
 decl_stmt|;
 name|ArrayList
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 decl_stmt|;
 name|Token
@@ -1480,6 +1528,9 @@ name|queries
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|SrndQuery
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|queries
@@ -1548,6 +1599,9 @@ name|SrndQuery
 name|q
 decl_stmt|;
 name|ArrayList
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 decl_stmt|;
 name|Token
@@ -1608,6 +1662,9 @@ name|queries
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|SrndQuery
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|queries
@@ -1804,6 +1861,9 @@ name|Token
 name|oprt
 decl_stmt|;
 name|List
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 decl_stmt|;
 switch|switch
@@ -1995,6 +2055,9 @@ DECL|method|FieldsQueryList
 specifier|final
 specifier|public
 name|List
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|FieldsQueryList
 parameter_list|()
 throws|throws
@@ -2004,10 +2067,16 @@ name|SrndQuery
 name|q
 decl_stmt|;
 name|ArrayList
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|SrndQuery
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|jj_consume_token
