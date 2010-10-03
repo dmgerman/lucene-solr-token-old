@@ -117,10 +117,16 @@ specifier|public
 specifier|static
 specifier|final
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 name|termComparator
 init|=
 operator|new
 name|Comparator
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 block|{
 specifier|public
