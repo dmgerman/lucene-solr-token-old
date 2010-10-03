@@ -2617,20 +2617,6 @@ name|directory
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|create
-condition|)
-block|{
-comment|// Clear the write lock in case it's leftover:
-name|directory
-operator|.
-name|clearLock
-argument_list|(
-name|WRITE_LOCK_NAME
-argument_list|)
-expr_stmt|;
-block|}
 name|writeLock
 operator|=
 name|directory
