@@ -203,9 +203,6 @@ name|doc
 parameter_list|)
 block|{
 return|return
-operator|(
-name|float
-operator|)
 name|dist
 operator|.
 name|getDistance

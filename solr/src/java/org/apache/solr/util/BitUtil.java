@@ -18,6 +18,8 @@ begin_comment
 comment|/**  A variety of high efficiencly bit twiddling routines.  * @deprecated Use {@link org.apache.lucene.util.BitUtil} directly  * @version $Id$  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|BitUtil
 specifier|public
 class|class

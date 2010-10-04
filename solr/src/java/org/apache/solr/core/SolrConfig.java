@@ -997,9 +997,6 @@ expr_stmt|;
 name|Node
 name|jmx
 init|=
-operator|(
-name|Node
-operator|)
 name|getNode
 argument_list|(
 literal|"jmx"

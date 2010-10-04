@@ -2149,10 +2149,6 @@ return|return
 operator|new
 name|Sort
 argument_list|(
-operator|(
-name|SortField
-index|[]
-operator|)
 name|lst
 operator|.
 name|toArray
@@ -2767,12 +2763,6 @@ control|(
 name|BooleanClause
 name|c
 range|:
-operator|(
-name|List
-argument_list|<
-name|BooleanClause
-argument_list|>
-operator|)
 name|q
 operator|.
 name|clauses

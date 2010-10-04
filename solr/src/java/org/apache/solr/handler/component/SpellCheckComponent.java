@@ -2279,15 +2279,10 @@ block|{
 comment|// if queue full, maintain the minScore score
 name|min
 operator|=
-operator|(
-operator|(
-name|SuggestWord
-operator|)
 name|sugQueue
 operator|.
 name|top
 argument_list|()
-operator|)
 operator|.
 name|score
 expr_stmt|;
@@ -2404,15 +2399,10 @@ index|[
 name|k
 index|]
 operator|=
-operator|(
-operator|(
-name|SuggestWord
-operator|)
 name|sugQueue
 operator|.
 name|pop
 argument_list|()
-operator|)
 expr_stmt|;
 block|}
 if|if

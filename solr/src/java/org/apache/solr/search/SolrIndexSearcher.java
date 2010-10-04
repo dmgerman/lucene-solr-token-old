@@ -528,6 +528,8 @@ argument_list|>
 name|storedHighlightFieldNames
 decl_stmt|;
 comment|/** Creates a searcher searching the index in the named directory.    *     * @deprecated use alternate constructor    */
+annotation|@
+name|Deprecated
 DECL|method|SolrIndexSearcher
 specifier|public
 name|SolrIndexSearcher
@@ -2189,9 +2191,6 @@ condition|)
 block|{
 name|d
 operator|=
-operator|(
-name|Document
-operator|)
 name|documentCache
 operator|.
 name|get
@@ -2586,9 +2585,6 @@ block|{
 name|DocSet
 name|absAnswer
 init|=
-operator|(
-name|DocSet
-operator|)
 name|filterCache
 operator|.
 name|get
@@ -2717,9 +2713,6 @@ block|{
 name|DocSet
 name|absAnswer
 init|=
-operator|(
-name|DocSet
-operator|)
 name|filterCache
 operator|.
 name|get
@@ -2831,9 +2824,6 @@ condition|)
 block|{
 name|answer
 operator|=
-operator|(
-name|DocSet
-operator|)
 name|filterCache
 operator|.
 name|get
@@ -2905,9 +2895,6 @@ condition|)
 block|{
 name|answer
 operator|=
-operator|(
-name|DocSet
-operator|)
 name|filterCache
 operator|.
 name|get
@@ -4564,9 +4551,6 @@ condition|)
 block|{
 name|first
 operator|=
-operator|(
-name|DocSet
-operator|)
 name|filterCache
 operator|.
 name|get
@@ -5652,9 +5636,6 @@ decl_stmt|;
 name|GroupCollector
 name|gcollector
 init|=
-operator|(
-name|GroupCollector
-operator|)
 name|collectors
 operator|.
 name|get
@@ -6415,9 +6396,6 @@ condition|)
 block|{
 name|superset
 operator|=
-operator|(
-name|DocList
-operator|)
 name|queryResultCache
 operator|.
 name|get

@@ -1886,10 +1886,6 @@ name|Token
 index|[]
 name|tokens
 init|=
-operator|(
-operator|(
-name|SynonymMap
-operator|)
 name|map
 operator|.
 name|submap
@@ -1898,7 +1894,6 @@ name|get
 argument_list|(
 name|src
 argument_list|)
-operator|)
 operator|.
 name|synonyms
 decl_stmt|;
@@ -1962,9 +1957,6 @@ name|src
 parameter_list|)
 block|{
 return|return
-operator|(
-name|SynonymMap
-operator|)
 name|map
 operator|.
 name|submap

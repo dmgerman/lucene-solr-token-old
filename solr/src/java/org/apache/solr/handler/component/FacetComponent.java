@@ -1409,9 +1409,6 @@ block|{
 name|String
 name|returnedKey
 init|=
-operator|(
-name|String
-operator|)
 name|facet_queries
 operator|.
 name|getName
@@ -1986,9 +1983,6 @@ decl_stmt|;
 name|DistribFieldFacet
 name|dff
 init|=
-operator|(
-name|DistribFieldFacet
-operator|)
 name|fi
 operator|.
 name|facets

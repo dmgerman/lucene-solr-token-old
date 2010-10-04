@@ -245,6 +245,8 @@ extends|extends
 name|AbstractUpdateRequest
 block|{
 comment|/**    * Kept for back compatibility.    *    * @deprecated Use {@link AbstractUpdateRequest.ACTION} instead    */
+annotation|@
+name|Deprecated
 DECL|enum|ACTION
 specifier|public
 enum|enum
@@ -589,6 +591,8 @@ name|this
 return|;
 block|}
 comment|/** Sets appropriate parameters for the given ACTION    *    * @deprecated Use {@link org.apache.solr.client.solrj.request.AbstractUpdateRequest.ACTION} instead    * */
+annotation|@
+name|Deprecated
 DECL|method|setAction
 specifier|public
 name|UpdateRequest
@@ -618,6 +622,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    *    * @deprecated Use {@link org.apache.solr.client.solrj.request.AbstractUpdateRequest.ACTION} instead    */
+annotation|@
+name|Deprecated
 DECL|method|setAction
 specifier|public
 name|UpdateRequest
@@ -733,6 +739,8 @@ name|this
 return|;
 block|}
 comment|/**    *    *    * @deprecated Use {@link org.apache.solr.client.solrj.request.AbstractUpdateRequest.ACTION} instead    */
+annotation|@
+name|Deprecated
 DECL|method|setAction
 specifier|public
 name|UpdateRequest

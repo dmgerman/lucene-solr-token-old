@@ -36,6 +36,8 @@ begin_comment
 comment|/**  * @deprecated use org.apache.solr.response.PythonResponseWriter  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|PythonResponseWriter
 specifier|public
 class|class

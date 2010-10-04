@@ -298,9 +298,6 @@ block|{
 name|Tokenizer
 name|tk
 init|=
-operator|(
-name|Tokenizer
-operator|)
 name|tokenizer
 operator|.
 name|create

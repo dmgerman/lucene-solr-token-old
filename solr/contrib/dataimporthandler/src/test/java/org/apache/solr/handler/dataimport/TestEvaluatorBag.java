@@ -889,9 +889,6 @@ expr_stmt|;
 name|String
 name|expected
 init|=
-operator|(
-name|String
-operator|)
 name|entry
 operator|.
 name|getValue

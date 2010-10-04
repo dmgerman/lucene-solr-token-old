@@ -36,6 +36,8 @@ begin_comment
 comment|/**  * @deprecated use org.apache.solr.response.BinaryResponseWriter  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|BinaryResponseWriter
 specifier|public
 class|class

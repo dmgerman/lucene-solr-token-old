@@ -1490,6 +1490,8 @@ name|this
 return|;
 block|}
 comment|/**    * @deprecated use {@link #setFacetMissing(Boolean)}    */
+annotation|@
+name|Deprecated
 DECL|method|setMissing
 specifier|public
 name|SolrQuery

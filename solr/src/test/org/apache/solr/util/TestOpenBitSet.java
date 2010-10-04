@@ -75,6 +75,8 @@ begin_comment
 comment|/**  * @deprecated  * @version $Id$  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TestOpenBitSet
 specifier|public
 class|class

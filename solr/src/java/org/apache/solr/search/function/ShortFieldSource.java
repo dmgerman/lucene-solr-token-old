@@ -257,9 +257,6 @@ name|doc
 parameter_list|)
 block|{
 return|return
-operator|(
-name|short
-operator|)
 name|arr
 index|[
 name|doc

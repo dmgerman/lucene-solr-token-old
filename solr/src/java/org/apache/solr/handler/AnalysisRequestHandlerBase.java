@@ -1466,9 +1466,6 @@ specifier|final
 name|CharTermAttribute
 name|termAtt
 init|=
-operator|(
-name|CharTermAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|CharTermAttribute
@@ -1482,9 +1479,6 @@ specifier|final
 name|OffsetAttribute
 name|offsetAtt
 init|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|OffsetAttribute
@@ -1498,9 +1492,6 @@ specifier|final
 name|TypeAttribute
 name|typeAtt
 init|=
-operator|(
-name|TypeAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|TypeAttribute
@@ -1514,9 +1505,6 @@ specifier|final
 name|FlagsAttribute
 name|flagsAtt
 init|=
-operator|(
-name|FlagsAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|FlagsAttribute
@@ -1530,9 +1518,6 @@ specifier|final
 name|PayloadAttribute
 name|payloadAtt
 init|=
-operator|(
-name|PayloadAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PayloadAttribute
@@ -1546,9 +1531,6 @@ specifier|final
 name|PositionIncrementAttribute
 name|posIncAtt
 init|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|addAttribute
 argument_list|(
 name|PositionIncrementAttribute

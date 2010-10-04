@@ -1116,9 +1116,6 @@ decl_stmt|;
 name|int
 name|count
 init|=
-operator|(
-name|int
-operator|)
 name|Math
 operator|.
 name|max

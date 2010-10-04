@@ -334,6 +334,8 @@ begin_comment
 comment|/**  *  * @deprecated Use {@link org.apache.solr.handler.DocumentAnalysisRequestHandler} instead.  **/
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|AnalysisRequestHandler
 specifier|public
 class|class

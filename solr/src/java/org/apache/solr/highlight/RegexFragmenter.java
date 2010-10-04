@@ -774,9 +774,6 @@ argument_list|)
 expr_stmt|;
 name|posIncAtt
 operator|=
-operator|(
-name|PositionIncrementAttribute
-operator|)
 name|tokenStream
 operator|.
 name|getAttribute
@@ -788,9 +785,6 @@ argument_list|)
 expr_stmt|;
 name|offsetAtt
 operator|=
-operator|(
-name|OffsetAttribute
-operator|)
 name|tokenStream
 operator|.
 name|getAttribute

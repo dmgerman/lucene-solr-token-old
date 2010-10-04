@@ -677,6 +677,8 @@ return|;
 block|}
 comment|//---------------------------------------------------------------------------------------
 comment|/**    * @deprecated Use {@link org.apache.solr.common.util.DateUtil#DEFAULT_DATE_FORMATS}    */
+annotation|@
+name|Deprecated
 DECL|field|fmts
 specifier|public
 specifier|static
@@ -692,6 +694,8 @@ operator|.
 name|DEFAULT_DATE_FORMATS
 decl_stmt|;
 comment|/**    * Returns a formatter that can be use by the current thread if needed to    * convert Date objects to the Internal representation.    * @throws ParseException    * @throws DateParseException    *    * @deprecated Use {@link org.apache.solr.common.util.DateUtil#parseDate(String)}    */
+annotation|@
+name|Deprecated
 DECL|method|parseDate
 specifier|public
 specifier|static
@@ -716,6 +720,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * Returns a formatter that can be use by the current thread if needed to    * convert Date objects to the Internal representation.    *    * @deprecated use {@link org.apache.solr.common.util.DateUtil#getThreadLocalDateFormat()}    */
+annotation|@
+name|Deprecated
 DECL|method|getThreadLocalDateFormat
 specifier|public
 specifier|static
@@ -731,6 +737,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * @deprecated Use {@link org.apache.solr.common.util.DateUtil#UTC}.    */
+annotation|@
+name|Deprecated
 DECL|field|UTC
 specifier|public
 specifier|static
