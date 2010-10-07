@@ -1086,7 +1086,9 @@ operator|new
 name|MultiTermQuery
 operator|.
 name|TopTermsScoringBooleanQueryRewrite
-argument_list|()
+argument_list|(
+literal|50
+argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|final

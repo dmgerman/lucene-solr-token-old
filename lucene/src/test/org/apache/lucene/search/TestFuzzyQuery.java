@@ -3216,7 +3216,9 @@ operator|new
 name|MultiTermQuery
 operator|.
 name|TopTermsBoostOnlyBooleanQueryRewrite
-argument_list|()
+argument_list|(
+literal|50
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ScoreDoc
