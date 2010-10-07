@@ -2757,6 +2757,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
+name|Thread
+name|currentThread
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+decl_stmt|;
 comment|// First, find a thread state.  If this thread already
 comment|// has affinity to a specific ThreadState, use that one
 comment|// again.
@@ -2767,10 +2776,7 @@ name|threadBindings
 operator|.
 name|get
 argument_list|(
-name|Thread
-operator|.
 name|currentThread
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -2928,10 +2934,7 @@ name|threadBindings
 operator|.
 name|put
 argument_list|(
-name|Thread
-operator|.
 name|currentThread
-argument_list|()
 argument_list|,
 name|state
 argument_list|)
