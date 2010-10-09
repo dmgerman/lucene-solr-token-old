@@ -776,7 +776,7 @@ block|{
 comment|//System.out.println();
 comment|//System.out.println("Query: " + queryText);
 name|Query
-name|query1
+name|query
 init|=
 name|makeQuery
 argument_list|(
@@ -799,7 +799,7 @@ name|searcher
 operator|.
 name|search
 argument_list|(
-name|query1
+name|query
 argument_list|,
 literal|null
 argument_list|,
@@ -817,15 +817,6 @@ argument_list|()
 operator|.
 name|scoreDocs
 decl_stmt|;
-name|Query
-name|query2
-init|=
-name|makeQuery
-argument_list|(
-name|queryText
-argument_list|)
-decl_stmt|;
-comment|// there should be no need to parse again...
 name|collector
 operator|=
 name|TopScoreDocCollector
@@ -841,7 +832,7 @@ name|searcher
 operator|.
 name|search
 argument_list|(
-name|query2
+name|query
 argument_list|,
 literal|null
 argument_list|,
@@ -871,7 +862,7 @@ name|bigSearcher
 operator|.
 name|search
 argument_list|(
-name|query1
+name|query
 argument_list|,
 literal|1
 argument_list|)
@@ -883,7 +874,7 @@ name|CheckHits
 operator|.
 name|checkHitsQuery
 argument_list|(
-name|query2
+name|query
 argument_list|,
 name|hits1
 argument_list|,
