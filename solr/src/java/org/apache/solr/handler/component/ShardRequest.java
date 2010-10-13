@@ -180,7 +180,6 @@ index|[]
 name|shards
 decl_stmt|;
 comment|// the shards this request should be sent to, null for all
-comment|// TODO: how to request a specific shard address?
 DECL|field|params
 specifier|public
 name|ModifiableSolrParams
