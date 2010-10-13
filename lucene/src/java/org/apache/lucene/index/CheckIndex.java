@@ -3232,12 +3232,6 @@ operator|)
 argument_list|)
 throw|;
 block|}
-name|termCount
-operator|=
-name|status
-operator|.
-name|termCount
-expr_stmt|;
 name|int
 name|seekCount
 init|=
