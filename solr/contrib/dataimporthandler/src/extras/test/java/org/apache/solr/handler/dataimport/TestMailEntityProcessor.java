@@ -18,26 +18,6 @@ package|;
 end_package
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|SolrTestCaseJ4
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -142,7 +122,7 @@ specifier|public
 class|class
 name|TestMailEntityProcessor
 extends|extends
-name|SolrTestCaseJ4
+name|AbstractDataImportHandlerTestCase
 block|{
 comment|// Credentials
 DECL|field|user
@@ -314,8 +294,6 @@ argument_list|,
 name|swi
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"top1 did not return 2 messages"
@@ -443,8 +421,6 @@ argument_list|,
 name|swi
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"top2 and its children did not return 8 messages"
@@ -581,8 +557,6 @@ argument_list|,
 name|swi
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"top2 and its direct children did not return 5 messages"
@@ -719,8 +693,6 @@ argument_list|,
 name|swi
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"top2 and its direct children did not return 3 messages"
@@ -866,8 +838,6 @@ argument_list|,
 name|swi
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"top2 and its direct children did not return 3 messages"
@@ -1006,8 +976,6 @@ argument_list|,
 name|swi
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"top2 and its direct children did not return 3 messages"

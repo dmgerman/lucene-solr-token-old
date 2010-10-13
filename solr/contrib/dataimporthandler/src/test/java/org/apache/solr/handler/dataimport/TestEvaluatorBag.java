@@ -17,28 +17,6 @@ name|dataimport
 package|;
 end_package
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|SolrTestCaseJ4
-import|;
-end_import
-begin_import
 import|import
 name|org
 operator|.
@@ -83,15 +61,6 @@ operator|.
 name|*
 import|;
 end_import
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-import|;
-end_import
 begin_comment
 comment|/**  *<p> Test for EvaluatorBag</p>  *  * @version $Id$  * @since solr 1.3  */
 end_comment
@@ -101,7 +70,7 @@ specifier|public
 class|class
 name|TestEvaluatorBag
 extends|extends
-name|SolrTestCaseJ4
+name|AbstractDataImportHandlerTestCase
 block|{
 DECL|field|ENCODING
 specifier|private
@@ -384,8 +353,6 @@ argument_list|,
 name|vr
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 operator|new
@@ -402,8 +369,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"B"
@@ -426,8 +391,6 @@ name|resolve
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"hello!"
@@ -440,8 +403,6 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"ds,o,u'za"

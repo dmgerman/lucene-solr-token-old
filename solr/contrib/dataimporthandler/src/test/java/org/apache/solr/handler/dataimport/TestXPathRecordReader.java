@@ -20,26 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|SolrTestCaseJ4
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -90,14 +70,14 @@ specifier|public
 class|class
 name|TestXPathRecordReader
 extends|extends
-name|SolrTestCaseJ4
+name|AbstractDataImportHandlerTestCase
 block|{
 annotation|@
 name|Test
-DECL|method|basic
+DECL|method|testBasic
 specifier|public
 name|void
-name|basic
+name|testBasic
 parameter_list|()
 block|{
 name|String
@@ -159,8 +139,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -171,8 +149,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -198,8 +174,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -228,10 +202,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|attributes
+DECL|method|testAttributes
 specifier|public
 name|void
-name|attributes
+name|testAttributes
 parameter_list|()
 block|{
 name|String
@@ -300,8 +274,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|3
@@ -312,8 +284,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"x0"
@@ -331,8 +301,6 @@ literal|"a"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"x1"
@@ -350,8 +318,6 @@ literal|"a"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"x2"
@@ -369,8 +335,6 @@ literal|"a"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"y0"
@@ -388,8 +352,6 @@ literal|"b"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"y1"
@@ -407,8 +369,6 @@ literal|"b"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"y2"
@@ -429,10 +389,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|attrInRoot
+DECL|method|testAttrInRoot
 specifier|public
 name|void
-name|attrInRoot
+name|testAttrInRoot
 parameter_list|()
 block|{
 name|String
@@ -554,8 +514,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"814636051"
@@ -568,8 +526,6 @@ literal|"id"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"189973"
@@ -582,8 +538,6 @@ literal|"mid"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"301.46"
@@ -596,8 +550,6 @@ literal|"price"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"cond-0"
@@ -619,8 +571,6 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"814636052"
@@ -633,8 +583,6 @@ literal|"id"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"189974"
@@ -647,8 +595,6 @@ literal|"mid"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"302.46"
@@ -661,8 +607,6 @@ literal|"price"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"cond-1"
@@ -678,10 +622,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|attributes2Level
+DECL|method|testAttributes2Level
 specifier|public
 name|void
-name|attributes2Level
+name|testAttributes2Level
 parameter_list|()
 block|{
 name|String
@@ -752,8 +696,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|3
@@ -764,8 +706,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"x0"
@@ -783,8 +723,6 @@ literal|"a"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"y1"
@@ -805,10 +743,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|attributes2LevelHetero
+DECL|method|testAttributes2LevelHetero
 specifier|public
 name|void
-name|attributes2LevelHetero
+name|testAttributes2LevelHetero
 parameter_list|()
 block|{
 name|String
@@ -1010,8 +948,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -1022,8 +958,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -1037,10 +971,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|attributes2LevelMissingAttrVal
+DECL|method|testAttributes2LevelMissingAttrVal
 specifier|public
 name|void
-name|attributes2LevelMissingAttrVal
+name|testAttributes2LevelMissingAttrVal
 parameter_list|()
 block|{
 name|String
@@ -1115,8 +1049,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -1127,8 +1059,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNull
 argument_list|(
 operator|(
@@ -1154,8 +1084,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNull
 argument_list|(
 operator|(
@@ -1184,10 +1112,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|elems2LevelMissing
+DECL|method|testElems2LevelMissing
 specifier|public
 name|void
-name|elems2LevelMissing
+name|testElems2LevelMissing
 parameter_list|()
 block|{
 name|String
@@ -1274,8 +1202,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -1286,8 +1212,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNull
 argument_list|(
 operator|(
@@ -1313,8 +1237,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNull
 argument_list|(
 operator|(
@@ -1343,10 +1265,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|mixedContent
+DECL|method|testMixedContent
 specifier|public
 name|void
-name|mixedContent
+name|testMixedContent
 parameter_list|()
 block|{
 name|String
@@ -1439,8 +1361,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"bold"
@@ -1463,8 +1383,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"underlined"
@@ -1510,8 +1428,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 name|p
@@ -1522,8 +1438,6 @@ literal|"This text is"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 name|p
@@ -1534,8 +1448,6 @@ literal|"and this text is"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertTrue
 argument_list|(
 name|p
@@ -1547,8 +1459,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Should not contain content from child elements
-name|Assert
-operator|.
 name|assertFalse
 argument_list|(
 name|p
@@ -1562,10 +1472,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|mixedContentFlattened
+DECL|method|testMixedContentFlattened
 specifier|public
 name|void
-name|mixedContentFlattened
+name|testMixedContentFlattened
 parameter_list|()
 block|{
 name|String
@@ -1640,8 +1550,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"This text is \n"
@@ -1669,10 +1577,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|elems2LevelWithAttrib
+DECL|method|testElems2LevelWithAttrib
 specifier|public
 name|void
-name|elems2LevelWithAttrib
+name|testElems2LevelWithAttrib
 parameter_list|()
 block|{
 name|String
@@ -1765,8 +1673,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -1777,8 +1683,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -1804,8 +1708,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -1831,8 +1733,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|0
@@ -1851,10 +1751,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|elems2LevelWithAttribMultiple
+DECL|method|testElems2LevelWithAttribMultiple
 specifier|public
 name|void
-name|elems2LevelWithAttribMultiple
+name|testElems2LevelWithAttribMultiple
 parameter_list|()
 block|{
 name|String
@@ -1949,8 +1849,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -1961,8 +1859,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -1988,8 +1884,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -2015,8 +1909,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|0
@@ -2035,10 +1927,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|elems2LevelWithAttribVal
+DECL|method|testElems2LevelWithAttribVal
 specifier|public
 name|void
-name|elems2LevelWithAttribVal
+name|testElems2LevelWithAttribVal
 parameter_list|()
 block|{
 name|String
@@ -2123,8 +2015,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -2135,8 +2025,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -2162,8 +2050,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -2189,8 +2075,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|0
@@ -2209,10 +2093,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|attribValWithSlash
+DECL|method|testAttribValWithSlash
 specifier|public
 name|void
-name|attribValWithSlash
+name|testAttribValWithSlash
 parameter_list|()
 block|{
 name|String
@@ -2266,8 +2150,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -2293,8 +2175,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"hello-A"
@@ -2310,10 +2190,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|unsupported_Xpaths
+DECL|method|testUnsupported_Xpaths
 specifier|public
 name|void
-name|unsupported_Xpaths
+name|testUnsupported_Xpaths
 parameter_list|()
 block|{
 name|String
@@ -2336,8 +2216,6 @@ argument_list|(
 literal|"//b"
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|fail
 argument_list|(
 literal|"A RuntimeException was expected: //b forEach cannot begin with '//'."
@@ -2363,8 +2241,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|fail
 argument_list|(
 literal|"A RuntimeException was expected: 'b' xpaths must begin with '/'."
@@ -2380,10 +2256,10 @@ block|{  }
 block|}
 annotation|@
 name|Test
-DECL|method|any_decendent_from_root
+DECL|method|testAny_decendent_from_root
 specifier|public
 name|void
-name|any_decendent_from_root
+name|testAny_decendent_from_root
 parameter_list|()
 block|{
 name|XPathRecordReader
@@ -2536,8 +2412,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -2563,8 +2437,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"This one is  inside a forEach"
@@ -2583,8 +2455,6 @@ name|trim
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"10097"
@@ -2597,8 +2467,6 @@ literal|"id"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"My flattened title"
@@ -2617,8 +2485,6 @@ name|trim
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"My summary"
@@ -2637,8 +2503,6 @@ name|trim
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"My text"
@@ -2657,8 +2521,6 @@ name|trim
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"not ignored as its"
@@ -2684,8 +2546,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"antler"
@@ -2711,8 +2571,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Within the body of"
@@ -2738,8 +2596,6 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"inner  as well"
@@ -2765,8 +2621,6 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"sub clauses"
@@ -2788,10 +2642,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|any_decendent_of_a_child1
+DECL|method|testAny_decendent_of_a_child1
 specifier|public
 name|void
-name|any_decendent_of_a_child1
+name|testAny_decendent_of_a_child1
 parameter_list|()
 block|{
 name|XPathRecordReader
@@ -2864,8 +2718,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -2891,8 +2743,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"top level"
@@ -2918,8 +2768,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"this element"
@@ -2945,8 +2793,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"not ignored as its"
@@ -2972,8 +2818,6 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"antler"
@@ -2999,8 +2843,6 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"title"
@@ -3026,8 +2868,6 @@ literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Within the body of"
@@ -3053,8 +2893,6 @@ literal|5
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"inner  as well"
@@ -3083,10 +2921,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|any_decendent_of_a_child2
+DECL|method|testAny_decendent_of_a_child2
 specifier|public
 name|void
-name|any_decendent_of_a_child2
+name|testAny_decendent_of_a_child2
 parameter_list|()
 block|{
 name|XPathRecordReader
@@ -3159,8 +2997,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -3186,8 +3022,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"not ignored as its"
@@ -3210,8 +3044,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"antler"
@@ -3234,8 +3066,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"title"
@@ -3258,8 +3088,6 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Within the body of"
@@ -3282,8 +3110,6 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"inner  as well"
@@ -3309,10 +3135,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|another
+DECL|method|testAnother
 specifier|public
 name|void
-name|another
+name|testAnother
 parameter_list|()
 block|{
 name|String
@@ -3409,8 +3235,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|1
@@ -3436,8 +3260,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"10097"
@@ -3450,8 +3272,6 @@ literal|"id"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"This is my title"
@@ -3470,8 +3290,6 @@ name|trim
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"This is my summary"
@@ -3490,8 +3308,6 @@ name|trim
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"This is the body of my text"
@@ -3513,10 +3329,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|sameForEachAndXpath
+DECL|method|testSameForEachAndXpath
 specifier|public
 name|void
-name|sameForEachAndXpath
+name|testSameForEachAndXpath
 parameter_list|()
 block|{
 name|String
@@ -3576,8 +3392,6 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"hello"
@@ -3598,10 +3412,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|putNullTest
+DECL|method|testPutNullTest
 specifier|public
 name|void
-name|putNullTest
+name|testPutNullTest
 parameter_list|()
 block|{
 name|String
@@ -3787,8 +3601,6 @@ argument_list|(
 literal|"c"
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"A.1.1"
@@ -3801,8 +3613,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"B.1.1"
@@ -3815,8 +3625,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNull
 argument_list|(
 name|c
@@ -3827,8 +3635,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNull
 argument_list|(
 name|a
@@ -3839,8 +3645,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"B.1.2"
@@ -3853,8 +3657,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"C.1.2"
@@ -3921,8 +3723,6 @@ argument_list|(
 literal|"c"
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"A.2.1"
@@ -3935,8 +3735,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNull
 argument_list|(
 name|b
@@ -3947,8 +3745,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"C.2.1"
@@ -3961,8 +3757,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertNull
 argument_list|(
 name|a
@@ -3973,8 +3767,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"B.2.2"
@@ -3987,8 +3779,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"C.2.2"
@@ -4086,8 +3876,6 @@ name|malformedXml
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|fail
 argument_list|(
 literal|"A RuntimeException was expected: the input XML is invalid."
