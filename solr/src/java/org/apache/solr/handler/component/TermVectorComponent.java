@@ -2492,7 +2492,7 @@ name|getSourceId
 parameter_list|()
 block|{
 return|return
-literal|"$Id:$"
+literal|"$Id$"
 return|;
 block|}
 DECL|method|getSource
@@ -2502,7 +2502,7 @@ name|getSource
 parameter_list|()
 block|{
 return|return
-literal|"$Revision:$"
+literal|"$Revision$"
 return|;
 block|}
 DECL|method|getDescription
