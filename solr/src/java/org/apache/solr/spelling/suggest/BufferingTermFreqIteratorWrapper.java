@@ -100,8 +100,6 @@ operator|=
 name|freq
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|compareTo
 specifier|public
 name|int
@@ -200,8 +198,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|freq
 specifier|public
 name|float
@@ -214,8 +210,6 @@ operator|.
 name|freq
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|hasNext
 specifier|public
 name|boolean
@@ -231,8 +225,6 @@ name|size
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|next
 specifier|public
 name|String
@@ -257,8 +249,6 @@ operator|.
 name|word
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|remove
 specifier|public
 name|void
