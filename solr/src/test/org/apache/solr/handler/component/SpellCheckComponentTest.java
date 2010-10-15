@@ -991,7 +991,7 @@ argument_list|,
 name|spellchecker
 argument_list|)
 expr_stmt|;
-comment|// TODO: this is really fragile - find a higher level way to test this.
+comment|// TODO: this is really fragile and error prone - find a higher level way to test this.
 name|SpellCheckComponent
 name|checker
 init|=
@@ -1114,6 +1114,13 @@ literal|"NullPointerException due to reload not initializing analyzers"
 argument_list|)
 expr_stmt|;
 block|}
+name|rb
+operator|.
+name|req
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|SuppressWarnings
