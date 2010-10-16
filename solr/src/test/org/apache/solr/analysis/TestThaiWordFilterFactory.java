@@ -88,15 +88,6 @@ operator|.
 name|ThaiWordFilter
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assume
-import|;
-end_import
 begin_comment
 comment|/**  * Simple tests to ensure the Thai word filter factory is working.  */
 end_comment
@@ -117,10 +108,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Assume
-operator|.
 name|assumeTrue
 argument_list|(
+literal|"JRE does not support Thai dictionary-based BreakIterator"
+argument_list|,
 name|ThaiWordFilter
 operator|.
 name|DBBI_AVAILABLE
