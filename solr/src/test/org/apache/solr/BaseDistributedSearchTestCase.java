@@ -430,7 +430,7 @@ index|[]
 name|deadServers
 init|=
 block|{
-literal|"localhost:33332/solr"
+literal|"[::1]:33332/solr"
 block|}
 decl_stmt|;
 DECL|field|testDir
