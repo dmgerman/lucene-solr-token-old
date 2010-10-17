@@ -2261,15 +2261,6 @@ argument_list|(
 name|handler
 argument_list|,
 name|req
-argument_list|(
-literal|"q"
-argument_list|,
-name|q
-argument_list|,
-literal|"rows"
-argument_list|,
-literal|"1000"
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -2372,27 +2363,16 @@ operator|.
 name|nextDoc
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-operator|!
+name|assertTrue
+argument_list|(
 name|b
 operator|.
 name|exists
 argument_list|(
 name|doc
 argument_list|)
-condition|)
-block|{
-name|TestCase
-operator|.
-name|fail
-argument_list|(
-literal|"Missing doc "
-operator|+
-name|doc
 argument_list|)
 expr_stmt|;
-block|}
 comment|// System.out.println("MATCH! " + doc);
 block|}
 return|return
