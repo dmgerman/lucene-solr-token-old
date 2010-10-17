@@ -861,6 +861,11 @@ argument_list|(
 name|cname
 argument_list|)
 decl_stmt|;
+name|SolrQueryRequest
+name|wrappedReq
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|core
@@ -960,9 +965,8 @@ name|UPDATE_PROCESSOR
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|SolrQueryRequest
 name|wrappedReq
-init|=
+operator|=
 operator|new
 name|LocalSolrQueryRequest
 argument_list|(
@@ -973,7 +977,7 @@ operator|.
 name|getParams
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|UpdateRequestProcessor
 name|processor
 init|=
@@ -1001,6 +1005,11 @@ block|}
 finally|finally
 block|{
 name|core
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|wrappedReq
 operator|.
 name|close
 argument_list|()
