@@ -187,7 +187,7 @@ name|Exception
 block|{
 name|initCore
 argument_list|(
-literal|"solrconfig.xml"
+literal|"solrconfig-spellcheckcomponent.xml"
 argument_list|,
 literal|"schema.xml"
 argument_list|)
