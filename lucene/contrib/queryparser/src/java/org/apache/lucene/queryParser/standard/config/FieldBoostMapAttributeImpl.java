@@ -110,7 +110,7 @@ DECL|field|boosts
 specifier|private
 name|Map
 argument_list|<
-name|CharSequence
+name|String
 argument_list|,
 name|Float
 argument_list|>
@@ -119,7 +119,7 @@ init|=
 operator|new
 name|LinkedHashMap
 argument_list|<
-name|CharSequence
+name|String
 argument_list|,
 name|Float
 argument_list|>
@@ -139,7 +139,7 @@ name|setFieldBoostMap
 parameter_list|(
 name|Map
 argument_list|<
-name|CharSequence
+name|String
 argument_list|,
 name|Float
 argument_list|>
@@ -157,7 +157,7 @@ DECL|method|getFieldBoostMap
 specifier|public
 name|Map
 argument_list|<
-name|CharSequence
+name|String
 argument_list|,
 name|Float
 argument_list|>

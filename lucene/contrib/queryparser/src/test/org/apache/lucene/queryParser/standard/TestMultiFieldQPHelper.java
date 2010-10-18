@@ -860,7 +860,7 @@ name|Exception
 block|{
 name|Map
 argument_list|<
-name|CharSequence
+name|String
 argument_list|,
 name|Float
 argument_list|>
@@ -869,7 +869,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|CharSequence
+name|String
 argument_list|,
 name|Float
 argument_list|>
