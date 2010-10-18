@@ -47,7 +47,7 @@ name|CachedArrayCreator
 import|;
 end_import
 begin_comment
-comment|/**  *   * @version $Id: FieldCacheSource.java 794328 2009-07-15 17:21:04Z shalin $  */
+comment|/**  *   * @version $Id$  */
 end_comment
 begin_class
 DECL|class|NumericFieldCacheSource
