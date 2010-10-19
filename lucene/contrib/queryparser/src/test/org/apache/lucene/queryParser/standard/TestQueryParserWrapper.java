@@ -1002,7 +1002,7 @@ argument_list|)
 decl_stmt|;
 name|newProcessorPipeline
 operator|.
-name|addProcessor
+name|add
 argument_list|(
 operator|new
 name|WildcardQueryNodeProcessor
@@ -1011,7 +1011,7 @@ argument_list|)
 expr_stmt|;
 name|newProcessorPipeline
 operator|.
-name|addProcessor
+name|add
 argument_list|(
 operator|new
 name|QPTestParserQueryNodeProcessor
@@ -1020,7 +1020,7 @@ argument_list|)
 expr_stmt|;
 name|newProcessorPipeline
 operator|.
-name|addProcessor
+name|add
 argument_list|(
 name|getQueryProcessor
 argument_list|()
