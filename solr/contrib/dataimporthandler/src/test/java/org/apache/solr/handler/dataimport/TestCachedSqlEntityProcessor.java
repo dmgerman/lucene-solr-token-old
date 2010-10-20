@@ -20,26 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|SolrTestCaseJ4
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -90,7 +70,7 @@ specifier|public
 class|class
 name|TestCachedSqlEntityProcessor
 extends|extends
-name|SolrTestCaseJ4
+name|AbstractDataImportHandlerTestCase
 block|{
 annotation|@
 name|Test
@@ -111,8 +91,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -125,8 +103,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -148,8 +124,6 @@ name|String
 argument_list|>
 name|entityAttrs
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"query"
@@ -177,8 +151,6 @@ name|addNamespace
 argument_list|(
 literal|"x"
 argument_list|,
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -190,8 +162,6 @@ expr_stmt|;
 name|Context
 name|context
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -236,8 +206,6 @@ name|rows
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -254,8 +222,6 @@ name|rows
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -352,8 +318,6 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -423,8 +387,6 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -435,8 +397,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -452,8 +412,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -489,8 +447,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -503,8 +459,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -526,8 +480,6 @@ name|String
 argument_list|>
 name|entityAttrs
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"query"
@@ -564,8 +516,6 @@ name|addNamespace
 argument_list|(
 literal|"x"
 argument_list|,
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -577,8 +527,6 @@ expr_stmt|;
 name|Context
 name|context
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -623,8 +571,6 @@ name|rows
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -641,8 +587,6 @@ name|rows
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -739,8 +683,6 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -809,8 +751,6 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|r
@@ -839,8 +779,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -851,8 +789,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -868,8 +804,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -905,8 +839,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -919,8 +851,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -942,8 +872,6 @@ name|String
 argument_list|>
 name|entityAttrs
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"query"
@@ -980,8 +908,6 @@ name|addNamespace
 argument_list|(
 literal|"x"
 argument_list|,
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -993,8 +919,6 @@ expr_stmt|;
 name|Context
 name|context
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -1039,8 +963,6 @@ name|rows
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -1057,8 +979,6 @@ name|rows
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -1155,8 +1075,6 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|4
@@ -1226,8 +1144,6 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|4
@@ -1238,8 +1154,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -1255,8 +1169,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -1446,8 +1358,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -1460,8 +1370,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -1483,8 +1391,6 @@ name|String
 argument_list|>
 name|entityAttrs
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"query"
@@ -1521,8 +1427,6 @@ decl_stmt|;
 name|Map
 name|xNamespace
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -1542,8 +1446,6 @@ expr_stmt|;
 name|Context
 name|context
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -1592,8 +1494,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -1606,8 +1506,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -1629,8 +1527,6 @@ name|String
 argument_list|>
 name|entityAttrs
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"query"
@@ -1659,8 +1555,6 @@ decl_stmt|;
 name|Map
 name|xNamespace
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -1680,8 +1574,6 @@ expr_stmt|;
 name|Context
 name|context
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -1756,8 +1648,6 @@ name|rows
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -1774,8 +1664,6 @@ name|rows
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -1792,8 +1680,6 @@ name|rows
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -1810,8 +1696,6 @@ name|rows
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -1828,8 +1712,6 @@ name|rows
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -1846,8 +1728,6 @@ name|rows
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"id"
@@ -1939,8 +1819,6 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|0
@@ -2019,8 +1897,6 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -2094,8 +1970,6 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|3

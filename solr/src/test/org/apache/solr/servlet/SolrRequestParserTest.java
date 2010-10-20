@@ -222,6 +222,19 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|request
+operator|.
+name|SolrQueryRequest
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|AfterClass
@@ -400,6 +413,9 @@ name|ContentStream
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|SolrQueryRequest
+name|req
+init|=
 name|parser
 operator|.
 name|buildRequestFrom
@@ -414,7 +430,7 @@ argument_list|)
 argument_list|,
 name|streams
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -444,6 +460,11 @@ name|getStream
 argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|req
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 comment|// Now add three and make sure they come out ok
 name|streams
@@ -475,6 +496,8 @@ name|body3
 block|}
 argument_list|)
 expr_stmt|;
+name|req
+operator|=
 name|parser
 operator|.
 name|buildRequestFrom
@@ -635,6 +658,11 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|req
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 comment|// set the contentType and make sure tat gets set
 name|String
 name|ctype
@@ -666,6 +694,8 @@ name|ctype
 block|}
 argument_list|)
 expr_stmt|;
+name|req
+operator|=
 name|parser
 operator|.
 name|buildRequestFrom
@@ -700,6 +730,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|req
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -778,10 +813,15 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
-comment|// TODO - should it fail/skip?
-name|fail
+name|assumeNoException
 argument_list|(
-literal|"this test only works if you have a network connection."
+literal|"Unable to connect to "
+operator|+
+name|url
+operator|+
+literal|" to run the test."
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 return|return;
@@ -843,6 +883,9 @@ name|ContentStream
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|SolrQueryRequest
+name|req
+init|=
 name|parser
 operator|.
 name|buildRequestFrom
@@ -857,7 +900,7 @@ argument_list|)
 argument_list|,
 name|streams
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|1
@@ -887,6 +930,11 @@ name|getStream
 argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|req
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

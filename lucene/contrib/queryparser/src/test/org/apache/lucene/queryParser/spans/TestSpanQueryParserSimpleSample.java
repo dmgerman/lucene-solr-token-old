@@ -251,7 +251,7 @@ decl_stmt|;
 comment|// @see SpansValidatorQueryNodeProcessor
 name|spanProcessorPipeline
 operator|.
-name|addProcessor
+name|add
 argument_list|(
 operator|new
 name|SpansValidatorQueryNodeProcessor
@@ -261,7 +261,7 @@ expr_stmt|;
 comment|// @see UniqueFieldQueryNodeProcessor
 name|spanProcessorPipeline
 operator|.
-name|addProcessor
+name|add
 argument_list|(
 operator|new
 name|UniqueFieldQueryNodeProcessor

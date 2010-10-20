@@ -58,15 +58,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Calendar
 import|;
 end_import
@@ -86,15 +77,6 @@ operator|.
 name|util
 operator|.
 name|GregorianCalendar
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
 import|;
 end_import
 begin_import
@@ -714,30 +696,10 @@ operator|.
 name|RegExp
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|runner
-operator|.
-name|RunWith
-import|;
-end_import
 begin_comment
 comment|/**  * This test case is a copy of the core Lucene query parser test, it was adapted  * to use new {@link QueryParserWrapper} instead of the old query parser.  *   * Tests QueryParser.  *   * @deprecated this entire test case tests QueryParserWrapper which is  *             deprecated. When QPW is gone, so will the test.  */
 end_comment
 begin_class
-annotation|@
-name|RunWith
-argument_list|(
-name|LuceneTestCase
-operator|.
-name|LocalizedTestCaseRunner
-operator|.
-name|class
-argument_list|)
 annotation|@
 name|Deprecated
 DECL|class|TestQueryParserWrapper
@@ -1040,7 +1002,7 @@ argument_list|)
 decl_stmt|;
 name|newProcessorPipeline
 operator|.
-name|addProcessor
+name|add
 argument_list|(
 operator|new
 name|WildcardQueryNodeProcessor
@@ -1049,7 +1011,7 @@ argument_list|)
 expr_stmt|;
 name|newProcessorPipeline
 operator|.
-name|addProcessor
+name|add
 argument_list|(
 operator|new
 name|QPTestParserQueryNodeProcessor
@@ -1058,7 +1020,7 @@ argument_list|)
 expr_stmt|;
 name|newProcessorPipeline
 operator|.
-name|addProcessor
+name|add
 argument_list|(
 name|getQueryProcessor
 argument_list|()
@@ -3084,7 +3046,7 @@ literal|"term~"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term~0.5"
+literal|"term~2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -3098,20 +3060,20 @@ argument_list|)
 expr_stmt|;
 name|assertQueryEquals
 argument_list|(
-literal|"term~^2"
+literal|"term~^3"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term~0.5^2.0"
+literal|"term~2.0^3.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
 argument_list|(
-literal|"term^2~"
+literal|"term^3~"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term~0.5^2.0"
+literal|"term~2.0^3.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -3231,7 +3193,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|0.5f
+literal|2.0f
 argument_list|,
 name|fq
 operator|.
@@ -3427,7 +3389,7 @@ name|assertWildcardQueryEquals
 argument_list|(
 literal|"Term~"
 argument_list|,
-literal|"term~0.5"
+literal|"term~2.0"
 argument_list|)
 expr_stmt|;
 name|assertWildcardQueryEquals
@@ -3436,7 +3398,7 @@ literal|"Term~"
 argument_list|,
 literal|true
 argument_list|,
-literal|"term~0.5"
+literal|"term~2.0"
 argument_list|)
 expr_stmt|;
 name|assertWildcardQueryEquals
@@ -3445,7 +3407,7 @@ literal|"Term~"
 argument_list|,
 literal|false
 argument_list|,
-literal|"Term~0.5"
+literal|"Term~2.0"
 argument_list|)
 expr_stmt|;
 comment|// Range queries:
@@ -5267,7 +5229,7 @@ literal|"a:b\\-c~"
 argument_list|,
 name|a
 argument_list|,
-literal|"a:b-c~0.5"
+literal|"a:b-c~2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -5276,7 +5238,7 @@ literal|"a:b\\+c~"
 argument_list|,
 name|a
 argument_list|,
-literal|"a:b+c~0.5"
+literal|"a:b+c~2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -5285,7 +5247,7 @@ literal|"a:b\\:c~"
 argument_list|,
 name|a
 argument_list|,
-literal|"a:b:c~0.5"
+literal|"a:b:c~2.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -5294,7 +5256,7 @@ literal|"a:b\\\\c~"
 argument_list|,
 name|a
 argument_list|,
-literal|"a:b\\c~0.5"
+literal|"a:b\\c~2.0"
 argument_list|)
 expr_stmt|;
 comment|// TODO: implement Range queries on QueryParser

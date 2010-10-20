@@ -20,26 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|SolrTestCaseJ4
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -90,7 +70,7 @@ specifier|public
 class|class
 name|TestTemplateTransformer
 extends|extends
-name|SolrTestCaseJ4
+name|AbstractDataImportHandlerTestCase
 block|{
 annotation|@
 name|Test
@@ -116,8 +96,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -130,8 +108,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -144,8 +120,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -158,8 +132,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -178,8 +150,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -199,8 +169,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -238,8 +206,6 @@ decl_stmt|;
 name|Map
 name|row
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"firstName"
@@ -283,8 +249,6 @@ name|String
 argument_list|>
 name|entityAttrs
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"name"
@@ -295,8 +259,6 @@ decl_stmt|;
 name|Context
 name|context
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -325,8 +287,6 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Mangar, Shalin Shekhar"
@@ -339,8 +299,6 @@ literal|"name"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Mr Mangar, Shalin Shekhar"
@@ -353,8 +311,6 @@ literal|"mrname"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|mails

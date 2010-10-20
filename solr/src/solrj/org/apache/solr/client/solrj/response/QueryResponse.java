@@ -1320,6 +1320,14 @@ name|long
 name|minsize
 init|=
 name|_results
+operator|==
+literal|null
+condition|?
+name|Long
+operator|.
+name|MAX_VALUE
+else|:
+name|_results
 operator|.
 name|getNumFound
 argument_list|()

@@ -138,6 +138,19 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|request
+operator|.
+name|SolrQueryRequest
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Before
@@ -302,13 +315,9 @@ argument_list|,
 literal|"fox brown"
 argument_list|)
 expr_stmt|;
-name|FieldAnalysisRequest
-name|request
+name|SolrQueryRequest
+name|req
 init|=
-name|handler
-operator|.
-name|resolveAnalysisRequest
-argument_list|(
 operator|new
 name|LocalSolrQueryRequest
 argument_list|(
@@ -319,6 +328,15 @@ argument_list|()
 argument_list|,
 name|params
 argument_list|)
+decl_stmt|;
+name|FieldAnalysisRequest
+name|request
+init|=
+name|handler
+operator|.
+name|resolveAnalysisRequest
+argument_list|(
+name|req
 argument_list|)
 decl_stmt|;
 name|List
@@ -443,6 +461,11 @@ name|isShowMatch
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|req
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 comment|// testing overide of query value using analysis.query param
 name|params
 operator|.
@@ -455,12 +478,8 @@ argument_list|,
 literal|"quick lazy"
 argument_list|)
 expr_stmt|;
-name|request
+name|req
 operator|=
-name|handler
-operator|.
-name|resolveAnalysisRequest
-argument_list|(
 operator|new
 name|LocalSolrQueryRequest
 argument_list|(
@@ -471,6 +490,14 @@ argument_list|()
 argument_list|,
 name|params
 argument_list|)
+expr_stmt|;
+name|request
+operator|=
+name|handler
+operator|.
+name|resolveAnalysisRequest
+argument_list|(
+name|req
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -482,6 +509,11 @@ operator|.
 name|getQuery
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|req
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 comment|// testing analysis.showmatch param
 name|params
@@ -495,12 +527,8 @@ argument_list|,
 literal|"false"
 argument_list|)
 expr_stmt|;
-name|request
+name|req
 operator|=
-name|handler
-operator|.
-name|resolveAnalysisRequest
-argument_list|(
 operator|new
 name|LocalSolrQueryRequest
 argument_list|(
@@ -511,6 +539,14 @@ argument_list|()
 argument_list|,
 name|params
 argument_list|)
+expr_stmt|;
+name|request
+operator|=
+name|handler
+operator|.
+name|resolveAnalysisRequest
+argument_list|(
+name|req
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -520,6 +556,11 @@ operator|.
 name|isShowMatch
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|req
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|params
 operator|.
@@ -532,12 +573,8 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
-name|request
+name|req
 operator|=
-name|handler
-operator|.
-name|resolveAnalysisRequest
-argument_list|(
 operator|new
 name|LocalSolrQueryRequest
 argument_list|(
@@ -548,6 +585,14 @@ argument_list|()
 argument_list|,
 name|params
 argument_list|)
+expr_stmt|;
+name|request
+operator|=
+name|handler
+operator|.
+name|resolveAnalysisRequest
+argument_list|(
+name|req
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -557,6 +602,11 @@ operator|.
 name|isShowMatch
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|req
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 comment|// testing absence of query value
 name|params
@@ -577,12 +627,8 @@ operator|.
 name|QUERY
 argument_list|)
 expr_stmt|;
-name|request
+name|req
 operator|=
-name|handler
-operator|.
-name|resolveAnalysisRequest
-argument_list|(
 operator|new
 name|LocalSolrQueryRequest
 argument_list|(
@@ -593,6 +639,14 @@ argument_list|()
 argument_list|,
 name|params
 argument_list|)
+expr_stmt|;
+name|request
+operator|=
+name|handler
+operator|.
+name|resolveAnalysisRequest
+argument_list|(
+name|req
 argument_list|)
 expr_stmt|;
 name|assertNull
@@ -602,6 +656,11 @@ operator|.
 name|getQuery
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|req
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Tests the {@link FieldAnalysisRequestHandler#handleAnalysisRequest(org.apache.solr.client.solrj.request.FieldAnalysisRequest,    * org.apache.solr.schema.IndexSchema)}    */

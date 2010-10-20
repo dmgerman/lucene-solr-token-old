@@ -393,7 +393,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Parser changed in subsequet call.  "
+literal|"Parser changed in subsequent call.  "
 operator|+
 name|value
 operator|.
@@ -472,7 +472,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Parser changed in subsequet call.  "
+literal|"Parser changed in subsequent call.  "
 operator|+
 name|value
 operator|.
@@ -503,10 +503,10 @@ name|OpenBitSet
 name|valid
 parameter_list|,
 name|int
-name|maxDocs
+name|numDocs
 parameter_list|,
 name|int
-name|numDocs
+name|maxDocs
 parameter_list|)
 block|{
 if|if

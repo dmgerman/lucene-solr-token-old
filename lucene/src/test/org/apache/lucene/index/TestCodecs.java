@@ -319,17 +319,6 @@ operator|.
 name|Version
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|runner
-operator|.
-name|RunWith
-import|;
-end_import
 begin_comment
 comment|// TODO: test multiple codecs here?
 end_comment
@@ -379,15 +368,6 @@ begin_comment
 comment|//   - skipTo(doc)
 end_comment
 begin_class
-annotation|@
-name|RunWith
-argument_list|(
-name|LuceneTestCase
-operator|.
-name|MultiCodecTestCaseRunner
-operator|.
-name|class
-argument_list|)
 DECL|class|TestCodecs
 specifier|public
 class|class

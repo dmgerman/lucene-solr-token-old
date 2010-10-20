@@ -42,15 +42,6 @@ operator|.
 name|Version
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assume
-import|;
-end_import
 begin_comment
 comment|/**  * Test case for ThaiAnalyzer, modified from TestFrenchAnalyzer  *  * @version   0.1  */
 end_comment
@@ -71,10 +62,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Assume
-operator|.
 name|assumeTrue
 argument_list|(
+literal|"JRE does not support Thai dictionary-based BreakIterator"
+argument_list|,
 name|ThaiWordFilter
 operator|.
 name|DBBI_AVAILABLE
@@ -163,6 +154,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeTrue
+argument_list|(
+literal|"JRE does not support Thai dictionary-based BreakIterator"
+argument_list|,
+name|ThaiWordFilter
+operator|.
+name|DBBI_AVAILABLE
+argument_list|)
+expr_stmt|;
 name|assertAnalyzesTo
 argument_list|(
 operator|new
@@ -232,10 +232,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Assume
-operator|.
 name|assumeTrue
 argument_list|(
+literal|"JRE does not support Thai dictionary-based BreakIterator"
+argument_list|,
 name|ThaiWordFilter
 operator|.
 name|DBBI_AVAILABLE
@@ -312,10 +312,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Assume
-operator|.
 name|assumeTrue
 argument_list|(
+literal|"JRE does not support Thai dictionary-based BreakIterator"
+argument_list|,
 name|ThaiWordFilter
 operator|.
 name|DBBI_AVAILABLE
@@ -437,10 +437,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Assume
-operator|.
 name|assumeTrue
 argument_list|(
+literal|"JRE does not support Thai dictionary-based BreakIterator"
+argument_list|,
 name|ThaiWordFilter
 operator|.
 name|DBBI_AVAILABLE
@@ -655,10 +655,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Assume
-operator|.
 name|assumeTrue
 argument_list|(
+literal|"JRE does not support Thai dictionary-based BreakIterator"
+argument_list|,
 name|ThaiWordFilter
 operator|.
 name|DBBI_AVAILABLE
@@ -751,6 +751,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeTrue
+argument_list|(
+literal|"JRE does not support Thai dictionary-based BreakIterator"
+argument_list|,
+name|ThaiWordFilter
+operator|.
+name|DBBI_AVAILABLE
+argument_list|)
+expr_stmt|;
 name|ThaiAnalyzer
 name|analyzer
 init|=

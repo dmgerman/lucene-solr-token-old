@@ -409,7 +409,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * This class provides a simple harness that may be useful when  * writing testcases.  *  *<p>  * This class lives in the main source tree (and not in the test source  * tree), so that it will be included with even the most minimal solr  * distribution, in order to encourage plugin writers to create unit   * tests for their plugins.  *  * @version $Id:$  */
+comment|/**  * This class provides a simple harness that may be useful when  * writing testcases.  *  *<p>  * This class lives in the main source tree (and not in the test source  * tree), so that it will be included with even the most minimal solr  * distribution, in order to encourage plugin writers to create unit   * tests for their plugins.  *  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|TestHarness
@@ -841,6 +841,39 @@ name|locateSolrHome
 argument_list|()
 argument_list|)
 argument_list|)
+block|{
+block|{
+name|hostPort
+operator|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"hostPort"
+argument_list|)
+expr_stmt|;
+name|hostContext
+operator|=
+literal|"solr"
+expr_stmt|;
+name|defaultCoreName
+operator|=
+literal|"collection1"
+expr_stmt|;
+name|initZooKeeper
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"zkHost"
+argument_list|)
+argument_list|,
+literal|10000
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 decl_stmt|;
 name|CoreDescriptor
 name|dcore
@@ -887,7 +920,7 @@ init|=
 operator|new
 name|SolrCore
 argument_list|(
-literal|null
+literal|"collection1"
 argument_list|,
 name|dataDirectory
 argument_list|,
@@ -1236,7 +1269,7 @@ name|req
 argument_list|)
 return|;
 block|}
-comment|/**    * Processes a "query" using a user constructed SolrQueryRequest    *    * @param handler the name of the request handler to process the request    * @param req the Query to process, will be closed.    * @return The XML response to the query    * @exception Exception any exception in the response.    * @exception IOException if there is a problem writing the XML    * @see LocalSolrQueryRequest    */
+comment|/**    * Processes a "query" using a user constructed SolrQueryRequest, and closes the request at the end.    *    * @param handler the name of the request handler to process the request    * @param req the Query to process, will be closed.    * @return The XML response to the query    * @exception Exception any exception in the response.    * @exception IOException if there is a problem writing the XML    * @see LocalSolrQueryRequest    */
 DECL|method|query
 specifier|public
 name|String
@@ -1252,6 +1285,8 @@ throws|throws
 name|IOException
 throws|,
 name|Exception
+block|{
+try|try
 block|{
 name|SolrQueryResponse
 name|rsp
@@ -1305,6 +1340,16 @@ name|toString
 argument_list|()
 return|;
 block|}
+finally|finally
+block|{
+name|req
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+comment|/** It is the users responsibility to close the request object when done with it */
 DECL|method|queryAndResponse
 specifier|public
 name|SolrQueryResponse

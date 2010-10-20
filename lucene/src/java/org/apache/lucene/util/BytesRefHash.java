@@ -15,6 +15,51 @@ begin_comment
 comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|ByteBlockPool
+operator|.
+name|BYTE_BLOCK_MASK
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|ByteBlockPool
+operator|.
+name|BYTE_BLOCK_SHIFT
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|ByteBlockPool
+operator|.
+name|BYTE_BLOCK_SIZE
+import|;
+end_import
+begin_import
 import|import
 name|java
 operator|.
@@ -46,7 +91,7 @@ name|AtomicLong
 import|;
 end_import
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
@@ -57,37 +102,7 @@ name|util
 operator|.
 name|ByteBlockPool
 operator|.
-name|BYTE_BLOCK_MASK
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|ByteBlockPool
-operator|.
-name|BYTE_BLOCK_SIZE
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|ByteBlockPool
-operator|.
-name|BYTE_BLOCK_SHIFT
+name|DirectAllocator
 import|;
 end_import
 begin_comment
@@ -166,6 +181,24 @@ specifier|private
 name|AtomicLong
 name|bytesUsed
 decl_stmt|;
+comment|/**    * Creates a new {@link BytesRefHash} with a {@link ByteBlockPool} using a    * {@link DirectAllocator}.    */
+DECL|method|BytesRefHash
+specifier|public
+name|BytesRefHash
+parameter_list|()
+block|{
+name|this
+argument_list|(
+operator|new
+name|ByteBlockPool
+argument_list|(
+operator|new
+name|DirectAllocator
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**    * Creates a new {@link BytesRefHash}    */
 DECL|method|BytesRefHash
 specifier|public
@@ -263,7 +296,21 @@ name|bytesStartArray
 operator|.
 name|bytesUsed
 argument_list|()
+operator|==
+literal|null
+condition|?
+operator|new
+name|AtomicLong
+argument_list|(
+literal|0
+argument_list|)
+else|:
+name|bytesStartArray
+operator|.
+name|bytesUsed
+argument_list|()
 expr_stmt|;
+empty_stmt|;
 name|bytesUsed
 operator|.
 name|addAndGet
@@ -287,7 +334,7 @@ return|return
 name|count
 return|;
 block|}
-comment|/**    * Returns the {@link BytesRef} value for the given ord.    *<p>    * Note: the given ord must be a positive integer less that the current size (    * {@link #size()})    *</p>    *     * @param ord    *          the ord    *     * @return a BytesRef instance for the given ord    */
+comment|/**    * Populates and returns a {@link BytesRef} with the bytes for the given ord.    *<p>    * Note: the given ord must be a positive integer less that the current size (    * {@link #size()})    *</p>    *    * @param ord the ord    * @param ref the {@link BytesRef} to populate    *     * @return the given BytesRef instance populated with the bytes for the given ord    */
 DECL|method|get
 specifier|public
 name|BytesRef
@@ -295,6 +342,9 @@ name|get
 parameter_list|(
 name|int
 name|ord
+parameter_list|,
+name|BytesRef
+name|ref
 parameter_list|)
 block|{
 assert|assert
@@ -322,7 +372,7 @@ name|pool
 operator|.
 name|setBytesRef
 argument_list|(
-name|scratch1
+name|ref
 argument_list|,
 name|bytesStart
 index|[
@@ -435,13 +485,6 @@ argument_list|>
 name|comp
 parameter_list|)
 block|{
-assert|assert
-name|bytesStart
-operator|!=
-literal|null
-operator|:
-literal|"Bytesstart is null - not initialized"
-assert|;
 specifier|final
 name|int
 index|[]
@@ -2272,6 +2315,7 @@ parameter_list|()
 function_decl|;
 block|}
 DECL|class|DirectBytesStartArray
+specifier|public
 specifier|static
 class|class
 name|DirectBytesStartArray
@@ -2279,7 +2323,7 @@ extends|extends
 name|BytesStartArray
 block|{
 DECL|field|initSize
-specifier|private
+specifier|protected
 specifier|final
 name|int
 name|initSize
@@ -2303,6 +2347,7 @@ literal|0
 argument_list|)
 decl_stmt|;
 DECL|method|DirectBytesStartArray
+specifier|public
 name|DirectBytesStartArray
 parameter_list|(
 name|int

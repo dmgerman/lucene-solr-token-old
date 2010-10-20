@@ -42,17 +42,6 @@ import|;
 end_import
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|runner
-operator|.
-name|RunWith
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|text
@@ -136,15 +125,6 @@ begin_comment
 comment|/**  * Tests that the functions in DateMathParser  */
 end_comment
 begin_class
-annotation|@
-name|RunWith
-argument_list|(
-name|LuceneTestCase
-operator|.
-name|LocalizedTestCaseRunner
-operator|.
-name|class
-argument_list|)
 DECL|class|DateMathParserTest
 specifier|public
 class|class

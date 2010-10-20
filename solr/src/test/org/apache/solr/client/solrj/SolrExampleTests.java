@@ -4558,7 +4558,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"true"
+name|Boolean
+operator|.
+name|TRUE
 argument_list|,
 name|counts
 operator|.

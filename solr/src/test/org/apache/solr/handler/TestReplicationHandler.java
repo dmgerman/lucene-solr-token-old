@@ -2750,6 +2750,11 @@ argument_list|)
 expr_stmt|;
 comment|//start slave
 name|slaveJetty
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|slaveJetty
 operator|=
 name|createJetty
 argument_list|(
