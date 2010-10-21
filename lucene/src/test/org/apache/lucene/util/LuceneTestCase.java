@@ -1824,6 +1824,8 @@ return|;
 block|}
 block|}
 comment|/** @deprecated: until we fix no-fork problems in solr tests */
+annotation|@
+name|Deprecated
 DECL|field|testClassesRun
 specifier|private
 specifier|static
