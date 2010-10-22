@@ -655,6 +655,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getFieldQuery
 specifier|protected
 name|Query
@@ -860,6 +862,8 @@ name|quoted
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRangeQuery
 specifier|protected
 name|Query
@@ -875,7 +879,10 @@ name|String
 name|part2
 parameter_list|,
 name|boolean
-name|inclusive
+name|startInclusive
+parameter_list|,
+name|boolean
+name|endInclusive
 parameter_list|)
 throws|throws
 name|ParseException
@@ -929,12 +936,14 @@ literal|null
 else|:
 name|part2
 argument_list|,
-name|inclusive
+name|startInclusive
 argument_list|,
-name|inclusive
+name|endInclusive
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPrefixQuery
 specifier|protected
 name|Query
@@ -1001,6 +1010,8 @@ return|return
 name|prefixQuery
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getWildcardQuery
 specifier|protected
 name|Query
