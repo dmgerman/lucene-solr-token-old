@@ -845,6 +845,11 @@ argument_list|(
 name|idField
 argument_list|)
 expr_stmt|;
+name|trySetIndexValues
+argument_list|(
+name|idField
+argument_list|)
+expr_stmt|;
 comment|// Set NAME_FIELD
 name|String
 name|name
@@ -2146,7 +2151,7 @@ name|tuple
 operator|.
 name|split
 argument_list|(
-literal|":"
+literal|"="
 argument_list|)
 decl_stmt|;
 if|if
@@ -2166,7 +2171,7 @@ literal|"illegal doc.stored.values format: "
 operator|+
 name|fields
 operator|+
-literal|" expected fieldname:ValuesType;...;...;"
+literal|" expected fieldname=ValuesType;...;...;"
 argument_list|)
 throw|;
 block|}
