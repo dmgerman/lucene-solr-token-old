@@ -2597,7 +2597,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**    * @exception org.apache.lucene.queryParser.ParseException throw in overridden method to disallow    */
+comment|/**    *    * @exception org.apache.lucene.queryParser.ParseException    */
 DECL|method|getRangeQuery
 specifier|protected
 name|Query
@@ -2629,6 +2629,12 @@ block|{
 name|part1
 operator|=
 name|part1
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|part1
 operator|.
 name|toLowerCase
 argument_list|()
@@ -2636,13 +2642,17 @@ expr_stmt|;
 name|part2
 operator|=
 name|part2
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|part2
 operator|.
 name|toLowerCase
 argument_list|()
 expr_stmt|;
 block|}
-try|try
-block|{
 name|DateFormat
 name|df
 init|=
@@ -2664,6 +2674,18 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|DateTools
+operator|.
+name|Resolution
+name|resolution
+init|=
+name|getDateResolution
+argument_list|(
+name|field
+argument_list|)
+decl_stmt|;
+try|try
+block|{
 name|Date
 name|d1
 init|=
@@ -2674,6 +2696,49 @@ argument_list|(
 name|part1
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|resolution
+operator|==
+literal|null
+condition|)
+block|{
+comment|// no default or field specific date resolution has been set,
+comment|// use deprecated DateField to maintain compatibility with
+comment|// pre-1.9 Lucene versions.
+name|part1
+operator|=
+name|DateField
+operator|.
+name|dateToString
+argument_list|(
+name|d1
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|part1
+operator|=
+name|DateTools
+operator|.
+name|dateToString
+argument_list|(
+name|d1
+argument_list|,
+name|resolution
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{ }
+try|try
+block|{
 name|Date
 name|d2
 init|=
@@ -2761,16 +2826,6 @@ name|getTime
 argument_list|()
 expr_stmt|;
 block|}
-name|DateTools
-operator|.
-name|Resolution
-name|resolution
-init|=
-name|getDateResolution
-argument_list|(
-name|field
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|resolution
@@ -2781,15 +2836,6 @@ block|{
 comment|// no default or field specific date resolution has been set,
 comment|// use deprecated DateField to maintain compatibility with
 comment|// pre-1.9 Lucene versions.
-name|part1
-operator|=
-name|DateField
-operator|.
-name|dateToString
-argument_list|(
-name|d1
-argument_list|)
-expr_stmt|;
 name|part2
 operator|=
 name|DateField
@@ -2802,17 +2848,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|part1
-operator|=
-name|DateTools
-operator|.
-name|dateToString
-argument_list|(
-name|d1
-argument_list|,
-name|resolution
-argument_list|)
-expr_stmt|;
 name|part2
 operator|=
 name|DateTools
