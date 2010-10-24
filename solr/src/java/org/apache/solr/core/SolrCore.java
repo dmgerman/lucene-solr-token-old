@@ -2625,7 +2625,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// nocommit: why did solrconfig override core descriptor !?
 if|if
 condition|(
 name|cd
