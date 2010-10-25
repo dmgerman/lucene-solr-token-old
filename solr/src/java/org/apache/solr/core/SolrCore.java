@@ -1887,6 +1887,12 @@ block|{
 name|initDirectoryFactory
 argument_list|()
 expr_stmt|;
+name|String
+name|indexDir
+init|=
+name|getNewIndexDir
+argument_list|()
+decl_stmt|;
 name|boolean
 name|indexExists
 init|=
@@ -1895,8 +1901,7 @@ argument_list|()
 operator|.
 name|exists
 argument_list|(
-name|getNewIndexDir
-argument_list|()
+name|indexDir
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1918,8 +1923,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-name|getNewIndexDir
-argument_list|()
+name|indexDir
 argument_list|)
 operator|.
 name|getCanonicalPath
@@ -1955,8 +1959,7 @@ name|SolrIndexWriter
 operator|.
 name|getDirectory
 argument_list|(
-name|getIndexDir
-argument_list|()
+name|indexDir
 argument_list|,
 name|getDirectoryFactory
 argument_list|()
@@ -1991,8 +1994,7 @@ name|logid
 operator|+
 literal|"WARNING: Solr index directory '"
 operator|+
-name|getIndexDir
-argument_list|()
+name|indexDir
 operator|+
 literal|"' is locked.  Unlocking..."
 argument_list|)
@@ -2030,8 +2032,7 @@ operator|+
 operator|new
 name|File
 argument_list|(
-name|getNewIndexDir
-argument_list|()
+name|indexDir
 argument_list|)
 operator|+
 literal|"' doesn't exist."
@@ -2047,8 +2048,7 @@ name|SolrIndexWriter
 argument_list|(
 literal|"SolrCore.initIndex"
 argument_list|,
-name|getIndexDir
-argument_list|()
+name|indexDir
 argument_list|,
 name|getDirectoryFactory
 argument_list|()
