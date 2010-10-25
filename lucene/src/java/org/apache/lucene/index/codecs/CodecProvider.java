@@ -116,6 +116,23 @@ operator|.
 name|StandardCodec
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|codecs
+operator|.
+name|simpletext
+operator|.
+name|SimpleTextCodec
+import|;
+end_import
 begin_comment
 comment|/** Holds a set of codecs, keyed by name.  You subclass  *  this, instantiate it, and register your codecs, then  *  pass this instance to IndexReader/IndexWriter (via  *  package private APIs) to use different codecs when  *  reading& writing segments.   *  *  @lucene.experimental */
 end_comment
@@ -205,6 +222,8 @@ block|,
 literal|"Pulsing"
 block|,
 literal|"PreFlex"
+block|,
+literal|"SimpleText"
 block|}
 decl_stmt|;
 DECL|method|register
@@ -554,6 +573,13 @@ name|PulsingCodec
 argument_list|(
 literal|1
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|register
+argument_list|(
+operator|new
+name|SimpleTextCodec
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
