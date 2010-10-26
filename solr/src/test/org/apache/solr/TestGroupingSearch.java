@@ -127,6 +127,10 @@ argument_list|,
 literal|"title"
 argument_list|,
 literal|"a book title"
+argument_list|,
+literal|"group_si"
+argument_list|,
+literal|"1"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -148,6 +152,10 @@ argument_list|,
 literal|"title"
 argument_list|,
 literal|"the title"
+argument_list|,
+literal|"group_si"
+argument_list|,
+literal|"2"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -169,6 +177,10 @@ argument_list|,
 literal|"title"
 argument_list|,
 literal|"a book title"
+argument_list|,
+literal|"group_si"
+argument_list|,
+literal|"1"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -190,6 +202,10 @@ argument_list|,
 literal|"title"
 argument_list|,
 literal|"title"
+argument_list|,
+literal|"group_si"
+argument_list|,
+literal|"2"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -211,6 +227,10 @@ argument_list|,
 literal|"title"
 argument_list|,
 literal|"the title of a title"
+argument_list|,
+literal|"group_si"
+argument_list|,
+literal|"1"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -262,6 +282,40 @@ argument_list|,
 literal|"//arr[@name='groups']/lst[3]/result[@numFound='1']"
 argument_list|,
 literal|"//arr[@name='groups']/lst[3]/result/doc/*[@name='id'][.='5']"
+argument_list|)
+expr_stmt|;
+name|assertQ
+argument_list|(
+name|req
+argument_list|(
+literal|"q"
+argument_list|,
+literal|"title:title"
+argument_list|,
+literal|"group"
+argument_list|,
+literal|"true"
+argument_list|,
+literal|"group.field"
+argument_list|,
+literal|"group_si"
+argument_list|)
+argument_list|,
+literal|"//lst[@name='grouped']/lst[@name='group_si']"
+argument_list|,
+literal|"*[count(//arr[@name='groups']/lst) = 2]"
+argument_list|,
+literal|"//arr[@name='groups']/lst[1]/int[@name='groupValue'][.='2']"
+argument_list|,
+literal|"//arr[@name='groups']/lst[1]/result[@numFound='2']"
+argument_list|,
+literal|"//arr[@name='groups']/lst[1]/result/doc/*[@name='id'][.='4']"
+argument_list|,
+literal|"//arr[@name='groups']/lst[2]/int[@name='groupValue'][.='1']"
+argument_list|,
+literal|"//arr[@name='groups']/lst[2]/result[@numFound='3']"
+argument_list|,
+literal|"//arr[@name='groups']/lst[2]/result/doc/*[@name='id'][.='5']"
 argument_list|)
 expr_stmt|;
 block|}
