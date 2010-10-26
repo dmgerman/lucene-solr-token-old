@@ -24,28 +24,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexFileNames
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -92,10 +70,7 @@ name|Directory
 import|;
 end_import
 begin_comment
-comment|//nocommit - add mmap version
-end_comment
-begin_comment
-comment|//nocommti - add bulk copy where possible
+comment|//TODO - add bulk copy where possible
 end_comment
 begin_class
 DECL|class|Ints
@@ -108,43 +83,6 @@ specifier|private
 name|Ints
 parameter_list|()
 block|{   }
-DECL|method|files
-specifier|public
-specifier|static
-name|void
-name|files
-parameter_list|(
-name|String
-name|id
-parameter_list|,
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|files
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|files
-operator|.
-name|add
-argument_list|(
-name|IndexFileNames
-operator|.
-name|segmentFileName
-argument_list|(
-name|id
-argument_list|,
-literal|""
-argument_list|,
-name|IndexFileNames
-operator|.
-name|CSF_DATA_EXTENSION
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getWriter
 specifier|public
 specifier|static
@@ -163,7 +101,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//nocommit - implement fixed?!
+comment|//TODO - implement fixed?!
 return|return
 operator|new
 name|IntsWriter
@@ -174,11 +112,11 @@ name|id
 argument_list|)
 return|;
 block|}
-DECL|method|getReader
+DECL|method|getValues
 specifier|public
 specifier|static
-name|Reader
-name|getReader
+name|DocValues
+name|getValues
 parameter_list|(
 name|Directory
 name|dir

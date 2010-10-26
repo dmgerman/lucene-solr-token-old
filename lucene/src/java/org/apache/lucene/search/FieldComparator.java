@@ -66,7 +66,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|Reader
+name|DocValues
 operator|.
 name|Source
 import|;
