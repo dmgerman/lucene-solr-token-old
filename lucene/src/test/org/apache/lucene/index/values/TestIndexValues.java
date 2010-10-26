@@ -376,9 +376,9 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|values
+name|codecs
 operator|.
-name|codec
+name|docvalues
 operator|.
 name|DocValuesCodec
 import|;
