@@ -1887,6 +1887,12 @@ block|{
 name|initDirectoryFactory
 argument_list|()
 expr_stmt|;
+name|String
+name|indexDir
+init|=
+name|getNewIndexDir
+argument_list|()
+decl_stmt|;
 name|boolean
 name|indexExists
 init|=
@@ -1895,8 +1901,7 @@ argument_list|()
 operator|.
 name|exists
 argument_list|(
-name|getNewIndexDir
-argument_list|()
+name|indexDir
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -1918,8 +1923,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-name|getNewIndexDir
-argument_list|()
+name|indexDir
 argument_list|)
 operator|.
 name|getCanonicalPath
@@ -1955,8 +1959,7 @@ name|SolrIndexWriter
 operator|.
 name|getDirectory
 argument_list|(
-name|getIndexDir
-argument_list|()
+name|indexDir
 argument_list|,
 name|getDirectoryFactory
 argument_list|()
@@ -1991,8 +1994,7 @@ name|logid
 operator|+
 literal|"WARNING: Solr index directory '"
 operator|+
-name|getIndexDir
-argument_list|()
+name|indexDir
 operator|+
 literal|"' is locked.  Unlocking..."
 argument_list|)
@@ -2030,8 +2032,7 @@ operator|+
 operator|new
 name|File
 argument_list|(
-name|getNewIndexDir
-argument_list|()
+name|indexDir
 argument_list|)
 operator|+
 literal|"' doesn't exist."
@@ -2047,8 +2048,7 @@ name|SolrIndexWriter
 argument_list|(
 literal|"SolrCore.initIndex"
 argument_list|,
-name|getIndexDir
-argument_list|()
+name|indexDir
 argument_list|,
 name|getDirectoryFactory
 argument_list|()
@@ -2151,6 +2151,7 @@ argument_list|(
 name|clazz
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|SolrException
@@ -2177,6 +2178,7 @@ name|getName
 argument_list|()
 argument_list|)
 throw|;
+block|}
 comment|//most of the classes do not have constructors which takes SolrCore argument. It is recommended to obtain SolrCore by implementing SolrCoreAware.
 comment|// So invariably always it will cause a  NoSuchMethodException. So iterate though the list of available constructors
 name|Constructor
@@ -2292,6 +2294,8 @@ name|getName
 argument_list|()
 argument_list|,
 name|e
+argument_list|,
+literal|false
 argument_list|)
 throw|;
 block|}
@@ -2625,7 +2629,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// nocommit: why did solrconfig override core descriptor !?
 if|if
 condition|(
 name|cd
@@ -2982,7 +2985,11 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
+literal|null
+argument_list|,
 name|e
+argument_list|,
+literal|false
 argument_list|)
 throw|;
 block|}

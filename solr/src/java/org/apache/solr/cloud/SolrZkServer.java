@@ -1495,7 +1495,7 @@ block|{
 if|if
 condition|(
 name|clientPortAddress
-operator|!=
+operator|==
 literal|null
 operator|||
 name|clientPortAddress

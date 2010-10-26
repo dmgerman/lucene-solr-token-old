@@ -4256,6 +4256,10 @@ DECL|field|bool
 name|boolean
 name|bool
 decl_stmt|;
+DECL|field|bool2
+name|boolean
+name|bool2
+decl_stmt|;
 DECL|field|flt
 name|float
 name|flt
@@ -4450,7 +4454,10 @@ name|String
 name|b
 parameter_list|,
 name|boolean
-name|inclusive
+name|startInclusive
+parameter_list|,
+name|boolean
+name|endInclusive
 parameter_list|)
 throws|throws
 name|ParseException
@@ -4486,7 +4493,13 @@ name|this
 operator|.
 name|bool
 operator|=
-name|inclusive
+name|startInclusive
+expr_stmt|;
+name|this
+operator|.
+name|bool2
+operator|=
+name|endInclusive
 expr_stmt|;
 return|return
 name|getAliasedQuery
@@ -5082,6 +5095,8 @@ argument_list|,
 name|val2
 argument_list|,
 name|bool
+argument_list|,
+name|bool2
 argument_list|)
 return|;
 block|}

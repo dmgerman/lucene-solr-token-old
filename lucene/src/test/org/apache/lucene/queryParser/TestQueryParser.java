@@ -3498,6 +3498,24 @@ argument_list|,
 literal|"[a TO z]"
 argument_list|)
 expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"[ a TO z}"
+argument_list|,
+literal|null
+argument_list|,
+literal|"[a TO z}"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"{ a TO z]"
+argument_list|,
+literal|null
+argument_list|,
+literal|"{a TO z]"
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|MultiTermQuery
@@ -3642,6 +3660,42 @@ argument_list|,
 literal|null
 argument_list|,
 literal|"gack (bar blar {a TO z})"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"[* TO Z]"
+argument_list|,
+literal|null
+argument_list|,
+literal|"[* TO z]"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"[A TO *]"
+argument_list|,
+literal|null
+argument_list|,
+literal|"[a TO *]"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"[* TO *]"
+argument_list|,
+literal|null
+argument_list|,
+literal|"[* TO *]"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"[\\* TO \"*\"]"
+argument_list|,
+literal|null
+argument_list|,
+literal|"[\\* TO \\*]"
 argument_list|)
 expr_stmt|;
 block|}
