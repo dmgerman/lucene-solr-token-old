@@ -1009,6 +1009,8 @@ name|str
 argument_list|)
 expr_stmt|;
 block|}
+comment|// We use the UTF-16 comparator here, because we need to be able to
+comment|// compare to native String.compareTo() [UTF-16]:
 name|int
 index|[]
 name|sort
