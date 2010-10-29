@@ -182,7 +182,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|// nocommit -- for cleaner transition, maybe we should make
+comment|// TODO(simonw) -- for cleaner transition, maybe we should make
 end_comment
 begin_comment
 comment|// a new SortField that subclasses this one and always uses

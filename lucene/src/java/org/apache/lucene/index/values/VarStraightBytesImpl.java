@@ -500,7 +500,9 @@ name|datOut
 operator|==
 literal|null
 condition|)
+block|{
 return|return;
+block|}
 name|initIndexOut
 argument_list|()
 expr_stmt|;
@@ -518,7 +520,7 @@ argument_list|(
 name|address
 argument_list|)
 expr_stmt|;
-comment|// nocommit -- allow not -1
+comment|// TODO(simonw): allow not -1
 specifier|final
 name|PackedInts
 operator|.
@@ -788,10 +790,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|bytes
+DECL|method|getBytes
 specifier|public
 name|BytesRef
-name|bytes
+name|getBytes
 parameter_list|(
 name|int
 name|docID

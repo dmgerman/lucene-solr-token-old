@@ -1466,10 +1466,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|floats
+DECL|method|getFloat
 specifier|public
 name|double
-name|floats
+name|getFloat
 parameter_list|(
 name|int
 name|docID
@@ -1552,10 +1552,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|floats
+DECL|method|getFloat
 specifier|public
 name|double
-name|floats
+name|getFloat
 parameter_list|(
 name|int
 name|docID
@@ -1572,7 +1572,7 @@ argument_list|(
 name|docID
 argument_list|)
 decl_stmt|;
-comment|// nocommit should we return NaN as default instead of 0.0?
+comment|// TODO should we return NaN as default instead of 0.0?
 return|return
 name|Double
 operator|.
@@ -1608,6 +1608,8 @@ name|NUM_BYTES_DOUBLE
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -1616,6 +1618,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|datIn
 operator|.
 name|close

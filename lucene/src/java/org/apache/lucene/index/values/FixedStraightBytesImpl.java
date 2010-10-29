@@ -818,10 +818,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|bytes
+DECL|method|getBytes
 specifier|public
 name|BytesRef
-name|bytes
+name|getBytes
 parameter_list|(
 name|int
 name|docID

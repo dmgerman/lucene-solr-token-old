@@ -360,7 +360,7 @@ name|v
 init|=
 name|fieldInfo
 operator|.
-name|getIndexValues
+name|getDocValues
 argument_list|()
 decl_stmt|;
 specifier|final
