@@ -296,7 +296,26 @@ name|void
 name|clear
 parameter_list|()
 block|{
-comment|// TODO
+name|bytes
+operator|=
+literal|null
+expr_stmt|;
+name|ints
+operator|=
+literal|null
+expr_stmt|;
+name|floats
+operator|=
+literal|null
+expr_stmt|;
+name|type
+operator|=
+literal|null
+expr_stmt|;
+name|bytesComp
+operator|=
+literal|null
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -391,7 +410,6 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-comment|/* (non-Javadoc)    * @see java.lang.Object#hashCode()    */
 annotation|@
 name|Override
 DECL|method|hashCode
@@ -499,7 +517,6 @@ return|return
 name|result
 return|;
 block|}
-comment|/* (non-Javadoc)    * @see java.lang.Object#equals(java.lang.Object)    */
 annotation|@
 name|Override
 DECL|method|equals
