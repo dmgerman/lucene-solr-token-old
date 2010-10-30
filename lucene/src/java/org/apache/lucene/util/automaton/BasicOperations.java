@@ -66,15 +66,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collection
 import|;
 end_import
@@ -3103,16 +3094,16 @@ name|void
 name|sort
 parameter_list|()
 block|{
+comment|// mergesort seems to perform better on already sorted arrays:
 if|if
 condition|(
 name|count
 operator|>
 literal|1
 condition|)
-block|{
-name|Arrays
+name|ArrayUtil
 operator|.
-name|sort
+name|mergeSort
 argument_list|(
 name|points
 argument_list|,
@@ -3121,7 +3112,6 @@ argument_list|,
 name|count
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|add
 specifier|public

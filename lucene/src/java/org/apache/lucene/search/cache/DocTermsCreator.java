@@ -779,12 +779,9 @@ name|ret
 parameter_list|)
 block|{
 specifier|final
-name|int
+name|long
 name|pointer
 init|=
-operator|(
-name|int
-operator|)
 name|docToOffset
 operator|.
 name|get
