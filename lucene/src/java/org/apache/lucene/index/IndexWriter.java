@@ -589,12 +589,9 @@ name|pendingCommitChangeCount
 decl_stmt|;
 DECL|field|segmentInfos
 specifier|private
+specifier|final
 name|SegmentInfos
 name|segmentInfos
-init|=
-operator|new
-name|SegmentInfos
-argument_list|()
 decl_stmt|;
 comment|// the segments
 DECL|field|docWriter
@@ -2636,6 +2633,14 @@ comment|// and throw an IndexFormatTooOldExc up front, here,
 comment|// instead of later when merge, applyDeletes, getReader
 comment|// is attempted.  I think to do this we should store the
 comment|// oldest segment's version in segments_N.
+name|segmentInfos
+operator|=
+operator|new
+name|SegmentInfos
+argument_list|(
+name|codecs
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 if|if
@@ -2730,7 +2735,9 @@ name|oldInfos
 init|=
 operator|new
 name|SegmentInfos
-argument_list|()
+argument_list|(
+name|codecs
+argument_list|)
 decl_stmt|;
 name|oldInfos
 operator|.
@@ -2835,8 +2842,6 @@ name|infoStream
 argument_list|,
 name|docWriter
 argument_list|,
-name|this
-operator|.
 name|codecs
 argument_list|)
 expr_stmt|;
@@ -7278,7 +7283,9 @@ name|sis
 init|=
 operator|new
 name|SegmentInfos
-argument_list|()
+argument_list|(
+name|codecs
+argument_list|)
 decl_stmt|;
 comment|// read infos from dir
 name|sis
@@ -7286,6 +7293,8 @@ operator|.
 name|read
 argument_list|(
 name|dir
+argument_list|,
+name|codecs
 argument_list|)
 expr_stmt|;
 name|Map

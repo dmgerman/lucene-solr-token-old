@@ -568,7 +568,9 @@ name|sis
 init|=
 operator|new
 name|SegmentInfos
-argument_list|()
+argument_list|(
+name|codecs
+argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -753,7 +755,9 @@ name|sis
 init|=
 operator|new
 name|SegmentInfos
-argument_list|()
+argument_list|(
+name|codecs
+argument_list|)
 decl_stmt|;
 try|try
 block|{
