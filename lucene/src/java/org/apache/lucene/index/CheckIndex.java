@@ -2319,6 +2319,16 @@ range|:
 name|fieldNames
 control|)
 block|{
+if|if
+condition|(
+name|reader
+operator|.
+name|hasNorms
+argument_list|(
+name|fieldName
+argument_list|)
+condition|)
+block|{
 name|reader
 operator|.
 name|norms
@@ -2330,6 +2340,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 operator|++
 name|status
 operator|.
