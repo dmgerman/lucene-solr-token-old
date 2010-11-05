@@ -3582,7 +3582,9 @@ name|getWildcardQuery
 argument_list|(
 name|qfield
 argument_list|,
-name|termImage
+name|term
+operator|.
+name|image
 argument_list|)
 expr_stmt|;
 block|}
