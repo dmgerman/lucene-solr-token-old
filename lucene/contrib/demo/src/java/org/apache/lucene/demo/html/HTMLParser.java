@@ -427,13 +427,6 @@ if|if
 condition|(
 name|sum
 operator|.
-name|startsWith
-argument_list|(
-name|tit
-argument_list|)
-operator|||
-name|sum
-operator|.
 name|equals
 argument_list|(
 literal|""
