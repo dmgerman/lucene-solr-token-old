@@ -462,7 +462,7 @@ argument_list|()
 argument_list|,
 name|merger
 operator|.
-name|getCodec
+name|getSegmentCodecs
 argument_list|()
 argument_list|)
 argument_list|,
@@ -475,8 +475,6 @@ argument_list|,
 name|IndexReader
 operator|.
 name|DEFAULT_TERMS_INDEX_DIVISOR
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertTrue

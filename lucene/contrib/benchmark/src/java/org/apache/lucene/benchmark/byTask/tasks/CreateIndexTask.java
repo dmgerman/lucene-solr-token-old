@@ -748,6 +748,16 @@ argument_list|(
 name|defaultCodec
 argument_list|)
 expr_stmt|;
+name|CodecProvider
+operator|.
+name|getDefault
+argument_list|()
+operator|.
+name|setDefaultFieldCodec
+argument_list|(
+name|defaultCodec
+argument_list|)
+expr_stmt|;
 block|}
 specifier|final
 name|String
