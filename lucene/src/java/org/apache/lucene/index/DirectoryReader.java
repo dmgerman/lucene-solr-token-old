@@ -4593,7 +4593,7 @@ comment|/** @see org.apache.lucene.index.IndexReader#listCommits */
 DECL|method|listCommits
 specifier|public
 specifier|static
-name|Collection
+name|List
 argument_list|<
 name|IndexCommit
 argument_list|>
@@ -4621,7 +4621,7 @@ comment|/** @see org.apache.lucene.index.IndexReader#listCommits */
 DECL|method|listCommits
 specifier|public
 specifier|static
-name|Collection
+name|List
 argument_list|<
 name|IndexCommit
 argument_list|>
@@ -4646,7 +4646,7 @@ operator|.
 name|listAll
 argument_list|()
 decl_stmt|;
-name|Collection
+name|List
 argument_list|<
 name|IndexCommit
 argument_list|>
@@ -4820,6 +4820,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// Ensure that the commit points are sorted in ascending order.
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|commits
+argument_list|)
+expr_stmt|;
 return|return
 name|commits
 return|;
