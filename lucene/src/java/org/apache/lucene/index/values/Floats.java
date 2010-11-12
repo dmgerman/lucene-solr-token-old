@@ -166,10 +166,7 @@ begin_comment
 comment|/**  * Exposes writer/reader for floating point values. You can specify 4 (java  * float) or 8 (java double) byte precision.  */
 end_comment
 begin_comment
-comment|//nocommit - add mmap version
-end_comment
-begin_comment
-comment|//nocommti - add bulk copy where possible
+comment|//TODO - add bulk copy where possible
 end_comment
 begin_class
 DECL|class|Floats
