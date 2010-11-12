@@ -687,8 +687,6 @@ operator|-
 name|UnicodeUtil
 operator|.
 name|UNI_SUR_LOW_END
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 block|}

@@ -1351,12 +1351,6 @@ condition|?
 literal|"null"
 else|:
 name|commit
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 operator|.
 name|append

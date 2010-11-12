@@ -1093,7 +1093,7 @@ argument_list|()
 argument_list|,
 name|merger
 operator|.
-name|getCodec
+name|getSegmentCodecs
 argument_list|()
 argument_list|)
 decl_stmt|;

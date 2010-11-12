@@ -1072,7 +1072,7 @@ decl_stmt|;
 assert|assert
 name|info
 operator|.
-name|getCodec
+name|getCodecInfo
 argument_list|()
 operator|!=
 literal|null
@@ -1172,13 +1172,17 @@ name|sis
 init|=
 operator|new
 name|SegmentInfos
-argument_list|()
+argument_list|(
+name|codecs
+argument_list|)
 decl_stmt|;
 name|sis
 operator|.
 name|read
 argument_list|(
 name|directory
+argument_list|,
+name|codecs
 argument_list|)
 expr_stmt|;
 return|return
@@ -1215,7 +1219,9 @@ name|sis
 init|=
 operator|new
 name|SegmentInfos
-argument_list|()
+argument_list|(
+name|codecs
+argument_list|)
 decl_stmt|;
 name|sis
 operator|.
@@ -1609,7 +1615,7 @@ expr_stmt|;
 block|}
 comment|// Method 2: open segments.gen and read its
 comment|// contents.  Then we take the larger of the two
-comment|// gen's.  This way, if either approach is hitting
+comment|// gens.  This way, if either approach is hitting
 comment|// a stale cache (NFS) we have a better chance of
 comment|// getting the right generation.
 name|long
@@ -2254,7 +2260,9 @@ name|infos
 init|=
 operator|new
 name|SegmentInfos
-argument_list|()
+argument_list|(
+name|codecs
+argument_list|)
 decl_stmt|;
 name|infos
 operator|.

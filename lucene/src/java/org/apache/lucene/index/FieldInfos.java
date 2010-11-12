@@ -146,6 +146,16 @@ init|=
 operator|-
 literal|2
 decl_stmt|;
+DECL|field|FORMAT_PER_FIELD_CODEC
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|FORMAT_PER_FIELD_CODEC
+init|=
+operator|-
+literal|3
+decl_stmt|;
 comment|// Records index values for this field
 DECL|field|FORMAT_INDEX_VALUES
 specifier|public
@@ -164,7 +174,7 @@ specifier|final
 name|int
 name|FORMAT_CURRENT
 init|=
-name|FORMAT_INDEX_VALUES
+name|FORMAT_PER_FIELD_CODEC
 decl_stmt|;
 DECL|field|FORMAT_MINIMUM
 specifier|static
@@ -275,7 +285,7 @@ DECL|method|FieldInfos
 specifier|public
 name|FieldInfos
 parameter_list|()
-block|{ }
+block|{   }
 comment|/**    * Construct a FieldInfos object using the directory and the name of the file    * IndexInput    * @param d The directory to open the IndexInput from    * @param name The name of the file to open the IndexInput from in the Directory    * @throws IOException    */
 DECL|method|FieldInfos
 specifier|public
@@ -1294,6 +1304,15 @@ argument_list|)
 expr_stmt|;
 name|output
 operator|.
+name|writeInt
+argument_list|(
+name|fi
+operator|.
+name|codecId
+argument_list|)
+expr_stmt|;
+name|output
+operator|.
 name|writeByte
 argument_list|(
 name|bits
@@ -1530,6 +1549,22 @@ name|readString
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// if this is a previous format codec 0 will be preflex!
+specifier|final
+name|int
+name|codecId
+init|=
+name|format
+operator|<=
+name|FORMAT_PER_FIELD_CODEC
+condition|?
+name|input
+operator|.
+name|readInt
+argument_list|()
+else|:
+literal|0
+decl_stmt|;
 name|byte
 name|bits
 init|=
@@ -1615,6 +1650,7 @@ operator|)
 operator|!=
 literal|0
 decl_stmt|;
+specifier|final
 name|FieldInfo
 name|fi
 init|=
@@ -1800,6 +1836,12 @@ argument_list|)
 throw|;
 block|}
 block|}
+name|fi
+operator|.
+name|codecId
+operator|=
+name|codecId
+expr_stmt|;
 block|}
 if|if
 condition|(
