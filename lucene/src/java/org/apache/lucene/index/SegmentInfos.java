@@ -1072,7 +1072,7 @@ decl_stmt|;
 assert|assert
 name|info
 operator|.
-name|getCodecInfo
+name|getSegmentCodecs
 argument_list|()
 operator|!=
 literal|null
