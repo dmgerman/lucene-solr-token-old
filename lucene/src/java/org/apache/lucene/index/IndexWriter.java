@@ -826,30 +826,28 @@ name|poolReaders
 operator|=
 literal|true
 expr_stmt|;
-name|flush
-argument_list|(
-literal|true
-argument_list|,
-literal|true
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
 comment|// Prevent segmentInfos from changing while opening the
 comment|// reader; in theory we could do similar retry logic,
 comment|// just like we do when loading segments_N
+name|IndexReader
+name|r
+decl_stmt|;
 synchronized|synchronized
 init|(
 name|this
 init|)
 block|{
-name|applyDeletes
-argument_list|()
+name|flush
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|)
 expr_stmt|;
-specifier|final
-name|IndexReader
 name|r
-init|=
+operator|=
 operator|new
 name|DirectoryReader
 argument_list|(
@@ -864,7 +862,7 @@ argument_list|()
 argument_list|,
 name|codecs
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|infoStream
@@ -887,10 +885,13 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+name|maybeMerge
+argument_list|()
+expr_stmt|;
 return|return
 name|r
 return|;
-block|}
 block|}
 comment|/** Holds shared SegmentReader instances. IndexWriter uses    *  SegmentReaders for 1) applying deletes, 2) doing    *  merges, 3) handing out a real-time reader.  This pool    *  reuses instances of the SegmentReaders in all these    *  places if it is in "near real-time mode" (getReader()    *  has been called on this instance). */
 DECL|class|ReaderPool
@@ -4340,6 +4341,24 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"flushDocStores segment="
+operator|+
+name|docWriter
+operator|.
+name|getDocStoreSegment
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|boolean
 name|useCompoundDocStore
 init|=
@@ -4385,6 +4404,24 @@ literal|"hit exception closing doc store segment"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"flushDocStores files="
+operator|+
+name|docWriter
+operator|.
+name|closedFiles
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|useCompoundDocStore
 operator|=
@@ -7298,7 +7335,7 @@ condition|)
 block|{
 name|message
 argument_list|(
-literal|"process directory "
+literal|"addIndexes: process directory "
 operator|+
 name|dir
 argument_list|)
@@ -7369,23 +7406,6 @@ name|info
 operator|.
 name|name
 assert|;
-if|if
-condition|(
-name|infoStream
-operator|!=
-literal|null
-condition|)
-block|{
-name|message
-argument_list|(
-literal|"process segment="
-operator|+
-name|info
-operator|.
-name|name
-argument_list|)
-expr_stmt|;
-block|}
 name|docCount
 operator|+=
 name|info
@@ -7406,6 +7426,31 @@ operator|.
 name|getDocStoreSegment
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"addIndexes: process segment origName="
+operator|+
+name|info
+operator|.
+name|name
+operator|+
+literal|" newName="
+operator|+
+name|newSegName
+operator|+
+literal|" dsName="
+operator|+
+name|dsName
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Determine if the doc store of this segment needs to be copied. It's
 comment|// only relevant for segments who share doc store with others, because
 comment|// the DS might have been copied already, in which case we just want
@@ -8679,6 +8724,24 @@ argument_list|(
 name|flushDocStores
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"flushedFiles="
+operator|+
+name|docWriter
+operator|.
+name|getFlushedFiles
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|success
 operator|=
 literal|true
@@ -10801,6 +10864,39 @@ literal|true
 expr_stmt|;
 block|}
 block|}
+comment|// if a mergedSegmentWarmer is installed, we must merge
+comment|// the doc stores because we will open a full
+comment|// SegmentReader on the merged segment:
+if|if
+condition|(
+operator|!
+name|mergeDocStores
+operator|&&
+name|mergedSegmentWarmer
+operator|!=
+literal|null
+operator|&&
+name|currentDocStoreSegment
+operator|!=
+literal|null
+operator|&&
+name|lastDocStoreSegment
+operator|!=
+literal|null
+operator|&&
+name|lastDocStoreSegment
+operator|.
+name|equals
+argument_list|(
+name|currentDocStoreSegment
+argument_list|)
+condition|)
+block|{
+name|mergeDocStores
+operator|=
+literal|true
+expr_stmt|;
+block|}
 specifier|final
 name|int
 name|docStoreOffset
@@ -11983,6 +12079,48 @@ name|mergeFiles
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
+name|String
+name|currentDocStoreSegment
+init|=
+name|docWriter
+operator|.
+name|getDocStoreSegment
+argument_list|()
+decl_stmt|;
+comment|// if the merged segment warmer was not installed when
+comment|// this merge was started, causing us to not force
+comment|// the docStores to close, we can't warm it now
+specifier|final
+name|boolean
+name|canWarm
+init|=
+name|merge
+operator|.
+name|info
+operator|.
+name|getDocStoreSegment
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|currentDocStoreSegment
+operator|==
+literal|null
+operator|||
+operator|!
+name|merge
+operator|.
+name|info
+operator|.
+name|getDocStoreSegment
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|currentDocStoreSegment
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|poolReaders
@@ -11990,6 +12128,8 @@ operator|&&
 name|mergedSegmentWarmer
 operator|!=
 literal|null
+operator|&&
+name|canWarm
 condition|)
 block|{
 comment|// Load terms index& doc stores so the segment
