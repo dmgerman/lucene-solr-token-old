@@ -128,7 +128,20 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MultiTermQuery
+name|BoostAttribute
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|MaxNonCompetitiveBoostAttribute
 import|;
 end_import
 begin_import
@@ -1228,8 +1241,6 @@ operator|new
 name|AttributeSource
 argument_list|()
 decl_stmt|;
-name|MultiTermQuery
-operator|.
 name|MaxNonCompetitiveBoostAttribute
 name|maxBoostAtt
 init|=
@@ -1237,8 +1248,6 @@ name|atts
 operator|.
 name|addAttribute
 argument_list|(
-name|MultiTermQuery
-operator|.
 name|MaxNonCompetitiveBoostAttribute
 operator|.
 name|class
@@ -1306,8 +1315,6 @@ operator|new
 name|ScoreTerm
 argument_list|()
 decl_stmt|;
-name|MultiTermQuery
-operator|.
 name|BoostAttribute
 name|boostAtt
 init|=
@@ -1318,8 +1325,6 @@ argument_list|()
 operator|.
 name|addAttribute
 argument_list|(
-name|MultiTermQuery
-operator|.
 name|BoostAttribute
 operator|.
 name|class

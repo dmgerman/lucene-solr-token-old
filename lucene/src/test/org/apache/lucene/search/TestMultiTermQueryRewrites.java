@@ -1004,8 +1004,6 @@ literal|null
 argument_list|)
 block|{
 specifier|final
-name|MultiTermQuery
-operator|.
 name|BoostAttribute
 name|boostAtt
 init|=
@@ -1014,8 +1012,6 @@ argument_list|()
 operator|.
 name|addAttribute
 argument_list|(
-name|MultiTermQuery
-operator|.
 name|BoostAttribute
 operator|.
 name|class

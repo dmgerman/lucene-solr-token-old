@@ -995,8 +995,6 @@ operator|new
 name|AttributeSource
 argument_list|()
 decl_stmt|;
-name|MultiTermQuery
-operator|.
 name|MaxNonCompetitiveBoostAttribute
 name|maxBoostAtt
 init|=
@@ -1004,8 +1002,6 @@ name|atts
 operator|.
 name|addAttribute
 argument_list|(
-name|MultiTermQuery
-operator|.
 name|MaxNonCompetitiveBoostAttribute
 operator|.
 name|class
@@ -1056,8 +1052,6 @@ decl_stmt|;
 name|BytesRef
 name|possibleMatch
 decl_stmt|;
-name|MultiTermQuery
-operator|.
 name|BoostAttribute
 name|boostAtt
 init|=
@@ -1068,8 +1062,6 @@ argument_list|()
 operator|.
 name|addAttribute
 argument_list|(
-name|MultiTermQuery
-operator|.
 name|BoostAttribute
 operator|.
 name|class
