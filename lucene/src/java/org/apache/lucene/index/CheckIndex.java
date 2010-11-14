@@ -1390,7 +1390,7 @@ name|codec
 init|=
 name|info
 operator|.
-name|getCodecInfo
+name|getSegmentCodecs
 argument_list|()
 decl_stmt|;
 name|msg

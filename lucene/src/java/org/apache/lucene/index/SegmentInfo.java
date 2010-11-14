@@ -349,7 +349,7 @@ name|boolean
 name|hasProx
 parameter_list|,
 name|SegmentCodecs
-name|codecInfo
+name|segmentCodecs
 parameter_list|)
 block|{
 name|this
@@ -408,7 +408,7 @@ name|this
 operator|.
 name|segmentCodecs
 operator|=
-name|codecInfo
+name|segmentCodecs
 expr_stmt|;
 name|delCount
 operator|=
@@ -1750,9 +1750,9 @@ operator|=
 name|segmentCodecs
 expr_stmt|;
 block|}
-DECL|method|getCodecInfo
+DECL|method|getSegmentCodecs
 name|SegmentCodecs
-name|getCodecInfo
+name|getSegmentCodecs
 parameter_list|()
 block|{
 return|return
