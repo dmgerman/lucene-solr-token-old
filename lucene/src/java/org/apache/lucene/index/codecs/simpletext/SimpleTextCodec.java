@@ -225,6 +225,9 @@ name|getPostingsFileName
 parameter_list|(
 name|String
 name|segment
+parameter_list|,
+name|String
+name|id
 parameter_list|)
 block|{
 return|return
@@ -253,6 +256,9 @@ parameter_list|,
 name|SegmentInfo
 name|segmentInfo
 parameter_list|,
+name|String
+name|id
+parameter_list|,
 name|Set
 argument_list|<
 name|String
@@ -271,6 +277,8 @@ argument_list|(
 name|segmentInfo
 operator|.
 name|name
+argument_list|,
+name|id
 argument_list|)
 argument_list|)
 expr_stmt|;

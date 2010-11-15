@@ -281,7 +281,9 @@ name|state
 operator|.
 name|segmentName
 argument_list|,
-literal|""
+name|state
+operator|.
+name|codecId
 argument_list|,
 name|TERMS_EXTENSION
 argument_list|)
