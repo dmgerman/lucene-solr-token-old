@@ -6155,6 +6155,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|random
+argument_list|,
 name|delegate
 argument_list|)
 expr_stmt|;
@@ -14084,6 +14086,8 @@ init|=
 operator|new
 name|MockDirectoryWrapper
 argument_list|(
+name|random
+argument_list|,
 operator|new
 name|RAMDirectory
 argument_list|()

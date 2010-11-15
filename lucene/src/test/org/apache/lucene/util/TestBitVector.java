@@ -31,19 +31,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|MockDirectoryWrapper
@@ -608,6 +595,8 @@ init|=
 operator|new
 name|MockDirectoryWrapper
 argument_list|(
+name|random
+argument_list|,
 operator|new
 name|RAMDirectory
 argument_list|()
@@ -826,6 +815,8 @@ init|=
 operator|new
 name|MockDirectoryWrapper
 argument_list|(
+name|random
+argument_list|,
 operator|new
 name|RAMDirectory
 argument_list|()

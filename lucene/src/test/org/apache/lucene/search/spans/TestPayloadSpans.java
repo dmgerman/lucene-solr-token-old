@@ -470,6 +470,8 @@ name|helper
 operator|.
 name|setUp
 argument_list|(
+name|random
+argument_list|,
 name|similarity
 argument_list|,
 literal|1000
