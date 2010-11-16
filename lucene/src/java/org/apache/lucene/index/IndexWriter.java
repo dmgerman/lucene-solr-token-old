@@ -7883,6 +7883,11 @@ block|}
 block|}
 finally|finally
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 name|deleter
 operator|.
 name|decRef
@@ -7890,6 +7895,7 @@ argument_list|(
 name|files
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -12669,6 +12675,11 @@ argument_list|(
 literal|"abort merge after building CFS"
 argument_list|)
 expr_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 name|deleter
 operator|.
 name|deleteFile
@@ -12676,6 +12687,7 @@ argument_list|(
 name|compoundFileName
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|0
 return|;
