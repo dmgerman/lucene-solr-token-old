@@ -230,6 +230,7 @@ block|}
 comment|/** Reads an int stored in variable-length format.  Reads between one and    * five bytes.  Smaller values take fewer bytes.  Negative numbers are not    * supported.    * @see DataOutput#writeVInt(int)    */
 DECL|method|readVInt
 specifier|public
+specifier|final
 name|int
 name|readVInt
 parameter_list|()
@@ -322,6 +323,7 @@ block|}
 comment|/** Reads a long stored in variable-length format.  Reads between one and    * nine bytes.  Smaller values take fewer bytes.  Negative numbers are not    * supported. */
 DECL|method|readVLong
 specifier|public
+specifier|final
 name|long
 name|readVLong
 parameter_list|()

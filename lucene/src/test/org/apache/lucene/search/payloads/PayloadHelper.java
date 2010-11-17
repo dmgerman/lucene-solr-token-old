@@ -246,6 +246,15 @@ operator|.
 name|IOException
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
 begin_comment
 comment|/**  *  *  **/
 end_comment
@@ -538,6 +547,9 @@ specifier|public
 name|IndexSearcher
 name|setUp
 parameter_list|(
+name|Random
+name|random
+parameter_list|,
 name|Similarity
 name|similarity
 parameter_list|,
@@ -553,6 +565,8 @@ init|=
 operator|new
 name|MockDirectoryWrapper
 argument_list|(
+name|random
+argument_list|,
 operator|new
 name|RAMDirectory
 argument_list|()

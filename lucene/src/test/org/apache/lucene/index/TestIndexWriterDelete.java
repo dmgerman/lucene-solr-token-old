@@ -2721,6 +2721,8 @@ init|=
 operator|new
 name|MockDirectoryWrapper
 argument_list|(
+name|random
+argument_list|,
 operator|new
 name|RAMDirectory
 argument_list|(
@@ -2956,8 +2958,6 @@ operator|.
 name|setRandomIOExceptionRate
 argument_list|(
 name|rate
-argument_list|,
-name|diskFree
 argument_list|)
 expr_stmt|;
 try|try

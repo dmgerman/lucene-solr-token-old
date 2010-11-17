@@ -256,6 +256,9 @@ name|dir
 parameter_list|,
 name|FieldInfos
 name|fieldInfo
+parameter_list|,
+name|String
+name|codecId
 parameter_list|)
 throws|throws
 name|IOException
@@ -273,6 +276,8 @@ operator|.
 name|docCount
 argument_list|,
 name|dir
+argument_list|,
+name|codecId
 argument_list|)
 expr_stmt|;
 block|}
@@ -315,6 +320,9 @@ name|docCount
 parameter_list|,
 name|Directory
 name|dir
+parameter_list|,
+name|String
+name|codecId
 parameter_list|)
 throws|throws
 name|IOException
@@ -371,6 +379,7 @@ name|fieldInfo
 operator|.
 name|name
 decl_stmt|;
+comment|//TODO can we have a compound file  per segment and codec for docvalues?
 specifier|final
 name|String
 name|id
@@ -381,14 +390,13 @@ name|segmentFileName
 argument_list|(
 name|segment
 argument_list|,
-name|Integer
-operator|.
-name|toString
-argument_list|(
+name|codecId
+operator|+
+literal|"-"
+operator|+
 name|fieldInfo
 operator|.
 name|number
-argument_list|)
 argument_list|,
 literal|""
 argument_list|)

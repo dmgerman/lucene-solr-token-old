@@ -264,6 +264,9 @@ name|readBufferSize
 parameter_list|,
 name|IntStreamFactory
 name|intFactory
+parameter_list|,
+name|String
+name|codecId
 parameter_list|)
 throws|throws
 name|IOException
@@ -287,7 +290,7 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-literal|""
+name|codecId
 argument_list|,
 name|SepPostingsWriterImpl
 operator|.
@@ -319,7 +322,7 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-literal|""
+name|codecId
 argument_list|,
 name|SepPostingsWriterImpl
 operator|.
@@ -353,7 +356,7 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-literal|""
+name|codecId
 argument_list|,
 name|SepPostingsWriterImpl
 operator|.
@@ -377,7 +380,7 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-literal|""
+name|codecId
 argument_list|,
 name|SepPostingsWriterImpl
 operator|.
@@ -401,7 +404,7 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-literal|""
+name|codecId
 argument_list|,
 name|SepPostingsWriterImpl
 operator|.
@@ -455,6 +458,9 @@ parameter_list|(
 name|SegmentInfo
 name|segmentInfo
 parameter_list|,
+name|String
+name|codecId
+parameter_list|,
 name|Collection
 argument_list|<
 name|String
@@ -474,7 +480,7 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-literal|""
+name|codecId
 argument_list|,
 name|SepPostingsWriterImpl
 operator|.
@@ -494,7 +500,7 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-literal|""
+name|codecId
 argument_list|,
 name|SepPostingsWriterImpl
 operator|.
@@ -522,7 +528,7 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-literal|""
+name|codecId
 argument_list|,
 name|SepPostingsWriterImpl
 operator|.
@@ -542,7 +548,7 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-literal|""
+name|codecId
 argument_list|,
 name|SepPostingsWriterImpl
 operator|.
@@ -562,7 +568,7 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-literal|""
+name|codecId
 argument_list|,
 name|SepPostingsWriterImpl
 operator|.

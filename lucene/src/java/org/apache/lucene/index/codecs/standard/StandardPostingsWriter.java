@@ -268,7 +268,9 @@ name|state
 operator|.
 name|segmentName
 argument_list|,
-literal|""
+name|state
+operator|.
+name|codecId
 argument_list|,
 name|StandardCodec
 operator|.
@@ -317,7 +319,9 @@ name|state
 operator|.
 name|segmentName
 argument_list|,
-literal|""
+name|state
+operator|.
+name|codecId
 argument_list|,
 name|StandardCodec
 operator|.

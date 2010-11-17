@@ -125,6 +125,8 @@ init|=
 operator|new
 name|SingleFieldTestDb
 argument_list|(
+name|random
+argument_list|,
 name|docs1
 argument_list|,
 name|fieldName

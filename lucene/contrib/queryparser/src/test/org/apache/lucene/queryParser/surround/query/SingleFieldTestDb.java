@@ -20,6 +20,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -161,6 +170,9 @@ DECL|method|SingleFieldTestDb
 specifier|public
 name|SingleFieldTestDb
 parameter_list|(
+name|Random
+name|random
+parameter_list|,
 name|String
 index|[]
 name|documents
@@ -176,6 +188,8 @@ operator|=
 operator|new
 name|MockDirectoryWrapper
 argument_list|(
+name|random
+argument_list|,
 operator|new
 name|RAMDirectory
 argument_list|()
