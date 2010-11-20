@@ -83,16 +83,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
+name|Collection
 import|;
 end_import
 begin_import
@@ -1107,7 +1098,7 @@ condition|(
 name|useCompoundFile
 condition|)
 block|{
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>

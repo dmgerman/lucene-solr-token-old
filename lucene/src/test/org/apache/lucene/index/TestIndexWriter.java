@@ -1826,6 +1826,26 @@ literal|10
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: config1="
+operator|+
+name|writer
+operator|.
+name|getConfig
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|int
@@ -1849,11 +1869,52 @@ name|j
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
+name|int
+name|termIndexInterval
+init|=
+name|writer
+operator|.
+name|getConfig
+argument_list|()
+operator|.
+name|getTermIndexInterval
+argument_list|()
+decl_stmt|;
+comment|// force one extra segment w/ different doc store so
+comment|// we see the doc stores get merged
+name|writer
+operator|.
+name|commit
+argument_list|()
+expr_stmt|;
+name|addDocWithIndex
+argument_list|(
+name|writer
+argument_list|,
+literal|500
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: start disk usage"
+argument_list|)
+expr_stmt|;
+block|}
 name|long
 name|startDiskUsage
 init|=
@@ -1897,6 +1958,36 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|files
+index|[
+name|i
+index|]
+operator|+
+literal|": "
+operator|+
+name|dir
+operator|.
+name|fileLength
+argument_list|(
+name|files
+index|[
+name|i
+index|]
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|dir
 operator|.
@@ -1910,6 +2001,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// Import to use same term index interval else a
+comment|// smaller one here could increase the disk usage and
+comment|// cause a false failure:
 name|writer
 operator|=
 operator|new
@@ -1932,6 +2026,24 @@ name|OpenMode
 operator|.
 name|APPEND
 argument_list|)
+operator|.
+name|setTermIndexInterval
+argument_list|(
+name|termIndexInterval
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|setInfoStream
+argument_list|(
+name|VERBOSE
+condition|?
+name|System
+operator|.
+name|out
+else|:
+literal|null
 argument_list|)
 expr_stmt|;
 name|writer
@@ -1954,7 +2066,7 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"optimized used too much temporary space: starting usage was "
+literal|"optimize used too much temporary space: starting usage was "
 operator|+
 name|startDiskUsage
 operator|+
@@ -1965,16 +2077,16 @@ operator|+
 literal|" but should have been "
 operator|+
 operator|(
-literal|3
+literal|4
 operator|*
 name|startDiskUsage
 operator|)
 operator|+
-literal|" (= 3X starting usage)"
+literal|" (= 4X starting usage)"
 argument_list|,
 name|maxDiskUsage
 operator|<=
-literal|3
+literal|4
 operator|*
 name|startDiskUsage
 argument_list|)
@@ -3307,10 +3419,10 @@ name|getMaxUsedSizeInBytes
 argument_list|()
 decl_stmt|;
 comment|// Ending index is 50X as large as starting index; due
-comment|// to 2X disk usage normally we allow 100X max
+comment|// to 3X disk usage normally we allow 150X max
 comment|// transient usage.  If something is wrong w/ deleter
 comment|// and it doesn't delete intermediate segments then it
-comment|// will exceed this 100X:
+comment|// will exceed this 150X:
 comment|// System.out.println("start " + startDiskUsage + "; mid " + midDiskUsage + ";end " + endDiskUsage);
 name|assertTrue
 argument_list|(
@@ -3325,10 +3437,18 @@ operator|+
 literal|" end="
 operator|+
 name|endDiskUsage
+operator|+
+literal|" max="
+operator|+
+operator|(
+name|startDiskUsage
+operator|*
+literal|150
+operator|)
 argument_list|,
 name|midDiskUsage
 operator|<
-literal|100
+literal|150
 operator|*
 name|startDiskUsage
 argument_list|)
@@ -3342,10 +3462,18 @@ operator|+
 literal|" startDiskUsage="
 operator|+
 name|startDiskUsage
+operator|+
+literal|" max="
+operator|+
+operator|(
+name|startDiskUsage
+operator|*
+literal|150
+operator|)
 argument_list|,
 name|endDiskUsage
 operator|<
-literal|100
+literal|150
 operator|*
 name|startDiskUsage
 argument_list|)
@@ -3479,6 +3607,21 @@ operator|.
 name|optimize
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|writer
+operator|.
+name|setInfoStream
+argument_list|(
+name|System
+operator|.
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Open a reader before closing (commiting) the writer:
 name|IndexReader
 name|reader
@@ -3550,6 +3693,21 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: do real optimize"
+argument_list|)
+expr_stmt|;
+block|}
 name|writer
 operator|=
 operator|new
@@ -3574,6 +3732,21 @@ name|APPEND
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|writer
+operator|.
+name|setInfoStream
+argument_list|(
+name|System
+operator|.
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 name|writer
 operator|.
 name|optimize
@@ -3584,6 +3757,21 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: writer closed"
+argument_list|)
+expr_stmt|;
+block|}
 name|assertNoUnreferencedFiles
 argument_list|(
 name|dir
