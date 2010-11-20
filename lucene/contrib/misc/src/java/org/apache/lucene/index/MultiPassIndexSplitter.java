@@ -1004,14 +1004,11 @@ parameter_list|(
 name|IndexReader
 name|in
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
+operator|new
 name|SlowMultiReaderWrapper
-operator|.
-name|wrap
 argument_list|(
 name|in
 argument_list|)

@@ -308,9 +308,8 @@ name|filter
 operator|.
 name|bitSpans
 argument_list|(
+operator|new
 name|SlowMultiReaderWrapper
-operator|.
-name|wrap
 argument_list|(
 name|reader
 argument_list|)

@@ -1102,9 +1102,8 @@ name|snq
 operator|.
 name|getSpans
 argument_list|(
+operator|new
 name|SlowMultiReaderWrapper
-operator|.
-name|wrap
 argument_list|(
 name|searcher
 operator|.
@@ -1260,9 +1259,8 @@ name|snq
 operator|.
 name|getSpans
 argument_list|(
+operator|new
 name|SlowMultiReaderWrapper
-operator|.
-name|wrap
 argument_list|(
 name|searcher
 operator|.
@@ -1572,9 +1570,8 @@ name|snq
 operator|.
 name|getSpans
 argument_list|(
+operator|new
 name|SlowMultiReaderWrapper
-operator|.
-name|wrap
 argument_list|(
 name|searcher
 operator|.
@@ -2077,9 +2074,8 @@ operator|)
 operator|.
 name|getSpans
 argument_list|(
+operator|new
 name|SlowMultiReaderWrapper
-operator|.
-name|wrap
 argument_list|(
 name|searcher
 operator|.
@@ -2785,9 +2781,8 @@ argument_list|)
 operator|.
 name|scorer
 argument_list|(
+operator|new
 name|SlowMultiReaderWrapper
-operator|.
-name|wrap
 argument_list|(
 name|searcher
 operator|.
