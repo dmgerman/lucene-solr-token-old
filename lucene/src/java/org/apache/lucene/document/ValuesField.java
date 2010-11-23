@@ -20,15 +20,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|Reader
 import|;
 end_import
@@ -602,9 +593,6 @@ expr_stmt|;
 break|break;
 case|case
 name|PACKED_INTS
-case|:
-case|case
-name|PACKED_INTS_FIXED
 case|:
 name|valField
 operator|.

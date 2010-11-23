@@ -236,7 +236,7 @@ name|BytesWriterBase
 block|{
 DECL|field|address
 specifier|private
-name|int
+name|long
 name|address
 decl_stmt|;
 comment|// start at -1 if the first added value is> 0
@@ -250,7 +250,7 @@ literal|1
 decl_stmt|;
 DECL|field|docToAddress
 specifier|private
-name|int
+name|long
 index|[]
 name|docToAddress
 decl_stmt|;
@@ -292,7 +292,7 @@ expr_stmt|;
 name|docToAddress
 operator|=
 operator|new
-name|int
+name|long
 index|[
 literal|1
 index|]
@@ -519,8 +519,6 @@ block|}
 name|initIndexOut
 argument_list|()
 expr_stmt|;
-comment|// write all lengths to index
-comment|// write index
 name|fill
 argument_list|(
 name|docCount
@@ -528,12 +526,11 @@ argument_list|)
 expr_stmt|;
 name|idxOut
 operator|.
-name|writeVInt
+name|writeVLong
 argument_list|(
 name|address
 argument_list|)
 expr_stmt|;
-comment|// TODO(simonw): allow not -1
 specifier|final
 name|PackedInts
 operator|.
@@ -707,16 +704,6 @@ name|Source
 extends|extends
 name|BytesBaseSource
 block|{
-DECL|field|bytesRef
-specifier|private
-specifier|final
-name|BytesRef
-name|bytesRef
-init|=
-operator|new
-name|BytesRef
-argument_list|()
-decl_stmt|;
 DECL|field|addresses
 specifier|private
 specifier|final
@@ -752,14 +739,10 @@ argument_list|)
 argument_list|,
 name|idxIn
 operator|.
-name|readVInt
+name|readVLong
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO
-comment|// should
-comment|// be
-comment|// long
 name|addresses
 operator|=
 name|PackedInts
@@ -769,6 +752,17 @@ argument_list|(
 name|idxIn
 argument_list|)
 expr_stmt|;
+name|missingValues
+operator|.
+name|bytesValue
+operator|=
+operator|new
+name|BytesRef
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// empty
 block|}
 annotation|@
 name|Override
@@ -779,15 +773,15 @@ name|getBytes
 parameter_list|(
 name|int
 name|docID
+parameter_list|,
+name|BytesRef
+name|bytesRef
 parameter_list|)
 block|{
 specifier|final
-name|int
+name|long
 name|address
 init|=
-operator|(
-name|int
-operator|)
 name|addresses
 operator|.
 name|get
@@ -857,6 +851,35 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|type
+specifier|public
+name|Values
+name|type
+parameter_list|()
+block|{
+return|return
+name|Values
+operator|.
+name|BYTES_VAR_STRAIGHT
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|maxDoc
+specifier|protected
+name|int
+name|maxDoc
+parameter_list|()
+block|{
+return|return
+name|addresses
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -873,7 +896,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|VarStrainghtBytesEnum
+name|VarStraightBytesEnum
 argument_list|(
 name|source
 argument_list|,
@@ -885,10 +908,10 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|class|VarStrainghtBytesEnum
+DECL|class|VarStraightBytesEnum
 specifier|private
 class|class
-name|VarStrainghtBytesEnum
+name|VarStraightBytesEnum
 extends|extends
 name|ValuesEnum
 block|{
@@ -938,9 +961,9 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|method|VarStrainghtBytesEnum
+DECL|method|VarStraightBytesEnum
 specifier|protected
-name|VarStrainghtBytesEnum
+name|VarStraightBytesEnum
 parameter_list|(
 name|AttributeSource
 name|source
@@ -1048,18 +1071,6 @@ operator|>=
 name|maxDoc
 condition|)
 block|{
-name|ref
-operator|.
-name|length
-operator|=
-literal|0
-expr_stmt|;
-name|ref
-operator|.
-name|offset
-operator|=
-literal|0
-expr_stmt|;
 return|return
 name|pos
 operator|=
@@ -1084,7 +1095,7 @@ operator|==
 name|totBytes
 condition|)
 block|{
-comment|// nocommit is that a valid default value
+comment|// empty values at the end
 name|ref
 operator|.
 name|length
