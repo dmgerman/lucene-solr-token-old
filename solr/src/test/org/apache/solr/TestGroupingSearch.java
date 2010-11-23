@@ -1845,6 +1845,7 @@ operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)
 decl_stmt|;
+comment|//indexSize=2;
 name|List
 argument_list|<
 name|FldType
@@ -1914,7 +1915,7 @@ name|FldType
 argument_list|(
 literal|"foo_i"
 argument_list|,
-name|ONE_ONE
+name|ZERO_ONE
 argument_list|,
 operator|new
 name|IRange
@@ -1935,7 +1936,7 @@ name|FldType
 argument_list|(
 literal|"foo_s"
 argument_list|,
-name|ONE_ONE
+name|ZERO_ONE
 argument_list|,
 operator|new
 name|SVal
@@ -1960,7 +1961,7 @@ name|FldType
 argument_list|(
 literal|"small_s"
 argument_list|,
-name|ONE_ONE
+name|ZERO_ONE
 argument_list|,
 operator|new
 name|SVal
@@ -1994,7 +1995,7 @@ name|FldType
 argument_list|(
 literal|"small_i"
 argument_list|,
-name|ONE_ONE
+name|ZERO_ONE
 argument_list|,
 operator|new
 name|IRange
@@ -2667,6 +2668,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2690,6 +2693,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
