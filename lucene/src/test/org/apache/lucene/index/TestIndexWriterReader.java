@@ -2285,6 +2285,17 @@ name|didClose
 operator|=
 literal|true
 expr_stmt|;
+if|if
+condition|(
+name|doWait
+condition|)
+block|{
+name|mainWriter
+operator|.
+name|waitForMerges
+argument_list|()
+expr_stmt|;
+block|}
 name|mainWriter
 operator|.
 name|close
