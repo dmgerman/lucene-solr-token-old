@@ -1020,7 +1020,7 @@ block|{
 return|return
 name|bytes
 operator|.
-name|fillUsingLengthPrefix
+name|fill
 argument_list|(
 name|ret
 argument_list|,
@@ -1121,7 +1121,7 @@ name|currentBlockNumber
 operator|=
 name|bytes
 operator|.
-name|fillUsingLengthPrefix2
+name|fillAndGetIndex
 argument_list|(
 name|term
 argument_list|,
@@ -1193,7 +1193,7 @@ name|currentBlockNumber
 operator|=
 name|bytes
 operator|.
-name|fillUsingLengthPrefix2
+name|fillAndGetIndex
 argument_list|(
 name|term
 argument_list|,

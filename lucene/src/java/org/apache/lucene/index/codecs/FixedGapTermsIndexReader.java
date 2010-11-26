@@ -1637,7 +1637,7 @@ argument_list|)
 decl_stmt|;
 name|termBytesReader
 operator|.
-name|fill
+name|fillSlice
 argument_list|(
 name|result
 operator|.
@@ -1759,7 +1759,7 @@ argument_list|)
 decl_stmt|;
 name|termBytesReader
 operator|.
-name|fill
+name|fillSlice
 argument_list|(
 name|result
 operator|.
@@ -1897,7 +1897,7 @@ argument_list|)
 decl_stmt|;
 name|termBytesReader
 operator|.
-name|fill
+name|fillSlice
 argument_list|(
 name|result
 operator|.
