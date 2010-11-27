@@ -310,6 +310,8 @@ specifier|private
 specifier|static
 name|PrintStream
 name|infoStream
+init|=
+literal|null
 decl_stmt|;
 DECL|method|SegmentInfos
 specifier|public
@@ -2016,10 +2018,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|exc
-operator|!=
-literal|null
-operator|&&
 name|infoStream
 operator|!=
 literal|null
