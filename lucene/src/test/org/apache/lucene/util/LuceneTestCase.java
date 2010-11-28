@@ -2313,9 +2313,11 @@ name|stores
 operator|=
 literal|null
 expr_stmt|;
-comment|// if tests failed, report some information back
+comment|// if verbose or tests failed, report some information back
 if|if
 condition|(
+name|VERBOSE
+operator|||
 name|testsFailed
 condition|)
 name|System
