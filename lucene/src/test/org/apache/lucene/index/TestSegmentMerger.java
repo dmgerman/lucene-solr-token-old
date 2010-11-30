@@ -375,7 +375,7 @@ name|SegmentMerger
 argument_list|(
 name|mergedDir
 argument_list|,
-name|IndexWriter
+name|IndexWriterConfig
 operator|.
 name|DEFAULT_TERM_INDEX_INTERVAL
 argument_list|,

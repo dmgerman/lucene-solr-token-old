@@ -455,12 +455,7 @@ name|w
 operator|.
 name|addIndexes
 argument_list|(
-operator|new
-name|IndexReader
-index|[]
-block|{
 name|input
-block|}
 argument_list|)
 expr_stmt|;
 name|w

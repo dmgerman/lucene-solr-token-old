@@ -1234,12 +1234,6 @@ name|getName
 argument_list|()
 argument_list|,
 name|arr
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|YES
 argument_list|)
 expr_stmt|;
 if|if

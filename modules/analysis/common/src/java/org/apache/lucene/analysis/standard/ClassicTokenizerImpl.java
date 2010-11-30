@@ -1152,9 +1152,6 @@ name|StandardTokenizer
 operator|.
 name|CJ
 decl_stmt|;
-comment|/**  * @deprecated this solves a bug where HOSTs that end with '.' are identified  *             as ACRONYMs.  */
-annotation|@
-name|Deprecated
 DECL|field|ACRONYM_DEP
 specifier|public
 specifier|static

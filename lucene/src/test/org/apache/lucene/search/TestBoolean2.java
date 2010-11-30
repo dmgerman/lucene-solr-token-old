@@ -453,12 +453,7 @@ name|w
 operator|.
 name|addIndexes
 argument_list|(
-operator|new
-name|Directory
-index|[]
-block|{
 name|copy
-block|}
 argument_list|)
 expr_stmt|;
 name|docCount

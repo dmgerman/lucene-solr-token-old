@@ -1849,6 +1849,9 @@ name|LogMergePolicy
 operator|)
 name|w
 operator|.
+name|getConfig
+argument_list|()
+operator|.
 name|getMergePolicy
 argument_list|()
 decl_stmt|;

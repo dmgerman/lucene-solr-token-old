@@ -483,8 +483,6 @@ expr_stmt|;
 name|IndexReader
 name|reader
 init|=
-name|SegmentReader
-operator|.
 name|getOnlySegmentReader
 argument_list|(
 name|IndexReader

@@ -182,6 +182,9 @@ name|LogByteSizeMergePolicy
 operator|)
 name|writer
 operator|.
+name|getConfig
+argument_list|()
+operator|.
 name|getMergePolicy
 argument_list|()
 decl_stmt|;
@@ -231,6 +234,9 @@ operator|(
 name|ConcurrentMergeScheduler
 operator|)
 name|writer
+operator|.
+name|getConfig
+argument_list|()
 operator|.
 name|getMergeScheduler
 argument_list|()

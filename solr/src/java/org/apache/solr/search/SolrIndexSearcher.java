@@ -970,7 +970,7 @@ name|indexDir
 operator|=
 name|fsDirectory
 operator|.
-name|getFile
+name|getDirectory
 argument_list|()
 operator|.
 name|getAbsolutePath
