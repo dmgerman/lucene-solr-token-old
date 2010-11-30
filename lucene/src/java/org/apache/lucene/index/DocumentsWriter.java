@@ -2217,6 +2217,8 @@ name|getTermIndexInterval
 argument_list|()
 argument_list|,
 name|info
+argument_list|,
+name|bytesUsed
 argument_list|)
 expr_stmt|;
 block|}
@@ -2271,6 +2273,8 @@ name|getTermIndexInterval
 argument_list|()
 argument_list|,
 name|info
+argument_list|,
+name|bytesUsed
 argument_list|)
 return|;
 block|}

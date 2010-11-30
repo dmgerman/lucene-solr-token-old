@@ -975,7 +975,7 @@ operator|.
 name|getSource
 argument_list|()
 expr_stmt|;
-name|missingValues
+name|missingValue
 operator|.
 name|copy
 argument_list|(
@@ -1092,19 +1092,6 @@ name|bytesRef
 argument_list|)
 return|;
 block|}
-DECL|method|ramBytesUsed
-specifier|public
-name|long
-name|ramBytesUsed
-parameter_list|()
-block|{
-return|return
-name|current
-operator|.
-name|ramBytesUsed
-argument_list|()
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|getEnum
@@ -1192,7 +1179,7 @@ block|{
 return|return
 name|this
 operator|.
-name|missingValues
+name|missingValue
 operator|.
 name|bytesValue
 return|;
@@ -1209,7 +1196,7 @@ name|docID
 parameter_list|)
 block|{
 return|return
-name|missingValues
+name|missingValue
 operator|.
 name|doubleValue
 return|;
@@ -1226,7 +1213,7 @@ name|docID
 parameter_list|)
 block|{
 return|return
-name|missingValues
+name|missingValue
 operator|.
 name|longValue
 return|;

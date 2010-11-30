@@ -192,7 +192,6 @@ function_decl|;
 comment|/** Adds a new DocValuesField */
 DECL|method|addValuesField
 specifier|public
-comment|/*abstract*/
 name|DocValuesConsumer
 name|addValuesField
 parameter_list|(
