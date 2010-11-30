@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|TermsEnum
 import|;
 end_import
 begin_import
@@ -238,7 +238,7 @@ name|BytesRef
 argument_list|>
 name|termComp
 decl_stmt|;
-comment|/**    * Expert ctor:    * Construct an enumerator based upon an automaton, enumerating the specified    * field, working on a supplied reader.    *<p>    * @lucene.experimental     *<p>    * @param runAutomaton pre-compiled ByteRunAutomaton    * @param finite true if the automaton accepts a finite language    */
+comment|/**    * Expert ctor:    * Construct an enumerator based upon an automaton, enumerating the specified    * field, working on a supplied TermsEnum    *<p>    * @lucene.experimental     *<p>    * @param runAutomaton pre-compiled ByteRunAutomaton    * @param finite true if the automaton accepts a finite language    */
 DECL|method|AutomatonTermsEnum
 specifier|public
 name|AutomatonTermsEnum
@@ -246,11 +246,8 @@ parameter_list|(
 name|ByteRunAutomaton
 name|runAutomaton
 parameter_list|,
-name|String
-name|field
-parameter_list|,
-name|IndexReader
-name|reader
+name|TermsEnum
+name|tenum
 parameter_list|,
 name|boolean
 name|finite
@@ -263,9 +260,7 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|reader
-argument_list|,
-name|field
+name|tenum
 argument_list|)
 expr_stmt|;
 name|this
@@ -361,7 +356,7 @@ name|getComparator
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Construct an enumerator based upon an automaton, enumerating the specified    * field, working on a supplied reader.    *<p>    * It will automatically calculate whether or not the automaton is finite    */
+comment|/**    * Construct an enumerator based upon an automaton, enumerating the specified    * field, working on a supplied TermsEnum    *<p>    * It will automatically calculate whether or not the automaton is finite    */
 DECL|method|AutomatonTermsEnum
 specifier|public
 name|AutomatonTermsEnum
@@ -369,11 +364,8 @@ parameter_list|(
 name|Automaton
 name|automaton
 parameter_list|,
-name|String
-name|field
-parameter_list|,
-name|IndexReader
-name|reader
+name|TermsEnum
+name|tenum
 parameter_list|)
 throws|throws
 name|IOException
@@ -386,9 +378,7 @@ argument_list|(
 name|automaton
 argument_list|)
 argument_list|,
-name|field
-argument_list|,
-name|reader
+name|tenum
 argument_list|,
 name|SpecialOperations
 operator|.
