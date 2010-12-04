@@ -498,12 +498,6 @@ condition|)
 block|{
 comment|// Since we must optimize down to 1 segment, the
 comment|// choice is simple:
-name|boolean
-name|useCompoundFile
-init|=
-name|getUseCompoundFile
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|last
@@ -543,8 +537,6 @@ literal|0
 argument_list|,
 name|last
 argument_list|)
-argument_list|,
-name|useCompoundFile
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -613,12 +605,6 @@ name|spec
 init|=
 operator|new
 name|MergeSpecification
-argument_list|()
-decl_stmt|;
-name|boolean
-name|useCompoundFile
-init|=
-name|getUseCompoundFile
 argument_list|()
 decl_stmt|;
 comment|// use Viterbi algorithm to find the best segmentation.
@@ -916,8 +902,6 @@ name|mergeStart
 argument_list|,
 name|mergeEnd
 argument_list|)
-argument_list|,
-name|useCompoundFile
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -997,8 +981,6 @@ name|expungeCandidate
 operator|+
 literal|1
 argument_list|)
-argument_list|,
-name|useCompoundFile
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1353,9 +1335,6 @@ name|i
 operator|+
 literal|1
 argument_list|)
-argument_list|,
-name|getUseCompoundFile
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1560,9 +1539,6 @@ name|numLargeSegs
 argument_list|,
 name|numSegs
 argument_list|)
-argument_list|,
-name|getUseCompoundFile
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1661,9 +1637,6 @@ name|startSeg
 argument_list|,
 name|numSegs
 argument_list|)
-argument_list|,
-name|getUseCompoundFile
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1842,9 +1815,6 @@ name|expungeCandidate
 operator|+
 literal|1
 argument_list|)
-argument_list|,
-name|getUseCompoundFile
-argument_list|()
 argument_list|)
 return|;
 block|}
