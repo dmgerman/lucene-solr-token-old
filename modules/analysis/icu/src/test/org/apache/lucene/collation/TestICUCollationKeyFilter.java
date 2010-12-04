@@ -421,6 +421,12 @@ argument_list|,
 name|denmarkAnalyzer
 argument_list|,
 literal|"BFJHD"
+argument_list|,
+literal|"ECAGI"
+argument_list|,
+literal|"BJDFH"
+argument_list|,
+literal|"BJDHF"
 argument_list|)
 expr_stmt|;
 block|}
