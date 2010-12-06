@@ -1364,12 +1364,12 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{
 return|return
-name|Values
+name|Type
 operator|.
 name|BYTES_VAR_DEREF
 return|;
@@ -1394,7 +1394,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|ValuesEnum
+name|DocValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -1451,7 +1451,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-name|Values
+name|Type
 operator|.
 name|BYTES_VAR_DEREF
 argument_list|)
@@ -1587,12 +1587,12 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{
 return|return
-name|Values
+name|Type
 operator|.
 name|BYTES_VAR_DEREF
 return|;

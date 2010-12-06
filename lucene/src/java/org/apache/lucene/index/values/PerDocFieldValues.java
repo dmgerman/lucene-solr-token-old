@@ -82,7 +82,7 @@ parameter_list|(
 name|BytesRef
 name|value
 parameter_list|,
-name|Values
+name|Type
 name|type
 parameter_list|)
 function_decl|;
@@ -94,7 +94,7 @@ parameter_list|(
 name|BytesRef
 name|value
 parameter_list|,
-name|Values
+name|Type
 name|type
 parameter_list|,
 name|Comparator
@@ -148,13 +148,13 @@ specifier|public
 name|void
 name|setType
 parameter_list|(
-name|Values
+name|Type
 name|type
 parameter_list|)
 function_decl|;
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 function_decl|;

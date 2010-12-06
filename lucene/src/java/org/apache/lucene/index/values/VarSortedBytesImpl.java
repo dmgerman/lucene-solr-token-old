@@ -1370,12 +1370,12 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{
 return|return
-name|Values
+name|Type
 operator|.
 name|BYTES_VAR_SORTED
 return|;
@@ -1400,7 +1400,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|ValuesEnum
+name|DocValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -1429,7 +1429,7 @@ specifier|static
 class|class
 name|VarSortedBytesEnum
 extends|extends
-name|ValuesEnum
+name|DocValuesEnum
 block|{
 DECL|field|docToOrdIndex
 specifier|private
@@ -1504,7 +1504,7 @@ name|super
 argument_list|(
 name|source
 argument_list|,
-name|Values
+name|Type
 operator|.
 name|BYTES_VAR_SORTED
 argument_list|)
@@ -1816,12 +1816,12 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{
 return|return
-name|Values
+name|Type
 operator|.
 name|BYTES_VAR_SORTED
 return|;

@@ -206,7 +206,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|ValuesEnum
+name|DocValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -352,7 +352,7 @@ parameter_list|(
 name|int
 name|maxDoc
 parameter_list|,
-name|Values
+name|Type
 name|type
 parameter_list|)
 block|{
@@ -377,7 +377,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|ValuesEnum
+name|DocValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -413,7 +413,7 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{
@@ -445,7 +445,7 @@ specifier|static
 class|class
 name|MultiValuesEnum
 extends|extends
-name|ValuesEnum
+name|DocValuesEnum
 block|{
 DECL|field|docValuesIdx
 specifier|private
@@ -479,7 +479,7 @@ literal|1
 decl_stmt|;
 DECL|field|currentEnum
 specifier|private
-name|ValuesEnum
+name|DocValuesEnum
 name|currentEnum
 decl_stmt|;
 DECL|field|starts
@@ -1119,7 +1119,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|ValuesEnum
+name|DocValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -1139,7 +1139,7 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{
@@ -1167,14 +1167,14 @@ block|{
 DECL|field|type
 specifier|private
 specifier|final
-name|Values
+name|Type
 name|type
 decl_stmt|;
 DECL|method|EmptySource
 specifier|public
 name|EmptySource
 parameter_list|(
-name|Values
+name|Type
 name|type
 parameter_list|)
 block|{
@@ -1245,7 +1245,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|ValuesEnum
+name|DocValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -1255,7 +1255,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|ValuesEnum
+name|DocValuesEnum
 operator|.
 name|emptyEnum
 argument_list|(
@@ -1267,7 +1267,7 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{
@@ -1280,7 +1280,7 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{

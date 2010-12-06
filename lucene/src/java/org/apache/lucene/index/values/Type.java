@@ -20,10 +20,10 @@ begin_comment
 comment|/** Controls whether per-field values are stored into  *  index.  This storage is non-sparse, so it's best to  *  use this when all docs have the field, and loads all  *  values into RAM, exposing a random access API, when  *  loaded.  *  * @lucene.experimental   */
 end_comment
 begin_enum
-DECL|enum|Values
+DECL|enum|Type
 specifier|public
 enum|enum
-name|Values
+name|Type
 block|{
 comment|/** Integral value is stored as packed ints.  The bit    *  precision is fixed across the segment, and    *  determined by the min/max values in the field. */
 DECL|enum constant|PACKED_INTS

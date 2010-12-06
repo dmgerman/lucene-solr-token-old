@@ -775,7 +775,7 @@ specifier|protected
 name|void
 name|setNextEnum
 parameter_list|(
-name|ValuesEnum
+name|DocValuesEnum
 name|valuesEnum
 parameter_list|)
 block|{
@@ -1045,7 +1045,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|ValuesEnum
+name|DocValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -1159,12 +1159,12 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{
 return|return
-name|Values
+name|Type
 operator|.
 name|PACKED_INTS
 return|;
@@ -1195,7 +1195,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|ValuesEnum
+name|DocValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -1224,12 +1224,12 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{
 return|return
-name|Values
+name|Type
 operator|.
 name|PACKED_INTS
 return|;
@@ -1242,7 +1242,7 @@ specifier|final
 class|class
 name|IntsEnumImpl
 extends|extends
-name|ValuesEnum
+name|DocValuesEnum
 block|{
 DECL|field|ints
 specifier|private
@@ -1300,7 +1300,7 @@ name|super
 argument_list|(
 name|source
 argument_list|,
-name|Values
+name|Type
 operator|.
 name|PACKED_INTS
 argument_list|)

@@ -50,7 +50,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|ValuesEnum
+name|DocValuesEnum
 import|;
 end_import
 begin_import

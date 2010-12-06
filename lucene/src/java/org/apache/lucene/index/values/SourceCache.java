@@ -82,7 +82,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * Per {@link DocValues} {@link Source} cache.  */
+comment|/**  * Per {@link DocValues} {@link Source} cache.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SourceCache

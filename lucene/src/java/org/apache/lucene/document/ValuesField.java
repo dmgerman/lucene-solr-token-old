@@ -117,7 +117,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|Values
+name|Type
 import|;
 end_import
 begin_import
@@ -168,7 +168,7 @@ name|longValue
 decl_stmt|;
 DECL|field|type
 specifier|protected
-name|Values
+name|Type
 name|type
 decl_stmt|;
 DECL|field|bytesComparator
@@ -231,7 +231,7 @@ parameter_list|)
 block|{
 name|type
 operator|=
-name|Values
+name|Type
 operator|.
 name|PACKED_INTS
 expr_stmt|;
@@ -251,7 +251,7 @@ parameter_list|)
 block|{
 name|type
 operator|=
-name|Values
+name|Type
 operator|.
 name|SIMPLE_FLOAT_4BYTE
 expr_stmt|;
@@ -271,7 +271,7 @@ parameter_list|)
 block|{
 name|type
 operator|=
-name|Values
+name|Type
 operator|.
 name|SIMPLE_FLOAT_8BYTE
 expr_stmt|;
@@ -288,7 +288,7 @@ parameter_list|(
 name|BytesRef
 name|value
 parameter_list|,
-name|Values
+name|Type
 name|type
 parameter_list|)
 block|{
@@ -310,7 +310,7 @@ parameter_list|(
 name|BytesRef
 name|value
 parameter_list|,
-name|Values
+name|Type
 name|type
 parameter_list|,
 name|Comparator
@@ -421,7 +421,7 @@ specifier|public
 name|void
 name|setType
 parameter_list|(
-name|Values
+name|Type
 name|type
 parameter_list|)
 block|{
@@ -434,7 +434,7 @@ expr_stmt|;
 block|}
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{
@@ -511,7 +511,7 @@ parameter_list|(
 name|T
 name|field
 parameter_list|,
-name|Values
+name|Type
 name|type
 parameter_list|)
 block|{

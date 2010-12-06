@@ -211,7 +211,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|Values
+name|Type
 import|;
 end_import
 begin_comment
@@ -740,7 +740,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Values
+name|Type
 argument_list|>
 name|fieldVauleMap
 decl_stmt|;
@@ -764,7 +764,7 @@ parameter_list|)
 throws|throws
 name|UnsupportedEncodingException
 block|{
-name|Values
+name|Type
 name|valueType
 decl_stmt|;
 specifier|final
@@ -1353,7 +1353,7 @@ name|field
 parameter_list|)
 block|{
 specifier|final
-name|Values
+name|Type
 name|valueType
 decl_stmt|;
 if|if
@@ -2086,7 +2086,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Values
+name|Type
 argument_list|>
 name|parseValueFields
 parameter_list|(
@@ -2121,7 +2121,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Values
+name|Type
 argument_list|>
 name|result
 init|=
@@ -2130,7 +2130,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|Values
+name|Type
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -2187,7 +2187,7 @@ operator|.
 name|trim
 argument_list|()
 argument_list|,
-name|Values
+name|Type
 operator|.
 name|valueOf
 argument_list|(

@@ -196,7 +196,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|Values
+name|Type
 import|;
 end_import
 begin_import
@@ -1303,7 +1303,7 @@ name|omitTermFreqAndPositions
 argument_list|)
 decl_stmt|;
 specifier|final
-name|Values
+name|Type
 name|fiIndexValues
 init|=
 name|fi
@@ -1311,7 +1311,7 @@ operator|.
 name|docValues
 decl_stmt|;
 specifier|final
-name|Values
+name|Type
 name|mergedDocValues
 init|=
 name|merged

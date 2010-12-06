@@ -1067,12 +1067,12 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{
 return|return
-name|Values
+name|Type
 operator|.
 name|BYTES_FIXED_DEREF
 return|;
@@ -1097,7 +1097,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|ValuesEnum
+name|DocValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -1127,7 +1127,7 @@ specifier|static
 class|class
 name|DerefBytesEnum
 extends|extends
-name|ValuesEnum
+name|DocValuesEnum
 block|{
 DECL|field|datIn
 specifier|protected
@@ -1198,7 +1198,7 @@ name|idxIn
 argument_list|,
 name|size
 argument_list|,
-name|Values
+name|Type
 operator|.
 name|BYTES_FIXED_DEREF
 argument_list|)
@@ -1220,7 +1220,7 @@ parameter_list|,
 name|int
 name|size
 parameter_list|,
-name|Values
+name|Type
 name|enumType
 parameter_list|)
 throws|throws
@@ -1303,7 +1303,7 @@ specifier|protected
 name|void
 name|copyReferences
 parameter_list|(
-name|ValuesEnum
+name|DocValuesEnum
 name|valuesEnum
 parameter_list|)
 block|{
@@ -1548,12 +1548,12 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Values
+name|Type
 name|type
 parameter_list|()
 block|{
 return|return
-name|Values
+name|Type
 operator|.
 name|BYTES_FIXED_DEREF
 return|;
