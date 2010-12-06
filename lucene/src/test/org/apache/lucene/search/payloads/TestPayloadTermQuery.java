@@ -847,10 +847,14 @@ expr_stmt|;
 block|}
 name|reader
 operator|=
+operator|new
+name|SlowMultiReaderWrapper
+argument_list|(
 name|writer
 operator|.
 name|getReader
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -862,12 +866,7 @@ operator|=
 operator|new
 name|IndexSearcher
 argument_list|(
-name|SlowMultiReaderWrapper
-operator|.
-name|wrap
-argument_list|(
 name|reader
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|searcher

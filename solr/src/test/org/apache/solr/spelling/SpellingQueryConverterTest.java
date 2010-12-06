@@ -71,28 +71,6 @@ name|NamedList
 import|;
 end_import
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-begin_import
 import|import
 name|org
 operator|.
@@ -103,29 +81,11 @@ import|;
 end_import
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|util
 operator|.
 name|Collection
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
 import|;
 end_import
 begin_comment
@@ -171,7 +131,9 @@ name|setAnalyzer
 argument_list|(
 operator|new
 name|WhitespaceAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Collection
@@ -248,7 +210,9 @@ name|setAnalyzer
 argument_list|(
 operator|new
 name|WhitespaceAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|String
@@ -572,7 +536,9 @@ name|setAnalyzer
 argument_list|(
 operator|new
 name|WhitespaceAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// chinese text value
@@ -722,7 +688,9 @@ name|setAnalyzer
 argument_list|(
 operator|new
 name|WhitespaceAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// two field:value pairs should give two tokens

@@ -375,7 +375,7 @@ name|SegmentMerger
 argument_list|(
 name|mergedDir
 argument_list|,
-name|IndexWriter
+name|IndexWriterConfig
 operator|.
 name|DEFAULT_TERM_INDEX_INTERVAL
 argument_list|,
@@ -413,11 +413,6 @@ operator|.
 name|merge
 argument_list|()
 decl_stmt|;
-name|merger
-operator|.
-name|closeReaders
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 name|docsMerged

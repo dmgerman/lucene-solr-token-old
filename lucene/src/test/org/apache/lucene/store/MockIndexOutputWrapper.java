@@ -344,10 +344,6 @@ condition|(
 name|freeSpace
 operator|>
 literal|0
-operator|&&
-name|freeSpace
-operator|<
-name|len
 condition|)
 block|{
 name|realUsage
@@ -385,10 +381,9 @@ operator|=
 name|realUsage
 expr_stmt|;
 block|}
-throw|throw
-operator|new
-name|IOException
-argument_list|(
+name|String
+name|message
+init|=
 literal|"fake disk full at "
 operator|+
 name|dir
@@ -399,6 +394,43 @@ operator|+
 literal|" bytes when writing "
 operator|+
 name|name
+operator|+
+literal|" (file length="
+operator|+
+name|delegate
+operator|.
+name|length
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|freeSpace
+operator|>
+literal|0
+condition|)
+block|{
+name|message
+operator|+=
+literal|"; wrote "
+operator|+
+name|freeSpace
+operator|+
+literal|" of "
+operator|+
+name|len
+operator|+
+literal|" bytes"
+expr_stmt|;
+block|}
+name|message
+operator|+=
+literal|")"
+expr_stmt|;
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+name|message
 argument_list|)
 throw|;
 block|}

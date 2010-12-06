@@ -231,6 +231,19 @@ name|tika
 operator|.
 name|parser
 operator|.
+name|ParseContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|tika
+operator|.
+name|parser
+operator|.
 name|Parser
 import|;
 end_import
@@ -1144,6 +1157,14 @@ expr_stmt|;
 block|}
 comment|//else leave it as is
 comment|//potentially use a wrapper handler for parsing, but we still need the SolrContentHandler for getting the document.
+name|ParseContext
+name|context
+init|=
+operator|new
+name|ParseContext
+argument_list|()
+decl_stmt|;
+comment|//TODO: should we design a way to pass in parse context?
 name|parser
 operator|.
 name|parse
@@ -1153,6 +1174,8 @@ argument_list|,
 name|parsingHandler
 argument_list|,
 name|metadata
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 if|if

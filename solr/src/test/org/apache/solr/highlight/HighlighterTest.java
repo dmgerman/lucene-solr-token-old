@@ -847,7 +847,9 @@ name|a1
 init|=
 operator|new
 name|WhitespaceAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|TermOffsetsTokenStream
 name|tots
@@ -895,7 +897,9 @@ name|a2
 init|=
 operator|new
 name|WhitespaceAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|TokenStream
 name|ts2

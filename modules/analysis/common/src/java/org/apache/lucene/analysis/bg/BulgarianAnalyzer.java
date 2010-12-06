@@ -22,15 +22,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -204,21 +195,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|analysis
-operator|.
-name|util
-operator|.
-name|WordlistLoader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|Version
@@ -245,19 +221,6 @@ name|String
 name|DEFAULT_STOPWORD_FILE
 init|=
 literal|"stopwords.txt"
-decl_stmt|;
-comment|/**    * The comment character in the stopwords file. All lines prefixed with this    * will be ignored    * @deprecated use {@link WordlistLoader#getWordSet(File, String)} directly    */
-comment|//TODO make this private
-annotation|@
-name|Deprecated
-DECL|field|STOPWORDS_COMMENT
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|STOPWORDS_COMMENT
-init|=
-literal|"#"
 decl_stmt|;
 comment|/**    * Returns an unmodifiable instance of the default stop-words set.    *     * @return an unmodifiable instance of the default stop-words set.    */
 DECL|method|getDefaultStopSet
@@ -308,7 +271,7 @@ name|class
 argument_list|,
 name|DEFAULT_STOPWORD_FILE
 argument_list|,
-name|STOPWORDS_COMMENT
+literal|"#"
 argument_list|)
 expr_stmt|;
 block|}

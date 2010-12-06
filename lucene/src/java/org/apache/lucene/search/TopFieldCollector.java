@@ -3793,6 +3793,21 @@ literal|"Sort must contain at least one field"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|numHits
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"numHits must be> 0; please use TotalHitCountCollector if you just need the total hit count"
+argument_list|)
+throw|;
+block|}
 name|FieldValueHitQueue
 name|queue
 init|=

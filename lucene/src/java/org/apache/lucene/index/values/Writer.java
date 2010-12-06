@@ -103,6 +103,9 @@ operator|.
 name|BytesRef
 import|;
 end_import
+begin_comment
+comment|/**  * @lucene.experimental  */
+end_comment
 begin_class
 DECL|class|Writer
 specifier|public
@@ -220,14 +223,14 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|setNextAttribute
+DECL|method|setNextEnum
 specifier|protected
 specifier|abstract
 name|void
-name|setNextAttribute
+name|setNextEnum
 parameter_list|(
-name|ValuesAttribute
-name|attr
+name|ValuesEnum
+name|valuesEnum
 parameter_list|)
 function_decl|;
 comment|/** Finish writing, close any files */
@@ -275,22 +278,9 @@ literal|null
 assert|;
 try|try
 block|{
-specifier|final
-name|ValuesAttribute
-name|attr
-init|=
+name|setNextEnum
+argument_list|(
 name|valEnum
-operator|.
-name|addAttribute
-argument_list|(
-name|ValuesAttribute
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|setNextAttribute
-argument_list|(
-name|attr
 argument_list|)
 expr_stmt|;
 name|int

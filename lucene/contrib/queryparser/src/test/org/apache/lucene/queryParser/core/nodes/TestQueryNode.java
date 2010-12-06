@@ -57,7 +57,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|FieldQueryNode
+name|QueryNode
 name|nodeA
 init|=
 operator|new
@@ -72,7 +72,7 @@ argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
-name|FieldQueryNode
+name|QueryNode
 name|nodeB
 init|=
 operator|new
@@ -97,12 +97,7 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-operator|new
-name|QueryNode
-index|[]
-block|{
 name|nodeA
-block|}
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -114,12 +109,7 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-operator|new
-name|QueryNode
-index|[]
-block|{
 name|nodeB
-block|}
 argument_list|)
 argument_list|)
 expr_stmt|;

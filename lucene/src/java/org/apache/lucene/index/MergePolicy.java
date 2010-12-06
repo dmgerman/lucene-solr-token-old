@@ -129,11 +129,6 @@ name|boolean
 name|optimize
 decl_stmt|;
 comment|// used by IndexWriter
-DECL|field|increfDone
-name|boolean
-name|increfDone
-decl_stmt|;
-comment|// used by IndexWriter
 DECL|field|registerDone
 name|boolean
 name|registerDone
@@ -164,14 +159,6 @@ DECL|field|readersClone
 name|SegmentReader
 index|[]
 name|readersClone
-decl_stmt|;
-comment|// used by IndexWriter
-DECL|field|mergeFiles
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|mergeFiles
 decl_stmt|;
 comment|// used by IndexWriter
 DECL|field|segments

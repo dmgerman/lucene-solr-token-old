@@ -455,12 +455,7 @@ name|w
 operator|.
 name|addIndexes
 argument_list|(
-operator|new
-name|IndexReader
-index|[]
-block|{
 name|input
-block|}
 argument_list|)
 expr_stmt|;
 name|w
@@ -987,7 +982,6 @@ name|FakeDeleteIndexReader
 extends|extends
 name|FilterIndexReader
 block|{
-comment|// TODO: switch to flex api, here
 DECL|field|dels
 name|OpenBitSet
 name|dels
@@ -1008,7 +1002,11 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|new
+name|SlowMultiReaderWrapper
+argument_list|(
 name|in
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|dels
@@ -1201,19 +1199,6 @@ name|dels
 operator|.
 name|isEmpty
 argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getSequentialSubReaders
-specifier|public
-name|IndexReader
-index|[]
-name|getSequentialSubReaders
-parameter_list|()
-block|{
-return|return
-literal|null
 return|;
 block|}
 annotation|@

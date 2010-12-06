@@ -661,11 +661,6 @@ name|sdoc
 argument_list|)
 expr_stmt|;
 block|}
-name|responseWriter
-operator|.
-name|end
-argument_list|()
-expr_stmt|;
 block|}
 else|else
 block|{

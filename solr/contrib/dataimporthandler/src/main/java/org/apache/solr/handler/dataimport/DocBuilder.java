@@ -1925,6 +1925,23 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+name|String
+name|keyName
+init|=
+name|root
+operator|.
+name|isDocRoot
+condition|?
+name|root
+operator|.
+name|getPk
+argument_list|()
+else|:
+name|root
+operator|.
+name|getSchemaPk
+argument_list|()
+decl_stmt|;
 name|Object
 name|key
 init|=
@@ -1932,10 +1949,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-name|root
-operator|.
-name|getPk
-argument_list|()
+name|keyName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1949,7 +1963,9 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"no key was available for deleteted pk query"
+literal|"no key was available for deleteted pk query. keyName = "
+operator|+
+name|keyName
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -3593,6 +3609,12 @@ name|vr
 argument_list|,
 name|doc
 argument_list|,
+name|child
+operator|.
+name|isDocRoot
+condition|?
+name|pk
+else|:
 literal|null
 argument_list|,
 name|child
@@ -5413,10 +5435,13 @@ argument_list|(
 name|deletedSet
 argument_list|)
 expr_stmt|;
+comment|// Do not use entity.isDocRoot here because one of descendant entities may set rootEntity="true"
 return|return
 name|entity
 operator|.
-name|isDocRoot
+name|parentEntity
+operator|==
+literal|null
 condition|?
 name|myModifiedPks
 else|:

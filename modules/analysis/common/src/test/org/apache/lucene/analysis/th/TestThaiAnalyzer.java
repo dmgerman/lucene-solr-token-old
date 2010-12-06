@@ -221,7 +221,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Thai numeric tokens were typed as<ALPHANUM> instead of<NUM>. 	 * @deprecated testing backwards behavior  	 */
+comment|/** 	 * Thai numeric tokens were typed as<ALPHANUM> instead of<NUM>. 	 * @deprecated (3.1) testing backwards behavior  	 */
 annotation|@
 name|Deprecated
 DECL|method|testBuggyTokenType30
@@ -301,7 +301,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** @deprecated testing backwards behavior */
+comment|/** @deprecated (3.1) testing backwards behavior */
 annotation|@
 name|Deprecated
 DECL|method|testAnalyzer30
@@ -740,7 +740,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** @deprecated, for version back compat */
+comment|/** @deprecated (3.1) for version back compat */
 annotation|@
 name|Deprecated
 DECL|method|testReusableTokenStream30

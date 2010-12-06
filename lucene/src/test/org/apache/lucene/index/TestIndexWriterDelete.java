@@ -4448,6 +4448,11 @@ argument_list|(
 name|dir
 argument_list|,
 operator|new
+name|IndexWriterConfig
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
+operator|new
 name|MockAnalyzer
 argument_list|(
 name|MockTokenizer
@@ -4456,12 +4461,7 @@ name|WHITESPACE
 argument_list|,
 literal|false
 argument_list|)
-argument_list|,
-name|IndexWriter
-operator|.
-name|MaxFieldLength
-operator|.
-name|UNLIMITED
+argument_list|)
 argument_list|)
 decl_stmt|;
 for|for

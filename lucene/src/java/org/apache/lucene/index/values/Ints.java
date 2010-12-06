@@ -86,7 +86,7 @@ name|Directory
 import|;
 end_import
 begin_comment
-comment|//TODO - add bulk copy where possible
+comment|/**  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|Ints
@@ -94,6 +94,7 @@ specifier|public
 class|class
 name|Ints
 block|{
+comment|//TODO - add bulk copy where possible
 DECL|method|Ints
 specifier|private
 name|Ints

@@ -820,10 +820,6 @@ block|,
 operator|new
 name|MultiReader
 argument_list|(
-operator|new
-name|IndexReader
-index|[]
-block|{
 name|IndexReader
 operator|.
 name|open
@@ -843,7 +839,7 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
-block|,
+argument_list|,
 name|IndexReader
 operator|.
 name|open
@@ -857,7 +853,7 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
-block|,
+argument_list|,
 literal|0
 operator|==
 name|edge
@@ -877,7 +873,6 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
-block|}
 argument_list|)
 block|,
 name|IndexReader
@@ -917,10 +912,6 @@ block|,
 operator|new
 name|MultiReader
 argument_list|(
-operator|new
-name|IndexReader
-index|[]
-block|{
 name|IndexReader
 operator|.
 name|open
@@ -940,7 +931,7 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
-block|,
+argument_list|,
 name|IndexReader
 operator|.
 name|open
@@ -954,7 +945,7 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
-block|,
+argument_list|,
 literal|0
 operator|<
 name|edge
@@ -974,7 +965,6 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
-block|}
 argument_list|)
 block|}
 decl_stmt|;

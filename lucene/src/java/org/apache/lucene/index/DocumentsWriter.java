@@ -1014,6 +1014,12 @@ specifier|private
 name|boolean
 name|closed
 decl_stmt|;
+DECL|field|fieldInfos
+specifier|private
+specifier|final
+name|FieldInfos
+name|fieldInfos
+decl_stmt|;
 DECL|method|DocumentsWriter
 name|DocumentsWriter
 parameter_list|(
@@ -1028,6 +1034,9 @@ name|indexingChain
 parameter_list|,
 name|int
 name|maxThreadStates
+parameter_list|,
+name|FieldInfos
+name|fieldInfos
 parameter_list|)
 throws|throws
 name|IOException
@@ -1069,6 +1078,12 @@ operator|.
 name|maxDoc
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|fieldInfos
+operator|=
+name|fieldInfos
+expr_stmt|;
 name|consumer
 operator|=
 name|indexingChain
@@ -1094,6 +1109,16 @@ name|consumer
 expr_stmt|;
 block|}
 block|}
+DECL|method|getFieldInfos
+specifier|public
+name|FieldInfos
+name|getFieldInfos
+parameter_list|()
+block|{
+return|return
+name|fieldInfos
+return|;
+block|}
 comment|/** Returns true if any of the fields in the current    *  buffered docs have omitTermFreqAndPositions==false */
 DECL|method|hasProx
 name|boolean
@@ -1107,8 +1132,6 @@ operator|!=
 literal|null
 operator|)
 condition|?
-name|docFieldProcessor
-operator|.
 name|fieldInfos
 operator|.
 name|hasProx
@@ -2178,8 +2201,6 @@ name|SegmentCodecs
 operator|.
 name|build
 argument_list|(
-name|docFieldProcessor
-operator|.
 name|fieldInfos
 argument_list|,
 name|writer
@@ -2198,8 +2219,6 @@ name|directory
 argument_list|,
 name|segment
 argument_list|,
-name|docFieldProcessor
-operator|.
 name|fieldInfos
 argument_list|,
 name|docStoreSegment

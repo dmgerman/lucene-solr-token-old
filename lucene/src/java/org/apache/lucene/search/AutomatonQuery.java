@@ -33,19 +33,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|Term
 import|;
 end_import
@@ -59,7 +46,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|TermsEnum
+name|Terms
 import|;
 end_import
 begin_import
@@ -72,7 +59,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|MultiFields
+name|TermsEnum
 import|;
 end_import
 begin_import
@@ -341,8 +328,8 @@ specifier|protected
 name|TermsEnum
 name|getTermsEnum
 parameter_list|(
-name|IndexReader
-name|reader
+name|Terms
+name|terms
 parameter_list|,
 name|AttributeSource
 name|atts
@@ -367,6 +354,14 @@ operator|.
 name|EMPTY
 return|;
 block|}
+name|TermsEnum
+name|tenum
+init|=
+name|terms
+operator|.
+name|iterator
+argument_list|()
+decl_stmt|;
 comment|// matches all possible strings
 if|if
 condition|(
@@ -378,21 +373,8 @@ name|automaton
 argument_list|)
 condition|)
 block|{
-comment|// NOTE: for now, MultiTermQuery enums terms at the
-comment|// MultiReader level, so we must use MultiFields here:
 return|return
-name|MultiFields
-operator|.
-name|getTerms
-argument_list|(
-name|reader
-argument_list|,
-name|getField
-argument_list|()
-argument_list|)
-operator|.
-name|iterator
-argument_list|()
+name|tenum
 return|;
 block|}
 comment|// matches a fixed string in singleton representation
@@ -414,7 +396,7 @@ return|return
 operator|new
 name|SingleTermsEnum
 argument_list|(
-name|reader
+name|tenum
 argument_list|,
 name|term
 operator|.
@@ -467,7 +449,7 @@ return|return
 operator|new
 name|SingleTermsEnum
 argument_list|(
-name|reader
+name|tenum
 argument_list|,
 name|term
 operator|.
@@ -515,7 +497,7 @@ return|return
 operator|new
 name|PrefixTermsEnum
 argument_list|(
-name|reader
+name|tenum
 argument_list|,
 name|term
 operator|.
@@ -536,12 +518,7 @@ name|AutomatonTermsEnum
 argument_list|(
 name|runAutomaton
 argument_list|,
-name|term
-operator|.
-name|field
-argument_list|()
-argument_list|,
-name|reader
+name|tenum
 argument_list|,
 name|isFinite
 argument_list|,

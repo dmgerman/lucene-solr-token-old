@@ -522,12 +522,7 @@ operator|=
 operator|new
 name|MapFieldSelector
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"other"
-block|}
 argument_list|)
 expr_stmt|;
 name|document
