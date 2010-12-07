@@ -26,7 +26,7 @@ name|analysis
 operator|.
 name|standard
 operator|.
-name|UAX29Tokenizer
+name|UAX29URLEmailTokenizer
 import|;
 end_import
 begin_import
@@ -51,10 +51,10 @@ begin_comment
 comment|/**  * @version $Id$  *   */
 end_comment
 begin_class
-DECL|class|UAX29TokenizerFactory
+DECL|class|UAX29URLEmailTokenizerFactory
 specifier|public
 class|class
-name|UAX29TokenizerFactory
+name|UAX29URLEmailTokenizerFactory
 extends|extends
 name|BaseTokenizerFactory
 block|{
@@ -87,7 +87,7 @@ expr_stmt|;
 block|}
 DECL|method|create
 specifier|public
-name|UAX29Tokenizer
+name|UAX29URLEmailTokenizer
 name|create
 parameter_list|(
 name|Reader
@@ -96,7 +96,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|UAX29Tokenizer
+name|UAX29URLEmailTokenizer
 argument_list|(
 name|input
 argument_list|)
