@@ -723,6 +723,11 @@ expr_stmt|;
 block|}
 name|infos
 operator|.
+name|changed
+argument_list|()
+expr_stmt|;
+name|infos
+operator|.
 name|commit
 argument_list|(
 name|fsDir
@@ -843,6 +848,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|destInfos
+operator|.
+name|changed
+argument_list|()
+expr_stmt|;
 name|destInfos
 operator|.
 name|commit
