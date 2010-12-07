@@ -129,6 +129,21 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|standard
+operator|.
+name|StandardTokenizer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|util
 operator|.
 name|CharArraySet
@@ -398,7 +413,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates    * {@link org.apache.lucene.analysis.util.ReusableAnalyzerBase.TokenStreamComponents}    * used to tokenize all the text in the provided {@link Reader}.    *     * @return {@link org.apache.lucene.analysis.util.ReusableAnalyzerBase.TokenStreamComponents}    *         built from an {@link ArabicLetterTokenizer} filtered with    *         {@link LowerCaseFilter}, {@link StopFilter},    *         {@link ArabicNormalizationFilter}, {@link KeywordMarkerFilter}    *         if a stem exclusion set is provided and {@link ArabicStemFilter}.    */
+comment|/**    * Creates    * {@link org.apache.lucene.analysis.util.ReusableAnalyzerBase.TokenStreamComponents}    * used to tokenize all the text in the provided {@link Reader}.    *     * @return {@link org.apache.lucene.analysis.util.ReusableAnalyzerBase.TokenStreamComponents}    *         built from an {@link StandardTokenizer} filtered with    *         {@link LowerCaseFilter}, {@link StopFilter},    *         {@link ArabicNormalizationFilter}, {@link KeywordMarkerFilter}    *         if a stem exclusion set is provided and {@link ArabicStemFilter}.    */
 annotation|@
 name|Override
 DECL|method|createComponents
@@ -417,6 +432,23 @@ specifier|final
 name|Tokenizer
 name|source
 init|=
+name|matchVersion
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_31
+argument_list|)
+condition|?
+operator|new
+name|StandardTokenizer
+argument_list|(
+name|matchVersion
+argument_list|,
+name|reader
+argument_list|)
+else|:
 operator|new
 name|ArabicLetterTokenizer
 argument_list|(
