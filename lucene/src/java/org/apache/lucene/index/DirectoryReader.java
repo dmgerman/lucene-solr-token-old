@@ -304,13 +304,9 @@ name|writeLock
 decl_stmt|;
 DECL|field|segmentInfos
 specifier|private
+specifier|final
 name|SegmentInfos
 name|segmentInfos
-decl_stmt|;
-DECL|field|segmentInfosStart
-specifier|private
-name|SegmentInfos
-name|segmentInfosStart
 decl_stmt|;
 DECL|field|stale
 specifier|private
@@ -785,10 +781,6 @@ literal|true
 expr_stmt|;
 name|segmentInfos
 operator|=
-name|infos
-expr_stmt|;
-name|segmentInfosStart
-operator|=
 operator|(
 name|SegmentInfos
 operator|)
@@ -797,6 +789,7 @@ operator|.
 name|clone
 argument_list|()
 expr_stmt|;
+comment|// make sure we clone otherwise we share mutable state with IW
 name|this
 operator|.
 name|termInfosIndexDivisor
@@ -4319,7 +4312,7 @@ name|writer
 operator|.
 name|nrtIsCurrent
 argument_list|(
-name|segmentInfosStart
+name|segmentInfos
 argument_list|)
 return|;
 block|}
