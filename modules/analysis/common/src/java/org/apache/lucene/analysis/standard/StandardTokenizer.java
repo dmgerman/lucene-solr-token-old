@@ -250,15 +250,6 @@ name|ACRONYM_DEP
 init|=
 literal|8
 decl_stmt|;
-DECL|field|URL
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|URL
-init|=
-literal|9
-decl_stmt|;
 DECL|field|SOUTHEAST_ASIAN
 specifier|public
 specifier|static
@@ -266,7 +257,7 @@ specifier|final
 name|int
 name|SOUTHEAST_ASIAN
 init|=
-literal|10
+literal|9
 decl_stmt|;
 DECL|field|IDEOGRAPHIC
 specifier|public
@@ -275,7 +266,7 @@ specifier|final
 name|int
 name|IDEOGRAPHIC
 init|=
-literal|11
+literal|10
 decl_stmt|;
 DECL|field|HIRAGANA
 specifier|public
@@ -284,7 +275,7 @@ specifier|final
 name|int
 name|HIRAGANA
 init|=
-literal|12
+literal|11
 decl_stmt|;
 comment|/** String token types that correspond to token type int constants */
 DECL|field|TOKEN_TYPES
@@ -316,8 +307,6 @@ block|,
 literal|"<CJ>"
 block|,
 literal|"<ACRONYM_DEP>"
-block|,
-literal|"<URL>"
 block|,
 literal|"<SOUTHEAST_ASIAN>"
 block|,

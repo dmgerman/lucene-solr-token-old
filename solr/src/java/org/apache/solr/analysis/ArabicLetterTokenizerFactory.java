@@ -39,9 +39,11 @@ name|Reader
 import|;
 end_import
 begin_comment
-comment|/**  * Factory for {@link ArabicLetterTokenizer}  **/
+comment|/**  * Factory for {@link ArabicLetterTokenizer}  * @deprecated (3.1) Use StandardTokenizerFactory instead.  **/
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|ArabicLetterTokenizerFactory
 specifier|public
 class|class

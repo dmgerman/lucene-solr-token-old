@@ -1888,7 +1888,7 @@ name|ErrorCode
 operator|.
 name|BAD_REQUEST
 argument_list|,
-literal|"Sorting not supported on SpatialTileField "
+literal|"Sorting not supported on LatLonType "
 operator|+
 name|field
 operator|.
@@ -1919,7 +1919,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"SpatialTileField uses multiple fields.  field="
+literal|"LatLonType uses multiple fields.  field="
 operator|+
 name|field
 operator|.
