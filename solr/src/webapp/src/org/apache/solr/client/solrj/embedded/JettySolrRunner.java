@@ -134,9 +134,9 @@ name|mortbay
 operator|.
 name|jetty
 operator|.
-name|nio
+name|bio
 operator|.
-name|SelectChannelConnector
+name|SocketConnector
 import|;
 end_import
 begin_import
@@ -331,11 +331,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|SelectChannelConnector
+comment|// SelectChannelConnector connector = new SelectChannelConnector();
+comment|// Normal SocketConnector is what solr's example server uses by default
+name|SocketConnector
 name|connector
 init|=
 operator|new
-name|SelectChannelConnector
+name|SocketConnector
 argument_list|()
 decl_stmt|;
 name|connector
