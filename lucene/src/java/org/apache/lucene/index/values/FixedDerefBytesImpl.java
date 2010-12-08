@@ -1436,7 +1436,7 @@ block|{
 if|if
 condition|(
 name|pos
-operator|<
+operator|>=
 name|valueCount
 condition|)
 block|{
