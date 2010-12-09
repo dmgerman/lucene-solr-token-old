@@ -2683,6 +2683,10 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|testsFailed
+operator|=
+literal|true
+expr_stmt|;
 name|System
 operator|.
 name|err
