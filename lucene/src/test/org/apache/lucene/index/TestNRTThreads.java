@@ -332,6 +332,9 @@ end_comment
 begin_comment
 comment|//   - mix in optimize, addIndexes
 end_comment
+begin_comment
+comment|//   - randomoly mix in non-congruent docs
+end_comment
 begin_class
 DECL|class|TestNRTThreads
 specifier|public
@@ -1362,6 +1365,16 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|r
+operator|.
+name|numDocs
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 specifier|final
 name|IndexSearcher
 name|s
@@ -1535,6 +1548,15 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|seenTermCount
+operator|==
+literal|0
+condition|)
+block|{
+break|break;
+block|}
 name|totTermCount
 operator|.
 name|set
@@ -1753,6 +1775,17 @@ argument_list|(
 literal|"TEST: DONE search: totHits="
 operator|+
 name|totHits
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
 argument_list|)
 expr_stmt|;
 block|}
