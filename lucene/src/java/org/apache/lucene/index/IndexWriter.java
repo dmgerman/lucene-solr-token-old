@@ -3642,10 +3642,10 @@ name|info
 operator|.
 name|docCount
 operator|-
+name|numDeletedDocs
+argument_list|(
 name|info
-operator|.
-name|getDelCount
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 return|return
