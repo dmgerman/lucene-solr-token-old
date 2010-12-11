@@ -235,6 +235,7 @@ if|if
 condition|(
 name|VERBOSE
 condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -246,6 +247,7 @@ operator|+
 name|pass
 argument_list|)
 expr_stmt|;
+block|}
 name|boolean
 name|doAbort
 init|=
@@ -267,6 +269,7 @@ if|if
 condition|(
 name|VERBOSE
 condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -278,6 +281,7 @@ operator|+
 name|diskFree
 argument_list|)
 expr_stmt|;
+block|}
 name|MockDirectoryWrapper
 name|dir
 init|=
@@ -346,6 +350,7 @@ name|ms
 operator|instanceof
 name|ConcurrentMergeScheduler
 condition|)
+block|{
 comment|// This test intentionally produces exceptions
 comment|// in the threads that CMS launches; we don't
 comment|// want to pollute test output with these.
@@ -359,6 +364,7 @@ operator|.
 name|setSuppressExceptions
 argument_list|()
 expr_stmt|;
+block|}
 name|boolean
 name|hitError
 init|=
@@ -384,6 +390,21 @@ block|{
 name|addDoc
 argument_list|(
 name|writer
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: done adding docs; now commit"
 argument_list|)
 expr_stmt|;
 block|}
@@ -438,6 +459,21 @@ condition|(
 name|doAbort
 condition|)
 block|{
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: now rollback"
+argument_list|)
+expr_stmt|;
+block|}
 name|writer
 operator|.
 name|rollback
@@ -448,6 +484,21 @@ else|else
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: now close"
+argument_list|)
+expr_stmt|;
+block|}
 name|writer
 operator|.
 name|close
@@ -471,7 +522,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"TEST: exception on close"
+literal|"TEST: exception on close; retry w/ no disk space limit"
 argument_list|)
 expr_stmt|;
 name|e

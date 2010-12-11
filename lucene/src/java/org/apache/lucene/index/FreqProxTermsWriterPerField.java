@@ -51,6 +51,19 @@ operator|.
 name|Fieldable
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|RamUsageEstimator
+import|;
+end_import
 begin_comment
 comment|// TODO: break into separate freq and prox writers as
 end_comment
@@ -334,7 +347,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|writeProx
-specifier|final
 name|void
 name|writeProx
 parameter_list|(
@@ -472,7 +484,6 @@ block|}
 annotation|@
 name|Override
 DECL|method|newTerm
-specifier|final
 name|void
 name|newTerm
 parameter_list|(
@@ -567,7 +578,6 @@ block|}
 annotation|@
 name|Override
 DECL|method|addTerm
-specifier|final
 name|void
 name|addTerm
 parameter_list|(
@@ -1102,9 +1112,9 @@ name|BYTES_PER_POSTING
 operator|+
 literal|4
 operator|*
-name|DocumentsWriter
+name|RamUsageEstimator
 operator|.
-name|INT_NUM_BYTE
+name|NUM_BYTES_INT
 return|;
 block|}
 block|}
