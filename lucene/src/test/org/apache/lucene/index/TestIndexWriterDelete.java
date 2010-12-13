@@ -3720,6 +3720,32 @@ name|failed
 operator|=
 literal|true
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: mock failure: now fail"
+argument_list|)
+expr_stmt|;
+operator|new
+name|Throwable
+argument_list|()
+operator|.
+name|printStackTrace
+argument_list|(
+name|System
+operator|.
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 throw|throw
 operator|new
 name|IOException
@@ -3779,6 +3805,32 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: mock failure: saw applyDeletes"
+argument_list|)
+expr_stmt|;
+operator|new
+name|Throwable
+argument_list|()
+operator|.
+name|printStackTrace
+argument_list|(
+name|System
+operator|.
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 name|sawMaybe
 operator|=
 literal|true
@@ -3871,6 +3923,19 @@ literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|modifier
+operator|.
+name|setInfoStream
+argument_list|(
+name|VERBOSE
+condition|?
+name|System
+operator|.
+name|out
+else|:
+literal|null
+argument_list|)
+expr_stmt|;
 name|LogMergePolicy
 name|lmp
 init|=
@@ -4050,11 +4115,41 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// flush (and commit if ac)
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: now optimize"
+argument_list|)
+expr_stmt|;
+block|}
 name|modifier
 operator|.
 name|optimize
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: now commit"
+argument_list|)
+expr_stmt|;
+block|}
 name|modifier
 operator|.
 name|commit
@@ -4092,6 +4187,23 @@ expr_stmt|;
 comment|// open the writer again (closed above)
 comment|// delete the doc
 comment|// max buf del terms is two, so this is buffered
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: delete term="
+operator|+
+name|term
+argument_list|)
+expr_stmt|;
+block|}
 name|modifier
 operator|.
 name|deleteDocuments
@@ -4101,6 +4213,21 @@ argument_list|)
 expr_stmt|;
 comment|// add a doc (needed for the !ac case; see below)
 comment|// doc remains buffered
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: add empty doc"
+argument_list|)
+expr_stmt|;
+block|}
 name|Document
 name|doc
 init|=
@@ -4131,6 +4258,21 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: now commit for failure"
+argument_list|)
+expr_stmt|;
+block|}
 name|modifier
 operator|.
 name|commit
