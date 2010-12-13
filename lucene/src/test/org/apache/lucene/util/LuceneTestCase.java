@@ -5280,7 +5280,7 @@ name|TEST_CODEC
 operator|.
 name|equals
 argument_list|(
-literal|"random"
+literal|"randomPerField"
 argument_list|)
 condition|)
 name|sb
