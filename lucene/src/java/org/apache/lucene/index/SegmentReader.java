@@ -1113,9 +1113,9 @@ throw|;
 block|}
 if|if
 condition|(
-name|fieldInfos
+name|si
 operator|.
-name|hasVectors
+name|getHasVectors
 argument_list|()
 condition|)
 block|{

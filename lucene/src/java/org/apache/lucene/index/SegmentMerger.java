@@ -365,6 +365,11 @@ specifier|private
 name|SegmentWriteState
 name|segmentWriteState
 decl_stmt|;
+DECL|field|hasVectors
+specifier|private
+name|boolean
+name|hasVectors
+decl_stmt|;
 DECL|field|payloadProcessorProvider
 specifier|private
 name|PayloadProcessorProvider
@@ -478,6 +483,15 @@ name|fieldInfos
 operator|.
 name|hasProx
 argument_list|()
+return|;
+block|}
+DECL|method|hasVectors
+name|boolean
+name|hasVectors
+parameter_list|()
+block|{
+return|return
+name|hasVectors
 return|;
 block|}
 comment|/**    * Add an IndexReader to the collection of readers that are to be merged    * @param reader    */
@@ -2171,6 +2185,10 @@ argument_list|,
 name|fieldInfos
 argument_list|)
 decl_stmt|;
+name|hasVectors
+operator|=
+literal|true
+expr_stmt|;
 try|try
 block|{
 name|int

@@ -141,6 +141,10 @@ DECL|field|lastDocID
 name|int
 name|lastDocID
 decl_stmt|;
+DECL|field|hasVectors
+name|boolean
+name|hasVectors
+decl_stmt|;
 DECL|method|TermVectorsTermsWriter
 specifier|public
 name|TermVectorsTermsWriter
@@ -209,6 +213,12 @@ comment|// actually OK (unlike in the stored fields case)
 comment|// because, although FieldInfos.hasVectors() will return
 comment|// true, the TermVectorsReader gracefully handles
 comment|// non-existence of the term vectors files.
+name|state
+operator|.
+name|hasVectors
+operator|=
+name|hasVectors
+expr_stmt|;
 if|if
 condition|(
 name|tvx
@@ -558,6 +568,16 @@ name|lastDocID
 operator|=
 literal|0
 expr_stmt|;
+name|state
+operator|.
+name|hasVectors
+operator|=
+name|hasVectors
+expr_stmt|;
+name|hasVectors
+operator|=
+literal|false
+expr_stmt|;
 block|}
 block|}
 DECL|field|allocCount
@@ -798,6 +818,10 @@ operator|.
 name|VECTORS_FIELDS_EXTENSION
 argument_list|)
 decl_stmt|;
+name|hasVectors
+operator|=
+literal|true
+expr_stmt|;
 name|tvx
 operator|=
 name|docWriter
@@ -1116,6 +1140,10 @@ name|void
 name|abort
 parameter_list|()
 block|{
+name|hasVectors
+operator|=
+literal|false
+expr_stmt|;
 if|if
 condition|(
 name|tvx

@@ -2956,6 +2956,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 name|finishMerges
 argument_list|(
 name|waitForMerges
@@ -2965,6 +2970,7 @@ name|stopMerges
 operator|=
 literal|true
 expr_stmt|;
+block|}
 name|mergeScheduler
 operator|.
 name|close
@@ -3453,6 +3459,15 @@ init|)
 block|{
 comment|// If docWriter has some aborted files that were
 comment|// never incref'd, then we clean them up here
+name|deleter
+operator|.
+name|checkpoint
+argument_list|(
+name|segmentInfos
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|docWriter
@@ -3478,6 +3493,7 @@ name|files
 operator|!=
 literal|null
 condition|)
+block|{
 name|deleter
 operator|.
 name|deleteNewFiles
@@ -3485,6 +3501,7 @@ argument_list|(
 name|files
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -5139,11 +5156,34 @@ expr_stmt|;
 block|}
 try|try
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 name|finishMerges
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|stopMerges
+operator|=
+literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"rollback: done finish merges"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Must pre-close these two, in case they increment
 comment|// changeCount so that we can then set it to false
 comment|// before calling closeInternal
@@ -6244,6 +6284,11 @@ name|merger
 operator|.
 name|getSegmentCodecs
 argument_list|()
+argument_list|,
+name|merger
+operator|.
+name|hasVectors
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|setDiagnostics
@@ -7138,7 +7183,10 @@ if|if
 condition|(
 operator|!
 name|success
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|infoStream
 operator|!=
 literal|null
@@ -7149,6 +7197,42 @@ argument_list|(
 literal|"hit exception during flush"
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|docWriter
+operator|!=
+literal|null
+condition|)
+block|{
+specifier|final
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|files
+init|=
+name|docWriter
+operator|.
+name|abortedFiles
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|files
+operator|!=
+literal|null
+condition|)
+block|{
+name|deleter
+operator|.
+name|deleteNewFiles
+argument_list|(
+name|files
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 block|}
@@ -8803,6 +8887,11 @@ name|doFlushDocStore
 init|=
 literal|false
 decl_stmt|;
+name|boolean
+name|hasVectors
+init|=
+literal|false
+decl_stmt|;
 specifier|final
 name|String
 name|currentDocStoreSegment
@@ -8851,6 +8940,19 @@ name|mergeDocStores
 operator|=
 literal|true
 expr_stmt|;
+if|if
+condition|(
+name|si
+operator|.
+name|getHasVectors
+argument_list|()
+condition|)
+block|{
+name|hasVectors
+operator|=
+literal|true
+expr_stmt|;
+block|}
 comment|// If it has its own (private) doc stores we must
 comment|// merge the doc stores
 if|if
@@ -9148,6 +9250,12 @@ expr_stmt|;
 block|}
 name|merge
 operator|.
+name|hasVectors
+operator|=
+name|hasVectors
+expr_stmt|;
+name|merge
+operator|.
 name|mergeDocStores
 operator|=
 name|mergeDocStores
@@ -9180,6 +9288,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|Map
@@ -9254,6 +9364,29 @@ argument_list|,
 name|details
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"merge seg="
+operator|+
+name|merge
+operator|.
+name|info
+operator|.
+name|name
+operator|+
+literal|" mergeDocStores="
+operator|+
+name|mergeDocStores
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Also enroll the merged segment into mergingSegments;
 comment|// this prevents it from getting selected for a merge
 comment|// after our merge is done but while we are building the
@@ -10371,6 +10504,22 @@ name|merger
 operator|.
 name|getSegmentCodecs
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|merge
+operator|.
+name|info
+operator|.
+name|setHasVectors
+argument_list|(
+name|merger
+operator|.
+name|hasVectors
+argument_list|()
+operator|||
+name|merge
+operator|.
+name|hasVectors
 argument_list|)
 expr_stmt|;
 if|if

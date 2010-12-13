@@ -459,6 +459,11 @@ name|merger
 operator|.
 name|getSegmentCodecs
 argument_list|()
+argument_list|,
+name|merger
+operator|.
+name|hasVectors
+argument_list|()
 argument_list|)
 argument_list|,
 name|BufferedIndexInput

@@ -1654,6 +1654,11 @@ operator|.
 name|getDefault
 argument_list|()
 argument_list|)
+argument_list|,
+name|fieldInfos
+operator|.
+name|hasVectors
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|si
@@ -2047,6 +2052,11 @@ operator|.
 name|getDefault
 argument_list|()
 argument_list|)
+argument_list|,
+name|fieldInfos
+operator|.
+name|hasVectors
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
