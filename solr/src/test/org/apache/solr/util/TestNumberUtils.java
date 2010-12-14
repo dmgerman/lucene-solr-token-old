@@ -163,9 +163,7 @@ specifier|static
 name|Random
 name|rng
 init|=
-operator|new
-name|Random
-argument_list|()
+name|random
 decl_stmt|;
 DECL|field|special
 specifier|static
