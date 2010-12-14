@@ -70,15 +70,6 @@ operator|.
 name|Collections
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
-import|;
-end_import
 begin_class
 DECL|class|SimpleFacetsTest
 specifier|public
@@ -109,16 +100,6 @@ name|createIndex
 argument_list|()
 expr_stmt|;
 block|}
-DECL|field|rand
-specifier|static
-name|Random
-name|rand
-init|=
-operator|new
-name|Random
-argument_list|()
-decl_stmt|;
-comment|// TODO: a way to use lucene's newRandom()?
 DECL|field|random_commit_percent
 specifier|static
 name|int
@@ -145,7 +126,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -201,7 +182,7 @@ expr_stmt|;
 block|}
 do|while
 condition|(
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -241,7 +222,7 @@ name|shuffle
 argument_list|(
 name|pendingDocs
 argument_list|,
-name|rand
+name|random
 argument_list|)
 expr_stmt|;
 for|for
