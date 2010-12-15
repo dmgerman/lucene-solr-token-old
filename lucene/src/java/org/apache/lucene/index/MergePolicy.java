@@ -124,11 +124,6 @@ name|boolean
 name|mergeDocStores
 decl_stmt|;
 comment|// used by IndexWriter
-DECL|field|hasVectors
-name|boolean
-name|hasVectors
-decl_stmt|;
-comment|// used by IndexWriter
 DECL|field|optimize
 name|boolean
 name|optimize
