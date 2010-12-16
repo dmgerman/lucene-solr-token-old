@@ -978,8 +978,10 @@ operator|&&
 name|hasDeletes
 condition|)
 block|{
-name|any
-operator||=
+specifier|final
+name|long
+name|delCountInc
+init|=
 name|applyDeletes
 argument_list|(
 name|readerPool
@@ -990,7 +992,36 @@ name|coalescedDeletes
 argument_list|,
 name|deletes
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|delCountInc
+operator|!=
+literal|0
+condition|)
+block|{
+name|any
+operator|=
+literal|true
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"deletes touched "
+operator|+
+name|delCountInc
+operator|+
+literal|" docIDs"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 if|if
 condition|(
 name|deletes
@@ -1297,7 +1328,7 @@ block|}
 DECL|method|applyDeletes
 specifier|private
 specifier|synchronized
-name|boolean
+name|long
 name|applyDeletes
 parameter_list|(
 name|IndexWriter
@@ -1339,10 +1370,10 @@ argument_list|()
 operator|==
 literal|0
 assert|;
-name|boolean
-name|any
+name|long
+name|delCount
 init|=
-literal|false
+literal|0
 decl_stmt|;
 comment|// Lock order: IW -> BD -> RP
 name|SegmentReader
@@ -1366,8 +1397,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|any
-operator||=
+name|delCount
+operator|+=
 name|applyDeletes
 argument_list|(
 name|coalescedDeletes
@@ -1383,8 +1414,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|any
-operator||=
+name|delCount
+operator|+=
 name|applyDeletes
 argument_list|(
 name|segmentDeletes
@@ -1405,13 +1436,13 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|any
+name|delCount
 return|;
 block|}
 DECL|method|applyDeletes
 specifier|private
 specifier|synchronized
-name|boolean
+name|long
 name|applyDeletes
 parameter_list|(
 name|SegmentDeletes
@@ -1423,10 +1454,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|boolean
-name|any
+name|long
+name|delCount
 init|=
-literal|false
+literal|0
 decl_stmt|;
 assert|assert
 name|checkDeleteTerm
@@ -1463,7 +1494,7 @@ condition|)
 block|{
 comment|// This reader has no postings
 return|return
-literal|false
+literal|0
 return|;
 block|}
 name|TermsEnum
@@ -1684,9 +1715,13 @@ argument_list|(
 name|docID
 argument_list|)
 expr_stmt|;
-name|any
-operator|=
-literal|true
+comment|// TODO: we could/should change
+comment|// reader.deleteDocument to return boolean
+comment|// true if it did in fact delete, because here
+comment|// we could be deleting an already-deleted doc
+comment|// which makes this an upper bound:
+name|delCount
+operator|++
 expr_stmt|;
 block|}
 block|}
@@ -1719,9 +1754,8 @@ argument_list|(
 name|docID
 argument_list|)
 expr_stmt|;
-name|any
-operator|=
-literal|true
+name|delCount
+operator|++
 expr_stmt|;
 block|}
 comment|// Delete by query
@@ -1843,9 +1877,13 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|any
-operator|=
-literal|true
+comment|// TODO: we could/should change
+comment|// reader.deleteDocument to return boolean
+comment|// true if it did in fact delete, because here
+comment|// we could be deleting an already-deleted doc
+comment|// which makes this an upper bound:
+name|delCount
+operator|++
 expr_stmt|;
 block|}
 block|}
@@ -1861,7 +1899,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|any
+name|delCount
 return|;
 block|}
 DECL|method|getDeletes
