@@ -2781,11 +2781,6 @@ name|docStoreOffset
 argument_list|)
 expr_stmt|;
 block|}
-name|boolean
-name|hasVectors
-init|=
-literal|false
-decl_stmt|;
 if|if
 condition|(
 name|closeDocStore
@@ -2807,12 +2802,13 @@ name|segmentInfos
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
 name|hasVectors
-operator||=
+init|=
 name|flushState
 operator|.
 name|hasVectors
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|numDocsInRAM
