@@ -905,16 +905,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|closeDocStore
-name|void
-name|closeDocStore
-parameter_list|(
-name|SegmentWriteState
-name|state
-parameter_list|)
-block|{}
 block|}
 end_class
 end_unit

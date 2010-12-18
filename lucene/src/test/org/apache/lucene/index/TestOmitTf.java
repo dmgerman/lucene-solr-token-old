@@ -1240,13 +1240,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|lmp
-operator|.
-name|setUseCompoundDocStore
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|Document
 name|d
 init|=

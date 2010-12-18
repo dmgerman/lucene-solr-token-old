@@ -972,13 +972,6 @@ argument_list|)
 expr_stmt|;
 name|lmp
 operator|.
-name|setUseCompoundDocStore
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|lmp
-operator|.
 name|setMergeFactor
 argument_list|(
 name|mergeFactor
@@ -1333,13 +1326,6 @@ decl_stmt|;
 name|lmp
 operator|.
 name|setUseCompoundFile
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|lmp
-operator|.
-name|setUseCompoundDocStore
 argument_list|(
 literal|false
 argument_list|)
