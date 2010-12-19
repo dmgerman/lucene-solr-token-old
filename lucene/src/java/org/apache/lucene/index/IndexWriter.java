@@ -2481,7 +2481,7 @@ argument_list|()
 operator|>
 name|DefaultSegmentInfosWriter
 operator|.
-name|FORMAT_4_0
+name|FORMAT_HAS_VECTORS
 condition|)
 block|{
 comment|// Pre-4.0 index.  In this case we sweep all
