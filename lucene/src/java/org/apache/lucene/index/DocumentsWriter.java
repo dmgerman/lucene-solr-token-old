@@ -2165,11 +2165,15 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
-name|long
-name|startNumBytesUsed
+name|double
+name|startMBUsed
 init|=
 name|bytesUsed
 argument_list|()
+operator|/
+literal|1024.
+operator|/
+literal|1024.
 decl_stmt|;
 name|consumer
 operator|.
@@ -2343,7 +2347,7 @@ name|newSegment
 argument_list|)
 expr_stmt|;
 specifier|final
-name|long
+name|double
 name|newSegmentSizeNoStore
 init|=
 name|newSegment
@@ -2352,9 +2356,13 @@ name|sizeInBytes
 argument_list|(
 literal|false
 argument_list|)
+operator|/
+literal|1024.
+operator|/
+literal|1024.
 decl_stmt|;
 specifier|final
-name|long
+name|double
 name|newSegmentSize
 init|=
 name|newSegment
@@ -2363,6 +2371,10 @@ name|sizeInBytes
 argument_list|(
 literal|true
 argument_list|)
+operator|/
+literal|1024.
+operator|/
+literal|1024.
 decl_stmt|;
 name|message
 argument_list|(
@@ -2372,11 +2384,7 @@ name|nf
 operator|.
 name|format
 argument_list|(
-name|startNumBytesUsed
-operator|/
-literal|1024.
-operator|/
-literal|1024.
+name|startMBUsed
 argument_list|)
 operator|+
 literal|" MB"
@@ -2388,10 +2396,6 @@ operator|.
 name|format
 argument_list|(
 name|newSegmentSize
-operator|/
-literal|1024
-operator|/
-literal|1024
 argument_list|)
 operator|+
 literal|" MB"
@@ -2403,10 +2407,6 @@ operator|.
 name|format
 argument_list|(
 name|newSegmentSizeNoStore
-operator|/
-literal|1024
-operator|/
-literal|1024
 argument_list|)
 operator|+
 literal|" MB w/o doc stores)"
@@ -2419,13 +2419,7 @@ name|format
 argument_list|(
 name|numDocs
 operator|/
-operator|(
 name|newSegmentSize
-operator|/
-literal|1024.
-operator|/
-literal|1024.
-operator|)
 argument_list|)
 operator|+
 literal|" new/old="
@@ -2438,7 +2432,7 @@ literal|100.0
 operator|*
 name|newSegmentSizeNoStore
 operator|/
-name|startNumBytesUsed
+name|startMBUsed
 argument_list|)
 operator|+
 literal|"%"
