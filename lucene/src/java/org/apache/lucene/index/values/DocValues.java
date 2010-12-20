@@ -51,6 +51,45 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|Fields
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|FieldsEnum
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|AttributeSource
@@ -70,7 +109,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  *   * @lucene.experimental  */
+comment|/**  *   * @see FieldsEnum#docValues()  * @see Fields#docValues(String)  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|DocValues
@@ -106,6 +145,7 @@ operator|.
 name|DirectSourceCache
 argument_list|()
 decl_stmt|;
+comment|/**    * Returns an iterator that steps through all documents values for this    * {@link DocValues} field instance. {@link DocValuesEnum} will skip document    * without a value if applicable.    */
 DECL|method|getEnum
 specifier|public
 name|DocValuesEnum
@@ -121,6 +161,7 @@ literal|null
 argument_list|)
 return|;
 block|}
+comment|/**    * Returns an iterator that steps through all documents values for this    * {@link DocValues} field instance. {@link DocValuesEnum} will skip document    * without a value if applicable.    *<p>    * If an {@link AttributeSource} is supplied to this method the    * {@link DocValuesEnum} will use the given source to access implementation    * related attributes.    */
 DECL|method|getEnum
 specifier|public
 specifier|abstract
@@ -133,6 +174,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**    * Loads a new {@link Source} instance for this {@link DocValues} field    * instance. Source instances returned from this method are not cached. It is    * the callers responsibility to maintain the instance and release its    * resources once the source is not needed anymore.    *<p>    * This method will return null iff this {@link DocValues} represent a    * {@link SortedSource}.    *<p>    * For managed {@link Source} instances see {@link #getSource()}.    *     * @see #getSource()    * @see #setCache(SourceCache)    */
 DECL|method|load
 specifier|public
 specifier|abstract
@@ -142,6 +184,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**    * Returns a {@link Source} instance through the current {@link SourceCache}.    * Iff no {@link Source} has been loaded into the cache so far the source will    * be loaded through {@link #load()} and passed to the {@link SourceCache}.    * The caller of this method should not close the obtained {@link Source}    * instance unless it is not needed for the rest of its life time.    *<p>    * {@link Source} instances obtained from this method are closed / released    * from the cache once this {@link DocValues} instance is closed by the    * {@link IndexReader}, {@link Fields} or {@link FieldsEnum} the    * {@link DocValues} was created from.    *<p>    * This method will return null iff this {@link DocValues} represent a    * {@link SortedSource}.    */
 DECL|method|getSource
 specifier|public
 name|Source
@@ -159,6 +202,7 @@ name|this
 argument_list|)
 return|;
 block|}
+comment|/**    * Returns a {@link SortedSource} instance for this {@link DocValues} field    * instance like {@link #getSource()}.    *<p>    * This method will return null iff this {@link DocValues} represent a    * {@link Source} instead of a {@link SortedSource}.    */
 DECL|method|getSortedSorted
 specifier|public
 name|SortedSource
@@ -176,7 +220,7 @@ block|{
 return|return
 name|cache
 operator|.
-name|laodSorted
+name|loadSorted
 argument_list|(
 name|this
 argument_list|,
@@ -184,6 +228,7 @@ name|comparator
 argument_list|)
 return|;
 block|}
+comment|/**    * Loads and returns a {@link SortedSource} instance for this    * {@link DocValues} field instance like {@link #load()}.    *<p>    * This method will return null iff this {@link DocValues} represent a    * {@link Source} instead of a {@link SortedSource}.    */
 DECL|method|loadSorted
 specifier|public
 name|SortedSource
@@ -204,6 +249,7 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+comment|/**    * Returns the {@link Type} of this {@link DocValues} instance    */
 DECL|method|type
 specifier|public
 specifier|abstract
@@ -211,6 +257,7 @@ name|Type
 name|type
 parameter_list|()
 function_decl|;
+comment|/**    * Closes this {@link DocValues} instance. This method should only be called    * by the creator of this {@link DocValues} instance. API users should not    * close {@link DocValues} instances.    */
 DECL|method|close
 specifier|public
 name|void
@@ -229,6 +276,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Sets the {@link SourceCache} used by this {@link DocValues} instance. This    * method should be called before {@link #load()} or    * {@link #loadSorted(Comparator)} is called. All {@link Source} or    * {@link SortedSource} instances in the currently used cache will be closed    * before the new cache is installed.    *<p>    * Note: All instances previously obtained from {@link #load()} or    * {@link #loadSorted(Comparator)} will be closed.    */
 DECL|method|setCache
 specifier|public
 name|void
@@ -238,6 +286,13 @@ name|SourceCache
 name|cache
 parameter_list|)
 block|{
+assert|assert
+name|cache
+operator|!=
+literal|null
+operator|:
+literal|"cache must not be null"
+assert|;
 synchronized|synchronized
 init|(
 name|this
@@ -262,7 +317,7 @@ name|cache
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Source of integer (returned as java long), per document. The underlying    * implementation may use different numbers of bits per value; long is only    * used since it can handle all precisions.    */
+comment|/**    * Source of per document values like long, double or {@link BytesRef}    * depending on the {@link DocValues} fields {@link Type}. Source    * implementations provide random access semantics similar to array lookups    * and typically are entirely memory resident.    *<p>    * {@link Source} defines 3 {@link Type} //TODO finish this     */
 DECL|class|Source
 specifier|public
 specifier|static
