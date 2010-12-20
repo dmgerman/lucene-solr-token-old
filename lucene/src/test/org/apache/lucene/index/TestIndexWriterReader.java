@@ -1619,8 +1619,6 @@ argument_list|(
 literal|false
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 comment|// create a 2nd index
@@ -2066,8 +2064,6 @@ operator|.
 name|flush
 argument_list|(
 literal|false
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -3305,8 +3301,6 @@ operator|!
 name|optimize
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|IndexReader
@@ -3388,8 +3382,6 @@ operator|.
 name|flush
 argument_list|(
 literal|false
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -5153,6 +5145,19 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+specifier|final
+name|Random
+name|r
+init|=
+operator|new
+name|Random
+argument_list|(
+name|random
+operator|.
+name|nextLong
+argument_list|()
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Override
 specifier|public
@@ -5164,14 +5169,6 @@ name|int
 name|count
 init|=
 literal|0
-decl_stmt|;
-specifier|final
-name|Random
-name|r
-init|=
-operator|new
-name|Random
-argument_list|()
 decl_stmt|;
 do|do
 block|{

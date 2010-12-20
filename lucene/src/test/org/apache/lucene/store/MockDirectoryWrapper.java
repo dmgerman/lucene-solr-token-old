@@ -2302,6 +2302,8 @@ parameter_list|(
 name|LockFactory
 name|lockFactory
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|maybeYield
 argument_list|()

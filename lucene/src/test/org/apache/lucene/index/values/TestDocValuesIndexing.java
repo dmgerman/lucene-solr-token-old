@@ -572,7 +572,7 @@ name|TestDocValuesIndexing
 extends|extends
 name|LuceneTestCase
 block|{
-comment|/*    * TODO: Roadmap to land on trunk    *     * - Add documentation for: - Source and ValuesEnum - DocValues - ValuesField    * - ValuesAttribute - Values - Add @lucene.experimental to all necessary    * classes - add test for unoptimized case with deletes - add a test for    * addIndexes - split up existing testcases and give them meaningfull names -    * run RAT - add tests for FieldComparator FloatIndexValuesComparator vs.    * FloatValuesComparator etc.    */
+comment|/*    * TODO: Roadmap to land on trunk    *     * - Add documentation for:     *  - Source and ValuesEnum     *  - DocValues     *  - ValuesField    *  - Values     * - Add @lucene.experimental to all necessary classes     * - add test for unoptimized case with deletes    * - run RAT    * - add tests for FieldComparator FloatIndexValuesComparator vs. FloatValuesComparator etc.    *     */
 DECL|field|docValuesCodec
 specifier|private
 name|DocValuesCodec
@@ -772,7 +772,9 @@ expr_stmt|;
 name|writer
 operator|.
 name|close
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|IndexReader
 name|reader
@@ -1381,7 +1383,9 @@ block|}
 name|w
 operator|.
 name|optimize
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|w
 operator|.
@@ -1669,17 +1673,23 @@ expr_stmt|;
 name|w_1
 operator|.
 name|close
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|w_2
 operator|.
 name|close
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|w
 operator|.
 name|close
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|d_1
 operator|.
@@ -4066,7 +4076,9 @@ condition|)
 name|w
 operator|.
 name|optimize
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 return|return
 name|deleted

@@ -65,19 +65,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|TermsEnum
 import|;
 end_import
@@ -115,21 +102,6 @@ import|;
 end_import
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|values
-operator|.
-name|Writer
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -144,24 +116,6 @@ operator|.
 name|io
 operator|.
 name|Closeable
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 begin_comment
@@ -342,8 +296,6 @@ operator|.
 name|docValues
 argument_list|()
 decl_stmt|;
-comment|// TODO: is this assert values and if so when?
-comment|//        assert docValues != null : "DocValues are null for " + mergeState.fieldInfo.getDocValues();
 if|if
 condition|(
 name|docValues
@@ -351,7 +303,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// for now just continue
+comment|/* It is actually possible that a fieldInfo has a values type but no values are actually available.            * this can happen if there are already segments without values around.            */
 continue|continue;
 block|}
 specifier|final

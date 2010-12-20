@@ -261,13 +261,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|mergePolicy
-operator|.
-name|setUseCompoundDocStore
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 init|;

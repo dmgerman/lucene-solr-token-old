@@ -400,11 +400,7 @@ block|{
 name|Random
 name|r
 init|=
-operator|new
-name|Random
-argument_list|(
-literal|0
-argument_list|)
+name|random
 decl_stmt|;
 name|int
 index|[]

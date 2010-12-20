@@ -234,7 +234,7 @@ name|VERSION_CURRENT
 argument_list|,
 literal|false
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 literal|null
 argument_list|,
@@ -273,9 +273,6 @@ operator|=
 name|bytes
 operator|.
 name|length
-expr_stmt|;
-name|initDataOut
-argument_list|()
 expr_stmt|;
 name|datOut
 operator|.
@@ -353,7 +350,7 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.lucene.index.values.Writer#merge(org.apache.lucene.index.values.Writer.MergeState)      */
+comment|/*      * (non-Javadoc)      *       * @see      * org.apache.lucene.index.values.Writer#merge(org.apache.lucene.index.values      * .Writer.MergeState)      */
 annotation|@
 name|Override
 DECL|method|merge
@@ -420,9 +417,6 @@ operator|=
 name|reader
 operator|.
 name|size
-expr_stmt|;
-name|initDataOut
-argument_list|()
 expr_stmt|;
 name|datOut
 operator|.
@@ -541,19 +535,36 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+block|{
 if|if
 condition|(
-name|datOut
+name|size
 operator|==
-literal|null
+operator|-
+literal|1
 condition|)
+block|{
 comment|// no data added
-return|return;
+name|datOut
+operator|.
+name|writeInt
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|fill
 argument_list|(
 name|docCount
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
 name|super
 operator|.
 name|finish
@@ -561,6 +572,7 @@ argument_list|(
 name|docCount
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|ramBytesUsed
 specifier|public
@@ -1049,6 +1061,10 @@ condition|(
 name|target
 operator|>=
 name|maxDoc
+operator|||
+name|size
+operator|==
+literal|0
 condition|)
 block|{
 return|return

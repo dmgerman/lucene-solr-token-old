@@ -478,9 +478,9 @@ name|CODEC_NAME
 argument_list|,
 name|VERSION_CURRENT
 argument_list|,
-literal|false
+literal|true
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 operator|new
 name|ByteBlockPool
@@ -557,9 +557,6 @@ name|bytes
 operator|.
 name|length
 expr_stmt|;
-name|initDataOut
-argument_list|()
-expr_stmt|;
 name|datOut
 operator|.
 name|writeInt
@@ -603,6 +600,7 @@ operator|.
 name|length
 condition|)
 block|{
+specifier|final
 name|int
 index|[]
 name|newArray
@@ -641,7 +639,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-comment|// Arrays.fill(newArray, docToEntry.length, newArray.length, -1);
 name|bytesUsed
 operator|.
 name|addAndGet
@@ -715,17 +712,25 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+block|{
 if|if
 condition|(
-name|datOut
+name|size
 operator|==
-literal|null
+operator|-
+literal|1
 condition|)
+block|{
 comment|// no data added
-return|return;
-name|initIndexOut
-argument_list|()
+name|datOut
+operator|.
+name|writeInt
+argument_list|(
+name|size
+argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|int
 index|[]
@@ -988,6 +993,9 @@ operator|.
 name|finish
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|super
 operator|.
 name|finish
@@ -1020,6 +1028,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|class|Reader

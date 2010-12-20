@@ -247,9 +247,7 @@ expr_stmt|;
 name|Directory
 name|dir
 init|=
-name|FSDirectory
-operator|.
-name|open
+name|newFSDirectory
 argument_list|(
 name|indexDir
 argument_list|)
@@ -379,9 +377,7 @@ block|{
 name|Directory
 name|dir
 init|=
-name|FSDirectory
-operator|.
-name|open
+name|newFSDirectory
 argument_list|(
 name|indexDir
 argument_list|)
@@ -534,9 +530,7 @@ block|{
 name|Directory
 name|dir
 init|=
-name|FSDirectory
-operator|.
-name|open
+name|newFSDirectory
 argument_list|(
 name|indexDir
 argument_list|)

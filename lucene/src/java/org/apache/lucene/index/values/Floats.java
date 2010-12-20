@@ -166,7 +166,7 @@ name|FloatsRef
 import|;
 end_import
 begin_comment
-comment|/**  * Exposes writer/reader for floating point values. You can specify 4 (java  * float) or 8 (java double) byte precision.  * @lucene.experimental  */
+comment|/**  * Exposes writer/reader for floating point values. You can specify 4 (java  * float) or 8 (java double) byte precision.  *   * @lucene.experimental  */
 end_comment
 begin_comment
 comment|// TODO - add bulk copy where possible
@@ -429,9 +429,12 @@ name|byte
 operator|)
 name|precision
 expr_stmt|;
+name|initDatOut
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|initDatOut
-specifier|protected
+specifier|private
 name|void
 name|initDatOut
 parameter_list|()
@@ -806,17 +809,6 @@ name|lastDocId
 assert|;
 if|if
 condition|(
-name|datOut
-operator|==
-literal|null
-condition|)
-block|{
-name|initDatOut
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|docID
 operator|-
 name|lastDocId
@@ -875,14 +867,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|datOut
-operator|==
-literal|null
-condition|)
-return|return;
-comment|// no data added - don't create file!
+try|try
+block|{
 if|if
 condition|(
 name|docCount
@@ -915,11 +901,15 @@ argument_list|)
 expr_stmt|;
 comment|// default value
 block|}
+block|}
+finally|finally
+block|{
 name|datOut
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1030,17 +1020,6 @@ name|lastDocId
 assert|;
 if|if
 condition|(
-name|datOut
-operator|==
-literal|null
-condition|)
-block|{
-name|initDatOut
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|docID
 operator|-
 name|lastDocId
@@ -1096,14 +1075,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|datOut
-operator|==
-literal|null
-condition|)
-return|return;
-comment|// no data added - don't create file!
+try|try
+block|{
 if|if
 condition|(
 name|docCount
@@ -1136,11 +1109,15 @@ argument_list|)
 expr_stmt|;
 comment|// default value
 block|}
+block|}
+finally|finally
+block|{
 name|datOut
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

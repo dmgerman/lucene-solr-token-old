@@ -237,7 +237,7 @@ name|segmentFileName
 argument_list|(
 name|segment
 argument_list|,
-literal|""
+name|id
 argument_list|,
 name|POSTINGS_EXTENSION
 argument_list|)

@@ -105,7 +105,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|FSDirectory
+name|Directory
 import|;
 end_import
 begin_comment
@@ -349,12 +349,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|FSDirectory
+name|Directory
 name|dir
 init|=
-name|FSDirectory
-operator|.
-name|open
+name|newFSDirectory
 argument_list|(
 name|this
 operator|.
@@ -424,7 +422,7 @@ parameter_list|(
 name|FileNotFoundException
 name|e1
 parameter_list|)
-block|{             }
+block|{         }
 block|}
 finally|finally
 block|{

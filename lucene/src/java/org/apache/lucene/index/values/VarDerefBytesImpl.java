@@ -674,9 +674,9 @@ name|CODEC_NAME
 argument_list|,
 name|VERSION_CURRENT
 argument_list|,
-literal|false
+literal|true
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 operator|new
 name|ByteBlockPool
@@ -732,15 +732,6 @@ literal|0
 condition|)
 return|return;
 comment|// default
-if|if
-condition|(
-name|datOut
-operator|==
-literal|null
-condition|)
-name|initDataOut
-argument_list|()
-expr_stmt|;
 specifier|final
 name|int
 name|e
@@ -979,16 +970,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|datOut
-operator|==
-literal|null
-condition|)
-return|return;
-name|initIndexOut
-argument_list|()
-expr_stmt|;
+try|try
+block|{
 name|idxOut
 operator|.
 name|writeInt
@@ -1106,6 +1089,9 @@ operator|.
 name|finish
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|hash
 operator|.
 name|close
@@ -1138,6 +1124,7 @@ name|docToAddress
 operator|=
 literal|null
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|class|Reader

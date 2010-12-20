@@ -615,7 +615,7 @@ name|upto
 argument_list|,
 name|RamUsageEstimator
 operator|.
-name|NUM_BYTES_OBJ_REF
+name|NUM_BYTES_OBJECT_REF
 argument_list|)
 index|]
 decl_stmt|;

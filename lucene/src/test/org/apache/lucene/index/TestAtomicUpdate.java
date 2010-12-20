@@ -1021,9 +1021,7 @@ argument_list|)
 decl_stmt|;
 name|directory
 operator|=
-name|FSDirectory
-operator|.
-name|open
+name|newFSDirectory
 argument_list|(
 name|dirPath
 argument_list|)

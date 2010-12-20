@@ -247,9 +247,6 @@ end_import
 begin_comment
 comment|/**  * Provides concrete Writer/Reader impls for byte[] value per document. There  * are 6 package-private impls of this, for all combinations of  * STRAIGHT/DEREF/SORTED X fixed/not fixed.  *   *<p>  * NOTE: The total amount of byte[] data stored (across a single segment) cannot  * exceed 2GB.  *</p>  *<p>  * NOTE: Each byte[] must be<= 32768 bytes in length  *</p>  * @lucene.experimental  */
 end_comment
-begin_comment
-comment|// TODO - add bulk copy where possible
-end_comment
 begin_class
 DECL|class|Bytes
 specifier|public
@@ -257,12 +254,15 @@ specifier|final
 class|class
 name|Bytes
 block|{
-comment|// don't instantiate!
+comment|//TODO - add bulk copy where possible
 DECL|method|Bytes
 specifier|private
 name|Bytes
 parameter_list|()
-block|{   }
+block|{
+comment|/* don't instantiate! */
+block|}
+comment|/**    *      *    */
 DECL|enum|Mode
 specifier|public
 specifier|static
@@ -1627,7 +1627,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|initDataOut
-specifier|protected
+specifier|private
 name|void
 name|initDataOut
 parameter_list|()
@@ -1665,7 +1665,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|initIndexOut
-specifier|protected
+specifier|private
 name|void
 name|initIndexOut
 parameter_list|()
