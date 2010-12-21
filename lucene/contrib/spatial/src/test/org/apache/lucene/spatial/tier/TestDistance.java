@@ -100,19 +100,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexWriterConfig
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|Term
 import|;
 end_import
@@ -178,7 +165,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|RAMDirectory
+name|Directory
 import|;
 end_import
 begin_class
@@ -191,7 +178,7 @@ name|LuceneTestCase
 block|{
 DECL|field|directory
 specifier|private
-name|RAMDirectory
+name|Directory
 name|directory
 decl_stmt|;
 comment|// reston va
@@ -232,7 +219,7 @@ decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -246,8 +233,7 @@ argument_list|()
 expr_stmt|;
 name|directory
 operator|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 expr_stmt|;
 name|writer
@@ -257,8 +243,7 @@ name|IndexWriter
 argument_list|(
 name|directory
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
@@ -277,7 +262,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|tearDown
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -285,6 +270,11 @@ throws|throws
 name|Exception
 block|{
 name|writer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|directory
 operator|.
 name|close
 argument_list|()
@@ -326,8 +316,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"name"
 argument_list|,
@@ -409,8 +398,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"metafile"
 argument_list|,
@@ -683,10 +671,12 @@ expr_stmt|;
 name|IndexReader
 name|r
 init|=
-name|writer
+name|IndexReader
 operator|.
-name|getReader
-argument_list|()
+name|open
+argument_list|(
+name|writer
+argument_list|)
 decl_stmt|;
 name|LatLongDistanceFilter
 name|f
@@ -750,6 +740,11 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+name|r
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/* these tests do not test anything, as no assertions:   public void testMiles() {     double LLM = DistanceUtils.getInstance().getLLMDistance(lat, lng,39.012200001, -77.3942);     System.out.println(LLM);     System.out.println("-->"+DistanceUtils.getInstance().getDistanceMi(lat, lng, 39.0122, -77.3942));   }      public void testMiles2(){     System.out.println("Test Miles 2");     double LLM = DistanceUtils.getInstance().getLLMDistance(44.30073, -78.32131,43.687267, -79.39842);     System.out.println(LLM);     System.out.println("-->"+DistanceUtils.getInstance().getDistanceMi(44.30073, -78.32131, 43.687267, -79.39842));        }   */
 comment|//  public void testDistanceQueryCacheable() throws IOException {

@@ -17,43 +17,6 @@ name|dataimport
 package|;
 end_package
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|handler
-operator|.
-name|dataimport
-operator|.
-name|AbstractDataImportHandlerTestCase
-operator|.
-name|createMap
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|SolrTestCaseJ4
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-begin_import
 import|import
 name|org
 operator|.
@@ -145,7 +108,7 @@ specifier|public
 class|class
 name|TestXPathEntityProcessor
 extends|extends
-name|SolrTestCaseJ4
+name|AbstractDataImportHandlerTestCase
 block|{
 DECL|field|simulateSlowReader
 name|boolean
@@ -172,25 +135,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|long
-name|time
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 name|File
 name|tmpdir
 init|=
-operator|new
 name|File
+operator|.
+name|createTempFile
 argument_list|(
-literal|"."
-operator|+
-name|time
+literal|"test"
+argument_list|,
+literal|"tmp"
+argument_list|,
+name|TEMP_DIR
 argument_list|)
 decl_stmt|;
+name|tmpdir
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
 name|tmpdir
 operator|.
 name|mkdir
@@ -201,8 +164,6 @@ operator|.
 name|deleteOnExit
 argument_list|()
 expr_stmt|;
-name|TestFileListEntityProcessor
-operator|.
 name|createFile
 argument_list|(
 name|tmpdir
@@ -295,8 +256,6 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -389,8 +348,6 @@ name|row
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|3
@@ -401,8 +358,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Empire Burlesque"
@@ -420,8 +375,6 @@ literal|"title"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Bonnie Tyler"
@@ -439,8 +392,6 @@ literal|"artist"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"1982"
@@ -521,8 +472,6 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -615,8 +564,6 @@ name|row
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|2
@@ -703,8 +650,6 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -781,8 +726,6 @@ operator|=
 name|row
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"1B2"
@@ -911,8 +854,6 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -1198,8 +1139,6 @@ argument_list|(
 literal|1000
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Expected thread to stop"
@@ -1214,8 +1153,6 @@ name|isAlive
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|rowsToRead
@@ -1239,8 +1176,6 @@ operator|<
 literal|0
 condition|)
 block|{
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Empire Burlesque"
@@ -1258,8 +1193,6 @@ literal|"title"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Bonnie Tyler"
@@ -1277,8 +1210,6 @@ literal|"artist"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"1982"
@@ -1366,25 +1297,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|long
-name|time
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 name|File
 name|tmpdir
 init|=
-operator|new
 name|File
+operator|.
+name|createTempFile
 argument_list|(
-literal|"."
-operator|+
-name|time
+literal|"test"
+argument_list|,
+literal|"tmp"
+argument_list|,
+name|TEMP_DIR
 argument_list|)
 decl_stmt|;
+name|tmpdir
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
 name|tmpdir
 operator|.
 name|mkdir
@@ -1449,8 +1380,6 @@ decl_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -1543,8 +1472,6 @@ name|row
 argument_list|)
 expr_stmt|;
 block|}
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|3
@@ -1555,8 +1482,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Empire Burlesque"
@@ -1574,8 +1499,6 @@ literal|"title"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"Bonnie Tyler"
@@ -1593,8 +1516,6 @@ literal|"artist"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 literal|"1982"

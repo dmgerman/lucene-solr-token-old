@@ -536,14 +536,9 @@ name|super
 argument_list|(
 name|q
 argument_list|,
-operator|new
-name|ValueSourceQuery
-index|[]
-block|{
 name|qValSrc1
-block|,
+argument_list|,
 name|qValSrc2
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1640,6 +1635,11 @@ argument_list|,
 name|q5CustomMulAdd
 argument_list|)
 expr_stmt|;
+name|s
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|// verify results are as expected.
 DECL|method|verifyResults
@@ -1786,6 +1786,8 @@ name|QueryUtils
 operator|.
 name|check
 argument_list|(
+name|random
+argument_list|,
 name|q1
 argument_list|,
 name|s
@@ -1795,6 +1797,8 @@ name|QueryUtils
 operator|.
 name|check
 argument_list|(
+name|random
+argument_list|,
 name|q2
 argument_list|,
 name|s
@@ -1804,6 +1808,8 @@ name|QueryUtils
 operator|.
 name|check
 argument_list|(
+name|random
+argument_list|,
 name|q3
 argument_list|,
 name|s
@@ -1813,6 +1819,8 @@ name|QueryUtils
 operator|.
 name|check
 argument_list|(
+name|random
+argument_list|,
 name|q4
 argument_list|,
 name|s
@@ -1822,6 +1830,8 @@ name|QueryUtils
 operator|.
 name|check
 argument_list|(
+name|random
+argument_list|,
 name|q5
 argument_list|,
 name|s

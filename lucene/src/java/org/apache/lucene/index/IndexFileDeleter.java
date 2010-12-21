@@ -83,7 +83,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|Date
 import|;
 end_import
 begin_import
@@ -92,7 +92,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
+name|HashMap
 import|;
 end_import
 begin_import
@@ -154,8 +154,21 @@ operator|.
 name|NoSuchDirectoryException
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|CollectionUtil
+import|;
+end_import
 begin_comment
-comment|/*  * This class keeps track of each SegmentInfos instance that  * is still "live", either because it corresponds to a  * segments_N file in the Directory (a "commit", i.e. a  * committed SegmentInfos) or because it's an in-memory  * SegmentInfos that a writer is actively updating but has  * not yet committed.  This class uses simple reference  * counting to map the live SegmentInfos instances to  * individual files in the Directory.  *  * The same directory file may be referenced by more than  * one IndexCommit, i.e. more than one SegmentInfos.  * Therefore we count how many commits reference each file.  * When all the commits referencing a certain file have been  * deleted, the refcount for that file becomes zero, and the  * file is deleted.  *  * A separate deletion policy interface  * (IndexDeletionPolicy) is consulted on creation (onInit)  * and once per commit (onCommit), to decide when a commit  * should be removed.  *   * It is the business of the IndexDeletionPolicy to choose  * when to delete commit points.  The actual mechanics of  * file deletion, retrying, etc, derived from the deletion  * of commit points is the business of the IndexFileDeleter.  *   * The current default deletion policy is {@link  * KeepOnlyLastCommitDeletionPolicy}, which removes all  * prior commits when a new commit has completed.  This  * matches the behavior before 2.2.  *  * Note that you must hold the write.lock before  * instantiating this class.  It opens segments_N file(s)  * directly with no retry logic.  */
+comment|/*  * This class keeps track of each SegmentInfos instance that  * is still "live", either because it corresponds to a  * segments_N file in the Directory (a "commit", i.e. a  * committed SegmentInfos) or because it's an in-memory  * SegmentInfos that a writer is actively updating but has  * not yet committed.  This class uses simple reference  * counting to map the live SegmentInfos instances to  * individual files in the Directory.  *  * The same directory file may be referenced by more than  * one IndexCommit, i.e. more than one SegmentInfos.  * Therefore we count how many commits reference each file.  * When all the commits referencing a certain file have been  * deleted, the refcount for that file becomes zero, and the  * file is deleted.  *  * A separate deletion policy interface  * (IndexDeletionPolicy) is consulted on creation (onInit)  * and once per commit (onCommit), to decide when a commit  * should be removed.  *  * It is the business of the IndexDeletionPolicy to choose  * when to delete commit points.  The actual mechanics of  * file deletion, retrying, etc, derived from the deletion  * of commit points is the business of the IndexFileDeleter.  *  * The current default deletion policy is {@link  * KeepOnlyLastCommitDeletionPolicy}, which removes all  * prior commits when a new commit has completed.  This  * matches the behavior before 2.2.  *  * Note that you must hold the write.lock before  * instantiating this class.  It opens segments_N file(s)  * directly with no retry logic.  */
 end_comment
 begin_class
 DECL|class|IndexFileDeleter
@@ -172,7 +185,7 @@ name|String
 argument_list|>
 name|deletable
 decl_stmt|;
-comment|/* Reference count for all files in the index.      * Counts how many existing commits reference a file.    **/
+comment|/* Reference count for all files in the index.    * Counts how many existing commits reference a file.    **/
 DECL|field|refCounts
 specifier|private
 name|Map
@@ -261,11 +274,6 @@ specifier|private
 name|IndexDeletionPolicy
 name|policy
 decl_stmt|;
-DECL|field|docWriter
-specifier|private
-name|DocumentsWriter
-name|docWriter
-decl_stmt|;
 DECL|field|startingCommitDeleted
 specifier|final
 name|boolean
@@ -305,6 +313,7 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|message
 argument_list|(
 literal|"setInfoStream deletionPolicy="
@@ -312,6 +321,7 @@ operator|+
 name|policy
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|message
 specifier|private
@@ -327,6 +337,12 @@ operator|.
 name|println
 argument_list|(
 literal|"IFD ["
+operator|+
+operator|new
+name|Date
+argument_list|()
+operator|+
+literal|"; "
 operator|+
 name|Thread
 operator|.
@@ -365,9 +381,6 @@ parameter_list|,
 name|PrintStream
 name|infoStream
 parameter_list|,
-name|DocumentsWriter
-name|docWriter
-parameter_list|,
 name|CodecProvider
 name|codecs
 parameter_list|)
@@ -376,12 +389,6 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
-name|this
-operator|.
-name|docWriter
-operator|=
-name|docWriter
-expr_stmt|;
 name|this
 operator|.
 name|infoStream
@@ -403,6 +410,7 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|message
 argument_list|(
 literal|"init: current segments file is \""
@@ -414,6 +422,7 @@ operator|+
 name|policy
 argument_list|)
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|policy
@@ -564,7 +573,9 @@ name|sis
 init|=
 operator|new
 name|SegmentInfos
-argument_list|()
+argument_list|(
+name|codecs
+argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -749,7 +760,9 @@ name|sis
 init|=
 operator|new
 name|SegmentInfos
-argument_list|()
+argument_list|(
+name|codecs
+argument_list|)
 decl_stmt|;
 try|try
 block|{
@@ -785,6 +798,7 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|message
 argument_list|(
 literal|"forced open of current segments file "
@@ -795,6 +809,7 @@ name|getCurrentSegmentFileName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|currentCommitPoint
 operator|=
 operator|new
@@ -823,9 +838,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// We keep commits list in sorted order (oldest to newest):
-name|Collections
+name|CollectionUtil
 operator|.
-name|sort
+name|mergeSort
 argument_list|(
 name|commits
 argument_list|)
@@ -1358,6 +1373,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|decRef
 argument_list|(
 name|lastFiles
@@ -1368,6 +1384,7 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|lastFiles
 operator|.
 name|clear
@@ -1477,6 +1494,7 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|message
 argument_list|(
 literal|"delete pending file "
@@ -1489,6 +1507,7 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|deleteFile
 argument_list|(
 name|oldDeletable
@@ -1502,7 +1521,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * For definition of "check point" see IndexWriter comments:    * "Clarification: Check Points (and commits)".    *     * Writer calls this when it has made a "consistent    * change" to the index, meaning new files are written to    * the index and the in-memory SegmentInfos have been    * modified to point to those files.    *    * This may or may not be a commit (segments_N may or may    * not have been written).    *    * We simply incref the files referenced by the new    * SegmentInfos and decref the files we had previously    * seen (if any).    *    * If this is a commit, we also call the policy to give it    * a chance to remove other commits.  If any commits are    * removed, we decref their files as well.    */
+comment|/**    * For definition of "check point" see IndexWriter comments:    * "Clarification: Check Points (and commits)".    *    * Writer calls this when it has made a "consistent    * change" to the index, meaning new files are written to    * the index and the in-memory SegmentInfos have been    * modified to point to those files.    *    * This may or may not be a commit (segments_N may or may    * not have been written).    *    * We simply incref the files referenced by the new    * SegmentInfos and decref the files we had previously    * seen (if any).    *    * If this is a commit, we also call the policy to give it    * a chance to remove other commits.  If any commits are    * removed, we decref their files as well.    */
 DECL|method|checkpoint
 specifier|public
 name|void
@@ -1597,51 +1616,28 @@ block|}
 else|else
 block|{
 comment|// DecRef old files from the last checkpoint, if any:
-name|int
-name|size
-init|=
-name|lastFiles
-operator|.
-name|size
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|size
-operator|>
-literal|0
-condition|)
-block|{
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|size
-condition|;
-name|i
-operator|++
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|lastFile
+range|:
+name|lastFiles
 control|)
+block|{
 name|decRef
 argument_list|(
-name|lastFiles
-operator|.
-name|get
-argument_list|(
-name|i
-argument_list|)
+name|lastFile
 argument_list|)
 expr_stmt|;
+block|}
 name|lastFiles
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-block|}
 comment|// Save files so we can decr on next checkpoint/commit:
 name|lastFiles
 operator|.
@@ -1902,6 +1898,44 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|exists
+specifier|public
+name|boolean
+name|exists
+parameter_list|(
+name|String
+name|fileName
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|refCounts
+operator|.
+name|containsKey
+argument_list|(
+name|fileName
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+else|else
+block|{
+return|return
+name|getRefCount
+argument_list|(
+name|fileName
+argument_list|)
+operator|.
+name|count
+operator|>
+literal|0
+return|;
+block|}
+block|}
 DECL|method|getRefCount
 specifier|private
 name|RefCount
@@ -1980,11 +2014,13 @@ name|file
 range|:
 name|files
 control|)
+block|{
 name|deleteFile
 argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/** Deletes the specified files, but only if they are new    *  (have not yet been incref'd). */
 DECL|method|deleteNewFiles
@@ -2019,11 +2055,30 @@ argument_list|(
 name|fileName
 argument_list|)
 condition|)
+block|{
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"delete new file \""
+operator|+
+name|fileName
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
+block|}
 name|deleteFile
 argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|deleteFile
@@ -2198,7 +2253,15 @@ name|count
 operator|>
 literal|0
 operator|:
-literal|"RefCount is 0 pre-increment for file \""
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": RefCount is 0 pre-increment for file \""
 operator|+
 name|fileName
 operator|+
@@ -2221,7 +2284,15 @@ name|count
 operator|>
 literal|0
 operator|:
-literal|"RefCount is 0 pre-decrement for file \""
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": RefCount is 0 pre-decrement for file \""
 operator|+
 name|fileName
 operator|+
@@ -2242,16 +2313,7 @@ class|class
 name|CommitPoint
 extends|extends
 name|IndexCommit
-implements|implements
-name|Comparable
-argument_list|<
-name|CommitPoint
-argument_list|>
 block|{
-DECL|field|gen
-name|long
-name|gen
-decl_stmt|;
 DECL|field|files
 name|Collection
 argument_list|<
@@ -2376,13 +2438,6 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|gen
-operator|=
-name|segmentInfos
-operator|.
-name|getGeneration
-argument_list|()
-expr_stmt|;
 name|isOptimized
 operator|=
 name|segmentInfos
@@ -2403,6 +2458,22 @@ operator|.
 name|hasDeletions
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"IndexFileDeleter.CommitPoint("
+operator|+
+name|segmentsFileName
+operator|+
+literal|")"
+return|;
 block|}
 annotation|@
 name|Override
@@ -2537,50 +2608,6 @@ block|{
 return|return
 name|deleted
 return|;
-block|}
-DECL|method|compareTo
-specifier|public
-name|int
-name|compareTo
-parameter_list|(
-name|CommitPoint
-name|commit
-parameter_list|)
-block|{
-if|if
-condition|(
-name|gen
-operator|<
-name|commit
-operator|.
-name|gen
-condition|)
-block|{
-return|return
-operator|-
-literal|1
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|gen
-operator|>
-name|commit
-operator|.
-name|gen
-condition|)
-block|{
-return|return
-literal|1
-return|;
-block|}
-else|else
-block|{
-return|return
-literal|0
-return|;
-block|}
 block|}
 block|}
 block|}

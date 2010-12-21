@@ -1767,10 +1767,6 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|String
-index|[]
-operator|)
 name|a
 operator|.
 name|toArray

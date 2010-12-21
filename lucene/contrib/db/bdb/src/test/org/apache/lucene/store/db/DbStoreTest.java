@@ -230,7 +230,7 @@ decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -508,7 +508,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|tearDown
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -577,8 +577,7 @@ decl_stmt|;
 name|Random
 name|r
 init|=
-name|newRandom
-argument_list|()
+name|random
 decl_stmt|;
 specifier|final
 name|long
@@ -1369,8 +1368,7 @@ decl_stmt|;
 name|Random
 name|r
 init|=
-name|newRandom
-argument_list|()
+name|random
 decl_stmt|;
 specifier|final
 name|long

@@ -88,21 +88,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|codecs
-operator|.
-name|CodecProvider
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|Directory
@@ -118,7 +103,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -177,6 +162,11 @@ DECL|field|flushAt
 name|int
 name|flushAt
 decl_stmt|;
+DECL|field|getReaderCalled
+specifier|private
+name|boolean
+name|getReaderCalled
+decl_stmt|;
 comment|// Randomly calls Thread.yield so we mixup thread scheduling
 DECL|class|MockIndexWriter
 specifier|private
@@ -216,11 +206,21 @@ argument_list|,
 name|conf
 argument_list|)
 expr_stmt|;
+comment|// must make a private random since our methods are
+comment|// called from different threads; else test failures may
+comment|// not be reproducible from the original seed
 name|this
 operator|.
 name|r
 operator|=
+operator|new
+name|Random
+argument_list|(
 name|r
+operator|.
+name|nextInt
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -274,13 +274,13 @@ name|r
 argument_list|,
 name|dir
 argument_list|,
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|newIndexWriterConfig
 argument_list|(
 name|r
 argument_list|,
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|TEST_VERSION_CURRENT
 argument_list|,
@@ -314,13 +314,13 @@ name|r
 argument_list|,
 name|dir
 argument_list|,
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|newIndexWriterConfig
 argument_list|(
 name|r
 argument_list|,
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|TEST_VERSION_CURRENT
 argument_list|,
@@ -355,7 +355,7 @@ name|r
 argument_list|,
 name|dir
 argument_list|,
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|newIndexWriterConfig
 argument_list|(
@@ -418,7 +418,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|VERBOSE
 condition|)
@@ -445,9 +445,15 @@ name|println
 argument_list|(
 literal|"codec default="
 operator|+
-name|CodecProvider
+name|w
 operator|.
-name|getDefaultCodec
+name|getConfig
+argument_list|()
+operator|.
+name|getCodecProvider
+argument_list|()
+operator|.
+name|getDefaultFieldCodec
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -479,6 +485,23 @@ operator|==
 name|flushAt
 condition|)
 block|{
+if|if
+condition|(
+name|LuceneTestCase
+operator|.
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"RIW.addDocument: now doing a commit"
+argument_list|)
+expr_stmt|;
+block|}
 name|w
 operator|.
 name|commit
@@ -558,6 +581,21 @@ name|commit
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|numDocs
+specifier|public
+name|int
+name|numDocs
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|w
+operator|.
+name|numDocs
+argument_list|()
+return|;
+block|}
 DECL|method|maxDoc
 specifier|public
 name|int
@@ -571,6 +609,20 @@ name|maxDoc
 argument_list|()
 return|;
 block|}
+DECL|method|deleteAll
+specifier|public
+name|void
+name|deleteAll
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|w
+operator|.
+name|deleteAll
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|getReader
 specifier|public
 name|IndexReader
@@ -579,6 +631,26 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|getReaderCalled
+operator|=
+literal|true
+expr_stmt|;
+if|if
+condition|(
+name|r
+operator|.
+name|nextInt
+argument_list|(
+literal|4
+argument_list|)
+operator|==
+literal|2
+condition|)
+name|w
+operator|.
+name|optimize
+argument_list|()
+expr_stmt|;
 comment|// If we are writing with PreFlexRW, force a full
 comment|// IndexReader.open so terms are sorted in codepoint
 comment|// order during searching:
@@ -589,12 +661,8 @@ name|w
 operator|.
 name|codecs
 operator|.
-name|getWriter
-argument_list|(
-literal|null
-argument_list|)
-operator|.
-name|name
+name|getDefaultFieldCodec
+argument_list|()
 operator|.
 name|equals
 argument_list|(
@@ -609,7 +677,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|VERBOSE
 condition|)
@@ -635,7 +703,7 @@ else|else
 block|{
 if|if
 condition|(
-name|LuceneTestCaseJ4
+name|LuceneTestCase
 operator|.
 name|VERBOSE
 condition|)
@@ -696,8 +764,14 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// if someone isn't using getReader() API, we want to be sure to
+comment|// maybeOptimize since presumably they might open a reader on the dir.
 if|if
 condition|(
+name|getReaderCalled
+operator|==
+literal|false
+operator|&&
 name|r
 operator|.
 name|nextInt

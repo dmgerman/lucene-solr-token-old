@@ -944,9 +944,6 @@ block|{
 name|Integer
 name|idInteger
 init|=
-operator|(
-name|Integer
-operator|)
 name|rpath
 operator|.
 name|get

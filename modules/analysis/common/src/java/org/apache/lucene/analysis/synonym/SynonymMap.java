@@ -213,7 +213,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// for now hardcode at 2.9, as its what the old code did.
+comment|// for now hardcode at 4.0, as its what the old code did.
 comment|// would be nice to fix, but shouldn't store a version in each submap!!!
 name|currMap
 operator|.
@@ -227,7 +227,7 @@ argument_list|>
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_29
+name|LUCENE_40
 argument_list|,
 literal|1
 argument_list|,
@@ -340,10 +340,6 @@ name|currMap
 operator|.
 name|synonyms
 operator|=
-operator|(
-name|Token
-index|[]
-operator|)
 name|superset
 operator|.
 name|toArray

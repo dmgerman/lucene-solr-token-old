@@ -470,7 +470,7 @@ name|append
 argument_list|(
 name|fsd
 operator|.
-name|getFile
+name|getDirectory
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -984,7 +984,7 @@ name|fdir
 init|=
 name|fsd
 operator|.
-name|getFile
+name|getDirectory
 argument_list|()
 decl_stmt|;
 name|sb

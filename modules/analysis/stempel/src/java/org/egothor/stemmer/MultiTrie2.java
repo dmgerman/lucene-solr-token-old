@@ -1263,6 +1263,11 @@ operator|-
 literal|1
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"fallthrough"
+argument_list|)
 DECL|method|lengthPP
 specifier|private
 name|int
@@ -1332,6 +1337,7 @@ case|:
 name|len
 operator|++
 expr_stmt|;
+comment|/* intentional fallthrough */
 case|case
 literal|'I'
 case|:

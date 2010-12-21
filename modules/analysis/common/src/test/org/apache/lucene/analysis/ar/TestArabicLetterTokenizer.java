@@ -61,9 +61,11 @@ name|Version
 import|;
 end_import
 begin_comment
-comment|/**  * Testcase for {@link TestArabicLetterTokenizer}  */
+comment|/**  * Testcase for {@link TestArabicLetterTokenizer}  * @deprecated (3.1) Remove in Lucene 5.0  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TestArabicLetterTokenizer
 specifier|public
 class|class

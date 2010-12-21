@@ -20,15 +20,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Random
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|BitSet
 import|;
 end_import
@@ -53,10 +44,6 @@ name|TestOpenBitSet
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|field|rand
-name|Random
-name|rand
-decl_stmt|;
 DECL|method|doGet
 name|void
 name|doGet
@@ -277,7 +264,7 @@ argument_list|)
 expr_stmt|;
 name|bb
 operator|=
-name|rand
+name|random
 operator|.
 name|nextBoolean
 argument_list|()
@@ -367,7 +354,7 @@ argument_list|)
 expr_stmt|;
 name|bb
 operator|=
-name|rand
+name|random
 operator|.
 name|nextBoolean
 argument_list|()
@@ -453,7 +440,7 @@ block|{
 name|int
 name|sz
 init|=
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -489,7 +476,7 @@ block|{
 name|int
 name|nOper
 init|=
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -516,7 +503,7 @@ name|idx
 decl_stmt|;
 name|idx
 operator|=
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -539,7 +526,7 @@ argument_list|)
 expr_stmt|;
 name|idx
 operator|=
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -562,7 +549,7 @@ argument_list|)
 expr_stmt|;
 name|idx
 operator|=
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -678,7 +665,7 @@ name|toIndex
 decl_stmt|;
 name|fromIndex
 operator|=
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -691,7 +678,7 @@ name|toIndex
 operator|=
 name|fromIndex
 operator|+
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -756,7 +743,7 @@ expr_stmt|;
 comment|// a problem here is from flip or doIterate
 name|fromIndex
 operator|=
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -769,7 +756,7 @@ name|toIndex
 operator|=
 name|fromIndex
 operator|+
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -830,7 +817,7 @@ expr_stmt|;
 comment|// a problem here is from clear() or nextSetBit
 name|fromIndex
 operator|=
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -843,7 +830,7 @@ name|toIndex
 operator|=
 name|fromIndex
 operator|+
-name|rand
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -1266,11 +1253,6 @@ name|void
 name|testSmall
 parameter_list|()
 block|{
-name|rand
-operator|=
-name|newRandom
-argument_list|()
-expr_stmt|;
 name|doRandomSets
 argument_list|(
 literal|1200
@@ -1315,11 +1297,6 @@ name|void
 name|testEquals
 parameter_list|()
 block|{
-name|rand
-operator|=
-name|newRandom
-argument_list|()
-expr_stmt|;
 name|OpenBitSet
 name|b1
 init|=
@@ -1486,11 +1463,6 @@ name|void
 name|testBitUtils
 parameter_list|()
 block|{
-name|rand
-operator|=
-name|newRandom
-argument_list|()
-expr_stmt|;
 name|long
 name|num
 init|=

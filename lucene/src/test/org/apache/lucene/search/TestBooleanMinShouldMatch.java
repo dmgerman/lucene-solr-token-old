@@ -107,19 +107,6 @@ import|;
 end_import
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|RAMDirectory
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|text
@@ -147,11 +134,6 @@ name|TestBooleanMinShouldMatch
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|field|rnd
-specifier|private
-name|Random
-name|rnd
-decl_stmt|;
 DECL|field|index
 specifier|private
 name|Directory
@@ -170,7 +152,7 @@ decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -180,11 +162,6 @@ block|{
 name|super
 operator|.
 name|setUp
-argument_list|()
-expr_stmt|;
-name|rnd
-operator|=
-name|newRandom
 argument_list|()
 expr_stmt|;
 name|String
@@ -214,8 +191,7 @@ block|}
 decl_stmt|;
 name|index
 operator|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 expr_stmt|;
 name|RandomIndexWriter
@@ -224,7 +200,7 @@ init|=
 operator|new
 name|RandomIndexWriter
 argument_list|(
-name|rnd
+name|random
 argument_list|,
 name|index
 argument_list|)
@@ -257,8 +233,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -288,8 +263,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"all"
 argument_list|,
@@ -324,8 +298,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"data"
 argument_list|,
@@ -383,7 +356,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|tearDown
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -477,6 +450,8 @@ name|QueryUtils
 operator|.
 name|check
 argument_list|(
+name|random
+argument_list|,
 name|q
 argument_list|,
 name|s
@@ -2633,7 +2608,7 @@ name|q
 operator|.
 name|setMinimumNumberShouldMatch
 argument_list|(
-name|rnd
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -2672,7 +2647,7 @@ block|{
 name|int
 name|lev
 init|=
-name|rnd
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -2683,7 +2658,7 @@ specifier|final
 name|long
 name|seed
 init|=
-name|rnd
+name|random
 operator|.
 name|nextLong
 argument_list|()
@@ -2788,6 +2763,8 @@ name|QueryUtils
 operator|.
 name|check
 argument_list|(
+name|random
+argument_list|,
 name|q1
 argument_list|,
 name|s
@@ -2797,6 +2774,8 @@ name|QueryUtils
 operator|.
 name|check
 argument_list|(
+name|random
+argument_list|,
 name|q2
 argument_list|,
 name|s

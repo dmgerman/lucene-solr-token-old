@@ -980,7 +980,10 @@ name|String
 name|part2
 parameter_list|,
 name|boolean
-name|inclusive
+name|startInclusive
+parameter_list|,
+name|boolean
+name|endInclusive
 parameter_list|)
 throws|throws
 name|ParseException
@@ -1040,7 +1043,9 @@ name|part1
 argument_list|,
 name|part2
 argument_list|,
-name|inclusive
+name|startInclusive
+argument_list|,
+name|endInclusive
 argument_list|)
 argument_list|,
 name|BooleanClause
@@ -1072,7 +1077,9 @@ name|part1
 argument_list|,
 name|part2
 argument_list|,
-name|inclusive
+name|startInclusive
+argument_list|,
+name|endInclusive
 argument_list|)
 return|;
 block|}

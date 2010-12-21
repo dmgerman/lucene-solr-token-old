@@ -747,14 +747,6 @@ name|String
 name|params
 parameter_list|)
 block|{
-if|if
-condition|(
-name|super
-operator|.
-name|supportsParams
-argument_list|()
-condition|)
-block|{
 name|super
 operator|.
 name|setParams
@@ -762,7 +754,6 @@ argument_list|(
 name|params
 argument_list|)
 expr_stmt|;
-block|}
 name|docSize
 operator|=
 operator|(

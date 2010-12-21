@@ -181,27 +181,6 @@ name|TestSpanQueryParserSimpleSample
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|method|TestSpanQueryParserSimpleSample
-specifier|public
-name|TestSpanQueryParserSimpleSample
-parameter_list|()
-block|{
-comment|// empty constructor
-block|}
-DECL|method|TestSpanQueryParserSimpleSample
-specifier|public
-name|TestSpanQueryParserSimpleSample
-parameter_list|(
-name|String
-name|testName
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|testName
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|testBasicDemo
 specifier|public
 name|void
@@ -272,7 +251,7 @@ decl_stmt|;
 comment|// @see SpansValidatorQueryNodeProcessor
 name|spanProcessorPipeline
 operator|.
-name|addProcessor
+name|add
 argument_list|(
 operator|new
 name|SpansValidatorQueryNodeProcessor
@@ -282,7 +261,7 @@ expr_stmt|;
 comment|// @see UniqueFieldQueryNodeProcessor
 name|spanProcessorPipeline
 operator|.
-name|addProcessor
+name|add
 argument_list|(
 operator|new
 name|UniqueFieldQueryNodeProcessor

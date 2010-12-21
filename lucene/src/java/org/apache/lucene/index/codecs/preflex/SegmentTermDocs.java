@@ -110,7 +110,7 @@ name|Bits
 import|;
 end_import
 begin_comment
-comment|/** @deprecated   *  @lucene.experimental */
+comment|/** @deprecated (4.0)  *  @lucene.experimental */
 end_comment
 begin_class
 annotation|@

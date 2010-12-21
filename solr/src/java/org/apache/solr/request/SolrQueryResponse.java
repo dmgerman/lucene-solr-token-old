@@ -36,6 +36,8 @@ begin_comment
 comment|/**  * @deprecated use org.apache.solr.response.SolrQueryResponse  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|SolrQueryResponse
 specifier|public
 class|class

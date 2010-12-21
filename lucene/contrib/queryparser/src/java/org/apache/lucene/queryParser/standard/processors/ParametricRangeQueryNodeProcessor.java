@@ -82,19 +82,6 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DateField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
 name|DateTools
 import|;
 end_import
@@ -682,37 +669,6 @@ name|getTime
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|dateRes
-operator|==
-literal|null
-condition|)
-block|{
-comment|// no default or field specific date resolution has been set,
-comment|// use deprecated DateField to maintain compatibilty with
-comment|// pre-1.9 Lucene versions.
-name|part1
-operator|=
-name|DateField
-operator|.
-name|dateToString
-argument_list|(
-name|d1
-argument_list|)
-expr_stmt|;
-name|part2
-operator|=
-name|DateField
-operator|.
-name|dateToString
-argument_list|(
-name|d2
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|part1
 operator|=
 name|DateTools
@@ -735,7 +691,6 @@ argument_list|,
 name|dateRes
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(

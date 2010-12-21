@@ -22,6 +22,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|common
@@ -116,22 +129,13 @@ operator|.
 name|HashMap
 import|;
 end_import
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
 begin_class
 DECL|class|TestNamedListCodec
 specifier|public
 class|class
 name|TestNamedListCodec
 extends|extends
-name|TestCase
+name|LuceneTestCase
 block|{
 DECL|method|testSimple
 specifier|public
@@ -1385,9 +1389,7 @@ DECL|field|r
 name|Random
 name|r
 init|=
-operator|new
-name|Random
-argument_list|()
+name|random
 decl_stmt|;
 DECL|method|makeRandom
 specifier|public
@@ -1523,15 +1525,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Random
-name|r
-init|=
-operator|new
-name|Random
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
+comment|// Random r = random;
 comment|// let's keep it deterministic since just the wrong
 comment|// random stuff could cause failure because of an OOM (too big)
 name|NamedList
@@ -1654,8 +1648,6 @@ argument_list|(
 name|res
 argument_list|)
 expr_stmt|;
-name|TestCase
-operator|.
 name|fail
 argument_list|(
 name|cmp

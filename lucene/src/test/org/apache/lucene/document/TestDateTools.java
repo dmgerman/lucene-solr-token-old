@@ -84,7 +84,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LocalizedTestCase
+name|LuceneTestCase
 import|;
 end_import
 begin_comment
@@ -96,7 +96,7 @@ specifier|public
 class|class
 name|TestDateTools
 extends|extends
-name|LocalizedTestCase
+name|LuceneTestCase
 block|{
 DECL|method|testStringToDate
 specifier|public

@@ -78,8 +78,6 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|standard
-operator|.
 name|TermState
 import|;
 end_import
@@ -95,9 +93,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|standard
-operator|.
-name|StandardPostingsReader
+name|PostingsReaderBase
 import|;
 end_import
 begin_import
@@ -208,12 +204,12 @@ specifier|public
 class|class
 name|PulsingPostingsReaderImpl
 extends|extends
-name|StandardPostingsReader
+name|PostingsReaderBase
 block|{
 comment|// Fallback reader for non-pulsed terms:
 DECL|field|wrappedPostingsReader
 specifier|final
-name|StandardPostingsReader
+name|PostingsReaderBase
 name|wrappedPostingsReader
 decl_stmt|;
 DECL|field|maxPulsingDocFreq
@@ -224,7 +220,7 @@ DECL|method|PulsingPostingsReaderImpl
 specifier|public
 name|PulsingPostingsReaderImpl
 parameter_list|(
-name|StandardPostingsReader
+name|PostingsReaderBase
 name|wrappedPostingsReader
 parameter_list|)
 throws|throws
@@ -331,10 +327,6 @@ name|clone
 operator|.
 name|docs
 operator|=
-operator|(
-name|Document
-index|[]
-operator|)
 name|docs
 operator|.
 name|clone

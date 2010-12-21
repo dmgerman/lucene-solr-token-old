@@ -214,6 +214,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|io
 operator|.
 name|File
@@ -328,6 +337,18 @@ argument_list|,
 literal|"fmap.Keywords"
 argument_list|,
 literal|"extractedKeywords"
+argument_list|,
+literal|"fmap.Creation-Date"
+argument_list|,
+literal|"extractedDate"
+argument_list|,
+literal|"fmap.AAPL:Keywords"
+argument_list|,
+literal|"ignored_a"
+argument_list|,
+literal|"fmap.xmpTPg:NPages"
+argument_list|,
+literal|"ignored_a"
 argument_list|,
 literal|"fmap.Author"
 argument_list|,
@@ -711,6 +732,11 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|ignoreException
+argument_list|(
+literal|"unknown field 'a'"
+argument_list|)
+expr_stmt|;
 name|loadLocal
 argument_list|(
 literal|"simple.html"
@@ -747,6 +773,12 @@ name|e
 parameter_list|)
 block|{
 comment|//do nothing
+block|}
+finally|finally
+block|{
+name|resetExceptionIgnores
+argument_list|()
+expr_stmt|;
 block|}
 name|loadLocal
 argument_list|(
@@ -1778,6 +1810,18 @@ literal|"fmap.Keywords"
 argument_list|,
 literal|"extractedKeywords"
 argument_list|,
+literal|"fmap.Creation-Date"
+argument_list|,
+literal|"extractedDate"
+argument_list|,
+literal|"fmap.AAPL:Keywords"
+argument_list|,
+literal|"ignored_a"
+argument_list|,
+literal|"fmap.xmpTPg:NPages"
+argument_list|,
+literal|"ignored_a"
+argument_list|,
 literal|"fmap.Author"
 argument_list|,
 literal|"extractedAuthor"
@@ -1847,6 +1891,8 @@ argument_list|(
 name|args
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 comment|// TODO: stop using locally defined streams once stream.file and
 comment|// stream.body work everywhere
 name|List
@@ -1896,6 +1942,15 @@ argument_list|,
 name|req
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|req
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

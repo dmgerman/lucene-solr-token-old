@@ -140,7 +140,7 @@ name|handler
 operator|.
 name|clustering
 operator|.
-name|AbstractClusteringTest
+name|AbstractClusteringTestCase
 import|;
 end_import
 begin_import
@@ -275,7 +275,7 @@ specifier|public
 class|class
 name|CarrotClusteringEngineTest
 extends|extends
-name|AbstractClusteringTest
+name|AbstractClusteringTestCase
 block|{
 annotation|@
 name|Test
@@ -287,6 +287,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Note: the expected number of clusters may change after upgrading Carrot2
+comment|// due to e.g. internal improvements or tuning of Carrot2 clustering.
+specifier|final
+name|int
+name|expectedNumClusters
+init|=
+literal|10
+decl_stmt|;
 name|checkEngine
 argument_list|(
 name|getClusteringEngine
@@ -294,7 +302,7 @@ argument_list|(
 literal|"default"
 argument_list|)
 argument_list|,
-literal|10
+name|expectedNumClusters
 argument_list|)
 expr_stmt|;
 block|}
@@ -338,6 +346,14 @@ literal|"200"
 argument_list|)
 expr_stmt|;
 comment|//how do we validate this?
+comment|// Note: the expected number of clusters may change after upgrading Carrot2
+comment|// due to e.g. internal improvements or tuning of Carrot2 clustering.
+specifier|final
+name|int
+name|expectedNumClusters
+init|=
+literal|15
+decl_stmt|;
 name|checkEngine
 argument_list|(
 name|getClusteringEngine
@@ -350,7 +366,7 @@ operator|-
 literal|2
 comment|/*two don't have mining in the snippet*/
 argument_list|,
-literal|15
+name|expectedNumClusters
 argument_list|,
 operator|new
 name|TermQuery

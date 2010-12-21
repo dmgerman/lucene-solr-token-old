@@ -661,11 +661,6 @@ name|sdoc
 argument_list|)
 expr_stmt|;
 block|}
-name|responseWriter
-operator|.
-name|end
-argument_list|()
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -946,12 +941,6 @@ control|(
 name|Fieldable
 name|f
 range|:
-operator|(
-name|List
-argument_list|<
-name|Fieldable
-argument_list|>
-operator|)
 name|doc
 operator|.
 name|getFields

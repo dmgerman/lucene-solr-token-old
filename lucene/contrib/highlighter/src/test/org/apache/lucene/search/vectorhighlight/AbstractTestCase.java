@@ -362,19 +362,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|store
-operator|.
-name|RAMDirectory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|LuceneTestCase
@@ -457,6 +444,10 @@ index|[]
 name|shortMVValues
 init|=
 block|{
+literal|""
+block|,
+literal|""
+block|,
 literal|"a b c"
 block|,
 literal|""
@@ -513,7 +504,7 @@ decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -581,15 +572,14 @@ argument_list|)
 expr_stmt|;
 name|dir
 operator|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 expr_stmt|;
 block|}
 annotation|@
 name|Override
 DECL|method|tearDown
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -613,6 +603,11 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|dir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|super
 operator|.
 name|tearDown
@@ -1877,6 +1872,17 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|reader
+operator|!=
+literal|null
+condition|)
+name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|reader
 operator|=
 name|IndexReader
@@ -1977,6 +1983,17 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|reader
+operator|!=
+literal|null
+condition|)
+name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|reader
 operator|=
 name|IndexReader
@@ -1997,11 +2014,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//  012345
+comment|//  0
+comment|// ""
+comment|//  1
+comment|// ""
+comment|//  234567
 comment|// "a b c"
 comment|//  0 1 2
+comment|//  8
 comment|// ""
-comment|//  6789
+comment|//   111
+comment|//  9012
 comment|// "d e"
 comment|//  3 4
 name|make1dmfIndex

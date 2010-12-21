@@ -20,6 +20,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|common
@@ -208,6 +221,8 @@ DECL|class|TestJmxMonitoredMap
 specifier|public
 class|class
 name|TestJmxMonitoredMap
+extends|extends
+name|LuceneTestCase
 block|{
 DECL|field|port
 specifier|private
@@ -246,6 +261,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 name|int
 name|retries
 init|=
@@ -428,6 +448,11 @@ name|Exception
 name|e
 parameter_list|)
 block|{     }
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test

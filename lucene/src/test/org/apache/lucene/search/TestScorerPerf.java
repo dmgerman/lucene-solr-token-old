@@ -43,15 +43,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Random
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|BitSet
 import|;
 end_import
@@ -100,19 +91,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexWriterConfig
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|Term
 import|;
 end_import
@@ -129,19 +107,6 @@ operator|.
 name|IndexWriterConfig
 operator|.
 name|OpenMode
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|RAMDirectory
 import|;
 end_import
 begin_import
@@ -207,10 +172,6 @@ name|TestScorerPerf
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|field|r
-name|Random
-name|r
-decl_stmt|;
 DECL|field|validate
 name|boolean
 name|validate
@@ -232,6 +193,10 @@ DECL|field|s
 name|IndexSearcher
 name|s
 decl_stmt|;
+DECL|field|d
+name|Directory
+name|d
+decl_stmt|;
 DECL|method|createDummySearcher
 specifier|public
 name|void
@@ -242,23 +207,20 @@ name|Exception
 block|{
 comment|// Create a dummy index with nothing in it.
 comment|// This could possibly fail if Lucene starts checking for docid ranges...
-name|RAMDirectory
-name|rd
-init|=
-operator|new
-name|RAMDirectory
+name|d
+operator|=
+name|newDirectory
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|IndexWriter
 name|iw
 init|=
 operator|new
 name|IndexWriter
 argument_list|(
-name|rd
+name|d
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
@@ -287,7 +249,7 @@ operator|=
 operator|new
 name|IndexSearcher
 argument_list|(
-name|rd
+name|d
 argument_list|,
 literal|true
 argument_list|)
@@ -414,8 +376,7 @@ name|IndexWriter
 argument_list|(
 name|dir
 argument_list|,
-operator|new
-name|IndexWriterConfig
+name|newIndexWriterConfig
 argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
@@ -471,7 +432,7 @@ control|)
 block|{
 if|if
 condition|(
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -488,8 +449,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"f"
 argument_list|,
@@ -577,7 +537,7 @@ name|set
 operator|.
 name|set
 argument_list|(
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -639,7 +599,7 @@ name|randBitSet
 argument_list|(
 name|setSize
 argument_list|,
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -874,7 +834,7 @@ name|rnd
 init|=
 name|sets
 index|[
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -999,7 +959,7 @@ block|{
 name|int
 name|nClauses
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -1147,7 +1107,7 @@ block|{
 name|int
 name|oClauses
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -1188,7 +1148,7 @@ block|{
 name|int
 name|nClauses
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -1375,7 +1335,7 @@ block|{
 name|int
 name|nClauses
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -1424,7 +1384,7 @@ decl_stmt|;
 comment|// don't pick same clause twice
 name|tnum
 operator|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -1606,7 +1566,7 @@ block|{
 name|int
 name|oClauses
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -1642,7 +1602,7 @@ block|{
 name|int
 name|nClauses
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -1691,7 +1651,7 @@ decl_stmt|;
 comment|// don't pick same clause twice
 name|tnum
 operator|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -1881,7 +1841,7 @@ block|{
 name|int
 name|nClauses
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -1918,7 +1878,7 @@ block|{
 name|int
 name|tnum
 init|=
-name|r
+name|random
 operator|.
 name|nextInt
 argument_list|(
@@ -1998,11 +1958,6 @@ throws|throws
 name|Exception
 block|{
 comment|// test many small sets... the bugs will be found on boundary conditions
-name|r
-operator|=
-name|newRandom
-argument_list|()
-expr_stmt|;
 name|createDummySearcher
 argument_list|()
 expr_stmt|;
@@ -2050,6 +2005,11 @@ name|RANDOM_MULTIPLIER
 argument_list|)
 expr_stmt|;
 name|s
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|d
 operator|.
 name|close
 argument_list|()

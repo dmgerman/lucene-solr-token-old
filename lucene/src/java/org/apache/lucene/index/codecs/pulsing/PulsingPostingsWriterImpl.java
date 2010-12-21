@@ -65,9 +65,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|standard
-operator|.
-name|StandardPostingsWriter
+name|PostingsWriterBase
 import|;
 end_import
 begin_import
@@ -147,7 +145,7 @@ specifier|final
 class|class
 name|PulsingPostingsWriterImpl
 extends|extends
-name|StandardPostingsWriter
+name|PostingsWriterBase
 block|{
 DECL|field|CODEC
 specifier|final
@@ -486,7 +484,7 @@ comment|// was pulsed then we never need to use this fallback?
 comment|// Fallback writer for non-pulsed terms:
 DECL|field|wrappedPostingsWriter
 specifier|final
-name|StandardPostingsWriter
+name|PostingsWriterBase
 name|wrappedPostingsWriter
 decl_stmt|;
 comment|/** If docFreq<= maxPulsingDocFreq, its postings are    *  inlined into terms dict */
@@ -497,7 +495,7 @@ parameter_list|(
 name|int
 name|maxPulsingDocFreq
 parameter_list|,
-name|StandardPostingsWriter
+name|PostingsWriterBase
 name|wrappedPostingsWriter
 parameter_list|)
 throws|throws

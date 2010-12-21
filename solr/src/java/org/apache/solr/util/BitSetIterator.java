@@ -31,6 +31,8 @@ begin_comment
 comment|/** An iterator to iterate over set bits in an OpenBitSet.  * This is faster than nextSetBit() for iterating over the complete set of bits,  * especially when the density of the bits set is high.  *  * @deprecated Use {@link org.apache.lucene.util.OpenBitSetIterator} instead.  * @version $Id$  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|BitSetIterator
 specifier|public
 class|class

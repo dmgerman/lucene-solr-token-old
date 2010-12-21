@@ -48,9 +48,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|util
 operator|.
-name|Fieldable
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -80,31 +80,13 @@ operator|.
 name|Locale
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|text
-operator|.
-name|DateFormat
-import|;
-end_import
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
 begin_class
 DECL|class|LegacyDateFieldTest
 specifier|public
 class|class
 name|LegacyDateFieldTest
 extends|extends
-name|TestCase
+name|LuceneTestCase
 block|{
 comment|// if and when this class is removed, make sure to refactor all
 comment|// appropriate code to DateFieldTest

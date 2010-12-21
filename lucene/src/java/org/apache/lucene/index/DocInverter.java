@@ -436,8 +436,6 @@ name|startDocument
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|finishDocument
 specifier|public
 name|void

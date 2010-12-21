@@ -122,7 +122,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|FSDirectory
+name|Directory
 import|;
 end_import
 begin_import
@@ -198,14 +198,14 @@ name|analyzer
 decl_stmt|;
 DECL|field|dir
 specifier|private
-name|FSDirectory
+name|Directory
 name|dir
 decl_stmt|;
 comment|/**      *  The JUnit setup method      *      *@exception  IOException  Description of Exception      */
 annotation|@
 name|Override
 DECL|method|setUp
-specifier|protected
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -315,9 +315,7 @@ argument_list|()
 expr_stmt|;
 name|dir
 operator|=
-name|FSDirectory
-operator|.
-name|open
+name|newFSDirectory
 argument_list|(
 name|indexDir
 argument_list|)
@@ -397,7 +395,7 @@ comment|/**      *  The teardown method for JUnit      * TODO: remove indexDir? 
 annotation|@
 name|Override
 DECL|method|tearDown
-specifier|protected
+specifier|public
 name|void
 name|tearDown
 parameter_list|()

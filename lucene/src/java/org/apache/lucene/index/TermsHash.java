@@ -51,6 +51,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|ByteBlockPool
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|BytesRef
 import|;
 end_import
@@ -125,11 +138,11 @@ operator|new
 name|BytesRef
 argument_list|()
 decl_stmt|;
-comment|// Used by perField:
-DECL|field|utf8
+comment|// Used by perField to obtain terms from the analysis chain
+DECL|field|termBytesRef
 specifier|final
 name|BytesRef
-name|utf8
+name|termBytesRef
 init|=
 operator|new
 name|BytesRef
@@ -198,8 +211,6 @@ operator|new
 name|ByteBlockPool
 argument_list|(
 name|docWriter
-operator|.
-name|ramAllocator
 operator|.
 name|byteBlockAllocator
 argument_list|)

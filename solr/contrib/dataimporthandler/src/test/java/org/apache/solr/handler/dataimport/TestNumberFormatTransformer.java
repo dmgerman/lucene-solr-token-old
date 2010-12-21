@@ -20,26 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|SolrTestCaseJ4
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -99,7 +79,7 @@ specifier|public
 class|class
 name|TestNumberFormatTransformer
 extends|extends
-name|SolrTestCaseJ4
+name|AbstractDataImportHandlerTestCase
 block|{
 DECL|field|GROUPING_SEP
 specifier|private
@@ -163,8 +143,6 @@ name|l
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -185,8 +163,6 @@ name|l
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -212,8 +188,6 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -234,8 +208,6 @@ decl_stmt|;
 name|Map
 name|m
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"num"
@@ -266,8 +238,6 @@ argument_list|,
 name|c
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 operator|new
@@ -284,8 +254,6 @@ literal|"num"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 operator|new
@@ -329,8 +297,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 name|DataImporter
@@ -345,8 +311,6 @@ name|fields
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 name|DataImporter
@@ -403,8 +367,6 @@ expr_stmt|;
 name|Map
 name|row
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"inputs"
@@ -431,8 +393,6 @@ expr_stmt|;
 name|Context
 name|context
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -493,8 +453,6 @@ expr_stmt|;
 name|Map
 name|outputRow
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"inputs"
@@ -506,8 +464,6 @@ argument_list|,
 name|output
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 name|outputRow
@@ -547,8 +503,6 @@ name|l
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -568,8 +522,6 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -590,8 +542,6 @@ decl_stmt|;
 name|Map
 name|m
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"num"
@@ -646,8 +596,6 @@ name|l
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -667,8 +615,6 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -689,8 +635,6 @@ decl_stmt|;
 name|Map
 name|m
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"num"
@@ -745,8 +689,6 @@ name|l
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -766,8 +708,6 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -788,8 +728,6 @@ decl_stmt|;
 name|Map
 name|m
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"num"
@@ -844,8 +782,6 @@ name|l
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -865,8 +801,6 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -887,8 +821,6 @@ decl_stmt|;
 name|Map
 name|m
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"num"
@@ -943,8 +875,6 @@ name|l
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -964,8 +894,6 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -986,8 +914,6 @@ decl_stmt|;
 name|Map
 name|m
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"num"
@@ -1046,8 +972,6 @@ name|l
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -1067,8 +991,6 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -1089,8 +1011,6 @@ decl_stmt|;
 name|Map
 name|m
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"num"
@@ -1142,8 +1062,6 @@ name|l
 operator|.
 name|add
 argument_list|(
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"column"
@@ -1163,8 +1081,6 @@ expr_stmt|;
 name|Context
 name|c
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|getContext
 argument_list|(
 literal|null
@@ -1185,8 +1101,6 @@ decl_stmt|;
 name|Map
 name|m
 init|=
-name|AbstractDataImportHandlerTestCase
-operator|.
 name|createMap
 argument_list|(
 literal|"num"
@@ -1211,8 +1125,6 @@ argument_list|,
 name|c
 argument_list|)
 expr_stmt|;
-name|Assert
-operator|.
 name|assertEquals
 argument_list|(
 operator|new

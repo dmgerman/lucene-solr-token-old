@@ -126,6 +126,8 @@ begin_comment
 comment|/**  * @version $Id$  *  * @deprecated Use SnowballPorterFilterFactory with language="English" instead  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|EnglishPorterFilterFactory
 specifier|public
 class|class

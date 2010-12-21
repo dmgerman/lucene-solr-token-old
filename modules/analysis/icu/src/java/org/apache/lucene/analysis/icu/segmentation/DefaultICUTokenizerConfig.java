@@ -107,7 +107,7 @@ specifier|final
 name|String
 name|WORD_IDEO
 init|=
-literal|"<IDEO>"
+literal|"<IDEOGRAPHIC>"
 decl_stmt|;
 comment|/** Token type for words containing Japanese kana */
 DECL|field|WORD_KANA
@@ -127,7 +127,7 @@ specifier|final
 name|String
 name|WORD_LETTER
 init|=
-literal|"<WORD>"
+literal|"<ALPHANUM>"
 decl_stmt|;
 comment|/** Token type for words that appear to be numbers */
 DECL|field|WORD_NUMBER

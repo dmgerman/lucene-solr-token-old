@@ -22,6 +22,24 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Before
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -32,15 +50,6 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
 import|;
 end_import
 begin_import
@@ -99,30 +108,76 @@ name|DELETED_PK_QUERY
 init|=
 literal|"select id from x where last_modified> NOW AND deleted='true'"
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|getSchemaFile
-specifier|public
+DECL|field|dataConfig_delta2
+specifier|private
+specifier|static
+specifier|final
 name|String
-name|getSchemaFile
-parameter_list|()
-block|{
-return|return
-literal|"dataimport-solr_id-schema.xml"
-return|;
-block|}
+name|dataConfig_delta2
+init|=
+literal|"<dataConfig>"
+operator|+
+literal|"<dataSource  type=\"MockDataSource\"/>\n"
+operator|+
+literal|"<document>\n"
+operator|+
+literal|"<entity name=\"x\" transformer=\"TemplateTransformer\""
+operator|+
+literal|"            query=\""
+operator|+
+name|FULLIMPORT_QUERY
+operator|+
+literal|"\""
+operator|+
+literal|"            deletedPkQuery=\""
+operator|+
+name|DELETED_PK_QUERY
+operator|+
+literal|"\""
+operator|+
+literal|"            deltaImportQuery=\"select * from x where id='${dih.delta.id}'\""
+operator|+
+literal|"            deltaQuery=\""
+operator|+
+name|DELTA_QUERY
+operator|+
+literal|"\">\n"
+operator|+
+literal|"<field column=\"tmpid\" template=\"prefix-${x.id}\" name=\"solr_id\"/>\n"
+operator|+
+literal|"<entity name=\"y\" query=\"select * from y where y.A='${x.id}'\">\n"
+operator|+
+literal|"<field column=\"desc\" />\n"
+operator|+
+literal|"</entity>\n"
+operator|+
+literal|"</entity>\n"
+operator|+
+literal|"</document>\n"
+operator|+
+literal|"</dataConfig>\n"
+decl_stmt|;
 annotation|@
-name|Override
-DECL|method|getSolrConfigFile
+name|BeforeClass
+DECL|method|beforeClass
 specifier|public
-name|String
-name|getSolrConfigFile
+specifier|static
+name|void
+name|beforeClass
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-return|return
+name|initCore
+argument_list|(
 literal|"dataimport-solrconfig.xml"
-return|;
+argument_list|,
+literal|"dataimport-solr_id-schema.xml"
+argument_list|)
+expr_stmt|;
 block|}
+annotation|@
+name|Before
 annotation|@
 name|Override
 DECL|method|setUp
@@ -138,21 +193,14 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|tearDown
-specifier|public
-name|void
-name|tearDown
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|tearDown
+name|clearIndex
 argument_list|()
+expr_stmt|;
+name|assertU
+argument_list|(
+name|commit
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -230,8 +278,6 @@ name|iterator
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
 name|runFullImport
 argument_list|(
 name|dataConfig_delta2
@@ -381,8 +427,6 @@ name|iterator
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
 name|runDeltaImport
 argument_list|(
 name|dataConfig_delta2
@@ -521,8 +565,6 @@ name|iterator
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
 name|runDeltaImport
 argument_list|(
 name|dataConfig_delta2
@@ -566,10 +608,10 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|XtestCompositePk_DeltaImport_replace_delete
+DECL|method|testCompositePk_DeltaImport_replace_delete
 specifier|public
 name|void
-name|XtestCompositePk_DeltaImport_replace_delete
+name|testCompositePk_DeltaImport_replace_delete
 parameter_list|()
 throws|throws
 name|Exception
@@ -706,8 +748,6 @@ name|iterator
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
 name|runDeltaImport
 argument_list|(
 name|dataConfig_delta2
@@ -854,8 +894,6 @@ name|iterator
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
 name|runDeltaImport
 argument_list|(
 name|dataConfig_delta2
@@ -1018,8 +1056,6 @@ name|iterator
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
 name|runDeltaImport
 argument_list|(
 name|dataConfig_delta2
@@ -1113,8 +1149,6 @@ name|iterator
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
 name|runDeltaImport
 argument_list|(
 name|dataConfig_delta2
@@ -1298,8 +1332,6 @@ name|iterator
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
 name|runDeltaImport
 argument_list|(
 name|dataConfig_delta2
@@ -1346,52 +1378,6 @@ literal|"//*[@numFound='1']"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|field|dataConfig_delta2
-specifier|private
-specifier|static
-name|String
-name|dataConfig_delta2
-init|=
-literal|"<dataConfig><dataSource  type=\"MockDataSource\"/>\n"
-operator|+
-literal|"<document>\n"
-operator|+
-literal|"<entity name=\"x\" transformer=\"TemplateTransformer\""
-operator|+
-literal|"				query=\""
-operator|+
-name|FULLIMPORT_QUERY
-operator|+
-literal|"\""
-operator|+
-literal|"				deletedPkQuery=\""
-operator|+
-name|DELETED_PK_QUERY
-operator|+
-literal|"\""
-operator|+
-literal|" 				deltaImportQuery=\"select * from x where id='${dataimporter.delta.id}'\""
-operator|+
-literal|"				deltaQuery=\""
-operator|+
-name|DELTA_QUERY
-operator|+
-literal|"\">\n"
-operator|+
-literal|"<field column=\"tmpid\" template=\"prefix-${x.id}\" name=\"solr_id\"/>\n"
-operator|+
-literal|"<entity name=\"y\" query=\"select * from y where y.A='${x.id}'\">\n"
-operator|+
-literal|"<field column=\"desc\" />\n"
-operator|+
-literal|"</entity>\n"
-operator|+
-literal|"</entity>\n"
-operator|+
-literal|"</document>\n"
-operator|+
-literal|"</dataConfig>\n"
-decl_stmt|;
 block|}
 end_class
 end_unit

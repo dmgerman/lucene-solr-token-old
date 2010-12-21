@@ -137,7 +137,7 @@ name|APPEND
 block|,
 name|CREATE_OR_APPEND
 block|}
-comment|/** Default value is 128. Change using {@link #setTermIndexInterval(int)}. */
+comment|/** Default value is 32. Change using {@link #setTermIndexInterval(int)}. */
 DECL|field|DEFAULT_TERM_INDEX_INTERVAL
 specifier|public
 specifier|static
@@ -145,7 +145,7 @@ specifier|final
 name|int
 name|DEFAULT_TERM_INDEX_INTERVAL
 init|=
-literal|128
+literal|32
 decl_stmt|;
 comment|/** Denotes a flush trigger is disabled. */
 DECL|field|DISABLE_AUTO_FLUSH
@@ -196,19 +196,6 @@ name|long
 name|WRITE_LOCK_TIMEOUT
 init|=
 literal|1000
-decl_stmt|;
-comment|/** Default {@link CodecProvider}. */
-DECL|field|DEFAULT_CODEC_PROVIDER
-specifier|public
-specifier|final
-specifier|static
-name|CodecProvider
-name|DEFAULT_CODEC_PROVIDER
-init|=
-name|CodecProvider
-operator|.
-name|getDefault
-argument_list|()
 decl_stmt|;
 comment|/** The maximum number of simultaneous threads that may be    *  indexing documents at once in IndexWriter; if more    *  than this many threads arrive they will wait for    *  others to finish. */
 DECL|field|DEFAULT_MAX_THREAD_STATES
@@ -460,7 +447,10 @@ literal|null
 expr_stmt|;
 name|codecProvider
 operator|=
-name|DEFAULT_CODEC_PROVIDER
+name|CodecProvider
+operator|.
+name|getDefault
+argument_list|()
 expr_stmt|;
 name|mergePolicy
 operator|=
@@ -1253,7 +1243,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** @see #setReaderTermsIndexDivisor() */
+comment|/** @see #setReaderTermsIndexDivisor(int) */
 DECL|method|getReaderTermsIndexDivisor
 specifier|public
 name|int
@@ -1305,6 +1295,12 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
+name|analyzer
+operator|==
+literal|null
+condition|?
+literal|"null"
+else|:
 name|analyzer
 operator|.
 name|getClass
@@ -1358,12 +1354,6 @@ condition|?
 literal|"null"
 else|:
 name|commit
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 operator|.
 name|append

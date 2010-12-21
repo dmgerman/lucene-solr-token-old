@@ -304,12 +304,19 @@ specifier|private
 name|CodecProvider
 name|codecs
 decl_stmt|;
+DECL|field|format
+specifier|private
+name|int
+name|format
+decl_stmt|;
 comment|/**    * If non-null, information about loading segments_N files    * will be printed here.  @see #setInfoStream.    */
 DECL|field|infoStream
 specifier|private
 specifier|static
 name|PrintStream
 name|infoStream
+init|=
+literal|null
 decl_stmt|;
 DECL|method|SegmentInfos
 specifier|public
@@ -339,6 +346,32 @@ name|codecs
 operator|=
 name|codecs
 expr_stmt|;
+block|}
+DECL|method|setFormat
+specifier|public
+name|void
+name|setFormat
+parameter_list|(
+name|int
+name|format
+parameter_list|)
+block|{
+name|this
+operator|.
+name|format
+operator|=
+name|format
+expr_stmt|;
+block|}
+DECL|method|getFormat
+specifier|public
+name|int
+name|getFormat
+parameter_list|()
+block|{
+return|return
+name|format
+return|;
 block|}
 DECL|method|info
 specifier|public
@@ -1072,7 +1105,7 @@ decl_stmt|;
 assert|assert
 name|info
 operator|.
-name|getCodec
+name|getSegmentCodecs
 argument_list|()
 operator|!=
 literal|null
@@ -1172,13 +1205,17 @@ name|sis
 init|=
 operator|new
 name|SegmentInfos
-argument_list|()
+argument_list|(
+name|codecs
+argument_list|)
 decl_stmt|;
 name|sis
 operator|.
 name|read
 argument_list|(
 name|directory
+argument_list|,
+name|codecs
 argument_list|)
 expr_stmt|;
 return|return
@@ -1215,7 +1252,9 @@ name|sis
 init|=
 operator|new
 name|SegmentInfos
-argument_list|()
+argument_list|(
+name|codecs
+argument_list|)
 decl_stmt|;
 name|sis
 operator|.
@@ -1520,15 +1559,15 @@ name|exc
 init|=
 literal|null
 decl_stmt|;
-name|boolean
-name|retry
-init|=
-literal|false
-decl_stmt|;
 name|int
-name|method
+name|retryCount
 init|=
 literal|0
+decl_stmt|;
+name|boolean
+name|useFirstMethod
+init|=
+literal|true
 decl_stmt|;
 comment|// Loop until we succeed in calling doBody() without
 comment|// hitting an IOException.  An IOException most likely
@@ -1541,8 +1580,9 @@ comment|// which generation we are trying to load.  If we
 comment|// don't, then the original error is real and we throw
 comment|// it.
 comment|// We have three methods for determining the current
-comment|// generation.  We try the first two in parallel, and
-comment|// fall back to the third when necessary.
+comment|// generation.  We try the first two in parallel (when
+comment|// useFirstMethod is true), and fall back to the third
+comment|// when necessary.
 while|while
 condition|(
 literal|true
@@ -1550,12 +1590,10 @@ condition|)
 block|{
 if|if
 condition|(
-literal|0
-operator|==
-name|method
+name|useFirstMethod
 condition|)
 block|{
-comment|// Method 1: list the directory and use the highest
+comment|// List the directory and use the highest
 comment|// segments_N file.  This method works well as long
 comment|// as there is no stale caching on the directory
 comment|// contents (NOTE: NFS clients often have such stale
@@ -1585,6 +1623,7 @@ name|files
 operator|!=
 literal|null
 condition|)
+block|{
 name|genA
 operator|=
 name|getCurrentSegmentGeneration
@@ -1592,6 +1631,7 @@ argument_list|(
 name|files
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|infoStream
@@ -1607,9 +1647,9 @@ name|genA
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Method 2: open segments.gen and read its
+comment|// Also open segments.gen and read its
 comment|// contents.  Then we take the larger of the two
-comment|// gen's.  This way, if either approach is hitting
+comment|// gens.  This way, if either approach is hitting
 comment|// a stale cache (NFS) we have a better chance of
 comment|// getting the right generation.
 name|long
@@ -1888,33 +1928,36 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// Third method (fallback if first& second methods
-comment|// are not reliable): since both directory cache and
-comment|// file contents cache seem to be stale, just
-comment|// advance the generation.
 if|if
 condition|(
-literal|1
-operator|==
-name|method
-operator|||
-operator|(
-literal|0
-operator|==
-name|method
+name|useFirstMethod
 operator|&&
 name|lastGen
 operator|==
 name|gen
 operator|&&
-name|retry
-operator|)
+name|retryCount
+operator|>=
+literal|2
 condition|)
 block|{
-name|method
+comment|// Give up on first method -- this is 3rd cycle on
+comment|// listing directory and checking gen file to
+comment|// attempt to locate the segments file.
+name|useFirstMethod
 operator|=
-literal|1
+literal|false
 expr_stmt|;
+block|}
+comment|// Second method: since both directory cache and
+comment|// file contents cache seem to be stale, just
+comment|// advance the generation.
+if|if
+condition|(
+operator|!
+name|useFirstMethod
+condition|)
+block|{
 if|if
 condition|(
 name|genLookaheadCount
@@ -1944,7 +1987,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+comment|// All attempts have failed -- throw first exc:
+throw|throw
+name|exc
+throw|;
 block|}
+block|}
+elseif|else
 if|if
 condition|(
 name|lastGen
@@ -1953,43 +2004,18 @@ name|gen
 condition|)
 block|{
 comment|// This means we're about to try the same
-comment|// segments_N last tried.  This is allowed,
-comment|// exactly once, because writer could have been in
-comment|// the process of writing segments_N last time.
-if|if
-condition|(
-name|retry
-condition|)
-block|{
-comment|// OK, we've tried the same segments_N file
-comment|// twice in a row, so this must be a real
-comment|// error.  We throw the original exception we
-comment|// got.
-throw|throw
-name|exc
-throw|;
+comment|// segments_N last tried.
+name|retryCount
+operator|++
+expr_stmt|;
 block|}
 else|else
 block|{
-name|retry
+comment|// Segment file has advanced since our last loop
+comment|// (we made "progress"), so reset retryCount:
+name|retryCount
 operator|=
-literal|true
-expr_stmt|;
-block|}
-block|}
-elseif|else
-if|if
-condition|(
 literal|0
-operator|==
-name|method
-condition|)
-block|{
-comment|// Segment file has advanced since our last loop, so
-comment|// reset retry:
-name|retry
-operator|=
-literal|false
 expr_stmt|;
 block|}
 name|lastGen
@@ -2023,10 +2049,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|exc
-operator|!=
-literal|null
-operator|&&
 name|infoStream
 operator|!=
 literal|null
@@ -2080,9 +2102,9 @@ literal|"': "
 operator|+
 name|err
 operator|+
-literal|"'; will retry: retry="
+literal|"'; will retry: retryCount="
 operator|+
-name|retry
+name|retryCount
 operator|+
 literal|"; gen = "
 operator|+
@@ -2092,16 +2114,19 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
-name|retry
-operator|&&
 name|gen
 operator|>
 literal|1
+operator|&&
+name|useFirstMethod
+operator|&&
+name|retryCount
+operator|==
+literal|1
 condition|)
 block|{
-comment|// This is our first time trying this segments
-comment|// file (because retry is false), and, there is
+comment|// This is our second time trying this same segments
+comment|// file (because retryCount is 1), and, there is
 comment|// possibly a segments_(N-1) (because gen> 1).
 comment|// So, check if the segments_(N-1) exists and
 comment|// try it if so:
@@ -2254,7 +2279,9 @@ name|infos
 init|=
 operator|new
 name|SegmentInfos
-argument_list|()
+argument_list|(
+name|codecs
+argument_list|)
 decl_stmt|;
 name|infos
 operator|.
@@ -2294,12 +2321,6 @@ operator|=
 name|other
 operator|.
 name|generation
-expr_stmt|;
-name|version
-operator|=
-name|other
-operator|.
-name|version
 expr_stmt|;
 block|}
 DECL|method|rollbackCommit
@@ -2381,7 +2402,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|/** Call this to start a commit.  This writes the new    *  segments file, but writes an invalid checksum at the    *  end, so that it is not visible to readers.  Once this    *  is called you must call {@link #finishCommit} to complete    *  the commit or {@link #rollbackCommit} to abort it. */
+comment|/** Call this to start a commit.  This writes the new    *  segments file, but writes an invalid checksum at the    *  end, so that it is not visible to readers.  Once this    *  is called you must call {@link #finishCommit} to complete    *  the commit or {@link #rollbackCommit} to abort it.    *<p>    *  Note: {@link #changed()} should be called prior to this    *  method if changes have been made to this {@link SegmentInfos} instance    *</p>      **/
 DECL|method|prepareCommit
 specifier|final
 name|void
@@ -2722,7 +2743,7 @@ comment|// It's OK if we fail to write this file since it's
 comment|// used only as one of the retry fallbacks.
 block|}
 block|}
-comment|/** Writes& syncs to the Directory dir, taking care to    *  remove the segments file on exception */
+comment|/** Writes& syncs to the Directory dir, taking care to    *  remove the segments file on exception    *<p>    *  Note: {@link #changed()} should be called prior to this    *  method if changes have been made to this {@link SegmentInfos} instance    *</p>      **/
 DECL|method|commit
 specifier|final
 name|void
@@ -2953,6 +2974,17 @@ block|}
 return|return
 name|count
 return|;
+block|}
+comment|/** Call this before committing if changes have been made to the    *  segments. */
+DECL|method|changed
+specifier|public
+name|void
+name|changed
+parameter_list|()
+block|{
+name|version
+operator|++
+expr_stmt|;
 block|}
 block|}
 end_class

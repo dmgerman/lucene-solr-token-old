@@ -256,6 +256,8 @@ begin_comment
 comment|/**  *<code>DirectUpdateHandler</code> implements an UpdateHandler where documents are added  * directly to the main lucene index as opposed to adding to a separate smaller index.  * For this reason, not all combinations to/from pending and committed are supported.  *  * @version $Id$  * @since solr 0.9  *  * @deprecated Use {@link DirectUpdateHandler2} instead.  This is only kept around for back-compatibility (way back).  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DirectUpdateHandler
 specifier|public
 class|class

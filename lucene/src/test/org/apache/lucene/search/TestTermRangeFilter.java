@@ -116,7 +116,27 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|RAMDirectory
+name|Directory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|*
 import|;
 end_import
 begin_comment
@@ -130,6 +150,8 @@ name|TestTermRangeFilter
 extends|extends
 name|BaseTestRangeFilter
 block|{
+annotation|@
+name|Test
 DECL|method|testRangeFilterId
 specifier|public
 name|void
@@ -1015,6 +1037,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRangeFilterIdCollating
 specifier|public
 name|void
@@ -1909,6 +1933,8 @@ name|numHits
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRangeFilterRand
 specifier|public
 name|void
@@ -2537,6 +2563,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testRangeFilterRandCollating
 specifier|public
 name|void
@@ -3175,6 +3203,8 @@ name|numHits
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testFarsi
 specifier|public
 name|void
@@ -3184,11 +3214,10 @@ throws|throws
 name|Exception
 block|{
 comment|/* build an index */
-name|RAMDirectory
+name|Directory
 name|farsiIndex
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|RandomIndexWriter
@@ -3197,7 +3226,7 @@ init|=
 operator|new
 name|RandomIndexWriter
 argument_list|(
-name|rand
+name|random
 argument_list|,
 name|farsiIndex
 argument_list|)
@@ -3213,8 +3242,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"content"
 argument_list|,
@@ -3238,8 +3266,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"body"
 argument_list|,
@@ -3417,6 +3444,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
 DECL|method|testDanish
 specifier|public
 name|void
@@ -3426,11 +3455,10 @@ throws|throws
 name|Exception
 block|{
 comment|/* build an index */
-name|RAMDirectory
+name|Directory
 name|danishIndex
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|RandomIndexWriter
@@ -3439,7 +3467,7 @@ init|=
 operator|new
 name|RandomIndexWriter
 argument_list|(
-name|rand
+name|random
 argument_list|,
 name|danishIndex
 argument_list|)
@@ -3486,8 +3514,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"content"
 argument_list|,
@@ -3514,8 +3541,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"body"
 argument_list|,

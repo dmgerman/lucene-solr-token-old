@@ -24,6 +24,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|common
@@ -84,6 +97,8 @@ DECL|class|AnlysisResponseBaseTest
 specifier|public
 class|class
 name|AnlysisResponseBaseTest
+extends|extends
+name|LuceneTestCase
 block|{
 comment|/**    * Tests the {@link AnalysisResponseBase#buildTokenInfo(org.apache.solr.common.util.NamedList)} method.    */
 annotation|@

@@ -710,9 +710,6 @@ condition|)
 block|{
 name|defaultValue
 operator|=
-operator|(
-name|String
-operator|)
 name|props
 operator|.
 name|get

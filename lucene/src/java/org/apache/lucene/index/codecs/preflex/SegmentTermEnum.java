@@ -106,7 +106,7 @@ name|IndexFormatTooNewException
 import|;
 end_import
 begin_comment
-comment|/**  * @deprecated No longer used with flex indexing, except for  * reading old segments   * @lucene.experimental */
+comment|/**  * @deprecated (4.0) No longer used with flex indexing, except for  * reading old segments   * @lucene.experimental */
 end_comment
 begin_class
 annotation|@
@@ -201,7 +201,6 @@ argument_list|()
 decl_stmt|;
 comment|// used for scanning
 DECL|field|termInfo
-specifier|private
 name|TermInfo
 name|termInfo
 init|=
@@ -242,11 +241,6 @@ decl_stmt|;
 DECL|field|maxSkipLevels
 name|int
 name|maxSkipLevels
-decl_stmt|;
-DECL|field|formatM1SkipInterval
-specifier|private
-name|int
-name|formatM1SkipInterval
 decl_stmt|;
 DECL|method|SegmentTermEnum
 name|SegmentTermEnum
@@ -645,45 +639,6 @@ expr_stmt|;
 comment|// read prox pointer
 if|if
 condition|(
-name|format
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-comment|//  just read skipOffset in order to increment  file pointer;
-comment|// value is never used since skipTo is switched off
-if|if
-condition|(
-operator|!
-name|isIndex
-condition|)
-block|{
-if|if
-condition|(
-name|termInfo
-operator|.
-name|docFreq
-operator|>
-name|formatM1SkipInterval
-condition|)
-block|{
-name|termInfo
-operator|.
-name|skipOffset
-operator|=
-name|input
-operator|.
-name|readVInt
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-block|}
-else|else
-block|{
-if|if
-condition|(
 name|termInfo
 operator|.
 name|docFreq
@@ -699,7 +654,6 @@ operator|.
 name|readVInt
 argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|isIndex

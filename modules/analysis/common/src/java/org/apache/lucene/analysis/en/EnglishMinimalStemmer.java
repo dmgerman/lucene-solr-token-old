@@ -25,6 +25,11 @@ specifier|public
 class|class
 name|EnglishMinimalStemmer
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"fallthrough"
+argument_list|)
 DECL|method|stem
 specifier|public
 name|int
@@ -168,6 +173,7 @@ condition|)
 return|return
 name|len
 return|;
+comment|/* intentional fallthrough */
 default|default:
 return|return
 name|len

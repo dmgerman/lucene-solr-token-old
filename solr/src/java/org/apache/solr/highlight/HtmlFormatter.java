@@ -90,7 +90,7 @@ name|SolrParams
 import|;
 end_import
 begin_comment
-comment|/**  * Use the SimpleHTMLFormatter  */
+comment|/**  * Use the {@link org.apache.lucene.search.highlight.SimpleHTMLFormatter}  */
 end_comment
 begin_class
 DECL|class|HtmlFormatter

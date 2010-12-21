@@ -693,8 +693,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -723,8 +722,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Field
+name|newField
 argument_list|(
 literal|"contents"
 argument_list|,
@@ -982,8 +980,7 @@ name|MockIndexWriter
 operator|.
 name|RANDOM
 operator|=
-name|newRandom
-argument_list|()
+name|random
 expr_stmt|;
 name|Directory
 name|directory
@@ -992,8 +989,14 @@ comment|// First in a RAM directory:
 name|directory
 operator|=
 operator|new
-name|MockRAMDirectory
+name|MockDirectoryWrapper
+argument_list|(
+name|random
+argument_list|,
+operator|new
+name|RAMDirectory
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|runTest
 argument_list|(
@@ -1018,9 +1021,7 @@ argument_list|)
 decl_stmt|;
 name|directory
 operator|=
-name|FSDirectory
-operator|.
-name|open
+name|newFSDirectory
 argument_list|(
 name|dirPath
 argument_list|)
