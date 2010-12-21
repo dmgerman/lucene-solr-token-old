@@ -1961,7 +1961,7 @@ name|calcMSM
 argument_list|(
 literal|5
 argument_list|,
-literal|"-5"
+literal|" -5 "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1973,7 +1973,7 @@ name|calcMSM
 argument_list|(
 literal|5
 argument_list|,
-literal|"-100%"
+literal|"\n -100% \n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1986,7 +1986,7 @@ name|calcMSM
 argument_list|(
 literal|5
 argument_list|,
-literal|"3"
+literal|" \n3\n "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2059,7 +2059,7 @@ name|calcMSM
 argument_list|(
 literal|3
 argument_list|,
-literal|"25%"
+literal|" \n25% \n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2083,7 +2083,7 @@ name|calcMSM
 argument_list|(
 literal|5
 argument_list|,
-literal|"25%"
+literal|" 25% "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2108,7 +2108,7 @@ name|calcMSM
 argument_list|(
 literal|3
 argument_list|,
-literal|"-25%"
+literal|" \n-25%\n "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2229,7 +2229,7 @@ name|calcMSM
 argument_list|(
 literal|2
 argument_list|,
-literal|"3<25%"
+literal|" 3\n<\n25% "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2253,7 +2253,7 @@ name|calcMSM
 argument_list|(
 literal|4
 argument_list|,
-literal|"3<25%"
+literal|"\n 3< \n25%\n "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2278,7 +2278,7 @@ name|calcMSM
 argument_list|(
 literal|1
 argument_list|,
-literal|"3<-25% 10<-3"
+literal|"\n3< -25% 10< -3 \n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2290,7 +2290,7 @@ name|calcMSM
 argument_list|(
 literal|2
 argument_list|,
-literal|"3<-25% 10<-3"
+literal|" 3< -25% 10< -3\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2302,7 +2302,7 @@ name|calcMSM
 argument_list|(
 literal|3
 argument_list|,
-literal|"3<-25% 10<-3"
+literal|" 3< -25% \n 10< -3 \n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2314,7 +2314,7 @@ name|calcMSM
 argument_list|(
 literal|4
 argument_list|,
-literal|"3<-25% 10<-3"
+literal|" 3< -25% 10< -3 "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2326,7 +2326,7 @@ name|calcMSM
 argument_list|(
 literal|5
 argument_list|,
-literal|"3<-25% 10<-3"
+literal|" 3< -25% 10< -3"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2350,7 +2350,7 @@ name|calcMSM
 argument_list|(
 literal|7
 argument_list|,
-literal|"3<-25% 10<-3"
+literal|" 3< -25% 10< -3 "
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2362,7 +2362,7 @@ name|calcMSM
 argument_list|(
 literal|8
 argument_list|,
-literal|"3<-25% 10<-3"
+literal|" 3< -25% 10 \n< -3\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2374,7 +2374,7 @@ name|calcMSM
 argument_list|(
 literal|9
 argument_list|,
-literal|"3<-25% 10<-3"
+literal|" 3< -25% 10< -3 \n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2386,7 +2386,7 @@ name|calcMSM
 argument_list|(
 literal|10
 argument_list|,
-literal|"3<-25% 10<-3"
+literal|" 3< -25% 10< -3"
 argument_list|)
 argument_list|)
 expr_stmt|;
