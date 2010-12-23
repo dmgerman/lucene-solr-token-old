@@ -573,7 +573,7 @@ return|;
 block|}
 return|return
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|name
 argument_list|)
@@ -718,11 +718,11 @@ init|=
 name|getPadding
 argument_list|()
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|padd
 argument_list|)

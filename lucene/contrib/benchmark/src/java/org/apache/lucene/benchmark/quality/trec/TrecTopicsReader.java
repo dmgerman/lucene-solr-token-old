@@ -137,7 +137,7 @@ name|QualityQuery
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|sb
 decl_stmt|;
 try|try
@@ -500,7 +500,7 @@ block|}
 comment|// read until finding a line that starts with the specified prefix
 DECL|method|read
 specifier|private
-name|StringBuffer
+name|StringBuilder
 name|read
 parameter_list|(
 name|BufferedReader
@@ -509,7 +509,7 @@ parameter_list|,
 name|String
 name|prefix
 parameter_list|,
-name|StringBuffer
+name|StringBuilder
 name|sb
 parameter_list|,
 name|boolean
@@ -529,7 +529,7 @@ operator|==
 literal|null
 condition|?
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 else|:
 name|sb
