@@ -117,6 +117,23 @@ specifier|public
 class|class
 name|Config
 block|{
+comment|// For tests, if verbose is not turned on, don't print the props.
+DECL|field|DEFAULT_PRINT_PROPS
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_PRINT_PROPS
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"tests.verbose"
+argument_list|,
+literal|"true"
+argument_list|)
+decl_stmt|;
 DECL|field|NEW_LINE
 specifier|private
 specifier|static
@@ -281,11 +298,11 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// copy props lines to string
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 for|for
@@ -391,7 +408,7 @@ name|getProperty
 argument_list|(
 literal|"print.props"
 argument_list|,
-literal|"true"
+name|DEFAULT_PRINT_PROPS
 argument_list|)
 argument_list|)
 operator|.
@@ -407,7 +424,7 @@ comment|// copy algorithm lines
 name|sb
 operator|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 expr_stmt|;
 for|for
@@ -483,7 +500,7 @@ name|getProperty
 argument_list|(
 literal|"print.props"
 argument_list|,
-literal|"true"
+name|DEFAULT_PRINT_PROPS
 argument_list|)
 argument_list|)
 operator|.
@@ -499,7 +516,11 @@ block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|printProps
 specifier|private
@@ -1277,11 +1298,11 @@ block|{
 name|roundNumber
 operator|++
 expr_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"--> Round "
 argument_list|)
@@ -2228,11 +2249,11 @@ return|return
 literal|""
 return|;
 block|}
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 for|for
@@ -2301,11 +2322,11 @@ return|return
 literal|""
 return|;
 block|}
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 for|for

@@ -2054,11 +2054,11 @@ init|=
 name|getPadding
 argument_list|()
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|super
 operator|.
