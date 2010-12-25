@@ -150,7 +150,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|NamedListCodec
+name|JavaBinCodec
 operator|.
 name|writeVInt
 argument_list|(
