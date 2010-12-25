@@ -111,8 +111,9 @@ name|String
 name|getSolrConfigFile
 parameter_list|()
 block|{
+comment|// return "solrconfig-duh-optimize.xml";
 return|return
-literal|"solrconfig-duh-optimize.xml"
+literal|"solrconfig.xml"
 return|;
 block|}
 DECL|method|testOptimize
