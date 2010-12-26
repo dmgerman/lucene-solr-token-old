@@ -14,17 +14,6 @@ name|geometry
 package|;
 end_package
 begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-operator|.
-name|*
-import|;
-end_import
-begin_import
 import|import
 name|org
 operator|.

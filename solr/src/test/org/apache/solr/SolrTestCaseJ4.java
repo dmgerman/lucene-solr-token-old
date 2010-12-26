@@ -368,28 +368,6 @@ operator|.
 name|*
 import|;
 end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
-import|;
-end_import
 begin_comment
 comment|/**  * A junit4 Solr test harness that extends LuceneTestCaseJ4.  * Unlike AbstractSolrTestCase, a new core is not created for each test method.  *  */
 end_comment
