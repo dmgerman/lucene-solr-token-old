@@ -1624,7 +1624,9 @@ name|term
 operator|.
 name|bytes
 argument_list|,
-literal|0
+name|term
+operator|.
+name|offset
 argument_list|,
 name|term
 operator|.
