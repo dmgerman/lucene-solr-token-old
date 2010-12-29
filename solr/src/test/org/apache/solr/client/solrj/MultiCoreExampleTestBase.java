@@ -170,7 +170,9 @@ name|getSolrHome
 parameter_list|()
 block|{
 return|return
-literal|"../../../example/multicore/"
+name|SolrJettyTestBase
+operator|.
+name|EXAMPLE_MULTICORE_HOME
 return|;
 block|}
 DECL|method|getSchemaFile
@@ -185,7 +187,7 @@ return|return
 name|getSolrHome
 argument_list|()
 operator|+
-literal|"core0/conf/schema.xml"
+literal|"/core0/conf/schema.xml"
 return|;
 block|}
 DECL|method|getSolrConfigFile
@@ -200,7 +202,7 @@ return|return
 name|getSolrHome
 argument_list|()
 operator|+
-literal|"core0/conf/solrconfig.xml"
+literal|"/core0/conf/solrconfig.xml"
 return|;
 block|}
 DECL|method|setUp

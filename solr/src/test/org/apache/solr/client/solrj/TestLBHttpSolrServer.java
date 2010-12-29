@@ -1667,8 +1667,9 @@ name|FileUtils
 operator|.
 name|copyFile
 argument_list|(
-operator|new
-name|File
+name|SolrTestCaseJ4
+operator|.
+name|getFile
 argument_list|(
 name|getSolrConfigFile
 argument_list|()
@@ -1691,8 +1692,9 @@ name|FileUtils
 operator|.
 name|copyFile
 argument_list|(
-operator|new
-name|File
+name|SolrTestCaseJ4
+operator|.
+name|getFile
 argument_list|(
 name|getSchemaFile
 argument_list|()
