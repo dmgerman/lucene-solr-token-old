@@ -980,6 +980,8 @@ operator|new
 name|MergeIndexesCommand
 argument_list|(
 name|dirs
+argument_list|,
+name|req
 argument_list|)
 argument_list|)
 expr_stmt|;

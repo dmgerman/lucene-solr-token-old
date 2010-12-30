@@ -984,7 +984,9 @@ name|templateAdd
 operator|=
 operator|new
 name|AddUpdateCommand
-argument_list|()
+argument_list|(
+name|req
+argument_list|)
 expr_stmt|;
 name|templateAdd
 operator|.

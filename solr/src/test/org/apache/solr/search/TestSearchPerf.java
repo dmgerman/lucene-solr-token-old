@@ -670,7 +670,9 @@ name|cmd
 init|=
 operator|new
 name|AddUpdateCommand
-argument_list|()
+argument_list|(
+name|req
+argument_list|)
 decl_stmt|;
 name|cmd
 operator|.
