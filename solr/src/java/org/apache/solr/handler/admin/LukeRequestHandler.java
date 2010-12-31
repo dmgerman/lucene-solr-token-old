@@ -3889,7 +3889,7 @@ literal|"copyDests"
 argument_list|,
 name|schema
 operator|.
-name|getCopyFields
+name|getCopyFieldsList
 argument_list|(
 name|f
 operator|.
