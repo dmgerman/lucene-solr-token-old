@@ -567,10 +567,15 @@ specifier|final
 name|DocValuesConsumer
 name|consumer
 init|=
-name|DocValuesConsumer
+name|Writer
 operator|.
 name|create
 argument_list|(
+name|field
+operator|.
+name|getDocValues
+argument_list|()
+argument_list|,
 name|info
 operator|.
 name|docValuesId
@@ -595,8 +600,6 @@ comment|// docvalues?
 name|state
 operator|.
 name|directory
-argument_list|,
-name|field
 argument_list|,
 name|comparator
 argument_list|,

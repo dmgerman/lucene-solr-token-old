@@ -664,9 +664,6 @@ argument_list|(
 name|cloneData
 argument_list|()
 argument_list|,
-name|cloneIndex
-argument_list|()
-argument_list|,
 name|size
 argument_list|,
 name|maxDoc
@@ -716,9 +713,6 @@ parameter_list|(
 name|IndexInput
 name|datIn
 parameter_list|,
-name|IndexInput
-name|idxIn
-parameter_list|,
 name|int
 name|size
 parameter_list|,
@@ -732,7 +726,7 @@ name|super
 argument_list|(
 name|datIn
 argument_list|,
-name|idxIn
+literal|null
 argument_list|,
 operator|new
 name|PagedBytes
