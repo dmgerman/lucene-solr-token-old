@@ -209,7 +209,7 @@ name|Version
 import|;
 end_import
 begin_comment
-comment|/** This class is overridden by QueryParser in QueryParser.jj  * and acts to eparate the majority of the Java code from the .jj grammar file.   */
+comment|/** This class is overridden by QueryParser in QueryParser.jj  * and acts to separate the majority of the Java code from the .jj grammar file.   */
 end_comment
 begin_class
 DECL|class|QueryParserBase

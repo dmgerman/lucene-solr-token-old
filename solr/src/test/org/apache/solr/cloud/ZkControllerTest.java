@@ -180,17 +180,6 @@ operator|.
 name|Test
 import|;
 end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
-import|;
-end_import
 begin_class
 DECL|class|ZkControllerTest
 specifier|public
@@ -1035,8 +1024,7 @@ name|zkController
 operator|.
 name|uploadToZK
 argument_list|(
-operator|new
-name|File
+name|getFile
 argument_list|(
 literal|"solr/conf"
 argument_list|)

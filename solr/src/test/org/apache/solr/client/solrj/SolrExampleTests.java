@@ -412,17 +412,6 @@ operator|.
 name|Test
 import|;
 end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
-import|;
-end_import
 begin_comment
 comment|/**  * This should include tests against the example solr config  *   * This lets us try various SolrServer implementations with the same tests.  *   * @version $Id$  * @since solr 1.3  */
 end_comment
@@ -1772,8 +1761,7 @@ name|up
 operator|.
 name|addFile
 argument_list|(
-operator|new
-name|File
+name|getFile
 argument_list|(
 literal|"books.csv"
 argument_list|)
