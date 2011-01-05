@@ -210,19 +210,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Searcher
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|TopScoreDocCollector
 import|;
 end_import
@@ -610,7 +597,7 @@ literal|true
 argument_list|)
 decl_stmt|;
 comment|// only searching, so read-only=true
-name|Searcher
+name|IndexSearcher
 name|searcher
 init|=
 operator|new
@@ -903,7 +890,7 @@ name|void
 name|doStreamingSearch
 parameter_list|(
 specifier|final
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|,
 name|Query
@@ -1035,7 +1022,7 @@ parameter_list|(
 name|BufferedReader
 name|in
 parameter_list|,
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|,
 name|Query

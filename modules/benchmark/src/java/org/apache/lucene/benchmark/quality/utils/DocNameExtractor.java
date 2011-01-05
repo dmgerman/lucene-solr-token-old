@@ -63,7 +63,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Searcher
+name|IndexSearcher
 import|;
 end_import
 begin_comment
@@ -141,7 +141,7 @@ specifier|public
 name|String
 name|docName
 parameter_list|(
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|,
 name|int

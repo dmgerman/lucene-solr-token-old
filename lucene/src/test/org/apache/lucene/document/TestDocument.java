@@ -99,19 +99,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Searcher
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|TermQuery
 import|;
 end_import
@@ -890,7 +877,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|Searcher
+name|IndexSearcher
 name|searcher
 init|=
 operator|new
@@ -1542,7 +1529,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|Searcher
+name|IndexSearcher
 name|searcher
 init|=
 operator|new

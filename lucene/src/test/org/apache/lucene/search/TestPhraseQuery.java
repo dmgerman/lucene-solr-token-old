@@ -2543,7 +2543,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|Searcher
+name|IndexSearcher
 name|searcher
 init|=
 operator|new

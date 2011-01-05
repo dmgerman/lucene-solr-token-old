@@ -423,19 +423,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Searcher
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Scorer
 import|;
 end_import
@@ -1483,7 +1470,7 @@ argument_list|(
 literal|"query must not be null"
 argument_list|)
 throw|;
-name|Searcher
+name|IndexSearcher
 name|searcher
 init|=
 name|createSearcher
@@ -3090,7 +3077,7 @@ name|IndexReader
 block|{
 DECL|field|searcher
 specifier|private
-name|Searcher
+name|IndexSearcher
 name|searcher
 decl_stmt|;
 comment|// needed to find searcher.getSimilarity()
@@ -5090,7 +5077,7 @@ specifier|private
 name|void
 name|setSearcher
 parameter_list|(
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|)
 block|{

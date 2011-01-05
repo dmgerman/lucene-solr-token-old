@@ -242,7 +242,7 @@ literal|50
 decl_stmt|;
 DECL|field|searcher
 specifier|private
-name|Searcher
+name|IndexSearcher
 name|searcher
 decl_stmt|;
 DECL|field|directory

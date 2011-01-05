@@ -614,7 +614,7 @@ DECL|method|PhraseWeight
 specifier|public
 name|PhraseWeight
 parameter_list|(
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|)
 throws|throws
@@ -1549,7 +1549,7 @@ specifier|public
 name|Weight
 name|createWeight
 parameter_list|(
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|)
 throws|throws
