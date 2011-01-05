@@ -38,19 +38,6 @@ operator|.
 name|document
 operator|.
 name|Field
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|Field
 operator|.
 name|Index
 import|;
@@ -92,17 +79,6 @@ operator|.
 name|lucene
 operator|.
 name|store
-operator|.
-name|*
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
 operator|.
 name|*
 import|;

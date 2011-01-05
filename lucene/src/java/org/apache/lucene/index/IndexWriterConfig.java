@@ -147,6 +147,7 @@ name|DEFAULT_TERM_INDEX_INTERVAL
 init|=
 literal|32
 decl_stmt|;
+comment|// TODO: this should be private to the codec, not settable here
 comment|/** Denotes a flush trigger is disabled. */
 DECL|field|DISABLE_AUTO_FLUSH
 specifier|public
@@ -292,6 +293,7 @@ specifier|private
 name|int
 name|termIndexInterval
 decl_stmt|;
+comment|// TODO: this should be private to the codec, not settable here
 DECL|field|mergeScheduler
 specifier|private
 name|MergeScheduler
@@ -413,6 +415,7 @@ name|termIndexInterval
 operator|=
 name|DEFAULT_TERM_INDEX_INTERVAL
 expr_stmt|;
+comment|// TODO: this should be private to the codec, not settable here
 name|mergeScheduler
 operator|=
 operator|new
@@ -699,6 +702,7 @@ name|int
 name|interval
 parameter_list|)
 block|{
+comment|// TODO: this should be private to the codec, not settable here
 name|this
 operator|.
 name|termIndexInterval
@@ -716,6 +720,7 @@ name|int
 name|getTermIndexInterval
 parameter_list|()
 block|{
+comment|// TODO: this should be private to the codec, not settable here
 return|return
 name|termIndexInterval
 return|;
@@ -1422,6 +1427,7 @@ argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
+comment|// TODO: this should be private to the codec, not settable here
 name|sb
 operator|.
 name|append

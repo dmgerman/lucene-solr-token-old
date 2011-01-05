@@ -238,7 +238,7 @@ specifier|public
 name|Similarity
 name|getSimilarity
 parameter_list|(
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|)
 block|{
@@ -473,7 +473,7 @@ DECL|method|BooleanWeight
 specifier|public
 name|BooleanWeight
 parameter_list|(
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|)
 throws|throws
@@ -1531,7 +1531,7 @@ specifier|public
 name|Weight
 name|createWeight
 parameter_list|(
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|)
 throws|throws

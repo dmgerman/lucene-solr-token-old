@@ -356,7 +356,7 @@ name|Term
 name|term
 parameter_list|,
 specifier|final
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|,
 name|int
@@ -440,7 +440,7 @@ name|Term
 name|term
 parameter_list|,
 specifier|final
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|)
 throws|throws
@@ -474,7 +474,7 @@ name|Term
 argument_list|>
 name|terms
 parameter_list|,
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|)
 throws|throws

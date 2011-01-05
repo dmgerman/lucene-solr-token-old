@@ -2135,11 +2135,15 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
-name|long
-name|startNumBytesUsed
+name|double
+name|startMBUsed
 init|=
 name|bytesUsed
 argument_list|()
+operator|/
+literal|1024.
+operator|/
+literal|1024.
 decl_stmt|;
 name|consumer
 operator|.
@@ -2185,9 +2189,10 @@ name|message
 argument_list|(
 literal|"flushedFiles="
 operator|+
-name|flushState
+name|newSegment
 operator|.
-name|flushedFiles
+name|files
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|message
@@ -2263,9 +2268,10 @@ control|(
 name|String
 name|fileName
 range|:
-name|flushState
+name|newSegment
 operator|.
-name|flushedFiles
+name|files
+argument_list|()
 control|)
 block|{
 name|cfsWriter
@@ -2285,9 +2291,10 @@ name|deleter
 operator|.
 name|deleteNewFiles
 argument_list|(
-name|flushState
+name|newSegment
 operator|.
-name|flushedFiles
+name|files
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|newSegment
@@ -2313,13 +2320,34 @@ name|newSegment
 argument_list|)
 expr_stmt|;
 specifier|final
-name|long
+name|double
+name|newSegmentSizeNoStore
+init|=
+name|newSegment
+operator|.
+name|sizeInBytes
+argument_list|(
+literal|false
+argument_list|)
+operator|/
+literal|1024.
+operator|/
+literal|1024.
+decl_stmt|;
+specifier|final
+name|double
 name|newSegmentSize
 init|=
 name|newSegment
 operator|.
 name|sizeInBytes
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
+operator|/
+literal|1024.
+operator|/
+literal|1024.
 decl_stmt|;
 name|message
 argument_list|(
@@ -2329,11 +2357,7 @@ name|nf
 operator|.
 name|format
 argument_list|(
-name|startNumBytesUsed
-operator|/
-literal|1024.
-operator|/
-literal|1024.
+name|startMBUsed
 argument_list|)
 operator|+
 literal|" MB"
@@ -2345,13 +2369,20 @@ operator|.
 name|format
 argument_list|(
 name|newSegmentSize
-operator|/
-literal|1024
-operator|/
-literal|1024
 argument_list|)
 operator|+
 literal|" MB"
+operator|+
+literal|" ("
+operator|+
+name|nf
+operator|.
+name|format
+argument_list|(
+name|newSegmentSizeNoStore
+argument_list|)
+operator|+
+literal|" MB w/o doc stores)"
 operator|+
 literal|" docs/MB="
 operator|+
@@ -2361,13 +2392,7 @@ name|format
 argument_list|(
 name|numDocs
 operator|/
-operator|(
 name|newSegmentSize
-operator|/
-literal|1024.
-operator|/
-literal|1024.
-operator|)
 argument_list|)
 operator|+
 literal|" new/old="
@@ -2378,9 +2403,9 @@ name|format
 argument_list|(
 literal|100.0
 operator|*
-name|newSegmentSize
+name|newSegmentSizeNoStore
 operator|/
-name|startNumBytesUsed
+name|startMBUsed
 argument_list|)
 operator|+
 literal|"%"
@@ -3396,7 +3421,7 @@ init|=
 operator|~
 name|BYTE_BLOCK_MASK
 decl_stmt|;
-comment|/* if you increase this, you must fix field cache impl for    * getTerms/getTermsIndex requires<= 32768 */
+comment|/* if you increase this, you must fix field cache impl for    * getTerms/getTermsIndex requires<= 32768.  Also fix    * DeltaBytesWriter's TERM_EOF if necessary. */
 DECL|field|MAX_TERM_LENGTH_UTF8
 specifier|final
 specifier|static

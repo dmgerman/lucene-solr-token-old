@@ -3040,7 +3040,7 @@ name|ScoreDoc
 index|[]
 name|h
 parameter_list|,
-name|Searcher
+name|IndexSearcher
 name|searcher
 parameter_list|)
 throws|throws

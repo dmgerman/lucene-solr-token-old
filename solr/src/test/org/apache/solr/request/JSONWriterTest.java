@@ -29,15 +29,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Writer
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|StringWriter
 import|;
 end_import
@@ -161,17 +152,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
 import|;
 end_import
 begin_comment

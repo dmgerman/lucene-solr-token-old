@@ -250,17 +250,6 @@ operator|.
 name|Test
 import|;
 end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
-import|;
-end_import
 begin_class
 DECL|class|QueryElevationComponentTest
 specifier|public

@@ -207,7 +207,7 @@ name|File
 operator|.
 name|separator
 operator|+
-literal|"solr"
+literal|"solr-dih"
 operator|+
 name|File
 operator|.
@@ -666,8 +666,7 @@ name|FileUtils
 operator|.
 name|copyFile
 argument_list|(
-operator|new
-name|File
+name|getFile
 argument_list|(
 name|getSolrConfigFile
 argument_list|()
@@ -690,8 +689,7 @@ name|FileUtils
 operator|.
 name|copyFile
 argument_list|(
-operator|new
-name|File
+name|getFile
 argument_list|(
 name|getSchemaFile
 argument_list|()
@@ -714,8 +712,7 @@ name|FileUtils
 operator|.
 name|copyFile
 argument_list|(
-operator|new
-name|File
+name|getFile
 argument_list|(
 name|CONF_DIR
 operator|+

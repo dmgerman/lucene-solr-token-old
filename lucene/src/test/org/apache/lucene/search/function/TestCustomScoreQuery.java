@@ -65,28 +65,6 @@ name|Test
 import|;
 end_import
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertEquals
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
-import|;
-end_import
-begin_import
 import|import
 name|java
 operator|.
@@ -2083,7 +2061,7 @@ parameter_list|(
 name|String
 name|msg
 parameter_list|,
-name|Searcher
+name|IndexSearcher
 name|s
 parameter_list|,
 name|Query

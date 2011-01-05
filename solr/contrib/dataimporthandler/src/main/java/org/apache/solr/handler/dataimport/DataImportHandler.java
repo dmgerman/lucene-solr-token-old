@@ -1219,6 +1219,8 @@ argument_list|,
 name|loader
 argument_list|,
 name|requestParams
+argument_list|,
+name|req
 argument_list|)
 decl_stmt|;
 if|if
@@ -1745,6 +1747,9 @@ name|DataImporter
 operator|.
 name|RequestParams
 name|requestParams
+parameter_list|,
+name|SolrQueryRequest
+name|req
 parameter_list|)
 block|{
 return|return
@@ -1759,6 +1764,8 @@ name|getConfigDir
 argument_list|()
 argument_list|,
 name|myName
+argument_list|,
+name|req
 argument_list|)
 block|{
 annotation|@

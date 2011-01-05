@@ -352,6 +352,7 @@ annotation|@
 name|Override
 DECL|method|validate
 specifier|public
+specifier|synchronized
 name|ByteValues
 name|validate
 parameter_list|(

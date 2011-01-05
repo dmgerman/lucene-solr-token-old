@@ -8898,10 +8898,12 @@ name|byte
 index|[]
 name|norms1
 init|=
-name|index1
+name|MultiNorms
 operator|.
 name|norms
 argument_list|(
+name|index1
+argument_list|,
 name|curField
 argument_list|)
 decl_stmt|;
@@ -8909,10 +8911,12 @@ name|byte
 index|[]
 name|norms2
 init|=
-name|index2
+name|MultiNorms
 operator|.
 name|norms
 argument_list|(
+name|index2
+argument_list|,
 name|curField
 argument_list|)
 decl_stmt|;

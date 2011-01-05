@@ -1957,7 +1957,10 @@ name|d
 init|=
 name|searcher
 operator|.
-name|doc
+name|getIndexReader
+argument_list|()
+operator|.
+name|document
 argument_list|(
 name|hits
 index|[
@@ -2344,7 +2347,10 @@ name|d
 init|=
 name|searcher
 operator|.
-name|doc
+name|getIndexReader
+argument_list|()
+operator|.
+name|document
 argument_list|(
 name|hits
 index|[

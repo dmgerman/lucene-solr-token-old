@@ -412,7 +412,7 @@ condition|(
 name|fieldTypes
 operator|==
 literal|null
-operator|||
+operator|&&
 name|fieldNames
 operator|==
 literal|null
@@ -422,7 +422,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"A list one field type or field name need to be specified"
+literal|"At least one field type or field name need to be specified"
 argument_list|)
 throw|;
 block|}

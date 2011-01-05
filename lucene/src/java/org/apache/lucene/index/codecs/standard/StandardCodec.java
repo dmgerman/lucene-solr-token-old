@@ -205,7 +205,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|FixedGapTermsIndexWriter
+name|VariableGapTermsIndexWriter
 import|;
 end_import
 begin_import
@@ -220,7 +220,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|FixedGapTermsIndexReader
+name|VariableGapTermsIndexReader
 import|;
 end_import
 begin_import
@@ -326,9 +326,19 @@ block|{
 name|indexWriter
 operator|=
 operator|new
-name|FixedGapTermsIndexWriter
+name|VariableGapTermsIndexWriter
 argument_list|(
 name|state
+argument_list|,
+operator|new
+name|VariableGapTermsIndexWriter
+operator|.
+name|EveryNTermSelector
+argument_list|(
+name|state
+operator|.
+name|termIndexInterval
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|success
@@ -468,7 +478,7 @@ block|{
 name|indexReader
 operator|=
 operator|new
-name|FixedGapTermsIndexReader
+name|VariableGapTermsIndexReader
 argument_list|(
 name|state
 operator|.
@@ -487,11 +497,6 @@ argument_list|,
 name|state
 operator|.
 name|termsIndexDivisor
-argument_list|,
-name|BytesRef
-operator|.
-name|getUTF8SortedAsUnicodeComparator
-argument_list|()
 argument_list|,
 name|state
 operator|.
@@ -668,7 +673,7 @@ argument_list|,
 name|files
 argument_list|)
 expr_stmt|;
-name|FixedGapTermsIndexReader
+name|VariableGapTermsIndexReader
 operator|.
 name|files
 argument_list|(
@@ -736,7 +741,7 @@ argument_list|(
 name|extensions
 argument_list|)
 expr_stmt|;
-name|FixedGapTermsIndexReader
+name|VariableGapTermsIndexReader
 operator|.
 name|getIndexExtensions
 argument_list|(
