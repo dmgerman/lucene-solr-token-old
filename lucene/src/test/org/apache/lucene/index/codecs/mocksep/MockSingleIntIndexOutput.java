@@ -172,6 +172,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|v
+operator|>=
+literal|0
+assert|;
 name|out
 operator|.
 name|writeVInt
