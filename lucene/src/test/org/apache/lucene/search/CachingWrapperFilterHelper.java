@@ -43,6 +43,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|ReaderContext
 import|;
 end_import
 begin_comment
@@ -102,8 +104,8 @@ specifier|synchronized
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|IndexReader
-name|reader
+name|ReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -121,7 +123,7 @@ name|super
 operator|.
 name|getDocIdSet
 argument_list|(
-name|reader
+name|context
 argument_list|)
 decl_stmt|;
 if|if

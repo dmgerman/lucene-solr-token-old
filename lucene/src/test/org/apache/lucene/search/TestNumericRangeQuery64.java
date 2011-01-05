@@ -1316,6 +1316,9 @@ operator|.
 name|getIndexReader
 argument_list|()
 argument_list|)
+operator|.
+name|getTopReaderContext
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1360,6 +1363,9 @@ operator|.
 name|getIndexReader
 argument_list|()
 argument_list|)
+operator|.
+name|getTopReaderContext
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1404,6 +1410,9 @@ operator|.
 name|getIndexReader
 argument_list|()
 argument_list|)
+operator|.
+name|getTopReaderContext
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -66,6 +66,21 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IndexReader
+operator|.
+name|ReaderContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|Term
 import|;
 end_import
@@ -1171,8 +1186,8 @@ specifier|public
 name|Scorer
 name|scorer
 parameter_list|(
-name|IndexReader
-name|reader
+name|ReaderContext
+name|context
 parameter_list|,
 name|boolean
 name|scoreDocsInOrder
@@ -1195,7 +1210,7 @@ name|subQueryWeight
 operator|.
 name|scorer
 argument_list|(
-name|reader
+name|context
 argument_list|,
 literal|true
 argument_list|,
@@ -1254,7 +1269,7 @@ index|]
 operator|.
 name|scorer
 argument_list|(
-name|reader
+name|context
 argument_list|,
 literal|true
 argument_list|,
@@ -1268,6 +1283,8 @@ name|CustomScorer
 argument_list|(
 name|similarity
 argument_list|,
+name|context
+operator|.
 name|reader
 argument_list|,
 name|this
@@ -1285,8 +1302,8 @@ specifier|public
 name|Explanation
 name|explain
 parameter_list|(
-name|IndexReader
-name|reader
+name|ReaderContext
+name|context
 parameter_list|,
 name|int
 name|doc
@@ -1299,7 +1316,7 @@ name|explain
 init|=
 name|doExplain
 argument_list|(
-name|reader
+name|context
 argument_list|,
 name|doc
 argument_list|)
@@ -1325,8 +1342,8 @@ specifier|private
 name|Explanation
 name|doExplain
 parameter_list|(
-name|IndexReader
-name|reader
+name|ReaderContext
+name|info
 parameter_list|,
 name|int
 name|doc
@@ -1341,7 +1358,7 @@ name|subQueryWeight
 operator|.
 name|explain
 argument_list|(
-name|reader
+name|info
 argument_list|,
 name|doc
 argument_list|)
@@ -1401,7 +1418,7 @@ index|]
 operator|.
 name|explain
 argument_list|(
-name|reader
+name|info
 argument_list|,
 name|doc
 argument_list|)
@@ -1416,6 +1433,8 @@ name|this
 operator|.
 name|getCustomScoreProvider
 argument_list|(
+name|info
+operator|.
 name|reader
 argument_list|)
 operator|.

@@ -34,6 +34,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|ReaderContext
 import|;
 end_import
 begin_comment
@@ -89,12 +91,24 @@ name|DocIdSet
 name|getDocIdSet
 parameter_list|(
 specifier|final
-name|IndexReader
-name|reader
+name|ReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// get a private context that is used to rewrite, createWeight and score eventually
+specifier|final
+name|ReaderContext
+name|privateContext
+init|=
+name|context
+operator|.
+name|reader
+operator|.
+name|getTopReaderContext
+argument_list|()
+decl_stmt|;
 specifier|final
 name|Weight
 name|weight
@@ -106,7 +120,7 @@ argument_list|(
 operator|new
 name|IndexSearcher
 argument_list|(
-name|reader
+name|privateContext
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -129,7 +143,7 @@ name|weight
 operator|.
 name|scorer
 argument_list|(
-name|reader
+name|privateContext
 argument_list|,
 literal|true
 argument_list|,

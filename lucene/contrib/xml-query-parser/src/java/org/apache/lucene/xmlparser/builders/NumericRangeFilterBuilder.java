@@ -36,6 +36,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|ReaderContext
 import|;
 end_import
 begin_import
@@ -522,8 +524,8 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|IndexReader
-name|reader
+name|ReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
