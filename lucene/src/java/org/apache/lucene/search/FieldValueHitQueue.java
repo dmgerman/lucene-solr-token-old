@@ -37,7 +37,7 @@ name|PriorityQueue
 import|;
 end_import
 begin_comment
-comment|/**  * Expert: A hit queue for sorting by hits by terms in more than one field.  * Uses<code>FieldCache.DEFAULT</code> for maintaining  * internal term lookup tables.  *   * @lucene.experimental  * @since 2.9  * @see Searcher#search(Query,Filter,int,Sort)  * @see FieldCache  */
+comment|/**  * Expert: A hit queue for sorting by hits by terms in more than one field.  * Uses<code>FieldCache.DEFAULT</code> for maintaining  * internal term lookup tables.  *   * @lucene.experimental  * @since 2.9  * @see IndexSearcher#search(Query,Filter,int,Sort)  * @see FieldCache  */
 end_comment
 begin_class
 DECL|class|FieldValueHitQueue
