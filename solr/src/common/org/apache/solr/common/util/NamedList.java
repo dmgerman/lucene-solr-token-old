@@ -66,6 +66,9 @@ DECL|field|nvPairs
 specifier|protected
 specifier|final
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|nvPairs
 decl_stmt|;
 comment|/** Creates an empty instance */
@@ -78,6 +81,9 @@ name|nvPairs
 operator|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
@@ -116,6 +122,9 @@ specifier|public
 name|NamedList
 parameter_list|(
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|nameValuePairs
 parameter_list|)
 block|{
@@ -130,6 +139,9 @@ name|Deprecated
 DECL|method|nameValueMapToList
 specifier|private
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|nameValueMapToList
 parameter_list|(
 name|Map
@@ -147,10 +159,16 @@ name|nameValuePairs
 parameter_list|)
 block|{
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|result
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -343,6 +361,11 @@ operator|)
 operator|+
 literal|1
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|T
 name|old
 init|=
@@ -395,7 +418,14 @@ argument_list|(
 name|index
 argument_list|)
 expr_stmt|;
-return|return
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+name|T
+name|result
+init|=
 operator|(
 name|T
 operator|)
@@ -405,8 +435,11 @@ name|remove
 argument_list|(
 name|index
 argument_list|)
-return|;
+decl_stmt|;
 comment|// same index, as things shifted in previous remove
+return|return
+name|result
+return|;
 block|}
 comment|/**    * Scans the list sequentially beginning at the specified index and    * returns the index of the first pair with the specified name.    *    * @param name name to look for, may be null    * @param start index to begin searching from    * @return The index of the first matching pair, -1 if no match    */
 DECL|method|indexOf
@@ -976,10 +1009,16 @@ name|clone
 parameter_list|()
 block|{
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 name|newList
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|nvPairs
 operator|.
@@ -1027,6 +1066,9 @@ parameter_list|()
 block|{
 specifier|final
 name|NamedList
+argument_list|<
+name|T
+argument_list|>
 name|list
 init|=
 name|this
@@ -1142,9 +1184,6 @@ name|getValue
 parameter_list|()
 block|{
 return|return
-operator|(
-name|T
-operator|)
 name|list
 operator|.
 name|getVal
@@ -1177,9 +1216,6 @@ name|value
 parameter_list|)
 block|{
 return|return
-operator|(
-name|T
-operator|)
 name|list
 operator|.
 name|setVal

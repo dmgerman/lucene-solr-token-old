@@ -2369,6 +2369,9 @@ block|}
 DECL|method|getCounts
 specifier|public
 name|NamedList
+argument_list|<
+name|Integer
+argument_list|>
 name|getCounts
 parameter_list|(
 name|SolrIndexSearcher
@@ -2417,10 +2420,16 @@ name|field
 argument_list|)
 decl_stmt|;
 name|NamedList
+argument_list|<
+name|Integer
+argument_list|>
 name|res
 init|=
 operator|new
 name|NamedList
+argument_list|<
+name|Integer
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// order is important
