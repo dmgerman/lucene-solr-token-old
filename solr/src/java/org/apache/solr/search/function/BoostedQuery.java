@@ -280,9 +280,9 @@ DECL|field|qWeight
 name|Weight
 name|qWeight
 decl_stmt|;
-DECL|field|context
+DECL|field|fcontext
 name|Map
-name|context
+name|fcontext
 decl_stmt|;
 DECL|method|BoostedWeight
 specifier|public
@@ -313,7 +313,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|context
+name|fcontext
 operator|=
 name|boostVal
 operator|.
@@ -326,7 +326,7 @@ name|boostVal
 operator|.
 name|createWeight
 argument_list|(
-name|context
+name|fcontext
 argument_list|,
 name|searcher
 argument_list|)
@@ -526,7 +526,7 @@ name|boostVal
 operator|.
 name|getValues
 argument_list|(
-name|context
+name|fcontext
 argument_list|,
 name|readerContext
 operator|.
@@ -713,7 +713,7 @@ name|getValues
 argument_list|(
 name|weight
 operator|.
-name|context
+name|fcontext
 argument_list|,
 name|reader
 argument_list|)
@@ -841,10 +841,16 @@ name|qWeight
 operator|.
 name|explain
 argument_list|(
-name|reader
+name|ValueSource
 operator|.
-name|getTopReaderContext
-argument_list|()
+name|readerToContext
+argument_list|(
+name|weight
+operator|.
+name|fcontext
+argument_list|,
+name|reader
+argument_list|)
 argument_list|,
 name|doc
 argument_list|)
