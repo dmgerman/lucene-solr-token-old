@@ -443,7 +443,7 @@ init|=
 operator|new
 name|LineFileDocs
 argument_list|(
-literal|true
+name|random
 argument_list|)
 decl_stmt|;
 specifier|final
