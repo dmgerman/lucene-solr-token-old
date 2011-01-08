@@ -4806,6 +4806,11 @@ throws|throws
 name|IOException
 block|{
 name|SolrCache
+argument_list|<
+name|String
+argument_list|,
+name|UnInvertedField
+argument_list|>
 name|cache
 init|=
 name|searcher
@@ -4833,9 +4838,6 @@ block|}
 name|UnInvertedField
 name|uif
 init|=
-operator|(
-name|UnInvertedField
-operator|)
 name|cache
 operator|.
 name|get
@@ -4857,9 +4859,6 @@ init|)
 block|{
 name|uif
 operator|=
-operator|(
-name|UnInvertedField
-operator|)
 name|cache
 operator|.
 name|get

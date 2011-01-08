@@ -490,7 +490,7 @@ name|SolrCache
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|UnInvertedField
 argument_list|>
 name|fieldValueCache
 decl_stmt|;
@@ -2367,6 +2367,11 @@ comment|/** expert: internal API, subject to change */
 DECL|method|getFieldValueCache
 specifier|public
 name|SolrCache
+argument_list|<
+name|String
+argument_list|,
+name|UnInvertedField
+argument_list|>
 name|getFieldValueCache
 parameter_list|()
 block|{
