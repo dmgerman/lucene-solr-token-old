@@ -2264,6 +2264,13 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|_TestUtil
+operator|.
+name|checkIndex
+argument_list|(
+name|dir
+argument_list|)
+expr_stmt|;
 name|dir
 operator|.
 name|close

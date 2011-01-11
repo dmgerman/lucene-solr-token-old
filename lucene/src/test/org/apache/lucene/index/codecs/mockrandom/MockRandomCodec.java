@@ -863,7 +863,7 @@ condition|)
 block|{
 specifier|final
 name|int
-name|freqCutoff
+name|totTFCutoff
 init|=
 name|_TestUtil
 operator|.
@@ -889,9 +889,9 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"MockRandomCodec: pulsing postings with freqCutoff="
+literal|"MockRandomCodec: pulsing postings with totTFCutoff="
 operator|+
-name|freqCutoff
+name|totTFCutoff
 argument_list|)
 expr_stmt|;
 block|}
@@ -900,7 +900,7 @@ operator|=
 operator|new
 name|PulsingPostingsWriterImpl
 argument_list|(
-name|freqCutoff
+name|totTFCutoff
 argument_list|,
 name|postingsWriter
 argument_list|)
@@ -1616,7 +1616,7 @@ condition|)
 block|{
 specifier|final
 name|int
-name|freqCutoff
+name|totTFCutoff
 init|=
 name|_TestUtil
 operator|.
@@ -1642,9 +1642,9 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"MockRandomCodec: reading pulsing postings with freqCutoff="
+literal|"MockRandomCodec: reading pulsing postings with totTFCutoff="
 operator|+
-name|freqCutoff
+name|totTFCutoff
 argument_list|)
 expr_stmt|;
 block|}
