@@ -57,7 +57,7 @@ name|index
 operator|.
 name|IndexReader
 operator|.
-name|ReaderContext
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -153,8 +153,8 @@ parameter_list|,
 name|int
 name|index
 parameter_list|,
-name|ReaderContext
-name|info
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -169,7 +169,7 @@ argument_list|)
 operator|.
 name|getDocIdSet
 argument_list|(
-name|info
+name|context
 argument_list|)
 operator|.
 name|iterator
@@ -184,7 +184,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|ReaderContext
+name|AtomicReaderContext
 name|context
 parameter_list|)
 throws|throws
