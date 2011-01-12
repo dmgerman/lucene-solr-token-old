@@ -25,6 +25,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -1013,11 +1015,8 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
+name|AtomicReaderContext
 name|arg0
-parameter_list|,
-name|int
-name|docBase
 parameter_list|)
 throws|throws
 name|IOException

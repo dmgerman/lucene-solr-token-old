@@ -34,6 +34,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -309,11 +311,8 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -322,6 +321,8 @@ name|this
 operator|.
 name|docBase
 operator|=
+name|context
+operator|.
 name|docBase
 expr_stmt|;
 name|queue
@@ -334,9 +335,7 @@ name|comparator
 operator|.
 name|setNextReader
 argument_list|(
-name|reader
-argument_list|,
-name|docBase
+name|context
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1799,11 +1798,8 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1812,6 +1808,8 @@ name|this
 operator|.
 name|docBase
 operator|=
+name|context
+operator|.
 name|docBase
 expr_stmt|;
 for|for
@@ -1844,9 +1842,7 @@ index|]
 operator|.
 name|setNextReader
 argument_list|(
-name|reader
-argument_list|,
-name|docBase
+name|context
 argument_list|)
 argument_list|)
 expr_stmt|;
