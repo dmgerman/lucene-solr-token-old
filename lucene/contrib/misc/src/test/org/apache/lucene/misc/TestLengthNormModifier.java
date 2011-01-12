@@ -827,10 +827,10 @@ name|AtomicReaderContext
 name|context
 parameter_list|)
 block|{
-name|this
-operator|.
 name|docBase
 operator|=
+name|context
+operator|.
 name|docBase
 expr_stmt|;
 block|}
@@ -1076,10 +1076,10 @@ name|AtomicReaderContext
 name|context
 parameter_list|)
 block|{
-name|this
-operator|.
 name|docBase
 operator|=
+name|context
+operator|.
 name|docBase
 expr_stmt|;
 block|}
