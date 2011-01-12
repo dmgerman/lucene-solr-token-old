@@ -147,7 +147,7 @@ comment|/** Return a newly created empty TermState */
 DECL|method|newTermState
 specifier|public
 specifier|abstract
-name|TermState
+name|PrefixCodedTermState
 name|newTermState
 parameter_list|()
 throws|throws
@@ -165,7 +165,7 @@ parameter_list|,
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|TermState
+name|PrefixCodedTermState
 name|state
 parameter_list|,
 name|boolean
@@ -184,7 +184,7 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|TermState
+name|PrefixCodedTermState
 name|state
 parameter_list|,
 name|Bits
@@ -206,7 +206,7 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|TermState
+name|PrefixCodedTermState
 name|state
 parameter_list|,
 name|Bits

@@ -33,6 +33,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|util
+operator|.
+name|Bits
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|*
@@ -1491,14 +1504,6 @@ name|size
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|cacheCurrentTerm
-specifier|public
-name|void
-name|cacheCurrentTerm
-parameter_list|()
-block|{       }
 annotation|@
 name|Override
 DECL|method|docs

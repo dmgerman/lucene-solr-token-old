@@ -111,6 +111,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|TermState
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|codecs
 operator|.
 name|PostingsReaderBase
@@ -128,7 +141,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|TermState
+name|PrefixCodedTermState
 import|;
 end_import
 begin_import
@@ -723,10 +736,11 @@ block|}
 DECL|class|SepTermState
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|SepTermState
 extends|extends
-name|TermState
+name|PrefixCodedTermState
 block|{
 comment|// We store only the seek point to the docs file because
 comment|// the rest of the info (freqIndex, posIndex, etc.) is
@@ -737,6 +751,8 @@ operator|.
 name|Index
 name|docIndex
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object
@@ -837,7 +853,7 @@ annotation|@
 name|Override
 DECL|method|newTermState
 specifier|public
-name|TermState
+name|PrefixCodedTermState
 name|newTermState
 parameter_list|()
 throws|throws
@@ -877,7 +893,7 @@ parameter_list|,
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|TermState
+name|PrefixCodedTermState
 name|termState
 parameter_list|,
 name|boolean
@@ -913,7 +929,7 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|TermState
+name|PrefixCodedTermState
 name|_termState
 parameter_list|,
 name|Bits
@@ -1010,7 +1026,7 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|TermState
+name|PrefixCodedTermState
 name|_termState
 parameter_list|,
 name|Bits
