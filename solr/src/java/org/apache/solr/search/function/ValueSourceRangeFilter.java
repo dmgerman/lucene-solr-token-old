@@ -67,7 +67,7 @@ name|index
 operator|.
 name|IndexReader
 operator|.
-name|ReaderContext
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -211,7 +211,7 @@ name|Map
 name|context
 parameter_list|,
 specifier|final
-name|ReaderContext
+name|AtomicReaderContext
 name|readerContext
 parameter_list|)
 throws|throws
@@ -237,8 +237,6 @@ argument_list|(
 name|context
 argument_list|,
 name|readerContext
-operator|.
-name|reader
 argument_list|)
 operator|.
 name|getRangeScorer

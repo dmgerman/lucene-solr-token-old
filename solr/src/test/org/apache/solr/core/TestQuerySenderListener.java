@@ -371,7 +371,7 @@ name|dir
 init|=
 name|currentSearcher
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 operator|.
 name|directory

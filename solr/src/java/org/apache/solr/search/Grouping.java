@@ -3540,8 +3540,6 @@ argument_list|(
 name|context
 argument_list|,
 name|readerContext
-operator|.
-name|reader
 argument_list|)
 expr_stmt|;
 name|filler
@@ -3949,8 +3947,6 @@ argument_list|(
 name|context
 argument_list|,
 name|readerContext
-operator|.
-name|reader
 argument_list|)
 expr_stmt|;
 name|filler

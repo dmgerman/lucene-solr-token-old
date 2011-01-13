@@ -326,7 +326,7 @@ operator|.
 name|getSearcher
 argument_list|()
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -371,7 +371,7 @@ operator|.
 name|getSearcher
 argument_list|()
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -1074,7 +1074,7 @@ name|reader
 init|=
 name|searcher
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 decl_stmt|;
 name|int
@@ -2508,7 +2508,7 @@ name|getEnumerator
 argument_list|(
 name|searcher
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3767,7 +3767,7 @@ name|getTermsIndex
 argument_list|(
 name|searcher
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|f
@@ -3843,7 +3843,7 @@ name|getEnumerator
 argument_list|(
 name|searcher
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 argument_list|)
 decl_stmt|;

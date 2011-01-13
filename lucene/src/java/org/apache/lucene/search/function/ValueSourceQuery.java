@@ -317,8 +317,6 @@ argument_list|(
 name|similarity
 argument_list|,
 name|context
-operator|.
-name|reader
 argument_list|,
 name|this
 argument_list|)
@@ -349,8 +347,6 @@ operator|.
 name|getValues
 argument_list|(
 name|context
-operator|.
-name|reader
 argument_list|)
 decl_stmt|;
 name|float
@@ -477,8 +473,8 @@ parameter_list|(
 name|Similarity
 name|similarity
 parameter_list|,
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
 parameter_list|,
 name|ValueSourceWeight
 name|w
@@ -493,6 +489,14 @@ argument_list|,
 name|w
 argument_list|)
 expr_stmt|;
+specifier|final
+name|IndexReader
+name|reader
+init|=
+name|context
+operator|.
+name|reader
+decl_stmt|;
 name|qWeight
 operator|=
 name|w
@@ -507,7 +511,7 @@ name|valSrc
 operator|.
 name|getValues
 argument_list|(
-name|reader
+name|context
 argument_list|)
 expr_stmt|;
 name|delDocs

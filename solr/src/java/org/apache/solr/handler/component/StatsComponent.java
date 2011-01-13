@@ -1367,7 +1367,7 @@ name|getTermsIndex
 argument_list|(
 name|searcher
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|fieldName
@@ -1486,7 +1486,7 @@ name|getTermsIndex
 argument_list|(
 name|searcher
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 argument_list|,
 name|f
