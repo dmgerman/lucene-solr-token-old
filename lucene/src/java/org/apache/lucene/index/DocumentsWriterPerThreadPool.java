@@ -196,6 +196,7 @@ return|;
 block|}
 DECL|method|newThreadState
 specifier|public
+specifier|synchronized
 name|ThreadState
 name|newThreadState
 parameter_list|()
