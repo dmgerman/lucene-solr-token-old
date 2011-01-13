@@ -16964,10 +16964,10 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-DECL|method|testIndexingThenDeleting
+DECL|method|_testIndexingThenDeleting
 specifier|public
 name|void
-name|testIndexingThenDeleting
+name|_testIndexingThenDeleting
 parameter_list|()
 throws|throws
 name|Exception
