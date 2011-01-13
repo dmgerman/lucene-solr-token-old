@@ -151,7 +151,7 @@ name|ReaderUtil
 import|;
 end_import
 begin_comment
-comment|/**  * Given a directory and a list of fields, updates the fieldNorms in place for every document.  *   * If Similarity class is specified, uses its lengthNorm method to set norms.  * If -n command line argument is used, removed field norms, as if   * {@link org.apache.lucene.document.Field.Index}.NO_NORMS was used.  *  *<p>  * NOTE: This will overwrite any length normalization or field/document boosts.  *</p>  *  */
+comment|/**  * Given a directory and a list of fields, updates the fieldNorms in place for every document.  *   * If Similarity class is specified, uses its computeNorm method to set norms.  * If -n command line argument is used, removed field norms, as if   * {@link org.apache.lucene.document.Field.Index}.NO_NORMS was used.  *  *<p>  * NOTE: This will overwrite any length normalization or field/document boosts.  *</p>  *  */
 end_comment
 begin_class
 DECL|class|FieldNormModifier
@@ -487,6 +487,14 @@ argument_list|,
 name|reader
 argument_list|)
 expr_stmt|;
+specifier|final
+name|FieldInvertState
+name|invertState
+init|=
+operator|new
+name|FieldInvertState
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|IndexReader
@@ -624,6 +632,13 @@ block|}
 block|}
 block|}
 block|}
+name|invertState
+operator|.
+name|setBoost
+argument_list|(
+literal|1.0f
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -656,6 +671,16 @@ name|d
 argument_list|)
 condition|)
 block|{
+name|invertState
+operator|.
+name|setLength
+argument_list|(
+name|termCounts
+index|[
+name|d
+index|]
+argument_list|)
+expr_stmt|;
 name|subReader
 operator|.
 name|setNorm
@@ -670,14 +695,11 @@ name|encodeNormValue
 argument_list|(
 name|sim
 operator|.
-name|lengthNorm
+name|computeNorm
 argument_list|(
 name|fieldName
 argument_list|,
-name|termCounts
-index|[
-name|d
-index|]
+name|invertState
 argument_list|)
 argument_list|)
 argument_list|)

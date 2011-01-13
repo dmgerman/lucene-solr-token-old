@@ -121,6 +121,19 @@ end_import
 begin_comment
 comment|// javadocs only
 end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|PerReaderTermState
+import|;
+end_import
 begin_comment
 comment|/**  * Wraps any {@link MultiTermQuery} as a {@link SpanQuery},   * so it can be nested within other SpanQuery classes.  *<p>  * The query is rewritten by default to a {@link SpanOrQuery} containing  * the expanded terms, but this can be customized.   *<p>  * Example:  *<blockquote><pre>  * {@code  * WildcardQuery wildcard = new WildcardQuery(new Term("field", "bro?n"));  * SpanQuery spanWildcard = new SpanMultiTermQueryWrapper<WildcardQuery>(wildcard);  * // do something with spanWildcard, such as use it in a SpanFirstQuery  * }  *</pre></blockquote>  */
 end_comment
@@ -578,6 +591,9 @@ name|docCount
 parameter_list|,
 name|float
 name|boost
+parameter_list|,
+name|PerReaderTermState
+name|states
 parameter_list|)
 block|{
 specifier|final
@@ -727,6 +743,9 @@ name|docFreq
 parameter_list|,
 name|float
 name|boost
+parameter_list|,
+name|PerReaderTermState
+name|states
 parameter_list|)
 block|{
 specifier|final

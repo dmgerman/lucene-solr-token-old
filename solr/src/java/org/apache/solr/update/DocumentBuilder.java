@@ -357,7 +357,7 @@ block|}
 block|}
 else|else
 block|{
-name|Field
+name|Fieldable
 name|field
 init|=
 name|sfield
@@ -949,7 +949,7 @@ block|}
 block|}
 else|else
 block|{
-name|Field
+name|Fieldable
 name|f
 init|=
 name|field
@@ -1202,7 +1202,7 @@ operator|.
 name|getType
 argument_list|()
 decl_stmt|;
-name|Field
+name|Fieldable
 name|f
 init|=
 name|binaryField
@@ -1440,7 +1440,7 @@ comment|//TODO: safe to assume that binary fields only create one?
 name|fields
 operator|=
 operator|new
-name|Field
+name|Fieldable
 index|[]
 block|{
 name|binaryField

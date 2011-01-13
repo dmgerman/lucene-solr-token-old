@@ -36,6 +36,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -209,8 +211,8 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -226,6 +228,8 @@ name|DEFAULT
 operator|.
 name|getDoubles
 argument_list|(
+name|context
+operator|.
 name|reader
 argument_list|,
 name|latField
@@ -242,6 +246,8 @@ name|DEFAULT
 operator|.
 name|getDoubles
 argument_list|(
+name|context
+operator|.
 name|reader
 argument_list|,
 name|lngField
@@ -255,6 +261,8 @@ name|nextDocBase
 decl_stmt|;
 name|nextDocBase
 operator|+=
+name|context
+operator|.
 name|reader
 operator|.
 name|maxDoc
@@ -268,7 +276,7 @@ name|startingFilter
 operator|.
 name|getDocIdSet
 argument_list|(
-name|reader
+name|context
 argument_list|)
 argument_list|)
 block|{

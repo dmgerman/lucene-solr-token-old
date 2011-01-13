@@ -4429,7 +4429,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 decl_stmt|;
 name|IndexReader
@@ -5493,6 +5493,9 @@ argument_list|)
 expr_stmt|;
 comment|// toLog is a local ref to the same NamedList used by the request
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 name|toLog
 init|=
 name|rsp
@@ -5678,6 +5681,9 @@ parameter_list|)
 block|{
 comment|// TODO should check that responseHeader has not been replaced by handler
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 name|responseHeader
 init|=
 name|rsp
@@ -7264,10 +7270,16 @@ name|getStatistics
 parameter_list|()
 block|{
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 name|lst
 init|=
 operator|new
 name|SimpleOrderedMap
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|lst

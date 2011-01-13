@@ -314,7 +314,7 @@ name|assertU
 argument_list|(
 name|delQ
 argument_list|(
-literal|"id:[100 TO 110]"
+literal|"*:*"
 argument_list|)
 argument_list|)
 expr_stmt|;

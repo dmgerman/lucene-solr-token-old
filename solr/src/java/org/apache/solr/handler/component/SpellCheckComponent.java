@@ -1008,7 +1008,7 @@ operator|.
 name|getSearcher
 argument_list|()
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -4706,7 +4706,7 @@ if|if
 condition|(
 name|newSearcher
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 operator|.
 name|isOptimized

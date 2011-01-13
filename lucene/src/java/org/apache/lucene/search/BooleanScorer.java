@@ -43,6 +43,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -270,11 +272,8 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 block|{
 comment|// not needed by this implementation
@@ -700,6 +699,9 @@ parameter_list|(
 name|Weight
 name|weight
 parameter_list|,
+name|boolean
+name|disableCoord
+parameter_list|,
 name|Similarity
 name|similarity
 parameter_list|,
@@ -726,11 +728,12 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|similarity
+literal|null
 argument_list|,
 name|weight
 argument_list|)
 expr_stmt|;
+comment|// Similarity not used
 name|this
 operator|.
 name|minNrShouldMatch
@@ -878,12 +881,6 @@ operator|+
 literal|1
 index|]
 expr_stmt|;
-name|Similarity
-name|sim
-init|=
-name|getSimilarity
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -906,7 +903,11 @@ index|[
 name|i
 index|]
 operator|=
-name|sim
+name|disableCoord
+condition|?
+literal|1.0f
+else|:
+name|similarity
 operator|.
 name|coord
 argument_list|(
@@ -921,7 +922,7 @@ comment|// firstDocID is ignored since nextDoc() initializes 'current'
 annotation|@
 name|Override
 DECL|method|score
-specifier|protected
+specifier|public
 name|boolean
 name|score
 parameter_list|(

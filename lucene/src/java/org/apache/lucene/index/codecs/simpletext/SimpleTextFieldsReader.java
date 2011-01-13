@@ -82,6 +82,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|TermState
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|Terms
 import|;
 end_import
@@ -878,11 +891,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|fstEnum
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 comment|//System.out.println("seek to text=" + text.utf8ToString());
 specifier|final
 name|BytesRefFSTEnum
@@ -902,7 +910,7 @@ name|result
 init|=
 name|fstEnum
 operator|.
-name|advance
+name|seekCeil
 argument_list|(
 name|text
 argument_list|)
@@ -983,14 +991,6 @@ return|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|cacheCurrentTerm
-specifier|public
-name|void
-name|cacheCurrentTerm
-parameter_list|()
-block|{     }
 annotation|@
 name|Override
 DECL|method|next
@@ -2519,12 +2519,6 @@ name|SimpleTextTerms
 extends|extends
 name|Terms
 block|{
-DECL|field|field
-specifier|private
-specifier|final
-name|String
-name|field
-decl_stmt|;
 DECL|field|termsStart
 specifier|private
 specifier|final
@@ -2577,17 +2571,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|this
-operator|.
-name|field
-operator|=
-name|StringHelper
-operator|.
-name|intern
-argument_list|(
-name|field
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|termsStart

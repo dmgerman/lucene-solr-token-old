@@ -5499,6 +5499,9 @@ name|getFile
 argument_list|(
 literal|"solr/conf/"
 argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
 decl_stmt|;
 while|while
 condition|(

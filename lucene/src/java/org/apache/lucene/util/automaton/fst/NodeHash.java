@@ -135,7 +135,7 @@ name|IOException
 block|{
 name|fst
 operator|.
-name|readFirstArc
+name|readFirstRealArc
 argument_list|(
 name|address
 argument_list|,
@@ -290,7 +290,7 @@ block|}
 block|}
 name|fst
 operator|.
-name|readNextArc
+name|readNextRealArc
 argument_list|(
 name|scratchArc
 argument_list|)
@@ -466,7 +466,7 @@ literal|0
 decl_stmt|;
 name|fst
 operator|.
-name|readFirstArc
+name|readFirstRealArc
 argument_list|(
 name|node
 argument_list|,
@@ -550,7 +550,7 @@ break|break;
 block|}
 name|fst
 operator|.
-name|readNextArc
+name|readNextRealArc
 argument_list|(
 name|scratchArc
 argument_list|)

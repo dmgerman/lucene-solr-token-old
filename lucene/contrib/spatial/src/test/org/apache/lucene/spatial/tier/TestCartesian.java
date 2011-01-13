@@ -1596,11 +1596,6 @@ operator|.
 name|search
 argument_list|(
 name|customScore
-operator|.
-name|createWeight
-argument_list|(
-name|searcher
-argument_list|)
 argument_list|,
 literal|null
 argument_list|,
@@ -2204,11 +2199,6 @@ operator|.
 name|search
 argument_list|(
 name|customScore
-operator|.
-name|createWeight
-argument_list|(
-name|searcher
-argument_list|)
 argument_list|,
 literal|null
 argument_list|,
@@ -2884,11 +2874,6 @@ operator|.
 name|search
 argument_list|(
 name|customScore
-operator|.
-name|createWeight
-argument_list|(
-name|searcher
-argument_list|)
 argument_list|,
 literal|null
 argument_list|,
@@ -3514,11 +3499,6 @@ operator|.
 name|search
 argument_list|(
 name|customScore
-operator|.
-name|createWeight
-argument_list|(
-name|searcher
-argument_list|)
 argument_list|,
 name|dq
 operator|.

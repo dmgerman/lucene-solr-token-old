@@ -4660,6 +4660,11 @@ block|{
 break|break;
 block|}
 block|}
+name|modifier
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|TestIndexWriter
 operator|.
 name|assertNoUnreferencedFiles
@@ -4668,11 +4673,6 @@ name|dir
 argument_list|,
 literal|"docsWriter.abort() failed to delete unreferenced files"
 argument_list|)
-expr_stmt|;
-name|modifier
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|dir
 operator|.
