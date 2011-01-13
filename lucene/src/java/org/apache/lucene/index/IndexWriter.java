@@ -3547,8 +3547,6 @@ operator|.
 name|deleteTerm
 argument_list|(
 name|term
-argument_list|,
-literal|false
 argument_list|)
 condition|)
 block|{
@@ -3791,6 +3789,11 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+name|boolean
+name|maybeMerge
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|boolean
@@ -3800,6 +3803,8 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+name|maybeMerge
+operator|=
 name|docWriter
 operator|.
 name|updateDocument
@@ -3846,6 +3851,15 @@ name|oom
 argument_list|,
 literal|"updateDocument"
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|maybeMerge
+condition|)
+block|{
+name|maybeMerge
+argument_list|()
 expr_stmt|;
 block|}
 block|}

@@ -396,9 +396,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-assert|assert
 name|aborting
-assert|;
+operator|=
+literal|true
+expr_stmt|;
 try|try
 block|{
 if|if
@@ -552,15 +553,6 @@ name|IndexingChain
 name|indexingChain
 parameter_list|)
 block|{
-name|parent
-operator|.
-name|indexWriter
-operator|.
-name|testPoint
-argument_list|(
-literal|"DocumentsWriterPerThread.init start"
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|directory
@@ -755,8 +747,8 @@ operator|.
 name|docID
 argument_list|)
 expr_stmt|;
-name|commitDocument
-argument_list|()
+name|numDocsInRAM
+operator|++
 expr_stmt|;
 block|}
 block|}
@@ -785,7 +777,7 @@ operator|!
 name|success
 condition|)
 block|{
-name|setAborting
+name|abort
 argument_list|()
 expr_stmt|;
 block|}
@@ -945,6 +937,7 @@ comment|// which is risky (likely would hit some other
 comment|// confounding exception).
 block|}
 DECL|method|deleteQueries
+specifier|synchronized
 name|void
 name|deleteQueries
 parameter_list|(
@@ -973,6 +966,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|deleteQuery
+specifier|synchronized
 name|void
 name|deleteQuery
 parameter_list|(
@@ -991,6 +985,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|deleteTerms
+specifier|synchronized
 name|void
 name|deleteTerms
 parameter_list|(
@@ -1019,6 +1014,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|deleteTerm
+specifier|synchronized
 name|void
 name|deleteTerm
 parameter_list|(
@@ -1377,7 +1373,7 @@ operator|!
 name|success
 condition|)
 block|{
-name|setAborting
+name|abort
 argument_list|()
 expr_stmt|;
 block|}
