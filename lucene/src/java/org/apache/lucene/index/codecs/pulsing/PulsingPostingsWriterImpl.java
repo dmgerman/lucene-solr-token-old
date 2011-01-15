@@ -123,16 +123,16 @@ name|CodecUtil
 import|;
 end_import
 begin_comment
-comment|// TODO: we now pulse entirely according to docFreq of the
+comment|// TODO: we pulse based on total TF of the term,
 end_comment
 begin_comment
-comment|// term; it might be better to eg pulse by "net bytes used"
+comment|// it might be better to eg pulse by "net bytes used"
 end_comment
 begin_comment
-comment|// so that a term that has only 1 doc but zillions of
+comment|// so that a term that has only 1 posting but a huge
 end_comment
 begin_comment
-comment|// positions would not be inlined.  Though this is
+comment|// payload would not be inlined.  Though this is
 end_comment
 begin_comment
 comment|// presumably rare in practice...
@@ -334,6 +334,16 @@ argument_list|,
 name|VERSION_CURRENT
 argument_list|)
 expr_stmt|;
+name|termsOut
+operator|.
+name|writeVInt
+argument_list|(
+name|pending
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
+comment|// encode maxPositions in header
 name|wrappedPostingsWriter
 operator|.
 name|start
@@ -725,16 +735,6 @@ operator|-
 literal|1
 condition|)
 block|{
-name|termsOut
-operator|.
-name|writeByte
-argument_list|(
-operator|(
-name|byte
-operator|)
-literal|0
-argument_list|)
-expr_stmt|;
 name|wrappedPostingsWriter
 operator|.
 name|finishTerm
@@ -754,16 +754,6 @@ block|{
 comment|// There were few enough total occurrences for this
 comment|// term, so we fully inline our postings data into
 comment|// terms dict, now:
-name|termsOut
-operator|.
-name|writeByte
-argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-argument_list|)
-expr_stmt|;
 comment|// TODO: it'd be better to share this encoding logic
 comment|// in some inner codec that knows how to write a
 comment|// single doc / single position, etc.  This way if a
