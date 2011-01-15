@@ -118,6 +118,21 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|codecs
+operator|.
+name|TermStats
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BytesRef
@@ -846,8 +861,8 @@ specifier|public
 name|void
 name|finishTerm
 parameter_list|(
-name|int
-name|docCount
+name|TermStats
+name|stats
 parameter_list|,
 name|boolean
 name|isIndexTerm
@@ -856,14 +871,18 @@ throws|throws
 name|IOException
 block|{
 assert|assert
-name|docCount
+name|stats
+operator|.
+name|docFreq
 operator|>
 literal|0
 assert|;
 comment|// TODO: wasteful we are counting this (counting # docs
 comment|// for this term) in two places?
 assert|assert
-name|docCount
+name|stats
+operator|.
+name|docFreq
 operator|==
 name|df
 assert|;
