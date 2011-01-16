@@ -152,7 +152,7 @@ function_decl|;
 comment|/** Default merge impl: append documents, mapping around    *  deletes */
 DECL|method|merge
 specifier|public
-name|int
+name|TermStats
 name|merge
 parameter_list|(
 specifier|final
@@ -168,6 +168,11 @@ name|IOException
 block|{
 name|int
 name|df
+init|=
+literal|0
+decl_stmt|;
+name|long
+name|totTF
 init|=
 literal|0
 decl_stmt|;
@@ -225,6 +230,9 @@ expr_stmt|;
 name|df
 operator|++
 expr_stmt|;
+name|totTF
+operator|++
+expr_stmt|;
 block|}
 block|}
 else|else
@@ -280,6 +288,10 @@ name|doc
 argument_list|,
 name|freq
 argument_list|)
+expr_stmt|;
+name|totTF
+operator|+=
+name|freq
 expr_stmt|;
 for|for
 control|(
@@ -353,7 +365,13 @@ expr_stmt|;
 block|}
 block|}
 return|return
+operator|new
+name|TermStats
+argument_list|(
 name|df
+argument_list|,
+name|totTF
+argument_list|)
 return|;
 block|}
 block|}
