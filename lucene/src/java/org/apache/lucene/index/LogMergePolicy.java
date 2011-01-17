@@ -103,6 +103,17 @@ specifier|protected
 name|long
 name|maxMergeSize
 decl_stmt|;
+comment|// Although the core MPs set it explicitly, we must default in case someone
+comment|// out there wrote his own LMP ...
+DECL|field|maxMergeSizeForOptimize
+specifier|protected
+name|long
+name|maxMergeSizeForOptimize
+init|=
+name|Long
+operator|.
+name|MAX_VALUE
+decl_stmt|;
 DECL|field|maxMergeDocs
 specifier|protected
 name|int
@@ -832,7 +843,7 @@ argument_list|(
 name|info
 argument_list|)
 operator|>
-name|maxMergeSize
+name|maxMergeSizeForOptimize
 operator|||
 name|sizeDocs
 argument_list|(
@@ -856,7 +867,7 @@ name|info
 operator|+
 literal|": size is> maxMergeSize ("
 operator|+
-name|maxMergeSize
+name|maxMergeSizeForOptimize
 operator|+
 literal|") or sizeDocs is> maxMergeDocs ("
 operator|+
@@ -1316,7 +1327,7 @@ else|:
 name|spec
 return|;
 block|}
-comment|/** Returns the merges necessary to optimize the index.    *  This merge policy defines "optimized" to mean only one    *  segment in the index, where that segment has no    *  deletions pending nor separate norms, and it is in    *  compound file format if the current useCompoundFile    *  setting is true.  This method returns multiple merges    *  (mergeFactor at a time) so the {@link MergeScheduler}    *  in use may make use of concurrency. */
+comment|/** Returns the merges necessary to optimize the index.    *  This merge policy defines "optimized" to mean only the    *  requested number of segments is left in the index, and    *  respects the {@link #maxMergeSizeForOptimize} setting.    *  By default, and assuming {@code maxNumSegments=1}, only    *  one segment will be left in the index, where that segment    *  has no deletions pending nor separate norms, and it is in    *  compound file format if the current useCompoundFile    *  setting is true.  This method returns multiple merges    *  (mergeFactor at a time) so the {@link MergeScheduler}    *  in use may make use of concurrency. */
 annotation|@
 name|Override
 DECL|method|findMergesForOptimize
@@ -1537,7 +1548,7 @@ argument_list|(
 name|info
 argument_list|)
 operator|>
-name|maxMergeSize
+name|maxMergeSizeForOptimize
 operator|||
 name|sizeDocs
 argument_list|(
@@ -2483,6 +2494,23 @@ operator|.
 name|append
 argument_list|(
 name|maxMergeSize
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|", "
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"maxMergeSizeForOptimize="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|maxMergeSizeForOptimize
 argument_list|)
 operator|.
 name|append
