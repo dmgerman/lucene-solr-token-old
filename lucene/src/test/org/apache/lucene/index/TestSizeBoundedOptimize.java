@@ -306,7 +306,7 @@ argument_list|()
 decl_stmt|;
 name|lmp
 operator|.
-name|setMaxMergeMB
+name|setMaxMergeMBForOptimize
 argument_list|(
 operator|(
 name|min
