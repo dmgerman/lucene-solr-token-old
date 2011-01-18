@@ -89,14 +89,6 @@ argument_list|()
 expr_stmt|;
 name|docState
 operator|.
-name|maxFieldLength
-operator|=
-name|docWriter
-operator|.
-name|maxFieldLength
-expr_stmt|;
-name|docState
-operator|.
 name|infoStream
 operator|=
 name|docWriter
