@@ -571,7 +571,7 @@ argument_list|)
 expr_stmt|;
 name|currentEnum
 operator|.
-name|copyReferences
+name|copyFrom
 argument_list|(
 name|this
 argument_list|)
@@ -699,16 +699,11 @@ operator|.
 name|docValues
 operator|.
 name|getEnum
-argument_list|(
-name|this
-operator|.
-name|attributes
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|currentEnum
 operator|.
-name|copyReferences
+name|copyFrom
 argument_list|(
 name|this
 argument_list|)

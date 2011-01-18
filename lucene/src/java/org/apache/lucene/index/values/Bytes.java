@@ -678,6 +678,7 @@ name|mode
 argument_list|)
 throw|;
 block|}
+comment|// TODO open up this API?
 DECL|class|BytesBaseSource
 specifier|static
 specifier|abstract
@@ -1476,6 +1477,7 @@ block|}
 return|;
 block|}
 block|}
+comment|// TODO: open up this API?!
 DECL|class|BytesWriterBase
 specifier|static
 specifier|abstract

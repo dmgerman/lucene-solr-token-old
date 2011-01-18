@@ -91,7 +91,7 @@ name|LongsRef
 import|;
 end_import
 begin_comment
-comment|/**  *   * @lucene.experimental  */
+comment|/**  * {@link DocValuesEnum} is a {@link DocIdSetIterator} iterating<tt>byte[]</tt>  * ,<tt>long</tt> and<tt>double</tt> stored per document. Depending on the  * enum's {@link Type} ({@link #type()}) the enum might skip over documents that  * have no value stored. Types like {@link Type#BYTES_VAR_STRAIGHT} might not  * skip over documents even if there is no value associated with a document. The  * value for document without values again depends on the types implementation  * although a reference for a {@link Type} returned from a accessor method  * {@link #getFloat()}, {@link #getInt()} or {@link #bytes()} will never be  *<code>null</code> even if a document has no value.  *<p>  * Note: Only the reference for the enum's type are initialized to non  *<code>null</code> ie. {@link #getInt()} will always return<code>null</code>  * if the enum's Type is {@link Type#SIMPLE_FLOAT_4BYTE}.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|DocValuesEnum
@@ -128,6 +128,7 @@ specifier|protected
 name|LongsRef
 name|intsRef
 decl_stmt|;
+comment|/**    * Creates a new {@link DocValuesEnum} for the given type. The    * {@link AttributeSource} for this enum is set to<code>null</code>    */
 DECL|method|DocValuesEnum
 specifier|protected
 name|DocValuesEnum
@@ -144,6 +145,7 @@ name|enumType
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Creates a new {@link DocValuesEnum} for the given type.    */
 DECL|method|DocValuesEnum
 specifier|protected
 name|DocValuesEnum
@@ -226,6 +228,7 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+comment|/**    * Returns the type of this enum    */
 DECL|method|type
 specifier|public
 name|Type
@@ -236,6 +239,7 @@ return|return
 name|enumType
 return|;
 block|}
+comment|/**    * Returns a {@link BytesRef} or<code>null</code> if this enum doesn't    * enumerate byte[] values    */
 DECL|method|bytes
 specifier|public
 name|BytesRef
@@ -246,6 +250,7 @@ return|return
 name|bytesRef
 return|;
 block|}
+comment|/**    * Returns a {@link FloatsRef} or<code>null</code> if this enum doesn't    * enumerate floating point values    */
 DECL|method|getFloat
 specifier|public
 name|FloatsRef
@@ -256,6 +261,7 @@ return|return
 name|floatsRef
 return|;
 block|}
+comment|/**    * Returns a {@link LongsRef} or<code>null</code> if this enum doesn't    * enumerate integer values.    */
 DECL|method|getInt
 specifier|public
 name|LongsRef
@@ -266,10 +272,11 @@ return|return
 name|intsRef
 return|;
 block|}
-DECL|method|copyReferences
+comment|/**    * Copies the internal state from the given enum    */
+DECL|method|copyFrom
 specifier|protected
 name|void
-name|copyReferences
+name|copyFrom
 parameter_list|(
 name|DocValuesEnum
 name|valuesEnum
@@ -293,7 +300,14 @@ name|valuesEnum
 operator|.
 name|bytesRef
 expr_stmt|;
+name|source
+operator|=
+name|valuesEnum
+operator|.
+name|source
+expr_stmt|;
 block|}
+comment|/**    * Returns the {@link AttributeSource} associated with this enum.    *<p>    * Note: this method might create a new AttribueSource if no    * {@link AttributeSource} has been provided during enum creation.    */
 DECL|method|attributes
 specifier|public
 name|AttributeSource
@@ -318,6 +332,7 @@ return|return
 name|source
 return|;
 block|}
+comment|/**    * Closes the enum    *     * @throws IOException    *           if an {@link IOException} occurs    */
 DECL|method|close
 specifier|public
 specifier|abstract
@@ -327,6 +342,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**    * Returns an empty {@link DocValuesEnum} for the given {@link Type}.    */
 DECL|method|emptyEnum
 specifier|public
 specifier|static
@@ -392,7 +408,7 @@ name|close
 parameter_list|()
 throws|throws
 name|IOException
-block|{                }
+block|{        }
 block|}
 return|;
 block|}
