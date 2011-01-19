@@ -545,7 +545,7 @@ name|Fieldable
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|HashMap
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -554,7 +554,7 @@ argument_list|>
 name|multi
 init|=
 operator|new
-name|HashMap
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -1157,7 +1157,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|HashMap
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -1166,7 +1166,7 @@ argument_list|>
 name|single
 init|=
 operator|new
-name|HashMap
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -1174,7 +1174,7 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|HashMap
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -1183,7 +1183,7 @@ argument_list|>
 name|multi
 init|=
 operator|new
-name|HashMap
+name|LinkedHashMap
 argument_list|<
 name|String
 argument_list|,
