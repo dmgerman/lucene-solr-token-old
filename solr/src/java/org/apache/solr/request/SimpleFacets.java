@@ -923,6 +923,20 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// add the base query
+if|if
+condition|(
+operator|!
+name|excludeSet
+operator|.
+name|containsKey
+argument_list|(
+name|rb
+operator|.
+name|getQuery
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|qlist
 operator|.
 name|add
@@ -933,7 +947,18 @@ name|getQuery
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// add the filters
+if|if
+condition|(
+name|rb
+operator|.
+name|getFilters
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Query
@@ -963,6 +988,7 @@ argument_list|(
 name|q
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// get the new base docset for this facet
