@@ -311,7 +311,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|PrefixCodedTermsReader
+name|BlockTermsReader
 import|;
 end_import
 begin_import
@@ -326,7 +326,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|PrefixCodedTermsWriter
+name|BlockTermsWriter
 import|;
 end_import
 begin_import
@@ -762,7 +762,7 @@ name|FieldsConsumer
 name|ret
 init|=
 operator|new
-name|PrefixCodedTermsWriter
+name|BlockTermsWriter
 argument_list|(
 name|indexWriter
 argument_list|,
@@ -926,7 +926,7 @@ name|FieldsProducer
 name|ret
 init|=
 operator|new
-name|PrefixCodedTermsReader
+name|BlockTermsReader
 argument_list|(
 name|indexReader
 argument_list|,
@@ -1033,7 +1033,7 @@ argument_list|,
 name|files
 argument_list|)
 expr_stmt|;
-name|PrefixCodedTermsReader
+name|BlockTermsReader
 operator|.
 name|files
 argument_list|(
@@ -1081,7 +1081,7 @@ argument_list|(
 name|extensions
 argument_list|)
 expr_stmt|;
-name|PrefixCodedTermsReader
+name|BlockTermsReader
 operator|.
 name|getExtensions
 argument_list|(

@@ -741,7 +741,7 @@ annotation|@
 name|Override
 DECL|method|seek
 specifier|public
-name|SeekStatus
+name|void
 name|seek
 parameter_list|(
 name|BytesRef
@@ -762,7 +762,6 @@ name|state
 operator|instanceof
 name|OrdTermState
 assert|;
-return|return
 name|seek
 argument_list|(
 operator|(
@@ -774,7 +773,7 @@ operator|)
 operator|.
 name|ord
 argument_list|)
-return|;
+expr_stmt|;
 comment|// just use the ord for simplicity
 block|}
 block|}

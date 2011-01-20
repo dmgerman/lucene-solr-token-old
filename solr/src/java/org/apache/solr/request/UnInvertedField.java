@@ -5209,6 +5209,8 @@ specifier|public
 name|int
 name|docFreq
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 name|tenum
@@ -5224,6 +5226,8 @@ specifier|public
 name|long
 name|totalTermFreq
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 name|tenum

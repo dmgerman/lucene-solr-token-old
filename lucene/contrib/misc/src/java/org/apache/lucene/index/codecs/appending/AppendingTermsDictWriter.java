@@ -76,7 +76,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|PrefixCodedTermsWriter
+name|BlockTermsWriter
 import|;
 end_import
 begin_import
@@ -139,7 +139,7 @@ specifier|public
 class|class
 name|AppendingTermsDictWriter
 extends|extends
-name|PrefixCodedTermsWriter
+name|BlockTermsWriter
 block|{
 DECL|field|CODEC_NAME
 specifier|final
