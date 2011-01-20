@@ -89,6 +89,9 @@ DECL|method|ConjunctionScorer
 specifier|public
 name|ConjunctionScorer
 parameter_list|(
+name|Weight
+name|weight
+parameter_list|,
 name|float
 name|coord
 parameter_list|,
@@ -103,6 +106,8 @@ name|IOException
 block|{
 name|this
 argument_list|(
+name|weight
+argument_list|,
 name|coord
 argument_list|,
 name|scorers
@@ -125,6 +130,9 @@ DECL|method|ConjunctionScorer
 specifier|public
 name|ConjunctionScorer
 parameter_list|(
+name|Weight
+name|weight
+parameter_list|,
 name|float
 name|coord
 parameter_list|,
@@ -137,7 +145,7 @@ name|IOException
 block|{
 name|super
 argument_list|(
-literal|null
+name|weight
 argument_list|)
 expr_stmt|;
 name|this

@@ -282,8 +282,7 @@ name|slop
 condition|)
 name|freq
 operator|+=
-name|getSimilarity
-argument_list|()
+name|similarity
 operator|.
 name|sloppyFreq
 argument_list|(

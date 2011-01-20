@@ -335,11 +335,6 @@ return|return
 operator|new
 name|AllScorer
 argument_list|(
-name|searcher
-operator|.
-name|getSimilarity
-argument_list|()
-argument_list|,
 name|context
 argument_list|,
 name|this
@@ -448,9 +443,6 @@ DECL|method|AllScorer
 specifier|public
 name|AllScorer
 parameter_list|(
-name|Similarity
-name|similarity
-parameter_list|,
 name|AtomicReaderContext
 name|context
 parameter_list|,
@@ -462,7 +454,7 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|similarity
+name|w
 argument_list|)
 expr_stmt|;
 name|this
