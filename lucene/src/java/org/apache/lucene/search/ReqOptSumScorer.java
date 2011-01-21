@@ -58,10 +58,11 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|null
+name|reqScorer
+operator|.
+name|weight
 argument_list|)
 expr_stmt|;
-comment|// No similarity used.
 name|this
 operator|.
 name|reqScorer

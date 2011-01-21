@@ -76,7 +76,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|PrefixCodedTermsReader
+name|BlockTermsReader
 import|;
 end_import
 begin_import
@@ -91,7 +91,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|PrefixCodedTermsWriter
+name|BlockTermsWriter
 import|;
 end_import
 begin_import
@@ -167,7 +167,7 @@ specifier|public
 class|class
 name|AppendingTermsDictReader
 extends|extends
-name|PrefixCodedTermsReader
+name|BlockTermsReader
 block|{
 DECL|method|AppendingTermsDictReader
 specifier|public
@@ -251,11 +251,11 @@ name|AppendingTermsDictWriter
 operator|.
 name|CODEC_NAME
 argument_list|,
-name|PrefixCodedTermsWriter
+name|BlockTermsWriter
 operator|.
 name|VERSION_START
 argument_list|,
-name|PrefixCodedTermsWriter
+name|BlockTermsWriter
 operator|.
 name|VERSION_CURRENT
 argument_list|)

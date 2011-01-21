@@ -156,17 +156,6 @@ argument_list|(
 name|searcher
 argument_list|)
 decl_stmt|;
-specifier|final
-name|Similarity
-name|similarity
-init|=
-name|query
-operator|.
-name|getSimilarity
-argument_list|(
-name|searcher
-argument_list|)
-decl_stmt|;
 return|return
 operator|new
 name|Weight
@@ -519,8 +508,6 @@ return|return
 operator|new
 name|Scorer
 argument_list|(
-name|similarity
-argument_list|,
 name|this
 argument_list|)
 block|{

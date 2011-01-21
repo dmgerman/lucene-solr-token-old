@@ -2226,11 +2226,6 @@ return|return
 operator|new
 name|SpatialScorer
 argument_list|(
-name|getSimilarity
-argument_list|(
-name|searcher
-argument_list|)
-argument_list|,
 name|context
 argument_list|,
 name|this
@@ -2402,9 +2397,6 @@ DECL|method|SpatialScorer
 specifier|public
 name|SpatialScorer
 parameter_list|(
-name|Similarity
-name|similarity
-parameter_list|,
 name|AtomicReaderContext
 name|readerContext
 parameter_list|,
@@ -2416,7 +2408,7 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|similarity
+name|w
 argument_list|)
 expr_stmt|;
 name|this

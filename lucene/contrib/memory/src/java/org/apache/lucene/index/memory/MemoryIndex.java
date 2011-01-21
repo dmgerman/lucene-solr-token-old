@@ -4011,7 +4011,7 @@ annotation|@
 name|Override
 DECL|method|seek
 specifier|public
-name|SeekStatus
+name|void
 name|seek
 parameter_list|(
 name|BytesRef
@@ -4028,7 +4028,6 @@ name|state
 operator|!=
 literal|null
 assert|;
-return|return
 name|this
 operator|.
 name|seek
@@ -4042,7 +4041,7 @@ operator|)
 operator|.
 name|ord
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 annotation|@
 name|Override

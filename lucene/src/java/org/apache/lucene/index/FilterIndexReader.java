@@ -613,6 +613,8 @@ specifier|public
 name|int
 name|docFreq
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 name|in
@@ -628,6 +630,8 @@ specifier|public
 name|long
 name|totalTermFreq
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 name|in
@@ -714,7 +718,7 @@ annotation|@
 name|Override
 DECL|method|seek
 specifier|public
-name|SeekStatus
+name|void
 name|seek
 parameter_list|(
 name|BytesRef
@@ -726,7 +730,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-return|return
 name|in
 operator|.
 name|seek
@@ -735,7 +738,7 @@ name|term
 argument_list|,
 name|state
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 annotation|@
 name|Override

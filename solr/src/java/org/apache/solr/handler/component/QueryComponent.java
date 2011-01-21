@@ -2726,6 +2726,10 @@ block|{
 name|Sort
 name|sort
 init|=
+name|searcher
+operator|.
+name|weightSort
+argument_list|(
 name|rb
 operator|.
 name|getSortSpec
@@ -2733,6 +2737,7 @@ argument_list|()
 operator|.
 name|getSort
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|SortField
 index|[]

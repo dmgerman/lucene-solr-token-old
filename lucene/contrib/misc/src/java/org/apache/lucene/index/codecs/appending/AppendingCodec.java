@@ -228,7 +228,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|PrefixCodedTermsReader
+name|BlockTermsReader
 import|;
 end_import
 begin_import
@@ -642,7 +642,7 @@ argument_list|,
 name|files
 argument_list|)
 expr_stmt|;
-name|PrefixCodedTermsReader
+name|BlockTermsReader
 operator|.
 name|files
 argument_list|(

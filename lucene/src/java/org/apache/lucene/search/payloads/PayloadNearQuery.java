@@ -875,13 +875,6 @@ specifier|private
 name|int
 name|payloadsSeen
 decl_stmt|;
-DECL|field|similarity
-name|Similarity
-name|similarity
-init|=
-name|getSimilarity
-argument_list|()
-decl_stmt|;
 DECL|method|PayloadNearSpanScorer
 specifier|protected
 name|PayloadNearSpanScorer
@@ -1243,8 +1236,7 @@ argument_list|()
 decl_stmt|;
 name|freq
 operator|+=
-name|getSimilarity
-argument_list|()
+name|similarity
 operator|.
 name|sloppyFreq
 argument_list|(
