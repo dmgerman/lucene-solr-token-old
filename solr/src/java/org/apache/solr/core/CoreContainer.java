@@ -4539,7 +4539,7 @@ name|w
 operator|.
 name|write
 argument_list|(
-literal|"<?xml version='1.0' encoding='UTF-8'?>"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
 argument_list|)
 expr_stmt|;
 name|w
@@ -4603,6 +4603,8 @@ argument_list|(
 name|w
 argument_list|,
 name|containerProperties
+argument_list|,
+literal|"  "
 argument_list|)
 expr_stmt|;
 block|}
@@ -4811,6 +4813,17 @@ name|w
 argument_list|,
 literal|"name"
 argument_list|,
+name|dcore
+operator|.
+name|name
+operator|.
+name|equals
+argument_list|(
+literal|""
+argument_list|)
+condition|?
+name|defaultCoreName
+else|:
 name|dcore
 operator|.
 name|name
@@ -5059,13 +5072,15 @@ name|dcore
 operator|.
 name|getCoreProperties
 argument_list|()
+argument_list|,
+literal|"      "
 argument_list|)
 expr_stmt|;
 name|w
 operator|.
 name|write
 argument_list|(
-literal|"</core>"
+literal|"</core>\n"
 argument_list|)
 expr_stmt|;
 block|}
@@ -5080,6 +5095,9 @@ name|w
 parameter_list|,
 name|Properties
 name|props
+parameter_list|,
+name|String
+name|indent
 parameter_list|)
 throws|throws
 name|IOException
@@ -5106,6 +5124,8 @@ name|w
 operator|.
 name|write
 argument_list|(
+name|indent
+operator|+
 literal|"<property"
 argument_list|)
 expr_stmt|;
