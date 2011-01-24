@@ -945,11 +945,11 @@ argument_list|)
 expr_stmt|;
 name|iwc
 operator|.
-name|setSimilarity
+name|setSimilarityProvider
 argument_list|(
 name|schema
 operator|.
-name|getSimilarity
+name|getSimilarityProvider
 argument_list|()
 argument_list|)
 expr_stmt|;

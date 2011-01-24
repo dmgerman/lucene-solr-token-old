@@ -25,19 +25,6 @@ operator|.
 name|index
 operator|.
 name|IndexReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexReader
 operator|.
 name|AtomicReaderContext
 import|;
@@ -168,8 +155,6 @@ init|=
 name|bitSpans
 argument_list|(
 name|context
-operator|.
-name|reader
 argument_list|)
 decl_stmt|;
 return|return
@@ -186,8 +171,8 @@ specifier|public
 name|SpanFilterResult
 name|bitSpans
 parameter_list|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -199,6 +184,8 @@ init|=
 operator|new
 name|OpenBitSet
 argument_list|(
+name|context
+operator|.
 name|reader
 operator|.
 name|maxDoc
@@ -212,7 +199,7 @@ name|query
 operator|.
 name|getSpans
 argument_list|(
-name|reader
+name|context
 argument_list|)
 decl_stmt|;
 name|List
