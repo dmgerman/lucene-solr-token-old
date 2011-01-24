@@ -148,7 +148,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Similarity
+name|SimilarityProvider
 import|;
 end_import
 begin_import
@@ -218,7 +218,7 @@ comment|/** inverts the normal notion of lengthNorm */
 DECL|field|s
 specifier|public
 specifier|static
-name|Similarity
+name|SimilarityProvider
 name|s
 init|=
 operator|new

@@ -746,7 +746,7 @@ name|PayloadAnalyzer
 argument_list|()
 argument_list|)
 operator|.
-name|setSimilarity
+name|setSimilarityProvider
 argument_list|(
 name|similarity
 argument_list|)
@@ -879,7 +879,7 @@ argument_list|)
 expr_stmt|;
 name|searcher
 operator|.
-name|setSimilarity
+name|setSimilarityProvider
 argument_list|(
 name|similarity
 argument_list|)

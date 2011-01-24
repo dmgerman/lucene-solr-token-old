@@ -467,10 +467,15 @@ literal|0
 argument_list|,
 literal|"key"
 argument_list|,
-name|Similarity
+name|is
 operator|.
-name|getDefault
+name|getSimilarityProvider
 argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"key"
+argument_list|)
 operator|.
 name|encodeNormValue
 argument_list|(

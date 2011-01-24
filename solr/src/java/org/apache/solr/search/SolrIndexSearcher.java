@@ -849,11 +849,11 @@ name|closeReader
 operator|=
 name|closeReader
 expr_stmt|;
-name|setSimilarity
+name|setSimilarityProvider
 argument_list|(
 name|schema
 operator|.
-name|getSimilarity
+name|getSimilarityProvider
 argument_list|()
 argument_list|)
 expr_stmt|;

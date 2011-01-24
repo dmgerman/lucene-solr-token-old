@@ -158,7 +158,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Similarity
+name|SimilarityProvider
 import|;
 end_import
 begin_import
@@ -537,7 +537,7 @@ parameter_list|(
 name|Random
 name|random
 parameter_list|,
-name|Similarity
+name|SimilarityProvider
 name|similarity
 parameter_list|,
 name|int
@@ -583,7 +583,7 @@ argument_list|,
 name|analyzer
 argument_list|)
 operator|.
-name|setSimilarity
+name|setSimilarityProvider
 argument_list|(
 name|similarity
 argument_list|)
@@ -744,7 +744,7 @@ argument_list|)
 decl_stmt|;
 name|searcher
 operator|.
-name|setSimilarity
+name|setSimilarityProvider
 argument_list|(
 name|similarity
 argument_list|)

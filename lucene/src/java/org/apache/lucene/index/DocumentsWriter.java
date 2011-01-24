@@ -148,7 +148,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Similarity
+name|SimilarityProvider
 import|;
 end_import
 begin_import
@@ -366,9 +366,9 @@ DECL|field|infoStream
 name|PrintStream
 name|infoStream
 decl_stmt|;
-DECL|field|similarity
-name|Similarity
-name|similarity
+DECL|field|similarityProvider
+name|SimilarityProvider
+name|similarityProvider
 decl_stmt|;
 comment|// max # simultaneous threads; if there are more than
 comment|// this, they wait for others to finish first
@@ -405,9 +405,9 @@ DECL|field|infoStream
 name|PrintStream
 name|infoStream
 decl_stmt|;
-DECL|field|similarity
-name|Similarity
-name|similarity
+DECL|field|similarityProvider
+name|SimilarityProvider
+name|similarityProvider
 decl_stmt|;
 DECL|field|docID
 name|int
@@ -878,14 +878,14 @@ name|writer
 expr_stmt|;
 name|this
 operator|.
-name|similarity
+name|similarityProvider
 operator|=
 name|writer
 operator|.
 name|getConfig
 argument_list|()
 operator|.
-name|getSimilarity
+name|getSimilarityProvider
 argument_list|()
 expr_stmt|;
 name|this
@@ -1195,18 +1195,18 @@ name|infoStream
 expr_stmt|;
 block|}
 block|}
-DECL|method|setSimilarity
+DECL|method|setSimilarityProvider
 specifier|synchronized
 name|void
-name|setSimilarity
+name|setSimilarityProvider
 parameter_list|(
-name|Similarity
+name|SimilarityProvider
 name|similarity
 parameter_list|)
 block|{
 name|this
 operator|.
-name|similarity
+name|similarityProvider
 operator|=
 name|similarity
 expr_stmt|;
@@ -1234,7 +1234,7 @@ index|]
 operator|.
 name|docState
 operator|.
-name|similarity
+name|similarityProvider
 operator|=
 name|similarity
 expr_stmt|;

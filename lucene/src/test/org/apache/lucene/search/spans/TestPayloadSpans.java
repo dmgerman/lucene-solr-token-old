@@ -294,7 +294,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Similarity
+name|SimilarityProvider
 import|;
 end_import
 begin_import
@@ -407,7 +407,7 @@ name|searcher
 decl_stmt|;
 DECL|field|similarity
 specifier|private
-name|Similarity
+name|SimilarityProvider
 name|similarity
 init|=
 operator|new
@@ -916,7 +916,7 @@ name|PayloadAnalyzer
 argument_list|()
 argument_list|)
 operator|.
-name|setSimilarity
+name|setSimilarityProvider
 argument_list|(
 name|similarity
 argument_list|)
@@ -2957,7 +2957,7 @@ name|PayloadAnalyzer
 argument_list|()
 argument_list|)
 operator|.
-name|setSimilarity
+name|setSimilarityProvider
 argument_list|(
 name|similarity
 argument_list|)
@@ -3379,7 +3379,7 @@ name|PayloadAnalyzer
 argument_list|()
 argument_list|)
 operator|.
-name|setSimilarity
+name|setSimilarityProvider
 argument_list|(
 name|similarity
 argument_list|)
