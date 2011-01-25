@@ -1400,6 +1400,8 @@ condition|)
 block|{
 comment|//System.out.println("PR   END");
 return|return
+name|docID
+operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
@@ -1643,6 +1645,8 @@ name|doc
 return|;
 block|}
 return|return
+name|docID
+operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
@@ -1852,6 +1856,8 @@ condition|)
 block|{
 comment|//System.out.println("PR   END");
 return|return
+name|docID
+operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
@@ -1995,6 +2001,8 @@ return|;
 block|}
 block|}
 return|return
+name|docID
+operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
