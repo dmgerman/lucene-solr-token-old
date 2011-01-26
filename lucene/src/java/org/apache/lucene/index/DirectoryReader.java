@@ -3527,6 +3527,21 @@ comment|// case we have to roll back:
 name|startCommit
 argument_list|()
 expr_stmt|;
+specifier|final
+name|SegmentInfos
+name|rollbackSegmentInfos
+init|=
+operator|new
+name|SegmentInfos
+argument_list|()
+decl_stmt|;
+name|rollbackSegmentInfos
+operator|.
+name|addAll
+argument_list|(
+name|segmentInfos
+argument_list|)
+expr_stmt|;
 name|boolean
 name|success
 init|=
@@ -3558,7 +3573,8 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-comment|// Remove segments that contain only 100% deleted docs:
+comment|// Remove segments that contain only 100% deleted
+comment|// docs:
 name|segmentInfos
 operator|.
 name|pruneDeletedSegments
@@ -3614,6 +3630,19 @@ name|deleter
 operator|.
 name|refresh
 argument_list|()
+expr_stmt|;
+comment|// Restore all SegmentInfos (in case we pruned some)
+name|segmentInfos
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|segmentInfos
+operator|.
+name|addAll
+argument_list|(
+name|rollbackSegmentInfos
+argument_list|)
 expr_stmt|;
 block|}
 block|}
