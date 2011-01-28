@@ -1721,6 +1721,18 @@ name|nextBoolean
 argument_list|()
 condition|)
 block|{
+comment|// if termsIndexDivisor is set to -1, we should not touch it. It means a
+comment|// test explicitly instructed not to load the terms index.
+if|if
+condition|(
+name|state
+operator|.
+name|termsIndexDivisor
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
 name|state
 operator|.
 name|termsIndexDivisor
@@ -1736,6 +1748,7 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|LuceneTestCase
