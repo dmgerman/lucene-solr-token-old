@@ -4491,6 +4491,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
+comment|// get(1) should be features=AAAA, then get(0) should be cat=a
 name|assertEquals
 argument_list|(
 literal|"cat"
@@ -4521,7 +4522,7 @@ expr_stmt|;
 comment|//  p.write(System.out, 5 );
 name|assertEquals
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 name|counts
 operator|.
@@ -4529,6 +4530,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// 2 trues and 1 false under features=AAAA,cat=a
 name|assertEquals
 argument_list|(
 literal|"inStock"
