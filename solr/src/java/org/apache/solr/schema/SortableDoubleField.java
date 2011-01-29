@@ -236,7 +236,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * @version $Id$  */
+comment|/**  * @version $Id$  *   * @deprecated use {@link DoubleField} or {@link TrieDoubleField} - will be removed in 5.x  */
 end_comment
 begin_class
 DECL|class|SortableDoubleField
