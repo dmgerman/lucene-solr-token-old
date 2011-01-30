@@ -65,7 +65,7 @@ name|Scorer
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link Collector} which allows running a search with several  * {@link Collector}s. It offers a static {@link #wrap} method which accepts a  * list of collectots and wraps them with {@link MultiCollector}, while  * filtering out the<code>null</code> null ones.  */
+comment|/**  * A {@link Collector} which allows running a search with several  * {@link Collector}s. It offers a static {@link #wrap} method which accepts a  * list of collectors and wraps them with {@link MultiCollector}, while  * filtering out the<code>null</code> null ones.  */
 end_comment
 begin_class
 DECL|class|MultiCollector
