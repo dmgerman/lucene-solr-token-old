@@ -756,6 +756,8 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|addDoc
 specifier|public
 name|int
@@ -1044,6 +1046,8 @@ name|rc
 return|;
 block|}
 comment|// could return the number of docs deleted, but is that always possible to know???
+annotation|@
+name|Override
 DECL|method|delete
 specifier|public
 name|void
@@ -1125,6 +1129,8 @@ block|}
 block|}
 comment|// why not return number of docs deleted?
 comment|// Depending on implementation, we may not be able to immediately determine the num...
+annotation|@
+name|Override
 DECL|method|deleteByQuery
 specifier|public
 name|void
@@ -1305,6 +1311,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|mergeIndexes
 specifier|public
 name|int
@@ -1457,6 +1465,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|commit
 specifier|public
 name|void
@@ -1731,6 +1741,8 @@ block|}
 block|}
 block|}
 comment|/**    * @since Solr 1.4    */
+annotation|@
+name|Override
 DECL|method|rollback
 specifier|public
 name|void
@@ -1861,6 +1873,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -2434,6 +2448,8 @@ return|return
 name|autoCommitCount
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -2808,6 +2824,8 @@ return|return
 name|lst
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

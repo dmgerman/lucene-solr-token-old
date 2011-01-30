@@ -113,6 +113,8 @@ name|TestAnalyzer1
 extends|extends
 name|Analyzer
 block|{
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 specifier|final
@@ -130,6 +132,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reusableTokenStream
 specifier|public
 specifier|final
@@ -156,6 +160,8 @@ name|TestAnalyzer2
 extends|extends
 name|Analyzer
 block|{
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -172,6 +178,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reusableTokenStream
 specifier|public
 name|TokenStream
@@ -196,6 +204,8 @@ name|TestAnalyzer3
 extends|extends
 name|Analyzer
 block|{
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -212,6 +222,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reusableTokenStream
 specifier|public
 name|TokenStream
@@ -236,6 +248,8 @@ name|TestAnalyzer4
 extends|extends
 name|Analyzer
 block|{
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 specifier|final
@@ -253,6 +267,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reusableTokenStream
 specifier|public
 name|TokenStream
@@ -277,6 +293,8 @@ name|TestTokenStream1
 extends|extends
 name|TokenStream
 block|{
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 specifier|final
@@ -297,6 +315,8 @@ name|TestTokenStream2
 extends|extends
 name|TokenStream
 block|{
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean
@@ -315,6 +335,8 @@ name|TestTokenStream3
 extends|extends
 name|TokenStream
 block|{
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 name|boolean

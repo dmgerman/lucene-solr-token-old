@@ -104,6 +104,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|openInput
 specifier|public
 name|IndexInput
@@ -217,6 +219,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|readInternal
 specifier|protected
 name|void
@@ -263,6 +267,8 @@ literal|"Read past EOF"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|seekInternal
 specifier|protected
 name|void
@@ -274,6 +280,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{     }
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 specifier|synchronized
@@ -305,6 +313,8 @@ literal|false
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|length
 specifier|public
 name|long

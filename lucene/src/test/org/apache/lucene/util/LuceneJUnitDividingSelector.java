@@ -96,6 +96,8 @@ specifier|private
 name|int
 name|part
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setParameters
 specifier|public
 name|void
@@ -208,6 +210,8 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|verifySettings
 specifier|public
 name|void
@@ -254,6 +258,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isSelected
 specifier|public
 name|boolean

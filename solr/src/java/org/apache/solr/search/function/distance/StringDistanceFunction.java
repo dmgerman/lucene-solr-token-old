@@ -199,6 +199,8 @@ operator|new
 name|DocValues
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|floatVal
@@ -228,6 +230,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|intVal
@@ -246,6 +250,8 @@ name|doc
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|long
 name|longVal
@@ -264,6 +270,8 @@ name|doc
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|double
 name|doubleVal
@@ -371,6 +379,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|description
 specifier|public
 name|String

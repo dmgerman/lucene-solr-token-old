@@ -54,6 +54,8 @@ return|return
 literal|"sum"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|func
 specifier|protected
 name|float

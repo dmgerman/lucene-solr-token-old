@@ -225,6 +225,8 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 specifier|abstract
@@ -235,6 +237,8 @@ name|Object
 name|o
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 specifier|abstract
@@ -250,6 +254,8 @@ name|String
 name|description
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -480,6 +486,8 @@ operator|=
 name|context
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newComparator
 specifier|public
 name|FieldComparator
@@ -565,6 +573,8 @@ name|numHits
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -626,6 +636,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|compareBottom
 specifier|public
 name|int
@@ -677,6 +689,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|copy
 specifier|public
 name|void
@@ -702,6 +716,8 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
@@ -726,6 +742,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBottom
 specifier|public
 name|void
@@ -746,6 +764,8 @@ name|bottom
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|Comparable

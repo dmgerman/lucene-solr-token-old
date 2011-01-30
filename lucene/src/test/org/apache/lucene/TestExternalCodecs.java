@@ -337,6 +337,8 @@ operator|.
 name|length
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals
@@ -1567,6 +1569,8 @@ operator|.
 name|totalTermFreq
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docs
 specifier|public
 name|DocsEnum

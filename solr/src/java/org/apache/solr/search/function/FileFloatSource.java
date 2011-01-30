@@ -305,6 +305,8 @@ name|getDataDir
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|description
 specifier|public
 name|String
@@ -319,6 +321,8 @@ operator|+
 literal|')'
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValues
 specifier|public
 name|DocValues
@@ -371,6 +375,8 @@ operator|new
 name|DocValues
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|float
 name|floatVal
@@ -388,6 +394,8 @@ name|off
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|intVal
@@ -408,6 +416,8 @@ name|off
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|long
 name|longVal
@@ -428,6 +438,8 @@ name|off
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|double
 name|doubleVal
@@ -448,6 +460,8 @@ name|off
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|strVal
@@ -470,6 +484,8 @@ index|]
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -493,6 +509,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -579,6 +597,8 @@ name|dataDir
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -603,6 +623,8 @@ argument_list|()
 return|;
 block|}
 empty_stmt|;
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -674,6 +696,8 @@ operator|new
 name|Cache
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|Object
 name|createValue
@@ -951,6 +975,8 @@ operator|=
 name|ffs
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -991,6 +1017,8 @@ name|ffs
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

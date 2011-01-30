@@ -522,6 +522,8 @@ name|String
 name|idFieldName
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Deprecated
 DECL|method|cluster
 specifier|public
@@ -623,6 +625,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|cluster
 specifier|public
 name|Object

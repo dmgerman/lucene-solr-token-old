@@ -315,6 +315,8 @@ name|autoGeneratePhraseQueries
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|protected
 name|void
@@ -395,6 +397,8 @@ return|return
 name|autoGeneratePhraseQueries
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSortField
 specifier|public
 name|SortField
@@ -416,6 +420,8 @@ name|reverse
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void

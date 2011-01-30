@@ -1193,6 +1193,8 @@ name|DoubleTransformer
 extends|extends
 name|Transformer
 block|{
+annotation|@
+name|Override
 DECL|method|transformRow
 specifier|public
 name|Object
@@ -1260,6 +1262,8 @@ name|UppercaseTransformer
 extends|extends
 name|Transformer
 block|{
+annotation|@
+name|Override
 DECL|method|transformRow
 specifier|public
 name|Object

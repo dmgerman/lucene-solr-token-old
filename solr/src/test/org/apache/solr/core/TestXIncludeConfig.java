@@ -89,6 +89,8 @@ specifier|protected
 name|boolean
 name|supports
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getSchemaFile
 specifier|public
 name|String
@@ -100,6 +102,8 @@ literal|"schema.xml"
 return|;
 block|}
 comment|//public String getSolrConfigFile() { return "solrconfig.xml"; }
+annotation|@
+name|Override
 DECL|method|getSolrConfigFile
 specifier|public
 name|String

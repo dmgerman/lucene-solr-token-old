@@ -163,6 +163,8 @@ return|return
 name|boostVal
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -214,6 +216,8 @@ return|return
 name|bq
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|extractTerms
 specifier|public
 name|void
@@ -231,6 +235,8 @@ name|terms
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createWeight
 specifier|public
 name|Weight
@@ -319,6 +325,8 @@ name|searcher
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getQuery
 specifier|public
 name|Query
@@ -331,6 +339,8 @@ operator|.
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|float
@@ -873,6 +883,8 @@ name|res
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -941,6 +953,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -1005,6 +1019,8 @@ name|boostVal
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

@@ -4731,6 +4731,8 @@ name|termNum
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -5915,6 +5917,8 @@ decl_stmt|;
 name|PagedBytes
 name|bytes
 decl_stmt|;
+annotation|@
+name|Override
 specifier|protected
 name|BytesRef
 name|setTerm
@@ -6004,6 +6008,8 @@ return|return
 name|br
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|BytesRef
 name|skipTo
@@ -6020,6 +6026,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close

@@ -476,6 +476,8 @@ name|TERM_VECTORS
 init|=
 literal|"termVectors"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|process
 specifier|public
 name|void
@@ -1968,6 +1970,8 @@ operator|=
 name|reader
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|map
 specifier|public
 name|void
@@ -2328,6 +2332,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExpectations
 specifier|public
 name|void
@@ -2440,6 +2446,8 @@ return|;
 comment|//  if we are not interested in offsets, then return true telling Lucene to skip loading them
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|prepare
 specifier|public
 name|void
@@ -2486,6 +2494,8 @@ name|SolrCore
 name|core
 parameter_list|)
 block|{    }
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|String
@@ -2496,6 +2506,8 @@ return|return
 literal|"$Revision$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSourceId
 specifier|public
 name|String
@@ -2506,6 +2518,8 @@ return|return
 literal|"$Id$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|String
@@ -2516,6 +2530,8 @@ return|return
 literal|"$URL$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription
 specifier|public
 name|String

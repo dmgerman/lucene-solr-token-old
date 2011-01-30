@@ -140,6 +140,8 @@ name|ContentStreamHandlerBase
 extends|extends
 name|RequestHandlerBase
 block|{
+annotation|@
+name|Override
 DECL|method|handleRequestBody
 specifier|public
 name|void

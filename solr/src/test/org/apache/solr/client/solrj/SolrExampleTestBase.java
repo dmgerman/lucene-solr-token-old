@@ -41,6 +41,8 @@ name|SolrExampleTestBase
 extends|extends
 name|AbstractSolrTestCase
 block|{
+annotation|@
+name|Override
 DECL|method|getSolrHome
 specifier|public
 name|String

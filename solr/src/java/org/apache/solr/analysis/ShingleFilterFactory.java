@@ -115,6 +115,8 @@ specifier|private
 name|String
 name|tokenSeparator
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void

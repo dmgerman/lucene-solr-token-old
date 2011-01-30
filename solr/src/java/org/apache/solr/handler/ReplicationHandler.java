@@ -570,6 +570,8 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|handleRequestBody
 specifier|public
 name|void
@@ -874,6 +876,8 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -2820,6 +2824,8 @@ return|return
 name|fileMeta
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription
 specifier|public
 name|String
@@ -2830,6 +2836,8 @@ return|return
 literal|"ReplicationHandler provides replication of index and configuration files from Master to Slaves"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSourceId
 specifier|public
 name|String
@@ -2840,6 +2848,8 @@ return|return
 literal|"$Id$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|String
@@ -2850,6 +2860,8 @@ return|return
 literal|"$URL$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|String

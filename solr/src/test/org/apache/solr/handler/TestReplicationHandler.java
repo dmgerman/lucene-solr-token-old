@@ -3629,6 +3629,8 @@ name|fail
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -3756,6 +3758,8 @@ name|success
 init|=
 literal|false
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run

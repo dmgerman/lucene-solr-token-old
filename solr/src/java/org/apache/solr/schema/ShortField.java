@@ -155,6 +155,8 @@ name|ShortField
 extends|extends
 name|FieldType
 block|{
+annotation|@
+name|Override
 DECL|method|init
 specifier|protected
 name|void
@@ -181,6 +183,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/////////////////////////////////////////////////////////////
+annotation|@
+name|Override
 DECL|method|getSortField
 specifier|public
 name|SortField

@@ -136,6 +136,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Returns the encapsulated filter */
+annotation|@
+name|Override
 DECL|method|getFilter
 specifier|public
 name|Filter
@@ -146,6 +148,8 @@ return|return
 name|filter
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -161,6 +165,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|extractTerms
 specifier|public
 name|void

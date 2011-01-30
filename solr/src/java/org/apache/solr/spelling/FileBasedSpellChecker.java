@@ -243,6 +243,8 @@ name|WORD_FIELD_NAME
 init|=
 literal|"word"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|String
@@ -280,6 +282,8 @@ return|return
 name|name
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|build
 specifier|public
 name|void

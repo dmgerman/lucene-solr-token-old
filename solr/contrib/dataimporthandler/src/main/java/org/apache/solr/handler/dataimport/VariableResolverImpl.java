@@ -388,6 +388,8 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|replaceTokens
 specifier|public
 name|String
@@ -408,6 +410,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

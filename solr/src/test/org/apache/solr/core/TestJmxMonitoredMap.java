@@ -230,6 +230,8 @@ argument_list|>
 name|monitoredMap
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp
 specifier|public
@@ -404,6 +406,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 annotation|@
 name|After
 DECL|method|tearDown

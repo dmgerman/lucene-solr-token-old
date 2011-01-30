@@ -361,6 +361,8 @@ name|Thread
 name|publisherThread
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -956,6 +958,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|nextRow
 specifier|public
 name|Map
@@ -2515,6 +2519,8 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run

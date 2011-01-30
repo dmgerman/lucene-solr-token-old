@@ -170,6 +170,8 @@ return|return
 name|sources
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dimension
 specifier|public
 name|int
@@ -539,6 +541,8 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -1055,6 +1059,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createWeight
 specifier|public
 name|void
@@ -1086,6 +1092,8 @@ name|searcher
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|description
 specifier|public
 name|String

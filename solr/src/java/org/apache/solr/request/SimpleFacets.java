@@ -6819,6 +6819,8 @@ specifier|public
 name|V
 name|val
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -6837,6 +6839,8 @@ name|hashCode
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -7260,6 +7264,8 @@ name|f
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseVal
 specifier|protected
 name|Float
@@ -7278,6 +7284,8 @@ name|rawval
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseAndAddGap
 specifier|public
 name|Float
@@ -7338,6 +7346,8 @@ name|f
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseVal
 specifier|protected
 name|Double
@@ -7356,6 +7366,8 @@ name|rawval
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseAndAddGap
 specifier|public
 name|Double
@@ -7416,6 +7428,8 @@ name|f
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseVal
 specifier|protected
 name|Integer
@@ -7434,6 +7448,8 @@ name|rawval
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseAndAddGap
 specifier|public
 name|Integer
@@ -7494,6 +7510,8 @@ name|f
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseVal
 specifier|protected
 name|Long
@@ -7512,6 +7530,8 @@ name|rawval
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseAndAddGap
 specifier|public
 name|Long
@@ -7609,6 +7629,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|formatValue
 specifier|public
 name|String
@@ -7635,6 +7657,8 @@ name|val
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseVal
 specifier|protected
 name|Date
@@ -7663,6 +7687,8 @@ name|rawval
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseGap
 specifier|protected
 name|Object
@@ -7677,6 +7703,8 @@ return|return
 name|rawval
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseAndAddGap
 specifier|public
 name|Date

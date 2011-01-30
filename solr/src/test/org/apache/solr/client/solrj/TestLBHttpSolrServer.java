@@ -279,6 +279,8 @@ DECL|field|httpClient
 name|HttpClient
 name|httpClient
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|public
 name|void

@@ -4335,6 +4335,8 @@ else|:
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

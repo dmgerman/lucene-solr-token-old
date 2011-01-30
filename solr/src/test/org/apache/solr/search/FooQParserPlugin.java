@@ -117,6 +117,8 @@ name|FooQParserPlugin
 extends|extends
 name|QParserPlugin
 block|{
+annotation|@
+name|Override
 DECL|method|createParser
 specifier|public
 name|QParser
@@ -196,6 +198,8 @@ name|req
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse
 specifier|public
 name|Query

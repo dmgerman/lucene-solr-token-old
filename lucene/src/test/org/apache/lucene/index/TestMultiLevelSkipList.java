@@ -288,6 +288,8 @@ name|delegate
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|openInput
 specifier|public
 name|IndexInput
@@ -331,6 +333,8 @@ name|in
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Before
 DECL|method|setUp

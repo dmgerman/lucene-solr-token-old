@@ -1039,6 +1039,8 @@ name|size
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copyTo
 name|void
 name|copyTo

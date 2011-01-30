@@ -97,6 +97,8 @@ specifier|private
 name|float
 name|minTokenLen
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -129,6 +131,8 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSignature
 specifier|public
 name|byte
@@ -642,6 +646,8 @@ operator|=
 name|val
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

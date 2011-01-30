@@ -50,6 +50,8 @@ name|DirectSolrConnectionTest
 extends|extends
 name|AbstractSolrTestCase
 block|{
+annotation|@
+name|Override
 DECL|method|getSchemaFile
 specifier|public
 name|String
@@ -60,6 +62,8 @@ return|return
 literal|"solr/crazy-path-to-schema.xml"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSolrConfigFile
 specifier|public
 name|String

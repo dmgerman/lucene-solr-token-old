@@ -182,6 +182,8 @@ literal|"schema.xml"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|public
 name|void
@@ -363,6 +365,8 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|public
 name|void

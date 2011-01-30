@@ -265,6 +265,8 @@ implements|implements
 name|DocSet
 block|{
 comment|// Not implemented efficiently... for testing purposes only
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -815,6 +817,8 @@ operator|new
 name|DocIdSet
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|DocIdSetIterator
 name|iterator
