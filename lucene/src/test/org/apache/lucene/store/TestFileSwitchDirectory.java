@@ -180,7 +180,7 @@ operator|.
 name|FIELDS_INDEX_EXTENSION
 argument_list|)
 expr_stmt|;
-name|Directory
+name|MockDirectoryWrapper
 name|primaryDir
 init|=
 operator|new
@@ -193,7 +193,15 @@ name|RAMDirectory
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Directory
+name|primaryDir
+operator|.
+name|setCheckIndexOnClose
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// only part of an index
+name|MockDirectoryWrapper
 name|secondaryDir
 init|=
 operator|new
@@ -206,6 +214,14 @@ name|RAMDirectory
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|secondaryDir
+operator|.
+name|setCheckIndexOnClose
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// only part of an index
 name|FileSwitchDirectory
 name|fsd
 init|=
