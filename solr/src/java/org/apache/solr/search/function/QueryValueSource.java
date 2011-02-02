@@ -490,8 +490,6 @@ name|getTopLevelContext
 argument_list|(
 name|readerContext
 argument_list|)
-argument_list|,
-name|readerContext
 argument_list|)
 expr_stmt|;
 block|}
@@ -527,8 +525,6 @@ name|getTopLevelContext
 argument_list|(
 name|readerContext
 argument_list|)
-argument_list|,
-name|readerContext
 argument_list|)
 expr_stmt|;
 block|}
