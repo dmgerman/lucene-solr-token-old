@@ -1781,8 +1781,7 @@ expr_stmt|;
 name|IndexSearcher
 name|s
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -8585,8 +8584,7 @@ expr_stmt|;
 name|IndexSearcher
 name|s
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|r
 argument_list|)
@@ -8666,6 +8664,11 @@ index|]
 operator|.
 name|doc
 argument_list|)
+expr_stmt|;
+name|s
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|r
 operator|.
@@ -8985,8 +8988,7 @@ expr_stmt|;
 name|IndexSearcher
 name|searcher
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -9020,6 +9022,11 @@ operator|.
 name|getTotalHits
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|searcher
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|reader
 operator|.

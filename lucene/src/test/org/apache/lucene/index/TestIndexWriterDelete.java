@@ -3362,8 +3362,7 @@ block|}
 name|IndexSearcher
 name|searcher
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|newReader
 argument_list|)

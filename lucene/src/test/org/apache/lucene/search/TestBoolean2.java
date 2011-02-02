@@ -638,8 +638,7 @@ argument_list|()
 expr_stmt|;
 name|bigSearcher
 operator|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)

@@ -468,8 +468,7 @@ argument_list|()
 expr_stmt|;
 name|searcher
 operator|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -3254,8 +3253,7 @@ specifier|final
 name|IndexSearcher
 name|searcher
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -3351,6 +3349,11 @@ argument_list|)
 operator|.
 name|totalHits
 argument_list|)
+expr_stmt|;
+name|searcher
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|reader
 operator|.

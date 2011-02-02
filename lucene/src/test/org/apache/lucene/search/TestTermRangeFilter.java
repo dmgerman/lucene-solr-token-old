@@ -157,8 +157,7 @@ decl_stmt|;
 name|IndexSearcher
 name|search
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -1025,6 +1024,11 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
+name|search
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1044,8 +1048,7 @@ decl_stmt|;
 name|IndexSearcher
 name|search
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -1921,6 +1924,11 @@ argument_list|,
 name|numHits
 argument_list|)
 expr_stmt|;
+name|search
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1940,8 +1948,7 @@ decl_stmt|;
 name|IndexSearcher
 name|search
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -2550,6 +2557,11 @@ name|result
 operator|.
 name|length
 argument_list|)
+expr_stmt|;
+name|search
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -2571,8 +2583,7 @@ decl_stmt|;
 name|IndexSearcher
 name|search
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -3190,6 +3201,11 @@ literal|1
 argument_list|,
 name|numHits
 argument_list|)
+expr_stmt|;
+name|search
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -3298,8 +3314,7 @@ expr_stmt|;
 name|IndexSearcher
 name|search
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -3574,8 +3589,7 @@ expr_stmt|;
 name|IndexSearcher
 name|search
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
