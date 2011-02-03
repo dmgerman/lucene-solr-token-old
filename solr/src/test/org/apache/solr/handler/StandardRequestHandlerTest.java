@@ -219,7 +219,7 @@ literal|"title"
 argument_list|,
 literal|"test"
 argument_list|,
-literal|"val_s"
+literal|"val_s1"
 argument_list|,
 literal|"aaa"
 argument_list|)
@@ -237,7 +237,7 @@ literal|"title"
 argument_list|,
 literal|"test"
 argument_list|,
-literal|"val_s"
+literal|"val_s1"
 argument_list|,
 literal|"bbb"
 argument_list|)
@@ -255,7 +255,7 @@ literal|"title"
 argument_list|,
 literal|"test"
 argument_list|,
-literal|"val_s"
+literal|"val_s1"
 argument_list|,
 literal|"ccc"
 argument_list|)
@@ -336,7 +336,7 @@ name|CommonParams
 operator|.
 name|SORT
 argument_list|,
-literal|"val_s asc"
+literal|"val_s1 asc"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -362,7 +362,7 @@ name|CommonParams
 operator|.
 name|SORT
 argument_list|,
-literal|"val_s desc"
+literal|"val_s1 desc"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -450,7 +450,7 @@ name|CommonParams
 operator|.
 name|Q
 argument_list|,
-literal|"title:test; val_s desc"
+literal|"title:test; val_s1 desc"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -476,12 +476,12 @@ name|CommonParams
 operator|.
 name|Q
 argument_list|,
-literal|"title:test; val_s asc"
+literal|"title:test; val_s1 asc"
 argument_list|)
 expr_stmt|;
 name|assertQ
 argument_list|(
-literal|"with sort param [desc]"
+literal|"with sort param [asc]"
 argument_list|,
 name|req
 argument_list|,

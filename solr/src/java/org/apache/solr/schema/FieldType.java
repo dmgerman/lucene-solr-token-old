@@ -1981,7 +1981,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Returns the SortField instance that should be used to sort fields    * of this type.    */
+comment|/**    * Returns the SortField instance that should be used to sort fields    * of this type.    * @see SchemaField#checkSortability    */
 DECL|method|getSortField
 specifier|public
 specifier|abstract
@@ -1995,7 +1995,7 @@ name|boolean
 name|top
 parameter_list|)
 function_decl|;
-comment|/**    * Utility usable by subclasses when they want to get basic String sorting.    */
+comment|/**    * Utility usable by subclasses when they want to get basic String sorting     * using common checks.    * @see SchemaField#checkSortability    */
 DECL|method|getStringSort
 specifier|protected
 name|SortField
@@ -2008,6 +2008,11 @@ name|boolean
 name|reverse
 parameter_list|)
 block|{
+name|field
+operator|.
+name|checkSortability
+argument_list|()
+expr_stmt|;
 return|return
 name|Sorting
 operator|.
