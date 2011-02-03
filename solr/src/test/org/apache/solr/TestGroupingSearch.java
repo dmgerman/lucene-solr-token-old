@@ -3668,7 +3668,7 @@ name|put
 argument_list|(
 literal|"start"
 argument_list|,
-name|start
+name|group_offset
 argument_list|)
 expr_stmt|;
 name|List
