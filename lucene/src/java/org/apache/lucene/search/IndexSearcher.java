@@ -1283,6 +1283,15 @@ range|:
 name|runner
 control|)
 block|{
+if|if
+condition|(
+name|topDocs
+operator|.
+name|totalHits
+operator|!=
+literal|0
+condition|)
+block|{
 name|totalHits
 operator|+=
 name|topDocs
@@ -1303,6 +1312,7 @@ name|getMaxScore
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|final
 name|ScoreDoc
@@ -1651,6 +1661,15 @@ range|:
 name|runner
 control|)
 block|{
+if|if
+condition|(
+name|topFieldDocs
+operator|.
+name|totalHits
+operator|!=
+literal|0
+condition|)
+block|{
 name|totalHits
 operator|+=
 name|topFieldDocs
@@ -1671,6 +1690,7 @@ name|getMaxScore
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|final
 name|ScoreDoc
