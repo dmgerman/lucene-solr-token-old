@@ -3813,6 +3813,8 @@ operator|.
 name|toString
 argument_list|(
 name|stream
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 expr_stmt|;
 if|if
