@@ -3679,12 +3679,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//log.info("Mismatched responses:\n" + a + "\n" + b);
-name|System
+name|log
 operator|.
-name|err
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Mismatched responses:\n"
 operator|+
@@ -3695,7 +3692,6 @@ operator|+
 name|b
 argument_list|)
 expr_stmt|;
-comment|// :nocommit:
 name|TestCase
 operator|.
 name|fail
