@@ -20,15 +20,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Arrays
@@ -132,8 +123,6 @@ specifier|public
 class|class
 name|Automaton
 implements|implements
-name|Serializable
-implements|,
 name|Cloneable
 block|{
 comment|/**    * Minimize using Hopcroft's O(n log n) algorithm. This is regarded as one of    * the most generally efficient algorithms that exist.    *     * @see #setMinimization(int)    */

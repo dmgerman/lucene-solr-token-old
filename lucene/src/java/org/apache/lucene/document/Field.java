@@ -25,15 +25,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -84,8 +75,6 @@ extends|extends
 name|AbstractField
 implements|implements
 name|Fieldable
-implements|,
-name|Serializable
 block|{
 comment|/** Specifies whether and how a field should be stored. */
 DECL|enum|Store

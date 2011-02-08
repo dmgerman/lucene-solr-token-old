@@ -25,15 +25,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -84,8 +75,6 @@ specifier|public
 specifier|abstract
 class|class
 name|Weight
-implements|implements
-name|Serializable
 block|{
 comment|/**    * An explanation of the score computation for the named document.    *     * @param context the readers context to create the {@link Explanation} for.    * @param doc the document's id relative to the given context's reader    * @return an Explanation for the score    * @throws IOException if an {@link IOException} occurs    */
 DECL|method|explain

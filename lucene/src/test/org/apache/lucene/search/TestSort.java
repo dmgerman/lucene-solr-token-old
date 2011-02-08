@@ -27,15 +27,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|text
 operator|.
 name|Collator
@@ -500,8 +491,6 @@ class|class
 name|TestSort
 extends|extends
 name|LuceneTestCase
-implements|implements
-name|Serializable
 block|{
 DECL|field|NUM_STRINGS
 specifier|private

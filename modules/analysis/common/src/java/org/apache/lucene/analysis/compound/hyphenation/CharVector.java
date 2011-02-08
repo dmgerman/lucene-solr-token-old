@@ -18,15 +18,6 @@ operator|.
 name|hyphenation
 package|;
 end_package
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
 begin_comment
 comment|/**  * This class implements a simple char vector with access to the underlying  * array.  *   * This class has been taken from the Apache FOP project (http://xmlgraphics.apache.org/fop/). They have been slightly modified.   */
 end_comment
@@ -37,8 +28,6 @@ class|class
 name|CharVector
 implements|implements
 name|Cloneable
-implements|,
-name|Serializable
 block|{
 comment|/**    * Capacity increment size    */
 DECL|field|DEFAULT_BLOCK_SIZE
