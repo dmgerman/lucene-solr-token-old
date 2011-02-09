@@ -1524,7 +1524,7 @@ name|attrSource
 argument_list|,
 name|Type
 operator|.
-name|SIMPLE_FLOAT_4BYTE
+name|FLOAT_32
 argument_list|,
 name|this
 argument_list|,
@@ -1619,7 +1619,7 @@ block|{
 return|return
 name|Type
 operator|.
-name|SIMPLE_FLOAT_4BYTE
+name|FLOAT_32
 return|;
 block|}
 block|}
@@ -1801,7 +1801,7 @@ block|{
 return|return
 name|Type
 operator|.
-name|SIMPLE_FLOAT_8BYTE
+name|FLOAT_64
 return|;
 block|}
 block|}
@@ -1909,11 +1909,11 @@ literal|4
 condition|?
 name|Type
 operator|.
-name|SIMPLE_FLOAT_4BYTE
+name|FLOAT_32
 else|:
 name|Type
 operator|.
-name|SIMPLE_FLOAT_8BYTE
+name|FLOAT_64
 return|;
 block|}
 block|}
@@ -1952,7 +1952,7 @@ name|maxDoc
 argument_list|,
 name|Type
 operator|.
-name|SIMPLE_FLOAT_4BYTE
+name|FLOAT_32
 argument_list|)
 expr_stmt|;
 block|}
@@ -2130,7 +2130,7 @@ name|maxDoc
 argument_list|,
 name|Type
 operator|.
-name|SIMPLE_FLOAT_8BYTE
+name|FLOAT_64
 argument_list|)
 expr_stmt|;
 block|}
@@ -2345,11 +2345,11 @@ literal|4
 condition|?
 name|Type
 operator|.
-name|SIMPLE_FLOAT_4BYTE
+name|FLOAT_32
 else|:
 name|Type
 operator|.
-name|SIMPLE_FLOAT_8BYTE
+name|FLOAT_64
 argument_list|)
 expr_stmt|;
 name|this

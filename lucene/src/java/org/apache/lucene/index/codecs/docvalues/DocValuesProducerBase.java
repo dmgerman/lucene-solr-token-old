@@ -470,7 +470,7 @@ name|type
 condition|)
 block|{
 case|case
-name|PACKED_INTS
+name|INTS
 case|:
 return|return
 name|Ints
@@ -485,7 +485,7 @@ literal|false
 argument_list|)
 return|;
 case|case
-name|SIMPLE_FLOAT_4BYTE
+name|FLOAT_32
 case|:
 return|return
 name|Floats
@@ -500,7 +500,7 @@ name|docCount
 argument_list|)
 return|;
 case|case
-name|SIMPLE_FLOAT_8BYTE
+name|FLOAT_64
 case|:
 return|return
 name|Floats

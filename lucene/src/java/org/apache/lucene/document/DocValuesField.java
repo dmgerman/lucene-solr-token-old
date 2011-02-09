@@ -222,7 +222,7 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Sets the given<code>long</code> value and sets the field's {@link Type} to    * {@link Type#PACKED_INTS} unless already set. If you want to change the    * default type use {@link #setType(Type)}.    */
+comment|/**    * Sets the given<code>long</code> value and sets the field's {@link Type} to    * {@link Type#INTS} unless already set. If you want to change the    * default type use {@link #setType(Type)}.    */
 DECL|method|setInt
 specifier|public
 name|void
@@ -243,7 +243,7 @@ name|type
 operator|=
 name|Type
 operator|.
-name|PACKED_INTS
+name|INTS
 expr_stmt|;
 block|}
 name|longValue
@@ -251,7 +251,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**    * Sets the given<code>float</code> value and sets the field's {@link Type}    * to {@link Type#SIMPLE_FLOAT_4BYTE} unless already set. If you want to    * change the type use {@link #setType(Type)}.    */
+comment|/**    * Sets the given<code>float</code> value and sets the field's {@link Type}    * to {@link Type#FLOAT_32} unless already set. If you want to    * change the type use {@link #setType(Type)}.    */
 DECL|method|setFloat
 specifier|public
 name|void
@@ -272,7 +272,7 @@ name|type
 operator|=
 name|Type
 operator|.
-name|SIMPLE_FLOAT_4BYTE
+name|FLOAT_32
 expr_stmt|;
 block|}
 name|doubleValue
@@ -280,7 +280,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|/**    * Sets the given<code>double</code> value and sets the field's {@link Type}    * to {@link Type#SIMPLE_FLOAT_8BYTE} unless already set. If you want to    * change the default type use {@link #setType(Type)}.    */
+comment|/**    * Sets the given<code>double</code> value and sets the field's {@link Type}    * to {@link Type#FLOAT_64} unless already set. If you want to    * change the default type use {@link #setType(Type)}.    */
 DECL|method|setFloat
 specifier|public
 name|void
@@ -301,7 +301,7 @@ name|type
 operator|=
 name|Type
 operator|.
-name|SIMPLE_FLOAT_8BYTE
+name|FLOAT_64
 expr_stmt|;
 block|}
 name|doubleValue
@@ -677,7 +677,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|PACKED_INTS
+name|INTS
 case|:
 name|valField
 operator|.
@@ -696,7 +696,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|SIMPLE_FLOAT_4BYTE
+name|FLOAT_32
 case|:
 name|valField
 operator|.
@@ -715,7 +715,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|SIMPLE_FLOAT_8BYTE
+name|FLOAT_64
 case|:
 name|valField
 operator|.

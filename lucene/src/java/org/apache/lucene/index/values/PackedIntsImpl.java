@@ -1175,7 +1175,7 @@ block|{
 return|return
 name|Type
 operator|.
-name|PACKED_INTS
+name|INTS
 return|;
 block|}
 block|}
@@ -1240,7 +1240,7 @@ block|{
 return|return
 name|Type
 operator|.
-name|PACKED_INTS
+name|INTS
 return|;
 block|}
 block|}
@@ -1311,7 +1311,7 @@ name|source
 argument_list|,
 name|Type
 operator|.
-name|PACKED_INTS
+name|INTS
 argument_list|)
 expr_stmt|;
 name|intsRef

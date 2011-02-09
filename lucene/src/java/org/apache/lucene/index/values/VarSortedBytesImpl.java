@@ -1215,6 +1215,9 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
+name|closeIndexInput
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override

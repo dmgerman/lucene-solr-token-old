@@ -1426,7 +1426,7 @@ name|docValues
 condition|)
 block|{
 case|case
-name|PACKED_INTS
+name|INTS
 case|:
 name|b
 operator|=
@@ -1434,7 +1434,7 @@ literal|1
 expr_stmt|;
 break|break;
 case|case
-name|SIMPLE_FLOAT_4BYTE
+name|FLOAT_32
 case|:
 name|b
 operator|=
@@ -1442,7 +1442,7 @@ literal|2
 expr_stmt|;
 break|break;
 case|case
-name|SIMPLE_FLOAT_8BYTE
+name|FLOAT_64
 case|:
 name|b
 operator|=
@@ -1763,7 +1763,7 @@ name|docValuesType
 operator|=
 name|Type
 operator|.
-name|PACKED_INTS
+name|INTS
 expr_stmt|;
 break|break;
 case|case
@@ -1773,7 +1773,7 @@ name|docValuesType
 operator|=
 name|Type
 operator|.
-name|SIMPLE_FLOAT_4BYTE
+name|FLOAT_32
 expr_stmt|;
 break|break;
 case|case
@@ -1783,7 +1783,7 @@ name|docValuesType
 operator|=
 name|Type
 operator|.
-name|SIMPLE_FLOAT_8BYTE
+name|FLOAT_64
 expr_stmt|;
 break|break;
 case|case
