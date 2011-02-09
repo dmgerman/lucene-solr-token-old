@@ -441,7 +441,7 @@ begin_comment
 comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * Return term vectors for the documents in a query result set.  *<p/>  * Info available:  * term, frequency, position, offset, IDF.  *<p/>  *<b>Note</b> Returning IDF can be expensive.  */
+comment|/**  * Return term vectors for the documents in a query result set.  *<p/>  * Info available:  * term, frequency, position, offset, IDF.  *<p/>  *<b>Note</b> Returning IDF can be expensive.  *   *<pre class="prettyprint">  *&lt;searchComponent name="tvComponent" class="solr.TermVectorComponent"/&gt;  *   *&lt;requestHandler name="/terms" class="solr.SearchHandler"&gt;  *&lt;lst name="defaults"&gt;  *&lt;bool name="tv"&gt;true&lt;/bool&gt;  *&lt;/lst&gt;  *&lt;arr name="last-component"&gt;  *&lt;str&gt;tvComponent&lt;/str&gt;  *&lt;/arr&gt;  *&lt;/requestHandler&gt;</pre>  *  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|TermVectorComponent
@@ -476,6 +476,8 @@ name|TERM_VECTORS
 init|=
 literal|"termVectors"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|process
 specifier|public
 name|void
@@ -513,10 +515,16 @@ block|{
 return|return;
 block|}
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 name|termVectors
 init|=
 operator|new
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|rb
@@ -728,10 +736,22 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 name|NamedList
+argument_list|<
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 name|warnings
 init|=
 operator|new
 name|NamedList
+argument_list|<
+name|List
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|List
@@ -1224,7 +1244,7 @@ name|reader
 init|=
 name|searcher
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 decl_stmt|;
 comment|//the TVMapper is a TermVectorMapper which can be used to optimize loading of Term Vectors
@@ -1312,10 +1332,16 @@ name|next
 argument_list|()
 decl_stmt|;
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 name|docNL
 init|=
 operator|new
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|mapper
@@ -1896,6 +1922,9 @@ decl_stmt|;
 DECL|field|docNL
 specifier|private
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 name|docNL
 decl_stmt|;
 comment|//needs to be set for each new field
@@ -1916,6 +1945,9 @@ comment|//private Map<String, Integer> idfCache;
 DECL|field|fieldNL
 specifier|private
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 name|fieldNL
 decl_stmt|;
 DECL|field|currentTerm
@@ -1938,6 +1970,8 @@ operator|=
 name|reader
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|map
 specifier|public
 name|void
@@ -1959,10 +1993,16 @@ name|positions
 parameter_list|)
 block|{
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 name|termInfo
 init|=
 operator|new
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|fieldNL
@@ -2004,10 +2044,16 @@ literal|true
 condition|)
 block|{
 name|NamedList
+argument_list|<
+name|Number
+argument_list|>
 name|theOffsets
 init|=
 operator|new
 name|NamedList
+argument_list|<
+name|Number
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|termInfo
@@ -2078,10 +2124,16 @@ literal|true
 condition|)
 block|{
 name|NamedList
+argument_list|<
+name|Integer
+argument_list|>
 name|positionsNL
 init|=
 operator|new
 name|NamedList
+argument_list|<
+name|Integer
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2280,6 +2332,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setExpectations
 specifier|public
 name|void
@@ -2342,6 +2396,9 @@ name|fieldNL
 operator|=
 operator|new
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 expr_stmt|;
 name|docNL
@@ -2389,6 +2446,8 @@ return|;
 comment|//  if we are not interested in offsets, then return true telling Lucene to skip loading them
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|prepare
 specifier|public
 name|void
@@ -2435,6 +2494,8 @@ name|SolrCore
 name|core
 parameter_list|)
 block|{    }
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|String
@@ -2445,6 +2506,8 @@ return|return
 literal|"$Revision$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSourceId
 specifier|public
 name|String
@@ -2455,6 +2518,8 @@ return|return
 literal|"$Id$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|String
@@ -2465,6 +2530,8 @@ return|return
 literal|"$URL$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription
 specifier|public
 name|String

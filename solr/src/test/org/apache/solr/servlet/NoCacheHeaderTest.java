@@ -116,6 +116,8 @@ expr_stmt|;
 block|}
 comment|// The tests
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testLastModified
 specifier|public
@@ -137,6 +139,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testEtag
 specifier|public
@@ -157,6 +161,8 @@ literal|"HEAD"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testCacheControl
@@ -183,6 +189,8 @@ literal|"POST"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doLastModified
 specifier|protected
 name|void
@@ -466,6 +474,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// test ETag
+annotation|@
+name|Override
 DECL|method|doETag
 specifier|protected
 name|void
@@ -708,6 +718,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doCacheControl
 specifier|protected
 name|void

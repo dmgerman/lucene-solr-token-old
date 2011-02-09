@@ -82,6 +82,21 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IndexReader
+operator|.
+name|AtomicReaderContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|Term
 import|;
 end_import
@@ -234,12 +249,6 @@ name|DisjunctionMaxWeight
 extends|extends
 name|Weight
 block|{
-comment|/** The Similarity implementation. */
-DECL|field|similarity
-specifier|protected
-name|Similarity
-name|similarity
-decl_stmt|;
 comment|/** The Weights for our subqueries, in 1-1 correspondence with disjuncts */
 DECL|field|weights
 specifier|protected
@@ -257,7 +266,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// The Weight's for our subqueries, in 1-1 correspondence with disjuncts
-comment|/* Construct the Weight for this Query searched by searcher.  Recursively construct subquery weights. */
+comment|/** Construct the Weight for this Query searched by searcher.  Recursively construct subquery weights. */
 DECL|method|DisjunctionMaxWeight
 specifier|public
 name|DisjunctionMaxWeight
@@ -268,15 +277,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|this
-operator|.
-name|similarity
-operator|=
-name|searcher
-operator|.
-name|getSimilarity
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|Query
@@ -299,7 +299,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* Return our associated DisjunctionMaxQuery */
+comment|/** Return our associated DisjunctionMaxQuery */
 annotation|@
 name|Override
 DECL|method|getQuery
@@ -314,7 +314,7 @@ operator|.
 name|this
 return|;
 block|}
-comment|/* Return our boost */
+comment|/** Return our boost */
 annotation|@
 name|Override
 DECL|method|getValue
@@ -328,7 +328,7 @@ name|getBoost
 argument_list|()
 return|;
 block|}
-comment|/* Compute the sub of squared weights of us applied to our subqueries.  Used for normalization. */
+comment|/** Compute the sub of squared weights of us applied to our subqueries.  Used for normalization. */
 annotation|@
 name|Override
 DECL|method|sumOfSquaredWeights
@@ -408,7 +408,7 @@ operator|*
 name|boost
 return|;
 block|}
-comment|/* Apply the computed normalization factor to our subqueries */
+comment|/** Apply the computed normalization factor to our subqueries */
 annotation|@
 name|Override
 DECL|method|normalize
@@ -443,7 +443,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* Create the scorer used to score our associated DisjunctionMaxQuery */
+comment|/** Create the scorer used to score our associated DisjunctionMaxQuery */
 annotation|@
 name|Override
 DECL|method|scorer
@@ -451,14 +451,11 @@ specifier|public
 name|Scorer
 name|scorer
 parameter_list|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
 parameter_list|,
-name|boolean
-name|scoreDocsInOrder
-parameter_list|,
-name|boolean
-name|topScorer
+name|ScorerContext
+name|scorerContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -496,11 +493,12 @@ name|w
 operator|.
 name|scorer
 argument_list|(
-name|reader
+name|context
 argument_list|,
-literal|true
-argument_list|,
-literal|false
+name|ScorerContext
+operator|.
+name|def
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -545,9 +543,9 @@ init|=
 operator|new
 name|DisjunctionMaxScorer
 argument_list|(
-name|tieBreakerMultiplier
+name|this
 argument_list|,
-name|similarity
+name|tieBreakerMultiplier
 argument_list|,
 name|scorers
 argument_list|,
@@ -558,7 +556,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/* Explain the score we computed for doc */
+comment|/** Explain the score we computed for doc */
 annotation|@
 name|Override
 DECL|method|explain
@@ -566,8 +564,8 @@ specifier|public
 name|Explanation
 name|explain
 parameter_list|(
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
 parameter_list|,
 name|int
 name|doc
@@ -594,7 +592,7 @@ argument_list|)
 operator|.
 name|explain
 argument_list|(
-name|reader
+name|context
 argument_list|,
 name|doc
 argument_list|)
@@ -647,7 +645,7 @@ name|wt
 operator|.
 name|explain
 argument_list|(
-name|reader
+name|context
 argument_list|,
 name|doc
 argument_list|)
@@ -720,7 +718,7 @@ return|;
 block|}
 block|}
 comment|// end of DisjunctionMaxWeight inner class
-comment|/* Create the Weight used to score us */
+comment|/** Create the Weight used to score us */
 annotation|@
 name|Override
 DECL|method|createWeight

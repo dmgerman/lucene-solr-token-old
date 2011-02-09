@@ -243,6 +243,8 @@ name|WORD_FIELD_NAME
 init|=
 literal|"word"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|String
@@ -280,6 +282,8 @@ return|return
 name|name
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|build
 specifier|public
 name|void
@@ -343,11 +347,6 @@ return|return
 literal|null
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|loadExternalFileDictionary
 specifier|private
 name|void
@@ -449,13 +448,6 @@ operator|.
 name|setMergePolicy
 argument_list|(
 name|mp
-argument_list|)
-operator|.
-name|setMaxFieldLength
-argument_list|(
-name|IndexWriterConfig
-operator|.
-name|UNLIMITED_FIELD_LENGTH
 argument_list|)
 operator|.
 name|setOpenMode

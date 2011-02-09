@@ -176,6 +176,8 @@ specifier|public
 name|URLDataSource
 parameter_list|()
 block|{   }
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -312,6 +314,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getData
 specifier|public
 name|Reader
@@ -520,6 +524,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

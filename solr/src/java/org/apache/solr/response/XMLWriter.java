@@ -2268,6 +2268,8 @@ name|fields
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeVal
 specifier|public
 name|void
@@ -2668,6 +2670,8 @@ block|}
 comment|//
 comment|// Generic compound types
 comment|//
+annotation|@
+name|Override
 DECL|method|writeNamedList
 specifier|public
 name|void

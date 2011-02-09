@@ -570,8 +570,7 @@ argument_list|)
 expr_stmt|;
 name|searcher
 operator|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -1281,6 +1280,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: query="
+operator|+
+name|q
+argument_list|)
+expr_stmt|;
+block|}
 name|TopDocs
 name|hits
 init|=

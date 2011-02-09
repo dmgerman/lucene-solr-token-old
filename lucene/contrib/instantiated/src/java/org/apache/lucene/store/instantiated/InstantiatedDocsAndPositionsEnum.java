@@ -356,6 +356,8 @@ operator|.
 name|length
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextPosition
 specifier|public
 name|int
@@ -373,6 +375,8 @@ name|posUpto
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasPayload
 specifier|public
 name|boolean
@@ -391,6 +395,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPayload
 specifier|public
 name|BytesRef

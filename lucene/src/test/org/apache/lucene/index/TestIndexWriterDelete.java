@@ -1080,11 +1080,6 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|modifier
-operator|.
-name|commit
-argument_list|()
-expr_stmt|;
 name|IndexReader
 name|reader
 init|=
@@ -3367,8 +3362,7 @@ block|}
 name|IndexSearcher
 name|searcher
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|newReader
 argument_list|)
@@ -3943,6 +3937,12 @@ operator|.
 name|setReaderPooling
 argument_list|(
 literal|false
+argument_list|)
+operator|.
+name|setMergePolicy
+argument_list|(
+name|newLogMergePolicy
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -4660,6 +4660,11 @@ block|{
 break|break;
 block|}
 block|}
+name|modifier
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|TestIndexWriter
 operator|.
 name|assertNoUnreferencedFiles
@@ -4668,11 +4673,6 @@ name|dir
 argument_list|,
 literal|"docsWriter.abort() failed to delete unreferenced files"
 argument_list|)
-expr_stmt|;
-name|modifier
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|dir
 operator|.

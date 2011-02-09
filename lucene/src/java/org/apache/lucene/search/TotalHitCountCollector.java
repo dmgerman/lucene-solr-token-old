@@ -25,6 +25,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 begin_comment
@@ -54,6 +56,8 @@ return|return
 name|totalHits
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -63,6 +67,8 @@ name|Scorer
 name|scorer
 parameter_list|)
 block|{   }
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -76,18 +82,19 @@ name|totalHits
 operator|++
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 block|{   }
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean

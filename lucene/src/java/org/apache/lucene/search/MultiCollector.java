@@ -34,6 +34,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -63,7 +65,7 @@ name|Scorer
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link Collector} which allows running a search with several  * {@link Collector}s. It offers a static {@link #wrap} method which accepts a  * list of collectots and wraps them with {@link MultiCollector}, while  * filtering out the<code>null</code> null ones.  */
+comment|/**  * A {@link Collector} which allows running a search with several  * {@link Collector}s. It offers a static {@link #wrap} method which accepts a  * list of collectors and wraps them with {@link MultiCollector}, while  * filtering out the<code>null</code> null ones.  */
 end_comment
 begin_class
 DECL|class|MultiCollector
@@ -330,11 +332,8 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|o
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -351,9 +350,7 @@ name|c
 operator|.
 name|setNextReader
 argument_list|(
-name|reader
-argument_list|,
-name|o
+name|context
 argument_list|)
 expr_stmt|;
 block|}

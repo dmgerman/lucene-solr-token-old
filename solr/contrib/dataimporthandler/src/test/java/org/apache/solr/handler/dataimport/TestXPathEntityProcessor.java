@@ -173,7 +173,9 @@ argument_list|,
 name|xsl
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|,
 literal|false
 argument_list|)
@@ -1337,7 +1339,9 @@ argument_list|,
 name|xsl
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|,
 literal|false
 argument_list|)
@@ -1555,6 +1559,8 @@ name|Reader
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|init
@@ -1566,11 +1572,15 @@ name|Properties
 name|initProps
 parameter_list|)
 block|{       }
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
 parameter_list|()
 block|{       }
+annotation|@
+name|Override
 specifier|public
 name|Reader
 name|getData

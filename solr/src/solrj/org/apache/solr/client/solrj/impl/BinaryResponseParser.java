@@ -114,6 +114,8 @@ name|BinaryResponseParser
 extends|extends
 name|ResponseParser
 block|{
+annotation|@
+name|Override
 DECL|method|getWriterType
 specifier|public
 name|String
@@ -124,6 +126,8 @@ return|return
 literal|"javabin"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|processResponse
 specifier|public
 name|NamedList
@@ -181,6 +185,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|String
@@ -191,6 +197,8 @@ return|return
 literal|"2"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|processResponse
 specifier|public
 name|NamedList

@@ -63,7 +63,20 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Similarity
+name|IndexSearcher
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|SimilarityProvider
 import|;
 end_import
 begin_import
@@ -627,7 +640,7 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**    * Constructs a schema using the specified resource name and stream.    * If the is stream is null, the resource loader will load the schema resource by name.    * @see SolrResourceLoader#openSchema    * By default, this follows the normal config path directory searching rules.    * @see Config#openResource    */
+comment|/**    * Constructs a schema using the specified resource name and stream.    * If the is stream is null, the resource loader will load the schema resource by name.    * @see SolrResourceLoader#openSchema    * By default, this follows the normal config path directory searching rules.    * @see SolrResourceLoader#openResource    */
 DECL|method|IndexSchema
 specifier|public
 name|IndexSchema
@@ -835,16 +848,16 @@ name|SimilarityFactory
 name|similarityFactory
 decl_stmt|;
 comment|/**    * Returns the Similarity used for this index    */
-DECL|method|getSimilarity
+DECL|method|getSimilarityProvider
 specifier|public
-name|Similarity
-name|getSimilarity
+name|SimilarityProvider
+name|getSimilarityProvider
 parameter_list|()
 block|{
 return|return
 name|similarityFactory
 operator|.
-name|getSimilarity
+name|getSimilarityProvider
 argument_list|()
 return|;
 block|}
@@ -1217,6 +1230,8 @@ name|getAnalyzer
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -2365,15 +2380,17 @@ operator|new
 name|SimilarityFactory
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
-name|Similarity
-name|getSimilarity
+name|SimilarityProvider
+name|getSimilarityProvider
 parameter_list|()
 block|{
 return|return
-name|Similarity
+name|IndexSearcher
 operator|.
-name|getDefault
+name|getDefaultSimilarityProvider
 argument_list|()
 return|;
 block|}
@@ -2450,21 +2467,23 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// just like always, assume it's a Similarlity and get a ClassCastException - reasonable error handling
+comment|// just like always, assume it's a SimilarityProvider and get a ClassCastException - reasonable error handling
 name|similarityFactory
 operator|=
 operator|new
 name|SimilarityFactory
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
-name|Similarity
-name|getSimilarity
+name|SimilarityProvider
+name|getSimilarityProvider
 parameter_list|()
 block|{
 return|return
 operator|(
-name|Similarity
+name|SimilarityProvider
 operator|)
 name|obj
 return|;
@@ -4941,6 +4960,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

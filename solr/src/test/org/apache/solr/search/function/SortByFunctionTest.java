@@ -40,6 +40,8 @@ name|SortByFunctionTest
 extends|extends
 name|AbstractSolrTestCase
 block|{
+annotation|@
+name|Override
 DECL|method|getSchemaFile
 specifier|public
 name|String
@@ -50,6 +52,8 @@ return|return
 literal|"schema.xml"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSolrConfigFile
 specifier|public
 name|String
@@ -84,7 +88,7 @@ literal|"y_td"
 argument_list|,
 literal|"2"
 argument_list|,
-literal|"w_td"
+literal|"w_td1"
 argument_list|,
 literal|"25"
 argument_list|,
@@ -114,7 +118,7 @@ literal|"y_td"
 argument_list|,
 literal|"2"
 argument_list|,
-literal|"w_td"
+literal|"w_td1"
 argument_list|,
 literal|"15"
 argument_list|,
@@ -144,7 +148,7 @@ literal|"y_td"
 argument_list|,
 literal|"2"
 argument_list|,
-literal|"w_td"
+literal|"w_td1"
 argument_list|,
 literal|"55"
 argument_list|,
@@ -174,7 +178,7 @@ literal|"y_td"
 argument_list|,
 literal|"2"
 argument_list|,
-literal|"w_td"
+literal|"w_td1"
 argument_list|,
 literal|"45"
 argument_list|,
@@ -338,7 +342,7 @@ argument_list|,
 literal|"//result/doc[4]/int[@name='id'][.='4']"
 argument_list|)
 expr_stmt|;
-comment|//the function is equal, w_td separates
+comment|//the function is equal, w_td1 separates
 name|assertQ
 argument_list|(
 name|req
@@ -353,7 +357,7 @@ literal|"id"
 argument_list|,
 literal|"sort"
 argument_list|,
-literal|"sum(z_td, y_td) asc, w_td asc"
+literal|"sum(z_td, y_td) asc, w_td1 asc"
 argument_list|)
 argument_list|,
 literal|"//*[@numFound='4']"

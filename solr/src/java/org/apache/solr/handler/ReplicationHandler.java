@@ -554,6 +554,9 @@ decl_stmt|;
 DECL|field|snapShootDetails
 specifier|volatile
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 name|snapShootDetails
 decl_stmt|;
 DECL|field|replicationEnabled
@@ -567,6 +570,8 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|handleRequestBody
 specifier|public
 name|void
@@ -871,6 +876,8 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -1204,6 +1211,9 @@ specifier|private
 name|List
 argument_list|<
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 name|getCommits
 parameter_list|()
@@ -1227,6 +1237,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 name|l
 init|=
@@ -1234,6 +1247,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1251,10 +1267,16 @@ block|{
 try|try
 block|{
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 name|nl
 init|=
 operator|new
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|nl
@@ -1808,7 +1830,7 @@ operator|.
 name|getSearcher
 argument_list|()
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 operator|.
 name|getIndexCommit
@@ -2802,6 +2824,8 @@ return|return
 name|fileMeta
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription
 specifier|public
 name|String
@@ -2812,6 +2836,8 @@ return|return
 literal|"ReplicationHandler provides replication of index and configuration files from Master to Slaves"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSourceId
 specifier|public
 name|String
@@ -2822,6 +2848,8 @@ return|return
 literal|"$Id$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|String
@@ -2832,6 +2860,8 @@ return|return
 literal|"$URL$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|String
@@ -3013,7 +3043,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 operator|.
 name|getIndexCommit
@@ -3032,7 +3062,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 operator|.
 name|getIndexCommit
@@ -4772,6 +4802,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 if|if
 condition|(
 name|isMaster
@@ -4800,7 +4831,6 @@ argument_list|,
 name|slave
 argument_list|)
 expr_stmt|;
-block|}
 name|NamedList
 name|snapshotStats
 init|=
@@ -4831,6 +4861,9 @@ name|void
 name|addVal
 parameter_list|(
 name|NamedList
+argument_list|<
+name|Object
+argument_list|>
 name|nl
 parameter_list|,
 name|String
@@ -5688,7 +5721,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 decl_stmt|;
 if|if

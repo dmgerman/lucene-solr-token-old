@@ -2375,7 +2375,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// Not private beacaus NodeHash needs access:
+comment|// Not private because NodeHash needs access:
 DECL|method|readFirstRealArc
 name|Arc
 argument_list|<

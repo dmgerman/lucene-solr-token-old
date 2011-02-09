@@ -210,6 +210,8 @@ specifier|protected
 name|Pattern
 name|defaultPattern
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void

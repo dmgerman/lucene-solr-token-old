@@ -27,6 +27,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -261,8 +263,8 @@ parameter_list|(
 name|SpanNearQuery
 name|spanNearQuery
 parameter_list|,
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -271,7 +273,7 @@ name|this
 argument_list|(
 name|spanNearQuery
 argument_list|,
-name|reader
+name|context
 argument_list|,
 literal|true
 argument_list|)
@@ -284,8 +286,8 @@ parameter_list|(
 name|SpanNearQuery
 name|spanNearQuery
 parameter_list|,
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|context
 parameter_list|,
 name|boolean
 name|collectPayloads
@@ -396,7 +398,7 @@ index|]
 operator|.
 name|getSpans
 argument_list|(
-name|reader
+name|context
 argument_list|)
 expr_stmt|;
 name|subSpansByDoc

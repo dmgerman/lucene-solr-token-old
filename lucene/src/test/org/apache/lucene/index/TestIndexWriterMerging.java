@@ -234,7 +234,7 @@ argument_list|)
 operator|.
 name|setMergePolicy
 argument_list|(
-name|newLogMergePolicy
+name|newInOrderLogMergePolicy
 argument_list|(
 literal|2
 argument_list|)
@@ -281,11 +281,6 @@ name|merged
 argument_list|,
 literal|0
 argument_list|)
-expr_stmt|;
-name|merged
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
@@ -494,7 +489,7 @@ argument_list|)
 operator|.
 name|setMergePolicy
 argument_list|(
-name|newLogMergePolicy
+name|newInOrderLogMergePolicy
 argument_list|(
 literal|2
 argument_list|)

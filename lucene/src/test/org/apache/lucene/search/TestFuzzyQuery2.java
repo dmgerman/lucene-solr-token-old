@@ -390,6 +390,10 @@ name|random
 argument_list|,
 name|dir
 argument_list|,
+name|newIndexWriterConfig
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -398,6 +402,13 @@ operator|.
 name|KEYWORD
 argument_list|,
 literal|false
+argument_list|)
+argument_list|)
+operator|.
+name|setMergePolicy
+argument_list|(
+name|newInOrderLogMergePolicy
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -483,8 +494,7 @@ decl_stmt|;
 name|IndexSearcher
 name|searcher
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|r
 argument_list|)

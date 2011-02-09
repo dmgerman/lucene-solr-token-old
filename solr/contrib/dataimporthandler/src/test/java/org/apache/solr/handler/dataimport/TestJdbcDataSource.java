@@ -217,6 +217,8 @@ literal|"java.naming.factory.initial"
 argument_list|)
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp
 specifier|public
@@ -287,6 +289,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|After
 DECL|method|tearDown
 specifier|public
@@ -329,6 +333,11 @@ block|}
 name|super
 operator|.
 name|tearDown
+argument_list|()
+expr_stmt|;
+name|mockControl
+operator|.
+name|reset
 argument_list|()
 expr_stmt|;
 block|}

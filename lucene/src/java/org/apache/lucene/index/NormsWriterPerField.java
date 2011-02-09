@@ -22,9 +22,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|search
 operator|.
-name|ArrayUtil
+name|Similarity
 import|;
 end_import
 begin_import
@@ -35,9 +35,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|util
 operator|.
-name|Similarity
+name|ArrayUtil
 import|;
 end_import
 begin_comment
@@ -72,6 +72,11 @@ name|DocumentsWriter
 operator|.
 name|DocState
 name|docState
+decl_stmt|;
+DECL|field|similarity
+specifier|final
+name|Similarity
+name|similarity
 decl_stmt|;
 comment|// Holds all docID/norm pairs we've seen
 DECL|field|docIDs
@@ -179,6 +184,19 @@ operator|=
 name|docInverterPerField
 operator|.
 name|fieldState
+expr_stmt|;
+name|similarity
+operator|=
+name|docState
+operator|.
+name|similarityProvider
+operator|.
+name|get
+argument_list|(
+name|fieldInfo
+operator|.
+name|name
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -300,8 +318,6 @@ specifier|final
 name|float
 name|norm
 init|=
-name|docState
-operator|.
 name|similarity
 operator|.
 name|computeNorm
@@ -318,10 +334,7 @@ index|[
 name|upto
 index|]
 operator|=
-name|Similarity
-operator|.
-name|getDefault
-argument_list|()
+name|similarity
 operator|.
 name|encodeNormValue
 argument_list|(

@@ -137,7 +137,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Similarity
+name|SimilarityProvider
 import|;
 end_import
 begin_import
@@ -421,7 +421,7 @@ operator|.
 name|getCore
 argument_list|()
 decl_stmt|;
-name|Similarity
+name|SimilarityProvider
 name|similarity
 init|=
 name|core
@@ -429,7 +429,7 @@ operator|.
 name|getSchema
 argument_list|()
 operator|.
-name|getSimilarity
+name|getSimilarityProvider
 argument_list|()
 decl_stmt|;
 name|assertTrue

@@ -120,7 +120,7 @@ begin_comment
 comment|// javadocs
 end_comment
 begin_comment
-comment|/** PrefixCodedTermsReader interacts with a single instance  *  of this to manage creation of {@link DocsEnum} and  *  {@link DocsAndPositionsEnum} instances.  It provides an  *  IndexInput (termsIn) where this class may read any  *  previously stored data that it had written in its  *  corresponding {@link StandardPostingsWriter} at indexing  *  time.   *  @lucene.experimental */
+comment|/** BlockTermsReader interacts with a single instance  *  of this class to manage creation of {@link DocsEnum} and  *  {@link DocsAndPositionsEnum} instances.  It provides an  *  IndexInput (termsIn) where this class may read any  *  previously stored data that it had written in its  *  corresponding {@link PostingsWriterBase} at indexing  *  time.   *  @lucene.experimental */
 end_comment
 begin_class
 DECL|class|PostingsReaderBase
@@ -147,29 +147,24 @@ comment|/** Return a newly created empty TermState */
 DECL|method|newTermState
 specifier|public
 specifier|abstract
-name|TermState
+name|BlockTermState
 name|newTermState
 parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|readTerm
+comment|/** Actually decode metadata for next term */
+DECL|method|nextTerm
 specifier|public
 specifier|abstract
 name|void
-name|readTerm
+name|nextTerm
 parameter_list|(
-name|IndexInput
-name|termsIn
-parameter_list|,
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|TermState
+name|BlockTermState
 name|state
-parameter_list|,
-name|boolean
-name|isIndexTerm
 parameter_list|)
 throws|throws
 name|IOException
@@ -184,7 +179,7 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|TermState
+name|BlockTermState
 name|state
 parameter_list|,
 name|Bits
@@ -206,7 +201,7 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|TermState
+name|BlockTermState
 name|state
 parameter_list|,
 name|Bits
@@ -224,6 +219,25 @@ specifier|abstract
 name|void
 name|close
 parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+comment|/** Reads data for all terms in the next block; this    *  method should merely load the byte[] blob but not    *  decode, which is done in {@link #nextTerm}. */
+DECL|method|readTermsBlock
+specifier|public
+specifier|abstract
+name|void
+name|readTermsBlock
+parameter_list|(
+name|IndexInput
+name|termsIn
+parameter_list|,
+name|FieldInfo
+name|fieldInfo
+parameter_list|,
+name|BlockTermState
+name|termState
+parameter_list|)
 throws|throws
 name|IOException
 function_decl|;

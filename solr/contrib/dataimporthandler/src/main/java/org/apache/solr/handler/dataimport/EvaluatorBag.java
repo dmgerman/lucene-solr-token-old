@@ -307,6 +307,8 @@ operator|new
 name|Evaluator
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|evaluate
@@ -408,6 +410,8 @@ operator|new
 name|Evaluator
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|evaluate
@@ -490,6 +494,8 @@ operator|new
 name|Evaluator
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|evaluate
@@ -605,6 +611,8 @@ operator|new
 name|Evaluator
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|evaluate
@@ -1534,6 +1542,8 @@ name|varName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

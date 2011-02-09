@@ -63,6 +63,21 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IndexReader
+operator|.
+name|AtomicReaderContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|RandomIndexWriter
 import|;
 end_import
@@ -449,11 +464,8 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 block|{       }
 annotation|@
@@ -576,8 +588,7 @@ argument_list|()
 expr_stmt|;
 name|searcher
 operator|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -585,7 +596,7 @@ expr_stmt|;
 comment|// set a similarity that does not normalize our boost away
 name|searcher
 operator|.
-name|setSimilarity
+name|setSimilarityProvider
 argument_list|(
 operator|new
 name|DefaultSimilarity

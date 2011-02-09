@@ -85,6 +85,8 @@ name|LuceneTestCase
 block|{
 comment|/**    */
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp
 specifier|public

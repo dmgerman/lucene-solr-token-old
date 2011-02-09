@@ -126,6 +126,8 @@ name|NamedList
 name|args
 parameter_list|)
 block|{   }
+annotation|@
+name|Override
 DECL|method|createParser
 specifier|public
 name|QParser
@@ -163,6 +165,8 @@ decl_stmt|;
 name|String
 name|funcStr
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|Query
 name|parse

@@ -91,7 +91,9 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|Term
+name|IndexReader
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -104,7 +106,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|Term
 import|;
 end_import
 begin_import
@@ -158,8 +160,7 @@ decl_stmt|;
 name|IndexSearcher
 name|searcher
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -375,11 +376,8 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
-name|int
-name|docBase
+name|AtomicReaderContext
+name|context
 parameter_list|)
 block|{}
 annotation|@

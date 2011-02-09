@@ -60,6 +60,9 @@ specifier|public
 name|SimpleOrderedMap
 parameter_list|(
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|nameValuePairs
 parameter_list|)
 block|{
@@ -103,10 +106,16 @@ name|clone
 parameter_list|()
 block|{
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 name|newList
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|nvPairs
 operator|.

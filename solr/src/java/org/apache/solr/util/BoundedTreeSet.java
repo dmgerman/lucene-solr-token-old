@@ -202,6 +202,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|add
 specifier|public
 name|boolean
@@ -228,6 +230,8 @@ return|return
 name|out
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addAll
 specifier|public
 name|boolean

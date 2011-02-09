@@ -37,7 +37,7 @@ name|PriorityQueue
 import|;
 end_import
 begin_comment
-comment|/**  * Expert: A hit queue for sorting by hits by terms in more than one field.  * Uses<code>FieldCache.DEFAULT</code> for maintaining  * internal term lookup tables.  *   * @lucene.experimental  * @since 2.9  * @see Searcher#search(Query,Filter,int,Sort)  * @see FieldCache  */
+comment|/**  * Expert: A hit queue for sorting by hits by terms in more than one field.  * Uses<code>FieldCache.DEFAULT</code> for maintaining  * internal term lookup tables.  *   * @lucene.experimental  * @since 2.9  * @see IndexSearcher#search(Query,Filter,int,Sort)  * @see FieldCache  */
 end_comment
 begin_class
 DECL|class|FieldValueHitQueue
@@ -149,23 +149,6 @@ argument_list|(
 name|fields
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|fields
-operator|.
-name|length
-operator|==
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Sort must contain at least one field"
-argument_list|)
-throw|;
-block|}
 name|SortField
 name|field
 init|=

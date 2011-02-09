@@ -711,7 +711,7 @@ name|kv
 operator|.
 name|getValue
 argument_list|()
-operator|>
+operator|>=
 name|minMatch
 condition|)
 block|{
@@ -868,7 +868,7 @@ name|nl
 operator|.
 name|size
 argument_list|()
-operator|>
+operator|>=
 name|minMatch
 condition|)
 block|{

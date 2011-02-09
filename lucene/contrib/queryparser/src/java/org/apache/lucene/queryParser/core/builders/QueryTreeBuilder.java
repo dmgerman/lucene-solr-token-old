@@ -177,7 +177,7 @@ DECL|field|fieldNameBuilders
 specifier|private
 name|HashMap
 argument_list|<
-name|CharSequence
+name|String
 argument_list|,
 name|QueryBuilder
 argument_list|>
@@ -191,7 +191,7 @@ parameter_list|()
 block|{
 comment|// empty constructor
 block|}
-comment|/**    * Associates a field name with a builder.    *     * @param fieldName    *          the field name    * @param builder    *          the builder to be associated    */
+comment|/**    * Associates a field name with a builder.    *     * @param fieldName the field name    * @param builder the builder to be associated    */
 DECL|method|setBuilder
 specifier|public
 name|void
@@ -220,7 +220,7 @@ operator|=
 operator|new
 name|HashMap
 argument_list|<
-name|CharSequence
+name|String
 argument_list|,
 name|QueryBuilder
 argument_list|>
@@ -234,12 +234,15 @@ operator|.
 name|put
 argument_list|(
 name|fieldName
+operator|.
+name|toString
+argument_list|()
 argument_list|,
 name|builder
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Associates a class with a builder    *     * @param queryNodeClass    *          the class    * @param builder    *          the builder to be associated    */
+comment|/**    * Associates a class with a builder    *     * @param queryNodeClass the class    * @param builder the builder to be associated    */
 DECL|method|setBuilder
 specifier|public
 name|void
@@ -403,14 +406,9 @@ operator|instanceof
 name|FieldableNode
 condition|)
 block|{
-name|builder
-operator|=
-name|this
-operator|.
-name|fieldNameBuilders
-operator|.
-name|get
-argument_list|(
+name|CharSequence
+name|field
+init|=
 operator|(
 operator|(
 name|FieldableNode
@@ -420,6 +418,31 @@ operator|)
 operator|.
 name|getField
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|field
+operator|!=
+literal|null
+condition|)
+block|{
+name|field
+operator|=
+name|field
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+name|builder
+operator|=
+name|this
+operator|.
+name|fieldNameBuilders
+operator|.
+name|get
+argument_list|(
+name|field
 argument_list|)
 expr_stmt|;
 block|}
@@ -650,7 +673,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**    * Builds some kind of object from a query tree. Each node in the query tree    * is built using an specific builder associated to it.    *     * @param queryNode    *          the query tree root node    *     * @return the built object    *     * @throws QueryNodeException    *           if some node builder throws a {@link QueryNodeException} or if    *           there is a node which had no builder associated to it    */
+comment|/**    * Builds some kind of object from a query tree. Each node in the query tree    * is built using an specific builder associated to it.    *     * @param queryNode the query tree root node    *     * @return the built object    *     * @throws QueryNodeException if some node builder throws a    *         {@link QueryNodeException} or if there is a node which had no    *         builder associated to it    */
 DECL|method|build
 specifier|public
 name|Object

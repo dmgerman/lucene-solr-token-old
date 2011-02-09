@@ -87,7 +87,7 @@ specifier|abstract
 class|class
 name|PostingsConsumer
 block|{
-comment|/** Adds a new doc in this term.  Return null if this    *  consumer doesn't need to see the positions for this    *  doc. */
+comment|/** Adds a new doc in this term.  If this field omits term    *  freqs& positions then termDocFreq should be ignored,    *  and, finishDoc will not be called. */
 DECL|method|startDoc
 specifier|public
 specifier|abstract
@@ -139,7 +139,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Called when we are done adding positions& payloads    * for each doc */
+comment|/** Called when we are done adding positions& payloads    *  for each doc.  Not called  when the field omits term    *  freq and positions. */
 DECL|method|finishDoc
 specifier|public
 specifier|abstract
@@ -152,7 +152,7 @@ function_decl|;
 comment|/** Default merge impl: append documents, mapping around    *  deletes */
 DECL|method|merge
 specifier|public
-name|int
+name|TermStats
 name|merge
 parameter_list|(
 specifier|final
@@ -168,6 +168,11 @@ name|IOException
 block|{
 name|int
 name|df
+init|=
+literal|0
+decl_stmt|;
+name|long
+name|totTF
 init|=
 literal|0
 decl_stmt|;
@@ -225,6 +230,9 @@ expr_stmt|;
 name|df
 operator|++
 expr_stmt|;
+name|totTF
+operator|++
+expr_stmt|;
 block|}
 block|}
 else|else
@@ -280,6 +288,10 @@ name|doc
 argument_list|,
 name|freq
 argument_list|)
+expr_stmt|;
+name|totTF
+operator|+=
+name|freq
 expr_stmt|;
 for|for
 control|(
@@ -353,7 +365,13 @@ expr_stmt|;
 block|}
 block|}
 return|return
+operator|new
+name|TermStats
+argument_list|(
 name|df
+argument_list|,
+name|totTF
+argument_list|)
 return|;
 block|}
 block|}

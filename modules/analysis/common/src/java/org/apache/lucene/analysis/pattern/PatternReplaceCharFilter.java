@@ -454,6 +454,8 @@ literal|0
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|read
 specifier|public
 name|int
@@ -483,6 +485,8 @@ operator|-
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|read
 specifier|public
 name|int

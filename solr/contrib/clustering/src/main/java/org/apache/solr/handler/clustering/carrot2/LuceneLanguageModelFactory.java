@@ -183,7 +183,7 @@ name|text
 operator|.
 name|linguistic
 operator|.
-name|BaseLanguageModelFactory
+name|DefaultLanguageModelFactory
 import|;
 end_import
 begin_import
@@ -491,7 +491,7 @@ specifier|public
 class|class
 name|LuceneLanguageModelFactory
 extends|extends
-name|BaseLanguageModelFactory
+name|DefaultLanguageModelFactory
 block|{
 DECL|field|logger
 specifier|final
@@ -513,6 +513,8 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|/** 	 * Provide an {@link IStemmer} implementation for a given language. 	 */
+annotation|@
+name|Override
 DECL|method|createStemmer
 specifier|protected
 name|IStemmer
@@ -1056,7 +1058,7 @@ name|warn
 argument_list|(
 literal|"Could not instantiate Lucene stemmer for Arabic, clustering quality "
 operator|+
-literal|"of Chinese content may be degraded. For best quality clusters, "
+literal|"of Arabic content may be degraded. For best quality clusters, "
 operator|+
 literal|"make sure Lucene's Arabic analyzer JAR is in the classpath"
 argument_list|,

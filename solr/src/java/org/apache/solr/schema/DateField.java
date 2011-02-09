@@ -38,6 +38,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -320,6 +322,8 @@ comment|// The XML (external) date format will sort correctly, except if
 comment|// fractions of seconds are present (because '.' is lower than 'Z').
 comment|// The easiest fix is to simply remove the 'Z' for the internal
 comment|// format.
+annotation|@
+name|Override
 DECL|method|init
 specifier|protected
 name|void
@@ -353,6 +357,8 @@ name|Z
 init|=
 literal|'Z'
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|toInternal
 specifier|public
 name|String
@@ -617,6 +623,8 @@ name|val
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indexedToReadable
 specifier|public
 name|String
@@ -663,6 +671,8 @@ name|Z
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toExternal
 specifier|public
 name|String
@@ -745,6 +755,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getSortField
 specifier|public
 name|SortField
@@ -785,6 +797,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -1252,6 +1266,8 @@ name|CANONICAL_TZ
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse
 specifier|public
 name|Date
@@ -1401,6 +1417,8 @@ return|return
 name|d
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|format
 specifier|public
 name|StringBuffer
@@ -1506,6 +1524,8 @@ return|return
 name|toAppendTo
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object
@@ -1586,6 +1606,8 @@ operator|=
 name|d
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|initialValue
 specifier|protected
 name|DateFormat
@@ -1732,6 +1754,8 @@ operator|=
 name|ft
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|description
 specifier|public
 name|String
@@ -1746,6 +1770,8 @@ operator|+
 literal|')'
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValues
 specifier|public
 name|DocValues
@@ -1754,8 +1780,8 @@ parameter_list|(
 name|Map
 name|context
 parameter_list|,
-name|IndexReader
-name|reader
+name|AtomicReaderContext
+name|readerContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -1766,11 +1792,13 @@ name|StringIndexDocValues
 argument_list|(
 name|this
 argument_list|,
-name|reader
+name|readerContext
 argument_list|,
 name|field
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|String
 name|toTerm
@@ -1789,6 +1817,8 @@ name|readableValue
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|float
 name|floatVal
@@ -1807,6 +1837,8 @@ name|doc
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|intVal
@@ -1829,6 +1861,8 @@ return|return
 name|ord
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|long
 name|longVal
@@ -1847,6 +1881,8 @@ name|doc
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|double
 name|doubleVal
@@ -1865,6 +1901,8 @@ name|doc
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|strVal
@@ -1934,6 +1972,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -1957,6 +1997,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -1992,6 +2034,8 @@ operator|.
 name|hashCode
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

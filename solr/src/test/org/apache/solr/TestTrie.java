@@ -162,6 +162,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|After
 DECL|method|tearDown
 specifier|public

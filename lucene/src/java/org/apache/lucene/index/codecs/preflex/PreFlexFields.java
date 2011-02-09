@@ -1308,6 +1308,19 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|getSumTotalTermFreq
+specifier|public
+name|long
+name|getSumTotalTermFreq
+parameter_list|()
+block|{
+return|return
+operator|-
+literal|1
+return|;
+block|}
 block|}
 DECL|class|PreTermsEnum
 specifier|private
@@ -2453,7 +2466,7 @@ comment|// after E.  Three different seek points (1, 2, 3).
 comment|// We can easily detect S in UTF8: if a byte has
 comment|// prefix 11110 (0xf0), then that byte and the
 comment|// following 3 bytes encode a single unicode codepoint
-comment|// in S.  Similary,we can detect E: if a byte has
+comment|// in S.  Similarly, we can detect E: if a byte has
 comment|// prefix 1110111 (0xee), then that byte and the
 comment|// following 2 bytes encode a single unicode codepoint
 comment|// in E.
@@ -3393,25 +3406,6 @@ name|getUTF8SortedAsUTF16Comparator
 argument_list|()
 return|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|cacheCurrentTerm
-specifier|public
-name|void
-name|cacheCurrentTerm
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|getTermsDict
-argument_list|()
-operator|.
-name|cacheCurrentTerm
-argument_list|(
-name|termEnum
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -4459,6 +4453,19 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|totalTermFreq
+specifier|public
+name|long
+name|totalTermFreq
+parameter_list|()
+block|{
+return|return
+operator|-
+literal|1
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|docs
 specifier|public
 name|DocsEnum
@@ -4640,6 +4647,14 @@ specifier|private
 name|SegmentTermDocs
 name|docs
 decl_stmt|;
+DECL|field|docID
+specifier|private
+name|int
+name|docID
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|method|PreDocsEnum
 name|PreDocsEnum
 parameter_list|()
@@ -4720,6 +4735,8 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|docID
+operator|=
 name|docs
 operator|.
 name|doc
@@ -4729,6 +4746,8 @@ block|}
 else|else
 block|{
 return|return
+name|docID
+operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
@@ -4757,6 +4776,8 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|docID
+operator|=
 name|docs
 operator|.
 name|doc
@@ -4766,6 +4787,8 @@ block|}
 else|else
 block|{
 return|return
+name|docID
+operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
@@ -4794,10 +4817,7 @@ name|docID
 parameter_list|()
 block|{
 return|return
-name|docs
-operator|.
-name|doc
-argument_list|()
+name|docID
 return|;
 block|}
 annotation|@
@@ -4881,6 +4901,14 @@ specifier|private
 name|SegmentTermPositions
 name|pos
 decl_stmt|;
+DECL|field|docID
+specifier|private
+name|int
+name|docID
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|method|PreDocsAndPositionsEnum
 name|PreDocsAndPositionsEnum
 parameter_list|()
@@ -4963,6 +4991,8 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|docID
+operator|=
 name|pos
 operator|.
 name|doc
@@ -4972,6 +5002,8 @@ block|}
 else|else
 block|{
 return|return
+name|docID
+operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
@@ -5000,6 +5032,8 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|docID
+operator|=
 name|pos
 operator|.
 name|doc
@@ -5009,6 +5043,8 @@ block|}
 else|else
 block|{
 return|return
+name|docID
+operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
@@ -5037,10 +5073,7 @@ name|docID
 parameter_list|()
 block|{
 return|return
-name|pos
-operator|.
-name|doc
-argument_list|()
+name|docID
 return|;
 block|}
 annotation|@
@@ -5053,6 +5086,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|docID
+operator|!=
+name|NO_MORE_DOCS
+assert|;
 return|return
 name|pos
 operator|.
@@ -5068,6 +5106,11 @@ name|boolean
 name|hasPayload
 parameter_list|()
 block|{
+assert|assert
+name|docID
+operator|!=
+name|NO_MORE_DOCS
+assert|;
 return|return
 name|pos
 operator|.

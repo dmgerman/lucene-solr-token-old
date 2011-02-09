@@ -781,7 +781,7 @@ name|reader
 init|=
 name|searcher
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 decl_stmt|;
 name|Collection
@@ -1492,7 +1492,7 @@ name|reader
 init|=
 name|searcher
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 decl_stmt|;
 name|Collection
@@ -1794,6 +1794,8 @@ name|TestSpellChecker
 extends|extends
 name|IndexBasedSpellChecker
 block|{
+annotation|@
+name|Override
 DECL|method|getSpellChecker
 specifier|public
 name|SpellChecker
@@ -2175,13 +2177,6 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|)
 argument_list|)
-operator|.
-name|setMaxFieldLength
-argument_list|(
-name|IndexWriterConfig
-operator|.
-name|UNLIMITED_FIELD_LENGTH
-argument_list|)
 argument_list|)
 decl_stmt|;
 for|for
@@ -2391,7 +2386,7 @@ name|reader
 init|=
 name|searcher
 operator|.
-name|getReader
+name|getIndexReader
 argument_list|()
 decl_stmt|;
 name|Collection

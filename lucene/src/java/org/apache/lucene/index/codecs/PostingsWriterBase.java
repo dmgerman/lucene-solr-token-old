@@ -95,6 +95,15 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|flushTermsBlock
+specifier|public
+specifier|abstract
+name|void
+name|flushTermsBlock
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
 comment|/** Finishes the current term */
 DECL|method|finishTerm
 specifier|public
@@ -102,11 +111,8 @@ specifier|abstract
 name|void
 name|finishTerm
 parameter_list|(
-name|int
-name|numDocs
-parameter_list|,
-name|boolean
-name|isIndexTerm
+name|TermStats
+name|stats
 parameter_list|)
 throws|throws
 name|IOException

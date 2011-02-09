@@ -100,7 +100,7 @@ name|TopDocs
 import|;
 end_import
 begin_comment
-comment|/**  * Create a log ready for submission.  * Extend this class and override  * {@link #report(QualityQuery, TopDocs, String, Searcher)}  * to create different reports.   */
+comment|/**  * Create a log ready for submission.  * Extend this class and override  * {@link #report(QualityQuery, TopDocs, String, IndexSearcher)}  * to create different reports.   */
 end_comment
 begin_class
 DECL|class|SubmissionReport

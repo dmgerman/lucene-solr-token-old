@@ -61,6 +61,21 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|util
+operator|.
+name|FilteringTokenFilter
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|tokenattributes
 operator|.
 name|CharTermAttribute
@@ -76,7 +91,7 @@ specifier|final
 class|class
 name|LengthFilter
 extends|extends
-name|TokenFilter
+name|FilteringTokenFilter
 block|{
 DECL|field|min
 specifier|private
@@ -108,6 +123,9 @@ DECL|method|LengthFilter
 specifier|public
 name|LengthFilter
 parameter_list|(
+name|boolean
+name|enablePositionIncrements
+parameter_list|,
 name|TokenStream
 name|in
 parameter_list|,
@@ -120,6 +138,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|enablePositionIncrements
+argument_list|,
 name|in
 argument_list|)
 expr_stmt|;
@@ -136,27 +156,17 @@ operator|=
 name|max
 expr_stmt|;
 block|}
-comment|/**    * Returns the next input Token whose term() is the right len    */
 annotation|@
 name|Override
-DECL|method|incrementToken
+DECL|method|accept
 specifier|public
-specifier|final
 name|boolean
-name|incrementToken
+name|accept
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// return the first non-stop word found
-while|while
-condition|(
-name|input
-operator|.
-name|incrementToken
-argument_list|()
-condition|)
-block|{
+specifier|final
 name|int
 name|len
 init|=
@@ -165,8 +175,8 @@ operator|.
 name|length
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
+return|return
+operator|(
 name|len
 operator|>=
 name|min
@@ -174,17 +184,7 @@ operator|&&
 name|len
 operator|<=
 name|max
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-comment|// note: else we ignore it but should we index each part of it?
-block|}
-comment|// reached EOS -- return false
-return|return
-literal|false
+operator|)
 return|;
 block|}
 block|}

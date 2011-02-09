@@ -414,12 +414,13 @@ name|context
 operator|+
 literal|"/"
 decl_stmt|;
-name|String
-name|html
+name|byte
+index|[]
+name|bytes
 init|=
 name|IOUtils
 operator|.
-name|toString
+name|toByteArray
 argument_list|(
 operator|new
 name|URL
@@ -433,7 +434,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|html
+name|bytes
 argument_list|)
 expr_stmt|;
 comment|// real error will be an exception
@@ -441,11 +442,11 @@ name|adminPath
 operator|+=
 literal|"admin/"
 expr_stmt|;
-name|html
+name|bytes
 operator|=
 name|IOUtils
 operator|.
-name|toString
+name|toByteArray
 argument_list|(
 operator|new
 name|URL
@@ -459,16 +460,16 @@ argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-name|html
+name|bytes
 argument_list|)
 expr_stmt|;
 comment|// real error will be an exception
 comment|// analysis
-name|html
+name|bytes
 operator|=
 name|IOUtils
 operator|.
-name|toString
+name|toByteArray
 argument_list|(
 operator|new
 name|URL
@@ -484,16 +485,16 @@ argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-name|html
+name|bytes
 argument_list|)
 expr_stmt|;
 comment|// real error will be an exception
 comment|// schema browser
-name|html
+name|bytes
 operator|=
 name|IOUtils
 operator|.
-name|toString
+name|toByteArray
 argument_list|(
 operator|new
 name|URL
@@ -509,16 +510,16 @@ argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-name|html
+name|bytes
 argument_list|)
 expr_stmt|;
 comment|// real error will be an exception
 comment|// schema browser
-name|html
+name|bytes
 operator|=
 name|IOUtils
 operator|.
-name|toString
+name|toByteArray
 argument_list|(
 operator|new
 name|URL
@@ -534,7 +535,7 @@ argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-name|html
+name|bytes
 argument_list|)
 expr_stmt|;
 comment|// real error will be an exception
