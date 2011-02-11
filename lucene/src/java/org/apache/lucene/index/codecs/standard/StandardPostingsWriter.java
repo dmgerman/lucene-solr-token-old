@@ -53,6 +53,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DocsEnum
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|FieldInfo
 import|;
 end_import
@@ -216,15 +229,29 @@ specifier|final
 name|DefaultSkipListWriter
 name|skipListWriter
 decl_stmt|;
+comment|/** Expert: The fraction of TermDocs entries stored in skip tables,    * used to accelerate {@link DocsEnum#advance(int)}.  Larger values result in    * smaller indexes, greater acceleration, but fewer accelerable cases, while    * smaller values result in bigger indexes, less acceleration and more    * accelerable cases. More detailed experiments would be useful here. */
 DECL|field|skipInterval
 specifier|final
 name|int
 name|skipInterval
+init|=
+literal|16
 decl_stmt|;
+comment|/**    * Expert: minimum docFreq to write any skip data at all    */
+DECL|field|skipMinimum
+specifier|final
+name|int
+name|skipMinimum
+init|=
+name|skipInterval
+decl_stmt|;
+comment|/** Expert: The maximum number of skip levels. Smaller values result in     * slightly smaller indexes, but slower skipping in big posting lists.    */
 DECL|field|maxSkipLevels
 specifier|final
 name|int
 name|maxSkipLevels
+init|=
+literal|10
 decl_stmt|;
 DECL|field|totalNumDocs
 specifier|final
@@ -394,12 +421,8 @@ operator|=
 operator|new
 name|DefaultSkipListWriter
 argument_list|(
-name|state
-operator|.
 name|skipInterval
 argument_list|,
-name|state
-operator|.
 name|maxSkipLevels
 argument_list|,
 name|state
@@ -410,18 +433,6 @@ name|freqOut
 argument_list|,
 name|proxOut
 argument_list|)
-expr_stmt|;
-name|skipInterval
-operator|=
-name|state
-operator|.
-name|skipInterval
-expr_stmt|;
-name|maxSkipLevels
-operator|=
-name|state
-operator|.
-name|maxSkipLevels
 expr_stmt|;
 block|}
 annotation|@
@@ -470,6 +481,14 @@ name|maxSkipLevels
 argument_list|)
 expr_stmt|;
 comment|// write maxSkipLevels
+name|termsOut
+operator|.
+name|writeInt
+argument_list|(
+name|skipMinimum
+argument_list|)
+expr_stmt|;
+comment|// write skipMinimum
 block|}
 annotation|@
 name|Override
@@ -962,7 +981,7 @@ if|if
 condition|(
 name|df
 operator|>=
-name|skipInterval
+name|skipMinimum
 condition|)
 block|{
 name|bytesWriter
