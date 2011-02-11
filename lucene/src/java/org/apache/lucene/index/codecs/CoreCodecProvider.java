@@ -96,6 +96,7 @@ extends|extends
 name|CodecProvider
 block|{
 DECL|method|CoreCodecProvider
+specifier|public
 name|CoreCodecProvider
 parameter_list|()
 block|{
