@@ -2001,9 +2001,6 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|String
-name|fieldName
-parameter_list|,
 name|int
 name|start
 parameter_list|,
@@ -2039,9 +2036,6 @@ specifier|public
 name|float
 name|computeNorm
 parameter_list|(
-name|String
-name|fieldName
-parameter_list|,
 name|FieldInvertState
 name|state
 parameter_list|)

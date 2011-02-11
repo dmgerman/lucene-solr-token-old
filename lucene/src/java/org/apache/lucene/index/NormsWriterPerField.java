@@ -322,10 +322,6 @@ name|similarity
 operator|.
 name|computeNorm
 argument_list|(
-name|fieldInfo
-operator|.
-name|name
-argument_list|,
 name|fieldState
 argument_list|)
 decl_stmt|;
