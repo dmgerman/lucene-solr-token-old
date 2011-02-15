@@ -310,7 +310,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * An advanced multi-field query parser.  */
+comment|/**  * An advanced multi-field query parser.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|ExtendedDismaxQParserPlugin
