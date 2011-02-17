@@ -7139,6 +7139,7 @@ annotation|@
 name|Override
 DECL|method|toString
 specifier|public
+specifier|synchronized
 name|String
 name|toString
 parameter_list|()
