@@ -26,6 +26,19 @@ name|solr
 operator|.
 name|common
 operator|.
+name|SolrException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
 name|SolrInputDocument
 import|;
 end_import
@@ -2991,10 +3004,12 @@ comment|//should not propogate up
 block|}
 else|else
 block|{
-name|LOG
+name|SolrException
 operator|.
-name|error
+name|log
 argument_list|(
+name|LOG
+argument_list|,
 literal|"Exception while processing: "
 operator|+
 name|entity
@@ -3809,10 +3824,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|LOG
+name|SolrException
 operator|.
-name|error
+name|log
 argument_list|(
+name|LOG
+argument_list|,
 literal|"Exception while processing: "
 operator|+
 name|entity
