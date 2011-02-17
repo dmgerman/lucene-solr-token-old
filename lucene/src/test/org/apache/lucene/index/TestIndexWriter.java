@@ -18196,6 +18196,23 @@ argument_list|,
 name|doc
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: add doc id="
+operator|+
+name|id
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|int
@@ -18334,7 +18351,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"TEST: delete doc "
+literal|"TEST: delete doc id="
 operator|+
 name|delID
 argument_list|)
@@ -18499,6 +18516,23 @@ name|length
 argument_list|)
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: test id="
+operator|+
+name|testID
+argument_list|)
+expr_stmt|;
+block|}
 name|TopDocs
 name|hits
 init|=

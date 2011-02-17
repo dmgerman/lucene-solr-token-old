@@ -1547,11 +1547,6 @@ argument_list|,
 name|state
 argument_list|,
 name|postingsWriter
-argument_list|,
-name|BytesRef
-operator|.
-name|getUTF8SortedAsUnicodeComparator
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|success
@@ -2110,11 +2105,6 @@ argument_list|,
 name|state
 operator|.
 name|readBufferSize
-argument_list|,
-name|BytesRef
-operator|.
-name|getUTF8SortedAsUnicodeComparator
-argument_list|()
 argument_list|,
 name|termsCacheSize
 argument_list|,
