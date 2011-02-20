@@ -379,6 +379,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/**    * Create a new MockTokenFilter.    *     * @param input TokenStream to filter    * @param filter DFA representing the terms that should be removed.    * @param enablePositionIncrements true if the removal should accumulate position increments.    */
 DECL|method|MockTokenFilter
 specifier|public
 name|MockTokenFilter

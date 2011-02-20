@@ -468,6 +468,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**    * Adds a Document.    * @see IndexWriter#addDocument(Document)    */
 DECL|method|addDocument
 specifier|public
 name|void
@@ -531,6 +532,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**    * Updates a document.    * @see IndexWriter#updateDocument(Term, Document)    */
 DECL|method|updateDocument
 specifier|public
 name|void
@@ -856,6 +858,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/**    * Close this writer.    * @see IndexWriter#close()    */
 DECL|method|close
 specifier|public
 name|void
@@ -894,6 +897,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**    * Forces an optimize.    *<p>    * NOTE: this should be avoided in tests unless absolutely necessary,    * as it will result in less test coverage.    * @see IndexWriter#optimize()    */
 DECL|method|optimize
 specifier|public
 name|void
