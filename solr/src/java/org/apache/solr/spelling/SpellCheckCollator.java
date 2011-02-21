@@ -174,17 +174,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
-operator|.
-name|log
-operator|.
-name|Log
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -594,7 +583,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|Log
+name|LOG
 operator|.
 name|warn
 argument_list|(

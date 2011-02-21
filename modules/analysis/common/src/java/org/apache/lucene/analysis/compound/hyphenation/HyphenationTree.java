@@ -31,15 +31,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|MalformedURLException
@@ -86,19 +77,7 @@ extends|extends
 name|TernaryTree
 implements|implements
 name|PatternConsumer
-implements|,
-name|Serializable
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|7842107987915665573L
-decl_stmt|;
 comment|/**    * value space: stores the interletter values    */
 DECL|field|vspace
 specifier|protected

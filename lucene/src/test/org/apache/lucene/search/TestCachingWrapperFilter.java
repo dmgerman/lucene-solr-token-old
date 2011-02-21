@@ -73,6 +73,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -86,8 +88,6 @@ operator|.
 name|index
 operator|.
 name|IndexReader
-operator|.
-name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -192,6 +192,19 @@ operator|.
 name|util
 operator|.
 name|OpenBitSetDISI
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|_TestUtil
 import|;
 end_import
 begin_class
@@ -1155,6 +1168,15 @@ name|totalHits
 argument_list|)
 expr_stmt|;
 comment|// now delete the doc, refresh the reader, and see that it's not there
+name|_TestUtil
+operator|.
+name|keepFullyDeletedSegments
+argument_list|(
+name|writer
+operator|.
+name|w
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|deleteDocuments

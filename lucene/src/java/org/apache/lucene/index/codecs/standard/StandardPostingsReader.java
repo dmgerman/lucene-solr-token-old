@@ -266,6 +266,10 @@ DECL|field|maxSkipLevels
 name|int
 name|maxSkipLevels
 decl_stmt|;
+DECL|field|skipMinimum
+name|int
+name|skipMinimum
+decl_stmt|;
 comment|//private String segment;
 DECL|method|StandardPostingsReader
 specifier|public
@@ -494,6 +498,13 @@ name|readInt
 argument_list|()
 expr_stmt|;
 name|maxSkipLevels
+operator|=
+name|termsIn
+operator|.
+name|readInt
+argument_list|()
+expr_stmt|;
+name|skipMinimum
 operator|=
 name|termsIn
 operator|.
@@ -914,7 +925,7 @@ name|termState
 operator|.
 name|docFreq
 operator|>=
-name|skipInterval
+name|skipMinimum
 condition|)
 block|{
 name|termState
@@ -1792,7 +1803,7 @@ name|doc
 operator|&&
 name|limit
 operator|>=
-name|skipInterval
+name|skipMinimum
 condition|)
 block|{
 comment|// There are enough docs in the posting to have
@@ -2306,7 +2317,7 @@ name|doc
 operator|&&
 name|limit
 operator|>=
-name|skipInterval
+name|skipMinimum
 condition|)
 block|{
 comment|// There are enough docs in the posting to have
@@ -2994,7 +3005,7 @@ name|doc
 operator|&&
 name|limit
 operator|>=
-name|skipInterval
+name|skipMinimum
 condition|)
 block|{
 comment|// There are enough docs in the posting to have

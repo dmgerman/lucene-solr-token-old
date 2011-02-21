@@ -27,15 +27,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -59,8 +50,6 @@ name|EntryCreator
 parameter_list|<
 name|T
 parameter_list|>
-implements|implements
-name|Serializable
 block|{
 DECL|method|create
 specifier|public

@@ -372,6 +372,20 @@ operator|)
 name|fieldsData
 return|;
 block|}
+comment|/** Returns the precision step. */
+DECL|method|getPrecisionStep
+specifier|public
+name|int
+name|getPrecisionStep
+parameter_list|()
+block|{
+return|return
+name|numericTS
+operator|.
+name|getPrecisionStep
+argument_list|()
+return|;
+block|}
 comment|/**    * Initializes the field with the supplied<code>long</code> value.    * @param value the numeric value    * @return this instance, because of this you can use it the following way:    *<code>document.add(new NumericField(name, precisionStep).setLongValue(value))</code>    */
 DECL|method|setLongValue
 specifier|public

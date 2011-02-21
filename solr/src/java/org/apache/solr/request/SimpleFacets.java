@@ -4399,7 +4399,9 @@ return|return
 name|res
 return|;
 block|}
-comment|/**    * Returns a list of value constraints and the associated facet counts     * for each facet date field, range, and interval specified in the    * SolrParams    *    * @see FacetParams#FACET_DATE    */
+comment|/**    * Returns a list of value constraints and the associated facet counts     * for each facet date field, range, and interval specified in the    * SolrParams    *    * @see FacetParams#FACET_DATE    * @deprecated Use getFacetRangeCounts which is more generalized    */
+annotation|@
+name|Deprecated
 DECL|method|getFacetDateCounts
 specifier|public
 name|NamedList
@@ -4513,6 +4515,9 @@ return|return
 name|resOuter
 return|;
 block|}
+comment|/**    * @deprecated Use getFacetRangeCounts which is more generalized    */
+annotation|@
+name|Deprecated
 DECL|method|getFacetDateCounts
 specifier|public
 name|void
@@ -6689,6 +6694,9 @@ name|base
 argument_list|)
 return|;
 block|}
+comment|/**    * @deprecated Use rangeCount(SchemaField,String,String,boolean,boolean) which is more generalized    */
+annotation|@
+name|Deprecated
 DECL|method|rangeCount
 specifier|protected
 name|int

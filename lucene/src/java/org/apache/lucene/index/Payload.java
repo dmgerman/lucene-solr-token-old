@@ -16,15 +16,6 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -58,8 +49,6 @@ specifier|public
 class|class
 name|Payload
 implements|implements
-name|Serializable
-implements|,
 name|Cloneable
 block|{
 comment|/** the byte array containing the payload data */

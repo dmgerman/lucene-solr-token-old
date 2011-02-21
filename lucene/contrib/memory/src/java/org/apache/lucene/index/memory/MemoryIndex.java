@@ -31,15 +31,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|StringReader
 import|;
 end_import
@@ -611,8 +602,6 @@ DECL|class|MemoryIndex
 specifier|public
 class|class
 name|MemoryIndex
-implements|implements
-name|Serializable
 block|{
 comment|/** info for each field: Map<String fieldName, Info field> */
 DECL|field|fields
@@ -666,15 +655,6 @@ name|float
 name|docBoost
 init|=
 literal|1.0f
-decl_stmt|;
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|2782195016849084649L
 decl_stmt|;
 DECL|field|DEBUG
 specifier|private
@@ -2462,8 +2442,6 @@ specifier|static
 specifier|final
 class|class
 name|Info
-implements|implements
-name|Serializable
 block|{
 comment|/**      * Term strings and their positions for this field: Map<String      * termText, ArrayIntList positions>      */
 DECL|field|terms
@@ -2525,15 +2503,6 @@ specifier|private
 specifier|final
 name|long
 name|sumTotalTermFreq
-decl_stmt|;
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|2882195016849084649L
 decl_stmt|;
 DECL|method|Info
 specifier|public
@@ -2721,8 +2690,6 @@ specifier|static
 specifier|final
 class|class
 name|ArrayIntList
-implements|implements
-name|Serializable
 block|{
 DECL|field|elements
 specifier|private
@@ -2736,15 +2703,6 @@ name|int
 name|size
 init|=
 literal|0
-decl_stmt|;
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|2282195016849084649L
 decl_stmt|;
 DECL|method|ArrayIntList
 specifier|public
@@ -5536,8 +5494,6 @@ name|fieldSim
 operator|.
 name|computeNorm
 argument_list|(
-name|fieldName
-argument_list|,
 name|invertState
 argument_list|)
 decl_stmt|;

@@ -46,15 +46,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Collection
@@ -87,8 +78,6 @@ specifier|public
 class|class
 name|State
 implements|implements
-name|Serializable
-implements|,
 name|Comparable
 argument_list|<
 name|State

@@ -468,6 +468,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**    * Adds a Document.    * @see IndexWriter#addDocument(Document)    */
 DECL|method|addDocument
 specifier|public
 name|void
@@ -508,6 +509,75 @@ operator|.
 name|println
 argument_list|(
 literal|"RIW.addDocument: now doing a commit"
+argument_list|)
+expr_stmt|;
+block|}
+name|w
+operator|.
+name|commit
+argument_list|()
+expr_stmt|;
+name|flushAt
+operator|+=
+name|_TestUtil
+operator|.
+name|nextInt
+argument_list|(
+name|r
+argument_list|,
+literal|10
+argument_list|,
+literal|1000
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**    * Updates a document.    * @see IndexWriter#updateDocument(Term, Document)    */
+DECL|method|updateDocument
+specifier|public
+name|void
+name|updateDocument
+parameter_list|(
+name|Term
+name|t
+parameter_list|,
+name|Document
+name|doc
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|w
+operator|.
+name|updateDocument
+argument_list|(
+name|t
+argument_list|,
+name|doc
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|docCount
+operator|++
+operator|==
+name|flushAt
+condition|)
+block|{
+if|if
+condition|(
+name|LuceneTestCase
+operator|.
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"RIW.updateDocument: now doing a commit"
 argument_list|)
 expr_stmt|;
 block|}
@@ -640,6 +710,24 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+return|return
+name|getReader
+argument_list|(
+literal|true
+argument_list|)
+return|;
+block|}
+DECL|method|getReader
+specifier|public
+name|IndexReader
+name|getReader
+parameter_list|(
+name|boolean
+name|applyDeletions
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|getReaderCalled
 operator|=
 literal|true
@@ -665,6 +753,9 @@ comment|// IndexReader.open so terms are sorted in codepoint
 comment|// order during searching:
 if|if
 condition|(
+operator|!
+name|applyDeletions
+operator|||
 operator|!
 name|w
 operator|.
@@ -705,7 +796,9 @@ return|return
 name|w
 operator|.
 name|getReader
-argument_list|()
+argument_list|(
+name|applyDeletions
+argument_list|)
 return|;
 block|}
 else|else
@@ -765,6 +858,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/**    * Close this writer.    * @see IndexWriter#close()    */
 DECL|method|close
 specifier|public
 name|void
@@ -803,6 +897,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**    * Forces an optimize.    *<p>    * NOTE: this should be avoided in tests unless absolutely necessary,    * as it will result in less test coverage.    * @see IndexWriter#optimize()    */
 DECL|method|optimize
 specifier|public
 name|void

@@ -1150,8 +1150,6 @@ name|scorePayload
 argument_list|(
 name|doc
 argument_list|,
-name|fieldName
-argument_list|,
 name|spans
 operator|.
 name|start

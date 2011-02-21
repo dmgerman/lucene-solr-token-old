@@ -288,6 +288,10 @@ DECL|field|maxSkipLevels
 name|int
 name|maxSkipLevels
 decl_stmt|;
+DECL|field|skipMinimum
+name|int
+name|skipMinimum
+decl_stmt|;
 DECL|method|SepPostingsReaderImpl
 specifier|public
 name|SepPostingsReaderImpl
@@ -658,6 +662,13 @@ name|readInt
 argument_list|()
 expr_stmt|;
 name|maxSkipLevels
+operator|=
+name|termsIn
+operator|.
+name|readInt
+argument_list|()
+expr_stmt|;
+name|skipMinimum
 operator|=
 name|termsIn
 operator|.
@@ -1354,7 +1365,7 @@ name|termState
 operator|.
 name|docFreq
 operator|>=
-name|skipInterval
+name|skipMinimum
 condition|)
 block|{
 comment|//System.out.println("   readSkip @ " + termState.bytesReader.pos);
@@ -1401,12 +1412,7 @@ name|termState
 operator|.
 name|skipFP
 operator|=
-name|termState
-operator|.
-name|bytesReader
-operator|.
-name|readVLong
-argument_list|()
+literal|0
 expr_stmt|;
 block|}
 block|}
@@ -1881,7 +1887,7 @@ name|termState
 operator|.
 name|docFreq
 expr_stmt|;
-comment|// NOTE: unused if docFreq< skipInterval:
+comment|// NOTE: unused if docFreq< skipMinimum:
 name|skipFP
 operator|=
 name|termState
@@ -2142,17 +2148,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// TODO: jump right to next() if target is< X away
-comment|// from where we are now?
 if|if
 condition|(
+operator|(
+name|target
+operator|-
+name|skipInterval
+operator|)
+operator|>=
+name|doc
+operator|&&
 name|docFreq
 operator|>=
-name|skipInterval
+name|skipMinimum
 condition|)
 block|{
 comment|// There are enough docs in the posting to have
-comment|// skip data
+comment|// skip data, and its not too close
 if|if
 condition|(
 name|skipper
@@ -2768,17 +2780,23 @@ throws|throws
 name|IOException
 block|{
 comment|//System.out.println("SepD&P advance target=" + target + " vs current=" + doc + " this=" + this);
-comment|// TODO: jump right to next() if target is< X away
-comment|// from where we are now?
 if|if
 condition|(
+operator|(
+name|target
+operator|-
+name|skipInterval
+operator|)
+operator|>=
+name|doc
+operator|&&
 name|docFreq
 operator|>=
-name|skipInterval
+name|skipMinimum
 condition|)
 block|{
 comment|// There are enough docs in the posting to have
-comment|// skip data
+comment|// skip data, and its not too close
 if|if
 condition|(
 name|skipper

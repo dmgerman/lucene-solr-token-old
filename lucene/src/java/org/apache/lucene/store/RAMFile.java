@@ -23,15 +23,6 @@ operator|.
 name|ArrayList
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
 begin_comment
 comment|/** @lucene.internal */
 end_comment
@@ -40,18 +31,7 @@ DECL|class|RAMFile
 specifier|public
 class|class
 name|RAMFile
-implements|implements
-name|Serializable
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|1l
-decl_stmt|;
 DECL|field|buffers
 specifier|protected
 name|ArrayList
