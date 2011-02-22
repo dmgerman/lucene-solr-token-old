@@ -38,10 +38,6 @@ specifier|abstract
 class|class
 name|DocFieldConsumer
 block|{
-DECL|field|fieldInfos
-name|FieldInfos
-name|fieldInfos
-decl_stmt|;
 comment|/** Called when DocumentsWriter decides to create a new    *  segment */
 DECL|method|flush
 specifier|abstract
@@ -101,21 +97,6 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|setFieldInfos
-name|void
-name|setFieldInfos
-parameter_list|(
-name|FieldInfos
-name|fieldInfos
-parameter_list|)
-block|{
-name|this
-operator|.
-name|fieldInfos
-operator|=
-name|fieldInfos
-expr_stmt|;
-block|}
 block|}
 end_class
 end_unit

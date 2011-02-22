@@ -1153,6 +1153,12 @@ name|OpenMode
 operator|.
 name|CREATE
 argument_list|)
+operator|.
+name|setMergePolicy
+argument_list|(
+name|newInOrderLogMergePolicy
+argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// should be in sync with value in TermInfosWriter

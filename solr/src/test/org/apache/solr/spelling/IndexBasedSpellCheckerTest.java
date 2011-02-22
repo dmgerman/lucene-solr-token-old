@@ -1794,6 +1794,8 @@ name|TestSpellChecker
 extends|extends
 name|IndexBasedSpellChecker
 block|{
+annotation|@
+name|Override
 DECL|method|getSpellChecker
 specifier|public
 name|SpellChecker

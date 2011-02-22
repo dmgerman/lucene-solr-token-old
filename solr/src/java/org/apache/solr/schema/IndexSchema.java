@@ -640,7 +640,7 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**    * Constructs a schema using the specified resource name and stream.    * If the is stream is null, the resource loader will load the schema resource by name.    * @see SolrResourceLoader#openSchema    * By default, this follows the normal config path directory searching rules.    * @see Config#openResource    */
+comment|/**    * Constructs a schema using the specified resource name and stream.    * If the is stream is null, the resource loader will load the schema resource by name.    * @see SolrResourceLoader#openSchema    * By default, this follows the normal config path directory searching rules.    * @see SolrResourceLoader#openResource    */
 DECL|method|IndexSchema
 specifier|public
 name|IndexSchema
@@ -1230,6 +1230,8 @@ name|getAnalyzer
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -2378,6 +2380,8 @@ operator|new
 name|SimilarityFactory
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|SimilarityProvider
 name|getSimilarityProvider
@@ -2470,6 +2474,8 @@ operator|new
 name|SimilarityFactory
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|SimilarityProvider
 name|getSimilarityProvider
@@ -4954,6 +4960,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

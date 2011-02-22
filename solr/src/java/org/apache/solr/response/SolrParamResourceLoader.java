@@ -107,6 +107,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|UnsupportedEncodingException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -250,6 +259,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -259,6 +270,8 @@ name|ExtendedProperties
 name|extendedProperties
 parameter_list|)
 block|{   }
+annotation|@
+name|Override
 DECL|method|getResourceStream
 specifier|public
 name|InputStream
@@ -280,6 +293,8 @@ argument_list|(
 name|s
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 return|return
 name|template
 operator|==
@@ -293,10 +308,30 @@ argument_list|(
 name|template
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 return|;
 block|}
+catch|catch
+parameter_list|(
+name|UnsupportedEncodingException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+comment|// may not happen
+block|}
+block|}
+annotation|@
+name|Override
 DECL|method|isSourceModified
 specifier|public
 name|boolean
@@ -310,6 +345,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLastModified
 specifier|public
 name|long

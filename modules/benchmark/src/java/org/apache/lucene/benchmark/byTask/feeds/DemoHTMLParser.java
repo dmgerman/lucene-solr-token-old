@@ -109,6 +109,9 @@ parameter_list|,
 name|Date
 name|date
 parameter_list|,
+name|String
+name|title
+parameter_list|,
 name|Reader
 name|reader
 parameter_list|,
@@ -126,9 +129,13 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|demo
+name|benchmark
 operator|.
-name|html
+name|byTask
+operator|.
+name|feeds
+operator|.
+name|demohtml
 operator|.
 name|HTMLParser
 name|p
@@ -140,9 +147,13 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|demo
+name|benchmark
 operator|.
-name|html
+name|byTask
+operator|.
+name|feeds
+operator|.
+name|demohtml
 operator|.
 name|HTMLParser
 argument_list|(
@@ -150,14 +161,21 @@ name|reader
 argument_list|)
 decl_stmt|;
 comment|// title
-name|String
+if|if
+condition|(
 name|title
-init|=
+operator|==
+literal|null
+condition|)
+block|{
+name|title
+operator|=
 name|p
 operator|.
 name|getTitle
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// properties
 name|Properties
 name|props

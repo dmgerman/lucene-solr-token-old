@@ -36,6 +36,19 @@ operator|.
 name|Directory
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BitVector
+import|;
+end_import
 begin_comment
 comment|/**  * @lucene.experimental  */
 end_comment
@@ -80,6 +93,23 @@ specifier|public
 name|boolean
 name|hasVectors
 decl_stmt|;
+comment|// Deletes to apply while we are flushing the segment.  A
+comment|// Term is enrolled in here if it was deleted at one
+comment|// point, and it's mapped to the docIDUpto, meaning any
+comment|// docID< docIDUpto containing this term should be
+comment|// deleted.
+DECL|field|segDeletes
+specifier|public
+specifier|final
+name|BufferedDeletes
+name|segDeletes
+decl_stmt|;
+comment|// Lazily created:
+DECL|field|deletedDocs
+specifier|public
+name|BitVector
+name|deletedDocs
+decl_stmt|;
 DECL|field|segmentCodecs
 specifier|final
 name|SegmentCodecs
@@ -98,24 +128,6 @@ name|int
 name|termIndexInterval
 decl_stmt|;
 comment|// TODO: this should be private to the codec, not settable here or in IWC
-comment|/** Expert: The fraction of TermDocs entries stored in skip tables,    * used to accelerate {@link DocsEnum#advance(int)}.  Larger values result in    * smaller indexes, greater acceleration, but fewer accelerable cases, while    * smaller values result in bigger indexes, less acceleration and more    * accelerable cases. More detailed experiments would be useful here. */
-DECL|field|skipInterval
-specifier|public
-specifier|final
-name|int
-name|skipInterval
-init|=
-literal|16
-decl_stmt|;
-comment|/** Expert: The maximum number of skip levels. Smaller values result in    * slightly smaller indexes, but slower skipping in big posting lists.    */
-DECL|field|maxSkipLevels
-specifier|public
-specifier|final
-name|int
-name|maxSkipLevels
-init|=
-literal|10
-decl_stmt|;
 DECL|method|SegmentWriteState
 specifier|public
 name|SegmentWriteState
@@ -140,6 +152,9 @@ name|termIndexInterval
 parameter_list|,
 name|SegmentCodecs
 name|segmentCodecs
+parameter_list|,
+name|BufferedDeletes
+name|segDeletes
 parameter_list|)
 block|{
 name|this
@@ -147,6 +162,12 @@ operator|.
 name|infoStream
 operator|=
 name|infoStream
+expr_stmt|;
+name|this
+operator|.
+name|segDeletes
+operator|=
+name|segDeletes
 expr_stmt|;
 name|this
 operator|.
@@ -247,6 +268,12 @@ operator|.
 name|codecId
 operator|=
 name|codecId
+expr_stmt|;
+name|segDeletes
+operator|=
+name|state
+operator|.
+name|segDeletes
 expr_stmt|;
 block|}
 block|}

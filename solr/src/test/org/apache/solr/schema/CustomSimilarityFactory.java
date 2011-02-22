@@ -35,6 +35,8 @@ name|CustomSimilarityFactory
 extends|extends
 name|SimilarityFactory
 block|{
+annotation|@
+name|Override
 DECL|method|getSimilarityProvider
 specifier|public
 name|SimilarityProvider

@@ -259,9 +259,6 @@ specifier|public
 name|float
 name|computeNorm
 parameter_list|(
-name|String
-name|fieldName
-parameter_list|,
 name|FieldInvertState
 name|state
 parameter_list|)
@@ -359,6 +356,12 @@ operator|.
 name|setSimilarityProvider
 argument_list|(
 name|sim
+argument_list|)
+operator|.
+name|setMergePolicy
+argument_list|(
+name|newInOrderLogMergePolicy
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -807,8 +810,7 @@ argument_list|()
 expr_stmt|;
 name|s
 operator|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|r
 argument_list|)

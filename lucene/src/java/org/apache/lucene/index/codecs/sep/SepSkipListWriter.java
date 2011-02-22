@@ -789,6 +789,11 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|curStorePayloads
+condition|)
+block|{
 name|skipBuffer
 operator|.
 name|writeVInt
@@ -806,6 +811,7 @@ index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|lastSkipDoc
 index|[

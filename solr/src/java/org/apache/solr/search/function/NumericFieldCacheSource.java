@@ -97,6 +97,8 @@ operator|=
 name|creator
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 specifier|final
@@ -165,6 +167,8 @@ name|getClass
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 specifier|final

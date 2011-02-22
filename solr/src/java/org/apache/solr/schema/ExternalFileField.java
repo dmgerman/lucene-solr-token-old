@@ -158,6 +158,8 @@ specifier|private
 name|float
 name|defVal
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|protected
 name|void
@@ -283,6 +285,8 @@ operator|=
 name|schema
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -306,6 +310,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSortField
 specifier|public
 name|SortField
@@ -324,6 +330,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValueSource
 specifier|public
 name|ValueSource

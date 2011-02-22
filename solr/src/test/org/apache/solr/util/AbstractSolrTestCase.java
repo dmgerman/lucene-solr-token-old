@@ -294,6 +294,8 @@ specifier|private
 name|String
 name|factoryProp
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setUp
 specifier|public
 name|void
@@ -549,6 +551,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Shuts down the test harness, and makes the best attempt possible    * to delete dataDir, unless the system property "solr.test.leavedatadir"    * is set.    */
+annotation|@
+name|Override
 DECL|method|tearDown
 specifier|public
 name|void
@@ -1602,6 +1606,8 @@ specifier|public
 name|String
 name|xml
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

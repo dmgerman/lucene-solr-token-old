@@ -204,6 +204,8 @@ name|maxRows
 init|=
 literal|0
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -1294,6 +1296,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getData
 specifier|public
 name|Iterator
@@ -2137,6 +2141,8 @@ name|conn
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|finalize
 specifier|protected
 name|void
@@ -2181,6 +2187,8 @@ name|isClosed
 init|=
 literal|false
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

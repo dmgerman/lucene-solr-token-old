@@ -300,9 +300,6 @@ specifier|public
 name|float
 name|computeNorm
 parameter_list|(
-name|String
-name|fieldName
-parameter_list|,
 name|FieldInvertState
 name|state
 parameter_list|)
@@ -369,6 +366,12 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
+argument_list|()
+argument_list|)
+operator|.
+name|setMergePolicy
+argument_list|(
+name|newInOrderLogMergePolicy
 argument_list|()
 argument_list|)
 argument_list|)
@@ -946,9 +949,6 @@ specifier|public
 name|float
 name|computeNorm
 parameter_list|(
-name|String
-name|fieldName
-parameter_list|,
 name|FieldInvertState
 name|state
 parameter_list|)

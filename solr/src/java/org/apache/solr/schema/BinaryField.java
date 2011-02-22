@@ -143,6 +143,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -178,6 +180,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSortField
 specifier|public
 name|SortField
@@ -198,6 +202,8 @@ literal|"Cannot sort on a Binary field"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|toExternal
 specifier|public
 name|String
@@ -217,6 +223,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toObject
 specifier|public
 name|ByteBuffer

@@ -102,6 +102,8 @@ argument_list|)
 expr_stmt|;
 comment|//overriding distance, so power doesn't matter here
 block|}
+annotation|@
+name|Override
 DECL|method|name
 specifier|protected
 name|String
@@ -113,6 +115,8 @@ name|name
 return|;
 block|}
 comment|/**    * @param doc The doc to score    */
+annotation|@
+name|Override
 DECL|method|distance
 specifier|protected
 name|double

@@ -68,12 +68,6 @@ specifier|abstract
 class|class
 name|Query
 implements|implements
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-implements|,
 name|Cloneable
 block|{
 DECL|field|boost

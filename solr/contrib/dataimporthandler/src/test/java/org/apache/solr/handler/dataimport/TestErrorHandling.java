@@ -117,6 +117,11 @@ argument_list|,
 literal|"dataimport-schema.xml"
 argument_list|)
 expr_stmt|;
+name|ignoreException
+argument_list|(
+literal|"Unexpected close tag"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Before
@@ -355,6 +360,8 @@ name|xml
 init|=
 literal|""
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -367,6 +374,8 @@ name|Properties
 name|initProps
 parameter_list|)
 block|{     }
+annotation|@
+name|Override
 DECL|method|getData
 specifier|public
 name|Reader
@@ -384,6 +393,8 @@ name|xml
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -399,6 +410,8 @@ name|ExceptionTransformer
 extends|extends
 name|Transformer
 block|{
+annotation|@
+name|Override
 DECL|method|transformRow
 specifier|public
 name|Object

@@ -139,6 +139,8 @@ name|wait
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -496,6 +498,8 @@ return|return
 name|ret
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|postCommit
 specifier|public
 name|void
@@ -511,6 +515,8 @@ literal|"postCommit"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newSearcher
 specifier|public
 name|void

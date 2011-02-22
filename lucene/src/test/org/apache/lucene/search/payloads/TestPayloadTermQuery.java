@@ -708,6 +708,12 @@ name|setSimilarityProvider
 argument_list|(
 name|similarity
 argument_list|)
+operator|.
+name|setMergePolicy
+argument_list|(
+name|newInOrderLogMergePolicy
+argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|//writer.infoStream = System.out;
@@ -859,8 +865,7 @@ argument_list|()
 expr_stmt|;
 name|searcher
 operator|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -1996,9 +2001,6 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|String
-name|fieldName
-parameter_list|,
 name|int
 name|start
 parameter_list|,
@@ -2034,9 +2036,6 @@ specifier|public
 name|float
 name|computeNorm
 parameter_list|(
-name|String
-name|fieldName
-parameter_list|,
 name|FieldInvertState
 name|state
 parameter_list|)

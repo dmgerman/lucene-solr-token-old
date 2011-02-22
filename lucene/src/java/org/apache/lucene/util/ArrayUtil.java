@@ -2713,7 +2713,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// insertionSorts:
-comment|/**    * Sorts the given array slice using the {@link Comparator}. This method uses the insertion sort    * algorithm. It is only recommened to use this algorithm for partially sorted small arrays!    * @param fromIndex start index (inclusive)    * @param toIndex end index (exclusive)    */
+comment|/**    * Sorts the given array slice using the {@link Comparator}. This method uses the insertion sort    * algorithm. It is only recommended to use this algorithm for partially sorted small arrays!    * @param fromIndex start index (inclusive)    * @param toIndex end index (exclusive)    */
 DECL|method|insertionSort
 specifier|public
 specifier|static
@@ -2759,7 +2759,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Sorts the given array using the {@link Comparator}. This method uses the insertion sort    * algorithm. It is only recommened to use this algorithm for partially sorted small arrays!    */
+comment|/**    * Sorts the given array using the {@link Comparator}. This method uses the insertion sort    * algorithm. It is only recommended to use this algorithm for partially sorted small arrays!    */
 DECL|method|insertionSort
 specifier|public
 specifier|static
@@ -2796,7 +2796,7 @@ name|comp
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Sorts the given array slice in natural order. This method uses the insertion sort    * algorithm. It is only recommened to use this algorithm for partially sorted small arrays!    * @param fromIndex start index (inclusive)    * @param toIndex end index (exclusive)    */
+comment|/**    * Sorts the given array slice in natural order. This method uses the insertion sort    * algorithm. It is only recommended to use this algorithm for partially sorted small arrays!    * @param fromIndex start index (inclusive)    * @param toIndex end index (exclusive)    */
 DECL|method|insertionSort
 specifier|public
 specifier|static
@@ -2839,7 +2839,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Sorts the given array in natural order. This method uses the insertion sort    * algorithm. It is only recommened to use this algorithm for partially sorted small arrays!    */
+comment|/**    * Sorts the given array in natural order. This method uses the insertion sort    * algorithm. It is only recommended to use this algorithm for partially sorted small arrays!    */
 DECL|method|insertionSort
 specifier|public
 specifier|static

@@ -201,6 +201,8 @@ operator|&&
 name|includeUpper
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDocIdSet
 specifier|public
 name|DocIdSet
@@ -222,6 +224,8 @@ operator|new
 name|DocIdSet
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|DocIdSetIterator
 name|iterator
@@ -284,6 +288,8 @@ name|searcher
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -380,6 +386,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -515,6 +523,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

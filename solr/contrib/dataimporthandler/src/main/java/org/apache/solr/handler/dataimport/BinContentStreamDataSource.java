@@ -104,6 +104,8 @@ specifier|private
 name|InputStream
 name|in
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -126,6 +128,8 @@ operator|)
 name|context
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getData
 specifier|public
 name|InputStream
@@ -192,6 +196,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

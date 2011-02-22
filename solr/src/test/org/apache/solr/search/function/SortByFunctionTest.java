@@ -40,6 +40,8 @@ name|SortByFunctionTest
 extends|extends
 name|AbstractSolrTestCase
 block|{
+annotation|@
+name|Override
 DECL|method|getSchemaFile
 specifier|public
 name|String
@@ -50,6 +52,8 @@ return|return
 literal|"schema.xml"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSolrConfigFile
 specifier|public
 name|String
@@ -76,19 +80,19 @@ literal|"id"
 argument_list|,
 literal|"1"
 argument_list|,
-literal|"x_td"
+literal|"x_td1"
 argument_list|,
 literal|"0"
 argument_list|,
-literal|"y_td"
+literal|"y_td1"
 argument_list|,
 literal|"2"
 argument_list|,
-literal|"w_td"
+literal|"w_td1"
 argument_list|,
 literal|"25"
 argument_list|,
-literal|"z_td"
+literal|"z_td1"
 argument_list|,
 literal|"5"
 argument_list|,
@@ -106,19 +110,19 @@ literal|"id"
 argument_list|,
 literal|"2"
 argument_list|,
-literal|"x_td"
+literal|"x_td1"
 argument_list|,
 literal|"2"
 argument_list|,
-literal|"y_td"
+literal|"y_td1"
 argument_list|,
 literal|"2"
 argument_list|,
-literal|"w_td"
+literal|"w_td1"
 argument_list|,
 literal|"15"
 argument_list|,
-literal|"z_td"
+literal|"z_td1"
 argument_list|,
 literal|"5"
 argument_list|,
@@ -136,19 +140,19 @@ literal|"id"
 argument_list|,
 literal|"3"
 argument_list|,
-literal|"x_td"
+literal|"x_td1"
 argument_list|,
 literal|"3"
 argument_list|,
-literal|"y_td"
+literal|"y_td1"
 argument_list|,
 literal|"2"
 argument_list|,
-literal|"w_td"
+literal|"w_td1"
 argument_list|,
 literal|"55"
 argument_list|,
-literal|"z_td"
+literal|"z_td1"
 argument_list|,
 literal|"5"
 argument_list|,
@@ -166,19 +170,19 @@ literal|"id"
 argument_list|,
 literal|"4"
 argument_list|,
-literal|"x_td"
+literal|"x_td1"
 argument_list|,
 literal|"4"
 argument_list|,
-literal|"y_td"
+literal|"y_td1"
 argument_list|,
 literal|"2"
 argument_list|,
-literal|"w_td"
+literal|"w_td1"
 argument_list|,
 literal|"45"
 argument_list|,
-literal|"z_td"
+literal|"z_td1"
 argument_list|,
 literal|"5"
 argument_list|,
@@ -292,7 +296,7 @@ literal|"*:*"
 argument_list|,
 literal|"sort"
 argument_list|,
-literal|"sum(x_td, y_td) desc"
+literal|"sum(x_td1, y_td1) desc"
 argument_list|)
 argument_list|,
 literal|"//*[@numFound='4']"
@@ -322,7 +326,7 @@ literal|"*:*"
 argument_list|,
 literal|"sort"
 argument_list|,
-literal|"sum(x_td, y_td) asc"
+literal|"sum(x_td1, y_td1) asc"
 argument_list|)
 argument_list|,
 literal|"//*[@numFound='4']"
@@ -338,7 +342,7 @@ argument_list|,
 literal|"//result/doc[4]/int[@name='id'][.='4']"
 argument_list|)
 expr_stmt|;
-comment|//the function is equal, w_td separates
+comment|//the function is equal, w_td1 separates
 name|assertQ
 argument_list|(
 name|req
@@ -353,7 +357,7 @@ literal|"id"
 argument_list|,
 literal|"sort"
 argument_list|,
-literal|"sum(z_td, y_td) asc, w_td asc"
+literal|"sum(z_td1, y_td1) asc, w_td1 asc"
 argument_list|)
 argument_list|,
 literal|"//*[@numFound='4']"
@@ -552,7 +556,4 @@ expr_stmt|;
 block|}
 block|}
 end_class
-begin_comment
-comment|/*<lst name="responseHeader"><int name="status">0</int><int name="QTime">93</int></lst><result name="response" numFound="4" start="0" maxScore="1.0"><doc><float name="score">1.0</float><int name="id">4</int><int name="intDefault">42</int><arr name="multiDefault"><str>muLti-Default</str></arr><date name="timestamp">2009-12-12T12:59:46.412Z</date><arr name="x_td"><double>4.0</double></arr><arr name="y_td"><double>2.0</double></arr></doc><doc><float name="score">1.0</float><int name="id">3</int><int name="intDefault">42</int><arr name="multiDefault"><str>muLti-Default</str></arr><date name="timestamp">2009-12-12T12:59:46.409Z</date><arr name="x_td"><double>3.0</double></arr><arr name="y_td"><double>2.0</double></arr></doc><doc><float name="score">1.0</float><int name="id">2</int><int name="intDefault">42</int><arr name="multiDefault"><str>muLti-Default</str></arr><date name="timestamp">2009-12-12T12:59:46.406Z</date><arr name="x_td"><double>2.0</double></arr><arr name="y_td"><double>2.0</double></arr></doc><doc><float name="score">1.0</float><int name="id">1</int><int name="intDefault">42</int><arr name="multiDefault"><str>muLti-Default</str></arr><date name="timestamp">2009-12-12T12:59:46.361Z</date><arr name="x_td"><double>0.0</double></arr><arr name="y_td"><double>2.0</double></arr></doc></result> */
-end_comment
 end_unit

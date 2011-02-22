@@ -717,6 +717,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -999,6 +1001,8 @@ literal|0
 return|;
 block|}
 comment|/**    * Makes a<i>shallow copy</i> of the named list.    */
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|NamedList
@@ -1192,6 +1196,8 @@ name|index
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString

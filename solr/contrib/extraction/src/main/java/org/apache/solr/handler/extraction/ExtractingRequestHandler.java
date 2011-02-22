@@ -639,6 +639,8 @@ name|dateFormats
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newLoader
 specifier|protected
 name|ContentStreamLoader

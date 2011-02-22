@@ -1150,8 +1150,6 @@ name|scorePayload
 argument_list|(
 name|doc
 argument_list|,
-name|fieldName
-argument_list|,
 name|spans
 operator|.
 name|start
@@ -1289,6 +1287,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|score
 specifier|public
 name|float

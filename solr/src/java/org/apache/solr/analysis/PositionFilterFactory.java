@@ -67,6 +67,8 @@ specifier|private
 name|int
 name|positionIncrement
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void

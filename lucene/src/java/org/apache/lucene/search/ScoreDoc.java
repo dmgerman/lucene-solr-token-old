@@ -22,12 +22,6 @@ DECL|class|ScoreDoc
 specifier|public
 class|class
 name|ScoreDoc
-implements|implements
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
 block|{
 comment|/** Expert: The score of this document for the query. */
 DECL|field|score

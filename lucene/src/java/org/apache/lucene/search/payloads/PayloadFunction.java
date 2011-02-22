@@ -18,15 +18,6 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -47,8 +38,6 @@ specifier|public
 specifier|abstract
 class|class
 name|PayloadFunction
-implements|implements
-name|Serializable
 block|{
 comment|/**    * Calculate the score up to this point for this doc and field    * @param docId The current doc    * @param field The field    * @param start The start position of the matching Span    * @param end The end position of the matching Span    * @param numPayloadsSeen The number of payloads seen so far    * @param currentScore The current score so far    * @param currentPayloadScore The score for the current payload    * @return The new current Score    *    * @see org.apache.lucene.search.spans.Spans    */
 DECL|method|currentScore

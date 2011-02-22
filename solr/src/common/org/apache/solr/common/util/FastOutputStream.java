@@ -171,6 +171,8 @@ name|b
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void

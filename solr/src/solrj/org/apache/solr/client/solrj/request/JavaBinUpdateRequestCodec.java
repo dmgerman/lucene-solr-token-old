@@ -315,6 +315,8 @@ operator|new
 name|JavaBinCodec
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|writeMap
@@ -437,6 +439,8 @@ name|seenOuterMostDocIterator
 init|=
 literal|false
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|NamedList
 name|readNamedList
@@ -528,6 +532,8 @@ return|return
 name|nl
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 name|readIterator

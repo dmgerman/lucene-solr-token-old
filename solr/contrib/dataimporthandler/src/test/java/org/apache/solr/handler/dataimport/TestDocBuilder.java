@@ -68,6 +68,8 @@ extends|extends
 name|AbstractDataImportHandlerTestCase
 block|{
 annotation|@
+name|Override
+annotation|@
 name|After
 DECL|method|tearDown
 specifier|public
@@ -1597,6 +1599,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|upload
 specifier|public
 name|boolean
@@ -1615,6 +1619,8 @@ name|doc
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|log
 specifier|public
 name|void
@@ -1632,6 +1638,8 @@ parameter_list|)
 block|{
 comment|// Do nothing
 block|}
+annotation|@
+name|Override
 DECL|method|doDeleteAll
 specifier|public
 name|void
@@ -1645,6 +1653,8 @@ operator|.
 name|TRUE
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|commit
 specifier|public
 name|void
@@ -1661,6 +1671,8 @@ operator|.
 name|TRUE
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|finish
 specifier|public
 name|void

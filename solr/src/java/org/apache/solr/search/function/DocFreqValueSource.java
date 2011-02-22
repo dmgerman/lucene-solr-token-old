@@ -193,6 +193,8 @@ operator|=
 name|parent
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|floatVal
 specifier|public
 name|float
@@ -206,6 +208,8 @@ return|return
 name|fval
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|intVal
 specifier|public
 name|int
@@ -219,6 +223,8 @@ return|return
 name|ival
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|longVal
 specifier|public
 name|long
@@ -232,6 +238,8 @@ return|return
 name|lval
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doubleVal
 specifier|public
 name|double
@@ -245,6 +253,8 @@ return|return
 name|dval
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|strVal
 specifier|public
 name|String
@@ -258,6 +268,8 @@ return|return
 name|sval
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -368,6 +380,8 @@ operator|=
 name|parent
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|floatVal
 specifier|public
 name|float
@@ -381,6 +395,8 @@ return|return
 name|fval
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|intVal
 specifier|public
 name|int
@@ -394,6 +410,8 @@ return|return
 name|ival
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|longVal
 specifier|public
 name|long
@@ -407,6 +425,8 @@ return|return
 name|lval
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doubleVal
 specifier|public
 name|double
@@ -420,6 +440,8 @@ return|return
 name|dval
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|strVal
 specifier|public
 name|String
@@ -433,6 +455,8 @@ return|return
 name|sval
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1090,6 +1114,8 @@ name|searcher
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -1116,6 +1142,8 @@ name|hashCode
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean

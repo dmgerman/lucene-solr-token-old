@@ -56,6 +56,8 @@ return|return
 name|totalHits
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -65,6 +67,8 @@ name|Scorer
 name|scorer
 parameter_list|)
 block|{   }
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -78,6 +82,8 @@ name|totalHits
 operator|++
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -87,6 +93,8 @@ name|AtomicReaderContext
 name|context
 parameter_list|)
 block|{   }
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean

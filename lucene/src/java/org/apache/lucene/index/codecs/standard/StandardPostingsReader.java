@@ -266,6 +266,10 @@ DECL|field|maxSkipLevels
 name|int
 name|maxSkipLevels
 decl_stmt|;
+DECL|field|skipMinimum
+name|int
+name|skipMinimum
+decl_stmt|;
 comment|//private String segment;
 DECL|method|StandardPostingsReader
 specifier|public
@@ -500,6 +504,13 @@ operator|.
 name|readInt
 argument_list|()
 expr_stmt|;
+name|skipMinimum
+operator|=
+name|termsIn
+operator|.
+name|readInt
+argument_list|()
+expr_stmt|;
 block|}
 comment|// Must keep final because we do non-standard clone
 DECL|class|StandardTermState
@@ -534,6 +545,8 @@ name|byte
 index|[]
 name|bytes
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object
@@ -558,6 +571,8 @@ return|return
 name|other
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|copyFrom
 specifier|public
 name|void
@@ -605,6 +620,8 @@ comment|// very heavy, ie drags around the entire block's
 comment|// byte[]).  On seek back, if next() is in fact used
 comment|// (rare!), they will be re-read from disk.
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -908,7 +925,7 @@ name|termState
 operator|.
 name|docFreq
 operator|>=
-name|skipInterval
+name|skipMinimum
 condition|)
 block|{
 name|termState
@@ -1774,17 +1791,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// TODO: jump right to next() if target is< X away
-comment|// from where we are now?
 if|if
 condition|(
+operator|(
+name|target
+operator|-
+name|skipInterval
+operator|)
+operator|>=
+name|doc
+operator|&&
 name|limit
 operator|>=
-name|skipInterval
+name|skipMinimum
 condition|)
 block|{
 comment|// There are enough docs in the posting to have
-comment|// skip data
+comment|// skip data, and it isn't too close.
 if|if
 condition|(
 name|skipper
@@ -2282,17 +2305,23 @@ throws|throws
 name|IOException
 block|{
 comment|//System.out.println("StandardR.D&PE advance target=" + target);
-comment|// TODO: jump right to next() if target is< X away
-comment|// from where we are now?
 if|if
 condition|(
+operator|(
+name|target
+operator|-
+name|skipInterval
+operator|)
+operator|>=
+name|doc
+operator|&&
 name|limit
 operator|>=
-name|skipInterval
+name|skipMinimum
 condition|)
 block|{
 comment|// There are enough docs in the posting to have
-comment|// skip data
+comment|// skip data, and it isn't too close
 if|if
 condition|(
 name|skipper
@@ -2426,6 +2455,8 @@ return|return
 name|doc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextPosition
 specifier|public
 name|int
@@ -2518,6 +2549,8 @@ name|position
 return|;
 block|}
 comment|/** Returns the payload at this position, or null if no      *  payload was indexed. */
+annotation|@
+name|Override
 DECL|method|getPayload
 specifier|public
 name|BytesRef
@@ -2534,6 +2567,8 @@ literal|"No payloads exist for this field!"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasPayload
 specifier|public
 name|boolean
@@ -2958,17 +2993,23 @@ throws|throws
 name|IOException
 block|{
 comment|//System.out.println("StandardR.D&PE advance seg=" + segment + " target=" + target + " this=" + this);
-comment|// TODO: jump right to next() if target is< X away
-comment|// from where we are now?
 if|if
 condition|(
+operator|(
+name|target
+operator|-
+name|skipInterval
+operator|)
+operator|>=
+name|doc
+operator|&&
 name|limit
 operator|>=
-name|skipInterval
+name|skipMinimum
 condition|)
 block|{
 comment|// There are enough docs in the posting to have
-comment|// skip data
+comment|// skip data, and it isn't too close
 if|if
 condition|(
 name|skipper
@@ -3114,6 +3155,8 @@ return|return
 name|doc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextPosition
 specifier|public
 name|int
@@ -3335,6 +3378,8 @@ name|position
 return|;
 block|}
 comment|/** Returns the payload at this position, or null if no      *  payload was indexed. */
+annotation|@
+name|Override
 DECL|method|getPayload
 specifier|public
 name|BytesRef
@@ -3414,6 +3459,8 @@ return|return
 name|payload
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasPayload
 specifier|public
 name|boolean

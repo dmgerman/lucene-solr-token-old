@@ -310,7 +310,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * An advanced multi-field query parser.  */
+comment|/**  * An advanced multi-field query parser.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|ExtendedDismaxQParserPlugin
@@ -338,6 +338,8 @@ name|NamedList
 name|args
 parameter_list|)
 block|{   }
+annotation|@
+name|Override
 DECL|method|createParser
 specifier|public
 name|QParser
@@ -482,6 +484,8 @@ specifier|private
 name|QParser
 name|altQParser
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|parse
 specifier|public
 name|Query
@@ -2470,6 +2474,8 @@ else|:
 name|parsedUserQuery
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addDebugInfo
 specifier|public
 name|void
@@ -4089,6 +4095,8 @@ operator|=
 name|remove
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBooleanQuery
 specifier|protected
 name|Query
@@ -4140,6 +4148,8 @@ comment|////////////////////////////////////////////////////////////////////////
 comment|////////////////////////////////////////////////////////////////////////////
 comment|////////////////////////////////////////////////////////////////////////////
 comment|////////////////////////////////////////////////////////////////////////////
+annotation|@
+name|Override
 DECL|method|addClause
 specifier|protected
 name|void
@@ -5362,6 +5372,8 @@ name|getQueryAnalyzer
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
@@ -5755,6 +5767,8 @@ name|reader
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPositionIncrementGap
 specifier|public
 name|int
@@ -5773,6 +5787,8 @@ name|fieldName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|reusableTokenStream
 specifier|public
 name|TokenStream

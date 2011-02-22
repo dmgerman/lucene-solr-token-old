@@ -830,6 +830,8 @@ name|Reader
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|init
@@ -841,11 +843,15 @@ name|Properties
 name|initProps
 parameter_list|)
 block|{       }
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
 parameter_list|()
 block|{       }
+annotation|@
+name|Override
 specifier|public
 name|Reader
 name|getData

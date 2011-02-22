@@ -176,6 +176,8 @@ name|NamedList
 name|args
 parameter_list|)
 block|{   }
+annotation|@
+name|Override
 DECL|method|createParser
 specifier|public
 name|QParser
@@ -254,6 +256,8 @@ name|req
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse
 specifier|public
 name|Query
@@ -348,6 +352,8 @@ name|qstr
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDefaultHighlightFields
 specifier|public
 name|String
@@ -418,6 +424,8 @@ name|req
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse
 specifier|public
 name|Query

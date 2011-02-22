@@ -731,6 +731,8 @@ name|next
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processAdd
 specifier|public
 name|void
@@ -750,6 +752,8 @@ name|cmd
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processDelete
 specifier|public
 name|void
@@ -769,6 +773,8 @@ name|cmd
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processCommit
 specifier|public
 name|void
@@ -788,6 +794,8 @@ name|cmd
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|processRollback
 specifier|public
 name|void
@@ -807,6 +815,8 @@ name|cmd
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|finish
 specifier|public
 name|void

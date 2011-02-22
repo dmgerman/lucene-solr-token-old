@@ -106,6 +106,17 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -218,14 +229,11 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|util
 operator|.
-name|FieldCache
+name|MapBackedSet
 import|;
 end_import
-begin_comment
-comment|// not great (circular); used only to purge FieldCache entry on close
-end_comment
 begin_comment
 comment|/**   * An IndexReader which reads indexes with multiple segments.  */
 end_comment
@@ -336,6 +344,12 @@ DECL|field|maxIndexVersion
 specifier|private
 name|long
 name|maxIndexVersion
+decl_stmt|;
+DECL|field|applyAllDeletes
+specifier|private
+specifier|final
+name|boolean
+name|applyAllDeletes
 decl_stmt|;
 comment|//  static IndexReader open(final Directory directory, final IndexDeletionPolicy deletionPolicy, final IndexCommit commit, final boolean readOnly,
 comment|//      final int termInfosIndexDivisor) throws CorruptIndexException, IOException {
@@ -546,6 +560,28 @@ operator|=
 name|codecs
 expr_stmt|;
 block|}
+name|readerFinishedListeners
+operator|=
+operator|new
+name|MapBackedSet
+argument_list|<
+name|ReaderFinishedListener
+argument_list|>
+argument_list|(
+operator|new
+name|ConcurrentHashMap
+argument_list|<
+name|ReaderFinishedListener
+argument_list|,
+name|Boolean
+argument_list|>
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|applyAllDeletes
+operator|=
+literal|false
+expr_stmt|;
 comment|// To reduce the chance of hitting FileNotFound
 comment|// (and having to retry), we open segments in
 comment|// reverse because IndexWriter merges& deletes
@@ -610,6 +646,15 @@ argument_list|)
 argument_list|,
 name|termInfosIndexDivisor
 argument_list|)
+expr_stmt|;
+name|readers
+index|[
+name|i
+index|]
+operator|.
+name|readerFinishedListeners
+operator|=
+name|readerFinishedListeners
 expr_stmt|;
 name|success
 operator|=
@@ -685,6 +730,9 @@ name|termInfosIndexDivisor
 parameter_list|,
 name|CodecProvider
 name|codecs
+parameter_list|,
+name|boolean
+name|applyAllDeletes
 parameter_list|)
 throws|throws
 name|IOException
@@ -704,17 +752,13 @@ name|readOnly
 operator|=
 literal|true
 expr_stmt|;
-name|segmentInfos
-operator|=
-operator|(
-name|SegmentInfos
-operator|)
-name|infos
+name|this
 operator|.
-name|clone
-argument_list|()
+name|applyAllDeletes
+operator|=
+name|applyAllDeletes
 expr_stmt|;
-comment|// make sure we clone otherwise we share mutable state with IW
+comment|// saved for reopen
 name|this
 operator|.
 name|termInfosIndexDivisor
@@ -747,6 +791,13 @@ operator|=
 name|codecs
 expr_stmt|;
 block|}
+name|readerFinishedListeners
+operator|=
+name|writer
+operator|.
+name|getReaderFinishedListeners
+argument_list|()
+expr_stmt|;
 comment|// IndexWriter synchronizes externally before calling
 comment|// us, which ensures infos will not change; so there's
 comment|// no need to process segments in reverse order
@@ -759,15 +810,18 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+name|List
+argument_list|<
 name|SegmentReader
-index|[]
+argument_list|>
 name|readers
 init|=
 operator|new
+name|ArrayList
+argument_list|<
 name|SegmentReader
-index|[
-name|numSegments
-index|]
+argument_list|>
+argument_list|()
 decl_stmt|;
 specifier|final
 name|Directory
@@ -777,6 +831,21 @@ name|writer
 operator|.
 name|getDirectory
 argument_list|()
+decl_stmt|;
+name|segmentInfos
+operator|=
+operator|(
+name|SegmentInfos
+operator|)
+name|infos
+operator|.
+name|clone
+argument_list|()
+expr_stmt|;
+name|int
+name|infosUpto
+init|=
+literal|0
 decl_stmt|;
 for|for
 control|(
@@ -818,11 +887,10 @@ name|dir
 operator|==
 name|dir
 assert|;
-name|readers
-index|[
-name|i
-index|]
-operator|=
+specifier|final
+name|SegmentReader
+name|reader
+init|=
 name|writer
 operator|.
 name|readerPool
@@ -835,7 +903,54 @@ literal|true
 argument_list|,
 name|termInfosIndexDivisor
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|reader
+operator|.
+name|numDocs
+argument_list|()
+operator|>
+literal|0
+operator|||
+name|writer
+operator|.
+name|getKeepFullyDeletedSegments
+argument_list|()
+condition|)
+block|{
+name|reader
+operator|.
+name|readerFinishedListeners
+operator|=
+name|readerFinishedListeners
 expr_stmt|;
+name|readers
+operator|.
+name|add
+argument_list|(
+name|reader
+argument_list|)
+expr_stmt|;
+name|infosUpto
+operator|++
+expr_stmt|;
+block|}
+else|else
+block|{
+name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|segmentInfos
+operator|.
+name|remove
+argument_list|(
+name|infosUpto
+argument_list|)
+expr_stmt|;
+block|}
 name|success
 operator|=
 literal|true
@@ -852,23 +967,15 @@ block|{
 comment|// Close all readers we had opened:
 for|for
 control|(
-name|i
-operator|--
-init|;
-name|i
-operator|>=
-literal|0
-condition|;
-name|i
-operator|--
+name|SegmentReader
+name|reader
+range|:
+name|readers
 control|)
 block|{
 try|try
 block|{
-name|readers
-index|[
-name|i
-index|]
+name|reader
 operator|.
 name|close
 argument_list|()
@@ -895,6 +1002,18 @@ expr_stmt|;
 name|initialize
 argument_list|(
 name|readers
+operator|.
+name|toArray
+argument_list|(
+operator|new
+name|SegmentReader
+index|[
+name|readers
+operator|.
+name|size
+argument_list|()
+index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -927,6 +1046,12 @@ name|termInfosIndexDivisor
 parameter_list|,
 name|CodecProvider
 name|codecs
+parameter_list|,
+name|Collection
+argument_list|<
+name|ReaderFinishedListener
+argument_list|>
+name|readerFinishedListeners
 parameter_list|)
 throws|throws
 name|IOException
@@ -954,6 +1079,16 @@ operator|.
 name|termInfosIndexDivisor
 operator|=
 name|termInfosIndexDivisor
+expr_stmt|;
+name|this
+operator|.
+name|readerFinishedListeners
+operator|=
+name|readerFinishedListeners
+expr_stmt|;
+name|applyAllDeletes
+operator|=
+literal|false
 expr_stmt|;
 if|if
 condition|(
@@ -1211,6 +1346,12 @@ argument_list|,
 name|termInfosIndexDivisor
 argument_list|)
 expr_stmt|;
+name|newReader
+operator|.
+name|readerFinishedListeners
+operator|=
+name|readerFinishedListeners
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1235,6 +1376,13 @@ argument_list|,
 name|readOnly
 argument_list|)
 expr_stmt|;
+assert|assert
+name|newReader
+operator|.
+name|readerFinishedListeners
+operator|==
+name|readerFinishedListeners
+assert|;
 block|}
 if|if
 condition|(
@@ -1861,6 +2009,13 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+assert|assert
+name|newReader
+operator|.
+name|readerFinishedListeners
+operator|!=
+literal|null
+assert|;
 return|return
 name|newReader
 return|;
@@ -1991,11 +2146,24 @@ block|}
 comment|// TODO: right now we *always* make a new reader; in
 comment|// the future we could have write make some effort to
 comment|// detect that no changes have occurred
-return|return
+name|IndexReader
+name|reader
+init|=
 name|writer
 operator|.
 name|getReader
-argument_list|()
+argument_list|(
+name|applyAllDeletes
+argument_list|)
+decl_stmt|;
+name|reader
+operator|.
+name|readerFinishedListeners
+operator|=
+name|readerFinishedListeners
+expr_stmt|;
+return|return
+name|reader
 return|;
 block|}
 DECL|method|doReopen
@@ -2322,6 +2490,8 @@ argument_list|,
 name|termInfosIndexDivisor
 argument_list|,
 name|codecs
+argument_list|,
+name|readerFinishedListeners
 argument_list|)
 expr_stmt|;
 return|return
@@ -3459,6 +3629,21 @@ comment|// case we have to roll back:
 name|startCommit
 argument_list|()
 expr_stmt|;
+specifier|final
+name|SegmentInfos
+name|rollbackSegmentInfos
+init|=
+operator|new
+name|SegmentInfos
+argument_list|()
+decl_stmt|;
+name|rollbackSegmentInfos
+operator|.
+name|addAll
+argument_list|(
+name|segmentInfos
+argument_list|)
+expr_stmt|;
 name|boolean
 name|success
 init|=
@@ -3488,6 +3673,13 @@ name|i
 index|]
 operator|.
 name|commit
+argument_list|()
+expr_stmt|;
+comment|// Remove segments that contain only 100% deleted
+comment|// docs:
+name|segmentInfos
+operator|.
+name|pruneDeletedSegments
 argument_list|()
 expr_stmt|;
 comment|// Sync all files we just wrote
@@ -3540,6 +3732,19 @@ name|deleter
 operator|.
 name|refresh
 argument_list|()
+expr_stmt|;
+comment|// Restore all SegmentInfos (in case we pruned some)
+name|segmentInfos
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|segmentInfos
+operator|.
+name|addAll
+argument_list|(
+name|rollbackSegmentInfos
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -3823,18 +4028,6 @@ name|e
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: only needed in case someone had asked for
-comment|// FieldCache for top-level reader (which is generally
-comment|// not a good idea):
-name|FieldCache
-operator|.
-name|DEFAULT
-operator|.
-name|purge
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|writer

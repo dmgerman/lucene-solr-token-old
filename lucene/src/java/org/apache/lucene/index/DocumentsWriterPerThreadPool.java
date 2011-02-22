@@ -138,6 +138,9 @@ name|initialize
 parameter_list|(
 name|DocumentsWriter
 name|documentsWriter
+parameter_list|,
+name|FieldInfos
+name|fieldInfos
 parameter_list|)
 block|{
 for|for
@@ -173,6 +176,8 @@ operator|.
 name|directory
 argument_list|,
 name|documentsWriter
+argument_list|,
+name|fieldInfos
 argument_list|,
 name|documentsWriter
 operator|.

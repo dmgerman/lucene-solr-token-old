@@ -73,6 +73,8 @@ specifier|abstract
 class|class
 name|CloneableKey
 block|{
+annotation|@
+name|Override
 DECL|method|clone
 specifier|abstract
 specifier|public
@@ -223,7 +225,7 @@ operator|=
 name|cache2
 expr_stmt|;
 block|}
-comment|// Try primary frist
+comment|// Try primary first
 name|V
 name|result
 init|=

@@ -225,6 +225,8 @@ extends|extends
 name|AnalysisRequestHandlerBase
 block|{
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|doAnalysis
 specifier|protected
 name|NamedList

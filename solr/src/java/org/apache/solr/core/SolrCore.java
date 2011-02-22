@@ -3365,6 +3365,8 @@ operator|<=
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|finalize
 specifier|protected
 name|void
@@ -5163,6 +5165,8 @@ argument_list|(
 name|newSearcher
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close

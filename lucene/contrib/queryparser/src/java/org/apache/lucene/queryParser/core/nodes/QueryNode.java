@@ -22,15 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -70,8 +61,6 @@ DECL|interface|QueryNode
 specifier|public
 interface|interface
 name|QueryNode
-extends|extends
-name|Serializable
 block|{
 comment|/** convert to a query string understood by the query parser */
 comment|// TODO: this interface might be changed in the future
@@ -114,7 +103,7 @@ specifier|public
 name|boolean
 name|containsTag
 parameter_list|(
-name|CharSequence
+name|String
 name|tagName
 parameter_list|)
 function_decl|;
@@ -124,7 +113,7 @@ specifier|public
 name|Object
 name|getTag
 parameter_list|(
-name|CharSequence
+name|String
 name|tagName
 parameter_list|)
 function_decl|;
@@ -186,7 +175,7 @@ specifier|public
 name|void
 name|setTag
 parameter_list|(
-name|CharSequence
+name|String
 name|tagName
 parameter_list|,
 name|Object
@@ -199,19 +188,20 @@ specifier|public
 name|void
 name|unsetTag
 parameter_list|(
-name|CharSequence
+name|String
 name|tagName
 parameter_list|)
 function_decl|;
-DECL|method|getTags
+comment|/**    * Returns a map containing all tags attached to this query node.     *     * @return a map containing all tags attached to this query node    */
+DECL|method|getTagMap
 specifier|public
 name|Map
 argument_list|<
-name|CharSequence
+name|String
 argument_list|,
 name|Object
 argument_list|>
-name|getTags
+name|getTagMap
 parameter_list|()
 function_decl|;
 block|}

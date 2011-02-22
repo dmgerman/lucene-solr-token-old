@@ -24,6 +24,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
+name|SolrException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|core
 operator|.
 name|SolrConfig
@@ -2073,10 +2086,12 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|LOG
+name|SolrException
 operator|.
-name|error
+name|log
 argument_list|(
+name|LOG
+argument_list|,
 literal|"Full Import failed"
 argument_list|,
 name|t
@@ -2518,6 +2533,8 @@ name|AtomicLong
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|AtomicLong
 name|initialValue

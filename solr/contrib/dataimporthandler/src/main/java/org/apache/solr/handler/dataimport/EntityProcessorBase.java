@@ -17,6 +17,19 @@ name|dataimport
 package|;
 end_package
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|SolrException
+import|;
+end_import
+begin_import
 import|import static
 name|org
 operator|.
@@ -137,6 +150,8 @@ name|onError
 init|=
 name|ABORT
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -269,10 +284,12 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
+name|SolrException
 operator|.
-name|error
+name|log
 argument_list|(
+name|log
+argument_list|,
 literal|"getNext() failed for query '"
 operator|+
 name|query
@@ -304,6 +321,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|nextModifiedRowKey
 specifier|public
 name|Map
@@ -319,6 +338,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextDeletedRowKey
 specifier|public
 name|Map
@@ -334,6 +355,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextModifiedParentRowKey
 specifier|public
 name|Map
@@ -350,6 +373,8 @@ literal|null
 return|;
 block|}
 comment|/**    * For a simple implementation, this is the only method that the sub-class should implement. This is intended to    * stream rows one-by-one. Return null to signal end of rows    *    * @return a row where the key is the name of the field and value can be any Object or a Collection of objects. Return    *         null to signal end of rows    */
+annotation|@
+name|Override
 DECL|method|nextRow
 specifier|public
 name|Map
@@ -366,6 +391,8 @@ literal|null
 return|;
 comment|// do not do anything
 block|}
+annotation|@
+name|Override
 DECL|method|destroy
 specifier|public
 name|void

@@ -123,6 +123,8 @@ name|BCDIntField
 extends|extends
 name|FieldType
 block|{
+annotation|@
+name|Override
 DECL|method|init
 specifier|protected
 name|void
@@ -140,6 +142,8 @@ argument_list|>
 name|args
 parameter_list|)
 block|{   }
+annotation|@
+name|Override
 DECL|method|getSortField
 specifier|public
 name|SortField
@@ -183,6 +187,8 @@ literal|"ValueSource not implemented"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|toInternal
 specifier|public
 name|String
@@ -202,6 +208,8 @@ name|val
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toExternal
 specifier|public
 name|String
@@ -245,6 +253,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indexedToReadable
 specifier|public
 name|String
@@ -263,6 +273,8 @@ name|indexedForm
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void

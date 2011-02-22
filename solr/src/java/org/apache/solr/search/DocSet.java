@@ -265,6 +265,8 @@ implements|implements
 name|DocSet
 block|{
 comment|// Not implemented efficiently... for testing purposes only
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -748,28 +750,15 @@ name|DocIdSet
 name|getDocIdSet
 parameter_list|(
 name|AtomicReaderContext
-name|ctx
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 name|IndexReader
-operator|.
-name|AtomicReaderContext
-name|context
-init|=
-operator|(
-name|IndexReader
-operator|.
-name|AtomicReaderContext
-operator|)
-name|ctx
-decl_stmt|;
-comment|// TODO: remove after lucene migration
-name|IndexReader
 name|reader
 init|=
-name|ctx
+name|context
 operator|.
 name|reader
 decl_stmt|;
@@ -815,6 +804,8 @@ operator|new
 name|DocIdSet
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|DocIdSetIterator
 name|iterator

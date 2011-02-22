@@ -263,7 +263,7 @@ name|Pattern
 import|;
 end_import
 begin_comment
-comment|/**  * Return TermEnum information, useful for things like auto suggest.  *  * @see org.apache.solr.common.params.TermsParams  *      See Lucene's TermEnum class  */
+comment|/**  * Return TermEnum information, useful for things like auto suggest.  *   *<pre class="prettyprint">  *&lt;searchComponent name="termsComponent" class="solr.TermsComponent"/&gt;  *   *&lt;requestHandler name="/terms" class="solr.SearchHandler"&gt;  *&lt;lst name="defaults"&gt;  *&lt;bool name="terms"&gt;true&lt;/bool&gt;  *&lt;/lst&gt;  *&lt;arr name="components"&gt;  *&lt;str&gt;termsComponent&lt;/str&gt;  *&lt;/arr&gt;  *&lt;/requestHandler&gt;</pre>  *  * @see org.apache.solr.common.params.TermsParams  *      See Lucene's TermEnum class  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|TermsComponent
@@ -427,6 +427,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|process
 specifier|public
 name|void
@@ -2701,6 +2703,8 @@ name|arr
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|String
@@ -2711,6 +2715,8 @@ return|return
 literal|"$Revision$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSourceId
 specifier|public
 name|String
@@ -2721,6 +2727,8 @@ return|return
 literal|"$Id$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|String
@@ -2731,6 +2739,8 @@ return|return
 literal|"$URL$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription
 specifier|public
 name|String

@@ -153,6 +153,8 @@ name|smallSetSize
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -288,6 +290,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -299,6 +303,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{   }
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -319,6 +325,8 @@ operator|.
 name|docBase
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean
@@ -370,6 +378,8 @@ operator|=
 name|collector
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -446,6 +456,8 @@ name|pos
 operator|++
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDocSet
 specifier|public
 name|DocSet
@@ -512,6 +524,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -531,6 +545,8 @@ name|scorer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void

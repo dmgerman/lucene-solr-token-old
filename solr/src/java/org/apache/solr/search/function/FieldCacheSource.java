@@ -80,6 +80,8 @@ return|return
 name|cache
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|description
 specifier|public
 name|String
@@ -90,6 +92,8 @@ return|return
 name|field
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -140,6 +144,8 @@ operator|.
 name|cache
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

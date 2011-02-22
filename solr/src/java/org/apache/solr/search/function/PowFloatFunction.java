@@ -47,6 +47,8 @@ name|b
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|name
 specifier|protected
 name|String
@@ -57,6 +59,8 @@ return|return
 literal|"pow"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|func
 specifier|protected
 name|float

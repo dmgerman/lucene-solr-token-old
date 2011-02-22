@@ -159,36 +159,18 @@ operator|+
 name|outputDir
 argument_list|)
 expr_stmt|;
+for|for
+control|(
 name|File
-index|[]
-name|files
-init|=
+name|f
+range|:
 name|outputDir
 operator|.
 name|listFiles
 argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|files
-operator|.
-name|length
-condition|;
-name|i
-operator|++
 control|)
 block|{
-name|files
-index|[
-name|i
-index|]
+name|f
 operator|.
 name|delete
 argument_list|()
@@ -251,29 +233,12 @@ condition|)
 block|{
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|sgmFiles
-operator|.
-name|length
-condition|;
-name|i
-operator|++
-control|)
-block|{
 name|File
 name|sgmFile
-init|=
+range|:
 name|sgmFiles
-index|[
-name|i
-index|]
-decl_stmt|;
+control|)
+block|{
 name|extractFile
 argument_list|(
 name|sgmFile
@@ -345,7 +310,7 @@ block|,
 literal|"&apos;"
 block|}
 decl_stmt|;
-comment|/**      * Override if you wish to change what is extracted      *      * @param sgmFile      */
+comment|/**    * Override if you wish to change what is extracted    *     * @param sgmFile    */
 DECL|method|extractFile
 specifier|protected
 name|void
@@ -412,7 +377,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//when we see a closing reuters tag, flush the file
+comment|// when we see a closing reuters tag, flush the file
 if|if
 condition|(
 name|line
@@ -426,7 +391,7 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|//Replace the SGM escape sequences
+comment|// Replace the SGM escape sequences
 name|buffer
 operator|.
 name|append
@@ -439,11 +404,13 @@ argument_list|(
 literal|' '
 argument_list|)
 expr_stmt|;
-comment|//accumulate the strings for now, then apply regular expression to get the pieces,
+comment|// accumulate the strings for now,
+comment|// then apply regular expression to
+comment|// get the pieces,
 block|}
 else|else
 block|{
-comment|//Extract the relevant pieces and write to a file in the output dir
+comment|// Extract the relevant pieces and write to a file in the output dir
 name|Matcher
 name|matcher
 init|=
@@ -585,7 +552,7 @@ operator|+
 literal|".txt"
 argument_list|)
 decl_stmt|;
-comment|//System.out.println("Writing " + outFile);
+comment|// System.out.println("Writing " + outFile);
 name|FileWriter
 name|writer
 init|=
@@ -682,12 +649,20 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|reutersDir
 operator|.
 name|exists
 argument_list|()
 condition|)
 block|{
+name|printUsage
+argument_list|()
+expr_stmt|;
+return|return;
+block|}
+comment|// First, extract to a tmp directory and only if everything succeeds, rename
+comment|// to output directory.
 name|File
 name|outputDir
 init|=
@@ -698,6 +673,8 @@ name|args
 index|[
 literal|1
 index|]
+operator|+
+literal|"-tmp"
 argument_list|)
 decl_stmt|;
 name|outputDir
@@ -721,13 +698,21 @@ operator|.
 name|extract
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-name|printUsage
-argument_list|()
+comment|// Now rename to requested output dir
+name|outputDir
+operator|.
+name|renameTo
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|args
+index|[
+literal|1
+index|]
+argument_list|)
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|printUsage
 specifier|private
