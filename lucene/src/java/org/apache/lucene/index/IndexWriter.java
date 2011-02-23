@@ -5771,6 +5771,13 @@ argument_list|,
 literal|"flush"
 argument_list|)
 expr_stmt|;
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|useCompoundFile
@@ -5805,13 +5812,6 @@ name|compoundFileName
 argument_list|)
 expr_stmt|;
 comment|// Now build compound file
-name|boolean
-name|success
-init|=
-literal|false
-decl_stmt|;
-try|try
-block|{
 name|CompoundFileWriter
 name|cfsWriter
 init|=
@@ -5871,6 +5871,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Must write deleted docs after the CFS so we don't
 comment|// slurp the del file into CFS:
 if|if
@@ -6036,7 +6037,6 @@ operator|.
 name|name
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
