@@ -61,7 +61,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Creates new instances of {@link NGramTokenizer}.  */
+comment|/**  * Factory for {@link NGramTokenizer}.  *<pre class="prettyprint">  *&lt;fieldType name="text_ngrm" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.NGramTokenizerFactory" minGramSize="1" maxGramSize="2"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>   * @version $Id$  */
 end_comment
 begin_class
 DECL|class|NGramTokenizerFactory

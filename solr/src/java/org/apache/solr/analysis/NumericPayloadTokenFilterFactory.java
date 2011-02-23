@@ -52,7 +52,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/** Factory for {@link NumericPayloadTokenFilter} */
+comment|/**   * Factory for {@link NumericPayloadTokenFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_numpayload" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.NumericPayloadTokenFilterFactory" payload="24" typeMatch="word"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  * @version $Id$    */
 end_comment
 begin_class
 DECL|class|NumericPayloadTokenFilterFactory
