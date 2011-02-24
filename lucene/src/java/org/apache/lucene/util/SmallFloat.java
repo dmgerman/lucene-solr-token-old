@@ -77,7 +77,7 @@ decl_stmt|;
 if|if
 condition|(
 name|smallfloat
-operator|<
+operator|<=
 name|fzero
 condition|)
 block|{
@@ -233,7 +233,8 @@ decl_stmt|;
 if|if
 condition|(
 name|smallfloat
-operator|<
+operator|<=
+operator|(
 operator|(
 literal|63
 operator|-
@@ -241,6 +242,7 @@ literal|15
 operator|)
 operator|<<
 literal|3
+operator|)
 condition|)
 block|{
 return|return
@@ -393,7 +395,7 @@ decl_stmt|;
 if|if
 condition|(
 name|smallfloat
-operator|<
+operator|<=
 operator|(
 literal|63
 operator|-

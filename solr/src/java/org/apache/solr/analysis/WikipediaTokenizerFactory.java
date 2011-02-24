@@ -52,7 +52,7 @@ name|WikipediaTokenizer
 import|;
 end_import
 begin_comment
-comment|/** Factory for {@link WikipediaTokenizer}*/
+comment|/**   * Factory for {@link WikipediaTokenizer}.  *<pre class="prettyprint">  *&lt;fieldType name="text_wiki" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WikipediaTokenizerFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>   * @version $Id$  */
 end_comment
 begin_class
 DECL|class|WikipediaTokenizerFactory

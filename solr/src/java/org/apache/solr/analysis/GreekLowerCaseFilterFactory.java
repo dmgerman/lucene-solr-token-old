@@ -80,7 +80,7 @@ name|ErrorCode
 import|;
 end_import
 begin_comment
-comment|/** Factory for {@link GreekLowerCaseFilter} */
+comment|/**   * Factory for {@link GreekLowerCaseFilter}.   *<pre class="prettyprint">  *&lt;fieldType name="text_glc" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.GreekLowerCaseFilterFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>   * @version $Id$  */
 end_comment
 begin_class
 DECL|class|GreekLowerCaseFilterFactory
