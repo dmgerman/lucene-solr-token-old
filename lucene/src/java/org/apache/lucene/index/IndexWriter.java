@@ -191,6 +191,21 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DocumentsWriterPerThread
+operator|.
+name|FlushedSegment
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexWriterConfig
 operator|.
 name|OpenMode
@@ -5750,20 +5765,24 @@ DECL|method|addFlushedSegment
 name|void
 name|addFlushedSegment
 parameter_list|(
-name|SegmentInfo
-name|newSegment
-parameter_list|,
-name|BitVector
-name|deletedDocs
+name|FlushedSegment
+name|flushedSegment
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 assert|assert
-name|newSegment
+name|flushedSegment
 operator|!=
 literal|null
 assert|;
+name|SegmentInfo
+name|newSegment
+init|=
+name|flushedSegment
+operator|.
+name|segmentInfo
+decl_stmt|;
 name|setDiagnostics
 argument_list|(
 name|newSegment
@@ -5876,7 +5895,9 @@ comment|// Must write deleted docs after the CFS so we don't
 comment|// slurp the del file into CFS:
 if|if
 condition|(
-name|deletedDocs
+name|flushedSegment
+operator|.
+name|deletedDocuments
 operator|!=
 literal|null
 condition|)
@@ -5885,7 +5906,9 @@ specifier|final
 name|int
 name|delCount
 init|=
-name|deletedDocs
+name|flushedSegment
+operator|.
+name|deletedDocuments
 operator|.
 name|count
 argument_list|()
@@ -5947,7 +5970,9 @@ comment|// this del vector over to the
 comment|// shortly-to-be-opened SegmentReader and let it
 comment|// carry the changes; there's no reason to use
 comment|// filesystem as intermediary here.
-name|deletedDocs
+name|flushedSegment
+operator|.
+name|deletedDocuments
 operator|.
 name|write
 argument_list|(
