@@ -238,15 +238,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -362,11 +353,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"unstable: see https://issues.apache.org/jira/browse/SOLR-2387"
-argument_list|)
 DECL|method|testProcessing
 specifier|public
 name|void
@@ -411,7 +397,7 @@ name|assertQ
 argument_list|(
 name|req
 argument_list|(
-literal|"language:english"
+literal|"suggested_category:*"
 argument_list|)
 argument_list|,
 literal|"//*[@numFound='1']"
@@ -425,13 +411,13 @@ specifier|public
 name|void
 name|testTwoUpdates
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// this test requires an internet connection (e.g. opencalais api)
 name|checkInternetConnection
 argument_list|()
 expr_stmt|;
-try|try
-block|{
 name|addDoc
 argument_list|(
 name|adoc
@@ -460,7 +446,7 @@ name|assertQ
 argument_list|(
 name|req
 argument_list|(
-literal|"language:english"
+literal|"suggested_category:*"
 argument_list|)
 argument_list|,
 literal|"//*[@numFound='1']"
@@ -496,27 +482,12 @@ name|assertQ
 argument_list|(
 name|req
 argument_list|(
-literal|"language:english"
+literal|"suggested_category:*"
 argument_list|)
 argument_list|,
 literal|"//*[@numFound='2']"
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|assumeNoException
-argument_list|(
-literal|"Multiple updates on same instance didn't work"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|addDoc
 specifier|private
