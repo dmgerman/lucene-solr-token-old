@@ -10624,8 +10624,6 @@ name|loadDocStores
 decl_stmt|;
 if|if
 condition|(
-name|poolReaders
-operator|&&
 name|mergedSegmentWarmer
 operator|!=
 literal|null
@@ -10652,10 +10650,6 @@ name|termsIndexDivisor
 operator|=
 operator|-
 literal|1
-expr_stmt|;
-name|loadDocStores
-operator|=
-literal|false
 expr_stmt|;
 block|}
 comment|// TODO: in the non-realtime case, we may want to only
