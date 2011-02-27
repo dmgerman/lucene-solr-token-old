@@ -345,6 +345,17 @@ name|xml
 operator|.
 name|sax
 operator|.
+name|InputSource
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
 name|SAXException
 import|;
 end_import
@@ -545,7 +556,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|InputStream
+name|InputSource
 name|is
 parameter_list|)
 throws|throws
@@ -579,7 +590,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|InputStream
+name|InputSource
 name|is
 parameter_list|)
 throws|throws
@@ -613,7 +624,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|InputStream
+name|InputSource
 name|is
 parameter_list|)
 throws|throws
