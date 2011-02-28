@@ -80,6 +80,11 @@ specifier|final
 name|DocumentsWriter
 name|docWriter
 decl_stmt|;
+DECL|field|fieldInfos
+specifier|final
+name|FieldInfos
+name|fieldInfos
+decl_stmt|;
 DECL|field|lastDocID
 name|int
 name|lastDocID
@@ -105,6 +110,9 @@ name|StoredFieldsWriter
 parameter_list|(
 name|DocumentsWriter
 name|docWriter
+parameter_list|,
+name|FieldInfos
+name|fieldInfos
 parameter_list|)
 block|{
 name|this
@@ -112,6 +120,12 @@ operator|.
 name|docWriter
 operator|=
 name|docWriter
+expr_stmt|;
+name|this
+operator|.
+name|fieldInfos
+operator|=
+name|fieldInfos
 expr_stmt|;
 block|}
 DECL|method|addThread
@@ -301,6 +315,8 @@ name|docWriter
 operator|.
 name|getSegment
 argument_list|()
+argument_list|,
+name|fieldInfos
 argument_list|)
 expr_stmt|;
 name|lastDocID
