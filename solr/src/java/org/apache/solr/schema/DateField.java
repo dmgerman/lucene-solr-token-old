@@ -1669,8 +1669,9 @@ name|maxInclusive
 parameter_list|)
 block|{
 return|return
-operator|new
 name|TermRangeQuery
+operator|.
+name|newStringRange
 argument_list|(
 name|sf
 operator|.

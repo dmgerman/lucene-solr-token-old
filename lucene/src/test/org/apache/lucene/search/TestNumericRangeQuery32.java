@@ -2879,23 +2879,6 @@ argument_list|,
 name|upperBytes
 argument_list|)
 expr_stmt|;
-comment|// TODO: when new TermRange ctors with BytesRef available, use them and do not convert to string!
-specifier|final
-name|String
-name|lowerString
-init|=
-name|lowerBytes
-operator|.
-name|utf8ToString
-argument_list|()
-decl_stmt|,
-name|upperString
-init|=
-name|upperBytes
-operator|.
-name|utf8ToString
-argument_list|()
-decl_stmt|;
 comment|// test inclusive range
 name|NumericRangeQuery
 argument_list|<
@@ -2928,9 +2911,9 @@ name|TermRangeQuery
 argument_list|(
 name|field
 argument_list|,
-name|lowerString
+name|lowerBytes
 argument_list|,
-name|upperString
+name|upperBytes
 argument_list|,
 literal|true
 argument_list|,
@@ -3015,9 +2998,9 @@ name|TermRangeQuery
 argument_list|(
 name|field
 argument_list|,
-name|lowerString
+name|lowerBytes
 argument_list|,
-name|upperString
+name|upperBytes
 argument_list|,
 literal|false
 argument_list|,
@@ -3100,9 +3083,9 @@ name|TermRangeQuery
 argument_list|(
 name|field
 argument_list|,
-name|lowerString
+name|lowerBytes
 argument_list|,
-name|upperString
+name|upperBytes
 argument_list|,
 literal|false
 argument_list|,
@@ -3185,9 +3168,9 @@ name|TermRangeQuery
 argument_list|(
 name|field
 argument_list|,
-name|lowerString
+name|lowerBytes
 argument_list|,
-name|upperString
+name|upperBytes
 argument_list|,
 literal|true
 argument_list|,

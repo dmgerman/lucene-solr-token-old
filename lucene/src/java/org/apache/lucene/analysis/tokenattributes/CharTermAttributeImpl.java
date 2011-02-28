@@ -378,7 +378,6 @@ block|}
 comment|// *** TermToBytesRefAttribute interface ***
 DECL|method|toBytesRef
 specifier|public
-specifier|final
 name|int
 name|toBytesRef
 parameter_list|(

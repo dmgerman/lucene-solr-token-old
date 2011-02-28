@@ -90,13 +90,6 @@ expr_stmt|;
 comment|// Default Values
 name|addAttribute
 argument_list|(
-name|RangeCollatorAttribute
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-name|addAttribute
-argument_list|(
 name|DefaultOperatorAttribute
 operator|.
 name|class

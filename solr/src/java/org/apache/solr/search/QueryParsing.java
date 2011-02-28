@@ -2195,6 +2195,9 @@ name|q
 operator|.
 name|getLowerTerm
 argument_list|()
+operator|.
+name|utf8ToString
+argument_list|()
 decl_stmt|;
 name|String
 name|ut
@@ -2202,6 +2205,9 @@ init|=
 name|q
 operator|.
 name|getUpperTerm
+argument_list|()
+operator|.
+name|utf8ToString
 argument_list|()
 decl_stmt|;
 if|if
