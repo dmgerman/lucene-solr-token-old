@@ -10308,7 +10308,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|reader
+name|clone
 operator|.
 name|numDocs
 argument_list|()
@@ -10323,7 +10323,6 @@ argument_list|(
 name|clone
 argument_list|)
 expr_stmt|;
-block|}
 name|totDocCount
 operator|+=
 name|clone
@@ -10331,6 +10330,7 @@ operator|.
 name|numDocs
 argument_list|()
 expr_stmt|;
+block|}
 name|segUpto
 operator|++
 expr_stmt|;
