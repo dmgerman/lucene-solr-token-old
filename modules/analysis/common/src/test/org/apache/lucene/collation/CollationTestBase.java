@@ -2053,7 +2053,7 @@ block|{
 name|int
 name|numTestPoints
 init|=
-literal|1000
+literal|100
 decl_stmt|;
 name|int
 name|numThreads
