@@ -1055,7 +1055,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|SimilarityProvider
+name|Similarity
 name|sim
 init|=
 operator|new
@@ -1071,11 +1071,6 @@ argument_list|,
 literal|"f1"
 argument_list|,
 name|sim
-operator|.
-name|get
-argument_list|(
-literal|"f1"
-argument_list|)
 operator|.
 name|encodeNormValue
 argument_list|(
@@ -1118,11 +1113,6 @@ argument_list|,
 literal|"f3"
 argument_list|,
 name|sim
-operator|.
-name|get
-argument_list|(
-literal|"f3"
-argument_list|)
 operator|.
 name|encodeNormValue
 argument_list|(
