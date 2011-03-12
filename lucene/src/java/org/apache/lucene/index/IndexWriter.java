@@ -10427,14 +10427,7 @@ name|anyNonBulkMerges
 operator||=
 name|merger
 operator|.
-name|getMatchedSubReaderCount
-argument_list|()
-operator|!=
-name|merge
-operator|.
-name|readers
-operator|.
-name|size
+name|getAnyNonBulkMerges
 argument_list|()
 expr_stmt|;
 assert|assert
