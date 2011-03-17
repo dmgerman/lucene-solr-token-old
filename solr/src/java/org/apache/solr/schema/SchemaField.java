@@ -509,7 +509,7 @@ specifier|public
 name|Fieldable
 name|createField
 parameter_list|(
-name|String
+name|Object
 name|val
 parameter_list|,
 name|float
@@ -535,7 +535,7 @@ name|Fieldable
 index|[]
 name|createFields
 parameter_list|(
-name|String
+name|Object
 name|val
 parameter_list|,
 name|float
