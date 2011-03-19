@@ -4488,11 +4488,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|RAMDirectory
+name|Directory
 name|dir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|IndexWriter
@@ -4910,11 +4909,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|RAMDirectory
+name|Directory
 name|dir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|IndexWriter
