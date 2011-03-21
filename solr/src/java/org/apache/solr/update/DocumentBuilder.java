@@ -1252,7 +1252,7 @@ argument_list|()
 operator|&&
 name|out
 operator|.
-name|get
+name|getFieldable
 argument_list|(
 name|destinationField
 operator|.
