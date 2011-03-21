@@ -387,8 +387,7 @@ argument_list|(
 name|MIN_BUFFER_SIZE
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Override
+comment|// not until java 6 @Override
 DECL|method|fillBytesRef
 specifier|public
 name|int
@@ -410,8 +409,7 @@ name|bytes
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
+comment|// not until java 6 @Override
 DECL|method|getBytesRef
 specifier|public
 name|BytesRef
