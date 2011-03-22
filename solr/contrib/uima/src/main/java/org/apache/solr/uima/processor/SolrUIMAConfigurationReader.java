@@ -539,7 +539,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|readAEOverridingParameters
 parameter_list|()
@@ -548,7 +548,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|runtimeParameters
 init|=
@@ -557,7 +557,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -627,6 +627,15 @@ operator|!=
 name|Node
 operator|.
 name|TEXT_NODE
+operator|&&
+name|overridingNode
+operator|.
+name|getNodeType
+argument_list|()
+operator|!=
+name|Node
+operator|.
+name|COMMENT_NODE
 condition|)
 block|{
 name|runtimeParameters
