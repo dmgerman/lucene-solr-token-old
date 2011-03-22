@@ -424,6 +424,15 @@ operator|==
 literal|2
 argument_list|)
 expr_stmt|;
+specifier|final
+name|FieldInfos
+name|fieldInfos
+init|=
+name|merger
+operator|.
+name|fieldInfos
+argument_list|()
+decl_stmt|;
 comment|//Should be able to open a new SegmentReader against the new directory
 name|SegmentReader
 name|mergedReader
@@ -447,10 +456,7 @@ name|mergedDir
 argument_list|,
 literal|false
 argument_list|,
-name|merger
-operator|.
 name|fieldInfos
-argument_list|()
 operator|.
 name|hasProx
 argument_list|()
@@ -460,13 +466,12 @@ operator|.
 name|getSegmentCodecs
 argument_list|()
 argument_list|,
-name|merger
-operator|.
 name|fieldInfos
-argument_list|()
 operator|.
 name|hasVectors
 argument_list|()
+argument_list|,
+name|fieldInfos
 argument_list|)
 argument_list|,
 name|BufferedIndexInput

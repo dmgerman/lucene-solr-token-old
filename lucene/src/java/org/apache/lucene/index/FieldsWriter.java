@@ -185,11 +185,6 @@ specifier|private
 name|String
 name|segment
 decl_stmt|;
-DECL|field|fieldInfos
-specifier|private
-name|FieldInfos
-name|fieldInfos
-decl_stmt|;
 DECL|field|fieldsStream
 specifier|private
 name|IndexOutput
@@ -208,9 +203,6 @@ name|directory
 parameter_list|,
 name|String
 name|segment
-parameter_list|,
-name|FieldInfos
-name|fn
 parameter_list|)
 throws|throws
 name|IOException
@@ -226,10 +218,6 @@ operator|.
 name|segment
 operator|=
 name|segment
-expr_stmt|;
-name|fieldInfos
-operator|=
-name|fn
 expr_stmt|;
 name|boolean
 name|success
@@ -319,9 +307,6 @@ name|fdx
 parameter_list|,
 name|IndexOutput
 name|fdt
-parameter_list|,
-name|FieldInfos
-name|fn
 parameter_list|)
 block|{
 name|directory
@@ -331,10 +316,6 @@ expr_stmt|;
 name|segment
 operator|=
 literal|null
-expr_stmt|;
-name|fieldInfos
-operator|=
-name|fn
 expr_stmt|;
 name|fieldsStream
 operator|=
@@ -769,6 +750,9 @@ name|addDocument
 parameter_list|(
 name|Document
 name|doc
+parameter_list|,
+name|FieldInfos
+name|fieldInfos
 parameter_list|)
 throws|throws
 name|IOException

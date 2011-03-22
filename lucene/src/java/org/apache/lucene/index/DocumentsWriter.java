@@ -540,13 +540,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * RAMFile buffer for DocWriters.    */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"serial"
-argument_list|)
-class|class
 DECL|class|PerDocBuffer
+class|class
 name|PerDocBuffer
 extends|extends
 name|RAMFile
@@ -765,7 +760,6 @@ name|closed
 decl_stmt|;
 DECL|field|fieldInfos
 specifier|private
-specifier|final
 name|FieldInfos
 name|fieldInfos
 decl_stmt|;
@@ -794,6 +788,9 @@ name|directory
 parameter_list|,
 name|IndexWriter
 name|writer
+parameter_list|,
+name|IndexingChain
+name|indexingChain
 parameter_list|,
 name|FieldInfos
 name|fieldInfos
@@ -1091,16 +1088,6 @@ return|return
 name|doFlush
 return|;
 block|}
-DECL|method|getFieldInfos
-specifier|public
-name|FieldInfos
-name|getFieldInfos
-parameter_list|()
-block|{
-return|return
-name|fieldInfos
-return|;
-block|}
 comment|/** If non-null, various details of indexing are printed    *  here. */
 DECL|method|setInfoStream
 specifier|synchronized
@@ -1382,6 +1369,22 @@ assert|assert
 name|allThreadsIdle
 argument_list|()
 assert|;
+for|for
+control|(
+name|DocumentsWriterThreadState
+name|threadState
+range|:
+name|threadStates
+control|)
+block|{
+name|threadState
+operator|.
+name|consumer
+operator|.
+name|doAfterFlush
+argument_list|()
+expr_stmt|;
+block|}
 name|threadBindings
 operator|.
 name|clear
@@ -1395,6 +1398,14 @@ expr_stmt|;
 name|segment
 operator|=
 literal|null
+expr_stmt|;
+name|fieldInfos
+operator|=
+operator|new
+name|FieldInfos
+argument_list|(
+name|fieldInfos
+argument_list|)
 expr_stmt|;
 name|numDocs
 operator|=
@@ -1966,6 +1977,8 @@ operator|.
 name|segmentCodecs
 argument_list|,
 literal|false
+argument_list|,
+name|fieldInfos
 argument_list|)
 expr_stmt|;
 name|Collection
@@ -2915,7 +2928,9 @@ operator|.
 name|consumer
 operator|.
 name|processDocument
-argument_list|()
+argument_list|(
+name|fieldInfos
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally
