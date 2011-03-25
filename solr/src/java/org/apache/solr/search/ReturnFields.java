@@ -1228,24 +1228,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|key
-operator|!=
-literal|null
-condition|)
-block|{
-name|rename
-operator|.
-name|add
-argument_list|(
-name|field
-argument_list|,
-name|key
-argument_list|)
-expr_stmt|;
-block|}
 continue|continue;
 block|}
 comment|// an invalid field name... reset the position pointer to retry
@@ -1263,18 +1245,12 @@ block|}
 block|}
 if|if
 condition|(
-name|field
-operator|==
+name|key
+operator|!=
 literal|null
-operator|&&
-name|sp
-operator|.
-name|pos
-operator|>
-name|start
 condition|)
 block|{
-comment|// if we are here, we must have read "key = "
+comment|// we read "key = "
 name|field
 operator|=
 name|sp
