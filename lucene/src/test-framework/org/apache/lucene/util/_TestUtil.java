@@ -2460,7 +2460,7 @@ control|)
 block|{
 name|fieldInfos
 operator|.
-name|add
+name|addOrUpdate
 argument_list|(
 name|field
 operator|.

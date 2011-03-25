@@ -114,6 +114,36 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|SegmentCodecs
+operator|.
+name|SegmentCodecsBuilder
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|codecs
+operator|.
+name|CodecProvider
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|Directory
@@ -663,13 +693,18 @@ DECL|method|newFieldInfos
 specifier|public
 name|FieldInfos
 name|newFieldInfos
-parameter_list|()
+parameter_list|(
+name|SegmentCodecsBuilder
+name|segmentCodecsBuilder
+parameter_list|)
 block|{
 return|return
 operator|new
 name|FieldInfos
 argument_list|(
 name|this
+argument_list|,
+name|segmentCodecsBuilder
 argument_list|)
 return|;
 block|}
@@ -835,6 +870,12 @@ specifier|final
 name|FieldNumberBiMap
 name|globalFieldNumbers
 decl_stmt|;
+DECL|field|segmentCodecsBuilder
+specifier|private
+specifier|final
+name|SegmentCodecsBuilder
+name|segmentCodecsBuilder
+decl_stmt|;
 comment|// First used in 2.9; prior to 2.9 there was no format header
 DECL|field|FORMAT_START
 specifier|public
@@ -934,7 +975,7 @@ specifier|private
 name|int
 name|format
 decl_stmt|;
-comment|/**    * Creates a new {@link FieldInfos} instance with a private    * {@link FieldNumberBiMap}.    *<p>    * Note: this ctor should not be used during indexing use    * {@link FieldInfos#FieldInfos(FieldInfos)} or    * {@link FieldInfos#FieldInfos(FieldNumberBiMap)} instead.    */
+comment|/**    * Creates a new {@link FieldInfos} instance with a private    * {@link FieldNumberBiMap} and a default {@link SegmentCodecsBuilder}    * initialized with {@link CodecProvider#getDefault()}.    *<p>    * Note: this ctor should not be used during indexing use    * {@link FieldInfos#FieldInfos(FieldInfos)} or    * {@link FieldInfos#FieldInfos(FieldNumberBiMap)} instead.    */
 DECL|method|FieldInfos
 specifier|public
 name|FieldInfos
@@ -945,6 +986,16 @@ argument_list|(
 operator|new
 name|FieldNumberBiMap
 argument_list|()
+argument_list|,
+name|SegmentCodecsBuilder
+operator|.
+name|create
+argument_list|(
+name|CodecProvider
+operator|.
+name|getDefault
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -961,6 +1012,10 @@ argument_list|(
 name|other
 operator|.
 name|globalFieldNumbers
+argument_list|,
+name|other
+operator|.
+name|segmentCodecsBuilder
 argument_list|)
 expr_stmt|;
 block|}
@@ -970,6 +1025,9 @@ name|FieldInfos
 parameter_list|(
 name|FieldNumberBiMap
 name|globalFieldNumbers
+parameter_list|,
+name|SegmentCodecsBuilder
+name|segmentCodecsBuilder
 parameter_list|)
 block|{
 name|this
@@ -977,6 +1035,12 @@ operator|.
 name|globalFieldNumbers
 operator|=
 name|globalFieldNumbers
+expr_stmt|;
+name|this
+operator|.
+name|segmentCodecsBuilder
+operator|=
+name|segmentCodecsBuilder
 expr_stmt|;
 block|}
 comment|/**    * Construct a FieldInfos object using the directory and the name of the file    * IndexInput.     *<p>    * Note: The created instance will be read-only    *     * @param d The directory to open the IndexInput from    * @param name The name of the file to open the IndexInput from in the Directory    * @throws IOException    */
@@ -998,6 +1062,8 @@ argument_list|(
 operator|(
 name|FieldNumberBiMap
 operator|)
+literal|null
+argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
@@ -1172,6 +1238,8 @@ operator|new
 name|FieldInfos
 argument_list|(
 name|globalFieldNumbers
+argument_list|,
+name|segmentCodecsBuilder
 argument_list|)
 decl_stmt|;
 for|for
@@ -1243,12 +1311,12 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**    * Add fields that are indexed. Whether they have termvectors has to be specified.    *     * @param names The names of the fields    * @param storeTermVectors Whether the fields store term vectors or not    * @param storePositionWithTermVector true if positions should be stored.    * @param storeOffsetWithTermVector true if offsets should be stored    */
-DECL|method|addIndexed
+comment|/**    * Adds or updates fields that are indexed. Whether they have termvectors has to be specified.    *     * @param names The names of the fields    * @param storeTermVectors Whether the fields store term vectors or not    * @param storePositionWithTermVector true if positions should be stored.    * @param storeOffsetWithTermVector true if offsets should be stored    */
+DECL|method|addOrUpdateIndexed
 specifier|synchronized
 specifier|public
 name|void
-name|addIndexed
+name|addOrUpdateIndexed
 parameter_list|(
 name|Collection
 argument_list|<
@@ -1274,7 +1342,7 @@ range|:
 name|names
 control|)
 block|{
-name|add
+name|addOrUpdate
 argument_list|(
 name|name
 argument_list|,
@@ -1289,12 +1357,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Assumes the fields are not storing term vectors.    *     * @param names The names of the fields    * @param isIndexed Whether the fields are indexed or not    *     * @see #add(String, boolean)    */
-DECL|method|add
+comment|/**    * Assumes the fields are not storing term vectors.    *     * @param names The names of the fields    * @param isIndexed Whether the fields are indexed or not    *     * @see #addOrUpdate(String, boolean)    */
+DECL|method|addOrUpdate
 specifier|synchronized
 specifier|public
 name|void
-name|add
+name|addOrUpdate
 parameter_list|(
 name|Collection
 argument_list|<
@@ -1314,7 +1382,7 @@ range|:
 name|names
 control|)
 block|{
-name|add
+name|addOrUpdate
 argument_list|(
 name|name
 argument_list|,
@@ -1323,12 +1391,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Calls 5 parameter add with false for all TermVector parameters.    *     * @param name The name of the Fieldable    * @param isIndexed true if the field is indexed    * @see #add(String, boolean, boolean, boolean, boolean)    */
-DECL|method|add
+comment|/**    * Calls 5 parameter add with false for all TermVector parameters.    *     * @param name The name of the Fieldable    * @param isIndexed true if the field is indexed    * @see #addOrUpdate(String, boolean, boolean, boolean, boolean)    */
+DECL|method|addOrUpdate
 specifier|synchronized
 specifier|public
 name|void
-name|add
+name|addOrUpdate
 parameter_list|(
 name|String
 name|name
@@ -1337,7 +1405,7 @@ name|boolean
 name|isIndexed
 parameter_list|)
 block|{
-name|add
+name|addOrUpdate
 argument_list|(
 name|name
 argument_list|,
@@ -1354,11 +1422,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Calls 5 parameter add with false for term vector positions and offsets.    *     * @param name The name of the field    * @param isIndexed  true if the field is indexed    * @param storeTermVector true if the term vector should be stored    */
-DECL|method|add
+DECL|method|addOrUpdate
 specifier|synchronized
 specifier|public
 name|void
-name|add
+name|addOrUpdate
 parameter_list|(
 name|String
 name|name
@@ -1370,7 +1438,7 @@ name|boolean
 name|storeTermVector
 parameter_list|)
 block|{
-name|add
+name|addOrUpdate
 argument_list|(
 name|name
 argument_list|,
@@ -1387,11 +1455,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** If the field is not yet known, adds it. If it is known, checks to make    *  sure that the isIndexed flag is the same as was given previously for this    *  field. If not - marks it as being indexed.  Same goes for the TermVector    * parameters.    *     * @param name The name of the field    * @param isIndexed true if the field is indexed    * @param storeTermVector true if the term vector should be stored    * @param storePositionWithTermVector true if the term vector with positions should be stored    * @param storeOffsetWithTermVector true if the term vector with offsets should be stored    */
-DECL|method|add
+DECL|method|addOrUpdate
 specifier|synchronized
 specifier|public
 name|void
-name|add
+name|addOrUpdate
 parameter_list|(
 name|String
 name|name
@@ -1409,7 +1477,7 @@ name|boolean
 name|storeOffsetWithTermVector
 parameter_list|)
 block|{
-name|add
+name|addOrUpdate
 argument_list|(
 name|name
 argument_list|,
@@ -1426,11 +1494,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** If the field is not yet known, adds it. If it is known, checks to make    *  sure that the isIndexed flag is the same as was given previously for this    *  field. If not - marks it as being indexed.  Same goes for the TermVector    * parameters.    *    * @param name The name of the field    * @param isIndexed true if the field is indexed    * @param storeTermVector true if the term vector should be stored    * @param storePositionWithTermVector true if the term vector with positions should be stored    * @param storeOffsetWithTermVector true if the term vector with offsets should be stored    * @param omitNorms true if the norms for the indexed field should be omitted    */
-DECL|method|add
+DECL|method|addOrUpdate
 specifier|synchronized
 specifier|public
 name|void
-name|add
+name|addOrUpdate
 parameter_list|(
 name|String
 name|name
@@ -1451,7 +1519,7 @@ name|boolean
 name|omitNorms
 parameter_list|)
 block|{
-name|add
+name|addOrUpdate
 argument_list|(
 name|name
 argument_list|,
@@ -1472,11 +1540,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** If the field is not yet known, adds it. If it is known, checks to make    *  sure that the isIndexed flag is the same as was given previously for this    *  field. If not - marks it as being indexed.  Same goes for the TermVector    * parameters.    *    * @param name The name of the field    * @param isIndexed true if the field is indexed    * @param storeTermVector true if the term vector should be stored    * @param storePositionWithTermVector true if the term vector with positions should be stored    * @param storeOffsetWithTermVector true if the term vector with offsets should be stored    * @param omitNorms true if the norms for the indexed field should be omitted    * @param storePayloads true if payloads should be stored for this field    * @param omitTermFreqAndPositions true if term freqs should be omitted for this field    */
-DECL|method|add
+DECL|method|addOrUpdate
 specifier|synchronized
 specifier|public
 name|FieldInfo
-name|add
+name|addOrUpdate
 parameter_list|(
 name|String
 name|name
@@ -1576,7 +1644,13 @@ literal|"FieldInfos are read-only, create a new instance with a global field map
 argument_list|)
 throw|;
 block|}
-specifier|final
+assert|assert
+name|segmentCodecsBuilder
+operator|!=
+literal|null
+operator|:
+literal|"SegmentCodecsBuilder is set to null but FieldInfos is not read-only"
+assert|;
 name|FieldInfo
 name|fi
 init|=
@@ -1603,7 +1677,8 @@ argument_list|,
 name|preferredFieldNumber
 argument_list|)
 decl_stmt|;
-return|return
+name|fi
+operator|=
 name|addInternal
 argument_list|(
 name|name
@@ -1624,7 +1699,7 @@ name|storePayloads
 argument_list|,
 name|omitTermFreqAndPositions
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1645,6 +1720,30 @@ argument_list|,
 name|storePayloads
 argument_list|,
 name|omitTermFreqAndPositions
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|fi
+operator|.
+name|isIndexed
+operator|&&
+name|fi
+operator|.
+name|getCodecId
+argument_list|()
+operator|==
+name|FieldInfo
+operator|.
+name|UNASSIGNED_CODEC_ID
+condition|)
+block|{
+name|segmentCodecsBuilder
+operator|.
+name|tryAddAndSet
+argument_list|(
+name|fi
 argument_list|)
 expr_stmt|;
 block|}
@@ -2011,6 +2110,60 @@ block|}
 block|}
 return|return
 literal|false
+return|;
+block|}
+comment|/**    * Builds the {@link SegmentCodecs} mapping for this {@link FieldInfos} instance.    * @param clearBuilder<code>true</code> iff the internal {@link SegmentCodecsBuilder} must be cleared otherwise<code>false</code>    */
+DECL|method|buildSegmentCodecs
+specifier|public
+name|SegmentCodecs
+name|buildSegmentCodecs
+parameter_list|(
+name|boolean
+name|clearBuilder
+parameter_list|)
+block|{
+if|if
+condition|(
+name|globalFieldNumbers
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"FieldInfos are read-only no SegmentCodecs available"
+argument_list|)
+throw|;
+block|}
+assert|assert
+name|segmentCodecsBuilder
+operator|!=
+literal|null
+assert|;
+specifier|final
+name|SegmentCodecs
+name|segmentCodecs
+init|=
+name|segmentCodecsBuilder
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|clearBuilder
+condition|)
+block|{
+name|segmentCodecsBuilder
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|segmentCodecs
 return|;
 block|}
 DECL|method|write

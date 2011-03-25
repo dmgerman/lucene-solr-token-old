@@ -24,6 +24,16 @@ specifier|final
 class|class
 name|FieldInfo
 block|{
+DECL|field|UNASSIGNED_CODEC_ID
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|UNASSIGNED_CODEC_ID
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|field|name
 specifier|public
 name|String
@@ -74,8 +84,7 @@ specifier|private
 name|int
 name|codecId
 init|=
-operator|-
-literal|1
+name|UNASSIGNED_CODEC_ID
 decl_stmt|;
 comment|// set inside SegmentCodecs#build() during segment flush - this is used to identify the codec used to write this field
 DECL|method|FieldInfo
@@ -205,7 +214,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|setCodecId
-specifier|public
 name|void
 name|setCodecId
 parameter_list|(
@@ -218,8 +226,7 @@ name|this
 operator|.
 name|codecId
 operator|==
-operator|-
-literal|1
+name|UNASSIGNED_CODEC_ID
 operator|:
 literal|"CodecId can only be set once."
 assert|;
@@ -285,6 +292,7 @@ return|return
 name|clone
 return|;
 block|}
+comment|// should only be called by FieldInfos#addOrUpdate
 DECL|method|update
 name|void
 name|update
