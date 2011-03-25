@@ -253,6 +253,19 @@ name|solr
 operator|.
 name|search
 operator|.
+name|ReturnFields
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|search
+operator|.
 name|SolrIndexSearcher
 import|;
 end_import
@@ -1381,7 +1394,7 @@ name|fields
 init|=
 name|returnFields
 operator|.
-name|getFieldNames
+name|getLuceneFieldNames
 argument_list|()
 decl_stmt|;
 name|Object
@@ -1462,7 +1475,7 @@ if|if
 condition|(
 name|returnFields
 operator|.
-name|getWantsScore
+name|wantsScore
 argument_list|()
 condition|)
 block|{

@@ -94,6 +94,7 @@ extends|extends
 name|TransformerWithContext
 block|{
 DECL|enum|Style
+specifier|public
 specifier|static
 enum|enum
 name|Style

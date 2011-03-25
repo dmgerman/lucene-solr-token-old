@@ -163,6 +163,19 @@ operator|.
 name|SchemaField
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|search
+operator|.
+name|ReturnFields
+import|;
+end_import
 begin_comment
 comment|/**  * A description of the PHP serialization format can be found here:  * http://www.hurring.com/scott/code/perl/serialize/  */
 end_comment
@@ -576,7 +589,7 @@ condition|(
 operator|!
 name|returnFields
 operator|.
-name|contains
+name|wantsField
 argument_list|(
 name|fname
 argument_list|)

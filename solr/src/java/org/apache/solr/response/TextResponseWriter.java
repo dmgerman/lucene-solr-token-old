@@ -205,6 +205,19 @@ operator|.
 name|DocList
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|search
+operator|.
+name|ReturnFields
+import|;
+end_import
 begin_comment
 comment|/** Base class for text-oriented response writers.  *  * @version $Id$  */
 end_comment
@@ -1423,7 +1436,7 @@ name|wantsScores
 operator|=
 name|fields
 operator|.
-name|getWantsScore
+name|wantsScore
 argument_list|()
 operator|&&
 name|ids
@@ -1523,7 +1536,7 @@ name|fnames
 init|=
 name|fields
 operator|.
-name|getFieldNames
+name|getLuceneFieldNames
 argument_list|()
 decl_stmt|;
 for|for

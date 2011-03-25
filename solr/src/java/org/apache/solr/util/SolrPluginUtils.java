@@ -304,19 +304,6 @@ name|solr
 operator|.
 name|response
 operator|.
-name|ReturnFields
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|response
-operator|.
 name|SolrQueryResponse
 import|;
 end_import
@@ -664,7 +651,7 @@ if|if
 condition|(
 name|returnFields
 operator|.
-name|getFieldNames
+name|getLuceneFieldNames
 argument_list|()
 operator|!=
 literal|null
@@ -678,7 +665,7 @@ name|fieldFilter
 init|=
 name|returnFields
 operator|.
-name|getFieldNames
+name|getLuceneFieldNames
 argument_list|()
 decl_stmt|;
 if|if
