@@ -237,7 +237,7 @@ name|style
 operator|==
 name|Style
 operator|.
-name|NL
+name|HTML
 condition|)
 block|{
 name|doc
