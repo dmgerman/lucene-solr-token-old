@@ -3769,6 +3769,10 @@ operator|&&
 name|ch
 operator|!=
 literal|'.'
+operator|&&
+name|ch
+operator|!=
+literal|':'
 condition|)
 block|{
 break|break;

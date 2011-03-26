@@ -58,7 +58,7 @@ name|ValueSource
 import|;
 end_import
 begin_comment
-comment|/**  * Add values from a ValueSource (function query etc)  *   * NOT really sure how or if this could work...  *  * @version $Id: JSONResponseWriter.java 1065304 2011-01-30 15:10:15Z rmuir $  * @since solr 4.0  */
+comment|/**  * Add values from a ValueSource (function query etc)  *  * NOT really sure how or if this could work...  *  * @version $Id: JSONResponseWriter.java 1065304 2011-01-30 15:10:15Z rmuir $  * @since solr 4.0  */
 end_comment
 begin_class
 DECL|class|ValueSourceAugmenter
@@ -118,6 +118,31 @@ name|values
 operator|=
 name|values
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getName
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setContext
+specifier|public
+name|void
+name|setContext
+parameter_list|(
+name|TransformContext
+name|context
+parameter_list|)
+block|{
+comment|// maybe we do something here?
 block|}
 annotation|@
 name|Override
