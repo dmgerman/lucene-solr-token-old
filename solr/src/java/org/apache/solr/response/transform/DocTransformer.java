@@ -39,7 +39,7 @@ name|SolrDocument
 import|;
 end_import
 begin_comment
-comment|/**  * New instance for each request  *  * @version $Id: JSONResponseWriter.java 1065304 2011-01-30 15:10:15Z rmuir $  */
+comment|/**  * New instance for each request  *  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|DocTransformer
