@@ -612,7 +612,7 @@ parameter_list|,
 name|SegmentInfo
 name|segmentInfo
 parameter_list|,
-name|String
+name|int
 name|id
 parameter_list|,
 name|Set
@@ -624,6 +624,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
+name|String
+name|codecId
+init|=
+literal|""
+operator|+
+name|id
+decl_stmt|;
 name|StandardPostingsReader
 operator|.
 name|files
@@ -632,7 +640,7 @@ name|dir
 argument_list|,
 name|segmentInfo
 argument_list|,
-name|id
+name|codecId
 argument_list|,
 name|files
 argument_list|)
@@ -645,7 +653,7 @@ name|dir
 argument_list|,
 name|segmentInfo
 argument_list|,
-name|id
+name|codecId
 argument_list|,
 name|files
 argument_list|)
@@ -658,7 +666,7 @@ name|dir
 argument_list|,
 name|segmentInfo
 argument_list|,
-name|id
+name|codecId
 argument_list|,
 name|files
 argument_list|)

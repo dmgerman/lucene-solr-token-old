@@ -43,7 +43,7 @@ name|BulgarianStemFilter
 import|;
 end_import
 begin_comment
-comment|/** Factory for {@link BulgarianStemFilter} */
+comment|/**   * Factory for {@link BulgarianStemFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_bgstem" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.StandardTokenizerFactory"/&gt;  *&lt;filter class="solr.LowerCaseFilterFactory"/&gt;  *&lt;filter class="solr.BulgarianStemFilterFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  * @version $Id$  */
 end_comment
 begin_class
 DECL|class|BulgarianStemFilterFactory

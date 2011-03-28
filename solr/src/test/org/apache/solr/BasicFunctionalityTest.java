@@ -311,6 +311,19 @@ name|solr
 operator|.
 name|response
 operator|.
+name|ResultContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|response
+operator|.
 name|SolrQueryResponse
 import|;
 end_import
@@ -469,9 +482,11 @@ name|args
 operator|.
 name|put
 argument_list|(
-literal|"version"
+name|CommonParams
+operator|.
+name|VERSION
 argument_list|,
-literal|"2.0"
+literal|"2.2"
 argument_list|)
 expr_stmt|;
 name|assertU
@@ -605,9 +620,11 @@ name|args
 operator|.
 name|put
 argument_list|(
-literal|"version"
+name|CommonParams
+operator|.
+name|VERSION
 argument_list|,
-literal|"2.0"
+literal|"2.2"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -2519,9 +2536,11 @@ name|args
 operator|.
 name|put
 argument_list|(
-literal|"version"
+name|CommonParams
+operator|.
+name|VERSION
 argument_list|,
-literal|"2.1"
+literal|"2.2"
 argument_list|)
 expr_stmt|;
 name|assertU
@@ -3040,7 +3059,8 @@ name|DocList
 name|dl
 init|=
 operator|(
-name|DocList
+operator|(
+name|ResultContext
 operator|)
 name|rsp
 operator|.
@@ -3051,6 +3071,9 @@ name|get
 argument_list|(
 literal|"response"
 argument_list|)
+operator|)
+operator|.
+name|docs
 decl_stmt|;
 name|org
 operator|.
@@ -3229,7 +3252,8 @@ name|DocList
 name|dl
 init|=
 operator|(
-name|DocList
+operator|(
+name|ResultContext
 operator|)
 name|rsp
 operator|.
@@ -3240,6 +3264,9 @@ name|get
 argument_list|(
 literal|"response"
 argument_list|)
+operator|)
+operator|.
+name|docs
 decl_stmt|;
 name|DocIterator
 name|di
@@ -3702,6 +3729,11 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|ignoreException
+argument_list|(
+literal|"can not sort on multivalued field: sortabuse_t"
+argument_list|)
+expr_stmt|;
 name|assertQ
 argument_list|(
 literal|"sort on something that shouldn't work"

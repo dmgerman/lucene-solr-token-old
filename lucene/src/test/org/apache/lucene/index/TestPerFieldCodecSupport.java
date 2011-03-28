@@ -1626,7 +1626,8 @@ name|codecs
 index|[
 name|fieldInfo
 operator|.
-name|codecId
+name|getCodecId
+argument_list|()
 index|]
 argument_list|)
 expr_stmt|;

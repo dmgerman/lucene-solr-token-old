@@ -488,8 +488,9 @@ block|{
 name|Filter
 name|f
 init|=
-operator|new
 name|TermRangeFilter
+operator|.
+name|newStringRange
 argument_list|(
 name|field
 argument_list|,

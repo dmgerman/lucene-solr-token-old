@@ -190,6 +190,10 @@ DECL|field|termAtt
 name|TermToBytesRefAttribute
 name|termAtt
 decl_stmt|;
+DECL|field|termBytesRef
+name|BytesRef
+name|termBytesRef
+decl_stmt|;
 comment|// Copied from our perThread
 DECL|field|intPool
 specifier|final
@@ -229,12 +233,6 @@ decl_stmt|;
 DECL|field|postingsArray
 name|ParallelPostingsArray
 name|postingsArray
-decl_stmt|;
-DECL|field|termBytesRef
-specifier|private
-specifier|final
-name|BytesRef
-name|termBytesRef
 decl_stmt|;
 DECL|field|bytesUsed
 specifier|private
@@ -368,12 +366,6 @@ operator|=
 literal|2
 operator|*
 name|streamCount
-expr_stmt|;
-name|termBytesRef
-operator|=
-name|perThread
-operator|.
-name|termBytesRef
 expr_stmt|;
 name|this
 operator|.
@@ -613,6 +605,13 @@ name|TermToBytesRefAttribute
 operator|.
 name|class
 argument_list|)
+expr_stmt|;
+name|termBytesRef
+operator|=
+name|termAtt
+operator|.
+name|getBytesRef
+argument_list|()
 expr_stmt|;
 name|consumer
 operator|.
@@ -937,10 +936,8 @@ name|termBytesRef
 argument_list|,
 name|termAtt
 operator|.
-name|toBytesRef
-argument_list|(
-name|termBytesRef
-argument_list|)
+name|fillBytesRef
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

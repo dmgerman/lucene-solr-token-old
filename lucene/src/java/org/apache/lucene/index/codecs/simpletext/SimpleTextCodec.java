@@ -256,7 +256,7 @@ parameter_list|,
 name|SegmentInfo
 name|segmentInfo
 parameter_list|,
-name|String
+name|int
 name|id
 parameter_list|,
 name|Set
@@ -278,6 +278,8 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
+literal|""
+operator|+
 name|id
 argument_list|)
 argument_list|)

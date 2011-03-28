@@ -2244,7 +2244,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|initialize
+name|super
 argument_list|(
 name|docsEnums
 operator|.

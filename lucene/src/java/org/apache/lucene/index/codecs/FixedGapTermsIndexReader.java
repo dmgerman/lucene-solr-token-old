@@ -324,7 +324,7 @@ name|BytesRef
 argument_list|>
 name|termComp
 parameter_list|,
-name|String
+name|int
 name|codecId
 parameter_list|)
 throws|throws
@@ -348,6 +348,8 @@ name|segmentFileName
 argument_list|(
 name|segment
 argument_list|,
+literal|""
+operator|+
 name|codecId
 argument_list|,
 name|FixedGapTermsIndexWriter

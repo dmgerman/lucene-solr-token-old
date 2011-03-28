@@ -84,15 +84,6 @@ name|void
 name|abort
 parameter_list|()
 function_decl|;
-DECL|method|setFieldInfos
-specifier|abstract
-name|void
-name|setFieldInfos
-parameter_list|(
-name|FieldInfos
-name|fieldInfos
-parameter_list|)
-function_decl|;
 block|}
 end_class
 end_unit

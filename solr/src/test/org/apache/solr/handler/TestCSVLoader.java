@@ -48,6 +48,21 @@ name|solr
 operator|.
 name|common
 operator|.
+name|params
+operator|.
+name|CommonParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|ContentStream
@@ -556,9 +571,11 @@ name|args
 operator|.
 name|put
 argument_list|(
-literal|"version"
+name|CommonParams
+operator|.
+name|VERSION
 argument_list|,
-literal|"2.0"
+literal|"2.2"
 argument_list|)
 expr_stmt|;
 name|makeFile
@@ -594,7 +611,7 @@ argument_list|(
 literal|"id:100"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='quoted']"
+literal|"//arr[@name='str_s']/str[.='quoted']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -760,7 +777,7 @@ argument_list|(
 literal|"id:100"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='QUOTED']"
+literal|"//arr[@name='str_s']/str[.='QUOTED']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -862,7 +879,7 @@ argument_list|(
 literal|"id:100"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='quoted']"
+literal|"//arr[@name='str_s']/str[.='quoted']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -872,7 +889,7 @@ argument_list|(
 literal|"id:101"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='EMPTY']"
+literal|"//arr[@name='str_s']/str[.='EMPTY']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -882,7 +899,7 @@ argument_list|(
 literal|"id:102"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='EMPTY']"
+literal|"//arr[@name='str_s']/str[.='EMPTY']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -892,7 +909,7 @@ argument_list|(
 literal|"id:103"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='EMPTY']"
+literal|"//arr[@name='str_s']/str[.='EMPTY']"
 argument_list|)
 expr_stmt|;
 comment|// test multiple map rules
@@ -932,7 +949,7 @@ argument_list|(
 literal|"id:100"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='QUOTED']"
+literal|"//arr[@name='str_s']/str[.='QUOTED']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -942,7 +959,7 @@ argument_list|(
 literal|"id:101"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='EMPTY']"
+literal|"//arr[@name='str_s']/str[.='EMPTY']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -952,7 +969,7 @@ argument_list|(
 literal|"id:102"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='EMPTY']"
+literal|"//arr[@name='str_s']/str[.='EMPTY']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -962,7 +979,7 @@ argument_list|(
 literal|"id:103"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='EMPTY']"
+literal|"//arr[@name='str_s']/str[.='EMPTY']"
 argument_list|)
 expr_stmt|;
 comment|// test indexing empty fields
@@ -998,7 +1015,7 @@ argument_list|(
 literal|"id:100"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='quoted']"
+literal|"//arr[@name='str_s']/str[.='quoted']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1008,7 +1025,7 @@ argument_list|(
 literal|"id:101"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='']"
+literal|"//arr[@name='str_s']/str[.='']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1018,7 +1035,7 @@ argument_list|(
 literal|"id:102"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='']"
+literal|"//arr[@name='str_s']/str[.='']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1028,7 +1045,7 @@ argument_list|(
 literal|"id:103"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='']"
+literal|"//arr[@name='str_s']/str[.='']"
 argument_list|)
 expr_stmt|;
 comment|// test overriding the name of fields
@@ -1072,7 +1089,7 @@ argument_list|(
 literal|"id:100"
 argument_list|)
 argument_list|,
-literal|"//str[@name='my_s'][.='quoted']"
+literal|"//arr[@name='my_s']/str[.='quoted']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1082,7 +1099,7 @@ argument_list|(
 literal|"id:101"
 argument_list|)
 argument_list|,
-literal|"count(//str[@name='str_s'])=0"
+literal|"count(//arr[@name='str_s']/str)=0"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1092,7 +1109,7 @@ argument_list|(
 literal|"id:102"
 argument_list|)
 argument_list|,
-literal|"count(//str[@name='str_s'])=0"
+literal|"count(//arr[@name='str_s']/str)=0"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1102,7 +1119,7 @@ argument_list|(
 literal|"id:103"
 argument_list|)
 argument_list|,
-literal|"count(//str[@name='str_s'])=0"
+literal|"count(//arr[@name='str_s']/str)=0"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1112,7 +1129,7 @@ argument_list|(
 literal|"id:101"
 argument_list|)
 argument_list|,
-literal|"//str[@name='my_s'][.='EMPTY']"
+literal|"//arr[@name='my_s']/str[.='EMPTY']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1122,7 +1139,7 @@ argument_list|(
 literal|"id:102"
 argument_list|)
 argument_list|,
-literal|"//str[@name='my_s'][.='EMPTY']"
+literal|"//arr[@name='my_s']/str[.='EMPTY']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1132,7 +1149,7 @@ argument_list|(
 literal|"id:103"
 argument_list|)
 argument_list|,
-literal|"//str[@name='my_s'][.='EMPTY']"
+literal|"//arr[@name='my_s']/str[.='EMPTY']"
 argument_list|)
 expr_stmt|;
 comment|// test that header in file was skipped
@@ -1183,7 +1200,7 @@ argument_list|(
 literal|"id:[100 TO 110]"
 argument_list|)
 argument_list|,
-literal|"count(//str[@name='str_s'])=0"
+literal|"count(//str[@name='str_s']/str)=0"
 argument_list|)
 expr_stmt|;
 comment|// test skipping a field by specifying an empty name
@@ -1223,7 +1240,7 @@ argument_list|(
 literal|"id:[100 TO 110]"
 argument_list|)
 argument_list|,
-literal|"count(//str[@name='str_s'])=0"
+literal|"count(//str[@name='str_s']/str)=0"
 argument_list|)
 expr_stmt|;
 comment|// test loading file as if it didn't have a header
@@ -1263,7 +1280,7 @@ argument_list|(
 literal|"id:100"
 argument_list|)
 argument_list|,
-literal|"//str[@name='my_s'][.='quoted']"
+literal|"//arr[@name='my_s']/str[.='quoted']"
 argument_list|)
 expr_stmt|;
 comment|// test skipLines
@@ -1307,7 +1324,7 @@ argument_list|(
 literal|"id:100"
 argument_list|)
 argument_list|,
-literal|"//str[@name='my_s'][.='quoted']"
+literal|"//arr[@name='my_s']/str[.='quoted']"
 argument_list|)
 expr_stmt|;
 comment|// test multi-valued fields via field splitting w/ mapping of subvalues
@@ -1360,7 +1377,7 @@ argument_list|(
 literal|"id:100"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='quoted']"
+literal|"//arr[@name='str_s']/str[.='quoted']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1410,7 +1427,7 @@ argument_list|(
 literal|"id:103"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='EMPTY']"
+literal|"//arr[@name='str_s']/str[.='EMPTY']"
 argument_list|)
 expr_stmt|;
 comment|// test alternate values for delimiters
@@ -1482,7 +1499,7 @@ argument_list|(
 literal|"id:100"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='quoted']"
+literal|"//arr[@name='str_s']/str[.='quoted']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1532,7 +1549,7 @@ argument_list|(
 literal|"id:103"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='EMPTY']"
+literal|"//arr[@name='str_s']/str[.='EMPTY']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1542,7 +1559,7 @@ argument_list|(
 literal|"id:104"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='a\\\\b']"
+literal|"//arr[@name='str_s']/str[.='a\\\\b']"
 argument_list|)
 expr_stmt|;
 comment|// test no escaping + double encapsulator escaping by default
@@ -1576,7 +1593,7 @@ argument_list|(
 literal|"id:100"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='quoted \" \\ string']"
+literal|"//arr[@name='str_s']/str[.='quoted \" \\ string']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1586,7 +1603,7 @@ argument_list|(
 literal|"id:101"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='unquoted \"\" \\ string']"
+literal|"//arr[@name='str_s']/str[.='unquoted \"\" \\ string']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1596,7 +1613,7 @@ argument_list|(
 literal|"id:102"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='end quote \\']"
+literal|"//arr[@name='str_s']/str[.='end quote \\']"
 argument_list|)
 expr_stmt|;
 comment|// setting an escape should disable encapsulator
@@ -1632,7 +1649,7 @@ argument_list|(
 literal|"id:100"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='\"quoted \"\" \" \\ string\"']"
+literal|"//arr[@name='str_s']/str[.='\"quoted \"\" \" \\ string\"']"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -1642,7 +1659,7 @@ argument_list|(
 literal|"id:101"
 argument_list|)
 argument_list|,
-literal|"//str[@name='str_s'][.='unquoted \"\" \" , \\ string']"
+literal|"//arr[@name='str_s']/str[.='unquoted \"\" \" , \\ string']"
 argument_list|)
 expr_stmt|;
 block|}

@@ -43,7 +43,7 @@ name|HindiNormalizationFilter
 import|;
 end_import
 begin_comment
-comment|/** Factory for {@link HindiNormalizationFilter} */
+comment|/**   * Factory for {@link HindiNormalizationFilter}.   *<pre class="prettyprint">  *&lt;fieldType name="text_hinormal" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.StandardTokenizerFactory"/&gt;  *&lt;filter class="solr.HindiNormalizationFilterFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  * @version $Id$    */
 end_comment
 begin_class
 DECL|class|HindiNormalizationFilterFactory

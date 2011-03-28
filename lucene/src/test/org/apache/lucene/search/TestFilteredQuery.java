@@ -1265,8 +1265,9 @@ block|{
 name|TermRangeQuery
 name|rq
 init|=
-operator|new
 name|TermRangeQuery
+operator|.
+name|newStringRange
 argument_list|(
 literal|"sorter"
 argument_list|,
