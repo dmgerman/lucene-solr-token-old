@@ -3,15 +3,15 @@ begin_comment
 comment|/**  * Copyright 2005 The Apache Software Foundation  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.util
+DECL|package|org.apache.solr.schema
 package|package
 name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|solr
 operator|.
-name|util
+name|schema
 package|;
 end_package
 begin_import
@@ -76,7 +76,7 @@ name|Fieldable
 import|;
 end_import
 begin_comment
-comment|/**  * Helper class to make TrieFields compatible with ones written in solr  */
+comment|/**  * Helper class to make TrieFields compatible with ones written in solr  *   * TODO -- Something like this should be in in lucene  *  see: LUCENE-3001  */
 end_comment
 begin_class
 DECL|class|TrieFieldHelper
