@@ -195,8 +195,9 @@ init|=
 operator|new
 name|ConstantScoreQuery
 argument_list|(
-operator|new
 name|TermRangeFilter
+operator|.
+name|newStringRange
 argument_list|(
 literal|"a"
 argument_list|,
@@ -599,7 +600,7 @@ operator|.
 name|setSimilarityProvider
 argument_list|(
 operator|new
-name|DefaultSimilarity
+name|DefaultSimilarityProvider
 argument_list|()
 block|{
 annotation|@

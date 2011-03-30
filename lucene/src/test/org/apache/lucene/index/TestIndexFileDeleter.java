@@ -360,11 +360,6 @@ init|=
 operator|new
 name|DefaultSimilarity
 argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|"content"
-argument_list|)
 decl_stmt|;
 comment|// Set one norm so we get a .s0 file:
 name|reader

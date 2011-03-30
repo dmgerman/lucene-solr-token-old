@@ -20,15 +20,6 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|text
-operator|.
-name|Collator
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -59,23 +50,6 @@ operator|.
 name|nodes
 operator|.
 name|ParametricRangeQueryNode
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|queryParser
-operator|.
-name|standard
-operator|.
-name|config
-operator|.
-name|RangeCollatorAttribute
 import|;
 end_import
 begin_import
@@ -96,7 +70,7 @@ name|ParametricRangeQueryNodeProcessor
 import|;
 end_import
 begin_comment
-comment|/**  * This query node represents a range query. It also holds which collator will  * be used by the range query and if the constant score rewrite is enabled.<br/>  *   * @see ParametricRangeQueryNodeProcessor  * @see RangeCollatorAttribute  * @see org.apache.lucene.search.TermRangeQuery  */
+comment|/**  * This query node represents a range query.   *   * @see ParametricRangeQueryNodeProcessor  * @see org.apache.lucene.search.TermRangeQuery  */
 end_comment
 begin_class
 DECL|class|RangeQueryNode
@@ -106,11 +80,6 @@ name|RangeQueryNode
 extends|extends
 name|ParametricRangeQueryNode
 block|{
-DECL|field|collator
-specifier|private
-name|Collator
-name|collator
-decl_stmt|;
 comment|/**    * @param lower    * @param upper    */
 DECL|method|RangeQueryNode
 specifier|public
@@ -121,9 +90,6 @@ name|lower
 parameter_list|,
 name|ParametricQueryNode
 name|upper
-parameter_list|,
-name|Collator
-name|collator
 parameter_list|)
 block|{
 name|super
@@ -132,12 +98,6 @@ name|lower
 argument_list|,
 name|upper
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|collator
-operator|=
-name|collator
 expr_stmt|;
 block|}
 annotation|@
@@ -199,19 +159,6 @@ name|sb
 operator|.
 name|toString
 argument_list|()
-return|;
-block|}
-comment|/**    * @return the collator    */
-DECL|method|getCollator
-specifier|public
-name|Collator
-name|getCollator
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|collator
 return|;
 block|}
 block|}

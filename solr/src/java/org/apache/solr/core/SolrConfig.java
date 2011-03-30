@@ -160,6 +160,21 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|response
+operator|.
+name|transform
+operator|.
+name|TransformerFactory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|search
 operator|.
 name|CacheConfig
@@ -335,6 +350,17 @@ operator|.
 name|dom
 operator|.
 name|NodeList
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|InputSource
 import|;
 end_import
 begin_import
@@ -545,7 +571,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|InputStream
+name|InputSource
 name|is
 parameter_list|)
 throws|throws
@@ -579,7 +605,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|InputStream
+name|InputSource
 name|is
 parameter_list|)
 throws|throws
@@ -613,7 +639,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|InputStream
+name|InputSource
 name|is
 parameter_list|)
 throws|throws
@@ -1113,6 +1139,19 @@ operator|.
 name|class
 argument_list|,
 literal|"valueSourceParser"
+argument_list|,
+literal|true
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|loadPluginInfo
+argument_list|(
+name|TransformerFactory
+operator|.
+name|class
+argument_list|,
+literal|"transformer"
 argument_list|,
 literal|true
 argument_list|,
@@ -2158,7 +2197,7 @@ return|return
 name|dataDir
 return|;
 block|}
-comment|/**SolrConfig keeps a repository of plugins by the type. The known interfaces are the types.    * @param type The key is FQN of the plugin class there are a few  known types : SolrFormatter, SolrFragmenter    * SolrRequestHandler,QParserPlugin, QueryResponseWriter,ValueSourceParser,    * SearchComponent, QueryConverter, SolrEventListener, DirectoryFactory,    * IndexDeletionPolicy, IndexReaderFactory    */
+comment|/**SolrConfig keeps a repository of plugins by the type. The known interfaces are the types.    * @param type The key is FQN of the plugin class there are a few  known types : SolrFormatter, SolrFragmenter    * SolrRequestHandler,QParserPlugin, QueryResponseWriter,ValueSourceParser,    * SearchComponent, QueryConverter, SolrEventListener, DirectoryFactory,    * IndexDeletionPolicy, IndexReaderFactory, {@link TransformerFactory}    */
 DECL|method|getPluginInfos
 specifier|public
 name|List

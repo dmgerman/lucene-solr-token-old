@@ -1853,6 +1853,21 @@ operator|.
 name|setSimilarityProvider
 argument_list|(
 operator|new
+name|DefaultSimilarityProvider
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|Similarity
+name|get
+parameter_list|(
+name|String
+name|field
+parameter_list|)
+block|{
+return|return
+operator|new
 name|DefaultSimilarity
 argument_list|()
 block|{
@@ -1899,6 +1914,9 @@ parameter_list|()
 block|{
 return|return
 literal|"just a test"
+return|;
+block|}
+block|}
 return|;
 block|}
 block|}

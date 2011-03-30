@@ -3188,7 +3188,7 @@ name|int
 name|s
 parameter_list|)
 block|{
-name|initialize
+name|super
 argument_list|(
 name|s
 argument_list|)

@@ -188,6 +188,7 @@ operator|.
 name|fieldInfos
 control|)
 block|{
+specifier|final
 name|NormsWriterPerField
 name|toWrite
 init|=

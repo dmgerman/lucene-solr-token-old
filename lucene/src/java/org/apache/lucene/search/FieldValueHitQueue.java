@@ -147,6 +147,8 @@ block|{
 name|super
 argument_list|(
 name|fields
+argument_list|,
+name|size
 argument_list|)
 expr_stmt|;
 name|SortField
@@ -188,11 +190,6 @@ literal|0
 index|]
 operator|=
 name|oneReverseMul
-expr_stmt|;
-name|initialize
-argument_list|(
-name|size
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns whether<code>a</code> is less relevant than<code>b</code>.      * @param a ScoreDoc      * @param b ScoreDoc      * @return<code>true</code> if document<code>a</code> should be sorted after document<code>b</code>.      */
@@ -297,6 +294,8 @@ block|{
 name|super
 argument_list|(
 name|fields
+argument_list|,
+name|size
 argument_list|)
 expr_stmt|;
 name|int
@@ -358,11 +357,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|initialize
-argument_list|(
-name|size
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -476,8 +470,16 @@ parameter_list|(
 name|SortField
 index|[]
 name|fields
+parameter_list|,
+name|int
+name|size
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|size
+argument_list|)
+expr_stmt|;
 comment|// When we get here, fields.length is guaranteed to be> 0, therefore no
 comment|// need to check it again.
 comment|// All these are required by this class's API - need to return arrays.
