@@ -278,6 +278,15 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
+DECL|field|abortedFiles
+specifier|private
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|abortedFiles
+decl_stmt|;
+comment|// List of files that were written before last abort()
 DECL|field|chain
 specifier|final
 name|IndexingChain
@@ -757,6 +766,7 @@ name|MAX_INT
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
 name|Iterator
 argument_list|<
 name|ThreadState
@@ -866,7 +876,6 @@ name|incrementAndGet
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** If non-null, various details of indexing are printed    *  here. */
 DECL|method|setInfoStream
 specifier|synchronized
 name|void
@@ -893,6 +902,7 @@ name|void
 name|pushConfigChange
 parameter_list|()
 block|{
+specifier|final
 name|Iterator
 argument_list|<
 name|ThreadState
@@ -932,16 +942,6 @@ name|this
 operator|.
 name|infoStream
 expr_stmt|;
-name|perThread
-operator|.
-name|docState
-operator|.
-name|similarityProvider
-operator|=
-name|this
-operator|.
-name|similarityProvider
-expr_stmt|;
 block|}
 block|}
 comment|/** Returns how many docs are currently buffered in RAM. */
@@ -957,15 +957,6 @@ name|get
 argument_list|()
 return|;
 block|}
-DECL|field|abortedFiles
-specifier|private
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|abortedFiles
-decl_stmt|;
-comment|// List of files that were written before last abort()
 DECL|method|abortedFiles
 name|Collection
 argument_list|<
