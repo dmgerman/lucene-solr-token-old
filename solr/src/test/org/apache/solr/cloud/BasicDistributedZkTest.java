@@ -280,6 +280,7 @@ argument_list|,
 name|SolrTestCaseJ4
 operator|.
 name|TEST_HOME
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
