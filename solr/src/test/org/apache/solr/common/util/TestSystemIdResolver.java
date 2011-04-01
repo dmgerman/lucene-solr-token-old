@@ -191,6 +191,7 @@ argument_list|(
 name|SolrTestCaseJ4
 operator|.
 name|TEST_HOME
+argument_list|()
 argument_list|,
 name|this
 operator|.
@@ -221,6 +222,7 @@ argument_list|(
 name|SolrTestCaseJ4
 operator|.
 name|TEST_HOME
+argument_list|()
 operator|+
 literal|"/crazy-path-to-config.xml"
 argument_list|)
@@ -393,6 +395,7 @@ argument_list|(
 name|SolrTestCaseJ4
 operator|.
 name|TEST_HOME
+argument_list|()
 operator|+
 literal|"/conf/schema.xml"
 argument_list|)
@@ -404,6 +407,7 @@ argument_list|(
 name|SolrTestCaseJ4
 operator|.
 name|TEST_HOME
+argument_list|()
 operator|+
 literal|"/conf/solrconfig.xml"
 argument_list|)
@@ -422,6 +426,7 @@ argument_list|(
 name|SolrTestCaseJ4
 operator|.
 name|TEST_HOME
+argument_list|()
 operator|+
 literal|"/crazy-path-to-schema.xml"
 argument_list|)
@@ -433,6 +438,7 @@ argument_list|(
 name|SolrTestCaseJ4
 operator|.
 name|TEST_HOME
+argument_list|()
 operator|+
 literal|"/crazy-path-to-config.xml"
 argument_list|)

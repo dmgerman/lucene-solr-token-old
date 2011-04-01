@@ -125,6 +125,19 @@ operator|.
 name|SolrCore
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|util
+operator|.
+name|ExternalPaths
+import|;
+end_import
 begin_comment
 comment|/**  * Abstract base class for testing merge indexes command  *  * @since solr 1.4  * @version $Id$  */
 end_comment
@@ -153,7 +166,7 @@ name|getSolrHome
 parameter_list|()
 block|{
 return|return
-name|SolrJettyTestBase
+name|ExternalPaths
 operator|.
 name|EXAMPLE_MULTICORE_HOME
 return|;
