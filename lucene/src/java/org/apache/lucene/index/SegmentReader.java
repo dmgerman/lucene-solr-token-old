@@ -334,6 +334,8 @@ name|normsDirty
 init|=
 literal|false
 decl_stmt|;
+comment|// TODO: we should move this tracking into SegmentInfo;
+comment|// this way SegmentInfo.toString shows pending deletes
 DECL|field|pendingDeleteCount
 specifier|private
 name|int
@@ -3477,9 +3479,11 @@ argument_list|(
 name|docNum
 argument_list|)
 condition|)
+block|{
 name|pendingDeleteCount
 operator|++
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

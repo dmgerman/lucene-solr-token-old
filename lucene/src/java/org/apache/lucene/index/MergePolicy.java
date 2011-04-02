@@ -144,6 +144,11 @@ name|int
 name|maxNumSegmentsOptimize
 decl_stmt|;
 comment|// used by IndexWriter
+DECL|field|estimatedMergeBytes
+name|long
+name|estimatedMergeBytes
+decl_stmt|;
+comment|// used by IndexWriter
 DECL|field|readers
 name|List
 argument_list|<

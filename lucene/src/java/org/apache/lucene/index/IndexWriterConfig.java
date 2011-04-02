@@ -468,7 +468,7 @@ expr_stmt|;
 name|mergePolicy
 operator|=
 operator|new
-name|LogByteSizeMergePolicy
+name|TieredMergePolicy
 argument_list|()
 expr_stmt|;
 name|maxThreadStates

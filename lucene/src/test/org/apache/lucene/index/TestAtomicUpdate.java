@@ -642,7 +642,7 @@ argument_list|)
 decl_stmt|;
 operator|(
 operator|(
-name|LogMergePolicy
+name|TieredMergePolicy
 operator|)
 name|conf
 operator|.
@@ -650,7 +650,7 @@ name|getMergePolicy
 argument_list|()
 operator|)
 operator|.
-name|setMergeFactor
+name|setMaxMergeAtOnce
 argument_list|(
 literal|3
 argument_list|)
