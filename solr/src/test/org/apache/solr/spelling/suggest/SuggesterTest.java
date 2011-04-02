@@ -134,6 +134,15 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -674,6 +683,8 @@ decl_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
 DECL|method|testBenchmark
 specifier|public
 name|void
@@ -682,20 +693,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// this benchmark is very time consuming
-name|boolean
-name|doTest
-init|=
-literal|true
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|doTest
-condition|)
-block|{
-return|return;
-block|}
 specifier|final
 name|List
 argument_list|<
