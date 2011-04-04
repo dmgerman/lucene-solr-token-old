@@ -3756,6 +3756,7 @@ argument_list|(
 name|pos
 argument_list|)
 expr_stmt|;
+comment|//          if (!Character.isJavaIdentifierPart(ch)&& ch != '.'&& ch != ':') {
 if|if
 condition|(
 operator|!
@@ -3769,10 +3770,6 @@ operator|&&
 name|ch
 operator|!=
 literal|'.'
-operator|&&
-name|ch
-operator|!=
-literal|':'
 condition|)
 block|{
 break|break;
