@@ -179,6 +179,7 @@ operator|new
 name|File
 argument_list|(
 name|TEST_HOME
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|lookup
@@ -295,6 +296,7 @@ operator|new
 name|File
 argument_list|(
 name|TEST_HOME
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|lookup

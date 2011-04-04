@@ -1504,7 +1504,7 @@ name|_TestUtil
 operator|.
 name|nextInt
 argument_list|(
-name|random
+name|r
 argument_list|,
 literal|97
 argument_list|,

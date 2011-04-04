@@ -86,6 +86,19 @@ operator|.
 name|PerfRunData
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
 begin_comment
 comment|/**  * Task to support benchmarking collation.  *<p>  *<ul>  *<li><code>NewCollationAnalyzer</code> with the default jdk impl  *<li><code>NewCollationAnalyzer(impl:icu)</code> specify an impl (jdk,icu)  *</ul>  *</p>  */
 end_comment
@@ -271,6 +284,10 @@ name|clazz
 operator|.
 name|getConstructor
 argument_list|(
+name|Version
+operator|.
+name|class
+argument_list|,
 name|collatorClazz
 argument_list|)
 decl_stmt|;
@@ -279,6 +296,10 @@ name|ctor
 operator|.
 name|newInstance
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|collator
 argument_list|)
 return|;

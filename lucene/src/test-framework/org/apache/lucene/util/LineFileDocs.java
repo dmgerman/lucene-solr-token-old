@@ -688,7 +688,7 @@ operator|=
 operator|new
 name|Field
 argument_list|(
-literal|"id"
+literal|"docid"
 argument_list|,
 literal|""
 argument_list|,
