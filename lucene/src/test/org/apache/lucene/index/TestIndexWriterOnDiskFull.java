@@ -605,6 +605,8 @@ expr_stmt|;
 comment|// Now try again w/ more space:
 name|diskFree
 operator|+=
+name|TEST_NIGHTLY
+condition|?
 name|_TestUtil
 operator|.
 name|nextInt
@@ -614,6 +616,17 @@ argument_list|,
 literal|400
 argument_list|,
 literal|600
+argument_list|)
+else|:
+name|_TestUtil
+operator|.
+name|nextInt
+argument_list|(
+name|random
+argument_list|,
+literal|3000
+argument_list|,
+literal|5000
 argument_list|)
 expr_stmt|;
 block|}
