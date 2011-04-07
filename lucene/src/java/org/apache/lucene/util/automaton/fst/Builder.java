@@ -929,7 +929,7 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Sugar: adds the UTF32 chars from char[] slice.  FST    *  must be FST.INPUT_TYPE.BYTE4! */
+comment|/** Sugar: adds the UTF32 codepoints from char[] slice.  FST    *  must be FST.INPUT_TYPE.BYTE4! */
 DECL|method|add
 specifier|public
 name|void
@@ -1046,7 +1046,7 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Sugar: adds the UTF32 chars from CharSequence.  FST    *  must be FST.INPUT_TYPE.BYTE4! */
+comment|/** Sugar: adds the UTF32 codepoints from CharSequence.  FST    *  must be FST.INPUT_TYPE.BYTE4! */
 DECL|method|add
 specifier|public
 name|void
