@@ -62,6 +62,7 @@ import|;
 end_import
 begin_class
 DECL|class|MockVariableLengthPayloadFilter
+specifier|public
 specifier|final
 class|class
 name|MockVariableLengthPayloadFilter
@@ -116,6 +117,7 @@ name|Payload
 name|payload
 decl_stmt|;
 DECL|method|MockVariableLengthPayloadFilter
+specifier|public
 name|MockVariableLengthPayloadFilter
 parameter_list|(
 name|Random
