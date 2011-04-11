@@ -3084,7 +3084,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3806,11 +3808,11 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|)
@@ -3830,7 +3832,7 @@ argument_list|(
 operator|new
 name|Field
 argument_list|(
-literal|"haspayload"
+literal|"hasMaybepayload"
 argument_list|,
 literal|"here we go"
 argument_list|,
@@ -3872,13 +3874,13 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3895,7 +3897,7 @@ argument_list|(
 operator|new
 name|Field
 argument_list|(
-literal|"nopayload"
+literal|"hasMaybepayload2"
 argument_list|,
 literal|"here we go"
 argument_list|,

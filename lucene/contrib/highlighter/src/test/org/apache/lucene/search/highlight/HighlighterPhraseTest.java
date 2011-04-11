@@ -495,6 +495,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -782,6 +784,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -1197,6 +1201,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -1484,6 +1490,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -1768,6 +1776,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE

@@ -571,7 +571,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -823,7 +825,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -941,7 +945,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1063,7 +1069,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1447,7 +1455,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//QueryParser parser = new QueryParser("contents", new MockAnalyzer());
+comment|//QueryParser parser = new QueryParser("contents", new MockAnalyzer(random));
 comment|//Query query = parser.parse("handle:1");
 name|Directory
 name|dir
@@ -1985,7 +1993,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|setOpenMode
@@ -2383,7 +2393,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|setOpenMode
@@ -2786,7 +2798,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|setOpenMode
@@ -2956,7 +2970,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|setMaxBufferedDocs
@@ -3040,7 +3056,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|setMaxBufferedDocs
@@ -3238,7 +3256,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|setMaxBufferedDocs
