@@ -257,6 +257,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -518,6 +520,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -732,6 +736,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -890,6 +896,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -1190,6 +1198,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -1397,6 +1407,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -1683,6 +1695,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -1906,6 +1920,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -2083,6 +2099,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -2644,6 +2662,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -2827,6 +2847,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -3290,6 +3312,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+specifier|final
+name|double
+name|randomIOExceptionRate
+init|=
+name|dir
+operator|.
+name|getRandomIOExceptionRate
+argument_list|()
+decl_stmt|;
+name|dir
+operator|.
+name|setRandomIOExceptionRate
+argument_list|(
+literal|0.0
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -3328,6 +3366,13 @@ literal|"after writer.close"
 argument_list|)
 expr_stmt|;
 block|}
+name|dir
+operator|.
+name|setRandomIOExceptionRate
+argument_list|(
+name|randomIOExceptionRate
+argument_list|)
+expr_stmt|;
 comment|// Finally, verify index is not corrupt, and, if
 comment|// we succeeded, we see all docs changed, and if
 comment|// we failed, we see either all docs or no docs
@@ -3934,6 +3979,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -4498,6 +4545,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -4723,6 +4772,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE

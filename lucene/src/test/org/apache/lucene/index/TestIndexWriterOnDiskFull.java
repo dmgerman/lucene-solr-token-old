@@ -325,7 +325,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -605,6 +607,8 @@ expr_stmt|;
 comment|// Now try again w/ more space:
 name|diskFree
 operator|+=
+name|TEST_NIGHTLY
+condition|?
 name|_TestUtil
 operator|.
 name|nextInt
@@ -614,6 +618,17 @@ argument_list|,
 literal|400
 argument_list|,
 literal|600
+argument_list|)
+else|:
+name|_TestUtil
+operator|.
+name|nextInt
+argument_list|(
+name|random
+argument_list|,
+literal|3000
+argument_list|,
+literal|5000
 argument_list|)
 expr_stmt|;
 block|}
@@ -727,7 +742,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -831,7 +848,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1161,7 +1180,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|setOpenMode
@@ -2073,10 +2094,32 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// Try again with 5000 more bytes of free space:
+comment|// Try again with more free space:
 name|diskFree
 operator|+=
-literal|5000
+name|TEST_NIGHTLY
+condition|?
+name|_TestUtil
+operator|.
+name|nextInt
+argument_list|(
+name|random
+argument_list|,
+literal|4000
+argument_list|,
+literal|8000
+argument_list|)
+else|:
+name|_TestUtil
+operator|.
+name|nextInt
+argument_list|(
+name|random
+argument_list|,
+literal|40000
+argument_list|,
+literal|80000
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -2273,7 +2316,7 @@ init|=
 name|newDirectory
 argument_list|()
 decl_stmt|;
-comment|//IndexWriter w = new IndexWriter(dir, newIndexWriterConfig(TEST_VERSION_CURRENT, new MockAnalyzer()).setReaderPooling(true));
+comment|//IndexWriter w = new IndexWriter(dir, newIndexWriterConfig(TEST_VERSION_CURRENT, new MockAnalyzer(random)).setReaderPooling(true));
 name|IndexWriter
 name|w
 init|=
@@ -2288,7 +2331,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|setMergeScheduler
@@ -2498,7 +2543,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|setMaxBufferedDocs

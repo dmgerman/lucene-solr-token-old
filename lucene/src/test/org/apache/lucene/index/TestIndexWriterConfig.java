@@ -220,7 +220,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -922,7 +924,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|toString
@@ -1032,7 +1036,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|IndexWriterConfig
@@ -1105,7 +1111,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Test IndexDeletionPolicy

@@ -768,6 +768,12 @@ name|pendingIDX
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|lastPayloadLength
+init|=
+operator|-
+literal|1
+decl_stmt|;
 while|while
 condition|(
 name|pendingIDX
@@ -849,12 +855,6 @@ name|int
 name|lastPos
 init|=
 literal|0
-decl_stmt|;
-name|int
-name|lastPayloadLength
-init|=
-operator|-
-literal|1
 decl_stmt|;
 for|for
 control|(

@@ -72,6 +72,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -418,7 +427,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|setMergePolicy
@@ -531,6 +542,15 @@ operator|new
 name|InstantiatedIndex
 argument_list|()
 decl_stmt|;
+comment|// we need to pass the "same" random to both, so they surely index the same payload data.
+name|long
+name|seed
+init|=
+name|random
+operator|.
+name|nextLong
+argument_list|()
+decl_stmt|;
 comment|// create dir data
 name|IndexWriter
 name|indexWriter
@@ -546,7 +566,13 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+operator|new
+name|Random
+argument_list|(
+name|seed
+argument_list|)
+argument_list|)
 argument_list|)
 operator|.
 name|setMergePolicy
@@ -636,7 +662,13 @@ name|indexWriterFactory
 argument_list|(
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+operator|new
+name|Random
+argument_list|(
+name|seed
+argument_list|)
+argument_list|)
 argument_list|,
 literal|true
 argument_list|)

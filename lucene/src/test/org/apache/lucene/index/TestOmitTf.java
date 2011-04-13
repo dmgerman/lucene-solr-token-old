@@ -375,7 +375,9 @@ name|analyzer
 init|=
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 decl_stmt|;
 name|IndexWriter
 name|writer
@@ -625,7 +627,9 @@ name|analyzer
 init|=
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 decl_stmt|;
 name|IndexWriter
 name|writer
@@ -912,7 +916,9 @@ name|analyzer
 init|=
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 decl_stmt|;
 name|IndexWriter
 name|writer
@@ -1212,7 +1218,9 @@ name|analyzer
 init|=
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 decl_stmt|;
 name|IndexWriter
 name|writer
@@ -1393,7 +1401,9 @@ name|analyzer
 init|=
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 decl_stmt|;
 name|IndexWriter
 name|writer

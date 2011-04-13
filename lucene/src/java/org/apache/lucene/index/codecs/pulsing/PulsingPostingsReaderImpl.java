@@ -1253,6 +1253,11 @@ specifier|private
 name|int
 name|freq
 decl_stmt|;
+DECL|field|payloadLength
+specifier|private
+name|int
+name|payloadLength
+decl_stmt|;
 DECL|method|PulsingDocsEnum
 specifier|public
 name|PulsingDocsEnum
@@ -1335,6 +1340,10 @@ name|bytes
 argument_list|)
 expr_stmt|;
 name|docID
+operator|=
+literal|0
+expr_stmt|;
+name|payloadLength
 operator|=
 literal|0
 expr_stmt|;
@@ -1468,12 +1477,6 @@ condition|(
 name|storePayloads
 condition|)
 block|{
-name|int
-name|payloadLength
-init|=
-operator|-
-literal|1
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -1817,6 +1820,10 @@ name|payloadLength
 operator|=
 literal|0
 expr_stmt|;
+name|posPending
+operator|=
+literal|0
+expr_stmt|;
 name|docID
 operator|=
 literal|0
@@ -1836,7 +1843,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//System.out.println("PR d&p nextDoc this=" + this);
+comment|//System.out.println("PR.nextDoc this=" + this);
 while|while
 condition|(
 literal|true
@@ -1854,13 +1861,14 @@ name|eof
 argument_list|()
 condition|)
 block|{
-comment|//System.out.println("PR   END");
+comment|//System.out.println("  END");
 return|return
 name|docID
 operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
+comment|//System.out.println("  read doc code");
 specifier|final
 name|int
 name|code
@@ -1897,6 +1905,7 @@ comment|// freq is one
 block|}
 else|else
 block|{
+comment|//System.out.println("  read freq");
 name|freq
 operator|=
 name|postings
@@ -1973,6 +1982,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//System.out.println("PR.advance target=" + target);
 name|int
 name|doc
 decl_stmt|;
@@ -1988,6 +1998,7 @@ operator|!=
 name|NO_MORE_DOCS
 condition|)
 block|{
+comment|//System.out.println("  nextDoc got doc=" + doc);
 if|if
 condition|(
 name|doc
@@ -1996,6 +2007,8 @@ name|target
 condition|)
 block|{
 return|return
+name|docID
+operator|=
 name|doc
 return|;
 block|}
@@ -2016,7 +2029,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//System.out.println("PR d&p nextPosition posPending=" + posPending + " vs freq=" + freq);
+comment|//System.out.println("PR.nextPosition posPending=" + posPending + " vs freq=" + freq);
 assert|assert
 name|posPending
 operator|>
@@ -2045,6 +2058,7 @@ name|payloadLength
 argument_list|)
 expr_stmt|;
 block|}
+comment|//System.out.println("  read pos code");
 specifier|final
 name|int
 name|code
@@ -2096,7 +2110,7 @@ name|readVInt
 argument_list|()
 expr_stmt|;
 block|}
-comment|//System.out.println("PR d&p nextPos return pos=" + position + " this=" + this);
+comment|//System.out.println("  return pos=" + position + " hasPayload=" + !payloadRetrieved + " posPending=" + posPending + " this=" + this);
 return|return
 name|position
 return|;
@@ -2109,6 +2123,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|//System.out.println("PR.skipPositions: posPending=" + posPending);
 while|while
 condition|(
 name|posPending
@@ -2128,7 +2143,7 @@ operator|!
 name|payloadRetrieved
 condition|)
 block|{
-comment|//System.out.println("  skip payload len=" + payloadLength);
+comment|//System.out.println("  skip last payload len=" + payloadLength);
 name|postings
 operator|.
 name|skipBytes

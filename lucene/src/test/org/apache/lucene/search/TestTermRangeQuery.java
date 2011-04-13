@@ -1827,6 +1827,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -1908,6 +1910,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|// shouldnt create an analyzer for every doc?
 DECL|method|addDoc
 specifier|private
 name|void
@@ -1934,6 +1937,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
