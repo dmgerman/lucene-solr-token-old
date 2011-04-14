@@ -1950,6 +1950,12 @@ name|boolean
 name|success
 parameter_list|)
 block|{
+assert|assert
+name|setFlushingDeleteQueue
+argument_list|(
+literal|null
+argument_list|)
+assert|;
 if|if
 condition|(
 name|success
@@ -1970,12 +1976,6 @@ name|abortFullFlushes
 argument_list|()
 expr_stmt|;
 block|}
-assert|assert
-name|setFlushingDeleteQueue
-argument_list|(
-literal|null
-argument_list|)
-assert|;
 block|}
 DECL|class|FlushTicket
 specifier|static
