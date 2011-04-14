@@ -470,6 +470,14 @@ argument_list|)
 expr_stmt|;
 comment|// Aggregate the storePayload as seen by the same
 comment|// field across multiple threads
+if|if
+condition|(
+operator|!
+name|fieldInfo
+operator|.
+name|omitTermFreqAndPositions
+condition|)
+block|{
 name|fieldInfo
 operator|.
 name|storePayloads
@@ -483,6 +491,7 @@ index|]
 operator|.
 name|hasPayloads
 expr_stmt|;
+block|}
 block|}
 comment|// If this field has postings then add them to the
 comment|// segment
