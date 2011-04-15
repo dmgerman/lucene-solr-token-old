@@ -1271,6 +1271,13 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|flushingDWPT
+operator|!=
+literal|null
+condition|)
+block|{
 name|maybeMerge
 operator||=
 name|doFlush
@@ -1278,6 +1285,7 @@ argument_list|(
 name|flushingDWPT
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|maybeMerge
 return|;
