@@ -707,7 +707,8 @@ name|perThread
 operator|.
 name|flushPending
 assert|;
-assert|assert
+if|if
+condition|(
 name|perThread
 operator|.
 name|perThread
@@ -716,7 +717,8 @@ name|getNumDocsInRAM
 argument_list|()
 operator|>
 literal|0
-assert|;
+condition|)
+block|{
 name|perThread
 operator|.
 name|flushPending
@@ -744,6 +746,8 @@ name|numPending
 operator|++
 expr_stmt|;
 comment|// write access synced
+block|}
+comment|// don't assert on numDocs since we could hit an abort excp. while selecting that dwpt for flushing
 block|}
 DECL|method|doOnAbort
 specifier|synchronized
