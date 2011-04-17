@@ -1202,6 +1202,16 @@ name|initialLimit
 operator|=
 name|dff
 operator|.
+name|limit
+operator|<=
+literal|0
+condition|?
+name|dff
+operator|.
+name|limit
+else|:
+name|dff
+operator|.
 name|offset
 operator|+
 name|dff
@@ -1220,7 +1230,10 @@ name|FacetParams
 operator|.
 name|FACET_SORT_COUNT
 argument_list|)
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|dff
 operator|.
 name|limit
@@ -1245,6 +1258,119 @@ literal|1.5
 argument_list|)
 operator|+
 literal|10
+expr_stmt|;
+name|dff
+operator|.
+name|initialMincount
+operator|=
+literal|0
+expr_stmt|;
+comment|// TODO: we could change this to 1, but would then need more refinement for small facet result sets?
+block|}
+else|else
+block|{
+comment|// if limit==-1, then no need to artificially lower mincount to 0 if it's 1
+name|dff
+operator|.
+name|initialMincount
+operator|=
+name|Math
+operator|.
+name|min
+argument_list|(
+name|dff
+operator|.
+name|minCount
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// we're sorting by index order.
+comment|// if minCount==0, we should always be able to get accurate results w/o over-requesting or refining
+comment|// if minCount==1, we should be able to get accurate results w/o over-requesting, but we'll need to refine
+comment|// if minCount==n (>1), we can set the initialMincount to minCount/nShards, rounded up.
+comment|// For example, we know that if minCount=10 and we have 3 shards, then at least one shard must have a count of 4 for the term
+comment|// For the minCount>1 case, we can generate too short of a list (miss terms at the end of the list) unless limit==-1
+comment|// For example: each shard could produce a list of top 10, but some of those could fail to make it into the combined list (i.e.
+comment|//   we needed to go beyond the top 10 to generate the top 10 combined).  Overrequesting can help a little here, but not as
+comment|//   much as when sorting by count.
+if|if
+condition|(
+name|dff
+operator|.
+name|minCount
+operator|<=
+literal|1
+condition|)
+block|{
+name|dff
+operator|.
+name|initialMincount
+operator|=
+name|dff
+operator|.
+name|minCount
+expr_stmt|;
+block|}
+else|else
+block|{
+name|dff
+operator|.
+name|initialMincount
+operator|=
+operator|(
+name|int
+operator|)
+name|Math
+operator|.
+name|ceil
+argument_list|(
+operator|(
+name|double
+operator|)
+name|dff
+operator|.
+name|minCount
+operator|/
+name|rb
+operator|.
+name|slices
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
+comment|// dff.initialMincount = 1;
+block|}
+block|}
+if|if
+condition|(
+name|dff
+operator|.
+name|initialMincount
+operator|!=
+literal|0
+condition|)
+block|{
+name|sreq
+operator|.
+name|params
+operator|.
+name|set
+argument_list|(
+name|paramStart
+operator|+
+name|FacetParams
+operator|.
+name|FACET_MINCOUNT
+argument_list|,
+name|dff
+operator|.
+name|initialMincount
+argument_list|)
 expr_stmt|;
 block|}
 comment|// Currently this is for testing only and allows overriding of the
@@ -1635,23 +1761,30 @@ name|values
 argument_list|()
 control|)
 block|{
-if|if
-condition|(
-name|dff
-operator|.
-name|limit
-operator|<=
-literal|0
-condition|)
-continue|continue;
 comment|// no need to check these facets for refinement
 if|if
 condition|(
 name|dff
 operator|.
-name|minCount
+name|initialLimit
 operator|<=
-literal|1
+literal|0
+operator|&&
+name|dff
+operator|.
+name|initialMincount
+operator|==
+literal|0
+condition|)
+continue|continue;
+comment|// only other case where index-sort doesn't need refinement is if minCount==0
+if|if
+condition|(
+name|dff
+operator|.
+name|minCount
+operator|==
+literal|0
 operator|&&
 name|dff
 operator|.
@@ -1670,7 +1803,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-comment|// generic array's are anoying
+comment|// generic array's are annoying
 name|List
 argument_list|<
 name|String
@@ -1723,11 +1856,21 @@ name|length
 argument_list|,
 name|dff
 operator|.
+name|limit
+operator|>=
+literal|0
+condition|?
+name|dff
+operator|.
 name|offset
 operator|+
 name|dff
 operator|.
 name|limit
+else|:
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 decl_stmt|;
 name|long
@@ -1788,6 +1931,7 @@ name|ntop
 condition|)
 block|{
 comment|// automatically flag the top values for refinement
+comment|// this should always be true for facet.sort=index
 name|needRefinement
 operator|=
 literal|true
@@ -1795,6 +1939,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// this logic should only be invoked for facet.sort=index (for now)
 comment|// calculate the maximum value that this term may have
 comment|// and if it is>= smallestCount, then flag for refinement
 name|long
@@ -2487,6 +2632,11 @@ name|getLexSorted
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|countSorted
+condition|)
+block|{
 name|int
 name|end
 init|=
@@ -2548,14 +2698,7 @@ operator|.
 name|minCount
 condition|)
 block|{
-if|if
-condition|(
-name|countSorted
-condition|)
 break|break;
-comment|// if sorted by count, we can break out of loop early
-else|else
-continue|continue;
 block|}
 name|fieldCounts
 operator|.
@@ -2579,6 +2722,113 @@ name|count
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|int
+name|off
+init|=
+name|dff
+operator|.
+name|offset
+decl_stmt|;
+name|int
+name|lim
+init|=
+name|dff
+operator|.
+name|limit
+operator|>=
+literal|0
+condition|?
+name|dff
+operator|.
+name|limit
+else|:
+name|Integer
+operator|.
+name|MAX_VALUE
+decl_stmt|;
+comment|// index order...
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|counts
+operator|.
+name|length
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|long
+name|count
+init|=
+name|counts
+index|[
+name|i
+index|]
+operator|.
+name|count
+decl_stmt|;
+if|if
+condition|(
+name|count
+operator|<
+name|dff
+operator|.
+name|minCount
+condition|)
+continue|continue;
+if|if
+condition|(
+name|off
+operator|>
+literal|0
+condition|)
+block|{
+name|off
+operator|--
+expr_stmt|;
+continue|continue;
+block|}
+if|if
+condition|(
+name|lim
+operator|<=
+literal|0
+condition|)
+block|{
+break|break;
+block|}
+name|lim
+operator|--
+expr_stmt|;
+name|fieldCounts
+operator|.
+name|add
+argument_list|(
+name|counts
+index|[
+name|i
+index|]
+operator|.
+name|name
+argument_list|,
+name|num
+argument_list|(
+name|count
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -3616,6 +3866,12 @@ name|int
 name|initialLimit
 decl_stmt|;
 comment|// how many terms requested in first phase
+DECL|field|initialMincount
+specifier|public
+name|int
+name|initialMincount
+decl_stmt|;
+comment|// mincount param sent to each shard
 DECL|field|needRefinements
 specifier|public
 name|boolean
@@ -3868,9 +4124,8 @@ name|count
 expr_stmt|;
 block|}
 block|}
-comment|// the largest possible missing term is 0 if we received less
-comment|// than the number requested (provided mincount==0 like it should be for
-comment|// a shard request)
+comment|// the largest possible missing term is initialMincount if we received less
+comment|// than the number requested.
 if|if
 condition|(
 name|numRequested
@@ -3888,7 +4143,7 @@ condition|)
 block|{
 name|last
 operator|=
-literal|0
+name|initialMincount
 expr_stmt|;
 block|}
 name|missingMaxPossible
