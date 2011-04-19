@@ -807,6 +807,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// TODO: would be preferable to use integer math here instead.
 name|numberOfSkipLevels
 operator|=
 name|docCount
@@ -822,14 +823,14 @@ name|Math
 operator|.
 name|floor
 argument_list|(
-name|Math
+name|StrictMath
 operator|.
 name|log
 argument_list|(
 name|docCount
 argument_list|)
 operator|/
-name|Math
+name|StrictMath
 operator|.
 name|log
 argument_list|(
