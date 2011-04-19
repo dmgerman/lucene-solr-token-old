@@ -110,11 +110,11 @@ specifier|final
 class|class
 name|DocumentsWriterFlushControl
 block|{
-DECL|field|maxBytesPerDWPT
+DECL|field|hardMaxBytesPerDWPT
 specifier|private
 specifier|final
 name|long
-name|maxBytesPerDWPT
+name|hardMaxBytesPerDWPT
 decl_stmt|;
 DECL|field|activeBytes
 specifier|private
@@ -277,7 +277,7 @@ name|Healthiness
 name|healthiness
 parameter_list|,
 name|long
-name|maxBytesPerDWPT
+name|hardMaxBytesPerDWPT
 parameter_list|)
 block|{
 name|this
@@ -304,9 +304,9 @@ name|flushPolicy
 expr_stmt|;
 name|this
 operator|.
-name|maxBytesPerDWPT
+name|hardMaxBytesPerDWPT
 operator|=
-name|maxBytesPerDWPT
+name|hardMaxBytesPerDWPT
 expr_stmt|;
 name|this
 operator|.
@@ -372,11 +372,11 @@ argument_list|()
 operator|-
 name|perThread
 operator|.
-name|perThreadBytes
+name|bytesUsed
 decl_stmt|;
 name|perThread
 operator|.
-name|perThreadBytes
+name|bytesUsed
 operator|+=
 name|delta
 expr_stmt|;
@@ -407,6 +407,7 @@ name|delta
 argument_list|)
 assert|;
 block|}
+comment|// only for asserts
 DECL|method|updatePeaks
 specifier|private
 name|boolean
@@ -515,14 +516,13 @@ name|flushPending
 operator|&&
 name|perThread
 operator|.
-name|perThreadBytes
+name|bytesUsed
 operator|>
-name|maxBytesPerDWPT
+name|hardMaxBytesPerDWPT
 condition|)
 block|{
-comment|// safety check to prevent a single DWPT exceeding its RAM limit. This
-comment|// is super
-comment|// important since we can not address more than 2048 MB per DWPT
+comment|// Safety check to prevent a single DWPT exceeding its RAM limit. This
+comment|// is super important since we can not address more than 2048 MB per DWPT
 name|setFlushPending
 argument_list|(
 name|perThread
@@ -639,16 +639,16 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|allFlushesDue
+DECL|method|anyFlushing
 specifier|public
 specifier|synchronized
 name|boolean
-name|allFlushesDue
+name|anyFlushing
 parameter_list|()
 block|{
 return|return
 name|numFlushing
-operator|==
+operator|!=
 literal|0
 return|;
 block|}
@@ -732,7 +732,7 @@ name|bytes
 init|=
 name|perThread
 operator|.
-name|perThreadBytes
+name|bytesUsed
 decl_stmt|;
 name|flushBytes
 operator|+=
@@ -769,7 +769,7 @@ name|flushBytes
 operator|-=
 name|state
 operator|.
-name|perThreadBytes
+name|bytesUsed
 expr_stmt|;
 block|}
 else|else
@@ -778,10 +778,10 @@ name|activeBytes
 operator|-=
 name|state
 operator|.
-name|perThreadBytes
+name|bytesUsed
 expr_stmt|;
 block|}
-comment|// take it out of the loop this DWPT is stale
+comment|// Take it out of the loop this DWPT is stale
 name|perThreadPool
 operator|.
 name|replaceForFlush
@@ -815,9 +815,11 @@ if|if
 condition|(
 name|fullFlush
 condition|)
+block|{
 return|return
 literal|null
 return|;
+block|}
 return|return
 name|internalTryCheckOutForFlush
 argument_list|(
@@ -862,7 +864,7 @@ operator|.
 name|flushPending
 condition|)
 block|{
-comment|// we are pending so all memory is already moved to flushBytes
+comment|// We are pending so all memory is already moved to flushBytes
 if|if
 condition|(
 name|perThread
@@ -897,7 +899,7 @@ name|bytes
 init|=
 name|perThread
 operator|.
-name|perThreadBytes
+name|bytesUsed
 decl_stmt|;
 comment|// do that before
 comment|// replace!
@@ -923,7 +925,7 @@ argument_list|)
 operator|:
 literal|"DWPT is already flushing"
 assert|;
-comment|// record the flushing DWPT to reduce flushBytes in doAfterFlush
+comment|// Record the flushing DWPT to reduce flushBytes in doAfterFlush
 name|flushingWriters
 operator|.
 name|put
@@ -1226,10 +1228,25 @@ return|return
 name|numFlushing
 return|;
 block|}
-DECL|method|setFlushDeletes
+DECL|method|doApplyAllDeletes
+specifier|public
+name|boolean
+name|doApplyAllDeletes
+parameter_list|()
+block|{
+return|return
+name|flushDeletes
+operator|.
+name|getAndSet
+argument_list|(
+literal|false
+argument_list|)
+return|;
+block|}
+DECL|method|setApplyAllDeletes
 specifier|public
 name|void
-name|setFlushDeletes
+name|setApplyAllDeletes
 parameter_list|()
 block|{
 name|flushDeletes
@@ -1282,7 +1299,7 @@ name|documentsWriter
 operator|.
 name|deleteQueue
 expr_stmt|;
-comment|// set a new delete queue - all subsequent DWPT will use this queue until
+comment|// Set a new delete queue - all subsequent DWPT will use this queue until
 comment|// we do another full flush
 name|documentsWriter
 operator|.
@@ -1562,6 +1579,10 @@ block|}
 block|}
 finally|finally
 block|{
+name|fullFlush
+operator|=
+literal|false
+expr_stmt|;
 name|flushQueue
 operator|.
 name|clear
@@ -1571,10 +1592,6 @@ name|blockedFlushes
 operator|.
 name|clear
 argument_list|()
-expr_stmt|;
-name|fullFlush
-operator|=
-literal|false
 expr_stmt|;
 block|}
 block|}

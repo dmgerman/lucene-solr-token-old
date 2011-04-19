@@ -935,7 +935,7 @@ literal|"hit exception during while NRT reader"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// now we are done - finish the full flush!
+comment|// Done: finish the full flush!
 name|docWriter
 operator|.
 name|finishFullFlush
@@ -5916,7 +5916,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// lock order IW -> BDS
+comment|// Lock order IW -> BDS
 synchronized|synchronized
 init|(
 name|bufferedDeletesStream
@@ -5942,7 +5942,7 @@ name|globalPacket
 argument_list|)
 expr_stmt|;
 block|}
-comment|// publishing the segment must be synched on IW -> BDS to make the sure
+comment|// Publishing the segment must be synched on IW -> BDS to make the sure
 comment|// that no merge prunes away the seg. private delete packet
 specifier|final
 name|long
@@ -5972,7 +5972,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// since we don't have a delete packet to apply we can get a new
+comment|// Since we don't have a delete packet to apply we can get a new
 comment|// generation right away
 name|nextGen
 operator|=
@@ -7229,6 +7229,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// Ensures only one flush() is actually flushing segments
+comment|// at a time:
 DECL|field|fullFlushLock
 specifier|private
 specifier|final
@@ -7284,9 +7286,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// TODO: this method should not have to be entirely
-comment|// synchronized, ie, merges should be allowed to commit
-comment|// even while a flush is happening
 DECL|method|doFlush
 specifier|private
 name|boolean
@@ -7481,6 +7480,8 @@ operator|!
 name|applyAllDeletes
 condition|)
 block|{
+comment|// nocommit -- shouldn't this move into the default
+comment|// flush policy?
 comment|// If deletes alone are consuming> 1/2 our RAM
 comment|// buffer, force them all to apply now. This is to
 comment|// prevent too-frequent flushing of a long tail of

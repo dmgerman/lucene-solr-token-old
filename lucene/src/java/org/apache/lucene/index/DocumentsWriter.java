@@ -229,7 +229,7 @@ name|Directory
 import|;
 end_import
 begin_comment
-comment|/**  * This class accepts multiple added documents and directly  * writes a single segment file.  It does this more  * efficiently than creating a single segment per document  * (with DocumentWriter) and doing standard merges on those  * segments.  *  * Each added document is passed to the {@link DocConsumer},  * which in turn processes the document and interacts with  * other consumers in the indexing chain.  Certain  * consumers, like {@link StoredFieldsWriter} and {@link  * TermVectorsTermsWriter}, digest a document and  * immediately write bytes to the "doc store" files (ie,  * they do not consume RAM per document, except while they  * are processing the document).  *  * Other consumers, eg {@link FreqProxTermsWriter} and  * {@link NormsWriter}, buffer bytes in RAM and flush only  * when a new segment is produced.   * Once we have used our allowed RAM buffer, or the number  * of added docs is large enough (in the case we are  * flushing by doc count instead of RAM usage), we create a  * real segment and flush it to the Directory.  *  * Threads:  *  * Multiple threads are allowed into addDocument at once.  * There is an initial synchronized call to getThreadState  * which allocates a ThreadState for this thread.  The same  * thread will get the same ThreadState over time (thread  * affinity) so that if there are consistent patterns (for  * example each thread is indexing a different content  * source) then we make better use of RAM.  Then  * processDocument is called on that ThreadState without  * synchronization (most of the "heavy lifting" is in this  * call).  Finally the synchronized "finishDocument" is  * called to flush changes to the directory.  *  * When flush is called by IndexWriter we forcefully idle  * all threads and flush only once they are all idle.  This  * means you can call flush with a given thread even while  * other threads are actively adding/deleting documents.  *  *  * Exceptions:  *  * Because this class directly updates in-memory posting  * lists, and flushes stored fields and term vectors  * directly to files in the directory, there are certain  * limited times when an exception can corrupt this state.  * For example, a disk full while flushing stored fields  * leaves this file in a corrupt state.  Or, an OOM  * exception while appending to the in-memory posting lists  * can corrupt that posting list.  We call such exceptions  * "aborting exceptions".  In these cases we must call  * abort() to discard all docs added since the last flush.  *  * All other exceptions ("non-aborting exceptions") can  * still partially update the index structures.  These  * updates are consistent, but, they represent only a part  * of the document seen up until the exception was hit.  * When this happens, we immediately mark the document as  * deleted so that the document is always atomically ("all  * or none") added to the index.  */
+comment|/**  * This class accepts multiple added documents and directly  * writes segment files.  *  * Each added document is passed to the {@link DocConsumer},  * which in turn processes the document and interacts with  * other consumers in the indexing chain.  Certain  * consumers, like {@link StoredFieldsWriter} and {@link  * TermVectorsTermsWriter}, digest a document and  * immediately write bytes to the "doc store" files (ie,  * they do not consume RAM per document, except while they  * are processing the document).  *  * Other consumers, eg {@link FreqProxTermsWriter} and  * {@link NormsWriter}, buffer bytes in RAM and flush only  * when a new segment is produced.   * Once we have used our allowed RAM buffer, or the number  * of added docs is large enough (in the case we are  * flushing by doc count instead of RAM usage), we create a  * real segment and flush it to the Directory.  *  * Threads:  *  * Multiple threads are allowed into addDocument at once.  * There is an initial synchronized call to getThreadState  * which allocates a ThreadState for this thread.  The same  * thread will get the same ThreadState over time (thread  * affinity) so that if there are consistent patterns (for  * example each thread is indexing a different content  * source) then we make better use of RAM.  Then  * processDocument is called on that ThreadState without  * synchronization (most of the "heavy lifting" is in this  * call).  Finally the synchronized "finishDocument" is  * called to flush changes to the directory.  *  * When flush is called by IndexWriter we forcefully idle  * all threads and flush only once they are all idle.  This  * means you can call flush with a given thread even while  * other threads are actively adding/deleting documents.  *  *  * Exceptions:  *  * Because this class directly updates in-memory posting  * lists, and flushes stored fields and term vectors  * directly to files in the directory, there are certain  * limited times when an exception can corrupt this state.  * For example, a disk full while flushing stored fields  * leaves this file in a corrupt state.  Or, an OOM  * exception while appending to the in-memory posting lists  * can corrupt that posting list.  We call such exceptions  * "aborting exceptions".  In these cases we must call  * abort() to discard all docs added since the last flush.  *  * All other exceptions ("non-aborting exceptions") can  * still partially update the index structures.  These  * updates are consistent, but, they represent only a part  * of the document seen up until the exception was hit.  * When this happens, we immediately mark the document as  * deleted so that the document is always atomically ("all  * or none") added to the index.  */
 end_comment
 begin_class
 DECL|class|DocumentsWriter
@@ -495,14 +495,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|DocumentsWriterDeleteQueue
-name|deleteQueue
-init|=
-name|this
-operator|.
-name|deleteQueue
-decl_stmt|;
 name|deleteQueue
 operator|.
 name|addDelete
@@ -510,6 +502,10 @@ argument_list|(
 name|queries
 argument_list|)
 expr_stmt|;
+comment|// nocommit -- shouldn't we check for doApplyAllDeletes
+comment|// here too?
+comment|// nocommit shouldn't this consult flush policy?  or
+comment|// should this return void now?
 return|return
 literal|false
 return|;
@@ -569,20 +565,18 @@ if|if
 condition|(
 name|flushControl
 operator|.
-name|flushDeletes
-operator|.
-name|getAndSet
-argument_list|(
-literal|false
-argument_list|)
+name|doApplyAllDeletes
+argument_list|()
 condition|)
 block|{
-name|flushDeletes
+name|applyAllDeletes
 argument_list|(
 name|deleteQueue
 argument_list|)
 expr_stmt|;
 block|}
+comment|// nocommit shouldn't this consult flush policy?  or
+comment|// should this return void now?
 return|return
 literal|false
 return|;
@@ -617,10 +611,10 @@ return|return
 name|deleteQueue
 return|;
 block|}
-DECL|method|flushDeletes
+DECL|method|applyAllDeletes
 specifier|private
 name|void
-name|flushDeletes
+name|applyAllDeletes
 parameter_list|(
 name|DocumentsWriterDeleteQueue
 name|deleteQueue
@@ -640,7 +634,7 @@ init|(
 name|ticketQueue
 init|)
 block|{
-comment|// freeze and insert the delete flush ticket in the queue
+comment|// Freeze and insert the delete flush ticket in the queue
 name|ticketQueue
 operator|.
 name|add
@@ -696,17 +690,6 @@ name|infoStream
 operator|=
 name|infoStream
 expr_stmt|;
-name|pushConfigChange
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|pushConfigChange
-specifier|private
-specifier|final
-name|void
-name|pushConfigChange
-parameter_list|()
-block|{
 specifier|final
 name|Iterator
 argument_list|<
@@ -727,24 +710,17 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|DocumentsWriterPerThread
-name|perThread
-init|=
 name|it
 operator|.
 name|next
 argument_list|()
 operator|.
 name|perThread
-decl_stmt|;
-name|perThread
 operator|.
 name|docState
 operator|.
 name|infoStream
 operator|=
-name|this
-operator|.
 name|infoStream
 expr_stmt|;
 block|}
@@ -789,6 +765,7 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|indexWriter
 operator|.
 name|message
@@ -798,6 +775,7 @@ operator|+
 name|message
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
@@ -1080,11 +1058,11 @@ if|if
 condition|(
 name|healthiness
 operator|.
-name|isStalled
+name|anyStalledThreads
 argument_list|()
 condition|)
 block|{
-comment|/*        * if we are allowed to hijack threads for flushing we try to flush out         * as many pending DWPT to release memory and get back healthy status.        */
+comment|// Help out flushing any pending DWPTs so we can un-stall:
 if|if
 condition|(
 name|infoStream
@@ -1094,11 +1072,11 @@ condition|)
 block|{
 name|message
 argument_list|(
-literal|"WARNING DocumentsWriter is stalled try to hijack thread to flush pending segment"
+literal|"WARNING DocumentsWriter has stalled threads; will hijack this thread to flush pending segment(s)"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// try pick up pending threads here if possile
+comment|// Try pick up pending threads here if possible
 name|DocumentsWriterPerThread
 name|flushingDWPT
 decl_stmt|;
@@ -1116,7 +1094,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// don't push the delete here since the update could fail!
+comment|// Don't push the delete here since the update could fail!
 name|maybeMerge
 operator|=
 name|doFlush
@@ -1129,7 +1107,7 @@ condition|(
 operator|!
 name|healthiness
 operator|.
-name|isStalled
+name|anyStalledThreads
 argument_list|()
 condition|)
 block|{
@@ -1144,13 +1122,13 @@ literal|null
 operator|&&
 name|healthiness
 operator|.
-name|isStalled
+name|anyStalledThreads
 argument_list|()
 condition|)
 block|{
 name|message
 argument_list|(
-literal|"WARNING DocumentsWriter is stalled might block thread until DocumentsWriter is not stalled anymore"
+literal|"WARNING DocumentsWriter still has stalled threads; waiting"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1160,6 +1138,24 @@ name|waitIfStalled
 argument_list|()
 expr_stmt|;
 comment|// block if stalled
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+operator|&&
+name|healthiness
+operator|.
+name|anyStalledThreads
+argument_list|()
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"WARNING DocumentsWriter done waiting"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 specifier|final
 name|ThreadState
@@ -1183,10 +1179,6 @@ specifier|final
 name|DocumentsWriterPerThread
 name|flushingDWPT
 decl_stmt|;
-specifier|final
-name|DocumentsWriterPerThread
-name|dwpt
-decl_stmt|;
 try|try
 block|{
 if|if
@@ -1207,12 +1199,14 @@ operator|:
 literal|"perThread is not active but we are still open"
 assert|;
 block|}
+specifier|final
+name|DocumentsWriterPerThread
 name|dwpt
-operator|=
+init|=
 name|perThread
 operator|.
 name|perThread
-expr_stmt|;
+decl_stmt|;
 try|try
 block|{
 name|dwpt
@@ -1363,7 +1357,7 @@ init|(
 name|ticketQueue
 init|)
 block|{
-comment|// each flush is assigned a ticket in the order they accquire the ticketQueue lock
+comment|// Each flush is assigned a ticket in the order they accquire the ticketQueue lock
 name|ticket
 operator|=
 operator|new
@@ -1395,11 +1389,13 @@ operator|.
 name|flush
 argument_list|()
 decl_stmt|;
+comment|// nocommit -- should this success = true be moved
+comment|// under the applyFlushTickets?
 name|success
 operator|=
 literal|true
 expr_stmt|;
-comment|/*          * now we are done and try to flush the ticket queue if the head of the          * queue has already finished the flush.          */
+comment|/*          * Now we are done and try to flush the ticket queue if the head of the          * queue has already finished the flush.          */
 name|applyFlushTickets
 argument_list|(
 name|ticket
@@ -1444,7 +1440,9 @@ init|(
 name|ticketQueue
 init|)
 block|{
-comment|// in the case of a failure make sure we are making progress and
+comment|// nocommit -- shouldn't we drop the ticket in
+comment|// this case?
+comment|// In the case of a failure make sure we are making progress and
 comment|// apply all the deletes since the segment flush failed
 name|ticket
 operator|.
@@ -1493,7 +1491,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// this is a segment FlushTicket so assign the flushed segment so we can make progress.
+comment|// nocommit -- can't caller set current.segment = segment?
+comment|// nocommit -- confused by this comment:
+comment|// This is a segment FlushTicket so assign the flushed segment so we can make progress.
 assert|assert
 name|segment
 operator|!=
@@ -1511,7 +1511,7 @@ condition|(
 literal|true
 condition|)
 block|{
-comment|// while we can publish flushes keep on making the queue empty.
+comment|// Keep publishing eligible flushed segments:
 specifier|final
 name|FlushTicket
 name|head
@@ -1571,7 +1571,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// this is eventually finishing the flushed segment and publishing it to the IndexWriter
+comment|// Finish the flushed segment and publish it to IndexWriter
 if|if
 condition|(
 name|newSegment
@@ -1674,7 +1674,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**    * publishes the flushed segment, segment private deletes if any and its    * associated global delete if present to the index writer. the actual    * publishing operation is synced on IW -> BDS so that the {@link SegmentInfo}    * 's delete generation is always GlobalPacket_deleteGeneration + 1    */
+comment|/**    * Publishes the flushed segment, segment private deletes (if any) and its    * associated global delete (if present) to IndexWriter.  The actual    * publishing operation is synced on IW -> BDS so that the {@link SegmentInfo}'s    * delete generation is always GlobalPacket_deleteGeneration + 1    */
 DECL|method|publishFlushedSegment
 specifier|private
 name|void
@@ -1730,7 +1730,7 @@ name|any
 argument_list|()
 condition|)
 block|{
-comment|// segment private delete
+comment|// Segment private delete
 name|packet
 operator|=
 operator|new
@@ -1798,7 +1798,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*    * flushAllThreads is synced by IW fullFlushLock. Flushing all threads is a    * two stage operations, the caller must ensure that #finishFlush is called    * after this method to release the flush lock in DWFlushControl - use try /    * finally!    */
+comment|/*    * FlushAllThreads is synced by IW fullFlushLock. Flushing all threads is a    * two stage operation; the caller must ensure (in try/finally) that finishFlush    * is called after this method, to release the flush lock in DWFlushControl    */
 DECL|method|flushAllThreads
 specifier|final
 name|boolean
@@ -1824,7 +1824,9 @@ name|flushingDeleteQueue
 operator|=
 name|deleteQueue
 expr_stmt|;
-comment|/* sets a new delete queue - this must be synced on the flush control        * otherwise a new DWPT could sneak into the loop with an already flushing        * delete queue */
+comment|/* Cutover to a new delete queue.  This must be synced on the flush control        * otherwise a new DWPT could sneak into the loop with an already flushing        * delete queue */
+comment|// nocommit -- shouldn't we do this?:
+comment|// assert Thread.holdsLock(flushControl);
 name|flushControl
 operator|.
 name|markForFullFlush
@@ -1857,7 +1859,7 @@ block|{
 name|DocumentsWriterPerThread
 name|flushingDWPT
 decl_stmt|;
-comment|// now try help out with flushing
+comment|// Help out with flushing:
 while|while
 condition|(
 operator|(
@@ -1880,13 +1882,12 @@ name|flushingDWPT
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if a concurrent flush is still in flight wait for it
+comment|// If a concurrent flush is still in flight wait for it
 while|while
 condition|(
-operator|!
 name|flushControl
 operator|.
-name|allFlushesDue
+name|anyFlushing
 argument_list|()
 condition|)
 block|{
@@ -1969,7 +1970,7 @@ condition|(
 name|success
 condition|)
 block|{
-comment|// release the flush lock
+comment|// Release the flush lock
 name|flushControl
 operator|.
 name|finishFullFlush
@@ -1985,6 +1986,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|// nocommit -- can we add comment justifying that these
+comment|// fields are safely changed across threads because they
+comment|// are always accessed in sync(ticketQueue)?
 DECL|class|FlushTicket
 specifier|static
 specifier|final
