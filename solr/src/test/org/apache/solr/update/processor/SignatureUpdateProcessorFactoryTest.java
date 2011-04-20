@@ -248,10 +248,10 @@ extends|extends
 name|SolrTestCaseJ4
 block|{
 comment|/** modified by tests as needed */
-DECL|field|processor
+DECL|field|chain
 specifier|private
 name|String
-name|processor
+name|chain
 init|=
 literal|"dedupe"
 decl_stmt|;
@@ -300,7 +300,7 @@ name|commit
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|processor
+name|chain
 operator|=
 literal|"dedupe"
 expr_stmt|;
@@ -1060,7 +1060,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|processor
+name|chain
 operator|=
 literal|"stored_sig"
 expr_stmt|;
@@ -1254,13 +1254,13 @@ name|put
 argument_list|(
 name|UpdateParams
 operator|.
-name|UPDATE_PROCESSOR
+name|UPDATE_CHAIN
 argument_list|,
 operator|new
 name|String
 index|[]
 block|{
-name|processor
+name|chain
 block|}
 argument_list|)
 expr_stmt|;

@@ -557,7 +557,7 @@ name|put
 argument_list|(
 name|UpdateParams
 operator|.
-name|UPDATE_PROCESSOR
+name|UPDATE_CHAIN
 argument_list|,
 operator|new
 name|String
