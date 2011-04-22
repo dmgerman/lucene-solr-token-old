@@ -1642,7 +1642,7 @@ name|ErrorCode
 operator|.
 name|BAD_REQUEST
 argument_list|,
-literal|"Can't determine Sort Order: "
+literal|"Can't determine a Sort Order (asc or desc) in sort spec "
 operator|+
 name|sp
 argument_list|)
