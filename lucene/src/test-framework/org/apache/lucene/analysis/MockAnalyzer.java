@@ -327,6 +327,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|Map
 argument_list|<
 name|String

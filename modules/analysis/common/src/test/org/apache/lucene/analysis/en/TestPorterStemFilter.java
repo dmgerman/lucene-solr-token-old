@@ -198,15 +198,7 @@ name|TestPorterStemFilter
 extends|extends
 name|BaseTokenStreamTestCase
 block|{
-comment|/**    * Run the stemmer against all strings in voc.txt    * The output should be the same as the string in output.txt    */
-DECL|method|testPorterStemFilter
-specifier|public
-name|void
-name|testPorterStemFilter
-parameter_list|()
-throws|throws
-name|Exception
-block|{
+DECL|field|a
 name|Analyzer
 name|a
 init|=
@@ -252,6 +244,15 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|/**    * Run the stemmer against all strings in voc.txt    * The output should be the same as the string in output.txt    */
+DECL|method|testPorterStemFilter
+specifier|public
+name|void
+name|testPorterStemFilter
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|assertVocabulary
 argument_list|(
 name|a
@@ -337,6 +338,27 @@ literal|"yourselves"
 block|,
 literal|"your"
 block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** blast some random strings through the analyzer */
+DECL|method|testRandomStrings
+specifier|public
+name|void
+name|testRandomStrings
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|checkRandomData
+argument_list|(
+name|random
+argument_list|,
+name|a
+argument_list|,
+literal|10000
+operator|*
+name|RANDOM_MULTIPLIER
 argument_list|)
 expr_stmt|;
 block|}
