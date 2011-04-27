@@ -4824,6 +4824,7 @@ name|random
 argument_list|)
 return|;
 block|}
+comment|/**    * Returns a new Directory instance, using the specified random.    * See {@link #newDirectory()} for more information.    */
 DECL|method|newDirectory
 specifier|public
 specifier|static
@@ -5127,6 +5128,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**    * Returns a new Directory instance, using the specified random    * with contents copied from the provided directory. See     * {@link #newDirectory()} for more information.    */
 DECL|method|newDirectory
 specifier|public
 specifier|static
@@ -6118,7 +6120,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** create a new searcher over the reader */
+comment|/** create a new searcher over the reader.    * This searcher might randomly use threads. */
 DECL|method|newSearcher
 specifier|public
 specifier|static
