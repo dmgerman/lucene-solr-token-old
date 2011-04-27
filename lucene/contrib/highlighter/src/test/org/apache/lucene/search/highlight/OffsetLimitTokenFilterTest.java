@@ -1,8 +1,6 @@
 begin_unit
 begin_package
 DECL|package|org.apache.lucene.search.highlight
-DECL|class|OffsetLimitTokenFilterTest
-DECL|method|testFilter
 package|package
 name|org
 operator|.
@@ -89,12 +87,14 @@ name|TokenStream
 import|;
 end_import
 begin_class
+DECL|class|OffsetLimitTokenFilterTest
 specifier|public
 class|class
 name|OffsetLimitTokenFilterTest
 extends|extends
 name|BaseTokenStreamTestCase
 block|{
+DECL|method|testFilter
 specifier|public
 name|void
 name|testFilter
