@@ -118,6 +118,10 @@ operator|new
 name|ReentrantLock
 argument_list|()
 decl_stmt|;
+DECL|field|generation
+name|long
+name|generation
+decl_stmt|;
 DECL|method|DocumentsWriterDeleteQueue
 name|DocumentsWriterDeleteQueue
 parameter_list|()
@@ -1160,6 +1164,22 @@ name|bytesUsed
 operator|.
 name|get
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"DWDQ: [ generation: "
+operator|+
+name|generation
+operator|+
+literal|" ]"
 return|;
 block|}
 block|}
