@@ -38,7 +38,7 @@ specifier|abstract
 class|class
 name|DocFieldConsumer
 block|{
-comment|/** Called when DocumentsWriter decides to create a new    *  segment */
+comment|/** Called when DocumentsWriterPerThread decides to create a new    *  segment */
 DECL|method|flush
 specifier|abstract
 name|void
@@ -65,7 +65,7 @@ name|void
 name|abort
 parameter_list|()
 function_decl|;
-comment|/** Called when DocumentsWriter is using too much RAM.    *  The consumer should free RAM, if possible, returning    *  true if any RAM was in fact freed. */
+comment|/** Called when DocumentsWriterPerThread is using too much RAM.    *  The consumer should free RAM, if possible, returning    *  true if any RAM was in fact freed. */
 DECL|method|freeRAM
 specifier|abstract
 name|boolean

@@ -787,8 +787,6 @@ name|getFieldInfo
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|fieldInfo
 return|;
 block|}
