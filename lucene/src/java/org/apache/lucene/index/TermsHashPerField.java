@@ -754,11 +754,13 @@ name|ByteBlockPool
 operator|.
 name|FIRST_LEVEL_SIZE
 condition|)
+block|{
 name|bytePool
 operator|.
 name|nextBuffer
 argument_list|()
 expr_stmt|;
+block|}
 name|intUptos
 operator|=
 name|intPool
