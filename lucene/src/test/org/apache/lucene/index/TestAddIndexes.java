@@ -4697,6 +4697,12 @@ name|NUM_INIT_DOCS
 decl_stmt|;
 name|assertEquals
 argument_list|(
+literal|"expected num docs don't match - failures: "
+operator|+
+name|c
+operator|.
+name|failures
+argument_list|,
 name|expectedNumDocs
 argument_list|,
 name|c
@@ -4716,14 +4722,18 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
+literal|"found unexpected failures: "
+operator|+
+name|c
+operator|.
+name|failures
+argument_list|,
 name|c
 operator|.
 name|failures
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 argument_list|)
 expr_stmt|;
 name|_TestUtil
