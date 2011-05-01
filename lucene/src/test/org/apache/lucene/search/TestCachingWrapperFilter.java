@@ -985,12 +985,15 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+comment|// same reason we don't wrap?
 name|IndexSearcher
 name|searcher
 init|=
 name|newSearcher
 argument_list|(
 name|reader
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// add a doc, refresh the reader, and check that its there
@@ -1049,6 +1052,8 @@ operator|=
 name|newSearcher
 argument_list|(
 name|reader
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|TopDocs
@@ -1209,6 +1214,8 @@ operator|=
 name|newSearcher
 argument_list|(
 name|reader
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|docs
@@ -1298,6 +1305,8 @@ operator|=
 name|newSearcher
 argument_list|(
 name|reader
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|docs
@@ -1390,6 +1399,8 @@ operator|=
 name|newSearcher
 argument_list|(
 name|reader
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|int
@@ -1461,6 +1472,8 @@ operator|=
 name|newSearcher
 argument_list|(
 name|reader
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|missCount
@@ -1567,6 +1580,8 @@ operator|=
 name|newSearcher
 argument_list|(
 name|reader
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|docs
@@ -1656,6 +1671,8 @@ operator|=
 name|newSearcher
 argument_list|(
 name|reader
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|docs

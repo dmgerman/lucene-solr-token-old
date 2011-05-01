@@ -1150,6 +1150,16 @@ argument_list|()
 operator|.
 name|getSequentialSubReaders
 argument_list|()
+operator|==
+literal|null
+operator|||
+name|searcher
+operator|.
+name|getIndexReader
+argument_list|()
+operator|.
+name|getSequentialSubReaders
+argument_list|()
 operator|.
 name|length
 operator|==

@@ -135,7 +135,7 @@ expr_stmt|;
 name|TopDocs
 name|fieldCacheDocs
 init|=
-name|searcher
+name|searcher1
 operator|.
 name|search
 argument_list|(
@@ -147,7 +147,7 @@ decl_stmt|;
 name|TopDocs
 name|filterDocs
 init|=
-name|searcher
+name|searcher2
 operator|.
 name|search
 argument_list|(

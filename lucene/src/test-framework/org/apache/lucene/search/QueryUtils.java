@@ -1972,6 +1972,8 @@ operator|.
 name|newSearcher
 argument_list|(
 name|previousReader
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|Weight
