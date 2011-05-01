@@ -5925,9 +5925,6 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
-return|return
-name|d
-return|;
 block|}
 catch|catch
 parameter_list|(
