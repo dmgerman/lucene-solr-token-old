@@ -11,6 +11,15 @@ operator|.
 name|index
 package|;
 end_package
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
 begin_comment
 comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
@@ -47,7 +56,7 @@ specifier|public
 name|int
 name|intUpto
 init|=
-name|DocumentsWriter
+name|DocumentsWriterPerThread
 operator|.
 name|INT_BLOCK_SIZE
 decl_stmt|;
@@ -65,7 +74,7 @@ name|int
 name|intOffset
 init|=
 operator|-
-name|DocumentsWriter
+name|DocumentsWriterPerThread
 operator|.
 name|INT_BLOCK_SIZE
 decl_stmt|;
@@ -73,14 +82,14 @@ comment|// Current head offset
 DECL|field|docWriter
 specifier|final
 specifier|private
-name|DocumentsWriter
+name|DocumentsWriterPerThread
 name|docWriter
 decl_stmt|;
 DECL|method|IntBlockPool
 specifier|public
 name|IntBlockPool
 parameter_list|(
-name|DocumentsWriter
+name|DocumentsWriterPerThread
 name|docWriter
 parameter_list|)
 block|{
@@ -105,13 +114,14 @@ operator|-
 literal|1
 condition|)
 block|{
+comment|// Reuse first buffer
 if|if
 condition|(
 name|bufferUpto
 operator|>
 literal|0
 condition|)
-comment|// Recycle all but the first buffer
+block|{
 name|docWriter
 operator|.
 name|recycleIntBlocks
@@ -120,12 +130,25 @@ name|buffers
 argument_list|,
 literal|1
 argument_list|,
-literal|1
-operator|+
 name|bufferUpto
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
-comment|// Reuse first buffer
+name|Arrays
+operator|.
+name|fill
+argument_list|(
+name|buffers
+argument_list|,
+literal|1
+argument_list|,
+name|bufferUpto
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 name|bufferUpto
 operator|=
 literal|0
@@ -230,7 +253,7 @@ literal|0
 expr_stmt|;
 name|intOffset
 operator|+=
-name|DocumentsWriter
+name|DocumentsWriterPerThread
 operator|.
 name|INT_BLOCK_SIZE
 expr_stmt|;

@@ -12,7 +12,7 @@ name|index
 package|;
 end_package
 begin_comment
-comment|/**  * Copyright 2004 The Apache Software Foundation  *   * Licensed under the Apache License, Version 2.0 (the "License"); you may not  * use this file except in compliance with the License. You may obtain a copy of  * the License at  *   * http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the  * License for the specific language governing permissions and limitations under  * the License.  */
+comment|/**  * Copyright 2004 The Apache Software Foundation  *  * Licensed under the Apache License, Version 2.0 (the "License"); you may not  * use this file except in compliance with the License. You may obtain a copy of  * the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the  * License for the specific language governing permissions and limitations under  * the License.  */
 end_comment
 begin_import
 import|import
@@ -81,7 +81,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|RAMOutputStream
+name|IndexInput
 import|;
 end_import
 begin_import
@@ -95,19 +95,6 @@ operator|.
 name|store
 operator|.
 name|IndexOutput
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|IndexInput
 import|;
 end_import
 begin_import
@@ -345,15 +332,12 @@ comment|// Writes the contents of buffer into the fields stream
 comment|// and adds a new entry for this document into the index
 comment|// stream.  This assumes the buffer was already written
 comment|// in the correct fields format.
-DECL|method|flushDocument
+DECL|method|startDocument
 name|void
-name|flushDocument
+name|startDocument
 parameter_list|(
 name|int
 name|numStoredFields
-parameter_list|,
-name|RAMOutputStream
-name|buffer
 parameter_list|)
 throws|throws
 name|IOException
@@ -373,13 +357,6 @@ operator|.
 name|writeVInt
 argument_list|(
 name|numStoredFields
-argument_list|)
-expr_stmt|;
-name|buffer
-operator|.
-name|writeTo
-argument_list|(
-name|fieldsStream
 argument_list|)
 expr_stmt|;
 block|}
@@ -530,8 +507,8 @@ specifier|final
 name|void
 name|writeField
 parameter_list|(
-name|FieldInfo
-name|fi
+name|int
+name|fieldNumber
 parameter_list|,
 name|Fieldable
 name|field
@@ -543,9 +520,7 @@ name|fieldsStream
 operator|.
 name|writeVInt
 argument_list|(
-name|fi
-operator|.
-name|number
+name|fieldNumber
 argument_list|)
 expr_stmt|;
 name|byte
@@ -828,7 +803,7 @@ name|writeField
 argument_list|(
 name|fieldInfos
 operator|.
-name|fieldInfo
+name|fieldNumber
 argument_list|(
 name|field
 operator|.

@@ -1544,6 +1544,7 @@ name|failure
 operator|!=
 literal|null
 condition|)
+block|{
 name|fail
 argument_list|(
 literal|"thread "
@@ -1559,6 +1560,7 @@ operator|+
 literal|": hit unexpected failure"
 argument_list|)
 expr_stmt|;
+block|}
 name|writer
 operator|.
 name|commit
@@ -1727,7 +1729,7 @@ name|name
 operator|.
 name|equals
 argument_list|(
-literal|"DocumentsWriter.ThreadState.init start"
+literal|"DocumentsWriterPerThread addDocument start"
 argument_list|)
 condition|)
 throw|throw
@@ -2931,7 +2933,7 @@ control|)
 block|{
 if|if
 condition|(
-literal|"org.apache.lucene.index.FreqProxTermsWriter"
+literal|"org.apache.lucene.index.FreqProxTermsWriterPerField"
 operator|.
 name|equals
 argument_list|(
@@ -2944,7 +2946,7 @@ name|getClassName
 argument_list|()
 argument_list|)
 operator|&&
-literal|"appendPostings"
+literal|"flush"
 operator|.
 name|equals
 argument_list|(
@@ -2963,7 +2965,7 @@ literal|true
 expr_stmt|;
 if|if
 condition|(
-literal|"doFlush"
+literal|"flush"
 operator|.
 name|equals
 argument_list|(

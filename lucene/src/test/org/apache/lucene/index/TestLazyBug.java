@@ -94,7 +94,7 @@ name|LuceneTestCase
 import|;
 end_import
 begin_comment
-comment|/**  * Test demonstrating EOF bug on the last field of the last doc   * if other docs have allready been accessed.  */
+comment|/**  * Test demonstrating EOF bug on the last field of the last doc  * if other docs have allready been accessed.  */
 end_comment
 begin_class
 DECL|class|TestLazyBug
