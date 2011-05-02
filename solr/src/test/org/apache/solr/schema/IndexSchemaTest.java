@@ -407,10 +407,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testSimilarityFactory
+DECL|method|testSimilarityProviderFactory
 specifier|public
 name|void
-name|testSimilarityFactory
+name|testSimilarityProviderFactory
 parameter_list|()
 block|{
 name|SolrCore
@@ -422,7 +422,7 @@ name|getCore
 argument_list|()
 decl_stmt|;
 name|SimilarityProvider
-name|similarity
+name|similarityProvider
 init|=
 name|core
 operator|.
@@ -436,9 +436,9 @@ name|assertTrue
 argument_list|(
 literal|"wrong class"
 argument_list|,
-name|similarity
+name|similarityProvider
 operator|instanceof
-name|MockConfigurableSimilarity
+name|MockConfigurableSimilarityProvider
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -447,9 +447,9 @@ literal|"is there an echo?"
 argument_list|,
 operator|(
 operator|(
-name|MockConfigurableSimilarity
+name|MockConfigurableSimilarityProvider
 operator|)
-name|similarity
+name|similarityProvider
 operator|)
 operator|.
 name|getPassthrough

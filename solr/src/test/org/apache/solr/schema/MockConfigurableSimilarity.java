@@ -24,7 +24,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DefaultSimilarityProvider
+name|DefaultSimilarity
 import|;
 end_import
 begin_class
@@ -33,7 +33,7 @@ specifier|public
 class|class
 name|MockConfigurableSimilarity
 extends|extends
-name|DefaultSimilarityProvider
+name|DefaultSimilarity
 block|{
 DECL|field|passthrough
 specifier|private

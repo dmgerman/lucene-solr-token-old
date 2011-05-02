@@ -24,7 +24,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|SimilarityProvider
+name|Similarity
 import|;
 end_import
 begin_import
@@ -80,11 +80,11 @@ return|return
 name|params
 return|;
 block|}
-DECL|method|getSimilarityProvider
+DECL|method|getSimilarity
 specifier|public
 specifier|abstract
-name|SimilarityProvider
-name|getSimilarityProvider
+name|Similarity
+name|getSimilarity
 parameter_list|()
 function_decl|;
 block|}

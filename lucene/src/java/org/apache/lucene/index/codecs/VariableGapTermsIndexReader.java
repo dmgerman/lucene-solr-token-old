@@ -29,6 +29,42 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|FileOutputStream
+import|;
+end_import
+begin_comment
+comment|// for toDot
+end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|OutputStreamWriter
+import|;
+end_import
+begin_comment
+comment|// for toDot
+end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Writer
+import|;
+end_import
+begin_comment
+comment|// for toDot
+end_comment
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -224,6 +260,26 @@ operator|.
 name|PositiveIntOutputs
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|automaton
+operator|.
+name|fst
+operator|.
+name|Util
+import|;
+end_import
+begin_comment
+comment|// for toDot
+end_comment
 begin_comment
 comment|/** See {@link VariableGapTermsIndexWriter}  *   * @lucene.experimental */
 end_comment
@@ -290,6 +346,11 @@ specifier|protected
 name|long
 name|dirOffset
 decl_stmt|;
+DECL|field|segment
+specifier|final
+name|String
+name|segment
+decl_stmt|;
 DECL|method|VariableGapTermsIndexReader
 specifier|public
 name|VariableGapTermsIndexReader
@@ -333,6 +394,12 @@ operator|.
 name|TERMS_INDEX_EXTENSION
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|segment
+operator|=
+name|segment
 expr_stmt|;
 name|boolean
 name|success
@@ -713,12 +780,6 @@ specifier|final
 class|class
 name|FieldIndexData
 block|{
-DECL|field|fieldInfo
-specifier|private
-specifier|final
-name|FieldInfo
-name|fieldInfo
-decl_stmt|;
 DECL|field|indexStart
 specifier|private
 specifier|final
@@ -748,12 +809,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|this
-operator|.
-name|fieldInfo
-operator|=
-name|fieldInfo
-expr_stmt|;
 name|this
 operator|.
 name|indexStart
@@ -823,6 +878,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|/*         final String dotFileName = segment + "_" + fieldInfo.name + ".dot";         Writer w = new OutputStreamWriter(new FileOutputStream(dotFileName));         Util.toDot(fst, w, false, false);         System.out.println("FST INDEX: SAVED to " + dotFileName);         w.close();         */
 if|if
 condition|(
 name|indexDivisor

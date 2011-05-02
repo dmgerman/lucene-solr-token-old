@@ -1551,9 +1551,6 @@ name|enumerator
 argument_list|)
 assert|;
 assert|assert
-operator|(
-name|int
-operator|)
 name|enumerator
 operator|.
 name|position

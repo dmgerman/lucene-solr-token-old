@@ -1875,6 +1875,9 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 name|AttributeSource
 name|next
 init|=

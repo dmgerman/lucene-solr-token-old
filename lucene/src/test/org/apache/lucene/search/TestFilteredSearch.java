@@ -259,12 +259,14 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|setMergePolicy
 argument_list|(
-name|newInOrderLogMergePolicy
+name|newLogMergePolicy
 argument_list|()
 argument_list|)
 argument_list|)
@@ -309,7 +311,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 operator|.
 name|setOpenMode
@@ -326,7 +330,7 @@ argument_list|)
 operator|.
 name|setMergePolicy
 argument_list|(
-name|newInOrderLogMergePolicy
+name|newLogMergePolicy
 argument_list|()
 argument_list|)
 argument_list|)

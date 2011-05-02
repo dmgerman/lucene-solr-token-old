@@ -130,16 +130,6 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Returns {@link DocValues} for the current field.    *     * @return the {@link DocValues} for this field or<code>null</code> if not    *         applicable.    * @throws IOException    */
-DECL|method|docValues
-specifier|public
-specifier|abstract
-name|DocValues
-name|docValues
-parameter_list|()
-throws|throws
-name|IOException
-function_decl|;
 DECL|field|EMPTY_ARRAY
 specifier|public
 specifier|final
@@ -183,23 +173,6 @@ specifier|public
 name|TermsEnum
 name|terms
 parameter_list|()
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"this method should never be called"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|DocValues
-name|docValues
-parameter_list|()
-throws|throws
-name|IOException
 block|{
 throw|throw
 operator|new

@@ -322,6 +322,8 @@ init|=
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -1141,6 +1143,16 @@ name|Assume
 operator|.
 name|assumeTrue
 argument_list|(
+name|searcher
+operator|.
+name|getIndexReader
+argument_list|()
+operator|.
+name|getSequentialSubReaders
+argument_list|()
+operator|==
+literal|null
+operator|||
 name|searcher
 operator|.
 name|getIndexReader

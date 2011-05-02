@@ -1238,6 +1238,12 @@ operator|!
 name|stopwords
 argument_list|)
 expr_stmt|;
+name|up
+operator|.
+name|exceptions
+operator|=
+literal|true
+expr_stmt|;
 name|parsedUserQuery
 operator|=
 name|up
@@ -1283,6 +1289,12 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore failure and reparse later after escaping reserved chars
+name|up
+operator|.
+name|exceptions
+operator|=
+literal|false
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -3955,6 +3967,26 @@ block|,
 DECL|enum constant|RANGE
 name|RANGE
 block|}
+DECL|field|unknownField
+specifier|static
+specifier|final
+name|RuntimeException
+name|unknownField
+init|=
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"UnknownField"
+argument_list|)
+decl_stmt|;
+static|static
+block|{
+name|unknownField
+operator|.
+name|fillInStackTrace
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**    * A subclass of SolrQueryParser that supports aliasing fields for    * constructing DisjunctionMaxQueries.    */
 DECL|class|ExtendedSolrQueryParser
 class|class
@@ -4010,6 +4042,11 @@ literal|0
 decl_stmt|;
 comment|// minimum number of clauses per phrase query...
 comment|// used when constructing boosting part of query via sloppy phrases
+DECL|field|exceptions
+name|boolean
+name|exceptions
+decl_stmt|;
+comment|//  allow exceptions to be thrown (for example on a missing field)
 DECL|field|analyzer
 name|ExtendedAnalyzer
 name|analyzer
@@ -4756,6 +4793,34 @@ block|}
 block|}
 else|else
 block|{
+comment|// verify that a fielded query is actually on a field that exists... if not,
+comment|// then throw an exception to get us out of here, and we'll treat it like a
+comment|// literal when we try the escape+re-parse.
+if|if
+condition|(
+name|exceptions
+condition|)
+block|{
+name|FieldType
+name|ft
+init|=
+name|schema
+operator|.
+name|getFieldTypeNoEx
+argument_list|(
+name|field
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|ft
+operator|==
+literal|null
+condition|)
+throw|throw
+name|unknownField
+throw|;
+block|}
 return|return
 name|getQuery
 argument_list|()

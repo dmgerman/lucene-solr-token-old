@@ -440,9 +440,9 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|values
+name|codecs
 operator|.
-name|DocValues
+name|PerDocValues
 import|;
 end_import
 begin_import
@@ -3439,24 +3439,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|DocValues
-name|docValues
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-comment|// TODO
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"not implemented"
-argument_list|)
-throw|;
-block|}
 block|}
 return|;
 block|}
@@ -3581,27 +3563,6 @@ block|}
 block|}
 return|;
 block|}
-block|}
-annotation|@
-name|Override
-specifier|public
-name|DocValues
-name|docValues
-parameter_list|(
-name|String
-name|field
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-comment|// TODO
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"not implemented"
-argument_list|)
-throw|;
 block|}
 block|}
 return|;
@@ -5930,6 +5891,20 @@ operator|.
 name|keySet
 argument_list|()
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|perDocValues
+specifier|public
+name|PerDocValues
+name|perDocValues
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+literal|null
 return|;
 block|}
 block|}

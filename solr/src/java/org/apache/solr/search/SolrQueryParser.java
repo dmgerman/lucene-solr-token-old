@@ -706,12 +706,13 @@ operator|.
 name|getType
 argument_list|()
 decl_stmt|;
-comment|// delegate to type for everything except TextField
+comment|// delegate to type for everything except tokenized fields
 if|if
 condition|(
 name|ft
-operator|instanceof
-name|TextField
+operator|.
+name|isTokenized
+argument_list|()
 condition|)
 block|{
 return|return
@@ -726,6 +727,11 @@ argument_list|,
 name|quoted
 operator|||
 operator|(
+name|ft
+operator|instanceof
+name|TextField
+operator|&&
+operator|(
 operator|(
 name|TextField
 operator|)
@@ -734,6 +740,7 @@ operator|)
 operator|.
 name|getAutoGeneratePhraseQueries
 argument_list|()
+operator|)
 argument_list|)
 return|;
 block|}

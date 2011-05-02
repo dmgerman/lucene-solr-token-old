@@ -1503,6 +1503,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -1510,8 +1512,6 @@ argument_list|,
 literal|false
 argument_list|,
 name|stopStopList
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -1691,6 +1691,8 @@ argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
+name|random
+argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -1700,8 +1702,6 @@ argument_list|,
 name|stopStopList
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
