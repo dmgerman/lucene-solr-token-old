@@ -1518,8 +1518,6 @@ name|field
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -1692,8 +1690,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
 DECL|method|close
 specifier|public
 name|void
