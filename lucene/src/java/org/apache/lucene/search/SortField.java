@@ -1678,6 +1678,11 @@ argument_list|(
 name|numHits
 argument_list|,
 name|field
+argument_list|,
+operator|(
+name|Integer
+operator|)
+name|missingValue
 argument_list|)
 return|;
 block|}
@@ -1722,6 +1727,11 @@ argument_list|(
 name|numHits
 argument_list|,
 name|field
+argument_list|,
+operator|(
+name|Float
+operator|)
+name|missingValue
 argument_list|)
 return|;
 block|}

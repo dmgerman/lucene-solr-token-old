@@ -1724,7 +1724,6 @@ annotation|@
 name|Override
 DECL|method|finish
 specifier|public
-specifier|synchronized
 name|void
 name|finish
 parameter_list|(
