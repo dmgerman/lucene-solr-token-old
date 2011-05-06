@@ -1123,6 +1123,9 @@ argument_list|()
 expr_stmt|;
 specifier|final
 name|Node
+argument_list|<
+name|?
+argument_list|>
 name|currentTail
 init|=
 name|tail
