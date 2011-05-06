@@ -184,6 +184,9 @@ specifier|final
 name|Builder
 operator|.
 name|Arc
+argument_list|<
+name|T
+argument_list|>
 name|arc
 init|=
 name|node
