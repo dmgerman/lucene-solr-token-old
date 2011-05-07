@@ -374,6 +374,10 @@ block|,
 literal|"31.cfs"
 block|,
 literal|"31.nocfs"
+block|,
+literal|"32.cfs"
+block|,
+literal|"32.nocfs"
 block|,   }
 decl_stmt|;
 DECL|field|unsupportedNames

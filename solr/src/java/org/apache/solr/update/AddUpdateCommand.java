@@ -37,7 +37,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Field
+name|Fieldable
 import|;
 end_import
 begin_import
@@ -284,12 +284,12 @@ operator|.
 name|getUniqueKeyField
 argument_list|()
 expr_stmt|;
-name|Field
+name|Fieldable
 name|storedId
 init|=
 name|doc
 operator|.
-name|getField
+name|getFieldable
 argument_list|(
 name|sf
 operator|.
