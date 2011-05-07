@@ -197,7 +197,6 @@ extends|extends
 name|UpdateRequestProcessor
 block|{
 DECL|field|solrUIMAConfiguration
-specifier|private
 name|SolrUIMAConfiguration
 name|solrUIMAConfiguration
 decl_stmt|;
