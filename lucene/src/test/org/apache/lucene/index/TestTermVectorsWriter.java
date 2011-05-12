@@ -984,9 +984,6 @@ decl_stmt|;
 name|TokenStream
 name|stream
 init|=
-operator|new
-name|CachingTokenFilter
-argument_list|(
 name|analyzer
 operator|.
 name|tokenStream
@@ -999,8 +996,21 @@ argument_list|(
 literal|"abcd   "
 argument_list|)
 argument_list|)
-argument_list|)
 decl_stmt|;
+name|stream
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+comment|// TODO: wierd to reset before wrapping with CachingTokenFilter... correct?
+name|stream
+operator|=
+operator|new
+name|CachingTokenFilter
+argument_list|(
+name|stream
+argument_list|)
+expr_stmt|;
 name|Field
 name|f
 init|=
