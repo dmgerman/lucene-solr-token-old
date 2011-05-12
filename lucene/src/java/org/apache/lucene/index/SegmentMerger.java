@@ -334,12 +334,6 @@ name|MAX_RAW_MERGE_DOCS
 init|=
 literal|4192
 decl_stmt|;
-DECL|field|codecs
-specifier|private
-specifier|final
-name|CodecProvider
-name|codecs
-decl_stmt|;
 DECL|field|codec
 specifier|private
 name|Codec
@@ -372,9 +366,6 @@ operator|.
 name|OneMerge
 name|merge
 parameter_list|,
-name|CodecProvider
-name|codecs
-parameter_list|,
 name|PayloadProcessorProvider
 name|payloadProcessorProvider
 parameter_list|,
@@ -391,12 +382,6 @@ expr_stmt|;
 name|directory
 operator|=
 name|dir
-expr_stmt|;
-name|this
-operator|.
-name|codecs
-operator|=
-name|codecs
 expr_stmt|;
 name|segment
 operator|=

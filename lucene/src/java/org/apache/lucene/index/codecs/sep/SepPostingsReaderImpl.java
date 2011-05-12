@@ -510,6 +510,8 @@ name|String
 argument_list|>
 name|files
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|files
 operator|.

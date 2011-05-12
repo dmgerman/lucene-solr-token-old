@@ -6610,8 +6610,6 @@ name|mergedName
 argument_list|,
 literal|null
 argument_list|,
-name|codecs
-argument_list|,
 name|payloadProcessorProvider
 argument_list|,
 name|globalFieldNumberMap
@@ -6674,19 +6672,9 @@ name|directory
 argument_list|,
 literal|false
 argument_list|,
-name|fieldInfos
-operator|.
-name|hasProx
-argument_list|()
-argument_list|,
 name|merger
 operator|.
 name|getSegmentCodecs
-argument_list|()
-argument_list|,
-name|fieldInfos
-operator|.
-name|hasVectors
 argument_list|()
 argument_list|,
 name|fieldInfos
@@ -9123,13 +9111,63 @@ comment|// OK it does not conflict; now record that this merge
 comment|// is running (while synchronized) to avoid race
 comment|// condition where two conflicting merges from different
 comment|// threads, start
-name|message
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|StringBuilder
+name|builder
+init|=
+operator|new
+name|StringBuilder
 argument_list|(
-literal|"registerMerge merging="
-operator|+
+literal|"registerMerge merging= ["
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|SegmentInfo
+name|info
+range|:
 name|mergingSegments
+control|)
+block|{
+name|builder
+operator|.
+name|append
+argument_list|(
+name|info
+operator|.
+name|name
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|", "
 argument_list|)
 expr_stmt|;
+block|}
+name|builder
+operator|.
+name|append
+argument_list|(
+literal|"]"
+argument_list|)
+expr_stmt|;
+comment|// don't call mergingSegments.toString() could lead to ConcurrentModException
+comment|// since merge updates the segments FieldInfos
+name|message
+argument_list|(
+name|builder
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|SegmentInfo
@@ -9316,11 +9354,7 @@ name|directory
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 literal|null
-argument_list|,
-literal|false
 argument_list|,
 name|globalFieldNumberMap
 operator|.
@@ -10291,8 +10325,6 @@ name|mergedName
 argument_list|,
 name|merge
 argument_list|,
-name|codecs
-argument_list|,
 name|payloadProcessorProvider
 argument_list|,
 name|merge
@@ -10323,9 +10355,11 @@ argument_list|)
 operator|+
 literal|" mergeVectors="
 operator|+
-name|merger
+name|merge
 operator|.
-name|fieldInfos
+name|info
+operator|.
+name|getFieldInfos
 argument_list|()
 operator|.
 name|hasVectors
@@ -10533,22 +10567,6 @@ name|getSegmentCodecs
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Record if we have merged vectors
-name|merge
-operator|.
-name|info
-operator|.
-name|setHasVectors
-argument_list|(
-name|merger
-operator|.
-name|fieldInfos
-argument_list|()
-operator|.
-name|hasVectors
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|infoStream
@@ -10610,21 +10628,6 @@ comment|// Very important to do this before opening the reader
 comment|// because codec must know if prox was written for
 comment|// this segment:
 comment|//System.out.println("merger set hasProx=" + merger.hasProx() + " seg=" + merge.info.name);
-name|merge
-operator|.
-name|info
-operator|.
-name|setHasProx
-argument_list|(
-name|merger
-operator|.
-name|fieldInfos
-argument_list|()
-operator|.
-name|hasProx
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|boolean
 name|useCompoundFile
 decl_stmt|;
