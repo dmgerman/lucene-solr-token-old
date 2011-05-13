@@ -1168,6 +1168,7 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** It's OK to add the same input twice in a row with    *  different outputs, as long as outputs impls the merge    *  method. */
 DECL|method|add
 specifier|public
 name|void
@@ -1196,7 +1197,7 @@ name|compareTo
 argument_list|(
 name|lastInput
 argument_list|)
-operator|>
+operator|>=
 literal|0
 operator|:
 literal|"inputs are added out of order lastInput="
@@ -1709,7 +1710,49 @@ name|output
 argument_list|)
 assert|;
 block|}
-comment|// push remaining output:
+if|if
+condition|(
+name|lastInput
+operator|.
+name|length
+operator|==
+name|input
+operator|.
+name|length
+operator|&&
+name|prefixLenPlus1
+operator|==
+literal|1
+operator|+
+name|input
+operator|.
+name|length
+condition|)
+block|{
+comment|// same input more than 1 time in a row, mapping to
+comment|// multiple outputs
+name|lastNode
+operator|.
+name|output
+operator|=
+name|fst
+operator|.
+name|outputs
+operator|.
+name|merge
+argument_list|(
+name|lastNode
+operator|.
+name|output
+argument_list|,
+name|output
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// this new arc is private to this new input; set its
+comment|// arc output to the leftover output:
 name|frontier
 index|[
 name|prefixLenPlus1
@@ -1735,6 +1778,7 @@ argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
+block|}
 comment|// save last input
 name|lastInput
 operator|.

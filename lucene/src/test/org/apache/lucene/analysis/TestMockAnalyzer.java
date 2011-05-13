@@ -686,6 +686,11 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
+name|stream
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|assertAnalyzesToReuse
 argument_list|(
 name|analyzer
