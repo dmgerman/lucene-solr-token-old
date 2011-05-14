@@ -34,6 +34,7 @@ comment|/** @lucene.experimental */
 end_comment
 begin_class
 DECL|class|SearchGroup
+specifier|public
 class|class
 name|SearchGroup
 block|{
