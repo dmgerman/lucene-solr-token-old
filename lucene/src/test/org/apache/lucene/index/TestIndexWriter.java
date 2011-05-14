@@ -14271,7 +14271,8 @@ try|try
 block|{
 while|while
 condition|(
-literal|true
+operator|!
+name|finish
 condition|)
 block|{
 if|if
@@ -14393,6 +14394,10 @@ name|w
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|w
+operator|=
+literal|null
 expr_stmt|;
 name|_TestUtil
 operator|.
