@@ -393,9 +393,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"PerDocConsumer is not supported by Preflex codec"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -410,9 +414,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"PerDocValues is not supported by Preflex codec"
+argument_list|)
+throw|;
 block|}
 block|}
 end_class

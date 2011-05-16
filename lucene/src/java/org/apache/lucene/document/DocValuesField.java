@@ -137,11 +137,6 @@ begin_comment
 comment|/**  *<p>  * This class provides a {@link AbstractField} that enables storing of typed  * per-document values for scoring, sorting or value retrieval. Here's an  * example usage, adding an int value:  *   *<pre>  * document.add(new DocValuesField(name).setInt(value));  *</pre>  *   * For optimal performance, re-use the<code>DocValuesField</code> and  * {@link Document} instance for more than one document:  *   *<pre>  *  DocValuesField field = new DocValuesField(name);  *  Document document = new Document();  *  document.add(field);  *   *  for(all documents) {  *    ...  *    field.setIntValue(value)  *    writer.addDocument(document);  *    ...  *  }  *</pre>  *   *<p>  * If doc values are stored in addition to an indexed ({@link Index}) or stored  * ({@link Store}) value it's recommended to use the {@link DocValuesField}'s  * {@link #set(AbstractField)} API:  *   *<pre>  *  DocValuesField field = new DocValuesField(name);  *  Field indexedField = new Field(name, stringValue, Stored.NO, Indexed.ANALYZED);  *  Document document = new Document();  *  document.add(indexedField);  *  field.set(indexedField);  *  for(all documents) {  *    ...  *    field.setIntValue(value)  *    writer.addDocument(document);  *    ...  *  }  *</pre>  *   * */
 end_comment
 begin_class
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"serial"
-argument_list|)
 DECL|class|DocValuesField
 specifier|public
 class|class
