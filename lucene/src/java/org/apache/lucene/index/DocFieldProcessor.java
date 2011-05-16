@@ -504,7 +504,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-comment|// nocommit handle exce
+comment|// ignore on abort!
 block|}
 block|}
 try|try
