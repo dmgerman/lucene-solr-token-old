@@ -1863,6 +1863,9 @@ block|}
 DECL|method|fillFields
 specifier|private
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|fillFields
 parameter_list|(
@@ -1885,6 +1888,9 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|fields
 init|=
@@ -1915,6 +1921,9 @@ control|)
 block|{
 specifier|final
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 name|c
 decl_stmt|;
 specifier|final
@@ -2105,6 +2114,9 @@ specifier|final
 name|List
 argument_list|<
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 index|[]
 argument_list|>
 name|sortedGroupFields
@@ -2113,6 +2125,9 @@ operator|new
 name|ArrayList
 argument_list|<
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 index|[]
 argument_list|>
 argument_list|()
@@ -3959,7 +3974,7 @@ operator|.
 name|groupValue
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertArrayEquals
 argument_list|(
 name|expectedGroup
 operator|.
@@ -4069,7 +4084,7 @@ argument_list|)
 expr_stmt|;
 comment|// TODO
 comment|// assertEquals(expectedFD.score, actualFD.score);
-name|assertEquals
+name|assertArrayEquals
 argument_list|(
 name|expectedFD
 operator|.
