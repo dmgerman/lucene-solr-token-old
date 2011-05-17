@@ -4175,10 +4175,10 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|output
-argument_list|,
 name|pair
 operator|.
+name|output
+argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
