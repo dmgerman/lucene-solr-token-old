@@ -2825,6 +2825,23 @@ block|{
 comment|// throw orig excp
 block|}
 block|}
+else|else
+block|{
+comment|// we must sync here explicitly since during a commit
+comment|// IW will not sync the global field map.
+name|dir
+operator|.
+name|sync
+argument_list|(
+name|Collections
+operator|.
+name|singleton
+argument_list|(
+name|name
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|version
