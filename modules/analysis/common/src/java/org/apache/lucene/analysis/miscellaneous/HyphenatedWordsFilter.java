@@ -121,6 +121,13 @@ specifier|private
 name|State
 name|savedState
 decl_stmt|;
+DECL|field|exhausted
+specifier|private
+name|boolean
+name|exhausted
+init|=
+literal|false
+decl_stmt|;
 comment|/**    * Creates a new HyphenatedWordsFilter    *    * @param in TokenStream that will be filtered    */
 DECL|method|HyphenatedWordsFilter
 specifier|public
@@ -149,6 +156,9 @@ name|IOException
 block|{
 while|while
 condition|(
+operator|!
+name|exhausted
+operator|&&
 name|input
 operator|.
 name|incrementToken
@@ -252,6 +262,10 @@ literal|true
 return|;
 block|}
 block|}
+name|exhausted
+operator|=
+literal|true
+expr_stmt|;
 if|if
 condition|(
 name|savedState
@@ -305,6 +319,10 @@ expr_stmt|;
 name|savedState
 operator|=
 literal|null
+expr_stmt|;
+name|exhausted
+operator|=
+literal|false
 expr_stmt|;
 block|}
 comment|// ================================================= Helper Methods ================================================

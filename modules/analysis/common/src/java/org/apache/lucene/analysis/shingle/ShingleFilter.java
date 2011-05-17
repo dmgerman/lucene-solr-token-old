@@ -943,6 +943,11 @@ return|return
 name|tokenAvailable
 return|;
 block|}
+DECL|field|exhausted
+specifier|private
+name|boolean
+name|exhausted
+decl_stmt|;
 comment|/**    *<p>Get the next token from the input stream.    *<p>If the next token has<code>positionIncrement> 1</code>,    *<code>positionIncrement - 1</code> {@link #FILLER_TOKEN}s are    * inserted first.    * @param target Where to put the new token; if null, a new instance is created.    * @return On success, the populated token; null otherwise    * @throws IOException if the input stream has a problem    */
 DECL|method|getNextToken
 specifier|private
@@ -1096,6 +1101,9 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|!
+name|exhausted
+operator|&&
 name|input
 operator|.
 name|incrementToken
@@ -1247,6 +1255,10 @@ block|{
 name|newTarget
 operator|=
 literal|null
+expr_stmt|;
+name|exhausted
+operator|=
+literal|true
 expr_stmt|;
 block|}
 return|return
@@ -1437,6 +1449,10 @@ expr_stmt|;
 name|noShingleOutput
 operator|=
 literal|true
+expr_stmt|;
+name|exhausted
+operator|=
+literal|false
 expr_stmt|;
 if|if
 condition|(
