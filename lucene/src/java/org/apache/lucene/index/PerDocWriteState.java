@@ -44,13 +44,28 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|codecs
+operator|.
+name|PerDocConsumer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|Directory
 import|;
 end_import
 begin_comment
-comment|/**  * nocommit - javadoc  * @lucene.experimental  */
+comment|/**  * Encapsulates all necessary state to initiate a {@link PerDocConsumer} and  * create all necessary files in order to consume and merge per-document values.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|PerDocWriteState
@@ -100,15 +115,7 @@ specifier|final
 name|int
 name|codecId
 decl_stmt|;
-comment|/** Expert: The fraction of terms in the "dictionary" which should be stored    * in RAM.  Smaller values use more memory, but make searching slightly    * faster, while larger values use less memory and make searching slightly    * slower.  Searching is typically not dominated by dictionary lookup, so    * tweaking this is rarely useful.*/
-DECL|field|termIndexInterval
-specifier|public
-name|int
-name|termIndexInterval
-decl_stmt|;
-comment|// TODO: this should be private to the codec, not settable here or in IWC
 DECL|method|PerDocWriteState
-specifier|public
 name|PerDocWriteState
 parameter_list|(
 name|PrintStream
@@ -179,7 +186,6 @@ name|bytesUsed
 expr_stmt|;
 block|}
 DECL|method|PerDocWriteState
-specifier|public
 name|PerDocWriteState
 parameter_list|(
 name|SegmentWriteState
@@ -232,7 +238,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|PerDocWriteState
-specifier|public
 name|PerDocWriteState
 parameter_list|(
 name|PerDocWriteState
