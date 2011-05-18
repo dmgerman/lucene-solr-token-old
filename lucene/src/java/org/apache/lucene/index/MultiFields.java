@@ -92,7 +92,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|Type
+name|ValueType
 import|;
 end_import
 begin_import

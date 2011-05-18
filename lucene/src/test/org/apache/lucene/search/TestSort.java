@@ -259,7 +259,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|Type
+name|ValueType
 import|;
 end_import
 begin_import
@@ -1358,7 +1358,7 @@ operator|.
 name|NOT_ANALYZED
 argument_list|)
 argument_list|,
-name|Type
+name|ValueType
 operator|.
 name|INTS
 argument_list|)
@@ -1445,7 +1445,7 @@ operator|.
 name|NOT_ANALYZED
 argument_list|)
 argument_list|,
-name|Type
+name|ValueType
 operator|.
 name|FLOAT_32
 argument_list|)
@@ -1704,7 +1704,7 @@ operator|.
 name|NOT_ANALYZED
 argument_list|)
 argument_list|,
-name|Type
+name|ValueType
 operator|.
 name|FLOAT_64
 argument_list|)

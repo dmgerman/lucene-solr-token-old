@@ -1346,6 +1346,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|/*        *  the allocated byteBuffer always uses BIG_ENDIAN here        *  and since the writer uses DataOutput#writeInt() / writeLong()        *  we can allways assume BIGE_ENDIAN        */
+specifier|final
 name|ByteBuffer
 name|buffer
 init|=
@@ -1518,7 +1520,7 @@ name|SourceEnum
 argument_list|(
 name|attrSource
 argument_list|,
-name|Type
+name|ValueType
 operator|.
 name|FLOAT_32
 argument_list|,
@@ -1608,12 +1610,12 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Type
+name|ValueType
 name|type
 parameter_list|()
 block|{
 return|return
-name|Type
+name|ValueType
 operator|.
 name|FLOAT_32
 return|;
@@ -1790,12 +1792,12 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Type
+name|ValueType
 name|type
 parameter_list|()
 block|{
 return|return
-name|Type
+name|ValueType
 operator|.
 name|FLOAT_64
 return|;
@@ -1894,7 +1896,7 @@ annotation|@
 name|Override
 DECL|method|type
 specifier|public
-name|Type
+name|ValueType
 name|type
 parameter_list|()
 block|{
@@ -1903,11 +1905,11 @@ name|precisionBytes
 operator|==
 literal|4
 condition|?
-name|Type
+name|ValueType
 operator|.
 name|FLOAT_32
 else|:
-name|Type
+name|ValueType
 operator|.
 name|FLOAT_64
 return|;
@@ -1946,7 +1948,7 @@ literal|4
 argument_list|,
 name|maxDoc
 argument_list|,
-name|Type
+name|ValueType
 operator|.
 name|FLOAT_32
 argument_list|)
@@ -2124,7 +2126,7 @@ literal|8
 argument_list|,
 name|maxDoc
 argument_list|,
-name|Type
+name|ValueType
 operator|.
 name|FLOAT_64
 argument_list|)
@@ -2325,7 +2327,7 @@ parameter_list|,
 name|int
 name|maxDoc
 parameter_list|,
-name|Type
+name|ValueType
 name|type
 parameter_list|)
 throws|throws
@@ -2339,11 +2341,11 @@ name|precision
 operator|==
 literal|4
 condition|?
-name|Type
+name|ValueType
 operator|.
 name|FLOAT_32
 else|:
-name|Type
+name|ValueType
 operator|.
 name|FLOAT_64
 argument_list|)

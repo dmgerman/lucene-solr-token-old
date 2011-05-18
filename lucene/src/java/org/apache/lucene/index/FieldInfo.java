@@ -23,7 +23,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|Type
+name|ValueType
 import|;
 end_import
 begin_comment
@@ -67,7 +67,7 @@ name|boolean
 name|isIndexed
 decl_stmt|;
 DECL|field|docValues
-name|Type
+name|ValueType
 name|docValues
 decl_stmt|;
 comment|// true if term vector for this field should be stored
@@ -138,7 +138,7 @@ parameter_list|,
 name|boolean
 name|omitTermFreqAndPositions
 parameter_list|,
-name|Type
+name|ValueType
 name|docValues
 parameter_list|)
 block|{
@@ -505,7 +505,7 @@ DECL|method|setDocValues
 name|void
 name|setDocValues
 parameter_list|(
-name|Type
+name|ValueType
 name|v
 parameter_list|)
 block|{
@@ -536,7 +536,7 @@ return|;
 block|}
 DECL|method|getDocValues
 specifier|public
-name|Type
+name|ValueType
 name|getDocValues
 parameter_list|()
 block|{
