@@ -2707,10 +2707,7 @@ block|}
 name|int
 name|sz
 init|=
-name|resultList
-operator|.
-name|size
-argument_list|()
+literal|0
 decl_stmt|;
 for|for
 control|(
