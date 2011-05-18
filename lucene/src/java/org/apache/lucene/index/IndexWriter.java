@@ -7068,7 +7068,7 @@ argument_list|)
 expr_stmt|;
 name|rollbackSegments
 operator|=
-name|segmentInfos
+name|pendingCommit
 operator|.
 name|createBackupSegmentInfos
 argument_list|(
