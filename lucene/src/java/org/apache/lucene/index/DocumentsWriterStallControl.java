@@ -49,10 +49,10 @@ begin_comment
 comment|//TODO: rename this to DocumentsWriterStallControl (or something like that)?
 end_comment
 begin_class
-DECL|class|Healthiness
+DECL|class|DocumentsWriterStallControl
 specifier|final
 class|class
-name|Healthiness
+name|DocumentsWriterStallControl
 block|{
 annotation|@
 name|SuppressWarnings
@@ -267,7 +267,7 @@ name|isHealthy
 argument_list|()
 return|;
 block|}
-comment|/**    * Update the stalled flag status. This method will set the stalled flag to    *<code>true</code> iff the number of flushing    * {@link DocumentsWriterPerThread} is greater than the number of active    * {@link DocumentsWriterPerThread}. Otherwise it will reset the    * {@link Healthiness} to healthy and release all threads waiting on    * {@link #waitIfStalled()}    */
+comment|/**    * Update the stalled flag status. This method will set the stalled flag to    *<code>true</code> iff the number of flushing    * {@link DocumentsWriterPerThread} is greater than the number of active    * {@link DocumentsWriterPerThread}. Otherwise it will reset the    * {@link DocumentsWriterStallControl} to healthy and release all threads waiting on    * {@link #waitIfStalled()}    */
 DECL|method|updateStalled
 name|void
 name|updateStalled
@@ -278,17 +278,18 @@ parameter_list|)
 block|{
 do|do
 block|{
-comment|// if we have more flushing DWPT than numActiveDWPT we stall!
+comment|// if we have more flushing / blocked DWPT than numActiveDWPT we stall!
+comment|// don't stall if we have queued flushes - threads should be hijacked instead
 while|while
 condition|(
 name|flushControl
 operator|.
-name|numActiveDWPT
+name|netBytes
 argument_list|()
-operator|<
+operator|>
 name|flushControl
 operator|.
-name|numFlushingDWPT
+name|stallLimitBytes
 argument_list|()
 condition|)
 block|{
@@ -337,6 +338,7 @@ name|boolean
 name|hasBlocked
 parameter_list|()
 block|{
+comment|// for tests
 return|return
 name|sync
 operator|.

@@ -4179,6 +4179,8 @@ specifier|public
 name|void
 name|tearDown
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|BooleanQuery
 operator|.
@@ -4186,6 +4188,11 @@ name|setMaxClauseCount
 argument_list|(
 name|originalMaxClauses
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|tearDown
+argument_list|()
 expr_stmt|;
 block|}
 block|}

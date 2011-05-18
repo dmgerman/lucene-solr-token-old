@@ -4204,6 +4204,14 @@ else|else
 block|{
 name|result
 operator|=
+name|upto
+operator|==
+literal|0
+condition|?
+name|DocSet
+operator|.
+name|EMPTY
+else|:
 operator|new
 name|SortedIntDocSet
 argument_list|(
