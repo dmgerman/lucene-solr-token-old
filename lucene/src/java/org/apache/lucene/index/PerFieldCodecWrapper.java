@@ -1565,7 +1565,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|IOException
 name|ioe
 parameter_list|)
 block|{
