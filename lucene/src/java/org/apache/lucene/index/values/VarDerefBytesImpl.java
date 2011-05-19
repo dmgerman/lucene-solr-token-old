@@ -278,7 +278,7 @@ name|util
 operator|.
 name|ByteBlockPool
 operator|.
-name|DirectAllocator
+name|DirectTrackingAllocator
 import|;
 end_import
 begin_import
@@ -635,11 +635,13 @@ argument_list|,
 name|id
 argument_list|,
 operator|new
-name|DirectAllocator
+name|DirectTrackingAllocator
 argument_list|(
 name|ByteBlockPool
 operator|.
 name|BYTE_BLOCK_SIZE
+argument_list|,
+name|bytesUsed
 argument_list|)
 argument_list|,
 name|bytesUsed
@@ -674,8 +676,6 @@ argument_list|,
 name|CODEC_NAME
 argument_list|,
 name|VERSION_CURRENT
-argument_list|,
-literal|true
 argument_list|,
 literal|true
 argument_list|,

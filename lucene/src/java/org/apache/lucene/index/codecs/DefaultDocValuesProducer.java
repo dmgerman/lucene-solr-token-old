@@ -603,6 +603,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|Collection
 argument_list|<
 name|DocValues
