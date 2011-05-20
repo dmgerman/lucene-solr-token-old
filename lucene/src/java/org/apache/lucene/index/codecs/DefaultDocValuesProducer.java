@@ -252,7 +252,6 @@ annotation|@
 name|Override
 DECL|method|docValues
 specifier|public
-specifier|synchronized
 name|DocValues
 name|docValues
 parameter_list|(
@@ -648,7 +647,6 @@ block|}
 block|}
 DECL|method|close
 specifier|public
-specifier|synchronized
 name|void
 name|close
 parameter_list|()
