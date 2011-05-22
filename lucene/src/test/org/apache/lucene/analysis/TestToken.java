@@ -1662,6 +1662,10 @@ operator|.
 name|WHITESPACE
 argument_list|,
 literal|false
+argument_list|,
+name|MockTokenizer
+operator|.
+name|DEFAULT_MAX_TOKEN_LENGTH
 argument_list|)
 decl_stmt|;
 name|assertTrue
