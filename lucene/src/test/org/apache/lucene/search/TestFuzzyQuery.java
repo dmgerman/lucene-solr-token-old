@@ -3584,7 +3584,9 @@ name|analyzer
 init|=
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 decl_stmt|;
 name|Directory
 name|index
@@ -3817,7 +3819,9 @@ literal|"field"
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|FuzzyQuery
@@ -3925,7 +3929,9 @@ literal|"field"
 argument_list|,
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|FuzzyQuery

@@ -217,7 +217,7 @@ name|ts
 init|=
 name|a
 operator|.
-name|tokenStream
+name|reusableTokenStream
 argument_list|(
 name|field
 argument_list|,

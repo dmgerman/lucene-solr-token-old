@@ -2958,6 +2958,11 @@ try|try
 block|{
 name|source
 operator|.
+name|end
+argument_list|()
+expr_stmt|;
+name|source
+operator|.
 name|close
 argument_list|()
 expr_stmt|;

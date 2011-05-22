@@ -171,7 +171,9 @@ name|analyzer
 init|=
 operator|new
 name|MockAnalyzer
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 decl_stmt|;
 DECL|method|testQuery
 specifier|public
@@ -209,7 +211,7 @@ argument_list|)
 operator|.
 name|setMergePolicy
 argument_list|(
-name|newInOrderLogMergePolicy
+name|newLogMergePolicy
 argument_list|()
 argument_list|)
 argument_list|)
@@ -301,9 +303,9 @@ name|assertEquals
 argument_list|(
 literal|"one"
 argument_list|,
-name|ir
+name|is
 operator|.
-name|document
+name|doc
 argument_list|(
 name|hits
 index|[
@@ -323,9 +325,9 @@ name|assertEquals
 argument_list|(
 literal|"two"
 argument_list|,
-name|ir
+name|is
 operator|.
-name|document
+name|doc
 argument_list|(
 name|hits
 index|[
@@ -345,9 +347,9 @@ name|assertEquals
 argument_list|(
 literal|"three four"
 argument_list|,
-name|ir
+name|is
 operator|.
-name|document
+name|doc
 argument_list|(
 name|hits
 index|[
@@ -401,9 +403,9 @@ name|assertEquals
 argument_list|(
 literal|"three four"
 argument_list|,
-name|ir
+name|is
 operator|.
-name|document
+name|doc
 argument_list|(
 name|hits
 index|[
@@ -423,9 +425,9 @@ name|assertEquals
 argument_list|(
 literal|"two"
 argument_list|,
-name|ir
+name|is
 operator|.
-name|document
+name|doc
 argument_list|(
 name|hits
 index|[
@@ -445,9 +447,9 @@ name|assertEquals
 argument_list|(
 literal|"one"
 argument_list|,
-name|ir
+name|is
 operator|.
-name|document
+name|doc
 argument_list|(
 name|hits
 index|[
@@ -464,7 +466,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// change norm& retest
-name|ir
+name|is
+operator|.
+name|getIndexReader
+argument_list|()
 operator|.
 name|setNorm
 argument_list|(
@@ -524,9 +529,9 @@ name|assertEquals
 argument_list|(
 literal|"one"
 argument_list|,
-name|ir
+name|is
 operator|.
-name|document
+name|doc
 argument_list|(
 name|hits
 index|[
@@ -546,9 +551,9 @@ name|assertEquals
 argument_list|(
 literal|"three four"
 argument_list|,
-name|ir
+name|is
 operator|.
-name|document
+name|doc
 argument_list|(
 name|hits
 index|[
@@ -568,9 +573,9 @@ name|assertEquals
 argument_list|(
 literal|"two"
 argument_list|,
-name|ir
+name|is
 operator|.
-name|document
+name|doc
 argument_list|(
 name|hits
 index|[
@@ -717,7 +722,10 @@ name|length
 argument_list|)
 expr_stmt|;
 comment|// delete a document:
-name|ir
+name|is
+operator|.
+name|getIndexReader
+argument_list|()
 operator|.
 name|deleteDocument
 argument_list|(

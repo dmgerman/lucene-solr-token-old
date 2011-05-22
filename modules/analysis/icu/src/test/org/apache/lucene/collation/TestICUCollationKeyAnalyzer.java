@@ -439,10 +439,9 @@ block|{
 name|Locale
 name|locale
 init|=
-name|randomLocale
-argument_list|(
-name|random
-argument_list|)
+name|Locale
+operator|.
+name|GERMAN
 decl_stmt|;
 name|Collator
 name|collator

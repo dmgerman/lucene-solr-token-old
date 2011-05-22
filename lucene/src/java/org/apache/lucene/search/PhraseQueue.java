@@ -88,6 +88,29 @@ name|position
 condition|)
 comment|// same doc and pp.position, so decide by actual term positions.
 comment|// rely on: pp.position == tp.position - offset.
+if|if
+condition|(
+name|pp1
+operator|.
+name|offset
+operator|==
+name|pp2
+operator|.
+name|offset
+condition|)
+block|{
+return|return
+name|pp1
+operator|.
+name|ord
+operator|<
+name|pp2
+operator|.
+name|ord
+return|;
+block|}
+else|else
+block|{
 return|return
 name|pp1
 operator|.
@@ -97,7 +120,9 @@ name|pp2
 operator|.
 name|offset
 return|;
+block|}
 else|else
+block|{
 return|return
 name|pp1
 operator|.
@@ -107,7 +132,9 @@ name|pp2
 operator|.
 name|position
 return|;
+block|}
 else|else
+block|{
 return|return
 name|pp1
 operator|.
@@ -117,6 +144,7 @@ name|pp2
 operator|.
 name|doc
 return|;
+block|}
 block|}
 block|}
 end_class

@@ -171,7 +171,7 @@ name|Weight
 import|;
 end_import
 begin_comment
-comment|/* Tracks the stream of {@link BuffereDeletes}.  * When DocumensWriter flushes, its buffered  * deletes are appended to this stream.  We later  * apply these deletes (resolve them to the actual  * docIDs, per segment) when a merge is started  * (only to the to-be-merged segments).  We  * also apply to all segments when NRT reader is pulled,  * commit/close is called, or when too many deletes are  * buffered and must be flushed (by RAM usage or by count).  *  * Each packet is assigned a generation, and each flushed or  * merged segment is also assigned a generation, so we can  * track which BufferedDeletes packets to apply to any given  * segment. */
+comment|/* Tracks the stream of {@link BufferedDeletes}.  * When DocumentsWriterPerThread flushes, its buffered  * deletes are appended to this stream.  We later  * apply these deletes (resolve them to the actual  * docIDs, per segment) when a merge is started  * (only to the to-be-merged segments).  We  * also apply to all segments when NRT reader is pulled,  * commit/close is called, or when too many deletes are  * buffered and must be flushed (by RAM usage or by count).  *  * Each packet is assigned a generation, and each flushed or  * merged segment is also assigned a generation, so we can  * track which BufferedDeletes packets to apply to any given  * segment. */
 end_comment
 begin_class
 DECL|class|BufferedDeletesStream
@@ -327,13 +327,22 @@ comment|// setting its generation:
 DECL|method|push
 specifier|public
 specifier|synchronized
-name|void
+name|long
 name|push
 parameter_list|(
 name|FrozenBufferedDeletes
 name|packet
 parameter_list|)
 block|{
+comment|/*      * The insert operation must be atomic. If we let threads increment the gen      * and push the packet afterwards we risk that packets are out of order.      * With DWPT this is possible if two or more flushes are racing for pushing      * updates. If the pushed packets get our of order would loose documents      * since deletes are applied to the wrong segments.      */
+name|packet
+operator|.
+name|setDelGen
+argument_list|(
+name|nextGen
+operator|++
+argument_list|)
+expr_stmt|;
 assert|assert
 name|packet
 operator|.
@@ -347,9 +356,38 @@ assert|;
 assert|assert
 name|packet
 operator|.
-name|gen
+name|delGen
+argument_list|()
 operator|<
 name|nextGen
+assert|;
+assert|assert
+name|deletes
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
+name|deletes
+operator|.
+name|get
+argument_list|(
+name|deletes
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+operator|.
+name|delGen
+argument_list|()
+operator|<
+name|packet
+operator|.
+name|delGen
+argument_list|()
+operator|:
+literal|"Delete packets must be in order"
 assert|;
 name|deletes
 operator|.
@@ -393,7 +431,8 @@ literal|" delGen="
 operator|+
 name|packet
 operator|.
-name|gen
+name|delGen
+argument_list|()
 operator|+
 literal|" packetCount="
 operator|+
@@ -408,6 +447,12 @@ assert|assert
 name|checkDeleteStats
 argument_list|()
 assert|;
+return|return
+name|packet
+operator|.
+name|delGen
+argument_list|()
+return|;
 block|}
 DECL|method|clear
 specifier|public
@@ -505,7 +550,10 @@ comment|// If non-null, contains segments that are 100% deleted
 DECL|field|allDeleted
 specifier|public
 specifier|final
-name|SegmentInfos
+name|List
+argument_list|<
+name|SegmentInfo
+argument_list|>
 name|allDeleted
 decl_stmt|;
 DECL|method|ApplyDeletesResult
@@ -517,7 +565,10 @@ parameter_list|,
 name|long
 name|gen
 parameter_list|,
-name|SegmentInfos
+name|List
+argument_list|<
+name|SegmentInfo
+argument_list|>
 name|allDeleted
 parameter_list|)
 block|{
@@ -542,7 +593,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// Sorts SegmentInfos from smallest to biggest bufferedDelGen:
-DECL|field|sortByDelGen
+DECL|field|sortSegInfoByDelGen
 specifier|private
 specifier|static
 specifier|final
@@ -550,7 +601,7 @@ name|Comparator
 argument_list|<
 name|SegmentInfo
 argument_list|>
-name|sortByDelGen
+name|sortSegInfoByDelGen
 init|=
 operator|new
 name|Comparator
@@ -627,7 +678,7 @@ name|other
 parameter_list|)
 block|{
 return|return
-name|sortByDelGen
+name|sortSegInfoByDelGen
 operator|==
 name|other
 return|;
@@ -646,7 +697,10 @@ operator|.
 name|ReaderPool
 name|readerPool
 parameter_list|,
-name|SegmentInfos
+name|List
+argument_list|<
+name|SegmentInfo
+argument_list|>
 name|infos
 parameter_list|)
 throws|throws
@@ -735,11 +789,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|SegmentInfos
+name|List
+argument_list|<
+name|SegmentInfo
+argument_list|>
 name|infos2
 init|=
 operator|new
-name|SegmentInfos
+name|ArrayList
+argument_list|<
+name|SegmentInfo
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|infos2
@@ -755,7 +815,7 @@ name|sort
 argument_list|(
 name|infos2
 argument_list|,
-name|sortByDelGen
+name|sortSegInfoByDelGen
 argument_list|)
 expr_stmt|;
 name|BufferedDeletes
@@ -788,7 +848,10 @@ argument_list|()
 operator|-
 literal|1
 decl_stmt|;
-name|SegmentInfos
+name|List
+argument_list|<
+name|SegmentInfo
+argument_list|>
 name|allDeleted
 init|=
 literal|null
@@ -848,7 +911,8 @@ name|segGen
 operator|<
 name|packet
 operator|.
-name|gen
+name|delGen
+argument_list|()
 condition|)
 block|{
 comment|//System.out.println("  coalesce");
@@ -868,6 +932,15 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|packet
+operator|.
+name|isSegmentPrivate
+condition|)
+block|{
+comment|/*            * Only coalesce if we are NOT on a segment private del packet: the segment private del packet            * must only applied to segments with the same delGen.  Yet, if a segment is already deleted            * from the SI since it had no more documents remaining after some del packets younger than            * its segPrivate packet (higher delGen) have been applied, the segPrivate packet has not been            * removed.            */
 name|coalescedDeletes
 operator|.
 name|update
@@ -875,6 +948,7 @@ argument_list|(
 name|packet
 argument_list|)
 expr_stmt|;
+block|}
 name|delIDX
 operator|--
 expr_stmt|;
@@ -890,9 +964,17 @@ name|segGen
 operator|==
 name|packet
 operator|.
-name|gen
+name|delGen
+argument_list|()
 condition|)
 block|{
+assert|assert
+name|packet
+operator|.
+name|isSegmentPrivate
+operator|:
+literal|"Packet and Segments deletegen can only match on a segment private del packet"
+assert|;
 comment|//System.out.println("  eq");
 comment|// Lock order: IW -> BD -> RP
 assert|assert
@@ -903,6 +985,7 @@ argument_list|(
 name|info
 argument_list|)
 assert|;
+specifier|final
 name|SegmentReader
 name|reader
 init|=
@@ -960,7 +1043,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//System.out.println("    del exact");
-comment|// Don't delete by Term here; DocumentsWriter
+comment|// Don't delete by Term here; DocumentsWriterPerThread
 comment|// already did that on flush:
 name|delCount
 operator|+=
@@ -1015,7 +1098,10 @@ block|{
 name|allDeleted
 operator|=
 operator|new
-name|SegmentInfos
+name|ArrayList
+argument_list|<
+name|SegmentInfo
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
@@ -1090,13 +1176,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-name|coalescedDeletes
-operator|.
-name|update
-argument_list|(
-name|packet
-argument_list|)
-expr_stmt|;
+comment|/*          * Since we are on a segment private del packet we must not          * update the coalescedDeletes here! We can simply advance to the           * next packet and seginfo.          */
 name|delIDX
 operator|--
 expr_stmt|;
@@ -1218,7 +1298,10 @@ block|{
 name|allDeleted
 operator|=
 operator|new
-name|SegmentInfos
+name|ArrayList
+argument_list|<
+name|SegmentInfo
+argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
@@ -1329,7 +1412,6 @@ argument_list|)
 return|;
 block|}
 DECL|method|getNextGen
-specifier|public
 specifier|synchronized
 name|long
 name|getNextGen
@@ -1445,7 +1527,8 @@ argument_list|(
 name|delIDX
 argument_list|)
 operator|.
-name|gen
+name|delGen
+argument_list|()
 operator|>=
 name|minGen
 condition|)
