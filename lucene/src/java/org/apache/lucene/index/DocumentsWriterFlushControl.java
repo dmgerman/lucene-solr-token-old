@@ -326,7 +326,6 @@ literal|1024
 operator|*
 literal|1024
 expr_stmt|;
-empty_stmt|;
 name|this
 operator|.
 name|config
