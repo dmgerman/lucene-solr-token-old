@@ -24,9 +24,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SegmentReader
-operator|.
-name|Norm
+name|SegmentNorms
 import|;
 end_import
 begin_import
@@ -1842,7 +1840,7 @@ name|origSegmentReader
 argument_list|)
 expr_stmt|;
 comment|// check the norm refs
-name|Norm
+name|SegmentNorms
 name|norm
 init|=
 name|clonedSegmentReader
