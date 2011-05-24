@@ -908,6 +908,8 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
+assert|assert
+operator|(
 name|numBits
 operator|=
 name|Math
@@ -920,7 +922,10 @@ name|index
 operator|+
 literal|1
 argument_list|)
-expr_stmt|;
+operator|)
+operator|>=
+literal|0
+assert|;
 return|return
 name|wordNum
 return|;
@@ -2768,6 +2773,8 @@ argument_list|(
 name|newLen
 argument_list|)
 expr_stmt|;
+assert|assert
+operator|(
 name|numBits
 operator|=
 name|Math
@@ -2780,7 +2787,10 @@ name|numBits
 argument_list|,
 name|numBits
 argument_list|)
-expr_stmt|;
+operator|)
+operator|>=
+literal|0
+assert|;
 name|long
 index|[]
 name|thisArr
@@ -2960,6 +2970,8 @@ argument_list|(
 name|newLen
 argument_list|)
 expr_stmt|;
+assert|assert
+operator|(
 name|numBits
 operator|=
 name|Math
@@ -2972,7 +2984,10 @@ name|numBits
 argument_list|,
 name|numBits
 argument_list|)
-expr_stmt|;
+operator|)
+operator|>=
+literal|0
+assert|;
 name|long
 index|[]
 name|thisArr
