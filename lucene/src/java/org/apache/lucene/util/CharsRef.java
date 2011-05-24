@@ -794,8 +794,6 @@ name|length
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|length
 specifier|public
 name|int
@@ -806,8 +804,6 @@ return|return
 name|length
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|charAt
 specifier|public
 name|char
@@ -826,8 +822,6 @@ name|index
 index|]
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|subSequence
 specifier|public
 name|CharSequence
