@@ -445,7 +445,7 @@ index|]
 operator|=
 name|x
 operator|.
-name|byteVal
+name|floatVal
 argument_list|(
 name|doc
 argument_list|)
@@ -457,7 +457,7 @@ index|]
 operator|=
 name|y
 operator|.
-name|byteVal
+name|floatVal
 argument_list|(
 name|doc
 argument_list|)
