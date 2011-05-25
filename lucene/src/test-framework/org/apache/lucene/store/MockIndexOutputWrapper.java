@@ -125,11 +125,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+block|{
 name|dir
 operator|.
 name|maybeThrowDeterministicException
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|delegate
 operator|.
 name|close
@@ -192,6 +197,7 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
