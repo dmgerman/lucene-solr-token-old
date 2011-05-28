@@ -75,7 +75,8 @@ literal|0
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -170,7 +171,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -182,7 +184,8 @@ literal|"subInfos=(abcdefghijklmnopqrs((0,19)))/1.0(0,19)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -234,7 +237,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -252,7 +256,8 @@ name|println
 argument_list|(
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -269,7 +274,8 @@ literal|"subInfos=(abcdefghjklmnopqrs((0,21)))/1.0(0,21)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -319,7 +325,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -331,7 +338,8 @@ literal|"subInfos=(a((0,1)))/1.0(0,100)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -381,7 +389,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -393,7 +402,8 @@ literal|"subInfos=(a((0,1))a((2,3)))/2.0(0,100)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -426,7 +436,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -438,7 +449,8 @@ literal|"subInfos=(a((0,1))a((18,19)))/2.0(0,20)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -471,7 +483,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -483,7 +496,8 @@ literal|"subInfos=(a((8,9))a((18,19)))/2.0(2,22)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -533,7 +547,8 @@ literal|2
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -545,7 +560,8 @@ literal|"subInfos=(a((0,1)))/1.0(0,20)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -562,7 +578,8 @@ literal|"subInfos=(a((28,29)))/1.0(22,42)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -595,7 +612,8 @@ literal|2
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -607,7 +625,8 @@ literal|"subInfos=(a((0,1)))/1.0(0,20)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -624,7 +643,8 @@ literal|"subInfos=(a((26,27)))/1.0(20,40)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -657,7 +677,8 @@ literal|2
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -669,7 +690,8 @@ literal|"subInfos=(a((0,1)))/1.0(0,20)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -686,7 +708,8 @@ literal|"subInfos=(a((20,21)))/1.0(20,40)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -736,7 +759,8 @@ literal|0
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -764,7 +788,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -776,7 +801,8 @@ literal|"subInfos=(b((2,3)))/1.0(0,20)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -809,7 +835,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -821,7 +848,8 @@ literal|"subInfos=(a((0,1))b((2,3)))/2.0(0,20)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -871,7 +899,8 @@ literal|0
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -899,7 +928,8 @@ literal|0
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -927,7 +957,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -939,7 +970,8 @@ literal|"subInfos=(ab((0,3)))/1.0(0,20)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -989,7 +1021,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -1001,7 +1034,8 @@ literal|"subInfos=(ab((0,1)(4,5)))/1.0(0,20)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -1158,7 +1192,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -1170,7 +1205,8 @@ literal|"subInfos=(d((9,10)))/1.0(3,103)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -1262,7 +1298,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -1274,7 +1311,8 @@ literal|"subInfos=(searchengines((102,116))searchengines((157,171)))/2.0(96,196)
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
@@ -1371,7 +1409,8 @@ literal|1
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -1383,7 +1422,8 @@ literal|"subInfos=(sppeeeed((88,93)))/1.0(82,182)"
 argument_list|,
 name|ffl
 operator|.
-name|fragInfos
+name|getFragInfos
+argument_list|()
 operator|.
 name|get
 argument_list|(
