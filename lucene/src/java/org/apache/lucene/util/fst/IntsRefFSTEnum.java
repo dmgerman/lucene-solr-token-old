@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.util.automaton.fst
+DECL|package|org.apache.lucene.util.fst
 package|package
 name|org
 operator|.
@@ -10,23 +10,12 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|automaton
-operator|.
 name|fst
 package|;
 end_package
 begin_comment
 comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
 begin_import
 import|import
 name|org
@@ -37,18 +26,27 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BytesRef
+name|IntsRef
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 begin_comment
-comment|/** Can next() and advance() through the terms in an FST   * @lucene.experimental */
+comment|/** Can next() and advance() through the terms in an FST  *   * @lucene.experimental */
 end_comment
 begin_class
-DECL|class|BytesRefFSTEnum
+DECL|class|IntsRefFSTEnum
 specifier|public
 specifier|final
 class|class
-name|BytesRefFSTEnum
+name|IntsRefFSTEnum
 parameter_list|<
 name|T
 parameter_list|>
@@ -61,11 +59,11 @@ block|{
 DECL|field|current
 specifier|private
 specifier|final
-name|BytesRef
+name|IntsRef
 name|current
 init|=
 operator|new
-name|BytesRef
+name|IntsRef
 argument_list|(
 literal|10
 argument_list|)
@@ -88,7 +86,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|target
 specifier|private
-name|BytesRef
+name|IntsRef
 name|target
 decl_stmt|;
 DECL|class|InputOutput
@@ -102,7 +100,7 @@ parameter_list|>
 block|{
 DECL|field|input
 specifier|public
-name|BytesRef
+name|IntsRef
 name|input
 decl_stmt|;
 DECL|field|output
@@ -112,9 +110,9 @@ name|output
 decl_stmt|;
 block|}
 comment|/** doFloor controls the behavior of advance: if it's true    *  doFloor is true, advance positions to the biggest    *  term before target.  */
-DECL|method|BytesRefFSTEnum
+DECL|method|IntsRefFSTEnum
 specifier|public
-name|BytesRefFSTEnum
+name|IntsRefFSTEnum
 parameter_list|(
 name|FST
 argument_list|<
@@ -183,7 +181,7 @@ name|T
 argument_list|>
 name|seekCeil
 parameter_list|(
-name|BytesRef
+name|IntsRef
 name|target
 parameter_list|)
 throws|throws
@@ -220,7 +218,7 @@ name|T
 argument_list|>
 name|seekFloor
 parameter_list|(
-name|BytesRef
+name|IntsRef
 name|target
 parameter_list|)
 throws|throws
@@ -278,7 +276,7 @@ block|{
 return|return
 name|target
 operator|.
-name|bytes
+name|ints
 index|[
 name|target
 operator|.
@@ -288,8 +286,6 @@ name|upto
 operator|-
 literal|1
 index|]
-operator|&
-literal|0xFF
 return|;
 block|}
 block|}
@@ -305,12 +301,10 @@ comment|// current.offset fixed at 1
 return|return
 name|current
 operator|.
-name|bytes
+name|ints
 index|[
 name|upto
 index|]
-operator|&
-literal|0xFF
 return|;
 block|}
 annotation|@
@@ -326,14 +320,11 @@ parameter_list|)
 block|{
 name|current
 operator|.
-name|bytes
+name|ints
 index|[
 name|upto
 index|]
 operator|=
-operator|(
-name|byte
-operator|)
 name|label
 expr_stmt|;
 block|}

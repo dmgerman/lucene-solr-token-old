@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.util.automaton.fst
+DECL|package|org.apache.lucene.util.fst
 package|package
 name|org
 operator|.
@@ -9,8 +9,6 @@ operator|.
 name|lucene
 operator|.
 name|util
-operator|.
-name|automaton
 operator|.
 name|fst
 package|;
@@ -370,8 +368,6 @@ operator|.
 name|lucene
 operator|.
 name|util
-operator|.
-name|automaton
 operator|.
 name|fst
 operator|.
@@ -8666,7 +8662,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// java -cp build/classes/test:build/classes/java:lib/junit-4.7.jar org.apache.lucene.util.automaton.fst.TestFSTs /x/tmp/allTerms3.txt out
+comment|// java -cp build/classes/test:build/classes/java:lib/junit-4.7.jar org.apache.lucene.util.fst.TestFSTs /x/tmp/allTerms3.txt out
 DECL|method|main
 specifier|public
 specifier|static

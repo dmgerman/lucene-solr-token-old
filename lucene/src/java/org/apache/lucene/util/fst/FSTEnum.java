@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.util.automaton.fst
+DECL|package|org.apache.lucene.util.fst
 package|package
 name|org
 operator|.
@@ -9,8 +9,6 @@ operator|.
 name|lucene
 operator|.
 name|util
-operator|.
-name|automaton
 operator|.
 name|fst
 package|;
@@ -54,7 +52,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** Can next() and advance() through the terms in an FST   * @lucene.experimental */
+comment|/** Can next() and advance() through the terms in an FST  *   * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|FSTEnum
