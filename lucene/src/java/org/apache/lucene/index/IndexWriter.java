@@ -3068,6 +3068,13 @@ name|segString
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// used by assert below
+specifier|final
+name|DocumentsWriter
+name|oldWriter
+init|=
+name|docWriter
+decl_stmt|;
 synchronized|synchronized
 init|(
 name|this
@@ -3116,6 +3123,12 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+assert|assert
+name|oldWriter
+operator|.
+name|assertNoActiveDWPT
+argument_list|()
+assert|;
 block|}
 catch|catch
 parameter_list|(
