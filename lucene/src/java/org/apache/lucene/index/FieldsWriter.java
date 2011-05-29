@@ -494,6 +494,8 @@ name|IOUtils
 operator|.
 name|closeSafely
 argument_list|(
+literal|false
+argument_list|,
 name|fieldsStream
 argument_list|,
 name|indexStream

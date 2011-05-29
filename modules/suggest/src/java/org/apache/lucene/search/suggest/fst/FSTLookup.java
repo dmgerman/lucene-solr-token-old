@@ -2241,6 +2241,8 @@ name|IOUtils
 operator|.
 name|closeSafely
 argument_list|(
+literal|false
+argument_list|,
 name|is
 argument_list|)
 expr_stmt|;
@@ -2346,6 +2348,8 @@ name|IOUtils
 operator|.
 name|closeSafely
 argument_list|(
+literal|false
+argument_list|,
 name|os
 argument_list|)
 expr_stmt|;

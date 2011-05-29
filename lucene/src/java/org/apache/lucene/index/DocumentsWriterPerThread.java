@@ -684,10 +684,7 @@ name|infoStream
 operator|=
 name|parent
 operator|.
-name|indexWriter
-operator|.
-name|getInfoStream
-argument_list|()
+name|infoStream
 expr_stmt|;
 name|this
 operator|.
@@ -2263,6 +2260,8 @@ name|blockSize
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getByteBlock
 specifier|public
 name|byte
@@ -2345,7 +2344,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-empty_stmt|;
 DECL|method|setInfoStream
 name|void
 name|setInfoStream
