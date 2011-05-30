@@ -268,6 +268,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|IOUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|ThreadInterruptedException
 import|;
 end_import
@@ -1229,13 +1242,13 @@ argument_list|(
 name|segnOutput
 argument_list|)
 expr_stmt|;
-name|success
-operator|=
-literal|true
-expr_stmt|;
 name|pendingSegnOutput
 operator|=
 name|segnOutput
+expr_stmt|;
+name|success
+operator|=
+literal|true
 expr_stmt|;
 block|}
 finally|finally
@@ -1248,22 +1261,15 @@ condition|)
 block|{
 comment|// We hit an exception above; try to close the file
 comment|// but suppress any exception:
-try|try
-block|{
-name|segnOutput
+name|IOUtils
 operator|.
-name|close
-argument_list|()
+name|closeSafely
+argument_list|(
+literal|true
+argument_list|,
+name|segnOutput
+argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-comment|// Suppress so we keep throwing the original exception
-block|}
 try|try
 block|{
 comment|// Try not to leave a truncated segments_N file in
@@ -3360,6 +3366,16 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|ThreadInterruptedException
+name|t
+parameter_list|)
+block|{
+throw|throw
+name|t
+throw|;
 block|}
 catch|catch
 parameter_list|(

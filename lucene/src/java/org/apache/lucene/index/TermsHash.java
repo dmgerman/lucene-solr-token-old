@@ -535,8 +535,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-try|try
-block|{
 name|consumer
 operator|.
 name|finishDocument
@@ -544,9 +542,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
 if|if
 condition|(
 name|nextTermsHash
@@ -563,7 +558,6 @@ argument_list|(
 name|nextTermsHash
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@

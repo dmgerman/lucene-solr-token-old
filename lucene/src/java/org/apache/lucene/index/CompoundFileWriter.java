@@ -140,6 +140,11 @@ DECL|field|dataOffset
 name|long
 name|dataOffset
 decl_stmt|;
+comment|/** the directory which contains the file. */
+DECL|field|dir
+name|Directory
+name|dir
+decl_stmt|;
 block|}
 comment|// Before versioning started.
 DECL|field|FORMAT_PRE_VERSION
@@ -339,6 +344,27 @@ name|String
 name|file
 parameter_list|)
 block|{
+name|addFile
+argument_list|(
+name|file
+argument_list|,
+name|directory
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Same as {@link #addFile(String)}, only for files that are found in an      * external {@link Directory}.      */
+DECL|method|addFile
+specifier|public
+name|void
+name|addFile
+parameter_list|(
+name|String
+name|file
+parameter_list|,
+name|Directory
+name|dir
+parameter_list|)
+block|{
 if|if
 condition|(
 name|merged
@@ -396,6 +422,12 @@ operator|.
 name|file
 operator|=
 name|file
+expr_stmt|;
+name|entry
+operator|.
+name|dir
+operator|=
+name|dir
 expr_stmt|;
 name|entries
 operator|.
@@ -530,7 +562,9 @@ argument_list|)
 expr_stmt|;
 name|totalSize
 operator|+=
-name|directory
+name|fe
+operator|.
+name|dir
 operator|.
 name|fileLength
 argument_list|(
@@ -688,7 +722,9 @@ block|{
 name|IndexInput
 name|is
 init|=
-name|directory
+name|source
+operator|.
+name|dir
 operator|.
 name|openInput
 argument_list|(

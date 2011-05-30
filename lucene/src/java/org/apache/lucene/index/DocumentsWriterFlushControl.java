@@ -18,6 +18,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -326,7 +335,6 @@ literal|1024
 operator|*
 literal|1024
 expr_stmt|;
-empty_stmt|;
 name|this
 operator|.
 name|config
@@ -1385,6 +1393,11 @@ name|closed
 operator|=
 literal|true
 expr_stmt|;
+name|perThreadPool
+operator|.
+name|deactivateUnreleasedStates
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Returns an iterator that provides access to all currently active {@link ThreadState}s     */
 DECL|method|allActiveThreads
@@ -1737,6 +1750,22 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+name|next
+operator|.
+name|resetWriter
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// make this state inactive
+block|}
+else|else
+block|{
 comment|// get the new delete queue from DW
 name|next
 operator|.
@@ -1745,6 +1774,7 @@ operator|.
 name|initialize
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally
@@ -2011,6 +2041,22 @@ argument_list|(
 name|dwpt
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|dwpt
+operator|.
+name|abort
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|// continue
+block|}
 block|}
 for|for
 control|(
@@ -2045,6 +2091,24 @@ operator|.
 name|dwpt
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|blockedFlush
+operator|.
+name|dwpt
+operator|.
+name|abort
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|// continue
+block|}
 block|}
 block|}
 finally|finally
