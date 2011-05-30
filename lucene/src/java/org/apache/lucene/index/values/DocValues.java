@@ -109,7 +109,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * nocommit - javadoc   *   * @see FieldsEnum#docValues()  * @see Fields#docValues(String)  * @lucene.experimental  */
+comment|/**  * nocommit - javadoc   *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|DocValues
