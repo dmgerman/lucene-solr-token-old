@@ -148,6 +148,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|IOUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|LongsRef
 import|;
 end_import
@@ -329,6 +342,13 @@ name|DATA_EXTENSION
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
 name|CodecUtil
 operator|.
 name|writeHeader
@@ -363,8 +383,30 @@ operator|.
 name|NUM_BYTES_LONG
 argument_list|)
 expr_stmt|;
-comment|// TODO the bitset
-comment|// needs memory too
+comment|// TODO the
+comment|// bitset
+comment|// needs memory
+comment|// too
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+block|{
+name|datOut
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 annotation|@
 name|Override
@@ -901,6 +943,13 @@ name|DATA_EXTENSION
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
 name|CodecUtil
 operator|.
 name|checkHeader
@@ -914,6 +963,30 @@ argument_list|,
 name|VERSION_START
 argument_list|)
 expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+block|{
+name|IOUtils
+operator|.
+name|closeSafely
+argument_list|(
+literal|true
+argument_list|,
+name|datIn
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 comment|/**      * Loads the actual values. You may call this more than once, eg if you      * already previously loaded but then discarded the Source.      */
 annotation|@
