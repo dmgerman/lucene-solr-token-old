@@ -86,6 +86,11 @@ specifier|private
 name|int
 name|upto
 decl_stmt|;
+DECL|field|hitExcDuringWrite
+specifier|private
+name|boolean
+name|hitExcDuringWrite
+decl_stmt|;
 comment|// TODO what Var-Var codecs exist in practice... and what are there blocksizes like?
 comment|// if its less than 128 we should set that as max and use byte?
 comment|/** NOTE: maxBlockSize must be the maximum block size     *  plus the max non-causal lookahead of your codec.  EG Simple9    *  requires lookahead=1 because on seeing the Nth value    *  it knows it must now encode the N-1 values before it. */
@@ -355,6 +360,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|hitExcDuringWrite
+operator|=
+literal|true
+expr_stmt|;
 name|upto
 operator|-=
 name|add
@@ -363,6 +372,10 @@ name|v
 argument_list|)
 operator|-
 literal|1
+expr_stmt|;
+name|hitExcDuringWrite
+operator|=
+literal|false
 expr_stmt|;
 assert|assert
 name|upto
@@ -381,6 +394,12 @@ throws|throws
 name|IOException
 block|{
 try|try
+block|{
+if|if
+condition|(
+operator|!
+name|hitExcDuringWrite
+condition|)
 block|{
 comment|// stuff 0s in until the "real" data is flushed:
 name|int
@@ -413,6 +432,7 @@ name|stuffed
 operator|+=
 literal|1
 expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally

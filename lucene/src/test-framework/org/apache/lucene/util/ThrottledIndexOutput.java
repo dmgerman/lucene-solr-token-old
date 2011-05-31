@@ -323,6 +323,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+block|{
 name|sleep
 argument_list|(
 name|closeDelayMillis
@@ -333,11 +335,15 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|delegate
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

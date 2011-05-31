@@ -80,6 +80,7 @@ class|class
 name|FieldFragList
 block|{
 DECL|field|fragInfos
+specifier|private
 name|List
 argument_list|<
 name|WeightedFragInfo
@@ -136,6 +137,20 @@ name|phraseInfoList
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**    * return the list of WeightedFragInfos.    *     * @return fragInfos.    */
+DECL|method|getFragInfos
+specifier|public
+name|List
+argument_list|<
+name|WeightedFragInfo
+argument_list|>
+name|getFragInfos
+parameter_list|()
+block|{
+return|return
+name|fragInfos
+return|;
 block|}
 DECL|class|WeightedFragInfo
 specifier|public
