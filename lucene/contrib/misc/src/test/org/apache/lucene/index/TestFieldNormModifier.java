@@ -565,6 +565,8 @@ argument_list|,
 name|s
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|fnm
 operator|.
 name|reSetNorms
@@ -572,6 +574,15 @@ argument_list|(
 literal|"nobodyherebutuschickens"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
 block|}
 DECL|method|testFieldWithNoNorm
 specifier|public
@@ -641,6 +652,8 @@ argument_list|,
 name|s
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|fnm
 operator|.
 name|reSetNorms
@@ -648,6 +661,15 @@ argument_list|(
 literal|"nonorm"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
 comment|// nothing should have changed
 name|r
 operator|=
