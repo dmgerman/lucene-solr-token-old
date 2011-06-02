@@ -613,13 +613,6 @@ name|chunkUpto
 init|=
 literal|0
 decl_stmt|;
-name|other
-operator|.
-name|setScorer
-argument_list|(
-name|cachedScorer
-argument_list|)
-expr_stmt|;
 name|curDocs
 operator|=
 name|EMPTY_INT_ARRAY
@@ -639,6 +632,13 @@ argument_list|(
 name|seg
 operator|.
 name|readerContext
+argument_list|)
+expr_stmt|;
+name|other
+operator|.
+name|setScorer
+argument_list|(
+name|cachedScorer
 argument_list|)
 expr_stmt|;
 while|while
