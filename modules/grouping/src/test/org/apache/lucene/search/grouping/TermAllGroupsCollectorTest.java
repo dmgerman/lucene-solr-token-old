@@ -134,10 +134,10 @@ name|LuceneTestCase
 import|;
 end_import
 begin_class
-DECL|class|AllGroupsCollectorTest
+DECL|class|TermAllGroupsCollectorTest
 specifier|public
 class|class
-name|AllGroupsCollectorTest
+name|TermAllGroupsCollectorTest
 extends|extends
 name|LuceneTestCase
 block|{
