@@ -89,7 +89,7 @@ name|Collection
 import|;
 end_import
 begin_comment
-comment|/**  * Concrete implementation of {@link AbstractSecondPassGroupingCollector} that groups based on  * field values and more specifically uses {@link org.apache.lucene.search.FieldCache.DocTerms}  * to collect grouped docs.  *  * @lucene.experimental  */
+comment|/**  * Concrete implementation of {@link AbstractSecondPassGroupingCollector} that groups based on  * field values and more specifically uses {@link org.apache.lucene.search.FieldCache.DocTermsIndex}  * to collect grouped docs.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|TermSecondPassGroupingCollector

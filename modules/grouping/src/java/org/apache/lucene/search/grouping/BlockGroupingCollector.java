@@ -871,9 +871,7 @@ name|pendingSubScores
 expr_stmt|;
 name|pendingSubScores
 operator|=
-name|og
-operator|.
-name|scores
+name|savScores
 expr_stmt|;
 block|}
 name|og
