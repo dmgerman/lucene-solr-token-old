@@ -77,7 +77,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|MultiDocValues
+name|MultiIndexDocValues
 import|;
 end_import
 begin_import
@@ -107,7 +107,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|MultiDocValues
+name|MultiIndexDocValues
 operator|.
 name|DocValuesIndex
 import|;

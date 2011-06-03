@@ -26,7 +26,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|MultiDocValues
+name|MultiIndexDocValues
 import|;
 end_import
 begin_import
@@ -131,7 +131,7 @@ decl_stmt|;
 DECL|field|docValues
 specifier|private
 specifier|final
-name|MultiDocValues
+name|MultiIndexDocValues
 name|docValues
 decl_stmt|;
 DECL|field|currentField
@@ -178,7 +178,7 @@ expr_stmt|;
 name|docValues
 operator|=
 operator|new
-name|MultiDocValues
+name|MultiIndexDocValues
 argument_list|()
 expr_stmt|;
 name|top

@@ -121,7 +121,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|MultiDocValues
+name|MultiIndexDocValues
 import|;
 end_import
 begin_import
@@ -151,7 +151,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|MultiDocValues
+name|MultiIndexDocValues
 operator|.
 name|DocValuesIndex
 import|;
@@ -603,7 +603,7 @@ comment|// create& add to docValues:
 specifier|final
 name|List
 argument_list|<
-name|MultiDocValues
+name|MultiIndexDocValues
 operator|.
 name|DocValuesIndex
 argument_list|>
@@ -612,7 +612,7 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|MultiDocValues
+name|MultiIndexDocValues
 operator|.
 name|DocValuesIndex
 argument_list|>
@@ -707,12 +707,12 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|MultiDocValues
+name|MultiIndexDocValues
 operator|.
 name|DocValuesIndex
 argument_list|(
 operator|new
-name|MultiDocValues
+name|MultiIndexDocValues
 operator|.
 name|DummyDocValues
 argument_list|(
@@ -735,7 +735,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|MultiDocValues
+name|MultiIndexDocValues
 operator|.
 name|DocValuesIndex
 argument_list|(
@@ -777,12 +777,12 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|MultiDocValues
+name|MultiIndexDocValues
 operator|.
 name|DocValuesIndex
 argument_list|(
 operator|new
-name|MultiDocValues
+name|MultiIndexDocValues
 operator|.
 name|DummyDocValues
 argument_list|(
@@ -816,7 +816,7 @@ block|}
 name|result
 operator|=
 operator|new
-name|MultiDocValues
+name|MultiIndexDocValues
 argument_list|(
 name|docValuesIndex
 operator|.

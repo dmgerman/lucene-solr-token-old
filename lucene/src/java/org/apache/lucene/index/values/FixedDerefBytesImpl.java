@@ -1097,7 +1097,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|DocValuesEnum
+name|ValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -1127,7 +1127,7 @@ specifier|static
 class|class
 name|DerefBytesEnum
 extends|extends
-name|DocValuesEnum
+name|ValuesEnum
 block|{
 DECL|field|datIn
 specifier|protected
@@ -1303,7 +1303,7 @@ specifier|protected
 name|void
 name|copyFrom
 parameter_list|(
-name|DocValuesEnum
+name|ValuesEnum
 name|valuesEnum
 parameter_list|)
 block|{

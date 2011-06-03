@@ -193,7 +193,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|DocValuesEnum
+name|ValuesEnum
 import|;
 end_import
 begin_import
@@ -4624,7 +4624,7 @@ block|{
 continue|continue;
 block|}
 specifier|final
-name|DocValuesEnum
+name|ValuesEnum
 name|values
 init|=
 name|docValues
@@ -4639,7 +4639,7 @@ operator|.
 name|nextDoc
 argument_list|()
 operator|!=
-name|DocValuesEnum
+name|ValuesEnum
 operator|.
 name|NO_MORE_DOCS
 condition|)

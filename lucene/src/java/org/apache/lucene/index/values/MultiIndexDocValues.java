@@ -74,13 +74,13 @@ name|ReaderUtil
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.experimental  */
+comment|/**  * A wrapper for compound IndexReader providing access to per segment  * {@link IndexDocValues}  *   * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|MultiDocValues
+DECL|class|MultiIndexDocValues
 specifier|public
 class|class
-name|MultiDocValues
+name|MultiIndexDocValues
 extends|extends
 name|IndexDocValues
 block|{
@@ -165,9 +165,9 @@ name|int
 index|[]
 name|starts
 decl_stmt|;
-DECL|method|MultiDocValues
+DECL|method|MultiIndexDocValues
 specifier|public
-name|MultiDocValues
+name|MultiIndexDocValues
 parameter_list|()
 block|{
 name|starts
@@ -187,9 +187,9 @@ literal|0
 index|]
 expr_stmt|;
 block|}
-DECL|method|MultiDocValues
+DECL|method|MultiIndexDocValues
 specifier|public
-name|MultiDocValues
+name|MultiIndexDocValues
 parameter_list|(
 name|DocValuesIndex
 index|[]
@@ -206,7 +206,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|DocValuesEnum
+name|ValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -377,7 +377,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|DocValuesEnum
+name|ValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -445,7 +445,7 @@ specifier|static
 class|class
 name|MultiValuesEnum
 extends|extends
-name|DocValuesEnum
+name|ValuesEnum
 block|{
 DECL|field|docValuesIdx
 specifier|private
@@ -479,7 +479,7 @@ literal|1
 decl_stmt|;
 DECL|field|currentEnum
 specifier|private
-name|DocValuesEnum
+name|ValuesEnum
 name|currentEnum
 decl_stmt|;
 DECL|field|starts
@@ -1099,7 +1099,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|DocValuesEnum
+name|ValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -1223,7 +1223,7 @@ annotation|@
 name|Override
 DECL|method|getEnum
 specifier|public
-name|DocValuesEnum
+name|ValuesEnum
 name|getEnum
 parameter_list|(
 name|AttributeSource
@@ -1233,7 +1233,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|DocValuesEnum
+name|ValuesEnum
 operator|.
 name|emptyEnum
 argument_list|(

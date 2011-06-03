@@ -35,7 +35,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|DocValuesField
+name|IndexDocValuesField
 import|;
 end_import
 begin_import
@@ -80,7 +80,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * Per document and field values consumed by {@link DocValuesConsumer}.   * @see DocValuesField  * @see Fieldable#setDocValues(PerDocFieldValues)  *   * @lucene.experimental  */
+comment|/**  * Per document and field values consumed by {@link DocValuesConsumer}.   * @see IndexDocValuesField  * @see Fieldable#setDocValues(PerDocFieldValues)  *   * @lucene.experimental  */
 end_comment
 begin_interface
 DECL|interface|PerDocFieldValues
