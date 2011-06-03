@@ -59,7 +59,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|DocValues
+name|IndexDocValues
 operator|.
 name|SortedSource
 import|;
@@ -76,7 +76,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|DocValues
+name|IndexDocValues
 operator|.
 name|Source
 import|;
@@ -518,7 +518,7 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|DocValues
+name|IndexDocValues
 name|r
 init|=
 name|Bytes
@@ -708,7 +708,7 @@ block|{
 name|Source
 name|s
 decl_stmt|;
-name|DocValues
+name|IndexDocValues
 operator|.
 name|SortedSource
 name|ss
@@ -1507,7 +1507,7 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|DocValues
+name|IndexDocValues
 name|r
 init|=
 name|Ints
@@ -2004,7 +2004,7 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|DocValues
+name|IndexDocValues
 name|r
 init|=
 name|Floats
@@ -2353,7 +2353,7 @@ specifier|private
 name|DocValuesEnum
 name|getEnum
 parameter_list|(
-name|DocValues
+name|IndexDocValues
 name|values
 parameter_list|)
 throws|throws
@@ -2384,7 +2384,7 @@ specifier|private
 name|Source
 name|getSource
 parameter_list|(
-name|DocValues
+name|IndexDocValues
 name|values
 parameter_list|)
 throws|throws
@@ -2413,7 +2413,7 @@ specifier|private
 name|SortedSource
 name|getSortedSource
 parameter_list|(
-name|DocValues
+name|IndexDocValues
 name|values
 parameter_list|,
 name|Comparator

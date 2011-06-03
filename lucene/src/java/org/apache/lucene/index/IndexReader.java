@@ -126,7 +126,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|DocValues
+name|IndexDocValues
 import|;
 end_import
 begin_import
@@ -3608,7 +3608,7 @@ throw|;
 block|}
 DECL|method|docValues
 specifier|public
-name|DocValues
+name|IndexDocValues
 name|docValues
 parameter_list|(
 name|String

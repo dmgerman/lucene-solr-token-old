@@ -178,7 +178,7 @@ name|index
 operator|.
 name|values
 operator|.
-name|DocValues
+name|IndexDocValues
 import|;
 end_import
 begin_import
@@ -4602,7 +4602,7 @@ name|perDocValues
 argument_list|()
 decl_stmt|;
 specifier|final
-name|DocValues
+name|IndexDocValues
 name|docValues
 init|=
 name|perDocValues

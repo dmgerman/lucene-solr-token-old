@@ -982,7 +982,7 @@ specifier|static
 class|class
 name|IntsReader
 extends|extends
-name|DocValues
+name|IndexDocValues
 block|{
 DECL|field|datIn
 specifier|private
