@@ -1238,13 +1238,15 @@ name|get
 argument_list|(
 name|docID
 argument_list|)
+operator|-
+literal|1
 return|;
 block|}
 annotation|@
 name|Override
 DECL|method|getByValue
 specifier|public
-name|LookupResult
+name|int
 name|getByValue
 parameter_list|(
 name|BytesRef
