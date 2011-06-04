@@ -569,6 +569,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|isFinal
+specifier|public
 name|boolean
 name|isFinal
 parameter_list|()

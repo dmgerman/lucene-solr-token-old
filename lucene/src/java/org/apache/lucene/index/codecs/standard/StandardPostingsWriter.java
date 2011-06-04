@@ -860,11 +860,7 @@ name|lastPosition
 decl_stmt|;
 assert|assert
 name|delta
-operator|>
-literal|0
-operator|||
-name|position
-operator|==
+operator|>=
 literal|0
 operator|:
 literal|"position="
@@ -875,7 +871,6 @@ literal|" lastPosition="
 operator|+
 name|lastPosition
 assert|;
-comment|// not quite right (if pos=0 is repeated twice we don't catch it)
 name|lastPosition
 operator|=
 name|position
