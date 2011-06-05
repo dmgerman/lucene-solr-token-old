@@ -400,7 +400,9 @@ name|maxDocs
 operator|==
 literal|0
 condition|)
+block|{
 return|return;
+block|}
 if|if
 condition|(
 name|size

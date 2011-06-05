@@ -707,14 +707,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|String
-name|codecIdAsString
-init|=
-literal|""
-operator|+
-name|codecId
-decl_stmt|;
 name|StandardPostingsReader
 operator|.
 name|files
@@ -723,7 +715,7 @@ name|dir
 argument_list|,
 name|segmentInfo
 argument_list|,
-name|codecIdAsString
+name|codecId
 argument_list|,
 name|files
 argument_list|)
@@ -736,7 +728,7 @@ name|dir
 argument_list|,
 name|segmentInfo
 argument_list|,
-name|codecIdAsString
+name|codecId
 argument_list|,
 name|files
 argument_list|)
@@ -749,7 +741,7 @@ name|dir
 argument_list|,
 name|segmentInfo
 argument_list|,
-name|codecIdAsString
+name|codecId
 argument_list|,
 name|files
 argument_list|)

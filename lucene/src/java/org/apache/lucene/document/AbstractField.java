@@ -74,6 +74,9 @@ operator|.
 name|FieldInvertState
 import|;
 end_import
+begin_comment
+comment|// for javadocs
+end_comment
 begin_import
 import|import
 name|org

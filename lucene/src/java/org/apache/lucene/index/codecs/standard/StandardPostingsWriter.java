@@ -387,8 +387,7 @@ name|segmentName
 argument_list|,
 name|state
 operator|.
-name|codecIdAsString
-argument_list|()
+name|codecId
 argument_list|,
 name|StandardCodec
 operator|.
@@ -437,8 +436,7 @@ name|segmentName
 argument_list|,
 name|state
 operator|.
-name|codecIdAsString
-argument_list|()
+name|codecId
 argument_list|,
 name|StandardCodec
 operator|.
