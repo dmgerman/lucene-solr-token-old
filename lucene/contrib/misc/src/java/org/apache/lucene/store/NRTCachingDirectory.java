@@ -846,7 +846,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Close thius directory, which flushes any cached files    *  to the delegate and then closes the delegate. */
+comment|/** Close this directory, which flushes any cached files    *  to the delegate and then closes the delegate. */
 annotation|@
 name|Override
 DECL|method|close
