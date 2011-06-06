@@ -232,6 +232,9 @@ name|maxCollations
 parameter_list|,
 name|int
 name|maxTries
+parameter_list|,
+name|int
+name|maxEvaluations
 parameter_list|)
 block|{
 name|List
@@ -355,6 +358,10 @@ name|result
 operator|.
 name|getSuggestions
 argument_list|()
+argument_list|,
+name|maxTries
+argument_list|,
+name|maxEvaluations
 argument_list|)
 decl_stmt|;
 while|while
