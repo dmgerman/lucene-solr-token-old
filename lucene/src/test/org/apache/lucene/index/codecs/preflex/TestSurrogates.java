@@ -1782,7 +1782,13 @@ specifier|final
 name|int
 name|numTerms
 init|=
+operator|(
+name|TEST_NIGHTLY
+condition|?
 literal|10000
+else|:
+literal|1000
+operator|)
 operator|*
 name|RANDOM_MULTIPLIER
 decl_stmt|;
