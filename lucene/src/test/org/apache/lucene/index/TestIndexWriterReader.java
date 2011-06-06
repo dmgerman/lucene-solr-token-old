@@ -5111,13 +5111,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|_TestUtil
-operator|.
-name|checkIndex
-argument_list|(
-name|dir1
-argument_list|)
-expr_stmt|;
 name|dir1
 operator|.
 name|close
@@ -5648,13 +5641,6 @@ name|writer
 operator|.
 name|close
 argument_list|()
-expr_stmt|;
-name|_TestUtil
-operator|.
-name|checkIndex
-argument_list|(
-name|dir1
-argument_list|)
 expr_stmt|;
 name|r
 operator|.
