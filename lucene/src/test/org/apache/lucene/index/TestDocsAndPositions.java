@@ -798,7 +798,7 @@ name|TEST_NIGHTLY
 condition|?
 literal|3049
 else|:
-literal|499
+literal|131
 decl_stmt|;
 for|for
 control|(
@@ -1324,7 +1324,7 @@ name|TEST_NIGHTLY
 condition|?
 literal|499
 else|:
-literal|131
+literal|49
 decl_stmt|;
 name|int
 name|max
@@ -1414,7 +1414,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|" "
+literal|' '
 argument_list|)
 expr_stmt|;
 if|if

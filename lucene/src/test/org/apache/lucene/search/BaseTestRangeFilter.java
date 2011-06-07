@@ -318,7 +318,11 @@ specifier|static
 name|int
 name|maxId
 init|=
+name|TEST_NIGHTLY
+condition|?
 literal|10000
+else|:
+literal|500
 decl_stmt|;
 DECL|field|intLength
 specifier|static
