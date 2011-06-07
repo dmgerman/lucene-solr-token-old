@@ -1317,7 +1317,7 @@ throws|throws
 name|Exception
 block|{
 comment|//"document" is in 2 documents but "another" is only in 1.
-comment|//So with a threshold of 15%, "another" is absent from the dictionary
+comment|//So with a threshold of 29%, "another" is absent from the dictionary
 comment|//while "document" is present.
 name|assertJQ
 argument_list|(
@@ -1359,7 +1359,6 @@ argument_list|,
 literal|"/spellcheck/suggestions/[1]/suggestion==[{'word':'document','freq':2}]"
 argument_list|)
 expr_stmt|;
-comment|//TODO:  DirectSolrSpellChecker returns a different format.  Is this OK?  Does SOLRJ need tweaking to handle this???
 name|assertJQ
 argument_list|(
 name|req
@@ -1397,7 +1396,7 @@ argument_list|,
 literal|"true"
 argument_list|)
 argument_list|,
-literal|"/spellcheck/suggestions/[1]/suggestion==['document']]"
+literal|"/spellcheck/suggestions/[1]/suggestion==[{'word':'document','freq':2}]"
 argument_list|)
 expr_stmt|;
 comment|//TODO:  how do we make this into a 1-liner using "assertQ()" ???
@@ -1708,8 +1707,21 @@ operator|==
 literal|null
 argument_list|)
 expr_stmt|;
-comment|//TODO: Why is DirectSolrSpellChecker returning "true" here?  Is that OK?
-comment|//assertTrue((Boolean) suggestions.get("correctlySpelled")==false);
+name|assertTrue
+argument_list|(
+operator|(
+name|Boolean
+operator|)
+name|suggestions
+operator|.
+name|get
+argument_list|(
+literal|"correctlySpelled"
+argument_list|)
+operator|==
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
