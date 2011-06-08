@@ -317,19 +317,6 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|FSDirectory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
 name|MockDirectoryWrapper
 import|;
 end_import
@@ -2037,8 +2024,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
-name|exc
+name|Throwable
+name|t
 parameter_list|)
 block|{
 name|System
@@ -2058,7 +2045,7 @@ operator|+
 literal|": hit exc"
 argument_list|)
 expr_stmt|;
-name|exc
+name|t
 operator|.
 name|printStackTrace
 argument_list|()
@@ -2074,7 +2061,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-name|exc
+name|t
 argument_list|)
 throw|;
 block|}
@@ -2721,6 +2708,23 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|": hit exc"
+argument_list|)
+expr_stmt|;
 name|failed
 operator|.
 name|set
