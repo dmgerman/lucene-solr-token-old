@@ -318,7 +318,7 @@ name|req
 argument_list|(
 literal|"fl"
 argument_list|,
-literal|"_explain_"
+literal|"[explain]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -342,7 +342,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"_explain_"
+literal|"[explain]"
 argument_list|,
 name|rf
 operator|.
