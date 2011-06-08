@@ -34,9 +34,10 @@ specifier|final
 name|int
 name|NUM_RANDOM_TESTS
 init|=
-literal|2000
-operator|*
-name|RANDOM_MULTIPLIER
+name|atLeast
+argument_list|(
+literal|200
+argument_list|)
 decl_stmt|;
 DECL|field|MAX_RANDOM_BINARY_LENGTH
 specifier|private
@@ -45,9 +46,10 @@ specifier|final
 name|int
 name|MAX_RANDOM_BINARY_LENGTH
 init|=
+name|atLeast
+argument_list|(
 literal|300
-operator|*
-name|RANDOM_MULTIPLIER
+argument_list|)
 decl_stmt|;
 DECL|method|testSingleBinaryRoundTrip
 specifier|public

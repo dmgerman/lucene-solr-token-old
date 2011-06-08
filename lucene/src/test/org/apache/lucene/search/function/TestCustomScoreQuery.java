@@ -61,6 +61,15 @@ name|org
 operator|.
 name|junit
 operator|.
+name|BeforeClass
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -128,13 +137,18 @@ name|TestCustomScoreQuery
 extends|extends
 name|FunctionTestSetup
 block|{
-comment|/* @override constructor */
-DECL|method|TestCustomScoreQuery
+annotation|@
+name|BeforeClass
+DECL|method|beforeClass
 specifier|public
-name|TestCustomScoreQuery
+specifier|static
+name|void
+name|beforeClass
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-name|super
+name|createIndex
 argument_list|(
 literal|true
 argument_list|)
@@ -912,6 +926,8 @@ operator|new
 name|IndexSearcher
 argument_list|(
 name|dir
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TopDocs

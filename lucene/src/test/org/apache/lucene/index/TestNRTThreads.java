@@ -1050,7 +1050,7 @@ name|TEST_NIGHTLY
 condition|?
 literal|300
 else|:
-literal|5
+name|RANDOM_MULTIPLIER
 decl_stmt|;
 specifier|final
 name|AtomicBoolean
