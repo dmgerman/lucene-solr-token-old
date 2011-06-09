@@ -230,6 +230,14 @@ argument_list|(
 name|idField
 argument_list|)
 expr_stmt|;
+name|int
+name|num
+init|=
+name|atLeast
+argument_list|(
+literal|5000
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -239,9 +247,7 @@ literal|0
 init|;
 name|id
 operator|<
-literal|5000
-operator|*
-name|RANDOM_MULTIPLIER
+name|num
 condition|;
 name|id
 operator|++
