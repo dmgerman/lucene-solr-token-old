@@ -3608,6 +3608,7 @@ throw|;
 block|}
 DECL|method|docValues
 specifier|public
+specifier|final
 name|IndexDocValues
 name|docValues
 parameter_list|(
