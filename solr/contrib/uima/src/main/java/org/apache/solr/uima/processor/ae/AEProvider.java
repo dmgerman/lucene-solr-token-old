@@ -45,7 +45,7 @@ name|ResourceInitializationException
 import|;
 end_import
 begin_comment
-comment|/**  * provide an Apache UIMA {@link AnalysisEngine}  *   * @version $Id$  */
+comment|/**  * provide an Apache UIMA {@link AnalysisEngine}  *   *  */
 end_comment
 begin_interface
 DECL|interface|AEProvider

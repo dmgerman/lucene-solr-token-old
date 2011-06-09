@@ -109,7 +109,7 @@ name|ByteBuffer
 import|;
 end_import
 begin_comment
-comment|/**  * A class to map objects to and from solr documents.  *   * @version $Id$  * @since solr 1.3  */
+comment|/**  * A class to map objects to and from solr documents.  *   *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|DocumentObjectBinder

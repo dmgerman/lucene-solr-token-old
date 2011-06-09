@@ -86,7 +86,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * Test for ClobTransformer  *  * @version $Id$  * @see org.apache.solr.handler.dataimport.ClobTransformer  * @since solr 1.4  */
+comment|/**  * Test for ClobTransformer  *  *  * @see org.apache.solr.handler.dataimport.ClobTransformer  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|TestClobTransformer

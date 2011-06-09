@@ -42,7 +42,7 @@ name|LoggerFactory
 import|;
 end_import
 begin_comment
-comment|/** * * @version $Id$ * @since Solr 1.4 * */
+comment|/** * * @since Solr 1.4 * */
 end_comment
 begin_class
 DECL|class|BaseCharFilterFactory

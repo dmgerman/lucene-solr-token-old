@@ -41,7 +41,7 @@ name|DocList
 import|;
 end_import
 begin_comment
-comment|/**  * A class to hold the QueryResult and the Query  *   * @version $Id$  */
+comment|/**  * A class to hold the QueryResult and the Query  *   *  */
 end_comment
 begin_class
 DECL|class|ResultContext

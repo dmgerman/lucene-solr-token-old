@@ -24,7 +24,7 @@ name|Arrays
 import|;
 end_import
 begin_comment
-comment|/**  *<code>DocSlice</code> implements DocList as an array of docids and optional scores.  *  * @version $Id$  * @since solr 0.9  */
+comment|/**  *<code>DocSlice</code> implements DocList as an array of docids and optional scores.  *  *  * @since solr 0.9  */
 end_comment
 begin_class
 DECL|class|DocSlice

@@ -82,7 +82,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * Test for SqlEntityProcessorDelta verifying fix for SOLR-1191  *</p>  *   *  * @version $Id$  * @since solr 3.1  */
+comment|/**  *<p>  * Test for SqlEntityProcessorDelta verifying fix for SOLR-1191  *</p>  *   *  *  * @since solr 3.1  */
 end_comment
 begin_class
 DECL|class|TestSqlEntityProcessorDeltaPrefixedPk

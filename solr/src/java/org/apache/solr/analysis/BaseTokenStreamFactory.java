@@ -157,7 +157,7 @@ name|LoggerFactory
 import|;
 end_import
 begin_comment
-comment|/**  * Simple abstract implementation that handles init arg processing, is not really  * a factory as it implements no interface, but removes code duplication  * in its subclasses.  *   * @version $Id$  */
+comment|/**  * Simple abstract implementation that handles init arg processing, is not really  * a factory as it implements no interface, but removes code duplication  * in its subclasses.  *   *  */
 end_comment
 begin_class
 DECL|class|BaseTokenStreamFactory

@@ -133,7 +133,7 @@ name|Version
 import|;
 end_import
 begin_comment
-comment|/**  * A QueryParser which constructs queries to search multiple fields.  *  * @version $Revision$  */
+comment|/**  * A QueryParser which constructs queries to search multiple fields.  *  */
 end_comment
 begin_class
 DECL|class|MultiFieldQueryParser

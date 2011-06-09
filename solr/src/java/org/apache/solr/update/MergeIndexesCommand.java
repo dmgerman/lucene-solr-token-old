@@ -41,7 +41,7 @@ name|SolrQueryRequest
 import|;
 end_import
 begin_comment
-comment|/**  * A merge indexes command encapsulated in an object.  *  * @since solr 1.4  * @version $Id$  */
+comment|/**  * A merge indexes command encapsulated in an object.  *  * @since solr 1.4  *  */
 end_comment
 begin_class
 DECL|class|MergeIndexesCommand

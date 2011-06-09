@@ -117,7 +117,7 @@ name|Logger
 import|;
 end_import
 begin_comment
-comment|/**  * Admin JDK Logger level report and selection servlet.  *  * @version $Id$  * @since solr 1.3  */
+comment|/**  * Admin JDK Logger level report and selection servlet.  *  *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|LogLevelSelection

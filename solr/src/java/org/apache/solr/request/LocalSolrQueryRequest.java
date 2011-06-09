@@ -121,7 +121,7 @@ begin_comment
 comment|// retained more for backward compatibility.
 end_comment
 begin_comment
-comment|/**  * @version $Id$  */
+comment|/**  *  */
 end_comment
 begin_class
 DECL|class|LocalSolrQueryRequest

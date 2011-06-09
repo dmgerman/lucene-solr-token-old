@@ -125,7 +125,7 @@ name|Locale
 import|;
 end_import
 begin_comment
-comment|/**  * Three concrete implementations for ContentStream - one for File/URL/String  *   * @version $Id$  * @since solr 1.2  */
+comment|/**  * Three concrete implementations for ContentStream - one for File/URL/String  *   *  * @since solr 1.2  */
 end_comment
 begin_class
 DECL|class|ContentStreamBase

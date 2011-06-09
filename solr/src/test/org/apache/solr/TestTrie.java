@@ -132,7 +132,7 @@ name|TimeZone
 import|;
 end_import
 begin_comment
-comment|/**  * Tests for TrieField functionality  *  * @version $Id$  * @since solr 1.4  */
+comment|/**  * Tests for TrieField functionality  *  *  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|TestTrie

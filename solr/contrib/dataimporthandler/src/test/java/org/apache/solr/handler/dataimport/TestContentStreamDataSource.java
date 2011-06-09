@@ -184,7 +184,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * Test for ContentStreamDataSource  *  * @version $Id$  * @since solr 1.4  */
+comment|/**  * Test for ContentStreamDataSource  *  *  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|TestContentStreamDataSource

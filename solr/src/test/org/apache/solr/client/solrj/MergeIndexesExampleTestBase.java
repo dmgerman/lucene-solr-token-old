@@ -139,7 +139,7 @@ name|ExternalPaths
 import|;
 end_import
 begin_comment
-comment|/**  * Abstract base class for testing merge indexes command  *  * @since solr 1.4  * @version $Id$  */
+comment|/**  * Abstract base class for testing merge indexes command  *  * @since solr 1.4  *  */
 end_comment
 begin_class
 DECL|class|MergeIndexesExampleTestBase

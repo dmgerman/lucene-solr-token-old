@@ -17,7 +17,7 @@ name|params
 package|;
 end_package
 begin_comment
-comment|/**  * A collection of standard params used by Update handlers  *  * @version $Id$  * @since solr 1.2  */
+comment|/**  * A collection of standard params used by Update handlers  *  *  * @since solr 1.2  */
 end_comment
 begin_interface
 DECL|interface|UpdateParams

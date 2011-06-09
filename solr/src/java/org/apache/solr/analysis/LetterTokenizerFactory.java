@@ -48,7 +48,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Factory for {@link LetterTokenizer}.   *<pre class="prettyprint">  *&lt;fieldType name="text_letter" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.LetterTokenizerFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>   * @version $Id$  */
+comment|/**  * Factory for {@link LetterTokenizer}.   *<pre class="prettyprint">  *&lt;fieldType name="text_letter" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.LetterTokenizerFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>   *  */
 end_comment
 begin_class
 DECL|class|LetterTokenizerFactory

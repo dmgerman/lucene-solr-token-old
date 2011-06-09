@@ -434,7 +434,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Collection of static utilities useful for query parsing.  *  * @version $Id$  */
+comment|/**  * Collection of static utilities useful for query parsing.  *  *  */
 end_comment
 begin_class
 DECL|class|QueryParsing
