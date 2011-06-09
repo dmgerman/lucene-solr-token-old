@@ -237,9 +237,10 @@ decl_stmt|;
 name|int
 name|num
 init|=
-literal|5000
-operator|*
-name|RANDOM_MULTIPLIER
+name|atLeast
+argument_list|(
+literal|500
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -384,9 +385,10 @@ argument_list|)
 decl_stmt|;
 name|num
 operator|=
+name|atLeast
+argument_list|(
 literal|50
-operator|*
-name|RANDOM_MULTIPLIER
+argument_list|)
 expr_stmt|;
 for|for
 control|(

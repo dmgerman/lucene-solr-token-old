@@ -3047,9 +3047,10 @@ specifier|final
 name|int
 name|numDocs
 init|=
+name|atLeast
+argument_list|(
 literal|50
-operator|*
-name|RANDOM_MULTIPLIER
+argument_list|)
 decl_stmt|;
 specifier|final
 name|ByteArrayPool
@@ -3938,13 +3939,6 @@ name|writer
 operator|.
 name|close
 argument_list|()
-expr_stmt|;
-name|_TestUtil
-operator|.
-name|checkIndex
-argument_list|(
-name|dir
-argument_list|)
 expr_stmt|;
 name|dir
 operator|.

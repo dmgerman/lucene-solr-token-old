@@ -69,6 +69,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LuceneTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|automaton
 operator|.
 name|CharacterRunAutomaton
@@ -522,6 +535,22 @@ operator|==
 literal|null
 condition|)
 block|{
+name|val
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+comment|// no payloads
+if|if
+condition|(
+name|LuceneTestCase
+operator|.
+name|rarely
+argument_list|(
+name|random
+argument_list|)
+condition|)
+block|{
 switch|switch
 condition|(
 name|random
@@ -567,6 +596,7 @@ argument_list|)
 expr_stmt|;
 comment|// fixed length payload
 break|break;
+block|}
 block|}
 name|previousMappings
 operator|.

@@ -1695,7 +1695,7 @@ name|r
 operator|.
 name|nextInt
 argument_list|(
-literal|4
+literal|8
 argument_list|)
 operator|==
 literal|2

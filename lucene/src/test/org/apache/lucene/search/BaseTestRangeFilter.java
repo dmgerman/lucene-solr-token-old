@@ -318,7 +318,10 @@ specifier|static
 name|int
 name|maxId
 init|=
-literal|10000
+name|atLeast
+argument_list|(
+literal|500
+argument_list|)
 decl_stmt|;
 DECL|field|intLength
 specifier|static
@@ -602,7 +605,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|NOT_ANALYZED
+name|NOT_ANALYZED_NO_NORMS
 argument_list|)
 decl_stmt|;
 name|Field
@@ -626,7 +629,7 @@ name|Field
 operator|.
 name|Index
 operator|.
-name|NOT_ANALYZED
+name|NOT_ANALYZED_NO_NORMS
 argument_list|)
 decl_stmt|;
 name|Field
@@ -644,13 +647,13 @@ name|Field
 operator|.
 name|Store
 operator|.
-name|YES
+name|NO
 argument_list|,
 name|Field
 operator|.
 name|Index
 operator|.
-name|NOT_ANALYZED
+name|NOT_ANALYZED_NO_NORMS
 argument_list|)
 decl_stmt|;
 name|doc

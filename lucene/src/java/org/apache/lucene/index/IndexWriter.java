@@ -5258,6 +5258,24 @@ argument_list|(
 name|rollbackSegments
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"rollback: infos="
+operator|+
+name|segString
+argument_list|(
+name|segmentInfos
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|docWriter
 operator|.
 name|abort
@@ -6655,6 +6673,8 @@ init|=
 name|newSegmentName
 argument_list|()
 decl_stmt|;
+comment|// TODO: somehow we should fix this merge so it's
+comment|// abortable so that IW.close(false) is able to stop it
 name|SegmentMerger
 name|merger
 init|=
@@ -6758,6 +6778,26 @@ name|this
 init|)
 block|{
 comment|// Guard segmentInfos
+if|if
+condition|(
+name|stopMerges
+condition|)
+block|{
+name|deleter
+operator|.
+name|deleteNewFiles
+argument_list|(
+name|info
+operator|.
+name|files
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|useCompoundFile
 operator|=
 name|mergePolicy
@@ -6813,6 +6853,26 @@ init|(
 name|this
 init|)
 block|{
+if|if
+condition|(
+name|stopMerges
+condition|)
+block|{
+name|deleter
+operator|.
+name|deleteNewFiles
+argument_list|(
+name|info
+operator|.
+name|files
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|segmentInfos
 operator|.
 name|add
@@ -9004,6 +9064,7 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
+comment|//System.out.println(Thread.currentThread().getName() + ": merge start: size=" + (merge.estimatedMergeBytes/1024./1024.) + " MB\n  merge=" + merge.segString(directory) + "\n  idx=" + segString());
 try|try
 block|{
 try|try
@@ -9222,6 +9283,7 @@ literal|" docs"
 argument_list|)
 expr_stmt|;
 block|}
+comment|//System.out.println(Thread.currentThread().getName() + ": merge end");
 block|}
 comment|/** Hook that's called when the specified merge is complete. */
 DECL|method|mergeSuccess
@@ -11961,6 +12023,11 @@ argument_list|(
 literal|"midStartCommit"
 argument_list|)
 assert|;
+name|boolean
+name|pendingCommitSet
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 comment|// This call can take a long time -- 10s of seconds
@@ -12020,6 +12087,10 @@ name|pendingCommit
 operator|=
 name|toSync
 expr_stmt|;
+name|pendingCommitSet
+operator|=
+literal|true
+expr_stmt|;
 name|pendingCommitChangeCount
 operator|=
 name|myChangeCount
@@ -12063,9 +12134,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|pendingCommit
-operator|==
-literal|null
+operator|!
+name|pendingCommitSet
 condition|)
 block|{
 if|if
