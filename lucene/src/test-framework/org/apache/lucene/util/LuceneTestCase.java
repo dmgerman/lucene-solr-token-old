@@ -4170,7 +4170,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Returns a number of at least<code>i</code>    *<p>    * The actual number returned will be influenced by whether {@link TEST_NIGHTLY}    * is active and {@link RANDOM_MULTIPLIER}, but also with some random fudge.    */
+comment|/**    * Returns a number of at least<code>i</code>    *<p>    * The actual number returned will be influenced by whether {@link #TEST_NIGHTLY}    * is active and {@link #RANDOM_MULTIPLIER}, but also with some random fudge.    */
 DECL|method|atLeast
 specifier|public
 specifier|static
@@ -4242,7 +4242,7 @@ name|i
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns true if something should happen rarely,    *<p>    * The actual number returned will be influenced by whether {@link TEST_NIGHTLY}    * is active and {@link RANDOM_MULTIPLIER}.    */
+comment|/**    * Returns true if something should happen rarely,    *<p>    * The actual number returned will be influenced by whether {@link #TEST_NIGHTLY}    * is active and {@link #RANDOM_MULTIPLIER}.    */
 DECL|method|rarely
 specifier|public
 specifier|static
