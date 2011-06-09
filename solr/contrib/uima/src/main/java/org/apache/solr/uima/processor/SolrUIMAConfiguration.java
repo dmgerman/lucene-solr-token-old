@@ -26,7 +26,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Configuration holding all the configurable parameters for calling UIMA inside Solr  *  * @version $Id$  */
+comment|/**  * Configuration holding all the configurable parameters for calling UIMA inside Solr  *  *  */
 end_comment
 begin_class
 DECL|class|SolrUIMAConfiguration

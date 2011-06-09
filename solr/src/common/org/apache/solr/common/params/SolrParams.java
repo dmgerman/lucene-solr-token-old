@@ -111,7 +111,7 @@ name|StrUtils
 import|;
 end_import
 begin_comment
-comment|/**  SolrParams hold request parameters.  *  * @version $Id$  */
+comment|/**  SolrParams hold request parameters.  *  *  */
 end_comment
 begin_class
 DECL|class|SolrParams

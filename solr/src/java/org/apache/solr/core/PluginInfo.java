@@ -98,7 +98,7 @@ name|unmodifiableMap
 import|;
 end_import
 begin_comment
-comment|/**  * An Object which represents a Plugin of any type   * @version $Id$  */
+comment|/**  * An Object which represents a Plugin of any type   *  */
 end_comment
 begin_class
 DECL|class|PluginInfo

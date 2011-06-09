@@ -219,7 +219,7 @@ name|ReturnFields
 import|;
 end_import
 begin_comment
-comment|/** Base class for text-oriented response writers.  *  * @version $Id$  */
+comment|/** Base class for text-oriented response writers.  *  *  */
 end_comment
 begin_class
 DECL|class|TextResponseWriter

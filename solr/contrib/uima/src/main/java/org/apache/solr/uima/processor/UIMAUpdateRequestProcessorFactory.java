@@ -88,7 +88,7 @@ name|UpdateRequestProcessorFactory
 import|;
 end_import
 begin_comment
-comment|/**  * Factory for {@link UIMAUpdateRequestProcessor}  *   * @version $Id$  */
+comment|/**  * Factory for {@link UIMAUpdateRequestProcessor}  *   *  */
 end_comment
 begin_class
 DECL|class|UIMAUpdateRequestProcessorFactory

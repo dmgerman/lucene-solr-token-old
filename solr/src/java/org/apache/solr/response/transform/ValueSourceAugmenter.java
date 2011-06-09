@@ -143,7 +143,7 @@ name|ValueSource
 import|;
 end_import
 begin_comment
-comment|/**  * Add values from a ValueSource (function query etc)  *  * NOT really sure how or if this could work...  *  * @version $Id$  * @since solr 4.0  */
+comment|/**  * Add values from a ValueSource (function query etc)  *  * NOT really sure how or if this could work...  *  *  * @since solr 4.0  */
 end_comment
 begin_class
 DECL|class|ValueSourceAugmenter

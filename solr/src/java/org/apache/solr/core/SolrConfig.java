@@ -476,7 +476,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Provides a static reference to a Config object modeling the main  * configuration data for a a Solr instance -- typically found in  * "solrconfig.xml".  *  * @version $Id$  */
+comment|/**  * Provides a static reference to a Config object modeling the main  * configuration data for a a Solr instance -- typically found in  * "solrconfig.xml".  *  *  */
 end_comment
 begin_class
 DECL|class|SolrConfig

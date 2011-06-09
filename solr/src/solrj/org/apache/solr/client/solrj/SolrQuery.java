@@ -118,7 +118,7 @@ name|Pattern
 import|;
 end_import
 begin_comment
-comment|/**  * This is an augmented SolrParams with get/set/add fields for common fields used  * in the Standard and Dismax request handlers  *   * @version $Id$  * @since solr 1.3  */
+comment|/**  * This is an augmented SolrParams with get/set/add fields for common fields used  * in the Standard and Dismax request handlers  *   *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|SolrQuery

@@ -56,7 +56,7 @@ name|BaseTokenFilterFactory
 import|;
 end_import
 begin_comment
-comment|/**  * Factory for {@link HyphenatedWordsFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_hyphn" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.HyphenatedWordsFilterFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>   * @version $Id$  */
+comment|/**  * Factory for {@link HyphenatedWordsFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_hyphn" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.HyphenatedWordsFilterFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>   *  */
 end_comment
 begin_class
 DECL|class|HyphenatedWordsFilterFactory

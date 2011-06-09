@@ -28,7 +28,7 @@ name|BitUtil
 import|;
 end_import
 begin_comment
-comment|/**  *<code>HashDocSet</code> represents an unordered set of Lucene Document Ids  * using a primitive int hash table.  It can be a better choice if there are few docs  * in the set because it takes up less memory and is faster to iterate and take  * set intersections.  *  * @version $Id$  * @since solr 0.9  */
+comment|/**  *<code>HashDocSet</code> represents an unordered set of Lucene Document Ids  * using a primitive int hash table.  It can be a better choice if there are few docs  * in the set because it takes up less memory and is faster to iterate and take  * set intersections.  *  *  * @since solr 0.9  */
 end_comment
 begin_class
 DECL|class|HashDocSet

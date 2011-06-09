@@ -37,7 +37,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Singleton factory class responsible of {@link AEProvider}s' creation  *   * @version $Id$  */
+comment|/**  * Singleton factory class responsible of {@link AEProvider}s' creation  *   *  */
 end_comment
 begin_class
 DECL|class|AEProviderFactory

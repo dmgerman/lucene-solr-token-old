@@ -24,7 +24,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Implementations of<code>CacheRegenerator</code> are used in autowarming to populate a new cache  * based on an old cache.<code>regenerateItem</code> is called for each item that should be inserted into the new cache.  *<p>  * Implementations should have a noarg constructor and be thread safe (a single instance will be  * used for all cache autowarmings).  *  * @version $Id$  */
+comment|/**  * Implementations of<code>CacheRegenerator</code> are used in autowarming to populate a new cache  * based on an old cache.<code>regenerateItem</code> is called for each item that should be inserted into the new cache.  *<p>  * Implementations should have a noarg constructor and be thread safe (a single instance will be  * used for all cache autowarmings).  *  *  */
 end_comment
 begin_interface
 DECL|interface|CacheRegenerator

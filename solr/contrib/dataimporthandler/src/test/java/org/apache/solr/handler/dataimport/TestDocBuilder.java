@@ -57,7 +57,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * Test for DocBuilder  *</p>  *  * @version $Id$  * @since solr 1.3  */
+comment|/**  *<p>  * Test for DocBuilder  *</p>  *  *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|TestDocBuilder

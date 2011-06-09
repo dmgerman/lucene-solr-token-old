@@ -151,7 +151,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  *<b>Note: This API is experimental and may change in non backward-compatible ways in the future</b>  *   * @version $Id$  */
+comment|/**  *<b>Note: This API is experimental and may change in non backward-compatible ways in the future</b>  *   *  */
 end_comment
 begin_class
 DECL|class|QParser

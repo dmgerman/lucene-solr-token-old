@@ -161,7 +161,7 @@ name|UUID
 import|;
 end_import
 begin_comment
-comment|/**  * Test for BinaryResponseWriter  *  * @version $Id$  * @since solr 1.4  */
+comment|/**  * Test for BinaryResponseWriter  *  *  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|TestBinaryResponseWriter

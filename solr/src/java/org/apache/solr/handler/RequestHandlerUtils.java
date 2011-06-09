@@ -145,7 +145,7 @@ name|UpdateRequestProcessor
 import|;
 end_import
 begin_comment
-comment|/**  * Common helper functions for RequestHandlers  *   * @version $Id$  * @since solr 1.2  */
+comment|/**  * Common helper functions for RequestHandlers  *   *  * @since solr 1.2  */
 end_comment
 begin_class
 DECL|class|RequestHandlerUtils

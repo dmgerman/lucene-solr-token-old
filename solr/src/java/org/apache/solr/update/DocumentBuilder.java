@@ -133,7 +133,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * @version $Id$  */
+comment|/**  *  */
 end_comment
 begin_comment
 comment|// Not thread safe - by design.  Create a new builder for each thread.

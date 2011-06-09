@@ -71,7 +71,7 @@ name|SolrCore
 import|;
 end_import
 begin_comment
-comment|/**  * Test for merge indexes command  *  * @since solr 1.4  * @version $Id$  */
+comment|/**  * Test for merge indexes command  *  * @since solr 1.4  *  */
 end_comment
 begin_class
 DECL|class|MergeIndexesEmbeddedTest

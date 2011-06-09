@@ -89,7 +89,7 @@ name|ParseException
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * Test for SqlEntityProcessor which checks full and delta imports using the  * test harness  *</p>  *  * @version $Id$  * @since solr 1.3  */
+comment|/**  *<p>  * Test for SqlEntityProcessor which checks full and delta imports using the  * test harness  *</p>  *  *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|TestSqlEntityProcessor2

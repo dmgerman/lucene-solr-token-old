@@ -254,7 +254,7 @@ name|Set
 import|;
 end_import
 begin_comment
-comment|/**  * Test for LBHttpSolrServer  *  * @version $Id$  * @since solr 1.4  */
+comment|/**  * Test for LBHttpSolrServer  *  *  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|TestLBHttpSolrServer

@@ -180,7 +180,7 @@ name|IDFExplanation
 import|;
 end_import
 begin_comment
-comment|/** Similarity unit test.  *  *  * @version $Revision$  */
+comment|/** Similarity unit test.  *  *  */
 end_comment
 begin_class
 DECL|class|TestSimilarity

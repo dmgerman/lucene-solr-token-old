@@ -115,7 +115,7 @@ name|HashMap
 import|;
 end_import
 begin_comment
-comment|/**  * Base implementation of<code>SolrQueryRequest</code> that provides some  * convenience methods for accessing parameters, and manages an IndexSearcher  * reference.  *  *<p>  * The<code>close()</code> method must be called on any instance of this  * class once it is no longer in use.  *</p>  *  *  * @version $Id$  */
+comment|/**  * Base implementation of<code>SolrQueryRequest</code> that provides some  * convenience methods for accessing parameters, and manages an IndexSearcher  * reference.  *  *<p>  * The<code>close()</code> method must be called on any instance of this  * class once it is no longer in use.  *</p>  *  *  *  */
 end_comment
 begin_class
 DECL|class|SolrQueryRequestBase

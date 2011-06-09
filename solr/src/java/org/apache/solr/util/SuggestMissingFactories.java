@@ -147,7 +147,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * Given a list of Jar files, suggest missing analysis factories.  *  * @version $Id$  */
+comment|/**  * Given a list of Jar files, suggest missing analysis factories.  *  *  */
 end_comment
 begin_class
 DECL|class|SuggestMissingFactories

@@ -66,7 +66,7 @@ name|SolrDocument
 import|;
 end_import
 begin_comment
-comment|/**  * Transform a document before it gets sent out  *  * @version $Id$  */
+comment|/**  * Transform a document before it gets sent out  *  *  */
 end_comment
 begin_class
 DECL|class|DocTransformers

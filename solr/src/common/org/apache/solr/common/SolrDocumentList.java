@@ -24,7 +24,7 @@ name|ArrayList
 import|;
 end_import
 begin_comment
-comment|/**  * Represent a list of SolrDocuments returned from a search.  This includes  * position and offset information.  *   * @version $Id$  * @since solr 1.3  */
+comment|/**  * Represent a list of SolrDocuments returned from a search.  This includes  * position and offset information.  *   *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|SolrDocumentList
