@@ -229,7 +229,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * Update handler which uses the JavaBin format  *  * @version $Id$  * @see org.apache.solr.client.solrj.request.JavaBinUpdateRequestCodec  * @see org.apache.solr.common.util.JavaBinCodec  * @since solr 1.4  */
+comment|/**  * Update handler which uses the JavaBin format  *  *  * @see org.apache.solr.client.solrj.request.JavaBinUpdateRequestCodec  * @see org.apache.solr.common.util.JavaBinCodec  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|BinaryUpdateRequestHandler

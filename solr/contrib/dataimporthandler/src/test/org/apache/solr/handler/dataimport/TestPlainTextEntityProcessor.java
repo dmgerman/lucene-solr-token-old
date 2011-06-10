@@ -44,7 +44,7 @@ name|Properties
 import|;
 end_import
 begin_comment
-comment|/**  * Test for PlainTextEntityProcessor  *  * @version $Id$  * @see org.apache.solr.handler.dataimport.PlainTextEntityProcessor  * @since solr 1.4  */
+comment|/**  * Test for PlainTextEntityProcessor  *  *  * @see org.apache.solr.handler.dataimport.PlainTextEntityProcessor  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|TestPlainTextEntityProcessor

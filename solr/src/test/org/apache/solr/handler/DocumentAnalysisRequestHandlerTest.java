@@ -225,7 +225,7 @@ name|Reader
 import|;
 end_import
 begin_comment
-comment|/**  * A test for {@link DocumentAnalysisRequestHandler}.  *  * @version $Id$  * @since solr 1.4  */
+comment|/**  * A test for {@link DocumentAnalysisRequestHandler}.  *  *  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|DocumentAnalysisRequestHandlerTest

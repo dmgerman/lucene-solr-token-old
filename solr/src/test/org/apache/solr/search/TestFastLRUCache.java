@@ -116,7 +116,7 @@ name|AtomicInteger
 import|;
 end_import
 begin_comment
-comment|/**  * Test for FastLRUCache  *  * @version $Id$  * @see org.apache.solr.search.FastLRUCache  * @since solr 1.4  */
+comment|/**  * Test for FastLRUCache  *  *  * @see org.apache.solr.search.FastLRUCache  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|TestFastLRUCache

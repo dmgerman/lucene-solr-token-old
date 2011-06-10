@@ -157,7 +157,7 @@ name|ArrayList
 import|;
 end_import
 begin_comment
-comment|/**  * Test for UpdateRequestCodec  *  * @since solr 1.4  * @version $Id$  * @see org.apache.solr.client.solrj.request.UpdateRequest  */
+comment|/**  * Test for UpdateRequestCodec  *  * @since solr 1.4  *  * @see org.apache.solr.client.solrj.request.UpdateRequest  */
 end_comment
 begin_class
 DECL|class|TestUpdateRequestCodec

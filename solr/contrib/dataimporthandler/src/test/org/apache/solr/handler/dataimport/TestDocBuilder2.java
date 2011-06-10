@@ -93,7 +93,7 @@ name|File
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * Test for DocBuilder using the test harness  *</p>  *  * @version $Id$  * @since solr 1.3  */
+comment|/**  *<p>  * Test for DocBuilder using the test harness  *</p>  *  *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|TestDocBuilder2

@@ -157,7 +157,10 @@ specifier|final
 name|int
 name|NUM_DOCS
 init|=
+name|atLeast
+argument_list|(
 literal|10000
+argument_list|)
 decl_stmt|;
 DECL|field|NUM_SEARCH_THREADS
 specifier|final
@@ -171,9 +174,10 @@ specifier|final
 name|int
 name|RUN_TIME_MSEC
 init|=
+name|atLeast
+argument_list|(
 literal|1000
-operator|*
-name|RANDOM_MULTIPLIER
+argument_list|)
 decl_stmt|;
 DECL|method|test
 specifier|public
@@ -263,8 +267,6 @@ init|;
 name|docCount
 operator|<
 name|NUM_DOCS
-operator|*
-name|RANDOM_MULTIPLIER
 condition|;
 name|docCount
 operator|++

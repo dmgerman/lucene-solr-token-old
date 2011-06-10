@@ -43,7 +43,7 @@ name|PersianCharFilter
 import|;
 end_import
 begin_comment
-comment|/**  * Factory for {@link PersianCharFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_fa" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;charFilter class="solr.PersianCharFilterFactory"/&gt;  *&lt;tokenizer class="solr.StandardTokenizerFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  * @version $Id$  */
+comment|/**  * Factory for {@link PersianCharFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_fa" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;charFilter class="solr.PersianCharFilterFactory"/&gt;  *&lt;tokenizer class="solr.StandardTokenizerFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  *  */
 end_comment
 begin_class
 DECL|class|PersianCharFilterFactory

@@ -70,7 +70,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Encapsulates responses from SpellCheckComponent  *  * @version $Id$  * @since solr 1.3  */
+comment|/**  * Encapsulates responses from SpellCheckComponent  *  *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|SpellCheckResponse

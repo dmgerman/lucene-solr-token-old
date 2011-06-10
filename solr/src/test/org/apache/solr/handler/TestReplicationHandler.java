@@ -388,7 +388,7 @@ name|HashMap
 import|;
 end_import
 begin_comment
-comment|/**  * Test for ReplicationHandler  *  * @version $Id$  * @since 1.4  */
+comment|/**  * Test for ReplicationHandler  *  *  * @since 1.4  */
 end_comment
 begin_class
 DECL|class|TestReplicationHandler

@@ -128,7 +128,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Factory for {@link StopFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_stop" class="solr.TextField" positionIncrementGap="100" autoGeneratePhraseQueries="true"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.StopFilterFactory" ignoreCase="true"  *             words="stopwords.txt" enablePositionIncrements="true"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  * @version $Id$  */
+comment|/**  * Factory for {@link StopFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_stop" class="solr.TextField" positionIncrementGap="100" autoGeneratePhraseQueries="true"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.StopFilterFactory" ignoreCase="true"  *             words="stopwords.txt" enablePositionIncrements="true"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  *  */
 end_comment
 begin_class
 DECL|class|StopFilterFactory

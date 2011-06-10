@@ -136,7 +136,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * A RequestWriter which writes requests in the javabin format  *  * @version $Id$  * @see org.apache.solr.client.solrj.request.RequestWriter  * @since solr 1.4  */
+comment|/**  * A RequestWriter which writes requests in the javabin format  *  *  * @see org.apache.solr.client.solrj.request.RequestWriter  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|BinaryRequestWriter

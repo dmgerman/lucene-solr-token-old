@@ -45,7 +45,7 @@ name|NamedList
 import|;
 end_import
 begin_comment
-comment|/**  * Return a field with a name that is different that what is indexed  *  * @version $Id$  * @since solr 4.0  */
+comment|/**  * Return a field with a name that is different that what is indexed  *  *  * @since solr 4.0  */
 end_comment
 begin_class
 DECL|class|RenameFieldsTransformer

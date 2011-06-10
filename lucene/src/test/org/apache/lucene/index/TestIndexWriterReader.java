@@ -4135,9 +4135,10 @@ expr_stmt|;
 name|int
 name|num
 init|=
+name|atLeast
+argument_list|(
 literal|100
-operator|*
-name|RANDOM_MULTIPLIER
+argument_list|)
 decl_stmt|;
 for|for
 control|(

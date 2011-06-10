@@ -196,7 +196,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * Test for SpellCheckComponent's response in Solrj  *  * @version $Id$  * @since solr 1.3  */
+comment|/**  * Test for SpellCheckComponent's response in Solrj  *  *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|TestSpellCheckResponse
@@ -1005,7 +1005,7 @@ name|SpellingParams
 operator|.
 name|SPELLCHECK_MAX_COLLATION_TRIES
 argument_list|,
-literal|5
+literal|10
 argument_list|)
 expr_stmt|;
 name|query

@@ -428,7 +428,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * Term position unit test.  *  *  * @version $Revision$  */
+comment|/**  * Term position unit test.  *  *  */
 end_comment
 begin_class
 DECL|class|TestPositionIncrement

@@ -231,7 +231,7 @@ name|ResourceInitializationException
 import|;
 end_import
 begin_comment
-comment|/**  * Update document(s) to be indexed with UIMA extracted information  *  * @version $Id$  */
+comment|/**  * Update document(s) to be indexed with UIMA extracted information  *  *  */
 end_comment
 begin_class
 DECL|class|UIMAUpdateRequestProcessor
@@ -532,6 +532,21 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+name|int
+name|len
+init|=
+name|Math
+operator|.
+name|min
+argument_list|(
+name|text
+operator|.
+name|length
+argument_list|()
+argument_list|,
+literal|100
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|solrUIMAConfiguration
@@ -539,6 +554,7 @@ operator|.
 name|isIgnoreErrors
 argument_list|()
 condition|)
+block|{
 name|log
 operator|.
 name|warn
@@ -575,7 +591,7 @@ name|substring
 argument_list|(
 literal|0
 argument_list|,
-literal|100
+name|len
 argument_list|)
 argument_list|)
 operator|.
@@ -588,6 +604,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 else|else
 block|{
 throw|throw
@@ -630,7 +647,7 @@ name|substring
 argument_list|(
 literal|0
 argument_list|,
-literal|100
+name|len
 argument_list|)
 argument_list|)
 operator|.

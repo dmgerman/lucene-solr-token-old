@@ -17,7 +17,7 @@ name|dataimport
 package|;
 end_package
 begin_comment
-comment|/**  * Event listener for DataImportHandler  *  *<b>This API is experimental and subject to change</b>  *  * @version $Id$  * @since solr 1.4  */
+comment|/**  * Event listener for DataImportHandler  *  *<b>This API is experimental and subject to change</b>  *  *  * @since solr 1.4  */
 end_comment
 begin_interface
 DECL|interface|EventListener

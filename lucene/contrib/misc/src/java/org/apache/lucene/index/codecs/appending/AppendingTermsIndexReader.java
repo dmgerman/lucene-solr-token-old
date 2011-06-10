@@ -146,7 +146,7 @@ name|BytesRef
 argument_list|>
 name|termComp
 parameter_list|,
-name|String
+name|int
 name|codecId
 parameter_list|)
 throws|throws

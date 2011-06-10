@@ -89,7 +89,7 @@ name|BeforeClass
 import|;
 end_import
 begin_comment
-comment|/**  * Tests exception handling during imports in DataImportHandler  *  * @version $Id$  * @since solr 1.4  */
+comment|/**  * Tests exception handling during imports in DataImportHandler  *  *  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|TestErrorHandling

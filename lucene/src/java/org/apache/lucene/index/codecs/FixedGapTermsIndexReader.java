@@ -337,7 +337,7 @@ name|BytesRef
 argument_list|>
 name|termComp
 parameter_list|,
-name|String
+name|int
 name|codecId
 parameter_list|)
 throws|throws
@@ -2083,7 +2083,7 @@ parameter_list|,
 name|SegmentInfo
 name|info
 parameter_list|,
-name|String
+name|int
 name|id
 parameter_list|,
 name|Collection

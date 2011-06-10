@@ -491,9 +491,10 @@ decl_stmt|;
 name|int
 name|num
 init|=
-literal|2000
-operator|*
-name|RANDOM_MULTIPLIER
+name|atLeast
+argument_list|(
+literal|200
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -901,9 +902,10 @@ literal|100
 operator|*
 name|RANDOM_MULTIPLIER
 else|:
+name|atLeast
+argument_list|(
 literal|1000
-operator|*
-name|RANDOM_MULTIPLIER
+argument_list|)
 decl_stmt|;
 for|for
 control|(

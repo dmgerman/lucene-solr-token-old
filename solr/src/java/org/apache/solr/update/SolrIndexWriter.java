@@ -37,21 +37,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexWriterConfig
-operator|.
-name|OpenMode
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|codecs
 operator|.
 name|CodecProvider
@@ -68,19 +53,6 @@ operator|.
 name|store
 operator|.
 name|*
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
 import|;
 end_import
 begin_import
@@ -155,15 +127,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|FileOutputStream
 import|;
 end_import
@@ -222,7 +185,7 @@ name|Locale
 import|;
 end_import
 begin_comment
-comment|/**  * An IndexWriter that is configured via Solr config mechanisms.  * * @version $Id$ * @since solr 0.9 */
+comment|/**  * An IndexWriter that is configured via Solr config mechanisms.  *  * @since solr 0.9  */
 end_comment
 begin_class
 DECL|class|SolrIndexWriter

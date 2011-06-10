@@ -194,7 +194,7 @@ name|ContentStream
 import|;
 end_import
 begin_comment
-comment|/**  * This class is experimental and subject to change.  * @version $Id: CoreAdminRequest.java 606335 2007-12-21 22:23:39Z ryan $  * @since solr 1.3  */
+comment|/**  * This class is experimental and subject to change.  *  * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|CoreAdminRequest

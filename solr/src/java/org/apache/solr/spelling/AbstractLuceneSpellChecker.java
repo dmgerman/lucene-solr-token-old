@@ -1238,7 +1238,7 @@ argument_list|)
 expr_stmt|;
 name|result
 operator|.
-name|add
+name|addFrequency
 argument_list|(
 name|token
 argument_list|,

@@ -113,7 +113,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Encapsulates all information about a Field in a Solr Schema  *  * @version $Id$  */
+comment|/**  * Encapsulates all information about a Field in a Solr Schema  *  *  */
 end_comment
 begin_class
 DECL|class|SchemaField
