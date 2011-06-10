@@ -24,7 +24,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** A Scorer for queries with a required part and an optional part.  * Delays skipTo() on the optional part until a score() is needed.  *<br>  * This<code>Scorer</code> implements {@link Scorer#skipTo(int)}.  */
+comment|/** A Scorer for queries with a required part and an optional part.  * Delays skipTo() on the optional part until a score() is needed.  *<br>  * This<code>Scorer</code> implements {@link Scorer#advance(int)}.  */
 end_comment
 begin_class
 DECL|class|ReqOptSumScorer
