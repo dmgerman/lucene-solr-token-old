@@ -1142,7 +1142,7 @@ argument_list|>
 argument_list|>
 name|valueResult
 decl_stmt|;
-comment|/*** Much of this test seems invalid for a numeric "id" field     NamedList<Object> queryResult = idResult.get("query");     assertEquals("Only the default analyzer should be applied", 1, queryResult.size());     String name = queryResult.getName(0);     assertTrue("Only the default analyzer should be applied", name.matches("org.apache.solr.schema.FieldType\\$DefaultAnalyzer.*"));     List<NamedList> tokenList = (List<NamedList>) queryResult.getVal(0);     assertEquals("Query has only one token", 1, tokenList.size());     assertToken(tokenList.get(0), new TokenInfo("JUMPING", null, "word", 0, 7, 1, null, false));     NamedList<Object> indexResult = idResult.get("index");      assertEquals("The id field has only a single value", 1, indexResult.size());     NamedList<List<NamedList>> valueResult = (NamedList<List<NamedList>>) indexResult.get("1");     assertEquals("Only the default analyzer should be applied", 1, valueResult.size());     name = queryResult.getName(0);     assertTrue("Only the default analyzer should be applied", name.matches("org.apache.solr.schema.FieldType\\$DefaultAnalyzer.*"));     tokenList = valueResult.getVal(0);     assertEquals("The 'id' field value has only one token", 1, tokenList.size());     assertToken(tokenList.get(0), new TokenInfo("1", null, "word", 0, 1, 1, null, false));     ***/
+comment|/*** Much of this test seems invalid for a numeric "id" field     NamedList<Object> queryResult = idResult.get("query");     assertEquals("Only the default analyzer should be applied", 1, queryResult.size());     String name = queryResult.getName(0);     assertTrue("Only the default analyzer should be applied", name.matches("org.apache.solr.schema.FieldType\\$DefaultAnalyzer.*"));     List<NamedList> tokenList = (List<NamedList>) queryResult.getVal(0);     assertEquals("Query has only one token", 1, tokenList.size());     assertToken(tokenList.get(0), new TokenInfo("JUMPING", null, "word", 0, 7, 1, "1", null, false));     NamedList<Object> indexResult = idResult.get("index");      assertEquals("The id field has only a single value", 1, indexResult.size());     NamedList<List<NamedList>> valueResult = (NamedList<List<NamedList>>) indexResult.get("1");     assertEquals("Only the default analyzer should be applied", 1, valueResult.size());     name = queryResult.getName(0);     assertTrue("Only the default analyzer should be applied", name.matches("org.apache.solr.schema.FieldType\\$DefaultAnalyzer.*"));     tokenList = valueResult.getVal(0);     assertEquals("The 'id' field value has only one token", 1, tokenList.size());     assertToken(tokenList.get(0), new TokenInfo("1", null, "word", 0, 1, 1, "1", null, false));     ***/
 comment|// the name field
 name|NamedList
 argument_list|<
@@ -1234,6 +1234,8 @@ literal|7
 argument_list|,
 literal|1
 argument_list|,
+literal|"1"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -1324,6 +1326,8 @@ literal|7
 argument_list|,
 literal|1
 argument_list|,
+literal|"1"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -1353,6 +1357,8 @@ argument_list|,
 literal|12
 argument_list|,
 literal|2
+argument_list|,
+literal|"2"
 argument_list|,
 literal|null
 argument_list|,
@@ -1451,6 +1457,8 @@ literal|7
 argument_list|,
 literal|1
 argument_list|,
+literal|"1"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -1514,6 +1522,8 @@ argument_list|,
 literal|7
 argument_list|,
 literal|1
+argument_list|,
+literal|"1/1"
 argument_list|,
 literal|null
 argument_list|,
@@ -1579,6 +1589,8 @@ literal|7
 argument_list|,
 literal|1
 argument_list|,
+literal|"1/1/1"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -1643,6 +1655,8 @@ literal|7
 argument_list|,
 literal|1
 argument_list|,
+literal|"1/1/1/1"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -1706,6 +1720,8 @@ argument_list|,
 literal|7
 argument_list|,
 literal|1
+argument_list|,
+literal|"1/1/1/1/1"
 argument_list|,
 literal|null
 argument_list|,
@@ -1804,6 +1820,8 @@ literal|3
 argument_list|,
 literal|1
 argument_list|,
+literal|"1"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -1833,6 +1851,8 @@ argument_list|,
 literal|7
 argument_list|,
 literal|2
+argument_list|,
+literal|"2"
 argument_list|,
 literal|null
 argument_list|,
@@ -1864,6 +1884,8 @@ literal|14
 argument_list|,
 literal|3
 argument_list|,
+literal|"3"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -1893,6 +1915,8 @@ argument_list|,
 literal|19
 argument_list|,
 literal|4
+argument_list|,
+literal|"4"
 argument_list|,
 literal|null
 argument_list|,
@@ -1924,6 +1948,8 @@ literal|23
 argument_list|,
 literal|5
 argument_list|,
+literal|"5"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -1953,6 +1979,8 @@ argument_list|,
 literal|28
 argument_list|,
 literal|6
+argument_list|,
+literal|"6"
 argument_list|,
 literal|null
 argument_list|,
@@ -2012,6 +2040,8 @@ literal|3
 argument_list|,
 literal|1
 argument_list|,
+literal|"1/1"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2041,6 +2071,8 @@ argument_list|,
 literal|7
 argument_list|,
 literal|2
+argument_list|,
+literal|"2/2"
 argument_list|,
 literal|null
 argument_list|,
@@ -2072,6 +2104,8 @@ literal|14
 argument_list|,
 literal|3
 argument_list|,
+literal|"3/3"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2101,6 +2135,8 @@ argument_list|,
 literal|19
 argument_list|,
 literal|4
+argument_list|,
+literal|"4/4"
 argument_list|,
 literal|null
 argument_list|,
@@ -2132,6 +2168,8 @@ literal|23
 argument_list|,
 literal|5
 argument_list|,
+literal|"5/5"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2161,6 +2199,8 @@ argument_list|,
 literal|28
 argument_list|,
 literal|6
+argument_list|,
+literal|"6/6"
 argument_list|,
 literal|null
 argument_list|,
@@ -2220,6 +2260,8 @@ literal|3
 argument_list|,
 literal|1
 argument_list|,
+literal|"1/1/1"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2249,6 +2291,8 @@ argument_list|,
 literal|7
 argument_list|,
 literal|2
+argument_list|,
+literal|"2/2/2"
 argument_list|,
 literal|null
 argument_list|,
@@ -2280,6 +2324,8 @@ literal|14
 argument_list|,
 literal|3
 argument_list|,
+literal|"3/3/3"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2309,6 +2355,8 @@ argument_list|,
 literal|19
 argument_list|,
 literal|4
+argument_list|,
+literal|"4/4/4"
 argument_list|,
 literal|null
 argument_list|,
@@ -2340,6 +2388,8 @@ literal|23
 argument_list|,
 literal|5
 argument_list|,
+literal|"5/5/5"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2369,6 +2419,8 @@ argument_list|,
 literal|28
 argument_list|,
 literal|6
+argument_list|,
+literal|"6/6/6"
 argument_list|,
 literal|null
 argument_list|,
@@ -2428,6 +2480,8 @@ literal|7
 argument_list|,
 literal|1
 argument_list|,
+literal|"2/2/2/1"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2457,6 +2511,8 @@ argument_list|,
 literal|14
 argument_list|,
 literal|2
+argument_list|,
+literal|"3/3/3/2"
 argument_list|,
 literal|null
 argument_list|,
@@ -2488,6 +2544,8 @@ literal|19
 argument_list|,
 literal|3
 argument_list|,
+literal|"4/4/4/3"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2517,6 +2575,8 @@ argument_list|,
 literal|28
 argument_list|,
 literal|4
+argument_list|,
+literal|"6/6/6/4"
 argument_list|,
 literal|null
 argument_list|,
@@ -2576,6 +2636,8 @@ literal|7
 argument_list|,
 literal|1
 argument_list|,
+literal|"2/2/2/1/1"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2605,6 +2667,8 @@ argument_list|,
 literal|14
 argument_list|,
 literal|2
+argument_list|,
+literal|"3/3/3/2/2"
 argument_list|,
 literal|null
 argument_list|,
@@ -2636,6 +2700,8 @@ literal|19
 argument_list|,
 literal|3
 argument_list|,
+literal|"4/4/4/3/3"
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2665,6 +2731,8 @@ argument_list|,
 literal|28
 argument_list|,
 literal|4
+argument_list|,
+literal|"6/6/6/4/4"
 argument_list|,
 literal|null
 argument_list|,
