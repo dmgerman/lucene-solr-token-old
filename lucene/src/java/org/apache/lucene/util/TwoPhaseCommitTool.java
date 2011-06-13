@@ -98,8 +98,6 @@ operator|=
 name|commitData
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|prepareCommit
 specifier|public
 name|void
@@ -114,8 +112,6 @@ name|commitData
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|prepareCommit
 specifier|public
 name|void
@@ -142,8 +138,6 @@ name|commitData
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|commit
 specifier|public
 name|void
@@ -158,8 +152,6 @@ name|commitData
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|commit
 specifier|public
 name|void
@@ -186,8 +178,6 @@ name|commitData
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|rollback
 specifier|public
 name|void
