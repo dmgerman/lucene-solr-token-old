@@ -769,6 +769,13 @@ operator|.
 name|CREATE
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|LuceneTestCase
+operator|.
+name|TEST_NIGHTLY
+condition|)
+block|{
 comment|// newIWConfig makes smallish max seg size, which
 comment|// results in tons and tons of segments for this test
 comment|// when run nightly:
@@ -841,6 +848,7 @@ argument_list|(
 literal|100000
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|conf
 operator|.
@@ -1325,7 +1333,7 @@ name|TEST_NIGHTLY
 condition|?
 literal|300
 else|:
-literal|5
+name|RANDOM_MULTIPLIER
 decl_stmt|;
 specifier|final
 name|AtomicBoolean
