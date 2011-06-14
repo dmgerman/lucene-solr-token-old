@@ -341,6 +341,10 @@ operator|||
 name|Constants
 operator|.
 name|SUN_OS
+operator|||
+name|Constants
+operator|.
+name|LINUX
 operator|)
 operator|&&
 name|Constants
