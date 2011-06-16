@@ -1640,8 +1640,6 @@ block|}
 comment|// Merge:
 specifier|final
 name|TopDocs
-operator|.
-name|TopDocsAndShards
 name|mergedHits
 init|=
 name|TopDocs
@@ -1716,12 +1714,9 @@ argument_list|,
 name|docStarts
 argument_list|)
 argument_list|,
-name|mergedHits
+name|sd
 operator|.
 name|shardIndex
-index|[
-name|hitIDX
-index|]
 argument_list|)
 expr_stmt|;
 block|}
