@@ -337,6 +337,9 @@ class|class
 name|JustCompileFieldComparator
 extends|extends
 name|FieldComparator
+argument_list|<
+name|Object
+argument_list|>
 block|{
 annotation|@
 name|Override
@@ -449,10 +452,7 @@ annotation|@
 name|Override
 DECL|method|value
 specifier|public
-name|Comparable
-argument_list|<
-name|?
-argument_list|>
+name|Object
 name|value
 parameter_list|(
 name|int
