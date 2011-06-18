@@ -526,10 +526,8 @@ finally|finally
 block|{
 name|f
 operator|.
-name|setWritable
-argument_list|(
-literal|true
-argument_list|)
+name|delete
+argument_list|()
 expr_stmt|;
 block|}
 block|}
