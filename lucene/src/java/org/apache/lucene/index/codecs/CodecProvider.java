@@ -61,17 +61,6 @@ operator|.
 name|Set
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-operator|.
-name|Entry
-import|;
-end_import
 begin_comment
 comment|/** Holds a set of codecs, keyed by name.  You subclass  *  this, instantiate it, and register your codecs, then  *  pass this instance to IndexReader/IndexWriter (via  *  package private APIs) to use different codecs when  *  reading& writing segments.   *  *  @lucene.experimental */
 end_comment
@@ -181,6 +170,8 @@ block|,
 literal|"PreFlex"
 block|,
 literal|"SimpleText"
+block|,
+literal|"Memory"
 block|}
 decl_stmt|;
 DECL|method|register
@@ -417,6 +408,7 @@ name|codec
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -428,6 +420,7 @@ operator|+
 literal|"' not found"
 argument_list|)
 throw|;
+block|}
 return|return
 name|codec
 return|;
