@@ -1442,7 +1442,7 @@ literal|"findMergesForOptimize: maxNumSegs="
 operator|+
 name|maxNumSegments
 operator|+
-literal|" segsToOptimize= "
+literal|" segsToOptimize="
 operator|+
 name|segmentsToOptimize
 argument_list|)
