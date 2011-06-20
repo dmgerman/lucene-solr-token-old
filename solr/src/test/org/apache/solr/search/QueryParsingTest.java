@@ -746,7 +746,7 @@ argument_list|()
 argument_list|,
 name|SortField
 operator|.
-name|CUSTOM
+name|REWRITEABLE
 argument_list|)
 expr_stmt|;
 comment|//Not thrilled about the fragility of string matching here, but...
@@ -795,7 +795,7 @@ argument_list|()
 argument_list|,
 name|SortField
 operator|.
-name|CUSTOM
+name|REWRITEABLE
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -841,7 +841,7 @@ argument_list|()
 argument_list|,
 name|SortField
 operator|.
-name|CUSTOM
+name|REWRITEABLE
 argument_list|)
 expr_stmt|;
 comment|//Not thrilled about the fragility of string matching here, but...
@@ -889,7 +889,7 @@ argument_list|()
 argument_list|,
 name|SortField
 operator|.
-name|CUSTOM
+name|REWRITEABLE
 argument_list|)
 expr_stmt|;
 comment|//Not thrilled about the fragility of string matching here, but...
@@ -1041,7 +1041,7 @@ argument_list|()
 argument_list|,
 name|SortField
 operator|.
-name|CUSTOM
+name|REWRITEABLE
 argument_list|)
 expr_stmt|;
 comment|//the value sources get wrapped, so the out field is different than the input
