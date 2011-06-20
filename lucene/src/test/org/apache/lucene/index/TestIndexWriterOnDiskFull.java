@@ -1157,6 +1157,10 @@ operator|new
 name|RAMDirectory
 argument_list|(
 name|startDir
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 argument_list|)
 decl_stmt|;

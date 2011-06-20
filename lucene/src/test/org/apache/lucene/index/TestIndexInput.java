@@ -742,6 +742,10 @@ operator|.
 name|createOutput
 argument_list|(
 literal|"foo"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|os
@@ -769,6 +773,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"foo"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|checkReads

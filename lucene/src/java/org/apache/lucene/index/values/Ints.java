@@ -48,6 +48,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|values
 operator|.
 name|IntsImpl
@@ -131,6 +144,10 @@ argument_list|,
 name|id
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 return|;
 block|}
@@ -152,6 +169,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//nocommit this needs an IOContext too
 return|return
 operator|new
 name|IntsReader
@@ -159,6 +177,10 @@ argument_list|(
 name|dir
 argument_list|,
 name|id
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 return|;
 block|}

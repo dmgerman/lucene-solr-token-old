@@ -68,6 +68,19 @@ operator|.
 name|HashSet
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IOContext
+import|;
+end_import
 begin_comment
 comment|/**  * Expert: A Directory instance that switches files between  * two other Directory instances.   *<p>Files with the specified extensions are placed in the  * primary directory; others are placed in the secondary  * directory.  The provided Set must not change once passed  * to this class, and must allow multiple threads to call  * contains at once.</p>  *  * @lucene.experimental  */
 end_comment
@@ -491,6 +504,9 @@ name|createOutput
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -504,6 +520,8 @@ operator|.
 name|createOutput
 argument_list|(
 name|name
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -607,6 +625,9 @@ name|openInput
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -620,6 +641,8 @@ operator|.
 name|openInput
 argument_list|(
 name|name
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}

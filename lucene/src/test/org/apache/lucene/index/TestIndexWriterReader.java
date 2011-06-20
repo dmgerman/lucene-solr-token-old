@@ -3127,6 +3127,10 @@ operator|new
 name|RAMDirectory
 argument_list|(
 name|addDir
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4710,6 +4714,10 @@ operator|new
 name|RAMDirectory
 argument_list|(
 name|dir1
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 argument_list|)
 expr_stmt|;

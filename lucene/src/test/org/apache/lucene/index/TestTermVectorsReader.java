@@ -173,6 +173,21 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|IOContext
+operator|.
+name|Context
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|Directory
@@ -1120,6 +1135,10 @@ argument_list|,
 name|seg
 argument_list|,
 name|fieldInfos
+argument_list|,
+name|IOContext
+operator|.
+name|READ
 argument_list|)
 decl_stmt|;
 for|for
@@ -1255,6 +1274,10 @@ argument_list|,
 name|seg
 argument_list|,
 name|fieldInfos
+argument_list|,
+name|IOContext
+operator|.
+name|READ
 argument_list|)
 decl_stmt|;
 name|TermPositionVector
@@ -1632,6 +1655,10 @@ argument_list|,
 name|seg
 argument_list|,
 name|fieldInfos
+argument_list|,
+name|IOContext
+operator|.
+name|READ
 argument_list|)
 decl_stmt|;
 name|TermPositionVector
@@ -1905,6 +1932,10 @@ argument_list|,
 name|seg
 argument_list|,
 name|fieldInfos
+argument_list|,
+name|IOContext
+operator|.
+name|READ
 argument_list|)
 decl_stmt|;
 name|SortedTermVectorMapper
@@ -2811,6 +2842,10 @@ argument_list|,
 name|seg
 argument_list|,
 name|fieldInfos
+argument_list|,
+name|IOContext
+operator|.
+name|READ
 argument_list|)
 expr_stmt|;
 comment|//Bad document number, good field number
@@ -2858,6 +2893,10 @@ argument_list|,
 name|seg
 argument_list|,
 name|fieldInfos
+argument_list|,
+name|IOContext
+operator|.
+name|READ
 argument_list|)
 expr_stmt|;
 comment|//Bad document number, no field
@@ -2900,6 +2939,10 @@ argument_list|,
 name|seg
 argument_list|,
 name|fieldInfos
+argument_list|,
+name|IOContext
+operator|.
+name|READ
 argument_list|)
 expr_stmt|;
 comment|//good document number, bad field number

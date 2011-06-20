@@ -71,6 +71,21 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|IOContext
+operator|.
+name|Context
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|IndexOutput
@@ -274,6 +289,14 @@ operator|.
 name|createOutput
 argument_list|(
 name|name
+argument_list|,
+operator|new
+name|IOContext
+argument_list|(
+name|Context
+operator|.
+name|FLUSH
+argument_list|)
 argument_list|)
 decl_stmt|;
 for|for
@@ -349,6 +372,14 @@ operator|.
 name|createOutput
 argument_list|(
 name|name
+argument_list|,
+operator|new
+name|IOContext
+argument_list|(
+name|Context
+operator|.
+name|FLUSH
+argument_list|)
 argument_list|)
 decl_stmt|;
 for|for
@@ -928,6 +959,10 @@ argument_list|,
 name|name
 operator|+
 literal|".cfs"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|csw
@@ -953,6 +988,10 @@ argument_list|,
 name|name
 operator|+
 literal|".cfs"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -963,6 +1002,10 @@ operator|.
 name|openInput
 argument_list|(
 name|name
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -973,6 +1016,10 @@ operator|.
 name|openInput
 argument_list|(
 name|name
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|assertSameStreams
@@ -1056,6 +1103,10 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"d.csf"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|csw
@@ -1086,6 +1137,10 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"d.csf"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -1096,6 +1151,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"d1"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -1106,6 +1165,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"d1"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|assertSameStreams
@@ -1143,6 +1206,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"d2"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|actual
@@ -1152,6 +1219,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"d2"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|assertSameStreams
@@ -1388,6 +1459,10 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"test.cfs"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1466,6 +1541,10 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"test.cfs"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 for|for
@@ -1498,6 +1577,10 @@ name|data
 index|[
 name|i
 index|]
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -1513,6 +1596,10 @@ name|data
 index|[
 name|i
 index|]
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|assertSameStreams
@@ -1574,6 +1661,10 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"f.comp"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 for|for
@@ -1662,6 +1753,10 @@ operator|.
 name|createOutput
 argument_list|(
 name|file
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 for|for
@@ -1703,6 +1798,10 @@ operator|.
 name|openInput
 argument_list|(
 name|file
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 comment|// This read primes the buffer in IndexInput
@@ -1842,6 +1941,10 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"f.comp"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 comment|// basic clone
@@ -1853,6 +1956,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"f11"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 comment|// this test only works for FSIndexInput
@@ -1884,6 +1991,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"f11"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -2070,6 +2181,10 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"f.comp"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 comment|// Open two files
@@ -2081,6 +2196,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"f11"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -2091,6 +2210,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"f3"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -2101,6 +2224,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"f11"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -2111,6 +2238,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"f3"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 comment|// Seek the first pair
@@ -2515,6 +2646,10 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"f.comp"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 comment|// Open two files
@@ -2526,6 +2661,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"f11"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -2536,6 +2675,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"f3"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -2961,6 +3104,10 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"f.comp"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 comment|// Open two files
@@ -2971,6 +3118,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"bogus"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|fail
@@ -3014,6 +3165,10 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"f.comp"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -3024,6 +3179,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"f2"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|is
@@ -3149,6 +3308,10 @@ operator|.
 name|createOutput
 argument_list|(
 literal|"testBufferStart.txt"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|byte
@@ -3278,6 +3441,10 @@ argument_list|(
 name|newDir
 argument_list|,
 literal|"d.csf"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|csw
@@ -3303,6 +3470,10 @@ argument_list|(
 name|newDir
 argument_list|,
 literal|"d.csf"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -3313,6 +3484,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"d1"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexInput
@@ -3323,6 +3498,10 @@ operator|.
 name|openInput
 argument_list|(
 literal|"d1"
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|assertSameStreams

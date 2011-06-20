@@ -1092,6 +1092,10 @@ literal|""
 argument_list|,
 name|ext
 argument_list|)
+argument_list|,
+name|IOContext
+operator|.
+name|READONCE
 argument_list|)
 expr_stmt|;
 block|}
@@ -1197,6 +1201,10 @@ name|IndexFileNames
 operator|.
 name|COMPOUND_FILE_EXTENSION
 argument_list|)
+argument_list|,
+name|IOContext
+operator|.
+name|READONCE
 argument_list|)
 expr_stmt|;
 block|}

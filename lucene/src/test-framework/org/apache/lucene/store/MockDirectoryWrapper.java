@@ -141,6 +141,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
 import|;
 end_import
@@ -919,6 +932,7 @@ name|upto
 init|=
 literal|0
 decl_stmt|;
+comment|//nocommit - randomize the IOContext here?
 name|IndexOutput
 name|out
 init|=
@@ -927,6 +941,10 @@ operator|.
 name|createOutput
 argument_list|(
 name|name
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 while|while
@@ -989,6 +1007,7 @@ literal|2
 condition|)
 block|{
 comment|// Truncate the file:
+comment|//nocommit - randomize the IOContext here?
 name|IndexOutput
 name|out
 init|=
@@ -997,6 +1016,10 @@ operator|.
 name|createOutput
 argument_list|(
 name|name
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|out
@@ -1577,6 +1600,9 @@ name|createOutput
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1787,6 +1813,7 @@ expr_stmt|;
 block|}
 block|}
 comment|//System.out.println(Thread.currentThread().getName() + ": MDW: create " + name);
+comment|// nocommit - randomize the IOContext here?
 name|IndexOutput
 name|io
 init|=
@@ -1800,6 +1827,8 @@ operator|.
 name|createOutput
 argument_list|(
 name|name
+argument_list|,
+name|context
 argument_list|)
 argument_list|,
 name|name
@@ -1990,6 +2019,9 @@ name|openInput
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -2053,6 +2085,7 @@ literal|false
 argument_list|)
 throw|;
 block|}
+comment|// nocommit - randomize IOContext here?
 name|IndexInput
 name|ii
 init|=
@@ -2068,6 +2101,8 @@ operator|.
 name|openInput
 argument_list|(
 name|name
+argument_list|,
+name|context
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2964,6 +2999,9 @@ name|src
 parameter_list|,
 name|String
 name|dest
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -2971,6 +3009,7 @@ block|{
 name|maybeYield
 argument_list|()
 expr_stmt|;
+comment|// randomize the IOContext here?
 name|delegate
 operator|.
 name|copy
@@ -2980,6 +3019,8 @@ argument_list|,
 name|src
 argument_list|,
 name|dest
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}

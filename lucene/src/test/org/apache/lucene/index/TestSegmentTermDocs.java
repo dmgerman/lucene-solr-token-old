@@ -242,6 +242,10 @@ argument_list|,
 name|info
 argument_list|,
 name|indexDivisor
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -393,6 +397,10 @@ argument_list|,
 name|info
 argument_list|,
 name|indexDivisor
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -448,6 +456,10 @@ argument_list|,
 name|info
 argument_list|,
 name|indexDivisor
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|assertTrue

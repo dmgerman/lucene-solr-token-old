@@ -79,6 +79,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|SegmentInfo
 import|;
 end_import
@@ -212,6 +225,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//nocommit this needs an IOContext
 name|docValues
 operator|=
 name|load
@@ -430,6 +444,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// nocommit this needs an IOContext too
 switch|switch
 condition|(
 name|type

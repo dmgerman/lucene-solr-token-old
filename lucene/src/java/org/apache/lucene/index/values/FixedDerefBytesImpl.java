@@ -48,6 +48,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|values
 operator|.
 name|Bytes
@@ -367,6 +380,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//nocommit this needs an IOContext too
 name|this
 argument_list|(
 name|dir
@@ -425,6 +439,10 @@ name|allocator
 argument_list|)
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|docToID
@@ -854,6 +872,10 @@ argument_list|,
 name|VERSION_START
 argument_list|,
 literal|true
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|size

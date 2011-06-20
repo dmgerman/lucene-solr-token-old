@@ -40,6 +40,21 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|IOContext
+operator|.
+name|Context
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|IndexOutput
@@ -456,6 +471,17 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+name|IOContext
+name|context
+init|=
+operator|new
+name|IOContext
+argument_list|(
+name|Context
+operator|.
+name|FLUSH
+argument_list|)
+decl_stmt|;
 comment|// If we hit an exception while init'ing the term
 comment|// vector output files, we must abort this segment
 comment|// because those files will be in an unknown
@@ -483,6 +509,8 @@ name|IndexFileNames
 operator|.
 name|VECTORS_INDEX_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|tvd
@@ -508,6 +536,8 @@ name|IndexFileNames
 operator|.
 name|VECTORS_DOCUMENTS_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|tvf
@@ -533,6 +563,8 @@ name|IndexFileNames
 operator|.
 name|VECTORS_FIELDS_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|tvx

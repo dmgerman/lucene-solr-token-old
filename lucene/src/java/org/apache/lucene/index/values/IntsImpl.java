@@ -57,6 +57,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexFileNames
 import|;
 end_import
@@ -308,6 +321,9 @@ name|id
 parameter_list|,
 name|AtomicLong
 name|bytesUsed
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -333,6 +349,8 @@ literal|""
 argument_list|,
 name|DATA_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -1004,6 +1022,9 @@ name|dir
 parameter_list|,
 name|String
 name|id
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1026,6 +1047,8 @@ name|Writer
 operator|.
 name|DATA_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|boolean

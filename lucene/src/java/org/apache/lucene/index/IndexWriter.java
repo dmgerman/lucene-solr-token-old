@@ -239,9 +239,39 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IOContext
+operator|.
+name|Context
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexWriterConfig
 operator|.
 name|OpenMode
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|MergePolicy
+operator|.
+name|OneMerge
 import|;
 end_import
 begin_import
@@ -1756,6 +1786,9 @@ name|doOpenStores
 parameter_list|,
 name|int
 name|termInfosIndexDivisor
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1769,9 +1802,7 @@ name|info
 argument_list|,
 name|doOpenStores
 argument_list|,
-name|BufferedIndexInput
-operator|.
-name|BUFFER_SIZE
+name|context
 argument_list|,
 name|termInfosIndexDivisor
 argument_list|)
@@ -1811,6 +1842,9 @@ name|info
 parameter_list|,
 name|boolean
 name|doOpenStores
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1822,9 +1856,7 @@ name|info
 argument_list|,
 name|doOpenStores
 argument_list|,
-name|BufferedIndexInput
-operator|.
-name|BUFFER_SIZE
+name|context
 argument_list|,
 name|config
 operator|.
@@ -1846,8 +1878,8 @@ parameter_list|,
 name|boolean
 name|doOpenStores
 parameter_list|,
-name|int
-name|readBufferSize
+name|IOContext
+name|context
 parameter_list|,
 name|int
 name|termsIndexDivisor
@@ -1855,18 +1887,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|poolReaders
-condition|)
-block|{
-name|readBufferSize
-operator|=
-name|BufferedIndexInput
-operator|.
-name|BUFFER_SIZE
-expr_stmt|;
-block|}
+comment|//      if (poolReaders) {
+comment|//        readBufferSize = BufferedIndexInput.BUFFER_SIZE;
+comment|//      }
+comment|// nocommit context should be part of the key used to cache that reader in the pool.
 name|SegmentReader
 name|sr
 init|=
@@ -1901,11 +1925,11 @@ name|dir
 argument_list|,
 name|info
 argument_list|,
-name|readBufferSize
-argument_list|,
 name|doOpenStores
 argument_list|,
 name|termsIndexDivisor
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|sr
@@ -5825,6 +5849,17 @@ argument_list|,
 literal|"flush"
 argument_list|)
 expr_stmt|;
+name|IOContext
+name|context
+init|=
+operator|new
+name|IOContext
+argument_list|(
+name|Context
+operator|.
+name|FLUSH
+argument_list|)
+decl_stmt|;
 name|boolean
 name|success
 init|=
@@ -5875,6 +5910,8 @@ argument_list|(
 name|directory
 argument_list|,
 name|compoundFileName
+argument_list|,
+name|context
 argument_list|)
 decl_stmt|;
 for|for
@@ -6014,6 +6051,8 @@ argument_list|(
 name|directory
 argument_list|,
 name|delFileName
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|success2
@@ -6613,6 +6652,32 @@ operator|>=
 literal|0
 expr_stmt|;
 block|}
+name|IOContext
+name|context
+init|=
+operator|new
+name|IOContext
+argument_list|(
+operator|new
+name|MergeInfo
+argument_list|(
+name|info
+operator|.
+name|docCount
+argument_list|,
+name|info
+operator|.
+name|sizeInBytes
+argument_list|(
+literal|true
+argument_list|)
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|)
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|createCFS
@@ -6623,6 +6688,8 @@ argument_list|(
 name|info
 argument_list|,
 name|newSegName
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -6637,6 +6704,8 @@ argument_list|,
 name|dsNames
 argument_list|,
 name|dsFilesCopied
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -6777,6 +6846,7 @@ argument_list|(
 name|reader
 argument_list|)
 expr_stmt|;
+comment|// nocommit - we should pass a MergeInfo here into merge to create corresponding IOContext instances?
 name|int
 name|docCount
 init|=
@@ -6871,6 +6941,32 @@ condition|(
 name|useCompoundFile
 condition|)
 block|{
+name|IOContext
+name|context
+init|=
+operator|new
+name|IOContext
+argument_list|(
+operator|new
+name|MergeInfo
+argument_list|(
+name|info
+operator|.
+name|docCount
+argument_list|,
+name|info
+operator|.
+name|sizeInBytes
+argument_list|(
+literal|true
+argument_list|)
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|merger
 operator|.
 name|createCompoundFile
@@ -6880,6 +6976,8 @@ operator|+
 literal|".cfs"
 argument_list|,
 name|info
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 comment|// delete new non cfs files directly: they were never
@@ -6966,6 +7064,9 @@ name|info
 parameter_list|,
 name|String
 name|segName
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -7006,6 +7107,8 @@ argument_list|(
 name|directory
 argument_list|,
 name|segFileName
+argument_list|,
+name|context
 argument_list|)
 decl_stmt|;
 for|for
@@ -7091,6 +7194,8 @@ argument_list|,
 name|file
 argument_list|,
 name|newFileName
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -7146,6 +7251,9 @@ argument_list|<
 name|String
 argument_list|>
 name|dsFilesCopied
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -7317,6 +7425,8 @@ argument_list|,
 name|file
 argument_list|,
 name|newFileName
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -10720,6 +10830,18 @@ name|merge
 operator|.
 name|segments
 decl_stmt|;
+name|IOContext
+name|context
+init|=
+operator|new
+name|IOContext
+argument_list|(
+name|merge
+operator|.
+name|getMergeInfo
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|SegmentMerger
 name|merger
 init|=
@@ -10855,7 +10977,7 @@ name|info
 argument_list|,
 literal|true
 argument_list|,
-name|MERGE_READ_BUFFER_SIZE
+name|context
 argument_list|,
 operator|-
 name|config
@@ -11115,6 +11237,15 @@ argument_list|,
 name|merge
 operator|.
 name|info
+argument_list|,
+operator|new
+name|IOContext
+argument_list|(
+name|merge
+operator|.
+name|getMergeInfo
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|success
@@ -11378,6 +11509,7 @@ block|}
 comment|// TODO: in the non-realtime case, we may want to only
 comment|// keep deletes (it's costly to open entire reader
 comment|// when we just need deletes)
+comment|// nocommit  should we use another flag "isMergedSegment" or a "READ" context here?
 specifier|final
 name|SegmentReader
 name|mergedReader
@@ -11392,9 +11524,7 @@ name|info
 argument_list|,
 name|loadDocStores
 argument_list|,
-name|BufferedIndexInput
-operator|.
-name|BUFFER_SIZE
+name|context
 argument_list|,
 name|termsIndexDivisor
 argument_list|)

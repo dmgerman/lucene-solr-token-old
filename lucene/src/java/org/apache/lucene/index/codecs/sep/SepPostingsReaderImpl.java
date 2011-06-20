@@ -85,6 +85,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexFileNames
 import|;
 end_import
@@ -302,8 +315,8 @@ parameter_list|,
 name|SegmentInfo
 name|segmentInfo
 parameter_list|,
-name|int
-name|readBufferSize
+name|IOContext
+name|context
 parameter_list|,
 name|IntStreamFactory
 name|intFactory
@@ -349,6 +362,8 @@ argument_list|(
 name|dir
 argument_list|,
 name|docFileName
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|skipIn
@@ -372,7 +387,7 @@ operator|.
 name|SKIP_EXTENSION
 argument_list|)
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|)
 expr_stmt|;
 if|if
@@ -405,6 +420,8 @@ name|SepPostingsWriterImpl
 operator|.
 name|FREQ_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|posIn
@@ -430,7 +447,7 @@ operator|.
 name|POS_EXTENSION
 argument_list|)
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|)
 expr_stmt|;
 name|payloadIn
@@ -454,7 +471,7 @@ operator|.
 name|PAYLOAD_EXTENSION
 argument_list|)
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|)
 expr_stmt|;
 block|}

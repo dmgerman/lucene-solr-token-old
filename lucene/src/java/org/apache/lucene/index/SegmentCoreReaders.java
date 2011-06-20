@@ -151,10 +151,10 @@ specifier|final
 name|Directory
 name|cfsDir
 decl_stmt|;
-DECL|field|readBufferSize
+DECL|field|context
 specifier|final
-name|int
-name|readBufferSize
+name|IOContext
+name|context
 decl_stmt|;
 DECL|field|termsIndexDivisor
 specifier|final
@@ -195,8 +195,8 @@ parameter_list|,
 name|SegmentInfo
 name|si
 parameter_list|,
-name|int
-name|readBufferSize
+name|IOContext
+name|context
 parameter_list|,
 name|int
 name|termsIndexDivisor
@@ -236,9 +236,9 @@ argument_list|()
 decl_stmt|;
 name|this
 operator|.
-name|readBufferSize
+name|context
 operator|=
-name|readBufferSize
+name|context
 expr_stmt|;
 name|this
 operator|.
@@ -286,7 +286,7 @@ operator|.
 name|COMPOUND_FILE_EXTENSION
 argument_list|)
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|)
 expr_stmt|;
 name|dir0
@@ -343,7 +343,7 @@ name|si
 argument_list|,
 name|fieldInfos
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|,
 name|termsIndexDivisor
 argument_list|)
@@ -634,7 +634,7 @@ operator|.
 name|COMPOUND_FILE_STORE_EXTENSION
 argument_list|)
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|)
 expr_stmt|;
 name|storeDir
@@ -699,7 +699,7 @@ operator|.
 name|COMPOUND_FILE_EXTENSION
 argument_list|)
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -745,7 +745,7 @@ name|storesSegment
 argument_list|,
 name|fieldInfos
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|,
 name|si
 operator|.
@@ -821,7 +821,7 @@ name|storesSegment
 argument_list|,
 name|fieldInfos
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|,
 name|si
 operator|.

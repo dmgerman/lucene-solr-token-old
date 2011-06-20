@@ -5937,6 +5937,10 @@ operator|new
 name|RAMDirectory
 argument_list|(
 name|startDir
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -6460,6 +6464,10 @@ operator|.
 name|openInput
 argument_list|(
 name|segmentsFileName
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexOutput
@@ -6483,6 +6491,10 @@ literal|1
 operator|+
 name|gen
 argument_list|)
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|out
@@ -6716,6 +6728,10 @@ operator|.
 name|openInput
 argument_list|(
 name|fileNameIn
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexOutput
@@ -6726,6 +6742,10 @@ operator|.
 name|createOutput
 argument_list|(
 name|fileNameOut
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|long
@@ -7208,6 +7228,10 @@ operator|.
 name|openInput
 argument_list|(
 name|fileNameIn
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|IndexOutput
@@ -7218,6 +7242,10 @@ operator|.
 name|createOutput
 argument_list|(
 name|fileNameOut
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|long

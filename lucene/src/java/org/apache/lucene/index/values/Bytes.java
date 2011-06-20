@@ -69,6 +69,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexFileNames
 import|;
 end_import
@@ -309,6 +322,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//nocommit this and all the blow need an IOContext too
 comment|// TODO -- i shouldn't have to specify fixed? can
 comment|// track itself& do the write thing at write time?
 if|if
@@ -512,6 +526,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//nocommit this and all the readers below need an IOContext too
 comment|// TODO -- I can peek @ header to determing fixed/mode?
 if|if
 condition|(
@@ -1500,6 +1515,9 @@ name|pool
 parameter_list|,
 name|AtomicLong
 name|bytesUsed
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1537,6 +1555,8 @@ literal|""
 argument_list|,
 name|DATA_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -1578,6 +1598,8 @@ literal|""
 argument_list|,
 name|INDEX_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|CodecUtil
@@ -1893,6 +1915,9 @@ name|maxVersion
 parameter_list|,
 name|boolean
 name|doIndex
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1921,6 +1946,8 @@ name|Writer
 operator|.
 name|DATA_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -1968,6 +1995,8 @@ name|Writer
 operator|.
 name|INDEX_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 specifier|final

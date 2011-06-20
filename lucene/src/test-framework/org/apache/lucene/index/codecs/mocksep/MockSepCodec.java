@@ -558,7 +558,7 @@ name|segmentInfo
 argument_list|,
 name|state
 operator|.
-name|readBufferSize
+name|context
 argument_list|,
 operator|new
 name|MockSingleIntFactory
@@ -610,6 +610,10 @@ argument_list|,
 name|state
 operator|.
 name|codecId
+argument_list|,
+name|state
+operator|.
+name|context
 argument_list|)
 expr_stmt|;
 name|success
@@ -664,7 +668,7 @@ name|postingsReader
 argument_list|,
 name|state
 operator|.
-name|readBufferSize
+name|context
 argument_list|,
 name|StandardCodec
 operator|.
