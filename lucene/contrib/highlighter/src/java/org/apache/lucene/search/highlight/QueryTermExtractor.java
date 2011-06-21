@@ -121,19 +121,6 @@ operator|.
 name|Query
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|StringHelper
-import|;
-end_import
 begin_comment
 comment|/**  * Utility class used to extract the terms used in a query, plus any weights.  * This class will not find terms for MultiTermQuery, TermRangeQuery and PrefixQuery classes  * so the caller must pass a rewritten query (see Query.rewrite) to obtain a list of   * expanded terms.   *   */
 end_comment
@@ -344,23 +331,6 @@ name|WeightedTerm
 argument_list|>
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|fieldName
-operator|!=
-literal|null
-condition|)
-block|{
-name|fieldName
-operator|=
-name|StringHelper
-operator|.
-name|intern
-argument_list|(
-name|fieldName
-argument_list|)
-expr_stmt|;
-block|}
 name|getTerms
 argument_list|(
 name|query
@@ -412,7 +382,6 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|//fieldname MUST be interned prior to this call
 DECL|method|getTerms
 specifier|private
 specifier|static
@@ -542,8 +511,11 @@ name|term
 operator|.
 name|field
 argument_list|()
-operator|==
+operator|.
+name|equals
+argument_list|(
 name|fieldName
+argument_list|)
 operator|)
 condition|)
 block|{
