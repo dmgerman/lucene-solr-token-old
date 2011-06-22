@@ -131,6 +131,8 @@ name|assertEquals
 argument_list|(
 name|SortField
 operator|.
+name|Type
+operator|.
 name|DOC
 argument_list|,
 name|task

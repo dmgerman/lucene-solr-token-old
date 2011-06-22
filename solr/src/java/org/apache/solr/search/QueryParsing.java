@@ -1769,6 +1769,8 @@ literal|null
 argument_list|,
 name|SortField
 operator|.
+name|Type
+operator|.
 name|SCORE
 argument_list|,
 literal|true
@@ -1798,6 +1800,8 @@ argument_list|(
 literal|null
 argument_list|,
 name|SortField
+operator|.
+name|Type
 operator|.
 name|DOC
 argument_list|,

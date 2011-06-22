@@ -211,6 +211,8 @@ name|name
 argument_list|,
 name|SortField
 operator|.
+name|Type
+operator|.
 name|FLOAT
 argument_list|,
 name|reverse

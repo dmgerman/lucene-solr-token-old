@@ -3663,6 +3663,8 @@ literal|"title"
 argument_list|,
 name|SortField
 operator|.
+name|Type
+operator|.
 name|STRING
 argument_list|)
 argument_list|)

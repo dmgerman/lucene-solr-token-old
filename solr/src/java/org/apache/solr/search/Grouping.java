@@ -1489,6 +1489,8 @@ argument_list|()
 operator|==
 name|SortField
 operator|.
+name|Type
+operator|.
 name|SCORE
 condition|)
 block|{

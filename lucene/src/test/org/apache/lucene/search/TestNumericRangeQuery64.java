@@ -4227,6 +4227,8 @@ name|field
 argument_list|,
 name|SortField
 operator|.
+name|Type
+operator|.
 name|LONG
 argument_list|,
 literal|true

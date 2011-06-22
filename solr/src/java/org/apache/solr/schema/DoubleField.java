@@ -212,6 +212,8 @@ name|name
 argument_list|,
 name|SortField
 operator|.
+name|Type
+operator|.
 name|DOUBLE
 argument_list|,
 name|reverse
