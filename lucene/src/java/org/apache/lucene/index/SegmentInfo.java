@@ -756,7 +756,7 @@ name|format
 operator|<=
 name|DefaultSegmentInfosWriter
 operator|.
-name|FORMAT_SEGMENT_RECORDS_VERSION
+name|FORMAT_3_1
 condition|)
 block|{
 name|version
@@ -837,7 +837,7 @@ name|format
 operator|>
 name|DefaultSegmentInfosWriter
 operator|.
-name|FORMAT_FLEX
+name|FORMAT_4_0
 condition|)
 block|{
 comment|// pre-4.0 indexes write a byte if there is a single norms file
@@ -914,7 +914,7 @@ name|format
 operator|<=
 name|DefaultSegmentInfosWriter
 operator|.
-name|FORMAT_FLEX
+name|FORMAT_4_0
 condition|)
 block|{
 name|fieldNumber
@@ -974,7 +974,7 @@ name|format
 operator|<=
 name|DefaultSegmentInfosWriter
 operator|.
-name|FORMAT_FLEX
+name|FORMAT_4_0
 condition|)
 block|{
 name|segmentCodecs

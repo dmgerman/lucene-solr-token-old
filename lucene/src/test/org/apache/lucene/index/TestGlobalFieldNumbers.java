@@ -3529,7 +3529,7 @@ name|assertTrue
 argument_list|(
 name|DefaultSegmentInfosWriter
 operator|.
-name|FORMAT_FLEX
+name|FORMAT_4_0
 operator|<
 name|segmentInfos
 operator|.
@@ -3578,7 +3578,7 @@ name|assertTrue
 argument_list|(
 name|DefaultSegmentInfosWriter
 operator|.
-name|FORMAT_FLEX
+name|FORMAT_4_0
 operator|<
 name|segmentInfos
 operator|.
@@ -3675,7 +3675,7 @@ name|assertTrue
 argument_list|(
 name|DefaultSegmentInfosWriter
 operator|.
-name|FORMAT_FLEX
+name|FORMAT_4_0
 operator|<
 name|segmentInfos
 operator|.
@@ -3739,7 +3739,7 @@ name|assertTrue
 argument_list|(
 name|DefaultSegmentInfosWriter
 operator|.
-name|FORMAT_FLEX
+name|FORMAT_4_0
 operator|<
 name|segmentInfos
 operator|.
