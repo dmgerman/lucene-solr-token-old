@@ -19,9 +19,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|solr
+name|lucene
 operator|.
-name|search
+name|common
+operator|.
+name|mutable
 operator|.
 name|MutableValue
 import|;
@@ -32,9 +34,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|solr
+name|lucene
 operator|.
-name|search
+name|common
+operator|.
+name|mutable
 operator|.
 name|MutableValueLong
 import|;
