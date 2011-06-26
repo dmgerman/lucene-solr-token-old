@@ -4202,7 +4202,7 @@ name|FOUND
 argument_list|,
 name|terms
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|aaaTerm
 argument_list|)
@@ -4244,7 +4244,7 @@ name|END
 argument_list|,
 name|terms
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 operator|new
 name|BytesRef
@@ -4273,7 +4273,7 @@ name|NOT_FOUND
 argument_list|,
 name|terms
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 operator|new
 name|BytesRef
@@ -4331,7 +4331,7 @@ name|FOUND
 argument_list|,
 name|terms
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|aaaTerm
 argument_list|)

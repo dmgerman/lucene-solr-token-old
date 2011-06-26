@@ -3416,7 +3416,7 @@ expr_stmt|;
 block|}
 name|termsEnum
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 operator|new
 name|BytesRef

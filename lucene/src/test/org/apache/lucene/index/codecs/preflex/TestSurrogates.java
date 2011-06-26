@@ -1007,7 +1007,7 @@ name|FOUND
 argument_list|,
 name|te
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|term
 operator|.
@@ -1457,7 +1457,7 @@ name|END
 argument_list|,
 name|te
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|tx
 operator|.
@@ -1479,7 +1479,7 @@ name|NOT_FOUND
 argument_list|,
 name|te
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|tx
 operator|.

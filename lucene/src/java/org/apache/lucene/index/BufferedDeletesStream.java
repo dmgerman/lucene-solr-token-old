@@ -1850,7 +1850,7 @@ if|if
 condition|(
 name|termsEnum
 operator|.
-name|seek
+name|seekExact
 argument_list|(
 name|term
 operator|.
@@ -1859,12 +1859,6 @@ argument_list|()
 argument_list|,
 literal|false
 argument_list|)
-operator|==
-name|TermsEnum
-operator|.
-name|SeekStatus
-operator|.
-name|FOUND
 condition|)
 block|{
 name|DocsEnum

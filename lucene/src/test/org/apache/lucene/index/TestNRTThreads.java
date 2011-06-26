@@ -2622,7 +2622,7 @@ argument_list|)
 expr_stmt|;
 name|termsEnum
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 operator|new
 name|BytesRef

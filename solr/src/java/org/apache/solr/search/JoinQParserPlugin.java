@@ -1602,7 +1602,7 @@ if|if
 condition|(
 name|termsEnum
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|prefix
 argument_list|,
@@ -2136,7 +2136,7 @@ name|status
 init|=
 name|toTermsEnum
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|term
 argument_list|)

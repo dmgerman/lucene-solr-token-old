@@ -1177,7 +1177,7 @@ if|if
 condition|(
 name|te
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|prefixBr
 argument_list|,
@@ -1222,7 +1222,7 @@ if|if
 condition|(
 name|te
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|prefixBr
 argument_list|,
