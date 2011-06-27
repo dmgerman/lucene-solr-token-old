@@ -1973,11 +1973,11 @@ name|assertEquals
 argument_list|(
 name|val
 operator|+
-literal|""
+literal|" mod: "
 operator|+
 name|mod
 operator|+
-literal|" "
+literal|" index: "
 operator|+
 name|i
 argument_list|,
