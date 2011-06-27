@@ -260,7 +260,7 @@ name|q
 init|=
 name|baseParser
 operator|.
-name|parse
+name|getQuery
 argument_list|()
 decl_stmt|;
 if|if
@@ -284,7 +284,7 @@ operator|.
 name|NAME
 argument_list|)
 operator|.
-name|parse
+name|getQuery
 argument_list|()
 decl_stmt|;
 if|if
