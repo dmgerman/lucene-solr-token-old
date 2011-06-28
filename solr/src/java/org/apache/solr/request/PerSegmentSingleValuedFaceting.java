@@ -944,7 +944,7 @@ name|seg
 operator|.
 name|tenum
 operator|.
-name|seek
+name|seekExact
 argument_list|(
 name|seg
 operator|.

@@ -98,19 +98,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|StringHelper
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|solr
 operator|.
 name|common
@@ -602,12 +589,7 @@ name|deState
 operator|.
 name|fieldName
 operator|=
-name|StringHelper
-operator|.
-name|intern
-argument_list|(
 name|field
-argument_list|)
 expr_stmt|;
 comment|// deState.termsEnum = te.tenum;
 name|deState
@@ -1195,7 +1177,7 @@ if|if
 condition|(
 name|te
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|prefixBr
 argument_list|,
@@ -1240,7 +1222,7 @@ if|if
 condition|(
 name|te
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|prefixBr
 argument_list|,

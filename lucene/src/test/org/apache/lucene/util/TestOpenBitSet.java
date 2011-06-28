@@ -192,8 +192,15 @@ name|aa
 init|=
 name|a
 operator|.
-name|length
+name|size
 argument_list|()
+operator|+
+name|random
+operator|.
+name|nextInt
+argument_list|(
+literal|100
+argument_list|)
 decl_stmt|;
 name|int
 name|bb

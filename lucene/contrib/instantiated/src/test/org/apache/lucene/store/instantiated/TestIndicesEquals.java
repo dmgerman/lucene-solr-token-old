@@ -794,7 +794,7 @@ argument_list|()
 decl_stmt|;
 name|aprioriTermEnum
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 operator|new
 name|BytesRef
@@ -826,7 +826,7 @@ argument_list|()
 decl_stmt|;
 name|testTermEnum
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 operator|new
 name|BytesRef

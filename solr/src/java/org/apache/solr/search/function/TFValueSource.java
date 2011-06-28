@@ -52,6 +52,21 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|queries
+operator|.
+name|function
+operator|.
+name|DocValues
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|DocIdSetIterator
@@ -271,6 +286,12 @@ block|{
 comment|// no one should call us for deleted docs?
 name|docs
 operator|=
+name|terms
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
 name|terms
 operator|.
 name|docs

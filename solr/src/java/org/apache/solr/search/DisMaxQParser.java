@@ -571,7 +571,7 @@ operator|.
 name|NAME
 argument_list|)
 operator|.
-name|parse
+name|getQuery
 argument_list|()
 decl_stmt|;
 name|Float
@@ -699,7 +699,7 @@ argument_list|,
 literal|null
 argument_list|)
 operator|.
-name|parse
+name|getQuery
 argument_list|()
 decl_stmt|;
 name|boostQueries
@@ -1106,7 +1106,7 @@ decl_stmt|;
 return|return
 name|altQParser
 operator|.
-name|parse
+name|getQuery
 argument_list|()
 return|;
 block|}

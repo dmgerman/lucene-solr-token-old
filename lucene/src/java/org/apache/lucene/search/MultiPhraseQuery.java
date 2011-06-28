@@ -385,6 +385,7 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
 name|terms
 index|[
 name|i
@@ -392,8 +393,11 @@ index|]
 operator|.
 name|field
 argument_list|()
-operator|!=
+operator|.
+name|equals
+argument_list|(
 name|field
+argument_list|)
 condition|)
 block|{
 throw|throw

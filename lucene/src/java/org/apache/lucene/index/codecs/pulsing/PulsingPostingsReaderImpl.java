@@ -567,9 +567,7 @@ name|inlinedBytesReader
 operator|=
 operator|new
 name|ByteArrayDataInput
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 name|int
@@ -1188,9 +1186,7 @@ name|postings
 init|=
 operator|new
 name|ByteArrayDataInput
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|omitTF
 specifier|private
@@ -1636,9 +1632,7 @@ name|postings
 init|=
 operator|new
 name|ByteArrayDataInput
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 DECL|field|storePayloads
 specifier|private

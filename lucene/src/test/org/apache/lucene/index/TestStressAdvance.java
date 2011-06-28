@@ -503,7 +503,7 @@ name|FOUND
 argument_list|,
 name|te
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 operator|new
 name|BytesRef
@@ -541,7 +541,7 @@ name|FOUND
 argument_list|,
 name|te
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 operator|new
 name|BytesRef

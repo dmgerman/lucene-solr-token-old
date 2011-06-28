@@ -827,11 +827,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|checkDistributed
-argument_list|(
-name|rb
-argument_list|)
-expr_stmt|;
 block|}
 comment|// TODO: this could go in a different component, or in SearchHandler
 comment|// check if this is a distributed request and set info on the response builder
@@ -1749,6 +1744,7 @@ name|isNeedDocSet
 argument_list|()
 condition|)
 block|{
+comment|// TODO: create a cache for this!
 name|List
 argument_list|<
 name|Query
@@ -2763,7 +2759,9 @@ range|:
 name|sortFields
 control|)
 block|{
-name|int
+name|SortField
+operator|.
+name|Type
 name|type
 init|=
 name|sortField
@@ -2777,11 +2775,15 @@ name|type
 operator|==
 name|SortField
 operator|.
+name|Type
+operator|.
 name|SCORE
 operator|||
 name|type
 operator|==
 name|SortField
+operator|.
+name|Type
 operator|.
 name|DOC
 condition|)

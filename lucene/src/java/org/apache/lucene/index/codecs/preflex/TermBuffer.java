@@ -123,6 +123,16 @@ argument_list|(
 literal|10
 argument_list|)
 decl_stmt|;
+comment|// Cannot be -1 since (strangely) we write that
+comment|// fieldNumber into index for first indexed term:
+DECL|field|currentFieldNumber
+specifier|private
+name|int
+name|currentFieldNumber
+init|=
+operator|-
+literal|2
+decl_stmt|;
 DECL|field|utf8AsUTF16Comparator
 specifier|private
 specifier|static
@@ -161,6 +171,7 @@ operator|.
 name|field
 condition|)
 comment|// fields are interned
+comment|// (only by PreFlex codec)
 return|return
 name|utf8AsUTF16Comparator
 operator|.
@@ -266,20 +277,72 @@ argument_list|,
 name|length
 argument_list|)
 expr_stmt|;
-name|this
+specifier|final
+name|int
+name|fieldNumber
+init|=
+name|input
 operator|.
+name|readVInt
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|fieldNumber
+operator|!=
+name|currentFieldNumber
+condition|)
+block|{
+name|currentFieldNumber
+operator|=
+name|fieldNumber
+expr_stmt|;
 name|field
 operator|=
 name|fieldInfos
 operator|.
 name|fieldName
 argument_list|(
-name|input
-operator|.
-name|readVInt
-argument_list|()
+name|currentFieldNumber
 argument_list|)
+operator|.
+name|intern
+argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+assert|assert
+name|field
+operator|.
+name|equals
+argument_list|(
+name|fieldInfos
+operator|.
+name|fieldName
+argument_list|(
+name|fieldNumber
+argument_list|)
+argument_list|)
+operator|:
+literal|"currentFieldNumber="
+operator|+
+name|currentFieldNumber
+operator|+
+literal|" field="
+operator|+
+name|field
+operator|+
+literal|" vs "
+operator|+
+name|fieldInfos
+operator|.
+name|fieldName
+argument_list|(
+name|fieldNumber
+argument_list|)
+assert|;
+block|}
 block|}
 DECL|method|set
 specifier|public
@@ -318,6 +381,14 @@ name|term
 operator|.
 name|field
 argument_list|()
+operator|.
+name|intern
+argument_list|()
+expr_stmt|;
+name|currentFieldNumber
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 name|this
 operator|.
@@ -340,6 +411,12 @@ operator|=
 name|other
 operator|.
 name|field
+expr_stmt|;
+name|currentFieldNumber
+operator|=
+name|other
+operator|.
+name|currentFieldNumber
 expr_stmt|;
 comment|// dangerous to copy Term over, since the underlying
 comment|// BytesRef could subsequently be modified:
@@ -370,6 +447,11 @@ expr_stmt|;
 name|term
 operator|=
 literal|null
+expr_stmt|;
+name|currentFieldNumber
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 block|}
 DECL|method|toTerm
@@ -407,11 +489,8 @@ name|BytesRef
 argument_list|(
 name|bytes
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
-comment|//term = new Term(field, bytes, false);
 block|}
 return|return
 name|term
