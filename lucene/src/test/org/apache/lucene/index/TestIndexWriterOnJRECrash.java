@@ -195,6 +195,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Nightly
 DECL|method|testNRTThreads
 specifier|public
 name|void
