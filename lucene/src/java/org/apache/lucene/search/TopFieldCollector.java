@@ -106,6 +106,9 @@ decl_stmt|;
 DECL|field|queue
 specifier|final
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 decl_stmt|;
 DECL|method|OneComparatorNonScoringCollector
@@ -113,6 +116,9 @@ specifier|public
 name|OneComparatorNonScoringCollector
 parameter_list|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 parameter_list|,
 name|int
@@ -382,6 +388,9 @@ specifier|public
 name|OutOfOrderOneComparatorNonScoringCollector
 parameter_list|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 parameter_list|,
 name|int
@@ -568,6 +577,9 @@ specifier|public
 name|OneComparatorScoringNoMaxScoreCollector
 parameter_list|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 parameter_list|,
 name|int
@@ -803,6 +815,9 @@ specifier|public
 name|OutOfOrderOneComparatorScoringNoMaxScoreCollector
 parameter_list|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 parameter_list|,
 name|int
@@ -1009,6 +1024,9 @@ specifier|public
 name|OneComparatorScoringMaxScoreCollector
 parameter_list|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 parameter_list|,
 name|int
@@ -1252,6 +1270,9 @@ specifier|public
 name|OutOfOrderOneComparatorScoringMaxScoreCollector
 parameter_list|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 parameter_list|,
 name|int
@@ -1465,6 +1486,9 @@ decl_stmt|;
 DECL|field|queue
 specifier|final
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 decl_stmt|;
 DECL|method|MultiComparatorNonScoringCollector
@@ -1472,6 +1496,9 @@ specifier|public
 name|MultiComparatorNonScoringCollector
 parameter_list|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 parameter_list|,
 name|int
@@ -1904,6 +1931,9 @@ specifier|public
 name|OutOfOrderMultiComparatorNonScoringCollector
 parameter_list|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 parameter_list|,
 name|int
@@ -2220,6 +2250,9 @@ specifier|public
 name|MultiComparatorScoringMaxScoreCollector
 parameter_list|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 parameter_list|,
 name|int
@@ -2598,6 +2631,9 @@ specifier|public
 name|OutOfOrderMultiComparatorScoringMaxScoreCollector
 parameter_list|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 parameter_list|,
 name|int
@@ -2935,6 +2971,9 @@ specifier|public
 name|MultiComparatorScoringNoMaxScoreCollector
 parameter_list|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 parameter_list|,
 name|int
@@ -3305,6 +3344,9 @@ specifier|public
 name|OutOfOrderMultiComparatorScoringNoMaxScoreCollector
 parameter_list|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 parameter_list|,
 name|int
@@ -3803,6 +3845,9 @@ argument_list|)
 throw|;
 block|}
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 init|=
 name|FieldValueHitQueue
@@ -4109,10 +4154,16 @@ condition|)
 block|{
 comment|// avoid casting if unnecessary.
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 name|queue
 init|=
 operator|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 operator|)
 name|pq
 decl_stmt|;
@@ -4243,6 +4294,9 @@ argument_list|,
 operator|(
 operator|(
 name|FieldValueHitQueue
+argument_list|<
+name|Entry
+argument_list|>
 operator|)
 name|pq
 operator|)
