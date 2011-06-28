@@ -1469,6 +1469,16 @@ name|commit
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|int
+name|totalMatches
+init|=
+literal|0
+decl_stmt|;
+name|int
+name|nonZeros
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1812,6 +1822,21 @@ operator|.
 name|cardinality
 argument_list|()
 decl_stmt|;
+name|totalMatches
+operator|+=
+name|expected
+expr_stmt|;
+if|if
+condition|(
+name|expected
+operator|>
+literal|0
+condition|)
+block|{
+name|nonZeros
+operator|++
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|iiter
@@ -1919,6 +1944,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// After making substantial changes to this test, make sure that we still get a
+comment|// decent number of queries that match some documents
+comment|// System.out.println("totalMatches=" + totalMatches + " nonZeroQueries="+nonZeros);
 block|}
 block|}
 block|}
