@@ -2808,6 +2808,10 @@ argument_list|(
 literal|"    nextPos storePayloads="
 operator|+
 name|storePayloads
+operator|+
+literal|" this="
+operator|+
+name|this
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -2892,6 +2896,14 @@ operator|.
 name|length
 operator|=
 name|payloadLength
+expr_stmt|;
+comment|// Necessary, in case caller changed the
+comment|// payload.bytes from prior call:
+name|payload
+operator|.
+name|bytes
+operator|=
+name|buffer
 expr_stmt|;
 name|payloadRetrieved
 operator|=
