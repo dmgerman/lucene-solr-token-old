@@ -12,7 +12,7 @@ name|store
 package|;
 end_package
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  * * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
 comment|/**  * IOContext holds additional details on the merge/search context. A IOContext  * object can never be initialized as null as passed as a parameter to either  * {@link #org.apache.lucene.store.Directory.openInput()} or  * {@link #org.apache.lucene.store.Directory.createInput()}  */
@@ -23,16 +23,16 @@ specifier|public
 class|class
 name|IOContext
 block|{
-comment|/**    * Context is a enumerator which specifies the context in which the Directory is being used for.    */
+comment|/**    * Context is a enumerator which specifies the context in which the Directory    * is being used for.    */
 DECL|enum|Context
-DECL|enum constant|MERGE
-DECL|enum constant|READ
-DECL|enum constant|FLUSH
-DECL|enum constant|DEFAULT
 specifier|public
 enum|enum
 name|Context
 block|{
+DECL|enum constant|MERGE
+DECL|enum constant|READ
+DECL|enum constant|FLUSH
+DECL|enum constant|DEFAULT
 name|MERGE
 block|,
 name|READ
@@ -246,15 +246,20 @@ name|Context
 operator|.
 name|MERGE
 operator|||
+name|mergeInfo
+operator|!=
+literal|null
+operator|:
+literal|"MergeInfo must not be null if context is MERGE"
+assert|;
+assert|assert
 name|context
 operator|!=
 name|Context
 operator|.
 name|FLUSH
-operator|||
-name|mergeInfo
-operator|!=
-literal|null
+operator|:
+literal|"Use IOContext(FlushInfo) to create a FLUSH IOContext"
 assert|;
 name|this
 operator|.
