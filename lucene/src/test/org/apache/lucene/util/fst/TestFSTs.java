@@ -5441,7 +5441,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"  do advanceCeil("
+literal|"  do seekCeil("
 operator|+
 name|inputToString
 argument_list|(
@@ -5493,7 +5493,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"  do advanceFloor("
+literal|"  do seekFloor("
 operator|+
 name|inputToString
 argument_list|(
