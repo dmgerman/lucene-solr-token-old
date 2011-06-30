@@ -58,19 +58,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|solr
 operator|.
 name|SolrTestCaseJ4
@@ -308,7 +295,7 @@ literal|"\n"
 operator|+
 literal|"'commit': {},\n"
 operator|+
-literal|"'optimize': { 'waitFlush':false, 'waitSearcher':false },\n"
+literal|"'optimize': { 'waitSearcher':false },\n"
 operator|+
 literal|"\n"
 operator|+
@@ -549,13 +536,6 @@ name|assertTrue
 argument_list|(
 name|commit
 operator|.
-name|waitFlush
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|commit
-operator|.
 name|waitSearcher
 argument_list|)
 expr_stmt|;
@@ -575,13 +555,6 @@ argument_list|(
 name|commit
 operator|.
 name|optimize
-argument_list|)
-expr_stmt|;
-name|assertFalse
-argument_list|(
-name|commit
-operator|.
-name|waitFlush
 argument_list|)
 expr_stmt|;
 name|assertFalse

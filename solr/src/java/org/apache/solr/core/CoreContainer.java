@@ -1283,7 +1283,6 @@ return|;
 block|}
 block|}
 DECL|method|getCoreProps
-specifier|private
 specifier|static
 name|Properties
 name|getCoreProps
@@ -3562,11 +3561,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|String
-name|dataDir
-init|=
-literal|null
-decl_stmt|;
 name|SolrCore
 name|core
 init|=
@@ -3578,7 +3572,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|dataDir
+literal|null
 argument_list|,
 name|config
 argument_list|,
@@ -3823,12 +3817,11 @@ throw|;
 name|SolrCore
 name|newCore
 init|=
-name|create
-argument_list|(
 name|core
 operator|.
-name|getCoreDescriptor
-argument_list|()
+name|reload
+argument_list|(
+name|libLoader
 argument_list|)
 decl_stmt|;
 name|register
