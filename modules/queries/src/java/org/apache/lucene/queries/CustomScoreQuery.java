@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.search.function
+DECL|package|org.apache.lucene.queries
 package|package
 name|org
 operator|.
@@ -8,9 +8,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|function
+name|queries
 package|;
 end_package
 begin_comment
@@ -176,7 +174,7 @@ name|ToStringUtils
 import|;
 end_import
 begin_comment
-comment|/**  * Query that sets document score as a programmatic function of several (sub) scores:  *<ol>  *<li>the score of its subQuery (any query)</li>  *<li>(optional) the score of its ValueSourceQuery (or queries).  *        For most simple/convenient use cases this query is likely to be a   *        {@link org.apache.lucene.search.function.FieldScoreQuery FieldScoreQuery}</li>  *</ol>  * Subclasses can modify the computation by overriding {@link #getCustomScoreProvider}.  *   * @lucene.experimental  */
+comment|/**  * Query that sets document score as a programmatic function of several (sub) scores:  *<ol>  *<li>the score of its subQuery (any query)</li>  *<li>(optional) the score of its ValueSourceQuery (or queries).</li>  *</ol>  * Subclasses can modify the computation by overriding {@link #getCustomScoreProvider}.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|CustomScoreQuery
@@ -191,11 +189,11 @@ specifier|private
 name|Query
 name|subQuery
 decl_stmt|;
-DECL|field|valSrcQueries
+DECL|field|scoringQueries
 specifier|private
-name|ValueSourceQuery
+name|Query
 index|[]
-name|valSrcQueries
+name|scoringQueries
 decl_stmt|;
 comment|// never null (empty array if there are no valSrcQueries).
 DECL|field|strict
@@ -220,14 +218,14 @@ argument_list|(
 name|subQuery
 argument_list|,
 operator|new
-name|ValueSourceQuery
+name|Query
 index|[
 literal|0
 index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Create a CustomScoreQuery over input subQuery and a {@link ValueSourceQuery}.    * @param subQuery the sub query whose score is being customized. Must not be null.    * @param valSrcQuery a value source query whose scores are used in the custom score    * computation. For most simple/convenient use case this would be a     * {@link org.apache.lucene.search.function.FieldScoreQuery FieldScoreQuery}.    * This parameter is optional - it can be null.    */
+comment|/**    * Create a CustomScoreQuery over input subQuery and a {@link org.apache.lucene.queries.function.FunctionQuery}.    * @param subQuery the sub query whose score is being customized. Must not be null.    * @param scoringQuery a value source query whose scores are used in the custom score    * computation.  This parameter is optional - it can be null.    */
 DECL|method|CustomScoreQuery
 specifier|public
 name|CustomScoreQuery
@@ -235,35 +233,35 @@ parameter_list|(
 name|Query
 name|subQuery
 parameter_list|,
-name|ValueSourceQuery
-name|valSrcQuery
+name|Query
+name|scoringQuery
 parameter_list|)
 block|{
 name|this
 argument_list|(
 name|subQuery
 argument_list|,
-name|valSrcQuery
+name|scoringQuery
 operator|!=
 literal|null
 condition|?
 comment|// don't want an array that contains a single null..
 operator|new
-name|ValueSourceQuery
+name|Query
 index|[]
 block|{
-name|valSrcQuery
+name|scoringQuery
 block|}
 else|:
 operator|new
-name|ValueSourceQuery
+name|Query
 index|[
 literal|0
 index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Create a CustomScoreQuery over input subQuery and a {@link ValueSourceQuery}.    * @param subQuery the sub query whose score is being customized. Must not be null.    * @param valSrcQueries value source queries whose scores are used in the custom score    * computation. For most simple/convenient use case these would be     * {@link org.apache.lucene.search.function.FieldScoreQuery FieldScoreQueries}.    * This parameter is optional - it can be null or even an empty array.    */
+comment|/**    * Create a CustomScoreQuery over input subQuery and a {@link org.apache.lucene.queries.function.FunctionQuery}.    * @param subQuery the sub query whose score is being customized. Must not be null.    * @param scoringQueries value source queries whose scores are used in the custom score    * computation.  This parameter is optional - it can be null or even an empty array.    */
 DECL|method|CustomScoreQuery
 specifier|public
 name|CustomScoreQuery
@@ -271,9 +269,9 @@ parameter_list|(
 name|Query
 name|subQuery
 parameter_list|,
-name|ValueSourceQuery
+name|Query
 modifier|...
-name|valSrcQueries
+name|scoringQueries
 parameter_list|)
 block|{
 name|this
@@ -284,16 +282,16 @@ name|subQuery
 expr_stmt|;
 name|this
 operator|.
-name|valSrcQueries
+name|scoringQueries
 operator|=
-name|valSrcQueries
+name|scoringQueries
 operator|!=
 literal|null
 condition|?
-name|valSrcQueries
+name|scoringQueries
 else|:
 operator|new
-name|ValueSourceQuery
+name|Query
 index|[
 literal|0
 index|]
@@ -373,7 +371,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|valSrcQueries
+name|scoringQueries
 operator|.
 name|length
 condition|;
@@ -382,13 +380,10 @@ operator|++
 control|)
 block|{
 specifier|final
-name|ValueSourceQuery
+name|Query
 name|v
 init|=
-operator|(
-name|ValueSourceQuery
-operator|)
-name|valSrcQueries
+name|scoringQueries
 index|[
 name|i
 index|]
@@ -402,7 +397,7 @@ if|if
 condition|(
 name|v
 operator|!=
-name|valSrcQueries
+name|scoringQueries
 index|[
 name|i
 index|]
@@ -424,7 +419,7 @@ argument_list|()
 expr_stmt|;
 name|clone
 operator|.
-name|valSrcQueries
+name|scoringQueries
 index|[
 name|i
 index|]
@@ -476,7 +471,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|valSrcQueries
+name|scoringQueries
 operator|.
 name|length
 condition|;
@@ -484,7 +479,7 @@ name|i
 operator|++
 control|)
 block|{
-name|valSrcQueries
+name|scoringQueries
 index|[
 name|i
 index|]
@@ -530,12 +525,12 @@ argument_list|()
 expr_stmt|;
 name|clone
 operator|.
-name|valSrcQueries
+name|scoringQueries
 operator|=
 operator|new
-name|ValueSourceQuery
+name|Query
 index|[
-name|valSrcQueries
+name|scoringQueries
 operator|.
 name|length
 index|]
@@ -549,7 +544,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|valSrcQueries
+name|scoringQueries
 operator|.
 name|length
 condition|;
@@ -559,15 +554,15 @@ control|)
 block|{
 name|clone
 operator|.
-name|valSrcQueries
+name|scoringQueries
 index|[
 name|i
 index|]
 operator|=
 operator|(
-name|ValueSourceQuery
+name|Query
 operator|)
-name|valSrcQueries
+name|scoringQueries
 index|[
 name|i
 index|]
@@ -628,7 +623,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|valSrcQueries
+name|scoringQueries
 operator|.
 name|length
 condition|;
@@ -645,7 +640,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|valSrcQueries
+name|scoringQueries
 index|[
 name|i
 index|]
@@ -781,13 +776,13 @@ name|strict
 operator|||
 name|this
 operator|.
-name|valSrcQueries
+name|scoringQueries
 operator|.
 name|length
 operator|!=
 name|other
 operator|.
-name|valSrcQueries
+name|scoringQueries
 operator|.
 name|length
 condition|)
@@ -801,11 +796,11 @@ name|Arrays
 operator|.
 name|equals
 argument_list|(
-name|valSrcQueries
+name|scoringQueries
 argument_list|,
 name|other
 operator|.
-name|valSrcQueries
+name|scoringQueries
 argument_list|)
 return|;
 block|}
@@ -835,7 +830,7 @@ name|Arrays
 operator|.
 name|hashCode
 argument_list|(
-name|valSrcQueries
+name|scoringQueries
 argument_list|)
 operator|)
 operator|^
@@ -925,7 +920,7 @@ operator|=
 operator|new
 name|Weight
 index|[
-name|valSrcQueries
+name|scoringQueries
 operator|.
 name|length
 index|]
@@ -939,7 +934,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|valSrcQueries
+name|scoringQueries
 operator|.
 name|length
 condition|;
@@ -954,7 +949,7 @@ index|[
 name|i
 index|]
 operator|=
-name|valSrcQueries
+name|scoringQueries
 index|[
 name|i
 index|]
