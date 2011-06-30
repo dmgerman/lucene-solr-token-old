@@ -805,8 +805,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -842,6 +841,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**  testWriterTwice is exactly like testWriter, except that after adding     all the categories, we add them again, and see that we get the same     old ids again - not new categories.    */
 annotation|@
@@ -857,8 +861,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -902,6 +905,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**  testWriterTwice2 is similar to testWriterTwice, except that the index     is closed and reopened before attempting to write to it the same     categories again. While testWriterTwice can get along with writing     and reading correctly just to the cache, testWriterTwice2 checks also     the actual disk read part of the writer:    */
 annotation|@
@@ -917,8 +925,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -974,6 +981,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * testWriterTwice3 is yet another test which tests creating a taxonomy    * in two separate writing sessions. This test used to fail because of    * a bug involving commit(), explained below, and now should succeed.    *     * @throws Exception    */
 annotation|@
@@ -989,8 +1001,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 comment|// First, create and fill the taxonomy
@@ -1072,6 +1083,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**  Another set of tests for the writer, which don't use an array and    *  try to distill the different cases, and therefore may be more helpful    *  for debugging a problem than testWriter() which is hard to know why    *  or where it failed.     */
 annotation|@
@@ -1087,8 +1103,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -1367,6 +1382,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**  Test writing an empty index, and seeing that a reader finds in it     the root category, and only it. We check all the methods on that     root category return the expected results.    */
 annotation|@
@@ -1382,8 +1402,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -1479,6 +1498,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**  The following test is exactly the same as testRootOnly, except we    *  do not close the writer before opening the reader. We want to see    *  that the root is visible to the reader not only after the writer is    *  closed, but immediately after it is created.    */
 annotation|@
@@ -1494,8 +1518,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -1584,6 +1607,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**  Basic tests for TaxonomyReader's category<=> ordinal transformations     (getSize(), getCategory() and getOrdinal()).     We test that after writing the index, it can be read and all the     categories and ordinals are there just as we expected them to be.    */
 annotation|@
@@ -1599,8 +1627,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -1907,6 +1934,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**  Tests for TaxonomyReader's getParent() method.     We check it by comparing its results to those we could have gotten by     looking at the category string paths (where the parentage is obvious).     Note that after testReaderBasic(), we already know we can trust the     ordinal<=> category conversions.          Note: At the moment, the parent methods in the reader are deprecated,     but this does not mean they should not be tested! Until they are     removed (*if* they are removed), these tests should remain to see     that they still work correctly.    */
 annotation|@
@@ -1922,8 +1954,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -2177,6 +2208,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Tests for TaxonomyWriter's getParent() method. We check it by comparing    * its results to those we could have gotten by looking at the category    * string paths using a TaxonomyReader (where the parentage is obvious).    * Note that after testReaderBasic(), we already know we can trust the    * ordinal<=> category conversions from TaxonomyReader.    *    * The difference between testWriterParent1 and testWriterParent2 is that    * the former closes the taxonomy writer before reopening it, while the    * latter does not.    *     * This test code is virtually identical to that of testReaderParent().    */
 annotation|@
@@ -2192,8 +2228,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -2249,6 +2284,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -2263,8 +2303,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -2308,6 +2347,11 @@ name|close
 argument_list|()
 expr_stmt|;
 name|tr
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|indexDir
 operator|.
 name|close
 argument_list|()
@@ -2561,8 +2605,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -2653,6 +2696,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test TaxonomyReader's child browsing method, getChildrenArrays()    * This only tests for correctness of the data on one example - we have    * below further tests on data refresh etc.    */
 annotation|@
@@ -2668,8 +2716,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -3006,6 +3053,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Similar to testChildrenArrays, except rather than look at    * expected results, we test for several "invariants" that the results    * should uphold, e.g., that a child of a category indeed has this category    * as its parent. This sort of test can more easily be extended to larger    * example taxonomies, because we do not need to build the expected list    * of categories like we did in the above test.    */
 annotation|@
@@ -3021,8 +3073,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -3429,6 +3480,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test how getChildrenArrays() deals with the taxonomy's growth:    */
 annotation|@
@@ -3444,8 +3500,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -3777,6 +3832,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test that getParentArrays is valid when retrieved during refresh    */
 annotation|@
@@ -3795,8 +3855,7 @@ comment|// compute base child arrays - after first chunk, and after the other
 name|Directory
 name|indexDirBase
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -3985,6 +4044,11 @@ name|retry
 argument_list|)
 expr_stmt|;
 block|}
+name|indexDirBase
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|assertConsistentYoungestChild
 specifier|private
@@ -4492,8 +4556,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -4843,6 +4906,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -4857,8 +4925,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -5053,6 +5120,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * Test what happens if we try to write to a locked taxonomy writer,    * and see that we can unlock it and continue.    */
 annotation|@
@@ -5065,6 +5137,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// native fslock impl gets angry if we use it, so use RAMDirectory explicitly.
 name|Directory
 name|indexDir
 init|=
@@ -5210,6 +5283,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|tr
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|tw
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|indexDir
 operator|.
 name|close
 argument_list|()
@@ -5585,8 +5668,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -5622,6 +5704,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|indexDir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**    * testWriterCheckPaths2 is the path-checking variant of testWriterTwice    * and testWriterTwice2. After adding all the categories, we add them again,    * and see that we get the same old ids and paths. We repeat the path checking    * yet again after closing and opening the index for writing again - to see    * that the reading of existing data from disk works as well.    */
 annotation|@
@@ -5637,8 +5724,7 @@ block|{
 name|Directory
 name|indexDir
 init|=
-operator|new
-name|RAMDirectory
+name|newDirectory
 argument_list|()
 decl_stmt|;
 name|TaxonomyWriter
@@ -5699,6 +5785,11 @@ name|tw
 argument_list|)
 expr_stmt|;
 name|tw
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|indexDir
 operator|.
 name|close
 argument_list|()

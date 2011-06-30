@@ -528,6 +528,9 @@ throw|;
 block|}
 block|}
 block|}
+name|closeAll
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|method|samplingCollector
