@@ -21,6 +21,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -949,9 +958,9 @@ name|CategoryPath
 argument_list|>
 name|facetList
 init|=
-name|SimpleUtils
+name|Arrays
 operator|.
-name|categoryPathArrayToList
+name|asList
 argument_list|(
 name|cPaths
 index|[
