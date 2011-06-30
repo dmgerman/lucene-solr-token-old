@@ -518,7 +518,8 @@ return|return
 name|size
 return|;
 block|}
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 DECL|method|length
 specifier|public
 name|int

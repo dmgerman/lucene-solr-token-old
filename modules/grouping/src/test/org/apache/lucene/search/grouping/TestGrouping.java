@@ -1650,7 +1650,8 @@ name|GroupDoc
 argument_list|>
 argument_list|()
 block|{
-comment|// @Override -- Not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare

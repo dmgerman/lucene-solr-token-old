@@ -2669,7 +2669,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//@Override -- not until Java 1.6
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
