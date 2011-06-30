@@ -296,6 +296,11 @@ block|{
 if|if
 condition|(
 name|o
+operator|==
+literal|null
+operator|||
+operator|(
+name|o
 operator|.
 name|getClass
 argument_list|()
@@ -303,6 +308,7 @@ operator|!=
 name|ReverseOrdFieldSource
 operator|.
 name|class
+operator|)
 condition|)
 return|return
 literal|false
