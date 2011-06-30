@@ -31,7 +31,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|store
 operator|.
 name|IOContext
 import|;
@@ -707,9 +707,10 @@ name|d
 argument_list|,
 literal|"TESTBV"
 argument_list|,
-name|IOContext
-operator|.
-name|DEFAULT
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|BitVector
@@ -722,9 +723,10 @@ name|d
 argument_list|,
 literal|"TESTBV"
 argument_list|,
-name|IOContext
-operator|.
-name|DEFAULT
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// compare bit vectors with bits set incrementally
@@ -902,9 +904,10 @@ name|d
 argument_list|,
 literal|"TESTBV"
 argument_list|,
-name|IOContext
-operator|.
-name|DEFAULT
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// gradually increase number of set bits
@@ -933,9 +936,10 @@ name|d
 argument_list|,
 literal|"TESTBV"
 argument_list|,
-name|IOContext
-operator|.
-name|DEFAULT
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -979,9 +983,10 @@ name|d
 argument_list|,
 literal|"TESTBV"
 argument_list|,
-name|IOContext
-operator|.
-name|DEFAULT
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1013,9 +1018,10 @@ name|d
 argument_list|,
 literal|"TESTBV"
 argument_list|,
-name|IOContext
-operator|.
-name|DEFAULT
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1057,9 +1063,10 @@ name|d
 argument_list|,
 literal|"TESTBV"
 argument_list|,
-name|IOContext
-operator|.
-name|DEFAULT
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

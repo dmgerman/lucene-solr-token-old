@@ -79,19 +79,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IOContext
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|SegmentInfo
 import|;
 end_import
@@ -183,6 +170,19 @@ operator|.
 name|Directory
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|IOContext
+import|;
+end_import
 begin_comment
 comment|/**  * Abstract base class for FieldsProducer implementations supporting  * {@link IndexDocValues}.  *   * @lucene.experimental  */
 end_comment
@@ -221,11 +221,13 @@ name|fieldInfo
 parameter_list|,
 name|int
 name|codecId
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//nocommit this needs an IOContext
 name|docValues
 operator|=
 name|load
@@ -243,6 +245,8 @@ argument_list|,
 name|dir
 argument_list|,
 name|codecId
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -294,6 +298,9 @@ name|dir
 parameter_list|,
 name|int
 name|codecId
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -390,6 +397,8 @@ name|fieldInfo
 operator|.
 name|getDocValues
 argument_list|()
+argument_list|,
+name|context
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -440,11 +449,13 @@ name|id
 parameter_list|,
 name|ValueType
 name|type
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// nocommit this needs an IOContext too
 switch|switch
 condition|(
 name|type
@@ -463,6 +474,8 @@ argument_list|,
 name|id
 argument_list|,
 literal|false
+argument_list|,
+name|context
 argument_list|)
 return|;
 case|case
@@ -478,6 +491,8 @@ argument_list|,
 name|id
 argument_list|,
 name|docCount
+argument_list|,
+name|context
 argument_list|)
 return|;
 case|case
@@ -493,6 +508,8 @@ argument_list|,
 name|id
 argument_list|,
 name|docCount
+argument_list|,
+name|context
 argument_list|)
 return|;
 case|case
@@ -516,6 +533,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|docCount
+argument_list|,
+name|context
 argument_list|)
 return|;
 case|case
@@ -539,6 +558,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|docCount
+argument_list|,
+name|context
 argument_list|)
 return|;
 case|case
@@ -562,6 +583,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|docCount
+argument_list|,
+name|context
 argument_list|)
 return|;
 case|case
@@ -585,6 +608,8 @@ argument_list|,
 literal|false
 argument_list|,
 name|docCount
+argument_list|,
+name|context
 argument_list|)
 return|;
 case|case
@@ -608,6 +633,8 @@ argument_list|,
 literal|false
 argument_list|,
 name|docCount
+argument_list|,
+name|context
 argument_list|)
 return|;
 case|case
@@ -631,6 +658,8 @@ argument_list|,
 literal|false
 argument_list|,
 name|docCount
+argument_list|,
+name|context
 argument_list|)
 return|;
 default|default:

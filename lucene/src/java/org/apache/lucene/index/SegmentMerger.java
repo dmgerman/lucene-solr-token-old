@@ -82,21 +82,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IOContext
-operator|.
-name|Context
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|IndexReader
 operator|.
 name|FieldOption
@@ -203,6 +188,19 @@ operator|.
 name|store
 operator|.
 name|Directory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|IOContext
 import|;
 end_import
 begin_import
@@ -370,6 +368,11 @@ specifier|private
 name|PayloadProcessorProvider
 name|payloadProcessorProvider
 decl_stmt|;
+DECL|field|context
+specifier|private
+name|IOContext
+name|context
+decl_stmt|;
 DECL|method|SegmentMerger
 name|SegmentMerger
 parameter_list|(
@@ -392,6 +395,9 @@ name|payloadProcessorProvider
 parameter_list|,
 name|FieldInfos
 name|fieldInfos
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 block|{
 name|this
@@ -470,6 +476,12 @@ operator|.
 name|termIndexInterval
 operator|=
 name|termIndexInterval
+expr_stmt|;
+name|this
+operator|.
+name|context
+operator|=
+name|context
 expr_stmt|;
 block|}
 DECL|method|fieldInfos
@@ -1225,9 +1237,7 @@ name|directory
 argument_list|,
 name|segment
 argument_list|,
-name|IOContext
-operator|.
-name|DEFAULT
+name|context
 argument_list|)
 decl_stmt|;
 try|try
@@ -1409,7 +1419,6 @@ operator|+
 literal|"; now aborting this merge to prevent index corruption"
 argument_list|)
 throw|;
-comment|//nocommit if Merge then what to initialize OneMerge with ?
 name|segmentWriteState
 operator|=
 operator|new
@@ -1431,9 +1440,7 @@ name|codecInfo
 argument_list|,
 literal|null
 argument_list|,
-name|IOContext
-operator|.
-name|DEFAULT
+name|context
 argument_list|)
 expr_stmt|;
 return|return
@@ -1844,7 +1851,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//nocommit Putting MERGE context here would lead to assert error. What should MergeInfo be initialized with here?
 name|TermVectorsWriter
 name|termVectorsWriter
 init|=
@@ -1857,13 +1863,7 @@ name|segment
 argument_list|,
 name|fieldInfos
 argument_list|,
-operator|new
-name|IOContext
-argument_list|(
-name|Context
-operator|.
-name|DEFAULT
-argument_list|)
+name|context
 argument_list|)
 decl_stmt|;
 try|try
@@ -3350,7 +3350,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|//nocommit Putting MERGE context here would lead to assert error. What should MergeInfo be initialized with here?
 name|output
 operator|=
 name|directory
@@ -3370,13 +3369,7 @@ operator|.
 name|NORMS_EXTENSION
 argument_list|)
 argument_list|,
-operator|new
-name|IOContext
-argument_list|(
-name|Context
-operator|.
-name|DEFAULT
-argument_list|)
+name|context
 argument_list|)
 expr_stmt|;
 name|output

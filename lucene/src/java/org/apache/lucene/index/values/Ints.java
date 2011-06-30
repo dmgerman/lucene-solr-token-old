@@ -48,19 +48,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IOContext
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|values
 operator|.
 name|IntsImpl
@@ -98,6 +85,19 @@ operator|.
 name|Directory
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|IOContext
+import|;
+end_import
 begin_comment
 comment|/**  * @lucene.experimental  */
 end_comment
@@ -130,6 +130,9 @@ name|useFixedArray
 parameter_list|,
 name|AtomicLong
 name|bytesUsed
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -145,9 +148,7 @@ name|id
 argument_list|,
 name|bytesUsed
 argument_list|,
-name|IOContext
-operator|.
-name|DEFAULT
+name|context
 argument_list|)
 return|;
 block|}
@@ -165,11 +166,13 @@ name|id
 parameter_list|,
 name|boolean
 name|useFixedArray
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//nocommit this needs an IOContext too
 return|return
 operator|new
 name|IntsReader
@@ -178,9 +181,7 @@ name|dir
 argument_list|,
 name|id
 argument_list|,
-name|IOContext
-operator|.
-name|DEFAULT
+name|context
 argument_list|)
 return|;
 block|}

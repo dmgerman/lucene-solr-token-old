@@ -551,7 +551,6 @@ literal|false
 decl_stmt|;
 try|try
 block|{
-comment|//nocommit we should pass the IOContext down to the TermIndexReader
 name|indexReader
 operator|=
 operator|new
@@ -583,6 +582,10 @@ argument_list|,
 name|state
 operator|.
 name|codecId
+argument_list|,
+name|state
+operator|.
+name|context
 argument_list|)
 expr_stmt|;
 name|success
@@ -848,6 +851,10 @@ argument_list|,
 name|state
 operator|.
 name|codecId
+argument_list|,
+name|state
+operator|.
+name|context
 argument_list|)
 return|;
 block|}

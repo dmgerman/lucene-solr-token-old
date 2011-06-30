@@ -44,11 +44,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|store
 operator|.
-name|IOContext
-operator|.
-name|Context
+name|FlushInfo
 import|;
 end_import
 begin_import
@@ -59,11 +57,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|store
 operator|.
-name|MergePolicy
-operator|.
-name|OneMerge
+name|IOContext
 import|;
 end_import
 begin_import
@@ -864,6 +860,7 @@ operator|.
 name|number
 argument_list|)
 decl_stmt|;
+comment|//nocommit not sure if this is the correct information provided to FlushInfo
 name|IndexOutput
 name|out
 init|=
@@ -876,9 +873,19 @@ name|createOutput
 argument_list|(
 name|normFileName
 argument_list|,
+operator|new
 name|IOContext
+argument_list|(
+operator|new
+name|FlushInfo
+argument_list|(
+name|si
 operator|.
-name|DEFAULT
+name|docCount
+argument_list|,
+literal|0
+argument_list|)
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|boolean

@@ -69,19 +69,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IOContext
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|IndexFileNames
 import|;
 end_import
@@ -147,6 +134,19 @@ operator|.
 name|store
 operator|.
 name|Directory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|IOContext
 import|;
 end_import
 begin_import
@@ -318,11 +318,13 @@ name|fixedSize
 parameter_list|,
 name|AtomicLong
 name|bytesUsed
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//nocommit this and all the blow need an IOContext too
 comment|// TODO -- i shouldn't have to specify fixed? can
 comment|// track itself& do the write thing at write time?
 if|if
@@ -363,6 +365,8 @@ argument_list|(
 name|dir
 argument_list|,
 name|id
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -387,6 +391,8 @@ argument_list|,
 name|id
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -413,6 +419,8 @@ argument_list|,
 name|comp
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -439,6 +447,8 @@ argument_list|,
 name|id
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -463,6 +473,8 @@ argument_list|,
 name|id
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -489,6 +501,8 @@ argument_list|,
 name|comp
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -522,11 +536,13 @@ name|fixedSize
 parameter_list|,
 name|int
 name|maxDoc
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//nocommit this and all the readers below need an IOContext too
 comment|// TODO -- I can peek @ header to determing fixed/mode?
 if|if
 condition|(
@@ -553,6 +569,8 @@ argument_list|,
 name|id
 argument_list|,
 name|maxDoc
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -577,6 +595,8 @@ argument_list|,
 name|id
 argument_list|,
 name|maxDoc
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -601,6 +621,8 @@ argument_list|,
 name|id
 argument_list|,
 name|maxDoc
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -627,6 +649,8 @@ argument_list|,
 name|id
 argument_list|,
 name|maxDoc
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -651,6 +675,8 @@ argument_list|,
 name|id
 argument_list|,
 name|maxDoc
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -675,6 +701,8 @@ argument_list|,
 name|id
 argument_list|,
 name|maxDoc
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}

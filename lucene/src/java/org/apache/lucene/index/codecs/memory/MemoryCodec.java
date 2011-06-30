@@ -414,6 +414,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|IndexInput
 import|;
 end_import
@@ -3995,7 +4008,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//nocommit its seems due to the nature of this codec that we should use IOContext.READONCE here where applicable.
 specifier|final
 name|String
 name|fileName
@@ -4029,9 +4041,9 @@ name|openInput
 argument_list|(
 name|fileName
 argument_list|,
-name|state
+name|IOContext
 operator|.
-name|context
+name|READONCE
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -4392,6 +4404,10 @@ argument_list|,
 name|state
 operator|.
 name|codecId
+argument_list|,
+name|IOContext
+operator|.
+name|READONCE
 argument_list|)
 return|;
 block|}
