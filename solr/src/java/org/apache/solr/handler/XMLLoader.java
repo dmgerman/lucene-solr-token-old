@@ -315,7 +315,7 @@ name|UpdateRequestProcessor
 name|processor
 decl_stmt|;
 DECL|field|inputFactory
-specifier|private
+specifier|protected
 name|XMLInputFactory
 name|inputFactory
 decl_stmt|;
