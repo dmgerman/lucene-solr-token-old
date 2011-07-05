@@ -188,7 +188,7 @@ name|TermInfo
 import|;
 end_import
 begin_comment
-comment|/**  * FieldQuery breaks down query object into terms/phrases and keep  * them in QueryPhraseMap structure.  */
+comment|/**  * FieldQuery breaks down query object into terms/phrases and keeps  * them in a QueryPhraseMap structure.  */
 end_comment
 begin_class
 DECL|class|FieldQuery
