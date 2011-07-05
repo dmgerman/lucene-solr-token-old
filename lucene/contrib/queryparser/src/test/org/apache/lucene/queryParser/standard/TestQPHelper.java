@@ -40,15 +40,6 @@ name|java
 operator|.
 name|text
 operator|.
-name|Collator
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|text
-operator|.
 name|DateFormat
 import|;
 end_import
@@ -456,9 +447,7 @@ name|standard
 operator|.
 name|config
 operator|.
-name|DefaultOperatorAttribute
-operator|.
-name|Operator
+name|StandardQueryConfigHandler
 import|;
 end_import
 begin_import
@@ -1239,6 +1228,8 @@ name|qp
 operator|.
 name|setDefaultOperator
 argument_list|(
+name|StandardQueryConfigHandler
+operator|.
 name|Operator
 operator|.
 name|OR
@@ -1828,6 +1819,8 @@ name|qp
 operator|.
 name|setDefaultOperator
 argument_list|(
+name|StandardQueryConfigHandler
+operator|.
 name|Operator
 operator|.
 name|AND

@@ -75,9 +75,9 @@ name|queryParser
 operator|.
 name|standard
 operator|.
-name|config
+name|nodes
 operator|.
-name|MultiTermRewriteMethodAttribute
+name|WildcardQueryNode
 import|;
 end_import
 begin_import
@@ -92,9 +92,9 @@ name|queryParser
 operator|.
 name|standard
 operator|.
-name|nodes
+name|processors
 operator|.
-name|WildcardQueryNode
+name|MultiTermRewriteMethodProcessor
 import|;
 end_import
 begin_import
@@ -195,7 +195,7 @@ name|queryNode
 operator|.
 name|getTag
 argument_list|(
-name|MultiTermRewriteMethodAttribute
+name|MultiTermRewriteMethodProcessor
 operator|.
 name|TAG_ID
 argument_list|)
