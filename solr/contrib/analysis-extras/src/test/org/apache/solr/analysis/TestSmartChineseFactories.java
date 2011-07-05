@@ -65,7 +65,7 @@ name|WhitespaceTokenizer
 import|;
 end_import
 begin_comment
-comment|/**   * Tests for {@link SmartChineseSentenceTokenizerFactory} and   * {@link SmartCHineseWordTokenFilterFactory}  */
+comment|/**   * Tests for {@link SmartChineseSentenceTokenizerFactory} and   * {@link SmartChineseWordTokenFilterFactory}  */
 end_comment
 begin_class
 DECL|class|TestSmartChineseFactories
