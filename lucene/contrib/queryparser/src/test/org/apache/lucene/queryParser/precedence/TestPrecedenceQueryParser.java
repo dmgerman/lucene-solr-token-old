@@ -266,9 +266,7 @@ name|standard
 operator|.
 name|config
 operator|.
-name|DefaultOperatorAttribute
-operator|.
-name|Operator
+name|StandardQueryConfigHandler
 import|;
 end_import
 begin_import
@@ -766,6 +764,8 @@ name|qp
 operator|.
 name|setDefaultOperator
 argument_list|(
+name|StandardQueryConfigHandler
+operator|.
 name|Operator
 operator|.
 name|OR
@@ -1080,6 +1080,8 @@ name|qp
 operator|.
 name|setDefaultOperator
 argument_list|(
+name|StandardQueryConfigHandler
+operator|.
 name|Operator
 operator|.
 name|AND
@@ -1480,6 +1482,8 @@ expr_stmt|;
 comment|// make sure OR is the default:
 name|assertEquals
 argument_list|(
+name|StandardQueryConfigHandler
+operator|.
 name|Operator
 operator|.
 name|OR
@@ -1494,6 +1498,8 @@ name|qp
 operator|.
 name|setDefaultOperator
 argument_list|(
+name|StandardQueryConfigHandler
+operator|.
 name|Operator
 operator|.
 name|AND
@@ -1501,6 +1507,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|StandardQueryConfigHandler
+operator|.
 name|Operator
 operator|.
 name|AND
@@ -1515,6 +1523,8 @@ name|qp
 operator|.
 name|setDefaultOperator
 argument_list|(
+name|StandardQueryConfigHandler
+operator|.
 name|Operator
 operator|.
 name|OR
@@ -1522,6 +1532,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|StandardQueryConfigHandler
+operator|.
 name|Operator
 operator|.
 name|OR
@@ -4021,6 +4033,8 @@ name|parser
 operator|.
 name|setDefaultOperator
 argument_list|(
+name|StandardQueryConfigHandler
+operator|.
 name|Operator
 operator|.
 name|AND

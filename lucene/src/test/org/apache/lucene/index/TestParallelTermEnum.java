@@ -463,11 +463,11 @@ name|ir2
 argument_list|)
 expr_stmt|;
 name|Bits
-name|delDocs
+name|liveDocs
 init|=
 name|pr
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|()
 decl_stmt|;
 name|FieldsEnum
@@ -538,7 +538,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 literal|null
 argument_list|)
@@ -596,7 +596,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -654,7 +654,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -712,7 +712,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -770,7 +770,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -857,7 +857,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -915,7 +915,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -973,7 +973,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -1031,7 +1031,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -1089,7 +1089,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -1176,7 +1176,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -1234,7 +1234,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -1292,7 +1292,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -1350,7 +1350,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -1408,7 +1408,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)
@@ -1466,7 +1466,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|td
 argument_list|)

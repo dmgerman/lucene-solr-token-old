@@ -412,7 +412,8 @@ operator|=
 name|doc
 expr_stmt|;
 block|}
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|Iterator
@@ -433,7 +434,8 @@ block|{
 name|int
 name|upto
 decl_stmt|;
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -445,7 +447,8 @@ operator|<
 name|count
 return|;
 block|}
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|Document
 name|next
@@ -458,7 +461,8 @@ return|return
 name|doc
 return|;
 block|}
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove
@@ -2948,7 +2952,7 @@ name|reader
 argument_list|,
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -3868,18 +3872,18 @@ literal|0
 decl_stmt|;
 specifier|final
 name|Bits
-name|delDocs
+name|liveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|)
 expr_stmt|;
 for|for
@@ -3902,7 +3906,8 @@ control|)
 block|{
 if|if
 condition|(
-name|delDocs
+operator|!
+name|liveDocs
 operator|.
 name|get
 argument_list|(
@@ -4091,7 +4096,7 @@ name|assertNull
 argument_list|(
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -4685,18 +4690,18 @@ literal|0
 decl_stmt|;
 specifier|final
 name|Bits
-name|delDocs
+name|liveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|)
 expr_stmt|;
 for|for
@@ -4719,7 +4724,8 @@ control|)
 block|{
 if|if
 condition|(
-name|delDocs
+operator|!
+name|liveDocs
 operator|.
 name|get
 argument_list|(
@@ -4901,7 +4907,7 @@ name|assertNull
 argument_list|(
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)

@@ -330,7 +330,7 @@ name|DocsEnum
 name|docs
 parameter_list|(
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|BytesRef
 name|text
@@ -346,7 +346,7 @@ name|in
 operator|.
 name|docs
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|text
 argument_list|,
@@ -362,7 +362,7 @@ name|DocsAndPositionsEnum
 name|docsAndPositions
 parameter_list|(
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|BytesRef
 name|text
@@ -378,7 +378,7 @@ name|in
 operator|.
 name|docsAndPositions
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|text
 argument_list|,
@@ -682,7 +682,7 @@ name|DocsEnum
 name|docs
 parameter_list|(
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|DocsEnum
 name|reuse
@@ -695,7 +695,7 @@ name|in
 operator|.
 name|docs
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|reuse
 argument_list|)
@@ -709,7 +709,7 @@ name|DocsAndPositionsEnum
 name|docsAndPositions
 parameter_list|(
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|DocsAndPositionsEnum
 name|reuse
@@ -722,7 +722,7 @@ name|in
 operator|.
 name|docsAndPositions
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|reuse
 argument_list|)
@@ -1130,16 +1130,16 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getDeletedDocs
+DECL|method|getLiveDocs
 specifier|public
 name|Bits
-name|getDeletedDocs
+name|getLiveDocs
 parameter_list|()
 block|{
 return|return
 name|in
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|()
 return|;
 block|}

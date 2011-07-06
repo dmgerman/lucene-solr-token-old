@@ -217,13 +217,13 @@ name|IOException
 block|{
 specifier|final
 name|Bits
-name|delDocs
+name|liveDocs
 init|=
 name|context
 operator|.
 name|reader
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -317,7 +317,7 @@ name|reader
 operator|.
 name|termDocsEnum
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|fieldName
 argument_list|,
@@ -410,7 +410,7 @@ name|reader
 operator|.
 name|termDocsEnum
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|fieldName
 argument_list|,

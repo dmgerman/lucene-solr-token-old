@@ -617,7 +617,7 @@ name|DocsEnum
 name|docs
 parameter_list|(
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|DocsEnum
 name|reuse
@@ -654,7 +654,7 @@ operator|)
 operator|.
 name|reset
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|terms
 index|[
@@ -671,7 +671,7 @@ name|DocsAndPositionsEnum
 name|docsAndPositions
 parameter_list|(
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|DocsAndPositionsEnum
 name|reuse
@@ -708,7 +708,7 @@ operator|)
 operator|.
 name|reset
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|terms
 index|[

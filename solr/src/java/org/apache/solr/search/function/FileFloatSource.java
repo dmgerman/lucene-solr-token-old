@@ -226,6 +226,23 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|queries
+operator|.
+name|function
+operator|.
+name|docvalues
+operator|.
+name|FloatDocValues
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BytesRef
@@ -511,10 +528,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|int
-name|offset
+name|off
 init|=
-literal|0
+name|readerContext
+operator|.
+name|docBase
 decl_stmt|;
 name|ReaderContext
 name|topLevelContext
@@ -525,12 +545,6 @@ name|getTopLevelContext
 argument_list|(
 name|readerContext
 argument_list|)
-decl_stmt|;
-specifier|final
-name|int
-name|off
-init|=
-name|offset
 decl_stmt|;
 specifier|final
 name|float
@@ -1343,7 +1357,7 @@ init|=
 literal|null
 decl_stmt|;
 comment|// removing deleted docs shouldn't matter
-comment|// final Bits delDocs = MultiFields.getDeletedDocs(reader);
+comment|// final Bits liveDocs = MultiFields.getLiveDocs(reader);
 for|for
 control|(
 name|String

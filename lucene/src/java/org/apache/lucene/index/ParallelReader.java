@@ -993,16 +993,16 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|getDeletedDocs
+DECL|method|getLiveDocs
 specifier|public
 name|Bits
-name|getDeletedDocs
+name|getLiveDocs
 parameter_list|()
 block|{
 return|return
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|readers
 operator|.
@@ -2669,7 +2669,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//@Override -- not until Java 1.6
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

@@ -115,11 +115,11 @@ specifier|protected
 name|boolean
 name|checkDeletes
 decl_stmt|;
-DECL|field|delDocs
+DECL|field|liveDocs
 specifier|private
 specifier|final
 name|Bits
-name|delDocs
+name|liveDocs
 decl_stmt|;
 DECL|method|ValueSourceScorer
 specifier|protected
@@ -165,11 +165,11 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|delDocs
+name|liveDocs
 operator|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -220,8 +220,7 @@ operator|(
 operator|!
 name|checkDeletes
 operator|||
-operator|!
-name|delDocs
+name|liveDocs
 operator|.
 name|get
 argument_list|(

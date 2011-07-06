@@ -183,7 +183,7 @@ name|BlockTermState
 name|state
 parameter_list|,
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|DocsEnum
 name|reuse
@@ -205,7 +205,7 @@ name|BlockTermState
 name|state
 parameter_list|,
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|DocsAndPositionsEnum
 name|reuse

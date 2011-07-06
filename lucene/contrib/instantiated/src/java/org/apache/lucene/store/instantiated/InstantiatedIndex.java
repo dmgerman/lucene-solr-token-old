@@ -972,11 +972,11 @@ block|}
 comment|// create documents
 specifier|final
 name|Bits
-name|delDocs
+name|liveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|sourceIndexReader
 argument_list|)
@@ -1001,11 +1001,12 @@ control|)
 block|{
 if|if
 condition|(
-name|delDocs
+name|liveDocs
 operator|!=
 literal|null
 operator|&&
-name|delDocs
+operator|!
+name|liveDocs
 operator|.
 name|get
 argument_list|(
@@ -1524,7 +1525,7 @@ name|sourceIndexReader
 argument_list|,
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|sourceIndexReader
 argument_list|)

@@ -676,7 +676,8 @@ name|Document
 argument_list|>
 argument_list|()
 block|{
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|Iterator
 argument_list|<
@@ -696,7 +697,8 @@ block|{
 name|boolean
 name|done
 decl_stmt|;
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -707,7 +709,8 @@ operator|!
 name|done
 return|;
 block|}
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove
@@ -719,7 +722,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|Document
 name|next
@@ -1287,7 +1291,8 @@ name|Document
 argument_list|>
 argument_list|()
 block|{
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|Iterator
 argument_list|<
@@ -1307,7 +1312,8 @@ block|{
 name|boolean
 name|done
 decl_stmt|;
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -1318,7 +1324,8 @@ operator|!
 name|done
 return|;
 block|}
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove
@@ -1330,7 +1337,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|Document
 name|next

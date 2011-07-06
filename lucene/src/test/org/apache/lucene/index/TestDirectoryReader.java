@@ -1043,7 +1043,7 @@ name|mr2
 argument_list|,
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|mr2
 argument_list|)
@@ -1090,7 +1090,7 @@ name|docs
 argument_list|(
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|mr3
 argument_list|)

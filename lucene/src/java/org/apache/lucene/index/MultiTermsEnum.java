@@ -174,6 +174,11 @@ specifier|private
 name|BytesRef
 name|lastSeek
 decl_stmt|;
+DECL|field|lastSeekExact
+specifier|private
+name|boolean
+name|lastSeekExact
+decl_stmt|;
 DECL|field|lastSeekScratch
 specifier|private
 specifier|final
@@ -747,6 +752,10 @@ name|lastSeek
 operator|=
 literal|null
 expr_stmt|;
+name|lastSeekExact
+operator|=
+literal|true
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -915,6 +924,19 @@ operator|.
 name|term
 argument_list|()
 expr_stmt|;
+assert|assert
+name|term
+operator|.
+name|equals
+argument_list|(
+name|currentSubs
+index|[
+name|i
+index|]
+operator|.
+name|current
+argument_list|)
+assert|;
 block|}
 block|}
 comment|// if at least one sub had exact match to the requested
@@ -949,6 +971,10 @@ expr_stmt|;
 name|numTop
 operator|=
 literal|0
+expr_stmt|;
+name|lastSeekExact
+operator|=
+literal|false
 expr_stmt|;
 name|boolean
 name|seekOpt
@@ -1469,6 +1495,38 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|lastSeekExact
+condition|)
+block|{
+comment|// Must seekCeil at this point, so those subs that
+comment|// didn't have the term can find the following term.
+comment|// NOTE: we could save some CPU by only seekCeil the
+comment|// subs that didn't match the last exact seek... but
+comment|// most impls short-circuit if you seekCeil to term
+comment|// they are already on.
+specifier|final
+name|SeekStatus
+name|status
+init|=
+name|seekCeil
+argument_list|(
+name|current
+argument_list|)
+decl_stmt|;
+assert|assert
+name|status
+operator|==
+name|SeekStatus
+operator|.
+name|FOUND
+assert|;
+name|lastSeekExact
+operator|=
+literal|false
+expr_stmt|;
+block|}
 name|lastSeek
 operator|=
 literal|null
@@ -1623,7 +1681,7 @@ name|DocsEnum
 name|docs
 parameter_list|(
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|DocsEnum
 name|reuse
@@ -1661,26 +1719,26 @@ expr_stmt|;
 block|}
 specifier|final
 name|MultiBits
-name|multiSkipDocs
+name|multiLiveDocs
 decl_stmt|;
 if|if
 condition|(
-name|skipDocs
+name|liveDocs
 operator|instanceof
 name|MultiBits
 condition|)
 block|{
-name|multiSkipDocs
+name|multiLiveDocs
 operator|=
 operator|(
 name|MultiBits
 operator|)
-name|skipDocs
+name|liveDocs
 expr_stmt|;
 block|}
 else|else
 block|{
-name|multiSkipDocs
+name|multiLiveDocs
 operator|=
 literal|null
 expr_stmt|;
@@ -1720,14 +1778,14 @@ name|b
 decl_stmt|;
 if|if
 condition|(
-name|multiSkipDocs
+name|multiLiveDocs
 operator|!=
 literal|null
 condition|)
 block|{
 comment|// optimize for common case: requested skip docs is a
 comment|// congruent sub-slice of MultiBits: in this case, we
-comment|// just pull the skipDocs from the sub reader, rather
+comment|// just pull the liveDocs from the sub reader, rather
 comment|// than making the inefficient
 comment|// Slice(Multi(sub-readers)):
 specifier|final
@@ -1736,7 +1794,7 @@ operator|.
 name|SubResult
 name|sub
 init|=
-name|multiSkipDocs
+name|multiLiveDocs
 operator|.
 name|getMatchingSub
 argument_list|(
@@ -1768,7 +1826,7 @@ operator|=
 operator|new
 name|BitsSlice
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|entry
 operator|.
@@ -1780,7 +1838,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|skipDocs
+name|liveDocs
 operator|!=
 literal|null
 condition|)
@@ -1790,7 +1848,7 @@ operator|=
 operator|new
 name|BitsSlice
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|entry
 operator|.
@@ -1886,7 +1944,7 @@ name|DocsAndPositionsEnum
 name|docsAndPositions
 parameter_list|(
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|DocsAndPositionsEnum
 name|reuse
@@ -1924,26 +1982,26 @@ expr_stmt|;
 block|}
 specifier|final
 name|MultiBits
-name|multiSkipDocs
+name|multiLiveDocs
 decl_stmt|;
 if|if
 condition|(
-name|skipDocs
+name|liveDocs
 operator|instanceof
 name|MultiBits
 condition|)
 block|{
-name|multiSkipDocs
+name|multiLiveDocs
 operator|=
 operator|(
 name|MultiBits
 operator|)
-name|skipDocs
+name|liveDocs
 expr_stmt|;
 block|}
 else|else
 block|{
-name|multiSkipDocs
+name|multiLiveDocs
 operator|=
 literal|null
 expr_stmt|;
@@ -1983,14 +2041,14 @@ name|b
 decl_stmt|;
 if|if
 condition|(
-name|multiSkipDocs
+name|multiLiveDocs
 operator|!=
 literal|null
 condition|)
 block|{
 comment|// Optimize for common case: requested skip docs is a
 comment|// congruent sub-slice of MultiBits: in this case, we
-comment|// just pull the skipDocs from the sub reader, rather
+comment|// just pull the liveDocs from the sub reader, rather
 comment|// than making the inefficient
 comment|// Slice(Multi(sub-readers)):
 specifier|final
@@ -1999,7 +2057,7 @@ operator|.
 name|SubResult
 name|sub
 init|=
-name|multiSkipDocs
+name|multiLiveDocs
 operator|.
 name|getMatchingSub
 argument_list|(
@@ -2035,7 +2093,7 @@ operator|=
 operator|new
 name|BitsSlice
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|top
 index|[
@@ -2050,7 +2108,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|skipDocs
+name|liveDocs
 operator|!=
 literal|null
 condition|)
@@ -2060,7 +2118,7 @@ operator|=
 operator|new
 name|BitsSlice
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|top
 index|[
