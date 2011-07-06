@@ -258,7 +258,7 @@ name|docs
 argument_list|(
 name|mergeState
 operator|.
-name|multiDeletedDocs
+name|multiLiveDocs
 argument_list|,
 name|docsEnumIn
 argument_list|)
@@ -401,7 +401,7 @@ name|docsAndPositions
 argument_list|(
 name|mergeState
 operator|.
-name|multiDeletedDocs
+name|multiLiveDocs
 argument_list|,
 name|postingsEnumIn
 argument_list|)

@@ -1200,11 +1200,11 @@ expr_stmt|;
 block|}
 comment|// TODO (Facet): avoid Multi*?
 name|Bits
-name|deletedDocs
+name|liveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -1218,7 +1218,7 @@ name|getTermDocsEnum
 argument_list|(
 name|reader
 argument_list|,
-name|deletedDocs
+name|liveDocs
 argument_list|,
 name|Consts
 operator|.
@@ -1362,11 +1362,11 @@ argument_list|()
 expr_stmt|;
 block|}
 name|Bits
-name|deletedDocs
+name|liveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -1380,7 +1380,7 @@ name|getTermDocsEnum
 argument_list|(
 name|reader
 argument_list|,
-name|deletedDocs
+name|liveDocs
 argument_list|,
 name|Consts
 operator|.
@@ -2216,11 +2216,11 @@ name|iterator
 argument_list|()
 decl_stmt|;
 name|Bits
-name|deletedDocs
+name|liveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -2259,7 +2259,7 @@ name|termsEnum
 operator|.
 name|docs
 argument_list|(
-name|deletedDocs
+name|liveDocs
 argument_list|,
 name|docsEnum
 argument_list|)
@@ -2858,7 +2858,7 @@ name|docs
 argument_list|(
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|otherreaders
 index|[
@@ -2955,7 +2955,7 @@ name|docs
 argument_list|(
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|mainreader
 argument_list|)
@@ -3029,7 +3029,7 @@ name|docs
 argument_list|(
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|otherreaders
 index|[

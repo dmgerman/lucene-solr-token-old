@@ -972,7 +972,7 @@ if|if
 condition|(
 name|state
 operator|.
-name|bits
+name|liveDocs
 operator|==
 literal|null
 operator|&&

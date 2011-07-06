@@ -1583,11 +1583,11 @@ block|{
 continue|continue;
 block|}
 name|Bits
-name|deletedDocs
+name|liveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|indexReader
 argument_list|)
@@ -1621,7 +1621,7 @@ name|te
 operator|.
 name|docs
 argument_list|(
-name|deletedDocs
+name|liveDocs
 argument_list|,
 name|de
 argument_list|)

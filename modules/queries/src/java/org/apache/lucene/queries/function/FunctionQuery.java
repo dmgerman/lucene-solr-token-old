@@ -434,10 +434,10 @@ specifier|final
 name|boolean
 name|hasDeletions
 decl_stmt|;
-DECL|field|delDocs
+DECL|field|liveDocs
 specifier|final
 name|Bits
-name|delDocs
+name|liveDocs
 decl_stmt|;
 DECL|method|AllScorer
 specifier|public
@@ -500,11 +500,11 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|delDocs
+name|liveDocs
 operator|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -513,7 +513,7 @@ assert|assert
 operator|!
 name|hasDeletions
 operator|||
-name|delDocs
+name|liveDocs
 operator|!=
 literal|null
 assert|;
@@ -583,7 +583,8 @@ if|if
 condition|(
 name|hasDeletions
 operator|&&
-name|delDocs
+operator|!
+name|liveDocs
 operator|.
 name|get
 argument_list|(

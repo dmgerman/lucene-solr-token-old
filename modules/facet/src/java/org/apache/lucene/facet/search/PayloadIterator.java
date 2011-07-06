@@ -197,11 +197,11 @@ name|buffer
 expr_stmt|;
 comment|// TODO (Facet): avoid Multi*?
 name|Bits
-name|deletedDocs
+name|liveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|indexReader
 argument_list|)
@@ -216,7 +216,7 @@ name|getTermPositionsEnum
 argument_list|(
 name|indexReader
 argument_list|,
-name|deletedDocs
+name|liveDocs
 argument_list|,
 name|term
 operator|.

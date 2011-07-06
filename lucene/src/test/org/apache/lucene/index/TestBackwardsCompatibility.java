@@ -1523,11 +1523,11 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|Bits
-name|delDocs
+name|liveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -1549,8 +1549,7 @@ control|)
 block|{
 if|if
 condition|(
-operator|!
-name|delDocs
+name|liveDocs
 operator|.
 name|get
 argument_list|(

@@ -1983,7 +1983,7 @@ name|docs
 argument_list|(
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|knownSearcher
 operator|.

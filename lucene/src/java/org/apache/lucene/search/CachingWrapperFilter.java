@@ -289,8 +289,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// now for core match, but dynamically AND NOT
-comment|// deletions
+comment|// now for core match, but dynamically AND
+comment|// live docs
 name|value
 operator|=
 name|cache
@@ -309,25 +309,25 @@ condition|)
 block|{
 specifier|final
 name|Bits
-name|delDocs
+name|liveDocs
 init|=
 name|reader
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|delDocs
+name|liveDocs
 operator|!=
 literal|null
 condition|)
 block|{
 name|value
 operator|=
-name|mergeDeletes
+name|mergeLiveDocs
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|value
 argument_list|)
@@ -340,14 +340,14 @@ return|return
 name|value
 return|;
 block|}
-DECL|method|mergeDeletes
+DECL|method|mergeLiveDocs
 specifier|protected
 specifier|abstract
 name|T
-name|mergeDeletes
+name|mergeLiveDocs
 parameter_list|(
 name|Bits
-name|delDocs
+name|liveDocs
 parameter_list|,
 name|T
 name|value
@@ -483,11 +483,11 @@ annotation|@
 name|Override
 specifier|public
 name|DocIdSet
-name|mergeDeletes
+name|mergeLiveDocs
 parameter_list|(
 specifier|final
 name|Bits
-name|delDocs
+name|liveDocs
 parameter_list|,
 specifier|final
 name|DocIdSet
@@ -512,8 +512,7 @@ name|docID
 parameter_list|)
 block|{
 return|return
-operator|!
-name|delDocs
+name|liveDocs
 operator|.
 name|get
 argument_list|(
@@ -656,7 +655,7 @@ argument_list|()
 condition|?
 name|reader
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|()
 else|:
 name|coreKey

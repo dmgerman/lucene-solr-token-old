@@ -587,7 +587,7 @@ name|BytesRef
 name|bytes
 parameter_list|,
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -620,7 +620,7 @@ name|boolean
 name|freqs
 parameter_list|,
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -650,7 +650,7 @@ name|reader
 argument_list|,
 name|bytes
 argument_list|,
-name|skipDocs
+name|liveDocs
 argument_list|)
 return|;
 block|}
@@ -661,7 +661,7 @@ name|reader
 operator|.
 name|termDocsEnum
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|fieldName
 argument_list|,

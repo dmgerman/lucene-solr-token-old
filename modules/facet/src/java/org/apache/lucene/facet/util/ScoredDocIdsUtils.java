@@ -306,7 +306,7 @@ name|bits
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -344,6 +344,7 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
 name|bits
 operator|.
 name|get
@@ -1246,11 +1247,11 @@ argument_list|()
 block|{
 specifier|final
 name|Bits
-name|deletedDocs
+name|liveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -1325,11 +1326,12 @@ name|next
 operator|<
 name|maxDoc
 operator|&&
-name|deletedDocs
+name|liveDocs
 operator|!=
 literal|null
 operator|&&
-name|deletedDocs
+operator|!
+name|liveDocs
 operator|.
 name|get
 argument_list|(

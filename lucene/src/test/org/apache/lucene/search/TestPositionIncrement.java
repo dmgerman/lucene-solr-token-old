@@ -692,7 +692,7 @@ argument_list|()
 argument_list|,
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|searcher
 operator|.
@@ -738,7 +738,7 @@ argument_list|()
 argument_list|,
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|searcher
 operator|.
@@ -1600,7 +1600,7 @@ name|termPositionsEnum
 argument_list|(
 name|r
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|()
 argument_list|,
 literal|"content"

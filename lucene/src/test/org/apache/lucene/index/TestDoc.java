@@ -1292,7 +1292,7 @@ name|docsAndPositions
 argument_list|(
 name|reader
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|()
 argument_list|,
 literal|null

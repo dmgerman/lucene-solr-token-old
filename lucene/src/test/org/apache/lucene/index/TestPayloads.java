@@ -1487,7 +1487,7 @@ name|reader
 argument_list|,
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -1711,7 +1711,7 @@ name|reader
 argument_list|,
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -1867,7 +1867,7 @@ name|reader
 argument_list|,
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -2151,7 +2151,7 @@ name|reader
 argument_list|,
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -3317,11 +3317,11 @@ name|iterator
 argument_list|()
 decl_stmt|;
 name|Bits
-name|delDocs
+name|liveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -3358,7 +3358,7 @@ name|terms
 operator|.
 name|docsAndPositions
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|tp
 argument_list|)
