@@ -532,6 +532,8 @@ argument_list|,
 name|fixedSize
 argument_list|,
 name|maxDoc
+argument_list|,
+name|comp
 argument_list|)
 decl_stmt|;
 for|for
@@ -722,6 +724,7 @@ operator|.
 name|SORTED
 condition|)
 block|{
+comment|// default is unicode so we can simply pass null here
 name|s
 operator|=
 name|ss
@@ -730,7 +733,14 @@ name|getSortedSource
 argument_list|(
 name|r
 argument_list|,
+name|random
+operator|.
+name|nextBoolean
+argument_list|()
+condition|?
 name|comp
+else|:
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
