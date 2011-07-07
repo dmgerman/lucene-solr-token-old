@@ -548,6 +548,8 @@ literal|null
 argument_list|,
 name|SortField
 operator|.
+name|Type
+operator|.
 name|SCORE
 argument_list|,
 name|reversed

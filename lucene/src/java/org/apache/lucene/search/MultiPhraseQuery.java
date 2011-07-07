@@ -385,6 +385,7 @@ control|)
 block|{
 if|if
 condition|(
+operator|!
 name|terms
 index|[
 name|i
@@ -392,8 +393,11 @@ index|]
 operator|.
 name|field
 argument_list|()
-operator|!=
+operator|.
+name|equals
+argument_list|(
 name|field
+argument_list|)
 condition|)
 block|{
 throw|throw
@@ -795,11 +799,11 @@ name|reader
 decl_stmt|;
 specifier|final
 name|Bits
-name|delDocs
+name|liveDocs
 init|=
 name|reader
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|()
 decl_stmt|;
 name|PhraseQuery
@@ -927,7 +931,7 @@ name|reader
 operator|.
 name|termPositionsEnum
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|term
 operator|.
@@ -953,7 +957,7 @@ name|reader
 operator|.
 name|termDocsEnum
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|term
 operator|.
@@ -2564,11 +2568,11 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|Bits
-name|delDocs
+name|liveDocs
 init|=
 name|indexReader
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|()
 decl_stmt|;
 for|for
@@ -2595,7 +2599,7 @@ name|indexReader
 operator|.
 name|termPositionsEnum
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|terms
 index|[
@@ -2637,7 +2641,7 @@ name|indexReader
 operator|.
 name|termDocsEnum
 argument_list|(
-name|delDocs
+name|liveDocs
 argument_list|,
 name|terms
 index|[

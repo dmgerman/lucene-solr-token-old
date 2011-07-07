@@ -457,20 +457,11 @@ name|next
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-name|TermsEnum
-operator|.
-name|SeekStatus
-operator|.
-name|FOUND
-argument_list|,
 name|terms
 operator|.
-name|seek
+name|seekExact
 argument_list|(
 name|ordB
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -592,7 +583,7 @@ comment|// create enumeration of terms after term 'aaa',
 comment|// including 'aaa'
 name|termEnum
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 operator|new
 name|BytesRef

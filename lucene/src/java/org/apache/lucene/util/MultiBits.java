@@ -50,6 +50,12 @@ name|int
 index|[]
 name|starts
 decl_stmt|;
+DECL|field|defaultValue
+specifier|private
+specifier|final
+name|boolean
+name|defaultValue
+decl_stmt|;
 DECL|method|MultiBits
 specifier|public
 name|MultiBits
@@ -65,6 +71,9 @@ argument_list|<
 name|Integer
 argument_list|>
 name|starts
+parameter_list|,
+name|boolean
+name|defaultValue
 parameter_list|)
 block|{
 assert|assert
@@ -140,6 +149,12 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
+name|this
+operator|.
+name|defaultValue
+operator|=
+name|defaultValue
+expr_stmt|;
 block|}
 DECL|method|checkLength
 specifier|private
@@ -247,7 +262,7 @@ literal|null
 condition|)
 block|{
 return|return
-literal|false
+name|defaultValue
 return|;
 block|}
 else|else

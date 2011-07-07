@@ -145,16 +145,12 @@ if|if
 condition|(
 name|termsEnum
 operator|.
-name|seek
+name|seekExact
 argument_list|(
 name|text
+argument_list|,
+literal|true
 argument_list|)
-operator|==
-name|TermsEnum
-operator|.
-name|SeekStatus
-operator|.
-name|FOUND
 condition|)
 block|{
 return|return
@@ -171,7 +167,7 @@ literal|0
 return|;
 block|}
 block|}
-comment|/** Returns the number of documents containing the    *  specified term text.  Returns 0 if the term does not    *  exist. */
+comment|/** Returns the total number of occurrences of this term    *  across all documents (the sum of the freq() for each    *  doc that has this term).  This will be -1 if the    *  codec doesn't support this measure.  Note that, like    *  other term measures, this measure does not take    *  deleted documents into account. */
 DECL|method|totalTermFreq
 specifier|public
 name|long
@@ -194,16 +190,12 @@ if|if
 condition|(
 name|termsEnum
 operator|.
-name|seek
+name|seekExact
 argument_list|(
 name|text
+argument_list|,
+literal|true
 argument_list|)
-operator|==
-name|TermsEnum
-operator|.
-name|SeekStatus
-operator|.
-name|FOUND
 condition|)
 block|{
 return|return
@@ -227,7 +219,7 @@ name|DocsEnum
 name|docs
 parameter_list|(
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|BytesRef
 name|text
@@ -249,16 +241,12 @@ if|if
 condition|(
 name|termsEnum
 operator|.
-name|seek
+name|seekExact
 argument_list|(
 name|text
+argument_list|,
+literal|true
 argument_list|)
-operator|==
-name|TermsEnum
-operator|.
-name|SeekStatus
-operator|.
-name|FOUND
 condition|)
 block|{
 return|return
@@ -266,7 +254,7 @@ name|termsEnum
 operator|.
 name|docs
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|reuse
 argument_list|)
@@ -286,7 +274,7 @@ name|DocsAndPositionsEnum
 name|docsAndPositions
 parameter_list|(
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|BytesRef
 name|text
@@ -308,16 +296,12 @@ if|if
 condition|(
 name|termsEnum
 operator|.
-name|seek
+name|seekExact
 argument_list|(
 name|text
+argument_list|,
+literal|true
 argument_list|)
-operator|==
-name|TermsEnum
-operator|.
-name|SeekStatus
-operator|.
-name|FOUND
 condition|)
 block|{
 return|return
@@ -325,7 +309,7 @@ name|termsEnum
 operator|.
 name|docsAndPositions
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|reuse
 argument_list|)
@@ -338,14 +322,14 @@ literal|null
 return|;
 block|}
 block|}
-comment|/**    * Expert: Get {@link DocsEnum} for the specified {@link TermState}.    * This method may return<code>null</code> if the term does not exist.    *     * @see TermsEnum#termState()    * @see TermsEnum#seek(BytesRef, TermState) */
+comment|/**    * Expert: Get {@link DocsEnum} for the specified {@link TermState}.    * This method may return<code>null</code> if the term does not exist.    *     * @see TermsEnum#termState()    * @see TermsEnum#seekExact(BytesRef, TermState) */
 DECL|method|docs
 specifier|public
 name|DocsEnum
 name|docs
 parameter_list|(
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|BytesRef
 name|term
@@ -368,7 +352,7 @@ argument_list|()
 decl_stmt|;
 name|termsEnum
 operator|.
-name|seek
+name|seekExact
 argument_list|(
 name|term
 argument_list|,
@@ -380,20 +364,20 @@ name|termsEnum
 operator|.
 name|docs
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|reuse
 argument_list|)
 return|;
 block|}
-comment|/**    * Get {@link DocsEnum} for the specified {@link TermState}. This    * method will may return<code>null</code> if the term does not exists, or positions were    * not indexed.    *     * @see TermsEnum#termState()    * @see TermsEnum#seek(BytesRef, TermState) */
+comment|/**    * Get {@link DocsEnum} for the specified {@link TermState}. This    * method will may return<code>null</code> if the term does not exists, or positions were    * not indexed.    *     * @see TermsEnum#termState()    * @see TermsEnum#seekExact(BytesRef, TermState) */
 DECL|method|docsAndPositions
 specifier|public
 name|DocsAndPositionsEnum
 name|docsAndPositions
 parameter_list|(
 name|Bits
-name|skipDocs
+name|liveDocs
 parameter_list|,
 name|BytesRef
 name|term
@@ -416,7 +400,7 @@ argument_list|()
 decl_stmt|;
 name|termsEnum
 operator|.
-name|seek
+name|seekExact
 argument_list|(
 name|term
 argument_list|,
@@ -428,7 +412,7 @@ name|termsEnum
 operator|.
 name|docsAndPositions
 argument_list|(
-name|skipDocs
+name|liveDocs
 argument_list|,
 name|reuse
 argument_list|)

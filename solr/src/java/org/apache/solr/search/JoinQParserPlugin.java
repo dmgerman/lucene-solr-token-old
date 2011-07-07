@@ -98,19 +98,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|StringHelper
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|solr
 operator|.
 name|common
@@ -1615,7 +1602,7 @@ if|if
 condition|(
 name|termsEnum
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|prefix
 argument_list|,
@@ -1639,11 +1626,11 @@ expr_stmt|;
 block|}
 block|}
 name|Bits
-name|fromDeletedDocs
+name|fromLiveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|fromSearcher
 operator|.
@@ -1652,17 +1639,17 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|Bits
-name|toDeletedDocs
+name|toLiveDocs
 init|=
 name|fromSearcher
 operator|==
 name|toSearcher
 condition|?
-name|fromDeletedDocs
+name|fromLiveDocs
 else|:
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|toSearcher
 operator|.
@@ -1682,18 +1669,13 @@ name|fromDeState
 operator|.
 name|fieldName
 operator|=
-name|StringHelper
-operator|.
-name|intern
-argument_list|(
 name|fromField
-argument_list|)
 expr_stmt|;
 name|fromDeState
 operator|.
-name|deletedDocs
+name|liveDocs
 operator|=
-name|fromDeletedDocs
+name|fromLiveDocs
 expr_stmt|;
 name|fromDeState
 operator|.
@@ -1725,18 +1707,13 @@ name|toDeState
 operator|.
 name|fieldName
 operator|=
-name|StringHelper
-operator|.
-name|intern
-argument_list|(
 name|toField
-argument_list|)
 expr_stmt|;
 name|toDeState
 operator|.
-name|deletedDocs
+name|liveDocs
 operator|=
-name|toDeletedDocs
+name|toLiveDocs
 expr_stmt|;
 name|toDeState
 operator|.
@@ -1807,7 +1784,7 @@ block|{
 name|fromTermDirectCount
 operator|++
 expr_stmt|;
-comment|// OK to skip deletedDocs, since we check for intersection with docs matching query
+comment|// OK to skip liveDocs, since we check for intersection with docs matching query
 name|fromDeState
 operator|.
 name|docsEnum
@@ -2159,7 +2136,7 @@ name|status
 init|=
 name|toTermsEnum
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|term
 argument_list|)
@@ -2326,7 +2303,7 @@ block|{
 name|toTermDirectCount
 operator|++
 expr_stmt|;
-comment|// need to use deletedDocs here so we don't map to any deleted ones
+comment|// need to use liveDocs here so we don't map to any deleted ones
 name|toDeState
 operator|.
 name|docsEnum
@@ -2339,7 +2316,7 @@ name|docs
 argument_list|(
 name|toDeState
 operator|.
-name|deletedDocs
+name|liveDocs
 argument_list|,
 name|toDeState
 operator|.

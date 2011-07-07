@@ -267,7 +267,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|SimilarityProvider
+name|TermQuery
 import|;
 end_import
 begin_import
@@ -278,9 +278,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|store
 operator|.
-name|TermQuery
+name|CompoundFileDirectory
 import|;
 end_import
 begin_import
@@ -306,35 +306,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|IOContext
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
 name|RAMDirectory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|IOContext
-operator|.
-name|Context
 import|;
 end_import
 begin_import
@@ -1551,11 +1523,11 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|Bits
-name|delDocs
+name|liveDocs
 init|=
 name|MultiFields
 operator|.
-name|getDeletedDocs
+name|getLiveDocs
 argument_list|(
 name|reader
 argument_list|)
@@ -1577,8 +1549,7 @@ control|)
 block|{
 if|if
 condition|(
-operator|!
-name|delDocs
+name|liveDocs
 operator|.
 name|get
 argument_list|(
@@ -3476,14 +3447,13 @@ comment|// field 0; on others, field 1.  So, here we have to
 comment|// figure out which field number corresponds to
 comment|// "content", and then set our expected file names below
 comment|// accordingly:
-name|CompoundFileReader
+name|CompoundFileDirectory
 name|cfsReader
 init|=
-operator|new
-name|CompoundFileReader
-argument_list|(
 name|dir
-argument_list|,
+operator|.
+name|openCompoundInput
+argument_list|(
 literal|"_0.cfs"
 argument_list|,
 name|newIOContext
@@ -3563,6 +3533,8 @@ name|String
 index|[]
 block|{
 literal|"_0.cfs"
+block|,
+literal|"_0.cfe"
 block|,
 literal|"_0_1.del"
 block|,
@@ -4232,7 +4204,7 @@ name|FOUND
 argument_list|,
 name|terms
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|aaaTerm
 argument_list|)
@@ -4274,7 +4246,7 @@ name|END
 argument_list|,
 name|terms
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 operator|new
 name|BytesRef
@@ -4303,7 +4275,7 @@ name|NOT_FOUND
 argument_list|,
 name|terms
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 operator|new
 name|BytesRef
@@ -4361,7 +4333,7 @@ name|FOUND
 argument_list|,
 name|terms
 operator|.
-name|seek
+name|seekCeil
 argument_list|(
 name|aaaTerm
 argument_list|)

@@ -38,15 +38,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -165,16 +156,7 @@ specifier|final
 name|String
 name|VERSION_OF_THIS_TOOL
 init|=
-literal|"1.3"
-decl_stmt|;
-DECL|field|SOLR_OK_RESPONSE_EXCERPT
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|SOLR_OK_RESPONSE_EXCERPT
-init|=
-literal|"<int name=\"status\">0</int>"
+literal|"1.4"
 decl_stmt|;
 DECL|field|DEFAULT_COMMIT
 specifier|private
@@ -184,6 +166,15 @@ name|String
 name|DEFAULT_COMMIT
 init|=
 literal|"yes"
+decl_stmt|;
+DECL|field|DEFAULT_OPTIMIZE
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_OPTIMIZE
+init|=
+literal|"no"
 decl_stmt|;
 DECL|field|DEFAULT_OUT
 specifier|private
@@ -311,6 +302,7 @@ name|args
 operator|.
 name|length
 operator|&&
+operator|(
 literal|"-help"
 operator|.
 name|equals
@@ -320,6 +312,27 @@ index|[
 literal|0
 index|]
 argument_list|)
+operator|||
+literal|"--help"
+operator|.
+name|equals
+argument_list|(
+name|args
+index|[
+literal|0
+index|]
+argument_list|)
+operator|||
+literal|"-h"
+operator|.
+name|equals
+argument_list|(
+name|args
+index|[
+literal|0
+index|]
+argument_list|)
+operator|)
 condition|)
 block|{
 name|System
@@ -336,19 +349,25 @@ literal|"as raw commandline arg strings, or via STDIN.\n"
 operator|+
 literal|"Examples:\n"
 operator|+
-literal|"  java -Ddata=files -jar post.jar *.xml\n"
+literal|"  java -jar post.jar *.xml\n"
 operator|+
 literal|"  java -Ddata=args  -jar post.jar '<delete><id>42</id></delete>'\n"
 operator|+
 literal|"  java -Ddata=stdin -jar post.jar< hd.xml\n"
 operator|+
+literal|"  java -Durl=http://localhost:8983/solr/update/csv -Dtype=text/csv -jar post.jar *.csv\n"
+operator|+
+literal|"  java -Durl=http://localhost:8983/solr/update/json -Dtype=application/json -jar post.jar *.json\n"
+operator|+
+literal|"  java -Durl=http://localhost:8983/solr/update/extract?literal.id=a -Dtype=application/pdf -jar post.jar a.pdf\n"
+operator|+
 literal|"Other options controlled by System Properties include the Solr\n"
 operator|+
 literal|"URL to POST to, the Content-Type of the data, whether a commit\n"
 operator|+
-literal|"should be executed, and whether the response should be written\n"
+literal|"or optimize should be executed, and whether the response should\n"
 operator|+
-literal|"to STDOUT. These are the defaults for all System Properties...\n"
+literal|"be written to STDOUT. These are the defaults for all System Properties:\n"
 operator|+
 literal|"  -Ddata="
 operator|+
@@ -371,6 +390,12 @@ operator|+
 literal|"  -Dcommit="
 operator|+
 name|DEFAULT_COMMIT
+operator|+
+literal|"\n"
+operator|+
+literal|"  -Doptimize="
+operator|+
+name|DEFAULT_OPTIMIZE
 operator|+
 literal|"\n"
 operator|+
@@ -467,19 +492,6 @@ name|mode
 argument_list|)
 expr_stmt|;
 block|}
-specifier|final
-name|String
-name|doOut
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"out"
-argument_list|,
-name|DEFAULT_OUT
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 literal|"yes"
@@ -534,10 +546,6 @@ operator|+
 literal|".."
 argument_list|)
 expr_stmt|;
-specifier|final
-name|int
-name|posted
-init|=
 name|t
 operator|.
 name|postFiles
@@ -548,7 +556,15 @@ literal|0
 argument_list|,
 name|out
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|info
+argument_list|(
+literal|"No files specified. (Use -h for help)"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 elseif|else
@@ -592,7 +608,7 @@ name|t
 operator|.
 name|postData
 argument_list|(
-name|t
+name|SimplePostTool
 operator|.
 name|stringToStream
 argument_list|(
@@ -666,9 +682,35 @@ expr_stmt|;
 name|t
 operator|.
 name|commit
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+literal|"yes"
+operator|.
+name|equals
 argument_list|(
-name|out
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"optimize"
+argument_list|,
+name|DEFAULT_OPTIMIZE
 argument_list|)
+argument_list|)
+condition|)
+block|{
+name|info
+argument_list|(
+literal|"Performing an OPTIMIZE.."
+argument_list|)
+expr_stmt|;
+name|t
+operator|.
+name|optimize
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -678,6 +720,11 @@ name|RuntimeException
 name|e
 parameter_list|)
 block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
 name|fatal
 argument_list|(
 literal|"RuntimeException "
@@ -872,23 +919,75 @@ DECL|method|commit
 specifier|public
 name|void
 name|commit
-parameter_list|(
-name|OutputStream
-name|output
-parameter_list|)
+parameter_list|()
 block|{
-name|postData
+name|doGet
 argument_list|(
-name|stringToStream
+name|appendParam
 argument_list|(
-literal|"<commit/>"
+name|solrUrl
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+literal|"commit=true"
 argument_list|)
-argument_list|,
-literal|null
-argument_list|,
-name|output
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**    * Does a simple optimize operation     */
+DECL|method|optimize
+specifier|public
+name|void
+name|optimize
+parameter_list|()
+block|{
+name|doGet
+argument_list|(
+name|appendParam
+argument_list|(
+name|solrUrl
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+literal|"optimize=true"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|appendParam
+specifier|private
+name|String
+name|appendParam
+parameter_list|(
+name|String
+name|url
+parameter_list|,
+name|String
+name|param
+parameter_list|)
+block|{
+return|return
+name|url
+operator|+
+operator|(
+name|url
+operator|.
+name|indexOf
+argument_list|(
+literal|'?'
+argument_list|)
+operator|>
+literal|0
+condition|?
+literal|"&"
+else|:
+literal|"?"
+operator|)
+operator|+
+name|param
+return|;
 block|}
 comment|/**    * Opens the file and posts it's contents to the solrUrl,    * writes to response to output.    * @throws UnsupportedEncodingException     */
 DECL|method|postFile
@@ -978,6 +1077,116 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+comment|/**    * Performs a simple get on the given URL    * @param url    */
+DECL|method|doGet
+specifier|public
+name|void
+name|doGet
+parameter_list|(
+name|String
+name|url
+parameter_list|)
+block|{
+try|try
+block|{
+name|doGet
+argument_list|(
+operator|new
+name|URL
+argument_list|(
+name|url
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MalformedURLException
+name|e
+parameter_list|)
+block|{
+name|fatal
+argument_list|(
+literal|"The specified URL "
+operator|+
+name|url
+operator|+
+literal|" is not a valid URL. Please check"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**    * Performs a simple get on the given URL    * @param url    */
+DECL|method|doGet
+specifier|public
+name|void
+name|doGet
+parameter_list|(
+name|URL
+name|url
+parameter_list|)
+block|{
+try|try
+block|{
+name|HttpURLConnection
+name|urlc
+init|=
+operator|(
+name|HttpURLConnection
+operator|)
+name|url
+operator|.
+name|openConnection
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|HttpURLConnection
+operator|.
+name|HTTP_OK
+operator|!=
+name|urlc
+operator|.
+name|getResponseCode
+argument_list|()
+condition|)
+block|{
+name|fatal
+argument_list|(
+literal|"Solr returned an error #"
+operator|+
+name|urlc
+operator|.
+name|getResponseCode
+argument_list|()
+operator|+
+literal|" "
+operator|+
+name|urlc
+operator|.
+name|getResponseMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|fatal
+argument_list|(
+literal|"An error occured posting data to "
+operator|+
+name|url
+operator|+
+literal|". Please check that Solr is running."
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**    * Reads data from the data stream and posts it to solr,    * writes to the response to output    */

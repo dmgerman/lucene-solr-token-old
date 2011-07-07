@@ -1692,6 +1692,8 @@ literal|"US"
 argument_list|,
 name|SortField
 operator|.
+name|Type
+operator|.
 name|STRING
 argument_list|)
 argument_list|)
@@ -1717,6 +1719,8 @@ argument_list|(
 literal|"France"
 argument_list|,
 name|SortField
+operator|.
+name|Type
 operator|.
 name|STRING
 argument_list|)
@@ -1744,6 +1748,8 @@ literal|"Sweden"
 argument_list|,
 name|SortField
 operator|.
+name|Type
+operator|.
 name|STRING
 argument_list|)
 argument_list|)
@@ -1769,6 +1775,8 @@ argument_list|(
 literal|"Denmark"
 argument_list|,
 name|SortField
+operator|.
+name|Type
 operator|.
 name|STRING
 argument_list|)

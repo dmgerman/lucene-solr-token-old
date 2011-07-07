@@ -81,26 +81,26 @@ DECL|class|FrozenBufferedDeletes
 class|class
 name|FrozenBufferedDeletes
 block|{
-comment|/* Rough logic: Term is object w/      String field and String text (OBJ_HEADER + 2*POINTER).      We don't count Term's field since it's interned.      Term's text is String (OBJ_HEADER + 4*INT + POINTER +      OBJ_HEADER + string.length*CHAR). */
+comment|/* Rough logic: Term is object w/      String field and BytesRef text (OBJ_HEADER + 2*POINTER).      String field is (OBJ_HEADER + 4*INT +      POINTER + OBJ_HEADER + CHAR*field.length).      Term's text is BytesRef (OBJ_HEADER + 2*INT + POINTER +      OBJ_HEADER + bytes.length). */
 DECL|field|BYTES_PER_DEL_TERM
 specifier|final
 specifier|static
 name|int
 name|BYTES_PER_DEL_TERM
 init|=
-literal|3
+literal|4
 operator|*
 name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_OBJECT_REF
 operator|+
-literal|3
+literal|5
 operator|*
 name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_OBJECT_HEADER
 operator|+
-literal|4
+literal|6
 operator|*
 name|RamUsageEstimator
 operator|.
@@ -303,6 +303,64 @@ name|upto
 operator|++
 expr_stmt|;
 block|}
+name|int
+name|termDataBytes
+init|=
+literal|0
+decl_stmt|;
+for|for
+control|(
+name|Map
+operator|.
+name|Entry
+argument_list|<
+name|Term
+argument_list|,
+name|Integer
+argument_list|>
+name|ent
+range|:
+name|deletes
+operator|.
+name|terms
+operator|.
+name|entrySet
+argument_list|()
+control|)
+block|{
+specifier|final
+name|Term
+name|term
+init|=
+name|ent
+operator|.
+name|getKey
+argument_list|()
+decl_stmt|;
+name|termDataBytes
+operator|+=
+name|term
+operator|.
+name|bytes
+argument_list|()
+operator|.
+name|length
+expr_stmt|;
+name|termDataBytes
+operator|+=
+name|term
+operator|.
+name|field
+argument_list|()
+operator|.
+name|length
+argument_list|()
+operator|*
+name|RamUsageEstimator
+operator|.
+name|NUM_BYTES_CHAR
+expr_stmt|;
+block|}
 name|bytesUsed
 operator|=
 name|terms
@@ -316,6 +374,8 @@ operator|.
 name|length
 operator|*
 name|BYTES_PER_DEL_QUERY
+operator|+
+name|termDataBytes
 expr_stmt|;
 name|numTermDeletes
 operator|=
@@ -384,7 +444,8 @@ name|Term
 argument_list|>
 argument_list|()
 block|{
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|Iterator
 argument_list|<
@@ -405,7 +466,8 @@ specifier|private
 name|int
 name|upto
 decl_stmt|;
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -419,7 +481,8 @@ operator|.
 name|length
 return|;
 block|}
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|Term
 name|next
@@ -433,7 +496,8 @@ operator|++
 index|]
 return|;
 block|}
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove
@@ -468,7 +532,8 @@ name|QueryAndLimit
 argument_list|>
 argument_list|()
 block|{
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|Iterator
 argument_list|<
@@ -489,7 +554,8 @@ specifier|private
 name|int
 name|upto
 decl_stmt|;
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -503,7 +569,8 @@ operator|.
 name|length
 return|;
 block|}
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|QueryAndLimit
 name|next
@@ -533,7 +600,8 @@ return|return
 name|ret
 return|;
 block|}
-comment|// @Override -- not until Java 1.6
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove

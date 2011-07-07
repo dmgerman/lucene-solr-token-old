@@ -417,6 +417,7 @@ argument_list|()
 operator|==
 literal|0
 operator|||
+operator|!
 operator|(
 name|queue
 operator|.
@@ -425,13 +426,16 @@ argument_list|()
 operator|)
 operator|.
 name|current
-operator|!=
+operator|.
+name|equals
+argument_list|(
 name|top
 index|[
 literal|0
 index|]
 operator|.
 name|current
+argument_list|)
 condition|)
 block|{
 break|break;
