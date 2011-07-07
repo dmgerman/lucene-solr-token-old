@@ -1227,7 +1227,6 @@ argument_list|(
 name|info
 argument_list|)
 assert|;
-comment|//nocommit is IOContext.DEFAULT the right thing to do here?
 name|SegmentReader
 name|reader
 init|=
@@ -1241,7 +1240,7 @@ literal|false
 argument_list|,
 name|IOContext
 operator|.
-name|DEFAULT
+name|READ
 argument_list|)
 decl_stmt|;
 name|int

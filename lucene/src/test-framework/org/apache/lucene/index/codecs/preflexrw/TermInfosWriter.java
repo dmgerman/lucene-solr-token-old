@@ -524,7 +524,6 @@ name|isIndex
 operator|=
 name|isi
 expr_stmt|;
-comment|// nocommit pass IOContext in via ctor
 name|output
 operator|=
 name|directory
