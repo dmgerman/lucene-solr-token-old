@@ -1775,6 +1775,9 @@ index|[
 name|i
 index|]
 operator|.
+name|field
+argument_list|()
+operator|.
 name|equals
 argument_list|(
 name|field
