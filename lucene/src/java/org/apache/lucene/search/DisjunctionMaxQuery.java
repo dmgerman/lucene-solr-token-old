@@ -314,27 +314,13 @@ operator|.
 name|this
 return|;
 block|}
-comment|/** Return our boost */
-annotation|@
-name|Override
-DECL|method|getValue
-specifier|public
-name|float
-name|getValue
-parameter_list|()
-block|{
-return|return
-name|getBoost
-argument_list|()
-return|;
-block|}
 comment|/** Compute the sub of squared weights of us applied to our subqueries.  Used for normalization. */
 annotation|@
 name|Override
-DECL|method|sumOfSquaredWeights
+DECL|method|getValueForNormalization
 specifier|public
 name|float
-name|sumOfSquaredWeights
+name|getValueForNormalization
 parameter_list|()
 throws|throws
 name|IOException
@@ -361,7 +347,7 @@ name|sub
 init|=
 name|currentWeight
 operator|.
-name|sumOfSquaredWeights
+name|getValueForNormalization
 argument_list|()
 decl_stmt|;
 name|sum
@@ -418,9 +404,12 @@ name|normalize
 parameter_list|(
 name|float
 name|norm
+parameter_list|,
+name|float
+name|topLevelBoost
 parameter_list|)
 block|{
-name|norm
+name|topLevelBoost
 operator|*=
 name|getBoost
 argument_list|()
@@ -439,6 +428,8 @@ operator|.
 name|normalize
 argument_list|(
 name|norm
+argument_list|,
+name|topLevelBoost
 argument_list|)
 expr_stmt|;
 block|}

@@ -2537,8 +2537,6 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-comment|// TODO: this is not always necessary - eventually we would like to avoid this wrap
-comment|//       when it is not needed.
 if|if
 condition|(
 name|maxCharsToAnalyze

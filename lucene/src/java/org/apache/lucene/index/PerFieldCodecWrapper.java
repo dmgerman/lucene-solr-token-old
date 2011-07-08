@@ -278,9 +278,10 @@ name|SegmentCodecs
 name|segmentCodecs
 parameter_list|)
 block|{
-name|name
-operator|=
+name|super
+argument_list|(
 literal|"PerField"
+argument_list|)
 expr_stmt|;
 name|this
 operator|.

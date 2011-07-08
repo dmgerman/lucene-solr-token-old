@@ -7040,7 +7040,7 @@ name|random
 operator|.
 name|nextInt
 argument_list|(
-literal|10
+literal|20
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7163,7 +7163,7 @@ name|random
 operator|.
 name|nextInt
 argument_list|(
-literal|10
+literal|20
 argument_list|)
 argument_list|)
 argument_list|)

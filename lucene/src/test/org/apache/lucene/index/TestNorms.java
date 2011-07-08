@@ -253,7 +253,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|float
+name|byte
 name|computeNorm
 parameter_list|(
 name|FieldInvertState
@@ -262,10 +262,13 @@ parameter_list|)
 block|{
 comment|// diable length norm
 return|return
+name|encodeNormValue
+argument_list|(
 name|state
 operator|.
 name|getBoost
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
@@ -941,7 +944,7 @@ name|origNorm
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Similarity
+name|DefaultSimilarity
 name|sim
 init|=
 operator|new
@@ -1076,6 +1079,19 @@ else|:
 name|norms
 operator|)
 decl_stmt|;
+name|DefaultSimilarity
+name|sim
+init|=
+operator|(
+name|DefaultSimilarity
+operator|)
+name|similarityProviderOne
+operator|.
+name|get
+argument_list|(
+name|field
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1096,12 +1112,7 @@ block|{
 name|float
 name|norm
 init|=
-name|similarityProviderOne
-operator|.
-name|get
-argument_list|(
-name|field
-argument_list|)
+name|sim
 operator|.
 name|decodeNormValue
 argument_list|(
@@ -1368,9 +1379,12 @@ name|lastNorm
 operator|+
 name|normDelta
 decl_stmt|;
-name|Similarity
+name|DefaultSimilarity
 name|similarity
 init|=
+operator|(
+name|DefaultSimilarity
+operator|)
 name|similarityProviderOne
 operator|.
 name|get
@@ -1514,7 +1528,7 @@ annotation|@
 name|Override
 DECL|method|computeNorm
 specifier|public
-name|float
+name|byte
 name|computeNorm
 parameter_list|(
 name|FieldInvertState
@@ -1522,6 +1536,8 @@ name|state
 parameter_list|)
 block|{
 return|return
+name|encodeNormValue
+argument_list|(
 operator|(
 name|float
 operator|)
@@ -1529,6 +1545,7 @@ name|state
 operator|.
 name|getLength
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

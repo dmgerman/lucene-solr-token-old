@@ -111,7 +111,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|PerReaderTermState
+name|TermContext
 import|;
 end_import
 begin_comment
@@ -329,7 +329,7 @@ parameter_list|,
 name|float
 name|boost
 parameter_list|,
-name|PerReaderTermState
+name|TermContext
 name|states
 parameter_list|)
 block|{
@@ -445,7 +445,7 @@ parameter_list|,
 name|float
 name|boost
 parameter_list|,
-name|PerReaderTermState
+name|TermContext
 name|states
 parameter_list|)
 block|{

@@ -447,9 +447,10 @@ parameter_list|,
 name|Similarity
 name|similarity
 parameter_list|,
-name|byte
-index|[]
-name|norms
+name|Similarity
+operator|.
+name|SloppyDocScorer
+name|docScorer
 parameter_list|)
 throws|throws
 name|IOException
@@ -462,7 +463,7 @@ name|weight
 argument_list|,
 name|similarity
 argument_list|,
-name|norms
+name|docScorer
 argument_list|)
 expr_stmt|;
 block|}

@@ -382,7 +382,7 @@ argument_list|,
 name|delCount
 argument_list|)
 expr_stmt|;
-name|Similarity
+name|DefaultSimilarity
 name|sim
 init|=
 operator|new

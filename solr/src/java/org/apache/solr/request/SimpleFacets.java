@@ -7388,7 +7388,7 @@ name|Double
 argument_list|(
 name|value
 operator|.
-name|floatValue
+name|doubleValue
 argument_list|()
 operator|+
 name|Double
@@ -7398,7 +7398,7 @@ argument_list|(
 name|gap
 argument_list|)
 operator|.
-name|floatValue
+name|doubleValue
 argument_list|()
 argument_list|)
 return|;
@@ -7552,7 +7552,7 @@ name|Long
 argument_list|(
 name|value
 operator|.
-name|intValue
+name|longValue
 argument_list|()
 operator|+
 name|Long
@@ -7562,7 +7562,7 @@ argument_list|(
 name|gap
 argument_list|)
 operator|.
-name|intValue
+name|longValue
 argument_list|()
 argument_list|)
 return|;
