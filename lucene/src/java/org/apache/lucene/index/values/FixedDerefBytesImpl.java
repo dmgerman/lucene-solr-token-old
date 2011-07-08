@@ -1397,6 +1397,13 @@ operator|.
 name|getFilePointer
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|size
+operator|>
+literal|0
+condition|)
+block|{
 name|bytesRef
 operator|.
 name|grow
@@ -1414,6 +1421,7 @@ name|this
 operator|.
 name|size
 expr_stmt|;
+block|}
 name|bytesRef
 operator|.
 name|offset
