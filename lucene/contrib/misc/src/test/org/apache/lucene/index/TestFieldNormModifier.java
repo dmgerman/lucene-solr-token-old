@@ -269,7 +269,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|float
+name|byte
 name|computeNorm
 parameter_list|(
 name|FieldInvertState
@@ -277,6 +277,8 @@ name|state
 parameter_list|)
 block|{
 return|return
+name|encodeNormValue
+argument_list|(
 name|state
 operator|.
 name|getBoost
@@ -300,6 +302,7 @@ operator|.
 name|getLength
 argument_list|()
 operator|)
+argument_list|)
 return|;
 block|}
 block|}

@@ -140,15 +140,30 @@ operator|.
 name|ReaderContext
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|TermsEnum
+operator|.
+name|SeekStatus
+import|;
+end_import
 begin_comment
-comment|/**  * Maintains a {@link IndexReader} {@link TermState} view over  * {@link IndexReader} instances containing a single term. The  * {@link PerReaderTermState} doesn't track if the given {@link TermState}  * objects are valid, neither if the {@link TermState} instances refer to the  * same terms in the associated readers.  *   * @lucene.experimental  */
+comment|/**  * Maintains a {@link IndexReader} {@link TermState} view over  * {@link IndexReader} instances containing a single term. The  * {@link TermContext} doesn't track if the given {@link TermState}  * objects are valid, neither if the {@link TermState} instances refer to the  * same terms in the associated readers.  *   * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|PerReaderTermState
+DECL|class|TermContext
 specifier|public
 specifier|final
 class|class
-name|PerReaderTermState
+name|TermContext
 block|{
 DECL|field|topReaderContext
 specifier|public
@@ -169,10 +184,15 @@ specifier|private
 name|int
 name|docFreq
 decl_stmt|;
-comment|/**    * Creates an empty {@link PerReaderTermState} from a {@link ReaderContext}    */
-DECL|method|PerReaderTermState
+DECL|field|totalTermFreq
+specifier|private
+name|long
+name|totalTermFreq
+decl_stmt|;
+comment|/**    * Creates an empty {@link TermContext} from a {@link ReaderContext}    */
+DECL|method|TermContext
 specifier|public
-name|PerReaderTermState
+name|TermContext
 parameter_list|(
 name|ReaderContext
 name|context
@@ -235,10 +255,10 @@ name|len
 index|]
 expr_stmt|;
 block|}
-comment|/**    * Creates a {@link PerReaderTermState} with an initial {@link TermState},    * {@link IndexReader} pair.    */
-DECL|method|PerReaderTermState
+comment|/**    * Creates a {@link TermContext} with an initial {@link TermState},    * {@link IndexReader} pair.    */
+DECL|method|TermContext
 specifier|public
-name|PerReaderTermState
+name|TermContext
 parameter_list|(
 name|ReaderContext
 name|context
@@ -251,6 +271,9 @@ name|ord
 parameter_list|,
 name|int
 name|docFreq
+parameter_list|,
+name|long
+name|totalTermFreq
 parameter_list|)
 block|{
 name|this
@@ -265,14 +288,16 @@ argument_list|,
 name|ord
 argument_list|,
 name|docFreq
+argument_list|,
+name|totalTermFreq
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates a {@link PerReaderTermState} from a top-level {@link ReaderContext} and the    * given {@link Term}. This method will lookup the given term in all context's leaf readers     * and register each of the readers containing the term in the returned {@link PerReaderTermState}    * using the leaf reader's ordinal.    *<p>    * Note: the given context must be a top-level context.    */
+comment|/**    * Creates a {@link TermContext} from a top-level {@link ReaderContext} and the    * given {@link Term}. This method will lookup the given term in all context's leaf readers     * and register each of the readers containing the term in the returned {@link TermContext}    * using the leaf reader's ordinal.    *<p>    * Note: the given context must be a top-level context.    */
 DECL|method|build
 specifier|public
 specifier|static
-name|PerReaderTermState
+name|TermContext
 name|build
 parameter_list|(
 name|ReaderContext
@@ -315,11 +340,11 @@ name|bytes
 argument_list|()
 decl_stmt|;
 specifier|final
-name|PerReaderTermState
+name|TermContext
 name|perReaderTermState
 init|=
 operator|new
-name|PerReaderTermState
+name|TermContext
 argument_list|(
 name|context
 argument_list|)
@@ -440,6 +465,11 @@ name|termsEnum
 operator|.
 name|docFreq
 argument_list|()
+argument_list|,
+name|termsEnum
+operator|.
+name|totalTermFreq
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -450,7 +480,7 @@ return|return
 name|perReaderTermState
 return|;
 block|}
-comment|/**    * Clears the {@link PerReaderTermState} internal state and removes all    * registered {@link TermState}s    */
+comment|/**    * Clears the {@link TermContext} internal state and removes all    * registered {@link TermState}s    */
 DECL|method|clear
 specifier|public
 name|void
@@ -487,6 +517,10 @@ parameter_list|,
 specifier|final
 name|int
 name|docFreq
+parameter_list|,
+specifier|final
+name|long
+name|totalTermFreq
 parameter_list|)
 block|{
 assert|assert
@@ -527,6 +561,32 @@ name|docFreq
 operator|+=
 name|docFreq
 expr_stmt|;
+if|if
+condition|(
+name|this
+operator|.
+name|totalTermFreq
+operator|>=
+literal|0
+operator|&&
+name|totalTermFreq
+operator|>=
+literal|0
+condition|)
+name|this
+operator|.
+name|totalTermFreq
+operator|+=
+name|totalTermFreq
+expr_stmt|;
+else|else
+name|this
+operator|.
+name|totalTermFreq
+operator|=
+operator|-
+literal|1
+expr_stmt|;
 name|states
 index|[
 name|ord
@@ -563,7 +623,7 @@ name|ord
 index|]
 return|;
 block|}
-comment|/**    *  Returns the accumulated document frequency of all {@link TermState}    *         instances passed to {@link #register(TermState, int, int)}.    * @return the accumulated document frequency of all {@link TermState}    *         instances passed to {@link #register(TermState, int, int)}.    */
+comment|/**    *  Returns the accumulated document frequency of all {@link TermState}    *         instances passed to {@link #register(TermState, int, int, long)}.    * @return the accumulated document frequency of all {@link TermState}    *         instances passed to {@link #register(TermState, int, int, long)}.    */
 DECL|method|docFreq
 specifier|public
 name|int
@@ -573,6 +633,34 @@ block|{
 return|return
 name|docFreq
 return|;
+block|}
+comment|/**    *  Returns the accumulated term frequency of all {@link TermState}    *         instances passed to {@link #register(TermState, int, int, long)}.    * @return the accumulated term frequency of all {@link TermState}    *         instances passed to {@link #register(TermState, int, int, long)}.    */
+DECL|method|totalTermFreq
+specifier|public
+name|long
+name|totalTermFreq
+parameter_list|()
+block|{
+return|return
+name|totalTermFreq
+return|;
+block|}
+comment|/** expert: only available for queries that want to lie about docfreq    * @lucene.internal */
+DECL|method|setDocFreq
+specifier|public
+name|void
+name|setDocFreq
+parameter_list|(
+name|int
+name|docFreq
+parameter_list|)
+block|{
+name|this
+operator|.
+name|docFreq
+operator|=
+name|docFreq
+expr_stmt|;
 block|}
 block|}
 end_class

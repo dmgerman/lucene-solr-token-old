@@ -163,7 +163,7 @@ name|bb
 operator|.
 name|setWar
 argument_list|(
-literal|"src/webapp/web"
+literal|"webapp/web"
 argument_list|)
 expr_stmt|;
 comment|//    // START JMX SERVER

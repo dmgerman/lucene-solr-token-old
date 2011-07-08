@@ -696,7 +696,7 @@ argument_list|(
 name|rate
 argument_list|)
 expr_stmt|;
-name|Similarity
+name|DefaultSimilarity
 name|sim
 init|=
 operator|new
