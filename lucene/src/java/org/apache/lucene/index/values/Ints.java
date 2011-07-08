@@ -85,6 +85,19 @@ operator|.
 name|Directory
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|IOContext
+import|;
+end_import
 begin_comment
 comment|/**  * @lucene.experimental  */
 end_comment
@@ -117,6 +130,9 @@ name|bytesUsed
 parameter_list|,
 name|ValueType
 name|type
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -132,6 +148,8 @@ argument_list|,
 name|bytesUsed
 argument_list|,
 name|type
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -149,6 +167,9 @@ name|id
 parameter_list|,
 name|int
 name|numDocs
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -162,6 +183,8 @@ argument_list|,
 name|id
 argument_list|,
 name|numDocs
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}

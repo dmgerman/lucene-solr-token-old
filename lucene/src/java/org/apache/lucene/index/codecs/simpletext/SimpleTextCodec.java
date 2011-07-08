@@ -471,6 +471,10 @@ argument_list|()
 argument_list|,
 name|getDocValuesSortComparator
 argument_list|()
+argument_list|,
+name|state
+operator|.
+name|context
 argument_list|)
 return|;
 block|}

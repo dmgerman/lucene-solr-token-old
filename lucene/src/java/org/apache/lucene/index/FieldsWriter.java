@@ -94,6 +94,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|IndexInput
 import|;
 end_import
@@ -279,6 +292,9 @@ name|directory
 parameter_list|,
 name|String
 name|segment
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -320,6 +336,8 @@ name|IndexFileNames
 operator|.
 name|FIELDS_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|indexStream
@@ -340,6 +358,8 @@ name|IndexFileNames
 operator|.
 name|FIELDS_INDEX_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|fieldsStream

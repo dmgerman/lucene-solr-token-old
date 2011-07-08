@@ -117,8 +117,8 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|int
-name|bufferSize
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -138,7 +138,7 @@ argument_list|,
 name|name
 argument_list|)
 argument_list|,
-name|bufferSize
+name|context
 argument_list|,
 name|getReadChunkSize
 argument_list|()
@@ -155,8 +155,8 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|int
-name|bufferSize
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -167,7 +167,7 @@ name|SimpleFSCompoundFileDirectory
 argument_list|(
 name|name
 argument_list|,
-name|bufferSize
+name|context
 argument_list|)
 return|;
 block|}
@@ -193,8 +193,8 @@ parameter_list|(
 name|String
 name|fileName
 parameter_list|,
-name|int
-name|readBufferSize
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -207,7 +207,7 @@ name|this
 argument_list|,
 name|fileName
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|)
 expr_stmt|;
 name|IndexInput
@@ -501,8 +501,8 @@ parameter_list|(
 name|File
 name|path
 parameter_list|,
-name|int
-name|bufferSize
+name|IOContext
+name|context
 parameter_list|,
 name|int
 name|chunkSize
@@ -512,7 +512,7 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|bufferSize
+name|context
 argument_list|)
 expr_stmt|;
 name|this

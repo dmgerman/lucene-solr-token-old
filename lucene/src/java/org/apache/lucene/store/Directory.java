@@ -164,6 +164,9 @@ name|createOutput
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -184,7 +187,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Returns a stream reading an existing file. */
+comment|/** Returns a stream reading an existing file, with the    * specified read buffer size.  The particular Directory    * implementation may ignore the buffer size.  Currently    * the only Directory implementations that respect this    * parameter are {@link FSDirectory} and {@link    * CompoundFileDirectory}.   */
 DECL|method|openInput
 specifier|public
 specifier|abstract
@@ -193,32 +196,13 @@ name|openInput
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Returns a stream reading an existing file, with the    * specified read buffer size.  The particular Directory    * implementation may ignore the buffer size.  Currently    * the only Directory implementations that respect this    * parameter are {@link FSDirectory} and {@link    * CompoundFileDirectory}.   */
-DECL|method|openInput
-specifier|public
-name|IndexInput
-name|openInput
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|int
-name|bufferSize
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|openInput
-argument_list|(
-name|name
-argument_list|)
-return|;
-block|}
 comment|/**     * Returns a {@link CompoundFileDirectory} capable of    * reading the Lucene compound file format.      *<p>    * The default implementation returns     * {@link DefaultCompoundFileDirectory}.    * @lucene.experimental    */
 DECL|method|openCompoundInput
 specifier|public
@@ -228,8 +212,8 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|int
-name|bufferSize
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -242,7 +226,7 @@ name|this
 argument_list|,
 name|name
 argument_list|,
-name|bufferSize
+name|context
 argument_list|,
 literal|false
 argument_list|)
@@ -256,6 +240,9 @@ name|createCompoundOutput
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -268,7 +255,7 @@ name|this
 argument_list|,
 name|name
 argument_list|,
-literal|1024
+name|context
 argument_list|,
 literal|true
 argument_list|)
@@ -426,6 +413,9 @@ name|src
 parameter_list|,
 name|String
 name|dest
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -454,6 +444,8 @@ operator|.
 name|createOutput
 argument_list|(
 name|dest
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|is
@@ -461,6 +453,8 @@ operator|=
 name|openInput
 argument_list|(
 name|src
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|is

@@ -177,6 +177,9 @@ name|RAMDirectory
 parameter_list|(
 name|Directory
 name|dir
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -186,6 +189,8 @@ argument_list|(
 name|dir
 argument_list|,
 literal|false
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -198,6 +203,9 @@ name|dir
 parameter_list|,
 name|boolean
 name|closeDir
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -225,6 +233,8 @@ argument_list|,
 name|file
 argument_list|,
 name|file
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -529,6 +539,9 @@ name|createOutput
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -634,6 +647,9 @@ name|openInput
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException

@@ -44,6 +44,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|store
+operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|ArrayUtil
@@ -196,7 +209,11 @@ comment|// It's possible that all documents seen in this segment
 comment|// hit non-aborting exceptions, in which case we will
 comment|// not have yet init'd the FieldsWriter:
 name|initFieldsWriter
-argument_list|()
+argument_list|(
+name|state
+operator|.
+name|context
+argument_list|)
 expr_stmt|;
 name|fill
 argument_list|(
@@ -314,7 +331,10 @@ specifier|private
 specifier|synchronized
 name|void
 name|initFieldsWriter
-parameter_list|()
+parameter_list|(
+name|IOContext
+name|context
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -338,6 +358,8 @@ name|docWriter
 operator|.
 name|getSegment
 argument_list|()
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|lastDocID
@@ -428,7 +450,11 @@ literal|"StoredFieldsWriter.finishDocument start"
 argument_list|)
 assert|;
 name|initFieldsWriter
-argument_list|()
+argument_list|(
+name|IOContext
+operator|.
+name|DEFAULT
+argument_list|)
 expr_stmt|;
 name|fill
 argument_list|(

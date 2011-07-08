@@ -140,6 +140,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|IndexInput
 import|;
 end_import
@@ -425,6 +438,9 @@ name|comp
 parameter_list|,
 name|AtomicLong
 name|bytesUsed
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -448,6 +464,8 @@ name|bytesUsed
 argument_list|)
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -472,6 +490,9 @@ name|allocator
 parameter_list|,
 name|AtomicLong
 name|bytesUsed
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -487,6 +508,8 @@ argument_list|,
 name|VERSION_CURRENT
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|ByteBlockPool
@@ -1131,6 +1154,9 @@ name|id
 parameter_list|,
 name|int
 name|maxDoc
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1146,6 +1172,8 @@ argument_list|,
 name|VERSION_START
 argument_list|,
 literal|true
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|size

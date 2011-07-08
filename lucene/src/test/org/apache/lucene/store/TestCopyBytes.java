@@ -158,6 +158,11 @@ operator|.
 name|createOutput
 argument_list|(
 literal|"test"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|byte
@@ -301,6 +306,11 @@ operator|.
 name|openInput
 argument_list|(
 literal|"test"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|out
@@ -310,6 +320,11 @@ operator|.
 name|createOutput
 argument_list|(
 literal|"test2"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|upto
@@ -414,6 +429,11 @@ operator|.
 name|openInput
 argument_list|(
 literal|"test2"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|upto

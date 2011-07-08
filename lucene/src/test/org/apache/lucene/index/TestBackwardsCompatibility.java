@@ -3440,7 +3440,10 @@ name|openCompoundInput
 argument_list|(
 literal|"_0.cfs"
 argument_list|,
-literal|1024
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|FieldInfos

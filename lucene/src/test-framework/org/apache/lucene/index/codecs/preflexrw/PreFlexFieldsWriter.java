@@ -335,6 +335,10 @@ operator|.
 name|createOutput
 argument_list|(
 name|freqFile
+argument_list|,
+name|state
+operator|.
+name|context
 argument_list|)
 expr_stmt|;
 name|totalNumDocs
@@ -381,6 +385,10 @@ operator|.
 name|createOutput
 argument_list|(
 name|proxFile
+argument_list|,
+name|state
+operator|.
+name|context
 argument_list|)
 expr_stmt|;
 block|}

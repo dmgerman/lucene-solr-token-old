@@ -62,8 +62,8 @@ parameter_list|,
 name|String
 name|fileName
 parameter_list|,
-name|int
-name|readBufferSize
+name|IOContext
+name|context
 parameter_list|,
 name|boolean
 name|writeable
@@ -77,7 +77,7 @@ name|directory
 argument_list|,
 name|fileName
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|)
 expr_stmt|;
 if|if
@@ -96,7 +96,7 @@ name|openInput
 argument_list|(
 name|fileName
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|)
 expr_stmt|;
 name|initForRead

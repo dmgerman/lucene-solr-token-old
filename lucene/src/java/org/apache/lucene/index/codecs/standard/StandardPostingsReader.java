@@ -180,6 +180,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|IndexInput
 import|;
 end_import
@@ -281,8 +294,8 @@ parameter_list|,
 name|SegmentInfo
 name|segmentInfo
 parameter_list|,
-name|int
-name|readBufferSize
+name|IOContext
+name|context
 parameter_list|,
 name|int
 name|codecId
@@ -311,7 +324,7 @@ operator|.
 name|FREQ_EXTENSION
 argument_list|)
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|)
 expr_stmt|;
 comment|//this.segment = segmentInfo.name;
@@ -351,7 +364,7 @@ operator|.
 name|PROX_EXTENSION
 argument_list|)
 argument_list|,
-name|readBufferSize
+name|context
 argument_list|)
 expr_stmt|;
 name|success
