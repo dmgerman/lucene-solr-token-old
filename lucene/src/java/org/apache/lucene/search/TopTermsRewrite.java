@@ -147,7 +147,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|PerReaderTermState
+name|TermContext
 import|;
 end_import
 begin_comment
@@ -364,7 +364,7 @@ operator|.
 name|termComp
 argument_list|,
 operator|new
-name|PerReaderTermState
+name|TermContext
 argument_list|(
 name|topReaderContext
 argument_list|)
@@ -519,6 +519,11 @@ name|termsEnum
 operator|.
 name|docFreq
 argument_list|()
+argument_list|,
+name|termsEnum
+operator|.
+name|totalTermFreq
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -577,6 +582,11 @@ name|termsEnum
 operator|.
 name|docFreq
 argument_list|()
+argument_list|,
+name|termsEnum
+operator|.
+name|totalTermFreq
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|stQueue
@@ -632,7 +642,7 @@ argument_list|(
 name|termComp
 argument_list|,
 operator|new
-name|PerReaderTermState
+name|TermContext
 argument_list|(
 name|topReaderContext
 argument_list|)
@@ -1011,7 +1021,7 @@ decl_stmt|;
 DECL|field|termState
 specifier|public
 specifier|final
-name|PerReaderTermState
+name|TermContext
 name|termState
 decl_stmt|;
 DECL|method|ScoreTerm
@@ -1024,7 +1034,7 @@ name|BytesRef
 argument_list|>
 name|termComp
 parameter_list|,
-name|PerReaderTermState
+name|TermContext
 name|termState
 parameter_list|)
 block|{

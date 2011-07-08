@@ -655,7 +655,7 @@ annotation|@
 name|Override
 DECL|method|computeNorm
 specifier|public
-name|float
+name|byte
 name|computeNorm
 parameter_list|(
 name|FieldInvertState
@@ -663,6 +663,8 @@ name|state
 parameter_list|)
 block|{
 return|return
+name|encodeNormValue
+argument_list|(
 operator|(
 name|float
 operator|)
@@ -670,6 +672,7 @@ name|state
 operator|.
 name|getMaxTermFrequency
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

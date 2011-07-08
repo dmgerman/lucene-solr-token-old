@@ -152,7 +152,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|PerReaderTermState
+name|TermContext
 import|;
 end_import
 begin_import
@@ -254,7 +254,7 @@ parameter_list|,
 name|float
 name|boost
 parameter_list|,
-name|PerReaderTermState
+name|TermContext
 name|states
 parameter_list|)
 block|{
@@ -526,7 +526,7 @@ operator|.
 name|boost
 decl_stmt|;
 specifier|final
-name|PerReaderTermState
+name|TermContext
 index|[]
 name|termStates
 init|=
@@ -807,6 +807,11 @@ name|termsEnum
 operator|.
 name|docFreq
 argument_list|()
+argument_list|,
+name|termsEnum
+operator|.
+name|totalTermFreq
+argument_list|()
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -848,7 +853,7 @@ name|e
 index|]
 operator|=
 operator|new
-name|PerReaderTermState
+name|TermContext
 argument_list|(
 name|topReaderContext
 argument_list|,
@@ -861,6 +866,11 @@ argument_list|,
 name|termsEnum
 operator|.
 name|docFreq
+argument_list|()
+argument_list|,
+name|termsEnum
+operator|.
+name|totalTermFreq
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -897,7 +907,7 @@ index|[]
 name|boost
 decl_stmt|;
 DECL|field|termState
-name|PerReaderTermState
+name|TermContext
 index|[]
 name|termState
 decl_stmt|;
@@ -956,7 +966,7 @@ expr_stmt|;
 name|termState
 operator|=
 operator|new
-name|PerReaderTermState
+name|TermContext
 index|[
 name|ArrayUtil
 operator|.
@@ -1036,12 +1046,12 @@ operator|.
 name|length
 condition|)
 block|{
-name|PerReaderTermState
+name|TermContext
 index|[]
 name|tmpTermState
 init|=
 operator|new
-name|PerReaderTermState
+name|TermContext
 index|[
 name|ArrayUtil
 operator|.

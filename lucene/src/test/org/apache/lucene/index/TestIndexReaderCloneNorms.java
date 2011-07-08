@@ -279,7 +279,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|float
+name|byte
 name|computeNorm
 parameter_list|(
 name|FieldInvertState
@@ -288,10 +288,13 @@ parameter_list|)
 block|{
 comment|// diable length norm
 return|return
+name|encodeNormValue
+argument_list|(
 name|state
 operator|.
 name|getBoost
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
@@ -1136,7 +1139,7 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Similarity
+name|DefaultSimilarity
 name|sim
 init|=
 operator|new
@@ -1580,7 +1583,7 @@ name|origNorm
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Similarity
+name|DefaultSimilarity
 name|sim
 init|=
 operator|new
@@ -1752,7 +1755,7 @@ name|j
 operator|++
 control|)
 block|{
-name|Similarity
+name|DefaultSimilarity
 name|sim
 init|=
 operator|new
@@ -2039,7 +2042,7 @@ name|lastNorm
 operator|+
 name|normDelta
 decl_stmt|;
-name|Similarity
+name|DefaultSimilarity
 name|sim
 init|=
 operator|new

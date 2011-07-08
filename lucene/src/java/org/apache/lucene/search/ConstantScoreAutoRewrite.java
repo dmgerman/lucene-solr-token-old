@@ -137,7 +137,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|PerReaderTermState
+name|TermContext
 import|;
 end_import
 begin_import
@@ -301,7 +301,7 @@ name|float
 name|boost
 comment|/*ignored*/
 parameter_list|,
-name|PerReaderTermState
+name|TermContext
 name|states
 parameter_list|)
 block|{
@@ -731,6 +731,11 @@ name|termsEnum
 operator|.
 name|docFreq
 argument_list|()
+argument_list|,
+name|termsEnum
+operator|.
+name|totalTermFreq
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -744,7 +749,7 @@ name|pos
 index|]
 operator|=
 operator|new
-name|PerReaderTermState
+name|TermContext
 argument_list|(
 name|topReaderContext
 argument_list|,
@@ -757,6 +762,11 @@ argument_list|,
 name|termsEnum
 operator|.
 name|docFreq
+argument_list|()
+argument_list|,
+name|termsEnum
+operator|.
+name|totalTermFreq
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -946,7 +956,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/** Special implementation of BytesStartArray that keeps parallel arrays for {@link PerReaderTermState} */
+comment|/** Special implementation of BytesStartArray that keeps parallel arrays for {@link TermContext} */
 DECL|class|TermStateByteStart
 specifier|static
 specifier|final
@@ -956,7 +966,7 @@ extends|extends
 name|DirectBytesStartArray
 block|{
 DECL|field|termState
-name|PerReaderTermState
+name|TermContext
 index|[]
 name|termState
 decl_stmt|;
@@ -996,7 +1006,7 @@ decl_stmt|;
 name|termState
 operator|=
 operator|new
-name|PerReaderTermState
+name|TermContext
 index|[
 name|ArrayUtil
 operator|.
@@ -1055,12 +1065,12 @@ operator|.
 name|length
 condition|)
 block|{
-name|PerReaderTermState
+name|TermContext
 index|[]
 name|tmpTermState
 init|=
 operator|new
-name|PerReaderTermState
+name|TermContext
 index|[
 name|ArrayUtil
 operator|.

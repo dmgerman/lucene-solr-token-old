@@ -256,7 +256,7 @@ annotation|@
 name|Override
 DECL|method|computeNorm
 specifier|public
-name|float
+name|byte
 name|computeNorm
 parameter_list|(
 name|FieldInvertState
@@ -265,10 +265,13 @@ parameter_list|)
 block|{
 comment|// Disable length norm
 return|return
+name|encodeNormValue
+argument_list|(
 name|state
 operator|.
 name|getBoost
 argument_list|()
+argument_list|)
 return|;
 block|}
 annotation|@

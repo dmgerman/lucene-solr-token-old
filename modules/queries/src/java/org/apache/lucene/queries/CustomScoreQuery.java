@@ -982,27 +982,12 @@ operator|.
 name|this
 return|;
 block|}
-comment|/*(non-Javadoc) @see org.apache.lucene.search.Weight#getValue() */
 annotation|@
 name|Override
-DECL|method|getValue
+DECL|method|getValueForNormalization
 specifier|public
 name|float
-name|getValue
-parameter_list|()
-block|{
-return|return
-name|getBoost
-argument_list|()
-return|;
-block|}
-comment|/*(non-Javadoc) @see org.apache.lucene.search.Weight#sumOfSquaredWeights() */
-annotation|@
-name|Override
-DECL|method|sumOfSquaredWeights
-specifier|public
-name|float
-name|sumOfSquaredWeights
+name|getValueForNormalization
 parameter_list|()
 throws|throws
 name|IOException
@@ -1012,7 +997,7 @@ name|sum
 init|=
 name|subQueryWeight
 operator|.
-name|sumOfSquaredWeights
+name|getValueForNormalization
 argument_list|()
 decl_stmt|;
 for|for
@@ -1042,7 +1027,7 @@ index|[
 name|i
 index|]
 operator|.
-name|sumOfSquaredWeights
+name|getValueForNormalization
 argument_list|()
 expr_stmt|;
 comment|// do not include ValueSource part in the query normalization
@@ -1056,7 +1041,7 @@ index|[
 name|i
 index|]
 operator|.
-name|sumOfSquaredWeights
+name|getValueForNormalization
 argument_list|()
 expr_stmt|;
 block|}
@@ -1084,9 +1069,12 @@ name|normalize
 parameter_list|(
 name|float
 name|norm
+parameter_list|,
+name|float
+name|topLevelBoost
 parameter_list|)
 block|{
-name|norm
+name|topLevelBoost
 operator|*=
 name|getBoost
 argument_list|()
@@ -1097,6 +1085,8 @@ operator|.
 name|normalize
 argument_list|(
 name|norm
+argument_list|,
+name|topLevelBoost
 argument_list|)
 expr_stmt|;
 for|for
@@ -1129,6 +1119,8 @@ operator|.
 name|normalize
 argument_list|(
 literal|1
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 comment|// do not normalize the ValueSource part
@@ -1143,6 +1135,8 @@ operator|.
 name|normalize
 argument_list|(
 name|norm
+argument_list|,
+name|topLevelBoost
 argument_list|)
 expr_stmt|;
 block|}
@@ -1261,6 +1255,9 @@ name|context
 argument_list|)
 argument_list|,
 name|this
+argument_list|,
+name|getBoost
+argument_list|()
 argument_list|,
 name|subQueryScorer
 argument_list|,
@@ -1421,7 +1418,7 @@ decl_stmt|;
 name|float
 name|sc
 init|=
-name|getValue
+name|getBoost
 argument_list|()
 operator|*
 name|customExp
@@ -1463,7 +1460,7 @@ argument_list|(
 operator|new
 name|Explanation
 argument_list|(
-name|getValue
+name|getBoost
 argument_list|()
 argument_list|,
 literal|"queryBoost"
@@ -1538,6 +1535,9 @@ parameter_list|,
 name|CustomWeight
 name|w
 parameter_list|,
+name|float
+name|qWeight
+parameter_list|,
 name|Scorer
 name|subQueryScorer
 parameter_list|,
@@ -1557,10 +1557,7 @@ name|this
 operator|.
 name|qWeight
 operator|=
-name|w
-operator|.
-name|getValue
-argument_list|()
+name|qWeight
 expr_stmt|;
 name|this
 operator|.

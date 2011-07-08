@@ -2420,11 +2420,11 @@ name|this
 argument_list|)
 decl_stmt|;
 name|float
-name|sum
+name|v
 init|=
 name|weight
 operator|.
-name|sumOfSquaredWeights
+name|getValueForNormalization
 argument_list|()
 decl_stmt|;
 name|float
@@ -2435,7 +2435,7 @@ argument_list|()
 operator|.
 name|queryNorm
 argument_list|(
-name|sum
+name|v
 argument_list|)
 decl_stmt|;
 if|if
@@ -2463,6 +2463,8 @@ operator|.
 name|normalize
 argument_list|(
 name|norm
+argument_list|,
+literal|1.0f
 argument_list|)
 expr_stmt|;
 return|return
