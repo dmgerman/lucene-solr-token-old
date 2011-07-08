@@ -146,6 +146,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|IndexInput
 import|;
 end_import
@@ -265,7 +278,7 @@ DECL|enum constant|SORTED
 name|SORTED
 block|}
 empty_stmt|;
-comment|/**    * Creates a new<tt>byte[]</tt> {@link Writer} instances for the given    * directory.    *     * @param dir    *          the directory to write the values to    * @param id    *          the id used to create a unique file name. Usually composed out of    *          the segment name and a unique id per segment.    * @param mode    *          the writers store mode    * @param comp    *          a {@link BytesRef} comparator - only used with {@link Mode#SORTED}    * @param fixedSize    *<code>true</code> if all bytes subsequently passed to the    *          {@link Writer} will have the same length    * @param bytesUsed    *          an {@link AtomicLong} instance to track the used bytes within the    *          {@link Writer}. A call to {@link Writer#finish(int)} will release    *          all internally used resources and frees the memeory tracking    *          reference.    * @return a new {@link Writer} instance    * @throws IOException    *           if the files for the writer can not be created.    */
+comment|/**    * Creates a new<tt>byte[]</tt> {@link Writer} instances for the given    * directory.    *     * @param dir    *          the directory to write the values to    * @param id    *          the id used to create a unique file name. Usually composed out of    *          the segment name and a unique id per segment.    * @param mode    *          the writers store mode    * @param comp    *          a {@link BytesRef} comparator - only used with {@link Mode#SORTED}    * @param fixedSize    *<code>true</code> if all bytes subsequently passed to the    *          {@link Writer} will have the same length    * @param bytesUsed    *          an {@link AtomicLong} instance to track the used bytes within the    *          {@link Writer}. A call to {@link Writer#finish(int)} will release    *          all internally used resources and frees the memeory tracking    *          reference.    * @param context     * @return a new {@link Writer} instance    * @throws IOException    *           if the files for the writer can not be created.    */
 DECL|method|getWriter
 specifier|public
 specifier|static
@@ -292,6 +305,9 @@ name|fixedSize
 parameter_list|,
 name|AtomicLong
 name|bytesUsed
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -338,6 +354,8 @@ argument_list|,
 name|id
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -362,6 +380,8 @@ argument_list|,
 name|id
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -388,6 +408,8 @@ argument_list|,
 name|comp
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -414,6 +436,8 @@ argument_list|,
 name|id
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -438,6 +462,8 @@ argument_list|,
 name|id
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -464,6 +490,8 @@ argument_list|,
 name|comp
 argument_list|,
 name|bytesUsed
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -503,6 +531,9 @@ argument_list|<
 name|BytesRef
 argument_list|>
 name|sortComparator
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -533,6 +564,8 @@ argument_list|,
 name|id
 argument_list|,
 name|maxDoc
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -557,6 +590,8 @@ argument_list|,
 name|id
 argument_list|,
 name|maxDoc
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -581,6 +616,8 @@ argument_list|,
 name|id
 argument_list|,
 name|maxDoc
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -607,6 +644,8 @@ argument_list|,
 name|id
 argument_list|,
 name|maxDoc
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -631,6 +670,8 @@ argument_list|,
 name|id
 argument_list|,
 name|maxDoc
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -657,6 +698,8 @@ argument_list|,
 name|maxDoc
 argument_list|,
 name|sortComparator
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -1485,6 +1528,12 @@ specifier|final
 name|int
 name|version
 decl_stmt|;
+DECL|field|context
+specifier|private
+specifier|final
+name|IOContext
+name|context
+decl_stmt|;
 DECL|method|BytesWriterBase
 specifier|protected
 name|BytesWriterBase
@@ -1503,6 +1552,9 @@ name|version
 parameter_list|,
 name|AtomicLong
 name|bytesUsed
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1535,6 +1587,12 @@ operator|.
 name|version
 operator|=
 name|version
+expr_stmt|;
+name|this
+operator|.
+name|context
+operator|=
+name|context
 expr_stmt|;
 block|}
 DECL|method|getDataOut
@@ -1575,6 +1633,8 @@ literal|""
 argument_list|,
 name|DATA_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|CodecUtil
@@ -1655,6 +1715,8 @@ literal|""
 argument_list|,
 name|INDEX_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|CodecUtil
@@ -1934,6 +1996,9 @@ name|maxVersion
 parameter_list|,
 name|boolean
 name|doIndex
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1962,6 +2027,8 @@ name|Writer
 operator|.
 name|DATA_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -2009,6 +2076,8 @@ name|Writer
 operator|.
 name|INDEX_EXTENSION
 argument_list|)
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 specifier|final

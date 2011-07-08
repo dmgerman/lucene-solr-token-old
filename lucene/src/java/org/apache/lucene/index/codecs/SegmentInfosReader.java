@@ -51,6 +51,19 @@ operator|.
 name|Directory
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|IOContext
+import|;
+end_import
 begin_comment
 comment|/**  * Specifies an API for classes that can read {@link SegmentInfos} information.  * @lucene.experimental  */
 end_comment
@@ -79,6 +92,9 @@ name|codecs
 parameter_list|,
 name|SegmentInfos
 name|infos
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException

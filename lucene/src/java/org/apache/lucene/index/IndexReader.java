@@ -3154,6 +3154,13 @@ name|cfr
 init|=
 literal|null
 decl_stmt|;
+name|IOContext
+name|context
+init|=
+name|IOContext
+operator|.
+name|READ
+decl_stmt|;
 try|try
 block|{
 name|File
@@ -3204,9 +3211,9 @@ name|openCompoundInput
 argument_list|(
 name|filename
 argument_list|,
-name|BufferedIndexInput
+name|IOContext
 operator|.
-name|BUFFER_SIZE
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|String
@@ -3292,6 +3299,8 @@ name|files
 index|[
 name|i
 index|]
+argument_list|,
+name|context
 argument_list|)
 decl_stmt|;
 name|FileOutputStream

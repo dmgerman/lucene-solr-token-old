@@ -426,7 +426,11 @@ decl_stmt|;
 try|try
 block|{
 name|initDataOut
-argument_list|()
+argument_list|(
+name|IOContext
+operator|.
+name|DEFAULT
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -509,6 +513,10 @@ operator|.
 name|createOutput
 argument_list|(
 name|entryTableName
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 name|writeEntryTable
@@ -641,6 +649,10 @@ argument_list|(
 name|fileEntry
 operator|.
 name|file
+argument_list|,
+name|IOContext
+operator|.
+name|READONCE
 argument_list|)
 decl_stmt|;
 try|try
@@ -819,6 +831,9 @@ name|createOutput
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -902,7 +917,9 @@ argument_list|)
 condition|)
 block|{
 name|initDataOut
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 expr_stmt|;
 name|success
 operator|=
@@ -959,6 +976,8 @@ operator|.
 name|createOutput
 argument_list|(
 name|name
+argument_list|,
+name|context
 argument_list|)
 argument_list|,
 name|entry
@@ -1015,7 +1034,10 @@ specifier|synchronized
 specifier|final
 name|void
 name|initDataOut
-parameter_list|()
+parameter_list|(
+name|IOContext
+name|context
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -1040,6 +1062,8 @@ operator|.
 name|createOutput
 argument_list|(
 name|dataFileName
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|dataOut

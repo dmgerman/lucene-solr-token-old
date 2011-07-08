@@ -122,6 +122,11 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"test"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 for|for
@@ -162,6 +167,11 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"test"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|IntIndexInput
@@ -247,6 +257,11 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"test"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// write no ints
@@ -265,6 +280,11 @@ argument_list|(
 name|dir
 argument_list|,
 literal|"test"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|in

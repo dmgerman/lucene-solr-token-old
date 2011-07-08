@@ -33,6 +33,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|MockDirectoryWrapper
 import|;
 end_import
@@ -693,6 +706,11 @@ argument_list|(
 name|d
 argument_list|,
 literal|"TESTBV"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|BitVector
@@ -704,6 +722,11 @@ argument_list|(
 name|d
 argument_list|,
 literal|"TESTBV"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// compare bit vectors with bits set incrementally
@@ -887,6 +910,11 @@ argument_list|(
 name|d
 argument_list|,
 literal|"TESTBV"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// gradually increase number of set bits
@@ -914,6 +942,11 @@ argument_list|(
 name|d
 argument_list|,
 literal|"TESTBV"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -958,6 +991,11 @@ argument_list|(
 name|d
 argument_list|,
 literal|"TESTBV"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -988,6 +1026,11 @@ argument_list|(
 name|d
 argument_list|,
 literal|"TESTBV"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -1030,6 +1073,11 @@ argument_list|(
 name|d
 argument_list|,
 literal|"TESTBV"
+argument_list|,
+name|newIOContext
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

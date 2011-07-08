@@ -55,6 +55,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|IOContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|IndexInput
 import|;
 end_import
@@ -1355,7 +1368,7 @@ return|return
 name|version
 return|;
 block|}
-comment|/** Writes this vector to the file<code>name</code> in Directory<code>d</code>, in a format that can be read by the constructor {@link     #BitVector(Directory, String)}.  */
+comment|/** Writes this vector to the file<code>name</code> in Directory<code>d</code>, in a format that can be read by the constructor {@link     #BitVector(Directory, String, IOContext)}.  */
 DECL|method|write
 specifier|public
 specifier|final
@@ -1367,6 +1380,9 @@ name|d
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1379,6 +1395,8 @@ operator|.
 name|createOutput
 argument_list|(
 name|name
+argument_list|,
+name|context
 argument_list|)
 decl_stmt|;
 try|try
@@ -1933,6 +1951,9 @@ name|d
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1945,6 +1966,8 @@ operator|.
 name|openInput
 argument_list|(
 name|name
+argument_list|,
+name|context
 argument_list|)
 decl_stmt|;
 try|try
