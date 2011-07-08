@@ -208,26 +208,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|codecs
-operator|.
-name|standard
-operator|.
-name|StandardPostingsReader
-import|;
-end_import
-begin_comment
-comment|// javadocs
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|ByteArrayDataInput
@@ -3365,7 +3345,9 @@ name|blocksSinceSeek
 operator|++
 expr_stmt|;
 name|indexIsCurrent
-operator|&=
+operator|=
+name|indexIsCurrent
+operator|&&
 operator|(
 name|blocksSinceSeek
 operator|<
