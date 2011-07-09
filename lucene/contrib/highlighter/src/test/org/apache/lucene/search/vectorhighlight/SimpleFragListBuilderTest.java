@@ -24,9 +24,22 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|Term
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
-name|Query
+name|*
 import|;
 end_import
 begin_class
@@ -61,7 +74,17 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
 literal|"a"
+argument_list|)
+argument_list|)
 argument_list|,
 literal|"b c d"
 argument_list|)
@@ -106,7 +129,17 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
 literal|"a"
+argument_list|)
+argument_list|)
 argument_list|,
 literal|"b c d"
 argument_list|)
@@ -155,7 +188,17 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
 literal|"abcdefghijklmnopqrs"
+argument_list|)
+argument_list|)
 argument_list|,
 literal|"abcdefghijklmnopqrs"
 argument_list|)
@@ -212,6 +255,39 @@ operator|new
 name|SimpleFragListBuilder
 argument_list|()
 decl_stmt|;
+name|PhraseQuery
+name|phraseQuery
+init|=
+operator|new
+name|PhraseQuery
+argument_list|()
+decl_stmt|;
+name|phraseQuery
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
+literal|"abcdefgh"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|phraseQuery
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
+literal|"jklmnopqrs"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|FieldFragList
 name|ffl
 init|=
@@ -221,7 +297,7 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
-literal|"\"abcdefgh jklmnopqrs\""
+name|phraseQuery
 argument_list|,
 literal|"abcdefgh   jklmnopqrs"
 argument_list|)
@@ -311,7 +387,17 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
 literal|"a"
+argument_list|)
+argument_list|)
 argument_list|,
 literal|"a"
 argument_list|)
@@ -375,7 +461,17 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
 literal|"a"
+argument_list|)
+argument_list|)
 argument_list|,
 literal|"a a"
 argument_list|)
@@ -422,7 +518,17 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
 literal|"a"
+argument_list|)
+argument_list|)
 argument_list|,
 literal|"a b b b b b b b b a"
 argument_list|)
@@ -469,7 +575,17 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
 literal|"a"
+argument_list|)
+argument_list|)
 argument_list|,
 literal|"b b b b a b b b b a"
 argument_list|)
@@ -533,7 +649,17 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
 literal|"a"
+argument_list|)
+argument_list|)
 argument_list|,
 literal|"a b b b b b b b b b b b b b a"
 argument_list|)
@@ -598,7 +724,17 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
 literal|"a"
+argument_list|)
+argument_list|)
 argument_list|,
 literal|"a b b b b b b b b b b b b a"
 argument_list|)
@@ -663,7 +799,17 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
 literal|"a"
+argument_list|)
+argument_list|)
 argument_list|,
 literal|"a b b b b b b b b b a"
 argument_list|)
@@ -736,6 +882,59 @@ operator|new
 name|SimpleFragListBuilder
 argument_list|()
 decl_stmt|;
+name|BooleanQuery
+name|booleanQuery
+init|=
+operator|new
+name|BooleanQuery
+argument_list|()
+decl_stmt|;
+name|booleanQuery
+operator|.
+name|add
+argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
+literal|"a"
+argument_list|)
+argument_list|)
+argument_list|,
+name|BooleanClause
+operator|.
+name|Occur
+operator|.
+name|SHOULD
+argument_list|)
+expr_stmt|;
+name|booleanQuery
+operator|.
+name|add
+argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
+literal|"b"
+argument_list|)
+argument_list|)
+argument_list|,
+name|BooleanClause
+operator|.
+name|Occur
+operator|.
+name|SHOULD
+argument_list|)
+expr_stmt|;
 name|FieldFragList
 name|ffl
 init|=
@@ -745,7 +944,7 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
-literal|"a b"
+name|booleanQuery
 argument_list|,
 literal|"c d e"
 argument_list|)
@@ -774,7 +973,7 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
-literal|"a b"
+name|booleanQuery
 argument_list|,
 literal|"d b c"
 argument_list|)
@@ -821,7 +1020,7 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
-literal|"a b"
+name|booleanQuery
 argument_list|,
 literal|"a b c"
 argument_list|)
@@ -876,6 +1075,39 @@ operator|new
 name|SimpleFragListBuilder
 argument_list|()
 decl_stmt|;
+name|PhraseQuery
+name|phraseQuery
+init|=
+operator|new
+name|PhraseQuery
+argument_list|()
+decl_stmt|;
+name|phraseQuery
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
+literal|"a"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|phraseQuery
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
+literal|"b"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|FieldFragList
 name|ffl
 init|=
@@ -885,7 +1117,7 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
-literal|"\"a b\""
+name|phraseQuery
 argument_list|,
 literal|"c d e"
 argument_list|)
@@ -914,7 +1146,7 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
-literal|"\"a b\""
+name|phraseQuery
 argument_list|,
 literal|"a c b"
 argument_list|)
@@ -943,7 +1175,7 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
-literal|"\"a b\""
+name|phraseQuery
 argument_list|,
 literal|"a b c"
 argument_list|)
@@ -998,6 +1230,46 @@ operator|new
 name|SimpleFragListBuilder
 argument_list|()
 decl_stmt|;
+name|PhraseQuery
+name|phraseQuery
+init|=
+operator|new
+name|PhraseQuery
+argument_list|()
+decl_stmt|;
+name|phraseQuery
+operator|.
+name|setSlop
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|phraseQuery
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
+literal|"a"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|phraseQuery
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|F
+argument_list|,
+literal|"b"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|FieldFragList
 name|ffl
 init|=
@@ -1007,7 +1279,7 @@ name|createFieldFragList
 argument_list|(
 name|fpl
 argument_list|(
-literal|"\"a b\"~1"
+name|phraseQuery
 argument_list|,
 literal|"a c b"
 argument_list|)
@@ -1052,8 +1324,8 @@ specifier|private
 name|FieldPhraseList
 name|fpl
 parameter_list|(
-name|String
-name|queryValue
+name|Query
+name|query
 parameter_list|,
 name|String
 name|indexValue
@@ -1066,16 +1338,6 @@ argument_list|(
 name|indexValue
 argument_list|)
 expr_stmt|;
-name|Query
-name|query
-init|=
-name|paW
-operator|.
-name|parse
-argument_list|(
-name|queryValue
-argument_list|)
-decl_stmt|;
 name|FieldQuery
 name|fq
 init|=

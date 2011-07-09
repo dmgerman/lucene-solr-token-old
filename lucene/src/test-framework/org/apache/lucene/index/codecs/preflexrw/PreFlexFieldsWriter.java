@@ -1052,6 +1052,9 @@ name|finish
 parameter_list|(
 name|long
 name|sumTotalTermCount
+parameter_list|,
+name|long
+name|sumDocFreq
 parameter_list|)
 throws|throws
 name|IOException
