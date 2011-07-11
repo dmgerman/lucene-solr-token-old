@@ -660,6 +660,8 @@ operator|.
 name|readNextRealArc
 argument_list|(
 name|arc
+argument_list|,
+name|in
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -781,6 +783,8 @@ operator|.
 name|readNextRealArc
 argument_list|(
 name|arc
+argument_list|,
+name|in
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -872,6 +876,8 @@ operator|.
 name|readNextRealArc
 argument_list|(
 name|arc
+argument_list|,
+name|in
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -1283,6 +1289,8 @@ operator|.
 name|readNextRealArc
 argument_list|(
 name|arc
+argument_list|,
+name|in
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -1507,6 +1515,8 @@ operator|.
 name|readNextRealArc
 argument_list|(
 name|arc
+argument_list|,
+name|in
 argument_list|)
 expr_stmt|;
 assert|assert
