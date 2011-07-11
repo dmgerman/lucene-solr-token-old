@@ -1880,12 +1880,6 @@ name|INPUT_TYPE
 operator|.
 name|BYTE4
 argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|true
-argument_list|,
 name|outputs
 argument_list|)
 decl_stmt|;

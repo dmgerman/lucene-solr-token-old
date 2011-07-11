@@ -1110,6 +1110,8 @@ argument_list|(
 literal|0
 argument_list|,
 literal|0
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -1252,6 +1254,8 @@ argument_list|(
 literal|0
 argument_list|,
 literal|0
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -1422,6 +1426,8 @@ argument_list|(
 literal|0
 argument_list|,
 literal|0
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -2989,6 +2995,8 @@ argument_list|(
 literal|0
 argument_list|,
 literal|0
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -3021,6 +3029,8 @@ argument_list|()
 argument_list|)
 argument_list|,
 literal|0
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// leafy pruning
@@ -3043,6 +3053,8 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -3524,6 +3536,9 @@ name|prune1
 parameter_list|,
 name|int
 name|prune2
+parameter_list|,
+name|boolean
+name|allowRandomSuffixSharing
 parameter_list|)
 throws|throws
 name|IOException
@@ -3589,6 +3604,32 @@ operator|&&
 name|prune2
 operator|==
 literal|0
+argument_list|,
+name|allowRandomSuffixSharing
+condition|?
+name|random
+operator|.
+name|nextBoolean
+argument_list|()
+else|:
+literal|true
+argument_list|,
+name|allowRandomSuffixSharing
+condition|?
+name|_TestUtil
+operator|.
+name|nextInt
+argument_list|(
+name|random
+argument_list|,
+literal|1
+argument_list|,
+literal|10
+argument_list|)
+else|:
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|,
 name|outputs
 argument_list|)
@@ -7310,12 +7351,6 @@ name|INPUT_TYPE
 operator|.
 name|BYTE1
 argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|true
-argument_list|,
 name|outputs
 argument_list|)
 decl_stmt|;
@@ -8206,6 +8241,12 @@ name|prune
 operator|==
 literal|0
 argument_list|,
+literal|true
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
+argument_list|,
 name|outputs
 argument_list|)
 expr_stmt|;
@@ -8842,7 +8883,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// java -cp build/classes/test:build/classes/java:lib/junit-4.7.jar org.apache.lucene.util.fst.TestFSTs /x/tmp/allTerms3.txt out
+comment|// java -cp build/classes/test:build/classes/java:build/classes/test-framework:lib/junit-4.7.jar org.apache.lucene.util.fst.TestFSTs /x/tmp/allTerms3.txt out
 DECL|method|main
 specifier|public
 specifier|static
@@ -9620,12 +9661,6 @@ name|INPUT_TYPE
 operator|.
 name|BYTE1
 argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|true
-argument_list|,
 name|outputs
 argument_list|)
 decl_stmt|;
@@ -9736,12 +9771,6 @@ operator|.
 name|INPUT_TYPE
 operator|.
 name|BYTE1
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|true
 argument_list|,
 name|outputs
 argument_list|)
@@ -10063,12 +10092,6 @@ operator|.
 name|INPUT_TYPE
 operator|.
 name|BYTE1
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|true
 argument_list|,
 name|outputs
 argument_list|)
@@ -10581,12 +10604,6 @@ operator|.
 name|INPUT_TYPE
 operator|.
 name|BYTE1
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-literal|true
 argument_list|,
 name|outputs
 argument_list|)

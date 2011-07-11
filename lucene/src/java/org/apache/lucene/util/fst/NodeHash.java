@@ -897,6 +897,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|method|count
+specifier|public
+name|int
+name|count
+parameter_list|()
+block|{
+return|return
+name|count
+return|;
+block|}
 block|}
 end_class
 end_unit
