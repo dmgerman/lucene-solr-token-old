@@ -421,19 +421,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryParser
-operator|.
-name|ParseException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|*
@@ -10740,8 +10727,6 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|ParseException
-throws|,
 name|InvalidTokenOffsetsException
 block|{
 name|makeIndex
@@ -10962,8 +10947,6 @@ name|searchIndex
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|ParseException
 throws|,
 name|InvalidTokenOffsetsException
 block|{

@@ -6,7 +6,7 @@ begin_comment
 comment|/* JavaCCOptions:KEEP_LINE_COL=null */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.queryParser
+DECL|package|org.apache.lucene.queryparser.classic
 package|package
 name|org
 operator|.
@@ -14,7 +14,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryParser
+name|queryparser
+operator|.
+name|classic
 package|;
 end_package
 begin_comment
@@ -674,6 +676,6 @@ block|}
 block|}
 end_class
 begin_comment
-comment|/* JavaCC - OriginalChecksum=c7631a240f7446940695eac31d9483ca (do not edit this line) */
+comment|/* JavaCC - OriginalChecksum=f669ffb14d5be55de6298772ac9befeb (do not edit this line) */
 end_comment
 end_unit

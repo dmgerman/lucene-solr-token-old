@@ -100,19 +100,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryParser
-operator|.
-name|ParseException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|Directory
@@ -3014,8 +3001,6 @@ name|testZeroPosIncrSloppyParsedAnd
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|ParseException
 block|{
 name|MultiPhraseQuery
 name|q
@@ -3360,8 +3345,6 @@ name|testZeroPosIncrSloppyPqAnd
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|ParseException
 block|{
 specifier|final
 name|PhraseQuery
@@ -3443,8 +3426,6 @@ name|testZeroPosIncrSloppyMpqAnd
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|ParseException
 block|{
 specifier|final
 name|MultiPhraseQuery
@@ -3532,8 +3513,6 @@ name|testZeroPosIncrSloppyMpqAndOrMatch
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|ParseException
 block|{
 specifier|final
 name|MultiPhraseQuery
@@ -3627,8 +3606,6 @@ name|testZeroPosIncrSloppyMpqAndOrNoMatch
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|ParseException
 block|{
 specifier|final
 name|MultiPhraseQuery

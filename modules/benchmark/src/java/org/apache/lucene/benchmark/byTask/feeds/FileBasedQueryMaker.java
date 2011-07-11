@@ -36,9 +36,11 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryParser
+name|queryparser
 operator|.
-name|QueryParser
+name|classic
+operator|.
+name|ParseException
 import|;
 end_import
 begin_import
@@ -49,9 +51,11 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryParser
+name|queryparser
 operator|.
-name|ParseException
+name|classic
+operator|.
+name|QueryParser
 import|;
 end_import
 begin_import

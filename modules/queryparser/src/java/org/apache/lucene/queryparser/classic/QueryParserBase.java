@@ -3,7 +3,7 @@ begin_comment
 comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.queryParser
+DECL|package|org.apache.lucene.queryparser.classic
 package|package
 name|org
 operator|.
@@ -11,7 +11,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryParser
+name|queryparser
+operator|.
+name|classic
 package|;
 end_package
 begin_import
@@ -162,7 +164,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryParser
+name|queryparser
+operator|.
+name|classic
 operator|.
 name|QueryParser
 operator|.
@@ -1419,7 +1423,7 @@ literal|"Clause cannot be both required and prohibited"
 argument_list|)
 throw|;
 block|}
-comment|/**    * @exception org.apache.lucene.queryParser.ParseException throw in overridden method to disallow    */
+comment|/**    * @exception org.apache.lucene.queryparser.classic.ParseException throw in overridden method to disallow    */
 DECL|method|getFieldQuery
 specifier|protected
 name|Query
@@ -1450,7 +1454,7 @@ name|quoted
 argument_list|)
 return|;
 block|}
-comment|/**    * @exception org.apache.lucene.queryParser.ParseException throw in overridden method to disallow    */
+comment|/**    * @exception org.apache.lucene.queryparser.classic.ParseException throw in overridden method to disallow    */
 DECL|method|newFieldQuery
 specifier|protected
 name|Query
@@ -2331,7 +2335,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/**    * Base implementation delegates to {@link #getFieldQuery(String,String,boolean)}.    * This method may be overridden, for example, to return    * a SpanNearQuery instead of a PhraseQuery.    *    * @exception org.apache.lucene.queryParser.ParseException throw in overridden method to disallow    */
+comment|/**    * Base implementation delegates to {@link #getFieldQuery(String,String,boolean)}.    * This method may be overridden, for example, to return    * a SpanNearQuery instead of a PhraseQuery.    *    * @exception org.apache.lucene.queryparser.classic.ParseException throw in overridden method to disallow    */
 DECL|method|getFieldQuery
 specifier|protected
 name|Query
@@ -2405,7 +2409,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**    *    * @exception org.apache.lucene.queryParser.ParseException    */
+comment|/**    *    * @exception org.apache.lucene.queryparser.classic.ParseException    */
 DECL|method|getRangeQuery
 specifier|protected
 name|Query
@@ -3147,7 +3151,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**    * Factory method for generating query, given a set of clauses.    * By default creates a boolean query composed of clauses passed in.    *    * Can be overridden by extending classes, to modify query being    * returned.    *    * @param clauses List that contains {@link org.apache.lucene.search.BooleanClause} instances    *    to join.    *    * @return Resulting {@link org.apache.lucene.search.Query} object.    * @exception org.apache.lucene.queryParser.ParseException throw in overridden method to disallow    */
+comment|/**    * Factory method for generating query, given a set of clauses.    * By default creates a boolean query composed of clauses passed in.    *    * Can be overridden by extending classes, to modify query being    * returned.    *    * @param clauses List that contains {@link org.apache.lucene.search.BooleanClause} instances    *    to join.    *    * @return Resulting {@link org.apache.lucene.search.Query} object.    * @exception org.apache.lucene.queryparser.classic.ParseException throw in overridden method to disallow    */
 DECL|method|getBooleanQuery
 specifier|protected
 name|Query
@@ -3171,7 +3175,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**    * Factory method for generating query, given a set of clauses.    * By default creates a boolean query composed of clauses passed in.    *    * Can be overridden by extending classes, to modify query being    * returned.    *    * @param clauses List that contains {@link org.apache.lucene.search.BooleanClause} instances    *    to join.    * @param disableCoord true if coord scoring should be disabled.    *    * @return Resulting {@link org.apache.lucene.search.Query} object.    * @exception org.apache.lucene.queryParser.ParseException throw in overridden method to disallow    */
+comment|/**    * Factory method for generating query, given a set of clauses.    * By default creates a boolean query composed of clauses passed in.    *    * Can be overridden by extending classes, to modify query being    * returned.    *    * @param clauses List that contains {@link org.apache.lucene.search.BooleanClause} instances    *    to join.    * @param disableCoord true if coord scoring should be disabled.    *    * @return Resulting {@link org.apache.lucene.search.Query} object.    * @exception org.apache.lucene.queryparser.classic.ParseException throw in overridden method to disallow    */
 DECL|method|getBooleanQuery
 specifier|protected
 name|Query
@@ -3233,7 +3237,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**    * Factory method for generating a query. Called when parser    * parses an input term token that contains one or more wildcard    * characters (? and *), but is not a prefix term token (one    * that has just a single * character at the end)    *<p>    * Depending on settings, prefix term may be lower-cased    * automatically. It will not go through the default Analyzer,    * however, since normal Analyzers are unlikely to work properly    * with wildcard templates.    *<p>    * Can be overridden by extending classes, to provide custom handling for    * wildcard queries, which may be necessary due to missing analyzer calls.    *    * @param field Name of the field query will use.    * @param termStr Term token that contains one or more wild card    *   characters (? or *), but is not simple prefix term    *    * @return Resulting {@link org.apache.lucene.search.Query} built for the term    * @exception org.apache.lucene.queryParser.ParseException throw in overridden method to disallow    */
+comment|/**    * Factory method for generating a query. Called when parser    * parses an input term token that contains one or more wildcard    * characters (? and *), but is not a prefix term token (one    * that has just a single * character at the end)    *<p>    * Depending on settings, prefix term may be lower-cased    * automatically. It will not go through the default Analyzer,    * however, since normal Analyzers are unlikely to work properly    * with wildcard templates.    *<p>    * Can be overridden by extending classes, to provide custom handling for    * wildcard queries, which may be necessary due to missing analyzer calls.    *    * @param field Name of the field query will use.    * @param termStr Term token that contains one or more wild card    *   characters (? or *), but is not simple prefix term    *    * @return Resulting {@link org.apache.lucene.search.Query} built for the term    * @exception org.apache.lucene.queryparser.classic.ParseException throw in overridden method to disallow    */
 DECL|method|getWildcardQuery
 specifier|protected
 name|Query
@@ -3331,7 +3335,7 @@ name|t
 argument_list|)
 return|;
 block|}
-comment|/**    * Factory method for generating a query. Called when parser    * parses an input term token that contains a regular expression    * query.    *<p>    * Depending on settings, pattern term may be lower-cased    * automatically. It will not go through the default Analyzer,    * however, since normal Analyzers are unlikely to work properly    * with regular expression templates.    *<p>    * Can be overridden by extending classes, to provide custom handling for    * regular expression queries, which may be necessary due to missing analyzer    * calls.    *    * @param field Name of the field query will use.    * @param termStr Term token that contains a regular expression    *    * @return Resulting {@link org.apache.lucene.search.Query} built for the term    * @exception org.apache.lucene.queryParser.ParseException throw in overridden method to disallow    */
+comment|/**    * Factory method for generating a query. Called when parser    * parses an input term token that contains a regular expression    * query.    *<p>    * Depending on settings, pattern term may be lower-cased    * automatically. It will not go through the default Analyzer,    * however, since normal Analyzers are unlikely to work properly    * with regular expression templates.    *<p>    * Can be overridden by extending classes, to provide custom handling for    * regular expression queries, which may be necessary due to missing analyzer    * calls.    *    * @param field Name of the field query will use.    * @param termStr Term token that contains a regular expression    *    * @return Resulting {@link org.apache.lucene.search.Query} built for the term    * @exception org.apache.lucene.queryparser.classic.ParseException throw in overridden method to disallow    */
 DECL|method|getRegexpQuery
 specifier|protected
 name|Query
@@ -3377,7 +3381,7 @@ name|t
 argument_list|)
 return|;
 block|}
-comment|/**    * Factory method for generating a query (similar to    * {@link #getWildcardQuery}). Called when parser parses an input term    * token that uses prefix notation; that is, contains a single '*' wildcard    * character as its last character. Since this is a special case    * of generic wildcard term, and such a query can be optimized easily,    * this usually results in a different query object.    *<p>    * Depending on settings, a prefix term may be lower-cased    * automatically. It will not go through the default Analyzer,    * however, since normal Analyzers are unlikely to work properly    * with wildcard templates.    *<p>    * Can be overridden by extending classes, to provide custom handling for    * wild card queries, which may be necessary due to missing analyzer calls.    *    * @param field Name of the field query will use.    * @param termStr Term token to use for building term for the query    *    (<b>without</b> trailing '*' character!)    *    * @return Resulting {@link org.apache.lucene.search.Query} built for the term    * @exception org.apache.lucene.queryParser.ParseException throw in overridden method to disallow    */
+comment|/**    * Factory method for generating a query (similar to    * {@link #getWildcardQuery}). Called when parser parses an input term    * token that uses prefix notation; that is, contains a single '*' wildcard    * character as its last character. Since this is a special case    * of generic wildcard term, and such a query can be optimized easily,    * this usually results in a different query object.    *<p>    * Depending on settings, a prefix term may be lower-cased    * automatically. It will not go through the default Analyzer,    * however, since normal Analyzers are unlikely to work properly    * with wildcard templates.    *<p>    * Can be overridden by extending classes, to provide custom handling for    * wild card queries, which may be necessary due to missing analyzer calls.    *    * @param field Name of the field query will use.    * @param termStr Term token to use for building term for the query    *    (<b>without</b> trailing '*' character!)    *    * @return Resulting {@link org.apache.lucene.search.Query} built for the term    * @exception org.apache.lucene.queryparser.classic.ParseException throw in overridden method to disallow    */
 DECL|method|getPrefixQuery
 specifier|protected
 name|Query
@@ -3442,7 +3446,7 @@ name|t
 argument_list|)
 return|;
 block|}
-comment|/**    * Factory method for generating a query (similar to    * {@link #getWildcardQuery}). Called when parser parses    * an input term token that has the fuzzy suffix (~) appended.    *    * @param field Name of the field query will use.    * @param termStr Term token to use for building term for the query    *    * @return Resulting {@link org.apache.lucene.search.Query} built for the term    * @exception org.apache.lucene.queryParser.ParseException throw in overridden method to disallow    */
+comment|/**    * Factory method for generating a query (similar to    * {@link #getWildcardQuery}). Called when parser parses    * an input term token that has the fuzzy suffix (~) appended.    *    * @param field Name of the field query will use.    * @param termStr Term token to use for building term for the query    *    * @return Resulting {@link org.apache.lucene.search.Query} built for the term    * @exception org.apache.lucene.queryparser.classic.ParseException throw in overridden method to disallow    */
 DECL|method|getFuzzyQuery
 specifier|protected
 name|Query
