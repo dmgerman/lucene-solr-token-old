@@ -194,7 +194,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 begin_import
@@ -1620,7 +1620,7 @@ name|numDocs
 argument_list|,
 operator|(
 operator|(
-name|OpenBitSet
+name|FixedBitSet
 operator|)
 name|cachedVals
 operator|.

@@ -126,7 +126,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 begin_import
@@ -300,7 +300,7 @@ block|}
 block|}
 DECL|method|correctBits
 specifier|private
-name|OpenBitSet
+name|FixedBitSet
 name|correctBits
 parameter_list|(
 name|IndexReader
@@ -309,11 +309,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|OpenBitSet
+name|FixedBitSet
 name|bits
 init|=
 operator|new
-name|OpenBitSet
+name|FixedBitSet
 argument_list|(
 name|reader
 operator|.
@@ -486,7 +486,7 @@ return|;
 block|}
 DECL|method|fastBits
 specifier|private
-name|OpenBitSet
+name|FixedBitSet
 name|fastBits
 parameter_list|(
 name|IndexReader
@@ -495,11 +495,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|OpenBitSet
+name|FixedBitSet
 name|bits
 init|=
 operator|new
-name|OpenBitSet
+name|FixedBitSet
 argument_list|(
 name|reader
 operator|.

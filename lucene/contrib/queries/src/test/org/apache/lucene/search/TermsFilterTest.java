@@ -152,7 +152,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 begin_class
@@ -480,11 +480,11 @@ literal|"19"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|OpenBitSet
+name|FixedBitSet
 name|bits
 init|=
 operator|(
-name|OpenBitSet
+name|FixedBitSet
 operator|)
 name|tf
 operator|.
@@ -521,7 +521,7 @@ expr_stmt|;
 name|bits
 operator|=
 operator|(
-name|OpenBitSet
+name|FixedBitSet
 operator|)
 name|tf
 operator|.
@@ -558,7 +558,7 @@ expr_stmt|;
 name|bits
 operator|=
 operator|(
-name|OpenBitSet
+name|FixedBitSet
 operator|)
 name|tf
 operator|.
@@ -595,7 +595,7 @@ expr_stmt|;
 name|bits
 operator|=
 operator|(
-name|OpenBitSet
+name|FixedBitSet
 operator|)
 name|tf
 operator|.

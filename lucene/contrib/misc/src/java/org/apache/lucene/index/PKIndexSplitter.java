@@ -141,7 +141,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|IOUtils
+name|FixedBitSet
 import|;
 end_import
 begin_import
@@ -154,7 +154,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSetDISI
+name|IOUtils
 import|;
 end_import
 begin_import
@@ -500,11 +500,11 @@ name|maxDoc
 argument_list|()
 decl_stmt|;
 specifier|final
-name|OpenBitSetDISI
+name|FixedBitSet
 name|bits
 init|=
 operator|new
-name|OpenBitSetDISI
+name|FixedBitSet
 argument_list|(
 name|maxDoc
 argument_list|)
@@ -551,7 +551,7 @@ condition|)
 block|{
 name|bits
 operator|.
-name|inPlaceOr
+name|or
 argument_list|(
 name|it
 argument_list|)
@@ -640,7 +640,7 @@ block|{
 comment|// we can safely modify the current bit, as the iterator already stepped over it:
 name|bits
 operator|.
-name|fastClear
+name|clear
 argument_list|(
 name|i
 argument_list|)

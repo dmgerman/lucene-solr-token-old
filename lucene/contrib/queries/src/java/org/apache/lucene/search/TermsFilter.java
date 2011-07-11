@@ -153,7 +153,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 begin_import
@@ -246,11 +246,11 @@ name|context
 operator|.
 name|reader
 decl_stmt|;
-name|OpenBitSet
+name|FixedBitSet
 name|result
 init|=
 operator|new
-name|OpenBitSet
+name|FixedBitSet
 argument_list|(
 name|reader
 operator|.

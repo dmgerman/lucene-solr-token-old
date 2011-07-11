@@ -167,7 +167,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 begin_class
@@ -511,7 +511,7 @@ specifier|protected
 name|Bits
 name|checkMatchAllBits
 parameter_list|(
-name|OpenBitSet
+name|FixedBitSet
 name|valid
 parameter_list|,
 name|int
@@ -640,11 +640,11 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-name|OpenBitSet
+name|FixedBitSet
 name|validBits
 init|=
 operator|new
-name|OpenBitSet
+name|FixedBitSet
 argument_list|(
 name|reader
 operator|.

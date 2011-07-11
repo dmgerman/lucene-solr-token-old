@@ -178,20 +178,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|OpenBitSetDISI
+name|FixedBitSet
 import|;
 end_import
 begin_import
@@ -713,11 +700,11 @@ else|else
 block|{
 name|assertTrue
 argument_list|(
-literal|"Cached DocIdSet must be an OpenBitSet if the original one was not cacheable"
+literal|"Cached DocIdSet must be an FixedBitSet if the original one was not cacheable"
 argument_list|,
 name|cachedSet
 operator|instanceof
-name|OpenBitSetDISI
+name|FixedBitSet
 operator|||
 name|cachedSet
 operator|==
@@ -874,7 +861,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// a openbitset filter is always cacheable
+comment|// a fixedbitset filter is always cacheable
 name|assertDocIdSetCacheable
 argument_list|(
 name|reader
@@ -895,8 +882,15 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|OpenBitSet
+name|FixedBitSet
+argument_list|(
+name|context
+operator|.
+name|reader
+operator|.
+name|maxDoc
 argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
