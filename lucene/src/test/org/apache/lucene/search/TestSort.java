@@ -475,6 +475,15 @@ operator|.
 name|_TestUtil
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
 begin_comment
 comment|/**  * Unit tests for sorting code.  *  *<p>Created: Feb 17, 2004 4:55:10 PM  *  * @since   lucene 1.4  */
 end_comment
@@ -509,14 +518,8 @@ decl_stmt|;
 DECL|field|NUM_STRINGS
 specifier|private
 specifier|static
-specifier|final
 name|int
 name|NUM_STRINGS
-init|=
-name|atLeast
-argument_list|(
-literal|6000
-argument_list|)
 decl_stmt|;
 DECL|field|full
 specifier|private
@@ -573,6 +576,25 @@ specifier|private
 name|Sort
 name|sort
 decl_stmt|;
+annotation|@
+name|BeforeClass
+DECL|method|beforeClass
+specifier|public
+specifier|static
+name|void
+name|beforeClass
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|NUM_STRINGS
+operator|=
+name|atLeast
+argument_list|(
+literal|6000
+argument_list|)
+expr_stmt|;
+block|}
 comment|// document data:
 comment|// the tracer field is used to determine which document was hit
 comment|// the contents field is used to search and sort by relevance
