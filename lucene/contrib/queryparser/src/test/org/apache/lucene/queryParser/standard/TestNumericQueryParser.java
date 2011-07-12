@@ -564,13 +564,6 @@ argument_list|(
 name|random
 argument_list|)
 expr_stmt|;
-name|LOCALE
-operator|=
-name|Locale
-operator|.
-name|getDefault
-argument_list|()
-expr_stmt|;
 name|TIMEZONE
 operator|=
 name|randomTimeZone
