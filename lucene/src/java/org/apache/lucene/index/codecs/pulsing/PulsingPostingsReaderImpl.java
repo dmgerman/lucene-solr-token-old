@@ -76,6 +76,21 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|FieldInfo
+operator|.
+name|IndexOptions
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|TermState
 import|;
 end_import
@@ -708,21 +723,25 @@ name|PulsingTermState
 operator|)
 name|_termState
 decl_stmt|;
-comment|// total TF, but in the omitTFAP case its computed based on docFreq.
+comment|// if we have positions, its total TF, otherwise its computed based on docFreq.
 name|long
 name|count
 init|=
 name|fieldInfo
 operator|.
-name|omitTermFreqAndPositions
+name|indexOptions
+operator|==
+name|IndexOptions
+operator|.
+name|DOCS_AND_FREQS_AND_POSITIONS
 condition|?
 name|termState
 operator|.
-name|docFreq
+name|totalTermFreq
 else|:
 name|termState
 operator|.
-name|totalTermFreq
+name|docFreq
 decl_stmt|;
 comment|//System.out.println("  count=" + count + " threshold=" + maxPositions);
 if|if
@@ -1036,7 +1055,11 @@ if|if
 condition|(
 name|field
 operator|.
-name|omitTermFreqAndPositions
+name|indexOptions
+operator|!=
+name|IndexOptions
+operator|.
+name|DOCS_AND_FREQS_AND_POSITIONS
 condition|)
 block|{
 return|return
@@ -1188,11 +1211,11 @@ operator|new
 name|ByteArrayDataInput
 argument_list|()
 decl_stmt|;
-DECL|field|omitTF
+DECL|field|indexOptions
 specifier|private
 specifier|final
-name|boolean
-name|omitTF
+name|IndexOptions
+name|indexOptions
 decl_stmt|;
 DECL|field|storePayloads
 specifier|private
@@ -1228,11 +1251,11 @@ name|FieldInfo
 name|fieldInfo
 parameter_list|)
 block|{
-name|omitTF
+name|indexOptions
 operator|=
 name|fieldInfo
 operator|.
-name|omitTermFreqAndPositions
+name|indexOptions
 expr_stmt|;
 name|storePayloads
 operator|=
@@ -1332,11 +1355,11 @@ name|fieldInfo
 parameter_list|)
 block|{
 return|return
-name|omitTF
+name|indexOptions
 operator|==
 name|fieldInfo
 operator|.
-name|omitTermFreqAndPositions
+name|indexOptions
 operator|&&
 name|storePayloads
 operator|==
@@ -1387,7 +1410,11 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|omitTF
+name|indexOptions
+operator|==
+name|IndexOptions
+operator|.
+name|DOCS_ONLY
 condition|)
 block|{
 name|docID
@@ -1433,6 +1460,15 @@ argument_list|()
 expr_stmt|;
 comment|// else read freq
 block|}
+if|if
+condition|(
+name|indexOptions
+operator|==
+name|IndexOptions
+operator|.
+name|DOCS_AND_FREQS_AND_POSITIONS
+condition|)
+block|{
 comment|// Skip positions
 if|if
 condition|(
@@ -1522,6 +1558,7 @@ operator|.
 name|readVInt
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

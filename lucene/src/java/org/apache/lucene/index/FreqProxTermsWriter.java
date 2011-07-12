@@ -60,6 +60,21 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|FieldInfo
+operator|.
+name|IndexOptions
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|codecs
 operator|.
 name|FieldsConsumer
@@ -274,10 +289,13 @@ comment|// Aggregate the storePayload as seen by the same
 comment|// field across multiple threads
 if|if
 condition|(
-operator|!
 name|fieldInfo
 operator|.
-name|omitTermFreqAndPositions
+name|indexOptions
+operator|==
+name|IndexOptions
+operator|.
+name|DOCS_AND_FREQS_AND_POSITIONS
 condition|)
 block|{
 name|fieldInfo

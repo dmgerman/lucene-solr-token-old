@@ -79,6 +79,21 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|FieldInfo
+operator|.
+name|IndexOptions
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexFileNames
 import|;
 end_import
@@ -277,9 +292,9 @@ DECL|field|termsOut
 name|IndexOutput
 name|termsOut
 decl_stmt|;
-DECL|field|omitTermFreqAndPositions
-name|boolean
-name|omitTermFreqAndPositions
+DECL|field|indexOptions
+name|IndexOptions
+name|indexOptions
 decl_stmt|;
 DECL|field|storePayloads
 name|boolean
@@ -640,11 +655,11 @@ name|fieldInfo
 operator|=
 name|fieldInfo
 expr_stmt|;
-name|omitTermFreqAndPositions
+name|indexOptions
 operator|=
 name|fieldInfo
 operator|.
-name|omitTermFreqAndPositions
+name|indexOptions
 expr_stmt|;
 name|storePayloads
 operator|=
@@ -772,7 +787,11 @@ name|docID
 expr_stmt|;
 if|if
 condition|(
-name|omitTermFreqAndPositions
+name|indexOptions
+operator|==
+name|IndexOptions
+operator|.
+name|DOCS_ONLY
 condition|)
 block|{
 name|freqOut
@@ -848,10 +867,15 @@ name|IOException
 block|{
 comment|//System.out.println("StandardW:     addPos pos=" + position + " payload=" + (payload == null ? "null" : (payload.length + " bytes")) + " proxFP=" + proxOut.getFilePointer());
 assert|assert
-operator|!
-name|omitTermFreqAndPositions
+name|indexOptions
+operator|==
+name|IndexOptions
+operator|.
+name|DOCS_AND_FREQS_AND_POSITIONS
 operator|:
-literal|"omitTermFreqAndPositions is true"
+literal|"invalid indexOptions: "
+operator|+
+name|indexOptions
 assert|;
 assert|assert
 name|proxOut
@@ -1088,8 +1112,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
-name|omitTermFreqAndPositions
+name|indexOptions
+operator|==
+name|IndexOptions
+operator|.
+name|DOCS_AND_FREQS_AND_POSITIONS
 condition|)
 block|{
 comment|//System.out.println("  proxFP=" + proxStart);

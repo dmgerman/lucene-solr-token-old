@@ -3113,7 +3113,7 @@ literal|false
 argument_list|,
 name|field
 operator|.
-name|getOmitTermFreqAndPositions
+name|getIndexOptions
 argument_list|()
 argument_list|,
 name|field
@@ -3665,11 +3665,11 @@ argument_list|)
 expr_stmt|;
 name|field2
 operator|.
-name|setOmitTermFreqAndPositions
+name|setIndexOptions
 argument_list|(
 name|field1
 operator|.
-name|getOmitTermFreqAndPositions
+name|getIndexOptions
 argument_list|()
 argument_list|)
 expr_stmt|;

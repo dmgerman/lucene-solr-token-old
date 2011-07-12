@@ -378,7 +378,7 @@ name|hasProx
 init|=
 name|CHECK_FIELDINFO
 decl_stmt|;
-comment|// True if this segment has any fields with omitTermFreqAndPositions==false
+comment|// True if this segment has any fields with positional information
 DECL|field|fieldInfos
 specifier|private
 name|FieldInfos
