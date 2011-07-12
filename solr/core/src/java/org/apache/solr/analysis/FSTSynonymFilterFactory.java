@@ -362,7 +362,17 @@ name|TokenStream
 name|input
 parameter_list|)
 block|{
+comment|// if the fst is null, it means there's actually no synonyms... just return the original stream
+comment|// as there is nothing to do here.
 return|return
+name|map
+operator|.
+name|fst
+operator|==
+literal|null
+condition|?
+name|input
+else|:
 operator|new
 name|SynonymFilter
 argument_list|(
@@ -593,6 +603,27 @@ argument_list|(
 name|e
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|map
+operator|.
+name|fst
+operator|==
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Synonyms loaded with "
+operator|+
+name|args
+operator|+
+literal|" has empty rule set!"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**    * Load synonyms from the solr format, "format=solr".    */
