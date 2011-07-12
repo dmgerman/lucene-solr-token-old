@@ -372,8 +372,6 @@ argument_list|,
 name|this
 argument_list|,
 name|similarity
-argument_list|,
-name|similarity
 operator|.
 name|sloppyDocScorer
 argument_list|(
