@@ -168,6 +168,8 @@ name|setKeepMode
 argument_list|(
 name|DuplicateFilter
 operator|.
+name|KeepMode
+operator|.
 name|KM_USE_FIRST_OCCURRENCE
 argument_list|)
 expr_stmt|;
@@ -188,6 +190,8 @@ operator|.
 name|setKeepMode
 argument_list|(
 name|DuplicateFilter
+operator|.
+name|KeepMode
 operator|.
 name|KM_USE_LAST_OCCURRENCE
 argument_list|)
@@ -235,6 +239,8 @@ name|setProcessingMode
 argument_list|(
 name|DuplicateFilter
 operator|.
+name|ProcessingMode
+operator|.
 name|PM_FULL_VALIDATION
 argument_list|)
 expr_stmt|;
@@ -255,6 +261,8 @@ operator|.
 name|setProcessingMode
 argument_list|(
 name|DuplicateFilter
+operator|.
+name|ProcessingMode
 operator|.
 name|PM_FAST_INVALIDATION
 argument_list|)
