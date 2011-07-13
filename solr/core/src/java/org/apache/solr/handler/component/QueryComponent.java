@@ -2096,10 +2096,15 @@ decl_stmt|;
 name|Sort
 name|sort
 init|=
+name|searcher
+operator|.
+name|weightSort
+argument_list|(
 name|cmd
 operator|.
 name|getSort
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// groupSort defaults to sort
 name|Sort
@@ -2109,11 +2114,12 @@ name|groupSortStr
 operator|==
 literal|null
 condition|?
-name|cmd
-operator|.
-name|getSort
-argument_list|()
+name|sort
 else|:
+name|searcher
+operator|.
+name|weightSort
+argument_list|(
 name|QueryParsing
 operator|.
 name|parseSort
@@ -2121,6 +2127,7 @@ argument_list|(
 name|groupSortStr
 argument_list|,
 name|req
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|int
