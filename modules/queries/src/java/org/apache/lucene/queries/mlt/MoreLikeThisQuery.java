@@ -3,7 +3,7 @@ begin_comment
 comment|/*  * Created on 25-Jan-2006  */
 end_comment
 begin_package
-DECL|package|org.apache.lucene.search.similar
+DECL|package|org.apache.lucene.queries.mlt
 package|package
 name|org
 operator|.
@@ -11,9 +11,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|queries
 operator|.
-name|similar
+name|mlt
 package|;
 end_package
 begin_comment
