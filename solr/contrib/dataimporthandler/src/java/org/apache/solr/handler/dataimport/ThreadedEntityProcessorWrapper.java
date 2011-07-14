@@ -130,7 +130,7 @@ name|Collections
 import|;
 end_import
 begin_comment
-comment|/**  * Each Entity may have only a single EntityProcessor .  But the same entity can be run by  * multiple EntityProcessorWrapper (1 per thread) . this helps running transformations in multiple threads  * @since Solr 1.5  */
+comment|/**  * Each Entity may have only a single EntityProcessor .  But the same entity can be run by  * multiple EntityProcessorWrapper (1 per thread) . this helps running transformations in multiple threads  * @since Solr 3.1  */
 end_comment
 begin_class
 DECL|class|ThreadedEntityProcessorWrapper

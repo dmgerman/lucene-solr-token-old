@@ -17,7 +17,7 @@ name|dataimport
 package|;
 end_package
 begin_comment
-comment|/**Context implementation used when run multi threaded.  *  * @since Solr 1.5  *   */
+comment|/**Context implementation used when run multi threaded.  *  * @since Solr 3.1  *   */
 end_comment
 begin_class
 DECL|class|ThreadedContext
