@@ -1381,7 +1381,7 @@ name|delimIndex
 init|=
 name|line
 operator|.
-name|indexOf
+name|lastIndexOf
 argument_list|(
 name|delimiter
 argument_list|)
