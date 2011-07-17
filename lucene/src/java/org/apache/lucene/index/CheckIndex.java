@@ -3732,13 +3732,6 @@ block|}
 comment|// Test skipping
 if|if
 condition|(
-name|docFreq
-operator|>=
-literal|16
-condition|)
-block|{
-if|if
-condition|(
 name|hasPositions
 condition|)
 block|{
@@ -4145,7 +4138,6 @@ operator|+
 name|docID
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 block|}
