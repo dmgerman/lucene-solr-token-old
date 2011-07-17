@@ -1272,6 +1272,9 @@ name|nextInt
 argument_list|(
 literal|2000
 argument_list|)
+operator|+
+literal|1
+comment|/* numBits cannot be 0 */
 decl_stmt|;
 name|FixedBitSet
 name|b1
