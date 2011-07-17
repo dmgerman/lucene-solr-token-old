@@ -3921,7 +3921,7 @@ block|}
 if|if
 condition|(
 name|pos
-operator|<=
+operator|<
 name|lastPosition
 condition|)
 block|{
@@ -3933,7 +3933,7 @@ literal|"position "
 operator|+
 name|pos
 operator|+
-literal|" is<= lastPosition "
+literal|" is< lastPosition "
 operator|+
 name|lastPosition
 argument_list|)
