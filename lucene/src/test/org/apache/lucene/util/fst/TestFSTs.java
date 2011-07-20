@@ -7536,6 +7536,8 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
+name|VERBOSE
+operator|&&
 name|ord
 operator|%
 literal|100000
