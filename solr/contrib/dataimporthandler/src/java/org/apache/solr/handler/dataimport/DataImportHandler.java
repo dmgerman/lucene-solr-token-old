@@ -730,6 +730,8 @@ argument_list|,
 name|dataSources
 argument_list|,
 name|coreScopeSession
+argument_list|,
+name|myName
 argument_list|)
 expr_stmt|;
 block|}
@@ -1073,6 +1075,8 @@ argument_list|,
 name|dataSources
 argument_list|,
 name|coreScopeSession
+argument_list|,
+name|myName
 argument_list|)
 expr_stmt|;
 block|}
@@ -1817,13 +1821,6 @@ operator|new
 name|SolrWriter
 argument_list|(
 name|processor
-argument_list|,
-name|loader
-operator|.
-name|getConfigDir
-argument_list|()
-argument_list|,
-name|myName
 argument_list|,
 name|req
 argument_list|)
