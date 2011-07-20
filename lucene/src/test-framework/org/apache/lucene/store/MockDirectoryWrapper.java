@@ -1198,6 +1198,22 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|maybeThrowIOException
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|maybeThrowIOException
+name|void
+name|maybeThrowIOException
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 if|if
 condition|(
 name|randomIOExceptionRate
@@ -1251,6 +1267,20 @@ name|getName
 argument_list|()
 operator|+
 literal|": MockDirectoryWrapper: now throw random exception"
+operator|+
+operator|(
+name|message
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+literal|" ("
+operator|+
+name|message
+operator|+
+literal|")"
+operator|)
 argument_list|)
 expr_stmt|;
 operator|new
@@ -1270,6 +1300,20 @@ operator|new
 name|IOException
 argument_list|(
 literal|"a random IOException"
+operator|+
+operator|(
+name|message
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+literal|"("
+operator|+
+name|message
+operator|+
+literal|")"
+operator|)
 argument_list|)
 throw|;
 block|}

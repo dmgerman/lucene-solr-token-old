@@ -414,17 +414,6 @@ name|void
 name|close
 parameter_list|()
 block|{       }
-annotation|@
-name|Override
-DECL|method|loadTermsIndex
-specifier|public
-name|void
-name|loadTermsIndex
-parameter_list|(
-name|int
-name|indexDivisor
-parameter_list|)
-block|{       }
 block|}
 DECL|class|RAMField
 specifier|static

@@ -757,9 +757,6 @@ parameter_list|,
 name|SegmentInfos
 name|infos
 parameter_list|,
-name|int
-name|termInfosIndexDivisor
-parameter_list|,
 name|CodecProvider
 name|codecs
 parameter_list|,
@@ -795,7 +792,13 @@ name|this
 operator|.
 name|termInfosIndexDivisor
 operator|=
-name|termInfosIndexDivisor
+name|writer
+operator|.
+name|getConfig
+argument_list|()
+operator|.
+name|getReaderTermsIndexDivisor
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -930,10 +933,6 @@ operator|.
 name|getReadOnlyClone
 argument_list|(
 name|info
-argument_list|,
-literal|true
-argument_list|,
-name|termInfosIndexDivisor
 argument_list|,
 name|IOContext
 operator|.
