@@ -223,10 +223,6 @@ assert|;
 name|totalHits
 operator|++
 expr_stmt|;
-name|doc
-operator|+=
-name|docBase
-expr_stmt|;
 if|if
 condition|(
 name|score
@@ -234,8 +230,17 @@ operator|<
 name|pqTop
 operator|.
 name|score
-operator|||
-operator|(
+condition|)
+block|{
+comment|// Doesn't compete w/ bottom entry in queue
+return|return;
+block|}
+name|doc
+operator|+=
+name|docBase
+expr_stmt|;
+if|if
+condition|(
 name|score
 operator|==
 name|pqTop
@@ -247,9 +252,9 @@ operator|>
 name|pqTop
 operator|.
 name|doc
-operator|)
 condition|)
 block|{
+comment|// Break tie in score by doc ID:
 return|return;
 block|}
 name|pqTop
