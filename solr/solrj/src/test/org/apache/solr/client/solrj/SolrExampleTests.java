@@ -2845,7 +2845,7 @@ name|addFile
 argument_list|(
 name|getFile
 argument_list|(
-literal|"books.csv"
+literal|"solrj/books.csv"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2986,7 +2986,7 @@ name|addFile
 argument_list|(
 name|getFile
 argument_list|(
-literal|"docs1.xml"
+literal|"solrj/docs1.xml"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2997,7 +2997,7 @@ name|addFile
 argument_list|(
 name|getFile
 argument_list|(
-literal|"docs2.xml"
+literal|"solrj/docs2.xml"
 argument_list|)
 argument_list|)
 expr_stmt|;

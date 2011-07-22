@@ -274,7 +274,7 @@ argument_list|)
 operator|.
 name|openResource
 argument_list|(
-literal|"README"
+literal|"solrj/README"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
