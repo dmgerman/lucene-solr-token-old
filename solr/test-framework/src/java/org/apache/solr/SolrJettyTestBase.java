@@ -172,6 +172,8 @@ argument_list|(
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|solrHome
 argument_list|)
 expr_stmt|;
 name|ignoreException
