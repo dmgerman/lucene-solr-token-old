@@ -5878,6 +5878,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|SolrServer
+name|server
+init|=
+name|getSolrServer
+argument_list|()
+decl_stmt|;
 comment|// Empty the database...
 name|server
 operator|.
