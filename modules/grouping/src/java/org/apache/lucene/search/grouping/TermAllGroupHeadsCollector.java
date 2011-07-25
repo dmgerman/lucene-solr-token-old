@@ -2312,7 +2312,7 @@ name|GroupHead
 index|[
 name|groupIndex
 operator|.
-name|size
+name|numOrd
 argument_list|()
 index|]
 expr_stmt|;
