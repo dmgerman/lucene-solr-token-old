@@ -1711,12 +1711,8 @@ literal|null
 operator|&&
 name|f
 operator|.
-name|indexOptions
+name|omitTermFreqAndPositions
 argument_list|()
-operator|==
-name|IndexOptions
-operator|.
-name|DOCS_ONLY
 operator|)
 condition|?
 name|FieldFlag
@@ -1740,12 +1736,8 @@ literal|null
 operator|&&
 name|f
 operator|.
-name|indexOptions
+name|omitPositions
 argument_list|()
-operator|==
-name|IndexOptions
-operator|.
-name|DOCS_AND_FREQS
 operator|)
 condition|?
 name|FieldFlag

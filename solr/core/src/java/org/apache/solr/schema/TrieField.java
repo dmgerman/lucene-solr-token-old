@@ -3337,10 +3337,15 @@ name|f
 operator|.
 name|setIndexOptions
 argument_list|(
+name|getIndexOptions
+argument_list|(
 name|field
+argument_list|,
+name|value
 operator|.
-name|indexOptions
+name|toString
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|f
