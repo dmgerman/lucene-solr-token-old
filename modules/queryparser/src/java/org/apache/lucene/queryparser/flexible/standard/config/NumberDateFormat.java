@@ -44,6 +44,15 @@ name|java
 operator|.
 name|text
 operator|.
+name|Format
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|text
+operator|.
 name|NumberFormat
 import|;
 end_import
@@ -65,6 +74,9 @@ operator|.
 name|Date
 import|;
 end_import
+begin_comment
+comment|/**  * This {@link Format} parses {@link Long} into date strings and vice-versa. It  * uses the given {@link DateFormat} to parse and format dates, but before, it  * converts {@link Long} to {@link Date} objects or vice-versa.  */
+end_comment
 begin_class
 DECL|class|NumberDateFormat
 specifier|public
@@ -88,6 +100,7 @@ specifier|private
 name|DateFormat
 name|dateFormat
 decl_stmt|;
+comment|/**    * Constructs a {@link NumberDateFormat} object using the given {@link DateFormat}.    *     * @param dateFormat {@link DateFormat} used to parse and format dates    */
 DECL|method|NumberDateFormat
 specifier|public
 name|NumberDateFormat
