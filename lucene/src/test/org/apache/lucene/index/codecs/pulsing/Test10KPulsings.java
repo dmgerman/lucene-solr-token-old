@@ -306,7 +306,7 @@ name|_TestUtil
 operator|.
 name|getTempDir
 argument_list|(
-literal|"10kpulsings"
+literal|"10kpulsed"
 argument_list|)
 decl_stmt|;
 name|MockDirectoryWrapper
@@ -648,7 +648,7 @@ name|_TestUtil
 operator|.
 name|getTempDir
 argument_list|(
-literal|"10kpulsings"
+literal|"10knotpulsed"
 argument_list|)
 decl_stmt|;
 name|MockDirectoryWrapper
