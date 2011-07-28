@@ -253,6 +253,15 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -1340,6 +1349,8 @@ DECL|field|reader
 name|IndexReader
 name|reader
 decl_stmt|;
+annotation|@
+name|Ignore
 annotation|@
 name|Test
 DECL|method|testStressLuceneNRT
