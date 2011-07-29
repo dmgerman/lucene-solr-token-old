@@ -787,9 +787,7 @@ name|pendingDeletes
 operator|=
 operator|new
 name|BufferedDeletes
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|initialize
 argument_list|()
@@ -1964,9 +1962,7 @@ name|pendingDeletes
 operator|=
 operator|new
 name|BufferedDeletes
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 if|if

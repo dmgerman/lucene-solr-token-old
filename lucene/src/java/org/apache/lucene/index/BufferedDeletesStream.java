@@ -183,6 +183,19 @@ operator|.
 name|IOContext
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
+import|;
+end_import
 begin_comment
 comment|/* Tracks the stream of {@link BufferedDeletes}.  * When DocumentsWriterPerThread flushes, its buffered  * deletes are appended to this stream.  We later  * apply these deletes (resolve them to the actual  * docIDs, per segment) when a merge is started  * (only to the to-be-merged segments).  We  * also apply to all segments when NRT reader is pulled,  * commit/close is called, or when too many deletes are  * buffered and must be flushed (by RAM usage or by count).  *  * Each packet is assigned a generation, and each flushed or  * merged segment is also assigned a generation, so we can  * track which BufferedDeletes packets to apply to any given  * segment. */
 end_comment
@@ -823,7 +836,7 @@ argument_list|,
 name|sortSegInfoByDelGen
 argument_list|)
 expr_stmt|;
-name|BufferedDeletes
+name|CoalescedDeletes
 name|coalescedDeletes
 init|=
 literal|null
@@ -931,10 +944,8 @@ block|{
 name|coalescedDeletes
 operator|=
 operator|new
-name|BufferedDeletes
-argument_list|(
-literal|true
-argument_list|)
+name|CoalescedDeletes
+argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -1185,10 +1196,8 @@ block|{
 name|coalescedDeletes
 operator|=
 operator|new
-name|BufferedDeletes
-argument_list|(
-literal|true
-argument_list|)
+name|CoalescedDeletes
+argument_list|()
 expr_stmt|;
 block|}
 comment|/*          * Since we are on a segment private del packet we must not          * update the coalescedDeletes here! We can simply advance to the           * next packet and seginfo.          */
@@ -2178,9 +2187,31 @@ operator|+
 name|term
 assert|;
 block|}
+comment|// TODO: we re-use term now in our merged iterable, but we shouldn't clone, instead copy for this assert
 name|lastDeleteTerm
 operator|=
 name|term
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+operator|new
+name|Term
+argument_list|(
+name|term
+operator|.
+name|field
+argument_list|()
+argument_list|,
+operator|new
+name|BytesRef
+argument_list|(
+name|term
+operator|.
+name|bytes
+argument_list|)
+argument_list|)
 expr_stmt|;
 return|return
 literal|true

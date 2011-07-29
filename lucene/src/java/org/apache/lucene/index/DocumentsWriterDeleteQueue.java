@@ -152,9 +152,7 @@ name|this
 argument_list|(
 operator|new
 name|BufferedDeletes
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 argument_list|,
 name|generation
 argument_list|)
