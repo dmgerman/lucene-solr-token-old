@@ -159,7 +159,7 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * @return a list of fields defined in this document    */
+comment|/**    * @return a list of field names defined in this document - this Collection is directly backed by this SolrDocument.    * @see #keySet    */
 DECL|method|getFieldNames
 specifier|public
 name|Collection
@@ -170,7 +170,7 @@ name|getFieldNames
 parameter_list|()
 block|{
 return|return
-name|_fields
+name|this
 operator|.
 name|keySet
 argument_list|()
@@ -203,7 +203,7 @@ name|name
 parameter_list|)
 block|{
 return|return
-name|_fields
+name|this
 operator|.
 name|remove
 argument_list|(
