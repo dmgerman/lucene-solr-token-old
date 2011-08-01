@@ -221,6 +221,13 @@ expr_stmt|;
 name|add
 argument_list|(
 operator|new
+name|OpenRangeQueryNodeProcessor
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|add
+argument_list|(
+operator|new
 name|NumericQueryNodeProcessor
 argument_list|()
 argument_list|)

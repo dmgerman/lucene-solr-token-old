@@ -286,7 +286,7 @@ name|TermRangeQueryNode
 import|;
 end_import
 begin_comment
-comment|/**  * This processor converts {@link ParametricRangeQueryNode} objects to  * {@link TermRangeQueryNode} objects. It reads the lower and upper bounds value  * from the {@link ParametricRangeQueryNode} object and try to parse their  * values using a {@link DateFormat}. If the values cannot be parsed to a date  * value, it will only create the {@link TermRangeQueryNode} using the  * non-parsed values.<br/>  *<br/>  * If a {@link ConfigurationKeys#LOCALE} is defined in the {@link QueryConfigHandler} it  * will be used to parse the date, otherwise {@link Locale#getDefault()} will be  * used.<br/>  *<br/>  * If a {@link ConfigurationKeys#DATE_RESOLUTION} is defined and the {@link Resolution} is  * not<code>null</code> it will also be used to parse the date value.<br/>  *<br/>  *   * @see ConfigurationKeys#DATE_RESOLUTION  * @see ConfigurationKeys#LOCALE  * @see TermRangeQueryNode  * @see ParametricRangeQueryNode  */
+comment|/**  * This processor converts {@link ParametricRangeQueryNode} objects to  * {@link TermRangeQueryNode} objects. It reads the lower and upper bounds value  * from the {@link ParametricRangeQueryNode} object and try to parse their  * values using a {@link DateFormat}. If the values cannot be parsed to a date  * value, it will only create the {@link TermRangeQueryNode} using the  * non-parsed values.<br/>  *<br/>  * If a {@link ConfigurationKeys#LOCALE} is defined in the  * {@link QueryConfigHandler} it will be used to parse the date, otherwise  * {@link Locale#getDefault()} will be used.<br/>  *<br/>  * If a {@link ConfigurationKeys#DATE_RESOLUTION} is defined and the  * {@link Resolution} is not<code>null</code> it will also be used to parse the  * date value.<br/>  *<br/>  *   * @see ConfigurationKeys#DATE_RESOLUTION  * @see ConfigurationKeys#LOCALE  * @see TermRangeQueryNode  * @see ParametricRangeQueryNode  */
 end_comment
 begin_class
 DECL|class|ParametricRangeQueryNodeProcessor
@@ -462,24 +462,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|lower
-operator|.
-name|getOperator
-argument_list|()
-operator|==
-name|CompareOperator
-operator|.
-name|GE
-condition|)
-block|{
-name|inclusive
-operator|=
-literal|true
-expr_stmt|;
-block|}
 name|String
 name|part1
 init|=
@@ -519,6 +501,16 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|part1
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|Date
 name|d1
 init|=
@@ -529,6 +521,35 @@ argument_list|(
 name|part1
 argument_list|)
 decl_stmt|;
+name|part1
+operator|=
+name|DateTools
+operator|.
+name|dateToString
+argument_list|(
+name|d1
+argument_list|,
+name|dateRes
+argument_list|)
+expr_stmt|;
+name|lower
+operator|.
+name|setText
+argument_list|(
+name|part1
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|part2
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|Date
 name|d2
 init|=
@@ -545,7 +566,8 @@ name|inclusive
 condition|)
 block|{
 comment|// The user can only specify the date, not the time, so make sure
-comment|// the time is set to the latest possible time of that date to really
+comment|// the time is set to the latest possible time of that date to
+comment|// really
 comment|// include all documents:
 name|Calendar
 name|cal
@@ -616,17 +638,6 @@ name|getTime
 argument_list|()
 expr_stmt|;
 block|}
-name|part1
-operator|=
-name|DateTools
-operator|.
-name|dateToString
-argument_list|(
-name|d1
-argument_list|,
-name|dateRes
-argument_list|)
-expr_stmt|;
 name|part2
 operator|=
 name|DateTools
@@ -638,6 +649,14 @@ argument_list|,
 name|dateRes
 argument_list|)
 expr_stmt|;
+name|upper
+operator|.
+name|setText
+argument_list|(
+name|part2
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -647,20 +666,6 @@ parameter_list|)
 block|{
 comment|// do nothing
 block|}
-name|lower
-operator|.
-name|setText
-argument_list|(
-name|part1
-argument_list|)
-expr_stmt|;
-name|upper
-operator|.
-name|setText
-argument_list|(
-name|part2
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|TermRangeQueryNode
@@ -669,6 +674,13 @@ name|lower
 argument_list|,
 name|upper
 argument_list|,
+name|part1
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
+operator||
 name|lower
 operator|.
 name|getOperator
@@ -678,6 +690,13 @@ name|CompareOperator
 operator|.
 name|GE
 argument_list|,
+name|part2
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
+operator||
 name|upper
 operator|.
 name|getOperator
