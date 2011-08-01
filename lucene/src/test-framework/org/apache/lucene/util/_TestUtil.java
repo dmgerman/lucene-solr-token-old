@@ -1312,7 +1312,7 @@ name|random
 argument_list|,
 literal|0x80
 argument_list|,
-literal|0x800
+literal|0x7ff
 argument_list|)
 expr_stmt|;
 block|}
