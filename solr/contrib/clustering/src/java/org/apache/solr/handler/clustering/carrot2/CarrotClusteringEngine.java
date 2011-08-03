@@ -1625,8 +1625,6 @@ decl_stmt|;
 if|if
 condition|(
 name|produceSummary
-operator|==
-literal|true
 condition|)
 block|{
 name|highlighter
