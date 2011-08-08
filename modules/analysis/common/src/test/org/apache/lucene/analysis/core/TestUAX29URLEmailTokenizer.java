@@ -2912,6 +2912,10 @@ init|=
 operator|new
 name|UAX29URLEmailTokenizer
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_31
+argument_list|,
 name|reader
 argument_list|)
 decl_stmt|;
