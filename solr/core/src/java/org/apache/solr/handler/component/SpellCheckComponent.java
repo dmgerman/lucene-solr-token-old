@@ -3359,6 +3359,11 @@ name|Token
 argument_list|>
 argument_list|()
 decl_stmt|;
+assert|assert
+name|analyzer
+operator|!=
+literal|null
+assert|;
 name|TokenStream
 name|ts
 init|=
@@ -4140,6 +4145,8 @@ argument_list|(
 literal|"classname"
 argument_list|)
 decl_stmt|;
+comment|// TODO: this is a little bit sneaky: warn if class isnt supplied
+comment|// so that its mandatory in a future release?
 if|if
 condition|(
 name|className
