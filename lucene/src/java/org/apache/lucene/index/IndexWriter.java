@@ -896,9 +896,10 @@ decl_stmt|;
 name|doBeforeFlush
 argument_list|()
 expr_stmt|;
-specifier|final
 name|boolean
 name|anySegmentFlushed
+init|=
+literal|false
 decl_stmt|;
 comment|/*      * for releasing a NRT reader we must ensure that       * DW doesn't add any segments or deletes until we are      * done with creating the NRT DirectoryReader.       * We release the two stage full flush after we are done opening the      * directory reader!      */
 synchronized|synchronized
@@ -989,6 +990,24 @@ expr_stmt|;
 block|}
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|OutOfMemoryError
+name|oom
+parameter_list|)
+block|{
+name|handleOOM
+argument_list|(
+name|oom
+argument_list|,
+literal|"getReader"
+argument_list|)
+expr_stmt|;
+comment|// never reached but javac disagrees:
+return|return
+literal|null
+return|;
+block|}
 finally|finally
 block|{
 if|if
@@ -1003,7 +1022,7 @@ condition|)
 block|{
 name|message
 argument_list|(
-literal|"hit exception during while NRT reader"
+literal|"hit exception during NRT reader"
 argument_list|)
 expr_stmt|;
 block|}
@@ -6816,6 +6835,19 @@ init|)
 block|{
 if|if
 condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"publishFlushedSegment"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|globalPacket
 operator|!=
 literal|null
@@ -6872,6 +6904,21 @@ name|bufferedDeletesStream
 operator|.
 name|getNextGen
 argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"publish sets newSegment delGen="
+operator|+
+name|nextGen
+argument_list|)
 expr_stmt|;
 block|}
 name|newSegment
@@ -8198,6 +8245,27 @@ name|IOException
 block|{
 if|if
 condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|message
+argument_list|(
+literal|"prepareCommit: flush"
+argument_list|)
+expr_stmt|;
+name|message
+argument_list|(
+literal|"  index before flush "
+operator|+
+name|segString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|hitOOM
 condition|)
 block|{
@@ -8215,6 +8283,7 @@ name|pendingCommit
 operator|!=
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalStateException
@@ -8222,26 +8291,188 @@ argument_list|(
 literal|"prepareCommit was already called with no corresponding call to commit"
 argument_list|)
 throw|;
+block|}
+name|doBeforeFlush
+argument_list|()
+expr_stmt|;
+assert|assert
+name|testPoint
+argument_list|(
+literal|"startDoFlush"
+argument_list|)
+assert|;
+name|SegmentInfos
+name|toCommit
+init|=
+literal|null
+decl_stmt|;
+name|boolean
+name|anySegmentsFlushed
+init|=
+literal|false
+decl_stmt|;
+comment|// This is copied from doFlush, except it's modified to
+comment|// clone& incRef the flushed SegmentInfos inside the
+comment|// sync block:
+try|try
+block|{
+synchronized|synchronized
+init|(
+name|fullFlushLock
+init|)
+block|{
+name|boolean
+name|flushSuccess
+init|=
+literal|false
+decl_stmt|;
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
+name|anySegmentsFlushed
+operator|=
+name|docWriter
+operator|.
+name|flushAllThreads
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
+operator|!
+name|anySegmentsFlushed
+condition|)
+block|{
+comment|// prevent double increment since docWriter#doFlush increments the flushcount
+comment|// if we flushed anything.
+name|flushCount
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+block|}
+name|flushSuccess
+operator|=
+literal|true
+expr_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+name|maybeApplyDeletes
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|readerPool
+operator|.
+name|commit
+argument_list|(
+name|segmentInfos
+argument_list|)
+expr_stmt|;
+comment|// Must clone the segmentInfos while we still
+comment|// hold fullFlushLock and while sync'd so that
+comment|// no partial changes (eg a delete w/o
+comment|// corresponding add from an updateDocument) can
+comment|// sneak into the commit point:
+name|toCommit
+operator|=
+operator|(
+name|SegmentInfos
+operator|)
+name|segmentInfos
+operator|.
+name|clone
+argument_list|()
+expr_stmt|;
+name|pendingCommitChangeCount
+operator|=
+name|changeCount
+expr_stmt|;
+comment|// This protects the segmentInfos we are now going
+comment|// to commit.  This is important in case, eg, while
+comment|// we are trying to sync all referenced files, a
+comment|// merge completes which would otherwise have
+comment|// removed the files we are now syncing.
+name|deleter
+operator|.
+name|incRef
+argument_list|(
+name|toCommit
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+operator|!
+name|success
+operator|&&
 name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|message
 argument_list|(
-literal|"prepareCommit: flush"
+literal|"hit exception during prepareCommit"
 argument_list|)
 expr_stmt|;
-name|flush
+block|}
+comment|// Done: finish the full flush!
+name|docWriter
+operator|.
+name|finishFullFlush
 argument_list|(
-literal|true
-argument_list|,
-literal|true
+name|flushSuccess
 argument_list|)
 expr_stmt|;
+name|doAfterFlush
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|OutOfMemoryError
+name|oom
+parameter_list|)
+block|{
+name|handleOOM
+argument_list|(
+name|oom
+argument_list|,
+literal|"prepareCommit"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|anySegmentsFlushed
+condition|)
+block|{
+name|maybeMerge
+argument_list|()
+expr_stmt|;
+block|}
 name|startCommit
 argument_list|(
+name|toCommit
+argument_list|,
 name|commitUserData
 argument_list|)
 expr_stmt|;
@@ -8854,7 +9085,9 @@ name|BufferedDeletesStream
 operator|.
 name|ApplyDeletesResult
 name|result
-init|=
+decl_stmt|;
+name|result
+operator|=
 name|bufferedDeletesStream
 operator|.
 name|applyDeletes
@@ -8866,7 +9099,7 @@ operator|.
 name|asList
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|result
@@ -12869,6 +13102,11 @@ specifier|private
 name|void
 name|startCommit
 parameter_list|(
+specifier|final
+name|SegmentInfos
+name|toSync
+parameter_list|,
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -12912,19 +13150,13 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|message
 argument_list|(
 literal|"startCommit(): start"
 argument_list|)
 expr_stmt|;
-specifier|final
-name|SegmentInfos
-name|toSync
-decl_stmt|;
-specifier|final
-name|long
-name|myChangeCount
-decl_stmt|;
+block|}
 synchronized|synchronized
 init|(
 name|this
@@ -12935,13 +13167,9 @@ name|lastCommitChangeCount
 operator|<=
 name|changeCount
 assert|;
-name|myChangeCount
-operator|=
-name|changeCount
-expr_stmt|;
 if|if
 condition|(
-name|changeCount
+name|pendingCommitChangeCount
 operator|==
 name|lastCommitChangeCount
 condition|)
@@ -12952,29 +13180,36 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|message
 argument_list|(
 literal|"  skip startCommit(): no changes pending"
 argument_list|)
 expr_stmt|;
+block|}
+name|deleter
+operator|.
+name|decRef
+argument_list|(
+name|toSync
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
-comment|// First, we clone& incref the segmentInfos we intend
-comment|// to sync, then, without locking, we sync() all files
-comment|// referenced by toSync, in the background.
 if|if
 condition|(
 name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|message
 argument_list|(
 literal|"startCommit index="
 operator|+
 name|segString
 argument_list|(
-name|segmentInfos
+name|toSync
 argument_list|)
 operator|+
 literal|" changeCount="
@@ -12982,23 +13217,7 @@ operator|+
 name|changeCount
 argument_list|)
 expr_stmt|;
-name|readerPool
-operator|.
-name|commit
-argument_list|(
-name|segmentInfos
-argument_list|)
-expr_stmt|;
-name|toSync
-operator|=
-operator|(
-name|SegmentInfos
-operator|)
-name|segmentInfos
-operator|.
-name|clone
-argument_list|()
-expr_stmt|;
+block|}
 assert|assert
 name|filesExist
 argument_list|(
@@ -13011,6 +13230,7 @@ name|commitUserData
 operator|!=
 literal|null
 condition|)
+block|{
 name|toSync
 operator|.
 name|setUserData
@@ -13018,20 +13238,7 @@ argument_list|(
 name|commitUserData
 argument_list|)
 expr_stmt|;
-comment|// This protects the segmentInfos we are now going
-comment|// to commit.  This is important in case, eg, while
-comment|// we are trying to sync all referenced files, a
-comment|// merge completes which would otherwise have
-comment|// removed the files we are now syncing.
-name|deleter
-operator|.
-name|incRef
-argument_list|(
-name|toSync
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
+block|}
 block|}
 assert|assert
 name|testPoint
@@ -13099,17 +13306,13 @@ argument_list|(
 name|directory
 argument_list|)
 expr_stmt|;
-name|pendingCommit
-operator|=
-name|toSync
-expr_stmt|;
 name|pendingCommitSet
 operator|=
 literal|true
 expr_stmt|;
-name|pendingCommitChangeCount
+name|pendingCommit
 operator|=
-name|myChangeCount
+name|toSync
 expr_stmt|;
 block|}
 if|if
@@ -13118,11 +13321,13 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|message
 argument_list|(
 literal|"done all syncs"
 argument_list|)
 expr_stmt|;
+block|}
 assert|assert
 name|testPoint
 argument_list|(
@@ -13167,6 +13372,7 @@ literal|"hit exception committing segments file"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Hit exception
 name|deleter
 operator|.
 name|decRef
