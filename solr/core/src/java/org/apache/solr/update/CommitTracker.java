@@ -226,10 +226,18 @@ specifier|private
 name|boolean
 name|waitSearcher
 decl_stmt|;
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
 DECL|method|CommitTracker
 specifier|public
 name|CommitTracker
 parameter_list|(
+name|String
+name|name
+parameter_list|,
 name|SolrCore
 name|core
 parameter_list|,
@@ -251,6 +259,12 @@ operator|.
 name|core
 operator|=
 name|core
+expr_stmt|;
+name|this
+operator|.
+name|name
+operator|=
+name|name
 expr_stmt|;
 name|docsSinceCommit
 operator|=
@@ -290,7 +304,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"AutoCommit: "
+name|name
+operator|+
+literal|" AutoCommit: "
 operator|+
 name|this
 argument_list|)
