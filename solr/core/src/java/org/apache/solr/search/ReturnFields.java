@@ -697,7 +697,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Legacy behavior? "score" == "*,score"  Distributed tests for this
+comment|// Legacy behavior: "score" == "*,score"
 if|if
 condition|(
 name|fields
@@ -708,6 +708,18 @@ operator|==
 literal|1
 operator|&&
 name|_wantsScore
+operator|&&
+name|augmenters
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+operator|&&
+name|globs
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|_wantsAllFields
