@@ -13,37 +13,6 @@ package|;
 end_package
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|parsers
-operator|.
-name|DocumentBuilder
-import|;
-end_import
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|parsers
-operator|.
-name|DocumentBuilderFactory
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -120,11 +89,42 @@ operator|.
 name|Element
 import|;
 end_import
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|parsers
+operator|.
+name|DocumentBuilder
+import|;
+end_import
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|parsers
+operator|.
+name|DocumentBuilderFactory
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
 begin_comment
 comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * Assembles a QueryBuilder which uses only core Lucene Query objects  *  */
+comment|/**  * Assembles a QueryBuilder which uses only core Lucene Query objects  */
 end_comment
 begin_class
 DECL|class|CoreParser
@@ -163,7 +163,7 @@ name|maxNumCachedFilters
 init|=
 literal|20
 decl_stmt|;
-comment|/** 	 * Construct an XML parser that uses a single instance QueryParser for handling  	 * UserQuery tags - all parse operations are synchronised on this parser 	 * @param analyzer 	 * @param parser A QueryParser which will be synchronized on during parse calls. 	 */
+comment|/**    * Construct an XML parser that uses a single instance QueryParser for handling    * UserQuery tags - all parse operations are synchronised on this parser    *    * @param analyzer    * @param parser A QueryParser which will be synchronized on during parse calls.    */
 DECL|method|CoreParser
 specifier|public
 name|CoreParser
@@ -185,7 +185,7 @@ name|parser
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 	 * Constructs an XML parser that creates a QueryParser for each UserQuery request. 	 * @param defaultField The default field name used by QueryParsers constructed for UserQuery tags  	 * @param analyzer  	 */
+comment|/**    * Constructs an XML parser that creates a QueryParser for each UserQuery request.    *    * @param defaultField The default field name used by QueryParsers constructed for UserQuery tags    * @param analyzer    */
 DECL|method|CoreParser
 specifier|public
 name|CoreParser
