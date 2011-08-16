@@ -165,7 +165,7 @@ argument_list|,
 name|Cache
 argument_list|>
 argument_list|(
-literal|7
+literal|9
 argument_list|)
 expr_stmt|;
 name|caches
