@@ -2522,8 +2522,6 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
-argument_list|,
-literal|250
 argument_list|)
 expr_stmt|;
 block|}
@@ -2537,8 +2535,6 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
-argument_list|,
-literal|250
 argument_list|)
 expr_stmt|;
 block|}
