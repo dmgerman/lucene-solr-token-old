@@ -297,7 +297,7 @@ name|writer
 operator|.
 name|addDocument
 argument_list|(
-name|TestIndexWriterReader
+name|DocHelper
 operator|.
 name|createDocument
 argument_list|(
@@ -348,7 +348,7 @@ name|writer
 operator|.
 name|addDocument
 argument_list|(
-name|TestIndexWriterReader
+name|DocHelper
 operator|.
 name|createDocument
 argument_list|(
@@ -399,7 +399,7 @@ name|writer
 operator|.
 name|addDocument
 argument_list|(
-name|TestIndexWriterReader
+name|DocHelper
 operator|.
 name|createDocument
 argument_list|(
@@ -633,7 +633,7 @@ name|writer
 operator|.
 name|addDocument
 argument_list|(
-name|TestIndexWriterReader
+name|DocHelper
 operator|.
 name|createDocument
 argument_list|(
@@ -675,7 +675,7 @@ name|writer
 operator|.
 name|addDocument
 argument_list|(
-name|TestIndexWriterReader
+name|DocHelper
 operator|.
 name|createDocument
 argument_list|(
