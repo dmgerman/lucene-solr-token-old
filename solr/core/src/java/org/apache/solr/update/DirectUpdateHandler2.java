@@ -329,7 +329,7 @@ name|UpdateHandler
 block|{
 DECL|field|indexWriterProvider
 specifier|protected
-name|IndexWriterProvider
+name|SolrCoreState
 name|indexWriterProvider
 decl_stmt|;
 comment|// stats
@@ -476,8 +476,13 @@ expr_stmt|;
 name|indexWriterProvider
 operator|=
 operator|new
-name|DefaultIndexWriterProvider
+name|DefaultSolrCoreState
+argument_list|(
+name|core
+operator|.
+name|getDirectoryFactory
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|UpdateHandlerInfo
 name|updateHandlerInfo
@@ -609,8 +614,13 @@ expr_stmt|;
 name|indexWriterProvider
 operator|=
 operator|new
-name|DefaultIndexWriterProvider
+name|DefaultSolrCoreState
+argument_list|(
+name|core
+operator|.
+name|getDirectoryFactory
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 name|UpdateHandlerInfo
@@ -1815,6 +1825,13 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|true
+argument_list|,
+name|core
+operator|.
+name|getDirectoryFactory
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -2404,7 +2421,7 @@ return|;
 block|}
 DECL|method|getIndexWriterProvider
 specifier|public
-name|IndexWriterProvider
+name|SolrCoreState
 name|getIndexWriterProvider
 parameter_list|()
 block|{

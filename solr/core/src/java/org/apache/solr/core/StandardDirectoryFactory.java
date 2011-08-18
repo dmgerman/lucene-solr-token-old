@@ -59,7 +59,7 @@ name|FSDirectory
 import|;
 end_import
 begin_comment
-comment|/**  * Directory provider which mimics original Solr FSDirectory based behavior.  *   */
+comment|/**  * Directory provider which mimics original Solr   * {@link org.apache.lucene.store.FSDirectory} based behavior.  *   */
 end_comment
 begin_class
 DECL|class|StandardDirectoryFactory
@@ -67,14 +67,14 @@ specifier|public
 class|class
 name|StandardDirectoryFactory
 extends|extends
-name|DirectoryFactory
+name|CachingDirectoryFactory
 block|{
 annotation|@
 name|Override
-DECL|method|open
-specifier|public
+DECL|method|create
+specifier|protected
 name|Directory
-name|open
+name|create
 parameter_list|(
 name|String
 name|path

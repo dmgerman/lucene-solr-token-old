@@ -3846,12 +3846,6 @@ name|Directory
 name|getDirectory
 parameter_list|()
 block|{
-comment|// Pass false because the flush during closing calls getDirectory
-name|ensureOpen
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 return|return
 name|directory
 return|;
