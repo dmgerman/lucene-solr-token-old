@@ -1521,13 +1521,13 @@ name|Object
 name|getFieldValue
 parameter_list|(
 name|SolrDocument
-name|sdoc
+name|solrDocument
 parameter_list|)
 block|{
 name|Object
 name|fieldValue
 init|=
-name|sdoc
+name|solrDocument
 operator|.
 name|getFieldValue
 argument_list|(
@@ -1541,19 +1541,23 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//this is not a dynamic field. so return te value
+comment|//this is not a dynamic field. so return the value
 return|return
 name|fieldValue
 return|;
 block|}
-comment|//reading dynamic field values
 if|if
 condition|(
 name|dynamicFieldNamePatternMatcher
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+return|return
+literal|null
+return|;
+block|}
+comment|//reading dynamic field values
 name|Map
 argument_list|<
 name|String
@@ -1600,7 +1604,7 @@ control|(
 name|String
 name|field
 range|:
-name|sdoc
+name|solrDocument
 operator|.
 name|getFieldNames
 argument_list|()
@@ -1622,7 +1626,7 @@ block|{
 name|Object
 name|val
 init|=
-name|sdoc
+name|solrDocument
 operator|.
 name|getFieldValue
 argument_list|(
@@ -1818,10 +1822,6 @@ else|:
 name|allValuesList
 return|;
 block|}
-block|}
-return|return
-literal|null
-return|;
 block|}
 DECL|method|inject
 parameter_list|<
