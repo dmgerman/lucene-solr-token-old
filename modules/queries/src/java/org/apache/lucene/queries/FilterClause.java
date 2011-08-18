@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.search
+DECL|package|org.apache.lucene.queries
 package|package
 name|org
 operator|.
@@ -8,7 +8,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|queries
 package|;
 end_package
 begin_comment
@@ -27,6 +27,19 @@ operator|.
 name|BooleanClause
 operator|.
 name|Occur
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Filter
 import|;
 end_import
 begin_comment
