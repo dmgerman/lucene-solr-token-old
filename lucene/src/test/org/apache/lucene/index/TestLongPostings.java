@@ -1913,6 +1913,10 @@ operator|+
 literal|" doS1="
 operator|+
 name|doS1
+operator|+
+literal|" term="
+operator|+
+name|term
 argument_list|)
 expr_stmt|;
 block|}
@@ -2299,6 +2303,10 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
+literal|"got invalid freq="
+operator|+
+name|freq
+argument_list|,
 name|freq
 operator|>=
 literal|1

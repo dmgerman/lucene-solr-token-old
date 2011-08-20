@@ -3327,6 +3327,10 @@ literal|"IndexSearcher("
 operator|+
 name|reader
 operator|+
+literal|"; executor="
+operator|+
+name|executor
+operator|+
 literal|")"
 return|;
 block|}

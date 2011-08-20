@@ -99,28 +99,8 @@ operator|.
 name|Bits
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|codecs
-operator|.
-name|standard
-operator|.
-name|StandardPostingsWriter
-import|;
-end_import
 begin_comment
-comment|// javadocs
-end_comment
-begin_comment
-comment|/** BlockTermsReader interacts with a single instance  *  of this class to manage creation of {@link DocsEnum} and  *  {@link DocsAndPositionsEnum} instances.  It provides an  *  IndexInput (termsIn) where this class may read any  *  previously stored data that it had written in its  *  corresponding {@link PostingsWriterBase} at indexing  *  time.   *  @lucene.experimental */
+comment|/** The core terms dictionaries (BlockTermsReader,  *  BlockTreeTermsReader) interact with a single instance  *  of this class to manage creation of {@link DocsEnum} and  *  {@link DocsAndPositionsEnum} instances.  It provides an  *  IndexInput (termsIn) where this class may read any  *  previously stored data that it had written in its  *  corresponding {@link PostingsWriterBase} at indexing  *  time.   *  @lucene.experimental */
 end_comment
 begin_class
 DECL|class|PostingsReaderBase
@@ -183,7 +163,7 @@ name|BlockTermState
 name|state
 parameter_list|,
 name|Bits
-name|liveDocs
+name|skipDocs
 parameter_list|,
 name|DocsEnum
 name|reuse
@@ -205,7 +185,7 @@ name|BlockTermState
 name|state
 parameter_list|,
 name|Bits
-name|liveDocs
+name|skipDocs
 parameter_list|,
 name|DocsAndPositionsEnum
 name|reuse

@@ -141,7 +141,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|BlockTermState
+name|PostingsReaderBase
 import|;
 end_import
 begin_import
@@ -156,7 +156,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|PostingsReaderBase
+name|BlockTermState
 import|;
 end_import
 begin_import
@@ -286,6 +286,7 @@ specifier|final
 name|IndexInput
 name|proxIn
 decl_stmt|;
+comment|// public static boolean DEBUG = BlockTreeTermsWriter.DEBUG;
 DECL|field|skipInterval
 name|int
 name|skipInterval
@@ -298,7 +299,7 @@ DECL|field|skipMinimum
 name|int
 name|skipMinimum
 decl_stmt|;
-comment|//private String segment;
+comment|// private String segment;
 DECL|method|StandardPostingsReader
 specifier|public
 name|StandardPostingsReader
@@ -310,7 +311,7 @@ name|SegmentInfo
 name|segmentInfo
 parameter_list|,
 name|IOContext
-name|context
+name|ioContext
 parameter_list|,
 name|int
 name|codecId
@@ -339,10 +340,10 @@ operator|.
 name|FREQ_EXTENSION
 argument_list|)
 argument_list|,
-name|context
+name|ioContext
 argument_list|)
 expr_stmt|;
-comment|//this.segment = segmentInfo.name;
+comment|// this.segment = segmentInfo.name;
 if|if
 condition|(
 name|segmentInfo
@@ -379,7 +380,7 @@ operator|.
 name|PROX_EXTENSION
 argument_list|)
 argument_list|,
-name|context
+name|ioContext
 argument_list|)
 expr_stmt|;
 name|success
@@ -424,7 +425,7 @@ name|SegmentInfo
 name|segmentInfo
 parameter_list|,
 name|int
-name|id
+name|codecID
 parameter_list|,
 name|Collection
 argument_list|<
@@ -447,7 +448,7 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-name|id
+name|codecID
 argument_list|,
 name|StandardCodec
 operator|.
@@ -475,7 +476,7 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-name|id
+name|codecID
 argument_list|,
 name|StandardCodec
 operator|.
@@ -568,6 +569,7 @@ DECL|field|bytesReader
 name|ByteArrayDataInput
 name|bytesReader
 decl_stmt|;
+comment|// TODO: should this NOT be in the TermState...?
 DECL|field|bytes
 name|byte
 index|[]
@@ -771,7 +773,7 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-comment|//System.out.println("SPR.readTermsBlock termsIn.fp=" + termsIn.getFilePointer());
+comment|// if (DEBUG) System.out.println("  SPR.readTermsBlock bytes=" + len + " ts=" + _termState);
 if|if
 condition|(
 name|termState
@@ -891,14 +893,14 @@ name|StandardTermState
 operator|)
 name|_termState
 decl_stmt|;
-comment|//System.out.println("StandardR.nextTerm seg=" + segment);
+comment|// if (DEBUG) System.out.println("SPR: nextTerm seg=" + segment + " tbOrd=" + termState.termBlockOrd + " bytesReader.fp=" + termState.bytesReader.getPosition());
 specifier|final
 name|boolean
 name|isFirstTerm
 init|=
 name|termState
 operator|.
-name|termCount
+name|termBlockOrd
 operator|==
 literal|0
 decl_stmt|;
@@ -933,8 +935,7 @@ name|readVLong
 argument_list|()
 expr_stmt|;
 block|}
-comment|//System.out.println("  dF=" + termState.docFreq);
-comment|//System.out.println("  freqFP=" + termState.freqOffset);
+comment|/*     if (DEBUG) {       System.out.println("  dF=" + termState.docFreq);       System.out.println("  freqFP=" + termState.freqOffset);     }     */
 assert|assert
 name|termState
 operator|.
@@ -965,7 +966,7 @@ operator|.
 name|readVInt
 argument_list|()
 expr_stmt|;
-comment|//System.out.println("  skipOffset=" + termState.skipOffset + " vs freqIn.length=" + freqIn.length());
+comment|// if (DEBUG) System.out.println("  skipOffset=" + termState.skipOffset + " vs freqIn.length=" + freqIn.length());
 assert|assert
 name|termState
 operator|.
@@ -1027,7 +1028,7 @@ name|readVLong
 argument_list|()
 expr_stmt|;
 block|}
-comment|//System.out.println("  proxFP=" + termState.proxOffset);
+comment|// if (DEBUG) System.out.println("  proxFP=" + termState.proxOffset);
 block|}
 block|}
 annotation|@
@@ -1109,6 +1110,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// if (DEBUG) System.out.println("SPR.docs ts=" + termState);
 return|return
 name|docsEnum
 operator|.
@@ -1514,7 +1516,7 @@ name|doc
 operator|=
 literal|0
 expr_stmt|;
-comment|//System.out.println("  sde limit=" + limit + " freqFP=" + freqOffset);
+comment|// if (DEBUG) System.out.println("  sde limit=" + limit + " freqFP=" + freqOffset);
 name|skipped
 operator|=
 literal|false
@@ -1533,6 +1535,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|//if (DEBUG) System.out.println("    stpr.nextDoc seg=" + segment + " fp=" + freqIn.getFilePointer());
 while|while
 condition|(
 literal|true
@@ -1545,6 +1548,7 @@ operator|==
 name|limit
 condition|)
 block|{
+comment|//if (DEBUG) System.out.println("      return doc=" + NO_MORE_DOCS);
 return|return
 name|doc
 operator|=
@@ -1564,6 +1568,7 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
+comment|// if (DEBUG) System.out.println("      code=" + code);
 if|if
 condition|(
 name|omitTF
@@ -1630,6 +1635,7 @@ block|{
 break|break;
 block|}
 block|}
+comment|//if (DEBUG) System.out.println("    stpr.nextDoc return doc=" + doc);
 return|return
 name|doc
 return|;
@@ -2191,7 +2197,7 @@ name|termState
 operator|.
 name|skipOffset
 expr_stmt|;
-comment|//System.out.println("StandardR.D&PE reset seg=" + segment + " limit=" + limit + " freqFP=" + freqOffset + " proxFP=" + proxOffset);
+comment|// if (DEBUG) System.out.println("StandardR.D&PE reset seg=" + segment + " limit=" + limit + " freqFP=" + freqOffset + " proxFP=" + proxOffset);
 return|return
 name|this
 return|;
@@ -2206,6 +2212,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// if (DEBUG) System.out.println("SPR.nextDoc seg=" + segment + " freqIn.fp=" + freqIn.getFilePointer());
 while|while
 condition|(
 literal|true
@@ -2218,7 +2225,7 @@ operator|==
 name|limit
 condition|)
 block|{
-comment|//System.out.println("StandardR.D&PE seg=" + segment + " nextDoc return doc=END");
+comment|// if (DEBUG) System.out.println("  return END");
 return|return
 name|doc
 operator|=
@@ -2299,7 +2306,7 @@ name|position
 operator|=
 literal|0
 expr_stmt|;
-comment|//System.out.println("StandardR.D&PE nextDoc seg=" + segment + " return doc=" + doc);
+comment|// if (DEBUG) System.out.println("  return doc=" + doc);
 return|return
 name|doc
 return|;

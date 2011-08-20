@@ -1469,6 +1469,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|isOpen
+assert|;
 if|if
 condition|(
 name|rateLimiter

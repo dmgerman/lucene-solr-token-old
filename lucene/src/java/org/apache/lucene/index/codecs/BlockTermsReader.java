@@ -529,7 +529,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|//private String segment;
+comment|// private String segment;
 DECL|method|BlockTermsReader
 specifier|public
 name|BlockTermsReader
@@ -580,7 +580,7 @@ argument_list|(
 name|termsCacheSize
 argument_list|)
 expr_stmt|;
-comment|//this.segment = segment;
+comment|// this.segment = segment;
 name|in
 operator|=
 name|dir
@@ -1419,6 +1419,12 @@ specifier|private
 name|int
 name|termBlockPrefix
 decl_stmt|;
+comment|/* How many terms in current block */
+DECL|field|blockTermCount
+specifier|private
+name|int
+name|blockTermCount
+decl_stmt|;
 DECL|field|docFreqBytes
 specifier|private
 name|byte
@@ -1588,7 +1594,26 @@ literal|"terms index was not loaded"
 argument_list|)
 throw|;
 block|}
-comment|/*         System.out.println("BTR.seek seg=" + segment + " target=" + fieldInfo.name + ":" + target.utf8ToString() + " " + target + " current=" + term().utf8ToString() + " " + term() + " useCache=" + useCache + " indexIsCurrent=" + indexIsCurrent + " didIndexNext=" + didIndexNext + " seekPending=" + seekPending + " divisor=" + indexReader.getDivisor() + " this="  + this);         if (didIndexNext) {           if (nextIndexTerm == null) {             System.out.println("  nextIndexTerm=null");           } else {             System.out.println("  nextIndexTerm=" + nextIndexTerm.utf8ToString());           }         }         */
+comment|//System.out.println("BTR.seek seg=" + segment + " target=" + fieldInfo.name + ":" + target.utf8ToString() + " " + target + " current=" + term().utf8ToString() + " " + term() + " useCache=" + useCache + " indexIsCurrent=" + indexIsCurrent + " didIndexNext=" + didIndexNext + " seekPending=" + seekPending + " divisor=" + indexReader.getDivisor() + " this="  + this);
+if|if
+condition|(
+name|didIndexNext
+condition|)
+block|{
+if|if
+condition|(
+name|nextIndexTerm
+operator|==
+literal|null
+condition|)
+block|{
+comment|//System.out.println("  nextIndexTerm=null");
+block|}
+else|else
+block|{
+comment|//System.out.println("  nextIndexTerm=" + nextIndexTerm.utf8ToString());
+block|}
+block|}
 comment|// Check cache
 if|if
 condition|(
@@ -1843,10 +1868,8 @@ if|if
 condition|(
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|==
-name|state
-operator|.
 name|blockTermCount
 operator|&&
 operator|!
@@ -1945,10 +1968,8 @@ if|if
 condition|(
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|<
-name|state
-operator|.
 name|blockTermCount
 condition|)
 block|{
@@ -1956,10 +1977,8 @@ while|while
 condition|(
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|<
-name|state
-operator|.
 name|blockTermCount
 operator|-
 literal|1
@@ -1967,7 +1986,7 @@ condition|)
 block|{
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|++
 expr_stmt|;
 name|state
@@ -2081,7 +2100,7 @@ comment|// block and return NOT_FOUND:
 assert|assert
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|==
 literal|0
 assert|;
@@ -2160,7 +2179,7 @@ condition|)
 block|{
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|++
 expr_stmt|;
 name|state
@@ -2458,10 +2477,8 @@ if|if
 condition|(
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|==
-name|state
-operator|.
 name|blockTermCount
 condition|)
 block|{
@@ -2565,7 +2582,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//System.out.println("BTR.next() seekPending=" + seekPending + " pendingSeekCount=" + state.termCount);
+comment|//System.out.println("BTR.next() seekPending=" + seekPending + " pendingSeekCount=" + state.termBlockOrd);
 comment|// If seek was previously called and the term was cached,
 comment|// usually caller is just going to pull a D/&PEnum or get
 comment|// docFreq, etc.  But, if they then call next(),
@@ -2595,7 +2612,7 @@ name|pendingSeekCount
 init|=
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 decl_stmt|;
 name|boolean
 name|result
@@ -2621,7 +2638,7 @@ while|while
 condition|(
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|<
 name|pendingSeekCount
 condition|)
@@ -2663,15 +2680,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//System.out.println("BTR._next seg=" + segment + " this=" + this + " termCount=" + state.termCount + " (vs " + state.blockTermCount + ")");
+comment|//System.out.println("BTR._next seg=" + segment + " this=" + this + " termCount=" + state.termBlockOrd + " (vs " + blockTermCount + ")");
 if|if
 condition|(
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|==
-name|state
-operator|.
 name|blockTermCount
 operator|&&
 operator|!
@@ -2745,7 +2760,7 @@ argument_list|)
 expr_stmt|;
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|++
 expr_stmt|;
 comment|// NOTE: meaningless in the non-ord case
@@ -2754,7 +2769,7 @@ operator|.
 name|ord
 operator|++
 expr_stmt|;
-comment|//System.out.println("  return term=" + fieldInfo.name + ":" + term.utf8ToString() + " " + term);
+comment|//System.out.println("  return term=" + fieldInfo.name + ":" + term.utf8ToString() + " " + term + " tbOrd=" + state.termBlockOrd);
 return|return
 name|term
 return|;
@@ -2831,7 +2846,7 @@ comment|//System.out.println("BTR.docs this=" + this);
 name|decodeMetaData
 argument_list|()
 expr_stmt|;
-comment|//System.out.println("  state.docFreq=" + state.docFreq);
+comment|//System.out.println("BTR.docs:  state.docFreq=" + state.docFreq);
 specifier|final
 name|DocsEnum
 name|docsEnum
@@ -2854,6 +2869,7 @@ name|docsEnum
 operator|!=
 literal|null
 assert|;
+comment|//System.out.println("BTR.docs:  return docsEnum=" + docsEnum);
 return|return
 name|docsEnum
 return|;
@@ -2933,7 +2949,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//System.out.println("BTR.seek termState target=" + target.utf8ToString() + " " + target + " this=" + this);
+comment|//System.out.println("BTR.seekExact termState target=" + target.utf8ToString() + " " + target + " this=" + this);
 assert|assert
 name|otherState
 operator|!=
@@ -3218,8 +3234,6 @@ operator|.
 name|getFilePointer
 argument_list|()
 expr_stmt|;
-name|state
-operator|.
 name|blockTermCount
 operator|=
 name|in
@@ -3227,11 +3241,9 @@ operator|.
 name|readVInt
 argument_list|()
 expr_stmt|;
-comment|//System.out.println("  blockTermCount=" + state.blockTermCount);
+comment|//System.out.println("  blockTermCount=" + blockTermCount);
 if|if
 condition|(
-name|state
-operator|.
 name|blockTermCount
 operator|==
 literal|0
@@ -3367,7 +3379,7 @@ literal|0
 expr_stmt|;
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|=
 literal|0
 expr_stmt|;
@@ -3411,7 +3423,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//System.out.println("BTR.decodeMetadata mdUpto=" + metaDataUpto + " vs termCount=" + state.termCount + " state=" + state);
+comment|//System.out.println("BTR.decodeMetadata mdUpto=" + metaDataUpto + " vs termCount=" + state.termBlockOrd + " state=" + state);
 if|if
 condition|(
 operator|!
@@ -3429,13 +3441,13 @@ name|limit
 init|=
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 decl_stmt|;
 comment|// We must set/incr state.termCount because
 comment|// postings impl can look at this
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|=
 name|metaDataUpto
 expr_stmt|;
@@ -3505,11 +3517,13 @@ operator|++
 expr_stmt|;
 name|state
 operator|.
-name|termCount
+name|termBlockOrd
 operator|++
 expr_stmt|;
 block|}
-comment|//} else {
+block|}
+else|else
+block|{
 comment|//System.out.println("  skip! seekPending");
 block|}
 block|}

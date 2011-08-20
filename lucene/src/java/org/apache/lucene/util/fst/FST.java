@@ -442,6 +442,7 @@ name|T
 name|output
 decl_stmt|;
 DECL|field|target
+specifier|public
 name|int
 name|target
 decl_stmt|;
@@ -1177,6 +1178,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+DECL|method|getEmptyOutput
+specifier|public
+name|T
+name|getEmptyOutput
+parameter_list|()
+block|{
+return|return
+name|emptyOutput
+return|;
 block|}
 DECL|method|setEmptyOutput
 name|void
@@ -2811,6 +2822,8 @@ operator|.
 name|flags
 operator|=
 name|BIT_LAST_ARC
+operator||
+name|BIT_FINAL_ARC
 expr_stmt|;
 block|}
 else|else
@@ -2819,7 +2832,7 @@ name|arc
 operator|.
 name|flags
 operator|=
-literal|0
+name|BIT_FINAL_ARC
 expr_stmt|;
 name|arc
 operator|.
@@ -2849,8 +2862,8 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// Not private because NodeHash needs access:
 DECL|method|readFirstRealArc
+specifier|public
 name|Arc
 argument_list|<
 name|T
@@ -3236,7 +3249,9 @@ name|in
 argument_list|)
 return|;
 block|}
+comment|/** Never returns null, but you should never call this if    *  arc.isLast() is true. */
 DECL|method|readNextRealArc
+specifier|public
 name|Arc
 argument_list|<
 name|T
@@ -4283,6 +4298,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|getBytesReader
+specifier|public
 specifier|final
 name|BytesReader
 name|getBytesReader

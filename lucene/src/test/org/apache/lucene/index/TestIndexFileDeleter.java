@@ -48,19 +48,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|Similarity
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|CompoundFileDirectory
@@ -815,7 +802,7 @@ argument_list|(
 name|files2
 argument_list|)
 operator|+
-literal|"\ndif: "
+literal|"\ndiff: "
 operator|+
 name|dif
 argument_list|)

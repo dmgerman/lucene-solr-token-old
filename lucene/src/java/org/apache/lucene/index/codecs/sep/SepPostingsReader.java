@@ -276,10 +276,10 @@ begin_comment
 comment|// prox and one that doesn't?
 end_comment
 begin_class
-DECL|class|SepPostingsReaderImpl
+DECL|class|SepPostingsReader
 specifier|public
 class|class
-name|SepPostingsReaderImpl
+name|SepPostingsReader
 extends|extends
 name|PostingsReaderBase
 block|{
@@ -320,9 +320,9 @@ DECL|field|skipMinimum
 name|int
 name|skipMinimum
 decl_stmt|;
-DECL|method|SepPostingsReaderImpl
+DECL|method|SepPostingsReader
 specifier|public
-name|SepPostingsReaderImpl
+name|SepPostingsReader
 parameter_list|(
 name|Directory
 name|dir
@@ -363,7 +363,7 @@ name|name
 argument_list|,
 name|codecId
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|DOC_EXTENSION
 argument_list|)
@@ -397,7 +397,7 @@ name|name
 argument_list|,
 name|codecId
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|SKIP_EXTENSION
 argument_list|)
@@ -434,7 +434,7 @@ name|name
 argument_list|,
 name|codecId
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|FREQ_EXTENSION
 argument_list|)
@@ -476,7 +476,7 @@ name|name
 argument_list|,
 name|codecId
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|POS_EXTENSION
 argument_list|)
@@ -500,7 +500,7 @@ name|name
 argument_list|,
 name|codecId
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|PAYLOAD_EXTENSION
 argument_list|)
@@ -574,7 +574,7 @@ name|name
 argument_list|,
 name|codecId
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|DOC_EXTENSION
 argument_list|)
@@ -594,7 +594,7 @@ name|name
 argument_list|,
 name|codecId
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|SKIP_EXTENSION
 argument_list|)
@@ -625,7 +625,7 @@ name|name
 argument_list|,
 name|codecId
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|FREQ_EXTENSION
 argument_list|)
@@ -654,7 +654,7 @@ name|name
 argument_list|,
 name|codecId
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|POS_EXTENSION
 argument_list|)
@@ -674,7 +674,7 @@ name|name
 argument_list|,
 name|codecId
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|PAYLOAD_EXTENSION
 argument_list|)
@@ -702,15 +702,15 @@ name|checkHeader
 argument_list|(
 name|termsIn
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|CODEC
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|VERSION_START
 argument_list|,
-name|SepPostingsWriterImpl
+name|SepPostingsWriter
 operator|.
 name|VERSION_START
 argument_list|)
@@ -871,6 +871,9 @@ name|skipFP
 decl_stmt|;
 comment|// Only used for "primary" term state; these are never
 comment|// copied on clone:
+comment|// TODO: these should somehow be stored per-TermsEnum
+comment|// not per TermState; maybe somehow the terms dict
+comment|// should load/manage the byte[]/DataReader for us?
 DECL|field|bytes
 name|byte
 index|[]
@@ -1210,6 +1213,7 @@ name|SepTermState
 operator|)
 name|_termState
 decl_stmt|;
+comment|//System.out.println("SEPR: readTermsBlock termsIn.fp=" + termsIn.getFilePointer());
 specifier|final
 name|int
 name|len
@@ -1219,7 +1223,7 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-comment|//System.out.println("SepR.readTermsBlock len=" + len);
+comment|//System.out.println("  numBytes=" + len);
 if|if
 condition|(
 name|termState
@@ -1343,18 +1347,18 @@ name|SepTermState
 operator|)
 name|_termState
 decl_stmt|;
-comment|//System.out.println("SepR.nextTerm termCount=" + termState.termCount);
-comment|//System.out.println("  docFreq=" + termState.docFreq);
 specifier|final
 name|boolean
 name|isFirstTerm
 init|=
 name|termState
 operator|.
-name|termCount
+name|termBlockOrd
 operator|==
 literal|0
 decl_stmt|;
+comment|//System.out.println("SEPR.nextTerm termCount=" + termState.termBlockOrd + " isFirstTerm=" + isFirstTerm + " bytesReader.pos=" + termState.bytesReader.getPosition());
+comment|//System.out.println("  docFreq=" + termState.docFreq);
 name|termState
 operator|.
 name|docIndex
@@ -1393,7 +1397,6 @@ argument_list|,
 name|isFirstTerm
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|fieldInfo
@@ -1461,6 +1464,7 @@ block|}
 comment|//System.out.println("  payloadFP=" + termState.payloadFP);
 block|}
 block|}
+block|}
 if|if
 condition|(
 name|termState
@@ -1470,7 +1474,7 @@ operator|>=
 name|skipMinimum
 condition|)
 block|{
-comment|//System.out.println("   readSkip @ " + termState.bytesReader.pos);
+comment|//System.out.println("   readSkip @ " + termState.bytesReader.getPosition());
 if|if
 condition|(
 name|isFirstTerm
@@ -2644,7 +2648,7 @@ operator|=
 operator|(
 name|IndexInput
 operator|)
-name|SepPostingsReaderImpl
+name|SepPostingsReader
 operator|.
 name|this
 operator|.
@@ -3029,6 +3033,7 @@ argument_list|(
 name|docReader
 argument_list|)
 expr_stmt|;
+comment|//System.out.println("  doc seek'd to " + skipper.getDocIndex());
 comment|// NOTE: don't seek pos here; do it lazily
 comment|// instead.  Eg a PhraseQuery may skip to many
 comment|// docs before finally asking for positions...

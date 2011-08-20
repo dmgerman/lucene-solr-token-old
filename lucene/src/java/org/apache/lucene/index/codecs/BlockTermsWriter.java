@@ -308,7 +308,7 @@ name|TermsWriter
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|//private final String segment;
+comment|// private final String segment;
 DECL|method|BlockTermsWriter
 specifier|public
 name|BlockTermsWriter
@@ -393,7 +393,7 @@ name|postingsWriter
 operator|=
 name|postingsWriter
 expr_stmt|;
-comment|//segment = state.segmentName;
+comment|// segment = state.segmentName;
 comment|//System.out.println("BTW.init seg=" + state.segmentName);
 name|postingsWriter
 operator|.
@@ -918,7 +918,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//System.out.println("BTW.startTerm term=" + fieldInfo.name + ":" + text.utf8ToString() + " " + text + " seg=" + segment);
+comment|//System.out.println("BTW: startTerm term=" + fieldInfo.name + ":" + text.utf8ToString() + " " + text + " seg=" + segment);
 name|postingsWriter
 operator|.
 name|startTerm
@@ -961,7 +961,7 @@ name|docFreq
 operator|>
 literal|0
 assert|;
-comment|//System.out.println("BTW.finishTerm term=" + fieldInfo.name + ":" + text.utf8ToString() + " " + text + " seg=" + segment + " df=" + stats.docFreq);
+comment|//System.out.println("BTW: finishTerm term=" + fieldInfo.name + ":" + text.utf8ToString() + " " + text + " seg=" + segment + " df=" + stats.docFreq);
 specifier|final
 name|boolean
 name|isIndexTerm
@@ -1547,7 +1547,11 @@ expr_stmt|;
 name|postingsWriter
 operator|.
 name|flushTermsBlock
-argument_list|()
+argument_list|(
+name|pendingCount
+argument_list|,
+name|pendingCount
+argument_list|)
 expr_stmt|;
 name|lastPrevTerm
 operator|.
