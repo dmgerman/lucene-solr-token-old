@@ -24,6 +24,8 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|sandbox
+operator|.
 name|queries
 operator|.
 name|DuplicateFilter
