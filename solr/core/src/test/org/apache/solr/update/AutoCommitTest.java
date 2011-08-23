@@ -2672,7 +2672,7 @@ argument_list|,
 literal|"//result[@numFound=1]"
 argument_list|)
 expr_stmt|;
-comment|// Wait longer than the autocommit time - wait twice to ensure latest is picked up
+comment|// Wait longer than the autocommit time
 name|assertTrue
 argument_list|(
 name|softTrigger
