@@ -1320,18 +1320,6 @@ argument_list|,
 literal|"//result[@numFound=1]"
 argument_list|)
 expr_stmt|;
-name|assertQ
-argument_list|(
-literal|"but not this"
-argument_list|,
-name|req
-argument_list|(
-literal|"id:531"
-argument_list|)
-argument_list|,
-literal|"//result[@numFound=0]"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testSoftCommitMaxDocs
 specifier|public
@@ -2405,13 +2393,6 @@ argument_list|()
 decl_stmt|;
 name|updater
 operator|.
-name|registerCommitCallback
-argument_list|(
-name|softTrigger
-argument_list|)
-expr_stmt|;
-name|updater
-operator|.
 name|registerSoftCommitCallback
 argument_list|(
 name|softTrigger
@@ -2420,13 +2401,6 @@ expr_stmt|;
 name|updater
 operator|.
 name|registerCommitCallback
-argument_list|(
-name|hardTrigger
-argument_list|)
-expr_stmt|;
-name|updater
-operator|.
-name|registerSoftCommitCallback
 argument_list|(
 name|hardTrigger
 argument_list|)
