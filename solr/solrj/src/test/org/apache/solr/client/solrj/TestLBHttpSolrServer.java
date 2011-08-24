@@ -1206,7 +1206,7 @@ argument_list|,
 operator|new
 name|Integer
 argument_list|(
-literal|100
+literal|250
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1222,7 +1222,7 @@ argument_list|,
 operator|new
 name|Integer
 argument_list|(
-literal|100
+literal|250
 argument_list|)
 argument_list|)
 expr_stmt|;
