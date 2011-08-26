@@ -1346,7 +1346,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// default gets restored automatically by LuceneTestCase:
+name|int
+name|savedMaxClauseCount
+init|=
+name|BooleanQuery
+operator|.
+name|getMaxClauseCount
+argument_list|()
+decl_stmt|;
 name|BooleanQuery
 operator|.
 name|setMaxClauseCount
@@ -1423,6 +1430,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|BooleanQuery
+operator|.
+name|setMaxClauseCount
+argument_list|(
+name|savedMaxClauseCount
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|checkNoMaxClauseLimitation
 specifier|private
@@ -1437,7 +1454,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// default gets restored automatically by LuceneTestCase:
+name|int
+name|savedMaxClauseCount
+init|=
+name|BooleanQuery
+operator|.
+name|getMaxClauseCount
+argument_list|()
+decl_stmt|;
 name|BooleanQuery
 operator|.
 name|setMaxClauseCount
@@ -1471,6 +1495,8 @@ argument_list|(
 name|method
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|multiSearcherDupls
 operator|.
 name|rewrite
@@ -1478,6 +1504,17 @@ argument_list|(
 name|mtq
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|BooleanQuery
+operator|.
+name|setMaxClauseCount
+argument_list|(
+name|savedMaxClauseCount
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testMaxClauseLimitations
 specifier|public

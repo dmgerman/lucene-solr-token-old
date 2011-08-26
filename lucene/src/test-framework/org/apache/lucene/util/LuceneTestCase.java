@@ -1068,6 +1068,11 @@ DECL|field|savedBoolMaxClauseCount
 specifier|private
 name|int
 name|savedBoolMaxClauseCount
+init|=
+name|BooleanQuery
+operator|.
+name|getMaxClauseCount
+argument_list|()
 decl_stmt|;
 DECL|field|savedUncaughtExceptionHandler
 specifier|private
@@ -3670,14 +3675,6 @@ operator|=
 name|t
 expr_stmt|;
 block|}
-comment|// if you didn't call super.setUp, you can get a confusing IAE here.
-if|if
-condition|(
-name|problem
-operator|!=
-literal|null
-condition|)
-block|{
 name|BooleanQuery
 operator|.
 name|setMaxClauseCount
@@ -3685,7 +3682,6 @@ argument_list|(
 name|savedBoolMaxClauseCount
 argument_list|)
 expr_stmt|;
-block|}
 comment|// this won't throw any exceptions or fail the test
 comment|// if we change this, then change this logic
 name|checkRogueThreadsAfter
