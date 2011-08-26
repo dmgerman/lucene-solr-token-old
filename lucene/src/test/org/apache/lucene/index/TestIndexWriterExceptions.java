@@ -568,6 +568,8 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
+name|r
+argument_list|,
 literal|"content1"
 argument_list|,
 literal|"aaa bbb ccc ddd"
@@ -592,6 +594,8 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
+name|r
+argument_list|,
 literal|"content6"
 argument_list|,
 literal|"aaa bbb ccc ddd"
@@ -622,6 +626,8 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
+name|r
+argument_list|,
 literal|"content2"
 argument_list|,
 literal|"aaa bbb ccc ddd"
@@ -646,6 +652,8 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
+name|r
+argument_list|,
 literal|"content3"
 argument_list|,
 literal|"aaa bbb ccc ddd"
@@ -670,6 +678,8 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
+name|r
+argument_list|,
 literal|"content4"
 argument_list|,
 literal|"aaa bbb ccc ddd"
@@ -694,6 +704,8 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
+name|r
+argument_list|,
 literal|"content5"
 argument_list|,
 literal|"aaa bbb ccc ddd"
@@ -718,6 +730,8 @@ name|add
 argument_list|(
 name|newField
 argument_list|(
+name|r
+argument_list|,
 literal|"content7"
 argument_list|,
 literal|"aaa bbb ccc ddd"
