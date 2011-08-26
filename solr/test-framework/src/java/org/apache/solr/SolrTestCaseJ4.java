@@ -707,6 +707,10 @@ argument_list|(
 name|msg
 argument_list|)
 expr_stmt|;
+name|testsFailed
+operator|=
+literal|true
+expr_stmt|;
 name|fail
 argument_list|(
 name|msg
@@ -813,6 +817,10 @@ name|error
 argument_list|(
 name|msg
 argument_list|)
+expr_stmt|;
+name|testsFailed
+operator|=
+literal|true
 expr_stmt|;
 name|fail
 argument_list|(
