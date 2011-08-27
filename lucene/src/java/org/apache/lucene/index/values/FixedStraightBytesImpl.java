@@ -725,7 +725,7 @@ name|IOUtils
 operator|.
 name|closeSafely
 argument_list|(
-literal|true
+literal|false
 argument_list|,
 name|cloneData
 argument_list|)
