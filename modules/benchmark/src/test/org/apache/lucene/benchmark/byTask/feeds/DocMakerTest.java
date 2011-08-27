@@ -46,19 +46,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|MockAnalyzer
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
 name|core
 operator|.
 name|WhitespaceAnalyzer
@@ -776,7 +763,7 @@ operator|.
 name|TITLE_FIELD
 argument_list|)
 operator|.
-name|getOmitNorms
+name|omitNorms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -791,7 +778,7 @@ operator|.
 name|BODY_FIELD
 argument_list|)
 operator|.
-name|getOmitNorms
+name|omitNorms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -820,7 +807,7 @@ operator|.
 name|TITLE_FIELD
 argument_list|)
 operator|.
-name|getOmitNorms
+name|omitNorms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -835,7 +822,7 @@ operator|.
 name|BODY_FIELD
 argument_list|)
 operator|.
-name|getOmitNorms
+name|omitNorms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -864,7 +851,7 @@ operator|.
 name|TITLE_FIELD
 argument_list|)
 operator|.
-name|getOmitNorms
+name|omitNorms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -879,7 +866,7 @@ operator|.
 name|BODY_FIELD
 argument_list|)
 operator|.
-name|getOmitNorms
+name|omitNorms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -908,7 +895,7 @@ operator|.
 name|TITLE_FIELD
 argument_list|)
 operator|.
-name|getOmitNorms
+name|omitNorms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -923,7 +910,7 @@ operator|.
 name|BODY_FIELD
 argument_list|)
 operator|.
-name|getOmitNorms
+name|omitNorms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -952,7 +939,7 @@ operator|.
 name|TITLE_FIELD
 argument_list|)
 operator|.
-name|getOmitNorms
+name|omitNorms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -967,7 +954,7 @@ operator|.
 name|BODY_FIELD
 argument_list|)
 operator|.
-name|getOmitNorms
+name|omitNorms
 argument_list|()
 argument_list|)
 expr_stmt|;

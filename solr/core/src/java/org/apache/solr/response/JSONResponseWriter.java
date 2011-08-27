@@ -94,9 +94,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|index
 operator|.
-name|Fieldable
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -1395,7 +1395,7 @@ DECL|field|fields
 specifier|final
 name|ArrayList
 argument_list|<
-name|Fieldable
+name|IndexableField
 argument_list|>
 name|fields
 decl_stmt|;
@@ -1405,7 +1405,7 @@ parameter_list|(
 name|SchemaField
 name|sfield
 parameter_list|,
-name|Fieldable
+name|IndexableField
 name|firstVal
 parameter_list|)
 block|{
@@ -1422,7 +1422,7 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Fieldable
+name|IndexableField
 argument_list|>
 argument_list|(
 literal|4

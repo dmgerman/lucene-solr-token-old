@@ -129,10 +129,7 @@ comment|/**    * Re-initialize the state, using this boost value.    * @param do
 DECL|method|reset
 name|void
 name|reset
-parameter_list|(
-name|float
-name|docBoost
-parameter_list|)
+parameter_list|()
 block|{
 name|position
 operator|=
@@ -160,7 +157,7 @@ literal|0
 expr_stmt|;
 name|boost
 operator|=
-name|docBoost
+literal|1.0f
 expr_stmt|;
 name|attributeSource
 operator|=

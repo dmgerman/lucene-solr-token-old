@@ -175,7 +175,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// add the same document four times
-name|Fieldable
+name|Field
 name|f1
 init|=
 name|newField
@@ -184,17 +184,9 @@ literal|"field"
 argument_list|,
 literal|"word"
 argument_list|,
-name|Field
+name|TextField
 operator|.
-name|Store
-operator|.
-name|YES
-argument_list|,
-name|Field
-operator|.
-name|Index
-operator|.
-name|ANALYZED
+name|TYPE_STORED
 argument_list|)
 decl_stmt|;
 name|Document

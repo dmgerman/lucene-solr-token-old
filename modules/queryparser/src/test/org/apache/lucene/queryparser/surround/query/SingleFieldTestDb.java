@@ -115,7 +115,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Field
+name|TextField
 import|;
 end_import
 begin_import
@@ -255,7 +255,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|Field
+name|TextField
 argument_list|(
 name|fieldName
 argument_list|,
@@ -263,18 +263,6 @@ name|docs
 index|[
 name|j
 index|]
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|NO
-argument_list|,
-name|Field
-operator|.
-name|Index
-operator|.
-name|ANALYZED
 argument_list|)
 argument_list|)
 expr_stmt|;

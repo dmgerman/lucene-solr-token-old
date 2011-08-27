@@ -2288,7 +2288,7 @@ name|storedToIndexed
 argument_list|(
 name|doc
 operator|.
-name|getFieldable
+name|getField
 argument_list|(
 name|uniqueKeyField
 operator|.

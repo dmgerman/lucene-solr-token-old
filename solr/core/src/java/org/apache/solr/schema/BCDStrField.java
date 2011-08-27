@@ -22,9 +22,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|index
 operator|.
-name|Fieldable
+name|IndexableField
 import|;
 end_import
 begin_comment
@@ -46,7 +46,7 @@ specifier|public
 name|String
 name|toObject
 parameter_list|(
-name|Fieldable
+name|IndexableField
 name|f
 parameter_list|)
 block|{

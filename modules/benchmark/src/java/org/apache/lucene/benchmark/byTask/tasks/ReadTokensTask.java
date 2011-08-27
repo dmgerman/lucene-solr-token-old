@@ -132,7 +132,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Fieldable
+name|NumericField
 import|;
 end_import
 begin_import
@@ -143,9 +143,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|index
 operator|.
-name|NumericField
+name|IndexableField
 import|;
 end_import
 begin_comment
@@ -275,7 +275,7 @@ name|Exception
 block|{
 name|List
 argument_list|<
-name|Fieldable
+name|IndexableField
 argument_list|>
 name|fields
 init|=
@@ -301,7 +301,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|Fieldable
+name|IndexableField
 name|field
 range|:
 name|fields
@@ -312,7 +312,7 @@ condition|(
 operator|!
 name|field
 operator|.
-name|isTokenized
+name|tokenized
 argument_list|()
 operator|||
 name|field

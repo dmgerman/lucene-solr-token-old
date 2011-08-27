@@ -125,9 +125,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|index
 operator|.
-name|Fieldable
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -800,7 +800,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|Fieldable
+name|IndexableField
 name|f
 parameter_list|)
 throws|throws

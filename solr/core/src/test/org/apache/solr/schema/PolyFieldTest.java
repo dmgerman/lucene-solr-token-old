@@ -22,9 +22,11 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|queries
 operator|.
-name|Fieldable
+name|function
+operator|.
+name|ValueSource
 import|;
 end_import
 begin_import
@@ -35,11 +37,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|index
 operator|.
-name|function
-operator|.
-name|ValueSource
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -485,7 +485,7 @@ index|[
 literal|1
 index|]
 decl_stmt|;
-name|Fieldable
+name|IndexableField
 index|[]
 name|fields
 init|=
@@ -542,7 +542,7 @@ index|[
 literal|1
 index|]
 operator|.
-name|getBinaryValue
+name|binaryValue
 argument_list|()
 operator|!=
 literal|null
