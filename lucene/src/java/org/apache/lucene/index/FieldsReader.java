@@ -825,10 +825,8 @@ condition|)
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|close
 argument_list|(
-literal|false
-argument_list|,
 name|fieldsStream
 argument_list|,
 name|indexStream
@@ -845,10 +843,8 @@ else|else
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|close
 argument_list|(
-literal|false
-argument_list|,
 name|fieldsStream
 argument_list|,
 name|indexStream

@@ -414,10 +414,8 @@ empty_stmt|;
 comment|// close perDocConsumer during flush to ensure all files are flushed due to PerCodec CFS
 name|IOUtils
 operator|.
-name|closeSafely
+name|close
 argument_list|(
-literal|false
-argument_list|,
 name|perDocConsumers
 operator|.
 name|values
@@ -498,10 +496,8 @@ try|try
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|closeWhileHandlingException
 argument_list|(
-literal|true
-argument_list|,
 name|perDocConsumers
 operator|.
 name|values

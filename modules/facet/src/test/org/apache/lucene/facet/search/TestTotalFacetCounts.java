@@ -830,10 +830,8 @@ argument_list|()
 expr_stmt|;
 name|IOUtils
 operator|.
-name|closeSafely
+name|close
 argument_list|(
-literal|false
-argument_list|,
 name|dirs
 index|[
 literal|0

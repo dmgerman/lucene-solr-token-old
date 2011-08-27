@@ -918,10 +918,8 @@ name|IOException
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|close
 argument_list|(
-literal|false
-argument_list|,
 name|tvx
 argument_list|,
 name|tvd

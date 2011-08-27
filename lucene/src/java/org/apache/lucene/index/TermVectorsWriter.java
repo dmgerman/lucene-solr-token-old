@@ -264,10 +264,8 @@ condition|)
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|closeWhileHandlingException
 argument_list|(
-literal|true
-argument_list|,
 name|tvx
 argument_list|,
 name|tvd
@@ -1104,10 +1102,8 @@ comment|// make an effort to close all streams we can but remember and re-throw
 comment|// the first exception encountered in this process
 name|IOUtils
 operator|.
-name|closeSafely
+name|close
 argument_list|(
-literal|false
-argument_list|,
 name|tvx
 argument_list|,
 name|tvd

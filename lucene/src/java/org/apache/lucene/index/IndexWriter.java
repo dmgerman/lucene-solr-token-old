@@ -6622,7 +6622,7 @@ finally|finally
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|closeWhileHandlingException
 argument_list|(
 name|prior
 argument_list|,
@@ -7957,10 +7957,8 @@ finally|finally
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|close
 argument_list|(
-literal|false
-argument_list|,
 name|cfsdir
 argument_list|)
 expr_stmt|;

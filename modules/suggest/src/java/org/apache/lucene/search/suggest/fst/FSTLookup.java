@@ -2249,10 +2249,8 @@ finally|finally
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|close
 argument_list|(
-literal|false
-argument_list|,
 name|is
 argument_list|)
 expr_stmt|;
@@ -2356,10 +2354,8 @@ finally|finally
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|close
 argument_list|(
-literal|false
-argument_list|,
 name|os
 argument_list|)
 expr_stmt|;

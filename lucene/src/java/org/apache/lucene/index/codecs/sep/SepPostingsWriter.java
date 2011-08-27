@@ -771,10 +771,8 @@ condition|)
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|closeWhileHandlingException
 argument_list|(
-literal|true
-argument_list|,
 name|docOut
 argument_list|,
 name|skipOut
@@ -1942,10 +1940,8 @@ name|IOException
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|close
 argument_list|(
-literal|false
-argument_list|,
 name|docOut
 argument_list|,
 name|skipOut

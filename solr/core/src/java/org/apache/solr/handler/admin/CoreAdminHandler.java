@@ -1389,10 +1389,8 @@ literal|null
 condition|)
 name|IOUtils
 operator|.
-name|closeSafely
+name|closeWhileHandlingException
 argument_list|(
-literal|true
-argument_list|,
 name|readersToBeClosed
 argument_list|)
 expr_stmt|;

@@ -285,10 +285,8 @@ argument_list|)
 decl_stmt|;
 name|IOUtils
 operator|.
-name|closeSafely
+name|close
 argument_list|(
-literal|false
-argument_list|,
 name|tvx
 argument_list|,
 name|tvf
@@ -645,10 +643,8 @@ condition|)
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|closeWhileHandlingException
 argument_list|(
-literal|true
-argument_list|,
 name|tvx
 argument_list|,
 name|tvd
@@ -897,10 +893,8 @@ try|try
 block|{
 name|IOUtils
 operator|.
-name|closeSafely
+name|closeWhileHandlingException
 argument_list|(
-literal|true
-argument_list|,
 name|tvx
 argument_list|,
 name|tvd
