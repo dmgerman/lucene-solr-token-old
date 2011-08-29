@@ -303,11 +303,6 @@ begin_comment
 comment|/**  * Pulses 10k terms/docs,   * originally designed to find JRE bugs (https://issues.apache.org/jira/browse/LUCENE-3335)  *   * @lucene.experimental  */
 end_comment
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"not yet"
-argument_list|)
 DECL|class|Test10KPulsings
 specifier|public
 class|class
