@@ -206,6 +206,15 @@ operator|.
 name|BeforeClass
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
 begin_class
 DECL|class|JsonLoaderTest
 specifier|public
@@ -285,7 +294,9 @@ literal|"  'doc': {\n"
 operator|+
 literal|"    'f1': 'v1',\n"
 operator|+
-literal|"    'f1': 'v2'\n"
+literal|"    'f1': 'v2',\n"
+operator|+
+literal|"    'f2': null\n"
 operator|+
 literal|"  }\n"
 operator|+
@@ -498,6 +509,21 @@ argument_list|,
 name|add
 operator|.
 name|overwrite
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|d
+operator|.
+name|getField
+argument_list|(
+literal|"f2"
+argument_list|)
+operator|.
+name|getValueCount
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// parse the commit commands
@@ -1061,6 +1087,52 @@ name|req
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testNullValues
+specifier|public
+name|void
+name|testNullValues
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|updateJ
+argument_list|(
+literal|"[{'id':'10','foo_s':null,'foo2_s':['hi',null,'there']}]"
+operator|.
+name|replace
+argument_list|(
+literal|'\''
+argument_list|,
+literal|'"'
+argument_list|)
+argument_list|,
+name|params
+argument_list|(
+literal|"commit"
+argument_list|,
+literal|"true"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertJQ
+argument_list|(
+name|req
+argument_list|(
+literal|"q"
+argument_list|,
+literal|"id:10"
+argument_list|,
+literal|"fl"
+argument_list|,
+literal|"foo_s,foo2_s"
+argument_list|)
+argument_list|,
+literal|"/response/docs/[0]=={'foo2_s':['hi','there']}"
+argument_list|)
 expr_stmt|;
 block|}
 block|}
