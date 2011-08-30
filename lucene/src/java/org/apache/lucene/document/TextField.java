@@ -36,6 +36,9 @@ operator|.
 name|TokenStream
 import|;
 end_import
+begin_comment
+comment|/** A field that is indexed and tokenized, without term  *  vectors.  For example this would be used on a 'body'  *  field, that contains the bulk of a document's text.  *   *  This field's value is not stored by default; use the  *  {@link TYPE_STORED} type (pass it to<code>new  *  Field</code>) to store the value. */
+end_comment
 begin_class
 DECL|class|TextField
 specifier|public
@@ -45,6 +48,7 @@ name|TextField
 extends|extends
 name|Field
 block|{
+comment|/* Indexed, tokenized, not stored. */
 DECL|field|TYPE_UNSTORED
 specifier|public
 specifier|static
@@ -56,6 +60,7 @@ operator|new
 name|FieldType
 argument_list|()
 decl_stmt|;
+comment|/* Indexed, tokenized, stored. */
 DECL|field|TYPE_STORED
 specifier|public
 specifier|static
@@ -115,6 +120,7 @@ name|freeze
 argument_list|()
 expr_stmt|;
 block|}
+comment|/** Creates a new un-stored TextField */
 DECL|method|TextField
 specifier|public
 name|TextField
@@ -138,6 +144,7 @@ name|reader
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Creates a new un-stored TextField */
 DECL|method|TextField
 specifier|public
 name|TextField
@@ -161,6 +168,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Creates a new un-stored TextField */
 DECL|method|TextField
 specifier|public
 name|TextField
@@ -183,16 +191,6 @@ argument_list|,
 name|stream
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|isNumeric
-specifier|public
-name|boolean
-name|isNumeric
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
 block|}
 block|}
 end_class
