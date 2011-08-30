@@ -3198,7 +3198,8 @@ else|else
 block|{
 name|totalTermFreq
 operator|=
-literal|0
+operator|-
+literal|1
 expr_stmt|;
 block|}
 name|current
@@ -4041,7 +4042,8 @@ else|else
 block|{
 name|sumTotalTermFreq
 operator|=
-literal|0
+operator|-
+literal|1
 expr_stmt|;
 block|}
 name|sumDocFreq
