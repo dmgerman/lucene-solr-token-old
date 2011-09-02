@@ -448,10 +448,21 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+name|assumeTrue
+argument_list|(
+literal|"not enough content for test to be useful"
+argument_list|,
+name|content
+operator|.
+name|length
+operator|>
+literal|10
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ConnectException
+name|IOException
 name|ex
 parameter_list|)
 block|{
@@ -485,16 +496,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|assertTrue
-argument_list|(
-name|content
-operator|.
-name|length
-operator|>
-literal|10
-argument_list|)
-expr_stmt|;
-comment|// found something...
 name|ContentStreamBase
 name|stream
 init|=
