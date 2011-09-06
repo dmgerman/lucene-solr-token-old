@@ -957,6 +957,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|pos
+operator|>
+literal|0
+condition|)
+block|{
 name|out
 operator|.
 name|write
@@ -976,6 +983,7 @@ name|pos
 operator|=
 literal|0
 expr_stmt|;
+block|}
 block|}
 DECL|method|size
 specifier|public
