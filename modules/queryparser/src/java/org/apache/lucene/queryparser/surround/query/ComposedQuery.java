@@ -72,6 +72,9 @@ specifier|public
 name|ComposedQuery
 parameter_list|(
 name|List
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|qs
 parameter_list|,
 name|boolean
@@ -105,6 +108,9 @@ name|void
 name|recompose
 parameter_list|(
 name|List
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 parameter_list|)
 block|{
@@ -132,7 +138,7 @@ name|queries
 expr_stmt|;
 block|}
 DECL|field|opName
-specifier|private
+specifier|protected
 name|String
 name|opName
 decl_stmt|;
@@ -147,13 +153,19 @@ name|opName
 return|;
 block|}
 DECL|field|queries
-specifier|private
+specifier|protected
 name|List
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|queries
 decl_stmt|;
 DECL|method|getSubQueriesIterator
 specifier|public
 name|Iterator
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|getSubQueriesIterator
 parameter_list|()
 block|{
@@ -187,9 +199,6 @@ name|qn
 parameter_list|)
 block|{
 return|return
-operator|(
-name|SrndQuery
-operator|)
 name|queries
 operator|.
 name|get
@@ -243,6 +252,9 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 name|Iterator
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|sqi
 init|=
 name|getSubQueriesIterator
@@ -261,9 +273,6 @@ operator|.
 name|add
 argument_list|(
 operator|(
-operator|(
-name|SrndQuery
-operator|)
 name|sqi
 operator|.
 name|next
@@ -372,6 +381,9 @@ parameter_list|)
 block|{
 comment|/* Brackets are possibly redundant in the result. */
 name|Iterator
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|sqi
 init|=
 name|getSubQueriesIterator
@@ -471,6 +483,9 @@ name|r
 parameter_list|)
 block|{
 name|Iterator
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|sqi
 init|=
 name|getSubQueriesIterator
@@ -564,6 +579,9 @@ parameter_list|()
 block|{
 comment|/* at least one subquery should be acceptable */
 name|Iterator
+argument_list|<
+name|SrndQuery
+argument_list|>
 name|sqi
 init|=
 name|getSubQueriesIterator
@@ -580,9 +598,6 @@ block|{
 if|if
 condition|(
 operator|(
-operator|(
-name|SrndQuery
-operator|)
 name|sqi
 operator|.
 name|next
