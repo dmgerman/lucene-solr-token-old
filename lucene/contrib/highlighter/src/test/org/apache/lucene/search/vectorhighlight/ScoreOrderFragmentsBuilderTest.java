@@ -208,7 +208,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"b b<b>a</b> b<b>a</b> b b b b b "
+literal|"b b<b>a</b> b<b>a</b> b b b b b c"
 argument_list|,
 name|f
 index|[
@@ -218,7 +218,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"<b>a</b> b b b b b b b b b "
+literal|"<b>a</b> b b b b b b b b b b"
 argument_list|,
 name|f
 index|[
