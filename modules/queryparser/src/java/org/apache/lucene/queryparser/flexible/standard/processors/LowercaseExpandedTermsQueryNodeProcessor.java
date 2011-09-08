@@ -81,6 +81,25 @@ name|core
 operator|.
 name|nodes
 operator|.
+name|FieldQueryNode
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|queryparser
+operator|.
+name|flexible
+operator|.
+name|core
+operator|.
+name|nodes
+operator|.
 name|FuzzyQueryNode
 import|;
 end_import
@@ -100,7 +119,7 @@ name|core
 operator|.
 name|nodes
 operator|.
-name|ParametricQueryNode
+name|QueryNode
 import|;
 end_import
 begin_import
@@ -119,7 +138,7 @@ name|core
 operator|.
 name|nodes
 operator|.
-name|QueryNode
+name|RangeQueryNode
 import|;
 end_import
 begin_import
@@ -239,7 +258,7 @@ name|WildcardQueryNode
 import|;
 end_import
 begin_comment
-comment|/**  * This processor verifies if   * {@link ConfigurationKeys#LOWERCASE_EXPANDED_TERMS} is defined in the  * {@link QueryConfigHandler}. If it is and the expanded terms should be  * lower-cased, it looks for every {@link WildcardQueryNode},  * {@link FuzzyQueryNode} and {@link ParametricQueryNode} and lower-case its  * term.<br/>  *   * @see ConfigurationKeys#LOWERCASE_EXPANDED_TERMS  */
+comment|/**  * This processor verifies if   * {@link ConfigurationKeys#LOWERCASE_EXPANDED_TERMS} is defined in the  * {@link QueryConfigHandler}. If it is and the expanded terms should be  * lower-cased, it looks for every {@link WildcardQueryNode},  * {@link FuzzyQueryNode} and children of a {@link RangeQueryNode} and lower-case its  * term.<br/>  *   * @see ConfigurationKeys#LOWERCASE_EXPANDED_TERMS  */
 end_comment
 begin_class
 DECL|class|LowercaseExpandedTermsQueryNodeProcessor
@@ -327,9 +346,18 @@ name|node
 operator|instanceof
 name|FuzzyQueryNode
 operator|||
+operator|(
 name|node
 operator|instanceof
-name|ParametricQueryNode
+name|FieldQueryNode
+operator|&&
+name|node
+operator|.
+name|getParent
+argument_list|()
+operator|instanceof
+name|RangeQueryNode
+operator|)
 operator|||
 name|node
 operator|instanceof

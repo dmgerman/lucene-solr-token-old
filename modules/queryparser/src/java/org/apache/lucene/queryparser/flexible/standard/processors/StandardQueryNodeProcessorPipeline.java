@@ -249,7 +249,7 @@ expr_stmt|;
 name|add
 argument_list|(
 operator|new
-name|ParametricRangeQueryNodeProcessor
+name|TermRangeQueryNodeProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
