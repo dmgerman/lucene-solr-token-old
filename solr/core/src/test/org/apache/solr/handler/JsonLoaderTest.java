@@ -437,6 +437,8 @@ name|f
 operator|.
 name|getBoost
 argument_list|()
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -500,6 +502,8 @@ name|d
 operator|.
 name|getDocumentBoost
 argument_list|()
+argument_list|,
+literal|0.001
 argument_list|)
 expr_stmt|;
 name|assertEquals

@@ -131,7 +131,7 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertArrayEquals
 argument_list|(
 literal|"params"
 argument_list|,
@@ -200,7 +200,7 @@ argument_list|,
 name|helloWorld
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertArrayEquals
 argument_list|(
 literal|"checking Hello World: "
 argument_list|,
@@ -303,7 +303,7 @@ argument_list|,
 name|helloWorld
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertArrayEquals
 argument_list|(
 literal|"checking Hello World: "
 argument_list|,
@@ -398,7 +398,7 @@ argument_list|,
 name|helloWorld
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertArrayEquals
 argument_list|(
 literal|"checking Hello World: "
 argument_list|,
@@ -505,7 +505,7 @@ argument_list|,
 name|helloWorld
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertArrayEquals
 argument_list|(
 literal|"checking Hello World: "
 argument_list|,

@@ -143,6 +143,8 @@ name|result
 index|[
 literal|0
 index|]
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -153,6 +155,8 @@ name|result
 index|[
 literal|1
 index|]
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|result
@@ -184,6 +188,8 @@ name|result
 index|[
 literal|0
 index|]
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -195,6 +201,8 @@ name|result
 index|[
 literal|1
 index|]
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|result
@@ -225,6 +233,8 @@ name|result
 index|[
 literal|0
 index|]
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -235,6 +245,8 @@ name|result
 index|[
 literal|1
 index|]
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|result
@@ -265,6 +277,8 @@ name|result
 index|[
 literal|0
 index|]
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -275,6 +289,8 @@ name|result
 index|[
 literal|1
 index|]
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|result
@@ -305,6 +321,8 @@ name|result
 index|[
 literal|0
 index|]
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -315,6 +333,8 @@ name|result
 index|[
 literal|1
 index|]
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 name|result
@@ -345,6 +365,8 @@ name|result
 index|[
 literal|0
 index|]
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -355,6 +377,8 @@ name|result
 index|[
 literal|1
 index|]
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 block|}
@@ -1371,6 +1395,8 @@ argument_list|(
 literal|1.0
 argument_list|,
 name|distance
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|distance
@@ -1391,6 +1417,8 @@ argument_list|(
 literal|1.0
 argument_list|,
 name|distance
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|distance
@@ -2153,6 +2181,8 @@ name|dbls
 index|[
 literal|0
 index|]
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2163,6 +2193,8 @@ name|dbls
 index|[
 literal|1
 index|]
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2174,6 +2206,8 @@ name|dbls
 index|[
 literal|2
 index|]
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 try|try
@@ -2231,6 +2265,8 @@ name|dbls
 index|[
 literal|0
 index|]
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2241,6 +2277,8 @@ name|dbls
 index|[
 literal|1
 index|]
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 comment|//test some bad lat/long pairs

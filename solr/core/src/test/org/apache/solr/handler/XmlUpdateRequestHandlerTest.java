@@ -280,6 +280,8 @@ name|doc
 operator|.
 name|getDocumentBoost
 argument_list|()
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -295,6 +297,8 @@ argument_list|)
 operator|.
 name|getBoost
 argument_list|()
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -310,6 +314,8 @@ argument_list|)
 operator|.
 name|getBoost
 argument_list|()
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 comment|// Boost is the product of each value
@@ -332,6 +338,8 @@ argument_list|)
 operator|.
 name|getBoost
 argument_list|()
+argument_list|,
+literal|0.1
 argument_list|)
 expr_stmt|;
 comment|// Read values

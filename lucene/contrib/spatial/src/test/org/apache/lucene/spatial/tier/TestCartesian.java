@@ -1143,6 +1143,8 @@ argument_list|(
 literal|2288.82495932794
 argument_list|,
 name|miles
+argument_list|,
+literal|0.001
 argument_list|)
 expr_stmt|;
 name|LatLng
@@ -1201,6 +1203,8 @@ argument_list|(
 literal|3474.331719997617
 argument_list|,
 name|miles
+argument_list|,
+literal|0.001
 argument_list|)
 expr_stmt|;
 block|}

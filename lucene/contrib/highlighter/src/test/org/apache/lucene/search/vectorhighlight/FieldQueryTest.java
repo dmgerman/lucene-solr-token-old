@@ -2622,6 +2622,8 @@ literal|"a"
 argument_list|)
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// phraseHighlight = true, fieldMatch = false
@@ -2736,6 +2738,8 @@ literal|"a"
 argument_list|)
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// phraseHighlight = false, fieldMatch = true
@@ -2850,6 +2854,8 @@ literal|"a"
 argument_list|)
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// phraseHighlight = false, fieldMatch = false
@@ -2964,6 +2970,8 @@ literal|"a"
 argument_list|)
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// boost != 1
@@ -3017,6 +3025,8 @@ literal|"a"
 argument_list|)
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -3197,6 +3207,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// phraseHighlight = true, fieldMatch = false
@@ -3348,6 +3360,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// phraseHighlight = false, fieldMatch = true
@@ -3457,6 +3471,8 @@ argument_list|,
 name|qpm2
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3508,6 +3524,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -3547,6 +3565,8 @@ argument_list|,
 name|qpm2
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// phraseHighlight = false, fieldMatch = false
@@ -3656,6 +3676,8 @@ argument_list|,
 name|qpm2
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3707,6 +3729,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -3746,6 +3770,8 @@ argument_list|,
 name|qpm2
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// boost != 1
@@ -3806,6 +3832,8 @@ argument_list|,
 name|qpm2
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|qpm3
@@ -3826,6 +3854,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|qpm2
@@ -3846,6 +3876,8 @@ argument_list|,
 name|qpm2
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -4026,6 +4058,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -4238,6 +4272,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// "c d"^2
@@ -4320,6 +4356,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -4536,6 +4574,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// "c d"^2
@@ -4649,6 +4689,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// phraseHighlight = true, fieldMatch = false
@@ -4811,6 +4853,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// "c d"^2
@@ -4893,6 +4937,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -5171,6 +5217,8 @@ argument_list|,
 name|qpm4
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -5211,6 +5259,8 @@ argument_list|,
 name|qpm5
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// "b c d"^2, "b d"^3
@@ -5335,6 +5385,8 @@ argument_list|,
 name|qpm4
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -5374,6 +5426,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -5589,6 +5643,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// "a b c"^2
@@ -5642,6 +5698,8 @@ argument_list|,
 name|qpm4
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -6251,6 +6309,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// "ab bc cd"
@@ -6304,6 +6364,8 @@ argument_list|,
 name|qpm4
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// "bc cd"
@@ -6386,6 +6448,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// phraseHighlight = false, fieldMatch = true
@@ -6496,6 +6560,8 @@ argument_list|,
 name|qpm2
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -6547,6 +6613,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// "ab bc cd"
@@ -6599,6 +6667,8 @@ argument_list|,
 name|qpm4
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// "bc cd"
@@ -6639,6 +6709,8 @@ argument_list|,
 name|qpm2
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -6690,6 +6762,8 @@ argument_list|,
 name|qpm3
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 comment|// "cd"
@@ -6730,6 +6804,8 @@ argument_list|,
 name|qpm2
 operator|.
 name|boost
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertEquals

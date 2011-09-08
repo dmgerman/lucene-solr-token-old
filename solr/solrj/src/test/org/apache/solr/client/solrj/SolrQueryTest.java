@@ -1651,7 +1651,7 @@ name|getTerms
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertArrayEquals
 argument_list|(
 literal|null
 argument_list|,
@@ -1772,7 +1772,7 @@ name|getTermsRegex
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertArrayEquals
 argument_list|(
 literal|null
 argument_list|,
