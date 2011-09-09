@@ -1399,11 +1399,8 @@ string|"'%s/CHANGES.txt'"
 op|'%'
 name|'root'
 newline|'\n'
-name|'print'
-string|"'CHECK %s'"
-op|'%'
-name|'fullPath'
-newline|'\n'
+comment|"#print 'CHECK %s' % fullPath"
+nl|'\n'
 name|'checkChangesContent'
 op|'('
 name|'open'
