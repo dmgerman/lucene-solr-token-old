@@ -277,6 +277,9 @@ if|if
 condition|(
 name|field
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 operator|&&
@@ -319,6 +322,9 @@ if|if
 condition|(
 operator|!
 name|field
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|tokenized
 argument_list|()

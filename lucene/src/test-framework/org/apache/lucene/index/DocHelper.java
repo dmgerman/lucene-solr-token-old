@@ -1342,6 +1342,9 @@ if|if
 condition|(
 name|f
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 condition|)
@@ -1364,6 +1367,9 @@ if|if
 condition|(
 name|f
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|storeTermVectors
 argument_list|()
 condition|)
@@ -1378,11 +1384,17 @@ if|if
 condition|(
 name|f
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 operator|&&
 operator|!
 name|f
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectors
 argument_list|()
@@ -1397,6 +1409,9 @@ expr_stmt|;
 if|if
 condition|(
 name|f
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1420,6 +1435,9 @@ if|if
 condition|(
 name|f
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexOptions
 argument_list|()
 operator|==
@@ -1438,6 +1456,9 @@ if|if
 condition|(
 name|f
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|omitNorms
 argument_list|()
 condition|)
@@ -1451,6 +1472,9 @@ expr_stmt|;
 if|if
 condition|(
 name|f
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()

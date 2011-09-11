@@ -2720,6 +2720,9 @@ if|if
 condition|(
 name|field
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|omitNorms
 argument_list|()
 condition|)
@@ -2734,6 +2737,9 @@ block|}
 if|if
 condition|(
 name|field
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|indexed
 argument_list|()
@@ -2750,6 +2756,9 @@ if|if
 condition|(
 name|field
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|tokenized
 argument_list|()
 condition|)
@@ -2764,6 +2773,9 @@ block|}
 if|if
 condition|(
 name|field
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -2797,6 +2809,9 @@ if|if
 condition|(
 name|field
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|storeTermVectors
 argument_list|()
 condition|)
@@ -2812,6 +2827,9 @@ if|if
 condition|(
 name|field
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|storeTermVectorPositions
 argument_list|()
 condition|)
@@ -2826,6 +2844,9 @@ block|}
 if|if
 condition|(
 name|field
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectorOffsets
 argument_list|()
@@ -2913,6 +2934,9 @@ if|if
 condition|(
 name|field
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 condition|)
@@ -2942,6 +2966,9 @@ expr_stmt|;
 if|if
 condition|(
 name|field
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|tokenized
 argument_list|()
@@ -3147,6 +3174,9 @@ if|if
 condition|(
 operator|!
 name|field
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -3464,6 +3494,9 @@ operator|.
 name|getKey
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|storeTermVectorOffsets
 argument_list|()
 condition|)
@@ -3515,6 +3548,9 @@ condition|(
 name|eField_Tokens
 operator|.
 name|getKey
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|storeTermVectorOffsets

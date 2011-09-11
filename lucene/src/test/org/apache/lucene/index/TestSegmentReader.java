@@ -1111,6 +1111,9 @@ if|if
 condition|(
 name|f
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 condition|)
@@ -1129,6 +1132,9 @@ argument_list|)
 argument_list|,
 operator|!
 name|f
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|omitNorms
 argument_list|()

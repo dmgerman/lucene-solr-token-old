@@ -1125,6 +1125,9 @@ if|if
 condition|(
 name|field
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|storeTermVectors
 argument_list|()
 condition|)
@@ -1790,10 +1793,16 @@ if|if
 condition|(
 name|field
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|storeTermVectors
 argument_list|()
 operator|&&
 name|field
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectorOffsets
 argument_list|()

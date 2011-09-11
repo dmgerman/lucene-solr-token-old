@@ -1173,6 +1173,9 @@ literal|null
 operator|&&
 name|f
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 operator|)
@@ -1198,6 +1201,9 @@ literal|null
 operator|&&
 name|f
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|tokenized
 argument_list|()
 operator|)
@@ -1222,6 +1228,9 @@ operator|!=
 literal|null
 operator|&&
 name|f
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1267,6 +1276,9 @@ literal|null
 operator|&&
 name|f
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|storeTermVectors
 argument_list|()
 operator|)
@@ -1291,6 +1303,9 @@ operator|!=
 literal|null
 operator|&&
 name|f
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectorOffsets
 argument_list|()
@@ -1317,6 +1332,9 @@ literal|null
 operator|&&
 name|f
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|storeTermVectorPositions
 argument_list|()
 operator|)
@@ -1341,6 +1359,9 @@ operator|!=
 literal|null
 operator|&&
 name|f
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|omitNorms
 argument_list|()
@@ -2461,6 +2482,9 @@ comment|// If we have a term vector, return that
 if|if
 condition|(
 name|field
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectors
 argument_list|()

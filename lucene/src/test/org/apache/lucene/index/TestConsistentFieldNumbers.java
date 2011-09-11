@@ -2425,6 +2425,9 @@ name|assertEquals
 argument_list|(
 name|expected
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexed
 argument_list|()
 argument_list|,
@@ -2436,6 +2439,9 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 name|expected
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectors
 argument_list|()
@@ -2449,6 +2455,9 @@ name|assertEquals
 argument_list|(
 name|expected
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|storeTermVectorPositions
 argument_list|()
 argument_list|,
@@ -2460,6 +2469,9 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 name|expected
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectorOffsets
 argument_list|()
