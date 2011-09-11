@@ -118,7 +118,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DefaultSimilarityProvider
+name|IndexSearcher
 import|;
 end_import
 begin_import
@@ -131,7 +131,9 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|IndexSearcher
+name|similarities
+operator|.
+name|DefaultSimilarityProvider
 import|;
 end_import
 begin_import

@@ -24,6 +24,8 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|similarities
+operator|.
 name|DefaultSimilarity
 import|;
 end_import
@@ -36,6 +38,8 @@ operator|.
 name|lucene
 operator|.
 name|search
+operator|.
+name|similarities
 operator|.
 name|DefaultSimilarityProvider
 import|;
@@ -50,6 +54,8 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|similarities
+operator|.
 name|Similarity
 import|;
 end_import
@@ -63,7 +69,9 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TFIDFSimilarity
+name|similarities
+operator|.
+name|SimilarityProvider
 import|;
 end_import
 begin_import
@@ -76,7 +84,9 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|SimilarityProvider
+name|similarities
+operator|.
+name|TFIDFSimilarity
 import|;
 end_import
 begin_import

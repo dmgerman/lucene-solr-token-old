@@ -24,6 +24,8 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|similarities
+operator|.
 name|Similarity
 import|;
 end_import

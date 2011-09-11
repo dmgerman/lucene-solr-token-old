@@ -16,6 +16,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -116,6 +125,21 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexReader
+operator|.
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -448,7 +472,7 @@ operator|++
 control|)
 block|{
 name|float
-name|score1
+name|freq1
 init|=
 name|checkPhraseQuery
 argument_list|(
@@ -462,7 +486,7 @@ literal|1
 argument_list|)
 decl_stmt|;
 name|float
-name|score2
+name|freq2
 init|=
 name|checkPhraseQuery
 argument_list|(
@@ -481,17 +505,17 @@ literal|"slop="
 operator|+
 name|slop
 operator|+
-literal|" score2="
+literal|" freq2="
 operator|+
-name|score2
+name|freq2
 operator|+
 literal|" should be greater than score1 "
 operator|+
-name|score1
+name|freq1
 argument_list|,
-name|score2
+name|freq2
 operator|>
-name|score1
+name|freq1
 argument_list|)
 expr_stmt|;
 block|}
@@ -532,7 +556,7 @@ else|:
 literal|1
 decl_stmt|;
 name|float
-name|score1
+name|freq1
 init|=
 name|checkPhraseQuery
 argument_list|(
@@ -553,7 +577,7 @@ literal|0
 condition|)
 block|{
 name|float
-name|score2
+name|freq2
 init|=
 name|checkPhraseQuery
 argument_list|(
@@ -572,17 +596,17 @@ literal|"slop="
 operator|+
 name|slop
 operator|+
-literal|" score2="
+literal|" freq2="
 operator|+
-name|score2
+name|freq2
 operator|+
-literal|" should be greater than score1 "
+literal|" should be greater than freq1 "
 operator|+
-name|score1
+name|freq1
 argument_list|,
-name|score2
+name|freq2
 operator|>
-name|score1
+name|freq1
 argument_list|)
 expr_stmt|;
 block|}
@@ -613,7 +637,7 @@ operator|++
 control|)
 block|{
 name|float
-name|score1
+name|freq1
 init|=
 name|checkPhraseQuery
 argument_list|(
@@ -627,7 +651,7 @@ literal|1
 argument_list|)
 decl_stmt|;
 name|float
-name|score2
+name|freq2
 init|=
 name|checkPhraseQuery
 argument_list|(
@@ -646,17 +670,17 @@ literal|"slop="
 operator|+
 name|slop
 operator|+
-literal|" score2="
+literal|" freq2="
 operator|+
-name|score2
+name|freq2
 operator|+
-literal|" should be greater than score1 "
+literal|" should be greater than freq1 "
 operator|+
-name|score1
+name|freq1
 argument_list|,
-name|score2
+name|freq2
 operator|>
-name|score1
+name|freq1
 argument_list|)
 expr_stmt|;
 block|}
@@ -686,7 +710,7 @@ operator|++
 control|)
 block|{
 name|float
-name|score1
+name|freq1
 init|=
 name|checkPhraseQuery
 argument_list|(
@@ -700,7 +724,7 @@ literal|1
 argument_list|)
 decl_stmt|;
 name|float
-name|score2
+name|freq2
 init|=
 name|checkPhraseQuery
 argument_list|(
@@ -719,17 +743,17 @@ literal|"slop="
 operator|+
 name|slop
 operator|+
-literal|" score2="
+literal|" freq2="
 operator|+
-name|score2
+name|freq2
 operator|+
-literal|" should be greater than score1 "
+literal|" should be greater than freq1 "
 operator|+
-name|score1
+name|freq1
 argument_list|,
-name|score2
+name|freq2
 operator|>
-name|score1
+name|freq1
 argument_list|)
 expr_stmt|;
 block|}
@@ -900,21 +924,22 @@ argument_list|(
 name|reader
 argument_list|)
 decl_stmt|;
-name|TopDocs
-name|td
+name|MaxFreqCollector
+name|c
 init|=
+operator|new
+name|MaxFreqCollector
+argument_list|()
+decl_stmt|;
 name|searcher
 operator|.
 name|search
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
-literal|10
+name|c
 argument_list|)
-decl_stmt|;
-comment|//System.out.println("slop: "+slop+"  query: "+query+"  doc: "+doc+"  Expecting number of hits: "+expectedNumResults+" maxScore="+td.getMaxScore());
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"slop: "
@@ -933,7 +958,7 @@ literal|"  Wrong number of hits"
 argument_list|,
 name|expectedNumResults
 argument_list|,
-name|td
+name|c
 operator|.
 name|totalHits
 argument_list|)
@@ -959,11 +984,12 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// returns the max Scorer.freq() found, because even though norms are omitted, many index stats are different
+comment|// with these different tokens/distributions/lengths.. otherwise this test is very fragile.
 return|return
-name|td
+name|c
 operator|.
-name|getMaxScore
-argument_list|()
+name|max
 return|;
 block|}
 DECL|method|makeDocument
@@ -1090,6 +1116,102 @@ block|}
 return|return
 name|query
 return|;
+block|}
+DECL|class|MaxFreqCollector
+specifier|static
+class|class
+name|MaxFreqCollector
+extends|extends
+name|Collector
+block|{
+DECL|field|max
+name|float
+name|max
+decl_stmt|;
+DECL|field|totalHits
+name|int
+name|totalHits
+decl_stmt|;
+DECL|field|scorer
+name|Scorer
+name|scorer
+decl_stmt|;
+annotation|@
+name|Override
+DECL|method|setScorer
+specifier|public
+name|void
+name|setScorer
+parameter_list|(
+name|Scorer
+name|scorer
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|this
+operator|.
+name|scorer
+operator|=
+name|scorer
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|collect
+specifier|public
+name|void
+name|collect
+parameter_list|(
+name|int
+name|doc
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|totalHits
+operator|++
+expr_stmt|;
+name|max
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|max
+argument_list|,
+name|scorer
+operator|.
+name|freq
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setNextReader
+specifier|public
+name|void
+name|setNextReader
+parameter_list|(
+name|AtomicReaderContext
+name|context
+parameter_list|)
+throws|throws
+name|IOException
+block|{           }
+annotation|@
+name|Override
+DECL|method|acceptsDocsOutOfOrder
+specifier|public
+name|boolean
+name|acceptsDocsOutOfOrder
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 block|}
 end_class

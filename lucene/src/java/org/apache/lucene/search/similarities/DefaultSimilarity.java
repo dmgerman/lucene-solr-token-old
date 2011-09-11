@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.search
+DECL|package|org.apache.lucene.search.similarities
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|lucene
 operator|.
 name|search
+operator|.
+name|similarities
 package|;
 end_package
 begin_import
@@ -260,6 +262,18 @@ parameter_list|()
 block|{
 return|return
 name|discountOverlaps
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"DefaultSimilarity"
 return|;
 block|}
 block|}
