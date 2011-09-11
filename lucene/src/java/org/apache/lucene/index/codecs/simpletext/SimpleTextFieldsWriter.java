@@ -584,6 +584,9 @@ name|sumTotalTermFreq
 parameter_list|,
 name|long
 name|sumDocFreq
+parameter_list|,
+name|int
+name|docCount
 parameter_list|)
 throws|throws
 name|IOException

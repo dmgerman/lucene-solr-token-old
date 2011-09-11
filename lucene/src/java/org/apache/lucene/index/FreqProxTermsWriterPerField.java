@@ -167,6 +167,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|FixedBitSet
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|RamUsageEstimator
 import|;
 end_import
@@ -1501,6 +1514,17 @@ operator|new
 name|ByteSliceReader
 argument_list|()
 decl_stmt|;
+name|FixedBitSet
+name|visitedDocs
+init|=
+operator|new
+name|FixedBitSet
+argument_list|(
+name|state
+operator|.
+name|numDocs
+argument_list|)
+decl_stmt|;
 name|long
 name|sumTotalTermFreq
 init|=
@@ -1866,6 +1890,13 @@ comment|// for those terms.  We could fix this by doing two
 comment|// passes, ie first sweep marks all del docs, and
 comment|// 2nd sweep does the real flush, but I suspect
 comment|// that'd add too much time to flush.
+name|visitedDocs
+operator|.
+name|set
+argument_list|(
+name|docID
+argument_list|)
+expr_stmt|;
 name|postingsConsumer
 operator|.
 name|startDoc
@@ -2140,6 +2171,11 @@ argument_list|(
 name|sumTotalTermFreq
 argument_list|,
 name|sumDocFreq
+argument_list|,
+name|visitedDocs
+operator|.
+name|cardinality
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
