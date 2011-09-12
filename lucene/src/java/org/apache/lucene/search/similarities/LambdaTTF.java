@@ -30,7 +30,7 @@ name|Explanation
 import|;
 end_import
 begin_comment
-comment|/**  * Computes lambda as {@code docFreq / numberOfDocuments}.  * @lucene.experimental  */
+comment|/**  * Computes lambda as {@code totalTermFreq+1 / numberOfDocuments+1}.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|LambdaTTF
@@ -54,17 +54,22 @@ parameter_list|)
 block|{
 return|return
 operator|(
-name|float
-operator|)
 name|stats
 operator|.
 name|getTotalTermFreq
 argument_list|()
+operator|+
+literal|1F
+operator|)
 operator|/
+operator|(
 name|stats
 operator|.
 name|getNumberOfDocuments
 argument_list|()
+operator|+
+literal|1F
+operator|)
 return|;
 block|}
 annotation|@

@@ -34,7 +34,7 @@ name|log2
 import|;
 end_import
 begin_comment
-comment|/**  * Limiting form of the Bose-Einstein model. The formula used in Lucene differs  * slightly from the one in the original paper: {@code F} is increased by {@code tfn}  * and {@code N} is increased by {@code F}   * @lucene.experimental  */
+comment|/**  * Limiting form of the Bose-Einstein model. The formula used in Lucene differs  * slightly from the one in the original paper: {@code F} is increased by {@code tfn+1}  * and {@code N} is increased by {@code F}   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|BasicModelBE
@@ -66,6 +66,8 @@ name|stats
 operator|.
 name|getTotalTermFreq
 argument_list|()
+operator|+
+literal|1
 operator|+
 name|tfn
 decl_stmt|;
