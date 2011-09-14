@@ -495,6 +495,15 @@ name|CommonsHttpSolrServer
 extends|extends
 name|SolrServer
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 comment|/**    * User-Agent String as identified by the HTTP request by the {@link    * org.apache.commons.httpclient.HttpClient HttpClient} to the Solr    * server from the client.    */
 DECL|field|AGENT
 specifier|public
@@ -2539,7 +2548,7 @@ operator|=
 name|requestWriter
 expr_stmt|;
 block|}
-comment|/**    * Adds the documents supplied by the given iterator.    *    * @param docIterator  the iterator which returns SolrInputDocument instances    *    * @return the response from the SolrServer    */
+comment|/**    * Adds the documents supplied by the given iterator.    * @param docIterator  the iterator which returns SolrInputDocument instances    * @return the response from the SolrServer    */
 DECL|method|add
 specifier|public
 name|UpdateResponse
@@ -2550,6 +2559,36 @@ argument_list|<
 name|SolrInputDocument
 argument_list|>
 name|docIterator
+parameter_list|)
+throws|throws
+name|SolrServerException
+throws|,
+name|IOException
+block|{
+return|return
+name|add
+argument_list|(
+name|docIterator
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+return|;
+block|}
+comment|/**    * Adds the documents supplied by the given iterator, specifying max time before they become committed    * @param docIterator  the iterator which returns SolrInputDocument instances    * @param commitWithinMs  the time in milliseconds before a commit automatically is triggered    * @return the response from the SolrServer    */
+DECL|method|add
+specifier|public
+name|UpdateResponse
+name|add
+parameter_list|(
+name|Iterator
+argument_list|<
+name|SolrInputDocument
+argument_list|>
+name|docIterator
+parameter_list|,
+name|int
+name|commitWithinMs
 parameter_list|)
 throws|throws
 name|SolrServerException
@@ -2570,6 +2609,13 @@ argument_list|(
 name|docIterator
 argument_list|)
 expr_stmt|;
+name|req
+operator|.
+name|setCommitWithin
+argument_list|(
+name|commitWithinMs
+argument_list|)
+expr_stmt|;
 return|return
 name|req
 operator|.
@@ -2579,7 +2625,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**    * Adds the beans supplied by the given iterator.    *    * @param beanIterator  the iterator which returns Beans    *    * @return the response from the SolrServer    */
+comment|/**    * Adds the beans supplied by the given iterator    * @param beanIterator  the iterator which returns Beans    * @return the response from the SolrServer    */
 DECL|method|addBeans
 specifier|public
 name|UpdateResponse
@@ -2591,6 +2637,37 @@ argument_list|<
 name|?
 argument_list|>
 name|beanIterator
+parameter_list|)
+throws|throws
+name|SolrServerException
+throws|,
+name|IOException
+block|{
+return|return
+name|addBeans
+argument_list|(
+name|beanIterator
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+return|;
+block|}
+comment|/**    * Adds the beans supplied by the given iterator, specifying max time before they become committed    * @param commitWithinMs  the time in milliseconds before a commit automatically is triggered    * @param beanIterator  the iterator which returns Beans    * @return the response from the SolrServer    */
+DECL|method|addBeans
+specifier|public
+name|UpdateResponse
+name|addBeans
+parameter_list|(
+specifier|final
+name|Iterator
+argument_list|<
+name|?
+argument_list|>
+name|beanIterator
+parameter_list|,
+name|int
+name|commitWithinMs
 parameter_list|)
 throws|throws
 name|SolrServerException
@@ -2671,6 +2748,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+argument_list|)
+expr_stmt|;
+name|req
+operator|.
+name|setCommitWithin
+argument_list|(
+name|commitWithinMs
 argument_list|)
 expr_stmt|;
 return|return
