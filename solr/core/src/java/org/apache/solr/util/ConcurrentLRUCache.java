@@ -1,14 +1,12 @@
 begin_unit
 begin_package
-DECL|package|org.apache.solr.common.util
+DECL|package|org.apache.solr.util
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|solr
-operator|.
-name|common
 operator|.
 name|util
 package|;
