@@ -90,7 +90,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|index
 operator|.
 name|SingleTermsEnum
 import|;

@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.search
+DECL|package|org.apache.lucene.index
 package|package
 name|org
 operator|.
@@ -8,7 +8,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|index
 package|;
 end_package
 begin_comment
@@ -31,11 +31,14 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|search
 operator|.
-name|TermsEnum
+name|MultiTermQuery
 import|;
 end_import
+begin_comment
+comment|// javadocs
+end_comment
 begin_import
 import|import
 name|org
@@ -50,7 +53,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * Subclass of FilteredTermsEnum for enumerating a single term.  *<p>  * This can be used by {@link MultiTermQuery}s that need only visit one term,  * but want to preserve MultiTermQuery semantics such as  * {@link MultiTermQuery#rewriteMethod}.  */
+comment|/**  * Subclass of FilteredTermsEnum for enumerating a single term.  *<p>  * For example, this can be used by {@link MultiTermQuery}s  * that need only visit one term, but want to preserve  * MultiTermQuery semantics such as {@link  * MultiTermQuery#rewriteMethod}.  */
 end_comment
 begin_class
 DECL|class|SingleTermsEnum
