@@ -949,8 +949,7 @@ return|;
 block|}
 comment|/**    * Thread safe method that can be used by subclasses to format a Date    * using the Internal representation.    */
 DECL|method|formatDate
-specifier|public
-specifier|static
+specifier|protected
 name|String
 name|formatDate
 parameter_list|(

@@ -929,12 +929,10 @@ name|result
 init|=
 name|DateField
 operator|.
-name|formatDate
+name|formatExternal
 argument_list|(
 name|d
 argument_list|)
-operator|+
-literal|"Z"
 decl_stmt|;
 name|assertEquals
 argument_list|(
