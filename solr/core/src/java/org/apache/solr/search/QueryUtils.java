@@ -24,7 +24,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|BooleanClause
 import|;
 end_import
 begin_import
@@ -50,7 +50,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|BooleanClause
+name|MatchAllDocsQuery
 import|;
 end_import
 begin_import
@@ -63,7 +63,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MatchAllDocsQuery
+name|Query
 import|;
 end_import
 begin_import
@@ -86,6 +86,7 @@ name|QueryUtils
 block|{
 comment|/** return true if this query has no positive components */
 DECL|method|isNegative
+specifier|public
 specifier|static
 name|boolean
 name|isNegative
@@ -163,6 +164,7 @@ return|;
 block|}
 comment|/** Returns the original query if it was already a positive query, otherwise    * return the negative of the query (i.e., a positive query).    *<p>    * Example: both id:10 and id:-10 will return id:10    *<p>    * The caller can tell the sign of the original by a reference comparison between    * the original and returned query.    * @param q    * @return    */
 DECL|method|getAbs
+specifier|public
 specifier|static
 name|Query
 name|getAbs
@@ -382,6 +384,7 @@ block|}
 block|}
 comment|/** Makes negative queries suitable for querying by    * lucene.    */
 DECL|method|makeQueryable
+specifier|public
 specifier|static
 name|Query
 name|makeQueryable
@@ -428,6 +431,7 @@ return|;
 block|}
 comment|/** Fixes a negative query by adding a MatchAllDocs query clause.    * The query passed in *must* be a negative query.    */
 DECL|method|fixNegativeQuery
+specifier|public
 specifier|static
 name|Query
 name|fixNegativeQuery
