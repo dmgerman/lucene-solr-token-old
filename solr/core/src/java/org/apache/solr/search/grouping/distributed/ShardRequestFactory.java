@@ -49,7 +49,7 @@ name|ShardRequest
 import|;
 end_import
 begin_comment
-comment|/**  * Responsible for creating shard requests to the shards in the cluster to perform distributed grouping.  */
+comment|/**  * Responsible for creating shard requests to the shards in the cluster to perform distributed grouping.  *  * @lucene.experimental  */
 end_comment
 begin_interface
 DECL|interface|ShardRequestFactory
