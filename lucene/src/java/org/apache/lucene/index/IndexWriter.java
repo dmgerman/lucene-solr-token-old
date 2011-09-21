@@ -641,11 +641,13 @@ name|writeLock
 decl_stmt|;
 DECL|field|closed
 specifier|private
+specifier|volatile
 name|boolean
 name|closed
 decl_stmt|;
 DECL|field|closing
 specifier|private
+specifier|volatile
 name|boolean
 name|closing
 decl_stmt|;
@@ -2664,6 +2666,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|SegmentReader
 name|reader
 init|=
@@ -3343,6 +3350,11 @@ name|IndexWriterConfig
 name|getConfig
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 return|return
 name|config
 return|;
@@ -3873,6 +3885,9 @@ name|int
 name|maxDoc
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|int
 name|count
 decl_stmt|;
@@ -3915,6 +3930,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|int
 name|count
 decl_stmt|;
@@ -5586,6 +5604,11 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|updatePendingMerges
 argument_list|(
 name|maxNumSegmentsOptimize
@@ -6124,6 +6147,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 comment|// Abort any running merges
@@ -6393,6 +6419,11 @@ name|void
 name|waitForMerges
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|infoStream
@@ -8294,6 +8325,11 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|infoStream
@@ -13673,6 +13709,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|deleter
 operator|.
 name|deletePendingFiles
@@ -13681,6 +13722,21 @@ expr_stmt|;
 name|deleter
 operator|.
 name|revisitPolicy
+argument_list|()
+expr_stmt|;
+block|}
+comment|// Called by DirectoryReader.doClose
+DECL|method|deletePendingFiles
+specifier|synchronized
+name|void
+name|deletePendingFiles
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|deleter
+operator|.
+name|deletePendingFiles
 argument_list|()
 expr_stmt|;
 block|}
@@ -13694,6 +13750,9 @@ name|PayloadProcessorProvider
 name|pcp
 parameter_list|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|payloadProcessorProvider
 operator|=
 name|pcp
@@ -13706,6 +13765,9 @@ name|PayloadProcessorProvider
 name|getPayloadProcessorProvider
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|payloadProcessorProvider
 return|;

@@ -1952,6 +1952,7 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+comment|// doReopen calls ensureOpen
 name|DirectoryReader
 name|newReader
 init|=
@@ -2888,7 +2889,9 @@ name|boolean
 name|hasDeletions
 parameter_list|()
 block|{
-comment|// Don't call ensureOpen() here (it could affect performance)
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|hasDeletions
 return|;
@@ -4059,7 +4062,7 @@ comment|// Since we just closed, writer may now be able to
 comment|// delete unused files:
 name|writer
 operator|.
-name|deleteUnusedFiles
+name|deletePendingFiles
 argument_list|()
 expr_stmt|;
 block|}
@@ -4177,6 +4180,9 @@ name|ReaderContext
 name|getTopReaderContext
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|topLevelReaderContext
 return|;
@@ -4218,6 +4224,9 @@ name|int
 name|getTermInfosIndexDivisor
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|termInfosIndexDivisor
 return|;
@@ -4233,6 +4242,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|ReaderCommit

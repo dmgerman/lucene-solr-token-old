@@ -947,6 +947,9 @@ name|Bits
 name|getLiveDocs
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|MultiFields
 operator|.
@@ -969,6 +972,9 @@ name|Fields
 name|fields
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|fields
 return|;
@@ -982,6 +988,7 @@ name|Object
 name|clone
 parameter_list|()
 block|{
+comment|// doReopen calls ensureOpen
 try|try
 block|{
 return|return
@@ -1020,6 +1027,7 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+comment|// doReopen calls ensureOpen
 return|return
 name|doReopen
 argument_list|(
@@ -1379,7 +1387,9 @@ name|boolean
 name|hasDeletions
 parameter_list|()
 block|{
-comment|// Don't call ensureOpen() here (it could affect performance)
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|hasDeletions
 return|;
@@ -2082,6 +2092,9 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 specifier|final
@@ -2119,6 +2132,9 @@ name|boolean
 name|isOptimized
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 specifier|final
@@ -2363,6 +2379,9 @@ name|ReaderContext
 name|getTopReaderContext
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|topLevelReaderContext
 return|;
@@ -2447,6 +2466,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|perDocs
 return|;

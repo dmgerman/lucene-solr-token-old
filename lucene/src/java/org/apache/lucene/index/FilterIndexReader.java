@@ -1144,6 +1144,9 @@ name|Directory
 name|directory
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|in
 operator|.
@@ -1159,6 +1162,9 @@ name|Bits
 name|getLiveDocs
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|in
 operator|.
@@ -1356,7 +1362,9 @@ name|boolean
 name|hasDeletions
 parameter_list|()
 block|{
-comment|// Don't call ensureOpen() here (it could affect performance)
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|in
 operator|.
@@ -1696,6 +1704,9 @@ name|ReaderContext
 name|getTopReaderContext
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|in
 operator|.
@@ -1713,6 +1724,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|in
 operator|.
@@ -1838,6 +1852,9 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|in
 operator|.

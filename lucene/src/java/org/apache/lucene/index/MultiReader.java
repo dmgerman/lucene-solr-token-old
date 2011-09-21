@@ -968,6 +968,9 @@ name|boolean
 name|isOptimized
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -1104,7 +1107,9 @@ name|boolean
 name|hasDeletions
 parameter_list|()
 block|{
-comment|// Don't call ensureOpen() here (it could affect performance)
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|hasDeletions
 return|;
@@ -1626,6 +1631,9 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -1703,6 +1711,9 @@ name|ReaderContext
 name|getTopReaderContext
 parameter_list|()
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|topLevelContext
 return|;
