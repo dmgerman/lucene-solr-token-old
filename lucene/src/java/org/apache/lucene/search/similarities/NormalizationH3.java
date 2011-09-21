@@ -128,6 +128,16 @@ operator|+
 literal|")"
 return|;
 block|}
+DECL|method|getMu
+specifier|public
+name|float
+name|getMu
+parameter_list|()
+block|{
+return|return
+name|mu
+return|;
+block|}
 block|}
 end_class
 end_unit
