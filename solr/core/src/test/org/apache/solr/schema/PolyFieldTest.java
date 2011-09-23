@@ -529,17 +529,7 @@ name|hasValue
 init|=
 name|fields
 index|[
-literal|1
-index|]
-operator|.
-name|tokenStreamValue
-argument_list|()
-operator|!=
-literal|null
-operator|||
-name|fields
-index|[
-literal|1
+name|i
 index|]
 operator|.
 name|binaryValue
@@ -549,7 +539,7 @@ literal|null
 operator|||
 name|fields
 index|[
-literal|1
+name|i
 index|]
 operator|.
 name|stringValue
@@ -563,7 +553,7 @@ literal|"Doesn't have a value: "
 operator|+
 name|fields
 index|[
-literal|1
+name|i
 index|]
 argument_list|,
 name|hasValue
