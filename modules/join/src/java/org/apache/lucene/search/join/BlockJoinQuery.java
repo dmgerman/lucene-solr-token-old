@@ -1313,6 +1313,12 @@ operator|=
 name|NO_MORE_DOCS
 return|;
 block|}
+comment|// Every parent must have at least one child:
+assert|assert
+name|parentTarget
+operator|!=
+literal|0
+assert|;
 specifier|final
 name|int
 name|prevParentDoc
