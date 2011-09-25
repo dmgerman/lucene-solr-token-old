@@ -2342,7 +2342,7 @@ specifier|final
 class|class
 name|TokenArrayAnalyzer
 extends|extends
-name|ReusableAnalyzerBase
+name|Analyzer
 block|{
 DECL|field|tokens
 specifier|final

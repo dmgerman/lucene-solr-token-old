@@ -322,7 +322,7 @@ specifier|private
 class|class
 name|JustChineseTokenizerAnalyzer
 extends|extends
-name|ReusableAnalyzerBase
+name|Analyzer
 block|{
 annotation|@
 name|Override
@@ -357,7 +357,7 @@ specifier|private
 class|class
 name|JustChineseFilterAnalyzer
 extends|extends
-name|ReusableAnalyzerBase
+name|Analyzer
 block|{
 annotation|@
 name|Override

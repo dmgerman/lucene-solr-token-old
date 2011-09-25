@@ -203,19 +203,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|ReusableAnalyzerBase
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
 name|util
 operator|.
 name|WordlistLoader
@@ -307,7 +294,7 @@ specifier|final
 class|class
 name|DutchAnalyzer
 extends|extends
-name|ReusableAnalyzerBase
+name|Analyzer
 block|{
 comment|/** File containing default Dutch stopwords. */
 DECL|field|DEFAULT_STOPWORD_FILE

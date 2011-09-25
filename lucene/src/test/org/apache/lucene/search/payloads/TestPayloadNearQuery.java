@@ -461,7 +461,7 @@ specifier|static
 class|class
 name|PayloadAnalyzer
 extends|extends
-name|ReusableAnalyzerBase
+name|Analyzer
 block|{
 annotation|@
 name|Override

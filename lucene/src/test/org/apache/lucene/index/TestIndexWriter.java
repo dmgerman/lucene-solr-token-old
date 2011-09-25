@@ -11325,7 +11325,7 @@ specifier|final
 class|class
 name|StringSplitAnalyzer
 extends|extends
-name|ReusableAnalyzerBase
+name|Analyzer
 block|{
 annotation|@
 name|Override

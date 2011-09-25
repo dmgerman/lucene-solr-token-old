@@ -11660,7 +11660,7 @@ specifier|final
 class|class
 name|SynonymAnalyzer
 extends|extends
-name|ReusableAnalyzerBase
+name|Analyzer
 block|{
 DECL|field|synonyms
 specifier|private

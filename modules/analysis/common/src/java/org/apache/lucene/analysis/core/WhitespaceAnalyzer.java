@@ -35,9 +35,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|util
-operator|.
-name|CharTokenizer
+name|Analyzer
 import|;
 end_import
 begin_import
@@ -50,7 +48,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|ReusableAnalyzerBase
+name|util
+operator|.
+name|CharTokenizer
 import|;
 end_import
 begin_import
@@ -76,7 +76,7 @@ specifier|final
 class|class
 name|WhitespaceAnalyzer
 extends|extends
-name|ReusableAnalyzerBase
+name|Analyzer
 block|{
 DECL|field|matchVersion
 specifier|private

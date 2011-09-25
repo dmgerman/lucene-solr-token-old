@@ -78,7 +78,7 @@ name|Analyzer
 name|a
 init|=
 operator|new
-name|ReusableAnalyzerBase
+name|Analyzer
 argument_list|()
 block|{
 annotation|@

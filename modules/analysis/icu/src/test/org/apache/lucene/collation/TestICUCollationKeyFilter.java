@@ -220,7 +220,7 @@ specifier|final
 class|class
 name|TestAnalyzer
 extends|extends
-name|ReusableAnalyzerBase
+name|Analyzer
 block|{
 DECL|field|_collator
 specifier|private

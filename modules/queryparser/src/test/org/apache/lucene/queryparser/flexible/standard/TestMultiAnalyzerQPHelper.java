@@ -749,7 +749,7 @@ specifier|private
 class|class
 name|MultiAnalyzer
 extends|extends
-name|ReusableAnalyzerBase
+name|Analyzer
 block|{
 annotation|@
 name|Override
@@ -1087,7 +1087,7 @@ specifier|private
 class|class
 name|PosIncrementAnalyzer
 extends|extends
-name|ReusableAnalyzerBase
+name|Analyzer
 block|{
 annotation|@
 name|Override

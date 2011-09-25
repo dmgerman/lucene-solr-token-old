@@ -37,9 +37,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|core
-operator|.
-name|KeywordTokenizer
+name|Analyzer
 import|;
 end_import
 begin_import
@@ -52,7 +50,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|ReusableAnalyzerBase
+name|core
+operator|.
+name|KeywordTokenizer
 import|;
 end_import
 begin_import
@@ -119,7 +119,7 @@ specifier|final
 class|class
 name|ICUCollationKeyAnalyzer
 extends|extends
-name|ReusableAnalyzerBase
+name|Analyzer
 block|{
 DECL|field|collator
 specifier|private
