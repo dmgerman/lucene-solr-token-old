@@ -4585,7 +4585,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"expecting only KeywordTokenizer to be applied"
+literal|"expecting only MockTokenizer to be applied"
 argument_list|,
 literal|1
 argument_list|,
@@ -4601,7 +4601,7 @@ name|indexPart
 operator|.
 name|get
 argument_list|(
-name|KeywordTokenizer
+name|MockTokenizer
 operator|.
 name|class
 operator|.
@@ -4611,14 +4611,14 @@ argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"expecting only KeywordTokenizer to be applied"
+literal|"expecting only MockTokenizer to be applied"
 argument_list|,
 name|tokenList
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"expecting KeywordTokenizer to produce 1 token"
+literal|"expecting MockTokenizer to produce 1 token"
 argument_list|,
 literal|1
 argument_list|,
@@ -4683,7 +4683,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"expecting only KeywordTokenizer to be applied"
+literal|"expecting only MockTokenizer to be applied"
 argument_list|,
 literal|1
 argument_list|,
@@ -4699,7 +4699,7 @@ name|queryPart
 operator|.
 name|get
 argument_list|(
-name|KeywordTokenizer
+name|MockTokenizer
 operator|.
 name|class
 operator|.
@@ -4709,14 +4709,14 @@ argument_list|)
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"expecting only KeywordTokenizer to be applied"
+literal|"expecting only MockTokenizer to be applied"
 argument_list|,
 name|tokenList
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"expecting KeywordTokenizer to produce 1 token"
+literal|"expecting MockTokenizer to produce 1 token"
 argument_list|,
 literal|1
 argument_list|,
