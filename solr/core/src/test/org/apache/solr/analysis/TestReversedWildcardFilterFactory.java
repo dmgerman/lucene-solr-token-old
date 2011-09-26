@@ -537,7 +537,7 @@ name|input
 init|=
 name|a
 operator|.
-name|tokenStream
+name|reusableTokenStream
 argument_list|(
 literal|"one"
 argument_list|,
@@ -642,7 +642,7 @@ name|input
 operator|=
 name|a
 operator|.
-name|tokenStream
+name|reusableTokenStream
 argument_list|(
 literal|"two"
 argument_list|,
@@ -715,7 +715,7 @@ name|input
 operator|=
 name|a
 operator|.
-name|tokenStream
+name|reusableTokenStream
 argument_list|(
 literal|"three"
 argument_list|,

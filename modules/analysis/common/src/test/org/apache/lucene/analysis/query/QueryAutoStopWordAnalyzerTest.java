@@ -991,7 +991,7 @@ name|ts
 init|=
 name|a
 operator|.
-name|tokenStream
+name|reusableTokenStream
 argument_list|(
 literal|"repetitiveField"
 argument_list|,

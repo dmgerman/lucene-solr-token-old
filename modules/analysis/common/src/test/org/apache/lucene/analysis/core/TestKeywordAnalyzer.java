@@ -549,7 +549,7 @@ operator|new
 name|KeywordAnalyzer
 argument_list|()
 operator|.
-name|tokenStream
+name|reusableTokenStream
 argument_list|(
 literal|"field"
 argument_list|,
@@ -572,6 +572,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|stream
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|stream

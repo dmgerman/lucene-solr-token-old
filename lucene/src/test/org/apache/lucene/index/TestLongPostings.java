@@ -300,7 +300,7 @@ name|ts
 init|=
 name|a
 operator|.
-name|tokenStream
+name|reusableTokenStream
 argument_list|(
 literal|"foo"
 argument_list|,
@@ -380,6 +380,16 @@ name|count
 operator|++
 expr_stmt|;
 block|}
+name|ts
+operator|.
+name|end
+argument_list|()
+expr_stmt|;
+name|ts
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|count
