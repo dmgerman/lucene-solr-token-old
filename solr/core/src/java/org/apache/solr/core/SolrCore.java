@@ -5634,6 +5634,8 @@ block|{
 comment|// if submit fails, newSearchHolder does not get decref'd
 if|if
 condition|(
+name|returnSearcher
+operator|&&
 name|newSearchHolder
 operator|!=
 literal|null
