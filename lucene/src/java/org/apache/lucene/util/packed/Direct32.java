@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|IndexInput
+name|DataInput
 import|;
 end_import
 begin_import
@@ -120,7 +120,7 @@ DECL|method|Direct32
 specifier|public
 name|Direct32
 parameter_list|(
-name|IndexInput
+name|DataInput
 name|in
 parameter_list|,
 name|int

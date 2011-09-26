@@ -35,7 +35,20 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|IndexOutput
+name|DataInput
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|DataOutput
 import|;
 end_import
 begin_import
@@ -331,7 +344,7 @@ block|{
 DECL|field|out
 specifier|protected
 specifier|final
-name|IndexOutput
+name|DataOutput
 name|out
 decl_stmt|;
 DECL|field|bitsPerValue
@@ -350,7 +363,7 @@ DECL|method|Writer
 specifier|protected
 name|Writer
 parameter_list|(
-name|IndexOutput
+name|DataOutput
 name|out
 parameter_list|,
 name|int
@@ -433,14 +446,14 @@ throws|throws
 name|IOException
 function_decl|;
 block|}
-comment|/**    * Retrieve PackedInt data from the IndexInput and return a packed int    * structure based on it.    * @param in positioned at the beginning of a stored packed int structure.    * @return a read only random access capable array of positive integers.    * @throws IOException if the structure could not be retrieved.    * @lucene.internal    */
+comment|/**    * Retrieve PackedInt data from the DataInput and return a packed int    * structure based on it.    * @param in positioned at the beginning of a stored packed int structure.    * @return a read only random access capable array of positive integers.    * @throws IOException if the structure could not be retrieved.    * @lucene.internal    */
 DECL|method|getReader
 specifier|public
 specifier|static
 name|Reader
 name|getReader
 parameter_list|(
-name|IndexInput
+name|DataInput
 name|in
 parameter_list|)
 throws|throws
@@ -754,7 +767,7 @@ specifier|static
 name|Writer
 name|getWriter
 parameter_list|(
-name|IndexOutput
+name|DataOutput
 name|out
 parameter_list|,
 name|int
