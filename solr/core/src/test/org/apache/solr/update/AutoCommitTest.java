@@ -920,7 +920,7 @@ name|trigger
 operator|.
 name|waitForNewSearcher
 argument_list|(
-literal|10000
+literal|15000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1176,7 +1176,7 @@ name|trigger
 operator|.
 name|waitForNewSearcher
 argument_list|(
-literal|30000
+literal|45000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1927,7 +1927,7 @@ name|softTrigger
 operator|.
 name|waitForNewSearcher
 argument_list|(
-literal|10000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2914,8 +2914,8 @@ argument_list|,
 literal|"//result[@numFound=0]"
 argument_list|)
 expr_stmt|;
-comment|// now make the call 5 times really fast and make sure it
-comment|// only commits once
+comment|// now make the call 2 times really fast and make sure id:500
+comment|// is not visible right away
 name|req
 operator|.
 name|setContentStreams
@@ -2942,7 +2942,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|5
+literal|2
 condition|;
 name|i
 operator|++
