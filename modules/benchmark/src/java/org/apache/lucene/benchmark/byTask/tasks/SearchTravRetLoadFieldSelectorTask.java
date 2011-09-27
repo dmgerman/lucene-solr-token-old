@@ -90,7 +90,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|document
 operator|.
 name|DocumentStoredFieldVisitor
 import|;
