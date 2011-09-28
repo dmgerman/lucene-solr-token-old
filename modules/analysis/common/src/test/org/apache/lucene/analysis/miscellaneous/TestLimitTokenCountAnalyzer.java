@@ -83,19 +83,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
 name|core
 operator|.
 name|WhitespaceAnalyzer
@@ -243,7 +230,7 @@ name|assertTokenStreamContents
 argument_list|(
 name|a
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
@@ -288,7 +275,7 @@ name|assertTokenStreamContents
 argument_list|(
 name|a
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
@@ -348,7 +335,7 @@ name|assertTokenStreamContents
 argument_list|(
 name|a
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,

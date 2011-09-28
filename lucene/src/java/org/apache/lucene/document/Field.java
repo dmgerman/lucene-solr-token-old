@@ -1265,7 +1265,7 @@ block|{
 return|return
 name|analyzer
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 name|name
 argument_list|()
@@ -1287,7 +1287,7 @@ block|{
 return|return
 name|analyzer
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 name|name
 argument_list|()

@@ -574,7 +574,7 @@ name|ts
 init|=
 name|analyzer
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 literal|""
 argument_list|,

@@ -3612,7 +3612,7 @@ operator|.
 name|getAnalyzer
 argument_list|()
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 name|fieldName
 argument_list|,

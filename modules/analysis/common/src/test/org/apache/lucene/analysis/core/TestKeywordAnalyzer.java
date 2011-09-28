@@ -549,7 +549,7 @@ operator|new
 name|KeywordAnalyzer
 argument_list|()
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 literal|"field"
 argument_list|,

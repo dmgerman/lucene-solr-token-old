@@ -300,7 +300,7 @@ name|ts
 init|=
 name|a
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 literal|"foo"
 argument_list|,

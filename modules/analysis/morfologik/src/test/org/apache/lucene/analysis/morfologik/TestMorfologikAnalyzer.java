@@ -310,7 +310,7 @@ name|ts_1
 init|=
 name|a
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
@@ -360,7 +360,7 @@ name|ts_2
 init|=
 name|a
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
@@ -601,7 +601,7 @@ init|=
 name|getTestAnalyzer
 argument_list|()
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,

@@ -40,15 +40,6 @@ name|java
 operator|.
 name|text
 operator|.
-name|Collator
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|text
-operator|.
 name|DateFormat
 import|;
 end_import
@@ -1486,7 +1477,7 @@ name|source
 operator|=
 name|analyzer
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 name|field
 argument_list|,
@@ -2835,7 +2826,7 @@ name|source
 operator|=
 name|analyzer
 operator|.
-name|reusableTokenStream
+name|tokenStream
 argument_list|(
 name|field
 argument_list|,
