@@ -1004,11 +1004,11 @@ name|Field
 argument_list|(
 literal|"f"
 argument_list|,
+literal|"0"
+argument_list|,
 name|StringField
 operator|.
 name|TYPE_UNSTORED
-argument_list|,
-literal|"0"
 argument_list|)
 decl_stmt|;
 name|Field
@@ -1019,11 +1019,11 @@ name|Field
 argument_list|(
 literal|"f2"
 argument_list|,
+literal|"0"
+argument_list|,
 name|StringField
 operator|.
 name|TYPE_UNSTORED
-argument_list|,
-literal|"0"
 argument_list|)
 decl_stmt|;
 for|for

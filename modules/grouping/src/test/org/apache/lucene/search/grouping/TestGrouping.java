@@ -359,11 +359,11 @@ name|Field
 argument_list|(
 name|groupField
 argument_list|,
+literal|"author1"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"author1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -376,11 +376,11 @@ name|Field
 argument_list|(
 literal|"content"
 argument_list|,
+literal|"random text"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"random text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -393,9 +393,9 @@ name|Field
 argument_list|(
 literal|"id"
 argument_list|,
-name|customType
-argument_list|,
 literal|"1"
+argument_list|,
+name|customType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -422,11 +422,11 @@ name|Field
 argument_list|(
 name|groupField
 argument_list|,
+literal|"author1"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"author1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -439,11 +439,11 @@ name|Field
 argument_list|(
 literal|"content"
 argument_list|,
+literal|"some more random text"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"some more random text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -456,9 +456,9 @@ name|Field
 argument_list|(
 literal|"id"
 argument_list|,
-name|customType
-argument_list|,
 literal|"2"
+argument_list|,
+name|customType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -485,11 +485,11 @@ name|Field
 argument_list|(
 name|groupField
 argument_list|,
+literal|"author1"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"author1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -502,11 +502,11 @@ name|Field
 argument_list|(
 literal|"content"
 argument_list|,
+literal|"some more random textual data"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"some more random textual data"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -519,9 +519,9 @@ name|Field
 argument_list|(
 literal|"id"
 argument_list|,
-name|customType
-argument_list|,
 literal|"3"
+argument_list|,
+name|customType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -548,11 +548,11 @@ name|Field
 argument_list|(
 name|groupField
 argument_list|,
+literal|"author2"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"author2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -565,11 +565,11 @@ name|Field
 argument_list|(
 literal|"content"
 argument_list|,
+literal|"some random text"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"some random text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -582,9 +582,9 @@ name|Field
 argument_list|(
 literal|"id"
 argument_list|,
-name|customType
-argument_list|,
 literal|"4"
+argument_list|,
+name|customType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -611,11 +611,11 @@ name|Field
 argument_list|(
 name|groupField
 argument_list|,
+literal|"author3"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"author3"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -628,11 +628,11 @@ name|Field
 argument_list|(
 literal|"content"
 argument_list|,
+literal|"some more random text"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"some more random text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -645,9 +645,9 @@ name|Field
 argument_list|(
 literal|"id"
 argument_list|,
-name|customType
-argument_list|,
 literal|"5"
+argument_list|,
+name|customType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -674,11 +674,11 @@ name|Field
 argument_list|(
 name|groupField
 argument_list|,
+literal|"author3"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"author3"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -691,11 +691,11 @@ name|Field
 argument_list|(
 literal|"content"
 argument_list|,
+literal|"random"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"random"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -708,9 +708,9 @@ name|Field
 argument_list|(
 literal|"id"
 argument_list|,
-name|customType
-argument_list|,
 literal|"6"
+argument_list|,
+name|customType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -737,11 +737,11 @@ name|Field
 argument_list|(
 literal|"content"
 argument_list|,
+literal|"random word stuck in alot of other text"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"random word stuck in alot of other text"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -754,9 +754,9 @@ name|Field
 argument_list|(
 literal|"id"
 argument_list|,
-name|customType
-argument_list|,
 literal|"6"
+argument_list|,
+name|customType
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -227,11 +227,11 @@ name|Field
 argument_list|(
 literal|"eng"
 argument_list|,
+literal|"Six drunken"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"Six drunken"
 comment|/*This shouldn't matter. */
 argument_list|)
 argument_list|)
@@ -305,11 +305,11 @@ name|Field
 argument_list|(
 literal|"eng"
 argument_list|,
+literal|"Six drunken"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"Six drunken"
 comment|/*This shouldn't matter. */
 argument_list|)
 argument_list|)

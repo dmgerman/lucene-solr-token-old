@@ -231,11 +231,11 @@ name|Field
 argument_list|(
 literal|"f1"
 argument_list|,
+literal|"first field"
+argument_list|,
 name|StringField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"first field"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -248,11 +248,11 @@ name|Field
 argument_list|(
 literal|"f2"
 argument_list|,
+literal|"second field"
+argument_list|,
 name|StringField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"second field"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -357,9 +357,9 @@ name|Field
 argument_list|(
 literal|"f1"
 argument_list|,
-name|customType2
-argument_list|,
 literal|"first field"
+argument_list|,
+name|customType2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -728,11 +728,11 @@ name|Field
 argument_list|(
 literal|"f1"
 argument_list|,
+literal|"first field"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"first field"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -745,11 +745,11 @@ name|Field
 argument_list|(
 literal|"f2"
 argument_list|,
+literal|"second field"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"second field"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -825,11 +825,11 @@ name|Field
 argument_list|(
 literal|"f2"
 argument_list|,
+literal|"second field"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"second field"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -842,9 +842,9 @@ name|Field
 argument_list|(
 literal|"f1"
 argument_list|,
-name|customType2
-argument_list|,
 literal|"first field"
+argument_list|,
+name|customType2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -857,11 +857,11 @@ name|Field
 argument_list|(
 literal|"f3"
 argument_list|,
+literal|"third field"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"third field"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -874,11 +874,11 @@ name|Field
 argument_list|(
 literal|"f4"
 argument_list|,
+literal|"fourth field"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"fourth field"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1281,11 +1281,11 @@ name|Field
 argument_list|(
 literal|"f1"
 argument_list|,
+literal|"d1 first field"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"d1 first field"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1298,11 +1298,11 @@ name|Field
 argument_list|(
 literal|"f2"
 argument_list|,
+literal|"d1 second field"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"d1 second field"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1447,11 +1447,11 @@ name|Field
 argument_list|(
 literal|"f1"
 argument_list|,
+literal|"d2 first field"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"d2 first field"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1679,11 +1679,11 @@ name|Field
 argument_list|(
 literal|"f1"
 argument_list|,
+literal|"d3 first field"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"d3 first field"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1696,11 +1696,11 @@ name|Field
 argument_list|(
 literal|"f2"
 argument_list|,
+literal|"d3 second field"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"d3 second field"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2957,9 +2957,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType
 argument_list|)
 return|;
 case|case
@@ -2983,9 +2983,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType2
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType2
 argument_list|)
 return|;
 case|case
@@ -2997,9 +2997,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType3
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType3
 argument_list|)
 return|;
 case|case
@@ -3011,9 +3011,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType4
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType4
 argument_list|)
 return|;
 case|case
@@ -3025,9 +3025,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType5
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType5
 argument_list|)
 return|;
 case|case
@@ -3039,9 +3039,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType6
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType6
 argument_list|)
 return|;
 case|case
@@ -3053,9 +3053,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType7
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType7
 argument_list|)
 return|;
 case|case
@@ -3067,9 +3067,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType8
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType8
 argument_list|)
 return|;
 case|case
@@ -3081,9 +3081,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType9
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType9
 argument_list|)
 return|;
 case|case
@@ -3095,9 +3095,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType10
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType10
 argument_list|)
 return|;
 case|case
@@ -3109,9 +3109,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType11
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType11
 argument_list|)
 return|;
 case|case
@@ -3123,9 +3123,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType12
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType12
 argument_list|)
 return|;
 case|case
@@ -3137,9 +3137,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType13
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType13
 argument_list|)
 return|;
 case|case
@@ -3151,9 +3151,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType14
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType14
 argument_list|)
 return|;
 case|case
@@ -3165,9 +3165,9 @@ name|Field
 argument_list|(
 name|fieldName
 argument_list|,
-name|customType15
-argument_list|,
 literal|"some text"
+argument_list|,
+name|customType15
 argument_list|)
 return|;
 default|default:

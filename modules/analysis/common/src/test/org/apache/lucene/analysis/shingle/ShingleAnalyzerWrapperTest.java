@@ -307,11 +307,11 @@ name|Field
 argument_list|(
 literal|"content"
 argument_list|,
+literal|"please divide this sentence into shingles"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"please divide this sentence into shingles"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -336,12 +336,12 @@ operator|new
 name|Field
 argument_list|(
 literal|"content"
-argument_list|,
-name|TextField
-operator|.
-name|TYPE_STORED
 argument_list|,
 literal|"just another test sentence"
+argument_list|,
+name|TextField
+operator|.
+name|TYPE_STORED
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -367,11 +367,11 @@ name|Field
 argument_list|(
 literal|"content"
 argument_list|,
+literal|"a sentence which contains no test"
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"a sentence which contains no test"
 argument_list|)
 argument_list|)
 expr_stmt|;

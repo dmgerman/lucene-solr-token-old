@@ -1122,9 +1122,9 @@ name|Field
 argument_list|(
 literal|"field"
 argument_list|,
-name|customType
-argument_list|,
 name|stream
+argument_list|,
+name|customType
 argument_list|)
 decl_stmt|;
 name|doc

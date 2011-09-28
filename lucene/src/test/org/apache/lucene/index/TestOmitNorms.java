@@ -1185,9 +1185,9 @@ name|Field
 argument_list|(
 literal|"foo"
 argument_list|,
-name|customType
-argument_list|,
 literal|"a"
+argument_list|,
+name|customType
 argument_list|)
 decl_stmt|;
 comment|// indexed without norms
@@ -1217,9 +1217,9 @@ name|Field
 argument_list|(
 literal|"foo"
 argument_list|,
-name|customType1
-argument_list|,
 literal|"a"
+argument_list|,
+name|customType1
 argument_list|)
 decl_stmt|;
 comment|// not indexed, but stored
@@ -1245,9 +1245,9 @@ name|Field
 argument_list|(
 literal|"foo"
 argument_list|,
-name|customType2
-argument_list|,
 literal|"a"
+argument_list|,
+name|customType2
 argument_list|)
 decl_stmt|;
 comment|// not indexed but stored, omitNorms is set
@@ -1280,9 +1280,9 @@ name|Field
 argument_list|(
 literal|"foo"
 argument_list|,
-name|customType3
-argument_list|,
 literal|"a"
+argument_list|,
+name|customType3
 argument_list|)
 decl_stmt|;
 comment|// not indexed nor stored (doesnt exist at all, we index a different field instead)
@@ -1294,9 +1294,9 @@ name|Field
 argument_list|(
 literal|"bar"
 argument_list|,
-name|customType
-argument_list|,
 literal|"a"
+argument_list|,
+name|customType
 argument_list|)
 decl_stmt|;
 name|assertNotNull

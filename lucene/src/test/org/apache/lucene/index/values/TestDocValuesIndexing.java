@@ -3794,13 +3794,13 @@ name|Field
 argument_list|(
 literal|"id"
 argument_list|,
-name|StringField
-operator|.
-name|TYPE_STORED
-argument_list|,
 name|idBase
 operator|+
 name|i
+argument_list|,
+name|StringField
+operator|.
+name|TYPE_STORED
 argument_list|)
 argument_list|)
 expr_stmt|;

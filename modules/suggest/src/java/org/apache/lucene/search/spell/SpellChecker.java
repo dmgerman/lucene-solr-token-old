@@ -2233,11 +2233,11 @@ name|Field
 argument_list|(
 name|F_WORD
 argument_list|,
+name|text
+argument_list|,
 name|StringField
 operator|.
 name|TYPE_STORED
-argument_list|,
-name|text
 argument_list|)
 decl_stmt|;
 name|doc
@@ -2378,9 +2378,9 @@ name|Field
 argument_list|(
 name|key
 argument_list|,
-name|ft
-argument_list|,
 name|gram
+argument_list|,
+name|ft
 argument_list|)
 decl_stmt|;
 comment|// spellchecker does not use positional queries, but we want freqs

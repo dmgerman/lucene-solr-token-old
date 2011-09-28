@@ -1347,8 +1347,6 @@ name|Field
 argument_list|(
 literal|"tracer"
 argument_list|,
-name|ft1
-argument_list|,
 name|data
 index|[
 name|i
@@ -1356,6 +1354,8 @@ index|]
 index|[
 literal|0
 index|]
+argument_list|,
+name|ft1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1972,9 +1972,9 @@ name|Field
 argument_list|(
 literal|"tracer"
 argument_list|,
-name|customType
-argument_list|,
 name|num
+argument_list|,
+name|customType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2031,9 +2031,9 @@ name|Field
 argument_list|(
 literal|"tracer2"
 argument_list|,
-name|customType
-argument_list|,
 name|num2
+argument_list|,
+name|customType
 argument_list|)
 argument_list|)
 expr_stmt|;

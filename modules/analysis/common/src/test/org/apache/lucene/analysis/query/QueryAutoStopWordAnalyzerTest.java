@@ -323,11 +323,11 @@ name|Field
 argument_list|(
 literal|"variedField"
 argument_list|,
+name|variedFieldValue
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-name|variedFieldValue
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -340,11 +340,11 @@ name|Field
 argument_list|(
 literal|"repetitiveField"
 argument_list|,
+name|repetitiveFieldValue
+argument_list|,
 name|TextField
 operator|.
 name|TYPE_STORED
-argument_list|,
-name|repetitiveFieldValue
 argument_list|)
 argument_list|)
 expr_stmt|;

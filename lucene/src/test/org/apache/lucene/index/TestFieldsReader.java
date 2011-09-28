@@ -1973,9 +1973,9 @@ name|Field
 argument_list|(
 literal|"field"
 argument_list|,
-name|onlyStored
-argument_list|,
 literal|"value"
+argument_list|,
+name|onlyStored
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1988,11 +1988,11 @@ name|Field
 argument_list|(
 literal|"field2"
 argument_list|,
+literal|"value"
+argument_list|,
 name|StringField
 operator|.
 name|TYPE_STORED
-argument_list|,
-literal|"value"
 argument_list|)
 argument_list|)
 expr_stmt|;

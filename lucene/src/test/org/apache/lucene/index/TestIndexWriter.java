@@ -2196,11 +2196,11 @@ name|Field
 argument_list|(
 literal|"field"
 argument_list|,
-name|storedTextType
-argument_list|,
 literal|"aaa"
 operator|+
 name|j
+argument_list|,
+name|storedTextType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2613,11 +2613,11 @@ name|Field
 argument_list|(
 literal|"field"
 argument_list|,
-name|storedTextType
-argument_list|,
 literal|"aaa"
 operator|+
 name|j
+argument_list|,
+name|storedTextType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8031,13 +8031,13 @@ name|Field
 argument_list|(
 literal|"binary"
 argument_list|,
-name|customType
-argument_list|,
 name|b
 argument_list|,
 literal|10
 argument_list|,
 literal|17
+argument_list|,
+name|customType
 argument_list|)
 decl_stmt|;
 name|f
@@ -11163,8 +11163,6 @@ name|Field
 argument_list|(
 literal|"id"
 argument_list|,
-name|customType3
-argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -11173,6 +11171,8 @@ name|i
 argument_list|)
 operator|+
 name|BIG
+argument_list|,
+name|customType3
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11185,8 +11185,6 @@ name|Field
 argument_list|(
 literal|"str"
 argument_list|,
-name|customType2
-argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -11195,6 +11193,8 @@ name|i
 argument_list|)
 operator|+
 name|BIG
+argument_list|,
+name|customType2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11207,8 +11207,6 @@ name|Field
 argument_list|(
 literal|"str2"
 argument_list|,
-name|storedTextType
-argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -11217,6 +11215,8 @@ name|i
 argument_list|)
 operator|+
 name|BIG
+argument_list|,
+name|storedTextType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11229,8 +11229,6 @@ name|Field
 argument_list|(
 literal|"str3"
 argument_list|,
-name|customType
-argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -11239,6 +11237,8 @@ name|i
 argument_list|)
 operator|+
 name|BIG
+argument_list|,
+name|customType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11904,9 +11904,9 @@ name|Field
 argument_list|(
 literal|"content"
 argument_list|,
-name|customType
-argument_list|,
 literal|""
+argument_list|,
+name|customType
 argument_list|)
 decl_stmt|;
 name|doc
