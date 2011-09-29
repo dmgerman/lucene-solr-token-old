@@ -662,7 +662,6 @@ name|InterruptedException
 throws|,
 name|IOException
 block|{
-comment|// TODO: - possibly: incremental update rather than reread everything
 comment|// build immutable CloudInfo
 if|if
 condition|(
