@@ -125,6 +125,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Bits
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|ToStringUtils
 import|;
 end_import
@@ -560,6 +573,9 @@ parameter_list|(
 specifier|final
 name|AtomicReaderContext
 name|context
+parameter_list|,
+name|Bits
+name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -585,6 +601,8 @@ operator|.
 name|getSpans
 argument_list|(
 name|context
+argument_list|,
+name|acceptDocs
 argument_list|)
 return|;
 if|if
@@ -608,6 +626,8 @@ operator|.
 name|getSpans
 argument_list|(
 name|context
+argument_list|,
+name|acceptDocs
 argument_list|)
 return|;
 return|return
@@ -623,6 +643,8 @@ name|this
 argument_list|,
 name|context
 argument_list|,
+name|acceptDocs
+argument_list|,
 name|collectPayloads
 argument_list|)
 else|:
@@ -635,6 +657,8 @@ argument_list|(
 name|this
 argument_list|,
 name|context
+argument_list|,
+name|acceptDocs
 argument_list|)
 return|;
 block|}

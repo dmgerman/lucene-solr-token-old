@@ -1137,6 +1137,13 @@ operator|.
 name|getSpans
 argument_list|(
 name|atomicReaderContext
+argument_list|,
+name|atomicReaderContext
+operator|.
+name|reader
+operator|.
+name|getLiveDocs
+argument_list|()
 argument_list|)
 decl_stmt|;
 while|while

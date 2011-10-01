@@ -46,6 +46,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Bits
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -265,6 +278,9 @@ name|spanNearQuery
 parameter_list|,
 name|AtomicReaderContext
 name|context
+parameter_list|,
+name|Bits
+name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -274,6 +290,8 @@ argument_list|(
 name|spanNearQuery
 argument_list|,
 name|context
+argument_list|,
+name|acceptDocs
 argument_list|,
 literal|true
 argument_list|)
@@ -288,6 +306,9 @@ name|spanNearQuery
 parameter_list|,
 name|AtomicReaderContext
 name|context
+parameter_list|,
+name|Bits
+name|acceptDocs
 parameter_list|,
 name|boolean
 name|collectPayloads
@@ -399,6 +420,8 @@ operator|.
 name|getSpans
 argument_list|(
 name|context
+argument_list|,
+name|acceptDocs
 argument_list|)
 expr_stmt|;
 name|subSpansByDoc
