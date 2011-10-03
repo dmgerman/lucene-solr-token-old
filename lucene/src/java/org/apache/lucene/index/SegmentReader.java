@@ -962,11 +962,11 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|reopen
-specifier|public
+DECL|method|doOpenIfChanged
+specifier|protected
 specifier|synchronized
 name|IndexReader
-name|reopen
+name|doOpenIfChanged
 parameter_list|()
 throws|throws
 name|CorruptIndexException
@@ -986,11 +986,11 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|reopen
-specifier|public
+DECL|method|doOpenIfChanged
+specifier|protected
 specifier|synchronized
 name|IndexReader
-name|reopen
+name|doOpenIfChanged
 parameter_list|(
 name|boolean
 name|openReadOnly
@@ -1161,7 +1161,7 @@ name|readOnly
 condition|)
 block|{
 return|return
-name|this
+literal|null
 return|;
 block|}
 comment|// When cloning, the incoming SegmentInfos should not
