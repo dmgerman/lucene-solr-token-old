@@ -2353,7 +2353,7 @@ if|if
 condition|(
 name|commitTracker
 operator|.
-name|getTimeUpperBound
+name|getDocsUpperBound
 argument_list|()
 operator|>
 literal|0
@@ -2415,7 +2415,7 @@ if|if
 condition|(
 name|softCommitTracker
 operator|.
-name|getTimeUpperBound
+name|getDocsUpperBound
 argument_list|()
 operator|>
 literal|0
@@ -2429,7 +2429,7 @@ literal|"soft autocommit maxDocs"
 argument_list|,
 name|softCommitTracker
 operator|.
-name|getTimeUpperBound
+name|getDocsUpperBound
 argument_list|()
 argument_list|)
 expr_stmt|;
