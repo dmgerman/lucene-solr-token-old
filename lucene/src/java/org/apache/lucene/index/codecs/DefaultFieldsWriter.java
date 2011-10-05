@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index
+DECL|package|org.apache.lucene.index.codecs
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|lucene
 operator|.
 name|index
+operator|.
+name|codecs
 package|;
 end_package
 begin_comment
@@ -21,6 +23,45 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|FieldInfos
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexFileNames
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexableField
 import|;
 end_import
 begin_import
@@ -101,10 +142,16 @@ operator|.
 name|IOUtils
 import|;
 end_import
+begin_comment
+comment|/** @lucene.experimental */
+end_comment
 begin_class
-DECL|class|FieldsWriter
+DECL|class|DefaultFieldsWriter
+specifier|public
 specifier|final
 class|class
+name|DefaultFieldsWriter
+extends|extends
 name|FieldsWriter
 block|{
 comment|// NOTE: bit 0 is free here!  You can steal it!
@@ -240,8 +287,8 @@ specifier|private
 name|IndexOutput
 name|indexStream
 decl_stmt|;
-DECL|method|FieldsWriter
-name|FieldsWriter
+DECL|method|DefaultFieldsWriter
+name|DefaultFieldsWriter
 parameter_list|(
 name|Directory
 name|directory
@@ -351,8 +398,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|FieldsWriter
-name|FieldsWriter
+DECL|method|DefaultFieldsWriter
+name|DefaultFieldsWriter
 parameter_list|(
 name|IndexOutput
 name|fdx
@@ -398,6 +445,7 @@ comment|// and adds a new entry for this document into the index
 comment|// stream.  This assumes the buffer was already written
 comment|// in the correct fields format.
 DECL|method|startDocument
+specifier|public
 name|void
 name|startDocument
 parameter_list|(
@@ -426,6 +474,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|skipDocument
+specifier|public
 name|void
 name|skipDocument
 parameter_list|()
@@ -451,6 +500,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|close
+specifier|public
 name|void
 name|close
 parameter_list|()
@@ -488,6 +538,7 @@ block|}
 block|}
 block|}
 DECL|method|abort
+specifier|public
 name|void
 name|abort
 parameter_list|()
@@ -568,6 +619,7 @@ block|{       }
 block|}
 block|}
 DECL|method|writeField
+specifier|public
 specifier|final
 name|void
 name|writeField
@@ -886,6 +938,7 @@ block|}
 block|}
 comment|/** Bulk write a contiguous series of documents.  The    *  lengths array is the length (in bytes) of each raw    *  document.  The stream IndexInput is the    *  fieldsStream from which we should bulk-copy all    *  bytes. */
 DECL|method|addRawDocuments
+specifier|public
 specifier|final
 name|void
 name|addRawDocuments
@@ -967,6 +1020,7 @@ name|position
 assert|;
 block|}
 DECL|method|addDocument
+specifier|public
 specifier|final
 name|void
 name|addDocument
