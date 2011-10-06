@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.search.grouping
+DECL|package|org.apache.lucene.search.grouping.term
 package|package
 name|org
 operator|.
@@ -11,6 +11,8 @@ operator|.
 name|search
 operator|.
 name|grouping
+operator|.
+name|term
 package|;
 end_package
 begin_comment
@@ -50,6 +52,36 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|grouping
+operator|.
+name|AbstractAllGroupHeadsCollector
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|grouping
+operator|.
+name|SentinelIntSet
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BytesRef
@@ -74,7 +106,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * A base implementation of {@link AbstractAllGroupHeadsCollector} for retrieving the most relevant groups when grouping  * on a string based group field. More specifically this all concrete implementations of this base implementation  * use {@link org.apache.lucene.search.FieldCache.DocTermsIndex}.  *  * @lucene.experimental  */
+comment|/**  * A base implementation of {@link org.apache.lucene.search.grouping.AbstractAllGroupHeadsCollector} for retrieving the most relevant groups when grouping  * on a string based group field. More specifically this all concrete implementations of this base implementation  * use {@link org.apache.lucene.search.FieldCache.DocTermsIndex}.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|TermAllGroupHeadsCollector

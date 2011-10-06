@@ -26,10 +26,11 @@ name|Arrays
 import|;
 end_import
 begin_comment
-comment|/** A native int set where one value is reserved to mean "EMPTY" */
+comment|/**  * A native int set where one value is reserved to mean "EMPTY"  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|SentinelIntSet
+specifier|public
 class|class
 name|SentinelIntSet
 block|{

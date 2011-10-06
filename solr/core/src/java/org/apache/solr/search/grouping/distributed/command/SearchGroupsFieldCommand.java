@@ -73,6 +73,8 @@ name|search
 operator|.
 name|grouping
 operator|.
+name|term
+operator|.
 name|TermFirstPassGroupingCollector
 import|;
 end_import
