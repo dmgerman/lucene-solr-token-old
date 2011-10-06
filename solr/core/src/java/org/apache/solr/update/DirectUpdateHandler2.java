@@ -366,10 +366,10 @@ name|DirectUpdateHandler2
 extends|extends
 name|UpdateHandler
 block|{
-DECL|field|indexWriterProvider
+DECL|field|solrCoreState
 specifier|protected
 name|SolrCoreState
-name|indexWriterProvider
+name|solrCoreState
 decl_stmt|;
 DECL|field|commitLock
 specifier|protected
@@ -522,7 +522,7 @@ argument_list|(
 name|core
 argument_list|)
 expr_stmt|;
-name|indexWriterProvider
+name|solrCoreState
 operator|=
 operator|new
 name|DefaultSolrCoreState
@@ -640,7 +640,7 @@ condition|)
 block|{
 name|this
 operator|.
-name|indexWriterProvider
+name|solrCoreState
 operator|=
 operator|(
 operator|(
@@ -649,7 +649,7 @@ operator|)
 name|updateHandler
 operator|)
 operator|.
-name|indexWriterProvider
+name|solrCoreState
 expr_stmt|;
 block|}
 else|else
@@ -660,7 +660,7 @@ operator|.
 name|decref
 argument_list|()
 expr_stmt|;
-name|indexWriterProvider
+name|solrCoreState
 operator|=
 operator|new
 name|DefaultSolrCoreState
@@ -794,7 +794,7 @@ operator|+
 literal|"REMOVING ALL DOCUMENTS FROM INDEX"
 argument_list|)
 expr_stmt|;
-name|indexWriterProvider
+name|solrCoreState
 operator|.
 name|getIndexWriter
 argument_list|(
@@ -820,7 +820,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|indexWriterProvider
+name|solrCoreState
 operator|.
 name|rollbackIndexWriter
 argument_list|(
@@ -844,7 +844,7 @@ block|{
 name|IndexWriter
 name|writer
 init|=
-name|indexWriterProvider
+name|solrCoreState
 operator|.
 name|getIndexWriter
 argument_list|(
@@ -1120,7 +1120,7 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-name|indexWriterProvider
+name|solrCoreState
 operator|.
 name|getIndexWriter
 argument_list|(
@@ -1299,7 +1299,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|indexWriterProvider
+name|solrCoreState
 operator|.
 name|getIndexWriter
 argument_list|(
@@ -1438,7 +1438,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|indexWriterProvider
+name|solrCoreState
 operator|.
 name|getIndexWriter
 argument_list|(
@@ -1541,7 +1541,7 @@ block|{
 name|IndexWriter
 name|writer
 init|=
-name|indexWriterProvider
+name|solrCoreState
 operator|.
 name|getIndexWriter
 argument_list|(
@@ -1980,7 +1980,7 @@ name|openIfChanged
 argument_list|(
 name|currentReader
 argument_list|,
-name|indexWriterProvider
+name|solrCoreState
 operator|.
 name|getIndexWriter
 argument_list|(
@@ -2042,7 +2042,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|indexWriterProvider
+name|solrCoreState
 operator|.
 name|newIndexWriter
 argument_list|(
@@ -2226,7 +2226,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|indexWriterProvider
+name|solrCoreState
 operator|.
 name|decref
 argument_list|()
@@ -2645,7 +2645,7 @@ name|getIndexWriterProvider
 parameter_list|()
 block|{
 return|return
-name|indexWriterProvider
+name|solrCoreState
 return|;
 block|}
 annotation|@
@@ -2658,7 +2658,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|indexWriterProvider
+name|solrCoreState
 operator|.
 name|decref
 argument_list|()
@@ -2695,7 +2695,7 @@ name|void
 name|incref
 parameter_list|()
 block|{
-name|indexWriterProvider
+name|solrCoreState
 operator|.
 name|incref
 argument_list|()
