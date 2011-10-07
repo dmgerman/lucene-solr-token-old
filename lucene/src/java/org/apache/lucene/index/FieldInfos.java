@@ -2771,7 +2771,7 @@ literal|5
 expr_stmt|;
 break|break;
 case|case
-name|BYTES_FIXED_SORTED
+name|BYTES_VAR_STRAIGHT
 case|:
 name|b
 operator|=
@@ -2779,7 +2779,7 @@ literal|6
 expr_stmt|;
 break|break;
 case|case
-name|BYTES_VAR_STRAIGHT
+name|BYTES_VAR_DEREF
 case|:
 name|b
 operator|=
@@ -2787,7 +2787,7 @@ literal|7
 expr_stmt|;
 break|break;
 case|case
-name|BYTES_VAR_DEREF
+name|FIXED_INTS_16
 case|:
 name|b
 operator|=
@@ -2795,7 +2795,7 @@ literal|8
 expr_stmt|;
 break|break;
 case|case
-name|BYTES_VAR_SORTED
+name|FIXED_INTS_32
 case|:
 name|b
 operator|=
@@ -2803,7 +2803,7 @@ literal|9
 expr_stmt|;
 break|break;
 case|case
-name|FIXED_INTS_16
+name|FIXED_INTS_64
 case|:
 name|b
 operator|=
@@ -2811,7 +2811,7 @@ literal|10
 expr_stmt|;
 break|break;
 case|case
-name|FIXED_INTS_32
+name|FIXED_INTS_8
 case|:
 name|b
 operator|=
@@ -2819,7 +2819,7 @@ literal|11
 expr_stmt|;
 break|break;
 case|case
-name|FIXED_INTS_64
+name|BYTES_FIXED_SORTED
 case|:
 name|b
 operator|=
@@ -2827,7 +2827,7 @@ literal|12
 expr_stmt|;
 break|break;
 case|case
-name|FIXED_INTS_8
+name|BYTES_VAR_SORTED
 case|:
 name|b
 operator|=
@@ -3260,7 +3260,7 @@ name|docValuesType
 operator|=
 name|ValueType
 operator|.
-name|BYTES_FIXED_SORTED
+name|BYTES_VAR_STRAIGHT
 expr_stmt|;
 break|break;
 case|case
@@ -3270,7 +3270,7 @@ name|docValuesType
 operator|=
 name|ValueType
 operator|.
-name|BYTES_VAR_STRAIGHT
+name|BYTES_VAR_DEREF
 expr_stmt|;
 break|break;
 case|case
@@ -3280,7 +3280,7 @@ name|docValuesType
 operator|=
 name|ValueType
 operator|.
-name|BYTES_VAR_DEREF
+name|FIXED_INTS_16
 expr_stmt|;
 break|break;
 case|case
@@ -3290,7 +3290,7 @@ name|docValuesType
 operator|=
 name|ValueType
 operator|.
-name|BYTES_VAR_SORTED
+name|FIXED_INTS_32
 expr_stmt|;
 break|break;
 case|case
@@ -3300,7 +3300,7 @@ name|docValuesType
 operator|=
 name|ValueType
 operator|.
-name|FIXED_INTS_16
+name|FIXED_INTS_64
 expr_stmt|;
 break|break;
 case|case
@@ -3310,7 +3310,7 @@ name|docValuesType
 operator|=
 name|ValueType
 operator|.
-name|FIXED_INTS_32
+name|FIXED_INTS_8
 expr_stmt|;
 break|break;
 case|case
@@ -3320,7 +3320,7 @@ name|docValuesType
 operator|=
 name|ValueType
 operator|.
-name|FIXED_INTS_64
+name|BYTES_FIXED_SORTED
 expr_stmt|;
 break|break;
 case|case
@@ -3330,7 +3330,7 @@ name|docValuesType
 operator|=
 name|ValueType
 operator|.
-name|FIXED_INTS_8
+name|BYTES_VAR_SORTED
 expr_stmt|;
 break|break;
 default|default:
