@@ -1324,7 +1324,7 @@ argument_list|,
 name|parsedPathType
 argument_list|)
 expr_stmt|;
-name|addDoc
+name|addItem
 argument_list|()
 expr_stmt|;
 block|}
