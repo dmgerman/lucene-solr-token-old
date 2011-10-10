@@ -727,7 +727,7 @@ argument_list|(
 operator|new
 name|MultiIndexDocValues
 operator|.
-name|DummyDocValues
+name|EmptyDocValues
 argument_list|(
 name|start
 argument_list|,
@@ -797,7 +797,7 @@ argument_list|(
 operator|new
 name|MultiIndexDocValues
 operator|.
-name|DummyDocValues
+name|EmptyDocValues
 argument_list|(
 name|start
 argument_list|,
