@@ -106,7 +106,7 @@ literal|1
 decl_stmt|;
 DECL|field|currentScore
 specifier|private
-name|float
+name|double
 name|currentScore
 init|=
 name|Float
@@ -531,6 +531,9 @@ throws|throws
 name|IOException
 block|{
 return|return
+operator|(
+name|float
+operator|)
 name|currentScore
 return|;
 block|}
