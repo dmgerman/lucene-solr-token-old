@@ -133,6 +133,19 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -323,6 +336,15 @@ init|=
 name|Throttling
 operator|.
 name|SOMETIMES
+decl_stmt|;
+DECL|field|inputCloneCount
+specifier|final
+name|AtomicInteger
+name|inputCloneCount
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
 decl_stmt|;
 comment|// use this for tracking files for crash.
 comment|// additionally: provides debugging information in case you leave one open
@@ -541,6 +563,19 @@ block|}
 name|init
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|getInputCloneCount
+specifier|public
+name|int
+name|getInputCloneCount
+parameter_list|()
+block|{
+return|return
+name|inputCloneCount
+operator|.
+name|get
+argument_list|()
+return|;
 block|}
 DECL|method|setTrackDiskUsage
 specifier|public
