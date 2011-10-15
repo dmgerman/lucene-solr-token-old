@@ -2014,7 +2014,7 @@ block|}
 comment|// Delete by query
 DECL|method|applyQueryDeletes
 specifier|private
-specifier|synchronized
+specifier|static
 name|long
 name|applyQueryDeletes
 parameter_list|(
