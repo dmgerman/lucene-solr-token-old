@@ -1826,9 +1826,6 @@ operator|new
 name|LanguageIdentifier
 argument_list|(
 name|content
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// FIXME: Hack - we get the distance from toString and calculate our own certainty score
