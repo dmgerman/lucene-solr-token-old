@@ -144,9 +144,9 @@ argument_list|,
 literal|"b c d"
 argument_list|)
 argument_list|,
-name|SimpleFragListBuilder
+name|sflb
 operator|.
-name|MIN_FRAG_CHAR_SIZE
+name|minFragCharSize
 operator|-
 literal|1
 argument_list|)
@@ -203,9 +203,9 @@ argument_list|,
 literal|"abcdefghijklmnopqrs"
 argument_list|)
 argument_list|,
-name|SimpleFragListBuilder
+name|sflb
 operator|.
-name|MIN_FRAG_CHAR_SIZE
+name|minFragCharSize
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -302,9 +302,9 @@ argument_list|,
 literal|"abcdefgh   jklmnopqrs"
 argument_list|)
 argument_list|,
-name|SimpleFragListBuilder
+name|sflb
 operator|.
-name|MIN_FRAG_CHAR_SIZE
+name|minFragCharSize
 argument_list|)
 decl_stmt|;
 name|assertEquals
