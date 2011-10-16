@@ -366,9 +366,8 @@ literal|true
 argument_list|,
 literal|0
 argument_list|,
+operator|new
 name|SearcherManager
-operator|.
-name|open
 argument_list|(
 name|writer
 argument_list|,
@@ -392,9 +391,8 @@ literal|true
 argument_list|,
 literal|0
 argument_list|,
+operator|new
 name|SearcherManager
-operator|.
-name|open
 argument_list|(
 name|writer
 argument_list|,
@@ -415,9 +413,8 @@ literal|false
 argument_list|,
 literal|0
 argument_list|,
+operator|new
 name|SearcherManager
-operator|.
-name|open
 argument_list|(
 name|writer
 argument_list|,

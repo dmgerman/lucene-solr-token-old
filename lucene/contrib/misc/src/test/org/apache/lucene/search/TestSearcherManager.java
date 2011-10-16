@@ -430,9 +430,8 @@ condition|)
 block|{
 name|mgr
 operator|=
+operator|new
 name|SearcherManager
-operator|.
-name|open
 argument_list|(
 name|writer
 argument_list|,
@@ -458,9 +457,8 @@ argument_list|()
 expr_stmt|;
 name|mgr
 operator|=
+operator|new
 name|SearcherManager
-operator|.
-name|open
 argument_list|(
 name|dir
 argument_list|,
@@ -1052,9 +1050,8 @@ operator|.
 name|nextBoolean
 argument_list|()
 condition|?
+operator|new
 name|SearcherManager
-operator|.
-name|open
 argument_list|(
 name|dir
 argument_list|,
@@ -1063,9 +1060,8 @@ argument_list|,
 name|es
 argument_list|)
 else|:
+operator|new
 name|SearcherManager
-operator|.
-name|open
 argument_list|(
 name|writer
 argument_list|,

@@ -13667,6 +13667,9 @@ name|infos
 parameter_list|)
 block|{
 comment|//System.out.println("IW.nrtIsCurrent " + (infos.version == segmentInfos.version&& !docWriter.anyChanges()&& !bufferedDeletesStream.any()));
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 name|infos
 operator|.
