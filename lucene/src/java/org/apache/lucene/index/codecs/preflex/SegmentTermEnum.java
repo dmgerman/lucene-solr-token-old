@@ -242,6 +242,13 @@ DECL|field|maxSkipLevels
 name|int
 name|maxSkipLevels
 decl_stmt|;
+DECL|field|first
+specifier|private
+name|boolean
+name|first
+init|=
+literal|true
+decl_stmt|;
 DECL|method|SegmentTermEnum
 name|SegmentTermEnum
 parameter_list|(
@@ -553,6 +560,13 @@ argument_list|(
 name|ti
 argument_list|)
 expr_stmt|;
+name|first
+operator|=
+name|p
+operator|==
+operator|-
+literal|1
+expr_stmt|;
 block|}
 comment|/** Increments the enumeration to the next element.  True if one exists.*/
 DECL|method|next
@@ -695,6 +709,24 @@ name|count
 init|=
 literal|0
 decl_stmt|;
+if|if
+condition|(
+name|first
+condition|)
+block|{
+comment|// Always force initial next() in case term is
+comment|// Term("", "")
+name|next
+argument_list|()
+expr_stmt|;
+name|first
+operator|=
+literal|false
+expr_stmt|;
+name|count
+operator|++
+expr_stmt|;
+block|}
 while|while
 condition|(
 name|scanBuffer

@@ -85,7 +85,7 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
-literal|"field"
+name|fieldName
 argument_list|,
 name|regexp
 argument_list|)
@@ -113,7 +113,7 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
-literal|"field"
+name|fieldName
 argument_list|,
 name|regexp
 argument_list|)
