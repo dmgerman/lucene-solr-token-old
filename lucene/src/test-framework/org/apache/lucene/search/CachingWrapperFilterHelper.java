@@ -47,6 +47,19 @@ operator|.
 name|AtomicReaderContext
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Bits
+import|;
+end_import
 begin_comment
 comment|/**  * A unit test helper class to test when the filter is getting cached and when it is not.  */
 end_comment
@@ -106,6 +119,9 @@ name|getDocIdSet
 parameter_list|(
 name|AtomicReaderContext
 name|context
+parameter_list|,
+name|Bits
+name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -124,6 +140,8 @@ operator|.
 name|getDocIdSet
 argument_list|(
 name|context
+argument_list|,
+name|acceptDocs
 argument_list|)
 decl_stmt|;
 if|if

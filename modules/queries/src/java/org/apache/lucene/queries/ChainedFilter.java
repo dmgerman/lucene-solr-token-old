@@ -52,6 +52,19 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|BitsFilteredDocIdSet
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|DocIdSet
 import|;
 end_import
@@ -79,6 +92,19 @@ operator|.
 name|search
 operator|.
 name|Filter
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Bits
 import|;
 end_import
 begin_import
@@ -275,6 +301,9 @@ name|getDocIdSet
 parameter_list|(
 name|AtomicReaderContext
 name|context
+parameter_list|,
+name|Bits
+name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -307,6 +336,10 @@ literal|1
 condition|)
 block|{
 return|return
+name|BitsFilteredDocIdSet
+operator|.
+name|wrap
+argument_list|(
 name|getDocIdSet
 argument_list|(
 name|context
@@ -314,6 +347,9 @@ argument_list|,
 name|logic
 argument_list|,
 name|index
+argument_list|)
+argument_list|,
+name|acceptDocs
 argument_list|)
 return|;
 block|}
@@ -326,6 +362,10 @@ literal|null
 condition|)
 block|{
 return|return
+name|BitsFilteredDocIdSet
+operator|.
+name|wrap
+argument_list|(
 name|getDocIdSet
 argument_list|(
 name|context
@@ -334,9 +374,16 @@ name|logicArray
 argument_list|,
 name|index
 argument_list|)
+argument_list|,
+name|acceptDocs
+argument_list|)
 return|;
 block|}
 return|return
+name|BitsFilteredDocIdSet
+operator|.
+name|wrap
+argument_list|(
 name|getDocIdSet
 argument_list|(
 name|context
@@ -344,6 +391,9 @@ argument_list|,
 name|DEFAULT
 argument_list|,
 name|index
+argument_list|)
+argument_list|,
+name|acceptDocs
 argument_list|)
 return|;
 block|}
@@ -361,6 +411,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// we dont pass acceptDocs, we will filter at the end using an additional filter
 name|DocIdSet
 name|docIdSet
 init|=
@@ -369,6 +420,8 @@ operator|.
 name|getDocIdSet
 argument_list|(
 name|context
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 if|if
@@ -608,6 +661,7 @@ index|]
 operator|++
 control|)
 block|{
+comment|// we dont pass acceptDocs, we will filter at the end using an additional filter
 name|doChain
 argument_list|(
 name|result
@@ -625,6 +679,8 @@ operator|.
 name|getDocIdSet
 argument_list|(
 name|context
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -706,6 +762,7 @@ index|]
 operator|++
 control|)
 block|{
+comment|// we dont pass acceptDocs, we will filter at the end using an additional filter
 name|doChain
 argument_list|(
 name|result
@@ -729,6 +786,8 @@ operator|.
 name|getDocIdSet
 argument_list|(
 name|context
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -6977,12 +6977,16 @@ condition|?
 operator|new
 name|AssertingIndexSearcher
 argument_list|(
+name|random
+argument_list|,
 name|r
 argument_list|)
 else|:
 operator|new
 name|AssertingIndexSearcher
 argument_list|(
+name|random
+argument_list|,
 name|r
 operator|.
 name|getTopReaderContext
@@ -7078,6 +7082,8 @@ condition|?
 operator|new
 name|AssertingIndexSearcher
 argument_list|(
+name|random
+argument_list|,
 name|r
 argument_list|,
 name|ex
@@ -7108,6 +7114,8 @@ else|:
 operator|new
 name|AssertingIndexSearcher
 argument_list|(
+name|random
+argument_list|,
 name|r
 operator|.
 name|getTopReaderContext

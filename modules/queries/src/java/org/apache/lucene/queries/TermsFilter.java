@@ -189,6 +189,9 @@ name|getDocIdSet
 parameter_list|(
 name|AtomicReaderContext
 name|context
+parameter_list|,
+name|Bits
+name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -236,14 +239,6 @@ name|br
 init|=
 operator|new
 name|BytesRef
-argument_list|()
-decl_stmt|;
-name|Bits
-name|liveDocs
-init|=
-name|reader
-operator|.
-name|getLiveDocs
 argument_list|()
 decl_stmt|;
 name|String
@@ -366,7 +361,7 @@ name|termsEnum
 operator|.
 name|docs
 argument_list|(
-name|liveDocs
+name|acceptDocs
 argument_list|,
 name|docs
 argument_list|)

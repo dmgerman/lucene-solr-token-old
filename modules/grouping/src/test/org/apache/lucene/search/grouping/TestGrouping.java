@@ -8977,8 +8977,6 @@ name|ctx
 argument_list|,
 name|weight
 argument_list|,
-literal|null
-argument_list|,
 name|collector
 argument_list|)
 expr_stmt|;
@@ -9003,8 +9001,6 @@ argument_list|(
 name|ctx
 argument_list|,
 name|weight
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

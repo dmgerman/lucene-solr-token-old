@@ -471,6 +471,7 @@ parameter_list|,
 name|boolean
 name|topScorer
 parameter_list|,
+specifier|final
 name|Bits
 name|acceptDocs
 parameter_list|)
@@ -502,6 +503,8 @@ operator|.
 name|getDocIdSet
 argument_list|(
 name|context
+argument_list|,
+name|acceptDocs
 argument_list|)
 decl_stmt|;
 if|if

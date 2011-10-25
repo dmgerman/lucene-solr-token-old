@@ -231,6 +231,9 @@ name|getDocIdSet
 parameter_list|(
 name|AtomicReaderContext
 name|context
+parameter_list|,
+name|Bits
+name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -250,6 +253,8 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|,
+name|acceptDocs
 argument_list|)
 return|;
 block|}
@@ -261,6 +266,8 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|,
+name|acceptDocs
 argument_list|)
 return|;
 block|}
@@ -272,6 +279,9 @@ name|correctBits
 parameter_list|(
 name|IndexReader
 name|reader
+parameter_list|,
+name|Bits
+name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -289,17 +299,6 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|//assume all are INvalid
-specifier|final
-name|Bits
-name|liveDocs
-init|=
-name|MultiFields
-operator|.
-name|getLiveDocs
-argument_list|(
-name|reader
-argument_list|)
-decl_stmt|;
 name|Terms
 name|terms
 init|=
@@ -367,7 +366,7 @@ name|termsEnum
 operator|.
 name|docs
 argument_list|(
-name|liveDocs
+name|acceptDocs
 argument_list|,
 name|docs
 argument_list|)
@@ -463,6 +462,9 @@ name|fastBits
 parameter_list|(
 name|IndexReader
 name|reader
+parameter_list|,
+name|Bits
+name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -492,17 +494,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//assume all are valid
-specifier|final
-name|Bits
-name|liveDocs
-init|=
-name|MultiFields
-operator|.
-name|getLiveDocs
-argument_list|(
-name|reader
-argument_list|)
-decl_stmt|;
 name|Terms
 name|terms
 init|=
@@ -581,7 +572,7 @@ name|termsEnum
 operator|.
 name|docs
 argument_list|(
-name|liveDocs
+name|acceptDocs
 argument_list|,
 name|docs
 argument_list|)
