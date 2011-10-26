@@ -6904,17 +6904,6 @@ name|m
 operator|.
 name|put
 argument_list|(
-literal|"velocity"
-argument_list|,
-operator|new
-name|VelocityResponseWriter
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|m
-operator|.
-name|put
-argument_list|(
 literal|"csv"
 argument_list|,
 operator|new
