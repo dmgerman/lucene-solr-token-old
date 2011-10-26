@@ -184,7 +184,7 @@ name|AtomicBoolean
 import|;
 end_import
 begin_comment
-comment|/**  * Extend SolrJettyTestBase because the SOLR-2535 bug only manifested itself when  * the {@link SolrDispatchFilter} is used, which isn't for embedded Solr use.  */
+comment|/**  * Extend SolrJettyTestBase because the SOLR-2535 bug only manifested itself when  * the {@link org.apache.solr.servlet.SolrDispatchFilter} is used, which isn't for embedded Solr use.  */
 end_comment
 begin_class
 DECL|class|ShowFileRequestHandlerTest
