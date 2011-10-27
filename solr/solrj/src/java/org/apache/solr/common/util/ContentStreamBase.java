@@ -263,6 +263,10 @@ name|url
 operator|=
 name|url
 expr_stmt|;
+name|sourceInfo
+operator|=
+literal|"url"
+expr_stmt|;
 block|}
 DECL|method|getStream
 specifier|public
@@ -306,10 +310,6 @@ operator|.
 name|getContentLength
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|sourceInfo
-operator|=
-literal|"url"
 expr_stmt|;
 return|return
 name|conn
