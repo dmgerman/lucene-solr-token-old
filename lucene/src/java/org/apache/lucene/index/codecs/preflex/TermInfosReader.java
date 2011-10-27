@@ -567,7 +567,6 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// nocommit don't cast to int..
 name|index
 operator|=
 operator|new
@@ -577,9 +576,6 @@ name|indexEnum
 argument_list|,
 name|indexDivisor
 argument_list|,
-operator|(
-name|int
-operator|)
 name|dir
 operator|.
 name|fileLength
