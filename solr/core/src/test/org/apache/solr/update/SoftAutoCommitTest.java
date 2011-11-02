@@ -413,8 +413,7 @@ literal|"just for noise/activity"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// wait for the hard commit, shouldn't need any fudge given
-comment|// other actions already taken
+comment|// wait for the hard commit
 name|Long
 name|hard529
 init|=
@@ -426,7 +425,7 @@ name|poll
 argument_list|(
 name|hardCommitWaitMillis
 operator|*
-literal|2
+literal|5
 argument_list|,
 name|MILLISECONDS
 argument_list|)
@@ -1026,8 +1025,7 @@ literal|"just for noise/activity"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// wait for the hard commit, shouldn't need any fudge given
-comment|// other actions already taken
+comment|// wait for the hard commit
 name|hard529
 operator|=
 name|monitor
@@ -1038,7 +1036,7 @@ name|poll
 argument_list|(
 name|hardCommitWaitMillis
 operator|*
-literal|2
+literal|3
 argument_list|,
 name|MILLISECONDS
 argument_list|)
