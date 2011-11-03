@@ -784,7 +784,7 @@ annotation|@
 name|Override
 DECL|method|openIndexWriter
 specifier|protected
-name|void
+name|IndexWriter
 name|openIndexWriter
 parameter_list|(
 name|Directory
@@ -796,8 +796,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|indexWriter
-operator|=
+return|return
 operator|new
 name|InstrumentedIndexWriter
 argument_list|(
@@ -825,7 +824,7 @@ argument_list|(
 name|openMode
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 DECL|class|InstrumentedTaxonomyReader
