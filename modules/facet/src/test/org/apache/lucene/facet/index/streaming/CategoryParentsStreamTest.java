@@ -282,9 +282,9 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|lucene
+name|directory
 operator|.
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 import|;
 end_import
 begin_comment
@@ -319,7 +319,7 @@ name|TaxonomyWriter
 name|taxonomyWriter
 init|=
 operator|new
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 argument_list|(
 name|directory
 argument_list|)
@@ -405,7 +405,7 @@ name|TaxonomyWriter
 name|taxonomyWriter
 init|=
 operator|new
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 argument_list|(
 name|directory
 argument_list|)
@@ -525,7 +525,7 @@ name|TaxonomyWriter
 name|taxonomyWriter
 init|=
 operator|new
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 argument_list|(
 name|directory
 argument_list|)
@@ -657,7 +657,7 @@ name|TaxonomyWriter
 name|taxonomyWriter
 init|=
 operator|new
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 argument_list|(
 name|directory
 argument_list|)

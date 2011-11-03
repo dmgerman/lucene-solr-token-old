@@ -148,9 +148,9 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|lucene
+name|directory
 operator|.
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 import|;
 end_import
 begin_import
@@ -165,9 +165,9 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|lucene
+name|directory
 operator|.
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 operator|.
 name|DiskOrdinalMap
 import|;
@@ -184,9 +184,9 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|lucene
+name|directory
 operator|.
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 operator|.
 name|MemoryOrdinalMap
 import|;
@@ -203,9 +203,9 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|lucene
+name|directory
 operator|.
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 operator|.
 name|OrdinalMap
 import|;
@@ -222,7 +222,7 @@ specifier|public
 class|class
 name|TaxonomyMergeUtils
 block|{
-comment|/**    * Merges the given taxonomy and index directories. Note that this method    * opens {@link LuceneTaxonomyWriter} and {@link IndexWriter} on the    * respective destination indexes. Therefore if you have a writer open on any    * of them, it should be closed, or you should use    * {@link #merge(Directory, Directory, IndexWriter, LuceneTaxonomyWriter)}    * instead.    *     * @see #merge(Directory, Directory, IndexWriter, LuceneTaxonomyWriter)    */
+comment|/**    * Merges the given taxonomy and index directories. Note that this method    * opens {@link DirectoryTaxonomyWriter} and {@link IndexWriter} on the    * respective destination indexes. Therefore if you have a writer open on any    * of them, it should be closed, or you should use    * {@link #merge(Directory, Directory, IndexWriter, DirectoryTaxonomyWriter)}    * instead.    *     * @see #merge(Directory, Directory, IndexWriter, DirectoryTaxonomyWriter)    */
 DECL|method|merge
 specifier|public
 specifier|static
@@ -263,11 +263,11 @@ literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 name|destTaxWriter
 init|=
 operator|new
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 argument_list|(
 name|destTaxDir
 argument_list|)
@@ -298,7 +298,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Merges the given taxonomy and index directories and commits the changes to    * the given writers. This method uses {@link MemoryOrdinalMap} to store the    * mapped ordinals. If you cannot afford the memory, you can use    * {@link #merge(Directory, Directory, LuceneTaxonomyWriter.OrdinalMap, IndexWriter, LuceneTaxonomyWriter)}    * by passing {@link DiskOrdinalMap}.    *     * @see #merge(Directory, Directory, LuceneTaxonomyWriter.OrdinalMap, IndexWriter, LuceneTaxonomyWriter)    */
+comment|/**    * Merges the given taxonomy and index directories and commits the changes to    * the given writers. This method uses {@link MemoryOrdinalMap} to store the    * mapped ordinals. If you cannot afford the memory, you can use    * {@link #merge(Directory, Directory, DirectoryTaxonomyWriter.OrdinalMap, IndexWriter, DirectoryTaxonomyWriter)}    * by passing {@link DiskOrdinalMap}.    *     * @see #merge(Directory, Directory, DirectoryTaxonomyWriter.OrdinalMap, IndexWriter, DirectoryTaxonomyWriter)    */
 DECL|method|merge
 specifier|public
 specifier|static
@@ -314,7 +314,7 @@ parameter_list|,
 name|IndexWriter
 name|destIndexWriter
 parameter_list|,
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 name|destTaxWriter
 parameter_list|)
 throws|throws
@@ -355,7 +355,7 @@ parameter_list|,
 name|IndexWriter
 name|destIndexWriter
 parameter_list|,
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 name|destTaxWriter
 parameter_list|)
 throws|throws

@@ -62,7 +62,7 @@ name|EXAMPLE_VER
 init|=
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_40
 decl_stmt|;
 DECL|method|log
 specifier|public

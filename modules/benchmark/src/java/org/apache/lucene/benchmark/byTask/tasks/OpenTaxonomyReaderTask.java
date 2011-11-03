@@ -54,9 +54,9 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|lucene
+name|directory
 operator|.
-name|LuceneTaxonomyReader
+name|DirectoryTaxonomyReader
 import|;
 end_import
 begin_comment
@@ -100,11 +100,11 @@ init|=
 name|getRunData
 argument_list|()
 decl_stmt|;
-name|LuceneTaxonomyReader
+name|DirectoryTaxonomyReader
 name|taxoReader
 init|=
 operator|new
-name|LuceneTaxonomyReader
+name|DirectoryTaxonomyReader
 argument_list|(
 name|runData
 operator|.

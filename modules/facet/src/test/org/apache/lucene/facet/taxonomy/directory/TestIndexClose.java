@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.facet.taxonomy.lucene
+DECL|package|org.apache.lucene.facet.taxonomy.directory
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|lucene
+name|directory
 package|;
 end_package
 begin_import
@@ -223,9 +223,9 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|lucene
+name|directory
 operator|.
-name|LuceneTaxonomyReader
+name|DirectoryTaxonomyReader
 import|;
 end_import
 begin_import
@@ -240,9 +240,9 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|lucene
+name|directory
 operator|.
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 import|;
 end_import
 begin_comment
@@ -282,7 +282,7 @@ init|=
 name|newDirectory
 argument_list|()
 decl_stmt|;
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 name|tw
 init|=
 name|checker
@@ -344,7 +344,7 @@ name|nopen
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LuceneTaxonomyReader
+name|DirectoryTaxonomyReader
 name|tr
 init|=
 name|checker
@@ -623,7 +623,7 @@ parameter_list|()
 block|{ }
 DECL|method|openWriter
 specifier|public
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 name|openWriter
 parameter_list|(
 name|Directory
@@ -646,7 +646,7 @@ return|;
 block|}
 DECL|method|openReader
 specifier|public
-name|LuceneTaxonomyReader
+name|DirectoryTaxonomyReader
 name|openReader
 parameter_list|(
 name|Directory
@@ -737,7 +737,7 @@ specifier|private
 class|class
 name|InstrumentedTaxonomyWriter
 extends|extends
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 block|{
 DECL|method|InstrumentedTaxonomyWriter
 specifier|public
@@ -782,10 +782,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|openLuceneIndex
+DECL|method|openIndexWriter
 specifier|protected
 name|void
-name|openLuceneIndex
+name|openIndexWriter
 parameter_list|(
 name|Directory
 name|directory
@@ -794,10 +794,6 @@ name|OpenMode
 name|openMode
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
-name|LockObtainFailedException
-throws|,
 name|IOException
 block|{
 name|indexWriter
@@ -837,7 +833,7 @@ specifier|private
 class|class
 name|InstrumentedTaxonomyReader
 extends|extends
-name|LuceneTaxonomyReader
+name|DirectoryTaxonomyReader
 block|{
 DECL|method|InstrumentedTaxonomyReader
 specifier|public

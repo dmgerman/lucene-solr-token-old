@@ -361,9 +361,9 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|lucene
+name|directory
 operator|.
-name|LuceneTaxonomyReader
+name|DirectoryTaxonomyReader
 import|;
 end_import
 begin_import
@@ -378,9 +378,9 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|lucene
+name|directory
 operator|.
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 import|;
 end_import
 begin_comment
@@ -417,7 +417,7 @@ decl_stmt|;
 DECL|field|taxo
 specifier|private
 specifier|static
-name|LuceneTaxonomyReader
+name|DirectoryTaxonomyReader
 name|taxo
 decl_stmt|;
 DECL|field|dir
@@ -568,7 +568,7 @@ name|TaxonomyWriter
 name|taxoWriter
 init|=
 operator|new
-name|LuceneTaxonomyWriter
+name|DirectoryTaxonomyWriter
 argument_list|(
 name|taxoDir
 argument_list|)
@@ -749,7 +749,7 @@ expr_stmt|;
 name|taxo
 operator|=
 operator|new
-name|LuceneTaxonomyReader
+name|DirectoryTaxonomyReader
 argument_list|(
 name|taxoDir
 argument_list|)
@@ -1093,6 +1093,11 @@ operator|.
 name|totalHits
 argument_list|)
 expr_stmt|;
+name|searcher
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1220,6 +1225,11 @@ name|docs
 operator|.
 name|totalHits
 argument_list|)
+expr_stmt|;
+name|searcher
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
