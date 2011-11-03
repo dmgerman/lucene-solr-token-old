@@ -1434,6 +1434,7 @@ return|return
 name|newReader
 return|;
 block|}
+comment|/**    * If the index has changed since it was opened, open and return a new reader;    * else, return {@code null}.    *     * @see #openIfChanged(IndexReader)    */
 DECL|method|doOpenIfChanged
 specifier|protected
 name|IndexReader
@@ -1452,6 +1453,7 @@ literal|"This reader does not support reopen()."
 argument_list|)
 throw|;
 block|}
+comment|/**    * If the index has changed since it was opened, open and return a new reader;    * else, return {@code null}.    *     * @see #openIfChanged(IndexReader, boolean)    */
 DECL|method|doOpenIfChanged
 specifier|protected
 name|IndexReader
@@ -1473,6 +1475,7 @@ literal|"This reader does not support reopen()."
 argument_list|)
 throw|;
 block|}
+comment|/**    * If the index has changed since it was opened, open and return a new reader;    * else, return {@code null}.    *     * @see #openIfChanged(IndexReader, IndexCommit)    */
 DECL|method|doOpenIfChanged
 specifier|protected
 name|IndexReader
@@ -1495,6 +1498,7 @@ literal|"This reader does not support reopen(IndexCommit)."
 argument_list|)
 throw|;
 block|}
+comment|/**    * If the index has changed since it was opened, open and return a new reader;    * else, return {@code null}.    *     * @see #openIfChanged(IndexReader, IndexWriter, boolean)    */
 DECL|method|doOpenIfChanged
 specifier|protected
 name|IndexReader
