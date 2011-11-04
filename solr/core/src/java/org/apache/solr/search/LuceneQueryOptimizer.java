@@ -146,7 +146,7 @@ parameter_list|(
 name|BooleanQuery
 name|original
 parameter_list|,
-name|IndexSearcher
+name|SolrIndexSearcher
 name|searcher
 parameter_list|,
 name|int

@@ -217,6 +217,9 @@ name|maxDoc
 init|=
 name|searcher
 operator|.
+name|getIndexReader
+argument_list|()
+operator|.
 name|maxDoc
 argument_list|()
 decl_stmt|;

@@ -837,6 +837,9 @@ name|maxDocs
 init|=
 name|s
 operator|.
+name|getIndexReader
+argument_list|()
+operator|.
 name|maxDoc
 argument_list|()
 decl_stmt|;
@@ -1192,6 +1195,9 @@ name|maxDocs
 init|=
 name|s
 operator|.
+name|getIndexReader
+argument_list|()
+operator|.
 name|maxDoc
 argument_list|()
 decl_stmt|;
@@ -1470,6 +1476,9 @@ name|int
 name|maxDocs
 init|=
 name|s
+operator|.
+name|getIndexReader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()

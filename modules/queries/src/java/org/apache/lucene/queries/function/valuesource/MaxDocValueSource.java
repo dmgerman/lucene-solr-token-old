@@ -188,6 +188,9 @@ name|ConstIntDocValues
 argument_list|(
 name|searcher
 operator|.
+name|getIndexReader
+argument_list|()
+operator|.
 name|maxDoc
 argument_list|()
 argument_list|,
