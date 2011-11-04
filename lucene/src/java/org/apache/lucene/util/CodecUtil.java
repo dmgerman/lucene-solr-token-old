@@ -116,7 +116,7 @@ decl_stmt|;
 DECL|method|writeHeader
 specifier|public
 specifier|static
-name|DataOutput
+name|void
 name|writeHeader
 parameter_list|(
 name|DataOutput
@@ -191,9 +191,6 @@ argument_list|(
 name|version
 argument_list|)
 expr_stmt|;
-return|return
-name|out
-return|;
 block|}
 DECL|method|headerLength
 specifier|public

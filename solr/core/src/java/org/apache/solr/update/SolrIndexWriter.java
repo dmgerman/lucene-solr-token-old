@@ -141,7 +141,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|CodecProvider
+name|Codec
 import|;
 end_import
 begin_import
@@ -289,8 +289,8 @@ parameter_list|,
 name|IndexDeletionPolicy
 name|delPolicy
 parameter_list|,
-name|CodecProvider
-name|codecProvider
+name|Codec
+name|codec
 parameter_list|,
 name|boolean
 name|forceNewDirectory
@@ -342,9 +342,9 @@ argument_list|(
 name|delPolicy
 argument_list|)
 operator|.
-name|setCodecProvider
+name|setCodec
 argument_list|(
-name|codecProvider
+name|codec
 argument_list|)
 argument_list|)
 expr_stmt|;

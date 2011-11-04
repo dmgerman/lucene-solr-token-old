@@ -37,14 +37,17 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|Codec
+name|PostingsFormat
 import|;
 end_import
 begin_comment
 comment|// for javadocs
 end_comment
 begin_comment
-comment|/**  * This class contains useful constants representing filenames and extensions  * used by lucene, as well as convenience methods for querying whether a file  * name matches an extension ({@link #matchesExtension(String, String)  * matchesExtension}), as well as generating file names from a segment name,  * generation and extension (  * {@link #fileNameFromGeneration(String, String, long) fileNameFromGeneration},  * {@link #segmentFileName(String, String, String) segmentFileName}).  *  *<p><b>NOTE</b>: extensions used by codecs are not  * listed here.  You must interact with the {@link Codec}  * directly.  *  * @lucene.internal  */
+comment|// TODO: put all files under codec and remove all the static extensions here
+end_comment
+begin_comment
+comment|/**  * This class contains useful constants representing filenames and extensions  * used by lucene, as well as convenience methods for querying whether a file  * name matches an extension ({@link #matchesExtension(String, String)  * matchesExtension}), as well as generating file names from a segment name,  * generation and extension (  * {@link #fileNameFromGeneration(String, String, long) fileNameFromGeneration},  * {@link #segmentFileName(String, String, String) segmentFileName}).  *  *<p><b>NOTE</b>: extensions used by codecs are not  * listed here.  You must interact with the {@link PostingsFormat}  * directly.  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|IndexFileNames
@@ -511,7 +514,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**    * Returns a file name that includes the given segment name, your own custom    * name and extension. The format of the filename is:    *&lt;segmentName&gt;(_&lt;name&gt;)(.&lt;ext&gt;).    *<p>    *<b>NOTE:</b> .&lt;ext&gt; is added to the result file name only if    *<code>ext</code> is not empty.    *<p>    *<b>NOTE:</b> _&lt;name&gt; is added to the result file name only if    *<code>name</code> is not empty.    *<p>    *<b>NOTE:</b> all custom files should be named using this method, or    * otherwise some structures may fail to handle them properly (such as if they    * are added to compound files).    */
+comment|/**    * Returns a file name that includes the given segment name, your own custom    * name and extension. The format of the filename is:    *&lt;segmentName&gt;(_&lt;name&gt;)(.&lt;ext&gt;).    *<p>    *<b>NOTE:</b> .&lt;ext&gt; is added to the result file name only if    *<code>ext</code> is not empty.    *<p>    *<b>NOTE:</b> _&lt;segmentSuffix&gt; is added to the result file name only if    * it's not the empty string    *<p>    *<b>NOTE:</b> all custom files should be named using this method, or    * otherwise some structures may fail to handle them properly (such as if they    * are added to compound files).    */
 DECL|method|segmentFileName
 specifier|public
 specifier|static
@@ -522,7 +525,7 @@ name|String
 name|segmentName
 parameter_list|,
 name|String
-name|name
+name|segmentSuffix
 parameter_list|,
 name|String
 name|ext
@@ -537,7 +540,7 @@ argument_list|()
 operator|>
 literal|0
 operator|||
-name|name
+name|segmentSuffix
 operator|.
 name|length
 argument_list|()
@@ -567,7 +570,7 @@ argument_list|()
 operator|+
 literal|2
 operator|+
-name|name
+name|segmentSuffix
 operator|.
 name|length
 argument_list|()
@@ -587,7 +590,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|name
+name|segmentSuffix
 operator|.
 name|length
 argument_list|()
@@ -604,7 +607,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|name
+name|segmentSuffix
 argument_list|)
 expr_stmt|;
 block|}
@@ -644,36 +647,6 @@ return|return
 name|segmentName
 return|;
 block|}
-block|}
-comment|/** Sugar for passing "" + name instead */
-DECL|method|segmentFileName
-specifier|public
-specifier|static
-name|String
-name|segmentFileName
-parameter_list|(
-name|String
-name|segmentName
-parameter_list|,
-name|int
-name|name
-parameter_list|,
-name|String
-name|ext
-parameter_list|)
-block|{
-return|return
-name|segmentFileName
-argument_list|(
-name|segmentName
-argument_list|,
-literal|""
-operator|+
-name|name
-argument_list|,
-name|ext
-argument_list|)
-return|;
 block|}
 comment|/**    * Returns true if the given filename ends with the given extension. One    * should provide a<i>pure</i> extension, without '.'.    */
 DECL|method|matchesExtension

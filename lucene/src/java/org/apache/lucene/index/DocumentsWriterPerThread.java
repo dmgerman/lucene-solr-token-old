@@ -111,7 +111,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|CodecProvider
+name|Codec
 import|;
 end_import
 begin_import
@@ -602,10 +602,10 @@ specifier|final
 name|DocumentsWriter
 name|parent
 decl_stmt|;
-DECL|field|codecProvider
+DECL|field|codec
 specifier|final
-name|CodecProvider
-name|codecProvider
+name|Codec
+name|codec
 decl_stmt|;
 DECL|field|writer
 specifier|final
@@ -757,13 +757,11 @@ name|infoStream
 expr_stmt|;
 name|this
 operator|.
-name|codecProvider
+name|codec
 operator|=
-name|this
+name|parent
 operator|.
-name|writer
-operator|.
-name|codecs
+name|codec
 expr_stmt|;
 name|this
 operator|.
@@ -1655,14 +1653,14 @@ name|numDocsInRAM
 return|;
 block|}
 DECL|method|getCodec
-name|SegmentCodecs
+name|Codec
 name|getCodec
 parameter_list|()
 block|{
 return|return
 name|flushState
 operator|.
-name|segmentCodecs
+name|codec
 return|;
 block|}
 comment|/** Reset after a flush */
@@ -1801,12 +1799,7 @@ operator|.
 name|getTermIndexInterval
 argument_list|()
 argument_list|,
-name|fieldInfos
-operator|.
-name|buildSegmentCodecs
-argument_list|(
-literal|true
-argument_list|)
+name|codec
 argument_list|,
 name|pendingDeletes
 argument_list|,
@@ -2001,7 +1994,7 @@ literal|false
 argument_list|,
 name|flushState
 operator|.
-name|segmentCodecs
+name|codec
 argument_list|,
 name|fieldInfos
 operator|.
@@ -2074,11 +2067,11 @@ argument_list|)
 expr_stmt|;
 name|message
 argument_list|(
-literal|"flushed codecs="
+literal|"flushed codec="
 operator|+
 name|newSegment
 operator|.
-name|getSegmentCodecs
+name|getCodec
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2460,8 +2453,8 @@ DECL|method|newPerDocWriteState
 name|PerDocWriteState
 name|newPerDocWriteState
 parameter_list|(
-name|int
-name|codecId
+name|String
+name|segmentSuffix
 parameter_list|)
 block|{
 assert|assert
@@ -2483,7 +2476,7 @@ name|fieldInfos
 argument_list|,
 name|bytesUsed
 argument_list|,
-name|codecId
+name|segmentSuffix
 argument_list|,
 name|IOContext
 operator|.

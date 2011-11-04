@@ -178,7 +178,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|CodecProvider
+name|Codec
 import|;
 end_import
 begin_import
@@ -368,15 +368,13 @@ specifier|final
 name|String
 name|codec
 init|=
-name|CodecProvider
+name|Codec
 operator|.
 name|getDefault
 argument_list|()
 operator|.
-name|getFieldCodec
-argument_list|(
-literal|"field"
-argument_list|)
+name|getName
+argument_list|()
 decl_stmt|;
 name|int
 name|num
@@ -385,7 +383,7 @@ name|codec
 operator|.
 name|equals
 argument_list|(
-literal|"PreFlex"
+literal|"Lucene3x"
 argument_list|)
 condition|?
 literal|200

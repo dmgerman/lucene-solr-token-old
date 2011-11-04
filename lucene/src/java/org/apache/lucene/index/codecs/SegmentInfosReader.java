@@ -48,6 +48,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|ChecksumIndexInput
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|Directory
 import|;
 end_import
@@ -74,7 +87,7 @@ specifier|abstract
 class|class
 name|SegmentInfosReader
 block|{
-comment|/**    * Read {@link SegmentInfos} data from a directory.    * @param directory directory to read from    * @param segmentsFileName name of the "segments_N" file    * @param codecs current codecs    * @param infos empty instance to be populated with data    * @throws IOException    */
+comment|/**    * Read {@link SegmentInfos} data from a directory.    * @param directory directory to read from    * @param segmentsFileName name of the "segments_N" file    * @param header input of "segments_N" file after reading preamble    * @param infos empty instance to be populated with data    * @throws IOException    */
 DECL|method|read
 specifier|public
 specifier|abstract
@@ -87,8 +100,8 @@ parameter_list|,
 name|String
 name|segmentsFileName
 parameter_list|,
-name|CodecProvider
-name|codecs
+name|ChecksumIndexInput
+name|header
 parameter_list|,
 name|SegmentInfos
 name|infos

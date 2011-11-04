@@ -3573,7 +3573,7 @@ name|csw
 operator|.
 name|createOutput
 argument_list|(
-literal|"seg"
+literal|"seg_"
 operator|+
 name|j
 operator|+
@@ -3605,6 +3605,8 @@ operator|.
 name|writeInt
 argument_list|(
 name|i
+operator|*
+name|j
 argument_list|)
 expr_stmt|;
 block|}
@@ -3745,7 +3747,7 @@ name|csr
 operator|.
 name|openInput
 argument_list|(
-literal|"seg"
+literal|"seg_"
 operator|+
 name|j
 operator|+
@@ -3787,6 +3789,8 @@ block|{
 name|assertEquals
 argument_list|(
 name|i
+operator|*
+name|j
 argument_list|,
 name|openInput
 operator|.

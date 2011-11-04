@@ -28,7 +28,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|Codec
+name|DocValuesFormat
 import|;
 end_import
 begin_import
@@ -94,7 +94,7 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|/**  *<code>ValueType</code> specifies the {@link IndexDocValues} type for a  * certain field. A<code>ValueType</code> only defines the data type for a field  * while the actual implementation used to encode and decode the values depends  * on the the {@link Codec#docsConsumer} and {@link Codec#docsProducer} methods.  *   * @lucene.experimental  */
+comment|/**  *<code>ValueType</code> specifies the {@link IndexDocValues} type for a  * certain field. A<code>ValueType</code> only defines the data type for a field  * while the actual implementation used to encode and decode the values depends  * on the the {@link DocValuesFormat#docsConsumer} and {@link DocValuesFormat#docsProducer} methods.  *   * @lucene.experimental  */
 end_comment
 begin_enum
 DECL|enum|ValueType

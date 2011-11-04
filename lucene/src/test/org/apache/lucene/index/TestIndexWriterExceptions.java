@@ -74,6 +74,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -5678,7 +5687,7 @@ name|dir
 operator|.
 name|fileExists
 argument_list|(
-literal|"1.fnx"
+literal|"_1.fnx"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5704,7 +5713,7 @@ name|dir
 operator|.
 name|fileExists
 argument_list|(
-literal|"1.fnx"
+literal|"_1.fnx"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -241,9 +241,9 @@ name|consumer
 init|=
 name|state
 operator|.
-name|segmentCodecs
-operator|.
 name|codec
+operator|.
+name|postingsFormat
 argument_list|()
 operator|.
 name|fieldsConsumer

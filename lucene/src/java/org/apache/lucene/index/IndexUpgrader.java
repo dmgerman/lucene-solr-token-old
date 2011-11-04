@@ -489,11 +489,6 @@ operator|.
 name|indexExists
 argument_list|(
 name|dir
-argument_list|,
-name|iwc
-operator|.
-name|getCodecProvider
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -526,11 +521,6 @@ operator|.
 name|listCommits
 argument_list|(
 name|dir
-argument_list|,
-name|iwc
-operator|.
-name|getCodecProvider
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
