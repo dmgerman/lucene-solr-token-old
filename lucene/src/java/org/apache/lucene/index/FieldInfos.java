@@ -2688,7 +2688,7 @@ throw|throw
 operator|new
 name|IndexFormatTooOldException
 argument_list|(
-name|fileName
+name|input
 argument_list|,
 name|format
 argument_list|,
@@ -2709,7 +2709,7 @@ throw|throw
 operator|new
 name|IndexFormatTooNewException
 argument_list|(
-name|fileName
+name|input
 argument_list|,
 name|format
 argument_list|,
@@ -2898,6 +2898,12 @@ argument_list|(
 literal|"Corrupt fieldinfos, OMIT_POSITIONS set but format="
 operator|+
 name|format
+operator|+
+literal|" (resource: "
+operator|+
+name|input
+operator|+
+literal|")"
 argument_list|)
 throw|;
 block|}
@@ -3186,6 +3192,12 @@ name|input
 operator|.
 name|length
 argument_list|()
+operator|+
+literal|" (resource: "
+operator|+
+name|input
+operator|+
+literal|")"
 argument_list|)
 throw|;
 block|}

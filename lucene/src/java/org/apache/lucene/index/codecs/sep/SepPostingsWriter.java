@@ -47,15 +47,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1015,7 +1006,11 @@ literal|"<= "
 operator|+
 name|lastDocID
 operator|+
-literal|" )"
+literal|" ) (docOut: "
+operator|+
+name|docOut
+operator|+
+literal|")"
 argument_list|)
 throw|;
 block|}

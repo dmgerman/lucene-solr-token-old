@@ -497,7 +497,7 @@ block|,
 literal|"31.optimized.nocfs"
 block|,   }
 decl_stmt|;
-comment|/** This test checks that *only* IndexFormatTooOldExceptions are throws when you open and operate on too old indexes! */
+comment|/** This test checks that *only* IndexFormatTooOldExceptions are thrown when you open and operate on too old indexes! */
 DECL|method|testUnsupportedOldIndexes
 specifier|public
 name|void
@@ -704,6 +704,30 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Make sure exc message includes a path=
+name|assertTrue
+argument_list|(
+literal|"got exc message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+literal|"path=\""
+argument_list|)
+operator|!=
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{

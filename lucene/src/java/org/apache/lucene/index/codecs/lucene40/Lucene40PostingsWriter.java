@@ -690,7 +690,11 @@ literal|"<= "
 operator|+
 name|lastDocID
 operator|+
-literal|" )"
+literal|" ) (freqOut: "
+operator|+
+name|freqOut
+operator|+
+literal|")"
 argument_list|)
 throw|;
 block|}

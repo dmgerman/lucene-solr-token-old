@@ -593,6 +593,12 @@ return|return
 operator|new
 name|MMapIndexInput
 argument_list|(
+literal|"MMapIndexInput(path=\""
+operator|+
+name|f
+operator|+
+literal|"\")"
+argument_list|,
 name|raf
 argument_list|,
 literal|0
@@ -634,6 +640,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+specifier|final
 name|File
 name|f
 init|=
@@ -684,6 +691,9 @@ specifier|public
 name|IndexInput
 name|openSlice
 parameter_list|(
+name|String
+name|sliceDescription
+parameter_list|,
 name|long
 name|offset
 parameter_list|,
@@ -697,6 +707,28 @@ return|return
 operator|new
 name|MMapIndexInput
 argument_list|(
+literal|"MMapIndexInput("
+operator|+
+name|sliceDescription
+operator|+
+literal|" in path=\""
+operator|+
+name|f
+operator|+
+literal|"\" slice="
+operator|+
+name|offset
+operator|+
+literal|":"
+operator|+
+operator|(
+name|offset
+operator|+
+name|length
+operator|)
+operator|+
+literal|")"
+argument_list|,
 name|raf
 argument_list|,
 name|offset
@@ -719,6 +751,8 @@ block|{
 return|return
 name|openSlice
 argument_list|(
+literal|"full-slice"
+argument_list|,
 literal|0
 argument_list|,
 name|raf
@@ -787,6 +821,9 @@ decl_stmt|;
 DECL|method|MMapIndexInput
 name|MMapIndexInput
 parameter_list|(
+name|String
+name|resourceDescription
+parameter_list|,
 name|RandomAccessFile
 name|raf
 parameter_list|,
@@ -802,6 +839,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+argument_list|(
+name|resourceDescription
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|length
@@ -1025,13 +1067,17 @@ name|buffers
 operator|.
 name|length
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"read past EOF"
+literal|"read past EOF: "
+operator|+
+name|this
 argument_list|)
 throw|;
+block|}
 name|curBuf
 operator|=
 name|buffers
@@ -1149,13 +1195,17 @@ name|buffers
 operator|.
 name|length
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"read past EOF"
+literal|"read past EOF: "
+operator|+
+name|this
 argument_list|)
 throw|;
+block|}
 name|curBuf
 operator|=
 name|buffers
@@ -1394,13 +1444,17 @@ name|pos
 operator|<
 literal|0L
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Seeking to negative position"
+literal|"Seeking to negative position: "
+operator|+
+name|this
 argument_list|)
 throw|;
+block|}
 throw|throw
 operator|new
 name|IOException
@@ -1421,18 +1475,24 @@ name|pos
 operator|<
 literal|0L
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Seeking to negative position"
+literal|"Seeking to negative position: "
+operator|+
+name|this
 argument_list|)
 throw|;
+block|}
 throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"seek past EOF"
+literal|"seek past EOF: "
+operator|+
+name|this
 argument_list|)
 throw|;
 block|}
@@ -1463,13 +1523,17 @@ name|buffers
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|AlreadyClosedException
 argument_list|(
-literal|"MMapIndexInput already closed"
+literal|"MMapIndexInput already closed: "
+operator|+
+name|this
 argument_list|)
 throw|;
+block|}
 specifier|final
 name|MMapIndexInput
 name|clone
@@ -1556,7 +1620,9 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Should never happen"
+literal|"Should never happen: "
+operator|+
+name|this
 argument_list|,
 name|ioe
 argument_list|)

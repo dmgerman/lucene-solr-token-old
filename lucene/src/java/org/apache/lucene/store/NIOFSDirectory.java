@@ -210,7 +210,7 @@ argument_list|()
 expr_stmt|;
 specifier|final
 name|File
-name|file
+name|path
 init|=
 operator|new
 name|File
@@ -228,7 +228,7 @@ init|=
 operator|new
 name|Descriptor
 argument_list|(
-name|file
+name|path
 argument_list|,
 literal|"r"
 argument_list|)
@@ -261,6 +261,9 @@ specifier|public
 name|IndexInput
 name|openSlice
 parameter_list|(
+name|String
+name|sliceDescription
+parameter_list|,
 name|long
 name|offset
 parameter_list|,
@@ -274,6 +277,10 @@ return|return
 operator|new
 name|NIOFSIndexInput
 argument_list|(
+name|sliceDescription
+argument_list|,
+name|path
+argument_list|,
 name|descriptor
 argument_list|,
 name|descriptor
@@ -309,6 +316,8 @@ block|{
 return|return
 name|openSlice
 argument_list|(
+literal|"full-slice"
+argument_list|,
 literal|0
 argument_list|,
 name|descriptor
@@ -370,6 +379,12 @@ name|IOException
 block|{
 name|super
 argument_list|(
+literal|"NIOFSIndexInput(path=\""
+operator|+
+name|path
+operator|+
+literal|"\")"
+argument_list|,
 name|path
 argument_list|,
 name|context
@@ -389,6 +404,12 @@ DECL|method|NIOFSIndexInput
 specifier|public
 name|NIOFSIndexInput
 parameter_list|(
+name|String
+name|sliceDescription
+parameter_list|,
+name|File
+name|path
+parameter_list|,
 name|Descriptor
 name|file
 parameter_list|,
@@ -412,6 +433,28 @@ name|IOException
 block|{
 name|super
 argument_list|(
+literal|"NIOFSIndexInput("
+operator|+
+name|sliceDescription
+operator|+
+literal|" in path=\""
+operator|+
+name|path
+operator|+
+literal|"\" slice="
+operator|+
+name|off
+operator|+
+literal|":"
+operator|+
+operator|(
+name|off
+operator|+
+name|length
+operator|)
+operator|+
+literal|")"
+argument_list|,
 name|file
 argument_list|,
 name|off
@@ -673,7 +716,9 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"read past EOF"
+literal|"read past EOF: "
+operator|+
+name|this
 argument_list|)
 throw|;
 block|}
@@ -783,6 +828,29 @@ argument_list|)
 expr_stmt|;
 throw|throw
 name|outOfMemoryError
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+name|ioe
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|": "
+operator|+
+name|this
+argument_list|,
+name|ioe
+argument_list|)
 throw|;
 block|}
 block|}
