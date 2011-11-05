@@ -106,6 +106,7 @@ block|}
 comment|/** returns the term text */
 DECL|method|term
 specifier|public
+specifier|final
 name|BytesRef
 name|term
 parameter_list|()
@@ -117,6 +118,7 @@ block|}
 comment|/** returns the number of documents this term occurs in     * @see IndexReader#docFreq(String, BytesRef) */
 DECL|method|docFreq
 specifier|public
+specifier|final
 name|int
 name|docFreq
 parameter_list|()
@@ -128,6 +130,7 @@ block|}
 comment|/** returns the total number of occurrences of this term    * @see IndexReader#totalTermFreq(String, BytesRef) */
 DECL|method|totalTermFreq
 specifier|public
+specifier|final
 name|long
 name|totalTermFreq
 parameter_list|()

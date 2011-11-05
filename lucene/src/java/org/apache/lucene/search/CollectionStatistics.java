@@ -139,6 +139,7 @@ block|}
 comment|/** returns the field name */
 DECL|method|field
 specifier|public
+specifier|final
 name|String
 name|field
 parameter_list|()
@@ -150,6 +151,7 @@ block|}
 comment|/** returns the total number of documents, regardless of     * whether they all contain values for this field.     * @see IndexReader#maxDoc() */
 DECL|method|maxDoc
 specifier|public
+specifier|final
 name|int
 name|maxDoc
 parameter_list|()
@@ -161,6 +163,7 @@ block|}
 comment|/** returns the total number of documents that    * have at least one term for this field.     * @see Terms#getDocCount() */
 DECL|method|docCount
 specifier|public
+specifier|final
 name|int
 name|docCount
 parameter_list|()
@@ -172,6 +175,7 @@ block|}
 comment|/** returns the total number of tokens for this field    * @see Terms#getSumTotalTermFreq() */
 DECL|method|sumTotalTermFreq
 specifier|public
+specifier|final
 name|long
 name|sumTotalTermFreq
 parameter_list|()
@@ -183,6 +187,7 @@ block|}
 comment|/** returns the total number of postings for this field     * @see Terms#getSumDocFreq() */
 DECL|method|sumDocFreq
 specifier|public
+specifier|final
 name|long
 name|sumDocFreq
 parameter_list|()
