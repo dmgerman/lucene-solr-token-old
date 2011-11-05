@@ -142,6 +142,7 @@ argument_list|(
 name|other
 argument_list|)
 operator|&&
+operator|(
 name|this
 operator|.
 name|creator
@@ -167,6 +168,7 @@ name|creator
 operator|.
 name|getClass
 argument_list|()
+operator|)
 return|;
 block|}
 annotation|@
