@@ -4814,7 +4814,7 @@ if|if
 condition|(
 name|r2
 operator|!=
-name|r
+literal|null
 condition|)
 block|{
 name|r
