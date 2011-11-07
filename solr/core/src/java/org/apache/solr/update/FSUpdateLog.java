@@ -1401,6 +1401,10 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|lengthForDebugging
+name|long
+name|lengthForDebugging
+decl_stmt|;
 comment|// write a BytesRef as a byte array
 DECL|field|resolver
 name|JavaBinCodec
@@ -2386,6 +2390,25 @@ name|flushBuffer
 argument_list|()
 expr_stmt|;
 comment|/***          System.out.println("###flushBuffer to " + fos.size() + " raf.length()=" + raf.length() + " pos="+pos);         if (fos.size() != raf.length() || pos>= fos.size() ) {           throw new RuntimeException("ERROR" + "###flushBuffer to " + fos.size() + " raf.length()=" + raf.length() + " pos="+pos);         }         ***/
+assert|assert
+name|pos
+operator|<
+name|fos
+operator|.
+name|size
+argument_list|()
+assert|;
+assert|assert
+name|fos
+operator|.
+name|size
+argument_list|()
+operator|==
+name|channel
+operator|.
+name|size
+argument_list|()
+assert|;
 block|}
 name|ChannelFastInputStream
 name|fis
@@ -2612,6 +2635,14 @@ argument_list|,
 name|len
 argument_list|)
 decl_stmt|;
+assert|assert
+name|chPosition
+operator|<
+name|ch
+operator|.
+name|size
+argument_list|()
+assert|;
 name|int
 name|ret
 init|=
