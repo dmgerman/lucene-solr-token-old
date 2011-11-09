@@ -138,8 +138,12 @@ condition|)
 block|{
 name|writer
 operator|.
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"FP"
+argument_list|,
 literal|"force apply deletes bytesUsed="
 operator|+
 name|control
@@ -274,8 +278,12 @@ condition|)
 block|{
 name|writer
 operator|.
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"FP"
+argument_list|,
 literal|"flush: activeBytes="
 operator|+
 name|control

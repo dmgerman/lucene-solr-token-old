@@ -60,7 +60,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|DefaultFieldsFormat
+name|DefaultStoredFieldsFormat
 import|;
 end_import
 begin_import
@@ -90,7 +90,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|FieldsFormat
+name|StoredFieldsFormat
 import|;
 end_import
 begin_import
@@ -185,11 +185,11 @@ decl_stmt|;
 DECL|field|fields
 specifier|private
 specifier|final
-name|FieldsFormat
+name|StoredFieldsFormat
 name|fields
 init|=
 operator|new
-name|DefaultFieldsFormat
+name|DefaultStoredFieldsFormat
 argument_list|()
 decl_stmt|;
 DECL|field|docValues
@@ -216,10 +216,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fieldsFormat
+DECL|method|storedFieldsFormat
 specifier|public
-name|FieldsFormat
-name|fieldsFormat
+name|StoredFieldsFormat
+name|storedFieldsFormat
 parameter_list|()
 block|{
 return|return

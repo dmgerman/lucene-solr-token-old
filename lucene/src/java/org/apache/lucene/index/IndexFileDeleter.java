@@ -143,6 +143,19 @@ operator|.
 name|CollectionUtil
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|InfoStream
+import|;
+end_import
 begin_comment
 comment|/*  * This class keeps track of each SegmentInfos instance that  * is still "live", either because it corresponds to a  * segments_N file in the Directory (a "commit", i.e. a  * committed SegmentInfos) or because it's an in-memory  * SegmentInfos that a writer is actively updating but has  * not yet committed.  This class uses simple reference  * counting to map the live SegmentInfos instances to  * individual files in the Directory.  *  * The same directory file may be referenced by more than  * one IndexCommit, i.e. more than one SegmentInfos.  * Therefore we count how many commits reference each file.  * When all the commits referencing a certain file have been  * deleted, the refcount for that file becomes zero, and the  * file is deleted.  *  * A separate deletion policy interface  * (IndexDeletionPolicy) is consulted on creation (onInit)  * and once per commit (onCommit), to decide when a commit  * should be removed.  *  * It is the business of the IndexDeletionPolicy to choose  * when to delete commit points.  The actual mechanics of  * file deletion, retrying, etc, derived from the deletion  * of commit points is the business of the IndexFileDeleter.  *  * The current default deletion policy is {@link  * KeepOnlyLastCommitDeletionPolicy}, which removes all  * prior commits when a new commit has completed.  This  * matches the behavior before 2.2.  *  * Note that you must hold the write.lock before  * instantiating this class.  It opens segments_N file(s)  * directly with no retry logic.  */
 end_comment
@@ -237,7 +250,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|infoStream
 specifier|private
-name|PrintStream
+specifier|final
+name|InfoStream
 name|infoStream
 decl_stmt|;
 DECL|field|directory
@@ -276,71 +290,6 @@ specifier|final
 name|IndexWriter
 name|writer
 decl_stmt|;
-DECL|method|setInfoStream
-name|void
-name|setInfoStream
-parameter_list|(
-name|PrintStream
-name|infoStream
-parameter_list|)
-block|{
-name|this
-operator|.
-name|infoStream
-operator|=
-name|infoStream
-expr_stmt|;
-if|if
-condition|(
-name|infoStream
-operator|!=
-literal|null
-condition|)
-block|{
-name|message
-argument_list|(
-literal|"setInfoStream deletionPolicy="
-operator|+
-name|policy
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-DECL|method|message
-specifier|private
-name|void
-name|message
-parameter_list|(
-name|String
-name|message
-parameter_list|)
-block|{
-name|infoStream
-operator|.
-name|println
-argument_list|(
-literal|"IFD ["
-operator|+
-operator|new
-name|Date
-argument_list|()
-operator|+
-literal|"; "
-operator|+
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|"]: "
-operator|+
-name|message
-argument_list|)
-expr_stmt|;
-block|}
 comment|// called only from assert
 DECL|method|locked
 specifier|private
@@ -375,7 +324,7 @@ parameter_list|,
 name|SegmentInfos
 name|segmentInfos
 parameter_list|,
-name|PrintStream
+name|InfoStream
 name|infoStream
 parameter_list|,
 name|IndexWriter
@@ -414,8 +363,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"init: current segments file is \""
 operator|+
 name|currentSegmentsFile
@@ -555,8 +508,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"init: load commit \""
 operator|+
 name|fileName
@@ -604,8 +561,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"init: hit FileNotFoundException when loading commit \""
 operator|+
 name|fileName
@@ -706,8 +667,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"init: hit FileNotFoundException when loading commit \""
 operator|+
 name|fileName
@@ -856,8 +821,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"forced open of current segments file "
 operator|+
 name|segmentInfos
@@ -956,8 +925,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"init: removing unreferenced file \""
 operator|+
 name|fileName
@@ -1084,8 +1057,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"deleteCommits: now decRef commit \""
 operator|+
 name|commit
@@ -1362,8 +1339,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"refresh [prefix="
 operator|+
 name|segmentName
@@ -1492,8 +1473,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"now revisitPolicy"
 argument_list|)
 expr_stmt|;
@@ -1581,8 +1566,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"delete pending file "
 operator|+
 name|oldDeletable
@@ -1633,8 +1622,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"now checkpoint \""
 operator|+
 name|segmentInfos
@@ -1856,8 +1849,12 @@ operator|&&
 name|VERBOSE_REF_COUNTS
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"  IncRef \""
 operator|+
 name|fileName
@@ -1940,8 +1937,12 @@ operator|&&
 name|VERBOSE_REF_COUNTS
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"  DecRef \""
 operator|+
 name|fileName
@@ -2198,8 +2199,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"delete new file \""
 operator|+
 name|fileName
@@ -2239,8 +2244,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"delete \""
 operator|+
 name|fileName
@@ -2287,8 +2296,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|infoStream
+operator|.
 name|message
 argument_list|(
+literal|"IFD"
+argument_list|,
 literal|"unable to remove file \""
 operator|+
 name|fileName

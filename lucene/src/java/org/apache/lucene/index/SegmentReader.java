@@ -152,7 +152,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|FieldsReader
+name|StoredFieldsReader
 import|;
 end_import
 begin_import
@@ -286,7 +286,7 @@ decl_stmt|;
 DECL|field|fieldsReaderLocal
 name|CloseableThreadLocal
 argument_list|<
-name|FieldsReader
+name|StoredFieldsReader
 argument_list|>
 name|fieldsReaderLocal
 init|=
@@ -392,14 +392,14 @@ name|FieldsReaderLocal
 extends|extends
 name|CloseableThreadLocal
 argument_list|<
-name|FieldsReader
+name|StoredFieldsReader
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|initialValue
 specifier|protected
-name|FieldsReader
+name|StoredFieldsReader
 name|initialValue
 parameter_list|()
 block|{
@@ -1766,8 +1766,10 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+comment|/** @lucene.internal */
 DECL|method|getFieldsReader
-name|FieldsReader
+specifier|public
+name|StoredFieldsReader
 name|getFieldsReader
 parameter_list|()
 block|{

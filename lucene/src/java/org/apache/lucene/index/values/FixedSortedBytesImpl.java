@@ -53,8 +53,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|codecs
-operator|.
 name|MergeState
 import|;
 end_import

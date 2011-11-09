@@ -2008,10 +2008,12 @@ condition|)
 block|{
 name|documentsWriter
 operator|.
+name|infoStream
+operator|.
 name|message
 argument_list|(
-literal|"FC: "
-operator|+
+literal|"DWFC"
+argument_list|,
 name|Thread
 operator|.
 name|currentThread

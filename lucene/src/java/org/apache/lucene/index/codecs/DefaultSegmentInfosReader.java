@@ -360,7 +360,7 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|DefaultFieldsReader
+name|DefaultStoredFieldsReader
 operator|.
 name|checkCodeVersion
 argument_list|(
