@@ -1825,6 +1825,9 @@ argument_list|(
 name|TEST_CODEC
 argument_list|)
 operator|||
+operator|(
+literal|false
+operator|&&
 literal|"random"
 operator|.
 name|equals
@@ -1835,6 +1838,7 @@ operator|&&
 name|randomVal
 operator|==
 literal|9
+operator|)
 condition|)
 block|{
 name|codec
