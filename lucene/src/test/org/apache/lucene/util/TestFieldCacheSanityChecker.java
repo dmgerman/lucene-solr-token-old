@@ -597,6 +597,8 @@ argument_list|(
 name|readerA
 argument_list|,
 literal|"theDouble"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|cache
@@ -610,6 +612,8 @@ argument_list|,
 name|FieldCache
 operator|.
 name|DEFAULT_DOUBLE_PARSER
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|cache
@@ -623,6 +627,8 @@ argument_list|,
 name|FieldCache
 operator|.
 name|DEFAULT_DOUBLE_PARSER
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|cache
@@ -632,6 +638,8 @@ argument_list|(
 name|readerX
 argument_list|,
 literal|"theInt"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|cache
@@ -645,6 +653,8 @@ argument_list|,
 name|FieldCache
 operator|.
 name|DEFAULT_INT_PARSER
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// // //
@@ -732,6 +742,8 @@ argument_list|,
 name|FieldCache
 operator|.
 name|DEFAULT_INT_PARSER
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|cache
@@ -750,6 +762,8 @@ argument_list|(
 name|readerX
 argument_list|,
 literal|"theByte"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// // //
@@ -873,6 +887,8 @@ argument_list|(
 name|readerX
 argument_list|,
 literal|"theByte"
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 comment|// // //

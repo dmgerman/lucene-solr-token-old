@@ -4756,6 +4756,8 @@ name|getIndexReader
 argument_list|()
 argument_list|,
 literal|"trieInt"
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 for|for
@@ -4796,6 +4798,8 @@ name|getIndexReader
 argument_list|()
 argument_list|,
 literal|"trieLong"
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 for|for
