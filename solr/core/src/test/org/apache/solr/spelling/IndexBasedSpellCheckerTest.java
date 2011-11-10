@@ -1011,11 +1011,14 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"suggestions is not null and it should be"
+literal|"suggestions size should be 0"
 argument_list|,
 name|suggestions
+operator|.
+name|size
+argument_list|()
 operator|==
-literal|null
+literal|0
 argument_list|)
 expr_stmt|;
 comment|//test something that is spelled correctly
@@ -1728,11 +1731,14 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"suggestions is not null and it should be"
+literal|"suggestions size should be 0"
 argument_list|,
 name|suggestions
+operator|.
+name|size
+argument_list|()
 operator|==
-literal|null
+literal|0
 argument_list|)
 expr_stmt|;
 name|spellOpts
@@ -2614,11 +2620,14 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"suggestions is not null and it should be"
+literal|"suggestions size should be 0"
 argument_list|,
 name|suggestions
+operator|.
+name|size
+argument_list|()
 operator|==
-literal|null
+literal|0
 argument_list|)
 expr_stmt|;
 name|spellOpts
