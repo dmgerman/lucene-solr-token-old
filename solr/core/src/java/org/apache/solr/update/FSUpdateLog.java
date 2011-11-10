@@ -1347,10 +1347,6 @@ DECL|field|is
 name|InputStream
 name|is
 decl_stmt|;
-DECL|field|start
-name|long
-name|start
-decl_stmt|;
 DECL|field|deleteOnClose
 specifier|volatile
 name|boolean
@@ -1635,8 +1631,6 @@ block|{
 name|long
 name|pos
 init|=
-name|start
-operator|+
 name|fos
 operator|.
 name|size
@@ -1715,13 +1709,38 @@ argument_list|,
 literal|"rw"
 argument_list|)
 expr_stmt|;
+name|long
 name|start
-operator|=
+init|=
 name|raf
 operator|.
 name|length
 argument_list|()
+decl_stmt|;
+assert|assert
+name|start
+operator|==
+literal|0
+assert|;
+if|if
+condition|(
+name|start
+operator|>
+literal|0
+condition|)
+block|{
+name|raf
+operator|.
+name|setLength
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
+name|start
+operator|=
+literal|0
+expr_stmt|;
+block|}
 comment|// System.out.println("###start= "+start);
 name|channel
 operator|=
@@ -1973,8 +1992,6 @@ block|{
 name|long
 name|pos
 init|=
-name|start
-operator|+
 name|fos
 operator|.
 name|size
@@ -2007,8 +2024,6 @@ argument_list|)
 expr_stmt|;
 name|pos
 operator|=
-name|start
-operator|+
 name|fos
 operator|.
 name|size
@@ -2063,6 +2078,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// fos.flushBuffer();  // flush later
+assert|assert
+name|pos
+operator|<
+name|fos
+operator|.
+name|size
+argument_list|()
+assert|;
 return|return
 name|pos
 return|;
@@ -2115,8 +2138,6 @@ block|{
 name|long
 name|pos
 init|=
-name|start
-operator|+
 name|fos
 operator|.
 name|size
@@ -2137,8 +2158,6 @@ argument_list|)
 expr_stmt|;
 name|pos
 operator|=
-name|start
-operator|+
 name|fos
 operator|.
 name|size
@@ -2207,6 +2226,14 @@ name|length
 argument_list|)
 expr_stmt|;
 comment|// fos.flushBuffer();  // flush later
+assert|assert
+name|pos
+operator|<
+name|fos
+operator|.
+name|size
+argument_list|()
+assert|;
 return|return
 name|pos
 return|;
@@ -2259,8 +2286,6 @@ block|{
 name|long
 name|pos
 init|=
-name|start
-operator|+
 name|fos
 operator|.
 name|size
@@ -2281,8 +2306,6 @@ argument_list|)
 expr_stmt|;
 name|pos
 operator|=
-name|start
-operator|+
 name|fos
 operator|.
 name|size
@@ -2335,6 +2358,14 @@ name|query
 argument_list|)
 expr_stmt|;
 comment|// fos.flushBuffer();  // flush later
+assert|assert
+name|pos
+operator|<
+name|fos
+operator|.
+name|size
+argument_list|()
+assert|;
 return|return
 name|pos
 return|;
