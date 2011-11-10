@@ -45,24 +45,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -110,10 +92,7 @@ name|s
 init|=
 literal|"ONE\n  two \nthree"
 decl_stmt|;
-name|HashSet
-argument_list|<
-name|String
-argument_list|>
+name|CharArraySet
 name|wordSet1
 init|=
 name|WordlistLoader
@@ -125,6 +104,8 @@ name|StringReader
 argument_list|(
 name|s
 argument_list|)
+argument_list|,
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|checkSet
@@ -132,10 +113,7 @@ argument_list|(
 name|wordSet1
 argument_list|)
 expr_stmt|;
-name|HashSet
-argument_list|<
-name|String
-argument_list|>
+name|CharArraySet
 name|wordSet2
 init|=
 name|WordlistLoader
@@ -151,6 +129,8 @@ argument_list|(
 name|s
 argument_list|)
 argument_list|)
+argument_list|,
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|checkSet
@@ -172,10 +152,7 @@ name|s
 init|=
 literal|"ONE\n  two \nthree\n#comment"
 decl_stmt|;
-name|HashSet
-argument_list|<
-name|String
-argument_list|>
+name|CharArraySet
 name|wordSet1
 init|=
 name|WordlistLoader
@@ -189,6 +166,8 @@ name|s
 argument_list|)
 argument_list|,
 literal|"#"
+argument_list|,
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|checkSet
@@ -222,10 +201,7 @@ specifier|private
 name|void
 name|checkSet
 parameter_list|(
-name|HashSet
-argument_list|<
-name|String
-argument_list|>
+name|CharArraySet
 name|wordset
 parameter_list|)
 block|{
@@ -321,10 +297,7 @@ comment|// multiple stopwords
 literal|"six seven | comment\n"
 decl_stmt|;
 comment|//multiple stopwords + comment
-name|Set
-argument_list|<
-name|String
-argument_list|>
+name|CharArraySet
 name|wordset
 init|=
 name|WordlistLoader
@@ -336,6 +309,8 @@ name|StringReader
 argument_list|(
 name|s
 argument_list|)
+argument_list|,
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|assertEquals

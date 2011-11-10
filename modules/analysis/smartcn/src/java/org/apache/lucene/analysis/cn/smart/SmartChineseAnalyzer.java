@@ -112,6 +112,21 @@ name|analysis
 operator|.
 name|util
 operator|.
+name|CharArraySet
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|util
+operator|.
 name|WordlistLoader
 import|;
 end_import
@@ -246,10 +261,7 @@ comment|/**    * Returns an unmodifiable instance of the default stop-words set.
 DECL|method|getDefaultStopSet
 specifier|public
 specifier|static
-name|Set
-argument_list|<
-name|String
-argument_list|>
+name|CharArraySet
 name|getDefaultStopSet
 parameter_list|()
 block|{
@@ -269,10 +281,7 @@ block|{
 DECL|field|DEFAULT_STOP_SET
 specifier|static
 specifier|final
-name|Set
-argument_list|<
-name|String
-argument_list|>
+name|CharArraySet
 name|DEFAULT_STOP_SET
 decl_stmt|;
 static|static
@@ -304,10 +313,7 @@ block|}
 block|}
 DECL|method|loadDefaultStopWordSet
 specifier|static
-name|Set
-argument_list|<
-name|String
-argument_list|>
+name|CharArraySet
 name|loadDefaultStopWordSet
 parameter_list|()
 throws|throws
@@ -340,7 +346,7 @@ argument_list|)
 decl_stmt|;
 comment|// make sure it is unmodifiable as we expose it in the outer class
 return|return
-name|Collections
+name|CharArraySet
 operator|.
 name|unmodifiableSet
 argument_list|(
@@ -351,6 +357,10 @@ argument_list|(
 name|reader
 argument_list|,
 name|STOPWORD_FILE_COMMENT
+argument_list|,
+name|Version
+operator|.
+name|LUCENE_CURRENT
 argument_list|)
 argument_list|)
 return|;
