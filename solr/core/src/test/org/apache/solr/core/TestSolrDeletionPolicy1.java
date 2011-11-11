@@ -418,8 +418,10 @@ operator|==
 name|latest
 condition|)
 continue|continue;
-name|assertTrue
+name|assertEquals
 argument_list|(
+literal|1
+argument_list|,
 name|commits
 operator|.
 name|get
@@ -427,7 +429,7 @@ argument_list|(
 name|version
 argument_list|)
 operator|.
-name|isOptimized
+name|getSegmentCount
 argument_list|()
 argument_list|)
 expr_stmt|;

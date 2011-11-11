@@ -76,10 +76,10 @@ name|LuceneTestCase
 import|;
 end_import
 begin_class
-DECL|class|TestSizeBoundedOptimize
+DECL|class|TestSizeBoundedForceMerge
 specifier|public
 class|class
-name|TestSizeBoundedOptimize
+name|TestSizeBoundedForceMerge
 extends|extends
 name|LuceneTestCase
 block|{
@@ -192,7 +192,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// tests that the max merge size constraint is applied during optimize.
+comment|// tests that the max merge size constraint is applied during forceMerge.
 name|Directory
 name|dir
 init|=
@@ -306,7 +306,7 @@ argument_list|()
 decl_stmt|;
 name|lmp
 operator|.
-name|setMaxMergeMBForOptimize
+name|setMaxMergeMBForForcedMerge
 argument_list|(
 operator|(
 name|min
@@ -340,8 +340,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -381,7 +383,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// tests that the max merge docs constraint is applied during optimize.
+comment|// tests that the max merge docs constraint is applied during forceMerge.
 name|Directory
 name|dir
 init|=
@@ -499,8 +501,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -636,8 +640,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -772,8 +778,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -908,8 +916,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -1037,8 +1047,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -1173,8 +1185,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -1337,8 +1351,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -1372,10 +1388,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSingleNonOptimizedSegment
+DECL|method|testSingleMergeableSegment
 specifier|public
 name|void
-name|testSingleNonOptimizedSegment
+name|testSingleMergeableSegment
 parameter_list|()
 throws|throws
 name|Exception
@@ -1430,7 +1446,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// delete the last document, so that the last segment is optimized.
+comment|// delete the last document, so that the last segment is merged.
 name|IndexReader
 name|r
 init|=
@@ -1498,8 +1514,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -1545,10 +1563,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSingleOptimizedSegment
+DECL|method|testSingleNonMergeableSegment
 specifier|public
 name|void
-name|testSingleOptimizedSegment
+name|testSingleNonMergeableSegment
 parameter_list|()
 throws|throws
 name|Exception
@@ -1627,8 +1645,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -1661,10 +1681,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testSingleNonOptimizedTooLargeSegment
+DECL|method|testSingleMergeableTooLargeSegment
 specifier|public
 name|void
-name|testSingleNonOptimizedTooLargeSegment
+name|testSingleMergeableTooLargeSegment
 parameter_list|()
 throws|throws
 name|Exception
@@ -1773,8 +1793,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.

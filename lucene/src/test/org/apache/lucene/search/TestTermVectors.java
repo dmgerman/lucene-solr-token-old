@@ -3862,10 +3862,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testOptimizeAddDocs
+DECL|method|testFullMergeAddDocs
 specifier|public
 name|void
-name|testOptimizeAddDocs
+name|testFullMergeAddDocs
 parameter_list|()
 throws|throws
 name|Exception
@@ -3884,7 +3884,7 @@ argument_list|(
 name|target
 argument_list|)
 decl_stmt|;
-comment|// with maxBufferedDocs=2, this results in two segments, so that optimize
+comment|// with maxBufferedDocs=2, this results in two segments, so that forceMerge
 comment|// actually does something.
 for|for
 control|(
@@ -3912,8 +3912,10 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -3931,10 +3933,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testOptimizeAddIndexesDir
+DECL|method|testFullMergeAddIndexesDir
 specifier|public
 name|void
-name|testOptimizeAddIndexesDir
+name|testFullMergeAddIndexesDir
 parameter_list|()
 throws|throws
 name|Exception
@@ -3991,8 +3993,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -4022,10 +4026,10 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testOptimizeAddIndexesReader
+DECL|method|testFullMergeAddIndexesReader
 specifier|public
 name|void
-name|testOptimizeAddIndexesReader
+name|testFullMergeAddIndexesReader
 parameter_list|()
 throws|throws
 name|Exception
@@ -4106,8 +4110,10 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.

@@ -79,7 +79,7 @@ begin_comment
 comment|// TODO
 end_comment
 begin_comment
-comment|//   - mix in optimize, addIndexes
+comment|//   - mix in forceMerge, addIndexes
 end_comment
 begin_comment
 comment|//   - randomoly mix in non-congruent docs

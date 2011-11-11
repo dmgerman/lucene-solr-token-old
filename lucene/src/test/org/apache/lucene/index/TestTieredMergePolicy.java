@@ -376,10 +376,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testPartialOptimize
+DECL|method|testPartialMerge
 specifier|public
 name|void
-name|testPartialOptimize
+name|testPartialMerge
 parameter_list|()
 throws|throws
 name|Exception
@@ -648,7 +648,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"TEST: optimize to "
+literal|"TEST: merge to "
 operator|+
 name|targetCount
 operator|+
@@ -662,7 +662,7 @@ expr_stmt|;
 block|}
 name|w
 operator|.
-name|optimize
+name|forceMerge
 argument_list|(
 name|targetCount
 argument_list|)
@@ -764,7 +764,7 @@ argument_list|)
 decl_stmt|;
 name|w
 operator|.
-name|setDoRandomOptimize
+name|setDoRandomForceMerge
 argument_list|(
 literal|false
 argument_list|)
@@ -846,8 +846,10 @@ expr_stmt|;
 block|}
 name|w
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|IndexReader
 name|r

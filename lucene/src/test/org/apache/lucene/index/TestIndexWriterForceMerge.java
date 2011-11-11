@@ -130,17 +130,17 @@ name|_TestUtil
 import|;
 end_import
 begin_class
-DECL|class|TestIndexWriterOptimize
+DECL|class|TestIndexWriterForceMerge
 specifier|public
 class|class
-name|TestIndexWriterOptimize
+name|TestIndexWriterForceMerge
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|method|testOptimizeMaxNumSegments
+DECL|method|testPartialMerge
 specifier|public
 name|void
-name|testOptimizeMaxNumSegments
+name|testPartialMerge
 parameter_list|()
 throws|throws
 name|IOException
@@ -358,7 +358,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
+name|forceMerge
 argument_list|(
 literal|3
 argument_list|)
@@ -418,10 +418,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testOptimizeMaxNumSegments2
+DECL|method|testMaxNumSegments2
 specifier|public
 name|void
-name|testOptimizeMaxNumSegments2
+name|testMaxNumSegments2
 parameter_list|()
 throws|throws
 name|IOException
@@ -590,7 +590,7 @@ argument_list|()
 decl_stmt|;
 name|writer
 operator|.
-name|optimize
+name|forceMerge
 argument_list|(
 literal|7
 argument_list|)
@@ -660,11 +660,11 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Make sure optimize doesn't use any more than 1X    * starting index size as its temporary free space    * required.    */
-DECL|method|testOptimizeTempSpaceUsage
+comment|/**    * Make sure forceMerge doesn't use any more than 1X    * starting index size as its temporary free space    * required.    */
+DECL|method|testForceMergeTempSpaceUsage
 specifier|public
 name|void
-name|testOptimizeTempSpaceUsage
+name|testForceMergeTempSpaceUsage
 parameter_list|()
 throws|throws
 name|IOException
@@ -927,8 +927,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|writer
 operator|.
@@ -945,7 +947,7 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"optimize used too much temporary space: starting usage was "
+literal|"forceMerge used too much temporary space: starting usage was "
 operator|+
 name|startDiskUsage
 operator|+
@@ -976,13 +978,13 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Test calling optimize(false) whereby optimize is kicked
+comment|// Test calling forceMerge(1, false) whereby forceMerge is kicked
 comment|// off but we don't wait for it to finish (but
 comment|// writer.close()) does wait
-DECL|method|testBackgroundOptimize
+DECL|method|testBackgroundForceMerge
 specifier|public
 name|void
-name|testBackgroundOptimize
+name|testBackgroundForceMerge
 parameter_list|()
 throws|throws
 name|IOException
@@ -1094,8 +1096,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
+name|forceMerge
 argument_list|(
+literal|1
+argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
@@ -1123,12 +1127,16 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+literal|1
+argument_list|,
 name|reader
 operator|.
-name|isOptimized
+name|getSequentialSubReaders
 argument_list|()
+operator|.
+name|length
 argument_list|)
 expr_stmt|;
 name|reader
@@ -1140,7 +1148,7 @@ block|}
 else|else
 block|{
 comment|// Get another segment to flush so we can verify it is
-comment|// NOT included in the optimization
+comment|// NOT included in the merging
 name|writer
 operator|.
 name|addDocument
@@ -1174,11 +1182,14 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-operator|!
 name|reader
 operator|.
-name|isOptimized
+name|getSequentialSubReaders
 argument_list|()
+operator|.
+name|length
+operator|>
+literal|1
 argument_list|)
 expr_stmt|;
 name|reader

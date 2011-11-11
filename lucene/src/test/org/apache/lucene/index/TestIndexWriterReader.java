@@ -648,8 +648,10 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 comment|// make sure all merging is done etc.
 name|IndexReader
@@ -785,7 +787,7 @@ throws|throws
 name|Exception
 block|{
 name|boolean
-name|optimize
+name|doFullMerge
 init|=
 literal|true
 decl_stmt|;
@@ -888,7 +890,7 @@ comment|// create the index
 name|createIndexNoClose
 argument_list|(
 operator|!
-name|optimize
+name|doFullMerge
 argument_list|,
 literal|"index1"
 argument_list|,
@@ -1407,8 +1409,10 @@ expr_stmt|;
 comment|// should see the changes
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 comment|// make sure we don't have a merge going on
 name|assertFalse
@@ -1528,7 +1532,7 @@ throws|throws
 name|Exception
 block|{
 name|boolean
-name|optimize
+name|doFullMerge
 init|=
 literal|false
 decl_stmt|;
@@ -1616,7 +1620,7 @@ comment|// create the index
 name|createIndexNoClose
 argument_list|(
 operator|!
-name|optimize
+name|doFullMerge
 argument_list|,
 literal|"index1"
 argument_list|,
@@ -1662,7 +1666,7 @@ decl_stmt|;
 name|createIndexNoClose
 argument_list|(
 operator|!
-name|optimize
+name|doFullMerge
 argument_list|,
 literal|"index2"
 argument_list|,
@@ -1848,7 +1852,7 @@ throws|throws
 name|Exception
 block|{
 name|boolean
-name|optimize
+name|doFullMerge
 init|=
 literal|false
 decl_stmt|;
@@ -1908,7 +1912,7 @@ decl_stmt|;
 name|createIndexNoClose
 argument_list|(
 operator|!
-name|optimize
+name|doFullMerge
 argument_list|,
 literal|"index2"
 argument_list|,
@@ -2004,7 +2008,7 @@ throws|throws
 name|Exception
 block|{
 name|boolean
-name|optimize
+name|doFullMerge
 init|=
 literal|true
 decl_stmt|;
@@ -2043,7 +2047,7 @@ comment|// create the index
 name|createIndexNoClose
 argument_list|(
 operator|!
-name|optimize
+name|doFullMerge
 argument_list|,
 literal|"index1"
 argument_list|,
@@ -3130,8 +3134,10 @@ argument_list|)
 expr_stmt|;
 name|mainWriter
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 break|break;
 case|case
@@ -3183,10 +3189,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testIndexWriterReopenSegmentOptimize
+DECL|method|testIndexWriterReopenSegmentFullMerge
 specifier|public
 name|void
-name|testIndexWriterReopenSegmentOptimize
+name|testIndexWriterReopenSegmentFullMerge
 parameter_list|()
 throws|throws
 name|Exception
@@ -3218,7 +3224,7 @@ name|void
 name|doTestIndexWriterReopenSegment
 parameter_list|(
 name|boolean
-name|optimize
+name|doFullMerge
 parameter_list|)
 throws|throws
 name|Exception
@@ -3281,7 +3287,7 @@ operator|.
 name|flush
 argument_list|(
 operator|!
-name|optimize
+name|doFullMerge
 argument_list|,
 literal|true
 argument_list|)
@@ -3603,8 +3609,10 @@ condition|)
 block|{
 name|w
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 block|}
 name|w
@@ -3671,8 +3679,10 @@ condition|)
 block|{
 name|w
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -3901,8 +3911,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(

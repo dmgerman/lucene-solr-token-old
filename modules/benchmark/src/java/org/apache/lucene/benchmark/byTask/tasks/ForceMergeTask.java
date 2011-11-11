@@ -47,19 +47,19 @@ name|IndexWriter
 import|;
 end_import
 begin_comment
-comment|/**  * Optimize the index.  *<br>Other side effects: none.  */
+comment|/**  * Runs forceMerge on the index.  *<br>Other side effects: none.  */
 end_comment
 begin_class
-DECL|class|OptimizeTask
+DECL|class|ForceMergeTask
 specifier|public
 class|class
-name|OptimizeTask
+name|ForceMergeTask
 extends|extends
 name|PerfTask
 block|{
-DECL|method|OptimizeTask
+DECL|method|ForceMergeTask
 specifier|public
-name|OptimizeTask
+name|ForceMergeTask
 parameter_list|(
 name|PerfRunData
 name|runData
@@ -75,6 +75,7 @@ DECL|field|maxNumSegments
 name|int
 name|maxNumSegments
 init|=
+operator|-
 literal|1
 decl_stmt|;
 annotation|@
@@ -87,6 +88,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|maxNumSegments
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"required argument (maxNumSegments) was not specified"
+argument_list|)
+throw|;
+block|}
 name|IndexWriter
 name|iw
 init|=
@@ -98,12 +115,12 @@ argument_list|()
 decl_stmt|;
 name|iw
 operator|.
-name|optimize
+name|forceMerge
 argument_list|(
 name|maxNumSegments
 argument_list|)
 expr_stmt|;
-comment|//System.out.println("optimize called");
+comment|//System.out.println("forceMerge called");
 return|return
 literal|1
 return|;

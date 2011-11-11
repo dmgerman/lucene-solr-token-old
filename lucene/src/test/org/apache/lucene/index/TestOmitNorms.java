@@ -265,8 +265,10 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 comment|// now we add another document which has term freq for field f2 and not for f1 and verify if the SegmentMerger
 comment|// keep things constant
@@ -317,8 +319,10 @@ expr_stmt|;
 comment|// force merge
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 comment|// flush
 name|writer
@@ -597,8 +601,10 @@ block|}
 comment|// force merge
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 comment|// flush
 name|writer
@@ -839,8 +845,10 @@ block|}
 comment|// force merge
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 comment|// flush
 name|writer
@@ -1123,8 +1131,10 @@ expr_stmt|;
 comment|// force merge
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 comment|// flush
 name|writer
@@ -1143,7 +1153,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Tests various combinations of omitNorms=true/false, the field not existing at all,    * ensuring that only omitNorms is 'viral'.    * Internally checks that MultiNorms.norms() is consistent (returns the same bytes)    * as the optimized equivalent.    */
+comment|/**    * Tests various combinations of omitNorms=true/false, the field not existing at all,    * ensuring that only omitNorms is 'viral'.    * Internally checks that MultiNorms.norms() is consistent (returns the same bytes)    * as the fully merged equivalent.    */
 DECL|method|testOmitNormsCombos
 specifier|public
 name|void
@@ -1647,11 +1657,13 @@ argument_list|,
 name|field
 argument_list|)
 decl_stmt|;
-comment|// optimize and validate MultiNorms against single segment.
+comment|// fully merge and validate MultiNorms against single segment.
 name|riw
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|IndexReader
 name|ir2

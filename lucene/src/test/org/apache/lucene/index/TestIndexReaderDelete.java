@@ -190,7 +190,7 @@ name|void
 name|deleteReaderReaderConflict
 parameter_list|(
 name|boolean
-name|optimize
+name|doFullMerge
 parameter_list|)
 throws|throws
 name|IOException
@@ -312,13 +312,17 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|optimize
+name|doFullMerge
 condition|)
+block|{
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
+block|}
 name|writer
 operator|.
 name|close
@@ -933,7 +937,7 @@ name|void
 name|deleteReaderWriterConflict
 parameter_list|(
 name|boolean
-name|optimize
+name|doFullMerge
 parameter_list|)
 throws|throws
 name|IOException
@@ -1143,20 +1147,24 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// REQUEST OPTIMIZATION
+comment|// REQUEST full merge
 comment|// This causes a new segment to become current for all subsequent
 comment|// searchers. Because of this, deletions made via a previously open
 comment|// reader, which would be applied to that reader's segment, are lost
 comment|// for subsequent searchers/readers
 if|if
 condition|(
-name|optimize
+name|doFullMerge
 condition|)
+block|{
 name|writer
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
+block|}
 name|writer
 operator|.
 name|close
@@ -1707,10 +1715,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testDeleteReaderReaderConflictUnoptimized
+DECL|method|testDeleteReaderReaderConflictNoFullMerge
 specifier|public
 name|void
-name|testDeleteReaderReaderConflictUnoptimized
+name|testDeleteReaderReaderConflictNoFullMerge
 parameter_list|()
 throws|throws
 name|IOException
@@ -1721,10 +1729,10 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDeleteReaderReaderConflictOptimized
+DECL|method|testDeleteReaderReaderConflictFullMerge
 specifier|public
 name|void
-name|testDeleteReaderReaderConflictOptimized
+name|testDeleteReaderReaderConflictFullMerge
 parameter_list|()
 throws|throws
 name|IOException
@@ -1735,10 +1743,10 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDeleteReaderWriterConflictUnoptimized
+DECL|method|testDeleteReaderWriterConflictNoFullMerge
 specifier|public
 name|void
-name|testDeleteReaderWriterConflictUnoptimized
+name|testDeleteReaderWriterConflictNoFullMerge
 parameter_list|()
 throws|throws
 name|IOException
@@ -1749,10 +1757,10 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDeleteReaderWriterConflictOptimized
+DECL|method|testDeleteReaderWriterConflictFullMerge
 specifier|public
 name|void
-name|testDeleteReaderWriterConflictOptimized
+name|testDeleteReaderWriterConflictFullMerge
 parameter_list|()
 throws|throws
 name|IOException

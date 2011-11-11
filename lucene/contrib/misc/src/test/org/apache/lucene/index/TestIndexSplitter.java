@@ -631,10 +631,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testDeleteThenOptimize
+DECL|method|testDeleteThenFullMerge
 specifier|public
 name|void
-name|testDeleteThenOptimize
+name|testDeleteThenFullMerge
 parameter_list|()
 throws|throws
 name|Exception
@@ -904,7 +904,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// Optimize the split index
+comment|// Fully merge the split index
 name|mergePolicy
 operator|=
 operator|new
@@ -963,8 +963,10 @@ argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|.
-name|optimize
-argument_list|()
+name|forceMerge
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|.

@@ -5252,8 +5252,10 @@ name|replicateOnOptimize
 operator|&&
 name|commitPoint
 operator|.
-name|isOptimized
+name|getSegmentCount
 argument_list|()
+operator|==
+literal|1
 operator|)
 condition|)
 block|{
@@ -5769,8 +5771,10 @@ if|if
 condition|(
 name|ic
 operator|.
-name|isOptimized
+name|getSegmentCount
 argument_list|()
+operator|==
+literal|1
 condition|)
 block|{
 if|if
