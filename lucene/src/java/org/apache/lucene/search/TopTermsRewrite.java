@@ -930,15 +930,6 @@ argument_list|)
 expr_stmt|;
 comment|// add to query
 block|}
-name|query
-operator|.
-name|incTotalNumberOfTerms
-argument_list|(
-name|scoreTerms
-operator|.
-name|length
-argument_list|)
-expr_stmt|;
 return|return
 name|q
 return|;
