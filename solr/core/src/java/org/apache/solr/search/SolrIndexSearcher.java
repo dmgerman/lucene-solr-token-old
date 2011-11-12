@@ -6907,6 +6907,11 @@ name|TimeLimitingCollector
 argument_list|(
 name|collector
 argument_list|,
+name|TimeLimitingCollector
+operator|.
+name|getGlobalCounter
+argument_list|()
+argument_list|,
 name|timeAllowed
 argument_list|)
 expr_stmt|;
@@ -7096,6 +7101,11 @@ operator|new
 name|TimeLimitingCollector
 argument_list|(
 name|collector
+argument_list|,
+name|TimeLimitingCollector
+operator|.
+name|getGlobalCounter
+argument_list|()
 argument_list|,
 name|timeAllowed
 argument_list|)
@@ -7644,6 +7654,11 @@ name|TimeLimitingCollector
 argument_list|(
 name|collector
 argument_list|,
+name|TimeLimitingCollector
+operator|.
+name|getGlobalCounter
+argument_list|()
+argument_list|,
 name|timeAllowed
 argument_list|)
 expr_stmt|;
@@ -7855,6 +7870,11 @@ operator|new
 name|TimeLimitingCollector
 argument_list|(
 name|collector
+argument_list|,
+name|TimeLimitingCollector
+operator|.
+name|getGlobalCounter
+argument_list|()
 argument_list|,
 name|timeAllowed
 argument_list|)
