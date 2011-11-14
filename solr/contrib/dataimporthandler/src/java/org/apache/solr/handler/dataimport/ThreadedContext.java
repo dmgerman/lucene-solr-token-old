@@ -34,6 +34,11 @@ operator|.
 name|EntityRunner
 name|entityRunner
 decl_stmt|;
+DECL|field|resolver
+specifier|private
+name|VariableResolverImpl
+name|resolver
+decl_stmt|;
 DECL|field|limitedContext
 specifier|private
 name|boolean
@@ -52,6 +57,9 @@ name|entityRunner
 parameter_list|,
 name|DocBuilder
 name|docBuilder
+parameter_list|,
+name|VariableResolverImpl
+name|resolver
 parameter_list|)
 block|{
 name|super
@@ -60,9 +68,8 @@ name|entityRunner
 operator|.
 name|entity
 argument_list|,
-literal|null
+name|resolver
 argument_list|,
-comment|//to be fetched realtime
 literal|null
 argument_list|,
 literal|null
@@ -81,6 +88,12 @@ operator|.
 name|entityRunner
 operator|=
 name|entityRunner
+expr_stmt|;
+name|this
+operator|.
+name|resolver
+operator|=
+name|resolver
 expr_stmt|;
 block|}
 annotation|@
@@ -124,6 +137,8 @@ operator|.
 name|parent
 argument_list|,
 name|docBuilder
+argument_list|,
+name|resolver
 argument_list|)
 decl_stmt|;
 name|ctx
