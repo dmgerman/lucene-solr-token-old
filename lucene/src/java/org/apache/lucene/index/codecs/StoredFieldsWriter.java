@@ -54,6 +54,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|FieldInfo
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|FieldInfos
 import|;
 end_import
@@ -100,7 +113,7 @@ begin_comment
 comment|/**  * Copyright 2004 The Apache Software Foundation  *  * Licensed under the Apache License, Version 2.0 (the "License"); you may not  * use this file except in compliance with the License. You may obtain a copy of  * the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the  * License for the specific language governing permissions and limitations under  * the License.  */
 end_comment
 begin_comment
-comment|/**  * Codec API for writing stored fields:  *<p>  *<ol>  *<li>For every document, {@link #startDocument(int)} is called,  *       informing the Codec how many fields will be written.  *<li>{@link #writeField(int, IndexableField)} is called for   *       each field in the document.  *<li>After all documents have been written, {@link #finish(int)}   *       is called for verification/sanity-checks.  *<li>Finally the writer is closed ({@link #close()})  *</ol>  *   * @lucene.experimental  */
+comment|/**  * Codec API for writing stored fields:  *<p>  *<ol>  *<li>For every document, {@link #startDocument(int)} is called,  *       informing the Codec how many fields will be written.  *<li>{@link #writeField(FieldInfo, IndexableField)} is called for   *       each field in the document.  *<li>After all documents have been written, {@link #finish(int)}   *       is called for verification/sanity-checks.  *<li>Finally the writer is closed ({@link #close()})  *</ol>  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|StoredFieldsWriter
@@ -111,7 +124,7 @@ name|StoredFieldsWriter
 implements|implements
 name|Closeable
 block|{
-comment|/** Called before writing the stored fields of the document.    *  {@link #writeField(int, IndexableField)} will be called    *<code>numStoredFields</code> times. Note that this is    *  called even if the document has no stored fields, in    *  this case<code>numStoredFields</code> will be zero. */
+comment|/** Called before writing the stored fields of the document.    *  {@link #writeField(FieldInfo, IndexableField)} will be called    *<code>numStoredFields</code> times. Note that this is    *  called even if the document has no stored fields, in    *  this case<code>numStoredFields</code> will be zero. */
 DECL|method|startDocument
 specifier|public
 specifier|abstract
@@ -131,8 +144,8 @@ specifier|abstract
 name|void
 name|writeField
 parameter_list|(
-name|int
-name|fieldNumber
+name|FieldInfo
+name|info
 parameter_list|,
 name|IndexableField
 name|field
@@ -161,7 +174,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Merges in the stored fields from the readers in     *<code>mergeState</code>. The default implementation skips    *  over deleted documents, and uses {@link #startDocument(int)},    *  {@link #writeField(int, IndexableField)}, and {@link #finish(int)},    *  returning the number of documents that were written.    *  Implementations can override this method for more sophisticated    *  merging (bulk-byte copying, etc). */
+comment|/** Merges in the stored fields from the readers in     *<code>mergeState</code>. The default implementation skips    *  over deleted documents, and uses {@link #startDocument(int)},    *  {@link #writeField(FieldInfo, IndexableField)}, and {@link #finish(int)},    *  returning the number of documents that were written.    *  Implementations can override this method for more sophisticated    *  merging (bulk-byte copying, etc). */
 DECL|method|merge
 specifier|public
 name|int
@@ -370,7 +383,7 @@ name|writeField
 argument_list|(
 name|fieldInfos
 operator|.
-name|fieldNumber
+name|fieldInfo
 argument_list|(
 name|field
 operator|.

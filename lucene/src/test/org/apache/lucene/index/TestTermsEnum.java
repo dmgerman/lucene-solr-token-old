@@ -468,7 +468,9 @@ literal|"body"
 argument_list|)
 operator|.
 name|iterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|BytesRef
 name|term
@@ -3121,7 +3123,9 @@ name|FIELD
 argument_list|)
 operator|.
 name|iterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 while|while
 condition|(
@@ -3355,7 +3359,9 @@ argument_list|(
 name|terms
 operator|.
 name|iterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 operator|.
 name|next
 argument_list|()
@@ -3945,7 +3951,9 @@ name|FIELD
 argument_list|)
 operator|.
 name|iterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 specifier|final
 name|int

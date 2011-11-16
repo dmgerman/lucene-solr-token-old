@@ -1031,6 +1031,21 @@ name|field
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getUniqueFieldCount
+specifier|public
+name|int
+name|getUniqueFieldCount
+parameter_list|()
+block|{
+return|return
+name|fields
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 comment|// Iterates through all fields
 DECL|class|TermFieldsEnum
 specifier|private
@@ -1112,7 +1127,7 @@ annotation|@
 name|Override
 DECL|method|terms
 specifier|public
-name|TermsEnum
+name|Terms
 name|terms
 parameter_list|()
 throws|throws
@@ -1120,9 +1135,6 @@ name|IOException
 block|{
 return|return
 name|current
-operator|.
-name|iterator
-argument_list|()
 return|;
 block|}
 block|}
@@ -1267,7 +1279,10 @@ DECL|method|iterator
 specifier|public
 name|TermsEnum
 name|iterator
-parameter_list|()
+parameter_list|(
+name|TermsEnum
+name|reuse
+parameter_list|)
 throws|throws
 name|IOException
 block|{

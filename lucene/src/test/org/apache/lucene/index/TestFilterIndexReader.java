@@ -227,7 +227,10 @@ DECL|method|iterator
 specifier|public
 name|TermsEnum
 name|iterator
-parameter_list|()
+parameter_list|(
+name|TermsEnum
+name|reuse
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -238,7 +241,9 @@ argument_list|(
 name|super
 operator|.
 name|iterator
-argument_list|()
+argument_list|(
+name|reuse
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -268,7 +273,7 @@ annotation|@
 name|Override
 DECL|method|terms
 specifier|public
-name|TermsEnum
+name|Terms
 name|terms
 parameter_list|()
 throws|throws
@@ -276,7 +281,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|TestTermsEnum
+name|TestTerms
 argument_list|(
 name|super
 operator|.
@@ -726,7 +731,9 @@ literal|"default"
 argument_list|)
 operator|.
 name|iterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 while|while
 condition|(

@@ -406,7 +406,9 @@ literal|"foo"
 argument_list|)
 operator|.
 name|iterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 while|while
 condition|(
@@ -469,7 +471,9 @@ literal|"foo"
 argument_list|)
 operator|.
 name|iterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 while|while
 condition|(
@@ -677,7 +681,9 @@ literal|"foo"
 argument_list|)
 operator|.
 name|iterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 while|while
 condition|(
@@ -740,7 +746,9 @@ literal|"foo"
 argument_list|)
 operator|.
 name|iterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 while|while
 condition|(

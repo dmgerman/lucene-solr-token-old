@@ -753,7 +753,9 @@ argument_list|(
 name|terms
 operator|.
 name|iterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 argument_list|)
 return|;
 block|}

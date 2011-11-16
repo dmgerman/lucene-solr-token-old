@@ -1513,7 +1513,7 @@ argument_list|)
 expr_stmt|;
 name|reader
 operator|.
-name|getTermFreqVectors
+name|getTermVectors
 argument_list|(
 name|j
 argument_list|)
