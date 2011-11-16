@@ -83,6 +83,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IndexReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|Term
 import|;
 end_import
@@ -236,18 +249,26 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
+name|IndexReader
+name|ireader
+init|=
+name|IndexReader
+operator|.
+name|open
+argument_list|(
+name|directory
+argument_list|)
+decl_stmt|;
+comment|// read-only=true
 name|IndexSearcher
 name|isearcher
 init|=
 operator|new
 name|IndexSearcher
 argument_list|(
-name|directory
-argument_list|,
-literal|true
+name|ireader
 argument_list|)
 decl_stmt|;
-comment|// read-only=true
 name|assertEquals
 argument_list|(
 literal|1
@@ -415,6 +436,11 @@ name|totalHits
 argument_list|)
 expr_stmt|;
 name|isearcher
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|ireader
 operator|.
 name|close
 argument_list|()
