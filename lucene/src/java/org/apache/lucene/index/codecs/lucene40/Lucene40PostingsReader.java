@@ -1370,8 +1370,16 @@ comment|// how many docs we've read
 DECL|field|doc
 name|int
 name|doc
+init|=
+operator|-
+literal|1
 decl_stmt|;
 comment|// doc we last read
+DECL|field|accum
+name|int
+name|accum
+decl_stmt|;
+comment|// accumulator for doc deltas
 DECL|field|freq
 name|int
 name|freq
@@ -1514,6 +1522,11 @@ literal|0
 expr_stmt|;
 name|doc
 operator|=
+operator|-
+literal|1
+expr_stmt|;
+name|accum
+operator|=
 literal|0
 expr_stmt|;
 comment|// if (DEBUG) System.out.println("  sde limit=" + limit + " freqFP=" + freqOffset);
@@ -1574,14 +1587,14 @@ condition|(
 name|omitTF
 condition|)
 block|{
-name|doc
+name|accum
 operator|+=
 name|code
 expr_stmt|;
 block|}
 else|else
 block|{
-name|doc
+name|accum
 operator|+=
 name|code
 operator|>>>
@@ -1628,7 +1641,7 @@ name|liveDocs
 operator|.
 name|get
 argument_list|(
-name|doc
+name|accum
 argument_list|)
 condition|)
 block|{
@@ -1637,7 +1650,11 @@ block|}
 block|}
 comment|//if (DEBUG) System.out.println("    stpr.nextDoc return doc=" + doc);
 return|return
+operator|(
 name|doc
+operator|=
+name|accum
+operator|)
 return|;
 block|}
 annotation|@
@@ -1714,14 +1731,14 @@ condition|(
 name|omitTF
 condition|)
 block|{
-name|doc
+name|accum
 operator|+=
 name|code
 expr_stmt|;
 block|}
 else|else
 block|{
-name|doc
+name|accum
 operator|+=
 name|code
 operator|>>>
@@ -1768,7 +1785,7 @@ name|liveDocs
 operator|.
 name|get
 argument_list|(
-name|doc
+name|accum
 argument_list|)
 condition|)
 block|{
@@ -1778,6 +1795,8 @@ name|i
 index|]
 operator|=
 name|doc
+operator|=
+name|accum
 expr_stmt|;
 name|freqs
 index|[
@@ -1932,6 +1951,8 @@ name|newOrd
 expr_stmt|;
 name|doc
 operator|=
+name|accum
+operator|=
 name|skipper
 operator|.
 name|getDoc
@@ -2006,8 +2027,16 @@ comment|// how many docs we've read
 DECL|field|doc
 name|int
 name|doc
+init|=
+operator|-
+literal|1
 decl_stmt|;
 comment|// doc we last read
+DECL|field|accum
+name|int
+name|accum
+decl_stmt|;
+comment|// accumulator for doc deltas
 DECL|field|freq
 name|int
 name|freq
@@ -2165,6 +2194,11 @@ literal|0
 expr_stmt|;
 name|doc
 operator|=
+operator|-
+literal|1
+expr_stmt|;
+name|accum
+operator|=
 literal|0
 expr_stmt|;
 name|position
@@ -2245,7 +2279,7 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-name|doc
+name|accum
 operator|+=
 name|code
 operator|>>>
@@ -2295,7 +2329,7 @@ name|liveDocs
 operator|.
 name|get
 argument_list|(
-name|doc
+name|accum
 argument_list|)
 condition|)
 block|{
@@ -2308,7 +2342,11 @@ literal|0
 expr_stmt|;
 comment|// if (DEBUG) System.out.println("  return doc=" + doc);
 return|return
+operator|(
 name|doc
+operator|=
+name|accum
+operator|)
 return|;
 block|}
 annotation|@
@@ -2448,6 +2486,8 @@ operator|=
 name|newOrd
 expr_stmt|;
 name|doc
+operator|=
+name|accum
 operator|=
 name|skipper
 operator|.
@@ -2662,8 +2702,16 @@ comment|// how many docs we've read
 DECL|field|doc
 name|int
 name|doc
+init|=
+operator|-
+literal|1
 decl_stmt|;
 comment|// doc we last read
+DECL|field|accum
+name|int
+name|accum
+decl_stmt|;
+comment|// accumulator for doc deltas
 DECL|field|freq
 name|int
 name|freq
@@ -2852,6 +2900,11 @@ literal|0
 expr_stmt|;
 name|doc
 operator|=
+operator|-
+literal|1
+expr_stmt|;
+name|accum
+operator|=
 literal|0
 expr_stmt|;
 name|position
@@ -2935,7 +2988,7 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-name|doc
+name|accum
 operator|+=
 name|code
 operator|>>>
@@ -2985,7 +3038,7 @@ name|liveDocs
 operator|.
 name|get
 argument_list|(
-name|doc
+name|accum
 argument_list|)
 condition|)
 block|{
@@ -2998,7 +3051,11 @@ literal|0
 expr_stmt|;
 comment|//System.out.println("StandardR.D&PE nextDoc seg=" + segment + " return doc=" + doc);
 return|return
+operator|(
 name|doc
+operator|=
+name|accum
+operator|)
 return|;
 block|}
 annotation|@
@@ -3139,6 +3196,8 @@ operator|=
 name|newOrd
 expr_stmt|;
 name|doc
+operator|=
+name|accum
 operator|=
 name|skipper
 operator|.

@@ -1970,6 +1970,9 @@ DECL|field|docID
 specifier|private
 name|int
 name|docID
+init|=
+operator|-
+literal|1
 decl_stmt|;
 DECL|field|tf
 specifier|private
@@ -2103,6 +2106,11 @@ expr_stmt|;
 name|nextDocStart
 operator|=
 name|fp
+expr_stmt|;
+name|docID
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 return|return
 name|this
