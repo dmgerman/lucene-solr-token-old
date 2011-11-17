@@ -388,8 +388,6 @@ operator|!
 name|success
 condition|)
 block|{
-try|try
-block|{
 name|IOUtils
 operator|.
 name|closeWhileHandlingException
@@ -397,22 +395,6 @@ argument_list|(
 name|output
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// cannot happen since we suppress exceptions
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 try|try
 block|{
 name|directory
@@ -618,8 +600,6 @@ operator|!
 name|success
 condition|)
 block|{
-try|try
-block|{
 name|IOUtils
 operator|.
 name|closeWhileHandlingException
@@ -627,22 +607,6 @@ argument_list|(
 name|output
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-comment|// cannot happen since we suppress exceptions
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 try|try
 block|{
 name|directory

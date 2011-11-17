@@ -736,8 +736,6 @@ name|Closeable
 modifier|...
 name|objects
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 for|for
 control|(
@@ -786,8 +784,6 @@ name|Closeable
 argument_list|>
 name|objects
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 for|for
 control|(

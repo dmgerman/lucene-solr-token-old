@@ -205,6 +205,7 @@ literal|10
 operator|<=
 literal|3
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -212,6 +213,7 @@ argument_list|(
 literal|"now failing randomly but on purpose"
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 DECL|class|TimedThread
