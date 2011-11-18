@@ -29,6 +29,19 @@ operator|.
 name|SolrDocument
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|request
+operator|.
+name|SolrQueryRequest
+import|;
+end_import
 begin_comment
 comment|/**  * Simple Augmenter that adds the docId  *  *  * @since solr 4.0  */
 end_comment
