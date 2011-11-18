@@ -471,10 +471,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|findMergesToExpungeDeletes
+DECL|method|findForcedDeletesMerges
 specifier|public
 name|MergeSpecification
-name|findMergesToExpungeDeletes
+name|findForcedDeletesMerges
 parameter_list|(
 name|SegmentInfos
 name|segmentInfos

@@ -458,10 +458,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|findMergesToExpungeDeletes
+DECL|method|findForcedDeletesMerges
 specifier|public
 name|MergeSpecification
-name|findMergesToExpungeDeletes
+name|findForcedDeletesMerges
 parameter_list|(
 name|SegmentInfos
 name|segmentInfos
@@ -474,7 +474,7 @@ block|{
 return|return
 name|base
 operator|.
-name|findMergesToExpungeDeletes
+name|findForcedDeletesMerges
 argument_list|(
 name|segmentInfos
 argument_list|)

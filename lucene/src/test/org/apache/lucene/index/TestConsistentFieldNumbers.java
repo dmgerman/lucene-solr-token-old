@@ -2015,7 +2015,7 @@ comment|// nuke the first segment entirely so that the segment with gaps is
 comment|// loaded first!
 name|writer
 operator|.
-name|expungeDeletes
+name|forceMergeDeletes
 argument_list|()
 expr_stmt|;
 name|writer

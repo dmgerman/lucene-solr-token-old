@@ -113,10 +113,10 @@ name|TestTieredMergePolicy
 extends|extends
 name|LuceneTestCase
 block|{
-DECL|method|testExpungeDeletes
+DECL|method|testForceMergeDeletes
 specifier|public
 name|void
-name|testExpungeDeletes
+name|testForceMergeDeletes
 parameter_list|()
 throws|throws
 name|Exception
@@ -177,7 +177,7 @@ argument_list|)
 expr_stmt|;
 name|tmp
 operator|.
-name|setExpungeDeletesPctAllowed
+name|setForceMergeDeletesPctAllowed
 argument_list|(
 literal|30.0
 argument_list|)
@@ -295,7 +295,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|expungeDeletes
+name|forceMergeDeletes
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -329,20 +329,20 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"\nTEST: expunge2"
+literal|"\nTEST: forceMergeDeletes2"
 argument_list|)
 expr_stmt|;
 block|}
 name|tmp
 operator|.
-name|setExpungeDeletesPctAllowed
+name|setForceMergeDeletesPctAllowed
 argument_list|(
 literal|10.0
 argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|expungeDeletes
+name|forceMergeDeletes
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -689,10 +689,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|testExpungeMaxSegSize
+DECL|method|testForceMergeDeletesMaxSegSize
 specifier|public
 name|void
-name|testExpungeMaxSegSize
+name|testForceMergeDeletesMaxSegSize
 parameter_list|()
 throws|throws
 name|Exception
@@ -736,7 +736,7 @@ argument_list|)
 expr_stmt|;
 name|tmp
 operator|.
-name|setExpungeDeletesPctAllowed
+name|setForceMergeDeletesPctAllowed
 argument_list|(
 literal|0.0
 argument_list|)
@@ -939,7 +939,7 @@ argument_list|()
 expr_stmt|;
 name|w
 operator|.
-name|expungeDeletes
+name|forceMergeDeletes
 argument_list|()
 expr_stmt|;
 name|r
