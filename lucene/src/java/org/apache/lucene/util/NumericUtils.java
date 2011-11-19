@@ -863,7 +863,7 @@ name|f
 init|=
 name|Double
 operator|.
-name|doubleToRawLongBits
+name|doubleToLongBits
 argument_list|(
 name|val
 argument_list|)
@@ -928,7 +928,7 @@ name|f
 init|=
 name|Float
 operator|.
-name|floatToRawIntBits
+name|floatToIntBits
 argument_list|(
 name|val
 argument_list|)
