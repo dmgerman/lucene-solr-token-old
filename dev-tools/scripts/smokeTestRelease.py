@@ -76,6 +76,11 @@ name|'JAVA6_HOME'
 op|'='
 string|"'/usr/local/src/jdk1.6.0_21'"
 newline|'\n'
+DECL|variable|JAVA7_HOME
+name|'JAVA7_HOME'
+op|'='
+string|"'/usr/local/src/jdk1.7.0_01'"
+newline|'\n'
 nl|'\n'
 comment|'# TODO'
 nl|'\n'
@@ -2699,6 +2704,20 @@ op|'('
 string|"'export JAVA_HOME=%s; ant test'"
 op|'%'
 name|'JAVA6_HOME'
+op|','
+string|"'%s/test.log'"
+op|'%'
+name|'unpackPath'
+op|')'
+newline|'\n'
+name|'print'
+string|"'    run tests w/ Java 7...'"
+newline|'\n'
+name|'run'
+op|'('
+string|"'export JAVA_HOME=%s; ant test'"
+op|'%'
+name|'JAVA7_HOME'
 op|','
 string|"'%s/test.log'"
 op|'%'
