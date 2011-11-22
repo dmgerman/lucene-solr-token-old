@@ -1180,6 +1180,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|runData
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 comment|/* Tests LineDocSource with a bzip2 input stream. */
 DECL|method|testBZip2
