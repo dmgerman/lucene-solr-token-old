@@ -1041,11 +1041,15 @@ return|;
 comment|// ignore it...
 block|}
 block|}
-try|try
-block|{
 name|InputStream
 name|input
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|input
+operator|=
 name|core
 operator|.
 name|getResourceLoader
@@ -1055,7 +1059,7 @@ name|openResource
 argument_list|(
 name|path
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 return|return
 name|IOUtils
 operator|.
@@ -1072,8 +1076,17 @@ parameter_list|(
 name|Exception
 name|ex
 parameter_list|)
-block|{}
-comment|// ignore it
+block|{     }
+finally|finally
+block|{
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 literal|""
 return|;
