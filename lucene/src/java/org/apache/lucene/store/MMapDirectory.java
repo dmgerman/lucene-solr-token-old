@@ -1466,6 +1466,8 @@ name|long
 name|getFilePointer
 parameter_list|()
 block|{
+try|try
+block|{
 return|return
 operator|(
 operator|(
@@ -1483,6 +1485,23 @@ operator|.
 name|position
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|NullPointerException
+name|npe
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|AlreadyClosedException
+argument_list|(
+literal|"MMapIndexInput already closed: "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
