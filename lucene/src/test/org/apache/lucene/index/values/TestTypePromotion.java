@@ -1630,7 +1630,7 @@ argument_list|()
 expr_stmt|;
 name|ref
 operator|.
-name|copy
+name|copyLong
 argument_list|(
 name|values
 index|[
@@ -1667,7 +1667,7 @@ condition|)
 block|{
 name|ref
 operator|.
-name|copy
+name|copyInt
 argument_list|(
 name|random
 operator|.
@@ -1690,7 +1690,7 @@ else|else
 block|{
 name|ref
 operator|.
-name|copy
+name|copyLong
 argument_list|(
 name|random
 operator|.

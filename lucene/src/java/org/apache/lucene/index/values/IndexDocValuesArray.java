@@ -310,7 +310,7 @@ parameter_list|)
 block|{
 name|bytesRef
 operator|.
-name|copy
+name|copyLong
 argument_list|(
 name|value
 argument_list|)
@@ -329,7 +329,7 @@ parameter_list|)
 block|{
 name|bytesRef
 operator|.
-name|copy
+name|copyLong
 argument_list|(
 name|Double
 operator|.
@@ -702,7 +702,7 @@ parameter_list|)
 block|{
 name|bytesRef
 operator|.
-name|copy
+name|copyShort
 argument_list|(
 call|(
 name|short
@@ -900,7 +900,7 @@ parameter_list|)
 block|{
 name|bytesRef
 operator|.
-name|copy
+name|copyInt
 argument_list|(
 call|(
 name|int
@@ -1248,7 +1248,7 @@ parameter_list|)
 block|{
 name|bytesRef
 operator|.
-name|copy
+name|copyInt
 argument_list|(
 name|Float
 operator|.
