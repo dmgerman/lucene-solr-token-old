@@ -1191,6 +1191,14 @@ expr_stmt|;
 block|}
 name|suggestion
 operator|.
+name|string
+operator|=
+name|s
+operator|.
+name|termAsString
+expr_stmt|;
+name|suggestion
+operator|.
 name|score
 operator|=
 name|s
