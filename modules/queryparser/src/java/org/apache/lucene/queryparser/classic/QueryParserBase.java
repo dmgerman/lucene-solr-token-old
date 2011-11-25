@@ -2810,10 +2810,11 @@ name|prefixLength
 argument_list|)
 return|;
 block|}
-DECL|method|analyzeRangePart
+comment|// TODO: Should this be protected instead?
+DECL|method|analyzeMultitermTerm
 specifier|private
 name|BytesRef
-name|analyzeRangePart
+name|analyzeMultitermTerm
 parameter_list|(
 name|String
 name|field
@@ -2822,14 +2823,50 @@ name|String
 name|part
 parameter_list|)
 block|{
+return|return
+name|analyzeMultitermTerm
+argument_list|(
+name|field
+argument_list|,
+name|part
+argument_list|,
+name|analyzer
+argument_list|)
+return|;
+block|}
+DECL|method|analyzeMultitermTerm
+specifier|protected
+name|BytesRef
+name|analyzeMultitermTerm
+parameter_list|(
+name|String
+name|field
+parameter_list|,
+name|String
+name|part
+parameter_list|,
+name|Analyzer
+name|analyzerIn
+parameter_list|)
+block|{
 name|TokenStream
 name|source
 decl_stmt|;
+if|if
+condition|(
+name|analyzerIn
+operator|==
+literal|null
+condition|)
+name|analyzerIn
+operator|=
+name|analyzer
+expr_stmt|;
 try|try
 block|{
 name|source
 operator|=
-name|analyzer
+name|analyzerIn
 operator|.
 name|tokenStream
 argument_list|(
@@ -2858,7 +2895,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Unable to initialize TokenStream to analyze range part: "
+literal|"Unable to initialize TokenStream to analyze multiTerm term: "
 operator|+
 name|part
 argument_list|,
@@ -2900,7 +2937,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"analyzer returned no terms for range part: "
+literal|"analyzer returned no terms for multiTerm term: "
 operator|+
 name|part
 argument_list|)
@@ -2921,7 +2958,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"analyzer returned too many terms for range part: "
+literal|"analyzer returned too many terms for multiTerm term: "
 operator|+
 name|part
 argument_list|)
@@ -2968,7 +3005,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Unable to end& close TokenStream after analyzing range part: "
+literal|"Unable to end& close TokenStream after analyzing multiTerm term: "
 operator|+
 name|part
 argument_list|,
@@ -3033,7 +3070,7 @@ name|start
 operator|=
 name|analyzeRangeTerms
 condition|?
-name|analyzeRangePart
+name|analyzeMultitermTerm
 argument_list|(
 name|field
 argument_list|,
@@ -3065,7 +3102,7 @@ name|end
 operator|=
 name|analyzeRangeTerms
 condition|?
-name|analyzeRangePart
+name|analyzeMultitermTerm
 argument_list|(
 name|field
 argument_list|,
