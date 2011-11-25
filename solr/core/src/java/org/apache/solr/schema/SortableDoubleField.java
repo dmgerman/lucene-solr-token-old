@@ -127,6 +127,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|UnicodeUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|mutable
 operator|.
 name|MutableValue
@@ -417,10 +430,12 @@ name|charsRef
 parameter_list|)
 block|{
 comment|// TODO: this could be more efficient, but the sortable types should be deprecated instead
-name|input
+name|UnicodeUtil
 operator|.
-name|utf8ToChars
+name|UTF8toUTF16
 argument_list|(
+name|input
+argument_list|,
 name|charsRef
 argument_list|)
 expr_stmt|;
