@@ -3228,8 +3228,9 @@ condition|)
 block|{
 name|lastTerm
 operator|=
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|term
 argument_list|)
@@ -3267,7 +3268,7 @@ throw|;
 block|}
 name|lastTerm
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|term
 argument_list|)
@@ -4791,8 +4792,9 @@ index|[
 name|i
 index|]
 operator|=
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|termsEnum
 operator|.

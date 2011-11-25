@@ -3966,8 +3966,9 @@ literal|null
 condition|?
 literal|null
 else|:
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|startTerm
 argument_list|)
@@ -8641,7 +8642,7 @@ condition|)
 block|{
 name|term
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|target
 argument_list|)
@@ -8821,7 +8822,7 @@ condition|)
 block|{
 name|term
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|target
 argument_list|)
@@ -10124,7 +10125,7 @@ argument_list|)
 expr_stmt|;
 name|term
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|target
 argument_list|)

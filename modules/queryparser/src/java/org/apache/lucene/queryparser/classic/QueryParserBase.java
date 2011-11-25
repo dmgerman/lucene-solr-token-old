@@ -1797,8 +1797,9 @@ name|Term
 argument_list|(
 name|field
 argument_list|,
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|bytes
 argument_list|)
@@ -1926,8 +1927,9 @@ name|Term
 argument_list|(
 name|field
 argument_list|,
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|bytes
 argument_list|)
@@ -2123,8 +2125,9 @@ name|Term
 argument_list|(
 name|field
 argument_list|,
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|bytes
 argument_list|)
@@ -2283,8 +2286,9 @@ name|Term
 argument_list|(
 name|field
 argument_list|,
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|bytes
 argument_list|)
@@ -2305,8 +2309,9 @@ name|Term
 argument_list|(
 name|field
 argument_list|,
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|bytes
 argument_list|)
@@ -2972,8 +2977,9 @@ argument_list|)
 throw|;
 block|}
 return|return
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|bytes
 argument_list|)

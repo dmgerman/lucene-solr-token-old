@@ -6026,7 +6026,7 @@ control|)
 block|{
 name|scratch
 operator|.
-name|copy
+name|copyInts
 argument_list|(
 name|pair
 operator|.
@@ -6105,8 +6105,9 @@ name|prefixes
 operator|.
 name|put
 argument_list|(
-operator|new
 name|IntsRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|scratch
 argument_list|)
@@ -6496,7 +6497,7 @@ comment|// clear isLeaf for all ancestors
 comment|//System.out.println("    keep");
 name|scratch
 operator|.
-name|copy
+name|copyInts
 argument_list|(
 name|prefix
 argument_list|)
@@ -11715,7 +11716,7 @@ break|break;
 block|}
 name|term
 operator|.
-name|copy
+name|copyChars
 argument_list|(
 name|w
 argument_list|)

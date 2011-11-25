@@ -1161,8 +1161,9 @@ argument_list|)
 throw|;
 block|}
 return|return
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|bytes
 argument_list|)

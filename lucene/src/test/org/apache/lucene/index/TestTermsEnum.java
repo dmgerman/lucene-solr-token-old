@@ -493,8 +493,9 @@ name|terms
 operator|.
 name|add
 argument_list|(
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|term
 argument_list|)
@@ -2160,8 +2161,9 @@ name|binarySearch
 argument_list|(
 name|termsArray
 argument_list|,
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|startTerm
 argument_list|)
@@ -4170,8 +4172,9 @@ argument_list|)
 expr_stmt|;
 name|t
 operator|=
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|validTerms
 index|[

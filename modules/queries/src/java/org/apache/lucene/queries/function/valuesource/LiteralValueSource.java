@@ -222,7 +222,7 @@ parameter_list|)
 block|{
 name|target
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|bytesRef
 argument_list|)

@@ -1303,8 +1303,9 @@ name|terms
 operator|.
 name|put
 argument_list|(
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|ref
 argument_list|)
@@ -3693,7 +3694,7 @@ condition|)
 block|{
 name|br
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|info
 operator|.
@@ -3782,7 +3783,7 @@ else|else
 block|{
 name|br
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|info
 operator|.
@@ -3806,7 +3807,7 @@ else|else
 block|{
 name|br
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|info
 operator|.
@@ -3884,7 +3885,7 @@ else|else
 block|{
 name|br
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|info
 operator|.

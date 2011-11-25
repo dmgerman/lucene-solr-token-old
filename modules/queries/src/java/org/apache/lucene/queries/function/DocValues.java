@@ -277,7 +277,7 @@ return|;
 block|}
 name|target
 operator|.
-name|copy
+name|copyChars
 argument_list|(
 name|s
 argument_list|)

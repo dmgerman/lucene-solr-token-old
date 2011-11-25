@@ -1313,8 +1313,9 @@ name|add
 argument_list|(
 name|text
 argument_list|,
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|spare
 argument_list|)

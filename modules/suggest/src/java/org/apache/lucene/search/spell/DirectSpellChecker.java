@@ -1559,8 +1559,9 @@ name|st
 operator|.
 name|term
 operator|=
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|candidateTerm
 argument_list|)

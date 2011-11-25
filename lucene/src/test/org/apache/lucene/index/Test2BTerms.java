@@ -395,8 +395,9 @@ name|savedTerms
 operator|.
 name|add
 argument_list|(
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|bytes
 argument_list|)
@@ -1315,8 +1316,9 @@ name|savedTerms
 operator|.
 name|add
 argument_list|(
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|term
 argument_list|)

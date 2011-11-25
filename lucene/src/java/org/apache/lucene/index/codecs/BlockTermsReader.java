@@ -433,8 +433,9 @@ name|field
 expr_stmt|;
 name|term
 operator|=
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|other
 operator|.
@@ -1834,7 +1835,7 @@ expr_stmt|;
 block|}
 name|term
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|indexEnum
 operator|.
@@ -2974,7 +2975,7 @@ literal|false
 expr_stmt|;
 name|term
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|target
 argument_list|)
@@ -3112,7 +3113,7 @@ name|ord
 assert|;
 name|term
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|indexEnum
 operator|.

@@ -753,7 +753,7 @@ return|;
 block|}
 name|scratchBytes
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|term
 argument_list|)
@@ -1311,7 +1311,7 @@ expr_stmt|;
 comment|// write field num
 name|lastTerm
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|term
 argument_list|)

@@ -976,13 +976,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// TODO: I don't think this actually needs a deep copy?
 specifier|final
 name|BytesRef
 name|before
 init|=
-operator|(
 name|BytesRef
-operator|)
+operator|.
+name|deepCopyOf
+argument_list|(
 name|ss
 operator|.
 name|getByOrd
@@ -993,9 +995,7 @@ literal|1
 argument_list|,
 name|bytesRef
 argument_list|)
-operator|.
-name|clone
-argument_list|()
+argument_list|)
 decl_stmt|;
 name|BytesRef
 name|after

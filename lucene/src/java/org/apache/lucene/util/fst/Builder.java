@@ -2021,7 +2021,7 @@ block|}
 comment|// save last input
 name|lastInput
 operator|.
-name|copy
+name|copyInts
 argument_list|(
 name|input
 argument_list|)

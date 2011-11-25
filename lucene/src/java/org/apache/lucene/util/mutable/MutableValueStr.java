@@ -92,7 +92,7 @@ name|exists
 expr_stmt|;
 name|value
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|s
 operator|.
@@ -119,7 +119,7 @@ name|v
 operator|.
 name|value
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|value
 argument_list|)

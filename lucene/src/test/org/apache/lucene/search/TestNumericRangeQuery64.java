@@ -3778,8 +3778,9 @@ expr_stmt|;
 block|}
 name|last
 operator|=
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|cur
 argument_list|)

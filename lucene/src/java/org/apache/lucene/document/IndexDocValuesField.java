@@ -563,8 +563,9 @@ condition|)
 block|{
 name|bytes
 operator|=
-operator|new
 name|BytesRef
+operator|.
+name|deepCopyOf
 argument_list|(
 name|value
 argument_list|)
@@ -574,7 +575,7 @@ else|else
 block|{
 name|bytes
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|value
 argument_list|)

@@ -1673,7 +1673,7 @@ parameter_list|)
 block|{
 name|bytesRef
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|missingValue
 argument_list|)

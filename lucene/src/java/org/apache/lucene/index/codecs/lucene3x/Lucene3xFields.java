@@ -1974,7 +1974,7 @@ name|downTo
 expr_stmt|;
 name|scratchTerm
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|termEnum
 operator|.
@@ -2299,7 +2299,7 @@ comment|// and index term, or, was in the term seek
 comment|// cache):
 name|scratchTerm
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|b2
 argument_list|)
@@ -2450,7 +2450,7 @@ else|else
 block|{
 name|scratchTerm
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|termEnum
 operator|.
@@ -3147,7 +3147,7 @@ argument_list|)
 expr_stmt|;
 name|scratchTerm
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|seekTermEnum
 operator|.
@@ -3568,7 +3568,7 @@ comment|// We hit EOF; try end-case surrogate dance: if we
 comment|// find an E, try swapping in S, backwards:
 name|scratchTerm
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|term
 argument_list|)
@@ -3644,7 +3644,7 @@ condition|)
 block|{
 name|scratchTerm
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|seekTermEnum
 operator|.
@@ -3731,7 +3731,7 @@ comment|// is fun -- just treat it like next, by pretending
 comment|// requested term was prev:
 name|prevTerm
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|term
 argument_list|)
@@ -4153,7 +4153,7 @@ block|}
 comment|// TODO: can we use STE's prevBuffer here?
 name|prevTerm
 operator|.
-name|copy
+name|copyBytes
 argument_list|(
 name|termEnum
 operator|.
