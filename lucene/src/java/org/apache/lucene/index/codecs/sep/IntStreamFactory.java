@@ -65,6 +65,7 @@ name|IntStreamFactory
 block|{
 DECL|method|openInput
 specifier|public
+specifier|abstract
 name|IntIndexInput
 name|openInput
 parameter_list|(
@@ -79,19 +80,7 @@ name|context
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-return|return
-name|openInput
-argument_list|(
-name|dir
-argument_list|,
-name|fileName
-argument_list|,
-name|context
-argument_list|)
-return|;
-block|}
-comment|//  public abstract IntIndexInput openInput(Directory dir, String fileName, IOContext context) throws IOException;
+function_decl|;
 DECL|method|createOutput
 specifier|public
 specifier|abstract
