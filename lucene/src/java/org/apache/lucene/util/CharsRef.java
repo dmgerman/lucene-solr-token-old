@@ -43,7 +43,7 @@ implements|,
 name|Cloneable
 block|{
 DECL|field|EMPTY_CHARS
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|char
