@@ -40,14 +40,6 @@ argument_list|>
 implements|,
 name|Cloneable
 block|{
-DECL|field|HASH_PRIME
-specifier|static
-specifier|final
-name|int
-name|HASH_PRIME
-init|=
-literal|31
-decl_stmt|;
 DECL|field|EMPTY_BYTES
 specifier|public
 specifier|static
@@ -480,7 +472,7 @@ name|hashCode
 parameter_list|()
 block|{
 name|int
-name|result
+name|hash
 init|=
 literal|0
 decl_stmt|;
@@ -507,11 +499,11 @@ name|i
 operator|++
 control|)
 block|{
-name|result
+name|hash
 operator|=
-name|HASH_PRIME
+literal|31
 operator|*
-name|result
+name|hash
 operator|+
 name|bytes
 index|[
@@ -520,7 +512,7 @@ index|]
 expr_stmt|;
 block|}
 return|return
-name|result
+name|hash
 return|;
 block|}
 annotation|@
@@ -545,6 +537,13 @@ return|return
 literal|false
 return|;
 block|}
+if|if
+condition|(
+name|other
+operator|instanceof
+name|BytesRef
+condition|)
+block|{
 return|return
 name|this
 operator|.
@@ -555,6 +554,10 @@ name|BytesRef
 operator|)
 name|other
 argument_list|)
+return|;
+block|}
+return|return
+literal|false
 return|;
 block|}
 comment|/** Interprets stored bytes as UTF8 bytes, returning the    *  resulting string */

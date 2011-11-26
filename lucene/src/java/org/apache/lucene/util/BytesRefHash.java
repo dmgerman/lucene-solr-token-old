@@ -1853,9 +1853,7 @@ condition|)
 block|{
 name|code
 operator|=
-name|BytesRef
-operator|.
-name|HASH_PRIME
+literal|31
 operator|*
 name|code
 operator|+
