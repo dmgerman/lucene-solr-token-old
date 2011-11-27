@@ -182,6 +182,7 @@ operator|-
 name|UNI_SUR_LOW_START
 decl_stmt|;
 comment|/** Encode characters from a char[] source, starting at    *  offset for length chars.  Returns a hash of the resulting bytes.  After encoding, result.offset will always be 0. */
+comment|// TODO: broken if incoming result.offset != 0
 DECL|method|UTF16toUTF8WithHash
 specifier|public
 specifier|static
@@ -731,6 +732,7 @@ name|hash
 return|;
 block|}
 comment|/** Encode characters from a char[] source, starting at    *  offset for length chars. After encoding, result.offset will always be 0.    */
+comment|// TODO: broken if incoming result.offset != 0
 DECL|method|UTF16toUTF8
 specifier|public
 specifier|static
@@ -1159,6 +1161,7 @@ name|upto
 expr_stmt|;
 block|}
 comment|/** Encode characters from this String, starting at offset    *  for length characters. After encoding, result.offset will always be 0.    */
+comment|// TODO: broken if incoming result.offset != 0
 DECL|method|UTF16toUTF8
 specifier|public
 specifier|static
@@ -2481,6 +2484,7 @@ return|return
 name|codePointCount
 return|;
 block|}
+comment|// TODO: broken if incoming result.offset != 0
 DECL|method|UTF8toUTF32
 specifier|public
 specifier|static
@@ -2497,6 +2501,7 @@ name|utf32
 parameter_list|)
 block|{
 comment|// pre-alloc for worst case
+comment|// TODO: ints cannot be null, should be an assert
 if|if
 condition|(
 name|utf32
@@ -3218,6 +3223,7 @@ argument_list|()
 return|;
 block|}
 comment|/**    * Interprets the given byte array as UTF-8 and converts to UTF-16. The {@link CharsRef} will be extended if     * it doesn't provide enough space to hold the worst case of each byte becoming a UTF-16 codepoint.    *<p>    * NOTE: Full characters are read, even if this reads past the length passed (and    * can result in an ArrayOutOfBoundsException if invalid UTF-8 is passed).    * Explicit checks for valid UTF-8 are not performed.     */
+comment|// TODO: broken if chars.offset != 0
 DECL|method|UTF8toUTF16
 specifier|public
 specifier|static
