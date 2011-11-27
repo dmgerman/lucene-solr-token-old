@@ -170,6 +170,8 @@ extends|extends
 name|BaseCharFilterFactory
 implements|implements
 name|ResourceLoaderAware
+implements|,
+name|MultiTermAwareComponent
 block|{
 DECL|field|normMap
 specifier|protected
@@ -665,6 +667,18 @@ literal|0
 argument_list|,
 name|writePos
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMultiTermComponent
+specifier|public
+name|Object
+name|getMultiTermComponent
+parameter_list|()
+block|{
+return|return
+name|this
 return|;
 block|}
 block|}
