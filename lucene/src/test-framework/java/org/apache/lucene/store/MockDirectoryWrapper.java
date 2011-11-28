@@ -56,6 +56,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -884,8 +893,13 @@ name|randomState
 operator|.
 name|nextInt
 argument_list|(
-literal|4
+literal|5
 argument_list|)
+decl_stmt|;
+name|String
+name|action
+init|=
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -894,6 +908,10 @@ operator|==
 literal|0
 condition|)
 block|{
+name|action
+operator|=
+literal|"deleted"
+expr_stmt|;
 name|deleteFile
 argument_list|(
 name|name
@@ -910,6 +928,10 @@ operator|==
 literal|1
 condition|)
 block|{
+name|action
+operator|=
+literal|"zeroed"
+expr_stmt|;
 comment|// Zero out file entirely
 name|long
 name|length
@@ -1008,6 +1030,10 @@ operator|==
 literal|2
 condition|)
 block|{
+name|action
+operator|=
+literal|"partially truncated"
+expr_stmt|;
 comment|// Partially Truncate the file:
 name|IndexOutput
 name|out
@@ -1044,8 +1070,26 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|damage
+operator|==
+literal|3
+condition|)
+block|{
+comment|// The file survived intact:
+name|action
+operator|=
+literal|"didn't change"
+expr_stmt|;
+block|}
 else|else
 block|{
+name|action
+operator|=
+literal|"fully truncated"
+expr_stmt|;
 comment|// Totally truncate the file to zero bytes
 name|deleteFile
 argument_list|(
@@ -1082,6 +1126,29 @@ name|out
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|LuceneTestCase
+operator|.
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"MockDirectoryWrapper: "
+operator|+
+name|action
+operator|+
+literal|" unsynced file: "
+operator|+
+name|name
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -2540,6 +2607,45 @@ condition|)
 block|{
 if|if
 condition|(
+name|IndexReader
+operator|.
+name|indexExists
+argument_list|(
+name|this
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|LuceneTestCase
+operator|.
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"\nNOTE: MockDirectoryWrapper: now crash"
+argument_list|)
+expr_stmt|;
+block|}
+name|unSyncedFiles
+operator|.
+name|remove
+argument_list|(
+literal|"segments.gen"
+argument_list|)
+expr_stmt|;
+comment|// otherwise we add minutes to the tests: LUCENE-3605
+name|crash
+argument_list|()
+expr_stmt|;
+comment|// corrumpt any unsynced-files
+if|if
+condition|(
 name|LuceneTestCase
 operator|.
 name|VERBOSE
@@ -2555,16 +2661,6 @@ literal|"\nNOTE: MockDirectoryWrapper: now run CheckIndex"
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|IndexReader
-operator|.
-name|indexExists
-argument_list|(
-name|this
-argument_list|)
-condition|)
-block|{
 name|_TestUtil
 operator|.
 name|checkIndex
