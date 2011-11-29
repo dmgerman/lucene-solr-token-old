@@ -634,7 +634,7 @@ literal|'A'
 operator|&&
 name|ch
 operator|<=
-literal|'Z'
+literal|'F'
 operator|)
 operator|||
 operator|(
@@ -644,7 +644,7 @@ literal|'a'
 operator|&&
 name|ch
 operator|<=
-literal|'z'
+literal|'f'
 operator|)
 return|;
 block|}
