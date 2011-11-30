@@ -1284,10 +1284,8 @@ name|getUniqueFieldCount
 parameter_list|()
 block|{
 return|return
-name|terms
-operator|.
-name|size
-argument_list|()
+operator|-
+literal|1
 return|;
 block|}
 block|}
