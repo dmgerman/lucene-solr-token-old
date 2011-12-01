@@ -132,8 +132,11 @@ condition|(
 name|writer
 operator|.
 name|infoStream
-operator|!=
-literal|null
+operator|.
+name|isEnabled
+argument_list|(
+literal|"FP"
+argument_list|)
 condition|)
 block|{
 name|writer
@@ -272,8 +275,11 @@ condition|(
 name|writer
 operator|.
 name|infoStream
-operator|!=
-literal|null
+operator|.
+name|isEnabled
+argument_list|(
+literal|"FP"
+argument_list|)
 condition|)
 block|{
 name|writer

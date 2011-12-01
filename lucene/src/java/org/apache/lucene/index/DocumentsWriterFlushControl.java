@@ -2002,8 +2002,11 @@ condition|(
 name|documentsWriter
 operator|.
 name|infoStream
-operator|!=
-literal|null
+operator|.
+name|isEnabled
+argument_list|(
+literal|"DWFC"
+argument_list|)
 condition|)
 block|{
 name|documentsWriter

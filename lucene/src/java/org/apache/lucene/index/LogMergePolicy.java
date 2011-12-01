@@ -197,6 +197,7 @@ name|boolean
 name|verbose
 parameter_list|()
 block|{
+specifier|final
 name|IndexWriter
 name|w
 init|=
@@ -212,8 +213,12 @@ literal|null
 operator|&&
 name|w
 operator|.
-name|verbose
-argument_list|()
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+literal|"LMP"
+argument_list|)
 return|;
 block|}
 comment|/** @see #setNoCFSRatio */
@@ -280,24 +285,11 @@ name|verbose
 argument_list|()
 condition|)
 block|{
-specifier|final
-name|InfoStream
-name|infoStream
-init|=
 name|writer
 operator|.
 name|get
 argument_list|()
 operator|.
-name|infoStream
-decl_stmt|;
-if|if
-condition|(
-name|infoStream
-operator|!=
-literal|null
-condition|)
-block|{
 name|infoStream
 operator|.
 name|message
@@ -307,7 +299,6 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**<p>Returns the number of segments that are merged at    * once and also controls the total number of segments    * allowed to accumulate in the index.</p> */

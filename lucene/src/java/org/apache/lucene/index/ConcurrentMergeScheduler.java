@@ -779,8 +779,12 @@ literal|null
 operator|&&
 name|writer
 operator|.
-name|verbose
-argument_list|()
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+literal|"CMS"
+argument_list|)
 return|;
 block|}
 comment|/**    * Outputs the given message - this method assumes {@link #verbose()} was    * called and returned true.    */
@@ -793,21 +797,8 @@ name|String
 name|message
 parameter_list|)
 block|{
-specifier|final
-name|InfoStream
-name|infoStream
-init|=
 name|writer
 operator|.
-name|infoStream
-decl_stmt|;
-if|if
-condition|(
-name|infoStream
-operator|!=
-literal|null
-condition|)
-block|{
 name|infoStream
 operator|.
 name|message
@@ -817,7 +808,6 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|initMergeThreadPriority
 specifier|private
