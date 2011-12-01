@@ -322,16 +322,6 @@ expr_stmt|;
 comment|// write counter
 name|out
 operator|.
-name|writeLong
-argument_list|(
-name|infos
-operator|.
-name|getGlobalFieldMapVersion
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
 name|writeInt
 argument_list|(
 name|infos

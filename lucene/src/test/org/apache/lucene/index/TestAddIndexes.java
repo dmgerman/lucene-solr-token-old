@@ -6466,7 +6466,7 @@ name|listAll
 argument_list|()
 argument_list|)
 argument_list|,
-literal|5
+literal|4
 argument_list|,
 name|dir
 operator|.
