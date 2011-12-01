@@ -54,7 +54,7 @@ name|suggest
 operator|.
 name|fst
 operator|.
-name|FSTLookup
+name|FSTCompletionLookup
 import|;
 end_import
 begin_import
@@ -200,7 +200,7 @@ name|Exception
 block|{
 name|runTest
 argument_list|(
-name|FSTLookup
+name|FSTCompletionLookup
 operator|.
 name|class
 argument_list|,
