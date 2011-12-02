@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index.codecs
+DECL|package|org.apache.lucene.index.codecs.lucene40
 package|package
 name|org
 operator|.
@@ -11,6 +11,8 @@ operator|.
 name|index
 operator|.
 name|codecs
+operator|.
+name|lucene40
 package|;
 end_package
 begin_import
@@ -147,6 +149,21 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|codecs
+operator|.
+name|FieldInfosReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|values
 operator|.
 name|ValueType
@@ -198,10 +215,10 @@ begin_comment
 comment|/**  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|DefaultFieldInfosReader
+DECL|class|Lucene40FieldInfosReader
 specifier|public
 class|class
-name|DefaultFieldInfosReader
+name|Lucene40FieldInfosReader
 extends|extends
 name|FieldInfosReader
 block|{
@@ -211,7 +228,7 @@ specifier|final
 name|int
 name|FORMAT_MINIMUM
 init|=
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|FORMAT_START
 decl_stmt|;
@@ -246,7 +263,7 @@ name|segmentName
 argument_list|,
 literal|""
 argument_list|,
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|FIELD_INFOS_EXTENSION
 argument_list|)
@@ -306,7 +323,7 @@ name|format
 argument_list|,
 name|FORMAT_MINIMUM
 argument_list|,
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|FORMAT_CURRENT
 argument_list|)
@@ -316,7 +333,7 @@ if|if
 condition|(
 name|format
 operator|<
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|FORMAT_CURRENT
 condition|)
@@ -331,7 +348,7 @@ name|format
 argument_list|,
 name|FORMAT_MINIMUM
 argument_list|,
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|FORMAT_CURRENT
 argument_list|)
@@ -386,7 +403,7 @@ name|fieldNumber
 init|=
 name|format
 operator|<=
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|FORMAT_FLEX
 condition|?
@@ -411,7 +428,7 @@ init|=
 operator|(
 name|bits
 operator|&
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|IS_INDEXED
 operator|)
@@ -424,7 +441,7 @@ init|=
 operator|(
 name|bits
 operator|&
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|STORE_TERMVECTOR
 operator|)
@@ -437,7 +454,7 @@ init|=
 operator|(
 name|bits
 operator|&
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|STORE_POSITIONS_WITH_TERMVECTOR
 operator|)
@@ -450,7 +467,7 @@ init|=
 operator|(
 name|bits
 operator|&
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|STORE_OFFSET_WITH_TERMVECTOR
 operator|)
@@ -463,7 +480,7 @@ init|=
 operator|(
 name|bits
 operator|&
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|OMIT_NORMS
 operator|)
@@ -476,7 +493,7 @@ init|=
 operator|(
 name|bits
 operator|&
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|STORE_PAYLOADS
 operator|)
@@ -492,7 +509,7 @@ condition|(
 operator|(
 name|bits
 operator|&
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|OMIT_TERM_FREQ_AND_POSITIONS
 operator|)
@@ -513,7 +530,7 @@ condition|(
 operator|(
 name|bits
 operator|&
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|OMIT_POSITIONS
 operator|)
@@ -525,7 +542,7 @@ if|if
 condition|(
 name|format
 operator|<=
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|FORMAT_OMIT_POSITIONS
 condition|)
@@ -615,7 +632,7 @@ if|if
 condition|(
 name|format
 operator|<=
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|FORMAT_FLEX
 condition|)
@@ -915,7 +932,7 @@ name|name
 argument_list|,
 literal|""
 argument_list|,
-name|DefaultFieldInfosWriter
+name|Lucene40FieldInfosWriter
 operator|.
 name|FIELD_INFOS_EXTENSION
 argument_list|)

@@ -30,7 +30,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|DefaultSegmentInfosFormat
+name|SegmentInfosWriter
 import|;
 end_import
 begin_import
@@ -45,7 +45,9 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|SegmentInfosWriter
+name|lucene40
+operator|.
+name|Lucene40SegmentInfosFormat
 import|;
 end_import
 begin_class
@@ -54,7 +56,7 @@ specifier|public
 class|class
 name|AppendingSegmentInfosFormat
 extends|extends
-name|DefaultSegmentInfosFormat
+name|Lucene40SegmentInfosFormat
 block|{
 DECL|field|writer
 specifier|private

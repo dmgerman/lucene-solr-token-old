@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index.codecs
+DECL|package|org.apache.lucene.index.codecs.lucene40
 package|package
 name|org
 operator|.
@@ -11,6 +11,8 @@ operator|.
 name|index
 operator|.
 name|codecs
+operator|.
+name|lucene40
 package|;
 end_package
 begin_comment
@@ -150,6 +152,21 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|codecs
+operator|.
+name|StoredFieldsReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|AlreadyClosedException
@@ -240,11 +257,11 @@ begin_comment
 comment|/**  * Class responsible for access to stored document fields.  *<p/>  * It uses&lt;segment&gt;.fdt and&lt;segment&gt;.fdx; files.  *   * @lucene.internal  */
 end_comment
 begin_class
-DECL|class|DefaultStoredFieldsReader
+DECL|class|Lucene40StoredFieldsReader
 specifier|public
 specifier|final
 class|class
-name|DefaultStoredFieldsReader
+name|Lucene40StoredFieldsReader
 extends|extends
 name|StoredFieldsReader
 implements|implements
@@ -312,7 +329,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|DefaultStoredFieldsReader
+name|Lucene40StoredFieldsReader
 name|clone
 parameter_list|()
 block|{
@@ -321,7 +338,7 @@ argument_list|()
 expr_stmt|;
 return|return
 operator|new
-name|DefaultStoredFieldsReader
+name|Lucene40StoredFieldsReader
 argument_list|(
 name|fieldInfos
 argument_list|,
@@ -379,7 +396,7 @@ name|segment
 argument_list|,
 literal|""
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELDS_INDEX_EXTENSION
 argument_list|)
@@ -412,7 +429,7 @@ if|if
 condition|(
 name|format
 operator|<
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FORMAT_MINIMUM
 condition|)
@@ -424,11 +441,11 @@ name|idxStream
 argument_list|,
 name|format
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FORMAT_MINIMUM
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FORMAT_CURRENT
 argument_list|)
@@ -437,7 +454,7 @@ if|if
 condition|(
 name|format
 operator|>
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FORMAT_CURRENT
 condition|)
@@ -449,11 +466,11 @@ name|idxStream
 argument_list|,
 name|format
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FORMAT_MINIMUM
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FORMAT_CURRENT
 argument_list|)
@@ -469,9 +486,9 @@ expr_stmt|;
 block|}
 block|}
 comment|// Used only by clone
-DECL|method|DefaultStoredFieldsReader
+DECL|method|Lucene40StoredFieldsReader
 specifier|private
-name|DefaultStoredFieldsReader
+name|Lucene40StoredFieldsReader
 parameter_list|(
 name|FieldInfos
 name|fieldInfos
@@ -538,9 +555,9 @@ operator|=
 name|indexStream
 expr_stmt|;
 block|}
-DECL|method|DefaultStoredFieldsReader
+DECL|method|Lucene40StoredFieldsReader
 specifier|public
-name|DefaultStoredFieldsReader
+name|Lucene40StoredFieldsReader
 parameter_list|(
 name|Directory
 name|d
@@ -608,7 +625,7 @@ name|segment
 argument_list|,
 literal|""
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELDS_EXTENSION
 argument_list|)
@@ -628,7 +645,7 @@ name|segment
 argument_list|,
 literal|""
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELDS_INDEX_EXTENSION
 argument_list|)
@@ -655,7 +672,7 @@ if|if
 condition|(
 name|format
 operator|<
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FORMAT_MINIMUM
 condition|)
@@ -667,11 +684,11 @@ name|indexStream
 argument_list|,
 name|format
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FORMAT_MINIMUM
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FORMAT_CURRENT
 argument_list|)
@@ -680,7 +697,7 @@ if|if
 condition|(
 name|format
 operator|>
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FORMAT_CURRENT
 condition|)
@@ -692,11 +709,11 @@ name|indexStream
 argument_list|,
 name|format
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FORMAT_MINIMUM
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FORMAT_CURRENT
 argument_list|)
@@ -1037,11 +1054,11 @@ assert|assert
 name|bits
 operator|<=
 operator|(
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_NUMERIC_MASK
 operator||
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_BINARY
 operator|)
@@ -1130,7 +1147,7 @@ name|numeric
 init|=
 name|bits
 operator|&
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_NUMERIC_MASK
 decl_stmt|;
@@ -1147,7 +1164,7 @@ name|numeric
 condition|)
 block|{
 case|case
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_NUMERIC_INT
 case|:
@@ -1165,7 +1182,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 case|case
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_NUMERIC_LONG
 case|:
@@ -1183,7 +1200,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 case|case
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_NUMERIC_FLOAT
 case|:
@@ -1206,7 +1223,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 case|case
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_NUMERIC_DOUBLE
 case|:
@@ -1282,7 +1299,7 @@ condition|(
 operator|(
 name|bits
 operator|&
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_BINARY
 operator|)
@@ -1349,7 +1366,7 @@ name|numeric
 init|=
 name|bits
 operator|&
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_NUMERIC_MASK
 decl_stmt|;
@@ -1366,12 +1383,12 @@ name|numeric
 condition|)
 block|{
 case|case
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_NUMERIC_INT
 case|:
 case|case
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_NUMERIC_FLOAT
 case|:
@@ -1382,12 +1399,12 @@ argument_list|()
 expr_stmt|;
 return|return;
 case|case
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_NUMERIC_LONG
 case|:
 case|case
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELD_IS_NUMERIC_DOUBLE
 case|:
@@ -1628,7 +1645,7 @@ argument_list|()
 argument_list|,
 literal|""
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELDS_INDEX_EXTENSION
 argument_list|)
@@ -1649,7 +1666,7 @@ argument_list|()
 argument_list|,
 literal|""
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELDS_EXTENSION
 argument_list|)
@@ -1673,7 +1690,7 @@ name|name
 argument_list|,
 literal|""
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELDS_INDEX_EXTENSION
 argument_list|)
@@ -1693,7 +1710,7 @@ name|name
 argument_list|,
 literal|""
 argument_list|,
-name|DefaultStoredFieldsWriter
+name|Lucene40StoredFieldsWriter
 operator|.
 name|FIELDS_EXTENSION
 argument_list|)

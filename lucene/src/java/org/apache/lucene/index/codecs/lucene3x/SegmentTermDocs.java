@@ -95,7 +95,7 @@ name|codecs
 operator|.
 name|lucene40
 operator|.
-name|DefaultSkipListReader
+name|Lucene40SkipListReader
 import|;
 end_import
 begin_import
@@ -190,7 +190,7 @@ name|maxSkipLevels
 decl_stmt|;
 DECL|field|skipListReader
 specifier|private
-name|DefaultSkipListReader
+name|Lucene40SkipListReader
 name|skipListReader
 decl_stmt|;
 DECL|field|freqBasePointer
@@ -974,7 +974,7 @@ condition|)
 name|skipListReader
 operator|=
 operator|new
-name|DefaultSkipListReader
+name|Lucene40SkipListReader
 argument_list|(
 operator|(
 name|IndexInput

@@ -1456,7 +1456,7 @@ name|boolean
 name|skipped
 decl_stmt|;
 DECL|field|skipper
-name|DefaultSkipListReader
+name|Lucene40SkipListReader
 name|skipper
 decl_stmt|;
 DECL|method|SegmentDocsEnum
@@ -2193,7 +2193,7 @@ comment|// This is the first time this enum has ever been used for skipping -- d
 name|skipper
 operator|=
 operator|new
-name|DefaultSkipListReader
+name|Lucene40SkipListReader
 argument_list|(
 operator|(
 name|IndexInput
@@ -2372,7 +2372,7 @@ name|boolean
 name|skipped
 decl_stmt|;
 DECL|field|skipper
-name|DefaultSkipListReader
+name|Lucene40SkipListReader
 name|skipper
 decl_stmt|;
 DECL|field|lazyProxPointer
@@ -2716,7 +2716,7 @@ comment|// This is the first time this enum has ever been used for skipping -- d
 name|skipper
 operator|=
 operator|new
-name|DefaultSkipListReader
+name|Lucene40SkipListReader
 argument_list|(
 operator|(
 name|IndexInput
@@ -3055,7 +3055,7 @@ name|boolean
 name|skipped
 decl_stmt|;
 DECL|field|skipper
-name|DefaultSkipListReader
+name|Lucene40SkipListReader
 name|skipper
 decl_stmt|;
 DECL|field|payload
@@ -3425,7 +3425,7 @@ comment|// This is the first time this enum has ever been used for skipping -- d
 name|skipper
 operator|=
 operator|new
-name|DefaultSkipListReader
+name|Lucene40SkipListReader
 argument_list|(
 operator|(
 name|IndexInput

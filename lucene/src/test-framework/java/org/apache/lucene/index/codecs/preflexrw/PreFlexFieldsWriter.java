@@ -211,7 +211,7 @@ name|codecs
 operator|.
 name|lucene40
 operator|.
-name|DefaultSkipListWriter
+name|Lucene40SkipListWriter
 import|;
 end_import
 begin_import
@@ -281,7 +281,7 @@ decl_stmt|;
 DECL|field|skipListWriter
 specifier|private
 specifier|final
-name|DefaultSkipListWriter
+name|Lucene40SkipListWriter
 name|skipListWriter
 decl_stmt|;
 DECL|field|totalNumDocs
@@ -476,7 +476,7 @@ block|}
 name|skipListWriter
 operator|=
 operator|new
-name|DefaultSkipListWriter
+name|Lucene40SkipListWriter
 argument_list|(
 name|termsOut
 operator|.

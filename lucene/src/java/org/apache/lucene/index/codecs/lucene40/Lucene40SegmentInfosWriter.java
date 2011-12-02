@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index.codecs
+DECL|package|org.apache.lucene.index.codecs.lucene40
 package|package
 name|org
 operator|.
@@ -11,6 +11,8 @@ operator|.
 name|index
 operator|.
 name|codecs
+operator|.
+name|lucene40
 package|;
 end_package
 begin_comment
@@ -69,6 +71,21 @@ operator|.
 name|index
 operator|.
 name|SegmentInfos
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|codecs
+operator|.
+name|SegmentInfosWriter
 import|;
 end_import
 begin_import
@@ -153,78 +170,13 @@ begin_comment
 comment|/**  * Default implementation of {@link SegmentInfosWriter}.  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|DefaultSegmentInfosWriter
+DECL|class|Lucene40SegmentInfosWriter
 specifier|public
 class|class
-name|DefaultSegmentInfosWriter
+name|Lucene40SegmentInfosWriter
 extends|extends
 name|SegmentInfosWriter
 block|{
-comment|/** This format adds optional per-segment String    *  diagnostics storage, and switches userData to Map */
-DECL|field|FORMAT_DIAGNOSTICS
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|FORMAT_DIAGNOSTICS
-init|=
-operator|-
-literal|9
-decl_stmt|;
-comment|/** Each segment records whether it has term vectors */
-DECL|field|FORMAT_HAS_VECTORS
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|FORMAT_HAS_VECTORS
-init|=
-operator|-
-literal|10
-decl_stmt|;
-comment|/** Each segment records the Lucene version that created it. */
-DECL|field|FORMAT_3_1
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|FORMAT_3_1
-init|=
-operator|-
-literal|11
-decl_stmt|;
-comment|/** Each segment records whether its postings are written    *  in the new flex format */
-DECL|field|FORMAT_4_0
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|FORMAT_4_0
-init|=
-operator|-
-literal|12
-decl_stmt|;
-comment|/** This must always point to the most recent file format.    * whenever you add a new format, make it 1 smaller (negative version logic)! */
-comment|// TODO: move this, as its currently part of required preamble
-DECL|field|FORMAT_CURRENT
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|FORMAT_CURRENT
-init|=
-name|FORMAT_4_0
-decl_stmt|;
-comment|/** This must always point to the first supported file format. */
-DECL|field|FORMAT_MINIMUM
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|FORMAT_MINIMUM
-init|=
-name|FORMAT_DIAGNOSTICS
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|writeInfos
@@ -289,6 +241,8 @@ name|out
 operator|.
 name|writeInt
 argument_list|(
+name|SegmentInfos
+operator|.
 name|FORMAT_CURRENT
 argument_list|)
 expr_stmt|;

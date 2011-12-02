@@ -414,7 +414,7 @@ specifier|final
 name|String
 name|id
 init|=
-name|DefaultDocValuesConsumer
+name|DocValuesWriterBase
 operator|.
 name|docValuesId
 argument_list|(

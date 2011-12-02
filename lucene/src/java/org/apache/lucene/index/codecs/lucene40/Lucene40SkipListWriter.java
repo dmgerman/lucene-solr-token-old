@@ -68,10 +68,10 @@ begin_comment
 comment|/**  * Implements the skip list writer for the default posting list format  * that stores positions and payloads.  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|DefaultSkipListWriter
+DECL|class|Lucene40SkipListWriter
 specifier|public
 class|class
-name|DefaultSkipListWriter
+name|Lucene40SkipListWriter
 extends|extends
 name|MultiLevelSkipListWriter
 block|{
@@ -134,9 +134,9 @@ specifier|private
 name|long
 name|curProxPointer
 decl_stmt|;
-DECL|method|DefaultSkipListWriter
+DECL|method|Lucene40SkipListWriter
 specifier|public
-name|DefaultSkipListWriter
+name|Lucene40SkipListWriter
 parameter_list|(
 name|int
 name|skipInterval
