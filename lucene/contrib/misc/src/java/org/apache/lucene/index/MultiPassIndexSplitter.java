@@ -156,7 +156,7 @@ name|Version
 name|version
 parameter_list|,
 name|IndexReader
-name|input
+name|in
 parameter_list|,
 name|Directory
 index|[]
@@ -191,11 +191,11 @@ throw|;
 block|}
 if|if
 condition|(
-name|input
+name|in
 operator|==
 literal|null
 operator|||
-name|input
+name|in
 operator|.
 name|numDocs
 argument_list|()
@@ -221,14 +221,15 @@ decl_stmt|;
 comment|// wrap a potentially read-only input
 comment|// this way we don't have to preserve original deletions because neither
 comment|// deleteDocument(int) or undeleteAll() is applied to the wrapped input index.
+name|FakeDeleteIndexReader
 name|input
-operator|=
+init|=
 operator|new
 name|FakeDeleteIndexReader
 argument_list|(
-name|input
+name|in
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|int
 name|maxDoc
 init|=
@@ -993,7 +994,7 @@ name|in
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|doUndeleteAll
+name|undeleteAll
 argument_list|()
 expr_stmt|;
 comment|// initialize main bitset
@@ -1013,13 +1014,9 @@ name|cardinality
 argument_list|()
 return|;
 block|}
-comment|/**      * Just removes our overlaid deletions - does not undelete the original      * deletions.      */
-annotation|@
-name|Override
-DECL|method|doUndeleteAll
-specifier|protected
+DECL|method|undeleteAll
 name|void
-name|doUndeleteAll
+name|undeleteAll
 parameter_list|()
 block|{
 specifier|final
@@ -1112,12 +1109,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|doDelete
-specifier|protected
+DECL|method|deleteDocument
 name|void
-name|doDelete
+name|deleteDocument
 parameter_list|(
 name|int
 name|n
