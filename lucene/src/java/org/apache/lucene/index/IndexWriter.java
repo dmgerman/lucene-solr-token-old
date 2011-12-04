@@ -2132,9 +2132,7 @@ assert|;
 name|sr
 operator|.
 name|doCommit
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// Must checkpoint w/ deleter, because this
 comment|// segment reader will have created new _X_N.del
@@ -2238,9 +2236,7 @@ assert|;
 name|sr
 operator|.
 name|doCommit
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// Must checkpoint w/ deleter, because this
 comment|// segment reader will have created new _X_N.del
