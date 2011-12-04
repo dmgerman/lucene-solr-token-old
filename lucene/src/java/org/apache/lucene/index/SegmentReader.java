@@ -290,8 +290,7 @@ name|liveDocsDirty
 init|=
 literal|false
 decl_stmt|;
-comment|// TODO: we should move this tracking into SegmentInfo;
-comment|// this way SegmentInfo.toString shows pending deletes
+comment|// nocommit: move the whole modification stuff to IW
 DECL|field|pendingDeleteCount
 specifier|private
 name|int
@@ -321,6 +320,7 @@ specifier|private
 name|int
 name|rollbackPendingDeleteCount
 decl_stmt|;
+comment|// end nocommit
 DECL|field|core
 name|SegmentCoreReaders
 name|core
