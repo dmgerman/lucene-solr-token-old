@@ -315,6 +315,9 @@ literal|4
 operator|+
 name|normCount
 operator|*
+operator|(
+name|long
+operator|)
 name|numDocs
 operator|!=
 name|out
@@ -334,6 +337,9 @@ literal|4
 operator|+
 name|normCount
 operator|*
+operator|(
+name|long
+operator|)
 name|numDocs
 operator|)
 operator|+
