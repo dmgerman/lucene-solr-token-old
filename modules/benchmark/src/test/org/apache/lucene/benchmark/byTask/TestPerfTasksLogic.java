@@ -527,6 +527,19 @@ operator|.
 name|BytesRef
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|_TestUtil
+import|;
+end_import
 begin_comment
 comment|/**  * Test very simply that perf tasks - simple algorithms - are doing what they should.  */
 end_comment
@@ -2332,10 +2345,14 @@ condition|)
 block|{
 name|docs
 operator|=
-name|termsEnum
+name|_TestUtil
 operator|.
 name|docs
 argument_list|(
+name|random
+argument_list|,
+name|termsEnum
+argument_list|,
 name|MultiFields
 operator|.
 name|getLiveDocs
@@ -2344,6 +2361,8 @@ name|reader
 argument_list|)
 argument_list|,
 name|docs
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 while|while

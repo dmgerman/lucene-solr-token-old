@@ -554,6 +554,13 @@ name|int
 name|freq
 parameter_list|()
 block|{
+assert|assert
+name|indexOptions
+operator|!=
+name|IndexOptions
+operator|.
+name|DOCS_ONLY
+assert|;
 return|return
 name|freq
 return|;
@@ -609,10 +616,6 @@ block|{
 name|doc
 operator|+=
 name|docCode
-expr_stmt|;
-name|freq
-operator|=
-literal|1
 expr_stmt|;
 block|}
 else|else
