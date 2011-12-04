@@ -203,7 +203,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|//   ant compile-test
+comment|//   ant test -Dtest.slow=true -Dtests.heapsize=8g
 end_comment
 begin_comment
 comment|//
@@ -215,6 +215,10 @@ begin_comment
 comment|//
 end_comment
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|UseNoMemoryExpensiveCodec
 DECL|class|Test2BTerms
 specifier|public
 class|class
@@ -636,10 +640,7 @@ block|}
 block|}
 block|}
 annotation|@
-name|Ignore
-argument_list|(
-literal|"Takes ~4 hours to run on a fast machine!!  And requires that you don't use PreFlex codec."
-argument_list|)
+name|Slow
 DECL|method|test2BTerms
 specifier|public
 name|void
@@ -668,10 +669,19 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"thist test cannot run with PreFlex codec"
+literal|"this test cannot run with PreFlex codec"
 argument_list|)
 throw|;
 block|}
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Starting Test2B"
+argument_list|)
+expr_stmt|;
 specifier|final
 name|long
 name|TERM_COUNT
