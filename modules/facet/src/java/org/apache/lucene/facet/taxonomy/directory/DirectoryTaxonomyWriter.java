@@ -1386,6 +1386,8 @@ argument_list|(
 name|delimiter
 argument_list|)
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -1550,6 +1552,8 @@ argument_list|,
 name|prefixLen
 argument_list|)
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -2640,6 +2644,8 @@ argument_list|(
 name|liveDocs
 argument_list|,
 name|docsEnum
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|docsEnum
@@ -3260,6 +3266,8 @@ name|otherdocsEnum
 index|[
 name|i
 index|]
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|otherdocsEnum
@@ -3351,6 +3359,8 @@ name|mainreader
 argument_list|)
 argument_list|,
 name|mainde
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|mainde
@@ -3431,6 +3441,8 @@ name|otherdocsEnum
 index|[
 name|i
 index|]
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|otherdocsEnum

@@ -315,6 +315,8 @@ argument_list|,
 name|fieldName
 argument_list|,
 name|bytesRef
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -408,6 +410,8 @@ argument_list|,
 name|fieldName
 argument_list|,
 name|bytesRef
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if

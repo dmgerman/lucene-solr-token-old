@@ -371,6 +371,8 @@ argument_list|(
 name|acceptDocs
 argument_list|,
 name|docs
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|int
@@ -579,6 +581,8 @@ argument_list|(
 name|acceptDocs
 argument_list|,
 name|docs
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|int

@@ -1394,6 +1394,8 @@ name|bytes
 argument_list|()
 argument_list|,
 name|state
+argument_list|,
+literal|false
 argument_list|)
 operator|!=
 literal|null
