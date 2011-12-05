@@ -176,9 +176,7 @@ init|=
 literal|0
 decl_stmt|;
 comment|/** norms header placeholder */
-comment|// nocommit: not public
 DECL|field|NORMS_HEADER
-specifier|public
 specifier|static
 specifier|final
 name|byte
@@ -198,6 +196,15 @@ block|,
 operator|-
 literal|1
 block|}
+decl_stmt|;
+comment|/** Extension of norms file */
+DECL|field|NORMS_EXTENSION
+specifier|static
+specifier|final
+name|String
+name|NORMS_EXTENSION
+init|=
+literal|"nrm"
 decl_stmt|;
 DECL|method|Lucene40NormsWriter
 specifier|public
@@ -227,8 +234,6 @@ name|segment
 argument_list|,
 literal|""
 argument_list|,
-name|IndexFileNames
-operator|.
 name|NORMS_EXTENSION
 argument_list|)
 decl_stmt|;
