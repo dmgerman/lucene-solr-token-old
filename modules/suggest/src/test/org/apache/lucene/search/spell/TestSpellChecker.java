@@ -623,8 +623,6 @@ operator|.
 name|open
 argument_list|(
 name|userindex
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|spellChecker
@@ -839,8 +837,6 @@ operator|.
 name|open
 argument_list|(
 name|userindex
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|Directory
@@ -966,8 +962,6 @@ operator|.
 name|open
 argument_list|(
 name|userindex
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|Directory
@@ -1072,8 +1066,6 @@ operator|.
 name|open
 argument_list|(
 name|userindex
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|spellChecker
@@ -2165,8 +2157,6 @@ operator|.
 name|open
 argument_list|(
 name|spellindex
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|int
@@ -2210,8 +2200,6 @@ operator|.
 name|open
 argument_list|(
 name|userindex
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|spellChecker
@@ -2458,8 +2446,6 @@ operator|.
 name|open
 argument_list|(
 name|userindex
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|spellChecker
