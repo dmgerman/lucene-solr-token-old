@@ -951,6 +951,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|// TODO: this relies upon filenames
 name|assertFalse
 argument_list|(
 name|files
@@ -961,6 +962,16 @@ operator|.
 name|endsWith
 argument_list|(
 literal|".nrm"
+argument_list|)
+operator|||
+name|files
+index|[
+name|i
+index|]
+operator|.
+name|endsWith
+argument_list|(
+literal|".len"
 argument_list|)
 argument_list|)
 expr_stmt|;
