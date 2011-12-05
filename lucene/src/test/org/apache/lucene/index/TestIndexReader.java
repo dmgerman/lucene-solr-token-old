@@ -470,8 +470,6 @@ operator|.
 name|open
 argument_list|(
 name|d
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -723,8 +721,6 @@ operator|.
 name|open
 argument_list|(
 name|d
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|Collection
@@ -1251,8 +1247,6 @@ operator|.
 name|open
 argument_list|(
 name|d
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|fieldNames
@@ -2320,8 +2314,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|Document
@@ -2495,8 +2487,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|doc2
@@ -2759,8 +2749,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|reader1
@@ -2889,8 +2877,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -2996,8 +2982,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -3120,8 +3104,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -3195,8 +3177,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -3268,8 +3248,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|fail
@@ -3299,8 +3277,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|fail
@@ -4719,8 +4695,6 @@ operator|.
 name|open
 argument_list|(
 name|d
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|IndexCommit
@@ -5048,8 +5022,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|fail
@@ -5316,8 +5288,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -5526,8 +5496,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|IndexReader
@@ -5762,8 +5730,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|IndexReader
@@ -5996,10 +5962,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|null
-argument_list|,
-literal|true
 argument_list|,
 operator|-
 literal|1
@@ -6277,8 +6239,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertTrue

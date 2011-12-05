@@ -456,8 +456,6 @@ operator|.
 name|open
 argument_list|(
 name|fsDirDest
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -553,8 +551,6 @@ operator|.
 name|open
 argument_list|(
 name|fsDirDest2
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -604,8 +600,6 @@ operator|.
 name|open
 argument_list|(
 name|fsDir
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals

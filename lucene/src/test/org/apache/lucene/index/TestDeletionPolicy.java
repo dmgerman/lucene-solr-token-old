@@ -480,8 +480,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1425,8 +1423,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|reader
@@ -1934,10 +1930,6 @@ operator|.
 name|open
 argument_list|(
 name|commit
-argument_list|,
-literal|null
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|r
@@ -1982,8 +1974,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|reader
@@ -2391,8 +2381,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 comment|// Still merged, still 11 docs
@@ -2491,8 +2479,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 comment|// Not fully merged because we rolled it back, and now only
@@ -2568,8 +2554,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2644,8 +2628,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2688,8 +2670,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -2973,8 +2953,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|reader
@@ -3243,8 +3221,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|reader
@@ -3324,7 +3300,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/*    * Test a deletion policy that keeps last N commits    * around, through creates.    */
-comment|/* nocommit: fix this test, I don't understand it!   public void testKeepLastNDeletionPolicyWithCreates() throws IOException {          final int N = 10;      for(int pass=0;pass<2;pass++) {        boolean useCompoundFile = (pass % 2) != 0;        KeepLastNDeletionPolicy policy = new KeepLastNDeletionPolicy(N);        Directory dir = newDirectory();       IndexWriterConfig conf = newIndexWriterConfig(           TEST_VERSION_CURRENT, new MockAnalyzer(random))           .setOpenMode(OpenMode.CREATE).setIndexDeletionPolicy(policy)           .setMaxBufferedDocs(10);       MergePolicy mp = conf.getMergePolicy();       if (mp instanceof LogMergePolicy) {         ((LogMergePolicy) mp).setUseCompoundFile(useCompoundFile);       }       IndexWriter writer = new IndexWriter(dir, conf);       writer.close();       Term searchTerm = new Term("content", "aaa");               Query query = new TermQuery(searchTerm);        for(int i=0;i<N+1;i++) {          conf = newIndexWriterConfig(             TEST_VERSION_CURRENT, new MockAnalyzer(random))             .setOpenMode(OpenMode.APPEND).setIndexDeletionPolicy(policy)             .setMaxBufferedDocs(10);         mp = conf.getMergePolicy();         if (mp instanceof LogMergePolicy) {           ((LogMergePolicy) mp).setUseCompoundFile(useCompoundFile);         }         writer = new IndexWriter(dir, conf);         for(int j=0;j<17;j++) {           addDoc(writer);         }         // this is a commit         writer.close();         IndexReader reader = IndexReader.open(dir, policy, false);         reader.deleteDocument(3);         IndexSearcher searcher = newSearcher(reader);         ScoreDoc[] hits = searcher.search(query, null, 1000).scoreDocs;         assertEquals(16, hits.length);         // this is a commit         reader.close();         searcher.close();          writer = new IndexWriter(dir, newIndexWriterConfig(             TEST_VERSION_CURRENT, new MockAnalyzer(random))             .setOpenMode(OpenMode.CREATE).setIndexDeletionPolicy(policy));         // This will not commit: there are no changes         // pending because we opened for "create":         writer.close();       }        assertEquals(3*(N+1), policy.numOnInit);       assertEquals(3*(N+1)+1, policy.numOnCommit);        IndexReader rwReader = IndexReader.open(dir, false);       IndexSearcher searcher = new IndexSearcher(rwReader);       ScoreDoc[] hits = searcher.search(query, null, 1000).scoreDocs;       assertEquals(0, hits.length);        // Simplistic check: just verify only the past N segments_N's still       // exist, and, I can open a reader on each:       long gen = SegmentInfos.getCurrentSegmentGeneration(dir);        dir.deleteFile(IndexFileNames.SEGMENTS_GEN);       int expectedCount = 0;              searcher.close();       rwReader.close();        for(int i=0;i<N+1;i++) {         try {           IndexReader reader = IndexReader.open(dir, true);            // Work backwards in commits on what the expected           // count should be.           searcher = newSearcher(reader);           hits = searcher.search(query, null, 1000).scoreDocs;           assertEquals(expectedCount, hits.length);           searcher.close();           if (expectedCount == 0) {             expectedCount = 16;           } else if (expectedCount == 16) {             expectedCount = 17;           } else if (expectedCount == 17) {             expectedCount = 0;           }           reader.close();           if (i == N) {             fail("should have failed on commits before last " + N);           }         } catch (IOException e) {           if (i != N) {             throw e;           }         }         if (i< N) {           dir.deleteFile(IndexFileNames.fileNameFromGeneration(IndexFileNames.SEGMENTS, "", gen));         }         gen--;       }              dir.close();     }   }   */
+comment|/* nocommit: fix this test, I don't understand it!   public void testKeepLastNDeletionPolicyWithCreates() throws IOException {          final int N = 10;      for(int pass=0;pass<2;pass++) {        boolean useCompoundFile = (pass % 2) != 0;        KeepLastNDeletionPolicy policy = new KeepLastNDeletionPolicy(N);        Directory dir = newDirectory();       IndexWriterConfig conf = newIndexWriterConfig(           TEST_VERSION_CURRENT, new MockAnalyzer(random))           .setOpenMode(OpenMode.CREATE).setIndexDeletionPolicy(policy)           .setMaxBufferedDocs(10);       MergePolicy mp = conf.getMergePolicy();       if (mp instanceof LogMergePolicy) {         ((LogMergePolicy) mp).setUseCompoundFile(useCompoundFile);       }       IndexWriter writer = new IndexWriter(dir, conf);       writer.close();       Term searchTerm = new Term("content", "aaa");               Query query = new TermQuery(searchTerm);        for(int i=0;i<N+1;i++) {          conf = newIndexWriterConfig(             TEST_VERSION_CURRENT, new MockAnalyzer(random))             .setOpenMode(OpenMode.APPEND).setIndexDeletionPolicy(policy)             .setMaxBufferedDocs(10);         mp = conf.getMergePolicy();         if (mp instanceof LogMergePolicy) {           ((LogMergePolicy) mp).setUseCompoundFile(useCompoundFile);         }         writer = new IndexWriter(dir, conf);         for(int j=0;j<17;j++) {           addDoc(writer);         }         // this is a commit         writer.close();         IndexReader reader = IndexReader.open(dir, policy, false);         reader.deleteDocument(3);         IndexSearcher searcher = newSearcher(reader);         ScoreDoc[] hits = searcher.search(query, null, 1000).scoreDocs;         assertEquals(16, hits.length);         // this is a commit         reader.close();         searcher.close();          writer = new IndexWriter(dir, newIndexWriterConfig(             TEST_VERSION_CURRENT, new MockAnalyzer(random))             .setOpenMode(OpenMode.CREATE).setIndexDeletionPolicy(policy));         // This will not commit: there are no changes         // pending because we opened for "create":         writer.close();       }        assertEquals(3*(N+1), policy.numOnInit);       assertEquals(3*(N+1)+1, policy.numOnCommit);        IndexReader rwReader = IndexReader.open(dir);       IndexSearcher searcher = new IndexSearcher(rwReader);       ScoreDoc[] hits = searcher.search(query, null, 1000).scoreDocs;       assertEquals(0, hits.length);        // Simplistic check: just verify only the past N segments_N's still       // exist, and, I can open a reader on each:       long gen = SegmentInfos.getCurrentSegmentGeneration(dir);        dir.deleteFile(IndexFileNames.SEGMENTS_GEN);       int expectedCount = 0;              searcher.close();       rwReader.close();        for(int i=0;i<N+1;i++) {         try {           IndexReader reader = IndexReader.open(dir);            // Work backwards in commits on what the expected           // count should be.           searcher = newSearcher(reader);           hits = searcher.search(query, null, 1000).scoreDocs;           assertEquals(expectedCount, hits.length);           searcher.close();           if (expectedCount == 0) {             expectedCount = 16;           } else if (expectedCount == 16) {             expectedCount = 17;           } else if (expectedCount == 17) {             expectedCount = 0;           }           reader.close();           if (i == N) {             fail("should have failed on commits before last " + N);           }         } catch (IOException e) {           if (i != N) {             throw e;           }         }         if (i< N) {           dir.deleteFile(IndexFileNames.fileNameFromGeneration(IndexFileNames.SEGMENTS, "", gen));         }         gen--;       }              dir.close();     }   }   */
 DECL|method|addDoc
 specifier|private
 name|void

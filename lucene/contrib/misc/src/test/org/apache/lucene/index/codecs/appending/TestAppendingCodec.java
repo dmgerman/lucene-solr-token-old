@@ -737,10 +737,6 @@ name|open
 argument_list|(
 name|dir
 argument_list|,
-literal|null
-argument_list|,
-literal|true
-argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;

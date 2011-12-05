@@ -1854,8 +1854,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|searcher
