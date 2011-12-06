@@ -3242,7 +3242,10 @@ specifier|public
 name|int
 name|docFreq
 parameter_list|(
-name|Term
+name|String
+name|field
+parameter_list|,
+name|BytesRef
 name|term
 parameter_list|)
 block|{
@@ -3251,10 +3254,7 @@ name|info
 init|=
 name|getInfo
 argument_list|(
-name|term
-operator|.
 name|field
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|int
@@ -3275,9 +3275,6 @@ operator|.
 name|getPositions
 argument_list|(
 name|term
-operator|.
-name|bytes
-argument_list|()
 argument_list|)
 operator|!=
 literal|null
@@ -3297,6 +3294,10 @@ operator|.
 name|println
 argument_list|(
 literal|"MemoryIndexReader.docFreq: "
+operator|+
+name|field
+operator|+
+literal|":"
 operator|+
 name|term
 operator|+
