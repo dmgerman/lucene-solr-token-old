@@ -314,6 +314,7 @@ name|boolean
 name|applyAllDeletes
 decl_stmt|;
 DECL|method|open
+specifier|public
 specifier|static
 name|IndexReader
 name|open
@@ -506,9 +507,6 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
-literal|true
-comment|/** nocommit: remove readOnly */
-argument_list|,
 name|sis
 operator|.
 name|info
@@ -1136,8 +1134,6 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
-literal|true
-argument_list|,
 name|infos
 operator|.
 name|info

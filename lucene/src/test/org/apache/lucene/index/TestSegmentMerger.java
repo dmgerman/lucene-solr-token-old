@@ -309,8 +309,6 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
-literal|true
-argument_list|,
 name|info1
 argument_list|,
 name|IndexReader
@@ -329,8 +327,6 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
-literal|true
-argument_list|,
 name|info2
 argument_list|,
 name|IndexReader
@@ -539,12 +535,8 @@ name|mergedReader
 init|=
 name|SegmentReader
 operator|.
-name|get
+name|getRW
 argument_list|(
-literal|false
-argument_list|,
-name|mergedDir
-argument_list|,
 operator|new
 name|SegmentInfo
 argument_list|(

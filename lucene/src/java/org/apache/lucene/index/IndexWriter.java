@@ -2426,14 +2426,8 @@ name|sr
 operator|=
 name|SegmentReader
 operator|.
-name|get
+name|getRW
 argument_list|(
-literal|false
-argument_list|,
-name|info
-operator|.
-name|dir
-argument_list|,
 name|info
 argument_list|,
 name|doOpenStores
