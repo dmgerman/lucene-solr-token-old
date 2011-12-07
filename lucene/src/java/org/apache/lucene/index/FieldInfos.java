@@ -1133,8 +1133,12 @@ name|docValues
 argument_list|)
 return|;
 block|}
+comment|// NOTE: this method does not carry over termVector
+comment|// booleans nor docValuesType; the indexer chain
+comment|// (TermVectorsConsumerPerField, DocFieldProcessor) must
+comment|// set these fields when they succeed in consuming
+comment|// the document:
 DECL|method|addOrUpdate
-specifier|synchronized
 specifier|public
 name|FieldInfo
 name|addOrUpdate
@@ -1144,14 +1148,13 @@ name|name
 parameter_list|,
 name|IndexableFieldType
 name|fieldType
-parameter_list|,
-name|boolean
-name|scorePayloads
-parameter_list|,
-name|ValueType
-name|docValues
 parameter_list|)
 block|{
+comment|// TODO: really, indexer shouldn't even call this
+comment|// method (it's only called from DocFieldProcessor);
+comment|// rather, each component in the chain should update
+comment|// what it "owns".  EG fieldType.indexOptions() should
+comment|// be updated by maybe FreqProxTermsWriterPerField:
 return|return
 name|addOrUpdateInternal
 argument_list|(
@@ -1165,34 +1168,25 @@ operator|.
 name|indexed
 argument_list|()
 argument_list|,
-name|fieldType
-operator|.
-name|storeTermVectors
-argument_list|()
+literal|false
 argument_list|,
-name|fieldType
-operator|.
-name|storeTermVectorPositions
-argument_list|()
+literal|false
 argument_list|,
-name|fieldType
-operator|.
-name|storeTermVectorOffsets
-argument_list|()
+literal|false
 argument_list|,
 name|fieldType
 operator|.
 name|omitNorms
 argument_list|()
 argument_list|,
-name|scorePayloads
+literal|false
 argument_list|,
 name|fieldType
 operator|.
 name|indexOptions
 argument_list|()
 argument_list|,
-name|docValues
+literal|null
 argument_list|)
 return|;
 block|}
@@ -1323,7 +1317,7 @@ argument_list|)
 expr_stmt|;
 name|fi
 operator|.
-name|setDocValues
+name|setDocValuesType
 argument_list|(
 name|docValues
 argument_list|)
@@ -1388,7 +1382,8 @@ name|indexOptions
 argument_list|,
 name|fi
 operator|.
-name|docValues
+name|getDocValuesType
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1732,27 +1727,6 @@ block|{
 return|return
 name|version
 return|;
-block|}
-comment|/**    * Reverts all uncommitted changes     * @see FieldInfo#revertUncommitted()    */
-DECL|method|revertUncommitted
-name|void
-name|revertUncommitted
-parameter_list|()
-block|{
-for|for
-control|(
-name|FieldInfo
-name|fieldInfo
-range|:
-name|this
-control|)
-block|{
-name|fieldInfo
-operator|.
-name|revertUncommitted
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|asReadOnly
 specifier|final

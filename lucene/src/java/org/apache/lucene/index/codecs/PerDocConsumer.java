@@ -75,6 +75,21 @@ operator|.
 name|IndexDocValues
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|values
+operator|.
+name|ValueType
+import|;
+end_import
 begin_comment
 comment|/**  * Abstract API that consumes per document values. Concrete implementations of  * this convert field values into a Codec specific format during indexing.  *<p>  * The {@link PerDocConsumer} API is accessible through the  * {@link PostingsFormat} - API providing per field consumers and producers for inverted  * data (terms, postings) as well as per-document data.  *   * @lucene.experimental  */
 end_comment
@@ -94,6 +109,9 @@ specifier|abstract
 name|DocValuesConsumer
 name|addValuesField
 parameter_list|(
+name|ValueType
+name|type
+parameter_list|,
 name|FieldInfo
 name|field
 parameter_list|)
@@ -260,6 +278,11 @@ name|docValuesConsumer
 init|=
 name|addValuesField
 argument_list|(
+name|fieldInfo
+operator|.
+name|getDocValuesType
+argument_list|()
+argument_list|,
 name|fieldInfo
 argument_list|)
 decl_stmt|;

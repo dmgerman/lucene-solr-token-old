@@ -5736,7 +5736,8 @@ switch|switch
 condition|(
 name|fieldInfo
 operator|.
-name|docValues
+name|getDocValuesType
+argument_list|()
 condition|)
 block|{
 case|case
@@ -5821,7 +5822,8 @@ literal|" - no such DocValues type: "
 operator|+
 name|fieldInfo
 operator|.
-name|docValues
+name|getDocValuesType
+argument_list|()
 argument_list|)
 throw|;
 block|}
