@@ -73,6 +73,7 @@ comment|/**  * Base class for disk resident source implementations  * @lucene.in
 end_comment
 begin_class
 DECL|class|DirectSource
+specifier|public
 specifier|abstract
 class|class
 name|DirectSource
@@ -98,6 +99,7 @@ name|long
 name|baseOffset
 decl_stmt|;
 DECL|method|DirectSource
+specifier|public
 name|DirectSource
 parameter_list|(
 name|IndexInput
