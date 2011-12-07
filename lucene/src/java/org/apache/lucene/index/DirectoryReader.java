@@ -1190,7 +1190,6 @@ argument_list|,
 name|doClone
 argument_list|,
 literal|true
-comment|/* nocommit: remove readOnly */
 argument_list|)
 expr_stmt|;
 if|if
