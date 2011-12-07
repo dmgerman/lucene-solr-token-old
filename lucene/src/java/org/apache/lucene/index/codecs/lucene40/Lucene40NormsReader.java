@@ -203,6 +203,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|MapBackedSet
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|StringHelper
 import|;
 end_import
@@ -237,14 +250,18 @@ decl_stmt|;
 comment|// any .nrm or .sNN files we have open at any time.
 comment|// TODO: just a list, and double-close() separate norms files?
 DECL|field|openFiles
-name|Map
+name|Set
 argument_list|<
 name|IndexInput
-argument_list|,
-name|Boolean
 argument_list|>
 name|openFiles
 init|=
+operator|new
+name|MapBackedSet
+argument_list|<
+name|IndexInput
+argument_list|>
+argument_list|(
 operator|new
 name|IdentityHashMap
 argument_list|<
@@ -253,6 +270,7 @@ argument_list|,
 name|Boolean
 argument_list|>
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// points to a singleNormFile
 DECL|field|singleNormStream
@@ -433,13 +451,9 @@ argument_list|)
 expr_stmt|;
 name|openFiles
 operator|.
-name|put
+name|add
 argument_list|(
 name|singleNormStream
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
@@ -466,13 +480,9 @@ argument_list|)
 expr_stmt|;
 name|openFiles
 operator|.
-name|put
+name|add
 argument_list|(
 name|normInput
-argument_list|,
-name|Boolean
-operator|.
-name|TRUE
 argument_list|)
 expr_stmt|;
 comment|// if the segment was created in 3.2 or after, we wrote the header for sure,
@@ -577,7 +587,7 @@ expr_stmt|;
 comment|// increment also if some norms are separate
 block|}
 block|}
-comment|// nocommit: change to a real check? see LUCENE-3619
+comment|// TODO: change to a real check? see LUCENE-3619
 assert|assert
 name|singleNormStream
 operator|==
@@ -615,9 +625,6 @@ operator|.
 name|closeWhileHandlingException
 argument_list|(
 name|openFiles
-operator|.
-name|keySet
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -685,9 +692,6 @@ operator|.
 name|close
 argument_list|(
 name|openFiles
-operator|.
-name|keySet
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
