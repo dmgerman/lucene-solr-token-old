@@ -1130,7 +1130,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * @exception generates an error if you attempt to set this value to false      * @deprecated all cores now abort on configuration error regardless of configuration      */
+comment|/**      * @deprecated all cores now abort on configuration error regardless of configuration      */
 annotation|@
 name|Deprecated
 DECL|method|setAbortOnConfigurationError
@@ -1290,6 +1290,30 @@ operator|.
 name|getName
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|cores
+operator|.
+name|cores
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|SolrException
+operator|.
+name|ErrorCode
+operator|.
+name|SERVER_ERROR
+argument_list|,
+literal|"No cores were created, please check the logs for errors"
+argument_list|)
+throw|;
+block|}
 return|return
 name|cores
 return|;
