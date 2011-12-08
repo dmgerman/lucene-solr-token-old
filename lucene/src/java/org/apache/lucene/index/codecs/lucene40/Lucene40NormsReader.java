@@ -230,6 +230,7 @@ block|{
 comment|// this would be replaced by Source/SourceCache in a dv impl.
 comment|// for now we have our own mini-version
 DECL|field|norms
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -250,6 +251,7 @@ decl_stmt|;
 comment|// any .nrm or .sNN files we have open at any time.
 comment|// TODO: just a list, and double-close() separate norms files?
 DECL|field|openFiles
+specifier|final
 name|Set
 argument_list|<
 name|IndexInput
@@ -613,13 +615,6 @@ operator|!
 name|success
 condition|)
 block|{
-if|if
-condition|(
-name|openFiles
-operator|!=
-literal|null
-condition|)
-block|{
 name|IOUtils
 operator|.
 name|closeWhileHandlingException
@@ -627,7 +622,6 @@ argument_list|(
 name|openFiles
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -680,13 +674,6 @@ name|IOException
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|openFiles
-operator|!=
-literal|null
-condition|)
-block|{
 name|IOUtils
 operator|.
 name|close
@@ -695,16 +682,17 @@ name|openFiles
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 finally|finally
 block|{
 name|norms
-operator|=
-literal|null
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 name|openFiles
-operator|=
-literal|null
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 block|}
