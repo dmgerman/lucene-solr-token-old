@@ -90,15 +90,21 @@ name|TestThaiAnalyzer
 extends|extends
 name|BaseTokenStreamTestCase
 block|{
-comment|/*  	 * testcase for offsets 	 */
-DECL|method|testOffsets
+annotation|@
+name|Override
+DECL|method|setUp
 specifier|public
 name|void
-name|testOffsets
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
 name|assumeTrue
 argument_list|(
 literal|"JRE does not support Thai dictionary-based BreakIterator"
@@ -108,6 +114,16 @@ operator|.
 name|DBBI_AVAILABLE
 argument_list|)
 expr_stmt|;
+block|}
+comment|/*  	 * testcase for offsets 	 */
+DECL|method|testOffsets
+specifier|public
+name|void
+name|testOffsets
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|assertAnalyzesTo
 argument_list|(
 operator|new
@@ -191,15 +207,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assumeTrue
-argument_list|(
-literal|"JRE does not support Thai dictionary-based BreakIterator"
-argument_list|,
-name|ThaiWordFilter
-operator|.
-name|DBBI_AVAILABLE
-argument_list|)
-expr_stmt|;
 name|assertAnalyzesTo
 argument_list|(
 operator|new
@@ -269,15 +276,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assumeTrue
-argument_list|(
-literal|"JRE does not support Thai dictionary-based BreakIterator"
-argument_list|,
-name|ThaiWordFilter
-operator|.
-name|DBBI_AVAILABLE
-argument_list|)
-expr_stmt|;
 name|assertAnalyzesTo
 argument_list|(
 operator|new
@@ -349,15 +347,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assumeTrue
-argument_list|(
-literal|"JRE does not support Thai dictionary-based BreakIterator"
-argument_list|,
-name|ThaiWordFilter
-operator|.
-name|DBBI_AVAILABLE
-argument_list|)
-expr_stmt|;
 name|ThaiAnalyzer
 name|analyzer
 init|=
@@ -474,15 +463,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assumeTrue
-argument_list|(
-literal|"JRE does not support Thai dictionary-based BreakIterator"
-argument_list|,
-name|ThaiWordFilter
-operator|.
-name|DBBI_AVAILABLE
-argument_list|)
-expr_stmt|;
 specifier|final
 name|ThaiAnalyzer
 name|analyzer
@@ -685,15 +665,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assumeTrue
-argument_list|(
-literal|"JRE does not support Thai dictionary-based BreakIterator"
-argument_list|,
-name|ThaiWordFilter
-operator|.
-name|DBBI_AVAILABLE
-argument_list|)
-expr_stmt|;
 name|ThaiAnalyzer
 name|analyzer
 init|=
@@ -783,15 +754,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assumeTrue
-argument_list|(
-literal|"JRE does not support Thai dictionary-based BreakIterator"
-argument_list|,
-name|ThaiWordFilter
-operator|.
-name|DBBI_AVAILABLE
-argument_list|)
-expr_stmt|;
 name|ThaiAnalyzer
 name|analyzer
 init|=
@@ -902,15 +864,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assumeTrue
-argument_list|(
-literal|"JRE does not support Thai dictionary-based BreakIterator"
-argument_list|,
-name|ThaiWordFilter
-operator|.
-name|DBBI_AVAILABLE
-argument_list|)
-expr_stmt|;
 name|ThaiAnalyzer
 name|analyzer
 init|=
