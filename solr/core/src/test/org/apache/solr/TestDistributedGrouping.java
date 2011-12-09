@@ -1831,6 +1831,46 @@ literal|10
 argument_list|,
 literal|"sort"
 argument_list|,
+name|i1
+operator|+
+literal|" desc"
+argument_list|,
+literal|"group.sort"
+argument_list|,
+literal|"score desc"
+argument_list|)
+expr_stmt|;
+comment|// SOLR-2955
+name|simpleQuery
+argument_list|(
+literal|"q"
+argument_list|,
+literal|"*:*"
+argument_list|,
+literal|"rows"
+argument_list|,
+literal|100
+argument_list|,
+literal|"fl"
+argument_list|,
+literal|"id,"
+operator|+
+name|i1
+argument_list|,
+literal|"group"
+argument_list|,
+literal|"true"
+argument_list|,
+literal|"group.field"
+argument_list|,
+name|i1
+argument_list|,
+literal|"group.limit"
+argument_list|,
+literal|10
+argument_list|,
+literal|"sort"
+argument_list|,
 literal|"score desc, _docid_ asc, id asc"
 argument_list|)
 expr_stmt|;
@@ -1925,6 +1965,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|params
+operator|.
+name|set
+argument_list|(
+literal|"shards"
+argument_list|,
+name|shards
+argument_list|)
+expr_stmt|;
 name|queryServer
 argument_list|(
 name|params
