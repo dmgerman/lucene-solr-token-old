@@ -503,8 +503,6 @@ operator|.
 name|open
 argument_list|(
 name|dirA
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|readerB
@@ -514,8 +512,6 @@ operator|.
 name|open
 argument_list|(
 name|dirB
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|readerX

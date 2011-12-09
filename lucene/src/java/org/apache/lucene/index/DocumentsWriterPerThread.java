@@ -339,12 +339,14 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|NormsWriter
+name|NormsConsumer
 name|normsWriter
 init|=
 operator|new
-name|NormsWriter
-argument_list|()
+name|NormsConsumer
+argument_list|(
+name|documentsWriterPerThread
+argument_list|)
 decl_stmt|;
 specifier|final
 name|DocInverter

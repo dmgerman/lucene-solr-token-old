@@ -1926,15 +1926,6 @@ operator|.
 name|getDirectory
 argument_list|()
 argument_list|,
-operator|new
-name|KeepOnlyLastCommitDeletionPolicy
-argument_list|()
-argument_list|,
-name|r
-operator|.
-name|nextBoolean
-argument_list|()
-argument_list|,
 name|_TestUtil
 operator|.
 name|nextInt
