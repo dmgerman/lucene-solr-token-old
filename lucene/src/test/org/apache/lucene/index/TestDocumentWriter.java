@@ -379,8 +379,6 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
-literal|true
-argument_list|,
 name|info
 argument_list|,
 name|IndexReader
@@ -847,8 +845,6 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
-literal|true
-argument_list|,
 name|info
 argument_list|,
 name|IndexReader
@@ -1275,8 +1271,6 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
-literal|true
-argument_list|,
 name|info
 argument_list|,
 name|IndexReader
@@ -1570,8 +1564,6 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
-literal|true
-argument_list|,
 name|info
 argument_list|,
 name|IndexReader
@@ -1914,8 +1906,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 comment|// f1
@@ -2178,8 +2168,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;

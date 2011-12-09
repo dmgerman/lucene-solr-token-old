@@ -690,8 +690,6 @@ operator|.
 name|open
 argument_list|(
 name|ram
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -914,8 +912,6 @@ operator|.
 name|open
 argument_list|(
 name|ram
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1324,8 +1320,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|byte
@@ -2024,8 +2018,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|tp
@@ -3278,8 +3270,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|TermsEnum

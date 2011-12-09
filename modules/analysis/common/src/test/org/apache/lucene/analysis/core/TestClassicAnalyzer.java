@@ -1746,8 +1746,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 comment|// Make sure all terms< max size were indexed
@@ -1973,8 +1971,6 @@ operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|assertEquals

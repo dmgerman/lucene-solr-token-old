@@ -113,8 +113,6 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
-literal|false
-argument_list|,
 name|sis
 operator|.
 name|info
@@ -139,8 +137,6 @@ name|SegmentReader
 operator|.
 name|get
 argument_list|(
-literal|false
-argument_list|,
 name|sis
 operator|.
 name|info
