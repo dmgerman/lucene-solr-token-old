@@ -153,8 +153,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|values
-operator|.
 name|PerDocFieldValues
 import|;
 end_import
@@ -168,9 +166,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|values
-operator|.
-name|ValueType
+name|DocValues
 import|;
 end_import
 begin_import
@@ -813,7 +809,9 @@ annotation|@
 name|Override
 DECL|method|docValuesType
 specifier|public
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|docValuesType
 parameter_list|()
 block|{

@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index.values
+DECL|package|org.apache.lucene.index
 package|package
 name|org
 operator|.
@@ -9,8 +9,6 @@ operator|.
 name|lucene
 operator|.
 name|index
-operator|.
-name|values
 package|;
 end_package
 begin_comment
@@ -34,12 +32,26 @@ operator|.
 name|Map
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|DocValues
+operator|.
+name|Type
+import|;
+end_import
 begin_comment
-comment|/**  * Type promoter that promotes {@link IndexDocValues} during merge based on  * their {@link ValueType} and {@link #getValueSize()}  *   * @lucene.internal  */
+comment|/**  * Type promoter that promotes {@link DocValues} during merge based on  * their {@link Type} and {@link #getValueSize()}  *   * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|TypePromoter
-specifier|public
 class|class
 name|TypePromoter
 block|{
@@ -51,7 +63,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|ValueType
+name|Type
 argument_list|>
 name|FLAGS_MAP
 init|=
@@ -60,7 +72,7 @@ name|HashMap
 argument_list|<
 name|Integer
 argument_list|,
-name|ValueType
+name|Type
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -270,7 +282,7 @@ decl_stmt|;
 DECL|field|type
 specifier|private
 specifier|final
-name|ValueType
+name|Type
 name|type
 decl_stmt|;
 DECL|field|flags
@@ -300,10 +312,10 @@ static|static
 block|{
 for|for
 control|(
-name|ValueType
+name|Type
 name|type
 range|:
-name|ValueType
+name|Type
 operator|.
 name|values
 argument_list|()
@@ -332,12 +344,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Creates a new {@link TypePromoter}    *     * @param type    *          the {@link ValueType} this promoter represents    * @param flags    *          the promoters flags    * @param valueSize    *          the value size if {@link #IS_FIXED} or<code>-1</code> otherwise.    */
+comment|/**    * Creates a new {@link TypePromoter}    *     * @param type    *          the {@link Type} this promoter represents    * @param flags    *          the promoters flags    * @param valueSize    *          the value size if {@link #IS_FIXED} or<code>-1</code> otherwise.    */
 DECL|method|TypePromoter
 specifier|protected
 name|TypePromoter
 parameter_list|(
-name|ValueType
+name|Type
 name|type
 parameter_list|,
 name|int
@@ -473,10 +485,10 @@ return|return
 name|promoted
 return|;
 block|}
-comment|/**    * Returns the {@link ValueType} of this {@link TypePromoter}    *     * @return the {@link ValueType} of this {@link TypePromoter}    */
+comment|/**    * Returns the {@link Type} of this {@link TypePromoter}    *     * @return the {@link Type} of this {@link TypePromoter}    */
 DECL|method|type
 specifier|public
-name|ValueType
+name|Type
 name|type
 parameter_list|()
 block|{
@@ -504,14 +516,14 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**    * Creates a new {@link TypePromoter} for the given type and size per value.    *     * @param type    *          the {@link ValueType} to create the promoter for    * @param valueSize    *          the size per value in bytes or<code>-1</code> iff the types have    *          variable length.    * @return a new {@link TypePromoter}    */
+comment|/**    * Creates a new {@link TypePromoter} for the given type and size per value.    *     * @param type    *          the {@link Type} to create the promoter for    * @param valueSize    *          the size per value in bytes or<code>-1</code> iff the types have    *          variable length.    * @return a new {@link TypePromoter}    */
 DECL|method|create
 specifier|public
 specifier|static
 name|TypePromoter
 name|create
 parameter_list|(
-name|ValueType
+name|Type
 name|type
 parameter_list|,
 name|int

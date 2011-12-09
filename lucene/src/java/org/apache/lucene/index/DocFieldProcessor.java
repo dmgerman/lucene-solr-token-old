@@ -168,24 +168,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|values
-operator|.
-name|PerDocFieldValues
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|values
-operator|.
-name|ValueType
+name|DocValues
 import|;
 end_import
 begin_import
@@ -1530,7 +1513,9 @@ DECL|method|docValuesConsumer
 name|DocValuesConsumer
 name|docValuesConsumer
 parameter_list|(
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|valueType
 parameter_list|,
 name|DocState
@@ -1576,7 +1561,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"IndexDocValuesField \""
+literal|"DocValuesField \""
 operator|+
 name|fieldInfo
 operator|.

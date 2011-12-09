@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index.values
+DECL|package|org.apache.lucene.index
 package|package
 name|org
 operator|.
@@ -9,8 +9,6 @@ operator|.
 name|lucene
 operator|.
 name|index
-operator|.
-name|values
 package|;
 end_package
 begin_comment
@@ -35,9 +33,40 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|IndexDocValuesField
+name|DocValuesField
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|DocValues
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|DocValues
+operator|.
+name|Type
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
 begin_import
 import|import
 name|org
@@ -53,6 +82,9 @@ operator|.
 name|DocValuesConsumer
 import|;
 end_import
+begin_comment
+comment|// javadocs
+end_comment
 begin_import
 import|import
 name|org
@@ -67,7 +99,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * Per document and field values consumed by {@link DocValuesConsumer}.   * @see IndexDocValuesField  *   * @lucene.experimental  */
+comment|/**  * Per document and field values consumed by {@link DocValuesConsumer}.   * @see DocValuesField  *   * @lucene.experimental  */
 end_comment
 begin_interface
 DECL|interface|PerDocFieldValues
@@ -105,7 +137,7 @@ name|double
 name|value
 parameter_list|)
 function_decl|;
-comment|/**    * Sets the given {@link BytesRef} value and the field's {@link ValueType}. The    * comparator for this field is set to<code>null</code>. If a    *<code>null</code> comparator is set the default comparator for the given    * {@link ValueType} is used.    */
+comment|/**    * Sets the given {@link BytesRef} value and the field's {@link Type}. The    * comparator for this field is set to<code>null</code>. If a    *<code>null</code> comparator is set the default comparator for the given    * {@link Type} is used.    */
 DECL|method|setBytes
 specifier|public
 name|void
@@ -114,11 +146,13 @@ parameter_list|(
 name|BytesRef
 name|value
 parameter_list|,
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|type
 parameter_list|)
 function_decl|;
-comment|/**    * Sets the given {@link BytesRef} value, the field's {@link ValueType} and the    * field's comparator. If the {@link Comparator} is set to<code>null</code>    * the default for the given {@link ValueType} is used instead.    */
+comment|/**    * Sets the given {@link BytesRef} value, the field's {@link Type} and the    * field's comparator. If the {@link Comparator} is set to<code>null</code>    * the default for the given {@link Type} is used instead.    */
 DECL|method|setBytes
 specifier|public
 name|void
@@ -127,7 +161,9 @@ parameter_list|(
 name|BytesRef
 name|value
 parameter_list|,
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|type
 parameter_list|,
 name|Comparator
@@ -168,7 +204,7 @@ name|long
 name|getInt
 parameter_list|()
 function_decl|;
-comment|/**    * Sets the {@link BytesRef} comparator for this field. If the field has a    * numeric {@link ValueType} the comparator will be ignored.    */
+comment|/**    * Sets the {@link BytesRef} comparator for this field. If the field has a    * numeric {@link Type} the comparator will be ignored.    */
 DECL|method|setBytesComparator
 specifier|public
 name|void
@@ -181,20 +217,24 @@ argument_list|>
 name|comp
 parameter_list|)
 function_decl|;
-comment|/**    * Sets the {@link ValueType}    */
+comment|/**    * Sets the {@link Type}    */
 DECL|method|setDocValuesType
 specifier|public
 name|void
 name|setDocValuesType
 parameter_list|(
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|type
 parameter_list|)
 function_decl|;
-comment|/**   * Returns the {@link ValueType}   */
+comment|/**   * Returns the {@link Type}   */
 DECL|method|docValuesType
 specifier|public
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|docValuesType
 parameter_list|()
 function_decl|;

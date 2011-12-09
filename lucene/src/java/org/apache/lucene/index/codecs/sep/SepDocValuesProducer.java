@@ -73,6 +73,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DocValues
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|SegmentReadState
 import|;
 end_import
@@ -89,21 +102,6 @@ operator|.
 name|codecs
 operator|.
 name|DocValuesReaderBase
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|values
-operator|.
-name|IndexDocValues
 import|;
 end_import
 begin_import
@@ -137,11 +135,11 @@ name|TreeMap
 argument_list|<
 name|String
 argument_list|,
-name|IndexDocValues
+name|DocValues
 argument_list|>
 name|docValues
 decl_stmt|;
-comment|/**    * Creates a new {@link SepDocValuesProducer} instance and loads all    * {@link IndexDocValues} instances for this segment and codec.    */
+comment|/**    * Creates a new {@link SepDocValuesProducer} instance and loads all    * {@link DocValues} instances for this segment and codec.    */
 DECL|method|SepDocValuesProducer
 specifier|public
 name|SepDocValuesProducer
@@ -190,7 +188,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|IndexDocValues
+name|DocValues
 argument_list|>
 name|docValues
 parameter_list|()
