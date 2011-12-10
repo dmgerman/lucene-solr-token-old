@@ -7705,9 +7705,6 @@ name|docValues
 init|=
 name|sr
 operator|.
-name|perDocValues
-argument_list|()
-operator|.
 name|docValues
 argument_list|(
 literal|"dv"
