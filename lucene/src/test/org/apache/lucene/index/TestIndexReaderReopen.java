@@ -4189,7 +4189,7 @@ block|}
 block|}
 block|}
 DECL|method|assertReaderClosed
-specifier|private
+specifier|static
 name|void
 name|assertReaderClosed
 parameter_list|(

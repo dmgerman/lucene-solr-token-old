@@ -393,7 +393,7 @@ operator|.
 name|INSTANCE
 return|;
 default|default:
-comment|/* 			 * For other languages, try to use snowball's stemming. 			 */
+comment|/*        * For other languages, try to use snowball's stemming.        */
 return|return
 name|SnowballStemmerFactory
 operator|.
@@ -404,7 +404,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** 	 * Factory of {@link IStemmer} implementations from the<code>snowball</code> 	 * project. 	 */
+comment|/**    * Factory of {@link IStemmer} implementations from the<code>snowball</code>    * project.    */
 DECL|class|SnowballStemmerFactory
 specifier|private
 specifier|final
@@ -412,7 +412,7 @@ specifier|static
 class|class
 name|SnowballStemmerFactory
 block|{
-comment|/** 		 * Static hard mapping from language codes to stemmer classes in Snowball. 		 * This mapping is not dynamic because we want to keep the possibility to 		 * obfuscate these classes. 		 */
+comment|/**      * Static hard mapping from language codes to stemmer classes in Snowball.      * This mapping is not dynamic because we want to keep the possibility to      * obfuscate these classes.      */
 DECL|field|snowballStemmerClasses
 specifier|private
 specifier|static
@@ -643,7 +643,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** 		 * An adapter converting Snowball programs into {@link IStemmer} interface. 		 */
+comment|/**      * An adapter converting Snowball programs into {@link IStemmer} interface.      */
 DECL|class|SnowballStemmerAdapter
 specifier|private
 specifier|static
@@ -715,7 +715,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/** 		 * Create and return an {@link IStemmer} adapter for a 		 * {@link SnowballProgram} for a given language code. An identity stemmer is 		 * returned for unknown languages. 		 */
+comment|/**      * Create and return an {@link IStemmer} adapter for a      * {@link SnowballProgram} for a given language code. An identity stemmer is      * returned for unknown languages.      */
 DECL|method|createStemmer
 specifier|public
 specifier|static
@@ -814,7 +814,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/** 	 * Factory of {@link IStemmer} implementations for the 	 * {@link LanguageCode#ARABIC} language. Requires<code>lucene-contrib</code> 	 * to be present in classpath, otherwise an empty (identity) stemmer is 	 * returned. 	 */
+comment|/**    * Factory of {@link IStemmer} implementations for the    * {@link LanguageCode#ARABIC} language. Requires<code>lucene-contrib</code>    * to be present in classpath, otherwise an empty (identity) stemmer is    * returned.    */
 DECL|class|ArabicStemmerFactory
 specifier|private
 specifier|static
@@ -875,7 +875,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** 		 * Adapter to lucene-contrib Arabic analyzers. 		 */
+comment|/**      * Adapter to lucene-contrib Arabic analyzers.      */
 DECL|class|LuceneStemmerAdapter
 specifier|private
 specifier|static
@@ -1187,7 +1187,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/** 	 * An implementation of {@link IStemmer} that always returns<code>null</code> 	 * which means no stemming. 	 */
+comment|/**    * An implementation of {@link IStemmer} that always returns<code>null</code>    * which means no stemming.    */
 DECL|class|IdentityStemmer
 specifier|private
 specifier|static
