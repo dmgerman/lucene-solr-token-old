@@ -427,7 +427,7 @@ throws|,
 name|IOException
 block|{
 return|return
-name|doOpenIfChanged
+name|doReopen
 argument_list|(
 literal|false
 argument_list|)
@@ -446,7 +446,7 @@ block|{
 try|try
 block|{
 return|return
-name|doOpenIfChanged
+name|doReopen
 argument_list|(
 literal|true
 argument_list|)
@@ -484,10 +484,10 @@ argument_list|)
 throw|;
 block|}
 comment|/**    * If clone is true then we clone each of the subreaders    * @param doClone    * @return New IndexReader, or null if open/clone is not necessary    * @throws CorruptIndexException    * @throws IOException    */
-DECL|method|doOpenIfChanged
-specifier|protected
+DECL|method|doReopen
+specifier|private
 name|IndexReader
-name|doOpenIfChanged
+name|doReopen
 parameter_list|(
 name|boolean
 name|doClone

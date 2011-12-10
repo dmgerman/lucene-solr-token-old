@@ -1017,7 +1017,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|doReopen
-specifier|protected
+specifier|private
 name|IndexReader
 name|doReopen
 parameter_list|(
