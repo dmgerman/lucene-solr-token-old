@@ -871,6 +871,11 @@ name|i
 operator|++
 control|)
 block|{
+name|children
+index|[
+name|i
+index|]
+operator|=
 name|build
 argument_list|(
 name|newParent
