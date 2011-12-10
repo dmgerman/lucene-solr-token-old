@@ -895,8 +895,9 @@ argument_list|)
 expr_stmt|;
 name|r
 operator|=
-operator|new
 name|DirectoryReader
+operator|.
+name|open
 argument_list|(
 name|this
 argument_list|,
