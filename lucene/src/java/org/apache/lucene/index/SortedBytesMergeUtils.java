@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index.codecs.lucene40.values
+DECL|package|org.apache.lucene.index
 package|package
 name|org
 operator|.
@@ -9,12 +9,6 @@ operator|.
 name|lucene
 operator|.
 name|index
-operator|.
-name|codecs
-operator|.
-name|lucene40
-operator|.
-name|values
 package|;
 end_package
 begin_comment
@@ -63,32 +57,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|DocValues
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|MergeState
 import|;
 end_import
 begin_import
@@ -221,8 +189,24 @@ end_import
 begin_comment
 comment|/**  * @lucene.internal  */
 end_comment
+begin_comment
+comment|// TODO: generalize this a bit more:
+end_comment
+begin_comment
+comment|//       * remove writing (like indexoutput) from here
+end_comment
+begin_comment
+comment|//       * just take IndexReaders (not IR&LiveDocs), doesnt care about liveDocs
+end_comment
+begin_comment
+comment|//       * hook into MultiDocValues to make a MultiSortedSource
+end_comment
+begin_comment
+comment|//       * maybe DV merging should then just use MultiDocValues for simplicity?
+end_comment
 begin_class
 DECL|class|SortedBytesMergeUtils
+specifier|public
 specifier|final
 class|class
 name|SortedBytesMergeUtils
@@ -235,6 +219,7 @@ block|{
 comment|// no instance
 block|}
 DECL|method|init
+specifier|public
 specifier|static
 name|MergeContext
 name|init
@@ -343,6 +328,7 @@ name|BytesRef
 argument_list|()
 decl_stmt|;
 DECL|field|sizePerValues
+specifier|public
 specifier|final
 name|int
 name|sizePerValues
@@ -354,12 +340,14 @@ name|Type
 name|type
 decl_stmt|;
 DECL|field|docToEntry
+specifier|public
 specifier|final
 name|int
 index|[]
 name|docToEntry
 decl_stmt|;
 DECL|field|offsets
+specifier|public
 name|long
 index|[]
 name|offsets
@@ -450,6 +438,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|buildSlices
+specifier|public
 specifier|static
 name|List
 argument_list|<
@@ -842,6 +831,7 @@ block|}
 block|}
 block|}
 DECL|method|mergeRecords
+specifier|public
 specifier|static
 name|int
 name|mergeRecords
@@ -1311,6 +1301,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|SortedSourceSlice
+specifier|public
 specifier|static
 class|class
 name|SortedSourceSlice
@@ -1560,6 +1551,7 @@ literal|null
 return|;
 block|}
 DECL|method|writeOrds
+specifier|public
 name|void
 name|writeOrds
 parameter_list|(
