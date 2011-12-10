@@ -55,7 +55,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|PerDocFieldValues
+name|DocValue
 import|;
 end_import
 begin_import
@@ -113,7 +113,7 @@ name|DocValuesField
 extends|extends
 name|Field
 implements|implements
-name|PerDocFieldValues
+name|DocValue
 block|{
 DECL|field|bytes
 specifier|protected
@@ -213,10 +213,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|docValues
+DECL|method|docValue
 specifier|public
-name|PerDocFieldValues
-name|docValues
+name|DocValue
+name|docValue
 parameter_list|()
 block|{
 return|return
@@ -737,12 +737,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|docValuesType
+DECL|method|docValueType
 specifier|public
 name|DocValues
 operator|.
 name|Type
-name|docValuesType
+name|docValueType
 parameter_list|()
 block|{
 return|return

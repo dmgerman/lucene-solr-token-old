@@ -90,7 +90,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|PerDocFieldValues
+name|DocValue
 import|;
 end_import
 begin_import
@@ -1408,8 +1408,8 @@ parameter_list|(
 name|int
 name|docID
 parameter_list|,
-name|PerDocFieldValues
-name|docValues
+name|DocValue
+name|docValue
 parameter_list|)
 throws|throws
 name|IOException
@@ -1423,7 +1423,7 @@ condition|(
 operator|(
 name|ref
 operator|=
-name|docValues
+name|docValue
 operator|.
 name|getBytes
 argument_list|()
