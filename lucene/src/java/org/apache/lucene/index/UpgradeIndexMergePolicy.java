@@ -29,19 +29,6 @@ import|;
 end_import
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|InfoStream
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -286,6 +273,7 @@ condition|(
 name|verbose
 argument_list|()
 condition|)
+block|{
 name|message
 argument_list|(
 literal|"findForcedMerges: segmentsToUpgrade="
@@ -293,6 +281,7 @@ operator|+
 name|oldSegments
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|oldSegments
@@ -366,6 +355,7 @@ condition|(
 name|verbose
 argument_list|()
 condition|)
+block|{
 name|message
 argument_list|(
 literal|"findForcedMerges: "
@@ -383,6 +373,7 @@ operator|+
 name|oldSegments
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|List
 argument_list|<
@@ -584,12 +575,6 @@ name|String
 name|message
 parameter_list|)
 block|{
-if|if
-condition|(
-name|verbose
-argument_list|()
-condition|)
-block|{
 name|writer
 operator|.
 name|get
@@ -604,7 +589,6 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

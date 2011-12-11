@@ -1872,7 +1872,10 @@ name|isEnabled
 argument_list|(
 literal|"IFD"
 argument_list|)
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|VERBOSE_REF_COUNTS
 condition|)
 block|{
@@ -1893,6 +1896,7 @@ operator|.
 name|count
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|rc
 operator|.
@@ -1963,7 +1967,10 @@ name|isEnabled
 argument_list|(
 literal|"IFD"
 argument_list|)
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|VERBOSE_REF_COUNTS
 condition|)
 block|{
@@ -1984,6 +1991,7 @@ operator|.
 name|count
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
