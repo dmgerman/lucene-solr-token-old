@@ -858,8 +858,6 @@ argument_list|(
 name|directory
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|assertEquals
 argument_list|(
 literal|1
@@ -1005,15 +1003,6 @@ name|TEXT
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|indexSearcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 finally|finally
 block|{
@@ -1182,8 +1171,6 @@ argument_list|(
 name|indexReader
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 specifier|final
 name|DisjunctionMaxQuery
 name|query
@@ -1308,15 +1295,6 @@ name|TEXT
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|indexSearcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 finally|finally
 block|{
@@ -1478,8 +1456,6 @@ argument_list|(
 name|indexReader
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 comment|// final DisjunctionMaxQuery query = new DisjunctionMaxQuery(1);
 comment|// query.add(new SpanTermQuery(new Term(FIELD, "{fox}")));
 comment|// query.add(new SpanTermQuery(new Term(FIELD, "fox")));
@@ -1601,15 +1577,6 @@ name|TEXT
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|indexSearcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 finally|finally
 block|{
@@ -1771,8 +1738,6 @@ argument_list|(
 name|indexReader
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 comment|// final DisjunctionMaxQuery query = new DisjunctionMaxQuery(1);
 comment|// query.add(new SpanTermQuery(new Term(FIELD, "the")));
 comment|// query.add(new SpanTermQuery(new Term(FIELD, "fox")));
@@ -1894,15 +1859,6 @@ name|TEXT
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|indexSearcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 finally|finally
 block|{

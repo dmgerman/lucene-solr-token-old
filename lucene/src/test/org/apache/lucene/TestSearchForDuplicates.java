@@ -649,11 +649,6 @@ argument_list|,
 name|searcher
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 comment|// try a new search with OR
 name|searcher
 operator|=
@@ -768,11 +763,6 @@ name|MAX_DOCS
 argument_list|,
 name|searcher
 argument_list|)
-expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|reader
 operator|.

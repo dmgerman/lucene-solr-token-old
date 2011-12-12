@@ -681,8 +681,6 @@ name|indexWriter
 argument_list|,
 name|indexReader
 argument_list|,
-name|indexSearcher
-argument_list|,
 name|directory
 argument_list|,
 name|taxonomyWriter

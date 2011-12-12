@@ -934,11 +934,6 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|taxo
 operator|.
 name|close
@@ -1115,11 +1110,6 @@ argument_list|,
 literal|0.00001
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|taxo
 operator|.
 name|close
@@ -1266,11 +1256,6 @@ parameter_list|)
 block|{
 comment|// ok - expected
 block|}
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|taxo
 operator|.
 name|close

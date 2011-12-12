@@ -466,11 +466,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|s
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 annotation|@

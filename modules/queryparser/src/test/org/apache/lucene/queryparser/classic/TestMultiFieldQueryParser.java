@@ -2094,11 +2094,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|is
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|ir
 operator|.
 name|close

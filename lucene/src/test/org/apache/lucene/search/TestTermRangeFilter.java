@@ -974,11 +974,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|search
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -1621,11 +1616,6 @@ name|result
 operator|.
 name|length
 argument_list|)
-expr_stmt|;
-name|search
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}

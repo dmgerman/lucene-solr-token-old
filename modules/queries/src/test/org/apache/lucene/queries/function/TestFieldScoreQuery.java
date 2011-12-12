@@ -497,11 +497,6 @@ operator|=
 name|resID
 expr_stmt|;
 block|}
-name|s
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|r
 operator|.
 name|close
@@ -738,11 +733,6 @@ name|TEST_SCORE_TOLERANCE_DELTA
 argument_list|)
 expr_stmt|;
 block|}
-name|s
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|r
 operator|.
 name|close

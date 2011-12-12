@@ -974,11 +974,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -1740,11 +1735,6 @@ argument_list|)
 expr_stmt|;
 block|}
 name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|searcher
 operator|.
 name|close
 argument_list|()

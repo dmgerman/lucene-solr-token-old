@@ -618,11 +618,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// // our wrapping can create insanity otherwise
-name|wrapped
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|check
 argument_list|(
 name|random
@@ -656,11 +651,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// // our wrapping can create insanity otherwise
-name|wrapped
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|check
 argument_list|(
 name|random
@@ -695,11 +685,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// // our wrapping can create insanity otherwise
-name|wrapped
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 name|checkExplanations
 argument_list|(
@@ -1955,11 +1940,6 @@ block|}
 name|leafPtr
 operator|++
 expr_stmt|;
-name|indexSearcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 name|lastReader
 index|[
@@ -2145,11 +2125,6 @@ name|more
 argument_list|)
 expr_stmt|;
 block|}
-name|indexSearcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -2629,11 +2604,6 @@ name|more
 argument_list|)
 expr_stmt|;
 block|}
-name|indexSearcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|leafPtr
 operator|++
 expr_stmt|;
@@ -2804,11 +2774,6 @@ name|more
 argument_list|)
 expr_stmt|;
 block|}
-name|indexSearcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}

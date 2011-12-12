@@ -3025,11 +3025,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|s
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 finally|finally
 block|{
