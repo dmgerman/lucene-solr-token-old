@@ -76,19 +76,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldReaderException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|IndexFileNames
 import|;
 end_import
@@ -1248,7 +1235,7 @@ return|return;
 default|default:
 throw|throw
 operator|new
-name|FieldReaderException
+name|CorruptIndexException
 argument_list|(
 literal|"Invalid numeric type: "
 operator|+
@@ -1417,7 +1404,7 @@ return|return;
 default|default:
 throw|throw
 operator|new
-name|FieldReaderException
+name|CorruptIndexException
 argument_list|(
 literal|"Invalid numeric type: "
 operator|+

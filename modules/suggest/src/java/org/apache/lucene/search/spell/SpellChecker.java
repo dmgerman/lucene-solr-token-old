@@ -2477,11 +2477,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 name|searcher
 operator|=
@@ -2529,11 +2524,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|indexSearcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 throw|throw
 operator|new
 name|AlreadyClosedException
@@ -2553,11 +2543,6 @@ name|searcher
 operator|.
 name|getIndexReader
 argument_list|()
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|searcher
 operator|.
 name|close
 argument_list|()

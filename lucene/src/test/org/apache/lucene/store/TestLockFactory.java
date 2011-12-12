@@ -1952,11 +1952,6 @@ block|}
 comment|// System.out.println(hits.length() + " total results");
 try|try
 block|{
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close

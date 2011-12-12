@@ -497,11 +497,6 @@ argument_list|,
 name|numHits
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close

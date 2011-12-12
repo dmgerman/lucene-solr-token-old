@@ -3700,11 +3700,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|writer
 operator|=
 operator|new
@@ -3847,11 +3842,6 @@ name|expectedCount
 init|=
 literal|0
 decl_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|rwReader
 operator|.
 name|close
@@ -3918,11 +3908,6 @@ name|hits
 operator|.
 name|length
 argument_list|)
-expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 if|if
 condition|(

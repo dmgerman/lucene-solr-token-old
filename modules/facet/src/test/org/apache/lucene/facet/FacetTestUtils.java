@@ -1070,11 +1070,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|indexSearcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|indexReader
 operator|.
 name|close

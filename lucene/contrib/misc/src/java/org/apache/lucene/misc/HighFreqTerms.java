@@ -102,19 +102,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldReaderException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|DocsEnum
 import|;
 end_import
@@ -641,7 +628,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|FieldReaderException
+name|RuntimeException
 argument_list|(
 literal|"field "
 operator|+
@@ -718,7 +705,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|FieldReaderException
+name|RuntimeException
 argument_list|(
 literal|"no fields found for this index"
 argument_list|)

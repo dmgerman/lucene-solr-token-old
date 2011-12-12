@@ -27,15 +27,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|PrintStream
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Collection
@@ -724,6 +715,16 @@ expr_stmt|;
 block|}
 try|try
 block|{
+if|if
+condition|(
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+literal|"DW"
+argument_list|)
+condition|)
+block|{
 name|infoStream
 operator|.
 name|message
@@ -733,6 +734,7 @@ argument_list|,
 literal|"abort"
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|Iterator
 argument_list|<
@@ -1077,7 +1079,10 @@ name|isEnabled
 argument_list|(
 literal|"DW"
 argument_list|)
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|flushControl
 operator|.
 name|anyStalledThreads
@@ -1093,6 +1098,7 @@ argument_list|,
 literal|"WARNING DocumentsWriter has stalled threads; waiting"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|flushControl
 operator|.

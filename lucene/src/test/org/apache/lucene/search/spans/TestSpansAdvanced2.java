@@ -313,11 +313,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|searcher2
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader2
 operator|.
 name|close

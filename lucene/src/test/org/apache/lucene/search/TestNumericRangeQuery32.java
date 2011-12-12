@@ -682,11 +682,6 @@ throws|throws
 name|Exception
 block|{
 name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|searcher
 operator|=
 literal|null
 expr_stmt|;
@@ -2761,11 +2756,6 @@ name|scoreDocs
 operator|.
 name|length
 argument_list|)
-expr_stmt|;
-name|s
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|r
 operator|.

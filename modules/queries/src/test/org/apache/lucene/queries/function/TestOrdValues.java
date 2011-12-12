@@ -461,11 +461,6 @@ operator|=
 name|resID
 expr_stmt|;
 block|}
-name|s
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|r
 operator|.
 name|close
@@ -770,11 +765,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|s
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|r
 operator|.
 name|close

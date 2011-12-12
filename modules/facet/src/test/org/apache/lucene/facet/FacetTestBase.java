@@ -1374,8 +1374,6 @@ argument_list|(
 name|taxoReader
 argument_list|,
 name|indexReader
-argument_list|,
-name|searcher
 argument_list|)
 expr_stmt|;
 name|taxoReader

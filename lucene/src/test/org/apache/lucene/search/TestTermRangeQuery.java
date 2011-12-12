@@ -352,11 +352,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -419,11 +414,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -476,11 +466,6 @@ name|hits
 operator|.
 name|length
 argument_list|)
-expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|reader
 operator|.
@@ -577,11 +562,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -644,11 +624,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -701,11 +676,6 @@ name|hits
 operator|.
 name|length
 argument_list|)
-expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|reader
 operator|.
@@ -967,11 +937,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -1121,11 +1086,6 @@ name|savedClauseCount
 argument_list|)
 expr_stmt|;
 block|}
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -2190,11 +2150,6 @@ argument_list|)
 expr_stmt|;
 comment|// until Lucene-38 is fixed, use this assert:
 comment|//assertEquals("A,B,<empty string>,C,D => A, B&<empty string> are in range", 2, hits.length());
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -2262,11 +2217,6 @@ argument_list|)
 expr_stmt|;
 comment|// until Lucene-38 is fixed, use this assert:
 comment|//assertEquals("A,B,<empty string>,D => A, B&<empty string> are in range", 2, hits.length());
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -2321,11 +2271,6 @@ argument_list|)
 expr_stmt|;
 comment|// until Lucene-38 is fixed, use this assert
 comment|//assertEquals("C added, still A, B&<empty string> are in range", 2, hits.length());
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -2434,11 +2379,6 @@ argument_list|)
 expr_stmt|;
 comment|// until Lucene-38 is fixed, use this assert
 comment|//assertEquals("A,B,<empty string>,C,D => A,B,<empty string>,C in range", 3, hits.length());
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -2506,11 +2446,6 @@ argument_list|)
 expr_stmt|;
 comment|// until Lucene-38 is fixed, use this assert
 comment|//assertEquals("A,B,<empty string>,D => A, B and<empty string> in range", 2, hits.length());
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -2565,11 +2500,6 @@ argument_list|)
 expr_stmt|;
 comment|// until Lucene-38 is fixed, use this assert
 comment|//assertEquals("C added => A,B,<empty string>,C in range", 3, hits.length());
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close

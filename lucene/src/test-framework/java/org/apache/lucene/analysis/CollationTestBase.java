@@ -686,11 +686,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -889,11 +884,6 @@ name|hits
 operator|.
 name|length
 argument_list|)
-expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|reader
 operator|.
@@ -1110,11 +1100,6 @@ name|result
 operator|.
 name|length
 argument_list|)
-expr_stmt|;
-name|search
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 comment|// Test using various international locales with accented characters (which
@@ -1778,11 +1763,6 @@ name|sort
 argument_list|,
 name|dkResult
 argument_list|)
-expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|reader
 operator|.

@@ -565,11 +565,6 @@ argument_list|,
 literal|0.1
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -693,11 +688,6 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|reader
 operator|.
@@ -861,11 +851,6 @@ argument_list|(
 literal|"AutomatonTermsEnum"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|reader
 operator|.
@@ -1196,11 +1181,6 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -1406,11 +1386,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// Query: 'meta??' matches 'metals' not 'metal'
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
@@ -1595,11 +1570,6 @@ name|atEnd
 argument_list|,
 literal|1
 argument_list|)
-expr_stmt|;
-name|searcher
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 name|reader
 operator|.
@@ -2837,11 +2807,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|reader
 operator|.
 name|close
