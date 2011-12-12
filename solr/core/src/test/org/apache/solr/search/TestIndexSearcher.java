@@ -56,7 +56,7 @@ name|queries
 operator|.
 name|function
 operator|.
-name|DocValues
+name|FunctionValues
 import|;
 end_import
 begin_import
@@ -325,7 +325,7 @@ index|[
 name|idx
 index|]
 decl_stmt|;
-name|DocValues
+name|FunctionValues
 name|vals
 init|=
 name|vs

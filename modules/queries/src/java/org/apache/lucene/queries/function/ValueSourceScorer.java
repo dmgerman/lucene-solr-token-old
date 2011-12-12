@@ -107,7 +107,7 @@ decl_stmt|;
 DECL|field|values
 specifier|protected
 specifier|final
-name|DocValues
+name|FunctionValues
 name|values
 decl_stmt|;
 DECL|field|checkDeletes
@@ -128,7 +128,7 @@ parameter_list|(
 name|IndexReader
 name|reader
 parameter_list|,
-name|DocValues
+name|FunctionValues
 name|values
 parameter_list|)
 block|{

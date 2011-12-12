@@ -45,7 +45,7 @@ name|queries
 operator|.
 name|function
 operator|.
-name|DocValues
+name|FunctionValues
 import|;
 end_import
 begin_import
@@ -172,7 +172,7 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|,
-name|DocValues
+name|FunctionValues
 index|[]
 name|vals
 parameter_list|)
@@ -194,12 +194,12 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|DocValues
+name|FunctionValues
 index|[]
 name|vals
 init|=
 operator|new
-name|DocValues
+name|FunctionValues
 index|[
 name|sources
 operator|.
@@ -296,7 +296,7 @@ literal|true
 decl_stmt|;
 for|for
 control|(
-name|DocValues
+name|FunctionValues
 name|dv
 range|:
 name|vals

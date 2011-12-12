@@ -89,7 +89,7 @@ begin_comment
 comment|/**  * Represents field values as different types.  * Normally created via a {@link ValueSource} for a particular field and reader.  *  *  */
 end_comment
 begin_comment
-comment|// DocValues is distinct from ValueSource because
+comment|// FunctionValues is distinct from ValueSource because
 end_comment
 begin_comment
 comment|// there needs to be an object created at query evaluation time that
@@ -107,11 +107,11 @@ begin_comment
 comment|//   want the Query carrying around big objects
 end_comment
 begin_class
-DECL|class|DocValues
+DECL|class|FunctionValues
 specifier|public
 specifier|abstract
 class|class
-name|DocValues
+name|FunctionValues
 block|{
 DECL|method|byteVal
 specifier|public
@@ -297,7 +297,7 @@ name|int
 name|doc
 parameter_list|)
 block|{
-comment|// most DocValues are functions, so by default return a Float()
+comment|// most FunctionValues are functions, so by default return a Float()
 return|return
 name|floatVal
 argument_list|(

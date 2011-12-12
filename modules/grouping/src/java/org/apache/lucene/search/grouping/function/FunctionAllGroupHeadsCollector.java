@@ -43,7 +43,7 @@ name|queries
 operator|.
 name|function
 operator|.
-name|DocValues
+name|FunctionValues
 import|;
 end_import
 begin_import
@@ -226,7 +226,7 @@ name|sortWithinGroup
 decl_stmt|;
 DECL|field|filler
 specifier|private
-name|DocValues
+name|FunctionValues
 operator|.
 name|ValueFiller
 name|filler
@@ -523,7 +523,7 @@ name|readerContext
 operator|=
 name|context
 expr_stmt|;
-name|DocValues
+name|FunctionValues
 name|docValues
 init|=
 name|groupBy

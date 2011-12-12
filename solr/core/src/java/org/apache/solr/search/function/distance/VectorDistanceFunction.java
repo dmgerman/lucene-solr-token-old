@@ -45,7 +45,7 @@ name|queries
 operator|.
 name|function
 operator|.
-name|DocValues
+name|FunctionValues
 import|;
 end_import
 begin_import
@@ -272,10 +272,10 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|,
-name|DocValues
+name|FunctionValues
 name|dv1
 parameter_list|,
-name|DocValues
+name|FunctionValues
 name|dv2
 parameter_list|)
 block|{
@@ -343,7 +343,7 @@ annotation|@
 name|Override
 DECL|method|getValues
 specifier|public
-name|DocValues
+name|FunctionValues
 name|getValues
 parameter_list|(
 name|Map
@@ -356,7 +356,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|DocValues
+name|FunctionValues
 name|vals1
 init|=
 name|source1
@@ -369,7 +369,7 @@ name|readerContext
 argument_list|)
 decl_stmt|;
 specifier|final
-name|DocValues
+name|FunctionValues
 name|vals2
 init|=
 name|source2

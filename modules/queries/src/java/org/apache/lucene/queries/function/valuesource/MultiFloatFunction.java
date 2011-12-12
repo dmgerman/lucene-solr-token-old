@@ -45,7 +45,7 @@ name|queries
 operator|.
 name|function
 operator|.
-name|DocValues
+name|FunctionValues
 import|;
 end_import
 begin_import
@@ -174,7 +174,7 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|,
-name|DocValues
+name|FunctionValues
 index|[]
 name|valsArr
 parameter_list|)
@@ -266,7 +266,7 @@ annotation|@
 name|Override
 DECL|method|getValues
 specifier|public
-name|DocValues
+name|FunctionValues
 name|getValues
 parameter_list|(
 name|Map
@@ -279,12 +279,12 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|DocValues
+name|FunctionValues
 index|[]
 name|valsArr
 init|=
 operator|new
-name|DocValues
+name|FunctionValues
 index|[
 name|sources
 operator|.
@@ -389,7 +389,7 @@ literal|true
 decl_stmt|;
 for|for
 control|(
-name|DocValues
+name|FunctionValues
 name|vals
 range|:
 name|valsArr

@@ -30,7 +30,7 @@ name|queries
 operator|.
 name|function
 operator|.
-name|DocValues
+name|FunctionValues
 import|;
 end_import
 begin_import
@@ -183,7 +183,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** Internal class, subject to change.  *  Serves as base class for DocValues based on StringIndex   **/
+comment|/** Internal class, subject to change.  *  Serves as base class for FunctionValues based on StringIndex   **/
 end_comment
 begin_class
 DECL|class|StringIndexDocValues
@@ -192,7 +192,7 @@ specifier|abstract
 class|class
 name|StringIndexDocValues
 extends|extends
-name|DocValues
+name|FunctionValues
 block|{
 DECL|field|termsIndex
 specifier|protected
@@ -834,7 +834,7 @@ name|super
 argument_list|(
 literal|"Can't initialize StringIndex to generate (function) "
 operator|+
-literal|"DocValues for field: "
+literal|"FunctionValues for field: "
 operator|+
 name|fieldName
 argument_list|,

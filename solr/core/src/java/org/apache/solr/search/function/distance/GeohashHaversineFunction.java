@@ -30,7 +30,7 @@ name|queries
 operator|.
 name|function
 operator|.
-name|DocValues
+name|FunctionValues
 import|;
 end_import
 begin_import
@@ -210,7 +210,7 @@ annotation|@
 name|Override
 DECL|method|getValues
 specifier|public
-name|DocValues
+name|FunctionValues
 name|getValues
 parameter_list|(
 name|Map
@@ -223,7 +223,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|DocValues
+name|FunctionValues
 name|gh1DV
 init|=
 name|geoHash1
@@ -236,7 +236,7 @@ name|readerContext
 argument_list|)
 decl_stmt|;
 specifier|final
-name|DocValues
+name|FunctionValues
 name|gh2DV
 init|=
 name|geoHash2
@@ -358,10 +358,10 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|,
-name|DocValues
+name|FunctionValues
 name|gh1DV
 parameter_list|,
-name|DocValues
+name|FunctionValues
 name|gh2DV
 parameter_list|)
 block|{
