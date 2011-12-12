@@ -63,6 +63,9 @@ specifier|final
 name|SolrParams
 name|defaults
 decl_stmt|;
+comment|/**    * @deprecated (3.6) Use {@link SolrParams#wrapDefaults(SolrParams, SolrParams)} instead.    */
+annotation|@
+name|Deprecated
 DECL|method|DefaultSolrParams
 specifier|public
 name|DefaultSolrParams
@@ -74,6 +77,15 @@ name|SolrParams
 name|defaults
 parameter_list|)
 block|{
+assert|assert
+name|params
+operator|!=
+literal|null
+operator|&&
+name|defaults
+operator|!=
+literal|null
+assert|;
 name|this
 operator|.
 name|params
