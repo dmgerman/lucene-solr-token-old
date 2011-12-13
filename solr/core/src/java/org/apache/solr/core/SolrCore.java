@@ -3219,15 +3219,6 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"Error in constructing the core"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 name|latch
 operator|.
 name|countDown

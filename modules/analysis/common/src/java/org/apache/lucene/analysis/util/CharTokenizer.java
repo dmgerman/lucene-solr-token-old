@@ -374,6 +374,12 @@ operator|-
 literal|1
 decl_stmt|;
 comment|// this variable is always initialized
+name|int
+name|end
+init|=
+operator|-
+literal|1
+decl_stmt|;
 name|char
 index|[]
 name|buffer
@@ -470,14 +476,20 @@ argument_list|,
 name|bufferIndex
 argument_list|)
 decl_stmt|;
-name|bufferIndex
-operator|+=
+specifier|final
+name|int
+name|charCount
+init|=
 name|Character
 operator|.
 name|charCount
 argument_list|(
 name|c
 argument_list|)
+decl_stmt|;
+name|bufferIndex
+operator|+=
+name|charCount
 expr_stmt|;
 if|if
 condition|(
@@ -508,7 +520,11 @@ name|offset
 operator|+
 name|bufferIndex
 operator|-
-literal|1
+name|charCount
+expr_stmt|;
+name|end
+operator|=
+name|start
 expr_stmt|;
 block|}
 elseif|else
@@ -537,6 +553,10 @@ argument_list|)
 expr_stmt|;
 comment|// make sure a supplementary fits in the buffer
 block|}
+name|end
+operator|+=
+name|charCount
+expr_stmt|;
 name|length
 operator|+=
 name|Character
@@ -600,9 +620,7 @@ name|finalOffset
 operator|=
 name|correctOffset
 argument_list|(
-name|start
-operator|+
-name|length
+name|end
 argument_list|)
 argument_list|)
 expr_stmt|;
