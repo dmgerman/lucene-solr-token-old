@@ -430,11 +430,6 @@ comment|// This is called once, after inverting all occurrences
 comment|// of a given field in the doc.  At this point we flush
 comment|// our hash into the DocWriter.
 assert|assert
-name|fieldInfo
-operator|.
-name|storeTermVector
-assert|;
-assert|assert
 name|termsWriter
 operator|.
 name|vectorFieldsInOrder
@@ -647,8 +642,12 @@ expr_stmt|;
 comment|// commit the termVectors once successful success - FI will otherwise reset them
 name|fieldInfo
 operator|.
-name|commitVectors
-argument_list|()
+name|setStoreTermVectors
+argument_list|(
+name|doVectorPositions
+argument_list|,
+name|doVectorOffsets
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|shrinkHash

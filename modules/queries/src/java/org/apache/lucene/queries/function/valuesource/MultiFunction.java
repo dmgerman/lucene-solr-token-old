@@ -45,7 +45,7 @@ name|queries
 operator|.
 name|function
 operator|.
-name|DocValues
+name|FunctionValues
 import|;
 end_import
 begin_import
@@ -279,7 +279,7 @@ block|}
 DECL|method|valsArr
 specifier|public
 specifier|static
-name|DocValues
+name|FunctionValues
 index|[]
 name|valsArr
 parameter_list|(
@@ -299,12 +299,12 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|DocValues
+name|FunctionValues
 index|[]
 name|valsArr
 init|=
 operator|new
-name|DocValues
+name|FunctionValues
 index|[
 name|sources
 operator|.
@@ -350,11 +350,11 @@ specifier|public
 class|class
 name|Values
 extends|extends
-name|DocValues
+name|FunctionValues
 block|{
 DECL|field|valsArr
 specifier|final
-name|DocValues
+name|FunctionValues
 index|[]
 name|valsArr
 decl_stmt|;
@@ -362,7 +362,7 @@ DECL|method|Values
 specifier|public
 name|Values
 parameter_list|(
-name|DocValues
+name|FunctionValues
 index|[]
 name|valsArr
 parameter_list|)
@@ -425,7 +425,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|DocValues
+name|FunctionValues
 index|[]
 name|valsArr
 parameter_list|,
@@ -459,7 +459,7 @@ literal|true
 decl_stmt|;
 for|for
 control|(
-name|DocValues
+name|FunctionValues
 name|vals
 range|:
 name|valsArr

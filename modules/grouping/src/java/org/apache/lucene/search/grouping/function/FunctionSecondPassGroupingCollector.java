@@ -43,7 +43,7 @@ name|queries
 operator|.
 name|function
 operator|.
-name|DocValues
+name|FunctionValues
 import|;
 end_import
 begin_import
@@ -192,7 +192,7 @@ name|vsContext
 decl_stmt|;
 DECL|field|filler
 specifier|private
-name|DocValues
+name|FunctionValues
 operator|.
 name|ValueFiller
 name|filler
@@ -325,7 +325,7 @@ argument_list|(
 name|readerContext
 argument_list|)
 expr_stmt|;
-name|DocValues
+name|FunctionValues
 name|docValues
 init|=
 name|groupByVS

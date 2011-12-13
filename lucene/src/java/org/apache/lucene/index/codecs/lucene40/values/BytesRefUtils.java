@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index.values
+DECL|package|org.apache.lucene.index.codecs.lucene40.values
 package|package
 name|org
 operator|.
@@ -9,6 +9,10 @@ operator|.
 name|lucene
 operator|.
 name|index
+operator|.
+name|codecs
+operator|.
+name|lucene40
 operator|.
 name|values
 package|;
@@ -34,6 +38,7 @@ comment|/**  * Package private BytesRefUtils - can move this into the o.a.l.util
 end_comment
 begin_class
 DECL|class|BytesRefUtils
+specifier|public
 specifier|final
 class|class
 name|BytesRefUtils

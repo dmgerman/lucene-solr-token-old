@@ -126,6 +126,10 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|codecs
+operator|.
+name|lucene40
+operator|.
 name|values
 operator|.
 name|Writer
@@ -265,7 +269,7 @@ switch|switch
 condition|(
 name|fieldInfo
 operator|.
-name|getDocValues
+name|getDocValuesType
 argument_list|()
 condition|)
 block|{

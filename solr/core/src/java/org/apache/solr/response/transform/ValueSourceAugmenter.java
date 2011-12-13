@@ -59,7 +59,7 @@ name|queries
 operator|.
 name|function
 operator|.
-name|DocValues
+name|FunctionValues
 import|;
 end_import
 begin_import
@@ -273,7 +273,7 @@ expr_stmt|;
 name|docValuesArr
 operator|=
 operator|new
-name|DocValues
+name|FunctionValues
 index|[
 name|readerContexts
 operator|.
@@ -348,7 +348,7 @@ index|[]
 name|readerContexts
 decl_stmt|;
 DECL|field|docValuesArr
-name|DocValues
+name|FunctionValues
 name|docValuesArr
 index|[]
 decl_stmt|;
@@ -392,7 +392,7 @@ index|[
 name|idx
 index|]
 decl_stmt|;
-name|DocValues
+name|FunctionValues
 name|values
 init|=
 name|docValuesArr

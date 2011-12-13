@@ -80,7 +80,7 @@ name|queries
 operator|.
 name|function
 operator|.
-name|DocValues
+name|FunctionValues
 import|;
 end_import
 begin_import
@@ -2319,12 +2319,12 @@ literal|1
 decl_stmt|;
 DECL|field|latVals
 specifier|final
-name|DocValues
+name|FunctionValues
 name|latVals
 decl_stmt|;
 DECL|field|lonVals
 specifier|final
-name|DocValues
+name|FunctionValues
 name|lonVals
 decl_stmt|;
 DECL|field|liveDocs

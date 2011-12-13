@@ -3268,13 +3268,6 @@ name|field
 operator|.
 name|fieldType
 argument_list|()
-argument_list|,
-literal|false
-argument_list|,
-name|field
-operator|.
-name|docValuesType
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

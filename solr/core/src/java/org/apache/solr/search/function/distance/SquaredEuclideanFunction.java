@@ -30,7 +30,7 @@ name|queries
 operator|.
 name|function
 operator|.
-name|DocValues
+name|FunctionValues
 import|;
 end_import
 begin_import
@@ -127,10 +127,10 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|,
-name|DocValues
+name|FunctionValues
 name|dv1
 parameter_list|,
-name|DocValues
+name|FunctionValues
 name|dv2
 parameter_list|)
 block|{

@@ -28,37 +28,38 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DocValues
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|DocValues
+operator|.
+name|Type
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|values
-operator|.
-name|IndexDocValues
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|values
-operator|.
-name|ValueType
 import|;
 end_import
 begin_import
@@ -123,7 +124,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * Implementation of {@link AbstractAllGroupsCollector} that groups documents based on  * {@link IndexDocValues} fields.  *  * @lucene.experimental  */
+comment|/**  * Implementation of {@link AbstractAllGroupsCollector} that groups documents based on  * {@link DocValues} fields.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|DVAllGroupsCollector
@@ -149,7 +150,7 @@ name|DEFAULT_INITIAL_SIZE
 init|=
 literal|128
 decl_stmt|;
-comment|/**    * Expert: Constructs a {@link DVAllGroupsCollector}.    * Selects and constructs the most optimal all groups collector implementation for grouping by {@link IndexDocValues}.    *     *    * @param groupField  The field to group by    * @param type The {@link ValueType} which is used to select a concrete implementation.    * @param diskResident Whether the values to group by should be disk resident    * @param initialSize The initial allocation size of the    *                    internal int set and group list    *                    which should roughly match the total    *                    number of expected unique groups. Be aware that the    *                    heap usage is 4 bytes * initialSize. Not all concrete implementions use this!    * @return the most optimal all groups collector implementation for grouping by {@link IndexDocValues}    */
+comment|/**    * Expert: Constructs a {@link DVAllGroupsCollector}.    * Selects and constructs the most optimal all groups collector implementation for grouping by {@link DocValues}.    *     *    * @param groupField  The field to group by    * @param type The {@link Type} which is used to select a concrete implementation.    * @param diskResident Whether the values to group by should be disk resident    * @param initialSize The initial allocation size of the    *                    internal int set and group list    *                    which should roughly match the total    *                    number of expected unique groups. Be aware that the    *                    heap usage is 4 bytes * initialSize. Not all concrete implementions use this!    * @return the most optimal all groups collector implementation for grouping by {@link DocValues}    */
 DECL|method|create
 specifier|public
 specifier|static
@@ -159,7 +160,9 @@ parameter_list|(
 name|String
 name|groupField
 parameter_list|,
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|type
 parameter_list|,
 name|boolean
@@ -276,7 +279,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * Constructs a {@link DVAllGroupsCollector}.    * Selects and constructs the most optimal all groups collector implementation for grouping by {@link IndexDocValues}.    * If implementations require an initial allocation size then this will be set to 128.    *    *    * @param groupField  The field to group by    * @param type The {@link ValueType} which is used to select a concrete implementation.    * @param diskResident Wether the values to group by should be disk resident    * @return the most optimal all groups collector implementation for grouping by {@link IndexDocValues}    */
+comment|/**    * Constructs a {@link DVAllGroupsCollector}.    * Selects and constructs the most optimal all groups collector implementation for grouping by {@link DocValues}.    * If implementations require an initial allocation size then this will be set to 128.    *    *    * @param groupField  The field to group by    * @param type The {@link Type} which is used to select a concrete implementation.    * @param diskResident Wether the values to group by should be disk resident    * @return the most optimal all groups collector implementation for grouping by {@link DocValues}    */
 DECL|method|create
 specifier|public
 specifier|static
@@ -286,7 +289,9 @@ parameter_list|(
 name|String
 name|groupField
 parameter_list|,
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|type
 parameter_list|,
 name|boolean
@@ -313,7 +318,9 @@ name|groupField
 decl_stmt|;
 DECL|field|valueType
 specifier|final
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|valueType
 decl_stmt|;
 DECL|field|diskResident
@@ -335,7 +342,9 @@ parameter_list|(
 name|String
 name|groupField
 parameter_list|,
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|valueType
 parameter_list|,
 name|boolean
@@ -389,7 +398,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|IndexDocValues
+name|DocValues
 name|dv
 init|=
 name|readerContext
@@ -402,7 +411,7 @@ name|groupField
 argument_list|)
 decl_stmt|;
 specifier|final
-name|IndexDocValues
+name|DocValues
 operator|.
 name|Source
 name|dvSource
@@ -454,7 +463,7 @@ specifier|abstract
 name|void
 name|setDocValuesSources
 parameter_list|(
-name|IndexDocValues
+name|DocValues
 operator|.
 name|Source
 name|source
@@ -468,7 +477,7 @@ function_decl|;
 comment|/**    * @return The default source when no doc values are available.    * @param readerContext The current reader context    */
 DECL|method|getDefaultSource
 specifier|protected
-name|IndexDocValues
+name|DocValues
 operator|.
 name|Source
 name|getDefaultSource
@@ -480,7 +489,7 @@ name|readerContext
 parameter_list|)
 block|{
 return|return
-name|IndexDocValues
+name|DocValues
 operator|.
 name|getDefaultSource
 argument_list|(
@@ -500,7 +509,7 @@ argument_list|>
 block|{
 DECL|field|source
 specifier|private
-name|IndexDocValues
+name|DocValues
 operator|.
 name|Source
 name|source
@@ -511,7 +520,9 @@ parameter_list|(
 name|String
 name|groupField
 parameter_list|,
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|valueType
 parameter_list|,
 name|boolean
@@ -594,7 +605,7 @@ specifier|protected
 name|void
 name|setDocValuesSources
 parameter_list|(
-name|IndexDocValues
+name|DocValues
 operator|.
 name|Source
 name|source
@@ -625,7 +636,7 @@ argument_list|>
 block|{
 DECL|field|source
 specifier|private
-name|IndexDocValues
+name|DocValues
 operator|.
 name|Source
 name|source
@@ -636,7 +647,9 @@ parameter_list|(
 name|String
 name|groupField
 parameter_list|,
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|valueType
 parameter_list|,
 name|boolean
@@ -719,7 +732,7 @@ specifier|protected
 name|void
 name|setDocValuesSources
 parameter_list|(
-name|IndexDocValues
+name|DocValues
 operator|.
 name|Source
 name|source
@@ -760,7 +773,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|source
 specifier|private
-name|IndexDocValues
+name|DocValues
 operator|.
 name|Source
 name|source
@@ -771,7 +784,9 @@ parameter_list|(
 name|String
 name|groupField
 parameter_list|,
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|valueType
 parameter_list|,
 name|boolean
@@ -861,7 +876,7 @@ specifier|protected
 name|void
 name|setDocValuesSources
 parameter_list|(
-name|IndexDocValues
+name|DocValues
 operator|.
 name|Source
 name|source
@@ -908,7 +923,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|source
 specifier|private
-name|IndexDocValues
+name|DocValues
 operator|.
 name|SortedSource
 name|source
@@ -919,7 +934,9 @@ parameter_list|(
 name|String
 name|groupField
 parameter_list|,
-name|ValueType
+name|DocValues
+operator|.
+name|Type
 name|valueType
 parameter_list|,
 name|boolean
@@ -1039,7 +1056,7 @@ specifier|protected
 name|void
 name|setDocValuesSources
 parameter_list|(
-name|IndexDocValues
+name|DocValues
 operator|.
 name|Source
 name|source
@@ -1107,7 +1124,7 @@ annotation|@
 name|Override
 DECL|method|getDefaultSource
 specifier|protected
-name|IndexDocValues
+name|DocValues
 operator|.
 name|Source
 name|getDefaultSource
@@ -1119,7 +1136,7 @@ name|readerContext
 parameter_list|)
 block|{
 return|return
-name|IndexDocValues
+name|DocValues
 operator|.
 name|getDefaultSortedSource
 argument_list|(

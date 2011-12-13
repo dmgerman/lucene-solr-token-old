@@ -172,7 +172,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Instantiates {@link DocValues} for a particular reader.  *<br>  * Often used when creating a {@link FunctionQuery}.  *  *  */
+comment|/**  * Instantiates {@link FunctionValues} for a particular reader.  *<br>  * Often used when creating a {@link FunctionQuery}.  *  *  */
 end_comment
 begin_class
 DECL|class|ValueSource
@@ -187,7 +187,7 @@ comment|/**    * Gets the values for this reader and the context that was previo
 DECL|method|getValues
 specifier|public
 specifier|abstract
-name|DocValues
+name|FunctionValues
 name|getValues
 parameter_list|(
 name|Map
@@ -446,7 +446,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**    * Implement a {@link org.apache.lucene.search.FieldComparator} that works    * off of the {@link DocValues} for a ValueSource    * instead of the normal Lucene FieldComparator that works off of a FieldCache.    */
+comment|/**    * Implement a {@link org.apache.lucene.search.FieldComparator} that works    * off of the {@link FunctionValues} for a ValueSource    * instead of the normal Lucene FieldComparator that works off of a FieldCache.    */
 DECL|class|ValueSourceComparator
 class|class
 name|ValueSourceComparator
@@ -465,7 +465,7 @@ name|values
 decl_stmt|;
 DECL|field|docVals
 specifier|private
-name|DocValues
+name|FunctionValues
 name|docVals
 decl_stmt|;
 DECL|field|bottom

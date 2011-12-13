@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index.values
+DECL|package|org.apache.lucene.index.codecs.lucene40.values
 package|package
 name|org
 operator|.
@@ -9,6 +9,10 @@ operator|.
 name|lucene
 operator|.
 name|index
+operator|.
+name|codecs
+operator|.
+name|lucene40
 operator|.
 name|values
 package|;
@@ -44,9 +48,9 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|codecs
+name|DocValues
 operator|.
-name|DocValuesConsumer
+name|Source
 import|;
 end_import
 begin_import
@@ -59,11 +63,24 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|values
+name|DocValues
 operator|.
-name|IndexDocValues
+name|Type
+import|;
+end_import
+begin_import
+import|import
+name|org
 operator|.
-name|Source
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|codecs
+operator|.
+name|DocValuesConsumer
 import|;
 end_import
 begin_import
@@ -148,6 +165,12 @@ specifier|protected
 name|Source
 name|currentMergeSource
 decl_stmt|;
+DECL|field|bytesUsed
+specifier|protected
+specifier|final
+name|Counter
+name|bytesUsed
+decl_stmt|;
 comment|/**    * Creates a new {@link Writer}.    *     * @param bytesUsed    *          bytes-usage tracking reference used by implementation to track    *          internally allocated memory. All tracked bytes must be released    *          once {@link #finish(int)} has been called.    */
 DECL|method|Writer
 specifier|protected
@@ -157,10 +180,11 @@ name|Counter
 name|bytesUsed
 parameter_list|)
 block|{
-name|super
-argument_list|(
+name|this
+operator|.
 name|bytesUsed
-argument_list|)
+operator|=
+name|bytesUsed
 expr_stmt|;
 block|}
 comment|/**    * Filename extension for index files    */
@@ -394,14 +418,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Factory method to create a {@link Writer} instance for a given type. This    * method returns default implementations for each of the different types    * defined in the {@link ValueType} enumeration.    *     * @param type    *          the {@link ValueType} to create the {@link Writer} for    * @param id    *          the file name id used to create files within the writer.    * @param directory    *          the {@link Directory} to create the files from.    * @param bytesUsed    *          a byte-usage tracking reference    * @return a new {@link Writer} instance for the given {@link ValueType}    * @throws IOException    */
+comment|/**    * Factory method to create a {@link Writer} instance for a given type. This    * method returns default implementations for each of the different types    * defined in the {@link Type} enumeration.    *     * @param type    *          the {@link Type} to create the {@link Writer} for    * @param id    *          the file name id used to create files within the writer.    * @param directory    *          the {@link Directory} to create the files from.    * @param bytesUsed    *          a byte-usage tracking reference    * @return a new {@link Writer} instance for the given {@link Type}    * @throws IOException    */
 DECL|method|create
 specifier|public
 specifier|static
 name|Writer
 name|create
 parameter_list|(
-name|ValueType
+name|Type
 name|type
 parameter_list|,
 name|String

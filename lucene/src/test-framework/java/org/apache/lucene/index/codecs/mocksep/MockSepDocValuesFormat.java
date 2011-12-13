@@ -117,7 +117,7 @@ name|index
 operator|.
 name|codecs
 operator|.
-name|PerDocValues
+name|PerDocProducer
 import|;
 end_import
 begin_import
@@ -206,7 +206,7 @@ annotation|@
 name|Override
 DECL|method|docsProducer
 specifier|public
-name|PerDocValues
+name|PerDocProducer
 name|docsProducer
 parameter_list|(
 name|SegmentReadState

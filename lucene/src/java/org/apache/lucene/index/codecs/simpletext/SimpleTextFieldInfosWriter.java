@@ -723,7 +723,7 @@ name|out
 argument_list|,
 name|fi
 operator|.
-name|getDocValues
+name|getDocValuesType
 argument_list|()
 operator|.
 name|toString
