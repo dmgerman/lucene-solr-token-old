@@ -426,9 +426,14 @@ parameter_list|)
 block|{
 name|Assert
 operator|.
-name|assertTrue
+name|assertFalse
 argument_list|(
-operator|!
+name|q1
+operator|+
+literal|" equal to "
+operator|+
+name|q2
+argument_list|,
 name|q1
 operator|.
 name|equals
@@ -439,9 +444,14 @@ argument_list|)
 expr_stmt|;
 name|Assert
 operator|.
-name|assertTrue
+name|assertFalse
 argument_list|(
-operator|!
+name|q2
+operator|+
+literal|" equal to "
+operator|+
+name|q1
+argument_list|,
 name|q2
 operator|.
 name|equals
