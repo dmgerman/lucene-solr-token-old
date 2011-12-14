@@ -290,6 +290,13 @@ DECL|field|liveDocs
 specifier|volatile
 name|BitVector
 name|liveDocs
+init|=
+literal|null
+decl_stmt|;
+DECL|field|combinedCoreAndDeletesKey
+specifier|volatile
+name|Object
+name|combinedCoreAndDeletesKey
 decl_stmt|;
 DECL|field|liveDocsRef
 name|AtomicInteger
@@ -808,6 +815,7 @@ throw|;
 block|}
 block|}
 else|else
+block|{
 assert|assert
 name|si
 operator|.
@@ -816,6 +824,14 @@ argument_list|()
 operator|==
 literal|0
 assert|;
+block|}
+comment|// we need a key reflecting actual deletes (if existent or not):
+name|combinedCoreAndDeletesKey
+operator|=
+operator|new
+name|Object
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1912,6 +1928,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getCombinedCoreAndDeletesKey
+specifier|public
+name|Object
+name|getCombinedCoreAndDeletesKey
+parameter_list|()
+block|{
+return|return
+name|combinedCoreAndDeletesKey
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getTermInfosIndexDivisor
 specifier|public
 name|int
@@ -2144,6 +2172,12 @@ operator|.
 name|pendingDeleteCount
 operator|=
 name|pendingDeleteCount
+expr_stmt|;
+name|clone
+operator|.
+name|combinedCoreAndDeletesKey
+operator|=
+name|combinedCoreAndDeletesKey
 expr_stmt|;
 if|if
 condition|(
@@ -2652,6 +2686,14 @@ name|decrementAndGet
 argument_list|()
 expr_stmt|;
 block|}
+comment|// we need a key reflecting actual deletes (if existent or not):
+name|combinedCoreAndDeletesKey
+operator|=
+operator|new
+name|Object
+argument_list|()
+expr_stmt|;
+comment|// liveDocs are now dirty:
 name|liveDocsDirty
 operator|=
 literal|true

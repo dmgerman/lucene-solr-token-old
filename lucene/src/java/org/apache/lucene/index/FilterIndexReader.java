@@ -1354,7 +1354,7 @@ name|fields
 argument_list|()
 return|;
 block|}
-comment|/** If the subclass of FilteredIndexReader modifies the    *  contents of the FieldCache, you must override this    *  method to provide a different key */
+comment|/** {@inheritDoc}    *<p>If the subclass of FilteredIndexReader modifies the    *  contents (but not liveDocs) of the index, you must override this    *  method to provide a different key. */
 annotation|@
 name|Override
 DECL|method|getCoreCacheKey
@@ -1370,7 +1370,22 @@ name|getCoreCacheKey
 argument_list|()
 return|;
 block|}
-comment|/** {@inheritDoc} */
+comment|/** {@inheritDoc}    *<p>If the subclass of FilteredIndexReader modifies the    *  liveDocs, you must override this    *  method to provide a different key. */
+annotation|@
+name|Override
+DECL|method|getCombinedCoreAndDeletesKey
+specifier|public
+name|Object
+name|getCombinedCoreAndDeletesKey
+parameter_list|()
+block|{
+return|return
+name|in
+operator|.
+name|getCombinedCoreAndDeletesKey
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString
