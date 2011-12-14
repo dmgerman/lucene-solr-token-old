@@ -508,14 +508,10 @@ init|=
 operator|new
 name|Sort
 argument_list|(
-operator|new
-name|SortField
-index|[]
-block|{
 name|SortField
 operator|.
 name|FIELD_SCORE
-block|,
+argument_list|,
 operator|new
 name|SortField
 argument_list|(
@@ -527,7 +523,6 @@ name|Type
 operator|.
 name|INT
 argument_list|)
-block|}
 argument_list|)
 decl_stmt|;
 for|for

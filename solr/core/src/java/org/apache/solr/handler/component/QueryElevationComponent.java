@@ -2572,10 +2572,6 @@ name|Sort
 argument_list|(
 operator|new
 name|SortField
-index|[]
-block|{
-operator|new
-name|SortField
 argument_list|(
 name|idField
 argument_list|,
@@ -2585,7 +2581,7 @@ name|comparatorSource
 argument_list|,
 literal|false
 argument_list|)
-block|,
+argument_list|,
 operator|new
 name|SortField
 argument_list|(
@@ -2599,7 +2595,6 @@ name|SCORE
 argument_list|,
 literal|false
 argument_list|)
-block|}
 argument_list|)
 argument_list|)
 expr_stmt|;
