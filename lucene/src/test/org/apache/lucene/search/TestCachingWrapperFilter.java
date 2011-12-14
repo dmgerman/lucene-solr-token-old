@@ -287,6 +287,9 @@ name|filter
 argument_list|)
 decl_stmt|;
 comment|// first time, nested filter is called
+name|DocIdSet
+name|strongRef
+init|=
 name|cacher
 operator|.
 name|getDocIdSet
@@ -300,7 +303,7 @@ operator|.
 name|getLiveDocs
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertTrue
 argument_list|(
 literal|"first time"
