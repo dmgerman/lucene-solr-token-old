@@ -2274,10 +2274,9 @@ operator|)
 name|sr
 operator|.
 name|clone
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 return|;
+comment|// cloning is always readOnly
 block|}
 finally|finally
 block|{
@@ -9673,7 +9672,7 @@ condition|)
 block|{
 name|mergedReader
 operator|.
-name|doDelete
+name|deleteDocument
 argument_list|(
 name|docUpto
 argument_list|)
@@ -9766,7 +9765,7 @@ condition|)
 block|{
 name|mergedReader
 operator|.
-name|doDelete
+name|deleteDocument
 argument_list|(
 name|docUpto
 argument_list|)
