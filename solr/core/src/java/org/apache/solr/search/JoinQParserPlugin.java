@@ -431,7 +431,7 @@ name|subQuery
 argument_list|(
 name|v
 argument_list|,
-literal|"lucene"
+literal|null
 argument_list|)
 decl_stmt|;
 name|Query
