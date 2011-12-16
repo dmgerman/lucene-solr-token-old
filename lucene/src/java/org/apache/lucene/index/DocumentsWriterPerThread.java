@@ -83,11 +83,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|codecs
 operator|.
-name|DocumentsWriterDeleteQueue
-operator|.
-name|DeleteSlice
+name|Codec
 import|;
 end_import
 begin_import
@@ -100,9 +98,9 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|codecs
+name|DocumentsWriterDeleteQueue
 operator|.
-name|Codec
+name|DeleteSlice
 import|;
 end_import
 begin_import
