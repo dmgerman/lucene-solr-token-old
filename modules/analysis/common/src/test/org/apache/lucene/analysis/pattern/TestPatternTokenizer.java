@@ -486,6 +486,11 @@ literal|28
 block|,
 literal|33
 block|}
+argument_list|,
+name|INPUT
+operator|.
+name|length
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|charStream
@@ -554,6 +559,11 @@ literal|12
 block|,
 literal|25
 block|}
+argument_list|,
+name|INPUT
+operator|.
+name|length
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
