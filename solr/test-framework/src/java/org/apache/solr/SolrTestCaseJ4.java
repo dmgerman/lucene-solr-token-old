@@ -3889,6 +3889,7 @@ return|;
 block|}
 block|}
 DECL|class|FldType
+specifier|protected
 class|class
 name|FldType
 block|{
