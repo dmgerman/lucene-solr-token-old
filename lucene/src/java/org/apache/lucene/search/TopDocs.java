@@ -995,6 +995,14 @@ index|[
 name|shardIDX
 index|]
 decl_stmt|;
+comment|// totalHits can be non-zero even if no hits were
+comment|// collected, when searchAfter was used:
+name|totalHitCount
+operator|+=
+name|shard
+operator|.
+name|totalHits
+expr_stmt|;
 if|if
 condition|(
 name|shard
@@ -1012,12 +1020,6 @@ operator|>
 literal|0
 condition|)
 block|{
-name|totalHitCount
-operator|+=
-name|shard
-operator|.
-name|totalHits
-expr_stmt|;
 name|availHitCount
 operator|+=
 name|shard
@@ -1053,6 +1055,20 @@ argument_list|)
 expr_stmt|;
 comment|//System.out.println("  maxScore now " + maxScore + " vs " + shard.getMaxScore());
 block|}
+block|}
+if|if
+condition|(
+name|availHitCount
+operator|==
+literal|0
+condition|)
+block|{
+name|maxScore
+operator|=
+name|Float
+operator|.
+name|NaN
+expr_stmt|;
 block|}
 specifier|final
 name|ScoreDoc

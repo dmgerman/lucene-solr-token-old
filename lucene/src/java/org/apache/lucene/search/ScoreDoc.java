@@ -115,6 +115,10 @@ operator|+
 literal|" score="
 operator|+
 name|score
+operator|+
+literal|" shardIndex="
+operator|+
+name|shardIndex
 return|;
 block|}
 block|}
