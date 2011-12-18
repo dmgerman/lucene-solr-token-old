@@ -877,6 +877,7 @@ block|}
 block|}
 DECL|method|createSlicer
 specifier|public
+specifier|synchronized
 name|IndexInputSlicer
 name|createSlicer
 parameter_list|(
