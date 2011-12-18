@@ -67,15 +67,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|WeakHashMap
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|LinkedList
 import|;
 end_import
@@ -173,7 +164,7 @@ DECL|field|attClassImplMap
 specifier|private
 specifier|static
 specifier|final
-name|WeakHashMap
+name|WeakIdentityMap
 argument_list|<
 name|Class
 argument_list|<
@@ -194,26 +185,9 @@ argument_list|>
 argument_list|>
 name|attClassImplMap
 init|=
-operator|new
-name|WeakHashMap
-argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Attribute
-argument_list|>
-argument_list|,
-name|WeakReference
-argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|AttributeImpl
-argument_list|>
-argument_list|>
-argument_list|>
+name|WeakIdentityMap
+operator|.
+name|newConcurrentHashMap
 argument_list|()
 decl_stmt|;
 DECL|method|DefaultAttributeFactory
@@ -308,11 +282,6 @@ argument_list|>
 name|attClass
 parameter_list|)
 block|{
-synchronized|synchronized
-init|(
-name|attClassImplMap
-init|)
-block|{
 specifier|final
 name|WeakReference
 argument_list|<
@@ -360,6 +329,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// we have the slight chance that another thread may do the same, but who cares?
 try|try
 block|{
 name|attClassImplMap
@@ -433,7 +403,6 @@ block|}
 return|return
 name|clazz
 return|;
-block|}
 block|}
 block|}
 block|}
@@ -850,7 +819,7 @@ DECL|field|knownImplClasses
 specifier|private
 specifier|static
 specifier|final
-name|WeakHashMap
+name|WeakIdentityMap
 argument_list|<
 name|Class
 argument_list|<
@@ -874,29 +843,9 @@ argument_list|>
 argument_list|>
 name|knownImplClasses
 init|=
-operator|new
-name|WeakHashMap
-argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|AttributeImpl
-argument_list|>
-argument_list|,
-name|LinkedList
-argument_list|<
-name|WeakReference
-argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Attribute
-argument_list|>
-argument_list|>
-argument_list|>
-argument_list|>
+name|WeakIdentityMap
+operator|.
+name|newConcurrentHashMap
 argument_list|()
 decl_stmt|;
 DECL|method|getAttributeInterfaces
@@ -924,11 +873,6 @@ name|AttributeImpl
 argument_list|>
 name|clazz
 parameter_list|)
-block|{
-synchronized|synchronized
-init|(
-name|knownImplClasses
-init|)
 block|{
 name|LinkedList
 argument_list|<
@@ -958,14 +902,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// we have a strong reference to the class instance holding all interfaces in the list (parameter "att"),
-comment|// so all WeakReferences are never evicted by GC
-name|knownImplClasses
-operator|.
-name|put
-argument_list|(
-name|clazz
-argument_list|,
+comment|// we have the slight chance that another thread may do the same, but who cares?
 name|foundInterfaces
 operator|=
 operator|new
@@ -982,7 +919,6 @@ argument_list|>
 argument_list|>
 argument_list|>
 argument_list|()
-argument_list|)
 expr_stmt|;
 comment|// find all interfaces that this attribute instance implements
 comment|// and that extend the Attribute interface
@@ -1071,11 +1007,19 @@ operator|!=
 literal|null
 condition|)
 do|;
+name|knownImplClasses
+operator|.
+name|put
+argument_list|(
+name|clazz
+argument_list|,
+name|foundInterfaces
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|foundInterfaces
 return|;
-block|}
 block|}
 comment|/**<b>Expert:</b> Adds a custom AttributeImpl instance with one or more Attribute interfaces.    *<p><font color="red"><b>Please note:</b> It is not guaranteed, that<code>att</code> is added to    * the<code>AttributeSource</code>, because the provided attributes may already exist.    * You should always retrieve the wanted attributes using {@link #getAttribute} after adding    * with this method and cast to your class.    * The recommended way to use custom implementations is using an {@link AttributeFactory}.    *</font></p>    */
 DECL|method|addAttributeImpl
