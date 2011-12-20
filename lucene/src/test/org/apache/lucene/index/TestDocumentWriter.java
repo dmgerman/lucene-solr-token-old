@@ -375,9 +375,8 @@ comment|//After adding the document, we should be able to read it back in
 name|SegmentReader
 name|reader
 init|=
+operator|new
 name|SegmentReader
-operator|.
-name|get
 argument_list|(
 name|info
 argument_list|,
@@ -659,9 +658,8 @@ name|fi
 range|:
 name|reader
 operator|.
-name|core
-operator|.
 name|fieldInfos
+argument_list|()
 control|)
 block|{
 if|if
@@ -841,9 +839,8 @@ expr_stmt|;
 name|SegmentReader
 name|reader
 init|=
+operator|new
 name|SegmentReader
-operator|.
-name|get
 argument_list|(
 name|info
 argument_list|,
@@ -1267,9 +1264,8 @@ expr_stmt|;
 name|SegmentReader
 name|reader
 init|=
+operator|new
 name|SegmentReader
-operator|.
-name|get
 argument_list|(
 name|info
 argument_list|,
@@ -1560,9 +1556,8 @@ expr_stmt|;
 name|SegmentReader
 name|reader
 init|=
+operator|new
 name|SegmentReader
-operator|.
-name|get
 argument_list|(
 name|info
 argument_list|,

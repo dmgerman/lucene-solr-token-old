@@ -246,9 +246,8 @@ comment|//After adding the document, we should be able to read it back in
 name|SegmentReader
 name|reader
 init|=
+operator|new
 name|SegmentReader
-operator|.
-name|get
 argument_list|(
 name|info
 argument_list|,
@@ -408,9 +407,8 @@ comment|//After adding the document, we should be able to read it back in
 name|SegmentReader
 name|reader
 init|=
+operator|new
 name|SegmentReader
-operator|.
-name|get
 argument_list|(
 name|info
 argument_list|,
@@ -474,9 +472,8 @@ comment|//After adding the document, we should be able to read it back in
 name|SegmentReader
 name|reader
 init|=
+operator|new
 name|SegmentReader
-operator|.
-name|get
 argument_list|(
 name|info
 argument_list|,

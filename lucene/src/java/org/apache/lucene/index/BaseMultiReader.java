@@ -101,8 +101,6 @@ name|IndexReader
 parameter_list|>
 extends|extends
 name|IndexReader
-implements|implements
-name|Cloneable
 block|{
 DECL|field|subReaders
 specifier|protected
@@ -317,15 +315,6 @@ throws|throws
 name|CorruptIndexException
 throws|,
 name|IOException
-function_decl|;
-annotation|@
-name|Override
-DECL|method|clone
-specifier|public
-specifier|abstract
-name|Object
-name|clone
-parameter_list|()
 function_decl|;
 annotation|@
 name|Override

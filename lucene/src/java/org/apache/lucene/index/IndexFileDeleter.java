@@ -1636,6 +1636,14 @@ assert|assert
 name|locked
 argument_list|()
 assert|;
+assert|assert
+name|Thread
+operator|.
+name|holdsLock
+argument_list|(
+name|writer
+argument_list|)
+assert|;
 if|if
 condition|(
 name|infoStream
@@ -1654,11 +1662,11 @@ literal|"IFD"
 argument_list|,
 literal|"now checkpoint \""
 operator|+
-name|segmentInfos
+name|writer
 operator|.
-name|toString
+name|segString
 argument_list|(
-name|directory
+name|segmentInfos
 argument_list|)
 operator|+
 literal|"\" ["

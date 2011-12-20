@@ -1029,9 +1029,8 @@ decl_stmt|;
 name|SegmentReader
 name|r1
 init|=
+operator|new
 name|SegmentReader
-operator|.
-name|get
 argument_list|(
 name|si1
 argument_list|,
@@ -1045,9 +1044,8 @@ decl_stmt|;
 name|SegmentReader
 name|r2
 init|=
+operator|new
 name|SegmentReader
-operator|.
-name|get
 argument_list|(
 name|si2
 argument_list|,
@@ -1260,9 +1258,8 @@ block|{
 name|SegmentReader
 name|reader
 init|=
+operator|new
 name|SegmentReader
-operator|.
-name|get
 argument_list|(
 name|si
 argument_list|,
