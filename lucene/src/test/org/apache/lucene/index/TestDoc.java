@@ -539,7 +539,6 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// TODO: why does this test trigger NRTCachingDirectory's assert?
 name|Directory
 name|directory
 init|=
@@ -548,8 +547,6 @@ argument_list|(
 name|indexDir
 argument_list|,
 literal|null
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|IndexWriter
@@ -744,7 +741,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// TODO: why does this test trigger NRTCachingDirectory's assert?
 name|directory
 operator|=
 name|newFSDirectory
@@ -752,8 +748,6 @@ argument_list|(
 name|indexDir
 argument_list|,
 literal|null
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|writer
