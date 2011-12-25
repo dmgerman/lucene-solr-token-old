@@ -619,8 +619,6 @@ index|[
 literal|64
 operator|*
 literal|1024
-operator|*
-literal|1024
 index|]
 decl_stmt|;
 name|byte
@@ -631,8 +629,6 @@ operator|new
 name|byte
 index|[
 literal|64
-operator|*
-literal|1024
 operator|*
 literal|1024
 index|]
