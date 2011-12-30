@@ -5429,7 +5429,7 @@ argument_list|)
 operator|.
 name|setRAMBufferSizeMB
 argument_list|(
-literal|0.2f
+literal|0.1f
 argument_list|)
 operator|.
 name|setMaxBufferedDocs
@@ -5799,6 +5799,8 @@ expr_stmt|;
 block|}
 comment|// Make sure buffered (pushed) deletes don't use up so
 comment|// much RAM that it forces long tail of tiny segments:
+annotation|@
+name|Nightly
 DECL|method|testApplyDeletesOnFlush
 specifier|public
 name|void

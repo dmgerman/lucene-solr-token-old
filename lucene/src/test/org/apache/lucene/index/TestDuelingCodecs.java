@@ -488,7 +488,7 @@ name|numdocs
 init|=
 name|atLeast
 argument_list|(
-literal|500
+literal|100
 argument_list|)
 decl_stmt|;
 name|createRandomIndex
@@ -684,6 +684,8 @@ name|getFields
 argument_list|(
 name|rightReader
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|assertNorms
@@ -845,6 +847,9 @@ name|leftFields
 parameter_list|,
 name|Fields
 name|rightFields
+parameter_list|,
+name|boolean
+name|deep
 parameter_list|)
 throws|throws
 name|Exception
@@ -941,6 +946,8 @@ name|rightEnum
 operator|.
 name|terms
 argument_list|()
+argument_list|,
+name|deep
 argument_list|)
 expr_stmt|;
 block|}
@@ -1050,6 +1057,9 @@ name|leftTerms
 parameter_list|,
 name|Terms
 name|rightTerms
+parameter_list|,
+name|boolean
+name|deep
 parameter_list|)
 throws|throws
 name|Exception
@@ -1118,6 +1128,11 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// TODO: test seeking too
+if|if
+condition|(
+name|deep
+condition|)
+block|{
 name|int
 name|numIntersections
 init|=
@@ -1219,6 +1234,7 @@ name|rarely
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -3213,6 +3229,9 @@ argument_list|(
 name|leftFields
 argument_list|,
 name|rightFields
+argument_list|,
+name|rarely
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

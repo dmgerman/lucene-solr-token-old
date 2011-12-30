@@ -540,7 +540,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|check
-specifier|private
+specifier|public
 specifier|static
 name|void
 name|check

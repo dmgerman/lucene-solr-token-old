@@ -1863,9 +1863,10 @@ block|{
 name|int
 name|numIterations
 init|=
-literal|100
-operator|*
-name|RANDOM_MULTIPLIER
+name|atLeast
+argument_list|(
+literal|3
+argument_list|)
 decl_stmt|;
 name|SolrServer
 name|server
@@ -1979,7 +1980,9 @@ name|random
 argument_list|,
 literal|1
 argument_list|,
-literal|100
+literal|10
+operator|*
+name|RANDOM_MULTIPLIER
 argument_list|)
 decl_stmt|;
 comment|// Empty the database...

@@ -520,7 +520,7 @@ name|AtomicLong
 argument_list|(
 name|atLeast
 argument_list|(
-literal|50000
+literal|10000
 argument_list|)
 argument_list|)
 decl_stmt|;
