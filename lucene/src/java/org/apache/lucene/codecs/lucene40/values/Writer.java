@@ -414,7 +414,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Factory method to create a {@link Writer} instance for a given type. This    * method returns default implementations for each of the different types    * defined in the {@link Type} enumeration.    *     * @param type    *          the {@link Type} to create the {@link Writer} for    * @param id    *          the file name id used to create files within the writer.    * @param directory    *          the {@link Directory} to create the files from.    * @param bytesUsed    *          a byte-usage tracking reference    * @return a new {@link Writer} instance for the given {@link Type}    * @throws IOException    */
+comment|/**    * Factory method to create a {@link Writer} instance for a given type. This    * method returns default implementations for each of the different types    * defined in the {@link Type} enumeration.    *     * @param type    *          the {@link Type} to create the {@link Writer} for    * @param id    *          the file name id used to create files within the writer.    * @param directory    *          the {@link Directory} to create the files from.    * @param bytesUsed    *          a byte-usage tracking reference    * @param fasterButMoreRam Whether the space used for packed ints should be rounded up for higher lookup performance.    *                         Currently this parameter only applies for types {@link Type#BYTES_VAR_SORTED}    *                         and {@link Type#BYTES_FIXED_SORTED}.    * @return a new {@link Writer} instance for the given {@link Type}    * @throws IOException    */
 DECL|method|create
 specifier|public
 specifier|static
@@ -441,6 +441,9 @@ name|bytesUsed
 parameter_list|,
 name|IOContext
 name|context
+parameter_list|,
+name|boolean
+name|fasterButMoreRam
 parameter_list|)
 throws|throws
 name|IOException
@@ -559,6 +562,8 @@ argument_list|,
 name|bytesUsed
 argument_list|,
 name|context
+argument_list|,
+name|fasterButMoreRam
 argument_list|)
 return|;
 case|case
@@ -586,6 +591,8 @@ argument_list|,
 name|bytesUsed
 argument_list|,
 name|context
+argument_list|,
+name|fasterButMoreRam
 argument_list|)
 return|;
 case|case
@@ -613,6 +620,8 @@ argument_list|,
 name|bytesUsed
 argument_list|,
 name|context
+argument_list|,
+name|fasterButMoreRam
 argument_list|)
 return|;
 case|case
@@ -640,6 +649,8 @@ argument_list|,
 name|bytesUsed
 argument_list|,
 name|context
+argument_list|,
+name|fasterButMoreRam
 argument_list|)
 return|;
 case|case
@@ -667,6 +678,8 @@ argument_list|,
 name|bytesUsed
 argument_list|,
 name|context
+argument_list|,
+name|fasterButMoreRam
 argument_list|)
 return|;
 case|case
@@ -694,6 +707,8 @@ argument_list|,
 name|bytesUsed
 argument_list|,
 name|context
+argument_list|,
+name|fasterButMoreRam
 argument_list|)
 return|;
 default|default:

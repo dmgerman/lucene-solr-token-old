@@ -96,6 +96,24 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|DocValues
+operator|.
+name|Type
+import|;
+end_import
+begin_comment
+comment|// javadoc
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|Directory
@@ -141,7 +159,7 @@ name|Counter
 import|;
 end_import
 begin_comment
-comment|/**  * Abstract base class for PerDocConsumer implementations  * @lucene.experimental  */
+comment|/**  * Abstract base class for PerDocConsumer implementations  *  * @lucene.experimental  */
 end_comment
 begin_comment
 comment|//TODO: this needs to go under lucene40 codec (its specific to its impl)
@@ -179,12 +197,39 @@ specifier|final
 name|IOContext
 name|context
 decl_stmt|;
+DECL|field|fasterButMoreRam
+specifier|private
+specifier|final
+name|boolean
+name|fasterButMoreRam
+decl_stmt|;
+comment|/**    * @param state The state to initiate a {@link PerDocConsumer} instance    */
 DECL|method|DocValuesWriterBase
 specifier|protected
 name|DocValuesWriterBase
 parameter_list|(
 name|PerDocWriteState
 name|state
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|state
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**    * @param state The state to initiate a {@link PerDocConsumer} instance    * @param fasterButMoreRam whether packed ints for docvalues should be optimized for speed by rounding up the bytes    *                         used for a value to either 8, 16, 32 or 64 bytes. This option is only applicable for    *                         docvalues of type {@link Type#BYTES_FIXED_SORTED} and {@link Type#BYTES_VAR_SORTED}.    */
+DECL|method|DocValuesWriterBase
+specifier|protected
+name|DocValuesWriterBase
+parameter_list|(
+name|PerDocWriteState
+name|state
+parameter_list|,
+name|boolean
+name|fasterButMoreRam
 parameter_list|)
 block|{
 name|this
@@ -219,6 +264,12 @@ name|state
 operator|.
 name|context
 expr_stmt|;
+name|this
+operator|.
+name|fasterButMoreRam
+operator|=
+name|fasterButMoreRam
+expr_stmt|;
 block|}
 DECL|method|getDirectory
 specifier|protected
@@ -246,8 +297,6 @@ specifier|public
 name|DocValuesConsumer
 name|addValuesField
 parameter_list|(
-name|DocValues
-operator|.
 name|Type
 name|valueType
 parameter_list|,
@@ -282,6 +331,8 @@ argument_list|,
 name|bytesUsed
 argument_list|,
 name|context
+argument_list|,
+name|fasterButMoreRam
 argument_list|)
 return|;
 block|}
