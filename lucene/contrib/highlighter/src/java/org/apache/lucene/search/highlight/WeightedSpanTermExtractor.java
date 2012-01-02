@@ -490,7 +490,7 @@ block|}
 block|}
 comment|/**    * Fills a<code>Map</code> with<@link WeightedSpanTerm>s using the terms from the supplied<code>Query</code>.    *     * @param query    *          Query to extract Terms from    * @param terms    *          Map to place created WeightedSpanTerms in    * @throws IOException    */
 DECL|method|extract
-specifier|private
+specifier|protected
 name|void
 name|extract
 parameter_list|(
@@ -1374,10 +1374,38 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|extractUnknownQuery
+argument_list|(
+name|query
+argument_list|,
+name|terms
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|extractUnknownQuery
+specifier|protected
+name|void
+name|extractUnknownQuery
+parameter_list|(
+name|Query
+name|query
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|WeightedSpanTerm
+argument_list|>
+name|terms
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// for sub-classing to extract custom queries
 block|}
 comment|/**    * Fills a<code>Map</code> with<@link WeightedSpanTerm>s using the terms from the supplied<code>SpanQuery</code>.    *     * @param terms    *          Map to place created WeightedSpanTerms in    * @param spanQuery    *          SpanQuery to extract Terms from    * @throws IOException    */
 DECL|method|extractWeightedSpanTerms
-specifier|private
+specifier|protected
 name|void
 name|extractWeightedSpanTerms
 parameter_list|(
@@ -1860,7 +1888,7 @@ block|}
 block|}
 comment|/**    * Fills a<code>Map</code> with<@link WeightedSpanTerm>s using the terms from the supplied<code>Query</code>.    *     * @param terms    *          Map to place created WeightedSpanTerms in    * @param query    *          Query to extract Terms from    * @throws IOException    */
 DECL|method|extractWeightedTerms
-specifier|private
+specifier|protected
 name|void
 name|extractWeightedTerms
 parameter_list|(
@@ -1952,7 +1980,7 @@ block|}
 block|}
 comment|/**    * Necessary to implement matches for queries against<code>defaultField</code>    */
 DECL|method|fieldNameComparator
-specifier|private
+specifier|protected
 name|boolean
 name|fieldNameComparator
 parameter_list|(
@@ -1992,7 +2020,7 @@ name|rv
 return|;
 block|}
 DECL|method|getLeafContextForField
-specifier|private
+specifier|protected
 name|AtomicReaderContext
 name|getLeafContextForField
 parameter_list|(
@@ -2441,7 +2469,7 @@ name|terms
 return|;
 block|}
 DECL|method|collectSpanQueryFields
-specifier|private
+specifier|protected
 name|void
 name|collectSpanQueryFields
 parameter_list|(
@@ -2609,7 +2637,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|mustRewriteQuery
-specifier|private
+specifier|protected
 name|boolean
 name|mustRewriteQuery
 parameter_list|(
@@ -2812,9 +2840,14 @@ return|;
 block|}
 block|}
 comment|/**    * This class makes sure that if both position sensitive and insensitive    * versions of the same term are added, the position insensitive one wins.    */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"serial"
+argument_list|)
 DECL|class|PositionCheckingMap
+specifier|protected
 specifier|static
-specifier|private
 class|class
 name|PositionCheckingMap
 parameter_list|<
