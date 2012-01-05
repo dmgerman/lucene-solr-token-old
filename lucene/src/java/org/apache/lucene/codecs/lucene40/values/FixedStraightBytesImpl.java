@@ -412,7 +412,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|add
-specifier|public
+specifier|protected
 name|void
 name|add
 parameter_list|(

@@ -151,6 +151,10 @@ operator|new
 name|Lucene40DocValuesConsumer
 argument_list|(
 name|state
+argument_list|,
+name|Lucene40DocValuesConsumer
+operator|.
+name|DOC_VALUES_SEGMENT_SUFFIX
 argument_list|)
 return|;
 block|}
@@ -172,6 +176,10 @@ operator|new
 name|Lucene40DocValuesProducer
 argument_list|(
 name|state
+argument_list|,
+name|Lucene40DocValuesConsumer
+operator|.
+name|DOC_VALUES_SEGMENT_SUFFIX
 argument_list|)
 return|;
 block|}

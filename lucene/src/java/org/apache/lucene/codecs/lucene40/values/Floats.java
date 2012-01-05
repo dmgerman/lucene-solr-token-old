@@ -35,6 +35,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|codecs
+operator|.
+name|DocValuesConsumer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|DocValues
@@ -200,7 +213,7 @@ decl_stmt|;
 DECL|method|getWriter
 specifier|public
 specifier|static
-name|Writer
+name|DocValuesConsumer
 name|getWriter
 parameter_list|(
 name|Directory
@@ -416,7 +429,7 @@ literal|null
 assert|;
 block|}
 DECL|method|add
-specifier|public
+specifier|protected
 name|void
 name|add
 parameter_list|(
