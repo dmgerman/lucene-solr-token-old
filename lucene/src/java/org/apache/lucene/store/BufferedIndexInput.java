@@ -20,6 +20,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|EOFException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -567,9 +576,11 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|IOException
+name|EOFException
 argument_list|(
-literal|"read past EOF"
+literal|"read past EOF: "
+operator|+
+name|this
 argument_list|)
 throw|;
 block|}
@@ -623,9 +634,11 @@ argument_list|()
 condition|)
 throw|throw
 operator|new
-name|IOException
+name|EOFException
 argument_list|(
-literal|"read past EOF"
+literal|"read past EOF: "
+operator|+
+name|this
 argument_list|)
 throw|;
 name|readInternal
@@ -1195,9 +1208,11 @@ literal|0
 condition|)
 throw|throw
 operator|new
-name|IOException
+name|EOFException
 argument_list|(
-literal|"read past EOF"
+literal|"read past EOF: "
+operator|+
+name|this
 argument_list|)
 throw|;
 if|if

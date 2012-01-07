@@ -41,6 +41,19 @@ operator|.
 name|Map
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IOUtils
+import|;
+end_import
 begin_comment
 comment|/**  * Abstract base class for performing read operations of Lucene's low-level  * data types.  */
 end_comment
@@ -684,7 +697,9 @@ literal|0
 argument_list|,
 name|length
 argument_list|,
-literal|"UTF-8"
+name|IOUtils
+operator|.
+name|CHARSET_UTF_8
 argument_list|)
 return|;
 block|}
