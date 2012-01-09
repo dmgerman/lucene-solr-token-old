@@ -646,7 +646,7 @@ name|fi
 init|=
 name|reader
 operator|.
-name|fieldInfos
+name|getFieldInfos
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -916,7 +916,7 @@ name|fi
 init|=
 name|reader
 operator|.
-name|fieldInfos
+name|getFieldInfos
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -1142,7 +1142,7 @@ name|fi
 init|=
 name|reader
 operator|.
-name|fieldInfos
+name|getFieldInfos
 argument_list|()
 decl_stmt|;
 name|assertEquals

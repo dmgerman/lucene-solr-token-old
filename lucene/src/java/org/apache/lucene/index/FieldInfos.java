@@ -83,19 +83,6 @@ operator|.
 name|IndexOptions
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|DocValues
-import|;
-end_import
 begin_comment
 comment|/** Access to the Field Info file that describes document fields and whether or  *  not they are indexed. Each segment has a separate Field Info file. Objects  *  of this class are thread-safe for multiple readers, but only one thread can  *  be adding documents at a time, with no other reader or writer threads  *  accessing this object.  *  @lucene.experimental  */
 end_comment
@@ -529,6 +516,43 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|FieldInfos
+specifier|public
+name|FieldInfos
+parameter_list|()
+block|{
+name|this
+argument_list|(
+operator|new
+name|FieldNumberBiMap
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|add
+specifier|public
+name|void
+name|add
+parameter_list|(
+name|FieldInfos
+name|other
+parameter_list|)
+block|{
+for|for
+control|(
+name|FieldInfo
+name|fieldInfo
+range|:
+name|other
+control|)
+block|{
+name|add
+argument_list|(
+name|fieldInfo
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|/**    * Creates a new FieldInfos instance with the given {@link FieldNumberBiMap}.     * If the {@link FieldNumberBiMap} is<code>null</code> this instance will be read-only.    * @see #isReadOnly()    */
 DECL|method|FieldInfos
 name|FieldInfos
@@ -838,7 +862,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**    * Adds or updates fields that are indexed. Whether they have termvectors has to be specified.    *     * @param names The names of the fields    * @param storeTermVectors Whether the fields store term vectors or not    * @param storePositionWithTermVector true if positions should be stored.    * @param storeOffsetWithTermVector true if offsets should be stored    */
+comment|/**    * Adds or updates fields that are indexed. Whether they have termvectors has to be specified.    *     * @param names The names of the fields    * @param storeTermVectors Whether the fields store term vectors or not    */
 DECL|method|addOrUpdateIndexed
 specifier|synchronized
 specifier|public
@@ -853,12 +877,6 @@ name|names
 parameter_list|,
 name|boolean
 name|storeTermVectors
-parameter_list|,
-name|boolean
-name|storePositionWithTermVector
-parameter_list|,
-name|boolean
-name|storeOffsetWithTermVector
 parameter_list|)
 block|{
 for|for
@@ -876,10 +894,6 @@ argument_list|,
 literal|true
 argument_list|,
 name|storeTermVectors
-argument_list|,
-name|storePositionWithTermVector
-argument_list|,
-name|storeOffsetWithTermVector
 argument_list|)
 expr_stmt|;
 block|}
@@ -918,7 +932,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Calls 5 parameter add with false for all TermVector parameters.    *     * @param name The name of the IndexableField    * @param isIndexed true if the field is indexed    * @see #addOrUpdate(String, boolean, boolean, boolean, boolean)    */
+comment|/**    * Calls 5 parameter add with false for all TermVector parameters.    *     * @param name The name of the IndexableField    * @param isIndexed true if the field is indexed    * @see #addOrUpdate(String, boolean, boolean)    */
 DECL|method|addOrUpdate
 specifier|synchronized
 specifier|public
@@ -941,14 +955,10 @@ argument_list|,
 literal|false
 argument_list|,
 literal|false
-argument_list|,
-literal|false
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Calls 5 parameter add with false for term vector positions and offsets.    *     * @param name The name of the field    * @param isIndexed  true if the field is indexed    * @param storeTermVector true if the term vector should be stored    */
+comment|/** If the field is not yet known, adds it. If it is known, checks to make    *  sure that the isIndexed flag is the same as was given previously for this    *  field. If not - marks it as being indexed.  Same goes for the TermVector    * parameters.    *     * @param name The name of the field    * @param isIndexed true if the field is indexed    * @param storeTermVector true if the term vector should be stored    */
 DECL|method|addOrUpdate
 specifier|synchronized
 specifier|public
@@ -974,14 +984,10 @@ argument_list|,
 name|storeTermVector
 argument_list|,
 literal|false
-argument_list|,
-literal|false
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** If the field is not yet known, adds it. If it is known, checks to make    *  sure that the isIndexed flag is the same as was given previously for this    *  field. If not - marks it as being indexed.  Same goes for the TermVector    * parameters.    *     * @param name The name of the field    * @param isIndexed true if the field is indexed    * @param storeTermVector true if the term vector should be stored    * @param storePositionWithTermVector true if the term vector with positions should be stored    * @param storeOffsetWithTermVector true if the term vector with offsets should be stored    */
+comment|/** If the field is not yet known, adds it. If it is known, checks to make    *  sure that the isIndexed flag is the same as was given previously for this    *  field. If not - marks it as being indexed.  Same goes for the TermVector    * parameters.    *    * @param name The name of the field    * @param isIndexed true if the field is indexed    * @param storeTermVector true if the term vector should be stored    * @param omitNorms true if the norms for the indexed field should be omitted    */
 DECL|method|addOrUpdate
 specifier|synchronized
 specifier|public
@@ -996,51 +1002,6 @@ name|isIndexed
 parameter_list|,
 name|boolean
 name|storeTermVector
-parameter_list|,
-name|boolean
-name|storePositionWithTermVector
-parameter_list|,
-name|boolean
-name|storeOffsetWithTermVector
-parameter_list|)
-block|{
-name|addOrUpdate
-argument_list|(
-name|name
-argument_list|,
-name|isIndexed
-argument_list|,
-name|storeTermVector
-argument_list|,
-name|storePositionWithTermVector
-argument_list|,
-name|storeOffsetWithTermVector
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-comment|/** If the field is not yet known, adds it. If it is known, checks to make    *  sure that the isIndexed flag is the same as was given previously for this    *  field. If not - marks it as being indexed.  Same goes for the TermVector    * parameters.    *    * @param name The name of the field    * @param isIndexed true if the field is indexed    * @param storeTermVector true if the term vector should be stored    * @param storePositionWithTermVector true if the term vector with positions should be stored    * @param storeOffsetWithTermVector true if the term vector with offsets should be stored    * @param omitNorms true if the norms for the indexed field should be omitted    */
-DECL|method|addOrUpdate
-specifier|synchronized
-specifier|public
-name|void
-name|addOrUpdate
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|boolean
-name|isIndexed
-parameter_list|,
-name|boolean
-name|storeTermVector
-parameter_list|,
-name|boolean
-name|storePositionWithTermVector
-parameter_list|,
-name|boolean
-name|storeOffsetWithTermVector
 parameter_list|,
 name|boolean
 name|omitNorms
@@ -1053,10 +1014,6 @@ argument_list|,
 name|isIndexed
 argument_list|,
 name|storeTermVector
-argument_list|,
-name|storePositionWithTermVector
-argument_list|,
-name|storeOffsetWithTermVector
 argument_list|,
 name|omitNorms
 argument_list|,
@@ -1070,7 +1027,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** If the field is not yet known, adds it. If it is known, checks to make    *  sure that the isIndexed flag is the same as was given previously for this    *  field. If not - marks it as being indexed.  Same goes for the TermVector    * parameters.    *    * @param name The name of the field    * @param isIndexed true if the field is indexed    * @param storeTermVector true if the term vector should be stored    * @param storePositionWithTermVector true if the term vector with positions should be stored    * @param storeOffsetWithTermVector true if the term vector with offsets should be stored    * @param omitNorms true if the norms for the indexed field should be omitted    * @param storePayloads true if payloads should be stored for this field    * @param indexOptions if term freqs should be omitted for this field    */
+comment|/** If the field is not yet known, adds it. If it is known, checks to make    *  sure that the isIndexed flag is the same as was given previously for this    *  field. If not - marks it as being indexed.  Same goes for the TermVector    * parameters.    *    * @param name The name of the field    * @param isIndexed true if the field is indexed    * @param storeTermVector true if the term vector should be stored    * @param omitNorms true if the norms for the indexed field should be omitted    * @param storePayloads true if payloads should be stored for this field    * @param indexOptions if term freqs should be omitted for this field    */
 DECL|method|addOrUpdate
 specifier|synchronized
 specifier|public
@@ -1085,12 +1042,6 @@ name|isIndexed
 parameter_list|,
 name|boolean
 name|storeTermVector
-parameter_list|,
-name|boolean
-name|storePositionWithTermVector
-parameter_list|,
-name|boolean
-name|storeOffsetWithTermVector
 parameter_list|,
 name|boolean
 name|omitNorms
@@ -1118,10 +1069,6 @@ argument_list|,
 name|isIndexed
 argument_list|,
 name|storeTermVector
-argument_list|,
-name|storePositionWithTermVector
-argument_list|,
-name|storeOffsetWithTermVector
 argument_list|,
 name|omitNorms
 argument_list|,
@@ -1170,10 +1117,6 @@ argument_list|()
 argument_list|,
 literal|false
 argument_list|,
-literal|false
-argument_list|,
-literal|false
-argument_list|,
 name|fieldType
 operator|.
 name|omitNorms
@@ -1207,12 +1150,6 @@ name|isIndexed
 parameter_list|,
 name|boolean
 name|storeTermVector
-parameter_list|,
-name|boolean
-name|storePositionWithTermVector
-parameter_list|,
-name|boolean
-name|storeOffsetWithTermVector
 parameter_list|,
 name|boolean
 name|omitNorms
@@ -1282,10 +1219,6 @@ name|isIndexed
 argument_list|,
 name|storeTermVector
 argument_list|,
-name|storePositionWithTermVector
-argument_list|,
-name|storeOffsetWithTermVector
-argument_list|,
 name|omitNorms
 argument_list|,
 name|storePayloads
@@ -1305,10 +1238,6 @@ argument_list|(
 name|isIndexed
 argument_list|,
 name|storeTermVector
-argument_list|,
-name|storePositionWithTermVector
-argument_list|,
-name|storeOffsetWithTermVector
 argument_list|,
 name|omitNorms
 argument_list|,
@@ -1364,14 +1293,6 @@ name|storeTermVector
 argument_list|,
 name|fi
 operator|.
-name|storePositionWithTermVector
-argument_list|,
-name|fi
-operator|.
-name|storeOffsetWithTermVector
-argument_list|,
-name|fi
-operator|.
 name|omitNorms
 argument_list|,
 name|fi
@@ -1406,12 +1327,6 @@ name|isIndexed
 parameter_list|,
 name|boolean
 name|storeTermVector
-parameter_list|,
-name|boolean
-name|storePositionWithTermVector
-parameter_list|,
-name|boolean
-name|storeOffsetWithTermVector
 parameter_list|,
 name|boolean
 name|omitNorms
@@ -1460,10 +1375,6 @@ argument_list|,
 name|fieldNumber
 argument_list|,
 name|storeTermVector
-argument_list|,
-name|storePositionWithTermVector
-argument_list|,
-name|storeOffsetWithTermVector
 argument_list|,
 name|omitNorms
 argument_list|,
