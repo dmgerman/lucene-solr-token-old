@@ -1429,6 +1429,11 @@ argument_list|,
 name|endIndex
 argument_list|)
 decl_stmt|;
+name|float
+name|fval
+decl_stmt|;
+try|try
+block|{
 name|idType
 operator|.
 name|readableToIndexed
@@ -1438,11 +1443,6 @@ argument_list|,
 name|internalKey
 argument_list|)
 expr_stmt|;
-name|float
-name|fval
-decl_stmt|;
-try|try
-block|{
 name|fval
 operator|=
 name|Float
