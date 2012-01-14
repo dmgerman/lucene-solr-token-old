@@ -329,13 +329,13 @@ name|ArrayUtil
 import|;
 end_import
 begin_comment
-comment|/** Collects parent document hits for a Query containing one more more  *  BlockJoinQuery clauses, sorted by the  *  specified parent Sort.  Note that this cannot perform  *  arbitrary joins; rather, it requires that all joined  *  documents are indexed as a doc block (using {@link  *  IndexWriter#addDocuments} or {@link  *  IndexWriter#updateDocuments}).  Ie, the join is computed  *  at index time.  *  *<p>The parent Sort must only use  *  fields from the parent documents; sorting by field in  *  the child documents is not supported.</p>  *  *<p>You should only use this  *  collector if one or more of the clauses in the query is  *  a {@link BlockJoinQuery}.  This collector will find those query  *  clauses and record the matching child documents for the  *  top scoring parent documents.</p>  *  *<p>Multiple joins (star join) and nested joins and a mix  *  of the two are allowed, as long as in all cases the  *  documents corresponding to a single row of each joined  *  parent table were indexed as a doc block.</p>  *  *<p>For the simple star join you can retrieve the  *  {@link TopGroups} instance containing each {@link BlockJoinQuery}'s  *  matching child documents for the top parent groups,  *  using {@link #getTopGroups}.  Ie,  *  a single query, which will contain two or more  *  {@link BlockJoinQuery}'s as clauses representing the star join,  *  can then retrieve two or more {@link TopGroups} instances.</p>  *  *<p>For nested joins, the query will run correctly (ie,  *  match the right parent and child documents), however,  *  because TopGroups is currently unable to support nesting  *  (each group is not able to hold another TopGroups), you  *  are only able to retrieve the TopGroups of the first  *  join.  The TopGroups of the nested joins will not be  *  correct.  *  *  See {@link org.apache.lucene.search.join} for a code  *  sample.  *  * @lucene.experimental  */
+comment|/** Collects parent document hits for a Query containing one more more  *  BlockJoinQuery clauses, sorted by the  *  specified parent Sort.  Note that this cannot perform  *  arbitrary joins; rather, it requires that all joined  *  documents are indexed as a doc block (using {@link  *  IndexWriter#addDocuments} or {@link  *  IndexWriter#updateDocuments}).  Ie, the join is computed  *  at index time.  *  *<p>The parent Sort must only use  *  fields from the parent documents; sorting by field in  *  the child documents is not supported.</p>  *  *<p>You should only use this  *  collector if one or more of the clauses in the query is  *  a {@link ToParentBlockJoinQuery}.  This collector will find those query  *  clauses and record the matching child documents for the  *  top scoring parent documents.</p>  *  *<p>Multiple joins (star join) and nested joins and a mix  *  of the two are allowed, as long as in all cases the  *  documents corresponding to a single row of each joined  *  parent table were indexed as a doc block.</p>  *  *<p>For the simple star join you can retrieve the  *  {@link TopGroups} instance containing each {@link ToParentBlockJoinQuery}'s  *  matching child documents for the top parent groups,  *  using {@link #getTopGroups}.  Ie,  *  a single query, which will contain two or more  *  {@link ToParentBlockJoinQuery}'s as clauses representing the star join,  *  can then retrieve two or more {@link TopGroups} instances.</p>  *  *<p>For nested joins, the query will run correctly (ie,  *  match the right parent and child documents), however,  *  because TopGroups is currently unable to support nesting  *  (each group is not able to hold another TopGroups), you  *  are only able to retrieve the TopGroups of the first  *  join.  The TopGroups of the nested joins will not be  *  correct.  *  *  See {@link org.apache.lucene.search.join} for a code  *  sample.  *  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|BlockJoinCollector
+DECL|class|ToParentBlockJoinCollector
 specifier|public
 class|class
-name|BlockJoinCollector
+name|ToParentBlockJoinCollector
 extends|extends
 name|Collector
 block|{
@@ -421,14 +421,14 @@ name|docBase
 decl_stmt|;
 DECL|field|joinScorers
 specifier|private
-name|BlockJoinQuery
+name|ToParentBlockJoinQuery
 operator|.
 name|BlockJoinScorer
 index|[]
 name|joinScorers
 init|=
 operator|new
-name|BlockJoinQuery
+name|ToParentBlockJoinQuery
 operator|.
 name|BlockJoinScorer
 index|[
@@ -471,10 +471,10 @@ name|Float
 operator|.
 name|NaN
 decl_stmt|;
-comment|/*  Creates a BlockJoinCollector.  The provided sort must    *  not be null. */
-DECL|method|BlockJoinCollector
+comment|/*  Creates a ToParentBlockJoinCollector.  The provided sort must    *  not be null. */
+DECL|method|ToParentBlockJoinCollector
 specifier|public
-name|BlockJoinCollector
+name|ToParentBlockJoinCollector
 parameter_list|(
 name|Sort
 name|sort
@@ -1192,7 +1192,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|BlockJoinQuery
+name|ToParentBlockJoinQuery
 operator|.
 name|BlockJoinScorer
 name|joinScorer
@@ -1347,10 +1347,10 @@ specifier|private
 name|void
 name|enroll
 parameter_list|(
-name|BlockJoinQuery
+name|ToParentBlockJoinQuery
 name|query
 parameter_list|,
-name|BlockJoinQuery
+name|ToParentBlockJoinQuery
 operator|.
 name|BlockJoinScorer
 name|scorer
@@ -1387,14 +1387,14 @@ argument_list|)
 expr_stmt|;
 comment|//System.out.println("found JQ: " + query + " slot=" + joinScorers.length);
 specifier|final
-name|BlockJoinQuery
+name|ToParentBlockJoinQuery
 operator|.
 name|BlockJoinScorer
 index|[]
 name|newArray
 init|=
 operator|new
-name|BlockJoinQuery
+name|ToParentBlockJoinQuery
 operator|.
 name|BlockJoinScorer
 index|[
@@ -1551,7 +1551,7 @@ if|if
 condition|(
 name|scorer
 operator|instanceof
-name|BlockJoinQuery
+name|ToParentBlockJoinQuery
 operator|.
 name|BlockJoinScorer
 condition|)
@@ -1559,7 +1559,7 @@ block|{
 name|enroll
 argument_list|(
 operator|(
-name|BlockJoinQuery
+name|ToParentBlockJoinQuery
 operator|)
 name|scorer
 operator|.
@@ -1570,7 +1570,7 @@ name|getQuery
 argument_list|()
 argument_list|,
 operator|(
-name|BlockJoinQuery
+name|ToParentBlockJoinQuery
 operator|.
 name|BlockJoinScorer
 operator|)
@@ -1757,7 +1757,7 @@ name|Integer
 argument_list|>
 name|getTopGroups
 parameter_list|(
-name|BlockJoinQuery
+name|ToParentBlockJoinQuery
 name|query
 parameter_list|,
 name|Sort
