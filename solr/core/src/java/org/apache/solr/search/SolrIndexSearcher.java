@@ -1660,6 +1660,11 @@ argument_list|>
 name|getStoredHighlightFieldNames
 parameter_list|()
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 if|if
 condition|(
 name|storedHighlightFieldNames
@@ -1773,6 +1778,7 @@ block|}
 return|return
 name|storedHighlightFieldNames
 return|;
+block|}
 block|}
 comment|//
 comment|// Set default regenerators on filter and query caches if they don't have any
