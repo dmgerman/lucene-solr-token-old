@@ -271,6 +271,7 @@ name|i
 operator|>
 literal|0
 condition|)
+block|{
 name|fieldState
 operator|.
 name|position
@@ -294,6 +295,7 @@ operator|.
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|TokenStream
 name|stream

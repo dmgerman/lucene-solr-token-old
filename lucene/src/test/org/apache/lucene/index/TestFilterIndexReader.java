@@ -420,6 +420,9 @@ name|liveDocs
 parameter_list|,
 name|DocsAndPositionsEnum
 name|reuse
+parameter_list|,
+name|boolean
+name|needsOffsets
 parameter_list|)
 throws|throws
 name|IOException
@@ -448,6 +451,8 @@ name|reuse
 operator|)
 operator|.
 name|in
+argument_list|,
+name|needsOffsets
 argument_list|)
 argument_list|)
 return|;
@@ -857,6 +862,8 @@ name|reader
 argument_list|)
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 while|while

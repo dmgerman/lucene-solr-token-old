@@ -166,8 +166,6 @@ name|directory
 argument_list|,
 name|segmentInfo
 argument_list|,
-name|fieldInfos
-argument_list|,
 name|context
 argument_list|)
 return|;

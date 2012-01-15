@@ -701,10 +701,15 @@ operator||=
 name|isIndexed
 operator|&&
 name|indexOptions
-operator|==
+operator|.
+name|compareTo
+argument_list|(
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS_AND_POSITIONS
+argument_list|)
+operator|>=
+literal|0
 expr_stmt|;
 name|hasFreq
 operator||=

@@ -2056,6 +2056,9 @@ name|liveDocs
 parameter_list|,
 name|DocsAndPositionsEnum
 name|reuse
+parameter_list|,
+name|boolean
+name|needsOffsets
 parameter_list|)
 throws|throws
 name|IOException
@@ -2329,6 +2332,8 @@ name|entry
 operator|.
 name|index
 index|]
+argument_list|,
+name|needsOffsets
 argument_list|)
 decl_stmt|;
 if|if
@@ -2394,8 +2399,8 @@ literal|null
 condition|)
 block|{
 comment|// At least one of our subs does not store
-comment|// positions -- we can't correctly produce a
-comment|// MultiDocsAndPositions enum
+comment|// offsets or positions -- we can't correctly
+comment|// produce a MultiDocsAndPositions enum
 return|return
 literal|null
 return|;

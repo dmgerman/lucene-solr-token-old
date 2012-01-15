@@ -1115,6 +1115,12 @@ argument_list|,
 name|pos
 operator|.
 name|payload
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -3330,6 +3336,8 @@ argument_list|(
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 argument_list|,
 literal|true
@@ -3498,6 +3506,8 @@ argument_list|(
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 argument_list|,
 literal|true
@@ -3890,6 +3900,8 @@ argument_list|(
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 if|if
