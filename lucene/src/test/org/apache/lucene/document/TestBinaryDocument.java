@@ -141,7 +141,7 @@ name|IndexableField
 name|binaryFldStored
 init|=
 operator|new
-name|BinaryField
+name|StoredField
 argument_list|(
 literal|"binaryStored"
 argument_list|,
@@ -344,7 +344,7 @@ name|IndexableField
 name|binaryFldCompressed
 init|=
 operator|new
-name|BinaryField
+name|StoredField
 argument_list|(
 literal|"binaryCompressed"
 argument_list|,
@@ -363,7 +363,7 @@ name|IndexableField
 name|stringFldCompressed
 init|=
 operator|new
-name|BinaryField
+name|StoredField
 argument_list|(
 literal|"stringCompressed"
 argument_list|,

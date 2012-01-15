@@ -159,12 +159,6 @@ specifier|private
 name|PerDocConsumer
 name|consumer
 decl_stmt|;
-DECL|field|dwpt
-specifier|private
-specifier|final
-name|DocumentsWriterPerThread
-name|dwpt
-decl_stmt|;
 DECL|method|NormsConsumer
 specifier|public
 name|NormsConsumer
@@ -181,12 +175,6 @@ name|codec
 operator|.
 name|normsFormat
 argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|dwpt
-operator|=
-name|dwpt
 expr_stmt|;
 block|}
 annotation|@
@@ -362,12 +350,7 @@ operator|new
 name|DocValuesField
 argument_list|(
 literal|""
-argument_list|)
-decl_stmt|;
-name|value
-operator|.
-name|setBytes
-argument_list|(
+argument_list|,
 operator|new
 name|BytesRef
 argument_list|(
@@ -375,7 +358,7 @@ operator|new
 name|byte
 index|[]
 block|{
-literal|0x00
+literal|0x0
 block|}
 argument_list|)
 argument_list|,
@@ -383,7 +366,7 @@ name|Type
 operator|.
 name|BYTES_FIXED_STRAIGHT
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|valuesConsumer
 operator|.
 name|add
