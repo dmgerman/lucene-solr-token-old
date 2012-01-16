@@ -3010,12 +3010,8 @@ if|if
 condition|(
 name|info
 operator|.
-name|isIndexed
-operator|&&
-operator|!
-name|info
-operator|.
-name|omitNorms
+name|normsPresent
+argument_list|()
 condition|)
 block|{
 throw|throw

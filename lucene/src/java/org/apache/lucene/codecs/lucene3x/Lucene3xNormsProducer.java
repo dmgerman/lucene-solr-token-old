@@ -455,12 +455,8 @@ if|if
 condition|(
 name|fi
 operator|.
-name|isIndexed
-operator|&&
-operator|!
-name|fi
-operator|.
-name|omitNorms
+name|normsPresent
+argument_list|()
 condition|)
 block|{
 name|String
@@ -923,7 +919,7 @@ name|super
 argument_list|(
 name|Type
 operator|.
-name|BYTES_FIXED_STRAIGHT
+name|FIXED_INTS_8
 argument_list|)
 expr_stmt|;
 name|this
@@ -973,6 +969,24 @@ literal|1
 expr_stmt|;
 return|return
 name|ref
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getInt
+specifier|public
+name|long
+name|getInt
+parameter_list|(
+name|int
+name|docID
+parameter_list|)
+block|{
+return|return
+name|bytes
+index|[
+name|docID
+index|]
 return|;
 block|}
 annotation|@
@@ -1049,6 +1063,7 @@ name|normsFileName
 argument_list|)
 condition|)
 block|{
+comment|// only needed to do this in 3x - 4x can decide if the norms are present
 name|files
 operator|.
 name|add
@@ -1250,7 +1265,7 @@ block|{
 return|return
 name|Type
 operator|.
-name|BYTES_FIXED_STRAIGHT
+name|FIXED_INTS_8
 return|;
 block|}
 DECL|method|bytes

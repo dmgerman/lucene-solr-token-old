@@ -154,7 +154,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|PreFlexFieldsWriter
+name|PreFlexRWFieldsWriter
 argument_list|(
 name|state
 argument_list|)

@@ -837,17 +837,9 @@ argument_list|)
 decl_stmt|;
 return|return
 name|fi
-operator|!=
-literal|null
-operator|&&
-name|fi
 operator|.
-name|isIndexed
-operator|&&
-operator|!
-name|fi
-operator|.
-name|omitNorms
+name|normsPresent
+argument_list|()
 return|;
 block|}
 comment|/** @lucene.internal */

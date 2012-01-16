@@ -74,6 +74,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|Norm
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|CollectionStatistics
@@ -923,11 +936,14 @@ annotation|@
 name|Override
 DECL|method|computeNorm
 specifier|public
-name|byte
+name|void
 name|computeNorm
 parameter_list|(
 name|FieldInvertState
 name|state
+parameter_list|,
+name|Norm
+name|norm
 parameter_list|)
 block|{
 specifier|final
@@ -963,7 +979,10 @@ operator|.
 name|getBoost
 argument_list|()
 expr_stmt|;
-return|return
+name|norm
+operator|.
+name|setByte
+argument_list|(
 name|encodeNormValue
 argument_list|(
 name|state
@@ -973,7 +992,8 @@ argument_list|()
 argument_list|,
 name|numTerms
 argument_list|)
-return|;
+argument_list|)
+expr_stmt|;
 block|}
 comment|/** Decodes a normalization factor (document length) stored in an index.    * @see #encodeNormValue(float,float)    */
 DECL|method|decodeNormValue
