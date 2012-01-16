@@ -556,11 +556,6 @@ argument_list|(
 literal|"SolrDispatchFilter.init()"
 argument_list|)
 expr_stmt|;
-name|boolean
-name|abortOnConfigurationError
-init|=
-literal|true
-decl_stmt|;
 name|CoreContainer
 operator|.
 name|Initializer
@@ -592,13 +587,6 @@ operator|.
 name|initialize
 argument_list|()
 expr_stmt|;
-name|abortOnConfigurationError
-operator|=
-name|init
-operator|.
-name|isAbortOnConfigurationError
-argument_list|()
-expr_stmt|;
 name|log
 operator|.
 name|info
@@ -626,17 +614,6 @@ operator|.
 name|error
 argument_list|(
 literal|"Could not start Solr. Check solr/home property and the logs"
-argument_list|,
-name|t
-argument_list|)
-expr_stmt|;
-name|SolrConfig
-operator|.
-name|severeErrors
-operator|.
-name|add
-argument_list|(
-name|t
 argument_list|)
 expr_stmt|;
 name|SolrCore
@@ -646,95 +623,6 @@ argument_list|(
 name|t
 argument_list|)
 expr_stmt|;
-block|}
-comment|// Optionally abort if we found a sever error
-if|if
-condition|(
-name|abortOnConfigurationError
-operator|&&
-name|SolrConfig
-operator|.
-name|severeErrors
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
-name|StringWriter
-name|sw
-init|=
-operator|new
-name|StringWriter
-argument_list|()
-decl_stmt|;
-name|PrintWriter
-name|out
-init|=
-operator|new
-name|PrintWriter
-argument_list|(
-name|sw
-argument_list|)
-decl_stmt|;
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Severe errors in solr configuration.\n"
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Check your log files for more detailed information on what may be wrong.\n"
-argument_list|)
-expr_stmt|;
-for|for
-control|(
-name|Throwable
-name|t
-range|:
-name|SolrConfig
-operator|.
-name|severeErrors
-control|)
-block|{
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"-------------------------------------------------------------"
-argument_list|)
-expr_stmt|;
-name|t
-operator|.
-name|printStackTrace
-argument_list|(
-name|out
-argument_list|)
-expr_stmt|;
-block|}
-name|out
-operator|.
-name|flush
-argument_list|()
-expr_stmt|;
-comment|// Servlet containers behave slightly differently if you throw an exception during
-comment|// initialization.  Resin will display that error for every page, jetty prints it in
-comment|// the logs, but continues normally.  (We will see a 404 rather then the real error)
-comment|// rather then leave the behavior undefined, lets cache the error and spit it out
-comment|// for every request.
-name|abortErrorMessage
-operator|=
-name|sw
-operator|.
-name|toString
-argument_list|()
-expr_stmt|;
-comment|//throw new ServletException( abortErrorMessage );
 block|}
 name|log
 operator|.
@@ -2176,7 +2064,7 @@ argument_list|()
 expr_stmt|;
 name|SolrException
 operator|.
-name|logOnce
+name|log
 argument_list|(
 name|log
 argument_list|,

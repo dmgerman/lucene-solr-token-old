@@ -874,8 +874,6 @@ operator|+
 name|name
 argument_list|,
 name|e
-argument_list|,
-literal|false
 argument_list|)
 throw|;
 block|}
@@ -1030,8 +1028,6 @@ operator|+
 name|name
 argument_list|,
 name|e
-argument_list|,
-literal|false
 argument_list|)
 throw|;
 block|}
@@ -1083,8 +1079,6 @@ operator|+
 name|name
 argument_list|,
 name|e
-argument_list|,
-literal|false
 argument_list|)
 throw|;
 block|}
@@ -1596,8 +1590,6 @@ operator|+
 literal|" or a string in format 'V.V'"
 argument_list|,
 name|iae
-argument_list|,
-literal|false
 argument_list|)
 throw|;
 block|}

@@ -442,13 +442,6 @@ expr_stmt|;
 name|resetExceptionIgnores
 argument_list|()
 expr_stmt|;
-name|SolrConfig
-operator|.
-name|severeErrors
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|printLayout
 specifier|protected
