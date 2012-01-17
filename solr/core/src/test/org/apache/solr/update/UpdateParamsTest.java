@@ -150,11 +150,11 @@ return|return
 literal|"solrconfig.xml"
 return|;
 block|}
-comment|/**    * Tests that both update.chain and update.processor works    * NOTE: This test will fail when support for update.processor is removed and should then be removed    */
-DECL|method|testUpdateProcessorParamDeprecation
+comment|/**    * Tests that only update.chain and not update.processor works (SOLR-2105)    */
+DECL|method|testUpdateProcessorParamDeprecationRemoved
 specifier|public
 name|void
-name|testUpdateProcessorParamDeprecation
+name|testUpdateProcessorParamDeprecationRemoved
 parameter_list|()
 throws|throws
 name|Exception
@@ -204,9 +204,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|UpdateParams
-operator|.
-name|UPDATE_CHAIN_DEPRECATED
+literal|"update.processor"
 argument_list|,
 literal|"nonexistant"
 argument_list|)
@@ -243,9 +241,9 @@ argument_list|,
 name|rsp
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
-literal|"Faulty update.processor parameter (deprecated but should work) not causing an error - i.e. it is not detected"
+literal|"Old param update.processor should not have any effect anymore"
 argument_list|,
 literal|true
 argument_list|)
@@ -257,7 +255,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|assertFalse
 argument_list|(
 literal|"Got wrong exception while testing update.chain"
 argument_list|,
@@ -265,8 +263,11 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|,
+operator|.
+name|equals
+argument_list|(
 literal|"unknown UpdateRequestProcessorChain: nonexistant"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -278,9 +279,7 @@ argument_list|()
 operator|.
 name|remove
 argument_list|(
-name|UpdateParams
-operator|.
-name|UPDATE_CHAIN_DEPRECATED
+literal|"update.processor"
 argument_list|)
 expr_stmt|;
 name|params
