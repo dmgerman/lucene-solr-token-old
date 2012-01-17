@@ -69,6 +69,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|SlowMultiReaderWrapper
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|FieldCache
@@ -1357,6 +1370,7 @@ return|return
 name|res
 return|;
 block|}
+comment|// why does this use a top-level field cache?
 DECL|method|getFieldCacheStats
 specifier|public
 name|NamedList
@@ -1401,10 +1415,14 @@ name|DEFAULT
 operator|.
 name|getTermsIndex
 argument_list|(
+operator|new
+name|SlowMultiReaderWrapper
+argument_list|(
 name|searcher
 operator|.
 name|getIndexReader
 argument_list|()
+argument_list|)
 argument_list|,
 name|fieldName
 argument_list|)
@@ -1559,10 +1577,14 @@ name|DEFAULT
 operator|.
 name|getTermsIndex
 argument_list|(
+operator|new
+name|SlowMultiReaderWrapper
+argument_list|(
 name|searcher
 operator|.
 name|getIndexReader
 argument_list|()
+argument_list|)
 argument_list|,
 name|facetField
 argument_list|)

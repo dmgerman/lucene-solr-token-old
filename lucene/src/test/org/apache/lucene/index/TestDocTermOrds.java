@@ -1106,7 +1106,11 @@ expr_stmt|;
 block|}
 name|verify
 argument_list|(
+operator|new
+name|SlowMultiReaderWrapper
+argument_list|(
 name|r
+argument_list|)
 argument_list|,
 name|idToOrds
 argument_list|,
@@ -1895,7 +1899,11 @@ expr_stmt|;
 block|}
 name|verify
 argument_list|(
+operator|new
+name|SlowMultiReaderWrapper
+argument_list|(
 name|r
+argument_list|)
 argument_list|,
 name|idToOrdsPrefix
 argument_list|,

@@ -2368,7 +2368,11 @@ name|DEFAULT
 operator|.
 name|getInts
 argument_list|(
+operator|new
+name|SlowMultiReaderWrapper
+argument_list|(
 name|r
+argument_list|)
 argument_list|,
 literal|"id"
 argument_list|,
