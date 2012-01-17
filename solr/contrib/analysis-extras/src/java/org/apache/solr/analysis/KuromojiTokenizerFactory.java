@@ -371,7 +371,6 @@ operator|.
 name|UTF_8
 expr_stmt|;
 block|}
-comment|// note: we could allow for other encodings here as an argument
 name|CharsetDecoder
 name|decoder
 init|=
