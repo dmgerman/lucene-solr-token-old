@@ -1083,6 +1083,17 @@ name|purgeReader
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// last chance
+name|reader
+operator|.
+name|addReaderClosedListener
+argument_list|(
+name|purgeReader
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/** Expert: Internal cache. */
