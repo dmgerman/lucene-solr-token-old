@@ -315,7 +315,6 @@ operator|new
 name|Lucene40TermVectorsFormat
 argument_list|()
 decl_stmt|;
-comment|// TODO: this should really be a different impl
 DECL|field|fieldInfosFormat
 specifier|private
 specifier|final
