@@ -34,6 +34,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Comparator
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1068,6 +1077,19 @@ name|numTerms
 assert|;
 block|}
 block|}
+comment|/** Return the BytesRef Comparator used to sort terms    *  before feeding to this API. */
+DECL|method|getComparator
+specifier|public
+specifier|abstract
+name|Comparator
+argument_list|<
+name|BytesRef
+argument_list|>
+name|getComparator
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
 block|}
 end_class
 end_unit
