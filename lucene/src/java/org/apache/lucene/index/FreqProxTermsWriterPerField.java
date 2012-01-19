@@ -131,21 +131,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|codecs
-operator|.
-name|lucene40
-operator|.
-name|BitVector
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|FieldInfo
@@ -2452,6 +2437,7 @@ block|{
 comment|// Mark it deleted.  TODO: we could also skip
 comment|// writing its postings; this would be
 comment|// deterministic (just for this Term's docs).
+comment|// nocommit: totally wrong to do this reach-around here, and this way
 if|if
 condition|(
 name|state
@@ -2465,20 +2451,21 @@ name|state
 operator|.
 name|liveDocs
 operator|=
-operator|new
-name|BitVector
+name|docState
+operator|.
+name|docWriter
+operator|.
+name|codec
+operator|.
+name|liveDocsFormat
+argument_list|()
+operator|.
+name|newLiveDocs
 argument_list|(
 name|state
 operator|.
 name|numDocs
 argument_list|)
-expr_stmt|;
-name|state
-operator|.
-name|liveDocs
-operator|.
-name|invertAll
-argument_list|()
 expr_stmt|;
 block|}
 name|state
