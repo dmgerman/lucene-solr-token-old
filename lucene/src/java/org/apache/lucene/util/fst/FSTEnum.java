@@ -511,9 +511,6 @@ comment|// Arcs are fixed array -- use binary search to find
 comment|// the target.
 specifier|final
 name|FST
-argument_list|<
-name|T
-argument_list|>
 operator|.
 name|BytesReader
 name|in
@@ -1139,9 +1136,6 @@ comment|// Arcs are fixed array -- use binary search to find
 comment|// the target.
 specifier|final
 name|FST
-argument_list|<
-name|T
-argument_list|>
 operator|.
 name|BytesReader
 name|in
