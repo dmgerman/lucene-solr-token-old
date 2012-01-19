@@ -44,6 +44,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|codecs
+operator|.
+name|LiveDocsFormat
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|document
 operator|.
 name|Document
@@ -2241,7 +2254,12 @@ control|)
 block|{
 if|if
 condition|(
-literal|"org.apache.lucene.index.SegmentMerger"
+name|SegmentMerger
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 operator|.
 name|equals
 argument_list|(
@@ -2285,7 +2303,12 @@ throw|;
 block|}
 if|if
 condition|(
-literal|"org.apache.lucene.util.BitVector"
+name|LiveDocsFormat
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 operator|.
 name|equals
 argument_list|(
@@ -2298,7 +2321,7 @@ name|getClassName
 argument_list|()
 argument_list|)
 operator|&&
-literal|"write"
+literal|"writeLiveDocs"
 operator|.
 name|equals
 argument_list|(
@@ -2323,7 +2346,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"fake disk full while writing BitVector"
+literal|"fake disk full while writing LiveDocs"
 argument_list|)
 throw|;
 block|}
