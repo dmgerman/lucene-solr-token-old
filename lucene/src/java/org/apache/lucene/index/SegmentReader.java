@@ -591,7 +591,7 @@ literal|"delete count mismatch: numDocs="
 operator|+
 name|numDocs
 operator|+
-literal|" vs BitVector="
+literal|" vs MutableBits="
 operator|+
 operator|(
 name|si
