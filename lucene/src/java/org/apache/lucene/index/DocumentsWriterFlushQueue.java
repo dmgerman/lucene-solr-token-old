@@ -130,7 +130,6 @@ name|ReentrantLock
 argument_list|()
 decl_stmt|;
 DECL|method|addDeletesAndPurge
-specifier|synchronized
 name|void
 name|addDeletesAndPurge
 parameter_list|(
@@ -142,6 +141,11 @@ name|deleteQueue
 parameter_list|)
 throws|throws
 name|IOException
+block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
 block|{
 name|incTickets
 argument_list|()
@@ -189,6 +193,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|// don't hold the lock on the FlushQueue when forcing the purge - this blocks and deadlocks
+comment|// if we hold the lock.
 name|forcePurge
 argument_list|(
 name|writer
@@ -483,6 +490,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+operator|!
+name|Thread
+operator|.
+name|holdsLock
+argument_list|(
+name|this
+argument_list|)
+assert|;
 name|purgeLock
 operator|.
 name|lock
@@ -515,6 +531,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+operator|!
+name|Thread
+operator|.
+name|holdsLock
+argument_list|(
+name|this
+argument_list|)
+assert|;
 if|if
 condition|(
 name|purgeLock
