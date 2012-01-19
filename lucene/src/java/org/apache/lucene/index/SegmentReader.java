@@ -83,24 +83,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|codecs
-operator|.
-name|lucene40
-operator|.
-name|BitVector
-import|;
-end_import
-begin_comment
-comment|// nocommit: move asserts/checks to codec
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|FieldCache
@@ -525,7 +507,6 @@ return|return
 name|liveDocs
 return|;
 block|}
-comment|// nocommit
 DECL|method|checkLiveCounts
 specifier|private
 name|boolean
@@ -537,11 +518,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|BitVector
+name|MutableBits
 name|liveDocs
 init|=
 operator|(
-name|BitVector
+name|MutableBits
 operator|)
 name|this
 operator|.
@@ -558,7 +539,7 @@ if|if
 condition|(
 name|liveDocs
 operator|.
-name|size
+name|length
 argument_list|()
 operator|!=
 name|si
@@ -574,7 +555,7 @@ literal|"document count mismatch: deleted docs count "
 operator|+
 name|liveDocs
 operator|.
-name|size
+name|length
 argument_list|()
 operator|+
 literal|" vs segment doc count "
@@ -593,38 +574,18 @@ throw|;
 block|}
 specifier|final
 name|int
-name|recomputedCount
+name|count
 init|=
 name|liveDocs
 operator|.
-name|getRecomputedCount
+name|count
 argument_list|()
 decl_stmt|;
-comment|// Verify BitVector is self consistent:
-assert|assert
-name|liveDocs
-operator|.
-name|count
-argument_list|()
-operator|==
-name|recomputedCount
-operator|:
-literal|"live count="
-operator|+
-name|liveDocs
-operator|.
-name|count
-argument_list|()
-operator|+
-literal|" vs recomputed count="
-operator|+
-name|recomputedCount
-assert|;
 comment|// Verify our docCount matches:
 assert|assert
 name|numDocs
 operator|==
-name|recomputedCount
+name|count
 operator|:
 literal|"delete count mismatch: numDocs="
 operator|+
@@ -637,7 +598,7 @@ name|si
 operator|.
 name|docCount
 operator|-
-name|recomputedCount
+name|count
 operator|)
 assert|;
 assert|assert
@@ -652,7 +613,7 @@ operator|.
 name|getDelCount
 argument_list|()
 operator|==
-name|recomputedCount
+name|count
 operator|:
 literal|"si.docCount="
 operator|+
@@ -669,7 +630,7 @@ argument_list|()
 operator|+
 literal|" recomputedCount="
 operator|+
-name|recomputedCount
+name|count
 assert|;
 block|}
 return|return
