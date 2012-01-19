@@ -176,37 +176,7 @@ name|codecs
 operator|.
 name|lucene40
 operator|.
-name|Lucene40SegmentInfosFormat
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene40
-operator|.
 name|Lucene40StoredFieldsFormat
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene40
-operator|.
-name|Lucene40TermVectorsFormat
 import|;
 end_import
 begin_import
@@ -324,9 +294,6 @@ operator|new
 name|Lucene3xFieldInfosFormat
 argument_list|()
 decl_stmt|;
-comment|// TODO: this should really be a different impl
-comment|// also if we want preflex to *really* be read-only it should throw exception for the writer?
-comment|// this way IR.commit fails on delete/undelete/setNorm/etc ?
 DECL|field|infosFormat
 specifier|private
 specifier|final
@@ -334,10 +301,9 @@ name|SegmentInfosFormat
 name|infosFormat
 init|=
 operator|new
-name|Lucene40SegmentInfosFormat
+name|Lucene3xSegmentInfosFormat
 argument_list|()
 decl_stmt|;
-comment|// TODO: this should really be a different impl
 DECL|field|normsFormat
 specifier|private
 specifier|final

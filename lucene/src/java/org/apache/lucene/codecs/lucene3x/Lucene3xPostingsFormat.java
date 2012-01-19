@@ -204,7 +204,7 @@ name|IOException
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UnsupportedOperationException
 argument_list|(
 literal|"this codec can only be used for reading"
 argument_list|)
