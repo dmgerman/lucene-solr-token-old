@@ -119,6 +119,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|IOUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|MutableBits
 import|;
 end_import
@@ -262,7 +275,7 @@ name|getDelGen
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// nocommit: is it somehow cleaner to still have IW do this try/finally/delete stuff and add abort() instead?
+comment|// nocommit: test if we really need this
 name|boolean
 name|success
 init|=
@@ -299,25 +312,15 @@ operator|!
 name|success
 condition|)
 block|{
-try|try
-block|{
-name|dir
+name|IOUtils
 operator|.
-name|deleteFile
+name|deleteFilesIgnoringExceptions
 argument_list|(
+name|dir
+argument_list|,
 name|filename
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-comment|// suppress this so we keep throwing the
-comment|// original exception
-block|}
 block|}
 block|}
 block|}
