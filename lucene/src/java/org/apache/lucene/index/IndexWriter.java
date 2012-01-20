@@ -1734,7 +1734,6 @@ literal|null
 assert|;
 block|}
 block|}
-comment|// nocommit: if this is read-only live docs, why doesn't it return Bits?!
 DECL|method|getReadOnlyLiveDocs
 specifier|public
 specifier|synchronized
