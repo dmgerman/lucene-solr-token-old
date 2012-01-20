@@ -130,6 +130,15 @@ name|Lucene40LiveDocsFormat
 extends|extends
 name|LiveDocsFormat
 block|{
+comment|/** Extension of deletes */
+DECL|field|DELETES_EXTENSION
+specifier|static
+specifier|final
+name|String
+name|DELETES_EXTENSION
+init|=
+literal|"del"
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|newLiveDocs
@@ -191,8 +200,6 @@ name|info
 operator|.
 name|name
 argument_list|,
-name|IndexFileNames
-operator|.
 name|DELETES_EXTENSION
 argument_list|,
 name|info
@@ -247,8 +254,6 @@ name|info
 operator|.
 name|name
 argument_list|,
-name|IndexFileNames
-operator|.
 name|DELETES_EXTENSION
 argument_list|,
 name|info
@@ -318,10 +323,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|files
+DECL|method|separateFiles
 specifier|public
 name|void
-name|files
+name|separateFiles
 parameter_list|(
 name|Directory
 name|dir
@@ -358,8 +363,6 @@ name|info
 operator|.
 name|name
 argument_list|,
-name|IndexFileNames
-operator|.
 name|DELETES_EXTENSION
 argument_list|,
 name|info
