@@ -1821,15 +1821,6 @@ expr_stmt|;
 comment|// We can write directly to the actual name (vs to a
 comment|// .tmp& renaming it) because the file is not live
 comment|// until segments file is written:
-specifier|final
-name|String
-name|delFileName
-init|=
-name|info
-operator|.
-name|getDelFileName
-argument_list|()
-decl_stmt|;
 name|boolean
 name|success
 init|=
@@ -1878,25 +1869,6 @@ argument_list|(
 name|sav
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|dir
-operator|.
-name|deleteFile
-argument_list|(
-name|delFileName
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-comment|// Suppress this so we keep throwing the
-comment|// original exception
-block|}
 block|}
 block|}
 assert|assert
@@ -6536,15 +6508,6 @@ operator|.
 name|advanceDelGen
 argument_list|()
 expr_stmt|;
-specifier|final
-name|String
-name|delFileName
-init|=
-name|newSegment
-operator|.
-name|getDelFileName
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|infoStream
@@ -6565,19 +6528,17 @@ literal|"flush: write "
 operator|+
 name|delCount
 operator|+
-literal|" deletes to "
+literal|" deletes gen="
 operator|+
-name|delFileName
+name|flushedSegment
+operator|.
+name|segmentInfo
+operator|.
+name|getDelGen
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|boolean
-name|success2
-init|=
-literal|false
-decl_stmt|;
-try|try
-block|{
 comment|// TODO: in the NRT case it'd be better to hand
 comment|// this del vector over to the
 comment|// shortly-to-be-opened SegmentReader and let it
@@ -6616,40 +6577,6 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
-name|success2
-operator|=
-literal|true
-expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-operator|!
-name|success2
-condition|)
-block|{
-try|try
-block|{
-name|directory
-operator|.
-name|deleteFile
-argument_list|(
-name|delFileName
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-comment|// suppress this so we keep throwing the
-comment|// original exception
-block|}
-block|}
-block|}
 block|}
 name|success
 operator|=
