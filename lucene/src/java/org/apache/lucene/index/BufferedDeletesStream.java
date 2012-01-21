@@ -2126,6 +2126,7 @@ operator|.
 name|ReadersAndLiveDocs
 name|rld
 parameter_list|,
+specifier|final
 name|SegmentReader
 name|reader
 parameter_list|)
@@ -2141,9 +2142,6 @@ specifier|final
 name|AtomicReaderContext
 name|readerContext
 init|=
-operator|(
-name|AtomicReaderContext
-operator|)
 name|reader
 operator|.
 name|getTopReaderContext
@@ -2190,8 +2188,6 @@ name|getDocIdSet
 argument_list|(
 name|readerContext
 argument_list|,
-name|readerContext
-operator|.
 name|reader
 operator|.
 name|getLiveDocs

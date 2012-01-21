@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicIndexReader
 import|;
 end_import
 begin_import
@@ -216,7 +216,7 @@ specifier|public
 interface|interface
 name|Parser
 block|{   }
-comment|/** Interface to parse bytes from document fields.    * @see FieldCache#getBytes(IndexReader, String, FieldCache.ByteParser, boolean)    */
+comment|/** Interface to parse bytes from document fields.    * @see FieldCache#getBytes(AtomicIndexReader, String, FieldCache.ByteParser, boolean)    */
 DECL|interface|ByteParser
 specifier|public
 interface|interface
@@ -235,7 +235,7 @@ name|term
 parameter_list|)
 function_decl|;
 block|}
-comment|/** Interface to parse shorts from document fields.    * @see FieldCache#getShorts(IndexReader, String, FieldCache.ShortParser, boolean)    */
+comment|/** Interface to parse shorts from document fields.    * @see FieldCache#getShorts(AtomicIndexReader, String, FieldCache.ShortParser, boolean)    */
 DECL|interface|ShortParser
 specifier|public
 interface|interface
@@ -254,7 +254,7 @@ name|term
 parameter_list|)
 function_decl|;
 block|}
-comment|/** Interface to parse ints from document fields.    * @see FieldCache#getInts(IndexReader, String, FieldCache.IntParser, boolean)    */
+comment|/** Interface to parse ints from document fields.    * @see FieldCache#getInts(AtomicIndexReader, String, FieldCache.IntParser, boolean)    */
 DECL|interface|IntParser
 specifier|public
 interface|interface
@@ -273,7 +273,7 @@ name|term
 parameter_list|)
 function_decl|;
 block|}
-comment|/** Interface to parse floats from document fields.    * @see FieldCache#getFloats(IndexReader, String, FieldCache.FloatParser, boolean)    */
+comment|/** Interface to parse floats from document fields.    * @see FieldCache#getFloats(AtomicIndexReader, String, FieldCache.FloatParser, boolean)    */
 DECL|interface|FloatParser
 specifier|public
 interface|interface
@@ -292,7 +292,7 @@ name|term
 parameter_list|)
 function_decl|;
 block|}
-comment|/** Interface to parse long from document fields.    * @see FieldCache#getLongs(IndexReader, String, FieldCache.LongParser, boolean)    */
+comment|/** Interface to parse long from document fields.    * @see FieldCache#getLongs(AtomicIndexReader, String, FieldCache.LongParser, boolean)    */
 DECL|interface|LongParser
 specifier|public
 interface|interface
@@ -311,7 +311,7 @@ name|term
 parameter_list|)
 function_decl|;
 block|}
-comment|/** Interface to parse doubles from document fields.    * @see FieldCache#getDoubles(IndexReader, String, FieldCache.DoubleParser, boolean)    */
+comment|/** Interface to parse doubles from document fields.    * @see FieldCache#getDoubles(AtomicIndexReader, String, FieldCache.DoubleParser, boolean)    */
 DECL|interface|DoubleParser
 specifier|public
 interface|interface
@@ -1051,7 +1051,7 @@ specifier|public
 name|Bits
 name|getDocsWithField
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1067,7 +1067,7 @@ name|byte
 index|[]
 name|getBytes
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1086,7 +1086,7 @@ name|byte
 index|[]
 name|getBytes
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1108,7 +1108,7 @@ name|short
 index|[]
 name|getShorts
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1127,7 +1127,7 @@ name|short
 index|[]
 name|getShorts
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1149,7 +1149,7 @@ name|int
 index|[]
 name|getInts
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1168,7 +1168,7 @@ name|int
 index|[]
 name|getInts
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1190,7 +1190,7 @@ name|float
 index|[]
 name|getFloats
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1209,7 +1209,7 @@ name|float
 index|[]
 name|getFloats
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1231,7 +1231,7 @@ name|long
 index|[]
 name|getLongs
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1250,7 +1250,7 @@ name|long
 index|[]
 name|getLongs
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1272,7 +1272,7 @@ name|double
 index|[]
 name|getDoubles
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1291,7 +1291,7 @@ name|double
 index|[]
 name|getDoubles
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1354,7 +1354,7 @@ specifier|public
 name|DocTerms
 name|getTerms
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1363,13 +1363,13 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Expert: just like {@link #getTerms(IndexReader,String)},    *  but you can specify whether more RAM should be consumed in exchange for    *  faster lookups (default is "true").  Note that the    *  first call for a given reader and field "wins",    *  subsequent calls will share the same cache entry. */
+comment|/** Expert: just like {@link #getTerms(AtomicIndexReader,String)},    *  but you can specify whether more RAM should be consumed in exchange for    *  faster lookups (default is "true").  Note that the    *  first call for a given reader and field "wins",    *  subsequent calls will share the same cache entry. */
 DECL|method|getTerms
 specifier|public
 name|DocTerms
 name|getTerms
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1589,7 +1589,7 @@ specifier|public
 name|DocTermsIndex
 name|getTermsIndex
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1598,13 +1598,13 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Expert: just like {@link    *  #getTermsIndex(IndexReader,String)}, but you can specify    *  whether more RAM should be consumed in exchange for    *  faster lookups (default is "true").  Note that the    *  first call for a given reader and field "wins",    *  subsequent calls will share the same cache entry. */
+comment|/** Expert: just like {@link    *  #getTermsIndex(AtomicIndexReader,String)}, but you can specify    *  whether more RAM should be consumed in exchange for    *  faster lookups (default is "true").  Note that the    *  first call for a given reader and field "wins",    *  subsequent calls will share the same cache entry. */
 DECL|method|getTermsIndex
 specifier|public
 name|DocTermsIndex
 name|getTermsIndex
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1622,7 +1622,7 @@ specifier|public
 name|DocTermOrds
 name|getDocTermOrds
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|String
@@ -1915,7 +1915,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**    * EXPERT: Generates an array of CacheEntry objects representing all items     * currently in the FieldCache.    *<p>    * NOTE: These CacheEntry objects maintain a strong reference to the     * Cached Values.  Maintaining references to a CacheEntry the IndexReader     * associated with it has garbage collected will prevent the Value itself    * from being garbage collected when the Cache drops the WeakReference.    *</p>    * @lucene.experimental    */
+comment|/**    * EXPERT: Generates an array of CacheEntry objects representing all items     * currently in the FieldCache.    *<p>    * NOTE: These CacheEntry objects maintain a strong reference to the     * Cached Values.  Maintaining references to a CacheEntry the AtomicIndexReader     * associated with it has garbage collected will prevent the Value itself    * from being garbage collected when the Cache drops the WeakReference.    *</p>    * @lucene.experimental    */
 DECL|method|getCacheEntries
 specifier|public
 specifier|abstract
@@ -1939,7 +1939,7 @@ specifier|abstract
 name|void
 name|purge
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|r
 parameter_list|)
 function_decl|;
