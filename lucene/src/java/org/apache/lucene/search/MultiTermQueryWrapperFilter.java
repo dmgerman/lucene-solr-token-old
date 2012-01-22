@@ -59,7 +59,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicIndexReader
 operator|.
 name|AtomicReaderContext
 import|;
@@ -307,6 +307,7 @@ init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 decl_stmt|;
 specifier|final
 name|Fields
@@ -395,6 +396,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()

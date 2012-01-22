@@ -61,7 +61,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicIndexReader
 operator|.
 name|AtomicReaderContext
 import|;
@@ -858,6 +858,7 @@ init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|normValues
 argument_list|(
@@ -922,6 +923,7 @@ argument_list|,
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|normValues
 argument_list|(
