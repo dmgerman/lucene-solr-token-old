@@ -451,7 +451,7 @@ name|ensureOpen
 argument_list|()
 expr_stmt|;
 return|return
-name|ReaderUtil
+name|MultiFields
 operator|.
 name|getMergedFieldInfos
 argument_list|(
