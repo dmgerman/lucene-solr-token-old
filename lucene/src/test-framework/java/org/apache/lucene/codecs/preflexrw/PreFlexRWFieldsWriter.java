@@ -765,6 +765,10 @@ argument_list|,
 name|storePayloads
 argument_list|,
 name|lastPayloadLength
+argument_list|,
+literal|false
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|skipListWriter
