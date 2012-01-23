@@ -79,7 +79,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|CompositeIndexReader
+name|DirectoryReader
 import|;
 end_import
 begin_import
@@ -232,7 +232,7 @@ name|searcherFactory
 operator|.
 name|newSearcher
 argument_list|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -283,7 +283,7 @@ name|searcherFactory
 operator|.
 name|newSearcher
 argument_list|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -345,15 +345,15 @@ operator|=
 operator|(
 name|r
 operator|instanceof
-name|CompositeIndexReader
+name|DirectoryReader
 operator|)
 condition|?
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
 operator|(
-name|CompositeIndexReader
+name|DirectoryReader
 operator|)
 name|r
 argument_list|)
@@ -440,7 +440,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**    * Returns<code>true</code> if no changes have occured since this searcher    * ie. reader was opened, otherwise<code>false</code>.    * @see CompositeIndexReader#isCurrent()     */
+comment|/**    * Returns<code>true</code> if no changes have occured since this searcher    * ie. reader was opened, otherwise<code>false</code>.    * @see DirectoryReader#isCurrent()     */
 DECL|method|isSearcherCurrent
 specifier|public
 name|boolean
@@ -472,11 +472,11 @@ decl_stmt|;
 return|return
 name|r
 operator|instanceof
-name|CompositeIndexReader
+name|DirectoryReader
 condition|?
 operator|(
 operator|(
-name|CompositeIndexReader
+name|DirectoryReader
 operator|)
 name|r
 operator|)

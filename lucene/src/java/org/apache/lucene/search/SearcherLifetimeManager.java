@@ -96,12 +96,9 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|CompositeIndexReader
+name|DirectoryReader
 import|;
 end_import
-begin_comment
-comment|// javadocs
-end_comment
 begin_import
 import|import
 name|org
@@ -208,12 +205,12 @@ name|searcher
 operator|=
 name|searcher
 expr_stmt|;
-comment|// nocommit: fix getVersion() usage for atomic readers
+comment|// nocommit: what happens if this is no DirectoryReader?
 name|version
 operator|=
 operator|(
 operator|(
-name|CompositeIndexReader
+name|DirectoryReader
 operator|)
 name|searcher
 operator|.
@@ -389,7 +386,7 @@ name|version
 init|=
 operator|(
 operator|(
-name|CompositeIndexReader
+name|DirectoryReader
 operator|)
 name|searcher
 operator|.
