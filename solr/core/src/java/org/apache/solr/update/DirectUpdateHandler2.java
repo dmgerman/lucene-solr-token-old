@@ -1155,6 +1155,15 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// SolrCore.verbose("deleteDocuments",deleteTerm,writer);
+name|commitTracker
+operator|.
+name|deletedDocument
+argument_list|(
+name|cmd
+operator|.
+name|commitWithin
+argument_list|)
+expr_stmt|;
 name|writer
 operator|.
 name|deleteDocuments
@@ -1307,6 +1316,15 @@ operator|.
 name|getClass
 argument_list|()
 decl_stmt|;
+name|commitTracker
+operator|.
+name|deletedDocument
+argument_list|(
+name|cmd
+operator|.
+name|commitWithin
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|delAll
