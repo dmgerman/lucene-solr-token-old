@@ -74,9 +74,50 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
+name|params
+operator|.
+name|ModifiableSolrParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|core
 operator|.
 name|SolrCore
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|request
+operator|.
+name|LocalSolrQueryRequest
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|request
+operator|.
+name|SolrQueryRequest
 import|;
 end_import
 begin_import
@@ -131,7 +172,7 @@ name|SAXParseException
 import|;
 end_import
 begin_comment
-comment|/**  *  */
+comment|/**  * This test is not fully functional - the port registered is illegal -   * so you cannot hit this with http - a nice side benifit is that it will  * detect if a node is trying to do an update to itself with http - it shouldn't  * do that.  */
 end_comment
 begin_class
 DECL|class|BasicZkTest
@@ -149,17 +190,7 @@ specifier|static
 name|void
 name|beforeClass
 parameter_list|()
-block|{
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"CLOUD_UPDATE_DELAY"
-argument_list|,
-literal|"1"
-argument_list|)
-expr_stmt|;
-block|}
+block|{    }
 annotation|@
 name|Test
 DECL|method|testBasic
@@ -217,7 +248,7 @@ name|getUpdateHandler
 argument_list|()
 operator|)
 operator|.
-name|getIndexWriterProvider
+name|getSolrCoreState
 argument_list|()
 operator|.
 name|getIndexWriter
@@ -265,7 +296,7 @@ name|assertQ
 argument_list|(
 literal|"test query on empty index"
 argument_list|,
-name|req
+name|request
 argument_list|(
 literal|"qlkciyopsbgzyvkylsjhchghjrdf"
 argument_list|)
@@ -312,7 +343,7 @@ name|assertQ
 argument_list|(
 literal|"backslash escaping semicolon"
 argument_list|,
-name|req
+name|request
 argument_list|(
 literal|"id:42 AND val_s:aa\\;bb"
 argument_list|)
@@ -326,7 +357,7 @@ name|assertQ
 argument_list|(
 literal|"quote escaping semicolon"
 argument_list|,
-name|req
+name|request
 argument_list|(
 literal|"id:42 AND val_s:\"aa;bb\""
 argument_list|)
@@ -340,7 +371,7 @@ name|assertQ
 argument_list|(
 literal|"no escaping semicolon"
 argument_list|,
-name|req
+name|request
 argument_list|(
 literal|"id:42 AND val_s:aa"
 argument_list|)
@@ -364,7 +395,7 @@ argument_list|)
 expr_stmt|;
 name|assertQ
 argument_list|(
-name|req
+name|request
 argument_list|(
 literal|"id:42"
 argument_list|)
@@ -409,7 +440,7 @@ argument_list|)
 expr_stmt|;
 name|assertQ
 argument_list|(
-name|req
+name|request
 argument_list|(
 literal|"id:42"
 argument_list|)
@@ -455,7 +486,7 @@ argument_list|)
 expr_stmt|;
 name|assertQ
 argument_list|(
-name|req
+name|request
 argument_list|(
 literal|"id:42"
 argument_list|)
@@ -655,7 +686,7 @@ expr_stmt|;
 comment|// test maxint
 name|assertQ
 argument_list|(
-name|req
+name|request
 argument_list|(
 literal|"q"
 argument_list|,
@@ -672,7 +703,7 @@ expr_stmt|;
 comment|// test big limit
 name|assertQ
 argument_list|(
-name|req
+name|request
 argument_list|(
 literal|"q"
 argument_list|,
@@ -688,7 +719,7 @@ argument_list|)
 expr_stmt|;
 name|assertQ
 argument_list|(
-name|req
+name|request
 argument_list|(
 literal|"id:[100 TO 110]"
 argument_list|)
@@ -712,7 +743,7 @@ argument_list|)
 expr_stmt|;
 name|assertQ
 argument_list|(
-name|req
+name|request
 argument_list|(
 literal|"id:[100 TO 110]"
 argument_list|)
@@ -736,7 +767,7 @@ argument_list|)
 expr_stmt|;
 name|assertQ
 argument_list|(
-name|req
+name|request
 argument_list|(
 literal|"id:[100 TO 110]"
 argument_list|)
@@ -760,7 +791,7 @@ argument_list|)
 expr_stmt|;
 name|assertQ
 argument_list|(
-name|req
+name|request
 argument_list|(
 literal|"id:[100 TO 110]"
 argument_list|)
@@ -783,6 +814,8 @@ name|byte
 index|[
 literal|0
 index|]
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// we set the solrconfig to nothing, so this reload should fail
@@ -829,6 +862,63 @@ name|e
 parameter_list|)
 block|{            }
 block|}
+DECL|method|request
+specifier|public
+name|SolrQueryRequest
+name|request
+parameter_list|(
+name|String
+modifier|...
+name|q
+parameter_list|)
+block|{
+name|LocalSolrQueryRequest
+name|req
+init|=
+name|lrf
+operator|.
+name|makeRequest
+argument_list|(
+name|q
+argument_list|)
+decl_stmt|;
+name|ModifiableSolrParams
+name|params
+init|=
+operator|new
+name|ModifiableSolrParams
+argument_list|()
+decl_stmt|;
+name|params
+operator|.
+name|add
+argument_list|(
+name|req
+operator|.
+name|getParams
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|set
+argument_list|(
+literal|"distrib"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|req
+operator|.
+name|setParams
+argument_list|(
+name|params
+argument_list|)
+expr_stmt|;
+return|return
+name|req
+return|;
+block|}
 annotation|@
 name|AfterClass
 DECL|method|afterClass
@@ -837,15 +927,7 @@ specifier|static
 name|void
 name|afterClass
 parameter_list|()
-block|{
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-literal|"CLOUD_UPDATE_DELAY"
-argument_list|)
-expr_stmt|;
-block|}
+block|{    }
 block|}
 end_class
 end_unit

@@ -280,6 +280,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 return|return
@@ -423,6 +425,8 @@ argument_list|(
 name|collectionZkPath
 argument_list|,
 literal|null
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -508,6 +512,16 @@ index|[
 literal|0
 index|]
 argument_list|)
+return|;
+block|}
+DECL|method|getCollectionZkPath
+specifier|public
+name|String
+name|getCollectionZkPath
+parameter_list|()
+block|{
+return|return
+name|collectionZkPath
 return|;
 block|}
 block|}

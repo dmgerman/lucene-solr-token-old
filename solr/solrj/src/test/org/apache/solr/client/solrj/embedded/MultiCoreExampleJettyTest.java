@@ -285,6 +285,9 @@ operator|=
 operator|new
 name|JettySolrRunner
 argument_list|(
+name|getSolrHome
+argument_list|()
+argument_list|,
 name|context
 argument_list|,
 literal|0
