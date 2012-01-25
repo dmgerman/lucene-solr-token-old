@@ -675,7 +675,7 @@ name|getUpdateHandler
 argument_list|()
 operator|)
 operator|.
-name|getIndexWriterProvider
+name|getSolrCoreState
 argument_list|()
 operator|.
 name|getIndexWriter

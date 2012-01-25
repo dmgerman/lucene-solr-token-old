@@ -2597,6 +2597,8 @@ return|;
 block|}
 block|}
 return|return
+name|doc
+operator|=
 name|refill
 argument_list|()
 return|;
@@ -3016,6 +3018,8 @@ return|;
 block|}
 block|}
 return|return
+name|doc
+operator|=
 name|refill
 argument_list|()
 return|;
