@@ -1014,7 +1014,7 @@ operator|=
 name|matchVersion
 expr_stmt|;
 block|}
-comment|/**    * Creates a token stream that tokenizes the given string into token terms    * (aka words).    *     * @param fieldName    *            the name of the field to tokenize (currently ignored).    * @param text    *            the string to tokenize    * @return a new token stream    */
+comment|/**    * Creates a token stream that tokenizes the given string into token terms    * (aka words).    *     * @param fieldName    *            the name of the field to tokenize (currently ignored).    * @param reader    *            reader (e.g. charfilter) of the original text. can be null.    * @param text    *            the string to tokenize    * @return a new token stream    */
 DECL|method|createComponents
 specifier|public
 name|TokenStreamComponents
@@ -1022,6 +1022,9 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
+parameter_list|,
+name|Reader
+name|reader
 parameter_list|,
 name|String
 name|text
@@ -1057,6 +1060,8 @@ argument_list|(
 operator|new
 name|FastStringTokenizer
 argument_list|(
+name|reader
+argument_list|,
 name|text
 argument_list|,
 literal|true
@@ -1084,6 +1089,8 @@ argument_list|(
 operator|new
 name|FastStringTokenizer
 argument_list|(
+name|reader
+argument_list|,
 name|text
 argument_list|,
 literal|false
@@ -1101,6 +1108,8 @@ init|=
 operator|new
 name|PatternTokenizer
 argument_list|(
+name|reader
+argument_list|,
 name|text
 argument_list|,
 name|pattern
@@ -1139,7 +1148,7 @@ name|result
 argument_list|)
 return|;
 block|}
-comment|/**    * Creates a token stream that tokenizes all the text in the given Reader;    * This implementation forwards to<code>tokenStream(String, String)</code> and is    * less efficient than<code>tokenStream(String, String)</code>.    *     * @param fieldName    *            the name of the field to tokenize (currently ignored).    * @param reader    *            the reader delivering the text    * @return a new token stream    */
+comment|/**    * Creates a token stream that tokenizes all the text in the given Reader;    * This implementation forwards to<code>tokenStream(String, Reader, String)</code> and is    * less efficient than<code>tokenStream(String, Reader, String)</code>.    *     * @param fieldName    *            the name of the field to tokenize (currently ignored).    * @param reader    *            the reader delivering the text    * @return a new token stream    */
 annotation|@
 name|Override
 DECL|method|createComponents
@@ -1168,6 +1177,8 @@ return|return
 name|createComponents
 argument_list|(
 name|fieldName
+argument_list|,
+name|reader
 argument_list|,
 name|text
 argument_list|)
@@ -1745,6 +1756,9 @@ DECL|method|PatternTokenizer
 specifier|public
 name|PatternTokenizer
 parameter_list|(
+name|Reader
+name|input
+parameter_list|,
 name|String
 name|str
 parameter_list|,
@@ -1755,6 +1769,11 @@ name|boolean
 name|toLowerCase
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|pattern
@@ -1910,9 +1929,15 @@ name|offsetAtt
 operator|.
 name|setOffset
 argument_list|(
+name|correctOffset
+argument_list|(
 name|start
+argument_list|)
 argument_list|,
+name|correctOffset
+argument_list|(
 name|end
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1943,10 +1968,13 @@ specifier|final
 name|int
 name|finalOffset
 init|=
+name|correctOffset
+argument_list|(
 name|str
 operator|.
 name|length
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|this
 operator|.
@@ -2114,6 +2142,9 @@ DECL|method|FastStringTokenizer
 specifier|public
 name|FastStringTokenizer
 parameter_list|(
+name|Reader
+name|input
+parameter_list|,
 name|String
 name|str
 parameter_list|,
@@ -2130,6 +2161,11 @@ argument_list|>
 name|stopWords
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|str
@@ -2341,9 +2377,15 @@ name|offsetAtt
 operator|.
 name|setOffset
 argument_list|(
+name|correctOffset
+argument_list|(
 name|start
+argument_list|)
 argument_list|,
+name|correctOffset
+argument_list|(
 name|i
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -2375,9 +2417,15 @@ name|offsetAtt
 operator|.
 name|setOffset
 argument_list|(
+name|correctOffset
+argument_list|(
 name|finalOffset
+argument_list|)
 argument_list|,
+name|correctOffset
+argument_list|(
 name|finalOffset
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2447,6 +2495,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|reset
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|str

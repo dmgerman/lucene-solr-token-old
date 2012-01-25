@@ -465,6 +465,9 @@ operator|<
 literal|0
 condition|)
 block|{
+name|count
+operator|++
+expr_stmt|;
 if|if
 condition|(
 name|count
@@ -493,9 +496,6 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
-name|count
-operator|++
-expr_stmt|;
 name|keys
 index|[
 name|s

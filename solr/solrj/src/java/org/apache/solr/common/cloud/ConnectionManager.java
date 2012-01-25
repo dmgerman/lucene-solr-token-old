@@ -53,6 +53,30 @@ name|org
 operator|.
 name|apache
 operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|SolrException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|zookeeper
+operator|.
+name|SolrZooKeeper
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|zookeeper
 operator|.
 name|WatchedEvent
@@ -148,6 +172,7 @@ name|connected
 decl_stmt|;
 DECL|field|connectionStrategy
 specifier|private
+specifier|final
 name|ZkClientConnectionStrategy
 name|connectionStrategy
 decl_stmt|;
@@ -354,7 +379,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Attempting to reconnect to ZooKeeper..."
+literal|"Attempting to reconnect to recover relationship with ZooKeeper..."
 argument_list|)
 expr_stmt|;
 try|try
@@ -391,6 +416,11 @@ name|TimeoutException
 throws|,
 name|IOException
 block|{
+synchronized|synchronized
+init|(
+name|connectionStrategy
+init|)
+block|{
 name|waitForConnected
 argument_list|(
 name|SolrZkClient
@@ -418,6 +448,13 @@ name|command
 argument_list|()
 expr_stmt|;
 block|}
+synchronized|synchronized
+init|(
+name|ConnectionManager
+operator|.
+name|this
+init|)
+block|{
 name|ConnectionManager
 operator|.
 name|this
@@ -426,6 +463,8 @@ name|connected
 operator|=
 literal|true
 expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 argument_list|)
@@ -437,10 +476,12 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
+name|SolrException
 operator|.
-name|error
+name|log
 argument_list|(
+name|log
+argument_list|,
 literal|""
 argument_list|,
 name|e
@@ -467,8 +508,6 @@ operator|.
 name|Disconnected
 condition|)
 block|{
-comment|// ZooKeeper client will recover when it can
-comment|// TODO: this needs to be investigated more
 name|connected
 operator|=
 literal|false
