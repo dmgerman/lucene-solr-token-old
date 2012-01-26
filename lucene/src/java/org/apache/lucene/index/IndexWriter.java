@@ -1508,7 +1508,7 @@ name|didDelete
 init|=
 name|liveDocs
 operator|.
-name|getAndClear
+name|get
 argument_list|(
 name|docID
 argument_list|)
@@ -1518,6 +1518,13 @@ condition|(
 name|didDelete
 condition|)
 block|{
+name|liveDocs
+operator|.
+name|clear
+argument_list|(
+name|docID
+argument_list|)
+expr_stmt|;
 name|pendingDeleteCount
 operator|++
 expr_stmt|;
