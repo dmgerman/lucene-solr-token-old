@@ -363,6 +363,16 @@ operator|.
 name|isDebugEnabled
 argument_list|()
 decl_stmt|;
+DECL|field|trace
+specifier|public
+name|boolean
+name|trace
+init|=
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+decl_stmt|;
 DECL|enum|SyncLevel
 DECL|enum constant|NONE
 DECL|enum constant|FLUSH
@@ -828,6 +838,27 @@ name|lastDataDir
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|debug
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"UpdateHandler init: tlogDir="
+operator|+
+name|tlogDir
+operator|+
+literal|", next id="
+operator|+
+name|id
+argument_list|,
+literal|" this is a reopen... nothing else to do."
+argument_list|)
+expr_stmt|;
+block|}
 comment|// on a normal reopen, we currently shouldn't have to do anything
 return|return;
 block|}
@@ -865,6 +896,34 @@ operator|+
 literal|1
 expr_stmt|;
 comment|// add 1 since we will create a new log for the next update
+if|if
+condition|(
+name|debug
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"UpdateHandler init: tlogDir="
+operator|+
+name|tlogDir
+operator|+
+literal|", existing tlogs="
+operator|+
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|tlogFiles
+argument_list|)
+operator|+
+literal|", next id="
+operator|+
+name|id
+argument_list|)
+expr_stmt|;
+block|}
 name|TransactionLog
 name|oldLog
 init|=
@@ -1307,12 +1366,12 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|debug
+name|trace
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"TLOG: added id "
 operator|+
@@ -1451,12 +1510,12 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|debug
+name|trace
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"TLOG: added delete for id "
 operator|+
@@ -1624,12 +1683,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|debug
+name|trace
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"TLOG: added deleteByQuery "
 operator|+
@@ -1873,6 +1932,13 @@ name|isDebugEnabled
 argument_list|()
 expr_stmt|;
 comment|// refresh our view of debugging occasionally
+name|trace
+operator|=
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+expr_stmt|;
 synchronized|synchronized
 init|(
 name|this
