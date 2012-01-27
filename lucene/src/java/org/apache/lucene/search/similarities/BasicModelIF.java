@@ -59,7 +59,7 @@ name|float
 name|tfn
 parameter_list|)
 block|{
-name|int
+name|long
 name|N
 init|=
 name|stats

@@ -178,19 +178,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|solr
-operator|.
-name|core
-operator|.
-name|SolrConfig
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|zookeeper
 operator|.
 name|KeeperException
@@ -825,7 +812,7 @@ block|{
 name|int
 name|iterCount
 init|=
-literal|30
+literal|60
 decl_stmt|;
 while|while
 condition|(
@@ -891,7 +878,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|100
+literal|500
 argument_list|)
 expr_stmt|;
 block|}
