@@ -4870,7 +4870,8 @@ block|{
 name|String
 name|newIndexDir
 init|=
-literal|null
+name|getNewIndexDir
+argument_list|()
 decl_stmt|;
 name|File
 name|indexDirFile
@@ -4899,11 +4900,6 @@ argument_list|()
 argument_list|)
 operator|.
 name|getCanonicalFile
-argument_list|()
-expr_stmt|;
-name|newIndexDir
-operator|=
-name|getNewIndexDir
 argument_list|()
 expr_stmt|;
 name|newIndexDirFile
