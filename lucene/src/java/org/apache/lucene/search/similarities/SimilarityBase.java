@@ -354,7 +354,7 @@ operator|.
 name|totalTermFreq
 argument_list|()
 assert|;
-name|int
+name|long
 name|numberOfDocuments
 init|=
 name|collectionStats
@@ -362,7 +362,7 @@ operator|.
 name|maxDoc
 argument_list|()
 decl_stmt|;
-name|int
+name|long
 name|docFreq
 init|=
 name|termStats
