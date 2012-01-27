@@ -2583,6 +2583,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"%s.%019d"
 argument_list|,
 name|TLOG_NAME
