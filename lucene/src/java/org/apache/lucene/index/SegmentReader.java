@@ -117,19 +117,6 @@ operator|.
 name|Bits
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|MutableBits
-import|;
-end_import
 begin_comment
 comment|/**  * @lucene.experimental  */
 end_comment
@@ -424,7 +411,7 @@ parameter_list|(
 name|SegmentReader
 name|parent
 parameter_list|,
-name|MutableBits
+name|Bits
 name|liveDocs
 parameter_list|,
 name|int
