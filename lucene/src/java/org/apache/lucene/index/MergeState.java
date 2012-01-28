@@ -25,6 +25,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -173,6 +182,17 @@ index|[]
 name|docBase
 decl_stmt|;
 comment|// New docID base per reader
+DECL|field|segmentDocCounts
+specifier|public
+name|Map
+argument_list|<
+name|SegmentInfo
+argument_list|,
+name|Integer
+argument_list|>
+name|segmentDocCounts
+decl_stmt|;
+comment|// Non-deleted docCount per reader
 DECL|field|mergedDocCount
 specifier|public
 name|int
