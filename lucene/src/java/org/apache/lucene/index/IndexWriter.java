@@ -169,6 +169,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|codecs
+operator|.
+name|LiveDocsFormat
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|DocumentsWriterPerThread
@@ -1295,7 +1308,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// nocommit: nuke cast
 name|liveDocs
 operator|=
 operator|(
@@ -1619,6 +1631,17 @@ comment|// Copy on write: this means we've cloned a
 comment|// SegmentReader sharing the current liveDocs
 comment|// instance; must now make a private clone so we can
 comment|// change it:
+name|LiveDocsFormat
+name|liveDocsFormat
+init|=
+name|info
+operator|.
+name|getCodec
+argument_list|()
+operator|.
+name|liveDocsFormat
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|liveDocs
@@ -1629,13 +1652,7 @@ block|{
 comment|//System.out.println("create BV seg=" + info);
 name|liveDocs
 operator|=
-name|info
-operator|.
-name|getCodec
-argument_list|()
-operator|.
 name|liveDocsFormat
-argument_list|()
 operator|.
 name|newLiveDocs
 argument_list|(
@@ -1649,10 +1666,12 @@ else|else
 block|{
 name|liveDocs
 operator|=
-name|liveDocs
+name|liveDocsFormat
 operator|.
-name|clone
-argument_list|()
+name|newLiveDocs
+argument_list|(
+name|liveDocs
+argument_list|)
 expr_stmt|;
 block|}
 name|shared

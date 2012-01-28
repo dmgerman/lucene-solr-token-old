@@ -21,8 +21,6 @@ interface|interface
 name|MutableBits
 extends|extends
 name|Bits
-extends|,
-name|Cloneable
 block|{
 DECL|method|clear
 specifier|public
@@ -32,12 +30,6 @@ parameter_list|(
 name|int
 name|bit
 parameter_list|)
-function_decl|;
-DECL|method|clone
-specifier|public
-name|MutableBits
-name|clone
-parameter_list|()
 function_decl|;
 block|}
 end_interface
