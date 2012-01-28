@@ -578,11 +578,6 @@ name|TimeoutException
 throws|,
 name|IOException
 block|{
-name|numOpens
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 name|connManager
 operator|=
 operator|new
@@ -702,6 +697,11 @@ name|waitForConnected
 argument_list|(
 name|clientConnectTimeout
 argument_list|)
+expr_stmt|;
+name|numOpens
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * @return true if client is connected    */
