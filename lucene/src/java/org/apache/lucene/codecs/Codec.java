@@ -68,6 +68,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|CompoundFileDirectory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|Directory
 import|;
 end_import
@@ -139,6 +152,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/** Populates<code>files</code> with all filenames needed for     * the<code>info</code> segment.    */
 DECL|method|files
 specifier|public
 name|void
@@ -159,6 +173,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+operator|(
+name|dir
+operator|instanceof
+name|CompoundFileDirectory
+operator|)
+operator|==
+literal|false
+assert|;
 name|postingsFormat
 argument_list|()
 operator|.
@@ -236,6 +259,7 @@ name|files
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Populates<code>files</code> with any filenames that are    * stored outside of CFS for the<code>info</code> segment.    */
 DECL|method|separateFiles
 specifier|public
 name|void
