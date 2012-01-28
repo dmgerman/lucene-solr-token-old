@@ -2137,10 +2137,7 @@ name|numDocs
 operator|-
 name|flushState
 operator|.
-name|liveDocs
-operator|.
-name|count
-argument_list|()
+name|delCountOnFlush
 operator|)
 operator|)
 operator|+
