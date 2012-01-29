@@ -168,7 +168,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicIndexReader
 operator|.
 name|AtomicReaderContext
 import|;
@@ -473,6 +473,7 @@ block|{
 name|ctx
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|close
 argument_list|()
@@ -982,6 +983,7 @@ argument_list|()
 argument_list|)
 operator|.
 name|reader
+argument_list|()
 decl_stmt|;
 name|extract
 argument_list|(
@@ -1560,6 +1562,7 @@ name|field
 argument_list|)
 operator|.
 name|reader
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|queries
@@ -1716,6 +1719,7 @@ init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
