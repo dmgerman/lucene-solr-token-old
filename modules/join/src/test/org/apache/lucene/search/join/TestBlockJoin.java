@@ -140,7 +140,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicIndexReader
 operator|.
 name|AtomicReaderContext
 import|;
@@ -1234,6 +1234,7 @@ return|return
 name|leaf
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|document
 argument_list|(
