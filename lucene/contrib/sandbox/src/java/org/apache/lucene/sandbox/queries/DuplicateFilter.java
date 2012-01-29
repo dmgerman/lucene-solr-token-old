@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicIndexReader
 operator|.
 name|AtomicReaderContext
 import|;
@@ -253,6 +253,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|acceptDocs
 argument_list|)
@@ -266,6 +267,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|acceptDocs
 argument_list|)
@@ -277,7 +279,7 @@ specifier|private
 name|FixedBitSet
 name|correctBits
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|Bits
@@ -464,7 +466,7 @@ specifier|private
 name|FixedBitSet
 name|fastBits
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|,
 name|Bits
