@@ -201,6 +201,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DirectoryReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|DocsEnum
 import|;
 end_import
@@ -345,7 +358,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|indexReader
 specifier|private
-name|IndexReader
+name|DirectoryReader
 name|indexReader
 decl_stmt|;
 comment|// The following lock is used to allow multiple threads to read from the
@@ -509,7 +522,7 @@ expr_stmt|;
 block|}
 DECL|method|openIndexReader
 specifier|protected
-name|IndexReader
+name|DirectoryReader
 name|openIndexReader
 parameter_list|(
 name|Directory
@@ -1143,10 +1156,10 @@ comment|// modify the reader, so we can do it without holding a lock. We can
 comment|// safely read indexReader without holding the write lock, because
 comment|// no other thread can be writing at this time (this method is the
 comment|// only possible writer, and it is "synchronized" to avoid this case).
-name|IndexReader
+name|DirectoryReader
 name|r2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(

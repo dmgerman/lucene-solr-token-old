@@ -260,6 +260,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DirectoryReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|DocsEnum
 import|;
 end_import
@@ -678,7 +691,7 @@ name|cacheIsComplete
 decl_stmt|;
 DECL|field|reader
 specifier|private
-name|IndexReader
+name|DirectoryReader
 name|reader
 decl_stmt|;
 DECL|field|cacheMisses
@@ -759,7 +772,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|indexExists
 argument_list|(
@@ -1009,7 +1022,7 @@ comment|// Currently overridden by a unit test that verifies that every index we
 comment|/**    * Open an {@link IndexReader} from the internal {@link IndexWriter}, by    * calling {@link IndexReader#open(IndexWriter, boolean)}. Extending classes can override    * this method to return their own {@link IndexReader}.    */
 DECL|method|openReader
 specifier|protected
-name|IndexReader
+name|DirectoryReader
 name|openReader
 parameter_list|()
 throws|throws
@@ -2121,10 +2134,10 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|IndexReader
+name|DirectoryReader
 name|r2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
