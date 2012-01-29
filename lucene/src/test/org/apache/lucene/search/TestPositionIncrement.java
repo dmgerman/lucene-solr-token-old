@@ -196,7 +196,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
 import|;
 end_import
 begin_import
@@ -1504,11 +1504,12 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
 name|r
 init|=
-operator|new
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|readerFromWriter
 argument_list|)

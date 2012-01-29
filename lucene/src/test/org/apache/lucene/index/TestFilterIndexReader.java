@@ -551,8 +551,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|new
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|reader
 argument_list|)
