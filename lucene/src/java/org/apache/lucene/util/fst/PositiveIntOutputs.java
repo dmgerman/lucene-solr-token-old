@@ -52,7 +52,7 @@ name|DataOutput
 import|;
 end_import
 begin_comment
-comment|/**  * Output is a long, for each input term.  NOTE: the  * resulting FST is not guaranteed to be minimal!  See  * {@link Builder}.  You must use {@link #get} to obtain the  * output for a given long value -- do not use autoboxing  * nor create your own Long instance (the value 0  * must map to the {@link #getNoOutput} singleton).  *  * @lucene.experimental  */
+comment|/**  * Output is a long, for each input term.  NOTE: the  * resulting FST is not guaranteed to be minimal!  See  * {@link Builder}.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|PositiveIntOutputs
@@ -143,38 +143,6 @@ name|singletonShare
 else|:
 name|singletonNoShare
 return|;
-block|}
-DECL|method|get
-specifier|public
-name|Long
-name|get
-parameter_list|(
-name|long
-name|v
-parameter_list|)
-block|{
-if|if
-condition|(
-name|v
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-name|NO_OUTPUT
-return|;
-block|}
-else|else
-block|{
-return|return
-name|Long
-operator|.
-name|valueOf
-argument_list|(
-name|v
-argument_list|)
-return|;
-block|}
 block|}
 annotation|@
 name|Override
