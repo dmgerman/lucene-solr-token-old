@@ -760,7 +760,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|IndexReader
+name|DirectoryReader
 name|open
 init|=
 literal|null
@@ -850,10 +850,10 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
