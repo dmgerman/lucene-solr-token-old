@@ -419,7 +419,7 @@ name|i
 operator|+
 literal|1
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(

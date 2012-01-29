@@ -694,7 +694,7 @@ expr_stmt|;
 comment|// don't double-checkindex
 if|if
 condition|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|indexExists
 argument_list|(

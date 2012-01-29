@@ -1899,7 +1899,7 @@ name|IndexCommit
 argument_list|>
 name|commits
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -2214,7 +2214,7 @@ name|IndexCommit
 argument_list|>
 name|commits
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -2329,7 +2329,7 @@ name|assertEquals
 argument_list|(
 literal|6
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -2474,7 +2474,7 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(

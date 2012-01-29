@@ -2707,7 +2707,7 @@ argument_list|()
 decl_stmt|;
 name|assertFalse
 argument_list|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|indexExists
 argument_list|(
@@ -2765,7 +2765,7 @@ argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|indexExists
 argument_list|(
@@ -2797,7 +2797,7 @@ comment|// reader only, no lock
 name|long
 name|version
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|lastModified
 argument_list|(
@@ -2814,7 +2814,7 @@ block|{
 name|long
 name|version2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|lastModified
 argument_list|(
@@ -2896,7 +2896,7 @@ name|version
 operator|+
 literal|"; new lastModified is "
 operator|+
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|lastModified
 argument_list|(
@@ -2941,7 +2941,7 @@ argument_list|()
 decl_stmt|;
 name|assertFalse
 argument_list|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|indexExists
 argument_list|(
@@ -2992,7 +2992,7 @@ argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|indexExists
 argument_list|(
@@ -3024,7 +3024,7 @@ comment|// reader only, no lock
 name|long
 name|version
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|getCurrentVersion
 argument_list|(
@@ -3091,7 +3091,7 @@ name|version
 operator|+
 literal|"; new version is "
 operator|+
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|getCurrentVersion
 argument_list|(
@@ -5061,7 +5061,7 @@ name|IndexCommit
 argument_list|>
 name|commits
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -6173,7 +6173,7 @@ control|(
 name|IndexCommit
 name|ic
 range|:
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -6267,7 +6267,7 @@ argument_list|()
 expr_stmt|;
 name|assertFalse
 argument_list|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|indexExists
 argument_list|(
@@ -6282,7 +6282,7 @@ argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|indexExists
 argument_list|(
