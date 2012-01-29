@@ -57,7 +57,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicIndexReader
 operator|.
 name|AtomicReaderContext
 import|;
@@ -307,6 +307,7 @@ return|return
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|termDocsEnum
 argument_list|(
@@ -346,6 +347,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
@@ -402,6 +404,7 @@ init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|termDocsEnum
 argument_list|(
