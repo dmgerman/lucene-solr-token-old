@@ -628,6 +628,18 @@ operator|||
 name|size
 operator|==
 literal|8
+operator|:
+literal|"wrong size="
+operator|+
+name|size
+operator|+
+literal|" type="
+operator|+
+name|type
+operator|+
+literal|" id="
+operator|+
+name|id
 assert|;
 block|}
 annotation|@

@@ -575,11 +575,11 @@ specifier|public
 name|boolean
 name|hasDeletions
 decl_stmt|;
-comment|/** Name of the current deletions file name. */
-DECL|field|deletionsFileName
+comment|/** Current deletions generation. */
+DECL|field|deletionsGen
 specifier|public
-name|String
-name|deletionsFileName
+name|long
+name|deletionsGen
 decl_stmt|;
 comment|/** Number of deleted documents. */
 DECL|field|numDeleted
@@ -2074,20 +2074,12 @@ name|getDocStoreIsCompoundFile
 argument_list|()
 expr_stmt|;
 block|}
-specifier|final
-name|String
-name|delFileName
-init|=
-name|info
-operator|.
-name|getDelFileName
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-name|delFileName
-operator|==
-literal|null
+name|info
+operator|.
+name|hasDeletions
+argument_list|()
 condition|)
 block|{
 name|msg
@@ -2106,9 +2098,12 @@ else|else
 block|{
 name|msg
 argument_list|(
-literal|"    has deletions [delFileName="
+literal|"    has deletions [delGen="
 operator|+
-name|delFileName
+name|info
+operator|.
+name|getDelGen
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)
@@ -2121,9 +2116,12 @@ literal|true
 expr_stmt|;
 name|segInfoStat
 operator|.
-name|deletionsFileName
+name|deletionsGen
 operator|=
-name|delFileName
+name|info
+operator|.
+name|getDelGen
+argument_list|()
 expr_stmt|;
 block|}
 if|if
