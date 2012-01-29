@@ -176,19 +176,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|ReaderUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|UnicodeUtil
 import|;
 end_import
@@ -323,7 +310,7 @@ name|delegate
 argument_list|,
 name|indexReader
 argument_list|,
-name|ReaderUtil
+name|MultiFields
 operator|.
 name|getIndexedFields
 argument_list|(
@@ -362,7 +349,7 @@ name|delegate
 argument_list|,
 name|indexReader
 argument_list|,
-name|ReaderUtil
+name|MultiFields
 operator|.
 name|getIndexedFields
 argument_list|(
