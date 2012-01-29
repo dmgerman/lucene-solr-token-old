@@ -70,6 +70,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DirectoryReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexCommit
 import|;
 end_import
@@ -159,7 +172,7 @@ operator|.
 name|getDirectory
 argument_list|()
 decl_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
 literal|null
@@ -306,7 +319,7 @@ name|IndexCommit
 argument_list|>
 name|commits
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
