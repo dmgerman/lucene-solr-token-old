@@ -77,7 +77,33 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|AtomicIndexReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|DirectoryReader
 import|;
 end_import
 begin_import
@@ -615,19 +641,8 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|FieldCache
-operator|.
-name|DEFAULT
-operator|.
-name|purge
-argument_list|(
-name|wrapped
-operator|.
-name|getIndexReader
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// // our wrapping can create insanity otherwise
+comment|// nocommit: I removed that as we can never get insanity by composite readers anymore... Is this ok?
+comment|//FieldCache.DEFAULT.purge(wrapped.getIndexReader()); // our wrapping can create insanity otherwise
 name|check
 argument_list|(
 name|random
@@ -648,19 +663,8 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|FieldCache
-operator|.
-name|DEFAULT
-operator|.
-name|purge
-argument_list|(
-name|wrapped
-operator|.
-name|getIndexReader
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// // our wrapping can create insanity otherwise
+comment|// nocommit: I removed that as we can never get insanity by composite readers anymore... Is this ok?
+comment|//FieldCache.DEFAULT.purge(wrapped.getIndexReader()); // our wrapping can create insanity otherwise
 name|check
 argument_list|(
 name|random
@@ -682,19 +686,8 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|FieldCache
-operator|.
-name|DEFAULT
-operator|.
-name|purge
-argument_list|(
-name|wrapped
-operator|.
-name|getIndexReader
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// // our wrapping can create insanity otherwise
+comment|// nocommit: I removed that as we can never get insanity by composite readers anymore... Is this ok?
+comment|//FieldCache.DEFAULT.purge(wrapped.getIndexReader()); // our wrapping can create insanity otherwise
 block|}
 name|checkExplanations
 argument_list|(
@@ -1019,7 +1012,7 @@ block|}
 DECL|method|makeEmptyIndex
 specifier|private
 specifier|static
-name|IndexReader
+name|DirectoryReader
 name|makeEmptyIndex
 parameter_list|(
 name|Random
@@ -1168,10 +1161,10 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1373,7 +1366,7 @@ init|=
 literal|1e-5f
 decl_stmt|;
 specifier|final
-name|IndexReader
+name|AtomicIndexReader
 name|lastReader
 index|[]
 init|=
@@ -1829,7 +1822,7 @@ literal|null
 condition|)
 block|{
 specifier|final
-name|IndexReader
+name|AtomicIndexReader
 name|previousReader
 init|=
 name|lastReader
@@ -1884,6 +1877,7 @@ argument_list|,
 name|ctx
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
@@ -1969,6 +1963,7 @@ name|leafPtr
 index|]
 operator|.
 name|reader
+argument_list|()
 operator|==
 name|context
 operator|.
@@ -2017,7 +2012,7 @@ block|{
 comment|// confirm that skipping beyond the last doc, on the
 comment|// previous reader, hits NO_MORE_DOCS
 specifier|final
-name|IndexReader
+name|AtomicIndexReader
 name|previousReader
 init|=
 name|lastReader
@@ -2050,9 +2045,6 @@ decl_stmt|;
 name|AtomicReaderContext
 name|ctx
 init|=
-operator|(
-name|AtomicReaderContext
-operator|)
 name|previousReader
 operator|.
 name|getTopReaderContext
@@ -2074,6 +2066,7 @@ argument_list|,
 name|ctx
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
@@ -2177,7 +2170,7 @@ literal|1
 block|}
 decl_stmt|;
 specifier|final
-name|IndexReader
+name|AtomicIndexReader
 name|lastReader
 index|[]
 init|=
@@ -2505,7 +2498,7 @@ literal|null
 condition|)
 block|{
 specifier|final
-name|IndexReader
+name|AtomicIndexReader
 name|previousReader
 init|=
 name|lastReader
@@ -2677,7 +2670,7 @@ block|{
 comment|// confirm that skipping beyond the last doc, on the
 comment|// previous reader, hits NO_MORE_DOCS
 specifier|final
-name|IndexReader
+name|AtomicIndexReader
 name|previousReader
 init|=
 name|lastReader
