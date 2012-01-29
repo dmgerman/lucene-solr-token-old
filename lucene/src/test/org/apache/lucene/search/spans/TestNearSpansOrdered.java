@@ -1197,6 +1197,7 @@ literal|0
 index|]
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
