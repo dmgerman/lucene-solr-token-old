@@ -138,7 +138,7 @@ name|IOException
 block|{
 name|fst
 operator|.
-name|readFirstRealArc
+name|readFirstRealTargetArc
 argument_list|(
 name|address
 argument_list|,
@@ -234,7 +234,7 @@ operator|.
 name|target
 operator|)
 operator|.
-name|address
+name|node
 operator|!=
 name|scratchArc
 operator|.
@@ -372,7 +372,7 @@ index|[
 name|arcIdx
 index|]
 decl_stmt|;
-comment|//System.out.println("  label=" + arc.label + " target=" + ((Builder.CompiledNode) arc.target).address + " h=" + h + " output=" + fst.outputs.outputToString(arc.output) + " isFinal?=" + arc.isFinal);
+comment|//System.out.println("  label=" + arc.label + " target=" + ((Builder.CompiledNode) arc.target).node + " h=" + h + " output=" + fst.outputs.outputToString(arc.output) + " isFinal?=" + arc.isFinal);
 name|h
 operator|=
 name|PRIME
@@ -400,7 +400,7 @@ operator|.
 name|target
 operator|)
 operator|.
-name|address
+name|node
 expr_stmt|;
 name|h
 operator|=
@@ -481,7 +481,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|//System.out.println("hash frozen");
+comment|//System.out.println("hash frozen node=" + node);
 name|int
 name|h
 init|=
@@ -489,7 +489,7 @@ literal|0
 decl_stmt|;
 name|fst
 operator|.
-name|readFirstRealArc
+name|readFirstRealTargetArc
 argument_list|(
 name|node
 argument_list|,
@@ -603,7 +603,7 @@ name|UnCompiledNode
 argument_list|<
 name|T
 argument_list|>
-name|node
+name|nodeIn
 parameter_list|)
 throws|throws
 name|IOException
@@ -628,7 +628,7 @@ name|h
 init|=
 name|hash
 argument_list|(
-name|node
+name|nodeIn
 argument_list|)
 decl_stmt|;
 name|int
@@ -667,20 +667,20 @@ block|{
 comment|// freeze& add
 specifier|final
 name|int
-name|address
+name|node
 init|=
 name|fst
 operator|.
 name|addNode
 argument_list|(
-name|node
+name|nodeIn
 argument_list|)
 decl_stmt|;
-comment|//System.out.println("  now freeze addr=" + address);
+comment|//System.out.println("  now freeze node=" + node);
 assert|assert
 name|hash
 argument_list|(
-name|address
+name|node
 argument_list|)
 operator|==
 name|h
@@ -689,7 +689,7 @@ literal|"frozenHash="
 operator|+
 name|hash
 argument_list|(
-name|address
+name|node
 argument_list|)
 operator|+
 literal|" vs h="
@@ -704,7 +704,7 @@ index|[
 name|pos
 index|]
 operator|=
-name|address
+name|node
 expr_stmt|;
 if|if
 condition|(
@@ -722,7 +722,7 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|address
+name|node
 return|;
 block|}
 elseif|else
@@ -730,7 +730,7 @@ if|if
 condition|(
 name|nodesEqual
 argument_list|(
-name|node
+name|nodeIn
 argument_list|,
 name|v
 argument_list|,

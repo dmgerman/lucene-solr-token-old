@@ -121,10 +121,22 @@ argument_list|>
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// Accumulate output as we go
 specifier|final
+name|FST
+operator|.
+name|BytesReader
+name|fstReader
+init|=
+name|fst
+operator|.
+name|getBytesReader
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+comment|// Accumulate output as we go
 name|T
-name|NO_OUTPUT
+name|output
 init|=
 name|fst
 operator|.
@@ -132,11 +144,6 @@ name|outputs
 operator|.
 name|getNoOutput
 argument_list|()
-decl_stmt|;
-name|T
-name|output
-init|=
-name|NO_OUTPUT
 decl_stmt|;
 for|for
 control|(
@@ -175,6 +182,8 @@ argument_list|,
 name|arc
 argument_list|,
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 operator|==
 literal|null
@@ -184,16 +193,6 @@ return|return
 literal|null
 return|;
 block|}
-elseif|else
-if|if
-condition|(
-name|arc
-operator|.
-name|output
-operator|!=
-name|NO_OUTPUT
-condition|)
-block|{
 name|output
 operator|=
 name|fst
@@ -210,37 +209,12 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-name|fst
-operator|.
-name|findTargetArc
-argument_list|(
-name|FST
-operator|.
-name|END_LABEL
-argument_list|,
-name|arc
-argument_list|,
-name|arc
-argument_list|)
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-elseif|else
 if|if
 condition|(
 name|arc
 operator|.
-name|output
-operator|!=
-name|NO_OUTPUT
+name|isFinal
+argument_list|()
 condition|)
 block|{
 return|return
@@ -254,14 +228,14 @@ name|output
 argument_list|,
 name|arc
 operator|.
-name|output
+name|nextFinalOutput
 argument_list|)
 return|;
 block|}
 else|else
 block|{
 return|return
-name|output
+literal|null
 return|;
 block|}
 block|}
@@ -299,6 +273,19 @@ name|INPUT_TYPE
 operator|.
 name|BYTE1
 assert|;
+specifier|final
+name|FST
+operator|.
+name|BytesReader
+name|fstReader
+init|=
+name|fst
+operator|.
+name|getBytesReader
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 comment|// TODO: would be nice not to alloc this on every lookup
 specifier|final
 name|FST
@@ -324,9 +311,8 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Accumulate output as we go
-specifier|final
 name|T
-name|NO_OUTPUT
+name|output
 init|=
 name|fst
 operator|.
@@ -334,11 +320,6 @@ name|outputs
 operator|.
 name|getNoOutput
 argument_list|()
-decl_stmt|;
-name|T
-name|output
-init|=
-name|NO_OUTPUT
 decl_stmt|;
 for|for
 control|(
@@ -379,6 +360,8 @@ argument_list|,
 name|arc
 argument_list|,
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 operator|==
 literal|null
@@ -388,16 +371,6 @@ return|return
 literal|null
 return|;
 block|}
-elseif|else
-if|if
-condition|(
-name|arc
-operator|.
-name|output
-operator|!=
-name|NO_OUTPUT
-condition|)
-block|{
 name|output
 operator|=
 name|fst
@@ -414,37 +387,12 @@ name|output
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-name|fst
-operator|.
-name|findTargetArc
-argument_list|(
-name|FST
-operator|.
-name|END_LABEL
-argument_list|,
-name|arc
-argument_list|,
-name|arc
-argument_list|)
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-elseif|else
 if|if
 condition|(
 name|arc
 operator|.
-name|output
-operator|!=
-name|NO_OUTPUT
+name|isFinal
+argument_list|()
 condition|)
 block|{
 return|return
@@ -458,14 +406,14 @@ name|output
 argument_list|,
 name|arc
 operator|.
-name|output
+name|nextFinalOutput
 argument_list|)
 return|;
 block|}
 else|else
 block|{
 return|return
-name|output
+literal|null
 return|;
 block|}
 block|}
@@ -656,7 +604,7 @@ expr_stmt|;
 block|}
 name|fst
 operator|.
-name|readFirstRealArc
+name|readFirstRealTargetArc
 argument_list|(
 name|arc
 operator|.
@@ -957,6 +905,7 @@ argument_list|(
 name|startArc
 argument_list|)
 expr_stmt|;
+comment|//System.out.println("toDot: startArc: " + startArc);
 comment|// A list of states on the same level (for ranking).
 specifier|final
 name|List
@@ -1186,6 +1135,19 @@ name|level
 init|=
 literal|0
 decl_stmt|;
+specifier|final
+name|FST
+operator|.
+name|BytesReader
+name|r
+init|=
+name|fst
+operator|.
+name|getBytesReader
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 while|while
 condition|(
 operator|!
@@ -1196,6 +1158,7 @@ argument_list|()
 condition|)
 block|{
 comment|// we could double buffer here, but it doesn't matter probably.
+comment|//System.out.println("next level=" + level);
 name|thisLevelQueue
 operator|.
 name|addAll
@@ -1252,6 +1215,7 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
+comment|//System.out.println("  pop: " + arc);
 if|if
 condition|(
 name|fst
@@ -1262,7 +1226,8 @@ name|arc
 argument_list|)
 condition|)
 block|{
-comment|// scan all arcs
+comment|// scan all target arcs
+comment|//System.out.println("  readFirstTarget...");
 specifier|final
 name|int
 name|node
@@ -1273,45 +1238,24 @@ name|target
 decl_stmt|;
 name|fst
 operator|.
-name|readFirstTargetArc
+name|readFirstRealTargetArc
 argument_list|(
 name|arc
+operator|.
+name|target
 argument_list|,
 name|arc
+argument_list|,
+name|r
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|arc
-operator|.
-name|label
-operator|==
-name|FST
-operator|.
-name|END_LABEL
-condition|)
-block|{
-comment|// Skip it -- prior recursion took this into account already
-assert|assert
-operator|!
-name|arc
-operator|.
-name|isLast
-argument_list|()
-assert|;
-name|fst
-operator|.
-name|readNextArc
-argument_list|(
-name|arc
-argument_list|)
-expr_stmt|;
-block|}
+comment|//System.out.println("    firstTarget: " + arc);
 while|while
 condition|(
 literal|true
 condition|)
 block|{
+comment|//System.out.println("  cycle arc=" + arc);
 comment|// Emit the unseen state and add it to the queue for the next level.
 if|if
 condition|(
@@ -1412,13 +1356,6 @@ operator|.
 name|target
 argument_list|)
 argument_list|,
-name|arc
-operator|.
-name|isFinal
-argument_list|()
-condition|?
-name|finalStateShape
-else|:
 name|stateShape
 argument_list|,
 name|stateColor
@@ -1426,6 +1363,8 @@ argument_list|,
 name|finalOutput
 argument_list|)
 expr_stmt|;
+comment|// To see the node address, use this instead:
+comment|//emitDotState(out, Integer.toString(arc.target), stateShape, stateColor, String.valueOf(arc.target));
 name|seen
 operator|.
 name|set
@@ -1547,6 +1486,34 @@ operator|+
 literal|"]"
 expr_stmt|;
 block|}
+specifier|final
+name|String
+name|arcColor
+decl_stmt|;
+if|if
+condition|(
+name|arc
+operator|.
+name|flag
+argument_list|(
+name|FST
+operator|.
+name|BIT_TARGET_NEXT
+argument_list|)
+condition|)
+block|{
+name|arcColor
+operator|=
+literal|"red"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|arcColor
+operator|=
+literal|"black"
+expr_stmt|;
+block|}
 assert|assert
 name|arc
 operator|.
@@ -1581,6 +1548,23 @@ argument_list|)
 operator|+
 name|outs
 operator|+
+literal|"\""
+operator|+
+operator|(
+name|arc
+operator|.
+name|isFinal
+argument_list|()
+condition|?
+literal|" style=\"bold\""
+else|:
+literal|""
+operator|)
+operator|+
+literal|" color=\""
+operator|+
+name|arcColor
+operator|+
 literal|"\"]\n"
 argument_list|)
 expr_stmt|;
@@ -1593,13 +1577,16 @@ name|isLast
 argument_list|()
 condition|)
 block|{
+comment|//System.out.println("    break");
 break|break;
 block|}
 name|fst
 operator|.
-name|readNextArc
+name|readNextRealArc
 argument_list|(
 name|arc
+argument_list|,
+name|r
 argument_list|)
 expr_stmt|;
 block|}

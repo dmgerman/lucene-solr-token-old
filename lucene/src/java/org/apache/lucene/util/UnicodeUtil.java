@@ -3427,6 +3427,10 @@ assert|assert
 name|b
 operator|<
 literal|0xf8
+operator|:
+literal|"b="
+operator|+
+name|b
 assert|;
 name|int
 name|ch
