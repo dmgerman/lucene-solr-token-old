@@ -106,11 +106,11 @@ begin_comment
 comment|/**  * This class forces a composite reader (eg a {@link  * MultiReader} or {@link DirectoryReader} or any other  * IndexReader subclass that returns non-null from {@link  * IndexReader#getSequentialSubReaders}) to emulate an  * atomic reader.  This requires implementing the postings  * APIs on-the-fly, using the static methods in {@link  * MultiFields}, {@link MultiDocValues},   * by stepping through the sub-readers to merge fields/terms,   * appending docs, etc.  *  *<p>If you ever hit an UnsupportedOperationException saying  * "please use MultiXXX.YYY instead", the simple  * but non-performant workaround is to wrap your reader  * using this class.</p>  *  *<p><b>NOTE</b>: this class almost always results in a  * performance hit.  If this is important to your use case,  * it's better to get the sequential sub readers (see {@link  * ReaderUtil#gatherSubReaders}, instead, and iterate through them  * yourself.</p>  */
 end_comment
 begin_class
-DECL|class|SlowMultiReaderWrapper
+DECL|class|SlowCompositeReaderWrapper
 specifier|public
 specifier|final
 class|class
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
 extends|extends
 name|AtomicIndexReader
 block|{
@@ -174,7 +174,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
 argument_list|(
 operator|(
 name|CompositeIndexReader
@@ -198,9 +198,9 @@ name|reader
 return|;
 block|}
 block|}
-DECL|method|SlowMultiReaderWrapper
+DECL|method|SlowCompositeReaderWrapper
 specifier|public
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
 parameter_list|(
 name|CompositeIndexReader
 name|reader
@@ -243,7 +243,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"SlowMultiReaderWrapper("
+literal|"SlowCompositeReaderWrapper("
 operator|+
 name|in
 operator|+
