@@ -485,10 +485,10 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1738,10 +1738,10 @@ name|boolean
 name|needsMerging
 decl_stmt|;
 block|{
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -2386,10 +2386,10 @@ operator|.
 name|rollback
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -2487,7 +2487,7 @@ argument_list|)
 expr_stmt|;
 name|r
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

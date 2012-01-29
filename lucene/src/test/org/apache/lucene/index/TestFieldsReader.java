@@ -1805,7 +1805,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
 name|w
@@ -1850,6 +1850,9 @@ name|DEFAULT
 operator|.
 name|getInts
 argument_list|(
+operator|(
+name|AtomicIndexReader
+operator|)
 name|sub
 argument_list|,
 literal|"id"
