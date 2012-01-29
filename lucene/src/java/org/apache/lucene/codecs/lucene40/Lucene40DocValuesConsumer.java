@@ -298,9 +298,6 @@ specifier|static
 name|void
 name|files
 parameter_list|(
-name|Directory
-name|dir
-parameter_list|,
 name|SegmentInfo
 name|segmentInfo
 parameter_list|,
@@ -378,6 +375,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 assert|assert
+name|segmentInfo
+operator|.
 name|dir
 operator|.
 name|fileExists
@@ -399,6 +398,8 @@ argument_list|)
 argument_list|)
 assert|;
 assert|assert
+name|segmentInfo
+operator|.
 name|dir
 operator|.
 name|fileExists

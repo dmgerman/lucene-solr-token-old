@@ -1170,8 +1170,6 @@ argument_list|()
 operator|.
 name|files
 argument_list|(
-name|dir
-argument_list|,
 name|s
 argument_list|,
 name|files
