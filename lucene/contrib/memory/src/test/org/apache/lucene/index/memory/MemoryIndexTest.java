@@ -199,7 +199,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicIndexReader
+name|AtomicReader
 import|;
 end_import
 begin_import
@@ -1187,11 +1187,11 @@ argument_list|,
 name|analyzer
 argument_list|)
 expr_stmt|;
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 init|=
 operator|(
-name|AtomicIndexReader
+name|AtomicReader
 operator|)
 name|memory
 operator|.
@@ -1380,11 +1380,11 @@ argument_list|,
 name|analyzer
 argument_list|)
 expr_stmt|;
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 init|=
 operator|(
-name|AtomicIndexReader
+name|AtomicReader
 operator|)
 name|memory
 operator|.

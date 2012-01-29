@@ -135,7 +135,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicIndexReader
+name|AtomicReader
 import|;
 end_import
 begin_import
@@ -546,7 +546,7 @@ specifier|synchronized
 name|void
 name|purge
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|r
 parameter_list|)
 block|{
@@ -983,13 +983,13 @@ decl_stmt|;
 comment|// composite/SlowMultiReaderWrapper fieldcaches don't purge until composite reader is closed.
 DECL|field|purgeReader
 specifier|final
-name|AtomicIndexReader
+name|IndexReader
 operator|.
 name|ReaderClosedListener
 name|purgeReader
 init|=
 operator|new
-name|AtomicIndexReader
+name|IndexReader
 operator|.
 name|ReaderClosedListener
 argument_list|()
@@ -1007,7 +1007,7 @@ block|{
 assert|assert
 name|owner
 operator|instanceof
-name|AtomicIndexReader
+name|AtomicReader
 assert|;
 name|FieldCacheImpl
 operator|.
@@ -1016,7 +1016,7 @@ operator|.
 name|purge
 argument_list|(
 operator|(
-name|AtomicIndexReader
+name|AtomicReader
 operator|)
 name|owner
 argument_list|)
@@ -1029,7 +1029,7 @@ specifier|private
 name|void
 name|initReader
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|)
 block|{
@@ -1069,12 +1069,12 @@ if|if
 condition|(
 name|key
 operator|instanceof
-name|AtomicIndexReader
+name|AtomicReader
 condition|)
 block|{
 operator|(
 operator|(
-name|AtomicIndexReader
+name|AtomicReader
 operator|)
 name|key
 operator|)
@@ -1159,7 +1159,7 @@ specifier|abstract
 name|Object
 name|createValue
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry
@@ -1177,7 +1177,7 @@ specifier|public
 name|void
 name|purge
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|r
 parameter_list|)
 block|{
@@ -1209,7 +1209,7 @@ specifier|public
 name|void
 name|put
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry
@@ -1318,7 +1318,7 @@ specifier|public
 name|Object
 name|get
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry
@@ -1843,7 +1843,7 @@ name|byte
 index|[]
 name|getBytes
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -1875,7 +1875,7 @@ name|byte
 index|[]
 name|getBytes
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -1948,7 +1948,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry
@@ -2259,7 +2259,7 @@ name|short
 index|[]
 name|getShorts
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -2291,7 +2291,7 @@ name|short
 index|[]
 name|getShorts
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -2364,7 +2364,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry
@@ -2673,7 +2673,7 @@ DECL|method|setDocsWithField
 name|void
 name|setDocsWithField
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -2807,7 +2807,7 @@ name|int
 index|[]
 name|getInts
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -2839,7 +2839,7 @@ name|int
 index|[]
 name|getInts
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -2912,7 +2912,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry
@@ -3272,7 +3272,7 @@ specifier|public
 name|Bits
 name|getDocsWithField
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -3338,7 +3338,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry
@@ -3588,7 +3588,7 @@ name|float
 index|[]
 name|getFloats
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -3620,7 +3620,7 @@ name|float
 index|[]
 name|getFloats
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -3693,7 +3693,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry
@@ -4054,7 +4054,7 @@ name|long
 index|[]
 name|getLongs
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -4086,7 +4086,7 @@ name|long
 index|[]
 name|getLongs
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -4161,7 +4161,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry
@@ -4527,7 +4527,7 @@ name|double
 index|[]
 name|getDoubles
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -4559,7 +4559,7 @@ name|double
 index|[]
 name|getDoubles
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -4634,7 +4634,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry
@@ -5833,7 +5833,7 @@ specifier|public
 name|DocTermsIndex
 name|getTermsIndex
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -5858,7 +5858,7 @@ specifier|public
 name|DocTermsIndex
 name|getTermsIndex
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -5931,7 +5931,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry
@@ -6528,7 +6528,7 @@ specifier|public
 name|DocTerms
 name|getTerms
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -6553,7 +6553,7 @@ specifier|public
 name|DocTerms
 name|getTerms
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -6627,7 +6627,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry
@@ -6952,7 +6952,7 @@ specifier|public
 name|DocTermOrds
 name|getDocTermOrds
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -7018,7 +7018,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Entry

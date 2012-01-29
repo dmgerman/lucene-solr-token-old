@@ -67,20 +67,20 @@ specifier|public
 class|class
 name|ParallelReader
 extends|extends
-name|AtomicIndexReader
+name|AtomicReader
 block|{
 DECL|field|readers
 specifier|private
 name|List
 argument_list|<
-name|AtomicIndexReader
+name|AtomicReader
 argument_list|>
 name|readers
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|AtomicIndexReader
+name|AtomicReader
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -112,7 +112,7 @@ name|SortedMap
 argument_list|<
 name|String
 argument_list|,
-name|AtomicIndexReader
+name|AtomicReader
 argument_list|>
 name|fieldToReader
 init|=
@@ -121,7 +121,7 @@ name|TreeMap
 argument_list|<
 name|String
 argument_list|,
-name|AtomicIndexReader
+name|AtomicReader
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -129,7 +129,7 @@ DECL|field|readerToFields
 specifier|private
 name|Map
 argument_list|<
-name|AtomicIndexReader
+name|AtomicReader
 argument_list|,
 name|Collection
 argument_list|<
@@ -141,7 +141,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|AtomicIndexReader
+name|AtomicReader
 argument_list|,
 name|Collection
 argument_list|<
@@ -154,14 +154,14 @@ DECL|field|storedFieldReaders
 specifier|private
 name|List
 argument_list|<
-name|AtomicIndexReader
+name|AtomicReader
 argument_list|>
 name|storedFieldReaders
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|AtomicIndexReader
+name|AtomicReader
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -279,7 +279,7 @@ decl_stmt|;
 specifier|final
 name|Iterator
 argument_list|<
-name|AtomicIndexReader
+name|AtomicReader
 argument_list|>
 name|iter
 init|=
@@ -351,7 +351,7 @@ specifier|public
 name|void
 name|add
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|)
 throws|throws
@@ -368,13 +368,13 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Add an AtomicIndexReader whose stored fields will not be returned.  This can   * accelerate search when stored fields are only needed from a subset of   * the IndexReaders.   *   * @throws IllegalArgumentException if not all indexes contain the same number   *     of documents   * @throws IllegalArgumentException if not all indexes have the same value   *     of {@link AtomicIndexReader#maxDoc()}   * @throws IOException if there is a low-level IO error   */
+comment|/** Add an AtomicIndexReader whose stored fields will not be returned.  This can   * accelerate search when stored fields are only needed from a subset of   * the IndexReaders.   *   * @throws IllegalArgumentException if not all indexes contain the same number   *     of documents   * @throws IllegalArgumentException if not all indexes have the same value   *     of {@link AtomicReader#maxDoc()}   * @throws IOException if there is a low-level IO error   */
 DECL|method|add
 specifier|public
 name|void
 name|add
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|boolean
@@ -935,7 +935,7 @@ expr_stmt|;
 for|for
 control|(
 specifier|final
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 range|:
 name|storedFieldReaders
@@ -984,7 +984,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|AtomicIndexReader
+name|AtomicReader
 argument_list|>
 name|ent
 range|:
@@ -1055,7 +1055,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 init|=
 name|fieldToReader
@@ -1099,7 +1099,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 init|=
 name|fieldToReader
@@ -1128,7 +1128,7 @@ return|;
 block|}
 comment|// for testing
 DECL|method|getSubReaders
-name|AtomicIndexReader
+name|AtomicReader
 index|[]
 name|getSubReaders
 parameter_list|()
@@ -1139,7 +1139,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|AtomicIndexReader
+name|AtomicReader
 index|[
 name|readers
 operator|.
@@ -1231,7 +1231,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 init|=
 name|fieldToReader
@@ -1288,7 +1288,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 init|=
 name|fieldToReader

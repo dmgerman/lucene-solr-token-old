@@ -5429,7 +5429,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|AtomicIndexReader
+name|AtomicReader
 name|subreader
 init|=
 name|getOnlySegmentReader
@@ -5643,7 +5643,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|AtomicIndexReader
+name|AtomicReader
 name|subreader
 init|=
 name|getOnlySegmentReader
@@ -8965,7 +8965,7 @@ argument_list|(
 name|d
 argument_list|)
 expr_stmt|;
-name|AtomicIndexReader
+name|AtomicReader
 name|r
 init|=
 name|getOnlySegmentReader

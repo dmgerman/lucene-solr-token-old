@@ -67,7 +67,7 @@ specifier|public
 class|class
 name|FilterIndexReader
 extends|extends
-name|AtomicIndexReader
+name|AtomicReader
 block|{
 comment|/** Base class for filtering {@link Fields}    *  implementations. */
 DECL|class|FilterFields
@@ -959,7 +959,7 @@ block|}
 block|}
 DECL|field|in
 specifier|protected
-name|AtomicIndexReader
+name|AtomicReader
 name|in
 decl_stmt|;
 comment|/**    *<p>Construct a FilterIndexReader based on the specified base reader.    *<p>Note that base reader is closed if this FilterIndexReader is closed.</p>    * @param in specified base reader.    */
@@ -967,7 +967,7 @@ DECL|method|FilterIndexReader
 specifier|public
 name|FilterIndexReader
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|in
 parameter_list|)
 block|{

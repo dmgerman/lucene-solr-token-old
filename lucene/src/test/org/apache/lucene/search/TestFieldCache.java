@@ -273,7 +273,7 @@ block|{
 DECL|field|reader
 specifier|private
 specifier|static
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 decl_stmt|;
 DECL|field|NUM_DOCS
@@ -2757,7 +2757,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 init|=
 name|SlowCompositeReaderWrapper

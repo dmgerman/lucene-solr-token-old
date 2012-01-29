@@ -993,7 +993,7 @@ block|}
 DECL|method|initSubReaders
 specifier|private
 specifier|static
-name|AtomicIndexReader
+name|AtomicReader
 index|[]
 name|initSubReaders
 parameter_list|(
@@ -1006,14 +1006,14 @@ block|{
 specifier|final
 name|ArrayList
 argument_list|<
-name|AtomicIndexReader
+name|AtomicReader
 argument_list|>
 name|subs
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|AtomicIndexReader
+name|AtomicReader
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1034,7 +1034,7 @@ parameter_list|(
 name|int
 name|base
 parameter_list|,
-name|AtomicIndexReader
+name|AtomicReader
 name|r
 parameter_list|)
 block|{
@@ -1061,7 +1061,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|AtomicIndexReader
+name|AtomicReader
 index|[
 name|subs
 operator|.
@@ -1219,7 +1219,7 @@ DECL|method|FakeDeleteAtomicIndexReader
 specifier|public
 name|FakeDeleteAtomicIndexReader
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|)
 block|{

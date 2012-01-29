@@ -116,7 +116,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicIndexReader
+name|AtomicReader
 operator|.
 name|AtomicReaderContext
 import|;
@@ -643,7 +643,7 @@ specifier|public
 name|DocsAndPositionsEnum
 name|getDocsAndPositions
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|BytesRef
@@ -2324,7 +2324,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicIndexReader
+name|AtomicReader
 name|r
 init|=
 name|getOnlySegmentReader
@@ -2553,7 +2553,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicIndexReader
+name|AtomicReader
 name|r
 init|=
 name|getOnlySegmentReader

@@ -3057,7 +3057,7 @@ name|checkNormsClosed
 operator|&&
 name|reader
 operator|instanceof
-name|AtomicIndexReader
+name|AtomicReader
 condition|)
 block|{
 comment|// TODO: should we really assert something here? we check for open files and this is obselete...
@@ -3069,7 +3069,7 @@ name|checkSubReaders
 operator|&&
 name|reader
 operator|instanceof
-name|CompositeIndexReader
+name|CompositeReader
 condition|)
 block|{
 name|IndexReader
@@ -3078,7 +3078,7 @@ name|subReaders
 init|=
 operator|(
 operator|(
-name|CompositeIndexReader
+name|CompositeReader
 operator|)
 name|reader
 operator|)

@@ -13490,7 +13490,7 @@ specifier|abstract
 name|void
 name|warm
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|)
 throws|throws

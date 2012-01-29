@@ -1083,7 +1083,7 @@ block|}
 name|verify
 argument_list|(
 operator|(
-name|AtomicIndexReader
+name|AtomicReader
 operator|)
 name|subR
 argument_list|,
@@ -1112,7 +1112,7 @@ literal|"TEST: top reader"
 argument_list|)
 expr_stmt|;
 block|}
-name|AtomicIndexReader
+name|AtomicReader
 name|slowR
 init|=
 name|SlowCompositeReaderWrapper
@@ -1699,7 +1699,7 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
-name|AtomicIndexReader
+name|AtomicReader
 name|slowR
 init|=
 name|SlowCompositeReaderWrapper
@@ -1895,7 +1895,7 @@ block|}
 name|verify
 argument_list|(
 operator|(
-name|AtomicIndexReader
+name|AtomicReader
 operator|)
 name|subR
 argument_list|,
@@ -1961,7 +1961,7 @@ specifier|private
 name|void
 name|verify
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|r
 parameter_list|,
 name|int

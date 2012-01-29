@@ -4590,7 +4590,7 @@ literal|17
 argument_list|,
 operator|(
 operator|(
-name|AtomicIndexReader
+name|AtomicReader
 operator|)
 name|r
 operator|.
@@ -5418,7 +5418,7 @@ name|ord
 argument_list|)
 expr_stmt|;
 block|}
-name|AtomicIndexReader
+name|AtomicReader
 name|slowR
 init|=
 name|SlowCompositeReaderWrapper
@@ -5523,7 +5523,7 @@ specifier|public
 name|int
 name|docId
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|Term

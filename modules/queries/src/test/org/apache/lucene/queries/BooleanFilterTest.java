@@ -76,7 +76,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicIndexReader
+name|AtomicReader
 import|;
 end_import
 begin_import
@@ -89,7 +89,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicIndexReader
+name|AtomicReader
 operator|.
 name|AtomicReaderContext
 import|;
@@ -302,7 +302,7 @@ name|directory
 decl_stmt|;
 DECL|field|reader
 specifier|private
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 decl_stmt|;
 annotation|@

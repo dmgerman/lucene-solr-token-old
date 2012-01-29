@@ -150,7 +150,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicIndexReader
+name|AtomicReader
 import|;
 end_import
 begin_import
@@ -425,7 +425,7 @@ specifier|protected
 name|DocValues
 name|getDocValuesForMerge
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|FieldInfo

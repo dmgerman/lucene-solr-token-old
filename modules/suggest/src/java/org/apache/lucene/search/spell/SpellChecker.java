@@ -138,7 +138,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicIndexReader
+name|AtomicReader
 import|;
 end_import
 begin_import
@@ -1856,7 +1856,7 @@ parameter_list|(
 name|int
 name|base
 parameter_list|,
-name|AtomicIndexReader
+name|AtomicReader
 name|r
 parameter_list|)
 throws|throws

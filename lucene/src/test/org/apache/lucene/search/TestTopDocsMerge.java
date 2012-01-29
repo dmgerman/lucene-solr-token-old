@@ -103,7 +103,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicIndexReader
+name|AtomicReader
 import|;
 end_import
 begin_import
@@ -116,7 +116,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|CompositeIndexReader
+name|CompositeReader
 import|;
 end_import
 begin_import
@@ -229,7 +229,7 @@ block|{
 DECL|field|ctx
 specifier|private
 specifier|final
-name|AtomicIndexReader
+name|AtomicReader
 operator|.
 name|AtomicReaderContext
 index|[]
@@ -239,12 +239,12 @@ DECL|method|ShardSearcher
 specifier|public
 name|ShardSearcher
 parameter_list|(
-name|AtomicIndexReader
+name|AtomicReader
 operator|.
 name|AtomicReaderContext
 name|ctx
 parameter_list|,
-name|CompositeIndexReader
+name|CompositeReader
 operator|.
 name|CompositeReaderContext
 name|parent
@@ -260,7 +260,7 @@ operator|.
 name|ctx
 operator|=
 operator|new
-name|AtomicIndexReader
+name|AtomicReader
 operator|.
 name|AtomicReaderContext
 index|[]
@@ -752,7 +752,7 @@ if|if
 condition|(
 name|ctx
 operator|instanceof
-name|AtomicIndexReader
+name|AtomicReader
 operator|.
 name|AtomicReaderContext
 condition|)
@@ -782,7 +782,7 @@ operator|new
 name|ShardSearcher
 argument_list|(
 operator|(
-name|AtomicIndexReader
+name|AtomicReader
 operator|.
 name|AtomicReaderContext
 operator|)
@@ -802,13 +802,13 @@ block|}
 else|else
 block|{
 specifier|final
-name|CompositeIndexReader
+name|CompositeReader
 operator|.
 name|CompositeReaderContext
 name|compCTX
 init|=
 operator|(
-name|CompositeIndexReader
+name|CompositeReader
 operator|.
 name|CompositeReaderContext
 operator|)

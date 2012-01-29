@@ -59,7 +59,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicIndexReader
+name|AtomicReader
 operator|.
 name|AtomicReaderContext
 import|;
@@ -74,7 +74,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicIndexReader
+name|AtomicReader
 import|;
 end_import
 begin_import
@@ -301,7 +301,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|AtomicIndexReader
+name|AtomicReader
 name|reader
 init|=
 name|context

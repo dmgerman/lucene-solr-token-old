@@ -505,7 +505,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|AtomicIndexReader
+name|AtomicReader
 name|open
 init|=
 name|SlowCompositeReaderWrapper
