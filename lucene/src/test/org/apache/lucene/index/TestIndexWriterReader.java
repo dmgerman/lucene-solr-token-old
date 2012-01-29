@@ -492,7 +492,7 @@ name|i
 operator|++
 control|)
 block|{
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|writer
@@ -667,7 +667,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// make sure all merging is done etc.
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|writer
@@ -912,7 +912,7 @@ argument_list|)
 expr_stmt|;
 comment|// writer.flush(false, true, true);
 comment|// get a reader
-name|IndexReader
+name|DirectoryReader
 name|r1
 init|=
 name|writer
@@ -1007,7 +1007,7 @@ name|isCurrent
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r2
 init|=
 name|writer
@@ -1097,7 +1097,7 @@ name|isCurrent
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r3
 init|=
 name|IndexReader
@@ -1386,7 +1386,7 @@ name|TYPE_UNSTORED
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|nrtReader
 init|=
 name|writer
@@ -1439,7 +1439,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|dirReader
 init|=
 name|IndexReader
@@ -1689,7 +1689,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r0
 init|=
 name|writer
@@ -1725,7 +1725,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r1
 init|=
 name|writer
@@ -3714,7 +3714,7 @@ specifier|public
 name|void
 name|warm
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 parameter_list|)
 throws|throws
@@ -4005,7 +4005,7 @@ name|writer
 argument_list|)
 expr_stmt|;
 comment|// get a reader to put writer into near real-time mode
-name|IndexReader
+name|DirectoryReader
 name|r1
 init|=
 name|writer
@@ -4090,10 +4090,10 @@ operator|.
 name|sync
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -4188,7 +4188,7 @@ argument_list|,
 name|writer
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
 name|writer
@@ -4260,7 +4260,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -4400,7 +4400,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
 name|writer
@@ -4579,10 +4579,10 @@ operator|<
 name|endTime
 condition|)
 block|{
-name|IndexReader
+name|DirectoryReader
 name|r2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -4681,10 +4681,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// final check
-name|IndexReader
+name|DirectoryReader
 name|r2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -4864,7 +4864,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
 name|writer
@@ -5137,10 +5137,10 @@ operator|<
 name|endTime
 condition|)
 block|{
-name|IndexReader
+name|DirectoryReader
 name|r2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -5226,10 +5226,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// at least search once
-name|IndexReader
+name|DirectoryReader
 name|r2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -5856,7 +5856,7 @@ specifier|public
 name|void
 name|warm
 parameter_list|(
-name|IndexReader
+name|AtomicIndexReader
 name|r
 parameter_list|)
 throws|throws
@@ -6230,7 +6230,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
 name|w
@@ -6239,10 +6239,10 @@ name|getReader
 argument_list|()
 decl_stmt|;
 comment|// start pooling readers
-name|IndexReader
+name|DirectoryReader
 name|r2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -6263,10 +6263,10 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r3
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -6322,10 +6322,10 @@ name|isCurrent
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r4
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -6351,10 +6351,10 @@ literal|"bar"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r5
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
