@@ -61,7 +61,7 @@ decl_stmt|;
 DECL|field|docFreq
 specifier|private
 specifier|final
-name|int
+name|long
 name|docFreq
 decl_stmt|;
 DECL|field|totalTermFreq
@@ -77,7 +77,7 @@ parameter_list|(
 name|BytesRef
 name|term
 parameter_list|,
-name|int
+name|long
 name|docFreq
 parameter_list|,
 name|long
@@ -135,7 +135,7 @@ comment|/** returns the number of documents this term occurs in     * @see Index
 DECL|method|docFreq
 specifier|public
 specifier|final
-name|int
+name|long
 name|docFreq
 parameter_list|()
 block|{

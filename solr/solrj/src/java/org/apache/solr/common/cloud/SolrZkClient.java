@@ -183,19 +183,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|AlreadyClosedException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|solr
 operator|.
 name|common
@@ -591,11 +578,6 @@ name|TimeoutException
 throws|,
 name|IOException
 block|{
-name|numOpens
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 name|connManager
 operator|=
 operator|new
@@ -715,6 +697,11 @@ name|waitForConnected
 argument_list|(
 name|clientConnectTimeout
 argument_list|)
+expr_stmt|;
+name|numOpens
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * @return true if client is connected    */
@@ -2721,19 +2708,6 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
-if|if
-condition|(
-name|isClosed
-condition|)
-block|{
-throw|throw
-operator|new
-name|AlreadyClosedException
-argument_list|(
-literal|"This client has already been closed"
-argument_list|)
-throw|;
-block|}
 name|isClosed
 operator|=
 literal|true

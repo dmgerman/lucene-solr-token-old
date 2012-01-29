@@ -1726,6 +1726,9 @@ return|;
 block|}
 if|if
 condition|(
+operator|!
+name|force
+operator|&&
 name|commit
 operator|.
 name|getVersion

@@ -327,8 +327,6 @@ begin_comment
 comment|/**  * Super basic testing, no shard restarting or anything.  */
 end_comment
 begin_class
-annotation|@
-name|Ignore
 DECL|class|FullSolrCloudDistribCmdsTest
 specifier|public
 class|class
