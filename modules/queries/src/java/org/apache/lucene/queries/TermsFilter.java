@@ -37,7 +37,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicIndexReader
 operator|.
 name|AtomicReaderContext
 import|;
@@ -196,12 +196,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|IndexReader
+name|AtomicIndexReader
 name|reader
 init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 decl_stmt|;
 name|FixedBitSet
 name|result
