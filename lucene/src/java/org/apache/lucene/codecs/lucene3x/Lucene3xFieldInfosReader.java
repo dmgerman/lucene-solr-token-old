@@ -208,9 +208,11 @@ name|IndexInput
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.experimental  */
+comment|/**  * @lucene.experimental  * @deprecated  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|Lucene3xFieldInfosReader
 specifier|public
 class|class
