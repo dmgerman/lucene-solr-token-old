@@ -290,6 +290,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|DirectoryReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|common
@@ -5791,7 +5804,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|s
@@ -5845,7 +5858,7 @@ name|IndexCommit
 argument_list|>
 name|commits
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
