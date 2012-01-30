@@ -89,7 +89,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|DirectoryReader
 import|;
 end_import
 begin_import
@@ -155,15 +155,6 @@ operator|.
 name|store
 operator|.
 name|Directory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 begin_import
@@ -358,13 +349,6 @@ init|=
 literal|100
 decl_stmt|;
 annotation|@
-name|Ignore
-argument_list|(
-literal|"This test does not work, as PerDirPayloadProcessor is currently broken (see nocommit in SegmentMerger): "
-operator|+
-literal|"SegmentReader/AtomicReader does not know its directory. This is broken, it should be a PayLoadProcessorProvider per AtomicReader!"
-argument_list|)
-annotation|@
 name|Test
 DECL|method|testTaxonomyMergeUtils
 specifier|public
@@ -471,10 +455,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|IndexReader
+name|DirectoryReader
 name|reader1
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
