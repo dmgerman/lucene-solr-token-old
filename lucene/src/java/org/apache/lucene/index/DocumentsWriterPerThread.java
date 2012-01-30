@@ -2248,34 +2248,18 @@ condition|)
 block|{
 specifier|final
 name|double
-name|newSegmentSizeNoStore
-init|=
-name|newSegment
-operator|.
-name|sizeInBytes
-argument_list|(
-literal|false
-argument_list|)
-operator|/
-literal|1024.
-operator|/
-literal|1024.
-decl_stmt|;
-specifier|final
-name|double
 name|newSegmentSize
 init|=
 name|newSegment
 operator|.
 name|sizeInBytes
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|/
 literal|1024.
 operator|/
 literal|1024.
 decl_stmt|;
+comment|// nocommit: some of this is confusing since it includes docstores
 name|infoStream
 operator|.
 name|message
@@ -2308,17 +2292,6 @@ argument_list|)
 operator|+
 literal|" MB"
 operator|+
-literal|" ("
-operator|+
-name|nf
-operator|.
-name|format
-argument_list|(
-name|newSegmentSizeNoStore
-argument_list|)
-operator|+
-literal|" MB w/o doc stores)"
-operator|+
 literal|" docs/MB="
 operator|+
 name|nf
@@ -2338,7 +2311,7 @@ name|format
 argument_list|(
 literal|100.0
 operator|*
-name|newSegmentSizeNoStore
+name|newSegmentSize
 operator|/
 name|startMBUsed
 argument_list|)
