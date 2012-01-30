@@ -52,6 +52,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DirectoryReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
 import|;
 end_import
@@ -78,7 +91,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
 import|;
 end_import
 begin_import
@@ -878,7 +891,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
 operator|.
 name|class
 operator|.
@@ -2343,7 +2356,7 @@ expr_stmt|;
 block|}
 block|}
 specifier|final
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
 name|w
@@ -2369,7 +2382,7 @@ operator|.
 name|getInts
 argument_list|(
 operator|new
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
 argument_list|(
 name|r
 argument_list|)
@@ -2436,7 +2449,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
 operator|.
 name|class
 operator|.
@@ -3038,15 +3051,7 @@ block|}
 block|}
 finally|finally
 block|{
-name|FieldCache
-operator|.
-name|DEFAULT
-operator|.
-name|purge
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
+comment|// TODO: FieldCache.DEFAULT.purge(r);
 block|}
 name|r
 operator|.

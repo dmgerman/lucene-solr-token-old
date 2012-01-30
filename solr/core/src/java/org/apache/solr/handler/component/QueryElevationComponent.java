@@ -80,8 +80,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 import|;
 end_import
@@ -3517,6 +3515,7 @@ init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|fields
 argument_list|()
@@ -3571,6 +3570,7 @@ init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()

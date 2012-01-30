@@ -42,7 +42,21 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReader
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
 operator|.
 name|AtomicReaderContext
 import|;
@@ -58,19 +72,6 @@ operator|.
 name|index
 operator|.
 name|DocValues
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexReader
 import|;
 end_import
 begin_import
@@ -235,7 +236,7 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|/**  * Expert: a FieldComparator compares hits so as to determine their  * sort order when collecting the top results with {@link  * TopFieldCollector}.  The concrete public FieldComparator  * classes here correspond to the SortField types.  *  *<p>This API is designed to achieve high performance  * sorting, by exposing a tight interaction with {@link  * FieldValueHitQueue} as it visits hits.  Whenever a hit is  * competitive, it's enrolled into a virtual slot, which is  * an int ranging from 0 to numHits-1.  The {@link  * FieldComparator} is made aware of segment transitions  * during searching in case any internal state it's tracking  * needs to be recomputed during these transitions.</p>  *  *<p>A comparator must define these functions:</p>  *  *<ul>  *  *<li> {@link #compare} Compare a hit at 'slot a'  *       with hit 'slot b'.  *  *<li> {@link #setBottom} This method is called by  *       {@link FieldValueHitQueue} to notify the  *       FieldComparator of the current weakest ("bottom")  *       slot.  Note that this slot may not hold the weakest  *       value according to your comparator, in cases where  *       your comparator is not the primary one (ie, is only  *       used to break ties from the comparators before it).  *  *<li> {@link #compareBottom} Compare a new hit (docID)  *       against the "weakest" (bottom) entry in the queue.  *  *<li> {@link #copy} Installs a new hit into the  *       priority queue.  The {@link FieldValueHitQueue}  *       calls this method when a new hit is competitive.  *  *<li> {@link #setNextReader(IndexReader.AtomicReaderContext)} Invoked  *       when the search is switching to the next segment.  *       You may need to update internal state of the  *       comparator, for example retrieving new values from  *       the {@link FieldCache}.  *  *<li> {@link #value} Return the sort value stored in  *       the specified slot.  This is only called at the end  *       of the search, in order to populate {@link  *       FieldDoc#fields} when returning the top results.  *</ul>  *  * @lucene.experimental  */
+comment|/**  * Expert: a FieldComparator compares hits so as to determine their  * sort order when collecting the top results with {@link  * TopFieldCollector}.  The concrete public FieldComparator  * classes here correspond to the SortField types.  *  *<p>This API is designed to achieve high performance  * sorting, by exposing a tight interaction with {@link  * FieldValueHitQueue} as it visits hits.  Whenever a hit is  * competitive, it's enrolled into a virtual slot, which is  * an int ranging from 0 to numHits-1.  The {@link  * FieldComparator} is made aware of segment transitions  * during searching in case any internal state it's tracking  * needs to be recomputed during these transitions.</p>  *  *<p>A comparator must define these functions:</p>  *  *<ul>  *  *<li> {@link #compare} Compare a hit at 'slot a'  *       with hit 'slot b'.  *  *<li> {@link #setBottom} This method is called by  *       {@link FieldValueHitQueue} to notify the  *       FieldComparator of the current weakest ("bottom")  *       slot.  Note that this slot may not hold the weakest  *       value according to your comparator, in cases where  *       your comparator is not the primary one (ie, is only  *       used to break ties from the comparators before it).  *  *<li> {@link #compareBottom} Compare a new hit (docID)  *       against the "weakest" (bottom) entry in the queue.  *  *<li> {@link #copy} Installs a new hit into the  *       priority queue.  The {@link FieldValueHitQueue}  *       calls this method when a new hit is competitive.  *  *<li> {@link #setNextReader(AtomicReaderContext)} Invoked  *       when the search is switching to the next segment.  *       You may need to update internal state of the  *       comparator, for example retrieving new values from  *       the {@link FieldCache}.  *  *<li> {@link #value} Return the sort value stored in  *       the specified slot.  This is only called at the end  *       of the search, in order to populate {@link  *       FieldDoc#fields} when returning the top results.  *</ul>  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|FieldComparator
@@ -504,6 +505,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|field
 argument_list|)
@@ -775,6 +777,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|field
 argument_list|,
@@ -1141,6 +1144,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|field
 argument_list|,
@@ -1432,6 +1436,7 @@ init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|docValues
 argument_list|(
@@ -1823,6 +1828,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|field
 argument_list|,
@@ -2127,6 +2133,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|field
 argument_list|,
@@ -2502,6 +2509,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|field
 argument_list|,
@@ -2796,6 +2804,7 @@ init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|docValues
 argument_list|(
@@ -3188,6 +3197,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|field
 argument_list|,
@@ -5348,6 +5358,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|field
 argument_list|)
@@ -7221,6 +7232,7 @@ init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|docValues
 argument_list|(
@@ -7252,6 +7264,7 @@ argument_list|,
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
@@ -7303,6 +7316,7 @@ operator|+
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -7947,6 +7961,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|field
 argument_list|)
@@ -8054,7 +8069,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Sorts by field's natural Term sort order.  All    *  comparisons are done using BytesRef.compareTo, which is    *  slow for medium to large result sets but possibly    *  very fast for very small results sets.  The BytesRef    *  values are obtained using {@link IndexReader#docValues}. */
+comment|/** Sorts by field's natural Term sort order.  All    *  comparisons are done using BytesRef.compareTo, which is    *  slow for medium to large result sets but possibly    *  very fast for very small results sets.  The BytesRef    *  values are obtained using {@link AtomicReader#docValues}. */
 DECL|class|TermValDocValuesComparator
 specifier|public
 specifier|static
@@ -8270,6 +8285,7 @@ init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|docValues
 argument_list|(

@@ -125,7 +125,7 @@ name|Comparator
 import|;
 end_import
 begin_comment
-comment|/**  * This class enables fast access to multiple term ords for  * a specified field across all docIDs.  *  * Like FieldCache, it uninverts the index and holds a  * packed data structure in RAM to enable fast access.  * Unlike FieldCache, it can handle multi-valued fields,  * and, it does not hold the term bytes in RAM.  Rather, you  * must obtain a TermsEnum from the {@link #getOrdTermsEnum}  * method, and then seek-by-ord to get the term's bytes.  *  * While normally term ords are type long, in this API they are  * int as the internal representation here cannot address  * more than MAX_INT unique terms.  Also, typically this  * class is used on fields with relatively few unique terms  * vs the number of documents.  In addition, there is an  * internal limit (16 MB) on how many bytes each chunk of  * documents may consume.  If you trip this limit you'll hit  * an IllegalStateException.  *  * Deleted documents are skipped during uninversion, and if  * you look them up you'll get 0 ords.  *  * The returned per-document ords do not retain their  * original order in the document.  Instead they are returned  * in sorted (by ord, ie term's BytesRef comparator) order.  They  * are also de-dup'd (ie if doc has same term more than once  * in this field, you'll only get that ord back once).  *  * This class tests whether the provided reader is able to  * retrieve terms by ord (ie, it's single segment, and it  * uses an ord-capable terms index).  If not, this class  * will create its own term index internally, allowing to  * create a wrapped TermsEnum that can handle ord.  The  * {@link #getOrdTermsEnum} method then provides this  * wrapped enum, if necessary.  *  * The RAM consumption of this class can be high!  *  *<p>NOTE: the provided reader must be an atomic reader  *  * @lucene.experimental  */
+comment|/**  * This class enables fast access to multiple term ords for  * a specified field across all docIDs.  *  * Like FieldCache, it uninverts the index and holds a  * packed data structure in RAM to enable fast access.  * Unlike FieldCache, it can handle multi-valued fields,  * and, it does not hold the term bytes in RAM.  Rather, you  * must obtain a TermsEnum from the {@link #getOrdTermsEnum}  * method, and then seek-by-ord to get the term's bytes.  *  * While normally term ords are type long, in this API they are  * int as the internal representation here cannot address  * more than MAX_INT unique terms.  Also, typically this  * class is used on fields with relatively few unique terms  * vs the number of documents.  In addition, there is an  * internal limit (16 MB) on how many bytes each chunk of  * documents may consume.  If you trip this limit you'll hit  * an IllegalStateException.  *  * Deleted documents are skipped during uninversion, and if  * you look them up you'll get 0 ords.  *  * The returned per-document ords do not retain their  * original order in the document.  Instead they are returned  * in sorted (by ord, ie term's BytesRef comparator) order.  They  * are also de-dup'd (ie if doc has same term more than once  * in this field, you'll only get that ord back once).  *  * This class tests whether the provided reader is able to  * retrieve terms by ord (ie, it's single segment, and it  * uses an ord-capable terms index).  If not, this class  * will create its own term index internally, allowing to  * create a wrapped TermsEnum that can handle ord.  The  * {@link #getOrdTermsEnum} method then provides this  * wrapped enum, if necessary.  *  * The RAM consumption of this class can be high!  *  * @lucene.experimental  */
 end_comment
 begin_comment
 comment|/*  * Final form of the un-inverted field:  *   Each document points to a list of term numbers that are contained in that document.  *  *   Term numbers are in sorted order, and are encoded as variable-length deltas from the  *   previous term number.  Real term numbers start at 2 since 0 and 1 are reserved.  A  *   term number of 0 signals the end of the termNumber list.  *  *   There is a single int[maxDoc()] which either contains a pointer into a byte[] for  *   the termNumber lists, or directly contains the termNumber list if it fits in the 4  *   bytes of an integer.  If the first byte in the integer is 1, the next 3 bytes  *   are a pointer into a byte[] where the termNumber list starts.  *  *   There are actually 256 byte arrays, to compensate for the fact that the pointers  *   into the byte arrays are only 3 bytes long.  The correct byte array for a document  *   is a function of it's id.  *  *   To save space and speed up faceting, any term that matches enough documents will  *   not be un-inverted... it will be skipped while building the un-inverted field structure,  *   and will use a set intersection method during faceting.  *  *   To further save memory, the terms (the actual string values) are not all stored in  *   memory, but a TermIndex is used to convert term numbers to term values only  *   for the terms needed after faceting has completed.  Only every 128th term value  *   is stored, along with it's corresponding term number, and this is used as an  *   index to find the closest term and iterate until the desired number is hit (very  *   much like Lucene's own internal term index).  *  */
@@ -341,7 +341,7 @@ DECL|method|DocTermOrds
 specifier|public
 name|DocTermOrds
 parameter_list|(
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -369,7 +369,7 @@ DECL|method|DocTermOrds
 specifier|public
 name|DocTermOrds
 parameter_list|(
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -400,7 +400,7 @@ DECL|method|DocTermOrds
 specifier|public
 name|DocTermOrds
 parameter_list|(
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -441,7 +441,7 @@ DECL|method|DocTermOrds
 specifier|public
 name|DocTermOrds
 parameter_list|(
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|String
@@ -535,7 +535,7 @@ specifier|public
 name|TermsEnum
 name|getOrdTermsEnum
 parameter_list|(
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|)
 throws|throws
@@ -662,7 +662,7 @@ name|void
 name|uninvert
 parameter_list|(
 specifier|final
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 specifier|final
@@ -2585,7 +2585,7 @@ block|{
 DECL|field|reader
 specifier|private
 specifier|final
-name|IndexReader
+name|AtomicReader
 name|reader
 decl_stmt|;
 DECL|field|termsEnum
@@ -2614,7 +2614,7 @@ DECL|method|OrdWrappedTermsEnum
 specifier|public
 name|OrdWrappedTermsEnum
 parameter_list|(
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|)
 throws|throws

@@ -5419,7 +5419,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|IndexReader
@@ -5429,7 +5429,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|IndexReader
+name|AtomicReader
 name|subreader
 init|=
 name|getOnlySegmentReader
@@ -5633,7 +5633,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|IndexReader
@@ -5643,7 +5643,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|IndexReader
+name|AtomicReader
 name|subreader
 init|=
 name|getOnlySegmentReader
@@ -8965,19 +8965,16 @@ argument_list|(
 name|d
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|AtomicReader
 name|r
 init|=
+name|getOnlySegmentReader
+argument_list|(
 name|w
 operator|.
 name|getReader
 argument_list|()
-operator|.
-name|getSequentialSubReaders
-argument_list|()
-index|[
-literal|0
-index|]
+argument_list|)
 decl_stmt|;
 name|TermsEnum
 name|t
@@ -9180,7 +9177,7 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 decl_stmt|;
 if|if
@@ -9273,7 +9270,7 @@ block|}
 name|IndexReader
 name|r2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -9556,7 +9553,7 @@ name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -9612,7 +9609,7 @@ name|assertEquals
 argument_list|(
 literal|2
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -9640,7 +9637,7 @@ name|assertEquals
 argument_list|(
 literal|1
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -10445,7 +10442,7 @@ argument_list|,
 literal|"no tv files"
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r0
 init|=
 name|IndexReader
@@ -11228,8 +11225,9 @@ name|DEFAULT
 operator|.
 name|getTermsIndex
 argument_list|(
-operator|new
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|reader
 argument_list|)
@@ -11597,7 +11595,7 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
 name|w

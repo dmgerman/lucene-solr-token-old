@@ -424,10 +424,10 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1795,10 +1795,10 @@ name|boolean
 name|needsMerging
 decl_stmt|;
 block|{
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1956,7 +1956,7 @@ name|IndexCommit
 argument_list|>
 name|commits
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -2271,7 +2271,7 @@ name|IndexCommit
 argument_list|>
 name|commits
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -2386,7 +2386,7 @@ name|assertEquals
 argument_list|(
 literal|6
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -2443,10 +2443,10 @@ operator|.
 name|rollback
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -2531,7 +2531,7 @@ name|assertEquals
 argument_list|(
 literal|7
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -2544,7 +2544,7 @@ argument_list|)
 expr_stmt|;
 name|r
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

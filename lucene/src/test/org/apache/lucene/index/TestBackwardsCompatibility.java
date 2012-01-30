@@ -4132,8 +4132,9 @@ name|DEFAULT
 operator|.
 name|getInts
 argument_list|(
-operator|new
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|searcher
 operator|.
@@ -4178,8 +4179,9 @@ name|DEFAULT
 operator|.
 name|getLongs
 argument_list|(
-operator|new
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|searcher
 operator|.

@@ -114,36 +114,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|IndexReader
-operator|.
-name|AtomicReaderContext
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexReader
-operator|.
-name|ReaderContext
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|DocIdSetIterator
@@ -415,7 +385,7 @@ argument_list|(
 literal|"1"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|topReaderContext
 init|=
 name|reader
@@ -450,6 +420,7 @@ argument_list|(
 name|atomicReaderContext
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|bytes
 argument_list|,
@@ -466,6 +437,7 @@ condition|(
 name|atomicReaderContext
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
@@ -490,6 +462,7 @@ argument_list|(
 name|atomicReaderContext
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
@@ -640,7 +613,7 @@ specifier|public
 name|DocsAndPositionsEnum
 name|getDocsAndPositions
 parameter_list|(
-name|IndexReader
+name|AtomicReader
 name|reader
 parameter_list|,
 name|BytesRef
@@ -984,7 +957,7 @@ operator|+
 name|term
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|topReaderContext
 init|=
 name|reader
@@ -1019,6 +992,7 @@ argument_list|(
 name|atomicReaderContext
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|bytes
 argument_list|,
@@ -1041,6 +1015,7 @@ init|=
 name|atomicReaderContext
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
@@ -1524,7 +1499,7 @@ operator|+
 name|term
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|topReaderContext
 init|=
 name|reader
@@ -1557,6 +1532,7 @@ init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
@@ -1573,6 +1549,7 @@ argument_list|,
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|fieldName
 argument_list|,
@@ -2078,7 +2055,7 @@ argument_list|(
 literal|"even"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|topReaderContext
 init|=
 name|reader
@@ -2113,6 +2090,7 @@ argument_list|(
 name|atomicReaderContext
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|bytes
 argument_list|,
@@ -2135,6 +2113,7 @@ init|=
 name|atomicReaderContext
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
@@ -2307,7 +2286,7 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|writer
@@ -2315,7 +2294,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|IndexReader
+name|AtomicReader
 name|r
 init|=
 name|getOnlySegmentReader
@@ -2536,7 +2515,7 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|writer
@@ -2544,7 +2523,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|IndexReader
+name|AtomicReader
 name|r
 init|=
 name|getOnlySegmentReader

@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocTermOrds
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|DocTermOrds
 import|;
 end_import
 begin_import
@@ -381,8 +381,6 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 name|context
 parameter_list|)
@@ -400,6 +398,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|field
 argument_list|)
@@ -413,6 +412,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|reuse
@@ -490,8 +490,6 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 name|context
 parameter_list|)
@@ -509,6 +507,7 @@ argument_list|(
 name|context
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|field
 argument_list|)

@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -40,8 +40,6 @@ operator|.
 name|index
 operator|.
 name|IndexReader
-operator|.
-name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -376,6 +374,7 @@ argument_list|,
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
@@ -476,6 +475,7 @@ operator|=
 name|context
 operator|.
 name|reader
+argument_list|()
 expr_stmt|;
 name|this
 operator|.

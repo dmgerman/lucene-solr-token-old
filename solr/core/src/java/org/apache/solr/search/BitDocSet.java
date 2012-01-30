@@ -35,6 +35,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|AtomicReaderContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|BitsFilteredDocIdSet
@@ -898,8 +911,6 @@ name|DocIdSet
 name|getDocIdSet
 parameter_list|(
 specifier|final
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 name|context
 parameter_list|,
@@ -916,6 +927,7 @@ init|=
 name|context
 operator|.
 name|reader
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

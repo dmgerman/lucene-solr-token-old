@@ -1368,8 +1368,6 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 name|context
 parameter_list|)

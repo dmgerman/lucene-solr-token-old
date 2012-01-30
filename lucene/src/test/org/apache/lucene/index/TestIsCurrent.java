@@ -208,7 +208,7 @@ throws|throws
 name|IOException
 block|{
 comment|// get reader
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|writer
@@ -304,7 +304,7 @@ throws|throws
 name|IOException
 block|{
 comment|// get reader
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|writer

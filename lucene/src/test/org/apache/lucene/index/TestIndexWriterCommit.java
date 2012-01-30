@@ -303,7 +303,7 @@ argument_list|,
 literal|"aaa"
 argument_list|)
 decl_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|IndexReader
@@ -1652,7 +1652,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// Open a reader before closing (commiting) the writer:
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|IndexReader
@@ -1999,7 +1999,7 @@ operator|new
 name|Document
 argument_list|()
 decl_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
 name|IndexReader
@@ -2095,10 +2095,10 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -2320,7 +2320,7 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|IndexReader
@@ -2345,10 +2345,10 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|reader2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -2614,7 +2614,7 @@ control|(
 name|IndexCommit
 name|c
 range|:
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -2732,7 +2732,7 @@ control|(
 name|IndexCommit
 name|c
 range|:
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -2815,7 +2815,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -2848,7 +2848,7 @@ literal|"expected 1 commits!"
 argument_list|,
 literal|1
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|listCommits
 argument_list|(
@@ -2939,7 +2939,7 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|IndexReader
@@ -2992,7 +2992,7 @@ expr_stmt|;
 name|IndexReader
 name|reader3
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -3254,7 +3254,7 @@ argument_list|(
 name|writer
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|reader
 init|=
 name|IndexReader
@@ -3307,7 +3307,7 @@ expr_stmt|;
 name|IndexReader
 name|reader3
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -3633,7 +3633,7 @@ name|assertEquals
 argument_list|(
 literal|0
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|getCommitUserData
 argument_list|(
@@ -3644,7 +3644,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
 name|IndexReader
@@ -3760,7 +3760,7 @@ name|assertEquals
 argument_list|(
 literal|"test1"
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|getCommitUserData
 argument_list|(
@@ -3837,7 +3837,7 @@ name|assertEquals
 argument_list|(
 literal|"test1"
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|getCommitUserData
 argument_list|(

@@ -28,8 +28,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 import|;
 end_import
@@ -156,6 +154,7 @@ name|readerContext
 argument_list|)
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|numDocs
 argument_list|()

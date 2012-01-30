@@ -633,7 +633,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|indexExists
 argument_list|(

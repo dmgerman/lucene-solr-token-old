@@ -100,9 +100,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
-operator|.
-name|IndexOptions
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -115,9 +113,9 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|FieldInfo
 operator|.
-name|AtomicReaderContext
+name|IndexOptions
 import|;
 end_import
 begin_import
@@ -843,6 +841,7 @@ name|i
 index|]
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()

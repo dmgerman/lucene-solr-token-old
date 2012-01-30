@@ -103,8 +103,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 import|;
 end_import
@@ -118,9 +116,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-operator|.
-name|ReaderContext
+name|MultiReader
 import|;
 end_import
 begin_import
@@ -133,7 +129,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|MultiReader
+name|IndexReaderContext
 import|;
 end_import
 begin_import
@@ -1533,18 +1529,6 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|IndexReader
-index|[]
-name|getSequentialSubReaders
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
 name|FieldInfos
 name|getFieldInfos
 parameter_list|()
@@ -1896,7 +1880,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ReaderContext
+name|IndexReaderContext
 name|topLevelContext
 init|=
 name|reader

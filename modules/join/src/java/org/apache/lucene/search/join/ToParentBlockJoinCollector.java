@@ -80,8 +80,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 import|;
 end_import
@@ -437,8 +435,6 @@ index|]
 decl_stmt|;
 DECL|field|currentReaderContext
 specifier|private
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 name|currentReaderContext
 decl_stmt|;

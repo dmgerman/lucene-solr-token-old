@@ -59,7 +59,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -73,8 +73,6 @@ operator|.
 name|index
 operator|.
 name|IndexReader
-operator|.
-name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -113,7 +111,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
 import|;
 end_import
 begin_import
@@ -450,7 +448,7 @@ name|IndexReader
 name|reader
 init|=
 operator|new
-name|SlowMultiReaderWrapper
+name|SlowCompositeReaderWrapper
 argument_list|(
 name|w
 operator|.
@@ -464,8 +462,8 @@ name|reader
 operator|.
 name|getTopReaderContext
 argument_list|()
-operator|.
-name|isAtomic
+operator|instanceof
+name|AtomicReaderContext
 argument_list|)
 expr_stmt|;
 name|AtomicReaderContext
@@ -479,13 +477,6 @@ operator|.
 name|getTopReaderContext
 argument_list|()
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|context
-operator|.
-name|isAtomic
-argument_list|)
-expr_stmt|;
 name|w
 operator|.
 name|close
@@ -526,6 +517,7 @@ argument_list|,
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
@@ -570,6 +562,7 @@ argument_list|,
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
@@ -614,6 +607,7 @@ argument_list|,
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
@@ -658,6 +652,7 @@ argument_list|,
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()
@@ -855,8 +850,6 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 name|context
 range|:
@@ -886,6 +879,7 @@ argument_list|,
 name|context
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getLiveDocs
 argument_list|()

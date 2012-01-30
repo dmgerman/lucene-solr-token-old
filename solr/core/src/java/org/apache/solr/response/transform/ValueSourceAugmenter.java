@@ -44,6 +44,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|AtomicReaderContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
 import|;
 end_import
@@ -341,8 +354,6 @@ name|SolrIndexSearcher
 name|searcher
 decl_stmt|;
 DECL|field|readerContexts
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 index|[]
 name|readerContexts
@@ -382,8 +393,6 @@ argument_list|,
 name|readerContexts
 argument_list|)
 decl_stmt|;
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 name|rcontext
 init|=

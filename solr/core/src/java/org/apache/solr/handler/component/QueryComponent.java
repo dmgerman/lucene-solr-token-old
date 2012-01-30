@@ -52,8 +52,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 import|;
 end_import
@@ -67,9 +65,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-operator|.
-name|ReaderContext
+name|IndexReaderContext
 import|;
 end_import
 begin_import
@@ -4042,7 +4038,7 @@ literal|""
 argument_list|)
 decl_stmt|;
 comment|// a dummy Field
-name|ReaderContext
+name|IndexReaderContext
 name|topReaderContext
 init|=
 name|searcher

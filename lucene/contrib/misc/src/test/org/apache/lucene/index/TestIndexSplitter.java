@@ -372,7 +372,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|iwReader
 init|=
 name|iw
@@ -448,10 +448,10 @@ argument_list|(
 name|destDir
 argument_list|)
 decl_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -546,7 +546,7 @@ argument_list|)
 decl_stmt|;
 name|r
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -595,7 +595,7 @@ argument_list|)
 expr_stmt|;
 name|r
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

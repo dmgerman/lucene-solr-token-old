@@ -990,7 +990,7 @@ name|SegmentReader
 argument_list|(
 name|si1
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|DEFAULT_TERMS_INDEX_DIVISOR
 argument_list|,
@@ -1005,7 +1005,7 @@ name|SegmentReader
 argument_list|(
 name|si2
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|DEFAULT_TERMS_INDEX_DIVISOR
 argument_list|,
@@ -1219,7 +1219,7 @@ name|SegmentReader
 argument_list|(
 name|si
 argument_list|,
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|DEFAULT_TERMS_INDEX_DIVISOR
 argument_list|,

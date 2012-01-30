@@ -262,7 +262,7 @@ name|LuceneTestCase
 block|{
 DECL|field|reader
 specifier|volatile
-name|IndexReader
+name|DirectoryReader
 name|reader
 decl_stmt|;
 DECL|field|model
@@ -864,7 +864,7 @@ decl_stmt|;
 name|long
 name|version
 decl_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|oldReader
 decl_stmt|;
 synchronized|synchronized
@@ -904,7 +904,7 @@ argument_list|()
 expr_stmt|;
 comment|// increment the reference since we will use this for reopening
 block|}
-name|IndexReader
+name|DirectoryReader
 name|newReader
 decl_stmt|;
 if|if
@@ -998,7 +998,7 @@ expr_stmt|;
 block|}
 name|newReader
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -1079,7 +1079,7 @@ expr_stmt|;
 block|}
 name|newReader
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|openIfChanged
 argument_list|(
@@ -1972,7 +1972,7 @@ comment|// so when querying, we should first check the model, and then the index
 name|long
 name|val
 decl_stmt|;
-name|IndexReader
+name|DirectoryReader
 name|r
 decl_stmt|;
 synchronized|synchronized

@@ -78,7 +78,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -92,8 +92,6 @@ operator|.
 name|index
 operator|.
 name|IndexReader
-operator|.
-name|AtomicReaderContext
 import|;
 end_import
 begin_import
@@ -522,19 +520,7 @@ argument_list|,
 name|actual
 argument_list|)
 expr_stmt|;
-name|FieldCache
-operator|.
-name|DEFAULT
-operator|.
-name|purge
-argument_list|(
-name|s
-operator|.
-name|getIndexReader
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// our wrapping can create insanity otherwise
+comment|// TODO: FieldCache.DEFAULT.purge(s.getIndexReader()); // our wrapping can create insanity otherwise
 block|}
 block|}
 DECL|class|SetCollector

@@ -24,8 +24,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-operator|.
 name|AtomicReaderContext
 import|;
 end_import
@@ -39,9 +37,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-operator|.
-name|ReaderContext
+name|IndexReaderContext
 import|;
 end_import
 begin_import
@@ -283,7 +279,7 @@ name|getSearcher
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|topReaderContext
 init|=
 name|sqr
@@ -410,7 +406,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|rCtx1
 init|=
 name|sr1
@@ -484,7 +480,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|rCtx2
 init|=
 name|sr2
@@ -510,6 +506,7 @@ literal|0
 index|]
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|ReaderUtil
 operator|.
@@ -522,6 +519,7 @@ literal|0
 index|]
 operator|.
 name|reader
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertU
@@ -572,7 +570,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|rCtx3
 init|=
 name|sr3
@@ -598,6 +596,7 @@ literal|0
 index|]
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|ReaderUtil
 operator|.
@@ -610,6 +609,7 @@ literal|0
 index|]
 operator|.
 name|reader
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -625,6 +625,7 @@ literal|1
 index|]
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|ReaderUtil
 operator|.
@@ -637,6 +638,7 @@ literal|1
 index|]
 operator|.
 name|reader
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|sr1
@@ -656,6 +658,7 @@ init|=
 name|rCtx3
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getRefCount
 argument_list|()
@@ -683,7 +686,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|rCtx4
 init|=
 name|sr4
@@ -722,10 +725,12 @@ argument_list|(
 name|rCtx3
 operator|.
 name|reader
+argument_list|()
 argument_list|,
 name|rCtx4
 operator|.
 name|reader
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -737,6 +742,7 @@ argument_list|,
 name|rCtx4
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getRefCount
 argument_list|()
@@ -754,6 +760,7 @@ argument_list|,
 name|rCtx4
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getRefCount
 argument_list|()
@@ -773,6 +780,7 @@ argument_list|,
 name|rCtx4
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|getRefCount
 argument_list|()
@@ -788,7 +796,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|rCtx5
 init|=
 name|sr5
@@ -823,7 +831,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|rCtx6
 init|=
 name|sr6
@@ -849,6 +857,7 @@ literal|0
 index|]
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|numDocs
 argument_list|()
@@ -869,6 +878,7 @@ literal|0
 index|]
 operator|.
 name|reader
+argument_list|()
 operator|.
 name|equals
 argument_list|(
@@ -883,6 +893,7 @@ literal|0
 index|]
 operator|.
 name|reader
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
