@@ -13808,8 +13808,6 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// nocommit: we could make a crappy regex like before...
-comment|// assert assertNoSeparateFiles(files, directory, info);
 for|for
 control|(
 name|String
