@@ -2259,7 +2259,6 @@ literal|1024.
 operator|/
 literal|1024.
 decl_stmt|;
-comment|// nocommit: some of this is confusing since it includes docstores
 name|infoStream
 operator|.
 name|message
@@ -2281,7 +2280,7 @@ argument_list|)
 operator|+
 literal|" MB"
 operator|+
-literal|" newFlushedSize="
+literal|" newFlushedSize(includes docstores)="
 operator|+
 name|nf
 operator|.
