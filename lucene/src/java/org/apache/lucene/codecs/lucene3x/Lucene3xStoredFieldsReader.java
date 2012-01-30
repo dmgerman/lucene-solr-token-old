@@ -1632,8 +1632,6 @@ return|return
 name|fieldsStream
 return|;
 block|}
-comment|// TODO: split into PreFlexFieldsReader so it can handle this shared docstore crap?
-comment|// only preflex segments refer to these?
 DECL|method|files
 specifier|public
 specifier|static
