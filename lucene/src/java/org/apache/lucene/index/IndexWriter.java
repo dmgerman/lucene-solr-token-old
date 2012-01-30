@@ -7717,7 +7717,6 @@ operator|=
 name|segName
 expr_stmt|;
 block|}
-comment|// nocommit: remove this
 name|Set
 argument_list|<
 name|String
@@ -7731,6 +7730,18 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|info
+operator|.
+name|getDocStoreOffset
+argument_list|()
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+comment|// only violate the codec this way if its preflex
 name|codec
 operator|.
 name|storedFieldsFormat
@@ -7755,6 +7766,7 @@ argument_list|,
 name|codecDocStoreFiles
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Copy the segment files
 for|for
 control|(
