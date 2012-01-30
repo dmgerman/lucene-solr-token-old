@@ -268,12 +268,6 @@ specifier|final
 name|PerDocProducer
 name|norms
 decl_stmt|;
-DECL|field|cfsDir
-specifier|private
-specifier|final
-name|Directory
-name|cfsDir
-decl_stmt|;
 DECL|field|termsIndexDivisor
 specifier|final
 name|int
@@ -436,6 +430,11 @@ operator|.
 name|getCodec
 argument_list|()
 decl_stmt|;
+specifier|final
+name|Directory
+name|cfsDir
+decl_stmt|;
+comment|// confusing name: if (cfs) its the cfsdir, otherwise its the segment's directory.
 name|boolean
 name|success
 init|=
