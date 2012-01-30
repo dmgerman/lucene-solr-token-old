@@ -50,7 +50,7 @@ name|Directory
 import|;
 end_import
 begin_comment
-comment|/**  * Default IndexReaderFactory implementation. Returns a standard Lucene  * IndexReader.  *   * @see IndexReader#open(Directory)  */
+comment|/**  * Default IndexReaderFactory implementation. Returns a standard Lucene  * {@link DirectoryReader}.  *   * @see DirectoryReader#open(Directory)  */
 end_comment
 begin_class
 DECL|class|StandardIndexReaderFactory

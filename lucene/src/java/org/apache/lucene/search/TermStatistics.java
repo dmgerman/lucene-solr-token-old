@@ -24,7 +24,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|AtomicReader
 import|;
 end_import
 begin_comment
@@ -131,7 +131,7 @@ return|return
 name|term
 return|;
 block|}
-comment|/** returns the number of documents this term occurs in     * @see IndexReader#docFreq(String, BytesRef) */
+comment|/** returns the number of documents this term occurs in     * @see AtomicReader#docFreq(String, BytesRef) */
 DECL|method|docFreq
 specifier|public
 specifier|final
@@ -143,7 +143,7 @@ return|return
 name|docFreq
 return|;
 block|}
-comment|/** returns the total number of occurrences of this term    * @see IndexReader#totalTermFreq(String, BytesRef) */
+comment|/** returns the total number of occurrences of this term    * @see AtomicReader#totalTermFreq(String, BytesRef) */
 DECL|method|totalTermFreq
 specifier|public
 specifier|final
