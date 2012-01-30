@@ -1122,7 +1122,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"mergeFields produced an invalid result: docCount is "
+literal|"fdx size mismatch: docCount is "
 operator|+
 name|numDocs
 operator|+
