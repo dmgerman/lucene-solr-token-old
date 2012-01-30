@@ -165,11 +165,13 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|/**  * This stores a monotonically increasing set of<Term, TermInfo> pairs in an  * index segment. Pairs are accessed either by Term or by ordinal position the  * set. The Terms and TermInfo are actually serialized and stored into a byte  * array and pointers to the position of each are stored in a int array.  */
+comment|/**  * This stores a monotonically increasing set of<Term, TermInfo> pairs in an  * index segment. Pairs are accessed either by Term or by ordinal position the  * set. The Terms and TermInfo are actually serialized and stored into a byte  * array and pointers to the position of each are stored in a int array.  * @deprecated  */
 end_comment
 begin_class
-DECL|class|TermInfosReaderIndex
+annotation|@
+name|Deprecated
 class|class
+DECL|class|TermInfosReaderIndex
 name|TermInfosReaderIndex
 block|{
 DECL|field|MAX_PAGE_BITS

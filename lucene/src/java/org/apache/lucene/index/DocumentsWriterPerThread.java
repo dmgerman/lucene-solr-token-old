@@ -2248,29 +2248,12 @@ condition|)
 block|{
 specifier|final
 name|double
-name|newSegmentSizeNoStore
-init|=
-name|newSegment
-operator|.
-name|sizeInBytes
-argument_list|(
-literal|false
-argument_list|)
-operator|/
-literal|1024.
-operator|/
-literal|1024.
-decl_stmt|;
-specifier|final
-name|double
 name|newSegmentSize
 init|=
 name|newSegment
 operator|.
 name|sizeInBytes
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 operator|/
 literal|1024.
 operator|/
@@ -2297,7 +2280,7 @@ argument_list|)
 operator|+
 literal|" MB"
 operator|+
-literal|" newFlushedSize="
+literal|" newFlushedSize(includes docstores)="
 operator|+
 name|nf
 operator|.
@@ -2307,17 +2290,6 @@ name|newSegmentSize
 argument_list|)
 operator|+
 literal|" MB"
-operator|+
-literal|" ("
-operator|+
-name|nf
-operator|.
-name|format
-argument_list|(
-name|newSegmentSizeNoStore
-argument_list|)
-operator|+
-literal|" MB w/o doc stores)"
 operator|+
 literal|" docs/MB="
 operator|+
@@ -2329,21 +2301,6 @@ name|flushedDocCount
 operator|/
 name|newSegmentSize
 argument_list|)
-operator|+
-literal|" new/old="
-operator|+
-name|nf
-operator|.
-name|format
-argument_list|(
-literal|100.0
-operator|*
-name|newSegmentSizeNoStore
-operator|/
-name|startMBUsed
-argument_list|)
-operator|+
-literal|"%"
 argument_list|)
 expr_stmt|;
 block|}

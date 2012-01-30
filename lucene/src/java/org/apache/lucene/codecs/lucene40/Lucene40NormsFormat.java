@@ -192,19 +192,6 @@ operator|.
 name|SegmentReadState
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|Directory
-import|;
-end_import
 begin_comment
 comment|/**  * Norms Format for the default codec.   * @lucene.experimental  */
 end_comment
@@ -278,9 +265,6 @@ specifier|public
 name|void
 name|files
 parameter_list|(
-name|Directory
-name|dir
-parameter_list|,
 name|SegmentInfo
 name|info
 parameter_list|,
@@ -297,8 +281,6 @@ name|Lucene40NormsDocValuesConsumer
 operator|.
 name|files
 argument_list|(
-name|dir
-argument_list|,
 name|info
 argument_list|,
 name|files
@@ -487,9 +469,6 @@ specifier|static
 name|void
 name|files
 parameter_list|(
-name|Directory
-name|dir
-parameter_list|,
 name|SegmentInfo
 name|segmentInfo
 parameter_list|,
