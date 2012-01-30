@@ -1160,6 +1160,21 @@ name|utf8
 operator|.
 name|length
 decl_stmt|;
+comment|// Cannot save as instance var since multiple threads
+comment|// can use FSTCompletion at once...
+specifier|final
+name|FST
+operator|.
+name|BytesReader
+name|fstReader
+init|=
+name|automaton
+operator|.
+name|getBytesReader
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1195,6 +1210,8 @@ argument_list|,
 name|arc
 argument_list|,
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 operator|==
 literal|null
