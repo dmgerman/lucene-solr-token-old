@@ -9514,8 +9514,6 @@ literal|" bytes"
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
 name|Directory
 name|dir
 init|=
@@ -9565,7 +9563,6 @@ argument_list|(
 literal|"Saved FST to fst.bin."
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
