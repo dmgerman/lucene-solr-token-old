@@ -33,8 +33,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
-operator|.
 name|AtomicReaderContext
 import|;
 end_import
@@ -48,9 +46,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-operator|.
-name|ReaderContext
+name|IndexReaderContext
 import|;
 end_import
 begin_comment
@@ -89,7 +85,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Called before collecting from each {@link AtomicReaderContext}. All doc ids in    * {@link #collect(int)} will correspond to {@link ReaderContext#reader}.    *     * Add {@link AtomicReaderContext#docBase} to the current  {@link ReaderContext#reader}'s    * internal document id to re-base ids in {@link #collect(int)}.    *     * @param context    *          next atomic reader context    */
+comment|/**    * Called before collecting from each {@link AtomicReaderContext}. All doc ids in    * {@link #collect(int)} will correspond to {@link IndexReaderContext#reader}.    *     * Add {@link AtomicReaderContext#docBase} to the current  {@link IndexReaderContext#reader}'s    * internal document id to re-base ids in {@link #collect(int)}.    *     * @param context    *          next atomic reader context    */
 DECL|method|setNextReader
 specifier|public
 specifier|abstract

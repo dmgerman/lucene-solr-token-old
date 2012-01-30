@@ -118,9 +118,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-operator|.
-name|ReaderContext
+name|MultiReader
 import|;
 end_import
 begin_import
@@ -133,7 +131,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|MultiReader
+name|IndexReaderContext
 import|;
 end_import
 begin_import
@@ -1896,7 +1894,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ReaderContext
+name|IndexReaderContext
 name|topLevelContext
 init|=
 name|reader

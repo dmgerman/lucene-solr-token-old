@@ -39,9 +39,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-operator|.
-name|ReaderContext
+name|IndexReaderContext
 import|;
 end_import
 begin_import
@@ -283,7 +281,7 @@ name|getSearcher
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|topReaderContext
 init|=
 name|sqr
@@ -410,7 +408,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|rCtx1
 init|=
 name|sr1
@@ -484,7 +482,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|rCtx2
 init|=
 name|sr2
@@ -572,7 +570,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|rCtx3
 init|=
 name|sr3
@@ -683,7 +681,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|rCtx4
 init|=
 name|sr4
@@ -788,7 +786,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|rCtx5
 init|=
 name|sr5
@@ -823,7 +821,7 @@ argument_list|,
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|ReaderContext
+name|IndexReaderContext
 name|rCtx6
 init|=
 name|sr6
