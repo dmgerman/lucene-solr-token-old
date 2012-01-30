@@ -235,9 +235,6 @@ specifier|static
 name|void
 name|files
 parameter_list|(
-name|Directory
-name|dir
-parameter_list|,
 name|SegmentInfo
 name|segmentInfo
 parameter_list|,
@@ -252,6 +249,8 @@ name|IOException
 block|{
 name|files
 argument_list|(
+name|segmentInfo
+operator|.
 name|dir
 argument_list|,
 name|segmentInfo

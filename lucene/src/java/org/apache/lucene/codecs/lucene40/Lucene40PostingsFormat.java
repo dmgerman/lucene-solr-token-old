@@ -164,19 +164,6 @@ operator|.
 name|SegmentWriteState
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|Directory
-import|;
-end_import
 begin_comment
 comment|/** Default codec.   *  @lucene.experimental */
 end_comment
@@ -468,9 +455,6 @@ specifier|public
 name|void
 name|files
 parameter_list|(
-name|Directory
-name|dir
-parameter_list|,
 name|SegmentInfo
 name|segmentInfo
 parameter_list|,
@@ -490,8 +474,6 @@ name|Lucene40PostingsReader
 operator|.
 name|files
 argument_list|(
-name|dir
-argument_list|,
 name|segmentInfo
 argument_list|,
 name|segmentSuffix
@@ -503,8 +485,6 @@ name|BlockTreeTermsReader
 operator|.
 name|files
 argument_list|(
-name|dir
-argument_list|,
 name|segmentInfo
 argument_list|,
 name|segmentSuffix
