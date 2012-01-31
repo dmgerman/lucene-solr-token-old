@@ -1511,7 +1511,7 @@ operator|.
 name|getType
 argument_list|()
 operator|.
-name|toObject
+name|toExternal
 argument_list|(
 name|doc
 operator|.
@@ -2029,7 +2029,7 @@ operator|.
 name|getType
 argument_list|()
 operator|.
-name|toObject
+name|toExternal
 argument_list|(
 name|doc
 operator|.
