@@ -85,7 +85,7 @@ name|NamedSPILoader
 import|;
 end_import
 begin_comment
-comment|/** @lucene.experimental */
+comment|/**   * Encodes/decodes terms, postings, and proximity data.  * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|PostingsFormat
