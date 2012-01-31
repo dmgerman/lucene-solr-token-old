@@ -812,9 +812,6 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
 specifier|final
 name|DocumentStoredFieldVisitor
 name|visitor
