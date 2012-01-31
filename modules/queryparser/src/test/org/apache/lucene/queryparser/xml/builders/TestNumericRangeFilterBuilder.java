@@ -405,9 +405,6 @@ name|filter
 operator|.
 name|getDocIdSet
 argument_list|(
-operator|(
-name|AtomicReaderContext
-operator|)
 name|reader
 operator|.
 name|getTopReaderContext
