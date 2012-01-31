@@ -325,7 +325,6 @@ name|INPUT_TYPE
 name|inputType
 decl_stmt|;
 DECL|field|BIT_FINAL_ARC
-specifier|private
 specifier|final
 specifier|static
 name|int
@@ -336,7 +335,6 @@ operator|<<
 literal|0
 decl_stmt|;
 DECL|field|BIT_LAST_ARC
-specifier|private
 specifier|final
 specifier|static
 name|int
@@ -358,7 +356,6 @@ literal|2
 decl_stmt|;
 comment|// TODO: we can free up a bit if we can nuke this:
 DECL|field|BIT_STOP_NODE
-specifier|private
 specifier|final
 specifier|static
 name|int
@@ -369,7 +366,6 @@ operator|<<
 literal|3
 decl_stmt|;
 DECL|field|BIT_ARC_HAS_OUTPUT
-specifier|private
 specifier|final
 specifier|static
 name|int
@@ -380,7 +376,6 @@ operator|<<
 literal|4
 decl_stmt|;
 DECL|field|BIT_ARC_HAS_FINAL_OUTPUT
-specifier|private
 specifier|final
 specifier|static
 name|int
@@ -947,7 +942,9 @@ name|b
 operator|.
 name|append
 argument_list|(
-literal|" hasOutput"
+literal|" output="
+operator|+
+name|output
 argument_list|)
 expr_stmt|;
 block|}
@@ -963,7 +960,9 @@ name|b
 operator|.
 name|append
 argument_list|(
-literal|" hasFinalOutput"
+literal|" nextFinalOutput="
+operator|+
+name|nextFinalOutput
 argument_list|)
 expr_stmt|;
 block|}
