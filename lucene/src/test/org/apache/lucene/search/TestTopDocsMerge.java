@@ -142,6 +142,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IndexReaderContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|RandomIndexWriter
 import|;
 end_import
@@ -253,7 +266,7 @@ parameter_list|(
 name|AtomicReaderContext
 name|ctx
 parameter_list|,
-name|CompositeReaderContext
+name|IndexReaderContext
 name|parent
 parameter_list|)
 block|{
@@ -787,7 +800,7 @@ name|AtomicReaderContext
 operator|)
 name|ctx
 argument_list|,
-literal|null
+name|ctx
 argument_list|)
 expr_stmt|;
 name|docStarts
