@@ -1246,6 +1246,13 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
+name|getBool
+argument_list|(
+literal|"updateHandler/autoCommit/openSearcher"
+argument_list|,
+literal|true
+argument_list|)
+argument_list|,
 name|getInt
 argument_list|(
 literal|"updateHandler/commitIntervalLowerBound"
@@ -2097,6 +2104,13 @@ name|autoSoftCommmitMaxDocs
 decl_stmt|,
 name|autoSoftCommmitMaxTime
 decl_stmt|;
+DECL|field|openSearcher
+specifier|public
+specifier|final
+name|boolean
+name|openSearcher
+decl_stmt|;
+comment|// is opening a new searcher part of hard autocommit?
 comment|/**      * @param className      * @param autoCommmitMaxDocs set -1 as default      * @param autoCommmitMaxTime set -1 as default      * @param commitIntervalLowerBound set -1 as default      */
 DECL|method|UpdateHandlerInfo
 specifier|public
@@ -2110,6 +2124,9 @@ name|autoCommmitMaxDocs
 parameter_list|,
 name|int
 name|autoCommmitMaxTime
+parameter_list|,
+name|boolean
+name|openSearcher
 parameter_list|,
 name|int
 name|commitIntervalLowerBound
@@ -2138,6 +2155,12 @@ operator|.
 name|autoCommmitMaxTime
 operator|=
 name|autoCommmitMaxTime
+expr_stmt|;
+name|this
+operator|.
+name|openSearcher
+operator|=
+name|openSearcher
 expr_stmt|;
 name|this
 operator|.
