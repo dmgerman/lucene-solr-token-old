@@ -1233,6 +1233,7 @@ name|getTopFilter
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Although this set only includes live docs, other filters can be pushed down to queries.
 name|DocIdSet
 name|readerSet
 init|=
@@ -1242,10 +1243,9 @@ name|getDocIdSet
 argument_list|(
 name|context
 argument_list|,
-literal|null
+name|acceptDocs
 argument_list|)
 decl_stmt|;
-comment|// this set only includes live docs
 if|if
 condition|(
 name|readerSet
