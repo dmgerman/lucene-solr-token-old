@@ -4588,10 +4588,6 @@ name|assertEquals
 argument_list|(
 literal|17
 argument_list|,
-operator|(
-operator|(
-name|AtomicReader
-operator|)
 name|r
 operator|.
 name|getSequentialSubReaders
@@ -4599,7 +4595,6 @@ argument_list|()
 index|[
 literal|0
 index|]
-operator|)
 operator|.
 name|docValues
 argument_list|(

@@ -4860,9 +4860,6 @@ expr_stmt|;
 name|AtomicReader
 name|sub0
 init|=
-operator|(
-name|AtomicReader
-operator|)
 name|r2
 operator|.
 name|getSequentialSubReaders

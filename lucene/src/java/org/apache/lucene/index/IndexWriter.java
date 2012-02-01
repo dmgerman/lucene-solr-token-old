@@ -904,7 +904,7 @@ argument_list|)
 expr_stmt|;
 name|r
 operator|=
-name|DirectoryReader
+name|StandardDirectoryReader
 operator|.
 name|open
 argument_list|(
