@@ -156,7 +156,7 @@ name|similarities
 operator|.
 name|Similarity
 operator|.
-name|ExactDocScorer
+name|ExactSimScorer
 import|;
 end_import
 begin_import
@@ -1712,7 +1712,7 @@ literal|null
 return|;
 block|}
 specifier|final
-name|ExactDocScorer
+name|ExactSimScorer
 name|docScorer
 init|=
 name|weight
@@ -1888,7 +1888,7 @@ literal|null
 return|;
 block|}
 specifier|final
-name|ExactDocScorer
+name|ExactSimScorer
 name|docScorer
 init|=
 name|weight

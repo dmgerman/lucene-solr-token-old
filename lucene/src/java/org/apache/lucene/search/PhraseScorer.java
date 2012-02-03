@@ -66,7 +66,7 @@ DECL|field|docScorer
 specifier|final
 name|Similarity
 operator|.
-name|SloppyDocScorer
+name|SloppySimScorer
 name|docScorer
 decl_stmt|;
 DECL|method|PhraseScorer
@@ -83,7 +83,7 @@ name|postings
 parameter_list|,
 name|Similarity
 operator|.
-name|SloppyDocScorer
+name|SloppySimScorer
 name|docScorer
 parameter_list|)
 block|{

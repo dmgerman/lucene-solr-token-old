@@ -102,7 +102,7 @@ name|slop
 parameter_list|,
 name|Similarity
 operator|.
-name|SloppyDocScorer
+name|SloppySimScorer
 name|docScorer
 parameter_list|)
 block|{
