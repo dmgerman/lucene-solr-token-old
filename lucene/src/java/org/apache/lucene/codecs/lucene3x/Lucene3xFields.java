@@ -321,9 +321,8 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|Lucene3xFields
-specifier|public
 class|class
+DECL|class|Lucene3xFields
 name|Lucene3xFields
 extends|extends
 name|FieldsProducer

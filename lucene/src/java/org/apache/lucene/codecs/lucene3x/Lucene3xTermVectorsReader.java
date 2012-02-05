@@ -349,9 +349,8 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|Lucene3xTermVectorsReader
-specifier|public
 class|class
+DECL|class|Lucene3xTermVectorsReader
 name|Lucene3xTermVectorsReader
 extends|extends
 name|TermVectorsReader

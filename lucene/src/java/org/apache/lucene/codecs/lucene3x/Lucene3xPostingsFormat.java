@@ -118,9 +118,8 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|Lucene3xPostingsFormat
-specifier|public
 class|class
+DECL|class|Lucene3xPostingsFormat
 name|Lucene3xPostingsFormat
 extends|extends
 name|PostingsFormat

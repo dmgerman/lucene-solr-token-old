@@ -131,9 +131,8 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|Lucene3xStoredFieldsFormat
-specifier|public
 class|class
+DECL|class|Lucene3xStoredFieldsFormat
 name|Lucene3xStoredFieldsFormat
 extends|extends
 name|StoredFieldsFormat

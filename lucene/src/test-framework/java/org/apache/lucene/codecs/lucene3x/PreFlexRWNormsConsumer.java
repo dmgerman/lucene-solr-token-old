@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.preflexrw
+DECL|package|org.apache.lucene.codecs.lucene3x
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|preflexrw
+name|lucene3x
 package|;
 end_package
 begin_comment

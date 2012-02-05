@@ -213,9 +213,8 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|Lucene3xFieldInfosReader
-specifier|public
 class|class
+DECL|class|Lucene3xFieldInfosReader
 name|Lucene3xFieldInfosReader
 extends|extends
 name|FieldInfosReader

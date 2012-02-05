@@ -61,9 +61,8 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|Lucene3xSegmentInfosFormat
-specifier|public
 class|class
+DECL|class|Lucene3xSegmentInfosFormat
 name|Lucene3xSegmentInfosFormat
 extends|extends
 name|SegmentInfosFormat

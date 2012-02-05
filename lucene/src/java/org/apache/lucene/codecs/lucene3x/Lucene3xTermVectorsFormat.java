@@ -131,9 +131,8 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|Lucene3xTermVectorsFormat
-specifier|public
 class|class
+DECL|class|Lucene3xTermVectorsFormat
 name|Lucene3xTermVectorsFormat
 extends|extends
 name|TermVectorsFormat

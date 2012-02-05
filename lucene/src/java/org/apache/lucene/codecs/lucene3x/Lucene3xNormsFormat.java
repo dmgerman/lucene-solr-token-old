@@ -118,9 +118,8 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|Lucene3xNormsFormat
-specifier|public
 class|class
+DECL|class|Lucene3xNormsFormat
 name|Lucene3xNormsFormat
 extends|extends
 name|NormsFormat

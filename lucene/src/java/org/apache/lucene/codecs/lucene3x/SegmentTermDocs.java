@@ -126,9 +126,8 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|SegmentTermDocs
-specifier|public
 class|class
+DECL|class|SegmentTermDocs
 name|SegmentTermDocs
 block|{
 comment|//protected SegmentReader parent;

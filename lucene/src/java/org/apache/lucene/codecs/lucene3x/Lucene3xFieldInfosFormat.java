@@ -92,9 +92,8 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|Lucene3xFieldInfosFormat
-specifier|public
 class|class
+DECL|class|Lucene3xFieldInfosFormat
 name|Lucene3xFieldInfosFormat
 extends|extends
 name|FieldInfosFormat

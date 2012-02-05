@@ -86,7 +86,6 @@ begin_class
 annotation|@
 name|Deprecated
 DECL|class|SegmentTermPositions
-specifier|public
 specifier|final
 class|class
 name|SegmentTermPositions

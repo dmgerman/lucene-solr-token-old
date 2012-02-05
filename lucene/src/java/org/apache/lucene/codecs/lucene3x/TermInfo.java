@@ -22,9 +22,8 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|TermInfo
-specifier|public
 class|class
+DECL|class|TermInfo
 name|TermInfo
 block|{
 comment|/** The number of documents which contain the term. */

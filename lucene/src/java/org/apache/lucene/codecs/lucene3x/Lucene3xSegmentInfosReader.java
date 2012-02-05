@@ -69,24 +69,6 @@ operator|.
 name|SegmentInfosReader
 import|;
 end_import
-begin_comment
-comment|// TODO we need a 3x version of stored fields reader
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene40
-operator|.
-name|Lucene40StoredFieldsReader
-import|;
-end_import
 begin_import
 import|import
 name|org
@@ -197,9 +179,8 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|Lucene3xSegmentInfosReader
-specifier|public
 class|class
+DECL|class|Lucene3xSegmentInfosReader
 name|Lucene3xSegmentInfosReader
 extends|extends
 name|SegmentInfosReader
