@@ -203,7 +203,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|SimilarityProvider
+name|Similarity
 import|;
 end_import
 begin_import
@@ -1766,7 +1766,7 @@ parameter_list|,
 name|Analyzer
 name|analyzer
 parameter_list|,
-name|SimilarityProvider
+name|Similarity
 name|similarity
 parameter_list|,
 name|Document
@@ -1792,7 +1792,7 @@ argument_list|,
 name|analyzer
 argument_list|)
 operator|.
-name|setSimilarityProvider
+name|setSimilarity
 argument_list|(
 name|similarity
 argument_list|)

@@ -2518,7 +2518,9 @@ name|state
 init|=
 operator|new
 name|FieldInvertState
-argument_list|()
+argument_list|(
+literal|"a_t"
+argument_list|)
 decl_stmt|;
 name|state
 operator|.

@@ -155,8 +155,6 @@ operator|.
 name|similarities
 operator|.
 name|Similarity
-operator|.
-name|ExactSimScorer
 import|;
 end_import
 begin_import
@@ -171,7 +169,9 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|SimilarityProvider
+name|Similarity
+operator|.
+name|ExactSimScorer
 import|;
 end_import
 begin_import
@@ -322,7 +322,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-comment|/** Constructs an empty boolean query.    *    * {@link SimilarityProvider#coord(int,int)} may be disabled in scoring, as    * appropriate. For example, this score factor does not make sense for most    * automatically generated queries, like {@link WildcardQuery} and {@link    * FuzzyQuery}.    *    * @param disableCoord disables {@link SimilarityProvider#coord(int,int)} in scoring.    */
+comment|/** Constructs an empty boolean query.    *    * {@link Similarity#coord(int,int)} may be disabled in scoring, as    * appropriate. For example, this score factor does not make sense for most    * automatically generated queries, like {@link WildcardQuery} and {@link    * FuzzyQuery}.    *    * @param disableCoord disables {@link Similarity#coord(int,int)} in scoring.    */
 DECL|method|BooleanQuery
 specifier|public
 name|BooleanQuery
@@ -338,7 +338,7 @@ operator|=
 name|disableCoord
 expr_stmt|;
 block|}
-comment|/** Returns true iff {@link SimilarityProvider#coord(int,int)} is disabled in    * scoring for this query instance.    * @see #BooleanQuery(boolean)    */
+comment|/** Returns true iff {@link Similarity#coord(int,int)} is disabled in    * scoring for this query instance.    * @see #BooleanQuery(boolean)    */
 DECL|method|isCoordDisabled
 specifier|public
 name|boolean
@@ -509,10 +509,10 @@ extends|extends
 name|Weight
 block|{
 comment|/** The Similarity implementation. */
-DECL|field|similarityProvider
+DECL|field|similarity
 specifier|protected
-name|SimilarityProvider
-name|similarityProvider
+name|Similarity
+name|similarity
 decl_stmt|;
 DECL|field|weights
 specifier|protected
@@ -555,11 +555,11 @@ name|IOException
 block|{
 name|this
 operator|.
-name|similarityProvider
+name|similarity
 operator|=
 name|searcher
 operator|.
-name|getSimilarityProvider
+name|getSimilarity
 argument_list|()
 expr_stmt|;
 name|this
@@ -794,7 +794,7 @@ name|maxOverlap
 parameter_list|)
 block|{
 return|return
-name|similarityProvider
+name|similarity
 operator|.
 name|coord
 argument_list|(

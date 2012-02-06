@@ -189,7 +189,7 @@ name|search
 operator|.
 name|similarities
 operator|.
-name|SimilarityProvider
+name|Similarity
 import|;
 end_import
 begin_import
@@ -255,9 +255,9 @@ specifier|final
 name|InfoStream
 name|infoStream
 decl_stmt|;
-DECL|field|similarityProvider
-name|SimilarityProvider
-name|similarityProvider
+DECL|field|similarity
+name|Similarity
+name|similarity
 decl_stmt|;
 DECL|field|newFiles
 name|List
@@ -396,11 +396,11 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|similarityProvider
+name|similarity
 operator|=
 name|config
 operator|.
-name|getSimilarityProvider
+name|getSimilarity
 argument_list|()
 expr_stmt|;
 name|this
