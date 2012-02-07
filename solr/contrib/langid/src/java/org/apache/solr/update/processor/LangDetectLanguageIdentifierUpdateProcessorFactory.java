@@ -605,7 +605,9 @@ if|if
 condition|(
 name|loaded
 condition|)
+block|{
 return|return;
+block|}
 name|loaded
 operator|=
 literal|true
@@ -697,6 +699,13 @@ operator|.
 name|loadProfile
 argument_list|(
 name|profileData
+argument_list|)
+expr_stmt|;
+name|DetectorFactory
+operator|.
+name|setSeed
+argument_list|(
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
