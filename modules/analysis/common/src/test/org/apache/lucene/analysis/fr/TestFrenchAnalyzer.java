@@ -186,7 +186,7 @@ index|[]
 block|{
 literal|"mot"
 block|,
-literal|"entreguillemet"
+literal|"entreguilemet"
 block|}
 argument_list|)
 expr_stmt|;
@@ -204,7 +204,7 @@ index|[]
 block|{
 literal|"jean"
 block|,
-literal|"franÃ§ois"
+literal|"francoi"
 block|}
 argument_list|)
 expr_stmt|;
@@ -242,11 +242,11 @@ literal|"lanc"
 block|,
 literal|"chism"
 block|,
-literal|"habit"
+literal|"habitabl"
 block|,
 literal|"chist"
 block|,
-literal|"Ã©lÃ©ment"
+literal|"element"
 block|,
 literal|"captif"
 block|}
@@ -263,11 +263,11 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"fin"
+literal|"finision"
 block|,
-literal|"souffr"
+literal|"soufrirent"
 block|,
-literal|"rug"
+literal|"rugisant"
 block|}
 argument_list|)
 expr_stmt|;
@@ -289,11 +289,11 @@ literal|"aujourd'hui"
 block|,
 literal|"oeuf"
 block|,
-literal|"Ã¯Ã¢Ã¶Ã»Ã Ã¤"
+literal|"Ã¯aÃ¶uaÃ¤"
 block|,
-literal|"anticonstitutionnel"
+literal|"anticonstitutionel"
 block|,
-literal|"jav"
+literal|"java"
 block|}
 argument_list|)
 expr_stmt|;
@@ -309,7 +309,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"33bis"
+literal|"33bi"
 block|,
 literal|"1940"
 block|,
@@ -625,11 +625,11 @@ literal|"lanc"
 block|,
 literal|"chism"
 block|,
-literal|"habit"
+literal|"habitabl"
 block|,
 literal|"chist"
 block|,
-literal|"Ã©lÃ©ment"
+literal|"element"
 block|,
 literal|"captif"
 block|}
@@ -755,7 +755,7 @@ index|[]
 block|{
 literal|"voir"
 block|,
-literal|"embrouill"
+literal|"embrouil"
 block|}
 argument_list|)
 expr_stmt|;

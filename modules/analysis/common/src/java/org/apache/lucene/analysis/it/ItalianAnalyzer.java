@@ -281,7 +281,7 @@ name|ItalianStemmer
 import|;
 end_import
 begin_comment
-comment|/**  * {@link Analyzer} for Italian.  *<p>  *<a name="version"/>  *<p>You must specify the required {@link Version}  * compatibility when creating ItalianAnalyzer:  *<ul>  *<li> As of 3.2, ElisionFilter with a set of Italian   *        contractions is used by default.  *</ul>  */
+comment|/**  * {@link Analyzer} for Italian.  *<p>  *<a name="version"/>  *<p>You must specify the required {@link Version}  * compatibility when creating ItalianAnalyzer:  *<ul>  *<li> As of 3.6, ItalianLightStemFilter is used for less aggressive stemming.  *<li> As of 3.2, ElisionFilter with a set of Italian   *        contractions is used by default.  *</ul>  */
 end_comment
 begin_class
 DECL|class|ItalianAnalyzer
@@ -555,7 +555,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates a    * {@link org.apache.lucene.analysis.Analyzer.TokenStreamComponents}    * which tokenizes all the text in the provided {@link Reader}.    *     * @return A    *         {@link org.apache.lucene.analysis.Analyzer.TokenStreamComponents}    *         built from an {@link StandardTokenizer} filtered with    *         {@link StandardFilter}, {@link ElisionFilter}, {@link LowerCaseFilter}, {@link StopFilter}    *         , {@link KeywordMarkerFilter} if a stem exclusion set is    *         provided and {@link SnowballFilter}.    */
+comment|/**    * Creates a    * {@link org.apache.lucene.analysis.Analyzer.TokenStreamComponents}    * which tokenizes all the text in the provided {@link Reader}.    *     * @return A    *         {@link org.apache.lucene.analysis.Analyzer.TokenStreamComponents}    *         built from an {@link StandardTokenizer} filtered with    *         {@link StandardFilter}, {@link ElisionFilter}, {@link LowerCaseFilter}, {@link StopFilter}    *         , {@link KeywordMarkerFilter} if a stem exclusion set is    *         provided and {@link ItalianLightStemFilter}.    */
 annotation|@
 name|Override
 DECL|method|createComponents
@@ -658,6 +658,29 @@ argument_list|,
 name|stemExclusionSet
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|matchVersion
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_36
+argument_list|)
+condition|)
+block|{
+name|result
+operator|=
+operator|new
+name|ItalianLightStemFilter
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|result
 operator|=
 operator|new
@@ -670,6 +693,7 @@ name|ItalianStemmer
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 operator|new
 name|TokenStreamComponents
