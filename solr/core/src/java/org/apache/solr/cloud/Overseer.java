@@ -1160,6 +1160,11 @@ argument_list|(
 name|collection
 argument_list|,
 name|state
+argument_list|,
+name|coreState
+operator|.
+name|getNumShards
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
