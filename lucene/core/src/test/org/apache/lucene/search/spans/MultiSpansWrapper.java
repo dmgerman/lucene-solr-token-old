@@ -315,12 +315,10 @@ name|AtomicReaderContext
 index|[]
 name|leaves
 init|=
-name|ReaderUtil
+name|topLevelReaderContext
 operator|.
 name|leaves
-argument_list|(
-name|topLevelReaderContext
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
