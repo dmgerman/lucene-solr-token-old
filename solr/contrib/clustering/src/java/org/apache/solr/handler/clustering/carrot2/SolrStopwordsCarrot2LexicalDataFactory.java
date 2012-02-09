@@ -462,23 +462,19 @@ operator|instanceof
 name|StopFilterFactory
 condition|)
 block|{
-comment|// StopFilterFactory holds the stop words in a CharArraySet, but
-comment|// the getStopWords() method returns a Set<?>, so we need to cast.
+comment|// StopFilterFactory holds the stop words in a CharArraySet
 name|solrStopWords
 operator|.
 name|put
 argument_list|(
 name|fieldName
 argument_list|,
-call|(
-name|CharArraySet
-call|)
-argument_list|(
+operator|(
 operator|(
 name|StopFilterFactory
 operator|)
 name|factory
-argument_list|)
+operator|)
 operator|.
 name|getStopWords
 argument_list|()
@@ -498,15 +494,12 @@ name|put
 argument_list|(
 name|fieldName
 argument_list|,
-call|(
-name|CharArraySet
-call|)
-argument_list|(
+operator|(
 operator|(
 name|CommonGramsFilterFactory
 operator|)
 name|factory
-argument_list|)
+operator|)
 operator|.
 name|getCommonWords
 argument_list|()

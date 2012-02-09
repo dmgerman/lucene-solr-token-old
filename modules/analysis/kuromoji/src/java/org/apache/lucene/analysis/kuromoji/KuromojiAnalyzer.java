@@ -225,10 +225,7 @@ parameter_list|,
 name|Segmenter
 name|segmenter
 parameter_list|,
-name|Set
-argument_list|<
-name|?
-argument_list|>
+name|CharArraySet
 name|stopwords
 parameter_list|,
 name|Set
@@ -261,10 +258,7 @@ block|}
 DECL|method|getDefaultStopSet
 specifier|public
 specifier|static
-name|Set
-argument_list|<
-name|?
-argument_list|>
+name|CharArraySet
 name|getDefaultStopSet
 parameter_list|()
 block|{
@@ -300,10 +294,7 @@ block|{
 DECL|field|DEFAULT_STOP_SET
 specifier|static
 specifier|final
-name|Set
-argument_list|<
-name|?
-argument_list|>
+name|CharArraySet
 name|DEFAULT_STOP_SET
 decl_stmt|;
 DECL|field|DEFAULT_STOP_TAGS

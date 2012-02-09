@@ -226,10 +226,7 @@ comment|/**    * Returns an unmodifiable instance of the default stop-words set.
 DECL|method|getDefaultStopSet
 specifier|public
 specifier|static
-name|Set
-argument_list|<
-name|?
-argument_list|>
+name|CharArraySet
 name|getDefaultStopSet
 parameter_list|()
 block|{
@@ -249,10 +246,7 @@ block|{
 DECL|field|DEFAULT_STOP_SET
 specifier|static
 specifier|final
-name|Set
-argument_list|<
-name|?
-argument_list|>
+name|CharArraySet
 name|DEFAULT_STOP_SET
 decl_stmt|;
 static|static
@@ -296,10 +290,7 @@ block|}
 DECL|field|stemExclusionSet
 specifier|private
 specifier|final
-name|Set
-argument_list|<
-name|?
-argument_list|>
+name|CharArraySet
 name|stemExclusionSet
 decl_stmt|;
 comment|/**    * Builds an analyzer with the default stop words:    * {@link #DEFAULT_STOPWORD_FILE}.    */
@@ -329,10 +320,7 @@ parameter_list|(
 name|Version
 name|matchVersion
 parameter_list|,
-name|Set
-argument_list|<
-name|?
-argument_list|>
+name|CharArraySet
 name|stopwords
 parameter_list|)
 block|{
@@ -356,16 +344,10 @@ parameter_list|(
 name|Version
 name|matchVersion
 parameter_list|,
-name|Set
-argument_list|<
-name|?
-argument_list|>
+name|CharArraySet
 name|stopwords
 parameter_list|,
-name|Set
-argument_list|<
-name|?
-argument_list|>
+name|CharArraySet
 name|stemExclusionSet
 parameter_list|)
 block|{

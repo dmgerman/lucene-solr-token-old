@@ -113,15 +113,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|io
 operator|.
 name|IOException
@@ -327,10 +318,7 @@ return|;
 block|}
 DECL|method|getStopWords
 specifier|public
-name|Set
-argument_list|<
-name|?
-argument_list|>
+name|CharArraySet
 name|getStopWords
 parameter_list|()
 block|{
@@ -360,8 +348,6 @@ argument_list|,
 name|input
 argument_list|,
 name|stopWords
-argument_list|,
-name|ignoreCase
 argument_list|)
 decl_stmt|;
 name|stopFilter
