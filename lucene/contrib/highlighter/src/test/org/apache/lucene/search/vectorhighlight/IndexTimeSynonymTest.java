@@ -2389,6 +2389,8 @@ argument_list|(
 name|Token
 operator|.
 name|TOKEN_ATTRIBUTE_FACTORY
+argument_list|,
+name|reader
 argument_list|)
 block|{
 specifier|final

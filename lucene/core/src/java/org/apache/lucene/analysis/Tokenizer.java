@@ -63,12 +63,6 @@ specifier|protected
 name|Reader
 name|input
 decl_stmt|;
-comment|/** Construct a tokenizer with null input. */
-DECL|method|Tokenizer
-specifier|protected
-name|Tokenizer
-parameter_list|()
-block|{}
 comment|/** Construct a token stream processing the given input. */
 DECL|method|Tokenizer
 specifier|protected
@@ -78,31 +72,18 @@ name|Reader
 name|input
 parameter_list|)
 block|{
+assert|assert
+name|input
+operator|!=
+literal|null
+operator|:
+literal|"input must not be null"
+assert|;
 name|this
 operator|.
 name|input
 operator|=
-name|CharReader
-operator|.
-name|get
-argument_list|(
 name|input
-argument_list|)
-expr_stmt|;
-block|}
-comment|/** Construct a tokenizer with null input using the given AttributeFactory. */
-DECL|method|Tokenizer
-specifier|protected
-name|Tokenizer
-parameter_list|(
-name|AttributeFactory
-name|factory
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|factory
-argument_list|)
 expr_stmt|;
 block|}
 comment|/** Construct a token stream processing the given input using the given AttributeFactory. */
@@ -122,31 +103,18 @@ argument_list|(
 name|factory
 argument_list|)
 expr_stmt|;
+assert|assert
+name|input
+operator|!=
+literal|null
+operator|:
+literal|"input must not be null"
+assert|;
 name|this
 operator|.
 name|input
 operator|=
-name|CharReader
-operator|.
-name|get
-argument_list|(
 name|input
-argument_list|)
-expr_stmt|;
-block|}
-comment|/** Construct a token stream processing the given input using the given AttributeSource. */
-DECL|method|Tokenizer
-specifier|protected
-name|Tokenizer
-parameter_list|(
-name|AttributeSource
-name|source
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|source
-argument_list|)
 expr_stmt|;
 block|}
 comment|/** Construct a token stream processing the given input using the given AttributeSource. */
@@ -166,16 +134,18 @@ argument_list|(
 name|source
 argument_list|)
 expr_stmt|;
+assert|assert
+name|input
+operator|!=
+literal|null
+operator|:
+literal|"input must not be null"
+assert|;
 name|this
 operator|.
 name|input
 operator|=
-name|CharReader
-operator|.
-name|get
-argument_list|(
 name|input
-argument_list|)
 expr_stmt|;
 block|}
 comment|/** By default, closes the input Reader. */
@@ -220,6 +190,13 @@ name|int
 name|currentOff
 parameter_list|)
 block|{
+assert|assert
+name|input
+operator|!=
+literal|null
+operator|:
+literal|"this tokenizer is closed"
+assert|;
 return|return
 operator|(
 name|input
@@ -254,6 +231,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|input
+operator|!=
+literal|null
+operator|:
+literal|"input must not be null"
+assert|;
 name|this
 operator|.
 name|input

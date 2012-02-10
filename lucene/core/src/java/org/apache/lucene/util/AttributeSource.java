@@ -519,6 +519,7 @@ name|currentState
 decl_stmt|;
 DECL|field|factory
 specifier|private
+specifier|final
 name|AttributeFactory
 name|factory
 decl_stmt|;
