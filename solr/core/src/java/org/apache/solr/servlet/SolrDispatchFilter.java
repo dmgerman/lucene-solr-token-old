@@ -1732,6 +1732,17 @@ argument_list|(
 name|collection
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|slices
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|// look for a core on this node
 name|Set
 argument_list|<
