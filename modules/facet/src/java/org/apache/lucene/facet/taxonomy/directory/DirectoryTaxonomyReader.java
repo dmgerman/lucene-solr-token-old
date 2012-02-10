@@ -1185,7 +1185,10 @@ name|t1
 init|=
 name|indexReader
 operator|.
-name|getCommitUserData
+name|getIndexCommit
+argument_list|()
+operator|.
+name|getUserData
 argument_list|()
 operator|.
 name|get
@@ -1200,7 +1203,10 @@ name|t2
 init|=
 name|r2
 operator|.
-name|getCommitUserData
+name|getIndexCommit
+argument_list|()
+operator|.
+name|getUserData
 argument_list|()
 operator|.
 name|get
@@ -1520,6 +1526,8 @@ name|String
 argument_list|>
 name|getCommitUserData
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|ensureOpen
 argument_list|()
@@ -1527,7 +1535,10 @@ expr_stmt|;
 return|return
 name|indexReader
 operator|.
-name|getCommitUserData
+name|getIndexCommit
+argument_list|()
+operator|.
+name|getUserData
 argument_list|()
 return|;
 block|}

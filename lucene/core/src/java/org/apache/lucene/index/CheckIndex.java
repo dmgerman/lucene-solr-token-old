@@ -1180,7 +1180,7 @@ name|segmentsFileName
 init|=
 name|sis
 operator|.
-name|getCurrentSegmentFileName
+name|getSegmentsFileName
 argument_list|()
 decl_stmt|;
 comment|// note: we only read the format byte (required preamble) here!
@@ -9026,7 +9026,7 @@ name|result
 operator|.
 name|newSegments
 operator|.
-name|getCurrentSegmentFileName
+name|getSegmentsFileName
 argument_list|()
 operator|+
 literal|"\""

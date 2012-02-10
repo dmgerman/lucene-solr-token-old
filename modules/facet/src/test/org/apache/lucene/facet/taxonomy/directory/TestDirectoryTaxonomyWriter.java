@@ -526,7 +526,10 @@ name|readUserCommitData
 init|=
 name|r
 operator|.
-name|getCommitUserData
+name|getIndexCommit
+argument_list|()
+operator|.
+name|getUserData
 argument_list|()
 decl_stmt|;
 name|assertTrue
