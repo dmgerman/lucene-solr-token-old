@@ -1150,7 +1150,7 @@ specifier|final
 class|class
 name|FakeDeleteAtomicIndexReader
 extends|extends
-name|FilterIndexReader
+name|FilterAtomicReader
 block|{
 DECL|field|liveDocs
 name|FixedBitSet

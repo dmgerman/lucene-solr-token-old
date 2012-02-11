@@ -673,7 +673,7 @@ specifier|static
 class|class
 name|DocumentFilteredAtomicIndexReader
 extends|extends
-name|FilterIndexReader
+name|FilterAtomicReader
 block|{
 DECL|field|liveDocs
 specifier|final

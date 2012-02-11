@@ -172,10 +172,10 @@ name|ReaderUtil
 import|;
 end_import
 begin_class
-DECL|class|TestFilterIndexReader
+DECL|class|TestFilterAtomicReader
 specifier|public
 class|class
-name|TestFilterIndexReader
+name|TestFilterAtomicReader
 extends|extends
 name|LuceneTestCase
 block|{
@@ -185,7 +185,7 @@ specifier|static
 class|class
 name|TestReader
 extends|extends
-name|FilterIndexReader
+name|FilterAtomicReader
 block|{
 comment|/** Filter that only permits terms containing 'e'.*/
 DECL|class|TestFields
@@ -939,7 +939,7 @@ control|(
 name|Method
 name|m
 range|:
-name|FilterIndexReader
+name|FilterAtomicReader
 operator|.
 name|class
 operator|.
@@ -1002,7 +1002,7 @@ if|if
 condition|(
 name|declaringClass
 operator|!=
-name|FilterIndexReader
+name|FilterAtomicReader
 operator|.
 name|class
 operator|&&
