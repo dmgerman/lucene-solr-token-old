@@ -620,6 +620,7 @@ finally|finally
 block|{
 if|if
 condition|(
+operator|!
 name|testFinished
 condition|)
 block|{
