@@ -330,10 +330,10 @@ name|_TestUtil
 import|;
 end_import
 begin_class
-DECL|class|TestIndexReaderReopen
+DECL|class|TestDirectoryReaderReopen
 specifier|public
 class|class
-name|TestIndexReaderReopen
+name|TestDirectoryReaderReopen
 extends|extends
 name|LuceneTestCase
 block|{
@@ -379,7 +379,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|TestIndexReaderReopen
+name|TestDirectoryReaderReopen
 operator|.
 name|modifyIndex
 argument_list|(
@@ -449,7 +449,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|TestIndexReaderReopen
+name|TestDirectoryReaderReopen
 operator|.
 name|modifyIndex
 argument_list|(
@@ -944,7 +944,7 @@ operator|.
 name|openReader
 argument_list|()
 decl_stmt|;
-name|TestIndexReader
+name|TestDirectoryReader
 operator|.
 name|assertIndexEquals
 argument_list|(
@@ -1011,7 +1011,7 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// test if refreshed reader and newly opened reader return equal results
-name|TestIndexReader
+name|TestDirectoryReader
 operator|.
 name|assertIndexEquals
 argument_list|(
@@ -1101,7 +1101,7 @@ name|couple
 operator|.
 name|newReader
 expr_stmt|;
-name|TestIndexReader
+name|TestDirectoryReader
 operator|.
 name|assertIndexEquals
 argument_list|(
@@ -1167,7 +1167,7 @@ operator|.
 name|openReader
 argument_list|()
 decl_stmt|;
-name|TestIndexReader
+name|TestDirectoryReader
 operator|.
 name|assertIndexEquals
 argument_list|(
@@ -1204,7 +1204,7 @@ block|{
 comment|// expected exception
 block|}
 comment|// index2 should still be usable and unaffected by the failed reopen() call
-name|TestIndexReader
+name|TestDirectoryReader
 operator|.
 name|assertIndexEquals
 argument_list|(
@@ -1814,7 +1814,7 @@ name|numReaders
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|TestIndexReader
+name|TestDirectoryReader
 operator|.
 name|assertIndexEquals
 argument_list|(
