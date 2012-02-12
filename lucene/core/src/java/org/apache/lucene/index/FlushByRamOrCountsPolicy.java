@@ -192,7 +192,7 @@ argument_list|()
 operator|&&
 name|state
 operator|.
-name|perThread
+name|dwpt
 operator|.
 name|getNumDocsInRAM
 argument_list|()
