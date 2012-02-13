@@ -347,7 +347,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"group.distibuted.first"
+literal|"group.distributed.first"
 argument_list|,
 literal|"true"
 argument_list|)
