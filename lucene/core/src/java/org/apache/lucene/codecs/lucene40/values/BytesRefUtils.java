@@ -36,7 +36,6 @@ comment|/**  * Package private BytesRefUtils - can move this into the o.a.l.util
 end_comment
 begin_class
 DECL|class|BytesRefUtils
-specifier|public
 specifier|final
 class|class
 name|BytesRefUtils

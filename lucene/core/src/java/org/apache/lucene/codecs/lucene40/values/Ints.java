@@ -179,7 +179,6 @@ comment|/**  * Stores ints packed and fixed with fixed-bit precision.  *   * @lu
 end_comment
 begin_class
 DECL|class|Ints
-specifier|public
 specifier|final
 class|class
 name|Ints

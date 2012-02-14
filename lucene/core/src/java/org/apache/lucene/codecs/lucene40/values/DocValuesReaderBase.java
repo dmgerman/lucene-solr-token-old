@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs
+DECL|package|org.apache.lucene.codecs.lucene40.values
 package|package
 name|org
 operator|.
@@ -9,6 +9,10 @@ operator|.
 name|lucene
 operator|.
 name|codecs
+operator|.
+name|lucene40
+operator|.
+name|values
 package|;
 end_package
 begin_comment
@@ -66,6 +70,19 @@ operator|.
 name|util
 operator|.
 name|TreeMap
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|PerDocProducer
 import|;
 end_import
 begin_import
@@ -217,9 +234,6 @@ import|;
 end_import
 begin_comment
 comment|/**  * Abstract base class for PerDocProducer implementations  * @lucene.experimental  */
-end_comment
-begin_comment
-comment|// TODO: this needs to go under lucene40 codec (its specific to its impl)
 end_comment
 begin_class
 DECL|class|DocValuesReaderBase
