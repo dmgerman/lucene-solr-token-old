@@ -7559,6 +7559,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|NamedList
+name|emptyList
+init|=
+operator|new
+name|NamedList
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|Map
@@ -7591,6 +7598,7 @@ argument_list|)
 operator|==
 literal|null
 condition|)
+block|{
 name|responseWriters
 operator|.
 name|put
@@ -7606,6 +7614,18 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// call init so any logic in the default writers gets invoked
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|init
+argument_list|(
+name|emptyList
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// configure the default response writer; this one should never be null
 if|if
