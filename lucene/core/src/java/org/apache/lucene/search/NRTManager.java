@@ -1284,7 +1284,7 @@ name|setSearchGen
 operator|=
 name|mgr
 operator|.
-name|maybeReopen
+name|maybeRefresh
 argument_list|()
 expr_stmt|;
 block|}
