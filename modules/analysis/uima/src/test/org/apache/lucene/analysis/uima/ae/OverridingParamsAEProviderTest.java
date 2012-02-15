@@ -109,7 +109,7 @@ init|=
 operator|new
 name|OverridingParamsAEProvider
 argument_list|(
-literal|"/uima/DummyEntityAE.xml"
+literal|"/uima/TestEntityAnnotatorAE.xml"
 argument_list|,
 literal|null
 argument_list|)
@@ -150,7 +150,7 @@ init|=
 operator|new
 name|OverridingParamsAEProvider
 argument_list|(
-literal|"/uima/DummyEntityAE.xml"
+literal|"/uima/TestEntityAnnotatorAE.xml"
 argument_list|,
 operator|new
 name|HashMap

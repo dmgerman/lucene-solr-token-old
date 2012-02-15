@@ -26,17 +26,6 @@ name|apache
 operator|.
 name|uima
 operator|.
-name|TokenAnnotation
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|uima
-operator|.
 name|analysis_component
 operator|.
 name|JCasAnnotator_ImplBase
@@ -110,13 +99,13 @@ name|Annotation
 import|;
 end_import
 begin_comment
-comment|/**  */
+comment|/**  * Dummy implementation of a PoS tagger to add part of speech as token types  */
 end_comment
 begin_class
-DECL|class|DummyPoSTagger
+DECL|class|SamplePoSTagger
 specifier|public
 class|class
-name|DummyPoSTagger
+name|SamplePoSTagger
 extends|extends
 name|JCasAnnotator_ImplBase
 block|{
@@ -145,7 +134,7 @@ specifier|final
 name|String
 name|TYPE_NAME
 init|=
-literal|"org.apache.uima.TokenAnnotation"
+literal|"org.apache.lucene.uima.ts.TokenAnnotation"
 decl_stmt|;
 DECL|field|FEATURE_NAME
 specifier|private
@@ -154,7 +143,7 @@ specifier|final
 name|String
 name|FEATURE_NAME
 init|=
-literal|"tokenType"
+literal|"pos"
 decl_stmt|;
 annotation|@
 name|Override
@@ -204,8 +193,6 @@ name|jcas
 operator|.
 name|getAnnotationIndex
 argument_list|(
-name|TokenAnnotation
-operator|.
 name|type
 argument_list|)
 control|)
