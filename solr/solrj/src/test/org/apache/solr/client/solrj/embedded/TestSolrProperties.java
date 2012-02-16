@@ -1332,6 +1332,7 @@ argument_list|(
 name|fis
 argument_list|)
 decl_stmt|;
+comment|//System.out.println("xml:" + solrPersistXml);
 name|assertTrue
 argument_list|(
 literal|"\"/solr/cores[@defaultCoreName='core0']\" doesn't match in:\n"
@@ -1362,13 +1363,13 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"\"/solr/cores[@hostPort='8983']\" doesn't match in:\n"
+literal|"\"/solr/cores[@hostPort='${hostPort:8983}']\" doesn't match in:\n"
 operator|+
 name|solrPersistXml
 argument_list|,
 name|exists
 argument_list|(
-literal|"/solr/cores[@hostPort='8983']"
+literal|"/solr/cores[@hostPort='${hostPort:8983}']"
 argument_list|,
 name|document
 argument_list|)
@@ -1434,6 +1435,10 @@ name|getRenamedSolrAdmin
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//    fis = new FileInputStream(new File(solrXml.getParent(), "solr-persist.xml"));
+comment|//    String solrPersistXml = IOUtils.toString(fis);
+comment|//    System.out.println("xml:" + solrPersistXml);
+comment|//    fis.close();
 name|fis
 operator|=
 operator|new
@@ -1468,6 +1473,26 @@ argument_list|(
 name|exists
 argument_list|(
 literal|"/solr/cores/core[@name='renamed_core']"
+argument_list|,
+name|document
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|exists
+argument_list|(
+literal|"/solr/cores/core[@instanceDir='${theInstanceDir:./}']"
+argument_list|,
+name|document
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|exists
+argument_list|(
+literal|"/solr/cores/core[@collection='${collection:acollection}']"
 argument_list|,
 name|document
 argument_list|)
