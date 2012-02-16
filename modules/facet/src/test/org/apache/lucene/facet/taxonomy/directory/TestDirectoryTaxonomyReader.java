@@ -728,7 +728,7 @@ name|dir
 argument_list|)
 expr_stmt|;
 name|int
-name|baseNumcategories
+name|baseNumCategories
 init|=
 name|tr
 operator|.
@@ -874,7 +874,7 @@ name|k
 operator|+
 literal|")"
 argument_list|,
-name|baseNumcategories
+name|baseNumCategories
 operator|+
 literal|1
 operator|+
