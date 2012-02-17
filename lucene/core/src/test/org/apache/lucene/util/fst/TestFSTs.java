@@ -11529,7 +11529,7 @@ argument_list|)
 expr_stmt|;
 name|idField
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|idString
 argument_list|)
@@ -12398,7 +12398,7 @@ control|)
 block|{
 name|f
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|term
 argument_list|)

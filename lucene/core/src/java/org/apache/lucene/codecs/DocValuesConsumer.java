@@ -570,7 +570,7 @@ name|BYTES_VAR_STRAIGHT
 case|:
 name|scratchField
 operator|.
-name|setValue
+name|setBytesValue
 argument_list|(
 name|source
 operator|.
@@ -600,7 +600,7 @@ name|VAR_INTS
 case|:
 name|scratchField
 operator|.
-name|setValue
+name|setLongValue
 argument_list|(
 name|source
 operator|.
@@ -619,7 +619,7 @@ name|FLOAT_64
 case|:
 name|scratchField
 operator|.
-name|setValue
+name|setDoubleValue
 argument_list|(
 name|source
 operator|.

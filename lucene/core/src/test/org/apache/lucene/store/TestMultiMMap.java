@@ -1126,7 +1126,7 @@ control|)
 block|{
 name|docid
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|""
 operator|+
@@ -1135,7 +1135,7 @@ argument_list|)
 expr_stmt|;
 name|junk
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|_TestUtil
 operator|.

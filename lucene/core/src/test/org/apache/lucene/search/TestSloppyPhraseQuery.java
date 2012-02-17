@@ -1405,7 +1405,7 @@ argument_list|)
 expr_stmt|;
 name|f
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|"drug drug"
 argument_list|)
@@ -1419,7 +1419,7 @@ argument_list|)
 expr_stmt|;
 name|f
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|"drug druggy drug"
 argument_list|)
@@ -1433,7 +1433,7 @@ argument_list|)
 expr_stmt|;
 name|f
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|"drug druggy druggy drug"
 argument_list|)
@@ -1447,7 +1447,7 @@ argument_list|)
 expr_stmt|;
 name|f
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|"drug druggy drug druggy drug"
 argument_list|)

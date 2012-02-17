@@ -78,7 +78,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|NumericField
+name|LongField
 import|;
 end_import
 begin_import
@@ -813,7 +813,7 @@ name|pathField
 argument_list|)
 expr_stmt|;
 comment|// Add the last modified date of the file a field named "modified".
-comment|// Use a NumericField that is indexed (i.e. efficiently filterable with
+comment|// Use a LongField that is indexed (i.e. efficiently filterable with
 comment|// NumericRangeFilter).  This indexes to milli-second resolution, which
 comment|// is often too fine.  You could instead create a number based on
 comment|// year/month/day/hour/minutes/seconds, down the resolution you require.
@@ -824,7 +824,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|NumericField
+name|LongField
 argument_list|(
 literal|"modified"
 argument_list|,

@@ -393,7 +393,7 @@ argument_list|)
 expr_stmt|;
 name|f
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|term
 operator|.
@@ -479,7 +479,7 @@ argument_list|)
 expr_stmt|;
 name|f
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|s
 argument_list|)
@@ -487,7 +487,7 @@ expr_stmt|;
 block|}
 name|id
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|""
 operator|+

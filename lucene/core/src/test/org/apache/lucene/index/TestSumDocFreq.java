@@ -237,7 +237,7 @@ control|)
 block|{
 name|id
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|""
 operator|+
@@ -280,7 +280,7 @@ argument_list|)
 decl_stmt|;
 name|field1
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|""
 operator|+
@@ -325,7 +325,7 @@ argument_list|)
 expr_stmt|;
 name|field2
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|""
 operator|+

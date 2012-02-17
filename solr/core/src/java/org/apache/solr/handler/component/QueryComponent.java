@@ -3635,7 +3635,7 @@ condition|)
 block|{
 name|field
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 operator|(
 name|String
@@ -3677,7 +3677,7 @@ argument_list|)
 expr_stmt|;
 name|field
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|spare
 operator|.

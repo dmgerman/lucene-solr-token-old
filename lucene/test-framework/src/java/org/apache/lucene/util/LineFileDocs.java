@@ -905,7 +905,7 @@ name|docState
 operator|.
 name|body
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|line
 operator|.
@@ -939,7 +939,7 @@ name|docState
 operator|.
 name|title
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|title
 argument_list|)
@@ -948,7 +948,7 @@ name|docState
 operator|.
 name|titleTokenized
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|title
 argument_list|)
@@ -957,7 +957,7 @@ name|docState
 operator|.
 name|date
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|line
 operator|.
@@ -975,7 +975,7 @@ name|docState
 operator|.
 name|id
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|Integer
 operator|.

@@ -4124,7 +4124,7 @@ name|VAR_INTS
 case|:
 name|valField
 operator|.
-name|setValue
+name|setLongValue
 argument_list|(
 operator|(
 name|long
@@ -4138,7 +4138,7 @@ name|FIXED_INTS_16
 case|:
 name|valField
 operator|.
-name|setValue
+name|setIntValue
 argument_list|(
 operator|(
 name|short
@@ -4152,7 +4152,7 @@ name|FIXED_INTS_32
 case|:
 name|valField
 operator|.
-name|setValue
+name|setIntValue
 argument_list|(
 name|i
 argument_list|)
@@ -4163,7 +4163,7 @@ name|FIXED_INTS_64
 case|:
 name|valField
 operator|.
-name|setValue
+name|setLongValue
 argument_list|(
 operator|(
 name|long
@@ -4177,7 +4177,7 @@ name|FIXED_INTS_8
 case|:
 name|valField
 operator|.
-name|setValue
+name|setIntValue
 argument_list|(
 call|(
 name|byte
@@ -4199,7 +4199,7 @@ name|FLOAT_32
 case|:
 name|valField
 operator|.
-name|setValue
+name|setFloatValue
 argument_list|(
 literal|2.0f
 operator|*
@@ -4212,7 +4212,7 @@ name|FLOAT_64
 case|:
 name|valField
 operator|.
-name|setValue
+name|setDoubleValue
 argument_list|(
 literal|2.0d
 operator|*
@@ -4267,7 +4267,7 @@ condition|)
 block|{
 name|valField
 operator|.
-name|setValue
+name|setBytesValue
 argument_list|(
 name|bytesRef
 argument_list|)

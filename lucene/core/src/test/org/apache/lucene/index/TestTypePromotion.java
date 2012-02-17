@@ -1593,7 +1593,7 @@ argument_list|()
 expr_stmt|;
 name|valField
 operator|.
-name|setValue
+name|setLongValue
 argument_list|(
 name|values
 index|[
@@ -1621,7 +1621,7 @@ argument_list|)
 expr_stmt|;
 name|valField
 operator|.
-name|setValue
+name|setIntValue
 argument_list|(
 operator|(
 name|short
@@ -1648,7 +1648,7 @@ argument_list|()
 expr_stmt|;
 name|valField
 operator|.
-name|setValue
+name|setIntValue
 argument_list|(
 operator|(
 name|int
@@ -1675,7 +1675,7 @@ argument_list|()
 expr_stmt|;
 name|valField
 operator|.
-name|setValue
+name|setLongValue
 argument_list|(
 name|values
 index|[
@@ -1709,7 +1709,7 @@ argument_list|)
 expr_stmt|;
 name|valField
 operator|.
-name|setValue
+name|setDoubleValue
 argument_list|(
 name|nextDouble
 argument_list|)
@@ -1741,7 +1741,7 @@ argument_list|)
 expr_stmt|;
 name|valField
 operator|.
-name|setValue
+name|setFloatValue
 argument_list|(
 name|nextFloat
 argument_list|)
@@ -1762,7 +1762,7 @@ name|i
 expr_stmt|;
 name|valField
 operator|.
-name|setValue
+name|setIntValue
 argument_list|(
 operator|(
 name|byte
@@ -1828,7 +1828,7 @@ argument_list|)
 expr_stmt|;
 name|valField
 operator|.
-name|setValue
+name|setBytesValue
 argument_list|(
 operator|new
 name|BytesRef
@@ -1939,7 +1939,7 @@ expr_stmt|;
 block|}
 name|valField
 operator|.
-name|setValue
+name|setBytesValue
 argument_list|(
 operator|new
 name|BytesRef

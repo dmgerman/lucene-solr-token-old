@@ -502,7 +502,7 @@ control|)
 block|{
 name|field
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|mapInt
 argument_list|(

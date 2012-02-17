@@ -254,7 +254,7 @@ expr_stmt|;
 block|}
 name|field
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|"tangfulin"
 argument_list|)
@@ -268,7 +268,7 @@ argument_list|)
 expr_stmt|;
 name|field
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|"meaninglessnames"
 argument_list|)
@@ -298,7 +298,7 @@ expr_stmt|;
 block|}
 name|field
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|"tangfulin"
 argument_list|)

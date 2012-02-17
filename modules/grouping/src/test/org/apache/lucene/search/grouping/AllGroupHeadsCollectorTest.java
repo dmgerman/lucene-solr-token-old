@@ -1992,11 +1992,11 @@ argument_list|(
 name|content
 argument_list|)
 expr_stmt|;
-name|NumericField
+name|IntField
 name|id
 init|=
 operator|new
-name|NumericField
+name|IntField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -2240,7 +2240,7 @@ condition|)
 block|{
 name|group
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|groupDoc
 operator|.
@@ -2257,7 +2257,7 @@ condition|)
 block|{
 name|valuesField
 operator|.
-name|setValue
+name|setBytesValue
 argument_list|(
 operator|new
 name|BytesRef
@@ -2275,7 +2275,7 @@ block|}
 block|}
 name|sort1
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|groupDoc
 operator|.
@@ -2287,7 +2287,7 @@ argument_list|)
 expr_stmt|;
 name|sort2
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|groupDoc
 operator|.
@@ -2299,7 +2299,7 @@ argument_list|)
 expr_stmt|;
 name|sort3
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|groupDoc
 operator|.
@@ -2311,7 +2311,7 @@ argument_list|)
 expr_stmt|;
 name|content
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|groupDoc
 operator|.
@@ -2320,7 +2320,7 @@ argument_list|)
 expr_stmt|;
 name|id
 operator|.
-name|setValue
+name|setIntValue
 argument_list|(
 name|groupDoc
 operator|.

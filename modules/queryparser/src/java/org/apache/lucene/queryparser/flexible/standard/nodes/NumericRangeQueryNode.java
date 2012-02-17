@@ -17,6 +17,9 @@ operator|.
 name|nodes
 package|;
 end_package
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements. See the NOTICE file distributed with this  * work for additional information regarding copyright ownership. The ASF  * licenses this file to You under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *   * http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the  * License for the specific language governing permissions and limitations under  * the License.  */
+end_comment
 begin_import
 import|import
 name|org
@@ -27,24 +30,9 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|NumericField
-import|;
-end_import
-begin_import
-import|import
-name|org
+name|FieldType
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|queryparser
-operator|.
-name|flexible
-operator|.
-name|messages
-operator|.
-name|MessageImpl
+name|NumericType
 import|;
 end_import
 begin_import
@@ -114,6 +102,23 @@ name|queryparser
 operator|.
 name|flexible
 operator|.
+name|messages
+operator|.
+name|MessageImpl
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|queryparser
+operator|.
+name|flexible
+operator|.
 name|standard
 operator|.
 name|config
@@ -121,9 +126,6 @@ operator|.
 name|NumericConfig
 import|;
 end_import
-begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements. See the NOTICE file distributed with this  * work for additional information regarding copyright ownership. The ASF  * licenses this file to You under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *   * http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the  * License for the specific language governing permissions and limitations under  * the License.  */
-end_comment
 begin_comment
 comment|/**  * This query node represents a range query composed by {@link NumericQueryNode}  * bounds, which means the bound values are {@link Number}s.  *   * @see NumericQueryNode  * @see AbstractRangeQueryNode  */
 end_comment
@@ -183,9 +185,7 @@ block|}
 DECL|method|getNumericDataType
 specifier|private
 specifier|static
-name|NumericField
-operator|.
-name|DataType
+name|NumericType
 name|getNumericDataType
 parameter_list|(
 name|Number
@@ -202,9 +202,7 @@ name|Long
 condition|)
 block|{
 return|return
-name|NumericField
-operator|.
-name|DataType
+name|NumericType
 operator|.
 name|LONG
 return|;
@@ -218,9 +216,7 @@ name|Integer
 condition|)
 block|{
 return|return
-name|NumericField
-operator|.
-name|DataType
+name|NumericType
 operator|.
 name|INT
 return|;
@@ -234,9 +230,7 @@ name|Double
 condition|)
 block|{
 return|return
-name|NumericField
-operator|.
-name|DataType
+name|NumericType
 operator|.
 name|DOUBLE
 return|;
@@ -250,9 +244,7 @@ name|Float
 condition|)
 block|{
 return|return
-name|NumericField
-operator|.
-name|DataType
+name|NumericType
 operator|.
 name|FLOAT
 return|;
@@ -318,9 +310,7 @@ literal|"numericConfig cannot be null!"
 argument_list|)
 throw|;
 block|}
-name|NumericField
-operator|.
-name|DataType
+name|NumericType
 name|lowerNumberType
 decl_stmt|,
 name|upperNumberType

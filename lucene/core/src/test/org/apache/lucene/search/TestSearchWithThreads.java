@@ -337,7 +337,7 @@ expr_stmt|;
 block|}
 name|body
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 name|sb
 operator|.

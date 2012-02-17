@@ -411,7 +411,7 @@ control|)
 block|{
 name|bar
 operator|.
-name|setValue
+name|setStringValue
 argument_list|(
 literal|"singleton"
 argument_list|)

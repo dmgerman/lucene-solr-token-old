@@ -170,7 +170,7 @@ name|this
 operator|.
 name|field
 operator|.
-name|setValue
+name|setFloatValue
 argument_list|(
 name|norm
 argument_list|)
@@ -197,7 +197,7 @@ name|this
 operator|.
 name|field
 operator|.
-name|setValue
+name|setDoubleValue
 argument_list|(
 name|norm
 argument_list|)
@@ -224,7 +224,7 @@ name|this
 operator|.
 name|field
 operator|.
-name|setValue
+name|setIntValue
 argument_list|(
 name|norm
 argument_list|)
@@ -251,7 +251,7 @@ name|this
 operator|.
 name|field
 operator|.
-name|setValue
+name|setIntValue
 argument_list|(
 name|norm
 argument_list|)
@@ -278,7 +278,7 @@ name|this
 operator|.
 name|field
 operator|.
-name|setValue
+name|setLongValue
 argument_list|(
 name|norm
 argument_list|)
@@ -305,7 +305,7 @@ name|this
 operator|.
 name|field
 operator|.
-name|setValue
+name|setIntValue
 argument_list|(
 name|norm
 argument_list|)
@@ -332,7 +332,7 @@ name|this
 operator|.
 name|field
 operator|.
-name|setValue
+name|setBytesValue
 argument_list|(
 name|norm
 argument_list|)
