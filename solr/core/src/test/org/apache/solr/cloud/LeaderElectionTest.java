@@ -616,6 +616,8 @@ operator|.
 name|joinElection
 argument_list|(
 name|context
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|electionDone
@@ -794,6 +796,8 @@ operator|.
 name|joinElection
 argument_list|(
 name|context
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertEquals

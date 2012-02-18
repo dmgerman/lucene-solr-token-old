@@ -3104,17 +3104,17 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// before becoming available, make sure we are not live and active
-comment|// this also gets us our assigned shard id if it was not specified
+comment|// this happens before we can receive requests
 name|zkController
 operator|.
-name|publish
+name|preRegisterSetup
 argument_list|(
 name|core
 argument_list|,
-name|ZkStateReader
+name|core
 operator|.
-name|DOWN
+name|getCoreDescriptor
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3319,6 +3319,9 @@ operator|.
 name|publish
 argument_list|(
 name|core
+operator|.
+name|getCoreDescriptor
+argument_list|()
 argument_list|,
 name|ZkStateReader
 operator|.

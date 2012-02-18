@@ -3586,9 +3586,7 @@ name|boolean
 name|verbose
 parameter_list|)
 throws|throws
-name|KeeperException
-throws|,
-name|InterruptedException
+name|Exception
 block|{
 name|super
 operator|.
