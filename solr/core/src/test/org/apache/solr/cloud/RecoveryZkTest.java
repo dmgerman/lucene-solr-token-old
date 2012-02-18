@@ -129,11 +129,6 @@ name|LoggerFactory
 import|;
 end_import
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Fixme! I am so tired of failing all the time. This is cruelty to animals! :("
-argument_list|)
 DECL|class|RecoveryZkTest
 specifier|public
 class|class
@@ -350,13 +345,6 @@ name|indexThread2
 operator|.
 name|join
 argument_list|()
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|5000
-argument_list|)
 expr_stmt|;
 name|commit
 argument_list|()
