@@ -1662,7 +1662,7 @@ operator|.
 name|size
 argument_list|()
 operator|>
-name|maxRequests
+name|maxUpdates
 condition|)
 block|{
 return|return
