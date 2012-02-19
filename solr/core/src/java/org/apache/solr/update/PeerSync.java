@@ -435,6 +435,12 @@ specifier|private
 name|int
 name|nUpdates
 decl_stmt|;
+DECL|field|maxUpdates
+specifier|private
+name|int
+name|maxUpdates
+decl_stmt|;
+comment|// maximum number of updates to request before failing
 DECL|field|uhandler
 specifier|private
 name|UpdateHandler
@@ -767,6 +773,12 @@ expr_stmt|;
 name|this
 operator|.
 name|nUpdates
+operator|=
+name|nUpdates
+expr_stmt|;
+name|this
+operator|.
+name|maxUpdates
 operator|=
 name|nUpdates
 expr_stmt|;
@@ -1483,6 +1495,17 @@ return|return
 literal|true
 return|;
 block|}
+name|boolean
+name|completeList
+init|=
+name|otherVersions
+operator|.
+name|size
+argument_list|()
+operator|<
+name|nUpdates
+decl_stmt|;
+comment|// do we have their complete list of updates?
 name|Collections
 operator|.
 name|sort
@@ -1565,6 +1588,9 @@ block|{
 comment|// stop when the entries get old enough that reorders may lead us to see updates we don't need
 if|if
 condition|(
+operator|!
+name|completeList
+operator|&&
 name|Math
 operator|.
 name|abs
@@ -1627,6 +1653,20 @@ block|{
 comment|// we had (or already requested) all the updates referenced by the replica
 return|return
 literal|true
+return|;
+block|}
+if|if
+condition|(
+name|toRequest
+operator|.
+name|size
+argument_list|()
+operator|>
+name|maxRequests
+condition|)
+block|{
+return|return
+literal|false
 return|;
 block|}
 return|return
