@@ -176,6 +176,23 @@ name|search
 operator|.
 name|suggest
 operator|.
+name|fst
+operator|.
+name|WFSTCompletionLookup
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
 name|jaspell
 operator|.
 name|JaspellLookup
@@ -266,6 +283,10 @@ argument_list|,
 name|FSTCompletionLookup
 operator|.
 name|class
+argument_list|,
+name|WFSTCompletionLookup
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|rounds
@@ -345,6 +366,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+assert|assert
+literal|false
+operator|:
+literal|"disable assertions before running benchmarks!"
+assert|;
 name|List
 argument_list|<
 name|TermFreq
