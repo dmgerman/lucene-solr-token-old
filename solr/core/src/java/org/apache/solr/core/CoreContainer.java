@@ -2843,6 +2843,7 @@ literal|false
 decl_stmt|;
 DECL|field|cfg
 specifier|private
+specifier|volatile
 name|Config
 name|cfg
 decl_stmt|;
