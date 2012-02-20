@@ -304,6 +304,13 @@ range|:
 name|tinfos
 control|)
 block|{
+if|if
+condition|(
+name|ti
+operator|!=
+literal|null
+condition|)
+block|{
 name|lst
 operator|.
 name|add
@@ -318,6 +325,7 @@ name|tmbean
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|system
 operator|.
@@ -377,6 +385,13 @@ range|:
 name|tinfos
 control|)
 block|{
+if|if
+condition|(
+name|ti
+operator|!=
+literal|null
+condition|)
+block|{
 name|lst
 operator|.
 name|add
@@ -391,6 +406,7 @@ name|tmbean
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|system
 operator|.
