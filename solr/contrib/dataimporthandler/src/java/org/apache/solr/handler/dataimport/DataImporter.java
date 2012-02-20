@@ -3034,7 +3034,7 @@ specifier|public
 name|boolean
 name|optimize
 init|=
-literal|true
+literal|false
 decl_stmt|;
 DECL|field|start
 specifier|public
@@ -3385,7 +3385,7 @@ argument_list|(
 literal|"optimize"
 argument_list|)
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 if|if
