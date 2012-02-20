@@ -355,6 +355,9 @@ argument_list|(
 name|k
 operator|.
 name|term
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -362,6 +365,9 @@ argument_list|(
 name|k
 operator|.
 name|term
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|,
 name|val
 argument_list|)
@@ -376,6 +382,9 @@ argument_list|(
 name|k
 operator|.
 name|term
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|,
 name|Float
 operator|.
