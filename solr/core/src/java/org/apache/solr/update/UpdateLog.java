@@ -625,7 +625,7 @@ init|=
 literal|1000
 decl_stmt|;
 DECL|field|numRecordsToKeep
-specifier|private
+specifier|public
 specifier|final
 name|int
 name|numRecordsToKeep

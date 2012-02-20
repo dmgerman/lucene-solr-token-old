@@ -135,6 +135,32 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|cloud
+operator|.
+name|CloudDescriptor
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|cloud
+operator|.
+name|ZkController
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|common
 operator|.
 name|SolrException
@@ -196,6 +222,19 @@ operator|.
 name|util
 operator|.
 name|StrUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|core
+operator|.
+name|CoreDescriptor
 import|;
 end_import
 begin_import
@@ -881,7 +920,68 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** Returns true if peer sync was successful, meaning that this core may not be considered to have the latest updates.    *  A commit is not performed.    */
+comment|// start of peersync related debug messages.  includes the core name for correlation.
+DECL|method|msg
+specifier|private
+name|String
+name|msg
+parameter_list|()
+block|{
+name|ZkController
+name|zkController
+init|=
+name|uhandler
+operator|.
+name|core
+operator|.
+name|getCoreDescriptor
+argument_list|()
+operator|.
+name|getCoreContainer
+argument_list|()
+operator|.
+name|getZkController
+argument_list|()
+decl_stmt|;
+name|String
+name|myURL
+init|=
+literal|""
+decl_stmt|;
+if|if
+condition|(
+name|zkController
+operator|!=
+literal|null
+condition|)
+block|{
+name|myURL
+operator|=
+name|zkController
+operator|.
+name|getZkServerAddress
+argument_list|()
+expr_stmt|;
+block|}
+comment|// TODO: core name turns up blank in many tests - find URL if cloud enabled?
+return|return
+literal|"PeerSync: core="
+operator|+
+name|uhandler
+operator|.
+name|core
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" url="
+operator|+
+name|myURL
+operator|+
+literal|" "
+return|;
+block|}
+comment|/** Returns true if peer sync was successful, meaning that this core may not be considered to have the latest updates    *  when considering the last N updates between it and it's peers.    *  A commit is not performed.    */
 DECL|method|sync
 specifier|public
 name|boolean
@@ -898,6 +998,55 @@ block|{
 return|return
 literal|false
 return|;
+block|}
+name|log
+operator|.
+name|info
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|"START replicas="
+operator|+
+name|replicas
+operator|+
+literal|" nUpdates="
+operator|+
+name|nUpdates
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
+block|{
+if|if
+condition|(
+name|startingVersions
+operator|!=
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|"startingVersions="
+operator|+
+name|startingVersions
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" "
+operator|+
+name|startingVersions
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// Fire off the requests before getting our own recent updates (for better concurrency)
 comment|// This also allows us to avoid getting updates we don't need... if we got our updates and then got their updates, they would
@@ -1044,7 +1193,10 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"PeerSync: too many updates received since start - startingUpdates no longer overlaps with cour urrentUpdates"
+name|msg
+argument_list|()
+operator|+
+literal|"too many updates received since start - startingUpdates no longer overlaps with our currentUpdates"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1133,6 +1285,16 @@ else|else
 block|{
 comment|// we have no versions and hence no frame of reference to tell if we can use a peers
 comment|// updates to bring us into sync
+name|log
+operator|.
+name|info
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|"DONE.  We have no versions.  sync failed."
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -1195,6 +1357,16 @@ operator|!
 name|success
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|"DONE. sync failed"
+argument_list|)
+expr_stmt|;
 name|shardHandler
 operator|.
 name|cancelAll
@@ -1205,6 +1377,16 @@ literal|false
 return|;
 block|}
 block|}
+name|log
+operator|.
+name|info
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|"DONE. sync succeeded"
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
@@ -1333,6 +1515,14 @@ name|ShardResponse
 name|srsp
 parameter_list|)
 block|{
+name|ShardRequest
+name|sreq
+init|=
+name|srsp
+operator|.
+name|getShardRequest
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|srsp
@@ -1346,8 +1536,18 @@ block|{
 comment|// TODO: look at this more thoroughly - we don't want
 comment|// to fail on connection exceptions, but it may make sense
 comment|// to determine this based on the number of fails
+comment|//
+comment|// If the replica went down between asking for versions and asking for specific updates, that
+comment|// shouldn't be treated as success since we counted on getting those updates back (and avoided
+comment|// redundantly asking other replicas for them).
 if|if
 condition|(
+name|sreq
+operator|.
+name|purpose
+operator|==
+literal|1
+operator|&&
 name|srsp
 operator|.
 name|getException
@@ -1383,6 +1583,23 @@ operator|instanceof
 name|NoHttpResponseException
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|" couldn't connect to "
+operator|+
+name|srsp
+operator|.
+name|getShardAddress
+argument_list|()
+operator|+
+literal|", counting as success"
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
@@ -1390,18 +1607,27 @@ block|}
 block|}
 comment|// TODO: at least log???
 comment|// srsp.getException().printStackTrace(System.out);
+name|log
+operator|.
+name|warn
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|" exception talking to "
+operator|+
+name|srsp
+operator|.
+name|getShardAddress
+argument_list|()
+operator|+
+literal|", counting as success"
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
 block|}
-name|ShardRequest
-name|sreq
-init|=
-name|srsp
-operator|.
-name|getShardRequest
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|sreq
@@ -1481,6 +1707,30 @@ name|reportedVersions
 operator|=
 name|otherVersions
 expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|" Received "
+operator|+
+name|otherVersions
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" versions from "
+operator|+
+name|sreq
+operator|.
+name|shards
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|otherVersions
@@ -1515,6 +1765,33 @@ argument_list|,
 name|absComparator
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|" sorted versions from "
+operator|+
+name|sreq
+operator|.
+name|shards
+index|[
+literal|0
+index|]
+operator|+
+literal|" = "
+operator|+
+name|otherVersions
+argument_list|)
+expr_stmt|;
+block|}
 name|long
 name|otherHigh
 init|=
@@ -1546,6 +1823,22 @@ comment|// Small overlap between version windows and ours is older
 comment|// This means that we might miss updates if we attempted to use this method.
 comment|// Since there exists just one replica that is so much newer, we must
 comment|// fail the sync.
+name|log
+operator|.
+name|info
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|" Our versions are too old. ourHighThreshold="
+operator|+
+name|ourHighThreshold
+operator|+
+literal|" otherLowThreshold="
+operator|+
+name|otherLow
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -1560,6 +1853,22 @@ block|{
 comment|// Small overlap between windows and ours is newer.
 comment|// Using this list to sync would result in requesting/replaying results we don't need
 comment|// and possibly bringing deleted docs back to life.
+name|log
+operator|.
+name|info
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|" Our versions are newer. ourLowThreshold="
+operator|+
+name|ourLowThreshold
+operator|+
+literal|" otherHigh="
+operator|+
+name|otherHigh
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
@@ -1619,6 +1928,8 @@ argument_list|)
 condition|)
 block|{
 comment|// we either have this update, or already requested it
+comment|// TODO: what if the shard we previously requested this from returns failure (because it goes
+comment|// down)
 continue|continue;
 block|}
 name|toRequest
@@ -1650,6 +1961,22 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|" Our versions are newer. ourLowThreshold="
+operator|+
+name|ourLowThreshold
+operator|+
+literal|" otherHigh="
+operator|+
+name|otherHigh
+argument_list|)
+expr_stmt|;
 comment|// we had (or already requested) all the updates referenced by the replica
 return|return
 literal|true
@@ -1665,6 +1992,18 @@ operator|>
 name|maxUpdates
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|" Failing due to needing too many updates:"
+operator|+
+name|maxUpdates
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -1710,6 +2049,9 @@ name|log
 operator|.
 name|info
 argument_list|(
+name|msg
+argument_list|()
+operator|+
 literal|"Requesting updates from "
 operator|+
 name|replica
@@ -1877,7 +2219,10 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"PeerSync: Requested "
+name|msg
+argument_list|()
+operator|+
+literal|" Requested "
 operator|+
 name|sreq
 operator|.
@@ -2049,6 +2394,24 @@ argument_list|>
 operator|)
 name|o
 decl_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|"raw update record "
+operator|+
+name|o
+argument_list|)
+expr_stmt|;
+block|}
 name|int
 name|oper
 init|=
@@ -2156,6 +2519,24 @@ operator|.
 name|IGNORE_AUTOCOMMIT
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|"add "
+operator|+
+name|cmd
+argument_list|)
+expr_stmt|;
+block|}
 name|proc
 operator|.
 name|processAdd
@@ -2226,6 +2607,24 @@ operator|.
 name|IGNORE_AUTOCOMMIT
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|"delete "
+operator|+
+name|cmd
+argument_list|)
+expr_stmt|;
+block|}
 name|proc
 operator|.
 name|processDelete
@@ -2289,6 +2688,24 @@ operator|.
 name|IGNORE_AUTOCOMMIT
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|msg
+argument_list|()
+operator|+
+literal|"deleteByQuery "
+operator|+
+name|cmd
+argument_list|)
+expr_stmt|;
+block|}
 name|proc
 operator|.
 name|processDelete
@@ -2335,6 +2752,9 @@ name|log
 operator|.
 name|error
 argument_list|(
+name|msg
+argument_list|()
+operator|+
 literal|"Error applying updates from "
 operator|+
 name|sreq
@@ -2368,6 +2788,9 @@ name|log
 operator|.
 name|error
 argument_list|(
+name|msg
+argument_list|()
+operator|+
 literal|"Error applying updates from "
 operator|+
 name|sreq
@@ -2411,6 +2834,9 @@ name|log
 operator|.
 name|error
 argument_list|(
+name|msg
+argument_list|()
+operator|+
 literal|"Error applying updates from "
 operator|+
 name|sreq
