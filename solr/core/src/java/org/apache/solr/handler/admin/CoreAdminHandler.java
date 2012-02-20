@@ -532,35 +532,7 @@ name|solr
 operator|.
 name|update
 operator|.
-name|CommitUpdateCommand
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|update
-operator|.
 name|MergeIndexesCommand
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|update
-operator|.
-name|processor
-operator|.
-name|DistributedUpdateProcessor
 import|;
 end_import
 begin_import
@@ -3235,7 +3207,7 @@ argument_list|(
 literal|"state"
 argument_list|)
 decl_stmt|;
-name|boolean
+name|Boolean
 name|checkLive
 init|=
 name|params
@@ -3243,8 +3215,6 @@ operator|.
 name|getBool
 argument_list|(
 literal|"checkLive"
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|int
@@ -3300,6 +3270,11 @@ name|String
 name|state
 init|=
 literal|null
+decl_stmt|;
+name|boolean
+name|live
+init|=
+literal|false
 decl_stmt|;
 name|int
 name|retry
@@ -3366,11 +3341,6 @@ argument_list|(
 name|coreNodeName
 argument_list|)
 decl_stmt|;
-name|boolean
-name|live
-init|=
-literal|false
-decl_stmt|;
 if|if
 condition|(
 name|nodeProps
@@ -3415,13 +3385,31 @@ block|{
 if|if
 condition|(
 name|checkLive
+operator|==
+literal|null
+condition|)
+block|{
+break|break;
+block|}
+elseif|else
+if|if
+condition|(
+name|checkLive
 operator|&&
 name|live
 condition|)
 block|{
 break|break;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+operator|!
+name|checkLive
+operator|&&
+operator|!
+name|live
+condition|)
 block|{
 break|break;
 block|}
@@ -3472,6 +3460,7 @@ block|}
 comment|// small safety net for any updates that started with state that
 comment|// kept it from sending the update to be buffered -
 comment|// pause for a while to let any outstanding updates finish
+comment|//System.out.println("I saw state:" + state + " sleep for " + pauseFor + " live:" + live);
 name|Thread
 operator|.
 name|sleep
@@ -3480,7 +3469,11 @@ name|pauseFor
 argument_list|)
 expr_stmt|;
 comment|// solrcloud_debug
-comment|//      try {
+comment|//      try {;
+comment|//        LocalSolrQueryRequest r = new LocalSolrQueryRequest(core,  new ModifiableSolrParams());
+comment|//        CommitUpdateCommand commitCmd = new CommitUpdateCommand(r, false);
+comment|//        commitCmd.softCommit = true;
+comment|//        core.getUpdateHandler().commit(commitCmd);
 comment|//        RefCounted<SolrIndexSearcher> searchHolder = core.getNewestSearcher(false);
 comment|//        SolrIndexSearcher searcher = searchHolder.get();
 comment|//        try {
