@@ -1511,6 +1511,7 @@ name|buffer
 operator|=
 name|buffers
 index|[
+operator|++
 name|bufferIndex
 index|]
 expr_stmt|;
