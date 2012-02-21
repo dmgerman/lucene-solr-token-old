@@ -1493,6 +1493,10 @@ argument_list|(
 literal|"Attempting to PeerSync from "
 operator|+
 name|leaderUrl
+operator|+
+literal|" recoveringAfterStartup="
+operator|+
+name|recoveringAfterStartup
 argument_list|)
 expr_stmt|;
 comment|// System.out.println("Attempting to PeerSync from " + leaderUrl
