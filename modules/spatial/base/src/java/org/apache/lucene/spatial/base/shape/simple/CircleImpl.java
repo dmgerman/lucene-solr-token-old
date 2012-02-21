@@ -239,7 +239,7 @@ operator|>
 literal|0
 return|;
 block|}
-comment|/**    * Note that the bounding box might contain a minX that is> maxX, due to WGS84 dateline.    * @return    */
+comment|/**    * Note that the bounding box might contain a minX that is> maxX, due to WGS84 dateline.    */
 annotation|@
 name|Override
 DECL|method|getBoundingBox
