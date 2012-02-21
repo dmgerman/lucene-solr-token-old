@@ -54,9 +54,6 @@ operator|.
 name|SpatialContextFactory
 import|;
 end_import
-begin_comment
-comment|/** * @author dsmiley */
-end_comment
 begin_class
 DECL|class|SimpleSpatialContextFactory
 specifier|public

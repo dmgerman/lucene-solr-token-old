@@ -100,7 +100,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Factory for a SpatialContext.  * is   * @author dsmiley  */
+comment|/**  * Factory for a SpatialContext.  */
 end_comment
 begin_class
 DECL|class|SpatialContextFactory
