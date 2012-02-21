@@ -931,6 +931,9 @@ index|]
 argument_list|)
 block|}
 decl_stmt|;
+comment|// TODO: fix me,
+comment|//   wrapping causes insanity when we have an already-atomic reader?!
+comment|// IndexSearcher out = LuceneTestCase.newSearcher(new MultiReader(readers));
 name|IndexSearcher
 name|out
 init|=
@@ -943,6 +946,8 @@ name|MultiReader
 argument_list|(
 name|readers
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|out
