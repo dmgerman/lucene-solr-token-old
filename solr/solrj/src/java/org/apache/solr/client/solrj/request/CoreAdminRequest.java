@@ -706,9 +706,9 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|ZkStateReader
+name|CoreAdminParams
 operator|.
-name|SHARD_ID_PROP
+name|SHARD
 argument_list|,
 name|shardId
 argument_list|)
