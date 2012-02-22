@@ -7525,6 +7525,13 @@ argument_list|(
 literal|"zkHost"
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"numShards"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|commit
 specifier|protected
