@@ -28,6 +28,10 @@ name|lucene
 operator|.
 name|spatial
 operator|.
+name|base
+operator|.
+name|distance
+operator|.
 name|DistanceUtils
 import|;
 end_import
@@ -41,9 +45,13 @@ name|lucene
 operator|.
 name|spatial
 operator|.
+name|base
+operator|.
+name|prefix
+operator|.
 name|geohash
 operator|.
-name|GeoHashUtils
+name|GeohashUtils
 import|;
 end_import
 begin_import
@@ -149,9 +157,9 @@ literal|"0"
 argument_list|,
 literal|"gh_s1"
 argument_list|,
-name|GeoHashUtils
+name|GeohashUtils
 operator|.
-name|encode
+name|encodeLatLon
 argument_list|(
 literal|32.7693246
 argument_list|,
@@ -188,9 +196,9 @@ argument_list|)
 argument_list|,
 literal|"gh_s1"
 argument_list|,
-name|GeoHashUtils
+name|GeohashUtils
 operator|.
-name|encode
+name|encodeLatLon
 argument_list|(
 literal|32.7693246
 argument_list|,
@@ -236,9 +244,9 @@ argument_list|)
 argument_list|,
 literal|"gh_s1"
 argument_list|,
-name|GeoHashUtils
+name|GeohashUtils
 operator|.
-name|encode
+name|encodeLatLon
 argument_list|(
 literal|32.7693246
 argument_list|,
@@ -284,9 +292,9 @@ argument_list|)
 argument_list|,
 literal|"gh_s1"
 argument_list|,
-name|GeoHashUtils
+name|GeohashUtils
 operator|.
-name|encode
+name|encodeLatLon
 argument_list|(
 literal|32.7693246
 argument_list|,
@@ -314,9 +322,9 @@ literal|"45.0"
 argument_list|,
 literal|"gh_s1"
 argument_list|,
-name|GeoHashUtils
+name|GeohashUtils
 operator|.
-name|encode
+name|encodeLatLon
 argument_list|(
 literal|32.7693246
 argument_list|,
@@ -518,7 +526,8 @@ argument_list|)
 expr_stmt|;
 comment|//Geo Hash Haversine
 comment|//Can verify here: http://www.movable-type.co.uk/scripts/latlong.html, but they use a slightly different radius for the earth, so just be close
-name|assertQ
+comment|//note: using assertJQ because it supports numeric deltas, and by default too
+name|assertJQ
 argument_list|(
 name|req
 argument_list|(
@@ -536,9 +545,9 @@ name|EARTH_MEAN_RADIUS_KM
 operator|+
 literal|", gh_s1, \""
 operator|+
-name|GeoHashUtils
+name|GeohashUtils
 operator|.
-name|encode
+name|encodeLatLon
 argument_list|(
 literal|32
 argument_list|,
@@ -553,7 +562,7 @@ argument_list|,
 literal|"id:1"
 argument_list|)
 argument_list|,
-literal|"//float[@name='score']='122.171875'"
+literal|"/response/docs/[0]/score==122.171875"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -574,9 +583,9 @@ name|EARTH_MEAN_RADIUS_KM
 operator|+
 literal|", point_hash, \""
 operator|+
-name|GeoHashUtils
+name|GeohashUtils
 operator|.
-name|encode
+name|encodeLatLon
 argument_list|(
 literal|32
 argument_list|,
@@ -595,7 +604,7 @@ literal|"//result/doc[2]/str[@name='id'][.='7']"
 comment|//all the rest don't matter
 argument_list|)
 expr_stmt|;
-name|assertQ
+name|assertJQ
 argument_list|(
 name|req
 argument_list|(
@@ -618,7 +627,7 @@ argument_list|,
 literal|"id:1"
 argument_list|)
 argument_list|,
-literal|"//float[@name='score']='122.171875'"
+literal|"/response/docs/[0]/score==122.171875"
 argument_list|)
 expr_stmt|;
 block|}

@@ -71,9 +71,13 @@ name|lucene
 operator|.
 name|spatial
 operator|.
+name|base
+operator|.
+name|prefix
+operator|.
 name|geohash
 operator|.
-name|GeoHashUtils
+name|GeohashUtils
 import|;
 end_import
 begin_import
@@ -205,9 +209,9 @@ name|doc
 parameter_list|)
 block|{
 return|return
-name|GeoHashUtils
+name|GeohashUtils
 operator|.
-name|encode
+name|encodeLatLon
 argument_list|(
 name|latDV
 operator|.
