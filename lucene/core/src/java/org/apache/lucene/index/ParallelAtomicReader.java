@@ -636,12 +636,6 @@ block|}
 block|}
 block|}
 comment|// do this finally so any Exceptions occurred before don't affect refcounts:
-if|if
-condition|(
-operator|!
-name|closeSubReaders
-condition|)
-block|{
 for|for
 control|(
 name|AtomicReader
@@ -650,12 +644,25 @@ range|:
 name|completeReaderSet
 control|)
 block|{
+if|if
+condition|(
+operator|!
+name|closeSubReaders
+condition|)
+block|{
 name|reader
 operator|.
 name|incRef
 argument_list|()
 expr_stmt|;
 block|}
+name|reader
+operator|.
+name|registerParentReader
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -1006,23 +1013,6 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-comment|// we cache the inner field instances, so we must check
-comment|// that the delegate readers are really still open:
-for|for
-control|(
-specifier|final
-name|AtomicReader
-name|reader
-range|:
-name|parallelReaders
-control|)
-block|{
-name|reader
-operator|.
-name|ensureOpen
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|fields
 return|;
