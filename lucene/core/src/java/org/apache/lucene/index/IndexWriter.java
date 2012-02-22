@@ -1528,6 +1528,17 @@ name|liveDocs
 operator|.
 name|length
 argument_list|()
+operator|:
+literal|"out of bounds: docid="
+operator|+
+name|docID
+operator|+
+literal|",liveDocsLength="
+operator|+
+name|liveDocs
+operator|.
+name|length
+argument_list|()
 assert|;
 assert|assert
 operator|!
