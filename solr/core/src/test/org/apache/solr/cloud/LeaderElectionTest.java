@@ -843,6 +843,7 @@ operator|--
 operator|>
 literal|0
 condition|)
+block|{
 try|try
 block|{
 name|byte
@@ -904,6 +905,12 @@ literal|500
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+name|zkClient
+operator|.
+name|printLayoutToStdOut
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeException
