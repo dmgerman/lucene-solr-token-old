@@ -56,15 +56,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -557,6 +548,19 @@ argument_list|(
 literal|"(https?://).*"
 argument_list|)
 decl_stmt|;
+DECL|field|SKIP_AUTO_RECOVERY
+specifier|private
+specifier|final
+name|boolean
+name|SKIP_AUTO_RECOVERY
+init|=
+name|Boolean
+operator|.
+name|getBoolean
+argument_list|(
+literal|"solrcloud.skip.autorecovery"
+argument_list|)
+decl_stmt|;
 comment|// package private for tests
 DECL|field|CONFIGS_ZKNODE
 specifier|static
@@ -658,18 +662,6 @@ DECL|field|overseerElector
 specifier|private
 name|LeaderElector
 name|overseerElector
-decl_stmt|;
-DECL|field|SKIP_AUTO_RECOVERY
-specifier|private
-name|boolean
-name|SKIP_AUTO_RECOVERY
-init|=
-name|Boolean
-operator|.
-name|getBoolean
-argument_list|(
-literal|"solrcloud.skip.autorecovery"
-argument_list|)
 decl_stmt|;
 comment|// this can be null in which case recovery will be inactive
 DECL|field|cc
@@ -2801,6 +2793,22 @@ name|IOException
 throws|,
 name|ExecutionException
 block|{
+if|if
+condition|(
+name|SKIP_AUTO_RECOVERY
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Skipping recovery according to sys prop solrcloud.skip.autorecovery"
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 name|boolean
 name|doRecovery
 init|=
@@ -2831,9 +2839,6 @@ block|}
 if|if
 condition|(
 name|doRecovery
-operator|&&
-operator|!
-name|SKIP_AUTO_RECOVERY
 condition|)
 block|{
 name|log
