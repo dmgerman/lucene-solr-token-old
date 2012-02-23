@@ -410,6 +410,11 @@ expr_stmt|;
 name|createTempDir
 argument_list|()
 expr_stmt|;
+name|ignoreException
+argument_list|(
+literal|"No UpdateLog found - cannot sync"
+argument_list|)
+expr_stmt|;
 name|System
 operator|.
 name|setProperty
@@ -1458,6 +1463,9 @@ name|clearProperty
 argument_list|(
 literal|"solrcloud.skip.autorecovery"
 argument_list|)
+expr_stmt|;
+name|resetExceptionIgnores
+argument_list|()
 expr_stmt|;
 comment|// wait just a bit for any zk client threads to outlast timeout
 name|Thread
