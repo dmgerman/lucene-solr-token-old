@@ -124,6 +124,15 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Assert
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Before
 import|;
 end_import
@@ -211,6 +220,8 @@ argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|11100
@@ -233,6 +244,8 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|11100
@@ -256,6 +269,8 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|314.40338
@@ -321,6 +336,8 @@ argument_list|,
 literal|15
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|dc
@@ -352,6 +369,8 @@ argument_list|,
 name|ctx
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|SpatialRelation
@@ -376,6 +395,8 @@ name|d
 argument_list|)
 expr_stmt|;
 block|}
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"0 dist, horiz line"
@@ -587,6 +608,8 @@ init|=
 operator|-
 literal|90
 operator|+
+name|LuceneTestCase
+operator|.
 name|random
 operator|.
 name|nextDouble
@@ -600,6 +623,8 @@ init|=
 operator|-
 literal|180
 operator|+
+name|LuceneTestCase
+operator|.
 name|random
 operator|.
 name|nextDouble
@@ -624,6 +649,8 @@ name|dist
 init|=
 name|MAXDIST
 operator|*
+name|LuceneTestCase
+operator|.
 name|random
 operator|.
 name|nextDouble
@@ -701,6 +728,8 @@ argument_list|(
 name|horizAxisLat
 argument_list|)
 condition|)
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|r
@@ -757,6 +786,8 @@ operator|-
 literal|90
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|msg
@@ -808,6 +839,8 @@ argument_list|,
 name|tPt
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -819,6 +852,8 @@ argument_list|,
 name|EPS
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -865,6 +900,8 @@ argument_list|()
 operator|==
 literal|90
 condition|)
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|msg
@@ -877,6 +914,8 @@ name|EPS
 argument_list|)
 expr_stmt|;
 else|else
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -919,6 +958,8 @@ operator|==
 operator|-
 literal|90
 condition|)
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|msg
@@ -931,6 +972,8 @@ name|EPS
 argument_list|)
 expr_stmt|;
 else|else
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -1180,6 +1223,8 @@ control|)
 block|{
 name|testDistCalcPointOnBearing
 argument_list|(
+name|LuceneTestCase
+operator|.
 name|random
 operator|.
 name|nextInt
@@ -1241,6 +1286,8 @@ block|{
 name|int
 name|dist
 init|=
+name|LuceneTestCase
+operator|.
 name|random
 operator|.
 name|nextInt
@@ -1294,6 +1341,8 @@ literal|360
 condition|;
 name|angDEG
 operator|+=
+name|LuceneTestCase
+operator|.
 name|random
 operator|.
 name|nextInt
@@ -1311,6 +1360,8 @@ name|ctx
 operator|.
 name|makePoint
 argument_list|(
+name|LuceneTestCase
+operator|.
 name|random
 operator|.
 name|nextInt
@@ -1321,6 +1372,8 @@ argument_list|,
 operator|-
 literal|90
 operator|+
+name|LuceneTestCase
+operator|.
 name|random
 operator|.
 name|nextInt
@@ -1347,6 +1400,8 @@ argument_list|,
 name|ctx
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|c
@@ -1448,6 +1503,8 @@ operator|/
 name|base
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|0
@@ -1566,6 +1623,8 @@ range|:
 name|lats
 control|)
 block|{
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"input "
@@ -1608,6 +1667,8 @@ literal|1000
 condition|;
 name|i
 operator|+=
+name|LuceneTestCase
+operator|.
 name|random
 operator|.
 name|nextInt
@@ -1628,6 +1689,8 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|i
@@ -1749,6 +1812,8 @@ range|:
 name|lons
 control|)
 block|{
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 literal|"input "
@@ -1791,6 +1856,8 @@ literal|1000
 condition|;
 name|i
 operator|+=
+name|LuceneTestCase
+operator|.
 name|random
 operator|.
 name|nextInt
@@ -1811,6 +1878,8 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|i
@@ -1881,6 +1950,8 @@ operator|.
 name|earthRadius
 argument_list|()
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|DistanceUtils

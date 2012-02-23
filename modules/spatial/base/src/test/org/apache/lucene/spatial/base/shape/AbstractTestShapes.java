@@ -71,6 +71,15 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Assert
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Before
 import|;
 end_import
@@ -259,6 +268,8 @@ argument_list|()
 argument_list|)
 condition|)
 comment|// they are the same shape type
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -271,6 +282,8 @@ expr_stmt|;
 else|else
 block|{
 comment|//they are effectively points or lines that are the same location
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|msg
@@ -282,6 +295,8 @@ name|hasArea
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|msg
@@ -360,6 +375,8 @@ condition|)
 empty_stmt|;
 comment|//== a point at the pole
 else|else
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -373,6 +390,8 @@ block|}
 block|}
 else|else
 block|{
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -443,6 +462,8 @@ operator|/
 name|base
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -514,6 +535,8 @@ operator|+
 name|height
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|r
@@ -521,6 +544,8 @@ argument_list|,
 name|r2
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|r
@@ -542,6 +567,8 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -560,6 +587,8 @@ name|hasArea
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -718,6 +747,8 @@ name|getMinY
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -741,6 +772,8 @@ name|dUR
 operator|!=
 literal|0
 condition|)
+name|Assert
+operator|.
 name|assertTrue
 argument_list|(
 name|dUR
@@ -1174,6 +1207,8 @@ argument_list|,
 name|dist
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|c
@@ -1181,6 +1216,8 @@ argument_list|,
 name|c2
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|c
@@ -1194,6 +1231,8 @@ name|hashCode
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -1217,6 +1256,8 @@ operator|.
 name|getBoundingBox
 argument_list|()
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|msg
@@ -1540,6 +1581,8 @@ name|p
 operator|=
 name|randomPointWithin
 argument_list|(
+name|LuceneTestCase
+operator|.
 name|random
 argument_list|,
 name|r
@@ -1547,6 +1590,8 @@ argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|CONTAINS
@@ -1580,6 +1625,8 @@ name|p
 operator|=
 name|randomPointWithin
 argument_list|(
+name|LuceneTestCase
+operator|.
 name|random
 argument_list|,
 name|c
@@ -1587,6 +1634,8 @@ argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|CONTAINS
@@ -1612,6 +1661,8 @@ name|p
 operator|=
 name|randomPointWithin
 argument_list|(
+name|LuceneTestCase
+operator|.
 name|random
 argument_list|,
 name|r
@@ -1619,6 +1670,8 @@ argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|DISJOINT
@@ -1635,6 +1688,8 @@ argument_list|)
 expr_stmt|;
 break|break;
 default|default:
+name|Assert
+operator|.
 name|fail
 argument_list|(
 literal|""
@@ -1664,6 +1719,8 @@ comment|//I tested this.
 name|double
 name|r
 init|=
+name|LuceneTestCase
+operator|.
 name|random
 operator|.
 name|nextDouble
@@ -1803,6 +1860,8 @@ argument_list|,
 name|ctx
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|CONTAINS
@@ -1884,6 +1943,8 @@ argument_list|,
 name|y
 argument_list|)
 decl_stmt|;
+name|Assert
+operator|.
 name|assertEquals
 argument_list|(
 name|CONTAINS
