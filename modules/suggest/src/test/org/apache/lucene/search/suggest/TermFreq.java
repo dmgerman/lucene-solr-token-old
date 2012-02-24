@@ -45,7 +45,7 @@ decl_stmt|;
 DECL|field|v
 specifier|public
 specifier|final
-name|float
+name|long
 name|v
 decl_stmt|;
 DECL|method|TermFreq
@@ -55,7 +55,7 @@ parameter_list|(
 name|String
 name|term
 parameter_list|,
-name|float
+name|long
 name|v
 parameter_list|)
 block|{
@@ -78,7 +78,7 @@ parameter_list|(
 name|BytesRef
 name|term
 parameter_list|,
-name|float
+name|long
 name|v
 parameter_list|)
 block|{

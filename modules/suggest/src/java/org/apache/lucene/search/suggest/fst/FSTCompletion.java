@@ -650,7 +650,7 @@ name|Completion
 argument_list|>
 name|lookup
 parameter_list|(
-name|String
+name|CharSequence
 name|key
 parameter_list|,
 name|int
@@ -1446,7 +1446,7 @@ specifier|public
 name|Integer
 name|getBucket
 parameter_list|(
-name|String
+name|CharSequence
 name|key
 parameter_list|)
 block|{
