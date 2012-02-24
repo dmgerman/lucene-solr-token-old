@@ -1079,6 +1079,18 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|String
+name|zkDataDir
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"zkServerDataDir"
+argument_list|,
+name|solrHome
+argument_list|)
+decl_stmt|;
 name|zkServer
 operator|=
 operator|new
@@ -1088,7 +1100,7 @@ name|zkRun
 argument_list|,
 name|zookeeperHost
 argument_list|,
-name|solrHome
+name|zkDataDir
 argument_list|,
 name|hostPort
 argument_list|)
