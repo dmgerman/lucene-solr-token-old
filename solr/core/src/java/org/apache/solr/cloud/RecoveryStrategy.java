@@ -1362,11 +1362,8 @@ block|}
 if|if
 condition|(
 name|oldIdx
-operator|<
-name|startingRecentVersions
-operator|.
-name|size
-argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 name|log
@@ -1375,17 +1372,11 @@ name|info
 argument_list|(
 literal|"####### Found new versions added after startup: num="
 operator|+
-operator|(
-name|startingRecentVersions
-operator|.
-name|size
-argument_list|()
-operator|-
 name|oldIdx
-operator|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: only log at debug level in the future (or move to oldIdx> 0 block)
 name|log
 operator|.
 name|info
