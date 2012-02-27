@@ -173,6 +173,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|request
+operator|.
+name|SolrRequestInfo
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|response
 operator|.
 name|SolrQueryResponse
@@ -501,6 +514,38 @@ specifier|public
 name|int
 name|errors
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"RecoveryInfo{adds="
+operator|+
+name|adds
+operator|+
+literal|" deletes="
+operator|+
+name|deletes
+operator|+
+literal|" deleteByQuery="
+operator|+
+name|deleteByQuery
+operator|+
+literal|" errors="
+operator|+
+name|errors
+operator|+
+literal|" positionOfStart="
+operator|+
+name|positionOfStart
+operator|+
+literal|"}"
+return|;
+block|}
 block|}
 DECL|field|TLOG_NAME
 specifier|public
@@ -4102,6 +4147,21 @@ specifier|private
 name|RecoveryInfo
 name|recoveryInfo
 decl_stmt|;
+DECL|field|loglog
+specifier|public
+specifier|static
+name|Logger
+name|loglog
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|LogReplayer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// TODO: do we let the log replayer run across core reloads?
 DECL|class|LogReplayer
 class|class
@@ -4130,6 +4190,15 @@ init|=
 literal|false
 decl_stmt|;
 comment|// state where we lock out other updates and finish those updates that snuck in before we locked
+DECL|field|debug
+name|boolean
+name|debug
+init|=
+name|loglog
+operator|.
+name|isDebugEnabled
+argument_list|()
+decl_stmt|;
 DECL|method|LogReplayer
 specifier|public
 name|LogReplayer
@@ -4162,42 +4231,6 @@ name|void
 name|run
 parameter_list|()
 block|{
-try|try
-block|{
-name|uhandler
-operator|.
-name|core
-operator|.
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Starting log replay "
-operator|+
-name|translog
-operator|+
-literal|" active="
-operator|+
-name|activeLog
-operator|+
-literal|"starting pos="
-operator|+
-name|recoveryInfo
-operator|.
-name|positionOfStart
-argument_list|)
-expr_stmt|;
-name|tlogReader
-operator|=
-name|translog
-operator|.
-name|getReader
-argument_list|(
-name|recoveryInfo
-operator|.
-name|positionOfStart
-argument_list|)
-expr_stmt|;
 name|ModifiableSolrParams
 name|params
 init|=
@@ -4236,6 +4269,52 @@ operator|new
 name|SolrQueryResponse
 argument_list|()
 decl_stmt|;
+name|SolrRequestInfo
+operator|.
+name|setRequestInfo
+argument_list|(
+operator|new
+name|SolrRequestInfo
+argument_list|(
+name|req
+argument_list|,
+name|rsp
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// setting request info will help logging
+try|try
+block|{
+name|loglog
+operator|.
+name|warn
+argument_list|(
+literal|"Starting log replay "
+operator|+
+name|translog
+operator|+
+literal|" active="
+operator|+
+name|activeLog
+operator|+
+literal|" starting pos="
+operator|+
+name|recoveryInfo
+operator|.
+name|positionOfStart
+argument_list|)
+expr_stmt|;
+name|tlogReader
+operator|=
+name|translog
+operator|.
+name|getReader
+argument_list|(
+name|recoveryInfo
+operator|.
+name|positionOfStart
+argument_list|)
+expr_stmt|;
 comment|// NOTE: we don't currently handle a core reload during recovery.  This would cause the core
 comment|// to change underneath us.
 comment|// TODO: use the standard request factory?  We won't get any custom configuration instantiating this way.
@@ -4551,6 +4630,19 @@ operator|.
 name|IGNORE_AUTOCOMMIT
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"add "
+operator|+
+name|cmd
+argument_list|)
+expr_stmt|;
 name|proc
 operator|.
 name|processAdd
@@ -4626,6 +4718,19 @@ operator|.
 name|IGNORE_AUTOCOMMIT
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"delete "
+operator|+
+name|cmd
+argument_list|)
+expr_stmt|;
 name|proc
 operator|.
 name|processDelete
@@ -4694,6 +4799,19 @@ operator|.
 name|IGNORE_AUTOCOMMIT
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"deleteByQuery "
+operator|+
+name|cmd
+argument_list|)
+expr_stmt|;
 name|proc
 operator|.
 name|processDelete
@@ -4742,11 +4860,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|log
+name|loglog
 operator|.
 name|error
 argument_list|(
-literal|"Exception replaying log"
+literal|"REPLAY_ERR: Exception replaying log"
 argument_list|,
 name|rsp
 operator|.
@@ -4773,11 +4891,11 @@ operator|.
 name|errors
 operator|++
 expr_stmt|;
-name|log
+name|loglog
 operator|.
 name|warn
 argument_list|(
-literal|"IOException reading log"
+literal|"REYPLAY_ERR: IOException reading log"
 argument_list|,
 name|ex
 argument_list|)
@@ -4795,11 +4913,11 @@ operator|.
 name|errors
 operator|++
 expr_stmt|;
-name|log
+name|loglog
 operator|.
 name|warn
 argument_list|(
-literal|"Unexpected log entry or corrupt log.  Entry="
+literal|"REPLAY_ERR: Unexpected log entry or corrupt log.  Entry="
 operator|+
 name|o
 argument_list|,
@@ -4819,11 +4937,11 @@ operator|.
 name|errors
 operator|++
 expr_stmt|;
-name|log
+name|loglog
 operator|.
 name|warn
 argument_list|(
-literal|"Exception replaying log"
+literal|"REPLAY_ERR: Exception replaying log"
 argument_list|,
 name|ex
 argument_list|)
@@ -4872,6 +4990,19 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|debug
+condition|)
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"commit "
+operator|+
+name|cmd
+argument_list|)
+expr_stmt|;
 name|uhandler
 operator|.
 name|commit
@@ -4892,7 +5023,7 @@ operator|.
 name|errors
 operator|++
 expr_stmt|;
-name|log
+name|loglog
 operator|.
 name|error
 argument_list|(
@@ -4937,7 +5068,7 @@ operator|.
 name|errors
 operator|++
 expr_stmt|;
-name|log
+name|loglog
 operator|.
 name|error
 argument_list|(
@@ -5000,13 +5131,17 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|log
+name|loglog
 operator|.
 name|warn
 argument_list|(
 literal|"Ending log replay "
 operator|+
 name|tlogReader
+operator|+
+literal|" recoveryInfo="
+operator|+
+name|recoveryInfo
 argument_list|)
 expr_stmt|;
 if|if
@@ -5018,6 +5153,11 @@ condition|)
 name|testing_logReplayFinishHook
 operator|.
 name|run
+argument_list|()
+expr_stmt|;
+name|SolrRequestInfo
+operator|.
+name|clearRequestInfo
 argument_list|()
 expr_stmt|;
 block|}
