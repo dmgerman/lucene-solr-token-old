@@ -351,9 +351,6 @@ name|runLeaderProcess
 parameter_list|(
 name|boolean
 name|weAreReplacement
-parameter_list|,
-name|SolrCore
-name|core
 parameter_list|)
 throws|throws
 name|KeeperException
@@ -487,9 +484,6 @@ name|runLeaderProcess
 parameter_list|(
 name|boolean
 name|weAreReplacement
-parameter_list|,
-name|SolrCore
-name|core
 parameter_list|)
 throws|throws
 name|KeeperException
@@ -675,9 +669,6 @@ name|runLeaderProcess
 parameter_list|(
 name|boolean
 name|weAreReplacement
-parameter_list|,
-name|SolrCore
-name|startupCore
 parameter_list|)
 throws|throws
 name|KeeperException
@@ -714,13 +705,6 @@ try|try
 block|{
 comment|// the first time we are run, we will get a startupCore - after
 comment|// we will get null and must use cc.getCore
-if|if
-condition|(
-name|startupCore
-operator|==
-literal|null
-condition|)
-block|{
 name|core
 operator|=
 name|cc
@@ -730,14 +714,6 @@ argument_list|(
 name|coreName
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|core
-operator|=
-name|startupCore
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|core
@@ -891,10 +867,6 @@ condition|(
 name|core
 operator|!=
 literal|null
-operator|&&
-name|startupCore
-operator|==
-literal|null
 condition|)
 block|{
 name|core
@@ -910,8 +882,6 @@ operator|.
 name|runLeaderProcess
 argument_list|(
 name|weAreReplacement
-argument_list|,
-name|startupCore
 argument_list|)
 expr_stmt|;
 block|}
@@ -976,11 +946,8 @@ operator|.
 name|joinElection
 argument_list|(
 name|this
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
-comment|// don't pass core, pass null
 block|}
 DECL|method|shouldIBeLeader
 specifier|private
@@ -1413,9 +1380,6 @@ name|runLeaderProcess
 parameter_list|(
 name|boolean
 name|weAreReplacement
-parameter_list|,
-name|SolrCore
-name|firstCore
 parameter_list|)
 throws|throws
 name|KeeperException

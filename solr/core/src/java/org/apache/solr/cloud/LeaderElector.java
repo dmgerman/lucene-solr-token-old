@@ -326,7 +326,7 @@ operator|=
 name|zkClient
 expr_stmt|;
 block|}
-comment|/**    * Check if the candidate with the given n_* sequence number is the leader.    * If it is, set the leaderId on the leader zk node. If it is not, start    * watching the candidate that is in line before this one - if it goes down, check    * if this candidate is the leader again.    * @param leaderSeqPath     *     * @param seq    * @param context     * @param replacement has someone else been the leader already?    * @param core     * @throws KeeperException    * @throws InterruptedException    * @throws IOException     * @throws UnsupportedEncodingException    */
+comment|/**    * Check if the candidate with the given n_* sequence number is the leader.    * If it is, set the leaderId on the leader zk node. If it is not, start    * watching the candidate that is in line before this one - if it goes down, check    * if this candidate is the leader again.    * @param leaderSeqPath     *     * @param seq    * @param context     * @param replacement has someone else been the leader already?    * @throws KeeperException    * @throws InterruptedException    * @throws IOException     * @throws UnsupportedEncodingException    */
 DECL|method|checkIfIamLeader
 specifier|private
 name|void
@@ -342,9 +342,6 @@ name|context
 parameter_list|,
 name|boolean
 name|replacement
-parameter_list|,
-name|SolrCore
-name|core
 parameter_list|)
 throws|throws
 name|KeeperException
@@ -414,8 +411,6 @@ argument_list|(
 name|context
 argument_list|,
 name|replacement
-argument_list|,
-name|core
 argument_list|)
 expr_stmt|;
 block|}
@@ -526,8 +521,6 @@ argument_list|,
 name|context
 argument_list|,
 literal|true
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -624,8 +617,6 @@ argument_list|,
 name|context
 argument_list|,
 literal|true
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -643,9 +634,6 @@ name|context
 parameter_list|,
 name|boolean
 name|weAreReplacement
-parameter_list|,
-name|SolrCore
-name|core
 parameter_list|)
 throws|throws
 name|KeeperException
@@ -659,8 +647,6 @@ operator|.
 name|runLeaderProcess
 argument_list|(
 name|weAreReplacement
-argument_list|,
-name|core
 argument_list|)
 expr_stmt|;
 block|}
@@ -849,9 +835,6 @@ name|joinElection
 parameter_list|(
 name|ElectionContext
 name|context
-parameter_list|,
-name|SolrCore
-name|core
 parameter_list|)
 throws|throws
 name|KeeperException
@@ -1086,8 +1069,6 @@ argument_list|,
 name|context
 argument_list|,
 literal|false
-argument_list|,
-name|core
 argument_list|)
 expr_stmt|;
 return|return
