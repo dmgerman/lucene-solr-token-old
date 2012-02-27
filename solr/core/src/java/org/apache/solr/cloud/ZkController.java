@@ -4230,6 +4230,31 @@ name|defaultConfigName
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|Boolean
+operator|.
+name|getBoolean
+argument_list|(
+literal|"bootstrap_conf"
+argument_list|)
+condition|)
+block|{
+comment|// the conf name should should be the collection name of this core
+name|collectionProps
+operator|.
+name|put
+argument_list|(
+name|CONFIGNAME_PROP
+argument_list|,
+name|cd
+operator|.
+name|getCollectionName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 else|else
 block|{
 name|getConfName
@@ -4451,13 +4476,19 @@ block|{
 break|break;
 block|}
 block|}
-comment|// if there is only one conf, use that
 name|List
 argument_list|<
 name|String
 argument_list|>
 name|configNames
 init|=
+literal|null
+decl_stmt|;
+comment|// if there is only one conf, use that
+try|try
+block|{
+name|configNames
+operator|=
 name|zkClient
 operator|.
 name|getChildren
@@ -4468,9 +4499,22 @@ literal|null
 argument_list|,
 literal|true
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoNodeException
+name|e
+parameter_list|)
+block|{
+comment|// just keep trying
+block|}
 if|if
 condition|(
+name|configNames
+operator|!=
+literal|null
+operator|&&
 name|configNames
 operator|.
 name|size
