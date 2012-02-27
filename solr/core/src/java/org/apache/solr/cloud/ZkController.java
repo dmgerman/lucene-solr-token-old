@@ -1681,6 +1681,16 @@ return|return
 name|hostName
 return|;
 block|}
+DECL|method|getHostPort
+specifier|public
+name|String
+name|getHostPort
+parameter_list|()
+block|{
+return|return
+name|localHostPort
+return|;
+block|}
 DECL|method|getZkClient
 specifier|public
 name|SolrZkClient
