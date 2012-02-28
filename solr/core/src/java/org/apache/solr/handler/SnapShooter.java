@@ -896,6 +896,7 @@ block|{
 if|if
 condition|(
 name|i
+operator|++
 operator|>
 name|numberToKeep
 operator|-
