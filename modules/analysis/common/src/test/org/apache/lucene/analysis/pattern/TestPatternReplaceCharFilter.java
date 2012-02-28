@@ -1825,6 +1825,14 @@ return|;
 block|}
 block|}
 decl_stmt|;
+name|long
+name|s
+init|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
@@ -1839,6 +1847,28 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// only ascii
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+operator|(
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|s
+operator|)
+operator|/
+literal|1000.0
+operator|+
+literal|"> "
+operator|+
+name|p
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|randomPattern
