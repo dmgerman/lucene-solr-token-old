@@ -5407,7 +5407,7 @@ name|ord
 init|=
 name|asSortedSource
 operator|.
-name|getByValue
+name|getOrdByValue
 argument_list|(
 name|expected
 argument_list|,
