@@ -4032,8 +4032,6 @@ name|ZkStateReader
 operator|.
 name|BASE_URL_PROP
 argument_list|)
-operator|+
-literal|"/admin/cores"
 decl_stmt|;
 name|ShardRequest
 name|sreq
@@ -4042,6 +4040,15 @@ operator|new
 name|ShardRequest
 argument_list|()
 decl_stmt|;
+name|newParams
+operator|.
+name|set
+argument_list|(
+literal|"qt"
+argument_list|,
+literal|"/admin/cores"
+argument_list|)
+expr_stmt|;
 name|sreq
 operator|.
 name|purpose
@@ -4120,6 +4127,13 @@ operator|.
 name|takeCompletedOrError
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|srsp
+operator|!=
+literal|null
+condition|)
+block|{
 name|Throwable
 name|e
 init|=
@@ -4149,6 +4163,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 do|while
