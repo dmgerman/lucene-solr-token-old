@@ -6625,12 +6625,6 @@ argument_list|()
 decl_stmt|;
 comment|// for back compat, we set these now just in case other code
 comment|// are expecting them during handleRequest
-if|if
-condition|(
-operator|!
-name|isTestLoggingFormat
-condition|)
-block|{
 name|toLog
 operator|.
 name|add
@@ -6648,15 +6642,10 @@ literal|"webapp"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|toLog
 operator|.
 name|add
 argument_list|(
-name|isTestLoggingFormat
-condition|?
-literal|null
-else|:
 literal|"path"
 argument_list|,
 name|req
@@ -6674,10 +6663,6 @@ name|toLog
 operator|.
 name|add
 argument_list|(
-name|isTestLoggingFormat
-condition|?
-literal|null
-else|:
 literal|"params"
 argument_list|,
 literal|"{"
@@ -6728,7 +6713,9 @@ name|sb
 init|=
 operator|new
 name|StringBuilder
-argument_list|()
+argument_list|(
+name|logid
+argument_list|)
 decl_stmt|;
 for|for
 control|(
