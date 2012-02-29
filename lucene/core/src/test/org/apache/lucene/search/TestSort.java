@@ -10908,6 +10908,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeTrue
+argument_list|(
+literal|"cannot work with Lucene3x codec"
+argument_list|,
+name|defaultCodecSupportsDocValues
+argument_list|()
+argument_list|)
+expr_stmt|;
 specifier|final
 name|int
 name|NUM_DOCS
