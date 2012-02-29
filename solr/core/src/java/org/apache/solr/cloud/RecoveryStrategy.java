@@ -1273,7 +1273,7 @@ init|=
 literal|false
 decl_stmt|;
 name|boolean
-name|succesfulRecovery
+name|successfulRecovery
 init|=
 literal|false
 decl_stmt|;
@@ -1502,7 +1502,7 @@ decl_stmt|;
 while|while
 condition|(
 operator|!
-name|succesfulRecovery
+name|successfulRecovery
 operator|&&
 operator|!
 name|close
@@ -1730,11 +1730,11 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Sync Recovery was succesful - registering as Active"
+literal|"Sync Recovery was successful - registering as Active"
 argument_list|)
 expr_stmt|;
 comment|// System.out
-comment|// .println("Sync Recovery was succesful - registering as Active "
+comment|// .println("Sync Recovery was successful - registering as Active "
 comment|// + zkController.getNodeName());
 comment|// solrcloud_debug
 comment|// try {
@@ -1768,7 +1768,7 @@ argument_list|,
 name|coreName
 argument_list|)
 expr_stmt|;
-name|succesfulRecovery
+name|successfulRecovery
 operator|=
 literal|true
 expr_stmt|;
@@ -1832,7 +1832,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Recovery was succesful - registering as Active"
+literal|"Recovery was successful - registering as Active"
 argument_list|)
 expr_stmt|;
 comment|// if there are pending recovery requests, don't advert as active
@@ -1856,7 +1856,7 @@ name|close
 operator|=
 literal|true
 expr_stmt|;
-name|succesfulRecovery
+name|successfulRecovery
 operator|=
 literal|true
 expr_stmt|;
@@ -1981,7 +1981,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|succesfulRecovery
+name|successfulRecovery
 condition|)
 block|{
 comment|// lets pause for a moment and we need to try again...
