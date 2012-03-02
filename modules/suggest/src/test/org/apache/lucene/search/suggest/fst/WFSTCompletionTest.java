@@ -893,9 +893,6 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-operator|(
-name|float
-operator|)
 name|e
 operator|.
 name|getValue

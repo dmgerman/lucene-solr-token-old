@@ -910,7 +910,7 @@ argument_list|)
 expr_stmt|;
 comment|// All the weights were constant, so all returned buckets must be constant, whatever they
 comment|// are.
-name|Float
+name|Long
 name|previous
 init|=
 literal|null
@@ -923,11 +923,12 @@ range|:
 name|keys
 control|)
 block|{
-name|Float
+name|Long
 name|current
 init|=
 operator|(
-name|Float
+operator|(
+name|Number
 operator|)
 name|lookup
 operator|.
@@ -944,6 +945,10 @@ argument_list|,
 name|random
 argument_list|)
 argument_list|)
+operator|)
+operator|.
+name|longValue
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1011,7 +1016,7 @@ range|:
 name|input
 control|)
 block|{
-name|assertTrue
+name|assertNotNull
 argument_list|(
 literal|"Not found: "
 operator|+
@@ -1037,8 +1042,6 @@ argument_list|,
 name|random
 argument_list|)
 argument_list|)
-operator|!=
-literal|null
 argument_list|)
 expr_stmt|;
 name|assertEquals
