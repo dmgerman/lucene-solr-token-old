@@ -7548,11 +7548,8 @@ literal|"LuceneTestCase"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ex
-operator|.
-name|prestartAllCoreThreads
-argument_list|()
-expr_stmt|;
+comment|// uncomment to intensify LUCENE-3840
+comment|// ex.prestartAllCoreThreads();
 block|}
 if|if
 condition|(
