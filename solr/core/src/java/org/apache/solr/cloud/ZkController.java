@@ -4608,7 +4608,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Could not find collection configName - pausing for 2 seconds and trying again - try: "
+literal|"Could not find collection configName - pausing for 3 seconds and trying again - try: "
 operator|+
 name|retry
 argument_list|)
@@ -4617,7 +4617,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|2000
+literal|3000
 argument_list|)
 expr_stmt|;
 block|}
@@ -4625,7 +4625,7 @@ if|if
 condition|(
 name|retry
 operator|==
-literal|6
+literal|10
 condition|)
 block|{
 name|log
