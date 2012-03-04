@@ -1241,6 +1241,15 @@ name|rsp
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Starting recovery process. recoveringAfterStartup="
+operator|+
+name|recoveringAfterStartup
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|doRecovery
@@ -1461,17 +1470,6 @@ operator|+
 name|oldIdx
 argument_list|)
 expr_stmt|;
-block|}
-comment|// TODO: only log at debug level in the future (or move to oldIdx> 0 block)
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"###### startupVersions="
-operator|+
-name|reallyStartingVersions
-argument_list|)
-expr_stmt|;
 name|log
 operator|.
 name|info
@@ -1479,6 +1477,16 @@ argument_list|(
 literal|"###### currentVersions="
 operator|+
 name|startingRecentVersions
+argument_list|)
+expr_stmt|;
+block|}
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"###### startupVersions="
+operator|+
+name|reallyStartingVersions
 argument_list|)
 expr_stmt|;
 block|}
@@ -1895,12 +1903,10 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|SolrException
+name|log
 operator|.
-name|log
+name|error
 argument_list|(
-name|log
-argument_list|,
 literal|"Error while trying to recover"
 argument_list|,
 name|t
@@ -1950,13 +1956,11 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|SolrException
+name|log
 operator|.
-name|log
+name|error
 argument_list|(
-name|log
-argument_list|,
-literal|"Error while trying to recover"
+literal|"Error while trying to recover... closing core."
 argument_list|,
 name|t
 argument_list|)
@@ -1964,19 +1968,11 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|core
-operator|!=
-literal|null
-condition|)
-block|{
 name|core
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -1989,12 +1985,10 @@ comment|// TODO: we don't want to retry for some problems?
 comment|// Or do a fall off retry...
 try|try
 block|{
-name|SolrException
+name|log
 operator|.
-name|log
+name|error
 argument_list|(
-name|log
-argument_list|,
 literal|"Recovery failed - trying again..."
 argument_list|)
 expr_stmt|;
@@ -2017,6 +2011,13 @@ condition|)
 block|{                            }
 else|else
 block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Recovery failed - max retries exceeded."
+argument_list|)
+expr_stmt|;
 comment|// TODO: for now, give up after X tries - should we do more?
 name|core
 operator|=
@@ -2048,19 +2049,11 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|core
-operator|!=
-literal|null
-condition|)
-block|{
 name|core
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 break|break;
@@ -2132,6 +2125,7 @@ name|INTERRUPTED
 expr_stmt|;
 block|}
 block|}
+block|}
 name|log
 operator|.
 name|info
@@ -2139,7 +2133,6 @@ argument_list|(
 literal|"Finished recovery process"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|replay
 specifier|private
