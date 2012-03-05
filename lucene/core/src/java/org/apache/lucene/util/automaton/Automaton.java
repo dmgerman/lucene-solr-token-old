@@ -1315,7 +1315,11 @@ comment|// map<state, set<state>>
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
+literal|"rawtypes"
+block|,
 literal|"unchecked"
+block|}
 argument_list|)
 name|Set
 argument_list|<

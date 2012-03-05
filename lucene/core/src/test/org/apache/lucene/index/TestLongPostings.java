@@ -161,6 +161,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|DocIdSetIterator
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|Directory
@@ -915,7 +928,7 @@ while|while
 condition|(
 name|docID
 operator|<
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -1042,7 +1055,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -1282,7 +1295,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -1988,7 +2001,7 @@ while|while
 condition|(
 name|docID
 operator|<
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -2115,7 +2128,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -2314,7 +2327,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)

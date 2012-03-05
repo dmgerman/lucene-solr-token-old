@@ -216,6 +216,17 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|BaseDistributedSearchTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|SolrTestCaseJ4
 import|;
 end_import
@@ -2278,7 +2289,7 @@ comment|//compare results
 name|String
 name|cmp
 init|=
-name|TestDistributedSearch
+name|BaseDistributedSearchTestCase
 operator|.
 name|compare
 argument_list|(
@@ -2624,7 +2635,7 @@ comment|//compare results
 name|String
 name|cmp
 init|=
-name|TestDistributedSearch
+name|BaseDistributedSearchTestCase
 operator|.
 name|compare
 argument_list|(
@@ -3091,7 +3102,7 @@ comment|//compare results
 name|String
 name|cmp
 init|=
-name|TestDistributedSearch
+name|BaseDistributedSearchTestCase
 operator|.
 name|compare
 argument_list|(
@@ -3465,7 +3476,7 @@ comment|//compare results
 name|String
 name|cmp
 init|=
-name|TestDistributedSearch
+name|BaseDistributedSearchTestCase
 operator|.
 name|compare
 argument_list|(
@@ -3770,7 +3781,7 @@ comment|//compare results
 name|String
 name|cmp
 init|=
-name|TestDistributedSearch
+name|BaseDistributedSearchTestCase
 operator|.
 name|compare
 argument_list|(
@@ -4158,7 +4169,7 @@ comment|//compare results
 name|String
 name|cmp
 init|=
-name|TestDistributedSearch
+name|BaseDistributedSearchTestCase
 operator|.
 name|compare
 argument_list|(

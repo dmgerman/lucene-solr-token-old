@@ -222,7 +222,7 @@ if|if
 condition|(
 name|doc
 operator|==
-name|DocsAndPositionsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -283,7 +283,7 @@ if|if
 condition|(
 name|doc
 operator|==
-name|DocsAndPositionsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)

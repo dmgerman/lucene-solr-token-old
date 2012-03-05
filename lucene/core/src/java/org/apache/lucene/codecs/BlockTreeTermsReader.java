@@ -2642,7 +2642,11 @@ DECL|field|arcs
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
+literal|"rawtypes"
+block|,
 literal|"unchecked"
+block|}
 argument_list|)
 specifier|private
 name|FST
@@ -4190,7 +4194,11 @@ block|{
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
+literal|"rawtypes"
+block|,
 literal|"unchecked"
+block|}
 argument_list|)
 specifier|final
 name|FST
@@ -5990,7 +5998,11 @@ DECL|field|arcs
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
+literal|"rawtypes"
+block|,
 literal|"unchecked"
+block|}
 argument_list|)
 specifier|private
 name|FST
@@ -6726,7 +6738,11 @@ block|{
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
+literal|"rawtypes"
+block|,
 literal|"unchecked"
+block|}
 argument_list|)
 specifier|final
 name|FST

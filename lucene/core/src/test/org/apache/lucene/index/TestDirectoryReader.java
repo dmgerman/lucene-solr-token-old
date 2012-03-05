@@ -850,7 +850,7 @@ operator|.
 name|nextDoc
 argument_list|()
 operator|!=
-name|td
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)

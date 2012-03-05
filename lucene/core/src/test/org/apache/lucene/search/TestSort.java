@@ -5837,6 +5837,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|Integer
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -5905,6 +5908,9 @@ name|Override
 DECL|method|newComparator
 specifier|public
 name|FieldComparator
+argument_list|<
+name|Integer
+argument_list|>
 name|newComparator
 parameter_list|(
 name|String

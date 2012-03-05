@@ -134,6 +134,19 @@ name|apache
 operator|.
 name|velocity
 operator|.
+name|runtime
+operator|.
+name|RuntimeConstants
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|velocity
+operator|.
 name|tools
 operator|.
 name|generic
@@ -659,7 +672,7 @@ name|engine
 operator|.
 name|setProperty
 argument_list|(
-name|VelocityEngine
+name|RuntimeConstants
 operator|.
 name|FILE_RESOURCE_LOADER_PATH
 argument_list|,
@@ -714,7 +727,7 @@ name|engine
 operator|.
 name|setProperty
 argument_list|(
-name|VelocityEngine
+name|RuntimeConstants
 operator|.
 name|RESOURCE_LOADER
 argument_list|,

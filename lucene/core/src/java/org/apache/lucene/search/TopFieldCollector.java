@@ -94,6 +94,9 @@ name|TopFieldCollector
 block|{
 DECL|field|comparator
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 name|comparator
 decl_stmt|;
 DECL|field|reverseMul
@@ -1472,6 +1475,9 @@ block|{
 DECL|field|comparators
 specifier|final
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|comparators
 decl_stmt|;

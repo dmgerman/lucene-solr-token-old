@@ -2129,7 +2129,7 @@ name|this
 operator|.
 name|latContext
 operator|=
-name|latSource
+name|ValueSource
 operator|.
 name|newContext
 argument_list|(
@@ -2140,7 +2140,7 @@ name|this
 operator|.
 name|lonContext
 operator|=
-name|lonSource
+name|ValueSource
 operator|.
 name|newContext
 argument_list|(

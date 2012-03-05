@@ -4305,7 +4305,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -4455,7 +4455,7 @@ if|if
 condition|(
 name|nextDocID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -4563,7 +4563,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -4610,7 +4610,7 @@ if|if
 condition|(
 name|nextDocID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -5261,7 +5261,7 @@ operator|.
 name|nextDoc
 argument_list|()
 operator|!=
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)

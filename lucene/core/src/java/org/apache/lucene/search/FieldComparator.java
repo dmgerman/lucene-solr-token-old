@@ -308,6 +308,9 @@ DECL|method|setNextReader
 specifier|public
 specifier|abstract
 name|FieldComparator
+argument_list|<
+name|T
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -479,6 +482,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|T
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -756,6 +762,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|Byte
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -1123,6 +1132,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|Double
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -1421,6 +1433,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|Double
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -1807,6 +1822,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|Float
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -2112,6 +2130,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|Short
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -2488,6 +2509,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|Integer
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -2790,6 +2814,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|Long
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -3176,6 +3203,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|Long
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -3432,6 +3462,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|Float
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -3683,6 +3716,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|Integer
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -4031,6 +4067,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|BytesRef
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -5078,6 +5117,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|BytesRef
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -5122,6 +5164,9 @@ name|getDocToOrd
 argument_list|()
 decl_stmt|;
 name|FieldComparator
+argument_list|<
+name|BytesRef
+argument_list|>
 name|perSegComp
 init|=
 literal|null
@@ -5724,6 +5769,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|BytesRef
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -6810,6 +6858,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|BytesRef
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -6930,6 +6981,9 @@ name|getComparator
 argument_list|()
 expr_stmt|;
 name|FieldComparator
+argument_list|<
+name|BytesRef
+argument_list|>
 name|perSegComp
 init|=
 literal|null
@@ -7543,6 +7597,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|BytesRef
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
@@ -7871,6 +7928,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|BytesRef
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
