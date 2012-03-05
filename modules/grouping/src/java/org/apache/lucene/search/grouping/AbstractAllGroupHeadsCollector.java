@@ -77,6 +77,15 @@ begin_comment
 comment|/**  * This collector specializes in collecting the most relevant document (group head) for each group that match the query.  *  * @lucene.experimental  */
 end_comment
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
+argument_list|)
 DECL|class|AbstractAllGroupHeadsCollector
 specifier|public
 specifier|abstract

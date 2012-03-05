@@ -85,6 +85,9 @@ DECL|field|comparators
 specifier|private
 specifier|final
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|comparators
 decl_stmt|;
@@ -532,6 +535,9 @@ block|{
 for|for
 control|(
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 name|comparator
 range|:
 name|comparators
@@ -735,6 +741,9 @@ expr_stmt|;
 for|for
 control|(
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 name|fc
 range|:
 name|comparators
@@ -840,6 +849,9 @@ expr_stmt|;
 for|for
 control|(
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 name|fc
 range|:
 name|comparators
@@ -897,6 +909,9 @@ decl_stmt|;
 for|for
 control|(
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 name|fc
 range|:
 name|comparators
@@ -927,6 +942,9 @@ control|)
 block|{
 specifier|final
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 name|fc
 init|=
 name|comparators
@@ -1152,6 +1170,9 @@ block|{
 for|for
 control|(
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 name|fc
 range|:
 name|comparators
@@ -1214,6 +1235,9 @@ operator|++
 control|)
 block|{
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 name|fc
 init|=
 name|comparators
@@ -1311,6 +1335,9 @@ assert|;
 for|for
 control|(
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 name|fc
 range|:
 name|comparators
