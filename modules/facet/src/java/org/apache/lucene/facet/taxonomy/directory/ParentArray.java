@@ -84,6 +84,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|DocIdSetIterator
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|Bits
@@ -351,7 +364,7 @@ argument_list|(
 name|first
 argument_list|)
 operator|==
-name|DocsAndPositionsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 operator|)
@@ -440,7 +453,7 @@ operator|.
 name|nextDoc
 argument_list|()
 operator|==
-name|DocsAndPositionsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)

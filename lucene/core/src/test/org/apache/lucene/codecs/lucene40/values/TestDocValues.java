@@ -861,7 +861,7 @@ name|ord
 init|=
 name|ss
 operator|.
-name|getByValue
+name|getOrdByValue
 argument_list|(
 operator|new
 name|BytesRef
@@ -966,7 +966,7 @@ name|ord
 init|=
 name|ss
 operator|.
-name|getByValue
+name|getOrdByValue
 argument_list|(
 name|bytesValue
 argument_list|,

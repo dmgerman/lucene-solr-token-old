@@ -2531,7 +2531,7 @@ name|numThreads
 init|=
 literal|5
 operator|+
-name|this
+name|LuceneTestCase
 operator|.
 name|random
 operator|.

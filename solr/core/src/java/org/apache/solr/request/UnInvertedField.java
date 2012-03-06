@@ -1180,6 +1180,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|te
+operator|!=
+literal|null
+operator|&&
 name|prefix
 operator|!=
 literal|null

@@ -1022,6 +1022,7 @@ name|indexInterval
 operator|==
 literal|0
 condition|)
+block|{
 name|other
 operator|.
 name|add
@@ -1034,6 +1035,7 @@ name|lastTi
 argument_list|)
 expr_stmt|;
 comment|// add an index term
+block|}
 name|writeTerm
 argument_list|(
 name|fieldNumber

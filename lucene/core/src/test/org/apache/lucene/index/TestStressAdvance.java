@@ -71,6 +71,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|DocIdSetIterator
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|*
@@ -798,7 +811,7 @@ name|println
 argument_list|(
 literal|"  expect docID="
 operator|+
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 operator|+
@@ -810,7 +823,7 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 argument_list|,
@@ -850,7 +863,7 @@ name|assertTrue
 argument_list|(
 name|docID
 operator|!=
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 argument_list|)

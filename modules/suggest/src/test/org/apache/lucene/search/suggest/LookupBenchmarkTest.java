@@ -539,12 +539,12 @@ operator|>=
 literal|0
 argument_list|)
 expr_stmt|;
-name|float
+name|int
 name|weight
 init|=
-name|Float
+name|Integer
 operator|.
-name|parseFloat
+name|parseInt
 argument_list|(
 name|line
 operator|.
@@ -1028,13 +1028,21 @@ range|:
 name|benchmarkInput
 control|)
 block|{
+name|String
+name|s
+init|=
+name|tf
+operator|.
+name|term
+operator|.
+name|utf8ToString
+argument_list|()
+decl_stmt|;
 name|input
 operator|.
 name|add
 argument_list|(
-name|tf
-operator|.
-name|term
+name|s
 operator|.
 name|substring
 argument_list|(
@@ -1044,9 +1052,7 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|tf
-operator|.
-name|term
+name|s
 operator|.
 name|length
 argument_list|()
@@ -1138,7 +1144,7 @@ name|Locale
 operator|.
 name|ENGLISH
 argument_list|,
-literal|"%-15s queries: %d, time[ms]: %s, ~qps: %.0f"
+literal|"%-15s queries: %d, time[ms]: %s, ~kQPS: %.0f"
 argument_list|,
 name|lookup
 operator|.

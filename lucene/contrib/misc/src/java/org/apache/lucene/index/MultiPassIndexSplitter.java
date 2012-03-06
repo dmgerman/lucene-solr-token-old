@@ -988,9 +988,6 @@ name|initSubReaders
 argument_list|(
 name|reader
 argument_list|)
-argument_list|,
-literal|false
-comment|/* dont close */
 argument_list|)
 expr_stmt|;
 block|}

@@ -2176,7 +2176,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -2592,7 +2592,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -3174,7 +3174,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -3510,7 +3510,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -3955,7 +3955,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -4427,7 +4427,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -4900,7 +4900,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -5741,8 +5741,6 @@ name|BytesRef
 argument_list|>
 name|getComparator
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|BytesRef
@@ -6323,7 +6321,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -6908,7 +6906,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)

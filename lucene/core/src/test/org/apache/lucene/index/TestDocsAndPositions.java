@@ -575,7 +575,7 @@ operator|.
 name|nextDoc
 argument_list|()
 operator|!=
-name|DocsAndPositionsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -1052,7 +1052,7 @@ if|if
 condition|(
 name|docID
 operator|==
-name|DocsAndPositionsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -1218,7 +1218,7 @@ operator|.
 name|nextDoc
 argument_list|()
 operator|!=
-name|DocsAndPositionsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -1701,7 +1701,7 @@ condition|)
 block|{
 name|assertEquals
 argument_list|(
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 argument_list|,
@@ -1757,7 +1757,7 @@ operator|.
 name|getClass
 argument_list|()
 argument_list|,
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 argument_list|,

@@ -1605,6 +1605,13 @@ name|sum
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|count
+operator|>
+literal|0
+condition|)
+block|{
 name|res
 operator|.
 name|add
@@ -1620,6 +1627,7 @@ name|count
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

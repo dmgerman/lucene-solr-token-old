@@ -698,7 +698,7 @@ argument_list|)
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Adding  component:"
 operator|+
@@ -727,7 +727,7 @@ argument_list|)
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Adding  debug component:"
 operator|+
@@ -775,7 +775,6 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
 name|core
 operator|.
 name|addCloseHook
@@ -809,10 +808,11 @@ parameter_list|(
 name|SolrCore
 name|core
 parameter_list|)
-block|{       }
+block|{         }
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getComponents
 specifier|public
@@ -1507,6 +1507,25 @@ block|}
 comment|// now wait for replies, but if anyone puts more requests on
 comment|// the outgoing queue, send them out immediately (by exiting
 comment|// this loop)
+name|boolean
+name|tolerant
+init|=
+name|rb
+operator|.
+name|req
+operator|.
+name|getParams
+argument_list|()
+operator|.
+name|getBool
+argument_list|(
+name|ShardParams
+operator|.
+name|SHARDS_TOLERANT
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 while|while
 condition|(
 name|rb
@@ -1522,6 +1541,13 @@ block|{
 name|ShardResponse
 name|srsp
 init|=
+name|tolerant
+condition|?
+name|shardHandler1
+operator|.
+name|takeCompletedIncludingErrors
+argument_list|()
+else|:
 name|shardHandler1
 operator|.
 name|takeCompletedOrError
@@ -1535,8 +1561,7 @@ literal|null
 condition|)
 break|break;
 comment|// no more requests to wait for
-comment|// Was there an exception?  If so, abort everything and
-comment|// rethrow
+comment|// Was there an exception?
 if|if
 condition|(
 name|srsp
@@ -1545,6 +1570,13 @@ name|getException
 argument_list|()
 operator|!=
 literal|null
+condition|)
+block|{
+comment|// If things are not tolerant, abort everything and rethrow
+if|if
+condition|(
+operator|!
+name|tolerant
 condition|)
 block|{
 name|shardHandler1
@@ -1590,6 +1622,7 @@ name|getException
 argument_list|()
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 name|rb

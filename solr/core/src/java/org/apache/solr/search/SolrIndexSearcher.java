@@ -599,6 +599,16 @@ specifier|private
 name|String
 name|indexDir
 decl_stmt|;
+DECL|field|debug
+specifier|private
+name|boolean
+name|debug
+init|=
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+decl_stmt|;
 DECL|field|name
 specifier|private
 specifier|final
@@ -1606,6 +1616,11 @@ name|IOException
 block|{
 if|if
 condition|(
+name|debug
+condition|)
+block|{
+if|if
+condition|(
 name|cachingEnabled
 condition|)
 block|{
@@ -1653,7 +1668,7 @@ expr_stmt|;
 block|}
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 name|sb
 operator|.
@@ -1664,6 +1679,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|debug
+condition|)
 name|log
 operator|.
 name|debug
@@ -1673,6 +1692,7 @@ operator|+
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|core
 operator|.
@@ -9508,14 +9528,6 @@ throws|throws
 name|IOException
 block|{
 comment|// Make sure this is first!  filters can help queryResults execute!
-name|boolean
-name|logme
-init|=
-name|log
-operator|.
-name|isInfoEnabled
-argument_list|()
-decl_stmt|;
 name|long
 name|warmingStartTime
 init|=
@@ -9560,11 +9572,11 @@ control|)
 block|{
 if|if
 condition|(
-name|logme
+name|debug
 condition|)
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"autowarming "
 operator|+
@@ -9680,11 +9692,11 @@ block|}
 block|}
 if|if
 condition|(
-name|logme
+name|debug
 condition|)
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"autowarming result for "
 operator|+

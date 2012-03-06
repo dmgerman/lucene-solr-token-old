@@ -424,6 +424,15 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"rawtypes"
+block|,
+literal|"unchecked"
+block|}
+argument_list|)
 DECL|class|MergeSortQueue
 specifier|private
 specifier|static
@@ -446,6 +455,9 @@ decl_stmt|;
 DECL|field|comparators
 specifier|final
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|comparators
 decl_stmt|;
@@ -708,7 +720,11 @@ comment|// Returns true if first is< second
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|lessThan
 specifier|public

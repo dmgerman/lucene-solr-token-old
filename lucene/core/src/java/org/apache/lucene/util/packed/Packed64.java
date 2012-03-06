@@ -790,6 +790,16 @@ name|int
 name|index
 parameter_list|)
 block|{
+assert|assert
+name|index
+operator|>=
+literal|0
+operator|&&
+name|index
+operator|<
+name|size
+argument_list|()
+assert|;
 specifier|final
 name|long
 name|majorBitPos

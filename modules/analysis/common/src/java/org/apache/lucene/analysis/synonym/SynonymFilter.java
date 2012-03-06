@@ -312,6 +312,7 @@ specifier|private
 name|int
 name|captureCount
 decl_stmt|;
+comment|// TODO: we should set PositionLengthAttr too...
 DECL|field|termAtt
 specifier|private
 specifier|final

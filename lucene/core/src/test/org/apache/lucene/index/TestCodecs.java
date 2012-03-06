@@ -534,6 +534,9 @@ class|class
 name|FieldData
 implements|implements
 name|Comparable
+argument_list|<
+name|FieldData
+argument_list|>
 block|{
 DECL|field|fieldInfo
 specifier|final
@@ -678,7 +681,7 @@ name|int
 name|compareTo
 parameter_list|(
 specifier|final
-name|Object
+name|FieldData
 name|other
 parameter_list|)
 block|{
@@ -689,12 +692,7 @@ name|name
 operator|.
 name|compareTo
 argument_list|(
-operator|(
-operator|(
-name|FieldData
-operator|)
 name|other
-operator|)
 operator|.
 name|fieldInfo
 operator|.
@@ -870,6 +868,9 @@ class|class
 name|TermData
 implements|implements
 name|Comparable
+argument_list|<
+name|TermData
+argument_list|>
 block|{
 DECL|field|text2
 name|String
@@ -950,7 +951,7 @@ name|int
 name|compareTo
 parameter_list|(
 specifier|final
-name|Object
+name|TermData
 name|o
 parameter_list|)
 block|{
@@ -959,12 +960,7 @@ name|text
 operator|.
 name|compareTo
 argument_list|(
-operator|(
-operator|(
-name|TermData
-operator|)
 name|o
-operator|)
 operator|.
 name|text
 argument_list|)
@@ -1915,7 +1911,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 argument_list|,
@@ -2990,7 +2986,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|TestCodecs
+name|LuceneTestCase
 operator|.
 name|random
 operator|.
@@ -3090,7 +3086,7 @@ name|field
 init|=
 name|fields
 index|[
-name|TestCodecs
+name|LuceneTestCase
 operator|.
 name|random
 operator|.
@@ -3220,7 +3216,7 @@ name|field
 operator|.
 name|terms
 index|[
-name|TestCodecs
+name|LuceneTestCase
 operator|.
 name|random
 operator|.
@@ -3349,7 +3345,7 @@ specifier|final
 name|int
 name|idx
 init|=
-name|TestCodecs
+name|LuceneTestCase
 operator|.
 name|random
 operator|.
@@ -3859,7 +3855,7 @@ index|]
 expr_stmt|;
 if|if
 condition|(
-name|TestCodecs
+name|LuceneTestCase
 operator|.
 name|random
 operator|.
@@ -4011,7 +4007,7 @@ name|doc
 decl_stmt|;
 if|if
 condition|(
-name|TestCodecs
+name|LuceneTestCase
 operator|.
 name|random
 operator|.
@@ -4033,7 +4029,7 @@ name|inc
 init|=
 literal|1
 operator|+
-name|TestCodecs
+name|LuceneTestCase
 operator|.
 name|random
 operator|.
@@ -4050,7 +4046,7 @@ name|inc
 expr_stmt|;
 if|if
 condition|(
-name|TestCodecs
+name|LuceneTestCase
 operator|.
 name|random
 operator|.
@@ -4225,7 +4221,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|TestCodecs
+name|LuceneTestCase
 operator|.
 name|random
 operator|.

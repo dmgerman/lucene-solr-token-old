@@ -243,14 +243,14 @@ name|assumeFalse
 argument_list|(
 literal|"JRE does not contain a JavaScript engine (OpenJDK)"
 argument_list|,
-literal|"<script> can be used only in java 6 or above"
-operator|.
-name|equals
-argument_list|(
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"<script> can be used only in java 6 or above"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -474,14 +474,14 @@ name|assumeFalse
 argument_list|(
 literal|"JRE does not contain a JavaScript engine (OpenJDK)"
 argument_list|,
-literal|"<script> can be used only in java 6 or above"
-operator|.
-name|equals
-argument_list|(
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"<script> can be used only in java 6 or above"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -586,14 +586,14 @@ name|assumeFalse
 argument_list|(
 literal|"JRE does not contain a JavaScript engine (OpenJDK)"
 argument_list|,
-literal|"<script> can be used only in java 6 or above"
-operator|.
-name|equals
-argument_list|(
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"<script> can be used only in java 6 or above"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -782,14 +782,14 @@ name|assumeFalse
 argument_list|(
 literal|"JRE does not contain a JavaScript engine (OpenJDK)"
 argument_list|,
-literal|"<script> can be used only in java 6 or above"
-operator|.
-name|equals
-argument_list|(
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"<script> can be used only in java 6 or above"
 argument_list|)
 argument_list|)
 expr_stmt|;

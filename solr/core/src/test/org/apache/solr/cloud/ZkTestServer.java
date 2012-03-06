@@ -1035,7 +1035,7 @@ if|if
 condition|(
 name|cnt
 operator|==
-literal|100
+literal|500
 condition|)
 block|{
 throw|throw

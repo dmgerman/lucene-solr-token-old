@@ -1328,7 +1328,7 @@ operator|.
 name|deleteOnExit
 argument_list|()
 expr_stmt|;
-name|TestFileListEntityProcessor
+name|AbstractDataImportHandlerTestCase
 operator|.
 name|createFile
 argument_list|(

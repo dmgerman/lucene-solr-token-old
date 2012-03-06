@@ -115,6 +115,19 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|tika
+operator|.
+name|metadata
+operator|.
+name|TikaMetadataKeys
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -930,7 +943,7 @@ name|name
 operator|.
 name|equals
 argument_list|(
-name|Metadata
+name|TikaMetadataKeys
 operator|.
 name|RESOURCE_NAME_KEY
 argument_list|)
@@ -973,7 +986,7 @@ literal|0
 operator|&&
 name|name
 operator|==
-name|Metadata
+name|TikaMetadataKeys
 operator|.
 name|RESOURCE_NAME_KEY
 condition|)

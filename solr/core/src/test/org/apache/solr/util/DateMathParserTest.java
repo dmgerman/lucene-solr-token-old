@@ -922,6 +922,8 @@ name|Thread
 operator|.
 name|currentThread
 argument_list|()
+expr_stmt|;
+name|Thread
 operator|.
 name|sleep
 argument_list|(

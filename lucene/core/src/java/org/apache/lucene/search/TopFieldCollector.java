@@ -94,6 +94,9 @@ name|TopFieldCollector
 block|{
 DECL|field|comparator
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 name|comparator
 decl_stmt|;
 DECL|field|reverseMul
@@ -228,7 +231,7 @@ literal|0
 condition|)
 block|{
 comment|// since docs are visited in doc Id order, if compare is 0, it means
-comment|// this document is largest than anything else in the queue, and
+comment|// this document is larger than anything else in the queue, and
 comment|// therefore not competitive.
 return|return;
 block|}
@@ -1472,6 +1475,9 @@ block|{
 DECL|field|comparators
 specifier|final
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|comparators
 decl_stmt|;

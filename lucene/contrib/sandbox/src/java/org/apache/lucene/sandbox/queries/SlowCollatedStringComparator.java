@@ -403,6 +403,9 @@ name|Override
 DECL|method|setNextReader
 specifier|public
 name|FieldComparator
+argument_list|<
+name|String
+argument_list|>
 name|setNextReader
 parameter_list|(
 name|AtomicReaderContext
