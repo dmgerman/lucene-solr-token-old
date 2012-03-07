@@ -2052,10 +2052,12 @@ argument_list|(
 name|norm
 argument_list|)
 condition|)
+block|{
 name|norm
 operator|=
 literal|1.0f
 expr_stmt|;
+block|}
 name|weight
 operator|.
 name|normalize
@@ -2965,6 +2967,11 @@ specifier|final
 name|long
 name|sumDocFreq
 decl_stmt|;
+assert|assert
+name|field
+operator|!=
+literal|null
+assert|;
 name|Terms
 name|terms
 init|=
