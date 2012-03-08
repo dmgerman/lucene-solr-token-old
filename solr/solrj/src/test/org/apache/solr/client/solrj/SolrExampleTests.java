@@ -4736,7 +4736,7 @@ name|Double
 operator|)
 name|stats
 operator|.
-name|getMin
+name|getMax
 argument_list|()
 operator|)
 operator|.
@@ -5093,7 +5093,7 @@ operator|)
 operator|.
 name|doubleValue
 argument_list|()
-operator|>
+operator|<
 operator|(
 operator|(
 name|Double
