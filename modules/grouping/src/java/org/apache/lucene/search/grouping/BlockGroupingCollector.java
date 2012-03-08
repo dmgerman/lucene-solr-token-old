@@ -889,6 +889,9 @@ name|comparators
 operator|=
 operator|new
 name|FieldComparator
+argument_list|<
+name|?
+argument_list|>
 index|[
 name|sortFields
 operator|.
@@ -978,6 +981,9 @@ comment|/** Returns the grouped results.  Returns null if the    *  number of gr
 DECL|method|getTopGroups
 specifier|public
 name|TopGroups
+argument_list|<
+name|?
+argument_list|>
 name|getTopGroups
 parameter_list|(
 name|Sort
@@ -1259,6 +1265,9 @@ name|groupSortValues
 operator|=
 operator|new
 name|Comparable
+argument_list|<
+name|?
+argument_list|>
 index|[
 name|comparators
 operator|.
