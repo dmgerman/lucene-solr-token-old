@@ -1010,6 +1010,9 @@ name|RELEVANCE
 decl_stmt|;
 specifier|final
 name|AbstractFirstPassGroupingCollector
+argument_list|<
+name|?
+argument_list|>
 name|c1
 init|=
 name|createRandomFirstPassCollector
@@ -1044,6 +1047,9 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|AbstractSecondPassGroupingCollector
+argument_list|<
+name|?
+argument_list|>
 name|c2
 init|=
 name|createSecondPassCollector
@@ -1088,6 +1094,9 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|TopGroups
+argument_list|<
+name|?
+argument_list|>
 name|groups
 init|=
 name|c2
@@ -1130,6 +1139,9 @@ comment|// relevance order: 5, 0, 3, 4, 1, 2, 6
 comment|// the later a document is added the higher this docId
 comment|// value
 name|GroupDocs
+argument_list|<
+name|?
+argument_list|>
 name|group
 init|=
 name|groups
@@ -1479,6 +1491,9 @@ block|}
 DECL|method|createRandomFirstPassCollector
 specifier|private
 name|AbstractFirstPassGroupingCollector
+argument_list|<
+name|?
+argument_list|>
 name|createRandomFirstPassCollector
 parameter_list|(
 name|String
@@ -1497,6 +1512,9 @@ throws|throws
 name|IOException
 block|{
 name|AbstractFirstPassGroupingCollector
+argument_list|<
+name|?
+argument_list|>
 name|selected
 decl_stmt|;
 if|if
@@ -1564,6 +1582,11 @@ name|vs
 argument_list|,
 operator|new
 name|HashMap
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 argument_list|,
 name|groupSort
@@ -1617,6 +1640,9 @@ block|}
 DECL|method|createFirstPassCollector
 specifier|private
 name|AbstractFirstPassGroupingCollector
+argument_list|<
+name|?
+argument_list|>
 name|createFirstPassCollector
 parameter_list|(
 name|String
@@ -1709,6 +1735,11 @@ name|vs
 argument_list|,
 operator|new
 name|HashMap
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 argument_list|,
 name|groupSort
@@ -1739,7 +1770,13 @@ literal|"unchecked"
 argument_list|)
 DECL|method|createSecondPassCollector
 specifier|private
+parameter_list|<
+name|T
+parameter_list|>
 name|AbstractSecondPassGroupingCollector
+argument_list|<
+name|T
+argument_list|>
 name|createSecondPassCollector
 parameter_list|(
 name|AbstractFirstPassGroupingCollector
@@ -1874,6 +1911,9 @@ name|fillSortFields
 argument_list|)
 decl_stmt|;
 return|return
+operator|(
+name|AbstractSecondPassGroupingCollector
+operator|)
 operator|new
 name|TermSecondPassGroupingCollector
 argument_list|(
@@ -1925,6 +1965,9 @@ name|fillSortFields
 argument_list|)
 decl_stmt|;
 return|return
+operator|(
+name|AbstractSecondPassGroupingCollector
+operator|)
 operator|new
 name|FunctionSecondPassGroupingCollector
 argument_list|(
@@ -8045,7 +8088,11 @@ expr_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 specifier|final
 name|TopGroups
@@ -8054,6 +8101,12 @@ name|BytesRef
 argument_list|>
 name|tempTopGroupsBlocks
 init|=
+operator|(
+name|TopGroups
+argument_list|<
+name|BytesRef
+argument_list|>
+operator|)
 name|c3
 operator|.
 name|getTopGroups
