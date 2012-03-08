@@ -136,7 +136,7 @@ name|connector
 operator|.
 name|setPort
 argument_list|(
-literal|8080
+literal|8983
 argument_list|)
 expr_stmt|;
 name|server
@@ -169,7 +169,7 @@ name|bb
 operator|.
 name|setContextPath
 argument_list|(
-literal|"/"
+literal|"/solr"
 argument_list|)
 expr_stmt|;
 name|bb
