@@ -3840,7 +3840,7 @@ name|put
 argument_list|(
 literal|"fl"
 argument_list|,
-literal|"score "
+literal|"score,* "
 argument_list|)
 expr_stmt|;
 name|req
@@ -4220,7 +4220,7 @@ name|put
 argument_list|(
 literal|"fl"
 argument_list|,
-literal|"score"
+literal|"*,score"
 argument_list|)
 expr_stmt|;
 name|args
