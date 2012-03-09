@@ -519,13 +519,7 @@ condition|(
 name|closed
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"already closed"
-argument_list|)
-throw|;
+return|return;
 block|}
 name|IOException
 name|priorException
@@ -721,7 +715,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|AlreadyClosedException
 argument_list|(
 literal|"CFS Directory is already closed"
 argument_list|)
@@ -1135,9 +1129,13 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IOException
+name|IllegalArgumentException
 argument_list|(
-literal|"File already exists"
+literal|"File "
+operator|+
+name|name
+operator|+
+literal|" already exists"
 argument_list|)
 throw|;
 block|}
