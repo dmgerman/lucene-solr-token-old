@@ -802,7 +802,7 @@ name|assertTrue
 argument_list|(
 name|fieldInfo
 operator|.
-name|normsPresent
+name|hasNorms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -813,7 +813,7 @@ name|assertFalse
 argument_list|(
 name|fieldInfo
 operator|.
-name|normsPresent
+name|hasNorms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -920,7 +920,7 @@ name|assertFalse
 argument_list|(
 name|fi
 operator|.
-name|normsPresent
+name|hasNorms
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -958,7 +958,7 @@ name|assertTrue
 argument_list|(
 name|fi
 operator|.
-name|normsPresent
+name|hasNorms
 argument_list|()
 argument_list|)
 expr_stmt|;

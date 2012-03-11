@@ -404,7 +404,7 @@ block|{
 return|return
 name|info
 operator|.
-name|normsPresent
+name|hasNorms
 argument_list|()
 return|;
 block|}
@@ -1160,7 +1160,7 @@ if|if
 condition|(
 name|fi
 operator|.
-name|normsPresent
+name|hasNorms
 argument_list|()
 condition|)
 block|{
