@@ -85,6 +85,18 @@ name|java
 operator|.
 name|util
 operator|.
+name|ServiceLoader
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -319,7 +331,7 @@ name|IOUtils
 import|;
 end_import
 begin_comment
-comment|/**  * Enables per field format support.  *   * @lucene.experimental  */
+comment|/**  * Enables per field format support.  *<p>  * Note, when extending this class, the name ({@link #getName}) is   * written into the index. In order for the field to be read, the  * name must resolve to your implementation via {@link #forName(String)}.  * This method uses Java's   * {@link ServiceLoader Service Provider Interface} to resolve format names.  *<p>  * @see ServiceLoader  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|PerFieldPostingsFormat
