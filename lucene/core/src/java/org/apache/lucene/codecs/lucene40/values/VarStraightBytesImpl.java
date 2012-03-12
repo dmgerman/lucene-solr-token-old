@@ -1500,7 +1500,7 @@ argument_list|,
 name|cloneIndex
 argument_list|()
 argument_list|,
-name|type
+name|getType
 argument_list|()
 argument_list|)
 return|;

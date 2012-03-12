@@ -3510,12 +3510,12 @@ name|info
 argument_list|,
 name|leftDocValues
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|,
 name|rightDocValues
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3587,7 +3587,7 @@ name|leftType
 init|=
 name|left
 operator|.
-name|type
+name|getType
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -3598,7 +3598,7 @@ name|leftType
 argument_list|,
 name|right
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;

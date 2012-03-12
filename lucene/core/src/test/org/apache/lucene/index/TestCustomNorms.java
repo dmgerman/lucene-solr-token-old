@@ -544,7 +544,7 @@ name|FLOAT_32
 argument_list|,
 name|normValues
 operator|.
-name|type
+name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
