@@ -1666,7 +1666,12 @@ name|writer
 operator|.
 name|segString
 argument_list|(
+name|writer
+operator|.
+name|toLiveInfos
+argument_list|(
 name|segmentInfos
+argument_list|)
 argument_list|)
 operator|+
 literal|"\" ["
