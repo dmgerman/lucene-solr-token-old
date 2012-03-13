@@ -52,13 +52,13 @@ import|;
 end_import
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|apache
+name|spatial4j
 operator|.
-name|lucene
+name|core
 operator|.
-name|spatial
+name|distance
 operator|.
 name|DistanceUtils
 import|;
@@ -181,7 +181,7 @@ expr_stmt|;
 return|return
 name|DistanceUtils
 operator|.
-name|squaredEuclideanDistance
+name|distSquaredCartesian
 argument_list|(
 name|vals1
 argument_list|,
