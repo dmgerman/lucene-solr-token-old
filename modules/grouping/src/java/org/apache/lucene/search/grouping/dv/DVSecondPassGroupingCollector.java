@@ -59,9 +59,6 @@ operator|.
 name|Type
 import|;
 end_import
-begin_comment
-comment|// javadocs
-end_comment
 begin_import
 import|import
 name|org
@@ -115,7 +112,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|SentinelIntSet
+name|BytesRef
 import|;
 end_import
 begin_import
@@ -128,7 +125,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BytesRef
+name|SentinelIntSet
 import|;
 end_import
 begin_import
@@ -176,7 +173,13 @@ argument_list|)
 DECL|method|create
 specifier|public
 specifier|static
+parameter_list|<
+name|T
+parameter_list|>
 name|DVSecondPassGroupingCollector
+argument_list|<
+name|T
+argument_list|>
 name|create
 parameter_list|(
 name|String
@@ -193,6 +196,9 @@ parameter_list|,
 name|Collection
 argument_list|<
 name|SearchGroup
+argument_list|<
+name|T
+argument_list|>
 argument_list|>
 name|searchGroups
 parameter_list|,
@@ -239,6 +245,9 @@ name|FIXED_INTS_64
 case|:
 comment|// Type erasure b/c otherwise we have inconvertible types...
 return|return
+operator|(
+name|DVSecondPassGroupingCollector
+operator|)
 operator|new
 name|Lng
 argument_list|(
@@ -274,6 +283,9 @@ name|FLOAT_64
 case|:
 comment|// Type erasure b/c otherwise we have inconvertible types...
 return|return
+operator|(
+name|DVSecondPassGroupingCollector
+operator|)
 operator|new
 name|Dbl
 argument_list|(
@@ -315,6 +327,9 @@ name|BYTES_VAR_DEREF
 case|:
 comment|// Type erasure b/c otherwise we have inconvertible types...
 return|return
+operator|(
+name|DVSecondPassGroupingCollector
+operator|)
 operator|new
 name|BR
 argument_list|(
@@ -350,6 +365,9 @@ name|BYTES_FIXED_SORTED
 case|:
 comment|// Type erasure b/c otherwise we have inconvertible types...
 return|return
+operator|(
+name|DVSecondPassGroupingCollector
+operator|)
 operator|new
 name|SortedBR
 argument_list|(
@@ -1063,7 +1081,11 @@ decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unchecked"
+block|,
+literal|"rawtypes"
+block|}
 argument_list|)
 DECL|method|SortedBR
 name|SortedBR

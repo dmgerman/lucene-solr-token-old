@@ -454,7 +454,7 @@ if|if
 condition|(
 name|fi
 operator|.
-name|normsPresent
+name|hasNorms
 argument_list|()
 condition|)
 block|{
@@ -1248,10 +1248,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|type
+DECL|method|getType
 specifier|public
 name|Type
-name|type
+name|getType
 parameter_list|()
 block|{
 return|return

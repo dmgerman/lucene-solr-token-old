@@ -2292,7 +2292,7 @@ operator|.
 name|get
 argument_list|()
 operator|<
-literal|10
+literal|30
 condition|)
 block|{
 name|shift
@@ -2327,7 +2327,12 @@ expr_stmt|;
 block|}
 while|while
 condition|(
-literal|true
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|<
+name|stopTimeMS
 condition|)
 block|{
 name|BytesRef
@@ -2345,15 +2350,6 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|seenTermCount
-operator|==
-literal|0
-condition|)
-block|{
-break|break;
-block|}
 name|totTermCount
 operator|.
 name|set
@@ -2367,18 +2363,6 @@ name|seenTermCount
 operator|++
 expr_stmt|;
 comment|// search 30 terms
-if|if
-condition|(
-name|trigger
-operator|==
-literal|0
-condition|)
-block|{
-name|trigger
-operator|=
-literal|1
-expr_stmt|;
-block|}
 if|if
 condition|(
 operator|(

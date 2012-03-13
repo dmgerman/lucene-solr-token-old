@@ -286,6 +286,10 @@ argument_list|,
 name|bytesUsed
 argument_list|,
 name|context
+argument_list|,
+name|Type
+operator|.
+name|BYTES_VAR_DEREF
 argument_list|)
 expr_stmt|;
 name|size
@@ -568,7 +572,7 @@ argument_list|,
 name|cloneIndex
 argument_list|()
 argument_list|,
-name|type
+name|getType
 argument_list|()
 argument_list|)
 return|;

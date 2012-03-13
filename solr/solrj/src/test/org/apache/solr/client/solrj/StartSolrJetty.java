@@ -20,9 +20,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
+name|eclipse
 operator|.
 name|jetty
+operator|.
+name|server
 operator|.
 name|Connector
 import|;
@@ -31,9 +33,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
+name|eclipse
 operator|.
 name|jetty
+operator|.
+name|server
 operator|.
 name|Server
 import|;
@@ -42,9 +46,11 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
+name|eclipse
 operator|.
 name|jetty
+operator|.
+name|server
 operator|.
 name|bio
 operator|.
@@ -55,7 +61,7 @@ begin_import
 import|import
 name|org
 operator|.
-name|mortbay
+name|eclipse
 operator|.
 name|jetty
 operator|.
@@ -85,6 +91,13 @@ name|args
 parameter_list|)
 block|{
 comment|//System.setProperty("solr.solr.home", "../../../example/solr");
+name|javax
+operator|.
+name|servlet
+operator|.
+name|FilterRegistration
+name|xx
+decl_stmt|;
 name|Server
 name|server
 init|=
@@ -123,7 +136,7 @@ name|connector
 operator|.
 name|setPort
 argument_list|(
-literal|8080
+literal|8983
 argument_list|)
 expr_stmt|;
 name|server
@@ -156,7 +169,7 @@ name|bb
 operator|.
 name|setContextPath
 argument_list|(
-literal|"/"
+literal|"/solr"
 argument_list|)
 expr_stmt|;
 name|bb
@@ -175,7 +188,7 @@ comment|//      mBeanContainer.start();
 comment|//    }
 name|server
 operator|.
-name|addHandler
+name|setHandler
 argument_list|(
 name|bb
 argument_list|)
