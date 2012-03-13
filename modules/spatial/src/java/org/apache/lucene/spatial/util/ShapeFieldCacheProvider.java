@@ -70,24 +70,6 @@ import|;
 end_import
 begin_import
 import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -104,6 +86,17 @@ operator|.
 name|WeakHashMap
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|logging
+operator|.
+name|Logger
+import|;
+end_import
 begin_class
 DECL|class|ShapeFieldCacheProvider
 specifier|public
@@ -117,18 +110,19 @@ name|Shape
 parameter_list|>
 block|{
 DECL|field|log
-specifier|static
-specifier|final
+specifier|private
 name|Logger
 name|log
 init|=
-name|LoggerFactory
+name|Logger
 operator|.
 name|getLogger
 argument_list|(
-name|ShapeFieldCacheProvider
+name|getClass
+argument_list|()
 operator|.
-name|class
+name|getName
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// it may be a List<T> or T
@@ -251,7 +245,7 @@ argument_list|()
 decl_stmt|;
 name|log
 operator|.
-name|info
+name|fine
 argument_list|(
 literal|"Building Cache ["
 operator|+
@@ -431,7 +425,7 @@ name|startTime
 decl_stmt|;
 name|log
 operator|.
-name|info
+name|fine
 argument_list|(
 literal|"Cached: ["
 operator|+
