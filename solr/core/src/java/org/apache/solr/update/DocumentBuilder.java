@@ -1420,6 +1420,16 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|SolrException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+name|ex
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|Exception
 name|ex
 parameter_list|)
@@ -1457,7 +1467,12 @@ operator|.
 name|getValue
 argument_list|()
 operator|+
-literal|"'"
+literal|"' msg="
+operator|+
+name|ex
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|ex
 argument_list|)
