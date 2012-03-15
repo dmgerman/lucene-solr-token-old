@@ -533,7 +533,7 @@ operator|=
 name|context
 expr_stmt|;
 name|FunctionValues
-name|docValues
+name|values
 init|=
 name|groupBy
 operator|.
@@ -546,7 +546,7 @@ argument_list|)
 decl_stmt|;
 name|filler
 operator|=
-name|docValues
+name|values
 operator|.
 name|getValueFiller
 argument_list|()
