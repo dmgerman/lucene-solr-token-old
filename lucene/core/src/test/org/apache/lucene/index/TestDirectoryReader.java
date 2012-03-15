@@ -6468,6 +6468,11 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
+name|commit
+argument_list|()
+expr_stmt|;
+name|writer
+operator|.
 name|close
 argument_list|()
 expr_stmt|;
