@@ -936,6 +936,28 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|i
+operator|==
+literal|0
+condition|)
+block|{
+name|assertTrue
+argument_list|(
+literal|"first posIncrement must be>= 1"
+argument_list|,
+name|posIncrAtt
+operator|.
+name|getPositionIncrement
+argument_list|()
+operator|>=
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|assertTrue
 argument_list|(
 literal|"posIncrement must be>= 0"
@@ -948,6 +970,7 @@ operator|>=
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

@@ -2088,13 +2088,15 @@ name|map
 argument_list|,
 name|tokens
 argument_list|(
-literal|"a,0"
+literal|"b,1 a,0"
 argument_list|)
 argument_list|,
 operator|new
 name|String
 index|[]
 block|{
+literal|"b"
+block|,
 literal|"aa"
 block|}
 argument_list|,
@@ -2102,6 +2104,8 @@ operator|new
 name|int
 index|[]
 block|{
+literal|1
+block|,
 literal|0
 block|}
 argument_list|)
@@ -2156,13 +2160,15 @@ name|map
 argument_list|,
 name|tokens
 argument_list|(
-literal|"b,0"
+literal|"c,1 b,0"
 argument_list|)
 argument_list|,
 operator|new
 name|String
 index|[]
 block|{
+literal|"c"
+block|,
 literal|"bb"
 block|}
 argument_list|,
@@ -2170,6 +2176,8 @@ operator|new
 name|int
 index|[]
 block|{
+literal|1
+block|,
 literal|0
 block|}
 argument_list|)
@@ -2228,13 +2236,15 @@ name|map
 argument_list|,
 name|tokens
 argument_list|(
-literal|"c,0"
+literal|"d,1 c,0"
 argument_list|)
 argument_list|,
 operator|new
 name|String
 index|[]
 block|{
+literal|"d"
+block|,
 literal|"cc"
 block|,
 literal|"c2"
@@ -2244,6 +2254,8 @@ operator|new
 name|int
 index|[]
 block|{
+literal|1
+block|,
 literal|0
 block|,
 literal|2
@@ -2330,13 +2342,15 @@ name|map
 argument_list|,
 name|tokens
 argument_list|(
-literal|"a,0"
+literal|"b,1 a,0"
 argument_list|)
 argument_list|,
 operator|new
 name|String
 index|[]
 block|{
+literal|"b"
+block|,
 literal|"a"
 block|,
 literal|"aa"
@@ -2346,6 +2360,8 @@ operator|new
 name|int
 index|[]
 block|{
+literal|1
+block|,
 literal|0
 block|,
 literal|0
@@ -2406,13 +2422,15 @@ name|map
 argument_list|,
 name|tokens
 argument_list|(
-literal|"b,0"
+literal|"c,1 b,0"
 argument_list|)
 argument_list|,
 operator|new
 name|String
 index|[]
 block|{
+literal|"c"
+block|,
 literal|"b"
 block|,
 literal|"bb"
@@ -2422,6 +2440,8 @@ operator|new
 name|int
 index|[]
 block|{
+literal|1
+block|,
 literal|0
 block|,
 literal|0
@@ -2486,13 +2506,15 @@ name|map
 argument_list|,
 name|tokens
 argument_list|(
-literal|"c,0"
+literal|"d,1 c,0"
 argument_list|)
 argument_list|,
 operator|new
 name|String
 index|[]
 block|{
+literal|"d"
+block|,
 literal|"c"
 block|,
 literal|"cc"
@@ -2504,6 +2526,8 @@ operator|new
 name|int
 index|[]
 block|{
+literal|1
+block|,
 literal|0
 block|,
 literal|0
