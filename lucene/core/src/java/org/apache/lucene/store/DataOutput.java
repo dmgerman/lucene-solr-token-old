@@ -217,7 +217,7 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Writes an int in a variable-length format.  Writes between one and    * five bytes.  Smaller values take fewer bytes.  Negative numbers are not    * supported.    * @see DataInput#readVInt()    */
+comment|/** Writes an int in a variable-length format.  Writes between one and    * five bytes.  Smaller values take fewer bytes.  Negative numbers are    * supported, but should be avoided.    * @see DataInput#readVInt()    */
 DECL|method|writeVInt
 specifier|public
 specifier|final
@@ -318,6 +318,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|i
+operator|>=
+literal|0L
+assert|;
 while|while
 condition|(
 operator|(
