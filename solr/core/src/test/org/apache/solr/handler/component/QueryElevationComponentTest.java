@@ -989,7 +989,7 @@ expr_stmt|;
 comment|// Make sure the boosts loaded properly
 name|assertEquals
 argument_list|(
-literal|5
+literal|6
 argument_list|,
 name|map
 operator|.
@@ -1149,7 +1149,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|5
+literal|6
 argument_list|,
 name|map
 operator|.
