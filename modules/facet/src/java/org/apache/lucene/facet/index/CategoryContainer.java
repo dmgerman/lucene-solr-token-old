@@ -319,7 +319,7 @@ return|return
 name|ca
 return|;
 block|}
-comment|/**    * Add an entire {@link CategoryAttribute}.    *     * @param categoryAttribute    *            The {@link CategoryAttribute} to add.    * @return The {@link CategoryAttribute} of the category (could be different    *         from the one provided).    * @throws FacetException    */
+comment|/**    * Add an entire {@link CategoryAttribute}.    *     * @param categoryAttribute    *            The {@link CategoryAttribute} to add.    * @return The {@link CategoryAttribute} of the category (could be different    *         from the one provided).    */
 DECL|method|addCategory
 specifier|public
 name|CategoryAttribute
@@ -328,8 +328,6 @@ parameter_list|(
 name|CategoryAttribute
 name|categoryAttribute
 parameter_list|)
-throws|throws
-name|FacetException
 block|{
 name|CategoryAttribute
 name|ca
@@ -497,7 +495,7 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Add the categories from another {@link CategoryContainer} to this one.    *     * @param other    *            The {@link CategoryContainer} to take categories from.    * @throws FacetException    *             If any prohibited merge of category properties is attempted.    */
+comment|/** Add the categories from another {@link CategoryContainer} to this one. */
 DECL|method|merge
 specifier|public
 name|void
@@ -506,8 +504,6 @@ parameter_list|(
 name|CategoryContainer
 name|other
 parameter_list|)
-throws|throws
-name|FacetException
 block|{
 for|for
 control|(
