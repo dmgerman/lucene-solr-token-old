@@ -52,7 +52,7 @@ name|DataOutput
 import|;
 end_import
 begin_comment
-comment|/**  * Pairs up two outputs into one.  *  * @lucene.experimental  */
+comment|/**  * An FST {@link Outputs} implementation, holding two other outputs.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|PairOutputs
@@ -106,6 +106,7 @@ name|B
 argument_list|>
 name|outputs2
 decl_stmt|;
+comment|/** Holds a single pair of two outputs. */
 DECL|class|Pair
 specifier|public
 specifier|static
