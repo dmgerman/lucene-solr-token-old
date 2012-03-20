@@ -677,7 +677,9 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"group.distributed.second"
+name|GroupParams
+operator|.
+name|GROUP_DISTRIBUTED_SECOND
 argument_list|,
 literal|"true"
 argument_list|)
@@ -791,7 +793,9 @@ name|params
 operator|.
 name|add
 argument_list|(
-literal|"group.topgroups."
+name|GroupParams
+operator|.
+name|GROUP_DISTRIBUTED_TOPGROUPS_PREFIX
 operator|+
 name|entry
 operator|.

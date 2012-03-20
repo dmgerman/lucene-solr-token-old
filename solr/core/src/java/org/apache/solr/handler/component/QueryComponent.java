@@ -2169,7 +2169,9 @@ name|params
 operator|.
 name|getBool
 argument_list|(
-literal|"group.distributed.first"
+name|GroupParams
+operator|.
+name|GROUP_DISTRIBUTED_FIRST
 argument_list|,
 literal|false
 argument_list|)
@@ -2316,7 +2318,9 @@ name|params
 operator|.
 name|getBool
 argument_list|(
-literal|"group.distributed.second"
+name|GroupParams
+operator|.
+name|GROUP_DISTRIBUTED_SECOND
 argument_list|,
 literal|false
 argument_list|)
@@ -2379,7 +2383,9 @@ name|params
 operator|.
 name|getParams
 argument_list|(
-literal|"group.topgroups."
+name|GroupParams
+operator|.
+name|GROUP_DISTRIBUTED_TOPGROUPS_PREFIX
 operator|+
 name|field
 argument_list|)
