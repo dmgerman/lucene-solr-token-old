@@ -44,6 +44,9 @@ operator|.
 name|AttributeSource
 import|;
 end_import
+begin_comment
+comment|/**  * Adds a token to the sink if it has a specific type.  */
+end_comment
 begin_class
 DECL|class|TokenTypeSinkFilter
 specifier|public

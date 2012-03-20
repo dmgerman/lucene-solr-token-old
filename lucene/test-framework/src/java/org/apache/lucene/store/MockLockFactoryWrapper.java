@@ -23,6 +23,9 @@ operator|.
 name|IOException
 import|;
 end_import
+begin_comment
+comment|/**  * Used by MockDirectoryWrapper to wrap another factory  * and track open locks.  */
+end_comment
 begin_class
 DECL|class|MockLockFactoryWrapper
 specifier|public

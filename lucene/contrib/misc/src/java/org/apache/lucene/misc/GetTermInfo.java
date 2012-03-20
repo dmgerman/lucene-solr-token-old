@@ -76,7 +76,7 @@ name|IndexReader
 import|;
 end_import
 begin_comment
-comment|/*  * Utility to get document frequency and total number of occurrences (sum of the tf for each doc)  of a term.   */
+comment|/**  * Utility to get document frequency and total number of occurrences (sum of the tf for each doc)  of a term.   */
 end_comment
 begin_class
 DECL|class|GetTermInfo

@@ -60,6 +60,9 @@ operator|.
 name|Payload
 import|;
 end_import
+begin_comment
+comment|/**  * TokenFilter that adds random fixed-length payloads.  */
+end_comment
 begin_class
 DECL|class|MockFixedLengthPayloadFilter
 specifier|public

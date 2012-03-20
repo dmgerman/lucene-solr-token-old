@@ -170,6 +170,7 @@ name|ParsePosition
 name|pos
 decl_stmt|;
 block|}
+comment|/**    * Iterator over the files in the directory    */
 DECL|class|Iterator
 specifier|public
 specifier|static

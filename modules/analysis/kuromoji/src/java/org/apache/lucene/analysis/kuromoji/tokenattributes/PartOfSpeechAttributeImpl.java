@@ -76,6 +76,9 @@ operator|.
 name|AttributeReflector
 import|;
 end_import
+begin_comment
+comment|/**  * Attribute for {@link Token#getPartOfSpeech()}.  */
+end_comment
 begin_class
 DECL|class|PartOfSpeechAttributeImpl
 specifier|public

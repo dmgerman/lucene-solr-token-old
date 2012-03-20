@@ -27,6 +27,15 @@ operator|.
 name|BufferedIndexInput
 import|;
 end_import
+begin_comment
+comment|// TODO: what is this used for? just testing BufferedIndexInput?
+end_comment
+begin_comment
+comment|// if so it should be pkg-private. otherwise its a dup of ByteArrayIndexInput?
+end_comment
+begin_comment
+comment|/**  * IndexInput backed by a byte[] for testing.  */
+end_comment
 begin_class
 DECL|class|MockIndexInput
 specifier|public

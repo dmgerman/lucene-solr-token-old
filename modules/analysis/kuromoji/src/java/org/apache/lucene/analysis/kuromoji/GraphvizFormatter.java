@@ -134,6 +134,9 @@ end_comment
 begin_comment
 comment|// color...
 end_comment
+begin_comment
+comment|/**  * Outputs the dot (graphviz) string for the viterbi lattice.  */
+end_comment
 begin_class
 DECL|class|GraphvizFormatter
 specifier|public

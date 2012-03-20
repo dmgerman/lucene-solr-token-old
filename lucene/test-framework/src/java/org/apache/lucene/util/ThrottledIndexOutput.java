@@ -49,6 +49,9 @@ operator|.
 name|IndexOutput
 import|;
 end_import
+begin_comment
+comment|/**  * Intentionally slow IndexOutput for testing.  */
+end_comment
 begin_class
 DECL|class|ThrottledIndexOutput
 specifier|public

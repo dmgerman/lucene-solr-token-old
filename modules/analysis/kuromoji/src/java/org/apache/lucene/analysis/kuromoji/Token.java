@@ -50,6 +50,9 @@ operator|.
 name|Dictionary
 import|;
 end_import
+begin_comment
+comment|/**  * Analyzed token with morphological data from its dictionary.  */
+end_comment
 begin_class
 DECL|class|Token
 specifier|public

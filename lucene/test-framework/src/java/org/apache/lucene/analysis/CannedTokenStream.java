@@ -84,7 +84,7 @@ name|PositionIncrementAttribute
 import|;
 end_import
 begin_comment
-comment|/**  * emits a canned set of {@link Token}  */
+comment|/**  * TokenStream from a canned list of Tokens.  */
 end_comment
 begin_class
 DECL|class|CannedTokenStream

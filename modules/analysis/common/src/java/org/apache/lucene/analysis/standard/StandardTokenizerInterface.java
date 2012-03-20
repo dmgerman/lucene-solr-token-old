@@ -50,7 +50,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** @lucene.internal */
+comment|/**   * Internal interface for supporting versioned grammars.  * @lucene.internal   */
 end_comment
 begin_interface
 DECL|interface|StandardTokenizerInterface

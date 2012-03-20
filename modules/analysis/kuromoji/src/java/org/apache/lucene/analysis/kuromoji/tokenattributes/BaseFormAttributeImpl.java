@@ -59,6 +59,9 @@ operator|.
 name|AttributeReflector
 import|;
 end_import
+begin_comment
+comment|/**  * Attribute for {@link Token#getBaseForm()}.  */
+end_comment
 begin_class
 DECL|class|BaseFormAttributeImpl
 specifier|public

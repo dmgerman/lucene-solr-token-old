@@ -28,7 +28,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.experimental  */
+comment|/**  * DataOutput backed by a byte array.  *<b>WARNING:</b> This class omits most low-level checks,  * so be sure to test heavily with assertions enabled.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|ByteArrayDataOutput

@@ -81,6 +81,9 @@ operator|.
 name|_TestUtil
 import|;
 end_import
+begin_comment
+comment|/**  * MergePolicy that makes random decisions for testing.  */
+end_comment
 begin_class
 DECL|class|MockRandomMergePolicy
 specifier|public

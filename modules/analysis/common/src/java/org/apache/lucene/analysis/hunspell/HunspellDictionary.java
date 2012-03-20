@@ -120,6 +120,9 @@ operator|.
 name|Locale
 import|;
 end_import
+begin_comment
+comment|/**  * In-memory structure for the dictionary (.dic) and affix (.aff)  * data of a hunspell dictionary.  */
+end_comment
 begin_class
 DECL|class|HunspellDictionary
 specifier|public

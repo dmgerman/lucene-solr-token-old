@@ -264,6 +264,9 @@ operator|.
 name|TEST_VERSION_CURRENT
 import|;
 end_import
+begin_comment
+comment|/**  * Utility class for sanity-checking queries.  */
+end_comment
 begin_class
 DECL|class|QueryUtils
 specifier|public

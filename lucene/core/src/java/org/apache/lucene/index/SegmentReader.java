@@ -118,7 +118,7 @@ name|Bits
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.experimental  */
+comment|/**  * IndexReader implementation over a single segment.   *<p>  * Instances pointing to the same segment (but with different deletes, etc)  * may share the same core data.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SegmentReader

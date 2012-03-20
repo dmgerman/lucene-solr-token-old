@@ -25,6 +25,9 @@ operator|.
 name|Arrays
 import|;
 end_import
+begin_comment
+comment|/**  * A dictionary (.dic) entry with its associated flags.  */
+end_comment
 begin_class
 DECL|class|HunspellWord
 specifier|public

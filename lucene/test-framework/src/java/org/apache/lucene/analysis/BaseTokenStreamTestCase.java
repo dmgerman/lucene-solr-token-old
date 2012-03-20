@@ -193,6 +193,7 @@ extends|extends
 name|LuceneTestCase
 block|{
 comment|// some helpers to test Analyzers and TokenStreams:
+comment|/**    * Attribute that records if it was cleared or not.  This is used     * for testing that clearAttributes() was called correctly.    */
 DECL|interface|CheckClearAttributesAttribute
 specifier|public
 specifier|static
@@ -207,6 +208,7 @@ name|getAndResetClearCalled
 parameter_list|()
 function_decl|;
 block|}
+comment|/**    * Attribute that records if it was cleared or not.  This is used     * for testing that clearAttributes() was called correctly.    */
 DECL|class|CheckClearAttributesAttributeImpl
 specifier|public
 specifier|static

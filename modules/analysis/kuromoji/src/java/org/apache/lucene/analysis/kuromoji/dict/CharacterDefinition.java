@@ -97,6 +97,9 @@ operator|.
 name|IOUtils
 import|;
 end_import
+begin_comment
+comment|/**  * Character category data.  */
+end_comment
 begin_class
 DECL|class|CharacterDefinition
 specifier|public

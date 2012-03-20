@@ -161,7 +161,7 @@ name|Set
 import|;
 end_import
 begin_comment
-comment|/**  *  *  **/
+comment|/**  * Command-line tool for doing a TREC evaluation run.  **/
 end_comment
 begin_class
 DECL|class|QueryDriver

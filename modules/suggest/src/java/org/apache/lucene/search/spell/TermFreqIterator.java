@@ -60,6 +60,9 @@ operator|.
 name|BytesRefIterator
 import|;
 end_import
+begin_comment
+comment|/**  * Interface for enumerating term,weight pairs.  */
+end_comment
 begin_interface
 DECL|interface|TermFreqIterator
 specifier|public
@@ -74,6 +77,7 @@ name|long
 name|weight
 parameter_list|()
 function_decl|;
+comment|/**    * Wraps a BytesRefIterator as a TermFreqIterator, with all weights    * set to<code>1</code>    */
 DECL|class|TermFreqIteratorWrapper
 specifier|public
 specifier|static

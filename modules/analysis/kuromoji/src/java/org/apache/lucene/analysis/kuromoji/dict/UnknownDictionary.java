@@ -27,6 +27,9 @@ operator|.
 name|IOException
 import|;
 end_import
+begin_comment
+comment|/**  * Dictionary for unknown-word handling.  */
+end_comment
 begin_class
 DECL|class|UnknownDictionary
 specifier|public
