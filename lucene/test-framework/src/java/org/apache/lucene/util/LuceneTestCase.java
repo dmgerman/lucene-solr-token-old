@@ -1808,7 +1808,9 @@ name|uncaughtExceptionsRule
 init|=
 operator|new
 name|UncaughtExceptionsRule
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 comment|/**    * This controls how suite-level rules are nested. It is important that _all_ rules declared    * in {@link LuceneTestCase} are executed in proper order if they depend on each     * other.    */
 annotation|@
@@ -1860,7 +1862,9 @@ name|around
 argument_list|(
 operator|new
 name|UncaughtExceptionsRule
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 argument_list|)
 operator|.
 name|around
