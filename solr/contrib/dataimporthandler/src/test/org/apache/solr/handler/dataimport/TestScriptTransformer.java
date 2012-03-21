@@ -239,21 +239,6 @@ name|DataImportHandlerException
 name|e
 parameter_list|)
 block|{
-name|assumeFalse
-argument_list|(
-literal|"JRE does not contain a JavaScript engine (OpenJDK)"
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"<script> can be used only in java 6 or above"
-argument_list|)
-argument_list|)
-expr_stmt|;
 throw|throw
 name|e
 throw|;
@@ -470,21 +455,6 @@ name|DataImportHandlerException
 name|e
 parameter_list|)
 block|{
-name|assumeFalse
-argument_list|(
-literal|"JRE does not contain a JavaScript engine (OpenJDK)"
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"<script> can be used only in java 6 or above"
-argument_list|)
-argument_list|)
-expr_stmt|;
 throw|throw
 name|e
 throw|;
@@ -582,21 +552,6 @@ name|DataImportHandlerException
 name|e
 parameter_list|)
 block|{
-name|assumeFalse
-argument_list|(
-literal|"JRE does not contain a JavaScript engine (OpenJDK)"
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"<script> can be used only in java 6 or above"
-argument_list|)
-argument_list|)
-expr_stmt|;
 throw|throw
 name|e
 throw|;
@@ -778,21 +733,6 @@ name|DataImportHandlerException
 name|e
 parameter_list|)
 block|{
-name|assumeFalse
-argument_list|(
-literal|"JRE does not contain a JavaScript engine (OpenJDK)"
-argument_list|,
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"<script> can be used only in java 6 or above"
-argument_list|)
-argument_list|)
-expr_stmt|;
 throw|throw
 name|e
 throw|;
