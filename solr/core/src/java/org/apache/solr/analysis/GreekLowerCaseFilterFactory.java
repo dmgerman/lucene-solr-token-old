@@ -89,6 +89,8 @@ class|class
 name|GreekLowerCaseFilterFactory
 extends|extends
 name|BaseTokenFilterFactory
+implements|implements
+name|MultiTermAwareComponent
 block|{
 annotation|@
 name|Override
@@ -156,6 +158,16 @@ name|luceneMatchVersion
 argument_list|,
 name|in
 argument_list|)
+return|;
+block|}
+DECL|method|getMultiTermComponent
+specifier|public
+name|Object
+name|getMultiTermComponent
+parameter_list|()
+block|{
+return|return
+name|this
 return|;
 block|}
 block|}
