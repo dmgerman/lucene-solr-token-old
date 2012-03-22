@@ -201,7 +201,7 @@ name|Version
 import|;
 end_import
 begin_comment
-comment|/**  * Analyzer for Japanese that uses morphological analysis.  */
+comment|/**  * Analyzer for Japanese that uses morphological analysis.  * @see KuromojiTokenizer  */
 end_comment
 begin_class
 DECL|class|KuromojiAnalyzer
