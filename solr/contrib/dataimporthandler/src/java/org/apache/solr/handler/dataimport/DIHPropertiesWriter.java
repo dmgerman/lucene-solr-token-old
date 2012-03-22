@@ -25,9 +25,6 @@ operator|.
 name|Properties
 import|;
 end_import
-begin_comment
-comment|/**  * @since solr 3.2  */
-end_comment
 begin_interface
 DECL|interface|DIHPropertiesWriter
 specifier|public
