@@ -1812,6 +1812,19 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
+comment|/**    * These property keys will be ignored in verification of altered properties.    * @see SystemPropertiesInvariantRule    * @see #ruleChain    * @see #classRules    */
+DECL|field|ignoredInvariantProperties
+specifier|private
+specifier|static
+specifier|final
+name|String
+index|[]
+name|ignoredInvariantProperties
+init|=
+block|{
+literal|"user.timezone"
+block|}
+decl_stmt|;
 comment|/**    * This controls how suite-level rules are nested. It is important that _all_ rules declared    * in {@link LuceneTestCase} are executed in proper order if they depend on each     * other.    */
 annotation|@
 name|ClassRule
@@ -1827,7 +1840,9 @@ name|outerRule
 argument_list|(
 operator|new
 name|SystemPropertiesInvariantRule
-argument_list|()
+argument_list|(
+name|ignoredInvariantProperties
+argument_list|)
 argument_list|)
 operator|.
 name|around
@@ -1878,7 +1893,9 @@ name|around
 argument_list|(
 operator|new
 name|SystemPropertiesInvariantRule
-argument_list|()
+argument_list|(
+name|ignoredInvariantProperties
+argument_list|)
 argument_list|)
 operator|.
 name|around
