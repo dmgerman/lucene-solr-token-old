@@ -110,6 +110,7 @@ name|BYTE_BLOCK_SIZE
 operator|-
 literal|1
 decl_stmt|;
+comment|/** Abstract class for allocating and freeing byte    *  blocks. */
 DECL|class|Allocator
 specifier|public
 specifier|abstract
@@ -218,6 +219,7 @@ index|]
 return|;
 block|}
 block|}
+comment|/** A simple {@link Allocator} that never recycles. */
 DECL|class|DirectAllocator
 specifier|public
 specifier|static
@@ -272,6 +274,7 @@ name|end
 parameter_list|)
 block|{     }
 block|}
+comment|/** A simple {@link Allocator} that never recycles, but    *  tracks how much total RAM is in use. */
 DECL|class|DirectTrackingAllocator
 specifier|public
 specifier|static

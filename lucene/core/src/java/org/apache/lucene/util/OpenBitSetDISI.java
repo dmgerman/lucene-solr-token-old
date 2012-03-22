@@ -36,6 +36,9 @@ operator|.
 name|DocIdSetIterator
 import|;
 end_import
+begin_comment
+comment|/** OpenBitSet with added methods to bulk-update the bits  *  from a {@link DocIdSetIterator}. */
+end_comment
 begin_class
 DECL|class|OpenBitSetDISI
 specifier|public

@@ -33,7 +33,7 @@ name|Comparator
 import|;
 end_import
 begin_comment
-comment|/**  * A simple iterator interface for {@link BytesRef} iteration  *   */
+comment|/**  * A simple iterator interface for {@link BytesRef} iteration.  */
 end_comment
 begin_interface
 DECL|interface|BytesRefIterator
@@ -41,6 +41,7 @@ specifier|public
 interface|interface
 name|BytesRefIterator
 block|{
+comment|/** Singleton BytesRefIterator that iterates over 0 BytesRefs. */
 DECL|field|EMPTY_ITERATOR
 specifier|public
 specifier|static
@@ -71,6 +72,8 @@ argument_list|>
 name|getComparator
 parameter_list|()
 function_decl|;
+comment|// TODO: private?
+comment|/** Iterates over 0 BytesRefs. */
 DECL|class|EmptyBytesRefIterator
 specifier|public
 specifier|final
