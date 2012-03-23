@@ -22,15 +22,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -225,6 +216,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/**    * A simple char-by-char comparator for {@link CharSequence}    */
 DECL|field|CHARSEQUENCE_COMPARATOR
 specifier|public
 specifier|static
@@ -347,6 +339,7 @@ name|l2
 return|;
 block|}
 block|}
+comment|/**    * A {@link PriorityQueue} collecting a fixed size of high priority {@link LookupResult}    */
 DECL|class|LookupPriorityQueue
 specifier|public
 specifier|static
@@ -359,6 +352,7 @@ argument_list|<
 name|LookupResult
 argument_list|>
 block|{
+comment|// TODO: should we move this out of the interface into a utility class?
 DECL|method|LookupPriorityQueue
 specifier|public
 name|LookupPriorityQueue
@@ -397,6 +391,7 @@ operator|.
 name|value
 return|;
 block|}
+comment|/**      * Returns the top N results in descending order.      * @return the top N results in descending order.      */
 DECL|method|getResults
 specifier|public
 name|LookupResult
