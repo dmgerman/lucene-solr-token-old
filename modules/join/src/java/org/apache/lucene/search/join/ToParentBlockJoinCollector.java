@@ -42,6 +42,9 @@ operator|.
 name|IndexWriter
 import|;
 end_import
+begin_comment
+comment|// javadocs
+end_comment
 begin_import
 import|import
 name|org
@@ -272,7 +275,7 @@ name|Float
 operator|.
 name|NaN
 decl_stmt|;
-comment|/*  Creates a ToParentBlockJoinCollector.  The provided sort must    *  not be null. */
+comment|/*  Creates a ToParentBlockJoinCollector.  The provided sort must    *  not be null.  If you pass true trackScores, all    *  ToParentBlockQuery instances must not use    *  ScoreMode.None. */
 DECL|method|ToParentBlockJoinCollector
 specifier|public
 name|ToParentBlockJoinCollector
