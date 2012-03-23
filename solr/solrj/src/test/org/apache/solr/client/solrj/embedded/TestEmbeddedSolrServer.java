@@ -135,7 +135,7 @@ specifier|public
 class|class
 name|TestEmbeddedSolrServer
 extends|extends
-name|AbstractEmbeddedSolrServerTest
+name|AbstractEmbeddedSolrServerTestCase
 block|{
 annotation|@
 name|Rule
