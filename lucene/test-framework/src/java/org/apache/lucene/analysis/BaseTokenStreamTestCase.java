@@ -4379,6 +4379,15 @@ operator|<
 literal|15
 condition|)
 block|{
+assert|assert
+name|sb
+operator|.
+name|length
+argument_list|()
+operator|==
+literal|0
+assert|;
+comment|// we should always get wordLength back!
 name|sb
 operator|.
 name|append
@@ -4388,6 +4397,8 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|,
+name|wordLength
 argument_list|,
 name|wordLength
 argument_list|)
@@ -4409,6 +4420,30 @@ argument_list|(
 name|_TestUtil
 operator|.
 name|randomHtmlishString
+argument_list|(
+name|random
+argument_list|,
+name|wordLength
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|evilness
+operator|==
+literal|17
+condition|)
+block|{
+comment|// gives a lot of punctuation
+name|sb
+operator|.
+name|append
+argument_list|(
+name|_TestUtil
+operator|.
+name|randomRegexpishString
 argument_list|(
 name|random
 argument_list|,
