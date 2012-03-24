@@ -1289,9 +1289,9 @@ name|nextInt
 argument_list|(
 name|r
 argument_list|,
-literal|97
+literal|'a'
 argument_list|,
-literal|102
+literal|'z'
 argument_list|)
 expr_stmt|;
 block|}
