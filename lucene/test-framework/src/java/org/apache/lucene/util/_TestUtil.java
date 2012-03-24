@@ -3534,7 +3534,11 @@ argument_list|(
 name|codePointSubstring
 operator|.
 name|toUpperCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -3548,7 +3552,11 @@ argument_list|(
 name|codePointSubstring
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
