@@ -2923,6 +2923,8 @@ name|simple
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|checkAnalysisConsistency
 argument_list|(
 name|random
@@ -2934,6 +2936,36 @@ argument_list|,
 name|text
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"TEST FAIL: useCharFilter="
+operator|+
+name|useCharFilter
+operator|+
+literal|" text="
+operator|+
+name|text
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|t
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 DECL|method|checkAnalysisConsistency
