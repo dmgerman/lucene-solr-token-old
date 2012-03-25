@@ -3377,6 +3377,30 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|pos
+operator|!=
+name|leastPosData
+operator|.
+name|pos
+condition|)
+block|{
+comment|// We jumped into a future position:
+assert|assert
+name|pos
+operator|<
+name|leastPosData
+operator|.
+name|pos
+assert|;
+name|pos
+operator|=
+name|leastPosData
+operator|.
+name|pos
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|pending
 operator|.
 name|size
@@ -3391,27 +3415,7 @@ else|else
 block|{
 comment|// This means the backtrace only produced
 comment|// punctuation tokens, so we must keep parsing.
-if|if
-condition|(
-name|pos
-operator|!=
-name|leastPosData
-operator|.
-name|pos
-condition|)
-block|{
-comment|// We jumped into a future position; continue to
-comment|// the top of the loop to skip until we get
-comment|// there:
-assert|assert
-name|pos
-operator|<
-name|leastPosData
-operator|.
-name|pos
-assert|;
 continue|continue;
-block|}
 block|}
 block|}
 if|if
@@ -4897,6 +4901,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
+name|int
+name|endPos
+init|=
+name|endPosData
+operator|.
+name|pos
+decl_stmt|;
 if|if
 condition|(
 name|VERBOSE
@@ -4908,7 +4920,11 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"\n  backtrace: pos="
+literal|"\n  backtrace: endPos="
+operator|+
+name|endPos
+operator|+
+literal|" pos="
 operator|+
 name|pos
 operator|+
@@ -4935,14 +4951,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-specifier|final
-name|int
-name|endPos
-init|=
-name|endPosData
-operator|.
-name|pos
-decl_stmt|;
 specifier|final
 name|char
 index|[]
