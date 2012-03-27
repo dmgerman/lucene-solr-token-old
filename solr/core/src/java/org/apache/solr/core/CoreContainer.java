@@ -930,17 +930,21 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Deprecated    * @deprecated use the single arg constructure with locateSolrHome()    * @see SolrResourceLoader#locateSolrHome    */
+annotation|@
+name|Deprecated
 DECL|method|CoreContainer
 specifier|public
 name|CoreContainer
 parameter_list|()
 block|{
-name|solrHome
-operator|=
+name|this
+argument_list|(
 name|SolrResourceLoader
 operator|.
 name|locateSolrHome
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Initalize CoreContainer directly from the constructor    *    * @param dir    * @param configFile    * @throws ParserConfigurationException    * @throws IOException    * @throws SAXException    */
@@ -962,6 +966,11 @@ throws|,
 name|SAXException
 block|{
 name|this
+argument_list|(
+name|dir
+argument_list|)
+expr_stmt|;
+name|this
 operator|.
 name|load
 argument_list|(
@@ -981,19 +990,18 @@ name|loader
 parameter_list|)
 block|{
 name|this
-operator|.
-name|loader
-operator|=
-name|loader
-expr_stmt|;
-name|this
-operator|.
-name|solrHome
-operator|=
+argument_list|(
 name|loader
 operator|.
 name|getInstanceDir
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|loader
+operator|=
+name|loader
 expr_stmt|;
 block|}
 DECL|method|CoreContainer
@@ -1783,7 +1791,9 @@ name|cores
 operator|=
 operator|new
 name|CoreContainer
-argument_list|()
+argument_list|(
+name|solrHome
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2063,6 +2073,31 @@ name|IOException
 throws|,
 name|SAXException
 block|{
+if|if
+condition|(
+literal|null
+operator|==
+name|dir
+condition|)
+block|{
+comment|// don't rely on SolrResourceLoader(), determine explicitly first
+name|dir
+operator|=
+name|SolrResourceLoader
+operator|.
+name|locateSolrHome
+argument_list|()
+expr_stmt|;
+block|}
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Loading CoreContainer using Solr Home: '{}'"
+argument_list|,
+name|dir
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|loader
@@ -3770,6 +3805,20 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Creating SolrCore '{}' using instanceDir: {}"
+argument_list|,
+name|dcore
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|instanceDir
+argument_list|)
+expr_stmt|;
 comment|// Initialize the solr config
 name|SolrResourceLoader
 name|solrLoader
@@ -4644,6 +4693,23 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Reloading SolrCore '{}' using instanceDir: {}"
+argument_list|,
+name|cd
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|instanceDir
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|SolrResourceLoader
 name|solrLoader
 decl_stmt|;
@@ -5314,13 +5380,14 @@ name|String
 name|adminHandlerClass
 parameter_list|)
 block|{
+comment|// :TODO: why create a new SolrResourceLoader? why not use this.loader ???
 name|SolrResourceLoader
 name|loader
 init|=
 operator|new
 name|SolrResourceLoader
 argument_list|(
-literal|null
+name|solrHome
 argument_list|,
 name|libLoader
 argument_list|,
