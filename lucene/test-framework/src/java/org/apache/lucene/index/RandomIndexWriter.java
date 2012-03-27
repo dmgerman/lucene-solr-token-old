@@ -136,19 +136,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|FieldType
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|IndexWriter
@@ -599,19 +586,32 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* TODO: find some what to make that random...      * This must be fixed across all fixed bytes       * fields in one index. so if you open another writer      * this might change if I use r.nextInt(x)      * maybe we can peek at the existing files here?       */
+comment|/* TODO: find some way to make this random...      * This must be fixed across all fixed bytes       * fields in one index. so if you open another writer      * this might change if I use r.nextInt(x)      * maybe we can peek at the existing files here?       */
 name|fixedBytesLength
 operator|=
 literal|17
 expr_stmt|;
+comment|// NOTE: this means up to 13 * 5 unique fields (we have
+comment|// 13 different DV types):
 name|docValuesFieldPrefix
 operator|=
 name|r
 operator|.
-name|nextLong
-argument_list|()
+name|nextInt
+argument_list|(
+literal|5
+argument_list|)
 expr_stmt|;
 name|switchDoDocValues
+argument_list|()
+expr_stmt|;
+comment|// Make sure we sometimes test indices that don't get
+comment|// any forced merges:
+name|doRandomForceMerge
+operator|=
+name|r
+operator|.
+name|nextBoolean
 argument_list|()
 expr_stmt|;
 block|}
@@ -631,6 +631,29 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|LuceneTestCase
+operator|.
+name|VERBOSE
+condition|)
+block|{
+if|if
+condition|(
+name|doDocValues
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"NOTE: RIW: turning on random DocValues fields"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 comment|/**    * Adds a Document.    * @see IndexWriter#addDocument(Iterable)    */
 DECL|method|addDocument
@@ -920,7 +943,9 @@ argument_list|)
 operator|!=
 literal|null
 condition|)
+block|{
 return|return;
+block|}
 specifier|final
 name|Field
 name|f
@@ -1886,7 +1911,7 @@ name|r
 operator|.
 name|nextInt
 argument_list|(
-literal|4
+literal|20
 argument_list|)
 operator|==
 literal|2
