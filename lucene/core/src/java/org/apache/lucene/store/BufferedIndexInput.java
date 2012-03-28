@@ -1713,7 +1713,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|BufferedIndexInput
 name|clone
 parameter_list|()
 block|{

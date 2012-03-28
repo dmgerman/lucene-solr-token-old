@@ -369,7 +369,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|SpanNotQuery
 name|clone
 parameter_list|()
 block|{
@@ -917,9 +917,6 @@ condition|)
 block|{
 name|clone
 operator|=
-operator|(
-name|SpanNotQuery
-operator|)
 name|this
 operator|.
 name|clone
@@ -960,9 +957,6 @@ literal|null
 condition|)
 name|clone
 operator|=
-operator|(
-name|SpanNotQuery
-operator|)
 name|this
 operator|.
 name|clone

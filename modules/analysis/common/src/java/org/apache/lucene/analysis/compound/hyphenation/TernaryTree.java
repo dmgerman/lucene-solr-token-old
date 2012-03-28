@@ -1449,7 +1449,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|TernaryTree
 name|clone
 parameter_list|()
 block|{
@@ -2055,7 +2055,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|Item
 name|clone
 parameter_list|()
 block|{

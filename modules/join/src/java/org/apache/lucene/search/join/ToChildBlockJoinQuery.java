@@ -1456,7 +1456,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|ToChildBlockJoinQuery
 name|clone
 parameter_list|()
 block|{

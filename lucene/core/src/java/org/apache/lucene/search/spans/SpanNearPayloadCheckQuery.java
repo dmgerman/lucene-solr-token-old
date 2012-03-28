@@ -347,7 +347,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|SpanNearPayloadCheckQuery
 name|clone
 parameter_list|()
 block|{

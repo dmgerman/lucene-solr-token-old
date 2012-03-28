@@ -773,9 +773,6 @@ literal|null
 condition|)
 name|clone
 operator|=
-operator|(
-name|SpanNearQuery
-operator|)
 name|this
 operator|.
 name|clone
@@ -818,7 +815,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|SpanNearQuery
 name|clone
 parameter_list|()
 block|{

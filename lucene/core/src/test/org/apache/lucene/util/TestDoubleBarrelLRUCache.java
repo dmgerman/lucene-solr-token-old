@@ -813,7 +813,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|CloneableObject
 name|clone
 parameter_list|()
 block|{
@@ -904,7 +904,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|CloneableInteger
 name|clone
 parameter_list|()
 block|{

@@ -2198,9 +2198,6 @@ comment|// it if a rewritten clause differs from the original clause (and hasn't
 comment|// initialized already).  If nothing differs, the clone isn't needlessly created
 name|clone
 operator|=
-operator|(
-name|BooleanQuery
-operator|)
 name|this
 operator|.
 name|clone
@@ -2291,7 +2288,7 @@ literal|"unchecked"
 argument_list|)
 DECL|method|clone
 specifier|public
-name|Object
+name|BooleanQuery
 name|clone
 parameter_list|()
 block|{

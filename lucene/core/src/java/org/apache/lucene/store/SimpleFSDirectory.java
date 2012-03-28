@@ -833,7 +833,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|SimpleFSIndexInput
 name|clone
 parameter_list|()
 block|{

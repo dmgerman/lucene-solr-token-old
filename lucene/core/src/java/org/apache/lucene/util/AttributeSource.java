@@ -428,7 +428,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|State
 name|clone
 parameter_list|()
 block|{
@@ -443,9 +443,6 @@ name|clone
 operator|.
 name|attribute
 operator|=
-operator|(
-name|AttributeImpl
-operator|)
 name|attribute
 operator|.
 name|clone
@@ -462,9 +459,6 @@ name|clone
 operator|.
 name|next
 operator|=
-operator|(
-name|State
-operator|)
 name|next
 operator|.
 name|clone

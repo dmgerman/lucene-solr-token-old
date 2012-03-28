@@ -380,7 +380,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|protected
-name|Object
+name|PerfTask
 name|clone
 parameter_list|()
 throws|throws
@@ -389,6 +389,9 @@ block|{
 comment|// tasks having non primitive data structures should override this.
 comment|// otherwise parallel running of a task sequence might not run correctly.
 return|return
+operator|(
+name|PerfTask
+operator|)
 name|super
 operator|.
 name|clone

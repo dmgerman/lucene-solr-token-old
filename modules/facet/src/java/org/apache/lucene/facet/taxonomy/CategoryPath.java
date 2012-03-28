@@ -2377,7 +2377,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|CategoryPath
 name|clone
 parameter_list|()
 block|{

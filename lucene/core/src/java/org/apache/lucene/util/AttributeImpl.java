@@ -396,11 +396,11 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|AttributeImpl
 name|clone
 parameter_list|()
 block|{
-name|Object
+name|AttributeImpl
 name|clone
 init|=
 literal|null
@@ -409,6 +409,9 @@ try|try
 block|{
 name|clone
 operator|=
+operator|(
+name|AttributeImpl
+operator|)
 name|super
 operator|.
 name|clone

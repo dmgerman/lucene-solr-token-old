@@ -152,7 +152,7 @@ name|Override
 DECL|method|clone
 specifier|public
 specifier|abstract
-name|Object
+name|Index
 name|clone
 parameter_list|()
 function_decl|;

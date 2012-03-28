@@ -393,7 +393,7 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Object
+name|FacetRequest
 name|clone
 parameter_list|()
 throws|throws
@@ -401,6 +401,9 @@ name|CloneNotSupportedException
 block|{
 comment|// Overridden to make it public
 return|return
+operator|(
+name|FacetRequest
+operator|)
 name|super
 operator|.
 name|clone
