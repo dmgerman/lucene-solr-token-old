@@ -153,14 +153,6 @@ operator|.
 name|getParams
 argument_list|()
 decl_stmt|;
-name|SolrParams
-name|required
-init|=
-name|params
-operator|.
-name|required
-argument_list|()
-decl_stmt|;
 name|SolrCore
 name|core
 init|=
@@ -220,7 +212,7 @@ comment|// Get the RequestHandler
 name|String
 name|qt
 init|=
-name|required
+name|params
 operator|.
 name|get
 argument_list|(
@@ -229,6 +221,7 @@ operator|.
 name|QT
 argument_list|)
 decl_stmt|;
+comment|//optional; you get the default otherwise
 name|SolrRequestHandler
 name|handler
 init|=
@@ -256,7 +249,7 @@ name|ErrorCode
 operator|.
 name|BAD_REQUEST
 argument_list|,
-literal|"Unknown RequestHandler: "
+literal|"Unknown RequestHandler (qt): "
 operator|+
 name|qt
 argument_list|)
