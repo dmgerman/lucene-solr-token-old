@@ -400,7 +400,7 @@ name|args
 operator|.
 name|put
 argument_list|(
-literal|"user-dictionary"
+literal|"userDictionary"
 argument_list|,
 literal|"userdict.txt"
 argument_list|)
