@@ -697,9 +697,6 @@ specifier|final
 name|IndexWriterConfig
 name|c
 init|=
-operator|(
-name|IndexWriterConfig
-operator|)
 name|iwc
 operator|.
 name|clone

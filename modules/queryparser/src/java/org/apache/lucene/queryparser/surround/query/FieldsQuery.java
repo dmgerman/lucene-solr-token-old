@@ -263,9 +263,6 @@ condition|)
 block|{
 name|qc
 operator|=
-operator|(
-name|SrndQuery
-operator|)
 name|q
 operator|.
 name|clone

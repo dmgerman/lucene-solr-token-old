@@ -1637,9 +1637,6 @@ name|terms
 parameter_list|()
 block|{
 return|return
-operator|(
-name|SegmentTermEnum
-operator|)
 name|origEnum
 operator|.
 name|clone
@@ -1666,9 +1663,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|SegmentTermEnum
-operator|)
 name|getThreadResources
 argument_list|()
 operator|.

@@ -1685,9 +1685,6 @@ decl_stmt|;
 name|FieldInfos
 name|clonedFieldInfos
 init|=
-operator|(
-name|FieldInfos
-operator|)
 name|fieldInfos
 operator|.
 name|clone
@@ -2118,9 +2115,6 @@ block|}
 name|FieldInfos
 name|clonedFieldInfos
 init|=
-operator|(
-name|FieldInfos
-operator|)
 name|fieldInfos
 operator|.
 name|clone

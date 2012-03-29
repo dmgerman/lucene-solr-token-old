@@ -102,9 +102,6 @@ name|this
 operator|.
 name|context
 operator|=
-operator|(
-name|Query
-operator|)
 name|context
 operator|.
 name|clone

@@ -1091,9 +1091,6 @@ decl_stmt|;
 name|IndexWriterConfig
 name|clone
 init|=
-operator|(
-name|IndexWriterConfig
-operator|)
 name|conf
 operator|.
 name|clone

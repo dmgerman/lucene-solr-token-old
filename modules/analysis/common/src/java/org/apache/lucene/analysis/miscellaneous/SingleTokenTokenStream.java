@@ -134,9 +134,6 @@ name|this
 operator|.
 name|singleToken
 operator|=
-operator|(
-name|Token
-operator|)
 name|token
 operator|.
 name|clone
@@ -225,9 +222,6 @@ name|getToken
 parameter_list|()
 block|{
 return|return
-operator|(
-name|Token
-operator|)
 name|singleToken
 operator|.
 name|clone
@@ -247,9 +241,6 @@ name|this
 operator|.
 name|singleToken
 operator|=
-operator|(
-name|Token
-operator|)
 name|token
 operator|.
 name|clone

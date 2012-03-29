@@ -622,9 +622,6 @@ name|TopKInEachNodeHandler
 argument_list|(
 name|taxonomyReader
 argument_list|,
-operator|(
-name|FacetRequest
-operator|)
 name|clone
 argument_list|()
 argument_list|)
@@ -636,9 +633,6 @@ name|TopKFacetResultsHandler
 argument_list|(
 name|taxonomyReader
 argument_list|,
-operator|(
-name|FacetRequest
-operator|)
 name|clone
 argument_list|()
 argument_list|)

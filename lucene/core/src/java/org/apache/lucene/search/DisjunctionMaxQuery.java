@@ -815,9 +815,6 @@ name|singleton
 condition|)
 name|result
 operator|=
-operator|(
-name|Query
-operator|)
 name|result
 operator|.
 name|clone

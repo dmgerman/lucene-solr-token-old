@@ -652,9 +652,6 @@ block|{
 name|PagedBytesDataInput
 name|input
 init|=
-operator|(
-name|PagedBytesDataInput
-operator|)
 name|dataInput
 operator|.
 name|clone
@@ -827,9 +824,6 @@ decl_stmt|;
 name|PagedBytesDataInput
 name|input
 init|=
-operator|(
-name|PagedBytesDataInput
-operator|)
 name|dataInput
 operator|.
 name|clone
@@ -922,9 +916,6 @@ block|{
 name|PagedBytesDataInput
 name|input
 init|=
-operator|(
-name|PagedBytesDataInput
-operator|)
 name|dataInput
 operator|.
 name|clone
@@ -1006,9 +997,6 @@ name|term
 argument_list|,
 name|termIndex
 argument_list|,
-operator|(
-name|PagedBytesDataInput
-operator|)
 name|dataInput
 operator|.
 name|clone

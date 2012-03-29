@@ -938,11 +938,6 @@ condition|)
 block|{
 name|docIndex
 operator|=
-operator|(
-name|IntIndexInput
-operator|.
-name|Index
-operator|)
 name|other
 operator|.
 name|docIndex
@@ -981,11 +976,6 @@ condition|)
 block|{
 name|freqIndex
 operator|=
-operator|(
-name|IntIndexInput
-operator|.
-name|Index
-operator|)
 name|other
 operator|.
 name|freqIndex
@@ -1032,11 +1022,6 @@ condition|)
 block|{
 name|posIndex
 operator|=
-operator|(
-name|IntIndexInput
-operator|.
-name|Index
-operator|)
 name|other
 operator|.
 name|posIndex

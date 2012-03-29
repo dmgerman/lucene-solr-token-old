@@ -920,9 +920,6 @@ expr_stmt|;
 name|FixedBitSet
 name|bb
 init|=
-operator|(
-name|FixedBitSet
-operator|)
 name|b
 operator|.
 name|clone
@@ -992,9 +989,6 @@ argument_list|)
 expr_stmt|;
 name|bb
 operator|=
-operator|(
-name|FixedBitSet
-operator|)
 name|b
 operator|.
 name|clone
@@ -1069,9 +1063,6 @@ argument_list|)
 expr_stmt|;
 name|bb
 operator|=
-operator|(
-name|FixedBitSet
-operator|)
 name|b
 operator|.
 name|clone
@@ -1188,9 +1179,6 @@ expr_stmt|;
 name|FixedBitSet
 name|b_and
 init|=
-operator|(
-name|FixedBitSet
-operator|)
 name|b
 operator|.
 name|clone
@@ -1213,9 +1201,6 @@ expr_stmt|;
 name|FixedBitSet
 name|b_or
 init|=
-operator|(
-name|FixedBitSet
-operator|)
 name|b
 operator|.
 name|clone
@@ -1231,9 +1216,6 @@ expr_stmt|;
 name|FixedBitSet
 name|b_andn
 init|=
-operator|(
-name|FixedBitSet
-operator|)
 name|b
 operator|.
 name|clone

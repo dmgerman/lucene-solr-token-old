@@ -971,9 +971,6 @@ name|other
 operator|.
 name|text
 operator|=
-operator|(
-name|CharArrayIterator
-operator|)
 name|text
 operator|.
 name|clone
@@ -989,9 +986,6 @@ name|other
 operator|.
 name|working
 operator|=
-operator|(
-name|CharArrayIterator
-operator|)
 name|working
 operator|.
 name|clone
@@ -1007,9 +1001,6 @@ name|other
 operator|.
 name|verifyText
 operator|=
-operator|(
-name|CharArrayIterator
-operator|)
 name|verifyText
 operator|.
 name|clone

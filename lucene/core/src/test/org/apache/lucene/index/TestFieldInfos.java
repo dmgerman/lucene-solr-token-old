@@ -607,9 +607,6 @@ expr_stmt|;
 name|FieldInfos
 name|readOnlyClone
 init|=
-operator|(
-name|FieldInfos
-operator|)
 name|readOnly
 operator|.
 name|clone
