@@ -103,7 +103,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 import|;
 end_import
 begin_import
@@ -1872,7 +1872,7 @@ operator|.
 name|getBaseUrl
 argument_list|()
 decl_stmt|;
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 name|server
 decl_stmt|;
 name|log
@@ -1891,7 +1891,7 @@ block|{
 name|server
 operator|=
 operator|new
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 argument_list|(
 name|recoveryUrl
 argument_list|)

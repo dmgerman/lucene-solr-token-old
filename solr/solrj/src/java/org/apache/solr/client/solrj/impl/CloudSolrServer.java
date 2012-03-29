@@ -116,11 +116,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|impl
 operator|.
-name|HttpClient
+name|client
+operator|.
+name|DefaultHttpClient
 import|;
 end_import
 begin_import
@@ -129,11 +131,15 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|impl
 operator|.
-name|MultiThreadedHttpConnectionManager
+name|conn
+operator|.
+name|tsccm
+operator|.
+name|ThreadSafeClientConnManager
 import|;
 end_import
 begin_import
@@ -427,7 +433,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|connManager
 specifier|private
-name|MultiThreadedHttpConnectionManager
+name|ThreadSafeClientConnManager
 name|connManager
 decl_stmt|;
 comment|/**    * @param zkHost The address of the zookeeper quorum containing the cloud state    */
@@ -444,7 +450,7 @@ block|{
 name|connManager
 operator|=
 operator|new
-name|MultiThreadedHttpConnectionManager
+name|ThreadSafeClientConnManager
 argument_list|()
 expr_stmt|;
 name|this
@@ -461,7 +467,7 @@ operator|new
 name|LBHttpSolrServer
 argument_list|(
 operator|new
-name|HttpClient
+name|DefaultHttpClient
 argument_list|(
 name|connManager
 argument_list|)

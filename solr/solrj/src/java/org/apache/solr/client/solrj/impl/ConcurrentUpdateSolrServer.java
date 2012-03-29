@@ -161,11 +161,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
-operator|.
-name|HttpClient
+name|HttpResponse
 import|;
 end_import
 begin_import
@@ -174,9 +172,7 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
-operator|.
-name|httpclient
+name|http
 operator|.
 name|HttpStatus
 import|;
@@ -187,13 +183,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
-name|methods
-operator|.
-name|PostMethod
+name|HttpClient
 import|;
 end_import
 begin_import
@@ -202,13 +196,54 @@ name|org
 operator|.
 name|apache
 operator|.
-name|commons
+name|http
 operator|.
-name|httpclient
+name|client
 operator|.
 name|methods
 operator|.
-name|RequestEntity
+name|HttpPost
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|entity
+operator|.
+name|ContentProducer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|entity
+operator|.
+name|EntityTemplate
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|client
+operator|.
+name|solrj
+operator|.
+name|ResponseParser
 import|;
 end_import
 begin_import
@@ -238,7 +273,39 @@ name|client
 operator|.
 name|solrj
 operator|.
+name|SolrServer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|client
+operator|.
+name|solrj
+operator|.
 name|SolrServerException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|client
+operator|.
+name|solrj
+operator|.
+name|request
+operator|.
+name|RequestWriter
 import|;
 end_import
 begin_import
@@ -339,16 +406,25 @@ name|LoggerFactory
 import|;
 end_import
 begin_comment
-comment|/**  * {@link StreamingUpdateSolrServer} buffers all added documents and writes them  * into open HTTP connections. This class is thread safe.  *   * Although any SolrServer request can be made with this implementation,  * it is only recommended to use {@link StreamingUpdateSolrServer} with  * /update requests.  The base class {&link CommonsHttpSolrServer} is  * better suited for the query interface.  *  * @since solr 1.4  */
+comment|/**  * ConcurrentUpdateSolrServer buffers all added documents and writes  * them into open HTTP connections. This class is thread safe.  *   * Although any SolrServer request can be made with this implementation, it is  * only recommended to use ConcurrentUpdateSolrServer with /update  * requests. The class {@link HttpSolrServer} is better suited for the  * query interface.  */
 end_comment
 begin_class
-DECL|class|StreamingUpdateSolrServer
+DECL|class|ConcurrentUpdateSolrServer
 specifier|public
 class|class
-name|StreamingUpdateSolrServer
+name|ConcurrentUpdateSolrServer
 extends|extends
-name|CommonsHttpSolrServer
+name|SolrServer
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|field|log
 specifier|static
 specifier|final
@@ -359,10 +435,15 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|StreamingUpdateSolrServer
+name|ConcurrentUpdateSolrServer
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|server
+specifier|private
+name|HttpSolrServer
+name|server
 decl_stmt|;
 DECL|field|queue
 specifier|final
@@ -410,10 +491,10 @@ specifier|final
 name|int
 name|threadCount
 decl_stmt|;
-comment|/**    * Uses an internal MultiThreadedHttpConnectionManager to manage http connections    *    * @param solrServerUrl The Solr server URL    * @param queueSize     The buffer size before the documents are sent to the server    * @param threadCount   The number of background threads used to empty the queue    * @throws MalformedURLException    */
-DECL|method|StreamingUpdateSolrServer
+comment|/**    * Uses an internal ThreadSafeClientConnManager to manage http    * connections.    *     * @param solrServerUrl    *          The Solr server URL    * @param queueSize    *          The buffer size before the documents are sent to the server    * @param threadCount    *          The number of background threads used to empty the queue    * @throws MalformedURLException    */
+DECL|method|ConcurrentUpdateSolrServer
 specifier|public
-name|StreamingUpdateSolrServer
+name|ConcurrentUpdateSolrServer
 parameter_list|(
 name|String
 name|solrServerUrl
@@ -439,10 +520,10 @@ name|threadCount
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Uses the supplied HttpClient to send documents to the Solr server, the HttpClient should be instantiated using a    * MultiThreadedHttpConnectionManager.    */
-DECL|method|StreamingUpdateSolrServer
+comment|/**    * Uses the supplied HttpClient to send documents to the Solr server, the    * HttpClient should be instantiated using a     * ThreadSafeClientConnManager.    */
+DECL|method|ConcurrentUpdateSolrServer
 specifier|public
-name|StreamingUpdateSolrServer
+name|ConcurrentUpdateSolrServer
 parameter_list|(
 name|String
 name|solrServerUrl
@@ -459,11 +540,25 @@ parameter_list|)
 throws|throws
 name|MalformedURLException
 block|{
-name|super
+name|this
+operator|.
+name|server
+operator|=
+operator|new
+name|HttpSolrServer
 argument_list|(
 name|solrServerUrl
 argument_list|,
 name|client
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|server
+operator|.
+name|setFollowRedirects
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 name|queue
@@ -530,8 +625,13 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-name|PostMethod
+name|HttpPost
 name|method
+init|=
+literal|null
+decl_stmt|;
+name|HttpResponse
+name|response
 init|=
 literal|null
 decl_stmt|;
@@ -570,48 +670,19 @@ operator|==
 literal|null
 condition|)
 break|break;
-name|RequestEntity
-name|request
+name|EntityTemplate
+name|template
 init|=
 operator|new
-name|RequestEntity
+name|EntityTemplate
+argument_list|(
+operator|new
+name|ContentProducer
 argument_list|()
 block|{
-comment|// we don't know the length
-specifier|public
-name|long
-name|getContentLength
-parameter_list|()
-block|{
-return|return
-operator|-
-literal|1
-return|;
-block|}
-specifier|public
-name|String
-name|getContentType
-parameter_list|()
-block|{
-return|return
-name|requestWriter
-operator|.
-name|getUpdateContentType
-argument_list|()
-return|;
-block|}
-specifier|public
-name|boolean
-name|isRepeatable
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 specifier|public
 name|void
-name|writeRequest
+name|writeTo
 parameter_list|(
 name|OutputStream
 name|out
@@ -629,6 +700,8 @@ name|TEXT_XML
 operator|.
 name|equals
 argument_list|(
+name|server
+operator|.
 name|requestWriter
 operator|.
 name|getUpdateContentType
@@ -662,6 +735,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|server
+operator|.
 name|requestWriter
 operator|.
 name|write
@@ -679,6 +754,8 @@ name|TEXT_XML
 operator|.
 name|equals
 argument_list|(
+name|server
+operator|.
 name|requestWriter
 operator|.
 name|getUpdateContentType
@@ -819,6 +896,8 @@ name|TEXT_XML
 operator|.
 name|equals
 argument_list|(
+name|server
+operator|.
 name|requestWriter
 operator|.
 name|getUpdateContentType
@@ -839,11 +918,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|out
-operator|.
-name|flush
-argument_list|()
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -859,6 +933,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+argument_list|)
 decl_stmt|;
 name|String
 name|path
@@ -869,6 +944,8 @@ name|TEXT_XML
 operator|.
 name|equals
 argument_list|(
+name|server
+operator|.
 name|requestWriter
 operator|.
 name|getUpdateContentType
@@ -882,46 +959,56 @@ decl_stmt|;
 name|method
 operator|=
 operator|new
-name|PostMethod
+name|HttpPost
 argument_list|(
-name|_baseURL
+name|server
+operator|.
+name|getBaseURL
+argument_list|()
 operator|+
 name|path
 argument_list|)
 expr_stmt|;
 name|method
 operator|.
-name|setRequestEntity
+name|setEntity
 argument_list|(
-name|request
+name|template
 argument_list|)
 expr_stmt|;
 name|method
 operator|.
-name|setFollowRedirects
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|method
-operator|.
-name|addRequestHeader
+name|addHeader
 argument_list|(
 literal|"User-Agent"
 argument_list|,
+name|HttpSolrServer
+operator|.
 name|AGENT
+argument_list|)
+expr_stmt|;
+name|response
+operator|=
+name|server
+operator|.
+name|getHttpClient
+argument_list|()
+operator|.
+name|execute
+argument_list|(
+name|method
 argument_list|)
 expr_stmt|;
 name|int
 name|statusCode
 init|=
-name|getHttpClient
+name|response
+operator|.
+name|getStatusLine
 argument_list|()
 operator|.
-name|executeMethod
-argument_list|(
-name|method
-argument_list|)
+name|getStatusCode
+argument_list|()
 decl_stmt|;
 name|log
 operator|.
@@ -969,7 +1056,7 @@ name|msg
 operator|.
 name|append
 argument_list|(
-name|method
+name|response
 operator|.
 name|getStatusLine
 argument_list|()
@@ -983,16 +1070,6 @@ operator|.
 name|append
 argument_list|(
 literal|"\n\n"
-argument_list|)
-expr_stmt|;
-name|msg
-operator|.
-name|append
-argument_list|(
-name|method
-operator|.
-name|getStatusText
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|msg
@@ -1035,25 +1112,32 @@ finally|finally
 block|{
 try|try
 block|{
-comment|// make sure to release the connection
 if|if
 condition|(
-name|method
+name|response
 operator|!=
 literal|null
 condition|)
-name|method
+block|{
+name|response
 operator|.
-name|releaseConnection
+name|getEntity
+argument_list|()
+operator|.
+name|getContent
+argument_list|()
+operator|.
+name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
 name|Exception
 name|ex
 parameter_list|)
-block|{}
+block|{             }
 block|}
 block|}
 block|}
@@ -1071,9 +1155,12 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// remove it from the list of running things unless we are the last runner and the queue is full...
-comment|// in which case, the next queue.put() would block and there would be no runners to handle it.
-comment|// This case has been further handled by using offer instead of put, and using a retry loop
+comment|// remove it from the list of running things unless we are the last
+comment|// runner and the queue is full...
+comment|// in which case, the next queue.put() would block and there would be no
+comment|// runners to handle it.
+comment|// This case has been further handled by using offer instead of put, and
+comment|// using a retry loop
 comment|// to avoid blocking forever (see request()).
 synchronized|synchronized
 init|(
@@ -1134,8 +1221,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
 DECL|method|request
 specifier|public
 name|NamedList
@@ -1164,7 +1249,7 @@ operator|)
 condition|)
 block|{
 return|return
-name|super
+name|server
 operator|.
 name|request
 argument_list|(
@@ -1203,7 +1288,7 @@ name|blockUntilFinished
 argument_list|()
 expr_stmt|;
 return|return
-name|super
+name|server
 operator|.
 name|request
 argument_list|(
@@ -1253,7 +1338,7 @@ argument_list|()
 expr_stmt|;
 comment|// empty the queue
 return|return
-name|super
+name|server
 operator|.
 name|request
 argument_list|(
@@ -1320,7 +1405,16 @@ name|queue
 operator|.
 name|size
 argument_list|()
-comment|// queue is half full and we can add more runners
+comment|// queue
+comment|// is
+comment|// half
+comment|// full
+comment|// and
+comment|// we
+comment|// can
+comment|// add
+comment|// more
+comment|// runners
 operator|&&
 name|runners
 operator|.
@@ -1356,8 +1450,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// break out of the retry loop if we added the element to the queue successfully, *and*
-comment|// while we are still holding the runners lock to prevent race conditions.
+comment|// break out of the retry loop if we added the element to the queue
+comment|// successfully, *and*
+comment|// while we are still holding the runners lock to prevent race
+comment|// conditions.
 comment|// race conditions.
 if|if
 condition|(
@@ -1366,12 +1462,16 @@ condition|)
 break|break;
 block|}
 block|}
-comment|// Retry to add to the queue w/o the runners lock held (else we risk temporary deadlock)
+comment|// Retry to add to the queue w/o the runners lock held (else we risk
+comment|// temporary deadlock)
 comment|// This retry could also fail because
-comment|// 1) existing runners were not able to take off any new elements in the queue
+comment|// 1) existing runners were not able to take off any new elements in the
+comment|// queue
 comment|// 2) the queue was filled back up since our last try
-comment|// If we succeed, the queue may have been completely emptied, and all runners stopped.
-comment|// In all cases, we should loop back to the top to see if we need to start more runners.
+comment|// If we succeed, the queue may have been completely emptied, and all
+comment|// runners stopped.
+comment|// In all cases, we should loop back to the top to see if we need to
+comment|// start more runners.
 comment|//
 if|if
 condition|(
@@ -1545,15 +1645,13 @@ name|ex
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|shutdown
 specifier|public
 name|void
 name|shutdown
 parameter_list|()
 block|{
-name|super
+name|server
 operator|.
 name|shutdown
 argument_list|()
@@ -1635,7 +1733,7 @@ name|void
 name|shutdownNow
 parameter_list|()
 block|{
-name|super
+name|server
 operator|.
 name|shutdown
 argument_list|()
@@ -1690,6 +1788,40 @@ name|interrupt
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+DECL|method|setParser
+specifier|public
+name|void
+name|setParser
+parameter_list|(
+name|ResponseParser
+name|responseParser
+parameter_list|)
+block|{
+name|server
+operator|.
+name|setParser
+argument_list|(
+name|responseParser
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setRequestWriter
+specifier|public
+name|void
+name|setRequestWriter
+parameter_list|(
+name|RequestWriter
+name|requestWriter
+parameter_list|)
+block|{
+name|server
+operator|.
+name|setRequestWriter
+argument_list|(
+name|requestWriter
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

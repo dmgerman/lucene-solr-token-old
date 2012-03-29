@@ -98,7 +98,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 import|;
 end_import
 begin_import
@@ -485,7 +485,7 @@ name|BASE_URL_PROP
 argument_list|,
 operator|(
 operator|(
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 operator|)
 name|controlClient
 operator|)
@@ -628,11 +628,11 @@ argument_list|,
 name|numFound
 argument_list|)
 expr_stmt|;
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 name|client
 init|=
 operator|(
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 operator|)
 name|clients
 operator|.

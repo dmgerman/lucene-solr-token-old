@@ -397,6 +397,10 @@ name|assertQ
 argument_list|(
 name|req
 argument_list|(
+literal|"qt"
+argument_list|,
+literal|"standard"
+argument_list|,
 literal|"q"
 argument_list|,
 literal|"id:5"

@@ -112,7 +112,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 import|;
 end_import
 begin_import
@@ -977,11 +977,11 @@ name|SolrServerException
 throws|,
 name|IOException
 block|{
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 name|server
 init|=
 operator|new
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 argument_list|(
 name|leaderUrl
 argument_list|)
@@ -1079,11 +1079,11 @@ name|SolrServerException
 throws|,
 name|IOException
 block|{
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 name|server
 init|=
 operator|new
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 argument_list|(
 name|leaderBaseUrl
 argument_list|)

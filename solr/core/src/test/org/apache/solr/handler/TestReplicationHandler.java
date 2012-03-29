@@ -302,7 +302,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 import|;
 end_import
 begin_import
@@ -857,11 +857,11 @@ name|port
 operator|+
 name|context
 decl_stmt|;
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 name|s
 init|=
 operator|new
-name|CommonsHttpSolrServer
+name|HttpSolrServer
 argument_list|(
 name|url
 argument_list|)
