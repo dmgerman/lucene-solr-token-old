@@ -2906,7 +2906,7 @@ name|AnalysisParams
 operator|.
 name|FIELD_VALUE
 argument_list|,
-literal|"hello"
+literal|"ignore_exception"
 argument_list|)
 expr_stmt|;
 try|try
@@ -2944,7 +2944,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Invalid Number: hello"
+literal|"Invalid Number: ignore_exception"
 argument_list|,
 name|ex
 operator|.
@@ -2981,7 +2981,7 @@ name|server
 operator|.
 name|deleteByQuery
 argument_list|(
-literal|"??::??"
+literal|"??::?? ignore_exception"
 argument_list|)
 expr_stmt|;
 comment|// query syntax error
@@ -3018,7 +3018,7 @@ argument_list|()
 operator|.
 name|indexOf
 argument_list|(
-literal|"??::??"
+literal|"??::?? ignore_exception"
 argument_list|)
 operator|>
 literal|0
