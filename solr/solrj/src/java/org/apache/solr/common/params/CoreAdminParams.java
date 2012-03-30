@@ -232,12 +232,6 @@ block|,
 DECL|enum constant|RENAME
 name|RENAME
 block|,
-DECL|enum constant|Deprecated
-annotation|@
-name|Deprecated
-DECL|enum constant|ALIAS
-name|ALIAS
-block|,
 DECL|enum constant|MERGEINDEXES
 name|MERGEINDEXES
 block|,
