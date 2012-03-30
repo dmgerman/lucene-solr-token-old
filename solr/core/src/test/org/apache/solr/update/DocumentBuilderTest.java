@@ -1422,7 +1422,7 @@ name|xml
 operator|=
 literal|"<doc>"
 operator|+
-literal|"<field name=\"id\">1</field>"
+literal|"<field name=\"id\">ignore_exception</field>"
 operator|+
 literal|"<field name=\"title_stringNoNorms\" boost=\"3.0\">mytitle</field>"
 operator|+
