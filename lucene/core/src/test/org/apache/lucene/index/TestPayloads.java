@@ -476,9 +476,6 @@ block|}
 name|Payload
 name|clone
 init|=
-operator|(
-name|Payload
-operator|)
 name|payload
 operator|.
 name|clone
