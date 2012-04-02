@@ -37,6 +37,21 @@ name|solr
 operator|.
 name|common
 operator|.
+name|SolrException
+operator|.
+name|ErrorCode
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|DOMUtil
@@ -392,7 +407,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Provides a static reference to a Config object modeling the main  * configuration data for a a Solr instance -- typically found in  * "solrconfig.xml".  *  *  */
+comment|/**  * Provides a static reference to a Config object modeling the main  * configuration data for a a Solr instance -- typically found in  * "solrconfig.xml".  */
 end_comment
 begin_class
 DECL|class|SolrConfig
@@ -587,6 +602,100 @@ argument_list|(
 literal|"luceneMatchVersion"
 argument_list|)
 expr_stmt|;
+name|String
+name|indexConfigPrefix
+decl_stmt|;
+comment|// Old indexDefaults and mainIndex sections are deprecated and fails fast for luceneMatchVersion=>LUCENE_40.
+comment|// For older solrconfig.xml's we allow the old sections, but never mixed with the new<indexConfig>
+name|boolean
+name|hasDeprecatedIndexConfig
+init|=
+name|get
+argument_list|(
+literal|"indexDefaults/text()"
+argument_list|,
+literal|null
+argument_list|)
+operator|!=
+literal|null
+operator|||
+name|get
+argument_list|(
+literal|"mainIndex/text()"
+argument_list|,
+literal|null
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
+name|boolean
+name|hasNewIndexConfig
+init|=
+name|get
+argument_list|(
+literal|"indexConfig/text()"
+argument_list|,
+literal|null
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|hasDeprecatedIndexConfig
+condition|)
+block|{
+if|if
+condition|(
+name|luceneMatchVersion
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_40
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|ErrorCode
+operator|.
+name|FORBIDDEN
+argument_list|,
+literal|"<indexDefaults> and<mainIndex> configuration sections are discontinued. Use<indexConfig> instead."
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+comment|// Still allow the old sections for older LuceneMatchVersion's
+if|if
+condition|(
+name|hasNewIndexConfig
+condition|)
+block|{
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|ErrorCode
+operator|.
+name|FORBIDDEN
+argument_list|,
+literal|"Cannot specify both<indexDefaults>,<mainIndex> and<indexConfig> at the same time. Please use<indexConfig> only."
+argument_list|)
+throw|;
+block|}
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"<indexDefaults> and<mainIndex> configuration sections are deprecated and will fail for luceneMatchVersion=LUCENE_40 and later. Please use<indexConfig> instead."
+argument_list|)
+expr_stmt|;
 name|defaultIndexConfig
 operator|=
 operator|new
@@ -594,7 +703,7 @@ name|SolrIndexConfig
 argument_list|(
 name|this
 argument_list|,
-literal|null
+literal|"indexDefaults"
 argument_list|,
 literal|null
 argument_list|)
@@ -611,11 +720,45 @@ argument_list|,
 name|defaultIndexConfig
 argument_list|)
 expr_stmt|;
+name|indexConfigPrefix
+operator|=
+literal|"mainIndex"
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|defaultIndexConfig
+operator|=
+name|mainIndexConfig
+operator|=
+literal|null
+expr_stmt|;
+name|indexConfigPrefix
+operator|=
+literal|"indexConfig"
+expr_stmt|;
+block|}
+comment|// Parse indexConfig section, using mainIndex as backup in case old config is used
+name|indexConfig
+operator|=
+operator|new
+name|SolrIndexConfig
+argument_list|(
+name|this
+argument_list|,
+literal|"indexConfig"
+argument_list|,
+name|mainIndexConfig
+argument_list|)
+expr_stmt|;
 name|reopenReaders
 operator|=
 name|getBool
 argument_list|(
-literal|"mainIndex/reopenReaders"
+name|indexConfigPrefix
+operator|+
+literal|"/reopenReaders"
 argument_list|,
 literal|true
 argument_list|)
@@ -641,33 +784,48 @@ operator|+
 name|luceneMatchVersion
 argument_list|)
 expr_stmt|;
-name|filtOptEnabled
-operator|=
-name|getBool
+comment|// Warn about deprecated / discontinued parameters
+comment|// boolToFilterOptimizer has had no effect since 3.1
+if|if
+condition|(
+name|get
 argument_list|(
-literal|"query/boolTofilterOptimizer/@enabled"
+literal|"query/boolTofilterOptimizer"
 argument_list|,
-literal|false
+literal|null
+argument_list|)
+operator|!=
+literal|null
+condition|)
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"solrconfig.xml:<boolTofilterOptimizer> is currently not implemented and has no effect."
 argument_list|)
 expr_stmt|;
-name|filtOptCacheSize
-operator|=
-name|getInt
+if|if
+condition|(
+name|get
 argument_list|(
-literal|"query/boolTofilterOptimizer/@cacheSize"
+literal|"query/HashDocSet"
 argument_list|,
-literal|32
+literal|null
+argument_list|)
+operator|!=
+literal|null
+condition|)
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"solrconfig.xml:<HashDocSet> is deprecated and no longer recommended used."
 argument_list|)
 expr_stmt|;
-name|filtOptThreshold
-operator|=
-name|getFloat
-argument_list|(
-literal|"query/boolTofilterOptimizer/@threshold"
-argument_list|,
-literal|.05f
-argument_list|)
-expr_stmt|;
+comment|// TODO: Old code - in case somebody wants to re-enable. Also see SolrIndexSearcher#search()
+comment|//    filtOptEnabled = getBool("query/boolTofilterOptimizer/@enabled", false);
+comment|//    filtOptCacheSize = getInt("query/boolTofilterOptimizer/@cacheSize",32);
+comment|//    filtOptThreshold = getFloat("query/boolTofilterOptimizer/@threshold",.05f);
 name|useFilterForSortedQuery
 operator|=
 name|getBool
@@ -841,7 +999,9 @@ name|unlockOnStartup
 operator|=
 name|getBool
 argument_list|(
-literal|"mainIndex/unlockOnStartup"
+name|indexConfigPrefix
+operator|+
+literal|"/unlockOnStartup"
 argument_list|,
 literal|false
 argument_list|)
@@ -1137,7 +1297,9 @@ name|IndexDeletionPolicy
 operator|.
 name|class
 argument_list|,
-literal|"mainIndex/deletionPolicy"
+name|indexConfigPrefix
+operator|+
+literal|"/deletionPolicy"
 argument_list|,
 literal|false
 argument_list|,
@@ -1445,25 +1607,10 @@ specifier|final
 name|int
 name|booleanQueryMaxClauseCount
 decl_stmt|;
-comment|// SolrIndexSearcher - nutch optimizer
-DECL|field|filtOptEnabled
-specifier|public
-specifier|final
-name|boolean
-name|filtOptEnabled
-decl_stmt|;
-DECL|field|filtOptCacheSize
-specifier|public
-specifier|final
-name|int
-name|filtOptCacheSize
-decl_stmt|;
-DECL|field|filtOptThreshold
-specifier|public
-specifier|final
-name|float
-name|filtOptThreshold
-decl_stmt|;
+comment|// SolrIndexSearcher - nutch optimizer -- Disabled since 3.1
+comment|//  public final boolean filtOptEnabled;
+comment|//  public final int filtOptCacheSize;
+comment|//  public final float filtOptThreshold;
 comment|// SolrIndexSearcher - caches configurations
 DECL|field|filterCacheConfig
 specifier|public
@@ -1540,18 +1687,29 @@ specifier|final
 name|int
 name|hashDocSetMaxSize
 decl_stmt|;
-comment|// default& main index configurations
+comment|// default& main index configurations, deprecated as of 3.6
+annotation|@
+name|Deprecated
 DECL|field|defaultIndexConfig
 specifier|public
 specifier|final
 name|SolrIndexConfig
 name|defaultIndexConfig
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|mainIndexConfig
 specifier|public
 specifier|final
 name|SolrIndexConfig
 name|mainIndexConfig
+decl_stmt|;
+comment|// IndexConfig settings
+DECL|field|indexConfig
+specifier|public
+specifier|final
+name|SolrIndexConfig
+name|indexConfig
 decl_stmt|;
 DECL|field|updateHandlerInfo
 specifier|protected

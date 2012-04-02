@@ -113,7 +113,7 @@ name|iwc
 init|=
 name|solrConfig
 operator|.
-name|defaultIndexConfig
+name|indexConfig
 operator|.
 name|toIndexWriterConfig
 argument_list|(

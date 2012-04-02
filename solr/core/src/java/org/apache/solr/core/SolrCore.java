@@ -1682,7 +1682,7 @@ argument_list|,
 name|getSolrConfig
 argument_list|()
 operator|.
-name|mainIndexConfig
+name|indexConfig
 argument_list|,
 name|name
 argument_list|,
@@ -1933,7 +1933,7 @@ argument_list|,
 name|getSolrConfig
 argument_list|()
 operator|.
-name|mainIndexConfig
+name|indexConfig
 operator|.
 name|lockType
 argument_list|)
@@ -2057,7 +2057,7 @@ name|schema
 argument_list|,
 name|solrConfig
 operator|.
-name|mainIndexConfig
+name|indexConfig
 argument_list|,
 name|solrDelPolicy
 argument_list|,
@@ -5295,7 +5295,7 @@ argument_list|,
 name|getSolrConfig
 argument_list|()
 operator|.
-name|mainIndexConfig
+name|indexConfig
 argument_list|,
 literal|"main"
 argument_list|,

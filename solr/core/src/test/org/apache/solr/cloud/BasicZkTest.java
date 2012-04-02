@@ -281,6 +281,8 @@ name|assertEquals
 argument_list|(
 literal|"Mergefactor was not picked up"
 argument_list|,
+literal|8
+argument_list|,
 operator|(
 operator|(
 name|LogMergePolicy
@@ -296,8 +298,6 @@ operator|)
 operator|.
 name|getMergeFactor
 argument_list|()
-argument_list|,
-literal|8
 argument_list|)
 expr_stmt|;
 name|lrf
