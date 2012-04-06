@@ -64,16 +64,13 @@ begin_comment
 comment|// V1.3 11/26/06 // Make safe for Java 1.4, work into Noggit
 end_comment
 begin_comment
-comment|// @author yonik
-end_comment
-begin_comment
 comment|// Java5 version could look like the following:
 end_comment
 begin_comment
 comment|// public class CharArr implements CharSequence, Appendable, Readable, Closeable {
 end_comment
 begin_comment
-comment|/**  * @author yonik  */
+comment|/**  */
 end_comment
 begin_class
 DECL|class|CharArr

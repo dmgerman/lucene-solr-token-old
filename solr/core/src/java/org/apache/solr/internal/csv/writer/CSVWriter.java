@@ -46,7 +46,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * CSVWriter  *  * @author Martin van den Bemt  */
+comment|/**  * CSVWriter  *  */
 end_comment
 begin_class
 DECL|class|CSVWriter
