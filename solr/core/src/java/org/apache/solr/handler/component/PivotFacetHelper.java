@@ -1030,16 +1030,8 @@ comment|//  public String getDescription() {
 comment|//    return "Handle Pivot (multi-level) Faceting";
 comment|//  }
 comment|//
-comment|//  public String getSourceId() {
-comment|//    return "$Id$";
-comment|//  }
-comment|//
 comment|//  public String getSource() {
 comment|//    return "$URL$";
-comment|//  }
-comment|//
-comment|//  public String getVersion() {
-comment|//    return "$Revision$";
 comment|//  }
 block|}
 end_class

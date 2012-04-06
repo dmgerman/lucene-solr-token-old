@@ -19,7 +19,7 @@ name|writer
 package|;
 end_package
 begin_comment
-comment|/**  *   * @author Martin van den Bemt  * @version $Id$  */
+comment|/**  *   * @author Martin van den Bemt  */
 end_comment
 begin_class
 DECL|class|CSVField

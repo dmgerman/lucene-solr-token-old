@@ -13,7 +13,7 @@ name|noggit
 package|;
 end_package
 begin_comment
-comment|/**  * @author yonik  * @version $Id: JSONUtil.java 1209632 2011-12-02 18:48:42Z yonik $  */
+comment|/**  * @author yonik  */
 end_comment
 begin_class
 DECL|class|JSONUtil

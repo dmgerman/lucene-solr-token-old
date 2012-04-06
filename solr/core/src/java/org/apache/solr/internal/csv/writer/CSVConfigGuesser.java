@@ -46,7 +46,7 @@ name|InputStreamReader
 import|;
 end_import
 begin_comment
-comment|/**  * Tries to guess a config based on an InputStream.  *  * @author Martin van den Bemt  * @version $Id$  */
+comment|/**  * Tries to guess a config based on an InputStream.  *  * @author Martin van den Bemt  */
 end_comment
 begin_class
 DECL|class|CSVConfigGuesser

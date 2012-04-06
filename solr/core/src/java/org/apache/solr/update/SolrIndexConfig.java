@@ -148,7 +148,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * This config object encapsulates IndexWriter config params,  * defined in the&lt;indexConfig&gt; section of solrconfig.xml  * @version $Id$  */
+comment|/**  * This config object encapsulates IndexWriter config params,  * defined in the&lt;indexConfig&gt; section of solrconfig.xml  */
 end_comment
 begin_class
 DECL|class|SolrIndexConfig

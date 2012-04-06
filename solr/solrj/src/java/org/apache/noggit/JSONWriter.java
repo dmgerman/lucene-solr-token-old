@@ -22,7 +22,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * @author yonik  * @version $Id: JSONWriter.java 1211150 2011-12-06 21:10:01Z yonik $  */
+comment|/**  * @author yonik  */
 end_comment
 begin_class
 DECL|class|JSONWriter
