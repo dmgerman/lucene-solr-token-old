@@ -86,7 +86,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|FieldsProducer
+name|InvertedFieldsProducer
 import|;
 end_import
 begin_import
@@ -255,7 +255,7 @@ name|fieldInfos
 decl_stmt|;
 DECL|field|fields
 specifier|final
-name|FieldsProducer
+name|InvertedFieldsProducer
 name|fields
 decl_stmt|;
 DECL|field|perDocProducer
@@ -728,7 +728,6 @@ block|}
 block|}
 DECL|method|notifyCoreClosedListeners
 specifier|private
-specifier|final
 name|void
 name|notifyCoreClosedListeners
 parameter_list|()

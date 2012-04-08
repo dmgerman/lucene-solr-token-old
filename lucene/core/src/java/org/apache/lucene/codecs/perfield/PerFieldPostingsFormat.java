@@ -119,7 +119,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|FieldsConsumer
+name|InvertedFieldsConsumer
 import|;
 end_import
 begin_import
@@ -132,7 +132,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|FieldsProducer
+name|InvertedFieldsProducer
 import|;
 end_import
 begin_import
@@ -393,7 +393,7 @@ annotation|@
 name|Override
 DECL|method|fieldsConsumer
 specifier|public
-name|FieldsConsumer
+name|InvertedFieldsConsumer
 name|fieldsConsumer
 parameter_list|(
 name|SegmentWriteState
@@ -420,7 +420,7 @@ name|Closeable
 block|{
 DECL|field|fieldsConsumer
 specifier|final
-name|FieldsConsumer
+name|InvertedFieldsConsumer
 name|fieldsConsumer
 decl_stmt|;
 DECL|field|segmentSuffix
@@ -432,7 +432,7 @@ DECL|method|FieldsConsumerAndID
 specifier|public
 name|FieldsConsumerAndID
 parameter_list|(
-name|FieldsConsumer
+name|InvertedFieldsConsumer
 name|fieldsConsumer
 parameter_list|,
 name|String
@@ -475,7 +475,7 @@ specifier|private
 class|class
 name|FieldsWriter
 extends|extends
-name|FieldsConsumer
+name|InvertedFieldsConsumer
 block|{
 DECL|field|formats
 specifier|private
@@ -960,7 +960,7 @@ specifier|private
 class|class
 name|FieldsReader
 extends|extends
-name|FieldsProducer
+name|InvertedFieldsProducer
 block|{
 DECL|field|fields
 specifier|private
@@ -969,7 +969,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|FieldsProducer
+name|InvertedFieldsProducer
 argument_list|>
 name|fields
 init|=
@@ -978,7 +978,7 @@ name|TreeMap
 argument_list|<
 name|String
 argument_list|,
-name|FieldsProducer
+name|InvertedFieldsProducer
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -989,7 +989,7 @@ name|Map
 argument_list|<
 name|PostingsFormat
 argument_list|,
-name|FieldsProducer
+name|InvertedFieldsProducer
 argument_list|>
 name|formats
 init|=
@@ -998,7 +998,7 @@ name|IdentityHashMap
 argument_list|<
 name|PostingsFormat
 argument_list|,
-name|FieldsProducer
+name|InvertedFieldsProducer
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1270,7 +1270,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|FieldsProducer
+name|InvertedFieldsProducer
 name|fieldsProducer
 init|=
 name|fields
@@ -1336,7 +1336,7 @@ annotation|@
 name|Override
 DECL|method|fieldsProducer
 specifier|public
-name|FieldsProducer
+name|InvertedFieldsProducer
 name|fieldsProducer
 parameter_list|(
 name|SegmentReadState

@@ -102,7 +102,7 @@ decl_stmt|;
 DECL|field|fields
 specifier|private
 specifier|final
-name|Fields
+name|InvertedFields
 name|fields
 decl_stmt|;
 DECL|field|currentField
@@ -557,7 +557,6 @@ annotation|@
 name|Override
 DECL|method|lessThan
 specifier|protected
-specifier|final
 name|boolean
 name|lessThan
 parameter_list|(

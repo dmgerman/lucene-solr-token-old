@@ -549,7 +549,7 @@ annotation|@
 name|Override
 DECL|method|fields
 specifier|public
-name|Fields
+name|InvertedFields
 name|fields
 parameter_list|()
 throws|throws
@@ -616,7 +616,7 @@ annotation|@
 name|Override
 DECL|method|getTermVectors
 specifier|public
-name|Fields
+name|InvertedFields
 name|getTermVectors
 parameter_list|(
 name|int

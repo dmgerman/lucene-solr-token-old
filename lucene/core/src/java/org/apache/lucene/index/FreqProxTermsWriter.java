@@ -60,7 +60,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|FieldsConsumer
+name|InvertedFieldsConsumer
 import|;
 end_import
 begin_import
@@ -133,7 +133,7 @@ name|abort
 parameter_list|()
 block|{}
 comment|// TODO: would be nice to factor out more of this, eg the
-comment|// FreqProxFieldMergeState, and code to visit all Fields
+comment|// FreqProxFieldMergeState, and code to visit all InvertedFields
 comment|// under the same FieldInfo together, up into TermsHash*.
 comment|// Other writers would presumably share alot of this...
 annotation|@
@@ -234,7 +234,7 @@ name|allFields
 argument_list|)
 expr_stmt|;
 specifier|final
-name|FieldsConsumer
+name|InvertedFieldsConsumer
 name|consumer
 init|=
 name|state
@@ -261,7 +261,7 @@ name|termsHash
 init|=
 literal|null
 decl_stmt|;
-comment|/*     Current writer chain:       FieldsConsumer         -> IMPL: FormatPostingsTermsDictWriter           -> TermsConsumer             -> IMPL: FormatPostingsTermsDictWriter.TermsWriter               -> DocsConsumer                 -> IMPL: FormatPostingsDocsWriter                   -> PositionsConsumer                     -> IMPL: FormatPostingsPositionsWriter        */
+comment|/*     Current writer chain:       InvertedFieldsConsumer         -> IMPL: FormatPostingsTermsDictWriter           -> TermsConsumer             -> IMPL: FormatPostingsTermsDictWriter.TermsWriter               -> DocsConsumer                 -> IMPL: FormatPostingsDocsWriter                   -> PositionsConsumer                     -> IMPL: FormatPostingsPositionsWriter        */
 for|for
 control|(
 name|int

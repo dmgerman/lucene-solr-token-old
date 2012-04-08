@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|FieldsConsumer
+name|InvertedFieldsConsumer
 import|;
 end_import
 begin_import
@@ -158,7 +158,7 @@ DECL|class|SimpleTextFieldsWriter
 class|class
 name|SimpleTextFieldsWriter
 extends|extends
-name|FieldsConsumer
+name|InvertedFieldsConsumer
 block|{
 DECL|field|out
 specifier|private

@@ -137,7 +137,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|Fields
+name|InvertedFields
 import|;
 end_import
 begin_import
@@ -565,7 +565,7 @@ annotation|@
 name|Override
 DECL|method|get
 specifier|public
-name|Fields
+name|InvertedFields
 name|get
 parameter_list|(
 name|int
@@ -1360,7 +1360,7 @@ specifier|private
 class|class
 name|SimpleTVFields
 extends|extends
-name|Fields
+name|InvertedFields
 block|{
 DECL|field|fields
 specifier|private

@@ -1803,7 +1803,7 @@ name|delCount
 init|=
 literal|0
 decl_stmt|;
-name|Fields
+name|InvertedFields
 name|fields
 init|=
 name|reader

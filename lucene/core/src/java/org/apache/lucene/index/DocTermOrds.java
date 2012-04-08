@@ -561,7 +561,7 @@ condition|)
 block|{
 comment|//System.out.println("GET normal enum");
 specifier|final
-name|Fields
+name|InvertedFields
 name|fields
 init|=
 name|reader
@@ -756,7 +756,7 @@ index|[]
 decl_stmt|;
 comment|// list of term numbers for the doc (delta encoded vInts)
 specifier|final
-name|Fields
+name|InvertedFields
 name|fields
 init|=
 name|reader

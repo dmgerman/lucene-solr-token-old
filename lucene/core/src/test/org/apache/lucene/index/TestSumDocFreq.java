@@ -455,7 +455,7 @@ throws|throws
 name|Exception
 block|{
 comment|// compute sumDocFreq across all fields
-name|Fields
+name|InvertedFields
 name|fields
 init|=
 name|MultiFields
