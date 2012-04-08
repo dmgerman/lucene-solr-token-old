@@ -1341,7 +1341,7 @@ name|Constructor
 argument_list|<
 name|?
 extends|extends
-name|Reader
+name|CharStream
 argument_list|>
 name|c
 init|=
