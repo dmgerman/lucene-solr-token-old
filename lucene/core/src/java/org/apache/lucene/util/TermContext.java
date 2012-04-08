@@ -55,7 +55,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|InvertedFields
+name|Fields
 import|;
 end_import
 begin_import
@@ -361,7 +361,7 @@ control|)
 block|{
 comment|//if (DEBUG) System.out.println("  r=" + leaves[i].reader);
 specifier|final
-name|InvertedFields
+name|Fields
 name|fields
 init|=
 name|leaves

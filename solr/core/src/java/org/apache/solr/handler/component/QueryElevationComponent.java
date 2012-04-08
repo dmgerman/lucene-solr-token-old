@@ -3516,7 +3516,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|InvertedFields
+name|Fields
 name|fields
 init|=
 name|context

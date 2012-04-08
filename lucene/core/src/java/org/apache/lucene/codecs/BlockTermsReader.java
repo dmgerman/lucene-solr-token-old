@@ -330,7 +330,7 @@ specifier|public
 class|class
 name|BlockTermsReader
 extends|extends
-name|InvertedFieldsProducer
+name|FieldsProducer
 block|{
 comment|// Open input to the main terms dict file (_X.tis)
 DECL|field|in

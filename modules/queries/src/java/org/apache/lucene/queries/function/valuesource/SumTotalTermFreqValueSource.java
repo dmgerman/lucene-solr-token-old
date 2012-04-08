@@ -41,7 +41,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|InvertedFields
+name|Fields
 import|;
 end_import
 begin_import
@@ -115,6 +115,19 @@ operator|.
 name|search
 operator|.
 name|IndexSearcher
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
 import|;
 end_import
 begin_import
@@ -258,7 +271,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|InvertedFields
+name|Fields
 name|fields
 init|=
 name|readerContext

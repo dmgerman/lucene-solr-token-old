@@ -83,7 +83,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|InvertedFields
+name|Fields
 import|;
 end_import
 begin_import
@@ -1433,6 +1433,7 @@ annotation|@
 name|Override
 DECL|method|merge
 specifier|public
+specifier|final
 name|int
 name|merge
 parameter_list|(
@@ -1833,7 +1834,7 @@ continue|continue;
 block|}
 comment|// NOTE: it's very important to first assign to vectors then pass it to
 comment|// termVectorsWriter.addAllDocVectors; see LUCENE-1282
-name|InvertedFields
+name|Fields
 name|vectors
 init|=
 name|reader
@@ -2008,7 +2009,7 @@ control|)
 block|{
 comment|// NOTE: it's very important to first assign to vectors then pass it to
 comment|// termVectorsWriter.addAllDocVectors; see LUCENE-1282
-name|InvertedFields
+name|Fields
 name|vectors
 init|=
 name|reader

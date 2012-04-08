@@ -129,7 +129,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|InvertedFieldsConsumer
+name|FieldsConsumer
 import|;
 end_import
 begin_import
@@ -142,7 +142,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|InvertedFieldsProducer
+name|FieldsProducer
 import|;
 end_import
 begin_import
@@ -622,7 +622,7 @@ specifier|static
 class|class
 name|RAMPostings
 extends|extends
-name|InvertedFieldsProducer
+name|FieldsProducer
 block|{
 DECL|field|fieldToTerms
 specifier|final
@@ -955,7 +955,7 @@ specifier|static
 class|class
 name|RAMFieldsConsumer
 extends|extends
-name|InvertedFieldsConsumer
+name|FieldsConsumer
 block|{
 DECL|field|postings
 specifier|private
@@ -2564,7 +2564,7 @@ annotation|@
 name|Override
 DECL|method|fieldsConsumer
 specifier|public
-name|InvertedFieldsConsumer
+name|FieldsConsumer
 name|fieldsConsumer
 parameter_list|(
 name|SegmentWriteState
@@ -2718,7 +2718,7 @@ annotation|@
 name|Override
 DECL|method|fieldsProducer
 specifier|public
-name|InvertedFieldsProducer
+name|FieldsProducer
 name|fieldsProducer
 parameter_list|(
 name|SegmentReadState

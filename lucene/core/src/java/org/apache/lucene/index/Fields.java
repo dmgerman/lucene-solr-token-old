@@ -27,11 +27,11 @@ begin_comment
 comment|/** Flex API for access to fields and terms  *  @lucene.experimental */
 end_comment
 begin_class
-DECL|class|InvertedFields
+DECL|class|Fields
 specifier|public
 specifier|abstract
 class|class
-name|InvertedFields
+name|Fields
 block|{
 comment|/** Returns an iterator that will step through all fields    *  names.  This will not return null.  */
 DECL|method|iterator
@@ -160,12 +160,12 @@ DECL|field|EMPTY_ARRAY
 specifier|public
 specifier|final
 specifier|static
-name|InvertedFields
+name|Fields
 index|[]
 name|EMPTY_ARRAY
 init|=
 operator|new
-name|InvertedFields
+name|Fields
 index|[
 literal|0
 index|]

@@ -57,6 +57,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|analysis
+operator|.
+name|Tokenizer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|DirectoryReader
@@ -85,7 +98,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|InvertedFields
+name|Fields
 import|;
 end_import
 begin_import
@@ -2666,7 +2679,7 @@ literal|"tv_pos_off"
 block|}
 control|)
 block|{
-name|InvertedFields
+name|Fields
 name|tvFields
 init|=
 name|r

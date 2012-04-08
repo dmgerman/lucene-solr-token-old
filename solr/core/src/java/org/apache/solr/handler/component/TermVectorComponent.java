@@ -112,7 +112,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|InvertedFields
+name|Fields
 import|;
 end_import
 begin_import
@@ -1573,7 +1573,7 @@ else|else
 block|{
 comment|// extract all fields
 specifier|final
-name|InvertedFields
+name|Fields
 name|vectors
 init|=
 name|reader

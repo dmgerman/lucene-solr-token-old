@@ -479,7 +479,7 @@ specifier|public
 class|class
 name|BlockTreeTermsReader
 extends|extends
-name|InvertedFieldsProducer
+name|FieldsProducer
 block|{
 comment|// Open input to the main terms dict file (_X.tib)
 DECL|field|in

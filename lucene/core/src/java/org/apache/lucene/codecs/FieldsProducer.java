@@ -42,20 +42,20 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|InvertedFields
+name|Fields
 import|;
 end_import
 begin_comment
 comment|/** Abstract API that produces terms, doc, freq, prox and  *  payloads postings.    *  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|InvertedFieldsProducer
+DECL|class|FieldsProducer
 specifier|public
 specifier|abstract
 class|class
-name|InvertedFieldsProducer
+name|FieldsProducer
 extends|extends
-name|InvertedFields
+name|Fields
 implements|implements
 name|Closeable
 block|{

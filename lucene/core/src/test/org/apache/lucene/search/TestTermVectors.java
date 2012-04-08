@@ -644,7 +644,7 @@ name|i
 operator|++
 control|)
 block|{
-name|InvertedFields
+name|Fields
 name|vectors
 init|=
 name|searcher
@@ -872,7 +872,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|InvertedFields
+name|Fields
 name|v
 init|=
 name|reader
@@ -1282,7 +1282,7 @@ name|i
 operator|++
 control|)
 block|{
-name|InvertedFields
+name|Fields
 name|vectors
 init|=
 name|searcher
@@ -1528,7 +1528,7 @@ name|i
 operator|++
 control|)
 block|{
-name|InvertedFields
+name|Fields
 name|vectors
 init|=
 name|searcher
@@ -2748,7 +2748,7 @@ name|i
 operator|++
 control|)
 block|{
-name|InvertedFields
+name|Fields
 name|vectors
 init|=
 name|searcher
@@ -3080,7 +3080,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|InvertedFields
+name|Fields
 name|vectors
 init|=
 name|searcher

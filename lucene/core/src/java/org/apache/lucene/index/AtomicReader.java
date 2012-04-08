@@ -31,6 +31,22 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|SearcherManager
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|Bits
@@ -49,6 +65,22 @@ operator|.
 name|BytesRef
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|ReaderUtil
+import|;
+end_import
+begin_comment
+comment|// for javadocs
+end_comment
 begin_comment
 comment|/** {@code AtomicReader} is an abstract class, providing an interface for accessing an  index.  Search of an index is done entirely through this abstract interface,  so that any subclass which implements it is searchable. IndexReaders implemented  by this subclass do not consist of several sub-readers,  they are atomic. They support retrieval of stored fields, doc values, terms,  and postings.<p>For efficiency, in this API documents are often referred to via<i>document numbers</i>, non-negative integers which each name a unique  document in the index.  These document numbers are ephemeral -- they may change  as documents are added to and deleted from an index.  Clients should thus not  rely on a given document having the same number between sessions.<p><a name="thread-safety"></a><p><b>NOTE</b>: {@link  IndexReader} instances are completely thread  safe, meaning multiple threads can call any of its methods,  concurrently.  If your application requires external  synchronization, you should<b>not</b> synchronize on the<code>IndexReader</code> instance; use your own  (non-Lucene) objects instead. */
 end_comment
@@ -139,11 +171,11 @@ name|hasNorms
 argument_list|()
 return|;
 block|}
-comment|/**    * Returns {@link InvertedFields} for this reader.    * This method may return null if the reader has no    * postings.    */
+comment|/**    * Returns {@link Fields} for this reader.    * This method may return null if the reader has no    * postings.    */
 DECL|method|fields
 specifier|public
 specifier|abstract
-name|InvertedFields
+name|Fields
 name|fields
 parameter_list|()
 throws|throws
@@ -167,7 +199,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|InvertedFields
+name|Fields
 name|fields
 init|=
 name|fields
@@ -260,7 +292,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|InvertedFields
+name|Fields
 name|fields
 init|=
 name|fields
@@ -350,7 +382,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|InvertedFields
+name|Fields
 name|fields
 init|=
 name|fields
@@ -409,7 +441,7 @@ operator|!=
 literal|null
 assert|;
 specifier|final
-name|InvertedFields
+name|Fields
 name|fields
 init|=
 name|fields
@@ -515,7 +547,7 @@ operator|!=
 literal|null
 assert|;
 specifier|final
-name|InvertedFields
+name|Fields
 name|fields
 init|=
 name|fields
@@ -624,7 +656,7 @@ operator|!=
 literal|null
 assert|;
 specifier|final
-name|InvertedFields
+name|Fields
 name|fields
 init|=
 name|fields
@@ -729,7 +761,7 @@ operator|!=
 literal|null
 assert|;
 specifier|final
-name|InvertedFields
+name|Fields
 name|fields
 init|=
 name|fields
@@ -809,7 +841,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|InvertedFields
+name|Fields
 name|fields
 init|=
 name|fields

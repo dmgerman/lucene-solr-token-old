@@ -55,7 +55,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|InvertedFields
+name|Fields
 import|;
 end_import
 begin_import
@@ -101,11 +101,11 @@ begin_comment
 comment|/** Abstract API that consumes terms, doc, freq, prox, offset and  *  payloads postings.  Concrete implementations of this  *  actually do "something" with the postings (write it into  *  the index in a specific format).  *  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|InvertedFieldsConsumer
+DECL|class|FieldsConsumer
 specifier|public
 specifier|abstract
 class|class
-name|InvertedFieldsConsumer
+name|FieldsConsumer
 implements|implements
 name|Closeable
 block|{
@@ -140,7 +140,7 @@ parameter_list|(
 name|MergeState
 name|mergeState
 parameter_list|,
-name|InvertedFields
+name|Fields
 name|fields
 parameter_list|)
 throws|throws

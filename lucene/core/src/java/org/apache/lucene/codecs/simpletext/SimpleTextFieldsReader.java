@@ -62,7 +62,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|InvertedFieldsProducer
+name|FieldsProducer
 import|;
 end_import
 begin_import
@@ -383,7 +383,7 @@ DECL|class|SimpleTextFieldsReader
 class|class
 name|SimpleTextFieldsReader
 extends|extends
-name|InvertedFieldsProducer
+name|FieldsProducer
 block|{
 DECL|field|in
 specifier|private

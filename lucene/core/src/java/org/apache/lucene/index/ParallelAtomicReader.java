@@ -541,7 +541,7 @@ block|}
 block|}
 block|}
 block|}
-comment|// build InvertedFields instance
+comment|// build Fields instance
 for|for
 control|(
 specifier|final
@@ -554,7 +554,7 @@ name|parallelReaders
 control|)
 block|{
 specifier|final
-name|InvertedFields
+name|Fields
 name|readerFields
 init|=
 name|reader
@@ -850,7 +850,7 @@ specifier|final
 class|class
 name|ParallelFields
 extends|extends
-name|InvertedFields
+name|Fields
 block|{
 DECL|field|fields
 specifier|final
@@ -997,7 +997,7 @@ annotation|@
 name|Override
 DECL|method|fields
 specifier|public
-name|InvertedFields
+name|Fields
 name|fields
 parameter_list|()
 block|{
@@ -1094,7 +1094,7 @@ annotation|@
 name|Override
 DECL|method|getTermVectors
 specifier|public
-name|InvertedFields
+name|Fields
 name|getTermVectors
 parameter_list|(
 name|int
