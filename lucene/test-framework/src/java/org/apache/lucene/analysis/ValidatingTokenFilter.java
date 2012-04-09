@@ -378,6 +378,37 @@ operator|.
 name|endOffset
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|endOffset
+operator|<
+name|startOffset
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+name|name
+operator|+
+literal|": startOffset="
+operator|+
+name|startOffset
+operator|+
+literal|" is> endOffset="
+operator|+
+name|endOffset
+operator|+
+literal|" pos="
+operator|+
+name|pos
+operator|+
+literal|"; token="
+operator|+
+name|termAtt
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|int
 name|posLen
@@ -414,41 +445,13 @@ argument_list|,
 name|startOffset
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  + s "
-operator|+
-name|pos
-operator|+
-literal|" -> "
-operator|+
-name|startOffset
-argument_list|)
-expr_stmt|;
+comment|//System.out.println("  + s " + pos + " -> " + startOffset);
 block|}
 else|else
 block|{
 comment|// We've seen a token leaving from this position
 comment|// before; verify the startOffset is the same:
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  + vs "
-operator|+
-name|pos
-operator|+
-literal|" -> "
-operator|+
-name|startOffset
-argument_list|)
-expr_stmt|;
+comment|//System.out.println("  + vs " + pos + " -> " + startOffset);
 specifier|final
 name|int
 name|oldStartOffset
@@ -473,7 +476,7 @@ name|IllegalStateException
 argument_list|(
 name|name
 operator|+
-literal|": inconsistent startOffset as pos="
+literal|": inconsistent startOffset at pos="
 operator|+
 name|pos
 operator|+
@@ -521,41 +524,13 @@ argument_list|,
 name|endOffset
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  + e "
-operator|+
-name|endPos
-operator|+
-literal|" -> "
-operator|+
-name|endOffset
-argument_list|)
-expr_stmt|;
+comment|//System.out.println("  + e " + endPos + " -> " + endOffset);
 block|}
 else|else
 block|{
 comment|// We've seen a token arriving to this position
 comment|// before; verify the endOffset is the same:
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  + ve "
-operator|+
-name|endPos
-operator|+
-literal|" -> "
-operator|+
-name|endOffset
-argument_list|)
-expr_stmt|;
+comment|//System.out.println("  + ve " + endPos + " -> " + endOffset);
 specifier|final
 name|int
 name|oldEndOffset
@@ -580,7 +555,7 @@ name|IllegalStateException
 argument_list|(
 name|name
 operator|+
-literal|": inconsistent endOffset as pos="
+literal|": inconsistent endOffset at pos="
 operator|+
 name|endPos
 operator|+
