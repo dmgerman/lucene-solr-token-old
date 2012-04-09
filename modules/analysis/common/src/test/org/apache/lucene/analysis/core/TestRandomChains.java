@@ -2244,13 +2244,17 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|RuntimeException
+name|Rethrow
+operator|.
+name|rethrow
 argument_list|(
 name|ex
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+literal|null
+return|;
+comment|// unreachable code
 block|}
 block|}
 block|}
@@ -2872,16 +2876,20 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|ex
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|RuntimeException
+name|Rethrow
+operator|.
+name|rethrow
 argument_list|(
-name|e
+name|ex
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+literal|null
+return|;
+comment|// unreachable code
 block|}
 block|}
 specifier|private
@@ -3110,6 +3118,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// TODO: fix this one, thats broken:
 name|allowedTokenFilterArgs
 operator|.
 name|add
@@ -3172,13 +3181,13 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|createRandomArg
+DECL|method|newRandomArg
 specifier|static
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|createRandomArg
+name|newRandomArg
 parameter_list|(
 name|Random
 name|random
@@ -3340,9 +3349,10 @@ index|[
 name|i
 index|]
 operator|=
-literal|null
+operator|new
+name|AttributeSource
+argument_list|()
 expr_stmt|;
-comment|// this always gives IAE: fine
 block|}
 else|else
 block|{
@@ -3351,7 +3361,7 @@ index|[
 name|i
 index|]
 operator|=
-name|createRandomArg
+name|newRandomArg
 argument_list|(
 name|random
 argument_list|,
@@ -3471,7 +3481,7 @@ index|[
 name|i
 index|]
 operator|=
-name|createRandomArg
+name|newRandomArg
 argument_list|(
 name|random
 argument_list|,
@@ -3571,7 +3581,7 @@ operator|.
 name|class
 condition|)
 block|{
-comment|// CommonGramsQueryFilter takes this one explicitly
+comment|// TODO: fix this one, thats broken: CommonGramsQueryFilter takes this one explicitly
 name|args
 index|[
 name|i
@@ -3584,7 +3594,7 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 name|stream
 argument_list|,
-name|createRandomArg
+name|newRandomArg
 argument_list|(
 name|random
 argument_list|,
@@ -3602,7 +3612,7 @@ index|[
 name|i
 index|]
 operator|=
-name|createRandomArg
+name|newRandomArg
 argument_list|(
 name|random
 argument_list|,
