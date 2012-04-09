@@ -578,6 +578,21 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|position
+operator|.
+name|PositionFilter
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|snowball
 operator|.
 name|TestSnowball
@@ -1016,6 +1031,13 @@ operator|||
 name|c
 operator|==
 name|CachingTokenFilter
+operator|.
+name|class
+comment|// nocommit: corrumpts graphs (offset consistency check)
+operator|||
+name|c
+operator|==
+name|PositionFilter
 operator|.
 name|class
 comment|// doesn't consume whole stream!
