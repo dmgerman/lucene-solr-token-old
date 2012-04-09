@@ -1481,8 +1481,6 @@ name|T
 parameter_list|>
 name|Constructor
 argument_list|<
-name|?
-extends|extends
 name|T
 argument_list|>
 name|castConstructor
@@ -1504,8 +1502,6 @@ return|return
 operator|(
 name|Constructor
 argument_list|<
-name|?
-extends|extends
 name|T
 argument_list|>
 operator|)
@@ -4150,8 +4146,6 @@ name|createComponent
 parameter_list|(
 name|Constructor
 argument_list|<
-name|?
-extends|extends
 name|T
 argument_list|>
 name|ctor
