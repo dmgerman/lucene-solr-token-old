@@ -351,7 +351,7 @@ specifier|private
 name|boolean
 name|enablePositionIncrements
 init|=
-literal|false
+literal|true
 decl_stmt|;
 DECL|field|termAtt
 specifier|private
@@ -389,9 +389,6 @@ name|input
 parameter_list|,
 name|CharacterRunAutomaton
 name|filter
-parameter_list|,
-name|boolean
-name|enablePositionIncrements
 parameter_list|)
 block|{
 name|super
@@ -405,12 +402,6 @@ name|filter
 operator|=
 name|filter
 expr_stmt|;
-name|this
-operator|.
-name|enablePositionIncrements
-operator|=
-name|enablePositionIncrements
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -422,6 +413,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// TODO: fix me when posInc=false, to work like FilteringTokenFilter in that case and not return
+comment|// initial token with posInc=0 ever
 comment|// return the first non-stop word found
 name|int
 name|skippedPositions
