@@ -101,6 +101,19 @@ operator|.
 name|PositionLengthAttribute
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Attribute
+import|;
+end_import
 begin_comment
 comment|// nocommit better name...?
 end_comment
@@ -168,14 +181,13 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// nocommit must be more careful here?  check hasAttribute first...?
 DECL|field|posIncAtt
 specifier|private
 specifier|final
 name|PositionIncrementAttribute
 name|posIncAtt
 init|=
-name|addAttribute
+name|getAttrIfExists
 argument_list|(
 name|PositionIncrementAttribute
 operator|.
@@ -188,7 +200,7 @@ specifier|final
 name|PositionLengthAttribute
 name|posLenAtt
 init|=
-name|addAttribute
+name|getAttrIfExists
 argument_list|(
 name|PositionLengthAttribute
 operator|.
@@ -201,7 +213,7 @@ specifier|final
 name|OffsetAttribute
 name|offsetAtt
 init|=
-name|addAttribute
+name|getAttrIfExists
 argument_list|(
 name|OffsetAttribute
 operator|.
@@ -214,7 +226,7 @@ specifier|final
 name|CharTermAttribute
 name|termAtt
 init|=
-name|addAttribute
+name|getAttrIfExists
 argument_list|(
 name|CharTermAttribute
 operator|.
@@ -227,6 +239,46 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
+comment|// Returns null if the attr wasn't already added
+DECL|method|getAttrIfExists
+specifier|private
+parameter_list|<
+name|A
+extends|extends
+name|Attribute
+parameter_list|>
+name|A
+name|getAttrIfExists
+parameter_list|(
+name|Class
+argument_list|<
+name|A
+argument_list|>
+name|att
+parameter_list|)
+block|{
+if|if
+condition|(
+name|hasAttribute
+argument_list|(
+name|att
+argument_list|)
+condition|)
+block|{
+return|return
+name|getAttribute
+argument_list|(
+name|att
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
 comment|/** The name arg is used to identify this stage when    *  throwing exceptions (useful if you have more than one    *  instance in your chain). */
 DECL|method|ValidatingTokenFilter
 specifier|public
@@ -274,6 +326,17 @@ return|return
 literal|false
 return|;
 block|}
+if|if
+condition|(
+name|posIncAtt
+operator|!=
+literal|null
+operator|&&
+name|offsetAtt
+operator|!=
+literal|null
+condition|)
+block|{
 name|pos
 operator|+=
 name|posIncAtt
@@ -319,6 +382,12 @@ specifier|final
 name|int
 name|posLen
 init|=
+name|posLenAtt
+operator|==
+literal|null
+condition|?
+literal|1
+else|:
 name|posLenAtt
 operator|.
 name|getPositionLength
@@ -530,11 +599,30 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
 return|return
 literal|true
 return|;
 block|}
-comment|// TODO: end?  (what to validate?)
+annotation|@
+name|Override
+DECL|method|end
+specifier|public
+name|void
+name|end
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|super
+operator|.
+name|end
+argument_list|()
+expr_stmt|;
+comment|// TODO: what else to validate
+comment|// nocommit check that endOffset is>= max(endOffset)
+comment|// we've seen
+block|}
 annotation|@
 name|Override
 DECL|method|reset
