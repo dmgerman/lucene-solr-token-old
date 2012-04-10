@@ -870,6 +870,8 @@ name|config
 operator|.
 name|lockType
 argument_list|)
+argument_list|,
+name|core
 argument_list|)
 argument_list|,
 literal|true
