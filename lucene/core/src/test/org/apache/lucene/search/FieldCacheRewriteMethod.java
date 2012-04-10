@@ -470,7 +470,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|getUniqueTermCount
+name|size
 parameter_list|()
 throws|throws
 name|IOException

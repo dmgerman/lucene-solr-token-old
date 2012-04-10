@@ -5062,7 +5062,7 @@ argument_list|(
 name|field
 argument_list|)
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 expr_stmt|;
 if|if
@@ -5393,7 +5393,7 @@ name|fieldCount
 init|=
 name|fields
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 decl_stmt|;
 if|if

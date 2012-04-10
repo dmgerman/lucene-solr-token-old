@@ -969,7 +969,7 @@ if|if
 condition|(
 name|leftFields
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 operator|!=
 operator|-
@@ -977,7 +977,7 @@ literal|1
 operator|&&
 name|rightFields
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 operator|!=
 operator|-
@@ -990,12 +990,12 @@ name|info
 argument_list|,
 name|leftFields
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 argument_list|,
 name|rightFields
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1363,7 +1363,7 @@ if|if
 condition|(
 name|leftTerms
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 operator|!=
 operator|-
@@ -1371,7 +1371,7 @@ literal|1
 operator|&&
 name|rightTerms
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 operator|!=
 operator|-
@@ -1384,12 +1384,12 @@ name|info
 argument_list|,
 name|leftTerms
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|,
 name|rightTerms
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;

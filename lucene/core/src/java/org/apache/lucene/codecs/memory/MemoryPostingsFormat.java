@@ -4021,10 +4021,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getUniqueTermCount
+DECL|method|size
 specifier|public
 name|long
-name|getUniqueTermCount
+name|size
 parameter_list|()
 throws|throws
 name|IOException
@@ -4302,7 +4302,7 @@ annotation|@
 name|Override
 specifier|public
 name|int
-name|getUniqueFieldCount
+name|size
 parameter_list|()
 block|{
 return|return

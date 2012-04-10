@@ -1958,7 +1958,7 @@ literal|2
 argument_list|,
 name|tfv1
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1991,7 +1991,7 @@ literal|2
 argument_list|,
 name|tfv2
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;

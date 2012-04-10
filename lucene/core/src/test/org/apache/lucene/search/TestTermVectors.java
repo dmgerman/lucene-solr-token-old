@@ -685,7 +685,7 @@ literal|1
 argument_list|,
 name|vectors
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -888,7 +888,7 @@ literal|4
 argument_list|,
 name|v
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -976,7 +976,7 @@ name|i
 index|]
 argument_list|)
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1310,7 +1310,7 @@ literal|1
 argument_list|,
 name|vectors
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1556,7 +1556,7 @@ literal|1
 argument_list|,
 name|vectors
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2255,7 +2255,7 @@ literal|10
 argument_list|,
 name|vector
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2776,7 +2776,7 @@ literal|1
 argument_list|,
 name|vectors
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3108,7 +3108,7 @@ literal|1
 argument_list|,
 name|vectors
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3133,7 +3133,7 @@ literal|1
 argument_list|,
 name|vector
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;

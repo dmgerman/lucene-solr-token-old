@@ -4618,7 +4618,7 @@ name|Long
 argument_list|(
 name|terms
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 operator|.
