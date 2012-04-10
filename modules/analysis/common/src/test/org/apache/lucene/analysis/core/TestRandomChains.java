@@ -2902,6 +2902,7 @@ argument_list|(
 literal|5
 argument_list|)
 decl_stmt|;
+comment|//System.out.println("NormalizeCharMap=");
 for|for
 control|(
 name|int
@@ -2938,18 +2939,23 @@ name|key
 argument_list|)
 condition|)
 block|{
-name|map
-operator|.
-name|add
-argument_list|(
-name|key
-argument_list|,
+name|String
+name|value
+init|=
 name|_TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
 name|random
 argument_list|)
+decl_stmt|;
+name|map
+operator|.
+name|add
+argument_list|(
+name|key
+argument_list|,
+name|value
 argument_list|)
 expr_stmt|;
 name|keys
@@ -2959,6 +2965,7 @@ argument_list|(
 name|key
 argument_list|)
 expr_stmt|;
+comment|//System.out.println("mapping: '" + key + "' => '" + value + "'");
 block|}
 block|}
 return|return
