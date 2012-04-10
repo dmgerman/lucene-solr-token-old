@@ -1134,6 +1134,18 @@ comment|// before; verify the startOffset is the same:
 comment|//System.out.println("  + vs " + pos + " -> " + startOffset);
 name|assertEquals
 argument_list|(
+literal|"pos="
+operator|+
+name|pos
+operator|+
+literal|" posLen="
+operator|+
+name|posLength
+operator|+
+literal|" token="
+operator|+
+name|termAtt
+argument_list|,
 name|posToStartOffset
 operator|.
 name|get
@@ -1186,6 +1198,18 @@ comment|// before; verify the endOffset is the same:
 comment|//System.out.println("  + ve " + endPos + " -> " + endOffset);
 name|assertEquals
 argument_list|(
+literal|"pos="
+operator|+
+name|pos
+operator|+
+literal|" posLen="
+operator|+
+name|posLength
+operator|+
+literal|" token="
+operator|+
+name|termAtt
+argument_list|,
 name|posToEndOffset
 operator|.
 name|get
@@ -2856,6 +2880,11 @@ specifier|final
 name|boolean
 name|offsetsAreCorrect
 decl_stmt|;
+DECL|field|failed
+specifier|public
+name|boolean
+name|failed
+decl_stmt|;
 DECL|method|AnalysisThread
 name|AnalysisThread
 parameter_list|(
@@ -2923,6 +2952,11 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 comment|// see the part in checkRandomData where it replays the same text again
@@ -2947,6 +2981,10 @@ argument_list|,
 name|offsetsAreCorrect
 argument_list|)
 expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -2960,6 +2998,14 @@ name|rethrow
 argument_list|(
 name|e
 argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|failed
+operator|=
+operator|!
+name|success
 expr_stmt|;
 block|}
 block|}
@@ -3067,12 +3113,12 @@ argument_list|,
 literal|8
 argument_list|)
 decl_stmt|;
-name|Thread
+name|AnalysisThread
 name|threads
 index|[]
 init|=
 operator|new
-name|Thread
+name|AnalysisThread
 index|[
 name|numThreads
 index|]
@@ -3188,6 +3234,42 @@ operator|new
 name|RuntimeException
 argument_list|(
 name|e
+argument_list|)
+throw|;
+block|}
+block|}
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|threads
+operator|.
+name|length
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|threads
+index|[
+name|i
+index|]
+operator|.
+name|failed
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"some thread(s) failed"
 argument_list|)
 throw|;
 block|}
