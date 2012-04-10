@@ -92,6 +92,12 @@ specifier|final
 name|Random
 name|random
 decl_stmt|;
+DECL|field|seed
+specifier|private
+specifier|final
+name|long
+name|seed
+decl_stmt|;
 DECL|method|MockRandomLookaheadTokenFilter
 specifier|public
 name|MockRandomLookaheadTokenFilter
@@ -110,9 +116,22 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|random
+name|seed
 operator|=
 name|random
+operator|.
+name|nextLong
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|random
+operator|=
+operator|new
+name|Random
+argument_list|(
+name|seed
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -205,9 +224,6 @@ condition|(
 literal|true
 condition|)
 block|{
-comment|// We can use un-re-seeded random, because how far
-comment|// ahead we peek should never alter the resulting
-comment|// tokens as seen by the consumer:
 if|if
 condition|(
 name|random
@@ -342,6 +358,29 @@ block|}
 return|return
 name|result
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|reset
+specifier|public
+name|void
+name|reset
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|super
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|random
+operator|.
+name|setSeed
+argument_list|(
+name|seed
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
