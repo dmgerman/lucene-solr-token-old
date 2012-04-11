@@ -815,6 +815,21 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|th
+operator|.
+name|ThaiWordFilter
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|util
 operator|.
 name|CharArrayMap
@@ -1053,7 +1068,7 @@ argument_list|)
 decl_stmt|;
 static|static
 block|{
-comment|// nocommit can we promote some of these to be only
+comment|// TODO: can we promote some of these to be only
 comment|// offsets offenders?
 name|Collections
 operator|.
@@ -1115,7 +1130,17 @@ name|EdgeNGramTokenFilter
 operator|.
 name|class
 argument_list|,
-comment|// nocommit: remove this class after we fix its finalOffset bug
+comment|// broken!
+name|WordDelimiterFilter
+operator|.
+name|class
+argument_list|,
+comment|// broken!
+name|TrimFilter
+operator|.
+name|class
+argument_list|,
+comment|// TODO: remove this class after we fix its finalOffset bug
 name|MappingCharFilter
 operator|.
 name|class
@@ -1168,14 +1193,6 @@ name|addAll
 argument_list|(
 name|brokenOffsetsComponents
 argument_list|,
-name|WordDelimiterFilter
-operator|.
-name|class
-argument_list|,
-name|TrimFilter
-operator|.
-name|class
-argument_list|,
 name|ReversePathHierarchyTokenizer
 operator|.
 name|class
@@ -1192,13 +1209,18 @@ name|DictionaryCompoundWordTokenFilter
 operator|.
 name|class
 argument_list|,
-comment|// nocommit: corrumpts graphs (offset consistency check):
+comment|// TODO: corrumpts graphs (offset consistency check):
 name|PositionFilter
 operator|.
 name|class
 argument_list|,
-comment|// nocommit it seems to mess up offsets!?
+comment|// TODO: it seems to mess up offsets!?
 name|WikipediaTokenizer
+operator|.
+name|class
+argument_list|,
+comment|// TODO: doesn't handle graph inputs
+name|ThaiWordFilter
 operator|.
 name|class
 argument_list|)
@@ -2106,7 +2128,8 @@ name|Random
 name|random
 parameter_list|)
 block|{
-comment|// nocommit: fix any filters that care to throw IAE instead.
+comment|// TODO: fix any filters that care to throw IAE instead.
+comment|// also add a unicode validating filter to validate termAtt?
 comment|// return Character.valueOf((char)random.nextInt(65536));
 while|while
 condition|(
@@ -3952,7 +3975,7 @@ operator|.
 name|class
 condition|)
 block|{
-comment|// nocommit: args[i] = new AttributeSource();
+comment|// TODO: args[i] = new AttributeSource();
 comment|// this is currently too scary to deal with!
 name|args
 index|[
@@ -4266,7 +4289,7 @@ name|boolean
 name|offsetsAreCorrect
 parameter_list|()
 block|{
-comment|// nocommit: can we not do the full chain here!?
+comment|// TODO: can we not do the full chain here!?
 name|Random
 name|random
 init|=
@@ -5198,7 +5221,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// nocommit/hack: MockGraph/MockLookahead has assertions that will trip if they follow
+comment|// hack: MockGraph/MockLookahead has assertions that will trip if they follow
 comment|// an offsets violator. so we cant use them after e.g. wikipediatokenizer
 if|if
 condition|(

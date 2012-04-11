@@ -361,7 +361,6 @@ operator|<
 literal|0
 condition|)
 block|{
-comment|// nocommit: not quite right right here: see line 84... if skip> numTokensFound we always get a NegativeArrayException? needs fixing!
 throw|throw
 operator|new
 name|IllegalArgumentException
