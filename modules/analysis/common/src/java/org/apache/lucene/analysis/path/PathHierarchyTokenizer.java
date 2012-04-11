@@ -875,6 +875,10 @@ name|skipped
 operator|=
 literal|0
 expr_stmt|;
+name|startPosition
+operator|=
+literal|0
+expr_stmt|;
 block|}
 block|}
 end_class
