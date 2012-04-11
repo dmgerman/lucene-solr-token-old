@@ -1259,7 +1259,7 @@ argument_list|>
 name|cat
 init|=
 operator|new
-name|NamedList
+name|SimpleOrderedMap
 argument_list|<
 name|NamedList
 argument_list|<
@@ -1409,7 +1409,7 @@ name|NamedList
 name|out
 init|=
 operator|new
-name|NamedList
+name|SimpleOrderedMap
 argument_list|()
 decl_stmt|;
 for|for

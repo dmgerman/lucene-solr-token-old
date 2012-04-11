@@ -1181,7 +1181,7 @@ literal|3
 argument_list|,
 name|result
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1275,7 +1275,7 @@ literal|3
 argument_list|,
 name|results
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;

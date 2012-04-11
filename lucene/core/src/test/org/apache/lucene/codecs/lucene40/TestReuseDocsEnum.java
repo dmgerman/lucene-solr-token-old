@@ -77,21 +77,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|codecs
-operator|.
-name|lucene40
-operator|.
-name|Lucene40PostingsFormat
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|AtomicReader
@@ -520,7 +505,7 @@ name|assertEquals
 argument_list|(
 name|terms
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|,
 name|enums
@@ -828,7 +813,7 @@ name|assertEquals
 argument_list|(
 name|terms
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|,
 name|enums
@@ -1166,7 +1151,7 @@ name|assertEquals
 argument_list|(
 name|terms
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|,
 name|enums
@@ -1246,7 +1231,7 @@ name|assertEquals
 argument_list|(
 name|terms
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|,
 name|enums

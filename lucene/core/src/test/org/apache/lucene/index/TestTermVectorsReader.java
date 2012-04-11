@@ -1298,7 +1298,7 @@ name|length
 argument_list|,
 name|vector
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1457,7 +1457,7 @@ name|length
 argument_list|,
 name|vector
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1678,7 +1678,7 @@ name|length
 argument_list|,
 name|vector
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2043,7 +2043,7 @@ name|length
 argument_list|,
 name|freqVector
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2197,7 +2197,7 @@ name|length
 argument_list|,
 name|vector
 operator|.
-name|getUniqueTermCount
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;

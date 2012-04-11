@@ -2686,6 +2686,7 @@ name|String
 argument_list|>
 name|upShards
 parameter_list|,
+specifier|final
 name|List
 argument_list|<
 name|SolrServer
@@ -2885,7 +2886,7 @@ name|r
 operator|.
 name|nextInt
 argument_list|(
-name|clients
+name|upClients
 operator|.
 name|size
 argument_list|()
@@ -2894,7 +2895,7 @@ decl_stmt|;
 name|SolrServer
 name|client
 init|=
-name|clients
+name|upClients
 operator|.
 name|get
 argument_list|(

@@ -3977,7 +3977,7 @@ literal|null
 operator|||
 name|d2
 operator|.
-name|getUniqueFieldCount
+name|size
 argument_list|()
 operator|==
 literal|0
