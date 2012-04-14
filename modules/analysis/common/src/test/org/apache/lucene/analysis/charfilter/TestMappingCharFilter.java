@@ -156,15 +156,6 @@ operator|.
 name|_TestUtil
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
 begin_class
 DECL|class|TestMappingCharFilter
 specifier|public
@@ -1336,11 +1327,7 @@ name|numRounds
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
-argument_list|(
-literal|"wrong finalOffset: https://issues.apache.org/jira/browse/LUCENE-3971"
-argument_list|)
+comment|//@Ignore("wrong finalOffset: https://issues.apache.org/jira/browse/LUCENE-3971")
 DECL|method|testFinalOffsetSpecialCase
 specifier|public
 name|void
@@ -1465,11 +1452,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
-argument_list|(
-literal|"wrong finalOffset: https://issues.apache.org/jira/browse/LUCENE-3971"
-argument_list|)
+comment|//@Ignore("wrong finalOffset: https://issues.apache.org/jira/browse/LUCENE-3971")
 DECL|method|testRandomMaps
 specifier|public
 name|void
