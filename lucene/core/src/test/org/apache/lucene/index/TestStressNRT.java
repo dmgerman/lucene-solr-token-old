@@ -413,6 +413,7 @@ name|int
 name|commitPercent
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -424,6 +425,7 @@ name|int
 name|softCommitPercent
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -436,6 +438,7 @@ name|int
 name|deletePercent
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -447,6 +450,7 @@ name|int
 name|deleteByQueryPercent
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -471,6 +475,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -490,6 +495,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -506,6 +512,7 @@ name|boolean
 name|tombstones
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -534,6 +541,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -733,6 +741,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -744,6 +753,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -802,6 +812,7 @@ operator|new
 name|Random
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -923,6 +934,7 @@ comment|// assertU(h.commit("softCommit","true"));
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1338,6 +1350,7 @@ name|boolean
 name|before
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1921,6 +1934,7 @@ operator|new
 name|Random
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()

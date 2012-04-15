@@ -1734,6 +1734,7 @@ name|int
 name|launchIn
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1827,6 +1828,7 @@ comment|// always 1 we won't kill...
 name|j
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1929,6 +1931,7 @@ decl_stmt|;
 name|j
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

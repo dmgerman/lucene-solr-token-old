@@ -1648,6 +1648,7 @@ init|=
 name|fieldNames
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1660,6 +1661,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1675,6 +1677,7 @@ name|String
 name|q
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1684,6 +1687,7 @@ else|:
 literal|"id:(1 3 5 7 9 11 13) OR id:[100 TO "
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1696,6 +1700,7 @@ name|int
 name|nolimit
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1736,6 +1741,7 @@ argument_list|,
 literal|"facet.mincount"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1745,6 +1751,7 @@ argument_list|,
 literal|"facet.offset"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1781,6 +1788,7 @@ argument_list|,
 literal|"facet.mincount"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1790,6 +1798,7 @@ argument_list|,
 literal|"facet.offset"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1823,6 +1832,7 @@ argument_list|,
 literal|"facet.mincount"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1832,6 +1842,7 @@ argument_list|,
 literal|"facet.offset"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1841,6 +1852,7 @@ argument_list|,
 literal|"facet.limit"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

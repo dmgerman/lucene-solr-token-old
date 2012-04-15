@@ -1804,6 +1804,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -1815,6 +1816,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1835,6 +1837,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -1930,6 +1933,7 @@ init|=
 name|getRandomString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 operator|+
 literal|"_ "
@@ -2132,6 +2136,7 @@ expr_stmt|;
 name|doTestSeekExists
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|fieldTerms
 argument_list|,
@@ -2141,6 +2146,7 @@ expr_stmt|;
 name|doTestSeekDoesNotExist
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|numField
 argument_list|,

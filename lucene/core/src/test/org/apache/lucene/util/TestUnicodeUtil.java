@@ -81,6 +81,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|UnicodeUtil
@@ -189,6 +190,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|UnicodeUtil
@@ -766,6 +768,7 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|BytesRef
@@ -787,6 +790,7 @@ index|[
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -798,6 +802,7 @@ name|int
 name|offset
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -810,6 +815,7 @@ name|int
 name|len
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

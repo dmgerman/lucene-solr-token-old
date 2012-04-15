@@ -36,6 +36,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -2160,6 +2169,7 @@ block|{
 name|checkRandomData
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 operator|new
 name|CJKAnalyzer
@@ -2182,6 +2192,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random

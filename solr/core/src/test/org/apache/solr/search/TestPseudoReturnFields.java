@@ -92,6 +92,15 @@ operator|.
 name|Collections
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
 begin_class
 DECL|class|TestPseudoReturnFields
 specifier|public
@@ -1424,6 +1433,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 comment|// NOTE: 'ssto' is the missing one
 specifier|final
 name|List

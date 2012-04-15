@@ -329,6 +329,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -340,6 +341,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -430,6 +432,7 @@ operator|new
 name|MockDirectoryWrapper
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 operator|new
 name|RAMDirectory
@@ -462,6 +465,7 @@ operator|new
 name|MockDirectoryWrapper
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 operator|new
 name|RAMDirectory
@@ -481,6 +485,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir2
 argument_list|)
@@ -523,6 +528,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir2
 argument_list|,
@@ -534,6 +540,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -544,6 +551,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|50
 argument_list|,
@@ -1961,6 +1969,7 @@ name|int
 name|level
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1975,12 +1984,14 @@ operator|new
 name|Random
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
 argument_list|)
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2008,6 +2019,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|q1
 argument_list|,

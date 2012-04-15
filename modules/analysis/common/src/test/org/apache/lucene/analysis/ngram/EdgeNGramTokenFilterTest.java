@@ -157,6 +157,15 @@ operator|.
 name|StringReader
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
 begin_comment
 comment|/**  * Tests {@link EdgeNGramTokenFilter} for correctness.  */
 end_comment
@@ -1112,6 +1121,7 @@ decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|a
 argument_list|,
@@ -1184,6 +1194,7 @@ decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|b
 argument_list|,
@@ -1207,6 +1218,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 name|Analyzer
 name|a
 init|=

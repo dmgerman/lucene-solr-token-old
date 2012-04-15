@@ -298,6 +298,7 @@ operator|!
 name|isClose
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -372,6 +373,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -668,6 +670,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -902,6 +905,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1019,6 +1023,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1105,6 +1110,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1307,6 +1313,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.

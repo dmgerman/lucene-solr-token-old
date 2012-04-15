@@ -188,6 +188,7 @@ block|{
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -244,6 +245,7 @@ block|}
 do|while
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -293,6 +295,7 @@ argument_list|(
 name|pendingDocs
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for

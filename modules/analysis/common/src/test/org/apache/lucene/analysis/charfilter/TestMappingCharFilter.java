@@ -49,6 +49,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -1320,6 +1329,7 @@ decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|analyzer
 argument_list|,
@@ -1443,6 +1453,7 @@ decl_stmt|;
 name|checkAnalysisConsistency
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|analyzer
 argument_list|,
@@ -1565,6 +1576,7 @@ decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|analyzer
 argument_list|,
@@ -1579,6 +1591,12 @@ name|NormalizeCharMap
 name|randomMap
 parameter_list|()
 block|{
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 name|NormalizeCharMap
 name|map
 init|=

@@ -190,6 +190,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|)
@@ -2077,6 +2078,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|)
@@ -2888,6 +2890,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|)
@@ -2933,6 +2936,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory2
 argument_list|)
@@ -3114,6 +3118,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|)
@@ -3355,6 +3360,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|)
@@ -3548,6 +3554,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Directory
@@ -3563,6 +3570,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|index
 argument_list|)
@@ -3776,6 +3784,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|index
 argument_list|)

@@ -352,6 +352,7 @@ comment|//      if (name.equals("startCommit")) {
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -419,6 +420,7 @@ expr_stmt|;
 name|verifyEquals
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|reader
 argument_list|,
@@ -472,6 +474,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -482,6 +485,7 @@ name|boolean
 name|doReaderPooling
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -512,6 +516,7 @@ decl_stmt|;
 name|indexSerial
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|docs
 argument_list|,
@@ -594,6 +599,7 @@ block|}
 name|sameFieldOrder
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -601,6 +607,7 @@ expr_stmt|;
 name|mergeFactor
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -612,6 +619,7 @@ expr_stmt|;
 name|maxBufferedDocs
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -626,6 +634,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -636,6 +645,7 @@ name|boolean
 name|doReaderPooling
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -647,6 +657,7 @@ name|int
 name|nThreads
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -659,6 +670,7 @@ name|int
 name|iter
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -671,6 +683,7 @@ name|int
 name|range
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -773,6 +786,7 @@ block|}
 name|indexSerial
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|docs
 argument_list|,
@@ -954,6 +968,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1272,6 +1287,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1690,7 +1706,6 @@ expr_stmt|;
 block|}
 DECL|method|verifyEquals
 specifier|public
-specifier|static
 name|void
 name|verifyEquals
 parameter_list|(
@@ -1736,7 +1751,6 @@ expr_stmt|;
 block|}
 DECL|method|verifyEquals
 specifier|public
-specifier|static
 name|void
 name|verifyEquals
 parameter_list|(
@@ -1945,7 +1959,6 @@ block|}
 block|}
 DECL|method|verifyEquals
 specifier|public
-specifier|static
 name|void
 name|verifyEquals
 parameter_list|(
@@ -2218,6 +2231,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum
 argument_list|,
@@ -2309,6 +2323,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum
 argument_list|,
@@ -2338,6 +2353,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum2
 argument_list|,
@@ -2814,6 +2830,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum3
 argument_list|,
@@ -3108,6 +3125,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum3
 argument_list|,
@@ -3367,6 +3385,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum1
 argument_list|,
@@ -3531,6 +3550,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum2
 argument_list|,
@@ -4423,6 +4443,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum1
 argument_list|,
@@ -4440,6 +4461,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum2
 argument_list|,

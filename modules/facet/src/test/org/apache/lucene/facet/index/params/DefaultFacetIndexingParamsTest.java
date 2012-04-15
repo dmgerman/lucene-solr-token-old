@@ -638,6 +638,7 @@ name|int
 name|nComponents
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -682,6 +683,7 @@ operator|.
 name|valueOf
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -797,6 +799,7 @@ name|int
 name|ordinal
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()

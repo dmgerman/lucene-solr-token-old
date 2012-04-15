@@ -507,6 +507,7 @@ decl_stmt|;
 name|runTest
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|fsDir
 argument_list|)
@@ -1023,6 +1024,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1155,6 +1157,7 @@ argument_list|,
 name|getConfig
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|sdp
 argument_list|)
@@ -1217,6 +1220,7 @@ argument_list|,
 name|getConfig
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|sdp
 argument_list|)
@@ -1333,6 +1337,7 @@ argument_list|,
 name|getConfig
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|sdp
 argument_list|)
@@ -1567,6 +1572,7 @@ argument_list|,
 name|getConfig
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|sdp
 argument_list|)
@@ -1599,6 +1605,7 @@ argument_list|,
 name|getConfig
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|sdp
 argument_list|)
@@ -1708,6 +1715,7 @@ argument_list|,
 name|getConfig
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|sdp
 argument_list|)
@@ -1872,6 +1880,7 @@ argument_list|,
 name|getConfig
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|sdp
 argument_list|)
@@ -1914,6 +1923,7 @@ argument_list|,
 name|getConfig
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|sdp
 argument_list|)
@@ -1978,6 +1988,7 @@ argument_list|,
 name|getConfig
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|sdp
 argument_list|)
@@ -2116,6 +2127,7 @@ argument_list|,
 name|getConfig
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|sdp
 argument_list|)
@@ -2170,6 +2182,7 @@ argument_list|,
 name|getConfig
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -2213,6 +2226,7 @@ argument_list|,
 name|getConfig
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|sdp
 argument_list|)

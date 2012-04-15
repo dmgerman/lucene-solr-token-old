@@ -81,6 +81,7 @@ operator|.
 name|randomRegexp
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|RegExp
@@ -133,6 +134,7 @@ operator|.
 name|randomAutomaton
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Automaton

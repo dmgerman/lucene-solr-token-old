@@ -166,6 +166,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -241,6 +242,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -302,6 +304,7 @@ name|boolean
 name|onlyUniqueTerms
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -361,6 +364,7 @@ operator|!
 name|onlyUniqueTerms
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -382,6 +386,7 @@ operator|.
 name|get
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -425,6 +430,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|10
 argument_list|)
@@ -517,6 +523,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -539,6 +546,7 @@ operator|>
 literal|0
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -552,6 +560,7 @@ name|int
 name|delID
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -807,6 +816,7 @@ operator|.
 name|get
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -854,6 +864,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|reader
 argument_list|,
@@ -965,6 +976,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1032,6 +1044,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|r
 argument_list|,
@@ -1058,6 +1071,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|r
 argument_list|,

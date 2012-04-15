@@ -521,6 +521,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -585,6 +586,7 @@ decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|a
 argument_list|,
@@ -651,6 +653,7 @@ decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|b
 argument_list|,
@@ -711,6 +714,7 @@ argument_list|,
 literal|8
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()

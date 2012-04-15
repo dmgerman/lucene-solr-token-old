@@ -246,6 +246,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -425,6 +426,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -445,6 +447,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -525,6 +528,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -541,6 +545,7 @@ name|i
 index|]
 decl_stmt|;
 name|random
+argument_list|()
 operator|.
 name|nextBytes
 argument_list|(
@@ -575,6 +580,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -697,6 +703,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -718,6 +725,7 @@ index|]
 decl_stmt|;
 comment|// make sure we switch buffers
 name|random
+argument_list|()
 operator|.
 name|nextBytes
 argument_list|(
@@ -752,6 +760,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -932,12 +941,14 @@ control|)
 name|assertChunking
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|_TestUtil
 operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|20
 argument_list|,

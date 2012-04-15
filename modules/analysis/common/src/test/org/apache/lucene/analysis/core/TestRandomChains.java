@@ -5603,6 +5603,12 @@ argument_list|(
 literal|20
 argument_list|)
 decl_stmt|;
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|int

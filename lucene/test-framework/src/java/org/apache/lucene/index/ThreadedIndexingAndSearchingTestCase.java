@@ -38,43 +38,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashSet
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
+name|*
 import|;
 end_import
 begin_import
@@ -892,6 +856,7 @@ operator|.
 name|TEST_NIGHTLY
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -933,6 +898,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|50
 argument_list|,
@@ -945,6 +911,7 @@ comment|// Rate limit ingest rate:
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -963,6 +930,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -1019,6 +987,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1029,6 +998,7 @@ operator|=
 literal|"extra"
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1062,6 +1032,7 @@ block|}
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1070,6 +1041,7 @@ block|{
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1094,6 +1066,7 @@ operator|>
 literal|0
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1106,6 +1079,7 @@ operator|.
 name|get
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1256,6 +1230,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -1471,6 +1446,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1574,6 +1550,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1690,6 +1667,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1741,6 +1719,7 @@ block|}
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2114,6 +2093,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -2318,6 +2298,7 @@ expr_stmt|;
 name|shift
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2598,6 +2579,19 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
+name|Random
+name|random
+init|=
+operator|new
+name|Random
+argument_list|(
+name|random
+argument_list|()
+operator|.
+name|nextLong
+argument_list|()
+argument_list|)
+decl_stmt|;
 specifier|final
 name|LineFileDocs
 name|docs
@@ -2654,6 +2648,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2951,6 +2946,7 @@ name|ExecutorService
 name|es
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2982,6 +2978,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,

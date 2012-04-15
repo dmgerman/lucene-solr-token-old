@@ -176,6 +176,7 @@ decl_stmt|;
 name|doTestSearch
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|pw
 argument_list|,
@@ -223,6 +224,7 @@ expr_stmt|;
 name|doTestSearch
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|pw
 argument_list|,

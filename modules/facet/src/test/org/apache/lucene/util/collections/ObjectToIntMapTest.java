@@ -1510,6 +1510,7 @@ name|long
 name|seed
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()

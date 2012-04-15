@@ -681,6 +681,7 @@ name|int
 name|numDocs
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

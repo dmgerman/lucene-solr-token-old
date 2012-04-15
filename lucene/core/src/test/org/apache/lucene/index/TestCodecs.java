@@ -1179,6 +1179,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1242,6 +1243,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -1280,6 +1282,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1348,6 +1351,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -1374,6 +1378,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1418,6 +1423,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -1433,6 +1439,7 @@ condition|(
 name|storePayloads
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1453,6 +1460,7 @@ index|[
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1486,6 +1494,7 @@ operator|(
 name|byte
 operator|)
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1754,6 +1763,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|DirectoryReader
@@ -1878,6 +1888,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum
 argument_list|,
@@ -2199,6 +2210,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|DirectoryReader
@@ -2359,6 +2371,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2980,9 +2993,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LuceneTestCase
-operator|.
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3080,9 +3092,8 @@ name|field
 init|=
 name|fields
 index|[
-name|LuceneTestCase
-operator|.
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3210,9 +3221,8 @@ name|field
 operator|.
 name|terms
 index|[
-name|LuceneTestCase
-operator|.
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3291,6 +3301,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum
 argument_list|,
@@ -3339,9 +3350,8 @@ specifier|final
 name|int
 name|idx
 init|=
-name|LuceneTestCase
-operator|.
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3461,6 +3471,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum
 argument_list|,
@@ -3545,6 +3556,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 operator|+
 literal|"."
@@ -3849,9 +3861,8 @@ index|]
 expr_stmt|;
 if|if
 condition|(
-name|LuceneTestCase
-operator|.
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3919,6 +3930,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum
 argument_list|,
@@ -3948,6 +3960,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termsEnum
 argument_list|,
@@ -4001,9 +4014,8 @@ name|doc
 decl_stmt|;
 if|if
 condition|(
-name|LuceneTestCase
-operator|.
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4023,9 +4035,8 @@ name|inc
 init|=
 literal|1
 operator|+
-name|LuceneTestCase
-operator|.
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4040,9 +4051,8 @@ name|inc
 expr_stmt|;
 if|if
 condition|(
-name|LuceneTestCase
-operator|.
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4215,9 +4225,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|LuceneTestCase
-operator|.
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4318,6 +4327,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|13
 argument_list|,
@@ -4362,6 +4372,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;

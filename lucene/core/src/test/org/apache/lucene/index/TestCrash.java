@@ -372,6 +372,7 @@ init|=
 name|initIndex
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -440,6 +441,7 @@ init|=
 name|initIndex
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -472,6 +474,7 @@ operator|=
 name|initIndex
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -528,6 +531,7 @@ init|=
 name|initIndex
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -553,6 +557,7 @@ operator|=
 name|initIndex
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -620,6 +625,7 @@ init|=
 name|initIndex
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -691,6 +697,7 @@ init|=
 name|initIndex
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)

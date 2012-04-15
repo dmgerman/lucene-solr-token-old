@@ -707,6 +707,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|qp
@@ -773,6 +774,7 @@ operator|=
 name|randomLocale
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|TIMEZONE
@@ -780,6 +782,7 @@ operator|=
 name|randomTimeZone
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|DATE_STYLE
@@ -787,6 +790,7 @@ operator|=
 name|randomDateStyle
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|TIME_STYLE
@@ -794,6 +798,7 @@ operator|=
 name|randomDateStyle
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// assumes localized date pattern will have at least year, month, day,
@@ -848,6 +853,7 @@ block|{
 name|randomDate
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -942,6 +948,7 @@ name|setMaximumFractionDigits
 argument_list|(
 operator|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -958,6 +965,7 @@ name|setMinimumFractionDigits
 argument_list|(
 operator|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -974,6 +982,7 @@ name|setMaximumIntegerDigits
 argument_list|(
 operator|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -990,6 +999,7 @@ name|setMinimumIntegerDigits
 argument_list|(
 operator|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -1024,6 +1034,7 @@ operator|.
 name|abs
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -1049,6 +1060,7 @@ operator|.
 name|abs
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextDouble
 argument_list|()
@@ -1074,6 +1086,7 @@ operator|.
 name|abs
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextFloat
 argument_list|()
@@ -1099,6 +1112,7 @@ operator|.
 name|abs
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -1198,6 +1212,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -1209,6 +1224,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1219,6 +1235,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|50
 argument_list|,

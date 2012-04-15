@@ -296,6 +296,7 @@ init|=
 literal|100
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -321,6 +322,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -370,6 +372,7 @@ name|long
 name|v
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -440,6 +443,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -542,6 +546,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -642,6 +647,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -682,6 +688,7 @@ operator|<=
 literal|20
 condition|?
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -691,6 +698,7 @@ name|i
 argument_list|)
 else|:
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -741,6 +749,7 @@ operator|==
 literal|1
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -867,6 +876,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -932,6 +942,7 @@ name|int
 name|index
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1129,6 +1140,7 @@ argument_list|,
 name|bitsPerValue
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -1714,6 +1726,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1771,6 +1784,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;

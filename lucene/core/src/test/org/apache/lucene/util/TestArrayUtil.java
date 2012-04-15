@@ -227,6 +227,7 @@ name|int
 name|minTargetSize
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -240,6 +241,7 @@ name|int
 name|elemSize
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -741,6 +743,7 @@ operator|new
 name|Integer
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -777,6 +780,7 @@ operator|.
 name|valueOf
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -945,6 +949,7 @@ operator|new
 name|Integer
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -981,6 +986,7 @@ operator|.
 name|valueOf
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1451,6 +1457,7 @@ name|boolean
 name|equal
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1480,6 +1487,7 @@ literal|0
 else|:
 operator|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

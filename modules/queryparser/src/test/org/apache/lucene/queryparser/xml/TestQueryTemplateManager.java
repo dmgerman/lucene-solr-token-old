@@ -244,15 +244,8 @@ name|builder
 decl_stmt|;
 DECL|field|analyzer
 specifier|private
-specifier|final
 name|Analyzer
 name|analyzer
-init|=
-operator|new
-name|MockAnalyzer
-argument_list|(
-name|random
-argument_list|)
 decl_stmt|;
 DECL|field|searcher
 specifier|private
@@ -731,6 +724,15 @@ name|super
 operator|.
 name|setUp
 argument_list|()
+expr_stmt|;
+name|analyzer
+operator|=
+operator|new
+name|MockAnalyzer
+argument_list|(
+name|random
+argument_list|()
+argument_list|)
 expr_stmt|;
 comment|//Create an index
 name|dir

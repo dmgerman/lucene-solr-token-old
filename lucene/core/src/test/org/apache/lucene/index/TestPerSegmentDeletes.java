@@ -216,6 +216,7 @@ operator|new
 name|Random
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -238,6 +239,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -859,7 +861,6 @@ block|}
 block|}
 DECL|method|toDocsArray
 specifier|public
-specifier|static
 name|int
 index|[]
 name|toDocsArray
@@ -935,6 +936,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|ctermsEnum
 argument_list|,

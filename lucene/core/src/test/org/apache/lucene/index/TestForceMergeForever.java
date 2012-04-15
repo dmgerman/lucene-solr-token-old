@@ -271,6 +271,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -288,6 +289,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -312,6 +314,7 @@ operator|new
 name|LineFileDocs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|defaultCodecSupportsDocValues
 argument_list|()
@@ -478,6 +481,7 @@ argument_list|,
 literal|""
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

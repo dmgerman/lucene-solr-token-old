@@ -3586,6 +3586,7 @@ name|int
 name|indexSize
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4155,6 +4156,7 @@ operator|.
 name|get
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4171,6 +4173,7 @@ name|int
 name|rows
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4180,6 +4183,7 @@ operator|==
 literal|0
 condition|?
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4192,6 +4196,7 @@ literal|2
 argument_list|)
 else|:
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4204,6 +4209,7 @@ name|int
 name|start
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4213,6 +4219,7 @@ operator|==
 literal|0
 condition|?
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4225,6 +4232,7 @@ literal|2
 argument_list|)
 else|:
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4236,6 +4244,7 @@ name|int
 name|group_limit
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4245,6 +4254,7 @@ operator|==
 literal|0
 condition|?
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4257,6 +4267,7 @@ literal|2
 argument_list|)
 else|:
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4269,6 +4280,7 @@ name|int
 name|group_offset
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4278,6 +4290,7 @@ operator|==
 literal|0
 condition|?
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4290,6 +4303,7 @@ literal|2
 argument_list|)
 else|:
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4343,6 +4357,7 @@ argument_list|>
 name|groupComparator
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -4587,6 +4602,7 @@ name|boolean
 name|includeNGroups
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -4621,6 +4637,7 @@ name|boolean
 name|truncateGroups
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -4871,6 +4888,7 @@ name|int
 name|randomPercentage
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

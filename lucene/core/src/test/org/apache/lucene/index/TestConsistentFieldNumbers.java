@@ -217,6 +217,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -303,6 +304,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -563,6 +565,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -716,6 +719,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -795,6 +799,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -924,6 +929,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1097,6 +1103,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1271,6 +1278,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1418,12 +1426,14 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
 name|setMergePolicy
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1630,12 +1640,14 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
 name|setMergePolicy
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1918,12 +1930,14 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
 name|setMergePolicy
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1980,6 +1994,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2184,6 +2199,7 @@ name|j
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2214,6 +2230,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)

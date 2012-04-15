@@ -132,6 +132,7 @@ name|int
 name|start
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -152,6 +153,7 @@ else|:
 name|start
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -186,6 +188,7 @@ name|i
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -311,6 +314,7 @@ name|int
 name|startSize
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -331,6 +335,7 @@ else|:
 name|startSize
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -343,6 +348,7 @@ name|int
 name|adds
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -386,6 +392,7 @@ name|long
 name|v
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()

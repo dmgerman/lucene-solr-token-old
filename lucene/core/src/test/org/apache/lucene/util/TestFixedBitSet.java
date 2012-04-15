@@ -217,6 +217,7 @@ name|size
 argument_list|()
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -452,6 +453,7 @@ name|length
 argument_list|()
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -544,6 +546,7 @@ expr_stmt|;
 name|bb
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -636,6 +639,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -672,6 +676,7 @@ name|int
 name|nOper
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -699,6 +704,7 @@ decl_stmt|;
 name|idx
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -722,6 +728,7 @@ expr_stmt|;
 name|idx
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -745,6 +752,7 @@ expr_stmt|;
 name|idx
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -772,6 +780,7 @@ expr_stmt|;
 name|idx
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -876,6 +885,7 @@ decl_stmt|;
 name|fromIndex
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -889,6 +899,7 @@ operator|=
 name|fromIndex
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -947,6 +958,7 @@ comment|// a problem here is from flip or doIterate
 name|fromIndex
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -960,6 +972,7 @@ operator|=
 name|fromIndex
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1021,6 +1034,7 @@ expr_stmt|;
 name|fromIndex
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1034,6 +1048,7 @@ operator|=
 name|fromIndex
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1386,6 +1401,7 @@ name|int
 name|numBits
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1453,6 +1469,7 @@ name|int
 name|idx
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1552,6 +1569,7 @@ name|int
 name|numBits
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1619,6 +1637,7 @@ name|int
 name|idx
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

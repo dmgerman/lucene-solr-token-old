@@ -357,6 +357,7 @@ operator|new
 name|RandomCodec
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -375,6 +376,7 @@ name|long
 name|seed
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -1154,6 +1156,7 @@ operator|.
 name|randomRegexp
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|CompiledAutomaton
@@ -1428,11 +1431,13 @@ name|maxDoc
 argument_list|()
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextDouble
 argument_list|()
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|DocsAndPositionsEnum
@@ -2431,6 +2436,7 @@ block|{
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2479,6 +2485,7 @@ argument_list|(
 name|skipInterval
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextGaussian
 argument_list|()
@@ -2619,6 +2626,7 @@ block|{
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2667,6 +2675,7 @@ argument_list|(
 name|skipInterval
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextGaussian
 argument_list|()

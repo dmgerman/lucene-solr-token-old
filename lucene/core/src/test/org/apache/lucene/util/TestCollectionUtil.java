@@ -88,6 +88,7 @@ operator|new
 name|Integer
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -124,6 +125,7 @@ operator|.
 name|valueOf
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

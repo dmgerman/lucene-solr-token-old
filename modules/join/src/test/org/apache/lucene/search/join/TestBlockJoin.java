@@ -406,6 +406,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|)
@@ -861,6 +862,7 @@ argument_list|,
 name|parentsFilter
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1091,6 +1093,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|)
@@ -1140,6 +1143,7 @@ argument_list|(
 name|docs
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|docs
@@ -1199,6 +1203,7 @@ argument_list|(
 name|docs2
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|docs2
@@ -1222,6 +1227,7 @@ name|boolean
 name|turn
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1696,6 +1702,7 @@ argument_list|,
 name|parentsFilter
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1725,6 +1732,7 @@ argument_list|,
 name|parentsFilter
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1808,6 +1816,7 @@ argument_list|,
 name|parentsFilter
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1851,6 +1860,7 @@ block|{
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1865,6 +1875,7 @@ argument_list|(
 literal|"Skillless"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1989,6 +2000,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|)
@@ -2121,6 +2133,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -2171,6 +2184,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -2219,6 +2233,7 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//values[i] = _TestUtil.randomSimpleString(random);
@@ -2247,6 +2262,7 @@ argument_list|,
 name|values
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2277,6 +2293,7 @@ argument_list|,
 name|values
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2320,6 +2337,7 @@ comment|// sortFields.add(SortField.FIELD_SCORE);
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2335,6 +2353,7 @@ argument_list|(
 name|prefix
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2348,6 +2367,7 @@ operator|.
 name|STRING
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2359,6 +2379,7 @@ elseif|else
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2374,6 +2395,7 @@ argument_list|(
 name|prefix
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2387,6 +2409,7 @@ operator|.
 name|STRING
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2403,6 +2426,7 @@ argument_list|(
 name|prefix
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2416,6 +2440,7 @@ operator|.
 name|STRING
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2498,6 +2523,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|100
 operator|*
@@ -2540,6 +2566,7 @@ name|boolean
 name|doDeletes
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2567,6 +2594,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|)
@@ -2579,6 +2607,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|joinDir
 argument_list|)
@@ -2678,6 +2707,7 @@ block|{
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextDouble
 argument_list|()
@@ -2700,6 +2730,7 @@ name|field
 index|]
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2893,6 +2924,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -2989,6 +3021,7 @@ block|{
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextDouble
 argument_list|()
@@ -3011,6 +3044,7 @@ name|childFieldID
 index|]
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3191,6 +3225,7 @@ condition|(
 name|doDeletes
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3466,6 +3501,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3480,6 +3516,7 @@ name|int
 name|childFieldID
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3506,6 +3543,7 @@ name|childFieldID
 index|]
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3525,6 +3563,7 @@ elseif|else
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3554,6 +3593,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -3594,6 +3634,7 @@ operator|!
 name|didMust
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -3602,6 +3643,7 @@ block|{
 name|occur
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -3656,6 +3698,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -3684,6 +3727,7 @@ name|childFieldID
 index|]
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3755,6 +3799,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -3785,6 +3830,7 @@ name|childFieldID
 index|]
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3800,6 +3846,7 @@ argument_list|)
 argument_list|)
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -3823,6 +3870,7 @@ name|int
 name|x
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3925,6 +3973,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -3969,6 +4018,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -4053,6 +4103,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -4483,6 +4534,7 @@ block|{
 name|trackScores
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -4490,6 +4542,7 @@ expr_stmt|;
 name|trackMaxScore
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -4529,6 +4582,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -4881,6 +4935,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4895,6 +4950,7 @@ name|int
 name|fieldID
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4921,6 +4977,7 @@ name|fieldID
 index|]
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4940,6 +4997,7 @@ elseif|else
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4969,6 +5027,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -5009,6 +5068,7 @@ operator|!
 name|didMust
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -5017,6 +5077,7 @@ block|{
 name|occur
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -5071,6 +5132,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -5099,6 +5161,7 @@ name|fieldID
 index|]
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -5170,6 +5233,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -5200,6 +5264,7 @@ name|fieldID
 index|]
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -5215,6 +5280,7 @@ argument_list|)
 argument_list|)
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -5263,6 +5329,7 @@ argument_list|,
 name|parentsFilter
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -5290,6 +5357,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -5329,6 +5397,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -5356,6 +5425,7 @@ decl_stmt|;
 name|childJoinFilter2
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -5391,6 +5461,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -5464,6 +5535,7 @@ block|}
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -5491,6 +5563,7 @@ decl_stmt|;
 name|childFilter2
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -5525,6 +5598,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -6371,6 +6445,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|)
@@ -7042,6 +7117,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|)
@@ -7264,6 +7340,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -7275,6 +7352,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.

@@ -103,6 +103,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -1294,6 +1303,7 @@ argument_list|(
 name|start
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2155,6 +2165,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -2248,6 +2259,7 @@ name|boolean
 name|dedup
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2309,6 +2321,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -2380,6 +2393,7 @@ operator|.
 name|keepOrig
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2400,6 +2414,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -2747,6 +2762,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 operator|.
 name|trim
@@ -2819,6 +2835,7 @@ operator|.
 name|Builder
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2857,6 +2874,7 @@ name|randomNonEmptyString
 argument_list|()
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2877,6 +2895,7 @@ name|boolean
 name|ignoreCase
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2940,6 +2959,7 @@ decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|analyzer
 argument_list|,
@@ -2953,7 +2973,7 @@ block|}
 comment|// NOTE: this is an invalid test... SynFilter today can't
 comment|// properly consume a graph... we can re-enable this once
 comment|// we fix that...
-comment|/*   // Adds MockGraphTokenFilter before SynFilter:   public void testRandom2GraphBefore() throws Exception {     final int numIters = atLeast(10);     for (int i = 0; i< numIters; i++) {       b = new SynonymMap.Builder(random.nextBoolean());       final int numEntries = atLeast(10);       for (int j = 0; j< numEntries; j++) {         add(randomNonEmptyString(), randomNonEmptyString(), random.nextBoolean());       }       final SynonymMap map = b.build();       final boolean ignoreCase = random.nextBoolean();              final Analyzer analyzer = new Analyzer() {         @Override         protected TokenStreamComponents createComponents(String fieldName, Reader reader) {           Tokenizer tokenizer = new MockTokenizer(reader, MockTokenizer.SIMPLE, true);           TokenStream graph = new MockGraphTokenFilter(random, tokenizer);           return new TokenStreamComponents(tokenizer, new SynonymFilter(graph, map, ignoreCase));         }       };        checkRandomData(random, analyzer, 1000*RANDOM_MULTIPLIER);     }   }   */
+comment|/*   // Adds MockGraphTokenFilter before SynFilter:   public void testRandom2GraphBefore() throws Exception {     final int numIters = atLeast(10);     Random random = random();     for (int i = 0; i< numIters; i++) {       b = new SynonymMap.Builder(random.nextBoolean());       final int numEntries = atLeast(10);       for (int j = 0; j< numEntries; j++) {         add(randomNonEmptyString(), randomNonEmptyString(), random.nextBoolean());       }       final SynonymMap map = b.build();       final boolean ignoreCase = random.nextBoolean();              final Analyzer analyzer = new Analyzer() {         @Override         protected TokenStreamComponents createComponents(String fieldName, Reader reader) {           Tokenizer tokenizer = new MockTokenizer(reader, MockTokenizer.SIMPLE, true);           TokenStream graph = new MockGraphTokenFilter(random(), tokenizer);           return new TokenStreamComponents(tokenizer, new SynonymFilter(graph, map, ignoreCase));         }       };        checkRandomData(random, analyzer, 1000*RANDOM_MULTIPLIER);     }   }   */
 comment|// Adds MockGraphTokenFilter after SynFilter:
 DECL|method|testRandom2GraphAfter
 specifier|public
@@ -2971,6 +2991,12 @@ name|atLeast
 argument_list|(
 literal|10
 argument_list|)
+decl_stmt|;
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -3113,6 +3139,7 @@ operator|new
 name|MockGraphTokenFilter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|syns
 argument_list|)
@@ -3150,6 +3177,12 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 specifier|final
 name|int
 name|numIters
@@ -3319,6 +3352,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 specifier|final
 name|int
 name|numIters
@@ -3514,6 +3553,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;

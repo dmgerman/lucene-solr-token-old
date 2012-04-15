@@ -1185,6 +1185,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|indexStore
 argument_list|,
@@ -1196,6 +1197,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1221,6 +1223,7 @@ comment|// Index sorted
 name|stringDVType
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1244,6 +1247,7 @@ comment|// Index non-sorted
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1253,6 +1257,7 @@ comment|// Fixed
 name|stringDVType
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1276,6 +1281,7 @@ comment|// Var
 name|stringDVType
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2008,6 +2014,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2636,6 +2643,7 @@ operator|.
 name|abs
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -2730,6 +2738,7 @@ expr_stmt|;
 name|dvStringSorted
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -3523,6 +3532,7 @@ comment|// If you index as sorted source you can still sort by
 comment|// value instead:
 return|return
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -4401,6 +4411,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|500
 argument_list|,
@@ -6672,6 +6683,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -7116,6 +7128,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -10166,6 +10179,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -10394,6 +10408,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -10559,6 +10574,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|indexStore
 argument_list|)
@@ -10914,6 +10930,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+operator|new
+name|Random
+argument_list|(
+name|random
+argument_list|()
+operator|.
+name|nextLong
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|assumeTrue
 argument_list|(
 literal|"cannot work with Lucene3x codec"

@@ -442,7 +442,6 @@ block|}
 comment|/**    * This method intended for use with    *<tt>testHighlightingWithDefaultField()</tt>    *     * @throws InvalidTokenOffsetsException    */
 DECL|method|highlightField
 specifier|private
-specifier|static
 name|String
 name|highlightField
 parameter_list|(
@@ -467,6 +466,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.

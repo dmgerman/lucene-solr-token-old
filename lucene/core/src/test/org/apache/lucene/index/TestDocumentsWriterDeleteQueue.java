@@ -178,6 +178,7 @@ init|=
 literal|200
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -219,6 +220,7 @@ name|i
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -343,6 +345,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -407,6 +410,7 @@ block|}
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -695,6 +699,7 @@ init|=
 literal|200
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -744,6 +749,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -792,6 +798,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -842,6 +849,7 @@ init|=
 literal|200
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -891,6 +899,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -939,6 +948,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1199,6 +1209,7 @@ init|=
 literal|10000
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1240,6 +1251,7 @@ name|i
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -1289,6 +1301,7 @@ init|=
 literal|2
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

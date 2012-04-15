@@ -246,6 +246,7 @@ name|Random
 name|rand
 init|=
 name|random
+argument_list|()
 decl_stmt|;
 name|RandomIndexWriter
 name|w
@@ -265,6 +266,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.

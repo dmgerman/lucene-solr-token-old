@@ -196,6 +196,7 @@ name|Random
 name|rnd
 init|=
 name|random
+argument_list|()
 decl_stmt|;
 name|Entry
 name|first
@@ -369,6 +370,7 @@ operator|new
 name|byte
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -711,6 +713,7 @@ operator|new
 name|byte
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

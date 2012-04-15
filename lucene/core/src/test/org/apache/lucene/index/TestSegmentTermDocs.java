@@ -188,6 +188,7 @@ operator|.
 name|writeDoc
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -269,6 +270,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -328,6 +330,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|terms
 argument_list|,
@@ -430,6 +433,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -448,6 +452,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|reader
 argument_list|,
@@ -495,6 +500,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -513,6 +519,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|reader
 argument_list|,
@@ -593,6 +600,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -732,6 +740,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|reader
 argument_list|,
@@ -921,6 +930,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|reader
 argument_list|,
@@ -1045,6 +1055,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|reader
 argument_list|,
@@ -1256,6 +1267,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|reader
 argument_list|,
@@ -1404,6 +1416,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|reader
 argument_list|,
@@ -1639,6 +1652,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|reader
 argument_list|,
@@ -1839,6 +1853,7 @@ operator|.
 name|writeDoc
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,

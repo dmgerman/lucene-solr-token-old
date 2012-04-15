@@ -410,6 +410,7 @@ name|int
 name|numBytes1
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -440,6 +441,7 @@ name|int
 name|randomInt
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -471,6 +473,7 @@ name|int
 name|numBytes2
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -501,6 +504,7 @@ name|int
 name|randomInt
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1182,6 +1186,7 @@ name|int
 name|numBytes
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1217,6 +1222,7 @@ operator|(
 name|byte
 operator|)
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

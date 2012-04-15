@@ -876,6 +876,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1115,6 +1116,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1176,6 +1178,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1257,6 +1260,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1347,6 +1351,7 @@ decl_stmt|;
 name|changeIndexNoAdds
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|)
@@ -1407,6 +1412,7 @@ decl_stmt|;
 name|changeIndexWithAdds
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -2635,6 +2641,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2751,6 +2758,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2915,6 +2923,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2991,6 +3000,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -3674,6 +3684,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|terms
 argument_list|,
@@ -3768,6 +3779,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|terms
 argument_list|,
@@ -3815,6 +3827,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|terms
 argument_list|,
@@ -4573,6 +4586,7 @@ name|MergePolicy
 name|mp
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -4595,6 +4609,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -4627,6 +4642,7 @@ operator|<
 name|RANDOM_MULTIPLIER
 operator|*
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4660,6 +4676,7 @@ name|MergePolicy
 name|mp
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()

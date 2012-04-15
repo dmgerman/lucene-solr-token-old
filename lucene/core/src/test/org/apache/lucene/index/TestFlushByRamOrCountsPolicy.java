@@ -209,6 +209,7 @@ operator|new
 name|LineFileDocs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|defaultCodecSupportsDocValues
 argument_list|()
@@ -268,6 +269,7 @@ literal|2
 argument_list|)
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextDouble
 argument_list|()
@@ -277,6 +279,7 @@ argument_list|(
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -313,6 +316,7 @@ argument_list|(
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -396,6 +400,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -820,6 +825,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1134,6 +1140,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1177,6 +1184,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1201,6 +1209,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1584,6 +1593,7 @@ block|{
 literal|4
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1600,6 +1610,7 @@ init|=
 literal|50
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1661,6 +1672,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;

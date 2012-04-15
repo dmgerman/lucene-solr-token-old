@@ -256,6 +256,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|index
 argument_list|)
@@ -266,9 +267,8 @@ init|=
 operator|new
 name|RandomGen
 argument_list|(
-name|LuceneTestCase
-operator|.
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 for|for

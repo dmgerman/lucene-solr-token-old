@@ -289,6 +289,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|100
 argument_list|,
@@ -324,6 +325,7 @@ operator|new
 name|MockDirectoryWrapper
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 operator|new
 name|RAMDirectory
@@ -353,6 +355,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -618,6 +621,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|400
 argument_list|,
@@ -629,6 +633,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|3000
 argument_list|,
@@ -808,6 +813,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -914,6 +920,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1131,6 +1138,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|50
 argument_list|,
@@ -1216,6 +1224,7 @@ operator|new
 name|MockDirectoryWrapper
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 operator|new
 name|RAMDirectory
@@ -1225,6 +1234,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1244,6 +1254,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2180,6 +2191,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|4000
 argument_list|,
@@ -2191,6 +2203,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|40000
 argument_list|,
@@ -2419,6 +2432,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2620,6 +2634,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.

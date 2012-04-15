@@ -541,6 +541,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|reader
 argument_list|,
@@ -583,6 +584,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|reader
 argument_list|,
@@ -704,6 +706,7 @@ block|{
 name|checkRandomData
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 operator|new
 name|KeywordAnalyzer

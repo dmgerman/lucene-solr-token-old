@@ -240,6 +240,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -251,6 +252,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -921,6 +923,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|6
 argument_list|,
@@ -935,6 +938,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|13
 argument_list|,
@@ -970,6 +974,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|3
 argument_list|,
@@ -984,6 +989,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|6
 argument_list|,
@@ -1062,6 +1068,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -1073,6 +1080,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -1097,6 +1105,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|87
 argument_list|,
@@ -1172,6 +1181,7 @@ name|int
 name|r
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1702,6 +1712,7 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//        uniqueRandomValue = _TestUtil.randomSimpleString(random);
@@ -1739,6 +1750,7 @@ name|i
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1782,6 +1794,7 @@ name|int
 name|randomI
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1816,6 +1829,7 @@ argument_list|(
 name|newField
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|"id"
 argument_list|,
@@ -1834,6 +1848,7 @@ argument_list|(
 name|newField
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|"value"
 argument_list|,
@@ -1863,6 +1878,7 @@ condition|?
 literal|2
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1907,6 +1923,7 @@ operator|.
 name|randomUniqueValues
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2027,6 +2044,7 @@ argument_list|(
 name|newField
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|"from"
 argument_list|,
@@ -2136,6 +2154,7 @@ argument_list|(
 name|newField
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|"to"
 argument_list|,
@@ -2180,6 +2199,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

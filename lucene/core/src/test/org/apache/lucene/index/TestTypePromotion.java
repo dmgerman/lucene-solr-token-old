@@ -460,6 +460,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -511,6 +512,7 @@ argument_list|(
 name|types
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|values
@@ -534,6 +536,7 @@ argument_list|(
 name|types
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|values
@@ -551,6 +554,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -590,6 +594,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -603,6 +608,7 @@ argument_list|(
 name|types
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|values
@@ -684,6 +690,7 @@ argument_list|(
 name|types
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|values
@@ -1585,6 +1592,7 @@ name|i
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -1609,6 +1617,7 @@ name|i
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1640,6 +1649,7 @@ name|i
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -1667,6 +1677,7 @@ name|i
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -1689,6 +1700,7 @@ name|double
 name|nextDouble
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextDouble
 argument_list|()
@@ -1721,6 +1733,7 @@ name|float
 name|nextFloat
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextFloat
 argument_list|()
@@ -1787,6 +1800,7 @@ name|i
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -1875,6 +1889,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1886,6 +1901,7 @@ name|i
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -1916,6 +1932,7 @@ name|i
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -1977,6 +1994,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2093,6 +2111,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2154,6 +2173,7 @@ argument_list|(
 name|INTEGERS
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|values
@@ -2171,6 +2191,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2203,6 +2224,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2214,6 +2236,7 @@ argument_list|,
 name|randomValueType
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2223,6 +2246,7 @@ else|:
 name|SORTED_BYTES
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|values
@@ -2245,6 +2269,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2299,6 +2324,7 @@ argument_list|,
 name|randomValueType
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2308,6 +2334,7 @@ else|:
 name|SORTED_BYTES
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|values
@@ -2338,6 +2365,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

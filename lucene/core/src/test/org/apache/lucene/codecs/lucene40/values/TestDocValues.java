@@ -47,6 +47,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -494,9 +503,11 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -555,6 +566,7 @@ operator|>
 literal|0
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -572,6 +584,7 @@ index|[
 literal|2
 operator|*
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -589,6 +602,7 @@ operator|.
 name|randomFixedByteLengthUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|fixedSize
 condition|?
@@ -597,6 +611,7 @@ else|:
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -687,6 +702,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -917,6 +933,12 @@ init|=
 name|ss
 operator|.
 name|getValueCount
+argument_list|()
+decl_stmt|;
+name|Random
+name|random
+init|=
+name|random
 argument_list|()
 decl_stmt|;
 for|for
@@ -1413,6 +1435,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1495,6 +1518,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1717,6 +1741,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1790,6 +1815,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1946,6 +1972,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2019,6 +2046,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2175,6 +2203,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2245,6 +2274,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2401,6 +2431,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2474,6 +2505,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2626,6 +2658,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|Type
@@ -2694,6 +2727,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|Type
@@ -2852,6 +2886,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|Type
@@ -2920,6 +2955,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|Type
@@ -3050,6 +3086,7 @@ init|=
 literal|333
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3119,6 +3156,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3142,6 +3180,7 @@ name|long
 name|v
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -3180,6 +3219,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3225,6 +3265,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3380,6 +3421,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|type
@@ -3392,6 +3434,7 @@ init|=
 literal|777
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3435,11 +3478,13 @@ operator|.
 name|FLOAT_32
 condition|?
 name|random
+argument_list|()
 operator|.
 name|nextFloat
 argument_list|()
 else|:
 name|random
+argument_list|()
 operator|.
 name|nextDouble
 argument_list|()
@@ -3472,6 +3517,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3515,6 +3561,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 name|type
@@ -3623,6 +3670,7 @@ comment|// getSource uses cache internally
 switch|switch
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

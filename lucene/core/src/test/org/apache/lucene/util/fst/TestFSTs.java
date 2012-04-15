@@ -1266,6 +1266,7 @@ name|Object
 argument_list|>
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -1410,6 +1411,7 @@ name|Long
 argument_list|>
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -1527,6 +1529,7 @@ name|BytesRef
 name|output
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1584,6 +1587,7 @@ name|BytesRef
 argument_list|>
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -1832,6 +1836,7 @@ name|Object
 argument_list|>
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -1938,6 +1943,7 @@ name|Long
 argument_list|>
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -1961,6 +1967,7 @@ name|boolean
 name|doShare
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2037,6 +2044,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -2076,6 +2084,7 @@ name|Long
 argument_list|>
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -2103,6 +2112,7 @@ operator|.
 name|getSingleton
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2171,6 +2181,7 @@ name|idx
 index|]
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -2189,6 +2200,7 @@ name|Long
 argument_list|>
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -2216,6 +2228,7 @@ operator|.
 name|getSingleton
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2230,6 +2243,7 @@ operator|.
 name|getSingleton
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2332,6 +2346,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -2395,6 +2410,7 @@ argument_list|>
 argument_list|>
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -2481,6 +2497,7 @@ name|BytesRef
 name|output
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2531,6 +2548,7 @@ name|BytesRef
 argument_list|>
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -2697,6 +2715,7 @@ name|IntsRef
 argument_list|>
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -2803,6 +2822,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 operator|-
 literal|100
@@ -2826,6 +2846,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 operator|-
 literal|100
@@ -2841,6 +2862,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2860,6 +2882,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 operator|-
 literal|100
@@ -2883,6 +2906,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 operator|-
 literal|100
@@ -2944,6 +2968,7 @@ name|Object
 argument_list|>
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -5150,7 +5175,9 @@ init|=
 name|toIntsRef
 argument_list|(
 name|getRandomString
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|,
 name|inputMode
 argument_list|)
@@ -5888,7 +5915,9 @@ init|=
 name|toIntsRef
 argument_list|(
 name|getRandomString
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|,
 name|inputMode
 argument_list|)
@@ -7598,6 +7627,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|Random
+name|random
+init|=
+operator|new
+name|Random
+argument_list|(
+name|random
+argument_list|()
+operator|.
+name|nextLong
+argument_list|()
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -7696,7 +7738,9 @@ name|String
 name|term
 init|=
 name|getRandomString
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 decl_stmt|;
 name|termsSet
 operator|.
@@ -7737,7 +7781,10 @@ DECL|method|getRandomString
 specifier|static
 name|String
 name|getRandomString
-parameter_list|()
+parameter_list|(
+name|Random
+name|random
+parameter_list|)
 block|{
 specifier|final
 name|String
@@ -7795,6 +7842,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|50000
 argument_list|,
@@ -7970,6 +8018,7 @@ operator|new
 name|LineFileDocs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|defaultCodecSupportsDocValues
 argument_list|()
@@ -7996,6 +8045,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -8119,6 +8169,7 @@ operator|.
 name|getSingleton
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -8129,6 +8180,7 @@ name|boolean
 name|doRewrite
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -8174,6 +8226,7 @@ name|boolean
 name|storeOrd
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -8468,6 +8521,20 @@ operator|>
 literal|0
 condition|)
 block|{
+specifier|final
+name|Random
+name|random
+init|=
+operator|new
+name|Random
+argument_list|(
+name|random
+argument_list|()
+operator|.
+name|nextLong
+argument_list|()
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -8580,7 +8647,9 @@ operator|new
 name|BytesRef
 argument_list|(
 name|getRandomString
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -11410,6 +11479,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -11421,6 +11491,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -11557,6 +11628,7 @@ operator|.
 name|toString
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -11739,6 +11811,7 @@ operator|.
 name|toString
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -11801,6 +11874,7 @@ operator|.
 name|get
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -11944,6 +12018,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -11956,6 +12031,7 @@ operator|.
 name|get
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -12020,6 +12096,7 @@ name|int
 name|idv
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -12112,6 +12189,7 @@ name|boolean
 name|useCache
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -12323,6 +12401,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -12334,6 +12413,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -12391,6 +12471,7 @@ operator|(
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextDouble
 argument_list|()
@@ -12445,6 +12526,7 @@ argument_list|(
 name|simpleRandomString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -12550,6 +12632,7 @@ argument_list|(
 name|allTermsList
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// verify exact lookup
@@ -13215,6 +13298,7 @@ argument_list|,
 literal|null
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -13336,6 +13420,7 @@ name|boolean
 name|willRewrite
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -14891,6 +14976,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 name|int
 name|numWords
 init|=
@@ -15661,6 +15753,12 @@ name|scratch
 init|=
 operator|new
 name|IntsRef
+argument_list|()
+decl_stmt|;
+name|Random
+name|random
+init|=
+name|random
 argument_list|()
 decl_stmt|;
 for|for

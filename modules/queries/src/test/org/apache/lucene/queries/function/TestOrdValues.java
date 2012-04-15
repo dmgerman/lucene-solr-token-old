@@ -262,6 +262,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|q
 argument_list|,

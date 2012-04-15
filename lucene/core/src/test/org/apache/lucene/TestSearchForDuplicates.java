@@ -213,6 +213,7 @@ decl_stmt|;
 name|doTest
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|pw
 argument_list|,
@@ -262,6 +263,7 @@ expr_stmt|;
 name|doTest
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|pw
 argument_list|,

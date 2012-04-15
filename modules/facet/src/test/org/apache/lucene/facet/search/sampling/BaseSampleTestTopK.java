@@ -297,6 +297,7 @@ name|boolean
 name|useRandomSampler
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -759,6 +760,7 @@ operator|new
 name|Random
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()

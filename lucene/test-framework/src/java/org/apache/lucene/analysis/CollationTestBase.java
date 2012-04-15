@@ -1185,6 +1185,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -1960,6 +1961,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|3
 argument_list|,
@@ -2010,6 +2012,7 @@ operator|.
 name|randomSimpleString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|TokenStream

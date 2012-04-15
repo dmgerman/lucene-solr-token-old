@@ -401,6 +401,7 @@ name|Random
 name|r
 init|=
 name|random
+argument_list|()
 decl_stmt|;
 name|int
 index|[]

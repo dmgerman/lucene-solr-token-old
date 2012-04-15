@@ -83,6 +83,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -1630,6 +1639,7 @@ name|int
 name|nodeCount
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1644,6 +1654,7 @@ name|int
 name|coreCount
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1658,6 +1669,7 @@ name|int
 name|sliceCount
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -3992,6 +4004,12 @@ parameter_list|)
 block|{
 comment|//t.printStackTrace();
 block|}
+name|Random
+name|rnd
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 while|while
 condition|(
 name|run
@@ -3999,7 +4017,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|random
+name|rnd
 operator|.
 name|nextInt
 argument_list|(

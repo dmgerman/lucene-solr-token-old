@@ -310,6 +310,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -321,6 +322,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -337,6 +339,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|50
 argument_list|,
@@ -430,6 +433,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|10
 argument_list|)
@@ -701,6 +705,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|5
 argument_list|)

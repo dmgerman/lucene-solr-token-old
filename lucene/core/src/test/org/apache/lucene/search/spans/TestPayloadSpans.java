@@ -423,6 +423,7 @@ operator|.
 name|setUp
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|similarity
 argument_list|,
@@ -869,6 +870,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -2017,6 +2019,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -2304,6 +2307,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -2591,6 +2595,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -2899,6 +2904,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -3312,6 +3318,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,

@@ -346,6 +346,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -357,6 +358,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -655,6 +657,7 @@ comment|// sometimes skip the field:
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -698,6 +701,7 @@ comment|// sometimes skip the field:
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -956,6 +960,7 @@ argument_list|,
 literal|"theDouble"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -976,6 +981,7 @@ argument_list|,
 literal|"theDouble"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1001,6 +1007,7 @@ operator|.
 name|DEFAULT_DOUBLE_PARSER
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1088,6 +1095,7 @@ argument_list|,
 literal|"theLong"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1108,6 +1116,7 @@ argument_list|,
 literal|"theLong"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1133,6 +1142,7 @@ operator|.
 name|DEFAULT_LONG_PARSER
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1224,6 +1234,7 @@ argument_list|,
 literal|"theByte"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1244,6 +1255,7 @@ argument_list|,
 literal|"theByte"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1269,6 +1281,7 @@ operator|.
 name|DEFAULT_BYTE_PARSER
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1359,6 +1372,7 @@ argument_list|,
 literal|"theShort"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1379,6 +1393,7 @@ argument_list|,
 literal|"theShort"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1404,6 +1419,7 @@ operator|.
 name|DEFAULT_SHORT_PARSER
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1494,6 +1510,7 @@ argument_list|,
 literal|"theInt"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1514,6 +1531,7 @@ argument_list|,
 literal|"theInt"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1539,6 +1557,7 @@ operator|.
 name|DEFAULT_INT_PARSER
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1626,6 +1645,7 @@ argument_list|,
 literal|"theFloat"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1646,6 +1666,7 @@ argument_list|,
 literal|"theFloat"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1671,6 +1692,7 @@ operator|.
 name|DEFAULT_FLOAT_PARSER
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -2167,6 +2189,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -2733,6 +2756,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2831,6 +2855,7 @@ operator|>
 literal|0
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2865,6 +2890,7 @@ operator|=
 name|unicodeStrings
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2887,6 +2913,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2900,6 +2927,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3129,6 +3157,7 @@ argument_list|,
 literal|"numInt"
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -3349,6 +3378,7 @@ name|int
 name|op
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

@@ -295,6 +295,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|3000
 argument_list|,
@@ -468,6 +469,7 @@ argument_list|(
 literal|"-Dtests.seed="
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -475,6 +477,7 @@ operator|+
 literal|":"
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()

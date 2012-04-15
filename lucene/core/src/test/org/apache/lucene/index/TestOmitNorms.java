@@ -171,6 +171,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|IndexWriter
@@ -413,6 +414,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|IndexWriter
@@ -694,6 +696,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|IndexWriter
@@ -999,6 +1002,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|IndexWriter
@@ -1484,7 +1488,6 @@ expr_stmt|;
 block|}
 comment|/**    * Indexes at least 1 document with f1, and at least 1 document with f2.    * returns the norms for "field".    */
 DECL|method|getNorms
-specifier|static
 name|byte
 index|[]
 name|getNorms
@@ -1518,6 +1521,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1534,6 +1538,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -1592,6 +1597,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -1624,6 +1630,7 @@ operator|.
 name|add
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()

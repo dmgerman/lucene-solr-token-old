@@ -174,6 +174,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|terms
@@ -216,6 +217,7 @@ argument_list|(
 name|automata
 argument_list|,
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final

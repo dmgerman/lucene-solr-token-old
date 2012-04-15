@@ -216,6 +216,7 @@ name|int
 name|stream
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -310,6 +311,7 @@ name|int
 name|numValue
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -359,6 +361,7 @@ operator|.
 name|writeVInt
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()

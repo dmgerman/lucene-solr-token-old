@@ -613,6 +613,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -630,6 +631,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|100
 argument_list|,
@@ -6457,6 +6459,7 @@ operator|.
 name|checkHits
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,

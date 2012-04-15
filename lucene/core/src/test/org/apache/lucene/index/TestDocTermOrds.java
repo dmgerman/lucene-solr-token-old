@@ -314,6 +314,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -325,6 +326,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -664,6 +666,7 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|//final String s = _TestUtil.randomSimpleString(random);
@@ -736,6 +739,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -743,6 +747,7 @@ comment|// Sometimes swap in codec that impls ord():
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -784,6 +789,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -861,6 +867,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|0
 argument_list|,
@@ -884,6 +891,7 @@ operator|.
 name|add
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1190,6 +1198,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -1234,6 +1243,7 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1298,6 +1308,7 @@ init|=
 name|prefixesArray
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1312,6 +1323,7 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|//final String s = prefixesArray[random.nextInt(prefixesArray.length)] + _TestUtil.randomSimpleString(random);
@@ -1384,6 +1396,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1391,6 +1404,7 @@ comment|// Sometimes swap in codec that impls ord():
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1431,6 +1445,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -1508,6 +1523,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|0
 argument_list|,
@@ -1531,6 +1547,7 @@ operator|.
 name|add
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2001,6 +2018,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,

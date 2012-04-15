@@ -1226,6 +1226,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -1955,6 +1956,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"tÃ¼rm term term"
@@ -1968,6 +1970,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|,
 literal|"Ã¼mlaut"
@@ -2331,6 +2334,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2405,6 +2409,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -2538,6 +2543,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -3417,6 +3423,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -3949,6 +3956,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -4202,6 +4210,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -4603,6 +4612,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -5056,6 +5066,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -5188,6 +5199,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -5332,6 +5344,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -5380,6 +5393,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -5440,6 +5454,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -5494,6 +5509,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -5591,6 +5607,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -6050,6 +6067,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -6109,6 +6127,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -6431,6 +6450,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -6628,6 +6648,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -6773,6 +6794,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -6889,6 +6911,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -6991,6 +7014,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -7891,6 +7915,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -7935,6 +7960,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -8020,6 +8046,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -8305,6 +8332,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -8426,6 +8454,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -8516,6 +8545,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;

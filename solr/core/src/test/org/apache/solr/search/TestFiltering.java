@@ -656,6 +656,7 @@ operator|(
 name|cache
 operator|||
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -773,6 +774,7 @@ name|boolean
 name|cache
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -785,11 +787,13 @@ condition|?
 literal|0
 else|:
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
 condition|?
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -802,6 +806,7 @@ name|boolean
 name|positive
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -814,6 +819,7 @@ condition|?
 literal|false
 else|:
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -871,6 +877,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -922,6 +929,7 @@ name|int
 name|ll
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -949,6 +957,7 @@ condition|?
 literal|0
 else|:
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1027,6 +1036,7 @@ comment|// negative frange.. make it relatively small
 name|l
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1050,6 +1060,7 @@ argument_list|,
 name|l
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1150,6 +1161,7 @@ name|i
 index|]
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextLong
 argument_list|()
@@ -1296,6 +1308,7 @@ operator|||
 name|exclude
 operator|||
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1392,6 +1405,7 @@ operator|.
 name|indexSize
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1449,6 +1463,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1477,6 +1492,7 @@ block|}
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1569,6 +1585,7 @@ name|int
 name|nFilters
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1616,6 +1633,7 @@ name|boolean
 name|facet
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1729,6 +1747,7 @@ block|}
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1783,6 +1802,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()

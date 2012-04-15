@@ -802,6 +802,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 operator|.
 name|trim
@@ -931,6 +932,7 @@ operator|.
 name|Builder
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -971,6 +973,7 @@ name|randomNonEmptyString
 argument_list|()
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -991,6 +994,7 @@ name|boolean
 name|ignoreCase
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1063,6 +1067,7 @@ decl_stmt|;
 name|checkRandomData
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|analyzer
 argument_list|,

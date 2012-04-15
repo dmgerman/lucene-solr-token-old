@@ -260,6 +260,7 @@ operator|.
 name|randomLocale
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|collator
@@ -307,6 +308,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|)
@@ -341,6 +343,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Field
@@ -379,6 +382,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|reader
@@ -602,6 +606,7 @@ operator|(
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -648,6 +653,7 @@ operator|(
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -679,6 +685,7 @@ operator|(
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -923,6 +930,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|String
@@ -933,6 +941,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Query
@@ -1003,6 +1012,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|String
@@ -1013,6 +1023,7 @@ operator|.
 name|randomUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Query

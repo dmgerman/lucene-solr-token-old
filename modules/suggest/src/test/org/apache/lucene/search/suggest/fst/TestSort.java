@@ -469,6 +469,7 @@ operator|new
 name|byte
 index|[
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -477,6 +478,7 @@ argument_list|)
 index|]
 decl_stmt|;
 name|random
+argument_list|()
 operator|.
 name|nextBytes
 argument_list|(

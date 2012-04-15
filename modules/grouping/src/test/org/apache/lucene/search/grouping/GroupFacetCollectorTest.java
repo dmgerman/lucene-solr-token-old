@@ -273,6 +273,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -284,6 +285,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -322,6 +324,7 @@ init|=
 name|canUseDV
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1871,6 +1874,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 name|int
 name|numberOfRuns
 init|=
@@ -2743,6 +2752,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 specifier|final
 name|int
 name|numDocs
@@ -4598,6 +4614,7 @@ operator|.
 name|BYTES_VAR_SORTED
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -4611,6 +4628,7 @@ operator|.
 name|BYTES_VAR_SORTED
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -4618,6 +4636,7 @@ argument_list|,
 name|facetPrefixBR
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -4642,6 +4661,7 @@ argument_list|,
 name|facetPrefixBR
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

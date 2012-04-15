@@ -213,6 +213,7 @@ condition|;
 control|)
 block|{
 name|random
+argument_list|()
 operator|.
 name|nextBytes
 argument_list|(
@@ -225,6 +226,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -369,6 +371,7 @@ name|int
 name|index
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

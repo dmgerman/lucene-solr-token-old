@@ -237,6 +237,7 @@ operator|.
 name|writeDoc
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|merge1Dir
 argument_list|,
@@ -258,6 +259,7 @@ operator|.
 name|writeDoc
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|merge2Dir
 argument_list|,
@@ -278,6 +280,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -295,6 +298,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -441,6 +445,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -518,6 +523,7 @@ argument_list|,
 name|newIOContext
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -629,6 +635,7 @@ operator|.
 name|docs
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|mergedReader
 argument_list|,

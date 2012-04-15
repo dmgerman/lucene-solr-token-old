@@ -47,6 +47,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
@@ -338,6 +347,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -507,6 +517,7 @@ decl_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -614,6 +625,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -635,6 +647,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
@@ -744,6 +757,7 @@ block|{
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -794,6 +808,7 @@ operator|!=
 literal|0
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextDouble
 argument_list|()
@@ -814,6 +829,7 @@ operator|.
 name|get
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1019,6 +1035,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1079,6 +1096,7 @@ name|ExecutorService
 name|es
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1163,6 +1181,7 @@ name|SearcherManager
 name|searcherManager
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1181,6 +1200,7 @@ argument_list|(
 name|writer
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1696,6 +1716,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 specifier|final
 name|Directory
 name|dir

@@ -415,6 +415,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|index
 argument_list|,
@@ -426,6 +427,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -851,6 +853,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dq
 argument_list|,
@@ -1011,6 +1014,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dq
 argument_list|,
@@ -1147,6 +1151,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|q
 argument_list|,
@@ -1303,6 +1308,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|q
 argument_list|,
@@ -1483,6 +1489,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|q
 argument_list|,
@@ -1639,6 +1646,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|q
 argument_list|,
@@ -1849,6 +1857,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|q1
 argument_list|,
@@ -1909,6 +1918,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|q2
 argument_list|,
@@ -1921,6 +1931,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|q
 argument_list|,
@@ -2149,6 +2160,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|q
 argument_list|,
@@ -2437,6 +2449,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|q
 argument_list|,
@@ -2842,6 +2855,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|q
 argument_list|,

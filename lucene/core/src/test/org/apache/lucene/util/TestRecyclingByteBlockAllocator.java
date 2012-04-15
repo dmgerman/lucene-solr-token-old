@@ -118,6 +118,7 @@ operator|(
 literal|2
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -126,6 +127,7 @@ argument_list|)
 operator|)
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -368,6 +370,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -466,6 +469,7 @@ name|int
 name|begin
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -480,6 +484,7 @@ init|=
 name|begin
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -681,6 +686,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -792,6 +798,7 @@ name|int
 name|begin
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -806,6 +813,7 @@ init|=
 name|begin
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -903,6 +911,7 @@ operator|.
 name|freeBlocks
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

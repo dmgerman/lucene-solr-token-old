@@ -179,6 +179,7 @@ parameter_list|()
 block|{
 return|return
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -200,6 +201,7 @@ operator|.
 name|BYTE_BLOCK_SIZE
 argument_list|,
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -227,6 +229,7 @@ operator|<<
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -235,6 +238,7 @@ argument_list|)
 decl_stmt|;
 return|return
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -308,6 +312,7 @@ init|=
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -341,6 +346,7 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -538,6 +544,7 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -806,6 +813,7 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -1076,6 +1084,7 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -1300,6 +1309,7 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)
@@ -1491,6 +1501,7 @@ name|int
 index|[]
 block|{
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1504,6 +1515,7 @@ operator|-
 literal|33
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1517,6 +1529,7 @@ operator|-
 literal|1
 operator|+
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -1722,6 +1735,7 @@ operator|.
 name|randomRealisticUnicodeString
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|1000
 argument_list|)

@@ -16,15 +16,20 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|lucene
+name|*
+import|;
+end_import
+begin_import
+import|import
+name|java
 operator|.
 name|util
 operator|.
-name|LuceneTestCase
+name|*
 import|;
 end_import
 begin_import
@@ -52,7 +57,7 @@ name|analysis
 operator|.
 name|tokenattributes
 operator|.
-name|*
+name|CharTermAttribute
 import|;
 end_import
 begin_import
@@ -121,33 +126,20 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|Directory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|*
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|_TestUtil
 import|;
 end_import
 begin_import
@@ -170,62 +162,32 @@ import|;
 end_import
 begin_import
 import|import
-name|java
+name|com
 operator|.
-name|io
+name|carrotsearch
 operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
+name|randomizedtesting
 operator|.
-name|io
+name|annotations
 operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
+name|Seed
 import|;
 end_import
 begin_comment
 comment|/**  * Tests {@link PhraseQuery}.  *  * @see TestPositionIncrement  */
 end_comment
+begin_comment
+comment|/*  * Remove ThreadLeaks and run with (Eclipse or command line):  * -ea -Drt.seed=AFD1E7E84B35D2B1  * to get leaked thread errors.  */
+end_comment
+begin_comment
+comment|// @ThreadLeaks(linger = 1000, leakedThreadsBelongToSuite = true)
+end_comment
 begin_class
+annotation|@
+name|Seed
+argument_list|(
+literal|"AFD1E7E84B35D2B1"
+argument_list|)
 DECL|class|TestPhraseQuery
 specifier|public
 class|class
@@ -343,6 +305,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -638,6 +601,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -717,6 +681,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -793,6 +758,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -862,6 +828,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -944,6 +911,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -1022,6 +990,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -1105,6 +1074,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -1181,6 +1151,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -1276,6 +1247,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -1366,6 +1338,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -1410,6 +1383,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -1438,6 +1412,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|MockTokenizer
 operator|.
@@ -1459,6 +1434,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -1588,6 +1564,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -1656,6 +1633,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -1694,6 +1672,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|)
@@ -1858,6 +1837,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|phraseQuery
 argument_list|,
@@ -1941,6 +1921,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|termQuery
 argument_list|,
@@ -1958,6 +1939,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -1969,6 +1951,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2297,6 +2280,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|booleanQuery
 argument_list|,
@@ -2335,6 +2319,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|directory
 argument_list|,
@@ -2346,6 +2331,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -2636,6 +2622,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -2835,6 +2822,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -2879,6 +2867,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -2976,6 +2965,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -3067,6 +3057,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -3158,6 +3149,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -3262,6 +3254,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -3357,6 +3350,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -3425,6 +3419,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -3505,6 +3500,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -3587,6 +3583,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -3698,6 +3695,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -3776,6 +3774,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -3879,6 +3878,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -3974,6 +3974,7 @@ operator|.
 name|check
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|query
 argument_list|,
@@ -4093,6 +4094,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|RandomIndexWriter
@@ -4102,6 +4104,7 @@ operator|new
 name|RandomIndexWriter
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 name|dir
 argument_list|,
@@ -4170,6 +4173,7 @@ name|Random
 name|r
 init|=
 name|random
+argument_list|()
 decl_stmt|;
 name|int
 name|NUM_DOCS
@@ -4203,6 +4207,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|4097
 argument_list|,

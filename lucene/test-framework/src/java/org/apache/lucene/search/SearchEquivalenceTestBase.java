@@ -25,6 +25,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -310,6 +319,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+name|random
+argument_list|()
+decl_stmt|;
 name|directory
 operator|=
 name|newDirectory
@@ -628,6 +643,7 @@ name|int
 name|numTerms
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -700,6 +716,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|'a'
 argument_list|,
@@ -851,6 +868,7 @@ operator|!=
 literal|null
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -861,6 +879,7 @@ name|boolean
 name|q1RandomAccess
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -870,6 +889,7 @@ name|boolean
 name|q2RandomAccess
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()

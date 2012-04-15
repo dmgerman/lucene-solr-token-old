@@ -16,6 +16,15 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -123,6 +132,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Random
+name|random
+init|=
+operator|new
+name|Random
+argument_list|(
+name|random
+argument_list|()
+operator|.
+name|nextLong
+argument_list|()
+argument_list|)
+decl_stmt|;
 specifier|final
 name|MockDirectoryWrapper
 name|dir
@@ -171,6 +193,7 @@ argument_list|)
 operator|)
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -188,6 +211,7 @@ operator|new
 name|MemoryPostingsFormat
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -213,6 +237,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -255,6 +280,7 @@ condition|?
 literal|200
 operator|*
 name|random
+argument_list|()
 operator|.
 name|nextDouble
 argument_list|()
@@ -262,6 +288,7 @@ else|:
 literal|5
 operator|*
 name|random
+argument_list|()
 operator|.
 name|nextDouble
 argument_list|()
@@ -377,6 +404,7 @@ operator|>=
 name|SIZE
 operator|&&
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -404,6 +432,7 @@ name|boolean
 name|applyDeletions
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -521,6 +550,7 @@ operator|new
 name|LineFileDocs
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 decl_stmt|;
 for|for
@@ -555,6 +585,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -581,6 +612,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|2
 argument_list|,
@@ -830,6 +862,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(

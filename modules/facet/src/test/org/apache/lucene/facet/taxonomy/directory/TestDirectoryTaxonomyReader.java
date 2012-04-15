@@ -585,6 +585,7 @@ block|{
 name|doTestReadRecreatedTaxono
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -604,6 +605,7 @@ block|{
 name|doTestReadRecreatedTaxono
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)

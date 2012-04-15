@@ -583,6 +583,7 @@ name|int
 name|value
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -593,6 +594,7 @@ name|boolean
 name|shouldAdd
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -733,6 +735,7 @@ name|int
 name|value
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -743,6 +746,7 @@ name|boolean
 name|shouldAdd
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -829,6 +833,7 @@ name|int
 name|value
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -839,6 +844,7 @@ name|boolean
 name|shouldAdd
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -925,6 +931,7 @@ name|int
 name|value
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -935,6 +942,7 @@ name|boolean
 name|shouldAdd
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1124,6 +1132,7 @@ name|int
 name|value
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -1134,6 +1143,7 @@ name|boolean
 name|shouldAdd
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
@@ -1220,6 +1230,7 @@ name|int
 name|value
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()
@@ -1230,6 +1241,7 @@ name|boolean
 name|shouldAdd
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()

@@ -346,6 +346,7 @@ expr_stmt|;
 name|nextInt
 operator|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -384,6 +385,7 @@ expr_stmt|;
 if|if
 condition|(
 name|random
+argument_list|()
 operator|.
 name|nextDouble
 argument_list|()
@@ -649,6 +651,7 @@ operator|.
 name|nextInt
 argument_list|(
 name|random
+argument_list|()
 argument_list|,
 literal|500
 argument_list|,

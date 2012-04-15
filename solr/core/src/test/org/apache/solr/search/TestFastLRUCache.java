@@ -2267,6 +2267,7 @@ name|int
 name|sz
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2279,6 +2280,7 @@ name|int
 name|lowWaterMark
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2293,6 +2295,7 @@ name|int
 name|keyrange
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2344,6 +2347,7 @@ operator|.
 name|put
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2358,6 +2362,7 @@ operator|.
 name|get
 argument_list|(
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2410,6 +2415,7 @@ name|Random
 name|r
 init|=
 name|random
+argument_list|()
 decl_stmt|;
 name|ConcurrentLRUCache
 name|cache
@@ -2700,6 +2706,7 @@ name|Integer
 name|kv
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|(
@@ -2854,6 +2861,7 @@ name|int
 name|seed
 init|=
 name|random
+argument_list|()
 operator|.
 name|nextInt
 argument_list|()

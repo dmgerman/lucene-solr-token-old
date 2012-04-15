@@ -205,6 +205,7 @@ operator|new
 name|MockAnalyzer
 argument_list|(
 name|random
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -265,6 +266,7 @@ literal|500
 argument_list|)
 argument_list|,
 name|random
+argument_list|()
 argument_list|,
 name|latch
 argument_list|)
@@ -433,12 +435,6 @@ specifier|final
 name|int
 name|numOps
 decl_stmt|;
-DECL|field|random
-specifier|private
-specifier|final
-name|Random
-name|random
-decl_stmt|;
 DECL|field|countdown
 specifier|private
 name|boolean
@@ -498,12 +494,6 @@ name|numOps
 expr_stmt|;
 name|this
 operator|.
-name|random
-operator|=
-name|random
-expr_stmt|;
-name|this
-operator|.
 name|latch
 operator|=
 name|latch
@@ -519,6 +509,14 @@ name|DirectoryReader
 name|currentReader
 init|=
 literal|null
+decl_stmt|;
+name|Random
+name|random
+init|=
+name|LuceneTestCase
+operator|.
+name|random
+argument_list|()
 decl_stmt|;
 try|try
 block|{
