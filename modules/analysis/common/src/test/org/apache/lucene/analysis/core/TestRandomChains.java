@@ -5425,7 +5425,7 @@ operator|=
 literal|true
 expr_stmt|;
 return|return
-name|super
+name|input
 operator|.
 name|read
 argument_list|(
@@ -5452,7 +5452,7 @@ operator|=
 literal|true
 expr_stmt|;
 return|return
-name|super
+name|input
 operator|.
 name|read
 argument_list|()
@@ -5476,7 +5476,7 @@ operator|=
 literal|true
 expr_stmt|;
 return|return
-name|super
+name|input
 operator|.
 name|skip
 argument_list|(
