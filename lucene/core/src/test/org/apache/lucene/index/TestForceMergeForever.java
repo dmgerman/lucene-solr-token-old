@@ -578,6 +578,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|docs
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
