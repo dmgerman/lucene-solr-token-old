@@ -130,7 +130,7 @@ name|SolrCoreAware
 import|;
 end_import
 begin_comment
-comment|/**  * A special Handler that registers all standard admin handlers  *   *  * @since solr 1.3  */
+comment|/**  * A special Handler that registers all standard admin handlers  *   * @since solr 1.3  */
 end_comment
 begin_class
 DECL|class|AdminHandlers
@@ -404,10 +404,10 @@ block|,
 operator|new
 name|StandardHandler
 argument_list|(
-literal|"loglevel"
+literal|"logging"
 argument_list|,
 operator|new
-name|LogLevelHandler
+name|LoggingHandler
 argument_list|()
 argument_list|)
 block|,
@@ -483,6 +483,8 @@ operator|(
 operator|(
 name|SolrCoreAware
 operator|)
+name|handler
+operator|.
 name|handler
 operator|)
 operator|.
