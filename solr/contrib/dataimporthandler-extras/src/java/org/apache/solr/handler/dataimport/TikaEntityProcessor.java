@@ -860,9 +860,6 @@ else|else
 block|{
 name|tikaParser
 operator|=
-operator|(
-name|Parser
-operator|)
 name|context
 operator|.
 name|getSolrCore
@@ -874,6 +871,10 @@ operator|.
 name|newInstance
 argument_list|(
 name|parser
+argument_list|,
+name|Parser
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

@@ -613,9 +613,6 @@ expr_stmt|;
 block|}
 name|factory
 operator|=
-operator|(
-name|LookupFactory
-operator|)
 name|core
 operator|.
 name|getResourceLoader
@@ -624,6 +621,10 @@ operator|.
 name|newInstance
 argument_list|(
 name|lookupImpl
+argument_list|,
+name|LookupFactory
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|lookup

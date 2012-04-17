@@ -2025,9 +2025,6 @@ else|else
 block|{
 name|dist
 operator|=
-operator|(
-name|StringDistance
-operator|)
 name|fp
 operator|.
 name|req
@@ -2041,6 +2038,10 @@ operator|.
 name|newInstance
 argument_list|(
 name|distClass
+argument_list|,
+name|StringDistance
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

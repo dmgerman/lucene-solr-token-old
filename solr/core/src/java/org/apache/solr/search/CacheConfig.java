@@ -125,6 +125,11 @@ decl_stmt|;
 DECL|field|clazz
 specifier|private
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|SolrCache
+argument_list|>
 name|clazz
 decl_stmt|;
 DECL|field|args
@@ -174,6 +179,11 @@ specifier|public
 name|CacheConfig
 parameter_list|(
 name|Class
+argument_list|<
+name|?
+extends|extends
+name|SolrCache
+argument_list|>
 name|clazz
 parameter_list|,
 name|Map
@@ -498,6 +508,10 @@ argument_list|(
 name|config
 operator|.
 name|cacheImpl
+argument_list|,
+name|SolrCache
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 if|if
@@ -513,9 +527,6 @@ name|config
 operator|.
 name|regenerator
 operator|=
-operator|(
-name|CacheRegenerator
-operator|)
 name|loader
 operator|.
 name|newInstance
@@ -523,6 +534,10 @@ argument_list|(
 name|config
 operator|.
 name|regenImpl
+argument_list|,
+name|CacheRegenerator
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -541,9 +556,6 @@ block|{
 name|SolrCache
 name|cache
 init|=
-operator|(
-name|SolrCache
-operator|)
 name|clazz
 operator|.
 name|newInstance

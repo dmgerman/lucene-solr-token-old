@@ -3358,6 +3358,10 @@ argument_list|(
 literal|"class"
 argument_list|)
 argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|,
 literal|"search.similarities."
 argument_list|)
 decl_stmt|;

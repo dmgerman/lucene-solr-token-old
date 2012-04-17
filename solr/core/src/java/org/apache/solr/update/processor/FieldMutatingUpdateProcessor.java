@@ -804,6 +804,10 @@ operator|.
 name|findClass
 argument_list|(
 name|t
+argument_list|,
+name|Object
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;

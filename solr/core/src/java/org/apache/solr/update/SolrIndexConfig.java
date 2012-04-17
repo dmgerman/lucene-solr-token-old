@@ -1051,9 +1051,6 @@ decl_stmt|;
 name|MergePolicy
 name|policy
 init|=
-operator|(
-name|MergePolicy
-operator|)
 name|schema
 operator|.
 name|getResourceLoader
@@ -1062,6 +1059,10 @@ operator|.
 name|newInstance
 argument_list|(
 name|mpClassName
+argument_list|,
+name|MergePolicy
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if
@@ -1220,9 +1221,6 @@ decl_stmt|;
 name|MergeScheduler
 name|scheduler
 init|=
-operator|(
-name|MergeScheduler
-operator|)
 name|schema
 operator|.
 name|getResourceLoader
@@ -1231,6 +1229,10 @@ operator|.
 name|newInstance
 argument_list|(
 name|msClassName
+argument_list|,
+name|MergeScheduler
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 if|if

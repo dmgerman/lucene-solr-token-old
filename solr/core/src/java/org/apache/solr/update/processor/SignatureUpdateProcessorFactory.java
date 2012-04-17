@@ -737,9 +737,6 @@ block|}
 name|Signature
 name|sig
 init|=
-operator|(
-name|Signature
-operator|)
 name|req
 operator|.
 name|getCore
@@ -751,6 +748,10 @@ operator|.
 name|newInstance
 argument_list|(
 name|signatureClass
+argument_list|,
+name|Signature
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|sig

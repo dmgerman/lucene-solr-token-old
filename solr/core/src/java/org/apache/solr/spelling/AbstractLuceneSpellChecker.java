@@ -727,6 +727,10 @@ operator|.
 name|newInstance
 argument_list|(
 name|compClass
+argument_list|,
+name|Comparator
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -762,9 +766,6 @@ condition|)
 block|{
 name|sd
 operator|=
-operator|(
-name|StringDistance
-operator|)
 name|core
 operator|.
 name|getResourceLoader
@@ -773,6 +774,10 @@ operator|.
 name|newInstance
 argument_list|(
 name|strDistanceName
+argument_list|,
+name|StringDistance
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 comment|//TODO: Figure out how to configure options.  Where's Spring when you need it?  Or at least BeanUtils...
