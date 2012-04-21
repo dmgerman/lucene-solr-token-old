@@ -52,7 +52,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Utility for query time joining using {@link TermsQuery} and {@link TermsCollector}.  *  * @lucene.experimental  */
+comment|/**  * Utility for query time joining using TermsQuery and TermsCollector.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|JoinUtil
