@@ -327,6 +327,7 @@ name|int
 name|updateDocIDLimit
 decl_stmt|;
 DECL|class|DocState
+specifier|protected
 specifier|static
 class|class
 name|DocState
