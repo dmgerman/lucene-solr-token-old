@@ -5479,7 +5479,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"swaped: "
+literal|"swapped: "
 operator|+
 name|n0
 operator|+
