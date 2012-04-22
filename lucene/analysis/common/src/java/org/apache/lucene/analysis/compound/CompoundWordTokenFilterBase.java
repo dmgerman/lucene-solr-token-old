@@ -156,7 +156,7 @@ name|Version
 import|;
 end_import
 begin_comment
-comment|/**  * Base class for decomposition token filters.  *<p>  * You must specify the required {@link Version} compatibility when creating  * CompoundWordTokenFilterBase:  *<ul>  *<li>As of 3.1, CompoundWordTokenFilterBase correctly handles Unicode 4.0  * supplementary characters in strings and char arrays provided as compound word  * dictionaries.  *</ul>  */
+comment|/**  * Base class for decomposition token filters.  *<p>  *  *<a name="version"></a>  * You must specify the required {@link Version} compatibility when creating  * CompoundWordTokenFilterBase:  *<ul>  *<li>As of 3.1, CompoundWordTokenFilterBase correctly handles Unicode 4.0  * supplementary characters in strings and char arrays provided as compound word  * dictionaries.  *</ul>  */
 end_comment
 begin_class
 DECL|class|CompoundWordTokenFilterBase

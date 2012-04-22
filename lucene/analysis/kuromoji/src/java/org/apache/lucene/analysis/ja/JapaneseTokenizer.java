@@ -405,6 +405,7 @@ operator|.
 name|SEARCH
 decl_stmt|;
 DECL|enum|Type
+specifier|public
 enum|enum
 name|Type
 block|{
