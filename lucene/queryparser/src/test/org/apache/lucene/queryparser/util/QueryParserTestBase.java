@@ -396,7 +396,7 @@ begin_comment
 comment|// TODO: it would be better to refactor the parts that are specific really
 end_comment
 begin_comment
-comment|// to the core QP and subclass/use the parts that are not in the contrib QP
+comment|// to the core QP and subclass/use the parts that are not in the flexible QP
 end_comment
 begin_class
 DECL|class|QueryParserTestBase
