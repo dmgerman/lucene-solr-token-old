@@ -592,6 +592,21 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
+name|HyphenatedWordsFilter
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|miscellaneous
+operator|.
 name|LimitTokenCountFilter
 import|;
 end_import
@@ -1221,6 +1236,11 @@ name|class
 argument_list|,
 comment|// TODO: doesn't handle graph inputs
 name|CJKBigramFilter
+operator|.
+name|class
+argument_list|,
+comment|// TODO: doesn't handle graph inputs (or even look at positionIncrement)
+name|HyphenatedWordsFilter
 operator|.
 name|class
 argument_list|)
