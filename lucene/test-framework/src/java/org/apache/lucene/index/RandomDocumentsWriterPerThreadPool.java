@@ -113,7 +113,6 @@ block|}
 annotation|@
 name|Override
 DECL|method|getAndLock
-specifier|public
 name|ThreadState
 name|getAndLock
 parameter_list|(
