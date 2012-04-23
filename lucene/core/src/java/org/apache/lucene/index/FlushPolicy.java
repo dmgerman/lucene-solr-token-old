@@ -69,7 +69,6 @@ comment|/**  * {@link FlushPolicy} controls when segments are flushed from a RAM
 end_comment
 begin_class
 DECL|class|FlushPolicy
-specifier|public
 specifier|abstract
 class|class
 name|FlushPolicy

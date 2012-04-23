@@ -87,7 +87,6 @@ comment|/**  * @lucene.internal   */
 end_comment
 begin_class
 DECL|class|DocumentsWriterFlushQueue
-specifier|public
 class|class
 name|DocumentsWriterFlushQueue
 block|{

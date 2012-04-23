@@ -123,7 +123,6 @@ comment|/**  * This class controls {@link DocumentsWriterPerThread} flushing dur
 end_comment
 begin_class
 DECL|class|DocumentsWriterFlushControl
-specifier|public
 specifier|final
 class|class
 name|DocumentsWriterFlushControl

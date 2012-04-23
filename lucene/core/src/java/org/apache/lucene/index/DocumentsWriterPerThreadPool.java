@@ -60,7 +60,6 @@ comment|/**  * {@link DocumentsWriterPerThreadPool} controls {@link ThreadState}
 end_comment
 begin_class
 DECL|class|DocumentsWriterPerThreadPool
-specifier|public
 specifier|abstract
 class|class
 name|DocumentsWriterPerThreadPool
@@ -72,7 +71,6 @@ argument_list|(
 literal|"serial"
 argument_list|)
 DECL|class|ThreadState
-specifier|public
 specifier|final
 specifier|static
 class|class
@@ -281,7 +279,6 @@ argument_list|()
 decl_stmt|;
 comment|/**    * Creates a new {@link DocumentsWriterPerThreadPool} with a given maximum of {@link ThreadState}s.    */
 DECL|method|DocumentsWriterPerThreadPool
-specifier|public
 name|DocumentsWriterPerThreadPool
 parameter_list|(
 name|int
@@ -319,7 +316,6 @@ literal|0
 expr_stmt|;
 block|}
 DECL|method|initialize
-specifier|public
 name|void
 name|initialize
 parameter_list|(
@@ -408,7 +404,6 @@ block|}
 block|}
 comment|/**    * Returns the max number of {@link ThreadState} instances available in this    * {@link DocumentsWriterPerThreadPool}    */
 DECL|method|getMaxThreadStates
-specifier|public
 name|int
 name|getMaxThreadStates
 parameter_list|()
@@ -421,7 +416,6 @@ return|;
 block|}
 comment|/**    * Returns the active number of {@link ThreadState} instances.    */
 DECL|method|getActiveThreadState
-specifier|public
 name|int
 name|getActiveThreadState
 parameter_list|()
@@ -432,7 +426,6 @@ return|;
 block|}
 comment|/**    * Returns a new {@link ThreadState} iff any new state is available otherwise    *<code>null</code>.    *<p>    * NOTE: the returned {@link ThreadState} is already locked iff non-    *<code>null</code>.    *     * @return a new {@link ThreadState} iff any new state is available otherwise    *<code>null</code>    */
 DECL|method|newThreadState
-specifier|public
 specifier|synchronized
 name|ThreadState
 name|newThreadState
@@ -601,7 +594,6 @@ return|;
 block|}
 comment|/**    * Deactivate all unreleased threadstates     */
 DECL|method|deactivateUnreleasedStates
-specifier|protected
 specifier|synchronized
 name|void
 name|deactivateUnreleasedStates
@@ -659,7 +651,6 @@ block|}
 block|}
 block|}
 DECL|method|replaceForFlush
-specifier|protected
 name|DocumentsWriterPerThread
 name|replaceForFlush
 parameter_list|(
@@ -751,7 +742,6 @@ name|dwpt
 return|;
 block|}
 DECL|method|recycle
-specifier|public
 name|void
 name|recycle
 parameter_list|(
@@ -798,7 +788,6 @@ return|;
 block|}
 comment|/**    * Returns the ThreadState with the minimum estimated number of threads    * waiting to acquire its lock or<code>null</code> if no {@link ThreadState}    * is yet visible to the calling thread.    */
 DECL|method|minContendedThreadState
-specifier|protected
 name|ThreadState
 name|minContendedThreadState
 parameter_list|()

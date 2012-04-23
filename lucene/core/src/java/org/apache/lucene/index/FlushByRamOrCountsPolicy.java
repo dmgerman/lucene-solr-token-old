@@ -34,7 +34,6 @@ comment|/**  * Default {@link FlushPolicy} implementation that flushes based on 
 end_comment
 begin_class
 DECL|class|FlushByRamOrCountsPolicy
-specifier|public
 class|class
 name|FlushByRamOrCountsPolicy
 extends|extends
