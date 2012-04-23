@@ -166,7 +166,6 @@ index|[]
 name|entries
 decl_stmt|;
 DECL|method|CollisionMap
-specifier|public
 name|CollisionMap
 parameter_list|(
 name|CharBlockArray
@@ -186,7 +185,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|CollisionMap
-specifier|public
 name|CollisionMap
 parameter_list|(
 name|int
