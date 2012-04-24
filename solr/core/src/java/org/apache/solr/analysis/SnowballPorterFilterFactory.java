@@ -227,8 +227,10 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|InitializationException
 argument_list|(
+literal|"IOException thrown while loading protected words"
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -310,7 +312,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|InitializationException
 argument_list|(
 literal|"Can't find class for stemmer language "
 operator|+
@@ -354,7 +356,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|InitializationException
 argument_list|(
 literal|"Error instantiating stemmer for language "
 operator|+

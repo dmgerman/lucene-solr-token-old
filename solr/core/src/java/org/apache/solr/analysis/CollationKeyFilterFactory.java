@@ -128,34 +128,6 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|common
-operator|.
-name|SolrException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|common
-operator|.
-name|SolrException
-operator|.
-name|ErrorCode
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
 name|util
 operator|.
 name|plugin
@@ -266,12 +238,8 @@ literal|null
 condition|)
 throw|throw
 operator|new
-name|SolrException
+name|InitializationException
 argument_list|(
-name|ErrorCode
-operator|.
-name|SERVER_ERROR
-argument_list|,
 literal|"Either custom or language is required."
 argument_list|)
 throw|;
@@ -297,12 +265,8 @@ operator|)
 condition|)
 throw|throw
 operator|new
-name|SolrException
+name|InitializationException
 argument_list|(
-name|ErrorCode
-operator|.
-name|SERVER_ERROR
-argument_list|,
 literal|"Cannot specify both language and custom. "
 operator|+
 literal|"To tailor rules for a built-in language, see the javadocs for RuleBasedCollator. "
@@ -429,12 +393,8 @@ expr_stmt|;
 else|else
 throw|throw
 operator|new
-name|SolrException
+name|InitializationException
 argument_list|(
-name|ErrorCode
-operator|.
-name|SERVER_ERROR
-argument_list|,
 literal|"Invalid strength: "
 operator|+
 name|strength
@@ -508,12 +468,8 @@ expr_stmt|;
 else|else
 throw|throw
 operator|new
-name|SolrException
+name|InitializationException
 argument_list|(
-name|ErrorCode
-operator|.
-name|SERVER_ERROR
-argument_list|,
 literal|"Invalid decomposition: "
 operator|+
 name|decomposition
@@ -575,12 +531,8 @@ literal|null
 condition|)
 throw|throw
 operator|new
-name|SolrException
+name|InitializationException
 argument_list|(
-name|ErrorCode
-operator|.
-name|SERVER_ERROR
-argument_list|,
 literal|"To specify variant, country is required"
 argument_list|)
 throw|;
@@ -708,8 +660,10 @@ block|{
 comment|// io error
 throw|throw
 operator|new
-name|RuntimeException
+name|InitializationException
 argument_list|(
+literal|"IOException thrown while loading rules"
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -723,8 +677,10 @@ block|{
 comment|// invalid rules
 throw|throw
 operator|new
-name|RuntimeException
+name|InitializationException
 argument_list|(
+literal|"ParseException thrown while parsing rules"
+argument_list|,
 name|e
 argument_list|)
 throw|;

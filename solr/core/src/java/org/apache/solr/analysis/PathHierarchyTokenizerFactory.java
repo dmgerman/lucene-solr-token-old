@@ -165,7 +165,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|InitializationException
 argument_list|(
 literal|"delimiter should be a char. \""
 operator|+
@@ -225,7 +225,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|InitializationException
 argument_list|(
 literal|"replace should be a char. \""
 operator|+

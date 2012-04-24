@@ -359,7 +359,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|InitializationException
 argument_list|(
 literal|"Configuration Error: Factory '"
 operator|+
@@ -523,7 +523,7 @@ name|defaultVal
 return|;
 throw|throw
 operator|new
-name|RuntimeException
+name|InitializationException
 argument_list|(
 literal|"Configuration Error: missing parameter '"
 operator|+
@@ -606,7 +606,7 @@ name|defaultVal
 return|;
 throw|throw
 operator|new
-name|RuntimeException
+name|InitializationException
 argument_list|(
 literal|"Configuration Error: missing parameter '"
 operator|+

@@ -44,19 +44,6 @@ import|;
 end_import
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|common
-operator|.
-name|SolrException
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -132,14 +119,8 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SolrException
+name|InitializationException
 argument_list|(
-name|SolrException
-operator|.
-name|ErrorCode
-operator|.
-name|UNKNOWN
-argument_list|,
 literal|"Illegal "
 operator|+
 name|MINIMUM_LENGTH_PARAM

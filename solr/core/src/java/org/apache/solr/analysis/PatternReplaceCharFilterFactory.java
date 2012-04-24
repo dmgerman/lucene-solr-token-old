@@ -152,7 +152,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|InitializationException
 argument_list|(
 literal|"Configuration Error: 'pattern' can not be parsed in "
 operator|+

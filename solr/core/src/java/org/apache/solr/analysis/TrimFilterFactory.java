@@ -51,19 +51,6 @@ operator|.
 name|TrimFilter
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|common
-operator|.
-name|SolrException
-import|;
-end_import
 begin_comment
 comment|/**  * Factory for {@link TrimFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_trm" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.NGramTokenizerFactory"/&gt;  *&lt;filter class="solr.TrimFilterFactory" updateOffsets="false"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  *  * @see TrimFilter  */
 end_comment
@@ -142,14 +129,8 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|SolrException
+name|InitializationException
 argument_list|(
-name|SolrException
-operator|.
-name|ErrorCode
-operator|.
-name|BAD_REQUEST
-argument_list|,
 literal|"Error reading updateOffsets value.  Must be true or false."
 argument_list|,
 name|ex
