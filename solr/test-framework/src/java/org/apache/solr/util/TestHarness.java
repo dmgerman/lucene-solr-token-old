@@ -681,12 +681,12 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-literal|""
+literal|null
 argument_list|,
 operator|new
 name|Initializer
 argument_list|(
-literal|""
+literal|null
 argument_list|,
 name|dataDirectory
 argument_list|,
@@ -727,7 +727,9 @@ literal|null
 condition|)
 name|coreName
 operator|=
-literal|""
+name|CoreContainer
+operator|.
+name|DEFAULT_DEFAULT_CORE_NAME
 expr_stmt|;
 comment|// get the core& decrease its refcount:
 comment|// the container holds the core for the harness lifetime
@@ -951,7 +953,9 @@ literal|null
 condition|)
 name|coreName
 operator|=
-literal|""
+name|CoreContainer
+operator|.
+name|DEFAULT_DEFAULT_CORE_NAME
 expr_stmt|;
 name|this
 operator|.
