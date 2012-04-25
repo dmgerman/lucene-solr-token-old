@@ -350,7 +350,7 @@ indent|'          '
 name|'raise'
 name|'RuntimeError'
 op|'('
-string|"'BUG: couldn\\'t find an href nor name in link in %s: only got these attrs: %s'"
+string|"'couldn\\'t find an href nor name in link in %s: only got these attrs: %s'"
 op|'%'
 op|'('
 name|'self'
