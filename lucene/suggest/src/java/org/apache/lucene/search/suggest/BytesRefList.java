@@ -468,7 +468,7 @@ block|{
 specifier|final
 name|int
 index|[]
-name|orderdEntries
+name|orderedEntries
 init|=
 operator|new
 name|int
@@ -486,7 +486,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|orderdEntries
+name|orderedEntries
 operator|.
 name|length
 condition|;
@@ -494,7 +494,7 @@ name|i
 operator|++
 control|)
 block|{
-name|orderdEntries
+name|orderedEntries
 index|[
 name|i
 index|]
@@ -523,22 +523,22 @@ specifier|final
 name|int
 name|o
 init|=
-name|orderdEntries
+name|orderedEntries
 index|[
 name|i
 index|]
 decl_stmt|;
-name|orderdEntries
+name|orderedEntries
 index|[
 name|i
 index|]
 operator|=
-name|orderdEntries
+name|orderedEntries
 index|[
 name|j
 index|]
 expr_stmt|;
-name|orderdEntries
+name|orderedEntries
 index|[
 name|j
 index|]
@@ -563,14 +563,14 @@ specifier|final
 name|int
 name|ord1
 init|=
-name|orderdEntries
+name|orderedEntries
 index|[
 name|i
 index|]
 decl_stmt|,
 name|ord2
 init|=
-name|orderdEntries
+name|orderedEntries
 index|[
 name|j
 index|]
@@ -610,7 +610,7 @@ specifier|final
 name|int
 name|ord
 init|=
-name|orderdEntries
+name|orderedEntries
 index|[
 name|i
 index|]
@@ -637,7 +637,7 @@ specifier|final
 name|int
 name|ord
 init|=
-name|orderdEntries
+name|orderedEntries
 index|[
 name|j
 index|]
@@ -692,7 +692,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 return|return
-name|orderdEntries
+name|orderedEntries
 return|;
 block|}
 comment|/**    * sugar for {@link #iterator(Comparator)} with a<code>null</code> comparator    */
