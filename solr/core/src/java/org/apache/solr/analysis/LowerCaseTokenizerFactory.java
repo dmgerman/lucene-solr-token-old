@@ -138,6 +138,13 @@ argument_list|()
 decl_stmt|;
 name|filt
 operator|.
+name|setLuceneMatchVersion
+argument_list|(
+name|luceneMatchVersion
+argument_list|)
+expr_stmt|;
+name|filt
+operator|.
 name|init
 argument_list|(
 name|args

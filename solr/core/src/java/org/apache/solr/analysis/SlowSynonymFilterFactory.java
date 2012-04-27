@@ -244,8 +244,6 @@ argument_list|(
 name|loader
 argument_list|,
 name|tf
-argument_list|,
-name|args
 argument_list|)
 expr_stmt|;
 block|}
@@ -904,7 +902,6 @@ return|;
 block|}
 DECL|method|loadTokenizerFactory
 specifier|private
-specifier|static
 name|TokenizerFactory
 name|loadTokenizerFactory
 parameter_list|(
@@ -913,14 +910,6 @@ name|loader
 parameter_list|,
 name|String
 name|cname
-parameter_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|args
 parameter_list|)
 block|{
 name|TokenizerFactory
@@ -937,6 +926,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|tokFactory
+operator|.
+name|setLuceneMatchVersion
+argument_list|(
+name|luceneMatchVersion
+argument_list|)
+expr_stmt|;
 name|tokFactory
 operator|.
 name|init

@@ -29,6 +29,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -58,6 +71,15 @@ argument_list|,
 name|String
 argument_list|>
 name|args
+parameter_list|)
+function_decl|;
+DECL|method|setLuceneMatchVersion
+specifier|public
+name|void
+name|setLuceneMatchVersion
+parameter_list|(
+name|Version
+name|luceneMatchVersion
 parameter_list|)
 function_decl|;
 comment|/**    * Accessor method for reporting the args used to initialize this factory.    *<p>    * Implementations are<strong>strongly</strong> encouraged to return     * the contents of the Map passed to to the init method    *</p>    */
