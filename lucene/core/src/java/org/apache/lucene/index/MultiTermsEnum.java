@@ -222,7 +222,6 @@ argument_list|>
 name|termComp
 decl_stmt|;
 DECL|class|TermsEnumIndex
-specifier|public
 specifier|static
 class|class
 name|TermsEnumIndex

@@ -68,7 +68,7 @@ import|;
 end_import
 begin_class
 DECL|class|NormsConsumerPerField
-specifier|public
+specifier|final
 class|class
 name|NormsConsumerPerField
 extends|extends

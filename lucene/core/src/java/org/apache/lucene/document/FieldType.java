@@ -84,6 +84,9 @@ operator|.
 name|NumericUtils
 import|;
 end_import
+begin_comment
+comment|/**  * Describes the properties of a field.  */
+end_comment
 begin_class
 DECL|class|FieldType
 specifier|public

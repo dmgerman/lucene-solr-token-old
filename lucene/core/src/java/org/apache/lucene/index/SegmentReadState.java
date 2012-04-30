@@ -41,7 +41,7 @@ name|IOContext
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.experimental  */
+comment|/**  * Holder class for common parameters used during read.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SegmentReadState

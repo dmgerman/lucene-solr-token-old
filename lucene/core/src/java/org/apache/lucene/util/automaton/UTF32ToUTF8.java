@@ -67,7 +67,7 @@ begin_comment
 comment|//   - do we really need the .bits...?  if not we can make util in UnicodeUtil to convert 1 char into a BytesRef
 end_comment
 begin_comment
-comment|/** @lucene.internal */
+comment|/**   * Converts UTF-32 automata to the equivalent UTF-8 representation.  * @lucene.internal   */
 end_comment
 begin_class
 DECL|class|UTF32ToUTF8
