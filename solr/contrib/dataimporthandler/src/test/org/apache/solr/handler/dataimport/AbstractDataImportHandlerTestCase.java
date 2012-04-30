@@ -719,10 +719,8 @@ specifier|static
 name|TestContext
 name|getContext
 parameter_list|(
-name|DataConfig
-operator|.
-name|Entity
-name|parentEntity
+name|EntityProcessorWrapper
+name|parent
 parameter_list|,
 name|VariableResolverImpl
 name|resolver
@@ -774,7 +772,7 @@ init|=
 operator|new
 name|ContextImpl
 argument_list|(
-name|parentEntity
+name|parent
 argument_list|,
 name|resolver
 argument_list|,
@@ -806,7 +804,7 @@ name|delegate
 argument_list|,
 name|entityFields
 argument_list|,
-name|parentEntity
+name|parent
 operator|==
 literal|null
 argument_list|)

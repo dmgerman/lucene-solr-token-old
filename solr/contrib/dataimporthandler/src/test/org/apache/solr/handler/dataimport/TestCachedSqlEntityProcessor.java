@@ -262,6 +262,8 @@ name|CachedSqlEntityProcessor
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|csep
@@ -625,6 +627,8 @@ argument_list|(
 operator|new
 name|CachedSqlEntityProcessor
 argument_list|()
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)
@@ -1017,6 +1021,8 @@ argument_list|(
 operator|new
 name|CachedSqlEntityProcessor
 argument_list|()
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)
@@ -1765,6 +1771,8 @@ argument_list|(
 operator|new
 name|CachedSqlEntityProcessor
 argument_list|()
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)

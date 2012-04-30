@@ -216,6 +216,8 @@ name|SqlEntityProcessor
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|List
@@ -411,6 +413,8 @@ name|SqlEntityProcessor
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|List
@@ -604,6 +608,8 @@ argument_list|(
 operator|new
 name|SqlEntityProcessor
 argument_list|()
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)
