@@ -136,6 +136,9 @@ operator|.
 name|_TestUtil
 import|;
 end_import
+begin_comment
+comment|/**  * Utilities for testing automata.  *<p>  * Capable of generating random regular expressions,  * and automata, and also provides a number of very  * basic unoptimized implementations (*slow) for testing.  */
+end_comment
 begin_class
 DECL|class|AutomatonTestUtil
 specifier|public

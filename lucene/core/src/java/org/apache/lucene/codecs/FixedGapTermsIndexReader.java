@@ -209,7 +209,7 @@ name|IndexFileNames
 import|;
 end_import
 begin_comment
-comment|/** @lucene.experimental */
+comment|/**   * TermsIndexReader for simple every-nth terms indexes.  *  * @see FixedGapTermsIndexWriter  * @lucene.experimental   */
 end_comment
 begin_class
 DECL|class|FixedGapTermsIndexReader

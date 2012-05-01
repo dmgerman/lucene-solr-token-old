@@ -219,7 +219,7 @@ name|Util
 import|;
 end_import
 begin_comment
-comment|/**  * Selects index terms according to provided pluggable  * IndexTermPolicy, and stores them in a prefix trie that's  * loaded entirely in RAM stored as an FST.  This terms  * index only supports unsigned byte term sort order  * (unicode codepoint order when the bytes are UTF8).  *  * @lucene.experimental */
+comment|/**  * Selects index terms according to provided pluggable  * {@link IndexTermSelector}, and stores them in a prefix trie that's  * loaded entirely in RAM stored as an FST.  This terms  * index only supports unsigned byte term sort order  * (unicode codepoint order when the bytes are UTF8).  *  * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|VariableGapTermsIndexWriter
@@ -302,7 +302,7 @@ specifier|final
 name|IndexTermSelector
 name|policy
 decl_stmt|;
-comment|/** @lucene.experimental */
+comment|/**     * Hook for selecting which terms should be placed in the terms index.    *<p>    * {@link #newField} is called at the start of each new field, and    * {@link #isIndexTerm} for each term in that field.    *     * @lucene.experimental     */
 DECL|class|IndexTermSelector
 specifier|public
 specifier|static
@@ -310,8 +310,7 @@ specifier|abstract
 class|class
 name|IndexTermSelector
 block|{
-comment|// Called sequentially on every term being written,
-comment|// returning true if this term should be indexed
+comment|/**       * Called sequentially on every term being written,      * returning true if this term should be indexed      */
 DECL|method|isIndexTerm
 specifier|public
 specifier|abstract
@@ -325,6 +324,7 @@ name|TermStats
 name|stats
 parameter_list|)
 function_decl|;
+comment|/**      * Called when a new field is started.      */
 DECL|method|newField
 specifier|public
 specifier|abstract

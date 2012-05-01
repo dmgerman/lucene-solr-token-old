@@ -174,7 +174,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Selects every Nth term as and index term, and hold term  * bytes fully expanded in memory.  This terms index  * supports seeking by ord.  See {@link  * VariableGapTermsIndexWriter} for a more memory efficient  * terms index that does not support seeking by ord.  *  * @lucene.experimental */
+comment|/**  * Selects every Nth term as and index term, and hold term  * bytes (mostly) fully expanded in memory.  This terms index  * supports seeking by ord.  See {@link  * VariableGapTermsIndexWriter} for a more memory efficient  * terms index that does not support seeking by ord.  *  * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|FixedGapTermsIndexWriter

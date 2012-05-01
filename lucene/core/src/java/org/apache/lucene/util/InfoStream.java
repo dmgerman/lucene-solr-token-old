@@ -16,6 +16,38 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexWriter
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|SegmentInfos
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -24,7 +56,7 @@ name|Closeable
 import|;
 end_import
 begin_comment
-comment|/** @lucene.internal */
+comment|/**   * Debugging API for Lucene classes such as {@link IndexWriter}   * and {@link SegmentInfos}.  *<p>  * NOTE: Enabling infostreams may cause performance degradation  * in some components.  *   * @lucene.internal   */
 end_comment
 begin_class
 DECL|class|InfoStream

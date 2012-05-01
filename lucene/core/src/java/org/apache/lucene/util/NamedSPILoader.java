@@ -331,6 +331,7 @@ name|iterator
 argument_list|()
 return|;
 block|}
+comment|/**    * Interface to support {@link NamedSPILoader#lookup(String)} by name.    */
 DECL|interface|NamedSPI
 specifier|public
 specifier|static

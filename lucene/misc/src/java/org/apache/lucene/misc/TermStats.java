@@ -27,6 +27,9 @@ operator|.
 name|BytesRef
 import|;
 end_import
+begin_comment
+comment|/**  * Holder for a term along with its statistics  * ({@link #docFreq} and {@link #totalTermFreq}).  */
+end_comment
 begin_class
 DECL|class|TermStats
 specifier|public

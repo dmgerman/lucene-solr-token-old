@@ -44,6 +44,9 @@ operator|.
 name|Lucene40SegmentInfosFormat
 import|;
 end_import
+begin_comment
+comment|/**  * Append-only SegmentInfos format.  *<p>  * Only a writer is supplied, as the format is written   * the same as {@link Lucene40SegmentInfosFormat}.  *   * @see AppendingSegmentInfosWriter  */
+end_comment
 begin_class
 DECL|class|AppendingSegmentInfosFormat
 specifier|public

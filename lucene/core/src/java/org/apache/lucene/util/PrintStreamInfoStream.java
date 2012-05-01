@@ -55,7 +55,7 @@ name|AtomicInteger
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.internal  */
+comment|/**  * InfoStream implementation over a {@link PrintStream}  * such as<code>System.out</code>.  *   * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|PrintStreamInfoStream
