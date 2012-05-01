@@ -16,6 +16,9 @@ operator|.
 name|util
 package|;
 end_package
+begin_comment
+comment|/**  * Interface for a component that needs to be initialized by  * an implementation of {@link ResourceLoader}.  *   * @see ResourceLoader  */
+end_comment
 begin_interface
 DECL|interface|ResourceLoaderAware
 specifier|public

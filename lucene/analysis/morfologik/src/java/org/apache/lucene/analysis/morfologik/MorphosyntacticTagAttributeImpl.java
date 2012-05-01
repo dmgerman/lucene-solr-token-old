@@ -33,7 +33,7 @@ name|AttributeImpl
 import|;
 end_import
 begin_comment
-comment|/**  * @see MorphosyntacticTagAttribute  */
+comment|/**  * Morphosyntactic annotations for surface forms.  * @see MorphosyntacticTagAttribute  */
 end_comment
 begin_class
 DECL|class|MorphosyntacticTagAttributeImpl
