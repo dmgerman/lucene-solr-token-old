@@ -184,7 +184,7 @@ name|IOUtils
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.experimental  */
+comment|/**  * Writes plain-text DocValues.  *<p>  *<b><font color="red">FOR RECREATIONAL USE ONLY</font></B>  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SimpleTextDocValuesConsumer

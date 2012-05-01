@@ -237,7 +237,7 @@ name|IOUtils
 import|;
 end_import
 begin_comment
-comment|/**  * plain-text norms format  *<p>  *<b><font color="red">FOR RECREATIONAL USE ONLY</font></B>  *   * @lucene.experimental  */
+comment|/**  * plain-text norms format.  *<p>  *<b><font color="red">FOR RECREATIONAL USE ONLY</font></B>  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SimpleTextNormsFormat
@@ -336,6 +336,7 @@ name|files
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Reads plain-text norms.    *<p>    *<b><font color="red">FOR RECREATIONAL USE ONLY</font></B>    *     * @lucene.experimental    */
 DECL|class|SimpleTextNormsPerDocProducer
 specifier|public
 specifier|static
@@ -428,6 +429,7 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|/**    * Writes plain-text norms.    *<p>    *<b><font color="red">FOR RECREATIONAL USE ONLY</font></B>    *     * @lucene.experimental    */
 DECL|class|SimpleTextNormsPerDocConsumer
 specifier|public
 specifier|static

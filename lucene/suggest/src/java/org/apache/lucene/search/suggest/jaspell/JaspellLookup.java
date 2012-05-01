@@ -197,6 +197,9 @@ operator|.
 name|UnicodeUtil
 import|;
 end_import
+begin_comment
+comment|/**  * Suggest implementation based on   *<a href="http://jaspell.sourceforge.net/">JaSpell</a>.  *   * @see JaspellTernarySearchTrie  */
+end_comment
 begin_class
 DECL|class|JaspellLookup
 specifier|public

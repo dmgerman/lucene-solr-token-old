@@ -59,7 +59,7 @@ name|FieldInfo
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.experimental  */
+comment|/**  * Extension of {@link PostingsConsumer} to support pluggable term dictionaries.  *<p>  * This class contains additional hooks to interact with the provided  * term dictionaries such as {@link BlockTreeTermsWriter} and   * {@link BlockTermsWriter}. If you want to re-use one of these existing  * implementations and are only interested in customizing the format of  * the postings list, extend this class instead.  *   * @see PostingsReaderBase  * @lucene.experimental  */
 end_comment
 begin_comment
 comment|// TODO: find a better name; this defines the API that the
