@@ -409,7 +409,7 @@ name|initCore
 argument_list|(
 literal|"solrconfig-tlog.xml"
 argument_list|,
-literal|"schema12.xml"
+literal|"schema15.xml"
 argument_list|)
 expr_stmt|;
 block|}
