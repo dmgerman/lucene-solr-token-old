@@ -870,7 +870,7 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-literal|"-Dtests.class=*."
+literal|"-Dtestcase="
 operator|+
 name|Nested
 operator|.
@@ -963,7 +963,7 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-literal|"-Dtests.class=*."
+literal|"-Dtestcase="
 operator|+
 name|Nested
 operator|.
@@ -1056,7 +1056,7 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-literal|"-Dtests.class=*."
+literal|"-Dtestcase="
 operator|+
 name|Nested
 operator|.
@@ -1149,7 +1149,7 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-literal|"-Dtests.class=*."
+literal|"-Dtestcase="
 operator|+
 name|Nested
 operator|.
@@ -1357,7 +1357,7 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-literal|"-Dtests.class=*."
+literal|"-Dtestcase="
 operator|+
 name|Nested
 operator|.
@@ -1450,7 +1450,7 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-literal|"-Dtests.class=*."
+literal|"-Dtestcase="
 operator|+
 name|Nested
 operator|.
@@ -1543,7 +1543,7 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-literal|"-Dtests.class=*."
+literal|"-Dtestcase="
 operator|+
 name|Nested
 operator|.
@@ -1636,7 +1636,7 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-literal|"-Dtests.class=*."
+literal|"-Dtestcase="
 operator|+
 name|Nested
 operator|.
