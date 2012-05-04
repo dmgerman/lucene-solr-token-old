@@ -7936,7 +7936,7 @@ name|println
 argument_list|(
 literal|"NOTE: reproduce with (hopefully): ant test "
 operator|+
-literal|"-Dtestcase"
+literal|"-Dtestcase="
 operator|+
 name|getTestClass
 argument_list|()
@@ -7982,7 +7982,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|"-Dtestcase"
+literal|"-Dtestcase="
 argument_list|)
 operator|.
 name|append
