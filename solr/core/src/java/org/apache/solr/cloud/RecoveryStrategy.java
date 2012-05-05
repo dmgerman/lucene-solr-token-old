@@ -1052,11 +1052,6 @@ argument_list|)
 expr_stmt|;
 name|server
 operator|.
-name|commit
-argument_list|()
-expr_stmt|;
-name|server
-operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
