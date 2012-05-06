@@ -47,6 +47,9 @@ operator|.
 name|Properties
 import|;
 end_import
+begin_comment
+comment|/**  * Basic html parser (for demo/testing purposes only!)  */
+end_comment
 begin_class
 DECL|class|HTMLParser
 specifier|public

@@ -57,6 +57,9 @@ operator|.
 name|IndexReader
 import|;
 end_import
+begin_comment
+comment|/**  * Abstract class for benchmarking highlighting performance  */
+end_comment
 begin_class
 DECL|class|BenchmarkHighlighter
 specifier|public
