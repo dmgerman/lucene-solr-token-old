@@ -1796,7 +1796,7 @@ literal|"term~"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term~2.0"
+literal|"term~2"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1805,7 +1805,7 @@ literal|"term~0.7"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term~0.7"
+literal|"term~1"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1814,7 +1814,7 @@ literal|"term~^3"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term~2.0^3.0"
+literal|"term~2^3.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1823,7 +1823,7 @@ literal|"term^3~"
 argument_list|,
 literal|null
 argument_list|,
-literal|"term~2.0^3.0"
+literal|"term~2^3.0"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -1907,14 +1907,12 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|0.7f
+literal|1
 argument_list|,
 name|fq
 operator|.
-name|getMinSimilarity
+name|getMaxEdits
 argument_list|()
-argument_list|,
-literal|0.1f
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1943,14 +1941,12 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|2.0f
+literal|2
 argument_list|,
 name|fq
 operator|.
-name|getMinSimilarity
+name|getMaxEdits
 argument_list|()
-argument_list|,
-literal|0.1f
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2155,7 +2151,7 @@ name|assertWildcardQueryEquals
 argument_list|(
 literal|"Term~"
 argument_list|,
-literal|"term~2.0"
+literal|"term~2"
 argument_list|)
 expr_stmt|;
 name|assertWildcardQueryEquals
@@ -2164,7 +2160,7 @@ literal|"Term~"
 argument_list|,
 literal|true
 argument_list|,
-literal|"term~2.0"
+literal|"term~2"
 argument_list|)
 expr_stmt|;
 name|assertWildcardQueryEquals
@@ -2173,7 +2169,7 @@ literal|"Term~"
 argument_list|,
 literal|false
 argument_list|,
-literal|"Term~2.0"
+literal|"Term~2"
 argument_list|)
 expr_stmt|;
 comment|// Range queries:
@@ -3283,7 +3279,7 @@ literal|"a:b\\-c~"
 argument_list|,
 name|a
 argument_list|,
-literal|"a:b-c~2.0"
+literal|"a:b-c~2"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -3292,7 +3288,7 @@ literal|"a:b\\+c~"
 argument_list|,
 name|a
 argument_list|,
-literal|"a:b+c~2.0"
+literal|"a:b+c~2"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -3301,7 +3297,7 @@ literal|"a:b\\:c~"
 argument_list|,
 name|a
 argument_list|,
-literal|"a:b:c~2.0"
+literal|"a:b:c~2"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
@@ -3310,7 +3306,7 @@ literal|"a:b\\\\c~"
 argument_list|,
 name|a
 argument_list|,
-literal|"a:b\\c~2.0"
+literal|"a:b\\c~2"
 argument_list|)
 expr_stmt|;
 name|assertQueryEquals
