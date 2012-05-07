@@ -45,10 +45,10 @@ name|SimpleSpatialContext
 import|;
 end_import
 begin_class
-DECL|class|TwoDoublesStrategyTestCase
+DECL|class|TestTwoDoublesStrategy
 specifier|public
 class|class
-name|TwoDoublesStrategyTestCase
+name|TestTwoDoublesStrategy
 extends|extends
 name|BaseTwoDoublesStrategyTestCase
 block|{

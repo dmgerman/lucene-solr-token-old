@@ -54,10 +54,10 @@ name|Before
 import|;
 end_import
 begin_class
-DECL|class|RecursivePrefixTreeStrategyTestCase
+DECL|class|TestRecursivePrefixTreeStrategy
 specifier|public
 class|class
-name|RecursivePrefixTreeStrategyTestCase
+name|TestRecursivePrefixTreeStrategy
 extends|extends
 name|BaseRecursivePrefixTreeStrategyTestCase
 block|{
