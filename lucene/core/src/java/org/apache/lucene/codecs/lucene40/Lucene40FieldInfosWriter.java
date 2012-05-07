@@ -147,7 +147,7 @@ name|IndexOutput
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.experimental  */
+comment|/**  * Lucene 4.0 FieldInfos writer.  *   * @see Lucene40FieldInfosFormat  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|Lucene40FieldInfosWriter

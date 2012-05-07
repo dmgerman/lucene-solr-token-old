@@ -61,7 +61,7 @@ name|MultiLevelSkipListWriter
 import|;
 end_import
 begin_comment
-comment|/**  * Implements the skip list writer for the default posting list format  * that stores positions and payloads.  * @lucene.experimental  */
+comment|/**  * Implements the skip list writer for the 4.0 posting list format  * that stores positions and payloads.  *   * @see Lucene40PostingsFormat  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|Lucene40SkipListWriter

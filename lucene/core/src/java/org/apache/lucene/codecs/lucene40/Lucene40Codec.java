@@ -149,7 +149,7 @@ name|PerFieldPostingsFormat
 import|;
 end_import
 begin_comment
-comment|/**  * Implements the Lucene 4.0 index format, with configurable per-field postings formats.  *  * @lucene.experimental  */
+comment|/**  * Implements the Lucene 4.0 index format, with configurable per-field postings formats.  *   * @see org.apache.lucene.codecs.lucene40 package documentation for file format details.  * @lucene.experimental  */
 end_comment
 begin_comment
 comment|// NOTE: if we make largish changes in a minor release, easier to just make Lucene42Codec or whatever

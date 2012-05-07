@@ -17,7 +17,7 @@ name|mutable
 package|;
 end_package
 begin_comment
-comment|/** @lucene.internal */
+comment|/**  * Base class for all mutable values.  *    * @lucene.internal   */
 end_comment
 begin_class
 DECL|class|MutableValue
