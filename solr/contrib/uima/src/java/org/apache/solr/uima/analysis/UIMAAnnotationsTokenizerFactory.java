@@ -39,9 +39,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|uima
+name|util
 operator|.
-name|UIMAAnnotationsTokenizer
+name|TokenizerFactory
 import|;
 end_import
 begin_import
@@ -50,11 +50,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|solr
+name|lucene
 operator|.
 name|analysis
 operator|.
-name|BaseTokenizerFactory
+name|uima
+operator|.
+name|UIMAAnnotationsTokenizer
 import|;
 end_import
 begin_import
@@ -76,7 +78,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Solr {@link org.apache.solr.analysis.TokenizerFactory} for {@link UIMAAnnotationsTokenizer}  */
+comment|/**  * {@link org.apache.lucene.analysis.util.TokenizerFactory} for {@link UIMAAnnotationsTokenizer}  */
 end_comment
 begin_class
 DECL|class|UIMAAnnotationsTokenizerFactory
@@ -84,7 +86,7 @@ specifier|public
 class|class
 name|UIMAAnnotationsTokenizerFactory
 extends|extends
-name|BaseTokenizerFactory
+name|TokenizerFactory
 block|{
 DECL|field|descriptorPath
 specifier|private

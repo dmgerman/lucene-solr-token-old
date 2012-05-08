@@ -51,6 +51,21 @@ operator|.
 name|EdgeNGramTokenFilter
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|util
+operator|.
+name|TokenFilterFactory
+import|;
+end_import
 begin_comment
 comment|/**  * Creates new instances of {@link EdgeNGramTokenFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_edgngrm" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.EdgeNGramFilterFactory" side="front" minGramSize="1" maxGramSize="1"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  *  */
 end_comment
@@ -60,7 +75,7 @@ specifier|public
 class|class
 name|EdgeNGramFilterFactory
 extends|extends
-name|BaseTokenFilterFactory
+name|TokenFilterFactory
 block|{
 DECL|field|maxGramSize
 specifier|private

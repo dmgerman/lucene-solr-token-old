@@ -46,6 +46,21 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|util
+operator|.
+name|TokenizerFactory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|wikipedia
 operator|.
 name|WikipediaTokenizer
@@ -60,7 +75,7 @@ specifier|public
 class|class
 name|WikipediaTokenizerFactory
 extends|extends
-name|BaseTokenizerFactory
+name|TokenizerFactory
 block|{
 comment|// TODO: add support for WikipediaTokenizer's advanced options.
 DECL|method|create

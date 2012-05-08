@@ -53,6 +53,21 @@ operator|.
 name|SentenceTokenizer
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|util
+operator|.
+name|TokenizerFactory
+import|;
+end_import
 begin_comment
 comment|/**  * Factory for the SmartChineseAnalyzer {@link SentenceTokenizer}  * @lucene.experimental  */
 end_comment
@@ -62,7 +77,7 @@ specifier|public
 class|class
 name|SmartChineseSentenceTokenizerFactory
 extends|extends
-name|BaseTokenizerFactory
+name|TokenizerFactory
 block|{
 DECL|method|create
 specifier|public
