@@ -379,12 +379,13 @@ name|ArrayList
 argument_list|<
 name|ContentStream
 argument_list|>
-argument_list|()
-decl_stmt|;
-name|cs
-operator|.
-name|add
 argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
+name|ContentStreamBase
+name|f
+init|=
 operator|new
 name|ContentStreamBase
 operator|.
@@ -396,6 +397,19 @@ argument_list|(
 name|filename
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|f
+operator|.
+name|setContentType
+argument_list|(
+literal|"text/csv"
+argument_list|)
+expr_stmt|;
+name|cs
+operator|.
+name|add
+argument_list|(
+name|f
 argument_list|)
 expr_stmt|;
 name|req
@@ -409,7 +423,7 @@ name|h
 operator|.
 name|query
 argument_list|(
-literal|"/update/csv"
+literal|"/update"
 argument_list|,
 name|req
 argument_list|)
@@ -431,11 +445,7 @@ literal|"id\n100\n101\n102"
 argument_list|)
 expr_stmt|;
 name|loadLocal
-argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// check default commit of false
 name|assertQ
@@ -482,10 +492,6 @@ argument_list|)
 expr_stmt|;
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"false"
@@ -535,10 +541,6 @@ argument_list|)
 expr_stmt|;
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -572,10 +574,6 @@ argument_list|)
 expr_stmt|;
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -626,10 +624,6 @@ argument_list|)
 expr_stmt|;
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -692,10 +686,6 @@ expr_stmt|;
 comment|// test overwrite by default
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -714,10 +704,6 @@ expr_stmt|;
 comment|// test explicitly adding header=true (the default)
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -740,10 +726,6 @@ expr_stmt|;
 comment|// test no overwrites
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -766,10 +748,6 @@ expr_stmt|;
 comment|// test overwrite
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -788,10 +766,6 @@ expr_stmt|;
 comment|// test global value mapping
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -854,10 +828,6 @@ expr_stmt|;
 comment|// test value mapping to empty (remove)
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -890,10 +860,6 @@ expr_stmt|;
 comment|// test value mapping from empty
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -956,10 +922,6 @@ expr_stmt|;
 comment|// test multiple map rules
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -1026,10 +988,6 @@ expr_stmt|;
 comment|// test indexing empty fields
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -1092,10 +1050,6 @@ expr_stmt|;
 comment|// test overriding the name of fields
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -1207,10 +1161,6 @@ expr_stmt|;
 comment|// test skipping a field via the "skip" parameter
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -1247,10 +1197,6 @@ expr_stmt|;
 comment|// test skipping a field by specifying an empty name
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -1287,10 +1233,6 @@ expr_stmt|;
 comment|// test loading file as if it didn't have a header
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -1327,10 +1269,6 @@ expr_stmt|;
 comment|// test skipLines
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -1384,10 +1322,6 @@ argument_list|)
 expr_stmt|;
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -1490,10 +1424,6 @@ argument_list|)
 expr_stmt|;
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -1618,10 +1548,6 @@ argument_list|)
 expr_stmt|;
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"
@@ -1670,10 +1596,6 @@ argument_list|)
 expr_stmt|;
 name|loadLocal
 argument_list|(
-literal|"stream.file"
-argument_list|,
-name|filename
-argument_list|,
 literal|"commit"
 argument_list|,
 literal|"true"

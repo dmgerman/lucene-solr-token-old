@@ -227,7 +227,7 @@ name|solr
 operator|.
 name|handler
 operator|.
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 import|;
 end_import
 begin_import
@@ -1855,13 +1855,22 @@ argument_list|(
 name|streams
 argument_list|)
 expr_stmt|;
-name|BinaryUpdateRequestHandler
+name|UpdateRequestHandler
 name|h
 init|=
 operator|new
-name|BinaryUpdateRequestHandler
+name|UpdateRequestHandler
 argument_list|()
 decl_stmt|;
+name|h
+operator|.
+name|init
+argument_list|(
+operator|new
+name|NamedList
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|h
 operator|.
 name|handleRequestBody
@@ -2013,11 +2022,11 @@ name|mmparams
 argument_list|)
 block|{     }
 decl_stmt|;
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 name|handler
 init|=
 operator|new
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 argument_list|()
 decl_stmt|;
 name|handler

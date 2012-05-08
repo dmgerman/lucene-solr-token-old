@@ -147,7 +147,7 @@ name|solr
 operator|.
 name|handler
 operator|.
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 import|;
 end_import
 begin_import
@@ -507,7 +507,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|updater
 specifier|public
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 name|updater
 decl_stmt|;
 DECL|method|createConfig
@@ -756,7 +756,7 @@ expr_stmt|;
 name|updater
 operator|=
 operator|new
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 argument_list|()
 expr_stmt|;
 name|updater

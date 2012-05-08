@@ -152,7 +152,7 @@ name|solr
 operator|.
 name|handler
 operator|.
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 import|;
 end_import
 begin_import
@@ -613,11 +613,11 @@ name|mmparams
 argument_list|)
 block|{     }
 decl_stmt|;
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 name|handler
 init|=
 operator|new
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 argument_list|()
 decl_stmt|;
 name|handler

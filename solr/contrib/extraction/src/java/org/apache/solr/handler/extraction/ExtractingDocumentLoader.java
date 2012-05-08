@@ -163,6 +163,8 @@ name|solr
 operator|.
 name|handler
 operator|.
+name|loader
+operator|.
 name|ContentStreamLoader
 import|;
 end_import
@@ -803,19 +805,13 @@ name|rsp
 parameter_list|,
 name|ContentStream
 name|stream
+parameter_list|,
+name|UpdateRequestProcessor
+name|processor
 parameter_list|)
 throws|throws
-name|IOException
+name|Exception
 block|{
-name|errHeader
-operator|=
-literal|"ExtractingDocumentLoader: "
-operator|+
-name|stream
-operator|.
-name|getSourceInfo
-argument_list|()
-expr_stmt|;
 name|Parser
 name|parser
 init|=

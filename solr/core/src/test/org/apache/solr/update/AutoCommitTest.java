@@ -137,7 +137,7 @@ name|solr
 operator|.
 name|handler
 operator|.
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 import|;
 end_import
 begin_import
@@ -745,11 +745,11 @@ argument_list|(
 name|trigger
 argument_list|)
 expr_stmt|;
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 name|handler
 init|=
 operator|new
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 argument_list|()
 decl_stmt|;
 name|handler
@@ -1052,11 +1052,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// updater.commitCallbacks.add(trigger);
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 name|handler
 init|=
 operator|new
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 argument_list|()
 decl_stmt|;
 name|handler
@@ -1515,11 +1515,11 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 name|handler
 init|=
 operator|new
-name|XmlUpdateRequestHandler
+name|UpdateRequestHandler
 argument_list|()
 decl_stmt|;
 name|handler

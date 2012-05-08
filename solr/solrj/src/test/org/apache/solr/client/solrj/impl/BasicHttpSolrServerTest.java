@@ -2986,7 +2986,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"application/octet-stream"
+literal|"application/javabin"
 argument_list|,
 name|DebugServlet
 operator|.

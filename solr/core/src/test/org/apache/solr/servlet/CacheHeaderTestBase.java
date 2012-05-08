@@ -588,7 +588,7 @@ operator|.
 name|getPort
 argument_list|()
 argument_list|,
-literal|"/solr/update/csv"
+literal|"/solr/update"
 argument_list|,
 name|URLEncodedUtils
 operator|.

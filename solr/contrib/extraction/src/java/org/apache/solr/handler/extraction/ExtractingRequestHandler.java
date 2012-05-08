@@ -153,6 +153,8 @@ name|solr
 operator|.
 name|handler
 operator|.
+name|loader
+operator|.
 name|ContentStreamLoader
 import|;
 end_import
