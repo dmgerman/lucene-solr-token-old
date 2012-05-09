@@ -156,6 +156,7 @@ comment|/**  * Abstract parent class for analysis factories {@link TokenizerFact
 end_comment
 begin_class
 DECL|class|AbstractAnalysisFactory
+specifier|public
 specifier|abstract
 class|class
 name|AbstractAnalysisFactory
