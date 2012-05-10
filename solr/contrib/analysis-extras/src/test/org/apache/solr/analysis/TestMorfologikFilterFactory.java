@@ -48,6 +48,19 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|BaseTokenStreamTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|TokenStream
 import|;
 end_import
@@ -91,7 +104,7 @@ specifier|public
 class|class
 name|TestMorfologikFilterFactory
 extends|extends
-name|BaseTokenTestCase
+name|BaseTokenStreamTestCase
 block|{
 DECL|method|testCreateDictionary
 specifier|public
@@ -149,7 +162,7 @@ name|factory
 operator|.
 name|setLuceneMatchVersion
 argument_list|(
-name|DEFAULT_VERSION
+name|TEST_VERSION_CURRENT
 argument_list|)
 expr_stmt|;
 name|factory
@@ -169,7 +182,7 @@ argument_list|(
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
-name|DEFAULT_VERSION
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|reader
 argument_list|)

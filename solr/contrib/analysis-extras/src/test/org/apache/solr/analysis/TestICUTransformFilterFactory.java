@@ -60,6 +60,19 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|BaseTokenStreamTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|TokenStream
 import|;
 end_import
@@ -100,7 +113,7 @@ specifier|public
 class|class
 name|TestICUTransformFilterFactory
 extends|extends
-name|BaseTokenTestCase
+name|BaseTokenStreamTestCase
 block|{
 comment|/** ensure the transform is working */
 DECL|method|test
@@ -166,7 +179,7 @@ init|=
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
-name|DEFAULT_VERSION
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|reader
 argument_list|)
@@ -259,7 +272,7 @@ init|=
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
-name|DEFAULT_VERSION
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|reader
 argument_list|)
@@ -318,7 +331,7 @@ operator|=
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
-name|DEFAULT_VERSION
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|reader
 argument_list|)

@@ -60,6 +60,19 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|BaseTokenStreamTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|MockTokenizer
 import|;
 end_import
@@ -126,7 +139,7 @@ specifier|public
 class|class
 name|TestHyphenationCompoundWordTokenFilterFactory
 extends|extends
-name|BaseTokenTestCase
+name|BaseTokenStreamTestCase
 block|{
 comment|/**    * Ensure the factory works with hyphenation grammar+dictionary: using default options.    */
 DECL|method|testHyphenationWithDictionary
@@ -218,7 +231,7 @@ name|factory
 operator|.
 name|setLuceneMatchVersion
 argument_list|(
-name|DEFAULT_VERSION
+name|TEST_VERSION_CURRENT
 argument_list|)
 expr_stmt|;
 name|factory
@@ -400,7 +413,7 @@ name|factory
 operator|.
 name|setLuceneMatchVersion
 argument_list|(
-name|DEFAULT_VERSION
+name|TEST_VERSION_CURRENT
 argument_list|)
 expr_stmt|;
 name|factory

@@ -39,6 +39,19 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|BaseTokenStreamTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|MockTokenizer
 import|;
 end_import
@@ -95,7 +108,7 @@ specifier|public
 class|class
 name|TestGreekStemFilterFactory
 extends|extends
-name|BaseTokenTestCase
+name|BaseTokenStreamTestCase
 block|{
 DECL|method|testStemming
 specifier|public
@@ -135,7 +148,7 @@ init|=
 operator|new
 name|GreekLowerCaseFilter
 argument_list|(
-name|DEFAULT_VERSION
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|tokenizer
 argument_list|)

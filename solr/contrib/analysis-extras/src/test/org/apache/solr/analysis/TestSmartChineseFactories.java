@@ -33,6 +33,19 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|BaseTokenStreamTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|TokenStream
 import|;
 end_import
@@ -73,7 +86,7 @@ specifier|public
 class|class
 name|TestSmartChineseFactories
 extends|extends
-name|BaseTokenTestCase
+name|BaseTokenStreamTestCase
 block|{
 comment|/** Test showing the behavior with whitespace */
 DECL|method|testSimple
@@ -95,7 +108,7 @@ init|=
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
-name|DEFAULT_VERSION
+name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|StringReader

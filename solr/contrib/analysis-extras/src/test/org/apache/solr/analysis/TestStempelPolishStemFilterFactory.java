@@ -30,6 +30,19 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|BaseTokenStreamTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|TokenStream
 import|;
 end_import
@@ -73,7 +86,7 @@ specifier|public
 class|class
 name|TestStempelPolishStemFilterFactory
 extends|extends
-name|BaseTokenTestCase
+name|BaseTokenStreamTestCase
 block|{
 DECL|method|testBasics
 specifier|public
@@ -122,7 +135,7 @@ argument_list|(
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
-name|DEFAULT_VERSION
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|document
 argument_list|)
