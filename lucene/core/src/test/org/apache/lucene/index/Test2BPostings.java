@@ -182,7 +182,7 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
-name|UseNoMemoryExpensiveCodec
+name|SuppressCodecs
 import|;
 end_import
 begin_comment
@@ -190,7 +190,14 @@ comment|/**  * Test indexes ~82M docs with 26 terms each, so you get> Integer.MA
 end_comment
 begin_class
 annotation|@
-name|UseNoMemoryExpensiveCodec
+name|SuppressCodecs
+argument_list|(
+block|{
+literal|"SimpleText"
+block|,
+literal|"Memory"
+block|}
+argument_list|)
 DECL|class|Test2BPostings
 specifier|public
 class|class

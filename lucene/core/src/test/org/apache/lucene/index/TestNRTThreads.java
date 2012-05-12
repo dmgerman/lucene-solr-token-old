@@ -72,7 +72,7 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
-name|UseNoMemoryExpensiveCodec
+name|SuppressCodecs
 import|;
 end_import
 begin_comment
@@ -86,7 +86,14 @@ comment|//   - randomoly mix in non-congruent docs
 end_comment
 begin_class
 annotation|@
-name|UseNoMemoryExpensiveCodec
+name|SuppressCodecs
+argument_list|(
+block|{
+literal|"SimpleText"
+block|,
+literal|"Memory"
+block|}
+argument_list|)
 DECL|class|TestNRTThreads
 specifier|public
 class|class

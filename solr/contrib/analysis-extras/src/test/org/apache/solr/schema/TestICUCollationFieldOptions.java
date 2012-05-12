@@ -22,9 +22,11 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|codecs
+name|util
 operator|.
-name|Codec
+name|LuceneTestCase
+operator|.
+name|SuppressCodecs
 import|;
 end_import
 begin_import
@@ -51,6 +53,11 @@ begin_comment
 comment|/**  * Tests expert options of {@link ICUCollationField}.  */
 end_comment
 begin_class
+annotation|@
+name|SuppressCodecs
+argument_list|(
+literal|"Lucene3x"
+argument_list|)
 DECL|class|TestICUCollationFieldOptions
 specifier|public
 class|class
@@ -69,24 +76,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assumeFalse
-argument_list|(
-literal|"preflex format only supports UTF-8 encoded bytes"
-argument_list|,
-literal|"Lucene3x"
-operator|.
-name|equals
-argument_list|(
-name|Codec
-operator|.
-name|getDefault
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|initCore
 argument_list|(
 literal|"solrconfig-icucollate.xml"

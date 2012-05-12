@@ -383,7 +383,7 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 expr_stmt|;
 name|leftDir
