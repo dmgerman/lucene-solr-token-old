@@ -2617,6 +2617,15 @@ argument_list|)
 expr_stmt|;
 name|assertQueryEquals
 argument_list|(
+literal|"term~1"
+argument_list|,
+literal|null
+argument_list|,
+literal|"term~1"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
 literal|"term~0.7"
 argument_list|,
 literal|null

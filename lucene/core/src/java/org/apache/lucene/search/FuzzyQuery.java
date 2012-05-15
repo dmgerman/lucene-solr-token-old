@@ -848,7 +848,7 @@ block|{
 if|if
 condition|(
 name|minimumSimilarity
-operator|>
+operator|>=
 literal|1f
 condition|)
 block|{
