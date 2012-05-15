@@ -89,15 +89,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Rule
 import|;
 end_import
@@ -471,8 +462,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testAssumeBeforeClass
 specifier|public
 name|void
@@ -507,8 +496,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testAssumeInitializer
 specifier|public
 name|void
@@ -678,8 +665,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testAssumeAfterClass
 specifier|public
 name|void
@@ -715,8 +700,6 @@ block|}
 comment|/*    * FAILURES    */
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testFailureBeforeClass
 specifier|public
 name|void
@@ -753,8 +736,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testFailureInitializer
 specifier|public
 name|void
@@ -1163,8 +1144,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testFailureAfterClass
 specifier|public
 name|void
@@ -1202,8 +1181,6 @@ block|}
 comment|/*    * ERRORS    */
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testErrorBeforeClass
 specifier|public
 name|void
@@ -1240,8 +1217,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testErrorInitializer
 specifier|public
 name|void
@@ -1650,8 +1625,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|testErrorAfterClass
 specifier|public
 name|void

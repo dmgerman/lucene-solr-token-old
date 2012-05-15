@@ -153,11 +153,14 @@ operator|.
 name|ClassValidator
 import|;
 end_import
+begin_comment
+comment|/**  * Don't allow shadowing of {@link BeforeClass} or {@link AfterClass} hooks  * as it is very likely a user error and will prevent execution of shadowed hooks.  */
+end_comment
 begin_class
-DECL|class|NoStaticHooksShadowing
+DECL|class|ValidateNoStaticHooksShadowing
 specifier|public
 class|class
-name|NoStaticHooksShadowing
+name|ValidateNoStaticHooksShadowing
 implements|implements
 name|ClassValidator
 block|{

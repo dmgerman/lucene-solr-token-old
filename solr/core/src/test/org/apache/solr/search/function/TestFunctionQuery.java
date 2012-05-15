@@ -1323,12 +1323,12 @@ argument_list|,
 literal|12
 argument_list|)
 expr_stmt|;
-name|purgeFieldCache
-argument_list|(
 name|FieldCache
 operator|.
 name|DEFAULT
-argument_list|)
+operator|.
+name|purgeAllCaches
+argument_list|()
 expr_stmt|;
 comment|// avoid FC insanity
 block|}
@@ -1897,12 +1897,12 @@ argument_list|)
 expr_stmt|;
 comment|// System.out.println("Done test "+i);
 block|}
-name|purgeFieldCache
-argument_list|(
 name|FieldCache
 operator|.
 name|DEFAULT
-argument_list|)
+operator|.
+name|purgeAllCaches
+argument_list|()
 expr_stmt|;
 comment|// avoid FC insanity
 block|}
@@ -3155,12 +3155,12 @@ argument_list|,
 literal|"*//doc[2]/float[.='121.0']"
 argument_list|)
 expr_stmt|;
-name|purgeFieldCache
-argument_list|(
 name|FieldCache
 operator|.
 name|DEFAULT
-argument_list|)
+operator|.
+name|purgeAllCaches
+argument_list|()
 expr_stmt|;
 comment|// avoid FC insanity
 block|}
@@ -4862,12 +4862,12 @@ operator|.
 name|onlyForTesting
 argument_list|)
 expr_stmt|;
-name|purgeFieldCache
-argument_list|(
 name|FieldCache
 operator|.
 name|DEFAULT
-argument_list|)
+operator|.
+name|purgeAllCaches
+argument_list|()
 expr_stmt|;
 comment|// avoid FC insanity
 block|}
@@ -4999,12 +4999,12 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|purgeFieldCache
-argument_list|(
 name|FieldCache
 operator|.
 name|DEFAULT
-argument_list|)
+operator|.
+name|purgeAllCaches
+argument_list|()
 expr_stmt|;
 comment|// avoid FC insanity
 block|}
