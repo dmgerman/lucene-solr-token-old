@@ -3287,7 +3287,8 @@ argument_list|(
 name|field
 argument_list|)
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 expr_stmt|;
 name|loadTerms
 argument_list|()

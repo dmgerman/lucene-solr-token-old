@@ -425,7 +425,8 @@ block|{
 assert|assert
 name|fi
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|.
 name|compareTo
 argument_list|(
@@ -439,7 +440,8 @@ operator|||
 operator|!
 name|fi
 operator|.
-name|storePayloads
+name|hasPayloads
+argument_list|()
 assert|;
 name|SimpleTextUtil
 operator|.
@@ -526,6 +528,7 @@ argument_list|(
 name|fi
 operator|.
 name|isIndexed
+argument_list|()
 argument_list|)
 argument_list|,
 name|scratch
@@ -559,7 +562,8 @@ name|toString
 argument_list|(
 name|fi
 operator|.
-name|storeTermVector
+name|hasVectors
+argument_list|()
 argument_list|)
 argument_list|,
 name|scratch
@@ -593,7 +597,8 @@ name|toString
 argument_list|(
 name|fi
 operator|.
-name|storePayloads
+name|hasPayloads
+argument_list|()
 argument_list|)
 argument_list|,
 name|scratch
@@ -628,7 +633,8 @@ argument_list|(
 operator|!
 name|fi
 operator|.
-name|omitNorms
+name|omitsNorms
+argument_list|()
 argument_list|)
 argument_list|,
 name|scratch
@@ -724,7 +730,8 @@ name|out
 argument_list|,
 name|fi
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|.
 name|toString
 argument_list|()

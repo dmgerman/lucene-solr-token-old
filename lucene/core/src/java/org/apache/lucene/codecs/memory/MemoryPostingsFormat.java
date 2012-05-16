@@ -797,7 +797,8 @@ if|if
 condition|(
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|==
 name|IndexOptions
 operator|.
@@ -896,7 +897,8 @@ literal|null
 operator|||
 name|field
 operator|.
-name|storePayloads
+name|hasPayloads
+argument_list|()
 assert|;
 comment|//System.out.println("      addPos pos=" + pos + " payload=" + payload);
 specifier|final
@@ -925,7 +927,8 @@ if|if
 condition|(
 name|field
 operator|.
-name|storePayloads
+name|hasPayloads
+argument_list|()
 condition|)
 block|{
 name|payloadLen
@@ -999,7 +1002,8 @@ if|if
 condition|(
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|.
 name|compareTo
 argument_list|(
@@ -1260,7 +1264,8 @@ if|if
 condition|(
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|!=
 name|IndexOptions
 operator|.
@@ -1448,7 +1453,8 @@ if|if
 condition|(
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|!=
 name|IndexOptions
 operator|.
@@ -3241,7 +3247,8 @@ if|if
 condition|(
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|!=
 name|IndexOptions
 operator|.
@@ -3432,7 +3439,8 @@ name|needsFreqs
 operator|&&
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|==
 name|IndexOptions
 operator|.
@@ -3465,11 +3473,13 @@ name|FSTDocsEnum
 argument_list|(
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 argument_list|,
 name|field
 operator|.
-name|storePayloads
+name|hasPayloads
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3491,11 +3501,13 @@ name|canReuse
 argument_list|(
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 argument_list|,
 name|field
 operator|.
-name|storePayloads
+name|hasPayloads
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -3506,11 +3518,13 @@ name|FSTDocsEnum
 argument_list|(
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 argument_list|,
 name|field
 operator|.
-name|storePayloads
+name|hasPayloads
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3554,7 +3568,8 @@ name|hasOffsets
 init|=
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|.
 name|compareTo
 argument_list|(
@@ -3582,7 +3597,8 @@ if|if
 condition|(
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|.
 name|compareTo
 argument_list|(
@@ -3625,7 +3641,8 @@ name|FSTDocsAndPositionsEnum
 argument_list|(
 name|field
 operator|.
-name|storePayloads
+name|hasPayloads
+argument_list|()
 argument_list|,
 name|hasOffsets
 argument_list|)
@@ -3649,7 +3666,8 @@ name|canReuse
 argument_list|(
 name|field
 operator|.
-name|storePayloads
+name|hasPayloads
+argument_list|()
 argument_list|,
 name|hasOffsets
 argument_list|)
@@ -3662,7 +3680,8 @@ name|FSTDocsAndPositionsEnum
 argument_list|(
 name|field
 operator|.
-name|storePayloads
+name|hasPayloads
+argument_list|()
 argument_list|,
 name|hasOffsets
 argument_list|)
@@ -3928,7 +3947,8 @@ if|if
 condition|(
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|!=
 name|IndexOptions
 operator|.

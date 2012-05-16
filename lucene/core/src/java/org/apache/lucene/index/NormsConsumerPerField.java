@@ -220,11 +220,13 @@ condition|(
 name|fieldInfo
 operator|.
 name|isIndexed
+argument_list|()
 operator|&&
 operator|!
 name|fieldInfo
 operator|.
-name|omitNorms
+name|omitsNorms
+argument_list|()
 condition|)
 block|{
 name|similarity

@@ -1026,7 +1026,8 @@ block|{
 assert|assert
 name|info
 operator|.
-name|omitNorms
+name|omitsNorms
+argument_list|()
 operator|==
 literal|false
 assert|;

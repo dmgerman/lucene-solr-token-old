@@ -414,7 +414,8 @@ operator|)
 condition|?
 name|fi
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 else|:
 name|IndexOptions
 operator|.
@@ -430,7 +431,8 @@ operator|)
 condition|?
 name|fi
 operator|.
-name|storePayloads
+name|hasPayloads
+argument_list|()
 else|:
 literal|false
 expr_stmt|;

@@ -1612,7 +1612,6 @@ name|FieldInfos
 name|getFieldInfos
 parameter_list|()
 block|{
-comment|// nocommit
 return|return
 operator|new
 name|ReadOnlyFieldInfos
@@ -1622,12 +1621,6 @@ name|FieldInfo
 index|[
 literal|0
 index|]
-argument_list|,
-literal|false
-argument_list|,
-literal|false
-argument_list|,
-literal|false
 argument_list|)
 return|;
 block|}

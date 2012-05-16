@@ -700,7 +700,8 @@ if|if
 condition|(
 name|fieldInfo
 operator|.
-name|storeTermVector
+name|hasVectors
+argument_list|()
 condition|)
 block|{
 name|tvCount

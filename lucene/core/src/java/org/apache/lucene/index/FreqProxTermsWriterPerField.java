@@ -301,7 +301,8 @@ name|setIndexOptions
 argument_list|(
 name|fieldInfo
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -385,7 +386,8 @@ name|setIndexOptions
 argument_list|(
 name|fieldInfo
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|payloadAttribute
@@ -1819,7 +1821,8 @@ name|currentFieldIndexOptions
 init|=
 name|fieldInfo
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 decl_stmt|;
 specifier|final
 name|boolean

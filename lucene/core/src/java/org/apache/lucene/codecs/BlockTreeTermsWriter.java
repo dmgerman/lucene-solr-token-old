@@ -3342,7 +3342,8 @@ if|if
 condition|(
 name|fieldInfo
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|!=
 name|IndexOptions
 operator|.
@@ -3487,7 +3488,8 @@ if|if
 condition|(
 name|fieldInfo
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|!=
 name|IndexOptions
 operator|.
@@ -4299,7 +4301,8 @@ name|field
 operator|.
 name|fieldInfo
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 operator|!=
 name|IndexOptions
 operator|.

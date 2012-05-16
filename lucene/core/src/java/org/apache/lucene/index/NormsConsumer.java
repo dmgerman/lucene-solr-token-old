@@ -260,7 +260,8 @@ condition|(
 operator|!
 name|fi
 operator|.
-name|omitNorms
+name|omitsNorms
+argument_list|()
 condition|)
 block|{
 if|if
@@ -307,6 +308,7 @@ condition|(
 name|fi
 operator|.
 name|isIndexed
+argument_list|()
 condition|)
 block|{
 name|anythingFlushed

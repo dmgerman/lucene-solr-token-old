@@ -144,10 +144,9 @@ name|liveDocs
 expr_stmt|;
 block|}
 block|}
-comment|// nocommit...
 DECL|field|fieldInfos
 specifier|public
-name|MutableFieldInfos
+name|FieldInfos
 name|fieldInfos
 decl_stmt|;
 DECL|field|readers

@@ -2380,6 +2380,7 @@ argument_list|,
 name|fi
 operator|.
 name|isIndexed
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2394,7 +2395,8 @@ argument_list|()
 argument_list|,
 name|fi
 operator|.
-name|storeTermVector
+name|hasVectors
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
