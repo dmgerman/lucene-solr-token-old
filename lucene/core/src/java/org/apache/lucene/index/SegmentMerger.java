@@ -1236,8 +1236,6 @@ operator|.
 name|setNormValueType
 argument_list|(
 literal|null
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1248,8 +1246,6 @@ operator|.
 name|setDocValuesType
 argument_list|(
 literal|null
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1291,8 +1287,6 @@ name|promoter
 operator|.
 name|type
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1321,8 +1315,6 @@ name|promoter
 operator|.
 name|type
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

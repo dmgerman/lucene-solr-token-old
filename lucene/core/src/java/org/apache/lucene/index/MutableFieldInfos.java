@@ -1040,8 +1040,6 @@ operator|.
 name|setDocValuesType
 argument_list|(
 name|docValues
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1057,8 +1055,6 @@ operator|.
 name|setNormValueType
 argument_list|(
 name|normType
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}

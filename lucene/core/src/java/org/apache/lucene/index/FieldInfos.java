@@ -65,6 +65,7 @@ name|FieldInfos
 name|clone
 parameter_list|()
 function_decl|;
+comment|/**    * Return the fieldinfo object referenced by the field name    * @return the FieldInfo object or null when the given fieldName    * doesn't exist.    */
 DECL|method|fieldInfo
 specifier|public
 specifier|abstract
@@ -86,6 +87,8 @@ name|int
 name|fieldNumber
 parameter_list|)
 function_decl|;
+comment|/**    * Returns an iterator over all the fieldinfo objects present,    * ordered by ascending field number    */
+comment|// TODO: what happens if in fact a different order is used?
 DECL|method|iterator
 specifier|public
 specifier|abstract
