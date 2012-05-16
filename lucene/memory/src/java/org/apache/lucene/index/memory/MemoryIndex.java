@@ -223,6 +223,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|MutableFieldInfos
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|Norm
 import|;
 end_import
@@ -624,7 +637,7 @@ decl_stmt|;
 DECL|field|fieldInfos
 specifier|private
 specifier|final
-name|FieldInfos
+name|MutableFieldInfos
 name|fieldInfos
 decl_stmt|;
 comment|/**    * Sorts term entries into ascending order; also works for    * Arrays.binarySearch() and Arrays.sort()    */
@@ -776,10 +789,11 @@ literal|3
 else|:
 literal|1
 expr_stmt|;
+comment|// nocommit: this can probably have a much simpler implementation
 name|fieldInfos
 operator|=
 operator|new
-name|FieldInfos
+name|MutableFieldInfos
 argument_list|()
 expr_stmt|;
 block|}

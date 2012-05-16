@@ -180,7 +180,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfos
+name|MutableFieldInfos
 operator|.
 name|FieldNumberBiMap
 import|;

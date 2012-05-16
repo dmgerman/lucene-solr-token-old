@@ -287,7 +287,7 @@ parameter_list|,
 name|PayloadProcessorProvider
 name|payloadProcessorProvider
 parameter_list|,
-name|FieldInfos
+name|MutableFieldInfos
 name|fieldInfos
 parameter_list|,
 name|Codec
