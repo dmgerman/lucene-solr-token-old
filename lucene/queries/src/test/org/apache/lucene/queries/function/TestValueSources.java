@@ -1313,15 +1313,6 @@ argument_list|(
 name|reader
 argument_list|)
 expr_stmt|;
-name|searcher
-operator|.
-name|setDefaultFieldSortScoring
-argument_list|(
-literal|true
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 name|iw
 operator|.
 name|close
