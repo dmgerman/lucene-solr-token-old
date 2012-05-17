@@ -2637,6 +2637,8 @@ name|testDocValues
 argument_list|(
 name|info
 argument_list|,
+name|fieldInfos
+argument_list|,
 name|reader
 argument_list|)
 expr_stmt|;
@@ -6544,6 +6546,9 @@ parameter_list|(
 name|SegmentInfo
 name|info
 parameter_list|,
+name|FieldInfos
+name|fieldInfos
+parameter_list|,
 name|SegmentReader
 name|reader
 parameter_list|)
@@ -6577,15 +6582,6 @@ literal|"    test: DocValues........"
 argument_list|)
 expr_stmt|;
 block|}
-specifier|final
-name|FieldInfos
-name|fieldInfos
-init|=
-name|info
-operator|.
-name|getFieldInfos
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|FieldInfo

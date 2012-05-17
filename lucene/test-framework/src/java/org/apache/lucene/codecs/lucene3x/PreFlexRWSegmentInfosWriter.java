@@ -595,8 +595,12 @@ call|)
 argument_list|(
 name|si
 operator|.
-name|getHasProxInternal
+name|getHasProx
 argument_list|()
+condition|?
+literal|1
+else|:
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -620,8 +624,12 @@ call|)
 argument_list|(
 name|si
 operator|.
-name|getHasVectorsInternal
+name|getHasVectors
 argument_list|()
+condition|?
+literal|1
+else|:
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;

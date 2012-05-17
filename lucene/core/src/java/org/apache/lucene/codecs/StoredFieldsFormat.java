@@ -94,6 +94,7 @@ specifier|abstract
 class|class
 name|StoredFieldsFormat
 block|{
+comment|/** Returns a {@link StoredFieldsReader} to load stored    *  fields. */
 DECL|method|fieldsReader
 specifier|public
 specifier|abstract
@@ -115,6 +116,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/** Returns a {@link StoredFieldsWriter} to write stored    *  fields. */
 DECL|method|fieldsWriter
 specifier|public
 specifier|abstract
@@ -133,6 +135,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/** Gathers files (exact file name or a Pattern regex)    *  associated with this segment. */
 DECL|method|files
 specifier|public
 specifier|abstract

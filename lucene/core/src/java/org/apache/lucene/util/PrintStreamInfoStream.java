@@ -84,7 +84,7 @@ name|int
 name|messageID
 decl_stmt|;
 DECL|field|stream
-specifier|private
+specifier|protected
 specifier|final
 name|PrintStream
 name|stream

@@ -3758,6 +3758,7 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|FileNotFoundException
@@ -3765,6 +3766,7 @@ argument_list|(
 name|name
 argument_list|)
 throw|;
+block|}
 comment|// cannot open a file for input if it's still open for
 comment|// output, except for segments.gen and segments_N
 if|if
