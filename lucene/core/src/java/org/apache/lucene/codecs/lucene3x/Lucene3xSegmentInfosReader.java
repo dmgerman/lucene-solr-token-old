@@ -915,7 +915,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// nocommit 3x always has norms?
 return|return
 operator|new
 name|SegmentInfo
@@ -949,12 +948,6 @@ argument_list|,
 name|diagnostics
 argument_list|,
 name|hasVectors
-argument_list|,
-literal|false
-argument_list|,
-literal|true
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}
