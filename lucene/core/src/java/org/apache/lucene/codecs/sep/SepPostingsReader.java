@@ -459,9 +459,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|segmentInfo
+name|fieldInfos
 operator|.
-name|getHasProx
+name|hasProx
 argument_list|()
 condition|)
 block|{
@@ -627,14 +627,6 @@ name|FREQ_EXTENSION
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|segmentInfo
-operator|.
-name|getHasProx
-argument_list|()
-condition|)
-block|{
 name|files
 operator|.
 name|add
@@ -675,7 +667,6 @@ name|PAYLOAD_EXTENSION
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override

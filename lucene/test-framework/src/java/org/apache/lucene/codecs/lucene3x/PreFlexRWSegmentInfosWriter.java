@@ -585,23 +585,15 @@ name|getDelCount
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// hasProx:
 name|output
 operator|.
 name|writeByte
 argument_list|(
-call|(
+operator|(
 name|byte
-call|)
-argument_list|(
-name|si
-operator|.
-name|getHasProx
-argument_list|()
-condition|?
+operator|)
 literal|1
-else|:
-literal|0
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|output
@@ -614,6 +606,7 @@ name|getDiagnostics
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// hasVectors:
 name|output
 operator|.
 name|writeByte

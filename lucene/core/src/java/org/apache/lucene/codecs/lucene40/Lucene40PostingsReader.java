@@ -97,6 +97,8 @@ operator|.
 name|index
 operator|.
 name|FieldInfo
+operator|.
+name|IndexOptions
 import|;
 end_import
 begin_import
@@ -110,8 +112,19 @@ operator|.
 name|index
 operator|.
 name|FieldInfo
+import|;
+end_import
+begin_import
+import|import
+name|org
 operator|.
-name|IndexOptions
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|FieldInfos
 import|;
 end_import
 begin_import
@@ -301,6 +314,9 @@ parameter_list|(
 name|Directory
 name|dir
 parameter_list|,
+name|FieldInfos
+name|fieldInfos
+parameter_list|,
 name|SegmentInfo
 name|segmentInfo
 parameter_list|,
@@ -340,9 +356,9 @@ expr_stmt|;
 comment|// this.segment = segmentInfo.name;
 if|if
 condition|(
-name|segmentInfo
+name|fieldInfos
 operator|.
-name|getHasProx
+name|hasProx
 argument_list|()
 condition|)
 block|{
@@ -447,14 +463,6 @@ name|FREQ_EXTENSION
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|segmentInfo
-operator|.
-name|getHasProx
-argument_list|()
-condition|)
-block|{
 name|files
 operator|.
 name|add
@@ -475,7 +483,6 @@ name|PROX_EXTENSION
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
