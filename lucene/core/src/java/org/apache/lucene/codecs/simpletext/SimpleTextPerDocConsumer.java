@@ -330,6 +330,10 @@ name|findMatchingFiles
 argument_list|(
 name|state
 operator|.
+name|segmentName
+argument_list|,
+name|state
+operator|.
 name|directory
 argument_list|,
 name|files

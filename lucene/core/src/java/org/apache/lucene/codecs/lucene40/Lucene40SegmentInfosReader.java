@@ -515,17 +515,6 @@ operator|.
 name|readStringStringMap
 argument_list|()
 decl_stmt|;
-specifier|final
-name|boolean
-name|hasVectors
-init|=
-name|input
-operator|.
-name|readByte
-argument_list|()
-operator|==
-literal|1
-decl_stmt|;
 return|return
 operator|new
 name|SegmentInfo
@@ -557,8 +546,6 @@ argument_list|,
 name|codec
 argument_list|,
 name|diagnostics
-argument_list|,
-name|hasVectors
 argument_list|)
 return|;
 block|}

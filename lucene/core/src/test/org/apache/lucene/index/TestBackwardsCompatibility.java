@@ -1754,8 +1754,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|Terms
-name|tfv
+name|Fields
+name|tfvFields
 init|=
 name|reader
 operator|.
@@ -1763,6 +1763,20 @@ name|getTermVectors
 argument_list|(
 name|i
 argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"i="
+operator|+
+name|i
+argument_list|,
+name|tfvFields
+argument_list|)
+expr_stmt|;
+name|Terms
+name|tfv
+init|=
+name|tfvFields
 operator|.
 name|terms
 argument_list|(
@@ -1784,6 +1798,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 comment|// Only ID 7 is deleted
 name|assertEquals
 argument_list|(
@@ -1792,6 +1807,7 @@ argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|ScoreDoc
 index|[]

@@ -626,9 +626,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|si
+name|fieldInfos
 operator|.
-name|getHasVectors
+name|hasVectors
 argument_list|()
 condition|)
 block|{
