@@ -216,7 +216,7 @@ name|flush
 parameter_list|(
 name|Map
 argument_list|<
-name|FieldInfo
+name|String
 argument_list|,
 name|TermsHashConsumerPerField
 argument_list|>
