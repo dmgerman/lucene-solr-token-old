@@ -1655,7 +1655,7 @@ expr_stmt|;
 block|}
 specifier|final
 name|MutableFieldInfos
-name|fieldInfos
+name|builder
 init|=
 operator|new
 name|MutableFieldInfos
@@ -1676,7 +1676,7 @@ name|FieldData
 argument_list|(
 literal|"field"
 argument_list|,
-name|fieldInfos
+name|builder
 argument_list|,
 name|terms
 argument_list|,
@@ -1696,6 +1696,15 @@ index|[]
 block|{
 name|field
 block|}
+decl_stmt|;
+specifier|final
+name|FieldInfos
+name|fieldInfos
+init|=
+name|builder
+operator|.
+name|finish
+argument_list|()
 decl_stmt|;
 specifier|final
 name|Directory
@@ -2012,7 +2021,7 @@ name|Throwable
 block|{
 specifier|final
 name|MutableFieldInfos
-name|fieldInfos
+name|builder
 init|=
 operator|new
 name|MutableFieldInfos
@@ -2087,7 +2096,7 @@ index|[
 name|i
 index|]
 argument_list|,
-name|fieldInfos
+name|builder
 argument_list|,
 name|this
 operator|.
@@ -2109,6 +2118,15 @@ name|Directory
 name|dir
 init|=
 name|newDirectory
+argument_list|()
+decl_stmt|;
+specifier|final
+name|FieldInfos
+name|fieldInfos
+init|=
+name|builder
+operator|.
+name|finish
 argument_list|()
 decl_stmt|;
 if|if
