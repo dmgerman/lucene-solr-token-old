@@ -164,7 +164,7 @@ block|}
 name|fieldInfos
 operator|=
 operator|new
-name|ReadOnlyFieldInfos
+name|FieldInfos
 argument_list|(
 name|filteredInfos
 operator|.
