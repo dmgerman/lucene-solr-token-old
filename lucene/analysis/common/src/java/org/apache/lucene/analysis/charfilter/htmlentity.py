@@ -282,10 +282,34 @@ name|'print'
 string|"'%{'"
 newline|'\n'
 name|'print'
-string|"'  private static final Set<String> upperCaseVariantsAccepted'"
+string|"'  private static final Map<String,String> upperCaseVariantsAccepted'"
 newline|'\n'
 name|'print'
-string|'\'      = new HashSet<String>(Arrays.asList("quot","copy","gt","lt","reg","amp"));\''
+string|"'      = new HashMap<String,String>();'"
+newline|'\n'
+name|'print'
+string|"'  static {'"
+newline|'\n'
+name|'print'
+string|'\'    upperCaseVariantsAccepted.put("quot", "QUOT");\''
+newline|'\n'
+name|'print'
+string|'\'    upperCaseVariantsAccepted.put("copy", "COPY");\''
+newline|'\n'
+name|'print'
+string|'\'    upperCaseVariantsAccepted.put("gt", "GT");\''
+newline|'\n'
+name|'print'
+string|'\'    upperCaseVariantsAccepted.put("lt", "LT");\''
+newline|'\n'
+name|'print'
+string|'\'    upperCaseVariantsAccepted.put("reg", "REG");\''
+newline|'\n'
+name|'print'
+string|'\'    upperCaseVariantsAccepted.put("amp", "AMP");\''
+newline|'\n'
+name|'print'
+string|"'  }'"
 newline|'\n'
 name|'print'
 string|"'  private static final CharArrayMap<Character> entityValues'"
@@ -377,10 +401,13 @@ name|'print'
 string|"'      entityValues.put(entities[i], value);'"
 newline|'\n'
 name|'print'
-string|"'      if (upperCaseVariantsAccepted.contains(entities[i])) {'"
+string|"'      String upperCaseVariant = upperCaseVariantsAccepted.get(entities[i]);'"
 newline|'\n'
 name|'print'
-string|"'        entityValues.put(entities[i].toUpperCase(), value);'"
+string|"'      if (upperCaseVariant != null) {'"
+newline|'\n'
+name|'print'
+string|"'        entityValues.put(upperCaseVariant, value);'"
 newline|'\n'
 name|'print'
 string|"'      }'"
