@@ -83,6 +83,12 @@ operator|.
 name|IndexOptions
 import|;
 end_import
+begin_comment
+comment|// nocommit: fix DWPT and change this to a more minimal FieldInfos.Builder that
+end_comment
+begin_comment
+comment|// does *not* extend fieldinfos
+end_comment
 begin_class
 DECL|class|MutableFieldInfos
 specifier|final
@@ -1169,8 +1175,6 @@ return|return
 name|fi
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|fieldInfo
 specifier|public
 name|FieldInfo
@@ -1190,8 +1194,6 @@ argument_list|)
 return|;
 block|}
 comment|/**    * Return the fieldinfo object referenced by the fieldNumber.    * @param fieldNumber    * @return the FieldInfo object or null when the given fieldNumber    * doesn't exist.    */
-annotation|@
-name|Override
 DECL|method|fieldInfo
 specifier|public
 name|FieldInfo
@@ -1218,8 +1220,6 @@ else|:
 literal|null
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|iterator
 specifier|public
 name|Iterator
@@ -1240,8 +1240,6 @@ argument_list|()
 return|;
 block|}
 comment|/**    * @return number of fields    */
-annotation|@
-name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -1277,11 +1275,10 @@ return|return
 name|version
 return|;
 block|}
-comment|// nocommit
-DECL|method|asReadOnly
+DECL|method|finish
 specifier|final
 name|ReadOnlyFieldInfos
-name|asReadOnly
+name|finish
 parameter_list|()
 block|{
 name|FieldInfo
@@ -1305,7 +1302,10 @@ control|(
 name|FieldInfo
 name|info
 range|:
-name|this
+name|byNumber
+operator|.
+name|values
+argument_list|()
 control|)
 block|{
 name|infos

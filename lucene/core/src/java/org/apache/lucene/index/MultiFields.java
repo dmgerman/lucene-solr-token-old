@@ -1335,7 +1335,7 @@ block|}
 return|return
 name|fieldInfos
 operator|.
-name|asReadOnly
+name|finish
 argument_list|()
 return|;
 block|}
