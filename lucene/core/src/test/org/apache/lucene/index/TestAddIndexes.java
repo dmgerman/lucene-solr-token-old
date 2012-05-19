@@ -6773,7 +6773,7 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// we should now see segments_X,
-comment|// segments.gen,_Y.cfs,_Y.cfe, _Z.fnx
+comment|// segments.gen,_Y.cfs,_Y.cfe, _Z.si
 name|assertEquals
 argument_list|(
 literal|"Only one compound segment should exist, but got: "
@@ -6788,7 +6788,7 @@ name|listAll
 argument_list|()
 argument_list|)
 argument_list|,
-literal|4
+literal|5
 argument_list|,
 name|dir
 operator|.

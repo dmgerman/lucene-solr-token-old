@@ -16,6 +16,28 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|SegmentInfo
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -32,6 +54,9 @@ comment|// javadocs
 end_comment
 begin_comment
 comment|/**  * Expert: Controls the format of the   * {@link SegmentInfos} (segments file).  *<p>  * NOTE: This isn't a per-segment file. If you change the format, other versions  * of lucene won't be able to read it.  *   * @see SegmentInfos  * @lucene.experimental  */
+end_comment
+begin_comment
+comment|// nocommit rename (remove the s?)
 end_comment
 begin_comment
 comment|// TODO: would be great to handle this situation better.
@@ -74,6 +99,22 @@ specifier|abstract
 name|SegmentInfosWriter
 name|getSegmentInfosWriter
 parameter_list|()
+function_decl|;
+DECL|method|files
+specifier|public
+specifier|abstract
+name|void
+name|files
+parameter_list|(
+name|SegmentInfo
+name|info
+parameter_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|files
+parameter_list|)
 function_decl|;
 block|}
 end_class

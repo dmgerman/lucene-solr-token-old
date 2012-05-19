@@ -1116,6 +1116,7 @@ if|if
 condition|(
 name|VERBOSE
 condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -1127,6 +1128,7 @@ operator|+
 name|iter
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Start with 100 bytes more than we are currently using:
 name|long
 name|diskFree
