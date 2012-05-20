@@ -319,7 +319,7 @@ assert|;
 block|}
 else|else
 block|{
-comment|// nocommit this trips:
+comment|// nocommit trips:
 comment|//assert omitNorms || normType != null;
 assert|assert
 name|indexOptions

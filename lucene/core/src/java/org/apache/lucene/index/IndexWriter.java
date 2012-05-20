@@ -12158,7 +12158,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// nocommit why do we set success back to false here!?
+comment|// nocommit why on earth do we suddenly set success back to false here!?
 name|success
 operator|=
 literal|false
