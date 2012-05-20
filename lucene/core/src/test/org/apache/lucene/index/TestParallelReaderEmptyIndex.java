@@ -528,14 +528,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// nocommit
-name|_TestUtil
-operator|.
-name|checkIndex
-argument_list|(
-name|rd1
-argument_list|)
-expr_stmt|;
 name|IndexWriterConfig
 name|dontMergeConfig
 init|=

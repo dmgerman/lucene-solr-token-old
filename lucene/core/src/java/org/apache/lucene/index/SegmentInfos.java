@@ -1115,6 +1115,16 @@ name|readInt
 argument_list|()
 argument_list|)
 expr_stmt|;
+assert|assert
+name|info
+operator|.
+name|getDelCount
+argument_list|()
+operator|<=
+name|info
+operator|.
+name|docCount
+assert|;
 name|add
 argument_list|(
 name|info
@@ -1173,8 +1183,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// nocommit all 3.x indices have checksum right...????
-comment|// ie we added it during 2.x? i think so!
 specifier|final
 name|long
 name|checksumNow
@@ -1553,8 +1561,6 @@ argument_list|(
 name|si
 argument_list|)
 expr_stmt|;
-comment|// nocommit do this after, on success...
-comment|//si.setVersion("4.0");
 name|si
 operator|.
 name|clearFilesCache
