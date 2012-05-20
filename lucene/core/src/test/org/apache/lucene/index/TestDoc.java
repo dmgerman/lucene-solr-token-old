@@ -1167,6 +1167,11 @@ name|IndexWriter
 operator|.
 name|createCompoundFile
 argument_list|(
+name|InfoStream
+operator|.
+name|getDefault
+argument_list|()
+argument_list|,
 name|dir
 argument_list|,
 name|merged

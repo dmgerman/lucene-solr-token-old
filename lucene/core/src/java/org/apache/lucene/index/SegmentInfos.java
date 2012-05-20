@@ -1086,6 +1086,10 @@ argument_list|(
 name|directory
 argument_list|,
 name|segName
+argument_list|,
+name|IOContext
+operator|.
+name|READ
 argument_list|)
 decl_stmt|;
 name|info
@@ -1372,9 +1376,22 @@ decl_stmt|;
 comment|// nocommit document somewhere taht we store this
 comment|// list-of-segs plus delGen plus other stuff
 comment|// "generically" and then codec gets to write SI
+specifier|final
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|upgradedSIFiles
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
 try|try
 block|{
-comment|// nocommit what IOCtx to use...
 name|segnOutput
 operator|=
 operator|new
@@ -1386,18 +1403,9 @@ name|createOutput
 argument_list|(
 name|segmentFileName
 argument_list|,
-operator|new
 name|IOContext
-argument_list|(
-operator|new
-name|FlushInfo
-argument_list|(
-name|totalDocCount
-argument_list|()
-argument_list|,
-literal|0
-argument_list|)
-argument_list|)
+operator|.
+name|DEFAULT
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1503,7 +1511,8 @@ name|dir
 operator|==
 name|directory
 assert|;
-comment|// nocommit hacky!
+comment|// If this segment is pre-4.x, perform a one-time
+comment|// "ugprade" to write the .si file for it:
 name|String
 name|version
 init|=
@@ -1556,9 +1565,20 @@ argument_list|)
 condition|)
 block|{
 comment|//System.out.println("write 3x info seg=" + si.name + " version=" + si.getVersion() + " codec=" + si.getCodec().getName());
+name|upgradedSIFiles
+operator|.
+name|add
+argument_list|(
 name|write3xInfo
 argument_list|(
+name|directory
+argument_list|,
 name|si
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|si
@@ -1575,11 +1595,6 @@ name|writeStringStringMap
 argument_list|(
 name|userData
 argument_list|)
-expr_stmt|;
-name|segnOutput
-operator|.
-name|prepareCommit
-argument_list|()
 expr_stmt|;
 name|pendingSegnOutput
 operator|=
@@ -1607,7 +1622,33 @@ argument_list|(
 name|segnOutput
 argument_list|)
 expr_stmt|;
-comment|// nocommit must also remove any written .si files...
+for|for
+control|(
+name|String
+name|fileName
+range|:
+name|upgradedSIFiles
+control|)
+block|{
+try|try
+block|{
+name|directory
+operator|.
+name|deleteFile
+argument_list|(
+name|fileName
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// Suppress so we keep throwing the original exception
+block|}
+block|}
 try|try
 block|{
 comment|// Try not to leave a truncated segments_N file in
@@ -1631,16 +1672,22 @@ block|}
 block|}
 block|}
 block|}
-comment|// nocommit copy of PreflexRWSegmentInfosWriter.write!!
 annotation|@
 name|Deprecated
 DECL|method|write3xInfo
 specifier|public
-name|void
+specifier|static
+name|String
 name|write3xInfo
 parameter_list|(
+name|Directory
+name|dir
+parameter_list|,
 name|SegmentInfo
 name|si
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -1665,7 +1712,6 @@ name|SI_EXTENSION
 argument_list|)
 decl_stmt|;
 comment|//System.out.println("UPGRADE write " + fileName);
-comment|// nocommit what IOCtx
 name|boolean
 name|success
 init|=
@@ -1674,25 +1720,13 @@ decl_stmt|;
 name|IndexOutput
 name|output
 init|=
-name|si
-operator|.
 name|dir
 operator|.
 name|createOutput
 argument_list|(
 name|fileName
 argument_list|,
-operator|new
-name|IOContext
-argument_list|(
-operator|new
-name|FlushInfo
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-argument_list|)
+name|context
 argument_list|)
 decl_stmt|;
 try|try
@@ -1996,6 +2030,8 @@ argument_list|(
 name|output
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|si
 operator|.
 name|dir
@@ -2006,6 +2042,15 @@ name|fileName
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// Suppress so we keep throwing the original exception
+block|}
+block|}
 else|else
 block|{
 name|output
@@ -2015,6 +2060,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+return|return
+name|fileName
+return|;
 block|}
 comment|/**    * Returns a copy of this instance, also copying each    * SegmentInfo.    */
 annotation|@
