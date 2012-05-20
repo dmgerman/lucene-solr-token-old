@@ -134,6 +134,8 @@ specifier|public
 name|float
 name|freq
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 name|docsEnum
@@ -167,6 +169,8 @@ specifier|public
 name|float
 name|score
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|docID
