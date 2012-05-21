@@ -1532,11 +1532,6 @@ name|DEFAULT
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|si
-operator|.
-name|clearFilesCache
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}

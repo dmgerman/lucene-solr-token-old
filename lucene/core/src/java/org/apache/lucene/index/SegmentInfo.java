@@ -250,17 +250,6 @@ specifier|private
 name|boolean
 name|isCompoundFile
 decl_stmt|;
-DECL|field|files
-specifier|private
-specifier|volatile
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|files
-decl_stmt|;
-comment|// Cached list of files that this segment uses
-comment|// in the Directory
 DECL|field|sizeInBytes
 specifier|private
 specifier|volatile
@@ -603,8 +592,10 @@ name|delGen
 operator|++
 expr_stmt|;
 block|}
-name|clearFilesCache
-argument_list|()
+name|sizeInBytes
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 block|}
 DECL|method|getNextDelGen
@@ -642,8 +633,10 @@ name|delGen
 operator|=
 name|NO
 expr_stmt|;
-name|clearFilesCache
-argument_list|()
+name|sizeInBytes
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 block|}
 annotation|@
@@ -876,9 +869,6 @@ name|isCompoundFile
 operator|=
 name|isCompoundFile
 expr_stmt|;
-name|clearFilesCache
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**    * Returns true if this segment is stored as a compound    * file; else, false.    */
 DECL|method|getUseCompoundFile
@@ -935,6 +925,11 @@ operator|.
 name|delGen
 operator|=
 name|delGen
+expr_stmt|;
+name|sizeInBytes
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 block|}
 comment|/**    * @deprecated shared doc stores are not supported in>= 4.0    */
@@ -1096,24 +1091,6 @@ argument_list|(
 name|files
 argument_list|)
 return|;
-block|}
-comment|/* Called whenever any change is made that affects which    * files this segment has. */
-comment|// nocommit make private again
-DECL|method|clearFilesCache
-specifier|public
-name|void
-name|clearFilesCache
-parameter_list|()
-block|{
-name|sizeInBytes
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-name|files
-operator|=
-literal|null
-expr_stmt|;
 block|}
 comment|/** {@inheritDoc} */
 annotation|@
@@ -1501,6 +1478,11 @@ block|{
 name|setFiles
 operator|=
 name|files
+expr_stmt|;
+name|sizeInBytes
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 block|}
 comment|// nocommit remove this!  it's only needed for
