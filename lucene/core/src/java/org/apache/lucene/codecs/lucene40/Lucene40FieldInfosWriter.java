@@ -448,7 +448,7 @@ argument_list|)
 expr_stmt|;
 name|output
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|fi
 operator|.
@@ -535,6 +535,16 @@ operator|.
 name|writeByte
 argument_list|(
 name|val
+argument_list|)
+expr_stmt|;
+name|output
+operator|.
+name|writeStringStringMap
+argument_list|(
+name|fi
+operator|.
+name|attributes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
