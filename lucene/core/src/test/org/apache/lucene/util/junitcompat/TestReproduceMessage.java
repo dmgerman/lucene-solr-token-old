@@ -239,12 +239,6 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
-if|if
-condition|(
-name|isRunningNested
-argument_list|()
-condition|)
-block|{
 name|triggerOn
 argument_list|(
 name|SorePoint
@@ -252,7 +246,6 @@ operator|.
 name|RULE
 argument_list|)
 expr_stmt|;
-block|}
 name|base
 operator|.
 name|evaluate
@@ -286,12 +279,6 @@ name|void
 name|before
 parameter_list|()
 block|{
-if|if
-condition|(
-name|isRunningNested
-argument_list|()
-condition|)
-block|{
 name|triggerOn
 argument_list|(
 name|SorePoint
@@ -299,7 +286,6 @@ operator|.
 name|BEFORE
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Test
@@ -325,12 +311,6 @@ name|void
 name|after
 parameter_list|()
 block|{
-if|if
-condition|(
-name|isRunningNested
-argument_list|()
-condition|)
-block|{
 name|triggerOn
 argument_list|(
 name|SorePoint
@@ -338,7 +318,6 @@ operator|.
 name|AFTER
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|AfterClass

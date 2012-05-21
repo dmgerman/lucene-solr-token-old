@@ -43,7 +43,7 @@ name|SolrQueryRequest
 import|;
 end_import
 begin_comment
-comment|/**  * Simple Augmenter that adds the docId  *  *  * @since solr 4.0  */
+comment|/**  * Simple Augmenter that adds the score  *  *  * @since solr 4.0  */
 end_comment
 begin_class
 DECL|class|ScoreAugmenter

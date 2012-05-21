@@ -33,6 +33,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|SolrTestCaseJ4
@@ -504,6 +517,15 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
+name|assumeFalse
+argument_list|(
+literal|"This test is not working on Windows (or maybe machines with only 2 CPUs)"
+argument_list|,
+name|Constants
+operator|.
+name|WINDOWS
+argument_list|)
+expr_stmt|;
 name|IndexDeletionPolicyWrapper
 name|delPolicy
 init|=
