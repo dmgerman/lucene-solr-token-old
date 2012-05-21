@@ -4019,6 +4019,21 @@ name|maxNumSegments
 operator|=
 name|maxNumSegments
 expr_stmt|;
+comment|// nocommit: remove this, except it causes
+comment|// TestExternalCodecs.testPerFieldCodec failures:
+name|segmentsToMerge
+operator|.
+name|put
+argument_list|(
+name|merge
+operator|.
+name|info
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
 block|}
 for|for
 control|(
@@ -4036,6 +4051,21 @@ operator|.
 name|maxNumSegments
 operator|=
 name|maxNumSegments
+expr_stmt|;
+comment|// nocommit: remove this, except it causes
+comment|// TestExternalCodecs.testPerFieldCodec failures:
+name|segmentsToMerge
+operator|.
+name|put
+argument_list|(
+name|merge
+operator|.
+name|info
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -8748,19 +8778,6 @@ name|info
 argument_list|)
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"drop all del seg="
-operator|+
-name|info
-operator|.
-name|name
-argument_list|)
-expr_stmt|;
 name|segmentInfos
 operator|.
 name|remove
@@ -10963,8 +10980,6 @@ argument_list|,
 name|details
 argument_list|)
 expr_stmt|;
-comment|// nocommit
-comment|// merge.info.setBufferedDeletesGen(result.gen);
 comment|// Lock order: IW -> BD
 name|bufferedDeletesStream
 operator|.
