@@ -1516,7 +1516,6 @@ name|fileName
 argument_list|)
 condition|)
 block|{
-comment|//System.out.println("write 3x info seg=" + si.name + " version=" + si.getVersion() + " codec=" + si.getCodec().getName());
 name|upgradedSIFiles
 operator|.
 name|add
@@ -1663,6 +1662,16 @@ operator|.
 name|SI_EXTENSION
 argument_list|)
 decl_stmt|;
+name|si
+operator|.
+name|getFiles
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|fileName
+argument_list|)
+expr_stmt|;
 comment|//System.out.println("UPGRADE write " + fileName);
 name|boolean
 name|success
@@ -1930,7 +1939,7 @@ name|getDelCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// hasProx:
+comment|// hasProx (lie):
 name|output
 operator|.
 name|writeByte
@@ -1951,7 +1960,7 @@ name|getDiagnostics
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// hasVectors:
+comment|// hasVectors (lie):
 name|output
 operator|.
 name|writeByte
@@ -1960,6 +1969,16 @@ operator|(
 name|byte
 operator|)
 literal|1
+argument_list|)
+expr_stmt|;
+name|output
+operator|.
+name|writeStringSet
+argument_list|(
+name|si
+operator|.
+name|getFiles
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|success

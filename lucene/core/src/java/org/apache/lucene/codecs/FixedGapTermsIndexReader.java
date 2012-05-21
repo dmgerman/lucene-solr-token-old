@@ -1971,6 +1971,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|// nocommit remove (and any other files methods!)
 DECL|method|files
 specifier|public
 specifier|static
