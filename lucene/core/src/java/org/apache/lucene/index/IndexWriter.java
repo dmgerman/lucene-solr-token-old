@@ -5774,7 +5774,7 @@ comment|// and 2) .si reflects useCompoundFile=true change
 comment|// above:
 name|codec
 operator|.
-name|segmentInfosFormat
+name|segmentInfoFormat
 argument_list|()
 operator|.
 name|getSegmentInfosWriter
@@ -6980,7 +6980,7 @@ comment|// and 2) .si reflects useCompoundFile=true change
 comment|// above:
 name|codec
 operator|.
-name|segmentInfosFormat
+name|segmentInfoFormat
 argument_list|()
 operator|.
 name|getSegmentInfosWriter
@@ -7527,7 +7527,7 @@ operator|.
 name|getCodec
 argument_list|()
 operator|.
-name|segmentInfosFormat
+name|segmentInfoFormat
 argument_list|()
 operator|.
 name|getSegmentInfosWriter
@@ -12611,7 +12611,7 @@ try|try
 block|{
 name|codec
 operator|.
-name|segmentInfosFormat
+name|segmentInfoFormat
 argument_list|()
 operator|.
 name|getSegmentInfosWriter
