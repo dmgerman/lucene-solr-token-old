@@ -1289,6 +1289,12 @@ name|promoter
 operator|.
 name|type
 argument_list|()
+operator|&&
+operator|!
+name|fi
+operator|.
+name|omitsNorms
+argument_list|()
 condition|)
 block|{
 comment|// reset the type if we got promoted

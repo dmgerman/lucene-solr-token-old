@@ -1188,6 +1188,12 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
+name|fi
+operator|.
+name|omitsNorms
+argument_list|()
+operator|&&
 name|normType
 operator|!=
 literal|null
