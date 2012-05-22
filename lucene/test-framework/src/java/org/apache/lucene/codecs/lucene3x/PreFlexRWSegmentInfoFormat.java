@@ -33,9 +33,9 @@ begin_comment
 comment|/**  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|PreFlexRWSegmentInfosFormat
+DECL|class|PreFlexRWSegmentInfoFormat
 class|class
-name|PreFlexRWSegmentInfosFormat
+name|PreFlexRWSegmentInfoFormat
 extends|extends
 name|Lucene3xSegmentInfoFormat
 block|{
@@ -46,7 +46,7 @@ name|SegmentInfoWriter
 name|writer
 init|=
 operator|new
-name|PreFlexRWSegmentInfosWriter
+name|PreFlexRWSegmentInfoWriter
 argument_list|()
 decl_stmt|;
 annotation|@

@@ -192,9 +192,9 @@ begin_comment
 comment|/**  * PreFlex implementation of {@link SegmentInfoWriter}.  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|PreFlexRWSegmentInfosWriter
+DECL|class|PreFlexRWSegmentInfoWriter
 class|class
-name|PreFlexRWSegmentInfosWriter
+name|PreFlexRWSegmentInfoWriter
 extends|extends
 name|SegmentInfoWriter
 block|{

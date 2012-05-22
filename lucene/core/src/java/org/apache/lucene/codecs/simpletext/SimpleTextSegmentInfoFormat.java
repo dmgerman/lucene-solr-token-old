@@ -97,10 +97,10 @@ begin_comment
 comment|/**  * plain text segments file format.  *<p>  *<b><font color="red">FOR RECREATIONAL USE ONLY</font></B>  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|SimpleTextSegmentInfosFormat
+DECL|class|SimpleTextSegmentInfoFormat
 specifier|public
 class|class
-name|SimpleTextSegmentInfosFormat
+name|SimpleTextSegmentInfoFormat
 extends|extends
 name|SegmentInfoFormat
 block|{
@@ -111,7 +111,7 @@ name|SegmentInfoReader
 name|reader
 init|=
 operator|new
-name|SimpleTextSegmentInfosReader
+name|SimpleTextSegmentInfoReader
 argument_list|()
 decl_stmt|;
 DECL|field|writer
@@ -121,7 +121,7 @@ name|SegmentInfoWriter
 name|writer
 init|=
 operator|new
-name|SimpleTextSegmentInfosWriter
+name|SimpleTextSegmentInfoWriter
 argument_list|()
 decl_stmt|;
 DECL|field|SI_EXTENSION
