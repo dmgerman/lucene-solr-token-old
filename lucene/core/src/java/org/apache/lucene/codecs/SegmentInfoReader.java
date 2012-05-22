@@ -44,32 +44,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|SegmentInfos
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|ChecksumIndexInput
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|Directory
@@ -89,19 +63,16 @@ name|IOContext
 import|;
 end_import
 begin_comment
-comment|/**  * Specifies an API for classes that can read {@link SegmentInfos} information.  * @lucene.experimental  */
-end_comment
-begin_comment
-comment|// nocommit rename (remove the s?)
+comment|/**  * Specifies an API for classes that can read {@link SegmentInfo} information.  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|SegmentInfosReader
+DECL|class|SegmentInfoReader
 specifier|public
 specifier|abstract
 class|class
-name|SegmentInfosReader
+name|SegmentInfoReader
 block|{
-comment|/**    * Read {@link SegmentInfos} data from a directory.    * @param directory directory to read from    * @param segmentsFileName name of the "segments_N" file    * @param header input of "segments_N" file after reading preamble    * @param infos empty instance to be populated with data    * @throws IOException    */
+comment|/**    * Read {@link SegmentInfo} data from a directory.    * @param directory directory to read from    * @param segmentName name of the segment to read    * @return infos instance to be populated with data    * @throws IOException    */
 DECL|method|read
 specifier|public
 specifier|abstract

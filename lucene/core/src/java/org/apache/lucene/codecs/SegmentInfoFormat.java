@@ -16,15 +16,6 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -36,67 +27,27 @@ operator|.
 name|SegmentInfo
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|SegmentInfos
-import|;
-end_import
 begin_comment
-comment|// javadocs
-end_comment
-begin_comment
-comment|/**  * Expert: Controls the format of the   * {@link SegmentInfos} (segments file).  *<p>  * NOTE: This isn't a per-segment file. If you change the format, other versions  * of lucene won't be able to read it.  *   * @see SegmentInfos  * @lucene.experimental  */
-end_comment
-begin_comment
-comment|// nocommit rename (remove the s?)
-end_comment
-begin_comment
-comment|// TODO: would be great to handle this situation better.
-end_comment
-begin_comment
-comment|// ideally a custom implementation could implement two-phase commit differently,
-end_comment
-begin_comment
-comment|// (e.g. atomic rename), and ideally all versions of lucene could still read it.
-end_comment
-begin_comment
-comment|// but this is just reflecting reality as it is today...
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// also, perhaps the name should change (to cover all global files like .fnx?)
-end_comment
-begin_comment
-comment|// then again, maybe we can just remove that file...
+comment|/**  * Expert: Controls the format of the   * {@link SegmentInfo} (segment metadata file).  *<p>  *   * @see SegmentInfo  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|SegmentInfosFormat
+DECL|class|SegmentInfoFormat
 specifier|public
 specifier|abstract
 class|class
-name|SegmentInfosFormat
+name|SegmentInfoFormat
 block|{
 DECL|method|getSegmentInfosReader
 specifier|public
 specifier|abstract
-name|SegmentInfosReader
+name|SegmentInfoReader
 name|getSegmentInfosReader
 parameter_list|()
 function_decl|;
 DECL|method|getSegmentInfosWriter
 specifier|public
 specifier|abstract
-name|SegmentInfosWriter
+name|SegmentInfoWriter
 name|getSegmentInfosWriter
 parameter_list|()
 function_decl|;

@@ -64,7 +64,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SegmentInfosWriter
+name|SegmentInfoWriter
 import|;
 end_import
 begin_import
@@ -219,7 +219,7 @@ specifier|public
 class|class
 name|SimpleTextSegmentInfosWriter
 extends|extends
-name|SegmentInfosWriter
+name|SegmentInfoWriter
 block|{
 DECL|field|SI_VERSION
 specifier|final

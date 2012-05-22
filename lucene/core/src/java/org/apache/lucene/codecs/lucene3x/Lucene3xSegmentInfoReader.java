@@ -84,7 +84,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SegmentInfosReader
+name|SegmentInfoReader
 import|;
 end_import
 begin_import
@@ -231,17 +231,17 @@ name|IOUtils
 import|;
 end_import
 begin_comment
-comment|/**  * Lucene 3x implementation of {@link SegmentInfosReader}.  * @lucene.experimental  * @deprecated  */
+comment|/**  * Lucene 3x implementation of {@link SegmentInfoReader}.  * @lucene.experimental  * @deprecated  */
 end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|Lucene3xSegmentInfosReader
+DECL|class|Lucene3xSegmentInfoReader
 specifier|public
 class|class
-name|Lucene3xSegmentInfosReader
+name|Lucene3xSegmentInfoReader
 extends|extends
-name|SegmentInfosReader
+name|SegmentInfoReader
 block|{
 DECL|method|readLegacyInfos
 specifier|public
@@ -284,11 +284,11 @@ name|readInt
 argument_list|()
 expr_stmt|;
 comment|// read counter
-name|Lucene3xSegmentInfosReader
+name|Lucene3xSegmentInfoReader
 name|reader
 init|=
 operator|new
-name|Lucene3xSegmentInfosReader
+name|Lucene3xSegmentInfoReader
 argument_list|()
 decl_stmt|;
 for|for
@@ -557,7 +557,7 @@ name|directory
 argument_list|,
 name|segmentName
 argument_list|,
-name|Lucene3xSegmentInfosFormat
+name|Lucene3xSegmentInfoFormat
 operator|.
 name|FORMAT_4X_UPGRADE
 argument_list|,
@@ -597,7 +597,7 @@ name|segmentName
 argument_list|,
 literal|""
 argument_list|,
-name|Lucene3xSegmentInfosFormat
+name|Lucene3xSegmentInfoFormat
 operator|.
 name|SI_EXTENSION
 argument_list|)
@@ -734,7 +734,7 @@ if|if
 condition|(
 name|format
 operator|>
-name|Lucene3xSegmentInfosFormat
+name|Lucene3xSegmentInfoFormat
 operator|.
 name|FORMAT_DIAGNOSTICS
 condition|)
@@ -747,11 +747,11 @@ name|input
 argument_list|,
 name|format
 argument_list|,
-name|Lucene3xSegmentInfosFormat
+name|Lucene3xSegmentInfoFormat
 operator|.
 name|FORMAT_DIAGNOSTICS
 argument_list|,
-name|Lucene3xSegmentInfosFormat
+name|Lucene3xSegmentInfoFormat
 operator|.
 name|FORMAT_4X_UPGRADE
 argument_list|)
@@ -761,7 +761,7 @@ if|if
 condition|(
 name|format
 operator|<
-name|Lucene3xSegmentInfosFormat
+name|Lucene3xSegmentInfoFormat
 operator|.
 name|FORMAT_4X_UPGRADE
 condition|)
@@ -774,11 +774,11 @@ name|input
 argument_list|,
 name|format
 argument_list|,
-name|Lucene3xSegmentInfosFormat
+name|Lucene3xSegmentInfoFormat
 operator|.
 name|FORMAT_DIAGNOSTICS
 argument_list|,
-name|Lucene3xSegmentInfosFormat
+name|Lucene3xSegmentInfoFormat
 operator|.
 name|FORMAT_4X_UPGRADE
 argument_list|)
@@ -792,7 +792,7 @@ if|if
 condition|(
 name|format
 operator|<=
-name|Lucene3xSegmentInfosFormat
+name|Lucene3xSegmentInfoFormat
 operator|.
 name|FORMAT_3_1
 condition|)
@@ -1061,7 +1061,7 @@ if|if
 condition|(
 name|format
 operator|<=
-name|Lucene3xSegmentInfosFormat
+name|Lucene3xSegmentInfoFormat
 operator|.
 name|FORMAT_HAS_VECTORS
 condition|)
@@ -1088,7 +1088,7 @@ if|if
 condition|(
 name|format
 operator|==
-name|Lucene3xSegmentInfosFormat
+name|Lucene3xSegmentInfoFormat
 operator|.
 name|FORMAT_4X_UPGRADE
 condition|)
@@ -1571,7 +1571,7 @@ operator|.
 name|NO
 condition|)
 block|{
-comment|// No seaprate norm
+comment|// No separate norm
 block|}
 else|else
 block|{

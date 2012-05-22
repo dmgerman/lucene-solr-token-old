@@ -57,19 +57,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|SegmentInfos
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|Directory
@@ -88,33 +75,17 @@ operator|.
 name|IOContext
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|IndexOutput
-import|;
-end_import
 begin_comment
-comment|/**  * Specifies an API for classes that can write out {@link SegmentInfos} data.  * @lucene.experimental  */
-end_comment
-begin_comment
-comment|// nocommit rename (remove the s?)
+comment|/**  * Specifies an API for classes that can write out {@link SegmentInfo} data.  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|SegmentInfosWriter
+DECL|class|SegmentInfoWriter
 specifier|public
 specifier|abstract
 class|class
-name|SegmentInfosWriter
+name|SegmentInfoWriter
 block|{
-comment|/**    * Write {@link SegmentInfos} data without closing the output. The returned    * output will become finished only after a successful completion of    * "two phase commit" that first calls {@link #prepareCommit(IndexOutput)} and    * then {@link #finishCommit(IndexOutput)}.    * @param dir directory to write data to    * @param segmentsFileName name of the "segments_N" file to create    * @param infos data to write    * @return an instance of {@link IndexOutput} to be used in subsequent "two    * phase commit" operations as described above.    * @throws IOException    */
+comment|/**    * Write {@link SegmentInfo} data.     * @throws IOException    */
 DECL|method|write
 specifier|public
 specifier|abstract

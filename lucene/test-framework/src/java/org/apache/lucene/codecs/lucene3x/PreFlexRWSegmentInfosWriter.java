@@ -55,7 +55,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SegmentInfosWriter
+name|SegmentInfoWriter
 import|;
 end_import
 begin_import
@@ -189,14 +189,14 @@ name|IOUtils
 import|;
 end_import
 begin_comment
-comment|/**  * PreFlex implementation of {@link SegmentInfosWriter}.  * @lucene.experimental  */
+comment|/**  * PreFlex implementation of {@link SegmentInfoWriter}.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|PreFlexRWSegmentInfosWriter
 class|class
 name|PreFlexRWSegmentInfosWriter
 extends|extends
-name|SegmentInfosWriter
+name|SegmentInfoWriter
 block|{
 comment|// NOTE: this is not "really" 3.x format, because we are
 comment|// writing each SI to its own file, vs 3.x where the list

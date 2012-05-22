@@ -23,7 +23,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SegmentInfosWriter
+name|SegmentInfoWriter
 import|;
 end_import
 begin_comment
@@ -37,12 +37,12 @@ DECL|class|PreFlexRWSegmentInfosFormat
 class|class
 name|PreFlexRWSegmentInfosFormat
 extends|extends
-name|Lucene3xSegmentInfosFormat
+name|Lucene3xSegmentInfoFormat
 block|{
 DECL|field|writer
 specifier|private
 specifier|final
-name|SegmentInfosWriter
+name|SegmentInfoWriter
 name|writer
 init|=
 operator|new
@@ -53,7 +53,7 @@ annotation|@
 name|Override
 DECL|method|getSegmentInfosWriter
 specifier|public
-name|SegmentInfosWriter
+name|SegmentInfoWriter
 name|getSegmentInfosWriter
 parameter_list|()
 block|{
