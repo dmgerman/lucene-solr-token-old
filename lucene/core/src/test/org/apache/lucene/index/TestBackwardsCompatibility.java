@@ -1807,7 +1807,11 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
+operator|new
+name|String
+argument_list|(
 literal|"content"
+argument_list|)
 argument_list|,
 literal|"aaa"
 argument_list|)
@@ -1912,7 +1916,11 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
+operator|new
+name|String
+argument_list|(
 literal|"utf8"
+argument_list|)
 argument_list|,
 literal|"Lu\uD834\uDD1Ece\uD834\uDD60ne"
 argument_list|)
