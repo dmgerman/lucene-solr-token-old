@@ -42,19 +42,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SegmentInfo
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|SegmentWriteState
 import|;
 end_import
@@ -148,9 +135,13 @@ name|String
 name|name
 parameter_list|)
 block|{
-comment|// nocommit: check that name is a-zA-Z0-9 and< some reasonable length
-comment|// also fix this for Codec
-comment|// also make NamedSPILoader's map case-insensitive (like Charset)
+name|NamedSPILoader
+operator|.
+name|checkServiceName
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|name
@@ -162,6 +153,7 @@ annotation|@
 name|Override
 DECL|method|getName
 specifier|public
+specifier|final
 name|String
 name|getName
 parameter_list|()

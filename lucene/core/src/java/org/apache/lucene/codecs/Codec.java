@@ -148,6 +148,13 @@ name|String
 name|name
 parameter_list|)
 block|{
+name|NamedSPILoader
+operator|.
+name|checkServiceName
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|name
@@ -160,6 +167,7 @@ annotation|@
 name|Override
 DECL|method|getName
 specifier|public
+specifier|final
 name|String
 name|getName
 parameter_list|()
