@@ -1605,6 +1605,7 @@ block|}
 block|}
 block|}
 block|}
+comment|// nocommit: convert 3.x specific stuff (shared docstores, normgen, etc) into attributes
 name|SegmentInfo
 name|info
 init|=
@@ -1632,6 +1633,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|diagnostics
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|info

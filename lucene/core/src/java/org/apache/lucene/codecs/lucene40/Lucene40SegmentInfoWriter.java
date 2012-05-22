@@ -292,6 +292,16 @@ argument_list|)
 expr_stmt|;
 name|output
 operator|.
+name|writeStringStringMap
+argument_list|(
+name|si
+operator|.
+name|attributes
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|output
+operator|.
 name|writeStringSet
 argument_list|(
 name|si
