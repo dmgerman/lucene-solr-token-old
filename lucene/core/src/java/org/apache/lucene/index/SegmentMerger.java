@@ -1416,7 +1416,9 @@ name|vectorsWriter
 argument_list|(
 name|directory
 argument_list|,
-name|segment
+name|mergeState
+operator|.
+name|segmentInfo
 argument_list|,
 name|context
 argument_list|)

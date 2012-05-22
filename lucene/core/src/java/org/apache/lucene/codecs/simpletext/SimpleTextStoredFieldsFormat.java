@@ -27,15 +27,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -158,6 +149,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+empty_stmt|;
 return|return
 operator|new
 name|SimpleTextStoredFieldsReader
