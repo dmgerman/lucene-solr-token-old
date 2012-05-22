@@ -7066,6 +7066,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/** Copies the segment files as-is into the IndexWriter's directory. */
+comment|// nocommit: this gets insanely crazy: if there is any 3.x can we just open a reader and AddIndexes(Reader) ?!
 DECL|method|copySegmentAsIs
 specifier|private
 name|SegmentInfoPerCommit
@@ -7107,6 +7108,7 @@ comment|// Determine if the doc store of this segment needs to be copied. It's
 comment|// only relevant for segments that share doc store with others,
 comment|// because the DS might have been copied already, in which case we
 comment|// just want to update the DS name of this SegmentInfo.
+specifier|final
 name|String
 name|dsName
 init|=
@@ -7246,12 +7248,7 @@ name|IndexFileNames
 operator|.
 name|segmentFileName
 argument_list|(
-name|info
-operator|.
-name|info
-operator|.
-name|getDocStoreSegment
-argument_list|()
+name|dsName
 argument_list|,
 literal|""
 argument_list|,
@@ -7270,12 +7267,7 @@ name|IndexFileNames
 operator|.
 name|segmentFileName
 argument_list|(
-name|info
-operator|.
-name|info
-operator|.
-name|getDocStoreSegment
-argument_list|()
+name|dsName
 argument_list|,
 literal|""
 argument_list|,
@@ -7291,12 +7283,7 @@ name|IndexFileNames
 operator|.
 name|segmentFileName
 argument_list|(
-name|info
-operator|.
-name|info
-operator|.
-name|getDocStoreSegment
-argument_list|()
+name|dsName
 argument_list|,
 literal|""
 argument_list|,
@@ -7312,12 +7299,7 @@ name|IndexFileNames
 operator|.
 name|segmentFileName
 argument_list|(
-name|info
-operator|.
-name|info
-operator|.
-name|getDocStoreSegment
-argument_list|()
+name|dsName
 argument_list|,
 literal|""
 argument_list|,
@@ -7333,12 +7315,7 @@ name|IndexFileNames
 operator|.
 name|segmentFileName
 argument_list|(
-name|info
-operator|.
-name|info
-operator|.
-name|getDocStoreSegment
-argument_list|()
+name|dsName
 argument_list|,
 literal|""
 argument_list|,
@@ -7354,12 +7331,7 @@ name|IndexFileNames
 operator|.
 name|segmentFileName
 argument_list|(
-name|info
-operator|.
-name|info
-operator|.
-name|getDocStoreSegment
-argument_list|()
+name|dsName
 argument_list|,
 literal|""
 argument_list|,
