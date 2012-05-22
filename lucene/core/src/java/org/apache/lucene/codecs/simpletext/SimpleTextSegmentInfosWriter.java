@@ -211,6 +211,9 @@ name|IOUtils
 import|;
 end_import
 begin_comment
+comment|// nocommit rename (remove s)
+end_comment
+begin_comment
 comment|/**  * writes plaintext segments files  *<p>  *<b><font color="red">FOR RECREATIONAL USE ONLY</font></B>  * @lucene.experimental  */
 end_comment
 begin_class
@@ -339,35 +342,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-assert|assert
-name|si
-operator|.
-name|getDelCount
-argument_list|()
-operator|<=
-name|si
-operator|.
-name|docCount
-operator|:
-literal|"delCount="
-operator|+
-name|si
-operator|.
-name|getDelCount
-argument_list|()
-operator|+
-literal|" docCount="
-operator|+
-name|si
-operator|.
-name|docCount
-operator|+
-literal|" segment="
-operator|+
-name|si
-operator|.
-name|name
-assert|;
 name|String
 name|segFileName
 init|=

@@ -148,7 +148,7 @@ specifier|protected
 name|long
 name|size
 parameter_list|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|)
 throws|throws

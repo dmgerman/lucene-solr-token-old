@@ -31,6 +31,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -71,6 +80,19 @@ operator|.
 name|index
 operator|.
 name|SegmentInfo
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|SegmentInfoPerCommit
 import|;
 end_import
 begin_import
@@ -247,7 +269,7 @@ parameter_list|(
 name|Directory
 name|dir
 parameter_list|,
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|,
 name|IOContext
@@ -263,6 +285,8 @@ name|IndexFileNames
 operator|.
 name|fileNameFromGeneration
 argument_list|(
+name|info
+operator|.
 name|info
 operator|.
 name|name
@@ -297,6 +321,8 @@ argument_list|()
 operator|==
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 operator|-
 name|info
@@ -315,6 +341,8 @@ literal|" info.docCount="
 operator|+
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 operator|+
 literal|" info.getDelCount()="
@@ -330,6 +358,8 @@ operator|.
 name|length
 argument_list|()
 operator|==
+name|info
+operator|.
 name|info
 operator|.
 name|docCount
@@ -351,7 +381,7 @@ parameter_list|,
 name|Directory
 name|dir
 parameter_list|,
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|,
 name|int
@@ -370,6 +400,8 @@ name|IndexFileNames
 operator|.
 name|fileNameFromGeneration
 argument_list|(
+name|info
+operator|.
 name|info
 operator|.
 name|name
@@ -399,6 +431,8 @@ argument_list|()
 operator|==
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 operator|-
 name|info
@@ -414,6 +448,8 @@ operator|.
 name|length
 argument_list|()
 operator|==
+name|info
+operator|.
 name|info
 operator|.
 name|docCount
@@ -437,10 +473,10 @@ specifier|public
 name|void
 name|files
 parameter_list|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|,
-name|Set
+name|Collection
 argument_list|<
 name|String
 argument_list|>
@@ -465,6 +501,8 @@ name|IndexFileNames
 operator|.
 name|fileNameFromGeneration
 argument_list|(
+name|info
+operator|.
 name|info
 operator|.
 name|name

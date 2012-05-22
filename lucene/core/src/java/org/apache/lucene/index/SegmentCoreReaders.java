@@ -407,7 +407,7 @@ parameter_list|,
 name|Directory
 name|dir
 parameter_list|,
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|si
 parameter_list|,
 name|IOContext
@@ -440,6 +440,8 @@ name|codec
 init|=
 name|si
 operator|.
+name|info
+operator|.
 name|getCodec
 argument_list|()
 decl_stmt|;
@@ -459,6 +461,8 @@ if|if
 condition|(
 name|si
 operator|.
+name|info
+operator|.
 name|getUseCompoundFile
 argument_list|()
 condition|)
@@ -477,6 +481,8 @@ operator|.
 name|segmentFileName
 argument_list|(
 name|si
+operator|.
+name|info
 operator|.
 name|name
 argument_list|,
@@ -520,6 +526,8 @@ name|cfsDir
 argument_list|,
 name|si
 operator|.
+name|info
+operator|.
 name|name
 argument_list|,
 name|IOContext
@@ -552,6 +560,8 @@ argument_list|(
 name|cfsDir
 argument_list|,
 name|si
+operator|.
+name|info
 argument_list|,
 name|fieldInfos
 argument_list|,
@@ -606,6 +616,8 @@ name|fieldsReaderOrig
 operator|=
 name|si
 operator|.
+name|info
+operator|.
 name|getCodec
 argument_list|()
 operator|.
@@ -617,6 +629,8 @@ argument_list|(
 name|cfsDir
 argument_list|,
 name|si
+operator|.
+name|info
 argument_list|,
 name|fieldInfos
 argument_list|,
@@ -636,6 +650,8 @@ name|termVectorsReaderOrig
 operator|=
 name|si
 operator|.
+name|info
+operator|.
 name|getCodec
 argument_list|()
 operator|.
@@ -647,6 +663,8 @@ argument_list|(
 name|cfsDir
 argument_list|,
 name|si
+operator|.
+name|info
 argument_list|,
 name|fieldInfos
 argument_list|,

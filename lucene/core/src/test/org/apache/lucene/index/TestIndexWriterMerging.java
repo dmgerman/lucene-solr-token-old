@@ -1975,6 +1975,8 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
+name|info
+operator|.
 name|docCount
 operator|<
 literal|20

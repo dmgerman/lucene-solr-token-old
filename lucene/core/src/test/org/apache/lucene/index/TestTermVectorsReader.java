@@ -356,7 +356,7 @@ name|dir
 decl_stmt|;
 DECL|field|seg
 specifier|private
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|seg
 decl_stmt|;
 DECL|field|fieldInfos
@@ -852,6 +852,8 @@ operator|.
 name|getFieldInfos
 argument_list|(
 name|seg
+operator|.
+name|info
 argument_list|)
 expr_stmt|;
 block|}
@@ -1137,7 +1139,7 @@ name|getSequentialSubReaders
 argument_list|()
 control|)
 block|{
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|s
 init|=
 operator|(
@@ -1199,6 +1201,8 @@ argument_list|(
 name|dir
 argument_list|,
 name|seg
+operator|.
+name|info
 argument_list|,
 name|fieldInfos
 argument_list|,
@@ -1359,6 +1363,8 @@ argument_list|(
 name|dir
 argument_list|,
 name|seg
+operator|.
+name|info
 argument_list|,
 name|fieldInfos
 argument_list|,
@@ -1593,6 +1599,8 @@ argument_list|(
 name|dir
 argument_list|,
 name|seg
+operator|.
+name|info
 argument_list|,
 name|fieldInfos
 argument_list|,
@@ -2102,6 +2110,8 @@ argument_list|(
 name|dir
 argument_list|,
 name|seg
+operator|.
+name|info
 argument_list|,
 name|fieldInfos
 argument_list|,
@@ -2474,6 +2484,8 @@ argument_list|(
 name|dir
 argument_list|,
 name|seg
+operator|.
+name|info
 argument_list|,
 name|fieldInfos
 argument_list|,
@@ -2527,6 +2539,8 @@ argument_list|(
 name|dir
 argument_list|,
 name|seg
+operator|.
+name|info
 argument_list|,
 name|fieldInfos
 argument_list|,

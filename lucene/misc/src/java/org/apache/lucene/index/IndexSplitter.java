@@ -492,7 +492,7 @@ name|x
 operator|++
 control|)
 block|{
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|infos
@@ -521,6 +521,8 @@ name|out
 operator|.
 name|println
 argument_list|(
+name|info
+operator|.
 name|info
 operator|.
 name|name
@@ -572,6 +574,8 @@ argument_list|(
 name|x
 argument_list|)
 operator|.
+name|info
+operator|.
 name|name
 argument_list|)
 condition|)
@@ -586,7 +590,7 @@ return|;
 block|}
 DECL|method|getInfo
 specifier|private
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|getInfo
 parameter_list|(
 name|String
@@ -623,6 +627,8 @@ name|info
 argument_list|(
 name|x
 argument_list|)
+operator|.
+name|info
 operator|.
 name|name
 argument_list|)
@@ -742,13 +748,20 @@ range|:
 name|segs
 control|)
 block|{
-name|SegmentInfo
-name|info
+name|SegmentInfoPerCommit
+name|infoPerCommit
 init|=
 name|getInfo
 argument_list|(
 name|n
 argument_list|)
+decl_stmt|;
+name|SegmentInfo
+name|info
+init|=
+name|infoPerCommit
+operator|.
+name|info
 decl_stmt|;
 comment|// Same info just changing the dir:
 name|SegmentInfo
@@ -799,11 +812,6 @@ argument_list|()
 argument_list|,
 name|info
 operator|.
-name|getDelCount
-argument_list|()
-argument_list|,
-name|info
-operator|.
 name|getCodec
 argument_list|()
 argument_list|,
@@ -817,9 +825,24 @@ name|destInfos
 operator|.
 name|add
 argument_list|(
+operator|new
+name|SegmentInfoPerCommit
+argument_list|(
 name|newInfo
+argument_list|,
+name|infoPerCommit
+operator|.
+name|getDelCount
+argument_list|()
+argument_list|,
+name|infoPerCommit
+operator|.
+name|getDelGen
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// nocommit is this right...?
 comment|// now copy files over
 name|Collection
 argument_list|<
@@ -827,7 +850,7 @@ name|String
 argument_list|>
 name|files
 init|=
-name|info
+name|infoPerCommit
 operator|.
 name|files
 argument_list|()

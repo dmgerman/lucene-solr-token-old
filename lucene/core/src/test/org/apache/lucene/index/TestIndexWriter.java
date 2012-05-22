@@ -10442,7 +10442,7 @@ name|getSequentialSubReaders
 argument_list|()
 control|)
 block|{
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|s
 init|=
 operator|(

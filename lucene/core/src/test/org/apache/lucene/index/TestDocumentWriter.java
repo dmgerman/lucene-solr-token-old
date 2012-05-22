@@ -372,7 +372,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|writer
@@ -843,7 +843,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|writer
@@ -1271,7 +1271,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|writer
@@ -1567,7 +1567,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|writer

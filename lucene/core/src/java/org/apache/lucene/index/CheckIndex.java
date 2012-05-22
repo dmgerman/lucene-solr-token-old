@@ -1070,7 +1070,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|si
 range|:
 name|sis
@@ -1080,6 +1080,8 @@ name|String
 name|version
 init|=
 name|si
+operator|.
+name|info
 operator|.
 name|getVersion
 argument_list|()
@@ -1559,7 +1561,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|sis
@@ -1576,6 +1578,8 @@ name|Integer
 operator|.
 name|parseInt
 argument_list|(
+name|info
+operator|.
 name|info
 operator|.
 name|name
@@ -1619,10 +1623,14 @@ name|contains
 argument_list|(
 name|info
 operator|.
+name|info
+operator|.
 name|name
 argument_list|)
 condition|)
+block|{
 continue|continue;
+block|}
 name|Status
 operator|.
 name|SegmentInfoStatus
@@ -1661,10 +1669,14 @@ literal|": name="
 operator|+
 name|info
 operator|.
+name|info
+operator|.
 name|name
 operator|+
 literal|" docCount="
 operator|+
+name|info
+operator|.
 name|info
 operator|.
 name|docCount
@@ -1676,6 +1688,8 @@ name|name
 operator|=
 name|info
 operator|.
+name|info
+operator|.
 name|name
 expr_stmt|;
 name|segInfoStat
@@ -1684,11 +1698,15 @@ name|docCount
 operator|=
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 expr_stmt|;
 name|int
 name|toLoseDocCount
 init|=
+name|info
+operator|.
 name|info
 operator|.
 name|docCount
@@ -1704,6 +1722,8 @@ specifier|final
 name|Codec
 name|codec
 init|=
+name|info
+operator|.
 name|info
 operator|.
 name|getCodec
@@ -1728,6 +1748,8 @@ literal|"    compound="
 operator|+
 name|info
 operator|.
+name|info
+operator|.
 name|getUseCompoundFile
 argument_list|()
 argument_list|)
@@ -1738,6 +1760,8 @@ name|compound
 operator|=
 name|info
 operator|.
+name|info
+operator|.
 name|getUseCompoundFile
 argument_list|()
 expr_stmt|;
@@ -1745,6 +1769,8 @@ name|msg
 argument_list|(
 literal|"    numFiles="
 operator|+
+name|info
+operator|.
 name|info
 operator|.
 name|files
@@ -1758,6 +1784,8 @@ name|segInfoStat
 operator|.
 name|numFiles
 operator|=
+name|info
+operator|.
 name|info
 operator|.
 name|files
@@ -1805,6 +1833,8 @@ name|diagnostics
 init|=
 name|info
 operator|.
+name|info
+operator|.
 name|getDiagnostics
 argument_list|()
 decl_stmt|;
@@ -1838,6 +1868,8 @@ name|docStoreOffset
 init|=
 name|info
 operator|.
+name|info
+operator|.
 name|getDocStoreOffset
 argument_list|()
 decl_stmt|;
@@ -1868,6 +1900,8 @@ literal|"    docStoreSegment="
 operator|+
 name|info
 operator|.
+name|info
+operator|.
 name|getDocStoreSegment
 argument_list|()
 argument_list|)
@@ -1876,6 +1910,8 @@ name|segInfoStat
 operator|.
 name|docStoreSegment
 operator|=
+name|info
+operator|.
 name|info
 operator|.
 name|getDocStoreSegment
@@ -1887,6 +1923,8 @@ literal|"    docStoreIsCompoundFile="
 operator|+
 name|info
 operator|.
+name|info
+operator|.
 name|getDocStoreIsCompoundFile
 argument_list|()
 argument_list|)
@@ -1895,6 +1933,8 @@ name|segInfoStat
 operator|.
 name|docStoreCompoundFile
 operator|=
+name|info
+operator|.
 name|info
 operator|.
 name|getDocStoreIsCompoundFile
@@ -2016,6 +2056,8 @@ argument_list|()
 operator|!=
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 operator|-
 name|info
@@ -2031,6 +2073,8 @@ argument_list|(
 literal|"delete count mismatch: info="
 operator|+
 operator|(
+name|info
+operator|.
 name|info
 operator|.
 name|docCount
@@ -2053,6 +2097,8 @@ block|}
 if|if
 condition|(
 operator|(
+name|info
+operator|.
 name|info
 operator|.
 name|docCount
@@ -2085,6 +2131,8 @@ operator|+
 operator|(
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 operator|-
 name|reader
@@ -2097,6 +2145,8 @@ throw|;
 block|}
 if|if
 condition|(
+name|info
+operator|.
 name|info
 operator|.
 name|docCount
@@ -2123,6 +2173,8 @@ operator|+
 literal|" vs reader="
 operator|+
 operator|(
+name|info
+operator|.
 name|info
 operator|.
 name|docCount
@@ -2223,6 +2275,8 @@ name|numDeleted
 operator|=
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 operator|-
 name|numDocs
@@ -2267,6 +2321,8 @@ operator|+
 literal|" vs reader="
 operator|+
 operator|(
+name|info
+operator|.
 name|info
 operator|.
 name|docCount
@@ -2350,8 +2406,11 @@ argument_list|()
 operator|!=
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 condition|)
+block|{
 throw|throw
 operator|new
 name|RuntimeException
@@ -2367,9 +2426,12 @@ literal|" != SegmentInfos.docCount "
 operator|+
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 argument_list|)
 throw|;
+block|}
 comment|// Test getFieldInfos()
 if|if
 condition|(
@@ -5646,7 +5708,7 @@ operator|.
 name|StoredFieldStatus
 name|testStoredFields
 parameter_list|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|,
 name|SegmentReader
@@ -5704,6 +5766,8 @@ literal|0
 init|;
 name|j
 operator|<
+name|info
+operator|.
 name|info
 operator|.
 name|docCount
@@ -6395,7 +6459,7 @@ operator|.
 name|DocValuesStatus
 name|testDocValues
 parameter_list|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|,
 name|FieldInfos
@@ -6596,7 +6660,7 @@ parameter_list|(
 name|FieldInfos
 name|fieldInfos
 parameter_list|,
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|,
 name|SegmentReader
@@ -6719,6 +6783,8 @@ literal|0
 init|;
 name|j
 operator|<
+name|info
+operator|.
 name|info
 operator|.
 name|docCount

@@ -111,7 +111,7 @@ specifier|protected
 name|boolean
 name|shouldUpgradeSegment
 parameter_list|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|si
 parameter_list|)
 block|{
@@ -124,6 +124,8 @@ operator|.
 name|equals
 argument_list|(
 name|si
+operator|.
+name|info
 operator|.
 name|getVersion
 argument_list|()
@@ -195,7 +197,7 @@ name|maxSegmentCount
 parameter_list|,
 name|Map
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|,
 name|Boolean
 argument_list|>
@@ -210,7 +212,7 @@ comment|// first find all old segments
 specifier|final
 name|Map
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|,
 name|Boolean
 argument_list|>
@@ -219,7 +221,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|,
 name|Boolean
 argument_list|>
@@ -228,7 +230,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|si
 range|:
 name|segmentInfos
@@ -377,21 +379,21 @@ block|}
 specifier|final
 name|List
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|>
 name|newInfos
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
 control|(
 specifier|final
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|si
 range|:
 name|segmentInfos
@@ -481,7 +483,7 @@ parameter_list|(
 name|SegmentInfos
 name|segments
 parameter_list|,
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|newSegment
 parameter_list|)
 throws|throws

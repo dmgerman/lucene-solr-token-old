@@ -340,7 +340,7 @@ parameter_list|(
 name|SegmentInfos
 name|infos
 parameter_list|,
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|mergedInfo
 parameter_list|)
 throws|throws
@@ -383,11 +383,12 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 range|:
 name|infos
 control|)
+block|{
 name|totalSize
 operator|+=
 name|size
@@ -395,6 +396,7 @@ argument_list|(
 name|info
 argument_list|)
 expr_stmt|;
+block|}
 name|doCFS
 operator|=
 name|size
@@ -481,7 +483,7 @@ specifier|protected
 name|long
 name|size
 parameter_list|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|)
 throws|throws
@@ -492,7 +494,7 @@ specifier|protected
 name|long
 name|sizeDocs
 parameter_list|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|)
 throws|throws
@@ -521,10 +523,14 @@ name|delCount
 operator|<=
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 assert|;
 return|return
 operator|(
+name|info
+operator|.
 name|info
 operator|.
 name|docCount
@@ -541,6 +547,8 @@ block|{
 return|return
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 return|;
 block|}
@@ -550,7 +558,7 @@ specifier|protected
 name|long
 name|sizeBytes
 parameter_list|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|)
 throws|throws
@@ -588,6 +596,8 @@ init|=
 operator|(
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 operator|<=
 literal|0
@@ -605,6 +615,8 @@ name|float
 operator|)
 name|info
 operator|.
+name|info
+operator|.
 name|docCount
 operator|)
 operator|)
@@ -616,6 +628,8 @@ literal|1.0
 assert|;
 return|return
 operator|(
+name|info
+operator|.
 name|info
 operator|.
 name|docCount
@@ -659,7 +673,7 @@ name|maxNumSegments
 parameter_list|,
 name|Map
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|,
 name|Boolean
 argument_list|>
@@ -682,7 +696,7 @@ name|numToMerge
 init|=
 literal|0
 decl_stmt|;
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|mergeInfo
 init|=
 literal|null
@@ -712,7 +726,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|infos
@@ -779,7 +793,7 @@ specifier|protected
 name|boolean
 name|isMerged
 parameter_list|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|)
 throws|throws
@@ -817,9 +831,13 @@ operator|&&
 operator|!
 name|info
 operator|.
+name|info
+operator|.
 name|hasSeparateNorms
 argument_list|()
 operator|&&
+name|info
+operator|.
 name|info
 operator|.
 name|dir
@@ -830,6 +848,8 @@ name|getDirectory
 argument_list|()
 operator|&&
 operator|(
+name|info
+operator|.
 name|info
 operator|.
 name|getUseCompoundFile
@@ -871,7 +891,7 @@ decl_stmt|;
 specifier|final
 name|List
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|>
 name|segments
 init|=
@@ -894,7 +914,7 @@ operator|>=
 literal|0
 condition|)
 block|{
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|infos
@@ -1136,7 +1156,7 @@ decl_stmt|;
 specifier|final
 name|List
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|>
 name|segments
 init|=
@@ -1319,6 +1339,7 @@ condition|;
 name|j
 operator|++
 control|)
+block|{
 name|sumSize
 operator|+=
 name|size
@@ -1333,6 +1354,7 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|i
@@ -1425,7 +1447,7 @@ name|maxNumSegments
 parameter_list|,
 name|Map
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|,
 name|Boolean
 argument_list|>
@@ -1506,7 +1528,7 @@ literal|0
 condition|)
 block|{
 specifier|final
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|infos
@@ -1617,7 +1639,7 @@ name|i
 operator|++
 control|)
 block|{
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|infos
@@ -1700,7 +1722,7 @@ block|{
 specifier|final
 name|List
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|>
 name|segments
 init|=
@@ -1776,7 +1798,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|segmentInfos
@@ -1813,6 +1835,8 @@ name|message
 argument_list|(
 literal|"  segment "
 operator|+
+name|info
+operator|.
 name|info
 operator|.
 name|name
@@ -2020,7 +2044,7 @@ name|SegmentInfoAndLevel
 argument_list|>
 block|{
 DECL|field|info
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 decl_stmt|;
 DECL|field|level
@@ -2035,7 +2059,7 @@ DECL|method|SegmentInfoAndLevel
 specifier|public
 name|SegmentInfoAndLevel
 parameter_list|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|,
 name|float
@@ -2082,9 +2106,11 @@ name|other
 operator|.
 name|level
 condition|)
+block|{
 return|return
 literal|1
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -2094,14 +2120,18 @@ name|other
 operator|.
 name|level
 condition|)
+block|{
 return|return
 operator|-
 literal|1
 return|;
+block|}
 else|else
+block|{
 return|return
 literal|0
 return|;
+block|}
 block|}
 block|}
 comment|/** Checks if any merges are now necessary and returns a    *  {@link MergePolicy.MergeSpecification} if so.  A merge    *  is necessary when there are more than {@link    *  #setMergeFactor} segments at a given level.  When    *  multiple levels have too many segments, this method    *  will return multiple merges, allowing the {@link    *  MergeScheduler} to use concurrency. */
@@ -2176,7 +2206,7 @@ decl_stmt|;
 specifier|final
 name|Collection
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|>
 name|mergingSegments
 init|=
@@ -2204,7 +2234,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|infos
@@ -2463,10 +2493,12 @@ name|level
 operator|>
 name|maxLevel
 condition|)
+block|{
 name|maxLevel
 operator|=
 name|level
 expr_stmt|;
+block|}
 block|}
 comment|// Now search backwards for the rightmost segment that
 comment|// falls into this level:
@@ -2479,12 +2511,14 @@ name|maxLevel
 operator|<=
 name|levelFloor
 condition|)
+block|{
 comment|// All remaining segments fall into the min level
 name|levelBottom
 operator|=
 operator|-
 literal|1.0F
 expr_stmt|;
+block|}
 else|else
 block|{
 name|levelBottom
@@ -2509,10 +2543,12 @@ name|maxLevel
 operator|>=
 name|levelFloor
 condition|)
+block|{
 name|levelBottom
 operator|=
 name|levelFloor
 expr_stmt|;
+block|}
 block|}
 name|int
 name|upto
@@ -2621,7 +2657,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|levels
@@ -2697,14 +2733,14 @@ expr_stmt|;
 specifier|final
 name|List
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|>
 name|mergeInfos
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|>
 argument_list|()
 decl_stmt|;

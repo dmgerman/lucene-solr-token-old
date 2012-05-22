@@ -399,6 +399,8 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
+name|info
+operator|.
 name|name
 decl_stmt|;
 name|is

@@ -492,6 +492,8 @@ name|info
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 name|FieldInfos
@@ -507,6 +509,8 @@ name|info
 argument_list|(
 literal|1
 argument_list|)
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -661,6 +665,8 @@ name|info
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1035,6 +1041,8 @@ name|info
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 name|FieldInfos
@@ -1050,6 +1058,8 @@ name|info
 argument_list|(
 literal|1
 argument_list|)
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1304,6 +1314,8 @@ name|info
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1469,6 +1481,8 @@ name|info
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 name|FieldInfos
@@ -1484,6 +1498,8 @@ name|info
 argument_list|(
 literal|1
 argument_list|)
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1708,6 +1724,8 @@ name|info
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 name|FieldInfos
@@ -1723,6 +1741,8 @@ name|info
 argument_list|(
 literal|1
 argument_list|)
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 name|FieldInfos
@@ -1738,6 +1758,8 @@ name|info
 argument_list|(
 literal|2
 argument_list|)
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1998,6 +2020,8 @@ name|info
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -2268,7 +2292,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|si
 range|:
 name|sis
@@ -2282,6 +2306,8 @@ operator|.
 name|getFieldInfos
 argument_list|(
 name|si
+operator|.
+name|info
 argument_list|)
 decl_stmt|;
 for|for

@@ -205,16 +205,6 @@ init|=
 literal|1
 decl_stmt|;
 comment|// e.g. have norms; have deletes;
-DECL|field|WITHOUT_GEN
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|WITHOUT_GEN
-init|=
-literal|0
-decl_stmt|;
-comment|// a file name that has no GEN in it.
 DECL|field|name
 specifier|public
 specifier|final
@@ -237,14 +227,6 @@ name|dir
 decl_stmt|;
 comment|// where segment resides
 comment|// nocommit what other members can we make final?
-comment|/*    * Current generation of del file:    * - NO if there are no deletes    * - YES or higher if there are deletes at generation N    */
-comment|// nocommit move this "out" somewhere...
-comment|// nocommit explain that codec need not save this....:
-DECL|field|delGen
-specifier|private
-name|long
-name|delGen
-decl_stmt|;
 comment|/*    * Current generation of each field's norm file. If this array is null,    * means no separate norms. If this array is not null, its values mean:    * - NO says this field has no separate norms    *>= YES says this field has separate norms with the specified generation    */
 DECL|field|normGen
 specifier|private
@@ -298,14 +280,6 @@ name|boolean
 name|docStoreIsCompoundFile
 decl_stmt|;
 comment|// whether doc store files are stored in compound file (*.cfx)
-comment|// nocommit move this out:
-comment|// nocommit explain that codec need not save this....:
-DECL|field|delCount
-specifier|private
-name|int
-name|delCount
-decl_stmt|;
-comment|// How many deleted docs in this segment
 DECL|field|codec
 specifier|private
 name|Codec
@@ -331,13 +305,6 @@ DECL|field|version
 specifier|private
 name|String
 name|version
-decl_stmt|;
-comment|// NOTE: only used in-RAM by IW to track buffered deletes;
-comment|// this is never written to/read from the Directory
-DECL|field|bufferedDeletesGen
-specifier|private
-name|long
-name|bufferedDeletesGen
 decl_stmt|;
 DECL|method|setDiagnostics
 name|void
@@ -411,9 +378,6 @@ parameter_list|,
 name|boolean
 name|isCompoundFile
 parameter_list|,
-name|int
-name|delCount
-parameter_list|,
 name|Codec
 name|codec
 parameter_list|,
@@ -460,12 +424,6 @@ name|docCount
 expr_stmt|;
 name|this
 operator|.
-name|delGen
-operator|=
-name|NO
-expr_stmt|;
-name|this
-operator|.
 name|docStoreOffset
 operator|=
 name|docStoreOffset
@@ -493,12 +451,6 @@ operator|.
 name|isCompoundFile
 operator|=
 name|isCompoundFile
-expr_stmt|;
-name|this
-operator|.
-name|delCount
-operator|=
-name|delCount
 expr_stmt|;
 name|this
 operator|.
@@ -514,6 +466,7 @@ name|diagnostics
 expr_stmt|;
 block|}
 comment|/**    * Returns total size in bytes of all of files used by this segment    */
+comment|// nocommit fails to take live docs into account... hmmm
 DECL|method|sizeInBytes
 specifier|public
 name|long
@@ -564,93 +517,18 @@ return|return
 name|sizeInBytes
 return|;
 block|}
-DECL|method|hasDeletions
-specifier|public
-name|boolean
-name|hasDeletions
-parameter_list|()
-block|{
-comment|// Cases:
-comment|//
-comment|//   delGen == NO: this means this segment does not have deletions yet
-comment|//   delGen>= YES: this means this segment has deletions
-comment|//
-return|return
-name|delGen
-operator|!=
-name|NO
-return|;
-block|}
-DECL|method|advanceDelGen
+DECL|method|clearSizeInBytes
 name|void
-name|advanceDelGen
+name|clearSizeInBytes
 parameter_list|()
 block|{
-if|if
-condition|(
-name|delGen
-operator|==
-name|NO
-condition|)
-block|{
-name|delGen
-operator|=
-name|YES
-expr_stmt|;
-block|}
-else|else
-block|{
-name|delGen
-operator|++
-expr_stmt|;
-block|}
 name|sizeInBytes
 operator|=
 operator|-
 literal|1
 expr_stmt|;
 block|}
-DECL|method|getNextDelGen
-specifier|public
-name|long
-name|getNextDelGen
-parameter_list|()
-block|{
-if|if
-condition|(
-name|delGen
-operator|==
-name|NO
-condition|)
-block|{
-return|return
-name|YES
-return|;
-block|}
-else|else
-block|{
-return|return
-name|delGen
-operator|+
-literal|1
-return|;
-block|}
-block|}
-DECL|method|clearDelGen
-name|void
-name|clearDelGen
-parameter_list|()
-block|{
-name|delGen
-operator|=
-name|NO
-expr_stmt|;
-name|sizeInBytes
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-block|}
+comment|// nocommit nuke?
 annotation|@
 name|Override
 DECL|method|clone
@@ -750,8 +628,6 @@ name|clonedNormGen
 argument_list|,
 name|isCompoundFile
 argument_list|,
-name|delCount
-argument_list|,
 name|codec
 argument_list|,
 operator|new
@@ -804,13 +680,6 @@ operator|.
 name|setFiles
 argument_list|(
 name|clonedFiles
-argument_list|)
-expr_stmt|;
-name|newInfo
-operator|.
-name|setDelGen
-argument_list|(
-name|delGen
 argument_list|)
 expr_stmt|;
 return|return
@@ -892,57 +761,6 @@ block|{
 return|return
 name|isCompoundFile
 return|;
-block|}
-DECL|method|getDelCount
-specifier|public
-name|int
-name|getDelCount
-parameter_list|()
-block|{
-return|return
-name|delCount
-return|;
-block|}
-DECL|method|setDelCount
-name|void
-name|setDelCount
-parameter_list|(
-name|int
-name|delCount
-parameter_list|)
-block|{
-name|this
-operator|.
-name|delCount
-operator|=
-name|delCount
-expr_stmt|;
-assert|assert
-name|delCount
-operator|<=
-name|docCount
-assert|;
-block|}
-DECL|method|setDelGen
-specifier|public
-name|void
-name|setDelGen
-parameter_list|(
-name|long
-name|delGen
-parameter_list|)
-block|{
-name|this
-operator|.
-name|delGen
-operator|=
-name|delGen
-expr_stmt|;
-name|sizeInBytes
-operator|=
-operator|-
-literal|1
-expr_stmt|;
 block|}
 comment|/**    * @deprecated shared doc stores are not supported in>= 4.0    */
 annotation|@
@@ -1036,6 +854,8 @@ name|codec
 return|;
 block|}
 comment|/*    * Return all files referenced by this SegmentInfo.  The    * returns List is a locally cached List so you should not    * modify it.    */
+comment|// nocommit remove this temporarily to see who is calling
+comment|// it ...  very dangerous having this one AND SIPC.files()
 DECL|method|files
 specifier|public
 name|Collection
@@ -1064,44 +884,8 @@ literal|"files were not computed yet"
 argument_list|)
 throw|;
 block|}
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|files
-init|=
-operator|new
-name|HashSet
-argument_list|<
-name|String
-argument_list|>
-argument_list|(
-name|setFiles
-argument_list|)
-decl_stmt|;
-comment|// nocommit make this take list instead...?
-comment|// Must separately add any live docs files:
-name|codec
-operator|.
-name|liveDocsFormat
-argument_list|()
-operator|.
-name|files
-argument_list|(
-name|this
-argument_list|,
-name|files
-argument_list|)
-expr_stmt|;
 return|return
-operator|new
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-argument_list|(
-name|files
-argument_list|)
+name|setFiles
 return|;
 block|}
 comment|/** {@inheritDoc} */
@@ -1132,7 +916,7 @@ name|Directory
 name|dir
 parameter_list|,
 name|int
-name|pendingDelCount
+name|delCount
 parameter_list|)
 block|{
 name|StringBuilder
@@ -1216,14 +1000,6 @@ argument_list|(
 name|docCount
 argument_list|)
 expr_stmt|;
-name|int
-name|delCount
-init|=
-name|getDelCount
-argument_list|()
-operator|+
-name|pendingDelCount
-decl_stmt|;
 if|if
 condition|(
 name|delCount
@@ -1414,39 +1190,6 @@ parameter_list|()
 block|{
 return|return
 name|version
-return|;
-block|}
-DECL|method|getBufferedDeletesGen
-name|long
-name|getBufferedDeletesGen
-parameter_list|()
-block|{
-return|return
-name|bufferedDeletesGen
-return|;
-block|}
-DECL|method|setBufferedDeletesGen
-name|void
-name|setBufferedDeletesGen
-parameter_list|(
-name|long
-name|v
-parameter_list|)
-block|{
-name|bufferedDeletesGen
-operator|=
-name|v
-expr_stmt|;
-block|}
-comment|/** @lucene.internal */
-DECL|method|getDelGen
-specifier|public
-name|long
-name|getDelGen
-parameter_list|()
-block|{
-return|return
-name|delGen
 return|;
 block|}
 comment|/** @lucene.internal */
