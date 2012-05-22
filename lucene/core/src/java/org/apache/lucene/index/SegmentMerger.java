@@ -272,9 +272,14 @@ operator|.
 name|Builder
 name|fieldInfosBuilder
 decl_stmt|;
+comment|// nocommit nuke name since SI has it.... but Directory is
+comment|// NOT the same!!
 DECL|method|SegmentMerger
 name|SegmentMerger
 parameter_list|(
+name|SegmentInfo
+name|segmentInfo
+parameter_list|,
 name|InfoStream
 name|infoStream
 parameter_list|,
@@ -307,6 +312,12 @@ name|IOContext
 name|context
 parameter_list|)
 block|{
+name|mergeState
+operator|.
+name|segmentInfo
+operator|=
+name|segmentInfo
+expr_stmt|;
 name|mergeState
 operator|.
 name|infoStream
@@ -501,7 +512,7 @@ operator|=
 name|setDocMaps
 argument_list|()
 expr_stmt|;
-name|mergeFieldInfos
+name|mergeDocValuesAndNormsFieldInfos
 argument_list|()
 expr_stmt|;
 name|setMatchingSegmentReaders
@@ -533,7 +544,9 @@ name|infoStream
 argument_list|,
 name|directory
 argument_list|,
-name|segment
+name|mergeState
+operator|.
+name|segmentInfo
 argument_list|,
 name|mergeState
 operator|.
@@ -969,18 +982,6 @@ name|promoted
 return|;
 block|}
 block|}
-DECL|method|mergeFieldInfos
-specifier|private
-name|void
-name|mergeFieldInfos
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|mergeDocValuesAndNormsFieldInfos
-argument_list|()
-expr_stmt|;
-block|}
 comment|// NOTE: this is actually merging all the fieldinfos
 DECL|method|mergeDocValuesAndNormsFieldInfos
 specifier|public
@@ -1365,7 +1366,9 @@ name|fieldsWriter
 argument_list|(
 name|directory
 argument_list|,
-name|segment
+name|mergeState
+operator|.
+name|segmentInfo
 argument_list|,
 name|context
 argument_list|)

@@ -198,8 +198,8 @@ parameter_list|(
 name|Directory
 name|directory
 parameter_list|,
-name|String
-name|segment
+name|SegmentInfo
+name|si
 parameter_list|,
 name|IOContext
 name|context
@@ -213,7 +213,9 @@ name|Lucene40StoredFieldsWriter
 argument_list|(
 name|directory
 argument_list|,
-name|segment
+name|si
+operator|.
+name|name
 argument_list|,
 name|context
 argument_list|)

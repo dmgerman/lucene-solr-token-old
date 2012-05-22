@@ -250,7 +250,9 @@ name|directory
 argument_list|,
 name|state
 operator|.
-name|segmentName
+name|segmentInfo
+operator|.
+name|name
 argument_list|,
 name|state
 operator|.
@@ -278,7 +280,9 @@ name|segmentFileName
 argument_list|(
 name|state
 operator|.
-name|segmentName
+name|segmentInfo
+operator|.
+name|name
 argument_list|,
 literal|""
 argument_list|,
@@ -356,7 +360,9 @@ name|segmentFileName
 argument_list|(
 name|state
 operator|.
-name|segmentName
+name|segmentInfo
+operator|.
+name|name
 argument_list|,
 literal|""
 argument_list|,

@@ -249,7 +249,7 @@ expr_stmt|;
 assert|assert
 name|state
 operator|.
-name|segmentName
+name|segmentInfo
 operator|!=
 literal|null
 assert|;
@@ -404,8 +404,10 @@ name|directory
 argument_list|,
 name|docWriter
 operator|.
-name|getSegment
+name|getSegmentInfo
 argument_list|()
+operator|.
+name|name
 argument_list|,
 name|context
 argument_list|)
