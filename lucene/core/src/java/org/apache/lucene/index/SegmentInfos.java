@@ -1265,9 +1265,6 @@ name|success
 init|=
 literal|false
 decl_stmt|;
-comment|// nocommit document somewhere that we store this
-comment|// list-of-segs plus delGen plus other stuff
-comment|// "generically" and then codec gets to write SI
 specifier|final
 name|Set
 argument_list|<
