@@ -499,6 +499,29 @@ name|COMMIT
 init|=
 literal|0x04
 decl_stmt|;
+comment|// Flag indicating that this is a buffered operation, and that a gap exists before buffering started.
+comment|// for example, if full index replication starts and we are buffering updates, then this flag should
+comment|// be set to indicate that replaying the log would not bring us into sync (i.e. peersync should
+comment|// fail if this flag is set on the last update in the tlog).
+DECL|field|FLAG_GAP
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|FLAG_GAP
+init|=
+literal|0x10
+decl_stmt|;
+DECL|field|OPERATION_MASK
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|OPERATION_MASK
+init|=
+literal|0x0f
+decl_stmt|;
+comment|// mask off flags to get the operation
 DECL|class|RecoveryInfo
 specifier|public
 specifier|static
@@ -579,6 +602,12 @@ name|State
 operator|.
 name|ACTIVE
 decl_stmt|;
+DECL|field|operationFlags
+specifier|private
+name|int
+name|operationFlags
+decl_stmt|;
+comment|// flags to write in the transaction log with operations (i.e. FLAG_GAP)
 DECL|field|tlog
 specifier|private
 name|TransactionLog
@@ -799,6 +828,11 @@ name|Long
 argument_list|>
 name|startingVersions
 decl_stmt|;
+DECL|field|startingOperation
+name|int
+name|startingOperation
+decl_stmt|;
+comment|// last operation in the logs on startup
 DECL|class|LogPtr
 specifier|public
 specifier|static
@@ -1139,7 +1173,7 @@ comment|// TODO: these startingVersions assume that we successfully recover from
 name|UpdateLog
 operator|.
 name|RecentUpdates
-name|startingRecentUpdates
+name|startingUpdates
 init|=
 name|getRecentUpdates
 argument_list|()
@@ -1148,12 +1182,19 @@ try|try
 block|{
 name|startingVersions
 operator|=
-name|startingRecentUpdates
+name|startingUpdates
 operator|.
 name|getVersions
 argument_list|(
 name|numRecordsToKeep
 argument_list|)
+expr_stmt|;
+name|startingOperation
+operator|=
+name|startingUpdates
+operator|.
+name|getLatestOperation
+argument_list|()
 expr_stmt|;
 comment|// populate recent deletes list (since we can't get that info from the index)
 for|for
@@ -1161,7 +1202,7 @@ control|(
 name|int
 name|i
 init|=
-name|startingRecentUpdates
+name|startingUpdates
 operator|.
 name|deleteList
 operator|.
@@ -1181,7 +1222,7 @@ block|{
 name|DeleteUpdate
 name|du
 init|=
-name|startingRecentUpdates
+name|startingUpdates
 operator|.
 name|deleteList
 operator|.
@@ -1218,7 +1259,7 @@ block|}
 block|}
 finally|finally
 block|{
-name|startingRecentUpdates
+name|startingUpdates
 operator|.
 name|close
 argument_list|()
@@ -1246,6 +1287,16 @@ parameter_list|()
 block|{
 return|return
 name|startingVersions
+return|;
+block|}
+DECL|method|getStartingOperation
+specifier|public
+name|int
+name|getStartingOperation
+parameter_list|()
+block|{
+return|return
+name|startingOperation
 return|;
 block|}
 comment|/* Takes over ownership of the log, keeping it until no longer needed      and then decrementing it's reference and dropping it.    */
@@ -1549,6 +1600,8 @@ operator|.
 name|write
 argument_list|(
 name|cmd
+argument_list|,
+name|operationFlags
 argument_list|)
 expr_stmt|;
 block|}
@@ -1690,6 +1743,8 @@ operator|.
 name|writeDelete
 argument_list|(
 name|cmd
+argument_list|,
+name|operationFlags
 argument_list|)
 expr_stmt|;
 block|}
@@ -1825,6 +1880,8 @@ operator|.
 name|writeDeleteByQuery
 argument_list|(
 name|cmd
+argument_list|,
+name|operationFlags
 argument_list|)
 expr_stmt|;
 block|}
@@ -2145,6 +2202,8 @@ operator|.
 name|writeCommit
 argument_list|(
 name|cmd
+argument_list|,
+name|operationFlags
 argument_list|)
 expr_stmt|;
 name|addOldLog
@@ -2981,6 +3040,8 @@ operator|.
 name|writeCommit
 argument_list|(
 name|cmd
+argument_list|,
+name|operationFlags
 argument_list|)
 expr_stmt|;
 block|}
@@ -3197,6 +3258,10 @@ name|DeleteUpdate
 argument_list|>
 name|deleteList
 decl_stmt|;
+DECL|field|latestOperation
+name|int
+name|latestOperation
+decl_stmt|;
 DECL|method|getVersions
 specifier|public
 name|List
@@ -3386,6 +3451,16 @@ return|return
 name|result
 return|;
 block|}
+DECL|method|getLatestOperation
+specifier|public
+name|int
+name|getLatestOperation
+parameter_list|()
+block|{
+return|return
+name|latestOperation
+return|;
+block|}
 DECL|method|update
 specifier|private
 name|void
@@ -3517,7 +3592,7 @@ name|o
 decl_stmt|;
 comment|// TODO: refactor this out so we get common error handling
 name|int
-name|oper
+name|opAndFlags
 init|=
 operator|(
 name|Integer
@@ -3528,6 +3603,27 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|latestOperation
+operator|==
+literal|0
+condition|)
+block|{
+name|latestOperation
+operator|=
+name|opAndFlags
+expr_stmt|;
+block|}
+name|int
+name|oper
+init|=
+name|opAndFlags
+operator|&
+name|UpdateLog
+operator|.
+name|OPERATION_MASK
 decl_stmt|;
 name|long
 name|version
@@ -3967,6 +4063,11 @@ name|State
 operator|.
 name|BUFFERING
 expr_stmt|;
+comment|// currently, buffering is only called by recovery, meaning that there is most likely a gap in updates
+name|operationFlags
+operator||=
+name|FLAG_GAP
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -4049,6 +4150,11 @@ operator|=
 name|State
 operator|.
 name|ACTIVE
+expr_stmt|;
+name|operationFlags
+operator|&=
+operator|~
+name|FLAG_GAP
 expr_stmt|;
 block|}
 catch|catch
@@ -4150,6 +4256,11 @@ operator|=
 name|State
 operator|.
 name|APPLYING_BUFFERED
+expr_stmt|;
+name|operationFlags
+operator|&=
+operator|~
+name|FLAG_GAP
 expr_stmt|;
 block|}
 finally|finally
@@ -4607,6 +4718,11 @@ name|commitVersion
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|operationAndFlags
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 init|;
@@ -4762,9 +4878,8 @@ name|List
 operator|)
 name|o
 decl_stmt|;
-name|int
-name|oper
-init|=
+name|operationAndFlags
+operator|=
 operator|(
 name|Integer
 operator|)
@@ -4774,6 +4889,13 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+expr_stmt|;
+name|int
+name|oper
+init|=
+name|operationAndFlags
+operator|&
+name|OPERATION_MASK
 decl_stmt|;
 name|long
 name|version
@@ -5270,11 +5392,22 @@ condition|)
 block|{
 comment|// if we are replaying an old tlog file, we need to add a commit to the end
 comment|// so we don't replay it again if we restart right after.
+comment|// if the last operation we replayed had FLAG_GAP set, we want to use that again so we don't lose it
+comment|// as the flag on the last operation.
 name|translog
 operator|.
 name|writeCommit
 argument_list|(
 name|cmd
+argument_list|,
+name|operationFlags
+operator||
+operator|(
+name|operationAndFlags
+operator|&
+operator|~
+name|OPERATION_MASK
+operator|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -991,6 +991,10 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+operator|&
+name|UpdateLog
+operator|.
+name|OPERATION_MASK
 decl_stmt|;
 switch|switch
 condition|(
@@ -1361,6 +1365,10 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+operator|&
+name|UpdateLog
+operator|.
+name|OPERATION_MASK
 decl_stmt|;
 switch|switch
 condition|(

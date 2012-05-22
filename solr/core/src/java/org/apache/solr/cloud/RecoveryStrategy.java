@@ -1344,12 +1344,12 @@ name|List
 argument_list|<
 name|Long
 argument_list|>
-name|startingRecentVersions
+name|recentVersions
 decl_stmt|;
 name|UpdateLog
 operator|.
 name|RecentUpdates
-name|startingRecentUpdates
+name|recentUpdates
 init|=
 name|ulog
 operator|.
@@ -1358,9 +1358,9 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|startingRecentVersions
+name|recentVersions
 operator|=
-name|startingRecentUpdates
+name|recentUpdates
 operator|.
 name|getVersions
 argument_list|(
@@ -1372,7 +1372,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|startingRecentUpdates
+name|recentUpdates
 operator|.
 name|close
 argument_list|()
@@ -1382,7 +1382,7 @@ name|List
 argument_list|<
 name|Long
 argument_list|>
-name|reallyStartingVersions
+name|startingVersions
 init|=
 name|ulog
 operator|.
@@ -1391,7 +1391,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|reallyStartingVersions
+name|startingVersions
 operator|!=
 literal|null
 operator|&&
@@ -1407,14 +1407,14 @@ comment|// index of the start of the old list in the current list
 name|long
 name|firstStartingVersion
 init|=
-name|reallyStartingVersions
+name|startingVersions
 operator|.
 name|size
 argument_list|()
 operator|>
 literal|0
 condition|?
-name|reallyStartingVersions
+name|startingVersions
 operator|.
 name|get
 argument_list|(
@@ -1428,7 +1428,7 @@ control|(
 init|;
 name|oldIdx
 operator|<
-name|startingRecentVersions
+name|recentVersions
 operator|.
 name|size
 argument_list|()
@@ -1439,7 +1439,7 @@ control|)
 block|{
 if|if
 condition|(
-name|startingRecentVersions
+name|recentVersions
 operator|.
 name|get
 argument_list|(
@@ -1472,7 +1472,7 @@ name|info
 argument_list|(
 literal|"###### currentVersions="
 operator|+
-name|startingRecentVersions
+name|recentVersions
 argument_list|)
 expr_stmt|;
 block|}
@@ -1482,20 +1482,8 @@ name|info
 argument_list|(
 literal|"###### startupVersions="
 operator|+
-name|reallyStartingVersions
+name|startingVersions
 argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|recoveringAfterStartup
-condition|)
-block|{
-comment|// if we're recovering after startup (i.e. we have been down), then we need to know what the last versions were
-comment|// when we went down.
-name|startingRecentVersions
-operator|=
-name|reallyStartingVersions
 expr_stmt|;
 block|}
 name|boolean
@@ -1503,6 +1491,43 @@ name|firstTime
 init|=
 literal|true
 decl_stmt|;
+if|if
+condition|(
+name|recoveringAfterStartup
+condition|)
+block|{
+comment|// if we're recovering after startup (i.e. we have been down), then we need to know what the last versions were
+comment|// when we went down.  We may have received updates since then.
+name|recentVersions
+operator|=
+name|startingVersions
+expr_stmt|;
+if|if
+condition|(
+operator|(
+name|ulog
+operator|.
+name|getStartingOperation
+argument_list|()
+operator|&
+name|UpdateLog
+operator|.
+name|FLAG_GAP
+operator|)
+operator|!=
+literal|0
+condition|)
+block|{
+comment|// last operation at the time of startup had the GAP flag set...
+comment|// this means we were previously doing a full index replication
+comment|// that probably didn't complete and buffering updates in the meantime.
+name|firstTime
+operator|=
+literal|false
+expr_stmt|;
+comment|// skip peersync
+block|}
+block|}
 while|while
 condition|(
 operator|!
@@ -1656,7 +1681,7 @@ name|peerSync
 operator|.
 name|setStartingVersions
 argument_list|(
-name|startingRecentVersions
+name|recentVersions
 argument_list|)
 expr_stmt|;
 name|boolean
