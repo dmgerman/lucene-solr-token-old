@@ -203,7 +203,7 @@ name|index
 operator|.
 name|FieldInfos
 operator|.
-name|FieldNumberBiMap
+name|FieldNumbers
 import|;
 end_import
 begin_import
@@ -564,7 +564,7 @@ decl_stmt|;
 comment|// the segments
 DECL|field|globalFieldNumberMap
 specifier|final
-name|FieldNumberBiMap
+name|FieldNumbers
 name|globalFieldNumberMap
 decl_stmt|;
 DECL|field|docWriter
@@ -2331,18 +2331,18 @@ block|}
 comment|/**    * Loads or returns the already loaded the global field number map for this {@link SegmentInfos}.    * If this {@link SegmentInfos} has no global field number map the returned instance is empty    */
 DECL|method|getFieldNumberMap
 specifier|private
-name|FieldNumberBiMap
+name|FieldNumbers
 name|getFieldNumberMap
 parameter_list|()
 throws|throws
 name|IOException
 block|{
 specifier|final
-name|FieldNumberBiMap
+name|FieldNumbers
 name|map
 init|=
 operator|new
-name|FieldNumberBiMap
+name|FieldNumbers
 argument_list|()
 decl_stmt|;
 name|SegmentInfoPerCommit
@@ -6789,13 +6789,7 @@ name|NONE
 argument_list|,
 name|payloadProcessorProvider
 argument_list|,
-operator|new
-name|FieldInfos
-operator|.
-name|Builder
-argument_list|(
 name|globalFieldNumberMap
-argument_list|)
 argument_list|,
 name|codec
 argument_list|,
@@ -11801,13 +11795,7 @@ name|checkAbort
 argument_list|,
 name|payloadProcessorProvider
 argument_list|,
-operator|new
-name|FieldInfos
-operator|.
-name|Builder
-argument_list|(
 name|globalFieldNumberMap
-argument_list|)
 argument_list|,
 name|codec
 argument_list|,

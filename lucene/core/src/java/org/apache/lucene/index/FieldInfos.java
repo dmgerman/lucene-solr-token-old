@@ -520,11 +520,11 @@ else|:
 literal|null
 return|;
 block|}
-DECL|class|FieldNumberBiMap
+DECL|class|FieldNumbers
 specifier|static
 specifier|final
 class|class
-name|FieldNumberBiMap
+name|FieldNumbers
 block|{
 DECL|field|numberToName
 specifier|private
@@ -556,8 +556,8 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|method|FieldNumberBiMap
-name|FieldNumberBiMap
+DECL|method|FieldNumbers
+name|FieldNumbers
 parameter_list|()
 block|{
 name|this
@@ -839,7 +839,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|globalFieldNumbers
 specifier|final
-name|FieldNumberBiMap
+name|FieldNumbers
 name|globalFieldNumbers
 decl_stmt|;
 DECL|method|Builder
@@ -849,16 +849,16 @@ block|{
 name|this
 argument_list|(
 operator|new
-name|FieldNumberBiMap
+name|FieldNumbers
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new instance with the given {@link FieldNumberBiMap}.       */
+comment|/**      * Creates a new instance with the given {@link FieldNumbers}.       */
 DECL|method|Builder
 name|Builder
 parameter_list|(
-name|FieldNumberBiMap
+name|FieldNumbers
 name|globalFieldNumbers
 parameter_list|)
 block|{
