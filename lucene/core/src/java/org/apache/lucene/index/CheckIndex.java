@@ -1771,8 +1771,6 @@ literal|"    numFiles="
 operator|+
 name|info
 operator|.
-name|info
-operator|.
 name|files
 argument_list|()
 operator|.
@@ -1784,8 +1782,6 @@ name|segInfoStat
 operator|.
 name|numFiles
 operator|=
-name|info
-operator|.
 name|info
 operator|.
 name|files

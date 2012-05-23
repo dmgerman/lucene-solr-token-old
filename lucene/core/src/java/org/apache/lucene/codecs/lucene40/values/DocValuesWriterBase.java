@@ -273,7 +273,6 @@ name|boolean
 name|fasterButMoreRam
 parameter_list|)
 block|{
-comment|// nocommit save away SegmentInfo instead?
 name|this
 operator|.
 name|segmentName

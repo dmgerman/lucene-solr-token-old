@@ -4039,8 +4039,6 @@ name|maxNumSegments
 operator|=
 name|maxNumSegments
 expr_stmt|;
-comment|// nocommit: remove this, except it causes
-comment|// TestExternalCodecs.testPerFieldCodec failures:
 name|segmentsToMerge
 operator|.
 name|put
@@ -4072,8 +4070,6 @@ name|maxNumSegments
 operator|=
 name|maxNumSegments
 expr_stmt|;
-comment|// nocommit: remove this, except it causes
-comment|// TestExternalCodecs.testPerFieldCodec failures:
 name|segmentsToMerge
 operator|.
 name|put
@@ -5795,7 +5791,7 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
-comment|// nocommit ideally we would freeze newSegment here!!
+comment|// TODO: ideally we would freeze newSegment here!!
 comment|// because any changes after writing the .si will be
 comment|// lost...
 comment|// Must write deleted docs after the CFS so we don't
@@ -7000,10 +6996,7 @@ argument_list|)
 expr_stmt|;
 name|info
 operator|.
-name|getFiles
-argument_list|()
-operator|.
-name|addAll
+name|addFiles
 argument_list|(
 name|trackingDir
 operator|.
@@ -7449,7 +7442,8 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// Build up new segment's file names:
+comment|// Build up new segment's file names.  Must do this
+comment|// before writing SegmentInfo:
 for|for
 control|(
 name|String
@@ -7519,6 +7513,15 @@ expr_stmt|;
 comment|// We must rewrite the SI file because it references
 comment|// segment name (its own name, if its 3.x, and doc
 comment|// store segment name):
+name|TrackingDirectoryWrapper
+name|trackingDir
+init|=
+operator|new
+name|TrackingDirectoryWrapper
+argument_list|(
+name|directory
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 name|newInfo
@@ -7534,7 +7537,7 @@ argument_list|()
 operator|.
 name|write
 argument_list|(
-name|directory
+name|trackingDir
 argument_list|,
 name|newInfo
 argument_list|,
@@ -7553,6 +7556,18 @@ block|{
 comment|// OK: 3x codec cannot write a new SI file;
 comment|// SegmentInfos will write this on commit
 block|}
+specifier|final
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|siFiles
+init|=
+name|trackingDir
+operator|.
+name|getCreatedFiles
+argument_list|()
+decl_stmt|;
 comment|// Copy the segment's files
 for|for
 control|(
@@ -7624,15 +7639,13 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
-comment|// nocommit hack
-comment|//if (siFileNames != null&& siFileNames.contains(newFileName)) {
 if|if
 condition|(
-name|newFileName
+name|siFiles
 operator|.
-name|endsWith
+name|contains
 argument_list|(
-literal|".si"
+name|newFileName
 argument_list|)
 condition|)
 block|{
@@ -7652,7 +7665,9 @@ literal|"file \""
 operator|+
 name|newFileName
 operator|+
-literal|"\" already exists"
+literal|"\" already exists; siFiles="
+operator|+
+name|siFiles
 assert|;
 assert|assert
 operator|!
@@ -12144,7 +12159,6 @@ operator|.
 name|merge
 argument_list|()
 decl_stmt|;
-comment|// nocommit use setter and make this a SetOnce:
 name|merge
 operator|.
 name|info
@@ -12663,7 +12677,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// nocommit ideally we would freeze merge.info here!!
+comment|// TODO: ideally we would freeze merge.info here!!
 comment|// because any changes after writing the .si will be
 comment|// lost...
 if|if
@@ -14170,6 +14184,7 @@ name|cfsDir
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Replace all previous files with the CFS/CFE files:
 name|Set
 argument_list|<
 name|String
