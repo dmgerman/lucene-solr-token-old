@@ -48,10 +48,13 @@ name|Type
 import|;
 end_import
 begin_comment
-comment|// nocommit remove this?  (require DV type does not change
+comment|// TODO: maybe we should not automagically promote
 end_comment
 begin_comment
-comment|// for a given field)
+comment|// types... and instead require a given field always has the
+end_comment
+begin_comment
+comment|// same type?
 end_comment
 begin_comment
 comment|/**  * Type promoter that promotes {@link DocValues} during merge based on  * their {@link Type} and {@link #getValueSize()}  *   * @lucene.internal  */

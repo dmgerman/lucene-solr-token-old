@@ -57,12 +57,6 @@ end_import
 begin_comment
 comment|/** Embeds a [read-only] SegmentInfo and adds per-commit  *  fields.  *  *  @lucene.experimental */
 end_comment
-begin_comment
-comment|// nocommit this class feels alot like ReaderAndLiveDocs...?
-end_comment
-begin_comment
-comment|// like it carries mutable per-segment state....?
-end_comment
 begin_class
 DECL|class|SegmentInfoPerCommit
 specifier|public
@@ -480,7 +474,6 @@ name|SegmentInfoPerCommit
 name|clone
 parameter_list|()
 block|{
-comment|// nocommit ok?  SI is immutable!?
 return|return
 operator|new
 name|SegmentInfoPerCommit
