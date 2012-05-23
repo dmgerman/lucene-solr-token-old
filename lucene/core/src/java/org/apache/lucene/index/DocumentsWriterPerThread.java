@@ -1935,6 +1935,13 @@ literal|null
 operator|:
 literal|"all deletes must be applied in prepareFlush"
 assert|;
+name|segmentInfo
+operator|.
+name|setDocCount
+argument_list|(
+name|numDocsInRAM
+argument_list|)
+expr_stmt|;
 name|flushState
 operator|=
 operator|new
@@ -1950,8 +1957,6 @@ name|fieldInfos
 operator|.
 name|finish
 argument_list|()
-argument_list|,
-name|numDocsInRAM
 argument_list|,
 name|writer
 operator|.
@@ -2159,16 +2164,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|// nocommit use setter and make this a SetOnce:
-name|segmentInfo
-operator|.
-name|setDocCount
-argument_list|(
-name|flushState
-operator|.
-name|numDocs
-argument_list|)
-expr_stmt|;
 name|segmentInfo
 operator|.
 name|setFiles
@@ -2231,7 +2226,10 @@ else|:
 operator|(
 name|flushState
 operator|.
-name|numDocs
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
 operator|-
 name|flushState
 operator|.
@@ -2354,7 +2352,10 @@ name|flushedDocCount
 operator|+=
 name|flushState
 operator|.
-name|numDocs
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
 expr_stmt|;
 specifier|final
 name|BufferedDeletes

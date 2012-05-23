@@ -310,7 +310,10 @@ name|totalNumDocs
 operator|=
 name|state
 operator|.
-name|numDocs
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
 expr_stmt|;
 name|success
 operator|=

@@ -236,13 +236,21 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|int
+name|numDocs
+init|=
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
+decl_stmt|;
 comment|// At least one doc in this run had term vectors enabled
 try|try
 block|{
 name|fill
 argument_list|(
-name|state
-operator|.
 name|numDocs
 argument_list|)
 expr_stmt|;
@@ -261,8 +269,6 @@ name|state
 operator|.
 name|fieldInfos
 argument_list|,
-name|state
-operator|.
 name|numDocs
 argument_list|)
 expr_stmt|;
