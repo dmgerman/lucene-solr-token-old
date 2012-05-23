@@ -525,7 +525,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 assert|;
 return|return
 operator|(
@@ -533,7 +534,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 operator|-
 operator|(
 name|long
@@ -549,7 +551,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 return|;
 block|}
 block|}
@@ -598,7 +601,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 operator|<=
 literal|0
 condition|?
@@ -617,7 +621,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 operator|)
 operator|)
 decl_stmt|;
@@ -632,7 +637,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 operator|<=
 literal|0
 condition|?

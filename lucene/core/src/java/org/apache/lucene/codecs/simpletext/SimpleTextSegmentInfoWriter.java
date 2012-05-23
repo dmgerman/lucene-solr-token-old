@@ -477,7 +477,8 @@ name|toString
 argument_list|(
 name|si
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 argument_list|)
 argument_list|,
 name|scratch

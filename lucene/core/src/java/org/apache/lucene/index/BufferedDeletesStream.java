@@ -1058,7 +1058,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 assert|;
 name|segAllDeletes
 operator|=
@@ -1070,7 +1071,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 expr_stmt|;
 block|}
 finally|finally
@@ -1318,7 +1320,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 assert|;
 name|segAllDeletes
 operator|=
@@ -1330,7 +1333,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 expr_stmt|;
 block|}
 finally|finally

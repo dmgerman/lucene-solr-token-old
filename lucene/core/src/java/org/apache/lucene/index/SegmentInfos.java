@@ -1011,7 +1011,8 @@ name|delCount
 operator|<=
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 assert|;
 name|add
 argument_list|(
@@ -1405,7 +1406,8 @@ argument_list|()
 operator|<=
 name|si
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 assert|;
 comment|// If this segment is pre-4.x, perform a one-time
 comment|// "ugprade" to write the .si file for it:
@@ -1666,7 +1668,8 @@ name|writeInt
 argument_list|(
 name|si
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// NOTE: a lie
@@ -3719,7 +3722,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 expr_stmt|;
 block|}
 return|return

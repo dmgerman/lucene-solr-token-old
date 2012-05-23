@@ -323,7 +323,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 operator|-
 name|info
 operator|.
@@ -343,7 +344,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 operator|+
 literal|" info.getDelCount()="
 operator|+
@@ -362,7 +364,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 assert|;
 return|return
 name|liveDocs
@@ -433,7 +436,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 operator|-
 name|info
 operator|.
@@ -452,7 +456,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 assert|;
 name|liveDocs
 operator|.

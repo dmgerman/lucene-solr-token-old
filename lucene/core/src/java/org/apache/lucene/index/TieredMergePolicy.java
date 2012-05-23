@@ -2440,7 +2440,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -2827,7 +2828,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 operator|<=
 literal|0
 condition|?
@@ -2846,7 +2848,8 @@ name|info
 operator|.
 name|info
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 operator|)
 operator|)
 decl_stmt|;

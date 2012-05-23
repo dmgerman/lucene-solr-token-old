@@ -719,7 +719,8 @@ name|size
 init|=
 name|si
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 decl_stmt|;
 name|boolean
 name|success
@@ -968,7 +969,8 @@ name|size
 operator|!=
 name|si
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -989,7 +991,8 @@ literal|" but segmentInfo shows "
 operator|+
 name|si
 operator|.
-name|docCount
+name|getDocCount
+argument_list|()
 argument_list|)
 throw|;
 block|}
