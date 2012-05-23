@@ -1153,8 +1153,6 @@ operator|.
 name|FieldNumbers
 argument_list|()
 argument_list|,
-name|codec
-argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
