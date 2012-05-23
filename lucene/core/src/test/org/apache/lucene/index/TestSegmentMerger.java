@@ -519,7 +519,10 @@ name|docsMerged
 init|=
 name|mergeState
 operator|.
-name|mergedDocCount
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
