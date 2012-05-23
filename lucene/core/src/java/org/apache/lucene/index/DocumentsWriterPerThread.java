@@ -2171,6 +2171,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+comment|// nocommit use setter and make this a SetOnce:
 name|segmentInfo
 operator|.
 name|docCount
