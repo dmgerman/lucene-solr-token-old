@@ -690,6 +690,19 @@ name|close
 operator|=
 literal|true
 expr_stmt|;
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Stopping recovery for core "
+operator|+
+name|coreName
+operator|+
+literal|" zkNodeName="
+operator|+
+name|coreZkNodeName
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|recoveryFailed
 specifier|private
@@ -726,6 +739,8 @@ argument_list|,
 literal|"Recovery failed - I give up."
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|zkController
 operator|.
 name|publishAsRecoveryFailed
@@ -742,10 +757,13 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|close
-operator|=
-literal|true
+argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|replicate
 specifier|private
@@ -910,7 +928,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|close
+name|isClosed
+argument_list|()
 condition|)
 name|retries
 operator|=
@@ -1344,12 +1363,12 @@ name|List
 argument_list|<
 name|Long
 argument_list|>
-name|startingRecentVersions
+name|recentVersions
 decl_stmt|;
 name|UpdateLog
 operator|.
 name|RecentUpdates
-name|startingRecentUpdates
+name|recentUpdates
 init|=
 name|ulog
 operator|.
@@ -1358,9 +1377,9 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|startingRecentVersions
+name|recentVersions
 operator|=
-name|startingRecentUpdates
+name|recentUpdates
 operator|.
 name|getVersions
 argument_list|(
@@ -1372,7 +1391,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|startingRecentUpdates
+name|recentUpdates
 operator|.
 name|close
 argument_list|()
@@ -1382,7 +1401,7 @@ name|List
 argument_list|<
 name|Long
 argument_list|>
-name|reallyStartingVersions
+name|startingVersions
 init|=
 name|ulog
 operator|.
@@ -1391,7 +1410,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|reallyStartingVersions
+name|startingVersions
 operator|!=
 literal|null
 operator|&&
@@ -1407,14 +1426,14 @@ comment|// index of the start of the old list in the current list
 name|long
 name|firstStartingVersion
 init|=
-name|reallyStartingVersions
+name|startingVersions
 operator|.
 name|size
 argument_list|()
 operator|>
 literal|0
 condition|?
-name|reallyStartingVersions
+name|startingVersions
 operator|.
 name|get
 argument_list|(
@@ -1428,7 +1447,7 @@ control|(
 init|;
 name|oldIdx
 operator|<
-name|startingRecentVersions
+name|recentVersions
 operator|.
 name|size
 argument_list|()
@@ -1439,7 +1458,7 @@ control|)
 block|{
 if|if
 condition|(
-name|startingRecentVersions
+name|recentVersions
 operator|.
 name|get
 argument_list|(
@@ -1472,7 +1491,7 @@ name|info
 argument_list|(
 literal|"###### currentVersions="
 operator|+
-name|startingRecentVersions
+name|recentVersions
 argument_list|)
 expr_stmt|;
 block|}
@@ -1482,20 +1501,8 @@ name|info
 argument_list|(
 literal|"###### startupVersions="
 operator|+
-name|reallyStartingVersions
+name|startingVersions
 argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|recoveringAfterStartup
-condition|)
-block|{
-comment|// if we're recovering after startup (i.e. we have been down), then we need to know what the last versions were
-comment|// when we went down.
-name|startingRecentVersions
-operator|=
-name|reallyStartingVersions
 expr_stmt|;
 block|}
 name|boolean
@@ -1503,13 +1510,51 @@ name|firstTime
 init|=
 literal|true
 decl_stmt|;
+if|if
+condition|(
+name|recoveringAfterStartup
+condition|)
+block|{
+comment|// if we're recovering after startup (i.e. we have been down), then we need to know what the last versions were
+comment|// when we went down.  We may have received updates since then.
+name|recentVersions
+operator|=
+name|startingVersions
+expr_stmt|;
+if|if
+condition|(
+operator|(
+name|ulog
+operator|.
+name|getStartingOperation
+argument_list|()
+operator|&
+name|UpdateLog
+operator|.
+name|FLAG_GAP
+operator|)
+operator|!=
+literal|0
+condition|)
+block|{
+comment|// last operation at the time of startup had the GAP flag set...
+comment|// this means we were previously doing a full index replication
+comment|// that probably didn't complete and buffering updates in the meantime.
+name|firstTime
+operator|=
+literal|false
+expr_stmt|;
+comment|// skip peersync
+block|}
+block|}
 while|while
 condition|(
 operator|!
 name|successfulRecovery
 operator|&&
 operator|!
-name|close
+name|isClosed
+argument_list|()
 operator|&&
 operator|!
 name|isInterrupted
@@ -1656,7 +1701,7 @@ name|peerSync
 operator|.
 name|setStartingVersions
 argument_list|(
-name|startingRecentVersions
+name|recentVersions
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -2003,12 +2048,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|SolrException
+name|log
 operator|.
-name|log
+name|error
 argument_list|(
-name|log
-argument_list|,
 literal|""
 argument_list|,
 name|e
@@ -2017,22 +2060,44 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|Thread
-operator|.
-name|sleep
-argument_list|(
+comment|// if (!isClosed()) Thread.sleep(Math.min(START_TIMEOUT * retries, 60000));
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
 name|Math
 operator|.
 name|min
 argument_list|(
-name|START_TIMEOUT
-operator|*
 name|retries
 argument_list|,
-literal|60000
+literal|600
 argument_list|)
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|isClosed
+argument_list|()
+condition|)
+break|break;
+comment|// check if someone closed us
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+name|START_TIMEOUT
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

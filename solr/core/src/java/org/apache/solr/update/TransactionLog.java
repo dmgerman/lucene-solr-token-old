@@ -1479,6 +1479,9 @@ name|write
 parameter_list|(
 name|AddUpdateCommand
 name|cmd
+parameter_list|,
+name|int
+name|flags
 parameter_list|)
 block|{
 name|LogCodec
@@ -1571,6 +1574,8 @@ argument_list|(
 name|UpdateLog
 operator|.
 name|ADD
+operator||
+name|flags
 argument_list|)
 expr_stmt|;
 comment|// should just take one byte
@@ -1636,6 +1641,9 @@ name|writeDelete
 parameter_list|(
 name|DeleteUpdateCommand
 name|cmd
+parameter_list|,
+name|int
+name|flags
 parameter_list|)
 block|{
 name|LogCodec
@@ -1706,6 +1714,8 @@ argument_list|(
 name|UpdateLog
 operator|.
 name|DELETE
+operator||
+name|flags
 argument_list|)
 expr_stmt|;
 comment|// should just take one byte
@@ -1783,6 +1793,9 @@ name|writeDeleteByQuery
 parameter_list|(
 name|DeleteUpdateCommand
 name|cmd
+parameter_list|,
+name|int
+name|flags
 parameter_list|)
 block|{
 name|LogCodec
@@ -1853,6 +1866,8 @@ argument_list|(
 name|UpdateLog
 operator|.
 name|DELETE_BY_QUERY
+operator||
+name|flags
 argument_list|)
 expr_stmt|;
 comment|// should just take one byte
@@ -1914,6 +1929,9 @@ name|writeCommit
 parameter_list|(
 name|CommitUpdateCommand
 name|cmd
+parameter_list|,
+name|int
+name|flags
 parameter_list|)
 block|{
 name|LogCodec
@@ -1984,6 +2002,8 @@ argument_list|(
 name|UpdateLog
 operator|.
 name|COMMIT
+operator||
+name|flags
 argument_list|)
 expr_stmt|;
 comment|// should just take one byte
