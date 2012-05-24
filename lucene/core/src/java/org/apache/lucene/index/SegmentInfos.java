@@ -1468,7 +1468,7 @@ literal|""
 argument_list|,
 name|Lucene3xSegmentInfoFormat
 operator|.
-name|SI_EXTENSION
+name|UPGRADED_SI_EXTENSION
 argument_list|)
 decl_stmt|;
 if|if
@@ -1620,7 +1620,7 @@ literal|""
 argument_list|,
 name|Lucene3xSegmentInfoFormat
 operator|.
-name|SI_EXTENSION
+name|UPGRADED_SI_EXTENSION
 argument_list|)
 decl_stmt|;
 name|si
@@ -1662,6 +1662,21 @@ name|Lucene3xCodec
 operator|:
 literal|"broken test, trying to mix preflex with other codecs"
 assert|;
+name|CodecUtil
+operator|.
+name|writeHeader
+argument_list|(
+name|output
+argument_list|,
+name|Lucene3xSegmentInfoFormat
+operator|.
+name|UPGRADED_SI_CODEC_NAME
+argument_list|,
+name|Lucene3xSegmentInfoFormat
+operator|.
+name|UPGRADED_SI_VERSION_CURRENT
+argument_list|)
+expr_stmt|;
 comment|// Write the Lucene version that created this segment, since 3.1
 name|output
 operator|.

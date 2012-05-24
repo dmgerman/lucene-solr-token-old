@@ -223,6 +223,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|CodecUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|IOUtils
 import|;
 end_import
@@ -573,7 +586,7 @@ literal|""
 argument_list|,
 name|Lucene3xSegmentInfoFormat
 operator|.
-name|SI_EXTENSION
+name|UPGRADED_SI_EXTENSION
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -595,7 +608,6 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// nocommit: we need a version header
 name|SegmentInfo
 name|si
 init|=
@@ -701,13 +713,6 @@ throws|throws
 name|IOException
 block|{
 comment|// check that it is a format we can understand
-assert|assert
-name|format
-operator|!=
-name|Lucene3xSegmentInfoFormat
-operator|.
-name|FORMAT_4X_UPGRADE
-assert|;
 if|if
 condition|(
 name|format
@@ -731,7 +736,7 @@ name|FORMAT_DIAGNOSTICS
 argument_list|,
 name|Lucene3xSegmentInfoFormat
 operator|.
-name|FORMAT_4X_UPGRADE
+name|FORMAT_3_1
 argument_list|)
 throw|;
 block|}
@@ -758,7 +763,7 @@ name|FORMAT_DIAGNOSTICS
 argument_list|,
 name|Lucene3xSegmentInfoFormat
 operator|.
-name|FORMAT_4X_UPGRADE
+name|FORMAT_3_1
 argument_list|)
 throw|;
 block|}
@@ -1659,6 +1664,25 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|CodecUtil
+operator|.
+name|checkHeader
+argument_list|(
+name|input
+argument_list|,
+name|Lucene3xSegmentInfoFormat
+operator|.
+name|UPGRADED_SI_CODEC_NAME
+argument_list|,
+name|Lucene3xSegmentInfoFormat
+operator|.
+name|UPGRADED_SI_VERSION_START
+argument_list|,
+name|Lucene3xSegmentInfoFormat
+operator|.
+name|UPGRADED_SI_VERSION_CURRENT
+argument_list|)
+expr_stmt|;
 specifier|final
 name|String
 name|version
