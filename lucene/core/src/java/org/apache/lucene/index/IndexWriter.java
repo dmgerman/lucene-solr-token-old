@@ -2227,7 +2227,7 @@ specifier|private
 name|FieldInfos
 name|getFieldInfos
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentInfo
 name|info
 parameter_list|)
 throws|throws
@@ -2244,8 +2244,6 @@ if|if
 condition|(
 name|info
 operator|.
-name|info
-operator|.
 name|getUseCompoundFile
 argument_list|()
 condition|)
@@ -2255,14 +2253,14 @@ operator|=
 operator|new
 name|CompoundFileDirectory
 argument_list|(
-name|directory
+name|info
+operator|.
+name|dir
 argument_list|,
 name|IndexFileNames
 operator|.
 name|segmentFileName
 argument_list|(
-name|info
-operator|.
 name|info
 operator|.
 name|name
@@ -2286,12 +2284,12 @@ else|else
 block|{
 name|cfsDir
 operator|=
-name|directory
+name|info
+operator|.
+name|dir
 expr_stmt|;
 block|}
 return|return
-name|info
-operator|.
 name|info
 operator|.
 name|getCodec
@@ -2309,8 +2307,6 @@ name|cfsDir
 argument_list|,
 name|info
 operator|.
-name|info
-operator|.
 name|name
 argument_list|,
 name|IOContext
@@ -2323,8 +2319,6 @@ finally|finally
 block|{
 if|if
 condition|(
-name|info
-operator|.
 name|info
 operator|.
 name|getUseCompoundFile
@@ -2429,6 +2423,8 @@ range|:
 name|getFieldInfos
 argument_list|(
 name|biggest
+operator|.
+name|info
 argument_list|)
 control|)
 block|{
@@ -7063,7 +7059,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/** Copies the segment files as-is into the IndexWriter's directory. */
-comment|// nocommit: this gets insanely crazy: if there is any 3.x can we just open a reader and AddIndexes(Reader) ?!
 DECL|method|copySegmentAsIs
 specifier|private
 name|SegmentInfoPerCommit
@@ -7163,6 +7158,18 @@ operator|=
 name|segName
 expr_stmt|;
 block|}
+comment|// note: we don't really need this fis (its copied), but we load it up
+comment|// so we don't pass a null value to the si writer
+name|FieldInfos
+name|fis
+init|=
+name|getFieldInfos
+argument_list|(
+name|info
+operator|.
+name|info
+argument_list|)
+decl_stmt|;
 name|Set
 argument_list|<
 name|String
@@ -7187,17 +7194,8 @@ name|String
 argument_list|>
 name|attributes
 decl_stmt|;
-if|if
-condition|(
-name|docStoreFiles3xOnly
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// only violate the codec this way if it's preflex&
-comment|// shares doc stores
-comment|// change docStoreSegment to newDsName
-comment|// copy the attributes map, we modify it below:
+comment|// copy the attributes map, we might modify it below.
+comment|// also we need to ensure its read-write, since we will invoke the SIwriter (which might want to set something).
 if|if
 condition|(
 name|info
@@ -7243,6 +7241,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|docStoreFiles3xOnly
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// only violate the codec this way if it's preflex&
+comment|// shares doc stores
 comment|// change docStoreSegment to newDsName
 name|attributes
 operator|.
@@ -7254,18 +7261,6 @@ name|DS_NAME_KEY
 argument_list|,
 name|newDsName
 argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|attributes
-operator|=
-name|info
-operator|.
-name|info
-operator|.
-name|attributes
-argument_list|()
 expr_stmt|;
 block|}
 comment|//System.out.println("copy seg=" + info.info.name + " version=" + info.info.getVersion());
@@ -7315,12 +7310,7 @@ operator|.
 name|getDiagnostics
 argument_list|()
 argument_list|,
-name|Collections
-operator|.
-name|unmodifiableMap
-argument_list|(
 name|attributes
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|SegmentInfoPerCommit
@@ -7458,7 +7448,7 @@ name|trackingDir
 argument_list|,
 name|newInfo
 argument_list|,
-literal|null
+name|fis
 argument_list|,
 name|context
 argument_list|)
