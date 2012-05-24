@@ -20,15 +20,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|io
 operator|.
 name|IOException
@@ -83,19 +74,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SegmentInfo
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|SegmentWriteState
 import|;
 end_import
@@ -113,7 +91,7 @@ name|SegmentReadState
 import|;
 end_import
 begin_comment
-comment|/** Codec that reads the pre-flex-indexing postings  *  format.  It does not provide a writer because newly  *  written segments should use StandardCodec.  *  * @deprecated (4.0) This is only used to read indexes created  * before 4.0.  * @lucene.experimental  */
+comment|/** Codec that reads the pre-flex-indexing postings  *  format.  It does not provide a writer because newly  *  written segments should use the Codec configured on IndexWriter.  *  * @deprecated (4.0) This is only used to read indexes created  * before 4.0.  * @lucene.experimental  */
 end_comment
 begin_class
 annotation|@
