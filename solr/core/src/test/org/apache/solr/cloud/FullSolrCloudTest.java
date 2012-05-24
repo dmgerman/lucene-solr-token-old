@@ -456,8 +456,6 @@ begin_comment
 comment|/**  *   * TODO: we should still test this works as a custom update chain as well as  * what we test now - the default update chain  *   */
 end_comment
 begin_class
-annotation|@
-name|Ignore
 DECL|class|FullSolrCloudTest
 specifier|public
 class|class
