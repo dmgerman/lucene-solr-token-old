@@ -1103,8 +1103,6 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|null
-argument_list|,
 literal|false
 argument_list|,
 name|codec
@@ -1214,8 +1212,6 @@ name|info
 operator|.
 name|getDocCount
 argument_list|()
-argument_list|,
-literal|null
 argument_list|,
 literal|false
 argument_list|,

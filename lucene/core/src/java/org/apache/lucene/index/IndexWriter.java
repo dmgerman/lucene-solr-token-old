@@ -6750,8 +6750,6 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|null
-argument_list|,
 literal|false
 argument_list|,
 name|codec
@@ -7393,13 +7391,6 @@ operator|.
 name|info
 operator|.
 name|getDocCount
-argument_list|()
-argument_list|,
-name|info
-operator|.
-name|info
-operator|.
-name|getNormGen
 argument_list|()
 argument_list|,
 name|info
@@ -11128,8 +11119,6 @@ name|mergeSegmentName
 argument_list|,
 operator|-
 literal|1
-argument_list|,
-literal|null
 argument_list|,
 literal|false
 argument_list|,

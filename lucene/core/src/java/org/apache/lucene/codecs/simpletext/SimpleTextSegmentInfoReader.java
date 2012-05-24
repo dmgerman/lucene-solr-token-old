@@ -779,8 +779,6 @@ name|segmentName
 argument_list|,
 name|docCount
 argument_list|,
-literal|null
-argument_list|,
 name|isCompoundFile
 argument_list|,
 literal|null
