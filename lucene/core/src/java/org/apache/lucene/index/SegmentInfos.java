@@ -1675,29 +1675,12 @@ argument_list|)
 expr_stmt|;
 name|output
 operator|.
-name|writeString
-argument_list|(
-name|si
-operator|.
-name|name
-argument_list|)
-expr_stmt|;
-name|output
-operator|.
 name|writeInt
 argument_list|(
 name|si
 operator|.
 name|getDocCount
 argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// NOTE: a lie
-name|output
-operator|.
-name|writeLong
-argument_list|(
-literal|0L
 argument_list|)
 expr_stmt|;
 name|output
@@ -1708,17 +1691,6 @@ name|si
 operator|.
 name|attributes
 argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// pre-4.0 indexes write a byte if there is a single norms file
-name|output
-operator|.
-name|writeByte
-argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
 argument_list|)
 expr_stmt|;
 name|Map
@@ -1816,25 +1788,6 @@ name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// NOTE: a lie
-name|output
-operator|.
-name|writeInt
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// hasProx (lie):
-name|output
-operator|.
-name|writeByte
-argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
-argument_list|)
-expr_stmt|;
 name|output
 operator|.
 name|writeStringStringMap
@@ -1843,17 +1796,6 @@ name|si
 operator|.
 name|getDiagnostics
 argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// hasVectors (lie):
-name|output
-operator|.
-name|writeByte
-argument_list|(
-operator|(
-name|byte
-operator|)
-literal|1
 argument_list|)
 expr_stmt|;
 name|output
