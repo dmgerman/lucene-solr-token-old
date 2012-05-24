@@ -233,15 +233,6 @@ expr_stmt|;
 assert|assert
 name|si
 operator|.
-name|getDocStoreOffset
-argument_list|()
-operator|==
-operator|-
-literal|1
-assert|;
-assert|assert
-name|si
-operator|.
 name|getNormGen
 argument_list|()
 operator|==
