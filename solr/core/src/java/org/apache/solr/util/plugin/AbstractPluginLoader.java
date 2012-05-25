@@ -423,13 +423,15 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-comment|// In a production environment, we can tolerate an error in some request handlers,
-comment|// still load the others, and have a working system.
-try|try
-block|{
 name|String
 name|name
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|name
+operator|=
 name|DOMUtil
 operator|.
 name|getAttr
@@ -444,7 +446,7 @@ name|type
 else|:
 literal|null
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|String
 name|className
 init|=
@@ -664,7 +666,23 @@ literal|"Plugin init failure for "
 operator|+
 name|type
 operator|+
-literal|":"
+operator|(
+literal|null
+operator|!=
+name|name
+condition|?
+operator|(
+literal|" \""
+operator|+
+name|name
+operator|+
+literal|"\""
+operator|)
+else|:
+literal|""
+operator|)
+operator|+
+literal|": "
 operator|+
 name|ex
 operator|.
