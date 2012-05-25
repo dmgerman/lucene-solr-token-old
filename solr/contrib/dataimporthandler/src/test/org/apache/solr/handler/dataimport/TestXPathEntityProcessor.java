@@ -1373,7 +1373,7 @@ argument_list|,
 literal|"x.xsl"
 argument_list|)
 operator|.
-name|getAbsolutePath
+name|toURI
 argument_list|()
 argument_list|,
 literal|"url"
