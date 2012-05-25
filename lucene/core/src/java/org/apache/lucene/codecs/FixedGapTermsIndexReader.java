@@ -1682,6 +1682,10 @@ name|termsDictOffsetsIter
 operator|.
 name|getBitsPerValue
 argument_list|()
+argument_list|,
+name|PackedInts
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|PackedInts
@@ -1703,6 +1707,10 @@ name|termOffsetsIter
 operator|.
 name|getBitsPerValue
 argument_list|()
+argument_list|,
+name|PackedInts
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|termsDictOffsets

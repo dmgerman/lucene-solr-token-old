@@ -1333,8 +1333,8 @@ parameter_list|,
 name|String
 name|field
 parameter_list|,
-name|boolean
-name|fasterButMoreRAM
+name|float
+name|acceptableOverheadRatio
 parameter_list|)
 throws|throws
 name|IOException
@@ -1568,8 +1568,8 @@ parameter_list|,
 name|String
 name|field
 parameter_list|,
-name|boolean
-name|fasterButMoreRAM
+name|float
+name|acceptableOverheadRatio
 parameter_list|)
 throws|throws
 name|IOException

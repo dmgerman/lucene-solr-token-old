@@ -411,8 +411,8 @@ parameter_list|,
 name|IOContext
 name|context
 parameter_list|,
-name|boolean
-name|fasterButMoreRam
+name|float
+name|acceptableOverheadRatio
 parameter_list|)
 throws|throws
 name|IOException
@@ -433,7 +433,7 @@ name|bytesUsed
 argument_list|,
 name|context
 argument_list|,
-name|fasterButMoreRam
+name|acceptableOverheadRatio
 argument_list|,
 name|Type
 operator|.
@@ -608,6 +608,10 @@ name|bitsRequired
 argument_list|(
 name|maxBytes
 argument_list|)
+argument_list|,
+name|PackedInts
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 name|offsetWriter
@@ -674,6 +678,10 @@ name|maxOrd
 operator|-
 literal|1
 argument_list|)
+argument_list|,
+name|PackedInts
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 for|for
@@ -847,10 +855,16 @@ name|count
 operator|+
 literal|1
 argument_list|,
+name|PackedInts
+operator|.
 name|bitsRequired
 argument_list|(
 name|maxBytes
 argument_list|)
+argument_list|,
+name|PackedInts
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 comment|// first dump bytes data, recording index& write offset as

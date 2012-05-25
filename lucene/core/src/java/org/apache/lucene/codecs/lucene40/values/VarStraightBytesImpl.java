@@ -1231,6 +1231,10 @@ name|bitsRequired
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+name|PackedInts
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 comment|// docCount+1 so we write sentinel
@@ -1303,6 +1307,10 @@ name|bitsRequired
 argument_list|(
 name|address
 argument_list|)
+argument_list|,
+name|PackedInts
+operator|.
+name|DEFAULT
 argument_list|)
 decl_stmt|;
 for|for
