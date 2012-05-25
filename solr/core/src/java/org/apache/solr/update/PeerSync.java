@@ -474,6 +474,42 @@ operator|.
 name|LoggerFactory
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|update
+operator|.
+name|processor
+operator|.
+name|DistributingUpdateProcessorFactory
+operator|.
+name|DISTRIB_UPDATE_PARAM
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|update
+operator|.
+name|processor
+operator|.
+name|DistributedUpdateProcessor
+operator|.
+name|DistribPhase
+operator|.
+name|FROMLEADER
+import|;
+end_import
 begin_comment
 comment|/** @lucene.experimental */
 end_comment
@@ -2445,11 +2481,12 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|DistributedUpdateProcessor
-operator|.
-name|SEEN_LEADER
+name|DISTRIB_UPDATE_PARAM
 argument_list|,
-literal|true
+name|FROMLEADER
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// params.set("peersync",true); // debugging
