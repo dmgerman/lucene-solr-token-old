@@ -1271,7 +1271,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/** Call this to get the (merged) FieldInfos for a    *  composite reader */
+comment|/** Call this to get the (merged) FieldInfos for a    *  composite reader.     *<p>    *  NOTE: the returned field numbers will likely not    *  correspond to the actual field numbers in the underlying    *  readers, and codec metadata ({@link FieldInfo#getAttribute(String)}    *  will be unavailable.    */
 DECL|method|getMergedFieldInfos
 specifier|public
 specifier|static
@@ -1307,10 +1307,14 @@ argument_list|)
 expr_stmt|;
 specifier|final
 name|FieldInfos
-name|fieldInfos
+operator|.
+name|Builder
+name|builder
 init|=
 operator|new
 name|FieldInfos
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -1321,7 +1325,7 @@ range|:
 name|subReaders
 control|)
 block|{
-name|fieldInfos
+name|builder
 operator|.
 name|add
 argument_list|(
@@ -1333,7 +1337,10 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|fieldInfos
+name|builder
+operator|.
+name|finish
+argument_list|()
 return|;
 block|}
 DECL|method|getIndexedFields
@@ -1379,6 +1386,7 @@ condition|(
 name|fieldInfo
 operator|.
 name|isIndexed
+argument_list|()
 condition|)
 block|{
 name|fields

@@ -406,7 +406,9 @@ name|segmentFileName
 argument_list|(
 name|state
 operator|.
-name|segmentName
+name|segmentInfo
+operator|.
+name|name
 argument_list|,
 name|state
 operator|.
@@ -439,6 +441,10 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+comment|// TODO: this is a best effort, if one of these fields has no postings
+comment|// then we make an empty prx file, same as if we are wrapped in
+comment|// per-field postingsformat. maybe... we shouldn't
+comment|// bother w/ this opto?  just create empty prx file...?
 if|if
 condition|(
 name|state
@@ -459,7 +465,9 @@ name|segmentFileName
 argument_list|(
 name|state
 operator|.
-name|segmentName
+name|segmentInfo
+operator|.
+name|name
 argument_list|,
 name|state
 operator|.
@@ -520,7 +528,10 @@ name|totalNumDocs
 operator|=
 name|state
 operator|.
-name|numDocs
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
 expr_stmt|;
 name|skipListWriter
 operator|=
@@ -531,9 +542,7 @@ name|skipInterval
 argument_list|,
 name|maxSkipLevels
 argument_list|,
-name|state
-operator|.
-name|numDocs
+name|totalNumDocs
 argument_list|,
 name|freqOut
 argument_list|,
@@ -670,7 +679,8 @@ name|indexOptions
 operator|=
 name|fieldInfo
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 expr_stmt|;
 name|storeOffsets
 operator|=
@@ -689,7 +699,8 @@ name|storePayloads
 operator|=
 name|fieldInfo
 operator|.
-name|storePayloads
+name|hasPayloads
+argument_list|()
 expr_stmt|;
 comment|//System.out.println("  set init blockFreqStart=" + freqStart);
 comment|//System.out.println("  set init blockProxStart=" + proxStart);

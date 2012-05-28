@@ -175,7 +175,7 @@ specifier|protected
 name|long
 name|size
 parameter_list|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|)
 throws|throws
@@ -195,7 +195,10 @@ init|=
 operator|(
 name|info
 operator|.
-name|docCount
+name|info
+operator|.
+name|getDocCount
+argument_list|()
 operator|<=
 literal|0
 condition|?
@@ -215,7 +218,10 @@ name|float
 operator|)
 name|info
 operator|.
-name|docCount
+name|info
+operator|.
+name|getDocCount
+argument_list|()
 operator|)
 operator|)
 decl_stmt|;
@@ -223,7 +229,10 @@ return|return
 operator|(
 name|info
 operator|.
-name|docCount
+name|info
+operator|.
+name|getDocCount
+argument_list|()
 operator|<=
 literal|0
 condition|?
@@ -416,7 +425,7 @@ name|maxNumSegments
 parameter_list|,
 name|Map
 argument_list|<
-name|SegmentInfo
+name|SegmentInfoPerCommit
 argument_list|,
 name|Boolean
 argument_list|>
@@ -467,7 +476,7 @@ literal|0
 condition|)
 block|{
 specifier|final
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|infos
@@ -931,7 +940,7 @@ condition|(
 name|partialExpunge
 condition|)
 block|{
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|infos
@@ -1334,7 +1343,7 @@ name|i
 operator|++
 control|)
 block|{
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|infos
@@ -1428,7 +1437,7 @@ name|totalSmallSegSize
 init|=
 literal|0
 decl_stmt|;
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 decl_stmt|;
 comment|// compute the total size of large segments
@@ -1814,7 +1823,7 @@ name|i
 operator|--
 control|)
 block|{
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|infos

@@ -1182,6 +1182,23 @@ range|:
 name|oldNames
 control|)
 block|{
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"\nTEST: old index "
+operator|+
+name|name
+argument_list|)
+expr_stmt|;
+block|}
 name|Directory
 name|targetDir
 init|=
@@ -1221,6 +1238,21 @@ name|name
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"\nTEST: done adding indices; now close"
+argument_list|)
+expr_stmt|;
+block|}
 name|w
 operator|.
 name|close
@@ -1754,8 +1786,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|Terms
-name|tfv
+name|Fields
+name|tfvFields
 init|=
 name|reader
 operator|.
@@ -1763,6 +1795,20 @@ name|getTermVectors
 argument_list|(
 name|i
 argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"i="
+operator|+
+name|i
+argument_list|,
+name|tfvFields
+argument_list|)
+expr_stmt|;
+name|Terms
+name|tfv
+init|=
+name|tfvFields
 operator|.
 name|terms
 argument_list|(
@@ -1784,6 +1830,7 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
 comment|// Only ID 7 is deleted
 name|assertEquals
 argument_list|(
@@ -1792,6 +1839,7 @@ argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|ScoreDoc
 index|[]
@@ -3085,6 +3133,8 @@ literal|"_0.cfe"
 block|,
 literal|"_0_1.del"
 block|,
+literal|"_0.si"
+block|,
 literal|"segments_2"
 block|,
 literal|"segments.gen"
@@ -3103,6 +3153,8 @@ block|,
 literal|"_0.cfe"
 block|,
 literal|"_0_1.liv"
+block|,
+literal|"_0.si"
 block|,
 literal|"segments_2"
 block|,
@@ -4349,7 +4401,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|si
 range|:
 name|infos
@@ -4362,6 +4414,8 @@ operator|.
 name|LUCENE_MAIN_VERSION
 argument_list|,
 name|si
+operator|.
+name|info
 operator|.
 name|getVersion
 argument_list|()

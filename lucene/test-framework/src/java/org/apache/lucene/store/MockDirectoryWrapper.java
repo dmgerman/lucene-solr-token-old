@@ -765,6 +765,7 @@ if|if
 condition|(
 name|crashed
 condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -772,6 +773,7 @@ argument_list|(
 literal|"cannot sync after crash"
 argument_list|)
 throw|;
+block|}
 name|unSyncedFiles
 operator|.
 name|removeAll
@@ -2544,13 +2546,19 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|FileNotFoundException
 argument_list|(
 name|name
+operator|+
+literal|" in dir="
+operator|+
+name|delegate
 argument_list|)
 throw|;
+block|}
 comment|// cannot open a file for input if it's still open for
 comment|// output, except for segments.gen and segments_N
 if|if
@@ -3758,6 +3766,7 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
 throw|throw
 operator|new
 name|FileNotFoundException
@@ -3765,6 +3774,7 @@ argument_list|(
 name|name
 argument_list|)
 throw|;
+block|}
 comment|// cannot open a file for input if it's still open for
 comment|// output, except for segments.gen and segments_N
 if|if

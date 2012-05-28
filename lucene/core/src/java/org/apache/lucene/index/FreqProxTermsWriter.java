@@ -71,21 +71,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|FieldInfo
-operator|.
-name|IndexOptions
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|BytesRef
@@ -145,7 +130,7 @@ name|flush
 parameter_list|(
 name|Map
 argument_list|<
-name|FieldInfo
+name|String
 argument_list|,
 name|TermsHashConsumerPerField
 argument_list|>
@@ -239,7 +224,10 @@ name|consumer
 init|=
 name|state
 operator|.
-name|codec
+name|segmentInfo
+operator|.
+name|getCodec
+argument_list|()
 operator|.
 name|postingsFormat
 argument_list|()
@@ -301,33 +289,6 @@ argument_list|(
 name|fieldNumber
 argument_list|)
 decl_stmt|;
-comment|// Aggregate the storePayload as seen by the same
-comment|// field across multiple threads
-if|if
-condition|(
-name|fieldInfo
-operator|.
-name|indexOptions
-operator|.
-name|compareTo
-argument_list|(
-name|IndexOptions
-operator|.
-name|DOCS_AND_FREQS_AND_POSITIONS
-argument_list|)
-operator|>=
-literal|0
-condition|)
-block|{
-name|fieldInfo
-operator|.
-name|storePayloads
-operator||=
-name|fieldWriter
-operator|.
-name|hasPayloads
-expr_stmt|;
-block|}
 comment|// If this field has postings then add them to the
 comment|// segment
 name|fieldWriter

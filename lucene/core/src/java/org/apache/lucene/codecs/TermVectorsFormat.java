@@ -25,15 +25,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -94,6 +85,7 @@ specifier|abstract
 class|class
 name|TermVectorsFormat
 block|{
+comment|/** Returns a {@link TermVectorsReader} to read term    *  vectors. */
 DECL|method|vectorsReader
 specifier|public
 specifier|abstract
@@ -115,6 +107,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/** Returns a {@link TermVectorsWriter} to write term    *  vectors. */
 DECL|method|vectorsWriter
 specifier|public
 specifier|abstract
@@ -124,29 +117,11 @@ parameter_list|(
 name|Directory
 name|directory
 parameter_list|,
-name|String
-name|segment
+name|SegmentInfo
+name|segmentInfo
 parameter_list|,
 name|IOContext
 name|context
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-DECL|method|files
-specifier|public
-specifier|abstract
-name|void
-name|files
-parameter_list|(
-name|SegmentInfo
-name|info
-parameter_list|,
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|files
 parameter_list|)
 throws|throws
 name|IOException

@@ -29,15 +29,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -173,18 +164,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// We only write the _X.nrm file at flush
-DECL|method|files
-name|void
-name|files
-parameter_list|(
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|files
-parameter_list|)
-block|{}
 comment|/** Produce _X.nrm if any document had a field with norms    *  not disabled */
 annotation|@
 name|Override
@@ -195,7 +174,7 @@ name|flush
 parameter_list|(
 name|Map
 argument_list|<
-name|FieldInfo
+name|String
 argument_list|,
 name|InvertedDocEndConsumerPerField
 argument_list|>
@@ -251,6 +230,8 @@ operator|.
 name|get
 argument_list|(
 name|fi
+operator|.
+name|name
 argument_list|)
 decl_stmt|;
 comment|// we must check the final value of omitNorms for the fieldinfo, it could have
@@ -260,7 +241,8 @@ condition|(
 operator|!
 name|fi
 operator|.
-name|omitNorms
+name|omitsNorms
+argument_list|()
 condition|)
 block|{
 if|if
@@ -289,7 +271,10 @@ name|flush
 argument_list|(
 name|state
 operator|.
-name|numDocs
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
 argument_list|)
 decl_stmt|;
 assert|assert
@@ -307,6 +292,7 @@ condition|(
 name|fi
 operator|.
 name|isIndexed
+argument_list|()
 condition|)
 block|{
 name|anythingFlushed
@@ -320,16 +306,20 @@ name|getNormType
 argument_list|()
 operator|==
 literal|null
-assert|;
+operator|:
+literal|"got "
+operator|+
 name|fi
 operator|.
-name|setNormValueType
-argument_list|(
-literal|null
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
+name|getNormType
+argument_list|()
+operator|+
+literal|"; field="
+operator|+
+name|fi
+operator|.
+name|name
+assert|;
 block|}
 block|}
 block|}

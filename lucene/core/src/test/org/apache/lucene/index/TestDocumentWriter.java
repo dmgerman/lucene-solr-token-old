@@ -372,7 +372,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|writer
@@ -682,13 +682,15 @@ condition|(
 name|fi
 operator|.
 name|isIndexed
+argument_list|()
 condition|)
 block|{
 name|assertTrue
 argument_list|(
 name|fi
 operator|.
-name|omitNorms
+name|omitsNorms
+argument_list|()
 operator|==
 operator|(
 name|reader
@@ -841,7 +843,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|writer
@@ -1269,7 +1271,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|writer
@@ -1565,7 +1567,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 init|=
 name|writer
@@ -2239,7 +2241,8 @@ argument_list|(
 literal|"f1"
 argument_list|)
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// f2
@@ -2273,7 +2276,8 @@ argument_list|(
 literal|"f2"
 argument_list|)
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|reader

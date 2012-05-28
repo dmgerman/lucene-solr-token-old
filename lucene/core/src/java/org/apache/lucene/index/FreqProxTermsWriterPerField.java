@@ -301,7 +301,8 @@ name|setIndexOptions
 argument_list|(
 name|fieldInfo
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -335,7 +336,19 @@ DECL|method|finish
 name|void
 name|finish
 parameter_list|()
-block|{}
+block|{
+if|if
+condition|(
+name|hasPayloads
+condition|)
+block|{
+name|fieldInfo
+operator|.
+name|setStorePayloads
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|field|hasPayloads
 name|boolean
 name|hasPayloads
@@ -385,7 +398,8 @@ name|setIndexOptions
 argument_list|(
 name|fieldInfo
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|payloadAttribute
@@ -1819,7 +1833,8 @@ name|currentFieldIndexOptions
 init|=
 name|fieldInfo
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 decl_stmt|;
 specifier|final
 name|boolean
@@ -2048,7 +2063,10 @@ name|FixedBitSet
 argument_list|(
 name|state
 operator|.
-name|numDocs
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|long
@@ -2388,7 +2406,10 @@ name|docID
 operator|<
 name|state
 operator|.
-name|numDocs
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
 operator|:
 literal|"doc="
 operator|+
@@ -2398,7 +2419,10 @@ literal|" maxDoc="
 operator|+
 name|state
 operator|.
-name|numDocs
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
 assert|;
 comment|// NOTE: we could check here if the docID was
 comment|// deleted, and skip it.  However, this is somewhat
@@ -2464,7 +2488,10 @@ name|newLiveDocs
 argument_list|(
 name|state
 operator|.
-name|numDocs
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

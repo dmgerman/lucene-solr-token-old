@@ -144,6 +144,11 @@ name|liveDocs
 expr_stmt|;
 block|}
 block|}
+DECL|field|segmentInfo
+specifier|public
+name|SegmentInfo
+name|segmentInfo
+decl_stmt|;
 DECL|field|fieldInfos
 specifier|public
 name|FieldInfos
@@ -173,12 +178,6 @@ index|[]
 name|docBase
 decl_stmt|;
 comment|// New docID base per reader
-DECL|field|mergedDocCount
-specifier|public
-name|int
-name|mergedDocCount
-decl_stmt|;
-comment|// Total # merged docs
 DECL|field|checkAbort
 specifier|public
 name|CheckAbort

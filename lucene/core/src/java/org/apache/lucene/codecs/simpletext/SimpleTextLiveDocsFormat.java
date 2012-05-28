@@ -40,7 +40,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
+name|Collection
 import|;
 end_import
 begin_import
@@ -79,7 +79,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SegmentInfo
+name|SegmentInfoPerCommit
 import|;
 end_import
 begin_import
@@ -366,7 +366,7 @@ parameter_list|(
 name|Directory
 name|dir
 parameter_list|,
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|,
 name|IOContext
@@ -402,6 +402,8 @@ name|IndexFileNames
 operator|.
 name|fileNameFromGeneration
 argument_list|(
+name|info
+operator|.
 name|info
 operator|.
 name|name
@@ -651,8 +653,11 @@ parameter_list|,
 name|Directory
 name|dir
 parameter_list|,
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
+parameter_list|,
+name|int
+name|newDelCount
 parameter_list|,
 name|IOContext
 name|context
@@ -696,13 +701,15 @@ name|fileNameFromGeneration
 argument_list|(
 name|info
 operator|.
+name|info
+operator|.
 name|name
 argument_list|,
 name|LIVEDOCS_EXTENSION
 argument_list|,
 name|info
 operator|.
-name|getDelGen
+name|getNextDelGen
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -877,10 +884,10 @@ specifier|public
 name|void
 name|files
 parameter_list|(
-name|SegmentInfo
+name|SegmentInfoPerCommit
 name|info
 parameter_list|,
-name|Set
+name|Collection
 argument_list|<
 name|String
 argument_list|>
@@ -905,6 +912,8 @@ name|IndexFileNames
 operator|.
 name|fileNameFromGeneration
 argument_list|(
+name|info
+operator|.
 name|info
 operator|.
 name|name

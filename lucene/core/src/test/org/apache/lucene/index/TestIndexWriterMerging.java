@@ -1975,7 +1975,10 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|docCount
+name|info
+operator|.
+name|getDocCount
+argument_list|()
 operator|<
 literal|20
 assert|;

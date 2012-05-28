@@ -310,7 +310,7 @@ name|IOException
 block|{
 name|Map
 argument_list|<
-name|FieldInfo
+name|String
 argument_list|,
 name|DocFieldConsumerPerField
 argument_list|>
@@ -319,7 +319,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|FieldInfo
+name|String
 argument_list|,
 name|DocFieldConsumerPerField
 argument_list|>
@@ -350,6 +350,8 @@ name|f
 operator|.
 name|getFieldInfo
 argument_list|()
+operator|.
+name|name
 argument_list|,
 name|f
 argument_list|)
@@ -390,10 +392,21 @@ name|finish
 argument_list|(
 name|state
 operator|.
-name|numDocs
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// close perDocConsumer during flush to ensure all files are flushed due to PerCodec CFS
+name|IOUtils
+operator|.
+name|close
+argument_list|(
+name|perDocConsumer
+argument_list|)
+expr_stmt|;
 comment|// Important to save after asking consumer to flush so
 comment|// consumer can alter the FieldInfo* if necessary.  EG,
 comment|// FreqProxTermsWriter does this with
@@ -419,7 +432,9 @@ name|directory
 argument_list|,
 name|state
 operator|.
-name|segmentName
+name|segmentInfo
+operator|.
+name|name
 argument_list|,
 name|state
 operator|.
@@ -428,14 +443,6 @@ argument_list|,
 name|IOContext
 operator|.
 name|DEFAULT
-argument_list|)
-expr_stmt|;
-comment|// close perDocConsumer during flush to ensure all files are flushed due to PerCodec CFS
-name|IOUtils
-operator|.
-name|close
-argument_list|(
-name|perDocConsumer
 argument_list|)
 expr_stmt|;
 block|}
@@ -916,6 +923,8 @@ name|void
 name|processDocument
 parameter_list|(
 name|FieldInfos
+operator|.
+name|Builder
 name|fieldInfos
 parameter_list|)
 throws|throws
@@ -1655,13 +1664,26 @@ argument_list|,
 name|fieldInfo
 argument_list|)
 decl_stmt|;
+assert|assert
+name|fieldInfo
+operator|.
+name|getDocValuesType
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|fieldInfo
+operator|.
+name|getDocValuesType
+argument_list|()
+operator|==
+name|valueType
+assert|;
 name|fieldInfo
 operator|.
 name|setDocValuesType
 argument_list|(
 name|valueType
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|docValuesConsumerAndDocID

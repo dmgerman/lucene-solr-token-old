@@ -2489,16 +2489,8 @@ name|setStoreTermVectors
 argument_list|(
 name|fieldInfo
 operator|.
-name|storeTermVector
-argument_list|)
-expr_stmt|;
-name|ft
-operator|.
-name|setStoreTermVectors
-argument_list|(
-name|fieldInfo
-operator|.
-name|storeTermVector
+name|hasVectors
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ft
@@ -2508,6 +2500,7 @@ argument_list|(
 name|fieldInfo
 operator|.
 name|isIndexed
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ft
@@ -2516,7 +2509,8 @@ name|setOmitNorms
 argument_list|(
 name|fieldInfo
 operator|.
-name|omitNorms
+name|omitsNorms
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|ft
@@ -2525,7 +2519,8 @@ name|setIndexOptions
 argument_list|(
 name|fieldInfo
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|doc
@@ -2585,6 +2580,7 @@ argument_list|(
 name|fieldInfo
 operator|.
 name|isIndexed
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|doc
@@ -2644,6 +2640,7 @@ argument_list|(
 name|fieldInfo
 operator|.
 name|isIndexed
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|doc
@@ -2703,6 +2700,7 @@ argument_list|(
 name|fieldInfo
 operator|.
 name|isIndexed
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|doc
@@ -2762,6 +2760,7 @@ argument_list|(
 name|fieldInfo
 operator|.
 name|isIndexed
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|doc

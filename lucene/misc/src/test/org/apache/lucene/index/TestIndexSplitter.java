@@ -399,6 +399,8 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
+name|info
+operator|.
 name|name
 decl_stmt|;
 name|is
@@ -501,7 +503,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|4
+literal|5
 argument_list|,
 name|destDir2
 operator|.

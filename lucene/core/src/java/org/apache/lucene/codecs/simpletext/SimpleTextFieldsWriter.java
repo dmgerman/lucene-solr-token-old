@@ -306,7 +306,9 @@ name|getPostingsFileName
 argument_list|(
 name|state
 operator|.
-name|segmentName
+name|segmentInfo
+operator|.
+name|name
 argument_list|,
 name|state
 operator|.
@@ -589,7 +591,8 @@ name|indexOptions
 operator|=
 name|field
 operator|.
-name|indexOptions
+name|getIndexOptions
+argument_list|()
 expr_stmt|;
 name|writePositions
 operator|=

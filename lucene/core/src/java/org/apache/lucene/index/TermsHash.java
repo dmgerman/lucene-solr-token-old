@@ -328,7 +328,7 @@ name|flush
 parameter_list|(
 name|Map
 argument_list|<
-name|FieldInfo
+name|String
 argument_list|,
 name|InvertedDocConsumerPerField
 argument_list|>
@@ -343,7 +343,7 @@ name|IOException
 block|{
 name|Map
 argument_list|<
-name|FieldInfo
+name|String
 argument_list|,
 name|TermsHashConsumerPerField
 argument_list|>
@@ -352,7 +352,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|FieldInfo
+name|String
 argument_list|,
 name|TermsHashConsumerPerField
 argument_list|>
@@ -360,7 +360,7 @@ argument_list|()
 decl_stmt|;
 name|Map
 argument_list|<
-name|FieldInfo
+name|String
 argument_list|,
 name|InvertedDocConsumerPerField
 argument_list|>
@@ -378,7 +378,7 @@ operator|=
 operator|new
 name|HashMap
 argument_list|<
-name|FieldInfo
+name|String
 argument_list|,
 name|InvertedDocConsumerPerField
 argument_list|>
@@ -399,7 +399,7 @@ name|Map
 operator|.
 name|Entry
 argument_list|<
-name|FieldInfo
+name|String
 argument_list|,
 name|InvertedDocConsumerPerField
 argument_list|>
