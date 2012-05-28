@@ -723,7 +723,7 @@ return|return
 name|clone
 return|;
 block|}
-comment|/** Reads a Map&lt;String,String&gt; previously written    *  with {@link DataOutput#writeStringStringMap}. */
+comment|/** Reads a Map&lt;String,String&gt; previously written    *  with {@link DataOutput#writeStringStringMap(Map)}. */
 DECL|method|readStringStringMap
 specifier|public
 name|Map
@@ -805,7 +805,7 @@ return|return
 name|map
 return|;
 block|}
-comment|/** Reads a Set&lt;String&gt; previously written    *  with {@link DataOutput#writeStringSet}. */
+comment|/** Reads a Set&lt;String&gt; previously written    *  with {@link DataOutput#writeStringSet(Set)}. */
 DECL|method|readStringSet
 specifier|public
 name|Set
