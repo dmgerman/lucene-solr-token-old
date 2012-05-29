@@ -1015,14 +1015,6 @@ argument_list|(
 name|url
 argument_list|,
 name|httpClient
-operator|==
-literal|null
-condition|?
-name|httpShardHandlerFactory
-operator|.
-name|client
-else|:
-name|httpClient
 argument_list|)
 decl_stmt|;
 name|ssr
