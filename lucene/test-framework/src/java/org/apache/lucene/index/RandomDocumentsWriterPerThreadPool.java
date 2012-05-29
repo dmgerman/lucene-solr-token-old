@@ -28,7 +28,6 @@ comment|/**  *   * A<code>DocumentsWriterPerThreadPool<code> that selects thread
 end_comment
 begin_class
 DECL|class|RandomDocumentsWriterPerThreadPool
-specifier|public
 class|class
 name|RandomDocumentsWriterPerThreadPool
 extends|extends
