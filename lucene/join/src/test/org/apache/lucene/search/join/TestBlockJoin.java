@@ -650,8 +650,6 @@ name|childQuery
 argument_list|,
 name|parentsFilter
 argument_list|,
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 operator|.
 name|Avg
@@ -1399,8 +1397,6 @@ name|childQuery
 argument_list|,
 name|parentsFilter
 argument_list|,
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 operator|.
 name|Avg
@@ -2044,8 +2040,6 @@ name|MatchAllDocsQuery
 argument_list|()
 argument_list|)
 argument_list|,
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 operator|.
 name|Avg
@@ -3869,8 +3863,6 @@ literal|4
 argument_list|)
 decl_stmt|;
 specifier|final
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 name|agg
 decl_stmt|;
@@ -3883,8 +3875,6 @@ condition|)
 block|{
 name|agg
 operator|=
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 operator|.
 name|None
@@ -3900,8 +3890,6 @@ condition|)
 block|{
 name|agg
 operator|=
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 operator|.
 name|Max
@@ -3917,8 +3905,6 @@ condition|)
 block|{
 name|agg
 operator|=
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 operator|.
 name|Total
@@ -3928,8 +3914,6 @@ else|else
 block|{
 name|agg
 operator|=
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 operator|.
 name|Avg
@@ -4504,8 +4488,6 @@ if|if
 condition|(
 name|agg
 operator|==
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 operator|.
 name|None
@@ -6704,8 +6686,6 @@ name|childJobQuery
 argument_list|,
 name|parentsFilter
 argument_list|,
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 operator|.
 name|Avg
@@ -6721,8 +6701,6 @@ name|childQualificationQuery
 argument_list|,
 name|parentsFilter
 argument_list|,
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 operator|.
 name|Avg
@@ -7242,8 +7220,6 @@ name|tq
 argument_list|,
 name|parentFilter
 argument_list|,
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 operator|.
 name|Avg
@@ -7559,8 +7535,6 @@ name|tq
 argument_list|,
 name|parentFilter
 argument_list|,
-name|ToParentBlockJoinQuery
-operator|.
 name|ScoreMode
 operator|.
 name|Avg
