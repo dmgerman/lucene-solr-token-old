@@ -107,6 +107,25 @@ name|bytes
 operator|!=
 literal|null
 assert|;
+assert|assert
+name|offset
+operator|>=
+literal|0
+assert|;
+assert|assert
+name|length
+operator|>=
+literal|0
+assert|;
+assert|assert
+name|bytes
+operator|.
+name|length
+operator|>=
+name|offset
+operator|+
+name|length
+assert|;
 name|this
 operator|.
 name|bytes
@@ -187,7 +206,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Copies the UTF8 bytes for this string.    *     * @param text Must be well-formed unicode text, with no    * unpaired surrogates or invalid UTF16 code units.    */
-comment|// TODO broken if offset != 0
 DECL|method|copyChars
 specifier|public
 name|void
@@ -197,6 +215,12 @@ name|CharSequence
 name|text
 parameter_list|)
 block|{
+assert|assert
+name|offset
+operator|==
+literal|0
+assert|;
+comment|// TODO broken if offset != 0
 name|UnicodeUtil
 operator|.
 name|UTF16toUTF8
@@ -572,6 +596,8 @@ condition|(
 name|bytes
 operator|.
 name|length
+operator|-
+name|offset
 operator|<
 name|other
 operator|.
@@ -645,6 +671,8 @@ condition|(
 name|bytes
 operator|.
 name|length
+operator|-
+name|offset
 operator|<
 name|newLen
 condition|)
@@ -711,8 +739,7 @@ operator|=
 name|newLen
 expr_stmt|;
 block|}
-comment|// TODO: stupid if existing offset is non-zero.
-comment|/** @lucene.internal */
+comment|/**     * Used to grow the reference array.     *     * In general this should not be used as it does not take the offset into account.    * @lucene.internal */
 DECL|method|grow
 specifier|public
 name|void
@@ -722,6 +749,12 @@ name|int
 name|newLength
 parameter_list|)
 block|{
+assert|assert
+name|offset
+operator|==
+literal|0
+assert|;
+comment|// NOTE: senseless if offset != 0
 name|bytes
 operator|=
 name|ArrayUtil
