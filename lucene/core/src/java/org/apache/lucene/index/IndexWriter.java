@@ -12060,6 +12060,8 @@ argument_list|(
 name|reader
 argument_list|,
 name|liveDocs
+argument_list|,
+name|delCount
 argument_list|)
 expr_stmt|;
 block|}

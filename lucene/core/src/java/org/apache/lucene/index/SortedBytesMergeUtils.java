@@ -430,8 +430,9 @@ name|int
 index|[]
 name|docBases
 parameter_list|,
-name|int
-index|[]
+name|MergeState
+operator|.
+name|DocMap
 index|[]
 name|docMaps
 parameter_list|,
@@ -604,8 +605,9 @@ name|int
 index|[]
 name|docBases
 parameter_list|,
-name|int
-index|[]
+name|MergeState
+operator|.
+name|DocMap
 index|[]
 name|docMaps
 parameter_list|,
@@ -622,8 +624,9 @@ operator|.
 name|readerIdx
 decl_stmt|;
 specifier|final
-name|int
-index|[]
+name|MergeState
+operator|.
+name|DocMap
 name|currentDocMap
 init|=
 name|docMaps
@@ -652,6 +655,11 @@ condition|(
 name|currentDocMap
 operator|!=
 literal|null
+operator|&&
+name|currentDocMap
+operator|.
+name|hasDeletions
+argument_list|()
 condition|)
 block|{
 comment|// we have deletes
@@ -666,7 +674,8 @@ name|i
 operator|<
 name|currentDocMap
 operator|.
-name|length
+name|maxDoc
+argument_list|()
 condition|;
 name|i
 operator|++
@@ -677,9 +686,11 @@ name|int
 name|doc
 init|=
 name|currentDocMap
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

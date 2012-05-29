@@ -106,8 +106,9 @@ name|int
 name|upto
 decl_stmt|;
 DECL|field|currentMap
-name|int
-index|[]
+name|MergeState
+operator|.
+name|DocMap
 name|currentMap
 decl_stmt|;
 DECL|field|current
@@ -342,12 +343,9 @@ index|]
 expr_stmt|;
 assert|assert
 name|currentMap
-operator|==
-literal|null
-operator|||
-name|currentMap
 operator|.
-name|length
+name|maxDoc
+argument_list|()
 operator|==
 name|subs
 index|[
@@ -372,7 +370,8 @@ literal|" len1="
 operator|+
 name|currentMap
 operator|.
-name|length
+name|maxDoc
+argument_list|()
 operator|+
 literal|" vs "
 operator|+
@@ -402,20 +401,15 @@ operator|!=
 name|NO_MORE_DOCS
 condition|)
 block|{
-if|if
-condition|(
-name|currentMap
-operator|!=
-literal|null
-condition|)
-block|{
 comment|// compact deletions
 name|doc
 operator|=
 name|currentMap
-index|[
+operator|.
+name|get
+argument_list|(
 name|doc
-index|]
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -426,7 +420,6 @@ literal|1
 condition|)
 block|{
 continue|continue;
-block|}
 block|}
 return|return
 name|this
