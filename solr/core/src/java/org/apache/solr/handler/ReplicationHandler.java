@@ -5676,6 +5676,9 @@ name|strs
 init|=
 name|file
 operator|.
+name|trim
+argument_list|()
+operator|.
 name|split
 argument_list|(
 literal|":"
