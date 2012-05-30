@@ -123,19 +123,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|codecs
-operator|.
-name|Codec
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|document
 operator|.
 name|Field
@@ -421,6 +408,42 @@ block|{
 comment|// -----------------------------------------------------------------
 comment|// Test groups and other annotations modifying tests' behavior.
 comment|// -----------------------------------------------------------------
+DECL|field|SYSPROP_NIGHTLY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SYSPROP_NIGHTLY
+init|=
+literal|"tests.nightly"
+decl_stmt|;
+DECL|field|SYSPROP_WEEKLY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SYSPROP_WEEKLY
+init|=
+literal|"tests.weekly"
+decl_stmt|;
+DECL|field|SYSPROP_AWAITSFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SYSPROP_AWAITSFIX
+init|=
+literal|"tests.awaitsfix"
+decl_stmt|;
+DECL|field|SYSPROP_SLOW
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SYSPROP_SLOW
+init|=
+literal|"tests.slow"
+decl_stmt|;
 comment|/**    * Annotation for tests that should only be run during nightly builds.    */
 annotation|@
 name|Documented
@@ -442,7 +465,7 @@ literal|false
 argument_list|,
 name|sysProperty
 operator|=
-literal|"tests.nightly"
+name|SYSPROP_NIGHTLY
 argument_list|)
 DECL|interface|Nightly
 specifier|public
@@ -470,7 +493,7 @@ literal|false
 argument_list|,
 name|sysProperty
 operator|=
-literal|"tests.weekly"
+name|SYSPROP_WEEKLY
 argument_list|)
 DECL|interface|Weekly
 specifier|public
@@ -498,7 +521,7 @@ literal|false
 argument_list|,
 name|sysProperty
 operator|=
-literal|"tests.awaitsfix"
+name|SYSPROP_AWAITSFIX
 argument_list|)
 DECL|interface|AwaitsFix
 specifier|public
@@ -534,7 +557,7 @@ literal|false
 argument_list|,
 name|sysProperty
 operator|=
-literal|"tests.slow"
+name|SYSPROP_SLOW
 argument_list|)
 DECL|interface|Slow
 specifier|public
@@ -721,7 +744,7 @@ argument_list|,
 name|DEFAULT_LINE_DOCS_FILE
 argument_list|)
 decl_stmt|;
-comment|/** Whether or not @nightly tests should run. */
+comment|/** Whether or not {@link Nightly} tests should run. */
 DECL|field|TEST_NIGHTLY
 specifier|public
 specifier|static
@@ -731,7 +754,52 @@ name|TEST_NIGHTLY
 init|=
 name|systemPropertyAsBoolean
 argument_list|(
-literal|"tests.nightly"
+name|SYSPROP_NIGHTLY
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+comment|/** Whether or not {@link Weekly} tests should run. */
+DECL|field|TEST_WEEKLY
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|TEST_WEEKLY
+init|=
+name|systemPropertyAsBoolean
+argument_list|(
+name|SYSPROP_WEEKLY
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+comment|/** Whether or not {@link AwaitsFix} tests should run. */
+DECL|field|TEST_AWAITSFIX
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|TEST_AWAITSFIX
+init|=
+name|systemPropertyAsBoolean
+argument_list|(
+name|SYSPROP_AWAITSFIX
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+comment|/** Whether or not {@link Slow} tests should run. */
+DECL|field|TEST_SLOW
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|TEST_SLOW
+init|=
+name|systemPropertyAsBoolean
+argument_list|(
+name|SYSPROP_SLOW
 argument_list|,
 literal|false
 argument_list|)
