@@ -371,6 +371,10 @@ DECL|field|similarity
 name|Similarity
 name|similarity
 decl_stmt|;
+DECL|field|codec
+name|Codec
+name|codec
+decl_stmt|;
 comment|/**    * @see SuppressCodecs    */
 DECL|field|avoidCodecs
 name|HashSet
@@ -885,10 +889,6 @@ operator|.
 name|getDefault
 argument_list|()
 expr_stmt|;
-specifier|final
-name|Codec
-name|codec
-decl_stmt|;
 name|int
 name|randomVal
 init|=
