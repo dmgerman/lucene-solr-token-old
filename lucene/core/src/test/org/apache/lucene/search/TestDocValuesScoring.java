@@ -256,11 +256,6 @@ begin_comment
 comment|/**  * Tests the use of indexdocvalues in scoring.  *   * In the example, a docvalues field is used as a per-document boost (separate from the norm)  * @lucene.experimental  */
 end_comment
 begin_class
-annotation|@
-name|SuppressCodecs
-argument_list|(
-literal|"Lucene3x"
-argument_list|)
 DECL|class|TestDocValuesScoring
 specifier|public
 class|class

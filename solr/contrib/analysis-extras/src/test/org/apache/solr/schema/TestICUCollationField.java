@@ -64,21 +64,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|SuppressCodecs
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|solr
 operator|.
 name|SolrTestCaseJ4
@@ -136,11 +121,6 @@ begin_comment
 comment|/**  * Tests {@link ICUCollationField} with TermQueries, RangeQueries, and sort order.  */
 end_comment
 begin_class
-annotation|@
-name|SuppressCodecs
-argument_list|(
-literal|"Lucene3x"
-argument_list|)
 DECL|class|TestICUCollationField
 specifier|public
 class|class

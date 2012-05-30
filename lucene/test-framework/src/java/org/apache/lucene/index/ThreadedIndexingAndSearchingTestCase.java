@@ -2601,8 +2601,7 @@ name|LineFileDocs
 argument_list|(
 name|random
 argument_list|,
-name|defaultCodecSupportsDocValues
-argument_list|()
+literal|true
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -4031,12 +4030,6 @@ argument_list|)
 operator|.
 name|totalHits
 decl_stmt|;
-if|if
-condition|(
-name|defaultCodecSupportsDocValues
-argument_list|()
-condition|)
-block|{
 specifier|final
 name|Sort
 name|dvSort
@@ -4095,7 +4088,6 @@ argument_list|,
 name|hitCount2
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|hitCount
 return|;
