@@ -211,33 +211,10 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|SuppressCodecs
-import|;
-end_import
 begin_comment
 comment|/**  *   */
 end_comment
-begin_comment
-comment|// TODO: what is the problem with SimpleText
-end_comment
 begin_class
-annotation|@
-name|SuppressCodecs
-argument_list|(
-literal|"SimpleText"
-argument_list|)
 DECL|class|TestCustomNorms
 specifier|public
 class|class
@@ -273,15 +250,6 @@ init|=
 name|newDirectory
 argument_list|()
 decl_stmt|;
-comment|// TODO: what is the checkindex problem?
-name|dir
-operator|.
-name|setCheckIndexOnClose
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// can't set sim to checkindex yet
 name|IndexWriterConfig
 name|config
 init|=
@@ -601,14 +569,6 @@ init|=
 name|newDirectory
 argument_list|()
 decl_stmt|;
-name|dir
-operator|.
-name|setCheckIndexOnClose
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// can't set sim to checkindex yet
 name|IndexWriterConfig
 name|config
 init|=
