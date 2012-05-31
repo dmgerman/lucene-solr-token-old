@@ -90,7 +90,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsAndPositionsEnum
+name|DirectoryReader
 import|;
 end_import
 begin_import
@@ -103,7 +103,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsEnum
+name|DocsAndPositionsEnum
 import|;
 end_import
 begin_import
@@ -208,19 +208,6 @@ operator|.
 name|util
 operator|.
 name|BytesRef
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
 import|;
 end_import
 begin_import
@@ -957,9 +944,7 @@ operator|=
 operator|new
 name|ClassicAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_31
+name|TEST_VERSION_CURRENT
 argument_list|)
 expr_stmt|;
 name|assertAnalyzesTo
@@ -1601,9 +1586,7 @@ init|=
 operator|new
 name|ClassicAnalyzer
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_30
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
@@ -1763,7 +1746,7 @@ expr_stmt|;
 name|IndexReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1990,7 +1973,7 @@ argument_list|()
 expr_stmt|;
 name|reader
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

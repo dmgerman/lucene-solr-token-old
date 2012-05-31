@@ -281,7 +281,7 @@ name|schema
 operator|.
 name|getFieldType
 argument_list|(
-literal|"text30"
+literal|"text40"
 argument_list|)
 expr_stmt|;
 name|ana
@@ -298,7 +298,7 @@ name|assertEquals
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_30
+name|LUCENE_40
 argument_list|,
 operator|(
 name|ana
@@ -315,7 +315,7 @@ name|assertEquals
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 operator|(
 name|ana
@@ -397,7 +397,7 @@ name|schema
 operator|.
 name|getFieldType
 argument_list|(
-literal|"textStandardAnalyzer30"
+literal|"textStandardAnalyzer40"
 argument_list|)
 expr_stmt|;
 name|ana1
@@ -418,7 +418,7 @@ name|assertEquals
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_30
+name|LUCENE_40
 argument_list|,
 name|matchVersionField
 operator|.

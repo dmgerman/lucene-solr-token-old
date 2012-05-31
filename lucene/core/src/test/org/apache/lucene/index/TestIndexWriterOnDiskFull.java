@@ -595,7 +595,7 @@ literal|"after disk full during addDocument"
 argument_list|)
 expr_stmt|;
 comment|// Make sure reader can open the index:
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -968,7 +968,7 @@ decl_stmt|;
 name|IndexReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1592,7 +1592,7 @@ index|[
 name|i
 index|]
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1782,7 +1782,7 @@ try|try
 block|{
 name|reader
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

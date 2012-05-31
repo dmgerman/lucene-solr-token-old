@@ -1335,7 +1335,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -1536,7 +1536,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -1756,7 +1756,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -1957,7 +1957,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -1983,7 +1983,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -2491,7 +2491,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -3181,7 +3181,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -3215,7 +3215,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -3352,7 +3352,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -3600,7 +3600,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -3895,7 +3895,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -4005,7 +4005,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -4262,7 +4262,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -4400,7 +4400,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -4498,7 +4498,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.
@@ -4664,7 +4664,7 @@ name|CharArraySet
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_31
+name|LUCENE_50
 argument_list|,
 name|Arrays
 operator|.

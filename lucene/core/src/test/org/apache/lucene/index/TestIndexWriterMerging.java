@@ -382,7 +382,7 @@ decl_stmt|;
 name|IndexReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -819,7 +819,7 @@ expr_stmt|;
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -917,7 +917,7 @@ argument_list|()
 expr_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1007,7 +1007,7 @@ argument_list|()
 expr_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1260,7 +1260,7 @@ expr_stmt|;
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1364,7 +1364,7 @@ argument_list|()
 expr_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1436,7 +1436,7 @@ argument_list|()
 expr_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1690,7 +1690,7 @@ expr_stmt|;
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1794,7 +1794,7 @@ argument_list|()
 expr_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1858,7 +1858,7 @@ argument_list|()
 expr_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -2634,7 +2634,7 @@ comment|// Make sure reader can read
 name|IndexReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

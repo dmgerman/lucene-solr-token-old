@@ -523,7 +523,7 @@ expr_stmt|;
 name|IndexReader
 name|ir1
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -533,7 +533,7 @@ decl_stmt|;
 name|IndexReader
 name|ir2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

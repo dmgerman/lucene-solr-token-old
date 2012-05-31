@@ -1727,7 +1727,7 @@ block|{
 name|DirectoryReader
 name|r2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1769,7 +1769,7 @@ block|{
 name|DirectoryReader
 name|r1
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1779,7 +1779,7 @@ decl_stmt|;
 name|DirectoryReader
 name|r2
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

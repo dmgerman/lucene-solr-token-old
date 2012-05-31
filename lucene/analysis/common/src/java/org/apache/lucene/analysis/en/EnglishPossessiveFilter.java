@@ -80,7 +80,7 @@ name|Version
 import|;
 end_import
 begin_comment
-comment|/**  * TokenFilter that removes possessives (trailing 's) from words.  *<a name="version"/>  *<p>You must specify the required {@link Version}  * compatibility when creating EnglishPossessiveFilter:  *<ul>  *<li> As of 3.6, U+2019 RIGHT SINGLE QUOTATION MARK and   *         U+FF07 FULLWIDTH APOSTROPHE are also treated as  *         quotation marks.  *</ul>  */
+comment|/**  * TokenFilter that removes possessives (trailing 's) from words.  */
 end_comment
 begin_class
 DECL|class|EnglishPossessiveFilter
@@ -104,32 +104,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|matchVersion
-specifier|private
-name|Version
-name|matchVersion
-decl_stmt|;
-comment|/**    * @deprecated Use {@link #EnglishPossessiveFilter(Version, TokenStream)} instead.    */
-annotation|@
-name|Deprecated
-DECL|method|EnglishPossessiveFilter
-specifier|public
-name|EnglishPossessiveFilter
-parameter_list|(
-name|TokenStream
-name|input
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|Version
-operator|.
-name|LUCENE_35
-argument_list|,
-name|input
-argument_list|)
-expr_stmt|;
-block|}
+comment|// NOTE: version now unused
 DECL|method|EnglishPossessiveFilter
 specifier|public
 name|EnglishPossessiveFilter
@@ -145,12 +120,6 @@ name|super
 argument_list|(
 name|input
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|matchVersion
-operator|=
-name|version
 expr_stmt|;
 block|}
 annotation|@
@@ -211,17 +180,6 @@ index|]
 operator|==
 literal|'\''
 operator|||
-operator|(
-name|matchVersion
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|LUCENE_36
-argument_list|)
-operator|&&
-operator|(
 name|buffer
 index|[
 name|bufferLength
@@ -239,8 +197,6 @@ literal|2
 index|]
 operator|==
 literal|'\uFF07'
-operator|)
-operator|)
 operator|)
 operator|&&
 operator|(

@@ -479,7 +479,7 @@ comment|// try a search without OR
 name|IndexReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

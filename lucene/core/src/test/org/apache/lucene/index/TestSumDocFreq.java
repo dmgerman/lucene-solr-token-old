@@ -426,7 +426,7 @@ argument_list|()
 expr_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

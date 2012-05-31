@@ -264,7 +264,7 @@ name|SlowCompositeReaderWrapper
 operator|.
 name|wrap
 argument_list|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -424,7 +424,7 @@ name|SlowCompositeReaderWrapper
 operator|.
 name|wrap
 argument_list|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -551,7 +551,7 @@ name|SlowCompositeReaderWrapper
 operator|.
 name|wrap
 argument_list|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -851,7 +851,7 @@ name|SlowCompositeReaderWrapper
 operator|.
 name|wrap
 argument_list|(
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1072,7 +1072,7 @@ comment|// (must) get an NRT reader:
 name|DirectoryReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

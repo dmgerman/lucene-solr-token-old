@@ -684,7 +684,7 @@ block|}
 name|IndexReader
 name|open
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -864,7 +864,7 @@ condition|)
 block|{
 name|open
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

@@ -2198,7 +2198,7 @@ argument_list|()
 condition|)
 block|{
 return|return
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

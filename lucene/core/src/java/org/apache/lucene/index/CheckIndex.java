@@ -2834,17 +2834,6 @@ name|hasNorms
 argument_list|()
 condition|)
 block|{
-assert|assert
-name|reader
-operator|.
-name|hasNorms
-argument_list|(
-name|info
-operator|.
-name|name
-argument_list|)
-assert|;
-comment|// deprecated path
 name|DocValues
 name|dv
 init|=
@@ -2884,18 +2873,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-assert|assert
-operator|!
-name|reader
-operator|.
-name|hasNorms
-argument_list|(
-name|info
-operator|.
-name|name
-argument_list|)
-assert|;
-comment|// deprecated path
 if|if
 condition|(
 name|reader

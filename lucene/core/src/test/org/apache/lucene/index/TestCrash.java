@@ -396,7 +396,7 @@ expr_stmt|;
 name|IndexReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -489,7 +489,7 @@ expr_stmt|;
 name|IndexReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -583,7 +583,7 @@ comment|/*     System.out.println("\n\nTEST: open reader");     String[] l = dir
 name|IndexReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -655,7 +655,7 @@ comment|/*     String[] l = dir.list();     Arrays.sort(l);     for(int i=0;i<l.
 name|IndexReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -729,7 +729,7 @@ comment|/*     String[] l = dir.list();     Arrays.sort(l);     for(int i=0;i<l.
 name|IndexReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

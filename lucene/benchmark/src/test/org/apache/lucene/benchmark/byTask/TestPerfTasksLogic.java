@@ -737,7 +737,7 @@ expr_stmt|;
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1077,7 +1077,7 @@ expr_stmt|;
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1277,7 +1277,7 @@ expr_stmt|;
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1550,7 +1550,7 @@ expr_stmt|;
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1644,7 +1644,7 @@ decl_stmt|;
 name|DirectoryReader
 name|r
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -1796,7 +1796,7 @@ comment|// 3. test number of docs in the index
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -2075,7 +2075,7 @@ expr_stmt|;
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -2241,7 +2241,7 @@ comment|// Separately count how many tokens are actually in the index:
 name|IndexReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -2500,7 +2500,7 @@ comment|// 3. test number of docs in the index
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -2607,7 +2607,7 @@ comment|// 3. test number of docs in the index
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -2714,7 +2714,7 @@ comment|// 3. test number of docs in the index
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -2887,7 +2887,7 @@ comment|// 3. test number of docs in the index
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -3061,7 +3061,7 @@ comment|// 3. test number of docs in the index
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -3270,7 +3270,7 @@ decl_stmt|;
 name|IndexReader
 name|reader
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -3497,7 +3497,7 @@ comment|// 3. test number of docs in the index
 name|IndexReader
 name|ir
 init|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(

@@ -289,7 +289,7 @@ argument_list|()
 expr_stmt|;
 name|input
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -375,7 +375,7 @@ name|ir
 decl_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -479,7 +479,7 @@ argument_list|()
 expr_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -580,7 +580,7 @@ argument_list|()
 expr_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -774,7 +774,7 @@ name|ir
 decl_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -835,7 +835,7 @@ argument_list|()
 expr_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
@@ -896,7 +896,7 @@ argument_list|()
 expr_stmt|;
 name|ir
 operator|=
-name|IndexReader
+name|DirectoryReader
 operator|.
 name|open
 argument_list|(
