@@ -4495,6 +4495,10 @@ operator|new
 name|GroupDocs
 index|[]
 block|{}
+argument_list|,
+name|Float
+operator|.
+name|NaN
 argument_list|)
 argument_list|)
 expr_stmt|;

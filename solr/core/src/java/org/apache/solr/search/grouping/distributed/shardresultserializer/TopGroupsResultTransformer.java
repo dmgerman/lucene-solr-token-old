@@ -1145,6 +1145,10 @@ argument_list|<
 name|BytesRef
 argument_list|>
 argument_list|(
+name|Float
+operator|.
+name|NaN
+argument_list|,
 name|maxScore
 argument_list|,
 name|totalGroupHits
@@ -1211,6 +1215,10 @@ argument_list|,
 name|totalGroupedHitCount
 argument_list|,
 name|groupDocsArr
+argument_list|,
+name|Float
+operator|.
+name|NaN
 argument_list|)
 decl_stmt|;
 name|result

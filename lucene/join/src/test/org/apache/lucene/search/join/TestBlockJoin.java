@@ -707,7 +707,7 @@ literal|1
 argument_list|,
 literal|true
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 decl_stmt|;
 name|s
@@ -742,6 +742,18 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+name|assertFalse
+argument_list|(
+name|Float
+operator|.
+name|isNaN
+argument_list|(
+name|results
+operator|.
+name|maxScore
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|//assertEquals(1, results.totalHitCount);
 name|assertEquals
 argument_list|(
@@ -784,6 +796,18 @@ argument_list|,
 name|group
 operator|.
 name|totalHits
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|Float
+operator|.
+name|isNaN
+argument_list|(
+name|group
+operator|.
+name|score
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Document

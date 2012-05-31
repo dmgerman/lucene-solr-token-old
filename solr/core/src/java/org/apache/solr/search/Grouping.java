@@ -4150,6 +4150,10 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|(
+name|Float
+operator|.
+name|NaN
+argument_list|,
 name|topDocs
 operator|.
 name|getMaxScore

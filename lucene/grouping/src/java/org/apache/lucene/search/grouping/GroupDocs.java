@@ -55,6 +55,13 @@ specifier|final
 name|float
 name|maxScore
 decl_stmt|;
+comment|/** Overall aggregated score of this group (currently only    *  set by join queries). */
+DECL|field|score
+specifier|public
+specifier|final
+name|float
+name|score
+decl_stmt|;
 comment|/** Hits; this may be {@link    * org.apache.lucene.search.FieldDoc} instances if the    * withinGroupSort sorted by fields. */
 DECL|field|scoreDocs
 specifier|public
@@ -83,6 +90,9 @@ specifier|public
 name|GroupDocs
 parameter_list|(
 name|float
+name|score
+parameter_list|,
+name|float
 name|maxScore
 parameter_list|,
 name|int
@@ -100,6 +110,12 @@ index|[]
 name|groupSortValues
 parameter_list|)
 block|{
+name|this
+operator|.
+name|score
+operator|=
+name|score
+expr_stmt|;
 name|this
 operator|.
 name|maxScore

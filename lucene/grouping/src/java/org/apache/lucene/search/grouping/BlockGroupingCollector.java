@@ -1048,6 +1048,13 @@ operator|new
 name|FakeScorer
 argument_list|()
 decl_stmt|;
+name|float
+name|maxScore
+init|=
+name|Float
+operator|.
+name|MIN_VALUE
+decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1333,6 +1340,8 @@ argument_list|,
 name|maxDocsPerGroup
 argument_list|)
 decl_stmt|;
+comment|// TODO: we could aggregate scores across children
+comment|// by Sum/Avg instead of passing NaN:
 name|groups
 index|[
 name|downTo
@@ -1344,6 +1353,10 @@ argument_list|<
 name|Object
 argument_list|>
 argument_list|(
+name|Float
+operator|.
+name|NaN
+argument_list|,
 name|topDocs
 operator|.
 name|getMaxScore
@@ -1360,6 +1373,20 @@ argument_list|,
 literal|null
 argument_list|,
 name|groupSortValues
+argument_list|)
+expr_stmt|;
+name|maxScore
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|maxScore
+argument_list|,
+name|topDocs
+operator|.
+name|getMaxScore
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1398,6 +1425,8 @@ argument_list|,
 name|totalGroupedHitCount
 argument_list|,
 name|groups
+argument_list|,
+name|maxScore
 argument_list|)
 argument_list|,
 name|totalGroupCount
