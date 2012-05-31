@@ -394,12 +394,7 @@ operator|.
 name|size
 argument_list|()
 operator|+
-literal|") terms="
-operator|+
-name|terms
-operator|.
-name|keySet
-argument_list|()
+literal|")"
 expr_stmt|;
 block|}
 if|if

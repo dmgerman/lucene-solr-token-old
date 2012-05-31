@@ -6141,7 +6141,10 @@ name|nextGen
 operator|+
 literal|" seg="
 operator|+
+name|segString
+argument_list|(
 name|newSegment
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -10527,7 +10530,10 @@ literal|"IW"
 argument_list|,
 literal|"registerMerge info="
 operator|+
+name|segString
+argument_list|(
 name|info
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -11796,7 +11802,10 @@ literal|"IW"
 argument_list|,
 literal|"seg="
 operator|+
+name|segString
+argument_list|(
 name|info
+argument_list|)
 operator|+
 literal|" delCount="
 operator|+
@@ -11833,7 +11842,10 @@ literal|"IW"
 argument_list|,
 literal|"seg="
 operator|+
+name|segString
+argument_list|(
 name|info
+argument_list|)
 operator|+
 literal|" delCount="
 operator|+
@@ -11854,7 +11866,10 @@ literal|"IW"
 argument_list|,
 literal|"seg="
 operator|+
+name|segString
+argument_list|(
 name|info
+argument_list|)
 operator|+
 literal|" no deletes"
 argument_list|)
