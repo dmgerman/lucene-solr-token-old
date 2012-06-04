@@ -71,7 +71,7 @@ name|WeightedPhraseInfo
 import|;
 end_import
 begin_comment
-comment|/**  * A simple implementation of {@link FielFragList}.  */
+comment|/**  * A simple implementation of {@link FieldFragList}.  */
 end_comment
 begin_class
 DECL|class|SimpleFieldFragList
