@@ -530,10 +530,6 @@ literal|')'
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|doIndent
-condition|)
 name|writer
 operator|.
 name|write
