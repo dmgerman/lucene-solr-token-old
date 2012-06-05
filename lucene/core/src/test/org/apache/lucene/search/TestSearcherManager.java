@@ -572,6 +572,10 @@ name|isNRT
 operator|=
 literal|false
 expr_stmt|;
+name|assertMergedSegmentsWarmed
+operator|=
+literal|false
+expr_stmt|;
 block|}
 name|lifetimeMGR
 operator|=
