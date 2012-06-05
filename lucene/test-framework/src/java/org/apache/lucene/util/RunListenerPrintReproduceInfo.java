@@ -830,6 +830,15 @@ operator|.
 name|locale
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|classEnvRule
+operator|.
+name|timeZone
+operator|!=
+literal|null
+condition|)
+block|{
 name|addVmOpt
 argument_list|(
 name|b
@@ -844,6 +853,7 @@ name|getID
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// Randomize this: LUCENE-4094
 name|addVmOpt
