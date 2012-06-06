@@ -128,6 +128,13 @@ name|int
 name|numberOfEntries
 parameter_list|)
 function_decl|;
+comment|/**    * Clears the content of the cache. Unlike {@link #close()}, the caller can    * assume that the cache is still operable after this method returns.    */
+DECL|method|clear
+specifier|public
+name|void
+name|clear
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 end_unit
