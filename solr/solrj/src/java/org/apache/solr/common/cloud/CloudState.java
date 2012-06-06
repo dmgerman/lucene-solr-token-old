@@ -166,6 +166,9 @@ operator|.
 name|KeeperException
 import|;
 end_import
+begin_comment
+comment|/**  * Immutable state of the cloud. Normally you can get the state by using  * {@link ZkStateReader#getCloudState()}.  */
+end_comment
 begin_class
 DECL|class|CloudState
 specifier|public
@@ -233,7 +236,8 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|leaders
-specifier|public
+specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -261,54 +265,6 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|CloudState
-specifier|public
-name|CloudState
-parameter_list|()
-block|{
-name|this
-operator|.
-name|liveNodes
-operator|=
-operator|new
-name|HashSet
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|collectionStates
-operator|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Slice
-argument_list|>
-argument_list|>
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|addRangeInfos
-argument_list|(
-name|collectionStates
-operator|.
-name|keySet
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|getShardLeaders
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|CloudState
 specifier|public
 name|CloudState
@@ -625,6 +581,7 @@ block|}
 block|}
 block|}
 block|}
+comment|/** 	 * Get properties of a shard leader for specific collection. 	 */
 DECL|method|getLeader
 specifier|public
 name|ZkNodeProps
@@ -697,6 +654,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**    * Get the index Slice for collection.    */
 DECL|method|getSlice
 specifier|public
 name|Slice
@@ -747,6 +705,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**    * Get all slices for collection.    */
 DECL|method|getSlices
 specifier|public
 name|Map
@@ -788,6 +747,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/** 	 * Get collection names. 	 */
 DECL|method|getCollections
 specifier|public
 name|Set
@@ -834,6 +794,7 @@ name|collectionStates
 argument_list|)
 return|;
 block|}
+comment|/** 	 * Get names of the currently live nodes. 	 */
 DECL|method|getLiveNodes
 specifier|public
 name|Set
@@ -852,6 +813,7 @@ name|liveNodes
 argument_list|)
 return|;
 block|}
+comment|/** 	 * Get shardId for core. 	 * @param coreNodeName in the form of nodeName_coreName 	 */
 DECL|method|getShardId
 specifier|public
 name|String
@@ -950,6 +912,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/** 	 * Check if node is alive.  	 */
 DECL|method|liveNodesContain
 specifier|public
 name|boolean
@@ -1134,6 +1097,7 @@ return|return
 name|rangeInfo
 return|;
 block|}
+comment|/**    * Get shard id for hash. This is used when determining which Slice the    * document is to be submitted to.    */
 DECL|method|getShard
 specifier|public
 name|String
@@ -1241,6 +1205,7 @@ name|toString
 argument_list|()
 return|;
 block|}
+comment|/** 	 * Create CloudState by reading the current state from zookeeper.  	 */
 DECL|method|load
 specifier|public
 specifier|static
@@ -1289,6 +1254,7 @@ name|liveNodes
 argument_list|)
 return|;
 block|}
+comment|/** 	 * Create CloudState from json string that is typically stored in zookeeper. 	 */
 DECL|method|load
 specifier|public
 specifier|static
@@ -1599,6 +1565,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|RangeInfo
+specifier|private
 class|class
 name|RangeInfo
 block|{

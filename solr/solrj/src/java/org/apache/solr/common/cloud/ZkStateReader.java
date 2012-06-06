@@ -1987,6 +1987,7 @@ name|watcher
 expr_stmt|;
 block|}
 block|}
+comment|/**    * Get shard leader url.    */
 DECL|method|getLeaderUrl
 specifier|public
 name|String
@@ -2056,6 +2057,7 @@ name|getCoreUrl
 argument_list|()
 return|;
 block|}
+comment|/**    * Get shard leader properties.    */
 DECL|method|getLeaderProps
 specifier|public
 name|ZkNodeProps
@@ -2178,6 +2180,7 @@ name|shard
 argument_list|)
 throw|;
 block|}
+comment|/**    * Get path where shard leader properties live in zookeeper.    */
 DECL|method|getShardLeadersPath
 specifier|public
 specifier|static
@@ -2215,6 +2218,28 @@ operator|)
 else|:
 literal|""
 operator|)
+return|;
+block|}
+comment|/**    * Get CoreNodeName for a core. This name is unique across the collection.      * @param nodeName in form: 127.0.0.1:54065_solr    */
+DECL|method|getCoreNodeName
+specifier|public
+specifier|static
+name|String
+name|getCoreNodeName
+parameter_list|(
+name|String
+name|nodeName
+parameter_list|,
+name|String
+name|coreName
+parameter_list|)
+block|{
+return|return
+name|nodeName
+operator|+
+literal|"_"
+operator|+
+name|coreName
 return|;
 block|}
 DECL|method|getReplicaProps
