@@ -97,10 +97,10 @@ literal|"si"
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|getSegmentInfosReader
+DECL|method|getSegmentInfoReader
 specifier|public
 name|SegmentInfoReader
-name|getSegmentInfosReader
+name|getSegmentInfoReader
 parameter_list|()
 block|{
 return|return
@@ -109,10 +109,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getSegmentInfosWriter
+DECL|method|getSegmentInfoWriter
 specifier|public
 name|SegmentInfoWriter
-name|getSegmentInfosWriter
+name|getSegmentInfoWriter
 parameter_list|()
 block|{
 return|return

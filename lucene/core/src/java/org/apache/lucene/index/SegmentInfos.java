@@ -956,7 +956,7 @@ operator|.
 name|segmentInfoFormat
 argument_list|()
 operator|.
-name|getSegmentInfosReader
+name|getSegmentInfoReader
 argument_list|()
 operator|.
 name|read
