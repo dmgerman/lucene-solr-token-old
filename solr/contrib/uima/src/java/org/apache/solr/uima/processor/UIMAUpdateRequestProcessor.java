@@ -251,7 +251,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * Update document(s) to be indexed with UIMA extracted information  *  *  */
+comment|/**  * Update document(s) to be indexed with UIMA extracted information  *  */
 end_comment
 begin_class
 DECL|class|UIMAUpdateRequestProcessor
@@ -613,7 +613,26 @@ argument_list|()
 decl_stmt|;
 name|int
 name|len
-init|=
+decl_stmt|;
+name|String
+name|debugString
+decl_stmt|;
+if|if
+condition|(
+name|text
+operator|!=
+literal|null
+operator|&&
+name|text
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|len
+operator|=
 name|Math
 operator|.
 name|min
@@ -625,7 +644,43 @@ argument_list|()
 argument_list|,
 literal|100
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+name|debugString
+operator|=
+operator|new
+name|StringBuilder
+argument_list|(
+literal|" text=\""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|text
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|len
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"...\""
+argument_list|)
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|debugString
+operator|=
+literal|" null text"
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|solrUIMAConfiguration
@@ -659,24 +714,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|" text=\""
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|text
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-name|len
-argument_list|)
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"...\""
+name|debugString
 argument_list|)
 operator|.
 name|toString
@@ -697,7 +735,7 @@ argument_list|,
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"processing error: "
+literal|"processing error "
 argument_list|)
 operator|.
 name|append
@@ -715,24 +753,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|" text=\""
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|text
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-name|len
-argument_list|)
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"...\""
+name|debugString
 argument_list|)
 operator|.
 name|toString
