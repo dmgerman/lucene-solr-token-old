@@ -14,7 +14,7 @@ name|simpletext
 package|;
 end_package
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements. See the NOTICE file distributed with this  * work for additional information regarding copyright ownership. The ASF  * licenses this file to You under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *   * http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the  * License for the specific language governing permissions and limitations under  * the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements. See the NOTICE file distributed with this  * work for additional information regarding copyright ownership. The ASF  * licenses this file to You under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *   * http://www.apache.org/licenses/LICENSE-2.0  *   * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the  * License for the specific language governing permissions and limitations under  * the License.  */
 end_comment
 begin_import
 import|import
@@ -341,10 +341,10 @@ name|int
 index|[]
 name|ords
 decl_stmt|;
-DECL|field|fixedSize
+DECL|field|valueSize
 specifier|private
 name|int
-name|fixedSize
+name|valueSize
 init|=
 name|Integer
 operator|.
@@ -819,7 +819,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|fixedSize
+name|valueSize
 operator|==
 name|Integer
 operator|.
@@ -832,7 +832,7 @@ operator|==
 operator|-
 literal|1
 assert|;
-name|fixedSize
+name|valueSize
 operator|=
 name|vSize
 expr_stmt|;
@@ -841,7 +841,7 @@ else|else
 block|{
 if|if
 condition|(
-name|fixedSize
+name|valueSize
 operator|!=
 name|vSize
 condition|)
@@ -852,7 +852,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"value size must be "
 operator|+
-name|fixedSize
+name|valueSize
 operator|+
 literal|" but was: "
 operator|+
@@ -1070,7 +1070,7 @@ name|toString
 argument_list|(
 name|this
 operator|.
-name|fixedSize
+name|valueSize
 argument_list|)
 argument_list|,
 name|scratch
@@ -1518,7 +1518,7 @@ literal|null
 condition|)
 block|{
 assert|assert
-name|fixedSize
+name|valueSize
 operator|>
 literal|0
 assert|;
@@ -1530,7 +1530,7 @@ argument_list|(
 operator|new
 name|byte
 index|[
-name|fixedSize
+name|valueSize
 index|]
 argument_list|)
 expr_stmt|;
@@ -1634,6 +1634,18 @@ parameter_list|()
 block|{
 return|return
 name|type
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getValueSize
+specifier|public
+name|int
+name|getValueSize
+parameter_list|()
+block|{
+return|return
+name|valueSize
 return|;
 block|}
 block|}
