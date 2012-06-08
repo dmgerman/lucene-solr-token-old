@@ -43,7 +43,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * The payload of a Token. See also {@link Payload}.  */
+comment|/**  * The payload of a Token.  */
 end_comment
 begin_class
 DECL|class|PayloadAttributeImpl
