@@ -613,7 +613,7 @@ assert|assert
 name|hasProx
 assert|;
 specifier|final
-name|Payload
+name|BytesRef
 name|payload
 decl_stmt|;
 if|if
@@ -685,7 +685,7 @@ literal|1
 argument_list|,
 name|payload
 operator|.
-name|data
+name|bytes
 argument_list|,
 name|payload
 operator|.

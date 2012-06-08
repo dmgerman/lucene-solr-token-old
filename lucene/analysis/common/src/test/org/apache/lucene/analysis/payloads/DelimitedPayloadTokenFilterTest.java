@@ -80,9 +80,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|util
 operator|.
-name|Payload
+name|BytesRef
 import|;
 end_import
 begin_import
@@ -1074,7 +1074,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Payload
+name|BytesRef
 name|payload
 init|=
 name|payloadAtt
@@ -1094,7 +1094,6 @@ argument_list|(
 name|payload
 operator|.
 name|length
-argument_list|()
 operator|+
 literal|" does not equal: "
 operator|+
@@ -1105,7 +1104,6 @@ argument_list|,
 name|payload
 operator|.
 name|length
-argument_list|()
 operator|==
 name|expectPay
 operator|.
@@ -1140,10 +1138,14 @@ literal|" does not equal: "
 operator|+
 name|payload
 operator|.
-name|byteAt
-argument_list|(
+name|bytes
+index|[
 name|i
-argument_list|)
+operator|+
+name|payload
+operator|.
+name|offset
+index|]
 argument_list|,
 name|expectPay
 index|[
@@ -1152,10 +1154,14 @@ index|]
 operator|==
 name|payload
 operator|.
-name|byteAt
-argument_list|(
+name|bytes
+index|[
 name|i
-argument_list|)
+operator|+
+name|payload
+operator|.
+name|offset
+index|]
 argument_list|)
 expr_stmt|;
 block|}
@@ -1219,7 +1225,7 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Payload
+name|BytesRef
 name|payload
 init|=
 name|payAtt
@@ -1239,7 +1245,6 @@ argument_list|(
 name|payload
 operator|.
 name|length
-argument_list|()
 operator|+
 literal|" does not equal: "
 operator|+
@@ -1250,7 +1255,6 @@ argument_list|,
 name|payload
 operator|.
 name|length
-argument_list|()
 operator|==
 name|expectPay
 operator|.
@@ -1285,10 +1289,14 @@ literal|" does not equal: "
 operator|+
 name|payload
 operator|.
-name|byteAt
-argument_list|(
+name|bytes
+index|[
 name|i
-argument_list|)
+operator|+
+name|payload
+operator|.
+name|offset
+index|]
 argument_list|,
 name|expectPay
 index|[
@@ -1297,10 +1305,14 @@ index|]
 operator|==
 name|payload
 operator|.
-name|byteAt
-argument_list|(
+name|bytes
+index|[
 name|i
-argument_list|)
+operator|+
+name|payload
+operator|.
+name|offset
+index|]
 argument_list|)
 expr_stmt|;
 block|}

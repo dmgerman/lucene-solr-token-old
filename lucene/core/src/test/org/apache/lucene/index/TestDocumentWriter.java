@@ -1132,7 +1132,7 @@ operator|.
 name|setPayload
 argument_list|(
 operator|new
-name|Payload
+name|BytesRef
 argument_list|(
 operator|new
 name|byte

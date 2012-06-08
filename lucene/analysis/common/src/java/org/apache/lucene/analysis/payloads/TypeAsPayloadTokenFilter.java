@@ -80,9 +80,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|util
 operator|.
-name|Payload
+name|BytesRef
 import|;
 end_import
 begin_import
@@ -193,7 +193,7 @@ operator|.
 name|setPayload
 argument_list|(
 operator|new
-name|Payload
+name|BytesRef
 argument_list|(
 name|type
 operator|.

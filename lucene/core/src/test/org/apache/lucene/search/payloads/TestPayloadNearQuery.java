@@ -137,19 +137,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|Payload
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|RandomIndexWriter
 import|;
 end_import
@@ -616,7 +603,7 @@ operator|.
 name|setPayload
 argument_list|(
 operator|new
-name|Payload
+name|BytesRef
 argument_list|(
 name|payload2
 argument_list|)
@@ -630,7 +617,7 @@ operator|.
 name|setPayload
 argument_list|(
 operator|new
-name|Payload
+name|BytesRef
 argument_list|(
 name|payload4
 argument_list|)

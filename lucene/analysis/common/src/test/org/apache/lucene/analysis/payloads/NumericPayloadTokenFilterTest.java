@@ -299,8 +299,7 @@ operator|.
 name|getPayload
 argument_list|()
 operator|.
-name|getData
-argument_list|()
+name|bytes
 decl_stmt|;
 comment|//safe here to just use the bytes, otherwise we should use offset, length
 name|assertTrue
@@ -317,7 +316,6 @@ name|getPayload
 argument_list|()
 operator|.
 name|length
-argument_list|()
 argument_list|,
 name|bytes
 operator|.
@@ -329,7 +327,6 @@ name|getPayload
 argument_list|()
 operator|.
 name|length
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -339,8 +336,7 @@ operator|.
 name|getPayload
 argument_list|()
 operator|.
-name|getOffset
-argument_list|()
+name|offset
 operator|+
 literal|" does not equal: "
 operator|+
@@ -351,8 +347,7 @@ operator|.
 name|getPayload
 argument_list|()
 operator|.
-name|getOffset
-argument_list|()
+name|offset
 operator|==
 literal|0
 argument_list|)

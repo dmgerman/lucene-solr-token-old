@@ -80,9 +80,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|util
 operator|.
-name|Payload
+name|BytesRef
 import|;
 end_import
 begin_import
@@ -112,7 +112,7 @@ name|typeMatch
 decl_stmt|;
 DECL|field|thePayload
 specifier|private
-name|Payload
+name|BytesRef
 name|thePayload
 decl_stmt|;
 DECL|field|payloadAtt
@@ -164,7 +164,7 @@ comment|//Need to encode the payload
 name|thePayload
 operator|=
 operator|new
-name|Payload
+name|BytesRef
 argument_list|(
 name|PayloadHelper
 operator|.
