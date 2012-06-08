@@ -3230,9 +3230,11 @@ op|'+='
 op|'('
 string|"'build.xml'"
 op|','
-string|"'index.html'"
-op|','
 string|"'common-build.xml'"
+op|','
+string|"'module-build.xml'"
+op|','
+string|"'ivy-settings.xml'"
 op|','
 string|"'backwards'"
 op|','
