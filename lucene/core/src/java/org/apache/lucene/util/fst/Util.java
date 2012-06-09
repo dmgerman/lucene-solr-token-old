@@ -1685,6 +1685,19 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 specifier|final
+name|FST
+operator|.
+name|BytesReader
+name|fstReader
+init|=
+name|fst
+operator|.
+name|getBytesReader
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+specifier|final
 name|T
 name|NO_OUTPUT
 init|=
@@ -1798,6 +1811,8 @@ argument_list|,
 name|path
 operator|.
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 comment|// Bootstrap: find the min starting arc
@@ -1883,6 +1898,8 @@ argument_list|(
 name|path
 operator|.
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 block|}
@@ -2104,6 +2121,8 @@ argument_list|,
 name|path
 operator|.
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 comment|// For each arc leaving this node:
@@ -2214,6 +2233,8 @@ argument_list|(
 name|path
 operator|.
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 block|}
@@ -2808,6 +2829,19 @@ operator|.
 name|getNoOutput
 argument_list|()
 decl_stmt|;
+specifier|final
+name|FST
+operator|.
+name|BytesReader
+name|r
+init|=
+name|fst
+operator|.
+name|getBytesReader
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 comment|// final FST.Arc<T> scratchArc = new FST.Arc<T>();
 block|{
 specifier|final
@@ -2821,6 +2855,8 @@ operator|.
 name|isExpandedTarget
 argument_list|(
 name|startArc
+argument_list|,
+name|r
 argument_list|)
 condition|)
 block|{
@@ -2937,19 +2973,6 @@ name|int
 name|level
 init|=
 literal|0
-decl_stmt|;
-specifier|final
-name|FST
-operator|.
-name|BytesReader
-name|r
-init|=
-name|fst
-operator|.
-name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
 decl_stmt|;
 while|while
 condition|(
@@ -3091,6 +3114,8 @@ operator|.
 name|isExpandedTarget
 argument_list|(
 name|arc
+argument_list|,
+name|r
 argument_list|)
 condition|)
 block|{

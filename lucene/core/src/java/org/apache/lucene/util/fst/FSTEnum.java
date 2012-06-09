@@ -132,6 +132,14 @@ specifier|final
 name|T
 name|NO_OUTPUT
 decl_stmt|;
+DECL|field|fstReader
+specifier|protected
+specifier|final
+name|FST
+operator|.
+name|BytesReader
+name|fstReader
+decl_stmt|;
 DECL|field|scratchArc
 specifier|protected
 specifier|final
@@ -179,6 +187,15 @@ operator|.
 name|fst
 operator|=
 name|fst
+expr_stmt|;
+name|fstReader
+operator|=
+name|fst
+operator|.
+name|getBytesReader
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 name|NO_OUTPUT
 operator|=
@@ -273,6 +290,8 @@ name|getArc
 argument_list|(
 literal|1
 argument_list|)
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 return|return;
@@ -357,6 +376,8 @@ literal|1
 argument_list|)
 argument_list|,
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 comment|//System.out.println("    seek first arc");
@@ -402,6 +423,8 @@ name|getArc
 argument_list|(
 literal|1
 argument_list|)
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 block|}
@@ -442,6 +465,8 @@ name|arcs
 index|[
 name|upto
 index|]
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 block|}
@@ -758,6 +783,8 @@ name|getArc
 argument_list|(
 name|upto
 argument_list|)
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 name|targetLabel
@@ -851,6 +878,8 @@ operator|.
 name|readNextArc
 argument_list|(
 name|prevArc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 name|pushFirst
@@ -972,6 +1001,8 @@ name|getArc
 argument_list|(
 name|upto
 argument_list|)
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 name|targetLabel
@@ -1052,6 +1083,8 @@ operator|.
 name|readNextArc
 argument_list|(
 name|prevArc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 name|pushFirst
@@ -1073,6 +1106,8 @@ operator|.
 name|readNextArc
 argument_list|(
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 block|}
@@ -1393,6 +1428,8 @@ name|getArc
 argument_list|(
 name|upto
 argument_list|)
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 name|targetLabel
@@ -1436,6 +1473,8 @@ literal|1
 argument_list|)
 argument_list|,
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 if|if
@@ -1462,6 +1501,8 @@ operator|.
 name|readNextArcLabel
 argument_list|(
 name|arc
+argument_list|,
+name|in
 argument_list|)
 operator|<
 name|targetLabel
@@ -1472,6 +1513,8 @@ operator|.
 name|readNextArc
 argument_list|(
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 block|}
@@ -1546,6 +1589,8 @@ operator|.
 name|readNextArcLabel
 argument_list|(
 name|arc
+argument_list|,
+name|in
 argument_list|)
 operator|>
 name|targetLabel
@@ -1641,6 +1686,8 @@ name|getArc
 argument_list|(
 name|upto
 argument_list|)
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 name|targetLabel
@@ -1682,6 +1729,8 @@ literal|1
 argument_list|)
 argument_list|,
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 if|if
@@ -1708,6 +1757,8 @@ operator|.
 name|readNextArcLabel
 argument_list|(
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 operator|<
 name|targetLabel
@@ -1718,6 +1769,8 @@ operator|.
 name|readNextArc
 argument_list|(
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 block|}
@@ -1770,6 +1823,8 @@ operator|.
 name|readNextArcLabel
 argument_list|(
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 operator|>
 name|targetLabel
@@ -1788,6 +1843,8 @@ operator|.
 name|readNextArc
 argument_list|(
 name|arc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 block|}
@@ -1907,6 +1964,8 @@ name|getArc
 argument_list|(
 name|upto
 argument_list|)
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 comment|//System.out.println("  no match upto=" + upto);
@@ -2221,6 +2280,8 @@ argument_list|(
 name|arc
 argument_list|,
 name|nextArc
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 name|arc
@@ -2321,6 +2382,8 @@ name|getArc
 argument_list|(
 name|upto
 argument_list|)
+argument_list|,
+name|fstReader
 argument_list|)
 expr_stmt|;
 block|}

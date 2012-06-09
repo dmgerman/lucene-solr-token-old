@@ -1002,7 +1002,6 @@ block|}
 empty_stmt|;
 DECL|method|flag
 specifier|private
-specifier|final
 specifier|static
 name|boolean
 name|flag
@@ -3509,6 +3508,11 @@ argument_list|<
 name|T
 argument_list|>
 name|arc
+parameter_list|,
+name|FST
+operator|.
+name|BytesReader
+name|in
 parameter_list|)
 throws|throws
 name|IOException
@@ -3562,20 +3566,17 @@ return|;
 block|}
 else|else
 block|{
-specifier|final
-name|BytesReader
 name|in
-init|=
-name|getBytesReader
-argument_list|(
+operator|.
+name|pos
+operator|=
 name|getNodeAddress
 argument_list|(
 name|follow
 operator|.
 name|target
 argument_list|)
-argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|arc
 operator|.
 name|node
@@ -3835,6 +3836,9 @@ argument_list|<
 name|T
 argument_list|>
 name|arc
+parameter_list|,
+name|BytesReader
+name|in
 parameter_list|)
 throws|throws
 name|IOException
@@ -3928,10 +3932,7 @@ name|target
 argument_list|,
 name|arc
 argument_list|,
-name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+name|in
 argument_list|)
 return|;
 block|}
@@ -4095,6 +4096,11 @@ argument_list|<
 name|T
 argument_list|>
 name|follow
+parameter_list|,
+name|FST
+operator|.
+name|BytesReader
+name|in
 parameter_list|)
 throws|throws
 name|IOException
@@ -4114,20 +4120,17 @@ return|;
 block|}
 else|else
 block|{
-specifier|final
-name|BytesReader
 name|in
-init|=
-name|getBytesReader
-argument_list|(
+operator|.
+name|pos
+operator|=
 name|getNodeAddress
 argument_list|(
 name|follow
 operator|.
 name|target
 argument_list|)
-argument_list|)
-decl_stmt|;
+expr_stmt|;
 return|return
 name|in
 operator|.
@@ -4152,6 +4155,9 @@ argument_list|<
 name|T
 argument_list|>
 name|arc
+parameter_list|,
+name|BytesReader
+name|in
 parameter_list|)
 throws|throws
 name|IOException
@@ -4192,10 +4198,7 @@ name|nextArc
 argument_list|,
 name|arc
 argument_list|,
-name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+name|in
 argument_list|)
 return|;
 block|}
@@ -4206,10 +4209,7 @@ name|readNextRealArc
 argument_list|(
 name|arc
 argument_list|,
-name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+name|in
 argument_list|)
 return|;
 block|}
@@ -4225,6 +4225,9 @@ argument_list|<
 name|T
 argument_list|>
 name|arc
+parameter_list|,
+name|BytesReader
+name|in
 parameter_list|)
 throws|throws
 name|IOException
@@ -4236,10 +4239,6 @@ operator|.
 name|isLast
 argument_list|()
 assert|;
-specifier|final
-name|BytesReader
-name|in
-decl_stmt|;
 if|if
 condition|(
 name|arc
@@ -4251,15 +4250,14 @@ condition|)
 block|{
 comment|//System.out.println("    nextArc fake " + arc.nextArc);
 name|in
+operator|.
+name|pos
 operator|=
-name|getBytesReader
-argument_list|(
 name|getNodeAddress
 argument_list|(
 name|arc
 operator|.
 name|nextArc
-argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -4328,13 +4326,12 @@ block|{
 comment|//System.out.println("    nextArc real array");
 comment|// arcs are at fixed entries
 name|in
+operator|.
+name|pos
 operator|=
-name|getBytesReader
-argument_list|(
 name|arc
 operator|.
 name|posArcsStart
-argument_list|)
 expr_stmt|;
 name|in
 operator|.
@@ -4359,13 +4356,12 @@ block|{
 comment|// arcs are packed
 comment|//System.out.println("    nextArc real packed");
 name|in
+operator|.
+name|pos
 operator|=
-name|getBytesReader
-argument_list|(
 name|arc
 operator|.
 name|nextArc
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -5656,7 +5652,6 @@ block|}
 block|}
 DECL|method|getBytesReader
 specifier|public
-specifier|final
 name|BytesReader
 name|getBytesReader
 parameter_list|(
