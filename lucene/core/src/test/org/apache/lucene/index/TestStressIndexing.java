@@ -378,7 +378,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newStringField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -390,9 +390,11 @@ name|nextID
 operator|++
 argument_list|)
 argument_list|,
-name|StringField
+name|Field
 operator|.
-name|TYPE_STORED
+name|Store
+operator|.
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -400,7 +402,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newTextField
 argument_list|(
 literal|"contents"
 argument_list|,
@@ -411,9 +413,11 @@ argument_list|(
 name|n
 argument_list|)
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_UNSTORED
+name|Store
+operator|.
+name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;

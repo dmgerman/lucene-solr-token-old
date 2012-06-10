@@ -37,7 +37,7 @@ name|TokenStream
 import|;
 end_import
 begin_comment
-comment|/** A field that is indexed and tokenized, without term  *  vectors.  For example this would be used on a 'body'  *  field, that contains the bulk of a document's text.  *   *  This field's value is not stored by default; use the  *  {@link TextField#TYPE_STORED} type (pass it to<code>new  *  Field</code>) to store the value. */
+comment|/** A field that is indexed and tokenized, without term  *  vectors.  For example this would be used on a 'body'  *  field, that contains the bulk of a document's text. */
 end_comment
 begin_class
 DECL|class|TextField
@@ -49,12 +49,12 @@ extends|extends
 name|Field
 block|{
 comment|/* Indexed, tokenized, not stored. */
-DECL|field|TYPE_UNSTORED
+DECL|field|TYPE_NOT_STORED
 specifier|public
 specifier|static
 specifier|final
 name|FieldType
-name|TYPE_UNSTORED
+name|TYPE_NOT_STORED
 init|=
 operator|new
 name|FieldType
@@ -74,21 +74,21 @@ argument_list|()
 decl_stmt|;
 static|static
 block|{
-name|TYPE_UNSTORED
+name|TYPE_NOT_STORED
 operator|.
 name|setIndexed
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|TYPE_UNSTORED
+name|TYPE_NOT_STORED
 operator|.
 name|setTokenized
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|TYPE_UNSTORED
+name|TYPE_NOT_STORED
 operator|.
 name|freeze
 argument_list|()
@@ -96,6 +96,13 @@ expr_stmt|;
 name|TYPE_STORED
 operator|.
 name|setIndexed
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|TYPE_STORED
+operator|.
+name|setTokenized
 argument_list|(
 literal|true
 argument_list|)
@@ -109,19 +116,12 @@ argument_list|)
 expr_stmt|;
 name|TYPE_STORED
 operator|.
-name|setTokenized
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|TYPE_STORED
-operator|.
 name|freeze
 argument_list|()
 expr_stmt|;
 block|}
 comment|// TODO: add sugar for term vectors...?
-comment|/** Creates a new un-stored TextField */
+comment|/** Creates a new TextField with Reader value. */
 DECL|method|TextField
 specifier|public
 name|TextField
@@ -131,6 +131,9 @@ name|name
 parameter_list|,
 name|Reader
 name|reader
+parameter_list|,
+name|Store
+name|store
 parameter_list|)
 block|{
 name|super
@@ -139,13 +142,19 @@ name|name
 argument_list|,
 name|reader
 argument_list|,
-name|TextField
+name|store
+operator|==
+name|Store
 operator|.
-name|TYPE_UNSTORED
+name|YES
+condition|?
+name|TYPE_STORED
+else|:
+name|TYPE_NOT_STORED
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Creates a new un-stored TextField */
+comment|/** Creates a new TextField with String value. */
 DECL|method|TextField
 specifier|public
 name|TextField
@@ -155,6 +164,9 @@ name|name
 parameter_list|,
 name|String
 name|value
+parameter_list|,
+name|Store
+name|store
 parameter_list|)
 block|{
 name|super
@@ -163,13 +175,19 @@ name|name
 argument_list|,
 name|value
 argument_list|,
-name|TextField
+name|store
+operator|==
+name|Store
 operator|.
-name|TYPE_UNSTORED
+name|YES
+condition|?
+name|TYPE_STORED
+else|:
+name|TYPE_NOT_STORED
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Creates a new un-stored TextField */
+comment|/** Creates a new un-stored TextField with TokenStream value. */
 DECL|method|TextField
 specifier|public
 name|TextField
@@ -187,9 +205,7 @@ name|name
 argument_list|,
 name|stream
 argument_list|,
-name|TextField
-operator|.
-name|TYPE_UNSTORED
+name|TYPE_NOT_STORED
 argument_list|)
 expr_stmt|;
 block|}

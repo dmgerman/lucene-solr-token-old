@@ -1233,6 +1233,12 @@ argument_list|(
 name|field
 argument_list|,
 name|delTxt
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|NO
 argument_list|)
 decl_stmt|;
 DECL|field|alphaContent
@@ -1248,6 +1254,12 @@ argument_list|(
 name|field
 argument_list|,
 name|alphaTxt
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|NO
 argument_list|)
 decl_stmt|;
 DECL|field|numDocs

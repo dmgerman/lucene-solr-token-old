@@ -1337,7 +1337,7 @@ name|FieldType
 argument_list|(
 name|IntField
 operator|.
-name|TYPE
+name|TYPE_NOT_STORED
 argument_list|)
 decl_stmt|;
 name|ft
@@ -1507,7 +1507,7 @@ name|FieldType
 argument_list|(
 name|LongField
 operator|.
-name|TYPE
+name|TYPE_NOT_STORED
 argument_list|)
 decl_stmt|;
 name|ft

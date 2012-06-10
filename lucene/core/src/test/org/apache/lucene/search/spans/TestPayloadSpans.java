@@ -151,6 +151,19 @@ name|lucene
 operator|.
 name|document
 operator|.
+name|Field
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
 name|TextField
 import|;
 end_import
@@ -900,7 +913,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newTextField
 argument_list|(
 name|PayloadHelper
 operator|.
@@ -908,9 +921,11 @@ name|FIELD
 argument_list|,
 literal|"one two three one four three"
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_STORED
+name|Store
+operator|.
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2054,6 +2069,12 @@ name|StringReader
 argument_list|(
 literal|"a b c d e f g h i j a k"
 argument_list|)
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2342,6 +2363,12 @@ name|StringReader
 argument_list|(
 literal|"a b a d k f a h i k a k"
 argument_list|)
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2630,6 +2657,12 @@ name|StringReader
 argument_list|(
 literal|"j k a l f k k p a t a k l k t a"
 argument_list|)
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2934,7 +2967,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newTextField
 argument_list|(
 name|PayloadHelper
 operator|.
@@ -2942,9 +2975,11 @@ name|FIELD
 argument_list|,
 literal|"xx rr yy mm  pp"
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_STORED
+name|Store
+operator|.
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3377,7 +3412,7 @@ name|doc
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newTextField
 argument_list|(
 name|PayloadHelper
 operator|.
@@ -3385,9 +3420,11 @@ name|FIELD
 argument_list|,
 name|docText
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_STORED
+name|Store
+operator|.
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;

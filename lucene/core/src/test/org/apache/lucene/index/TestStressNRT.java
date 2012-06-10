@@ -132,7 +132,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|FieldType
+name|Field
 import|;
 end_import
 begin_import
@@ -145,7 +145,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|StringField
+name|FieldType
 import|;
 end_import
 begin_import
@@ -1421,7 +1421,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newStringField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1434,9 +1434,11 @@ argument_list|(
 name|id
 argument_list|)
 argument_list|,
-name|StringField
+name|Field
 operator|.
-name|TYPE_STORED
+name|Store
+operator|.
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1572,7 +1574,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newStringField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1585,9 +1587,11 @@ argument_list|(
 name|id
 argument_list|)
 argument_list|,
-name|StringField
+name|Field
 operator|.
-name|TYPE_STORED
+name|Store
+operator|.
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1711,7 +1715,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newStringField
 argument_list|(
 literal|"id"
 argument_list|,
@@ -1722,9 +1726,11 @@ argument_list|(
 name|id
 argument_list|)
 argument_list|,
-name|StringField
+name|Field
 operator|.
-name|TYPE_STORED
+name|Store
+operator|.
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;

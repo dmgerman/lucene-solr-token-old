@@ -81,7 +81,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|TextField
+name|Field
 import|;
 end_import
 begin_import
@@ -622,15 +622,17 @@ name|d1
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newTextField
 argument_list|(
 literal|"default"
 argument_list|,
 literal|"one two"
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_STORED
+name|Store
+operator|.
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -652,15 +654,17 @@ name|d2
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newTextField
 argument_list|(
 literal|"default"
 argument_list|,
 literal|"one three"
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_STORED
+name|Store
+operator|.
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -682,15 +686,17 @@ name|d3
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newTextField
 argument_list|(
 literal|"default"
 argument_list|,
 literal|"two four"
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_STORED
+name|Store
+operator|.
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;

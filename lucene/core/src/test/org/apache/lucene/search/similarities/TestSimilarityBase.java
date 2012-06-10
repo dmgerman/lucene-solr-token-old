@@ -51,9 +51,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|codecs
+name|document
 operator|.
-name|Codec
+name|Document
 import|;
 end_import
 begin_import
@@ -66,7 +66,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Document
+name|Field
 import|;
 end_import
 begin_import
@@ -546,7 +546,7 @@ name|d
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newTextField
 argument_list|(
 name|FIELD_BODY
 argument_list|,
@@ -555,9 +555,11 @@ index|[
 name|i
 index|]
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_STORED
+name|Store
+operator|.
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;

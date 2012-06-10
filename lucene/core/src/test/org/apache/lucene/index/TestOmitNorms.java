@@ -201,15 +201,17 @@ comment|// this field will have norms
 name|Field
 name|f1
 init|=
-name|newField
+name|newTextField
 argument_list|(
 literal|"f1"
 argument_list|,
 literal|"This field has norms"
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_UNSTORED
+name|Store
+operator|.
+name|NO
 argument_list|)
 decl_stmt|;
 name|d
@@ -228,7 +230,7 @@ name|FieldType
 argument_list|(
 name|TextField
 operator|.
-name|TYPE_UNSTORED
+name|TYPE_NOT_STORED
 argument_list|)
 decl_stmt|;
 name|customType
@@ -298,15 +300,17 @@ name|d
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newTextField
 argument_list|(
 literal|"f2"
 argument_list|,
 literal|"This field has NO norms in all docs"
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_UNSTORED
+name|Store
+operator|.
+name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -459,15 +463,17 @@ comment|// this field will have norms
 name|Field
 name|f1
 init|=
-name|newField
+name|newTextField
 argument_list|(
 literal|"f1"
 argument_list|,
 literal|"This field has norms"
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_UNSTORED
+name|Store
+operator|.
+name|NO
 argument_list|)
 decl_stmt|;
 name|d
@@ -486,7 +492,7 @@ name|FieldType
 argument_list|(
 name|TextField
 operator|.
-name|TYPE_UNSTORED
+name|TYPE_NOT_STORED
 argument_list|)
 decl_stmt|;
 name|customType
@@ -565,15 +571,17 @@ name|d
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newTextField
 argument_list|(
 literal|"f2"
 argument_list|,
 literal|"This field has NO norms in all docs"
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_UNSTORED
+name|Store
+operator|.
+name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -743,15 +751,17 @@ comment|// this field will have norms
 name|Field
 name|f1
 init|=
-name|newField
+name|newTextField
 argument_list|(
 literal|"f1"
 argument_list|,
 literal|"This field has norms"
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_UNSTORED
+name|Store
+operator|.
+name|NO
 argument_list|)
 decl_stmt|;
 name|d
@@ -770,7 +780,7 @@ name|FieldType
 argument_list|(
 name|TextField
 operator|.
-name|TYPE_UNSTORED
+name|TYPE_NOT_STORED
 argument_list|)
 decl_stmt|;
 name|customType
@@ -1081,7 +1091,7 @@ name|FieldType
 argument_list|(
 name|TextField
 operator|.
-name|TYPE_UNSTORED
+name|TYPE_NOT_STORED
 argument_list|)
 decl_stmt|;
 name|customType

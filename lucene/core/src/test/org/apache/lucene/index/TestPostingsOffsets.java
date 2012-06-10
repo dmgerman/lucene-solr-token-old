@@ -419,7 +419,7 @@ name|FieldType
 argument_list|(
 name|TextField
 operator|.
-name|TYPE_UNSTORED
+name|TYPE_NOT_STORED
 argument_list|)
 decl_stmt|;
 name|ft
@@ -1111,6 +1111,12 @@ argument_list|,
 literal|""
 operator|+
 name|i
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1715,7 +1721,7 @@ name|FieldType
 argument_list|(
 name|TextField
 operator|.
-name|TYPE_UNSTORED
+name|TYPE_NOT_STORED
 argument_list|)
 decl_stmt|;
 comment|// TODO: randomize what IndexOptions we use; also test
@@ -1802,6 +1808,12 @@ argument_list|(
 literal|"id"
 argument_list|,
 name|docCount
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;

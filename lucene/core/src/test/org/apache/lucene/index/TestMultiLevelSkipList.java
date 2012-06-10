@@ -111,7 +111,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|TextField
+name|Field
 import|;
 end_import
 begin_import
@@ -425,7 +425,7 @@ name|d1
 operator|.
 name|add
 argument_list|(
-name|newField
+name|newTextField
 argument_list|(
 name|term
 operator|.
@@ -437,9 +437,11 @@ operator|.
 name|text
 argument_list|()
 argument_list|,
-name|TextField
+name|Field
 operator|.
-name|TYPE_UNSTORED
+name|Store
+operator|.
+name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
