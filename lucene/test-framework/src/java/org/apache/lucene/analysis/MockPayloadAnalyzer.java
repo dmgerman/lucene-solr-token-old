@@ -292,6 +292,10 @@ name|posIncr
 decl_stmt|;
 if|if
 condition|(
+name|pos
+operator|==
+literal|0
+operator|||
 name|i
 operator|%
 literal|2
