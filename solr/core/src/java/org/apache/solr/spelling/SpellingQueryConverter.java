@@ -943,7 +943,7 @@ argument_list|)
 expr_stmt|;
 name|token
 operator|.
-name|setStartOffset
+name|setOffset
 argument_list|(
 name|offset
 operator|+
@@ -951,12 +951,7 @@ name|offsetAtt
 operator|.
 name|startOffset
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|token
-operator|.
-name|setEndOffset
-argument_list|(
+argument_list|,
 name|offset
 operator|+
 name|offsetAtt

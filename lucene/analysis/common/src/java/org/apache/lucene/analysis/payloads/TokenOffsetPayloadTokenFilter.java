@@ -95,7 +95,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * Adds the {@link org.apache.lucene.analysis.Token#setStartOffset(int)}  * and {@link org.apache.lucene.analysis.Token#setEndOffset(int)}  * First 4 bytes are the start  *  **/
+comment|/**  * Adds the {@link OffsetAttribute#startOffset()}  * and {@link OffsetAttribute#endOffset()}  * First 4 bytes are the start  *  **/
 end_comment
 begin_class
 DECL|class|TokenOffsetPayloadTokenFilter
