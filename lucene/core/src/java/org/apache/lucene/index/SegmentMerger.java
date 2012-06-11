@@ -1857,17 +1857,11 @@ name|segmentWriteState
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// TODO: remove this check when 3.x indexes are no longer supported
-comment|// (3.x indexes don't have docvalues)
-if|if
-condition|(
+assert|assert
 name|docsConsumer
-operator|==
+operator|!=
 literal|null
-condition|)
-block|{
-return|return;
-block|}
+assert|;
 name|boolean
 name|success
 init|=
@@ -1943,17 +1937,11 @@ name|segmentWriteState
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// TODO: remove this check when 3.x indexes are no longer supported
-comment|// (3.x indexes don't have docvalues)
-if|if
-condition|(
+assert|assert
 name|docsConsumer
-operator|==
+operator|!=
 literal|null
-condition|)
-block|{
-return|return;
-block|}
+assert|;
 name|boolean
 name|success
 init|=
