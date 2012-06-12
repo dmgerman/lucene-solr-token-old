@@ -3013,6 +3013,11 @@ name|postings
 init|=
 literal|null
 decl_stmt|;
+name|DocsAndPositionsEnum
+name|offsets
+init|=
+literal|null
+decl_stmt|;
 name|String
 name|lastField
 init|=
@@ -3374,6 +3379,19 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|offsets
+operator|=
+name|termsEnum
+operator|.
+name|docsAndPositions
+argument_list|(
+name|liveDocs
+argument_list|,
+name|offsets
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|hasOrd
@@ -3465,6 +3483,43 @@ specifier|final
 name|boolean
 name|hasFreqs
 decl_stmt|;
+specifier|final
+name|boolean
+name|hasOffsets
+decl_stmt|;
+if|if
+condition|(
+name|offsets
+operator|!=
+literal|null
+condition|)
+block|{
+name|docs2
+operator|=
+name|postings
+operator|=
+name|offsets
+expr_stmt|;
+name|docsAndFreqs2
+operator|=
+name|postings
+operator|=
+name|offsets
+expr_stmt|;
+name|hasOffsets
+operator|=
+literal|true
+expr_stmt|;
+name|hasPositions
+operator|=
+literal|true
+expr_stmt|;
+name|hasFreqs
+operator|=
+literal|true
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|postings
@@ -3479,6 +3534,10 @@ expr_stmt|;
 name|docsAndFreqs2
 operator|=
 name|postings
+expr_stmt|;
+name|hasOffsets
+operator|=
+literal|false
 expr_stmt|;
 name|hasPositions
 operator|=
@@ -3505,6 +3564,10 @@ name|docsAndFreqs2
 operator|=
 name|docsAndFreqs
 expr_stmt|;
+name|hasOffsets
+operator|=
+literal|false
+expr_stmt|;
 name|hasPositions
 operator|=
 literal|false
@@ -3523,6 +3586,10 @@ expr_stmt|;
 name|docsAndFreqs2
 operator|=
 literal|null
+expr_stmt|;
+name|hasOffsets
+operator|=
+literal|false
 expr_stmt|;
 name|hasPositions
 operator|=
@@ -3700,6 +3767,11 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+name|int
+name|lastOffset
+init|=
+literal|0
+decl_stmt|;
 if|if
 condition|(
 name|hasPositions
@@ -3809,6 +3881,160 @@ name|postings
 operator|.
 name|getPayload
 argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|hasOffsets
+condition|)
+block|{
+name|int
+name|startOffset
+init|=
+name|postings
+operator|.
+name|startOffset
+argument_list|()
+decl_stmt|;
+name|int
+name|endOffset
+init|=
+name|postings
+operator|.
+name|endOffset
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|startOffset
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"term "
+operator|+
+name|term
+operator|+
+literal|": doc "
+operator|+
+name|doc
+operator|+
+literal|": pos "
+operator|+
+name|pos
+operator|+
+literal|": startOffset "
+operator|+
+name|startOffset
+operator|+
+literal|" is out of bounds"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|startOffset
+operator|<
+name|lastOffset
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"term "
+operator|+
+name|term
+operator|+
+literal|": doc "
+operator|+
+name|doc
+operator|+
+literal|": pos "
+operator|+
+name|pos
+operator|+
+literal|": startOffset "
+operator|+
+name|startOffset
+operator|+
+literal|"< lastStartOffset "
+operator|+
+name|lastOffset
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|endOffset
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"term "
+operator|+
+name|term
+operator|+
+literal|": doc "
+operator|+
+name|doc
+operator|+
+literal|": pos "
+operator|+
+name|pos
+operator|+
+literal|": endOffset "
+operator|+
+name|endOffset
+operator|+
+literal|" is out of bounds"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|endOffset
+operator|<
+name|startOffset
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"term "
+operator|+
+name|term
+operator|+
+literal|": doc "
+operator|+
+name|doc
+operator|+
+literal|": pos "
+operator|+
+name|pos
+operator|+
+literal|": endOffset "
+operator|+
+name|endOffset
+operator|+
+literal|"< startOffset "
+operator|+
+name|startOffset
+argument_list|)
+throw|;
+block|}
+name|lastOffset
+operator|=
+name|startOffset
 expr_stmt|;
 block|}
 block|}
@@ -4094,7 +4320,7 @@ name|liveDocs
 argument_list|,
 name|postings
 argument_list|,
-literal|false
+name|hasOffsets
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -4180,6 +4406,11 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+name|int
+name|lastOffset
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -4256,6 +4487,160 @@ name|lastPosition
 operator|=
 name|pos
 expr_stmt|;
+if|if
+condition|(
+name|hasOffsets
+condition|)
+block|{
+name|int
+name|startOffset
+init|=
+name|postings
+operator|.
+name|startOffset
+argument_list|()
+decl_stmt|;
+name|int
+name|endOffset
+init|=
+name|postings
+operator|.
+name|endOffset
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|startOffset
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"term "
+operator|+
+name|term
+operator|+
+literal|": doc "
+operator|+
+name|docID
+operator|+
+literal|": pos "
+operator|+
+name|pos
+operator|+
+literal|": startOffset "
+operator|+
+name|startOffset
+operator|+
+literal|" is out of bounds"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|startOffset
+operator|<
+name|lastOffset
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"term "
+operator|+
+name|term
+operator|+
+literal|": doc "
+operator|+
+name|docID
+operator|+
+literal|": pos "
+operator|+
+name|pos
+operator|+
+literal|": startOffset "
+operator|+
+name|startOffset
+operator|+
+literal|"< lastStartOffset "
+operator|+
+name|lastOffset
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|endOffset
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"term "
+operator|+
+name|term
+operator|+
+literal|": doc "
+operator|+
+name|docID
+operator|+
+literal|": pos "
+operator|+
+name|pos
+operator|+
+literal|": endOffset "
+operator|+
+name|endOffset
+operator|+
+literal|" is out of bounds"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|endOffset
+operator|<
+name|startOffset
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"term "
+operator|+
+name|term
+operator|+
+literal|": doc "
+operator|+
+name|docID
+operator|+
+literal|": pos "
+operator|+
+name|pos
+operator|+
+literal|": endOffset "
+operator|+
+name|endOffset
+operator|+
+literal|"< startOffset "
+operator|+
+name|startOffset
+argument_list|)
+throw|;
+block|}
+name|lastOffset
+operator|=
+name|startOffset
+expr_stmt|;
+block|}
 block|}
 specifier|final
 name|int
