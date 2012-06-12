@@ -286,7 +286,7 @@ name|liveDocs
 argument_list|,
 name|PackedInts
 operator|.
-name|FAST
+name|COMPACT
 argument_list|)
 return|;
 block|}
@@ -305,7 +305,7 @@ name|liveDocs
 argument_list|,
 name|PackedInts
 operator|.
-name|FAST
+name|COMPACT
 argument_list|)
 return|;
 block|}
