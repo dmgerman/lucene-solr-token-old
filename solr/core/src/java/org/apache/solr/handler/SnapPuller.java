@@ -2151,6 +2151,19 @@ name|isFullCopyNeeded
 operator|=
 literal|true
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting download to "
+operator|+
+name|tmpIndexDir
+operator|+
+literal|" fullCopy="
+operator|+
+name|isFullCopyNeeded
+argument_list|)
+expr_stmt|;
 name|successfulInstall
 operator|=
 literal|false
@@ -2429,17 +2442,39 @@ if|if
 condition|(
 name|deleteTmpIdxDir
 condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"removing temporary index download directory "
+operator|+
+name|tmpIndexDir
+argument_list|)
+expr_stmt|;
 name|delTree
 argument_list|(
 name|tmpIndexDir
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"removing old index directory "
+operator|+
+name|indexDir
+argument_list|)
+expr_stmt|;
 name|delTree
 argument_list|(
 name|indexDir
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally
@@ -3807,6 +3842,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|String
+name|indexDir
+init|=
+name|solrCore
+operator|.
+name|getIndexDir
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|Map
@@ -3826,10 +3869,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|solrCore
-operator|.
-name|getIndexDir
-argument_list|()
+name|indexDir
 argument_list|,
 operator|(
 name|String
@@ -4589,7 +4629,9 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"New index installed. Updating index properties..."
+literal|"New index installed. Updating index properties... index="
+operator|+
+name|tmpIdxDirName
 argument_list|)
 expr_stmt|;
 name|File
