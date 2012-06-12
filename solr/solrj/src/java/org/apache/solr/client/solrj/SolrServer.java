@@ -1215,6 +1215,14 @@ return|return
 name|binder
 return|;
 block|}
+comment|/**    * Release allocated resources.    *     * @since solr 4.0    */
+DECL|method|shutdown
+specifier|public
+specifier|abstract
+name|void
+name|shutdown
+parameter_list|()
+function_decl|;
 block|}
 end_class
 end_unit

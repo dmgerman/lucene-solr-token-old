@@ -7988,7 +7988,7 @@ condition|)
 block|{
 name|cloudClient
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 block|}

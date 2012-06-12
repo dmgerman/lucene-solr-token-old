@@ -1048,10 +1048,12 @@ name|getResponse
 argument_list|()
 return|;
 block|}
-DECL|method|close
+annotation|@
+name|Override
+DECL|method|shutdown
 specifier|public
 name|void
-name|close
+name|shutdown
 parameter_list|()
 block|{
 if|if

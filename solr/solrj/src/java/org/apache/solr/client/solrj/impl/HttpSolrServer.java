@@ -2678,6 +2678,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * Close the {@link ClientConnectionManager} from the internal client.    */
+annotation|@
+name|Override
 DECL|method|shutdown
 specifier|public
 name|void
