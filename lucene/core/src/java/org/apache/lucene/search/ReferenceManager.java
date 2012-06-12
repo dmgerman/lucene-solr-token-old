@@ -407,7 +407,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-comment|// Ensure only 1 thread does reopen at once; other threads just return immediately:
+comment|// Ensure only 1 thread does refresh at once; other threads just return immediately:
 specifier|final
 name|boolean
 name|doTryRefresh
@@ -456,7 +456,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-comment|// Ensure only 1 thread does reopen at once
+comment|// Ensure only 1 thread does refresh at once
 name|refreshLock
 operator|.
 name|lock

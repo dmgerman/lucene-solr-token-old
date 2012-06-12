@@ -399,17 +399,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|hasRoom
+DECL|method|isFull
 specifier|public
 name|boolean
-name|hasRoom
-parameter_list|(
-name|int
-name|numberOfEntries
-parameter_list|)
+name|isFull
+parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 annotation|@
@@ -1248,6 +1245,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|int
 name|ncats
 init|=
@@ -1276,6 +1274,7 @@ argument_list|(
 name|ncats
 argument_list|)
 decl_stmt|;
+specifier|final
 name|Directory
 name|dir
 init|=
@@ -1300,15 +1299,30 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|TaxonomyWriterCache
-name|cache
+specifier|final
+name|double
+name|d
 init|=
 name|random
 argument_list|()
 operator|.
-name|nextBoolean
+name|nextDouble
 argument_list|()
-condition|?
+decl_stmt|;
+specifier|final
+name|TaxonomyWriterCache
+name|cache
+decl_stmt|;
+if|if
+condition|(
+name|d
+operator|<
+literal|0.7
+condition|)
+block|{
+comment|// this is the fastest, yet most memory consuming
+name|cache
+operator|=
 operator|new
 name|Cl2oTaxonomyWriterCache
 argument_list|(
@@ -1318,7 +1332,32 @@ literal|0.15f
 argument_list|,
 literal|3
 argument_list|)
-else|:
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|TEST_NIGHTLY
+operator|&&
+name|d
+operator|>
+literal|0.98
+condition|)
+block|{
+comment|// this is the slowest, but tests the writer concurrency when no caching is done.
+comment|// only pick it during NIGHTLY tests, and even then, with very low chances.
+name|cache
+operator|=
+operator|new
+name|NoOpCache
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// this is slower than CL2O, but less memory consuming, and exercises finding categories on disk too.
+name|cache
+operator|=
 operator|new
 name|LruTaxonomyWriterCache
 argument_list|(
@@ -1326,7 +1365,8 @@ name|ncats
 operator|/
 literal|10
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 specifier|final
 name|DirectoryTaxonomyWriter
 name|tw
@@ -1504,6 +1544,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+literal|"mismatch number of categories"
+argument_list|,
 name|values
 operator|.
 name|size
