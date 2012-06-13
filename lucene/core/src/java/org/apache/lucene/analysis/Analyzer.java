@@ -181,6 +181,8 @@ name|r
 init|=
 name|initReader
 argument_list|(
+name|fieldName
+argument_list|,
 name|reader
 argument_list|)
 decl_stmt|;
@@ -233,6 +235,9 @@ specifier|protected
 name|Reader
 name|initReader
 parameter_list|(
+name|String
+name|fieldName
+parameter_list|,
 name|Reader
 name|reader
 parameter_list|)
