@@ -2247,9 +2247,20 @@ literal|"sub reader "
 operator|+
 name|sub
 operator|+
-literal|" wasn't warmed: "
+literal|" wasn't warmed: warmed="
 operator|+
 name|warmed
+operator|+
+literal|" diagnostics="
+operator|+
+name|diagnostics
+operator|+
+literal|" si="
+operator|+
+name|segReader
+operator|.
+name|getSegmentInfo
+argument_list|()
 argument_list|,
 operator|!
 name|assertMergedSegmentsWarmed
