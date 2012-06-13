@@ -316,7 +316,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"-"
+literal|"-core1-"
 operator|+
 name|System
 operator|.
@@ -328,6 +328,20 @@ name|dataDir2
 operator|.
 name|mkdirs
 argument_list|()
+expr_stmt|;
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"solr.core0.data.dir"
+argument_list|,
+name|this
+operator|.
+name|dataDir
+operator|.
+name|getCanonicalPath
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|System
 operator|.
@@ -420,7 +434,7 @@ name|println
 argument_list|(
 literal|"!!!! WARNING: best effort to remove "
 operator|+
-name|dataDir
+name|dataDir2
 operator|.
 name|getAbsolutePath
 argument_list|()
