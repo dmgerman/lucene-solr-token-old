@@ -423,10 +423,12 @@ argument_list|(
 literal|5000
 argument_list|)
 decl_stmt|;
+comment|// infinite loop abort when trying to generate a non-blank sort "name"
+specifier|final
 name|int
-name|numberOfOddities
+name|nonBlankAttempts
 init|=
-literal|0
+literal|37
 decl_stmt|;
 for|for
 control|(
@@ -506,6 +508,35 @@ index|[
 name|j
 index|]
 operator|=
+literal|null
+expr_stmt|;
+for|for
+control|(
+name|int
+name|k
+init|=
+literal|0
+init|;
+name|k
+operator|<
+name|nonBlankAttempts
+operator|&&
+literal|null
+operator|==
+name|names
+index|[
+name|j
+index|]
+condition|;
+name|k
+operator|++
+control|)
+block|{
+name|names
+index|[
+name|j
+index|]
+operator|=
 name|_TestUtil
 operator|.
 name|randomRealisticUnicodeString
@@ -514,10 +545,10 @@ name|r
 argument_list|,
 literal|1
 argument_list|,
-literal|20
+literal|100
 argument_list|)
 expr_stmt|;
-comment|// reduce the likelyhood that the random str is a valid query or func
+comment|// munge anything that might make this a function
 name|names
 index|[
 name|j
@@ -566,7 +597,7 @@ name|replaceFirst
 argument_list|(
 literal|"(\\\"|\\')"
 argument_list|,
-literal|"$1$1"
+literal|"$1$1z"
 argument_list|)
 expr_stmt|;
 name|names
@@ -617,18 +648,35 @@ name|length
 argument_list|()
 condition|)
 block|{
-name|numberOfOddities
-operator|++
-expr_stmt|;
-comment|// screw it, i'm taking my toys and going home
 name|names
 index|[
 name|j
 index|]
 operator|=
-literal|"last_ditch_i_give_up"
+literal|null
 expr_stmt|;
 block|}
+block|}
+comment|// with luck this bad, never go to vegas
+comment|// alternatively: if (null == names[j]) names[j] = "never_go_to_vegas";
+name|assertNotNull
+argument_list|(
+literal|"Unable to generate a (non-blank) names["
+operator|+
+name|j
+operator|+
+literal|"] after "
+operator|+
+name|nonBlankAttempts
+operator|+
+literal|" attempts"
+argument_list|,
+name|names
+index|[
+name|j
+index|]
+argument_list|)
+expr_stmt|;
 name|reverse
 index|[
 name|j
@@ -819,9 +867,6 @@ name|type
 argument_list|)
 condition|)
 block|{
-name|numberOfOddities
-operator|++
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"sorts["
@@ -854,9 +899,6 @@ name|type
 argument_list|)
 condition|)
 block|{
-name|numberOfOddities
-operator|++
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"sorts["
@@ -898,81 +940,28 @@ name|type
 argument_list|)
 condition|)
 block|{
-name|numberOfOddities
-operator|++
-expr_stmt|;
-comment|// our orig string better be parsable as a func/query
-name|QParser
-name|qp
-init|=
-name|QParser
-operator|.
-name|getParser
+name|fail
 argument_list|(
-name|names
-index|[
+literal|"sorts["
+operator|+
 name|j
-index|]
-argument_list|,
-name|FunctionQParserPlugin
+operator|+
+literal|"] resulted in a '"
+operator|+
+name|type
 operator|.
-name|NAME
-argument_list|,
-name|req
-argument_list|)
-decl_stmt|;
-try|try
-block|{
-name|Query
-name|q
-init|=
-name|qp
-operator|.
-name|getQuery
+name|toString
 argument_list|()
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"sorts["
 operator|+
-name|j
+literal|"', either sort parsing code is broken, or func/query "
 operator|+
-literal|"] had type "
+literal|"semantics have gotten broader and munging in this test "
 operator|+
-name|type
-operator|+
-literal|" but parsed to null func/query: "
+literal|"needs improved: "
 operator|+
 name|input
-argument_list|,
-name|q
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|assertNull
-argument_list|(
-literal|"sorts["
-operator|+
-name|j
-operator|+
-literal|"] had type "
-operator|+
-name|type
-operator|+
-literal|" but errored parsing as func/query: "
-operator|+
-name|input
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -982,7 +971,14 @@ literal|"sorts["
 operator|+
 name|j
 operator|+
-literal|"] had unexpected field: "
+literal|"] ("
+operator|+
+name|type
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|") had unexpected field in: "
 operator|+
 name|input
 argument_list|,
@@ -1003,25 +999,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|assertTrue
-argument_list|(
-literal|"Over 0.2% oddities in test: "
-operator|+
-name|numberOfOddities
-operator|+
-literal|"/"
-operator|+
-name|iters
-operator|+
-literal|" have func/query parsing semenatics gotten broader?"
-argument_list|,
-name|numberOfOddities
-operator|<
-literal|0.002
-operator|*
-name|iters
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testSort
 specifier|public
