@@ -651,7 +651,7 @@ name|LiteralValueSource
 argument_list|(
 name|fp
 operator|.
-name|getString
+name|parseArg
 argument_list|()
 argument_list|)
 return|;
