@@ -747,6 +747,12 @@ assert|assert
 name|len
 operator|>
 literal|0
+operator|:
+literal|"len must be> 0 (got "
+operator|+
+name|len
+operator|+
+literal|")"
 assert|;
 assert|assert
 name|index
@@ -1075,6 +1081,12 @@ assert|assert
 name|len
 operator|>
 literal|0
+operator|:
+literal|"len must be> 0 (got "
+operator|+
+name|len
+operator|+
+literal|")"
 assert|;
 assert|assert
 name|index
