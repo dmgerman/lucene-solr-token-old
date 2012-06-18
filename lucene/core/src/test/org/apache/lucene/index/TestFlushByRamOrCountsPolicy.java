@@ -2081,7 +2081,7 @@ name|IndexWriter
 name|writer
 decl_stmt|;
 DECL|field|iwc
-name|IndexWriterConfig
+name|LiveIndexWriterConfig
 name|iwc
 decl_stmt|;
 DECL|field|docs

@@ -310,7 +310,7 @@ decl_stmt|;
 DECL|field|config
 specifier|private
 specifier|final
-name|IndexWriterConfig
+name|LiveIndexWriterConfig
 name|config
 decl_stmt|;
 DECL|method|DocumentsWriterFlushControl
@@ -319,7 +319,7 @@ parameter_list|(
 name|DocumentsWriter
 name|documentsWriter
 parameter_list|,
-name|IndexWriterConfig
+name|LiveIndexWriterConfig
 name|config
 parameter_list|)
 block|{
