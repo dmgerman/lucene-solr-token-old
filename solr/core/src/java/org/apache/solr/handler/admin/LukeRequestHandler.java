@@ -4294,10 +4294,14 @@ literal|"segmentCount"
 argument_list|,
 name|reader
 operator|.
-name|getSequentialSubReaders
+name|getTopReaderContext
 argument_list|()
 operator|.
-name|length
+name|leaves
+argument_list|()
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|indexInfo

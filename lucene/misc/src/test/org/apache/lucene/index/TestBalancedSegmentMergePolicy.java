@@ -373,7 +373,8 @@ operator|.
 name|getSequentialSubReaders
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 operator|<=
 name|numSegments
 argument_list|)

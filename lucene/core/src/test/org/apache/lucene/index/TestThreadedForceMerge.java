@@ -912,7 +912,8 @@ operator|.
 name|getSequentialSubReaders
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals

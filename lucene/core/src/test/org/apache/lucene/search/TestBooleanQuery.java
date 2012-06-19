@@ -1782,9 +1782,11 @@ argument_list|(
 name|s
 operator|.
 name|leafContexts
-index|[
+operator|.
+name|get
+argument_list|(
 literal|0
-index|]
+argument_list|)
 argument_list|,
 literal|true
 argument_list|,
@@ -1897,9 +1899,11 @@ argument_list|(
 name|s
 operator|.
 name|leafContexts
-index|[
+operator|.
+name|get
+argument_list|(
 literal|0
-index|]
+argument_list|)
 argument_list|,
 literal|true
 argument_list|,

@@ -1743,8 +1743,12 @@ name|numNodes
 index|]
 decl_stmt|;
 specifier|final
+name|List
+argument_list|<
+name|?
+extends|extends
 name|IndexReader
-index|[]
+argument_list|>
 name|subs
 init|=
 operator|(
@@ -1766,7 +1770,8 @@ name|numNodes
 argument_list|,
 name|subs
 operator|.
-name|length
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|int
@@ -1799,9 +1804,11 @@ expr_stmt|;
 name|docCount
 operator|+=
 name|subs
-index|[
+operator|.
+name|get
+argument_list|(
 name|nodeID
-index|]
+argument_list|)
 operator|.
 name|maxDoc
 argument_list|()

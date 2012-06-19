@@ -38,6 +38,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Random
 import|;
 end_import
@@ -2104,8 +2113,10 @@ decl_stmt|;
 name|DocIdSet
 name|db
 decl_stmt|;
+name|List
+argument_list|<
 name|AtomicReaderContext
-index|[]
+argument_list|>
 name|leaves
 init|=
 name|topLevelContext
@@ -2157,7 +2168,8 @@ name|nReaders
 init|=
 name|leaves
 operator|.
-name|length
+name|size
+argument_list|()
 decl_stmt|;
 comment|// now test out-of-sequence sub readers
 for|for
@@ -2179,14 +2191,16 @@ name|AtomicReaderContext
 name|readerContext
 init|=
 name|leaves
-index|[
+operator|.
+name|get
+argument_list|(
 name|rand
 operator|.
 name|nextInt
 argument_list|(
 name|nReaders
 argument_list|)
-index|]
+argument_list|)
 decl_stmt|;
 name|da
 operator|=

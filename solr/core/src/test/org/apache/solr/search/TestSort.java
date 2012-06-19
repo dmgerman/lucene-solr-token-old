@@ -1310,7 +1310,8 @@ operator|.
 name|getSequentialSubReaders
 argument_list|()
 operator|.
-name|length
+name|size
+argument_list|()
 operator|>
 literal|1
 argument_list|)

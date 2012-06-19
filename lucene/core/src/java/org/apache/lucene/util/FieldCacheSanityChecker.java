@@ -1288,8 +1288,12 @@ operator|instanceof
 name|CompositeReader
 condition|)
 block|{
+name|List
+argument_list|<
+name|?
+extends|extends
 name|IndexReader
-index|[]
+argument_list|>
 name|subs
 init|=
 operator|(
@@ -1320,7 +1324,8 @@ name|j
 operator|<
 name|subs
 operator|.
-name|length
+name|size
+argument_list|()
 operator|)
 condition|;
 name|j
@@ -1332,9 +1337,11 @@ operator|.
 name|add
 argument_list|(
 name|subs
-index|[
+operator|.
+name|get
+argument_list|(
 name|j
-index|]
+argument_list|)
 operator|.
 name|getCoreCacheKey
 argument_list|()

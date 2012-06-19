@@ -24,7 +24,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|ReaderUtil
+name|BytesRef
 import|;
 end_import
 begin_import
@@ -37,7 +37,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BytesRef
+name|ReaderSlice
 import|;
 end_import
 begin_import
@@ -612,9 +612,7 @@ name|docsAndPositionsEnum
 decl_stmt|;
 DECL|field|slice
 specifier|public
-name|ReaderUtil
-operator|.
-name|Slice
+name|ReaderSlice
 name|slice
 decl_stmt|;
 block|}

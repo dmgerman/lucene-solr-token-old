@@ -89,7 +89,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|ReaderUtil
+name|ReaderSlice
 import|;
 end_import
 begin_import
@@ -300,9 +300,7 @@ DECL|method|MultiTermsEnum
 specifier|public
 name|MultiTermsEnum
 parameter_list|(
-name|ReaderUtil
-operator|.
-name|Slice
+name|ReaderSlice
 index|[]
 name|slices
 parameter_list|)
@@ -2441,9 +2439,7 @@ block|{
 DECL|field|subSlice
 specifier|private
 specifier|final
-name|ReaderUtil
-operator|.
-name|Slice
+name|ReaderSlice
 name|subSlice
 decl_stmt|;
 DECL|field|terms
@@ -2468,9 +2464,7 @@ parameter_list|(
 name|int
 name|index
 parameter_list|,
-name|ReaderUtil
-operator|.
-name|Slice
+name|ReaderSlice
 name|subSlice
 parameter_list|)
 block|{
