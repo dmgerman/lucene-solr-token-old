@@ -395,11 +395,12 @@ name|String
 index|[]
 name|fields
 decl_stmt|;
-DECL|field|queryType
+DECL|field|requestHandler
 specifier|private
 name|String
-name|queryType
+name|requestHandler
 decl_stmt|;
+comment|// 'qt' param
 DECL|field|timeout
 specifier|private
 name|int
@@ -844,7 +845,7 @@ expr_stmt|;
 block|}
 name|this
 operator|.
-name|queryType
+name|requestHandler
 operator|=
 name|context
 operator|.
@@ -933,9 +934,9 @@ block|}
 block|}
 name|solrQuery
 operator|.
-name|setQueryType
+name|setRequestHandler
 argument_list|(
-name|queryType
+name|requestHandler
 argument_list|)
 expr_stmt|;
 name|solrQuery

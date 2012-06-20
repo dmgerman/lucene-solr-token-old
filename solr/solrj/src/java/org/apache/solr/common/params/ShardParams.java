@@ -84,7 +84,7 @@ name|SHARD_URL
 init|=
 literal|"shard.url"
 decl_stmt|;
-comment|/** query type for shard requests */
+comment|/** The Request Handler for shard requests */
 DECL|field|SHARDS_QT
 specifier|public
 specifier|static
