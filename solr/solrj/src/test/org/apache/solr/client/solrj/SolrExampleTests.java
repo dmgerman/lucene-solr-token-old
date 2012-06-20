@@ -3040,11 +3040,13 @@ expr_stmt|;
 block|}
 try|try
 block|{
+comment|//the df=text here is a kluge for the test to supply a default field in case there is none in schema.xml
+comment|// alternatively, the resulting assertion could be modified to assert that no default field is specified.
 name|server
 operator|.
 name|deleteByQuery
 argument_list|(
-literal|"??::?? ignore_exception"
+literal|"{!df=text} ??::?? ignore_exception"
 argument_list|)
 expr_stmt|;
 comment|// query syntax error
@@ -7529,7 +7531,7 @@ argument_list|()
 decl_stmt|;
 name|q
 operator|.
-name|setQueryType
+name|setRequestHandler
 argument_list|(
 literal|"/get"
 argument_list|)
