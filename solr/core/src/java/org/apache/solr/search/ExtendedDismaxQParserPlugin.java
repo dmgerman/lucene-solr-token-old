@@ -1113,6 +1113,8 @@ decl_stmt|;
 comment|// and and or won't be operators at the start or end
 if|if
 condition|(
+name|lowercaseOperators
+operator|&&
 name|i
 operator|>
 literal|0
