@@ -799,6 +799,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|flushControl
+operator|.
+name|waitForFlush
+argument_list|()
+expr_stmt|;
 name|success
 operator|=
 literal|true

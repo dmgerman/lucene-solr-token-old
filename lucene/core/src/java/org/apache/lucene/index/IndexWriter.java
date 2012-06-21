@@ -2524,7 +2524,13 @@ name|CorruptIndexException
 throws|,
 name|IOException
 block|{
-comment|// Ensure that only one thread actually gets to do the closing:
+comment|// Ensure that only one thread actually gets to do the
+comment|// closing, and make sure no commit is also in progress:
+synchronized|synchronized
+init|(
+name|commitLock
+init|)
+block|{
 if|if
 condition|(
 name|shouldClose
@@ -2538,15 +2544,23 @@ if|if
 condition|(
 name|hitOOM
 condition|)
+block|{
 name|rollbackInternal
 argument_list|()
 expr_stmt|;
+block|}
 else|else
+block|{
 name|closeInternal
 argument_list|(
 name|waitForMerges
+argument_list|,
+operator|!
+name|hitOOM
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 comment|// Returns true if this thread should attempt to close, or
@@ -2595,9 +2609,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
+block|{
 return|return
 literal|false
 return|;
+block|}
 block|}
 block|}
 DECL|method|closeInternal
@@ -2607,6 +2623,9 @@ name|closeInternal
 parameter_list|(
 name|boolean
 name|waitForMerges
+parameter_list|,
+name|boolean
+name|doFlush
 parameter_list|)
 throws|throws
 name|CorruptIndexException
@@ -2661,8 +2680,7 @@ comment|// Only allow a new merge to be triggered if we are
 comment|// going to wait for merges:
 if|if
 condition|(
-operator|!
-name|hitOOM
+name|doFlush
 condition|)
 block|{
 name|flush
@@ -2672,6 +2690,15 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|docWriter
+operator|.
+name|abort
+argument_list|()
+expr_stmt|;
+comment|// already closed
 block|}
 if|if
 condition|(
@@ -2733,8 +2760,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
-name|hitOOM
+name|doFlush
 condition|)
 block|{
 name|commitInternal
@@ -4909,15 +4935,24 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-comment|// Ensure that only one thread actually gets to do the closing:
+comment|// Ensure that only one thread actually gets to do the
+comment|// closing, and make sure no commit is also in progress:
+synchronized|synchronized
+init|(
+name|commitLock
+init|)
+block|{
 if|if
 condition|(
 name|shouldClose
 argument_list|()
 condition|)
+block|{
 name|rollbackInternal
 argument_list|()
 expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|rollbackInternal
 specifier|private
@@ -5007,6 +5042,17 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|docWriter
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+comment|// mark it as closed first to prevent subsequent indexing actions/flushes
+name|docWriter
+operator|.
+name|abort
+argument_list|()
+expr_stmt|;
 synchronized|synchronized
 init|(
 name|this
@@ -5086,11 +5132,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|docWriter
-operator|.
-name|abort
-argument_list|()
-expr_stmt|;
 assert|assert
 name|testPoint
 argument_list|(
@@ -5182,6 +5223,8 @@ block|}
 block|}
 name|closeInternal
 argument_list|(
+literal|false
+argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
@@ -7544,6 +7587,11 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+synchronized|synchronized
+init|(
+name|commitLock
+init|)
+block|{
 if|if
 condition|(
 name|infoStream
@@ -7845,7 +7893,9 @@ name|commitUserData
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Used only by commit, below; lock order is commitLock -> IW
+block|}
+comment|// Used only by commit and prepareCommit, below; lock
+comment|// order is commitLock -> IW
 DECL|field|commitLock
 specifier|private
 specifier|final
@@ -7947,6 +7997,11 @@ init|(
 name|commitLock
 init|)
 block|{
+name|ensureOpen
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|infoStream

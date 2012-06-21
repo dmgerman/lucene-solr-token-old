@@ -1500,6 +1500,12 @@ name|setClosed
 parameter_list|()
 block|{
 comment|// set by DW to signal that we should not release new DWPT after close
+if|if
+condition|(
+operator|!
+name|closed
+condition|)
+block|{
 name|this
 operator|.
 name|closed
@@ -1511,6 +1517,7 @@ operator|.
 name|deactivateUnreleasedStates
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|/**    * Returns an iterator that provides access to all currently active {@link ThreadState}s     */
 DECL|method|allActiveThreadStates
