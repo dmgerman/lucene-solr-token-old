@@ -5428,6 +5428,13 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|lmp
+operator|.
+name|setUseCompoundFile
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -5477,6 +5484,13 @@ operator|.
 name|getSegmentsPerTier
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|tmp
+operator|.
+name|setUseCompoundFile
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
