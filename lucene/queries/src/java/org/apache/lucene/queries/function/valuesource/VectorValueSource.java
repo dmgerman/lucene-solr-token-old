@@ -1200,9 +1200,7 @@ name|VectorValueSource
 operator|)
 name|o
 decl_stmt|;
-if|if
-condition|(
-operator|!
+return|return
 name|sources
 operator|.
 name|equals
@@ -1211,12 +1209,6 @@ name|that
 operator|.
 name|sources
 argument_list|)
-condition|)
-return|return
-literal|false
-return|;
-return|return
-literal|true
 return|;
 block|}
 annotation|@

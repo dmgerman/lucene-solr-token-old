@@ -413,6 +413,7 @@ name|bottom
 decl_stmt|;
 DECL|field|fcontext
 specifier|private
+specifier|final
 name|Map
 name|fcontext
 decl_stmt|;
@@ -669,9 +670,6 @@ name|double
 name|value
 init|=
 name|valueObj
-operator|.
-name|doubleValue
-argument_list|()
 decl_stmt|;
 specifier|final
 name|double

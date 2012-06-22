@@ -187,6 +187,7 @@ name|ValueSource
 block|{
 DECL|field|field
 specifier|public
+specifier|final
 name|String
 name|field
 decl_stmt|;
@@ -426,7 +427,6 @@ name|hashCode
 argument_list|()
 return|;
 block|}
-empty_stmt|;
 block|}
 end_class
 end_unit

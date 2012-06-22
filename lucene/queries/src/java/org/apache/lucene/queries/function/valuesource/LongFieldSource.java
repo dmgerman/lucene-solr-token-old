@@ -178,6 +178,7 @@ name|FieldCacheSource
 block|{
 DECL|field|parser
 specifier|protected
+specifier|final
 name|FieldCache
 operator|.
 name|LongParser

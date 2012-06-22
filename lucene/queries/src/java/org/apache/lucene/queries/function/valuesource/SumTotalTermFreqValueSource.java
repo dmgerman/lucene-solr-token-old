@@ -161,6 +161,7 @@ name|ValueSource
 block|{
 DECL|field|indexedField
 specifier|protected
+specifier|final
 name|String
 name|indexedField
 decl_stmt|;

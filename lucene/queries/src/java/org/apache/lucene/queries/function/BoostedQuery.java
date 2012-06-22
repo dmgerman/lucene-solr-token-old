@@ -145,6 +145,7 @@ name|q
 decl_stmt|;
 DECL|field|boostVal
 specifier|private
+specifier|final
 name|ValueSource
 name|boostVal
 decl_stmt|;
@@ -299,6 +300,7 @@ extends|extends
 name|Weight
 block|{
 DECL|field|searcher
+specifier|final
 name|IndexSearcher
 name|searcher
 decl_stmt|;

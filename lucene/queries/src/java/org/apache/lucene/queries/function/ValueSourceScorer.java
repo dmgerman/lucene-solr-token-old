@@ -87,6 +87,7 @@ name|Scorer
 block|{
 DECL|field|reader
 specifier|protected
+specifier|final
 name|IndexReader
 name|reader
 decl_stmt|;
