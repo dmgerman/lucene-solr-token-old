@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.util
+DECL|package|org.apache.lucene.codecs
 package|package
 name|org
 operator|.
@@ -8,7 +8,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|codecs
 package|;
 end_package
 begin_comment
@@ -86,6 +86,19 @@ operator|.
 name|store
 operator|.
 name|DataOutput
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
 import|;
 end_import
 begin_comment
