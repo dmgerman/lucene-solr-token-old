@@ -8064,7 +8064,7 @@ name|ErrorCode
 operator|.
 name|BAD_REQUEST
 argument_list|,
-literal|"Unknown query type '"
+literal|"Unknown query parser '"
 operator|+
 name|parserName
 operator|+
