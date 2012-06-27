@@ -449,7 +449,7 @@ operator|=
 operator|new
 name|SolrInstance
 argument_list|(
-literal|"solr"
+literal|"solr/collection1"
 operator|+
 name|i
 argument_list|,
@@ -1101,7 +1101,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"solr1"
+literal|"solr/collection11"
 argument_list|,
 name|name
 argument_list|)
@@ -1139,7 +1139,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"solr1"
+literal|"solr/collection11"
 argument_list|,
 name|name
 argument_list|)
@@ -1238,7 +1238,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"solr0"
+literal|"solr/collection10"
 argument_list|,
 name|name
 argument_list|)
@@ -1675,6 +1675,8 @@ operator|new
 name|File
 argument_list|(
 name|homeDir
+operator|+
+literal|"/collection1"
 argument_list|,
 literal|"data"
 argument_list|)
@@ -1685,6 +1687,8 @@ operator|new
 name|File
 argument_list|(
 name|homeDir
+operator|+
+literal|"/collection1"
 argument_list|,
 literal|"conf"
 argument_list|)

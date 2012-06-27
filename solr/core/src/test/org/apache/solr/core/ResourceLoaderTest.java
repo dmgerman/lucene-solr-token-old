@@ -523,7 +523,7 @@ init|=
 operator|new
 name|SolrResourceLoader
 argument_list|(
-literal|null
+literal|"solr/collection1"
 argument_list|)
 decl_stmt|;
 comment|// preliminary sanity check
@@ -677,7 +677,7 @@ init|=
 operator|new
 name|SolrResourceLoader
 argument_list|(
-literal|null
+literal|"solr/collection1"
 argument_list|)
 decl_stmt|;
 comment|// ensure we get our exception

@@ -189,7 +189,7 @@ name|SolrTestCaseJ4
 operator|.
 name|getFile
 argument_list|(
-literal|"solr/conf"
+literal|"solr/collection1"
 argument_list|)
 operator|.
 name|getParent
@@ -203,6 +203,8 @@ operator|new
 name|SolrResourceLoader
 argument_list|(
 name|testHome
+operator|+
+literal|"/collection1"
 argument_list|,
 name|this
 operator|.
@@ -402,7 +404,7 @@ name|createSystemIdFromResourceName
 argument_list|(
 name|testHome
 operator|+
-literal|"/conf/schema.xml"
+literal|"/collection1/conf/schema.xml"
 argument_list|)
 argument_list|,
 name|SystemIdResolver
@@ -411,7 +413,7 @@ name|createSystemIdFromResourceName
 argument_list|(
 name|testHome
 operator|+
-literal|"/conf/solrconfig.xml"
+literal|"/collection1/conf/solrconfig.xml"
 argument_list|)
 argument_list|,
 literal|"schema.xml"

@@ -749,7 +749,15 @@ init|=
 operator|new
 name|SolrConfig
 argument_list|(
+operator|new
+name|SolrResourceLoader
+argument_list|(
+literal|"solr/collection1"
+argument_list|)
+argument_list|,
 literal|"solrconfig-basic.xml"
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|SolrIndexConfig
