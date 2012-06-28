@@ -15,7 +15,7 @@ name|spatial
 package|;
 end_package
 begin_comment
-comment|/**  * Information the strategy needs for the lucene fields  */
+comment|/**  * Information the strategy needs for the lucene fields  *  * @lucene.experimental  */
 end_comment
 begin_interface
 DECL|interface|SpatialFieldInfo

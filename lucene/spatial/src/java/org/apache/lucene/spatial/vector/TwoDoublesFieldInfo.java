@@ -29,6 +29,9 @@ operator|.
 name|SpatialFieldInfo
 import|;
 end_import
+begin_comment
+comment|/**  * @lucene.experimental  */
+end_comment
 begin_class
 DECL|class|TwoDoublesFieldInfo
 specifier|public

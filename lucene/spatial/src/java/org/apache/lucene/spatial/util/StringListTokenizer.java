@@ -63,7 +63,7 @@ name|Iterator
 import|;
 end_import
 begin_comment
-comment|/**  * Put a list of strings directly into the token stream  */
+comment|/**  * Put a list of strings directly into the token stream.  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|StringListTokenizer

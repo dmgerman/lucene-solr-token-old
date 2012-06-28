@@ -14,6 +14,9 @@ operator|.
 name|spatial
 package|;
 end_package
+begin_comment
+comment|/**  * @lucene.experimental  */
+end_comment
 begin_class
 DECL|class|SimpleSpatialFieldInfo
 specifier|public
