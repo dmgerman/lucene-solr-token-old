@@ -1597,8 +1597,6 @@ parameter_list|,
 name|Bits
 name|liveDocs
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.
@@ -1751,8 +1749,6 @@ specifier|final
 name|int
 name|freq
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 assert|assert
 operator|!
@@ -2451,8 +2447,6 @@ parameter_list|(
 name|IndexInput
 name|startFreqIn
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -2817,8 +2811,6 @@ parameter_list|,
 name|Bits
 name|liveDocs
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -3415,8 +3407,6 @@ parameter_list|,
 name|IndexInput
 name|proxIn
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|startFreqIn
 operator|=
@@ -3696,8 +3686,6 @@ specifier|public
 name|int
 name|freq
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|freq
@@ -3971,8 +3959,6 @@ specifier|public
 name|int
 name|startOffset
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 operator|-
@@ -3986,8 +3972,6 @@ specifier|public
 name|int
 name|endOffset
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 operator|-
@@ -4155,8 +4139,6 @@ parameter_list|,
 name|IndexInput
 name|proxIn
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|startFreqIn
 operator|=

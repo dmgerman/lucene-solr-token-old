@@ -355,8 +355,6 @@ name|boolean
 name|plantWrongData
 parameter_list|)
 throws|throws
-name|IOException
-throws|,
 name|Exception
 block|{
 name|Map

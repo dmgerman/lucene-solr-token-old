@@ -115,29 +115,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|AtomicReaderContext
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 begin_comment
@@ -3157,8 +3135,6 @@ specifier|final
 name|Bits
 name|acceptDocs
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|AtomicReader
 name|reader
@@ -3357,8 +3333,6 @@ specifier|public
 name|DocIdSetIterator
 name|iterator
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new
@@ -3393,8 +3367,6 @@ specifier|public
 name|int
 name|nextDoc
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|adjustedDoc
@@ -3427,8 +3399,6 @@ parameter_list|(
 name|int
 name|target
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -3599,8 +3569,6 @@ specifier|public
 name|Bits
 name|bits
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 comment|// random access is expensive for this set
 return|return

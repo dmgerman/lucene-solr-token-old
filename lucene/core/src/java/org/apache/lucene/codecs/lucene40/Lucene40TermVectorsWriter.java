@@ -135,21 +135,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|MergePolicy
-operator|.
-name|MergeAbortedException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|MergeState
 import|;
 end_import
@@ -1710,8 +1695,6 @@ index|[]
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|MergeAbortedException
 block|{
 specifier|final
 name|int
@@ -1966,8 +1949,6 @@ index|[]
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|MergeAbortedException
 block|{
 specifier|final
 name|int
@@ -2123,8 +2104,6 @@ parameter_list|,
 name|int
 name|numDocs
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -2218,8 +2197,6 @@ name|BytesRef
 argument_list|>
 name|getComparator
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|BytesRef

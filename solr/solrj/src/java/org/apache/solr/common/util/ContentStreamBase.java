@@ -254,8 +254,6 @@ parameter_list|(
 name|URL
 name|url
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.
@@ -341,8 +339,6 @@ parameter_list|(
 name|File
 name|f
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|file
 operator|=

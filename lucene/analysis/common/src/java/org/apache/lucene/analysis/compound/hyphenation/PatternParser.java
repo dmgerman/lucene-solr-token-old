@@ -228,8 +228,6 @@ DECL|method|PatternParser
 specifier|public
 name|PatternParser
 parameter_list|()
-throws|throws
-name|HyphenationException
 block|{
 name|token
 operator|=
@@ -276,8 +274,6 @@ parameter_list|(
 name|PatternConsumer
 name|consumer
 parameter_list|)
-throws|throws
-name|HyphenationException
 block|{
 name|this
 argument_list|()

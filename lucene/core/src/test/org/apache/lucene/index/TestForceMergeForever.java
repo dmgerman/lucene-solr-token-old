@@ -178,8 +178,6 @@ name|OneMerge
 name|merge
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 if|if

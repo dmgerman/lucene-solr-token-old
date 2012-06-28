@@ -443,8 +443,6 @@ parameter_list|,
 name|IOContext
 name|context
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 argument_list|(
@@ -491,8 +489,6 @@ parameter_list|,
 name|Type
 name|type
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -911,8 +907,6 @@ parameter_list|,
 name|IOContext
 name|context
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -952,8 +946,6 @@ parameter_list|,
 name|IOContext
 name|context
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

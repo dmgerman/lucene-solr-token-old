@@ -44,8 +44,6 @@ name|IndexWriter
 name|writer
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 function_decl|;
 comment|/** Close this MergeScheduler. */
@@ -56,8 +54,6 @@ name|void
 name|close
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 function_decl|;
 block|}

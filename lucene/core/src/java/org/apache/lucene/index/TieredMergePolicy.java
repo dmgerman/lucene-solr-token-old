@@ -2340,8 +2340,6 @@ name|SegmentInfos
 name|infos
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 if|if
@@ -2708,8 +2706,6 @@ parameter_list|(
 name|SegmentInfoPerCommit
 name|info
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|IndexWriter
 name|w

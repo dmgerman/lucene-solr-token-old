@@ -18,15 +18,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -2513,22 +2504,11 @@ argument_list|(
 name|dwpt
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|dwpt
 operator|.
 name|abort
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ex
-parameter_list|)
-block|{
-comment|// continue
-block|}
 block|}
 for|for
 control|(
@@ -2563,8 +2543,6 @@ operator|.
 name|dwpt
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|blockedFlush
 operator|.
 name|dwpt
@@ -2572,15 +2550,6 @@ operator|.
 name|abort
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ex
-parameter_list|)
-block|{
-comment|// continue
-block|}
 block|}
 block|}
 finally|finally

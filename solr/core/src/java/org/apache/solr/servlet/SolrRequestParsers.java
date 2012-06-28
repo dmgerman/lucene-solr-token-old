@@ -1309,8 +1309,6 @@ parameter_list|(
 name|HttpServletRequest
 name|req
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.

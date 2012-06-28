@@ -1598,8 +1598,6 @@ name|Integer
 argument_list|>
 name|expectedShifts
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// Cannot use FixedBitSet since the range could be long:
 specifier|final
@@ -3014,8 +3012,6 @@ name|Integer
 argument_list|>
 name|expectedShifts
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 specifier|final
 name|FixedBitSet

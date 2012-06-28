@@ -1342,10 +1342,6 @@ name|String
 argument_list|>
 name|liveNodes
 parameter_list|)
-throws|throws
-name|KeeperException
-throws|,
-name|InterruptedException
 block|{
 if|if
 condition|(

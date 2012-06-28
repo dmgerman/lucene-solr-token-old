@@ -290,8 +290,6 @@ parameter_list|(
 name|PostingsReaderBase
 name|wrappedPostingsReader
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.

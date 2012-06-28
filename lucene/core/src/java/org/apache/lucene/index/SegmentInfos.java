@@ -300,19 +300,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|StringHelper
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|ThreadInterruptedException
 import|;
 end_import
@@ -577,8 +564,6 @@ name|String
 index|[]
 name|files
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|IndexFileNames
@@ -792,8 +777,6 @@ name|String
 name|segmentFileName
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|boolean
@@ -1107,8 +1090,6 @@ name|Directory
 name|directory
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|generation
@@ -1134,8 +1115,6 @@ name|String
 name|segmentFileName
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|read
@@ -1662,8 +1641,6 @@ name|Object
 name|run
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 return|return
@@ -1682,8 +1659,6 @@ name|IndexCommit
 name|commit
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 if|if
@@ -2415,8 +2390,6 @@ name|String
 name|segmentFileName
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 function_decl|;
 block|}
@@ -2450,8 +2423,6 @@ parameter_list|(
 name|Directory
 name|dir
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

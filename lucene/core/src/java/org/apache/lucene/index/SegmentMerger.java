@@ -464,8 +464,6 @@ name|MergeState
 name|merge
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 comment|// NOTE: it's important to add calls to
@@ -1292,8 +1290,6 @@ name|int
 name|mergeFields
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 specifier|final
@@ -1576,8 +1572,6 @@ name|SegmentWriteState
 name|segmentWriteState
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 specifier|final

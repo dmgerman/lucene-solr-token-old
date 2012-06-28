@@ -78,8 +78,6 @@ specifier|public
 name|BytesRef
 name|next
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 literal|null

@@ -320,8 +320,6 @@ parameter_list|(
 name|AtomicReader
 name|reader
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -381,8 +379,6 @@ parameter_list|,
 name|BytesRef
 name|text
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 comment|// don't process payloads of terms other than "p:p1"
 if|if
@@ -440,8 +436,6 @@ parameter_list|(
 name|BytesRef
 name|payload
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|payload
 operator|.
@@ -520,8 +514,6 @@ specifier|public
 name|boolean
 name|incrementToken
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

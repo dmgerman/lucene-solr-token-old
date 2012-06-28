@@ -917,8 +917,6 @@ parameter_list|,
 name|int
 name|docLen
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 for|for
 control|(
@@ -2924,8 +2922,6 @@ parameter_list|,
 name|float
 name|gold
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|BasicStats
 name|stats

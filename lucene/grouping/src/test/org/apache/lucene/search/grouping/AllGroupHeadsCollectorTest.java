@@ -3362,8 +3362,6 @@ name|int
 index|[]
 name|fieldIdToDocID
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|Map
 argument_list|<
@@ -4106,8 +4104,6 @@ parameter_list|,
 name|Type
 name|valueType
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|AbstractAllGroupHeadsCollector
 argument_list|<

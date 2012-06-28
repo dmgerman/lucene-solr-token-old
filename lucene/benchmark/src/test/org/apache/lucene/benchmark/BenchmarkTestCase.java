@@ -153,8 +153,6 @@ specifier|static
 name|void
 name|beforeClassBenchmarkTestCase
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|WORKDIR
 operator|=
@@ -184,8 +182,6 @@ specifier|static
 name|void
 name|afterClassBenchmarkTestCase
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|WORKDIR
 operator|=

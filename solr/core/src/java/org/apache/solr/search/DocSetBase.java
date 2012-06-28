@@ -131,15 +131,6 @@ operator|.
 name|AtomicReaderContext
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
 begin_comment
 comment|/** A base class that may be usefull for implementing DocSets */
 end_comment
@@ -683,8 +674,6 @@ parameter_list|,
 name|Bits
 name|acceptDocs
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|AtomicReader
 name|reader
@@ -777,8 +766,6 @@ specifier|public
 name|DocIdSetIterator
 name|iterator
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new
@@ -815,8 +802,6 @@ specifier|public
 name|int
 name|nextDoc
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|pos
 operator|=
@@ -858,8 +843,6 @@ parameter_list|(
 name|int
 name|target
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -923,8 +906,6 @@ specifier|public
 name|Bits
 name|bits
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 comment|// sparse filters should not use random access
 return|return

@@ -515,8 +515,6 @@ parameter_list|,
 name|FieldInfo
 name|fieldInfo
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

@@ -1204,8 +1204,6 @@ name|String
 argument_list|>
 name|names
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 throw|throw
 operator|new
@@ -1318,8 +1316,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|IOException
 block|{       }
 annotation|@
 name|Override

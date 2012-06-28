@@ -2342,7 +2342,7 @@ return|return
 name|topQuery
 return|;
 block|}
-comment|/**    * Extracts all the alised fields from the requests and adds them to up    * @param up    * @param tiebreaker    * @throws ParseException     */
+comment|/**    * Extracts all the alised fields from the requests and adds them to up    * @param up    * @param tiebreaker    */
 DECL|method|addAliasesFromRequest
 specifier|private
 name|void
@@ -2354,8 +2354,6 @@ parameter_list|,
 name|float
 name|tiebreaker
 parameter_list|)
-throws|throws
-name|ParseException
 block|{
 name|Iterator
 argument_list|<
@@ -5459,8 +5457,6 @@ specifier|private
 name|Query
 name|getQuery
 parameter_list|()
-throws|throws
-name|ParseException
 block|{
 try|try
 block|{

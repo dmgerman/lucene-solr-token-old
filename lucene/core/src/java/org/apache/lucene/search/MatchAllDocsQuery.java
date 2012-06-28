@@ -155,8 +155,6 @@ parameter_list|,
 name|float
 name|score
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

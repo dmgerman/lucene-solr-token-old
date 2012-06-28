@@ -40,15 +40,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|MalformedURLException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|LinkedList
@@ -514,7 +505,7 @@ specifier|final
 name|int
 name|threadCount
 decl_stmt|;
-comment|/**    * Uses an internal ThreadSafeClientConnManager to manage http    * connections.    *     * @param solrServerUrl    *          The Solr server URL    * @param queueSize    *          The buffer size before the documents are sent to the server    * @param threadCount    *          The number of background threads used to empty the queue    * @throws MalformedURLException    */
+comment|/**    * Uses an internal ThreadSafeClientConnManager to manage http    * connections.    *     * @param solrServerUrl    *          The Solr server URL    * @param queueSize    *          The buffer size before the documents are sent to the server    * @param threadCount    *          The number of background threads used to empty the queue    */
 DECL|method|ConcurrentUpdateSolrServer
 specifier|public
 name|ConcurrentUpdateSolrServer
@@ -528,8 +519,6 @@ parameter_list|,
 name|int
 name|threadCount
 parameter_list|)
-throws|throws
-name|MalformedURLException
 block|{
 name|this
 argument_list|(
@@ -560,8 +549,6 @@ parameter_list|,
 name|int
 name|threadCount
 parameter_list|)
-throws|throws
-name|MalformedURLException
 block|{
 name|this
 operator|.

@@ -534,8 +534,6 @@ specifier|public
 name|IndexInput
 name|openFullSlice
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 operator|(

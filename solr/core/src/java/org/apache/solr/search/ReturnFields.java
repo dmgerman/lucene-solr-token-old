@@ -895,8 +895,6 @@ operator|.
 name|StrParser
 name|sp
 parameter_list|)
-throws|throws
-name|ParseException
 block|{
 name|sp
 operator|.

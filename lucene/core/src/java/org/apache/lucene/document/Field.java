@@ -1832,8 +1832,6 @@ specifier|public
 name|boolean
 name|incrementToken
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -1882,8 +1880,6 @@ specifier|public
 name|void
 name|reset
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|used
 operator|=

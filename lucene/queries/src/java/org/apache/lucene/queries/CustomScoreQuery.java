@@ -1499,8 +1499,6 @@ name|Scorer
 index|[]
 name|valSrcScorers
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

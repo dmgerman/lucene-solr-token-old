@@ -329,8 +329,6 @@ parameter_list|(
 name|TermsEnum
 name|termsEnum
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.
@@ -403,8 +401,6 @@ parameter_list|(
 name|BytesRef
 name|t
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

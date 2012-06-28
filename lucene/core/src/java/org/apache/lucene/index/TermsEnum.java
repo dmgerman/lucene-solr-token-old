@@ -562,8 +562,6 @@ specifier|public
 name|TermState
 name|termState
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 throw|throw
 operator|new
@@ -585,8 +583,6 @@ parameter_list|,
 name|TermState
 name|state
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 throw|throw
 operator|new

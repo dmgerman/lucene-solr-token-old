@@ -185,10 +185,6 @@ name|doComplement
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|IllegalAccessException
-throws|,
-name|InstantiationException
 block|{
 name|Query
 name|q

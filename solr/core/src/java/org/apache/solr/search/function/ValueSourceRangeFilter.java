@@ -362,8 +362,6 @@ specifier|public
 name|Bits
 name|bits
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 literal|null

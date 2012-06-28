@@ -279,7 +279,7 @@ operator|=
 name|diskResident
 expr_stmt|;
 block|}
-comment|/**    * Creates an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments.    * This factory method decides with implementation is best suited.    *    * @param groupField      The field to group by    * @param sortWithinGroup The sort within each group    * @param type The {@link Type} which is used to select a concrete implementation.    * @param diskResident Whether the values to group by should be disk resident    * @return an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments    * @throws IOException If I/O related errors occur    */
+comment|/**    * Creates an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments.    * This factory method decides with implementation is best suited.    *    * @param groupField      The field to group by    * @param sortWithinGroup The sort within each group    * @param type The {@link Type} which is used to select a concrete implementation.    * @param diskResident Whether the values to group by should be disk resident    * @return an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments    */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -318,8 +318,6 @@ parameter_list|,
 name|boolean
 name|diskResident
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 switch|switch
 condition|(
@@ -869,8 +867,6 @@ parameter_list|,
 name|boolean
 name|diskResident
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -1261,8 +1257,6 @@ parameter_list|,
 name|boolean
 name|diskResident
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -1409,8 +1403,6 @@ parameter_list|,
 name|boolean
 name|diskResident
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -1524,8 +1516,6 @@ parameter_list|,
 name|boolean
 name|diskResident
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -1629,8 +1619,6 @@ parameter_list|,
 name|boolean
 name|diskResident
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

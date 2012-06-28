@@ -438,8 +438,6 @@ parameter_list|(
 name|QueryNode
 name|node
 parameter_list|)
-throws|throws
-name|QueryNodeException
 block|{
 if|if
 condition|(

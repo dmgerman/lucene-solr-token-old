@@ -83,15 +83,6 @@ operator|.
 name|StringHelper
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
 begin_comment
 comment|/**  * Subclass of FilteredTermEnum for enumerating all terms that match the  * specified regular expression term using the specified regular expression  * implementation.  *<p>  * Term enumerations are always ordered by Term.compareTo().  Each term in  * the enumeration is greater than all that precede it.  */
 end_comment
@@ -129,8 +120,6 @@ parameter_list|,
 name|RegexCapabilities
 name|regexCap
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

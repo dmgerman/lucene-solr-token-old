@@ -1713,8 +1713,6 @@ name|SegmentInfos
 name|segmentInfos
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 specifier|final

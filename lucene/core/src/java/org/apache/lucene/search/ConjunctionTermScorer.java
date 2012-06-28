@@ -125,8 +125,6 @@ name|DocsAndFreqs
 index|[]
 name|docsAndFreqs
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

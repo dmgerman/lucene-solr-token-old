@@ -244,8 +244,6 @@ parameter_list|,
 name|Type
 name|type
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new
@@ -383,8 +381,6 @@ parameter_list|,
 name|Type
 name|type
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

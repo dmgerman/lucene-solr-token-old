@@ -102,19 +102,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|store
-operator|.
-name|Directory
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|LuceneTestCase
@@ -825,8 +812,6 @@ name|ScoreDoc
 index|[]
 name|hits
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|Assert
 operator|.
@@ -909,8 +894,6 @@ name|int
 index|[]
 name|results
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|checkDocIds
 argument_list|(
@@ -957,8 +940,6 @@ name|ScoreDoc
 index|[]
 name|hits2
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 specifier|final
 name|float
@@ -1174,8 +1155,6 @@ parameter_list|,
 name|int
 name|end
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|StringBuilder
 name|sb
@@ -2220,8 +2199,6 @@ parameter_list|(
 name|IndexReader
 name|r
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

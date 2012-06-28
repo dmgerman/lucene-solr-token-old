@@ -450,8 +450,6 @@ name|maybeRefreshBlocking
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|InterruptedException
 block|{
 name|ensureOpen
 argument_list|()

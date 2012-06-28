@@ -1198,8 +1198,6 @@ name|writeNorms
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|CorruptIndexException
 block|{
 name|Random
 name|random

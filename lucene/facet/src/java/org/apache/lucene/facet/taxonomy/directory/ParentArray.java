@@ -510,8 +510,6 @@ parameter_list|,
 name|int
 name|parentOrdinal
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

@@ -3021,8 +3021,6 @@ specifier|static
 name|MockDirectoryWrapper
 name|newDirectory
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|newDirectory
@@ -3042,8 +3040,6 @@ parameter_list|(
 name|Random
 name|r
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|Directory
 name|impl
@@ -3143,8 +3139,6 @@ parameter_list|(
 name|File
 name|f
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|newFSDirectory
@@ -3168,8 +3162,6 @@ parameter_list|,
 name|LockFactory
 name|lf
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|String
 name|fsdirClass

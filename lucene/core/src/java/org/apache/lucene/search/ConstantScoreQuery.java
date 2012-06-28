@@ -794,8 +794,6 @@ parameter_list|,
 name|float
 name|theScore
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

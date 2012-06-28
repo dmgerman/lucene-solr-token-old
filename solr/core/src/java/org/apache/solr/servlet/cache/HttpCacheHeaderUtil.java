@@ -98,19 +98,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|solr
 operator|.
 name|core
@@ -259,8 +246,6 @@ parameter_list|(
 name|HttpServletResponse
 name|res
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|res
 operator|.
@@ -281,8 +266,6 @@ parameter_list|(
 name|HttpServletResponse
 name|res
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|res
 operator|.
@@ -855,8 +838,6 @@ specifier|final
 name|HttpServletResponse
 name|resp
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -955,7 +936,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**    * Check for etag related conditional headers and set status     *     * @return true if no request processing is necessary and HTTP response status has been set, false otherwise.    * @throws IOException    */
+comment|/**    * Check for etag related conditional headers and set status     *     * @return true if no request processing is necessary and HTTP response status has been set, false otherwise.    */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -983,8 +964,6 @@ specifier|final
 name|String
 name|etag
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 comment|// First check If-None-Match because this is the common used header
 comment|// element by HTTP clients
@@ -1108,7 +1087,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**    * Check for modify time related conditional headers and set status     *     * @return true if no request processing is necessary and HTTP response status has been set, false otherwise.    * @throws IOException    */
+comment|/**    * Check for modify time related conditional headers and set status     *     * @return true if no request processing is necessary and HTTP response status has been set, false otherwise.    */
 DECL|method|checkLastModValidators
 specifier|public
 specifier|static
@@ -1127,8 +1106,6 @@ specifier|final
 name|long
 name|lastMod
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 try|try
 block|{

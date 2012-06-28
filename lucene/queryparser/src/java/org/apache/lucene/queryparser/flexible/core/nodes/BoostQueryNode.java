@@ -77,23 +77,6 @@ name|flexible
 operator|.
 name|core
 operator|.
-name|QueryNodeException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|queryparser
-operator|.
-name|flexible
-operator|.
-name|core
-operator|.
 name|messages
 operator|.
 name|QueryParserMessages
@@ -136,7 +119,7 @@ name|value
 init|=
 literal|0
 decl_stmt|;
-comment|/**    * Constructs a boost node    *     * @param query    *          the query to be boosted    * @param value    *          the boost value, it may vary from 0.0 to 1.0    *     * @throws QueryNodeException    */
+comment|/**    * Constructs a boost node    *     * @param query    *          the query to be boosted    * @param value    *          the boost value, it may vary from 0.0 to 1.0    */
 DECL|method|BoostQueryNode
 specifier|public
 name|BoostQueryNode
@@ -147,8 +130,6 @@ parameter_list|,
 name|float
 name|value
 parameter_list|)
-throws|throws
-name|QueryNodeException
 block|{
 if|if
 condition|(

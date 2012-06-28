@@ -1441,8 +1441,6 @@ parameter_list|(
 name|BytesRef
 name|bytes
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|int
 name|byteCount
@@ -1594,8 +1592,6 @@ parameter_list|,
 name|BytesRef
 name|out
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|int
 name|left
@@ -1881,8 +1877,6 @@ parameter_list|(
 name|BytesRef
 name|bytes
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -2457,8 +2451,6 @@ parameter_list|,
 name|int
 name|length
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 assert|assert
 name|b

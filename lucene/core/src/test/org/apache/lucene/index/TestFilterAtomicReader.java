@@ -931,8 +931,6 @@ name|?
 argument_list|>
 name|clazz
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|boolean
 name|fail

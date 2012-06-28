@@ -1788,8 +1788,6 @@ specifier|public
 name|void
 name|reset
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|startTerm
 operator|=

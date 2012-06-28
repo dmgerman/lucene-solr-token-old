@@ -1626,8 +1626,6 @@ specifier|public
 name|void
 name|end
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 comment|// set final offset
 specifier|final

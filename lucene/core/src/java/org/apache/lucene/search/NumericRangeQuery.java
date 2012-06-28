@@ -1471,8 +1471,6 @@ specifier|final
 name|TermsEnum
 name|tenum
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -2010,8 +2008,6 @@ parameter_list|(
 name|BytesRef
 name|term
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 while|while
 condition|(

@@ -1070,8 +1070,6 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|int
 name|ord
@@ -1141,8 +1139,6 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|docVal
@@ -1165,8 +1161,6 @@ parameter_list|,
 name|int
 name|doc
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|values
 index|[
@@ -1248,8 +1242,6 @@ parameter_list|,
 name|Integer
 name|valueObj
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 specifier|final
 name|int

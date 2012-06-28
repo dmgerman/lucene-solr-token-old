@@ -196,8 +196,6 @@ specifier|final
 name|void
 name|end
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -220,8 +218,6 @@ specifier|public
 name|void
 name|reset
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

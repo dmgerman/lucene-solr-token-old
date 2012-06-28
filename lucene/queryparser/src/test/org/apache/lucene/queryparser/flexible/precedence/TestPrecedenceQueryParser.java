@@ -2900,8 +2900,6 @@ operator|.
 name|Resolution
 name|resolution
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 return|return
 name|DateTools

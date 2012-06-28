@@ -304,8 +304,6 @@ specifier|static
 name|void
 name|beforeClass
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|createTempDir
 argument_list|()
@@ -319,8 +317,6 @@ specifier|static
 name|void
 name|afterClass
 parameter_list|()
-throws|throws
-name|InterruptedException
 block|{    }
 annotation|@
 name|Override

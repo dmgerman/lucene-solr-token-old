@@ -57,19 +57,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|CorruptIndexException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|FieldInfo
 import|;
 end_import
@@ -508,8 +495,6 @@ name|StoredFieldVisitor
 name|visitor
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|in
@@ -1250,8 +1235,6 @@ parameter_list|(
 name|int
 name|offset
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|UnicodeUtil
 operator|.

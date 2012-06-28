@@ -1370,8 +1370,6 @@ parameter_list|(
 name|SpansCell
 name|cell
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -1439,8 +1437,6 @@ specifier|private
 name|void
 name|queueToList
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|last
 operator|=

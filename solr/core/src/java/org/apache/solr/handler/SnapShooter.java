@@ -310,8 +310,6 @@ parameter_list|,
 name|String
 name|location
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|solrCore
 operator|=

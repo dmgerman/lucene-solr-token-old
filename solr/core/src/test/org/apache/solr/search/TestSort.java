@@ -1350,8 +1350,6 @@ parameter_list|,
 name|Bits
 name|acceptDocs
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|BitsFilteredDocIdSet
