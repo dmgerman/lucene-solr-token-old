@@ -180,7 +180,6 @@ specifier|final
 name|BBoxSimilarity
 name|similarity
 decl_stmt|;
-comment|/**    * Constructor.    *    * @param queryEnvelope the query envelope    * @param queryPower the query power (scoring algorithm)    * @param targetPower the target power (scoring algorithm)    */
 DECL|method|BBoxSimilarityValueSource
 specifier|public
 name|BBoxSimilarityValueSource
@@ -222,7 +221,7 @@ operator|+
 literal|")"
 return|;
 block|}
-comment|/**    * Returns the DocValues used by the function query.    *    * @param reader the index reader    * @return the values    */
+comment|/**    * Returns the DocValues used by the function query.    *    * @param readerContext the AtomicReaderContext which holds an AtomicReader    * @return the values    */
 annotation|@
 name|Override
 DECL|method|getValues
