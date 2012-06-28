@@ -42,6 +42,9 @@ operator|.
 name|Rectangle
 import|;
 end_import
+begin_comment
+comment|/**  * @lucene.experimental  */
+end_comment
 begin_interface
 DECL|interface|BBoxSimilarity
 specifier|public

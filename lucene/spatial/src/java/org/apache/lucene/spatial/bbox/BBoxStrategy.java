@@ -316,7 +316,7 @@ name|*
 import|;
 end_import
 begin_comment
-comment|/**  * original:  * http://geoportal.svn.sourceforge.net/svnroot/geoportal/Geoportal/trunk/src/com/esri/gpt/catalog/lucene/SpatialClauseAdapter.java  */
+comment|/**  * Based on GeoPortal's  *<a href="http://geoportal.svn.sourceforge.net/svnroot/geoportal/Geoportal/trunk/src/com/esri/gpt/catalog/lucene/SpatialClauseAdapter.java">SpatialClauseAdapter</a>.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|BBoxStrategy
