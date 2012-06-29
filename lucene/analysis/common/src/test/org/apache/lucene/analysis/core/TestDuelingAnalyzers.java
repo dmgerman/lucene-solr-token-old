@@ -189,6 +189,21 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|automaton
 operator|.
 name|Automaton
@@ -258,6 +273,8 @@ begin_comment
 comment|/**  * Compares MockTokenizer (which is simple with no optimizations) with equivalent   * core tokenizers (that have optimizations like buffering).  *   * Any tests here need to probably consider unicode version of the JRE (it could  * cause false fails).  */
 end_comment
 begin_class
+annotation|@
+name|Slow
 DECL|class|TestDuelingAnalyzers
 specifier|public
 class|class

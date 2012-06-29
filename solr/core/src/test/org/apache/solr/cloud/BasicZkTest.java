@@ -46,6 +46,21 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|SolrTestCaseJ4
@@ -175,6 +190,8 @@ begin_comment
 comment|/**  * This test is not fully functional - the port registered is illegal -   * so you cannot hit this with http - a nice side benifit is that it will  * detect if a node is trying to do an update to itself with http - it shouldn't  * do that.  */
 end_comment
 begin_class
+annotation|@
+name|Slow
 DECL|class|BasicZkTest
 specifier|public
 class|class

@@ -227,6 +227,21 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|BaseDistributedSearchTestCase
@@ -474,6 +489,8 @@ begin_comment
 comment|// TODO: can this test be sped up? it used to not be so slow...
 end_comment
 begin_class
+annotation|@
+name|Slow
 DECL|class|TestReplicationHandler
 specifier|public
 class|class

@@ -80,6 +80,21 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|client
@@ -228,6 +243,8 @@ begin_comment
 comment|/**  * TODO? perhaps use:  *  http://docs.codehaus.org/display/JETTY/ServletTester  * rather then open a real connection?  *  *  * @since solr 1.3  */
 end_comment
 begin_class
+annotation|@
+name|Slow
 DECL|class|TestDistributedSearch
 specifier|public
 class|class
