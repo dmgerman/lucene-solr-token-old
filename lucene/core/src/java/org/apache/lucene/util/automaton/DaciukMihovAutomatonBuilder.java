@@ -65,18 +65,17 @@ name|UnicodeUtil
 import|;
 end_import
 begin_comment
-comment|/**  * Builds a minimal deterministic automaton that accepts a set of strings. The  * algorithm requires sorted input data, but is very fast (nearly linear with  * the input size).  */
+comment|/**  * Builds a minimal, deterministic {@link Automaton} that accepts a set of   * strings. The algorithm requires sorted input data, but is very fast   * (nearly linear with the input size).  *   * @see #build(Collection)  * @see BasicAutomata#makeStringUnion(Collection)  */
 end_comment
 begin_class
 DECL|class|DaciukMihovAutomatonBuilder
-specifier|public
 specifier|final
 class|class
 name|DaciukMihovAutomatonBuilder
 block|{
 comment|/**    * DFSA state with<code>char</code> labels on transitions.    */
 DECL|class|State
-specifier|public
+specifier|private
 specifier|final
 specifier|static
 class|class
@@ -135,7 +134,6 @@ name|is_final
 decl_stmt|;
 comment|/**      * Returns the target state of a transition leaving this state and labeled      * with<code>label</code>. If no such transition exists, returns      *<code>null</code>.      */
 DECL|method|getState
-specifier|public
 name|State
 name|getState
 parameter_list|(
@@ -167,34 +165,6 @@ name|index
 index|]
 else|:
 literal|null
-return|;
-block|}
-comment|/**      * Returns an array of outgoing transition labels. The array is sorted in      * lexicographic order and indexes correspond to states returned from      * {@link #getStates()}.      */
-DECL|method|getTransitionLabels
-specifier|public
-name|int
-index|[]
-name|getTransitionLabels
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|labels
-return|;
-block|}
-comment|/**      * Returns an array of outgoing transitions from this state. The returned      * array must not be changed.      */
-DECL|method|getStates
-specifier|public
-name|State
-index|[]
-name|getStates
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|states
 return|;
 block|}
 comment|/**      * Two states are equal if:      *<ul>      *<li>they have an identical number of outgoing transitions, labeled with      * the same labels</li>      *<li>corresponding outgoing transitions lead to the same states (to states      * with an identical right-language).      *</ul>      */
@@ -248,32 +218,6 @@ name|other
 operator|.
 name|states
 argument_list|)
-return|;
-block|}
-comment|/**      * Return<code>true</code> if this state has any children (outgoing      * transitions).      */
-DECL|method|hasChildren
-specifier|public
-name|boolean
-name|hasChildren
-parameter_list|()
-block|{
-return|return
-name|labels
-operator|.
-name|length
-operator|>
-literal|0
-return|;
-block|}
-comment|/**      * Is this state a final state in the automaton?      */
-DECL|method|isFinal
-specifier|public
-name|boolean
-name|isFinal
-parameter_list|()
-block|{
-return|return
-name|is_final
 return|;
 block|}
 comment|/**      * Compute the hash code of the<i>current</i> status of this state.      */
@@ -348,6 +292,20 @@ return|return
 name|hash
 return|;
 block|}
+comment|/**      * Return<code>true</code> if this state has any children (outgoing      * transitions).      */
+DECL|method|hasChildren
+name|boolean
+name|hasChildren
+parameter_list|()
+block|{
+return|return
+name|labels
+operator|.
+name|length
+operator|>
+literal|0
+return|;
+block|}
 comment|/**      * Create a new outgoing transition labeled<code>label</code> and return      * the newly created target state for this transition.      */
 DECL|method|newState
 name|State
@@ -375,6 +333,8 @@ name|label
 assert|;
 name|labels
 operator|=
+name|Arrays
+operator|.
 name|copyOf
 argument_list|(
 name|labels
@@ -388,6 +348,8 @@ argument_list|)
 expr_stmt|;
 name|states
 operator|=
+name|Arrays
+operator|.
 name|copyOf
 argument_list|(
 name|states
@@ -533,114 +495,6 @@ operator|=
 name|state
 expr_stmt|;
 block|}
-comment|/**      * JDK1.5-replacement of {@link Arrays#copyOf(int[], int)}      */
-DECL|method|copyOf
-specifier|private
-specifier|static
-name|int
-index|[]
-name|copyOf
-parameter_list|(
-name|int
-index|[]
-name|original
-parameter_list|,
-name|int
-name|newLength
-parameter_list|)
-block|{
-name|int
-index|[]
-name|copy
-init|=
-operator|new
-name|int
-index|[
-name|newLength
-index|]
-decl_stmt|;
-name|System
-operator|.
-name|arraycopy
-argument_list|(
-name|original
-argument_list|,
-literal|0
-argument_list|,
-name|copy
-argument_list|,
-literal|0
-argument_list|,
-name|Math
-operator|.
-name|min
-argument_list|(
-name|original
-operator|.
-name|length
-argument_list|,
-name|newLength
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return
-name|copy
-return|;
-block|}
-comment|/**      * JDK1.5-replacement of {@link Arrays#copyOf(char[], int)}      */
-DECL|method|copyOf
-specifier|public
-specifier|static
-name|State
-index|[]
-name|copyOf
-parameter_list|(
-name|State
-index|[]
-name|original
-parameter_list|,
-name|int
-name|newLength
-parameter_list|)
-block|{
-name|State
-index|[]
-name|copy
-init|=
-operator|new
-name|State
-index|[
-name|newLength
-index|]
-decl_stmt|;
-name|System
-operator|.
-name|arraycopy
-argument_list|(
-name|original
-argument_list|,
-literal|0
-argument_list|,
-name|copy
-argument_list|,
-literal|0
-argument_list|,
-name|Math
-operator|.
-name|min
-argument_list|(
-name|original
-operator|.
-name|length
-argument_list|,
-name|newLength
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return
-name|copy
-return|;
-block|}
 comment|/**      * Compare two lists of objects for reference-equality.      */
 DECL|method|referenceEquals
 specifier|private
@@ -667,9 +521,11 @@ name|a2
 operator|.
 name|length
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 for|for
 control|(
 name|int
@@ -686,6 +542,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 if|if
 condition|(
 name|a1
@@ -698,16 +555,19 @@ index|[
 name|i
 index|]
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
+block|}
 return|return
 literal|true
 return|;
 block|}
 block|}
-comment|/**    * "register" for state interning.    */
-DECL|field|register
+comment|/**    * A "registry" for state interning.    */
+DECL|field|stateRegistry
 specifier|private
 name|HashMap
 argument_list|<
@@ -715,7 +575,7 @@ name|State
 argument_list|,
 name|State
 argument_list|>
-name|register
+name|stateRegistry
 init|=
 operator|new
 name|HashMap
@@ -736,12 +596,18 @@ operator|new
 name|State
 argument_list|()
 decl_stmt|;
-comment|/**    * Previous sequence added to the automaton in {@link #add(CharSequence)}.    */
+comment|/**    * Previous sequence added to the automaton in {@link #add(CharsRef)}.    */
 DECL|field|previous
 specifier|private
 name|CharsRef
 name|previous
 decl_stmt|;
+comment|/**    * A comparator used for enforcing sorted UTF8 order, used in assertions only.    */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|field|comparator
 specifier|private
 specifier|static
@@ -768,7 +634,7 @@ name|current
 parameter_list|)
 block|{
 assert|assert
-name|register
+name|stateRegistry
 operator|!=
 literal|null
 operator|:
@@ -790,7 +656,7 @@ argument_list|)
 operator|<=
 literal|0
 operator|:
-literal|"Input must be sorted: "
+literal|"Input must be in sorted UTF-8 order: "
 operator|+
 name|previous
 operator|+
@@ -906,7 +772,7 @@ if|if
 condition|(
 name|this
 operator|.
-name|register
+name|stateRegistry
 operator|==
 literal|null
 condition|)
@@ -927,7 +793,7 @@ argument_list|(
 name|root
 argument_list|)
 expr_stmt|;
-name|register
+name|stateRegistry
 operator|=
 literal|null
 expr_stmt|;
@@ -1089,7 +955,7 @@ return|return
 name|converted
 return|;
 block|}
-comment|/**    * Build a minimal, deterministic automaton from a sorted list of strings.    */
+comment|/**    * Build a minimal, deterministic automaton from a sorted list of {@link BytesRef} representing    * strings in UTF-8. These strings must be binary-sorted.    */
 DECL|method|build
 specifier|public
 specifier|static
@@ -1216,7 +1082,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**    * Replace last child of<code>state</code> with an already registered state    * or register the last child state.    */
+comment|/**    * Replace last child of<code>state</code> with an already registered state    * or stateRegistry the last child state.    */
 DECL|method|replaceOrRegister
 specifier|private
 name|void
@@ -1251,7 +1117,7 @@ specifier|final
 name|State
 name|registered
 init|=
-name|register
+name|stateRegistry
 operator|.
 name|get
 argument_list|(
@@ -1275,7 +1141,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|register
+name|stateRegistry
 operator|.
 name|put
 argument_list|(
