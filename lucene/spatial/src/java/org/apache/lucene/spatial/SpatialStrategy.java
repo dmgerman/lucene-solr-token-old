@@ -1,7 +1,4 @@
 begin_unit
-begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
-end_comment
 begin_package
 DECL|package|org.apache.lucene.spatial
 package|package
@@ -14,6 +11,9 @@ operator|.
 name|spatial
 package|;
 end_package
+begin_comment
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
 begin_import
 import|import
 name|com
@@ -25,19 +25,6 @@ operator|.
 name|context
 operator|.
 name|SpatialContext
-import|;
-end_import
-begin_import
-import|import
-name|com
-operator|.
-name|spatial4j
-operator|.
-name|core
-operator|.
-name|query
-operator|.
-name|SpatialArgs
 import|;
 end_import
 begin_import
@@ -133,6 +120,21 @@ operator|.
 name|search
 operator|.
 name|Query
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|query
+operator|.
+name|SpatialArgs
 import|;
 end_import
 begin_comment
@@ -271,7 +273,7 @@ name|T
 name|fieldInfo
 parameter_list|)
 function_decl|;
-comment|/**    * Make a query which has a score based on the distance from the data to the query shape.    * The default implementation constructs a {@link FilteredQuery} based on    * {@link #makeFilter(com.spatial4j.core.query.SpatialArgs, SpatialFieldInfo)} and    * {@link #makeValueSource(com.spatial4j.core.query.SpatialArgs, SpatialFieldInfo)}.    */
+comment|/**    * Make a query which has a score based on the distance from the data to the query shape.    * The default implementation constructs a {@link FilteredQuery} based on    * {@link #makeFilter(org.apache.lucene.spatial.query.SpatialArgs, SpatialFieldInfo)} and    * {@link #makeValueSource(org.apache.lucene.spatial.query.SpatialArgs, SpatialFieldInfo)}.    */
 DECL|method|makeQuery
 specifier|public
 name|Query
