@@ -467,7 +467,9 @@ op|'('
 op|')'
 newline|'\n'
 name|'print'
-string|"'  WARNING: failed to parse:'"
+string|"'  WARNING: failed to parse %s:'"
+op|'%'
+name|'baseURL'
 newline|'\n'
 name|'traceback'
 op|'.'
