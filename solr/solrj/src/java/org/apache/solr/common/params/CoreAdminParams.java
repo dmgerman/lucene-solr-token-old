@@ -203,6 +203,24 @@ name|DELETE_INDEX
 init|=
 literal|"deleteIndex"
 decl_stmt|;
+DECL|field|DELETE_DATA_DIR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DELETE_DATA_DIR
+init|=
+literal|"deleteDataDir"
+decl_stmt|;
+DECL|field|DELETE_INSTANCE_DIR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DELETE_INSTANCE_DIR
+init|=
+literal|"deleteInstanceDir"
+decl_stmt|;
 DECL|enum|CoreAdminAction
 specifier|public
 enum|enum
@@ -240,9 +258,6 @@ name|PREPRECOVERY
 block|,
 DECL|enum constant|REQUESTRECOVERY
 name|REQUESTRECOVERY
-block|,
-DECL|enum constant|DISTRIBURL
-name|DISTRIBURL
 block|;
 DECL|method|get
 specifier|public
