@@ -147,7 +147,6 @@ literal|1024
 decl_stmt|;
 comment|// 1K
 DECL|field|CODEC_NAME
-specifier|private
 specifier|final
 specifier|static
 name|String
@@ -156,7 +155,6 @@ init|=
 literal|"PackedInts"
 decl_stmt|;
 DECL|field|VERSION_START
-specifier|private
 specifier|final
 specifier|static
 name|int
@@ -165,7 +163,6 @@ init|=
 literal|0
 decl_stmt|;
 DECL|field|VERSION_CURRENT
-specifier|private
 specifier|final
 specifier|static
 name|int
