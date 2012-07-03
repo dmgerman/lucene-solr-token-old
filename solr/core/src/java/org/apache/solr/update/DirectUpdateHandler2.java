@@ -1303,6 +1303,11 @@ argument_list|(
 name|updateTerm
 argument_list|,
 name|luceneDocument
+argument_list|,
+name|schema
+operator|.
+name|getAnalyzer
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// SolrCore.verbose("updateDocument",updateTerm,"DONE");
@@ -1394,6 +1399,11 @@ argument_list|(
 name|cmd
 operator|.
 name|getLuceneDocument
+argument_list|()
+argument_list|,
+name|schema
+operator|.
+name|getAnalyzer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2093,6 +2103,14 @@ argument_list|(
 name|idTerm
 argument_list|,
 name|luceneDocument
+argument_list|,
+name|core
+operator|.
+name|getSchema
+argument_list|()
+operator|.
+name|getAnalyzer
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
