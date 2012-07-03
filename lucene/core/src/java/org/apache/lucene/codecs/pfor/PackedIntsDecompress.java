@@ -29,10 +29,10 @@ name|IntBuffer
 import|;
 end_import
 begin_class
-DECL|class|ForDecompressImpl
+DECL|class|PackedIntsDecompress
 specifier|final
 class|class
-name|ForDecompressImpl
+name|PackedIntsDecompress
 block|{
 comment|// nocommit: assess perf of this to see if specializing is really needed
 comment|// NOTE: hardwired to blockSize == 128

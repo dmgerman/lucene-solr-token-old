@@ -273,14 +273,14 @@ name|SepPostingsWriter
 import|;
 end_import
 begin_comment
-comment|/**  * This class actually only pass the ForFactory  * to a PostingsWriter/ReaderBase, and get customized  * format plugged.  */
+comment|/**  * This class actually only pass the PForFactory  * to a PostingsWriter/ReaderBase, and get customized  * format plugged.  */
 end_comment
 begin_class
-DECL|class|ForPostingsFormat
+DECL|class|PForPostingsFormat
 specifier|public
 specifier|final
 class|class
-name|ForPostingsFormat
+name|PForPostingsFormat
 extends|extends
 name|PostingsFormat
 block|{
@@ -320,14 +320,14 @@ name|DEFAULT_TERM_CACHED_SIZE
 init|=
 literal|1024
 decl_stmt|;
-DECL|method|ForPostingsFormat
+DECL|method|PForPostingsFormat
 specifier|public
-name|ForPostingsFormat
+name|PForPostingsFormat
 parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"For"
+literal|"PFor"
 argument_list|)
 expr_stmt|;
 name|this
@@ -353,9 +353,9 @@ operator|.
 name|DEFAULT_MAX_BLOCK_SIZE
 expr_stmt|;
 block|}
-DECL|method|ForPostingsFormat
+DECL|method|PForPostingsFormat
 specifier|public
-name|ForPostingsFormat
+name|PForPostingsFormat
 parameter_list|(
 name|int
 name|minBlockSize
@@ -366,7 +366,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"For"
+literal|"PFor"
 argument_list|)
 expr_stmt|;
 name|this
@@ -440,7 +440,7 @@ argument_list|(
 name|state
 argument_list|,
 operator|new
-name|ForFactory
+name|PForFactory
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -526,7 +526,7 @@ operator|.
 name|context
 argument_list|,
 operator|new
-name|ForFactory
+name|PForFactory
 argument_list|()
 argument_list|,
 name|state

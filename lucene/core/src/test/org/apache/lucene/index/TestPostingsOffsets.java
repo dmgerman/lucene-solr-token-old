@@ -372,6 +372,8 @@ block|,
 literal|"MockRandom"
 block|,
 literal|"For"
+block|,
+literal|"PFor"
 block|}
 argument_list|)
 DECL|class|TestPostingsOffsets
