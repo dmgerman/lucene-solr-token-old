@@ -4595,26 +4595,8 @@ argument_list|(
 literal|"VERBOSE:"
 argument_list|)
 decl_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|':'
-argument_list|)
-expr_stmt|;
+comment|//    sb.append(Thread.currentThread().getName());
+comment|//    sb.append(':');
 for|for
 control|(
 name|Object
@@ -4647,11 +4629,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|System
+comment|// System.out.println(sb.toString());
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 name|sb
 operator|.

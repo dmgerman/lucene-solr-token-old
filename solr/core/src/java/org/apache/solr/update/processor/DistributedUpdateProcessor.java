@@ -2356,6 +2356,11 @@ comment|// will enable us to know what version happened first, and thus enable
 comment|// realtime-get to work reliably.
 comment|// TODO: if versions aren't stored, do we need to set on the cmd anyway for some reason?
 comment|// there may be other reasons in the future for a version on the commands
+name|boolean
+name|checkDeleteByQueries
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|versionsStored
@@ -2600,7 +2605,7 @@ name|versionOnUpdate
 condition|)
 block|{
 comment|// we're OK... this update has a version higher than anything we've seen
-comment|// in this bucket so far, so we know that no reordering has yet occured.
+comment|// in this bucket so far, so we know that no reordering has yet occurred.
 name|bucket
 operator|.
 name|updateHighest
@@ -2647,9 +2652,15 @@ return|return
 literal|true
 return|;
 block|}
+comment|// also need to re-apply newer deleteByQuery commands
+name|checkDeleteByQueries
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 block|}
+comment|// TODO: possibly set checkDeleteByQueries as a flag on the command?
 name|doLocalAdd
 argument_list|(
 name|cmd
@@ -4066,7 +4077,6 @@ name|unblockUpdates
 argument_list|()
 expr_stmt|;
 block|}
-comment|// TODO: need to handle reorders to replicas somehow
 comment|// forward to all replicas
 if|if
 condition|(
