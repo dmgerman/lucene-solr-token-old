@@ -338,6 +338,9 @@ name|Set
 import|;
 end_import
 begin_comment
+comment|///CLOVER:OFF
+end_comment
+begin_comment
 comment|/**  * Based off of Solr 3's SpatialFilterTest.  */
 end_comment
 begin_class
@@ -1404,4 +1407,7 @@ block|}
 block|}
 block|}
 end_class
+begin_comment
+comment|///CLOVER:OFF
+end_comment
 end_unit
