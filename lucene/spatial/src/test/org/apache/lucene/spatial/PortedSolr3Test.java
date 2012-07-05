@@ -1408,6 +1408,6 @@ block|}
 block|}
 end_class
 begin_comment
-comment|///CLOVER:OFF
+comment|///CLOVER:ON
 end_comment
 end_unit
