@@ -160,19 +160,6 @@ name|lucene
 operator|.
 name|spatial
 operator|.
-name|SimpleSpatialFieldInfo
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|spatial
-operator|.
 name|SpatialStrategy
 import|;
 end_import
@@ -289,9 +276,6 @@ class|class
 name|PrefixTreeStrategy
 extends|extends
 name|SpatialStrategy
-argument_list|<
-name|SimpleSpatialFieldInfo
-argument_list|>
 block|{
 DECL|field|grid
 specifier|protected
@@ -341,6 +325,9 @@ name|PrefixTreeStrategy
 parameter_list|(
 name|SpatialPrefixTree
 name|grid
+parameter_list|,
+name|String
+name|fieldName
 parameter_list|)
 block|{
 name|super
@@ -349,6 +336,8 @@ name|grid
 operator|.
 name|getSpatialContext
 argument_list|()
+argument_list|,
+name|fieldName
 argument_list|)
 expr_stmt|;
 name|this
@@ -399,9 +388,6 @@ specifier|public
 name|IndexableField
 name|createField
 parameter_list|(
-name|SimpleSpatialFieldInfo
-name|fieldInfo
-parameter_list|,
 name|Shape
 name|shape
 parameter_list|,
@@ -494,8 +480,6 @@ comment|//  http://code.google.com/p/lucene-spatial-playground/issues/detail?id=
 name|String
 name|fname
 init|=
-name|fieldInfo
-operator|.
 name|getFieldName
 argument_list|()
 decl_stmt|;
@@ -847,9 +831,6 @@ name|makeValueSource
 parameter_list|(
 name|SpatialArgs
 name|args
-parameter_list|,
-name|SimpleSpatialFieldInfo
-name|fieldInfo
 parameter_list|)
 block|{
 name|DistanceCalculator
@@ -868,8 +849,6 @@ name|makeValueSource
 argument_list|(
 name|args
 argument_list|,
-name|fieldInfo
-argument_list|,
 name|calc
 argument_list|)
 return|;
@@ -882,9 +861,6 @@ parameter_list|(
 name|SpatialArgs
 name|args
 parameter_list|,
-name|SimpleSpatialFieldInfo
-name|fieldInfo
-parameter_list|,
 name|DistanceCalculator
 name|calc
 parameter_list|)
@@ -896,8 +872,6 @@ name|provider
 operator|.
 name|get
 argument_list|(
-name|fieldInfo
-operator|.
 name|getFieldName
 argument_list|()
 argument_list|)
@@ -921,8 +895,6 @@ name|provider
 operator|.
 name|get
 argument_list|(
-name|fieldInfo
-operator|.
 name|getFieldName
 argument_list|()
 argument_list|)
@@ -941,8 +913,6 @@ name|PointPrefixTreeFieldCacheProvider
 argument_list|(
 name|grid
 argument_list|,
-name|fieldInfo
-operator|.
 name|getFieldName
 argument_list|()
 argument_list|,
@@ -953,8 +923,6 @@ name|provider
 operator|.
 name|put
 argument_list|(
-name|fieldInfo
-operator|.
 name|getFieldName
 argument_list|()
 argument_list|,

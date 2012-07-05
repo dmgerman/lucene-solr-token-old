@@ -405,6 +405,8 @@ operator|new
 name|RecursivePrefixTreeStrategy
 argument_list|(
 name|grid
+argument_list|,
+literal|"recursive_geohash"
 argument_list|)
 expr_stmt|;
 name|ctorArgs
@@ -415,8 +417,6 @@ operator|new
 name|Object
 index|[]
 block|{
-literal|"recursive_geohash"
-block|,
 name|strategy
 block|}
 argument_list|)
@@ -437,6 +437,8 @@ operator|new
 name|RecursivePrefixTreeStrategy
 argument_list|(
 name|grid
+argument_list|,
+literal|"recursive_quad"
 argument_list|)
 expr_stmt|;
 name|ctorArgs
@@ -447,8 +449,6 @@ operator|new
 name|Object
 index|[]
 block|{
-literal|"recursive_quad"
-block|,
 name|strategy
 block|}
 argument_list|)
@@ -469,6 +469,8 @@ operator|new
 name|TermQueryPrefixTreeStrategy
 argument_list|(
 name|grid
+argument_list|,
+literal|"termquery_geohash"
 argument_list|)
 expr_stmt|;
 name|ctorArgs
@@ -479,8 +481,6 @@ operator|new
 name|Object
 index|[]
 block|{
-literal|"termquery_geohash"
-block|,
 name|strategy
 block|}
 argument_list|)
@@ -494,13 +494,12 @@ DECL|method|PortedSolr3Test
 specifier|public
 name|PortedSolr3Test
 parameter_list|(
-name|String
-name|fieldName
-parameter_list|,
 name|SpatialStrategy
 name|strategy
 parameter_list|)
 block|{
+name|this
+operator|.
 name|ctx
 operator|=
 name|strategy
@@ -513,15 +512,6 @@ operator|.
 name|strategy
 operator|=
 name|strategy
-expr_stmt|;
-comment|//    this.fieldName = fieldName;
-name|fieldInfo
-operator|=
-operator|new
-name|SimpleSpatialFieldInfo
-argument_list|(
-name|fieldName
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|setupDocs
@@ -965,8 +955,6 @@ operator|.
 name|makeQuery
 argument_list|(
 name|args
-argument_list|,
-name|fieldInfo
 argument_list|)
 decl_stmt|;
 name|SearchResults
@@ -1120,8 +1108,6 @@ name|strategy
 operator|.
 name|createFields
 argument_list|(
-name|fieldInfo
-argument_list|,
 name|shape
 argument_list|,
 literal|true
@@ -1295,8 +1281,6 @@ operator|.
 name|makeQuery
 argument_list|(
 name|args
-argument_list|,
-name|fieldInfo
 argument_list|)
 expr_stmt|;
 block|}
@@ -1316,8 +1300,6 @@ operator|.
 name|makeFilter
 argument_list|(
 name|args
-argument_list|,
-name|fieldInfo
 argument_list|)
 argument_list|)
 expr_stmt|;
