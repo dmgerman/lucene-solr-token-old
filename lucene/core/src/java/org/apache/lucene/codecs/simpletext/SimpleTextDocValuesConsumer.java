@@ -89,7 +89,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexableField
+name|StorableField
 import|;
 end_import
 begin_import
@@ -436,7 +436,7 @@ parameter_list|(
 name|int
 name|docID
 parameter_list|,
-name|IndexableField
+name|StorableField
 name|value
 parameter_list|)
 throws|throws

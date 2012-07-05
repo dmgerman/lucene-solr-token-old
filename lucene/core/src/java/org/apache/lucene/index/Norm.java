@@ -154,6 +154,19 @@ name|lucene
 operator|.
 name|document
 operator|.
+name|StoredField
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
 name|StraightBytesDocValuesField
 import|;
 end_import
@@ -212,7 +225,7 @@ name|Norm
 block|{
 DECL|field|field
 specifier|private
-name|Field
+name|StoredField
 name|field
 decl_stmt|;
 DECL|field|spare
@@ -223,7 +236,7 @@ decl_stmt|;
 comment|/**    * Returns the {@link IndexableField} representation for this norm    */
 DECL|method|field
 specifier|public
-name|IndexableField
+name|StoredField
 name|field
 parameter_list|()
 block|{

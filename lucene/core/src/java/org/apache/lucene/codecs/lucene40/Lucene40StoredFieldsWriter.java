@@ -85,6 +85,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|AtomicReader
@@ -166,6 +179,19 @@ operator|.
 name|index
 operator|.
 name|SegmentReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|StorableField
 import|;
 end_import
 begin_import
@@ -701,7 +727,7 @@ parameter_list|(
 name|FieldInfo
 name|info
 parameter_list|,
-name|IndexableField
+name|StorableField
 name|field
 parameter_list|)
 throws|throws
@@ -1578,7 +1604,7 @@ comment|// doc; ie we just have to renumber the field number
 comment|// on the fly?
 comment|// NOTE: it's very important to first assign to doc then pass it to
 comment|// fieldsWriter.addDocument; see LUCENE-1282
-name|Document
+name|StoredDocument
 name|doc
 init|=
 name|reader
@@ -1736,7 +1762,7 @@ control|)
 block|{
 comment|// NOTE: it's very important to first assign to doc then pass it to
 comment|// fieldsWriter.addDocument; see LUCENE-1282
-name|Document
+name|StoredDocument
 name|doc
 init|=
 name|reader

@@ -181,6 +181,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|AtomicReaderContext
@@ -662,7 +675,7 @@ block|}
 comment|/** Sugar for<code>.getIndexReader().document(docID)</code> */
 DECL|method|doc
 specifier|public
-name|Document
+name|StoredDocument
 name|doc
 parameter_list|(
 name|int
@@ -709,7 +722,7 @@ comment|/** Sugar for<code>.getIndexReader().document(docID, fieldsToLoad)</code
 DECL|method|document
 specifier|public
 specifier|final
-name|Document
+name|StoredDocument
 name|document
 parameter_list|(
 name|int

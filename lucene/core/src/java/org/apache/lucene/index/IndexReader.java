@@ -115,6 +115,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|SearcherManager
@@ -813,7 +826,7 @@ comment|// IndexableField
 DECL|method|document
 specifier|public
 specifier|final
-name|Document
+name|StoredDocument
 name|document
 parameter_list|(
 name|int
@@ -848,7 +861,7 @@ comment|/**    * Like {@link #document(int)} but only loads the specified    * f
 DECL|method|document
 specifier|public
 specifier|final
-name|Document
+name|StoredDocument
 name|document
 parameter_list|(
 name|int
