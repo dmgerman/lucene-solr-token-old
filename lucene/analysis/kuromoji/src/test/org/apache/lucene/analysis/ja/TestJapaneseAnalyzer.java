@@ -631,7 +631,7 @@ name|random
 argument_list|,
 name|a
 argument_list|,
-literal|200
+literal|100
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|,

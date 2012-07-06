@@ -656,7 +656,7 @@ decl_stmt|;
 name|int
 name|num
 init|=
-literal|10000
+literal|1000
 operator|*
 name|RANDOM_MULTIPLIER
 decl_stmt|;
@@ -911,7 +911,7 @@ decl_stmt|;
 name|int
 name|num
 init|=
-literal|10000
+literal|1000
 operator|*
 name|RANDOM_MULTIPLIER
 decl_stmt|;
