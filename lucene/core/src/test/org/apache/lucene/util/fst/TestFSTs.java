@@ -11802,6 +11802,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%07d"
 argument_list|,
 name|id
@@ -11983,6 +11987,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%07d"
 argument_list|,
 operator|(
@@ -12314,6 +12322,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%07da"
 argument_list|,
 name|idv
@@ -12325,6 +12337,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%07d"
 argument_list|,
 name|idv

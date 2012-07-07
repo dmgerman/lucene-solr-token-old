@@ -1403,6 +1403,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 name|missing
 argument_list|,
 name|upperArr
@@ -1428,6 +1432,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 name|missing
 argument_list|,
 name|lowerArr
@@ -1504,6 +1512,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 name|missing
 argument_list|,
 name|upperArr
@@ -1529,6 +1541,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 name|falsePos
 argument_list|,
 name|lowerArr
@@ -1657,6 +1673,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 name|missing
 argument_list|,
 name|upperArr
@@ -1682,6 +1702,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 name|missing
 argument_list|,
 name|lowerArr
@@ -1758,6 +1782,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 name|missing
 argument_list|,
 name|upperArr
@@ -1783,6 +1811,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 name|falsePos
 argument_list|,
 name|upperArr

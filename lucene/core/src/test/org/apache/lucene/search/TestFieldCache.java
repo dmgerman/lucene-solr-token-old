@@ -83,6 +83,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|CyclicBarrier
@@ -2593,6 +2602,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"Document[%d] misses field must be null. Has value %s for ord %d"
 argument_list|,
 name|i
@@ -2701,6 +2714,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"Expected value %s for doc %d and ord %d, but was %s"
 argument_list|,
 name|expected
