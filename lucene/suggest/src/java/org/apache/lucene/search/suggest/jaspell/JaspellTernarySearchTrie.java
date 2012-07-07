@@ -92,6 +92,19 @@ operator|.
 name|GZIPInputStream
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IOUtils
+import|;
+end_import
 begin_comment
 comment|/**  * Implementation of a Ternary Search Trie, a data structure for storing  *<code>String</code> objects that combines the compact size of a binary search  * tree with the speed of a digital search trie, and is therefore ideal for  * practical use in sorting and searching data.</p>  *<p>  *   * This data structure is faster than hashing for many typical search problems,  * and supports a broader range of useful problems and operations. Ternary  * searches are faster than hashing and more powerful, too.  *</p>  *<p>  *   * The theory of ternary search trees was described at a symposium in 1997 (see  * "Fast Algorithms for Sorting and Searching Strings," by J.L. Bentley and R.  * Sedgewick, Proceedings of the 8th Annual ACM-SIAM Symposium on Discrete  * Algorithms, January 1997). Algorithms in C, Third Edition, by Robert  * Sedgewick (Addison-Wesley, 1998) provides yet another view of ternary search  * trees.  */
 end_comment
@@ -315,8 +328,9 @@ operator|=
 operator|new
 name|BufferedReader
 argument_list|(
-operator|new
-name|InputStreamReader
+name|IOUtils
+operator|.
+name|getDecodingReader
 argument_list|(
 operator|new
 name|GZIPInputStream
@@ -327,6 +341,10 @@ argument_list|(
 name|file
 argument_list|)
 argument_list|)
+argument_list|,
+name|IOUtils
+operator|.
+name|CHARSET_UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -336,8 +354,9 @@ operator|=
 operator|new
 name|BufferedReader
 argument_list|(
-operator|new
-name|InputStreamReader
+name|IOUtils
+operator|.
+name|getDecodingReader
 argument_list|(
 operator|(
 operator|new
@@ -346,6 +365,10 @@ argument_list|(
 name|file
 argument_list|)
 operator|)
+argument_list|,
+name|IOUtils
+operator|.
+name|CHARSET_UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;
