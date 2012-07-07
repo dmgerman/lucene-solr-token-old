@@ -238,7 +238,11 @@ literal|"WORD"
 argument_list|)
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 decl_stmt|;
 name|BreakIterator
 name|bi
