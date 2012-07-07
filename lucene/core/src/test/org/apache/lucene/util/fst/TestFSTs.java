@@ -9619,7 +9619,7 @@ name|format
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|,
 literal|"%6.2fs: %9d..."
 argument_list|,

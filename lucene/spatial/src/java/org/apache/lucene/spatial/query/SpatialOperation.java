@@ -371,7 +371,7 @@ name|toUpperCase
 argument_list|(
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 argument_list|,
 name|this
@@ -424,7 +424,7 @@ name|toUpperCase
 argument_list|(
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 argument_list|)
 expr_stmt|;

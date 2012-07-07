@@ -1343,7 +1343,7 @@ literal|"yyyy-MM-dd HH:mm:ss:SSS"
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 decl_stmt|;
 name|sdf

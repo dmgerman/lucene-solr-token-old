@@ -211,7 +211,7 @@ argument_list|)
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 decl_stmt|;
 name|calendar
@@ -556,7 +556,7 @@ name|format
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 expr_stmt|;
 name|dateParser
@@ -689,7 +689,7 @@ literal|"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 decl_stmt|;
 name|tmp
@@ -782,7 +782,7 @@ argument_list|)
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 expr_stmt|;
 name|cal
