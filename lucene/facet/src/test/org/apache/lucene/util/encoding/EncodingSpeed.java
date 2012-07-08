@@ -1024,7 +1024,11 @@ operator|=
 name|NumberFormat
 operator|.
 name|getInstance
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 expr_stmt|;
 name|nf
 operator|.
