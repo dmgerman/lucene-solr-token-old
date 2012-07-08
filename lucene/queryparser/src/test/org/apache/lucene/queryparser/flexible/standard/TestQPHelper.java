@@ -110,6 +110,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TimeZone
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -4383,7 +4392,7 @@ name|int
 name|day
 parameter_list|)
 block|{
-comment|// we use the default Locale since LuceneTestCase randomizes it
+comment|// we use the default Locale/TZ since LuceneTestCase randomizes it
 name|DateFormat
 name|df
 init|=
@@ -4406,7 +4415,17 @@ name|calendar
 init|=
 operator|new
 name|GregorianCalendar
+argument_list|(
+name|TimeZone
+operator|.
+name|getDefault
 argument_list|()
+argument_list|,
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|calendar
 operator|.
@@ -4512,12 +4531,23 @@ argument_list|,
 literal|4
 argument_list|)
 decl_stmt|;
+comment|// we use the default Locale/TZ since LuceneTestCase randomizes it
 name|Calendar
 name|endDateExpected
 init|=
 operator|new
 name|GregorianCalendar
+argument_list|(
+name|TimeZone
+operator|.
+name|getDefault
 argument_list|()
+argument_list|,
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|endDateExpected
 operator|.
