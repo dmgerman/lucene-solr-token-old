@@ -221,7 +221,7 @@ name|NamedList
 name|args
 parameter_list|)
 block|{
-name|String
+name|Object
 name|patternParam
 init|=
 name|args
@@ -230,9 +230,6 @@ name|remove
 argument_list|(
 name|PATTERN_PARAM
 argument_list|)
-operator|.
-name|toString
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -264,6 +261,9 @@ operator|.
 name|compile
 argument_list|(
 name|patternParam
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -289,7 +289,7 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|String
+name|Object
 name|replacementParam
 init|=
 name|args
@@ -298,9 +298,6 @@ name|remove
 argument_list|(
 name|REPLACEMENT_PARAM
 argument_list|)
-operator|.
-name|toString
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -330,6 +327,9 @@ operator|.
 name|quoteReplacement
 argument_list|(
 name|replacementParam
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|super

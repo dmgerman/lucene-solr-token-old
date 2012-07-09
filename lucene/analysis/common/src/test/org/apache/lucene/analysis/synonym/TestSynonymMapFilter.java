@@ -278,8 +278,6 @@ name|Slow
 import|;
 end_import
 begin_class
-annotation|@
-name|Slow
 DECL|class|TestSynonymMapFilter
 specifier|public
 class|class
@@ -2826,7 +2824,7 @@ name|numIters
 init|=
 name|atLeast
 argument_list|(
-literal|10
+literal|3
 argument_list|)
 decl_stmt|;
 for|for
@@ -2980,7 +2978,7 @@ argument_list|()
 argument_list|,
 name|analyzer
 argument_list|,
-literal|200
+literal|100
 argument_list|)
 expr_stmt|;
 block|}
@@ -3004,7 +3002,7 @@ name|numIters
 init|=
 name|atLeast
 argument_list|(
-literal|10
+literal|3
 argument_list|)
 decl_stmt|;
 name|Random
@@ -3177,7 +3175,7 @@ name|random
 argument_list|,
 name|analyzer
 argument_list|,
-literal|200
+literal|100
 argument_list|)
 expr_stmt|;
 block|}
@@ -3356,7 +3354,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** simple random test like testRandom2, but for large docs    */
+comment|/** simple random test like testRandom2, but for larger docs    */
 DECL|method|testRandomHuge
 specifier|public
 name|void
@@ -3377,7 +3375,7 @@ name|numIters
 init|=
 name|atLeast
 argument_list|(
-literal|10
+literal|3
 argument_list|)
 decl_stmt|;
 for|for
@@ -3529,7 +3527,7 @@ name|analyzer
 argument_list|,
 literal|100
 argument_list|,
-literal|8192
+literal|1024
 argument_list|)
 expr_stmt|;
 block|}
