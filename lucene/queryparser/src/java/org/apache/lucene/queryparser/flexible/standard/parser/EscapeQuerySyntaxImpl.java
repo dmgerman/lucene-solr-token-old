@@ -312,7 +312,9 @@ name|i
 index|]
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|locale
+argument_list|)
 argument_list|,
 literal|"\\"
 argument_list|,
@@ -451,7 +453,9 @@ name|i
 index|]
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|locale
+argument_list|)
 argument_list|,
 literal|"\\"
 argument_list|,
@@ -985,7 +989,9 @@ name|i
 index|]
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|locale
+argument_list|)
 argument_list|,
 literal|"\\"
 argument_list|,

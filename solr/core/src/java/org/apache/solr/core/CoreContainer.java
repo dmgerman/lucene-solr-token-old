@@ -4441,7 +4441,7 @@ literal|"yyyyMMddHHmmss"
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 operator|.
 name|format

@@ -49,6 +49,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Random
 import|;
 end_import
@@ -1947,6 +1956,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"Exception while filling %s: valueCount=%d, bitsPerValue=%s"
 argument_list|,
 name|packedInt
@@ -2264,6 +2277,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"The set/get of the value at index %d should match for %s"
 argument_list|,
 name|i
@@ -2428,6 +2445,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%s. The value at index %d should be the same for %s and %s"
 argument_list|,
 name|message

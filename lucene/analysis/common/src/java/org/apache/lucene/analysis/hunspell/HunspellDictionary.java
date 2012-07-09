@@ -1109,6 +1109,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 name|conditionPattern
 argument_list|,
 name|condition
@@ -1672,7 +1676,7 @@ name|toLowerCase
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|)
 expr_stmt|;
 block|}

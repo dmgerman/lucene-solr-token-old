@@ -240,7 +240,7 @@ name|toUpperCase
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|)
 argument_list|,
 name|ppt
@@ -302,7 +302,7 @@ name|toUpperCase
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|)
 argument_list|)
 decl_stmt|;

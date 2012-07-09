@@ -4032,6 +4032,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%09d"
 argument_list|,
 name|i

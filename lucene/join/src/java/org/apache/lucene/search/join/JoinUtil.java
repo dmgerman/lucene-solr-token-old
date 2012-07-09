@@ -51,6 +51,15 @@ operator|.
 name|IOException
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
 begin_comment
 comment|/**  * Utility for query time joining using TermsQuery and TermsCollector.  *  * @lucene.experimental  */
 end_comment
@@ -198,6 +207,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"Score mode %s isn't supported."
 argument_list|,
 name|scoreMode
