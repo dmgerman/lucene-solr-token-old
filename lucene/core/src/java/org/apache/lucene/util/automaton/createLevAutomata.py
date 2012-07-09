@@ -688,7 +688,7 @@ op|')'
 newline|'\n'
 name|'w'
 op|'('
-string|"'/**'"
+string|"'/*'"
 op|')'
 newline|'\n'
 name|'w'
