@@ -144,6 +144,8 @@ specifier|public
 name|void
 name|testConfigGuess1
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|CSVConfig
 name|expected
@@ -250,7 +252,9 @@ name|toString
 argument_list|()
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|CSVConfigGuesser
@@ -332,6 +336,8 @@ specifier|public
 name|void
 name|testConfigGuess2
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|CSVConfig
 name|expected
@@ -404,7 +410,9 @@ name|toString
 argument_list|()
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|CSVConfigGuesser
