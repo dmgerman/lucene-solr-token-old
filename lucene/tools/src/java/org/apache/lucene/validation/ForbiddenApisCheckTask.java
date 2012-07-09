@@ -1424,6 +1424,14 @@ name|getProject
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|apiSignatures
+operator|.
+name|setProject
+argument_list|(
+name|getProject
+argument_list|()
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 annotation|@
@@ -1448,6 +1456,23 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|iter
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|BuildException
+argument_list|(
+literal|"You need to supply at least one API signature definition through apiFile=,<apiFileSet/>, or inner text."
+argument_list|)
+throw|;
+block|}
 while|while
 condition|(
 name|iter
@@ -1481,9 +1506,6 @@ argument_list|(
 literal|"Resource does not exist: "
 operator|+
 name|r
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1551,6 +1573,27 @@ name|ioe
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|forbiddenMethods
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|forbiddenClasses
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|BuildException
+argument_list|(
+literal|"No API signatures found; use apiFile=,<apiFileSet/>, or inner text to define those!"
+argument_list|)
+throw|;
+block|}
 name|long
 name|start
 init|=
@@ -1591,6 +1634,23 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|iter
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|BuildException
+argument_list|(
+literal|"There is no<fileset/> given or the fileset does not contain any class files to check."
+argument_list|)
+throw|;
+block|}
 while|while
 condition|(
 name|iter
@@ -1624,9 +1684,6 @@ argument_list|(
 literal|"Class file does not exist: "
 operator|+
 name|r
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1653,9 +1710,6 @@ argument_list|(
 literal|"IO problem while reading class file "
 operator|+
 name|r
-operator|.
-name|getName
-argument_list|()
 argument_list|,
 name|ioe
 argument_list|)
