@@ -370,6 +370,15 @@ operator|.
 name|getDefault
 argument_list|()
 decl_stmt|;
+DECL|field|timeZone
+name|TimeZone
+name|timeZone
+init|=
+name|TimeZone
+operator|.
+name|getDefault
+argument_list|()
+decl_stmt|;
 comment|// the default date resolution
 DECL|field|dateResolution
 name|DateTools
@@ -895,7 +904,7 @@ return|return
 name|multiTermRewriteMethod
 return|;
 block|}
-comment|/**    * Set locale used by date range parsing.    */
+comment|/**    * Set locale used by date range parsing, lowercasing, and other    * locale-sensitive operations.    */
 DECL|method|setLocale
 specifier|public
 name|void
@@ -921,6 +930,32 @@ parameter_list|()
 block|{
 return|return
 name|locale
+return|;
+block|}
+DECL|method|setTimeZone
+specifier|public
+name|void
+name|setTimeZone
+parameter_list|(
+name|TimeZone
+name|timeZone
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeZone
+operator|=
+name|timeZone
+expr_stmt|;
+block|}
+DECL|method|getTimeZone
+specifier|public
+name|TimeZone
+name|getTimeZone
+parameter_list|()
+block|{
+return|return
+name|timeZone
 return|;
 block|}
 comment|/**    * Sets the default date resolution used by RangeQueries for fields for which no    * specific date resolutions has been set. Field specific resolutions can be set    * with {@link #setDateResolution(String, org.apache.lucene.document.DateTools.Resolution)}.    *    * @param dateResolution the default date resolution to set    */
@@ -2400,7 +2435,9 @@ else|:
 name|part1
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|locale
+argument_list|)
 expr_stmt|;
 name|part2
 operator|=
@@ -2413,7 +2450,9 @@ else|:
 name|part2
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|locale
+argument_list|)
 expr_stmt|;
 block|}
 name|DateFormat
@@ -2499,6 +2538,8 @@ name|Calendar
 operator|.
 name|getInstance
 argument_list|(
+name|timeZone
+argument_list|,
 name|locale
 argument_list|)
 decl_stmt|;
@@ -3341,7 +3382,9 @@ operator|=
 name|termStr
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|locale
+argument_list|)
 expr_stmt|;
 block|}
 name|Term
@@ -3387,7 +3430,9 @@ operator|=
 name|termStr
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|locale
+argument_list|)
 expr_stmt|;
 block|}
 name|Term
@@ -3452,7 +3497,9 @@ operator|=
 name|termStr
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|locale
+argument_list|)
 expr_stmt|;
 block|}
 name|Term
@@ -3501,7 +3548,9 @@ operator|=
 name|termStr
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|locale
+argument_list|)
 expr_stmt|;
 block|}
 name|Term

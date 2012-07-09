@@ -18,6 +18,15 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
 name|com
 operator|.
 name|spatial4j
@@ -254,6 +263,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%.2f%%"
 argument_list|,
 name|distPrecision

@@ -460,6 +460,8 @@ argument_list|(
 name|fos
 argument_list|,
 literal|true
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 argument_list|)
 return|;

@@ -271,31 +271,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|byte
-index|[]
-name|testData
-init|=
-literal|"This is a test!"
-operator|.
-name|getBytes
-argument_list|()
-decl_stmt|;
 name|BytesRef
 name|payload
 init|=
 operator|new
 name|BytesRef
 argument_list|(
-name|testData
+literal|"This is a test!"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Wrong payload length."
 argument_list|,
-name|testData
+literal|"This is a test!"
 operator|.
 name|length
+argument_list|()
 argument_list|,
 name|payload
 operator|.
@@ -499,7 +491,9 @@ argument_list|,
 literal|"somedata"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|,
@@ -709,7 +703,9 @@ argument_list|,
 literal|"somedata"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|,
@@ -725,7 +721,9 @@ argument_list|,
 literal|"somedata"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|,

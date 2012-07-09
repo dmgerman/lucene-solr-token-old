@@ -1291,6 +1291,8 @@ name|sock
 operator|.
 name|getInputStream
 argument_list|()
+argument_list|,
+literal|"US-ASCII"
 argument_list|)
 argument_list|)
 expr_stmt|;

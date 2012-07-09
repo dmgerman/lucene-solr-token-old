@@ -207,7 +207,7 @@ name|format
 argument_list|(
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|,
 literal|"%08d"
 argument_list|,

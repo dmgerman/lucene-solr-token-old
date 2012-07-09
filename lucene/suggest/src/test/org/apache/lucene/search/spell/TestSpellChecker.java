@@ -67,6 +67,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ExecutorService
@@ -2702,6 +2711,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"worker thread %d failed"
 argument_list|,
 name|i
@@ -2721,6 +2734,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"worker thread %d is still running but should be terminated"
 argument_list|,
 name|i

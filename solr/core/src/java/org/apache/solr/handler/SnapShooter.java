@@ -567,7 +567,7 @@ name|DATE_FMT
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 decl_stmt|;
 name|directoryName
@@ -993,6 +993,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 name|DATE_FMT
+argument_list|,
+name|Locale
+operator|.
+name|ROOT
 argument_list|)
 operator|.
 name|parse
