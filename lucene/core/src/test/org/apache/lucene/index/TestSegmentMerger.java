@@ -57,6 +57,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|DocIdSetIterator
@@ -616,7 +629,7 @@ operator|==
 literal|2
 argument_list|)
 expr_stmt|;
-name|Document
+name|StoredDocument
 name|newDoc1
 init|=
 name|mergedReader
@@ -658,7 +671,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Document
+name|StoredDocument
 name|newDoc2
 init|=
 name|mergedReader

@@ -81,6 +81,19 @@ name|lucene
 operator|.
 name|document
 operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
 name|TextField
 import|;
 end_import
@@ -721,7 +734,7 @@ name|i
 operator|++
 control|)
 block|{
-name|Document
+name|StoredDocument
 name|document
 init|=
 name|open
@@ -1136,7 +1149,7 @@ name|i
 operator|++
 control|)
 block|{
-name|Document
+name|StoredDocument
 name|document
 init|=
 name|mergedReader

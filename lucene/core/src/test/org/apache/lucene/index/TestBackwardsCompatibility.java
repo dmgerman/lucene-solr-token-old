@@ -309,6 +309,19 @@ name|lucene
 operator|.
 name|document
 operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
 name|StraightBytesDocValuesField
 import|;
 end_import
@@ -1827,7 +1840,7 @@ name|i
 argument_list|)
 condition|)
 block|{
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|reader
@@ -1839,7 +1852,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|IndexableField
+name|StorableField
 argument_list|>
 name|fields
 init|=
@@ -1885,7 +1898,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|IndexableField
+name|StorableField
 name|f
 init|=
 name|d
@@ -2547,7 +2560,7 @@ operator|.
 name|scoreDocs
 decl_stmt|;
 comment|// First document should be #0
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|searcher
@@ -3006,7 +3019,7 @@ argument_list|)
 operator|.
 name|scoreDocs
 decl_stmt|;
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|searcher
@@ -3271,7 +3284,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|searcher
@@ -5204,7 +5217,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|searcher

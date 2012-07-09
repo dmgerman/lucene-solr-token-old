@@ -1848,7 +1848,7 @@ name|Field
 operator|.
 name|Store
 operator|.
-name|NO
+name|YES
 argument_list|)
 argument_list|)
 expr_stmt|;
