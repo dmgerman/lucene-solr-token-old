@@ -1309,7 +1309,7 @@ name|CodecFactory
 operator|.
 name|class
 argument_list|,
-literal|"mainIndex/codecFactory"
+literal|"codecFactory"
 argument_list|,
 literal|false
 argument_list|,
