@@ -14,7 +14,7 @@ name|pfor
 package|;
 end_package
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
 comment|/* This code is generated, do not modify. See gendecompress.py */
@@ -581,7 +581,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode2
 specifier|public
 specifier|static
@@ -1127,7 +1126,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode3
 specifier|public
 specifier|static
@@ -1705,7 +1703,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode4
 specifier|public
 specifier|static
@@ -2251,7 +2248,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode5
 specifier|public
 specifier|static
@@ -2861,7 +2857,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode6
 specifier|public
 specifier|static
@@ -3471,7 +3466,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode7
 specifier|public
 specifier|static
@@ -4113,7 +4107,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode8
 specifier|public
 specifier|static
@@ -4659,7 +4652,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode9
 specifier|public
 specifier|static
@@ -5333,7 +5325,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode10
 specifier|public
 specifier|static
@@ -6007,7 +5998,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode11
 specifier|public
 specifier|static
@@ -6713,7 +6703,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode12
 specifier|public
 specifier|static
@@ -7387,7 +7376,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode13
 specifier|public
 specifier|static
@@ -8125,7 +8113,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode14
 specifier|public
 specifier|static
@@ -8863,7 +8850,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode15
 specifier|public
 specifier|static
@@ -9633,7 +9619,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode16
 specifier|public
 specifier|static
@@ -10179,7 +10164,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode17
 specifier|public
 specifier|static
@@ -10981,7 +10965,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode18
 specifier|public
 specifier|static
@@ -11783,7 +11766,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode19
 specifier|public
 specifier|static
@@ -12617,7 +12599,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode20
 specifier|public
 specifier|static
@@ -13419,7 +13400,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode21
 specifier|public
 specifier|static
@@ -14285,7 +14265,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode22
 specifier|public
 specifier|static
@@ -15151,7 +15130,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode23
 specifier|public
 specifier|static
@@ -16049,7 +16027,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode24
 specifier|public
 specifier|static
@@ -16851,7 +16828,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode25
 specifier|public
 specifier|static
@@ -17781,7 +17757,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode26
 specifier|public
 specifier|static
@@ -18711,7 +18686,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode27
 specifier|public
 specifier|static
@@ -19673,7 +19647,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode28
 specifier|public
 specifier|static
@@ -20603,7 +20576,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode29
 specifier|public
 specifier|static
@@ -21597,7 +21569,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode30
 specifier|public
 specifier|static
@@ -22591,7 +22562,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode31
 specifier|public
 specifier|static
@@ -23617,7 +23587,6 @@ literal|32
 expr_stmt|;
 block|}
 block|}
-comment|// NOTE: hardwired to blockSize == 128
 DECL|method|decode32
 specifier|public
 specifier|static
