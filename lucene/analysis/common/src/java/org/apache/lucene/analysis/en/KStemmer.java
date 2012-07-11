@@ -2215,11 +2215,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -2230,7 +2228,7 @@ index|]
 operator|+
 literal|"] already in dictionary 1"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 for|for
@@ -2301,11 +2299,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -2319,7 +2315,7 @@ index|]
 operator|+
 literal|"] already in dictionary 2"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 for|for
@@ -2390,11 +2386,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -2408,7 +2402,7 @@ index|]
 operator|+
 literal|"] already in dictionary 3"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 name|defaultEntry
@@ -2477,11 +2471,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -2492,7 +2484,7 @@ index|]
 operator|+
 literal|"] already in dictionary 4"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 name|array
@@ -2547,11 +2539,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -2562,7 +2552,7 @@ index|]
 operator|+
 literal|"] already in dictionary 4"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 name|array
@@ -2617,11 +2607,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -2632,7 +2620,7 @@ index|]
 operator|+
 literal|"] already in dictionary 4"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 name|array
@@ -2687,11 +2675,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -2702,7 +2688,7 @@ index|]
 operator|+
 literal|"] already in dictionary 4"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 name|array
@@ -2757,11 +2743,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -2772,7 +2756,7 @@ index|]
 operator|+
 literal|"] already in dictionary 4"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 name|array
@@ -2827,11 +2811,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -2842,7 +2824,7 @@ index|]
 operator|+
 literal|"] already in dictionary 4"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 name|array
@@ -2897,11 +2879,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -2912,7 +2892,7 @@ index|]
 operator|+
 literal|"] already in dictionary 4"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 for|for
@@ -2967,11 +2947,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -2984,7 +2962,7 @@ index|]
 operator|+
 literal|"] already in dictionary 4"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 for|for
@@ -3033,11 +3011,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -3048,7 +3024,7 @@ index|]
 operator|+
 literal|"] already in dictionary 5"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 for|for
@@ -3097,11 +3073,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
+throw|throw
+operator|new
+name|RuntimeException
 argument_list|(
 literal|"Warning: Entry ["
 operator|+
@@ -3112,7 +3086,7 @@ index|]
 operator|+
 literal|"] already in dictionary 6"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 return|return

@@ -36,15 +36,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStreamReader
 import|;
 end_import
@@ -142,6 +133,8 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|int
 name|ins
@@ -231,8 +224,6 @@ argument_list|,
 name|nop
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|String
 name|charset
 init|=
@@ -396,19 +387,6 @@ parameter_list|)
 block|{
 comment|// no base token (stem) on a line
 block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|x
-parameter_list|)
-block|{
-name|x
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}
