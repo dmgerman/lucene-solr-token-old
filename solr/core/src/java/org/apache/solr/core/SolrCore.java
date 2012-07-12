@@ -3807,7 +3807,10 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|null
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
