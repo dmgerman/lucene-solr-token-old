@@ -1190,6 +1190,8 @@ literal|0
 condition|)
 block|{
 comment|// once is a while advance
+if|if
+condition|(
 name|docsAndPosEnum
 operator|.
 name|advance
@@ -1210,7 +1212,14 @@ name|docID
 operator|)
 argument_list|)
 argument_list|)
-expr_stmt|;
+operator|==
+name|DocIdSetIterator
+operator|.
+name|NO_MORE_DOCS
+condition|)
+block|{
+break|break;
+block|}
 block|}
 block|}
 do|while
