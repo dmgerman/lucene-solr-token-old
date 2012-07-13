@@ -2384,24 +2384,10 @@ init|=
 name|getUpdatedDocument
 argument_list|(
 name|cmd
+argument_list|,
+name|versionOnUpdate
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|updated
-operator|&&
-name|versionOnUpdate
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-name|versionOnUpdate
-operator|=
-literal|1
-expr_stmt|;
-comment|// implied "doc must exist" for now...
-block|}
 if|if
 condition|(
 name|versionOnUpdate
@@ -2689,6 +2675,9 @@ name|getUpdatedDocument
 parameter_list|(
 name|AddUpdateCommand
 name|cmd
+parameter_list|,
+name|long
+name|versionOnUpdate
 parameter_list|)
 throws|throws
 name|IOException
@@ -2775,8 +2764,24 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// not found... allow this in the future (depending on the details of the update, or if the user explicitly sets it).
-comment|// could also just not change anything here and let the optimistic locking throw the error
+comment|// create a new doc by default if an old one wasn't found
+if|if
+condition|(
+name|versionOnUpdate
+operator|<=
+literal|0
+condition|)
+block|{
+name|oldDoc
+operator|=
+operator|new
+name|SolrInputDocument
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// could just let the optimistic locking throw the error
 throw|throw
 operator|new
 name|SolrException
@@ -2794,6 +2799,9 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+block|}
+else|else
+block|{
 name|oldDoc
 operator|.
 name|remove
@@ -2801,6 +2809,7 @@ argument_list|(
 name|VERSION_FIELD
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|SolrInputField
