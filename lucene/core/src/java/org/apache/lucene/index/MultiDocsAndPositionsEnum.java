@@ -231,6 +231,11 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
+name|doc
+operator|=
+operator|-
+literal|1
+expr_stmt|;
 name|current
 operator|=
 literal|null
@@ -270,6 +275,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|current
+operator|!=
+literal|null
+assert|;
 return|return
 name|current
 operator|.
