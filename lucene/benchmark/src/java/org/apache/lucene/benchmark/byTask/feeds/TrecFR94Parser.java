@@ -137,8 +137,6 @@ name|pathType
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|InterruptedException
 block|{
 name|int
 name|mark
