@@ -484,7 +484,7 @@ expr_stmt|;
 block|}
 name|tokensIn
 operator|.
-name|reset
+name|setReader
 argument_list|(
 operator|new
 name|StringReader

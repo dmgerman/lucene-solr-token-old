@@ -10328,7 +10328,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|reset
+name|setReader
 argument_list|(
 name|r
 argument_list|)
@@ -10401,10 +10401,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|reset
+DECL|method|setReader
 specifier|public
 name|void
-name|reset
+name|setReader
 parameter_list|(
 name|Reader
 name|input
