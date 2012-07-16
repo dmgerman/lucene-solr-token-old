@@ -969,7 +969,7 @@ name|sawLiveRecovering
 operator|||
 name|cnt
 operator|==
-literal|120
+literal|520
 condition|)
 block|{
 if|if
