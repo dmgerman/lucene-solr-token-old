@@ -297,12 +297,6 @@ name|PForPostingsFormat
 extends|extends
 name|PostingsFormat
 block|{
-DECL|field|blockSize
-specifier|private
-specifier|final
-name|int
-name|blockSize
-decl_stmt|;
 DECL|field|minBlockSize
 specifier|private
 specifier|final
@@ -336,12 +330,6 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|blockSize
-operator|=
-name|DEFAULT_BLOCK_SIZE
-expr_stmt|;
-name|this
-operator|.
 name|minBlockSize
 operator|=
 name|BlockTreeTermsWriter
@@ -372,12 +360,6 @@ name|super
 argument_list|(
 literal|"PFor"
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|blockSize
-operator|=
-name|DEFAULT_BLOCK_SIZE
 expr_stmt|;
 name|this
 operator|.
@@ -416,7 +398,7 @@ argument_list|()
 operator|+
 literal|"(blocksize="
 operator|+
-name|blockSize
+name|DEFAULT_BLOCK_SIZE
 operator|+
 literal|")"
 return|;

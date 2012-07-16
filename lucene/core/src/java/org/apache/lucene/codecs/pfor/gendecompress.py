@@ -249,7 +249,7 @@ op|')'
 newline|'\n'
 name|'w'
 op|'('
-string|"'    Arrays.fill(output, 0);\\n'"
+string|"'    Arrays.fill(output, compressedBuffer.get());\\n'"
 op|')'
 newline|'\n'
 name|'w'

@@ -195,27 +195,11 @@ name|ForFactory
 extends|extends
 name|IntStreamFactory
 block|{
-comment|/* number of ints for each block */
-DECL|field|blockSize
-specifier|private
-specifier|final
-name|int
-name|blockSize
-decl_stmt|;
 DECL|method|ForFactory
 specifier|public
 name|ForFactory
 parameter_list|()
-block|{
-name|this
-operator|.
-name|blockSize
-operator|=
-name|ForPostingsFormat
-operator|.
-name|DEFAULT_BLOCK_SIZE
-expr_stmt|;
-block|}
+block|{   }
 annotation|@
 name|Override
 DECL|method|createOutput
@@ -261,8 +245,6 @@ operator|new
 name|ForIndexOutput
 argument_list|(
 name|out
-argument_list|,
-name|blockSize
 argument_list|)
 decl_stmt|;
 name|success
@@ -398,9 +380,8 @@ index|[]
 name|buffer
 parameter_list|)
 block|{
-comment|// upperbound for encoded value should include:
-comment|// 1. blockSize of normal value when numFrameBits=32(4x bytes);
-comment|// 2. header (4bytes);
+comment|// upperbound for encoded value should include(here header is not buffered):
+comment|// blockSize of normal value when numFrameBits=32(4x bytes);
 name|this
 operator|.
 name|encoded
@@ -408,10 +389,10 @@ operator|=
 operator|new
 name|byte
 index|[
-name|blockSize
+name|ForPostingsFormat
+operator|.
+name|DEFAULT_BLOCK_SIZE
 operator|*
-literal|4
-operator|+
 literal|4
 index|]
 expr_stmt|;
@@ -455,20 +436,31 @@ name|IOException
 block|{
 specifier|final
 name|int
-name|numBytes
+name|header
 init|=
 name|in
 operator|.
 name|readInt
 argument_list|()
 decl_stmt|;
+specifier|final
+name|int
+name|numBytes
+init|=
+name|ForUtil
+operator|.
+name|getEncodedSize
+argument_list|(
+name|header
+argument_list|)
+decl_stmt|;
 assert|assert
 name|numBytes
 operator|<=
-name|blockSize
+name|ForPostingsFormat
+operator|.
+name|DEFAULT_BLOCK_SIZE
 operator|*
-literal|4
-operator|+
 literal|4
 assert|;
 name|in
@@ -489,6 +481,8 @@ argument_list|(
 name|encodedBuffer
 argument_list|,
 name|buffer
+argument_list|,
+name|header
 argument_list|)
 expr_stmt|;
 block|}
@@ -548,9 +542,6 @@ name|ForIndexOutput
 parameter_list|(
 name|IndexOutput
 name|out
-parameter_list|,
-name|int
-name|blockSize
 parameter_list|)
 throws|throws
 name|IOException
@@ -559,7 +550,9 @@ name|super
 argument_list|(
 name|out
 argument_list|,
-name|blockSize
+name|ForPostingsFormat
+operator|.
+name|DEFAULT_BLOCK_SIZE
 argument_list|)
 expr_stmt|;
 name|this
@@ -569,10 +562,10 @@ operator|=
 operator|new
 name|byte
 index|[
-name|blockSize
+name|ForPostingsFormat
+operator|.
+name|DEFAULT_BLOCK_SIZE
 operator|*
-literal|4
-operator|+
 literal|4
 index|]
 expr_stmt|;
@@ -603,7 +596,7 @@ name|IOException
 block|{
 specifier|final
 name|int
-name|numBytes
+name|header
 init|=
 name|ForUtil
 operator|.
@@ -611,18 +604,25 @@ name|compress
 argument_list|(
 name|buffer
 argument_list|,
-name|buffer
-operator|.
-name|length
-argument_list|,
 name|encodedBuffer
+argument_list|)
+decl_stmt|;
+specifier|final
+name|int
+name|numBytes
+init|=
+name|ForUtil
+operator|.
+name|getEncodedSize
+argument_list|(
+name|header
 argument_list|)
 decl_stmt|;
 name|out
 operator|.
 name|writeInt
 argument_list|(
-name|numBytes
+name|header
 argument_list|)
 expr_stmt|;
 name|out
