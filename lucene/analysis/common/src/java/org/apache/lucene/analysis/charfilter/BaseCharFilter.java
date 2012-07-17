@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|CharStream
+name|CharFilter
 import|;
 end_import
 begin_import
@@ -40,6 +40,15 @@ operator|.
 name|util
 operator|.
 name|ArrayUtil
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
 import|;
 end_import
 begin_import
@@ -86,7 +95,7 @@ DECL|method|BaseCharFilter
 specifier|public
 name|BaseCharFilter
 parameter_list|(
-name|CharStream
+name|Reader
 name|in
 parameter_list|)
 block|{

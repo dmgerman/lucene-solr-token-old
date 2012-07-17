@@ -133,20 +133,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|CharReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|CharStream
+name|CharFilter
 import|;
 end_import
 begin_import
@@ -327,7 +314,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CharStream
+name|CharFilter
 name|cs
 init|=
 operator|new
@@ -449,7 +436,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CharStream
+name|CharFilter
 name|cs
 init|=
 operator|new
@@ -516,7 +503,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CharStream
+name|CharFilter
 name|cs
 init|=
 operator|new
@@ -583,7 +570,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CharStream
+name|CharFilter
 name|cs
 init|=
 operator|new
@@ -650,7 +637,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CharStream
+name|CharFilter
 name|cs
 init|=
 operator|new
@@ -717,7 +704,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CharStream
+name|CharFilter
 name|cs
 init|=
 operator|new
@@ -784,7 +771,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CharStream
+name|CharFilter
 name|cs
 init|=
 operator|new
@@ -851,7 +838,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CharStream
+name|CharFilter
 name|cs
 init|=
 operator|new
@@ -918,7 +905,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CharStream
+name|CharFilter
 name|cs
 init|=
 operator|new
@@ -985,7 +972,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CharStream
+name|CharFilter
 name|cs
 init|=
 operator|new
@@ -1070,7 +1057,7 @@ name|testString
 init|=
 literal|"h i j k ll cccc bbb aa"
 decl_stmt|;
-name|CharStream
+name|CharFilter
 name|cs
 init|=
 operator|new
@@ -1078,15 +1065,10 @@ name|MappingCharFilter
 argument_list|(
 name|normMap
 argument_list|,
-name|CharReader
-operator|.
-name|get
-argument_list|(
 operator|new
 name|StringReader
 argument_list|(
 name|testString
-argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1202,7 +1184,7 @@ name|testString
 init|=
 literal|"aaaa ll h"
 decl_stmt|;
-name|CharStream
+name|CharFilter
 name|cs
 init|=
 operator|new
@@ -1215,15 +1197,10 @@ name|MappingCharFilter
 argument_list|(
 name|normMap
 argument_list|,
-name|CharReader
-operator|.
-name|get
-argument_list|(
 operator|new
 name|StringReader
 argument_list|(
 name|testString
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1359,12 +1336,7 @@ name|MappingCharFilter
 argument_list|(
 name|normMap
 argument_list|,
-name|CharReader
-operator|.
-name|get
-argument_list|(
 name|reader
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1501,12 +1473,7 @@ name|MappingCharFilter
 argument_list|(
 name|map
 argument_list|,
-name|CharReader
-operator|.
-name|get
-argument_list|(
 name|reader
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1633,12 +1600,7 @@ name|MappingCharFilter
 argument_list|(
 name|map
 argument_list|,
-name|CharReader
-operator|.
-name|get
-argument_list|(
 name|reader
-argument_list|)
 argument_list|)
 return|;
 block|}
