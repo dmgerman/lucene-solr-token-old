@@ -397,6 +397,8 @@ name|e
 parameter_list|)
 block|{}
 block|}
+try|try
+block|{
 if|if
 condition|(
 name|indexWriter
@@ -428,6 +430,9 @@ name|refCntWriter
 operator|=
 literal|null
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|pauseWriter
 operator|=
 literal|false
@@ -435,6 +440,7 @@ expr_stmt|;
 name|notifyAll
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
