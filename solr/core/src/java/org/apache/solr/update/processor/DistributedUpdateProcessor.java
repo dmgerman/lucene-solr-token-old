@@ -1705,12 +1705,31 @@ operator|!
 name|forwardToLeader
 condition|)
 block|{
+comment|// clone the original doc
+name|SolrInputDocument
+name|clonedDoc
+init|=
+name|cmd
+operator|.
+name|solrDoc
+operator|.
+name|deepCopy
+argument_list|()
+decl_stmt|;
 name|dropCmd
 operator|=
 name|versionAdd
 argument_list|(
 name|cmd
+argument_list|,
+name|clonedDoc
 argument_list|)
+expr_stmt|;
+name|cmd
+operator|.
+name|solrDoc
+operator|=
+name|clonedDoc
 expr_stmt|;
 block|}
 if|if
@@ -2129,7 +2148,7 @@ name|cmd
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * @param cmd    * @return whether or not to drop this cmd    * @throws IOException    */
+comment|/**    * @param cmd    * @param cloneDoc needs the version if it's assigned    * @return whether or not to drop this cmd    * @throws IOException    */
 DECL|method|versionAdd
 specifier|private
 name|boolean
@@ -2137,6 +2156,9 @@ name|versionAdd
 parameter_list|(
 name|AddUpdateCommand
 name|cmd
+parameter_list|,
+name|SolrInputDocument
+name|cloneDoc
 parameter_list|)
 throws|throws
 name|IOException
@@ -2497,6 +2519,17 @@ name|cmd
 operator|.
 name|getSolrInputDocument
 argument_list|()
+operator|.
+name|setField
+argument_list|(
+name|VersionInfo
+operator|.
+name|VERSION_FIELD
+argument_list|,
+name|version
+argument_list|)
+expr_stmt|;
+name|cloneDoc
 operator|.
 name|setField
 argument_list|(
