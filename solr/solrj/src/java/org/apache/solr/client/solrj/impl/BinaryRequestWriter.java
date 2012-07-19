@@ -355,8 +355,6 @@ specifier|public
 name|InputStream
 name|getStream
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new
@@ -380,8 +378,6 @@ specifier|public
 name|Reader
 name|getReader
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 throw|throw
 operator|new

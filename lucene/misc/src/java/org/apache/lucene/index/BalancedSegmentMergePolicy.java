@@ -1240,8 +1240,6 @@ name|SegmentInfos
 name|infos
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 specifier|final
@@ -1792,8 +1790,6 @@ parameter_list|,
 name|int
 name|maxNumSegments
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|int
 name|expungeCandidate

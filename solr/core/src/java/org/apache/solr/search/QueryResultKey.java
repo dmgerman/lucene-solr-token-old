@@ -57,15 +57,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -150,8 +141,6 @@ parameter_list|,
 name|int
 name|nc_flags
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.

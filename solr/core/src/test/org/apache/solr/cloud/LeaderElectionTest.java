@@ -116,6 +116,21 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|SolrTestCaseJ4
@@ -248,6 +263,8 @@ name|Test
 import|;
 end_import
 begin_class
+annotation|@
+name|Slow
 DECL|class|LeaderElectionTest
 specifier|public
 class|class
@@ -304,8 +321,6 @@ specifier|static
 name|void
 name|beforeClass
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|createTempDir
 argument_list|()
@@ -319,8 +334,6 @@ specifier|static
 name|void
 name|afterClass
 parameter_list|()
-throws|throws
-name|InterruptedException
 block|{    }
 annotation|@
 name|Override

@@ -1912,8 +1912,6 @@ name|IndexWriter
 name|writer
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 while|while

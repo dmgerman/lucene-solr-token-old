@@ -519,10 +519,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|reset
+DECL|method|setReader
 specifier|public
 name|void
-name|reset
+name|setReader
 parameter_list|(
 name|Reader
 name|input
@@ -532,7 +532,7 @@ name|IOException
 block|{
 name|super
 operator|.
-name|reset
+name|setReader
 argument_list|(
 name|input
 argument_list|)
@@ -548,8 +548,6 @@ specifier|public
 name|void
 name|end
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 comment|// set final offset
 specifier|final

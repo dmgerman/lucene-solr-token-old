@@ -172,6 +172,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -279,7 +288,7 @@ operator|=
 name|diskResident
 expr_stmt|;
 block|}
-comment|/**    * Creates an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments.    * This factory method decides with implementation is best suited.    *    * @param groupField      The field to group by    * @param sortWithinGroup The sort within each group    * @param type The {@link Type} which is used to select a concrete implementation.    * @param diskResident Whether the values to group by should be disk resident    * @return an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments    * @throws IOException If I/O related errors occur    */
+comment|/**    * Creates an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments.    * This factory method decides with implementation is best suited.    *    * @param groupField      The field to group by    * @param sortWithinGroup The sort within each group    * @param type The {@link Type} which is used to select a concrete implementation.    * @param diskResident Whether the values to group by should be disk resident    * @return an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments    */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -318,8 +327,6 @@ parameter_list|,
 name|boolean
 name|diskResident
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 switch|switch
 condition|(
@@ -447,6 +454,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"ValueType %s not supported"
 argument_list|,
 name|type
@@ -869,8 +880,6 @@ parameter_list|,
 name|boolean
 name|diskResident
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -1261,8 +1270,6 @@ parameter_list|,
 name|boolean
 name|diskResident
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -1409,8 +1416,6 @@ parameter_list|,
 name|boolean
 name|diskResident
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -1524,8 +1529,6 @@ parameter_list|,
 name|boolean
 name|diskResident
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -1629,8 +1632,6 @@ parameter_list|,
 name|boolean
 name|diskResident
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

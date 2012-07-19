@@ -459,7 +459,7 @@ name|TYPE
 init|=
 literal|"type"
 decl_stmt|;
-comment|// type of this query or command
+comment|// parser for this query or command
 DECL|field|DEFTYPE
 specifier|public
 specifier|static
@@ -469,7 +469,7 @@ name|DEFTYPE
 init|=
 literal|"defType"
 decl_stmt|;
-comment|// default type for any direct subqueries
+comment|// default parser for any direct subqueries
 DECL|field|LOCALPARAM_START
 specifier|public
 specifier|static
@@ -3451,8 +3451,6 @@ DECL|method|getFloat
 name|float
 name|getFloat
 parameter_list|()
-throws|throws
-name|ParseException
 block|{
 name|eatws
 argument_list|()
@@ -3568,8 +3566,6 @@ DECL|method|getNumber
 name|Number
 name|getNumber
 parameter_list|()
-throws|throws
-name|ParseException
 block|{
 name|eatws
 argument_list|()
@@ -3697,8 +3693,6 @@ DECL|method|getDouble
 name|double
 name|getDouble
 parameter_list|()
-throws|throws
-name|ParseException
 block|{
 name|eatws
 argument_list|()
@@ -3814,8 +3808,6 @@ DECL|method|getInt
 name|int
 name|getInt
 parameter_list|()
-throws|throws
-name|ParseException
 block|{
 name|eatws
 argument_list|()

@@ -151,8 +151,6 @@ parameter_list|(
 name|MultiDocsAndPositionsEnum
 name|postingsEnum
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.
@@ -261,8 +259,6 @@ parameter_list|(
 name|int
 name|target
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 throw|throw
 operator|new

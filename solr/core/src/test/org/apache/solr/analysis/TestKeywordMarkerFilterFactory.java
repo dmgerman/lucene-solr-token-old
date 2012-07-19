@@ -227,9 +227,7 @@ init|=
 operator|new
 name|SolrResourceLoader
 argument_list|(
-literal|null
-argument_list|,
-literal|null
+literal|"solr/collection1"
 argument_list|)
 decl_stmt|;
 name|args
@@ -353,9 +351,7 @@ init|=
 operator|new
 name|SolrResourceLoader
 argument_list|(
-literal|null
-argument_list|,
-literal|null
+literal|"solr/collection1"
 argument_list|)
 decl_stmt|;
 name|args

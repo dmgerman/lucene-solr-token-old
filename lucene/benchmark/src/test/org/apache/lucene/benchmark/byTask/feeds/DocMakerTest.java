@@ -33,15 +33,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|PrintStream
 import|;
 end_import
@@ -307,8 +298,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|IOException
 block|{     }
 annotation|@
 name|Override
@@ -322,8 +311,6 @@ name|docData
 parameter_list|)
 throws|throws
 name|NoMoreDataException
-throws|,
-name|IOException
 block|{
 if|if
 condition|(
@@ -1061,6 +1048,8 @@ operator|new
 name|PrintStream
 argument_list|(
 name|f
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 decl_stmt|;
 name|ps

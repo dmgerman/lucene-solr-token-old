@@ -171,8 +171,6 @@ parameter_list|,
 name|boolean
 name|applyAllDeletes
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -225,8 +223,6 @@ name|int
 name|termInfosIndexDivisor
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 return|return
@@ -251,8 +247,6 @@ name|String
 name|segmentFileName
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|SegmentInfos
@@ -1361,8 +1355,6 @@ name|DirectoryReader
 name|doOpenIfChanged
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 return|return
@@ -1384,8 +1376,6 @@ name|IndexCommit
 name|commit
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|ensureOpen
@@ -1431,8 +1421,6 @@ name|boolean
 name|applyAllDeletes
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|ensureOpen
@@ -1481,8 +1469,6 @@ name|IndexCommit
 name|commit
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 if|if
@@ -1561,8 +1547,6 @@ name|IndexCommit
 name|commit
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 if|if
@@ -1650,8 +1634,6 @@ name|String
 name|segmentFileName
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 specifier|final
@@ -1700,8 +1682,6 @@ name|IndexWriter
 name|writer
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 return|return
@@ -1748,8 +1728,6 @@ name|boolean
 name|isCurrent
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|ensureOpen

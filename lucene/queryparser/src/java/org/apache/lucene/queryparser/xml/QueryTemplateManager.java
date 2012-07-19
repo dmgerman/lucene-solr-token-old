@@ -135,7 +135,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayOutputStream
+name|StringWriter
 import|;
 end_import
 begin_import
@@ -470,19 +470,16 @@ name|Templates
 name|template
 parameter_list|)
 throws|throws
-name|SAXException
-throws|,
-name|IOException
-throws|,
 name|ParserConfigurationException
 throws|,
 name|TransformerException
 block|{
-name|ByteArrayOutputStream
-name|baos
+comment|// TODO: Suppress XML header with encoding (as Strings have no encoding)
+name|StringWriter
+name|writer
 init|=
 operator|new
-name|ByteArrayOutputStream
+name|StringWriter
 argument_list|()
 decl_stmt|;
 name|StreamResult
@@ -491,7 +488,7 @@ init|=
 operator|new
 name|StreamResult
 argument_list|(
-name|baos
+name|writer
 argument_list|)
 decl_stmt|;
 name|transformCriteria
@@ -504,7 +501,7 @@ name|result
 argument_list|)
 expr_stmt|;
 return|return
-name|baos
+name|writer
 operator|.
 name|toString
 argument_list|()
@@ -532,11 +529,12 @@ name|ParserConfigurationException
 throws|,
 name|TransformerException
 block|{
-name|ByteArrayOutputStream
-name|baos
+comment|// TODO: Suppress XML header with encoding (as Strings have no encoding)
+name|StringWriter
+name|writer
 init|=
 operator|new
-name|ByteArrayOutputStream
+name|StringWriter
 argument_list|()
 decl_stmt|;
 name|StreamResult
@@ -545,7 +543,7 @@ init|=
 operator|new
 name|StreamResult
 argument_list|(
-name|baos
+name|writer
 argument_list|)
 decl_stmt|;
 name|transformCriteria
@@ -558,7 +556,7 @@ name|result
 argument_list|)
 expr_stmt|;
 return|return
-name|baos
+name|writer
 operator|.
 name|toString
 argument_list|()
@@ -578,10 +576,6 @@ name|Templates
 name|template
 parameter_list|)
 throws|throws
-name|SAXException
-throws|,
-name|IOException
-throws|,
 name|ParserConfigurationException
 throws|,
 name|TransformerException
@@ -772,10 +766,6 @@ name|Result
 name|result
 parameter_list|)
 throws|throws
-name|SAXException
-throws|,
-name|IOException
-throws|,
 name|ParserConfigurationException
 throws|,
 name|TransformerException
@@ -809,10 +799,6 @@ name|Result
 name|result
 parameter_list|)
 throws|throws
-name|SAXException
-throws|,
-name|IOException
-throws|,
 name|ParserConfigurationException
 throws|,
 name|TransformerException

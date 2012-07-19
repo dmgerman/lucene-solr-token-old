@@ -243,7 +243,7 @@ name|toUpperCase
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|)
 argument_list|,
 name|DoubleMetaphone
@@ -261,7 +261,7 @@ name|toUpperCase
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|)
 argument_list|,
 name|Metaphone
@@ -279,7 +279,7 @@ name|toUpperCase
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|)
 argument_list|,
 name|Soundex
@@ -297,7 +297,7 @@ name|toUpperCase
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|)
 argument_list|,
 name|RefinedSoundex
@@ -315,7 +315,7 @@ name|toUpperCase
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|)
 argument_list|,
 name|Caverphone2
@@ -333,7 +333,7 @@ name|toUpperCase
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|)
 argument_list|,
 name|ColognePhonetic
@@ -462,7 +462,7 @@ name|toUpperCase
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|)
 argument_list|)
 expr_stmt|;

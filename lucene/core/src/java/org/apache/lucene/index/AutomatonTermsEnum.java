@@ -226,8 +226,6 @@ parameter_list|,
 name|CompiledAutomaton
 name|compiled
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

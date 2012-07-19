@@ -160,8 +160,6 @@ specifier|static
 name|void
 name|beforeClass
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|savedFactory
 operator|=
@@ -190,8 +188,6 @@ specifier|static
 name|void
 name|afterClass
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(

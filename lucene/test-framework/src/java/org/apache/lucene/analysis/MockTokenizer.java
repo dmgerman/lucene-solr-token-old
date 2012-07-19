@@ -692,6 +692,15 @@ name|char
 operator|)
 name|ch
 argument_list|)
+operator|:
+literal|"unpaired low surrogate: "
+operator|+
+name|Integer
+operator|.
+name|toHexString
+argument_list|(
+name|ch
+argument_list|)
 assert|;
 name|off
 operator|++
@@ -737,6 +746,24 @@ name|char
 operator|)
 name|ch2
 argument_list|)
+operator|:
+literal|"unpaired high surrogate: "
+operator|+
+name|Integer
+operator|.
+name|toHexString
+argument_list|(
+name|ch
+argument_list|)
+operator|+
+literal|", followed by: "
+operator|+
+name|Integer
+operator|.
+name|toHexString
+argument_list|(
+name|ch2
+argument_list|)
 assert|;
 return|return
 name|Character
@@ -754,6 +781,21 @@ operator|)
 name|ch2
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+assert|assert
+literal|false
+operator|:
+literal|"stream ends with unpaired high surrogate: "
+operator|+
+name|Integer
+operator|.
+name|toHexString
+argument_list|(
+name|ch
+argument_list|)
+assert|;
 block|}
 block|}
 return|return
@@ -922,10 +964,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|reset
+DECL|method|setReader
 specifier|public
 name|void
-name|reset
+name|setReader
 parameter_list|(
 name|Reader
 name|input
@@ -935,7 +977,7 @@ name|IOException
 block|{
 name|super
 operator|.
-name|reset
+name|setReader
 argument_list|(
 name|input
 argument_list|)

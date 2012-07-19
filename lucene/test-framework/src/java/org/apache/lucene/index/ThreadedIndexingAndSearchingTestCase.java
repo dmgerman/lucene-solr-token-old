@@ -729,8 +729,6 @@ name|SubDocs
 argument_list|>
 name|allSubDocs
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 specifier|final
 name|Thread

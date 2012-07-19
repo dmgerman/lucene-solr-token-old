@@ -301,8 +301,6 @@ parameter_list|(
 name|Scorer
 name|scorer
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.
@@ -375,8 +373,6 @@ parameter_list|(
 name|int
 name|target
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|NO_MORE_DOCS
@@ -413,8 +409,6 @@ specifier|public
 name|int
 name|nextDoc
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|NO_MORE_DOCS
@@ -427,8 +421,6 @@ specifier|public
 name|float
 name|score
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|score
@@ -631,8 +623,6 @@ parameter_list|,
 name|SubScorer
 name|next
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -1229,8 +1219,6 @@ parameter_list|(
 name|int
 name|target
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 throw|throw
 operator|new
@@ -1259,8 +1247,6 @@ specifier|public
 name|int
 name|nextDoc
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 throw|throw
 operator|new
@@ -1281,6 +1267,22 @@ operator|new
 name|UnsupportedOperationException
 argument_list|()
 throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|freq
+specifier|public
+name|float
+name|freq
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|current
+operator|.
+name|coord
+return|;
 block|}
 annotation|@
 name|Override
@@ -1424,6 +1426,7 @@ operator|.
 name|next
 control|)
 block|{
+comment|// TODO: fix this if BQ ever sends us required clauses
 name|children
 operator|.
 name|add
@@ -1439,19 +1442,9 @@ name|sub
 operator|.
 name|prohibited
 condition|?
-name|Occur
-operator|.
-name|MUST_NOT
-operator|.
-name|toString
-argument_list|()
+literal|"MUST_NOT"
 else|:
-name|Occur
-operator|.
-name|SHOULD
-operator|.
-name|toString
-argument_list|()
+literal|"SHOULD"
 argument_list|)
 argument_list|)
 expr_stmt|;

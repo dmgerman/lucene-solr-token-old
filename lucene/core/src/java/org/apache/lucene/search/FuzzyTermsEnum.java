@@ -1733,8 +1733,6 @@ name|CompiledAutomaton
 name|compiled
 index|[]
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

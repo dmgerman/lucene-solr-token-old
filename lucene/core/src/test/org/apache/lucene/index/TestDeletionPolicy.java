@@ -246,8 +246,6 @@ name|IndexCommit
 argument_list|>
 name|commits
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 specifier|final
 name|IndexCommit

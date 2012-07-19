@@ -539,8 +539,6 @@ name|String
 argument_list|>
 name|files
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

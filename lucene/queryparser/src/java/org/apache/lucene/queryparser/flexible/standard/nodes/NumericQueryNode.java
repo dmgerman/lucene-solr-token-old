@@ -264,10 +264,7 @@ name|escaper
 operator|.
 name|escape
 argument_list|(
-name|NumberFormat
-operator|.
-name|getNumberInstance
-argument_list|()
+name|numberFormat
 operator|.
 name|format
 argument_list|(
@@ -278,7 +275,7 @@ argument_list|)
 argument_list|,
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|,
 name|Type
 operator|.

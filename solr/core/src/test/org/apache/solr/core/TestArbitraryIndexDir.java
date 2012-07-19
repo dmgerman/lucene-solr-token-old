@@ -299,8 +299,6 @@ specifier|static
 name|void
 name|beforeClass
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|savedFactory
 operator|=
@@ -329,8 +327,6 @@ specifier|static
 name|void
 name|afterClass
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -425,6 +421,9 @@ name|TestHarness
 operator|.
 name|createConfig
 argument_list|(
+name|getSolrHome
+argument_list|()
+argument_list|,
 literal|"solrconfig.xml"
 argument_list|)
 expr_stmt|;

@@ -114,6 +114,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|codecs
+operator|.
+name|CodecUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|DataInput
@@ -169,19 +182,6 @@ operator|.
 name|util
 operator|.
 name|ArrayUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|CodecUtil
 import|;
 end_import
 begin_import
@@ -3126,6 +3126,31 @@ name|numArcs
 operator|*
 name|maxBytesPerArc
 decl_stmt|;
+assert|assert
+operator|(
+operator|(
+name|long
+operator|)
+name|fixedArrayStart
+operator|)
+operator|+
+operator|(
+operator|(
+name|long
+operator|)
+name|nodeIn
+operator|.
+name|numArcs
+operator|)
+operator|*
+name|maxBytesPerArc
+operator|<
+name|Integer
+operator|.
+name|MAX_VALUE
+operator|:
+literal|"FST too large (> 2.1 GB)"
+assert|;
 name|bytes
 operator|=
 name|ArrayUtil
@@ -3265,6 +3290,35 @@ assert|assert
 name|destPos
 operator|>
 name|srcPos
+operator|:
+literal|"destPos="
+operator|+
+name|destPos
+operator|+
+literal|" srcPos="
+operator|+
+name|srcPos
+operator|+
+literal|" arcIdx="
+operator|+
+name|arcIdx
+operator|+
+literal|" maxBytesPerArc="
+operator|+
+name|maxBytesPerArc
+operator|+
+literal|" bytesPerArc[arcIdx]="
+operator|+
+name|bytesPerArc
+index|[
+name|arcIdx
+index|]
+operator|+
+literal|" nodeIn.numArcs="
+operator|+
+name|nodeIn
+operator|.
+name|numArcs
 assert|;
 name|System
 operator|.
@@ -5559,6 +5613,17 @@ operator|==
 name|posWrite
 condition|)
 block|{
+assert|assert
+name|bytes
+operator|.
+name|length
+operator|<
+name|Integer
+operator|.
+name|MAX_VALUE
+operator|:
+literal|"FST too large (> 2.1 GB)"
+assert|;
 name|bytes
 operator|=
 name|ArrayUtil
@@ -5619,6 +5684,17 @@ operator|<
 name|posWrite
 condition|)
 block|{
+assert|assert
+name|bytes
+operator|.
+name|length
+operator|<
+name|Integer
+operator|.
+name|MAX_VALUE
+operator|:
+literal|"FST too large (> 2.1 GB)"
+assert|;
 name|bytes
 operator|=
 name|ArrayUtil
@@ -5658,6 +5734,17 @@ name|posWrite
 operator|+
 name|length
 decl_stmt|;
+assert|assert
+name|bytes
+operator|.
+name|length
+operator|<
+name|Integer
+operator|.
+name|MAX_VALUE
+operator|:
+literal|"FST too large (> 2.1 GB)"
+assert|;
 name|bytes
 operator|=
 name|ArrayUtil

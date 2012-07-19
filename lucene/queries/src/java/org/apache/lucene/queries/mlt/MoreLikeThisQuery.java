@@ -149,6 +149,7 @@ name|analyzer
 decl_stmt|;
 DECL|field|fieldName
 specifier|private
+specifier|final
 name|String
 name|fieldName
 decl_stmt|;
@@ -191,7 +192,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**    * @param moreLikeFields    */
+comment|/**    * @param moreLikeFields fields used for similarity measure    */
 DECL|method|MoreLikeThisQuery
 specifier|public
 name|MoreLikeThisQuery

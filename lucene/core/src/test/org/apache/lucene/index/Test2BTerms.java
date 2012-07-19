@@ -126,6 +126,15 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -624,7 +633,10 @@ block|}
 block|}
 block|}
 annotation|@
-name|Slow
+name|Ignore
+argument_list|(
+literal|"Very slow. Enable manually by removing @Ignore."
+argument_list|)
 DECL|method|test2BTerms
 specifier|public
 name|void

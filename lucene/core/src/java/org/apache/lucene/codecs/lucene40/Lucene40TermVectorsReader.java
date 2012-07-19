@@ -71,7 +71,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|TermVectorsReader
+name|CodecUtil
 import|;
 end_import
 begin_import
@@ -82,9 +82,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|codecs
 operator|.
-name|CorruptIndexException
+name|TermVectorsReader
 import|;
 end_import
 begin_import
@@ -280,19 +280,6 @@ operator|.
 name|util
 operator|.
 name|BytesRef
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|CodecUtil
 import|;
 end_import
 begin_import
@@ -548,8 +535,6 @@ name|IOContext
 name|context
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 specifier|final
@@ -1309,8 +1294,6 @@ specifier|public
 name|String
 name|next
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -1766,8 +1749,6 @@ DECL|method|TVTermsEnum
 specifier|public
 name|TVTermsEnum
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.

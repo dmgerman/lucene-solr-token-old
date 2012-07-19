@@ -440,8 +440,6 @@ parameter_list|(
 name|TermsHash
 name|termsHash
 parameter_list|)
-throws|throws
-name|IOException
 block|{   }
 annotation|@
 name|Override
@@ -449,8 +447,6 @@ DECL|method|startDocument
 name|void
 name|startDocument
 parameter_list|()
-throws|throws
-name|IOException
 block|{   }
 block|}
 end_class

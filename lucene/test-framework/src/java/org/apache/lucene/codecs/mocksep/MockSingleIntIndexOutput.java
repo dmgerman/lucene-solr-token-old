@@ -65,7 +65,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CodecUtil
+name|IOUtils
 import|;
 end_import
 begin_import
@@ -76,9 +76,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|codecs
 operator|.
-name|IOUtils
+name|CodecUtil
 import|;
 end_import
 begin_import

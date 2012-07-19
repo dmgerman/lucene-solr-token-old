@@ -47,15 +47,6 @@ name|javax
 operator|.
 name|servlet
 operator|.
-name|ServletException
-import|;
-end_import
-begin_import
-import|import
-name|javax
-operator|.
-name|servlet
-operator|.
 name|http
 operator|.
 name|HttpServlet
@@ -162,8 +153,6 @@ name|response
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|ServletException
 block|{
 name|response
 operator|.
@@ -329,8 +318,6 @@ name|response
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|ServletException
 block|{
 name|doGet
 argument_list|(

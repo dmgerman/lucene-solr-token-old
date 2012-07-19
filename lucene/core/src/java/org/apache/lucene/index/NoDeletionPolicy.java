@@ -18,15 +18,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -76,8 +67,6 @@ name|IndexCommit
 argument_list|>
 name|commits
 parameter_list|)
-throws|throws
-name|IOException
 block|{}
 DECL|method|onInit
 specifier|public
@@ -92,8 +81,6 @@ name|IndexCommit
 argument_list|>
 name|commits
 parameter_list|)
-throws|throws
-name|IOException
 block|{}
 block|}
 end_class

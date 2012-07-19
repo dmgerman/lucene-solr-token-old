@@ -1417,8 +1417,6 @@ operator|.
 name|OneMerge
 name|startMerge
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.

@@ -460,6 +460,8 @@ argument_list|(
 name|fos
 argument_list|,
 literal|true
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 argument_list|)
 return|;
@@ -528,6 +530,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 if|if
 condition|(
 name|infoStream
@@ -541,9 +546,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
 name|isClosed
 operator|=
 literal|true

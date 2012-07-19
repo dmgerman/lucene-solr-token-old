@@ -2743,6 +2743,13 @@ literal|2
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|_TestUtil
+operator|.
+name|reduceOpenFiles
+argument_list|(
+name|writer
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

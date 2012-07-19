@@ -149,19 +149,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|ReaderUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|packed
 operator|.
 name|PackedInts
@@ -233,8 +220,6 @@ parameter_list|,
 name|String
 name|field
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 comment|// for norms we drop all norms if one leaf reader has no norms and the field is present
 name|FieldInfos
@@ -381,8 +366,6 @@ parameter_list|,
 name|String
 name|field
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 literal|false
@@ -2310,8 +2293,6 @@ parameter_list|,
 name|long
 name|offset
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|pagedBytes
 operator|.

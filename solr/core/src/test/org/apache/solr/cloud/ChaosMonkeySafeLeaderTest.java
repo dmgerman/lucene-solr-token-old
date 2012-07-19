@@ -18,24 +18,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -85,17 +67,6 @@ operator|.
 name|common
 operator|.
 name|SolrInputDocument
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|zookeeper
-operator|.
-name|KeeperException
 import|;
 end_import
 begin_import
@@ -164,8 +135,6 @@ specifier|static
 name|void
 name|beforeSuperClass
 parameter_list|()
-throws|throws
-name|Exception
 block|{        }
 annotation|@
 name|AfterClass
@@ -175,8 +144,6 @@ specifier|static
 name|void
 name|afterSuperClass
 parameter_list|()
-throws|throws
-name|Exception
 block|{        }
 annotation|@
 name|Before
@@ -486,15 +453,7 @@ name|void
 name|waitForThingsToLevelOut
 parameter_list|()
 throws|throws
-name|KeeperException
-throws|,
-name|InterruptedException
-throws|,
 name|Exception
-throws|,
-name|IOException
-throws|,
-name|URISyntaxException
 block|{
 name|int
 name|cnt

@@ -1,7 +1,4 @@
 begin_unit
-begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
-end_comment
 begin_package
 DECL|package|org.apache.lucene.spatial.prefix.tree
 package|package
@@ -18,6 +15,9 @@ operator|.
 name|tree
 package|;
 end_package
+begin_comment
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
 begin_import
 import|import
 name|com
@@ -105,7 +105,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * A Spatial Prefix Tree, or Trie, which decomposes shapes into prefixed strings at variable lengths corresponding to  * variable precision.  Each string corresponds to a spatial region.  *  * Implementations of this class should be thread-safe and immutable once initialized.  */
+comment|/**  * A Spatial Prefix Tree, or Trie, which decomposes shapes into prefixed strings at variable lengths corresponding to  * variable precision.  Each string corresponds to a spatial region.  *  * Implementations of this class should be thread-safe and immutable once initialized.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SpatialPrefixTree
@@ -215,7 +215,7 @@ operator|+
 literal|")"
 return|;
 block|}
-comment|/**    * See {@link com.spatial4j.core.query.SpatialArgs#getDistPrecision()}.    * A grid level looked up via {@link #getLevelForDistance(double)} is returned.    *    * @param shape    * @param precision 0-0.5    * @return 1-maxLevels    */
+comment|/**    * See {@link org.apache.lucene.spatial.query.SpatialArgs#getDistPrecision()}.    * A grid level looked up via {@link #getLevelForDistance(double)} is returned.    *    * @param precision 0-0.5    * @return 1-maxLevels    */
 DECL|method|getMaxLevelForPrecision
 specifier|public
 name|int

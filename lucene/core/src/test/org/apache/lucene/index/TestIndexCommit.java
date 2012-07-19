@@ -18,15 +18,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Collection
@@ -140,8 +131,6 @@ name|String
 argument_list|>
 name|getFileNames
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 literal|null
@@ -176,8 +165,6 @@ name|String
 argument_list|>
 name|getUserData
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 literal|null
@@ -245,8 +232,6 @@ name|String
 argument_list|>
 name|getFileNames
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 literal|null
@@ -281,8 +266,6 @@ name|String
 argument_list|>
 name|getUserData
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 literal|null

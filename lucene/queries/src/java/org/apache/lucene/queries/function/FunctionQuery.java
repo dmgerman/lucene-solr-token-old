@@ -133,6 +133,7 @@ extends|extends
 name|Query
 block|{
 DECL|field|func
+specifier|final
 name|ValueSource
 name|func
 decl_stmt|;
@@ -203,6 +204,7 @@ name|Weight
 block|{
 DECL|field|searcher
 specifier|protected
+specifier|final
 name|IndexSearcher
 name|searcher
 decl_stmt|;
@@ -218,6 +220,7 @@ name|queryWeight
 decl_stmt|;
 DECL|field|context
 specifier|protected
+specifier|final
 name|Map
 name|context
 decl_stmt|;
@@ -653,6 +656,20 @@ operator|-
 name|Float
 operator|.
 name|MAX_VALUE
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|freq
+specifier|public
+name|float
+name|freq
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+literal|1
 return|;
 block|}
 DECL|method|explain

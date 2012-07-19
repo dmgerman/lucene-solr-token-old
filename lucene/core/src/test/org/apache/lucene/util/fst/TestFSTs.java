@@ -445,6 +445,21 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
+name|Slow
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
 name|SuppressCodecs
 import|;
 end_import
@@ -625,6 +640,8 @@ block|,
 literal|"Memory"
 block|}
 argument_list|)
+annotation|@
+name|Slow
 DECL|class|TestFSTs
 specifier|public
 class|class
@@ -9602,7 +9619,7 @@ name|format
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|,
 literal|"%6.2fs: %9d..."
 argument_list|,
@@ -11785,6 +11802,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%07d"
 argument_list|,
 name|id
@@ -11966,6 +11987,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%07d"
 argument_list|,
 operator|(
@@ -12297,6 +12322,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%07da"
 argument_list|,
 name|idv
@@ -12308,6 +12337,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%07d"
 argument_list|,
 name|idv

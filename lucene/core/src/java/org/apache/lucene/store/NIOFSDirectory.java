@@ -279,8 +279,6 @@ parameter_list|,
 name|long
 name|length
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new
@@ -319,8 +317,6 @@ specifier|public
 name|IndexInput
 name|openFullSlice
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|openSlice
@@ -426,8 +422,6 @@ parameter_list|,
 name|int
 name|chunkSize
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

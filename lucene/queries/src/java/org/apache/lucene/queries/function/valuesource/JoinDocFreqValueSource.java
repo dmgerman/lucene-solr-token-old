@@ -70,6 +70,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|ReaderUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|queries
 operator|.
 name|function
@@ -120,19 +133,6 @@ operator|.
 name|util
 operator|.
 name|BytesRef
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|ReaderUtil
 import|;
 end_import
 begin_import
@@ -278,6 +278,7 @@ argument_list|(
 name|this
 argument_list|)
 block|{
+specifier|final
 name|BytesRef
 name|ref
 init|=
@@ -306,9 +307,8 @@ argument_list|,
 name|ref
 argument_list|)
 expr_stmt|;
-name|int
-name|v
-init|=
+comment|//System.out.println( NAME+"["+field+"="+ref.utf8ToString()+"=("+qfield+":"+v+")]" );
+return|return
 name|top
 operator|.
 name|docFreq
@@ -317,10 +317,6 @@ name|qfield
 argument_list|,
 name|ref
 argument_list|)
-decl_stmt|;
-comment|//System.out.println( NAME+"["+field+"="+ref.utf8ToString()+"=("+qfield+":"+v+")]" );
-return|return
-name|v
 return|;
 block|}
 catch|catch
@@ -427,7 +423,6 @@ name|hashCode
 argument_list|()
 return|;
 block|}
-empty_stmt|;
 block|}
 end_class
 end_unit

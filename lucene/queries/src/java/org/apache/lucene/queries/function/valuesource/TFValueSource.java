@@ -431,8 +431,6 @@ specifier|public
 name|int
 name|nextDoc
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|DocIdSetIterator
@@ -449,8 +447,6 @@ parameter_list|(
 name|int
 name|target
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|DocIdSetIterator

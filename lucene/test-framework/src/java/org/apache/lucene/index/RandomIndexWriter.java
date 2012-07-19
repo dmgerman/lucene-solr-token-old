@@ -1753,8 +1753,6 @@ modifier|...
 name|dirs
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|w
@@ -1775,8 +1773,6 @@ modifier|...
 name|readers
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|w
@@ -1796,8 +1792,6 @@ name|Term
 name|term
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|w
@@ -1817,8 +1811,6 @@ name|Query
 name|q
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|w
@@ -1835,8 +1827,6 @@ name|void
 name|commit
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|w
@@ -1853,8 +1843,6 @@ specifier|public
 name|int
 name|numDocs
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|w

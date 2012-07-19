@@ -92,6 +92,21 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|common
@@ -166,6 +181,8 @@ begin_comment
 comment|/**  * Test auto commit functionality in a way that doesn't suck.  *<p>  * AutoCommitTest is an abomination that is way to brittle in how it   * tries to check that commits happened, and when they happened.  * The goal of this test class is to (ultimately) completely replace all   * of the functionality of that test class using:  *</p>  *<ul>  *<li>A more robust monitor of commit/newSearcher events that records   *       the times of those events in a queue that can be polled.    *       Multiple events in rapid succession are not lost.  *</li>  *<li>Timing checks that are forgiving of slow machines and use   *       knowledge of how slow A-&gt;B was to affect the expectation of   *       how slow B-&gt;C will be  *</li>  *</ul>  */
 end_comment
 begin_class
+annotation|@
+name|Slow
 DECL|class|SoftAutoCommitTest
 specifier|public
 class|class

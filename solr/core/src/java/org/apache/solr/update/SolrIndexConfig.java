@@ -852,6 +852,9 @@ name|IndexSchema
 name|schema
 parameter_list|)
 block|{
+comment|// so that we can update the analyzer on core reload, we pass null
+comment|// for the default analyzer, and explicitly pass an analyzer on
+comment|// appropriate calls to IndexWriter
 name|IndexWriterConfig
 name|iwc
 init|=
@@ -860,10 +863,7 @@ name|IndexWriterConfig
 argument_list|(
 name|luceneVersion
 argument_list|,
-name|schema
-operator|.
-name|getAnalyzer
-argument_list|()
+literal|null
 argument_list|)
 decl_stmt|;
 if|if

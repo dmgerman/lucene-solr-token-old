@@ -660,7 +660,7 @@ argument_list|)
 expr_stmt|;
 name|tokenizer
 operator|.
-name|reset
+name|setReader
 argument_list|(
 operator|new
 name|StringReader
@@ -756,7 +756,7 @@ name|FRONT
 argument_list|,
 literal|2
 argument_list|,
-literal|15
+literal|4
 argument_list|)
 decl_stmt|;
 return|return
@@ -778,7 +778,7 @@ argument_list|()
 argument_list|,
 name|a
 argument_list|,
-literal|10000
+literal|1000
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|,
@@ -796,7 +796,7 @@ argument_list|()
 argument_list|,
 name|a
 argument_list|,
-literal|200
+literal|100
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|,
@@ -843,7 +843,7 @@ name|BACK
 argument_list|,
 literal|2
 argument_list|,
-literal|15
+literal|4
 argument_list|)
 decl_stmt|;
 return|return
@@ -865,7 +865,7 @@ argument_list|()
 argument_list|,
 name|b
 argument_list|,
-literal|10000
+literal|1000
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|,
@@ -883,7 +883,7 @@ argument_list|()
 argument_list|,
 name|b
 argument_list|,
-literal|200
+literal|100
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|,

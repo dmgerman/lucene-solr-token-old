@@ -508,8 +508,6 @@ name|TestType
 name|type
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|Directory
@@ -848,8 +846,6 @@ index|[]
 name|sourceType
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|DirectoryReader
@@ -1485,8 +1481,6 @@ name|int
 name|num
 parameter_list|)
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 specifier|final
@@ -2326,8 +2320,6 @@ name|void
 name|testPromotFloatingPoint
 parameter_list|()
 throws|throws
-name|CorruptIndexException
-throws|,
 name|IOException
 block|{
 name|runTest

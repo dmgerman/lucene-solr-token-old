@@ -70,6 +70,21 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|SolrTestCaseJ4
@@ -294,6 +309,8 @@ begin_comment
 comment|/**  * Test for LBHttpSolrServer  *  * @since solr 1.4  */
 end_comment
 begin_class
+annotation|@
+name|Slow
 DECL|class|TestLBHttpSolrServer
 specifier|public
 class|class
@@ -330,8 +347,6 @@ specifier|static
 name|void
 name|beforeClass
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|savedFactory
 operator|=
@@ -360,8 +375,6 @@ specifier|static
 name|void
 name|afterClass
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -449,7 +462,7 @@ operator|=
 operator|new
 name|SolrInstance
 argument_list|(
-literal|"solr"
+literal|"solr/collection1"
 operator|+
 name|i
 argument_list|,
@@ -1101,7 +1114,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"solr1"
+literal|"solr/collection11"
 argument_list|,
 name|name
 argument_list|)
@@ -1139,7 +1152,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"solr1"
+literal|"solr/collection11"
 argument_list|,
 name|name
 argument_list|)
@@ -1238,7 +1251,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"solr0"
+literal|"solr/collection10"
 argument_list|,
 name|name
 argument_list|)
@@ -1675,6 +1688,8 @@ operator|new
 name|File
 argument_list|(
 name|homeDir
+operator|+
+literal|"/collection1"
 argument_list|,
 literal|"data"
 argument_list|)
@@ -1685,6 +1700,8 @@ operator|new
 name|File
 argument_list|(
 name|homeDir
+operator|+
+literal|"/collection1"
 argument_list|,
 literal|"conf"
 argument_list|)

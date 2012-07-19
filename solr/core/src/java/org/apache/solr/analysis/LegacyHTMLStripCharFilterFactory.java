@@ -16,15 +16,11 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|CharStream
+name|Reader
 import|;
 end_import
 begin_import
@@ -60,7 +56,7 @@ specifier|public
 name|LegacyHTMLStripCharFilter
 name|create
 parameter_list|(
-name|CharStream
+name|Reader
 name|input
 parameter_list|)
 block|{

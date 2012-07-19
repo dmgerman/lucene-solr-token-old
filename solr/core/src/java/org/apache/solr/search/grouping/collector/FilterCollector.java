@@ -122,8 +122,6 @@ parameter_list|,
 name|Collector
 name|delegate
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.

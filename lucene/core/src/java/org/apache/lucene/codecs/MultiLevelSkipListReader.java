@@ -1141,8 +1141,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|data
 operator|=
@@ -1184,8 +1182,6 @@ specifier|public
 name|byte
 name|readByte
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|data
@@ -1212,8 +1208,6 @@ parameter_list|,
 name|int
 name|len
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|System
 operator|.
@@ -1245,8 +1239,6 @@ parameter_list|(
 name|long
 name|pos
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.

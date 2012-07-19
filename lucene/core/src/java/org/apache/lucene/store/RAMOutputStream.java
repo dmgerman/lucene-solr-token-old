@@ -575,8 +575,6 @@ specifier|final
 name|void
 name|switchCurrentBuffer
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

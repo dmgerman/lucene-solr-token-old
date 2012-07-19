@@ -201,7 +201,7 @@ literal|"G yyyyy MM ww WW DD dd F E aa HH hh mm ss SSS z Z"
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 expr_stmt|;
 name|fmt
@@ -220,7 +220,7 @@ literal|"yyyy-MM-dd'T'HH:mm:ss.SSS"
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 expr_stmt|;
 name|parser
@@ -267,7 +267,7 @@ name|UTC
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 decl_stmt|;
 name|c
@@ -337,7 +337,7 @@ name|UTC
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 decl_stmt|;
 name|c
@@ -887,7 +887,7 @@ name|UTC
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 decl_stmt|;
 name|p
@@ -1000,7 +1000,7 @@ name|UTC
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 decl_stmt|;
 name|p
@@ -1622,7 +1622,7 @@ name|tz
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 decl_stmt|;
 name|p
@@ -1741,7 +1741,7 @@ name|tz
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 expr_stmt|;
 name|p
@@ -1840,7 +1840,7 @@ name|UTC
 argument_list|,
 name|Locale
 operator|.
-name|US
+name|ROOT
 argument_list|)
 decl_stmt|;
 name|p

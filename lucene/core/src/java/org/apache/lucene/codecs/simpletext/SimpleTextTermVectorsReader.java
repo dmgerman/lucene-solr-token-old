@@ -1215,8 +1215,6 @@ parameter_list|(
 name|int
 name|offset
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|UnicodeUtil
 operator|.
@@ -1329,8 +1327,6 @@ name|SimpleTVTerms
 argument_list|>
 name|fields
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.
@@ -1395,8 +1391,6 @@ specifier|public
 name|String
 name|next
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -1434,8 +1428,6 @@ specifier|public
 name|Terms
 name|terms
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|current

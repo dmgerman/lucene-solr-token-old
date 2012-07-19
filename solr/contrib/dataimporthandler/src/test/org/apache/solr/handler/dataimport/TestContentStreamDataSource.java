@@ -216,7 +216,7 @@ specifier|final
 name|String
 name|CONF_DIR
 init|=
-literal|"dih/solr/conf/"
+literal|"dih/solr/collection1/conf/"
 decl_stmt|;
 DECL|field|instance
 name|SolrInstance
@@ -816,6 +816,8 @@ operator|new
 name|File
 argument_list|(
 name|homeDir
+operator|+
+literal|"/collection1"
 argument_list|,
 literal|"data"
 argument_list|)
@@ -826,6 +828,8 @@ operator|new
 name|File
 argument_list|(
 name|homeDir
+operator|+
+literal|"/collection1"
 argument_list|,
 literal|"conf"
 argument_list|)

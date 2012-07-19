@@ -190,7 +190,7 @@ name|EnhancementsDocumentBuilder
 extends|extends
 name|CategoryDocumentBuilder
 block|{
-comment|/**    * @param taxonomyWriter    * @param params    *            Indexing params which include {@link CategoryEnhancement}s.    * @throws IOException    */
+comment|/**    * @param taxonomyWriter    * @param params    *            Indexing params which include {@link CategoryEnhancement}s.    */
 DECL|method|EnhancementsDocumentBuilder
 specifier|public
 name|EnhancementsDocumentBuilder
@@ -201,8 +201,6 @@ parameter_list|,
 name|EnhancementsIndexingParams
 name|params
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

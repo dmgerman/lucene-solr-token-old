@@ -92,6 +92,13 @@ argument_list|)
 expr_stmt|;
 name|TYPE_NOT_STORED
 operator|.
+name|setTokenized
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|TYPE_NOT_STORED
+operator|.
 name|freeze
 argument_list|()
 expr_stmt|;
@@ -123,6 +130,13 @@ operator|.
 name|setStored
 argument_list|(
 literal|true
+argument_list|)
+expr_stmt|;
+name|TYPE_STORED
+operator|.
+name|setTokenized
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 name|TYPE_STORED

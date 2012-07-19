@@ -459,7 +459,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10000
+literal|1000
 condition|;
 name|i
 operator|++
@@ -596,7 +596,7 @@ name|numIterations
 init|=
 name|atLeast
 argument_list|(
-literal|100
+literal|50
 argument_list|)
 decl_stmt|;
 for|for
@@ -736,7 +736,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10000
+literal|1000
 condition|;
 name|i
 operator|++
@@ -802,7 +802,7 @@ decl_stmt|;
 name|int
 name|maxLength
 init|=
-literal|2048
+literal|1024
 decl_stmt|;
 comment|// this is number of elements, not chars!
 name|MockAnalyzer
@@ -874,7 +874,7 @@ name|numIterations
 init|=
 name|atLeast
 argument_list|(
-literal|100
+literal|50
 argument_list|)
 decl_stmt|;
 for|for
@@ -1015,7 +1015,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10000
+literal|1000
 condition|;
 name|i
 operator|++
@@ -1079,9 +1079,9 @@ decl_stmt|;
 name|int
 name|maxLength
 init|=
-literal|8192
+literal|4300
 decl_stmt|;
-comment|// CharTokenizer.IO_BUFFER_SIZE*2
+comment|// CharTokenizer.IO_BUFFER_SIZE + fudge
 name|MockAnalyzer
 name|left
 init|=
@@ -1151,7 +1151,7 @@ name|numIterations
 init|=
 name|atLeast
 argument_list|(
-literal|100
+literal|50
 argument_list|)
 decl_stmt|;
 for|for

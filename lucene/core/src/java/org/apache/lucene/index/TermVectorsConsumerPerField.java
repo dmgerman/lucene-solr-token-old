@@ -347,8 +347,6 @@ DECL|method|finish
 name|void
 name|finish
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

@@ -262,6 +262,21 @@ operator|.
 name|_TestUtil
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
 begin_class
 DECL|class|TestSynonymMapFilter
 specifier|public
@@ -469,7 +484,7 @@ expr_stmt|;
 block|}
 name|tokensIn
 operator|.
-name|reset
+name|setReader
 argument_list|(
 operator|new
 name|StringReader
@@ -2809,7 +2824,7 @@ name|numIters
 init|=
 name|atLeast
 argument_list|(
-literal|10
+literal|3
 argument_list|)
 decl_stmt|;
 for|for
@@ -2963,7 +2978,7 @@ argument_list|()
 argument_list|,
 name|analyzer
 argument_list|,
-literal|200
+literal|100
 argument_list|)
 expr_stmt|;
 block|}
@@ -2987,7 +3002,7 @@ name|numIters
 init|=
 name|atLeast
 argument_list|(
-literal|10
+literal|3
 argument_list|)
 decl_stmt|;
 name|Random
@@ -3160,7 +3175,7 @@ name|random
 argument_list|,
 name|analyzer
 argument_list|,
-literal|200
+literal|100
 argument_list|)
 expr_stmt|;
 block|}
@@ -3339,7 +3354,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** simple random test like testRandom2, but for large docs    */
+comment|/** simple random test like testRandom2, but for larger docs    */
 DECL|method|testRandomHuge
 specifier|public
 name|void
@@ -3360,7 +3375,7 @@ name|numIters
 init|=
 name|atLeast
 argument_list|(
-literal|10
+literal|3
 argument_list|)
 decl_stmt|;
 for|for
@@ -3512,7 +3527,7 @@ name|analyzer
 argument_list|,
 literal|100
 argument_list|,
-literal|8192
+literal|1024
 argument_list|)
 expr_stmt|;
 block|}

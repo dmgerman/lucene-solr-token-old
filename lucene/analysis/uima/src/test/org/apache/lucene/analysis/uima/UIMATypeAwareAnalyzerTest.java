@@ -244,7 +244,7 @@ argument_list|,
 literal|"pos"
 argument_list|)
 argument_list|,
-literal|1000
+literal|100
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)

@@ -3209,8 +3209,6 @@ operator|.
 name|ElevationObj
 name|elevations
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.
@@ -3381,8 +3379,6 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -3458,8 +3454,6 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|bottomVal
@@ -3482,8 +3476,6 @@ parameter_list|,
 name|int
 name|doc
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|values
 index|[
@@ -3726,8 +3718,6 @@ parameter_list|,
 name|Integer
 name|valueObj
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 specifier|final
 name|int

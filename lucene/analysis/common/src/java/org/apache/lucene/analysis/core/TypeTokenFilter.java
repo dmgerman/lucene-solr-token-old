@@ -194,8 +194,6 @@ specifier|protected
 name|boolean
 name|accept
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|useWhiteList

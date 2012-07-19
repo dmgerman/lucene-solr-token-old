@@ -67,7 +67,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  */
+comment|/**  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SpatialPrefixTreeFactory

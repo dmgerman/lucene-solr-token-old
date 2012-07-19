@@ -182,19 +182,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|Document
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|AtomicReader
@@ -1681,8 +1668,6 @@ parameter_list|(
 name|Scorer
 name|scorer
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.
@@ -3169,8 +3154,6 @@ specifier|public
 name|long
 name|getSumDocFreq
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 comment|// each term has df=1
 return|return
@@ -3187,8 +3170,6 @@ specifier|public
 name|int
 name|getDocCount
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|info
@@ -4462,8 +4443,6 @@ parameter_list|(
 name|String
 name|field
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 literal|null
@@ -4495,8 +4474,6 @@ parameter_list|(
 name|String
 name|field
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|DocValues
 name|norms

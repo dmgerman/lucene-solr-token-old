@@ -705,8 +705,6 @@ DECL|method|startDocument
 name|void
 name|startDocument
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 assert|assert
 name|clearLastVectorFieldName

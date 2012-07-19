@@ -184,7 +184,7 @@ operator|=
 name|groupField
 expr_stmt|;
 block|}
-comment|/**    * Creates an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments.    * This factory method decides with implementation is best suited.    *    * Delegates to {@link #create(String, org.apache.lucene.search.Sort, int)} with an initialSize of 128.    *    * @param groupField      The field to group by    * @param sortWithinGroup The sort within each group    * @return an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments    * @throws IOException If I/O related errors occur    */
+comment|/**    * Creates an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments.    * This factory method decides with implementation is best suited.    *    * Delegates to {@link #create(String, org.apache.lucene.search.Sort, int)} with an initialSize of 128.    *    * @param groupField      The field to group by    * @param sortWithinGroup The sort within each group    * @return an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments    */
 DECL|method|create
 specifier|public
 specifier|static
@@ -200,8 +200,6 @@ parameter_list|,
 name|Sort
 name|sortWithinGroup
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|create
@@ -214,7 +212,7 @@ name|DEFAULT_INITIAL_SIZE
 argument_list|)
 return|;
 block|}
-comment|/**    * Creates an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments.    * This factory method decides with implementation is best suited.    *    * @param groupField      The field to group by    * @param sortWithinGroup The sort within each group    * @param initialSize The initial allocation size of the internal int set and group list which should roughly match    *                    the total number of expected unique groups. Be aware that the heap usage is    *                    4 bytes * initialSize.    * @return an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments    * @throws IOException If I/O related errors occur    */
+comment|/**    * Creates an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments.    * This factory method decides with implementation is best suited.    *    * @param groupField      The field to group by    * @param sortWithinGroup The sort within each group    * @param initialSize The initial allocation size of the internal int set and group list which should roughly match    *                    the total number of expected unique groups. Be aware that the heap usage is    *                    4 bytes * initialSize.    * @return an<code>AbstractAllGroupHeadsCollector</code> instance based on the supplied arguments    */
 DECL|method|create
 specifier|public
 specifier|static
@@ -233,8 +231,6 @@ parameter_list|,
 name|int
 name|initialSize
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|boolean
 name|sortAllScore
@@ -445,8 +441,6 @@ parameter_list|,
 name|Sort
 name|sortWithinGroup
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(
@@ -2490,8 +2484,6 @@ parameter_list|,
 name|BytesRef
 name|groupValue
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

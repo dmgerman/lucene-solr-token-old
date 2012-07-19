@@ -38,6 +38,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStreamReader
+import|;
+end_import
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -1041,7 +1050,13 @@ name|IOUtils
 operator|.
 name|toString
 argument_list|(
+operator|new
+name|InputStreamReader
+argument_list|(
 name|fis
+argument_list|,
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|//System.out.println("xml:" + solrPersistXml);

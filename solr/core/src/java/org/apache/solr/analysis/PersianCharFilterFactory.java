@@ -16,6 +16,15 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -24,7 +33,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|CharStream
+name|CharFilter
 import|;
 end_import
 begin_import
@@ -104,10 +113,10 @@ annotation|@
 name|Override
 DECL|method|create
 specifier|public
-name|CharStream
+name|CharFilter
 name|create
 parameter_list|(
-name|CharStream
+name|Reader
 name|input
 parameter_list|)
 block|{

@@ -247,8 +247,6 @@ literal|null
 decl_stmt|;
 name|Terms
 name|termsC
-init|=
-literal|null
 decl_stmt|;
 name|TermsEnum
 name|termsEnum
@@ -340,6 +338,11 @@ name|bytes
 argument_list|()
 argument_list|)
 expr_stmt|;
+assert|assert
+name|termsEnum
+operator|!=
+literal|null
+assert|;
 if|if
 condition|(
 name|termsEnum

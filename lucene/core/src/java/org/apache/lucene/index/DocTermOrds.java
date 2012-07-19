@@ -490,8 +490,6 @@ parameter_list|,
 name|int
 name|indexIntervalBits
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 comment|//System.out.println("DTO init field=" + field + " maxTDFreq=" + maxTermDocFreq);
 name|this
@@ -2822,8 +2820,6 @@ specifier|public
 name|long
 name|ord
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|ordBase

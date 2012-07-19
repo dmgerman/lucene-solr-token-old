@@ -507,8 +507,6 @@ specifier|public
 name|DocIdSetIterator
 name|iterator
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new
@@ -531,8 +529,6 @@ parameter_list|(
 name|int
 name|target
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 while|while
 condition|(
@@ -582,8 +578,6 @@ specifier|public
 name|int
 name|nextDoc
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -614,8 +608,6 @@ specifier|public
 name|ScoredDocIDsIterator
 name|iterator
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new
@@ -966,8 +958,6 @@ specifier|public
 name|DocIdSetIterator
 name|iterator
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new
@@ -990,8 +980,6 @@ parameter_list|(
 name|int
 name|target
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -1036,8 +1024,6 @@ specifier|public
 name|int
 name|nextDoc
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 operator|++
@@ -1234,8 +1220,6 @@ specifier|public
 name|DocIdSetIterator
 name|iterator
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 operator|new
@@ -1269,8 +1253,6 @@ parameter_list|(
 name|int
 name|target
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(
@@ -1308,8 +1290,6 @@ specifier|public
 name|int
 name|nextDoc
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 do|do
 block|{

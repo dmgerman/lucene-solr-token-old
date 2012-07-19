@@ -2578,7 +2578,7 @@ name|getInstance
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|ROOT
 argument_list|)
 argument_list|)
 argument_list|)

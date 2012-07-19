@@ -2452,6 +2452,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%d. Expected facet value %s with count %d"
 argument_list|,
 name|counter
@@ -2534,6 +2538,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%d. Actual facet value %s with count %d"
 argument_list|,
 name|counter
