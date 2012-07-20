@@ -90,6 +90,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|BaseDirectoryWrapper
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|MockDirectoryWrapper
 import|;
 end_import
@@ -153,7 +166,7 @@ literal|"TestNeverDelete"
 argument_list|)
 decl_stmt|;
 specifier|final
-name|MockDirectoryWrapper
+name|BaseDirectoryWrapper
 name|d
 init|=
 name|newFSDirectory
@@ -164,13 +177,26 @@ decl_stmt|;
 comment|// We want to "see" files removed if Lucene removed
 comment|// them.  This is still worth running on Windows since
 comment|// some files the IR opens and closes.
+if|if
+condition|(
 name|d
+operator|instanceof
+name|MockDirectoryWrapper
+condition|)
+block|{
+operator|(
+operator|(
+name|MockDirectoryWrapper
+operator|)
+name|d
+operator|)
 operator|.
 name|setNoDeleteOpenFile
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 specifier|final
 name|RandomIndexWriter
 name|w

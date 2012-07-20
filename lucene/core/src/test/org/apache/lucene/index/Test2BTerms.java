@@ -695,7 +695,7 @@ name|savedTerms
 init|=
 literal|null
 decl_stmt|;
-name|MockDirectoryWrapper
+name|BaseDirectoryWrapper
 name|dir
 init|=
 name|newFSDirectory
@@ -709,7 +709,19 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|//MockDirectoryWrapper dir = newFSDirectory(new File("/p/lucene/indices/2bindex"));
+if|if
+condition|(
 name|dir
+operator|instanceof
+name|MockDirectoryWrapper
+condition|)
+block|{
+operator|(
+operator|(
+name|MockDirectoryWrapper
+operator|)
+name|dir
+operator|)
 operator|.
 name|setThrottling
 argument_list|(
@@ -720,6 +732,7 @@ operator|.
 name|NEVER
 argument_list|)
 expr_stmt|;
+block|}
 name|dir
 operator|.
 name|setCheckIndexOnClose

@@ -1439,7 +1439,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockDirectoryWrapper
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -1596,7 +1596,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockDirectoryWrapper
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -1956,7 +1956,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockDirectoryWrapper
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -2979,7 +2979,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockDirectoryWrapper
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -3325,7 +3325,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockDirectoryWrapper
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -3712,7 +3712,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|MockDirectoryWrapper
+name|Directory
 name|dir
 init|=
 name|newDirectory
