@@ -243,12 +243,7 @@ name|String
 argument_list|>
 name|openDeletedFiles
 init|=
-operator|(
-operator|(
-name|MockDirectoryWrapper
-operator|)
 name|dir
-operator|)
 operator|.
 name|getOpenDeletedFiles
 argument_list|()
@@ -381,12 +376,7 @@ name|String
 argument_list|>
 name|openDeletedFiles
 init|=
-operator|(
-operator|(
-name|MockDirectoryWrapper
-operator|)
 name|dir
-operator|)
 operator|.
 name|getOpenDeletedFiles
 argument_list|()
