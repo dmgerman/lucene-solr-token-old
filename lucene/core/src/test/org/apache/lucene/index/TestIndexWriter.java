@@ -8849,9 +8849,10 @@ block|{
 name|Directory
 name|dir
 init|=
-name|newDirectory
+name|newMockDirectory
 argument_list|()
 decl_stmt|;
+comment|// relies on windows semantics
 name|LogMergePolicy
 name|mergePolicy
 init|=
