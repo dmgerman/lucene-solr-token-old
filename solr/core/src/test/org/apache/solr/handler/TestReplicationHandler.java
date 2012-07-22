@@ -5105,7 +5105,7 @@ if|if
 condition|(
 name|waitCnt
 operator|==
-literal|10
+literal|20
 condition|)
 block|{
 name|fail
