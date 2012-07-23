@@ -470,7 +470,9 @@ name|cmdDistrib
 init|=
 operator|new
 name|SolrCmdDistributor
-argument_list|()
+argument_list|(
+literal|8
+argument_list|)
 decl_stmt|;
 name|ModifiableSolrParams
 name|params
@@ -701,7 +703,9 @@ name|cmdDistrib
 operator|=
 operator|new
 name|SolrCmdDistributor
-argument_list|()
+argument_list|(
+literal|8
+argument_list|)
 expr_stmt|;
 name|cmd
 operator|.
@@ -921,7 +925,9 @@ name|cmdDistrib
 operator|=
 operator|new
 name|SolrCmdDistributor
-argument_list|()
+argument_list|(
+literal|8
+argument_list|)
 expr_stmt|;
 name|cmdDistrib
 operator|.

@@ -500,6 +500,15 @@ operator|.
 name|BeforeClass
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
 begin_comment
 comment|/**  * Test for ReplicationHandler  *  *  * @since 1.4  */
 end_comment
@@ -5096,7 +5105,7 @@ if|if
 condition|(
 name|waitCnt
 operator|==
-literal|10
+literal|20
 condition|)
 block|{
 name|fail

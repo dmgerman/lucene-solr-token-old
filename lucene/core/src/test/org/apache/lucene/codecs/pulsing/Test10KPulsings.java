@@ -257,6 +257,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|BaseDirectoryWrapper
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|MockDirectoryWrapper
 import|;
 end_import
@@ -334,7 +347,7 @@ argument_list|(
 literal|"10kpulsed"
 argument_list|)
 decl_stmt|;
-name|MockDirectoryWrapper
+name|BaseDirectoryWrapper
 name|dir
 init|=
 name|newFSDirectory
@@ -704,7 +717,7 @@ argument_list|(
 literal|"10knotpulsed"
 argument_list|)
 decl_stmt|;
-name|MockDirectoryWrapper
+name|BaseDirectoryWrapper
 name|dir
 init|=
 name|newFSDirectory

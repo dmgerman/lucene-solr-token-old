@@ -1089,7 +1089,7 @@ name|myURL
 operator|=
 name|zkController
 operator|.
-name|getZkServerAddress
+name|getBaseUrl
 argument_list|()
 expr_stmt|;
 block|}

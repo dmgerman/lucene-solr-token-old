@@ -258,6 +258,9 @@ name|PREPRECOVERY
 block|,
 DECL|enum constant|REQUESTRECOVERY
 name|REQUESTRECOVERY
+block|,
+DECL|enum constant|REQUESTSYNCSHARD
+name|REQUESTSYNCSHARD
 block|;
 DECL|method|get
 specifier|public

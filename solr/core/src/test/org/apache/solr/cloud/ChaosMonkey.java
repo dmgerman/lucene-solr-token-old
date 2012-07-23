@@ -242,6 +242,24 @@ operator|.
 name|FilterHolder
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
 begin_comment
 comment|/**  * The monkey can stop random or specific jetties used with SolrCloud.  *   * It can also run in a background thread and start and stop jetties  * randomly.  *  */
 end_comment
@@ -251,6 +269,21 @@ specifier|public
 class|class
 name|ChaosMonkey
 block|{
+DECL|field|log
+specifier|private
+specifier|static
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ChaosMonkey
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|CONLOSS_PERCENT
 specifier|private
 specifier|static
@@ -512,6 +545,17 @@ operator|.
 name|nextBoolean
 argument_list|()
 expr_stmt|;
+name|monkeyLog
+argument_list|(
+literal|"init - expire sessions:"
+operator|+
+name|expireSessions
+operator|+
+literal|" cause connection loss:"
+operator|+
+name|causeConnectionLoss
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|expireSession
 specifier|public
@@ -522,6 +566,18 @@ name|JettySolrRunner
 name|jetty
 parameter_list|)
 block|{
+name|monkeyLog
+argument_list|(
+literal|"expire session for "
+operator|+
+name|jetty
+operator|.
+name|getLocalPort
+argument_list|()
+operator|+
+literal|" !"
+argument_list|)
+expr_stmt|;
 name|SolrDispatchFilter
 name|solrDispatchFilter
 init|=
@@ -640,6 +696,11 @@ name|KeeperException
 throws|,
 name|InterruptedException
 block|{
+name|monkeyLog
+argument_list|(
+literal|"cause connection loss!"
+argument_list|)
+expr_stmt|;
 name|String
 name|sliceName
 init|=
@@ -845,6 +906,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|monkeyLog
+argument_list|(
+literal|"stop shard! "
+operator|+
+name|jetty
+operator|.
+name|getLocalPort
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// get a clean shutdown so that no dirs are left open...
 name|FilterHolder
 name|fh
@@ -921,6 +992,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|monkeyLog
+argument_list|(
+literal|"kill shard! "
+operator|+
+name|jetty
+operator|.
+name|getLocalPort
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|FilterHolder
 name|fh
 init|=
@@ -1582,6 +1663,11 @@ literal|2
 condition|)
 block|{
 comment|// we cannot kill anyone
+name|monkeyLog
+argument_list|(
+literal|"only one active node in shard - monkey cannot kill :("
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1714,6 +1800,11 @@ name|isLeader
 condition|)
 block|{
 comment|// we don't kill leaders...
+name|monkeyLog
+argument_list|(
+literal|"abort! I don't kill leaders"
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1731,11 +1822,26 @@ literal|1
 condition|)
 block|{
 comment|// we can't kill the dead
+name|monkeyLog
+argument_list|(
+literal|"abort! This guy is already dead"
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
 block|}
 comment|//System.out.println("num active:" + numActive + " for " + slice + " sac:" + jetty.getLocalPort());
+name|monkeyLog
+argument_list|(
+literal|"chose a victim! "
+operator|+
+name|jetty
+operator|.
+name|getLocalPort
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|jetty
 return|;
@@ -1822,6 +1928,11 @@ name|int
 name|roundPause
 parameter_list|)
 block|{
+name|monkeyLog
+argument_list|(
+literal|"starting"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|aggressivelyKillLeaders
@@ -2122,11 +2233,12 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|monkeyLog
+argument_list|(
+literal|"finished"
+argument_list|)
+expr_stmt|;
+name|monkeyLog
 argument_list|(
 literal|"I ran for "
 operator|+
@@ -2168,6 +2280,26 @@ block|}
 operator|.
 name|start
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|monkeyLog
+specifier|public
+specifier|static
+name|void
+name|monkeyLog
+parameter_list|(
+name|String
+name|msg
+parameter_list|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"monkey: "
+operator|+
+name|msg
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|stopTheMonkey
