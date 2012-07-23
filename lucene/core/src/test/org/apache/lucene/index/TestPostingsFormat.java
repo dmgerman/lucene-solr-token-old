@@ -2392,12 +2392,17 @@ name|posting
 operator|.
 name|docID
 argument_list|,
+name|doFreq
+condition|?
 name|posting
 operator|.
 name|positions
 operator|.
 name|size
 argument_list|()
+else|:
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|seenDocs

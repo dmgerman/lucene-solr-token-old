@@ -1014,7 +1014,8 @@ condition|)
 block|{
 name|termDocFreq
 operator|=
-literal|0
+operator|-
+literal|1
 expr_stmt|;
 block|}
 else|else
@@ -1110,12 +1111,12 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 name|postingsConsumer
 operator|.
 name|finishDoc
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 name|termsConsumer
 operator|.

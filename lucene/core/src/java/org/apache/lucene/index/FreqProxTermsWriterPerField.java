@@ -2335,7 +2335,8 @@ else|else
 block|{
 name|termDocFreq
 operator|=
-literal|0
+operator|-
+literal|1
 expr_stmt|;
 block|}
 name|postings
@@ -2378,7 +2379,8 @@ name|code
 expr_stmt|;
 name|termDocFreq
 operator|=
-literal|0
+operator|-
+literal|1
 expr_stmt|;
 block|}
 else|else
@@ -2477,7 +2479,12 @@ name|startDoc
 argument_list|(
 name|docID
 argument_list|,
+name|writeTermFreq
+condition|?
 name|termDocFreq
+else|:
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 if|if

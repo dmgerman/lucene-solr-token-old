@@ -126,7 +126,7 @@ specifier|abstract
 class|class
 name|PostingsConsumer
 block|{
-comment|/** Adds a new doc in this term. */
+comment|/** Adds a new doc in this term.     *<code>freq</code> will be -1 when term frequencies are omitted    * for the field. */
 DECL|method|startDoc
 specifier|public
 specifier|abstract
@@ -142,7 +142,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Add a new position& payload, and start/end offset.  A    *  null payload means no payload; a non-null payload with    *  zero length also means no payload.  Caller may reuse    *  the {@link BytesRef} for the payload between calls    *  (method must fully consume the payload). */
+comment|/** Add a new position& payload, and start/end offset.  A    *  null payload means no payload; a non-null payload with    *  zero length also means no payload.  Caller may reuse    *  the {@link BytesRef} for the payload between calls    *  (method must fully consume the payload).<code>startOffset</code>    *  and<code>endOffset</code> will be -1 when offsets are not indexed. */
 DECL|method|addPosition
 specifier|public
 specifier|abstract
@@ -262,7 +262,8 @@ name|startDoc
 argument_list|(
 name|doc
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|this
