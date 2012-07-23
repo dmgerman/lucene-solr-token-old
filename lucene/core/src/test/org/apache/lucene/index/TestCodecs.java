@@ -795,6 +795,11 @@ name|termsConsumer
 operator|.
 name|finish
 argument_list|(
+name|omitTF
+condition|?
+operator|-
+literal|1
+else|:
 name|sumTotalTermCount
 argument_list|,
 name|sumDF
@@ -1125,6 +1130,13 @@ name|docs
 operator|.
 name|length
 argument_list|,
+name|field
+operator|.
+name|omitTF
+condition|?
+operator|-
+literal|1
+else|:
 name|totTF
 argument_list|)
 argument_list|)
