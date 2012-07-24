@@ -1,14 +1,16 @@
 begin_unit
 begin_package
-DECL|package|org.apache.solr.analysis
+DECL|package|org.apache.lucene.analysis.commongrams
 package|package
 name|org
 operator|.
 name|apache
 operator|.
-name|solr
+name|lucene
 operator|.
 name|analysis
+operator|.
+name|commongrams
 package|;
 end_package
 begin_comment
@@ -149,10 +151,10 @@ begin_comment
 comment|/**  * Tests pretty much copied from StopFilterFactoryTest We use the test files  * used by the StopFilterFactoryTest TODO: consider creating separate test files  * so this won't break if stop filter test files change  **/
 end_comment
 begin_class
-DECL|class|CommonGramsFilterFactoryTest
+DECL|class|TestCommonGramsFilterFactory
 specifier|public
 class|class
-name|CommonGramsFilterFactoryTest
+name|TestCommonGramsFilterFactory
 extends|extends
 name|BaseTokenStreamTestCase
 block|{
