@@ -2112,7 +2112,9 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|>
-argument_list|()
+argument_list|(
+literal|3
+argument_list|)
 expr_stmt|;
 name|spiLoaders
 operator|.
