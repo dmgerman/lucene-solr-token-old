@@ -87,19 +87,6 @@ operator|.
 name|TokenStream
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|core
-operator|.
-name|SolrResourceLoader
-import|;
-end_import
 begin_comment
 comment|/**  * Simple tests for {@link JapanesePartOfSpeechStopFilterFactory}  */
 end_comment
@@ -165,11 +152,9 @@ operator|.
 name|inform
 argument_list|(
 operator|new
-name|SolrResourceLoader
+name|StringMockResourceLoader
 argument_list|(
-literal|null
-argument_list|,
-literal|null
+literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -239,7 +224,7 @@ operator|.
 name|inform
 argument_list|(
 operator|new
-name|StringMockSolrResourceLoader
+name|StringMockResourceLoader
 argument_list|(
 name|tags
 argument_list|)
