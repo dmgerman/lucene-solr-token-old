@@ -1,14 +1,16 @@
 begin_unit
 begin_package
-DECL|package|org.apache.solr.analysis
+DECL|package|org.apache.lucene.analysis.cjk
 package|package
 name|org
 operator|.
 name|apache
 operator|.
-name|solr
+name|lucene
 operator|.
 name|analysis
+operator|.
+name|cjk
 package|;
 end_package
 begin_comment
@@ -101,7 +103,7 @@ name|StandardTokenizer
 import|;
 end_import
 begin_comment
-comment|/**  * Simple tests to ensure the CJK bigram factory is working.  * @deprecated  */
+comment|/**  * Simple tests to ensure the CJK bigram factory is working.  */
 end_comment
 begin_class
 DECL|class|TestCJKBigramFilterFactory
