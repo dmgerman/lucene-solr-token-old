@@ -101,6 +101,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|NoSuchElementException
 import|;
 end_import
@@ -318,7 +327,14 @@ throw|throw
 operator|new
 name|ServiceConfigurationError
 argument_list|(
-literal|"Error loading SPI classes."
+literal|"Error loading SPI profiles for type "
+operator|+
+name|clazz
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" from classpath"
 argument_list|,
 name|ioe
 argument_list|)
@@ -387,8 +403,6 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
-try|try
-block|{
 specifier|final
 name|URL
 name|url
@@ -398,6 +412,8 @@ operator|.
 name|nextElement
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 specifier|final
 name|InputStream
 name|in
@@ -550,7 +566,9 @@ throw|throw
 operator|new
 name|ServiceConfigurationError
 argument_list|(
-literal|"Error loading SPI classes."
+literal|"Error loading SPI class list from URL: "
+operator|+
+name|url
 argument_list|,
 name|ioe
 argument_list|)
@@ -645,7 +663,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-comment|// don't initialize the class:
+comment|// don't initialize the class (pass false as 2nd parameter):
 return|return
 name|Class
 operator|.
@@ -674,9 +692,32 @@ throw|throw
 operator|new
 name|ServiceConfigurationError
 argument_list|(
-literal|"SPI class not found: "
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"A SPI class of type %s with classname %s does not exist, "
 operator|+
+literal|"please fix the file '%s%s' in your classpath."
+argument_list|,
+name|clazz
+operator|.
+name|getName
+argument_list|()
+argument_list|,
 name|c
+argument_list|,
+name|META_INF_SERVICES
+argument_list|,
+name|clazz
+operator|.
+name|getName
+argument_list|()
+argument_list|)
 argument_list|)
 throw|;
 block|}
