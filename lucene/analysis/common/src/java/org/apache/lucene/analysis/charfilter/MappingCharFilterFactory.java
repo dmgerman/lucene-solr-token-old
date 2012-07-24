@@ -141,21 +141,6 @@ operator|.
 name|*
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|StrUtils
-import|;
-end_import
 begin_comment
 comment|/**  * Factory for {@link MappingCharFilter}.   *<pre class="prettyprint">  *&lt;fieldType name="text_map" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;charFilter class="solr.MappingCharFilterFactory" mapping="mapping.txt"/&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  *  *  * @since Solr 1.4  *  */
 end_comment
@@ -251,8 +236,6 @@ name|String
 argument_list|>
 name|files
 init|=
-name|StrUtils
-operator|.
 name|splitFileNames
 argument_list|(
 name|mapping
