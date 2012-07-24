@@ -1,7 +1,4 @@
 begin_unit
-begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
-end_comment
 begin_package
 DECL|package|org.apache.lucene.spatial.util
 package|package
@@ -16,6 +13,9 @@ operator|.
 name|util
 package|;
 end_package
+begin_comment
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
 begin_import
 import|import
 name|com
@@ -113,13 +113,13 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * An implementation of the Lucene ValueSource model to support spatial relevance ranking.  *  * @lucene.internal  */
+comment|/**  * An implementation of the Lucene ValueSource that returns the spatial distance  * between an input point and a document's points in  * {@link ShapeFieldCacheProvider}. The shortest distance is returned if a  * document has more than one point.  *  * @lucene.internal  */
 end_comment
 begin_class
-DECL|class|CachedDistanceValueSource
+DECL|class|ShapeFieldCacheDistanceValueSource
 specifier|public
 class|class
-name|CachedDistanceValueSource
+name|ShapeFieldCacheDistanceValueSource
 extends|extends
 name|ValueSource
 block|{
@@ -144,9 +144,9 @@ specifier|final
 name|Point
 name|from
 decl_stmt|;
-DECL|method|CachedDistanceValueSource
+DECL|method|ShapeFieldCacheDistanceValueSource
 specifier|public
-name|CachedDistanceValueSource
+name|ShapeFieldCacheDistanceValueSource
 parameter_list|(
 name|Point
 name|from
@@ -189,7 +189,13 @@ name|description
 parameter_list|()
 block|{
 return|return
-literal|"DistanceValueSource("
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|"("
 operator|+
 name|calculator
 operator|+
@@ -416,11 +422,11 @@ condition|)
 return|return
 literal|false
 return|;
-name|CachedDistanceValueSource
+name|ShapeFieldCacheDistanceValueSource
 name|that
 init|=
 operator|(
-name|CachedDistanceValueSource
+name|ShapeFieldCacheDistanceValueSource
 operator|)
 name|o
 decl_stmt|;
