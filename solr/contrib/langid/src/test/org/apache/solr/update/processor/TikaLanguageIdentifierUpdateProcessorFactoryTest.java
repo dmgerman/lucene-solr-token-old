@@ -60,7 +60,10 @@ name|_parser
 operator|.
 name|buildRequestFrom
 argument_list|(
-literal|null
+name|h
+operator|.
+name|getCore
+argument_list|()
 argument_list|,
 name|parameters
 argument_list|,
