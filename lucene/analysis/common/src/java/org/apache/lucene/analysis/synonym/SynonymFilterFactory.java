@@ -1,14 +1,16 @@
 begin_unit
 begin_package
-DECL|package|org.apache.solr.analysis
+DECL|package|org.apache.lucene.analysis.synonym
 package|package
 name|org
 operator|.
 name|apache
 operator|.
-name|solr
+name|lucene
 operator|.
 name|analysis
+operator|.
+name|synonym
 package|;
 end_package
 begin_comment
@@ -258,39 +260,6 @@ operator|.
 name|Version
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|StrUtils
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
 begin_comment
 comment|/**  * Factory for {@link SynonymFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_synonym" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt"   *             format="solr" ignoreCase="false" expand="true"   *             tokenizerFactory="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  */
 end_comment
@@ -304,22 +273,6 @@ name|TokenFilterFactory
 implements|implements
 name|ResourceLoaderAware
 block|{
-DECL|field|log
-specifier|public
-specifier|static
-specifier|final
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SynonymFilterFactory
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|map
 specifier|private
 name|SynonymMap
@@ -583,27 +536,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|map
-operator|.
-name|fst
-operator|==
-literal|null
-condition|)
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Synonyms loaded with "
-operator|+
-name|args
-operator|+
-literal|" has empty rule set!"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/**    * Load synonyms from the solr format, "format=solr".    */
 DECL|method|loadSolrSynonyms
@@ -748,8 +680,6 @@ name|String
 argument_list|>
 name|files
 init|=
-name|StrUtils
-operator|.
 name|splitFileNames
 argument_list|(
 name|synonyms
@@ -938,8 +868,6 @@ name|String
 argument_list|>
 name|files
 init|=
-name|StrUtils
-operator|.
 name|splitFileNames
 argument_list|(
 name|synonyms
@@ -985,6 +913,8 @@ name|build
 argument_list|()
 return|;
 block|}
+comment|// nocommit: spi-hack solr.xxx and o.a.solr.analysis.xxx via a delegator
+comment|// (there are no tests for this functionality)
 DECL|method|loadTokenizerFactory
 specifier|private
 name|TokenizerFactory
