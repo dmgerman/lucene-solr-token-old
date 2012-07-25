@@ -140,6 +140,10 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|stopTags
+operator|=
+literal|null
+expr_stmt|;
 try|try
 block|{
 name|CharArraySet
@@ -154,6 +158,13 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|cas
+operator|!=
+literal|null
+condition|)
+block|{
 name|stopTags
 operator|=
 operator|new
@@ -194,6 +205,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 catch|catch
 parameter_list|(
 name|IOException
@@ -220,7 +232,14 @@ name|TokenStream
 name|stream
 parameter_list|)
 block|{
+comment|// if stoptags is null, it means the file is empty
 return|return
+name|stopTags
+operator|==
+literal|null
+condition|?
+name|stream
+else|:
 operator|new
 name|JapanesePartOfSpeechStopFilter
 argument_list|(
