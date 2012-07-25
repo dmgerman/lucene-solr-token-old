@@ -307,6 +307,15 @@ name|org
 operator|.
 name|junit
 operator|.
+name|AfterClass
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|BeforeClass
 import|;
 end_import
@@ -1759,6 +1768,38 @@ literal|" fields"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|AfterClass
+DECL|method|afterClass
+specifier|public
+specifier|static
+name|void
+name|afterClass
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|allTerms
+operator|=
+literal|null
+expr_stmt|;
+name|fieldInfos
+operator|=
+literal|null
+expr_stmt|;
+name|fields
+operator|=
+literal|null
+expr_stmt|;
+name|fieldsLive
+operator|=
+literal|null
+expr_stmt|;
+name|globalLiveDocs
+operator|=
+literal|null
+expr_stmt|;
 block|}
 comment|// TODO maybe instead of @BeforeClass just make a single test run: build postings& index& test it?
 DECL|field|currentFieldInfos
@@ -3358,7 +3399,9 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"inital docID should be -1 or NO_MORE_DOCS"
+literal|"inital docID should be -1 or NO_MORE_DOCS: "
+operator|+
+name|docsEnum
 argument_list|,
 name|initialDocID
 operator|==

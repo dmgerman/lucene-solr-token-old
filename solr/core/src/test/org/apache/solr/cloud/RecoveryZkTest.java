@@ -301,6 +301,8 @@ literal|"shard1"
 argument_list|,
 literal|1
 argument_list|)
+operator|.
+name|jetty
 decl_stmt|;
 comment|// wait a moment - lets allow some docs to be indexed so replication time is non 0
 name|Thread
@@ -391,7 +393,7 @@ expr_stmt|;
 name|long
 name|client1Docs
 init|=
-name|shardToClient
+name|shardToJetty
 operator|.
 name|get
 argument_list|(
@@ -402,6 +404,10 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|client
+operator|.
+name|solrClient
 operator|.
 name|query
 argument_list|(
@@ -417,7 +423,7 @@ decl_stmt|;
 name|long
 name|client2Docs
 init|=
-name|shardToClient
+name|shardToJetty
 operator|.
 name|get
 argument_list|(
@@ -428,6 +434,10 @@ name|get
 argument_list|(
 literal|1
 argument_list|)
+operator|.
+name|client
+operator|.
+name|solrClient
 operator|.
 name|query
 argument_list|(
