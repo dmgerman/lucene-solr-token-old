@@ -103,7 +103,7 @@ name|void
 name|testLookupTokenizer
 parameter_list|()
 block|{
-name|assertEquals
+name|assertSame
 argument_list|(
 name|WhitespaceTokenizerFactory
 operator|.
@@ -120,7 +120,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|WhitespaceTokenizerFactory
 operator|.
@@ -137,7 +137,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|WhitespaceTokenizerFactory
 operator|.
@@ -210,7 +210,7 @@ name|void
 name|testLookupTokenizerClass
 parameter_list|()
 block|{
-name|assertEquals
+name|assertSame
 argument_list|(
 name|WhitespaceTokenizerFactory
 operator|.
@@ -224,7 +224,7 @@ literal|"Whitespace"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|WhitespaceTokenizerFactory
 operator|.
@@ -238,7 +238,7 @@ literal|"WHITESPACE"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|WhitespaceTokenizerFactory
 operator|.
@@ -328,7 +328,7 @@ name|void
 name|testLookupTokenFilter
 parameter_list|()
 block|{
-name|assertEquals
+name|assertSame
 argument_list|(
 name|LowerCaseFilterFactory
 operator|.
@@ -345,7 +345,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|LowerCaseFilterFactory
 operator|.
@@ -362,7 +362,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|LowerCaseFilterFactory
 operator|.
@@ -379,7 +379,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|RemoveDuplicatesTokenFilterFactory
 operator|.
@@ -396,7 +396,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|RemoveDuplicatesTokenFilterFactory
 operator|.
@@ -413,7 +413,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|RemoveDuplicatesTokenFilterFactory
 operator|.
@@ -486,7 +486,7 @@ name|void
 name|testLookupTokenFilterClass
 parameter_list|()
 block|{
-name|assertEquals
+name|assertSame
 argument_list|(
 name|LowerCaseFilterFactory
 operator|.
@@ -500,7 +500,7 @@ literal|"Lowercase"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|LowerCaseFilterFactory
 operator|.
@@ -514,7 +514,7 @@ literal|"LOWERCASE"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|LowerCaseFilterFactory
 operator|.
@@ -528,7 +528,7 @@ literal|"lowercase"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|RemoveDuplicatesTokenFilterFactory
 operator|.
@@ -542,7 +542,7 @@ literal|"RemoveDuplicates"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|RemoveDuplicatesTokenFilterFactory
 operator|.
@@ -556,7 +556,7 @@ literal|"REMOVEDUPLICATES"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|RemoveDuplicatesTokenFilterFactory
 operator|.
@@ -659,7 +659,7 @@ name|void
 name|testLookupCharFilter
 parameter_list|()
 block|{
-name|assertEquals
+name|assertSame
 argument_list|(
 name|HTMLStripCharFilterFactory
 operator|.
@@ -676,7 +676,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|HTMLStripCharFilterFactory
 operator|.
@@ -693,7 +693,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|HTMLStripCharFilterFactory
 operator|.
@@ -766,7 +766,7 @@ name|void
 name|testLookupCharFilterClass
 parameter_list|()
 block|{
-name|assertEquals
+name|assertSame
 argument_list|(
 name|HTMLStripCharFilterFactory
 operator|.
@@ -780,7 +780,7 @@ literal|"HTMLStrip"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|HTMLStripCharFilterFactory
 operator|.
@@ -794,7 +794,7 @@ literal|"HTMLSTRIP"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertSame
 argument_list|(
 name|HTMLStripCharFilterFactory
 operator|.
