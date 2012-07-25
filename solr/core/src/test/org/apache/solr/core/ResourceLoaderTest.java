@@ -42,9 +42,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|solr
+name|lucene
 operator|.
 name|analysis
+operator|.
+name|core
 operator|.
 name|KeywordTokenizerFactory
 import|;
@@ -55,9 +57,11 @@ name|org
 operator|.
 name|apache
 operator|.
-name|solr
+name|lucene
 operator|.
 name|analysis
+operator|.
+name|ngram
 operator|.
 name|NGramFilterFactory
 import|;
