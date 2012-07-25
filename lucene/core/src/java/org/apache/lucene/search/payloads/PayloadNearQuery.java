@@ -1082,6 +1082,20 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|String
+name|field
+init|=
+operator|(
+operator|(
+name|SpanQuery
+operator|)
+name|getQuery
+argument_list|()
+operator|)
+operator|.
+name|getField
+argument_list|()
+decl_stmt|;
 comment|// now the payloads part
 name|Explanation
 name|payloadExpl
@@ -1091,6 +1105,8 @@ operator|.
 name|explain
 argument_list|(
 name|doc
+argument_list|,
+name|field
 argument_list|,
 name|scorer
 operator|.
