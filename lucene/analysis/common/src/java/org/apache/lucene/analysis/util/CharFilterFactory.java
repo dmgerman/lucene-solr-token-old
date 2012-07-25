@@ -175,7 +175,7 @@ block|}
 DECL|method|create
 specifier|public
 specifier|abstract
-name|CharFilter
+name|Reader
 name|create
 parameter_list|(
 name|Reader
