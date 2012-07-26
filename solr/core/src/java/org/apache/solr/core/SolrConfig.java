@@ -2389,15 +2389,13 @@ name|result
 operator|==
 literal|null
 condition|?
-operator|(
-name|List
-argument_list|<
-name|PluginInfo
-argument_list|>
-operator|)
 name|Collections
 operator|.
-name|EMPTY_LIST
+expr|<
+name|PluginInfo
+operator|>
+name|emptyList
+argument_list|()
 else|:
 name|result
 return|;
@@ -2486,6 +2484,8 @@ argument_list|(
 literal|"Adding specified lib dirs to ClassLoader"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 for|for
 control|(
 name|int
@@ -2613,6 +2613,16 @@ literal|"lib: missing mandatory attributes: 'dir' or 'path'"
 argument_list|)
 throw|;
 block|}
+block|}
+block|}
+finally|finally
+block|{
+name|getResourceLoader
+argument_list|()
+operator|.
+name|reloadLuceneSPI
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}
