@@ -1530,7 +1530,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Error opening "
 operator|+
@@ -1549,7 +1549,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Can't find resource '"
 operator|+
