@@ -120,6 +120,8 @@ parameter_list|(
 name|ResourceLoader
 name|loader
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|String
 name|stopTagFiles
@@ -144,8 +146,6 @@ name|stopTags
 operator|=
 literal|null
 expr_stmt|;
-try|try
-block|{
 name|CharArraySet
 name|cas
 init|=
@@ -204,23 +204,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|InitializationException
-argument_list|(
-literal|"IOException thrown while loading tags"
-argument_list|,
-name|e
-argument_list|)
-throw|;
 block|}
 block|}
 DECL|method|create

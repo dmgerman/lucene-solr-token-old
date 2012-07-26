@@ -170,6 +170,8 @@ parameter_list|(
 name|ResourceLoader
 name|loader
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|String
 name|commonWordFiles
@@ -196,8 +198,6 @@ name|commonWordFiles
 operator|!=
 literal|null
 condition|)
-block|{
-try|try
 block|{
 if|if
 condition|(
@@ -239,23 +239,6 @@ argument_list|,
 name|ignoreCase
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|InitializationException
-argument_list|(
-literal|"IOException thrown while loading common word file"
-argument_list|,
-name|e
-argument_list|)
-throw|;
 block|}
 block|}
 else|else

@@ -153,6 +153,7 @@ specifier|private
 name|String
 name|mapping
 decl_stmt|;
+comment|// TODO: this should use inputstreams from the loader, not File!
 DECL|method|inform
 specifier|public
 name|void
@@ -161,6 +162,8 @@ parameter_list|(
 name|ResourceLoader
 name|loader
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|mapping
 operator|=
@@ -186,8 +189,6 @@ name|wlist
 init|=
 literal|null
 decl_stmt|;
-try|try
-block|{
 name|File
 name|mappingFile
 init|=
@@ -269,23 +270,6 @@ name|lines
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|InitializationException
-argument_list|(
-literal|"IOException thrown while loading mappings"
-argument_list|,
-name|e
-argument_list|)
-throw|;
 block|}
 specifier|final
 name|NormalizeCharMap
@@ -416,7 +400,7 @@ argument_list|()
 condition|)
 throw|throw
 operator|new
-name|InitializationException
+name|IllegalArgumentException
 argument_list|(
 literal|"Invalid Mapping Rule : ["
 operator|+
@@ -525,7 +509,7 @@ name|len
 condition|)
 throw|throw
 operator|new
-name|InitializationException
+name|IllegalArgumentException
 argument_list|(
 literal|"Invalid escaped char in ["
 operator|+
@@ -618,7 +602,7 @@ name|len
 condition|)
 throw|throw
 operator|new
-name|InitializationException
+name|IllegalArgumentException
 argument_list|(
 literal|"Invalid escaped char in ["
 operator|+

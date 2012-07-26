@@ -107,25 +107,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|FileNotFoundException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|MalformedURLException
 import|;
 end_import
 begin_import
@@ -299,7 +281,7 @@ operator|=
 name|consumer
 expr_stmt|;
 block|}
-comment|/**    * Parses a hyphenation pattern file.    *     * @param filename the filename    * @throws HyphenationException In case of an exception while parsing    */
+comment|/**    * Parses a hyphenation pattern file.    *     * @param filename the filename    * @throws IOException In case of an exception while parsing    */
 DECL|method|parse
 specifier|public
 name|void
@@ -309,7 +291,7 @@ name|String
 name|filename
 parameter_list|)
 throws|throws
-name|HyphenationException
+name|IOException
 block|{
 name|parse
 argument_list|(
@@ -321,7 +303,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Parses a hyphenation pattern file.    *     * @param file the pattern file    * @throws HyphenationException In case of an exception while parsing    */
+comment|/**    * Parses a hyphenation pattern file.    *     * @param file the pattern file    * @throws IOException In case of an exception while parsing    */
 DECL|method|parse
 specifier|public
 name|void
@@ -331,9 +313,7 @@ name|File
 name|file
 parameter_list|)
 throws|throws
-name|HyphenationException
-block|{
-try|try
+name|IOException
 block|{
 name|InputSource
 name|src
@@ -356,31 +336,7 @@ name|src
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|MalformedURLException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|HyphenationException
-argument_list|(
-literal|"Error converting the File '"
-operator|+
-name|file
-operator|+
-literal|"' to a URL: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-throw|;
-block|}
-block|}
-comment|/**    * Parses a hyphenation pattern file.    *     * @param source the InputSource for the file    * @throws HyphenationException In case of an exception while parsing    */
+comment|/**    * Parses a hyphenation pattern file.    *     * @param source the InputSource for the file    * @throws IOException In case of an exception while parsing    */
 DECL|method|parse
 specifier|public
 name|void
@@ -390,7 +346,7 @@ name|InputSource
 name|source
 parameter_list|)
 throws|throws
-name|HyphenationException
+name|IOException
 block|{
 try|try
 block|{
@@ -404,51 +360,15 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|FileNotFoundException
-name|fnfe
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|HyphenationException
-argument_list|(
-literal|"File not found: "
-operator|+
-name|fnfe
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ioe
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|HyphenationException
-argument_list|(
-name|ioe
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
 name|SAXException
 name|e
 parameter_list|)
 block|{
 throw|throw
 operator|new
-name|HyphenationException
+name|IOException
 argument_list|(
-name|errMsg
+name|e
 argument_list|)
 throw|;
 block|}

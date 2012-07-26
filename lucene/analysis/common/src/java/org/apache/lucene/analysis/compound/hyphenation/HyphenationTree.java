@@ -33,16 +33,16 @@ name|java
 operator|.
 name|io
 operator|.
-name|PrintStream
+name|IOException
 import|;
 end_import
 begin_import
 import|import
 name|java
 operator|.
-name|net
+name|io
 operator|.
-name|MalformedURLException
+name|PrintStream
 import|;
 end_import
 begin_import
@@ -460,7 +460,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**    * Read hyphenation patterns from an XML file.    *     * @param f the filename    * @throws HyphenationException In case the parsing fails    */
+comment|/**    * Read hyphenation patterns from an XML file.    *     * @param f the filename    * @throws IOException In case the parsing fails    */
 DECL|method|loadPatterns
 specifier|public
 name|void
@@ -470,9 +470,7 @@ name|File
 name|f
 parameter_list|)
 throws|throws
-name|HyphenationException
-block|{
-try|try
+name|IOException
 block|{
 name|InputSource
 name|src
@@ -495,31 +493,7 @@ name|src
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|MalformedURLException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|HyphenationException
-argument_list|(
-literal|"Error converting the File '"
-operator|+
-name|f
-operator|+
-literal|"' to a URL: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-throw|;
-block|}
-block|}
-comment|/**    * Read hyphenation patterns from an XML file.    *     * @param source the InputSource for the file    * @throws HyphenationException In case the parsing fails    */
+comment|/**    * Read hyphenation patterns from an XML file.    *     * @param source the InputSource for the file    * @throws IOException In case the parsing fails    */
 DECL|method|loadPatterns
 specifier|public
 name|void
@@ -529,7 +503,7 @@ name|InputSource
 name|source
 parameter_list|)
 throws|throws
-name|HyphenationException
+name|IOException
 block|{
 name|PatternParser
 name|pp

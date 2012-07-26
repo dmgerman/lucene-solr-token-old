@@ -27,6 +27,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -318,7 +327,7 @@ name|String
 name|hyphenationFilename
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 return|return
 name|getHyphenationTree
@@ -342,7 +351,7 @@ name|File
 name|hyphenationFile
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 return|return
 name|getHyphenationTree
@@ -372,7 +381,7 @@ name|InputSource
 name|hyphenationSource
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|HyphenationTree
 name|tree
