@@ -1359,6 +1359,8 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|openResource
@@ -1376,6 +1378,8 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|openResource
@@ -1393,6 +1397,8 @@ parameter_list|(
 name|String
 name|resource
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|InputStream
 name|is

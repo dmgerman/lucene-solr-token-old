@@ -519,6 +519,8 @@ parameter_list|,
 name|SolrIndexSearcher
 name|searcher
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 for|for
 control|(
