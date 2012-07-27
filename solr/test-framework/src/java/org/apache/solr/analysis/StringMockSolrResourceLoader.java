@@ -115,10 +115,6 @@ argument_list|<
 name|T
 argument_list|>
 name|expectedType
-parameter_list|,
-name|String
-modifier|...
-name|subpackages
 parameter_list|)
 block|{
 return|return

@@ -3519,7 +3519,7 @@ specifier|static
 name|SimilarityFactory
 name|readSimilarity
 parameter_list|(
-name|ResourceLoader
+name|SolrResourceLoader
 name|loader
 parameter_list|,
 name|Node

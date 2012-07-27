@@ -56,6 +56,7 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**    * Creates a class of the name and expected type    */
+comment|// TODO: fix exception handling
 DECL|method|newInstance
 specifier|public
 parameter_list|<
@@ -72,10 +73,6 @@ argument_list|<
 name|T
 argument_list|>
 name|expectedType
-parameter_list|,
-name|String
-modifier|...
-name|subpackages
 parameter_list|)
 function_decl|;
 block|}
