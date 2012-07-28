@@ -78,6 +78,19 @@ name|lucene
 operator|.
 name|document
 operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
 name|TextField
 import|;
 end_import
@@ -499,7 +512,7 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|indexSearcher
@@ -675,7 +688,7 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
-name|Document
+name|StoredDocument
 name|d1
 init|=
 name|indexSearcher

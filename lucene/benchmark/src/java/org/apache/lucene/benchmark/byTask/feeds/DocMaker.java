@@ -1115,6 +1115,13 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|ft
+operator|.
+name|setStored
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|Field
 name|idField
 init|=

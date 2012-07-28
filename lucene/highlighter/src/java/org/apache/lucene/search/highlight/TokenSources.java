@@ -160,6 +160,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|DocsAndPositionsEnum
@@ -252,7 +265,7 @@ specifier|public
 class|class
 name|TokenSources
 block|{
-comment|/**    * A convenience method that tries to first get a TermPositionVector for the    * specified docId, then, falls back to using the passed in    * {@link org.apache.lucene.document.Document} to retrieve the TokenStream.    * This is useful when you already have the document, but would prefer to use    * the vector first.    *     * @param reader The {@link org.apache.lucene.index.IndexReader} to use to try    *        and get the vector from    * @param docId The docId to retrieve.    * @param field The field to retrieve on the document    * @param doc The document to fall back on    * @param analyzer The analyzer to use for creating the TokenStream if the    *        vector doesn't exist    * @return The {@link org.apache.lucene.analysis.TokenStream} for the    *         {@link org.apache.lucene.index.IndexableField} on the    *         {@link org.apache.lucene.document.Document}    * @throws IOException if there was an error loading    */
+comment|/**    * A convenience method that tries to first get a TermPositionVector for the    * specified docId, then, falls back to using the passed in    * {@link org.apache.lucene.document.Document} to retrieve the TokenStream.    * This is useful when you already have the document, but would prefer to use    * the vector first.    *     * @param reader The {@link org.apache.lucene.index.IndexReader} to use to try    *        and get the vector from    * @param docId The docId to retrieve.    * @param field The field to retrieve on the document    * @param document The document to fall back on    * @param analyzer The analyzer to use for creating the TokenStream if the    *        vector doesn't exist    * @return The {@link org.apache.lucene.analysis.TokenStream} for the    *         {@link org.apache.lucene.index.IndexableField} on the    *         {@link org.apache.lucene.document.Document}    * @throws IOException if there was an error loading    */
 DECL|method|getAnyTokenStream
 specifier|public
 specifier|static
@@ -268,8 +281,8 @@ parameter_list|,
 name|String
 name|field
 parameter_list|,
-name|Document
-name|doc
+name|StoredDocument
+name|document
 parameter_list|,
 name|Analyzer
 name|analyzer
@@ -337,7 +350,7 @@ name|ts
 operator|=
 name|getTokenStream
 argument_list|(
-name|doc
+name|document
 argument_list|,
 name|field
 argument_list|,
@@ -1209,7 +1222,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Document
+name|StoredDocument
 name|doc
 init|=
 name|reader
@@ -1236,7 +1249,7 @@ specifier|static
 name|TokenStream
 name|getTokenStream
 parameter_list|(
-name|Document
+name|StoredDocument
 name|doc
 parameter_list|,
 name|String

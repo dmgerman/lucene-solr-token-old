@@ -235,6 +235,19 @@ name|lucene
 operator|.
 name|document
 operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
 name|StoredField
 import|;
 end_import
@@ -705,7 +718,7 @@ name|i
 operator|++
 control|)
 block|{
-name|Document
+name|StoredDocument
 name|doc
 init|=
 name|searcher
@@ -10793,7 +10806,7 @@ name|i
 operator|++
 control|)
 block|{
-name|Document
+name|StoredDocument
 name|doc
 init|=
 name|searcher

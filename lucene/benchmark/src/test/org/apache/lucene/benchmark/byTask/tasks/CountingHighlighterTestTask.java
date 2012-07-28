@@ -168,6 +168,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|IndexReader
@@ -227,7 +240,7 @@ annotation|@
 name|Override
 DECL|method|retrieveDoc
 specifier|protected
-name|Document
+name|StoredDocument
 name|retrieveDoc
 parameter_list|(
 name|IndexReader
@@ -239,7 +252,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Document
+name|StoredDocument
 name|document
 init|=
 name|ir
@@ -311,7 +324,7 @@ parameter_list|,
 name|String
 name|field
 parameter_list|,
-name|Document
+name|StoredDocument
 name|document
 parameter_list|,
 name|Analyzer

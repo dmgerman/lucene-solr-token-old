@@ -131,6 +131,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|IndexWriter
@@ -3420,7 +3433,7 @@ operator|)
 operator|.
 name|docs
 decl_stmt|;
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|req
@@ -3641,7 +3654,7 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|req

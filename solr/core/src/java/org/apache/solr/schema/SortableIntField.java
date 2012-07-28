@@ -196,6 +196,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|GeneralField
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexableField
 import|;
 end_import
@@ -340,7 +353,7 @@ specifier|public
 name|String
 name|toExternal
 parameter_list|(
-name|IndexableField
+name|GeneralField
 name|f
 parameter_list|)
 block|{
@@ -436,7 +449,7 @@ specifier|public
 name|Integer
 name|toObject
 parameter_list|(
-name|IndexableField
+name|GeneralField
 name|f
 parameter_list|)
 block|{
@@ -469,7 +482,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|IndexableField
+name|GeneralField
 name|f
 parameter_list|)
 throws|throws

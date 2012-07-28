@@ -379,7 +379,7 @@ argument_list|()
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|StorableField
+name|Field
 argument_list|>
 name|it
 init|=
@@ -470,7 +470,7 @@ parameter_list|)
 block|{
 name|Iterator
 argument_list|<
-name|StorableField
+name|Field
 argument_list|>
 name|it
 init|=
@@ -728,7 +728,7 @@ argument_list|()
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|StorableField
+name|Field
 argument_list|>
 name|it
 init|=
@@ -826,7 +826,7 @@ parameter_list|)
 block|{
 name|Iterator
 argument_list|<
-name|StorableField
+name|Field
 argument_list|>
 name|it
 init|=
@@ -991,7 +991,7 @@ parameter_list|()
 block|{
 name|Iterator
 argument_list|<
-name|IndexableField
+name|Field
 argument_list|>
 name|it
 init|=
@@ -1049,7 +1049,7 @@ parameter_list|()
 block|{
 name|Iterator
 argument_list|<
-name|StorableField
+name|Field
 argument_list|>
 name|it
 init|=
@@ -1096,7 +1096,7 @@ DECL|method|storedFieldsIterator
 specifier|public
 name|Iterator
 argument_list|<
-name|StorableField
+name|Field
 argument_list|>
 name|storedFieldsIterator
 parameter_list|()
@@ -1105,8 +1105,6 @@ return|return
 operator|new
 name|FilterIterator
 argument_list|<
-name|StorableField
-argument_list|,
 name|Field
 argument_list|>
 argument_list|(
@@ -1142,7 +1140,7 @@ DECL|method|indexedFieldsIterator
 specifier|public
 name|Iterator
 argument_list|<
-name|IndexableField
+name|Field
 argument_list|>
 name|indexedFieldsIterator
 parameter_list|()
@@ -1151,8 +1149,6 @@ return|return
 operator|new
 name|FilterIterator
 argument_list|<
-name|IndexableField
-argument_list|,
 name|Field
 argument_list|>
 argument_list|(

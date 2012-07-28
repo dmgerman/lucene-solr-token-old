@@ -40,10 +40,6 @@ class|class
 name|FilterIterator
 parameter_list|<
 name|T
-parameter_list|,
-name|U
-extends|extends
-name|T
 parameter_list|>
 implements|implements
 name|Iterator
@@ -55,7 +51,7 @@ DECL|field|iterator
 specifier|private
 name|Iterator
 argument_list|<
-name|U
+name|T
 argument_list|>
 name|iterator
 decl_stmt|;
@@ -79,7 +75,7 @@ specifier|abstract
 name|boolean
 name|predicateFunction
 parameter_list|(
-name|U
+name|T
 name|field
 parameter_list|)
 function_decl|;
@@ -89,7 +85,7 @@ name|FilterIterator
 parameter_list|(
 name|Iterator
 argument_list|<
-name|U
+name|T
 argument_list|>
 name|baseIterator
 parameter_list|)
@@ -184,7 +180,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|U
+name|T
 name|object
 init|=
 name|iterator

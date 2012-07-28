@@ -54,6 +54,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|FieldDoc
@@ -1451,7 +1464,7 @@ argument_list|(
 name|document
 argument_list|)
 expr_stmt|;
-name|Document
+name|StoredDocument
 name|doc
 init|=
 name|retrieveDocument
@@ -1974,7 +1987,7 @@ argument_list|(
 name|document
 argument_list|)
 expr_stmt|;
-name|Document
+name|StoredDocument
 name|doc
 init|=
 name|retrieveDocument
@@ -2275,7 +2288,7 @@ return|;
 block|}
 DECL|method|retrieveDocument
 specifier|private
-name|Document
+name|StoredDocument
 name|retrieveDocument
 parameter_list|(
 specifier|final

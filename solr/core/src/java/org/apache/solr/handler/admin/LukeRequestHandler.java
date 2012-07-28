@@ -144,6 +144,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|*
@@ -926,7 +939,7 @@ literal|"missing doc param for doc style"
 argument_list|)
 throw|;
 block|}
-name|Document
+name|StoredDocument
 name|doc
 init|=
 literal|null
@@ -1137,7 +1150,7 @@ specifier|static
 name|String
 name|getFieldFlags
 parameter_list|(
-name|IndexableField
+name|StorableField
 name|f
 parameter_list|)
 block|{
@@ -1994,7 +2007,7 @@ name|Object
 argument_list|>
 name|getDocumentFieldsInfo
 parameter_list|(
-name|Document
+name|StoredDocument
 name|doc
 parameter_list|,
 name|int
@@ -2774,7 +2787,7 @@ condition|)
 block|{
 comment|// In the pre-4.0 days, this did a veeeery expensive range query. But we can be much faster now,
 comment|// so just do this all the time.
-name|Document
+name|StoredDocument
 name|doc
 init|=
 name|getFirstLiveDoc
@@ -2796,7 +2809,7 @@ block|{
 comment|// Found a document with this field
 try|try
 block|{
-name|IndexableField
+name|StorableField
 name|fld
 init|=
 name|doc
@@ -2924,7 +2937,7 @@ comment|// to do it this way.
 DECL|method|getFirstLiveDoc
 specifier|private
 specifier|static
-name|Document
+name|StoredDocument
 name|getFirstLiveDoc
 parameter_list|(
 name|AtomicReader
