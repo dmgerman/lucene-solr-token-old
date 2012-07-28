@@ -286,6 +286,9 @@ name|getTempDir
 argument_list|(
 literal|"fsResourceLoaderBase"
 argument_list|)
+operator|.
+name|getAbsoluteFile
+argument_list|()
 decl_stmt|;
 try|try
 block|{
