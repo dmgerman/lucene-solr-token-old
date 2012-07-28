@@ -2034,7 +2034,7 @@ name|CODEC_NAME
 argument_list|,
 name|VERSION_START
 argument_list|,
-name|VERSION_START
+name|VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -2171,7 +2171,7 @@ name|CODEC_NAME
 argument_list|,
 name|VERSION_START
 argument_list|,
-name|VERSION_START
+name|VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -2333,7 +2333,7 @@ name|CODEC_NAME
 argument_list|,
 name|VERSION_START
 argument_list|,
-name|VERSION_START
+name|VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 specifier|final

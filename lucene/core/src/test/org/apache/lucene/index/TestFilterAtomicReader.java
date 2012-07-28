@@ -120,7 +120,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|MockDirectoryWrapper
+name|BaseDirectoryWrapper
 import|;
 end_import
 begin_import
@@ -721,7 +721,7 @@ decl_stmt|;
 comment|// We mess with the postings so this can fail:
 operator|(
 operator|(
-name|MockDirectoryWrapper
+name|BaseDirectoryWrapper
 operator|)
 name|target
 operator|)

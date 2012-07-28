@@ -43,6 +43,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|PrintStream
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Iterator
@@ -940,12 +949,15 @@ return|return
 name|ret
 return|;
 block|}
-comment|/**    * Write the contents of this Row to stdout.    */
+comment|/**    * Write the contents of this Row to the printstream.    */
 DECL|method|print
 specifier|public
 name|void
 name|print
-parameter_list|()
+parameter_list|(
+name|PrintStream
+name|out
+parameter_list|)
 block|{
 for|for
 control|(
@@ -986,8 +998,6 @@ argument_list|(
 name|ch
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
 name|out
 operator|.
 name|print
@@ -1004,8 +1014,6 @@ literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
 name|out
 operator|.
 name|println

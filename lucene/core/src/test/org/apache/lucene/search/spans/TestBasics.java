@@ -540,7 +540,6 @@ block|}
 block|}
 DECL|field|simplePayloadAnalyzer
 specifier|static
-specifier|final
 name|Analyzer
 name|simplePayloadAnalyzer
 init|=
@@ -752,6 +751,10 @@ operator|=
 literal|null
 expr_stmt|;
 name|directory
+operator|=
+literal|null
+expr_stmt|;
+name|simplePayloadAnalyzer
 operator|=
 literal|null
 expr_stmt|;

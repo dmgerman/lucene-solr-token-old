@@ -914,7 +914,7 @@ comment|// will then try to addIndexes into a copy of this:
 name|MockDirectoryWrapper
 name|startDir
 init|=
-name|newDirectory
+name|newMockDirectory
 argument_list|()
 decl_stmt|;
 name|IndexWriter
@@ -2427,7 +2427,7 @@ block|{
 name|MockDirectoryWrapper
 name|dir
 init|=
-name|newDirectory
+name|newMockDirectory
 argument_list|()
 decl_stmt|;
 comment|//IndexWriter w = new IndexWriter(dir, newIndexWriterConfig(TEST_VERSION_CURRENT, new MockAnalyzer(random)).setReaderPooling(true));
@@ -2632,7 +2632,7 @@ block|{
 name|MockDirectoryWrapper
 name|dir
 init|=
-name|newDirectory
+name|newMockDirectory
 argument_list|()
 decl_stmt|;
 name|IndexWriter

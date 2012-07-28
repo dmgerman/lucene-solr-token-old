@@ -444,7 +444,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|reset
+name|setReader
 parameter_list|(
 name|Reader
 name|input
@@ -458,7 +458,7 @@ literal|false
 expr_stmt|;
 name|super
 operator|.
-name|reset
+name|setReader
 argument_list|(
 name|input
 argument_list|)

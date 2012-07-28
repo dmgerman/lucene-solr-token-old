@@ -434,6 +434,19 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|util
+operator|.
+name|RefCounted
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|BeforeClass
@@ -585,8 +598,11 @@ operator|.
 name|getCore
 argument_list|()
 decl_stmt|;
+name|RefCounted
+argument_list|<
 name|IndexWriter
-name|writer
+argument_list|>
+name|iw
 init|=
 operator|(
 operator|(
@@ -606,6 +622,8 @@ argument_list|(
 name|core
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|assertEquals
 argument_list|(
 literal|"Mergefactor was not picked up"
@@ -616,7 +634,10 @@ operator|(
 operator|(
 name|LogMergePolicy
 operator|)
-name|writer
+name|iw
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getConfig
 argument_list|()
@@ -629,6 +650,15 @@ name|getMergeFactor
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|iw
+operator|.
+name|decref
+argument_list|()
+expr_stmt|;
+block|}
 comment|// test stats call
 name|NamedList
 name|stats

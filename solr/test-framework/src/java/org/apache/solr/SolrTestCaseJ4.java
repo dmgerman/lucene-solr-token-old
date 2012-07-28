@@ -368,7 +368,7 @@ specifier|static
 name|int
 name|DEFAULT_CONNECTION_TIMEOUT
 init|=
-literal|500
+literal|1000
 decl_stmt|;
 comment|// default socket connection timeout in ms
 annotation|@
@@ -459,9 +459,6 @@ name|endTrackingSearchers
 argument_list|()
 expr_stmt|;
 name|endTrackingZkClients
-argument_list|()
-expr_stmt|;
-name|resetFactory
 argument_list|()
 expr_stmt|;
 name|resetFactory

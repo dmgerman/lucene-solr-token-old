@@ -594,7 +594,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockDirectoryWrapper
+name|Directory
 name|dir
 init|=
 name|newDirectory
@@ -1153,7 +1153,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MockDirectoryWrapper
+name|Directory
 name|dir
 init|=
 name|newDirectory

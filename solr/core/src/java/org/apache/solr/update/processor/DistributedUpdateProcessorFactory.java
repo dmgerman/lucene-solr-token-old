@@ -57,6 +57,9 @@ operator|.
 name|SolrQueryResponse
 import|;
 end_import
+begin_comment
+comment|/**  * Factory for {@link DistributedUpdateProcessor}.  *  * @see DistributedUpdateProcessor  */
+end_comment
 begin_class
 DECL|class|DistributedUpdateProcessorFactory
 specifier|public

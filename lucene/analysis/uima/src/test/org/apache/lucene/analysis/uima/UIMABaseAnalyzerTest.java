@@ -202,19 +202,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|After
@@ -391,9 +378,7 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_40
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|analyzer
 argument_list|)
@@ -500,7 +485,7 @@ operator|new
 name|MatchAllDocsQuery
 argument_list|()
 argument_list|,
-literal|10
+literal|1
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -685,7 +670,7 @@ operator|new
 name|MatchAllDocsQuery
 argument_list|()
 argument_list|,
-literal|10
+literal|2
 argument_list|)
 expr_stmt|;
 name|StoredDocument
@@ -779,7 +764,7 @@ operator|new
 name|MatchAllDocsQuery
 argument_list|()
 argument_list|,
-literal|10
+literal|2
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -833,7 +818,7 @@ argument_list|,
 literal|"org.apache.lucene.uima.ts.TokenAnnotation"
 argument_list|)
 argument_list|,
-literal|1000
+literal|100
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|)

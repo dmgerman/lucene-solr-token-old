@@ -8998,7 +8998,10 @@ DECL|method|printSeekState
 specifier|private
 name|void
 name|printSeekState
-parameter_list|()
+parameter_list|(
+name|PrintStream
+name|out
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -9009,8 +9012,6 @@ operator|==
 name|staticFrame
 condition|)
 block|{
-name|System
-operator|.
 name|out
 operator|.
 name|println
@@ -9021,8 +9022,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
 name|out
 operator|.
 name|println
@@ -9086,8 +9085,6 @@ operator|-
 literal|1
 condition|)
 block|{
-name|System
-operator|.
 name|out
 operator|.
 name|println
@@ -9234,8 +9231,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
 name|out
 operator|.
 name|println
@@ -9451,8 +9446,6 @@ literal|0xFF
 operator|)
 condition|)
 block|{
-name|System
-operator|.
 name|out
 operator|.
 name|println
@@ -9516,8 +9509,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|System
-operator|.
 name|out
 operator|.
 name|println
@@ -9618,8 +9609,6 @@ operator|!=
 name|code
 condition|)
 block|{
-name|System
-operator|.
 name|out
 operator|.
 name|println

@@ -990,7 +990,7 @@ name|parser
 operator|=
 name|parser
 expr_stmt|;
-name|reset
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
@@ -1109,10 +1109,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|reset
+DECL|method|setReader
 specifier|public
 name|void
-name|reset
+name|setReader
 parameter_list|(
 name|Reader
 name|input
@@ -1122,7 +1122,7 @@ name|IOException
 block|{
 name|super
 operator|.
-name|reset
+name|setReader
 argument_list|(
 name|input
 argument_list|)

@@ -436,7 +436,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|dir
 specifier|protected
-name|Directory
+name|MockDirectoryWrapper
 name|dir
 decl_stmt|;
 DECL|field|writer
@@ -2737,17 +2737,13 @@ argument_list|)
 decl_stmt|;
 name|dir
 operator|=
-name|newFSDirectory
+name|newMockFSDirectory
 argument_list|(
 name|tempDir
 argument_list|)
 expr_stmt|;
-operator|(
-operator|(
-name|MockDirectoryWrapper
-operator|)
+comment|// some subclasses rely on this being MDW
 name|dir
-operator|)
 operator|.
 name|setCheckIndexOnClose
 argument_list|(
