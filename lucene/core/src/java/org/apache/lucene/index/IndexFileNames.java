@@ -16,6 +16,17 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -580,6 +591,21 @@ return|return
 name|filename
 return|;
 block|}
+comment|// All files created by codecs much match this pattern (we
+comment|// check this in SegmentInfo.java):
+DECL|field|CODEC_FILE_PATTERN
+specifier|static
+specifier|final
+name|Pattern
+name|CODEC_FILE_PATTERN
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|"_[a-z0-9]+(_.*)?\\..*"
+argument_list|)
+decl_stmt|;
 block|}
 end_class
 end_unit
