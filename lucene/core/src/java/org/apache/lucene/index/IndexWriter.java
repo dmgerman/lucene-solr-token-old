@@ -9791,7 +9791,7 @@ name|message
 argument_list|(
 literal|"IW"
 argument_list|,
-literal|"after commit: "
+literal|"after commitMerge: "
 operator|+
 name|segString
 argument_list|()
