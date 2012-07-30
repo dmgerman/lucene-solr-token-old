@@ -2744,8 +2744,6 @@ argument_list|(
 literal|null
 argument_list|,
 name|dpEnum
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 if|if
@@ -3039,8 +3037,6 @@ argument_list|(
 literal|null
 argument_list|,
 name|dpEnum
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 if|if
@@ -4184,8 +4180,6 @@ argument_list|(
 literal|null
 argument_list|,
 name|dpEnum1
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|dpEnum2
@@ -4197,8 +4191,6 @@ argument_list|(
 literal|null
 argument_list|,
 name|dpEnum2
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 if|if
