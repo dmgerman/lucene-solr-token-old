@@ -1045,10 +1045,6 @@ argument_list|,
 literal|"MockSep"
 argument_list|,
 literal|"MockRandom"
-argument_list|,
-literal|"For"
-argument_list|,
-literal|"PFor"
 argument_list|)
 argument_list|)
 decl_stmt|;
