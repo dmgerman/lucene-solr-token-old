@@ -323,6 +323,12 @@ operator|new
 name|Resources
 argument_list|()
 decl_stmt|;
+comment|/**    * Directory containing licenses    */
+DECL|field|licenseDirectory
+specifier|private
+name|File
+name|licenseDirectory
+decl_stmt|;
 comment|/**    * License file mapper.    */
 DECL|field|licenseMapper
 specifier|private
@@ -420,6 +426,20 @@ name|Project
 operator|.
 name|MSG_VERBOSE
 operator|)
+expr_stmt|;
+block|}
+DECL|method|setLicenseDirectory
+specifier|public
+name|void
+name|setLicenseDirectory
+parameter_list|(
+name|File
+name|file
+parameter_list|)
+block|{
+name|licenseDirectory
+operator|=
+name|file
 expr_stmt|;
 block|}
 comment|/**    * Execute the task.    */
@@ -701,10 +721,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|jarFile
-operator|.
-name|getParent
-argument_list|()
+name|licenseDirectory
 argument_list|,
 name|jarFile
 operator|.
@@ -1006,7 +1023,7 @@ name|mapFileName
 argument_list|(
 name|jarFile
 operator|.
-name|getPath
+name|getName
 argument_list|()
 argument_list|)
 control|)
@@ -1028,6 +1045,8 @@ init|=
 operator|new
 name|File
 argument_list|(
+name|licenseDirectory
+argument_list|,
 name|mappedPath
 operator|+
 name|licenseType
@@ -1124,7 +1143,7 @@ operator|.
 name|getKey
 argument_list|()
 operator|.
-name|getAbsolutePath
+name|getName
 argument_list|()
 decl_stmt|;
 name|String
@@ -1156,6 +1175,8 @@ init|=
 operator|new
 name|File
 argument_list|(
+name|licenseDirectory
+argument_list|,
 name|baseName
 operator|+
 name|license

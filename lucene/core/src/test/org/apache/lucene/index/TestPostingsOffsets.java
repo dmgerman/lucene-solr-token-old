@@ -621,8 +621,6 @@ name|BytesRef
 argument_list|(
 literal|"a"
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -739,8 +737,6 @@ name|BytesRef
 argument_list|(
 literal|"b"
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -827,8 +823,6 @@ name|BytesRef
 argument_list|(
 literal|"c"
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -1234,8 +1228,6 @@ name|BytesRef
 argument_list|(
 name|term
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|int
@@ -1454,8 +1446,6 @@ name|BytesRef
 argument_list|(
 literal|"hundred"
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|int
@@ -1642,7 +1632,7 @@ operator|+
 name|i
 argument_list|)
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -2348,8 +2338,6 @@ argument_list|(
 literal|null
 argument_list|,
 name|docs
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -2419,6 +2407,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// explicitly exclude offsets here
 name|docsAndPositions
 operator|=
 name|termsEnum
@@ -2429,7 +2418,9 @@ literal|null
 argument_list|,
 name|docsAndPositions
 argument_list|,
-literal|false
+name|DocsAndPositionsEnum
+operator|.
+name|FLAG_PAYLOADS
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -2538,8 +2529,6 @@ argument_list|(
 literal|null
 argument_list|,
 name|docsAndPositions
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|assertNotNull

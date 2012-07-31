@@ -20,6 +20,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -32,6 +41,8 @@ specifier|public
 specifier|abstract
 class|class
 name|MergeScheduler
+implements|implements
+name|Closeable
 block|{
 comment|/** Run the merges provided by {@link IndexWriter#getNextMerge()}. */
 DECL|method|merge

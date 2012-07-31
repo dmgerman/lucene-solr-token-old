@@ -1238,13 +1238,6 @@ argument_list|)
 operator|.
 name|around
 argument_list|(
-operator|new
-name|TestRuleIcuHack
-argument_list|()
-argument_list|)
-operator|.
-name|around
-argument_list|(
 name|classNameRule
 operator|=
 operator|new

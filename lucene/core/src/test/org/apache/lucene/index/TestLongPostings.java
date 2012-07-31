@@ -916,8 +916,6 @@ name|BytesRef
 argument_list|(
 name|term
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|int
@@ -1960,7 +1958,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 expr_stmt|;
 name|postings
@@ -1995,7 +1993,9 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 expr_stmt|;
 assert|assert

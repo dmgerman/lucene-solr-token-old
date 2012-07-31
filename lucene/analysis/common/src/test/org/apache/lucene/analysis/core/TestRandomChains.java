@@ -1800,7 +1800,6 @@ name|ctor
 return|;
 block|}
 DECL|method|getClassesForPackage
-specifier|private
 specifier|static
 name|void
 name|getClassesForPackage

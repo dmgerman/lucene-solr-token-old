@@ -29,6 +29,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -233,6 +242,8 @@ parameter_list|(
 name|String
 name|resource
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|InputStream
 name|is
@@ -301,7 +312,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Error opening "
 operator|+
@@ -332,7 +343,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Error opening "
 operator|+
@@ -351,7 +362,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IOException
 argument_list|(
 literal|"Can't find resource '"
 operator|+

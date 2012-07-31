@@ -3032,7 +3032,7 @@ name|text
 argument_list|()
 argument_list|)
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 expr_stmt|;
 if|if

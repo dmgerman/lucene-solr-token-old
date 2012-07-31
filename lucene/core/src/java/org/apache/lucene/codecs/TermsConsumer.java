@@ -58,6 +58,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DocsAndPositionsEnum
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|FieldInfo
 operator|.
 name|IndexOptions
@@ -353,7 +366,7 @@ literal|null
 argument_list|,
 name|docsEnumIn
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -519,8 +532,6 @@ argument_list|(
 literal|null
 argument_list|,
 name|docsAndFreqsEnumIn
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -684,7 +695,9 @@ literal|null
 argument_list|,
 name|postingsEnumIn
 argument_list|,
-literal|false
+name|DocsAndPositionsEnum
+operator|.
+name|FLAG_PAYLOADS
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -916,8 +929,6 @@ argument_list|(
 literal|null
 argument_list|,
 name|postingsEnumIn
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 assert|assert

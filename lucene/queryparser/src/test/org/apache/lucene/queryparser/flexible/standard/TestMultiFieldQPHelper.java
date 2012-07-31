@@ -1153,7 +1153,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"(+b:one) (+t:two)"
+literal|"b:one t:two"
 argument_list|,
 name|q
 operator|.
@@ -1191,7 +1191,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"b:one (+t:two)"
+literal|"b:one t:two"
 argument_list|,
 name|q
 operator|.
@@ -1229,7 +1229,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"(b:one +b:more) (+t:two)"
+literal|"(b:one +b:more) t:two"
 argument_list|,
 name|q
 operator|.
