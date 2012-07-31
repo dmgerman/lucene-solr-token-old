@@ -3381,6 +3381,12 @@ argument_list|,
 name|prevDocsEnum
 argument_list|,
 name|doCheckFreqs
+condition|?
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
+else|:
+literal|0
 argument_list|)
 expr_stmt|;
 name|docsEnum

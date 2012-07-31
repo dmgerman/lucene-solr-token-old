@@ -2243,7 +2243,7 @@ literal|null
 argument_list|,
 name|docs
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 expr_stmt|;
 while|while
@@ -2335,7 +2335,7 @@ name|liveDocs1
 argument_list|,
 name|termDocs1
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -2365,7 +2365,7 @@ name|liveDocs2
 argument_list|,
 name|termDocs2
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -2840,7 +2840,9 @@ literal|null
 argument_list|,
 name|dEnum
 argument_list|,
-literal|true
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -3133,7 +3135,9 @@ literal|null
 argument_list|,
 name|dEnum
 argument_list|,
-literal|true
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 expr_stmt|;
 name|assertNotNull
@@ -3393,7 +3397,9 @@ name|liveDocs1
 argument_list|,
 name|docs1
 argument_list|,
-literal|true
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 expr_stmt|;
 while|while
@@ -3558,7 +3564,9 @@ name|liveDocs2
 argument_list|,
 name|docs2
 argument_list|,
-literal|true
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 expr_stmt|;
 while|while
@@ -4447,7 +4455,9 @@ literal|null
 argument_list|,
 name|dEnum1
 argument_list|,
-literal|true
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 expr_stmt|;
 name|dEnum2
@@ -4465,7 +4475,9 @@ literal|null
 argument_list|,
 name|dEnum2
 argument_list|,
-literal|true
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 expr_stmt|;
 name|assertNotNull

@@ -1628,7 +1628,7 @@ operator|+
 name|i
 argument_list|)
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -2334,8 +2334,6 @@ argument_list|(
 literal|null
 argument_list|,
 name|docs
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|assertNotNull

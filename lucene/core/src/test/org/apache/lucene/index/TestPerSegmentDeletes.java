@@ -961,7 +961,7 @@ name|bits
 argument_list|,
 literal|null
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 decl_stmt|;
 return|return

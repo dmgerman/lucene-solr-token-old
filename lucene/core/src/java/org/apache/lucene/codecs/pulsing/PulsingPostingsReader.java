@@ -988,8 +988,8 @@ parameter_list|,
 name|DocsEnum
 name|reuse
 parameter_list|,
-name|boolean
-name|needsFreqs
+name|int
+name|flags
 parameter_list|)
 throws|throws
 name|IOException
@@ -1151,7 +1151,7 @@ argument_list|(
 name|reuse
 argument_list|)
 argument_list|,
-name|needsFreqs
+name|flags
 argument_list|)
 decl_stmt|;
 name|setOther
@@ -1183,7 +1183,7 @@ name|liveDocs
 argument_list|,
 name|reuse
 argument_list|,
-name|needsFreqs
+name|flags
 argument_list|)
 return|;
 block|}
@@ -1627,6 +1627,10 @@ name|accum
 operator|=
 literal|0
 expr_stmt|;
+name|freq
+operator|=
+literal|1
+expr_stmt|;
 name|payloadLength
 operator|=
 literal|0
@@ -1945,13 +1949,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-assert|assert
-name|indexOptions
-operator|!=
-name|IndexOptions
-operator|.
-name|DOCS_ONLY
-assert|;
 return|return
 name|freq
 return|;

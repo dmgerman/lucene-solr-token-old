@@ -776,7 +776,7 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 decl_stmt|;
 name|TermsEnum
@@ -827,7 +827,7 @@ argument_list|)
 argument_list|,
 name|td
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 expr_stmt|;
 name|int
@@ -2661,7 +2661,7 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 decl_stmt|;
 name|int

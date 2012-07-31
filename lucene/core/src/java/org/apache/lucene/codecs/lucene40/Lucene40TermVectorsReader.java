@@ -2288,8 +2288,8 @@ parameter_list|,
 name|DocsEnum
 name|reuse
 parameter_list|,
-name|boolean
-name|needsFreqs
+name|int
+name|flags
 comment|/* ignored */
 parameter_list|)
 throws|throws
