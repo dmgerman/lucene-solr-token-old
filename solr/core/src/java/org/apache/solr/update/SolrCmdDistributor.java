@@ -1269,9 +1269,7 @@ argument_list|()
 operator|<
 name|limit
 condition|)
-return|return
-literal|false
-return|;
+continue|continue;
 name|UpdateRequestExt
 name|ureq
 init|=
