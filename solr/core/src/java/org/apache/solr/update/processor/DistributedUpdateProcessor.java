@@ -1103,7 +1103,6 @@ operator|.
 name|isZooKeeperAware
 argument_list|()
 expr_stmt|;
-comment|//this.rsp = reqInfo != null ? reqInfo.getRsp() : null;
 name|zkController
 operator|=
 name|req
@@ -1120,6 +1119,29 @@ operator|.
 name|getZkController
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|zkEnabled
+condition|)
+block|{
+name|numNodes
+operator|=
+name|zkController
+operator|.
+name|getZkStateReader
+argument_list|()
+operator|.
+name|getCloudState
+argument_list|()
+operator|.
+name|getLiveNodes
+argument_list|()
+operator|.
+name|size
+argument_list|()
+expr_stmt|;
+block|}
+comment|//this.rsp = reqInfo != null ? reqInfo.getRsp() : null;
 name|cloudDesc
 operator|=
 name|coreDesc
