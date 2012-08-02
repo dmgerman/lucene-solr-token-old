@@ -5135,6 +5135,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO: move this test to its own class and just @SuppressCodecs?
+comment|// TODO: is it enough to just use newFSDirectory?
 specifier|final
 name|String
 name|fieldFormat
@@ -5167,6 +5169,18 @@ operator|.
 name|equals
 argument_list|(
 literal|"SimpleText"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assumeFalse
+argument_list|(
+literal|"This test cannot run with Direct codec"
+argument_list|,
+name|fieldFormat
+operator|.
+name|equals
+argument_list|(
+literal|"Direct"
 argument_list|)
 argument_list|)
 expr_stmt|;
