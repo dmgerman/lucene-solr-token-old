@@ -502,10 +502,10 @@ specifier|private
 name|int
 name|lastBlockPosBufferUpto
 decl_stmt|;
-DECL|field|lastBlockEndOffset
+DECL|field|lastBlockStartOffset
 specifier|private
 name|int
-name|lastBlockEndOffset
+name|lastBlockStartOffset
 decl_stmt|;
 DECL|field|lastBlockPayloadByteUpto
 specifier|private
@@ -522,10 +522,10 @@ specifier|private
 name|int
 name|lastPosition
 decl_stmt|;
-DECL|field|lastEndOffset
+DECL|field|lastStartOffset
 specifier|private
 name|int
-name|lastEndOffset
+name|lastStartOffset
 decl_stmt|;
 DECL|field|docCount
 specifier|private
@@ -1344,9 +1344,9 @@ name|lastBlockPosBufferUpto
 operator|=
 name|posBufferUpto
 expr_stmt|;
-name|lastBlockEndOffset
+name|lastBlockStartOffset
 operator|=
-name|lastEndOffset
+name|lastStartOffset
 expr_stmt|;
 name|lastBlockPayloadByteUpto
 operator|=
@@ -1543,7 +1543,7 @@ name|lastBlockPayFP
 argument_list|,
 name|lastBlockPosBufferUpto
 argument_list|,
-name|lastBlockEndOffset
+name|lastBlockStartOffset
 argument_list|,
 name|lastBlockPayloadByteUpto
 argument_list|)
@@ -1626,7 +1626,7 @@ name|lastPosition
 operator|=
 literal|0
 expr_stmt|;
-name|lastEndOffset
+name|lastStartOffset
 operator|=
 literal|0
 expr_stmt|;
@@ -1798,7 +1798,7 @@ block|{
 assert|assert
 name|startOffset
 operator|>=
-name|lastEndOffset
+name|lastStartOffset
 assert|;
 assert|assert
 name|endOffset
@@ -1812,7 +1812,7 @@ index|]
 operator|=
 name|startOffset
 operator|-
-name|lastEndOffset
+name|lastStartOffset
 expr_stmt|;
 name|offsetLengthBuffer
 index|[
@@ -1823,9 +1823,9 @@ name|endOffset
 operator|-
 name|startOffset
 expr_stmt|;
-name|lastEndOffset
+name|lastStartOffset
 operator|=
-name|endOffset
+name|startOffset
 expr_stmt|;
 block|}
 name|posBufferUpto
@@ -2158,7 +2158,7 @@ name|lastBlockPayFP
 argument_list|,
 name|lastBlockPosBufferUpto
 argument_list|,
-name|lastBlockEndOffset
+name|lastBlockStartOffset
 argument_list|,
 name|lastBlockPayloadByteUpto
 argument_list|)
