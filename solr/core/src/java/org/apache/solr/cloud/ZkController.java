@@ -2530,10 +2530,7 @@ name|getLeaderUrl
 argument_list|(
 name|collection
 argument_list|,
-name|cloudDesc
-operator|.
-name|getShardId
-argument_list|()
+name|shardId
 argument_list|,
 literal|30000
 argument_list|)
@@ -2578,11 +2575,11 @@ argument_list|()
 operator|+
 literal|" our state says:"
 operator|+
-name|leaderUrl
+name|cloudStateLeader
 operator|+
 literal|" but zookeeper says:"
 operator|+
-name|cloudStateLeader
+name|leaderUrl
 argument_list|)
 throw|;
 block|}
@@ -2604,13 +2601,25 @@ name|getLeaderUrl
 argument_list|(
 name|collection
 argument_list|,
+name|shardId
+argument_list|,
+literal|30000
+argument_list|)
+expr_stmt|;
+name|leaderUrl
+operator|=
+name|getLeaderProps
+argument_list|(
+name|collection
+argument_list|,
 name|cloudDesc
 operator|.
 name|getShardId
 argument_list|()
-argument_list|,
-literal|30000
 argument_list|)
+operator|.
+name|getCoreUrl
+argument_list|()
 expr_stmt|;
 block|}
 name|String
@@ -2880,6 +2889,7 @@ operator|--
 operator|>
 literal|0
 condition|)
+block|{
 try|try
 block|{
 name|byte
@@ -2937,6 +2947,7 @@ argument_list|(
 literal|500
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 throw|throw
 operator|new

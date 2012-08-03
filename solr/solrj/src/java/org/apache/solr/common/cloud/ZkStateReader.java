@@ -1063,7 +1063,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"A cluster state change has occurred"
+literal|"A cluster state change has occurred - updating..."
 argument_list|)
 expr_stmt|;
 try|try
@@ -2174,16 +2174,10 @@ literal|null
 condition|)
 block|{
 specifier|final
-name|CloudState
-name|currentState
-init|=
-name|cloudState
-decl_stmt|;
-specifier|final
 name|ZkNodeProps
 name|nodeProps
 init|=
-name|currentState
+name|cloudState
 operator|.
 name|getLeader
 argument_list|(
