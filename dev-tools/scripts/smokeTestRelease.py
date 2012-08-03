@@ -3236,6 +3236,8 @@ op|','
 string|"'suggest'"
 op|','
 string|"'test-framework'"
+op|','
+string|"'licenses'"
 op|')'
 newline|'\n'
 name|'if'
