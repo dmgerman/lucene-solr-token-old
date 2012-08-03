@@ -121,7 +121,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// TODO: add sugar for term vectors...?
-comment|/** Creates a new TextField with Reader value. */
+comment|/** Creates a new un-stored TextField with Reader value. */
 DECL|method|TextField
 specifier|public
 name|TextField
@@ -131,9 +131,6 @@ name|name
 parameter_list|,
 name|Reader
 name|reader
-parameter_list|,
-name|Store
-name|store
 parameter_list|)
 block|{
 name|super
@@ -142,14 +139,6 @@ name|name
 argument_list|,
 name|reader
 argument_list|,
-name|store
-operator|==
-name|Store
-operator|.
-name|YES
-condition|?
-name|TYPE_STORED
-else|:
 name|TYPE_NOT_STORED
 argument_list|)
 expr_stmt|;
