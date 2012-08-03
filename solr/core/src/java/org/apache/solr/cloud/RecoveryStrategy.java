@@ -1873,7 +1873,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Sync Recovery was successful - registering as Active"
+literal|"PeerSync Recovery was successful - registering as Active"
 argument_list|)
 expr_stmt|;
 comment|// System.out
@@ -1923,7 +1923,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Sync Recovery was not successful - trying replication"
+literal|"PeerSync Recovery was not successful - trying replication"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1932,7 +1932,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Starting replication recovery"
+literal|"Starting Replication Recovery"
 argument_list|)
 expr_stmt|;
 name|log
@@ -1980,7 +1980,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Recovery was successful - registering as Active"
+literal|"Replication Recovery was successful - registering as Active"
 argument_list|)
 expr_stmt|;
 comment|// if there are pending recovery requests, don't advert as active
