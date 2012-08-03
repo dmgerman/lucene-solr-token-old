@@ -202,6 +202,7 @@ expr_stmt|;
 block|}
 DECL|method|getMaxPermits
 specifier|public
+specifier|synchronized
 name|int
 name|getMaxPermits
 parameter_list|()
