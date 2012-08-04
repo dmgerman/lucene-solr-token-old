@@ -72,12 +72,6 @@ specifier|final
 name|Directory
 name|delegate
 decl_stmt|;
-comment|/** best effort: base on in Directory is volatile */
-DECL|field|open
-specifier|protected
-name|boolean
-name|open
-decl_stmt|;
 DECL|field|checkIndexOnClose
 specifier|private
 name|boolean
@@ -117,7 +111,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|open
+name|isOpen
 operator|=
 literal|false
 expr_stmt|;
@@ -152,7 +146,7 @@ name|isOpen
 parameter_list|()
 block|{
 return|return
-name|open
+name|isOpen
 return|;
 block|}
 comment|/**     * don't rely upon DirectoryReader.fileExists to determine if we should    * checkIndex() or not. It might mask real problems, where we silently    * don't checkindex at all. instead we look for a segments file.    */

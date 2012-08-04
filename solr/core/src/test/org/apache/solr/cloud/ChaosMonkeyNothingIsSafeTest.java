@@ -666,7 +666,7 @@ expr_stmt|;
 comment|// TODO: assert we didnt kill everyone
 name|zkStateReader
 operator|.
-name|updateCloudState
+name|updateClusterState
 argument_list|(
 literal|true
 argument_list|)
@@ -675,7 +675,7 @@ name|assertTrue
 argument_list|(
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getLiveNodes

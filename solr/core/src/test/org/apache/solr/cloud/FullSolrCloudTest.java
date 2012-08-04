@@ -348,7 +348,7 @@ name|common
 operator|.
 name|cloud
 operator|.
-name|CloudState
+name|ClusterState
 import|;
 end_import
 begin_import
@@ -1263,7 +1263,7 @@ condition|(
 operator|!
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getCollections
@@ -1287,7 +1287,7 @@ while|while
 condition|(
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlices
@@ -1955,7 +1955,7 @@ name|this
 operator|.
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlices
@@ -2086,7 +2086,7 @@ name|Exception
 block|{
 name|zkStateReader
 operator|.
-name|updateCloudState
+name|updateClusterState
 argument_list|(
 literal|true
 argument_list|)
@@ -2101,12 +2101,12 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|CloudState
-name|cloudState
+name|ClusterState
+name|clusterState
 init|=
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 decl_stmt|;
 name|Map
@@ -2117,7 +2117,7 @@ name|Slice
 argument_list|>
 name|slices
 init|=
-name|cloudState
+name|clusterState
 operator|.
 name|getSlices
 argument_list|(
@@ -2141,7 +2141,7 @@ name|DEFAULT_COLLECTION
 operator|+
 literal|" in "
 operator|+
-name|cloudState
+name|clusterState
 operator|.
 name|getCollections
 argument_list|()
@@ -6169,7 +6169,7 @@ name|shard
 argument_list|,
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlice
@@ -6359,7 +6359,7 @@ if|if
 condition|(
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|liveNodesContain
@@ -7373,8 +7373,8 @@ name|slices
 init|=
 literal|null
 decl_stmt|;
-name|CloudState
-name|cloudState
+name|ClusterState
+name|clusterState
 decl_stmt|;
 try|try
 block|{
@@ -7383,16 +7383,16 @@ operator|.
 name|createClusterStateWatchersAndUpdate
 argument_list|()
 expr_stmt|;
-name|cloudState
+name|clusterState
 operator|=
 name|zk
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 expr_stmt|;
 name|slices
 operator|=
-name|cloudState
+name|clusterState
 operator|.
 name|getSlices
 argument_list|(
@@ -7425,7 +7425,7 @@ name|DEFAULT_COLLECTION
 operator|+
 literal|" in "
 operator|+
-name|cloudState
+name|clusterState
 operator|.
 name|getCollections
 argument_list|()
@@ -7603,7 +7603,7 @@ argument_list|)
 operator|&&
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|liveNodesContain
@@ -8836,7 +8836,7 @@ while|while
 condition|(
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|liveNodesContain

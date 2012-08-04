@@ -166,19 +166,52 @@ operator|.
 name|KeeperException
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
 begin_comment
-comment|/**  * Immutable state of the cloud. Normally you can get the state by using  * {@link ZkStateReader#getCloudState()}.  */
+comment|/**  * Immutable state of the cloud. Normally you can get the state by using  * {@link ZkStateReader#getClusterState()}.  */
 end_comment
 begin_class
-DECL|class|CloudState
+DECL|class|ClusterState
 specifier|public
 class|class
-name|CloudState
+name|ClusterState
 implements|implements
 name|JSONWriter
 operator|.
 name|Writable
 block|{
+DECL|field|log
+specifier|private
+specifier|static
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ClusterState
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|collectionStates
 specifier|private
 specifier|final
@@ -265,9 +298,9 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|CloudState
+DECL|method|ClusterState
 specifier|public
-name|CloudState
+name|ClusterState
 parameter_list|(
 name|Set
 argument_list|<
@@ -576,6 +609,8 @@ argument_list|,
 name|props
 argument_list|)
 expr_stmt|;
+break|break;
+comment|// we found the leader for this shard
 block|}
 block|}
 block|}
@@ -1277,11 +1312,11 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** 	 * Create CloudState by reading the current state from zookeeper.  	 */
+comment|/** 	 * Create ClusterState by reading the current state from zookeeper.  	 */
 DECL|method|load
 specifier|public
 specifier|static
-name|CloudState
+name|ClusterState
 name|load
 parameter_list|(
 name|SolrZkClient
@@ -1326,11 +1361,11 @@ name|liveNodes
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Create CloudState from json string that is typically stored in zookeeper. 	 */
+comment|/** 	 * Create ClusterState from json string that is typically stored in zookeeper. 	 */
 DECL|method|load
 specifier|public
 specifier|static
-name|CloudState
+name|ClusterState
 name|load
 parameter_list|(
 name|byte
@@ -1359,7 +1394,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|CloudState
+name|ClusterState
 argument_list|(
 name|liveNodes
 argument_list|,
@@ -1605,7 +1640,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|CloudState
+name|ClusterState
 argument_list|(
 name|liveNodes
 argument_list|,

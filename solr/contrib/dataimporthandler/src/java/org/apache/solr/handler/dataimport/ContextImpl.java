@@ -770,10 +770,7 @@ condition|)
 block|{
 name|dataImporter
 operator|.
-name|getCoreScopeSession
-argument_list|()
-operator|.
-name|put
+name|putToCoreScopeSession
 argument_list|(
 name|name
 argument_list|,
@@ -913,10 +910,7 @@ literal|null
 else|:
 name|dataImporter
 operator|.
-name|getCoreScopeSession
-argument_list|()
-operator|.
-name|get
+name|getFromCoreScopeSession
 argument_list|(
 name|name
 argument_list|)
