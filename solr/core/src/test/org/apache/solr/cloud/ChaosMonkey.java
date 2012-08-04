@@ -1288,7 +1288,7 @@ name|slices
 init|=
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlices
@@ -1439,7 +1439,7 @@ decl_stmt|;
 comment|// get latest cloud state
 name|zkStateReader
 operator|.
-name|updateCloudState
+name|updateClusterState
 argument_list|(
 literal|true
 argument_list|)
@@ -1449,7 +1449,7 @@ name|theShards
 init|=
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlices
@@ -1553,7 +1553,7 @@ operator|||
 operator|!
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|liveNodesContain
@@ -1587,7 +1587,7 @@ argument_list|)
 operator|&&
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|liveNodesContain
@@ -1620,7 +1620,7 @@ argument_list|)
 operator|&&
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|liveNodesContain
@@ -1850,7 +1850,7 @@ block|{
 comment|// get latest cloud state
 name|zkStateReader
 operator|.
-name|updateCloudState
+name|updateClusterState
 argument_list|(
 literal|true
 argument_list|)

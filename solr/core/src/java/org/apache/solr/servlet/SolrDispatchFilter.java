@@ -218,7 +218,7 @@ name|common
 operator|.
 name|cloud
 operator|.
-name|CloudState
+name|ClusterState
 import|;
 end_import
 begin_import
@@ -1832,12 +1832,12 @@ operator|.
 name|getZkStateReader
 argument_list|()
 decl_stmt|;
-name|CloudState
-name|cloudState
+name|ClusterState
+name|clusterState
 init|=
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 decl_stmt|;
 name|Map
@@ -1848,7 +1848,7 @@ name|Slice
 argument_list|>
 name|slices
 init|=
-name|cloudState
+name|clusterState
 operator|.
 name|getSlices
 argument_list|(
@@ -1907,7 +1907,7 @@ comment|// first see if we have the leader
 name|ZkNodeProps
 name|leaderProps
 init|=
-name|cloudState
+name|clusterState
 operator|.
 name|getLeader
 argument_list|(

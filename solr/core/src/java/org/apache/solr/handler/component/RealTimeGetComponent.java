@@ -2165,12 +2165,12 @@ operator|.
 name|getCollectionName
 argument_list|()
 decl_stmt|;
-name|CloudState
-name|cloudState
+name|ClusterState
+name|clusterState
 init|=
 name|zkController
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 decl_stmt|;
 name|Map
@@ -2248,7 +2248,7 @@ decl_stmt|;
 name|String
 name|shard
 init|=
-name|cloudState
+name|clusterState
 operator|.
 name|getShard
 argument_list|(

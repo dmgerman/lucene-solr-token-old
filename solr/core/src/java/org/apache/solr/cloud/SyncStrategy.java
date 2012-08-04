@@ -156,7 +156,7 @@ name|common
 operator|.
 name|cloud
 operator|.
-name|CloudState
+name|ClusterState
 import|;
 end_import
 begin_import
@@ -783,15 +783,15 @@ name|String
 name|shardId
 parameter_list|)
 block|{
-name|CloudState
-name|cloudState
+name|ClusterState
+name|clusterState
 init|=
 name|zkController
 operator|.
 name|getZkStateReader
 argument_list|()
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 decl_stmt|;
 name|Map
@@ -802,7 +802,7 @@ name|Slice
 argument_list|>
 name|slices
 init|=
-name|cloudState
+name|clusterState
 operator|.
 name|getSlices
 argument_list|(
@@ -869,7 +869,7 @@ comment|//      System.out.println("state:"
 comment|//          + state
 comment|//          + shard.getValue().get(ZkStateReader.NODE_NAME_PROP)
 comment|//          + " live: "
-comment|//          + cloudState.liveNodesContain(shard.getValue().get(
+comment|//          + clusterState.liveNodesContain(shard.getValue().get(
 comment|//              ZkStateReader.NODE_NAME_PROP)));
 if|if
 condition|(
@@ -884,7 +884,7 @@ name|ACTIVE
 argument_list|)
 operator|)
 operator|&&
-name|cloudState
+name|clusterState
 operator|.
 name|liveNodesContain
 argument_list|(

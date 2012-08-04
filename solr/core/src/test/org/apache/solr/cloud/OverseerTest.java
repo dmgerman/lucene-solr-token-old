@@ -201,7 +201,7 @@ name|common
 operator|.
 name|cloud
 operator|.
-name|CloudState
+name|ClusterState
 import|;
 end_import
 begin_import
@@ -1016,7 +1016,7 @@ name|slices
 init|=
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlices
@@ -2101,17 +2101,17 @@ control|)
 block|{
 name|reader
 operator|.
-name|updateCloudState
+name|updateClusterState
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|CloudState
+name|ClusterState
 name|state
 init|=
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 decl_stmt|;
 name|Map
@@ -2615,18 +2615,18 @@ condition|)
 block|{
 name|stateReader
 operator|.
-name|updateCloudState
+name|updateClusterState
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
 specifier|final
-name|CloudState
+name|ClusterState
 name|state
 init|=
 name|stateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 decl_stmt|;
 name|Set
@@ -2702,7 +2702,7 @@ literal|" state:"
 operator|+
 name|stateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2911,7 +2911,7 @@ name|assertEquals
 argument_list|(
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|toString
@@ -2923,7 +2923,7 @@ name|RECOVERING
 argument_list|,
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlice
@@ -3083,7 +3083,7 @@ name|slice
 init|=
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlice
@@ -3150,11 +3150,11 @@ literal|" expected:"
 operator|+
 name|expectedState
 operator|+
-literal|"cloudState:"
+literal|"clusterState:"
 operator|+
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3196,7 +3196,7 @@ condition|)
 block|{
 name|reader
 operator|.
-name|updateCloudState
+name|updateClusterState
 argument_list|(
 literal|true
 argument_list|)
@@ -3207,7 +3207,7 @@ name|props
 init|=
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getLeader
@@ -3267,7 +3267,7 @@ argument_list|,
 operator|(
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getLeader
@@ -3282,7 +3282,7 @@ operator|)
 condition|?
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getLeader
@@ -3484,7 +3484,7 @@ expr_stmt|;
 name|int
 name|version
 init|=
-name|getCloudStateVersion
+name|getClusterStateVersion
 argument_list|(
 name|controllerClient
 argument_list|)
@@ -3506,7 +3506,7 @@ while|while
 condition|(
 name|version
 operator|==
-name|getCloudStateVersion
+name|getClusterStateVersion
 argument_list|(
 name|controllerClient
 argument_list|)
@@ -3523,7 +3523,7 @@ argument_list|)
 expr_stmt|;
 name|version
 operator|=
-name|getCloudStateVersion
+name|getClusterStateVersion
 argument_list|(
 name|controllerClient
 argument_list|)
@@ -3556,7 +3556,7 @@ argument_list|)
 expr_stmt|;
 name|version
 operator|=
-name|getCloudStateVersion
+name|getClusterStateVersion
 argument_list|(
 name|controllerClient
 argument_list|)
@@ -3575,7 +3575,7 @@ while|while
 condition|(
 name|version
 operator|==
-name|getCloudStateVersion
+name|getClusterStateVersion
 argument_list|(
 name|controllerClient
 argument_list|)
@@ -3598,7 +3598,7 @@ literal|1
 argument_list|,
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getLiveNodes
@@ -3616,7 +3616,7 @@ literal|1
 argument_list|,
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlice
@@ -3635,7 +3635,7 @@ argument_list|)
 expr_stmt|;
 name|version
 operator|=
-name|getCloudStateVersion
+name|getClusterStateVersion
 argument_list|(
 name|controllerClient
 argument_list|)
@@ -3655,7 +3655,7 @@ while|while
 condition|(
 name|version
 operator|==
-name|getCloudStateVersion
+name|getClusterStateVersion
 argument_list|(
 name|controllerClient
 argument_list|)
@@ -3674,7 +3674,7 @@ literal|"collection1 should be gone after publishing the null state"
 argument_list|,
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getCollections
@@ -4429,7 +4429,7 @@ expr_stmt|;
 name|int
 name|version
 init|=
-name|getCloudStateVersion
+name|getClusterStateVersion
 argument_list|(
 name|controllerClient
 argument_list|)
@@ -4466,7 +4466,7 @@ while|while
 condition|(
 name|version
 operator|==
-name|getCloudStateVersion
+name|getClusterStateVersion
 argument_list|(
 name|controllerClient
 argument_list|)
@@ -4474,17 +4474,17 @@ condition|)
 empty_stmt|;
 name|reader
 operator|.
-name|updateCloudState
+name|updateClusterState
 argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|CloudState
+name|ClusterState
 name|state
 init|=
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 decl_stmt|;
 name|int
@@ -4545,7 +4545,7 @@ block|}
 block|}
 name|assertEquals
 argument_list|(
-literal|"Shard was found in more than 1 times in CloudState"
+literal|"Shard was found more than once in ClusterState"
 argument_list|,
 literal|1
 argument_list|,
@@ -4752,7 +4752,7 @@ literal|12
 argument_list|,
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlices
@@ -5185,7 +5185,7 @@ name|s
 init|=
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlice
@@ -5224,7 +5224,7 @@ name|assertNotNull
 argument_list|(
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlice
@@ -5241,7 +5241,7 @@ literal|3
 argument_list|,
 name|reader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlice
@@ -5331,10 +5331,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|getCloudStateVersion
+DECL|method|getClusterStateVersion
 specifier|private
 name|int
-name|getCloudStateVersion
+name|getClusterStateVersion
 parameter_list|(
 name|SolrZkClient
 name|controllerClient
