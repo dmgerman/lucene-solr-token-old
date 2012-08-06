@@ -1713,7 +1713,7 @@ argument_list|(
 name|indexedValue
 argument_list|)
 argument_list|,
-literal|0.0f
+literal|1.0f
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1746,7 +1746,7 @@ operator|)
 name|sortValue
 argument_list|)
 argument_list|,
-literal|0.0f
+literal|1.0f
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2212,7 +2212,7 @@ argument_list|(
 name|indexedValue
 argument_list|)
 argument_list|,
-literal|0.0f
+literal|1.0f
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2245,7 +2245,7 @@ operator|)
 name|sortValue
 argument_list|)
 argument_list|,
-literal|0.0f
+literal|1.0f
 argument_list|)
 argument_list|)
 expr_stmt|;
