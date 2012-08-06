@@ -2343,7 +2343,7 @@ name|totalNumDocs
 init|=
 name|reader
 operator|.
-name|numDocs
+name|maxDoc
 argument_list|()
 decl_stmt|;
 name|Set
@@ -2409,19 +2409,6 @@ name|term
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// docFreq counts deletes
-if|if
-condition|(
-name|totalNumDocs
-operator|<
-name|docFreq
-condition|)
-block|{
-name|docFreq
-operator|=
-name|totalNumDocs
-expr_stmt|;
-block|}
 comment|// IDF algorithm taken from DefaultSimilarity class
 name|float
 name|idf
@@ -2434,9 +2421,6 @@ name|Math
 operator|.
 name|log
 argument_list|(
-operator|(
-name|float
-operator|)
 name|totalNumDocs
 operator|/
 call|(
