@@ -4513,7 +4513,7 @@ name|put
 argument_list|(
 literal|"explain"
 argument_list|,
-name|UNORDERED
+name|SKIPVAL
 argument_list|)
 expr_stmt|;
 name|handle
