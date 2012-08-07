@@ -314,6 +314,23 @@ operator|.
 name|IOUtils
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|blockpacked
+operator|.
+name|BlockPackedPostingsFormat
+operator|.
+name|BLOCK_SIZE
+import|;
+end_import
 begin_comment
 comment|/**  * Concrete class that reads docId(maybe frq,pos,offset,payloads) list  * with postings format.  *  * @see BlockSkipReader for details  *  */
 end_comment
@@ -357,17 +374,6 @@ DECL|field|segment
 specifier|final
 name|String
 name|segment
-decl_stmt|;
-comment|// NOTE: not private to avoid access$NNN methods:
-DECL|field|blockSize
-specifier|final
-specifier|static
-name|int
-name|blockSize
-init|=
-name|BlockPostingsFormat
-operator|.
-name|BLOCK_SIZE
 decl_stmt|;
 DECL|method|BlockPostingsReader
 specifier|public
@@ -662,20 +668,20 @@ if|if
 condition|(
 name|indexBlockSize
 operator|!=
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"index-time blockSize ("
+literal|"index-time BLOCK_SIZE ("
 operator|+
 name|indexBlockSize
 operator|+
-literal|") != read-time blockSize ("
+literal|") != read-time BLOCK_SIZE ("
 operator|+
-name|blockSize
+name|BLOCK_SIZE
 operator|+
 literal|")"
 argument_list|)
@@ -1355,7 +1361,7 @@ name|termState
 operator|.
 name|totalTermFreq
 operator|>
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|termState
@@ -1390,7 +1396,7 @@ name|termState
 operator|.
 name|totalTermFreq
 operator|>=
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|termState
@@ -1446,7 +1452,7 @@ name|termState
 operator|.
 name|totalTermFreq
 operator|>
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|termState
@@ -1481,7 +1487,7 @@ name|termState
 operator|.
 name|totalTermFreq
 operator|>=
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|long
@@ -1527,7 +1533,7 @@ name|termState
 operator|.
 name|docFreq
 operator|>
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|termState
@@ -1888,7 +1894,7 @@ init|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 decl_stmt|;
 DECL|field|freqBuffer
@@ -1901,7 +1907,7 @@ init|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 decl_stmt|;
 DECL|field|docBufferUpto
@@ -2090,7 +2096,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|blockSize
+name|BLOCK_SIZE
 operator|*
 literal|4
 index|]
@@ -2266,7 +2272,7 @@ literal|0
 expr_stmt|;
 name|docBufferUpto
 operator|=
-name|blockSize
+name|BLOCK_SIZE
 expr_stmt|;
 name|skipped
 operator|=
@@ -2328,7 +2334,7 @@ if|if
 condition|(
 name|left
 operator|>=
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 if|if
@@ -2529,7 +2535,7 @@ if|if
 condition|(
 name|docBufferUpto
 operator|==
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|refillDocs
@@ -2670,13 +2676,13 @@ if|if
 condition|(
 name|docFreq
 operator|>
-name|blockSize
+name|BLOCK_SIZE
 operator|&&
 name|target
 operator|-
 name|accum
 operator|>
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 if|if
@@ -2719,7 +2725,7 @@ name|BlockPostingsWriter
 operator|.
 name|maxSkipLevels
 argument_list|,
-name|blockSize
+name|BLOCK_SIZE
 argument_list|,
 name|indexHasPos
 argument_list|,
@@ -2822,10 +2828,10 @@ block|}
 assert|assert
 name|newDocUpto
 operator|%
-name|blockSize
+name|BLOCK_SIZE
 operator|==
 operator|(
-name|blockSize
+name|BLOCK_SIZE
 operator|-
 literal|1
 operator|)
@@ -2843,7 +2849,7 @@ expr_stmt|;
 comment|// Force to read next block
 name|docBufferUpto
 operator|=
-name|blockSize
+name|BLOCK_SIZE
 expr_stmt|;
 name|accum
 operator|=
@@ -2916,7 +2922,7 @@ if|if
 condition|(
 name|docBufferUpto
 operator|==
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|refillDocs
@@ -3050,7 +3056,7 @@ init|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 decl_stmt|;
 DECL|field|freqBuffer
@@ -3063,7 +3069,7 @@ init|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 decl_stmt|;
 DECL|field|posDeltaBuffer
@@ -3076,7 +3082,7 @@ init|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 decl_stmt|;
 DECL|field|docBufferUpto
@@ -3267,7 +3273,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|blockSize
+name|BLOCK_SIZE
 operator|*
 literal|4
 index|]
@@ -3439,7 +3445,7 @@ name|termState
 operator|.
 name|totalTermFreq
 operator|<
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|lastPosBlockFP
@@ -3454,7 +3460,7 @@ name|termState
 operator|.
 name|totalTermFreq
 operator|==
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|lastPosBlockFP
@@ -3489,7 +3495,7 @@ literal|0
 expr_stmt|;
 name|docBufferUpto
 operator|=
-name|blockSize
+name|BLOCK_SIZE
 expr_stmt|;
 name|skipped
 operator|=
@@ -3551,7 +3557,7 @@ if|if
 condition|(
 name|left
 operator|>=
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 if|if
@@ -3946,7 +3952,7 @@ if|if
 condition|(
 name|docBufferUpto
 operator|==
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|refillDocs
@@ -4111,18 +4117,18 @@ block|}
 comment|// nocommit 2 is heuristic guess!!
 comment|// nocommit put cheating back!  does it help?
 comment|// nocommit use skipper!!!  it has next last doc id!!
-comment|//if (docFreq> blockSize&& target - (blockSize - docBufferUpto) - 2*blockSize> accum) {
+comment|//if (docFreq> BLOCK_SIZE&& target - (BLOCK_SIZE - docBufferUpto) - 2*BLOCK_SIZE> accum) {
 if|if
 condition|(
 name|docFreq
 operator|>
-name|blockSize
+name|BLOCK_SIZE
 operator|&&
 name|target
 operator|-
 name|accum
 operator|>
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 if|if
@@ -4180,7 +4186,7 @@ name|BlockPostingsWriter
 operator|.
 name|maxSkipLevels
 argument_list|,
-name|blockSize
+name|BLOCK_SIZE
 argument_list|,
 literal|true
 argument_list|,
@@ -4312,10 +4318,10 @@ block|}
 assert|assert
 name|newDocUpto
 operator|%
-name|blockSize
+name|BLOCK_SIZE
 operator|==
 operator|(
-name|blockSize
+name|BLOCK_SIZE
 operator|-
 literal|1
 operator|)
@@ -4333,7 +4339,7 @@ expr_stmt|;
 comment|// Force to read next block
 name|docBufferUpto
 operator|=
-name|blockSize
+name|BLOCK_SIZE
 expr_stmt|;
 name|accum
 operator|=
@@ -4418,7 +4424,7 @@ if|if
 condition|(
 name|docBufferUpto
 operator|==
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 comment|// nocommit hmm skip freq?  but: we don't ever
@@ -4566,7 +4572,7 @@ specifier|final
 name|int
 name|leftInBlock
 init|=
-name|blockSize
+name|BLOCK_SIZE
 operator|-
 name|posBufferUpto
 decl_stmt|;
@@ -4609,7 +4615,7 @@ while|while
 condition|(
 name|toSkip
 operator|>=
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 if|if
@@ -4647,7 +4653,7 @@ argument_list|)
 expr_stmt|;
 name|toSkip
 operator|-=
-name|blockSize
+name|BLOCK_SIZE
 expr_stmt|;
 block|}
 name|refillPositions
@@ -4751,7 +4757,7 @@ expr_stmt|;
 comment|// Force buffer refill:
 name|posBufferUpto
 operator|=
-name|blockSize
+name|BLOCK_SIZE
 expr_stmt|;
 block|}
 if|if
@@ -4773,7 +4779,7 @@ if|if
 condition|(
 name|posBufferUpto
 operator|==
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|refillPositions
@@ -4898,7 +4904,7 @@ init|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 decl_stmt|;
 DECL|field|freqBuffer
@@ -4911,7 +4917,7 @@ init|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 decl_stmt|;
 DECL|field|posDeltaBuffer
@@ -4924,7 +4930,7 @@ init|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 decl_stmt|;
 DECL|field|payloadLengthBuffer
@@ -5200,7 +5206,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|blockSize
+name|BLOCK_SIZE
 operator|*
 literal|4
 index|]
@@ -5243,7 +5249,7 @@ operator|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 expr_stmt|;
 name|offsetLengthBuffer
@@ -5251,7 +5257,7 @@ operator|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 expr_stmt|;
 block|}
@@ -5293,7 +5299,7 @@ operator|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 expr_stmt|;
 name|payloadBytes
@@ -5462,7 +5468,7 @@ name|termState
 operator|.
 name|totalTermFreq
 operator|<
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|lastPosBlockFP
@@ -5477,7 +5483,7 @@ name|termState
 operator|.
 name|totalTermFreq
 operator|==
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|lastPosBlockFP
@@ -5512,7 +5518,7 @@ literal|0
 expr_stmt|;
 name|docBufferUpto
 operator|=
-name|blockSize
+name|BLOCK_SIZE
 expr_stmt|;
 name|skipped
 operator|=
@@ -5574,7 +5580,7 @@ if|if
 condition|(
 name|left
 operator|>=
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 if|if
@@ -6262,7 +6268,7 @@ if|if
 condition|(
 name|docBufferUpto
 operator|==
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|refillDocs
@@ -6435,18 +6441,18 @@ block|}
 comment|// nocommit 2 is heuristic guess!!
 comment|// nocommit put cheating back!  does it help?
 comment|// nocommit use skipper!!!  it has next last doc id!!
-comment|//if (docFreq> blockSize&& target - (blockSize - docBufferUpto) - 2*blockSize> accum) {
+comment|//if (docFreq> BLOCK_SIZE&& target - (BLOCK_SIZE - docBufferUpto) - 2*BLOCK_SIZE> accum) {
 if|if
 condition|(
 name|docFreq
 operator|>
-name|blockSize
+name|BLOCK_SIZE
 operator|&&
 name|target
 operator|-
 name|accum
 operator|>
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 if|if
@@ -6504,7 +6510,7 @@ name|BlockPostingsWriter
 operator|.
 name|maxSkipLevels
 argument_list|,
-name|blockSize
+name|BLOCK_SIZE
 argument_list|,
 literal|true
 argument_list|,
@@ -6647,10 +6653,10 @@ block|}
 assert|assert
 name|newDocUpto
 operator|%
-name|blockSize
+name|BLOCK_SIZE
 operator|==
 operator|(
-name|blockSize
+name|BLOCK_SIZE
 operator|-
 literal|1
 operator|)
@@ -6668,7 +6674,7 @@ expr_stmt|;
 comment|// Force to read next block
 name|docBufferUpto
 operator|=
-name|blockSize
+name|BLOCK_SIZE
 expr_stmt|;
 name|accum
 operator|=
@@ -6823,7 +6829,7 @@ specifier|final
 name|int
 name|leftInBlock
 init|=
-name|blockSize
+name|BLOCK_SIZE
 operator|-
 name|posBufferUpto
 decl_stmt|;
@@ -6911,7 +6917,7 @@ while|while
 condition|(
 name|toSkip
 operator|>=
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 if|if
@@ -7018,7 +7024,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|blockSize
+name|BLOCK_SIZE
 condition|;
 name|i
 operator|++
@@ -7040,7 +7046,7 @@ block|}
 block|}
 name|toSkip
 operator|-=
-name|blockSize
+name|BLOCK_SIZE
 expr_stmt|;
 block|}
 name|refillPositions
@@ -7242,7 +7248,7 @@ block|}
 comment|// Force buffer refill:
 name|posBufferUpto
 operator|=
-name|blockSize
+name|BLOCK_SIZE
 expr_stmt|;
 block|}
 if|if
@@ -7303,7 +7309,7 @@ if|if
 condition|(
 name|posBufferUpto
 operator|==
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|refillPositions

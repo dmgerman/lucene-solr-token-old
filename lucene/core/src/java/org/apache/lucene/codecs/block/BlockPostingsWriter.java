@@ -232,6 +232,23 @@ operator|.
 name|IOUtils
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|blockpacked
+operator|.
+name|BlockPackedPostingsFormat
+operator|.
+name|BLOCK_SIZE
+import|;
+end_import
 begin_comment
 comment|/**  * Concrete class that writes docId(maybe frq,pos,offset,payloads) list  * with postings format.  *  * Postings list for each term will be stored separately.   *  * @see BlockSkipWriter for details about skipping setting and postings layout.  *  */
 end_comment
@@ -325,16 +342,6 @@ DECL|field|payOut
 specifier|final
 name|IndexOutput
 name|payOut
-decl_stmt|;
-DECL|field|blockSize
-specifier|final
-specifier|static
-name|int
-name|blockSize
-init|=
-name|BlockPostingsFormat
-operator|.
-name|BLOCK_SIZE
 decl_stmt|;
 DECL|field|termsOut
 specifier|private
@@ -590,7 +597,7 @@ operator|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 expr_stmt|;
 name|posOut
@@ -659,7 +666,7 @@ operator|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 expr_stmt|;
 block|}
@@ -689,7 +696,7 @@ operator|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 expr_stmt|;
 name|offsetLengthBuffer
@@ -697,7 +704,7 @@ operator|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 expr_stmt|;
 block|}
@@ -840,7 +847,7 @@ operator|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 expr_stmt|;
 name|freqBuffer
@@ -848,7 +855,7 @@ operator|=
 operator|new
 name|int
 index|[
-name|blockSize
+name|BLOCK_SIZE
 index|]
 expr_stmt|;
 name|skipWriter
@@ -858,7 +865,7 @@ name|BlockSkipWriter
 argument_list|(
 name|maxSkipLevels
 argument_list|,
-name|blockSize
+name|BLOCK_SIZE
 argument_list|,
 name|state
 operator|.
@@ -879,7 +886,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|blockSize
+name|BLOCK_SIZE
 operator|*
 literal|4
 index|]
@@ -931,7 +938,7 @@ name|termsOut
 operator|.
 name|writeVInt
 argument_list|(
-name|blockSize
+name|BLOCK_SIZE
 argument_list|)
 expr_stmt|;
 block|}
@@ -1252,7 +1259,7 @@ if|if
 condition|(
 name|docBufferUpto
 operator|==
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 if|if
@@ -1512,7 +1519,7 @@ if|if
 condition|(
 name|posBufferUpto
 operator|==
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 if|if
@@ -1684,7 +1691,7 @@ if|if
 condition|(
 name|docBufferUpto
 operator|==
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|lastBlockDocID
@@ -2129,7 +2136,7 @@ name|stats
 operator|.
 name|totalTermFreq
 operator|>
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|lastPosBlockOffset
@@ -2171,7 +2178,7 @@ argument_list|)
 expr_stmt|;
 comment|// nocommit should we send offsets/payloads to
 comment|// .pay...?  seems wasteful (have to store extra
-comment|// vLong for low (< blockSize) DF terms = vast vast
+comment|// vLong for low (< BLOCK_SIZE) DF terms = vast vast
 comment|// majority)
 comment|// vInt encode the remaining positions/payloads/offsets:
 name|int
@@ -2444,7 +2451,7 @@ if|if
 condition|(
 name|docCount
 operator|>
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|skipOffset
@@ -2528,7 +2535,7 @@ name|stats
 operator|.
 name|totalTermFreq
 operator|>=
-name|blockSize
+name|BLOCK_SIZE
 condition|)
 block|{
 name|payStartFP
