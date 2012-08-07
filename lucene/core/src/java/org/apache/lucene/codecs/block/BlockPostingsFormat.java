@@ -206,7 +206,6 @@ specifier|final
 name|int
 name|maxTermBlockSize
 decl_stmt|;
-comment|// nocommit do other block sizes perform better?
 DECL|field|BLOCK_SIZE
 specifier|public
 specifier|final
