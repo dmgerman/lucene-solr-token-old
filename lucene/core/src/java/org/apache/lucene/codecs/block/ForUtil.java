@@ -25,6 +25,23 @@ operator|.
 name|IntBuffer
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|block
+operator|.
+name|BlockPostingsFormat
+operator|.
+name|BLOCK_SIZE
+import|;
+end_import
 begin_comment
 comment|/**  * Encode all values in normal area with fixed bit width,   * which is determined by the max value in this block.  */
 end_comment
@@ -111,16 +128,6 @@ block|,
 literal|0xffffffff
 block|}
 decl_stmt|;
-DECL|field|blockSize
-specifier|final
-specifier|static
-name|int
-name|blockSize
-init|=
-name|BlockPostingsFormat
-operator|.
-name|BLOCK_SIZE
-decl_stmt|;
 comment|/** Compress given int[] into Integer buffer, with For format    *    * @param data        uncompressed data    * @param intBuffer   integer buffer to hold compressed data    * @return the header for the current block     */
 DECL|method|compress
 specifier|static
@@ -169,7 +176,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|blockSize
+name|BLOCK_SIZE
 condition|;
 operator|++
 name|i
@@ -1046,6 +1053,7 @@ name|int
 name|numBits
 parameter_list|)
 block|{
+comment|// NOTE: works only because BLOCK_SIZE is 0 mod 8:
 return|return
 name|numBits
 operator|==
@@ -1055,7 +1063,7 @@ literal|4
 else|:
 name|numBits
 operator|*
-name|blockSize
+name|BLOCK_SIZE
 operator|/
 literal|8
 return|;
