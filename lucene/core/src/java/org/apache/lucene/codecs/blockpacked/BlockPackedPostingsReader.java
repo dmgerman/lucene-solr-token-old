@@ -34,6 +34,40 @@ name|BLOCK_SIZE
 import|;
 end_import
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|blockpacked
+operator|.
+name|ForUtil
+operator|.
+name|MIN_DATA_SIZE
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|blockpacked
+operator|.
+name|ForUtil
+operator|.
+name|MIN_ENCODED_SIZE
+import|;
+end_import
+begin_import
 import|import
 name|java
 operator|.
@@ -88,21 +122,6 @@ operator|.
 name|codecs
 operator|.
 name|PostingsReaderBase
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|blockpacked
-operator|.
-name|BlockPackedSkipReader
 import|;
 end_import
 begin_import
@@ -358,6 +377,12 @@ specifier|final
 name|IndexInput
 name|payIn
 decl_stmt|;
+DECL|field|forUtil
+specifier|private
+specifier|final
+name|ForUtil
+name|forUtil
+decl_stmt|;
 DECL|field|DEBUG
 specifier|public
 specifier|static
@@ -463,6 +488,14 @@ argument_list|,
 name|BlockPackedPostingsWriter
 operator|.
 name|VERSION_START
+argument_list|)
+expr_stmt|;
+name|forUtil
+operator|=
+operator|new
+name|ForUtil
+argument_list|(
+name|docIn
 argument_list|)
 expr_stmt|;
 if|if
@@ -1663,7 +1696,7 @@ init|=
 operator|new
 name|long
 index|[
-name|BLOCK_SIZE
+name|MIN_DATA_SIZE
 index|]
 decl_stmt|;
 DECL|field|freqBuffer
@@ -1676,7 +1709,7 @@ init|=
 operator|new
 name|long
 index|[
-name|BLOCK_SIZE
+name|MIN_DATA_SIZE
 index|]
 decl_stmt|;
 DECL|field|docBufferUpto
@@ -1865,9 +1898,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|BLOCK_SIZE
-operator|*
-literal|4
+name|MIN_ENCODED_SIZE
 index|]
 expr_stmt|;
 block|}
@@ -2114,7 +2145,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
@@ -2150,7 +2181,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
@@ -2816,7 +2847,7 @@ init|=
 operator|new
 name|long
 index|[
-name|BLOCK_SIZE
+name|MIN_DATA_SIZE
 index|]
 decl_stmt|;
 DECL|field|freqBuffer
@@ -2829,7 +2860,7 @@ init|=
 operator|new
 name|long
 index|[
-name|BLOCK_SIZE
+name|MIN_DATA_SIZE
 index|]
 decl_stmt|;
 DECL|field|posDeltaBuffer
@@ -2842,7 +2873,7 @@ init|=
 operator|new
 name|long
 index|[
-name|BLOCK_SIZE
+name|MIN_DATA_SIZE
 index|]
 decl_stmt|;
 DECL|field|docBufferUpto
@@ -3033,9 +3064,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|BLOCK_SIZE
-operator|*
-literal|4
+name|MIN_ENCODED_SIZE
 index|]
 expr_stmt|;
 name|indexHasOffsets
@@ -3328,7 +3357,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
@@ -3359,7 +3388,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
@@ -3617,7 +3646,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
@@ -4405,7 +4434,7 @@ argument_list|()
 operator|!=
 name|lastPosBlockFP
 assert|;
-name|ForUtil
+name|forUtil
 operator|.
 name|skipBlock
 argument_list|(
@@ -4662,7 +4691,7 @@ init|=
 operator|new
 name|long
 index|[
-name|BLOCK_SIZE
+name|MIN_DATA_SIZE
 index|]
 decl_stmt|;
 DECL|field|freqBuffer
@@ -4675,7 +4704,7 @@ init|=
 operator|new
 name|long
 index|[
-name|BLOCK_SIZE
+name|MIN_DATA_SIZE
 index|]
 decl_stmt|;
 DECL|field|posDeltaBuffer
@@ -4688,7 +4717,7 @@ init|=
 operator|new
 name|long
 index|[
-name|BLOCK_SIZE
+name|MIN_DATA_SIZE
 index|]
 decl_stmt|;
 DECL|field|payloadLengthBuffer
@@ -4964,9 +4993,7 @@ operator|=
 operator|new
 name|byte
 index|[
-name|BLOCK_SIZE
-operator|*
-literal|4
+name|MIN_ENCODED_SIZE
 index|]
 expr_stmt|;
 name|indexHasOffsets
@@ -4995,7 +5022,7 @@ operator|=
 operator|new
 name|long
 index|[
-name|BLOCK_SIZE
+name|MIN_DATA_SIZE
 index|]
 expr_stmt|;
 name|offsetLengthBuffer
@@ -5003,7 +5030,7 @@ operator|=
 operator|new
 name|long
 index|[
-name|BLOCK_SIZE
+name|MIN_DATA_SIZE
 index|]
 expr_stmt|;
 block|}
@@ -5045,7 +5072,7 @@ operator|=
 operator|new
 name|long
 index|[
-name|BLOCK_SIZE
+name|MIN_DATA_SIZE
 index|]
 expr_stmt|;
 name|payloadBytes
@@ -5349,7 +5376,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
@@ -5380,7 +5407,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
@@ -5763,7 +5790,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
@@ -5799,7 +5826,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
@@ -5904,7 +5931,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
@@ -5915,7 +5942,7 @@ argument_list|,
 name|offsetStartDeltaBuffer
 argument_list|)
 expr_stmt|;
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
@@ -6699,7 +6726,7 @@ argument_list|()
 operator|!=
 name|lastPosBlockFP
 assert|;
-name|ForUtil
+name|forUtil
 operator|.
 name|skipBlock
 argument_list|(
@@ -6712,7 +6739,7 @@ name|indexHasPayloads
 condition|)
 block|{
 comment|// Skip payloadLength block:
-name|ForUtil
+name|forUtil
 operator|.
 name|skipBlock
 argument_list|(
@@ -6748,7 +6775,7 @@ condition|)
 block|{
 comment|// Must load offset blocks merely to sum
 comment|// up into lastStartOffset:
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
@@ -6759,7 +6786,7 @@ argument_list|,
 name|offsetStartDeltaBuffer
 argument_list|)
 expr_stmt|;
-name|ForUtil
+name|forUtil
 operator|.
 name|readBlock
 argument_list|(
