@@ -1601,7 +1601,7 @@ name|getSchemaFile
 parameter_list|()
 block|{
 return|return
-literal|"solrj/solr/conf/schema-replication1.xml"
+literal|"solrj/solr/collection1/conf/schema-replication1.xml"
 return|;
 block|}
 DECL|method|getConfDir
@@ -1637,7 +1637,7 @@ name|getSolrConfigFile
 parameter_list|()
 block|{
 return|return
-literal|"solrj/solr/conf/solrconfig-slave1.xml"
+literal|"solrj/solr/collection1/conf/solrconfig-slave1.xml"
 return|;
 block|}
 DECL|method|setUp

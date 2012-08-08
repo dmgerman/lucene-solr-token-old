@@ -127,7 +127,7 @@ name|solr
 operator|.
 name|cloud
 operator|.
-name|FullSolrCloudTest
+name|AbstractFullDistribZkTestBase
 operator|.
 name|CloudJettyRunner
 import|;

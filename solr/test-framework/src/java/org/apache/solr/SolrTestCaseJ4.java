@@ -7520,12 +7520,18 @@ name|RuntimeException
 argument_list|(
 literal|"Cannot find resource: "
 operator|+
+operator|new
+name|File
+argument_list|(
 name|name
+argument_list|)
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|)
 throw|;
 block|}
 block|}
-comment|// TODO: use solr rather than solr/collection1
 DECL|method|TEST_HOME
 specifier|public
 specifier|static
