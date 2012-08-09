@@ -155,6 +155,8 @@ class|class
 name|DirectXmlRequest
 extends|extends
 name|SolrRequest
+implements|implements
+name|IsUpdateRequest
 block|{
 DECL|field|xml
 specifier|final

@@ -104,7 +104,7 @@ name|InputStream
 import|;
 end_import
 begin_comment
-comment|// TODO: the name of this class seems ridiculous
+comment|/**   * Velocity resource loader wrapper around Solr resource loader   */
 end_comment
 begin_class
 DECL|class|SolrVelocityResourceLoader
@@ -168,6 +168,8 @@ name|loader
 operator|.
 name|openResource
 argument_list|(
+literal|"velocity/"
+operator|+
 name|template_name
 argument_list|)
 return|;

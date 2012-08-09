@@ -3103,6 +3103,69 @@ literal|".NET"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testGroup
+specifier|public
+name|void
+name|testGroup
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertQueryEquals
+argument_list|(
+literal|"!(a AND b) OR c"
+argument_list|,
+literal|null
+argument_list|,
+literal|"-(+a +b) c"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"!(a AND b) AND c"
+argument_list|,
+literal|null
+argument_list|,
+literal|"-(+a +b) +c"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"((a AND b) AND c)"
+argument_list|,
+literal|null
+argument_list|,
+literal|"+(+a +b) +c"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"(a AND b) AND c"
+argument_list|,
+literal|null
+argument_list|,
+literal|"+(+a +b) +c"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"b !(a AND b)"
+argument_list|,
+literal|null
+argument_list|,
+literal|"b -(+a +b)"
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"(a AND b)^4 OR c"
+argument_list|,
+literal|null
+argument_list|,
+literal|"((+a +b)^4.0) c"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSlop
 specifier|public
 name|void
@@ -8057,10 +8120,11 @@ name|BooleanClause
 operator|.
 name|Occur
 operator|.
-name|MUST
+name|SHOULD
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//TODO spezification? was "MUST"
 name|exp
 operator|.
 name|add
@@ -8084,10 +8148,11 @@ name|BooleanClause
 operator|.
 name|Occur
 operator|.
-name|MUST
+name|SHOULD
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//TODO spezification? was "MUST"
 name|assertEquals
 argument_list|(
 name|exp

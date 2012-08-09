@@ -1031,7 +1031,7 @@ operator|.
 name|getZkStateReader
 argument_list|()
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlice
@@ -1192,7 +1192,7 @@ operator|.
 name|getZkStateReader
 argument_list|()
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlice
@@ -1230,7 +1230,7 @@ operator|.
 name|getZkStateReader
 argument_list|()
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getSlice

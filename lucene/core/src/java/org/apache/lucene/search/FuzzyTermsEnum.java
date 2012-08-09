@@ -650,18 +650,9 @@ name|this
 operator|.
 name|minSimilarity
 operator|=
-literal|1
-operator|-
-operator|(
-name|minSimilarity
-operator|+
-literal|1
-operator|)
-operator|/
-name|this
-operator|.
-name|termLength
+literal|0
 expr_stmt|;
+comment|// just driven by number of edits
 name|maxEdits
 operator|=
 operator|(
@@ -1464,8 +1455,8 @@ parameter_list|,
 name|DocsEnum
 name|reuse
 parameter_list|,
-name|boolean
-name|needsFreqs
+name|int
+name|flags
 parameter_list|)
 throws|throws
 name|IOException
@@ -1479,7 +1470,7 @@ name|liveDocs
 argument_list|,
 name|reuse
 argument_list|,
-name|needsFreqs
+name|flags
 argument_list|)
 return|;
 block|}
@@ -1496,8 +1487,8 @@ parameter_list|,
 name|DocsAndPositionsEnum
 name|reuse
 parameter_list|,
-name|boolean
-name|needsOffsets
+name|int
+name|flags
 parameter_list|)
 throws|throws
 name|IOException
@@ -1511,7 +1502,7 @@ name|liveDocs
 argument_list|,
 name|reuse
 argument_list|,
-name|needsOffsets
+name|flags
 argument_list|)
 return|;
 block|}

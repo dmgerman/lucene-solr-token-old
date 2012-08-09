@@ -678,7 +678,7 @@ name|si1
 argument_list|,
 name|si2
 argument_list|,
-literal|"merge"
+literal|"_merge"
 argument_list|,
 literal|false
 argument_list|)
@@ -701,7 +701,7 @@ name|si1
 argument_list|,
 name|si2
 argument_list|,
-literal|"merge2"
+literal|"_merge2"
 argument_list|,
 literal|false
 argument_list|)
@@ -724,7 +724,7 @@ name|siMerge
 argument_list|,
 name|siMerge2
 argument_list|,
-literal|"merge3"
+literal|"_merge3"
 argument_list|,
 literal|false
 argument_list|)
@@ -876,7 +876,7 @@ name|si1
 argument_list|,
 name|si2
 argument_list|,
-literal|"merge"
+literal|"_merge"
 argument_list|,
 literal|true
 argument_list|)
@@ -898,7 +898,7 @@ name|si1
 argument_list|,
 name|si2
 argument_list|,
-literal|"merge2"
+literal|"_merge2"
 argument_list|,
 literal|true
 argument_list|)
@@ -920,7 +920,7 @@ name|siMerge
 argument_list|,
 name|siMerge2
 argument_list|,
-literal|"merge3"
+literal|"_merge3"
 argument_list|,
 literal|true
 argument_list|)
@@ -1023,12 +1023,6 @@ argument_list|(
 literal|"contents"
 argument_list|,
 name|is
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1539,8 +1533,6 @@ name|getLiveDocs
 argument_list|()
 argument_list|,
 literal|null
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 while|while

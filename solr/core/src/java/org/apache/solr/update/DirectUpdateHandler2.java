@@ -2022,6 +2022,9 @@ block|{
 synchronized|synchronized
 init|(
 name|solrCoreState
+operator|.
+name|getUpdateLock
+argument_list|()
 init|)
 block|{
 name|deleteAll
@@ -2044,6 +2047,9 @@ comment|//
 synchronized|synchronized
 init|(
 name|solrCoreState
+operator|.
+name|getUpdateLock
+argument_list|()
 init|)
 block|{
 if|if
@@ -2184,6 +2190,9 @@ comment|// see comment in deleteByQuery
 synchronized|synchronized
 init|(
 name|solrCoreState
+operator|.
+name|getUpdateLock
+argument_list|()
 init|)
 block|{
 name|RefCounted
@@ -2733,6 +2742,9 @@ block|{
 synchronized|synchronized
 init|(
 name|solrCoreState
+operator|.
+name|getUpdateLock
+argument_list|()
 init|)
 block|{
 comment|// sync is currently needed to prevent preCommit
@@ -2846,6 +2858,9 @@ comment|// ulog.preSoftCommit();
 synchronized|synchronized
 init|(
 name|solrCoreState
+operator|.
+name|getUpdateLock
+argument_list|()
 init|)
 block|{
 if|if
@@ -2895,6 +2910,9 @@ block|{
 synchronized|synchronized
 init|(
 name|solrCoreState
+operator|.
+name|getUpdateLock
+argument_list|()
 init|)
 block|{
 if|if
@@ -3131,7 +3149,10 @@ DECL|method|newIndexWriter
 specifier|public
 name|void
 name|newIndexWriter
-parameter_list|()
+parameter_list|(
+name|boolean
+name|rollback
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -3140,6 +3161,8 @@ operator|.
 name|newIndexWriter
 argument_list|(
 name|core
+argument_list|,
+name|rollback
 argument_list|)
 expr_stmt|;
 block|}
@@ -3514,6 +3537,9 @@ comment|//  this.commit(cmd);        // too many test failures using this method
 synchronized|synchronized
 init|(
 name|solrCoreState
+operator|.
+name|getUpdateLock
+argument_list|()
 init|)
 block|{
 name|ulog
@@ -3572,6 +3598,9 @@ expr_stmt|;
 synchronized|synchronized
 init|(
 name|solrCoreState
+operator|.
+name|getUpdateLock
+argument_list|()
 init|)
 block|{
 name|ulog
@@ -4115,6 +4144,28 @@ operator|.
 name|incref
 argument_list|()
 expr_stmt|;
+block|}
+comment|// allow access for tests
+DECL|method|getCommitTracker
+specifier|public
+name|CommitTracker
+name|getCommitTracker
+parameter_list|()
+block|{
+return|return
+name|commitTracker
+return|;
+block|}
+comment|// allow access for tests
+DECL|method|getSoftCommitTracker
+specifier|public
+name|CommitTracker
+name|getSoftCommitTracker
+parameter_list|()
+block|{
+return|return
+name|softCommitTracker
+return|;
 block|}
 block|}
 end_class

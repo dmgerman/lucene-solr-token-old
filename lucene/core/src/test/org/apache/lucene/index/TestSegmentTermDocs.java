@@ -341,7 +341,9 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 decl_stmt|;
 if|if
@@ -471,7 +473,7 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 decl_stmt|;
 name|assertNull
@@ -538,7 +540,7 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 decl_stmt|;
 name|assertNull
@@ -767,7 +769,9 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 decl_stmt|;
 comment|// without optimization (assumption skipInterval == 16)
@@ -957,7 +961,7 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1082,7 +1086,9 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1294,7 +1300,9 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1443,7 +1451,9 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -1679,7 +1689,7 @@ argument_list|)
 argument_list|,
 literal|null
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 expr_stmt|;
 name|assertTrue

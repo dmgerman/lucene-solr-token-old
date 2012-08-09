@@ -2091,12 +2091,6 @@ name|StringReader
 argument_list|(
 literal|"a b c d e f g h i j a k"
 argument_list|)
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2383,12 +2377,6 @@ name|StringReader
 argument_list|(
 literal|"a b a d k f a h i k a k"
 argument_list|)
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2675,12 +2663,6 @@ name|StringReader
 argument_list|(
 literal|"j k a l f k k p a t a k l k t a"
 argument_list|)
-argument_list|,
-name|Field
-operator|.
-name|Store
-operator|.
-name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;

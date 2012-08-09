@@ -103,7 +103,7 @@ name|analysis
 operator|.
 name|util
 operator|.
-name|ResourceAsStreamResourceLoader
+name|ClasspathResourceLoader
 import|;
 end_import
 begin_comment
@@ -186,7 +186,7 @@ operator|.
 name|inform
 argument_list|(
 operator|new
-name|ResourceAsStreamResourceLoader
+name|ClasspathResourceLoader
 argument_list|(
 name|getClass
 argument_list|()

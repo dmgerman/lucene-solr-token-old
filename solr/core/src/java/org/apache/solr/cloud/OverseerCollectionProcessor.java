@@ -99,7 +99,7 @@ name|common
 operator|.
 name|cloud
 operator|.
-name|CloudState
+name|ClusterState
 import|;
 end_import
 begin_import
@@ -368,6 +368,11 @@ specifier|private
 name|ZkStateReader
 name|zkStateReader
 decl_stmt|;
+DECL|field|isClosed
+specifier|private
+name|boolean
+name|isClosed
+decl_stmt|;
 DECL|method|OverseerCollectionProcessor
 specifier|public
 name|OverseerCollectionProcessor
@@ -441,6 +446,9 @@ while|while
 condition|(
 name|amILeader
 argument_list|()
+operator|&&
+operator|!
+name|isClosed
 condition|)
 block|{
 try|try
@@ -608,6 +616,17 @@ return|return;
 block|}
 block|}
 block|}
+DECL|method|close
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{
+name|isClosed
+operator|=
+literal|true
+expr_stmt|;
+block|}
 DECL|method|amILeader
 specifier|private
 name|boolean
@@ -733,7 +752,7 @@ name|createCollection
 argument_list|(
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 argument_list|,
 name|message
@@ -790,7 +809,7 @@ name|collectionCmd
 argument_list|(
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 argument_list|,
 name|message
@@ -838,7 +857,7 @@ name|collectionCmd
 argument_list|(
 name|zkStateReader
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 argument_list|,
 name|message
@@ -857,8 +876,8 @@ specifier|private
 name|boolean
 name|createCollection
 parameter_list|(
-name|CloudState
-name|cloudState
+name|ClusterState
+name|clusterState
 parameter_list|,
 name|ZkNodeProps
 name|message
@@ -1024,7 +1043,7 @@ name|String
 argument_list|>
 name|nodes
 init|=
-name|cloudState
+name|clusterState
 operator|.
 name|getLiveNodes
 argument_list|()
@@ -1330,8 +1349,8 @@ specifier|private
 name|boolean
 name|collectionCmd
 parameter_list|(
-name|CloudState
-name|cloudState
+name|ClusterState
+name|clusterState
 parameter_list|,
 name|ZkNodeProps
 name|message
@@ -1367,7 +1386,7 @@ name|Slice
 argument_list|>
 name|slices
 init|=
-name|cloudState
+name|clusterState
 operator|.
 name|getCollectionStates
 argument_list|()
@@ -1481,7 +1500,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|cloudState
+name|clusterState
 operator|.
 name|liveNodesContain
 argument_list|(

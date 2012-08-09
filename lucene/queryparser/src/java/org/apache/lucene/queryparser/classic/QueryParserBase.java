@@ -172,6 +172,23 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|queryparser
+operator|.
+name|flexible
+operator|.
+name|standard
+operator|.
+name|CommonQueryParserConfiguration
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|*
@@ -212,6 +229,8 @@ specifier|public
 specifier|abstract
 class|class
 name|QueryParserBase
+implements|implements
+name|CommonQueryParserConfiguration
 block|{
 comment|/** Do not catch this exception in your code, it means you are using methods that you should no longer use. */
 DECL|class|MethodRemovedUseAnother

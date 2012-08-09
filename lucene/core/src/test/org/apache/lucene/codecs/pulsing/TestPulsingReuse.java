@@ -239,19 +239,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|store
-operator|.
-name|MockDirectoryWrapper
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|LuceneTestCase
@@ -451,7 +438,7 @@ literal|null
 argument_list|,
 name|reuse
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 expr_stmt|;
 name|allEnums
@@ -517,8 +504,6 @@ argument_list|(
 literal|null
 argument_list|,
 name|posReuse
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|allEnums
@@ -731,7 +716,7 @@ literal|null
 argument_list|,
 name|reuse
 argument_list|,
-literal|false
+literal|0
 argument_list|)
 expr_stmt|;
 name|allEnums
@@ -797,8 +782,6 @@ argument_list|(
 literal|null
 argument_list|,
 name|posReuse
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|allEnums

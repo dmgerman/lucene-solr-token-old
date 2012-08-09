@@ -119,9 +119,9 @@ name|lucene
 operator|.
 name|queryparser
 operator|.
-name|util
+name|classic
 operator|.
-name|QueryParserTestBase
+name|TestQueryParser
 import|;
 end_import
 begin_import
@@ -185,7 +185,7 @@ specifier|public
 class|class
 name|TestExtendableQueryParser
 extends|extends
-name|QueryParserTestBase
+name|TestQueryParser
 block|{
 DECL|field|DELIMITERS
 specifier|private
@@ -276,7 +276,8 @@ name|ExtendableQueryParser
 argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
-literal|"field"
+name|getDefaultField
+argument_list|()
 argument_list|,
 name|a
 argument_list|)
@@ -286,7 +287,8 @@ name|ExtendableQueryParser
 argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
-literal|"field"
+name|getDefaultField
+argument_list|()
 argument_list|,
 name|a
 argument_list|,
@@ -601,7 +603,8 @@ name|query
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"field"
+name|getDefaultField
+argument_list|()
 argument_list|,
 name|tquery
 operator|.
@@ -742,7 +745,8 @@ name|parse
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"field"
+name|getDefaultField
+argument_list|()
 argument_list|,
 name|tquery
 operator|.

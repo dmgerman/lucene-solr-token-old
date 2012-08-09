@@ -1192,7 +1192,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
-comment|/*** Isn't core specific... prob better logged from zkController     if (info != null) {       CloudState cloudState = zkController.getCloudState();       if (info.cloudState != cloudState) {         // something has changed in the matrix...         sb.append(zkController.getBaseUrl() + " sees new CloudState:");       }     }     ***/
+comment|/*** Isn't core specific... prob better logged from zkController     if (info != null) {       ClusterState clusterState = zkController.getClusterState();       if (info.clusterState != clusterState) {         // something has changed in the matrix...         sb.append(zkController.getBaseUrl() + " sees new ClusterState:");       }     }     ***/
 return|return
 name|sb
 operator|.
@@ -1237,7 +1237,7 @@ name|props
 init|=
 name|zkController
 operator|.
-name|getCloudState
+name|getClusterState
 argument_list|()
 operator|.
 name|getShardProps
