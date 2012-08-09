@@ -623,6 +623,10 @@ argument_list|,
 name|field
 argument_list|,
 name|term
+argument_list|,
+name|DocsEnum
+operator|.
+name|FLAG_FREQS
 argument_list|)
 return|;
 block|}
