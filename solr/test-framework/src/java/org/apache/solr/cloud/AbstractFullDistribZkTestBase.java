@@ -4789,8 +4789,8 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|SolrServer
-name|lastClient
+name|CloudJettyRunner
+name|lastJetty
 init|=
 literal|null
 decl_stmt|;
@@ -5055,7 +5055,9 @@ name|lastNum
 operator|+
 literal|" from "
 operator|+
-name|lastClient
+name|lastJetty
+operator|.
+name|url
 operator|+
 literal|"lastClient"
 operator|+
@@ -5135,7 +5137,11 @@ expr_stmt|;
 name|SolrDocumentList
 name|lst1
 init|=
-name|lastClient
+name|lastJetty
+operator|.
+name|client
+operator|.
+name|solrClient
 operator|.
 name|query
 argument_list|(
@@ -5168,7 +5174,7 @@ name|lst1
 argument_list|,
 name|lst2
 argument_list|,
-name|lastClient
+name|lastJetty
 operator|.
 name|toString
 argument_list|()
@@ -5189,13 +5195,9 @@ name|lastNum
 operator|=
 name|num
 expr_stmt|;
-name|lastClient
+name|lastJetty
 operator|=
 name|cjetty
-operator|.
-name|client
-operator|.
-name|solrClient
 expr_stmt|;
 block|}
 block|}
