@@ -764,7 +764,7 @@ init|=
 operator|new
 name|Random
 argument_list|(
-literal|0
+name|base
 argument_list|)
 decl_stmt|;
 for|for
