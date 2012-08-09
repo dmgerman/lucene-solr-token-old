@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.blockpacked
+DECL|package|org.apache.lucene.codecs.block
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|blockpacked
+name|block
 package|;
 end_package
 begin_comment
@@ -26,9 +26,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|blockpacked
+name|block
 operator|.
-name|BlockPackedPostingsFormat
+name|BlockPostingsFormat
 operator|.
 name|BLOCK_SIZE
 import|;
@@ -43,7 +43,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|blockpacked
+name|block
 operator|.
 name|ForUtil
 operator|.
@@ -60,7 +60,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|blockpacked
+name|block
 operator|.
 name|ForUtil
 operator|.
