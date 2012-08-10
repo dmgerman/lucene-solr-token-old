@@ -1213,6 +1213,14 @@ operator|++
 name|i
 control|)
 block|{
+assert|assert
+name|data
+index|[
+name|i
+index|]
+operator|>=
+literal|0
+assert|;
 name|or
 operator||=
 name|data
