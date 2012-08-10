@@ -1125,7 +1125,6 @@ name|encodedSize
 argument_list|)
 expr_stmt|;
 block|}
-comment|// nocommit: we must have a util function for this, hmm?
 DECL|method|isAllEqual
 specifier|private
 specifier|static
