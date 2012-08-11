@@ -1130,6 +1130,8 @@ block|{
 literal|"doc.stored=true"
 block|,
 comment|//doc storage is required in order to have text to highlight
+literal|"doc.term.vector=true"
+block|,
 literal|"doc.term.vector.offsets=true"
 block|,
 literal|"content.source=org.apache.lucene.benchmark.byTask.feeds.LineDocSource"
