@@ -1005,6 +1005,12 @@ operator|.
 name|newFixedThreadPool
 argument_list|(
 name|threadCount
+argument_list|,
+operator|new
+name|NamedThreadFactory
+argument_list|(
+literal|"testConcurrentHashMap"
+argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
