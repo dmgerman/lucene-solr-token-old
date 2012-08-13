@@ -155,7 +155,7 @@ specifier|public
 class|class
 name|ChaosMonkeySafeLeaderTest
 extends|extends
-name|FullSolrCloudTest
+name|AbstractFullDistribZkTestBase
 block|{
 DECL|field|BASE_RUN_LENGTH
 specifier|private

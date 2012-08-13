@@ -130,6 +130,8 @@ class|class
 name|AbstractUpdateRequest
 extends|extends
 name|SolrRequest
+implements|implements
+name|IsUpdateRequest
 block|{
 DECL|field|params
 specifier|protected

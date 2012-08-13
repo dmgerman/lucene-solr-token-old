@@ -698,7 +698,7 @@ name|DefaultSolrThreadFactory
 import|;
 end_import
 begin_comment
-comment|/**  *  */
+comment|/**  * This test simply does a bunch of basic things in solrcloud mode and asserts things  * work as expected.  */
 end_comment
 begin_class
 annotation|@
@@ -708,7 +708,7 @@ specifier|public
 class|class
 name|BasicDistributedZkTest
 extends|extends
-name|AbstractDistributedZkTestCase
+name|AbstractDistribZkTestBase
 block|{
 DECL|field|DEFAULT_COLLECTION
 specifier|private
@@ -2405,7 +2405,7 @@ name|put
 argument_list|(
 literal|"explain"
 argument_list|,
-name|UNORDERED
+name|SKIPVAL
 argument_list|)
 expr_stmt|;
 name|handle

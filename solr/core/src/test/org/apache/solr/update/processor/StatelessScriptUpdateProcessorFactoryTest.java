@@ -202,13 +202,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|initCore
-argument_list|(
-literal|"solrconfig-script-updateprocessor.xml"
-argument_list|,
-literal|"schema12.xml"
-argument_list|)
-expr_stmt|;
 name|Assume
 operator|.
 name|assumeNotNull
@@ -223,6 +216,13 @@ name|getEngineByExtension
 argument_list|(
 literal|"js"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|initCore
+argument_list|(
+literal|"solrconfig-script-updateprocessor.xml"
+argument_list|,
+literal|"schema12.xml"
 argument_list|)
 expr_stmt|;
 block|}

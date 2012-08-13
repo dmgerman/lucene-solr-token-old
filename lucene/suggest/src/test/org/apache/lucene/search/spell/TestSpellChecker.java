@@ -259,6 +259,19 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|NamedThreadFactory
+import|;
+end_import
 begin_comment
 comment|/**  * Spell checker test case  */
 end_comment
@@ -2567,6 +2580,12 @@ operator|.
 name|newFixedThreadPool
 argument_list|(
 name|numThreads
+argument_list|,
+operator|new
+name|NamedThreadFactory
+argument_list|(
+literal|"testConcurrentAccess"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|SpellCheckWorker

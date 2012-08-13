@@ -347,19 +347,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldsEnum
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|IndexReader
 import|;
 end_import
@@ -910,15 +897,11 @@ argument_list|(
 name|algLines
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|CountingSearchTestTask
-operator|.
-name|numSearches
-operator|>
-literal|0
-argument_list|)
-expr_stmt|;
+comment|// NOTE: cannot assert this, because on a super-slow
+comment|// system, it could be after waiting 0.5 seconds that
+comment|// the search threads hadn't yet succeeded in starting
+comment|// up and then they start up and do no searching:
+comment|//assertTrue(CountingSearchTestTask.numSearches> 0);
 block|}
 DECL|method|testHighlighting
 specifier|public
@@ -1134,6 +1117,8 @@ block|{
 literal|"doc.stored=true"
 block|,
 comment|//doc storage is required in order to have text to highlight
+literal|"doc.term.vector=true"
+block|,
 literal|"doc.term.vector.offsets=true"
 block|,
 literal|"content.source=org.apache.lucene.benchmark.byTask.feeds.LineDocSource"
@@ -2284,7 +2269,7 @@ name|totalTokenCount2
 init|=
 literal|0
 decl_stmt|;
-name|FieldsEnum
+name|Fields
 name|fields
 init|=
 name|MultiFields
@@ -2293,28 +2278,14 @@ name|getFields
 argument_list|(
 name|reader
 argument_list|)
-operator|.
-name|iterator
-argument_list|()
 decl_stmt|;
+for|for
+control|(
 name|String
 name|fieldName
-init|=
-literal|null
-decl_stmt|;
-while|while
-condition|(
-operator|(
-name|fieldName
-operator|=
+range|:
 name|fields
-operator|.
-name|next
-argument_list|()
-operator|)
-operator|!=
-literal|null
-condition|)
+control|)
 block|{
 if|if
 condition|(
@@ -2354,7 +2325,9 @@ init|=
 name|fields
 operator|.
 name|terms
-argument_list|()
+argument_list|(
+name|fieldName
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

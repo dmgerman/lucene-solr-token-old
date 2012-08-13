@@ -4904,6 +4904,11 @@ condition|)
 return|return
 literal|null
 return|;
+name|operationFlags
+operator|&=
+operator|~
+name|FLAG_GAP
+expr_stmt|;
 comment|// handle case when no log was even created because no updates
 comment|// were received.
 if|if
@@ -4933,11 +4938,6 @@ operator|=
 name|State
 operator|.
 name|APPLYING_BUFFERED
-expr_stmt|;
-name|operationFlags
-operator|&=
-operator|~
-name|FLAG_GAP
 expr_stmt|;
 block|}
 finally|finally

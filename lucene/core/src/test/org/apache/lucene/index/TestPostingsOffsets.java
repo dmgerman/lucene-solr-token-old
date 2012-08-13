@@ -1346,11 +1346,11 @@ name|withPayloads
 condition|)
 block|{
 comment|// check that we have a payload and it starts with "pos"
-name|assertTrue
+name|assertNotNull
 argument_list|(
 name|dp
 operator|.
-name|hasPayload
+name|getPayload
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1562,11 +1562,11 @@ name|withPayloads
 condition|)
 block|{
 comment|// check that we have a payload and it starts with "pos"
-name|assertTrue
+name|assertNotNull
 argument_list|(
 name|dp
 operator|.
-name|hasPayload
+name|getPayload
 argument_list|()
 argument_list|)
 expr_stmt|;
