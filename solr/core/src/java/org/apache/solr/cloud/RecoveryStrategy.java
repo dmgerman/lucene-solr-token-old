@@ -197,7 +197,7 @@ name|common
 operator|.
 name|cloud
 operator|.
-name|SafeStopThread
+name|ClosableThread
 import|;
 end_import
 begin_import
@@ -513,7 +513,7 @@ name|RecoveryStrategy
 extends|extends
 name|Thread
 implements|implements
-name|SafeStopThread
+name|ClosableThread
 block|{
 DECL|field|MAX_RETRIES
 specifier|private
