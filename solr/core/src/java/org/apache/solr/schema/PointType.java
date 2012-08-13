@@ -93,6 +93,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|StorableField
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|BooleanClause
@@ -415,7 +428,7 @@ annotation|@
 name|Override
 DECL|method|createFields
 specifier|public
-name|IndexableField
+name|StorableField
 index|[]
 name|createFields
 parameter_list|(
@@ -484,12 +497,12 @@ argument_list|)
 throw|;
 block|}
 comment|// TODO: this doesn't currently support polyFields as sub-field types
-name|IndexableField
+name|StorableField
 index|[]
 name|f
 init|=
 operator|new
-name|IndexableField
+name|StorableField
 index|[
 operator|(
 name|field
@@ -722,7 +735,7 @@ annotation|@
 name|Override
 DECL|method|createField
 specifier|public
-name|IndexableField
+name|StorableField
 name|createField
 parameter_list|(
 name|SchemaField
@@ -761,7 +774,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|GeneralField
+name|StorableField
 name|f
 parameter_list|)
 throws|throws

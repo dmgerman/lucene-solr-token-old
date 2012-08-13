@@ -1092,9 +1092,6 @@ argument_list|()
 decl_stmt|;
 name|doc
 operator|.
-name|getFields
-argument_list|()
-operator|.
 name|clear
 argument_list|()
 expr_stmt|;

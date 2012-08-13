@@ -24,7 +24,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|GeneralField
+name|StorableField
 import|;
 end_import
 begin_comment
@@ -46,7 +46,7 @@ specifier|public
 name|String
 name|toObject
 parameter_list|(
-name|GeneralField
+name|StorableField
 name|f
 parameter_list|)
 block|{

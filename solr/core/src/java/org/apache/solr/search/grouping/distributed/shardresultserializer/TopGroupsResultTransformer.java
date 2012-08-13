@@ -54,7 +54,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|index
 operator|.
 name|StoredDocument
 import|;

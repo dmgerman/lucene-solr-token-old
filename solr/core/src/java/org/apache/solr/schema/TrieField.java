@@ -194,6 +194,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|StorableField
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|queries
 operator|.
 name|function
@@ -697,7 +710,7 @@ specifier|public
 name|Object
 name|toObject
 parameter_list|(
-name|GeneralField
+name|StorableField
 name|f
 parameter_list|)
 block|{
@@ -1335,7 +1348,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|GeneralField
+name|StorableField
 name|f
 parameter_list|)
 throws|throws
@@ -1926,7 +1939,7 @@ specifier|public
 name|String
 name|storedToReadable
 parameter_list|(
-name|IndexableField
+name|StorableField
 name|f
 parameter_list|)
 block|{
@@ -2158,7 +2171,7 @@ specifier|static
 name|String
 name|badFieldString
 parameter_list|(
-name|GeneralField
+name|StorableField
 name|f
 parameter_list|)
 block|{
@@ -2183,7 +2196,7 @@ specifier|public
 name|String
 name|toExternal
 parameter_list|(
-name|GeneralField
+name|StorableField
 name|f
 parameter_list|)
 block|{
@@ -2653,7 +2666,7 @@ specifier|public
 name|String
 name|storedToIndexed
 parameter_list|(
-name|GeneralField
+name|StorableField
 name|f
 parameter_list|)
 block|{
@@ -3010,7 +3023,7 @@ annotation|@
 name|Override
 DECL|method|createField
 specifier|public
-name|IndexableField
+name|StorableField
 name|createField
 parameter_list|(
 name|SchemaField

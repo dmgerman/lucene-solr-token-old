@@ -161,6 +161,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|StorableField
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|SortField
@@ -536,7 +549,7 @@ annotation|@
 name|Override
 DECL|method|createField
 specifier|public
-name|IndexableField
+name|StorableField
 name|createField
 parameter_list|(
 name|SchemaField
@@ -549,7 +562,7 @@ name|float
 name|boost
 parameter_list|)
 block|{
-name|IndexableField
+name|StorableField
 name|f
 init|=
 literal|null
@@ -628,7 +641,7 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|GeneralField
+name|StorableField
 name|f
 parameter_list|)
 throws|throws
@@ -741,7 +754,7 @@ function_decl|;
 block|}
 DECL|method|fromString
 specifier|public
-name|IndexableField
+name|StorableField
 name|fromString
 parameter_list|(
 name|SchemaField

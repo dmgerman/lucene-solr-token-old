@@ -531,7 +531,7 @@ annotation|@
 name|Override
 DECL|method|createIndexableFields
 specifier|public
-name|IndexableField
+name|Field
 index|[]
 name|createIndexableFields
 parameter_list|(
@@ -565,12 +565,12 @@ argument_list|(
 name|precisionStep
 argument_list|)
 expr_stmt|;
-name|IndexableField
+name|Field
 index|[]
 name|fields
 init|=
 operator|new
-name|IndexableField
+name|Field
 index|[
 literal|5
 index|]

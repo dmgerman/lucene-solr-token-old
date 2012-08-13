@@ -385,7 +385,7 @@ annotation|@
 name|Override
 DECL|method|createIndexableFields
 specifier|public
-name|IndexableField
+name|Field
 index|[]
 name|createIndexableFields
 parameter_list|(
@@ -495,7 +495,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|IndexableField
+name|Field
 index|[]
 block|{
 name|field
