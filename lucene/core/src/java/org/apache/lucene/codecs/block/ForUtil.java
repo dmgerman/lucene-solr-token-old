@@ -804,7 +804,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeInt
+name|writeVInt
 argument_list|(
 name|data
 index|[
@@ -967,7 +967,7 @@ name|value
 init|=
 name|in
 operator|.
-name|readInt
+name|readVInt
 argument_list|()
 decl_stmt|;
 name|Arrays
@@ -1080,15 +1080,8 @@ condition|)
 block|{
 name|in
 operator|.
-name|seek
-argument_list|(
-name|in
-operator|.
-name|getFilePointer
+name|readVInt
 argument_list|()
-operator|+
-literal|4
-argument_list|)
 expr_stmt|;
 return|return;
 block|}
