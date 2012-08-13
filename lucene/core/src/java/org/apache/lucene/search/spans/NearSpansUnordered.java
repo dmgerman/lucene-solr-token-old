@@ -586,6 +586,8 @@ specifier|public
 name|boolean
 name|isPayloadAvailable
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 name|spans
@@ -1206,6 +1208,8 @@ specifier|public
 name|boolean
 name|isPayloadAvailable
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|SpansCell
 name|pointer

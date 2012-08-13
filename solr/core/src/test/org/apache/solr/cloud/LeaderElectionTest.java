@@ -217,6 +217,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|solr
+operator|.
+name|util
+operator|.
+name|DefaultSolrThreadFactory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|zookeeper
 operator|.
 name|KeeperException
@@ -251,6 +264,15 @@ operator|.
 name|junit
 operator|.
 name|BeforeClass
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
 import|;
 end_import
 begin_import
@@ -1673,6 +1695,12 @@ operator|.
 name|newScheduledThreadPool
 argument_list|(
 literal|15
+argument_list|,
+operator|new
+name|DefaultSolrThreadFactory
+argument_list|(
+literal|"stressElection"
+argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1933,7 +1961,7 @@ parameter_list|(
 name|Exception
 name|e
 parameter_list|)
-block|{            }
+block|{           }
 block|}
 block|}
 block|}
@@ -2122,6 +2150,16 @@ range|:
 name|threads
 control|)
 block|{
+name|thread
+operator|.
+name|zkClient
+operator|.
+name|getSolrZooKeeper
+argument_list|()
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|thread
 operator|.
 name|close

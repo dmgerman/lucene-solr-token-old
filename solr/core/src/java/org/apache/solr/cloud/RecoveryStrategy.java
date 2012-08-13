@@ -755,7 +755,7 @@ name|log
 argument_list|(
 name|log
 argument_list|,
-literal|"Recovery failed - I give up. Core:"
+literal|"Recovery failed - I give up. core="
 operator|+
 name|coreName
 argument_list|)
@@ -840,7 +840,7 @@ literal|"Attempting to replicate from "
 operator|+
 name|leaderUrl
 operator|+
-literal|". Core:"
+literal|". core="
 operator|+
 name|coreName
 argument_list|)
@@ -1275,11 +1275,11 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Starting recovery process.  Core:"
+literal|"Starting recovery process.  core="
 operator|+
 name|coreName
 operator|+
-literal|" - recoveringAfterStartup="
+literal|" recoveringAfterStartup="
 operator|+
 name|recoveringAfterStartup
 argument_list|)
@@ -1435,7 +1435,7 @@ name|log
 argument_list|(
 name|log
 argument_list|,
-literal|"No UpdateLog found - cannot recover. Core:"
+literal|"No UpdateLog found - cannot recover. core="
 operator|+
 name|coreName
 argument_list|)
@@ -1504,7 +1504,7 @@ name|log
 argument_list|(
 name|log
 argument_list|,
-literal|"Corrupt tlog - ignoring. Core:"
+literal|"Corrupt tlog - ignoring. core="
 operator|+
 name|coreName
 argument_list|,
@@ -1686,7 +1686,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Looks like a previous replication recovery did not complete - skipping peer sync. Core:"
+literal|"Looks like a previous replication recovery did not complete - skipping peer sync. core="
 operator|+
 name|coreName
 argument_list|)
@@ -1821,7 +1821,7 @@ literal|"Attempting to PeerSync from "
 operator|+
 name|leaderUrl
 operator|+
-literal|" Core:"
+literal|" core="
 operator|+
 name|coreName
 operator|+
@@ -1905,7 +1905,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"PeerSync Recovery was successful - registering as Active. Core:"
+literal|"PeerSync Recovery was successful - registering as Active. core="
 operator|+
 name|coreName
 argument_list|)
@@ -1957,7 +1957,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"PeerSync Recovery was not successful - trying replication. Core:"
+literal|"PeerSync Recovery was not successful - trying replication. core="
 operator|+
 name|coreName
 argument_list|)
@@ -1968,7 +1968,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Starting Replication Recovery. Core:"
+literal|"Starting Replication Recovery. core="
 operator|+
 name|coreName
 argument_list|)
@@ -1977,7 +1977,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Begin buffering updates. Core:"
+literal|"Begin buffering updates. core="
 operator|+
 name|coreName
 argument_list|)
@@ -2020,7 +2020,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Replication Recovery was successful - registering as Active. Core:"
+literal|"Replication Recovery was successful - registering as Active. core="
 operator|+
 name|coreName
 argument_list|)
@@ -2140,7 +2140,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Error while trying to recover. Core:"
+literal|"Error while trying to recover. core="
 operator|+
 name|coreName
 argument_list|,
@@ -2163,7 +2163,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Recovery failed - trying again... Core:"
+literal|"Recovery failed - trying again... core="
 operator|+
 name|coreName
 argument_list|)
@@ -2191,7 +2191,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Recovery failed - max retries exceeded. Core:"
+literal|"Recovery failed - max retries exceeded. core="
 operator|+
 name|coreName
 argument_list|)
@@ -2226,7 +2226,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Core:"
+literal|"core="
 operator|+
 name|coreName
 argument_list|,
@@ -2305,7 +2305,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Recovery was interrupted. Core:"
+literal|"Recovery was interrupted. core="
 operator|+
 name|coreName
 argument_list|,
@@ -2323,7 +2323,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Finished recovery process. Core:"
+literal|"Finished recovery process. core="
 operator|+
 name|coreName
 argument_list|)
@@ -2368,7 +2368,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"No replay needed. Core:"
+literal|"No replay needed. core="
 operator|+
 name|coreName
 argument_list|)
@@ -2380,7 +2380,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Replaying buffered documents. Core:"
+literal|"Replaying buffered documents. core="
 operator|+
 name|coreName
 argument_list|)
