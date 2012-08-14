@@ -2582,7 +2582,7 @@ literal|2
 argument_list|,
 name|rd1
 operator|.
-name|getTopReaderContext
+name|getContext
 argument_list|()
 operator|.
 name|children
@@ -2598,7 +2598,7 @@ literal|2
 argument_list|,
 name|rd2
 operator|.
-name|getTopReaderContext
+name|getContext
 argument_list|()
 operator|.
 name|children
@@ -2635,7 +2635,7 @@ literal|3
 argument_list|,
 name|rd1
 operator|.
-name|getTopReaderContext
+name|getContext
 argument_list|()
 operator|.
 name|children
@@ -2651,7 +2651,7 @@ literal|3
 argument_list|,
 name|rd2
 operator|.
-name|getTopReaderContext
+name|getContext
 argument_list|()
 operator|.
 name|children

@@ -876,7 +876,7 @@ name|topReaderContext
 init|=
 name|reader
 operator|.
-name|getTopReaderContext
+name|getContext
 argument_list|()
 decl_stmt|;
 name|List
@@ -2704,7 +2704,7 @@ name|topReaderContext
 init|=
 name|reader
 operator|.
-name|getTopReaderContext
+name|getContext
 argument_list|()
 decl_stmt|;
 name|List

@@ -1324,7 +1324,7 @@ argument_list|(
 name|reader
 argument_list|)
 operator|.
-name|getTopReaderContext
+name|getContext
 argument_list|()
 decl_stmt|;
 name|NumericRangeFilter

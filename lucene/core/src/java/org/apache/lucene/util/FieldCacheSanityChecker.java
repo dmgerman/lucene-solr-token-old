@@ -1333,7 +1333,7 @@ operator|)
 name|obj
 operator|)
 operator|.
-name|getTopReaderContext
+name|getContext
 argument_list|()
 operator|.
 name|children
