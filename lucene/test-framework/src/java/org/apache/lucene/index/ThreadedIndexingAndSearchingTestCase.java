@@ -2166,20 +2166,16 @@ comment|// diagnostics, and 2) segment warming for
 comment|// merged segments is actually happening:
 for|for
 control|(
-name|AtomicReader
+specifier|final
+name|AtomicReaderContext
 name|sub
 range|:
-operator|(
-operator|(
-name|DirectoryReader
-operator|)
 name|s
 operator|.
 name|getIndexReader
 argument_list|()
-operator|)
 operator|.
-name|getSequentialSubReaders
+name|leaves
 argument_list|()
 control|)
 block|{
@@ -2190,6 +2186,9 @@ operator|(
 name|SegmentReader
 operator|)
 name|sub
+operator|.
+name|reader
+argument_list|()
 decl_stmt|;
 name|Map
 argument_list|<
@@ -2267,12 +2266,7 @@ name|warmed
 operator|.
 name|containsKey
 argument_list|(
-operator|(
-operator|(
-name|SegmentReader
-operator|)
-name|sub
-operator|)
+name|segReader
 operator|.
 name|core
 argument_list|)
