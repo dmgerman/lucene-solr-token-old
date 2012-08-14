@@ -428,6 +428,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Creating new IndexWriter..."
+argument_list|)
+expr_stmt|;
+name|String
+name|coreName
+init|=
+name|core
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 synchronized|synchronized
 init|(
 name|writerPauseLock
@@ -440,6 +455,15 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// then lets wait until its out of use
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Waiting until IndexWriter is unused... core="
+operator|+
+name|coreName
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 operator|!
@@ -472,6 +496,15 @@ condition|)
 block|{
 try|try
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Closing old IndexWriter... core="
+operator|+
+name|coreName
+argument_list|)
+expr_stmt|;
 name|indexWriter
 operator|.
 name|close
@@ -490,7 +523,9 @@ name|log
 argument_list|(
 name|log
 argument_list|,
-literal|"Error closing old IndexWriter"
+literal|"Error closing old IndexWriter. core="
+operator|+
+name|coreName
 argument_list|,
 name|t
 argument_list|)
@@ -508,6 +543,13 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"New IndexWriter is ready to be used."
 argument_list|)
 expr_stmt|;
 comment|// we need to null this so it picks up the new writer next get call
@@ -558,6 +600,13 @@ condition|)
 block|{
 try|try
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"SolrCoreState ref count has reached 0 - closing IndexWriter"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|closer

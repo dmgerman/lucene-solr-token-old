@@ -523,6 +523,8 @@ name|values
 argument_list|()
 control|)
 block|{
+try|try
+block|{
 name|val
 operator|.
 name|directory
@@ -530,6 +532,25 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|SolrException
+operator|.
+name|log
+argument_list|(
+name|log
+argument_list|,
+literal|"Error closing directory"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|byDirectoryCache
 operator|.
