@@ -4617,7 +4617,7 @@ operator|.
 name|getIndexReader
 argument_list|()
 operator|.
-name|getSequentialSubReaders
+name|leaves
 argument_list|()
 operator|.
 name|size

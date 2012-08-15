@@ -826,7 +826,7 @@ name|getDocIdSet
 argument_list|(
 name|reader
 operator|.
-name|getTopReaderContext
+name|getContext
 argument_list|()
 argument_list|,
 name|reader

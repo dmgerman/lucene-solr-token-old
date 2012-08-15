@@ -1357,6 +1357,11 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
+name|JettySolrRunner
+operator|.
+name|assertStoppedJetties
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|printLayout
 specifier|protected
