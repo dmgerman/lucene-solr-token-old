@@ -182,7 +182,6 @@ specifier|final
 name|int
 name|skipMultiplier
 decl_stmt|;
-comment|// nocommit made protected from public
 DECL|method|MultiLevelSkipListReader
 specifier|protected
 name|MultiLevelSkipListReader
