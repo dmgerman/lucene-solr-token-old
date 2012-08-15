@@ -45,23 +45,6 @@ name|codecs
 operator|.
 name|block
 operator|.
-name|BlockPostingsReader
-operator|.
-name|DEBUG
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|block
-operator|.
 name|ForUtil
 operator|.
 name|MAX_DATA_SIZE
@@ -1129,23 +1112,9 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"FPW.startTerm startFP="
-operator|+
-name|docTermStartFP
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("FPW.startTerm startFP=" + docTermStartFP);
+comment|// }
 name|skipWriter
 operator|.
 name|resetSkip
@@ -1168,27 +1137,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"FPW.startDoc docID["
-operator|+
-name|docBufferUpto
-operator|+
-literal|"]="
-operator|+
-name|docID
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("FPW.startDoc docID["+docBufferUpto+"]=" + docID);
+comment|// }
 comment|// Have collected a block of docs, and get a new doc.
 comment|// Should write skip data as well as postings list for
 comment|// current block.
@@ -1204,31 +1155,9 @@ operator|==
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  bufferSkip at writeBlock: lastDocID="
-operator|+
-name|lastBlockDocID
-operator|+
-literal|" docCount="
-operator|+
-operator|(
-name|docCount
-operator|-
-literal|1
-operator|)
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("  bufferSkip at writeBlock: lastDocID=" + lastBlockDocID + " docCount=" + (docCount-1));
+comment|// }
 name|skipWriter
 operator|.
 name|bufferSkip
@@ -1301,9 +1230,9 @@ index|]
 operator|=
 name|docDelta
 expr_stmt|;
-comment|//    if (DEBUG) {
-comment|//      System.out.println("  docDeltaBuffer[" + docBufferUpto + "]=" + docDelta);
-comment|//    }
+comment|// if (DEBUG) {
+comment|//   System.out.println("  docDeltaBuffer[" + docBufferUpto + "]=" + docDelta);
+comment|// }
 if|if
 condition|(
 name|fieldHasFreqs
@@ -1330,26 +1259,9 @@ operator|==
 name|BLOCK_SIZE
 condition|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  write docDelta block @ fp="
-operator|+
-name|docOut
-operator|.
-name|getFilePointer
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("  write docDelta block @ fp=" + docOut.getFilePointer());
+comment|// }
 name|forUtil
 operator|.
 name|writeBlock
@@ -1366,26 +1278,9 @@ condition|(
 name|fieldHasFreqs
 condition|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  write freq block @ fp="
-operator|+
-name|docOut
-operator|.
-name|getFilePointer
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("  write freq block @ fp=" + docOut.getFilePointer());
+comment|// }
 name|forUtil
 operator|.
 name|writeBlock
@@ -1438,9 +1333,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//    if (DEBUG) {
-comment|//      System.out.println("FPW.addPosition pos=" + position + " posBufferUpto=" + posBufferUpto + (fieldHasPayloads ? " payloadByteUpto=" + payloadByteUpto: ""));
-comment|//    }
+comment|// if (DEBUG) {
+comment|//   System.out.println("FPW.addPosition pos=" + position + " posBufferUpto=" + posBufferUpto + (fieldHasPayloads ? " payloadByteUpto=" + payloadByteUpto: ""));
+comment|// }
 name|posDeltaBuffer
 index|[
 name|posBufferUpto
@@ -1598,26 +1493,9 @@ operator|==
 name|BLOCK_SIZE
 condition|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  write pos bulk block @ fp="
-operator|+
-name|posOut
-operator|.
-name|getFilePointer
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("  write pos bulk block @ fp=" + posOut.getFilePointer());
+comment|// }
 name|forUtil
 operator|.
 name|writeBlock
@@ -1768,39 +1646,9 @@ operator|=
 name|payloadByteUpto
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  docBufferUpto="
-operator|+
-name|docBufferUpto
-operator|+
-literal|" now get lastBlockDocID="
-operator|+
-name|lastBlockDocID
-operator|+
-literal|" lastBlockPosFP="
-operator|+
-name|lastBlockPosFP
-operator|+
-literal|" lastBlockPosBufferUpto="
-operator|+
-name|lastBlockPosBufferUpto
-operator|+
-literal|" lastBlockPayloadByteUpto="
-operator|+
-name|lastBlockPayloadByteUpto
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("  docBufferUpto="+docBufferUpto+" now get lastBlockDocID="+lastBlockDocID+" lastBlockPosFP=" + lastBlockPosFP + " lastBlockPosBufferUpto=" +  lastBlockPosBufferUpto + " lastBlockPayloadByteUpto=" + lastBlockPayloadByteUpto);
+comment|// }
 name|docBufferUpto
 operator|=
 literal|0
@@ -1949,61 +1797,14 @@ literal|" vs "
 operator|+
 name|docCount
 assert|;
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"FPW.finishTerm docFreq="
-operator|+
-name|stats
-operator|.
-name|docFreq
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-if|if
-condition|(
-name|docBufferUpto
-operator|>
-literal|0
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  write doc/freq vInt block (count="
-operator|+
-name|docBufferUpto
-operator|+
-literal|") at fp="
-operator|+
-name|docOut
-operator|.
-name|getFilePointer
-argument_list|()
-operator|+
-literal|" docTermStartFP="
-operator|+
-name|docTermStartFP
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("FPW.finishTerm docFreq=" + stats.docFreq);
+comment|// }
+comment|// if (DEBUG) {
+comment|//   if (docBufferUpto> 0) {
+comment|//     System.out.println("  write doc/freq vInt block (count=" + docBufferUpto + ") at fp=" + docOut.getFilePointer() + " docTermStartFP=" + docTermStartFP);
+comment|//   }
+comment|// }
 comment|// vInt encode the remaining doc deltas and freqs:
 for|for
 control|(
@@ -2106,50 +1907,11 @@ condition|(
 name|fieldHasPositions
 condition|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-if|if
-condition|(
-name|posBufferUpto
-operator|>
-literal|0
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  write pos vInt block (count="
-operator|+
-name|posBufferUpto
-operator|+
-literal|") at fp="
-operator|+
-name|posOut
-operator|.
-name|getFilePointer
-argument_list|()
-operator|+
-literal|" posTermStartFP="
-operator|+
-name|posTermStartFP
-operator|+
-literal|" hasPayloads="
-operator|+
-name|fieldHasPayloads
-operator|+
-literal|" hasOffsets="
-operator|+
-name|fieldHasOffsets
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|// if (DEBUG) {
+comment|//   if (posBufferUpto> 0) {
+comment|//     System.out.println("  write pos vInt block (count=" + posBufferUpto + ") at fp=" + posOut.getFilePointer() + " posTermStartFP=" + posTermStartFP + " hasPayloads=" + fieldHasPayloads + " hasOffsets=" + fieldHasOffsets);
+comment|//   }
+comment|// }
 assert|assert
 name|stats
 operator|.
@@ -2302,27 +2064,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"        i="
-operator|+
-name|i
-operator|+
-literal|" payloadLen="
-operator|+
-name|payloadLength
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("        i=" + i + " payloadLen=" + payloadLength);
+comment|// }
 if|if
 condition|(
 name|payloadLength
@@ -2330,26 +2074,9 @@ operator|!=
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"          write payload @ pos.fp="
-operator|+
-name|posOut
-operator|.
-name|getFilePointer
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("          write payload @ pos.fp=" + posOut.getFilePointer());
+comment|// }
 name|posOut
 operator|.
 name|writeBytes
@@ -2382,26 +2109,9 @@ condition|(
 name|fieldHasOffsets
 condition|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"          write offset @ pos.fp="
-operator|+
-name|posOut
-operator|.
-name|getFilePointer
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("          write offset @ pos.fp=" + posOut.getFilePointer());
+comment|// }
 name|posOut
 operator|.
 name|writeVInt
@@ -2440,29 +2150,9 @@ literal|0
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  totalTermFreq="
-operator|+
-name|stats
-operator|.
-name|totalTermFreq
-operator|+
-literal|" lastPosBlockOffset="
-operator|+
-name|lastPosBlockOffset
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("  totalTermFreq=" + stats.totalTermFreq + " lastPosBlockOffset=" + lastPosBlockOffset);
+comment|// }
 block|}
 else|else
 block|{
@@ -2498,36 +2188,9 @@ operator|-
 name|docTermStartFP
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"skip packet "
-operator|+
-operator|(
-name|docOut
-operator|.
-name|getFilePointer
-argument_list|()
-operator|-
-operator|(
-name|docTermStartFP
-operator|+
-name|skipOffset
-operator|)
-operator|)
-operator|+
-literal|" bytes"
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("skip packet " + (docOut.getFilePointer() - (docTermStartFP + skipOffset)) + " bytes");
+comment|// }
 block|}
 else|else
 block|{
@@ -2536,23 +2199,9 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  no skip: docCount="
-operator|+
-name|docCount
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("  no skip: docCount=" + docCount);
+comment|// }
 block|}
 name|long
 name|payStartFP
@@ -2579,23 +2228,9 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|DEBUG
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  payStartFP="
-operator|+
-name|payStartFP
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (DEBUG) {
+comment|//   System.out.println("  payStartFP=" + payStartFP);
+comment|// }
 name|pendingTerms
 operator|.
 name|add
