@@ -51,7 +51,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * {@link IndexReaderContext} for {@link CompositeReader} instance.  */
+comment|/**  * {@link IndexReaderContext} for {@link CompositeReader} instance.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|CompositeReaderContext

@@ -380,7 +380,7 @@ name|topReaderContext
 init|=
 name|reader
 operator|.
-name|getContext
+name|getTopReaderContext
 argument_list|()
 decl_stmt|;
 for|for
@@ -947,7 +947,7 @@ name|topReaderContext
 init|=
 name|reader
 operator|.
-name|getContext
+name|getTopReaderContext
 argument_list|()
 decl_stmt|;
 for|for
@@ -1500,7 +1500,7 @@ name|topReaderContext
 init|=
 name|reader
 operator|.
-name|getContext
+name|getTopReaderContext
 argument_list|()
 decl_stmt|;
 for|for
@@ -2054,7 +2054,7 @@ name|topReaderContext
 init|=
 name|reader
 operator|.
-name|getContext
+name|getTopReaderContext
 argument_list|()
 decl_stmt|;
 for|for

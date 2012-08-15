@@ -864,7 +864,7 @@ literal|1
 argument_list|,
 name|reader
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -876,7 +876,7 @@ name|topReaderContext
 init|=
 name|reader
 operator|.
-name|getContext
+name|getTopReaderContext
 argument_list|()
 decl_stmt|;
 name|List
@@ -2692,7 +2692,7 @@ literal|1
 argument_list|,
 name|reader
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -2704,7 +2704,7 @@ name|topReaderContext
 init|=
 name|reader
 operator|.
-name|getContext
+name|getTopReaderContext
 argument_list|()
 decl_stmt|;
 name|List

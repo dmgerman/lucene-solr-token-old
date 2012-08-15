@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.index
+DECL|package|org.apache.lucene.util
 package|package
 name|org
 operator|.
@@ -8,7 +8,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|util
 package|;
 end_package
 begin_comment
@@ -32,25 +32,12 @@ operator|.
 name|NoSuchElementException
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|PriorityQueue
-import|;
-end_import
 begin_comment
 comment|/**  * Provides a merged sorted view from several sorted iterators, each  * iterating over a unique set of elements.  *<p>  * If an element appears in multiple iterators, it is deduplicated,  * that is this iterator returns the sorted union of elements.  *<p>  * Caveats:  *<ul>  *<li>The behavior is undefined if the iterators are not actually   *       sorted according to their comparator, or if a single iterator  *       contains duplicates.  *<li>Null elements are unsupported.  *<li>When an element E is a duplicate across multiple iterators,  *       only one is returned, but it is undefined which one: not  *       guaranteed to be a stable sort.  *</ul>  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|MergedIterator
-specifier|final
+specifier|public
 class|class
 name|MergedIterator
 parameter_list|<
@@ -99,11 +86,7 @@ decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
-block|{
 literal|"unchecked"
-block|,
-literal|"rawtypes"
-block|}
 argument_list|)
 DECL|method|MergedIterator
 specifier|public

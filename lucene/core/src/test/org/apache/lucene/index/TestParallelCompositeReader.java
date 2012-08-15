@@ -2582,10 +2582,7 @@ literal|2
 argument_list|,
 name|rd1
 operator|.
-name|getContext
-argument_list|()
-operator|.
-name|children
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -2598,10 +2595,7 @@ literal|2
 argument_list|,
 name|rd2
 operator|.
-name|getContext
-argument_list|()
-operator|.
-name|children
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -2635,10 +2629,7 @@ literal|3
 argument_list|,
 name|rd1
 operator|.
-name|getContext
-argument_list|()
-operator|.
-name|children
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -2651,10 +2642,7 @@ literal|3
 argument_list|,
 name|rd2
 operator|.
-name|getContext
-argument_list|()
-operator|.
-name|children
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size

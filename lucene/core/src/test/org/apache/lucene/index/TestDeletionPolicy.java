@@ -445,7 +445,7 @@ literal|" vs IndexReader.segmentCount="
 operator|+
 name|r
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -453,7 +453,7 @@ argument_list|()
 argument_list|,
 name|r
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -1792,7 +1792,7 @@ name|needsMerging
 operator|=
 name|r
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -2449,7 +2449,7 @@ literal|1
 argument_list|,
 name|r
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -2548,7 +2548,7 @@ name|assertTrue
 argument_list|(
 name|r
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -2625,7 +2625,7 @@ literal|1
 argument_list|,
 name|r
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -2701,7 +2701,7 @@ literal|1
 argument_list|,
 name|r
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -2742,7 +2742,7 @@ name|assertTrue
 argument_list|(
 name|r
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size

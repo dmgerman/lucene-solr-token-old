@@ -1936,6 +1936,37 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+comment|// set PayloadProcessor
+if|if
+condition|(
+name|mergeState
+operator|.
+name|payloadProcessorProvider
+operator|!=
+literal|null
+condition|)
+block|{
+name|mergeState
+operator|.
+name|currentReaderPayloadProcessor
+operator|=
+name|mergeState
+operator|.
+name|readerPayloadProcessor
+index|[
+name|i
+index|]
+expr_stmt|;
+block|}
+else|else
+block|{
+name|mergeState
+operator|.
+name|currentReaderPayloadProcessor
+operator|=
+literal|null
+expr_stmt|;
+block|}
 specifier|final
 name|SegmentReader
 name|matchingSegmentReader
@@ -2111,9 +2142,15 @@ condition|(
 name|matchingVectorsReader
 operator|!=
 literal|null
+operator|&&
+name|mergeState
+operator|.
+name|currentReaderPayloadProcessor
+operator|==
+literal|null
 condition|)
 block|{
-comment|// We can bulk-copy because the fieldInfos are "congruent"
+comment|// We can bulk-copy because the fieldInfos are "congruent" and there is no payload processor
 for|for
 control|(
 name|int
@@ -2344,9 +2381,15 @@ condition|(
 name|matchingVectorsReader
 operator|!=
 literal|null
+operator|&&
+name|mergeState
+operator|.
+name|currentReaderPayloadProcessor
+operator|==
+literal|null
 condition|)
 block|{
-comment|// We can bulk-copy because the fieldInfos are "congruent"
+comment|// We can bulk-copy because the fieldInfos are "congruent" and there is no payload processor
 name|int
 name|docCount
 init|=

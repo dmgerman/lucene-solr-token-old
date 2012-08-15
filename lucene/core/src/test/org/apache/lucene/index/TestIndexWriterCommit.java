@@ -1693,7 +1693,7 @@ literal|"Reader incorrectly sees one segment"
 argument_list|,
 name|reader
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -1739,7 +1739,7 @@ literal|"Reader incorrectly sees one segment"
 argument_list|,
 name|reader
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
@@ -1850,7 +1850,7 @@ literal|1
 argument_list|,
 name|reader
 operator|.
-name|leaves
+name|getSequentialSubReaders
 argument_list|()
 operator|.
 name|size
