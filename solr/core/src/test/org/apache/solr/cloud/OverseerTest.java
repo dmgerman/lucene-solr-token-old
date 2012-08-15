@@ -655,8 +655,6 @@ name|void
 name|close
 parameter_list|()
 block|{
-try|try
-block|{
 name|deleteNode
 argument_list|(
 name|ZkStateReader
@@ -673,15 +671,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-comment|//e.printStackTrace();
-block|}
 block|}
 DECL|method|publishState
 specifier|public

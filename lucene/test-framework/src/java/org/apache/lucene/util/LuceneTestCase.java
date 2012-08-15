@@ -1733,15 +1733,13 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
-name|?
-extends|extends
-name|IndexReader
+name|AtomicReaderContext
 argument_list|>
 name|subReaders
 init|=
 name|reader
 operator|.
-name|getSequentialSubReaders
+name|leaves
 argument_list|()
 decl_stmt|;
 if|if
@@ -1770,7 +1768,7 @@ literal|" segments instead of exactly one"
 argument_list|)
 throw|;
 specifier|final
-name|IndexReader
+name|AtomicReader
 name|r
 init|=
 name|subReaders
@@ -1779,6 +1777,9 @@ name|get
 argument_list|(
 literal|0
 argument_list|)
+operator|.
+name|reader
+argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
@@ -5248,7 +5249,7 @@ name|random
 argument_list|,
 name|r
 operator|.
-name|getTopReaderContext
+name|getContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -5417,7 +5418,7 @@ name|random
 argument_list|,
 name|r
 operator|.
-name|getTopReaderContext
+name|getContext
 argument_list|()
 argument_list|,
 name|ex

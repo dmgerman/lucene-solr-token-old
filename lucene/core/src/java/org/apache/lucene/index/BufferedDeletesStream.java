@@ -2149,7 +2149,7 @@ name|readerContext
 init|=
 name|reader
 operator|.
-name|getTopReaderContext
+name|getContext
 argument_list|()
 decl_stmt|;
 name|boolean

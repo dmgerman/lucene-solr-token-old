@@ -197,7 +197,7 @@ name|common
 operator|.
 name|cloud
 operator|.
-name|SafeStopThread
+name|ClosableThread
 import|;
 end_import
 begin_import
@@ -513,7 +513,7 @@ name|RecoveryStrategy
 extends|extends
 name|Thread
 implements|implements
-name|SafeStopThread
+name|ClosableThread
 block|{
 DECL|field|MAX_RETRIES
 specifier|private
@@ -965,7 +965,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// TODO: look into making sure force=true does not download files we already have
+comment|// TODO: look into making force=true not download files we already have?
 if|if
 condition|(
 operator|!
@@ -1715,21 +1715,6 @@ block|{
 comment|// don't use interruption or it will close channels though
 try|try
 block|{
-comment|// first thing we just try to sync
-name|zkController
-operator|.
-name|publish
-argument_list|(
-name|core
-operator|.
-name|getCoreDescriptor
-argument_list|()
-argument_list|,
-name|ZkStateReader
-operator|.
-name|RECOVERING
-argument_list|)
-expr_stmt|;
 name|CloudDescriptor
 name|cloudDesc
 init|=
@@ -1795,6 +1780,82 @@ argument_list|,
 name|leaderCoreName
 argument_list|)
 decl_stmt|;
+name|String
+name|ourUrl
+init|=
+name|ZkCoreNodeProps
+operator|.
+name|getCoreUrl
+argument_list|(
+name|baseUrl
+argument_list|,
+name|coreName
+argument_list|)
+decl_stmt|;
+name|boolean
+name|isLeader
+init|=
+name|leaderUrl
+operator|.
+name|equals
+argument_list|(
+name|ourUrl
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|isLeader
+condition|)
+block|{
+comment|// we are now the leader - no one else must have been suitable
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"We have not yet recovered - but we are now the leader! core="
+operator|+
+name|coreName
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Finished recovery process. core="
+operator|+
+name|coreName
+argument_list|)
+expr_stmt|;
+name|zkController
+operator|.
+name|publish
+argument_list|(
+name|core
+operator|.
+name|getCoreDescriptor
+argument_list|()
+argument_list|,
+name|ZkStateReader
+operator|.
+name|ACTIVE
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+name|zkController
+operator|.
+name|publish
+argument_list|(
+name|core
+operator|.
+name|getCoreDescriptor
+argument_list|()
+argument_list|,
+name|ZkStateReader
+operator|.
+name|RECOVERING
+argument_list|)
+expr_stmt|;
 name|sendPrepRecoveryCmd
 argument_list|(
 name|leaderBaseUrl
@@ -1991,6 +2052,18 @@ name|replayed
 operator|=
 literal|false
 expr_stmt|;
+comment|//        // open a new IndexWriter - we don't want any background merges ongoing
+comment|//        // also ensures something like NRTCachingDirectory is flushed
+comment|//        boolean forceNewIndexDir = false;
+comment|//        try {
+comment|//          core.getUpdateHandler().newIndexWriter(false);
+comment|//        } catch (Throwable t) {
+comment|//          SolrException.log(log, "Could not read the current index - replicating to a new directory", t);
+comment|//          // something is wrong with the index
+comment|//          // we need to force using a new index directory
+comment|//          forceNewIndexDir = true;
+comment|//        }
+comment|//
 try|try
 block|{
 name|replicate
@@ -2083,10 +2156,12 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|log
+name|SolrException
 operator|.
-name|error
+name|log
 argument_list|(
+name|log
+argument_list|,
 literal|"Error while trying to recover"
 argument_list|,
 name|t
@@ -2136,10 +2211,12 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|log
+name|SolrException
 operator|.
-name|error
+name|log
 argument_list|(
+name|log
+argument_list|,
 literal|"Error while trying to recover. core="
 operator|+
 name|coreName
@@ -2187,10 +2264,12 @@ condition|)
 block|{              }
 else|else
 block|{
-name|log
+name|SolrException
 operator|.
-name|error
+name|log
 argument_list|(
+name|log
+argument_list|,
 literal|"Recovery failed - max retries exceeded. core="
 operator|+
 name|coreName
@@ -2222,10 +2301,12 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
+name|SolrException
 operator|.
-name|error
+name|log
 argument_list|(
+name|log
+argument_list|,
 literal|"core="
 operator|+
 name|coreName

@@ -33,7 +33,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * {@link IndexReaderContext} for {@link AtomicReader} instances  * @lucene.experimental  */
+comment|/**  * {@link IndexReaderContext} for {@link AtomicReader} instances.  */
 end_comment
 begin_class
 DECL|class|AtomicReaderContext
