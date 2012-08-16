@@ -172,7 +172,7 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.internal  */
+comment|/**  * Utility class for merging SortedBytes DocValues  * instances.  *    * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|SortedBytesMergeUtils

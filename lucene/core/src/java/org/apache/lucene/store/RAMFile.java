@@ -24,7 +24,7 @@ name|ArrayList
 import|;
 end_import
 begin_comment
-comment|/** @lucene.internal */
+comment|/**   * Represents a file in RAM as a list of byte[] buffers.  * @lucene.internal */
 end_comment
 begin_class
 DECL|class|RAMFile

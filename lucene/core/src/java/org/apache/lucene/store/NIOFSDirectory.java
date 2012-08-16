@@ -334,6 +334,7 @@ block|}
 block|}
 return|;
 block|}
+comment|/**    * Reads bytes with {@link FileChannel#read(ByteBuffer, long)}    */
 DECL|class|NIOFSIndexInput
 specifier|protected
 specifier|static
