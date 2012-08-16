@@ -82,6 +82,7 @@ name|FUZZY_SERIALIZATION_VERSION
 init|=
 literal|1
 decl_stmt|;
+comment|/**    * Result from {@link FuzzySet#contains(BytesRef)}:    * can never return definitively YES (always MAYBE),     * but can sometimes definitely return NO.    */
 DECL|enum|ContainsResult
 specifier|public
 enum|enum

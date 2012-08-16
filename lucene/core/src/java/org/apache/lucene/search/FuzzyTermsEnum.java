@@ -2009,7 +2009,7 @@ return|return
 name|scale_factor
 return|;
 block|}
-comment|/** @lucene.internal */
+comment|/**    * reuses compiled automata across different segments,    * because they are independent of the index    * @lucene.internal */
 DECL|interface|LevenshteinAutomataAttribute
 specifier|public
 specifier|static
@@ -2028,7 +2028,7 @@ name|automata
 parameter_list|()
 function_decl|;
 block|}
-comment|/** @lucene.internal */
+comment|/**     * Stores compiled automata as a list (indexed by edit distance)    * @lucene.internal */
 DECL|class|LevenshteinAutomataAttributeImpl
 specifier|public
 specifier|static
