@@ -500,6 +500,7 @@ block|}
 block|}
 block|}
 comment|// TODO: implement bulk read more efficiently than super
+comment|/** Holds a {@link DocsEnum} along with the    *  corresponding {@link ReaderSlice}. */
 DECL|class|EnumWithSlice
 specifier|public
 specifier|final
