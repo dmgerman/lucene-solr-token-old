@@ -778,7 +778,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Adds a Document.    * @see IndexWriter#addDocument(Iterable)    */
+comment|/**    * Adds a Document.    * @see IndexWriter#addDocument(org.apache.lucene.index.IndexDocument)    */
 DECL|method|addDocument
 specifier|public
 parameter_list|<
@@ -1545,7 +1545,7 @@ name|maybeCommit
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Updates a document.    * @see IndexWriter#updateDocument(Term, Iterable)    */
+comment|/**    * Updates a document.    * @see IndexWriter#updateDocument(Term, org.apache.lucene.index.IndexDocument)    */
 DECL|method|updateDocument
 specifier|public
 parameter_list|<
