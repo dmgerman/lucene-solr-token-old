@@ -2000,7 +2000,7 @@ throw|throw
 operator|new
 name|AssertionError
 argument_list|(
-literal|"Unknwown Writer format: "
+literal|"Unknown Writer format: "
 operator|+
 name|format
 argument_list|)
