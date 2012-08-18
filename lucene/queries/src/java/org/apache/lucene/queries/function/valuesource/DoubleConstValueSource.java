@@ -81,6 +81,9 @@ operator|.
 name|Map
 import|;
 end_import
+begin_comment
+comment|/**  * Function that returns a constant double value for every document.  */
+end_comment
 begin_class
 DECL|class|DoubleConstValueSource
 specifier|public

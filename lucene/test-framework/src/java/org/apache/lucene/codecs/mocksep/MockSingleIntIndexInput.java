@@ -106,7 +106,7 @@ name|IndexInput
 import|;
 end_import
 begin_comment
-comment|/** Reads IndexInputs written with {@link  *  MockSingleIntIndexOutput}.  NOTE: this class is just for  *  demonstration puprposes (it is a very slow way to read a  *  block of ints).  *  * @lucene.experimental  */
+comment|/** Reads IndexInputs written with {@link  *  MockSingleIntIndexOutput}.  NOTE: this class is just for  *  demonstration purposes (it is a very slow way to read a  *  block of ints).  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|MockSingleIntIndexInput
@@ -209,6 +209,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**    * Just reads a vInt directly from the file.    */
 DECL|class|Reader
 specifier|public
 specifier|static

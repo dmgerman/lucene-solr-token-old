@@ -49,6 +49,9 @@ operator|.
 name|Statement
 import|;
 end_import
+begin_comment
+comment|/**  * Stores the suite name so you can retrieve it  * from {@link #getTestClass()}  */
+end_comment
 begin_class
 DECL|class|TestRuleStoreClassName
 specifier|public

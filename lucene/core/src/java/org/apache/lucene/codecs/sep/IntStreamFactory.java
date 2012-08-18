@@ -52,7 +52,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** @lucene.experimental */
+comment|/** Provides int reader and writer to specified files.  *  * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|IntStreamFactory
@@ -61,6 +61,7 @@ specifier|abstract
 class|class
 name|IntStreamFactory
 block|{
+comment|/** Create an {@link IntIndexInput} on the provided    *  fileName. */
 DECL|method|openInput
 specifier|public
 specifier|abstract
@@ -79,6 +80,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/** Create an {@link IntIndexOutput} on the provided    *  fileName. */
 DECL|method|createOutput
 specifier|public
 specifier|abstract

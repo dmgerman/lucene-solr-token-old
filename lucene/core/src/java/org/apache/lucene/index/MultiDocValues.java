@@ -161,7 +161,6 @@ comment|/**  * A wrapper for CompositeIndexReader providing access to per segmen
 end_comment
 begin_class
 DECL|class|MultiDocValues
-specifier|public
 class|class
 name|MultiDocValues
 extends|extends

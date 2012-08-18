@@ -97,7 +97,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/** @lucene.experimental */
+comment|/**   * Encodes ints directly as vInts with {@link MockSingleIntIndexOutput}  * @lucene.experimental   */
 end_comment
 begin_class
 DECL|class|MockSingleIntFactory
