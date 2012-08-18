@@ -1912,6 +1912,8 @@ comment|//   if (posBufferUpto> 0) {
 comment|//     System.out.println("  write pos vInt block (count=" + posBufferUpto + ") at fp=" + posOut.getFilePointer() + " posTermStartFP=" + posTermStartFP + " hasPayloads=" + fieldHasPayloads + " hasOffsets=" + fieldHasOffsets);
 comment|//   }
 comment|// }
+comment|// totalTermFreq is just total number of positions(or payloads, or offsets)
+comment|// associated with current term.
 assert|assert
 name|stats
 operator|.
@@ -1929,6 +1931,7 @@ operator|>
 name|BLOCK_SIZE
 condition|)
 block|{
+comment|// record file offset for last pos in last block
 name|lastPosBlockOffset
 operator|=
 call|(
