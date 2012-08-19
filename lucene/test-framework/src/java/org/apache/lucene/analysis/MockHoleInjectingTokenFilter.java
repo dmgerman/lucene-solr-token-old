@@ -85,7 +85,7 @@ begin_comment
 comment|// (in modules/analysis)
 end_comment
 begin_comment
-comment|// Randomly injects holes:
+comment|/**   * Randomly injects holes (similar to what a stopfilter would do)  */
 end_comment
 begin_class
 DECL|class|MockHoleInjectingTokenFilter

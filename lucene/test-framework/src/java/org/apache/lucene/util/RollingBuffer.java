@@ -37,6 +37,7 @@ operator|.
 name|Resettable
 parameter_list|>
 block|{
+comment|/**    * Implement to reset an instance    */
 DECL|interface|Resettable
 specifier|public
 specifier|static
