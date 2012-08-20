@@ -184,24 +184,6 @@ name|ALL_VALUES_EQUAL
 init|=
 literal|0
 decl_stmt|;
-DECL|field|PACKED_INTS_VERSION_START
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|PACKED_INTS_VERSION_START
-init|=
-literal|0
-decl_stmt|;
-DECL|field|PACKED_INTS_VERSION_CURRENT
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|PACKED_INTS_VERSION_CURRENT
-init|=
-name|PACKED_INTS_VERSION_START
-decl_stmt|;
 comment|/**    * Upper limit of the number of bytes that might be required to stored    *<code>BLOCK_SIZE</code> encoded values.    */
 DECL|field|MAX_ENCODED_SIZE
 specifier|static
@@ -227,6 +209,25 @@ name|maxDataSize
 init|=
 literal|0
 decl_stmt|;
+for|for
+control|(
+name|int
+name|version
+init|=
+name|PackedInts
+operator|.
+name|VERSION_START
+init|;
+name|version
+operator|<=
+name|PackedInts
+operator|.
+name|VERSION_CURRENT
+condition|;
+name|version
+operator|++
+control|)
+block|{
 for|for
 control|(
 name|PackedInts
@@ -282,7 +283,7 @@ name|getDecoder
 argument_list|(
 name|format
 argument_list|,
-name|PACKED_INTS_VERSION_START
+name|version
 argument_list|,
 name|bpv
 argument_list|)
@@ -325,6 +326,7 @@ name|valueCount
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|MAX_DATA_SIZE
@@ -443,7 +445,9 @@ name|out
 operator|.
 name|writeVInt
 argument_list|(
-name|PACKED_INTS_VERSION_CURRENT
+name|PackedInts
+operator|.
+name|VERSION_CURRENT
 argument_list|)
 expr_stmt|;
 name|encodedSizes
@@ -560,7 +564,9 @@ name|formatAndBits
 operator|.
 name|format
 argument_list|,
-name|PACKED_INTS_VERSION_CURRENT
+name|PackedInts
+operator|.
+name|VERSION_CURRENT
 argument_list|,
 name|formatAndBits
 operator|.
@@ -580,7 +586,9 @@ name|formatAndBits
 operator|.
 name|format
 argument_list|,
-name|PACKED_INTS_VERSION_CURRENT
+name|PackedInts
+operator|.
+name|VERSION_CURRENT
 argument_list|,
 name|formatAndBits
 operator|.
@@ -646,7 +654,9 @@ if|if
 condition|(
 name|packedIntsVersion
 operator|!=
-name|PACKED_INTS_VERSION_START
+name|PackedInts
+operator|.
+name|VERSION_START
 condition|)
 block|{
 throw|throw
@@ -655,7 +665,9 @@ name|CorruptIndexException
 argument_list|(
 literal|"expected version="
 operator|+
-name|PACKED_INTS_VERSION_START
+name|PackedInts
+operator|.
+name|VERSION_START
 operator|+
 literal|" but got version="
 operator|+
