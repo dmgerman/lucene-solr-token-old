@@ -36,6 +36,9 @@ operator|.
 name|BytesRef
 import|;
 end_import
+begin_comment
+comment|/** Represents a single stored field in lucene document. These fields  * are contained in document retrieved from IndexReader.  *  *  @lucene.experimental */
+end_comment
 begin_interface
 DECL|interface|StorableField
 specifier|public
