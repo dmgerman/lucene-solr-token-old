@@ -1165,9 +1165,6 @@ name|SimpleTextStoredFieldsReader
 argument_list|(
 name|offsets
 argument_list|,
-operator|(
-name|IndexInput
-operator|)
 name|in
 operator|.
 name|clone

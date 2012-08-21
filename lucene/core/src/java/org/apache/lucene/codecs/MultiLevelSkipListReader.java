@@ -944,9 +944,6 @@ index|[
 name|i
 index|]
 operator|=
-operator|(
-name|IndexInput
-operator|)
 name|skipStream
 index|[
 literal|0

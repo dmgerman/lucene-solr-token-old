@@ -1364,9 +1364,6 @@ name|PackedInts
 operator|.
 name|getDirectReader
 argument_list|(
-operator|(
-name|IndexInput
-operator|)
 name|idxIn
 operator|.
 name|clone
