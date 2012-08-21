@@ -811,7 +811,7 @@ else|else
 block|{
 name|docIndex
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|other
 operator|.
@@ -849,7 +849,7 @@ else|else
 block|{
 name|freqIndex
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|other
 operator|.
@@ -895,7 +895,7 @@ else|else
 block|{
 name|posIndex
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|other
 operator|.
@@ -1820,7 +1820,7 @@ comment|// TODO: can't we only do this if consumer
 comment|// skipped consuming the previous docs?
 name|docIndex
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|termState
 operator|.
@@ -1842,7 +1842,7 @@ condition|)
 block|{
 name|freqIndex
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|termState
 operator|.
@@ -2439,7 +2439,7 @@ comment|// TODO: can't we only do this if consumer
 comment|// skipped consuming the previous docs?
 name|docIndex
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|termState
 operator|.
@@ -2456,7 +2456,7 @@ expr_stmt|;
 comment|//System.out.println("  docIndex=" + docIndex);
 name|freqIndex
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|termState
 operator|.
@@ -2473,7 +2473,7 @@ expr_stmt|;
 comment|//System.out.println("  freqIndex=" + freqIndex);
 name|posIndex
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|termState
 operator|.
@@ -2795,7 +2795,7 @@ comment|// instead.  Eg a PhraseQuery may skip to many
 comment|// docs before finally asking for positions...
 name|posIndex
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|skipper
 operator|.

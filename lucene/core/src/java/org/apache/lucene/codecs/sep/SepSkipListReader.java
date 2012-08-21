@@ -460,7 +460,7 @@ index|[
 name|i
 index|]
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|docBaseIndex
 argument_list|)
@@ -477,7 +477,7 @@ index|[
 name|i
 index|]
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|freqBaseIndex
 argument_list|)
@@ -495,7 +495,7 @@ index|[
 name|i
 index|]
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|posBaseIndex
 argument_list|)
@@ -616,7 +616,7 @@ condition|)
 block|{
 name|lastFreqIndex
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|freqIndex
 index|[
@@ -627,7 +627,7 @@ expr_stmt|;
 block|}
 name|lastDocIndex
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|docIndex
 index|[
@@ -644,7 +644,7 @@ condition|)
 block|{
 name|lastPosIndex
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|posIndex
 index|[
@@ -674,7 +674,7 @@ operator|-
 literal|1
 index|]
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|freqIndex
 index|[
@@ -690,7 +690,7 @@ operator|-
 literal|1
 index|]
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|docIndex
 index|[
@@ -712,7 +712,7 @@ operator|-
 literal|1
 index|]
 operator|.
-name|set
+name|copyFrom
 argument_list|(
 name|posIndex
 index|[

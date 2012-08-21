@@ -174,7 +174,7 @@ name|iterations
 operator|*
 name|bulkOperation
 operator|.
-name|blocks
+name|blockCount
 argument_list|()
 index|]
 expr_stmt|;
@@ -190,7 +190,7 @@ name|iterations
 operator|*
 name|bulkOperation
 operator|.
-name|values
+name|valueCount
 argument_list|()
 index|]
 argument_list|,
@@ -204,7 +204,7 @@ name|iterations
 operator|*
 name|bulkOperation
 operator|.
-name|values
+name|valueCount
 argument_list|()
 operator|==
 name|nextValues
@@ -218,7 +218,7 @@ name|iterations
 operator|*
 name|bulkOperation
 operator|.
-name|blocks
+name|blockCount
 argument_list|()
 operator|==
 name|nextBlocks
@@ -417,7 +417,7 @@ expr_stmt|;
 block|}
 name|bulkOperation
 operator|.
-name|get
+name|decode
 argument_list|(
 name|nextBlocks
 argument_list|,
