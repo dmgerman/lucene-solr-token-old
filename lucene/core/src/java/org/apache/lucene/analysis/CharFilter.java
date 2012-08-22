@@ -20,7 +20,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|FilterReader
+name|IOException
 import|;
 end_import
 begin_import
@@ -33,7 +33,10 @@ name|Reader
 import|;
 end_import
 begin_comment
-comment|/**  * Subclasses of CharFilter can be chained to filter a Reader  * They can be used as {@link java.io.Reader} with additional offset  * correction. {@link Tokenizer}s will automatically use {@link #correctOffset}  * if a CharFilter subclass is used.  */
+comment|/**  * Subclasses of CharFilter can be chained to filter a Reader  * They can be used as {@link java.io.Reader} with additional offset  * correction. {@link Tokenizer}s will automatically use {@link #correctOffset}  * if a CharFilter subclass is used.  *<p>  * This class is abstract: at a minimum you must implement {@link #read(char[], int, int)},  * transforming the input in some way from {@link #input}, and {@link #correct(int)}  * to adjust the offsets to match the originals.  *<p>  * You can optionally provide more efficient implementations of additional methods   * like {@link #read()}, {@link #read(char[])}, {@link #read(java.nio.CharBuffer)},  * but this is not required.  */
+end_comment
+begin_comment
+comment|// the way java.io.FilterReader should work!
 end_comment
 begin_class
 DECL|class|CharFilter
@@ -42,21 +45,51 @@ specifier|abstract
 class|class
 name|CharFilter
 extends|extends
-name|FilterReader
+name|Reader
 block|{
-comment|/**    * Create a new CharFilter wrapping the provided reader.    * @param in a Reader, can also be a CharFilter for chaining.    */
+comment|/**     * The underlying character-input stream.     */
+DECL|field|input
+specifier|protected
+specifier|final
+name|Reader
+name|input
+decl_stmt|;
+comment|/**    * Create a new CharFilter wrapping the provided reader.    * @param input a Reader, can also be a CharFilter for chaining.    */
 DECL|method|CharFilter
 specifier|public
 name|CharFilter
 parameter_list|(
 name|Reader
-name|in
+name|input
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|in
+name|input
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|input
+operator|=
+name|input
+expr_stmt|;
+block|}
+comment|/**     * Closes the underlying input stream.    */
+annotation|@
+name|Override
+DECL|method|close
+specifier|public
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|input
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Subclasses override to correct the current offset.    *    * @param currentOff current offset    * @return corrected offset    */
@@ -92,7 +125,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|(
-name|in
+name|input
 operator|instanceof
 name|CharFilter
 operator|)
@@ -101,7 +134,7 @@ operator|(
 operator|(
 name|CharFilter
 operator|)
-name|in
+name|input
 operator|)
 operator|.
 name|correctOffset
