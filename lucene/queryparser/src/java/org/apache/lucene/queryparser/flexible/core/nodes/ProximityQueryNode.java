@@ -112,6 +112,7 @@ name|ProximityQueryNode
 extends|extends
 name|BooleanQueryNode
 block|{
+comment|/**    * Distance condition: PARAGRAPH, SENTENCE, or NUMBER    */
 DECL|enum|Type
 specifier|public
 enum|enum
@@ -169,7 +170,7 @@ name|toQueryString
 parameter_list|()
 function_decl|;
 block|}
-comment|// utility class
+comment|/** utility class containing the distance condition and number */
 DECL|class|ProximityType
 specifier|static
 specifier|public

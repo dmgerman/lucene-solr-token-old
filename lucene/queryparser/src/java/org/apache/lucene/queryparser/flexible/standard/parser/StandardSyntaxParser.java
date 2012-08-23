@@ -377,6 +377,9 @@ operator|.
 name|TermRangeQueryNode
 import|;
 end_import
+begin_comment
+comment|/**  * Parser for the standard Lucene syntax  */
+end_comment
 begin_class
 DECL|class|StandardSyntaxParser
 specifier|public

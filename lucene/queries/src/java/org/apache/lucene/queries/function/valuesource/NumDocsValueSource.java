@@ -41,6 +41,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|IndexReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|ReaderUtil
 import|;
 end_import
@@ -92,6 +105,9 @@ operator|.
 name|Map
 import|;
 end_import
+begin_comment
+comment|/**  * Returns the value of {@link IndexReader#numDocs()}  * for every document. This is the number of documents  * excluding deletions.  */
+end_comment
 begin_class
 DECL|class|NumDocsValueSource
 specifier|public

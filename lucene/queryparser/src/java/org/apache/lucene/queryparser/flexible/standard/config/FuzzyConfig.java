@@ -33,6 +33,9 @@ operator|.
 name|FuzzyQuery
 import|;
 end_import
+begin_comment
+comment|/**  * Configuration parameters for {@link FuzzyQuery}s  */
+end_comment
 begin_class
 DECL|class|FuzzyConfig
 specifier|public
