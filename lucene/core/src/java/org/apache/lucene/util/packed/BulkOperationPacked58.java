@@ -30,6 +30,8 @@ name|BulkOperationPacked58
 extends|extends
 name|BulkOperation
 block|{
+annotation|@
+name|Override
 DECL|method|blockCount
 specifier|public
 name|int
@@ -40,6 +42,8 @@ return|return
 literal|29
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|valueCount
 specifier|public
 name|int
@@ -50,6 +54,8 @@ return|return
 literal|32
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|decode
 specifier|public
 name|void
@@ -79,6 +85,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|decode
 specifier|public
 name|void
@@ -108,6 +116,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|decode
 specifier|public
 name|void
@@ -1126,6 +1136,8 @@ literal|288230376151711743L
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|decode
 specifier|public
 name|void
@@ -5768,6 +5780,8 @@ name|byte231
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|encode
 specifier|public
 name|void
@@ -6814,6 +6828,8 @@ operator|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|encode
 specifier|public
 name|void
