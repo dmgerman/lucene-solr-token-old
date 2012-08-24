@@ -73,21 +73,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|BooleanClause
-operator|.
-name|Occur
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|BooleanQuery
 operator|.
 name|BooleanWeight
@@ -336,7 +321,7 @@ extends|extends
 name|Scorer
 block|{
 DECL|field|score
-name|float
+name|double
 name|score
 decl_stmt|;
 DECL|field|doc
@@ -423,6 +408,9 @@ name|score
 parameter_list|()
 block|{
 return|return
+operator|(
+name|float
+operator|)
 name|score
 return|;
 block|}
@@ -442,7 +430,7 @@ literal|1
 decl_stmt|;
 comment|// tells if bucket is valid
 DECL|field|score
-name|float
+name|double
 name|score
 decl_stmt|;
 comment|// incremental score
