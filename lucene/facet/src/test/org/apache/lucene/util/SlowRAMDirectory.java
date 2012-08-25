@@ -473,9 +473,6 @@ name|clone
 parameter_list|()
 block|{
 return|return
-operator|(
-name|IndexInput
-operator|)
 name|ii
 operator|.
 name|clone

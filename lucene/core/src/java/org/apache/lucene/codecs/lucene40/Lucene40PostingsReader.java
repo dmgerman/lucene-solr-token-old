@@ -1619,9 +1619,6 @@ name|this
 operator|.
 name|freqIn
 operator|=
-operator|(
-name|IndexInput
-operator|)
 name|startFreqIn
 operator|.
 name|clone
@@ -2362,9 +2359,6 @@ operator|=
 operator|new
 name|Lucene40SkipListReader
 argument_list|(
-operator|(
-name|IndexInput
-operator|)
 name|freqIn
 operator|.
 name|clone
@@ -3442,9 +3436,6 @@ name|this
 operator|.
 name|freqIn
 operator|=
-operator|(
-name|IndexInput
-operator|)
 name|freqIn
 operator|.
 name|clone
@@ -3454,9 +3445,6 @@ name|this
 operator|.
 name|proxIn
 operator|=
-operator|(
-name|IndexInput
-operator|)
 name|proxIn
 operator|.
 name|clone
@@ -3761,9 +3749,6 @@ operator|=
 operator|new
 name|Lucene40SkipListReader
 argument_list|(
-operator|(
-name|IndexInput
-operator|)
 name|freqIn
 operator|.
 name|clone
@@ -4158,9 +4143,6 @@ name|this
 operator|.
 name|freqIn
 operator|=
-operator|(
-name|IndexInput
-operator|)
 name|freqIn
 operator|.
 name|clone
@@ -4170,9 +4152,6 @@ name|this
 operator|.
 name|proxIn
 operator|=
-operator|(
-name|IndexInput
-operator|)
 name|proxIn
 operator|.
 name|clone
@@ -4535,9 +4514,6 @@ operator|=
 operator|new
 name|Lucene40SkipListReader
 argument_list|(
-operator|(
-name|IndexInput
-operator|)
 name|freqIn
 operator|.
 name|clone

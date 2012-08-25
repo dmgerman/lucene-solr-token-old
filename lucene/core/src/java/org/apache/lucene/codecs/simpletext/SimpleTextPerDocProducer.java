@@ -790,9 +790,6 @@ decl_stmt|;
 name|IndexInput
 name|in
 init|=
-operator|(
-name|IndexInput
-operator|)
 name|input
 operator|.
 name|clone

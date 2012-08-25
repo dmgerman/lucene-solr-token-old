@@ -193,6 +193,9 @@ operator|.
 name|TooManyClauses
 import|;
 end_import
+begin_comment
+comment|/**  * Builds a BooleanQuery of SHOULD clauses, possibly with  * some minimum number to match.  */
+end_comment
 begin_class
 DECL|class|AnyQueryNodeBuilder
 specifier|public

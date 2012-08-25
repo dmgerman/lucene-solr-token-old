@@ -215,7 +215,7 @@ control|(
 name|int
 name|cnt
 init|=
-name|in
+name|input
 operator|.
 name|read
 argument_list|(
@@ -228,7 +228,7 @@ literal|0
 condition|;
 name|cnt
 operator|=
-name|in
+name|input
 operator|.
 name|read
 argument_list|(

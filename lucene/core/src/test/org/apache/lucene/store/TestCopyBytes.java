@@ -753,9 +753,6 @@ operator|=
 operator|new
 name|CopyThread
 argument_list|(
-operator|(
-name|IndexInput
-operator|)
 name|input
 operator|.
 name|clone

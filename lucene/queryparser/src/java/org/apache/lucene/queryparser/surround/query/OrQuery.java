@@ -71,6 +71,9 @@ operator|.
 name|IOException
 import|;
 end_import
+begin_comment
+comment|/**  * Factory for disjunctions  */
+end_comment
 begin_class
 DECL|class|OrQuery
 specifier|public

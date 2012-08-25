@@ -43,6 +43,9 @@ operator|.
 name|Set
 import|;
 end_import
+begin_comment
+comment|/**  * Simple boundary scanner implementation that divides fragments  * based on a set of separator characters.  */
+end_comment
 begin_class
 DECL|class|SimpleBoundaryScanner
 specifier|public
