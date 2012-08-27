@@ -214,12 +214,14 @@ name|Field
 implements|implements
 name|IndexableField
 block|{
+comment|/**    * Field's type    */
 DECL|field|type
 specifier|protected
 specifier|final
 name|FieldType
 name|type
 decl_stmt|;
+comment|/**    * Field's name    */
 DECL|field|name
 specifier|protected
 specifier|final
@@ -250,6 +252,7 @@ specifier|transient
 name|ReusableStringReader
 name|internalReader
 decl_stmt|;
+comment|/**    * Field's boost    * @see #boost()    */
 DECL|field|boost
 specifier|protected
 name|float
@@ -257,6 +260,7 @@ name|boost
 init|=
 literal|1.0f
 decl_stmt|;
+comment|/**    * Expert: creates a field with no initial value.    * Intended only for custom Field subclasses.    */
 DECL|method|Field
 specifier|protected
 name|Field
@@ -1007,6 +1011,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**    * Expert: change the value of this field. See     * {@link #setStringValue(String)}.    */
 DECL|method|setByteValue
 specifier|public
 name|void
@@ -1054,6 +1059,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Expert: change the value of this field. See     * {@link #setStringValue(String)}.    */
 DECL|method|setShortValue
 specifier|public
 name|void
@@ -1101,6 +1107,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Expert: change the value of this field. See     * {@link #setStringValue(String)}.    */
 DECL|method|setIntValue
 specifier|public
 name|void
@@ -1148,6 +1155,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Expert: change the value of this field. See     * {@link #setStringValue(String)}.    */
 DECL|method|setLongValue
 specifier|public
 name|void
@@ -1195,6 +1203,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Expert: change the value of this field. See     * {@link #setStringValue(String)}.    */
 DECL|method|setFloatValue
 specifier|public
 name|void
@@ -1242,6 +1251,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Expert: change the value of this field. See     * {@link #setStringValue(String)}.    */
 DECL|method|setDoubleValue
 specifier|public
 name|void
@@ -1357,6 +1367,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**     * {@inheritDoc}    *<p>    * The default value is<code>1.0f</code> (no boost).    * @see #setBoost(float)    */
 DECL|method|boost
 specifier|public
 name|float
@@ -1367,7 +1378,7 @@ return|return
 name|boost
 return|;
 block|}
-comment|/** Sets the boost factor hits on this field.  This value will be    * multiplied into the score of all hits on this this field of this    * document.    *    *<p>The boost is used to compute the norm factor for the field.  By    * default, in the {@link org.apache.lucene.search.similarities.Similarity#computeNorm(FieldInvertState, Norm)} method,     * the boost value is multiplied by the length normalization factor and then    * rounded by {@link org.apache.lucene.search.similarities.DefaultSimilarity#encodeNormValue(float)} before it is stored in the    * index.  One should attempt to ensure that this product does not overflow    * the range of that encoding.    *    * @see org.apache.lucene.search.similarities.Similarity#computeNorm(FieldInvertState, Norm)    * @see org.apache.lucene.search.similarities.DefaultSimilarity#encodeNormValue(float)    */
+comment|/**     * Sets the boost factor on this field.     * @see #boost()    */
 DECL|method|setBoost
 specifier|public
 name|void
