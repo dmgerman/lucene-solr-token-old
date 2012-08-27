@@ -48,7 +48,7 @@ name|TextField
 extends|extends
 name|Field
 block|{
-comment|/* Indexed, tokenized, not stored. */
+comment|/** Indexed, tokenized, not stored. */
 DECL|field|TYPE_NOT_STORED
 specifier|public
 specifier|static
@@ -60,7 +60,7 @@ operator|new
 name|FieldType
 argument_list|()
 decl_stmt|;
-comment|/* Indexed, tokenized, stored. */
+comment|/** Indexed, tokenized, stored. */
 DECL|field|TYPE_STORED
 specifier|public
 specifier|static
