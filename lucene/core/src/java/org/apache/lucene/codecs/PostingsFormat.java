@@ -29,9 +29,36 @@ name|java
 operator|.
 name|util
 operator|.
+name|ServiceLoader
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|perfield
+operator|.
+name|PerFieldPostingsFormat
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
 begin_import
 import|import
 name|org
@@ -72,7 +99,7 @@ name|NamedSPILoader
 import|;
 end_import
 begin_comment
-comment|/**   * Encodes/decodes terms, postings, and proximity data.  * @lucene.experimental */
+comment|/**   * Encodes/decodes terms, postings, and proximity data.  *<p>  * Note, when extending this class, the name ({@link #getName}) may  * written into the index in certain configurations. In order for the segment   * to be read, the name must resolve to your implementation via {@link #forName(String)}.  * This method uses Java's   * {@link ServiceLoader Service Provider Interface} to resolve codec names.  *<p>  * @see ServiceLoader  * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|PostingsFormat
@@ -127,6 +154,7 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
+comment|/**    * Creates a new postings format.    *<p>    * The provided name will be written into the index segment in some configurations    * (such as when using {@link PerFieldPostingsFormat}): in such configurations,    * for the segment to be read this class should be registered with Java's    * SPI mechanism (registered in META-INF/ of your jar file, etc).    * @param name must be all ascii alphanumeric, and less than 128 characters in length.    */
 DECL|method|PostingsFormat
 specifier|protected
 name|PostingsFormat
@@ -149,6 +177,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+comment|/** Returns this posting format's name */
 annotation|@
 name|Override
 DECL|method|getName
