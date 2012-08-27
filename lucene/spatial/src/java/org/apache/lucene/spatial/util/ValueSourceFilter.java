@@ -121,7 +121,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.internal  */
+comment|/**  * Filter that matches all documents where a valuesource is  * in between a range of<code>min</code> and<code>max</code>  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|ValueSourceFilter

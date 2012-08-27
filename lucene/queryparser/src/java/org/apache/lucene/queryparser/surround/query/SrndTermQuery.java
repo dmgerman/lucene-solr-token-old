@@ -105,6 +105,9 @@ operator|.
 name|BytesRef
 import|;
 end_import
+begin_comment
+comment|/**  * Simple single-term clause  */
+end_comment
 begin_class
 DECL|class|SrndTermQuery
 specifier|public
