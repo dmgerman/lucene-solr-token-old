@@ -225,7 +225,8 @@ operator|=
 name|groupBy
 expr_stmt|;
 block|}
-comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|getGroups
 specifier|public
 name|Collection
@@ -239,6 +240,8 @@ return|return
 name|groups
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -280,7 +283,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void

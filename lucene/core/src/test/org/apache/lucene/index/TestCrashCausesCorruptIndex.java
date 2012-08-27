@@ -668,7 +668,6 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|close
@@ -685,7 +684,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|createOutput
@@ -774,7 +772,6 @@ return|return
 name|indexOutput
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|deleteFile
@@ -796,7 +793,6 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|fileExists
@@ -819,7 +815,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|fileLength
@@ -842,7 +837,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|listAll
@@ -861,7 +855,6 @@ name|listAll
 argument_list|()
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|openInput
@@ -889,7 +882,6 @@ name|cxt
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|sync

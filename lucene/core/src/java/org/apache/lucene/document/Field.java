@@ -830,7 +830,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**    * The TokesStream for this field to be used when indexing, or null. If null,    * the Reader value or String value is analyzed to produce the indexed tokens.    */
+comment|/**    * The TokenStream for this field to be used when indexing, or null. If null,    * the Reader value or String value is analyzed to produce the indexed tokens.    */
 DECL|method|tokenStreamValue
 specifier|public
 name|TokenStream
@@ -1556,7 +1556,6 @@ return|return
 name|type
 return|;
 block|}
-comment|/**    * {@inheritDoc}    */
 DECL|method|tokenStream
 specifier|public
 name|TokenStream
