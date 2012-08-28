@@ -1662,6 +1662,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**    * Used internally to throw an {@link    * AlreadyClosedException} if this IndexWriter has been    * closed.    *<p>    * Calls {@link #ensureOpen(boolean) ensureOpen(true)}.    * @throws AlreadyClosedException if this IndexWriter is closed    */
 DECL|method|ensureOpen
 specifier|protected
 specifier|final
@@ -3149,6 +3150,7 @@ return|return
 name|count
 return|;
 block|}
+comment|/**    * Returns true if this index has deletions (including buffered deletions).    */
 DECL|method|hasDeletions
 specifier|public
 specifier|synchronized

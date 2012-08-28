@@ -337,6 +337,7 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+comment|/**    * Sets the generation number of the live docs file.    * @see #getDelGen()    */
 DECL|method|setDelGen
 specifier|public
 name|void
@@ -358,6 +359,7 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+comment|/** Returns true if there are any deletions for the     * segment at this commit. */
 DECL|method|hasDeletions
 specifier|public
 name|boolean
@@ -371,6 +373,7 @@ operator|-
 literal|1
 return|;
 block|}
+comment|/**    * Returns the next available generation number    * of the live docs file.    */
 DECL|method|getNextDelGen
 specifier|public
 name|long
@@ -398,6 +401,7 @@ literal|1
 return|;
 block|}
 block|}
+comment|/**    * Returns generation number of the live docs file     * or -1 if there are no deletes yet.    */
 DECL|method|getDelGen
 specifier|public
 name|long
@@ -408,6 +412,7 @@ return|return
 name|delGen
 return|;
 block|}
+comment|/**    * Returns the number of deleted docs in the segment.    */
 DECL|method|getDelCount
 specifier|public
 name|int
