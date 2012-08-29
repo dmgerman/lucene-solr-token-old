@@ -42,7 +42,6 @@ operator|=
 name|nodeProps
 expr_stmt|;
 block|}
-comment|// may return null
 DECL|method|getCoreUrl
 specifier|public
 name|String
@@ -193,24 +192,6 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|baseUrl
-operator|==
-literal|null
-condition|)
-return|return
-literal|null
-return|;
-if|if
-condition|(
-name|coreName
-operator|==
-literal|null
-condition|)
-return|return
-literal|null
-return|;
 name|sb
 operator|.
 name|append
@@ -239,12 +220,6 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|coreName
-operator|==
-literal|null
-condition|?
-literal|""
-else|:
 name|coreName
 argument_list|)
 expr_stmt|;
