@@ -1238,16 +1238,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|facetFieldDocTermOrds
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-return|return;
-block|}
 for|for
 control|(
 name|GroupedFacetHit
