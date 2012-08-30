@@ -112,7 +112,7 @@ name|freeze
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Create a stored-only field with the given binary value.    *<p>NOTE: the provided byte[] is not copied so be sure    * not to change it until you're done with this field.    * @param name field name    * @param value byte array pointing to binary content (not copied)    * @throws IllegalArgumentException if the field name is null.    */
+comment|/**    * Expert: allows you to customize the {@link    * FieldType}.    * @param name field name    * @param type custom {@link FieldType} for this field    * @throws IllegalArgumentException if the field name is null.    */
 DECL|method|StoredField
 specifier|protected
 name|StoredField
@@ -132,7 +132,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Expert: allows you to customize the {@link    * FieldType}.    *<p>NOTE: the provided byte[] is not copied so be sure    * not to change it until you're done with this field.    * @param name field name    * @param value byte array pointing to binary content (not copied)    * @param type custom {@link FieldType} for this field    * @throws IllegalArgumentException if the field name is null.    */
+comment|/**    * Expert: allows you to customize the {@link    * FieldType}.    *<p>NOTE: the provided byte[] is not copied so be sure    * not to change it until you're done with this field.    * @param name field name    * @param bytes byte array pointing to binary content (not copied)    * @param type custom {@link FieldType} for this field    * @throws IllegalArgumentException if the field name is null.    */
 DECL|method|StoredField
 specifier|public
 name|StoredField
@@ -157,6 +157,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Create a stored-only field with the given binary value.    *<p>NOTE: the provided byte[] is not copied so be sure    * not to change it until you're done with this field.    * @param name field name    * @param value byte array pointing to binary content (not copied)    * @throws IllegalArgumentException if the field name is null.    */
 DECL|method|StoredField
 specifier|public
 name|StoredField
@@ -256,6 +257,7 @@ name|TYPE
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Expert: allows you to customize the {@link    * FieldType}.    * @param name field name    * @param value string value    * @param type custom {@link FieldType} for this field    * @throws IllegalArgumentException if the field name or value is null.    */
 DECL|method|StoredField
 specifier|public
 name|StoredField
