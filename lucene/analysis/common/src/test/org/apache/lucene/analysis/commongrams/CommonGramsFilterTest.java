@@ -200,6 +200,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|cgf
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|cgf
@@ -370,6 +375,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|nsf
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|nsf
