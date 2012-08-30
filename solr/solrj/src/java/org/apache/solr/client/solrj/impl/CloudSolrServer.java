@@ -1310,9 +1310,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|replicas
-operator|!=
-literal|null
+name|sendToLeaders
 condition|)
 block|{
 name|ArrayList
@@ -1349,6 +1347,8 @@ argument_list|,
 name|rand
 argument_list|)
 expr_stmt|;
+comment|//  System.out.println("leaders:" + theUrlList);
+comment|//  System.out.println("replicas:" + theReplicas);
 name|theUrlList
 operator|.
 name|addAll
@@ -1357,7 +1357,7 @@ name|theReplicas
 argument_list|)
 expr_stmt|;
 block|}
-comment|//System.out.println("########################## MAKING REQUEST TO " + theUrlList);
+comment|// System.out.println("########################## MAKING REQUEST TO " + theUrlList);
 name|LBHttpSolrServer
 operator|.
 name|Req
