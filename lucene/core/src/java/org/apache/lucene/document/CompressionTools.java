@@ -375,6 +375,7 @@ name|compressionLevel
 argument_list|)
 return|;
 block|}
+comment|/** Decompress the byte array previously returned by    *  compress (referenced by the provided BytesRef) */
 DECL|method|decompress
 specifier|public
 specifier|static
@@ -405,6 +406,7 @@ name|length
 argument_list|)
 return|;
 block|}
+comment|/** Decompress the byte array previously returned by    *  compress */
 DECL|method|decompress
 specifier|public
 specifier|static
@@ -569,6 +571,7 @@ name|length
 argument_list|)
 return|;
 block|}
+comment|/** Decompress the byte array previously returned by    *  compressString back into a String */
 DECL|method|decompressString
 specifier|public
 specifier|static
@@ -644,6 +647,7 @@ name|length
 argument_list|)
 return|;
 block|}
+comment|/** Decompress the byte array (referenced by the provided BytesRef)     *  previously returned by compressString back into a String */
 DECL|method|decompressString
 specifier|public
 specifier|static

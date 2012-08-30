@@ -38,6 +38,7 @@ name|DoubleDocValuesField
 extends|extends
 name|Field
 block|{
+comment|/**    * Type for 64-bit double DocValues.    */
 DECL|field|TYPE
 specifier|public
 specifier|static
@@ -68,6 +69,7 @@ name|freeze
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**     * Creates a new DocValues field with the specified 64-bit double value     * @param name field name    * @param value 64-bit double value    * @throws IllegalArgumentException if the field name is null    */
 DECL|method|DoubleDocValuesField
 specifier|public
 name|DoubleDocValuesField
