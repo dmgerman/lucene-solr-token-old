@@ -104,7 +104,7 @@ name|UnicodeUtil
 import|;
 end_import
 begin_comment
-comment|/**  * The term text of a Token.  */
+comment|/** Default implementation of {@link CharTermAttribute}. */
 end_comment
 begin_class
 DECL|class|CharTermAttributeImpl
@@ -156,6 +156,12 @@ name|termLength
 init|=
 literal|0
 decl_stmt|;
+comment|/** Initialize this attribute with empty term text */
+DECL|method|CharTermAttributeImpl
+specifier|public
+name|CharTermAttributeImpl
+parameter_list|()
+block|{}
 DECL|method|copyBuffer
 specifier|public
 specifier|final
