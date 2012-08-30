@@ -74,15 +74,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Random
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Set
 import|;
 end_import
@@ -847,7 +838,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|30
+literal|120
 condition|;
 name|i
 operator|++
@@ -973,7 +964,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|400
+literal|500
 argument_list|)
 expr_stmt|;
 block|}
@@ -3570,12 +3561,6 @@ argument_list|(
 name|zkAddress
 argument_list|)
 expr_stmt|;
-name|Random
-name|rnd
-init|=
-name|random
-argument_list|()
-decl_stmt|;
 while|while
 condition|(
 name|run
