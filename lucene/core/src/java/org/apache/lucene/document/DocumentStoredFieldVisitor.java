@@ -476,6 +476,7 @@ operator|.
 name|NO
 return|;
 block|}
+comment|/**    * Retrieve the visited document.    * @return StoredDocument populated with stored fields.    */
 DECL|method|getDocument
 specifier|public
 name|StoredDocument

@@ -575,7 +575,6 @@ name|setFiles
 argument_list|)
 return|;
 block|}
-comment|/** {@inheritDoc} */
 annotation|@
 name|Override
 DECL|method|toString

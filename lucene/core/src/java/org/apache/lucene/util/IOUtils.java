@@ -345,7 +345,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/** @see #closeWhileHandlingException(Exception, Closeable...) */
+comment|/**    * Closes all given<tt>Closeable</tt>s, suppressing all thrown exceptions.     * @see #closeWhileHandlingException(Exception, Closeable...) */
 DECL|method|closeWhileHandlingException
 specifier|public
 specifier|static
@@ -623,7 +623,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**    * @see #close(Closeable...)    */
+comment|/**    * Closes all given<tt>Closeable</tt>s.    * @see #close(Closeable...)    */
 DECL|method|close
 specifier|public
 specifier|static
@@ -793,7 +793,7 @@ parameter_list|)
 block|{       }
 block|}
 block|}
-comment|/**    * @see #closeWhileHandlingException(Closeable...)    */
+comment|/**    * Closes all given<tt>Closeable</tt>s, suppressing all thrown exceptions.    * @see #closeWhileHandlingException(Closeable...)    */
 DECL|method|closeWhileHandlingException
 specifier|public
 specifier|static
@@ -1144,6 +1144,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**    * Deletes all given files, suppressing all thrown IOExceptions.    *<p>    * Note that the files should not be null.    */
 DECL|method|deleteFilesIgnoringExceptions
 specifier|public
 specifier|static

@@ -38,6 +38,7 @@ name|LongDocValuesField
 extends|extends
 name|StoredField
 block|{
+comment|/**    * Type for 64-bit long DocValues.    */
 DECL|field|TYPE
 specifier|public
 specifier|static
@@ -68,6 +69,7 @@ name|freeze
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**     * Creates a new DocValues field with the specified 64-bit long value     * @param name field name    * @param value 64-bit long value    * @throws IllegalArgumentException if the field name is null    */
 DECL|method|LongDocValuesField
 specifier|public
 name|LongDocValuesField

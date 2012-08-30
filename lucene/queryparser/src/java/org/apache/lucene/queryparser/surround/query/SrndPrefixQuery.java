@@ -118,6 +118,9 @@ operator|.
 name|IOException
 import|;
 end_import
+begin_comment
+comment|/**  * Query that matches String prefixes  */
+end_comment
 begin_class
 DECL|class|SrndPrefixQuery
 specifier|public

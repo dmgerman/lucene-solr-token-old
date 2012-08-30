@@ -104,7 +104,7 @@ argument_list|(
 literal|"java.vm.name"
 argument_list|)
 decl_stmt|;
-comment|/** The value of<tt>System.getProperty("java.version")<tt>. **/
+comment|/** The value of<tt>System.getProperty("java.version")</tt>. **/
 DECL|field|JAVA_VERSION
 specifier|public
 specifier|static
@@ -119,7 +119,7 @@ argument_list|(
 literal|"java.version"
 argument_list|)
 decl_stmt|;
-comment|/** The value of<tt>System.getProperty("os.name")<tt>. **/
+comment|/** The value of<tt>System.getProperty("os.name")</tt>. **/
 DECL|field|OS_NAME
 specifier|public
 specifier|static

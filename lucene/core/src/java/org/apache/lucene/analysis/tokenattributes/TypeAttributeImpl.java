@@ -30,7 +30,7 @@ name|AttributeImpl
 import|;
 end_import
 begin_comment
-comment|/**  * A Token's lexical type. The Default value is "word".   */
+comment|/** Default implementation of {@link TypeAttribute}. */
 end_comment
 begin_class
 DECL|class|TypeAttributeImpl
@@ -49,6 +49,7 @@ specifier|private
 name|String
 name|type
 decl_stmt|;
+comment|/** Initialize this attribute with {@link TypeAttribute#DEFAULT_TYPE} */
 DECL|method|TypeAttributeImpl
 specifier|public
 name|TypeAttributeImpl
@@ -60,6 +61,7 @@ name|DEFAULT_TYPE
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Initialize this attribute with<code>type</code> */
 DECL|method|TypeAttributeImpl
 specifier|public
 name|TypeAttributeImpl
@@ -75,7 +77,6 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-comment|/** Returns this Token's lexical type.  Defaults to "word". */
 DECL|method|type
 specifier|public
 name|String
@@ -86,7 +87,6 @@ return|return
 name|type
 return|;
 block|}
-comment|/** Set the lexical type.       @see #type() */
 DECL|method|setType
 specifier|public
 name|void

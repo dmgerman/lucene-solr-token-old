@@ -74,7 +74,6 @@ name|TokenStreamComponents
 name|components
 parameter_list|)
 function_decl|;
-comment|/**    * {@inheritDoc}    */
 annotation|@
 name|Override
 DECL|method|createComponents
@@ -109,7 +108,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**    * {@inheritDoc}    */
 annotation|@
 name|Override
 DECL|method|getPositionIncrementGap
@@ -134,7 +132,6 @@ name|fieldName
 argument_list|)
 return|;
 block|}
-comment|/**    * {@inheritDoc}    */
 annotation|@
 name|Override
 DECL|method|getOffsetGap

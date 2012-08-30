@@ -238,6 +238,7 @@ name|matchVersion
 argument_list|)
 expr_stmt|;
 block|}
+comment|// note: bufferIndex is -1 here to best-effort AIOOBE consumers that don't call reset()
 DECL|field|offset
 DECL|field|bufferIndex
 DECL|field|dataLen
@@ -250,7 +251,8 @@ literal|0
 decl_stmt|,
 name|bufferIndex
 init|=
-literal|0
+operator|-
+literal|1
 decl_stmt|,
 name|dataLen
 init|=
@@ -650,24 +652,14 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|setReader
+DECL|method|reset
 specifier|public
 name|void
-name|setReader
-parameter_list|(
-name|Reader
-name|input
-parameter_list|)
+name|reset
+parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|super
-operator|.
-name|setReader
-argument_list|(
-name|input
-argument_list|)
-expr_stmt|;
 name|bufferIndex
 operator|=
 literal|0

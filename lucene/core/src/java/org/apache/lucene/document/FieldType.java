@@ -22,6 +22,22 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|analysis
+operator|.
+name|Analyzer
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|DocValues
@@ -97,21 +113,25 @@ name|IndexableFieldType
 block|{
 comment|/** Data type of the numeric value    * @since 3.2    */
 DECL|enum|NumericType
-DECL|enum constant|INT
-DECL|enum constant|LONG
-DECL|enum constant|FLOAT
-DECL|enum constant|DOUBLE
 specifier|public
 specifier|static
 enum|enum
 name|NumericType
 block|{
+comment|/** 32-bit integer numeric type */
+DECL|enum constant|INT
 name|INT
 block|,
+comment|/** 64-bit long numeric type */
+DECL|enum constant|LONG
 name|LONG
 block|,
+comment|/** 32-bit float numeric type */
+DECL|enum constant|FLOAT
 name|FLOAT
 block|,
+comment|/** 64-bit double numeric type */
+DECL|enum constant|DOUBLE
 name|DOUBLE
 block|}
 DECL|field|indexed
@@ -191,6 +211,7 @@ operator|.
 name|Type
 name|docValueType
 decl_stmt|;
+comment|/**    * Create a new mutable FieldType with all of the properties from<code>ref</code>    */
 DECL|method|FieldType
 specifier|public
 name|FieldType
@@ -300,6 +321,7 @@ argument_list|()
 expr_stmt|;
 comment|// Do not copy frozen!
 block|}
+comment|/**    * Create a new FieldType with default properties.    */
 DECL|method|FieldType
 specifier|public
 name|FieldType
@@ -339,6 +361,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+comment|/**    * {@inheritDoc}    *<p>    * The default is<code>false</code>.    * @see #setIndexed(boolean)    */
 DECL|method|indexed
 specifier|public
 name|boolean
@@ -351,6 +374,7 @@ operator|.
 name|indexed
 return|;
 block|}
+comment|/**    * Set to<code>true</code> to index (invert) this field.    * @param value true if this field should be indexed.    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #indexed()    */
 DECL|method|setIndexed
 specifier|public
 name|void
@@ -370,6 +394,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**    * {@inheritDoc}    *<p>    * The default is<code>false</code>.    * @see #setStored(boolean)    */
 DECL|method|stored
 specifier|public
 name|boolean
@@ -382,6 +407,7 @@ operator|.
 name|stored
 return|;
 block|}
+comment|/**    * Set to<code>true</code> to store this field.    * @param value true if this field should be stored.    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #stored()    */
 DECL|method|setStored
 specifier|public
 name|void
@@ -401,6 +427,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**    * {@inheritDoc}    *<p>    * The default is<code>true</code>.    * @see #setTokenized(boolean)    */
 DECL|method|tokenized
 specifier|public
 name|boolean
@@ -413,6 +440,7 @@ operator|.
 name|tokenized
 return|;
 block|}
+comment|/**    * Set to<code>true</code> to tokenize this field's contents via the     * configured {@link Analyzer}.    * @param value true if this field should be tokenized.    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #tokenized()    */
 DECL|method|setTokenized
 specifier|public
 name|void
@@ -432,6 +460,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**    * {@inheritDoc}    *<p>    * The default is<code>false</code>.     * @see #setStoreTermVectors(boolean)    */
 DECL|method|storeTermVectors
 specifier|public
 name|boolean
@@ -444,6 +473,7 @@ operator|.
 name|storeTermVectors
 return|;
 block|}
+comment|/**    * Set to<code>true</code> if this field's indexed form should be also stored     * into term vectors.    * @param value true if this field should store term vectors.    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #storeTermVectors()    */
 DECL|method|setStoreTermVectors
 specifier|public
 name|void
@@ -463,6 +493,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**    * {@inheritDoc}    *<p>    * The default is<code>false</code>.    * @see #setStoreTermVectorOffsets(boolean)    */
 DECL|method|storeTermVectorOffsets
 specifier|public
 name|boolean
@@ -475,6 +506,7 @@ operator|.
 name|storeTermVectorOffsets
 return|;
 block|}
+comment|/**    * Set to<code>true</code> to also store token character offsets into the term    * vector for this field.    * @param value true if this field should store term vector offsets.    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #storeTermVectorOffsets()    */
 DECL|method|setStoreTermVectorOffsets
 specifier|public
 name|void
@@ -494,6 +526,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**    * {@inheritDoc}    *<p>    * The default is<code>false</code>.    * @see #setStoreTermVectorPositions(boolean)    */
 DECL|method|storeTermVectorPositions
 specifier|public
 name|boolean
@@ -506,6 +539,7 @@ operator|.
 name|storeTermVectorPositions
 return|;
 block|}
+comment|/**    * Set to<code>true</code> to also store token positions into the term    * vector for this field.    * @param value true if this field should store term vector positions.    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #storeTermVectorPositions()    */
 DECL|method|setStoreTermVectorPositions
 specifier|public
 name|void
@@ -525,6 +559,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**    * {@inheritDoc}    *<p>    * The default is<code>false</code>.    * @see #setStoreTermVectorPayloads(boolean)     */
 DECL|method|storeTermVectorPayloads
 specifier|public
 name|boolean
@@ -537,6 +572,7 @@ operator|.
 name|storeTermVectorPayloads
 return|;
 block|}
+comment|/**    * Set to<code>true</code> to also store token payloads into the term    * vector for this field.    * @param value true if this field should store term vector payloads.    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #storeTermVectorPayloads()    */
 DECL|method|setStoreTermVectorPayloads
 specifier|public
 name|void
@@ -556,6 +592,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**    * {@inheritDoc}    *<p>    * The default is<code>false</code>.    * @see #setOmitNorms(boolean)    */
 DECL|method|omitNorms
 specifier|public
 name|boolean
@@ -568,6 +605,7 @@ operator|.
 name|omitNorms
 return|;
 block|}
+comment|/**    * Set to<code>true</code> to omit normalization values for the field.    * @param value true if this field should omit norms.    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #omitNorms()    */
 DECL|method|setOmitNorms
 specifier|public
 name|void
@@ -587,6 +625,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**    * {@inheritDoc}    *<p>    * The default is {@link IndexOptions#DOCS_AND_FREQS_AND_POSITIONS}.    * @see #setIndexOptions(FieldInfo.IndexOptions)    */
 DECL|method|indexOptions
 specifier|public
 name|IndexOptions
@@ -599,6 +638,7 @@ operator|.
 name|indexOptions
 return|;
 block|}
+comment|/**    * Sets the indexing options for the field:    * @param value indexing options    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #indexOptions()    */
 DECL|method|setIndexOptions
 specifier|public
 name|void
@@ -618,6 +658,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+comment|/**    * Specifies the field's numeric type.    * @param type numeric type, or null if the field has no numeric type.    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #numericType()    */
 DECL|method|setNumericType
 specifier|public
 name|void
@@ -635,7 +676,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-comment|/** NumericDataType; if    *  non-null then the field's value will be indexed    *  numerically so that {@link NumericRangeQuery} can be    *  used at search time. */
+comment|/**     * NumericType: if non-null then the field's value will be indexed    * numerically so that {@link NumericRangeQuery} can be used at     * search time.     *<p>    * The default is<code>null</code> (no numeric type)     * @see #setNumericType(NumericType)    */
 DECL|method|numericType
 specifier|public
 name|NumericType
@@ -646,6 +687,7 @@ return|return
 name|numericType
 return|;
 block|}
+comment|/**    * Sets the numeric precision step for the field.    * @param precisionStep numeric precision step for the field    * @throws IllegalArgumentException if precisionStep is less than 1.     * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #numericPrecisionStep()    */
 DECL|method|setNumericPrecisionStep
 specifier|public
 name|void
@@ -684,7 +726,7 @@ operator|=
 name|precisionStep
 expr_stmt|;
 block|}
-comment|/** Precision step for numeric field. */
+comment|/**     * Precision step for numeric field.     *<p>    * This has no effect if {@link #numericType()} returns null.    *<p>    * The default is {@link NumericUtils#PRECISION_STEP_DEFAULT}    * @see #setNumericPrecisionStep(int)    */
 DECL|method|numericPrecisionStep
 specifier|public
 name|int
@@ -946,6 +988,7 @@ argument_list|()
 return|;
 block|}
 comment|/* from StorableFieldType */
+comment|/**    * {@inheritDoc}    *<p>    * The default is<code>null</code> (no docValues)     * @see #setDocValueType(DocValues.Type)    */
 annotation|@
 name|Override
 DECL|method|docValueType
@@ -960,6 +1003,7 @@ return|return
 name|docValueType
 return|;
 block|}
+comment|/**    * Set's the field's DocValues.Type    * @param type DocValues type, or null if no DocValues should be stored.    * @throws IllegalStateException if this FieldType is frozen against    *         future modifications.    * @see #docValueType()    */
 DECL|method|setDocValueType
 specifier|public
 name|void
