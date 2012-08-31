@@ -1463,9 +1463,9 @@ argument_list|)
 expr_stmt|;
 break|break;
 default|default:
-assert|assert
-literal|false
-assert|;
+name|fail
+argument_list|()
+expr_stmt|;
 name|field
 operator|=
 literal|null
