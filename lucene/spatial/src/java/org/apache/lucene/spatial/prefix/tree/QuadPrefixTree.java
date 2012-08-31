@@ -718,11 +718,13 @@ control|(
 name|int
 name|i
 init|=
-literal|1
+literal|0
 init|;
 name|i
 operator|<
 name|maxLevels
+operator|-
+literal|1
 condition|;
 name|i
 operator|++
@@ -737,7 +739,7 @@ name|levelW
 index|[
 name|i
 index|]
-operator|||
+operator|&&
 name|dist
 operator|>
 name|levelH
@@ -748,6 +750,8 @@ condition|)
 block|{
 return|return
 name|i
+operator|+
+literal|1
 return|;
 block|}
 block|}
