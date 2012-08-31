@@ -21,6 +21,7 @@ comment|/**  * Non-specialized {@link BulkOperation} for {@link PackedInts.Forma
 end_comment
 begin_class
 DECL|class|BulkOperationPackedSingleBlock
+specifier|final
 class|class
 name|BulkOperationPackedSingleBlock
 extends|extends
