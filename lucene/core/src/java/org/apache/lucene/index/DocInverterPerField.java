@@ -295,11 +295,6 @@ comment|// consumer if it wants to see this particular field
 comment|// tokenized.
 if|if
 condition|(
-name|fieldType
-operator|.
-name|indexed
-argument_list|()
-operator|&&
 name|doInvert
 condition|)
 block|{

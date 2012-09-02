@@ -3408,7 +3408,7 @@ name|i
 operator|++
 control|)
 block|{
-name|Document
+name|StoredDocument
 name|leftDoc
 init|=
 name|leftReader
@@ -3418,7 +3418,7 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|Document
+name|StoredDocument
 name|rightDoc
 init|=
 name|rightReader
@@ -3435,14 +3435,14 @@ comment|// To fix this, we sort the fields in both documents by name, but
 comment|// we still assume that all instances with same name are in order:
 name|Comparator
 argument_list|<
-name|IndexableField
+name|StorableField
 argument_list|>
 name|comp
 init|=
 operator|new
 name|Comparator
 argument_list|<
-name|IndexableField
+name|StorableField
 argument_list|>
 argument_list|()
 block|{
@@ -3452,10 +3452,10 @@ specifier|public
 name|int
 name|compare
 parameter_list|(
-name|IndexableField
+name|StorableField
 name|arg0
 parameter_list|,
-name|IndexableField
+name|StorableField
 name|arg1
 parameter_list|)
 block|{
@@ -3502,7 +3502,7 @@ argument_list|)
 expr_stmt|;
 name|Iterator
 argument_list|<
-name|IndexableField
+name|StorableField
 argument_list|>
 name|leftIterator
 init|=
@@ -3513,7 +3513,7 @@ argument_list|()
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|IndexableField
+name|StorableField
 argument_list|>
 name|rightIterator
 init|=
@@ -3572,10 +3572,10 @@ specifier|public
 name|void
 name|assertStoredField
 parameter_list|(
-name|IndexableField
+name|StorableField
 name|leftField
 parameter_list|,
-name|IndexableField
+name|StorableField
 name|rightField
 parameter_list|)
 block|{

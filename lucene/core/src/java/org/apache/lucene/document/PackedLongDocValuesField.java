@@ -52,7 +52,7 @@ specifier|public
 class|class
 name|PackedLongDocValuesField
 extends|extends
-name|Field
+name|StoredField
 block|{
 comment|/**    * Type for packed long DocValues.    */
 DECL|field|TYPE
@@ -77,6 +77,13 @@ operator|.
 name|Type
 operator|.
 name|VAR_INTS
+argument_list|)
+expr_stmt|;
+name|TYPE
+operator|.
+name|setStored
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 name|TYPE

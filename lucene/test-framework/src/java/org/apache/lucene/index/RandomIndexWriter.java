@@ -778,7 +778,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Adds a Document.    * @see IndexWriter#addDocument(Iterable)    */
+comment|/**    * Adds a Document.    * @see IndexWriter#addDocument(org.apache.lucene.index.IndexDocument)    */
 DECL|method|addDocument
 specifier|public
 parameter_list|<
@@ -790,10 +790,7 @@ name|void
 name|addDocument
 parameter_list|(
 specifier|final
-name|Iterable
-argument_list|<
-name|T
-argument_list|>
+name|IndexDocument
 name|doc
 parameter_list|)
 throws|throws
@@ -821,10 +818,7 @@ name|void
 name|addDocument
 parameter_list|(
 specifier|final
-name|Iterable
-argument_list|<
-name|T
-argument_list|>
+name|IndexDocument
 name|doc
 parameter_list|,
 name|Analyzer
@@ -874,10 +868,7 @@ argument_list|(
 operator|new
 name|Iterable
 argument_list|<
-name|Iterable
-argument_list|<
-name|T
-argument_list|>
+name|IndexDocument
 argument_list|>
 argument_list|()
 block|{
@@ -886,10 +877,7 @@ name|Override
 specifier|public
 name|Iterator
 argument_list|<
-name|Iterable
-argument_list|<
-name|T
-argument_list|>
+name|IndexDocument
 argument_list|>
 name|iterator
 parameter_list|()
@@ -898,10 +886,7 @@ return|return
 operator|new
 name|Iterator
 argument_list|<
-name|Iterable
-argument_list|<
-name|T
-argument_list|>
+name|IndexDocument
 argument_list|>
 argument_list|()
 block|{
@@ -936,10 +921,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Iterable
-argument_list|<
-name|T
-argument_list|>
+name|IndexDocument
 name|next
 parameter_list|()
 block|{
@@ -1513,12 +1495,7 @@ name|Iterable
 argument_list|<
 name|?
 extends|extends
-name|Iterable
-argument_list|<
-name|?
-extends|extends
-name|IndexableField
-argument_list|>
+name|IndexDocument
 argument_list|>
 name|docs
 parameter_list|)
@@ -1548,12 +1525,7 @@ name|Iterable
 argument_list|<
 name|?
 extends|extends
-name|Iterable
-argument_list|<
-name|?
-extends|extends
-name|IndexableField
-argument_list|>
+name|IndexDocument
 argument_list|>
 name|docs
 parameter_list|)
@@ -1573,7 +1545,7 @@ name|maybeCommit
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Updates a document.    * @see IndexWriter#updateDocument(Term, Iterable)    */
+comment|/**    * Updates a document.    * @see IndexWriter#updateDocument(Term, org.apache.lucene.index.IndexDocument)    */
 DECL|method|updateDocument
 specifier|public
 parameter_list|<
@@ -1588,10 +1560,7 @@ name|Term
 name|t
 parameter_list|,
 specifier|final
-name|Iterable
-argument_list|<
-name|T
-argument_list|>
+name|IndexDocument
 name|doc
 parameter_list|)
 throws|throws
@@ -1632,10 +1601,7 @@ argument_list|,
 operator|new
 name|Iterable
 argument_list|<
-name|Iterable
-argument_list|<
-name|T
-argument_list|>
+name|IndexDocument
 argument_list|>
 argument_list|()
 block|{
@@ -1644,10 +1610,7 @@ name|Override
 specifier|public
 name|Iterator
 argument_list|<
-name|Iterable
-argument_list|<
-name|T
-argument_list|>
+name|IndexDocument
 argument_list|>
 name|iterator
 parameter_list|()
@@ -1656,10 +1619,7 @@ return|return
 operator|new
 name|Iterator
 argument_list|<
-name|Iterable
-argument_list|<
-name|T
-argument_list|>
+name|IndexDocument
 argument_list|>
 argument_list|()
 block|{
@@ -1694,10 +1654,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Iterable
-argument_list|<
-name|T
-argument_list|>
+name|IndexDocument
 name|next
 parameter_list|()
 block|{

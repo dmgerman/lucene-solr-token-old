@@ -697,7 +697,7 @@ name|SolrCache
 argument_list|<
 name|Integer
 argument_list|,
-name|Document
+name|StoredDocument
 argument_list|>
 name|documentCache
 decl_stmt|;
@@ -2355,11 +2355,11 @@ name|fieldsToLoad
 decl_stmt|;
 DECL|field|doc
 specifier|final
-name|Document
+name|StoredDocument
 name|doc
 init|=
 operator|new
-name|Document
+name|StoredDocument
 argument_list|()
 decl_stmt|;
 DECL|field|lazyDoc
@@ -2817,7 +2817,7 @@ annotation|@
 name|Override
 DECL|method|doc
 specifier|public
-name|Document
+name|StoredDocument
 name|doc
 parameter_list|(
 name|int
@@ -2872,7 +2872,7 @@ block|}
 comment|/**    * Retrieve the {@link Document} instance corresponding to the document id.    *    * Note: The document will have all fields accessable, but if a field    * filter is provided, only the provided fields will be loaded (the     * remainder will be available lazily).    */
 DECL|method|doc
 specifier|public
-name|Document
+name|StoredDocument
 name|doc
 parameter_list|(
 name|int
@@ -2887,7 +2887,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Document
+name|StoredDocument
 name|d
 decl_stmt|;
 if|if
@@ -2998,7 +2998,7 @@ specifier|public
 name|void
 name|readDocs
 parameter_list|(
-name|Document
+name|StoredDocument
 index|[]
 name|docs
 parameter_list|,
@@ -3024,7 +3024,7 @@ specifier|public
 name|void
 name|readDocs
 parameter_list|(
-name|Document
+name|StoredDocument
 index|[]
 name|docs
 parameter_list|,
@@ -9469,7 +9469,7 @@ block|}
 comment|/**    * Takes a list of docs (the doc ids actually), and returns an array     * of Documents containing all of the stored fields.    */
 DECL|method|readDocs
 specifier|public
-name|Document
+name|StoredDocument
 index|[]
 name|readDocs
 parameter_list|(
@@ -9479,12 +9479,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Document
+name|StoredDocument
 index|[]
 name|docs
 init|=
 operator|new
-name|Document
+name|StoredDocument
 index|[
 name|ids
 operator|.

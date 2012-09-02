@@ -576,7 +576,7 @@ range|:
 name|hits
 control|)
 block|{
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|searcher
@@ -681,7 +681,7 @@ range|:
 name|hits
 control|)
 block|{
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|searcher
@@ -810,7 +810,7 @@ range|:
 name|hits
 control|)
 block|{
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|searcher
@@ -929,7 +929,7 @@ range|:
 name|hits
 control|)
 block|{
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|searcher
@@ -1085,7 +1085,7 @@ range|:
 name|hits
 control|)
 block|{
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|searcher

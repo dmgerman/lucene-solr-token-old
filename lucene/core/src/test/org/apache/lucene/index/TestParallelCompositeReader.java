@@ -1958,7 +1958,7 @@ argument_list|,
 literal|0.001f
 argument_list|)
 expr_stmt|;
-name|Document
+name|StoredDocument
 name|docParallel
 init|=
 name|parallel
@@ -1973,7 +1973,7 @@ operator|.
 name|doc
 argument_list|)
 decl_stmt|;
-name|Document
+name|StoredDocument
 name|docSingle
 init|=
 name|single

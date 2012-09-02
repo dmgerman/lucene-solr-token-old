@@ -723,7 +723,7 @@ name|i
 operator|++
 control|)
 block|{
-name|Document
+name|StoredDocument
 name|document
 init|=
 name|open
@@ -1138,7 +1138,7 @@ name|i
 operator|++
 control|)
 block|{
-name|Document
+name|StoredDocument
 name|document
 init|=
 name|mergedReader

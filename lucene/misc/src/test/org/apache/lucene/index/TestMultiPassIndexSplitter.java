@@ -391,7 +391,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// rounding error
-name|Document
+name|StoredDocument
 name|doc
 init|=
 name|ir
@@ -789,7 +789,7 @@ operator|<=
 literal|1
 argument_list|)
 expr_stmt|;
-name|Document
+name|StoredDocument
 name|doc
 init|=
 name|ir

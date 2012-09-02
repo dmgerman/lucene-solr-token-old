@@ -58,6 +58,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|Directory
@@ -137,7 +150,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|IndexableField
+name|StoredField
 name|binaryFldStored
 init|=
 operator|new
@@ -153,7 +166,7 @@ literal|"UTF-8"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|IndexableField
+name|Field
 name|stringFldStored
 init|=
 operator|new
@@ -236,7 +249,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|Document
+name|StoredDocument
 name|docFromReader
 init|=
 name|reader
@@ -345,7 +358,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|IndexableField
+name|StoredField
 name|binaryFldCompressed
 init|=
 operator|new
@@ -366,7 +379,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|IndexableField
+name|StoredField
 name|stringFldCompressed
 init|=
 operator|new
@@ -438,7 +451,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|Document
+name|StoredDocument
 name|docFromReader
 init|=
 name|reader

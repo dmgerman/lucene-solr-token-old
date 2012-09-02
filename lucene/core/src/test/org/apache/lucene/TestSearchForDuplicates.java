@@ -795,7 +795,7 @@ literal|105
 operator|)
 condition|)
 block|{
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|searcher
@@ -892,7 +892,7 @@ literal|105
 operator|)
 condition|)
 block|{
-name|Document
+name|StoredDocument
 name|d
 init|=
 name|searcher

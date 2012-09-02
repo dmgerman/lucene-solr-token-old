@@ -93,6 +93,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|Query
@@ -420,7 +433,7 @@ parameter_list|,
 name|String
 name|field
 parameter_list|,
-name|Document
+name|StoredDocument
 name|document
 parameter_list|,
 name|Analyzer
@@ -492,7 +505,7 @@ name|String
 argument_list|>
 name|getFieldsToHighlight
 parameter_list|(
-name|Document
+name|StoredDocument
 name|document
 parameter_list|)
 block|{

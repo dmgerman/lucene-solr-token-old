@@ -6199,6 +6199,9 @@ name|IndexableField
 name|f
 range|:
 name|doc1
+operator|.
+name|getFields
+argument_list|()
 control|)
 block|{
 specifier|final

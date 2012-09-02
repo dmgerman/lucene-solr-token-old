@@ -98,6 +98,19 @@ name|lucene
 operator|.
 name|document
 operator|.
+name|Field
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
 name|FloatDocValuesField
 import|;
 end_import
@@ -436,7 +449,7 @@ literal|"fallthrough"
 argument_list|)
 DECL|method|getRandomIntsField
 specifier|public
-name|IndexableField
+name|Field
 name|getRandomIntsField
 parameter_list|(
 name|Type
@@ -769,7 +782,7 @@ literal|"fallthrough"
 argument_list|)
 DECL|method|getRandomFloatField
 specifier|public
-name|IndexableField
+name|Field
 name|getRandomFloatField
 parameter_list|(
 name|Type
@@ -1020,12 +1033,12 @@ argument_list|,
 name|iwc
 argument_list|)
 decl_stmt|;
-name|IndexableField
+name|Field
 index|[]
 name|fields
 init|=
 operator|new
-name|IndexableField
+name|Field
 index|[]
 block|{
 operator|new
@@ -1267,7 +1280,7 @@ argument_list|(
 literal|15
 argument_list|)
 decl_stmt|;
-name|IndexableField
+name|Field
 name|bytesField
 init|=
 name|getRandomBytesField
@@ -1334,7 +1347,7 @@ block|}
 block|}
 DECL|method|getRandomBytesField
 specifier|public
-name|IndexableField
+name|Field
 name|getRandomBytesField
 parameter_list|(
 name|boolean
@@ -1649,7 +1662,7 @@ parameter_list|(
 name|IndexWriter
 name|writer
 parameter_list|,
-name|IndexableField
+name|Field
 modifier|...
 name|fields
 parameter_list|)
@@ -1665,7 +1678,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|IndexableField
+name|Field
 name|indexableField
 range|:
 name|fields
@@ -1689,7 +1702,7 @@ expr_stmt|;
 block|}
 DECL|method|getRandomIndexableDVField
 specifier|public
-name|IndexableField
+name|Field
 name|getRandomIndexableDVField
 parameter_list|()
 block|{
