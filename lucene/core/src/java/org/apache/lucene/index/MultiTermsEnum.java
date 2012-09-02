@@ -1964,9 +1964,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// One of our subs cannot provide a docsenum:
+comment|// should this be an error?
 assert|assert
 literal|false
+operator|:
+literal|"One of our subs cannot provide a docsenum"
 assert|;
 block|}
 block|}
