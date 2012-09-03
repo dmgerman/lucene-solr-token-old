@@ -140,6 +140,10 @@ class|class
 name|DefaultSolrCoreState
 extends|extends
 name|SolrCoreState
+implements|implements
+name|RecoveryStrategy
+operator|.
+name|RecoveryListener
 block|{
 DECL|field|log
 specifier|public
@@ -211,6 +215,7 @@ name|directoryFactory
 decl_stmt|;
 DECL|field|recoveryRunning
 specifier|private
+specifier|volatile
 name|boolean
 name|recoveryRunning
 decl_stmt|;
@@ -722,6 +727,13 @@ expr_stmt|;
 block|}
 try|try
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Closing SolrCoreState - canceling any ongoing recovery"
+argument_list|)
+expr_stmt|;
 name|cancelRecovery
 argument_list|()
 expr_stmt|;
@@ -922,6 +934,13 @@ init|(
 name|recoveryLock
 init|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Running recovery - first canceling any ongoing recovery"
+argument_list|)
+expr_stmt|;
 name|cancelRecovery
 argument_list|()
 expr_stmt|;
@@ -986,6 +1005,8 @@ argument_list|(
 name|cc
 argument_list|,
 name|name
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|recoveryStrat
@@ -1024,6 +1045,8 @@ condition|(
 name|recoveryStrat
 operator|!=
 literal|null
+operator|&&
+name|recoveryRunning
 condition|)
 block|{
 name|recoveryStrat
@@ -1066,6 +1089,32 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|recovered
+specifier|public
+name|void
+name|recovered
+parameter_list|()
+block|{
+name|recoveryRunning
+operator|=
+literal|false
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|failed
+specifier|public
+name|void
+name|failed
+parameter_list|()
+block|{
+name|recoveryRunning
+operator|=
+literal|false
+expr_stmt|;
 block|}
 block|}
 end_class
