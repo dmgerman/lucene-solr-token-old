@@ -1422,7 +1422,7 @@ name|CoreConnectionPNames
 operator|.
 name|SO_TIMEOUT
 argument_list|,
-literal|15000
+literal|40000
 argument_list|)
 expr_stmt|;
 name|cloudClient
@@ -7363,7 +7363,7 @@ name|s
 operator|.
 name|setSoTimeout
 argument_list|(
-literal|20000
+literal|40000
 argument_list|)
 expr_stmt|;
 name|s
