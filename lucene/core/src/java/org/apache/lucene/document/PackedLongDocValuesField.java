@@ -81,13 +81,6 @@ argument_list|)
 expr_stmt|;
 name|TYPE
 operator|.
-name|setStored
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|TYPE
-operator|.
 name|freeze
 argument_list|()
 expr_stmt|;

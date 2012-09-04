@@ -1022,12 +1022,6 @@ name|docValueType
 operator|=
 name|type
 expr_stmt|;
-name|this
-operator|.
-name|stored
-operator|=
-literal|true
-expr_stmt|;
 block|}
 block|}
 end_class
