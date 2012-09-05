@@ -3239,6 +3239,8 @@ string|"'analysis'"
 op|','
 string|"'benchmark'"
 op|','
+string|"'codecs'"
+op|','
 string|"'core'"
 op|','
 string|"'demo'"
