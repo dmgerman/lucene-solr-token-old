@@ -764,6 +764,8 @@ operator|.
 name|TICK_TIME
 operator|*
 literal|2
+operator|+
+literal|200
 argument_list|)
 expr_stmt|;
 block|}
@@ -2049,9 +2051,6 @@ operator|<
 name|CONLOSS_PERCENT
 condition|)
 block|{
-name|randomConnectionLoss
-argument_list|()
-expr_stmt|;
 name|randomConnectionLoss
 argument_list|()
 expr_stmt|;
