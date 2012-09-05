@@ -134,6 +134,8 @@ annotation|@
 name|Override
 DECL|method|index
 specifier|public
+name|IntIndexOutput
+operator|.
 name|Index
 name|index
 parameter_list|()
