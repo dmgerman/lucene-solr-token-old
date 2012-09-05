@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs
+DECL|package|org.apache.lucene.codecs.blockterms
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|lucene
 operator|.
 name|codecs
+operator|.
+name|blockterms
 package|;
 end_package
 begin_comment
