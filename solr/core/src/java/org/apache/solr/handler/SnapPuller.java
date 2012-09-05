@@ -6653,7 +6653,7 @@ name|set
 argument_list|(
 name|COMPRESSION
 argument_list|,
-literal|"internal"
+literal|"true"
 argument_list|)
 expr_stmt|;
 block|}
