@@ -18,19 +18,6 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
-name|com
-operator|.
-name|spatial4j
-operator|.
-name|core
-operator|.
-name|exception
-operator|.
-name|InvalidSpatialArgument
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -438,7 +425,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|InvalidSpatialArgument
+name|IllegalArgumentException
 argument_list|(
 literal|"Unknown Operation: "
 operator|+

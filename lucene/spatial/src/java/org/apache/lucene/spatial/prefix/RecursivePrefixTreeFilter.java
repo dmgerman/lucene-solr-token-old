@@ -753,11 +753,6 @@ operator|.
 name|relate
 argument_list|(
 name|cShape
-argument_list|,
-name|grid
-operator|.
-name|getSpatialContext
-argument_list|()
 argument_list|)
 operator|==
 name|SpatialRelation

@@ -105,7 +105,9 @@ operator|=
 name|queryExtent
 operator|.
 name|getArea
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -200,7 +202,9 @@ init|=
 name|target
 operator|.
 name|getArea
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

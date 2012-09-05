@@ -39,7 +39,7 @@ name|spatial4j
 operator|.
 name|core
 operator|.
-name|util
+name|io
 operator|.
 name|GeohashUtils
 import|;

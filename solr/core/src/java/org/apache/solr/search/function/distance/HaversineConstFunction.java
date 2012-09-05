@@ -182,7 +182,7 @@ name|spatial4j
 operator|.
 name|core
 operator|.
-name|context
+name|io
 operator|.
 name|ParseUtils
 import|;
@@ -303,6 +303,21 @@ operator|.
 name|Map
 import|;
 end_import
+begin_import
+import|import static
+name|com
+operator|.
+name|spatial4j
+operator|.
+name|core
+operator|.
+name|distance
+operator|.
+name|DistanceUtils
+operator|.
+name|DEGREES_TO_RADIANS
+import|;
+end_import
 begin_comment
 comment|/**  * Haversine function with one point constant  */
 end_comment
@@ -314,33 +329,6 @@ name|HaversineConstFunction
 extends|extends
 name|ValueSource
 block|{
-comment|// TODO: these could go in spatial4j somewhere
-DECL|field|DEGREES_TO_RADIANS
-specifier|public
-specifier|static
-specifier|final
-name|double
-name|DEGREES_TO_RADIANS
-init|=
-name|Math
-operator|.
-name|PI
-operator|/
-literal|180.0
-decl_stmt|;
-DECL|field|RADIANS_TO_DEGREES
-specifier|public
-specifier|static
-specifier|final
-name|double
-name|RADIANS_TO_DEGREES
-init|=
-literal|180.0
-operator|/
-name|Math
-operator|.
-name|PI
-decl_stmt|;
 DECL|field|parser
 specifier|public
 specifier|static
@@ -363,7 +351,7 @@ parameter_list|)
 throws|throws
 name|ParseException
 block|{
-comment|// TODO: dispatch through SpatialQueriable in the future?
+comment|// TODO: dispatch through SpatialQueryable in the future?
 name|List
 argument_list|<
 name|ValueSource

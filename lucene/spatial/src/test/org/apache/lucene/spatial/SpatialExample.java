@@ -35,11 +35,22 @@ name|spatial4j
 operator|.
 name|core
 operator|.
-name|context
+name|distance
 operator|.
-name|simple
+name|DistanceUtils
+import|;
+end_import
+begin_import
+import|import
+name|com
 operator|.
-name|SimpleSpatialContext
+name|spatial4j
+operator|.
+name|core
+operator|.
+name|io
+operator|.
+name|ShapeReadWriter
 import|;
 end_import
 begin_import
@@ -157,19 +168,6 @@ operator|.
 name|index
 operator|.
 name|IndexWriterConfig
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexableField
 import|;
 end_import
 begin_import
@@ -500,9 +498,9 @@ name|this
 operator|.
 name|ctx
 operator|=
-name|SimpleSpatialContext
+name|SpatialContext
 operator|.
-name|GEO_KM
+name|GEO
 expr_stmt|;
 name|int
 name|maxLevels
@@ -605,7 +603,11 @@ name|newSampleDocument
 argument_list|(
 literal|4
 argument_list|,
+operator|new
+name|ShapeReadWriter
+argument_list|(
 name|ctx
+argument_list|)
 operator|.
 name|readShape
 argument_list|(
@@ -814,11 +816,19 @@ literal|80.0
 argument_list|,
 literal|33.0
 argument_list|,
+name|DistanceUtils
+operator|.
+name|dist2Degrees
+argument_list|(
 literal|200
+argument_list|,
+name|DistanceUtils
+operator|.
+name|EARTH_MEAN_RADIUS_KM
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//200km (since km == ctx.getDistanceUnits
 name|Filter
 name|filter
 init|=
@@ -891,7 +901,7 @@ argument_list|(
 name|args
 argument_list|)
 decl_stmt|;
-comment|//the distance
+comment|//the distance (in degrees)
 name|Sort
 name|reverseDistSort
 init|=
@@ -963,7 +973,7 @@ literal|80.0
 argument_list|,
 literal|33.0
 argument_list|,
-literal|200
+literal|1
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -976,7 +986,7 @@ argument_list|()
 operator|.
 name|parse
 argument_list|(
-literal|"Intersects(Circle(33,-80 d=200))"
+literal|"Intersects(Circle(33,-80 d=1))"
 argument_list|,
 name|ctx
 argument_list|)

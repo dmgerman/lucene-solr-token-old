@@ -33,19 +33,6 @@ name|spatial4j
 operator|.
 name|core
 operator|.
-name|exception
-operator|.
-name|InvalidSpatialArgument
-import|;
-end_import
-begin_import
-import|import
-name|com
-operator|.
-name|spatial4j
-operator|.
-name|core
-operator|.
 name|shape
 operator|.
 name|Shape
@@ -132,7 +119,7 @@ name|void
 name|validate
 parameter_list|()
 throws|throws
-name|InvalidSpatialArgument
+name|IllegalArgumentException
 block|{
 if|if
 condition|(
@@ -150,7 +137,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|InvalidSpatialArgument
+name|IllegalArgumentException
 argument_list|(
 name|operation
 operator|+
