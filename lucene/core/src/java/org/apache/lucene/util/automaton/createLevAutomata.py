@@ -46,6 +46,8 @@ newline|'\n'
 name|'import'
 name|'sys'
 newline|'\n'
+comment|"#sys.path.insert(0, 'moman/finenight/python')"
+nl|'\n'
 name|'sys'
 op|'.'
 name|'path'
@@ -54,7 +56,7 @@ name|'insert'
 op|'('
 number|'0'
 op|','
-string|"'moman/finenight/python'"
+string|"'../../../../../../../../build/core/moman/finenight/python'"
 op|')'
 newline|'\n'
 name|'try'
