@@ -412,6 +412,16 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|ignoreException
+argument_list|(
+name|Pattern
+operator|.
+name|quote
+argument_list|(
+literal|"bogus_path"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|cc
 operator|.
 name|create
@@ -559,18 +569,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: even if we close all solr cores in the container, there is still a leaked dir?
-comment|// maybe from one that didnt load right?
-comment|// TODO: make SolrCore closeable since its has close()
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"solr.directoryFactory"
-argument_list|,
-literal|"org.apache.solr.core.SimpleFSDirectoryFactory"
-argument_list|)
-expr_stmt|;
 comment|// reused state
 name|Map
 argument_list|<
@@ -1001,6 +999,16 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|ignoreException
+argument_list|(
+name|Pattern
+operator|.
+name|quote
+argument_list|(
+literal|"bogus_path"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|cc
 operator|.
 name|create
@@ -1310,6 +1318,16 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|ignoreException
+argument_list|(
+name|Pattern
+operator|.
+name|quote
+argument_list|(
+literal|"SAX"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|cc
 operator|.
 name|reload
