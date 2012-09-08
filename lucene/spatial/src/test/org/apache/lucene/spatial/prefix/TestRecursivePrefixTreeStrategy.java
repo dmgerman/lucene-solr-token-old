@@ -225,15 +225,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -713,9 +704,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-comment|/* LUCENE-4351 ignore this test until I figure out why it failed (as reported by Jenkins) */
 DECL|method|geohashRecursiveRandom
 specifier|public
 name|void
@@ -742,7 +730,8 @@ name|ctx
 operator|.
 name|makePoint
 argument_list|(
-literal|0
+operator|-
+literal|180
 argument_list|,
 literal|0
 argument_list|)
@@ -1018,9 +1007,9 @@ name|random
 argument_list|()
 operator|.
 name|nextInt
-argument_list|()
-operator|*
+argument_list|(
 literal|360
+argument_list|)
 argument_list|,
 name|ctx
 argument_list|,
@@ -1042,8 +1031,10 @@ argument_list|(
 name|queryCenter
 argument_list|,
 name|radiusDeg
-operator|*
-literal|0.99
+operator|-
+name|smallRadius
+operator|/
+literal|2
 argument_list|)
 argument_list|,
 literal|0
