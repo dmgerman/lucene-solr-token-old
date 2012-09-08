@@ -364,6 +364,12 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// test double close of master:
+name|one
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|mmapDir
 operator|.
 name|close
@@ -498,6 +504,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|one
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|three
 operator|.
 name|close
 argument_list|()
@@ -732,6 +743,12 @@ name|close
 argument_list|()
 expr_stmt|;
 name|four
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+comment|// test double-close of slicer:
+name|slicer
 operator|.
 name|close
 argument_list|()
