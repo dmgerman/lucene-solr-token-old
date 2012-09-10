@@ -113,7 +113,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|props
 init|=
@@ -122,7 +122,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -216,7 +216,7 @@ literal|"value1"
 argument_list|,
 name|props2
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"prop1"
 argument_list|)
@@ -228,7 +228,7 @@ literal|"value2"
 argument_list|,
 name|props2
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"prop2"
 argument_list|)
@@ -240,7 +240,7 @@ literal|"value3"
 argument_list|,
 name|props2
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"prop3"
 argument_list|)
@@ -252,7 +252,7 @@ literal|"value4"
 argument_list|,
 name|props2
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"prop4"
 argument_list|)
@@ -264,7 +264,7 @@ literal|"value5"
 argument_list|,
 name|props2
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"prop5"
 argument_list|)
@@ -276,7 +276,7 @@ literal|"value6"
 argument_list|,
 name|props2
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"prop6"
 argument_list|)

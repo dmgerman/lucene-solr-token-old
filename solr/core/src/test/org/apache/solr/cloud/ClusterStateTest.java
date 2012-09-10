@@ -103,7 +103,7 @@ name|common
 operator|.
 name|cloud
 operator|.
-name|ZkNodeProps
+name|Replica
 import|;
 end_import
 begin_import
@@ -223,7 +223,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ZkNodeProps
+name|Replica
 argument_list|>
 name|sliceToProps
 init|=
@@ -232,7 +232,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|ZkNodeProps
+name|Replica
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -240,7 +240,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|props
 init|=
@@ -249,7 +249,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -271,12 +271,14 @@ argument_list|,
 literal|"value2"
 argument_list|)
 expr_stmt|;
-name|ZkNodeProps
-name|zkNodeProps
+name|Replica
+name|replica
 init|=
 operator|new
-name|ZkNodeProps
+name|Replica
 argument_list|(
+literal|"node1"
+argument_list|,
 name|props
 argument_list|)
 decl_stmt|;
@@ -286,7 +288,7 @@ name|put
 argument_list|(
 literal|"node1"
 argument_list|,
-name|zkNodeProps
+name|replica
 argument_list|)
 expr_stmt|;
 name|Slice
@@ -417,9 +419,9 @@ name|assertEquals
 argument_list|(
 literal|"Poperties not copied properly"
 argument_list|,
-name|zkNodeProps
+name|replica
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"prop1"
 argument_list|)
@@ -433,7 +435,7 @@ argument_list|,
 literal|"shard1"
 argument_list|)
 operator|.
-name|getShards
+name|getReplicasMap
 argument_list|()
 operator|.
 name|get
@@ -441,7 +443,7 @@ argument_list|(
 literal|"node1"
 argument_list|)
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"prop1"
 argument_list|)
@@ -451,9 +453,9 @@ name|assertEquals
 argument_list|(
 literal|"Poperties not copied properly"
 argument_list|,
-name|zkNodeProps
+name|replica
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"prop2"
 argument_list|)
@@ -467,7 +469,7 @@ argument_list|,
 literal|"shard1"
 argument_list|)
 operator|.
-name|getShards
+name|getReplicasMap
 argument_list|()
 operator|.
 name|get
@@ -475,7 +477,7 @@ argument_list|(
 literal|"node1"
 argument_list|)
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"prop2"
 argument_list|)

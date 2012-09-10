@@ -114,6 +114,21 @@ name|common
 operator|.
 name|cloud
 operator|.
+name|Replica
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|cloud
+operator|.
 name|Slice
 import|;
 end_import
@@ -482,7 +497,7 @@ name|operation
 init|=
 name|message
 operator|.
-name|get
+name|getStr
 argument_list|(
 name|QUEUE_OPERATION
 argument_list|)
@@ -515,7 +530,7 @@ literal|"Collection creation of "
 operator|+
 name|message
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"name"
 argument_list|)
@@ -667,7 +682,7 @@ name|equals
 argument_list|(
 name|props
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"id"
 argument_list|)
@@ -890,7 +905,7 @@ name|numReplicasString
 init|=
 name|message
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"numReplicas"
 argument_list|)
@@ -942,7 +957,7 @@ name|numShardsString
 init|=
 name|message
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"numShards"
 argument_list|)
@@ -994,7 +1009,7 @@ name|name
 init|=
 name|message
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"name"
 argument_list|)
@@ -1004,7 +1019,7 @@ name|configName
 init|=
 name|message
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"collection.configName"
 argument_list|)
@@ -1373,7 +1388,7 @@ name|name
 init|=
 name|message
 operator|.
-name|get
+name|getStr
 argument_list|(
 literal|"name"
 argument_list|)
@@ -1447,13 +1462,13 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ZkNodeProps
+name|Replica
 argument_list|>
 name|shards
 init|=
 name|slice
 operator|.
-name|getShards
+name|getReplicasMap
 argument_list|()
 decl_stmt|;
 name|Set
@@ -1464,7 +1479,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|ZkNodeProps
+name|Replica
 argument_list|>
 argument_list|>
 name|shardEntries
@@ -1482,7 +1497,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|ZkNodeProps
+name|Replica
 argument_list|>
 name|shardEntry
 range|:
@@ -1506,7 +1521,7 @@ name|liveNodesContain
 argument_list|(
 name|node
 operator|.
-name|get
+name|getStr
 argument_list|(
 name|ZkStateReader
 operator|.
@@ -1525,7 +1540,7 @@ name|CORE
 argument_list|,
 name|node
 operator|.
-name|get
+name|getStr
 argument_list|(
 name|ZkStateReader
 operator|.
@@ -1538,7 +1553,7 @@ name|replica
 init|=
 name|node
 operator|.
-name|get
+name|getStr
 argument_list|(
 name|ZkStateReader
 operator|.

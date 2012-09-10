@@ -284,21 +284,6 @@ name|common
 operator|.
 name|cloud
 operator|.
-name|ZkClientConnectionStrategy
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|common
-operator|.
-name|cloud
-operator|.
 name|ZkCmdExecutor
 import|;
 end_import
@@ -2326,7 +2311,7 @@ name|configName
 operator|=
 name|props
 operator|.
-name|get
+name|getStr
 argument_list|(
 name|CONFIGNAME_PROP
 argument_list|)
@@ -2481,7 +2466,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|props
 init|=
@@ -2490,7 +2475,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -3226,7 +3211,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|props
 init|=
@@ -3235,7 +3220,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -4041,7 +4026,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|collectionProps
 init|=
@@ -4050,7 +4035,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -4413,7 +4398,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|collectionProps
 parameter_list|)
@@ -5806,7 +5791,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|newProps
 init|=
@@ -5815,7 +5800,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;

@@ -1426,7 +1426,7 @@ name|props
 init|=
 name|theShards
 operator|.
-name|getShards
+name|getReplicasMap
 argument_list|()
 operator|.
 name|get
@@ -1457,7 +1457,7 @@ literal|" not found in "
 operator|+
 name|theShards
 operator|.
-name|getShards
+name|getReplicasMap
 argument_list|()
 operator|.
 name|keySet
@@ -1470,7 +1470,7 @@ name|state
 init|=
 name|props
 operator|.
-name|get
+name|getStr
 argument_list|(
 name|ZkStateReader
 operator|.
@@ -1482,7 +1482,7 @@ name|nodeName
 init|=
 name|props
 operator|.
-name|get
+name|getStr
 argument_list|(
 name|ZkStateReader
 operator|.
@@ -1715,7 +1715,7 @@ name|isLeader
 init|=
 name|leader
 operator|.
-name|get
+name|getStr
 argument_list|(
 name|ZkStateReader
 operator|.

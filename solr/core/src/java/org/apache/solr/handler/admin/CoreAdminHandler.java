@@ -4431,7 +4431,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|props
 init|=
@@ -4440,7 +4440,7 @@ name|HashMap
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -4843,7 +4843,7 @@ name|nodeProps
 init|=
 name|slice
 operator|.
-name|getShards
+name|getReplicasMap
 argument_list|()
 operator|.
 name|get
@@ -4862,7 +4862,7 @@ name|state
 operator|=
 name|nodeProps
 operator|.
-name|get
+name|getStr
 argument_list|(
 name|ZkStateReader
 operator|.

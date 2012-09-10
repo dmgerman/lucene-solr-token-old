@@ -2467,13 +2467,13 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ZkNodeProps
+name|Replica
 argument_list|>
 name|shardMap
 init|=
 name|replicas
 operator|.
-name|getShards
+name|getReplicasMap
 argument_list|()
 decl_stmt|;
 name|List
@@ -2509,7 +2509,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|ZkNodeProps
+name|Replica
 argument_list|>
 name|entry
 range|:
