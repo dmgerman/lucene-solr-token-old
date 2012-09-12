@@ -1539,7 +1539,6 @@ return|;
 block|}
 DECL|method|doOpenNoWriter
 specifier|private
-specifier|synchronized
 name|DirectoryReader
 name|doOpenNoWriter
 parameter_list|(
@@ -1671,7 +1670,6 @@ argument_list|)
 return|;
 block|}
 DECL|method|doOpenIfChanged
-specifier|synchronized
 name|DirectoryReader
 name|doOpenIfChanged
 parameter_list|(
@@ -1793,7 +1791,6 @@ annotation|@
 name|Override
 DECL|method|doClose
 specifier|protected
-specifier|synchronized
 name|void
 name|doClose
 parameter_list|()
