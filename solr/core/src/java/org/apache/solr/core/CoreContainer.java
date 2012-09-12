@@ -4689,7 +4689,7 @@ block|{
 if|if
 condition|(
 name|zkController
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
@@ -7558,6 +7558,16 @@ parameter_list|()
 block|{
 return|return
 name|zkController
+return|;
+block|}
+DECL|method|isShareSchema
+specifier|public
+name|boolean
+name|isShareSchema
+parameter_list|()
+block|{
+return|return
+name|shareSchema
 return|;
 block|}
 comment|/** The default ShardHandlerFactory used to communicate with other solr instances */
