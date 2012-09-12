@@ -593,7 +593,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|getSequentialSubReaders
-specifier|public
+specifier|protected
 specifier|final
 name|List
 argument_list|<
