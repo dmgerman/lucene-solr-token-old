@@ -404,7 +404,7 @@ name|SpatialMatchConcern
 operator|.
 name|FILTER
 argument_list|,
-name|QTEST_Cities_IsWithin_BBox
+name|QTEST_Cities_Intersects_BBox
 argument_list|)
 expr_stmt|;
 block|}

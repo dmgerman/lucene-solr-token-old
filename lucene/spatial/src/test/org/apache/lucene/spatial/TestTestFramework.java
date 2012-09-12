@@ -35,19 +35,6 @@ name|spatial4j
 operator|.
 name|core
 operator|.
-name|context
-operator|.
-name|SpatialContext
-import|;
-end_import
-begin_import
-import|import
-name|com
-operator|.
-name|spatial4j
-operator|.
-name|core
-operator|.
 name|shape
 operator|.
 name|Rectangle
@@ -185,7 +172,7 @@ name|name
 init|=
 name|StrategyTestCase
 operator|.
-name|QTEST_Cities_IsWithin_BBox
+name|QTEST_Cities_Intersects_BBox
 decl_stmt|;
 name|InputStream
 name|in
@@ -337,7 +324,7 @@ name|assertEquals
 argument_list|(
 name|SpatialOperation
 operator|.
-name|IsWithin
+name|Intersects
 argument_list|,
 name|sf
 operator|.

@@ -121,6 +121,7 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// Geometry Operations
+comment|/** Bounding box of the *indexed* shape. */
 DECL|field|BBoxIntersects
 specifier|public
 specifier|static
@@ -140,6 +141,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+comment|/** Bounding box of the *indexed* shape. */
 DECL|field|BBoxWithin
 specifier|public
 specifier|static
