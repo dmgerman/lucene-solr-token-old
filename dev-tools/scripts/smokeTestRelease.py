@@ -3239,6 +3239,7 @@ string|"'analysis'"
 op|','
 string|"'benchmark'"
 op|','
+string|"'classification'"
 string|"'codecs'"
 op|','
 string|"'core'"
