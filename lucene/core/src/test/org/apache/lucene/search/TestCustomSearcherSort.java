@@ -1051,7 +1051,6 @@ operator|=
 name|switcher
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see      * org.apache.lucene.search.Searchable#search(org.apache.lucene.search.Query      * , org.apache.lucene.search.Filter, int, org.apache.lucene.search.Sort)      */
 annotation|@
 name|Override
 DECL|method|search
@@ -1137,7 +1136,6 @@ name|sort
 argument_list|)
 return|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see      * org.apache.lucene.search.Searchable#search(org.apache.lucene.search.Query      * , org.apache.lucene.search.Filter, int)      */
 annotation|@
 name|Override
 DECL|method|search
