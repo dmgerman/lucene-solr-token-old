@@ -566,14 +566,6 @@ name|reader
 argument_list|()
 argument_list|,
 name|term
-operator|.
-name|field
-argument_list|()
-argument_list|,
-name|term
-operator|.
-name|bytes
-argument_list|()
 argument_list|)
 operator|:
 literal|"no termstate found but term exists in reader term="
@@ -631,11 +623,8 @@ parameter_list|(
 name|AtomicReader
 name|reader
 parameter_list|,
-name|String
-name|field
-parameter_list|,
-name|BytesRef
-name|bytes
+name|Term
+name|term
 parameter_list|)
 throws|throws
 name|IOException
@@ -647,9 +636,7 @@ name|reader
 operator|.
 name|docFreq
 argument_list|(
-name|field
-argument_list|,
-name|bytes
+name|term
 argument_list|)
 operator|==
 literal|0
