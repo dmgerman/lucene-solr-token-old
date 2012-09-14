@@ -1051,7 +1051,6 @@ argument_list|,
 literal|"n_tl1 desc"
 argument_list|)
 expr_stmt|;
-comment|// try adding a doc with CloudSolrServer
 name|cloudClient
 operator|.
 name|setDefaultCollection
@@ -1111,6 +1110,7 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+comment|// try adding a doc with CloudSolrServer
 name|UpdateRequest
 name|ureq
 init|=
