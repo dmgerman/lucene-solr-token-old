@@ -50,7 +50,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * A classifier, see<code>http://en.wikipedia.org/wiki/Classifier_(mathematics)</code>  */
+comment|/**  * A classifier, see<code>http://en.wikipedia.org/wiki/Classifier_(mathematics)</code>  * @lucene.experimental  */
 end_comment
 begin_interface
 DECL|interface|Classifier
