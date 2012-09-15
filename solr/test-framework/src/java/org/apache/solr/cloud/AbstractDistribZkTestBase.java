@@ -742,7 +742,7 @@ name|verbose
 argument_list|,
 name|failOnTimeout
 argument_list|,
-literal|480
+literal|600
 operator|*
 operator|(
 name|TEST_NIGHTLY
