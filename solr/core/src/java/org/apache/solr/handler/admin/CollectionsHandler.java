@@ -977,7 +977,9 @@ argument_list|()
 operator|.
 name|getInt
 argument_list|(
-literal|"numReplicas"
+name|OverseerCollectionProcessor
+operator|.
+name|REPLICATION_FACTOR
 argument_list|,
 literal|0
 argument_list|)
@@ -1038,7 +1040,9 @@ name|OverseerCollectionProcessor
 operator|.
 name|CREATECOLLECTION
 argument_list|,
-literal|"numReplicas"
+name|OverseerCollectionProcessor
+operator|.
+name|REPLICATION_FACTOR
 argument_list|,
 name|numReplicas
 operator|.

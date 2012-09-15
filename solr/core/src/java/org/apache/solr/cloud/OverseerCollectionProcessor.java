@@ -306,6 +306,15 @@ name|OverseerCollectionProcessor
 implements|implements
 name|Runnable
 block|{
+DECL|field|REPLICATION_FACTOR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REPLICATION_FACTOR
+init|=
+literal|"replicationFactor"
+decl_stmt|;
 DECL|field|DELETECOLLECTION
 specifier|public
 specifier|static
@@ -907,7 +916,7 @@ name|message
 operator|.
 name|getStr
 argument_list|(
-literal|"numReplicas"
+name|REPLICATION_FACTOR
 argument_list|)
 decl_stmt|;
 name|int
@@ -943,7 +952,9 @@ name|log
 argument_list|(
 name|log
 argument_list|,
-literal|"Could not parse numReplicas"
+literal|"Could not parse "
+operator|+
+name|REPLICATION_FACTOR
 argument_list|,
 name|ex
 argument_list|)
