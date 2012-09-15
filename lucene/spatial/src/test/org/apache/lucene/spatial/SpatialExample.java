@@ -63,6 +63,19 @@ name|core
 operator|.
 name|shape
 operator|.
+name|Point
+import|;
+end_import
+begin_import
+import|import
+name|com
+operator|.
+name|spatial4j
+operator|.
+name|core
+operator|.
+name|shape
+operator|.
 name|Shape
 import|;
 end_import
@@ -398,19 +411,6 @@ import|;
 end_import
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -475,7 +475,7 @@ name|SpatialContext
 name|ctx
 decl_stmt|;
 comment|//"ctx" is the conventional variable name
-comment|/**    * The Lucene spatial {@link SpatialStrategy} encapsulates an approach to    * indexing and searching shapes, and providing relevancy scores for them.    * It's a simple API to unify different approaches.    *<p />    * Note that these are initialized with a field name.    */
+comment|/**    * The Lucene spatial {@link SpatialStrategy} encapsulates an approach to    * indexing and searching shapes, and providing distance values for them.    * It's a simple API to unify different approaches. You might use more than    * one strategy for a shape as each strategy has its strengths and weaknesses.    *<p />    * Note that these are initialized with a field name.    */
 DECL|field|strategy
 specifier|private
 name|SpatialStrategy
@@ -492,8 +492,8 @@ name|void
 name|init
 parameter_list|()
 block|{
-comment|//Typical geospatial context with kilometer units.
-comment|//  These can also be constructed from a factory: SpatialContextFactory
+comment|//Typical geospatial context
+comment|//  These can also be constructed from SpatialContextFactory
 name|this
 operator|.
 name|ctx
@@ -505,11 +505,11 @@ expr_stmt|;
 name|int
 name|maxLevels
 init|=
-literal|10
+literal|11
 decl_stmt|;
 comment|//results in sub-meter precision for geohash
 comment|//TODO demo lookup by detail distance
-comment|//  This can also be constructed from a factory: SpatialPrefixTreeFactory
+comment|//  This can also be constructed from SpatialPrefixTreeFactory
 name|SpatialPrefixTree
 name|grid
 init|=
@@ -869,17 +869,9 @@ expr_stmt|;
 block|}
 comment|//--Match all, order by distance
 block|{
-name|SpatialArgs
-name|args
+name|Point
+name|pt
 init|=
-operator|new
-name|SpatialArgs
-argument_list|(
-name|SpatialOperation
-operator|.
-name|Intersects
-argument_list|,
-comment|//doesn't matter
 name|ctx
 operator|.
 name|makePoint
@@ -889,16 +881,15 @@ argument_list|,
 operator|-
 literal|50
 argument_list|)
-argument_list|)
 decl_stmt|;
 name|ValueSource
 name|valueSource
 init|=
 name|strategy
 operator|.
-name|makeValueSource
+name|makeDistanceValueSource
 argument_list|(
-name|args
+name|pt
 argument_list|)
 decl_stmt|;
 comment|//the distance (in degrees)
