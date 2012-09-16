@@ -3240,6 +3240,7 @@ op|','
 string|"'benchmark'"
 op|','
 string|"'classification'"
+op|','
 string|"'codecs'"
 op|','
 string|"'core'"
