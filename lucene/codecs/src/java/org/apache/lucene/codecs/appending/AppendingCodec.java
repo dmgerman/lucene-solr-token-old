@@ -254,7 +254,7 @@ name|Lucene40TermVectorsFormat
 import|;
 end_import
 begin_comment
-comment|/**  * This codec extends {@link Lucene40Codec} to work on append-only outputs, such  * as plain output streams and append-only filesystems.  *   * @lucene.experimental  */
+comment|/**  * This codec uses an index format that is very similar to  * {@link Lucene40Codec} but works on append-only outputs, such as plain output  * streams and append-only filesystems.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|AppendingCodec
