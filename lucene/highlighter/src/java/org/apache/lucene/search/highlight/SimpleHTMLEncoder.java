@@ -31,7 +31,7 @@ DECL|method|SimpleHTMLEncoder
 specifier|public
 name|SimpleHTMLEncoder
 parameter_list|()
-block|{ 	}
+block|{   }
 DECL|method|encodeText
 specifier|public
 name|String
@@ -48,7 +48,7 @@ name|originalText
 argument_list|)
 return|;
 block|}
-comment|/** 	 * Encode string into HTML 	 */
+comment|/**    * Encode string into HTML    */
 DECL|method|htmlEncode
 specifier|public
 specifier|final
