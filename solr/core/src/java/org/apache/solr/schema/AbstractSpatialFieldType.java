@@ -534,7 +534,7 @@ name|Override
 DECL|method|createField
 specifier|public
 specifier|final
-name|StorableField
+name|Field
 name|createField
 parameter_list|(
 name|SchemaField
@@ -560,7 +560,7 @@ name|Override
 DECL|method|createFields
 specifier|public
 specifier|final
-name|StorableField
+name|Field
 index|[]
 name|createFields
 parameter_list|(
