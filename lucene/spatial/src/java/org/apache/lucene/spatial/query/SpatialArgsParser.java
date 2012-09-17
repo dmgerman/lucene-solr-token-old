@@ -113,6 +113,24 @@ specifier|public
 class|class
 name|SpatialArgsParser
 block|{
+DECL|field|DIST_ERR_PCT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DIST_ERR_PCT
+init|=
+literal|"distErrPct"
+decl_stmt|;
+DECL|field|DIST_ERR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DIST_ERR
+init|=
+literal|"distErr"
+decl_stmt|;
 comment|/** Writes a close approximation to the parsed input format. */
 DECL|method|writeSpatialArgs
 specifier|static
@@ -443,7 +461,7 @@ name|aa
 operator|.
 name|remove
 argument_list|(
-literal|"distErrPct"
+name|DIST_ERR_PCT
 argument_list|)
 argument_list|)
 argument_list|)
@@ -458,7 +476,7 @@ name|aa
 operator|.
 name|remove
 argument_list|(
-literal|"distErr"
+name|DIST_ERR
 argument_list|)
 argument_list|)
 argument_list|)
