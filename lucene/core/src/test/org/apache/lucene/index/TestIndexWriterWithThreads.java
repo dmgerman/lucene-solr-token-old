@@ -2413,6 +2413,10 @@ operator|.
 name|join
 argument_list|()
 expr_stmt|;
+comment|// ensure the directory is closed if we hit the timeout and throw assume
+comment|// TODO: can we improve this in LuceneTestCase? I dont know what the logic would be...
+try|try
+block|{
 name|assumeFalse
 argument_list|(
 literal|"aborting test: timeout obtaining lock"
@@ -2489,11 +2493,15 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|dir
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|class|DelayedIndexAndCloseRunnable
 specifier|static
