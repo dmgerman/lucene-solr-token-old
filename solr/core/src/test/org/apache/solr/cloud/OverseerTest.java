@@ -1220,7 +1220,7 @@ operator|.
 name|getZkAddress
 argument_list|()
 argument_list|,
-literal|"localhost"
+literal|"127.0.0.1"
 argument_list|,
 literal|"collection1"
 argument_list|)
