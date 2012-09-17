@@ -18,6 +18,17 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|noggit
+operator|.
+name|JSONUtil
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -55,7 +66,6 @@ argument_list|>
 name|propMap
 parameter_list|)
 block|{
-comment|// TODO: back compat for handling Map<String,String>
 name|super
 argument_list|(
 name|propMap
@@ -104,6 +114,31 @@ block|{
 return|return
 name|name
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|name
+operator|+
+literal|':'
+operator|+
+name|JSONUtil
+operator|.
+name|toJSON
+argument_list|(
+name|propMap
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+return|;
+comment|// small enough, keep it on one line (i.e. no indent)
 block|}
 block|}
 end_class
