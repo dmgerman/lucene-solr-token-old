@@ -551,6 +551,8 @@ name|size
 argument_list|()
 operator|<
 literal|10000
+operator|:
+literal|"test went insane"
 assert|;
 block|}
 return|return
@@ -839,19 +841,15 @@ argument_list|)
 expr_stmt|;
 comment|// Avoid too many open files:
 name|formats
+operator|=
+name|formats
 operator|.
 name|subList
 argument_list|(
-literal|4
+literal|0
 argument_list|,
-name|formats
-operator|.
-name|size
-argument_list|()
+literal|4
 argument_list|)
-operator|.
-name|clear
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|RandomCodec
