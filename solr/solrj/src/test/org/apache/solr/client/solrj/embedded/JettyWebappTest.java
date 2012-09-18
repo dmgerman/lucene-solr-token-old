@@ -462,7 +462,7 @@ comment|// sure they compile ok
 name|String
 name|adminPath
 init|=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|port
 operator|+

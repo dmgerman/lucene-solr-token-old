@@ -867,7 +867,7 @@ comment|// setup the server...
 name|String
 name|url
 init|=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|port
 operator|+
@@ -1825,7 +1825,7 @@ block|}
 name|String
 name|masterUrl
 init|=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|masterJetty
 operator|.
@@ -2073,7 +2073,7 @@ argument_list|)
 expr_stmt|;
 name|masterUrl
 operator|=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|masterJetty
 operator|.
@@ -2774,7 +2774,7 @@ comment|// start stop polling test
 name|String
 name|slaveURL
 init|=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|slaveJetty
 operator|.
@@ -2920,7 +2920,7 @@ expr_stmt|;
 comment|// re-enable replication
 name|slaveURL
 operator|=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|slaveJetty
 operator|.
@@ -3124,7 +3124,7 @@ comment|// snappull
 name|String
 name|masterUrl
 init|=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|slaveJetty
 operator|.
@@ -3135,7 +3135,7 @@ literal|"/solr/replication?command=fetchindex&masterUrl="
 decl_stmt|;
 name|masterUrl
 operator|+=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|masterJetty
 operator|.
@@ -3283,7 +3283,7 @@ argument_list|()
 expr_stmt|;
 name|masterUrl
 operator|=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|masterJetty
 operator|.
@@ -3294,7 +3294,7 @@ literal|"/solr/replication?command=fetchindex&masterUrl="
 expr_stmt|;
 name|masterUrl
 operator|+=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|slaveJetty
 operator|.
@@ -4766,7 +4766,7 @@ block|{
 name|String
 name|masterUrl
 init|=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|masterJetty
 operator|.
@@ -4917,7 +4917,7 @@ block|{
 name|String
 name|masterUrl
 init|=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|masterJetty
 operator|.

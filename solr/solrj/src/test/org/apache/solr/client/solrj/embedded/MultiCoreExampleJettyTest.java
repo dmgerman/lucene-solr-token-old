@@ -397,7 +397,7 @@ comment|// setup the server...
 name|String
 name|url
 init|=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|port
 operator|+
@@ -649,7 +649,7 @@ comment|// Distributed
 name|String
 name|baseURL
 init|=
-literal|"localhost:"
+literal|"127.0.0.1:"
 operator|+
 name|port
 operator|+

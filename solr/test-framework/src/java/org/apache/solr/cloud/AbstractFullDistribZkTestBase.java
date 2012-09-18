@@ -1983,7 +1983,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"localhost:"
+literal|"127.0.0.1:"
 argument_list|)
 operator|.
 name|append
@@ -2003,7 +2003,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"|localhost:"
+literal|"|127.0.0.1:"
 argument_list|)
 operator|.
 name|append
@@ -7397,7 +7397,7 @@ comment|// setup the server...
 name|String
 name|url
 init|=
-literal|"http://localhost:"
+literal|"http://127.0.0.1:"
 operator|+
 name|port
 operator|+

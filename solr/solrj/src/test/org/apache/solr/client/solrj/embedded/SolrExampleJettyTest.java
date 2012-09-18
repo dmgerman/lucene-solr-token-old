@@ -138,7 +138,7 @@ comment|// setup the server...
 name|String
 name|url
 init|=
-literal|"http://localhost/?core=xxx"
+literal|"http://127.0.0.1/?core=xxx"
 decl_stmt|;
 name|HttpSolrServer
 name|s
