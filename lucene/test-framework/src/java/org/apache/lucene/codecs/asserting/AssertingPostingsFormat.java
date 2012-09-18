@@ -248,6 +248,7 @@ end_comment
 begin_class
 DECL|class|AssertingPostingsFormat
 specifier|public
+specifier|final
 class|class
 name|AssertingPostingsFormat
 extends|extends

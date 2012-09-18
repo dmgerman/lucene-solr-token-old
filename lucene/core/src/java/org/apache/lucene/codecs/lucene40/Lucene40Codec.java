@@ -65,6 +65,19 @@ name|lucene
 operator|.
 name|codecs
 operator|.
+name|FilterCodec
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
 name|LiveDocsFormat
 import|;
 end_import
@@ -149,7 +162,7 @@ name|PerFieldPostingsFormat
 import|;
 end_import
 begin_comment
-comment|/**  * Implements the Lucene 4.0 index format, with configurable per-field postings formats.  *   * @see org.apache.lucene.codecs.lucene40 package documentation for file format details.  * @lucene.experimental  */
+comment|/**  * Implements the Lucene 4.0 index format, with configurable per-field postings formats.  *<p>  * If you want to reuse functionality of this codec in another codec, extend  * {@link FilterCodec}.  *  * @see org.apache.lucene.codecs.lucene40 package documentation for file format details.  * @lucene.experimental  */
 end_comment
 begin_comment
 comment|// NOTE: if we make largish changes in a minor release, easier to just make Lucene42Codec or whatever
@@ -286,6 +299,7 @@ annotation|@
 name|Override
 DECL|method|storedFieldsFormat
 specifier|public
+specifier|final
 name|StoredFieldsFormat
 name|storedFieldsFormat
 parameter_list|()
@@ -298,6 +312,7 @@ annotation|@
 name|Override
 DECL|method|termVectorsFormat
 specifier|public
+specifier|final
 name|TermVectorsFormat
 name|termVectorsFormat
 parameter_list|()
@@ -310,6 +325,7 @@ annotation|@
 name|Override
 DECL|method|docValuesFormat
 specifier|public
+specifier|final
 name|DocValuesFormat
 name|docValuesFormat
 parameter_list|()
@@ -322,6 +338,7 @@ annotation|@
 name|Override
 DECL|method|postingsFormat
 specifier|public
+specifier|final
 name|PostingsFormat
 name|postingsFormat
 parameter_list|()
@@ -334,6 +351,7 @@ annotation|@
 name|Override
 DECL|method|fieldInfosFormat
 specifier|public
+specifier|final
 name|FieldInfosFormat
 name|fieldInfosFormat
 parameter_list|()
@@ -346,6 +364,7 @@ annotation|@
 name|Override
 DECL|method|segmentInfoFormat
 specifier|public
+specifier|final
 name|SegmentInfoFormat
 name|segmentInfoFormat
 parameter_list|()
@@ -358,6 +377,7 @@ annotation|@
 name|Override
 DECL|method|normsFormat
 specifier|public
+specifier|final
 name|NormsFormat
 name|normsFormat
 parameter_list|()
@@ -370,6 +390,7 @@ annotation|@
 name|Override
 DECL|method|liveDocsFormat
 specifier|public
+specifier|final
 name|LiveDocsFormat
 name|liveDocsFormat
 parameter_list|()

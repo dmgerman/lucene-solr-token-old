@@ -109,6 +109,7 @@ end_comment
 begin_class
 DECL|class|SimpleTextPostingsFormat
 specifier|public
+specifier|final
 class|class
 name|SimpleTextPostingsFormat
 extends|extends
