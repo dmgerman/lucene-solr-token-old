@@ -767,7 +767,7 @@ literal|"       cacheImpl=\"org.apache.solr.handler.dataimport.DestroyCountCache
 operator|+
 literal|"       cacheName=\"CHILD\""
 operator|+
-literal|"       cachePk=\"id\""
+literal|"       cacheKey=\"id\""
 operator|+
 literal|"       cacheLookup=\"PARENT.id\""
 operator|+
@@ -787,7 +787,7 @@ literal|"       processor=\"SqlEntityProcessor\""
 operator|+
 literal|"       cacheImpl=\"org.apache.solr.handler.dataimport.DestroyCountCache\""
 operator|+
-literal|"       cachePk=\"id\""
+literal|"       cacheKey=\"id\""
 operator|+
 literal|"       cacheLookup=\"PARENT.id\""
 operator|+
