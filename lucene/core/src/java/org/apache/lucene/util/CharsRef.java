@@ -42,6 +42,7 @@ name|CharSequence
 implements|,
 name|Cloneable
 block|{
+comment|/** An empty character array for convenience */
 DECL|field|EMPTY_CHARS
 specifier|public
 specifier|static
@@ -56,17 +57,20 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+comment|/** The contents of the CharsRef. Should never be {@code null}. */
 DECL|field|chars
 specifier|public
 name|char
 index|[]
 name|chars
 decl_stmt|;
+comment|/** Offset of first valid character. */
 DECL|field|offset
 specifier|public
 name|int
 name|offset
 decl_stmt|;
+comment|/** Length of used characters. */
 DECL|field|length
 specifier|public
 name|int

@@ -31,6 +31,7 @@ argument_list|>
 implements|,
 name|Cloneable
 block|{
+comment|/** An empty integer array for convenience */
 DECL|field|EMPTY_INTS
 specifier|public
 specifier|static
@@ -45,22 +46,26 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+comment|/** The contents of the IntsRef. Should never be {@code null}. */
 DECL|field|ints
 specifier|public
 name|int
 index|[]
 name|ints
 decl_stmt|;
+comment|/** Offset of first valid integer. */
 DECL|field|offset
 specifier|public
 name|int
 name|offset
 decl_stmt|;
+comment|/** Length of used ints. */
 DECL|field|length
 specifier|public
 name|int
 name|length
 decl_stmt|;
+comment|/** Create a IntsRef with {@link #EMPTY_INTS} */
 DECL|method|IntsRef
 specifier|public
 name|IntsRef
@@ -71,6 +76,7 @@ operator|=
 name|EMPTY_INTS
 expr_stmt|;
 block|}
+comment|/**     * Create a IntsRef pointing to a new array of size<code>capacity</code>.    * Offset and length will both be zero.    */
 DECL|method|IntsRef
 specifier|public
 name|IntsRef
@@ -88,6 +94,7 @@ name|capacity
 index|]
 expr_stmt|;
 block|}
+comment|/** This instance will directly reference ints w/o making a copy.    * ints should not be null.    */
 DECL|method|IntsRef
 specifier|public
 name|IntsRef
