@@ -28,7 +28,7 @@ name|DocValues
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * This class provides a {@link Field} that enables storing  * of a per-document int value for scoring, sorting or value retrieval. Here's an  * example usage:  *   *<pre class="prettyprint">  *   document.add(new IntDocValuesField(name, 22));  *</pre>  *   *<p>  * If you also need to store the value, you should add a  * separate {@link StoredField} instance.  * @see DocValues  * */
+comment|/**  *<p>  * Field that stores a per-document<code>int</code> value for scoring,   * sorting or value retrieval. Here's an example usage:  *   *<pre class="prettyprint">  *   document.add(new IntDocValuesField(name, 22));  *</pre>  *   *<p>  * If you also need to store the value, you should add a  * separate {@link StoredField} instance.  * @see DocValues  * */
 end_comment
 begin_class
 DECL|class|IntDocValuesField

@@ -28,7 +28,7 @@ name|DocValues
 import|;
 end_import
 begin_comment
-comment|/**  *<p>  * This class provides a {@link Field} that enables storing  * of a per-document double value for scoring, sorting or value retrieval. Here's an  * example usage:  *   *<pre class="prettyprint">  *   document.add(new DoubleDocValuesField(name, 22.0));  *</pre>  *   *<p>  * If you also need to store the value, you should add a  * separate {@link StoredField} instance.  *   * @see DocValues  * */
+comment|/**  *<p>  * Field that stores a per-document<code>double</code> value for scoring,   * sorting or value retrieval. Here's an example usage:  *   *<pre class="prettyprint">  *   document.add(new DoubleDocValuesField(name, 22.0));  *</pre>  *   *<p>  * If you also need to store the value, you should add a  * separate {@link StoredField} instance.  *   * @see DocValues  * */
 end_comment
 begin_class
 DECL|class|DoubleDocValuesField
