@@ -56,7 +56,7 @@ specifier|final
 name|float
 name|mu
 decl_stmt|;
-comment|/** @param mu the&mu; parameter. */
+comment|/** Instantiates the similarity with the provided&mu; parameter. */
 DECL|method|LMDirichletSimilarity
 specifier|public
 name|LMDirichletSimilarity
@@ -80,7 +80,7 @@ operator|=
 name|mu
 expr_stmt|;
 block|}
-comment|/** @param mu the&mu; parameter. */
+comment|/** Instantiates the similarity with the provided&mu; parameter. */
 DECL|method|LMDirichletSimilarity
 specifier|public
 name|LMDirichletSimilarity

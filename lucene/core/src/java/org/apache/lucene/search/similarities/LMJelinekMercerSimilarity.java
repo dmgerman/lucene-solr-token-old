@@ -56,7 +56,7 @@ specifier|final
 name|float
 name|lambda
 decl_stmt|;
-comment|/** @param lambda the&lambda; parameter. */
+comment|/** Instantiates with the specified collectionModel and&lambda; parameter. */
 DECL|method|LMJelinekMercerSimilarity
 specifier|public
 name|LMJelinekMercerSimilarity
@@ -80,7 +80,7 @@ operator|=
 name|lambda
 expr_stmt|;
 block|}
-comment|/** @param lambda the&lambda; parameter. */
+comment|/** Instantiates with the specified&lambda; parameter. */
 DECL|method|LMJelinekMercerSimilarity
 specifier|public
 name|LMJelinekMercerSimilarity

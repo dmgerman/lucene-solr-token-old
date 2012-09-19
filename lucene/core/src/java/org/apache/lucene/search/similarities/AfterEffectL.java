@@ -40,6 +40,12 @@ name|AfterEffectL
 extends|extends
 name|AfterEffect
 block|{
+comment|/** Sole constructor: parameter-free */
+DECL|method|AfterEffectL
+specifier|public
+name|AfterEffectL
+parameter_list|()
+block|{}
 annotation|@
 name|Override
 DECL|method|score

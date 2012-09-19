@@ -169,7 +169,7 @@ argument_list|(
 literal|2
 argument_list|)
 decl_stmt|;
-comment|/** @see #setDiscountOverlaps */
+comment|/**     * True if overlap tokens (tokens with a position of increment of zero) are    * discounted from the document's length.    */
 DECL|field|discountOverlaps
 specifier|protected
 name|boolean
@@ -177,6 +177,12 @@ name|discountOverlaps
 init|=
 literal|true
 decl_stmt|;
+comment|/**    * Sole constructor. (For invocation by subclass     * constructors, typically implicit.)    */
+DECL|method|SimilarityBase
+specifier|public
+name|SimilarityBase
+parameter_list|()
+block|{}
 comment|/** Determines whether overlap tokens (Tokens with    *  0 position increment) are ignored when computing    *  norm.  By default this is true, meaning overlap    *  tokens do not count when computing norms.    *    *  @lucene.experimental    *    *  @see #computeNorm    */
 DECL|method|setDiscountOverlaps
 specifier|public
@@ -192,7 +198,7 @@ operator|=
 name|v
 expr_stmt|;
 block|}
-comment|/** @see #setDiscountOverlaps */
+comment|/**    * Returns true if overlap tokens are discounted from the document's length.     * @see #setDiscountOverlaps     */
 DECL|method|getDiscountOverlaps
 specifier|public
 name|boolean

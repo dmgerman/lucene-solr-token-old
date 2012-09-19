@@ -33,6 +33,7 @@ specifier|final
 name|float
 name|mu
 decl_stmt|;
+comment|/**    * Calls {@link #NormalizationH3(float) NormalizationH3(800)}    */
 DECL|method|NormalizationH3
 specifier|public
 name|NormalizationH3
@@ -44,6 +45,7 @@ literal|800F
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Creates NormalizationH3 with the supplied parameter<code>&mu;</code>.    * @param mu smoothing parameter<code>&mu;</code>    */
 DECL|method|NormalizationH3
 specifier|public
 name|NormalizationH3
@@ -128,6 +130,7 @@ operator|+
 literal|")"
 return|;
 block|}
+comment|/**    * Returns the parameter<code>&mu;</code>    * @see #NormalizationH3(float)    */
 DECL|method|getMu
 specifier|public
 name|float

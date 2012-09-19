@@ -127,6 +127,7 @@ name|MultiSimilarity
 extends|extends
 name|Similarity
 block|{
+comment|/** the sub-similarities used to create the combined score */
 DECL|field|sims
 specifier|protected
 specifier|final
@@ -134,6 +135,7 @@ name|Similarity
 name|sims
 index|[]
 decl_stmt|;
+comment|/** Creates a MultiSimilarity which will sum the scores    * of the provided<code>sims</code>. */
 DECL|method|MultiSimilarity
 specifier|public
 name|MultiSimilarity

@@ -39,6 +39,12 @@ specifier|abstract
 class|class
 name|AfterEffect
 block|{
+comment|/**    * Sole constructor. (For invocation by subclass     * constructors, typically implicit.)    */
+DECL|method|AfterEffect
+specifier|public
+name|AfterEffect
+parameter_list|()
+block|{}
 comment|/** Returns the aftereffect score. */
 DECL|method|score
 specifier|public
@@ -77,6 +83,12 @@ name|NoAfterEffect
 extends|extends
 name|AfterEffect
 block|{
+comment|/** Sole constructor: parameter-free */
+DECL|method|NoAfterEffect
+specifier|public
+name|NoAfterEffect
+parameter_list|()
+block|{}
 annotation|@
 name|Override
 DECL|method|score

@@ -44,6 +44,12 @@ name|BasicModelIF
 extends|extends
 name|BasicModel
 block|{
+comment|/** Sole constructor: parameter-free */
+DECL|method|BasicModelIF
+specifier|public
+name|BasicModelIF
+parameter_list|()
+block|{}
 annotation|@
 name|Override
 DECL|method|score

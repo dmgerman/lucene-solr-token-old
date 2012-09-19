@@ -27,6 +27,12 @@ name|DistributionLL
 extends|extends
 name|Distribution
 block|{
+comment|/** Sole constructor: parameter-free */
+DECL|method|DistributionLL
+specifier|public
+name|DistributionLL
+parameter_list|()
+block|{}
 annotation|@
 name|Override
 DECL|method|score

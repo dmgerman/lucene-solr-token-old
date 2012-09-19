@@ -313,6 +313,7 @@ specifier|private
 name|float
 name|collectionProbability
 decl_stmt|;
+comment|/**      * Creates LMStats for the provided field and query-time boost      */
 DECL|method|LMStats
 specifier|public
 name|LMStats
@@ -397,6 +398,12 @@ name|DefaultCollectionModel
 implements|implements
 name|CollectionModel
 block|{
+comment|/** Sole constructor: parameter-free */
+DECL|method|DefaultCollectionModel
+specifier|public
+name|DefaultCollectionModel
+parameter_list|()
+block|{}
 annotation|@
 name|Override
 DECL|method|computeProbability
