@@ -68,6 +68,9 @@ operator|.
 name|AbstractAnalysisFactory
 import|;
 end_import
+begin_comment
+comment|// javadocs
+end_comment
 begin_import
 import|import
 name|org
@@ -155,6 +158,12 @@ specifier|private
 name|Normalizer2
 name|normalizer
 decl_stmt|;
+comment|/** Sole constructor. See {@link AbstractAnalysisFactory} for initialization lifecycle. */
+DECL|method|ICUNormalizer2FilterFactory
+specifier|public
+name|ICUNormalizer2FilterFactory
+parameter_list|()
+block|{}
 comment|// TODO: support custom normalization
 annotation|@
 name|Override

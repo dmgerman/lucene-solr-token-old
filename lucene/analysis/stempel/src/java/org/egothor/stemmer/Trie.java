@@ -1412,6 +1412,7 @@ name|this
 argument_list|)
 return|;
 block|}
+comment|/** writes debugging info to the printstream */
 DECL|method|printInfo
 specifier|public
 name|void

@@ -56,6 +56,9 @@ operator|.
 name|AbstractAnalysisFactory
 import|;
 end_import
+begin_comment
+comment|// javadocs
+end_comment
 begin_import
 import|import
 name|org
@@ -102,6 +105,12 @@ name|TokenFilterFactory
 implements|implements
 name|MultiTermAwareComponent
 block|{
+comment|/** Sole constructor. See {@link AbstractAnalysisFactory} for initialization lifecycle. */
+DECL|method|ICUFoldingFilterFactory
+specifier|public
+name|ICUFoldingFilterFactory
+parameter_list|()
+block|{}
 annotation|@
 name|Override
 DECL|method|create
