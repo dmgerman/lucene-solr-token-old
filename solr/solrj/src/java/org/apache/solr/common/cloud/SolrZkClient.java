@@ -445,7 +445,7 @@ specifier|private
 name|ZkClientConnectionStrategy
 name|zkClientConnectionStrategy
 decl_stmt|;
-comment|/**    * @param zkServerAddress    * @param zkClientTimeout    * @throws InterruptedException    * @throws TimeoutException    * @throws IOException    */
+comment|/**    * @param zkServerAddress    * @param zkClientTimeout    */
 DECL|method|SolrZkClient
 specifier|public
 name|SolrZkClient
@@ -504,7 +504,7 @@ name|zkClientConnectTimeout
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * @param zkServerAddress    * @param zkClientTimeout    * @param strat    * @param onReconnect    * @throws InterruptedException    * @throws TimeoutException    * @throws IOException    */
+comment|/**    * @param zkServerAddress    * @param zkClientTimeout    * @param strat    * @param onReconnect    */
 DECL|method|SolrZkClient
 specifier|public
 name|SolrZkClient
@@ -537,7 +537,7 @@ name|DEFAULT_CLIENT_CONNECT_TIMEOUT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * @param zkServerAddress    * @param zkClientTimeout    * @param strat    * @param onReconnect    * @param clientConnectTimeout    * @throws InterruptedException    * @throws TimeoutException    * @throws IOException    */
+comment|/**    * @param zkServerAddress    * @param zkClientTimeout    * @param strat    * @param onReconnect    * @param clientConnectTimeout    */
 DECL|method|SolrZkClient
 specifier|public
 name|SolrZkClient
@@ -2738,7 +2738,6 @@ literal|2
 argument_list|)
 return|;
 block|}
-comment|/**    * @throws InterruptedException    */
 DECL|method|close
 specifier|public
 name|void

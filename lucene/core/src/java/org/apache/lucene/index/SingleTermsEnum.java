@@ -44,7 +44,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * Subclass of FilteredTermsEnum for enumerating a single term.  *<p>  * For example, this can be used by {@link MultiTermQuery}s  * that need only visit one term, but want to preserve  * MultiTermQuery semantics such as {@link  * MultiTermQuery#rewriteMethod}.  */
+comment|/**  * Subclass of FilteredTermsEnum for enumerating a single term.  *<p>  * For example, this can be used by {@link MultiTermQuery}s  * that need only visit one term, but want to preserve  * MultiTermQuery semantics such as {@link  * MultiTermQuery#getRewriteMethod}.  */
 end_comment
 begin_class
 DECL|class|SingleTermsEnum
