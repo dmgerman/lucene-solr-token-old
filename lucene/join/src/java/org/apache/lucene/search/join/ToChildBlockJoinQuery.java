@@ -279,6 +279,7 @@ specifier|final
 name|boolean
 name|doScores
 decl_stmt|;
+comment|/**    * Create a ToChildBlockJoinQuery.    *     * @param parentQuery Query that matches parent documents    * @param parentsFilter Filter (must produce FixedBitSet    * per-segment) identifying the parent documents.    * @param doScores true if parent scores should be calculated    */
 DECL|method|ToChildBlockJoinQuery
 specifier|public
 name|ToChildBlockJoinQuery
