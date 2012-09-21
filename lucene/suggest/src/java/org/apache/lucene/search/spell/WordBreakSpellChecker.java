@@ -150,6 +150,7 @@ name|maxEvaluations
 init|=
 literal|1000
 decl_stmt|;
+comment|/** Term that can be used to prohibit adjacent terms from being combined */
 DECL|field|SEPARATOR_TERM
 specifier|public
 specifier|static
@@ -165,6 +166,12 @@ argument_list|,
 literal|""
 argument_list|)
 decl_stmt|;
+comment|/**     * Creates a new spellchecker with default configuration values    * @see #setMaxChanges(int)    * @see #setMaxCombineWordLength(int)    * @see #setMaxEvaluations(int)    * @see #setMinBreakWordLength(int)    * @see #setMinSuggestionFrequency(int)    */
+DECL|method|WordBreakSpellChecker
+specifier|public
+name|WordBreakSpellChecker
+parameter_list|()
+block|{}
 comment|/**    *<p>    * Determines the order to list word break suggestions    *</p>    */
 DECL|enum|BreakSuggestionSortMethod
 specifier|public
@@ -1704,6 +1711,7 @@ return|return
 name|word
 return|;
 block|}
+comment|/**    * Returns the minimum frequency a term must have    * to be part of a suggestion.    * @see #setMinSuggestionFrequency(int)    */
 DECL|method|getMinSuggestionFrequency
 specifier|public
 name|int
@@ -1714,6 +1722,7 @@ return|return
 name|minSuggestionFrequency
 return|;
 block|}
+comment|/**    * Returns the maximum length of a combined suggestion    * @see #setMaxCombineWordLength(int)    */
 DECL|method|getMaxCombineWordLength
 specifier|public
 name|int
@@ -1724,6 +1733,7 @@ return|return
 name|maxCombineWordLength
 return|;
 block|}
+comment|/**    * Returns the minimum size of a broken word    * @see #setMinBreakWordLength(int)    */
 DECL|method|getMinBreakWordLength
 specifier|public
 name|int
@@ -1734,6 +1744,7 @@ return|return
 name|minBreakWordLength
 return|;
 block|}
+comment|/**    * Returns the maximum number of changes to perform on the input    * @see #setMaxChanges(int)    */
 DECL|method|getMaxChanges
 specifier|public
 name|int
@@ -1744,6 +1755,7 @@ return|return
 name|maxChanges
 return|;
 block|}
+comment|/**    * Returns the maximum number of word combinations to evaluate.    * @see #setMaxEvaluations(int)    */
 DECL|method|getMaxEvaluations
 specifier|public
 name|int
@@ -1754,7 +1766,7 @@ return|return
 name|maxEvaluations
 return|;
 block|}
-comment|/**    *<p>    * The minimum frequency a term must have to be included as part of a    * suggestion. Default=1 Not applicable when used with    * {@link SuggestMode#SUGGEST_MORE_POPULAR}    *</p>    *     * @param minSuggestionFrequency    */
+comment|/**    *<p>    * The minimum frequency a term must have to be included as part of a    * suggestion. Default=1 Not applicable when used with    * {@link SuggestMode#SUGGEST_MORE_POPULAR}    *</p>    *     * @see #getMinSuggestionFrequency()    */
 DECL|method|setMinSuggestionFrequency
 specifier|public
 name|void
@@ -1771,7 +1783,7 @@ operator|=
 name|minSuggestionFrequency
 expr_stmt|;
 block|}
-comment|/**    *<p>    * The maximum length of a suggestion made by combining 1 or more original    * terms. Default=20    *</p>    *     * @param maxCombineWordLength    */
+comment|/**    *<p>    * The maximum length of a suggestion made by combining 1 or more original    * terms. Default=20    *</p>    *     * @see #getMaxCombineWordLength()    */
 DECL|method|setMaxCombineWordLength
 specifier|public
 name|void
@@ -1788,7 +1800,7 @@ operator|=
 name|maxCombineWordLength
 expr_stmt|;
 block|}
-comment|/**    *<p>    * The minimum length to break words down to. Default=1    *</p>    *     * @param minBreakWordLength    */
+comment|/**    *<p>    * The minimum length to break words down to. Default=1    *</p>    *     * @see #getMinBreakWordLength()    */
 DECL|method|setMinBreakWordLength
 specifier|public
 name|void
@@ -1805,7 +1817,7 @@ operator|=
 name|minBreakWordLength
 expr_stmt|;
 block|}
-comment|/**    *<p>    * The maximum numbers of changes (word breaks or combinations) to make on the    * original term(s). Default=1    *</p>    *     * @param maxChanges    */
+comment|/**    *<p>    * The maximum numbers of changes (word breaks or combinations) to make on the    * original term(s). Default=1    *</p>    *     * @see #getMaxChanges()    */
 DECL|method|setMaxChanges
 specifier|public
 name|void
@@ -1822,7 +1834,7 @@ operator|=
 name|maxChanges
 expr_stmt|;
 block|}
-comment|/**    *<p>    * The maximum number of word combinations to evaluate. Default=1000. A higher    * value might improve result quality. A lower value might improve    * performance.    *</p>    *     * @param maxEvaluations    */
+comment|/**    *<p>    * The maximum number of word combinations to evaluate. Default=1000. A higher    * value might improve result quality. A lower value might improve    * performance.    *</p>    *     * @see #getMaxEvaluations()    */
 DECL|method|setMaxEvaluations
 specifier|public
 name|void

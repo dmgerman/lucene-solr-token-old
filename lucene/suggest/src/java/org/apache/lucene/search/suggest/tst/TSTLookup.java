@@ -205,6 +205,12 @@ operator|new
 name|TSTAutocomplete
 argument_list|()
 decl_stmt|;
+comment|/**     * Creates a new TSTLookup with an empty Ternary Search Tree.    * @see #build(TermFreqIterator)    */
+DECL|method|TSTLookup
+specifier|public
+name|TSTLookup
+parameter_list|()
+block|{}
 annotation|@
 name|Override
 DECL|method|build
@@ -384,6 +390,7 @@ name|root
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**     * Adds a new node if<code>key</code> already exists,    * otherwise replaces its value.    *<p>    * This method always returns true.    */
 DECL|method|add
 specifier|public
 name|boolean
@@ -414,6 +421,7 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**    * Returns the value for the specified key, or null    * if the key does not exist.    */
 DECL|method|get
 specifier|public
 name|Object

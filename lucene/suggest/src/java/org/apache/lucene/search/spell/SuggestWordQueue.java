@@ -53,6 +53,7 @@ argument_list|<
 name|SuggestWord
 argument_list|>
 block|{
+comment|/**    * Default comparator: score then frequency.    * @see SuggestWordScoreComparator    */
 DECL|field|DEFAULT_COMPARATOR
 specifier|public
 specifier|static
