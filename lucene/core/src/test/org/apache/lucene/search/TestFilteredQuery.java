@@ -2955,7 +2955,7 @@ name|random
 argument_list|)
 return|;
 block|}
-comment|/*    * Test if the QueryFirst strategy calls the bits only if    * the document has been matched by the query and not otherwise    */
+comment|/*    * Test if the QueryFirst strategy calls the bits only if the document has    * been matched by the query and not otherwise    */
 DECL|method|testQueryFirstFilterStrategy
 specifier|public
 name|void
@@ -3176,6 +3176,18 @@ literal|"0"
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|termDocsEnum
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+comment|// no docs -- return null
+block|}
 specifier|final
 name|BitSet
 name|bitSet
@@ -3189,13 +3201,6 @@ name|maxDoc
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|termDocsEnum
-operator|!=
-literal|null
-condition|)
-block|{
 name|int
 name|d
 decl_stmt|;
@@ -3224,7 +3229,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 operator|new
@@ -3616,6 +3620,17 @@ literal|"0"
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|termDocsEnum
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 return|return
 operator|new
 name|DocIdSetIterator
