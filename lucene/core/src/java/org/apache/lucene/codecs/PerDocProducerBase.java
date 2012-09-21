@@ -176,6 +176,7 @@ name|PerDocProducerBase
 extends|extends
 name|PerDocProducer
 block|{
+comment|/** Closes provided Closables. */
 DECL|method|closeInternal
 specifier|protected
 specifier|abstract
@@ -193,6 +194,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/** Returns a map, mapping field names to doc values. */
 DECL|method|docValues
 specifier|protected
 specifier|abstract
@@ -205,6 +207,12 @@ argument_list|>
 name|docValues
 parameter_list|()
 function_decl|;
+comment|/** Sole constructor. (For invocation by subclass     *  constructors, typically implicit.) */
+DECL|method|PerDocProducerBase
+specifier|protected
+name|PerDocProducerBase
+parameter_list|()
+block|{   }
 annotation|@
 name|Override
 DECL|method|close
@@ -248,6 +256,7 @@ name|field
 argument_list|)
 return|;
 block|}
+comment|/** Returns the comparator used to sort {@link BytesRef} values. */
 DECL|method|getComparator
 specifier|public
 name|Comparator
@@ -266,7 +275,7 @@ name|getUTF8SortedAsUnicodeComparator
 argument_list|()
 return|;
 block|}
-comment|// Only opens files... doesn't actually load any values
+comment|/** Only opens files... doesn't actually load any values. */
 DECL|method|load
 specifier|protected
 name|TreeMap
@@ -409,6 +418,7 @@ return|return
 name|values
 return|;
 block|}
+comment|/** Returns true if this field indexed doc values. */
 DECL|method|canLoad
 specifier|protected
 name|boolean
@@ -425,6 +435,7 @@ name|hasDocValues
 argument_list|()
 return|;
 block|}
+comment|/** Returns the doc values type for this field. */
 DECL|method|getDocValuesType
 specifier|protected
 name|Type
@@ -441,6 +452,7 @@ name|getDocValuesType
 argument_list|()
 return|;
 block|}
+comment|/** Returns true if any fields indexed doc values. */
 DECL|method|anyDocValuesFields
 specifier|protected
 name|boolean
@@ -457,6 +469,7 @@ name|hasDocValues
 argument_list|()
 return|;
 block|}
+comment|/** Returns the unique segment and field id for any    *  per-field files this implementation needs to write. */
 DECL|method|docValuesId
 specifier|public
 specifier|static

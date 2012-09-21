@@ -251,6 +251,7 @@ name|Lucene40DocValuesProducer
 extends|extends
 name|PerDocProducerBase
 block|{
+comment|/** Maps field name to {@link DocValues} instance. */
 DECL|field|docValues
 specifier|protected
 specifier|final

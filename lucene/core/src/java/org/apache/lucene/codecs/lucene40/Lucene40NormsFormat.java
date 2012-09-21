@@ -193,6 +193,12 @@ name|NORMS_SEGMENT_SUFFIX
 init|=
 literal|"nrm"
 decl_stmt|;
+comment|/** Sole constructor. */
+DECL|method|Lucene40NormsFormat
+specifier|public
+name|Lucene40NormsFormat
+parameter_list|()
+block|{   }
 annotation|@
 name|Override
 DECL|method|docsConsumer
@@ -248,6 +254,7 @@ name|Lucene40NormsDocValuesProducer
 extends|extends
 name|Lucene40DocValuesProducer
 block|{
+comment|/** Sole constructor. */
 DECL|method|Lucene40NormsDocValuesProducer
 specifier|public
 name|Lucene40NormsDocValuesProducer
@@ -333,6 +340,7 @@ name|Lucene40NormsDocValuesConsumer
 extends|extends
 name|Lucene40DocValuesConsumer
 block|{
+comment|/** Sole constructor. */
 DECL|method|Lucene40NormsDocValuesConsumer
 specifier|public
 name|Lucene40NormsDocValuesConsumer

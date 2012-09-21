@@ -310,6 +310,7 @@ specifier|abstract
 class|class
 name|DocValuesConsumer
 block|{
+comment|/** Spare {@link BytesRef} that subclasses can reuse. */
 DECL|field|spare
 specifier|protected
 specifier|final
@@ -320,6 +321,7 @@ operator|new
 name|BytesRef
 argument_list|()
 decl_stmt|;
+comment|/** Returns the {@link Type} of this consumer. */
 DECL|method|getType
 specifier|protected
 specifier|abstract
@@ -327,6 +329,12 @@ name|Type
 name|getType
 parameter_list|()
 function_decl|;
+comment|/** Sole constructor. (For invocation by subclass     *  constructors, typically implicit.) */
+DECL|method|DocValuesConsumer
+specifier|protected
+name|DocValuesConsumer
+parameter_list|()
+block|{   }
 comment|/**    * Adds the given {@link StorableField} instance to this    * {@link DocValuesConsumer}    *     * @param docID    *          the document ID to add the value for. The docID must always    *          increase or be<tt>0</tt> if it is the first call to this method.    * @param value    *          the value to add    * @throws IOException    *           if an {@link IOException} occurs    */
 DECL|method|add
 specifier|public

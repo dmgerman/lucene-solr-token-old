@@ -215,6 +215,7 @@ name|DocValuesWriterBase
 extends|extends
 name|PerDocConsumer
 block|{
+comment|/** Segment name to use when writing files. */
 DECL|field|segmentName
 specifier|protected
 specifier|final
@@ -227,6 +228,7 @@ specifier|final
 name|Counter
 name|bytesUsed
 decl_stmt|;
+comment|/** {@link IOContext} to use when writing files. */
 DECL|field|context
 specifier|protected
 specifier|final
@@ -259,7 +261,7 @@ name|DATA_EXTENSION
 init|=
 literal|"dat"
 decl_stmt|;
-comment|/**    * @param state The state to initiate a {@link PerDocConsumer} instance    */
+comment|/**    * Creates {@code DocValuesWriterBase}, using {@link    * PackedInts#FAST}.    * @param state The state to initiate a {@link PerDocConsumer} instance    */
 DECL|method|DocValuesWriterBase
 specifier|protected
 name|DocValuesWriterBase
@@ -278,7 +280,7 @@ name|FAST
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * @param state The state to initiate a {@link PerDocConsumer} instance    * @param acceptableOverheadRatio    *          how to trade space for speed. This option is only applicable for    *          docvalues of type {@link Type#BYTES_FIXED_SORTED} and    *          {@link Type#BYTES_VAR_SORTED}.    * @see PackedInts#getReader(org.apache.lucene.store.DataInput)    */
+comment|/**    * Creates {@code DocValuesWriterBase}.    * @param state The state to initiate a {@link PerDocConsumer} instance    * @param acceptableOverheadRatio    *          how to trade space for speed. This option is only applicable for    *          docvalues of type {@link Type#BYTES_FIXED_SORTED} and    *          {@link Type#BYTES_VAR_SORTED}.    * @see PackedInts#getReader(org.apache.lucene.store.DataInput)    */
 DECL|method|DocValuesWriterBase
 specifier|protected
 name|DocValuesWriterBase
@@ -323,6 +325,7 @@ operator|=
 name|acceptableOverheadRatio
 expr_stmt|;
 block|}
+comment|/** Returns the {@link Directory} that files should be    *  written to. */
 DECL|method|getDirectory
 specifier|protected
 specifier|abstract
@@ -390,6 +393,7 @@ name|acceptableOverheadRatio
 argument_list|)
 return|;
 block|}
+comment|/** Returns the comparator used to sort {@link BytesRef}    *  values. */
 DECL|method|getComparator
 specifier|public
 name|Comparator

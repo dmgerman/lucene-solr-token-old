@@ -144,6 +144,12 @@ specifier|private
 name|MergeState
 name|mergeState
 decl_stmt|;
+comment|/** Sole constructor. */
+DECL|method|MappingMultiDocsAndPositionsEnum
+specifier|public
+name|MappingMultiDocsAndPositionsEnum
+parameter_list|()
+block|{   }
 DECL|method|reset
 name|MappingMultiDocsAndPositionsEnum
 name|reset
@@ -183,6 +189,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/** Sets the {@link MergeState}, which is used to re-map    *  document IDs. */
 DECL|method|setMergeState
 specifier|public
 name|void
@@ -199,6 +206,7 @@ operator|=
 name|mergeState
 expr_stmt|;
 block|}
+comment|/** How many sub-readers we are merging.    *  @see #getSubs */
 DECL|method|getNumSubs
 specifier|public
 name|int
@@ -209,6 +217,7 @@ return|return
 name|numSubs
 return|;
 block|}
+comment|/** Returns sub-readers we are merging. */
 DECL|method|getSubs
 specifier|public
 name|EnumWithSlice

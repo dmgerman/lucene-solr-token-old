@@ -94,6 +94,22 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|SegmentInfo
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|SegmentInfos
 import|;
 end_import
@@ -147,6 +163,12 @@ operator|new
 name|Lucene40SegmentInfoWriter
 argument_list|()
 decl_stmt|;
+comment|/** Sole constructor. */
+DECL|method|Lucene40SegmentInfoFormat
+specifier|public
+name|Lucene40SegmentInfoFormat
+parameter_list|()
+block|{   }
 annotation|@
 name|Override
 DECL|method|getSegmentInfoReader
@@ -171,6 +193,7 @@ return|return
 name|writer
 return|;
 block|}
+comment|/** File extension used to store {@link SegmentInfo}. */
 DECL|field|SI_EXTENSION
 specifier|public
 specifier|final

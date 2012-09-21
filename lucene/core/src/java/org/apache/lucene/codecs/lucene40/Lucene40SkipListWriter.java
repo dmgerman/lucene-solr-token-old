@@ -146,6 +146,7 @@ specifier|private
 name|long
 name|curProxPointer
 decl_stmt|;
+comment|/** Sole constructor. */
 DECL|method|Lucene40SkipListWriter
 specifier|public
 name|Lucene40SkipListWriter

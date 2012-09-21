@@ -272,6 +272,7 @@ specifier|final
 name|int
 name|maxBlockSize
 decl_stmt|;
+comment|/** Creates {@code Lucene40PostingsFormat} with default    *  settings. */
 DECL|method|Lucene40PostingsFormat
 specifier|public
 name|Lucene40PostingsFormat
@@ -289,6 +290,7 @@ name|DEFAULT_MAX_BLOCK_SIZE
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Creates {@code Lucene40PostingsFormat} with custom    *  values for {@code minBlockSize} and {@code    *  maxBlockSize} passed to block terms dictionary.    *  @see BlockTreeTermsWriter#BlockTreeTermsWriter(SegmentWriteState,PostingsWriterBase,int,int) */
 DECL|method|Lucene40PostingsFormat
 specifier|public
 name|Lucene40PostingsFormat

@@ -135,6 +135,7 @@ specifier|final
 name|String
 name|segmentSuffix
 decl_stmt|;
+comment|/** Segment suffix used when writing doc values index files. */
 DECL|field|DOC_VALUES_SEGMENT_SUFFIX
 specifier|public
 specifier|final
@@ -144,6 +145,7 @@ name|DOC_VALUES_SEGMENT_SUFFIX
 init|=
 literal|"dv"
 decl_stmt|;
+comment|/** Sole constructor. */
 DECL|method|Lucene40DocValuesConsumer
 specifier|public
 name|Lucene40DocValuesConsumer

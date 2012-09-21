@@ -125,6 +125,7 @@ specifier|private
 name|int
 name|lastOffsetLength
 decl_stmt|;
+comment|/** Sole constructor. */
 DECL|method|Lucene40SkipListReader
 specifier|public
 name|Lucene40SkipListReader
@@ -181,6 +182,7 @@ name|maxSkipLevels
 index|]
 expr_stmt|;
 block|}
+comment|/** Per-term initialization. */
 DECL|method|init
 specifier|public
 name|void

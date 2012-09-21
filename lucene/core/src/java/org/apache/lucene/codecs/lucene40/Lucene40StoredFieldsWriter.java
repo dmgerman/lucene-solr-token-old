@@ -22,6 +22,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -471,6 +480,7 @@ specifier|private
 name|IndexOutput
 name|indexStream
 decl_stmt|;
+comment|/** Sole constructor. */
 DECL|method|Lucene40StoredFieldsWriter
 specifier|public
 name|Lucene40StoredFieldsWriter

@@ -156,6 +156,12 @@ name|Lucene40TermVectorsFormat
 extends|extends
 name|TermVectorsFormat
 block|{
+comment|/** Sole constructor. */
+DECL|method|Lucene40TermVectorsFormat
+specifier|public
+name|Lucene40TermVectorsFormat
+parameter_list|()
+block|{   }
 annotation|@
 name|Override
 DECL|method|vectorsReader
