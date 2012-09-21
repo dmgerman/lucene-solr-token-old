@@ -57,6 +57,9 @@ operator|.
 name|Query
 import|;
 end_import
+begin_comment
+comment|/** Lowest level base class for surround queries */
+end_comment
 begin_class
 DECL|class|SrndQuery
 specifier|public

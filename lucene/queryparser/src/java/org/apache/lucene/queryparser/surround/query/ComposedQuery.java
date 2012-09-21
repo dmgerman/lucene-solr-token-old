@@ -58,6 +58,9 @@ operator|.
 name|Query
 import|;
 end_import
+begin_comment
+comment|/** Base class for composite queries (such as AND/OR/NOT) */
+end_comment
 begin_class
 DECL|class|ComposedQuery
 specifier|public

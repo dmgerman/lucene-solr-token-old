@@ -62,6 +62,9 @@ operator|.
 name|SpanTermQuery
 import|;
 end_import
+begin_comment
+comment|/** Factory for creating basic term queries */
+end_comment
 begin_class
 DECL|class|BasicQueryFactory
 specifier|public

@@ -101,6 +101,9 @@ operator|.
 name|SpanQuery
 import|;
 end_import
+begin_comment
+comment|/** Factory for NEAR queries */
+end_comment
 begin_class
 DECL|class|DistanceQuery
 specifier|public
