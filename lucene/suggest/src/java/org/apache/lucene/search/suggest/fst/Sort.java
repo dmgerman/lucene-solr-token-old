@@ -87,6 +87,7 @@ specifier|final
 class|class
 name|Sort
 block|{
+comment|/** Convenience constant for megabytes */
 DECL|field|MB
 specifier|public
 specifier|final
@@ -98,6 +99,7 @@ literal|1024
 operator|*
 literal|1024
 decl_stmt|;
+comment|/** Convenience constant for gigabytes */
 DECL|field|GB
 specifier|public
 specifier|final
@@ -535,6 +537,7 @@ name|BytesRef
 argument_list|>
 name|comparator
 decl_stmt|;
+comment|/** Default comparator: sorts in binary (codepoint) order */
 DECL|field|DEFAULT_COMPARATOR
 specifier|public
 specifier|static
@@ -574,6 +577,7 @@ name|MAX_TEMPFILES
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Defaults constructor with a custom comparator.    *     * @see #defaultTempDir()    * @see BufferSize#automatic()    */
 DECL|method|Sort
 specifier|public
 name|Sort
@@ -1743,6 +1747,7 @@ specifier|final
 name|DataOutput
 name|os
 decl_stmt|;
+comment|/** Constructs a ByteSequencesWriter to the provided File */
 DECL|method|ByteSequencesWriter
 specifier|public
 name|ByteSequencesWriter
@@ -1771,6 +1776,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Constructs a ByteSequencesWriter to the provided DataOutput */
 DECL|method|ByteSequencesWriter
 specifier|public
 name|ByteSequencesWriter
@@ -1786,6 +1792,7 @@ operator|=
 name|os
 expr_stmt|;
 block|}
+comment|/**      * Writes a BytesRef.      * @see #write(byte[], int, int)      */
 DECL|method|write
 specifier|public
 name|void
@@ -1818,6 +1825,7 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Writes a byte array.      * @see #write(byte[], int, int)      */
 DECL|method|write
 specifier|public
 name|void
@@ -1842,6 +1850,7 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Writes a byte array.      *<p>      * The length is written as a<code>short</code>, followed      * by the bytes.      */
 DECL|method|write
 specifier|public
 name|void
@@ -1948,6 +1957,7 @@ specifier|final
 name|DataInput
 name|is
 decl_stmt|;
+comment|/** Constructs a ByteSequencesReader from the provided File */
 DECL|method|ByteSequencesReader
 specifier|public
 name|ByteSequencesReader
@@ -1976,6 +1986,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Constructs a ByteSequencesReader from the provided DataInput */
 DECL|method|ByteSequencesReader
 specifier|public
 name|ByteSequencesReader
@@ -2156,6 +2167,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/** Returns the comparator in use to sort entries */
 DECL|method|getComparator
 specifier|public
 name|Comparator
