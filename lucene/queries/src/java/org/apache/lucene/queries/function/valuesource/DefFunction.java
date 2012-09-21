@@ -123,6 +123,9 @@ operator|.
 name|Map
 import|;
 end_import
+begin_comment
+comment|/**  * {@link ValueSource} implementation which only returns the values from the provided  * ValueSources which are available for a particular docId.  Consequently, when combined  * with a {@link ConstValueSource}, this function serves as a way to return a default  * value when the values for a field are unavailable.  */
+end_comment
 begin_class
 DECL|class|DefFunction
 specifier|public

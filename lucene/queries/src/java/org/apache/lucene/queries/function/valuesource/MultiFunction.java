@@ -123,6 +123,9 @@ operator|.
 name|Map
 import|;
 end_import
+begin_comment
+comment|/**  * Abstract parent class for {@link ValueSource} implementations that wrap multiple  * ValueSources and apply their own logic.  */
+end_comment
 begin_class
 DECL|class|MultiFunction
 specifier|public

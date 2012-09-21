@@ -78,6 +78,9 @@ operator|.
 name|MutableValueDouble
 import|;
 end_import
+begin_comment
+comment|/**  * Abstract {@link FunctionValues} implementation which supports retrieving double values.  * Implementations can control how the double values are loaded through {@link #doubleVal(int)}}  */
+end_comment
 begin_class
 DECL|class|DoubleDocValues
 specifier|public

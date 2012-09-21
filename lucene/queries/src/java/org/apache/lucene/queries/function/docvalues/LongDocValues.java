@@ -78,6 +78,9 @@ operator|.
 name|MutableValueLong
 import|;
 end_import
+begin_comment
+comment|/**  * Abstract {@link FunctionValues} implementation which supports retrieving long values.  * Implementations can control how the long values are loaded through {@link #longVal(int)}}  */
+end_comment
 begin_class
 DECL|class|LongDocValues
 specifier|public

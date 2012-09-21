@@ -33,6 +33,9 @@ operator|.
 name|ValueSource
 import|;
 end_import
+begin_comment
+comment|/**  * Abstract parent class for those {@link ValueSource} implementations which  * apply boolean logic to their values  */
+end_comment
 begin_class
 DECL|class|BoolFunction
 specifier|public

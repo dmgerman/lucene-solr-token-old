@@ -807,6 +807,7 @@ block|}
 block|}
 return|;
 block|}
+comment|/**    * Custom Exception to be thrown when the DocTermsIndex for a field cannot be generated    */
 DECL|class|DocTermsIndexException
 specifier|public
 specifier|static
