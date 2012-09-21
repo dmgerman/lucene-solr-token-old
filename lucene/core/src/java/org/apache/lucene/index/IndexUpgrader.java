@@ -264,6 +264,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Main method to run {code IndexUpgrader} from the    *  command-line. */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -622,6 +623,7 @@ operator|=
 name|deletePriorCommits
 expr_stmt|;
 block|}
+comment|/** Perform the upgrade. */
 DECL|method|upgrade
 specifier|public
 name|void

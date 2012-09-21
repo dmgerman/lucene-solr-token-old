@@ -228,6 +228,7 @@ specifier|static
 interface|interface
 name|ReaderClosedListener
 block|{
+comment|/** Invoked when the {@link IndexReader} is closed. */
 DECL|method|onClose
 specifier|public
 name|void

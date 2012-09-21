@@ -63,6 +63,7 @@ specifier|public
 class|class
 name|SegmentInfoPerCommit
 block|{
+comment|/** The {@link SegmentInfo} that we wrap. */
 DECL|field|info
 specifier|public
 specifier|final
@@ -91,6 +92,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/** Sole constructor.    * @param info {@link SegmentInfo} that we wrap    * @param delCount number of deleted documents in this segment    * @param delGen deletion generation number (used to name              deletion files)    **/
 DECL|method|SegmentInfoPerCommit
 specifier|public
 name|SegmentInfoPerCommit
@@ -154,6 +156,7 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+comment|/** Returns total size in bytes of all files for this    *  segment. */
 DECL|method|sizeInBytes
 specifier|public
 name|long
@@ -238,6 +241,7 @@ return|return
 name|sizeInBytes
 return|;
 block|}
+comment|/** Returns all files in use by this segment. */
 DECL|method|files
 specifier|public
 name|Collection
@@ -446,6 +450,7 @@ name|getDocCount
 argument_list|()
 assert|;
 block|}
+comment|/** Returns a description of this segment. */
 DECL|method|toString
 specifier|public
 name|String

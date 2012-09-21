@@ -203,6 +203,12 @@ name|reclaimDeletesWeight
 init|=
 literal|2.0
 decl_stmt|;
+comment|/** Sole constructor, setting all settings to their    *  defaults. */
+DECL|method|TieredMergePolicy
+specifier|public
+name|TieredMergePolicy
+parameter_list|()
+block|{   }
 comment|/** Maximum number of segments to be merged at a time    *  during "normal" merging.  For explicit merging (eg,    *  forceMerge or forceMergeDeletes was called), see {@link    *  #setMaxMergeAtOnceExplicit}.  Default is 10. */
 DECL|method|setMaxMergeAtOnce
 specifier|public
@@ -240,7 +246,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** @see #setMaxMergeAtOnce */
+comment|/** Returns the current maxMergeAtOnce setting.    *    * @see #setMaxMergeAtOnce */
 DECL|method|getMaxMergeAtOnce
 specifier|public
 name|int
@@ -290,7 +296,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** @see #setMaxMergeAtOnceExplicit */
+comment|/** Returns the current maxMergeAtOnceExplicit setting.    *    * @see #setMaxMergeAtOnceExplicit */
 DECL|method|getMaxMergeAtOnceExplicit
 specifier|public
 name|int
@@ -359,7 +365,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** @see #getMaxMergedSegmentMB */
+comment|/** Returns the current maxMergedSegmentMB setting.    *    * @see #getMaxMergedSegmentMB */
 DECL|method|getMaxMergedSegmentMB
 specifier|public
 name|double
@@ -480,7 +486,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** @see #setFloorSegmentMB */
+comment|/** Returns the current floorSegmentMB.    *    *  @see #setFloorSegmentMB */
 DECL|method|getFloorSegmentMB
 specifier|public
 name|double
@@ -538,7 +544,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** @see #setForceMergeDeletesPctAllowed */
+comment|/** Returns the current forceMergeDeletesPctAllowed setting.    *    * @see #setForceMergeDeletesPctAllowed */
 DECL|method|getForceMergeDeletesPctAllowed
 specifier|public
 name|double
@@ -586,7 +592,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** @see #setSegmentsPerTier */
+comment|/** Returns the current segmentsPerTier setting.    *    * @see #setSegmentsPerTier */
 DECL|method|getSegmentsPerTier
 specifier|public
 name|double
@@ -617,7 +623,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** @see  #setUseCompoundFile */
+comment|/** Returns the current useCompoundFile setting.    *    * @see  #setUseCompoundFile */
 DECL|method|getUseCompoundFile
 specifier|public
 name|boolean
@@ -669,7 +675,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/** @see #setNoCFSRatio */
+comment|/** Returns the current noCFSRatio setting.    *    * @see #setNoCFSRatio */
 DECL|method|getNoCFSRatio
 specifier|public
 name|double
@@ -790,6 +796,12 @@ specifier|abstract
 class|class
 name|MergeScore
 block|{
+comment|/** Sole constructor. (For invocation by subclass       * constructors, typically implicit.) */
+DECL|method|MergeScore
+specifier|protected
+name|MergeScore
+parameter_list|()
+block|{     }
 DECL|method|getScore
 specifier|abstract
 name|double

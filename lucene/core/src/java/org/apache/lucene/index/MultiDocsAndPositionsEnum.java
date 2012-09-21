@@ -98,6 +98,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/** Sole constructor. */
 DECL|method|MultiDocsAndPositionsEnum
 specifier|public
 name|MultiDocsAndPositionsEnum
@@ -124,6 +125,7 @@ name|subReaderCount
 index|]
 expr_stmt|;
 block|}
+comment|/** Returns {@code true} if this instance can be reused by    *  the provided {@link MultiTermsEnum}. */
 DECL|method|canReuse
 specifier|public
 name|boolean
@@ -141,6 +143,7 @@ operator|==
 name|parent
 return|;
 block|}
+comment|/** Rre-use and reset this instance on the provided slices. */
 DECL|method|reset
 specifier|public
 name|MultiDocsAndPositionsEnum
@@ -253,6 +256,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/** How many sub-readers we are merging.    *  @see #getSubs */
 DECL|method|getNumSubs
 specifier|public
 name|int
@@ -263,6 +267,7 @@ return|return
 name|numSubs
 return|;
 block|}
+comment|/** Returns sub-readers we are merging. */
 DECL|method|getSubs
 specifier|public
 name|EnumWithSlice
@@ -595,11 +600,17 @@ specifier|static
 class|class
 name|EnumWithSlice
 block|{
+DECL|method|EnumWithSlice
+name|EnumWithSlice
+parameter_list|()
+block|{     }
+comment|/** {@link DocsAndPositionsEnum} for this sub-reader. */
 DECL|field|docsAndPositionsEnum
 specifier|public
 name|DocsAndPositionsEnum
 name|docsAndPositionsEnum
 decl_stmt|;
+comment|/** {@link ReaderSlice} describing how this sub-reader      *  fits into the composite reader. */
 DECL|field|slice
 specifier|public
 name|ReaderSlice

@@ -33,7 +33,7 @@ name|Arrays
 import|;
 end_import
 begin_comment
-comment|/**  * Exposes flex API, merged from flex API of sub-segments.  *  * @lucene.experimental  */
+comment|/**  * Exposes {@link DocsEnum}, merged from {@link DocsEnum}  * API of sub-segments.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|MultiDocsEnum
@@ -85,6 +85,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|/** Sole constructor    * @param parent The {@link MultiTermsEnum} that created us.    * @param subReaderCount How many sub-readers are being merged. */
 DECL|method|MultiDocsEnum
 specifier|public
 name|MultiDocsEnum
@@ -222,6 +223,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/** Returns {@code true} if this instance can be reused by    *  the provided {@link MultiTermsEnum}. */
 DECL|method|canReuse
 specifier|public
 name|boolean
@@ -239,6 +241,7 @@ operator|==
 name|parent
 return|;
 block|}
+comment|/** How many sub-readers we are merging.    *  @see #getSubs */
 DECL|method|getNumSubs
 specifier|public
 name|int
@@ -249,6 +252,7 @@ return|return
 name|numSubs
 return|;
 block|}
+comment|/** Returns sub-readers we are merging. */
 DECL|method|getSubs
 specifier|public
 name|EnumWithSlice
@@ -508,11 +512,17 @@ specifier|static
 class|class
 name|EnumWithSlice
 block|{
+DECL|method|EnumWithSlice
+name|EnumWithSlice
+parameter_list|()
+block|{     }
+comment|/** {@link DocsEnum} of this sub-reader. */
 DECL|field|docsEnum
 specifier|public
 name|DocsEnum
 name|docsEnum
 decl_stmt|;
+comment|/** {@link ReaderSlice} describing how this sub-reader      *  fits into the composite reader. */
 DECL|field|slice
 specifier|public
 name|ReaderSlice

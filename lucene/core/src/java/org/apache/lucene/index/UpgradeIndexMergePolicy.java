@@ -83,6 +83,7 @@ name|UpgradeIndexMergePolicy
 extends|extends
 name|MergePolicy
 block|{
+comment|/** Wrapped {@link MergePolicy}. */
 DECL|field|base
 specifier|protected
 specifier|final

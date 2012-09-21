@@ -78,7 +78,7 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|/** Holds common state used during segment merging  *  * @lucene.experimental */
+comment|/** Holds common state used during segment merging.  *  * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|MergeState
@@ -100,6 +100,7 @@ specifier|final
 name|Bits
 name|liveDocs
 decl_stmt|;
+comment|/** Sole constructor. (For invocation by subclass       *  constructors, typically implicit.) */
 DECL|method|DocMap
 specifier|protected
 name|DocMap
@@ -115,6 +116,7 @@ operator|=
 name|liveDocs
 expr_stmt|;
 block|}
+comment|/** Creates a {@link DocMap} instance appropriate for      *  this reader. */
 DECL|method|build
 specifier|public
 specifier|static
@@ -460,6 +462,7 @@ name|del
 argument_list|)
 return|;
 block|}
+comment|/** Returns the mapped docID corresponding to the provided one. */
 DECL|method|get
 specifier|public
 name|int
@@ -498,6 +501,7 @@ literal|1
 return|;
 block|}
 block|}
+comment|/** Returns the mapped docID corresponding to the provided one. */
 DECL|method|remap
 specifier|public
 specifier|abstract
@@ -508,6 +512,7 @@ name|int
 name|docId
 parameter_list|)
 function_decl|;
+comment|/** Returns the total number of documents, ignoring      *  deletions. */
 DECL|method|maxDoc
 specifier|public
 specifier|abstract
@@ -515,6 +520,7 @@ name|int
 name|maxDoc
 parameter_list|()
 function_decl|;
+comment|/** Returns the number of not-deleted documents. */
 DECL|method|numDocs
 specifier|public
 specifier|final
@@ -530,6 +536,7 @@ name|numDeletedDocs
 argument_list|()
 return|;
 block|}
+comment|/** Returns the number of deleted documents. */
 DECL|method|numDeletedDocs
 specifier|public
 specifier|abstract
@@ -537,6 +544,7 @@ name|int
 name|numDeletedDocs
 parameter_list|()
 function_decl|;
+comment|/** Returns true if there are any deletions. */
 DECL|method|hasDeletions
 specifier|public
 name|boolean
@@ -843,16 +851,19 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/** {@link SegmentInfo} of the newly merged segment. */
 DECL|field|segmentInfo
 specifier|public
 name|SegmentInfo
 name|segmentInfo
 decl_stmt|;
+comment|/** {@link FieldInfos} of the newly merged segment. */
 DECL|field|fieldInfos
 specifier|public
 name|FieldInfos
 name|fieldInfos
 decl_stmt|;
+comment|/** Readers being merged. */
 DECL|field|readers
 specifier|public
 name|List
@@ -861,32 +872,33 @@ name|AtomicReader
 argument_list|>
 name|readers
 decl_stmt|;
-comment|// Readers being merged
+comment|/** Maps docIDs around deletions. */
 DECL|field|docMaps
 specifier|public
 name|DocMap
 index|[]
 name|docMaps
 decl_stmt|;
-comment|// Maps docIDs around deletions
+comment|/** New docID base per reader. */
 DECL|field|docBase
 specifier|public
 name|int
 index|[]
 name|docBase
 decl_stmt|;
-comment|// New docID base per reader
+comment|/** Holds the CheckAbort instance, which is invoked    *  periodically to see if the merge has been aborted. */
 DECL|field|checkAbort
 specifier|public
 name|CheckAbort
 name|checkAbort
 decl_stmt|;
+comment|/** InfoStream for debugging messages. */
 DECL|field|infoStream
 specifier|public
 name|InfoStream
 name|infoStream
 decl_stmt|;
-comment|// Updated per field;
+comment|/** Current field being merged. */
 DECL|field|fieldInfo
 specifier|public
 name|FieldInfo
@@ -894,17 +906,24 @@ name|fieldInfo
 decl_stmt|;
 comment|// TODO: get rid of this? it tells you which segments are 'aligned' (e.g. for bulk merging)
 comment|// but is this really so expensive to compute again in different components, versus once in SM?
+comment|/** {@link SegmentReader}s that have identical field    * name/number mapping, so their stored fields and term    * vectors may be bulk merged. */
 DECL|field|matchingSegmentReaders
 specifier|public
 name|SegmentReader
 index|[]
 name|matchingSegmentReaders
 decl_stmt|;
+comment|/** How many {@link #matchingSegmentReaders} are set. */
 DECL|field|matchedCount
 specifier|public
 name|int
 name|matchedCount
 decl_stmt|;
+comment|/** Sole constructor. */
+DECL|method|MergeState
+name|MergeState
+parameter_list|()
+block|{   }
 comment|/**    * Class for recording units of work when merging segments.    */
 DECL|class|CheckAbort
 specifier|public
@@ -931,6 +950,7 @@ specifier|final
 name|Directory
 name|dir
 decl_stmt|;
+comment|/** Creates a #CheckAbort instance. */
 DECL|method|CheckAbort
 specifier|public
 name|CheckAbort

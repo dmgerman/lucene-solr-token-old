@@ -22,6 +22,22 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|analysis
+operator|.
+name|TokenStream
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|AttributeSource
@@ -73,6 +89,7 @@ DECL|field|attributeSource
 name|AttributeSource
 name|attributeSource
 decl_stmt|;
+comment|/** Creates {code FieldInvertState} for the specified    *  field name. */
 DECL|method|FieldInvertState
 specifier|public
 name|FieldInvertState
@@ -88,6 +105,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+comment|/** Creates {code FieldInvertState} for the specified    *  field name and values for all fields. */
 DECL|method|FieldInvertState
 specifier|public
 name|FieldInvertState
@@ -209,6 +227,7 @@ return|return
 name|length
 return|;
 block|}
+comment|/** Set length value. */
 DECL|method|setLength
 specifier|public
 name|void
@@ -236,6 +255,7 @@ return|return
 name|numOverlap
 return|;
 block|}
+comment|/** Set number of terms with {@code positionIncrement ==    *  0}. */
 DECL|method|setNumOverlap
 specifier|public
 name|void
@@ -274,6 +294,7 @@ return|return
 name|boost
 return|;
 block|}
+comment|/** Set boost value. */
 DECL|method|setBoost
 specifier|public
 name|void
@@ -312,6 +333,7 @@ return|return
 name|uniqueTermCount
 return|;
 block|}
+comment|/** Returns the {@link AttributeSource} from the {@link    *  TokenStream} that provided the indexed tokens for this    *  field. */
 DECL|method|getAttributeSource
 specifier|public
 name|AttributeSource

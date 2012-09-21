@@ -34,6 +34,7 @@ name|CorruptIndexException
 extends|extends
 name|IOException
 block|{
+comment|/** Sole constructor. */
 DECL|method|CorruptIndexException
 specifier|public
 name|CorruptIndexException

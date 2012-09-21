@@ -75,6 +75,7 @@ name|String
 argument_list|>
 name|commitData
 decl_stmt|;
+comment|/** Sole constructor. */
 DECL|method|TwoPhaseCommitWrapper
 specifier|public
 name|TwoPhaseCommitWrapper
@@ -208,6 +209,7 @@ name|PrepareCommitFailException
 extends|extends
 name|IOException
 block|{
+comment|/** Sole constructor. */
 DECL|method|PrepareCommitFailException
 specifier|public
 name|PrepareCommitFailException
@@ -242,6 +244,7 @@ name|CommitFailException
 extends|extends
 name|IOException
 block|{
+comment|/** Sole constructor. */
 DECL|method|CommitFailException
 specifier|public
 name|CommitFailException

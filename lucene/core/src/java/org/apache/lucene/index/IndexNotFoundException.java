@@ -35,6 +35,7 @@ name|IndexNotFoundException
 extends|extends
 name|FileNotFoundException
 block|{
+comment|/** Creates IndexFileNotFoundException with the    *  description message. */
 DECL|method|IndexNotFoundException
 specifier|public
 name|IndexNotFoundException

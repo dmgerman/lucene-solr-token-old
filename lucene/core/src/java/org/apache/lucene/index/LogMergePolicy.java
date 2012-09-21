@@ -69,7 +69,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**<p>This class implements a {@link MergePolicy} that tries  *  to merge segments into levels of exponentially  *  increasing size, where each level has fewer segments than  *  the value of the merge factor. Whenever extra segments  *  (beyond the merge factor upper bound) are encountered,  *  all segments within the level are merged. You can get or  *  set the merge factor using {@link #getMergeFactor()} and  *  {@link #setMergeFactor(int)} respectively.</p>  *  *<p>This class is abstract and requires a subclass to  * define the {@link #size} method which specifies how a  * segment's size is determined.  {@link LogDocMergePolicy}  * is one subclass that measures size by document count in  * the segment.  {@link LogByteSizeMergePolicy} is another  * subclass that measures size as the total byte size of the  * file(s) for the segment.</p>  */
+comment|/**  *<p>This class implements a {@link MergePolicy} that tries  * to merge segments into levels of exponentially  * increasing size, where each level has fewer segments than  * the value of the merge factor. Whenever extra segments  * (beyond the merge factor upper bound) are encountered,  * all segments within the level are merged. You can get or  * set the merge factor using {@link #getMergeFactor()} and  * {@link #setMergeFactor(int)} respectively.</p>  *  *<p>This class is abstract and requires a subclass to  * define the {@link #size} method which specifies how a  * segment's size is determined.  {@link LogDocMergePolicy}  * is one subclass that measures size by document count in  * the segment.  {@link LogByteSizeMergePolicy} is another  * subclass that measures size as the total byte size of the  * file(s) for the segment.</p>  */
 end_comment
 begin_class
 DECL|class|LogMergePolicy
@@ -134,6 +134,7 @@ name|Long
 operator|.
 name|MAX_VALUE
 decl_stmt|;
+comment|/** How many segments to merge at a time. */
 DECL|field|mergeFactor
 specifier|protected
 name|int
@@ -141,11 +142,13 @@ name|mergeFactor
 init|=
 name|DEFAULT_MERGE_FACTOR
 decl_stmt|;
+comment|/** Any segments whose size is smaller than this value    *  will be rounded up to this value.  This ensures that    *  tiny segments are aggressively merged. */
 DECL|field|minMergeSize
 specifier|protected
 name|long
 name|minMergeSize
 decl_stmt|;
+comment|/** If the size of a segment exceeds this value then it    *  will never be merged. */
 DECL|field|maxMergeSize
 specifier|protected
 name|long
@@ -153,6 +156,7 @@ name|maxMergeSize
 decl_stmt|;
 comment|// Although the core MPs set it explicitly, we must default in case someone
 comment|// out there wrote his own LMP ...
+comment|/** If the size of a segment exceeds this value then it    * will never be merged during {@link IndexWriter#forceMerge}. */
 DECL|field|maxMergeSizeForForcedMerge
 specifier|protected
 name|long
@@ -162,6 +166,7 @@ name|Long
 operator|.
 name|MAX_VALUE
 decl_stmt|;
+comment|/** If a segment has more than this many documents then it    *  will never be merged. */
 DECL|field|maxMergeDocs
 specifier|protected
 name|int
@@ -169,6 +174,7 @@ name|maxMergeDocs
 init|=
 name|DEFAULT_MAX_MERGE_DOCS
 decl_stmt|;
+comment|/** If the size of the merge segment exceesd this ratio of    *  the total index size then it will remain in    *  non-compound format even if {@link    *  #setUseCompoundFile} is {@code true}. */
 DECL|field|noCFSRatio
 specifier|protected
 name|double
@@ -176,6 +182,7 @@ name|noCFSRatio
 init|=
 name|DEFAULT_NO_CFS_RATIO
 decl_stmt|;
+comment|/** If the size of the merged segment exceeds    *  this value then it will not use compound file format. */
 DECL|field|maxCFSSegmentSize
 specifier|protected
 name|long
@@ -183,6 +190,7 @@ name|maxCFSSegmentSize
 init|=
 name|DEFAULT_MAX_CFS_SEGMENT_SIZE
 decl_stmt|;
+comment|/** If true, we pro-rate a segment's size by the    *  percentage of non-deleted documents. */
 DECL|field|calibrateSizeByDeletes
 specifier|protected
 name|boolean
@@ -190,6 +198,7 @@ name|calibrateSizeByDeletes
 init|=
 literal|true
 decl_stmt|;
+comment|/** True if new segments (flushed or merged) should use    *  the compound file format.  Note that large segments    *  may sometimes still use non-compound format (see    *  {@link #setNoCFSRatio}. */
 DECL|field|useCompoundFile
 specifier|protected
 name|boolean
@@ -197,6 +206,7 @@ name|useCompoundFile
 init|=
 literal|true
 decl_stmt|;
+comment|/** Sole constructor. (For invocation by subclass     *  constructors, typically implicit.) */
 DECL|method|LogMergePolicy
 specifier|public
 name|LogMergePolicy
@@ -206,6 +216,7 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
+comment|/** Returns true if {@code LMP} is enabled in {@link    *  IndexWriter}'s {@code infoStream}. */
 DECL|method|verbose
 specifier|protected
 name|boolean
@@ -236,7 +247,7 @@ literal|"LMP"
 argument_list|)
 return|;
 block|}
-comment|/** @see #setNoCFSRatio */
+comment|/** Returns current {@code noCFSRatio}.    *    *  @see #setNoCFSRatio */
 DECL|method|getNoCFSRatio
 specifier|public
 name|double
@@ -285,6 +296,7 @@ operator|=
 name|noCFSRatio
 expr_stmt|;
 block|}
+comment|/** Print a debug message to {@link IndexWriter}'s {@code    *  infoStream}. */
 DECL|method|message
 specifier|protected
 name|void
@@ -510,6 +522,7 @@ name|void
 name|close
 parameter_list|()
 block|{}
+comment|/** Return the size of the provided {@link    *  SegmentInfoPerCommit}. */
 DECL|method|size
 specifier|abstract
 specifier|protected
@@ -522,6 +535,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/** Return the number of documents in the provided {@link    *  SegmentInfoPerCommit}, pro-rated by percentage of    *  non-deleted documents if {@link    *  #setCalibrateSizeByDeletes} is set. */
 DECL|method|sizeDocs
 specifier|protected
 name|long
@@ -589,6 +603,7 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|/** Return the byte size of the provided {@link    *  SegmentInfoPerCommit}, pro-rated by percentage of    *  non-deleted documents if {@link    *  #setCalibrateSizeByDeletes} is set. */
 DECL|method|sizeBytes
 specifier|protected
 name|long
@@ -699,6 +714,7 @@ name|byteSize
 return|;
 block|}
 block|}
+comment|/** Returns true if the number of segments eligible for    *  merging is less than or equal to the specified {@code    *  maxNumSegments}. */
 DECL|method|isMerged
 specifier|protected
 name|boolean

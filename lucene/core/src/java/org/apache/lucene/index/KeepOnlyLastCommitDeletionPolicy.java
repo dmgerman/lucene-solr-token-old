@@ -35,6 +35,12 @@ name|KeepOnlyLastCommitDeletionPolicy
 implements|implements
 name|IndexDeletionPolicy
 block|{
+comment|/** Sole constructor. */
+DECL|method|KeepOnlyLastCommitDeletionPolicy
+specifier|public
+name|KeepOnlyLastCommitDeletionPolicy
+parameter_list|()
+block|{   }
 comment|/**    * Deletes all commits except the most recent one.    */
 DECL|method|onInit
 specifier|public

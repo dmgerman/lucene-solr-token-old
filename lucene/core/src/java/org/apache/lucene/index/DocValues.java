@@ -276,6 +276,7 @@ name|DocValues
 implements|implements
 name|Closeable
 block|{
+comment|/** Zero length DocValues array. */
 DECL|field|EMPTY_ARRAY
 specifier|public
 specifier|static
@@ -312,6 +313,12 @@ operator|new
 name|Object
 argument_list|()
 decl_stmt|;
+comment|/** Sole constructor. (For invocation by subclass     *  constructors, typically implicit.) */
+DECL|method|DocValues
+specifier|protected
+name|DocValues
+parameter_list|()
+block|{   }
 comment|/**    * Loads a new {@link Source} instance for this {@link DocValues} field    * instance. Source instances returned from this method are not cached. It is    * the callers responsibility to maintain the instance and release its    * resources once the source is not needed anymore.    *<p>    * For managed {@link Source} instances see {@link #getSource()}.    *     * @see #getSource()    * @see #setCache(SourceCache)    */
 DECL|method|load
 specifier|public
@@ -445,12 +452,14 @@ specifier|abstract
 class|class
 name|Source
 block|{
+comment|/** {@link Type} of this {@code Source}. */
 DECL|field|type
 specifier|protected
 specifier|final
 name|Type
 name|type
 decl_stmt|;
+comment|/** Sole constructor. (For invocation by subclass       *  constructors, typically implicit.) */
 DECL|method|Source
 specifier|protected
 name|Source
@@ -595,6 +604,7 @@ name|BytesRef
 argument_list|>
 name|comparator
 decl_stmt|;
+comment|/** Sole constructor. (For invocation by subclass       * constructors, typically implicit.) */
 DECL|method|SortedSource
 specifier|protected
 name|SortedSource
@@ -1343,6 +1353,12 @@ specifier|abstract
 class|class
 name|SourceCache
 block|{
+comment|/** Sole constructor. (For invocation by subclass       * constructors, typically implicit.) */
+DECL|method|SourceCache
+specifier|protected
+name|SourceCache
+parameter_list|()
+block|{     }
 comment|/**      * Atomically loads a {@link Source} into the cache from the given      * {@link DocValues} and returns it iff no other {@link Source} has already      * been cached. Otherwise the cached source is returned.      *<p>      * This method will not return<code>null</code>      */
 DECL|method|load
 specifier|public
@@ -1399,6 +1415,12 @@ specifier|private
 name|Source
 name|ref
 decl_stmt|;
+comment|/** Sole constructor. */
+DECL|method|DirectSourceCache
+specifier|public
+name|DirectSourceCache
+parameter_list|()
+block|{       }
 DECL|method|load
 specifier|public
 specifier|synchronized
