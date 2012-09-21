@@ -882,7 +882,7 @@ name|Scorer
 name|scorer
 decl_stmt|;
 DECL|field|primaryDoc
-specifier|private
+specifier|protected
 name|int
 name|primaryDoc
 init|=
@@ -1198,16 +1198,8 @@ name|int
 name|docID
 parameter_list|()
 block|{
-assert|assert
-name|scorer
-operator|.
-name|docID
-argument_list|()
-operator|==
-name|primaryDoc
-assert|;
 return|return
-name|primaryDoc
+name|secondaryDoc
 return|;
 block|}
 annotation|@
@@ -1324,6 +1316,13 @@ name|firstFilteredDoc
 operator|=
 name|firstFilteredDoc
 expr_stmt|;
+name|this
+operator|.
+name|primaryDoc
+operator|=
+name|firstFilteredDoc
+expr_stmt|;
+comment|// initialize to prevent and advance call to move it further
 block|}
 annotation|@
 name|Override
@@ -2120,9 +2119,9 @@ name|LeapFrogScorer
 argument_list|(
 name|weight
 argument_list|,
-name|filterIter
-argument_list|,
 name|scorer
+argument_list|,
+name|filterIter
 argument_list|,
 name|scorer
 argument_list|)
@@ -2144,9 +2143,9 @@ name|LeapFrogScorer
 argument_list|(
 name|weight
 argument_list|,
-name|scorer
-argument_list|,
 name|filterIter
+argument_list|,
+name|scorer
 argument_list|,
 name|scorer
 argument_list|)
