@@ -48,7 +48,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.internal  */
+comment|/**  * Bounded Cache of Shapes associated with docIds.  Note, multiple Shapes can be  * associated with a given docId  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|ShapeFieldCache

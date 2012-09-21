@@ -240,7 +240,7 @@ name|ConcurrentHashMap
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.internal  */
+comment|/**  * Abstract SpatialStrategy which provides common functionality for those   * Strategys which use {@link SpatialPrefixTree}s  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|PrefixTreeStrategy

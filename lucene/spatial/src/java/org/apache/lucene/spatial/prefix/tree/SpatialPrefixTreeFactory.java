@@ -54,7 +54,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.experimental  */
+comment|/**  * Abstract Factory for creating {@link SpatialPrefixTree} instances with useful  * defaults and passed on configurations defined in a Map.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SpatialPrefixTreeFactory

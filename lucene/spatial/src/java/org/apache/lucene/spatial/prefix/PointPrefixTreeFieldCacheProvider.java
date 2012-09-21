@@ -92,7 +92,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * @lucene.internal  */
+comment|/**  * Implementation of {@link ShapeFieldCacheProvider} designed for {@link PrefixTreeStrategy}s.  *  * Note, due to the fragmented representation of Shapes in these Strategies, this implementation  * can only retrieve the central {@link Point} of the original Shapes.  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|PointPrefixTreeFieldCacheProvider
