@@ -178,7 +178,7 @@ literal|"stqpt_geohash"
 block|}
 block|,
 block|{
-literal|"twodoubles"
+literal|"pointvector"
 block|}
 block|}
 argument_list|)
@@ -1483,7 +1483,7 @@ name|fieldName
 operator|.
 name|equals
 argument_list|(
-literal|"twodoubles"
+literal|"pointvector"
 argument_list|)
 argument_list|)
 expr_stmt|;

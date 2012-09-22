@@ -200,7 +200,7 @@ name|spatial
 operator|.
 name|vector
 operator|.
-name|TwoDoublesStrategy
+name|PointVectorStrategy
 import|;
 end_import
 begin_import
@@ -363,11 +363,11 @@ expr_stmt|;
 name|strategy
 operator|=
 operator|new
-name|TwoDoublesStrategy
+name|PointVectorStrategy
 argument_list|(
 name|ctx
 argument_list|,
-literal|"twodoubles"
+literal|"pointvector"
 argument_list|)
 expr_stmt|;
 name|ctorArgs

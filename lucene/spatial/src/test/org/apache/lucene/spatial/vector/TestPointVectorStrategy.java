@@ -152,10 +152,10 @@ name|IOException
 import|;
 end_import
 begin_class
-DECL|class|TestTwoDoublesStrategy
+DECL|class|TestPointVectorStrategy
 specifier|public
 class|class
-name|TestTwoDoublesStrategy
+name|TestPointVectorStrategy
 extends|extends
 name|StrategyTestCase
 block|{
@@ -189,7 +189,7 @@ operator|.
 name|strategy
 operator|=
 operator|new
-name|TwoDoublesStrategy
+name|PointVectorStrategy
 argument_list|(
 name|ctx
 argument_list|,
