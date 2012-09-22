@@ -37,19 +37,6 @@ name|spatial4j
 operator|.
 name|core
 operator|.
-name|exception
-operator|.
-name|InvalidShapeException
-import|;
-end_import
-begin_import
-import|import
-name|com
-operator|.
-name|spatial4j
-operator|.
-name|core
-operator|.
 name|shape
 operator|.
 name|Circle
@@ -529,7 +516,7 @@ argument_list|)
 return|;
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UnsupportedOperationException
 argument_list|(
 literal|"Can only index Point, not "
 operator|+
@@ -829,7 +816,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|InvalidShapeException
+name|UnsupportedOperationException
 argument_list|(
 literal|"Only Rectangles and Circles are currently supported, "
 operator|+
@@ -881,7 +868,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|InvalidShapeException
+name|UnsupportedOperationException
 argument_list|(
 literal|"Only Rectangles and Circles are currently supported, "
 operator|+

@@ -556,7 +556,7 @@ argument_list|)
 return|;
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UnsupportedOperationException
 argument_list|(
 literal|"Can only index Rectangle, not "
 operator|+
@@ -905,7 +905,7 @@ operator|)
 condition|)
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|UnsupportedOperationException
 argument_list|(
 literal|"Can only query by Rectangle, not "
 operator|+
