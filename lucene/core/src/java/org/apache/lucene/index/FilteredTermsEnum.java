@@ -327,7 +327,7 @@ name|totalTermFreq
 argument_list|()
 return|;
 block|}
-comment|/** This enum does not support seeking!    * @throws UnsupportedOperationException    */
+comment|/** This enum does not support seeking!    * @throws UnsupportedOperationException In general, subclasses do not    *         support seeking.    */
 annotation|@
 name|Override
 DECL|method|seekExact
@@ -358,7 +358,7 @@ literal|" does not support seeking"
 argument_list|)
 throw|;
 block|}
-comment|/** This enum does not support seeking!    * @throws UnsupportedOperationException    */
+comment|/** This enum does not support seeking!    * @throws UnsupportedOperationException In general, subclasses do not    *         support seeking.    */
 annotation|@
 name|Override
 DECL|method|seekCeil
@@ -389,7 +389,7 @@ literal|" does not support seeking"
 argument_list|)
 throw|;
 block|}
-comment|/** This enum does not support seeking!    * @throws UnsupportedOperationException    */
+comment|/** This enum does not support seeking!    * @throws UnsupportedOperationException In general, subclasses do not    *         support seeking.    */
 annotation|@
 name|Override
 DECL|method|seekExact
@@ -498,7 +498,7 @@ name|flags
 argument_list|)
 return|;
 block|}
-comment|/** This enum does not support seeking!    * @throws UnsupportedOperationException    */
+comment|/** This enum does not support seeking!    * @throws UnsupportedOperationException In general, subclasses do not    *         support seeking.    */
 annotation|@
 name|Override
 DECL|method|seekExact

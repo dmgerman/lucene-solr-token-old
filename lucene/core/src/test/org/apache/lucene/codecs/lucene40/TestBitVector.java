@@ -101,7 +101,7 @@ name|TestBitVector
 extends|extends
 name|LuceneTestCase
 block|{
-comment|/**      * Test the default constructor on BitVectors of various sizes.      * @throws Exception      */
+comment|/**      * Test the default constructor on BitVectors of various sizes.      */
 DECL|method|testConstructSize
 specifier|public
 name|void
@@ -160,7 +160,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test the get() and set() methods on BitVectors of various sizes.      * @throws Exception      */
+comment|/**      * Test the get() and set() methods on BitVectors of various sizes.      */
 DECL|method|testGetSet
 specifier|public
 name|void
@@ -256,7 +256,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Test the clear() method on BitVectors of various sizes.      * @throws Exception      */
+comment|/**      * Test the clear() method on BitVectors of various sizes.      */
 DECL|method|testClear
 specifier|public
 name|void
@@ -369,7 +369,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Test the count() method on BitVectors of various sizes.      * @throws Exception      */
+comment|/**      * Test the count() method on BitVectors of various sizes.      */
 DECL|method|testCount
 specifier|public
 name|void
@@ -589,7 +589,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Test writing and construction to/from Directory.      * @throws Exception      */
+comment|/**      * Test writing and construction to/from Directory.      */
 DECL|method|testWriteRead
 specifier|public
 name|void

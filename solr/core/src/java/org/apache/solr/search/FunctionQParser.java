@@ -474,7 +474,7 @@ name|vs
 argument_list|)
 return|;
 block|}
-comment|/**    * Are there more arguments in the argument list being parsed?    *     * @return whether more args exist    * @throws ParseException    */
+comment|/**    * Are there more arguments in the argument list being parsed?    *     * @return whether more args exist    */
 DECL|method|hasMoreArguments
 specifier|public
 name|boolean
@@ -507,7 +507,7 @@ operator|)
 operator|)
 return|;
 block|}
-comment|/**    * TODO: Doc    *     * @throws ParseException    */
+comment|/*    * TODO: Doc    */
 DECL|method|parseId
 specifier|public
 name|String
@@ -539,7 +539,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**    * Parse a float.    *     * @return Float    * @throws ParseException    */
+comment|/**    * Parse a float.    *     * @return Float    */
 DECL|method|parseFloat
 specifier|public
 name|Float
@@ -582,7 +582,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**    * Parse a Double    * @return double    * @throws ParseException    */
+comment|/**    * Parse a Double    * @return double    */
 DECL|method|parseDouble
 specifier|public
 name|double
@@ -625,7 +625,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**    * Parse an integer    * @return An int    * @throws ParseException    */
+comment|/**    * Parse an integer    * @return An int    */
 DECL|method|parseInt
 specifier|public
 name|int
@@ -879,7 +879,7 @@ return|return
 name|val
 return|;
 block|}
-comment|/**    * Parse a list of ValueSource.  Must be the final set of arguments    * to a ValueSource.    *     * @return List&lt;ValueSource&gt;    * @throws ParseException    */
+comment|/**    * Parse a list of ValueSource.  Must be the final set of arguments    * to a ValueSource.    *     * @return List&lt;ValueSource&gt;    */
 DECL|method|parseValueSourceList
 specifier|public
 name|List
@@ -927,7 +927,7 @@ return|return
 name|sources
 return|;
 block|}
-comment|/**    * Parse an individual ValueSource.    *     * @throws ParseException    */
+comment|/**    * Parse an individual ValueSource.    */
 DECL|method|parseValueSource
 specifier|public
 name|ValueSource
@@ -944,7 +944,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**    * TODO: Doc    *     * @throws ParseException    */
+comment|/*    * TODO: Doc    */
 DECL|method|parseNestedQuery
 specifier|public
 name|Query
@@ -1163,7 +1163,7 @@ return|return
 name|nestedQuery
 return|;
 block|}
-comment|/**    * Parse an individual value source.    *     * @param doConsumeDelimiter whether to consume a delimiter following the ValueSource      * @throws ParseException    */
+comment|/**    * Parse an individual value source.    *     * @param doConsumeDelimiter whether to consume a delimiter following the ValueSource      */
 DECL|method|parseValueSource
 specifier|protected
 name|ValueSource
@@ -1581,7 +1581,7 @@ return|return
 name|valueSource
 return|;
 block|}
-comment|/**    * Consume an argument delimiter (a comma) from the token stream.    * Only consumes if more arguments should exist (no ending parens or end of string).    *     * @return whether a delimiter was consumed    * @throws ParseException    */
+comment|/**    * Consume an argument delimiter (a comma) from the token stream.    * Only consumes if more arguments should exist (no ending parens or end of string).    *     * @return whether a delimiter was consumed    */
 DECL|method|consumeArgumentDelimiter
 specifier|protected
 name|boolean

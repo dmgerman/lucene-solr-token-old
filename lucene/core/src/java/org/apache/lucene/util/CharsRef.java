@@ -876,7 +876,7 @@ name|end
 argument_list|)
 return|;
 block|}
-comment|/** @deprecated */
+comment|/** @deprecated This comparator is only a transition mechanism */
 annotation|@
 name|Deprecated
 DECL|field|utf16SortedAsUTF8SortOrder
@@ -910,7 +910,7 @@ return|return
 name|utf16SortedAsUTF8SortOrder
 return|;
 block|}
-comment|/** @deprecated */
+comment|/** @deprecated This comparator is only a transition mechanism */
 annotation|@
 name|Deprecated
 DECL|class|UTF16SortedAsUTF8Comparator

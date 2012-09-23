@@ -377,7 +377,6 @@ return|return
 name|fixedRes
 return|;
 block|}
-comment|/**    * @see FacetsAccumulator#getComplementThreshold()    */
 annotation|@
 name|Override
 DECL|method|getComplementThreshold
@@ -393,7 +392,6 @@ name|getComplementThreshold
 argument_list|()
 return|;
 block|}
-comment|/**    * @param complementThreshold    * @see FacetsAccumulator#setComplementThreshold(double)    */
 annotation|@
 name|Override
 DECL|method|setComplementThreshold

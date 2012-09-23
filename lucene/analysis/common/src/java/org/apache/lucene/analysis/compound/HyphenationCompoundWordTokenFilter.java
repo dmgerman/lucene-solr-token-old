@@ -316,7 +316,7 @@ name|DEFAULT_MAX_SUBWORD_SIZE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Create a hyphenator tree    *     * @param hyphenationFilename the filename of the XML grammar to load    * @return An object representing the hyphenation patterns    * @throws IOException    */
+comment|/**    * Create a hyphenator tree    *     * @param hyphenationFilename the filename of the XML grammar to load    * @return An object representing the hyphenation patterns    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getHyphenationTree
 specifier|public
 specifier|static
@@ -340,7 +340,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**    * Create a hyphenator tree    *     * @param hyphenationFile the file of the XML grammar to load    * @return An object representing the hyphenation patterns    * @throws IOException    */
+comment|/**    * Create a hyphenator tree    *     * @param hyphenationFile the file of the XML grammar to load    * @return An object representing the hyphenation patterns    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getHyphenationTree
 specifier|public
 specifier|static
@@ -370,7 +370,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**    * Create a hyphenator tree    *     * @param hyphenationSource the InputSource pointing to the XML grammar    * @return An object representing the hyphenation patterns    * @throws IOException    */
+comment|/**    * Create a hyphenator tree    *     * @param hyphenationSource the InputSource pointing to the XML grammar    * @return An object representing the hyphenation patterns    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getHyphenationTree
 specifier|public
 specifier|static

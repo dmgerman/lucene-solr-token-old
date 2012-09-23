@@ -3131,7 +3131,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**    * Returns the first document number containing the term<code>t</code>    * Returns -1 if no document was found.    * This method is primarily intended for clients that want to fetch    * documents using a unique identifier."    * @param t    * @return the first document number containing the term    */
+comment|/**    * Returns the first document number containing the term<code>t</code>    * Returns -1 if no document was found.    * This method is primarily intended for clients that want to fetch    * documents using a unique identifier."    * @return the first document number containing the term    */
 DECL|method|getFirstMatch
 specifier|public
 name|int
@@ -5574,7 +5574,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**    * Returns the set of document ids matching both the query and the filter.    * This method is cache-aware and attempts to retrieve the answer from the cache if possible.    * If the answer was not cached, it may have been inserted into the cache as a result of this call.    *<p>    *    * @param query    * @param filter may be null    * @return DocSet meeting the specified criteria, should<b>not</b> be modified by the caller.    */
+comment|/**    * Returns the set of document ids matching both the query and the filter.    * This method is cache-aware and attempts to retrieve the answer from the cache if possible.    * If the answer was not cached, it may have been inserted into the cache as a result of this call.    *<p>    *    * @param filter may be null    * @return DocSet meeting the specified criteria, should<b>not</b> be modified by the caller.    */
 DECL|method|getDocSet
 specifier|public
 name|DocSet
@@ -5767,7 +5767,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>.    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *    * @param query    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocList meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
+comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>.    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocList meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getDocList
 specifier|public
 name|DocList
@@ -5846,7 +5846,7 @@ name|getDocList
 argument_list|()
 return|;
 block|}
-comment|/**    * Returns documents matching both<code>query</code> and the     * intersection of the<code>filterList</code>, sorted by<code>sort</code>.    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *    * @param query    * @param filterList may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocList meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
+comment|/**    * Returns documents matching both<code>query</code> and the     * intersection of the<code>filterList</code>, sorted by<code>sort</code>.    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *    * @param filterList may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocList meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getDocList
 specifier|public
 name|DocList
@@ -8357,7 +8357,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>.    * FUTURE: The returned DocList may be retrieved from a cache.    *    * @param query    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocList meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
+comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>.    * FUTURE: The returned DocList may be retrieved from a cache.    *    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocList meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getDocList
 specifier|public
 name|DocList
@@ -8436,7 +8436,7 @@ name|getDocList
 argument_list|()
 return|;
 block|}
-comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>.  Also returns the complete set of documents    * matching<code>query</code> and<code>filter</code> (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param query    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
+comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>.  Also returns the complete set of documents    * matching<code>query</code> and<code>filter</code> (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getDocListAndSet
 specifier|public
 name|DocListAndSet
@@ -8520,7 +8520,7 @@ name|getDocListAndSet
 argument_list|()
 return|;
 block|}
-comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>.  Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code> (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param query    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @param flags    user supplied flags for the result set    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
+comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>.  Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code> (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @param flags    user supplied flags for the result set    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getDocListAndSet
 specifier|public
 name|DocListAndSet
@@ -8612,7 +8612,7 @@ name|getDocListAndSet
 argument_list|()
 return|;
 block|}
-comment|/**    * Returns documents matching both<code>query</code> and the intersection     * of<code>filterList</code>, sorted by<code>sort</code>.      * Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code>     * (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param query    * @param filterList   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
+comment|/**    * Returns documents matching both<code>query</code> and the intersection     * of<code>filterList</code>, sorted by<code>sort</code>.      * Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code>     * (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param filterList   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getDocListAndSet
 specifier|public
 name|DocListAndSet
@@ -8699,7 +8699,7 @@ name|getDocListAndSet
 argument_list|()
 return|;
 block|}
-comment|/**    * Returns documents matching both<code>query</code> and the intersection     * of<code>filterList</code>, sorted by<code>sort</code>.      * Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code>     * (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param query    * @param filterList   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @param flags    user supplied flags for the result set    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
+comment|/**    * Returns documents matching both<code>query</code> and the intersection     * of<code>filterList</code>, sorted by<code>sort</code>.      * Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code>     * (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may retrieve<code>filter</code> from    * the cache or make an insertion into the cache as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param filterList   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @param flags    user supplied flags for the result set    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getDocListAndSet
 specifier|public
 name|DocListAndSet
@@ -8794,7 +8794,7 @@ name|getDocListAndSet
 argument_list|()
 return|;
 block|}
-comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>. Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code> (regardless of<code>offset</code> and<code>len</code>).    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *    * @param query    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
+comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>. Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code> (regardless of<code>offset</code> and<code>len</code>).    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getDocListAndSet
 specifier|public
 name|DocListAndSet
@@ -8878,7 +8878,7 @@ name|getDocListAndSet
 argument_list|()
 return|;
 block|}
-comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>.  Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code> (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may make an insertion into the cache     * as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param query    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @param flags    user supplied flags for the result set    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException    */
+comment|/**    * Returns documents matching both<code>query</code> and<code>filter</code>    * and sorted by<code>sort</code>.  Also returns the compete set of documents    * matching<code>query</code> and<code>filter</code> (regardless of<code>offset</code> and<code>len</code>).    *<p>    * This method is cache aware and may make an insertion into the cache     * as a result of this call.    *<p>    * FUTURE: The returned DocList may be retrieved from a cache.    *<p>    * The DocList and DocSet returned should<b>not</b> be modified.    *    * @param filter   may be null    * @param lsort    criteria by which to sort (if null, query relevance is used)    * @param offset   offset into the list of documents to return    * @param len      maximum number of documents to return    * @param flags    user supplied flags for the result set    * @return DocListAndSet meeting the specified criteria, should<b>not</b> be modified by the caller.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getDocListAndSet
 specifier|public
 name|DocListAndSet
@@ -9232,7 +9232,7 @@ literal|0.0f
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns the number of documents that match both<code>a</code> and<code>b</code>.    *<p>    * This method is cache-aware and may check as well as modify the cache.    *    * @param a    * @param b    * @return the numer of documents in the intersection between<code>a</code> and<code>b</code>.    * @throws IOException    */
+comment|/**    * Returns the number of documents that match both<code>a</code> and<code>b</code>.    *<p>    * This method is cache-aware and may check as well as modify the cache.    *    * @return the number of documents in the intersection between<code>a</code> and<code>b</code>.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|numDocs
 specifier|public
 name|int
@@ -9353,7 +9353,7 @@ index|[]
 name|scratch
 decl_stmt|;
 block|}
-comment|/**    * Returns the number of documents that match both<code>a</code> and<code>b</code>.    *<p>    * This method is cache-aware and may check as well as modify the cache.    *    * @param a    * @param b    * @return the numer of documents in the intersection between<code>a</code> and<code>b</code>.    * @throws IOException    */
+comment|/**    * Returns the number of documents that match both<code>a</code> and<code>b</code>.    *<p>    * This method is cache-aware and may check as well as modify the cache.    *    * @return the number of documents in the intersection between<code>a</code> and<code>b</code>.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|numDocs
 specifier|public
 name|int

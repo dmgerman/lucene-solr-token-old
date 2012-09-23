@@ -247,7 +247,7 @@ name|CategoryParentsStreamTest
 extends|extends
 name|CategoryContainerTestBase
 block|{
-comment|/**    * Verifies that a {@link CategoryParentsStream} can be constructed from    * {@link CategoryAttributesStream} and produces the correct number of    * tokens with default facet indexing params.    *     * @throws IOException    */
+comment|/**    * Verifies that a {@link CategoryParentsStream} can be constructed from    * {@link CategoryAttributesStream} and produces the correct number of    * tokens with default facet indexing params.    */
 annotation|@
 name|Test
 DECL|method|testStreamDefaultParams
@@ -332,7 +332,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Verifies that a {@link CategoryParentsStream} can be constructed from    * {@link CategoryAttributesStream} and produces the correct number of    * tokens with non top level facet indexing params.    *     * @throws IOException    */
+comment|/**    * Verifies that a {@link CategoryParentsStream} can be constructed from    * {@link CategoryAttributesStream} and produces the correct number of    * tokens with non top level facet indexing params.    */
 annotation|@
 name|Test
 DECL|method|testStreamNonTopLevelParams
@@ -451,7 +451,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Verifies the correctness when no attributes in parents are retained in    * {@link CategoryParentsStream}.    *     * @throws IOException    * @throws FacetException     */
+comment|/**    * Verifies the correctness when no attributes in parents are retained in    * {@link CategoryParentsStream}.    */
 annotation|@
 name|Test
 DECL|method|testNoRetainableAttributes
@@ -581,7 +581,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Verifies the correctness when attributes in parents are retained in    * {@link CategoryParentsStream}.    *     * @throws IOException    * @throws FacetException     */
+comment|/**    * Verifies the correctness when attributes in parents are retained in    * {@link CategoryParentsStream}.    */
 annotation|@
 name|Test
 DECL|method|testRetainableAttributes

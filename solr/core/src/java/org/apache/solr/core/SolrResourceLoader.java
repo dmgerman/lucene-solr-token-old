@@ -1616,7 +1616,7 @@ return|return
 name|is
 return|;
 block|}
-comment|/**    * Accesses a resource by name and returns the (non comment) lines    * containing data.    *    *<p>    * A comment line is any line that starts with the character "#"    *</p>    *    * @param resource    * @return a list of non-blank non-comment lines with whitespace trimmed    * from front and back.    * @throws IOException    */
+comment|/**    * Accesses a resource by name and returns the (non comment) lines    * containing data.    *    *<p>    * A comment line is any line that starts with the character "#"    *</p>    *    * @return a list of non-blank non-comment lines with whitespace trimmed    * from front and back.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getLines
 specifier|public
 name|List
@@ -1640,7 +1640,7 @@ name|UTF_8
 argument_list|)
 return|;
 block|}
-comment|/**    * Accesses a resource by name and returns the (non comment) lines containing    * data using the given character encoding.    *    *<p>    * A comment line is any line that starts with the character "#"    *</p>    *    * @param resource the file to be read    * @param encoding    * @return a list of non-blank non-comment lines with whitespace trimmed    * @throws IOException    */
+comment|/**    * Accesses a resource by name and returns the (non comment) lines containing    * data using the given character encoding.    *    *<p>    * A comment line is any line that starts with the character "#"    *</p>    *    * @param resource the file to be read    * @return a list of non-blank non-comment lines with whitespace trimmed    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|getLines
 specifier|public
 name|List

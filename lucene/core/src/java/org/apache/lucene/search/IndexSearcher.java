@@ -806,7 +806,7 @@ name|filter
 argument_list|)
 return|;
 block|}
-comment|/** Finds the top<code>n</code>    * hits for<code>query</code> where all results are after a previous     * result (<code>after</code>).    *<p>    * By passing the bottom result from a previous page as<code>after</code>,    * this method can be used for efficient 'deep-paging' across potentially    * large result sets.    *    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Finds the top<code>n</code>    * hits for<code>query</code> where all results are after a previous     * result (<code>after</code>).    *<p>    * By passing the bottom result from a previous page as<code>after</code>,    * this method can be used for efficient 'deep-paging' across potentially    * large result sets.    *    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|searchAfter
 specifier|public
 name|TopDocs
@@ -838,7 +838,7 @@ name|n
 argument_list|)
 return|;
 block|}
-comment|/** Finds the top<code>n</code>    * hits for<code>query</code>, applying<code>filter</code> if non-null,    * where all results are after a previous result (<code>after</code>).    *<p>    * By passing the bottom result from a previous page as<code>after</code>,    * this method can be used for efficient 'deep-paging' across potentially    * large result sets.    *    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Finds the top<code>n</code>    * hits for<code>query</code>, applying<code>filter</code> if non-null,    * where all results are after a previous result (<code>after</code>).    *<p>    * By passing the bottom result from a previous page as<code>after</code>,    * this method can be used for efficient 'deep-paging' across potentially    * large result sets.    *    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|searchAfter
 specifier|public
 name|TopDocs
@@ -878,7 +878,7 @@ name|n
 argument_list|)
 return|;
 block|}
-comment|/** Finds the top<code>n</code>    * hits for<code>query</code>.    *    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Finds the top<code>n</code>    * hits for<code>query</code>.    *    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|public
 name|TopDocs
@@ -904,7 +904,7 @@ name|n
 argument_list|)
 return|;
 block|}
-comment|/** Finds the top<code>n</code>    * hits for<code>query</code>, applying<code>filter</code> if non-null.    *    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Finds the top<code>n</code>    * hits for<code>query</code>, applying<code>filter</code> if non-null.    *    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|public
 name|TopDocs
@@ -941,7 +941,7 @@ name|n
 argument_list|)
 return|;
 block|}
-comment|/** Lower-level search API.    *    *<p>{@link Collector#collect(int)} is called for every matching    * document.    *    * @param query to match documents    * @param filter if non-null, used to permit documents to be collected.    * @param results to receive hits    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Lower-level search API.    *    *<p>{@link Collector#collect(int)} is called for every matching    * document.    *    * @param query to match documents    * @param filter if non-null, used to permit documents to be collected.    * @param results to receive hits    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|public
 name|void
@@ -977,7 +977,7 @@ name|results
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Lower-level search API.   *   *<p>{@link Collector#collect(int)} is called for every matching document.   *   * @throws BooleanQuery.TooManyClauses   */
+comment|/** Lower-level search API.    *    *<p>{@link Collector#collect(int)} is called for every matching document.    *    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|public
 name|void
@@ -1005,7 +1005,7 @@ name|results
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Search implementation with arbitrary sorting.  Finds    * the top<code>n</code> hits for<code>query</code>, applying    *<code>filter</code> if non-null, and sorting the hits by the criteria in    *<code>sort</code>.    *     *<p>NOTE: this does not compute scores by default; use    * {@link IndexSearcher#search(Query,Filter,int,Sort,boolean,boolean)} to    * control scoring.    *    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Search implementation with arbitrary sorting.  Finds    * the top<code>n</code> hits for<code>query</code>, applying    *<code>filter</code> if non-null, and sorting the hits by the criteria in    *<code>sort</code>.    *     *<p>NOTE: this does not compute scores by default; use    * {@link IndexSearcher#search(Query,Filter,int,Sort,boolean,boolean)} to    * control scoring.    *    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|public
 name|TopFieldDocs
@@ -1049,7 +1049,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/** Search implementation with arbitrary sorting, plus    * control over whether hit scores and max score    * should be computed.  Finds    * the top<code>n</code> hits for<code>query</code>, applying    *<code>filter</code> if non-null, and sorting the hits by the criteria in    *<code>sort</code>.  If<code>doDocScores</code> is<code>true</code>    * then the score of each hit will be computed and    * returned.  If<code>doMaxScore</code> is    *<code>true</code> then the maximum score over all    * collected hits will be computed.    *     * @throws BooleanQuery.TooManyClauses    */
+comment|/** Search implementation with arbitrary sorting, plus    * control over whether hit scores and max score    * should be computed.  Finds    * the top<code>n</code> hits for<code>query</code>, applying    *<code>filter</code> if non-null, and sorting the hits by the criteria in    *<code>sort</code>.  If<code>doDocScores</code> is<code>true</code>    * then the score of each hit will be computed and    * returned.  If<code>doMaxScore</code> is    *<code>true</code> then the maximum score over all    * collected hits will be computed.    *     * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|public
 name|TopFieldDocs
@@ -1099,7 +1099,7 @@ name|doMaxScore
 argument_list|)
 return|;
 block|}
-comment|/** Finds the top<code>n</code>    * hits for<code>query</code>, applying<code>filter</code> if non-null,    * where all results are after a previous result (<code>after</code>).    *<p>    * By passing the bottom result from a previous page as<code>after</code>,    * this method can be used for efficient 'deep-paging' across potentially    * large result sets.    *    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Finds the top<code>n</code>    * hits for<code>query</code>, applying<code>filter</code> if non-null,    * where all results are after a previous result (<code>after</code>).    *<p>    * By passing the bottom result from a previous page as<code>after</code>,    * this method can be used for efficient 'deep-paging' across potentially    * large result sets.    *    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|searchAfter
 specifier|public
 name|TopDocs
@@ -1179,7 +1179,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**    * Search implementation with arbitrary sorting and no filter.    * @param query The query to search for    * @param n Return only the top n results    * @param sort The {@link org.apache.lucene.search.Sort} object    * @return The top docs, sorted according to the supplied {@link org.apache.lucene.search.Sort} instance    * @throws IOException    */
+comment|/**    * Search implementation with arbitrary sorting and no filter.    * @param query The query to search for    * @param n Return only the top n results    * @param sort The {@link org.apache.lucene.search.Sort} object    * @return The top docs, sorted according to the supplied {@link org.apache.lucene.search.Sort} instance    * @throws IOException if there is a low-level I/O error    */
 DECL|method|search
 specifier|public
 name|TopFieldDocs
@@ -1215,7 +1215,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/** Finds the top<code>n</code>    * hits for<code>query</code> where all results are after a previous     * result (<code>after</code>).    *<p>    * By passing the bottom result from a previous page as<code>after</code>,    * this method can be used for efficient 'deep-paging' across potentially    * large result sets.    *    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Finds the top<code>n</code>    * hits for<code>query</code> where all results are after a previous     * result (<code>after</code>).    *<p>    * By passing the bottom result from a previous page as<code>after</code>,    * this method can be used for efficient 'deep-paging' across potentially    * large result sets.    *    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|searchAfter
 specifier|public
 name|TopDocs
@@ -1287,7 +1287,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/** Finds the top<code>n</code>    * hits for<code>query</code> where all results are after a previous     * result (<code>after</code>), allowing control over    * whether hit scores and max score should be computed.    *<p>    * By passing the bottom result from a previous page as<code>after</code>,    * this method can be used for efficient 'deep-paging' across potentially    * large result sets.  If<code>doDocScores</code> is<code>true</code>    * then the score of each hit will be computed and    * returned.  If<code>doMaxScore</code> is    *<code>true</code> then the maximum score over all    * collected hits will be computed.    *    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Finds the top<code>n</code>    * hits for<code>query</code> where all results are after a previous     * result (<code>after</code>), allowing control over    * whether hit scores and max score should be computed.    *<p>    * By passing the bottom result from a previous page as<code>after</code>,    * this method can be used for efficient 'deep-paging' across potentially    * large result sets.  If<code>doDocScores</code> is<code>true</code>    * then the score of each hit will be computed and    * returned.  If<code>doMaxScore</code> is    *<code>true</code> then the maximum score over all    * collected hits will be computed.    *    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|searchAfter
 specifier|public
 name|TopDocs
@@ -1373,7 +1373,7 @@ name|doMaxScore
 argument_list|)
 return|;
 block|}
-comment|/** Expert: Low-level search implementation.  Finds the top<code>n</code>    * hits for<code>query</code>, applying<code>filter</code> if non-null.    *    *<p>Applications should usually call {@link IndexSearcher#search(Query,int)} or    * {@link IndexSearcher#search(Query,Filter,int)} instead.    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Expert: Low-level search implementation.  Finds the top<code>n</code>    * hits for<code>query</code>, applying<code>filter</code> if non-null.    *    *<p>Applications should usually call {@link IndexSearcher#search(Query,int)} or    * {@link IndexSearcher#search(Query,Filter,int)} instead.    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|protected
 name|TopDocs
@@ -1603,7 +1603,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Expert: Low-level search implementation.  Finds the top<code>n</code>    * hits for<code>query</code>.    *    *<p>Applications should usually call {@link IndexSearcher#search(Query,int)} or    * {@link IndexSearcher#search(Query,Filter,int)} instead.    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Expert: Low-level search implementation.  Finds the top<code>n</code>    * hits for<code>query</code>.    *    *<p>Applications should usually call {@link IndexSearcher#search(Query,int)} or    * {@link IndexSearcher#search(Query,Filter,int)} instead.    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|protected
 name|TopDocs
@@ -1693,7 +1693,7 @@ name|topDocs
 argument_list|()
 return|;
 block|}
-comment|/** Expert: Low-level search implementation with arbitrary    * sorting and control over whether hit scores and max    * score should be computed.  Finds    * the top<code>n</code> hits for<code>query</code> and sorting the hits    * by the criteria in<code>sort</code>.    *    *<p>Applications should usually call {@link    * IndexSearcher#search(Query,Filter,int,Sort)} instead.    *     * @throws BooleanQuery.TooManyClauses    */
+comment|/** Expert: Low-level search implementation with arbitrary    * sorting and control over whether hit scores and max    * score should be computed.  Finds    * the top<code>n</code> hits for<code>query</code> and sorting the hits    * by the criteria in<code>sort</code>.    *    *<p>Applications should usually call {@link    * IndexSearcher#search(Query,Filter,int,Sort)} instead.    *     * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|protected
 name|TopFieldDocs
@@ -2106,7 +2106,7 @@ name|topDocs
 argument_list|()
 return|;
 block|}
-comment|/**    * Lower-level search API.    *     *<p>    * {@link Collector#collect(int)} is called for every document.<br>    *     *<p>    * NOTE: this method executes the searches on all given leaves exclusively.    * To search across all the searchers leaves use {@link #leafContexts}.    *     * @param leaves     *          the searchers leaves to execute the searches on    * @param weight    *          to match documents    * @param collector    *          to receive hits    * @throws BooleanQuery.TooManyClauses    */
+comment|/**    * Lower-level search API.    *     *<p>    * {@link Collector#collect(int)} is called for every document.<br>    *     *<p>    * NOTE: this method executes the searches on all given leaves exclusively.    * To search across all the searchers leaves use {@link #leafContexts}.    *     * @param leaves     *          the searchers leaves to execute the searches on    * @param weight    *          to match documents    * @param collector    *          to receive hits    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|protected
 name|void
@@ -2189,7 +2189,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** Expert: called to re-write queries into primitive queries.    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Expert: called to re-write queries into primitive queries.    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -2268,7 +2268,7 @@ name|doc
 argument_list|)
 return|;
 block|}
-comment|/** Expert: low-level implementation method    * Returns an Explanation that describes how<code>doc</code> scored against    *<code>weight</code>.    *    *<p>This is intended to be used in developing Similarity implementations,    * and, for good performance, should not be displayed with every hit.    * Computing an explanation is as expensive as executing the query over the    * entire index.    *<p>Applications should call {@link IndexSearcher#explain(Query, int)}.    * @throws BooleanQuery.TooManyClauses    */
+comment|/** Expert: low-level implementation method    * Returns an Explanation that describes how<code>doc</code> scored against    *<code>weight</code>.    *    *<p>This is intended to be used in developing Similarity implementations,    * and, for good performance, should not be displayed with every hit.    * Computing an explanation is as expensive as executing the query over the    * entire index.    *<p>Applications should call {@link IndexSearcher#explain(Query, int)}.    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|explain
 specifier|protected
 name|Explanation

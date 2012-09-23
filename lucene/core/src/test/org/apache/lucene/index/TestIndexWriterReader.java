@@ -1546,7 +1546,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Test using IW.addIndexes    *     * @throws Exception    */
+comment|/**    * Test using IW.addIndexes    */
 DECL|method|testAddIndexes
 specifier|public
 name|void
@@ -2027,7 +2027,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Deletes using IW.deleteDocuments    *     * @throws Exception    */
+comment|/**    * Deletes using IW.deleteDocuments    */
 DECL|method|testDeleteFromIndexWriter
 specifier|public
 name|void

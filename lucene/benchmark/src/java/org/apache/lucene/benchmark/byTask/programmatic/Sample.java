@@ -162,7 +162,6 @@ specifier|public
 class|class
 name|Sample
 block|{
-comment|/**    * @param args    * @throws Exception     * @throws IOException     */
 DECL|method|main
 specifier|public
 specifier|static

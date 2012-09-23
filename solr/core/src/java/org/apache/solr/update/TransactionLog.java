@@ -2783,7 +2783,7 @@ name|startingPos
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Returns the next object from the log, or null if none available.      *      * @return The log record, or null if EOF      * @throws IOException      */
+comment|/** Returns the next object from the log, or null if none available.      *      * @return The log record, or null if EOF      * @throws IOException If there is a low-level I/O error.      */
 DECL|method|next
 specifier|public
 name|Object
@@ -3110,7 +3110,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/** Returns the next object from the log, or null if none available.      *      * @return The log record, or null if EOF      * @throws IOException      */
+comment|/** Returns the next object from the log, or null if none available.      *      * @return The log record, or null if EOF      * @throws IOException If there is a low-level I/O error.      */
 DECL|method|next
 specifier|public
 name|Object

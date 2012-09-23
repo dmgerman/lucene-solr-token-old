@@ -203,7 +203,7 @@ specifier|private
 name|String
 name|algorithmText
 decl_stmt|;
-comment|/**    * Read both algorithm and config properties.    *    * @param algReader from where to read algorithm and config properties.    * @throws IOException    */
+comment|/**    * Read both algorithm and config properties.    *    * @param algReader from where to read algorithm and config properties.    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|Config
 specifier|public
 name|Config
@@ -784,7 +784,7 @@ name|length
 index|]
 return|;
 block|}
-comment|/**    * Set a property.    * Note: once a multiple values property is set, it can no longer be modified.    *    * @param name  name of property.    * @param value either single or multiple property value (multiple values are separated by ":")    * @throws Exception    */
+comment|/**    * Set a property.    * Note: once a multiple values property is set, it can no longer be modified.    *    * @param name  name of property.    * @param value either single or multiple property value (multiple values are separated by ":")    */
 DECL|method|set
 specifier|public
 name|void

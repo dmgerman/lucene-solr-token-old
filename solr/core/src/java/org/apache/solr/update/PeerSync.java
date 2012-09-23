@@ -938,7 +938,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    *    * @param core    * @param replicas    * @param nUpdates    */
 DECL|method|PeerSync
 specifier|public
 name|PeerSync

@@ -135,7 +135,6 @@ specifier|protected
 name|StringDistance
 name|dist
 decl_stmt|;
-comment|/**    * @param str1    * @param str2    * @param measure    */
 DECL|method|StringDistanceFunction
 specifier|public
 name|StringDistanceFunction

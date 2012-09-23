@@ -957,7 +957,7 @@ name|length
 return|;
 block|}
 block|}
-comment|/** @deprecated */
+comment|/** @deprecated This comparator is only a transition mechanism */
 annotation|@
 name|Deprecated
 DECL|field|utf8SortedAsUTF16SortOrder
@@ -991,7 +991,7 @@ return|return
 name|utf8SortedAsUTF16SortOrder
 return|;
 block|}
-comment|/** @deprecated */
+comment|/** @deprecated This comparator is only a transition mechanism */
 annotation|@
 name|Deprecated
 DECL|class|UTF8SortedAsUTF16Comparator

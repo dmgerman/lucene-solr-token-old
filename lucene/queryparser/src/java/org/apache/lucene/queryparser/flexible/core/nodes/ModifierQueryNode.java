@@ -506,7 +506,6 @@ return|return
 name|clone
 return|;
 block|}
-comment|/**    * @param child    */
 DECL|method|setChild
 specifier|public
 name|void

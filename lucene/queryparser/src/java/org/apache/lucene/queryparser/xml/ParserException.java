@@ -30,7 +30,6 @@ name|ParserException
 extends|extends
 name|Exception
 block|{
-comment|/**    *    */
 DECL|method|ParserException
 specifier|public
 name|ParserException
@@ -40,7 +39,6 @@ name|super
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * @param message    */
 DECL|method|ParserException
 specifier|public
 name|ParserException
@@ -55,7 +53,6 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * @param message    * @param cause    */
 DECL|method|ParserException
 specifier|public
 name|ParserException
@@ -75,7 +72,6 @@ name|cause
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * @param cause    */
 DECL|method|ParserException
 specifier|public
 name|ParserException

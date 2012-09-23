@@ -1580,7 +1580,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**    * Execute this algorithm    * @throws Exception     */
+comment|/**    * Execute this algorithm    */
 DECL|method|execute
 specifier|public
 name|void

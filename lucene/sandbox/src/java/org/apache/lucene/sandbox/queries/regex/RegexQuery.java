@@ -182,7 +182,6 @@ return|return
 name|term
 return|;
 block|}
-comment|/**    * Defines which {@link RegexCapabilities} implementation is used by this instance.    *    * @param impl    */
 DECL|method|setRegexImplementation
 specifier|public
 name|void
@@ -199,7 +198,6 @@ operator|=
 name|impl
 expr_stmt|;
 block|}
-comment|/**    * @return The implementation used by this instance.    */
 DECL|method|getRegexImplementation
 specifier|public
 name|RegexCapabilities

@@ -84,7 +84,7 @@ specifier|public
 interface|interface
 name|QueryNodeProcessor
 block|{
-comment|/**    * Processes a query node tree. It may return the same or another query tree.    * I should never return<code>null</code>.    *     * @param queryTree    *          tree root node    *     * @return the processed query tree    *     * @throws QueryNodeException    */
+comment|/**    * Processes a query node tree. It may return the same or another query tree.    * I should never return<code>null</code>.    *     * @param queryTree    *          tree root node    *     * @return the processed query tree    */
 DECL|method|process
 specifier|public
 name|QueryNode
@@ -96,7 +96,7 @@ parameter_list|)
 throws|throws
 name|QueryNodeException
 function_decl|;
-comment|/**    * Sets the {@link QueryConfigHandler} associated to the query tree.    *     * @param queryConfigHandler    */
+comment|/**    * Sets the {@link QueryConfigHandler} associated to the query tree.    */
 DECL|method|setQueryConfigHandler
 specifier|public
 name|void

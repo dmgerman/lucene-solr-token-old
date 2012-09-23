@@ -78,7 +78,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/** Set the properties     * @throws Exception */
+comment|/** Set the properties */
 DECL|method|setConfig
 specifier|public
 name|void

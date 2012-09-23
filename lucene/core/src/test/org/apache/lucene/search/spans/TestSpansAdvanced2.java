@@ -339,7 +339,7 @@ name|tearDown
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Verifies that the index has the correct number of documents.    *     * @throws Exception    */
+comment|/**    * Verifies that the index has the correct number of documents.    */
 DECL|method|testVerifyIndex
 specifier|public
 name|void
@@ -375,7 +375,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**    * Tests a single span query that matches multiple documents.    *     * @throws IOException    */
+comment|/**    * Tests a single span query that matches multiple documents.    */
 DECL|method|testSingleSpanQuery
 specifier|public
 name|void
@@ -462,7 +462,7 @@ name|expectedScores
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Tests a single span query that matches multiple documents.    *     * @throws IOException    */
+comment|/**    * Tests a single span query that matches multiple documents.    */
 DECL|method|testMultipleDifferentSpanQueries
 specifier|public
 name|void
@@ -581,7 +581,7 @@ name|expectedScores
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Tests two span queries.    *     * @throws IOException    */
+comment|/**    * Tests two span queries.    */
 annotation|@
 name|Override
 DECL|method|testBooleanQueryWithSpanQueries

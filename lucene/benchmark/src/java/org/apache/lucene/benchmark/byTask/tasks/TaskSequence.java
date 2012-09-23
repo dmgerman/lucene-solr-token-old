@@ -528,7 +528,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**    * @param repetitions The repetitions to set.    * @throws Exception     */
+comment|/**    * @param repetitions The repetitions to set.    */
 DECL|method|setRepetitions
 specifier|public
 name|void

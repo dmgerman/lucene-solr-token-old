@@ -303,7 +303,7 @@ name|srndQuery
 argument_list|)
 return|;
 block|}
-comment|/** @throws UnsupportedOperationException */
+comment|/**     * Not supported by this query.    * @throws UnsupportedOperationException always: clone is not supported. */
 annotation|@
 name|Override
 DECL|method|clone

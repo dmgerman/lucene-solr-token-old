@@ -445,7 +445,7 @@ name|NamedList
 name|args
 parameter_list|)
 block|{}
-comment|/**    * Parse the user input into a ValueSource.    *    * @param fp    * @throws ParseException    */
+comment|/**    * Parse the user input into a ValueSource.    */
 DECL|method|parse
 specifier|public
 specifier|abstract
