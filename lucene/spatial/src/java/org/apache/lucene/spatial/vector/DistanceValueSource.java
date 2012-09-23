@@ -143,7 +143,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * An implementation of the Lucene ValueSource model that returns the distance.  *  * @lucene.internal  */
+comment|/**  * An implementation of the Lucene ValueSource model that returns the distance  * for a {@link PointVectorStrategy}.  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|DistanceValueSource
