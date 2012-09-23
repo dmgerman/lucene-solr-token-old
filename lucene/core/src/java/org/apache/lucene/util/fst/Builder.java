@@ -1539,6 +1539,25 @@ operator|.
 name|length
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|lastInput
+operator|.
+name|length
+operator|!=
+name|input
+operator|.
+name|length
+operator|||
+name|prefixLenPlus1
+operator|!=
+name|input
+operator|.
+name|length
+operator|+
+literal|1
+condition|)
+block|{
 name|lastNode
 operator|.
 name|isFinal
@@ -1551,6 +1570,7 @@ name|output
 operator|=
 name|NO_OUTPUT
 expr_stmt|;
+block|}
 comment|// push conflicting outputs forward, only as far as
 comment|// needed
 for|for
