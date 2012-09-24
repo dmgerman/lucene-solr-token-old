@@ -748,6 +748,11 @@ name|isClosed
 operator|=
 literal|true
 expr_stmt|;
+name|syncStrategy
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
