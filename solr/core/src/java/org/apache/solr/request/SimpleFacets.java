@@ -434,10 +434,10 @@ class|class
 name|SimpleFacets
 block|{
 comment|/** The main set of documents all facet counts should be relative to */
-DECL|field|docs
+DECL|field|docsOrig
 specifier|protected
 name|DocSet
-name|docs
+name|docsOrig
 decl_stmt|;
 comment|/** Configuration params behavior should be driven by */
 DECL|field|params
@@ -476,26 +476,31 @@ name|facetResponse
 decl_stmt|;
 comment|// per-facet values
 DECL|field|localParams
+specifier|protected
 name|SolrParams
 name|localParams
 decl_stmt|;
 comment|// localParams on this particular facet command
 DECL|field|facetValue
+specifier|protected
 name|String
 name|facetValue
 decl_stmt|;
 comment|// the field to or query to facet on (minus local params)
-DECL|field|base
+DECL|field|docs
+specifier|protected
 name|DocSet
-name|base
+name|docs
 decl_stmt|;
 comment|// the base docset for this particular facet
 DECL|field|key
+specifier|protected
 name|String
 name|key
 decl_stmt|;
 comment|// what name should the results be stored under
 DECL|field|threads
+specifier|protected
 name|int
 name|threads
 decl_stmt|;
@@ -559,11 +564,11 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|base
+name|docs
 operator|=
 name|this
 operator|.
-name|docs
+name|docsOrig
 operator|=
 name|docs
 expr_stmt|;
@@ -591,6 +596,7 @@ name|rb
 expr_stmt|;
 block|}
 DECL|method|parseParams
+specifier|protected
 name|void
 name|parseParams
 parameter_list|(
@@ -619,9 +625,9 @@ name|getParams
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|base
-operator|=
 name|docs
+operator|=
+name|docsOrig
 expr_stmt|;
 name|facetValue
 operator|=
@@ -1094,7 +1100,7 @@ else|else
 block|{
 name|this
 operator|.
-name|base
+name|docs
 operator|=
 name|base
 expr_stmt|;
@@ -1161,7 +1167,7 @@ argument_list|()
 decl_stmt|;
 name|this
 operator|.
-name|base
+name|docs
 operator|=
 operator|new
 name|BitDocSet
@@ -1182,14 +1188,14 @@ else|else
 block|{
 name|this
 operator|.
-name|base
+name|docs
 operator|=
 name|base
 expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**    * Looks at various Params to determing if any simple Facet Constraint count    * computations are desired.    *    * @see #getFacetQueryCounts    * @see #getFacetFieldCounts    * @see #getFacetDateCounts    * @see #getFacetRangeCounts    * @see FacetParams#FACET    * @return a NamedList of Facet Count info or null    */
+comment|/**    * Looks at various Params to determining if any simple Facet Constraint count    * computations are desired.    *    * @see #getFacetQueryCounts    * @see #getFacetFieldCounts    * @see #getFacetDateCounts    * @see #getFacetRangeCounts    * @see FacetParams#FACET    * @return a NamedList of Facet Count info or null    */
 DECL|method|getFacetCounts
 specifier|public
 name|NamedList
@@ -1440,7 +1446,7 @@ name|numDocs
 argument_list|(
 name|qobj
 argument_list|,
-name|base
+name|docs
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1521,7 +1527,7 @@ decl_stmt|;
 name|Filter
 name|mainQueryFilter
 init|=
-name|docs
+name|docsOrig
 operator|.
 name|getTopFilter
 argument_list|()
@@ -1857,7 +1863,7 @@ name|getGroupedCounts
 argument_list|(
 name|searcher
 argument_list|,
-name|base
+name|docs
 argument_list|,
 name|field
 argument_list|,
@@ -1891,7 +1897,7 @@ name|getFacetTermEnumCounts
 argument_list|(
 name|searcher
 argument_list|,
-name|base
+name|docs
 argument_list|,
 name|field
 argument_list|,
@@ -1936,7 +1942,7 @@ name|getCounts
 argument_list|(
 name|searcher
 argument_list|,
-name|base
+name|docs
 argument_list|,
 name|offset
 argument_list|,
@@ -1969,7 +1975,7 @@ name|PerSegmentSingleValuedFaceting
 argument_list|(
 name|searcher
 argument_list|,
-name|base
+name|docs
 argument_list|,
 name|field
 argument_list|,
@@ -2022,7 +2028,7 @@ name|getFieldCacheCounts
 argument_list|(
 name|searcher
 argument_list|,
-name|base
+name|docs
 argument_list|,
 name|field
 argument_list|,
@@ -2617,7 +2623,7 @@ name|internal
 argument_list|)
 argument_list|)
 argument_list|,
-name|base
+name|docs
 argument_list|)
 decl_stmt|;
 name|res
@@ -7074,7 +7080,7 @@ name|numDocs
 argument_list|(
 name|rangeQ
 argument_list|,
-name|base
+name|docs
 argument_list|)
 return|;
 block|}
@@ -7142,7 +7148,7 @@ name|numDocs
 argument_list|(
 name|rangeQ
 argument_list|,
-name|base
+name|docs
 argument_list|)
 return|;
 block|}
