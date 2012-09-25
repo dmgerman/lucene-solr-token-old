@@ -158,9 +158,7 @@ argument_list|()
 decl_stmt|;
 synchronized|synchronized
 init|(
-name|DirectoryFactory
-operator|.
-name|class
+name|this
 init|)
 block|{
 name|CacheValue
