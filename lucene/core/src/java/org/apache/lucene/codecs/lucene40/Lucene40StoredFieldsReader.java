@@ -985,12 +985,6 @@ argument_list|(
 name|info
 argument_list|,
 name|bytes
-argument_list|,
-literal|0
-argument_list|,
-name|bytes
-operator|.
-name|length
 argument_list|)
 expr_stmt|;
 block|}

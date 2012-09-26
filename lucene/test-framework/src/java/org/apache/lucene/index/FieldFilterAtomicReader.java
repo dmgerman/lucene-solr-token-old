@@ -323,12 +323,6 @@ parameter_list|,
 name|byte
 index|[]
 name|value
-parameter_list|,
-name|int
-name|offset
-parameter_list|,
-name|int
-name|length
 parameter_list|)
 throws|throws
 name|IOException
@@ -340,10 +334,6 @@ argument_list|(
 name|fieldInfo
 argument_list|,
 name|value
-argument_list|,
-name|offset
-argument_list|,
-name|length
 argument_list|)
 expr_stmt|;
 block|}
