@@ -15,7 +15,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * A codec that forwards all its method calls to another codec.  *<p>  * Extend this class when you need to reuse the functionality of an existing  * codec. For example, if you want to build a codec that redefines Lucene40's  * {@link LiveDocsFormat}:  *<pre class="prettyprint">  *   public final class CustomCodec extends FilterCodec {  *  *     public CustomCodec() {  *       super("CustomCodec");  *     }  *  *     public Codec delegate() {  *       return Codec.forName("Lucene40");  *     }  *  *     public LiveDocsFormat liveDocsFormat() {  *       return new CustomLiveDocsFormat();  *     }  *  *   }  *</pre>  */
+comment|/**  * A codec that forwards all its method calls to another codec.  *<p>  * Extend this class when you need to reuse the functionality of an existing  * codec. For example, if you want to build a codec that redefines Lucene40's  * {@link LiveDocsFormat}:  *<pre class="prettyprint">  *   public final class CustomCodec extends FilterCodec {  *  *     public CustomCodec() {  *       super("CustomCodec", new Lucene40Codec());  *     }  *  *     public LiveDocsFormat liveDocsFormat() {  *       return new CustomLiveDocsFormat();  *     }  *  *   }  *</pre>  *   *<p><em>Please note:</em> Don't call {@link Codec#forName} from  * the no-arg constructor of your own codec. When the SPI framework  * loads your own Codec as SPI component, SPI has not yet fully initialized!  * If you want to extend another Codec, instantiate it directly by calling  * its constructor.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|FilterCodec
@@ -26,13 +26,22 @@ name|FilterCodec
 extends|extends
 name|Codec
 block|{
+DECL|field|delegate
+specifier|protected
+specifier|final
+name|Codec
+name|delegate
+decl_stmt|;
 comment|/** Sole constructor. */
 DECL|method|FilterCodec
-specifier|public
+specifier|protected
 name|FilterCodec
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|Codec
+name|delegate
 parameter_list|)
 block|{
 name|super
@@ -40,15 +49,13 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**    * Return the codec that is responsible for providing default format    * implementations.    */
-DECL|method|delegate
-specifier|protected
-specifier|abstract
-name|Codec
+name|this
+operator|.
 name|delegate
-parameter_list|()
-function_decl|;
+operator|=
+name|delegate
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|docValuesFormat
@@ -59,7 +66,6 @@ parameter_list|()
 block|{
 return|return
 name|delegate
-argument_list|()
 operator|.
 name|docValuesFormat
 argument_list|()
@@ -75,7 +81,6 @@ parameter_list|()
 block|{
 return|return
 name|delegate
-argument_list|()
 operator|.
 name|fieldInfosFormat
 argument_list|()
@@ -91,7 +96,6 @@ parameter_list|()
 block|{
 return|return
 name|delegate
-argument_list|()
 operator|.
 name|liveDocsFormat
 argument_list|()
@@ -107,7 +111,6 @@ parameter_list|()
 block|{
 return|return
 name|delegate
-argument_list|()
 operator|.
 name|normsFormat
 argument_list|()
@@ -123,7 +126,6 @@ parameter_list|()
 block|{
 return|return
 name|delegate
-argument_list|()
 operator|.
 name|postingsFormat
 argument_list|()
@@ -139,7 +141,6 @@ parameter_list|()
 block|{
 return|return
 name|delegate
-argument_list|()
 operator|.
 name|segmentInfoFormat
 argument_list|()
@@ -155,7 +156,6 @@ parameter_list|()
 block|{
 return|return
 name|delegate
-argument_list|()
 operator|.
 name|storedFieldsFormat
 argument_list|()
@@ -171,7 +171,6 @@ parameter_list|()
 block|{
 return|return
 name|delegate
-argument_list|()
 operator|.
 name|termVectorsFormat
 argument_list|()
