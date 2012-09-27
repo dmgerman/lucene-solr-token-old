@@ -1902,7 +1902,11 @@ name|matchEndOffset
 expr_stmt|;
 name|posLen
 operator|=
+name|keepOrig
+condition|?
 name|matchInputLength
+else|:
+literal|1
 expr_stmt|;
 block|}
 else|else
