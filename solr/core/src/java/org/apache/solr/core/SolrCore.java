@@ -1744,7 +1744,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|warn
+name|info
 argument_list|(
 literal|"New index directory detected: old="
 operator|+
