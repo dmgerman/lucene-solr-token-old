@@ -351,6 +351,21 @@ name|util
 operator|.
 name|automaton
 operator|.
+name|BasicOperations
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|automaton
+operator|.
 name|SpecialOperations
 import|;
 end_import
@@ -989,6 +1004,13 @@ name|getDest
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|a
+operator|.
+name|setDeterministic
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|t
 operator|=
 literal|null
@@ -1027,6 +1049,13 @@ name|t
 operator|.
 name|getDest
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|a
+operator|.
+name|setDeterministic
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 name|t
@@ -2267,11 +2296,9 @@ argument_list|)
 expr_stmt|;
 comment|// TODO: we can optimize this somewhat by determinizing
 comment|// while we convert
-name|automaton
-operator|=
-name|Automaton
+name|BasicOperations
 operator|.
-name|minimize
+name|determinize
 argument_list|(
 name|automaton
 argument_list|)
