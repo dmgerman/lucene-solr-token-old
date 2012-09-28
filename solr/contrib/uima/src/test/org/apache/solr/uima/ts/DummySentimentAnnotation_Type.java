@@ -160,10 +160,10 @@ begin_comment
 comment|/**   * Updated by JCasGen Fri Mar 04 13:08:40 CET 2011  * @generated */
 end_comment
 begin_class
-DECL|class|SentimentAnnotation_Type
+DECL|class|DummySentimentAnnotation_Type
 specifier|public
 class|class
-name|SentimentAnnotation_Type
+name|DummySentimentAnnotation_Type
 extends|extends
 name|Annotation_Type
 block|{
@@ -202,7 +202,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|SentimentAnnotation_Type
+name|DummySentimentAnnotation_Type
 operator|.
 name|this
 operator|.
@@ -213,7 +213,7 @@ comment|// Return eq fs instance if already created
 name|FeatureStructure
 name|fs
 init|=
-name|SentimentAnnotation_Type
+name|DummySentimentAnnotation_Type
 operator|.
 name|this
 operator|.
@@ -234,16 +234,16 @@ block|{
 name|fs
 operator|=
 operator|new
-name|SentimentAnnotation
+name|DummySentimentAnnotation
 argument_list|(
 name|addr
 argument_list|,
-name|SentimentAnnotation_Type
+name|DummySentimentAnnotation_Type
 operator|.
 name|this
 argument_list|)
 expr_stmt|;
-name|SentimentAnnotation_Type
+name|DummySentimentAnnotation_Type
 operator|.
 name|this
 operator|.
@@ -267,11 +267,11 @@ block|}
 else|else
 return|return
 operator|new
-name|SentimentAnnotation
+name|DummySentimentAnnotation
 argument_list|(
 name|addr
 argument_list|,
-name|SentimentAnnotation_Type
+name|DummySentimentAnnotation_Type
 operator|.
 name|this
 argument_list|)
@@ -287,7 +287,7 @@ specifier|static
 name|int
 name|typeIndexID
 init|=
-name|SentimentAnnotation
+name|DummySentimentAnnotation
 operator|.
 name|typeIndexID
 decl_stmt|;
@@ -399,9 +399,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** initialize variables to correspond with Cas Type and Features   * @generated */
-DECL|method|SentimentAnnotation_Type
+DECL|method|DummySentimentAnnotation_Type
 specifier|public
-name|SentimentAnnotation_Type
+name|DummySentimentAnnotation_Type
 parameter_list|(
 name|JCas
 name|jcas
