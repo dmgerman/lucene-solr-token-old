@@ -4279,6 +4279,10 @@ op|'('
 string|"'%s/NOTICE.txt'"
 op|'%'
 name|'unpackPath'
+op|','
+name|'encoding'
+op|'='
+string|"'UTF-8'"
 op|')'
 op|'.'
 name|'read'
@@ -4300,6 +4304,10 @@ op|'('
 string|"'%s/LICENSE.txt'"
 op|'%'
 name|'unpackPath'
+op|','
+name|'encoding'
+op|'='
+string|"'UTF-8'"
 op|')'
 op|'.'
 name|'read'
@@ -4326,6 +4334,10 @@ op|'('
 string|"'%s/NOTICE.txt'"
 op|'%'
 name|'unpackPath'
+op|','
+name|'encoding'
+op|'='
+string|"'UTF-8'"
 op|')'
 op|'.'
 name|'read'
@@ -4347,6 +4359,10 @@ op|'('
 string|"'%s/LICENSE.txt'"
 op|'%'
 name|'unpackPath'
+op|','
+name|'encoding'
+op|'='
+string|"'UTF-8'"
 op|')'
 op|'.'
 name|'read'
