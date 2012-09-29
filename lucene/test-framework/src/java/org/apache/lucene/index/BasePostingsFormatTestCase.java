@@ -745,14 +745,6 @@ name|numManyPositions
 init|=
 literal|0
 decl_stmt|;
-name|totalPostings
-operator|=
-literal|0
-expr_stmt|;
-name|totalPayloadBytes
-operator|=
-literal|0
-expr_stmt|;
 while|while
 condition|(
 name|fieldUpto
@@ -947,10 +939,10 @@ condition|)
 block|{
 comment|// Make at least 1 big term, then maybe (~10%
 comment|// chance) make another:
-comment|// TODO: put multplier back, if we can fix OOMEs:
-comment|//numDocs = RANDOM_MULTIPLIER * _TestUtil.nextInt(random(), 50000, 70000);
 name|numDocs
 operator|=
+name|RANDOM_MULTIPLIER
+operator|*
 name|_TestUtil
 operator|.
 name|nextInt
@@ -999,10 +991,10 @@ condition|)
 block|{
 comment|// Make at least 1 medium term, then maybe (~10%
 comment|// chance) make up to 4 more:
-comment|// TODO: put multplier back, if we can fix OOMEs:
-comment|//numDocs = RANDOM_MULTIPLIER * _TestUtil.nextInt(random(), 3000, 6000);
 name|numDocs
 operator|=
+name|RANDOM_MULTIPLIER
+operator|*
 name|_TestUtil
 operator|.
 name|nextInt
@@ -1303,7 +1295,7 @@ literal|17
 operator|&&
 name|numManyPositions
 operator|<
-literal|10
+literal|5
 condition|)
 block|{
 name|freq
@@ -2258,6 +2250,8 @@ argument_list|(
 operator|new
 name|FlushInfo
 argument_list|(
+literal|1
+operator|+
 name|maxDocID
 argument_list|,
 name|bytes
@@ -5119,8 +5113,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// TODO: turn threads back on!
 if|if
 condition|(
+literal|false
+operator|&&
 name|options
 operator|.
 name|contains
