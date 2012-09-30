@@ -317,6 +317,21 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
+operator|.
+name|SuppressCodecs
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -354,6 +369,14 @@ begin_comment
 comment|/** Tests the codec configuration defined by LuceneTestCase randomly  *  (typically a mix across different fields).  */
 end_comment
 begin_class
+annotation|@
+name|SuppressCodecs
+argument_list|(
+block|{
+literal|"Direct"
+block|}
+argument_list|)
+comment|// Put back once we fix DirectPF's OOMEs
 DECL|class|TestPostingsFormat
 specifier|public
 class|class
