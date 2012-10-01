@@ -1912,6 +1912,7 @@ block|}
 comment|// TODO: we could append the info attributes() to the msg?
 if|if
 condition|(
+operator|!
 name|info
 operator|.
 name|hasDeletions
