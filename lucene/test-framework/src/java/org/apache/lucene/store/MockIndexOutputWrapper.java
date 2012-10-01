@@ -65,6 +65,12 @@ name|first
 init|=
 literal|true
 decl_stmt|;
+DECL|field|rateLimiter
+specifier|private
+specifier|final
+name|RateLimiter
+name|rateLimiter
+decl_stmt|;
 DECL|field|name
 specifier|final
 name|String
@@ -94,6 +100,9 @@ name|delegate
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|RateLimiter
+name|rateLimiter
 parameter_list|)
 block|{
 name|this
@@ -113,6 +122,12 @@ operator|.
 name|delegate
 operator|=
 name|delegate
+expr_stmt|;
+name|this
+operator|.
+name|rateLimiter
+operator|=
+name|rateLimiter
 expr_stmt|;
 block|}
 annotation|@
@@ -283,8 +298,6 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|dir
-operator|.
 name|rateLimiter
 operator|!=
 literal|null
@@ -294,8 +307,6 @@ operator|>=
 literal|1000
 condition|)
 block|{
-name|dir
-operator|.
 name|rateLimiter
 operator|.
 name|pause
