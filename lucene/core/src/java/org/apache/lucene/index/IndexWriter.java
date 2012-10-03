@@ -6770,15 +6770,6 @@ init|=
 name|newSegmentName
 argument_list|()
 decl_stmt|;
-name|String
-name|dsName
-init|=
-name|info
-operator|.
-name|info
-operator|.
-name|name
-decl_stmt|;
 if|if
 condition|(
 name|infoStream
@@ -6806,10 +6797,6 @@ operator|+
 literal|" newName="
 operator|+
 name|newSegName
-operator|+
-literal|" dsName="
-operator|+
-name|dsName
 operator|+
 literal|" info="
 operator|+
@@ -13705,6 +13692,14 @@ block|{
 assert|assert
 name|lastCommitChangeCount
 operator|<=
+name|changeCount
+operator|:
+literal|"lastCommitChangeCount="
+operator|+
+name|lastCommitChangeCount
+operator|+
+literal|" changeCount="
+operator|+
 name|changeCount
 assert|;
 if|if
