@@ -592,6 +592,7 @@ name|void
 name|abort
 parameter_list|()
 block|{
+comment|//System.out.println(Thread.currentThread().getName() + ": now abort seg=" + segmentInfo.name);
 name|hasAborted
 operator|=
 name|aborting

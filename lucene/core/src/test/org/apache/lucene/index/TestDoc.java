@@ -238,6 +238,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|MockDirectoryWrapper
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|TrackingDirectoryWrapper
 import|;
 end_import
@@ -573,6 +586,28 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|directory
+operator|instanceof
+name|MockDirectoryWrapper
+condition|)
+block|{
+comment|// We create unreferenced files (we don't even write
+comment|// a segments file):
+operator|(
+operator|(
+name|MockDirectoryWrapper
+operator|)
+name|directory
+operator|)
+operator|.
+name|setAssertNoUnrefencedFilesOnClose
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 name|IndexWriter
 name|writer
 init|=
@@ -775,6 +810,28 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|directory
+operator|instanceof
+name|MockDirectoryWrapper
+condition|)
+block|{
+comment|// We create unreferenced files (we don't even write
+comment|// a segments file):
+operator|(
+operator|(
+name|MockDirectoryWrapper
+operator|)
+name|directory
+operator|)
+operator|.
+name|setAssertNoUnrefencedFilesOnClose
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 name|writer
 operator|=
 operator|new

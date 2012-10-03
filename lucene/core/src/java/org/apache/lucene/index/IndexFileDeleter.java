@@ -1231,6 +1231,18 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|Matcher
+name|m
+init|=
+name|IndexFileNames
+operator|.
+name|CODEC_FILE_PATTERN
+operator|.
+name|matcher
+argument_list|(
+literal|""
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1256,6 +1268,13 @@ index|[
 name|i
 index|]
 decl_stmt|;
+name|m
+operator|.
+name|reset
+argument_list|(
+name|fileName
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -1303,6 +1322,22 @@ name|IndexFileNames
 operator|.
 name|SEGMENTS_GEN
 argument_list|)
+operator|&&
+operator|(
+name|m
+operator|.
+name|matches
+argument_list|()
+operator|||
+name|fileName
+operator|.
+name|startsWith
+argument_list|(
+name|IndexFileNames
+operator|.
+name|SEGMENTS
+argument_list|)
+operator|)
 condition|)
 block|{
 comment|// Unreferenced file, so remove it
@@ -2190,6 +2225,12 @@ range|:
 name|files
 control|)
 block|{
+comment|// NOTE: it's very unusual yet possible for the
+comment|// refCount to be present and 0: it can happen if you
+comment|// open IW on a crashed index, and it removes a bunch
+comment|// of unref'd files, and then you add new docs / do
+comment|// merging, and it reuses that segment name.
+comment|// TestCrash.testCrashAfterReopen can hit this:
 if|if
 condition|(
 operator|!
@@ -2199,6 +2240,17 @@ name|containsKey
 argument_list|(
 name|fileName
 argument_list|)
+operator|||
+name|refCounts
+operator|.
+name|get
+argument_list|(
+name|fileName
+argument_list|)
+operator|.
+name|count
+operator|==
+literal|0
 condition|)
 block|{
 if|if
