@@ -891,7 +891,7 @@ condition|)
 block|{
 name|fmt
 operator|=
-literal|"<optimize waitSearcher=\"%s\" waitFlush=\"%s\" />"
+literal|"<optimize waitSearcher=\"%s\" />"
 expr_stmt|;
 block|}
 elseif|else
@@ -911,7 +911,7 @@ condition|)
 block|{
 name|fmt
 operator|=
-literal|"<commit waitSearcher=\"%s\" waitFlush=\"%s\" />"
+literal|"<commit waitSearcher=\"%s\" />"
 expr_stmt|;
 block|}
 if|if
