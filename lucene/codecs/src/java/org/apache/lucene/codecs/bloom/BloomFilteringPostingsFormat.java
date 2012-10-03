@@ -793,7 +793,7 @@ condition|)
 block|{
 name|IOUtils
 operator|.
-name|close
+name|closeWhileHandlingException
 argument_list|(
 name|bloomIn
 argument_list|,
