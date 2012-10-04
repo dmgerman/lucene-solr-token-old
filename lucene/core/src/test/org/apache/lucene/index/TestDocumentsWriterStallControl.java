@@ -173,8 +173,6 @@ expr_stmt|;
 name|join
 argument_list|(
 name|waitThreads
-argument_list|,
-literal|10
 argument_list|)
 expr_stmt|;
 comment|// now stall threads and wake them up again
@@ -204,8 +202,6 @@ argument_list|)
 expr_stmt|;
 name|awaitState
 argument_list|(
-literal|100
-argument_list|,
 name|Thread
 operator|.
 name|State
@@ -249,8 +245,6 @@ expr_stmt|;
 name|join
 argument_list|(
 name|waitThreads
-argument_list|,
-literal|500
 argument_list|)
 expr_stmt|;
 block|}
@@ -470,8 +464,6 @@ block|}
 name|join
 argument_list|(
 name|stallThreads
-argument_list|,
-literal|100
 argument_list|)
 expr_stmt|;
 block|}
@@ -1752,9 +1744,6 @@ parameter_list|(
 name|Thread
 index|[]
 name|toJoin
-parameter_list|,
-name|long
-name|timeout
 parameter_list|)
 throws|throws
 name|InterruptedException
@@ -1770,9 +1759,7 @@ block|{
 name|thread
 operator|.
 name|join
-argument_list|(
-name|timeout
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -1845,15 +1832,13 @@ return|return
 name|array
 return|;
 block|}
+comment|/** Waits for all incoming threads to be in wait()    *  methods. */
 DECL|method|awaitState
 specifier|public
 specifier|static
 name|void
 name|awaitState
 parameter_list|(
-name|long
-name|timeout
-parameter_list|,
 name|Thread
 operator|.
 name|State
@@ -1866,24 +1851,9 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-name|long
-name|t
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 while|while
 condition|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-operator|-
-name|t
-operator|<=
-name|timeout
+literal|true
 condition|)
 block|{
 name|boolean
@@ -1948,19 +1918,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|fail
-argument_list|(
-literal|"timed out waiting for state: "
-operator|+
-name|state
-operator|+
-literal|" timeout: "
-operator|+
-name|timeout
-operator|+
-literal|" ms"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|class|Synchronizer
 specifier|private
