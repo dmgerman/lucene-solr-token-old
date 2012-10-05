@@ -161,6 +161,10 @@ name|mem
 argument_list|)
 expr_stmt|;
 assert|assert
+name|valueCount
+operator|==
+literal|0
+operator|||
 name|iterations
 operator|>
 literal|0
