@@ -10759,6 +10759,42 @@ name|info
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+literal|"IW"
+argument_list|)
+condition|)
+block|{
+name|infoStream
+operator|.
+name|message
+argument_list|(
+literal|"IW"
+argument_list|,
+literal|"reject merge "
+operator|+
+name|segString
+argument_list|(
+name|merge
+operator|.
+name|segments
+argument_list|)
+operator|+
+literal|": segment "
+operator|+
+name|segString
+argument_list|(
+name|info
+argument_list|)
+operator|+
+literal|" is already marked for merge"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 literal|false
 return|;
@@ -10774,6 +10810,42 @@ name|info
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+literal|"IW"
+argument_list|)
+condition|)
+block|{
+name|infoStream
+operator|.
+name|message
+argument_list|(
+literal|"IW"
+argument_list|,
+literal|"reject merge "
+operator|+
+name|segString
+argument_list|(
+name|merge
+operator|.
+name|segments
+argument_list|)
+operator|+
+literal|": segment "
+operator|+
+name|segString
+argument_list|(
+name|info
+argument_list|)
+operator|+
+literal|" does not exist in live infos"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 literal|false
 return|;
