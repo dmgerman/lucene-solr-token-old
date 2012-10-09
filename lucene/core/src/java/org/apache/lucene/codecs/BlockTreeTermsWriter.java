@@ -388,6 +388,16 @@ name|TERMS_VERSION_START
 init|=
 literal|0
 decl_stmt|;
+comment|/** Append-only */
+DECL|field|TERMS_VERSION_APPEND_ONLY
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|TERMS_VERSION_APPEND_ONLY
+init|=
+literal|1
+decl_stmt|;
 comment|/** Current terms format. */
 DECL|field|TERMS_VERSION_CURRENT
 specifier|public
@@ -396,7 +406,7 @@ specifier|final
 name|int
 name|TERMS_VERSION_CURRENT
 init|=
-name|TERMS_VERSION_START
+name|TERMS_VERSION_APPEND_ONLY
 decl_stmt|;
 comment|/** Extension of terms index file */
 DECL|field|TERMS_INDEX_EXTENSION
@@ -425,6 +435,16 @@ name|TERMS_INDEX_VERSION_START
 init|=
 literal|0
 decl_stmt|;
+comment|/** Append-only */
+DECL|field|TERMS_INDEX_VERSION_APPEND_ONLY
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|TERMS_INDEX_VERSION_APPEND_ONLY
+init|=
+literal|1
+decl_stmt|;
 comment|/** Current index format. */
 DECL|field|TERMS_INDEX_VERSION_CURRENT
 specifier|public
@@ -433,7 +453,7 @@ specifier|final
 name|int
 name|TERMS_INDEX_VERSION_CURRENT
 init|=
-name|TERMS_INDEX_VERSION_START
+name|TERMS_INDEX_VERSION_APPEND_ONLY
 decl_stmt|;
 DECL|field|out
 specifier|private
@@ -756,7 +776,7 @@ expr_stmt|;
 block|}
 comment|/** Writes the terms file header. */
 DECL|method|writeHeader
-specifier|protected
+specifier|private
 name|void
 name|writeHeader
 parameter_list|(
@@ -777,18 +797,10 @@ argument_list|,
 name|TERMS_VERSION_CURRENT
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|writeLong
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// leave space for end index pointer
 block|}
 comment|/** Writes the index file header. */
 DECL|method|writeIndexHeader
-specifier|protected
+specifier|private
 name|void
 name|writeIndexHeader
 parameter_list|(
@@ -809,18 +821,10 @@ argument_list|,
 name|TERMS_INDEX_VERSION_CURRENT
 argument_list|)
 expr_stmt|;
-name|out
-operator|.
-name|writeLong
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// leave space for end index pointer
 block|}
 comment|/** Writes the terms file trailer. */
 DECL|method|writeTrailer
-specifier|protected
+specifier|private
 name|void
 name|writeTrailer
 parameter_list|(
@@ -835,18 +839,6 @@ name|IOException
 block|{
 name|out
 operator|.
-name|seek
-argument_list|(
-name|CodecUtil
-operator|.
-name|headerLength
-argument_list|(
-name|TERMS_CODEC_NAME
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
 name|writeLong
 argument_list|(
 name|dirStart
@@ -855,7 +847,7 @@ expr_stmt|;
 block|}
 comment|/** Writes the index file trailer. */
 DECL|method|writeIndexTrailer
-specifier|protected
+specifier|private
 name|void
 name|writeIndexTrailer
 parameter_list|(
@@ -868,18 +860,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|indexOut
-operator|.
-name|seek
-argument_list|(
-name|CodecUtil
-operator|.
-name|headerLength
-argument_list|(
-name|TERMS_INDEX_CODEC_NAME
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|indexOut
 operator|.
 name|writeLong
