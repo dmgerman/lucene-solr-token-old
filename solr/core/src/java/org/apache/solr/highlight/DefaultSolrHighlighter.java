@@ -2585,6 +2585,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// preserve order of values in a multiValued list
 name|boolean
 name|preserveMulti
 init|=
@@ -3209,6 +3210,9 @@ name|size
 argument_list|()
 operator|>=
 name|numFragments
+operator|&&
+operator|!
+name|preserveMulti
 condition|)
 break|break;
 block|}
