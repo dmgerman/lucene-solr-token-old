@@ -400,7 +400,7 @@ name|VERSION_START
 argument_list|,
 name|Lucene40PostingsWriter
 operator|.
-name|VERSION_START
+name|VERSION_CURRENT
 argument_list|)
 expr_stmt|;
 comment|// TODO: hasProx should (somehow!) become codec private,
@@ -459,7 +459,7 @@ name|VERSION_START
 argument_list|,
 name|Lucene40PostingsWriter
 operator|.
-name|VERSION_START
+name|VERSION_CURRENT
 argument_list|)
 expr_stmt|;
 block|}
@@ -537,7 +537,7 @@ name|VERSION_START
 argument_list|,
 name|Lucene40PostingsWriter
 operator|.
-name|VERSION_START
+name|VERSION_CURRENT
 argument_list|)
 expr_stmt|;
 name|skipInterval
@@ -581,7 +581,7 @@ name|long
 name|proxOffset
 decl_stmt|;
 DECL|field|skipOffset
-name|int
+name|long
 name|skipOffset
 decl_stmt|;
 comment|// Only used by the "primary" TermState -- clones don't
@@ -984,7 +984,7 @@ name|termState
 operator|.
 name|bytesReader
 operator|.
-name|readVInt
+name|readVLong
 argument_list|()
 expr_stmt|;
 comment|// if (DEBUG) System.out.println("  skipOffset=" + termState.skipOffset + " vs freqIn.length=" + freqIn.length());
@@ -1586,7 +1586,7 @@ name|freqOffset
 decl_stmt|;
 DECL|field|skipOffset
 specifier|protected
-name|int
+name|long
 name|skipOffset
 decl_stmt|;
 DECL|field|skipped
@@ -3394,7 +3394,7 @@ name|long
 name|freqOffset
 decl_stmt|;
 DECL|field|skipOffset
-name|int
+name|long
 name|skipOffset
 decl_stmt|;
 DECL|field|proxOffset
@@ -4072,7 +4072,7 @@ name|long
 name|freqOffset
 decl_stmt|;
 DECL|field|skipOffset
-name|int
+name|long
 name|skipOffset
 decl_stmt|;
 DECL|field|proxOffset

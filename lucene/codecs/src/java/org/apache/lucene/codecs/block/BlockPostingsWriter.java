@@ -1681,13 +1681,13 @@ decl_stmt|;
 DECL|field|skipOffset
 specifier|public
 specifier|final
-name|int
+name|long
 name|skipOffset
 decl_stmt|;
 DECL|field|lastPosBlockOffset
 specifier|public
 specifier|final
-name|int
+name|long
 name|lastPosBlockOffset
 decl_stmt|;
 DECL|method|PendingTerm
@@ -1703,10 +1703,10 @@ parameter_list|,
 name|long
 name|payStartFP
 parameter_list|,
-name|int
+name|long
 name|skipOffset
 parameter_list|,
-name|int
+name|long
 name|lastPosBlockOffset
 parameter_list|)
 block|{
@@ -1898,7 +1898,7 @@ expr_stmt|;
 block|}
 block|}
 specifier|final
-name|int
+name|long
 name|lastPosBlockOffset
 decl_stmt|;
 if|if
@@ -1933,17 +1933,12 @@ block|{
 comment|// record file offset for last pos in last block
 name|lastPosBlockOffset
 operator|=
-call|(
-name|int
-call|)
-argument_list|(
 name|posOut
 operator|.
 name|getFilePointer
 argument_list|()
 operator|-
 name|posTermStartFP
-argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -2164,7 +2159,7 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
-name|int
+name|long
 name|skipOffset
 decl_stmt|;
 if|if
@@ -2176,10 +2171,6 @@ condition|)
 block|{
 name|skipOffset
 operator|=
-call|(
-name|int
-call|)
-argument_list|(
 name|skipWriter
 operator|.
 name|writeSkip
@@ -2188,7 +2179,6 @@ name|docOut
 argument_list|)
 operator|-
 name|docTermStartFP
-argument_list|)
 expr_stmt|;
 comment|// if (DEBUG) {
 comment|//   System.out.println("skip packet " + (docOut.getFilePointer() - (docTermStartFP + skipOffset)) + " bytes");
@@ -2433,7 +2423,7 @@ condition|)
 block|{
 name|bytesWriter
 operator|.
-name|writeVInt
+name|writeVLong
 argument_list|(
 name|term
 operator|.
@@ -2488,7 +2478,7 @@ condition|)
 block|{
 name|bytesWriter
 operator|.
-name|writeVInt
+name|writeVLong
 argument_list|(
 name|term
 operator|.
