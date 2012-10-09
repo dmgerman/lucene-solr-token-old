@@ -1731,7 +1731,7 @@ operator|.
 name|COMPACT
 argument_list|)
 decl_stmt|;
-name|int
+name|long
 name|startPointer
 init|=
 literal|0
