@@ -223,7 +223,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"subInfos=(abcdefghijklmnopqrs((0,19)))/1.0(0,19)"
+literal|"subInfos=(abcdefghijklmnopqrs((0,19)))/1.0(0,18)"
 argument_list|,
 name|ffl
 operator|.
@@ -346,7 +346,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"subInfos=(abcdefghjklmnopqrs((0,21)))/1.0(0,21)"
+literal|"subInfos=(abcdefghjklmnopqrs((0,21)))/1.0(1,19)"
 argument_list|,
 name|ffl
 operator|.
@@ -608,7 +608,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"subInfos=(a((8,9))a((18,19)))/2.0(2,22)"
+literal|"subInfos=(a((8,9))a((18,19)))/2.0(4,24)"
 argument_list|,
 name|ffl
 operator|.
@@ -700,7 +700,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"subInfos=(a((28,29)))/1.0(22,42)"
+literal|"subInfos=(a((28,29)))/1.0(20,40)"
 argument_list|,
 name|ffl
 operator|.
@@ -1463,7 +1463,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"subInfos=(d((9,10)))/1.0(3,103)"
+literal|"subInfos=(d((9,10)))/1.0(0,100)"
 argument_list|,
 name|ffl
 operator|.
@@ -1569,7 +1569,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"subInfos=(searchengines((102,116))searchengines((157,171)))/2.0(96,196)"
+literal|"subInfos=(searchengines((102,116))searchengines((157,171)))/2.0(87,187)"
 argument_list|,
 name|ffl
 operator|.
@@ -1680,7 +1680,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"subInfos=(sppeeeed((88,93)))/1.0(82,182)"
+literal|"subInfos=(sppeeeed((88,93)))/1.0(41,141)"
 argument_list|,
 name|ffl
 operator|.
