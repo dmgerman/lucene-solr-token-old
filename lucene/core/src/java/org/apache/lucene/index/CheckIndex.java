@@ -6748,7 +6748,7 @@ name|infoStream
 operator|.
 name|print
 argument_list|(
-literal|"    test: DocValues........"
+literal|"    test: docvalues..........."
 argument_list|)
 expr_stmt|;
 block|}
@@ -6846,11 +6846,13 @@ name|status
 operator|.
 name|docCount
 operator|+
-literal|" total doc Count; Num DocValues Fields "
+literal|" total doc count; "
 operator|+
 name|status
 operator|.
 name|totalValueFields
+operator|+
+literal|" docvalues fields]"
 argument_list|)
 expr_stmt|;
 block|}
