@@ -4352,6 +4352,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// First time w/ preserveSep, second time without:
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+literal|2
+condition|;
+name|i
+operator|++
+control|)
+block|{
 specifier|final
 name|Analyzer
 name|analyzer
@@ -4438,7 +4454,7 @@ literal|0x61
 block|}
 argument_list|)
 argument_list|)
-block|,               }
+block|,                   }
 argument_list|)
 block|,
 operator|new
@@ -4522,7 +4538,7 @@ literal|0x61
 block|}
 argument_list|)
 argument_list|)
-block|,               }
+block|,                   }
 argument_list|)
 block|}
 decl_stmt|;
@@ -4560,7 +4576,7 @@ name|reader
 parameter_list|)
 throws|throws
 name|IOException
-block|{           }
+block|{               }
 block|}
 return|;
 block|}
@@ -4589,7 +4605,7 @@ literal|"a b"
 argument_list|,
 literal|50
 argument_list|)
-block|,     }
+block|,       }
 decl_stmt|;
 name|AnalyzingSuggester
 name|suggester
@@ -4598,6 +4614,29 @@ operator|new
 name|AnalyzingSuggester
 argument_list|(
 name|analyzer
+argument_list|,
+name|analyzer
+argument_list|,
+name|AnalyzingSuggester
+operator|.
+name|EXACT_FIRST
+operator||
+operator|(
+name|i
+operator|==
+literal|0
+condition|?
+name|AnalyzingSuggester
+operator|.
+name|PRESERVE_SEP
+else|:
+literal|0
+operator|)
+argument_list|,
+literal|256
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 decl_stmt|;
 name|suggester
@@ -4717,6 +4756,7 @@ operator|.
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|testMaxSurfaceFormsPerAnalyzedForm
 specifier|public
