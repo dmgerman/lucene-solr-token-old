@@ -229,6 +229,23 @@ name|search
 operator|.
 name|suggest
 operator|.
+name|analyzing
+operator|.
+name|FuzzySuggester
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
 name|fst
 operator|.
 name|FSTCompletionLookup
@@ -306,12 +323,10 @@ end_import
 begin_comment
 comment|/**  * Benchmarks tests for implementations of {@link Lookup} interface.  */
 end_comment
+begin_comment
+comment|//@Ignore("COMMENT ME TO RUN BENCHMARKS!")
+end_comment
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"COMMENT ME TO RUN BENCHMARKS!"
-argument_list|)
 DECL|class|LookupBenchmarkTest
 specifier|public
 class|class
@@ -342,6 +357,14 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
+name|FuzzySuggester
+operator|.
+name|class
+argument_list|,
+name|AnalyzingSuggester
+operator|.
+name|class
+argument_list|,
 name|JaspellLookup
 operator|.
 name|class
@@ -355,10 +378,6 @@ operator|.
 name|class
 argument_list|,
 name|WFSTCompletionLookup
-operator|.
-name|class
-argument_list|,
-name|AnalyzingSuggester
 operator|.
 name|class
 argument_list|)
@@ -1187,10 +1206,9 @@ operator|.
 name|utf8ToString
 argument_list|()
 decl_stmt|;
-name|input
-operator|.
-name|add
-argument_list|(
+name|String
+name|sub
+init|=
 name|s
 operator|.
 name|substring
@@ -1220,6 +1238,12 @@ literal|1
 argument_list|)
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|input
+operator|.
+name|add
+argument_list|(
+name|sub
 argument_list|)
 expr_stmt|;
 block|}
@@ -1435,6 +1459,11 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeException
