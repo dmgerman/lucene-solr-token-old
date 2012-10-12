@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.block
+DECL|package|org.apache.lucene.codecs.lucene41
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|block
+name|lucene41
 package|;
 end_package
 begin_comment
@@ -26,9 +26,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|block
+name|lucene41
 operator|.
-name|BlockPostingsFormat
+name|Lucene41PostingsFormat
 operator|.
 name|BLOCK_SIZE
 import|;
@@ -43,7 +43,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|block
+name|lucene41
 operator|.
 name|ForUtil
 operator|.
@@ -60,7 +60,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|block
+name|lucene41
 operator|.
 name|ForUtil
 operator|.
@@ -348,13 +348,14 @@ name|IOUtils
 import|;
 end_import
 begin_comment
-comment|/**  * Concrete class that reads docId(maybe frq,pos,offset,payloads) list  * with postings format.  *  * @see BlockSkipReader for details  *  */
+comment|/**  * Concrete class that reads docId(maybe frq,pos,offset,payloads) list  * with postings format.  *  * @see Lucene41SkipReader for details  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|BlockPostingsReader
+DECL|class|Lucene41PostingsReader
+specifier|public
 specifier|final
 class|class
-name|BlockPostingsReader
+name|Lucene41PostingsReader
 extends|extends
 name|PostingsReaderBase
 block|{
@@ -383,9 +384,9 @@ name|ForUtil
 name|forUtil
 decl_stmt|;
 comment|// public static boolean DEBUG = false;
-DECL|method|BlockPostingsReader
+DECL|method|Lucene41PostingsReader
 specifier|public
-name|BlockPostingsReader
+name|Lucene41PostingsReader
 parameter_list|(
 name|Directory
 name|dir
@@ -443,7 +444,7 @@ name|name
 argument_list|,
 name|segmentSuffix
 argument_list|,
-name|BlockPostingsFormat
+name|Lucene41PostingsFormat
 operator|.
 name|DOC_EXTENSION
 argument_list|)
@@ -457,15 +458,15 @@ name|checkHeader
 argument_list|(
 name|docIn
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|DOC_CODEC
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|VERSION_CURRENT
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|VERSION_CURRENT
 argument_list|)
@@ -502,7 +503,7 @@ name|name
 argument_list|,
 name|segmentSuffix
 argument_list|,
-name|BlockPostingsFormat
+name|Lucene41PostingsFormat
 operator|.
 name|POS_EXTENSION
 argument_list|)
@@ -516,15 +517,15 @@ name|checkHeader
 argument_list|(
 name|posIn
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|POS_CODEC
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|VERSION_CURRENT
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|VERSION_CURRENT
 argument_list|)
@@ -558,7 +559,7 @@ name|name
 argument_list|,
 name|segmentSuffix
 argument_list|,
-name|BlockPostingsFormat
+name|Lucene41PostingsFormat
 operator|.
 name|PAY_EXTENSION
 argument_list|)
@@ -572,15 +573,15 @@ name|checkHeader
 argument_list|(
 name|payIn
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|PAY_CODEC
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|VERSION_CURRENT
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|VERSION_CURRENT
 argument_list|)
@@ -652,15 +653,15 @@ name|checkHeader
 argument_list|(
 name|termsIn
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|TERMS_CODEC
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|VERSION_CURRENT
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|VERSION_CURRENT
 argument_list|)
@@ -1828,7 +1829,7 @@ name|docBufferUpto
 decl_stmt|;
 DECL|field|skipper
 specifier|private
-name|BlockSkipReader
+name|Lucene41SkipReader
 name|skipper
 decl_stmt|;
 DECL|field|skipped
@@ -1936,7 +1937,7 @@ name|this
 operator|.
 name|startDocIn
 operator|=
-name|BlockPostingsReader
+name|Lucene41PostingsReader
 operator|.
 name|this
 operator|.
@@ -2434,14 +2435,14 @@ comment|// Lazy init: first time this enum has ever been used for skipping
 name|skipper
 operator|=
 operator|new
-name|BlockSkipReader
+name|Lucene41SkipReader
 argument_list|(
 name|docIn
 operator|.
 name|clone
 argument_list|()
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|maxSkipLevels
 argument_list|,
@@ -2491,7 +2492,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|// always plus one to fix the result, since skip position in BlockSkipReader
+comment|// always plus one to fix the result, since skip position in Lucene41SkipReader
 comment|// is a little different from MultiLevelSkipListReader
 specifier|final
 name|int
@@ -2750,7 +2751,7 @@ name|posBufferUpto
 decl_stmt|;
 DECL|field|skipper
 specifier|private
-name|BlockSkipReader
+name|Lucene41SkipReader
 name|skipper
 decl_stmt|;
 DECL|field|skipped
@@ -2892,7 +2893,7 @@ name|this
 operator|.
 name|startDocIn
 operator|=
-name|BlockPostingsReader
+name|Lucene41PostingsReader
 operator|.
 name|this
 operator|.
@@ -2911,7 +2912,7 @@ name|this
 operator|.
 name|posIn
 operator|=
-name|BlockPostingsReader
+name|Lucene41PostingsReader
 operator|.
 name|this
 operator|.
@@ -3566,14 +3567,14 @@ comment|// }
 name|skipper
 operator|=
 operator|new
-name|BlockSkipReader
+name|Lucene41SkipReader
 argument_list|(
 name|docIn
 operator|.
 name|clone
 argument_list|()
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|maxSkipLevels
 argument_list|,
@@ -4174,7 +4175,7 @@ name|posBufferUpto
 decl_stmt|;
 DECL|field|skipper
 specifier|private
-name|BlockSkipReader
+name|Lucene41SkipReader
 name|skipper
 decl_stmt|;
 DECL|field|skipped
@@ -4333,7 +4334,7 @@ name|this
 operator|.
 name|startDocIn
 operator|=
-name|BlockPostingsReader
+name|Lucene41PostingsReader
 operator|.
 name|this
 operator|.
@@ -4352,7 +4353,7 @@ name|this
 operator|.
 name|posIn
 operator|=
-name|BlockPostingsReader
+name|Lucene41PostingsReader
 operator|.
 name|this
 operator|.
@@ -4365,7 +4366,7 @@ name|this
 operator|.
 name|payIn
 operator|=
-name|BlockPostingsReader
+name|Lucene41PostingsReader
 operator|.
 name|this
 operator|.
@@ -5291,14 +5292,14 @@ comment|// }
 name|skipper
 operator|=
 operator|new
-name|BlockSkipReader
+name|Lucene41SkipReader
 argument_list|(
 name|docIn
 operator|.
 name|clone
 argument_list|()
 argument_list|,
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 operator|.
 name|maxSkipLevels
 argument_list|,

@@ -121,9 +121,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40
+name|lucene41
 operator|.
-name|Lucene40Codec
+name|Lucene41Codec
 import|;
 end_import
 begin_import
@@ -138,7 +138,7 @@ name|codecs
 operator|.
 name|pulsing
 operator|.
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 import|;
 end_import
 begin_import
@@ -6291,7 +6291,7 @@ specifier|final
 class|class
 name|CustomPerFieldCodec
 extends|extends
-name|Lucene40Codec
+name|Lucene41Codec
 block|{
 DECL|field|simpleTextFormat
 specifier|private
@@ -6316,7 +6316,7 @@ name|PostingsFormat
 operator|.
 name|forName
 argument_list|(
-literal|"Lucene40"
+literal|"Lucene41"
 argument_list|)
 decl_stmt|;
 DECL|field|mockSepFormat
@@ -6672,7 +6672,7 @@ argument_list|(
 literal|"NotRegistered"
 argument_list|,
 operator|new
-name|Lucene40Codec
+name|Lucene41Codec
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6817,7 +6817,7 @@ operator|.
 name|alwaysPostingsFormat
 argument_list|(
 operator|new
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 argument_list|(
 literal|1
 operator|+

@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.block
+DECL|package|org.apache.lucene.codecs.lucene41
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|block
+name|lucene41
 package|;
 end_package
 begin_comment
@@ -26,9 +26,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|block
+name|lucene41
 operator|.
-name|BlockPostingsFormat
+name|Lucene41PostingsFormat
 operator|.
 name|BLOCK_SIZE
 import|;
@@ -43,7 +43,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|block
+name|lucene41
 operator|.
 name|ForUtil
 operator|.
@@ -60,7 +60,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|block
+name|lucene41
 operator|.
 name|ForUtil
 operator|.
@@ -281,13 +281,14 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|/**  * Concrete class that writes docId(maybe frq,pos,offset,payloads) list  * with postings format.  *  * Postings list for each term will be stored separately.   *  * @see BlockSkipWriter for details about skipping setting and postings layout.  *  */
+comment|/**  * Concrete class that writes docId(maybe frq,pos,offset,payloads) list  * with postings format.  *  * Postings list for each term will be stored separately.   *  * @see Lucene41SkipWriter for details about skipping setting and postings layout.  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|BlockPostingsWriter
+DECL|class|Lucene41PostingsWriter
+specifier|public
 specifier|final
 class|class
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 extends|extends
 name|PostingsWriterBase
 block|{
@@ -306,7 +307,7 @@ specifier|static
 name|String
 name|TERMS_CODEC
 init|=
-literal|"BlockPostingsWriterTerms"
+literal|"Lucene41PostingsWriterTerms"
 decl_stmt|;
 DECL|field|DOC_CODEC
 specifier|final
@@ -314,7 +315,7 @@ specifier|static
 name|String
 name|DOC_CODEC
 init|=
-literal|"BlockPostingsWriterDoc"
+literal|"Lucene41PostingsWriterDoc"
 decl_stmt|;
 DECL|field|POS_CODEC
 specifier|final
@@ -322,7 +323,7 @@ specifier|static
 name|String
 name|POS_CODEC
 init|=
-literal|"BlockPostingsWriterPos"
+literal|"Lucene41PostingsWriterPos"
 decl_stmt|;
 DECL|field|PAY_CODEC
 specifier|final
@@ -330,9 +331,9 @@ specifier|static
 name|String
 name|PAY_CODEC
 init|=
-literal|"BlockPostingsWriterPay"
+literal|"Lucene41PostingsWriterPay"
 decl_stmt|;
-comment|// Increment version to change it:
+comment|// Increment version to change it: nocommit: we can start at 0
 DECL|field|VERSION_START
 specifier|final
 specifier|static
@@ -532,12 +533,12 @@ decl_stmt|;
 DECL|field|skipWriter
 specifier|private
 specifier|final
-name|BlockSkipWriter
+name|Lucene41SkipWriter
 name|skipWriter
 decl_stmt|;
-DECL|method|BlockPostingsWriter
+DECL|method|Lucene41PostingsWriter
 specifier|public
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 parameter_list|(
 name|SegmentWriteState
 name|state
@@ -573,7 +574,7 @@ name|state
 operator|.
 name|segmentSuffix
 argument_list|,
-name|BlockPostingsFormat
+name|Lucene41PostingsFormat
 operator|.
 name|DOC_EXTENSION
 argument_list|)
@@ -661,7 +662,7 @@ name|state
 operator|.
 name|segmentSuffix
 argument_list|,
-name|BlockPostingsFormat
+name|Lucene41PostingsFormat
 operator|.
 name|POS_EXTENSION
 argument_list|)
@@ -797,7 +798,7 @@ name|state
 operator|.
 name|segmentSuffix
 argument_list|,
-name|BlockPostingsFormat
+name|Lucene41PostingsFormat
 operator|.
 name|PAY_EXTENSION
 argument_list|)
@@ -901,7 +902,7 @@ comment|// TODO: should we try skipping every 2/4 blocks...?
 name|skipWriter
 operator|=
 operator|new
-name|BlockSkipWriter
+name|Lucene41SkipWriter
 argument_list|(
 name|maxSkipLevels
 argument_list|,
@@ -930,9 +931,9 @@ name|MAX_ENCODED_SIZE
 index|]
 expr_stmt|;
 block|}
-DECL|method|BlockPostingsWriter
+DECL|method|Lucene41PostingsWriter
 specifier|public
-name|BlockPostingsWriter
+name|Lucene41PostingsWriter
 parameter_list|(
 name|SegmentWriteState
 name|state
