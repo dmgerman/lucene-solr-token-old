@@ -316,6 +316,21 @@ name|lucene
 operator|.
 name|codecs
 operator|.
+name|lucene41
+operator|.
+name|Lucene41PostingsWriter
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
 name|mockintblock
 operator|.
 name|MockFixedIntBlockPostingsFormat
@@ -1266,6 +1281,7 @@ literal|"MockRandomCodec: writing Standard postings"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// nocommit: way to randomize skipInterval and acceptibleOverHead?!
 name|postingsWriter
 operator|=
 operator|new
@@ -2064,6 +2080,7 @@ literal|"MockRandomCodec: reading Standard postings"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// nocommit
 name|postingsReader
 operator|=
 operator|new
