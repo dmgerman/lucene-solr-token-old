@@ -86,6 +86,7 @@ name|SolrUIMAConfigurationReader
 block|{
 DECL|field|args
 specifier|private
+specifier|final
 name|NamedList
 argument_list|<
 name|Object

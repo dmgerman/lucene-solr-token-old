@@ -954,6 +954,8 @@ operator|.
 name|joinElection
 argument_list|(
 name|ctx
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 return|return
@@ -5260,6 +5262,8 @@ operator|.
 name|joinElection
 argument_list|(
 name|ec
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 return|return
