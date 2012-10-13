@@ -286,24 +286,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40
+name|lucene41
 operator|.
-name|Lucene40PostingsReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene40
-operator|.
-name|Lucene40PostingsWriter
+name|Lucene41PostingsReader
 import|;
 end_import
 begin_import
@@ -1281,11 +1266,11 @@ literal|"MockRandomCodec: writing Standard postings"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// nocommit: way to randomize skipInterval and acceptibleOverHead?!
+comment|// TODO: randomize variables like acceptibleOverHead?!
 name|postingsWriter
 operator|=
 operator|new
-name|Lucene40PostingsWriter
+name|Lucene41PostingsWriter
 argument_list|(
 name|state
 argument_list|,
@@ -2080,11 +2065,10 @@ literal|"MockRandomCodec: reading Standard postings"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// nocommit
 name|postingsReader
 operator|=
 operator|new
-name|Lucene40PostingsReader
+name|Lucene41PostingsReader
 argument_list|(
 name|state
 operator|.
