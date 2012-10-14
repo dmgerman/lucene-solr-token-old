@@ -74,9 +74,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40
+name|lucene41
 operator|.
-name|Lucene40Codec
+name|Lucene41Codec
 import|;
 end_import
 begin_import
@@ -89,9 +89,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40
+name|lucene41
 operator|.
-name|Lucene40PostingsFormat
+name|Lucene41PostingsFormat
 import|;
 end_import
 begin_import
@@ -121,7 +121,7 @@ name|codecs
 operator|.
 name|pulsing
 operator|.
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 import|;
 end_import
 begin_import
@@ -974,11 +974,11 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
-name|Lucene40Codec
+name|Lucene41Codec
 name|codec
 init|=
 operator|(
-name|Lucene40Codec
+name|Lucene41Codec
 operator|)
 name|iwconf
 operator|.
@@ -1072,7 +1072,7 @@ expr_stmt|;
 name|codec
 operator|=
 operator|(
-name|Lucene40Codec
+name|Lucene41Codec
 operator|)
 name|iwconf
 operator|.
@@ -1398,7 +1398,7 @@ specifier|static
 class|class
 name|MockCodec
 extends|extends
-name|Lucene40Codec
+name|Lucene41Codec
 block|{
 DECL|field|lucene40
 specifier|final
@@ -1406,7 +1406,7 @@ name|PostingsFormat
 name|lucene40
 init|=
 operator|new
-name|Lucene40PostingsFormat
+name|Lucene41PostingsFormat
 argument_list|()
 decl_stmt|;
 DECL|field|simpleText
@@ -1481,7 +1481,7 @@ specifier|static
 class|class
 name|MockCodec2
 extends|extends
-name|Lucene40Codec
+name|Lucene41Codec
 block|{
 DECL|field|lucene40
 specifier|final
@@ -1489,7 +1489,7 @@ name|PostingsFormat
 name|lucene40
 init|=
 operator|new
-name|Lucene40PostingsFormat
+name|Lucene41PostingsFormat
 argument_list|()
 decl_stmt|;
 DECL|field|simpleText
@@ -1806,7 +1806,7 @@ name|Codec
 name|codec
 init|=
 operator|new
-name|Lucene40Codec
+name|Lucene41Codec
 argument_list|()
 block|{
 annotation|@
@@ -1831,7 +1831,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 argument_list|(
 literal|1
 argument_list|)
@@ -1850,7 +1850,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 argument_list|(
 literal|1
 argument_list|)
@@ -1888,7 +1888,7 @@ name|Codec
 name|codec
 init|=
 operator|new
-name|Lucene40Codec
+name|Lucene41Codec
 argument_list|()
 block|{
 annotation|@
@@ -1913,7 +1913,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 argument_list|(
 literal|1
 argument_list|)
@@ -1932,7 +1932,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 argument_list|(
 literal|2
 argument_list|)

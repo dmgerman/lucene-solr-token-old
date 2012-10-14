@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.lucene40ords
+DECL|package|org.apache.lucene.codecs.lucene41ords
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40ords
+name|lucene41ords
 package|;
 end_package
 begin_comment
@@ -190,9 +190,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40
+name|lucene41
 operator|.
-name|Lucene40Codec
+name|Lucene41Codec
 import|;
 end_import
 begin_comment
@@ -208,9 +208,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40
+name|lucene41
 operator|.
-name|Lucene40PostingsReader
+name|Lucene41PostingsReader
 import|;
 end_import
 begin_import
@@ -223,9 +223,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40
+name|lucene41
 operator|.
-name|Lucene40PostingsWriter
+name|Lucene41PostingsWriter
 import|;
 end_import
 begin_import
@@ -274,25 +274,25 @@ begin_comment
 comment|// any PostingsBaseFormat and make it ord-able...
 end_comment
 begin_comment
-comment|/**  * Customized version of {@link Lucene40Codec} that uses  * {@link FixedGapTermsIndexWriter}.  */
+comment|/**  * Customized version of {@link Lucene41Codec} that uses  * {@link FixedGapTermsIndexWriter}.  */
 end_comment
 begin_class
-DECL|class|Lucene40WithOrds
+DECL|class|Lucene41WithOrds
 specifier|public
 specifier|final
 class|class
-name|Lucene40WithOrds
+name|Lucene41WithOrds
 extends|extends
 name|PostingsFormat
 block|{
-DECL|method|Lucene40WithOrds
+DECL|method|Lucene41WithOrds
 specifier|public
-name|Lucene40WithOrds
+name|Lucene41WithOrds
 parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"Lucene40WithOrds"
+literal|"Lucene41WithOrds"
 argument_list|)
 expr_stmt|;
 block|}
@@ -313,7 +313,7 @@ name|PostingsWriterBase
 name|docs
 init|=
 operator|new
-name|Lucene40PostingsWriter
+name|Lucene41PostingsWriter
 argument_list|(
 name|state
 argument_list|)
@@ -442,7 +442,7 @@ name|PostingsReaderBase
 name|postings
 init|=
 operator|new
-name|Lucene40PostingsReader
+name|Lucene41PostingsReader
 argument_list|(
 name|state
 operator|.

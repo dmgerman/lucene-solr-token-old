@@ -52,9 +52,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40
+name|lucene41
 operator|.
-name|Lucene40Codec
+name|Lucene41Codec
 import|;
 end_import
 begin_import
@@ -88,7 +88,7 @@ name|PostingsFormat
 name|postings
 init|=
 operator|new
-name|TestBloomFilteredLucene40Postings
+name|TestBloomFilteredLucene41Postings
 argument_list|()
 decl_stmt|;
 DECL|field|codec
@@ -98,7 +98,7 @@ name|Codec
 name|codec
 init|=
 operator|new
-name|Lucene40Codec
+name|Lucene41Codec
 argument_list|()
 block|{
 annotation|@
