@@ -4181,6 +4181,8 @@ op|','
 string|"'NOTICE'"
 op|','
 string|"'README'"
+op|','
+string|"'SYSTEM_REQUIREMENTS'"
 op|']'
 newline|'\n'
 name|'if'
