@@ -63,12 +63,12 @@ name|Codec
 operator|.
 name|forName
 argument_list|(
-literal|"Lucene40"
+literal|"Lucene41"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Lucene40"
+literal|"Lucene41"
 argument_list|,
 name|codec
 operator|.
@@ -130,7 +130,7 @@ name|codecs
 operator|.
 name|contains
 argument_list|(
-literal|"Lucene40"
+literal|"Lucene41"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -275,6 +275,9 @@ operator|.
 name|_TestUtil
 import|;
 end_import
+begin_comment
+comment|// TODO: really this should be in BaseTestPF or somewhere else? useful test!
+end_comment
 begin_class
 DECL|class|TestReuseDocsEnum
 specifier|public
@@ -305,7 +308,7 @@ operator|.
 name|alwaysPostingsFormat
 argument_list|(
 operator|new
-name|Lucene40PostingsFormat
+name|Lucene40RWPostingsFormat
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -553,7 +556,7 @@ operator|.
 name|alwaysPostingsFormat
 argument_list|(
 operator|new
-name|Lucene40PostingsFormat
+name|Lucene40RWPostingsFormat
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -938,7 +941,7 @@ operator|.
 name|alwaysPostingsFormat
 argument_list|(
 operator|new
-name|Lucene40PostingsFormat
+name|Lucene40RWPostingsFormat
 argument_list|()
 argument_list|)
 decl_stmt|;

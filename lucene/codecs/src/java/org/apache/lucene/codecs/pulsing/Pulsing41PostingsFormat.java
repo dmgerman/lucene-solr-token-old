@@ -39,9 +39,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40
+name|lucene41
 operator|.
-name|Lucene40PostingsBaseFormat
+name|Lucene41PostingsBaseFormat
 import|;
 end_import
 begin_import
@@ -54,29 +54,29 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene40
+name|lucene41
 operator|.
-name|Lucene40PostingsFormat
+name|Lucene41PostingsFormat
 import|;
 end_import
 begin_comment
 comment|// javadocs
 end_comment
 begin_comment
-comment|/**  * Concrete pulsing implementation over {@link Lucene40PostingsFormat}.  *   * @lucene.experimental  */
+comment|/**  * Concrete pulsing implementation over {@link Lucene41PostingsFormat}.  *   * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|Pulsing40PostingsFormat
+DECL|class|Pulsing41PostingsFormat
 specifier|public
 class|class
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 extends|extends
 name|PulsingPostingsFormat
 block|{
-comment|/** Inlines docFreq=1 terms, otherwise uses the normal "Lucene40" format. */
-DECL|method|Pulsing40PostingsFormat
+comment|/** Inlines docFreq=1 terms, otherwise uses the normal "Lucene41" format. */
+DECL|method|Pulsing41PostingsFormat
 specifier|public
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 parameter_list|()
 block|{
 name|this
@@ -85,10 +85,10 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Inlines docFreq=<code>freqCutoff</code> terms, otherwise uses the normal "Lucene40" format. */
-DECL|method|Pulsing40PostingsFormat
+comment|/** Inlines docFreq=<code>freqCutoff</code> terms, otherwise uses the normal "Lucene41" format. */
+DECL|method|Pulsing41PostingsFormat
 specifier|public
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 parameter_list|(
 name|int
 name|freqCutoff
@@ -108,10 +108,10 @@ name|DEFAULT_MAX_BLOCK_SIZE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Inlines docFreq=<code>freqCutoff</code> terms, otherwise uses the normal "Lucene40" format. */
-DECL|method|Pulsing40PostingsFormat
+comment|/** Inlines docFreq=<code>freqCutoff</code> terms, otherwise uses the normal "Lucene41" format. */
+DECL|method|Pulsing41PostingsFormat
 specifier|public
-name|Pulsing40PostingsFormat
+name|Pulsing41PostingsFormat
 parameter_list|(
 name|int
 name|freqCutoff
@@ -125,10 +125,10 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"Pulsing40"
+literal|"Pulsing41"
 argument_list|,
 operator|new
-name|Lucene40PostingsBaseFormat
+name|Lucene41PostingsBaseFormat
 argument_list|()
 argument_list|,
 name|freqCutoff
