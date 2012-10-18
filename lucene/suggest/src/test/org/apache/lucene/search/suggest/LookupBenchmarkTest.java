@@ -323,10 +323,12 @@ end_import
 begin_comment
 comment|/**  * Benchmarks tests for implementations of {@link Lookup} interface.  */
 end_comment
-begin_comment
-comment|//@Ignore("COMMENT ME TO RUN BENCHMARKS!")
-end_comment
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"COMMENT ME TO RUN BENCHMARKS!"
+argument_list|)
 DECL|class|LookupBenchmarkTest
 specifier|public
 class|class

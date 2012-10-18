@@ -3276,6 +3276,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|/**    * Returns a new {@link PathIntersector}      */
 DECL|method|getPathIntersector
 specifier|protected
 name|PathIntersector
@@ -3306,6 +3307,7 @@ name|fst
 argument_list|)
 return|;
 block|}
+comment|/**    * This class is used to obtain the prefix paths in the automaton that also intersect the FST.    */
 DECL|class|PathIntersector
 specifier|protected
 specifier|static
@@ -3350,6 +3352,7 @@ argument_list|>
 argument_list|>
 name|fst
 decl_stmt|;
+comment|/**      * Creates a new {@link PathIntersector}      */
 DECL|method|PathIntersector
 specifier|public
 name|PathIntersector
@@ -3382,6 +3385,7 @@ operator|=
 name|fst
 expr_stmt|;
 block|}
+comment|/**      * Returns the prefix paths for exact first top N search.       */
 DECL|method|intersectExact
 specifier|public
 name|List
@@ -3408,7 +3412,7 @@ name|intersect
 operator|=
 name|FSTUtil
 operator|.
-name|intersectPrefixPathsExact
+name|intersectPrefixPaths
 argument_list|(
 name|automaton
 argument_list|,
@@ -3416,6 +3420,7 @@ name|fst
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the prefix paths for top N search.       */
 DECL|method|intersectAll
 specifier|public
 name|List
@@ -3446,7 +3451,7 @@ name|intersect
 operator|=
 name|FSTUtil
 operator|.
-name|intersectPrefixPathsExact
+name|intersectPrefixPaths
 argument_list|(
 name|automaton
 argument_list|,

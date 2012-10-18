@@ -4060,6 +4060,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO maybe this is a useful in the FST class - we could simplify some other code like FSTEnum?
 if|if
 condition|(
 name|label
