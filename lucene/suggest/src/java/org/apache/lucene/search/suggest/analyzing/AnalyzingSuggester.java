@@ -2234,6 +2234,16 @@ operator|>
 literal|0
 assert|;
 comment|//System.out.println("lookup key=" + key + " num=" + num);
+specifier|final
+name|BytesRef
+name|utf8Key
+init|=
+operator|new
+name|BytesRef
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 name|Automaton
@@ -2553,6 +2563,20 @@ range|:
 name|completions
 control|)
 block|{
+if|if
+condition|(
+name|utf8Key
+operator|.
+name|bytesEquals
+argument_list|(
+name|completion
+operator|.
+name|output
+operator|.
+name|output2
+argument_list|)
+condition|)
+block|{
 name|spare
 operator|.
 name|grow
@@ -2579,20 +2603,6 @@ argument_list|,
 name|spare
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|CHARSEQUENCE_COMPARATOR
-operator|.
-name|compare
-argument_list|(
-name|spare
-argument_list|,
-name|key
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
 name|results
 operator|.
 name|add
@@ -2750,39 +2760,16 @@ block|{
 comment|// In exactFirst mode, don't accept any paths
 comment|// matching the surface form since that will
 comment|// create duplicate results:
-name|spare
-operator|.
-name|grow
-argument_list|(
-name|output
-operator|.
-name|output2
-operator|.
-name|length
-argument_list|)
-expr_stmt|;
-name|UnicodeUtil
-operator|.
-name|UTF8toUTF16
-argument_list|(
-name|output
-operator|.
-name|output2
-argument_list|,
-name|spare
-argument_list|)
-expr_stmt|;
 return|return
-name|CHARSEQUENCE_COMPARATOR
+operator|!
+name|utf8Key
 operator|.
-name|compare
+name|bytesEquals
 argument_list|(
-name|spare
-argument_list|,
-name|key
+name|output
+operator|.
+name|output2
 argument_list|)
-operator|!=
-literal|0
 return|;
 block|}
 block|}
@@ -2810,7 +2797,6 @@ operator|.
 name|intersectAll
 argument_list|()
 decl_stmt|;
-comment|//      System.out.println(key);
 for|for
 control|(
 name|FSTUtil
@@ -2829,7 +2815,6 @@ range|:
 name|prefixPaths
 control|)
 block|{
-comment|//        System.out.println(UnicodeUtil.newString(path.input.ints, path.input.offset, path.input.length));
 name|searcher
 operator|.
 name|addStartPaths
