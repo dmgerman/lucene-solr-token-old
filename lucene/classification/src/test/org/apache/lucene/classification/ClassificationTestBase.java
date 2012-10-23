@@ -142,6 +142,7 @@ end_comment
 begin_class
 DECL|class|ClassificationTestBase
 specifier|public
+specifier|abstract
 class|class
 name|ClassificationTestBase
 extends|extends
