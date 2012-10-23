@@ -663,9 +663,10 @@ operator|=
 operator|new
 name|WikipediaTokenizerImpl
 argument_list|(
-name|input
+literal|null
 argument_list|)
 expr_stmt|;
+comment|// best effort NPE if you dont call reset
 name|init
 argument_list|(
 name|tokenOutput
@@ -709,9 +710,10 @@ operator|=
 operator|new
 name|WikipediaTokenizerImpl
 argument_list|(
-name|input
+literal|null
 argument_list|)
 expr_stmt|;
+comment|// best effort NPE if you dont call reset
 name|init
 argument_list|(
 name|tokenOutput
@@ -755,9 +757,10 @@ operator|=
 operator|new
 name|WikipediaTokenizerImpl
 argument_list|(
-name|input
+literal|null
 argument_list|)
 expr_stmt|;
+comment|// best effort NPE if you dont call reset
 name|init
 argument_list|(
 name|tokenOutput
