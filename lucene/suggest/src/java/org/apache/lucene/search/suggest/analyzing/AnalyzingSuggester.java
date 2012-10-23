@@ -245,6 +245,32 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|DataInput
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|DataOutput
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|InputStreamDataInput
 import|;
 end_import
@@ -603,7 +629,7 @@ specifier|final
 name|boolean
 name|exactFirst
 decl_stmt|;
-comment|/**     * True if separator between tokens should be preservered.    */
+comment|/**     * True if separator between tokens should be preserved.    */
 DECL|field|preserveSep
 specifier|private
 specifier|final
@@ -663,6 +689,12 @@ specifier|private
 specifier|final
 name|int
 name|maxGraphExpansions
+decl_stmt|;
+comment|/** Highest number of analyzed paths we saw for any single    *  input surface form.  For analyzers that never create    *  graphs this will always be 1. */
+DECL|field|maxAnalyzedPathsForOneInput
+specifier|private
+name|int
+name|maxAnalyzedPathsForOneInput
 decl_stmt|;
 comment|/**    * Calls {@link #AnalyzingSuggester(Analyzer,Analyzer,int,int,int)    * AnalyzingSuggester(analyzer, analyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
 DECL|method|AnalyzingSuggester
@@ -1503,6 +1535,20 @@ argument_list|,
 name|ts2a
 argument_list|)
 decl_stmt|;
+name|maxAnalyzedPathsForOneInput
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|maxAnalyzedPathsForOneInput
+argument_list|,
+name|paths
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|IntsRef
@@ -2121,17 +2167,29 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|DataOutput
+name|dataOut
+init|=
+operator|new
+name|OutputStreamDataOutput
+argument_list|(
+name|output
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 name|fst
 operator|.
 name|save
 argument_list|(
-operator|new
-name|OutputStreamDataOutput
-argument_list|(
-name|output
+name|dataOut
 argument_list|)
+expr_stmt|;
+name|dataOut
+operator|.
+name|writeVInt
+argument_list|(
+name|maxAnalyzedPathsForOneInput
 argument_list|)
 expr_stmt|;
 block|}
@@ -2162,6 +2220,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|DataInput
+name|dataIn
+init|=
+operator|new
+name|InputStreamDataInput
+argument_list|(
+name|input
+argument_list|)
+decl_stmt|;
 try|try
 block|{
 name|this
@@ -2179,11 +2246,7 @@ name|BytesRef
 argument_list|>
 argument_list|>
 argument_list|(
-operator|new
-name|InputStreamDataInput
-argument_list|(
-name|input
-argument_list|)
+name|dataIn
 argument_list|,
 operator|new
 name|PairOutputs
@@ -2206,6 +2269,13 @@ name|getSingleton
 argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|maxAnalyzedPathsForOneInput
+operator|=
+name|dataIn
+operator|.
+name|readVInt
+argument_list|()
 expr_stmt|;
 block|}
 finally|finally
@@ -2248,6 +2318,19 @@ name|num
 operator|>
 literal|0
 assert|;
+if|if
+condition|(
+name|onlyMorePopular
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"this suggester only works with onlyMorePopular=false"
+argument_list|)
+throw|;
+block|}
 comment|//System.out.println("lookup key=" + key + " num=" + num);
 specifier|final
 name|BytesRef
@@ -2329,6 +2412,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
+specifier|final
 name|List
 argument_list|<
 name|LookupResult
@@ -2450,6 +2534,10 @@ argument_list|>
 argument_list|>
 argument_list|(
 name|fst
+argument_list|,
+name|count
+operator|*
+name|maxSurfaceFormsPerAnalyzedForm
 argument_list|,
 name|count
 operator|*
@@ -2697,6 +2785,10 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
+name|num
+operator|*
+name|maxAnalyzedPathsForOneInput
+argument_list|,
 name|weightComparator
 argument_list|)
 block|{
@@ -2775,8 +2867,8 @@ block|{
 comment|// In exactFirst mode, don't accept any paths
 comment|// matching the surface form since that will
 comment|// create duplicate results:
-return|return
-operator|!
+if|if
+condition|(
 name|utf8Key
 operator|.
 name|bytesEquals
@@ -2785,7 +2877,28 @@ name|output
 operator|.
 name|output2
 argument_list|)
+condition|)
+block|{
+comment|// We found exact match, which means we should
+comment|// have already found it in the first search:
+assert|assert
+name|results
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+assert|;
+return|return
+literal|false
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|true
+return|;
+block|}
 block|}
 block|}
 block|}
@@ -2938,6 +3051,20 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|results
+operator|.
+name|size
+argument_list|()
+operator|==
+name|num
+condition|)
+block|{
+comment|// In the exactFirst=true case the search may
+comment|// produce one extra path
+break|break;
+block|}
 block|}
 return|return
 name|results

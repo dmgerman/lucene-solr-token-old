@@ -1269,6 +1269,12 @@ specifier|final
 name|int
 name|topN
 decl_stmt|;
+DECL|field|maxQueueDepth
+specifier|private
+specifier|final
+name|int
+name|maxQueueDepth
+decl_stmt|;
 DECL|field|scratchArc
 specifier|private
 specifier|final
@@ -1322,6 +1328,9 @@ parameter_list|,
 name|int
 name|topN
 parameter_list|,
+name|int
+name|maxQueueDepth
+parameter_list|,
 name|Comparator
 argument_list|<
 name|T
@@ -1351,6 +1360,12 @@ operator|.
 name|topN
 operator|=
 name|topN
+expr_stmt|;
+name|this
+operator|.
+name|maxQueueDepth
+operator|=
+name|maxQueueDepth
 expr_stmt|;
 name|this
 operator|.
@@ -1417,7 +1432,7 @@ operator|.
 name|size
 argument_list|()
 operator|==
-name|topN
+name|maxQueueDepth
 condition|)
 block|{
 name|FSTPath
@@ -1653,7 +1668,7 @@ operator|.
 name|size
 argument_list|()
 operator|==
-name|topN
+name|maxQueueDepth
 operator|+
 literal|1
 condition|)
@@ -1866,6 +1881,11 @@ comment|// as it freezes... can easily do this on first pass
 comment|// (w/o requiring rewrite)
 comment|// TODO: maybe we should make an FST.INPUT_TYPE.BYTE0.5!?
 comment|// (nibbles)
+name|int
+name|rejectCount
+init|=
+literal|0
+decl_stmt|;
 comment|// For each top N path:
 while|while
 condition|(
@@ -1913,7 +1933,6 @@ block|{
 comment|// There were less than topN paths available:
 break|break;
 block|}
-comment|//System.out.println("  remove init path=" + path);
 if|if
 condition|(
 name|path
@@ -1970,6 +1989,10 @@ operator|==
 name|topN
 operator|-
 literal|1
+operator|&&
+name|maxQueueDepth
+operator|==
+name|topN
 condition|)
 block|{
 comment|// Last path -- don't bother w/ queue anymore:
@@ -2210,6 +2233,33 @@ name|comparator
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|rejectCount
+operator|++
+expr_stmt|;
+assert|assert
+name|rejectCount
+operator|+
+name|topN
+operator|<=
+name|maxQueueDepth
+operator|:
+literal|"maxQueueDepth ("
+operator|+
+name|maxQueueDepth
+operator|+
+literal|") is too small for topN ("
+operator|+
+name|topN
+operator|+
+literal|"): rejected "
+operator|+
+name|rejectCount
+operator|+
+literal|" paths"
+assert|;
 block|}
 break|break;
 block|}
@@ -2514,6 +2564,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// All paths are kept, so we can pass topN for
+comment|// maxQueueDepth and the pruning is admissible:
 name|TopNSearcher
 argument_list|<
 name|T
@@ -2527,6 +2579,8 @@ name|T
 argument_list|>
 argument_list|(
 name|fst
+argument_list|,
+name|topN
 argument_list|,
 name|topN
 argument_list|,

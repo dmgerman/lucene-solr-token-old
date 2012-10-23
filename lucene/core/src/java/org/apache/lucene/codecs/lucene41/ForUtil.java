@@ -853,8 +853,11 @@ condition|)
 block|{
 name|out
 operator|.
-name|writeVInt
+name|writeByte
 argument_list|(
+operator|(
+name|byte
+operator|)
 name|ALL_VALUES_EQUAL
 argument_list|)
 expr_stmt|;
@@ -945,8 +948,11 @@ name|encodedSize
 assert|;
 name|out
 operator|.
-name|writeVInt
+name|writeByte
 argument_list|(
+operator|(
+name|byte
+operator|)
 name|numBits
 argument_list|)
 expr_stmt|;
@@ -1000,7 +1006,7 @@ name|numBits
 init|=
 name|in
 operator|.
-name|readVInt
+name|readByte
 argument_list|()
 decl_stmt|;
 assert|assert
@@ -1124,7 +1130,7 @@ name|numBits
 init|=
 name|in
 operator|.
-name|readVInt
+name|readByte
 argument_list|()
 decl_stmt|;
 if|if
@@ -1187,7 +1193,7 @@ name|data
 parameter_list|)
 block|{
 specifier|final
-name|long
+name|int
 name|v
 init|=
 name|data
