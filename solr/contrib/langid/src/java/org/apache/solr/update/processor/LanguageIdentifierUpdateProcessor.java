@@ -234,7 +234,7 @@ name|Pattern
 import|;
 end_import
 begin_comment
-comment|/**  * Identifies the language of a set of input fields.   * Also supports mapping of field names based  * on detected language.   *<p>  * See<a href="http://wiki.apache.org/solr/LanguageDetection">http://wiki.apache.org/solr/LanguageDetection</a>  * @since 3.5  * @lucene.experimental  */
+comment|/**  * Identifies the language of a set of input fields.  * Also supports mapping of field names based  * on detected language.  *<p>  * See<a href="http://wiki.apache.org/solr/LanguageDetection">http://wiki.apache.org/solr/LanguageDetection</a>  * @since 3.5  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|LanguageIdentifierUpdateProcessor
@@ -1545,25 +1545,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-else|else
-block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Document {} does not contain input field {}. Skipping this field."
-argument_list|,
-name|doc
-operator|.
-name|getFieldValue
-argument_list|(
-name|docIdField
-argument_list|)
-argument_list|,
-name|fieldName
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|// Set the languages field to an array of all detected languages
@@ -1812,7 +1793,7 @@ name|String
 name|content
 parameter_list|)
 function_decl|;
-comment|/**    * Chooses a language based on the list of candidates detected     * @param language language code as a string    * @param fallbackLang the language code to use as a fallback    * @return a string of the chosen language    */
+comment|/**    * Chooses a language based on the list of candidates detected    * @param language language code as a string    * @param fallbackLang the language code to use as a fallback    * @return a string of the chosen language    */
 DECL|method|resolveLanguage
 specifier|protected
 name|String
@@ -1860,7 +1841,7 @@ name|fallbackLang
 argument_list|)
 return|;
 block|}
-comment|/**    * Chooses a language based on the list of candidates detected     * @param languages a List of DetectedLanguages with certainty score    * @param fallbackLang the language code to use as a fallback    * @return a string of the chosen language    */
+comment|/**    * Chooses a language based on the list of candidates detected    * @param languages a List of DetectedLanguages with certainty score    * @param fallbackLang the language code to use as a fallback    * @return a string of the chosen language    */
 DECL|method|resolveLanguage
 specifier|protected
 name|String
