@@ -1277,10 +1277,10 @@ return|;
 block|}
 comment|// called by the modified version of parseProperties
 comment|// when the myid file is missing.
-DECL|method|getMySeverId
+DECL|method|getMyServerId
 specifier|public
 name|Long
-name|getMySeverId
+name|getMyServerId
 parameter_list|()
 block|{
 if|if
@@ -2498,7 +2498,7 @@ comment|///////////////// ADDED FOR SOLR //////
 name|Long
 name|myid
 init|=
-name|getMySeverId
+name|getMyServerId
 argument_list|()
 decl_stmt|;
 if|if
