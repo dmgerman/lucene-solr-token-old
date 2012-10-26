@@ -1145,17 +1145,6 @@ operator|.
 name|lastClusterStateHashCode
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"build a new map for "
-operator|+
-name|collection
-argument_list|)
-expr_stmt|;
 comment|// build a map of unique nodes
 comment|// TODO: allow filtering by group, role, etc
 name|Map

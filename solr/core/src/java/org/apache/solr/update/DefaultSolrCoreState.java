@@ -219,6 +219,7 @@ name|recoveryStrat
 decl_stmt|;
 DECL|field|closed
 specifier|private
+specifier|volatile
 name|boolean
 name|closed
 init|=

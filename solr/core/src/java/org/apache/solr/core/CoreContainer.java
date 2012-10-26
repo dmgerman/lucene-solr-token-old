@@ -5906,6 +5906,13 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|core
+operator|!=
+literal|null
+condition|)
+block|{
 name|coreToOrigName
 operator|.
 name|remove
@@ -5913,6 +5920,7 @@ argument_list|(
 name|core
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|core
 return|;
