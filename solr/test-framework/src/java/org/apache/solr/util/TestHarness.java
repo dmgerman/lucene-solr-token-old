@@ -478,6 +478,7 @@ name|coreName
 decl_stmt|;
 DECL|field|container
 specifier|protected
+specifier|volatile
 name|CoreContainer
 name|container
 decl_stmt|;

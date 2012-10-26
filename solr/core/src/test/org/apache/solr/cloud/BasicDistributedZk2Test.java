@@ -227,6 +227,15 @@ operator|.
 name|SolrDispatchFilter
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
+import|;
+end_import
 begin_comment
 comment|/**  * This test simply does a bunch of basic things in solrcloud mode and asserts things  * work as expected.  */
 end_comment
@@ -238,6 +247,28 @@ name|BasicDistributedZk2Test
 extends|extends
 name|AbstractFullDistribZkTestBase
 block|{
+annotation|@
+name|BeforeClass
+DECL|method|beforeThisClass2
+specifier|public
+specifier|static
+name|void
+name|beforeThisClass2
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// TODO: we use an fs based dir because something
+comment|// like a ram dir will not recover correctly right now
+comment|// because tran log will still exist on restart and ram
+comment|// dir will not persist - perhaps translog can empty on
+comment|// start if using an EphemeralDirectoryFactory
+name|useFactory
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 comment|/*    * (non-Javadoc)    *     * @see org.apache.solr.BaseDistributedSearchTestCase#doTest()    *     * Create 3 shards, each with one replica    */
 annotation|@
 name|Override
@@ -411,6 +442,14 @@ comment|// expected
 block|}
 comment|// TODO: bring this to it's own method?
 comment|// try indexing to a leader that has no replicas up
+name|ZkStateReader
+name|zkStateReader
+init|=
+name|cloudClient
+operator|.
+name|getZkStateReader
+argument_list|()
+decl_stmt|;
 name|ZkNodeProps
 name|leaderProps
 init|=
@@ -822,6 +861,38 @@ argument_list|,
 literal|"n_tl1 desc"
 argument_list|)
 expr_stmt|;
+name|int
+name|oldLiveNodes
+init|=
+name|cloudClient
+operator|.
+name|getZkStateReader
+argument_list|()
+operator|.
+name|getZkClient
+argument_list|()
+operator|.
+name|getChildren
+argument_list|(
+name|ZkStateReader
+operator|.
+name|LIVE_NODES_ZKNODE
+argument_list|,
+literal|null
+argument_list|,
+literal|true
+argument_list|)
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|5
+argument_list|,
+name|oldLiveNodes
+argument_list|)
+expr_stmt|;
 comment|// kill a shard
 name|CloudJettyRunner
 name|deadShard
@@ -835,11 +906,6 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-name|cloudClient
-operator|.
-name|connect
-argument_list|()
-expr_stmt|;
 comment|// we are careful to make sure the downed node is no longer in the state,
 comment|// because on some systems (especially freebsd w/ blackhole enabled), trying
 comment|// to talk to a downed node causes grief
@@ -875,6 +941,102 @@ argument_list|(
 name|deadShard
 argument_list|)
 expr_stmt|;
+comment|// wait till live nodes drops by 1
+name|int
+name|liveNodes
+init|=
+name|cloudClient
+operator|.
+name|getZkStateReader
+argument_list|()
+operator|.
+name|getZkClient
+argument_list|()
+operator|.
+name|getChildren
+argument_list|(
+name|ZkStateReader
+operator|.
+name|LIVE_NODES_ZKNODE
+argument_list|,
+literal|null
+argument_list|,
+literal|true
+argument_list|)
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
+name|int
+name|tries
+init|=
+literal|50
+decl_stmt|;
+while|while
+condition|(
+name|oldLiveNodes
+operator|==
+name|liveNodes
+condition|)
+block|{
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|tries
+operator|--
+operator|==
+literal|0
+condition|)
+block|{
+name|fail
+argument_list|(
+literal|"We expected a node to drop..."
+argument_list|)
+expr_stmt|;
+block|}
+name|liveNodes
+operator|=
+name|cloudClient
+operator|.
+name|getZkStateReader
+argument_list|()
+operator|.
+name|getZkClient
+argument_list|()
+operator|.
+name|getChildren
+argument_list|(
+name|ZkStateReader
+operator|.
+name|LIVE_NODES_ZKNODE
+argument_list|,
+literal|null
+argument_list|,
+literal|true
+argument_list|)
+operator|.
+name|size
+argument_list|()
+expr_stmt|;
+block|}
+name|assertEquals
+argument_list|(
+literal|4
+argument_list|,
+name|liveNodes
+argument_list|)
+expr_stmt|;
+name|int
+name|cnt
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|CloudJettyRunner
@@ -910,6 +1072,9 @@ name|getZkStateReader
 argument_list|()
 argument_list|,
 name|deadShard
+argument_list|,
+name|cnt
+operator|++
 argument_list|)
 expr_stmt|;
 block|}

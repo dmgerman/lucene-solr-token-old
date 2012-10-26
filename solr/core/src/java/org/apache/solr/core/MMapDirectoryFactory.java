@@ -131,7 +131,7 @@ specifier|public
 class|class
 name|MMapDirectoryFactory
 extends|extends
-name|CachingDirectoryFactory
+name|StandardDirectoryFactory
 block|{
 DECL|field|log
 specifier|private
