@@ -1066,21 +1066,6 @@ else|else
 block|{
 if|if
 condition|(
-name|failOnTimeout
-condition|)
-block|{
-name|fail
-argument_list|(
-literal|"There are still nodes recoverying"
-argument_list|)
-expr_stmt|;
-name|printLayout
-argument_list|()
-expr_stmt|;
-return|return;
-block|}
-if|if
-condition|(
 name|verbose
 condition|)
 name|System
@@ -1089,9 +1074,28 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"gave up waiting for recovery to finish.."
+literal|"Gave up waiting for recovery to finish.."
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|failOnTimeout
+condition|)
+block|{
+name|fail
+argument_list|(
+literal|"There are still nodes recoverying - waited for "
+operator|+
+name|timeoutSeconds
+operator|+
+literal|" seconds"
+argument_list|)
+expr_stmt|;
+name|printLayout
+argument_list|()
+expr_stmt|;
+return|return;
+block|}
 block|}
 name|cont
 operator|=
