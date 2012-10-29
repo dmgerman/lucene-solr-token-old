@@ -3134,6 +3134,8 @@ argument_list|,
 name|nVersions
 argument_list|,
 name|cantReachIsSuccess
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|boolean

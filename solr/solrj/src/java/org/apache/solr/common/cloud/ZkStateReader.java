@@ -1076,7 +1076,19 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"A cluster state change has occurred - updating..."
+literal|"A cluster state change has occurred - updating... ({})"
+argument_list|,
+name|ZkStateReader
+operator|.
+name|this
+operator|.
+name|clusterState
+operator|.
+name|getLiveNodes
+argument_list|()
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
@@ -1124,6 +1136,58 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|liveNodes
+init|=
+name|zkClient
+operator|.
+name|getChildren
+argument_list|(
+name|LIVE_NODES_ZKNODE
+argument_list|,
+name|this
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|liveNodesSet
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|liveNodesSet
+operator|.
+name|addAll
+argument_list|(
+name|liveNodes
+argument_list|)
+expr_stmt|;
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|ln
+init|=
+name|ZkStateReader
+operator|.
+name|this
+operator|.
+name|clusterState
+operator|.
+name|getLiveNodes
+argument_list|()
+decl_stmt|;
 name|ClusterState
 name|clusterState
 init|=
@@ -1138,14 +1202,7 @@ argument_list|()
 argument_list|,
 name|data
 argument_list|,
-name|ZkStateReader
-operator|.
-name|this
-operator|.
-name|clusterState
-operator|.
-name|getLiveNodes
-argument_list|()
+name|ln
 argument_list|)
 decl_stmt|;
 comment|// update volatile
@@ -1312,13 +1369,6 @@ condition|)
 block|{
 return|return;
 block|}
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Updating live nodes"
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 comment|// delayed approach
@@ -1350,6 +1400,18 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Updating live nodes... ({})"
+argument_list|,
+name|liveNodes
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Set
 argument_list|<
 name|String
@@ -1646,7 +1708,12 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Updating live nodes from ZooKeeper... "
+literal|"Updating live nodes from ZooKeeper... ({})"
+argument_list|,
+name|liveNodesSet
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|clusterState
@@ -1676,13 +1743,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 name|this
 operator|.
 name|clusterState
 operator|=
 name|clusterState
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

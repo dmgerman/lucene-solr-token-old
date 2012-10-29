@@ -1837,6 +1837,10 @@ operator|&&
 operator|!
 name|isInterrupted
 argument_list|()
+operator|&&
+operator|!
+name|isClosed
+argument_list|()
 condition|)
 block|{
 comment|// don't use interruption or it will close channels though
@@ -2055,6 +2059,10 @@ argument_list|,
 name|ulog
 operator|.
 name|numRecordsToKeep
+argument_list|,
+literal|false
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|peerSync
@@ -2409,7 +2417,11 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Recovery failed - trying again... core="
+literal|"Recovery failed - trying again... ("
+operator|+
+name|retries
+operator|+
+literal|") core="
 operator|+
 name|coreName
 argument_list|)
@@ -2438,7 +2450,7 @@ block|{
 if|if
 condition|(
 name|retries
-operator|==
+operator|>=
 name|INTERRUPTED
 condition|)
 block|{
@@ -2499,7 +2511,11 @@ name|log
 argument_list|(
 name|log
 argument_list|,
-literal|"Recovery failed - max retries exceeded. core="
+literal|"Recovery failed - max retries exceeded ("
+operator|+
+name|retries
+operator|+
+literal|"). core="
 operator|+
 name|coreName
 argument_list|)
@@ -2587,6 +2603,17 @@ argument_list|,
 literal|600
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Wait {} seconds before trying to recover again ({})"
+argument_list|,
+name|loopCount
+argument_list|,
+name|retries
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

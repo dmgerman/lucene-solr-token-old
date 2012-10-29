@@ -408,8 +408,6 @@ operator|=
 name|getScannerFor
 argument_list|(
 name|matchVersion
-argument_list|,
-name|input
 argument_list|)
 expr_stmt|;
 block|}
@@ -442,8 +440,6 @@ operator|=
 name|getScannerFor
 argument_list|(
 name|matchVersion
-argument_list|,
-name|input
 argument_list|)
 expr_stmt|;
 block|}
@@ -476,8 +472,6 @@ operator|=
 name|getScannerFor
 argument_list|(
 name|matchVersion
-argument_list|,
-name|input
 argument_list|)
 expr_stmt|;
 block|}
@@ -489,18 +483,16 @@ name|getScannerFor
 parameter_list|(
 name|Version
 name|matchVersion
-parameter_list|,
-name|Reader
-name|input
 parameter_list|)
 block|{
 return|return
 operator|new
 name|UAX29URLEmailTokenizerImpl
 argument_list|(
-name|input
+literal|null
 argument_list|)
 return|;
+comment|// best effort NPE if you dont call reset
 block|}
 comment|// this tokenizer generates three attributes:
 comment|// term offset, positionIncrement and type

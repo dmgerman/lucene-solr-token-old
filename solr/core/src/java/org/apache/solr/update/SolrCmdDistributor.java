@@ -658,7 +658,6 @@ name|void
 name|finish
 parameter_list|()
 block|{
-comment|// piggyback on any outstanding adds or deletes if possible.
 name|flushAdds
 argument_list|(
 literal|1
@@ -909,6 +908,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// make sure we are ordered
+name|flushAdds
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|flushDeletes
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 comment|// Wait for all outstanding responses to make sure that a commit
 comment|// can't sneak in ahead of adds or deletes we already sent.
 comment|// We could do this on a per-server basis, but it's more complex
@@ -947,6 +957,10 @@ argument_list|(
 literal|"Distrib commit to:"
 operator|+
 name|nodes
+operator|+
+literal|" params:"
+operator|+
+name|params
 argument_list|)
 expr_stmt|;
 for|for

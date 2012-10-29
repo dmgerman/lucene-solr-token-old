@@ -970,9 +970,10 @@ name|buffer
 operator|.
 name|reset
 argument_list|(
-name|input
+literal|null
 argument_list|)
 expr_stmt|;
+comment|// best effort NPE consumers that don't call reset()
 name|resetState
 argument_list|()
 expr_stmt|;

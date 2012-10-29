@@ -307,6 +307,19 @@ name|solr
 operator|.
 name|common
 operator|.
+name|SolrException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
 name|params
 operator|.
 name|ModifiableSolrParams
@@ -580,11 +593,6 @@ specifier|private
 specifier|final
 name|IndexSchema
 name|schema
-decl_stmt|;
-DECL|field|indexDir
-specifier|private
-name|String
-name|indexDir
 decl_stmt|;
 DECL|field|debug
 specifier|private
@@ -1079,15 +1087,6 @@ name|dir
 argument_list|)
 expr_stmt|;
 block|}
-name|this
-operator|.
-name|indexDir
-operator|=
-name|getIndexDir
-argument_list|(
-name|dir
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|closeReader
@@ -1725,6 +1724,8 @@ expr_stmt|;
 comment|// super.close();
 comment|// can't use super.close() since it just calls reader.close() and that may only be called once
 comment|// per reader (even if incRef() was previously called).
+try|try
+block|{
 if|if
 condition|(
 name|closeReader
@@ -1734,6 +1735,25 @@ operator|.
 name|decRef
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|SolrException
+operator|.
+name|log
+argument_list|(
+name|log
+argument_list|,
+literal|"Problem dec ref'ing reader"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|SolrCache
@@ -2322,17 +2342,6 @@ comment|//
 comment|//      return super.search(newQuery[0], newFilter[0], sort);
 comment|//    }
 comment|//  }
-comment|/**    * @return the indexDir on which this searcher is opened    */
-DECL|method|getIndexDir
-specifier|public
-name|String
-name|getIndexDir
-parameter_list|()
-block|{
-return|return
-name|indexDir
-return|;
-block|}
 comment|/* ********************** Document retrieval *************************/
 comment|/* Future optimizations (yonik)    *    * If no cache is present:    *   - use NO_LOAD instead of LAZY_LOAD    *   - use LOAD_AND_BREAK if a single field is begin retrieved    */
 comment|/**    * FieldSelector which loads the specified fields, and load all other    * field lazily.    */
