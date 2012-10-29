@@ -416,7 +416,7 @@ specifier|final
 name|boolean
 name|onlyMorePopular
 init|=
-literal|true
+literal|false
 decl_stmt|;
 DECL|field|random
 specifier|private
