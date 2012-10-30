@@ -3069,6 +3069,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/** Returns all prefix paths to initialize the search. */
 DECL|method|getFullPrefixPaths
 specifier|protected
 name|List
