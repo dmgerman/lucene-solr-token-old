@@ -525,9 +525,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Scorer
+name|SpanScorer
 name|scorer
 init|=
+operator|(
+name|SpanScorer
+operator|)
 name|scorer
 argument_list|(
 name|context
@@ -574,7 +577,7 @@ name|freq
 init|=
 name|scorer
 operator|.
-name|freq
+name|sloppyFreq
 argument_list|()
 decl_stmt|;
 name|SloppySimScorer

@@ -184,6 +184,11 @@ index|[]
 name|rptStack
 decl_stmt|;
 comment|// temporary stack for switching colliding repeating pps
+DECL|field|numMatches
+specifier|private
+name|int
+name|numMatches
+decl_stmt|;
 DECL|method|SloppyPhraseScorer
 name|SloppyPhraseScorer
 parameter_list|(
@@ -272,6 +277,10 @@ name|freq
 init|=
 literal|0.0f
 decl_stmt|;
+name|numMatches
+operator|=
+literal|0
+expr_stmt|;
 name|PhrasePositions
 name|pp
 init|=
@@ -348,6 +357,9 @@ name|matchLength
 argument_list|)
 expr_stmt|;
 comment|// score match
+name|numMatches
+operator|++
+expr_stmt|;
 block|}
 name|pq
 operator|.
@@ -423,6 +435,9 @@ name|matchLength
 argument_list|)
 expr_stmt|;
 comment|// score match
+name|numMatches
+operator|++
+expr_stmt|;
 block|}
 return|return
 name|freq
@@ -2575,6 +2590,20 @@ block|}
 block|}
 return|return
 name|tg
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|freq
+specifier|public
+name|int
+name|freq
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|numMatches
 return|;
 block|}
 comment|//  private void printQueue(PrintStream ps, PhrasePositions ext, String title) {
