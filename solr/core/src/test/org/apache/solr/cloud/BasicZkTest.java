@@ -76,6 +76,19 @@ name|solr
 operator|.
 name|common
 operator|.
+name|SolrException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
 name|params
 operator|.
 name|CommonParams
@@ -201,17 +214,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|SAXParseException
 import|;
 end_import
 begin_comment
@@ -908,7 +910,7 @@ name|SolrTestCaseJ4
 operator|.
 name|ignoreException
 argument_list|(
-literal|"SAXParseException"
+literal|"SolrException"
 argument_list|)
 expr_stmt|;
 name|h
@@ -940,7 +942,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|SAXParseException
+name|SolrException
 name|e
 parameter_list|)
 block|{            }

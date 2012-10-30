@@ -561,9 +561,9 @@ name|e
 parameter_list|)
 block|{
 comment|// :NOOP:
-comment|// :TODO: CoreAdminHandler's exception messages are terrible, otherwise we could asert something useful here
+comment|// :TODO: CoreAdminHandler's exception messages are terrible, otherwise we could assert something useful here
 block|}
-comment|// check specificly for status of the failed core name
+comment|// check specifically for status of the failed core name
 name|resp
 operator|=
 operator|new
@@ -696,12 +696,18 @@ literal|"init failure doesn't mention problem: "
 operator|+
 name|fail
 operator|.
+name|getCause
+argument_list|()
+operator|.
 name|getMessage
 argument_list|()
 argument_list|,
 literal|0
 operator|<
 name|fail
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getMessage
 argument_list|()
