@@ -144,7 +144,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * A k-Nearest Neighbor classifier (see<code>http://en.wikipedia.org/wiki/K-nearest_neighbors</code>) based  * on {@link MoreLikeThis}  * @lucene.experimental  */
+comment|/**  * A k-Nearest Neighbor classifier (see<code>http://en.wikipedia.org/wiki/K-nearest_neighbors</code>) based  * on {@link MoreLikeThis}  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|KNearestNeighborClassifier
@@ -179,7 +179,7 @@ specifier|private
 name|int
 name|k
 decl_stmt|;
-comment|/**    * Create a {@link Classifier} using kNN algorithm    * @param k the number of neighbors to analyze as an<code>int</code>    */
+comment|/**    * Create a {@link Classifier} using kNN algorithm    *    * @param k the number of neighbors to analyze as an<code>int</code>    */
 DECL|method|KNearestNeighborClassifier
 specifier|public
 name|KNearestNeighborClassifier
@@ -377,9 +377,15 @@ block|}
 name|double
 name|score
 init|=
-literal|1
+name|classCounts
+operator|.
+name|get
+argument_list|(
+name|assignedClass
+argument_list|)
+operator|/
+name|k
 decl_stmt|;
-comment|// TODO : derive score from query
 return|return
 operator|new
 name|ClassificationResult
