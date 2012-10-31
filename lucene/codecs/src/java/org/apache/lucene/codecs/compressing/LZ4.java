@@ -89,7 +89,7 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|/**  * LZ4 compression and uncompression routines.  *  * http://code.google.com/p/lz4/  * http://fastcompression.blogspot.fr/p/lz4.html  */
+comment|/**  * LZ4 compression and decompression routines.  *  * http://code.google.com/p/lz4/  * http://fastcompression.blogspot.fr/p/lz4.html  */
 end_comment
 begin_class
 DECL|class|LZ4
@@ -436,18 +436,18 @@ return|return
 name|count
 return|;
 block|}
-comment|/**    * Uncompress at least<code>uncompressedLen</code> bytes into<code>destBytes</code>.    * Please note that<code>destBytes</code> must be large enough to be able to hold    *<b>all</b> uncompressed data plus 8 bytes (meaning that you need to know the total    * uncompressed length).    */
-DECL|method|uncompress
+comment|/**    * Decompress at least<code>decompressedLen</code> bytes into<code>destBytes</code>.    * Please note that<code>destBytes</code> must be large enough to be able to hold    *<b>all</b> decompressed data plus 8 bytes (meaning that you need to know the total    * decompressed length).    */
+DECL|method|decompress
 specifier|public
 specifier|static
 name|void
-name|uncompress
+name|decompress
 parameter_list|(
 name|DataInput
 name|compressed
 parameter_list|,
 name|int
-name|uncompressedLen
+name|decompressedLen
 parameter_list|,
 name|BytesRef
 name|destBytes
@@ -481,7 +481,7 @@ while|while
 condition|(
 name|dOff
 operator|<
-name|uncompressedLen
+name|decompressedLen
 condition|)
 block|{
 comment|// literals
@@ -569,7 +569,7 @@ if|if
 condition|(
 name|dOff
 operator|>=
-name|uncompressedLen
+name|decompressedLen
 condition|)
 block|{
 break|break;
@@ -656,7 +656,7 @@ name|matchLen
 operator|+=
 name|MIN_MATCH
 expr_stmt|;
-comment|// copying a multiple of 8 bytes can make uncompression from 5% to 10% faster
+comment|// copying a multiple of 8 bytes can make decompression from 5% to 10% faster
 specifier|final
 name|int
 name|fastLen

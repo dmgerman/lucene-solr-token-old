@@ -111,7 +111,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * A compression mode. Tells how much effort should be spent on compression and  * uncompression of stored fields.  * @lucene.experimental  */
+comment|/**  * A compression mode. Tells how much effort should be spent on compression and  * decompression of stored fields.  * @lucene.experimental  */
 end_comment
 begin_enum
 DECL|enum|CompressionMode
@@ -119,7 +119,7 @@ specifier|public
 enum|enum
 name|CompressionMode
 block|{
-comment|/**    * A compression mode that trades compression ratio for speed. Although the    * compression ratio might remain high, compression and uncompression are    * very fast. Use this mode with indices that have a high update rate but    * should be able to load documents from disk quickly.    */
+comment|/**    * A compression mode that trades compression ratio for speed. Although the    * compression ratio might remain high, compression and decompression are    * very fast. Use this mode with indices that have a high update rate but    * should be able to load documents from disk quickly.    */
 DECL|enum constant|FAST
 name|FAST
 argument_list|(
@@ -138,17 +138,17 @@ return|;
 block|}
 annotation|@
 name|Override
-name|Uncompressor
-name|newUncompressor
+name|Decompressor
+name|newDecompressor
 parameter_list|()
 block|{
 return|return
-name|LZ4_UNCOMPRESSOR
+name|LZ4_DECOMPRESSOR
 return|;
 block|}
 block|}
 block|,
-comment|/**    * A compression mode that trades speed for compression ratio. Although    * compression and uncompression might be slow, this compression mode should    * provide a good compression ratio. This mode might be interesting if/when    * your index size is much bigger than your OS cache.    */
+comment|/**    * A compression mode that trades speed for compression ratio. Although    * compression and decompression might be slow, this compression mode should    * provide a good compression ratio. This mode might be interesting if/when    * your index size is much bigger than your OS cache.    */
 DECL|enum constant|HIGH_COMPRESSION
 name|HIGH_COMPRESSION
 argument_list|(
@@ -173,21 +173,21 @@ return|;
 block|}
 annotation|@
 name|Override
-name|Uncompressor
-name|newUncompressor
+name|Decompressor
+name|newDecompressor
 parameter_list|()
 block|{
 return|return
 operator|new
-name|DeflateUncompressor
+name|DeflateDecompressor
 argument_list|()
 return|;
 block|}
 block|}
 block|,
 comment|/**    * This compression mode is similar to {@link #FAST} but it spends more time    * compressing in order to improve the compression ratio. This compression    * mode is best used with indices that have a low update rate but should be    * able to load documents from disk quickly.    */
-DECL|enum constant|FAST_UNCOMPRESSION
-name|FAST_UNCOMPRESSION
+DECL|enum constant|FAST_DECOMPRESSION
+name|FAST_DECOMPRESSION
 argument_list|(
 literal|2
 argument_list|)
@@ -204,12 +204,12 @@ return|;
 block|}
 annotation|@
 name|Override
-name|Uncompressor
-name|newUncompressor
+name|Decompressor
+name|newDecompressor
 parameter_list|()
 block|{
 return|return
-name|LZ4_UNCOMPRESSOR
+name|LZ4_DECOMPRESSOR
 return|;
 block|}
 block|}
@@ -300,29 +300,29 @@ name|Compressor
 name|newCompressor
 parameter_list|()
 function_decl|;
-comment|/**    * Create a new {@link Uncompressor} instance.    */
-DECL|method|newUncompressor
+comment|/**    * Create a new {@link Decompressor} instance.    */
+DECL|method|newDecompressor
 specifier|abstract
-name|Uncompressor
-name|newUncompressor
+name|Decompressor
+name|newDecompressor
 parameter_list|()
 function_decl|;
-DECL|field|LZ4_UNCOMPRESSOR
+DECL|field|LZ4_DECOMPRESSOR
 specifier|private
 specifier|static
 specifier|final
-name|Uncompressor
-name|LZ4_UNCOMPRESSOR
+name|Decompressor
+name|LZ4_DECOMPRESSOR
 init|=
 operator|new
-name|Uncompressor
+name|Decompressor
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
 name|void
-name|uncompress
+name|decompress
 parameter_list|(
 name|DataInput
 name|in
@@ -335,7 +335,7 @@ name|IOException
 block|{
 specifier|final
 name|int
-name|uncompressedLen
+name|decompressedLen
 init|=
 name|in
 operator|.
@@ -350,7 +350,7 @@ name|bytes
 operator|.
 name|length
 operator|<
-name|uncompressedLen
+name|decompressedLen
 operator|+
 literal|8
 condition|)
@@ -367,7 +367,7 @@ name|bytes
 operator|.
 name|bytes
 argument_list|,
-name|uncompressedLen
+name|decompressedLen
 operator|+
 literal|8
 argument_list|)
@@ -375,11 +375,11 @@ expr_stmt|;
 block|}
 name|LZ4
 operator|.
-name|uncompress
+name|decompress
 argument_list|(
 name|in
 argument_list|,
-name|uncompressedLen
+name|decompressedLen
 argument_list|,
 name|bytes
 argument_list|)
@@ -390,7 +390,7 @@ name|bytes
 operator|.
 name|length
 operator|!=
-name|uncompressedLen
+name|decompressedLen
 condition|)
 block|{
 throw|throw
@@ -406,7 +406,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|uncompress
+name|decompress
 parameter_list|(
 name|DataInput
 name|in
@@ -425,7 +425,7 @@ name|IOException
 block|{
 specifier|final
 name|int
-name|uncompressedLen
+name|decompressedLen
 init|=
 name|in
 operator|.
@@ -436,7 +436,7 @@ if|if
 condition|(
 name|offset
 operator|>
-name|uncompressedLen
+name|decompressedLen
 condition|)
 block|{
 name|bytes
@@ -455,7 +455,7 @@ name|bytes
 operator|.
 name|length
 operator|<
-name|uncompressedLen
+name|decompressedLen
 condition|)
 block|{
 name|bytes
@@ -470,13 +470,13 @@ name|bytes
 operator|.
 name|bytes
 argument_list|,
-name|uncompressedLen
+name|decompressedLen
 argument_list|)
 expr_stmt|;
 block|}
 name|LZ4
 operator|.
-name|uncompress
+name|decompress
 argument_list|(
 name|in
 argument_list|,
@@ -499,7 +499,7 @@ name|offset
 operator|+
 name|length
 operator|>=
-name|uncompressedLen
+name|decompressedLen
 condition|)
 block|{
 if|if
@@ -508,7 +508,7 @@ name|bytes
 operator|.
 name|length
 operator|!=
-name|uncompressedLen
+name|decompressedLen
 condition|)
 block|{
 throw|throw
@@ -523,7 +523,7 @@ name|bytes
 operator|.
 name|length
 operator|=
-name|uncompressedLen
+name|decompressedLen
 operator|-
 name|offset
 expr_stmt|;
@@ -553,7 +553,7 @@ name|IOException
 block|{
 specifier|final
 name|int
-name|uncompressedLen
+name|decompressedLen
 init|=
 name|in
 operator|.
@@ -564,12 +564,12 @@ name|out
 operator|.
 name|writeVInt
 argument_list|(
-name|uncompressedLen
+name|decompressedLen
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|uncompressedLen
+name|decompressedLen
 operator|==
 literal|0
 condition|)
@@ -596,7 +596,7 @@ while|while
 condition|(
 name|n
 operator|<
-name|uncompressedLen
+name|decompressedLen
 condition|)
 block|{
 comment|// literals
@@ -697,7 +697,7 @@ if|if
 condition|(
 name|n
 operator|>=
-name|uncompressedLen
+name|decompressedLen
 condition|)
 block|{
 break|break;
@@ -788,7 +788,7 @@ if|if
 condition|(
 name|n
 operator|!=
-name|uncompressedLen
+name|decompressedLen
 condition|)
 block|{
 throw|throw
@@ -797,7 +797,7 @@ name|IOException
 argument_list|(
 literal|"Currupted compressed stream: expected "
 operator|+
-name|uncompressedLen
+name|decompressedLen
 operator|+
 literal|" bytes, but got at least"
 operator|+
@@ -809,7 +809,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|Uncompressor
+name|Decompressor
 name|clone
 parameter_list|()
 block|{
@@ -931,30 +931,30 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
-DECL|class|DeflateUncompressor
+DECL|class|DeflateDecompressor
 specifier|private
 specifier|static
 specifier|final
 class|class
-name|DeflateUncompressor
+name|DeflateDecompressor
 extends|extends
-name|Uncompressor
+name|Decompressor
 block|{
-DECL|field|uncompressor
+DECL|field|decompressor
 specifier|final
 name|Inflater
-name|uncompressor
+name|decompressor
 decl_stmt|;
 DECL|field|compressed
 name|byte
 index|[]
 name|compressed
 decl_stmt|;
-DECL|method|DeflateUncompressor
-name|DeflateUncompressor
+DECL|method|DeflateDecompressor
+name|DeflateDecompressor
 parameter_list|()
 block|{
-name|uncompressor
+name|decompressor
 operator|=
 operator|new
 name|Inflater
@@ -971,10 +971,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|uncompress
+DECL|method|decompress
 specifier|public
 name|void
-name|uncompress
+name|decompress
 parameter_list|(
 name|DataInput
 name|in
@@ -1036,12 +1036,12 @@ argument_list|,
 name|compressedLength
 argument_list|)
 expr_stmt|;
-name|uncompressor
+name|decompressor
 operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-name|uncompressor
+name|decompressor
 operator|.
 name|setInput
 argument_list|(
@@ -1054,7 +1054,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|uncompressor
+name|decompressor
 operator|.
 name|needsInput
 argument_list|()
@@ -1089,7 +1089,7 @@ name|length
 decl_stmt|;
 name|count
 operator|=
-name|uncompressor
+name|decompressor
 operator|.
 name|inflate
 argument_list|(
@@ -1127,7 +1127,7 @@ name|count
 expr_stmt|;
 if|if
 condition|(
-name|uncompressor
+name|decompressor
 operator|.
 name|finished
 argument_list|()
@@ -1199,13 +1199,13 @@ annotation|@
 name|Override
 DECL|method|clone
 specifier|public
-name|Uncompressor
+name|Decompressor
 name|clone
 parameter_list|()
 block|{
 return|return
 operator|new
-name|DeflateUncompressor
+name|DeflateDecompressor
 argument_list|()
 return|;
 block|}
