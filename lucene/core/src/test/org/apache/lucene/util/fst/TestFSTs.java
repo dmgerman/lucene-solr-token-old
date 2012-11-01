@@ -10315,6 +10315,9 @@ name|matches
 argument_list|,
 operator|new
 name|TieBreakByInputComparator
+argument_list|<
+name|Long
+argument_list|>
 argument_list|(
 name|minLongComparator
 argument_list|)
@@ -11251,6 +11254,14 @@ name|matches
 argument_list|,
 operator|new
 name|TieBreakByInputComparator
+argument_list|<
+name|Pair
+argument_list|<
+name|Long
+argument_list|,
+name|Long
+argument_list|>
+argument_list|>
 argument_list|(
 name|minPairWeightComparator
 argument_list|)
