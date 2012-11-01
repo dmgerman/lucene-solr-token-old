@@ -7023,8 +7023,6 @@ parameter_list|(
 name|boolean
 name|reverse
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|super
