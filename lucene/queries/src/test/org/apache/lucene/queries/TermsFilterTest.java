@@ -2517,9 +2517,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|i
+name|uniqueTerms
+operator|.
+name|size
+argument_list|()
 operator|>
-literal|0
+literal|1
 condition|)
 block|{
 name|List
