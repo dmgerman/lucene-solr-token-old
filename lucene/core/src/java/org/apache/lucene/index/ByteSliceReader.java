@@ -196,7 +196,7 @@ name|firstSize
 init|=
 name|ByteBlockPool
 operator|.
-name|levelSizeArray
+name|LEVEL_SIZE_ARRAY
 index|[
 literal|0
 index|]
@@ -443,7 +443,7 @@ name|level
 operator|=
 name|ByteBlockPool
 operator|.
-name|nextLevelArray
+name|NEXT_LEVEL_ARRAY
 index|[
 name|level
 index|]
@@ -454,7 +454,7 @@ name|newSize
 init|=
 name|ByteBlockPool
 operator|.
-name|levelSizeArray
+name|LEVEL_SIZE_ARRAY
 index|[
 name|level
 index|]

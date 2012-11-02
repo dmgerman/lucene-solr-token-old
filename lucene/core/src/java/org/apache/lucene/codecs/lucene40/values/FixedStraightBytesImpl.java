@@ -785,8 +785,12 @@ parameter_list|()
 block|{
 name|pool
 operator|.
-name|dropBuffersAndReset
-argument_list|()
+name|reset
+argument_list|(
+literal|false
+argument_list|,
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|writeData
