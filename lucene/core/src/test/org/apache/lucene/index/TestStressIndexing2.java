@@ -742,6 +742,10 @@ operator|+
 literal|" mergeFactor="
 operator|+
 name|mergeFactor
+operator|+
+literal|" maxBufferedDocs="
+operator|+
+name|maxBufferedDocs
 argument_list|)
 expr_stmt|;
 block|}
@@ -2206,6 +2210,16 @@ condition|)
 block|{
 comment|// make sure r1 is in fact empty (eg has only all
 comment|// deleted docs):
+name|Bits
+name|liveDocs
+init|=
+name|MultiFields
+operator|.
+name|getLiveDocs
+argument_list|(
+name|r1
+argument_list|)
+decl_stmt|;
 name|DocsEnum
 name|docs
 init|=
@@ -2232,7 +2246,7 @@ argument_list|()
 argument_list|,
 name|termsEnum
 argument_list|,
-literal|null
+name|liveDocs
 argument_list|,
 name|docs
 argument_list|,
