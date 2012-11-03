@@ -445,6 +445,13 @@ name|int
 name|length
 parameter_list|)
 block|{
+comment|// TODO: maybe use oal.index.PrefixCodedTerms instead?
+comment|// If number of terms is more than a few hundred it
+comment|// should be a win
+comment|// TODO: we also pack terms in FieldCache/DocValues
+comment|// ... maybe we can refactor to share that code
+comment|// TODO: yet another option is to build the union of the terms in
+comment|// an automaton an call intersect on the termsenum if the density is high
 name|int
 name|hash
 init|=
@@ -1052,7 +1059,6 @@ block|}
 block|}
 block|}
 block|}
-comment|/*      * TODO: we should explore if it is worth to build the union of the terms in      * an automaton an call intersect on the termsenum if the density is high      */
 return|return
 name|result
 return|;
