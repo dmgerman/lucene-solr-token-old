@@ -700,6 +700,8 @@ operator|new
 name|FilterIterator
 argument_list|<
 name|String
+argument_list|,
+name|String
 argument_list|>
 argument_list|(
 name|super
