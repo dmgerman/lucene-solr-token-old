@@ -2035,6 +2035,12 @@ argument_list|,
 name|tempSorted
 argument_list|)
 expr_stmt|;
+comment|// Free disk space:
+name|tempInput
+operator|.
+name|delete
+argument_list|()
+expr_stmt|;
 name|reader
 operator|=
 operator|new
@@ -2137,6 +2143,23 @@ name|input
 init|=
 operator|new
 name|ByteArrayDataInput
+argument_list|()
+decl_stmt|;
+comment|// Used to remove duplicate surface forms (but we
+comment|// still index the hightest-weight one).  We clear
+comment|// this when we see a new analyzed form, so it cannot
+comment|// grow unbounded (at most 256 entries):
+name|Set
+argument_list|<
+name|BytesRef
+argument_list|>
+name|seenSurfaceForms
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|BytesRef
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|int
@@ -2264,6 +2287,18 @@ argument_list|(
 name|analyzed
 argument_list|)
 expr_stmt|;
+name|seenSurfaceForms
+operator|.
+name|add
+argument_list|(
+name|BytesRef
+operator|.
+name|deepCopyOf
+argument_list|(
+name|surface
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -2290,6 +2325,30 @@ comment|// More than maxSurfaceFormsPerAnalyzedForm
 comment|// dups: skip the rest:
 continue|continue;
 block|}
+if|if
+condition|(
+name|seenSurfaceForms
+operator|.
+name|contains
+argument_list|(
+name|surface
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
+name|seenSurfaceForms
+operator|.
+name|add
+argument_list|(
+name|BytesRef
+operator|.
+name|deepCopyOf
+argument_list|(
+name|surface
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -2302,6 +2361,23 @@ operator|.
 name|copyBytes
 argument_list|(
 name|analyzed
+argument_list|)
+expr_stmt|;
+name|seenSurfaceForms
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|seenSurfaceForms
+operator|.
+name|add
+argument_list|(
+name|BytesRef
+operator|.
+name|deepCopyOf
+argument_list|(
+name|surface
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
