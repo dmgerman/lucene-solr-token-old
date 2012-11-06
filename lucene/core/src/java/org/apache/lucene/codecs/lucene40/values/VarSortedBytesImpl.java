@@ -1055,7 +1055,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|load
+DECL|method|loadSource
 specifier|public
 name|org
 operator|.
@@ -1068,7 +1068,7 @@ operator|.
 name|DocValues
 operator|.
 name|Source
-name|load
+name|loadSource
 parameter_list|()
 throws|throws
 name|IOException
@@ -1089,10 +1089,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getDirectSource
-specifier|public
+DECL|method|loadDirectSource
+specifier|protected
 name|Source
-name|getDirectSource
+name|loadDirectSource
 parameter_list|()
 throws|throws
 name|IOException

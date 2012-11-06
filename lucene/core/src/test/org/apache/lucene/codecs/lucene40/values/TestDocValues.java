@@ -3725,15 +3725,6 @@ argument_list|)
 condition|)
 block|{
 case|case
-literal|3
-case|:
-return|return
-name|values
-operator|.
-name|load
-argument_list|()
-return|;
-case|case
 literal|2
 case|:
 return|return
