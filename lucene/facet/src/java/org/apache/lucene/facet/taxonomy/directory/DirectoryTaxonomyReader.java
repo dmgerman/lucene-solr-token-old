@@ -627,6 +627,8 @@ operator|=
 name|delimiter
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOrdinal
 specifier|public
 name|int
@@ -817,6 +819,8 @@ return|return
 name|ret
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPath
 specifier|public
 name|CategoryPath
@@ -868,6 +872,8 @@ name|delimiter
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPath
 specifier|public
 name|boolean
@@ -1079,6 +1085,8 @@ return|return
 name|ret
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getParent
 specifier|public
 name|int
@@ -1104,6 +1112,8 @@ index|]
 return|;
 block|}
 comment|/**    * getParentArray() returns an int array of size getSize() listing the    * ordinal of the parent category of each category in the taxonomy.    *<P>    * The caller can hold on to the array it got indefinitely - it is    * guaranteed that no-one else will modify it. The other side of the    * same coin is that the caller must treat the array it got as read-only    * and<B>not modify it</B>, because other callers might have gotten the    * same array too, and getParent() calls are also answered from the    * same array.    *<P>    * The getParentArray() call is extremely efficient, merely returning    * a reference to an array that already exists. For a caller that plans    * to call getParent() for many categories, using getParentArray() and    * the array it returns is a somewhat faster approach because it avoids    * the overhead of method calls and volatile dereferencing.    *<P>    * If you use getParentArray() instead of getParent(), remember that    * the array you got is (naturally) not modified after a refresh(),    * so you should always call getParentArray() again after a refresh().    */
+annotation|@
+name|Override
 DECL|method|getParentArray
 specifier|public
 name|int
@@ -1128,6 +1138,8 @@ block|}
 comment|// Note that refresh() is synchronized (it is the only synchronized
 comment|// method in this class) to ensure that it never gets called concurrently
 comment|// with itself.
+annotation|@
+name|Override
 DECL|method|refresh
 specifier|public
 specifier|synchronized
@@ -1187,7 +1199,7 @@ name|get
 argument_list|(
 name|DirectoryTaxonomyWriter
 operator|.
-name|INDEX_CREATE_TIME
+name|INDEX_EPOCH
 argument_list|)
 decl_stmt|;
 name|String
@@ -1205,7 +1217,7 @@ name|get
 argument_list|(
 name|DirectoryTaxonomyWriter
 operator|.
-name|INDEX_CREATE_TIME
+name|INDEX_EPOCH
 argument_list|)
 decl_stmt|;
 if|if
@@ -1231,7 +1243,7 @@ throw|throw
 operator|new
 name|InconsistentTaxonomyException
 argument_list|(
-literal|"Taxonomy was recreated at: "
+literal|"Taxonomy was recreated, epoch= "
 operator|+
 name|t2
 argument_list|)
@@ -1250,6 +1262,8 @@ name|t2
 argument_list|)
 condition|)
 block|{
+comment|// t1 != null and t2 cannot be null b/c DirTaxoWriter always puts the commit data.
+comment|// it's ok to use String.equals because we require the two epoch values to be the same.
 name|r2
 operator|.
 name|close
@@ -1259,7 +1273,7 @@ throw|throw
 operator|new
 name|InconsistentTaxonomyException
 argument_list|(
-literal|"Taxonomy was recreated at: "
+literal|"Taxonomy was recreated epoch = "
 operator|+
 name|t2
 operator|+
@@ -1397,6 +1411,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -1470,6 +1486,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSize
 specifier|public
 name|int
@@ -1508,6 +1526,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCommitUserData
 specifier|public
 name|Map
@@ -1547,6 +1567,8 @@ operator|new
 name|Object
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getChildrenArrays
 specifier|public
 name|ChildrenArrays
@@ -2004,6 +2026,8 @@ operator|=
 name|olderSiblingArray
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOlderSiblingArray
 specifier|public
 name|int
@@ -2015,6 +2039,8 @@ return|return
 name|olderSiblingArray
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getYoungestChildArray
 specifier|public
 name|int
@@ -2043,6 +2069,8 @@ name|indexReader
 return|;
 block|}
 comment|/**    * Expert: decreases the refCount of this TaxonomyReader instance. If the    * refCount drops to 0, then this reader is closed.    */
+annotation|@
+name|Override
 DECL|method|decRef
 specifier|public
 name|void
@@ -2124,6 +2152,8 @@ throw|;
 block|}
 block|}
 comment|/** Expert: returns the current refCount for this taxonomy reader */
+annotation|@
+name|Override
 DECL|method|getRefCount
 specifier|public
 name|int
@@ -2138,6 +2168,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * Expert: increments the refCount of this TaxonomyReader instance.     * RefCounts are used to determine when a taxonomy reader can be closed     * safely, i.e. as soon as there are no more references.     * Be sure to always call a corresponding decRef(), in a finally clause;     * otherwise the reader may never be closed.     */
+annotation|@
+name|Override
 DECL|method|incRef
 specifier|public
 name|void
