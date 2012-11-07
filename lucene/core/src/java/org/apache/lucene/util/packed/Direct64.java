@@ -108,6 +108,9 @@ block|}
 DECL|method|Direct64
 name|Direct64
 parameter_list|(
+name|int
+name|packedIntsVersion
+parameter_list|,
 name|DataInput
 name|in
 parameter_list|,
