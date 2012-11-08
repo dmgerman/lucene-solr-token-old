@@ -158,6 +158,18 @@ name|DocValuesFormat
 name|docValuesFormat
 parameter_list|()
 function_decl|;
+comment|/** Encodes/decodes streaming docvalues */
+DECL|method|simpleDocValuesFormat
+specifier|public
+name|SimpleDocValuesFormat
+name|simpleDocValuesFormat
+parameter_list|()
+block|{
+comment|// nocommit make this abstract
+return|return
+literal|null
+return|;
+block|}
 comment|/** Encodes/decodes stored fields */
 DECL|method|storedFieldsFormat
 specifier|public
