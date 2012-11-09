@@ -690,6 +690,7 @@ block|{
 return|return
 literal|null
 return|;
+comment|// nocommit
 block|}
 comment|/** write the header for this field */
 DECL|method|writeFieldEntry
