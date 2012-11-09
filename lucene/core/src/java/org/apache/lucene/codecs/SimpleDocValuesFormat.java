@@ -33,6 +33,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|SegmentReadState
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|SegmentWriteState
 import|;
 end_import
@@ -62,7 +75,18 @@ throws|throws
 name|IOException
 function_decl|;
 comment|// nocommit do this:
-comment|//public abstract SimpleDVProducer fieldsProducer(SegmentReadState state) throws IOException;
+DECL|method|fieldsProducer
+specifier|public
+specifier|abstract
+name|PerDocProducer
+name|fieldsProducer
+parameter_list|(
+name|SegmentReadState
+name|state
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 block|}
 end_class
 end_unit
