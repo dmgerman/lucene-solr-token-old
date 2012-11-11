@@ -3320,11 +3320,6 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|SolrCore
-name|core
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
 name|String
