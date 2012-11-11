@@ -1579,7 +1579,22 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
+comment|//For thread safety, only  simple clone the ModifiableSolrParams
+name|ModifiableSolrParams
+name|cloneParams
+init|=
+operator|new
+name|ModifiableSolrParams
+argument_list|()
+decl_stmt|;
+name|cloneParams
+operator|.
+name|add
+argument_list|(
 name|params
+argument_list|)
+expr_stmt|;
+name|cloneParams
 operator|.
 name|set
 argument_list|(
@@ -1617,7 +1632,7 @@ name|ShardRequest
 argument_list|()
 decl_stmt|;
 comment|// yes, they must use same admin handler path everywhere...
-name|params
+name|cloneParams
 operator|.
 name|set
 argument_list|(
@@ -1674,7 +1689,7 @@ name|sreq
 operator|.
 name|params
 operator|=
-name|params
+name|cloneParams
 expr_stmt|;
 name|log
 operator|.
@@ -1683,6 +1698,12 @@ argument_list|(
 literal|"Collection Admin sending CoreAdmin cmd to "
 operator|+
 name|replica
+operator|+
+literal|" params:"
+operator|+
+name|sreq
+operator|.
+name|params
 argument_list|)
 expr_stmt|;
 name|shardHandler
