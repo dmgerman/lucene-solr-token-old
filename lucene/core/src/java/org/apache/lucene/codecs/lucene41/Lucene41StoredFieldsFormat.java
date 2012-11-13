@@ -127,6 +127,7 @@ name|Lucene41StoredFieldsFormat
 extends|extends
 name|CompressingStoredFieldsFormat
 block|{
+comment|/** Sole constructor. */
 DECL|method|Lucene41StoredFieldsFormat
 specifier|public
 name|Lucene41StoredFieldsFormat
