@@ -652,7 +652,9 @@ expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeException
-argument_list|()
+argument_list|(
+name|e
+argument_list|)
 throw|;
 block|}
 try|try
@@ -679,7 +681,9 @@ expr_stmt|;
 throw|throw
 operator|new
 name|RuntimeException
-argument_list|()
+argument_list|(
+name|e
+argument_list|)
 throw|;
 block|}
 name|numOpens
