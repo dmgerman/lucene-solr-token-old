@@ -479,6 +479,21 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|commongrams
+operator|.
+name|CommonGramsQueryFilter
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|compound
 operator|.
 name|DictionaryCompoundWordTokenFilter
@@ -1227,6 +1242,11 @@ name|class
 argument_list|,
 comment|// LUCENE-4065: only if you pass 'false' to enablePositionIncrements!
 name|TypeTokenFilter
+operator|.
+name|class
+argument_list|,
+comment|// TODO: doesn't handle graph inputs
+name|CommonGramsQueryFilter
 operator|.
 name|class
 argument_list|)
