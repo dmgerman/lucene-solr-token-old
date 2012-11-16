@@ -78,7 +78,7 @@ comment|// nocommit do this:
 DECL|method|fieldsProducer
 specifier|public
 specifier|abstract
-name|PerDocProducer
+name|SimpleDVProducer
 name|fieldsProducer
 parameter_list|(
 name|SegmentReadState
