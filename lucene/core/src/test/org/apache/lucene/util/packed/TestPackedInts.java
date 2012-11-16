@@ -6420,6 +6420,7 @@ argument_list|(
 name|bpv
 argument_list|)
 expr_stmt|;
+comment|// _TestUtil.nextLong is too slow
 block|}
 block|}
 name|AppendingLongBuffer
