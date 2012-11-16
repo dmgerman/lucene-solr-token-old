@@ -75,6 +75,19 @@ operator|.
 name|BytesRef
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRefArray
+import|;
+end_import
 begin_comment
 comment|/**  * This wrapper buffers incoming elements.  * @lucene.experimental  */
 end_comment
@@ -90,11 +103,11 @@ comment|// TODO keep this for now
 comment|/** buffered term entries */
 DECL|field|entries
 specifier|protected
-name|BytesRefList
+name|BytesRefArray
 name|entries
 init|=
 operator|new
-name|BytesRefList
+name|BytesRefArray
 argument_list|()
 decl_stmt|;
 comment|/** current buffer position */

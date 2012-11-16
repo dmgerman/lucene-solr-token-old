@@ -1746,6 +1746,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|//nocommit fails with Lucene41 Codec since "dv" is created with var len but is in fact fixed len
 block|}
 DECL|method|testBytesTwoDocumentsMerged
 specifier|public
