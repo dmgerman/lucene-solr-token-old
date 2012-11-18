@@ -850,9 +850,32 @@ operator|.
 name|getDocValuesType
 argument_list|()
 argument_list|)
+operator|&&
+operator|!
+name|DocValues
+operator|.
+name|isFloat
+argument_list|(
+name|fi
+operator|.
+name|getDocValuesType
+argument_list|()
+argument_list|)
 condition|)
 block|{
 comment|// DocValues were not numeric
+return|return
+literal|null
+return|;
+block|}
+comment|// nocommit change to assert != null!!
+if|if
+condition|(
+name|simpleDVProducer
+operator|==
+literal|null
+condition|)
+block|{
 return|return
 literal|null
 return|;
@@ -934,6 +957,18 @@ return|return
 literal|null
 return|;
 block|}
+comment|// nocommit change to assert != null!!
+if|if
+condition|(
+name|simpleDVProducer
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 return|return
 name|simpleDVProducer
 operator|.
@@ -1007,6 +1042,18 @@ argument_list|)
 condition|)
 block|{
 comment|// DocValues were not sorted
+return|return
+literal|null
+return|;
+block|}
+comment|// nocommit change to assert != null!!
+if|if
+condition|(
+name|simpleDVProducer
+operator|==
+literal|null
+condition|)
+block|{
 return|return
 literal|null
 return|;

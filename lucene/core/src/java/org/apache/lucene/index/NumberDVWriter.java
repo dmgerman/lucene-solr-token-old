@@ -236,7 +236,6 @@ expr_stmt|;
 name|updateBytesUsed
 argument_list|()
 expr_stmt|;
-comment|//System.out.println("ADD: " + value);
 block|}
 DECL|method|updateBytesUsed
 specifier|private
@@ -376,14 +375,19 @@ operator|.
 name|hasNext
 argument_list|()
 assert|;
-name|consumer
-operator|.
-name|add
-argument_list|(
+name|long
+name|v
+init|=
 name|it
 operator|.
 name|next
 argument_list|()
+decl_stmt|;
+name|consumer
+operator|.
+name|add
+argument_list|(
+name|v
 argument_list|)
 expr_stmt|;
 block|}
