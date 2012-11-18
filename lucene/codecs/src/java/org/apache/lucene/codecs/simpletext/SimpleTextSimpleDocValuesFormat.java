@@ -888,6 +888,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|value
+operator|>=
+name|minValue
+assert|;
 name|Number
 name|delta
 init|=
@@ -1251,6 +1256,7 @@ parameter_list|(
 name|FieldInfo
 name|field
 parameter_list|,
+specifier|final
 name|int
 name|valueCount
 parameter_list|,
@@ -1530,6 +1536,11 @@ operator|new
 name|SortedDocValuesConsumer
 argument_list|()
 block|{
+comment|// for asserts:
+specifier|private
+name|int
+name|valuesSeen
+decl_stmt|;
 annotation|@
 name|Override
 specifier|public
@@ -1632,6 +1643,14 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
+name|valuesSeen
+operator|++
+expr_stmt|;
+assert|assert
+name|valuesSeen
+operator|<=
+name|valueCount
+assert|;
 block|}
 annotation|@
 name|Override
@@ -1896,23 +1915,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"dir="
-operator|+
-name|dir
-operator|+
-literal|" seg="
-operator|+
-name|si
-operator|.
-name|name
-argument_list|)
-expr_stmt|;
+comment|//System.out.println("dir=" + dir + " seg=" + si.name);
 name|data
 operator|=
 name|dir
@@ -1950,6 +1953,7 @@ block|{
 name|readLine
 argument_list|()
 expr_stmt|;
+comment|//System.out.println("READ field=" + scratch.utf8ToString());
 if|if
 condition|(
 name|scratch
@@ -3295,6 +3299,7 @@ argument_list|,
 name|scratch
 argument_list|)
 expr_stmt|;
+comment|//System.out.println("line: " + scratch.utf8ToString());
 block|}
 comment|/** Used only in ctor: */
 DECL|method|startsWith
