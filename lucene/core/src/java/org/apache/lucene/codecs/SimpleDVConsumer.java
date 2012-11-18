@@ -494,7 +494,7 @@ name|maxValue
 operator|=
 name|Math
 operator|.
-name|min
+name|max
 argument_list|(
 name|val
 argument_list|,
