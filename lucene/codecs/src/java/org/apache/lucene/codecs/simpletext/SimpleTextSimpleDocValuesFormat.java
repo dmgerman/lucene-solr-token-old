@@ -648,6 +648,12 @@ operator|new
 name|BytesRef
 argument_list|()
 decl_stmt|;
+DECL|field|numDocs
+specifier|final
+name|int
+name|numDocs
+decl_stmt|;
+comment|// for asserting
 DECL|method|SimpleTextDocValuesWriter
 name|SimpleTextDocValuesWriter
 parameter_list|(
@@ -685,6 +691,13 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
+name|numDocs
+operator|=
+name|si
+operator|.
+name|getDocCount
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -702,10 +715,6 @@ name|minValue
 parameter_list|,
 name|long
 name|maxValue
-parameter_list|,
-specifier|final
-name|int
-name|numDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -960,10 +969,6 @@ parameter_list|,
 specifier|final
 name|int
 name|maxLength
-parameter_list|,
-specifier|final
-name|int
-name|numDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -1255,10 +1260,6 @@ parameter_list|,
 specifier|final
 name|int
 name|maxLength
-parameter_list|,
-specifier|final
-name|int
-name|numDocs
 parameter_list|)
 throws|throws
 name|IOException
