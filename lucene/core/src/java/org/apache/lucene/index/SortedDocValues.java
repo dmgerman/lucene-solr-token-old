@@ -70,6 +70,7 @@ name|int
 name|getValueCount
 parameter_list|()
 function_decl|;
+comment|// nocommit binary search lookup?
 block|}
 end_class
 end_unit

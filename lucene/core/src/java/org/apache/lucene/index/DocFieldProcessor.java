@@ -154,19 +154,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|FieldType
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|DocumentsWriterPerThread
@@ -540,6 +527,16 @@ argument_list|(
 name|state
 argument_list|)
 expr_stmt|;
+comment|// nocommit shouldn't need null check:
+if|if
+condition|(
+name|dvConsumer
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 block|}
 if|if
 condition|(

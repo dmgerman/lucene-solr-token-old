@@ -986,8 +986,9 @@ name|FieldCache
 operator|.
 name|DEFAULT
 decl_stmt|;
-name|double
-index|[]
+name|FieldCache
+operator|.
+name|Doubles
 name|doubles
 init|=
 name|cache
@@ -1053,25 +1054,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"doubles Size: "
-operator|+
-name|doubles
-operator|.
-name|length
-operator|+
-literal|" is not: "
-operator|+
-name|NUM_DOCS
-argument_list|,
-name|doubles
-operator|.
-name|length
-operator|==
-name|NUM_DOCS
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -1081,9 +1063,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|doubles
-operator|.
-name|length
+name|NUM_DOCS
 condition|;
 name|i
 operator|++
@@ -1092,9 +1072,11 @@ block|{
 name|assertTrue
 argument_list|(
 name|doubles
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|+
 literal|" does not equal: "
 operator|+
@@ -1107,9 +1089,11 @@ name|i
 operator|)
 argument_list|,
 name|doubles
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|==
 operator|(
 name|Double
@@ -1121,8 +1105,9 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
-name|long
-index|[]
+name|FieldCache
+operator|.
+name|Longs
 name|longs
 init|=
 name|cache
@@ -1188,25 +1173,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"longs Size: "
-operator|+
-name|longs
-operator|.
-name|length
-operator|+
-literal|" is not: "
-operator|+
-name|NUM_DOCS
-argument_list|,
-name|longs
-operator|.
-name|length
-operator|==
-name|NUM_DOCS
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -1216,9 +1182,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|longs
-operator|.
-name|length
+name|NUM_DOCS
 condition|;
 name|i
 operator|++
@@ -1227,9 +1191,11 @@ block|{
 name|assertTrue
 argument_list|(
 name|longs
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|+
 literal|" does not equal: "
 operator|+
@@ -1246,9 +1212,11 @@ operator|+
 name|i
 argument_list|,
 name|longs
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|==
 operator|(
 name|Long
@@ -1260,8 +1228,9 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
-name|byte
-index|[]
+name|FieldCache
+operator|.
+name|Bytes
 name|bytes
 init|=
 name|cache
@@ -1327,25 +1296,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"bytes Size: "
-operator|+
-name|bytes
-operator|.
-name|length
-operator|+
-literal|" is not: "
-operator|+
-name|NUM_DOCS
-argument_list|,
-name|bytes
-operator|.
-name|length
-operator|==
-name|NUM_DOCS
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -1355,9 +1305,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|bytes
-operator|.
-name|length
+name|NUM_DOCS
 condition|;
 name|i
 operator|++
@@ -1366,9 +1314,11 @@ block|{
 name|assertTrue
 argument_list|(
 name|bytes
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|+
 literal|" does not equal: "
 operator|+
@@ -1381,9 +1331,11 @@ name|i
 operator|)
 argument_list|,
 name|bytes
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|==
 call|(
 name|byte
@@ -1398,8 +1350,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|short
-index|[]
+name|FieldCache
+operator|.
+name|Shorts
 name|shorts
 init|=
 name|cache
@@ -1465,25 +1418,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"shorts Size: "
-operator|+
-name|shorts
-operator|.
-name|length
-operator|+
-literal|" is not: "
-operator|+
-name|NUM_DOCS
-argument_list|,
-name|shorts
-operator|.
-name|length
-operator|==
-name|NUM_DOCS
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -1493,9 +1427,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|shorts
-operator|.
-name|length
+name|NUM_DOCS
 condition|;
 name|i
 operator|++
@@ -1504,9 +1436,11 @@ block|{
 name|assertTrue
 argument_list|(
 name|shorts
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|+
 literal|" does not equal: "
 operator|+
@@ -1519,9 +1453,11 @@ name|i
 operator|)
 argument_list|,
 name|shorts
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|==
 call|(
 name|short
@@ -1536,8 +1472,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|int
-index|[]
+name|FieldCache
+operator|.
+name|Ints
 name|ints
 init|=
 name|cache
@@ -1603,25 +1540,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"ints Size: "
-operator|+
-name|ints
-operator|.
-name|length
-operator|+
-literal|" is not: "
-operator|+
-name|NUM_DOCS
-argument_list|,
-name|ints
-operator|.
-name|length
-operator|==
-name|NUM_DOCS
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -1631,9 +1549,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|ints
-operator|.
-name|length
+name|NUM_DOCS
 condition|;
 name|i
 operator|++
@@ -1642,9 +1558,11 @@ block|{
 name|assertTrue
 argument_list|(
 name|ints
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|+
 literal|" does not equal: "
 operator|+
@@ -1657,9 +1575,11 @@ name|i
 operator|)
 argument_list|,
 name|ints
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|==
 operator|(
 name|Integer
@@ -1671,8 +1591,9 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
-name|float
-index|[]
+name|FieldCache
+operator|.
+name|Floats
 name|floats
 init|=
 name|cache
@@ -1738,25 +1659,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"floats Size: "
-operator|+
-name|floats
-operator|.
-name|length
-operator|+
-literal|" is not: "
-operator|+
-name|NUM_DOCS
-argument_list|,
-name|floats
-operator|.
-name|length
-operator|==
-name|NUM_DOCS
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -1766,9 +1668,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|floats
-operator|.
-name|length
+name|NUM_DOCS
 condition|;
 name|i
 operator|++
@@ -1777,9 +1677,11 @@ block|{
 name|assertTrue
 argument_list|(
 name|floats
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|+
 literal|" does not equal: "
 operator|+
@@ -1792,9 +1694,11 @@ name|i
 operator|)
 argument_list|,
 name|floats
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 operator|==
 operator|(
 name|Float
@@ -3014,10 +2918,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|double
-index|[]
-name|doubles
-init|=
 name|cache
 operator|.
 name|getDoubles
@@ -3028,7 +2928,7 @@ literal|"theDouble"
 argument_list|,
 literal|true
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// The double[] takes two slots (one w/ null parser, one
 comment|// w/ real parser), and docsWithField should also
 comment|// have been populated:
@@ -3078,8 +2978,9 @@ operator|.
 name|MatchAllBits
 argument_list|)
 expr_stmt|;
-name|int
-index|[]
+name|FieldCache
+operator|.
+name|Ints
 name|ints
 init|=
 name|cache
@@ -3171,9 +3072,11 @@ argument_list|(
 name|i
 argument_list|,
 name|ints
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3191,8 +3094,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|int
-index|[]
+name|FieldCache
+operator|.
+name|Ints
 name|numInts
 init|=
 name|cache
@@ -3263,9 +3167,11 @@ argument_list|(
 name|i
 argument_list|,
 name|numInts
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3517,8 +3423,9 @@ block|}
 block|}
 else|else
 block|{
-name|int
-index|[]
+name|FieldCache
+operator|.
+name|Ints
 name|ints
 init|=
 name|cache
@@ -3586,9 +3493,11 @@ argument_list|(
 name|i
 argument_list|,
 name|ints
-index|[
+operator|.
+name|get
+argument_list|(
 name|i
-index|]
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
