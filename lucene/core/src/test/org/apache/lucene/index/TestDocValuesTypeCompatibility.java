@@ -246,6 +246,15 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
 begin_comment
 comment|/**  * Tests compatibility of {@link DocValues.Type} during indexing  */
 end_comment
@@ -1160,6 +1169,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|// nocommit remove this test?  simple dv doesn't let you
+comment|// change b/w sorted& binary?
+annotation|@
+name|Ignore
 DECL|method|testAddCompatibleByteTypes
 specifier|public
 name|void
