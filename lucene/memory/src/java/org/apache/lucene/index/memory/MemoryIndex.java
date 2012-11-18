@@ -3151,9 +3151,6 @@ name|getNumericDocValues
 parameter_list|(
 name|String
 name|field
-parameter_list|,
-name|boolean
-name|direct
 parameter_list|)
 block|{
 return|return
@@ -3168,9 +3165,6 @@ name|getBinaryDocValues
 parameter_list|(
 name|String
 name|field
-parameter_list|,
-name|boolean
-name|direct
 parameter_list|)
 block|{
 return|return
@@ -3185,9 +3179,6 @@ name|getSortedDocValues
 parameter_list|(
 name|String
 name|field
-parameter_list|,
-name|boolean
-name|direct
 parameter_list|)
 block|{
 return|return

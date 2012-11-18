@@ -52,6 +52,8 @@ argument_list|()
 decl_stmt|;
 static|static
 block|{
+comment|// nocommit kinda messy ... if user calls .numericValue
+comment|// they get back strange int ... hmmm
 name|TYPE
 operator|.
 name|setDocValueType
@@ -60,7 +62,7 @@ name|DocValues
 operator|.
 name|Type
 operator|.
-name|FLOAT_64
+name|FIXED_INTS_64
 argument_list|)
 expr_stmt|;
 name|TYPE
@@ -88,11 +90,13 @@ argument_list|,
 name|TYPE
 argument_list|)
 expr_stmt|;
+comment|// nocommit kinda messy ... if user calls .numericValue
+comment|// they get back strange int ... hmmm
 name|fieldsData
 operator|=
 name|Double
 operator|.
-name|valueOf
+name|doubleToRawLongBits
 argument_list|(
 name|value
 argument_list|)

@@ -786,9 +786,6 @@ name|getNumericDocValues
 parameter_list|(
 name|String
 name|field
-parameter_list|,
-name|boolean
-name|direct
 parameter_list|)
 throws|throws
 name|IOException
@@ -799,8 +796,6 @@ operator|.
 name|getNumericDocValues
 argument_list|(
 name|field
-argument_list|,
-name|direct
 argument_list|)
 return|;
 block|}
@@ -813,9 +808,6 @@ name|getBinaryDocValues
 parameter_list|(
 name|String
 name|field
-parameter_list|,
-name|boolean
-name|direct
 parameter_list|)
 throws|throws
 name|IOException
@@ -826,8 +818,6 @@ operator|.
 name|getBinaryDocValues
 argument_list|(
 name|field
-argument_list|,
-name|direct
 argument_list|)
 return|;
 block|}
@@ -840,9 +830,6 @@ name|getSortedDocValues
 parameter_list|(
 name|String
 name|field
-parameter_list|,
-name|boolean
-name|direct
 parameter_list|)
 throws|throws
 name|IOException
@@ -853,8 +840,6 @@ operator|.
 name|getSortedDocValues
 argument_list|(
 name|field
-argument_list|,
-name|direct
 argument_list|)
 return|;
 block|}
