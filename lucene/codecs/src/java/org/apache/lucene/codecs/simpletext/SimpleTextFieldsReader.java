@@ -548,7 +548,7 @@ name|in
 operator|=
 name|state
 operator|.
-name|dir
+name|directory
 operator|.
 name|openInput
 argument_list|(
