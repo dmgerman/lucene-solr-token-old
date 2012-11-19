@@ -10995,7 +10995,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|5
+literal|4
 argument_list|,
 name|dti
 operator|.
@@ -11003,7 +11003,6 @@ name|numOrd
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// +1 for null ord
 name|assertEquals
 argument_list|(
 literal|4
@@ -11022,7 +11021,7 @@ name|dti
 operator|.
 name|lookup
 argument_list|(
-literal|3
+literal|2
 argument_list|,
 operator|new
 name|BytesRef
