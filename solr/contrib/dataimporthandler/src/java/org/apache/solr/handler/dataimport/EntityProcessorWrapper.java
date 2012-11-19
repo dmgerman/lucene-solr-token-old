@@ -258,7 +258,7 @@ name|context
 decl_stmt|;
 DECL|field|resolver
 specifier|private
-name|VariableResolverImpl
+name|VariableResolver
 name|resolver
 decl_stmt|;
 DECL|field|entityName
@@ -344,7 +344,7 @@ expr_stmt|;
 name|resolver
 operator|=
 operator|(
-name|VariableResolverImpl
+name|VariableResolver
 operator|)
 name|context
 operator|.
@@ -963,11 +963,11 @@ argument_list|(
 name|row
 argument_list|)
 decl_stmt|;
-name|VariableResolverImpl
+name|VariableResolver
 name|resolver
 init|=
 operator|(
-name|VariableResolverImpl
+name|VariableResolver
 operator|)
 name|context
 operator|.
@@ -1587,13 +1587,13 @@ expr_stmt|;
 block|}
 DECL|method|getVariableResolver
 specifier|public
-name|VariableResolverImpl
+name|VariableResolver
 name|getVariableResolver
 parameter_list|()
 block|{
 return|return
 operator|(
-name|VariableResolverImpl
+name|VariableResolver
 operator|)
 name|context
 operator|.
