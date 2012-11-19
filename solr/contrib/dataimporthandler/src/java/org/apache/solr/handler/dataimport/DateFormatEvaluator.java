@@ -710,7 +710,9 @@ block|{
 name|date
 operator|=
 name|getDateMathParser
-argument_list|()
+argument_list|(
+name|locale
+argument_list|)
 operator|.
 name|parseMath
 argument_list|(
@@ -748,7 +750,10 @@ DECL|method|getDateMathParser
 specifier|static
 name|DateMathParser
 name|getDateMathParser
-parameter_list|()
+parameter_list|(
+name|Locale
+name|l
+parameter_list|)
 block|{
 return|return
 operator|new
@@ -759,10 +764,7 @@ operator|.
 name|getDefault
 argument_list|()
 argument_list|,
-name|Locale
-operator|.
-name|getDefault
-argument_list|()
+name|l
 argument_list|)
 block|{
 annotation|@
