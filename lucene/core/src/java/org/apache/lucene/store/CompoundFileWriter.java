@@ -1014,7 +1014,6 @@ argument_list|)
 operator|)
 condition|)
 block|{
-comment|//        System.out.println(entry.file);
 name|out
 operator|=
 operator|new
