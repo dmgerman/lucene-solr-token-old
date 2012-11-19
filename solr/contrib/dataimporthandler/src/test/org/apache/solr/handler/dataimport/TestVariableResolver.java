@@ -22,6 +22,15 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -488,6 +497,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyy-MM-dd HH:mm:ss"
+argument_list|,
+name|Locale
+operator|.
+name|ROOT
 argument_list|)
 operator|.
 name|format
@@ -504,6 +517,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Ignore
 annotation|@
 name|Test
 DECL|method|dateNamespaceWithExpr
@@ -553,6 +568,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyy-MM-dd'T'HH:mm:ss'Z'"
+argument_list|,
+name|Locale
+operator|.
+name|ROOT
 argument_list|)
 decl_stmt|;
 name|format
@@ -575,15 +594,42 @@ name|DateMathParser
 argument_list|(
 name|TimeZone
 operator|.
-name|getDefault
-argument_list|()
+name|getTimeZone
+argument_list|(
+literal|"UTC"
+argument_list|)
 argument_list|,
 name|Locale
 operator|.
-name|getDefault
-argument_list|()
+name|ROOT
 argument_list|)
 decl_stmt|;
+comment|/* Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("UTC"), Locale.ROOT);     cal.set(Calendar.HOUR, 0);     cal.set(Calendar.MINUTE, 0);     cal.set(Calendar.SECOND, 0);     cal.set(Calendar.MILLISECOND, 0);*/
+name|SimpleDateFormat
+name|format1
+init|=
+operator|new
+name|SimpleDateFormat
+argument_list|(
+literal|"yyyy-MM-dd HH:mm"
+argument_list|,
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+decl_stmt|;
+name|format
+operator|.
+name|setTimeZone
+argument_list|(
+name|TimeZone
+operator|.
+name|getTimeZone
+argument_list|(
+literal|"UTC"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|String
 name|s
 init|=
@@ -596,11 +642,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-operator|new
-name|SimpleDateFormat
-argument_list|(
-literal|"yyyy-MM-dd HH:mm"
-argument_list|)
+name|format1
 operator|.
 name|format
 argument_list|(
@@ -876,6 +918,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyy-MM-dd'T'HH:mm:ss'Z'"
+argument_list|,
+name|Locale
+operator|.
+name|ROOT
 argument_list|)
 decl_stmt|;
 name|format
@@ -923,6 +969,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyy-MM-dd HH:mm"
+argument_list|,
+name|Locale
+operator|.
+name|ROOT
 argument_list|)
 operator|.
 name|format
