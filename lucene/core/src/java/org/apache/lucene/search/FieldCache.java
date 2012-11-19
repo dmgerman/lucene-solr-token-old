@@ -1348,6 +1348,7 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/** Returned by {@link #getTerms} */
+comment|// nocommit: can we merge this api with the BinaryDocValues api?
 DECL|class|DocTerms
 specifier|public
 specifier|abstract
@@ -1423,6 +1424,7 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/** Returned by {@link #getTermsIndex} */
+comment|// nocommit: can we merge this api with the SortedDocValues api?
 DECL|class|DocTermsIndex
 specifier|public
 specifier|abstract
