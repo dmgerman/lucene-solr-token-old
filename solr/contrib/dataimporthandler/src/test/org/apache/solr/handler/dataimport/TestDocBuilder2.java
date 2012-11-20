@@ -1539,7 +1539,9 @@ argument_list|,
 literal|"a.xml"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|,
 literal|true
 argument_list|)
@@ -1553,7 +1555,9 @@ argument_list|,
 literal|"b.xml"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|,
 literal|true
 argument_list|)
@@ -1567,7 +1571,9 @@ argument_list|,
 literal|"c.props"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|,
 literal|true
 argument_list|)
@@ -1599,7 +1605,9 @@ argument_list|,
 literal|"t.xml"
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|,
 literal|false
 argument_list|)
