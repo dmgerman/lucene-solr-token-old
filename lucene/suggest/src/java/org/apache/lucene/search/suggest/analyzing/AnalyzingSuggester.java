@@ -78,6 +78,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Comparator
 import|;
 end_import
@@ -2524,6 +2533,17 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|fst
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 name|fst
 operator|.
 name|save
@@ -2676,6 +2696,20 @@ argument_list|(
 literal|"this suggester only works with onlyMorePopular=false"
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|fst
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
 block|}
 comment|//System.out.println("lookup key=" + key + " num=" + num);
 specifier|final
