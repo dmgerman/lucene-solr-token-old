@@ -1083,6 +1083,16 @@ operator|.
 name|this
 operator|.
 name|clusterState
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
+name|ZkStateReader
+operator|.
+name|this
+operator|.
+name|clusterState
 operator|.
 name|getLiveNodes
 argument_list|()
