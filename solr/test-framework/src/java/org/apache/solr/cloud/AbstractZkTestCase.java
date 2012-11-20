@@ -825,10 +825,6 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
-name|SOLRHOME
-operator|=
-literal|null
-expr_stmt|;
 name|zkServer
 operator|=
 literal|null
