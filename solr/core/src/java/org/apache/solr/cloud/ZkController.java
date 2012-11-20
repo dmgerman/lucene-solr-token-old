@@ -5309,6 +5309,10 @@ argument_list|,
 literal|"Could not get shard_id for core: "
 operator|+
 name|coreName
+operator|+
+literal|" coreNodeName:"
+operator|+
+name|shardZkNodeName
 argument_list|)
 throw|;
 block|}
