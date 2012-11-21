@@ -128,7 +128,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|TaxonomyReader
+name|ChildrenArrays
 import|;
 end_import
 begin_import
@@ -144,8 +144,6 @@ operator|.
 name|taxonomy
 operator|.
 name|TaxonomyReader
-operator|.
-name|ChildrenArrays
 import|;
 end_import
 begin_import
@@ -560,6 +558,8 @@ parameter_list|,
 name|int
 name|offset
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|int
 name|partitionSize

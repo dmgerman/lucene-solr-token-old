@@ -169,7 +169,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|TaxonomyReader
+name|ChildrenArrays
 import|;
 end_import
 begin_import
@@ -185,8 +185,6 @@ operator|.
 name|taxonomy
 operator|.
 name|TaxonomyReader
-operator|.
-name|ChildrenArrays
 import|;
 end_import
 begin_import

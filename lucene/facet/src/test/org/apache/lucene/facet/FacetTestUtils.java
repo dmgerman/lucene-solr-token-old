@@ -1035,7 +1035,7 @@ name|indexReader
 decl_stmt|;
 DECL|field|taxReader
 specifier|public
-name|TaxonomyReader
+name|DirectoryTaxonomyReader
 name|taxReader
 decl_stmt|;
 DECL|field|indexSearcher
