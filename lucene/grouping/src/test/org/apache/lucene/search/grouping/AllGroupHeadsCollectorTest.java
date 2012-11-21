@@ -1882,7 +1882,7 @@ operator|=
 operator|new
 name|DerefBytesDocValuesField
 argument_list|(
-literal|"group"
+literal|"group_dv"
 argument_list|,
 operator|new
 name|BytesRef
@@ -1898,7 +1898,7 @@ operator|=
 operator|new
 name|StraightBytesDocValuesField
 argument_list|(
-literal|"group"
+literal|"group_dv"
 argument_list|,
 operator|new
 name|BytesRef
@@ -1914,7 +1914,7 @@ operator|=
 operator|new
 name|SortedBytesDocValuesField
 argument_list|(
-literal|"group"
+literal|"group_dv"
 argument_list|,
 operator|new
 name|BytesRef
@@ -4204,6 +4204,8 @@ operator|.
 name|create
 argument_list|(
 name|groupField
+operator|+
+literal|"_dv"
 argument_list|,
 name|sortWithinGroup
 argument_list|,
@@ -4318,6 +4320,8 @@ operator|new
 name|DerefBytesDocValuesField
 argument_list|(
 name|groupField
+operator|+
+literal|"_dv"
 argument_list|,
 operator|new
 name|BytesRef
@@ -4336,6 +4340,8 @@ operator|new
 name|StraightBytesDocValuesField
 argument_list|(
 name|groupField
+operator|+
+literal|"_dv"
 argument_list|,
 operator|new
 name|BytesRef
@@ -4354,6 +4360,8 @@ operator|new
 name|SortedBytesDocValuesField
 argument_list|(
 name|groupField
+operator|+
+literal|"_dv"
 argument_list|,
 operator|new
 name|BytesRef

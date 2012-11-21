@@ -1432,7 +1432,6 @@ specifier|static
 class|class
 name|DocTermsIndex
 block|{
-comment|// nocommit remove this?
 DECL|method|binarySearchLookup
 specifier|public
 name|int
@@ -1453,10 +1452,13 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return
-operator|-
-literal|1
-return|;
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"key must not be null"
+argument_list|)
+throw|;
 block|}
 name|int
 name|low

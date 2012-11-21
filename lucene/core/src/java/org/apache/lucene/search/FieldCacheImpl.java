@@ -5011,6 +5011,9 @@ name|int
 name|docID
 parameter_list|)
 block|{
+comment|// Subtract 1, matching the 1+ord we did when
+comment|// storing, so that missing values, which are 0 in the
+comment|// packed ints, are returned as -1 ord:
 return|return
 operator|(
 name|int
@@ -5054,6 +5057,25 @@ name|BytesRef
 name|ret
 parameter_list|)
 block|{
+if|if
+condition|(
+name|ord
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"ord must be>=0 (got ord="
+operator|+
+name|ord
+operator|+
+literal|")"
+argument_list|)
+throw|;
+block|}
 return|return
 name|bytes
 operator|.
@@ -6188,7 +6210,6 @@ argument_list|,
 name|acceptableOverheadRatio
 argument_list|)
 decl_stmt|;
-comment|// 0 is reserved for "unset"
 name|int
 name|termOrd
 init|=
@@ -6334,6 +6355,7 @@ condition|)
 block|{
 break|break;
 block|}
+comment|// Store 1+ ord into packed bits
 name|docToTermOrd
 operator|.
 name|set

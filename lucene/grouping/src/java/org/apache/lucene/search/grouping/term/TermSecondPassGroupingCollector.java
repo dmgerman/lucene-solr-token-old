@@ -248,7 +248,7 @@ name|size
 argument_list|()
 argument_list|,
 operator|-
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|this
@@ -343,7 +343,8 @@ name|groupValue
 operator|==
 literal|null
 condition|?
-literal|0
+operator|-
+literal|1
 else|:
 name|index
 operator|.
@@ -358,6 +359,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|group
+operator|.
+name|groupValue
+operator|==
+literal|null
+operator|||
 name|ord
 operator|>=
 literal|0
