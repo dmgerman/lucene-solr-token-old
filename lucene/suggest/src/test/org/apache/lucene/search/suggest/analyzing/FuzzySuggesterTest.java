@@ -5614,6 +5614,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"fallthrough"
+argument_list|)
 DECL|method|addRandomEdit
 specifier|private
 specifier|static
