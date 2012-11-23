@@ -370,10 +370,6 @@ specifier|private
 specifier|static
 name|Document
 name|testDoc
-init|=
-operator|new
-name|Document
-argument_list|()
 decl_stmt|;
 DECL|field|fieldInfos
 specifier|private
@@ -396,6 +392,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|testDoc
+operator|=
+operator|new
+name|Document
+argument_list|()
+expr_stmt|;
 name|fieldInfos
 operator|=
 operator|new

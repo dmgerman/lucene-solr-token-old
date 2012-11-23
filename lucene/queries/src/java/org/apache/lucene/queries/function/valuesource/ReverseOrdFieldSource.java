@@ -338,6 +338,8 @@ name|doc
 operator|+
 name|off
 argument_list|)
+operator|-
+literal|1
 operator|)
 return|;
 block|}

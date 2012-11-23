@@ -2618,7 +2618,7 @@ argument_list|,
 literal|"id:6"
 argument_list|)
 argument_list|,
-literal|"//float[@name='score']='6.0'"
+literal|"//float[@name='score']='5.0'"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -2638,7 +2638,7 @@ argument_list|,
 literal|"id:6"
 argument_list|)
 argument_list|,
-literal|"//float[@name='score']='6.0'"
+literal|"//float[@name='score']='5.0'"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -2658,7 +2658,7 @@ argument_list|,
 literal|"id:1"
 argument_list|)
 argument_list|,
-literal|"//float[@name='score']='6.0'"
+literal|"//float[@name='score']='5.0'"
 argument_list|)
 expr_stmt|;
 name|assertQ
@@ -2678,7 +2678,7 @@ argument_list|,
 literal|"id:1"
 argument_list|)
 argument_list|,
-literal|"//float[@name='score']='6.0'"
+literal|"//float[@name='score']='5.0'"
 argument_list|)
 expr_stmt|;
 comment|// test that we can subtract dates to millisecond precision

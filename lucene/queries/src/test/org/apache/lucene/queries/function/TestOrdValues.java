@@ -712,6 +712,8 @@ init|=
 name|N_DOCS
 operator|-
 name|i
+operator|-
+literal|1
 decl_stmt|;
 name|assertEquals
 argument_list|(

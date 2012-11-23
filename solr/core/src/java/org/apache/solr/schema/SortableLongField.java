@@ -721,7 +721,8 @@ decl_stmt|;
 return|return
 name|ord
 operator|==
-literal|0
+operator|-
+literal|1
 condition|?
 name|def
 else|:
@@ -809,7 +810,8 @@ decl_stmt|;
 return|return
 name|ord
 operator|==
-literal|0
+operator|-
+literal|1
 condition|?
 literal|null
 else|:
@@ -906,7 +908,8 @@ if|if
 condition|(
 name|ord
 operator|==
-literal|0
+operator|-
+literal|1
 condition|)
 block|{
 name|mval

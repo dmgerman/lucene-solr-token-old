@@ -714,6 +714,8 @@ operator|.
 name|search
 operator|.
 name|FilteredQuery
+operator|.
+name|FilterStrategy
 import|;
 end_import
 begin_import
@@ -727,8 +729,6 @@ operator|.
 name|search
 operator|.
 name|FilteredQuery
-operator|.
-name|FilterStrategy
 import|;
 end_import
 begin_import
@@ -5434,6 +5434,26 @@ name|getName
 argument_list|()
 return|;
 block|}
+block|}
+comment|// nocommit remove this once all codecs support simple dv!!
+DECL|method|canUseSimpleDV
+specifier|public
+specifier|static
+name|boolean
+name|canUseSimpleDV
+parameter_list|()
+block|{
+return|return
+name|Codec
+operator|.
+name|getDefault
+argument_list|()
+operator|.
+name|simpleDocValuesFormat
+argument_list|()
+operator|!=
+literal|null
+return|;
 block|}
 DECL|method|anyFilesExceptWriteLock
 specifier|public
