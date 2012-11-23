@@ -28,21 +28,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryparser
-operator|.
-name|classic
-operator|.
-name|ParseException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|*
@@ -98,6 +83,19 @@ operator|.
 name|search
 operator|.
 name|SolrIndexSearcher
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|search
+operator|.
+name|SyntaxError
 import|;
 end_import
 begin_import
@@ -247,7 +245,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the group query from the specified groupQueryString.      * The groupQueryString is parsed into a query.      *      * @param groupQueryString The group query string to parse      * @param request The current request      * @return this      * @throws ParseException If parsing the groupQueryString failed      */
+comment|/**      * Sets the group query from the specified groupQueryString.      * The groupQueryString is parsed into a query.      *      * @param groupQueryString The group query string to parse      * @param request The current request      * @return this      */
 DECL|method|setQuery
 specifier|public
 name|Builder
@@ -260,7 +258,7 @@ name|SolrQueryRequest
 name|request
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|QParser
 name|parser

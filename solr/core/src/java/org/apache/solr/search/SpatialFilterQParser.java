@@ -22,21 +22,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryparser
-operator|.
-name|classic
-operator|.
-name|ParseException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|Query
@@ -212,7 +197,7 @@ name|Query
 name|parse
 parameter_list|()
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 comment|//if more than one, we need to treat them as a point...
 comment|//TODO: Should we accept multiple fields

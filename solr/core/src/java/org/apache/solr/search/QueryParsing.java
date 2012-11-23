@@ -67,36 +67,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryparser
-operator|.
-name|classic
-operator|.
-name|ParseException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|queryparser
-operator|.
-name|classic
-operator|.
-name|QueryParser
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|BooleanClause
@@ -312,6 +282,19 @@ operator|.
 name|params
 operator|.
 name|SolrParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|parser
+operator|.
+name|QueryParser
 import|;
 end_import
 begin_import
@@ -627,7 +610,7 @@ name|SolrParams
 name|params
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 return|return
 name|parseLocalParams
@@ -676,7 +659,7 @@ name|char
 name|endChar
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|int
 name|off
@@ -730,7 +713,7 @@ init|;
 condition|;
 control|)
 block|{
-comment|/*       if (p.pos>=txt.length()) {         throw new ParseException("Missing '}' parsing local params '" + txt + '"');       }       */
+comment|/*       if (p.pos>=txt.length()) {         throw new SyntaxError("Missing '}' parsing local params '" + txt + '"');       }       */
 name|char
 name|ch
 init|=
@@ -774,7 +757,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParseException
+name|SyntaxError
 argument_list|(
 literal|"Expected ending character '"
 operator|+
@@ -911,7 +894,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParseException
+name|SyntaxError
 argument_list|(
 literal|"Missing end to unquoted value starting at "
 operator|+
@@ -1201,7 +1184,7 @@ name|SolrParams
 name|params
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 if|if
 condition|(
@@ -1914,7 +1897,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|ParseException
+name|SyntaxError
 name|e
 parameter_list|)
 block|{
@@ -3402,7 +3385,7 @@ name|String
 name|s
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|eatws
 argument_list|()
@@ -3440,7 +3423,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ParseException
+name|SyntaxError
 argument_list|(
 literal|"Expected '"
 operator|+
@@ -3924,7 +3907,7 @@ name|String
 name|getId
 parameter_list|()
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 return|return
 name|getId
@@ -3941,7 +3924,7 @@ name|String
 name|errMessage
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|eatws
 argument_list|()
@@ -4042,7 +4025,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParseException
+name|SyntaxError
 argument_list|(
 name|errMessage
 operator|+
@@ -4071,7 +4054,7 @@ name|String
 name|errMessage
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|eatws
 argument_list|()
@@ -4191,7 +4174,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParseException
+name|SyntaxError
 argument_list|(
 name|errMessage
 operator|+
@@ -4275,7 +4258,7 @@ name|Boolean
 name|getSortDirection
 parameter_list|()
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 specifier|final
 name|int
@@ -4410,7 +4393,7 @@ name|String
 name|getQuotedString
 parameter_list|()
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|eatws
 argument_list|()
@@ -4468,7 +4451,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParseException
+name|SyntaxError
 argument_list|(
 literal|"Missing end quote for string at pos "
 operator|+
@@ -4581,7 +4564,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParseException
+name|SyntaxError
 argument_list|(
 literal|"bad unicode escape \\uxxxx at pos"
 operator|+
