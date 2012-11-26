@@ -117,7 +117,7 @@ name|SentinelIntSet
 import|;
 end_import
 begin_comment
-comment|/**  * A base implementation of {@link org.apache.lucene.search.grouping.AbstractAllGroupHeadsCollector} for retrieving the most relevant groups when grouping  * on a string based group field. More specifically this all concrete implementations of this base implementation  * use {@link org.apache.lucene.search.FieldCache.DocTermsIndex}.  *  * @lucene.experimental  */
+comment|/**  * A base implementation of {@link org.apache.lucene.search.grouping.AbstractAllGroupHeadsCollector} for retrieving the most relevant groups when grouping  * on a string based group field. More specifically this all concrete implementations of this base implementation  * use {@link org.apache.lucene.index.SortedDocValues}.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|TermAllGroupHeadsCollector
