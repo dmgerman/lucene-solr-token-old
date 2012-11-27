@@ -235,7 +235,7 @@ name|LinkedList
 import|;
 end_import
 begin_comment
-comment|/**  * A simplistic Lucene based NaiveBayes classifier, see<code>http://en.wikipedia.org/wiki/Naive_Bayes_classifier</code>  * @lucene.experimental  */
+comment|/**  * A simplistic Lucene based NaiveBayes classifier, see<code>http://en.wikipedia.org/wiki/Naive_Bayes_classifier</code>  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SimpleNaiveBayesClassifier
@@ -275,12 +275,15 @@ specifier|private
 name|IndexSearcher
 name|indexSearcher
 decl_stmt|;
-comment|/**     * Creates a new NaiveBayes classifier.    * Note that you must call {@link #train(AtomicReader, String, String, Analyzer) train()} before you can    * classify any documents.    */
+comment|/**    * Creates a new NaiveBayes classifier.    * Note that you must call {@link #train(AtomicReader, String, String, Analyzer) train()} before you can    * classify any documents.    */
 DECL|method|SimpleNaiveBayesClassifier
 specifier|public
 name|SimpleNaiveBayesClassifier
 parameter_list|()
-block|{}
+block|{   }
+comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|train
 specifier|public
 name|void
@@ -461,6 +464,9 @@ index|]
 argument_list|)
 return|;
 block|}
+comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|assignClass
 specifier|public
 name|ClassificationResult
