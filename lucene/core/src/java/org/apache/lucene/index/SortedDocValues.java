@@ -58,9 +58,6 @@ operator|.
 name|BytesRef
 import|;
 end_import
-begin_comment
-comment|// nocommit need marker interface?
-end_comment
 begin_class
 DECL|class|SortedDocValues
 specifier|public
@@ -70,7 +67,6 @@ name|SortedDocValues
 extends|extends
 name|BinaryDocValues
 block|{
-comment|// nocommit throws IOE or not?
 DECL|method|getOrd
 specifier|public
 specifier|abstract
@@ -81,7 +77,6 @@ name|int
 name|docID
 parameter_list|)
 function_decl|;
-comment|// nocommit throws IOE or not?
 DECL|method|lookupOrd
 specifier|public
 specifier|abstract
@@ -95,8 +90,6 @@ name|BytesRef
 name|result
 parameter_list|)
 function_decl|;
-comment|// nocommit throws IOE or not?
-comment|// nocommit .getUniqueValueCount?
 DECL|method|getValueCount
 specifier|public
 specifier|abstract
@@ -961,7 +954,7 @@ literal|0
 return|;
 block|}
 block|}
-comment|// nocommit javadocs
+comment|/** If {@code key} exists, returns its ordinal, else    *  returns {@code -insertionPoint-1}, like {@code    *  Arrays.binarySearch}.    *    *  @param key Key to look up    *  @param spare Spare BytesRef    **/
 DECL|method|lookupTerm
 specifier|public
 name|int

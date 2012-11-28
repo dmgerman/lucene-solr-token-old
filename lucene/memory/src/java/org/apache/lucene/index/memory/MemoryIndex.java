@@ -3143,7 +3143,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|// nocommit todo
 DECL|method|getNumericDocValues
 specifier|public
 name|NumericDocValues
@@ -3157,7 +3156,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|// nocommit todo
 DECL|method|getBinaryDocValues
 specifier|public
 name|BinaryDocValues
@@ -3171,7 +3169,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|// nocommit todo
 DECL|method|getSortedDocValues
 specifier|public
 name|SortedDocValues

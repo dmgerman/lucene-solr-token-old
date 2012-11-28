@@ -1435,7 +1435,6 @@ block|}
 block|}
 return|;
 block|}
-comment|// nocommit
 annotation|@
 name|Override
 DECL|method|addSortedField
@@ -2670,7 +2669,6 @@ operator|*
 name|maxDoc
 argument_list|)
 expr_stmt|;
-comment|// nocommit: we need to seek past the data section!!!!
 block|}
 else|else
 block|{
@@ -2776,9 +2774,35 @@ parameter_list|)
 block|{
 try|try
 block|{
-comment|// nocommit bounds check docID?  spooky
-comment|// because if we don't you can maybe get
-comment|// value from the wrong field ...
+if|if
+condition|(
+name|docID
+operator|<
+literal|0
+operator|||
+name|docID
+operator|>=
+name|maxDoc
+condition|)
+block|{
+throw|throw
+operator|new
+name|IndexOutOfBoundsException
+argument_list|(
+literal|"docID must be 0 .. "
+operator|+
+operator|(
+name|maxDoc
+operator|-
+literal|1
+operator|)
+operator|+
+literal|"; got "
+operator|+
+name|docID
+argument_list|)
+throw|;
+block|}
 name|in
 operator|.
 name|seek
@@ -3025,9 +3049,35 @@ parameter_list|)
 block|{
 try|try
 block|{
-comment|// nocommit bounds check docID?  spooky
-comment|// because if we don't you can maybe get
-comment|// value from the wrong field ...
+if|if
+condition|(
+name|docID
+operator|<
+literal|0
+operator|||
+name|docID
+operator|>=
+name|maxDoc
+condition|)
+block|{
+throw|throw
+operator|new
+name|IndexOutOfBoundsException
+argument_list|(
+literal|"docID must be 0 .. "
+operator|+
+operator|(
+name|maxDoc
+operator|-
+literal|1
+operator|)
+operator|+
+literal|"; got "
+operator|+
+name|docID
+argument_list|)
+throw|;
+block|}
 name|in
 operator|.
 name|seek
@@ -3121,7 +3171,6 @@ name|ParseException
 name|pe
 parameter_list|)
 block|{
-comment|// nocommit add message
 name|CorruptIndexException
 name|e
 init|=
@@ -3184,7 +3233,6 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{
-comment|// nocommit should .get() just throw IOE...
 throw|throw
 operator|new
 name|RuntimeException
@@ -3339,6 +3387,35 @@ name|int
 name|docID
 parameter_list|)
 block|{
+if|if
+condition|(
+name|docID
+operator|<
+literal|0
+operator|||
+name|docID
+operator|>=
+name|maxDoc
+condition|)
+block|{
+throw|throw
+operator|new
+name|IndexOutOfBoundsException
+argument_list|(
+literal|"docID must be 0 .. "
+operator|+
+operator|(
+name|maxDoc
+operator|-
+literal|1
+operator|)
+operator|+
+literal|"; got "
+operator|+
+name|docID
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 name|in
@@ -3441,7 +3518,6 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{
-comment|// nocommit should .get() just throw IOE...
 throw|throw
 operator|new
 name|RuntimeException
@@ -3466,6 +3542,39 @@ parameter_list|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|ord
+operator|<
+literal|0
+operator|||
+name|ord
+operator|>=
+name|field
+operator|.
+name|numValues
+condition|)
+block|{
+throw|throw
+operator|new
+name|IndexOutOfBoundsException
+argument_list|(
+literal|"ord must be 0 .. "
+operator|+
+operator|(
+name|field
+operator|.
+name|numValues
+operator|-
+literal|1
+operator|)
+operator|+
+literal|"; got "
+operator|+
+name|ord
+argument_list|)
+throw|;
+block|}
 name|in
 operator|.
 name|seek
@@ -3621,7 +3730,6 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{
-comment|// nocommit should .get() just throw IOE...
 throw|throw
 operator|new
 name|RuntimeException

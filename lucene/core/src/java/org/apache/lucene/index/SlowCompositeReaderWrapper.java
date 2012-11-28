@@ -297,7 +297,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// nocommit todo
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -315,7 +317,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// nocommit todo
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -333,7 +337,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// nocommit todo
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 return|return
 literal|null
 return|;

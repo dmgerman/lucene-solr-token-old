@@ -240,6 +240,17 @@ operator|new
 name|SimpleTextLiveDocsFormat
 argument_list|()
 decl_stmt|;
+comment|// nocommit rename
+DECL|field|simpleDVFormat
+specifier|private
+specifier|final
+name|SimpleDocValuesFormat
+name|simpleDVFormat
+init|=
+operator|new
+name|SimpleTextSimpleDocValuesFormat
+argument_list|()
+decl_stmt|;
 DECL|method|SimpleTextCodec
 specifier|public
 name|SimpleTextCodec
@@ -347,17 +358,6 @@ return|return
 name|liveDocs
 return|;
 block|}
-comment|// nocommit;
-DECL|field|nocommit
-specifier|private
-specifier|final
-name|SimpleDocValuesFormat
-name|nocommit
-init|=
-operator|new
-name|SimpleTextSimpleDocValuesFormat
-argument_list|()
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|simpleDocValuesFormat
@@ -366,9 +366,8 @@ name|SimpleDocValuesFormat
 name|simpleDocValuesFormat
 parameter_list|()
 block|{
-comment|// nocommit
 return|return
-name|nocommit
+name|simpleDVFormat
 return|;
 block|}
 block|}

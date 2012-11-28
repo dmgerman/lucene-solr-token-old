@@ -376,19 +376,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LogMergePolicy
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|MultiReader
 import|;
 end_import
@@ -1290,27 +1277,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// nocommit remove:
-operator|(
-operator|(
-name|LogMergePolicy
-operator|)
-name|writer
-operator|.
-name|w
-operator|.
-name|getConfig
-argument_list|()
-operator|.
-name|getMergePolicy
-argument_list|()
-operator|)
-operator|.
-name|setUseCompoundFile
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 specifier|final
 name|DocValues
 operator|.
@@ -2566,8 +2532,6 @@ argument_list|,
 literal|52
 argument_list|)
 decl_stmt|;
-comment|// nocommit shouldn't this be tracer_fixed?  how is
-comment|// this passing?
 name|doc
 operator|.
 name|add
@@ -2575,7 +2539,7 @@ argument_list|(
 operator|new
 name|Field
 argument_list|(
-literal|"fixed_tracer"
+literal|"tracer_fixed"
 argument_list|,
 name|numFixed
 argument_list|,
@@ -2740,8 +2704,6 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-comment|// nocommit
-comment|//writer.forceMerge(1);
 comment|//System.out.println(writer.getSegmentCount());
 name|writer
 operator|.
