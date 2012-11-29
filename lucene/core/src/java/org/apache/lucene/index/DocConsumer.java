@@ -68,12 +68,6 @@ name|void
 name|abort
 parameter_list|()
 function_decl|;
-DECL|method|freeRAM
-specifier|abstract
-name|boolean
-name|freeRAM
-parameter_list|()
-function_decl|;
 DECL|method|doAfterFlush
 specifier|abstract
 name|void
