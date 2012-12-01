@@ -99,7 +99,7 @@ begin_comment
 comment|/** Buffers up pending long per doc, then flushes when  *  segment flushes. */
 end_comment
 begin_comment
-comment|// nocommit name?
+comment|// nocommit rename to NumericDVWriter?
 end_comment
 begin_comment
 comment|// nocommit make this a consumer in the chain?
@@ -532,10 +532,9 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-comment|// nocommit do we really need this...?  can't parent alloc
+comment|// nocommit do we really need this...?  can't/doesn't parent alloc
 comment|// a new instance after flush?
 DECL|method|reset
-specifier|private
 name|void
 name|reset
 parameter_list|()

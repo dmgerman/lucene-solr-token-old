@@ -538,6 +538,8 @@ operator|new
 name|SimpleTextDocValuesWriter
 argument_list|(
 name|state
+argument_list|,
+literal|"dat"
 argument_list|)
 return|;
 block|}
@@ -559,6 +561,8 @@ operator|new
 name|SimpleTextDocValuesReader
 argument_list|(
 name|state
+argument_list|,
+literal|"dat"
 argument_list|)
 return|;
 block|}
@@ -611,6 +615,9 @@ name|SimpleTextDocValuesWriter
 parameter_list|(
 name|SegmentWriteState
 name|state
+parameter_list|,
+name|String
+name|ext
 parameter_list|)
 throws|throws
 name|IOException
@@ -637,7 +644,7 @@ name|state
 operator|.
 name|segmentSuffix
 argument_list|,
-literal|"dat"
+name|ext
 argument_list|)
 argument_list|,
 name|state
@@ -2079,6 +2086,9 @@ name|SimpleTextDocValuesReader
 parameter_list|(
 name|SegmentReadState
 name|state
+parameter_list|,
+name|String
+name|ext
 parameter_list|)
 throws|throws
 name|IOException
@@ -2106,7 +2116,7 @@ name|state
 operator|.
 name|segmentSuffix
 argument_list|,
-literal|"dat"
+name|ext
 argument_list|)
 argument_list|,
 name|state
