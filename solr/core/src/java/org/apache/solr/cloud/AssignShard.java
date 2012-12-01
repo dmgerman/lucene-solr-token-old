@@ -148,7 +148,7 @@ name|sliceMap
 init|=
 name|state
 operator|.
-name|getSlices
+name|getSlicesMap
 argument_list|(
 name|collection
 argument_list|)

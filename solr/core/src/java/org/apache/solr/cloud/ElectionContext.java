@@ -1343,7 +1343,7 @@ name|slices
 init|=
 name|clusterState
 operator|.
-name|getSlices
+name|getSlicesMap
 argument_list|(
 name|collection
 argument_list|)
@@ -1687,6 +1687,7 @@ argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
+comment|// System.out.println("###### waitForReplicasToComeUp  : slices=" + slices + " all=" + zkController.getClusterState().getCollectionStates() );
 block|}
 block|}
 DECL|method|rejoinLeaderElection

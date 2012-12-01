@@ -1771,7 +1771,7 @@ name|slices
 argument_list|,
 name|clusterState
 operator|.
-name|getSlices
+name|getSlicesMap
 argument_list|(
 name|collection
 argument_list|)
@@ -1787,7 +1787,7 @@ name|slices
 operator|=
 name|clusterState
 operator|.
-name|getSlices
+name|getSlicesMap
 argument_list|(
 name|cloudDescriptor
 operator|.
@@ -1919,7 +1919,7 @@ name|slices
 operator|=
 name|clusterState
 operator|.
-name|getSlices
+name|getSlicesMap
 argument_list|(
 name|cloudDescriptor
 operator|.

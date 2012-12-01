@@ -1048,7 +1048,7 @@ name|slices
 argument_list|,
 name|clusterState
 operator|.
-name|getSlices
+name|getSlicesMap
 argument_list|(
 name|coll
 argument_list|)
