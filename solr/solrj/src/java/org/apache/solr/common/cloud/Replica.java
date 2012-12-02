@@ -50,6 +50,12 @@ specifier|final
 name|String
 name|name
 decl_stmt|;
+DECL|field|nodeName
+specifier|private
+specifier|final
+name|String
+name|nodeName
+decl_stmt|;
 DECL|method|Replica
 specifier|public
 name|Replica
@@ -77,9 +83,8 @@ name|name
 operator|=
 name|name
 expr_stmt|;
-name|String
 name|nodeName
-init|=
+operator|=
 operator|(
 name|String
 operator|)
@@ -91,7 +96,7 @@ name|ZkStateReader
 operator|.
 name|NODE_NAME_PROP
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 assert|assert
 name|nodeName
 operator|==
@@ -113,6 +118,17 @@ parameter_list|()
 block|{
 return|return
 name|name
+return|;
+block|}
+comment|/** The name of the node this replica resides on */
+DECL|method|getNodeName
+specifier|public
+name|String
+name|getNodeName
+parameter_list|()
+block|{
+return|return
+name|nodeName
 return|;
 block|}
 annotation|@
@@ -140,7 +156,6 @@ argument_list|)
 return|;
 comment|// small enough, keep it on one line (i.e. no indent)
 block|}
-comment|// TODO: should we have a pointer back to the slice the replica belongs to?
 block|}
 end_class
 end_unit

@@ -100,9 +100,9 @@ block|{
 name|DocRouter
 name|hp
 init|=
-operator|new
 name|DocRouter
-argument_list|()
+operator|.
+name|DEFAULT
 decl_stmt|;
 name|List
 argument_list|<
