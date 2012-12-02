@@ -1480,6 +1480,14 @@ argument_list|(
 literal|2
 argument_list|)
 argument_list|)
+operator|.
+name|setMergeScheduler
+argument_list|(
+operator|new
+name|SerialMergeScheduler
+argument_list|()
+argument_list|)
+comment|// nocommit
 argument_list|)
 decl_stmt|;
 name|StringBuilder
@@ -1833,6 +1841,10 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
+literal|"got score="
+operator|+
+name|score
+argument_list|,
 name|score
 operator|==
 literal|1.0f

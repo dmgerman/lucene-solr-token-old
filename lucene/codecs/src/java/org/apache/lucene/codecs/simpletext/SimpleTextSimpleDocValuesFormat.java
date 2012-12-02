@@ -593,6 +593,12 @@ specifier|final
 name|int
 name|numDocs
 decl_stmt|;
+comment|// nocommit
+DECL|field|isNorms
+specifier|final
+name|boolean
+name|isNorms
+decl_stmt|;
 DECL|field|fieldsSeen
 specifier|private
 specifier|final
@@ -622,6 +628,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//System.out.println("WRITE: " + IndexFileNames.segmentFileName(state.segmentInfo.name, state.segmentSuffix, ext) + " " + state.segmentInfo.getDocCount() + " docs");
 name|data
 operator|=
 name|state
@@ -660,6 +667,15 @@ name|segmentInfo
 operator|.
 name|getDocCount
 argument_list|()
+expr_stmt|;
+name|isNorms
+operator|=
+name|ext
+operator|.
+name|equals
+argument_list|(
+literal|"slen"
+argument_list|)
 expr_stmt|;
 block|}
 comment|// for asserting
@@ -1081,6 +1097,10 @@ operator|.
 name|name
 argument_list|)
 assert|;
+assert|assert
+operator|!
+name|isNorms
+assert|;
 name|writeFieldEntry
 argument_list|(
 name|field
@@ -1412,6 +1432,10 @@ name|field
 operator|.
 name|name
 argument_list|)
+assert|;
+assert|assert
+operator|!
+name|isNorms
 assert|;
 name|writeFieldEntry
 argument_list|(
@@ -1935,6 +1959,13 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+assert|assert
+operator|!
+name|fieldsSeen
+operator|.
+name|isEmpty
+argument_list|()
+assert|;
 comment|// TODO: sheisty to do this here?
 name|SimpleTextUtil
 operator|.
@@ -2093,7 +2124,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//System.out.println("dir=" + dir + " seg=" + si.name);
+comment|//System.out.println("dir=" + state.directory + " seg=" + state.segmentInfo.name + " ext=" + ext);
 name|data
 operator|=
 name|state
@@ -2213,11 +2244,26 @@ name|fieldInfo
 operator|=
 name|fieldInfo
 expr_stmt|;
+comment|//System.out.println("  field=" + fieldName);
+comment|// nocommit hack hack hack!!:
 name|DocValues
 operator|.
 name|Type
 name|dvType
 init|=
+name|ext
+operator|.
+name|equals
+argument_list|(
+literal|"slen"
+argument_list|)
+condition|?
+name|DocValues
+operator|.
+name|Type
+operator|.
+name|FIXED_INTS_8
+else|:
 name|fieldInfo
 operator|.
 name|getDocValuesType
@@ -2253,6 +2299,21 @@ name|startsWith
 argument_list|(
 name|MINVALUE
 argument_list|)
+operator|:
+literal|"got "
+operator|+
+name|scratch
+operator|.
+name|utf8ToString
+argument_list|()
+operator|+
+literal|" field="
+operator|+
+name|fieldName
+operator|+
+literal|" ext="
+operator|+
+name|ext
 assert|;
 name|field
 operator|.
@@ -2631,6 +2692,15 @@ argument_list|()
 throw|;
 block|}
 block|}
+comment|// We should only be called from above if at least one
+comment|// field has DVs:
+assert|assert
+operator|!
+name|fields
+operator|.
+name|isEmpty
+argument_list|()
+assert|;
 block|}
 annotation|@
 name|Override
@@ -2658,12 +2728,39 @@ operator|.
 name|name
 argument_list|)
 decl_stmt|;
+comment|// This can happen, in exceptional cases, where the
+comment|// only doc containing a field hit a non-aborting
+comment|// exception.  The field then appears in FieldInfos,
+comment|// marked as indexed and !omitNorms, and then merging
+comment|// will try to retrieve it:
+comment|// nocommit can we somehow avoid this ...?
+if|if
+condition|(
+name|field
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|// SegmentCoreReaders already verifies this field is
 comment|// valid:
 assert|assert
 name|field
 operator|!=
 literal|null
+operator|:
+literal|"field="
+operator|+
+name|fieldInfo
+operator|.
+name|name
+operator|+
+literal|" fields="
+operator|+
+name|fields
 assert|;
 specifier|final
 name|IndexInput

@@ -3143,6 +3143,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNumericDocValues
 specifier|public
 name|NumericDocValues
@@ -3156,6 +3158,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBinaryDocValues
 specifier|public
 name|BinaryDocValues
@@ -3169,6 +3173,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSortedDocValues
 specifier|public
 name|SortedDocValues
@@ -3178,6 +3184,22 @@ name|String
 name|field
 parameter_list|)
 block|{
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|simpleNormValues
+specifier|public
+name|NumericDocValues
+name|simpleNormValues
+parameter_list|(
+name|String
+name|field
+parameter_list|)
+block|{
+comment|// nocommit
 return|return
 literal|null
 return|;
