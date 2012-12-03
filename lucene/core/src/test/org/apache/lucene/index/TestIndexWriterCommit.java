@@ -2602,10 +2602,15 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|commit
+name|setCommitData
 argument_list|(
 name|commitData
 argument_list|)
+expr_stmt|;
+name|w
+operator|.
+name|commit
+argument_list|()
 expr_stmt|;
 comment|// commit to "second"
 name|w
@@ -2626,7 +2631,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|commit
+name|setCommitData
 argument_list|(
 name|commitData
 argument_list|)
@@ -2746,7 +2751,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|commit
+name|setCommitData
 argument_list|(
 name|commitData
 argument_list|)
@@ -3788,7 +3793,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|commit
+name|setCommitData
 argument_list|(
 name|data
 argument_list|)
