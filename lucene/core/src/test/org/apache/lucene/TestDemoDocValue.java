@@ -381,6 +381,8 @@ block|,
 literal|"Lucene40"
 block|,
 literal|"Compressing"
+block|,
+literal|"Lucene41"
 block|}
 argument_list|)
 DECL|class|TestDemoDocValue
