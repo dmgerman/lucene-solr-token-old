@@ -141,6 +141,13 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|clone
+specifier|public
+specifier|abstract
+name|SimpleDVProducer
+name|clone
+parameter_list|()
+function_decl|;
 block|}
 end_class
 end_unit

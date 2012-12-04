@@ -317,6 +317,8 @@ specifier|final
 name|CompoundFileDirectory
 name|cfsReader
 decl_stmt|;
+comment|// nocommit we should make a single thread local w/ a
+comment|// class holding these N things...?
 DECL|field|fieldsReaderLocal
 specifier|final
 name|CloseableThreadLocal
@@ -387,6 +389,91 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|// nocommit not great to hold onto lots-o-ram in a thread
+comment|// local...?  do we need a "needsClone"/"isThreadSafe"!?
+DECL|field|simpleDocValuesLocal
+specifier|final
+name|CloseableThreadLocal
+argument_list|<
+name|SimpleDVProducer
+argument_list|>
+name|simpleDocValuesLocal
+init|=
+operator|new
+name|CloseableThreadLocal
+argument_list|<
+name|SimpleDVProducer
+argument_list|>
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|protected
+name|SimpleDVProducer
+name|initialValue
+parameter_list|()
+block|{
+comment|// nocommit remove null check
+return|return
+operator|(
+name|simpleDVProducer
+operator|==
+literal|null
+operator|)
+condition|?
+literal|null
+else|:
+name|simpleDVProducer
+operator|.
+name|clone
+argument_list|()
+return|;
+block|}
+block|}
+decl_stmt|;
+comment|// nocommit not great to hold onto lots-o-ram in a thread
+comment|// local...?  do we need a "needsClone"/"isThreadSafe"!?
+DECL|field|simpleNormsLocal
+specifier|final
+name|CloseableThreadLocal
+argument_list|<
+name|SimpleDVProducer
+argument_list|>
+name|simpleNormsLocal
+init|=
+operator|new
+name|CloseableThreadLocal
+argument_list|<
+name|SimpleDVProducer
+argument_list|>
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|protected
+name|SimpleDVProducer
+name|initialValue
+parameter_list|()
+block|{
+comment|// nocommit remove null check
+return|return
+operator|(
+name|simpleNormsProducer
+operator|==
+literal|null
+operator|)
+condition|?
+literal|null
+else|:
+name|simpleNormsProducer
+operator|.
+name|clone
+argument_list|()
+return|;
+block|}
+block|}
+decl_stmt|;
+comment|// nocommit norms too
 DECL|field|coreClosedListeners
 specifier|private
 specifier|final
@@ -913,7 +1000,10 @@ literal|null
 return|;
 block|}
 return|return
-name|simpleDVProducer
+name|simpleDocValuesLocal
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getNumeric
 argument_list|(
@@ -1000,7 +1090,10 @@ literal|null
 return|;
 block|}
 return|return
-name|simpleDVProducer
+name|simpleDocValuesLocal
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getBinary
 argument_list|(
@@ -1087,7 +1180,10 @@ literal|null
 return|;
 block|}
 return|return
-name|simpleDVProducer
+name|simpleDocValuesLocal
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getSorted
 argument_list|(
@@ -1152,7 +1248,10 @@ literal|null
 return|;
 block|}
 return|return
-name|simpleNormsProducer
+name|simpleNormsLocal
+operator|.
+name|get
+argument_list|()
 operator|.
 name|getNumeric
 argument_list|(
@@ -1184,6 +1283,10 @@ argument_list|(
 name|termVectorsLocal
 argument_list|,
 name|fieldsReaderLocal
+argument_list|,
+name|simpleDocValuesLocal
+argument_list|,
+name|simpleNormsLocal
 argument_list|,
 name|fields
 argument_list|,

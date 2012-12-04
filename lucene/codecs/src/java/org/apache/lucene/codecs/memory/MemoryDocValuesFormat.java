@@ -624,6 +624,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|SortedDocValues
 name|getSorted
@@ -910,6 +912,18 @@ name|maxLength
 return|;
 block|}
 block|}
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|SimpleDVProducer
+name|clone
+parameter_list|()
+block|{
+comment|// We are already thread-safe:
+return|return
+name|this
 return|;
 block|}
 annotation|@
