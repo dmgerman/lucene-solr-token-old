@@ -60,8 +60,6 @@ begin_comment
 comment|/**  * Test with various combinations of parameters, child entites, transformers.  */
 end_comment
 begin_class
-annotation|@
-name|Ignore
 DECL|class|TestSqlEntityProcessorDelta
 specifier|public
 class|class
