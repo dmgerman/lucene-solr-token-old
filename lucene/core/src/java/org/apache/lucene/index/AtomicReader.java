@@ -574,8 +574,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|// nocommit document that these are thread-private:
-comment|/** Returns {@link NumericDocValues} for this field, or    *  null if no {@link NumericDocValues} were indexed for    *  this field. */
+comment|/** Returns {@link NumericDocValues} for this field, or    *  null if no {@link NumericDocValues} were indexed for    *  this field.  The returned instance should only be    *  used by a single thread. */
 DECL|method|getNumericDocValues
 specifier|public
 specifier|abstract
@@ -588,8 +587,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|// nocommit document that these are thread-private:
-comment|/** Returns {@link BinaryDocValues} for this field, or    *  null if no {@link BinaryDocValues} were indexed for    *  this field. */
+comment|/** Returns {@link BinaryDocValues} for this field, or    *  null if no {@link BinaryDocValues} were indexed for    *  this field.  The returned instance should only be    *  used by a single thread. */
 DECL|method|getBinaryDocValues
 specifier|public
 specifier|abstract
@@ -602,8 +600,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|// nocommit document that these are thread-private:
-comment|/** Returns {@link SortedDocValues} for this field, or    *  null if no {@link SortedDocValues} were indexed for    *  this field. */
+comment|/** Returns {@link SortedDocValues} for this field, or    *  null if no {@link SortedDocValues} were indexed for    *  this field.  The returned instance should only be    *  used by a single thread. */
 DECL|method|getSortedDocValues
 specifier|public
 specifier|abstract
