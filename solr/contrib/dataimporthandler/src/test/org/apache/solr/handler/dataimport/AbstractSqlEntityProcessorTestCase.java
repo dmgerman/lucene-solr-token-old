@@ -527,7 +527,7 @@ expr_stmt|;
 block|}
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 name|sb
 operator|.
@@ -2297,7 +2297,7 @@ argument_list|)
 decl_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"PEOPLE UPDATE USING TIMESTAMP: "
 operator|+
@@ -2836,7 +2836,7 @@ argument_list|)
 decl_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"COUNTRY UPDATE USING TIMESTAMP: "
 operator|+
@@ -3734,7 +3734,7 @@ argument_list|)
 decl_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 name|config
 argument_list|)
@@ -3813,7 +3813,7 @@ argument_list|)
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"INSERTING DB DATA USING TIMESTAMP: "
 operator|+
