@@ -2056,7 +2056,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Actual"
+literal|"Actual:\n"
 operator|+
 name|actualResults
 argument_list|)

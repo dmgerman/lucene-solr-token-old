@@ -112,6 +112,25 @@ name|facet
 operator|.
 name|search
 operator|.
+name|params
+operator|.
+name|FacetRequest
+operator|.
+name|ResultMode
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|facet
+operator|.
+name|search
+operator|.
 name|results
 operator|.
 name|FacetResult
@@ -358,7 +377,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**    * Strait forward test: Adding specific documents with specific facets and    * counting them in the most basic form.    */
+comment|/**    * Straightforward test: Adding specific documents with specific facets and    * counting them in the most basic form.    */
 annotation|@
 name|Test
 DECL|method|testSimple
@@ -428,6 +447,16 @@ operator|.
 name|setDepth
 argument_list|(
 literal|3
+argument_list|)
+expr_stmt|;
+comment|// makes it easier to check the results in the test.
+name|cfra
+operator|.
+name|setResultMode
+argument_list|(
+name|ResultMode
+operator|.
+name|GLOBAL_FLAT
 argument_list|)
 expr_stmt|;
 name|sParams
