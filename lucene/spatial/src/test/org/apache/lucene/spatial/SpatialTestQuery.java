@@ -407,8 +407,24 @@ name|String
 name|toString
 parameter_list|()
 block|{
+if|if
+condition|(
+name|line
+operator|!=
+literal|null
+condition|)
 return|return
 name|line
+return|;
+return|return
+name|args
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|" "
+operator|+
+name|ids
 return|;
 block|}
 block|}
