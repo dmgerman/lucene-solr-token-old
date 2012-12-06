@@ -256,7 +256,9 @@ operator|-
 literal|1
 return|;
 name|v
-operator|*=
+operator|=
+name|v
+operator|*
 literal|10
 operator|+
 operator|(
@@ -590,7 +592,7 @@ name|idx
 argument_list|)
 decl_stmt|;
 name|int
-name|commaIdx
+name|bitsSepIdx
 init|=
 name|part1
 operator|.
@@ -601,7 +603,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|commaIdx
+name|bitsSepIdx
 operator|>
 literal|0
 condition|)
@@ -613,7 +615,7 @@ name|getBits
 argument_list|(
 name|part1
 argument_list|,
-name|commaIdx
+name|bitsSepIdx
 argument_list|)
 decl_stmt|;
 if|if
@@ -649,7 +651,7 @@ name|substring
 argument_list|(
 literal|0
 argument_list|,
-name|commaIdx
+name|bitsSepIdx
 argument_list|)
 expr_stmt|;
 block|}
