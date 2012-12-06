@@ -1521,10 +1521,15 @@ name|parentArray
 operator|=
 name|taxo
 operator|.
-name|getParentArray
+name|getParallelTaxonomyArrays
+argument_list|()
+operator|.
+name|parents
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|boolean
@@ -1540,6 +1545,8 @@ name|init
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextCategory
 specifier|public
 name|long
@@ -1620,6 +1627,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|skipTo
 specifier|public
 name|boolean
