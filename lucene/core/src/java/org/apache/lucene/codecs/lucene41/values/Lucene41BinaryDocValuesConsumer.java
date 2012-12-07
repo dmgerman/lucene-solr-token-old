@@ -172,6 +172,7 @@ specifier|final
 name|IndexOutput
 name|indexOut
 decl_stmt|;
+comment|// nocommit: remove buffering!
 DECL|field|buffer
 specifier|private
 specifier|final
