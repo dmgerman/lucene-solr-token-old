@@ -978,6 +978,8 @@ argument_list|(
 name|leaderProps
 argument_list|,
 name|core
+argument_list|,
+name|weAreReplacement
 argument_list|)
 condition|)
 block|{
@@ -1813,6 +1815,9 @@ name|leaderProps
 parameter_list|,
 name|SolrCore
 name|core
+parameter_list|,
+name|boolean
+name|weAreReplacement
 parameter_list|)
 block|{
 name|log
@@ -1836,6 +1841,18 @@ argument_list|)
 expr_stmt|;
 return|return
 literal|false
+return|;
+block|}
+if|if
+condition|(
+operator|!
+name|weAreReplacement
+condition|)
+block|{
+comment|// we are the first node starting in the shard - there is a configurable wait
+comment|// to make sure others participate in sync and leader election, we can be leader
+return|return
+literal|true
 return|;
 block|}
 if|if
