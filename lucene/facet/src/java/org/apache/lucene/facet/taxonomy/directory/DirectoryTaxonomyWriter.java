@@ -1538,6 +1538,18 @@ name|delimiter
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|TermsEnum
+name|termsEnum
+init|=
+literal|null
+decl_stmt|;
+comment|// reuse
+name|DocsEnum
+name|docs
+init|=
+literal|null
+decl_stmt|;
+comment|// reuse
 for|for
 control|(
 name|AtomicReaderContext
@@ -1571,16 +1583,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|TermsEnum
 name|termsEnum
-init|=
+operator|=
 name|terms
 operator|.
 name|iterator
 argument_list|(
-literal|null
+name|termsEnum
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|termsEnum
@@ -1593,21 +1604,22 @@ literal|true
 argument_list|)
 condition|)
 block|{
-comment|// TODO: is it really ok that null is passed here as liveDocs?
-name|DocsEnum
+comment|// liveDocs=null because the taxonomy has no deletes
 name|docs
-init|=
+operator|=
 name|termsEnum
 operator|.
 name|docs
 argument_list|(
 literal|null
 argument_list|,
-literal|null
+name|docs
 argument_list|,
 literal|0
+comment|/* freqs not required */
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+comment|// if the term was found, we know it has exactly one document.
 name|doc
 operator|=
 name|docs
@@ -1619,6 +1631,7 @@ name|ctx
 operator|.
 name|docBase
 expr_stmt|;
+break|break;
 block|}
 block|}
 block|}
@@ -2190,15 +2203,6 @@ name|shouldRefreshReaderManager
 operator|=
 literal|true
 expr_stmt|;
-name|addToCache
-argument_list|(
-name|categoryPath
-argument_list|,
-name|length
-argument_list|,
-name|id
-argument_list|)
-expr_stmt|;
 comment|// also add to the parent array
 name|taxoArrays
 operator|=
@@ -2210,6 +2214,17 @@ argument_list|(
 name|id
 argument_list|,
 name|parent
+argument_list|)
+expr_stmt|;
+comment|// NOTE: this line must be executed last, or else the cache gets updated
+comment|// before the parents array (LUCENE-4596)
+name|addToCache
+argument_list|(
+name|categoryPath
+argument_list|,
+name|length
+argument_list|,
+name|id
 argument_list|)
 expr_stmt|;
 return|return
@@ -3037,12 +3052,37 @@ literal|"requested ordinal is bigger than the largest ordinal in the taxonomy"
 argument_list|)
 throw|;
 block|}
-return|return
+name|int
+index|[]
+name|parents
+init|=
 name|getTaxoArrays
 argument_list|()
 operator|.
 name|parents
 argument_list|()
+decl_stmt|;
+assert|assert
+name|ordinal
+operator|<
+name|parents
+operator|.
+name|length
+operator|:
+literal|"requested ordinal ("
+operator|+
+name|ordinal
+operator|+
+literal|"); parents.length ("
+operator|+
+name|parents
+operator|.
+name|length
+operator|+
+literal|") !"
+assert|;
+return|return
+name|parents
 index|[
 name|ordinal
 index|]
