@@ -373,8 +373,12 @@ operator|.
 name|PackedInts
 import|;
 end_import
+begin_comment
+comment|/**  * {@link StoredFieldsWriter} impl for {@link CompressingStoredFieldsFormat}.  * @lucene.experimental  */
+end_comment
 begin_class
 DECL|class|CompressingStoredFieldsWriter
+specifier|public
 specifier|final
 class|class
 name|CompressingStoredFieldsWriter
@@ -562,6 +566,7 @@ name|int
 name|numBufferedDocs
 decl_stmt|;
 comment|// docBase + numBufferedDocs == current doc ID
+comment|/** Sole constructor. */
 DECL|method|CompressingStoredFieldsWriter
 specifier|public
 name|CompressingStoredFieldsWriter
@@ -571,6 +576,9 @@ name|directory
 parameter_list|,
 name|SegmentInfo
 name|si
+parameter_list|,
+name|String
+name|segmentSuffix
 parameter_list|,
 name|IOContext
 name|context
@@ -687,7 +695,7 @@ name|segmentFileName
 argument_list|(
 name|segment
 argument_list|,
-literal|""
+name|segmentSuffix
 argument_list|,
 name|FIELDS_INDEX_EXTENSION
 argument_list|)
@@ -709,7 +717,7 @@ name|segmentFileName
 argument_list|(
 name|segment
 argument_list|,
-literal|""
+name|segmentSuffix
 argument_list|,
 name|FIELDS_EXTENSION
 argument_list|)

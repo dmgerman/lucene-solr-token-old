@@ -508,8 +508,12 @@ operator|.
 name|PackedInts
 import|;
 end_import
+begin_comment
+comment|/**  * {@link StoredFieldsReader} impl for {@link CompressingStoredFieldsFormat}.  * @lucene.experimental  */
+end_comment
 begin_class
 DECL|class|CompressingStoredFieldsReader
+specifier|public
 specifier|final
 class|class
 name|CompressingStoredFieldsReader
@@ -666,6 +670,7 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+comment|/** Sole constructor. */
 DECL|method|CompressingStoredFieldsReader
 specifier|public
 name|CompressingStoredFieldsReader
@@ -675,6 +680,9 @@ name|d
 parameter_list|,
 name|SegmentInfo
 name|si
+parameter_list|,
+name|String
+name|segmentSuffix
 parameter_list|,
 name|FieldInfos
 name|fn
@@ -740,7 +748,7 @@ name|segmentFileName
 argument_list|(
 name|segment
 argument_list|,
-literal|""
+name|segmentSuffix
 argument_list|,
 name|FIELDS_EXTENSION
 argument_list|)
@@ -758,7 +766,7 @@ name|segmentFileName
 argument_list|(
 name|segment
 argument_list|,
-literal|""
+name|segmentSuffix
 argument_list|,
 name|FIELDS_INDEX_EXTENSION
 argument_list|)
@@ -926,6 +934,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**     * Close the underlying {@link IndexInput}s.    */
 annotation|@
 name|Override
 DECL|method|close
