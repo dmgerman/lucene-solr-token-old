@@ -3013,6 +3013,15 @@ name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|checkSimpleNorms
+argument_list|(
+name|info
+argument_list|,
+name|reader
+argument_list|,
+name|infoStream
+argument_list|)
+expr_stmt|;
 operator|++
 name|status
 operator|.
@@ -7136,8 +7145,8 @@ specifier|static
 name|void
 name|checkBinaryDocValues
 parameter_list|(
-name|FieldInfo
-name|fi
+name|String
+name|fieldName
 parameter_list|,
 name|AtomicReader
 name|reader
@@ -7272,9 +7281,7 @@ name|RuntimeException
 argument_list|(
 literal|"dv for field: "
 operator|+
-name|fi
-operator|.
-name|name
+name|fieldName
 operator|+
 literal|" reports fixed="
 operator|+
@@ -7297,9 +7304,7 @@ name|RuntimeException
 argument_list|(
 literal|"dv for field: "
 operator|+
-name|fi
-operator|.
-name|name
+name|fieldName
 operator|+
 literal|" reports maxLength="
 operator|+
@@ -7318,8 +7323,8 @@ specifier|static
 name|void
 name|checkSortedDocValues
 parameter_list|(
-name|FieldInfo
-name|fi
+name|String
+name|fieldName
 parameter_list|,
 name|AtomicReader
 name|reader
@@ -7340,7 +7345,7 @@ return|return;
 block|}
 name|checkBinaryDocValues
 argument_list|(
-name|fi
+name|fieldName
 argument_list|,
 name|reader
 argument_list|,
@@ -7457,9 +7462,7 @@ name|RuntimeException
 argument_list|(
 literal|"dv for field: "
 operator|+
-name|fi
-operator|.
-name|name
+name|fieldName
 operator|+
 literal|" reports wrong maxOrd="
 operator|+
@@ -7490,9 +7493,7 @@ name|RuntimeException
 argument_list|(
 literal|"dv for field: "
 operator|+
-name|fi
-operator|.
-name|name
+name|fieldName
 operator|+
 literal|" has holes in its ords, valueCount="
 operator|+
@@ -7571,9 +7572,7 @@ name|RuntimeException
 argument_list|(
 literal|"dv for field: "
 operator|+
-name|fi
-operator|.
-name|name
+name|fieldName
 operator|+
 literal|" has ords out of order: "
 operator|+
@@ -7603,8 +7602,8 @@ specifier|static
 name|void
 name|checkNumericDocValues
 parameter_list|(
-name|FieldInfo
-name|fi
+name|String
+name|fieldName
 parameter_list|,
 name|AtomicReader
 name|reader
@@ -7719,9 +7718,7 @@ name|RuntimeException
 argument_list|(
 literal|"dv for field: "
 operator|+
-name|fi
-operator|.
-name|name
+name|fieldName
 operator|+
 literal|" reports minValue="
 operator|+
@@ -7746,9 +7743,7 @@ name|RuntimeException
 argument_list|(
 literal|"dv for field: "
 operator|+
-name|fi
-operator|.
-name|name
+name|fieldName
 operator|+
 literal|" reports maxValue="
 operator|+
@@ -7840,6 +7835,8 @@ case|:
 name|checkSortedDocValues
 argument_list|(
 name|fi
+operator|.
+name|name
 argument_list|,
 name|reader
 argument_list|,
@@ -7863,6 +7860,8 @@ case|:
 name|checkBinaryDocValues
 argument_list|(
 name|fi
+operator|.
+name|name
 argument_list|,
 name|reader
 argument_list|,
@@ -7901,6 +7900,8 @@ case|:
 name|checkNumericDocValues
 argument_list|(
 name|fi
+operator|.
+name|name
 argument_list|,
 name|reader
 argument_list|,
@@ -7920,6 +7921,88 @@ throw|throw
 operator|new
 name|AssertionError
 argument_list|()
+throw|;
+block|}
+block|}
+comment|// nocommit
+DECL|method|checkSimpleNorms
+specifier|public
+specifier|static
+name|void
+name|checkSimpleNorms
+parameter_list|(
+name|FieldInfo
+name|fi
+parameter_list|,
+name|AtomicReader
+name|reader
+parameter_list|,
+name|PrintStream
+name|infoStream
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+switch|switch
+condition|(
+name|fi
+operator|.
+name|getNormType
+argument_list|()
+condition|)
+block|{
+case|case
+name|FLOAT_32
+case|:
+case|case
+name|FLOAT_64
+case|:
+case|case
+name|VAR_INTS
+case|:
+case|case
+name|FIXED_INTS_16
+case|:
+case|case
+name|FIXED_INTS_32
+case|:
+case|case
+name|FIXED_INTS_64
+case|:
+case|case
+name|FIXED_INTS_8
+case|:
+name|checkNumericDocValues
+argument_list|(
+name|fi
+operator|.
+name|name
+argument_list|,
+name|reader
+argument_list|,
+name|reader
+operator|.
+name|simpleNormValues
+argument_list|(
+name|fi
+operator|.
+name|name
+argument_list|)
+argument_list|)
+expr_stmt|;
+break|break;
+default|default:
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+literal|"wtf: "
+operator|+
+name|fi
+operator|.
+name|getNormType
+argument_list|()
+argument_list|)
 throw|;
 block|}
 block|}
