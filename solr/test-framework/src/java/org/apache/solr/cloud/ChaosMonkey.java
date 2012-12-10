@@ -1301,7 +1301,7 @@ operator|.
 name|getClusterState
 argument_list|()
 operator|.
-name|getSlices
+name|getSlicesMap
 argument_list|(
 name|collection
 argument_list|)
@@ -1462,7 +1462,7 @@ operator|.
 name|getClusterState
 argument_list|()
 operator|.
-name|getSlices
+name|getSlicesMap
 argument_list|(
 name|collection
 argument_list|)

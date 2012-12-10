@@ -1076,8 +1076,22 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"A cluster state change has occurred - updating... ({})"
+literal|"A cluster state change: {}, has occurred - updating... (live nodes size: {})"
 argument_list|,
+operator|(
+name|event
+operator|)
+argument_list|,
+name|ZkStateReader
+operator|.
+name|this
+operator|.
+name|clusterState
+operator|==
+literal|null
+condition|?
+literal|0
+else|:
 name|ZkStateReader
 operator|.
 name|this
@@ -2155,10 +2169,10 @@ name|getCoreUrl
 argument_list|()
 return|;
 block|}
-comment|/**    * Get shard leader properties.    */
+comment|/**    * Get shard leader properties, with retry if none exist.    */
 DECL|method|getLeaderProps
 specifier|public
-name|ZkNodeProps
+name|Replica
 name|getLeaderProps
 parameter_list|(
 name|String
@@ -2181,9 +2195,10 @@ literal|1000
 argument_list|)
 return|;
 block|}
+comment|/**    * Get shard leader properties, with retry if none exist.    */
 DECL|method|getLeaderProps
 specifier|public
-name|ZkNodeProps
+name|Replica
 name|getLeaderProps
 parameter_list|(
 name|String
@@ -2225,9 +2240,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-specifier|final
-name|ZkNodeProps
-name|nodeProps
+name|Replica
+name|replica
 init|=
 name|clusterState
 operator|.
@@ -2240,13 +2254,24 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|nodeProps
+name|replica
 operator|!=
 literal|null
+operator|&&
+name|getClusterState
+argument_list|()
+operator|.
+name|liveNodesContain
+argument_list|(
+name|replica
+operator|.
+name|getNodeName
+argument_list|()
+argument_list|)
 condition|)
 block|{
 return|return
-name|nodeProps
+name|replica
 return|;
 block|}
 block|}
@@ -2470,7 +2495,7 @@ name|slices
 init|=
 name|clusterState
 operator|.
-name|getSlices
+name|getSlicesMap
 argument_list|(
 name|collection
 argument_list|)

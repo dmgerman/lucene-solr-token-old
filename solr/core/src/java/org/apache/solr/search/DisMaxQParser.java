@@ -22,36 +22,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryparser
-operator|.
-name|classic
-operator|.
-name|ParseException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|queryparser
-operator|.
-name|classic
-operator|.
-name|QueryParser
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|BooleanClause
@@ -96,6 +66,19 @@ operator|.
 name|params
 operator|.
 name|CommonParams
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|parser
+operator|.
+name|QueryParser
 import|;
 end_import
 begin_import
@@ -245,6 +228,14 @@ name|SolrParams
 name|params
 parameter_list|)
 block|{
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|parser
+operator|.
 name|QueryParser
 operator|.
 name|Operator
@@ -313,7 +304,7 @@ name|SolrParams
 name|solrParams
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|Map
 argument_list|<
@@ -373,7 +364,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParseException
+name|SyntaxError
 argument_list|(
 literal|"Neither "
 operator|+
@@ -481,7 +472,7 @@ name|Query
 name|parse
 parameter_list|()
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|SolrParams
 name|solrParams
@@ -565,7 +556,7 @@ name|SolrParams
 name|solrParams
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|String
 index|[]
@@ -710,7 +701,7 @@ name|SolrParams
 name|solrParams
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|boostParams
 operator|=
@@ -927,7 +918,7 @@ name|SolrParams
 name|solrParams
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|Map
 argument_list|<
@@ -1167,7 +1158,7 @@ name|SolrParams
 name|solrParams
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|String
 name|altQ
@@ -1226,7 +1217,7 @@ name|DisjunctionMaxQueryParser
 name|pp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 comment|/* * * Add on Phrases for the Query * * */
 comment|/* build up phrase boosting queries */
@@ -1273,7 +1264,7 @@ name|SolrParams
 name|solrParams
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|String
 name|minShouldMatch
@@ -1460,7 +1451,7 @@ name|Query
 name|getHighlightQuery
 parameter_list|()
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 return|return
 name|parsedUserQuery

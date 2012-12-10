@@ -389,6 +389,9 @@ operator|.
 name|CorruptIndexException
 import|;
 end_import
+begin_comment
+comment|// javadocs
+end_comment
 begin_import
 import|import
 name|org
@@ -586,6 +589,9 @@ operator|.
 name|LockObtainFailedException
 import|;
 end_import
+begin_comment
+comment|// javadocs
+end_comment
 begin_import
 import|import
 name|org
@@ -744,24 +750,33 @@ name|shouldFillCache
 init|=
 literal|true
 decl_stmt|;
-comment|/**    * We call the cache "complete" if we know that every category in our    * taxonomy is in the cache. When the cache is<B>not</B> complete, and    * we can't find a category in the cache, we still need to look for it    * in the on-disk index; Therefore when the cache is not complete, we    * need to open a "reader" to the taxonomy index.    * The cache becomes incomplete if it was never filled with the existing    * categories, or if a put() to the cache ever returned true (meaning    * that some of the cached data was cleared).    */
-DECL|field|cacheIsComplete
+comment|// even though lazily initialized, not volatile so that access to it is
+comment|// faster. we keep a volatile boolean init instead.
+DECL|field|readerManager
+specifier|private
+name|ReaderManager
+name|readerManager
+decl_stmt|;
+DECL|field|initializedReaderManager
 specifier|private
 specifier|volatile
 name|boolean
-name|cacheIsComplete
-decl_stmt|;
-DECL|field|readerManager
-specifier|private
-specifier|volatile
-name|ReaderManager
-name|readerManager
+name|initializedReaderManager
+init|=
+literal|false
 decl_stmt|;
 DECL|field|shouldRefreshReaderManager
 specifier|private
 specifier|volatile
 name|boolean
 name|shouldRefreshReaderManager
+decl_stmt|;
+comment|/**    * We call the cache "complete" if we know that every category in our    * taxonomy is in the cache. When the cache is<B>not</B> complete, and    * we can't find a category in the cache, we still need to look for it    * in the on-disk index; Therefore when the cache is not complete, we    * need to open a "reader" to the taxonomy index.    * The cache becomes incomplete if it was never filled with the existing    * categories, or if a put() to the cache ever returned true (meaning    * that some of the cached data was cleared).    */
+DECL|field|cacheIsComplete
+specifier|private
+specifier|volatile
+name|boolean
+name|cacheIsComplete
 decl_stmt|;
 DECL|field|isClosed
 specifier|private
@@ -771,11 +786,11 @@ name|isClosed
 init|=
 literal|false
 decl_stmt|;
-DECL|field|parentArray
+DECL|field|taxoArrays
 specifier|private
 specifier|volatile
-name|ParentArray
-name|parentArray
+name|ParallelTaxonomyArrays
+name|taxoArrays
 decl_stmt|;
 DECL|field|nextID
 specifier|private
@@ -1157,6 +1172,8 @@ name|OpenMode
 name|openMode
 parameter_list|)
 block|{
+comment|// TODO: should we use a more optimized Codec, e.g. Pulsing (or write custom)?
+comment|// The taxonomy has a unique structure, where each term is associated with one document
 comment|// Make sure we use a MergePolicy which always merges adjacent segments and thus
 comment|// keeps the doc IDs ordered as well (this is crucial for the taxonomy index).
 return|return
@@ -1196,9 +1213,8 @@ name|IOException
 block|{
 if|if
 condition|(
-name|readerManager
-operator|==
-literal|null
+operator|!
+name|initializedReaderManager
 condition|)
 block|{
 synchronized|synchronized
@@ -1212,9 +1228,8 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|readerManager
-operator|==
-literal|null
+operator|!
+name|initializedReaderManager
 condition|)
 block|{
 name|readerManager
@@ -1230,6 +1245,10 @@ expr_stmt|;
 name|shouldRefreshReaderManager
 operator|=
 literal|false
+expr_stmt|;
+name|initializedReaderManager
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}
@@ -1280,7 +1299,6 @@ literal|3
 argument_list|)
 return|;
 block|}
-comment|// convenience constructors:
 DECL|method|DirectoryTaxonomyWriter
 specifier|public
 name|DirectoryTaxonomyWriter
@@ -1321,13 +1339,21 @@ condition|)
 block|{
 name|indexWriter
 operator|.
-name|commit
+name|setCommitData
 argument_list|(
 name|combinedCommitData
 argument_list|(
-literal|null
+name|indexWriter
+operator|.
+name|getCommitData
+argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|indexWriter
+operator|.
+name|commit
+argument_list|()
 expr_stmt|;
 name|doClose
 argument_list|()
@@ -1367,9 +1393,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|readerManager
-operator|!=
-literal|null
+name|initializedReaderManager
 condition|)
 block|{
 name|readerManager
@@ -1380,6 +1404,10 @@ expr_stmt|;
 name|readerManager
 operator|=
 literal|null
+expr_stmt|;
+name|initializedReaderManager
+operator|=
+literal|false
 expr_stmt|;
 block|}
 if|if
@@ -1510,6 +1538,18 @@ name|delimiter
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|TermsEnum
+name|termsEnum
+init|=
+literal|null
+decl_stmt|;
+comment|// reuse
+name|DocsEnum
+name|docs
+init|=
+literal|null
+decl_stmt|;
+comment|// reuse
 for|for
 control|(
 name|AtomicReaderContext
@@ -1543,16 +1583,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|TermsEnum
 name|termsEnum
-init|=
+operator|=
 name|terms
 operator|.
 name|iterator
 argument_list|(
-literal|null
+name|termsEnum
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|termsEnum
@@ -1565,21 +1604,22 @@ literal|true
 argument_list|)
 condition|)
 block|{
-comment|// TODO: is it really ok that null is passed here as liveDocs?
-name|DocsEnum
+comment|// liveDocs=null because the taxonomy has no deletes
 name|docs
-init|=
+operator|=
 name|termsEnum
 operator|.
 name|docs
 argument_list|(
 literal|null
 argument_list|,
-literal|null
+name|docs
 argument_list|,
 literal|0
+comment|/* freqs not required */
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+comment|// if the term was found, we know it has exactly one document.
 name|doc
 operator|=
 name|docs
@@ -1591,6 +1631,7 @@ name|ctx
 operator|.
 name|docBase
 expr_stmt|;
+break|break;
 block|}
 block|}
 block|}
@@ -1715,6 +1756,18 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+name|TermsEnum
+name|termsEnum
+init|=
+literal|null
+decl_stmt|;
+comment|// reuse
+name|DocsEnum
+name|docs
+init|=
+literal|null
+decl_stmt|;
+comment|// reuse
 specifier|final
 name|BytesRef
 name|catTerm
@@ -1765,16 +1818,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|TermsEnum
 name|termsEnum
-init|=
+operator|=
 name|terms
 operator|.
 name|iterator
 argument_list|(
-literal|null
+name|termsEnum
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|termsEnum
@@ -1787,21 +1839,22 @@ literal|true
 argument_list|)
 condition|)
 block|{
-comment|// TODO: is it really ok that null is passed here as liveDocs?
-name|DocsEnum
+comment|// liveDocs=null because the taxonomy has no deletes
 name|docs
-init|=
+operator|=
 name|termsEnum
 operator|.
 name|docs
 argument_list|(
 literal|null
 argument_list|,
-literal|null
+name|docs
 argument_list|,
 literal|0
+comment|/* freqs not required */
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+comment|// if the term was found, we know it has exactly one document.
 name|doc
 operator|=
 name|docs
@@ -1813,6 +1866,7 @@ name|ctx
 operator|.
 name|docBase
 expr_stmt|;
+break|break;
 block|}
 block|}
 block|}
@@ -2149,17 +2203,10 @@ name|shouldRefreshReaderManager
 operator|=
 literal|true
 expr_stmt|;
-name|addToCache
-argument_list|(
-name|categoryPath
-argument_list|,
-name|length
-argument_list|,
-name|id
-argument_list|)
-expr_stmt|;
 comment|// also add to the parent array
-name|getParentArray
+name|taxoArrays
+operator|=
+name|getTaxoArrays
 argument_list|()
 operator|.
 name|add
@@ -2167,6 +2214,17 @@ argument_list|(
 name|id
 argument_list|,
 name|parent
+argument_list|)
+expr_stmt|;
+comment|// NOTE: this line must be executed last, or else the cache gets updated
+comment|// before the parents array (LUCENE-4596)
+name|addToCache
+argument_list|(
+name|categoryPath
+argument_list|,
+name|length
+argument_list|,
+name|id
 argument_list|)
 expr_stmt|;
 return|return
@@ -2385,9 +2443,7 @@ if|if
 condition|(
 name|shouldRefreshReaderManager
 operator|&&
-name|readerManager
-operator|!=
-literal|null
+name|initializedReaderManager
 condition|)
 block|{
 name|readerManager
@@ -2401,7 +2457,6 @@ literal|false
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Calling commit() ensures that all the categories written so far are    * visible to a reader that is opened (or reopened) after that call.    * When the index is closed(), commit() is also implicitly done.    * See {@link TaxonomyWriter#commit()}    */
 annotation|@
 name|Override
 DECL|method|commit
@@ -2418,16 +2473,24 @@ argument_list|()
 expr_stmt|;
 name|indexWriter
 operator|.
-name|commit
+name|setCommitData
 argument_list|(
 name|combinedCommitData
 argument_list|(
-literal|null
+name|indexWriter
+operator|.
+name|getCommitData
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|indexWriter
+operator|.
+name|commit
+argument_list|()
+expr_stmt|;
 block|}
-comment|/**    * Combine original user data with that of the taxonomy creation time    */
+comment|/** Combine original user data with the taxonomy epoch. */
 DECL|method|combinedCommitData
 specifier|private
 name|Map
@@ -2444,7 +2507,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|userData
+name|commitData
 parameter_list|)
 block|{
 name|Map
@@ -2466,7 +2529,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|userData
+name|commitData
 operator|!=
 literal|null
 condition|)
@@ -2475,7 +2538,7 @@ name|m
 operator|.
 name|putAll
 argument_list|(
-name|userData
+name|commitData
 argument_list|)
 expr_stmt|;
 block|}
@@ -2497,14 +2560,12 @@ return|return
 name|m
 return|;
 block|}
-comment|/**    * Like commit(), but also store properties with the index. These properties    * are retrievable by {@link DirectoryTaxonomyReader#getCommitUserData}.    * See {@link TaxonomyWriter#commit(Map)}.     */
 annotation|@
 name|Override
-DECL|method|commit
+DECL|method|setCommitData
 specifier|public
-specifier|synchronized
 name|void
-name|commit
+name|setCommitData
 parameter_list|(
 name|Map
 argument_list|<
@@ -2514,15 +2575,10 @@ name|String
 argument_list|>
 name|commitUserData
 parameter_list|)
-throws|throws
-name|IOException
 block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
 name|indexWriter
 operator|.
-name|commit
+name|setCommitData
 argument_list|(
 name|combinedCommitData
 argument_list|(
@@ -2530,6 +2586,29 @@ name|commitUserData
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getCommitData
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getCommitData
+parameter_list|()
+block|{
+return|return
+name|combinedCommitData
+argument_list|(
+name|indexWriter
+operator|.
+name|getCommitData
+argument_list|()
+argument_list|)
+return|;
 block|}
 comment|/**    * prepare most of the work needed for a two-phase commit.    * See {@link IndexWriter#prepareCommit}.    */
 annotation|@
@@ -2548,47 +2627,21 @@ argument_list|()
 expr_stmt|;
 name|indexWriter
 operator|.
-name|prepareCommit
+name|setCommitData
 argument_list|(
 name|combinedCommitData
 argument_list|(
-literal|null
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**    * Like above, and also prepares to store user data with the index.    * See {@link IndexWriter#prepareCommit(Map)}    */
-annotation|@
-name|Override
-DECL|method|prepareCommit
-specifier|public
-specifier|synchronized
-name|void
-name|prepareCommit
-parameter_list|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|commitUserData
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|ensureOpen
+name|indexWriter
+operator|.
+name|getCommitData
 argument_list|()
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|.
 name|prepareCommit
-argument_list|(
-name|combinedCommitData
-argument_list|(
-name|commitUserData
-argument_list|)
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -2884,20 +2937,24 @@ name|readerManager
 operator|=
 literal|null
 expr_stmt|;
+name|initializedReaderManager
+operator|=
+literal|false
+expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|getParentArray
+DECL|method|getTaxoArrays
 specifier|private
-name|ParentArray
-name|getParentArray
+name|ParallelTaxonomyArrays
+name|getTaxoArrays
 parameter_list|()
 throws|throws
 name|IOException
 block|{
 if|if
 condition|(
-name|parentArray
+name|taxoArrays
 operator|==
 literal|null
 condition|)
@@ -2909,18 +2966,12 @@ init|)
 block|{
 if|if
 condition|(
-name|parentArray
+name|taxoArrays
 operator|==
 literal|null
 condition|)
 block|{
 name|initReaderManager
-argument_list|()
-expr_stmt|;
-name|parentArray
-operator|=
-operator|new
-name|ParentArray
 argument_list|()
 expr_stmt|;
 name|DirectoryReader
@@ -2933,12 +2984,21 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|parentArray
-operator|.
-name|refresh
+comment|// according to Java Concurrency, this might perform better on some
+comment|// JVMs, since the object initialization doesn't happen on the
+comment|// volatile member.
+name|ParallelTaxonomyArrays
+name|tmpArrays
+init|=
+operator|new
+name|ParallelTaxonomyArrays
 argument_list|(
 name|reader
 argument_list|)
+decl_stmt|;
+name|taxoArrays
+operator|=
+name|tmpArrays
 expr_stmt|;
 block|}
 finally|finally
@@ -2955,7 +3015,7 @@ block|}
 block|}
 block|}
 return|return
-name|parentArray
+name|taxoArrays
 return|;
 block|}
 annotation|@
@@ -2992,12 +3052,37 @@ literal|"requested ordinal is bigger than the largest ordinal in the taxonomy"
 argument_list|)
 throw|;
 block|}
-return|return
-name|getParentArray
+name|int
+index|[]
+name|parents
+init|=
+name|getTaxoArrays
 argument_list|()
 operator|.
-name|getArray
+name|parents
 argument_list|()
+decl_stmt|;
+assert|assert
+name|ordinal
+operator|<
+name|parents
+operator|.
+name|length
+operator|:
+literal|"requested ordinal ("
+operator|+
+name|ordinal
+operator|+
+literal|"); parents.length ("
+operator|+
+name|parents
+operator|.
+name|length
+operator|+
+literal|") !"
+assert|;
+return|return
+name|parents
 index|[
 name|ordinal
 index|]
@@ -3704,6 +3789,28 @@ parameter_list|()
 block|{
 return|return
 name|dir
+return|;
+block|}
+comment|/**    * Used by {@link DirectoryTaxonomyReader} to support NRT.    *<p>    *<b>NOTE:</b> you should not use the obtained {@link IndexWriter} in any    * way, other than opening an IndexReader on it, or otherwise, the taxonomy    * index may become corrupt!    */
+DECL|method|getInternalIndexWriter
+specifier|final
+name|IndexWriter
+name|getInternalIndexWriter
+parameter_list|()
+block|{
+return|return
+name|indexWriter
+return|;
+block|}
+comment|/** Used by {@link DirectoryTaxonomyReader} to support NRT. */
+DECL|method|getTaxonomyEpoch
+specifier|final
+name|long
+name|getTaxonomyEpoch
+parameter_list|()
+block|{
+return|return
+name|indexEpoch
 return|;
 block|}
 block|}

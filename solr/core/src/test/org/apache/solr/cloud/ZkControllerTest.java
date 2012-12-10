@@ -223,7 +223,7 @@ specifier|final
 name|int
 name|TIMEOUT
 init|=
-literal|1000
+literal|10000
 decl_stmt|;
 DECL|field|DEBUG
 specifier|private
@@ -453,6 +453,8 @@ literal|"8983"
 argument_list|,
 literal|"solr"
 argument_list|,
+literal|"0"
+argument_list|,
 operator|new
 name|CurrentCoreDescriptorProvider
 argument_list|()
@@ -618,6 +620,8 @@ literal|"8983"
 argument_list|,
 literal|"solr"
 argument_list|,
+literal|"0"
+argument_list|,
 operator|new
 name|CurrentCoreDescriptorProvider
 argument_list|()
@@ -780,26 +784,6 @@ name|super
 operator|.
 name|tearDown
 argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|AfterClass
-DECL|method|afterClass
-specifier|public
-specifier|static
-name|void
-name|afterClass
-parameter_list|()
-throws|throws
-name|InterruptedException
-block|{
-comment|// wait just a bit for any zk client threads to outlast timeout
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|2000
-argument_list|)
 expr_stmt|;
 block|}
 block|}

@@ -178,6 +178,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|StoredDocument
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|queries
 operator|.
 name|function
@@ -416,6 +429,7 @@ name|SpatialExample
 extends|extends
 name|LuceneTestCase
 block|{
+comment|//Note: Test invoked via TestTestFramework.spatialExample()
 DECL|method|main
 specifier|public
 specifier|static
@@ -849,8 +863,95 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+comment|//Now, lets get the distance for the 1st doc via computing from stored point value:
+comment|// (this computation is usually not redundant)
+name|StoredDocument
+name|doc1
+init|=
+name|indexSearcher
+operator|.
+name|doc
+argument_list|(
+name|docs
+operator|.
+name|scoreDocs
+index|[
+literal|0
+index|]
+operator|.
+name|doc
+argument_list|)
+decl_stmt|;
+name|String
+name|doc1Str
+init|=
+name|doc1
+operator|.
+name|getField
+argument_list|(
+name|strategy
+operator|.
+name|getFieldName
+argument_list|()
+argument_list|)
+operator|.
+name|stringValue
+argument_list|()
+decl_stmt|;
+name|Point
+name|doc1Point
+init|=
+operator|(
+name|Point
+operator|)
+name|ctx
+operator|.
+name|readShape
+argument_list|(
+name|doc1Str
+argument_list|)
+decl_stmt|;
+name|double
+name|doc1DistDEG
+init|=
+name|ctx
+operator|.
+name|getDistCalc
+argument_list|()
+operator|.
+name|distance
+argument_list|(
+name|args
+operator|.
+name|getShape
+argument_list|()
+operator|.
+name|getCenter
+argument_list|()
+argument_list|,
+name|doc1Point
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|121.6d
+argument_list|,
+name|DistanceUtils
+operator|.
+name|degrees2Dist
+argument_list|(
+name|doc1DistDEG
+argument_list|,
+name|DistanceUtils
+operator|.
+name|EARTH_MEAN_RADIUS_KM
+argument_list|)
+argument_list|,
+literal|0.1
+argument_list|)
+expr_stmt|;
 block|}
-comment|//--Match all, order by distance
+comment|//--Match all, order by distance ascending
 block|{
 name|Point
 name|pt
@@ -877,7 +978,7 @@ argument_list|)
 decl_stmt|;
 comment|//the distance (in degrees)
 name|Sort
-name|reverseDistSort
+name|distSort
 init|=
 operator|new
 name|Sort
@@ -895,7 +996,7 @@ argument_list|(
 name|indexSearcher
 argument_list|)
 decl_stmt|;
-comment|//true=asc dist
+comment|//false=asc dist
 name|TopDocs
 name|docs
 init|=
@@ -909,7 +1010,7 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|,
-name|reverseDistSort
+name|distSort
 argument_list|)
 decl_stmt|;
 name|assertDocMatchedIds
@@ -925,6 +1026,12 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+comment|//To get the distance, we could compute from stored values like earlier.
+comment|// However in this example we sorted on it, and the distance will get
+comment|// computed redundantly.  If the distance is only needed for the top-X
+comment|// search results then that's not a big deal. Alternatively, try wrapping
+comment|// the ValueSource with CachingDoubleValueSource then retrieve the value
+comment|// from the ValueSource now. See LUCENE-4541 for an example.
 block|}
 comment|//demo arg parsing
 block|{

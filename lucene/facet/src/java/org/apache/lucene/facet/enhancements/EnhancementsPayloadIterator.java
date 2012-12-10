@@ -234,7 +234,11 @@ name|position
 init|=
 operator|new
 name|Position
-argument_list|()
+argument_list|(
+name|data
+operator|.
+name|offset
+argument_list|)
 decl_stmt|;
 name|nEnhancements
 operator|=
@@ -242,7 +246,9 @@ name|Vint8
 operator|.
 name|decode
 argument_list|(
-name|buffer
+name|data
+operator|.
+name|bytes
 argument_list|,
 name|position
 argument_list|)
@@ -271,7 +277,9 @@ name|Vint8
 operator|.
 name|decode
 argument_list|(
-name|buffer
+name|data
+operator|.
+name|bytes
 argument_list|,
 name|position
 argument_list|)
@@ -369,7 +377,9 @@ name|enhancedCategory
 operator|.
 name|extractCategoryTokenData
 argument_list|(
-name|buffer
+name|data
+operator|.
+name|bytes
 argument_list|,
 name|enhancementStart
 index|[

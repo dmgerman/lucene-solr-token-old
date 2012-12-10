@@ -35,21 +35,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryparser
-operator|.
-name|classic
-operator|.
-name|ParseException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|*
@@ -607,7 +592,7 @@ name|String
 name|param
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 throws|,
 name|IOException
 block|{
@@ -1295,7 +1280,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|ParseException
+name|SyntaxError
 name|e
 parameter_list|)
 block|{
@@ -1327,7 +1312,7 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|ParseException
+name|SyntaxError
 block|{
 name|NamedList
 argument_list|<
@@ -2413,7 +2398,7 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|ParseException
+name|SyntaxError
 block|{
 name|NamedList
 argument_list|<
@@ -4434,7 +4419,7 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|ParseException
+name|SyntaxError
 block|{
 specifier|final
 name|NamedList
@@ -4519,7 +4504,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|ParseException
+name|SyntaxError
 block|{
 specifier|final
 name|IndexSchema
@@ -5490,7 +5475,7 @@ parameter_list|()
 throws|throws
 name|IOException
 throws|,
-name|ParseException
+name|SyntaxError
 block|{
 specifier|final
 name|NamedList
@@ -5571,7 +5556,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|ParseException
+name|SyntaxError
 block|{
 specifier|final
 name|IndexSchema

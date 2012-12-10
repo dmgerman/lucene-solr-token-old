@@ -257,7 +257,7 @@ name|DEFAULT_RESULT_MODE
 init|=
 name|ResultMode
 operator|.
-name|GLOBAL_FLAT
+name|PER_NODE_IN_TREE
 decl_stmt|;
 DECL|field|categoryPath
 specifier|private

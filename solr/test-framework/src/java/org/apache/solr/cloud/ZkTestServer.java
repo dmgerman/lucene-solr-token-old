@@ -145,7 +145,7 @@ name|zookeeper
 operator|.
 name|server
 operator|.
-name|NIOServerCnxn
+name|ServerCnxnFactory
 import|;
 end_import
 begin_import
@@ -320,9 +320,7 @@ name|ZKServerMain
 block|{
 DECL|field|cnxnFactory
 specifier|private
-name|NIOServerCnxn
-operator|.
-name|Factory
+name|ServerCnxnFactory
 name|cnxnFactory
 decl_stmt|;
 DECL|field|zooKeeperServer
@@ -357,7 +355,17 @@ parameter_list|(
 name|JMException
 name|e
 parameter_list|)
-block|{        }
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Unable to register log4j JMX control"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|ServerConfig
 name|config
 init|=
@@ -413,6 +421,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Starting server"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 comment|// Note that this thread isn't going to be doing anything else,
@@ -467,12 +482,36 @@ name|getTickTime
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|zooKeeperServer
+operator|.
+name|setMinSessionTimeout
+argument_list|(
+name|config
+operator|.
+name|getMinSessionTimeout
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|zooKeeperServer
+operator|.
+name|setMaxSessionTimeout
+argument_list|(
+name|config
+operator|.
+name|getMaxSessionTimeout
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|cnxnFactory
 operator|=
-operator|new
-name|NIOServerCnxn
+name|ServerCnxnFactory
 operator|.
-name|Factory
+name|createFactory
+argument_list|()
+expr_stmt|;
+name|cnxnFactory
+operator|.
+name|configure
 argument_list|(
 name|config
 operator|.
@@ -505,7 +544,7 @@ name|isRunning
 argument_list|()
 condition|)
 block|{
-name|zooKeeperServer
+name|zkServer
 operator|.
 name|shutdown
 argument_list|()
@@ -517,7 +556,18 @@ parameter_list|(
 name|InterruptedException
 name|e
 parameter_list|)
-block|{       }
+block|{
+comment|// warn, but generally this is ok
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Server interrupted"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Shutdown the serving instance      * @throws IOException If there is a low-level I/O error.      */
 DECL|method|shutdown
@@ -936,6 +986,19 @@ name|clientPort
 argument_list|)
 expr_stmt|;
 block|}
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"client port:"
+operator|+
+name|this
+operator|.
+name|clientPortAddress
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 decl_stmt|;
@@ -1220,7 +1283,7 @@ name|port
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Send the 4letterword    * @param host the destination host    * @param port the destination port    * @param cmd the 4letterword    * @throws IOException If there is a low-level I/O error.    */
+comment|/**    * Send the 4letterword    * @param host the destination host    * @param port the destination port    * @param cmd the 4letterword    * @return server response     */
 DECL|method|send4LetterWord
 specifier|public
 specifier|static
@@ -1239,6 +1302,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"connecting to "
+operator|+
+name|host
+operator|+
+literal|" "
+operator|+
+name|port
+argument_list|)
+expr_stmt|;
 name|Socket
 name|sock
 init|=

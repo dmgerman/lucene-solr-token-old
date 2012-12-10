@@ -174,21 +174,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queryparser
-operator|.
-name|classic
-operator|.
-name|ParseException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|Query
@@ -456,7 +441,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 function_decl|;
 comment|/* standard functions */
 DECL|field|standardValueSourceParsers
@@ -577,7 +562,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 specifier|final
 name|ValueSource
@@ -617,7 +602,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|String
 name|field
@@ -656,7 +641,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 return|return
 operator|new
@@ -690,7 +675,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 return|return
 operator|new
@@ -727,7 +712,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|int
 name|ms
@@ -794,7 +779,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|String
 name|field
@@ -833,7 +818,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 comment|// top(vs) is now a no-op
 name|ValueSource
@@ -869,7 +854,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|source
@@ -928,7 +913,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|source
@@ -997,7 +982,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|source
@@ -1056,7 +1041,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|a
@@ -1105,7 +1090,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|a
@@ -1199,7 +1184,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|source
@@ -1285,7 +1270,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|source
@@ -1364,7 +1349,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|List
 argument_list|<
@@ -1425,7 +1410,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|List
 argument_list|<
@@ -1486,7 +1471,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|a
@@ -1580,7 +1565,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 return|return
 operator|new
@@ -1615,7 +1600,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|Query
 name|q
@@ -1677,7 +1662,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|Query
 name|q
@@ -1737,7 +1722,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|String
 name|f0
@@ -1795,7 +1780,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|double
 name|radius
@@ -2017,7 +2002,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|double
 name|radius
@@ -2076,7 +2061,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|lat
@@ -2125,7 +2110,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|str1
@@ -2289,7 +2274,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|String
 name|fieldName
@@ -3214,7 +3199,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|List
 argument_list|<
@@ -3268,7 +3253,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|List
 argument_list|<
@@ -3322,7 +3307,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|List
 argument_list|<
@@ -3378,7 +3363,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|float
 name|power
@@ -3515,7 +3500,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|TInfo
 name|tinfo
@@ -3568,7 +3553,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|TInfo
 name|tinfo
@@ -3628,7 +3613,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|String
 name|field
@@ -3674,7 +3659,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|TInfo
 name|tinfo
@@ -3727,7 +3712,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|TInfo
 name|tinfo
@@ -3780,7 +3765,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|TInfo
 name|tinfo
@@ -3833,7 +3818,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|String
 name|field
@@ -3984,7 +3969,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|vs
@@ -4058,7 +4043,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|vs
@@ -4133,7 +4118,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|List
 argument_list|<
@@ -4226,7 +4211,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|List
 argument_list|<
@@ -4318,7 +4303,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|List
 argument_list|<
@@ -4431,7 +4416,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|ValueSource
 name|ifValueSource
@@ -4490,7 +4475,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 return|return
 operator|new
@@ -4517,7 +4502,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|TInfo
 name|tinfo
@@ -5288,7 +5273,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 name|String
 name|first
@@ -6051,7 +6036,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 return|return
 operator|new
@@ -6237,7 +6222,7 @@ name|FunctionQParser
 name|fp
 parameter_list|)
 throws|throws
-name|ParseException
+name|SyntaxError
 block|{
 return|return
 operator|new

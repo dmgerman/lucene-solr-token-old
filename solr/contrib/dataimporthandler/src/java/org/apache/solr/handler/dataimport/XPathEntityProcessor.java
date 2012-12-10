@@ -472,7 +472,12 @@ operator|==
 literal|null
 condition|)
 name|initXpathReader
+argument_list|(
+name|context
+operator|.
+name|getVariableResolver
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|pk
 operator|=
@@ -499,7 +504,10 @@ DECL|method|initXpathReader
 specifier|private
 name|void
 name|initXpathReader
-parameter_list|()
+parameter_list|(
+name|VariableResolver
+name|resolver
+parameter_list|)
 block|{
 name|useSolrAddXml
 operator|=
@@ -998,7 +1006,7 @@ name|Collections
 operator|.
 name|EMPTY_LIST
 else|:
-name|TemplateString
+name|resolver
 operator|.
 name|getVariables
 argument_list|(
@@ -1541,7 +1549,7 @@ expr_stmt|;
 block|}
 operator|(
 operator|(
-name|VariableResolverImpl
+name|VariableResolver
 operator|)
 name|context
 operator|.

@@ -272,6 +272,13 @@ specifier|private
 name|boolean
 name|threadDone
 decl_stmt|;
+DECL|field|stopped
+specifier|private
+name|boolean
+name|stopped
+init|=
+literal|false
+decl_stmt|;
 DECL|field|tuple
 specifier|private
 name|String
@@ -373,6 +380,9 @@ literal|null
 operator|&&
 operator|!
 name|threadDone
+operator|&&
+operator|!
+name|stopped
 condition|)
 block|{
 try|try
@@ -398,6 +408,28 @@ block|}
 block|}
 if|if
 condition|(
+name|tuple
+operator|!=
+literal|null
+condition|)
+block|{
+name|result
+operator|=
+name|tuple
+expr_stmt|;
+name|tuple
+operator|=
+literal|null
+expr_stmt|;
+name|notify
+argument_list|()
+expr_stmt|;
+return|return
+name|result
+return|;
+block|}
+if|if
+condition|(
 name|nmde
 operator|!=
 literal|null
@@ -413,15 +445,6 @@ throw|throw
 name|nmde
 throw|;
 block|}
-if|if
-condition|(
-name|t
-operator|!=
-literal|null
-operator|&&
-name|threadDone
-condition|)
-block|{
 comment|// The thread has exited yet did not hit end of
 comment|// data, so this means it hit an exception.  We
 comment|// throw NoMorDataException here to force
@@ -432,21 +455,6 @@ name|NoMoreDataException
 argument_list|()
 throw|;
 block|}
-name|result
-operator|=
-name|tuple
-expr_stmt|;
-name|tuple
-operator|=
-literal|null
-expr_stmt|;
-name|notify
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|result
-return|;
 block|}
 DECL|method|time
 name|String
@@ -722,6 +730,9 @@ condition|(
 name|tuple
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|stopped
 condition|)
 block|{
 try|try
@@ -892,7 +903,8 @@ argument_list|)
 expr_stmt|;
 while|while
 condition|(
-literal|true
+operator|!
+name|stopped
 condition|)
 block|{
 specifier|final
@@ -901,6 +913,14 @@ name|localFileIS
 init|=
 name|is
 decl_stmt|;
+if|if
+condition|(
+name|localFileIS
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// null means fileIS was closed on us
 try|try
 block|{
 comment|// To work around a bug in XERCES (XERCESJ-1257), we assume the XML is always UTF8, so we simply provide reader.
@@ -970,14 +990,14 @@ operator|!=
 name|is
 condition|)
 block|{
-comment|// fileIS was closed on us, so, just fall
-comment|// through
+comment|// fileIS was closed on us, so, just fall through
 block|}
 else|else
 comment|// Exception is real
 throw|throw
 name|ioe
 throw|;
+block|}
 block|}
 block|}
 synchronized|synchronized
@@ -987,6 +1007,8 @@ init|)
 block|{
 if|if
 condition|(
+name|stopped
+operator|||
 operator|!
 name|forever
 condition|)
@@ -1013,12 +1035,8 @@ block|{
 comment|// If file is not already re-opened then re-open it now
 name|is
 operator|=
-name|StreamUtils
-operator|.
-name|inputStream
-argument_list|(
-name|file
-argument_list|)
+name|openInputStream
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -1145,6 +1163,38 @@ expr_stmt|;
 break|break;
 default|default:
 comment|// this element should be discarded.
+block|}
+block|}
+DECL|method|stop
+specifier|private
+name|void
+name|stop
+parameter_list|()
+block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+name|stopped
+operator|=
+literal|true
+expr_stmt|;
+if|if
+condition|(
+name|tuple
+operator|!=
+literal|null
+condition|)
+block|{
+name|tuple
+operator|=
+literal|null
+expr_stmt|;
+name|notify
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1421,6 +1471,11 @@ operator|.
 name|this
 init|)
 block|{
+name|parser
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|is
@@ -1531,13 +1586,27 @@ argument_list|()
 expr_stmt|;
 name|is
 operator|=
+name|openInputStream
+argument_list|()
+expr_stmt|;
+block|}
+comment|/** Open the input stream. */
+DECL|method|openInputStream
+specifier|protected
+name|InputStream
+name|openInputStream
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
 name|StreamUtils
 operator|.
 name|inputStream
 argument_list|(
 name|file
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 annotation|@
 name|Override
@@ -1583,18 +1652,10 @@ decl_stmt|;
 if|if
 condition|(
 name|fileName
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"docs.file must be set"
-argument_list|)
-throw|;
-block|}
 name|file
 operator|=
 operator|new
@@ -1606,6 +1667,7 @@ operator|.
 name|getAbsoluteFile
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

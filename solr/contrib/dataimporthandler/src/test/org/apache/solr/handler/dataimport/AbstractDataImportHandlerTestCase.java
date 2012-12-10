@@ -722,7 +722,7 @@ parameter_list|(
 name|EntityProcessorWrapper
 name|parent
 parameter_list|,
-name|VariableResolverImpl
+name|VariableResolver
 name|resolver
 parameter_list|,
 name|DataSource
@@ -762,7 +762,7 @@ condition|)
 name|resolver
 operator|=
 operator|new
-name|VariableResolverImpl
+name|VariableResolver
 argument_list|()
 expr_stmt|;
 specifier|final

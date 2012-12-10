@@ -39,6 +39,19 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|zookeeper
+operator|.
+name|server
+operator|.
+name|NIOServerCnxnFactory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|rules
@@ -164,17 +177,7 @@ name|?
 argument_list|>
 name|cl
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|zookeeper
-operator|.
-name|server
-operator|.
-name|NIOServerCnxn
-operator|.
-name|Factory
+name|NIOServerCnxnFactory
 operator|.
 name|class
 decl_stmt|;
@@ -209,13 +212,7 @@ name|getDefaultUncaughtExceptionHandler
 argument_list|()
 condition|)
 block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"Zookeeper no longer resets default thread handler."
-argument_list|)
-throw|;
+comment|//  throw new RuntimeException("Zookeeper no longer resets default thread handler.");
 block|}
 name|Thread
 operator|.

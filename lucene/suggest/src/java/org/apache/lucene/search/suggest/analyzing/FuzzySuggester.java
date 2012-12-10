@@ -324,6 +324,16 @@ name|DEFAULT_MAX_EDITS
 init|=
 literal|1
 decl_stmt|;
+comment|/**    * The default transposition value passed to {@link LevenshteinAutomata}    */
+DECL|field|DEFAULT_TRANSPOSITIONS
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|DEFAULT_TRANSPOSITIONS
+init|=
+literal|true
+decl_stmt|;
 comment|/**    * Creates a {@link FuzzySuggester} instance initialized with default values.    *     * @param analyzer the analyzer used for this suggester    */
 DECL|method|FuzzySuggester
 specifier|public
@@ -370,7 +380,7 @@ literal|1
 argument_list|,
 name|DEFAULT_MAX_EDITS
 argument_list|,
-literal|true
+name|DEFAULT_TRANSPOSITIONS
 argument_list|,
 name|DEFAULT_NON_FUZZY_PREFIX
 argument_list|,

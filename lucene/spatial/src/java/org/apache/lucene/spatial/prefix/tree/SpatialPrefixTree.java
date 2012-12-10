@@ -606,6 +606,13 @@ name|node
 operator|.
 name|getSubCellsSize
 argument_list|()
+operator|||
+name|node
+operator|.
+name|getLevel
+argument_list|()
+operator|==
+literal|0
 condition|)
 block|{
 if|if
@@ -649,6 +656,7 @@ operator|.
 name|setLeaf
 argument_list|()
 expr_stmt|;
+comment|//the cell may not be strictly within but its close
 name|result
 operator|.
 name|add

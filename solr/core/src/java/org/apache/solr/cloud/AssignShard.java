@@ -148,11 +148,12 @@ name|sliceMap
 init|=
 name|state
 operator|.
-name|getSlices
+name|getSlicesMap
 argument_list|(
 name|collection
 argument_list|)
 decl_stmt|;
+comment|// TODO: now that we create shards ahead of time, is this code needed?  Esp since hash ranges aren't assigned when creating via this method?
 if|if
 condition|(
 name|sliceMap
@@ -205,6 +206,7 @@ literal|1
 operator|)
 return|;
 block|}
+comment|// TODO: don't need to sort to find shard with fewest replicas!
 comment|// else figure out which shard needs more replicas
 specifier|final
 name|Map

@@ -152,8 +152,7 @@ name|locale
 init|=
 name|Locale
 operator|.
-name|getDefault
-argument_list|()
+name|ROOT
 decl_stmt|;
 name|String
 name|customLocale

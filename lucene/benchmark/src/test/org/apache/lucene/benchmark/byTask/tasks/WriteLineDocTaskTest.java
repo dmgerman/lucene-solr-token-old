@@ -1149,7 +1149,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|assertHeaderLine
-specifier|private
+specifier|static
 name|void
 name|assertHeaderLine
 parameter_list|(

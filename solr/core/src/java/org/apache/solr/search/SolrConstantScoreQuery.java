@@ -898,6 +898,13 @@ name|field
 parameter_list|)
 block|{
 return|return
+name|ExtendedQueryBase
+operator|.
+name|getOptionsString
+argument_list|(
+name|this
+argument_list|)
+operator|+
 literal|"ConstantScore("
 operator|+
 name|filter
