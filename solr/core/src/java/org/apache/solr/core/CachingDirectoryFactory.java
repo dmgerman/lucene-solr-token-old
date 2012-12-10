@@ -588,7 +588,7 @@ condition|(
 name|cnt
 operator|++
 operator|>=
-literal|12000
+literal|1200
 condition|)
 block|{
 name|log
