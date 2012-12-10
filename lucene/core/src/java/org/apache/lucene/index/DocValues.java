@@ -1354,12 +1354,6 @@ case|:
 case|case
 name|BYTES_FIXED_SORTED
 case|:
-case|case
-name|BYTES_VAR_DEREF
-case|:
-case|case
-name|BYTES_FIXED_DEREF
-case|:
 return|return
 literal|true
 return|;
@@ -1385,6 +1379,12 @@ condition|(
 name|type
 condition|)
 block|{
+case|case
+name|BYTES_VAR_DEREF
+case|:
+case|case
+name|BYTES_FIXED_DEREF
+case|:
 case|case
 name|BYTES_VAR_STRAIGHT
 case|:
