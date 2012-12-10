@@ -981,7 +981,7 @@ name|OverseerCollectionProcessor
 operator|.
 name|REPLICATION_FACTOR
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 decl_stmt|;
 name|String

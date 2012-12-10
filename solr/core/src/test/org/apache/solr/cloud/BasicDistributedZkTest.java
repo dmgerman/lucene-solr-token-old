@@ -5375,7 +5375,7 @@ operator|+
 literal|1
 decl_stmt|;
 name|int
-name|numReplica
+name|replicationFactor
 init|=
 name|_TestUtil
 operator|.
@@ -5389,7 +5389,7 @@ argument_list|,
 literal|3
 argument_list|)
 operator|+
-literal|1
+literal|2
 decl_stmt|;
 name|int
 name|maxShardsPerNode
@@ -5399,11 +5399,7 @@ operator|(
 operator|(
 name|numShards
 operator|*
-operator|(
-name|numReplica
-operator|+
-literal|1
-operator|)
+name|replicationFactor
 operator|)
 operator|/
 name|getCommonCloudSolrServer
@@ -5433,7 +5429,7 @@ name|i
 argument_list|,
 name|numShards
 argument_list|,
-name|numReplica
+name|replicationFactor
 argument_list|,
 name|maxShardsPerNode
 argument_list|)
@@ -6073,7 +6069,7 @@ name|OverseerCollectionProcessor
 operator|.
 name|REPLICATION_FACTOR
 argument_list|,
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|collectionName
@@ -6142,7 +6138,7 @@ name|list
 operator|.
 name|add
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|checkForCollection
@@ -6229,9 +6225,9 @@ operator|+
 literal|1
 decl_stmt|;
 name|int
-name|numReplica
+name|replicationFactor
 init|=
-literal|1
+literal|2
 decl_stmt|;
 name|int
 name|maxShardsPerNode
@@ -6260,7 +6256,7 @@ name|cnt
 argument_list|,
 name|numShards
 argument_list|,
-name|numReplica
+name|replicationFactor
 argument_list|,
 name|maxShardsPerNode
 argument_list|)
@@ -7349,8 +7345,6 @@ name|get
 argument_list|(
 literal|1
 argument_list|)
-operator|+
-literal|1
 decl_stmt|;
 name|int
 name|expectedTotalShards
