@@ -239,18 +239,6 @@ operator|.
 name|_TestUtil
 import|;
 end_import
-begin_comment
-comment|// nocommit make TestCodecHoldsOpenFiles, ie remove files
-end_comment
-begin_comment
-comment|// after opening reader, then run check index (need to
-end_comment
-begin_comment
-comment|// change CI to pass in atomic reader ... robert has patch
-end_comment
-begin_comment
-comment|// LUCENE-4294)
-end_comment
 begin_class
 DECL|class|TestSameScoresWithThreads
 specifier|public
