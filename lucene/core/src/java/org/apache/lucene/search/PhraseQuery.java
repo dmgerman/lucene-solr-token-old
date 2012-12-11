@@ -86,6 +86,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DocsEnum
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
 import|;
 end_import
@@ -1529,7 +1542,9 @@ name|liveDocs
 argument_list|,
 literal|null
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 decl_stmt|;
 comment|// PhraseQuery on a field that did not index

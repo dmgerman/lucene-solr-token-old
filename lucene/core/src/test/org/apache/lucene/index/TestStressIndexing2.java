@@ -2250,7 +2250,9 @@ name|liveDocs
 argument_list|,
 name|docs
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 expr_stmt|;
 while|while
@@ -2342,7 +2344,9 @@ name|liveDocs1
 argument_list|,
 name|termDocs1
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 expr_stmt|;
 if|if
@@ -2372,7 +2376,9 @@ name|liveDocs2
 argument_list|,
 name|termDocs2
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 expr_stmt|;
 block|}

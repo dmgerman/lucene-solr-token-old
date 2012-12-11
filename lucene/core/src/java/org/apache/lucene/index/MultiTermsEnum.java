@@ -2348,7 +2348,9 @@ name|b
 argument_list|,
 literal|null
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 operator|!=
 literal|null

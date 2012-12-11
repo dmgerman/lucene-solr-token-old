@@ -2179,7 +2179,9 @@ literal|null
 argument_list|,
 name|leftDocs
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 argument_list|,
 name|rightDocs
@@ -2192,7 +2194,9 @@ literal|null
 argument_list|,
 name|rightDocs
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 argument_list|,
 literal|false
@@ -2210,7 +2214,9 @@ name|randomBits
 argument_list|,
 name|leftDocs
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 argument_list|,
 name|rightDocs
@@ -2223,7 +2229,9 @@ name|randomBits
 argument_list|,
 name|rightDocs
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 argument_list|,
 literal|false
@@ -2312,7 +2320,9 @@ literal|null
 argument_list|,
 name|leftDocs
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 argument_list|,
 name|rightDocs
@@ -2325,7 +2335,9 @@ literal|null
 argument_list|,
 name|rightDocs
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 argument_list|,
 literal|false
@@ -2348,7 +2360,9 @@ name|randomBits
 argument_list|,
 name|leftDocs
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 argument_list|,
 name|rightDocs
@@ -2361,7 +2375,9 @@ name|randomBits
 argument_list|,
 name|rightDocs
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 argument_list|,
 literal|false
