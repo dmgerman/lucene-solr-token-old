@@ -1433,7 +1433,7 @@ operator|.
 name|getZkStateReader
 argument_list|()
 operator|.
-name|getLeaderProps
+name|getLeaderRetry
 argument_list|(
 name|collection
 argument_list|,
@@ -1919,7 +1919,7 @@ operator|.
 name|getZkStateReader
 argument_list|()
 operator|.
-name|getLeaderProps
+name|getLeaderRetry
 argument_list|(
 name|collection
 argument_list|,
@@ -4347,7 +4347,7 @@ operator|.
 name|getZkStateReader
 argument_list|()
 operator|.
-name|getLeaderProps
+name|getLeaderRetry
 argument_list|(
 name|collection
 argument_list|,
@@ -6085,7 +6085,7 @@ name|ZkCoreNodeProps
 argument_list|(
 name|zkStateReader
 operator|.
-name|getLeaderProps
+name|getLeaderRetry
 argument_list|(
 name|collection
 argument_list|,
