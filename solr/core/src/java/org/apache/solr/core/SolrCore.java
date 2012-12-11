@@ -10503,6 +10503,16 @@ name|getOpenCount
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|lst
+operator|.
+name|add
+argument_list|(
+literal|"indexDir"
+argument_list|,
+name|getIndexDir
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|CoreDescriptor
 name|cd
 init|=
