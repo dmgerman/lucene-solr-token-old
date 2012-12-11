@@ -2163,6 +2163,8 @@ DECL|field|node
 name|int
 name|node
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|isCompiled
 specifier|public
 name|boolean
@@ -2305,6 +2307,8 @@ operator|=
 name|depth
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isCompiled
 specifier|public
 name|boolean

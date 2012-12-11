@@ -63,6 +63,8 @@ specifier|private
 name|String
 name|collationQuery
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|compareTo
 specifier|public
 name|int

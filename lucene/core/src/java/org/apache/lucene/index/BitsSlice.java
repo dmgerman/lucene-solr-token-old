@@ -100,6 +100,8 @@ operator|+
 name|length
 assert|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|boolean
@@ -158,6 +160,8 @@ name|start
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|length
 specifier|public
 name|int

@@ -135,6 +135,8 @@ argument_list|(
 literal|"[^\\s,]+"
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|create
 specifier|public
 name|HTMLStripCharFilter

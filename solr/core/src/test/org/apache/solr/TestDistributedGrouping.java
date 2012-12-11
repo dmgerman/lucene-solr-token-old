@@ -174,6 +174,8 @@ name|oddField
 init|=
 literal|"oddField_s"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|doTest
 specifier|public
 name|void

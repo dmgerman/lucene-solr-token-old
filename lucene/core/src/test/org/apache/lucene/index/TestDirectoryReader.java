@@ -6936,6 +6936,8 @@ operator|.
 name|ReaderClosedListener
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|onClose

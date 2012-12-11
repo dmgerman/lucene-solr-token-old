@@ -6687,6 +6687,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|charAt
 specifier|public
 name|char
@@ -6705,6 +6707,8 @@ name|index
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|length
 specifier|public
 name|int
@@ -6719,6 +6723,8 @@ operator|.
 name|length
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|subSequence
 specifier|public
 name|CharSequence

@@ -529,6 +529,8 @@ operator|=
 name|queryString
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|create
 specifier|public
 name|List
@@ -609,6 +611,8 @@ name|filterCollector
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|result
 specifier|public
 name|QueryCommandResult
@@ -631,6 +635,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getKey
 specifier|public
 name|String
@@ -650,6 +656,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getGroupSort
 specifier|public
 name|Sort
@@ -660,6 +668,8 @@ return|return
 name|sort
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSortWithinGroup
 specifier|public
 name|Sort

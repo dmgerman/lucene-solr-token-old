@@ -451,6 +451,8 @@ specifier|public
 name|NumericTermAttributeImpl
 parameter_list|()
 block|{}
+annotation|@
+name|Override
 DECL|method|getBytesRef
 specifier|public
 name|BytesRef
@@ -461,6 +463,8 @@ return|return
 name|bytes
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fillBytesRef
 specifier|public
 name|int
@@ -529,6 +533,8 @@ literal|0
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getShift
 specifier|public
 name|int
@@ -539,6 +545,8 @@ return|return
 name|shift
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setShift
 specifier|public
 name|void
@@ -555,6 +563,8 @@ operator|=
 name|shift
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|incShift
 specifier|public
 name|int
@@ -569,6 +579,8 @@ name|precisionStep
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRawValue
 specifier|public
 name|long
@@ -590,6 +602,8 @@ literal|1L
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValueSize
 specifier|public
 name|int
@@ -600,6 +614,8 @@ return|return
 name|valueSize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void

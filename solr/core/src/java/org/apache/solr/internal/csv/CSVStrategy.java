@@ -617,6 +617,8 @@ operator|.
 name|printerNewline
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object

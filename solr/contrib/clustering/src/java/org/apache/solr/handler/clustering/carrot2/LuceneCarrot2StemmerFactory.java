@@ -673,6 +673,8 @@ operator|=
 name|snowballStemmer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|stem
 specifier|public
 name|CharSequence
@@ -966,6 +968,8 @@ name|ArabicNormalizer
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|stem
 specifier|public
 name|CharSequence

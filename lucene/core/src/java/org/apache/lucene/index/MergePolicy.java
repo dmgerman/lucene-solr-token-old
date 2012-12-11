@@ -1086,6 +1086,8 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**    * Release all resources for the policy.    */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 specifier|abstract

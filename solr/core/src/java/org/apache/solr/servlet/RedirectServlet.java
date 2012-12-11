@@ -105,6 +105,8 @@ name|HttpServletResponse
 operator|.
 name|SC_MOVED_PERMANENTLY
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -202,6 +204,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doGet
 specifier|public
 name|void
@@ -235,6 +239,8 @@ name|destination
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doPost
 specifier|public
 name|void

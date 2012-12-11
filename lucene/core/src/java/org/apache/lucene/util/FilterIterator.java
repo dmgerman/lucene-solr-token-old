@@ -106,6 +106,8 @@ operator|=
 name|baseIterator
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext
 specifier|public
 specifier|final
@@ -120,6 +122,8 @@ name|setNext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 specifier|final
@@ -161,6 +165,8 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 specifier|final

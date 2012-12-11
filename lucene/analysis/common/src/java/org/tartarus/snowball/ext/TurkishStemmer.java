@@ -11617,6 +11617,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|stem
 specifier|public
 name|boolean
@@ -11757,6 +11759,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -11772,6 +11776,8 @@ operator|instanceof
 name|TurkishStemmer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

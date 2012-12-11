@@ -3005,6 +3005,8 @@ name|KeepAllCommits
 implements|implements
 name|IndexDeletionPolicy
 block|{
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -3019,6 +3021,8 @@ argument_list|>
 name|commits
 parameter_list|)
 block|{     }
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void

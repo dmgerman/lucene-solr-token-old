@@ -112,6 +112,8 @@ name|String
 argument_list|>
 name|stopTags
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|inform
 specifier|public
 name|void
@@ -206,6 +208,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|create
 specifier|public
 name|TokenStream

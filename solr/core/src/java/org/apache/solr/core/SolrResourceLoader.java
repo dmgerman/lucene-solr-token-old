@@ -885,6 +885,8 @@ operator|new
 name|FileFilter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept
@@ -1430,6 +1432,8 @@ argument_list|)
 return|;
 block|}
 comment|/** Opens any resource by its name.    * By default, this will look in multiple locations to load the resource:    * $configDir/$resource (if resource is not absolute)    * $CWD/$resource    * otherwise, it will look for it in any jar accessible through the class loader.    * Override this method to customize loading resources.    *@return the stream for the named resource    */
+annotation|@
+name|Override
 DECL|method|openResource
 specifier|public
 name|InputStream
@@ -2262,6 +2266,8 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|newInstance
 specifier|public
 parameter_list|<

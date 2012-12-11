@@ -107,6 +107,8 @@ operator|new
 name|AutomatonProvider
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Automaton
 name|getAutomaton

@@ -96,6 +96,8 @@ name|MatchAllDocsQueryBuilder
 implements|implements
 name|QueryBuilder
 block|{
+annotation|@
+name|Override
 DECL|method|getQuery
 specifier|public
 name|Query

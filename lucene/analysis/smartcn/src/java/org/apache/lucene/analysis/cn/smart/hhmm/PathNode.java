@@ -43,6 +43,8 @@ specifier|public
 name|int
 name|preNode
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|compareTo
 specifier|public
 name|int

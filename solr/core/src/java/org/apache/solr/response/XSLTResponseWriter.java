@@ -327,6 +327,8 @@ argument_list|(
 name|log
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -368,6 +370,8 @@ name|xsltCacheLifetimeSeconds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContentType
 specifier|public
 name|String
@@ -497,6 +501,8 @@ return|return
 name|mediaType
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void

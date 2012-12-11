@@ -135,6 +135,8 @@ name|CategoryEnhancementDummy1
 implements|implements
 name|CategoryEnhancement
 block|{
+annotation|@
+name|Override
 DECL|method|generatesCategoryList
 specifier|public
 name|boolean
@@ -145,6 +147,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCategoryListTermText
 specifier|public
 name|String
@@ -155,6 +159,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCategoryListTokenizer
 specifier|public
 name|CategoryListTokenizer
@@ -174,6 +180,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCategoryTokenBytes
 specifier|public
 name|byte
@@ -188,6 +196,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|extractCategoryTokenData
 specifier|public
 name|Object
@@ -208,6 +218,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRetainableProperty
 specifier|public
 name|Class

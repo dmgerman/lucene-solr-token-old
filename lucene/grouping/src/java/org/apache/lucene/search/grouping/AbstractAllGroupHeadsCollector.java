@@ -300,6 +300,8 @@ argument_list|>
 name|getCollectedGroupHeads
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -406,6 +408,8 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean

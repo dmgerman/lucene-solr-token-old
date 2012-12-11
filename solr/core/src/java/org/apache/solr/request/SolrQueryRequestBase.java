@@ -189,6 +189,8 @@ operator|=
 name|params
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContext
 specifier|public
 name|Map
@@ -222,6 +224,8 @@ return|return
 name|context
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getParams
 specifier|public
 name|SolrParams
@@ -232,6 +236,8 @@ return|return
 name|params
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOriginalParams
 specifier|public
 name|SolrParams
@@ -242,6 +248,8 @@ return|return
 name|origParams
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setParams
 specifier|public
 name|void
@@ -270,6 +278,8 @@ name|currentTimeMillis
 argument_list|()
 decl_stmt|;
 comment|// Get the start time of this request in milliseconds
+annotation|@
+name|Override
 DECL|method|getStartTime
 specifier|public
 name|long
@@ -289,6 +299,8 @@ name|SolrIndexSearcher
 argument_list|>
 name|searcherHolder
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getSearcher
 specifier|public
 name|SolrIndexSearcher
@@ -331,6 +343,8 @@ argument_list|()
 return|;
 block|}
 comment|// The solr core (coordinator, etc) associated with this request
+annotation|@
+name|Override
 DECL|method|getCore
 specifier|public
 name|SolrCore
@@ -342,6 +356,8 @@ name|core
 return|;
 block|}
 comment|// The index schema associated with this request
+annotation|@
+name|Override
 DECL|method|getSchema
 specifier|public
 name|IndexSchema
@@ -363,6 +379,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * Frees resources associated with this request, this method<b>must</b>    * be called when the object is no longer in use.    */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -388,6 +406,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/** A Collection of ContentStreams passed to the request    */
+annotation|@
+name|Override
 DECL|method|getContentStreams
 specifier|public
 name|Iterable
@@ -418,6 +438,8 @@ operator|=
 name|s
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getParamString
 specifier|public
 name|String

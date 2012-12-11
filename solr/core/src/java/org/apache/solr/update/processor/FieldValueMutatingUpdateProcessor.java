@@ -86,6 +86,8 @@ operator|new
 name|Object
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -128,6 +130,8 @@ name|Object
 name|src
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|mutate
 specifier|protected
 specifier|final

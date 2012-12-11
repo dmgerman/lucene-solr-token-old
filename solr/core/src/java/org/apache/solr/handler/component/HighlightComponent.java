@@ -366,6 +366,8 @@ name|getHighlighter
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -494,6 +496,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|inform
 specifier|public
 name|void

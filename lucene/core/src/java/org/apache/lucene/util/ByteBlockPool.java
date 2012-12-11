@@ -328,6 +328,8 @@ operator|=
 name|bytesUsed
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getByteBlock
 specifier|public
 name|byte

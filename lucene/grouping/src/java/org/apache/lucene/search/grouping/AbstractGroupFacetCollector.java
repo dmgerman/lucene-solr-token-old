@@ -440,6 +440,8 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -451,6 +453,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{   }
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean
@@ -485,6 +489,8 @@ name|FacetEntry
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare
@@ -551,6 +557,8 @@ name|FacetEntry
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare
@@ -1175,6 +1183,8 @@ name|maxSize
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|lessThan
 specifier|protected
 name|boolean

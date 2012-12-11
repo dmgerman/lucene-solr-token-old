@@ -167,6 +167,8 @@ implements|implements
 name|ShardRequestFactory
 block|{
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|constructRequest
 specifier|public
 name|ShardRequest

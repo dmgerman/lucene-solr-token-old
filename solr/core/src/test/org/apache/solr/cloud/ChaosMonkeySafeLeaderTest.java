@@ -593,6 +593,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// skip the randoms - they can deadlock...
+annotation|@
+name|Override
 DECL|method|indexr
 specifier|protected
 name|void

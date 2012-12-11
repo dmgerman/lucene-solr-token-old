@@ -482,6 +482,8 @@ return|;
 block|}
 block|}
 comment|/** Sets the value of<code>bit</code> to zero. */
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 specifier|final
@@ -633,6 +635,8 @@ return|;
 block|}
 block|}
 comment|/** Returns<code>true</code> if<code>bit</code> is one and<code>false</code> if it is zero. */
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 specifier|final

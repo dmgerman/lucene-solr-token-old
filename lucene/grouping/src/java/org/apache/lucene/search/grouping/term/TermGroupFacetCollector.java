@@ -315,6 +315,8 @@ name|initialSize
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -445,6 +447,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -688,6 +692,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createSegmentResult
 specifier|protected
 name|SegmentResult
@@ -812,6 +818,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|nextTerm
 specifier|protected
 name|void
@@ -883,6 +891,8 @@ name|initialSize
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -1217,6 +1227,8 @@ name|length
 condition|)
 do|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -1584,6 +1596,8 @@ literal|1
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|createSegmentResult
 specifier|protected
 name|SegmentResult
@@ -1715,6 +1729,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|nextTerm
 specifier|protected
 name|void

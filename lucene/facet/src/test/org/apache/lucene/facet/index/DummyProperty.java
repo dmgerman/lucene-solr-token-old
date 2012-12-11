@@ -85,6 +85,8 @@ name|hashCode
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|merge
 specifier|public
 name|void

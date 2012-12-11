@@ -641,6 +641,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -667,6 +669,8 @@ name|doc
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|updateDocHead
 specifier|public
 name|void
@@ -964,6 +968,8 @@ literal|1
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|retrieveGroupHeadAndAddIfNotExist
 specifier|protected
 name|void
@@ -1090,6 +1096,8 @@ argument_list|>
 name|value
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getCollectedGroupHeads
 specifier|protected
 name|Collection
@@ -1106,6 +1114,8 @@ name|values
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -1182,6 +1192,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -1283,6 +1295,8 @@ name|diskResident
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getGroupValue
 specifier|protected
 name|Comparable
@@ -1306,6 +1320,8 @@ name|scratchBytesRef
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|duplicate
 specifier|protected
 name|Comparable
@@ -1333,6 +1349,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDocValuesSources
 specifier|protected
 name|void
@@ -1429,6 +1447,8 @@ name|diskResident
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getGroupValue
 specifier|protected
 name|Comparable
@@ -1452,6 +1472,8 @@ name|scratchBytesRef
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|duplicate
 specifier|protected
 name|Comparable
@@ -1479,6 +1501,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDocValuesSources
 specifier|protected
 name|void
@@ -1542,6 +1566,8 @@ name|diskResident
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getGroupValue
 specifier|protected
 name|Comparable
@@ -1563,6 +1589,8 @@ name|doc
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|duplicate
 specifier|protected
 name|Comparable
@@ -1582,6 +1610,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDocValuesSources
 specifier|protected
 name|void
@@ -1645,6 +1675,8 @@ name|diskResident
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getGroupValue
 specifier|protected
 name|Comparable
@@ -1666,6 +1698,8 @@ name|doc
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|duplicate
 specifier|protected
 name|Comparable
@@ -1685,6 +1719,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setDocValuesSources
 specifier|protected
 name|void

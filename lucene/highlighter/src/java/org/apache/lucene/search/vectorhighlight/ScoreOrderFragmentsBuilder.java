@@ -188,6 +188,8 @@ argument_list|<
 name|WeightedFragInfo
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int

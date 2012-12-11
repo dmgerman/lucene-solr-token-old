@@ -172,6 +172,8 @@ operator|=
 name|thresh
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getWordsIterator
 specifier|public
 specifier|final
@@ -295,6 +297,8 @@ operator|>=
 name|minNumDocs
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|weight
 specifier|public
 name|long

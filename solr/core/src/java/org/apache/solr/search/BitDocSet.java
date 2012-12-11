@@ -211,6 +211,8 @@ name|size
 expr_stmt|;
 block|}
 comment|/*** DocIterator using nextSetBit()   public DocIterator iterator() {     return new DocIterator() {       int pos=bits.nextSetBit(0);       public boolean hasNext() {         return pos>=0;       }        public Integer next() {         return nextDoc();       }        public void remove() {         bits.clear(pos);       }        public int nextDoc() {         int old=pos;         pos=bits.nextSetBit(old+1);         return old;       }        public float score() {         return 0.0f;       }     };   }   ***/
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|DocIterator
@@ -242,6 +244,8 @@ operator|.
 name|nextDoc
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -255,6 +259,8 @@ operator|.
 name|NO_MORE_DOCS
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Integer
 name|next
@@ -265,6 +271,8 @@ name|nextDoc
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove
@@ -278,6 +286,8 @@ name|pos
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|nextDoc
@@ -299,6 +309,8 @@ return|return
 name|old
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|float
 name|score
@@ -374,6 +386,8 @@ literal|1
 expr_stmt|;
 comment|// invalidate size
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -416,6 +430,8 @@ literal|1
 expr_stmt|;
 block|}
 comment|/** Returns true of the doc exists in the set.    *  Should only be called when doc< OpenBitSet.size()    */
+annotation|@
+name|Override
 DECL|method|exists
 specifier|public
 name|boolean
@@ -829,6 +845,8 @@ name|newbits
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|memSize
 specifier|public
 name|long

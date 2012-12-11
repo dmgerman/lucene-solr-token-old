@@ -2453,6 +2453,8 @@ operator|=
 name|lastAccessed
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compareTo
 specifier|public
 name|int

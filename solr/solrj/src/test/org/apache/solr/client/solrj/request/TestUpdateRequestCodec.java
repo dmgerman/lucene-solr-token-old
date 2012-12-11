@@ -482,6 +482,8 @@ operator|.
 name|StreamingUpdateHandler
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|update
@@ -777,6 +779,8 @@ name|String
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Iterator
 argument_list|<
@@ -859,6 +863,8 @@ operator|.
 name|StreamingUpdateHandler
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|update

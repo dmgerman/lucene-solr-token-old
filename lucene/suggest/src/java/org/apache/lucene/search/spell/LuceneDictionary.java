@@ -123,6 +123,8 @@ operator|=
 name|field
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getWordsIterator
 specifier|public
 specifier|final

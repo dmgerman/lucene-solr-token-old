@@ -162,6 +162,8 @@ name|assureMatchVersion
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|inform
 specifier|public
 name|void
@@ -284,6 +286,8 @@ name|commonWords
 return|;
 block|}
 comment|/**    * Create a CommonGramsFilter and wrap it with a CommonGramsQueryFilter    */
+annotation|@
+name|Override
 DECL|method|create
 specifier|public
 name|CommonGramsQueryFilter

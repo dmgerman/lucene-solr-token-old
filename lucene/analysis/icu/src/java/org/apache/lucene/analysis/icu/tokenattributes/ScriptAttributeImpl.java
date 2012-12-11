@@ -87,6 +87,8 @@ specifier|public
 name|ScriptAttributeImpl
 parameter_list|()
 block|{}
+annotation|@
+name|Override
 DECL|method|getCode
 specifier|public
 name|int
@@ -97,6 +99,8 @@ return|return
 name|code
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCode
 specifier|public
 name|void
@@ -113,6 +117,8 @@ operator|=
 name|code
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String
@@ -128,6 +134,8 @@ name|code
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getShortName
 specifier|public
 name|String

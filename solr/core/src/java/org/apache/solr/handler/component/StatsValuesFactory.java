@@ -425,6 +425,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|accumulate
 specifier|public
 name|void
@@ -675,6 +677,8 @@ block|}
 block|}
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|accumulate
 specifier|public
 name|void
@@ -716,6 +720,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|accumulate
 specifier|public
 name|void
@@ -765,6 +771,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|missing
 specifier|public
 name|void
@@ -776,6 +784,8 @@ operator|++
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|addMissing
 specifier|public
 name|void
@@ -791,6 +801,8 @@ name|count
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|addFacet
 specifier|public
 name|void
@@ -819,6 +831,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|getStatsValues
 specifier|public
 name|NamedList
@@ -1124,6 +1138,8 @@ name|NEGATIVE_INFINITY
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|updateTypeSpecificStats
 specifier|public
 name|void
@@ -1169,6 +1185,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|updateTypeSpecificStats
 specifier|public
 name|void
@@ -1201,6 +1219,8 @@ name|value
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|updateTypeSpecificStats
 specifier|public
 name|void
@@ -1240,6 +1260,8 @@ name|count
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|updateMinMax
 specifier|protected
 name|void
@@ -1296,6 +1318,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Adds sum, sumOfSquares, mean and standard deviation statistics to the given NamedList    *    * @param res NamedList to add the type specific statistics too    */
+annotation|@
+name|Override
 DECL|method|addTypeSpecificStats
 specifier|protected
 name|void
@@ -1441,6 +1465,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|updateTypeSpecificStats
 specifier|protected
 name|void
@@ -1561,6 +1587,8 @@ name|count
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|updateMinMax
 specifier|protected
 name|void
@@ -1625,6 +1653,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**    * Adds sum and mean statistics to the given NamedList    *    * @param res NamedList to add the type specific statistics too    */
+annotation|@
+name|Override
 DECL|method|addTypeSpecificStats
 specifier|protected
 name|void
@@ -1782,6 +1812,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|updateTypeSpecificStats
 specifier|protected
 name|void
@@ -1794,6 +1826,8 @@ block|{
 comment|// No type specific stats
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|updateTypeSpecificStats
 specifier|protected
 name|void
@@ -1806,6 +1840,8 @@ block|{
 comment|// No type specific stats
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|updateTypeSpecificStats
 specifier|protected
 name|void
@@ -1821,6 +1857,8 @@ block|{
 comment|// No type specific stats
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|updateMinMax
 specifier|protected
 name|void
@@ -1861,6 +1899,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Adds no type specific statistics    */
+annotation|@
+name|Override
 DECL|method|addTypeSpecificStats
 specifier|protected
 name|void

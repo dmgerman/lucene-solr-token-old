@@ -168,6 +168,8 @@ extends|extends
 name|Annotation_Type
 block|{
 comment|/** @generated */
+annotation|@
+name|Override
 DECL|method|getFSGenerator
 specifier|protected
 name|FSGenerator
@@ -189,6 +191,8 @@ operator|new
 name|FSGenerator
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|FeatureStructure
 name|createFS

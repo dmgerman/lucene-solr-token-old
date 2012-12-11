@@ -1054,6 +1054,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|compareTo
 specifier|public
 name|int

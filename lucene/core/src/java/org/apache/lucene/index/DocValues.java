@@ -402,6 +402,8 @@ name|getType
 parameter_list|()
 function_decl|;
 comment|/**    * Closes this {@link DocValues} instance. This method should only be called    * by the creator of this {@link DocValues} instance. API users should not    * close {@link DocValues} instances.    */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -1497,6 +1499,8 @@ specifier|public
 name|DirectSourceCache
 parameter_list|()
 block|{       }
+annotation|@
+name|Override
 DECL|method|load
 specifier|public
 specifier|synchronized
@@ -1528,6 +1532,8 @@ return|return
 name|ref
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|invalidate
 specifier|public
 specifier|synchronized

@@ -75,6 +75,8 @@ name|CONTENT_TYPE_PYTHON_ASCII
 init|=
 literal|"text/x-python;charset=US-ASCII"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -86,6 +88,8 @@ parameter_list|)
 block|{
 comment|/* NOOP */
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -133,6 +137,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getContentType
 specifier|public
 name|String
@@ -158,6 +164,8 @@ name|PythonWriter
 extends|extends
 name|NaNFloatWriter
 block|{
+annotation|@
+name|Override
 DECL|method|getNaN
 specifier|protected
 name|String
@@ -168,6 +176,8 @@ return|return
 literal|"float('NaN')"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInf
 specifier|protected
 name|String

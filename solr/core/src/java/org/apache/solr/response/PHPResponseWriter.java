@@ -75,6 +75,8 @@ name|CONTENT_TYPE_PHP_UTF8
 init|=
 literal|"text/x-php;charset=UTF-8"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -86,6 +88,8 @@ parameter_list|)
 block|{
 comment|/* NOOP */
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -133,6 +137,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getContentType
 specifier|public
 name|String

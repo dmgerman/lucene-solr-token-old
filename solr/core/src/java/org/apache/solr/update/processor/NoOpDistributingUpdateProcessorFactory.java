@@ -84,6 +84,8 @@ implements|implements
 name|DistributingUpdateProcessorFactory
 block|{
 comment|/** Returns null     */
+annotation|@
+name|Override
 DECL|method|getInstance
 specifier|public
 name|UpdateRequestProcessor

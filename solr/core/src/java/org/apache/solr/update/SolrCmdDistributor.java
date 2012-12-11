@@ -2820,6 +2820,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getNodeProps
 specifier|public
 name|ZkCoreNodeProps

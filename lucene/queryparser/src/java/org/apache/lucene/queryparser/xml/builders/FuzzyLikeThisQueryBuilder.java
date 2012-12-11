@@ -211,6 +211,8 @@ operator|=
 name|analyzer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getQuery
 specifier|public
 name|Query

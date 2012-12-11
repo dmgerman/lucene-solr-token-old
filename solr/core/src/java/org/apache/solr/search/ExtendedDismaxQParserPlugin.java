@@ -379,6 +379,8 @@ name|NAME
 init|=
 literal|"edismax"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -6625,6 +6627,8 @@ literal|false
 return|;
 block|}
 comment|/**      * Sort order is based on length of regex.  Longest comes first.      * @param other The object to compare to.      * @return a negative integer, zero, or a positive integer      * as this object is less than, equal to, or greater than      * the specified object.      */
+annotation|@
+name|Override
 DECL|method|compareTo
 specifier|public
 name|int
@@ -6648,6 +6652,8 @@ name|length
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

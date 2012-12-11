@@ -448,6 +448,8 @@ name|categoryPath
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|Iterator

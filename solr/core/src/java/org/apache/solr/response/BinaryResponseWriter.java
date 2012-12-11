@@ -309,6 +309,8 @@ name|Class
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -395,6 +397,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -420,6 +424,8 @@ literal|"This is a binary writer , Cannot write to a characterstream"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContentType
 specifier|public
 name|String
@@ -436,6 +442,8 @@ return|return
 literal|"application/octet-stream"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -509,6 +517,8 @@ operator|=
 name|returnFields
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resolve
 specifier|public
 name|Object

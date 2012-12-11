@@ -132,6 +132,8 @@ name|categoryPath
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|set
 specifier|public
 name|void
@@ -155,6 +157,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Returns the category path value.    *     * @return The category path last assigned to this attribute, or null if    *         none has been assigned.    */
+annotation|@
+name|Override
 DECL|method|getCategoryPath
 specifier|public
 name|CategoryPath
@@ -165,6 +169,8 @@ return|return
 name|categoryPath
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setCategoryPath
 specifier|public
 name|void
@@ -179,6 +185,8 @@ operator|=
 name|cp
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addProperty
 specifier|public
 name|void
@@ -258,6 +266,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getProperty
 specifier|public
 name|CategoryProperty
@@ -292,6 +302,8 @@ name|propertyClass
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProperty
 specifier|public
 name|CategoryProperty
@@ -494,6 +506,8 @@ name|clearProperties
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clearProperties
 specifier|public
 name|void
@@ -684,6 +698,8 @@ return|return
 name|hashCode
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPropertyClasses
 specifier|public
 name|Set
@@ -721,6 +737,8 @@ name|keySet
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|void

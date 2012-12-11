@@ -108,6 +108,8 @@ operator|=
 name|wrapped
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|weight
 specifier|public
 name|long
@@ -118,6 +120,8 @@ return|return
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|BytesRef

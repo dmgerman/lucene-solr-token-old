@@ -711,6 +711,8 @@ argument_list|<
 name|SegmentInfoPerCommit
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int

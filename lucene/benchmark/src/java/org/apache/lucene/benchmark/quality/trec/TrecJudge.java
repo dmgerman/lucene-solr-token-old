@@ -341,6 +341,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|isRelevant
 specifier|public
 name|boolean
@@ -477,6 +479,8 @@ return|;
 block|}
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|validateData
 specifier|public
 name|boolean
@@ -718,6 +722,8 @@ name|isValid
 return|;
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|maxRecall
 specifier|public
 name|int

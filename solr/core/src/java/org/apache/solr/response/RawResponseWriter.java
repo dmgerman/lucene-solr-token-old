@@ -134,6 +134,8 @@ name|_baseWriter
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -199,6 +201,8 @@ name|_baseWriter
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContentType
 specifier|public
 name|String
@@ -263,6 +267,8 @@ name|response
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -362,6 +368,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void

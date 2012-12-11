@@ -283,6 +283,8 @@ operator|=
 name|typeAttributeFeaturePath
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|initializeIterator
 specifier|protected
 name|void

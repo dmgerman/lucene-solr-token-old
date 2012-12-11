@@ -750,6 +750,8 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
+name|Override
+annotation|@
 name|After
 DECL|method|tearDown
 specifier|public
@@ -5323,6 +5325,8 @@ operator|new
 name|FilenameFilter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept

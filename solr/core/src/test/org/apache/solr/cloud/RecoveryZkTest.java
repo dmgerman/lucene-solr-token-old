@@ -445,6 +445,8 @@ expr_stmt|;
 comment|// won't always pass yet...
 comment|//query("q", "*:*", "sort", "id desc");
 block|}
+annotation|@
+name|Override
 DECL|method|indexDoc
 specifier|protected
 name|void
@@ -515,6 +517,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// skip the randoms - they can deadlock...
+annotation|@
+name|Override
 DECL|method|indexr
 specifier|protected
 name|void

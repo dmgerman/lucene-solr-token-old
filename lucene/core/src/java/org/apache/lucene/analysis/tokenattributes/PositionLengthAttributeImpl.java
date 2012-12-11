@@ -57,6 +57,8 @@ specifier|public
 name|PositionLengthAttributeImpl
 parameter_list|()
 block|{}
+annotation|@
+name|Override
 DECL|method|setPositionLength
 specifier|public
 name|void
@@ -90,6 +92,8 @@ operator|=
 name|positionLength
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPositionLength
 specifier|public
 name|int

@@ -390,6 +390,8 @@ DECL|field|endOffset
 name|int
 name|endOffset
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|compareTo
 specifier|public
 name|int

@@ -1258,6 +1258,8 @@ name|SimpleRequestParser
 implements|implements
 name|SolrRequestParser
 block|{
+annotation|@
+name|Override
 DECL|method|parseParamsAndFillStreams
 specifier|public
 name|SolrParams
@@ -1353,6 +1355,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getStream
 specifier|public
 name|InputStream
@@ -1427,6 +1431,8 @@ name|getSize
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStream
 specifier|public
 name|InputStream
@@ -1454,6 +1460,8 @@ name|RawRequestParser
 implements|implements
 name|SolrRequestParser
 block|{
+annotation|@
+name|Override
 DECL|method|parseParamsAndFillStreams
 specifier|public
 name|SolrParams
@@ -1531,6 +1539,8 @@ operator|=
 name|limit
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseParamsAndFillStreams
 specifier|public
 name|SolrParams
@@ -1753,6 +1763,8 @@ operator|=
 name|raw
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parseParamsAndFillStreams
 specifier|public
 name|SolrParams

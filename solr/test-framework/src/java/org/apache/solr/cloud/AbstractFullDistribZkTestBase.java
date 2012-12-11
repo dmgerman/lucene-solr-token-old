@@ -2963,6 +2963,8 @@ name|cloudClient
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|index_specific
 specifier|protected
 name|void
@@ -3163,6 +3165,8 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|del
 specifier|protected
 name|void
@@ -6828,6 +6832,8 @@ name|numDeletes
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|safeStop
 specifier|public
 name|void
@@ -7075,6 +7081,8 @@ literal|" fails"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|safeStop
 specifier|public
 name|void
@@ -7314,6 +7322,8 @@ literal|"numShards"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|commit
 specifier|protected
 name|void
@@ -7333,6 +7343,8 @@ name|commit
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|destroyServers
 specifier|protected
 name|void
@@ -7402,6 +7414,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createNewSolrServer
 specifier|protected
 name|SolrServer

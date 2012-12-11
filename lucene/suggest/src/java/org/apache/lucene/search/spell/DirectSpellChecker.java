@@ -1721,6 +1721,8 @@ specifier|public
 name|float
 name|score
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|compareTo
 specifier|public
 name|int

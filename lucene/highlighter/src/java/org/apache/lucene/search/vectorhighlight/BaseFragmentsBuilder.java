@@ -529,6 +529,8 @@ operator|new
 name|DefaultEncoder
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|createFragment
 specifier|public
 name|String
@@ -568,6 +570,8 @@ name|NULL_ENCODER
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createFragments
 specifier|public
 name|String
@@ -613,6 +617,8 @@ name|NULL_ENCODER
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createFragment
 specifier|public
 name|String
@@ -689,6 +695,8 @@ literal|0
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createFragments
 specifier|public
 name|String
@@ -2071,6 +2079,8 @@ name|WeightedFragInfo
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare

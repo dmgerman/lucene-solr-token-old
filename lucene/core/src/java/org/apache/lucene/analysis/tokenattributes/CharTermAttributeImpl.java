@@ -162,6 +162,8 @@ specifier|public
 name|CharTermAttributeImpl
 parameter_list|()
 block|{}
+annotation|@
+name|Override
 DECL|method|copyBuffer
 specifier|public
 specifier|final
@@ -204,6 +206,8 @@ operator|=
 name|length
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|buffer
 specifier|public
 specifier|final
@@ -216,6 +220,8 @@ return|return
 name|termBuffer
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resizeBuffer
 specifier|public
 specifier|final
@@ -323,6 +329,8 @@ index|]
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setLength
 specifier|public
 specifier|final
@@ -366,6 +374,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setEmpty
 specifier|public
 specifier|final
@@ -394,6 +404,8 @@ name|MIN_BUFFER_SIZE
 argument_list|)
 decl_stmt|;
 comment|// not until java 6 @Override
+annotation|@
+name|Override
 DECL|method|fillBytesRef
 specifier|public
 name|int
@@ -416,6 +428,8 @@ argument_list|)
 return|;
 block|}
 comment|// not until java 6 @Override
+annotation|@
+name|Override
 DECL|method|getBytesRef
 specifier|public
 name|BytesRef
@@ -427,6 +441,8 @@ name|bytes
 return|;
 block|}
 comment|// *** CharSequence interface ***
+annotation|@
+name|Override
 DECL|method|length
 specifier|public
 specifier|final
@@ -438,6 +454,8 @@ return|return
 name|termLength
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|charAt
 specifier|public
 specifier|final
@@ -466,6 +484,8 @@ name|index
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|subSequence
 specifier|public
 specifier|final
@@ -511,6 +531,8 @@ argument_list|)
 return|;
 block|}
 comment|// *** Appendable interface ***
+annotation|@
+name|Override
 DECL|method|append
 specifier|public
 specifier|final
@@ -546,6 +568,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|append
 specifier|public
 specifier|final
@@ -861,6 +885,8 @@ name|this
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|append
 specifier|public
 specifier|final
@@ -889,6 +915,8 @@ name|this
 return|;
 block|}
 comment|// *** For performance some convenience methods in addition to CSQ's ***
+annotation|@
+name|Override
 DECL|method|append
 specifier|public
 specifier|final
@@ -945,6 +973,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|append
 specifier|public
 specifier|final
@@ -1001,6 +1031,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|append
 specifier|public
 specifier|final

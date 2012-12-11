@@ -81,6 +81,8 @@ name|QueryBuilder
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getQuery
 specifier|public
 name|Query

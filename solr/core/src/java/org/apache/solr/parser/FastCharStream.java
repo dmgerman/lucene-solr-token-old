@@ -92,6 +92,8 @@ operator|=
 name|r
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|readChar
 specifier|public
 specifier|final
@@ -280,6 +282,8 @@ operator|+=
 name|charsRead
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|BeginToken
 specifier|public
 specifier|final
@@ -298,6 +302,8 @@ name|readChar
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|backup
 specifier|public
 specifier|final
@@ -313,6 +319,8 @@ operator|-=
 name|amount
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|GetImage
 specifier|public
 specifier|final
@@ -334,6 +342,8 @@ name|tokenStart
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|GetSuffix
 specifier|public
 specifier|final
@@ -376,6 +386,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|Done
 specifier|public
 specifier|final
@@ -398,6 +410,8 @@ name|e
 parameter_list|)
 block|{     }
 block|}
+annotation|@
+name|Override
 DECL|method|getColumn
 specifier|public
 specifier|final
@@ -411,6 +425,8 @@ operator|+
 name|bufferPosition
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLine
 specifier|public
 specifier|final
@@ -422,6 +438,8 @@ return|return
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndColumn
 specifier|public
 specifier|final
@@ -435,6 +453,8 @@ operator|+
 name|bufferPosition
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndLine
 specifier|public
 specifier|final
@@ -446,6 +466,8 @@ return|return
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeginColumn
 specifier|public
 specifier|final
@@ -459,6 +481,8 @@ operator|+
 name|tokenStart
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeginLine
 specifier|public
 specifier|final

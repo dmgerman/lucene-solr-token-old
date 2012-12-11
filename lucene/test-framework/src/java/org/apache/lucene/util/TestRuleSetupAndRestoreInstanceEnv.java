@@ -43,6 +43,8 @@ specifier|private
 name|int
 name|savedBoolMaxClauseCount
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|before
 specifier|protected
 name|void
@@ -57,6 +59,8 @@ name|getMaxClauseCount
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|after
 specifier|protected
 name|void

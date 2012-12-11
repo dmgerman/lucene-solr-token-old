@@ -57,6 +57,8 @@ specifier|public
 name|PositionIncrementAttributeImpl
 parameter_list|()
 block|{}
+annotation|@
+name|Override
 DECL|method|setPositionIncrement
 specifier|public
 name|void
@@ -90,6 +92,8 @@ operator|=
 name|positionIncrement
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPositionIncrement
 specifier|public
 name|int

@@ -1092,6 +1092,8 @@ name|MockInfoMBean
 implements|implements
 name|SolrInfoMBean
 block|{
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String
@@ -1102,6 +1104,8 @@ return|return
 literal|"mock"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCategory
 specifier|public
 name|Category
@@ -1114,6 +1118,8 @@ operator|.
 name|OTHER
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription
 specifier|public
 name|String
@@ -1124,6 +1130,8 @@ return|return
 literal|"mock"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDocs
 specifier|public
 name|URL
@@ -1136,6 +1144,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|String
@@ -1146,6 +1156,8 @@ return|return
 literal|"mock"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|String
@@ -1156,6 +1168,8 @@ return|return
 literal|"mock"
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

@@ -32,6 +32,8 @@ specifier|public
 name|SimpleHTMLEncoder
 parameter_list|()
 block|{   }
+annotation|@
+name|Override
 DECL|method|encodeText
 specifier|public
 name|String

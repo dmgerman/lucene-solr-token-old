@@ -369,6 +369,8 @@ operator|+
 literal|"\n</modifier>"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toQueryString
 specifier|public
 name|CharSequence

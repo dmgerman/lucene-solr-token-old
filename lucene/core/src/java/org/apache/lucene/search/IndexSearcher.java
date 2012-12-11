@@ -2547,6 +2547,8 @@ operator|=
 name|slice
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|call
 specifier|public
 name|TopDocs
@@ -2934,6 +2936,8 @@ operator|new
 name|FakeScorer
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|call
 specifier|public
 name|TopFieldDocs
@@ -3159,6 +3163,8 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext
 specifier|public
 name|boolean
@@ -3196,6 +3202,8 @@ operator|++
 name|numTasks
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|T
@@ -3264,6 +3272,8 @@ name|numTasks
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|void
@@ -3276,6 +3286,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|Iterator

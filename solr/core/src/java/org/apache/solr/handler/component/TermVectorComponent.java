@@ -2748,6 +2748,8 @@ operator|=
 name|args
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|inform
 specifier|public
 name|void

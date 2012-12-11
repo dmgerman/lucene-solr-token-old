@@ -365,6 +365,8 @@ name|Bean
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -379,6 +381,8 @@ operator|<
 name|numdocs
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Bean
 name|next
@@ -415,6 +419,8 @@ return|return
 name|bean
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove
@@ -534,6 +540,8 @@ name|SolrInputDocument
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -548,6 +556,8 @@ operator|<
 name|numdocs
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|SolrInputDocument
 name|next
@@ -590,6 +600,8 @@ return|return
 name|doc
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove

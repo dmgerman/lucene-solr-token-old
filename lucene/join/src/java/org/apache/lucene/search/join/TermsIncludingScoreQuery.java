@@ -450,6 +450,8 @@ operator|=
 name|unwrittenOriginalQuery
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -602,6 +604,8 @@ specifier|private
 name|TermsEnum
 name|segmentTermsEnum
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|Explanation
 name|explain
@@ -677,6 +681,8 @@ literal|"Not a match"
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Query
 name|getQuery
@@ -688,6 +694,8 @@ operator|.
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getValueForNormalization
@@ -716,6 +724,8 @@ name|getBoost
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|normalize
@@ -744,6 +754,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Scorer
 name|scorer
@@ -966,6 +978,8 @@ operator|=
 name|termsEnum
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|score
 specifier|public
 name|float
@@ -1013,6 +1027,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docID
 specifier|public
 name|int
@@ -1034,6 +1050,8 @@ operator|.
 name|NO_MORE_DOCS
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -1156,6 +1174,8 @@ name|nextDoc
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|advance
 specifier|public
 name|int
@@ -1317,6 +1337,8 @@ name|maxDoc
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -1763,6 +1785,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|score
 specifier|public
 name|float
@@ -1778,6 +1802,8 @@ name|currentDoc
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|freq
 specifier|public
 name|int
@@ -1790,6 +1816,8 @@ return|return
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docID
 specifier|public
 name|int
@@ -1800,6 +1828,8 @@ return|return
 name|currentDoc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -1817,6 +1847,8 @@ name|nextDoc
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|advance
 specifier|public
 name|int

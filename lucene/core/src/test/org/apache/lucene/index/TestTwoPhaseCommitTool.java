@@ -144,6 +144,8 @@ operator|=
 name|failOnRollback
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|prepareCommit
 specifier|public
 name|void
@@ -201,6 +203,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|commit
 specifier|public
 name|void
@@ -255,6 +259,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|rollback
 specifier|public
 name|void

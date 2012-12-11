@@ -156,6 +156,8 @@ argument_list|<
 name|Transition
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|Iterator
@@ -176,6 +178,8 @@ block|{
 name|int
 name|upto
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -187,6 +191,8 @@ operator|<
 name|numTransitions
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Transition
 name|next
@@ -200,6 +206,8 @@ operator|++
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove
@@ -929,6 +937,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * Compares this object with the specified object for order. States are    * ordered by the time of construction.    */
+annotation|@
+name|Override
 DECL|method|compareTo
 specifier|public
 name|int

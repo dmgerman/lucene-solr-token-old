@@ -197,6 +197,8 @@ parameter_list|()
 block|{
 comment|// empty constructor
 block|}
+annotation|@
+name|Override
 DECL|method|build
 specifier|public
 name|MultiPhraseQuery

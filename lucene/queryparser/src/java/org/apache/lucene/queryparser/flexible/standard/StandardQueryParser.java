@@ -506,6 +506,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Set to<code>true</code> to allow leading wildcard characters.    *<p>    * When set,<code>*</code> or<code>?</code> are allowed as the first    * character of a PrefixQuery and WildcardQuery. Note that this can produce    * very slow queries on big indexes.    *<p>    * Default: false.    */
+annotation|@
+name|Override
 DECL|method|setLowercaseExpandedTerms
 specifier|public
 name|void
@@ -529,6 +531,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * @see #setLowercaseExpandedTerms(boolean)    */
+annotation|@
+name|Override
 DECL|method|getLowercaseExpandedTerms
 specifier|public
 name|boolean
@@ -567,6 +571,8 @@ return|;
 block|}
 block|}
 comment|/**    * Set to<code>true</code> to allow leading wildcard characters.    *<p>    * When set,<code>*</code> or<code>?</code> are allowed as the first    * character of a PrefixQuery and WildcardQuery. Note that this can produce    * very slow queries on big indexes.    *<p>    * Default: false.    */
+annotation|@
+name|Override
 DECL|method|setAllowLeadingWildcard
 specifier|public
 name|void
@@ -590,6 +596,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Set to<code>true</code> to enable position increments in result query.    *<p>    * When set, result phrase and multi-phrase queries will be aware of position    * increments. Useful when e.g. a StopFilter increases the position increment    * of the token that follows an omitted token.    *<p>    * Default: false.    */
+annotation|@
+name|Override
 DECL|method|setEnablePositionIncrements
 specifier|public
 name|void
@@ -613,6 +621,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * @see #setEnablePositionIncrements(boolean)    */
+annotation|@
+name|Override
 DECL|method|getEnablePositionIncrements
 specifier|public
 name|boolean
@@ -651,6 +661,8 @@ return|;
 block|}
 block|}
 comment|/**    * By default, it uses    * {@link MultiTermQuery#CONSTANT_SCORE_AUTO_REWRITE_DEFAULT} when creating a    * prefix, wildcard and range queries. This implementation is generally    * preferable because it a) Runs faster b) Does not have the scarcity of terms    * unduly influence score c) avoids any {@link TooManyListenersException}    * exception. However, if your application really needs to use the    * old-fashioned boolean queries expansion rewriting and the above points are    * not relevant then use this change the rewrite method.    */
+annotation|@
+name|Override
 DECL|method|setMultiTermRewriteMethod
 specifier|public
 name|void
@@ -676,6 +688,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * @see #setMultiTermRewriteMethod(org.apache.lucene.search.MultiTermQuery.RewriteMethod)    */
+annotation|@
+name|Override
 DECL|method|getMultiTermRewriteMethod
 specifier|public
 name|MultiTermQuery
@@ -759,6 +773,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Set the prefix length for fuzzy queries. Default is 0.    *     * @param fuzzyPrefixLength    *          The fuzzyPrefixLength to set.    */
+annotation|@
+name|Override
 DECL|method|setFuzzyPrefixLength
 specifier|public
 name|void
@@ -870,6 +886,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * Set locale used by date range parsing.    */
+annotation|@
+name|Override
 DECL|method|setLocale
 specifier|public
 name|void
@@ -893,6 +911,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Returns current locale, allowing access by subclasses.    */
+annotation|@
+name|Override
 DECL|method|getLocale
 specifier|public
 name|Locale
@@ -911,6 +931,8 @@ name|LOCALE
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTimeZone
 specifier|public
 name|void
@@ -933,6 +955,8 @@ name|timeZone
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTimeZone
 specifier|public
 name|TimeZone
@@ -977,6 +1001,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Sets the default slop for phrases. If zero, then exact phrase matches are    * required. Default value is zero.    */
+annotation|@
+name|Override
 DECL|method|setPhraseSlop
 specifier|public
 name|void
@@ -1021,6 +1047,8 @@ name|analyzer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAnalyzer
 specifier|public
 name|Analyzer
@@ -1040,6 +1068,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see #setAllowLeadingWildcard(boolean)    */
+annotation|@
+name|Override
 DECL|method|getAllowLeadingWildcard
 specifier|public
 name|boolean
@@ -1078,6 +1108,8 @@ return|;
 block|}
 block|}
 comment|/**    * Get the minimal similarity for fuzzy queries.    */
+annotation|@
+name|Override
 DECL|method|getFuzzyMinSim
 specifier|public
 name|float
@@ -1121,6 +1153,8 @@ return|;
 block|}
 block|}
 comment|/**    * Get the prefix length for fuzzy queries.    *     * @return Returns the fuzzyPrefixLength.    */
+annotation|@
+name|Override
 DECL|method|getFuzzyPrefixLength
 specifier|public
 name|int
@@ -1164,6 +1198,8 @@ return|;
 block|}
 block|}
 comment|/**    * Gets the default slop for phrases.    */
+annotation|@
+name|Override
 DECL|method|getPhraseSlop
 specifier|public
 name|int
@@ -1202,6 +1238,8 @@ return|;
 block|}
 block|}
 comment|/**    * Set the minimum similarity for fuzzy queries. Default is defined on    * {@link FuzzyQuery#defaultMinSimilarity}.    */
+annotation|@
+name|Override
 DECL|method|setFuzzyMinSim
 specifier|public
 name|void
@@ -1315,6 +1353,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * Sets the default {@link Resolution} used for certain field when    * no {@link Resolution} is defined for this field.    *     * @param dateResolution the default {@link Resolution}    */
+annotation|@
+name|Override
 DECL|method|setDateResolution
 specifier|public
 name|void

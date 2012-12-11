@@ -69,6 +69,8 @@ return|return
 literal|"<matchAllDocs field='*' term='*'/>"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toQueryString
 specifier|public
 name|CharSequence

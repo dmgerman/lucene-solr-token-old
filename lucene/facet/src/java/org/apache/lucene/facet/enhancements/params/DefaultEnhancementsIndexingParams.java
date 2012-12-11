@@ -208,6 +208,8 @@ name|enhancements
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addCategoryEnhancements
 specifier|public
 name|void
@@ -252,6 +254,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCategoryEnhancements
 specifier|public
 name|List
@@ -281,6 +285,8 @@ return|return
 name|enhancedCategories
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRetainableProperties
 specifier|public
 name|List

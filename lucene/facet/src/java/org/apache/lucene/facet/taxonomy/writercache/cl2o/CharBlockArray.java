@@ -295,6 +295,8 @@ operator|%
 name|blockSize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|append
 specifier|public
 name|CharBlockArray
@@ -318,6 +320,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|append
 specifier|public
 name|CharBlockArray
@@ -369,6 +373,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|append
 specifier|public
 name|CharBlockArray
@@ -680,6 +686,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|charAt
 specifier|public
 name|char
@@ -716,6 +724,8 @@ argument_list|)
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|length
 specifier|public
 name|int
@@ -728,6 +738,8 @@ operator|.
 name|length
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|subSequence
 specifier|public
 name|CharSequence

@@ -268,6 +268,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @throws SolrException Base implementation does not allow modifications    */
+annotation|@
+name|Override
 DECL|method|add
 specifier|public
 name|void
@@ -292,6 +294,8 @@ argument_list|)
 throw|;
 block|}
 comment|/**    * @throws SolrException Base implementation does not allow modifications    */
+annotation|@
+name|Override
 DECL|method|addUnique
 specifier|public
 name|void
@@ -316,6 +320,8 @@ argument_list|)
 throw|;
 block|}
 comment|/**    * Inefficient base implementation.    *    * @see BitDocSet#getBits    */
+annotation|@
+name|Override
 DECL|method|getBits
 specifier|public
 name|OpenBitSet
@@ -360,6 +366,8 @@ name|bits
 return|;
 block|}
 empty_stmt|;
+annotation|@
+name|Override
 DECL|method|intersection
 specifier|public
 name|DocSet
@@ -425,6 +433,8 @@ name|newbits
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|intersects
 specifier|public
 name|boolean
@@ -465,6 +475,8 @@ operator|>
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|union
 specifier|public
 name|DocSet
@@ -508,6 +520,8 @@ name|newbits
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|intersectionSize
 specifier|public
 name|int
@@ -549,6 +563,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|unionSize
 specifier|public
 name|int
@@ -577,6 +593,8 @@ name|other
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|andNot
 specifier|public
 name|DocSet
@@ -620,6 +638,8 @@ name|newbits
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|andNotSize
 specifier|public
 name|int
@@ -643,6 +663,8 @@ name|other
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTopFilter
 specifier|public
 name|Filter
@@ -921,6 +943,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBitsOn
 specifier|public
 name|void

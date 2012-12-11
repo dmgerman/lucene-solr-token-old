@@ -155,6 +155,8 @@ operator|new
 name|Bits
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|get
@@ -170,6 +172,8 @@ name|docid
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|length
@@ -185,6 +189,8 @@ operator|new
 name|Bits
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|get
@@ -207,6 +213,8 @@ name|docid
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|length

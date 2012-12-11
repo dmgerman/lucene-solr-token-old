@@ -493,6 +493,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**    * Internal use for Lucene... do not explicitly call.    */
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -532,6 +534,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Internal use for Lucene... do not explicitly call.    */
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void

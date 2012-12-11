@@ -171,6 +171,8 @@ operator|.
 name|MatchingTermVisitor
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|visitMatchingTerm

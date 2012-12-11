@@ -532,6 +532,8 @@ specifier|public
 name|UselessOutputWriter
 parameter_list|()
 block|{}
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -541,6 +543,8 @@ name|NamedList
 name|n
 parameter_list|)
 block|{}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -566,6 +570,8 @@ name|USELESS_OUTPUT
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContentType
 specifier|public
 name|String

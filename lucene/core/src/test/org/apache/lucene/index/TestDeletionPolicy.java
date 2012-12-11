@@ -366,6 +366,8 @@ DECL|field|dir
 name|Directory
 name|dir
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -391,6 +393,8 @@ name|numOnInit
 operator|++
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void
@@ -495,6 +499,8 @@ DECL|field|numOnCommit
 name|int
 name|numOnCommit
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -544,6 +550,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void
@@ -663,6 +671,8 @@ operator|=
 name|numToKeep
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -711,6 +721,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void
@@ -950,6 +962,8 @@ operator|=
 name|seconds
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -977,6 +991,8 @@ name|commits
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void

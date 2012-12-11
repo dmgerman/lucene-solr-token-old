@@ -414,6 +414,8 @@ name|rb
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|transform
 specifier|public
 name|NamedList
@@ -563,6 +565,8 @@ name|result
 return|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|transformToNative
 specifier|public
 name|Map

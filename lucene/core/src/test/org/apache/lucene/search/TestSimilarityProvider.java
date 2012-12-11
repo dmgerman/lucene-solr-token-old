@@ -675,6 +675,8 @@ operator|new
 name|Sim2
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|Similarity
@@ -713,6 +715,8 @@ name|Sim1
 extends|extends
 name|TFIDFSimilarity
 block|{
+annotation|@
+name|Override
 DECL|method|coord
 specifier|public
 name|float
@@ -729,6 +733,8 @@ return|return
 literal|1f
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|queryNorm
 specifier|public
 name|float
@@ -837,6 +843,8 @@ name|Sim2
 extends|extends
 name|TFIDFSimilarity
 block|{
+annotation|@
+name|Override
 DECL|method|coord
 specifier|public
 name|float
@@ -853,6 +861,8 @@ return|return
 literal|1f
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|queryNorm
 specifier|public
 name|float

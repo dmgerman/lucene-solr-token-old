@@ -743,6 +743,8 @@ name|recoveringAfterStartup
 expr_stmt|;
 block|}
 comment|// make sure any threads stop retrying
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -2798,6 +2800,8 @@ return|return
 name|future
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isClosed
 specifier|public
 name|boolean

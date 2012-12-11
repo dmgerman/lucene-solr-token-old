@@ -171,6 +171,8 @@ name|fixedPartitionSize
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCategoryListParams
 specifier|public
 name|CategoryListParams
@@ -184,6 +186,8 @@ return|return
 name|clpParams
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|drillDownTermText
 specifier|public
 name|int
@@ -253,6 +257,8 @@ operator|.
 name|ALL_CATEGORIES
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPartitionSize
 specifier|public
 specifier|final
@@ -265,6 +271,8 @@ name|partitionSize
 return|;
 block|}
 comment|/*    * (non-Javadoc)    *     * @see    * org.apache.lucene.facet.index.params.FacetIndexingParams#getAllCategoryListParams    * ()    */
+annotation|@
+name|Override
 DECL|method|getAllCategoryListParams
 specifier|public
 name|Iterable
@@ -298,6 +306,8 @@ return|return
 name|res
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOrdinalPolicy
 specifier|public
 specifier|final
@@ -309,6 +319,8 @@ return|return
 name|ordinalPolicy
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPathPolicy
 specifier|public
 specifier|final
@@ -648,6 +660,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * Use {@link #DEFAULT_FACET_DELIM_CHAR} as the delimiter.    */
+annotation|@
+name|Override
 DECL|method|getFacetDelimChar
 specifier|public
 name|char

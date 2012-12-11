@@ -94,6 +94,8 @@ operator|=
 name|args
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getArguments
 specifier|public
 name|Object
@@ -107,6 +109,8 @@ operator|.
 name|arguments
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getKey
 specifier|public
 name|String
@@ -119,6 +123,8 @@ operator|.
 name|key
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLocalizedMessage
 specifier|public
 name|String
@@ -135,6 +141,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLocalizedMessage
 specifier|public
 name|String

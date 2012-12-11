@@ -341,6 +341,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**     * @see FieldMutatingUpdateProcessor#SELECT_NO_FIELDS    */
+annotation|@
+name|Override
 specifier|protected
 name|FieldMutatingUpdateProcessor
 operator|.
@@ -386,6 +388,8 @@ argument_list|,
 name|next
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|Object
 name|mutateValue

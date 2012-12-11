@@ -229,6 +229,8 @@ name|timeDecay
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|Object
@@ -711,6 +713,8 @@ return|return
 name|statsList
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|name
 specifier|public
 name|String
@@ -721,6 +725,8 @@ return|return
 name|name
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -734,6 +740,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|put
 specifier|public
 name|V
@@ -757,6 +765,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|V
@@ -775,6 +785,8 @@ name|key
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 name|void
@@ -787,6 +799,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setState
 specifier|public
 name|void
@@ -814,6 +828,8 @@ name|LIVE
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getState
 specifier|public
 name|State
@@ -824,6 +840,8 @@ return|return
 name|state
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|warm
 specifier|public
 name|void
@@ -1048,6 +1066,8 @@ operator|-
 name|warmingStartTime
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -1087,6 +1107,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|//////////////////////// SolrInfoMBeans methods //////////////////////
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String
@@ -1102,6 +1124,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|String
@@ -1114,6 +1138,8 @@ operator|.
 name|version
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription
 specifier|public
 name|String
@@ -1124,6 +1150,8 @@ return|return
 name|description
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCategory
 specifier|public
 name|Category
@@ -1136,6 +1164,8 @@ operator|.
 name|CACHE
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|String
@@ -1146,6 +1176,8 @@ return|return
 literal|"$URL$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDocs
 specifier|public
 name|URL
@@ -1221,6 +1253,8 @@ operator|+
 name|hundredths
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStatistics
 specifier|public
 name|NamedList

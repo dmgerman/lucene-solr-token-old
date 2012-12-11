@@ -339,6 +339,8 @@ literal|0
 return|;
 block|}
 comment|/** Called when reading from this content source is no longer required. */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 specifier|abstract

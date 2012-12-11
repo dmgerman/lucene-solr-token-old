@@ -252,6 +252,8 @@ operator|=
 name|flags
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compile
 specifier|public
 name|RegexCapabilities
@@ -403,6 +405,8 @@ operator|new
 name|CharacterIterator
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|char
 name|charAt
@@ -420,6 +424,8 @@ name|pos
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isEnd
@@ -436,6 +442,8 @@ operator|.
 name|length
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|substring
@@ -455,6 +463,8 @@ name|length
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|substring
@@ -506,6 +516,8 @@ name|flags
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|match
 specifier|public
 name|boolean
@@ -545,6 +557,8 @@ literal|0
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|prefix
 specifier|public
 name|String

@@ -1070,6 +1070,8 @@ name|xint
 parameter_list|)
 block|{           }
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Integer
 name|call
@@ -1452,6 +1454,8 @@ name|closed
 init|=
 literal|false
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|inform
 specifier|public
 name|void

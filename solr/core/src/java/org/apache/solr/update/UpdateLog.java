@@ -863,6 +863,8 @@ argument_list|(
 name|numDeletesToKeep
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|boolean
 name|removeEldestEntry
@@ -1042,6 +1044,8 @@ operator|=
 name|version
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1067,6 +1071,8 @@ return|return
 name|versionInfo
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -1810,6 +1816,8 @@ operator|new
 name|FilenameFilter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept
@@ -5203,6 +5211,8 @@ return|return
 name|state
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

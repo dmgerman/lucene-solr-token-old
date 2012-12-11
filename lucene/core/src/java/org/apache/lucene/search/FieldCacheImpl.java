@@ -529,6 +529,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|purgeAllCaches
 specifier|public
 specifier|synchronized
@@ -540,6 +542,8 @@ name|init
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|purge
 specifier|public
 specifier|synchronized
@@ -570,6 +574,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCacheEntries
 specifier|public
 specifier|synchronized
@@ -1837,6 +1843,8 @@ return|;
 block|}
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getBytes
 specifier|public
 name|byte
@@ -1869,6 +1877,8 @@ argument_list|)
 return|;
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getBytes
 specifier|public
 name|byte
@@ -2257,6 +2267,8 @@ return|;
 block|}
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getShorts
 specifier|public
 name|short
@@ -2289,6 +2301,8 @@ argument_list|)
 return|;
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getShorts
 specifier|public
 name|short
@@ -2809,6 +2823,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getInts
 specifier|public
 name|int
@@ -2841,6 +2857,8 @@ argument_list|)
 return|;
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getInts
 specifier|public
 name|int
@@ -3279,6 +3297,8 @@ name|retArray
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getDocsWithField
 specifier|public
 name|Bits
@@ -3596,6 +3616,8 @@ return|;
 block|}
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getFloats
 specifier|public
 name|float
@@ -3628,6 +3650,8 @@ argument_list|)
 return|;
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getFloats
 specifier|public
 name|float
@@ -4066,6 +4090,8 @@ name|retArray
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getLongs
 specifier|public
 name|long
@@ -4098,6 +4124,8 @@ argument_list|)
 return|;
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getLongs
 specifier|public
 name|long
@@ -4543,6 +4571,8 @@ return|;
 block|}
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getDoubles
 specifier|public
 name|double
@@ -4575,6 +4605,8 @@ argument_list|)
 return|;
 block|}
 comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getDoubles
 specifier|public
 name|double
@@ -5429,6 +5461,8 @@ name|NOT_FOUND
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|seekExact
 specifier|public
 name|void
@@ -5844,6 +5878,8 @@ return|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getTermsIndex
 specifier|public
 name|DocTermsIndex
@@ -5871,6 +5907,8 @@ name|FAST
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTermsIndex
 specifier|public
 name|DocTermsIndex
@@ -6519,6 +6557,8 @@ block|}
 block|}
 comment|// TODO: this if DocTermsIndex was already created, we
 comment|// should share it...
+annotation|@
+name|Override
 DECL|method|getTerms
 specifier|public
 name|DocTerms
@@ -6546,6 +6586,8 @@ name|FAST
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTerms
 specifier|public
 name|DocTerms
@@ -6923,6 +6965,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getDocTermOrds
 specifier|public
 name|DocTermOrds
@@ -7026,6 +7070,8 @@ specifier|volatile
 name|PrintStream
 name|infoStream
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setInfoStream
 specifier|public
 name|void
@@ -7040,6 +7086,8 @@ operator|=
 name|stream
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInfoStream
 specifier|public
 name|PrintStream

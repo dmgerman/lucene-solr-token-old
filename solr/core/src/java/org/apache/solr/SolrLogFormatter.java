@@ -2191,6 +2191,8 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTag
 specifier|public
 name|String
