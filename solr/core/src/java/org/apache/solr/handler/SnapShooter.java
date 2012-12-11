@@ -166,19 +166,6 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|IOContext
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
 name|Lock
 import|;
 end_import
@@ -220,6 +207,19 @@ name|solr
 operator|.
 name|core
 operator|.
+name|DirectoryFactory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|core
+operator|.
 name|SolrCore
 import|;
 end_import
@@ -242,7 +242,7 @@ name|LoggerFactory
 import|;
 end_import
 begin_comment
-comment|/**  *<p/> Provides functionality equivalent to the snapshooter script</p>  *  *  * @since solr 1.4  */
+comment|/**  *<p/> Provides functionality equivalent to the snapshooter script</p>  * This is no longer used in standard replication.  *  *  * @since solr 1.4  */
 end_comment
 begin_class
 DECL|class|SnapShooter
@@ -1250,9 +1250,9 @@ name|indexFile
 argument_list|,
 name|indexFile
 argument_list|,
-name|IOContext
+name|DirectoryFactory
 operator|.
-name|DEFAULT
+name|IOCONTEXT_NO_CACHE
 argument_list|)
 expr_stmt|;
 block|}

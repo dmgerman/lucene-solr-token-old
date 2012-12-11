@@ -71,6 +71,19 @@ operator|.
 name|FSDirectory
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|IOContext
+import|;
+end_import
 begin_comment
 comment|/**  * Directory provider which mimics original Solr   * {@link org.apache.lucene.store.FSDirectory} based behavior.  *   * File based DirectoryFactory implementations generally extend  * this class.  *   */
 end_comment
@@ -192,6 +205,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Override for more efficient moves.    *     * @throws IOException    *           If there is a low-level I/O error.    */
+annotation|@
+name|Override
 DECL|method|move
 specifier|public
 name|void
@@ -205,6 +220,9 @@ name|toDir
 parameter_list|,
 name|String
 name|fileName
+parameter_list|,
+name|IOContext
+name|ioContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -295,6 +313,8 @@ argument_list|,
 name|toDir
 argument_list|,
 name|fileName
+argument_list|,
+name|ioContext
 argument_list|)
 expr_stmt|;
 block|}
