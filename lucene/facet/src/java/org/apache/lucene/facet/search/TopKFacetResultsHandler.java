@@ -263,8 +263,7 @@ name|partitionSize
 init|=
 name|facetArrays
 operator|.
-name|getArraysLength
-argument_list|()
+name|arrayLength
 decl_stmt|;
 name|value
 operator|=
@@ -568,8 +567,7 @@ name|partitionSize
 init|=
 name|facetArrays
 operator|.
-name|getArraysLength
-argument_list|()
+name|arrayLength
 decl_stmt|;
 name|int
 name|endOffset
