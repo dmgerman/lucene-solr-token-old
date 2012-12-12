@@ -370,6 +370,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"SolrCoreState already closed"
+argument_list|)
+throw|;
+block|}
 synchronized|synchronized
 init|(
 name|writerPauseLock
@@ -626,7 +639,7 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Already closed"
+literal|"SolrCoreState already closed"
 argument_list|)
 throw|;
 block|}
