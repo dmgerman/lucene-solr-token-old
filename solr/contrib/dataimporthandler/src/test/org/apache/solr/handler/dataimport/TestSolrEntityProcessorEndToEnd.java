@@ -162,23 +162,6 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpClientUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|client
-operator|.
-name|solrj
-operator|.
-name|impl
-operator|.
 name|HttpSolrServer
 import|;
 end_import
@@ -235,6 +218,15 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -275,7 +267,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//private static final String SOLR_SOURCE_URL = "http://127.0.0.1:8983/solr";
 DECL|field|SOLR_CONFIG
 specifier|private
 specifier|static
@@ -490,13 +481,9 @@ name|jetty
 decl_stmt|;
 DECL|method|getDihConfigTagsInnerEntity
 specifier|private
-specifier|static
 name|String
 name|getDihConfigTagsInnerEntity
-parameter_list|(
-name|int
-name|port
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 literal|"<dataConfig>\r\n"
@@ -516,9 +503,7 @@ operator|+
 literal|"     url='"
 operator|+
 name|getSourceUrl
-argument_list|(
-name|port
-argument_list|)
+argument_list|()
 operator|+
 literal|"' fields='id,desc'>\r\n"
 operator|+
@@ -537,15 +522,14 @@ return|;
 block|}
 DECL|method|generateDIHConfig
 specifier|private
-specifier|static
 name|String
 name|generateDIHConfig
 parameter_list|(
 name|String
 name|options
 parameter_list|,
-name|int
-name|port
+name|boolean
+name|useFakeUrl
 parameter_list|)
 block|{
 return|return
@@ -557,10 +541,14 @@ literal|"<entity name='se' processor='SolrEntityProcessor'"
 operator|+
 literal|"   url='"
 operator|+
+operator|(
+name|useFakeUrl
+condition|?
+literal|"http://[ff01::114]:33332/solr"
+else|:
 name|getSourceUrl
-argument_list|(
-name|port
-argument_list|)
+argument_list|()
+operator|)
 operator|+
 literal|"' "
 operator|+
@@ -575,18 +563,17 @@ return|;
 block|}
 DECL|method|getSourceUrl
 specifier|private
-specifier|static
 name|String
 name|getSourceUrl
-parameter_list|(
-name|int
-name|port
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 literal|"http://127.0.0.1:"
 operator|+
-name|port
+name|jetty
+operator|.
+name|getLocalPort
+argument_list|()
 operator|+
 literal|"/solr"
 return|;
@@ -788,10 +775,7 @@ name|generateDIHConfig
 argument_list|(
 literal|"query='*:*' rows='2' fl='id,desc' onError='skip'"
 argument_list|,
-name|jetty
-operator|.
-name|getLocalPort
-argument_list|()
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -904,10 +888,7 @@ name|generateDIHConfig
 argument_list|(
 literal|"query='*:*' fq='desc:Description1*,desc:Description*2' rows='2'"
 argument_list|,
-name|jetty
-operator|.
-name|getLocalPort
-argument_list|()
+literal|false
 argument_list|)
 argument_list|,
 name|map
@@ -996,10 +977,7 @@ name|generateDIHConfig
 argument_list|(
 literal|"query='*:*' fl='id' rows='2'"
 argument_list|,
-name|jetty
-operator|.
-name|getLocalPort
-argument_list|()
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1115,12 +1093,7 @@ expr_stmt|;
 name|runFullImport
 argument_list|(
 name|getDihConfigTagsInnerEntity
-argument_list|(
-name|jetty
-operator|.
-name|getLocalPort
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1242,10 +1215,7 @@ name|generateDIHConfig
 argument_list|(
 literal|"query='*:*' rows='2' fl='id,desc' onError='skip'"
 argument_list|,
-name|jetty
-operator|.
-name|getLocalPort
-argument_list|()
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1312,10 +1282,7 @@ name|generateDIHConfig
 argument_list|(
 literal|"query='bogus:3' rows='2' fl='id,desc' onError='abort'"
 argument_list|,
-name|jetty
-operator|.
-name|getLocalPort
-argument_list|()
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1557,43 +1524,14 @@ name|sd
 argument_list|)
 expr_stmt|;
 block|}
-name|HttpClient
-name|client
-init|=
-name|HttpClientUtil
-operator|.
-name|createClient
-argument_list|(
-literal|null
-argument_list|)
-decl_stmt|;
-name|URL
-name|url
-init|=
-operator|new
-name|URL
-argument_list|(
-name|getSourceUrl
-argument_list|(
-name|jetty
-operator|.
-name|getLocalPort
-argument_list|()
-argument_list|)
-argument_list|)
-decl_stmt|;
 name|HttpSolrServer
 name|solrServer
 init|=
 operator|new
 name|HttpSolrServer
 argument_list|(
-name|url
-operator|.
-name|toExternalForm
+name|getSourceUrl
 argument_list|()
-argument_list|,
-name|client
 argument_list|)
 decl_stmt|;
 name|solrServer
