@@ -1019,17 +1019,6 @@ name|fstBuilder
 operator|.
 name|finish
 argument_list|()
-operator|.
-name|pack
-argument_list|(
-literal|2
-argument_list|,
-literal|100000
-argument_list|,
-name|PackedInts
-operator|.
-name|DEFAULT
-argument_list|)
 decl_stmt|;
 name|System
 operator|.
