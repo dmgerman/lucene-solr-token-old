@@ -387,6 +387,11 @@ specifier|private
 name|Double
 name|maxWriteMBPerSecDefault
 decl_stmt|;
+DECL|field|closed
+specifier|private
+name|boolean
+name|closed
+decl_stmt|;
 DECL|interface|CloseListener
 specifier|public
 interface|interface
@@ -600,6 +605,12 @@ init|(
 name|this
 init|)
 block|{
+name|this
+operator|.
+name|closed
+operator|=
+literal|true
+expr_stmt|;
 for|for
 control|(
 name|CacheValue
@@ -662,6 +673,17 @@ name|val
 operator|.
 name|refCnt
 assert|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Closing directory when closing factory:"
+operator|+
+name|val
+operator|.
+name|path
+argument_list|)
+expr_stmt|;
 name|val
 operator|.
 name|directory
@@ -825,6 +847,17 @@ block|}
 block|}
 try|try
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Closing directory:"
+operator|+
+name|cacheValue
+operator|.
+name|path
+argument_list|)
+expr_stmt|;
 name|directory
 operator|.
 name|close
@@ -1015,6 +1048,19 @@ init|(
 name|this
 init|)
 block|{
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Already closed"
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|CacheValue
 name|cacheValue
