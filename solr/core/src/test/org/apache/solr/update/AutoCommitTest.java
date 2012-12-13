@@ -1630,7 +1630,7 @@ name|toContentStreams
 argument_list|(
 name|adoc
 argument_list|(
-literal|1000
+literal|2000
 argument_list|,
 literal|"id"
 argument_list|,
