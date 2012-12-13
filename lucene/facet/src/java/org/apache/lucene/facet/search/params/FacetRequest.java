@@ -842,7 +842,7 @@ name|clCache
 init|=
 name|sParams
 operator|.
-name|getClCache
+name|getCategoryListCache
 argument_list|()
 decl_stmt|;
 name|CategoryListParams

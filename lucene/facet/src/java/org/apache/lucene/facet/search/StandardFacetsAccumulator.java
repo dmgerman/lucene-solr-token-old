@@ -348,6 +348,9 @@ operator|.
 name|partitionSize
 argument_list|(
 name|searchParams
+operator|.
+name|getFacetIndexingParams
+argument_list|()
 argument_list|,
 name|taxonomyReader
 argument_list|)
@@ -411,6 +414,9 @@ operator|.
 name|partitionSize
 argument_list|(
 name|searchParams
+operator|.
+name|getFacetIndexingParams
+argument_list|()
 argument_list|,
 name|taxonomyReader
 argument_list|)
@@ -477,7 +483,7 @@ argument_list|()
 argument_list|,
 name|searchParams
 operator|.
-name|getClCache
+name|getCategoryListCache
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -597,29 +603,14 @@ name|e
 parameter_list|)
 block|{
 comment|// give up: this should not happen!
-name|IOException
-name|ioEx
-init|=
+throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"PANIC: Got unexpected exception while trying to get/calculate total counts: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|ioEx
-operator|.
-name|initCause
-argument_list|(
+literal|"PANIC: Got unexpected exception while trying to get/calculate total counts"
+argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
-throw|throw
-name|ioEx
 throw|;
 block|}
 block|}

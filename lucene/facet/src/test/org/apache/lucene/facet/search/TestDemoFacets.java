@@ -517,18 +517,12 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// Holds all configuration for a facet request:
+comment|// Count both "Publish Date" and "Author" dimensions:
 name|FacetSearchParams
 name|fsp
 init|=
 operator|new
 name|FacetSearchParams
-argument_list|()
-decl_stmt|;
-comment|// Count both "Publish Date" and "Author" dimensions:
-name|fsp
-operator|.
-name|addFacetRequest
 argument_list|(
 operator|new
 name|CountFacetRequest
@@ -541,12 +535,7 @@ argument_list|)
 argument_list|,
 literal|10
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|fsp
-operator|.
-name|addFacetRequest
-argument_list|(
+argument_list|,
 operator|new
 name|CountFacetRequest
 argument_list|(
@@ -559,7 +548,7 @@ argument_list|,
 literal|10
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// Aggregatses the facet counts:
 name|FacetsCollector
 name|c
@@ -649,7 +638,19 @@ name|fsp
 operator|=
 operator|new
 name|FacetSearchParams
-argument_list|()
+argument_list|(
+operator|new
+name|CountFacetRequest
+argument_list|(
+operator|new
+name|CategoryPath
+argument_list|(
+literal|"Author"
+argument_list|)
+argument_list|,
+literal|10
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|Query
 name|q2
@@ -673,23 +674,6 @@ literal|'/'
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|fsp
-operator|.
-name|addFacetRequest
-argument_list|(
-operator|new
-name|CountFacetRequest
-argument_list|(
-operator|new
-name|CategoryPath
-argument_list|(
-literal|"Author"
-argument_list|)
-argument_list|,
-literal|10
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|c
 operator|=
 operator|new

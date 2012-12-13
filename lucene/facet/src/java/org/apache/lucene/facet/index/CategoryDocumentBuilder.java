@@ -216,23 +216,6 @@ name|index
 operator|.
 name|params
 operator|.
-name|DefaultFacetIndexingParams
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|facet
-operator|.
-name|index
-operator|.
-name|params
-operator|.
 name|FacetIndexingParams
 import|;
 end_import
@@ -355,7 +338,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * A utility class which allows attachment of {@link CategoryPath}s or  * {@link CategoryAttribute}s to a given document using a taxonomy.<br>  * Construction could be done with either a given {@link FacetIndexingParams} or  * the default implementation {@link DefaultFacetIndexingParams}.<br>  * A CategoryDocumentBuilder can be reused by repeatedly setting the categories  * and building the document. Categories are provided either as  * {@link CategoryAttribute} elements through {@link #setCategories(Iterable)},  * or as {@link CategoryPath} elements through  * {@link #setCategoryPaths(Iterable)}.  *<p>  * Note that both {@link #setCategories(Iterable)} and  * {@link #setCategoryPaths(Iterable)} return this  * {@link CategoryDocumentBuilder}, allowing the following pattern: {@code new  * CategoryDocumentBuilder(taxonomy,  * params).setCategories(categories).build(doc)}.  *   * @lucene.experimental  */
+comment|/**  * A utility class which allows attachment of {@link CategoryPath}s or  * {@link CategoryAttribute}s to a given document using a taxonomy.<br>  * Construction could be done with either a given {@link FacetIndexingParams} or  * the default implementation {@link FacetIndexingParams}.<br>  * A CategoryDocumentBuilder can be reused by repeatedly setting the categories  * and building the document. Categories are provided either as  * {@link CategoryAttribute} elements through {@link #setCategories(Iterable)},  * or as {@link CategoryPath} elements through  * {@link #setCategoryPaths(Iterable)}.  *<p>  * Note that both {@link #setCategories(Iterable)} and  * {@link #setCategoryPaths(Iterable)} return this  * {@link CategoryDocumentBuilder}, allowing the following pattern: {@code new  * CategoryDocumentBuilder(taxonomy,  * params).setCategories(categories).build(doc)}.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|CategoryDocumentBuilder
@@ -407,7 +390,7 @@ argument_list|>
 argument_list|>
 name|categoriesMap
 decl_stmt|;
-comment|/**    * Creating a facets document builder with default facet indexing    * parameters.<br>    * See:    * {@link #CategoryDocumentBuilder(TaxonomyWriter, FacetIndexingParams)}    *     * @param taxonomyWriter    *            to which new categories will be added, as well as translating    *            known categories to ordinals    *    */
+comment|/**    * Creating a facets document builder with default facet indexing parameters.    *     * @param taxonomyWriter    *          to which new categories will be added, as well as translating    *          known categories to ordinals    *     * @see #CategoryDocumentBuilder(TaxonomyWriter, FacetIndexingParams)    */
 DECL|method|CategoryDocumentBuilder
 specifier|public
 name|CategoryDocumentBuilder
@@ -420,9 +403,9 @@ name|this
 argument_list|(
 name|taxonomyWriter
 argument_list|,
-operator|new
-name|DefaultFacetIndexingParams
-argument_list|()
+name|FacetIndexingParams
+operator|.
+name|ALL_PARENTS
 argument_list|)
 expr_stmt|;
 block|}
