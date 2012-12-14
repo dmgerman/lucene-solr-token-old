@@ -1833,6 +1833,13 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|dir
+operator|!=
+literal|null
+condition|)
+block|{
 try|try
 block|{
 name|getDirectoryFactory
@@ -1861,6 +1868,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
