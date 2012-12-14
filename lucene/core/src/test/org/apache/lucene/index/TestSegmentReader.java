@@ -141,6 +141,15 @@ operator|.
 name|_TestUtil
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Assume
+import|;
+end_import
 begin_class
 DECL|class|TestSegmentReader
 specifier|public
@@ -1006,6 +1015,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|Assume
+operator|.
+name|assumeTrue
+argument_list|(
+name|_TestUtil
+operator|.
+name|canUseSimpleNorms
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// test omit norms
 for|for
 control|(
@@ -1115,12 +1134,12 @@ literal|null
 condition|)
 block|{
 comment|// test for norms of null
-name|DocValues
+name|NumericDocValues
 name|norms
 init|=
-name|MultiDocValues
+name|MultiSimpleDocValues
 operator|.
-name|getNormDocValues
+name|simpleNormValues
 argument_list|(
 name|reader
 argument_list|,
