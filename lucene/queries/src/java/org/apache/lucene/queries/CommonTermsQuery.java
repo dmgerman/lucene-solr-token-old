@@ -583,9 +583,7 @@ argument_list|,
 name|queryTerms
 argument_list|)
 expr_stmt|;
-name|Query
-name|q
-init|=
+return|return
 name|buildQuery
 argument_list|(
 name|maxDoc
@@ -594,27 +592,6 @@ name|contextArray
 argument_list|,
 name|queryTerms
 argument_list|)
-decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|reader
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|q
-argument_list|)
-expr_stmt|;
-return|return
-name|q
 return|;
 block|}
 DECL|method|buildQuery
@@ -727,31 +704,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"term: "
-operator|+
-name|queryTerms
-index|[
-name|i
-index|]
-operator|+
-literal|" context: "
-operator|+
-operator|-
-literal|1
-operator|+
-literal|" maxTermFrequency: "
-operator|+
-name|maxTermFrequency
-operator|+
-literal|" LOW"
-argument_list|)
-expr_stmt|;
 name|lowFreq
 operator|.
 name|add
@@ -809,33 +761,6 @@ argument_list|)
 operator|)
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"term: "
-operator|+
-name|queryTerms
-index|[
-name|i
-index|]
-operator|+
-literal|" context: "
-operator|+
-name|termContext
-operator|.
-name|docFreq
-argument_list|()
-operator|+
-literal|" maxTermFrequency: "
-operator|+
-name|maxTermFrequency
-operator|+
-literal|" HIGH"
-argument_list|)
-expr_stmt|;
 name|highFreq
 operator|.
 name|add
@@ -857,33 +782,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"term: "
-operator|+
-name|queryTerms
-index|[
-name|i
-index|]
-operator|+
-literal|" context: "
-operator|+
-name|termContext
-operator|.
-name|docFreq
-argument_list|()
-operator|+
-literal|" maxTermFrequency: "
-operator|+
-name|maxTermFrequency
-operator|+
-literal|" LOW"
-argument_list|)
-expr_stmt|;
 name|lowFreq
 operator|.
 name|add
@@ -1272,7 +1170,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**    * Returns true iff {@link Similarity#coord(int,int)} is disabled in scoring    * for the high and low frequency query instance. The top level query will    * always disable coords.    */
+comment|/**    * Returns true iff {@link Similarity#coord(int,int)} is disabled in scoring    * for the high and low frequency query instance. The top level query will    * always disable coords.    *     * @see #CommonTermsQuery(Occur, Occur, float, boolean)    */
 DECL|method|isCoordDisabled
 specifier|public
 name|boolean
