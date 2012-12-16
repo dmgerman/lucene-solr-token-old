@@ -631,6 +631,12 @@ condition|(
 operator|!
 name|core
 operator|.
+name|isReloaded
+argument_list|()
+operator|&&
+operator|!
+name|core
+operator|.
 name|getDirectoryFactory
 argument_list|()
 operator|.
