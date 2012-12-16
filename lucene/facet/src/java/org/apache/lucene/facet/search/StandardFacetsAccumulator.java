@@ -46,6 +46,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -673,11 +682,23 @@ operator|*
 name|partitionSize
 decl_stmt|;
 comment|// for each partition we go over all requests and handle
-comment|// each, where
-comment|// the request maintains the merged result.
-comment|// In this implementation merges happen after each
-comment|// partition,
+comment|// each, where the request maintains the merged result.
+comment|// In this implementation merges happen after each partition,
 comment|// but other impl could merge only at the end.
+specifier|final
+name|HashSet
+argument_list|<
+name|FacetRequest
+argument_list|>
+name|handledRequests
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|FacetRequest
+argument_list|>
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|FacetRequest
@@ -688,6 +709,17 @@ operator|.
 name|getFacetRequests
 argument_list|()
 control|)
+block|{
+comment|// Handle and merge only facet requests which were not already handled.
+if|if
+condition|(
+name|handledRequests
+operator|.
+name|add
+argument_list|(
+name|fr
+argument_list|)
+condition|)
 block|{
 name|FacetResultsHandler
 name|frHndlr
@@ -749,6 +781,7 @@ argument_list|,
 name|res4fr
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1126,7 +1159,7 @@ init|=
 name|getTotalCountsFactor
 argument_list|()
 decl_stmt|;
-comment|// fix total counts, but only if the effect of this would be meaningfull.
+comment|// fix total counts, but only if the effect of this would be meaningful.
 if|if
 condition|(
 name|totalCountsFactor
