@@ -699,7 +699,7 @@ block|}
 comment|//}
 name|workQueue
 operator|.
-name|remove
+name|poll
 argument_list|()
 expr_stmt|;
 block|}
