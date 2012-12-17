@@ -1217,7 +1217,7 @@ operator|.
 name|getZkController
 argument_list|()
 operator|.
-name|getCmdDistribExecutor
+name|getUpdateShardHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
