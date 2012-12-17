@@ -1142,7 +1142,7 @@ name|expectedDocCount
 operator|&&
 name|timeSlept
 operator|<
-literal|30000
+literal|45000
 condition|)
 do|;
 return|return
