@@ -3116,7 +3116,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Register shard - core:"
+literal|"Register replica - core:"
 operator|+
 name|coreName
 operator|+
@@ -3124,7 +3124,14 @@ literal|" address:"
 operator|+
 name|baseUrl
 operator|+
-literal|" shardId:"
+literal|" collection:"
+operator|+
+name|cloudDesc
+operator|.
+name|getCollectionName
+argument_list|()
+operator|+
+literal|" shard:"
 operator|+
 name|shardId
 argument_list|)
