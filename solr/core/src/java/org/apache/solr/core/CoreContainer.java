@@ -250,18 +250,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|RejectedExecutionException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|SynchronousQueue
+name|LinkedBlockingQueue
 import|;
 end_import
 begin_import
@@ -2769,6 +2758,9 @@ argument_list|(
 name|slf4jImpl
 argument_list|)
 expr_stmt|;
+comment|//      else if( "Log4j".equals(fname) ) {
+comment|//        logging = new Log4jWatcher(slf4jImpl);
+comment|//      }
 block|}
 else|else
 block|{
@@ -3299,20 +3291,18 @@ operator|=
 operator|new
 name|ThreadPoolExecutor
 argument_list|(
-literal|0
+name|coreLoadThreads
 argument_list|,
-name|Integer
-operator|.
-name|MAX_VALUE
+name|coreLoadThreads
 argument_list|,
-literal|5
+literal|1
 argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|,
 operator|new
-name|SynchronousQueue
+name|LinkedBlockingQueue
 argument_list|<
 name|Runnable
 argument_list|>
@@ -3327,17 +3317,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-comment|// 4 threads at a time max
-specifier|final
-name|AdjustableSemaphore
-name|semaphore
-init|=
-operator|new
-name|AdjustableSemaphore
-argument_list|(
-name|coreLoadThreads
-argument_list|)
-decl_stmt|;
 name|CompletionService
 argument_list|<
 name|SolrCore
@@ -3800,8 +3779,7 @@ name|isLoadOnStartup
 argument_list|()
 condition|)
 block|{
-comment|// Just like current
-comment|// case.
+comment|// The normal case
 name|Callable
 argument_list|<
 name|SolrCore
@@ -3898,55 +3876,12 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|semaphore
-operator|.
-name|release
-argument_list|()
-expr_stmt|;
 return|return
 name|c
 return|;
 block|}
 block|}
 decl_stmt|;
-try|try
-block|{
-name|semaphore
-operator|.
-name|acquire
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|interrupt
-argument_list|()
-expr_stmt|;
-throw|throw
-operator|new
-name|SolrException
-argument_list|(
-name|ErrorCode
-operator|.
-name|SERVER_ERROR
-argument_list|,
-literal|"Interrupted while loading SolrCore(s)"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-try|try
-block|{
 name|pending
 operator|.
 name|add
@@ -3959,22 +3894,6 @@ name|task
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|RejectedExecutionException
-name|e
-parameter_list|)
-block|{
-name|semaphore
-operator|.
-name|release
-argument_list|()
-expr_stmt|;
-throw|throw
-name|e
-throw|;
-block|}
 block|}
 else|else
 block|{
@@ -4089,7 +4008,6 @@ name|ExecutionException
 name|e
 parameter_list|)
 block|{
-comment|// shouldn't happen since we catch exceptions ourselves
 name|SolrException
 operator|.
 name|log
@@ -4098,7 +4016,7 @@ name|SolrCore
 operator|.
 name|log
 argument_list|,
-literal|"error sending update request to shard"
+literal|"error loading core"
 argument_list|,
 name|e
 argument_list|)
@@ -4121,7 +4039,7 @@ name|ErrorCode
 operator|.
 name|SERVICE_UNAVAILABLE
 argument_list|,
-literal|"interrupted waiting for shard update response"
+literal|"interrupted while loading core"
 argument_list|,
 name|e
 argument_list|)
@@ -7068,6 +6986,7 @@ operator|.
 name|open
 argument_list|()
 expr_stmt|;
+comment|// increment the ref count while still synchronized
 return|return
 name|core
 return|;
