@@ -695,6 +695,12 @@ specifier|protected
 name|int
 name|sliceCount
 decl_stmt|;
+DECL|field|controlClientCloud
+specifier|protected
+name|CloudSolrServer
+name|controlClientCloud
+decl_stmt|;
+comment|// cloud version of the control client
 DECL|field|cloudClient
 specifier|protected
 specifier|volatile
@@ -1145,6 +1151,13 @@ name|setUp
 argument_list|()
 expr_stmt|;
 comment|// ignoreException(".*");
+if|if
+condition|(
+name|sliceCount
+operator|>
+literal|0
+condition|)
+block|{
 name|System
 operator|.
 name|setProperty
@@ -1159,6 +1172,17 @@ name|sliceCount
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"numShards"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|BeforeClass
@@ -1407,7 +1431,7 @@ operator|.
 name|NUM_SHARDS_PROP
 argument_list|)
 decl_stmt|;
-comment|// we want hashes by default, so set to 1 shard as opposed to leaving unset
+comment|// we want hashes by default for the control, so set to 1 shard as opposed to leaving unset
 comment|// System.clearProperty(ZkStateReader.NUM_SHARDS_PROP);
 name|System
 operator|.
@@ -1524,6 +1548,42 @@ name|getLocalPort
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|sliceCount
+operator|<=
+literal|0
+condition|)
+block|{
+comment|// for now, just create the cloud client for the control if we don't create the normal cloud client.
+comment|// this can change if more tests need it.
+name|controlClientCloud
+operator|=
+name|createCloudClient
+argument_list|(
+literal|"control_collection"
+argument_list|)
+expr_stmt|;
+name|controlClientCloud
+operator|.
+name|connect
+argument_list|()
+expr_stmt|;
+name|waitForCollection
+argument_list|(
+name|controlClientCloud
+operator|.
+name|getZkStateReader
+argument_list|()
+argument_list|,
+literal|"control_collection"
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// NOTE: we are skipping creation of the chaos monkey by returning here
+return|return;
+block|}
 name|initCloud
 argument_list|()
 expr_stmt|;
@@ -1534,15 +1594,37 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// wait until shards have started registering...
-name|ZkStateReader
-name|zkStateReader
-init|=
+name|waitForCollection
+argument_list|(
 name|cloudClient
 operator|.
 name|getZkStateReader
 argument_list|()
-decl_stmt|;
+argument_list|,
+name|DEFAULT_COLLECTION
+argument_list|,
+name|sliceCount
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|waitForCollection
+specifier|protected
+name|void
+name|waitForCollection
+parameter_list|(
+name|ZkStateReader
+name|reader
+parameter_list|,
+name|String
+name|collection
+parameter_list|,
+name|int
+name|slices
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// wait until shards have started registering...
 name|int
 name|cnt
 init|=
@@ -1551,7 +1633,7 @@ decl_stmt|;
 while|while
 condition|(
 operator|!
-name|zkStateReader
+name|reader
 operator|.
 name|getClusterState
 argument_list|()
@@ -1561,7 +1643,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|DEFAULT_COLLECTION
+name|collection
 argument_list|)
 condition|)
 block|{
@@ -1576,7 +1658,9 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"timeout waiting for collection1 in cluster state"
+literal|"timeout waiting for collection in cluster state: collection="
+operator|+
+name|collection
 argument_list|)
 throw|;
 block|}
@@ -1597,20 +1681,20 @@ literal|30
 expr_stmt|;
 while|while
 condition|(
-name|zkStateReader
+name|reader
 operator|.
 name|getClusterState
 argument_list|()
 operator|.
 name|getSlices
 argument_list|(
-name|DEFAULT_COLLECTION
+name|collection
 argument_list|)
 operator|.
 name|size
 argument_list|()
-operator|!=
-name|sliceCount
+operator|<
+name|slices
 condition|)
 block|{
 if|if
@@ -1624,7 +1708,13 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"timeout waiting for collection shards to come up"
+literal|"timeout waiting for collection shards to come up: collection="
+operator|+
+name|collection
+operator|+
+literal|"nSlices="
+operator|+
+name|slices
 argument_list|)
 throw|;
 block|}
@@ -7726,6 +7816,19 @@ literal|null
 condition|)
 block|{
 name|cloudClient
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|controlClientCloud
+operator|!=
+literal|null
+condition|)
+block|{
+name|controlClientCloud
 operator|.
 name|shutdown
 argument_list|()
