@@ -5952,7 +5952,7 @@ name|onlyInA
 operator|.
 name|addAll
 argument_list|(
-name|b
+name|onlyInB
 argument_list|)
 expr_stmt|;
 return|return
