@@ -4140,7 +4140,7 @@ condition|)
 block|{
 name|ExecutorUtil
 operator|.
-name|shutdownNowAndAwaitTermination
+name|shutdownAndAwaitTermination
 argument_list|(
 name|coreLoadExecutor
 argument_list|)

@@ -1570,7 +1570,7 @@ literal|true
 expr_stmt|;
 name|ExecutorUtil
 operator|.
-name|shutdownNowAndAwaitTermination
+name|shutdownAndAwaitTermination
 argument_list|(
 name|recoveryCmdExecutor
 argument_list|)
