@@ -152,6 +152,13 @@ name|ShardRoutingCustomTest
 extends|extends
 name|AbstractFullDistribZkTestBase
 block|{
+DECL|field|collection
+name|String
+name|collection
+init|=
+name|DEFAULT_COLLECTION
+decl_stmt|;
+comment|// enable this to be configurable (more work needs to be done)
 annotation|@
 name|BeforeClass
 DECL|method|beforeShardHashingTest
@@ -217,9 +224,8 @@ operator|!
 name|testFinished
 condition|)
 block|{
-name|printLayoutOnTearDown
-operator|=
-literal|true
+name|printLayout
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -232,6 +238,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|printLayout
+argument_list|()
+expr_stmt|;
+name|startCloudJetty
+argument_list|(
+name|collection
+argument_list|,
+literal|"shardA"
+argument_list|)
+expr_stmt|;
 name|printLayout
 argument_list|()
 expr_stmt|;
