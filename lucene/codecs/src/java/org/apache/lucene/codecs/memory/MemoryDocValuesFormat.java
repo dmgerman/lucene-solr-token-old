@@ -292,14 +292,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// nocommit is that clone() ok...?  it IS necessary
 name|NumericDocValues
 name|valuesIn
 init|=
 name|producer
-operator|.
-name|clone
-argument_list|()
 operator|.
 name|getNumeric
 argument_list|(
@@ -483,14 +479,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// nocommit is that clone() ok...?  it IS necessary
 name|BinaryDocValues
 name|valuesIn
 init|=
 name|producer
-operator|.
-name|clone
-argument_list|()
 operator|.
 name|getBinary
 argument_list|(
@@ -699,14 +691,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// nocommit is that clone() ok...?  it IS necessary
 name|SortedDocValues
 name|valuesIn
 init|=
 name|producer
-operator|.
-name|clone
-argument_list|()
 operator|.
 name|getSorted
 argument_list|(
