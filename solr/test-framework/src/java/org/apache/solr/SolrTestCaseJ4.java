@@ -624,14 +624,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-assert|assert
+comment|// allow calling more than once so a subclass can override a base class
+if|if
+condition|(
 operator|!
 name|changedFactory
-assert|;
-name|changedFactory
-operator|=
-literal|true
-expr_stmt|;
+condition|)
+block|{
 name|savedFactory
 operator|=
 name|System
@@ -641,6 +640,7 @@ argument_list|(
 literal|"solr.DirectoryFactory"
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|factory
@@ -674,6 +674,10 @@ literal|"solr.directoryFactory"
 argument_list|,
 name|factory
 argument_list|)
+expr_stmt|;
+name|changedFactory
+operator|=
+literal|true
 expr_stmt|;
 block|}
 DECL|method|resetFactory
