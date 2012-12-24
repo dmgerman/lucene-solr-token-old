@@ -568,7 +568,7 @@ name|int
 name|mergeMaxNumSegments
 decl_stmt|;
 DECL|field|writeLock
-specifier|private
+specifier|protected
 name|Lock
 name|writeLock
 decl_stmt|;
