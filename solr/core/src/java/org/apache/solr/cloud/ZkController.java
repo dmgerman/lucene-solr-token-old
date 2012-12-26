@@ -72,6 +72,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|UnknownHostException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -1961,7 +1970,11 @@ condition|)
 block|{
 name|String
 name|hostaddress
-init|=
+decl_stmt|;
+try|try
+block|{
+name|hostaddress
+operator|=
 name|InetAddress
 operator|.
 name|getLocalHost
@@ -1969,7 +1982,20 @@ argument_list|()
 operator|.
 name|getHostAddress
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UnknownHostException
+name|e
+parameter_list|)
+block|{
+name|hostaddress
+operator|=
+literal|"127.0.0.1"
+expr_stmt|;
+comment|// cannot resolve system hostname, fall through
+block|}
 comment|// Re-get the IP again for "127.0.0.1", the other case we trust the hosts
 comment|// file is right.
 if|if
