@@ -4015,7 +4015,7 @@ operator|)
 operator|&&
 operator|(
 operator|(
-name|value
+name|indexDir
 operator|=
 name|server
 operator|.
@@ -4023,26 +4023,11 @@ name|getAttribute
 argument_list|(
 name|mbean
 argument_list|,
-literal|"source"
+literal|"coreName"
 argument_list|)
 operator|)
 operator|!=
 literal|null
-operator|&&
-name|value
-operator|.
-name|toString
-argument_list|()
-operator|.
-name|contains
-argument_list|(
-name|SolrCore
-operator|.
-name|class
-operator|.
-name|getSimpleName
-argument_list|()
-argument_list|)
 operator|)
 operator|&&
 operator|(
@@ -4138,7 +4123,8 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// ignore, just continue - probably a "category" or "source" attribute not found
+comment|// ignore, just continue - probably a "category" or "source" attribute
+comment|// not found
 block|}
 block|}
 block|}
@@ -4152,6 +4138,10 @@ name|class
 operator|.
 name|getSimpleName
 argument_list|()
+operator|+
+literal|" : "
+operator|+
+name|indexDirToShardNamesMap
 argument_list|,
 name|indexDirToShardNamesMap
 operator|.
