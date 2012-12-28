@@ -497,7 +497,9 @@ expr_stmt|;
 name|doTestNumRequests
 argument_list|()
 expr_stmt|;
-comment|// doAtomicUpdate();  TODO: this currently fails!
+name|doAtomicUpdate
+argument_list|()
+expr_stmt|;
 name|testFinished
 operator|=
 literal|true
