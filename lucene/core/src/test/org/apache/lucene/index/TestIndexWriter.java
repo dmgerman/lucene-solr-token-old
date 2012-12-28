@@ -7530,7 +7530,16 @@ operator|instanceof
 name|InterruptedException
 argument_list|)
 expr_stmt|;
-comment|// issue 100 interrupts to child thread
+comment|// issue 300 interrupts to child thread
+specifier|final
+name|int
+name|numInterrupts
+init|=
+name|atLeast
+argument_list|(
+literal|300
+argument_list|)
+decl_stmt|;
 name|int
 name|i
 init|=
@@ -7540,7 +7549,7 @@ while|while
 condition|(
 name|i
 operator|<
-literal|100
+name|numInterrupts
 condition|)
 block|{
 name|Thread
