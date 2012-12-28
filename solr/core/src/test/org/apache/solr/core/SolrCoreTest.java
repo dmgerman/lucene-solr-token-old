@@ -1384,10 +1384,7 @@ name|get
 argument_list|(
 name|SpellCheckComponent
 operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
+name|COMPONENT_NAME
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -1406,10 +1403,7 @@ name|get
 argument_list|(
 name|QueryComponent
 operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
+name|COMPONENT_NAME
 argument_list|)
 expr_stmt|;
 name|assertNotNull
