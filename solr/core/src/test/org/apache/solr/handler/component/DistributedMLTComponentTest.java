@@ -84,7 +84,7 @@ name|Slow
 annotation|@
 name|Ignore
 argument_list|(
-literal|"distrib mlt not working right"
+literal|"fails on freebsd"
 argument_list|)
 DECL|class|DistributedMLTComponentTest
 specifier|public
@@ -664,6 +664,8 @@ expr_stmt|;
 comment|// keep in mind that MLT params influence stats that are calulated
 comment|// per shard - because of this, depending on params, distrib and single
 comment|// shard queries will not match.
+comment|// because distrib and single node do not currently sort exactly the same,
+comment|// we ask for an mlt.count of 20 to ensure both include all results
 name|query
 argument_list|(
 literal|"q"
@@ -705,6 +707,10 @@ argument_list|,
 literal|"shards.qt"
 argument_list|,
 name|requestHandlerName
+argument_list|,
+literal|"mlt.count"
+argument_list|,
+literal|"20"
 argument_list|)
 expr_stmt|;
 name|query
@@ -748,6 +754,10 @@ argument_list|,
 literal|"shards.qt"
 argument_list|,
 name|requestHandlerName
+argument_list|,
+literal|"mlt.count"
+argument_list|,
+literal|"20"
 argument_list|)
 expr_stmt|;
 name|query
@@ -791,6 +801,10 @@ argument_list|,
 literal|"shards.qt"
 argument_list|,
 name|requestHandlerName
+argument_list|,
+literal|"mlt.count"
+argument_list|,
+literal|"20"
 argument_list|)
 expr_stmt|;
 name|query
@@ -834,6 +848,10 @@ argument_list|,
 literal|"shards.qt"
 argument_list|,
 name|requestHandlerName
+argument_list|,
+literal|"mlt.count"
+argument_list|,
+literal|"20"
 argument_list|)
 expr_stmt|;
 block|}
