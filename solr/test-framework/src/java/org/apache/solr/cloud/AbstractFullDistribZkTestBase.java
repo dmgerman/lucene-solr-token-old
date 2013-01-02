@@ -7329,6 +7329,11 @@ block|{
 operator|++
 name|i
 expr_stmt|;
+name|boolean
+name|addFailed
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|doDeletes
@@ -7475,6 +7480,10 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|addFailed
+operator|=
+literal|true
+expr_stmt|;
 name|System
 operator|.
 name|err
@@ -7527,6 +7536,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
+name|addFailed
+operator|&&
 name|doDeletes
 operator|&&
 name|random
