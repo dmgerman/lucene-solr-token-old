@@ -817,8 +817,6 @@ init|=
 operator|new
 name|PostingsHighlighter
 argument_list|(
-literal|"body"
-argument_list|,
 name|Integer
 operator|.
 name|MAX_VALUE
@@ -854,8 +852,6 @@ init|=
 operator|new
 name|PostingsHighlighter
 argument_list|(
-literal|"body"
-argument_list|,
 name|Integer
 operator|.
 name|MAX_VALUE
@@ -944,6 +940,8 @@ name|p1
 operator|.
 name|highlight
 argument_list|(
+literal|"body"
+argument_list|,
 name|bq
 argument_list|,
 name|is
@@ -957,6 +955,8 @@ name|p2
 operator|.
 name|highlight
 argument_list|(
+literal|"body"
+argument_list|,
 name|bq
 argument_list|,
 name|is

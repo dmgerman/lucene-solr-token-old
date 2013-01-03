@@ -273,7 +273,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/**    * Start offset of this passage.    */
+comment|/**    * Start offset of this passage.    * @return start index (inclusive) of the passage in the     *         original content: always&gt;= 0.    */
 DECL|method|getStartOffset
 specifier|public
 name|int
@@ -284,7 +284,7 @@ return|return
 name|startOffset
 return|;
 block|}
-comment|/**    * End offset of this passage.    */
+comment|/**    * End offset of this passage.    * @return end index (exclusive) of the passage in the     *         original content: always&gt;= {@link #getStartOffset()}    */
 DECL|method|getEndOffset
 specifier|public
 name|int
@@ -317,7 +317,7 @@ return|return
 name|numMatches
 return|;
 block|}
-comment|/**    * Start offsets of the term matches, in increasing order.    * Only {@link #getNumMatches} are valid. Note that these    * offsets are absolute (not relative to {@link #getStartOffset()}).    */
+comment|/**    * Start offsets of the term matches, in increasing order.    *<p>    * Only {@link #getNumMatches} are valid. Note that these    * offsets are absolute (not relative to {@link #getStartOffset()}).    */
 DECL|method|getMatchStarts
 specifier|public
 name|int
@@ -329,7 +329,7 @@ return|return
 name|matchStarts
 return|;
 block|}
-comment|/**    * End offsets of the term matches, corresponding with    * {@link #getMatchStarts}. Note that its possible that    * an end offset could exceed beyond the bounds of the passage    * ({@link #getEndOffset()}), if the Analyzer produced a term    * which spans a passage boundary.    */
+comment|/**    * End offsets of the term matches, corresponding with {@link #getMatchStarts}.     *<p>    * Only {@link #getNumMatches} are valid. Note that its possible that an end offset     * could exceed beyond the bounds of the passage ({@link #getEndOffset()}), if the     * Analyzer produced a term which spans a passage boundary.    */
 DECL|method|getMatchEnds
 specifier|public
 name|int
@@ -341,7 +341,7 @@ return|return
 name|matchEnds
 return|;
 block|}
-comment|/**    * Term of the matches, corresponding with    * {@link #getMatchStarts()}.    */
+comment|/**    * Term of the matches, corresponding with {@link #getMatchStarts()}.    *<p>    * Only {@link #getNumMatches()} are valid.    */
 DECL|method|getMatchTerms
 specifier|public
 name|Term
