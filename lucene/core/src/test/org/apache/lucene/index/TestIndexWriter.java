@@ -7157,6 +7157,29 @@ operator|new
 name|Document
 argument_list|()
 decl_stmt|;
+name|Field
+name|idField
+init|=
+name|newStringField
+argument_list|(
+literal|"id"
+argument_list|,
+literal|""
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|NO
+argument_list|)
+decl_stmt|;
+name|doc
+operator|.
+name|add
+argument_list|(
+name|idField
+argument_list|)
+expr_stmt|;
 name|doc
 operator|.
 name|add
@@ -7186,6 +7209,48 @@ name|i
 operator|++
 control|)
 block|{
+name|idField
+operator|.
+name|setStringValue
+argument_list|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|i
+operator|%
+literal|2
+operator|==
+literal|0
+condition|)
+block|{
+name|w
+operator|.
+name|updateDocument
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+literal|"id"
+argument_list|,
+name|idField
+operator|.
+name|stringValue
+argument_list|()
+argument_list|)
+argument_list|,
+name|doc
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|w
 operator|.
 name|addDocument
@@ -7193,6 +7258,7 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|i
@@ -7249,13 +7315,10 @@ name|ThreadInterruptedException
 name|re
 parameter_list|)
 block|{
-if|if
-condition|(
-literal|true
-operator|||
-name|VERBOSE
-condition|)
-block|{
+comment|// NOTE: important to leave this verbosity/noise
+comment|// on!!  This test doesn't repro easily so when
+comment|// Jenkins hits a fail we need to study where the
+comment|// interrupts struck!
 name|System
 operator|.
 name|out
@@ -7274,7 +7337,6 @@ operator|.
 name|out
 argument_list|)
 expr_stmt|;
-block|}
 name|Throwable
 name|e
 init|=
@@ -7552,6 +7614,8 @@ operator|<
 name|numInterrupts
 condition|)
 block|{
+comment|// TODO: would be nice to also sometimes interrupt the
+comment|// CMS merge threads too ...
 name|Thread
 operator|.
 name|sleep
@@ -8653,15 +8717,6 @@ name|random
 argument_list|()
 argument_list|)
 argument_list|)
-argument_list|)
-decl_stmt|;
-name|ByteArrayOutputStream
-name|bos
-init|=
-operator|new
-name|ByteArrayOutputStream
-argument_list|(
-literal|1024
 argument_list|)
 decl_stmt|;
 name|writer
