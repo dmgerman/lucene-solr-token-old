@@ -25,7 +25,7 @@ specifier|public
 class|class
 name|PassageScorer
 block|{
-comment|// TODO: this formula completely made up. It might not provide relevant snippets!
+comment|// TODO: this formula is completely made up. It might not provide relevant snippets!
 comment|/** BM25 k1 parameter, controls term frequency normalization */
 DECL|field|k1
 specifier|public
@@ -46,7 +46,7 @@ name|b
 init|=
 literal|0.75f
 decl_stmt|;
-comment|/**    * A pivot used for length normalization.    * The default value is the typical average english sentence length.    */
+comment|/**    * A pivot used for length normalization.    * The default value is the typical average English sentence length.    */
 DECL|field|pivot
 specifier|public
 specifier|static
