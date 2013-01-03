@@ -459,6 +459,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|hasMoreTokens
+condition|)
+block|{
 name|consumer
 operator|.
 name|start
@@ -466,11 +471,7 @@ argument_list|(
 name|field
 argument_list|)
 expr_stmt|;
-for|for
-control|(
-init|;
-condition|;
-control|)
+do|do
 block|{
 comment|// If we hit an exception in stream.next below
 comment|// (which is fairly common, eg if analyzer
@@ -478,12 +479,6 @@ comment|// chokes on a given document), then it's
 comment|// non-aborting and (above) this one document
 comment|// will be marked as deleted, but still
 comment|// consume a docID
-if|if
-condition|(
-operator|!
-name|hasMoreTokens
-condition|)
-break|break;
 specifier|final
 name|int
 name|posIncr
@@ -729,13 +724,15 @@ operator|.
 name|position
 operator|++
 expr_stmt|;
-name|hasMoreTokens
-operator|=
+block|}
+do|while
+condition|(
 name|stream
 operator|.
 name|incrementToken
 argument_list|()
-expr_stmt|;
+condition|)
+do|;
 block|}
 comment|// trigger streams to perform end-of-stream operations
 name|stream

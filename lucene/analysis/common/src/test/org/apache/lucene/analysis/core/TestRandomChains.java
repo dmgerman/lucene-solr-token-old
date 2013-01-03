@@ -302,19 +302,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|EmptyTokenizer
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
 name|MockGraphTokenFilter
 import|;
 end_import
@@ -1092,11 +1079,6 @@ operator|>
 name|addAll
 argument_list|(
 name|brokenComponents
-argument_list|,
-comment|// TODO: fix basetokenstreamtestcase not to trip because this one has no CharTermAtt
-name|EmptyTokenizer
-operator|.
-name|class
 argument_list|,
 comment|// doesn't actual reset itself!
 name|CachingTokenFilter
