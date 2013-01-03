@@ -7174,6 +7174,12 @@ name|doc
 argument_list|)
 expr_stmt|;
 name|doc
+operator|=
+operator|new
+name|Document
+argument_list|()
+expr_stmt|;
+name|doc
 operator|.
 name|add
 argument_list|(
