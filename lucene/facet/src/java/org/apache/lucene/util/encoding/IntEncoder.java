@@ -19,6 +19,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -43,6 +52,8 @@ specifier|public
 specifier|abstract
 class|class
 name|IntEncoder
+implements|implements
+name|Closeable
 block|{
 DECL|field|out
 specifier|protected
@@ -58,6 +69,8 @@ name|IntEncoder
 parameter_list|()
 block|{   }
 comment|/**    * Instructs the encoder to finish the encoding process. This method closes    * the output stream which was specified by {@link #reInit(OutputStream)    * reInit}. An implementation may do here additional cleanup required to    * complete the encoding, such as flushing internal buffers, etc.<br>    * Once this method was called, no further calls to {@link #encode(int)    * encode} should be made before first calling {@link #reInit(OutputStream)    * reInit}.    *<p>    *<b>NOTE:</b> overriding classes should make sure they either call    *<code>super.close()</code> or close the output stream themselves.    */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
