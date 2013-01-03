@@ -7340,11 +7340,6 @@ name|r
 init|=
 literal|null
 decl_stmt|;
-name|boolean
-name|success
-init|=
-literal|false
-decl_stmt|;
 try|try
 block|{
 name|r
@@ -7361,25 +7356,13 @@ name|nextBoolean
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|success
-operator|=
-literal|true
-expr_stmt|;
+comment|// TODO: more bugs!
+comment|// if (random.nextBoolean()&& r.maxDoc()> 0) {
+comment|//  int docid = random.nextInt(r.maxDoc());
+comment|//  w.tryDeleteDocument(r, docid);
+comment|//}
 block|}
 finally|finally
-block|{
-if|if
-condition|(
-name|success
-condition|)
-block|{
-name|r
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-else|else
 block|{
 name|IOUtils
 operator|.
@@ -7388,7 +7371,6 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if
