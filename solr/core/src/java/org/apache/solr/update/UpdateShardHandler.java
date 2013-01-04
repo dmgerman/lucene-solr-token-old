@@ -260,7 +260,7 @@ name|HttpClientUtil
 operator|.
 name|PROP_SO_TIMEOUT
 argument_list|,
-name|distribUpdateConnTimeout
+name|distribUpdateSoTimeout
 argument_list|)
 expr_stmt|;
 name|params
@@ -271,7 +271,7 @@ name|HttpClientUtil
 operator|.
 name|PROP_CONNECTION_TIMEOUT
 argument_list|,
-name|distribUpdateSoTimeout
+name|distribUpdateConnTimeout
 argument_list|)
 expr_stmt|;
 name|client
