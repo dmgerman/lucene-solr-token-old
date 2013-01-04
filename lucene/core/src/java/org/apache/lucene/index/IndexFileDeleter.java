@@ -1655,10 +1655,7 @@ assert|;
 name|long
 name|t0
 init|=
-name|System
-operator|.
-name|nanoTime
-argument_list|()
+literal|0
 decl_stmt|;
 if|if
 condition|(
@@ -1670,6 +1667,13 @@ literal|"IFD"
 argument_list|)
 condition|)
 block|{
+name|t0
+operator|=
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+expr_stmt|;
 name|infoStream
 operator|.
 name|message
