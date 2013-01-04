@@ -1620,6 +1620,24 @@ operator|.
 name|getNextMerge
 argument_list|()
 expr_stmt|;
+comment|// Notify here in case any threads were stalled;
+comment|// they will notice that the pending merge has
+comment|// been pulled and possibly resume:
+synchronized|synchronized
+init|(
+name|ConcurrentMergeScheduler
+operator|.
+name|this
+init|)
+block|{
+name|ConcurrentMergeScheduler
+operator|.
+name|this
+operator|.
+name|notifyAll
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|merge
