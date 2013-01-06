@@ -238,7 +238,6 @@ condition|(
 name|current
 operator|.
 name|length
-argument_list|()
 operator|==
 literal|0
 condition|)
@@ -270,7 +269,7 @@ name|resizeBuffer
 argument_list|(
 name|current
 operator|.
-name|charsNeededForFullPath
+name|fullPathLength
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -315,9 +314,15 @@ do|do
 block|{
 comment|// skip all parent categories which are not accepted by PathPolicy
 name|current
+operator|=
+name|current
 operator|.
-name|trim
+name|subpath
 argument_list|(
+name|current
+operator|.
+name|length
+operator|-
 literal|1
 argument_list|)
 expr_stmt|;
@@ -335,7 +340,6 @@ operator|&&
 name|current
 operator|.
 name|length
-argument_list|()
 operator|>
 literal|0
 condition|)
@@ -371,7 +375,7 @@ name|resizeBuffer
 argument_list|(
 name|current
 operator|.
-name|charsNeededForFullPath
+name|fullPathLength
 argument_list|()
 argument_list|)
 expr_stmt|;

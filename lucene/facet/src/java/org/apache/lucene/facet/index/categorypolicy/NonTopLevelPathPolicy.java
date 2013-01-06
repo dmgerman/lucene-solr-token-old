@@ -84,7 +84,6 @@ return|return
 name|categoryPath
 operator|.
 name|length
-argument_list|()
 operator|>=
 name|DEFAULT_MINIMAL_SUBPATH_LENGTH
 return|;

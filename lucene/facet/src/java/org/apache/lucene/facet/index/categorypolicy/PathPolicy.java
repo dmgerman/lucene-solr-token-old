@@ -68,7 +68,7 @@ name|PathPolicy
 extends|extends
 name|Serializable
 block|{
-comment|/**    * A {@link PathPolicy} which adds all {@link CategoryPath} that have at least    * one component (i.e. {@link CategoryPath#length()}&gt; 0) to the categories    * stream.    */
+comment|/**    * A {@link PathPolicy} which adds all {@link CategoryPath} that have at least    * one component (i.e. {@link CategoryPath#length}&gt; 0) to the categories    * stream.    */
 DECL|field|ALL_CATEGORIES
 specifier|public
 specifier|static
@@ -94,7 +94,6 @@ return|return
 name|categoryPath
 operator|.
 name|length
-argument_list|()
 operator|>
 literal|0
 return|;
