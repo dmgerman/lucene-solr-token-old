@@ -123,7 +123,7 @@ name|String
 argument_list|>
 name|fieldsToAdd
 decl_stmt|;
-comment|/** Load only fields named in the provided<code>Set&lt;String&gt;</code>. */
+comment|/**     * Load only fields named in the provided<code>Set&lt;String&gt;</code>.     * @param fieldsToAdd Set of fields to load, or<code>null</code> (all fields).    */
 DECL|method|DocumentStoredFieldVisitor
 specifier|public
 name|DocumentStoredFieldVisitor
@@ -142,7 +142,7 @@ operator|=
 name|fieldsToAdd
 expr_stmt|;
 block|}
-comment|/** Load only fields named in the provided<code>Set&lt;String&gt;</code>. */
+comment|/** Load only fields named in the provided fields. */
 DECL|method|DocumentStoredFieldVisitor
 specifier|public
 name|DocumentStoredFieldVisitor
