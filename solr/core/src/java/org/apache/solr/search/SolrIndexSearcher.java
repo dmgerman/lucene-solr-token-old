@@ -3176,6 +3176,8 @@ block|}
 block|}
 block|}
 comment|/**    * Retrieve the {@link Document} instance corresponding to the document id.    *    * Note: The document will have all fields accessable, but if a field    * filter is provided, only the provided fields will be loaded (the     * remainder will be available lazily).    */
+annotation|@
+name|Override
 DECL|method|doc
 specifier|public
 name|StoredDocument
