@@ -40,7 +40,6 @@ comment|/** Utilities for use of {@link CategoryPath} by {@link CompactLabelToOr
 end_comment
 begin_class
 DECL|class|CategoryPathUtils
-specifier|public
 class|class
 name|CategoryPathUtils
 block|{
@@ -130,7 +129,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Calculates a hash function of a path that serialized with    * {@link #serialize(CategoryPath, CharBlockArray)}.    */
+comment|/**    * Calculates a hash function of a path that was serialized with    * {@link #serialize(CategoryPath, CharBlockArray)}.    */
 DECL|method|hashCodeOfSerialized
 specifier|public
 specifier|static
