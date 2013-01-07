@@ -857,7 +857,7 @@ name|ReturnFields
 name|returnFields
 init|=
 operator|new
-name|ReturnFields
+name|SolrReturnFields
 argument_list|(
 name|req
 argument_list|)
