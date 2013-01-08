@@ -1035,6 +1035,8 @@ return|return
 name|binaryValue
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|incrementToken
 specifier|public
 specifier|final

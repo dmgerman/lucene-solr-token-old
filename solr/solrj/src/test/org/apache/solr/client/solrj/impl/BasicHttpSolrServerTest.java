@@ -761,6 +761,8 @@ literal|"/debug/*"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// what is this actually testing? this test WILL randomly fail.
+comment|// not a good unit test!
 annotation|@
 name|Test
 DECL|method|testConnectionRefused
@@ -792,6 +794,13 @@ operator|+
 literal|"/solr"
 argument_list|)
 decl_stmt|;
+name|server
+operator|.
+name|setConnectionTimeout
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 name|SolrQuery
 name|q
 init|=
@@ -825,6 +834,21 @@ name|SolrServerException
 name|e
 parameter_list|)
 block|{
+name|assumeFalse
+argument_list|(
+literal|"blackholed!"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"IOException occured when talking to server"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|e
@@ -839,11 +863,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
 name|server
 operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test

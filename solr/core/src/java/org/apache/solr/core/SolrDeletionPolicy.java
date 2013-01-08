@@ -225,6 +225,8 @@ name|maxOptimizedCommitsToKeep
 init|=
 literal|0
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -628,6 +630,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * Internal use for Lucene... do not explicitly call.    */
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -664,6 +668,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Internal use for Lucene... do not explicitly call.    */
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void

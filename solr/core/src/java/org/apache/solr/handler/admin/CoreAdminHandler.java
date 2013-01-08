@@ -117,6 +117,17 @@ import|;
 end_import
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|parsers
+operator|.
+name|ParserConfigurationException
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -247,21 +258,6 @@ operator|.
 name|cloud
 operator|.
 name|ClusterState
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|common
-operator|.
-name|cloud
-operator|.
-name|DocRouter
 import|;
 end_import
 begin_import
@@ -681,17 +677,6 @@ operator|.
 name|sax
 operator|.
 name|SAXException
-import|;
-end_import
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|parsers
-operator|.
-name|ParserConfigurationException
 import|;
 end_import
 begin_comment
@@ -2606,6 +2591,30 @@ argument_list|(
 name|opts
 argument_list|)
 expr_stmt|;
+name|opts
+operator|=
+name|params
+operator|.
+name|get
+argument_list|(
+name|CoreAdminParams
+operator|.
+name|ULOG_DIR
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|opts
+operator|!=
+literal|null
+condition|)
+name|dcore
+operator|.
+name|setUlogDir
+argument_list|(
+name|opts
+argument_list|)
+expr_stmt|;
 name|CloudDescriptor
 name|cd
 init|=
@@ -3314,37 +3323,8 @@ name|SolrCore
 name|core
 parameter_list|)
 block|{
-name|Directory
-name|dir
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
-name|dir
-operator|=
-name|core
-operator|.
-name|getDirectoryFactory
-argument_list|()
-operator|.
-name|get
-argument_list|(
-name|core
-operator|.
-name|getIndexDir
-argument_list|()
-argument_list|,
-name|core
-operator|.
-name|getSolrConfig
-argument_list|()
-operator|.
-name|indexConfig
-operator|.
-name|lockType
-argument_list|)
-expr_stmt|;
 name|core
 operator|.
 name|getDirectoryFactory
@@ -3352,17 +3332,10 @@ argument_list|()
 operator|.
 name|remove
 argument_list|(
-name|dir
-argument_list|)
-expr_stmt|;
 name|core
 operator|.
-name|getDirectoryFactory
+name|getIndexDir
 argument_list|()
-operator|.
-name|doneWithDirectory
-argument_list|(
-name|dir
 argument_list|)
 expr_stmt|;
 block|}
@@ -3379,75 +3352,6 @@ argument_list|(
 name|e
 argument_list|)
 throw|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|dir
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|core
-operator|.
-name|getDirectoryFactory
-argument_list|()
-operator|.
-name|release
-argument_list|(
-name|dir
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"IOException trying to release directory"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-try|try
-block|{
-name|core
-operator|.
-name|getDirectoryFactory
-argument_list|()
-operator|.
-name|remove
-argument_list|(
-name|dir
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"IOException trying to remove directory"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -4237,6 +4141,20 @@ argument_list|(
 literal|"It has been requested that we recover"
 argument_list|)
 expr_stmt|;
+name|Thread
+name|thread
+init|=
+operator|new
+name|Thread
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
 name|String
 name|cname
 init|=
@@ -4307,10 +4225,18 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|KeeperException
+name|InterruptedException
 name|e
 parameter_list|)
 block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
 name|SolrException
 operator|.
 name|log
@@ -4325,8 +4251,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|InterruptedException
-name|e
+name|Throwable
+name|t
 parameter_list|)
 block|{
 name|SolrException
@@ -4337,7 +4263,7 @@ name|log
 argument_list|,
 literal|""
 argument_list|,
-name|e
+name|t
 argument_list|)
 expr_stmt|;
 block|}
@@ -4389,6 +4315,14 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+block|}
+block|}
+decl_stmt|;
+name|thread
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|handleRequestSyncAction
 specifier|protected
@@ -4681,6 +4615,8 @@ throws|throws
 name|IOException
 throws|,
 name|InterruptedException
+throws|,
+name|KeeperException
 block|{
 specifier|final
 name|SolrParams
@@ -4883,6 +4819,32 @@ operator|.
 name|getCloudDescriptor
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|retry
+operator|==
+literal|15
+operator|||
+name|retry
+operator|==
+literal|60
+condition|)
+block|{
+comment|// force a cluster state update
+name|coreContainer
+operator|.
+name|getZkController
+argument_list|()
+operator|.
+name|getZkStateReader
+argument_list|()
+operator|.
+name|updateClusterState
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 name|ClusterState
 name|clusterState
 init|=
@@ -5018,7 +4980,7 @@ condition|(
 name|retry
 operator|++
 operator|==
-literal|30
+literal|120
 condition|)
 block|{
 throw|throw
@@ -5037,7 +4999,7 @@ literal|" for "
 operator|+
 name|nodeName
 operator|+
-literal|" but I still do not see the request state. I see state: "
+literal|" but I still do not see the requested state. I see state: "
 operator|+
 name|state
 operator|+
@@ -5047,6 +5009,48 @@ name|live
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|coreContainer
+operator|.
+name|isShutDown
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
+argument_list|,
+literal|"Solr is shutting down"
+argument_list|)
+throw|;
+block|}
+comment|// solrcloud_debug
+comment|//        try {;
+comment|//        LocalSolrQueryRequest r = new LocalSolrQueryRequest(core, new
+comment|//        ModifiableSolrParams());
+comment|//        CommitUpdateCommand commitCmd = new CommitUpdateCommand(r, false);
+comment|//        commitCmd.softCommit = true;
+comment|//        core.getUpdateHandler().commit(commitCmd);
+comment|//        RefCounted<SolrIndexSearcher> searchHolder =
+comment|//        core.getNewestSearcher(false);
+comment|//        SolrIndexSearcher searcher = searchHolder.get();
+comment|//        try {
+comment|//        System.out.println(core.getCoreDescriptor().getCoreContainer().getZkController().getNodeName()
+comment|//        + " to replicate "
+comment|//        + searcher.search(new MatchAllDocsQuery(), 1).totalHits + " gen:" +
+comment|//        core.getDeletionPolicy().getLatestCommit().getGeneration() + " data:" +
+comment|//        core.getDataDir());
+comment|//        } finally {
+comment|//        searchHolder.decref();
+comment|//        }
+comment|//        } catch (Exception e) {
+comment|//
+comment|//        }
 block|}
 finally|finally
 block|{
@@ -5072,28 +5076,6 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
-comment|// solrcloud_debug
-comment|// try {;
-comment|// LocalSolrQueryRequest r = new LocalSolrQueryRequest(core, new
-comment|// ModifiableSolrParams());
-comment|// CommitUpdateCommand commitCmd = new CommitUpdateCommand(r, false);
-comment|// commitCmd.softCommit = true;
-comment|// core.getUpdateHandler().commit(commitCmd);
-comment|// RefCounted<SolrIndexSearcher> searchHolder =
-comment|// core.getNewestSearcher(false);
-comment|// SolrIndexSearcher searcher = searchHolder.get();
-comment|// try {
-comment|// System.out.println(core.getCoreDescriptor().getCoreContainer().getZkController().getNodeName()
-comment|// + " to replicate "
-comment|// + searcher.search(new MatchAllDocsQuery(), 1).totalHits + " gen:" +
-comment|// core.getDeletionPolicy().getLatestCommit().getGeneration() + " data:" +
-comment|// core.getDataDir());
-comment|// } finally {
-comment|// searchHolder.decref();
-comment|// }
-comment|// } catch (Exception e) {
-comment|//
-comment|// }
 block|}
 DECL|method|getCoreStatus
 specifier|protected

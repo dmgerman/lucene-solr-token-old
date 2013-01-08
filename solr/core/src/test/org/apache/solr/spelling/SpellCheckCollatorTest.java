@@ -2913,6 +2913,12 @@ literal|"true"
 argument_list|,
 name|SpellCheckComponent
 operator|.
+name|SPELLCHECK_BUILD
+argument_list|,
+literal|"true"
+argument_list|,
+name|SpellCheckComponent
+operator|.
 name|SPELLCHECK_DICT
 argument_list|,
 name|dictionary

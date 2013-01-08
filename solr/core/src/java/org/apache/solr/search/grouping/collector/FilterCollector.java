@@ -136,6 +136,8 @@ operator|=
 name|delegate
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -155,6 +157,8 @@ name|scorer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -190,6 +194,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -217,6 +223,8 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean

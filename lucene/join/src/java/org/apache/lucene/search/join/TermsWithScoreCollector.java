@@ -250,6 +250,8 @@ return|return
 name|scoreSums
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -268,6 +270,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptsDocsOutOfOrder
 specifier|public
 name|boolean
@@ -399,6 +403,8 @@ name|scoreMode
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -548,6 +554,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -856,6 +864,8 @@ name|scoreMode
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -1086,6 +1096,8 @@ name|length
 condition|)
 do|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void

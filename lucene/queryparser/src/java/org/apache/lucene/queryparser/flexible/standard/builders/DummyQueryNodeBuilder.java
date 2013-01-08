@@ -127,6 +127,8 @@ block|{
 comment|// empty constructor
 block|}
 comment|/**    * Always return<code>null</code>.    *     * return<code>null</code>    */
+annotation|@
+name|Override
 DECL|method|build
 specifier|public
 name|TermQuery

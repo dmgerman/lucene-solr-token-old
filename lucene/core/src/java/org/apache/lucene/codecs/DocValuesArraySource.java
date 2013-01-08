@@ -524,6 +524,8 @@ return|return
 name|values
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFloat
 specifier|public
 name|double
@@ -624,6 +626,8 @@ name|array
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toBytes
 specifier|public
 name|void
@@ -855,6 +859,8 @@ return|return
 name|values
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFloat
 specifier|public
 name|double
@@ -926,6 +932,8 @@ name|numDocs
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toBytes
 specifier|public
 name|void
@@ -1150,6 +1158,8 @@ return|return
 name|values
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFloat
 specifier|public
 name|double
@@ -1223,6 +1233,8 @@ name|numDocs
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toBytes
 specifier|public
 name|void

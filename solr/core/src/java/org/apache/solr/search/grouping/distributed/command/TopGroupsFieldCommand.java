@@ -587,6 +587,8 @@ operator|=
 name|needMaxScore
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|create
 specifier|public
 name|List
@@ -663,6 +665,8 @@ name|collectors
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -726,6 +730,8 @@ literal|0
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getKey
 specifier|public
 name|String
@@ -739,6 +745,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getGroupSort
 specifier|public
 name|Sort
@@ -749,6 +757,8 @@ return|return
 name|groupSort
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSortWithinGroup
 specifier|public
 name|Sort

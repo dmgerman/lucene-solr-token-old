@@ -138,6 +138,8 @@ name|req
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void

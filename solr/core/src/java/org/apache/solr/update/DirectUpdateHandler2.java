@@ -3725,6 +3725,8 @@ block|}
 comment|/////////////////////////////////////////////////////////////////////
 comment|// SolrInfoMBean stuff: Statistics and Module Info
 comment|/////////////////////////////////////////////////////////////////////
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String
@@ -3740,6 +3742,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|String
@@ -3752,6 +3756,8 @@ operator|.
 name|version
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription
 specifier|public
 name|String
@@ -3762,6 +3768,8 @@ return|return
 literal|"Update handler that efficiently directly updates the on-disk main lucene index"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCategory
 specifier|public
 name|Category
@@ -3774,6 +3782,8 @@ operator|.
 name|UPDATEHANDLER
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|String
@@ -3784,6 +3794,8 @@ return|return
 literal|"$URL$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDocs
 specifier|public
 name|URL
@@ -3795,6 +3807,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStatistics
 specifier|public
 name|NamedList

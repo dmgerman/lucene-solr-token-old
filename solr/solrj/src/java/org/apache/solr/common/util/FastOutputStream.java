@@ -439,6 +439,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|////////////////// DataOutput methods ///////////////////
+annotation|@
+name|Override
 DECL|method|writeBoolean
 specifier|public
 name|void
@@ -460,6 +462,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeByte
 specifier|public
 name|void
@@ -480,6 +484,8 @@ name|v
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeShort
 specifier|public
 name|void
@@ -512,6 +518,8 @@ name|v
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeChar
 specifier|public
 name|void
@@ -529,6 +537,8 @@ name|v
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeInt
 specifier|public
 name|void
@@ -610,6 +620,8 @@ operator|+=
 literal|4
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeLong
 specifier|public
 name|void
@@ -755,6 +767,8 @@ operator|+=
 literal|8
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeFloat
 specifier|public
 name|void
@@ -777,6 +791,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeDouble
 specifier|public
 name|void
@@ -799,6 +815,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeBytes
 specifier|public
 name|void
@@ -842,6 +860,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeChars
 specifier|public
 name|void
@@ -882,6 +902,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeUTF
 specifier|public
 name|void

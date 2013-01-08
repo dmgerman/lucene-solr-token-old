@@ -2970,6 +2970,8 @@ name|DocsEnum
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|enums
 specifier|public
 name|Map

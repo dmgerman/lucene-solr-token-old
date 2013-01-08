@@ -1490,6 +1490,8 @@ argument_list|,
 literal|true
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|boolean
 name|accept

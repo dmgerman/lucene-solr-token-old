@@ -207,6 +207,8 @@ operator|=
 name|strictMode
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFilter
 specifier|public
 name|Filter

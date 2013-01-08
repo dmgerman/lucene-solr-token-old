@@ -208,6 +208,8 @@ name|STRING
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toQueryString
 specifier|public
 name|CharSequence
@@ -398,6 +400,8 @@ operator|=
 name|end
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getField
 specifier|public
 name|CharSequence
@@ -410,6 +414,8 @@ operator|.
 name|field
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setField
 specifier|public
 name|void
@@ -455,6 +461,8 @@ name|pi
 expr_stmt|;
 block|}
 comment|/**    * Returns the term.    *     * @return The "original" form of the term.    */
+annotation|@
+name|Override
 DECL|method|getText
 specifier|public
 name|CharSequence
@@ -468,6 +476,8 @@ name|text
 return|;
 block|}
 comment|/**    * @param text    *          the text to set    */
+annotation|@
+name|Override
 DECL|method|setText
 specifier|public
 name|void
@@ -557,6 +567,8 @@ return|return
 name|fqn
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|CharSequence
@@ -568,6 +580,8 @@ name|getText
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setValue
 specifier|public
 name|void

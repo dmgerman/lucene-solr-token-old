@@ -442,6 +442,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|search
+operator|.
+name|SolrReturnFields
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|util
 operator|.
 name|SolrPluginUtils
@@ -573,7 +586,7 @@ name|ReturnFields
 name|rf
 init|=
 operator|new
-name|ReturnFields
+name|SolrReturnFields
 argument_list|(
 name|params
 operator|.
@@ -2748,6 +2761,8 @@ operator|=
 name|args
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|inform
 specifier|public
 name|void

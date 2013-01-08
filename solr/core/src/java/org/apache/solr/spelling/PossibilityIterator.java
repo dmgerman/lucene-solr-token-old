@@ -1849,6 +1849,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext
 specifier|public
 name|boolean
@@ -1862,6 +1864,8 @@ name|hasNext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|PossibilityIterator
@@ -1877,6 +1881,8 @@ name|next
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|void
@@ -2049,6 +2055,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -2216,6 +2224,8 @@ name|RankedSpellPossibility
 argument_list|>
 block|{
 comment|// Rank poorer suggestions ahead of better ones for use with a PriorityQueue
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int

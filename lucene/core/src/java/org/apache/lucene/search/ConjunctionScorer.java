@@ -208,6 +208,8 @@ argument_list|>
 argument_list|()
 block|{
 comment|// sort the array
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare

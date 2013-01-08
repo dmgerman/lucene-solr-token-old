@@ -76,6 +76,8 @@ parameter_list|()
 block|{
 comment|// empty constructor
 block|}
+annotation|@
+name|Override
 DECL|method|toQueryString
 specifier|public
 name|CharSequence

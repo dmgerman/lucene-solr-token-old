@@ -217,6 +217,8 @@ operator|=
 name|boundaryChars
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|findStartOffset
 specifier|public
 name|int
@@ -312,6 +314,8 @@ return|return
 name|start
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findEndOffset
 specifier|public
 name|int

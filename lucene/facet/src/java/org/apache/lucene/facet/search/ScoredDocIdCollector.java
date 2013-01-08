@@ -251,6 +251,8 @@ specifier|private
 name|int
 name|nextDoc
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getDocID
@@ -260,6 +262,8 @@ return|return
 name|nextDoc
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getScore
@@ -269,6 +273,8 @@ return|return
 name|defaultScore
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|next
@@ -527,6 +533,8 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getDocID
@@ -536,6 +544,8 @@ return|return
 name|nextDoc
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|float
 name|getScore
@@ -548,6 +558,8 @@ name|scoresIdx
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|next
@@ -754,6 +766,8 @@ operator|new
 name|ScoredDocIDs
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|ScoredDocIDsIterator
 name|iterator
@@ -766,6 +780,8 @@ name|scoredDocIdsIterator
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DocIdSet
 name|getDocIDs
@@ -775,6 +791,8 @@ return|return
 name|docIds
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|size

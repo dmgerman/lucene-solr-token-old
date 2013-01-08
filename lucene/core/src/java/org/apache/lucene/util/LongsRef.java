@@ -380,6 +380,8 @@ return|;
 block|}
 block|}
 comment|/** Signed int order comparison */
+annotation|@
+name|Override
 DECL|method|compareTo
 specifier|public
 name|int

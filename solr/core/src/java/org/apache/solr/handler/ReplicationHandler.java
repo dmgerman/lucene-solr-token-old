@@ -5306,6 +5306,8 @@ comment|//      indexCommitPoint = commitPoint;
 comment|//    }
 comment|//  }
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -6162,6 +6164,8 @@ operator|new
 name|BinaryQueryResponseWriter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|write
@@ -6202,6 +6206,8 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|write
@@ -6224,6 +6230,8 @@ literal|"This is a binary writer , Cannot write to a characterstream"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getContentType
@@ -6239,6 +6247,8 @@ return|return
 literal|"application/octet-stream"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|init
@@ -6273,6 +6283,8 @@ operator|new
 name|SolrEventListener
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|init
@@ -6284,6 +6296,8 @@ block|{
 comment|/*no op*/
 block|}
 comment|/**        * This refreshes the latest replicateable index commit and optionally can create Snapshots as well        */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|postCommit
@@ -6383,6 +6397,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|newSearcher
@@ -7025,6 +7041,8 @@ name|solrParams
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void

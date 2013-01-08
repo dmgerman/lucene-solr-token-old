@@ -450,6 +450,8 @@ return|return
 name|contentStream
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String
@@ -464,6 +466,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSourceInfo
 specifier|public
 name|String
@@ -478,6 +482,8 @@ name|getSourceInfo
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContentType
 specifier|public
 name|String
@@ -489,6 +495,8 @@ name|getUpdateContentType
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSize
 specifier|public
 name|Long
@@ -503,6 +511,8 @@ name|getSize
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStream
 specifier|public
 name|InputStream
@@ -519,6 +529,8 @@ name|getStream
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getReader
 specifier|public
 name|Reader

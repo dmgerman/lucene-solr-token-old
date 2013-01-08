@@ -3350,6 +3350,8 @@ argument_list|>
 name|topGroups
 decl_stmt|;
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|prepare
 specifier|protected
 name|void
@@ -3371,6 +3373,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|createFirstPassCollector
 specifier|protected
 name|Collector
@@ -3426,6 +3430,8 @@ name|firstPass
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|createSecondPassCollector
 specifier|protected
 name|Collector
@@ -3660,6 +3666,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|finish
 specifier|protected
 name|void
@@ -3881,6 +3889,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|getMatches
 specifier|public
 name|int
@@ -3918,6 +3928,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|getNumberOfGroups
 specifier|protected
 name|Integer
@@ -3961,6 +3973,8 @@ name|FilterCollector
 name|collector
 decl_stmt|;
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|prepare
 specifier|protected
 name|void
@@ -3982,6 +3996,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|createFirstPassCollector
 specifier|protected
 name|Collector
@@ -4100,6 +4116,8 @@ return|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|finish
 specifier|protected
 name|void
@@ -4195,6 +4213,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|getMatches
 specifier|public
 name|int
@@ -4257,6 +4277,8 @@ argument_list|>
 name|topGroups
 decl_stmt|;
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|prepare
 specifier|protected
 name|void
@@ -4297,6 +4319,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|createFirstPassCollector
 specifier|protected
 name|Collector
@@ -4359,6 +4383,8 @@ name|firstPass
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|createSecondPassCollector
 specifier|protected
 name|Collector
@@ -4601,6 +4627,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|finish
 specifier|protected
 name|void
@@ -4749,6 +4777,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|getMatches
 specifier|public
 name|int
@@ -4786,6 +4816,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|getNumberOfGroups
 specifier|protected
 name|Integer

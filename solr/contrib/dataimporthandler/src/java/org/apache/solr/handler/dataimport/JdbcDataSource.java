@@ -726,6 +726,8 @@ name|Connection
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Connection
 name|call
@@ -1621,6 +1623,8 @@ argument_list|>
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -1631,6 +1635,8 @@ name|hasnext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -1646,6 +1652,8 @@ name|getARow
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove

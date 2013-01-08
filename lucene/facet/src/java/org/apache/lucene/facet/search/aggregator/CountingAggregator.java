@@ -35,6 +35,8 @@ name|int
 index|[]
 name|counterArray
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|aggregate
 specifier|public
 name|void
@@ -51,6 +53,8 @@ name|ordinal
 index|]
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextDoc
 specifier|public
 name|void

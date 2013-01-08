@@ -204,6 +204,8 @@ specifier|private
 name|BytesRef
 name|bytes
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|fillBytesRef
 specifier|public
 name|int
@@ -217,6 +219,8 @@ name|hashCode
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBytesRef
 specifier|public
 name|BytesRef
@@ -227,6 +231,8 @@ return|return
 name|bytes
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setBytesRef
 specifier|public
 name|void
@@ -243,6 +249,8 @@ operator|=
 name|bytes
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 name|void

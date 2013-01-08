@@ -495,6 +495,8 @@ argument_list|()
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDistance
 specifier|public
 name|float

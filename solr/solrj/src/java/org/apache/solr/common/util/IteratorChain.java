@@ -134,6 +134,8 @@ name|it
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext
 specifier|public
 name|boolean
@@ -225,6 +227,8 @@ name|result
 return|;
 block|}
 comment|/** hasNext() must ALWAYS be called before calling this    *  otherwise it's a bit hard to keep track of what's happening    */
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|E
@@ -253,6 +257,8 @@ name|next
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|void

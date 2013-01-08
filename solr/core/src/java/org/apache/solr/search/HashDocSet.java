@@ -330,6 +330,8 @@ operator|=
 name|doc
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|exists
 specifier|public
 name|boolean
@@ -399,6 +401,8 @@ name|mask
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -409,6 +413,8 @@ return|return
 name|size
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|DocIterator
@@ -433,6 +439,8 @@ name|goNext
 parameter_list|()
 constructor_decl|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -446,6 +454,8 @@ operator|.
 name|length
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Integer
 name|next
@@ -456,6 +466,8 @@ name|nextDoc
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove
@@ -485,6 +497,8 @@ operator|++
 expr_stmt|;
 block|}
 comment|// modify to return -1 at end of iteration?
+annotation|@
+name|Override
 specifier|public
 name|int
 name|nextDoc
@@ -508,6 +522,8 @@ return|return
 name|doc
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|float
 name|score
@@ -520,6 +536,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|memSize
 specifier|public
 name|long

@@ -80,6 +80,8 @@ extends|extends
 name|TokenizerFactory
 block|{
 comment|// TODO: add support for WikipediaTokenizer's advanced options.
+annotation|@
+name|Override
 DECL|method|create
 specifier|public
 name|Tokenizer

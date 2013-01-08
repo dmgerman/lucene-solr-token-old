@@ -228,6 +228,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|add
 specifier|public
 specifier|final
@@ -291,6 +293,8 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|add
 specifier|public
 specifier|final
@@ -346,6 +350,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isLeaf
 specifier|public
 name|boolean
@@ -358,6 +364,8 @@ operator|.
 name|isLeaf
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|set
 specifier|public
 specifier|final
@@ -456,6 +464,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|cloneTree
 specifier|public
 name|QueryNode
@@ -584,6 +594,8 @@ name|isLeaf
 expr_stmt|;
 block|}
 comment|/**    * @return a List for QueryNode object. Returns null, for nodes that do not    *         contain children. All leaf Nodes return null.    */
+annotation|@
+name|Override
 DECL|method|getChildren
 specifier|public
 specifier|final
@@ -616,6 +628,8 @@ operator|.
 name|clauses
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setTag
 specifier|public
 name|void
@@ -647,6 +661,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|unsetTag
 specifier|public
 name|void
@@ -674,6 +690,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** verify if a node contains a tag */
+annotation|@
+name|Override
 DECL|method|containsTag
 specifier|public
 name|boolean
@@ -701,6 +719,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTag
 specifier|public
 name|Object
@@ -751,6 +771,8 @@ operator|=
 name|parent
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getParent
 specifier|public
 name|QueryNode
@@ -857,6 +879,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * Returns a map containing all tags attached to this query node.    *     * @return a map containing all tags attached to this query node    */
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

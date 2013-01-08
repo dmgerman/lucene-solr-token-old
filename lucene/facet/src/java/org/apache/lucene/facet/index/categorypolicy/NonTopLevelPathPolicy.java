@@ -69,6 +69,8 @@ init|=
 literal|2
 decl_stmt|;
 comment|/**    * Filters out (returns false) CategoryPaths equal or less than    * {@link TaxonomyReader#ROOT_ORDINAL}. true otherwise.    */
+annotation|@
+name|Override
 DECL|method|shouldAdd
 specifier|public
 name|boolean
@@ -82,7 +84,6 @@ return|return
 name|categoryPath
 operator|.
 name|length
-argument_list|()
 operator|>=
 name|DEFAULT_MINIMAL_SUBPATH_LENGTH
 return|;

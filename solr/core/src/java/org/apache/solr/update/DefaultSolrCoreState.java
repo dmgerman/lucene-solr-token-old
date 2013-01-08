@@ -370,6 +370,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"SolrCoreState already closed"
+argument_list|)
+throw|;
+block|}
 synchronized|synchronized
 init|(
 name|writerPauseLock
@@ -409,7 +422,9 @@ block|{
 name|writerPauseLock
 operator|.
 name|wait
-argument_list|()
+argument_list|(
+literal|100
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -418,6 +433,19 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{}
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Already closed"
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -591,7 +619,9 @@ block|{
 name|writerPauseLock
 operator|.
 name|wait
-argument_list|()
+argument_list|(
+literal|100
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -600,6 +630,19 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{}
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"SolrCoreState already closed"
+argument_list|)
+throw|;
+block|}
 block|}
 try|try
 block|{

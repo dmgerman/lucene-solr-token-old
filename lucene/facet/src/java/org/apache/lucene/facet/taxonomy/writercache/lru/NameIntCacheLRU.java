@@ -252,7 +252,7 @@ return|return
 name|res
 return|;
 block|}
-comment|/**    * Subclasses can override this to provide caching by e.g. hash of the string.    */
+comment|/** Subclasses can override this to provide caching by e.g. hash of the string. */
 DECL|method|key
 name|Object
 name|key
@@ -261,16 +261,8 @@ name|CategoryPath
 name|name
 parameter_list|)
 block|{
-comment|// Note that a copy constructor (cloning) here is necessary, because a
-comment|// CategoryPath object is mutable, so we cannot save a reference to an
-comment|// existing CategoryPath. Subclasses which override this method can
-comment|// avoid this cloning by, e.g., hashing the name.
 return|return
-operator|new
-name|CategoryPath
-argument_list|(
 name|name
-argument_list|)
 return|;
 block|}
 DECL|method|key
@@ -284,16 +276,11 @@ name|int
 name|prefixLen
 parameter_list|)
 block|{
-comment|// Note that a copy constructor (cloning) here is necessary, because a
-comment|// CategoryPath object is mutable, so we cannot save a reference to an
-comment|// existing CategoryPath. Subclasses which override this method can
-comment|// avoid this cloning by, e.g., hashing the name.
 return|return
-operator|new
-name|CategoryPath
-argument_list|(
 name|name
-argument_list|,
+operator|.
+name|subpath
+argument_list|(
 name|prefixLen
 argument_list|)
 return|;

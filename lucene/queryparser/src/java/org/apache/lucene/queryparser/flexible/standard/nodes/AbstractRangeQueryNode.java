@@ -213,6 +213,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Returns the field associated with this node.    *     * @return the field associated with this node    *     * @see FieldableNode    */
+annotation|@
+name|Override
 DECL|method|getField
 specifier|public
 name|CharSequence
@@ -272,6 +274,8 @@ name|field
 return|;
 block|}
 comment|/**    * Sets the field associated with this node.    *     * @param fieldName the field associated with this node    */
+annotation|@
+name|Override
 DECL|method|setField
 specifier|public
 name|void
@@ -326,6 +330,8 @@ block|}
 block|}
 comment|/**    * Returns the lower bound node.    *     * @return the lower bound node.    */
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -351,6 +357,8 @@ return|;
 block|}
 comment|/**    * Returns the upper bound node.    *     * @return the upper bound node.    */
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -375,6 +383,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * Returns whether the lower bound is inclusive or exclusive.    *     * @return<code>true</code> if the lower bound is inclusive, otherwise,<code>false</code>    */
+annotation|@
+name|Override
 DECL|method|isLowerInclusive
 specifier|public
 name|boolean
@@ -386,6 +396,8 @@ name|lowerInclusive
 return|;
 block|}
 comment|/**    * Returns whether the upper bound is inclusive or exclusive.    *     * @return<code>true</code> if the upper bound is inclusive, otherwise,<code>false</code>    */
+annotation|@
+name|Override
 DECL|method|isUpperInclusive
 specifier|public
 name|boolean
@@ -545,6 +557,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toQueryString
 specifier|public
 name|CharSequence

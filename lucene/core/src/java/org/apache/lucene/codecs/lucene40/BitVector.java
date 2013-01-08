@@ -122,6 +122,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|IOUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|MutableBits
 import|;
 end_import
@@ -482,6 +495,8 @@ return|;
 block|}
 block|}
 comment|/** Sets the value of<code>bit</code> to zero. */
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 specifier|final
@@ -633,6 +648,8 @@ return|;
 block|}
 block|}
 comment|/** Returns<code>true</code> if<code>bit</code> is one and<code>false</code> if it is zero. */
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 specifier|final
@@ -1515,10 +1532,12 @@ assert|;
 block|}
 finally|finally
 block|{
-name|output
+name|IOUtils
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|output
+argument_list|)
 expr_stmt|;
 block|}
 block|}

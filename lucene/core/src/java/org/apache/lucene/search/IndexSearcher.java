@@ -672,7 +672,7 @@ return|return
 name|reader
 return|;
 block|}
-comment|/** Sugar for<code>.getIndexReader().document(docID)</code> */
+comment|/**     * Sugar for<code>.getIndexReader().document(docID)</code>     * @see IndexReader#document(int)     */
 DECL|method|doc
 specifier|public
 name|StoredDocument
@@ -693,7 +693,7 @@ name|docID
 argument_list|)
 return|;
 block|}
-comment|/** Sugar for<code>.getIndexReader().document(docID, fieldVisitor)</code> */
+comment|/**     * Sugar for<code>.getIndexReader().document(docID, fieldVisitor)</code>    * @see IndexReader#document(int, StoredFieldVisitor)     */
 DECL|method|doc
 specifier|public
 name|void
@@ -718,12 +718,11 @@ name|fieldVisitor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Sugar for<code>.getIndexReader().document(docID, fieldsToLoad)</code> */
-DECL|method|document
+comment|/**     * Sugar for<code>.getIndexReader().document(docID, fieldsToLoad)</code>    * @see IndexReader#document(int, Set)     */
+DECL|method|doc
 specifier|public
-specifier|final
 name|StoredDocument
-name|document
+name|doc
 parameter_list|(
 name|int
 name|docID
@@ -2547,6 +2546,8 @@ operator|=
 name|slice
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|call
 specifier|public
 name|TopDocs
@@ -2934,6 +2935,8 @@ operator|new
 name|FakeScorer
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|call
 specifier|public
 name|TopFieldDocs
@@ -3159,6 +3162,8 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext
 specifier|public
 name|boolean
@@ -3196,6 +3201,8 @@ operator|++
 name|numTasks
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|T
@@ -3264,6 +3271,8 @@ name|numTasks
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|void
@@ -3276,6 +3285,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|Iterator

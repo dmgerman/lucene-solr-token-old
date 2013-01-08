@@ -98,6 +98,8 @@ name|setEmpty
 parameter_list|()
 function_decl|;
 comment|// the following methods are redefined to get rid of IOException declaration:
+annotation|@
+name|Override
 DECL|method|append
 specifier|public
 name|CharTermAttribute
@@ -107,6 +109,8 @@ name|CharSequence
 name|csq
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|append
 specifier|public
 name|CharTermAttribute
@@ -122,6 +126,8 @@ name|int
 name|end
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|append
 specifier|public
 name|CharTermAttribute

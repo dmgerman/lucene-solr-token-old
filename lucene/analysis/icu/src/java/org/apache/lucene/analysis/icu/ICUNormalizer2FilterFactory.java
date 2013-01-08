@@ -344,6 +344,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|create
 specifier|public
 name|TokenStream
@@ -363,6 +365,8 @@ name|normalizer
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMultiTermComponent
 specifier|public
 name|AbstractAnalysisFactory

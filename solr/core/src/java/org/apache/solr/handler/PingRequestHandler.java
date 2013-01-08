@@ -303,6 +303,8 @@ name|healthcheck
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -345,6 +347,8 @@ argument_list|()
 operator|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|inform
 specifier|public
 name|void

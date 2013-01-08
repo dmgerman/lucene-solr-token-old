@@ -2478,6 +2478,8 @@ throw|;
 block|}
 block|}
 comment|/**    * Close the IndexSearcher used by this SpellChecker    * @throws IOException if the close operation causes an {@link IOException}    * @throws AlreadyClosedException if the {@link SpellChecker} is already closed    */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

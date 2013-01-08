@@ -145,6 +145,8 @@ argument_list|()
 return|;
 block|}
 comment|/** @return iterator over the bytes */
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|Iterator
@@ -232,6 +234,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext
 specifier|public
 name|boolean
@@ -250,6 +254,8 @@ name|length
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|Term
@@ -363,6 +369,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|void

@@ -163,6 +163,8 @@ name|reader
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getWordsIterator
 specifier|public
 name|TermFreqIterator
@@ -197,6 +199,8 @@ operator|new
 name|BytesRef
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|weight
 specifier|public
 name|long

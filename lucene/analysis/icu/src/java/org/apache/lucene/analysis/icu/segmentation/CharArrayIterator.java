@@ -145,6 +145,8 @@ operator|+
 name|length
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|current
 specifier|public
 name|char
@@ -166,6 +168,8 @@ name|index
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|first
 specifier|public
 name|char
@@ -181,6 +185,8 @@ name|current
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBeginIndex
 specifier|public
 name|int
@@ -191,6 +197,8 @@ return|return
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getEndIndex
 specifier|public
 name|int
@@ -201,6 +209,8 @@ return|return
 name|length
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getIndex
 specifier|public
 name|int
@@ -213,6 +223,8 @@ operator|-
 name|start
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|last
 specifier|public
 name|char
@@ -238,6 +250,8 @@ name|current
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|char
@@ -268,6 +282,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|previous
 specifier|public
 name|char
@@ -298,6 +314,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setIndex
 specifier|public
 name|char

@@ -94,6 +94,8 @@ specifier|protected
 name|NamedList
 name|args
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -110,6 +112,8 @@ operator|=
 name|args
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|postCommit
 specifier|public
 name|void
@@ -136,6 +140,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|newSearcher
 specifier|public
 name|void

@@ -588,6 +588,8 @@ return|;
 block|}
 comment|/**    * Returns an iterator over all the fieldinfo objects present,    * ordered by ascending field number    */
 comment|// TODO: what happens if in fact a different order is used?
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|Iterator

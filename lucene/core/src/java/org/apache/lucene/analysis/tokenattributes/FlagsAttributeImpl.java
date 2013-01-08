@@ -57,6 +57,8 @@ specifier|public
 name|FlagsAttributeImpl
 parameter_list|()
 block|{}
+annotation|@
+name|Override
 DECL|method|getFlags
 specifier|public
 name|int
@@ -67,6 +69,8 @@ return|return
 name|flags
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setFlags
 specifier|public
 name|void

@@ -406,6 +406,8 @@ operator|new
 name|FileFilter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept

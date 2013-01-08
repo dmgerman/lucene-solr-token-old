@@ -164,6 +164,8 @@ operator|=
 name|terms
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTermsEnum
 specifier|protected
 name|TermsEnum
@@ -213,6 +215,8 @@ name|terms
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -396,6 +400,8 @@ return|return
 name|temp
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|accept
 specifier|protected
 name|AcceptStatus

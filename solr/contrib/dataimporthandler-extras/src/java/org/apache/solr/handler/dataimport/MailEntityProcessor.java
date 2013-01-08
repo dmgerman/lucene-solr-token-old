@@ -2407,6 +2407,8 @@ name|mailBox
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext
 specifier|public
 name|boolean
@@ -2421,6 +2423,8 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|Folder
@@ -2670,6 +2674,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|void
@@ -3212,6 +3218,8 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext
 specifier|public
 name|boolean
@@ -3285,6 +3293,8 @@ return|return
 name|hasMore
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|Message
@@ -3304,6 +3314,8 @@ else|:
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|void
@@ -3459,6 +3471,8 @@ operator|=
 name|date
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCustomSearch
 specifier|public
 name|SearchTerm

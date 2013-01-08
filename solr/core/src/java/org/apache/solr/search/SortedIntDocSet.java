@@ -189,6 +189,8 @@ return|return
 name|docs
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -201,6 +203,8 @@ operator|.
 name|length
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|memSize
 specifier|public
 name|long
@@ -934,6 +938,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|intersectionSize
 specifier|public
 name|int
@@ -2789,6 +2795,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|exists
 specifier|public
 name|boolean
@@ -2881,6 +2889,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|DocIterator
@@ -2897,6 +2907,8 @@ name|pos
 init|=
 literal|0
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -2910,6 +2922,8 @@ operator|.
 name|length
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Integer
 name|next
@@ -2921,6 +2935,8 @@ argument_list|()
 return|;
 block|}
 comment|/**        * The remove  operation is not supported by this Iterator.        */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove
@@ -2934,6 +2950,8 @@ literal|"The remove  operation is not supported by this Iterator."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|nextDoc
@@ -2947,6 +2965,8 @@ operator|++
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|float
 name|score

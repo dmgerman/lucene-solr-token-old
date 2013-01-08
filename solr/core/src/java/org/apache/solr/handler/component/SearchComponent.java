@@ -57,21 +57,6 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|SimpleOrderedMap
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
 name|core
 operator|.
 name|SolrInfoMBean
@@ -106,6 +91,20 @@ name|SolrInfoMBean
 implements|,
 name|NamedListInitializedPlugin
 block|{
+comment|/**    * The name given to this component in solrconfig.xml file    */
+DECL|field|name
+specifier|private
+name|String
+name|name
+init|=
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 comment|/**    * Prepare the response.  Guaranteed to be called before any SearchComponent {@link #process(org.apache.solr.handler.component.ResponseBuilder)} method.    * Called for every incoming request.    *    * The place to do initialization that is request dependent.    * @param rb The {@link org.apache.solr.handler.component.ResponseBuilder}    * @throws IOException If there is a low-level I/O error.    */
 DECL|method|prepare
 specifier|public
@@ -189,7 +188,26 @@ name|ResponseBuilder
 name|rb
 parameter_list|)
 block|{   }
+comment|/**    * Sets the name of the SearchComponent. The name of the component is usually    * the name defined for it in the configuration.    */
+DECL|method|setName
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+block|}
 comment|//////////////////////// NamedListInitializedPlugin methods //////////////////////
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -202,6 +220,8 @@ block|{
 comment|// By default do nothing
 block|}
 comment|//////////////////////// SolrInfoMBeans methods //////////////////////
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String
@@ -209,15 +229,11 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
+name|name
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription
 specifier|public
 specifier|abstract
@@ -225,6 +241,8 @@ name|String
 name|getDescription
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 specifier|abstract
@@ -232,6 +250,8 @@ name|String
 name|getSource
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|String
@@ -249,6 +269,8 @@ name|getSpecificationVersion
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCategory
 specifier|public
 name|Category
@@ -261,6 +283,8 @@ operator|.
 name|OTHER
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDocs
 specifier|public
 name|URL
@@ -273,6 +297,8 @@ literal|null
 return|;
 comment|// this can be overridden, but not required
 block|}
+annotation|@
+name|Override
 DECL|method|getStatistics
 specifier|public
 name|NamedList

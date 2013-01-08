@@ -71,6 +71,8 @@ name|XMLResponseWriter
 implements|implements
 name|QueryResponseWriter
 block|{
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -82,6 +84,8 @@ parameter_list|)
 block|{
 comment|/* NOOP */
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -129,6 +133,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getContentType
 specifier|public
 name|String

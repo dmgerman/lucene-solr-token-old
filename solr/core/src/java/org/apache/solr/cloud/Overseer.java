@@ -61,6 +61,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|NoSuchElementException
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -347,7 +356,7 @@ specifier|final
 name|int
 name|STATE_UPDATE_DELAY
 init|=
-literal|500
+literal|1500
 decl_stmt|;
 comment|// delay between cloud state updates
 DECL|field|log
@@ -608,7 +617,7 @@ argument_list|)
 expr_stmt|;
 name|workQueue
 operator|.
-name|remove
+name|poll
 argument_list|()
 expr_stmt|;
 name|head
@@ -814,7 +823,7 @@ argument_list|)
 expr_stmt|;
 name|stateUpdateQueue
 operator|.
-name|remove
+name|poll
 argument_list|()
 expr_stmt|;
 name|head

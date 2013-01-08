@@ -216,6 +216,8 @@ operator|=
 name|flags
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compile
 specifier|public
 name|RegexCapabilities
@@ -402,6 +404,8 @@ name|utf16
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|match
 specifier|public
 name|boolean
@@ -440,6 +444,8 @@ name|matches
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|prefix
 specifier|public
 name|String

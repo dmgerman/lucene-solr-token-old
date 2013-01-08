@@ -155,6 +155,8 @@ operator|new
 name|FieldCacheSanityChecker
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String
@@ -171,6 +173,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|String
@@ -183,6 +187,8 @@ operator|.
 name|version
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription
 specifier|public
 name|String
@@ -195,6 +201,8 @@ operator|+
 literal|"this is **NOT** a cache that is managed by Solr."
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCategory
 specifier|public
 name|Category
@@ -207,6 +215,8 @@ operator|.
 name|CACHE
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|String
@@ -217,6 +227,8 @@ return|return
 literal|"$URL$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDocs
 specifier|public
 name|URL
@@ -228,6 +240,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStatistics
 specifier|public
 name|NamedList

@@ -250,6 +250,8 @@ name|searcher
 expr_stmt|;
 block|}
 comment|/**    * {@inheritDoc}    */
+annotation|@
+name|Override
 DECL|method|transform
 specifier|public
 name|void

@@ -161,6 +161,8 @@ name|SpanOrQueryNodeBuilder
 implements|implements
 name|StandardQueryBuilder
 block|{
+annotation|@
+name|Override
 DECL|method|build
 specifier|public
 name|SpanOrQuery

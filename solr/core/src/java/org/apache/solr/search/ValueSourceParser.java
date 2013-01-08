@@ -421,6 +421,8 @@ implements|implements
 name|NamedListInitializedPlugin
 block|{
 comment|/**    * Initialize the plugin.    */
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void

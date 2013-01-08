@@ -134,6 +134,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/** Fails if all given iterators fail to init */
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|boolean
@@ -176,6 +178,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * Return a value larger than {@link Integer#MAX_VALUE} only if all    * iterators are exhausted    */
+annotation|@
+name|Override
 DECL|method|nextCategory
 specifier|public
 name|long
@@ -232,6 +236,8 @@ literal|0x100000000L
 return|;
 block|}
 comment|/**    * Fails only if skipTo on all the provided iterators returned {@code false}    */
+annotation|@
+name|Override
 DECL|method|skipTo
 specifier|public
 name|boolean

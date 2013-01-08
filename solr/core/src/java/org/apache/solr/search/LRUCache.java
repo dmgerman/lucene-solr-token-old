@@ -211,6 +211,8 @@ name|description
 init|=
 literal|"LRU Cache"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|Object
@@ -442,6 +444,8 @@ return|return
 name|description
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -461,6 +465,8 @@ argument_list|()
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|put
 specifier|public
 name|V
@@ -513,6 +519,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|V
@@ -582,6 +590,8 @@ name|val
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 name|void
@@ -600,6 +610,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|warm
 specifier|public
 name|void
@@ -899,6 +911,8 @@ operator|-
 name|warmingStartTime
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -906,6 +920,8 @@ name|close
 parameter_list|()
 block|{   }
 comment|//////////////////////// SolrInfoMBeans methods //////////////////////
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String
@@ -921,6 +937,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription
 specifier|public
 name|String
@@ -931,6 +949,8 @@ return|return
 name|description
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|String
@@ -941,6 +961,8 @@ return|return
 literal|"$URL$"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStatistics
 specifier|public
 name|NamedList

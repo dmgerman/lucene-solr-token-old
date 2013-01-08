@@ -734,6 +734,8 @@ name|state
 init|=
 name|initState
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove
@@ -745,6 +747,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|AttributeImpl
 name|next
@@ -779,6 +783,8 @@ return|return
 name|att
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -1859,6 +1865,8 @@ operator|new
 name|AttributeReflector
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|reflect

@@ -324,6 +324,8 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -1284,6 +1286,8 @@ operator|=
 name|exceptions
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|run
 specifier|public
 name|void
@@ -1488,6 +1492,8 @@ operator|=
 name|exceptions
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|run
 specifier|public
 name|void
@@ -1814,6 +1820,8 @@ operator|new
 name|Thread
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run

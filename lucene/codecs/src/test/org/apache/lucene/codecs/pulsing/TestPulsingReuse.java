@@ -438,7 +438,9 @@ literal|null
 argument_list|,
 name|reuse
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 expr_stmt|;
 name|allEnums
@@ -708,7 +710,9 @@ literal|null
 argument_list|,
 name|reuse
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 expr_stmt|;
 name|allEnums

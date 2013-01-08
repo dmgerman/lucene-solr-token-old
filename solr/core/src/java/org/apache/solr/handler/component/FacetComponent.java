@@ -4704,6 +4704,8 @@ name|ShardFacetCount
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare
@@ -4780,6 +4782,8 @@ name|ShardFacetCount
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare

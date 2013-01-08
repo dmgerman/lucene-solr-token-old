@@ -880,7 +880,9 @@ name|liveDocs
 argument_list|,
 literal|null
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -1066,7 +1068,9 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 decl_stmt|;
 name|DocsEnum
@@ -1093,7 +1097,9 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 decl_stmt|;
 name|assertEquals

@@ -810,6 +810,8 @@ name|value
 expr_stmt|;
 block|}
 comment|/**    * The value of the field as a String, or null. If null, the Reader value or    * binary value is used. Exactly one of stringValue(), readerValue(), and    * getBinaryValue() must be set.    */
+annotation|@
+name|Override
 DECL|method|stringValue
 specifier|public
 name|String
@@ -842,6 +844,8 @@ return|;
 block|}
 block|}
 comment|/**    * The value of the field as a Reader, or null. If null, the String value or    * binary value is used. Exactly one of stringValue(), readerValue(), and    * getBinaryValue() must be set.    */
+annotation|@
+name|Override
 DECL|method|readerValue
 specifier|public
 name|Reader
@@ -1029,7 +1033,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"cannot set a Reader value on an indexed field"
+literal|"cannot set a BytesRef value on an indexed field"
 argument_list|)
 throw|;
 block|}
@@ -1384,6 +1388,8 @@ operator|=
 name|tokenStream
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|name
 specifier|public
 name|String
@@ -1395,6 +1401,8 @@ name|name
 return|;
 block|}
 comment|/**     * {@inheritDoc}    *<p>    * The default value is<code>1.0f</code> (no boost).    * @see #setBoost(float)    */
+annotation|@
+name|Override
 DECL|method|boost
 specifier|public
 name|float
@@ -1453,6 +1461,8 @@ operator|=
 name|boost
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|numericValue
 specifier|public
 name|Number
@@ -1480,6 +1490,8 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|binaryValue
 specifier|public
 name|BytesRef
@@ -1584,6 +1596,8 @@ argument_list|()
 return|;
 block|}
 comment|/** Returns the {@link FieldType} for this field. */
+annotation|@
+name|Override
 DECL|method|fieldType
 specifier|public
 name|FieldType
@@ -1594,6 +1608,8 @@ return|return
 name|type
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|tokenStream
 specifier|public
 name|TokenStream

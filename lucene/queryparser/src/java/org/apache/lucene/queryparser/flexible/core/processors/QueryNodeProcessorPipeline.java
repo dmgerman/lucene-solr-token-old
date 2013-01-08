@@ -145,6 +145,8 @@ name|queryConfigHandler
 expr_stmt|;
 block|}
 comment|/**    * For reference about this method check:    * {@link QueryNodeProcessor#getQueryConfigHandler()}.    *     * @return QueryConfigHandler the query configuration handler to be set.    *     * @see QueryNodeProcessor#setQueryConfigHandler(QueryConfigHandler)    * @see QueryConfigHandler    */
+annotation|@
+name|Override
 DECL|method|getQueryConfigHandler
 specifier|public
 name|QueryConfigHandler
@@ -158,6 +160,8 @@ name|queryConfig
 return|;
 block|}
 comment|/**    * For reference about this method check:    * {@link QueryNodeProcessor#process(QueryNode)}.    *     * @param queryTree the query node tree to be processed    *     * @throws QueryNodeException if something goes wrong during the query node    *         processing    *     * @see QueryNode    */
+annotation|@
+name|Override
 DECL|method|process
 specifier|public
 name|QueryNode
@@ -194,6 +198,8 @@ name|queryTree
 return|;
 block|}
 comment|/**    * For reference about this method check:    * {@link QueryNodeProcessor#setQueryConfigHandler(QueryConfigHandler)}.    *     * @param queryConfigHandler the query configuration handler to be set.    *     * @see QueryNodeProcessor#getQueryConfigHandler()    * @see QueryConfigHandler    */
+annotation|@
+name|Override
 DECL|method|setQueryConfigHandler
 specifier|public
 name|void
@@ -231,6 +237,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**    * @see List#add(Object)    */
+annotation|@
+name|Override
 DECL|method|add
 specifier|public
 name|boolean
@@ -272,6 +280,8 @@ name|added
 return|;
 block|}
 comment|/**    * @see List#add(int, Object)    */
+annotation|@
+name|Override
 DECL|method|add
 specifier|public
 name|void
@@ -306,6 +316,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * @see List#addAll(Collection)    */
+annotation|@
+name|Override
 DECL|method|addAll
 specifier|public
 name|boolean
@@ -355,6 +367,8 @@ name|anyAdded
 return|;
 block|}
 comment|/**    * @see List#addAll(int, Collection)    */
+annotation|@
+name|Override
 DECL|method|addAll
 specifier|public
 name|boolean
@@ -409,6 +423,8 @@ name|anyAdded
 return|;
 block|}
 comment|/**    * @see List#clear()    */
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 name|void
@@ -424,6 +440,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * @see List#contains(Object)    */
+annotation|@
+name|Override
 DECL|method|contains
 specifier|public
 name|boolean
@@ -445,6 +463,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see List#containsAll(Collection)    */
+annotation|@
+name|Override
 DECL|method|containsAll
 specifier|public
 name|boolean
@@ -469,6 +489,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see List#get(int)    */
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|QueryNodeProcessor
@@ -490,6 +512,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see List#indexOf(Object)    */
+annotation|@
+name|Override
 DECL|method|indexOf
 specifier|public
 name|int
@@ -511,6 +535,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see List#isEmpty()    */
+annotation|@
+name|Override
 DECL|method|isEmpty
 specifier|public
 name|boolean
@@ -527,6 +553,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * @see List#iterator()    */
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|Iterator
@@ -546,6 +574,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * @see List#lastIndexOf(Object)    */
+annotation|@
+name|Override
 DECL|method|lastIndexOf
 specifier|public
 name|int
@@ -567,6 +597,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see List#listIterator()    */
+annotation|@
+name|Override
 DECL|method|listIterator
 specifier|public
 name|ListIterator
@@ -586,6 +618,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * @see List#listIterator(int)    */
+annotation|@
+name|Override
 DECL|method|listIterator
 specifier|public
 name|ListIterator
@@ -610,6 +644,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see List#remove(Object)    */
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|boolean
@@ -631,6 +667,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see List#remove(int)    */
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|QueryNodeProcessor
@@ -652,6 +690,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see List#removeAll(Collection)    */
+annotation|@
+name|Override
 DECL|method|removeAll
 specifier|public
 name|boolean
@@ -676,6 +716,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see List#retainAll(Collection)    */
+annotation|@
+name|Override
 DECL|method|retainAll
 specifier|public
 name|boolean
@@ -700,6 +742,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see List#set(int, Object)    */
+annotation|@
+name|Override
 DECL|method|set
 specifier|public
 name|QueryNodeProcessor
@@ -748,6 +792,8 @@ name|oldProcessor
 return|;
 block|}
 comment|/**    * @see List#size()    */
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -764,6 +810,8 @@ argument_list|()
 return|;
 block|}
 comment|/**    * @see List#subList(int, int)    */
+annotation|@
+name|Override
 DECL|method|subList
 specifier|public
 name|List
@@ -793,6 +841,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see List#toArray(Object[])    */
+annotation|@
+name|Override
 DECL|method|toArray
 specifier|public
 parameter_list|<
@@ -819,6 +869,8 @@ argument_list|)
 return|;
 block|}
 comment|/**    * @see List#toArray()    */
+annotation|@
+name|Override
 DECL|method|toArray
 specifier|public
 name|Object

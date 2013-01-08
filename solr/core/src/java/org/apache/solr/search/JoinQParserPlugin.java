@@ -341,6 +341,8 @@ name|NAME
 init|=
 literal|"join"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -350,6 +352,8 @@ name|NamedList
 name|args
 parameter_list|)
 block|{   }
+annotation|@
+name|Override
 DECL|method|createParser
 specifier|public
 name|QParser
@@ -381,6 +385,8 @@ argument_list|,
 name|req
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Query
 name|parse
@@ -751,6 +757,8 @@ name|Set
 name|terms
 parameter_list|)
 block|{   }
+annotation|@
+name|Override
 DECL|method|createWeight
 specifier|public
 name|Weight
@@ -1057,6 +1065,8 @@ operator|=
 name|searcher
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getQuery
 specifier|public
 name|Query
@@ -1967,7 +1977,9 @@ name|fromDeState
 operator|.
 name|docsEnum
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 expr_stmt|;
 name|DocsEnum
@@ -2369,7 +2381,9 @@ name|toDeState
 operator|.
 name|docsEnum
 argument_list|,
-literal|0
+name|DocsEnum
+operator|.
+name|FLAG_NONE
 argument_list|)
 expr_stmt|;
 name|DocsEnum

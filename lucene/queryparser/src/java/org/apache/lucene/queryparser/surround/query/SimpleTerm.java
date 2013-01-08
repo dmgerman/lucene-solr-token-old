@@ -141,6 +141,8 @@ parameter_list|()
 function_decl|;
 comment|/** @deprecated (March 2011) Not normally used, to be removed from Lucene 4.0.    *   This class implementing Comparable is to be removed at the same time.    */
 annotation|@
+name|Override
+annotation|@
 name|Deprecated
 DECL|method|compareTo
 specifier|public
@@ -324,6 +326,8 @@ operator|new
 name|MatchingTermVisitor
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|visitMatchingTerm

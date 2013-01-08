@@ -1888,6 +1888,8 @@ extends|extends
 name|FlagParsingStrategy
 block|{
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|parseFlags
 specifier|public
 name|char
@@ -1916,6 +1918,8 @@ extends|extends
 name|FlagParsingStrategy
 block|{
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|parseFlags
 specifier|public
 name|char
@@ -2011,6 +2015,8 @@ extends|extends
 name|FlagParsingStrategy
 block|{
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 DECL|method|parseFlags
 specifier|public
 name|char

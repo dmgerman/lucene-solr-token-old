@@ -166,6 +166,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|boolean
@@ -511,6 +513,8 @@ return|return
 name|subResult
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|length
 specifier|public
 name|int

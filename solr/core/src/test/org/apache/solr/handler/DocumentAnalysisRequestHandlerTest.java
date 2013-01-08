@@ -620,6 +620,8 @@ operator|=
 literal|"rawBytes"
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStream
 specifier|public
 name|InputStream

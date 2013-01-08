@@ -252,6 +252,8 @@ name|defaultPatternRaw
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getFragmenter
 specifier|public
 name|Fragmenter
@@ -703,6 +705,8 @@ name|targetPattern
 expr_stmt|;
 block|}
 comment|/* (non-Javadoc)    * @see org.apache.lucene.search.highlight.TextFragmenter#start(java.lang.String)    */
+annotation|@
+name|Override
 DECL|method|start
 specifier|public
 name|void
@@ -901,6 +905,8 @@ comment|////////////////////////////////////
 comment|// fragmenting
 comment|////////////////////////////////////
 comment|/* (non-Javadoc)    * @see org.apache.lucene.search.highlight.TextFragmenter#isNewFragment(org.apache.lucene.analysis.Token)    */
+annotation|@
+name|Override
 DECL|method|isNewFragment
 specifier|public
 name|boolean

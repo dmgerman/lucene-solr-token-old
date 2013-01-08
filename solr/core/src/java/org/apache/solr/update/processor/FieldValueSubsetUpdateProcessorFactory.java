@@ -117,6 +117,8 @@ argument_list|,
 name|next
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|SolrInputField
 name|mutate

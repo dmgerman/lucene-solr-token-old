@@ -220,6 +220,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Returns the field associated with this node.    *     * @return the field associated with this node    */
+annotation|@
+name|Override
 DECL|method|getField
 specifier|public
 name|CharSequence
@@ -233,6 +235,8 @@ name|field
 return|;
 block|}
 comment|/**    * Sets the field associated with this node.    *     * @param fieldName the field associated with this node    */
+annotation|@
+name|Override
 DECL|method|setField
 specifier|public
 name|void
@@ -283,6 +287,8 @@ name|NORMAL
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toQueryString
 specifier|public
 name|CharSequence
@@ -356,6 +362,8 @@ name|numberFormat
 return|;
 block|}
 comment|/**    * Returns the numeric value as {@link Number}.    *     * @return the numeric value    */
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|Number
@@ -367,6 +375,8 @@ name|value
 return|;
 block|}
 comment|/**    * Sets the numeric value.    *     * @param value the numeric value    */
+annotation|@
+name|Override
 DECL|method|setValue
 specifier|public
 name|void

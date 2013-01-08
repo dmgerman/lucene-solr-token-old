@@ -1712,6 +1712,8 @@ operator|new
 name|CharSequence
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|char
 name|charAt
@@ -1729,6 +1731,8 @@ name|i
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|length
@@ -1741,6 +1745,8 @@ name|length
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|CharSequence
 name|subSequence

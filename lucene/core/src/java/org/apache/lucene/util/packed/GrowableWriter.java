@@ -117,6 +117,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|long
@@ -135,6 +137,8 @@ name|index
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -148,6 +152,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBitsPerValue
 specifier|public
 name|int
@@ -296,6 +302,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|set
 specifier|public
 name|void
@@ -323,6 +331,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 name|void
@@ -395,6 +405,8 @@ return|return
 name|next
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|int

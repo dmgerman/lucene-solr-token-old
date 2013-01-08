@@ -68,6 +68,8 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 specifier|abstract

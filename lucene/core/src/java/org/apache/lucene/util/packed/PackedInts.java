@@ -1665,6 +1665,8 @@ operator|=
 name|valueCount
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBitsPerValue
 specifier|public
 name|int
@@ -1675,6 +1677,8 @@ return|return
 name|bitsPerValue
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -1685,6 +1689,8 @@ return|return
 name|valueCount
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getArray
 specifier|public
 name|Object
@@ -1695,6 +1701,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasArray
 specifier|public
 name|boolean
@@ -1705,6 +1713,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|int
@@ -1841,6 +1851,8 @@ name|bitsPerValue
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|set
 specifier|public
 name|int
@@ -1945,6 +1957,8 @@ return|return
 name|len
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fill
 specifier|public
 name|void

@@ -438,6 +438,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|inform
 specifier|public
 name|void

@@ -795,6 +795,8 @@ operator|=
 name|rollbackPoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void
@@ -811,6 +813,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{     }
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -923,6 +927,8 @@ name|DeleteLastCommitPolicy
 implements|implements
 name|IndexDeletionPolicy
 block|{
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void
@@ -939,6 +945,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{}
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -1059,6 +1067,8 @@ name|KeepAllDeletionPolicy
 implements|implements
 name|IndexDeletionPolicy
 block|{
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void
@@ -1075,6 +1085,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{}
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void

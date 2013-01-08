@@ -578,7 +578,7 @@ name|path
 argument_list|,
 literal|null
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -599,7 +599,7 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1943,6 +1943,13 @@ argument_list|(
 literal|"collection1"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|slices
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|String
@@ -1977,6 +1984,7 @@ operator|==
 name|cloudStateSliceCount
 condition|)
 break|break;
+block|}
 name|Thread
 operator|.
 name|sleep
@@ -2009,7 +2017,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|90
+literal|120
 condition|;
 name|i
 operator|++

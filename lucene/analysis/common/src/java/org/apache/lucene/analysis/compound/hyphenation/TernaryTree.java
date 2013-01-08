@@ -2144,6 +2144,8 @@ name|run
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextElement
 specifier|public
 name|String
@@ -2195,6 +2197,8 @@ return|return
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasMoreElements
 specifier|public
 name|boolean

@@ -55,6 +55,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|FlushInfo
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|IOContext
 import|;
 end_import
@@ -133,6 +146,38 @@ name|NamedListInitializedPlugin
 implements|,
 name|Closeable
 block|{
+comment|// Estimate 10M docs, 100GB size, to avoid caching by NRTCachingDirectory
+comment|// Stayed away from upper bounds of the int/long in case any other code tried to aggregate these numbers.
+comment|// A large estimate should currently have no other side effects.
+DECL|field|IOCONTEXT_NO_CACHE
+specifier|public
+specifier|static
+specifier|final
+name|IOContext
+name|IOCONTEXT_NO_CACHE
+init|=
+operator|new
+name|IOContext
+argument_list|(
+operator|new
+name|FlushInfo
+argument_list|(
+literal|10
+operator|*
+literal|1000
+operator|*
+literal|1000
+argument_list|,
+literal|100L
+operator|*
+literal|1000
+operator|*
+literal|1000
+operator|*
+literal|1000
+argument_list|)
+argument_list|)
+decl_stmt|;
 DECL|field|log
 specifier|private
 specifier|static
@@ -180,6 +225,8 @@ name|closeListener
 parameter_list|)
 function_decl|;
 comment|/**    * Close the this and all of the Directories it contains.    *     * @throws IOException If there is a low-level I/O error.    */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 specifier|abstract
@@ -226,6 +273,19 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**    * This remove is special in that it may be called even after    * the factory has been closed. Remove only makes sense for    * persistent directory factories.    *     * @param path to remove    * @throws IOException If there is a low-level I/O error.    */
+DECL|method|remove
+specifier|public
+specifier|abstract
+name|void
+name|remove
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**    * Override for more efficient moves.    *     * @throws IOException If there is a low-level I/O error.    */
 DECL|method|move
 specifier|public
@@ -240,6 +300,9 @@ name|toDir
 parameter_list|,
 name|String
 name|fileName
+parameter_list|,
+name|IOContext
+name|ioContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -254,9 +317,7 @@ name|fileName
 argument_list|,
 name|fileName
 argument_list|,
-name|IOContext
-operator|.
-name|DEFAULT
+name|ioContext
 argument_list|)
 expr_stmt|;
 name|fromDir
@@ -312,6 +373,14 @@ parameter_list|(
 name|Directory
 name|directory
 parameter_list|)
+function_decl|;
+comment|/**    * @return true if data is kept after close.    */
+DECL|method|isPersistent
+specifier|public
+specifier|abstract
+name|boolean
+name|isPersistent
+parameter_list|()
 function_decl|;
 comment|/**    * Releases the Directory so that it may be closed when it is no longer    * referenced.    *     * @throws IOException If there is a low-level I/O error.    */
 DECL|method|release

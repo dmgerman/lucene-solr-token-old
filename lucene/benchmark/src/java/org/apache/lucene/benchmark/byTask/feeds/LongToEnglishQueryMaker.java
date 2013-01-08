@@ -188,6 +188,8 @@ operator|.
 name|SPELLOUT
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|makeQuery
 specifier|public
 name|Query
@@ -205,6 +207,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|makeQuery
 specifier|public
 specifier|synchronized
@@ -263,6 +267,8 @@ name|counter
 operator|++
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setConfig
 specifier|public
 name|void
@@ -313,6 +319,8 @@ name|anlzr
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetInputs
 specifier|public
 name|void
@@ -328,6 +336,8 @@ operator|+
 literal|10
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|printQueries
 specifier|public
 name|String

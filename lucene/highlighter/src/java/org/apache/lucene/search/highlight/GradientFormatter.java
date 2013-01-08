@@ -400,6 +400,8 @@ name|maxScore
 expr_stmt|;
 comment|//        totalNumDocs = corpusReader.numDocs();
 block|}
+annotation|@
+name|Override
 DECL|method|highlightTerm
 specifier|public
 name|String

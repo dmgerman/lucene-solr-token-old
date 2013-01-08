@@ -2056,6 +2056,8 @@ name|BoostingSimilarity
 extends|extends
 name|DefaultSimilarity
 block|{
+annotation|@
+name|Override
 DECL|method|queryNorm
 specifier|public
 name|float
@@ -2069,6 +2071,8 @@ return|return
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|coord
 specifier|public
 name|float

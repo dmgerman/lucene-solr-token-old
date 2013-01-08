@@ -117,6 +117,8 @@ break|break;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext
 specifier|public
 name|boolean
@@ -131,6 +133,8 @@ literal|0
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|int
@@ -179,6 +183,8 @@ return|return
 name|lastIndex
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|void
@@ -221,6 +227,8 @@ DECL|method|KeyIterator
 name|KeyIterator
 parameter_list|()
 block|{ }
+annotation|@
+name|Override
 DECL|method|hasNext
 specifier|public
 name|boolean
@@ -234,6 +242,8 @@ name|hasNext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|int
@@ -250,6 +260,8 @@ argument_list|()
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|void
@@ -285,6 +297,8 @@ DECL|method|ValueIterator
 name|ValueIterator
 parameter_list|()
 block|{ }
+annotation|@
+name|Override
 DECL|method|hasNext
 specifier|public
 name|boolean
@@ -298,6 +312,8 @@ name|hasNext
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|int
@@ -314,6 +330,8 @@ argument_list|()
 index|]
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|void

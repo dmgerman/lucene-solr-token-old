@@ -177,6 +177,8 @@ name|bucket
 return|;
 block|}
 comment|/** @see BytesRef#compareTo(BytesRef) */
+annotation|@
+name|Override
 DECL|method|compareTo
 specifier|public
 name|int

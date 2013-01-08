@@ -973,6 +973,8 @@ name|UseCompressionResponseInterceptor
 implements|implements
 name|HttpResponseInterceptor
 block|{
+annotation|@
+name|Override
 DECL|method|process
 specifier|public
 name|void
@@ -1131,6 +1133,8 @@ name|entity
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContent
 specifier|public
 name|InputStream
@@ -1152,6 +1156,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContentLength
 specifier|public
 name|long
@@ -1187,6 +1193,8 @@ name|entity
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getContent
 specifier|public
 name|InputStream

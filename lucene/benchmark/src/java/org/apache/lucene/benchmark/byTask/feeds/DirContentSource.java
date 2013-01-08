@@ -222,6 +222,8 @@ argument_list|<
 name|File
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -432,6 +434,8 @@ operator|new
 name|FileFilter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept
@@ -461,6 +465,8 @@ operator|new
 name|FileFilter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|accept
@@ -547,6 +553,8 @@ return|return
 name|count
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasNext
 specifier|public
 name|boolean
@@ -562,6 +570,8 @@ operator|>
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|next
 specifier|public
 name|File
@@ -591,6 +601,8 @@ return|return
 name|object
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|void

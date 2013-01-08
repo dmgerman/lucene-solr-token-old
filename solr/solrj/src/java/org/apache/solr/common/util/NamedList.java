@@ -860,6 +860,8 @@ operator|=
 name|_value
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getKey
 specifier|public
 name|String
@@ -870,6 +872,8 @@ return|return
 name|key
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|T
@@ -880,6 +884,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setValue
 specifier|public
 name|T
@@ -1052,6 +1058,8 @@ comment|//----------------------------------------------------------------------
 comment|// Iterable interface
 comment|//----------------------------------------------------------------------------
 comment|/**    * Support the Iterable interface    */
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|Iterator
@@ -1109,6 +1117,8 @@ name|idx
 init|=
 literal|0
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|hasNext
@@ -1123,6 +1133,8 @@ name|size
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 operator|.
@@ -1163,6 +1175,8 @@ name|T
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|getKey
@@ -1177,6 +1191,8 @@ name|index
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1213,6 +1229,8 @@ name|getValue
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|T
 name|setValue
@@ -1238,6 +1256,8 @@ return|return
 name|nv
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|remove

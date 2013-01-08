@@ -78,6 +78,8 @@ name|hashCode
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|aggregate
 specifier|public
 name|void
@@ -157,6 +159,8 @@ return|return
 name|hashCode
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextDoc
 specifier|public
 name|void

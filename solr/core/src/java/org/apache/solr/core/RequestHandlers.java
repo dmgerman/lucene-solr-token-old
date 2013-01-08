@@ -1006,6 +1006,8 @@ expr_stmt|;
 comment|// don't initialize
 block|}
 comment|/**      * In normal use, this function will not be called      */
+annotation|@
+name|Override
 DECL|method|init
 specifier|public
 name|void
@@ -1018,6 +1020,8 @@ block|{
 comment|// do nothing
 block|}
 comment|/**      * Wait for the first request before initializing the wrapped handler       */
+annotation|@
+name|Override
 DECL|method|handleRequest
 specifier|public
 name|void
@@ -1154,6 +1158,8 @@ name|_className
 return|;
 block|}
 comment|//////////////////////// SolrInfoMBeans methods //////////////////////
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String
@@ -1168,6 +1174,8 @@ operator|+
 literal|"]"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDescription
 specifier|public
 name|String
@@ -1193,6 +1201,8 @@ name|getDescription
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getVersion
 specifier|public
 name|String
@@ -1217,6 +1227,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|String
@@ -1249,6 +1261,8 @@ return|return
 name|rev
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDocs
 specifier|public
 name|URL
@@ -1274,6 +1288,8 @@ name|getDocs
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCategory
 specifier|public
 name|Category
@@ -1286,6 +1302,8 @@ operator|.
 name|QUERYHANDLER
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getStatistics
 specifier|public
 name|NamedList

@@ -835,6 +835,8 @@ return|return
 name|urls
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|submit
 specifier|public
 name|void
@@ -879,6 +881,8 @@ name|ShardResponse
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|ShardResponse
 name|call
@@ -1192,6 +1196,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** returns a ShardResponse of the last response correlated with a ShardRequest.  This won't     * return early if it runs into an error.      **/
+annotation|@
+name|Override
 DECL|method|takeCompletedIncludingErrors
 specifier|public
 name|ShardResponse
@@ -1206,6 +1212,8 @@ argument_list|)
 return|;
 block|}
 comment|/** returns a ShardResponse of the last response correlated with a ShardRequest,    * or immediately returns a ShardResponse if there was an error detected    */
+annotation|@
+name|Override
 DECL|method|takeCompletedOrError
 specifier|public
 name|ShardResponse
@@ -1373,6 +1381,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|cancelAll
 specifier|public
 name|void
@@ -1401,6 +1411,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|checkDistributed
 specifier|public
 name|void

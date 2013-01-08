@@ -768,6 +768,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Unsigned byte order comparison */
+annotation|@
+name|Override
 DECL|method|compareTo
 specifier|public
 name|int
@@ -834,6 +836,8 @@ name|UTF8SortedAsUnicodeComparator
 parameter_list|()
 block|{}
 empty_stmt|;
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -1012,6 +1016,8 @@ name|UTF8SortedAsUTF16Comparator
 parameter_list|()
 block|{}
 empty_stmt|;
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int

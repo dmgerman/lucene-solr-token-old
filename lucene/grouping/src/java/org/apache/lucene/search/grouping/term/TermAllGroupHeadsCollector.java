@@ -529,6 +529,8 @@ literal|1
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|retrieveGroupHeadAndAddIfNotExist
 specifier|protected
 name|void
@@ -656,6 +658,8 @@ operator|=
 name|groupHead
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCollectedGroupHeads
 specifier|protected
 name|Collection
@@ -672,6 +676,8 @@ name|values
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -757,6 +763,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -957,6 +965,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -983,6 +993,8 @@ name|doc
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|updateDocHead
 specifier|public
 name|void
@@ -1211,6 +1223,8 @@ index|]
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCollectedGroupHeads
 specifier|protected
 name|Collection
@@ -1224,6 +1238,8 @@ return|return
 name|collectedGroups
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -1242,6 +1258,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|retrieveGroupHeadAndAddIfNotExist
 specifier|protected
 name|void
@@ -1376,6 +1394,8 @@ operator|=
 name|groupHead
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -1834,6 +1854,8 @@ block|}
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -1991,6 +2013,8 @@ return|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|updateDocHead
 specifier|public
 name|void
@@ -2289,6 +2313,8 @@ index|]
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCollectedGroupHeads
 specifier|protected
 name|Collection
@@ -2302,6 +2328,8 @@ return|return
 name|collectedGroups
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -2313,6 +2341,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{     }
+annotation|@
+name|Override
 DECL|method|retrieveGroupHeadAndAddIfNotExist
 specifier|protected
 name|void
@@ -2447,6 +2477,8 @@ operator|=
 name|groupHead
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -2820,6 +2852,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -2915,6 +2949,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|updateDocHead
 specifier|public
 name|void
@@ -3174,6 +3210,8 @@ index|]
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getCollectedGroupHeads
 specifier|protected
 name|Collection
@@ -3187,6 +3225,8 @@ return|return
 name|collectedGroups
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -3205,6 +3245,8 @@ operator|=
 name|scorer
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|retrieveGroupHeadAndAddIfNotExist
 specifier|protected
 name|void
@@ -3339,6 +3381,8 @@ operator|=
 name|groupHead
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void
@@ -3549,6 +3593,8 @@ name|score
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int
@@ -3605,6 +3651,8 @@ return|return
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|updateDocHead
 specifier|public
 name|void

@@ -42,6 +42,8 @@ name|KeepOnlyLastCommitDeletionPolicy
 parameter_list|()
 block|{   }
 comment|/**    * Deletes all commits except the most recent one.    */
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -64,6 +66,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Deletes all commits except the most recent one.    */
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void

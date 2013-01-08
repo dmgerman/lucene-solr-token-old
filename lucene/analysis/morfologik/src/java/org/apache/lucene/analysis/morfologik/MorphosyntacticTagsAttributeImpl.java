@@ -87,6 +87,8 @@ return|return
 name|tags
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 name|void
@@ -98,6 +100,8 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -171,6 +175,8 @@ argument_list|)
 operator|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -214,6 +220,8 @@ operator|=
 name|tags
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|copyTo
 specifier|public
 name|void
@@ -286,6 +294,8 @@ name|cloned
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|MorphosyntacticTagsAttributeImpl
