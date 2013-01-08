@@ -2864,6 +2864,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|doRewrite
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -3936,12 +3938,7 @@ argument_list|,
 literal|null
 argument_list|,
 name|doPack
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|setAllowArrayArcs
-argument_list|(
+argument_list|,
 operator|!
 name|noArcArrays
 argument_list|)
@@ -7961,6 +7958,8 @@ argument_list|()
 operator|.
 name|nextBoolean
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|builder
@@ -8120,6 +8119,8 @@ argument_list|,
 literal|null
 argument_list|,
 name|willRewrite
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|builder
@@ -8324,6 +8325,8 @@ argument_list|,
 name|PackedInts
 operator|.
 name|COMPACT
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 specifier|final
