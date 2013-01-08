@@ -305,6 +305,12 @@ operator|.
 name|FormatAndBits
 import|;
 end_import
+begin_comment
+comment|// nocommit fix this
+end_comment
+begin_comment
+comment|/**  * Internally there are only 2 field types:  * BINARY: a big byte[]  * NUMERIC: packed ints  *  * NumericField = NUMERIC  * fixedLength BinaryField = BINARY  * variableLength BinaryField = BINARY + NUMERIC (addresses)  * fixedLength SortedField = BINARY + NUMERIC (ords)  * variableLength SortedField = BINARY + NUMERIC (addresses) + NUMERIC (ords)   */
+end_comment
 begin_class
 DECL|class|Lucene41SimpleDocValuesFormat
 specifier|public
@@ -1687,7 +1693,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// nocommit: user can currently get back a numericDV of the addresses...
+comment|// nocommit: user can currently get back a numericDV of the addresses...?
 name|NumericEntry
 name|entry
 init|=
@@ -1822,6 +1828,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// nocommit: user can currently get back a binaryDV of the uniqueValues...?
 name|BinaryEntry
 name|bytes
 init|=
