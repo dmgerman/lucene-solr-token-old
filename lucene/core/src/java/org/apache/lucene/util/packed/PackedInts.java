@@ -3891,6 +3891,16 @@ operator|=
 name|version
 expr_stmt|;
 block|}
+DECL|method|getValueCount
+specifier|public
+name|int
+name|getValueCount
+parameter_list|()
+block|{
+return|return
+name|valueCount
+return|;
+block|}
 block|}
 block|}
 end_class
