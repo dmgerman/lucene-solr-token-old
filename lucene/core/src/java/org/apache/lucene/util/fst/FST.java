@@ -2018,8 +2018,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-literal|true
-operator|||
 operator|!
 name|packed
 condition|)
