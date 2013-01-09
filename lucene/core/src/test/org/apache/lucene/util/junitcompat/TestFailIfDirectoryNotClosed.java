@@ -82,10 +82,9 @@ specifier|public
 name|TestFailIfDirectoryNotClosed
 parameter_list|()
 block|{
-comment|// nocommit true
 name|super
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
