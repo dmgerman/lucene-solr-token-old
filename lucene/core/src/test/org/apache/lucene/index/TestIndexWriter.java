@@ -11483,16 +11483,6 @@ name|getValueCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|4
-argument_list|,
-name|dti
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|BytesRef
 name|br
 init|=
