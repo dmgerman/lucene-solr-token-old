@@ -294,6 +294,9 @@ operator|.
 name|_TestUtil
 import|;
 end_import
+begin_comment
+comment|//nocommit: make sure disk full etc tests here test DV2.0
+end_comment
 begin_class
 DECL|class|TestIndexWriterDelete
 specifier|public
