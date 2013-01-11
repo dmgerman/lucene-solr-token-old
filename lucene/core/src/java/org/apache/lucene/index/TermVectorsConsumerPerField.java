@@ -884,7 +884,17 @@ name|offReader
 argument_list|)
 expr_stmt|;
 block|}
+name|tv
+operator|.
+name|finishTerm
+argument_list|()
+expr_stmt|;
 block|}
+name|tv
+operator|.
+name|finishField
+argument_list|()
+expr_stmt|;
 name|termsHashPerField
 operator|.
 name|reset

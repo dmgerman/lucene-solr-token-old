@@ -239,10 +239,10 @@ begin_comment
 comment|/**  * Sample indexer creates an index, and adds to it sample documents with  * categories, which can be simple or contain associations.  *   * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|AssociationIndexer
+DECL|class|CategoryAssociationsIndexer
 specifier|public
 class|class
-name|AssociationIndexer
+name|CategoryAssociationsIndexer
 block|{
 comment|/**    * Create an index, and adds to it sample documents and categories.    *     * @param indexDir    *            Directory in which the index should be created.    * @param taxoDir    *            Directory in which the taxonomy index should be created.    * @throws Exception    *             on error (no detailed exception handling here for sample    *             simplicity    */
 DECL|method|index
@@ -392,7 +392,7 @@ name|CategoryPath
 index|[]
 name|associationsPaths
 init|=
-name|AssociationUtils
+name|CategoryAssociationsUtils
 operator|.
 name|categories
 index|[
@@ -403,7 +403,7 @@ name|CategoryAssociation
 index|[]
 name|associationsValues
 init|=
-name|AssociationUtils
+name|CategoryAssociationsUtils
 operator|.
 name|associations
 index|[
