@@ -735,6 +735,16 @@ argument_list|(
 name|taxoWriter
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|paths
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
 name|facetFields
 operator|.
 name|addFields
@@ -744,6 +754,7 @@ argument_list|,
 name|paths
 argument_list|)
 expr_stmt|;
+block|}
 name|writer
 operator|.
 name|addDocument

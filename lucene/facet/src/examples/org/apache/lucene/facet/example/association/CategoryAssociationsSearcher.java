@@ -189,10 +189,10 @@ begin_comment
 comment|/**  * AssociationSearcher searches index with facets, evaluating the facets with  * their associated $int value  *   * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|AssociationSearcher
+DECL|class|CategoryAssociationsSearcher
 specifier|public
 class|class
-name|AssociationSearcher
+name|CategoryAssociationsSearcher
 block|{
 comment|/** Search an index with a sum of int-association. */
 DECL|method|searchSumIntAssociation
