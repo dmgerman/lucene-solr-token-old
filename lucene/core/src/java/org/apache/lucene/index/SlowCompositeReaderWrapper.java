@@ -303,6 +303,7 @@ expr_stmt|;
 return|return
 literal|null
 return|;
+comment|// nocommit: UOE
 block|}
 annotation|@
 name|Override
@@ -323,6 +324,7 @@ expr_stmt|;
 return|return
 literal|null
 return|;
+comment|// nocommit: UOE
 block|}
 annotation|@
 name|Override
@@ -343,6 +345,7 @@ expr_stmt|;
 return|return
 literal|null
 return|;
+comment|// nocommit: UOE
 block|}
 annotation|@
 name|Override
@@ -421,7 +424,14 @@ argument_list|()
 expr_stmt|;
 comment|// nocommit hmm
 return|return
-literal|null
+name|MultiDocValues
+operator|.
+name|simpleNormValues
+argument_list|(
+name|in
+argument_list|,
+name|field
+argument_list|)
 return|;
 block|}
 annotation|@
