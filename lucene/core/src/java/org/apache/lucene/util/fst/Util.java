@@ -156,8 +156,6 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
-name|FST
-operator|.
 name|BytesReader
 name|fstReader
 init|=
@@ -308,8 +306,6 @@ operator|.
 name|BYTE1
 assert|;
 specifier|final
-name|FST
-operator|.
 name|BytesReader
 name|fstReader
 init|=
@@ -471,8 +467,6 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|FST
-operator|.
 name|BytesReader
 name|in
 init|=
@@ -699,15 +693,16 @@ literal|1
 expr_stmt|;
 name|in
 operator|.
-name|pos
-operator|=
+name|setPosition
+argument_list|(
 name|arc
 operator|.
 name|posArcsStart
+argument_list|)
 expr_stmt|;
 name|in
 operator|.
-name|skip
+name|skipBytes
 argument_list|(
 name|arc
 operator|.
@@ -1286,8 +1281,6 @@ decl_stmt|;
 DECL|field|bytesReader
 specifier|private
 specifier|final
-name|FST
-operator|.
 name|BytesReader
 name|bytesReader
 decl_stmt|;
@@ -1886,8 +1879,6 @@ argument_list|()
 decl_stmt|;
 comment|//System.out.println("search topN=" + topN);
 specifier|final
-name|FST
-operator|.
 name|BytesReader
 name|fstReader
 init|=
@@ -2776,8 +2767,6 @@ name|getNoOutput
 argument_list|()
 decl_stmt|;
 specifier|final
-name|FST
-operator|.
 name|BytesReader
 name|r
 init|=
@@ -4238,15 +4227,16 @@ literal|1
 expr_stmt|;
 name|in
 operator|.
-name|pos
-operator|=
+name|setPosition
+argument_list|(
 name|arc
 operator|.
 name|posArcsStart
+argument_list|)
 expr_stmt|;
 name|in
 operator|.
-name|skip
+name|skipBytes
 argument_list|(
 name|arc
 operator|.
