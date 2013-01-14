@@ -1938,6 +1938,9 @@ name|numBytes
 expr_stmt|;
 name|left
 operator|=
+operator|(
+name|int
+operator|)
 name|r
 operator|.
 name|getPosition
@@ -1954,12 +1957,17 @@ name|numBytes
 expr_stmt|;
 name|left
 operator|=
+call|(
+name|int
+call|)
+argument_list|(
 name|totalLength
 operator|-
 name|r
 operator|.
 name|getPosition
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 name|assertEquals

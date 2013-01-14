@@ -141,7 +141,7 @@ annotation|@
 name|Override
 DECL|method|getPosition
 specifier|public
-name|int
+name|long
 name|getPosition
 parameter_list|()
 block|{
@@ -156,7 +156,7 @@ specifier|public
 name|void
 name|setPosition
 parameter_list|(
-name|int
+name|long
 name|pos
 parameter_list|)
 block|{
@@ -164,6 +164,9 @@ name|this
 operator|.
 name|pos
 operator|=
+operator|(
+name|int
+operator|)
 name|pos
 expr_stmt|;
 block|}

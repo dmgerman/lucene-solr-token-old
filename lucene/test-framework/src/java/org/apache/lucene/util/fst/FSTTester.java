@@ -251,6 +251,21 @@ name|_TestUtil
 import|;
 end_import
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|packed
+operator|.
+name|PackedInts
+import|;
+end_import
+begin_import
 import|import static
 name|org
 operator|.
@@ -1809,7 +1824,13 @@ literal|null
 argument_list|,
 name|willRewrite
 argument_list|,
+name|PackedInts
+operator|.
+name|DEFAULT
+argument_list|,
 literal|true
+argument_list|,
+literal|15
 argument_list|)
 decl_stmt|;
 if|if
