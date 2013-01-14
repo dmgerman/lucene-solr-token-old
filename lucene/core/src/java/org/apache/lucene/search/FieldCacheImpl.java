@@ -3046,17 +3046,6 @@ operator|.
 name|field
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"ints values="
-operator|+
-name|valuesIn
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|valuesIn
