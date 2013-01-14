@@ -228,7 +228,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|scoredDocIdsIterator
-specifier|public
+specifier|protected
 name|ScoredDocIDsIterator
 name|scoredDocIdsIterator
 parameter_list|()
@@ -503,7 +503,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|scoredDocIdsIterator
-specifier|public
+specifier|protected
 name|ScoredDocIDsIterator
 name|scoredDocIdsIterator
 parameter_list|()
@@ -727,6 +727,15 @@ name|maxDoc
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|scoredDocIdsIterator
+specifier|protected
+specifier|abstract
+name|ScoredDocIDsIterator
+name|scoredDocIdsIterator
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
 comment|/** Returns the default score used when scoring is disabled. */
 DECL|method|getDefaultScore
 specifier|public
@@ -745,15 +754,6 @@ parameter_list|(
 name|float
 name|defaultScore
 parameter_list|)
-function_decl|;
-DECL|method|scoredDocIdsIterator
-specifier|public
-specifier|abstract
-name|ScoredDocIDsIterator
-name|scoredDocIdsIterator
-parameter_list|()
-throws|throws
-name|IOException
 function_decl|;
 DECL|method|getScoredDocIDs
 specifier|public
