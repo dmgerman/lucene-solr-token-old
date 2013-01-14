@@ -162,9 +162,7 @@ init|=
 name|fst
 operator|.
 name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// Accumulate output as we go
 name|T
@@ -312,9 +310,7 @@ init|=
 name|fst
 operator|.
 name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// TODO: would be nice not to alloc this on every lookup
 specifier|final
@@ -473,9 +469,7 @@ init|=
 name|fst
 operator|.
 name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// TODO: would be nice not to alloc this on every lookup
 name|FST
@@ -1372,9 +1366,7 @@ operator|=
 name|fst
 operator|.
 name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -1885,9 +1877,7 @@ init|=
 name|fst
 operator|.
 name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 decl_stmt|;
 specifier|final
 name|T
@@ -2776,9 +2766,7 @@ init|=
 name|fst
 operator|.
 name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// final FST.Arc<T> scratchArc = new FST.Arc<T>();
 block|{
