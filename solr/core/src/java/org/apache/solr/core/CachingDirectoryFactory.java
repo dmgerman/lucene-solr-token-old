@@ -217,7 +217,7 @@ name|LoggerFactory
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link DirectoryFactory} impl base class for caching Directory instances  * per path. Most DirectoryFactory implementations will want to extend this  * class and simply implement {@link DirectoryFactory#create(String)}.  *   */
+comment|/**  * A {@link DirectoryFactory} impl base class for caching Directory instances  * per path. Most DirectoryFactory implementations will want to extend this  * class and simply implement {@link DirectoryFactory#create(String, DirContext)}.  *   */
 end_comment
 begin_class
 DECL|class|CachingDirectoryFactory
@@ -994,6 +994,9 @@ name|create
 parameter_list|(
 name|String
 name|path
+parameter_list|,
+name|DirContext
+name|dirContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -1047,6 +1050,9 @@ parameter_list|(
 name|String
 name|path
 parameter_list|,
+name|DirContext
+name|dirContext
+parameter_list|,
 name|String
 name|rawLockType
 parameter_list|)
@@ -1057,6 +1063,8 @@ return|return
 name|get
 argument_list|(
 name|path
+argument_list|,
+name|dirContext
 argument_list|,
 name|rawLockType
 argument_list|,
@@ -1075,6 +1083,9 @@ name|get
 parameter_list|(
 name|String
 name|path
+parameter_list|,
+name|DirContext
+name|dirContext
 parameter_list|,
 name|String
 name|rawLockType
@@ -1219,6 +1230,8 @@ operator|=
 name|create
 argument_list|(
 name|fullPath
+argument_list|,
+name|dirContext
 argument_list|)
 expr_stmt|;
 name|directory

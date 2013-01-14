@@ -30,6 +30,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|AtomicReaderContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|IntsRef
@@ -39,7 +52,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * An interface for obtaining the category ordinals of documents.  *<p>  *<b>NOTE:</b> this class operates as a key to a map, and therefore you should  * implement {@code equals()} and {@code hashCode()} for proper behavior.  *   * @lucene.experimental  */
+comment|/**  * An interface for obtaining the category ordinals of documents.  * {@link #getOrdinals(int, IntsRef)} calls are done with document IDs that are  * local to the reader given to {@link #setNextReader(AtomicReaderContext)}.  *<p>  *<b>NOTE:</b> this class operates as a key to a map, and therefore you should  * implement {@code equals()} and {@code hashCode()} for proper behavior.  *   * @lucene.experimental  */
 end_comment
 begin_interface
 DECL|interface|CategoryListIterator
@@ -47,16 +60,19 @@ specifier|public
 interface|interface
 name|CategoryListIterator
 block|{
-comment|/**    * Initializes the iterator. This method must be called before any calls to    * {@link #getOrdinals(int, IntsRef)}, and its return value indicates whether there are    * any relevant documents for this iterator.    */
-DECL|method|init
+comment|/**    * Sets the {@link AtomicReaderContext} for which    * {@link #getOrdinals(int, IntsRef)} calls will be made. Returns true iff any    * of the documents in this reader have category ordinals. This method must be    * called before any calls to {@link #getOrdinals(int, IntsRef)}.    */
+DECL|method|setNextReader
 specifier|public
 name|boolean
-name|init
-parameter_list|()
+name|setNextReader
+parameter_list|(
+name|AtomicReaderContext
+name|context
+parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Stores the category ordinals of the given document ID in the given    * {@link IntsRef}, starting at position 0 upto {@link IntsRef#length}. Grows    * the {@link IntsRef} if it is not large enough.    *     *<p>    *<b>NOTE:</b> if the requested document does not category ordinals    * associated with it, {@link IntsRef#length} is set to zero.    */
+comment|/**    * Stores the category ordinals of the given document ID in the given    * {@link IntsRef}, starting at position 0 upto {@link IntsRef#length}. Grows    * the {@link IntsRef} if it is not large enough.    *     *<p>    *<b>NOTE:</b> if the requested document does not have category ordinals    * associated with it, {@link IntsRef#length} is set to zero.    */
 DECL|method|getOrdinals
 specifier|public
 name|void

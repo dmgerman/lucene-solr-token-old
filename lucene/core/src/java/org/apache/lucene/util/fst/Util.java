@@ -156,8 +156,6 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
-name|FST
-operator|.
 name|BytesReader
 name|fstReader
 init|=
@@ -308,8 +306,6 @@ operator|.
 name|BYTE1
 assert|;
 specifier|final
-name|FST
-operator|.
 name|BytesReader
 name|fstReader
 init|=
@@ -471,8 +467,6 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|FST
-operator|.
 name|BytesReader
 name|in
 init|=
@@ -699,15 +693,16 @@ literal|1
 expr_stmt|;
 name|in
 operator|.
-name|pos
-operator|=
+name|setPosition
+argument_list|(
 name|arc
 operator|.
 name|posArcsStart
+argument_list|)
 expr_stmt|;
 name|in
 operator|.
-name|skip
+name|skipBytes
 argument_list|(
 name|arc
 operator|.
@@ -1286,8 +1281,6 @@ decl_stmt|;
 DECL|field|bytesReader
 specifier|private
 specifier|final
-name|FST
-operator|.
 name|BytesReader
 name|bytesReader
 decl_stmt|;
@@ -1886,8 +1879,6 @@ argument_list|()
 decl_stmt|;
 comment|//System.out.println("search topN=" + topN);
 specifier|final
-name|FST
-operator|.
 name|BytesReader
 name|fstReader
 init|=
@@ -2559,7 +2550,7 @@ name|search
 argument_list|()
 return|;
 block|}
-comment|/**    * Dumps an {@link FST} to a GraphViz's<code>dot</code> language description    * for visualization. Example of use:    *     *<pre class="prettyprint">    * PrintWriter pw = new PrintWriter(&quot;out.dot&quot;);    * Util.toDot(fst, pw, true, true);    * pw.close();    *</pre>    *     * and then, from command line:    *     *<pre>    * dot -Tpng -o out.png out.dot    *</pre>    *     *<p>    * Note: larger FSTs (a few thousand nodes) won't even render, don't bother.    *     * @param sameRank    *          If<code>true</code>, the resulting<code>dot</code> file will try    *          to order states in layers of breadth-first traversal. This may    *          mess up arcs, but makes the output FST's structure a bit clearer.    *     * @param labelStates    *          If<code>true</code> states will have labels equal to their offsets in their    *          binary format. Expands the graph considerably.     *     * @see "http://www.graphviz.org/"    */
+comment|/**    * Dumps an {@link FST} to a GraphViz's<code>dot</code> language description    * for visualization. Example of use:    *     *<pre class="prettyprint">    * PrintWriter pw = new PrintWriter(&quot;out.dot&quot;);    * Util.toDot(fst, pw, true, true);    * pw.close();    *</pre>    *     * and then, from command line:    *     *<pre>    * dot -Tpng -o out.png out.dot    *</pre>    *     *<p>    * Note: larger FSTs (a few thousand nodes) won't even    * render, don't bother.  If the FST is> 2.1 GB in size    * then this method will throw strange exceptions.    *     * @param sameRank    *          If<code>true</code>, the resulting<code>dot</code> file will try    *          to order states in layers of breadth-first traversal. This may    *          mess up arcs, but makes the output FST's structure a bit clearer.    *     * @param labelStates    *          If<code>true</code> states will have labels equal to their offsets in their    *          binary format. Expands the graph considerably.     *     * @see "http://www.graphviz.org/"    */
 DECL|method|toDot
 specifier|public
 specifier|static
@@ -2704,6 +2695,9 @@ name|seen
 operator|.
 name|set
 argument_list|(
+operator|(
+name|int
+operator|)
 name|startArc
 operator|.
 name|target
@@ -2776,8 +2770,6 @@ name|getNoOutput
 argument_list|()
 decl_stmt|;
 specifier|final
-name|FST
-operator|.
 name|BytesReader
 name|r
 init|=
@@ -2868,7 +2860,7 @@ name|emitDotState
 argument_list|(
 name|out
 argument_list|,
-name|Integer
+name|Long
 operator|.
 name|toString
 argument_list|(
@@ -3001,7 +2993,7 @@ block|{
 comment|// scan all target arcs
 comment|//System.out.println("  readFirstTarget...");
 specifier|final
-name|int
+name|long
 name|node
 init|=
 name|arc
@@ -3042,6 +3034,9 @@ name|seen
 operator|.
 name|get
 argument_list|(
+operator|(
+name|int
+operator|)
 name|arc
 operator|.
 name|target
@@ -3121,7 +3116,7 @@ name|emitDotState
 argument_list|(
 name|out
 argument_list|,
-name|Integer
+name|Long
 operator|.
 name|toString
 argument_list|(
@@ -3143,6 +3138,9 @@ name|seen
 operator|.
 name|set
 argument_list|(
+operator|(
+name|int
+operator|)
 name|arc
 operator|.
 name|target
@@ -3171,6 +3169,9 @@ name|sameLevelStates
 operator|.
 name|add
 argument_list|(
+operator|(
+name|int
+operator|)
 name|arc
 operator|.
 name|target
@@ -4238,15 +4239,16 @@ literal|1
 expr_stmt|;
 name|in
 operator|.
-name|pos
-operator|=
+name|setPosition
+argument_list|(
 name|arc
 operator|.
 name|posArcsStart
+argument_list|)
 expr_stmt|;
 name|in
 operator|.
-name|skip
+name|skipBytes
 argument_list|(
 name|arc
 operator|.

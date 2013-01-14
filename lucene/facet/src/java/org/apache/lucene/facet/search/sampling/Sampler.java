@@ -250,7 +250,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Construct with certain {@link SamplingParams}    * @param params sampling params in effect    * @throws IllegalArgumentException if the provided SamplingParams are not valid     */
+comment|/**    * Construct with certain {@link SamplingParams}    *     * @param params sampling params in effect    * @throws IllegalArgumentException if the provided SamplingParams are not valid     */
 DECL|method|Sampler
 specifier|public
 name|Sampler
@@ -565,7 +565,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"It is only valid to call this method with result obtained for a"
+literal|"It is only valid to call this method with result obtained for a "
 operator|+
 literal|"facet request created through sampler.overSamlpingSearchParams()"
 argument_list|,
@@ -814,9 +814,6 @@ specifier|public
 name|CategoryListIterator
 name|createCategoryListIterator
 parameter_list|(
-name|IndexReader
-name|reader
-parameter_list|,
 name|TaxonomyReader
 name|taxo
 parameter_list|,
@@ -834,8 +831,6 @@ name|orig
 operator|.
 name|createCategoryListIterator
 argument_list|(
-name|reader
-argument_list|,
 name|taxo
 argument_list|,
 name|sParams
@@ -857,9 +852,6 @@ parameter_list|,
 name|FacetArrays
 name|arrays
 parameter_list|,
-name|IndexReader
-name|indexReader
-parameter_list|,
 name|TaxonomyReader
 name|taxonomy
 parameter_list|)
@@ -874,8 +866,6 @@ argument_list|(
 name|useComplements
 argument_list|,
 name|arrays
-argument_list|,
-name|indexReader
 argument_list|,
 name|taxonomy
 argument_list|)
