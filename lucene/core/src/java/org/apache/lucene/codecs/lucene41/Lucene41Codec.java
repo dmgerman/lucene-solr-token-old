@@ -628,7 +628,7 @@ name|SimpleDocValuesFormat
 operator|.
 name|forName
 argument_list|(
-literal|"Lucene41"
+literal|"Disk"
 argument_list|)
 decl_stmt|;
 DECL|field|simpleNormsFormat
