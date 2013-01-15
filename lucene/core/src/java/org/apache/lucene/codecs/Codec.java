@@ -151,14 +151,6 @@ name|postingsFormat
 parameter_list|()
 function_decl|;
 comment|/** Encodes/decodes docvalues */
-DECL|method|docValuesFormat
-specifier|public
-specifier|abstract
-name|DocValuesFormat
-name|docValuesFormat
-parameter_list|()
-function_decl|;
-comment|/** Encodes/decodes streaming docvalues */
 DECL|method|simpleDocValuesFormat
 specifier|public
 specifier|abstract
@@ -199,24 +191,13 @@ name|segmentInfoFormat
 parameter_list|()
 function_decl|;
 comment|/** Encodes/decodes document normalization values */
-DECL|method|normsFormat
-specifier|public
-specifier|abstract
-name|NormsFormat
-name|normsFormat
-parameter_list|()
-function_decl|;
 DECL|method|simpleNormsFormat
 specifier|public
+specifier|abstract
 name|SimpleNormsFormat
 name|simpleNormsFormat
 parameter_list|()
-block|{
-comment|// nocommit make this abstract
-return|return
-literal|null
-return|;
-block|}
+function_decl|;
 comment|/** Encodes/decodes live docs */
 DECL|method|liveDocsFormat
 specifier|public

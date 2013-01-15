@@ -140,15 +140,6 @@ operator|.
 name|_TestUtil
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Assume
-import|;
-end_import
 begin_class
 DECL|class|TestOmitNorms
 specifier|public
@@ -1528,17 +1519,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// nocommit remove
-name|Assume
-operator|.
-name|assumeTrue
-argument_list|(
-name|_TestUtil
-operator|.
-name|canUseSimpleNorms
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|Directory
 name|dir
 init|=
