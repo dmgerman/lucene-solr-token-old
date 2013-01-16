@@ -641,8 +641,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|tfcc
@@ -697,8 +695,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|int

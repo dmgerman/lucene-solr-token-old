@@ -1362,8 +1362,7 @@ operator|.
 name|getFacetRequest
 argument_list|()
 operator|.
-name|getCategoryPath
-argument_list|()
+name|categoryPath
 operator|.
 name|components
 index|[
@@ -1742,8 +1741,7 @@ operator|.
 name|getFacetRequest
 argument_list|()
 operator|.
-name|getCategoryPath
-argument_list|()
+name|categoryPath
 operator|.
 name|components
 index|[
@@ -1930,8 +1928,7 @@ operator|.
 name|getFacetRequest
 argument_list|()
 operator|.
-name|getCategoryPath
-argument_list|()
+name|categoryPath
 operator|.
 name|components
 index|[
@@ -2096,8 +2093,7 @@ operator|.
 name|getFacetRequest
 argument_list|()
 operator|.
-name|getCategoryPath
-argument_list|()
+name|categoryPath
 operator|.
 name|components
 index|[
@@ -2249,8 +2245,7 @@ operator|.
 name|getFacetRequest
 argument_list|()
 operator|.
-name|getCategoryPath
-argument_list|()
+name|categoryPath
 operator|.
 name|components
 index|[
@@ -2392,8 +2387,7 @@ operator|.
 name|getFacetRequest
 argument_list|()
 operator|.
-name|getCategoryPath
-argument_list|()
+name|categoryPath
 operator|.
 name|components
 index|[
@@ -2535,8 +2529,7 @@ operator|.
 name|getFacetRequest
 argument_list|()
 operator|.
-name|getCategoryPath
-argument_list|()
+name|categoryPath
 operator|.
 name|components
 index|[
@@ -2611,8 +2604,7 @@ operator|.
 name|getFacetRequest
 argument_list|()
 operator|.
-name|getCategoryPath
-argument_list|()
+name|categoryPath
 operator|.
 name|components
 index|[
