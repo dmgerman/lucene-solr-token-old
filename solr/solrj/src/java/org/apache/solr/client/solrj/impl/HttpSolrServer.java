@@ -1908,6 +1908,11 @@ name|respBody
 init|=
 literal|null
 decl_stmt|;
+name|boolean
+name|shouldClose
+init|=
+literal|true
+decl_stmt|;
 try|try
 block|{
 comment|// Execute the method.
@@ -2065,6 +2070,11 @@ literal|"stream"
 argument_list|,
 name|respBody
 argument_list|)
+expr_stmt|;
+comment|// Only case where stream should not be closed
+name|shouldClose
+operator|=
+literal|false
 expr_stmt|;
 return|return
 name|rsp
@@ -2306,9 +2316,7 @@ name|respBody
 operator|!=
 literal|null
 operator|&&
-name|processor
-operator|!=
-literal|null
+name|shouldClose
 condition|)
 block|{
 try|try
