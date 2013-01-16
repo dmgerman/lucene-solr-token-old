@@ -1428,8 +1428,18 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|field|_theCores
-specifier|static
+comment|// Test case for SOLR-4300
+annotation|@
+name|Test
+DECL|method|testRace
+specifier|public
+name|void
+name|testRace
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+specifier|final
 name|List
 argument_list|<
 name|SolrCore
@@ -1443,17 +1453,6 @@ name|SolrCore
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// Test case for SOLR-4300
-annotation|@
-name|Test
-DECL|method|testRace
-specifier|public
-name|void
-name|testRace
-parameter_list|()
-throws|throws
-name|Exception
-block|{
 specifier|final
 name|CoreContainer
 name|cc
