@@ -273,7 +273,7 @@ argument_list|()
 decl_stmt|;
 comment|/** maximum edit distance for candidate terms */
 DECL|field|maxEdits
-specifier|public
+specifier|private
 name|int
 name|maxEdits
 init|=
@@ -283,7 +283,7 @@ name|MAXIMUM_SUPPORTED_DISTANCE
 decl_stmt|;
 comment|/** minimum prefix for candidate terms */
 DECL|field|minPrefix
-specifier|public
+specifier|private
 name|int
 name|minPrefix
 init|=
@@ -291,7 +291,7 @@ literal|1
 decl_stmt|;
 comment|/** maximum number of top-N inspections per suggestion */
 DECL|field|maxInspections
-specifier|public
+specifier|private
 name|int
 name|maxInspections
 init|=
@@ -299,7 +299,7 @@ literal|5
 decl_stmt|;
 comment|/** minimum accuracy for a term to match */
 DECL|field|accuracy
-specifier|public
+specifier|private
 name|float
 name|accuracy
 init|=
@@ -309,7 +309,7 @@ name|DEFAULT_ACCURACY
 decl_stmt|;
 comment|/** value in [0..1] (or absolute number>=1) representing the minimum     * number of documents (of the total) where a term should appear. */
 DECL|field|thresholdFrequency
-specifier|public
+specifier|private
 name|float
 name|thresholdFrequency
 init|=
@@ -317,7 +317,7 @@ literal|0f
 decl_stmt|;
 comment|/** minimum length of a query word to return suggestions */
 DECL|field|minQueryLength
-specifier|public
+specifier|private
 name|int
 name|minQueryLength
 init|=
@@ -325,7 +325,7 @@ literal|4
 decl_stmt|;
 comment|/** value in [0..1] (or absolute number>=1) representing the maximum    *  number of documents (of the total) a query term can appear in to    *  be corrected. */
 DECL|field|maxQueryFrequency
-specifier|public
+specifier|private
 name|float
 name|maxQueryFrequency
 init|=
@@ -333,7 +333,7 @@ literal|0.01f
 decl_stmt|;
 comment|/** true if the spellchecker should lowercase terms */
 DECL|field|lowerCaseTerms
-specifier|public
+specifier|private
 name|boolean
 name|lowerCaseTerms
 init|=
@@ -341,7 +341,7 @@ literal|true
 decl_stmt|;
 comment|/** the comparator to use */
 DECL|field|comparator
-specifier|public
+specifier|private
 name|Comparator
 argument_list|<
 name|SuggestWord
@@ -354,7 +354,7 @@ name|DEFAULT_COMPARATOR
 decl_stmt|;
 comment|/** the string distance to use */
 DECL|field|distance
-specifier|public
+specifier|private
 name|StringDistance
 name|distance
 init|=
