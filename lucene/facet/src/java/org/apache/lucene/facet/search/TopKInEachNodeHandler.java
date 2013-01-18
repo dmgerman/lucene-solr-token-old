@@ -223,7 +223,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * Generates {@link FacetResult} from the count arrays aggregated for a particular   * {@link FacetRequest}.  * The generated {@link FacetResult} is a subtree of the taxonomy tree.  * Its root node, {@link FacetResult#getFacetResultNode()},   * is the facet specified by {@link FacetRequest#getCategoryPath()},  * and the enumerated children, {@link FacetResultNode#getSubResults()}, of each node in that   * {@link FacetResult} are the top K ( = {@link FacetRequest#getNumResults()}) among its children  * in the taxonomy.  * Top in the sense {@link FacetRequest#getSortBy()},  * which can be by the values aggregated in the count arrays, or by ordinal numbers;  * also specified is the sort order, {@link FacetRequest#getSortOrder()},   * ascending or descending, of these values or ordinals before their top K are selected.   * The depth (number of levels excluding the root) of the   * {@link FacetResult} tree is specified by {@link FacetRequest#getDepth()}.    *<p>  * Because the number of selected children of each node is restricted,  * and not the overall number of nodes in the {@link FacetResult}, facets not selected   * into {@link FacetResult} might have better values, or ordinals, (typically,  * higher counts), than facets that are selected into the {@link FacetResult}.  *<p>  * The generated {@link FacetResult} also provides with   * {@link FacetResult#getNumValidDescendants()}, which returns the total number of facets   * that are descendants of the root node, no deeper than {@link FacetRequest#getDepth()}, and  * which have valid value. The rootnode itself is not counted here.   * Valid value is determined by the {@link FacetResultsHandler}.   * {@link TopKInEachNodeHandler} defines valid as != 0.   *<p>  *<b>NOTE:</b> this code relies on the assumption that {@link TaxonomyReader#INVALID_ORDINAL} == -1, a smaller  * value than any valid ordinal.  *   * @lucene.experimental  */
+comment|/**  * Generates {@link FacetResult} from the count arrays aggregated for a  * particular {@link FacetRequest}. The generated {@link FacetResult} is a  * subtree of the taxonomy tree. Its root node,  * {@link FacetResult#getFacetResultNode()}, is the facet specified by  * {@link FacetRequest#categoryPath}, and the enumerated children,  * {@link FacetResultNode#getSubResults()}, of each node in that  * {@link FacetResult} are the top K ( = {@link FacetRequest#getNumResults()})  * among its children in the taxonomy. Top in the sense  * {@link FacetRequest#getSortBy()}, which can be by the values aggregated in  * the count arrays, or by ordinal numbers; also specified is the sort order,  * {@link FacetRequest#getSortOrder()}, ascending or descending, of these values  * or ordinals before their top K are selected. The depth (number of levels  * excluding the root) of the {@link FacetResult} tree is specified by  * {@link FacetRequest#getDepth()}.  *<p>  * Because the number of selected children of each node is restricted, and not  * the overall number of nodes in the {@link FacetResult}, facets not selected  * into {@link FacetResult} might have better values, or ordinals, (typically,  * higher counts), than facets that are selected into the {@link FacetResult}.  *<p>  * The generated {@link FacetResult} also provides with  * {@link FacetResult#getNumValidDescendants()}, which returns the total number  * of facets that are descendants of the root node, no deeper than  * {@link FacetRequest#getDepth()}, and which have valid value. The rootnode  * itself is not counted here. Valid value is determined by the  * {@link FacetResultsHandler}. {@link TopKInEachNodeHandler} defines valid as  * != 0.  *<p>  *<b>NOTE:</b> this code relies on the assumption that  * {@link TaxonomyReader#INVALID_ORDINAL} == -1, a smaller value than any valid  * ordinal.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|TopKInEachNodeHandler
@@ -280,12 +280,9 @@ name|taxonomyReader
 operator|.
 name|getOrdinal
 argument_list|(
-name|this
-operator|.
 name|facetRequest
 operator|.
-name|getCategoryPath
-argument_list|()
+name|categoryPath
 argument_list|)
 decl_stmt|;
 if|if
@@ -2958,8 +2955,7 @@ name|this
 operator|.
 name|facetRequest
 operator|.
-name|getCategoryPath
-argument_list|()
+name|categoryPath
 argument_list|)
 decl_stmt|;
 if|if

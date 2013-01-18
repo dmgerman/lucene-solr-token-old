@@ -869,9 +869,7 @@ operator|=
 name|fst
 operator|.
 name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -892,9 +890,7 @@ operator|=
 name|userFST
 operator|.
 name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 else|else

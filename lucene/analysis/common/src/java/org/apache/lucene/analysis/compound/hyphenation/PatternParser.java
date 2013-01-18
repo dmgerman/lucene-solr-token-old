@@ -323,10 +323,10 @@ name|InputSource
 argument_list|(
 name|file
 operator|.
-name|toURL
+name|toURI
 argument_list|()
 operator|.
-name|toExternalForm
+name|toASCIIString
 argument_list|()
 argument_list|)
 decl_stmt|;

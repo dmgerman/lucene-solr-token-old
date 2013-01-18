@@ -166,6 +166,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assertNotNull
+argument_list|(
 operator|new
 name|CountFacetRequest
 argument_list|(
@@ -178,6 +180,7 @@ literal|"b"
 argument_list|)
 argument_list|,
 literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -198,12 +201,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assertNotNull
+argument_list|(
 operator|new
 name|CountFacetRequest
 argument_list|(
 literal|null
 argument_list|,
 literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

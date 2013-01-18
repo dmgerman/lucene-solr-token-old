@@ -1286,9 +1286,7 @@ init|=
 name|fst
 operator|.
 name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1525,9 +1523,7 @@ init|=
 name|fst
 operator|.
 name|getBytesReader
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 decl_stmt|;
 while|while
 condition|(

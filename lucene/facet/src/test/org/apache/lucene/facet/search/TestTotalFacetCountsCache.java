@@ -612,8 +612,6 @@ argument_list|,
 name|tr
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1629,8 +1627,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|int
@@ -1671,8 +1667,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1701,8 +1695,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|prevGen
@@ -1755,8 +1747,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|totalCounts
@@ -1780,8 +1770,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|prevGen
@@ -1843,8 +1831,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|prevGen
@@ -2022,8 +2008,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|prevGen
@@ -2063,8 +2047,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2344,8 +2326,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 comment|// Make the taxonomy grow without touching the index
@@ -2486,8 +2466,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertReadFromDisc
@@ -2962,8 +2940,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|int
@@ -3008,8 +2984,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3037,8 +3011,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|prevGen
@@ -3077,8 +3049,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3104,8 +3074,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|prevGen
@@ -3141,8 +3109,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|prevGen
@@ -3187,8 +3153,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|prevGen
@@ -3224,8 +3188,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -3253,8 +3215,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3283,8 +3243,6 @@ operator|.
 name|taxReader
 argument_list|,
 name|iParams
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

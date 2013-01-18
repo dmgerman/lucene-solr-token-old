@@ -559,10 +559,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fieldType
+DECL|method|drillDownFieldType
 specifier|protected
 name|FieldType
-name|fieldType
+name|drillDownFieldType
 parameter_list|()
 block|{
 return|return

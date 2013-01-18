@@ -259,6 +259,8 @@ specifier|private
 specifier|final
 name|String
 name|name
+init|=
+literal|""
 decl_stmt|;
 DECL|method|NoPartitionsOrdinalsEncoder
 name|NoPartitionsOrdinalsEncoder
@@ -267,16 +269,6 @@ name|CategoryListParams
 name|categoryListParams
 parameter_list|)
 block|{
-name|name
-operator|=
-name|categoryListParams
-operator|.
-name|getTerm
-argument_list|()
-operator|.
-name|text
-argument_list|()
-expr_stmt|;
 name|encoder
 operator|=
 name|categoryListParams
@@ -483,8 +475,6 @@ operator|.
 name|partitionNameByOrdinal
 argument_list|(
 name|indexingParams
-argument_list|,
-name|categoryListParams
 argument_list|,
 name|ordinal
 argument_list|)

@@ -152,15 +152,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Expected default category list term is $facets:$fulltree$"
+literal|"Expected default category list field is $facets"
 argument_list|,
-operator|new
-name|Term
-argument_list|(
 literal|"$facets"
-argument_list|,
-literal|"$fulltree$"
-argument_list|)
 argument_list|,
 name|ifip
 operator|.
@@ -169,8 +163,7 @@ argument_list|(
 literal|null
 argument_list|)
 operator|.
-name|getTerm
-argument_list|()
+name|field
 argument_list|)
 expr_stmt|;
 name|String
@@ -280,15 +273,13 @@ name|assertEquals
 argument_list|(
 literal|"partition for all ordinals is the first"
 argument_list|,
-literal|"$fulltree$"
+literal|""
 argument_list|,
 name|PartitionsUtils
 operator|.
 name|partitionNameByOrdinal
 argument_list|(
 name|ifip
-argument_list|,
-name|clParams
 argument_list|,
 literal|250
 argument_list|)
@@ -298,14 +289,12 @@ name|assertEquals
 argument_list|(
 literal|"for partition 0, the same name should be returned"
 argument_list|,
-literal|"$fulltree$"
+literal|""
 argument_list|,
 name|PartitionsUtils
 operator|.
 name|partitionName
 argument_list|(
-name|clParams
-argument_list|,
 literal|0
 argument_list|)
 argument_list|)
@@ -314,14 +303,16 @@ name|assertEquals
 argument_list|(
 literal|"for any other, it's the concatenation of name + partition"
 argument_list|,
-literal|"$fulltree$1"
+name|PartitionsUtils
+operator|.
+name|PART_NAME_PREFIX
+operator|+
+literal|"1"
 argument_list|,
 name|PartitionsUtils
 operator|.
 name|partitionName
 argument_list|(
-name|clParams
-argument_list|,
 literal|1
 argument_list|)
 argument_list|)
@@ -371,13 +362,7 @@ init|=
 operator|new
 name|CategoryListParams
 argument_list|(
-operator|new
-name|Term
-argument_list|(
 literal|"clp"
-argument_list|,
-literal|"value"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|PerDimensionIndexingParams
@@ -407,17 +392,15 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Expected category list term is "
+literal|"Expected category list field is "
 operator|+
 name|clp
 operator|.
-name|getTerm
-argument_list|()
+name|field
 argument_list|,
 name|clp
 operator|.
-name|getTerm
-argument_list|()
+name|field
 argument_list|,
 name|tlfip
 operator|.
@@ -430,8 +413,7 @@ literal|"a"
 argument_list|)
 argument_list|)
 operator|.
-name|getTerm
-argument_list|()
+name|field
 argument_list|)
 expr_stmt|;
 name|assertNotSame
@@ -440,8 +422,7 @@ literal|"Unexpected default category list "
 operator|+
 name|clp
 operator|.
-name|getTerm
-argument_list|()
+name|field
 argument_list|,
 name|clp
 argument_list|,
