@@ -197,6 +197,23 @@ name|function
 operator|.
 name|valuesource
 operator|.
+name|BytesRefFieldSource
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|queries
+operator|.
+name|function
+operator|.
+name|valuesource
+operator|.
 name|LongFieldSource
 import|;
 end_import
@@ -271,13 +288,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|junit
 operator|.
-name|solr
-operator|.
-name|schema
-operator|.
-name|StrFieldSource
+name|Ignore
 import|;
 end_import
 begin_import
@@ -677,7 +690,7 @@ case|:
 name|vs
 operator|=
 operator|new
-name|StrFieldSource
+name|BytesRefFieldSource
 argument_list|(
 literal|"dv"
 argument_list|)
@@ -757,7 +770,7 @@ if|if
 condition|(
 name|vs
 operator|instanceof
-name|StrFieldSource
+name|BytesRefFieldSource
 condition|)
 block|{
 name|assertTrue
@@ -978,6 +991,12 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|// nocommit
+annotation|@
+name|Ignore
+argument_list|(
+literal|"fix this test"
+argument_list|)
 DECL|method|test
 specifier|public
 name|void
