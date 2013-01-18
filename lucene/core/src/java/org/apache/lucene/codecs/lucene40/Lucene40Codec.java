@@ -158,7 +158,7 @@ name|codecs
 operator|.
 name|lucene41
 operator|.
-name|Lucene41SimpleNormsFormat
+name|Lucene41NormsFormat
 import|;
 end_import
 begin_import
@@ -394,7 +394,7 @@ name|NormsFormat
 name|simpleNormsFormat
 init|=
 operator|new
-name|Lucene41SimpleNormsFormat
+name|Lucene41NormsFormat
 argument_list|()
 decl_stmt|;
 annotation|@

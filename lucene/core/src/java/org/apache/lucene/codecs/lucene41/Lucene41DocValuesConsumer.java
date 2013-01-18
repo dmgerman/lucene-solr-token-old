@@ -282,9 +282,9 @@ begin_comment
 comment|/**  * Writes numbers one of two ways:  * 1. packed ints as deltas from minValue  * 2. packed ints as ordinals to a table (if the number of values is small, e.g.<= 256)  *   * the latter is typically much smaller with lucene's sims, as only some byte values are used,  * but its often a nonlinear mapping, especially if you dont use crazy boosts.  */
 end_comment
 begin_class
-DECL|class|Lucene41SimpleDocValuesConsumer
+DECL|class|Lucene41DocValuesConsumer
 class|class
-name|Lucene41SimpleDocValuesConsumer
+name|Lucene41DocValuesConsumer
 extends|extends
 name|DocValuesConsumer
 block|{
@@ -336,8 +336,8 @@ name|data
 decl_stmt|,
 name|meta
 decl_stmt|;
-DECL|method|Lucene41SimpleDocValuesConsumer
-name|Lucene41SimpleDocValuesConsumer
+DECL|method|Lucene41DocValuesConsumer
+name|Lucene41DocValuesConsumer
 parameter_list|(
 name|SegmentWriteState
 name|state

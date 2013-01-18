@@ -91,10 +91,10 @@ name|SegmentWriteState
 import|;
 end_import
 begin_class
-DECL|class|Lucene41SimpleNormsFormat
+DECL|class|Lucene41NormsFormat
 specifier|public
 class|class
-name|Lucene41SimpleNormsFormat
+name|Lucene41NormsFormat
 extends|extends
 name|NormsFormat
 block|{
@@ -113,7 +113,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|Lucene41SimpleDocValuesConsumer
+name|Lucene41DocValuesConsumer
 argument_list|(
 name|state
 argument_list|,
@@ -142,7 +142,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|Lucene41SimpleDocValuesProducer
+name|Lucene41DocValuesProducer
 argument_list|(
 name|state
 argument_list|,

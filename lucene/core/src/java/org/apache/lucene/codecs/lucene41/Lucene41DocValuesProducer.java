@@ -365,9 +365,9 @@ name|PackedInts
 import|;
 end_import
 begin_class
-DECL|class|Lucene41SimpleDocValuesProducer
+DECL|class|Lucene41DocValuesProducer
 class|class
-name|Lucene41SimpleDocValuesProducer
+name|Lucene41DocValuesProducer
 extends|extends
 name|DocValuesProducer
 block|{
@@ -480,8 +480,8 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|Lucene41SimpleDocValuesProducer
-name|Lucene41SimpleDocValuesProducer
+DECL|method|Lucene41DocValuesProducer
+name|Lucene41DocValuesProducer
 parameter_list|(
 name|SegmentReadState
 name|state
@@ -553,11 +553,11 @@ name|in
 argument_list|,
 name|metaCodec
 argument_list|,
-name|Lucene41SimpleDocValuesConsumer
+name|Lucene41DocValuesConsumer
 operator|.
 name|VERSION_START
 argument_list|,
-name|Lucene41SimpleDocValuesConsumer
+name|Lucene41DocValuesConsumer
 operator|.
 name|VERSION_START
 argument_list|)
@@ -678,11 +678,11 @@ name|data
 argument_list|,
 name|dataCodec
 argument_list|,
-name|Lucene41SimpleDocValuesConsumer
+name|Lucene41DocValuesConsumer
 operator|.
 name|VERSION_START
 argument_list|,
-name|Lucene41SimpleDocValuesConsumer
+name|Lucene41DocValuesConsumer
 operator|.
 name|VERSION_START
 argument_list|)
@@ -730,7 +730,7 @@ if|if
 condition|(
 name|fieldType
 operator|==
-name|Lucene41SimpleDocValuesConsumer
+name|Lucene41DocValuesConsumer
 operator|.
 name|NUMBER
 condition|)
@@ -777,7 +777,7 @@ if|if
 condition|(
 name|fieldType
 operator|==
-name|Lucene41SimpleDocValuesConsumer
+name|Lucene41DocValuesConsumer
 operator|.
 name|BYTES
 condition|)
@@ -840,7 +840,7 @@ if|if
 condition|(
 name|fieldType
 operator|==
-name|Lucene41SimpleDocValuesConsumer
+name|Lucene41DocValuesConsumer
 operator|.
 name|FST
 condition|)
