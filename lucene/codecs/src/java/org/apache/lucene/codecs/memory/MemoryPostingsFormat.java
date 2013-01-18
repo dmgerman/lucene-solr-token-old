@@ -503,7 +503,7 @@ begin_comment
 comment|// to disk.
 end_comment
 begin_comment
-comment|/** Stores terms& postings (docs, positions, payloads) in  *  RAM, using an FST.  *  *<p>Note that this codec implements advance as a linear  * scan!  This means if you store large fields in here,  * queries that rely on advance will (AND BooleanQuery,  * PhraseQuery) will be relatively slow!  *  *<p><b>NOTE</b>: this codec cannot address more than ~2.1 GB  * of postings, because the underlying FST uses an int  * to address the underlying byte[].  *  * @lucene.experimental */
+comment|/** Stores terms& postings (docs, positions, payloads) in  *  RAM, using an FST.  *  *<p>Note that this codec implements advance as a linear  * scan!  This means if you store large fields in here,  * queries that rely on advance will (AND BooleanQuery,  * PhraseQuery) will be relatively slow!  *  * @lucene.experimental */
 end_comment
 begin_comment
 comment|// TODO: Maybe name this 'Cached' or something to reflect
@@ -550,6 +550,7 @@ name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**    * Create MemoryPostingsFormat, specifying advanced FST options.    * @param doPackFST true if a packed FST should be built.    *        NOTE: packed FSTs are limited to ~2.1 GB of postings.    * @param acceptableOverheadRatio allowable overhead for packed ints    *        during FST construction.    */
 DECL|method|MemoryPostingsFormat
 specifier|public
 name|MemoryPostingsFormat
