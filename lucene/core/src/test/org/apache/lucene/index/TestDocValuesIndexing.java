@@ -2347,9 +2347,9 @@ decl_stmt|;
 name|SortedDocValues
 name|docValues
 init|=
-name|MultiSimpleDocValues
+name|MultiDocValues
 operator|.
-name|simpleSortedValues
+name|getSortedValues
 argument_list|(
 name|reader
 argument_list|,

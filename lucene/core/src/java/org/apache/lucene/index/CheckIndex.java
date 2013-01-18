@@ -2960,7 +2960,7 @@ if|if
 condition|(
 name|reader
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|info
 operator|.
@@ -7123,7 +7123,7 @@ name|reader
 argument_list|,
 name|reader
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|fi
 operator|.

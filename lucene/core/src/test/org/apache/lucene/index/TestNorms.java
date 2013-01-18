@@ -482,9 +482,9 @@ expr_stmt|;
 name|NumericDocValues
 name|fooNorms
 init|=
-name|MultiSimpleDocValues
+name|MultiDocValues
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|reader
 argument_list|,
@@ -525,9 +525,9 @@ block|}
 name|NumericDocValues
 name|barNorms
 init|=
-name|MultiSimpleDocValues
+name|MultiDocValues
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|reader
 argument_list|,
@@ -622,7 +622,7 @@ name|normValues
 init|=
 name|open
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|byteTestField
 argument_list|)

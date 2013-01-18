@@ -75,7 +75,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDVConsumer
+name|DocValuesConsumer
 import|;
 end_import
 begin_import
@@ -286,7 +286,7 @@ DECL|class|Lucene41SimpleDocValuesConsumer
 class|class
 name|Lucene41SimpleDocValuesConsumer
 extends|extends
-name|SimpleDVConsumer
+name|DocValuesConsumer
 block|{
 DECL|field|VERSION_START
 specifier|static

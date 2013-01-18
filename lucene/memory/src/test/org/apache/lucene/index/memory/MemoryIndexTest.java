@@ -1360,7 +1360,7 @@ name|normValues
 init|=
 name|competitor
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|field
 argument_list|)
@@ -1370,7 +1370,7 @@ name|memNormValues
 init|=
 name|memIndexReader
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|field
 argument_list|)

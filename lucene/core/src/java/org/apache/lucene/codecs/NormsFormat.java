@@ -53,23 +53,23 @@ begin_comment
 comment|/**  * format for normalization factors  */
 end_comment
 begin_class
-DECL|class|SimpleNormsFormat
+DECL|class|NormsFormat
 specifier|public
 specifier|abstract
 class|class
-name|SimpleNormsFormat
+name|NormsFormat
 block|{
 comment|/** Sole constructor. (For invocation by subclass     *  constructors, typically implicit.) */
-DECL|method|SimpleNormsFormat
+DECL|method|NormsFormat
 specifier|protected
-name|SimpleNormsFormat
+name|NormsFormat
 parameter_list|()
 block|{   }
-comment|/** Returns a {@link SimpleDVConsumer} to write norms to the    *  index. */
+comment|/** Returns a {@link DocValuesConsumer} to write norms to the    *  index. */
 DECL|method|normsConsumer
 specifier|public
 specifier|abstract
-name|SimpleDVConsumer
+name|DocValuesConsumer
 name|normsConsumer
 parameter_list|(
 name|SegmentWriteState
@@ -78,11 +78,11 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Returns a {@link SimpleDVProducer} to read norms from the    *  index. */
+comment|/** Returns a {@link DocValuesProducer} to read norms from the    *  index. */
 DECL|method|normsProducer
 specifier|public
 specifier|abstract
-name|SimpleDVProducer
+name|DocValuesProducer
 name|normsProducer
 parameter_list|(
 name|SegmentReadState

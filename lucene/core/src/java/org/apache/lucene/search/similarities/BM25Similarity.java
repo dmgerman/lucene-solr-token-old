@@ -851,7 +851,7 @@ operator|.
 name|reader
 argument_list|()
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|bm25stats
 operator|.
@@ -914,7 +914,7 @@ operator|.
 name|reader
 argument_list|()
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|bm25stats
 operator|.

@@ -2379,7 +2379,7 @@ name|titleNorms
 init|=
 name|reader
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 literal|"title"
 argument_list|)
@@ -2389,7 +2389,7 @@ name|fooNorms
 init|=
 name|reader
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 literal|"foo_t"
 argument_list|)
@@ -2399,7 +2399,7 @@ name|textNorms
 init|=
 name|reader
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 literal|"text"
 argument_list|)

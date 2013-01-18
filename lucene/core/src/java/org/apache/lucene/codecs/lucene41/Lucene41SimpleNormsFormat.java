@@ -35,7 +35,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDVConsumer
+name|DocValuesConsumer
 import|;
 end_import
 begin_import
@@ -48,7 +48,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDVProducer
+name|DocValuesProducer
 import|;
 end_import
 begin_import
@@ -61,7 +61,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleNormsFormat
+name|NormsFormat
 import|;
 end_import
 begin_import
@@ -96,13 +96,13 @@ specifier|public
 class|class
 name|Lucene41SimpleNormsFormat
 extends|extends
-name|SimpleNormsFormat
+name|NormsFormat
 block|{
 annotation|@
 name|Override
 DECL|method|normsConsumer
 specifier|public
-name|SimpleDVConsumer
+name|DocValuesConsumer
 name|normsConsumer
 parameter_list|(
 name|SegmentWriteState
@@ -131,7 +131,7 @@ annotation|@
 name|Override
 DECL|method|normsProducer
 specifier|public
-name|SimpleDVProducer
+name|DocValuesProducer
 name|normsProducer
 parameter_list|(
 name|SegmentReadState

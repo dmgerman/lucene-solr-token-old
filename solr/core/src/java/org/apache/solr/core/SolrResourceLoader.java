@@ -224,7 +224,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDocValuesFormat
+name|DocValuesFormat
 import|;
 end_import
 begin_import
@@ -950,7 +950,7 @@ operator|.
 name|classLoader
 argument_list|)
 expr_stmt|;
-name|SimpleDocValuesFormat
+name|DocValuesFormat
 operator|.
 name|reloadDocValuesFormats
 argument_list|(

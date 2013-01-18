@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDVConsumer
+name|DocValuesConsumer
 import|;
 end_import
 begin_import
@@ -263,7 +263,7 @@ parameter_list|(
 name|SegmentWriteState
 name|state
 parameter_list|,
-name|SimpleDVConsumer
+name|DocValuesConsumer
 name|dvConsumer
 parameter_list|)
 throws|throws

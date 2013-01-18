@@ -104,7 +104,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDocValuesFormat
+name|DocValuesFormat
 import|;
 end_import
 begin_import
@@ -117,7 +117,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleNormsFormat
+name|NormsFormat
 import|;
 end_import
 begin_import
@@ -342,7 +342,7 @@ decl_stmt|;
 DECL|field|simpleDocValuesFormat
 specifier|private
 specifier|final
-name|SimpleDocValuesFormat
+name|DocValuesFormat
 name|simpleDocValuesFormat
 init|=
 operator|new
@@ -352,7 +352,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|SimpleDocValuesFormat
+name|DocValuesFormat
 name|getDocValuesFormatForField
 parameter_list|(
 name|String
@@ -479,7 +479,7 @@ block|}
 comment|/** Returns the docvalues format that should be used for writing     *  new segments of<code>field</code>.    *      *  The default implementation always returns "Lucene41"    */
 DECL|method|getDocValuesFormatForField
 specifier|public
-name|SimpleDocValuesFormat
+name|DocValuesFormat
 name|getDocValuesFormatForField
 parameter_list|(
 name|String
@@ -492,10 +492,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|simpleDocValuesFormat
+DECL|method|docValuesFormat
 specifier|public
-name|SimpleDocValuesFormat
-name|simpleDocValuesFormat
+name|DocValuesFormat
+name|docValuesFormat
 parameter_list|()
 block|{
 return|return
@@ -519,10 +519,10 @@ comment|// nocommit
 DECL|field|defaultDVFormat
 specifier|private
 specifier|final
-name|SimpleDocValuesFormat
+name|DocValuesFormat
 name|defaultDVFormat
 init|=
-name|SimpleDocValuesFormat
+name|DocValuesFormat
 operator|.
 name|forName
 argument_list|(
@@ -532,7 +532,7 @@ decl_stmt|;
 DECL|field|simpleNormsFormat
 specifier|private
 specifier|final
-name|SimpleNormsFormat
+name|NormsFormat
 name|simpleNormsFormat
 init|=
 operator|new
@@ -541,10 +541,10 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|simpleNormsFormat
+DECL|method|normsFormat
 specifier|public
-name|SimpleNormsFormat
-name|simpleNormsFormat
+name|NormsFormat
+name|normsFormat
 parameter_list|()
 block|{
 return|return

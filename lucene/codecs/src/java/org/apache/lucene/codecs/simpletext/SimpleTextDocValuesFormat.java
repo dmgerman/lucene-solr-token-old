@@ -125,7 +125,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDVConsumer
+name|DocValuesConsumer
 import|;
 end_import
 begin_import
@@ -138,7 +138,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDVProducer
+name|DocValuesProducer
 import|;
 end_import
 begin_import
@@ -151,7 +151,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDocValuesFormat
+name|DocValuesFormat
 import|;
 end_import
 begin_import
@@ -342,12 +342,12 @@ begin_comment
 comment|/**  * plain text doc values format.  *<p>  *<b><font color="red">FOR RECREATIONAL USE ONLY</font></B>  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|SimpleTextSimpleDocValuesFormat
+DECL|class|SimpleTextDocValuesFormat
 specifier|public
 class|class
-name|SimpleTextSimpleDocValuesFormat
+name|SimpleTextDocValuesFormat
 extends|extends
-name|SimpleDocValuesFormat
+name|DocValuesFormat
 block|{
 DECL|field|END
 specifier|final
@@ -460,9 +460,9 @@ argument_list|(
 literal|"  ordpattern "
 argument_list|)
 decl_stmt|;
-DECL|method|SimpleTextSimpleDocValuesFormat
+DECL|method|SimpleTextDocValuesFormat
 specifier|public
-name|SimpleTextSimpleDocValuesFormat
+name|SimpleTextDocValuesFormat
 parameter_list|()
 block|{
 name|super
@@ -475,7 +475,7 @@ annotation|@
 name|Override
 DECL|method|fieldsConsumer
 specifier|public
-name|SimpleDVConsumer
+name|DocValuesConsumer
 name|fieldsConsumer
 parameter_list|(
 name|SegmentWriteState
@@ -498,7 +498,7 @@ annotation|@
 name|Override
 DECL|method|fieldsProducer
 specifier|public
-name|SimpleDVProducer
+name|DocValuesProducer
 name|fieldsProducer
 parameter_list|(
 name|SegmentReadState
@@ -525,7 +525,7 @@ specifier|static
 class|class
 name|SimpleTextDocValuesWriter
 extends|extends
-name|SimpleDVConsumer
+name|DocValuesConsumer
 block|{
 DECL|field|data
 specifier|final
@@ -1973,7 +1973,7 @@ specifier|static
 class|class
 name|SimpleTextDocValuesReader
 extends|extends
-name|SimpleDVProducer
+name|DocValuesProducer
 block|{
 DECL|class|OneField
 specifier|static

@@ -408,7 +408,7 @@ name|norms
 init|=
 name|open
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|floatTestField
 argument_list|)

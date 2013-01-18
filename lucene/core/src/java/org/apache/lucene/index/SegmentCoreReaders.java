@@ -130,7 +130,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDVProducer
+name|DocValuesProducer
 import|;
 end_import
 begin_import
@@ -293,12 +293,12 @@ name|fields
 decl_stmt|;
 DECL|field|simpleDVProducer
 specifier|final
-name|SimpleDVProducer
+name|DocValuesProducer
 name|simpleDVProducer
 decl_stmt|;
 DECL|field|simpleNormsProducer
 specifier|final
-name|SimpleDVProducer
+name|DocValuesProducer
 name|simpleNormsProducer
 decl_stmt|;
 DECL|field|termsIndexDivisor
@@ -717,7 +717,7 @@ if|if
 condition|(
 name|codec
 operator|.
-name|simpleDocValuesFormat
+name|docValuesFormat
 argument_list|()
 operator|!=
 literal|null
@@ -735,7 +735,7 @@ name|simpleDVProducer
 operator|=
 name|codec
 operator|.
-name|simpleDocValuesFormat
+name|docValuesFormat
 argument_list|()
 operator|.
 name|fieldsProducer
@@ -764,7 +764,7 @@ if|if
 condition|(
 name|codec
 operator|.
-name|simpleNormsFormat
+name|normsFormat
 argument_list|()
 operator|!=
 literal|null
@@ -782,7 +782,7 @@ name|simpleNormsProducer
 operator|=
 name|codec
 operator|.
-name|simpleNormsFormat
+name|normsFormat
 argument_list|()
 operator|.
 name|normsProducer

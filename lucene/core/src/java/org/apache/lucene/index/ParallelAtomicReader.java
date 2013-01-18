@@ -1278,10 +1278,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|simpleNormValues
+DECL|method|getNormValues
 specifier|public
 name|NumericDocValues
-name|simpleNormValues
+name|getNormValues
 parameter_list|(
 name|String
 name|field
@@ -1313,7 +1313,7 @@ literal|null
 else|:
 name|reader
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|field
 argument_list|)

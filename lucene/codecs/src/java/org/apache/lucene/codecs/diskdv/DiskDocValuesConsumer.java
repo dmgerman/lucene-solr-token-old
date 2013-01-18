@@ -57,7 +57,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDVConsumer
+name|DocValuesConsumer
 import|;
 end_import
 begin_import
@@ -178,7 +178,7 @@ DECL|class|DiskDocValuesConsumer
 class|class
 name|DiskDocValuesConsumer
 extends|extends
-name|SimpleDVConsumer
+name|DocValuesConsumer
 block|{
 DECL|field|data
 DECL|field|meta

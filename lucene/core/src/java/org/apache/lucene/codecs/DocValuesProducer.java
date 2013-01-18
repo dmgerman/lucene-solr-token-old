@@ -97,11 +97,11 @@ begin_comment
 comment|// exceptions....
 end_comment
 begin_class
-DECL|class|SimpleDVProducer
+DECL|class|DocValuesProducer
 specifier|public
 specifier|abstract
 class|class
-name|SimpleDVProducer
+name|DocValuesProducer
 implements|implements
 name|Closeable
 block|{

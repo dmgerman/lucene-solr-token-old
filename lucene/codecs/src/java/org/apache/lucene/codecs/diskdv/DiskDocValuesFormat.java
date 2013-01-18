@@ -35,7 +35,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDVConsumer
+name|DocValuesConsumer
 import|;
 end_import
 begin_import
@@ -48,7 +48,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDVProducer
+name|DocValuesProducer
 import|;
 end_import
 begin_import
@@ -61,7 +61,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDocValuesFormat
+name|DocValuesFormat
 import|;
 end_import
 begin_import
@@ -102,7 +102,7 @@ specifier|public
 class|class
 name|DiskDocValuesFormat
 extends|extends
-name|SimpleDocValuesFormat
+name|DocValuesFormat
 block|{
 DECL|method|DiskDocValuesFormat
 specifier|public
@@ -119,7 +119,7 @@ annotation|@
 name|Override
 DECL|method|fieldsConsumer
 specifier|public
-name|SimpleDVConsumer
+name|DocValuesConsumer
 name|fieldsConsumer
 parameter_list|(
 name|SegmentWriteState
@@ -140,7 +140,7 @@ annotation|@
 name|Override
 DECL|method|fieldsProducer
 specifier|public
-name|SimpleDVProducer
+name|DocValuesProducer
 name|fieldsProducer
 parameter_list|(
 name|SegmentReadState

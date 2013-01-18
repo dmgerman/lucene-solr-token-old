@@ -714,7 +714,7 @@ operator|.
 name|reader
 argument_list|()
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|basicstats
 operator|.
@@ -754,7 +754,7 @@ operator|.
 name|reader
 argument_list|()
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|basicstats
 operator|.
@@ -861,7 +861,7 @@ operator|.
 name|reader
 argument_list|()
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|basicstats
 operator|.
@@ -901,7 +901,7 @@ operator|.
 name|reader
 argument_list|()
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 name|basicstats
 operator|.

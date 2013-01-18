@@ -497,7 +497,7 @@ name|fooNorms
 init|=
 name|slow
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -507,7 +507,7 @@ name|barNorms
 init|=
 name|slow
 operator|.
-name|simpleNormValues
+name|getNormValues
 argument_list|(
 literal|"bar"
 argument_list|)

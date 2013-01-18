@@ -66,7 +66,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|SimpleDVProducer
+name|DocValuesProducer
 import|;
 end_import
 begin_import
@@ -369,7 +369,7 @@ DECL|class|Lucene41SimpleDocValuesProducer
 class|class
 name|Lucene41SimpleDocValuesProducer
 extends|extends
-name|SimpleDVProducer
+name|DocValuesProducer
 block|{
 comment|// metadata maps (just file pointers and minimal stuff)
 DECL|field|numerics

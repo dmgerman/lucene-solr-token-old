@@ -202,11 +202,11 @@ begin_comment
 comment|// prototype streaming DV api
 end_comment
 begin_class
-DECL|class|SimpleDVConsumer
+DECL|class|DocValuesConsumer
 specifier|public
 specifier|abstract
 class|class
-name|SimpleDVConsumer
+name|DocValuesConsumer
 implements|implements
 name|Closeable
 block|{
