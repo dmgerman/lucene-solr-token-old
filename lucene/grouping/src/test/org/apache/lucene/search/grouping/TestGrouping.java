@@ -426,7 +426,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-specifier|final
 name|String
 name|groupField
 init|=
@@ -915,6 +914,22 @@ name|Sort
 operator|.
 name|RELEVANCE
 decl_stmt|;
+if|if
+condition|(
+name|canUseIDV
+operator|&&
+name|random
+argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+condition|)
+block|{
+name|groupField
+operator|+=
+literal|"_dv"
+expr_stmt|;
+block|}
 specifier|final
 name|AbstractFirstPassGroupingCollector
 argument_list|<
@@ -929,8 +944,6 @@ argument_list|,
 name|groupSort
 argument_list|,
 literal|10
-argument_list|,
-name|canUseIDV
 argument_list|)
 decl_stmt|;
 name|indexSearcher
@@ -1423,9 +1436,6 @@ name|groupSort
 parameter_list|,
 name|int
 name|topDocs
-parameter_list|,
-name|boolean
-name|canUseIDV
 parameter_list|)
 throws|throws
 name|IOException
@@ -4890,11 +4900,12 @@ block|{
 comment|// B/c of DV based impl we can't see the difference between an empty string and a null value.
 comment|// For that reason we don't generate empty string
 comment|// groups.
+comment|//randomValue = _TestUtil.randomRealisticUnicodeString(random());
 name|randomValue
 operator|=
 name|_TestUtil
 operator|.
-name|randomRealisticUnicodeString
+name|randomSimpleString
 argument_list|(
 name|random
 argument_list|()
@@ -6464,6 +6475,27 @@ name|getMaxScores
 argument_list|)
 expr_stmt|;
 block|}
+name|String
+name|groupField
+init|=
+literal|"group"
+decl_stmt|;
+if|if
+condition|(
+name|canUseIDV
+operator|&&
+name|random
+argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+condition|)
+block|{
+name|groupField
+operator|+=
+literal|"_dv"
+expr_stmt|;
+block|}
 specifier|final
 name|AbstractFirstPassGroupingCollector
 argument_list|<
@@ -6473,15 +6505,13 @@ name|c1
 init|=
 name|createRandomFirstPassCollector
 argument_list|(
-literal|"group"
+name|groupField
 argument_list|,
 name|groupSort
 argument_list|,
 name|groupOffset
 operator|+
 name|topNGroups
-argument_list|,
-name|canUseIDV
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -6510,7 +6540,7 @@ name|createAllGroupsCollector
 argument_list|(
 name|c1
 argument_list|,
-literal|"group"
+name|groupField
 argument_list|)
 expr_stmt|;
 block|}
@@ -7010,7 +7040,7 @@ name|createSecondPassCollector
 argument_list|(
 name|c1
 argument_list|,
-literal|"group"
+name|groupField
 argument_list|,
 name|groupSort
 argument_list|,
@@ -7604,16 +7634,6 @@ block|}
 block|}
 block|}
 block|}
-comment|// nocommit: what is going on here
-name|boolean
-name|idvBasedImplsUsed
-init|=
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
-decl_stmt|;
 name|assertEquals
 argument_list|(
 name|docIDToID
@@ -7630,7 +7650,12 @@ literal|true
 argument_list|,
 name|getScores
 argument_list|,
-name|idvBasedImplsUsed
+name|groupField
+operator|.
+name|endsWith
+argument_list|(
+literal|"_dv"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Confirm merged shards match:
@@ -7715,6 +7740,9 @@ condition|(
 name|doAllGroups
 condition|)
 block|{
+comment|// NOTE: must be "group" and not "group_dv"
+comment|// (groupField) because we didn't index doc
+comment|// values in the block index:
 name|allGroupsCollector2
 operator|=
 operator|new
@@ -8006,6 +8034,8 @@ block|}
 block|}
 block|}
 comment|// Get shard'd block grouping result:
+comment|// Block index does not index DocValues so we pass
+comment|// false for canUseIDV:
 specifier|final
 name|TopGroups
 argument_list|<
@@ -8041,7 +8071,7 @@ name|getMaxScores
 argument_list|,
 literal|false
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 operator|new
 name|ValueHolder
@@ -8683,6 +8713,83 @@ name|firstPassCollector
 init|=
 literal|null
 decl_stmt|;
+name|boolean
+name|shardsCanUseIDV
+decl_stmt|;
+if|if
+condition|(
+name|canUseIDV
+condition|)
+block|{
+if|if
+condition|(
+name|SlowCompositeReaderWrapper
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|subSearchers
+index|[
+literal|0
+index|]
+operator|.
+name|getIndexReader
+argument_list|()
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|shardsCanUseIDV
+operator|=
+literal|false
+expr_stmt|;
+block|}
+else|else
+block|{
+name|shardsCanUseIDV
+operator|=
+operator|!
+name|preFlex
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|shardsCanUseIDV
+operator|=
+literal|false
+expr_stmt|;
+block|}
+name|String
+name|groupField
+init|=
+literal|"group"
+decl_stmt|;
+if|if
+condition|(
+name|shardsCanUseIDV
+operator|&&
+name|random
+argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+condition|)
+block|{
+name|groupField
+operator|+=
+literal|"_dv"
+expr_stmt|;
+name|usedIdvBasedImpl
+operator|.
+name|value
+operator|=
+literal|true
+expr_stmt|;
+block|}
 for|for
 control|(
 name|int
@@ -8700,40 +8807,8 @@ name|shardIDX
 operator|++
 control|)
 block|{
-if|if
-condition|(
-name|SlowCompositeReaderWrapper
-operator|.
-name|class
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|subSearchers
-index|[
-name|shardIDX
-index|]
-operator|.
-name|getIndexReader
-argument_list|()
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|canUseIDV
-operator|=
-literal|false
-expr_stmt|;
-block|}
-else|else
-block|{
-name|canUseIDV
-operator|=
-operator|!
-name|preFlex
-expr_stmt|;
-block|}
+comment|// First shard determines whether we use IDV or not;
+comment|// all other shards match that:
 if|if
 condition|(
 name|firstPassCollector
@@ -8745,15 +8820,13 @@ name|firstPassCollector
 operator|=
 name|createRandomFirstPassCollector
 argument_list|(
-literal|"group"
+name|groupField
 argument_list|,
 name|groupSort
 argument_list|,
 name|groupOffset
 operator|+
 name|topNGroups
-argument_list|,
-name|canUseIDV
 argument_list|)
 expr_stmt|;
 block|}
@@ -8763,7 +8836,7 @@ name|firstPassCollector
 operator|=
 name|createFirstPassCollector
 argument_list|(
-literal|"group"
+name|groupField
 argument_list|,
 name|groupSort
 argument_list|,
@@ -8789,6 +8862,10 @@ argument_list|(
 literal|"  shard="
 operator|+
 name|shardIDX
+operator|+
+literal|" groupField="
+operator|+
+name|groupField
 argument_list|)
 expr_stmt|;
 name|System
@@ -9110,7 +9187,7 @@ argument_list|(
 name|shardIDX
 argument_list|)
 argument_list|,
-literal|"group"
+name|groupField
 argument_list|,
 name|mergedTopGroups
 argument_list|,
