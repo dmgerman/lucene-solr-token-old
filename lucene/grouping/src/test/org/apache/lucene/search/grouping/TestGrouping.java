@@ -4900,17 +4900,17 @@ block|{
 comment|// B/c of DV based impl we can't see the difference between an empty string and a null value.
 comment|// For that reason we don't generate empty string
 comment|// groups.
-comment|//randomValue = _TestUtil.randomRealisticUnicodeString(random());
 name|randomValue
 operator|=
 name|_TestUtil
 operator|.
-name|randomSimpleString
+name|randomRealisticUnicodeString
 argument_list|(
 name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//randomValue = _TestUtil.randomSimpleString(random());
 block|}
 do|while
 condition|(
@@ -5152,6 +5152,13 @@ name|canUseIDV
 condition|)
 block|{
 name|doc
+operator|.
+name|add
+argument_list|(
+name|idvGroupField
+argument_list|)
+expr_stmt|;
+name|docNoGroup
 operator|.
 name|add
 argument_list|(
@@ -5539,6 +5546,25 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|canUseIDV
+condition|)
+block|{
+comment|// Must explicitly set empty string, else eg if
+comment|// the segment has all docs missing the field then
+comment|// we get null back instead of empty BytesRef:
+name|idvGroupField
+operator|.
+name|setBytesValue
+argument_list|(
+operator|new
+name|BytesRef
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|sort1
 operator|.
@@ -6496,6 +6522,23 @@ operator|+=
 literal|"_dv"
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"  groupField="
+operator|+
+name|groupField
+argument_list|)
+expr_stmt|;
+block|}
 specifier|final
 name|AbstractFirstPassGroupingCollector
 argument_list|<
@@ -7320,6 +7363,14 @@ operator|+
 name|gd
 operator|.
 name|totalHits
+operator|+
+literal|" scoreDocs.len="
+operator|+
+name|gd
+operator|.
+name|scoreDocs
+operator|.
+name|length
 argument_list|)
 expr_stmt|;
 for|for
