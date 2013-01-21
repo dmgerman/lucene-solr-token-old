@@ -408,12 +408,6 @@ operator|.
 name|TYPE
 import|;
 end_import
-begin_comment
-comment|// nocommit make sure we test "all docs have 0 value",
-end_comment
-begin_comment
-comment|// "all docs have empty BytesREf"
-end_comment
 begin_class
 DECL|class|SimpleTextDocValuesReader
 class|class
