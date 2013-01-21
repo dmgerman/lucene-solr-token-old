@@ -148,6 +148,19 @@ name|lucene
 operator|.
 name|document
 operator|.
+name|LongDocValuesField
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
 name|TextField
 import|;
 end_import
@@ -325,9 +338,6 @@ end_import
 begin_comment
 comment|/**  * MultiThreaded IndexWriter tests  */
 end_comment
-begin_comment
-comment|// nocommit: make sure disk full etc tests here test DV2.0
-end_comment
 begin_class
 annotation|@
 name|Slow
@@ -454,6 +464,19 @@ argument_list|,
 literal|"aaa bbb ccc ddd eee fff ggg hhh iii jjj"
 argument_list|,
 name|customType
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|doc
+operator|.
+name|add
+argument_list|(
+operator|new
+name|LongDocValuesField
+argument_list|(
+literal|"dv"
+argument_list|,
+literal|5
 argument_list|)
 argument_list|)
 expr_stmt|;
