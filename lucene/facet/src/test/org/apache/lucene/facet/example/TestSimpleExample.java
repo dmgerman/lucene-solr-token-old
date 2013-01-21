@@ -289,8 +289,7 @@ operator|.
 name|getFacetResultNode
 argument_list|()
 operator|.
-name|getSubResults
-argument_list|()
+name|subResults
 operator|.
 name|iterator
 argument_list|()
@@ -319,8 +318,7 @@ operator|.
 name|next
 argument_list|()
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -347,8 +345,7 @@ operator|.
 name|next
 argument_list|()
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|)
 expr_stmt|;
 name|assertFalse

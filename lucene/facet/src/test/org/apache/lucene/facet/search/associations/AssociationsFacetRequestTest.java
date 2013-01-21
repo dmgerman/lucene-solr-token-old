@@ -774,8 +774,9 @@ decl_stmt|;
 name|FacetsCollector
 name|fc
 init|=
-operator|new
 name|FacetsCollector
+operator|.
+name|create
 argument_list|(
 name|fsp
 argument_list|,
@@ -850,8 +851,7 @@ operator|.
 name|getFacetResultNode
 argument_list|()
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -873,8 +873,7 @@ operator|.
 name|getFacetResultNode
 argument_list|()
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|)
 expr_stmt|;
 name|taxo
@@ -936,8 +935,9 @@ decl_stmt|;
 name|FacetsCollector
 name|fc
 init|=
-operator|new
 name|FacetsCollector
+operator|.
+name|create
 argument_list|(
 name|fsp
 argument_list|,
@@ -1012,8 +1012,7 @@ operator|.
 name|getFacetResultNode
 argument_list|()
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|,
 literal|0.00001
 argument_list|)
@@ -1037,8 +1036,7 @@ operator|.
 name|getFacetResultNode
 argument_list|()
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|,
 literal|0.00001
 argument_list|)
@@ -1121,8 +1119,9 @@ decl_stmt|;
 name|FacetsCollector
 name|fc
 init|=
-operator|new
 name|FacetsCollector
+operator|.
+name|create
 argument_list|(
 name|fsp
 argument_list|,

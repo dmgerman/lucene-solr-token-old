@@ -150,21 +150,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|core
-operator|.
-name|KeywordAnalyzer
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
 name|tokenattributes
 operator|.
 name|CharTermAttribute
@@ -389,9 +374,6 @@ operator|.
 name|CorruptIndexException
 import|;
 end_import
-begin_comment
-comment|// javadocs
-end_comment
 begin_import
 import|import
 name|org
@@ -589,9 +571,6 @@ operator|.
 name|LockObtainFailedException
 import|;
 end_import
-begin_comment
-comment|// javadocs
-end_comment
 begin_import
 import|import
 name|org
@@ -1184,9 +1163,7 @@ name|Version
 operator|.
 name|LUCENE_50
 argument_list|,
-operator|new
-name|KeywordAnalyzer
-argument_list|()
+literal|null
 argument_list|)
 operator|.
 name|setOpenMode

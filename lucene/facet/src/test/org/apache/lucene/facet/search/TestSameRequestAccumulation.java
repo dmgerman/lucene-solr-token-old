@@ -217,8 +217,9 @@ decl_stmt|;
 name|FacetsCollector
 name|fc
 init|=
-operator|new
 name|FacetsCollector
+operator|.
+name|create
 argument_list|(
 name|fsp
 argument_list|,
@@ -285,8 +286,7 @@ literal|3
 argument_list|,
 name|fsp
 operator|.
-name|getFacetRequests
-argument_list|()
+name|facetRequests
 operator|.
 name|size
 argument_list|()
@@ -294,8 +294,9 @@ argument_list|)
 expr_stmt|;
 name|fc
 operator|=
-operator|new
 name|FacetsCollector
+operator|.
+name|create
 argument_list|(
 name|fsp
 argument_list|,
