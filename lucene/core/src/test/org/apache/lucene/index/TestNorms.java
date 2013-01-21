@@ -240,9 +240,6 @@ end_import
 begin_comment
 comment|/**  * Test that norms info is preserved during index life - including  * separate norms, addDocument, addIndexes, forceMerge.  */
 end_comment
-begin_comment
-comment|// nocommit put SimpleText back in suppress list:
-end_comment
 begin_class
 annotation|@
 name|SuppressCodecs
@@ -251,6 +248,8 @@ block|{
 literal|"Memory"
 block|,
 literal|"Direct"
+block|,
+literal|"SimpleText"
 block|}
 argument_list|)
 annotation|@
