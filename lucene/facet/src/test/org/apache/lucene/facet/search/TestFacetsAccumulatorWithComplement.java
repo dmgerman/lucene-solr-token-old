@@ -599,7 +599,9 @@ literal|3
 argument_list|,
 name|parentResWithComp
 operator|.
-name|getNumSubResults
+name|subResults
+operator|.
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -611,7 +613,9 @@ literal|3
 argument_list|,
 name|parentResNoComp
 operator|.
-name|getNumSubResults
+name|subResults
+operator|.
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;

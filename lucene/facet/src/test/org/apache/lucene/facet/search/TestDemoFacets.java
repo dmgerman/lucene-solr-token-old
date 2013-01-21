@@ -812,8 +812,7 @@ name|indent
 operator|+
 name|node
 operator|.
-name|getLabel
-argument_list|()
+name|label
 operator|.
 name|components
 index|[
@@ -827,8 +826,7 @@ name|int
 operator|)
 name|node
 operator|.
-name|getValue
-argument_list|()
+name|value
 operator|+
 literal|")\n"
 argument_list|)
@@ -840,8 +838,7 @@ name|childNode
 range|:
 name|node
 operator|.
-name|getSubResults
-argument_list|()
+name|subResults
 control|)
 block|{
 name|toSimpleString

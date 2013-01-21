@@ -974,8 +974,7 @@ name|int
 operator|)
 name|frn
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -986,7 +985,9 @@ literal|2
 argument_list|,
 name|frn
 operator|.
-name|getNumSubResults
+name|subResults
+operator|.
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -997,8 +998,7 @@ name|node
 range|:
 name|frn
 operator|.
-name|getSubResults
-argument_list|()
+name|subResults
 control|)
 block|{
 name|assertEquals
@@ -1007,8 +1007,7 @@ literal|"wrong weight for child "
 operator|+
 name|node
 operator|.
-name|getLabel
-argument_list|()
+name|label
 argument_list|,
 literal|2
 argument_list|,
@@ -1017,8 +1016,7 @@ name|int
 operator|)
 name|node
 operator|.
-name|getValue
-argument_list|()
+name|value
 argument_list|)
 expr_stmt|;
 block|}

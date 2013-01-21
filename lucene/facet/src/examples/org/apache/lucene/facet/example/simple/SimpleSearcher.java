@@ -704,8 +704,7 @@ operator|.
 name|getFacetResultNode
 argument_list|()
 operator|.
-name|getSubResults
-argument_list|()
+name|subResults
 operator|.
 name|iterator
 argument_list|()
@@ -724,8 +723,7 @@ operator|.
 name|next
 argument_list|()
 operator|.
-name|getLabel
-argument_list|()
+name|label
 decl_stmt|;
 comment|// drill-down preparation: turn the base query into a drill-down query for the category of interest
 name|Query
