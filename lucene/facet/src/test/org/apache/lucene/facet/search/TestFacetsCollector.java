@@ -41,9 +41,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|core
-operator|.
-name|KeywordAnalyzer
+name|MockAnalyzer
 import|;
 end_import
 begin_import
@@ -412,8 +410,11 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|KeywordAnalyzer
+name|MockAnalyzer
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;

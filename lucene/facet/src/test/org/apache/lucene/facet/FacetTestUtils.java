@@ -48,9 +48,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|standard
-operator|.
-name|StandardAnalyzer
+name|MockAnalyzer
 import|;
 end_import
 begin_import
@@ -738,11 +736,12 @@ operator|.
 name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
-name|StandardAnalyzer
+name|MockAnalyzer
 argument_list|(
 name|LuceneTestCase
 operator|.
-name|TEST_VERSION_CURRENT
+name|random
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
