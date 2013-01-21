@@ -74,9 +74,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene42
 operator|.
-name|Lucene41Codec
+name|Lucene42Codec
 import|;
 end_import
 begin_import
@@ -974,12 +974,9 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
-name|Lucene41Codec
+name|Codec
 name|codec
 init|=
-operator|(
-name|Lucene41Codec
-operator|)
 name|iwconf
 operator|.
 name|getCodec
@@ -1071,9 +1068,6 @@ argument_list|()
 expr_stmt|;
 name|codec
 operator|=
-operator|(
-name|Lucene41Codec
-operator|)
 name|iwconf
 operator|.
 name|getCodec
@@ -1398,7 +1392,7 @@ specifier|static
 class|class
 name|MockCodec
 extends|extends
-name|Lucene41Codec
+name|Lucene42Codec
 block|{
 DECL|field|lucene40
 specifier|final
@@ -1481,7 +1475,7 @@ specifier|static
 class|class
 name|MockCodec2
 extends|extends
-name|Lucene41Codec
+name|Lucene42Codec
 block|{
 DECL|field|lucene40
 specifier|final
@@ -1806,7 +1800,7 @@ name|Codec
 name|codec
 init|=
 operator|new
-name|Lucene41Codec
+name|Lucene42Codec
 argument_list|()
 block|{
 annotation|@
@@ -1888,7 +1882,7 @@ name|Codec
 name|codec
 init|=
 operator|new
-name|Lucene41Codec
+name|Lucene42Codec
 argument_list|()
 block|{
 annotation|@

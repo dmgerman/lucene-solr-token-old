@@ -206,6 +206,21 @@ name|lucene
 operator|.
 name|codecs
 operator|.
+name|lucene42
+operator|.
+name|Lucene42Codec
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
 name|mockrandom
 operator|.
 name|MockRandomPostingsFormat
@@ -810,6 +825,7 @@ argument_list|(
 literal|10
 argument_list|)
 decl_stmt|;
+comment|// nocommit: add 41 impersonation
 if|if
 condition|(
 literal|"Lucene40"
@@ -920,7 +936,7 @@ block|}
 name|codec
 operator|=
 operator|new
-name|Lucene41Codec
+name|Lucene42Codec
 argument_list|()
 block|{
 annotation|@
