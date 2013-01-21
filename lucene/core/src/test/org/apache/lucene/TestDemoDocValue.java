@@ -137,7 +137,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|PackedLongDocValuesField
+name|LongDocValuesField
 import|;
 end_import
 begin_import
@@ -151,19 +151,6 @@ operator|.
 name|document
 operator|.
 name|SortedBytesDocValuesField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
-name|StraightBytesDocValuesField
 import|;
 end_import
 begin_import
@@ -442,7 +429,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -1047,7 +1034,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv1"
 argument_list|,
@@ -1060,7 +1047,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv2"
 argument_list|,
@@ -1399,7 +1386,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv1"
 argument_list|,
@@ -1412,7 +1399,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StraightBytesDocValuesField
+name|BinaryDocValuesField
 argument_list|(
 literal|"dv2"
 argument_list|,
@@ -1788,7 +1775,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv2"
 argument_list|,
@@ -1801,7 +1788,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StraightBytesDocValuesField
+name|BinaryDocValuesField
 argument_list|(
 literal|"dv3"
 argument_list|,
@@ -2211,7 +2198,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StraightBytesDocValuesField
+name|BinaryDocValuesField
 argument_list|(
 literal|"dv1"
 argument_list|,
@@ -2245,7 +2232,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv3"
 argument_list|,
@@ -2634,7 +2621,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -2660,7 +2647,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -2848,7 +2835,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -2896,7 +2883,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -3124,7 +3111,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -3152,7 +3139,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -3330,7 +3317,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -3357,7 +3344,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -3547,7 +3534,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StraightBytesDocValuesField
+name|BinaryDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -3865,7 +3852,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StraightBytesDocValuesField
+name|BinaryDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -3916,7 +3903,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StraightBytesDocValuesField
+name|BinaryDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -5393,7 +5380,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StraightBytesDocValuesField
+name|BinaryDocValuesField
 argument_list|(
 literal|"dv"
 argument_list|,
@@ -5865,7 +5852,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|PackedLongDocValuesField
+name|LongDocValuesField
 argument_list|(
 literal|"dv1"
 argument_list|,
@@ -5878,7 +5865,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StraightBytesDocValuesField
+name|BinaryDocValuesField
 argument_list|(
 literal|"dv2"
 argument_list|,
