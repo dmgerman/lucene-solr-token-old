@@ -33,6 +33,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Random
 import|;
 end_import
@@ -63,28 +72,13 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|associations
-operator|.
-name|CategoryAssociationsContainer
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|facet
-operator|.
 name|taxonomy
 operator|.
 name|CategoryPath
 import|;
 end_import
 begin_comment
-comment|/**  * Simple implementation of a random facet source  *<p>  * Supports the following parameters:  *<ul>  *<li><b>rand.seed</b> - defines the seed to initialize Random with (default:<b>13</b>).  *<li><b>max.doc.facets</b> - maximal #facets per doc (default:<b>10</b>).  *    Actual number of facets in a certain doc would be anything between 1 and that number.  *<li><b>max.facet.depth</b> - maximal #components in a facet (default:<b>3</b>).  *    Actual number of components in a certain facet would be anything between 1 and that number.  *</ul>  */
+comment|/**  * Simple implementation of a random facet source  *<p>  * Supports the following parameters:  *<ul>  *<li><b>rand.seed</b> - defines the seed to initialize {@link Random} with  * (default:<b>13</b>).  *<li><b>max.doc.facets</b> - maximal #facets per doc (default:<b>10</b>).  * Actual number of facets in a certain doc would be anything between 1 and that  * number.  *<li><b>max.facet.depth</b> - maximal #components in a facet (default:  *<b>3</b>). Actual number of components in a certain facet would be anything  * between 1 and that number.  *</ul>  */
 end_comment
 begin_class
 DECL|class|RandomFacetSource
@@ -95,6 +89,7 @@ extends|extends
 name|FacetSource
 block|{
 DECL|field|random
+specifier|private
 name|Random
 name|random
 decl_stmt|;
@@ -102,15 +97,11 @@ DECL|field|maxDocFacets
 specifier|private
 name|int
 name|maxDocFacets
-init|=
-literal|10
 decl_stmt|;
 DECL|field|maxFacetDepth
 specifier|private
 name|int
 name|maxFacetDepth
-init|=
-literal|3
 decl_stmt|;
 DECL|field|maxValue
 specifier|private
@@ -125,10 +116,13 @@ annotation|@
 name|Override
 DECL|method|getNextFacets
 specifier|public
-name|CategoryAssociationsContainer
+name|void
 name|getNextFacets
 parameter_list|(
-name|CategoryAssociationsContainer
+name|List
+argument_list|<
+name|CategoryPath
+argument_list|>
 name|facets
 parameter_list|)
 throws|throws
@@ -136,28 +130,11 @@ name|NoMoreDataException
 throws|,
 name|IOException
 block|{
-if|if
-condition|(
-name|facets
-operator|==
-literal|null
-condition|)
-block|{
-name|facets
-operator|=
-operator|new
-name|CategoryAssociationsContainer
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
 name|facets
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-block|}
 name|int
 name|numFacets
 init|=
@@ -168,8 +145,6 @@ operator|.
 name|nextInt
 argument_list|(
 name|maxDocFacets
-operator|-
-literal|1
 argument_list|)
 decl_stmt|;
 comment|// at least one facet to each doc
@@ -198,8 +173,6 @@ operator|.
 name|nextInt
 argument_list|(
 name|maxFacetDepth
-operator|-
-literal|1
 argument_list|)
 decl_stmt|;
 comment|// depth 0 is not useful
@@ -260,11 +233,9 @@ argument_list|)
 decl_stmt|;
 name|facets
 operator|.
-name|setAssociation
+name|add
 argument_list|(
 name|cp
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 name|addBytes
@@ -280,9 +251,6 @@ argument_list|)
 expr_stmt|;
 comment|// very rough approximation
 block|}
-return|return
-name|facets
-return|;
 block|}
 annotation|@
 name|Override
@@ -337,7 +305,7 @@ name|get
 argument_list|(
 literal|"max.doc.facets"
 argument_list|,
-literal|200
+literal|10
 argument_list|)
 expr_stmt|;
 name|maxFacetDepth
@@ -348,7 +316,7 @@ name|get
 argument_list|(
 literal|"max.facet.depth"
 argument_list|,
-literal|10
+literal|3
 argument_list|)
 expr_stmt|;
 name|maxValue
