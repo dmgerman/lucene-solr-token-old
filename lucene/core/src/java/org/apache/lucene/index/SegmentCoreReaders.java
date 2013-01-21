@@ -291,15 +291,15 @@ specifier|final
 name|FieldsProducer
 name|fields
 decl_stmt|;
-DECL|field|simpleDVProducer
+DECL|field|dvProducer
 specifier|final
 name|DocValuesProducer
-name|simpleDVProducer
+name|dvProducer
 decl_stmt|;
-DECL|field|simpleNormsProducer
+DECL|field|normsProducer
 specifier|final
 name|DocValuesProducer
-name|simpleNormsProducer
+name|normsProducer
 decl_stmt|;
 DECL|field|termsIndexDivisor
 specifier|final
@@ -329,7 +329,7 @@ name|cfsReader
 decl_stmt|;
 comment|// TODO: make a single thread local w/ a
 comment|// Thingy class holding fieldsReader, termVectorsReader,
-comment|// simpleNormsProducer, simpleDVProducer
+comment|// normsProducer, dvProducer
 DECL|field|fieldsReaderLocal
 specifier|final
 name|CloseableThreadLocal
@@ -400,7 +400,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-DECL|field|simpleDocValuesLocal
+DECL|field|docValuesLocal
 specifier|final
 name|CloseableThreadLocal
 argument_list|<
@@ -411,7 +411,7 @@ argument_list|,
 name|Object
 argument_list|>
 argument_list|>
-name|simpleDocValuesLocal
+name|docValuesLocal
 init|=
 operator|new
 name|CloseableThreadLocal
@@ -450,7 +450,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-DECL|field|simpleNormsLocal
+DECL|field|normsLocal
 specifier|final
 name|CloseableThreadLocal
 argument_list|<
@@ -461,7 +461,7 @@ argument_list|,
 name|Object
 argument_list|>
 argument_list|>
-name|simpleNormsLocal
+name|normsLocal
 init|=
 operator|new
 name|CloseableThreadLocal
@@ -711,25 +711,6 @@ assert|;
 comment|// ask codec for its Norms:
 comment|// TODO: since we don't write any norms file if there are no norms,
 comment|// kinda jaky to assume the codec handles the case of no norms file at all gracefully?!
-comment|// nocommit shouldn't need null check:
-assert|assert
-name|codec
-operator|.
-name|docValuesFormat
-argument_list|()
-operator|!=
-literal|null
-assert|;
-if|if
-condition|(
-name|codec
-operator|.
-name|docValuesFormat
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 if|if
 condition|(
 name|fieldInfos
@@ -738,7 +719,7 @@ name|hasDocValues
 argument_list|()
 condition|)
 block|{
-name|simpleDVProducer
+name|dvProducer
 operator|=
 name|codec
 operator|.
@@ -750,33 +731,19 @@ argument_list|(
 name|segmentReadState
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|simpleDVProducer
-operator|=
-literal|null
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|simpleDVProducer
-operator|=
-literal|null
-expr_stmt|;
-block|}
-comment|// nocommit shouldn't need null check:
-if|if
-condition|(
-name|codec
-operator|.
-name|normsFormat
-argument_list|()
+assert|assert
+name|dvProducer
 operator|!=
 literal|null
-condition|)
+assert|;
+block|}
+else|else
 block|{
+name|dvProducer
+operator|=
+literal|null
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|fieldInfos
@@ -785,7 +752,7 @@ name|hasNorms
 argument_list|()
 condition|)
 block|{
-name|simpleNormsProducer
+name|normsProducer
 operator|=
 name|codec
 operator|.
@@ -797,18 +764,15 @@ argument_list|(
 name|segmentReadState
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|simpleNormsProducer
-operator|=
+assert|assert
+name|normsProducer
+operator|!=
 literal|null
-expr_stmt|;
-block|}
+assert|;
 block|}
 else|else
 block|{
-name|simpleNormsProducer
+name|normsProducer
 operator|=
 literal|null
 expr_stmt|;
@@ -984,18 +948,11 @@ return|return
 literal|null
 return|;
 block|}
-comment|// nocommit change to assert != null!!
-if|if
-condition|(
-name|simpleDVProducer
-operator|==
+assert|assert
+name|dvProducer
+operator|!=
 literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
+assert|;
 name|Map
 argument_list|<
 name|String
@@ -1004,7 +961,7 @@ name|Object
 argument_list|>
 name|dvFields
 init|=
-name|simpleDocValuesLocal
+name|docValuesLocal
 operator|.
 name|get
 argument_list|()
@@ -1031,7 +988,7 @@ condition|)
 block|{
 name|dvs
 operator|=
-name|simpleDVProducer
+name|dvProducer
 operator|.
 name|getNumeric
 argument_list|(
@@ -1116,18 +1073,11 @@ return|return
 literal|null
 return|;
 block|}
-comment|// nocommit change to assert != null!!
-if|if
-condition|(
-name|simpleDVProducer
-operator|==
+assert|assert
+name|dvProducer
+operator|!=
 literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
+assert|;
 name|Map
 argument_list|<
 name|String
@@ -1136,7 +1086,7 @@ name|Object
 argument_list|>
 name|dvFields
 init|=
-name|simpleDocValuesLocal
+name|docValuesLocal
 operator|.
 name|get
 argument_list|()
@@ -1163,7 +1113,7 @@ condition|)
 block|{
 name|dvs
 operator|=
-name|simpleDVProducer
+name|dvProducer
 operator|.
 name|getBinary
 argument_list|(
@@ -1249,22 +1199,10 @@ literal|null
 return|;
 block|}
 assert|assert
-name|simpleDVProducer
+name|dvProducer
 operator|!=
 literal|null
 assert|;
-comment|// nocommit change to assert != null!!
-if|if
-condition|(
-name|simpleDVProducer
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 name|Map
 argument_list|<
 name|String
@@ -1273,7 +1211,7 @@ name|Object
 argument_list|>
 name|dvFields
 init|=
-name|simpleDocValuesLocal
+name|docValuesLocal
 operator|.
 name|get
 argument_list|()
@@ -1300,7 +1238,7 @@ condition|)
 block|{
 name|dvs
 operator|=
-name|simpleDVProducer
+name|dvProducer
 operator|.
 name|getSorted
 argument_list|(
@@ -1366,18 +1304,11 @@ return|return
 literal|null
 return|;
 block|}
-comment|// nocommit change to assert != null!!
-if|if
-condition|(
-name|simpleNormsProducer
-operator|==
+assert|assert
+name|normsProducer
+operator|!=
 literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
+assert|;
 name|Map
 argument_list|<
 name|String
@@ -1386,7 +1317,7 @@ name|Object
 argument_list|>
 name|normFields
 init|=
-name|simpleNormsLocal
+name|normsLocal
 operator|.
 name|get
 argument_list|()
@@ -1413,7 +1344,7 @@ condition|)
 block|{
 name|norms
 operator|=
-name|simpleNormsProducer
+name|normsProducer
 operator|.
 name|getNumeric
 argument_list|(
@@ -1459,13 +1390,13 @@ name|termVectorsLocal
 argument_list|,
 name|fieldsReaderLocal
 argument_list|,
-name|simpleDocValuesLocal
+name|docValuesLocal
 argument_list|,
-name|simpleNormsLocal
+name|normsLocal
 argument_list|,
 name|fields
 argument_list|,
-name|simpleDVProducer
+name|dvProducer
 argument_list|,
 name|termVectorsReaderOrig
 argument_list|,
@@ -1473,7 +1404,7 @@ name|fieldsReaderOrig
 argument_list|,
 name|cfsReader
 argument_list|,
-name|simpleNormsProducer
+name|normsProducer
 argument_list|)
 expr_stmt|;
 name|notifyCoreClosedListeners

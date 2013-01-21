@@ -195,11 +195,11 @@ operator|new
 name|SimpleTextTermVectorsFormat
 argument_list|()
 decl_stmt|;
-DECL|field|simpleNormsFormat
+DECL|field|normsFormat
 specifier|private
 specifier|final
 name|NormsFormat
-name|simpleNormsFormat
+name|normsFormat
 init|=
 operator|new
 name|SimpleTextNormsFormat
@@ -215,12 +215,11 @@ operator|new
 name|SimpleTextLiveDocsFormat
 argument_list|()
 decl_stmt|;
-comment|// nocommit rename
-DECL|field|simpleDVFormat
+DECL|field|dvFormat
 specifier|private
 specifier|final
 name|DocValuesFormat
-name|simpleDVFormat
+name|dvFormat
 init|=
 operator|new
 name|SimpleTextDocValuesFormat
@@ -306,7 +305,7 @@ name|normsFormat
 parameter_list|()
 block|{
 return|return
-name|simpleNormsFormat
+name|normsFormat
 return|;
 block|}
 annotation|@
@@ -330,7 +329,7 @@ name|docValuesFormat
 parameter_list|()
 block|{
 return|return
-name|simpleDVFormat
+name|dvFormat
 return|;
 block|}
 block|}

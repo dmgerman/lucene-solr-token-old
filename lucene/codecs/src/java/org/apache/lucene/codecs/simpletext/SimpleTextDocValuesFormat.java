@@ -628,7 +628,7 @@ name|ext
 operator|.
 name|equals
 argument_list|(
-literal|"slen"
+literal|"len"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2194,7 +2194,7 @@ name|ext
 operator|.
 name|equals
 argument_list|(
-literal|"slen"
+literal|"len"
 argument_list|)
 condition|?
 name|DocValuesType

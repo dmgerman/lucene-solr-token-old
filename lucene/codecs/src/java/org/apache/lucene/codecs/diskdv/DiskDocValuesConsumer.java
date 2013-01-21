@@ -170,9 +170,6 @@ operator|.
 name|FormatAndBits
 import|;
 end_import
-begin_comment
-comment|// nocommit fix exception handling (make sure tests find problems first)
-end_comment
 begin_class
 DECL|class|DiskDocValuesConsumer
 class|class
