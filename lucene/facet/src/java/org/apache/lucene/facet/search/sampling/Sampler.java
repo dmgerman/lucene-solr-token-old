@@ -779,8 +779,7 @@ name|frq
 range|:
 name|original
 operator|.
-name|getFacetRequests
-argument_list|()
+name|facetRequests
 control|)
 block|{
 name|int
@@ -824,8 +823,7 @@ name|facetRequests
 argument_list|,
 name|original
 operator|.
-name|getFacetIndexingParams
-argument_list|()
+name|indexingParams
 argument_list|)
 expr_stmt|;
 block|}

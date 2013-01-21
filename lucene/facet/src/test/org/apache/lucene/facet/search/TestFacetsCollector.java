@@ -546,8 +546,9 @@ decl_stmt|;
 name|FacetsCollector
 name|fc
 init|=
-operator|new
 name|FacetsCollector
+operator|.
+name|create
 argument_list|(
 name|sParams
 argument_list|,

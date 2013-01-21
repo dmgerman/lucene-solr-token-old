@@ -1252,8 +1252,7 @@ name|partitionSize
 argument_list|(
 name|facetSearchParams
 operator|.
-name|getFacetIndexingParams
-argument_list|()
+name|indexingParams
 argument_list|,
 name|tr
 argument_list|)

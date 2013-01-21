@@ -905,8 +905,9 @@ decl_stmt|;
 name|FacetsCollector
 name|facetsCollector
 init|=
-operator|new
 name|FacetsCollector
+operator|.
+name|create
 argument_list|(
 name|facetSearchParams
 argument_list|,
