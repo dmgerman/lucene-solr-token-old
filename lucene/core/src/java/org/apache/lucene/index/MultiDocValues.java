@@ -300,7 +300,9 @@ literal|true
 expr_stmt|;
 block|}
 block|}
-comment|// assert anyReal; // nocommit: unsafe until 4.0 is done
+assert|assert
+name|anyReal
+assert|;
 return|return
 operator|new
 name|NumericDocValues
@@ -372,7 +374,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// WTF? should be EMPTY?
 return|return
 literal|0
 return|;

@@ -16,37 +16,6 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Bits
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -151,12 +120,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// nocommit make this final, and impl seekExact(term) to
-comment|// fwd to lookupTerm
-comment|// nocommit should we nuke this?  the iterator can be
-comment|// efficiently built "on top" since ord is part of the
-comment|// API?  why must it be impl'd here...?
-comment|// SortedDocValuesTermsEnum.
 DECL|field|EMPTY
 specifier|public
 specifier|static
