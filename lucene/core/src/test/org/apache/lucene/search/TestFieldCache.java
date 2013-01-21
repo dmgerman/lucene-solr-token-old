@@ -2065,10 +2065,11 @@ comment|// System.out.println("nTerms="+nTerms);
 name|TermsEnum
 name|tenum
 init|=
+operator|new
+name|SortedDocValuesTermsEnum
+argument_list|(
 name|termsIndex
-operator|.
-name|getTermsEnum
-argument_list|()
+argument_list|)
 decl_stmt|;
 name|BytesRef
 name|val
