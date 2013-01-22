@@ -2776,7 +2776,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|SortedBytesDocValuesField
+name|SortedDocValuesField
 argument_list|(
 name|field
 operator|+
@@ -4082,7 +4082,7 @@ name|Field
 name|groupDc
 init|=
 operator|new
-name|SortedBytesDocValuesField
+name|SortedDocValuesField
 argument_list|(
 literal|"group_dv"
 argument_list|,
@@ -4190,7 +4190,7 @@ literal|1
 index|]
 operator|=
 operator|new
-name|SortedBytesDocValuesField
+name|SortedDocValuesField
 argument_list|(
 literal|"facet_dv"
 argument_list|,

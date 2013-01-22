@@ -1404,7 +1404,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|SortedBytesDocValuesField
+name|SortedDocValuesField
 argument_list|(
 name|groupField
 operator|+
@@ -5137,7 +5137,7 @@ name|Field
 name|idvGroupField
 init|=
 operator|new
-name|SortedBytesDocValuesField
+name|SortedDocValuesField
 argument_list|(
 literal|"group_dv"
 argument_list|,

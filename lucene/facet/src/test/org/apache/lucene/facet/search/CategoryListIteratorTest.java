@@ -67,7 +67,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|Document
+name|BinaryDocValuesField
 import|;
 end_import
 begin_import
@@ -80,7 +80,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|StraightBytesDocValuesField
+name|Document
 import|;
 end_import
 begin_import
@@ -478,7 +478,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StraightBytesDocValuesField
+name|BinaryDocValuesField
 argument_list|(
 literal|"f"
 argument_list|,
@@ -860,7 +860,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StraightBytesDocValuesField
+name|BinaryDocValuesField
 argument_list|(
 literal|"f"
 argument_list|,
@@ -876,7 +876,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|StraightBytesDocValuesField
+name|BinaryDocValuesField
 argument_list|(
 literal|"f"
 argument_list|,
