@@ -158,21 +158,6 @@ name|codecs
 operator|.
 name|lucene40
 operator|.
-name|Lucene40FieldInfosFormat
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene40
-operator|.
 name|Lucene40LiveDocsFormat
 import|;
 end_import
@@ -252,7 +237,7 @@ name|PerFieldPostingsFormat
 import|;
 end_import
 begin_comment
-comment|/**  * Implements the Lucene 4.2 index format, with configurable per-field postings formats.  *<p>  * If you want to reuse functionality of this codec in another codec, extend  * {@link FilterCodec}.  *  * @see org.apache.lucene.codecs.lucene42 package documentation for file format details.  * @lucene.experimental  */
+comment|/**  * Implements the Lucene 4.2 index format, with configurable per-field postings  * and docvalues formats.  *<p>  * If you want to reuse functionality of this codec in another codec, extend  * {@link FilterCodec}.  *  * @see org.apache.lucene.codecs.lucene42 package documentation for file format details.  * @lucene.experimental  */
 end_comment
 begin_comment
 comment|// NOTE: if we make largish changes in a minor release, easier to just make Lucene43Codec or whatever
@@ -298,7 +283,7 @@ name|FieldInfosFormat
 name|fieldInfosFormat
 init|=
 operator|new
-name|Lucene40FieldInfosFormat
+name|Lucene42FieldInfosFormat
 argument_list|()
 decl_stmt|;
 DECL|field|infosFormat
