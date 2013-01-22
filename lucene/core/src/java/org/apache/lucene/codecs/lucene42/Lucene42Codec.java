@@ -509,6 +509,7 @@ annotation|@
 name|Override
 DECL|method|docValuesFormat
 specifier|public
+specifier|final
 name|DocValuesFormat
 name|docValuesFormat
 parameter_list|()
@@ -557,6 +558,7 @@ annotation|@
 name|Override
 DECL|method|normsFormat
 specifier|public
+specifier|final
 name|NormsFormat
 name|normsFormat
 parameter_list|()
