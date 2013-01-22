@@ -27,6 +27,9 @@ operator|.
 name|BytesRef
 import|;
 end_import
+begin_comment
+comment|/**  * A per-document byte[]  */
+end_comment
 begin_class
 DECL|class|BinaryDocValues
 specifier|public
@@ -48,6 +51,7 @@ name|BytesRef
 name|result
 parameter_list|)
 function_decl|;
+comment|/**    * Indicates the value was missing for the document.    */
 DECL|field|MISSING
 specifier|public
 specifier|static
@@ -62,6 +66,7 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+comment|/** An empty BinaryDocValues which returns empty bytes for every document */
 DECL|field|EMPTY
 specifier|public
 specifier|static

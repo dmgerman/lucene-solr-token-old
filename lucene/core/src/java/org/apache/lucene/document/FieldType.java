@@ -1006,7 +1006,7 @@ argument_list|()
 return|;
 block|}
 comment|/* from StorableFieldType */
-comment|/**    * {@inheritDoc}    *<p>    * The default is<code>null</code> (no docValues)     * @see #setDocValueType(DocValuesType)    */
+comment|/**    * {@inheritDoc}    *<p>    * The default is<code>null</code> (no docValues)     * @see #setDocValueType(org.apache.lucene.index.FieldInfo.DocValuesType)    */
 annotation|@
 name|Override
 DECL|method|docValueType
