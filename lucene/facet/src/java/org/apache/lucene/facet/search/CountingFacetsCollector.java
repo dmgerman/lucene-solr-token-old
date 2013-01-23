@@ -1417,12 +1417,6 @@ expr_stmt|;
 block|}
 name|root
 operator|.
-name|residue
-operator|=
-literal|0
-expr_stmt|;
-name|root
-operator|.
 name|subResults
 operator|=
 name|nodes
@@ -1484,11 +1478,6 @@ init|=
 literal|0
 decl_stmt|;
 comment|// count the number of results
-name|int
-name|residue
-init|=
-literal|0
-decl_stmt|;
 while|while
 condition|(
 name|child
@@ -1515,12 +1504,6 @@ operator|.
 name|value
 condition|)
 block|{
-name|residue
-operator|+=
-name|top
-operator|.
-name|value
-expr_stmt|;
 name|top
 operator|.
 name|value
@@ -1542,13 +1525,6 @@ argument_list|()
 expr_stmt|;
 operator|++
 name|numResults
-expr_stmt|;
-block|}
-else|else
-block|{
-name|residue
-operator|+=
-name|count
 expr_stmt|;
 block|}
 name|child
@@ -1659,12 +1635,6 @@ operator|=
 name|node
 expr_stmt|;
 block|}
-name|root
-operator|.
-name|residue
-operator|=
-name|residue
-expr_stmt|;
 name|root
 operator|.
 name|subResults

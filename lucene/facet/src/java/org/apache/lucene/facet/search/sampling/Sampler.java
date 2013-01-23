@@ -189,7 +189,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * Sampling definition for facets accumulation  *<p>  * The Sampler uses TAKMI style counting to provide a 'best guess' top-K result  * set of the facets accumulated.  *<p>  * Note: Sampling accumulation (Accumulation over a sampled-set of the results),  * does not guarantee accurate values for  * {@link FacetResult#getNumValidDescendants()}&  * {@link FacetResultNode#residue}.  *   * @lucene.experimental  */
+comment|/**  * Sampling definition for facets accumulation  *<p>  * The Sampler uses TAKMI style counting to provide a 'best guess' top-K result  * set of the facets accumulated.  *<p>  * Note: Sampling accumulation (Accumulation over a sampled-set of the results),  * does not guarantee accurate values for  * {@link FacetResult#getNumValidDescendants()}.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|Sampler
@@ -680,43 +680,6 @@ name|add
 argument_list|(
 name|trimmedNode
 argument_list|)
-expr_stmt|;
-block|}
-comment|/*      * If we are trimming, it means Sampling is in effect and the extra      * (over-sampled) results are being trimmed. Although the residue is not      * guaranteed to be accurate for Sampling, we try our best to fix it.      * The node's residue now will take under account the sub-nodes we're      * trimming.      */
-for|for
-control|(
-name|int
-name|i
-init|=
-name|size
-init|;
-name|i
-operator|<
-name|node
-operator|.
-name|subResults
-operator|.
-name|size
-argument_list|()
-condition|;
-name|i
-operator|++
-control|)
-block|{
-name|node
-operator|.
-name|residue
-operator|+=
-name|node
-operator|.
-name|subResults
-operator|.
-name|get
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|value
 expr_stmt|;
 block|}
 name|node
