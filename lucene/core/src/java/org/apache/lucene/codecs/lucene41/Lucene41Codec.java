@@ -210,7 +210,7 @@ name|codecs
 operator|.
 name|lucene40
 operator|.
-name|Lucene40DocValuesFormat
+name|Lucene40LyingDocValuesFormat
 import|;
 end_import
 begin_import
@@ -286,21 +286,6 @@ operator|.
 name|lucene40
 operator|.
 name|Lucene40TermVectorsFormat
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene42
-operator|.
-name|Lucene42NormsFormat
 import|;
 end_import
 begin_import
@@ -599,7 +584,6 @@ annotation|@
 name|Override
 DECL|method|docValuesFormat
 specifier|public
-specifier|final
 name|DocValuesFormat
 name|docValuesFormat
 parameter_list|()
@@ -621,7 +605,6 @@ argument_list|(
 literal|"Lucene41"
 argument_list|)
 decl_stmt|;
-comment|// nocommit need a read-only Lucene40DocValuesFormat / read-write in the impersonator
 DECL|field|dvFormat
 specifier|private
 specifier|final
@@ -629,10 +612,9 @@ name|DocValuesFormat
 name|dvFormat
 init|=
 operator|new
-name|Lucene40DocValuesFormat
+name|Lucene40LyingDocValuesFormat
 argument_list|()
 decl_stmt|;
-comment|// nocommit need a read-only Lucene40NormsFormat / read-write in the impersonator
 DECL|field|normsFormat
 specifier|private
 specifier|final
@@ -647,7 +629,6 @@ annotation|@
 name|Override
 DECL|method|normsFormat
 specifier|public
-specifier|final
 name|NormsFormat
 name|normsFormat
 parameter_list|()

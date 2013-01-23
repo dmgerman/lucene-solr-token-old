@@ -357,7 +357,6 @@ return|return
 name|infosFormat
 return|;
 block|}
-comment|//nocommit need a read-only Lucene40DocValuesFormat / read-write in the impersonator
 DECL|field|defaultDVFormat
 specifier|private
 specifier|final
@@ -365,14 +364,13 @@ name|DocValuesFormat
 name|defaultDVFormat
 init|=
 operator|new
-name|Lucene40DocValuesFormat
+name|Lucene40LyingDocValuesFormat
 argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
 DECL|method|docValuesFormat
 specifier|public
-specifier|final
 name|DocValuesFormat
 name|docValuesFormat
 parameter_list|()
@@ -381,7 +379,6 @@ return|return
 name|defaultDVFormat
 return|;
 block|}
-comment|// nocommit need a read-only Lucene40NormsFormat / read-write in the impersonator
 DECL|field|normsFormat
 specifier|private
 specifier|final
@@ -396,7 +393,6 @@ annotation|@
 name|Override
 DECL|method|normsFormat
 specifier|public
-specifier|final
 name|NormsFormat
 name|normsFormat
 parameter_list|()
