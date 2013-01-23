@@ -43,9 +43,9 @@ name|facet
 operator|.
 name|index
 operator|.
-name|categorypolicy
+name|params
 operator|.
-name|OrdinalPolicy
+name|CategoryListParams
 import|;
 end_import
 begin_import
@@ -63,6 +63,8 @@ operator|.
 name|params
 operator|.
 name|CategoryListParams
+operator|.
+name|OrdinalPolicy
 import|;
 end_import
 begin_import
