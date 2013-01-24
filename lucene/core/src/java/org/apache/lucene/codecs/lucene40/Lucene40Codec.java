@@ -364,7 +364,7 @@ name|DocValuesFormat
 name|defaultDVFormat
 init|=
 operator|new
-name|Lucene40LyingDocValuesFormat
+name|Lucene40DocValuesFormat
 argument_list|()
 decl_stmt|;
 annotation|@
