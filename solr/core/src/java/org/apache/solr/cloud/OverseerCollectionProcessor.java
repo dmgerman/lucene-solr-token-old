@@ -1478,6 +1478,8 @@ operator|.
 name|get
 argument_list|(
 operator|(
+name|repFactor
+operator|*
 operator|(
 name|i
 operator|-
