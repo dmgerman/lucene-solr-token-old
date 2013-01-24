@@ -72,9 +72,9 @@ name|facet
 operator|.
 name|index
 operator|.
-name|categorypolicy
+name|params
 operator|.
-name|OrdinalPolicy
+name|CategoryListParams
 import|;
 end_import
 begin_import
@@ -92,6 +92,8 @@ operator|.
 name|params
 operator|.
 name|CategoryListParams
+operator|.
+name|OrdinalPolicy
 import|;
 end_import
 begin_import
@@ -673,7 +675,7 @@ name|this
 operator|.
 name|ordinalPolicy
 operator|=
-name|indexingParams
+name|categoryListParams
 operator|.
 name|getOrdinalPolicy
 argument_list|()
@@ -746,6 +748,16 @@ operator|.
 name|length
 decl_stmt|;
 comment|// since we add ordinals to IntsRef, iterate upto original length
+if|if
+condition|(
+name|ordinalPolicy
+operator|==
+name|OrdinalPolicy
+operator|.
+name|ALL_PARENTS
+condition|)
+block|{
+comment|// add all parents too
 for|for
 control|(
 name|int
@@ -788,16 +800,6 @@ operator|>
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-name|ordinalPolicy
-operator|.
-name|shouldAdd
-argument_list|(
-name|parent
-argument_list|)
-condition|)
-block|{
 name|ordinals
 operator|.
 name|ints
@@ -810,7 +812,6 @@ index|]
 operator|=
 name|parent
 expr_stmt|;
-block|}
 name|parent
 operator|=
 name|taxoWriter
@@ -820,6 +821,7 @@ argument_list|(
 name|parent
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
