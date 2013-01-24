@@ -114,6 +114,12 @@ name|length
 operator|=
 literal|0
 expr_stmt|;
+name|result
+operator|.
+name|offset
+operator|=
+literal|0
+expr_stmt|;
 block|}
 else|else
 block|{
