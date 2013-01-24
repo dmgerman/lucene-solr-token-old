@@ -79,16 +79,10 @@ end_comment
 begin_comment
 comment|/** Buffers up pending long per doc, then flushes when  *  segment flushes. */
 end_comment
-begin_comment
-comment|// nocommit rename to NumericDVWriter?
-end_comment
-begin_comment
-comment|// nocommit make this a consumer in the chain?
-end_comment
 begin_class
-DECL|class|NumberDVWriter
+DECL|class|NumericDocValuesWriter
 class|class
-name|NumberDVWriter
+name|NumericDocValuesWriter
 extends|extends
 name|DocValuesWriter
 block|{
@@ -123,9 +117,9 @@ specifier|final
 name|FieldInfo
 name|fieldInfo
 decl_stmt|;
-DECL|method|NumberDVWriter
+DECL|method|NumericDocValuesWriter
 specifier|public
-name|NumberDVWriter
+name|NumericDocValuesWriter
 parameter_list|(
 name|FieldInfo
 name|fieldInfo
@@ -378,8 +372,6 @@ name|Number
 name|next
 parameter_list|()
 block|{
-comment|// nocommit make
-comment|// mutable Number:
 name|long
 name|value
 decl_stmt|;
@@ -411,6 +403,7 @@ block|}
 name|upto
 operator|++
 expr_stmt|;
+comment|// TODO: make reusable Number
 return|return
 name|value
 return|;
@@ -421,19 +414,19 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
+comment|// nocommit
+comment|//reset();
 block|}
+annotation|@
+name|Override
 DECL|method|abort
 specifier|public
 name|void
 name|abort
 parameter_list|()
 block|{
-name|reset
-argument_list|()
-expr_stmt|;
+comment|// nocommit
+comment|//reset();
 block|}
 comment|// nocommit do we really need this...?  can't/doesn't parent alloc
 comment|// a new instance after flush?
@@ -442,15 +435,9 @@ name|void
 name|reset
 parameter_list|()
 block|{
-name|pending
-operator|=
-operator|new
-name|AppendingLongBuffer
-argument_list|()
-expr_stmt|;
-name|updateBytesUsed
-argument_list|()
-expr_stmt|;
+comment|// nocommit
+comment|//pending = new AppendingLongBuffer();
+comment|//updateBytesUsed();
 block|}
 block|}
 end_class

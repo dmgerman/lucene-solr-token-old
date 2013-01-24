@@ -102,16 +102,10 @@ end_import
 begin_comment
 comment|/** Buffers up pending byte[] per doc, then flushes when  *  segment flushes. */
 end_comment
-begin_comment
-comment|// nocommit name?
-end_comment
-begin_comment
-comment|// nocommit make this a consumer in the chain?
-end_comment
 begin_class
-DECL|class|BytesDVWriter
+DECL|class|BinaryDocValuesWriter
 class|class
-name|BytesDVWriter
+name|BinaryDocValuesWriter
 extends|extends
 name|DocValuesWriter
 block|{
@@ -144,9 +138,10 @@ operator|new
 name|BytesRef
 argument_list|()
 decl_stmt|;
-DECL|method|BytesDVWriter
+comment|// nocommit this needs to update bytesUsed?
+DECL|method|BinaryDocValuesWriter
 specifier|public
-name|BytesDVWriter
+name|BinaryDocValuesWriter
 parameter_list|(
 name|FieldInfo
 name|fieldInfo
@@ -212,18 +207,17 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// nocommit improve message
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"null binaryValue not allowed (field="
+literal|"field=\""
 operator|+
 name|fieldInfo
 operator|.
 name|name
 operator|+
-literal|")"
+literal|"\": null value not allowed"
 argument_list|)
 throw|;
 block|}
@@ -402,8 +396,6 @@ name|BytesRef
 name|next
 parameter_list|()
 block|{
-comment|// nocommit make
-comment|// mutable Number:
 if|if
 condition|(
 name|upto
@@ -446,19 +438,19 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
+comment|// nocommit
+comment|//reset();
 block|}
+annotation|@
+name|Override
 DECL|method|abort
 specifier|public
 name|void
 name|abort
 parameter_list|()
 block|{
-name|reset
-argument_list|()
-expr_stmt|;
+comment|// nocommit
+comment|//reset();
 block|}
 DECL|method|reset
 specifier|private
@@ -466,11 +458,8 @@ name|void
 name|reset
 parameter_list|()
 block|{
-name|bytesRefArray
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
+comment|// nocommit
+comment|//bytesRefArray.clear();
 block|}
 block|}
 end_class
