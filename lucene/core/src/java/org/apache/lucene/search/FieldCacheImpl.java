@@ -329,9 +329,6 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|// nocommit rename to UninvertFieldCacheImpl or something ...
-end_comment
-begin_comment
 comment|/**  * Expert: The default cache implementation, storing all values in memory.  * A WeakHashMap is used for storage.  *  * @since   lucene 1.4  */
 end_comment
 begin_class
@@ -946,7 +943,6 @@ specifier|static
 class|class
 name|Cache
 block|{
-comment|// nocommit why wrapper vs non-static class...?
 DECL|method|Cache
 name|Cache
 parameter_list|(
@@ -2206,7 +2202,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// nocommit move up?
 DECL|class|BytesFromArray
 specifier|static
 class|class
@@ -2583,7 +2578,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// nocommit move up?
 DECL|class|ShortsFromArray
 specifier|static
 class|class
@@ -2960,7 +2954,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// nocommit move up?
 DECL|class|IntsFromArray
 specifier|static
 class|class
@@ -3010,6 +3003,47 @@ index|]
 return|;
 block|}
 block|}
+DECL|class|HoldsOneThing
+specifier|private
+specifier|static
+class|class
+name|HoldsOneThing
+parameter_list|<
+name|T
+parameter_list|>
+block|{
+DECL|field|it
+specifier|private
+name|T
+name|it
+decl_stmt|;
+DECL|method|set
+specifier|public
+name|void
+name|set
+parameter_list|(
+name|T
+name|it
+parameter_list|)
+block|{
+name|this
+operator|.
+name|it
+operator|=
+name|it
+expr_stmt|;
+block|}
+DECL|method|get
+specifier|public
+name|T
+name|get
+parameter_list|()
+block|{
+return|return
+name|it
+return|;
+block|}
+block|}
 DECL|class|IntCache
 specifier|static
 specifier|final
@@ -3051,11 +3085,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|int
-index|[]
-name|values
-decl_stmt|;
 specifier|final
 name|IntParser
 name|parser
@@ -3122,19 +3151,22 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// nocommit how to avoid double alloc in numeric field
-comment|// case ...
-name|values
-operator|=
-operator|new
+specifier|final
+name|HoldsOneThing
+argument_list|<
 name|int
-index|[
-name|reader
-operator|.
-name|maxDoc
+index|[]
+argument_list|>
+name|valuesRef
+init|=
+operator|new
+name|HoldsOneThing
+argument_list|<
+name|int
+index|[]
+argument_list|>
 argument_list|()
-index|]
-expr_stmt|;
+decl_stmt|;
 name|Uninvert
 name|u
 init|=
@@ -3145,6 +3177,11 @@ block|{
 specifier|private
 name|int
 name|currentValue
+decl_stmt|;
+specifier|private
+name|int
+index|[]
+name|values
 decl_stmt|;
 annotation|@
 name|Override
@@ -3165,6 +3202,36 @@ argument_list|(
 name|term
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|values
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Lazy alloc so for the numeric field case
+comment|// (which will hit a NumberFormatException
+comment|// when we first try the DEFAULT_INT_PARSER),
+comment|// we don't double-alloc:
+name|values
+operator|=
+operator|new
+name|int
+index|[
+name|reader
+operator|.
+name|maxDoc
+argument_list|()
+index|]
+expr_stmt|;
+name|valuesRef
+operator|.
+name|set
+argument_list|(
+name|values
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -3220,6 +3287,34 @@ name|docsWithField
 argument_list|)
 expr_stmt|;
 block|}
+name|int
+index|[]
+name|values
+init|=
+name|valuesRef
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|values
+operator|==
+literal|null
+condition|)
+block|{
+name|values
+operator|=
+operator|new
+name|int
+index|[
+name|reader
+operator|.
+name|maxDoc
+argument_list|()
+index|]
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|IntsFromArray
@@ -3229,9 +3324,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// nocommit must advertise that this does NOT work if you
-comment|// index only doc values for the field ... it will say no
-comment|// doc exists...
 DECL|method|getDocsWithField
 specifier|public
 name|Bits
@@ -3740,7 +3832,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// nocommit move up?
 DECL|class|FloatsFromArray
 specifier|static
 class|class
@@ -3818,6 +3909,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
+specifier|final
 name|AtomicReader
 name|reader
 parameter_list|,
@@ -3830,11 +3922,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|float
-index|[]
-name|values
-decl_stmt|;
 specifier|final
 name|FloatParser
 name|parser
@@ -3901,19 +3988,22 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// nocommit how to avoid double alloc in numeric field
-comment|// case ...
-name|values
-operator|=
-operator|new
+specifier|final
+name|HoldsOneThing
+argument_list|<
 name|float
-index|[
-name|reader
-operator|.
-name|maxDoc
+index|[]
+argument_list|>
+name|valuesRef
+init|=
+operator|new
+name|HoldsOneThing
+argument_list|<
+name|float
+index|[]
+argument_list|>
 argument_list|()
-index|]
-expr_stmt|;
+decl_stmt|;
 name|Uninvert
 name|u
 init|=
@@ -3924,6 +4014,11 @@ block|{
 specifier|private
 name|float
 name|currentValue
+decl_stmt|;
+specifier|private
+name|float
+index|[]
+name|values
 decl_stmt|;
 annotation|@
 name|Override
@@ -3944,6 +4039,36 @@ argument_list|(
 name|term
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|values
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Lazy alloc so for the numeric field case
+comment|// (which will hit a NumberFormatException
+comment|// when we first try the DEFAULT_INT_PARSER),
+comment|// we don't double-alloc:
+name|values
+operator|=
+operator|new
+name|float
+index|[
+name|reader
+operator|.
+name|maxDoc
+argument_list|()
+index|]
+expr_stmt|;
+name|valuesRef
+operator|.
+name|set
+argument_list|(
+name|values
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -3997,6 +4122,34 @@ name|u
 operator|.
 name|docsWithField
 argument_list|)
+expr_stmt|;
+block|}
+name|float
+index|[]
+name|values
+init|=
+name|valuesRef
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|values
+operator|==
+literal|null
+condition|)
+block|{
+name|values
+operator|=
+operator|new
+name|float
+index|[
+name|reader
+operator|.
+name|maxDoc
+argument_list|()
+index|]
 expr_stmt|;
 block|}
 return|return
@@ -4141,7 +4294,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// nocommit move up?
 DECL|class|LongsFromArray
 specifier|static
 class|class
@@ -4219,6 +4371,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
+specifier|final
 name|AtomicReader
 name|reader
 parameter_list|,
@@ -4231,11 +4384,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|long
-index|[]
-name|values
-decl_stmt|;
 specifier|final
 name|LongParser
 name|parser
@@ -4302,19 +4450,22 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// nocommit how to avoid double alloc in numeric field
-comment|// case ...
-name|values
-operator|=
-operator|new
+specifier|final
+name|HoldsOneThing
+argument_list|<
 name|long
-index|[
-name|reader
-operator|.
-name|maxDoc
+index|[]
+argument_list|>
+name|valuesRef
+init|=
+operator|new
+name|HoldsOneThing
+argument_list|<
+name|long
+index|[]
+argument_list|>
 argument_list|()
-index|]
-expr_stmt|;
+decl_stmt|;
 name|Uninvert
 name|u
 init|=
@@ -4325,6 +4476,11 @@ block|{
 specifier|private
 name|long
 name|currentValue
+decl_stmt|;
+specifier|private
+name|long
+index|[]
+name|values
 decl_stmt|;
 annotation|@
 name|Override
@@ -4345,6 +4501,36 @@ argument_list|(
 name|term
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|values
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Lazy alloc so for the numeric field case
+comment|// (which will hit a NumberFormatException
+comment|// when we first try the DEFAULT_INT_PARSER),
+comment|// we don't double-alloc:
+name|values
+operator|=
+operator|new
+name|long
+index|[
+name|reader
+operator|.
+name|maxDoc
+argument_list|()
+index|]
+expr_stmt|;
+name|valuesRef
+operator|.
+name|set
+argument_list|(
+name|values
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -4398,6 +4584,34 @@ name|u
 operator|.
 name|docsWithField
 argument_list|)
+expr_stmt|;
+block|}
+name|long
+index|[]
+name|values
+init|=
+name|valuesRef
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|values
+operator|==
+literal|null
+condition|)
+block|{
+name|values
+operator|=
+operator|new
+name|long
+index|[
+name|reader
+operator|.
+name|maxDoc
+argument_list|()
+index|]
 expr_stmt|;
 block|}
 return|return
@@ -4547,7 +4761,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// nocommit move up?
 DECL|class|DoublesFromArray
 specifier|static
 class|class
@@ -4625,6 +4838,7 @@ specifier|protected
 name|Object
 name|createValue
 parameter_list|(
+specifier|final
 name|AtomicReader
 name|reader
 parameter_list|,
@@ -4637,11 +4851,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|double
-index|[]
-name|values
-decl_stmt|;
 specifier|final
 name|DoubleParser
 name|parser
@@ -4708,19 +4917,22 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// nocommit how to avoid double alloc in numeric field
-comment|// case ...
-name|values
-operator|=
-operator|new
+specifier|final
+name|HoldsOneThing
+argument_list|<
 name|double
-index|[
-name|reader
-operator|.
-name|maxDoc
+index|[]
+argument_list|>
+name|valuesRef
+init|=
+operator|new
+name|HoldsOneThing
+argument_list|<
+name|double
+index|[]
+argument_list|>
 argument_list|()
-index|]
-expr_stmt|;
+decl_stmt|;
 name|Uninvert
 name|u
 init|=
@@ -4731,6 +4943,11 @@ block|{
 specifier|private
 name|double
 name|currentValue
+decl_stmt|;
+specifier|private
+name|double
+index|[]
+name|values
 decl_stmt|;
 annotation|@
 name|Override
@@ -4751,6 +4968,36 @@ argument_list|(
 name|term
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|values
+operator|==
+literal|null
+condition|)
+block|{
+comment|// Lazy alloc so for the numeric field case
+comment|// (which will hit a NumberFormatException
+comment|// when we first try the DEFAULT_INT_PARSER),
+comment|// we don't double-alloc:
+name|values
+operator|=
+operator|new
+name|double
+index|[
+name|reader
+operator|.
+name|maxDoc
+argument_list|()
+index|]
+expr_stmt|;
+name|valuesRef
+operator|.
+name|set
+argument_list|(
+name|values
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -4804,6 +5051,34 @@ name|u
 operator|.
 name|docsWithField
 argument_list|)
+expr_stmt|;
+block|}
+name|double
+index|[]
+name|values
+init|=
+name|valuesRef
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|values
+operator|==
+literal|null
+condition|)
+block|{
+name|values
+operator|=
+operator|new
+name|double
+index|[
+name|reader
+operator|.
+name|maxDoc
+argument_list|()
+index|]
 expr_stmt|;
 block|}
 return|return
@@ -4990,10 +5265,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// nocommit for DV if you ask for sorted or binary we
-comment|// should check sorted first?
-comment|// nocommit woudl be nice if .getTErms would return a
-comment|// DocTermsIndex if one already existed
 DECL|method|getTermsIndex
 specifier|public
 name|SortedDocValues
@@ -5743,7 +6014,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// nocommit is this auto-fallback ... OK?
 name|valuesIn
 operator|=
 name|reader
@@ -5837,6 +6107,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO: would be nice to first check if DocTermsIndex
+comment|// was already cached for this field and then return
+comment|// that instead, to avoid insanity
 specifier|final
 name|int
 name|maxDoc
