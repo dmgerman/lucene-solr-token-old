@@ -3132,7 +3132,7 @@ argument_list|)
 decl_stmt|;
 name|NumericUtils
 operator|.
-name|intToPrefixCoded
+name|intToPrefixCodedBytes
 argument_list|(
 name|lower
 argument_list|,
@@ -3143,7 +3143,7 @@ argument_list|)
 expr_stmt|;
 name|NumericUtils
 operator|.
-name|intToPrefixCoded
+name|intToPrefixCodedBytes
 argument_list|(
 name|upper
 argument_list|,
