@@ -282,6 +282,15 @@ specifier|final
 name|String
 name|legacyKey
 decl_stmt|;
+DECL|field|segmentSuffix
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|segmentSuffix
+init|=
+literal|"dv"
+decl_stmt|;
 comment|// ram instances we have already loaded
 DECL|field|numericInstances
 specifier|private
@@ -438,7 +447,9 @@ operator|.
 name|segmentInfo
 operator|.
 name|name
-argument_list|,
+operator|+
+literal|"_"
+operator|+
 name|Integer
 operator|.
 name|toString
@@ -447,6 +458,8 @@ name|field
 operator|.
 name|number
 argument_list|)
+argument_list|,
+name|segmentSuffix
 argument_list|,
 literal|"dat"
 argument_list|)
@@ -1660,7 +1673,9 @@ operator|.
 name|segmentInfo
 operator|.
 name|name
-argument_list|,
+operator|+
+literal|"_"
+operator|+
 name|Integer
 operator|.
 name|toString
@@ -1669,6 +1684,8 @@ name|field
 operator|.
 name|number
 argument_list|)
+argument_list|,
+name|segmentSuffix
 argument_list|,
 literal|"dat"
 argument_list|)
@@ -1850,7 +1867,9 @@ operator|.
 name|segmentInfo
 operator|.
 name|name
-argument_list|,
+operator|+
+literal|"_"
+operator|+
 name|Integer
 operator|.
 name|toString
@@ -1859,6 +1878,8 @@ name|field
 operator|.
 name|number
 argument_list|)
+argument_list|,
+name|segmentSuffix
 argument_list|,
 literal|"dat"
 argument_list|)
@@ -1875,7 +1896,9 @@ operator|.
 name|segmentInfo
 operator|.
 name|name
-argument_list|,
+operator|+
+literal|"_"
+operator|+
 name|Integer
 operator|.
 name|toString
@@ -1884,6 +1907,8 @@ name|field
 operator|.
 name|number
 argument_list|)
+argument_list|,
+name|segmentSuffix
 argument_list|,
 literal|"idx"
 argument_list|)
@@ -2148,7 +2173,9 @@ operator|.
 name|segmentInfo
 operator|.
 name|name
-argument_list|,
+operator|+
+literal|"_"
+operator|+
 name|Integer
 operator|.
 name|toString
@@ -2157,6 +2184,8 @@ name|field
 operator|.
 name|number
 argument_list|)
+argument_list|,
+name|segmentSuffix
 argument_list|,
 literal|"dat"
 argument_list|)
@@ -2173,7 +2202,9 @@ operator|.
 name|segmentInfo
 operator|.
 name|name
-argument_list|,
+operator|+
+literal|"_"
+operator|+
 name|Integer
 operator|.
 name|toString
@@ -2182,6 +2213,8 @@ name|field
 operator|.
 name|number
 argument_list|)
+argument_list|,
+name|segmentSuffix
 argument_list|,
 literal|"idx"
 argument_list|)
@@ -2438,7 +2471,9 @@ operator|.
 name|segmentInfo
 operator|.
 name|name
-argument_list|,
+operator|+
+literal|"_"
+operator|+
 name|Integer
 operator|.
 name|toString
@@ -2447,6 +2482,8 @@ name|field
 operator|.
 name|number
 argument_list|)
+argument_list|,
+name|segmentSuffix
 argument_list|,
 literal|"dat"
 argument_list|)
@@ -2463,7 +2500,9 @@ operator|.
 name|segmentInfo
 operator|.
 name|name
-argument_list|,
+operator|+
+literal|"_"
+operator|+
 name|Integer
 operator|.
 name|toString
@@ -2472,6 +2511,8 @@ name|field
 operator|.
 name|number
 argument_list|)
+argument_list|,
+name|segmentSuffix
 argument_list|,
 literal|"idx"
 argument_list|)
@@ -2803,7 +2844,9 @@ operator|.
 name|segmentInfo
 operator|.
 name|name
-argument_list|,
+operator|+
+literal|"_"
+operator|+
 name|Integer
 operator|.
 name|toString
@@ -2812,6 +2855,8 @@ name|field
 operator|.
 name|number
 argument_list|)
+argument_list|,
+name|segmentSuffix
 argument_list|,
 literal|"dat"
 argument_list|)
@@ -2828,7 +2873,9 @@ operator|.
 name|segmentInfo
 operator|.
 name|name
-argument_list|,
+operator|+
+literal|"_"
+operator|+
 name|Integer
 operator|.
 name|toString
@@ -2837,6 +2884,8 @@ name|field
 operator|.
 name|number
 argument_list|)
+argument_list|,
+name|segmentSuffix
 argument_list|,
 literal|"idx"
 argument_list|)
