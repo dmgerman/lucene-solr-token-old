@@ -381,6 +381,9 @@ operator|.
 name|PackedInts
 import|;
 end_import
+begin_comment
+comment|/**  * Reader for {@link Lucene42DocValuesFormat}  */
+end_comment
 begin_class
 DECL|class|Lucene42DocValuesProducer
 class|class
@@ -449,8 +452,6 @@ name|NumericDocValues
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// if this thing needs some TL state then we might put something
-comment|// else in this map.
 DECL|field|binaryInstances
 specifier|private
 specifier|final

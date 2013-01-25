@@ -90,6 +90,9 @@ operator|.
 name|SegmentWriteState
 import|;
 end_import
+begin_comment
+comment|/**  * Lucene 4.2 score normalization format.  *<p>  * NOTE: this uses the same format as {@link Lucene42DocValuesFormat}  * Numeric DocValues, but with different file extensions.  *<p>  * Files:  *<ul>  *<li><tt>.nvd</tt>: DocValues data</li>  *<li><tt>.nvm</tt>: DocValues metadata</li>  *</ul>  * @see Lucene42DocValuesFormat  */
+end_comment
 begin_class
 DECL|class|Lucene42NormsFormat
 specifier|public
@@ -98,6 +101,12 @@ name|Lucene42NormsFormat
 extends|extends
 name|NormsFormat
 block|{
+comment|/** Sole constructor */
+DECL|method|Lucene42NormsFormat
+specifier|public
+name|Lucene42NormsFormat
+parameter_list|()
+block|{}
 annotation|@
 name|Override
 DECL|method|normsConsumer

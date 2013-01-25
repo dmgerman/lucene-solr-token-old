@@ -283,7 +283,7 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|/**  * Writes numbers one of two ways:  * 1. packed ints as deltas from minValue  * 2. packed ints as ordinals to a table (if the number of values is small, e.g.<= 256)  *   * the latter is typically much smaller with lucene's sims, as only some byte values are used,  * but its often a nonlinear mapping, especially if you dont use crazy boosts.  */
+comment|/**  * Writer for {@link Lucene42DocValuesFormat}  */
 end_comment
 begin_class
 DECL|class|Lucene42DocValuesConsumer
