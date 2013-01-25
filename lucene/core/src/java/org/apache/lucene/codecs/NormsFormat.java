@@ -50,7 +50,7 @@ name|SegmentWriteState
 import|;
 end_import
 begin_comment
-comment|/**  * format for normalization factors  */
+comment|/**  * Encodes/decodes per-document score normalization values.  */
 end_comment
 begin_class
 DECL|class|NormsFormat
