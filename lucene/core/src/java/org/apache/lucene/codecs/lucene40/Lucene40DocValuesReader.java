@@ -263,8 +263,9 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-class|class
 DECL|class|Lucene40DocValuesReader
+specifier|final
+class|class
 name|Lucene40DocValuesReader
 extends|extends
 name|DocValuesProducer

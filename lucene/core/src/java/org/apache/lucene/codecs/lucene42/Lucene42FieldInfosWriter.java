@@ -177,7 +177,7 @@ comment|/**  * Lucene 4.2 FieldInfos writer.  *   * @see Lucene42FieldInfosForma
 end_comment
 begin_class
 DECL|class|Lucene42FieldInfosWriter
-specifier|public
+specifier|final
 class|class
 name|Lucene42FieldInfosWriter
 extends|extends
