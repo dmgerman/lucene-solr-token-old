@@ -348,6 +348,11 @@ name|data
 decl_stmt|,
 name|meta
 decl_stmt|;
+DECL|field|maxDoc
+specifier|final
+name|int
+name|maxDoc
+decl_stmt|;
 DECL|method|Lucene42DocValuesConsumer
 name|Lucene42DocValuesConsumer
 parameter_list|(
@@ -376,6 +381,15 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+name|maxDoc
+operator|=
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getDocCount
+argument_list|()
+expr_stmt|;
 name|String
 name|dataName
 init|=
@@ -550,11 +564,6 @@ name|Long
 operator|.
 name|MIN_VALUE
 decl_stmt|;
-name|int
-name|count
-init|=
-literal|0
-decl_stmt|;
 comment|// TODO: more efficient?
 name|HashSet
 argument_list|<
@@ -606,9 +615,6 @@ name|maxValue
 argument_list|,
 name|v
 argument_list|)
-expr_stmt|;
-name|count
-operator|++
 expr_stmt|;
 if|if
 condition|(
@@ -807,13 +813,6 @@ operator|.
 name|VERSION_CURRENT
 argument_list|)
 expr_stmt|;
-name|meta
-operator|.
-name|writeVInt
-argument_list|(
-name|count
-argument_list|)
-expr_stmt|;
 name|data
 operator|.
 name|writeVInt
@@ -839,7 +838,7 @@ name|Format
 operator|.
 name|PACKED
 argument_list|,
-name|count
+name|maxDoc
 argument_list|,
 name|bitsPerValue
 argument_list|,
@@ -895,13 +894,6 @@ argument_list|(
 name|PackedInts
 operator|.
 name|VERSION_CURRENT
-argument_list|)
-expr_stmt|;
-name|meta
-operator|.
-name|writeVInt
-argument_list|(
-name|count
 argument_list|)
 expr_stmt|;
 name|data
