@@ -163,6 +163,9 @@ name|Version
 import|;
 end_import
 begin_comment
+comment|/**  * A wrapper for CompositeIndexReader providing access to DocValues.  *   *<p><b>NOTE</b>: for multi readers, you'll get better  * performance by gathering the sub readers using  * {@link IndexReader#getContext()} to get the  * atomic leaves and then operate per-AtomicReader,  * instead of using this class.  *   *<p><b>NOTE</b>: This is very costly.  *  * @lucene.experimental  * @lucene.internal  */
+end_comment
+begin_comment
 comment|// nocommit move this back to test-framework!!!
 end_comment
 begin_class
@@ -171,6 +174,7 @@ specifier|public
 class|class
 name|MultiDocValues
 block|{
+comment|/** returns a NumericDocValues for a reader's norms (potentially merging on-the-fly) */
 comment|// moved to src/java so SlowWrapper can use it... uggggggh
 DECL|method|getNormValues
 specifier|public
@@ -402,6 +406,7 @@ block|}
 block|}
 return|;
 block|}
+comment|/** returns a NumericDocValues for a reader's docvalues (potentially merging on-the-fly) */
 DECL|method|getNumericValues
 specifier|public
 specifier|static
@@ -609,6 +614,7 @@ block|}
 return|;
 block|}
 block|}
+comment|/** returns a BinaryDocValues for a reader's docvalues (potentially merging on-the-fly) */
 DECL|method|getBinaryValues
 specifier|public
 specifier|static
@@ -837,6 +843,7 @@ block|}
 return|;
 block|}
 block|}
+comment|/** returns a SortedDocValues for a reader's docvalues (potentially doing extremely slow things) */
 DECL|method|getSortedValues
 specifier|public
 specifier|static
