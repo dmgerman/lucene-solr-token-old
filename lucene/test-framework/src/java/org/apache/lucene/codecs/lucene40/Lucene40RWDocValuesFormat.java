@@ -64,6 +64,9 @@ operator|.
 name|SegmentWriteState
 import|;
 end_import
+begin_comment
+comment|/** Read-write version of {@link Lucene40DocValuesFormat} for testing */
+end_comment
 begin_class
 DECL|class|Lucene40RWDocValuesFormat
 specifier|public

@@ -225,6 +225,7 @@ specifier|public
 interface|interface
 name|FieldCache
 block|{
+comment|/** Field values as 8-bit signed bytes */
 DECL|class|Bytes
 specifier|public
 specifier|static
@@ -232,6 +233,7 @@ specifier|abstract
 class|class
 name|Bytes
 block|{
+comment|/** Return a single Byte representation of this field's value. */
 DECL|method|get
 specifier|public
 specifier|abstract
@@ -243,6 +245,7 @@ name|docID
 parameter_list|)
 function_decl|;
 block|}
+comment|/** Field values as 16-bit signed shorts */
 DECL|class|Shorts
 specifier|public
 specifier|static
@@ -250,6 +253,7 @@ specifier|abstract
 class|class
 name|Shorts
 block|{
+comment|/** Return a short representation of this field's value. */
 DECL|method|get
 specifier|public
 specifier|abstract
@@ -261,6 +265,7 @@ name|docID
 parameter_list|)
 function_decl|;
 block|}
+comment|/** Field values as 32-bit signed integers */
 DECL|class|Ints
 specifier|public
 specifier|static
@@ -268,6 +273,7 @@ specifier|abstract
 class|class
 name|Ints
 block|{
+comment|/** Return an integer representation of this field's value. */
 DECL|method|get
 specifier|public
 specifier|abstract
@@ -279,6 +285,7 @@ name|docID
 parameter_list|)
 function_decl|;
 block|}
+comment|/** Field values as 32-bit signed long integers */
 DECL|class|Longs
 specifier|public
 specifier|static
@@ -286,6 +293,7 @@ specifier|abstract
 class|class
 name|Longs
 block|{
+comment|/** Return an long representation of this field's value. */
 DECL|method|get
 specifier|public
 specifier|abstract
@@ -297,6 +305,7 @@ name|docID
 parameter_list|)
 function_decl|;
 block|}
+comment|/** Field values as 32-bit floats */
 DECL|class|Floats
 specifier|public
 specifier|static
@@ -304,6 +313,7 @@ specifier|abstract
 class|class
 name|Floats
 block|{
+comment|/** Return an float representation of this field's value. */
 DECL|method|get
 specifier|public
 specifier|abstract
@@ -315,6 +325,7 @@ name|docID
 parameter_list|)
 function_decl|;
 block|}
+comment|/** Field values as 64-bit doubles */
 DECL|class|Doubles
 specifier|public
 specifier|static
@@ -322,6 +333,7 @@ specifier|abstract
 class|class
 name|Doubles
 block|{
+comment|/** Return an double representation of this field's value. */
 DECL|method|get
 specifier|public
 specifier|abstract
@@ -465,7 +477,7 @@ name|DoubleParser
 extends|extends
 name|Parser
 block|{
-comment|/** Return an long representation of this field's value. */
+comment|/** Return an double representation of this field's value. */
 DECL|method|parseDouble
 specifier|public
 name|double

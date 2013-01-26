@@ -223,6 +223,12 @@ name|DocValuesConsumer
 implements|implements
 name|Closeable
 block|{
+comment|/** Sole constructor. (For invocation by subclass     *  constructors, typically implicit.) */
+DECL|method|DocValuesConsumer
+specifier|protected
+name|DocValuesConsumer
+parameter_list|()
+block|{}
 comment|/**    * Writes numeric docvalues for a field.    * @param field field information    * @param values Iterable of numeric values (one for each document).    * @throws IOException if an I/O error occurred.    */
 DECL|method|addNumericField
 specifier|public
@@ -823,7 +829,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|SortedBytesMerger
-specifier|public
 specifier|static
 class|class
 name|SortedBytesMerger

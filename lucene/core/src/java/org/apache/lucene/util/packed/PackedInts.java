@@ -3949,6 +3949,7 @@ name|version
 argument_list|)
 return|;
 block|}
+comment|/** Header identifying the structure of a packed integer array. */
 DECL|class|Header
 specifier|public
 specifier|static

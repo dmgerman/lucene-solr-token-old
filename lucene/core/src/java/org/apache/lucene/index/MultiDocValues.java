@@ -174,6 +174,12 @@ specifier|public
 class|class
 name|MultiDocValues
 block|{
+comment|/** No instantiation */
+DECL|method|MultiDocValues
+specifier|private
+name|MultiDocValues
+parameter_list|()
+block|{}
 comment|/** returns a NumericDocValues for a reader's norms (potentially merging on-the-fly) */
 comment|// moved to src/java so SlowWrapper can use it... uggggggh
 DECL|method|getNormValues

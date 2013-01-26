@@ -6364,6 +6364,7 @@ return|return
 name|status
 return|;
 block|}
+comment|/**    * Test docvalues.    * @lucene.experimental    */
 DECL|method|testDocValues
 specifier|public
 specifier|static
