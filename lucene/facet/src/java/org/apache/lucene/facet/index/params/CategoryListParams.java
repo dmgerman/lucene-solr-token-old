@@ -26,15 +26,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -164,8 +155,6 @@ DECL|class|CategoryListParams
 specifier|public
 class|class
 name|CategoryListParams
-implements|implements
-name|Serializable
 block|{
 comment|/** OrdinalPolicy defines which ordinals are encoded for every document. */
 DECL|enum|OrdinalPolicy
