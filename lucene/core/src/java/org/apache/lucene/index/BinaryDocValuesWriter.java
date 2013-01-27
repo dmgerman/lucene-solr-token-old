@@ -184,19 +184,14 @@ operator|.
 name|bytesUsed
 argument_list|()
 expr_stmt|;
+comment|// nocommit: totally wrong!!!!
 name|this
 operator|.
 name|iwBytesUsed
 operator|=
 name|iwBytesUsed
 expr_stmt|;
-name|iwBytesUsed
-operator|.
-name|addAndGet
-argument_list|(
-name|bytesUsed
-argument_list|)
-expr_stmt|;
+comment|//nocommit WRONG iwBytesUsed.addAndGet(bytesUsed);
 block|}
 DECL|method|addValue
 specifier|public
@@ -333,15 +328,7 @@ operator|.
 name|bytesUsed
 argument_list|()
 decl_stmt|;
-name|iwBytesUsed
-operator|.
-name|addAndGet
-argument_list|(
-name|newBytesUsed
-operator|-
-name|bytesUsed
-argument_list|)
-expr_stmt|;
+comment|// nocommit: WRONG iwBytesUsed.addAndGet(newBytesUsed - bytesUsed);
 name|bytesUsed
 operator|=
 name|newBytesUsed
