@@ -193,6 +193,11 @@ specifier|final
 name|Counter
 name|iwBytesUsed
 decl_stmt|;
+DECL|field|bytesUsed
+specifier|private
+name|long
+name|bytesUsed
+decl_stmt|;
 DECL|field|fieldInfo
 specifier|private
 specifier|final
@@ -634,13 +639,6 @@ name|NUM_BYTES_INT
 operator|*
 name|valueCount
 decl_stmt|;
-name|iwBytesUsed
-operator|.
-name|addAndGet
-argument_list|(
-name|sortedValueRamUsage
-argument_list|)
-expr_stmt|;
 specifier|final
 name|int
 index|[]
@@ -887,16 +885,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|iwBytesUsed
-operator|.
-name|addAndGet
-argument_list|(
-operator|-
-name|sortedValueRamUsage
-argument_list|)
-expr_stmt|;
-comment|// nocommit
-comment|//reset();
 block|}
 annotation|@
 name|Override
@@ -905,19 +893,7 @@ specifier|public
 name|void
 name|abort
 parameter_list|()
-block|{
-comment|// nocommit
-comment|//reset();
-block|}
-DECL|method|reset
-specifier|private
-name|void
-name|reset
-parameter_list|()
-block|{
-comment|// nocommit
-comment|/*     iwBytesUsed.addAndGet((pending.length - DEFAULT_PENDING_SIZE) * RamUsageEstimator.NUM_BYTES_INT);     pending = ArrayUtil.shrink(pending, DEFAULT_PENDING_SIZE);     pendingIndex = 0;     hash.clear();     */
-block|}
+block|{   }
 block|}
 end_class
 end_unit

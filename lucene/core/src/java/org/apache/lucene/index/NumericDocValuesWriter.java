@@ -153,6 +153,13 @@ name|iwBytesUsed
 operator|=
 name|iwBytesUsed
 expr_stmt|;
+name|iwBytesUsed
+operator|.
+name|addAndGet
+argument_list|(
+name|bytesUsed
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|addValue
 specifier|public
@@ -414,8 +421,6 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-comment|// nocommit
-comment|//reset();
 block|}
 annotation|@
 name|Override
@@ -424,21 +429,7 @@ specifier|public
 name|void
 name|abort
 parameter_list|()
-block|{
-comment|// nocommit
-comment|//reset();
-block|}
-comment|// nocommit do we really need this...?  can't/doesn't parent alloc
-comment|// a new instance after flush?
-DECL|method|reset
-name|void
-name|reset
-parameter_list|()
-block|{
-comment|// nocommit
-comment|//pending = new AppendingLongBuffer();
-comment|//updateBytesUsed();
-block|}
+block|{   }
 block|}
 end_class
 end_unit
