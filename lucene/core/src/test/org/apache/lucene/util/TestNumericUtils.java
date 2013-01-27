@@ -100,7 +100,7 @@ control|)
 block|{
 name|NumericUtils
 operator|.
-name|longToPrefixCoded
+name|longToPrefixCodedBytes
 argument_list|(
 name|l
 argument_list|,
@@ -226,7 +226,7 @@ control|)
 block|{
 name|NumericUtils
 operator|.
-name|intToPrefixCoded
+name|intToPrefixCodedBytes
 argument_list|(
 name|i
 argument_list|,
@@ -431,7 +431,7 @@ argument_list|)
 expr_stmt|;
 name|NumericUtils
 operator|.
-name|longToPrefixCoded
+name|longToPrefixCodedBytes
 argument_list|(
 name|vals
 index|[
@@ -583,7 +583,7 @@ control|)
 block|{
 name|NumericUtils
 operator|.
-name|longToPrefixCoded
+name|longToPrefixCodedBytes
 argument_list|(
 name|vals
 index|[
@@ -768,7 +768,7 @@ argument_list|)
 expr_stmt|;
 name|NumericUtils
 operator|.
-name|intToPrefixCoded
+name|intToPrefixCodedBytes
 argument_list|(
 name|vals
 index|[
@@ -920,7 +920,7 @@ control|)
 block|{
 name|NumericUtils
 operator|.
-name|intToPrefixCoded
+name|intToPrefixCodedBytes
 argument_list|(
 name|vals
 index|[

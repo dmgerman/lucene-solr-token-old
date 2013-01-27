@@ -85,6 +85,19 @@ name|lucene
 operator|.
 name|facet
 operator|.
+name|FacetTestCase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|facet
+operator|.
 name|taxonomy
 operator|.
 name|CategoryPath
@@ -289,19 +302,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -316,7 +316,7 @@ specifier|public
 class|class
 name|TestDirectoryTaxonomyWriter
 extends|extends
-name|LuceneTestCase
+name|FacetTestCase
 block|{
 comment|// A No-Op TaxonomyWriterCache which always discards all given categories, and
 comment|// always returns true in put(), to indicate some cache entries were cleared.
