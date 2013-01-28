@@ -3346,7 +3346,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//nocommit convert!
 name|Directory
 name|dir
 init|=
