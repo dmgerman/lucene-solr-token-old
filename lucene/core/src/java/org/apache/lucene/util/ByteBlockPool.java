@@ -1073,7 +1073,7 @@ comment|// byte block
 DECL|method|setBytesRef
 specifier|public
 specifier|final
-name|BytesRef
+name|void
 name|setBytesRef
 parameter_list|(
 name|BytesRef
@@ -1186,9 +1186,6 @@ name|length
 operator|>=
 literal|0
 assert|;
-return|return
-name|term
-return|;
 block|}
 comment|/**    * Copies the given {@link BytesRef} at the current positions (    * {@link #byteUpto} across buffer boundaries    */
 DECL|method|copy
@@ -1311,11 +1308,11 @@ literal|true
 condition|)
 do|;
 block|}
-comment|/**    * Copies bytes from the pool starting at the given offset with the given      * length into the given {@link BytesRef} at offset<tt>0</tt> and returns it.    *<p>Note: this method allows to copy across block boundaries.</p>    */
+comment|/**    * Copies bytes from the pool starting at the given offset with the given      * length into the given {@link BytesRef} at offset<tt>0</tt>.    *<p>Note: this method allows to copy across block boundaries.</p>    */
 DECL|method|copyFrom
 specifier|public
 specifier|final
-name|BytesRef
+name|void
 name|copyFrom
 parameter_list|(
 specifier|final
@@ -1494,9 +1491,6 @@ condition|(
 literal|true
 condition|)
 do|;
-return|return
-name|bytes
-return|;
 block|}
 block|}
 end_class

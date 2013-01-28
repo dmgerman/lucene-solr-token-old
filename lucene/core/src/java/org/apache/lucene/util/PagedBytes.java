@@ -196,7 +196,7 @@ name|int
 name|blockSize
 decl_stmt|;
 DECL|method|Reader
-specifier|public
+specifier|private
 name|Reader
 parameter_list|(
 name|PagedBytes
@@ -313,7 +313,7 @@ block|}
 comment|/**      * Gets a slice out of {@link PagedBytes} starting at<i>start</i> with a      * given length. Iff the slice spans across a block border this method will      * allocate sufficient resources and copy the paged data.      *<p>      * Slices spanning more than one block are not supported.      *</p>      * @lucene.internal       **/
 DECL|method|fillSlice
 specifier|public
-name|BytesRef
+name|void
 name|fillSlice
 parameter_list|(
 name|BytesRef
@@ -472,15 +472,12 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|b
-return|;
 block|}
-comment|/**      * Reads length as 1 or 2 byte vInt prefix, starting at<i>start</i>.      *<p>      *<b>Note:</b> this method does not support slices spanning across block      * borders.      *</p>      *       * @return the given {@link BytesRef}      *       * @lucene.internal      **/
+comment|/**      * Reads length as 1 or 2 byte vInt prefix, starting at<i>start</i>.      *<p>      *<b>Note:</b> this method does not support slices spanning across block      * borders.      *</p>      *       * @lucene.internal      **/
 comment|// nocommit: move this shit and any other vint bogusness to fieldcacheimpl!
 DECL|method|fill
 specifier|public
-name|BytesRef
+name|void
 name|fill
 parameter_list|(
 name|BytesRef
@@ -608,9 +605,6 @@ operator|>
 literal|0
 assert|;
 block|}
-return|return
-name|b
-return|;
 block|}
 block|}
 comment|/** 1&lt;&lt;blockBits must be bigger than biggest single    *  BytesRef slice that will be pulled */
@@ -1032,6 +1026,8 @@ literal|null
 expr_stmt|;
 return|return
 operator|new
+name|PagedBytes
+operator|.
 name|Reader
 argument_list|(
 name|this

@@ -375,7 +375,6 @@ name|bytesStart
 operator|.
 name|length
 assert|;
-return|return
 name|pool
 operator|.
 name|setBytesRef
@@ -387,6 +386,9 @@ index|[
 name|ord
 index|]
 argument_list|)
+expr_stmt|;
+return|return
+name|ref
 return|;
 block|}
 comment|/**    * Returns the ords array in arbitrary order. Valid ords start at offset of 0    * and end at a limit of {@link #size()} - 1    *<p>    * Note: This is a destructive operation. {@link #clear()} must be called in    * order to reuse this {@link BytesRefHash} instance.    *</p>    */
@@ -588,11 +590,6 @@ name|length
 operator|>
 name|ord2
 assert|;
-return|return
-name|comp
-operator|.
-name|compare
-argument_list|(
 name|pool
 operator|.
 name|setBytesRef
@@ -604,7 +601,7 @@ index|[
 name|ord1
 index|]
 argument_list|)
-argument_list|,
+expr_stmt|;
 name|pool
 operator|.
 name|setBytesRef
@@ -616,6 +613,15 @@ index|[
 name|ord2
 index|]
 argument_list|)
+expr_stmt|;
+return|return
+name|comp
+operator|.
+name|compare
+argument_list|(
+name|scratch1
+argument_list|,
+name|scratch2
 argument_list|)
 return|;
 block|}
@@ -684,13 +690,6 @@ name|length
 operator|>
 name|ord
 assert|;
-return|return
-name|comp
-operator|.
-name|compare
-argument_list|(
-name|pivot
-argument_list|,
 name|pool
 operator|.
 name|setBytesRef
@@ -702,6 +701,15 @@ index|[
 name|ord
 index|]
 argument_list|)
+expr_stmt|;
+return|return
+name|comp
+operator|.
+name|compare
+argument_list|(
+name|pivot
+argument_list|,
+name|scratch2
 argument_list|)
 return|;
 block|}
@@ -753,7 +761,6 @@ name|BytesRef
 name|b
 parameter_list|)
 block|{
-return|return
 name|pool
 operator|.
 name|setBytesRef
@@ -765,6 +772,9 @@ index|[
 name|ord
 index|]
 argument_list|)
+expr_stmt|;
+return|return
+name|scratch1
 operator|.
 name|bytesEquals
 argument_list|(

@@ -138,7 +138,6 @@ operator|new
 name|BytesRef
 argument_list|()
 decl_stmt|;
-comment|// nocommit this needs to update bytesUsed?
 DECL|method|BinaryDocValuesWriter
 specifier|public
 name|BinaryDocValuesWriter
@@ -166,7 +165,6 @@ argument_list|(
 name|iwBytesUsed
 argument_list|)
 expr_stmt|;
-comment|// nocommit: test that this thing really accounts correctly
 block|}
 DECL|method|addValue
 specifier|public

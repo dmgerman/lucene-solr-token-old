@@ -74,9 +74,6 @@ name|AppendingLongBuffer
 import|;
 end_import
 begin_comment
-comment|// nocommit pick numeric or number ... then fix all places ...
-end_comment
-begin_comment
 comment|/** Buffers up pending long per doc, then flushes when  *  segment flushes. */
 end_comment
 begin_class

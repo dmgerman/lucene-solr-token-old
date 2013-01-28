@@ -3175,7 +3175,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
-comment|/* nocommit: case FLOAT_64:         valuesField = new DoubleDocValuesField(dvField, Double.parseDouble(value));         break; */
 case|case
 name|BINARY
 case|:
