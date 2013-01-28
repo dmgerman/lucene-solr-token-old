@@ -396,11 +396,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
 name|codec
 operator|=
 operator|new
@@ -424,6 +419,11 @@ operator|>
 name|emptySet
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|setUp
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
