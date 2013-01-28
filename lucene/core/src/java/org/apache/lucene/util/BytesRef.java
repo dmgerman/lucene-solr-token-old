@@ -1214,7 +1214,6 @@ name|copy
 return|;
 block|}
 comment|/**     * Performs internal consistency checks.    * Always returns true (or throws IllegalStateException)     */
-comment|// TODO: also for the other *Ref classes
 DECL|method|isValid
 specifier|public
 name|boolean
@@ -1270,7 +1269,7 @@ literal|"length is out of bounds: "
 operator|+
 name|length
 operator|+
-literal|", bytes.length="
+literal|",bytes.length="
 operator|+
 name|bytes
 operator|.
@@ -1312,7 +1311,7 @@ literal|"offset out of bounds: "
 operator|+
 name|offset
 operator|+
-literal|", length="
+literal|",bytes.length="
 operator|+
 name|bytes
 operator|.
