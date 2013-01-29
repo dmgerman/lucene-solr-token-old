@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.search.suggest.fst
+DECL|package|org.apache.lucene.search.suggest
 package|package
 name|org
 operator|.
@@ -11,8 +11,6 @@ operator|.
 name|search
 operator|.
 name|suggest
-operator|.
-name|fst
 package|;
 end_package
 begin_comment
