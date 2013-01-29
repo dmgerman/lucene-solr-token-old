@@ -576,7 +576,7 @@ name|length
 operator|/
 name|encoder
 operator|.
-name|valueCount
+name|byteValueCount
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -585,10 +585,8 @@ name|blockSize
 init|=
 name|encoder
 operator|.
-name|blockCount
+name|byteBlockCount
 argument_list|()
-operator|*
-literal|8
 operator|*
 name|iterations
 decl_stmt|;

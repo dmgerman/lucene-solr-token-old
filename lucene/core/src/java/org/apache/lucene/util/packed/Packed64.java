@@ -614,7 +614,7 @@ name|index
 operator|%
 name|decoder
 operator|.
-name|valueCount
+name|longValueCount
 argument_list|()
 decl_stmt|;
 if|if
@@ -635,7 +635,7 @@ name|i
 argument_list|<
 name|decoder
 operator|.
-name|valueCount
+name|longValueCount
 operator|(
 operator|)
 operator|&&
@@ -683,7 +683,7 @@ name|index
 operator|%
 name|decoder
 operator|.
-name|valueCount
+name|longValueCount
 argument_list|()
 operator|==
 literal|0
@@ -729,7 +729,7 @@ name|len
 operator|/
 name|decoder
 operator|.
-name|valueCount
+name|longValueCount
 argument_list|()
 decl_stmt|;
 name|decoder
@@ -755,7 +755,7 @@ name|iterations
 operator|*
 name|decoder
 operator|.
-name|valueCount
+name|longValueCount
 argument_list|()
 decl_stmt|;
 name|index
@@ -1053,7 +1053,7 @@ name|index
 operator|%
 name|encoder
 operator|.
-name|valueCount
+name|longValueCount
 argument_list|()
 decl_stmt|;
 if|if
@@ -1074,7 +1074,7 @@ name|i
 argument_list|<
 name|encoder
 operator|.
-name|valueCount
+name|longValueCount
 operator|(
 operator|)
 operator|&&
@@ -1122,7 +1122,7 @@ name|index
 operator|%
 name|encoder
 operator|.
-name|valueCount
+name|longValueCount
 argument_list|()
 operator|==
 literal|0
@@ -1168,7 +1168,7 @@ name|len
 operator|/
 name|encoder
 operator|.
-name|valueCount
+name|longValueCount
 argument_list|()
 decl_stmt|;
 name|encoder
@@ -1194,7 +1194,7 @@ name|iterations
 operator|*
 name|encoder
 operator|.
-name|valueCount
+name|longValueCount
 argument_list|()
 decl_stmt|;
 name|index
