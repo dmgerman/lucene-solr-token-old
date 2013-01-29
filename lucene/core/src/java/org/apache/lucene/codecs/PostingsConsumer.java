@@ -190,6 +190,9 @@ specifier|final
 name|MergeState
 name|mergeState
 parameter_list|,
+name|IndexOptions
+name|indexOptions
+parameter_list|,
 specifier|final
 name|DocsEnum
 name|postings
@@ -210,16 +213,6 @@ name|long
 name|totTF
 init|=
 literal|0
-decl_stmt|;
-name|IndexOptions
-name|indexOptions
-init|=
-name|mergeState
-operator|.
-name|fieldInfo
-operator|.
-name|getIndexOptions
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
