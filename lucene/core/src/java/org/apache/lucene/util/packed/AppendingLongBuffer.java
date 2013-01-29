@@ -704,6 +704,7 @@ name|long
 name|ramBytesUsed
 parameter_list|()
 block|{
+comment|// TODO: this is called per-doc-per-norms/dv-field, can we optimize this?
 name|long
 name|bytesUsed
 init|=
