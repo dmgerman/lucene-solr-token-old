@@ -733,6 +733,11 @@ comment|// the 2 offsets
 operator|+
 name|RamUsageEstimator
 operator|.
+name|NUM_BYTES_LONG
+comment|// valuesBytes
+operator|+
+name|RamUsageEstimator
+operator|.
 name|sizeOf
 argument_list|(
 name|pending
