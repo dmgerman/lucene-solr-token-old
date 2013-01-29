@@ -231,7 +231,6 @@ expr_stmt|;
 name|updateBytesUsed
 argument_list|()
 expr_stmt|;
-comment|// nocommit: O(n^2)!!!!!!!!!!!!
 block|}
 DECL|method|updateBytesUsed
 specifier|private
