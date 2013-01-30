@@ -923,9 +923,11 @@ name|BYTE_BLOCK_SIZE
 operator|-
 name|newSize
 condition|)
+block|{
 name|nextBuffer
 argument_list|()
 expr_stmt|;
+block|}
 specifier|final
 name|int
 name|newUpto
@@ -1072,7 +1074,6 @@ comment|// Fill in a BytesRef from term's length& bytes encoded in
 comment|// byte block
 DECL|method|setBytesRef
 specifier|public
-specifier|final
 name|void
 name|setBytesRef
 parameter_list|(
@@ -1187,12 +1188,11 @@ operator|>=
 literal|0
 assert|;
 block|}
-comment|/**    * Copies the given {@link BytesRef} at the current positions (    * {@link #byteUpto} across buffer boundaries    */
-DECL|method|copy
+comment|/**    * Appends the bytes in the provided {@link BytesRef} at    * the current position.    */
+DECL|method|append
 specifier|public
-specifier|final
 name|void
-name|copy
+name|append
 parameter_list|(
 specifier|final
 name|BytesRef
@@ -1206,6 +1206,15 @@ name|bytes
 operator|.
 name|length
 decl_stmt|;
+if|if
+condition|(
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+return|return;
+block|}
 name|int
 name|offset
 init|=
@@ -1266,6 +1275,13 @@ name|length
 operator|-
 name|overflow
 decl_stmt|;
+if|if
+condition|(
+name|bytesToCopy
+operator|>
+literal|0
+condition|)
+block|{
 name|System
 operator|.
 name|arraycopy
@@ -1291,6 +1307,7 @@ name|length
 operator|-=
 name|bytesToCopy
 expr_stmt|;
+block|}
 name|nextBuffer
 argument_list|()
 expr_stmt|;
@@ -1308,19 +1325,18 @@ literal|true
 condition|)
 do|;
 block|}
-comment|/**    * Copies bytes from the pool starting at the given offset with the given      * length into the given {@link BytesRef} at offset<tt>0</tt>.    *<p>Note: this method allows to copy across block boundaries.</p>    */
-DECL|method|copyFrom
+comment|/**    * Reads bytes bytes out of the pool starting at the given offset with the given      * length into the given {@link BytesRef} at offset<tt>0</tt>.    *<p>Note: this method allows to copy across block boundaries.</p>    */
+DECL|method|readBytes
 specifier|public
-specifier|final
 name|void
-name|copyFrom
+name|readBytes
 parameter_list|(
 specifier|final
 name|BytesRef
 name|bytes
 parameter_list|,
 specifier|final
-name|int
+name|long
 name|offset
 parameter_list|,
 specifier|final
@@ -1347,12 +1363,26 @@ name|length
 operator|=
 name|length
 expr_stmt|;
+if|if
+condition|(
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+return|return;
+block|}
 name|int
 name|bufferIndex
 init|=
+call|(
+name|int
+call|)
+argument_list|(
 name|offset
 operator|>>
 name|BYTE_BLOCK_SHIFT
+argument_list|)
 decl_stmt|;
 name|byte
 index|[]
@@ -1366,9 +1396,14 @@ decl_stmt|;
 name|int
 name|pos
 init|=
+call|(
+name|int
+call|)
+argument_list|(
 name|offset
 operator|&
 name|BYTE_BLOCK_MASK
+argument_list|)
 decl_stmt|;
 name|int
 name|overflow
