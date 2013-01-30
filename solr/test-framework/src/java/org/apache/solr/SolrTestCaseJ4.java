@@ -681,7 +681,7 @@ literal|true
 expr_stmt|;
 block|}
 DECL|method|resetFactory
-specifier|private
+specifier|public
 specifier|static
 name|void
 name|resetFactory
