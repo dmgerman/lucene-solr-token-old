@@ -482,6 +482,24 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// reserve additional space for each unique value:
+comment|// 1. when indexing, when hash is 50% full, rehash() suddenly needs 2*size ints.
+comment|//    TODO: can this same OOM happen in THPF?
+comment|// 2. when flushing, we need 1 int per value (slot in the ordMap).
+name|iwBytesUsed
+operator|.
+name|addAndGet
+argument_list|(
+literal|2
+operator|*
+name|RamUsageEstimator
+operator|.
+name|NUM_BYTES_INT
+argument_list|)
+expr_stmt|;
+block|}
 name|pending
 operator|.
 name|add
@@ -615,7 +633,6 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-comment|// nocommit: account for both sortedValues and ordMap as-we-go...
 specifier|final
 name|int
 index|[]
@@ -630,20 +647,6 @@ operator|.
 name|getUTF8SortedAsUnicodeComparator
 argument_list|()
 argument_list|)
-decl_stmt|;
-specifier|final
-name|int
-name|sortedValueRamUsage
-init|=
-name|RamUsageEstimator
-operator|.
-name|NUM_BYTES_ARRAY_HEADER
-operator|+
-name|RamUsageEstimator
-operator|.
-name|NUM_BYTES_INT
-operator|*
-name|valueCount
 decl_stmt|;
 specifier|final
 name|int
