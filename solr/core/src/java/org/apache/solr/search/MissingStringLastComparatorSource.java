@@ -945,8 +945,6 @@ operator|.
 name|lookupTerm
 argument_list|(
 name|bottomValue
-argument_list|,
-name|tempBR
 argument_list|)
 decl_stmt|;
 if|if

@@ -566,14 +566,6 @@ argument_list|(
 name|upperVal
 argument_list|)
 expr_stmt|;
-specifier|final
-name|BytesRef
-name|spare
-init|=
-operator|new
-name|BytesRef
-argument_list|()
-decl_stmt|;
 name|int
 name|lower
 init|=
@@ -599,8 +591,6 @@ name|BytesRef
 argument_list|(
 name|lowerVal
 argument_list|)
-argument_list|,
-name|spare
 argument_list|)
 expr_stmt|;
 if|if
@@ -655,8 +645,6 @@ name|BytesRef
 argument_list|(
 name|upperVal
 argument_list|)
-argument_list|,
-name|spare
 argument_list|)
 expr_stmt|;
 if|if

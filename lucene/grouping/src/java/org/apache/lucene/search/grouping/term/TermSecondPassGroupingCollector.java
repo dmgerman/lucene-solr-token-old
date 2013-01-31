@@ -169,16 +169,6 @@ specifier|private
 name|SortedDocValues
 name|index
 decl_stmt|;
-DECL|field|spareBytesRef
-specifier|private
-specifier|final
-name|BytesRef
-name|spareBytesRef
-init|=
-operator|new
-name|BytesRef
-argument_list|()
-decl_stmt|;
 DECL|field|groupField
 specifier|private
 specifier|final
@@ -364,8 +354,6 @@ argument_list|(
 name|group
 operator|.
 name|groupValue
-argument_list|,
-name|spareBytesRef
 argument_list|)
 decl_stmt|;
 if|if

@@ -8517,8 +8517,6 @@ operator|.
 name|lookupTerm
 argument_list|(
 name|expected
-argument_list|,
-name|actual
 argument_list|)
 decl_stmt|;
 name|assertEquals

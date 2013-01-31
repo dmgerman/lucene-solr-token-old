@@ -285,14 +285,6 @@ name|getValueCount
 argument_list|()
 argument_list|)
 decl_stmt|;
-specifier|final
-name|BytesRef
-name|spare
-init|=
-operator|new
-name|BytesRef
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -321,8 +313,6 @@ name|terms
 index|[
 name|i
 index|]
-argument_list|,
-name|spare
 argument_list|)
 decl_stmt|;
 if|if
