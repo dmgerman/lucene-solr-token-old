@@ -58,7 +58,10 @@ begin_comment
 comment|/** Represents a logical byte[] as a series of pages.  You  *  can write-once into the logical byte[] (append only),  *  using copy, and then retrieve slices (BytesRef) into it  *  using fill.  *  * @lucene.internal  **/
 end_comment
 begin_comment
-comment|// nocommit: make this simply a big ass array and nothing more.
+comment|// TODO: refactor this, byteblockpool, fst.bytestore, and any
+end_comment
+begin_comment
+comment|// other "shift/mask big arrays". there are too many of these classes!
 end_comment
 begin_class
 DECL|class|PagedBytes
@@ -474,7 +477,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Reads length as 1 or 2 byte vInt prefix, starting at<i>start</i>.      *<p>      *<b>Note:</b> this method does not support slices spanning across block      * borders.      *</p>      *       * @lucene.internal      **/
-comment|// nocommit: move this shit and any other vint bogusness to fieldcacheimpl!
+comment|// TODO: this really needs to be refactored into fieldcacheimpl
 DECL|method|fill
 specifier|public
 name|void
@@ -1073,7 +1076,7 @@ return|;
 block|}
 block|}
 comment|/** Copy bytes in, writing the length as a 1 or 2 byte    *  vInt prefix. */
-comment|// nocommit: move this shit and any other vint bogusness to fieldcacheimpl!
+comment|// TODO: this really needs to be refactored into fieldcacheimpl!
 DECL|method|copyUsingLengthPrefix
 specifier|public
 name|long
