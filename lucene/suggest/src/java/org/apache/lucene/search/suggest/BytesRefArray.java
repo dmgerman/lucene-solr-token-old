@@ -130,6 +130,7 @@ comment|/**  * A simple append only random-access {@link BytesRef} array that st
 end_comment
 begin_class
 DECL|class|BytesRefArray
+specifier|public
 specifier|final
 class|class
 name|BytesRefArray
