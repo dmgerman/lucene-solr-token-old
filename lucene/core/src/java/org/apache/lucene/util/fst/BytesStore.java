@@ -168,7 +168,7 @@ parameter_list|(
 name|DataInput
 name|in
 parameter_list|,
-name|int
+name|long
 name|numBytes
 parameter_list|,
 name|int
@@ -226,7 +226,7 @@ name|blockSize
 operator|-
 literal|1
 expr_stmt|;
-name|int
+name|long
 name|left
 init|=
 name|numBytes
@@ -242,6 +242,9 @@ specifier|final
 name|int
 name|chunk
 init|=
+operator|(
+name|int
+operator|)
 name|Math
 operator|.
 name|min
