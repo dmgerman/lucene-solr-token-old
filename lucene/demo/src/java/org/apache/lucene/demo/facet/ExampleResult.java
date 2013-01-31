@@ -51,6 +51,12 @@ specifier|public
 class|class
 name|ExampleResult
 block|{
+comment|/** Sole constructor. */
+DECL|method|ExampleResult
+specifier|public
+name|ExampleResult
+parameter_list|()
+block|{}
 DECL|field|facetResults
 specifier|private
 name|List
@@ -59,7 +65,7 @@ name|FacetResult
 argument_list|>
 name|facetResults
 decl_stmt|;
-comment|/**    * @return the facet results    */
+comment|/**    * Returns the facet results    */
 DECL|method|getFacetResults
 specifier|public
 name|List
@@ -73,7 +79,7 @@ return|return
 name|facetResults
 return|;
 block|}
-comment|/**    * @param facetResults the facet results to set    */
+comment|/**    * Sets the facet results    */
 DECL|method|setFacetResults
 specifier|public
 name|void

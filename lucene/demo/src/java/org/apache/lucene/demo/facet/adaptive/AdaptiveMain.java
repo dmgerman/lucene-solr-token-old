@@ -158,6 +158,12 @@ specifier|public
 class|class
 name|AdaptiveMain
 block|{
+comment|/** Sole constructor */
+DECL|method|AdaptiveMain
+specifier|public
+name|AdaptiveMain
+parameter_list|()
+block|{}
 comment|/**    * Driver for the adaptive sample.    * @throws Exception on error (no detailed exception handling here for sample simplicity    */
 DECL|method|main
 specifier|public
@@ -187,6 +193,7 @@ literal|"DONE"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Runs the adaptive sample and returns the facet results */
 DECL|method|runSample
 specifier|public
 name|ExampleResult
