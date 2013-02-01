@@ -192,7 +192,7 @@ name|codecs
 operator|.
 name|lucene41
 operator|.
-name|Lucene41Codec
+name|Lucene41PostingsFormat
 import|;
 end_import
 begin_comment
@@ -274,7 +274,7 @@ begin_comment
 comment|// any PostingsBaseFormat and make it ord-able...
 end_comment
 begin_comment
-comment|/**  * Customized version of {@link Lucene41Codec} that uses  * {@link FixedGapTermsIndexWriter}.  */
+comment|/**  * Customized version of {@link Lucene41PostingsFormat} that uses  * {@link FixedGapTermsIndexWriter}.  */
 end_comment
 begin_class
 DECL|class|Lucene41WithOrds

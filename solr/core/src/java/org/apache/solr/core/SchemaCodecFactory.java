@@ -47,9 +47,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene42
 operator|.
-name|Lucene41Codec
+name|Lucene42Codec
 import|;
 end_import
 begin_import
@@ -134,7 +134,7 @@ block|{
 name|codec
 operator|=
 operator|new
-name|Lucene41Codec
+name|Lucene42Codec
 argument_list|()
 block|{
 annotation|@

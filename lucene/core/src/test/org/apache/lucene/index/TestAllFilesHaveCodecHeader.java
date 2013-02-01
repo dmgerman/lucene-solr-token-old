@@ -46,7 +46,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|Codec
+name|CodecUtil
 import|;
 end_import
 begin_import
@@ -59,7 +59,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|CodecUtil
+name|lucene42
+operator|.
+name|Lucene42Codec
 import|;
 end_import
 begin_import
@@ -249,12 +251,9 @@ name|conf
 operator|.
 name|setCodec
 argument_list|(
-name|Codec
-operator|.
-name|forName
-argument_list|(
-literal|"Lucene41"
-argument_list|)
+operator|new
+name|Lucene42Codec
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// riw should sometimes create docvalues fields, etc

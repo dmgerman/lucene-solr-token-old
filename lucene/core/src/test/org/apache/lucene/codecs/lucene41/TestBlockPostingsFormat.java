@@ -42,6 +42,19 @@ operator|.
 name|BasePostingsFormatTestCase
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|_TestUtil
+import|;
+end_import
 begin_comment
 comment|/**  * Tests BlockPostingsFormat  */
 end_comment
@@ -59,9 +72,14 @@ specifier|final
 name|Codec
 name|codec
 init|=
+name|_TestUtil
+operator|.
+name|alwaysPostingsFormat
+argument_list|(
 operator|new
-name|Lucene41Codec
+name|Lucene41PostingsFormat
 argument_list|()
+argument_list|)
 decl_stmt|;
 annotation|@
 name|Override
