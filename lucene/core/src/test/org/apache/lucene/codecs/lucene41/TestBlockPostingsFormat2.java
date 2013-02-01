@@ -295,13 +295,6 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|setAddDocValuesFields
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|iw
-operator|.
 name|setDoRandomForceMerge
 argument_list|(
 literal|false
