@@ -1435,6 +1435,13 @@ argument_list|,
 operator|-
 literal|1
 argument_list|)
+argument_list|,
+name|getBool
+argument_list|(
+literal|"updateHandler/commitWithin/softCommit"
+argument_list|,
+literal|true
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -2266,6 +2273,12 @@ name|boolean
 name|openSearcher
 decl_stmt|;
 comment|// is opening a new searcher part of hard autocommit?
+DECL|field|commitWithinSoftCommit
+specifier|public
+specifier|final
+name|boolean
+name|commitWithinSoftCommit
+decl_stmt|;
 comment|/**      * @param autoCommmitMaxDocs set -1 as default      * @param autoCommmitMaxTime set -1 as default      * @param commitIntervalLowerBound set -1 as default      */
 DECL|method|UpdateHandlerInfo
 specifier|public
@@ -2291,6 +2304,9 @@ name|autoSoftCommmitMaxDocs
 parameter_list|,
 name|int
 name|autoSoftCommmitMaxTime
+parameter_list|,
+name|boolean
+name|commitWithinSoftCommit
 parameter_list|)
 block|{
 name|this
@@ -2334,6 +2350,12 @@ operator|.
 name|autoSoftCommmitMaxTime
 operator|=
 name|autoSoftCommmitMaxTime
+expr_stmt|;
+name|this
+operator|.
+name|commitWithinSoftCommit
+operator|=
+name|commitWithinSoftCommit
 expr_stmt|;
 block|}
 block|}
