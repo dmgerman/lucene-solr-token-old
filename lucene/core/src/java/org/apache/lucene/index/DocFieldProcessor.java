@@ -1186,9 +1186,6 @@ block|}
 block|}
 else|else
 block|{
-comment|// nocommit: dangerous: maybe FI.update()/FI ctor()/FIS.addOrUpdate need only take FT
-comment|// instead of a thousand parameters? Surely we can make this better... like:
-comment|// fp.fieldInfo.update(ft);
 name|fp
 operator|.
 name|fieldInfo
@@ -1196,23 +1193,6 @@ operator|.
 name|update
 argument_list|(
 name|ft
-operator|.
-name|indexed
-argument_list|()
-argument_list|,
-literal|false
-argument_list|,
-name|ft
-operator|.
-name|omitNorms
-argument_list|()
-argument_list|,
-literal|false
-argument_list|,
-name|ft
-operator|.
-name|indexOptions
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
