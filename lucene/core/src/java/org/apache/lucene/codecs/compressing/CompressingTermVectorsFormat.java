@@ -148,7 +148,6 @@ end_comment
 begin_class
 DECL|class|CompressingTermVectorsFormat
 specifier|public
-specifier|final
 class|class
 name|CompressingTermVectorsFormat
 extends|extends
@@ -240,6 +239,7 @@ annotation|@
 name|Override
 DECL|method|vectorsReader
 specifier|public
+specifier|final
 name|TermVectorsReader
 name|vectorsReader
 parameter_list|(
@@ -282,6 +282,7 @@ annotation|@
 name|Override
 DECL|method|vectorsWriter
 specifier|public
+specifier|final
 name|TermVectorsWriter
 name|vectorsWriter
 parameter_list|(
