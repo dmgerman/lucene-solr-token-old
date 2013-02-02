@@ -5386,19 +5386,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|exception
-operator|.
-name|get
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
+name|assertNull
 argument_list|(
 literal|"One thread threw an exception"
 argument_list|,
@@ -5407,8 +5395,7 @@ operator|.
 name|get
 argument_list|()
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 block|}
 block|}
 block|}
