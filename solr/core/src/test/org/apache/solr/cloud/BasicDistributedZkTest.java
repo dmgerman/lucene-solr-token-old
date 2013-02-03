@@ -5022,7 +5022,7 @@ name|server
 operator|.
 name|setSoTimeout
 argument_list|(
-literal|30000
+literal|60000
 argument_list|)
 expr_stmt|;
 name|ThreadPoolExecutor
