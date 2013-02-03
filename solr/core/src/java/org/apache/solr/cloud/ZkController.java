@@ -6443,7 +6443,7 @@ name|server
 operator|.
 name|setConnectionTimeout
 argument_list|(
-literal|45000
+literal|15000
 argument_list|)
 expr_stmt|;
 name|server
