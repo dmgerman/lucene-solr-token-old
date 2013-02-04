@@ -72,7 +72,7 @@ index|[
 literal|0
 index|]
 decl_stmt|;
-comment|/** An empty BinaryDocValues which returns empty bytes for every document */
+comment|/** An empty BinaryDocValues which returns {@link #MISSING} for every document */
 DECL|field|EMPTY
 specifier|public
 specifier|static
@@ -97,6 +97,18 @@ name|BytesRef
 name|result
 parameter_list|)
 block|{
+name|result
+operator|.
+name|bytes
+operator|=
+name|MISSING
+expr_stmt|;
+name|result
+operator|.
+name|offset
+operator|=
+literal|0
+expr_stmt|;
 name|result
 operator|.
 name|length
