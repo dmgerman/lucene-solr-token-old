@@ -878,7 +878,7 @@ expr_stmt|;
 return|return
 name|core
 operator|.
-name|getSimpleNormValues
+name|getNormValues
 argument_list|(
 name|field
 argument_list|)
