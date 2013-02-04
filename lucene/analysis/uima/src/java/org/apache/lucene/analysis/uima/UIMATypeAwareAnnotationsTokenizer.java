@@ -159,6 +159,15 @@ operator|.
 name|Reader
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
 begin_comment
 comment|/**  * A {@link Tokenizer} which creates token from UIMA Annotations filling also their {@link TypeAttribute} according to  * {@link org.apache.uima.cas.FeaturePath}s specified  */
 end_comment
@@ -226,6 +235,14 @@ parameter_list|,
 name|String
 name|typeAttributeFeaturePath
 parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|configurationParameters
+parameter_list|,
 name|Reader
 name|input
 parameter_list|)
@@ -235,6 +252,8 @@ argument_list|(
 name|input
 argument_list|,
 name|descriptorPath
+argument_list|,
+name|configurationParameters
 argument_list|)
 expr_stmt|;
 name|this
