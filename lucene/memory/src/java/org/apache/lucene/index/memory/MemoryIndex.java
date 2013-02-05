@@ -1965,11 +1965,13 @@ name|stream
 operator|!=
 literal|null
 condition|)
+block|{
 name|stream
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
