@@ -124,7 +124,7 @@ name|ALL_PARENTS
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Initilizes with the given {@link FacetRequest requests} and    * {@link FacetIndexingParams}.    */
+comment|/**    * Initializes with the given {@link FacetRequest requests} and    * {@link FacetIndexingParams}.    */
 DECL|method|FacetSearchParams
 specifier|public
 name|FacetSearchParams
@@ -150,7 +150,7 @@ name|indexingParams
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Initilizes with the given {@link FacetRequest requests} and    * {@link FacetIndexingParams}.    */
+comment|/**    * Initializes with the given {@link FacetRequest requests} and    * {@link FacetIndexingParams}.    */
 DECL|method|FacetSearchParams
 specifier|public
 name|FacetSearchParams
