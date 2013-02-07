@@ -50,6 +50,40 @@ name|lucene
 operator|.
 name|facet
 operator|.
+name|partitions
+operator|.
+name|search
+operator|.
+name|IntermediateFacetResult
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|facet
+operator|.
+name|partitions
+operator|.
+name|search
+operator|.
+name|PartitionsFacetResultsHandler
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|facet
+operator|.
 name|search
 operator|.
 name|params
@@ -108,23 +142,6 @@ operator|.
 name|results
 operator|.
 name|FacetResultNode
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|facet
-operator|.
-name|search
-operator|.
-name|results
-operator|.
-name|IntermediateFacetResult
 import|;
 end_import
 begin_import
@@ -206,7 +223,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * Generates {@link FacetResult} from the count arrays aggregated for a  * particular {@link FacetRequest}. The generated {@link FacetResult} is a  * subtree of the taxonomy tree. Its root node,  * {@link FacetResult#getFacetResultNode()}, is the facet specified by  * {@link FacetRequest#categoryPath}, and the enumerated children,  * {@link FacetResultNode#subResults}, of each node in that  * {@link FacetResult} are the top K ( = {@link FacetRequest#getNumResults()})  * among its children in the taxonomy. Top in the sense  * {@link FacetRequest#getSortBy()}, which can be by the values aggregated in  * the count arrays, or by ordinal numbers; also specified is the sort order,  * {@link FacetRequest#getSortOrder()}, ascending or descending, of these values  * or ordinals before their top K are selected. The depth (number of levels  * excluding the root) of the {@link FacetResult} tree is specified by  * {@link FacetRequest#getDepth()}.  *<p>  * Because the number of selected children of each node is restricted, and not  * the overall number of nodes in the {@link FacetResult}, facets not selected  * into {@link FacetResult} might have better values, or ordinals, (typically,  * higher counts), than facets that are selected into the {@link FacetResult}.  *<p>  * The generated {@link FacetResult} also provides with  * {@link FacetResult#getNumValidDescendants()}, which returns the total number  * of facets that are descendants of the root node, no deeper than  * {@link FacetRequest#getDepth()}, and which have valid value. The rootnode  * itself is not counted here. Valid value is determined by the  * {@link FacetResultsHandler}. {@link TopKInEachNodeHandler} defines valid as  * != 0.  *<p>  *<b>NOTE:</b> this code relies on the assumption that  * {@link TaxonomyReader#INVALID_ORDINAL} == -1, a smaller value than any valid  * ordinal.  *   * @lucene.experimental  */
+comment|/**  * Generates {@link FacetResult} from the {@link FacetArrays} aggregated for a  * particular {@link FacetRequest}. The generated {@link FacetResult} is a  * subtree of the taxonomy tree. Its root node,  * {@link FacetResult#getFacetResultNode()}, is the facet specified by  * {@link FacetRequest#categoryPath}, and the enumerated children,  * {@link FacetResultNode#subResults}, of each node in that {@link FacetResult}  * are the top K ( = {@link FacetRequest#numResults}) among its children in the  * taxonomy. Top in the sense {@link FacetRequest#getSortBy()}, which can be by  * the values aggregated in the count arrays, or by ordinal numbers; also  * specified is the sort order, {@link FacetRequest#getSortOrder()}, ascending  * or descending, of these values or ordinals before their top K are selected.  * The depth (number of levels excluding the root) of the {@link FacetResult}  * tree is specified by {@link FacetRequest#getDepth()}.  *<p>  * Because the number of selected children of each node is restricted, and not  * the overall number of nodes in the {@link FacetResult}, facets not selected  * into {@link FacetResult} might have better values, or ordinals, (typically,  * higher counts), than facets that are selected into the {@link FacetResult}.  *<p>  * The generated {@link FacetResult} also provides with  * {@link FacetResult#getNumValidDescendants()}, which returns the total number  * of facets that are descendants of the root node, no deeper than  * {@link FacetRequest#getDepth()}, and which have valid value. The rootnode  * itself is not counted here. Valid value is determined by the  * {@link FacetResultsHandler}. {@link TopKInEachNodeHandler} defines valid as  * != 0.  *<p>  *<b>NOTE:</b> this code relies on the assumption that  * {@link TaxonomyReader#INVALID_ORDINAL} == -1, a smaller value than any valid  * ordinal.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|TopKInEachNodeHandler
@@ -214,7 +231,7 @@ specifier|public
 class|class
 name|TopKInEachNodeHandler
 extends|extends
-name|FacetResultsHandler
+name|PartitionsFacetResultsHandler
 block|{
 DECL|method|TopKInEachNodeHandler
 specifier|public
@@ -225,6 +242,9 @@ name|taxonomyReader
 parameter_list|,
 name|FacetRequest
 name|facetRequest
+parameter_list|,
+name|FacetArrays
+name|facetArrays
 parameter_list|)
 block|{
 name|super
@@ -232,10 +252,12 @@ argument_list|(
 name|taxonomyReader
 argument_list|,
 name|facetRequest
+argument_list|,
+name|facetArrays
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Recursively explore all facets that can be potentially included in the    * {@link FacetResult} to be generated, and that belong to the given    * partition, so that values can be examined and collected. For each such    * node, gather its top K ({@link FacetRequest#getNumResults()}) children    * among its children that are encountered in the given particular partition    * (aka current counting list).    *     * @return {@link IntermediateFacetResult} consisting of    *         {@link IntToObjectMap} that maps potential    *         {@link FacetResult} nodes to their top K children encountered in    *         the current partition. Note that the mapped potential tree nodes    *         need not belong to the given partition, only the top K children    *         mapped to. The aim is to identify nodes that are certainly excluded    *         from the {@link FacetResult} to be eventually (after going through    *         all the partitions) returned by this handler, because they have K    *         better siblings, already identified in this partition. For the    *         identified excluded nodes, we only count number of their    *         descendants in the subtree (to be included in    *         {@link FacetResult#getNumValidDescendants()}), but not bother with    *         selecting top K in these generations, which, by definition, are,    *         too, excluded from the FacetResult tree.    * @param arrays the already filled in count array, potentially only covering    *        one partition: the ordinals ranging from    * @param offset to<code>offset</code> + the length of the count arrays    *        within<code>arrays</code> (exclusive)    * @throws IOException in case    *         {@link TaxonomyReader#getOrdinal(org.apache.lucene.facet.taxonomy.CategoryPath)}    *         does.    * @see FacetResultsHandler#fetchPartitionResult(FacetArrays, int)    */
+comment|/**    * Recursively explore all facets that can be potentially included in the    * {@link FacetResult} to be generated, and that belong to the given    * partition, so that values can be examined and collected. For each such    * node, gather its top K ({@link FacetRequest#numResults}) children among its    * children that are encountered in the given particular partition (aka    * current counting list).    * @param offset    *          to<code>offset</code> + the length of the count arrays within    *<code>arrays</code> (exclusive)    *     * @return {@link IntermediateFacetResult} consisting of    *         {@link IntToObjectMap} that maps potential {@link FacetResult}    *         nodes to their top K children encountered in the current partition.    *         Note that the mapped potential tree nodes need not belong to the    *         given partition, only the top K children mapped to. The aim is to    *         identify nodes that are certainly excluded from the    *         {@link FacetResult} to be eventually (after going through all the    *         partitions) returned by this handler, because they have K better    *         siblings, already identified in this partition. For the identified    *         excluded nodes, we only count number of their descendants in the    *         subtree (to be included in    *         {@link FacetResult#getNumValidDescendants()}), but not bother with    *         selecting top K in these generations, which, by definition, are,    *         too, excluded from the FacetResult tree.    * @throws IOException    *           in case    *           {@link TaxonomyReader#getOrdinal(org.apache.lucene.facet.taxonomy.CategoryPath)}    *           does.    * @see #fetchPartitionResult(int)    */
 annotation|@
 name|Override
 DECL|method|fetchPartitionResult
@@ -243,9 +265,6 @@ specifier|public
 name|IntermediateFacetResult
 name|fetchPartitionResult
 parameter_list|(
-name|FacetArrays
-name|arrays
-parameter_list|,
 name|int
 name|offset
 parameter_list|)
@@ -290,8 +309,7 @@ name|min
 argument_list|(
 name|facetRequest
 operator|.
-name|getNumResults
-argument_list|()
+name|numResults
 argument_list|,
 name|taxonomyReader
 operator|.
@@ -317,7 +335,7 @@ decl_stmt|;
 name|int
 name|partitionSize
 init|=
-name|arrays
+name|facetArrays
 operator|.
 name|arrayLength
 decl_stmt|;
@@ -356,7 +374,7 @@ name|isSelfPartition
 argument_list|(
 name|rootNode
 argument_list|,
-name|arrays
+name|facetArrays
 argument_list|,
 name|offset
 argument_list|)
@@ -378,7 +396,7 @@ name|facetRequest
 operator|.
 name|getValueOf
 argument_list|(
-name|arrays
+name|facetArrays
 argument_list|,
 name|rootNode
 operator|%
@@ -796,7 +814,7 @@ name|facetRequest
 operator|.
 name|getValueOf
 argument_list|(
-name|arrays
+name|facetArrays
 argument_list|,
 name|tosOrdinal
 operator|%
@@ -870,8 +888,6 @@ argument_list|,
 name|children
 argument_list|,
 name|siblings
-argument_list|,
-name|arrays
 argument_list|,
 name|partitionSize
 argument_list|,
@@ -1135,7 +1151,7 @@ name|isSelfPartition
 argument_list|(
 name|rootNode
 argument_list|,
-name|arrays
+name|facetArrays
 argument_list|,
 name|offset
 argument_list|)
@@ -1157,7 +1173,7 @@ name|facetRequest
 operator|.
 name|getValueOf
 argument_list|(
-name|arrays
+name|facetArrays
 argument_list|,
 name|rootNode
 operator|%
@@ -1175,7 +1191,7 @@ return|return
 name|tempFRWH
 return|;
 block|}
-comment|/**    * Recursively count<code>ordinal</code>, whose depth is<code>currentDepth</code>,     * and all its descendants down to<code>maxDepth</code> (including),     * descendants whose value in the count arrays,<code>arrays</code>, is != 0.     * The count arrays only includes the current partition, from<code>offset</code>, to (exclusive)     *<code>endOffset</code>.    * It is assumed that<code>ordinal</code><<code>endOffset</code>,     * otherwise, not<code>ordinal</code>, and none of its descendants, reside in    * the current partition.<code>ordinal</code><<code>offset</code> is allowed,     * as ordinal's descendants might be>=<code>offeset</code>.    *     * @param ordinal a facet ordinal.     * @param youngestChild mapping a given ordinal to its youngest child in the taxonomy (of largest ordinal number),    * or to -1 if has no children.      * @param olderSibling  mapping a given ordinal to its older sibling, or to -1    * @param arrays  values for the ordinals in the given partition    * @param offset  the first (smallest) ordinal in the given partition    * @param partitionSize  number of ordinals in the given partition    * @param endOffset one larger than the largest ordinal that belong to this partition    * @param currentDepth the depth or ordinal in the TaxonomyTree (relative to rootnode of the facetRequest)    * @param maxDepth maximal depth of descendants to be considered here (measured relative to rootnode of the     * facetRequest).    *     * @return the number of nodes, from ordinal down its descendants, of depth<= maxDepth,    * which reside in the current partition, and whose value != 0    */
+comment|/**    * Recursively count<code>ordinal</code>, whose depth is<code>currentDepth</code>,     * and all its descendants down to<code>maxDepth</code> (including),     * descendants whose value in the count arrays,<code>arrays</code>, is != 0.     * The count arrays only includes the current partition, from<code>offset</code>, to (exclusive)     *<code>endOffset</code>.    * It is assumed that<code>ordinal</code><<code>endOffset</code>,     * otherwise, not<code>ordinal</code>, and none of its descendants, reside in    * the current partition.<code>ordinal</code><<code>offset</code> is allowed,     * as ordinal's descendants might be>=<code>offeset</code>.    *     * @param ordinal a facet ordinal.     * @param youngestChild mapping a given ordinal to its youngest child in the taxonomy (of largest ordinal number),    * or to -1 if has no children.      * @param olderSibling  mapping a given ordinal to its older sibling, or to -1    * @param partitionSize  number of ordinals in the given partition    * @param offset  the first (smallest) ordinal in the given partition    * @param endOffset one larger than the largest ordinal that belong to this partition    * @param currentDepth the depth or ordinal in the TaxonomyTree (relative to rootnode of the facetRequest)    * @param maxDepth maximal depth of descendants to be considered here (measured relative to rootnode of the     * facetRequest).    * @return the number of nodes, from ordinal down its descendants, of depth<= maxDepth,    * which reside in the current partition, and whose value != 0    */
 DECL|method|countOnly
 specifier|private
 name|int
@@ -1191,9 +1207,6 @@ parameter_list|,
 name|int
 index|[]
 name|olderSibling
-parameter_list|,
-name|FacetArrays
-name|arrays
 parameter_list|,
 name|int
 name|partitionSize
@@ -1232,7 +1245,7 @@ name|facetRequest
 operator|.
 name|getValueOf
 argument_list|(
-name|arrays
+name|facetArrays
 argument_list|,
 name|ordinal
 operator|%
@@ -1300,8 +1313,6 @@ name|youngestChild
 argument_list|,
 name|olderSibling
 argument_list|,
-name|arrays
-argument_list|,
 name|partitionSize
 argument_list|,
 name|offset
@@ -1327,7 +1338,7 @@ return|return
 name|ret
 return|;
 block|}
-comment|/**    * Merge several partitions' {@link IntermediateFacetResult}-s into one of the    * same format    *     * @see FacetResultsHandler#mergeResults(IntermediateFacetResult...)    */
+comment|/**    * Merge several partitions' {@link IntermediateFacetResult}-s into one of the    * same format    *     * @see #mergeResults(IntermediateFacetResult...)    */
 annotation|@
 name|Override
 DECL|method|mergeResults
@@ -1339,10 +1350,6 @@ name|IntermediateFacetResult
 modifier|...
 name|tmpResults
 parameter_list|)
-throws|throws
-name|ClassCastException
-throws|,
-name|IllegalArgumentException
 block|{
 if|if
 condition|(
@@ -1409,8 +1416,7 @@ name|this
 operator|.
 name|facetRequest
 operator|.
-name|getNumResults
-argument_list|()
+name|numResults
 decl_stmt|;
 comment|// number of best result in each node
 name|IntermediateFacetResultWithHash
@@ -2460,7 +2466,7 @@ name|val
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Maintains an array of<code>AggregatedCategory</code>. For space consideration, this is implemented as     * a pair of arrays,<i>ordinals</i> and<i>values</i>, rather than one array of pairs.    * Enumerated in<i>ordinals</i> are siblings,      * potential nodes of the {@link FacetResult} tree      * (i.e., the descendants of the root node, no deeper than the specified depth).    * No more than K ( = {@link FacetRequest#getNumResults()})     * siblings are enumerated.    * @lucene.internal    */
+comment|/**    * Maintains an array of<code>AggregatedCategory</code>. For space consideration, this is implemented as     * a pair of arrays,<i>ordinals</i> and<i>values</i>, rather than one array of pairs.    * Enumerated in<i>ordinals</i> are siblings,      * potential nodes of the {@link FacetResult} tree      * (i.e., the descendants of the root node, no deeper than the specified depth).    * No more than K ( = {@link FacetRequest#numResults})     * siblings are enumerated.    * @lucene.internal    */
 DECL|class|AACO
 specifier|protected
 specifier|static
@@ -2508,7 +2514,6 @@ block|}
 block|}
 annotation|@
 name|Override
-comment|/**    * Recursively label the first facetRequest.getNumLabel() sub results     * of the root of a given {@link FacetResult}, or of an already labeled node in it.    * I.e., a node is labeled only if it is the root or all its ancestors are labeled.     */
 DECL|method|labelResult
 specifier|public
 name|void
@@ -2585,7 +2590,7 @@ operator|.
 name|ordinal
 argument_list|)
 expr_stmt|;
-comment|// label the first numToLabel of these children, and recursively -- their children.
+comment|// recursively label the first numToLabel children of every node
 name|int
 name|numLabeled
 init|=
@@ -2601,7 +2606,6 @@ operator|.
 name|subResults
 control|)
 block|{
-comment|// go over the children of node from first to last, no more than numToLable of them
 name|recursivelyLabel
 argument_list|(
 name|frn
@@ -2650,8 +2654,7 @@ name|this
 operator|.
 name|facetRequest
 operator|.
-name|getNumResults
-argument_list|()
+name|numResults
 argument_list|,
 name|this
 operator|.

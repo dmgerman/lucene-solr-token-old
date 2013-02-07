@@ -124,7 +124,7 @@ annotation|@
 name|Override
 DECL|method|getSamplingAccumulator
 specifier|protected
-name|FacetsAccumulator
+name|StandardFacetsAccumulator
 name|getSamplingAccumulator
 parameter_list|(
 name|Sampler
@@ -140,9 +140,10 @@ name|FacetSearchParams
 name|searchParams
 parameter_list|)
 block|{
-name|FacetsAccumulator
-name|fa
-init|=
+return|return
+operator|new
+name|SamplingWrapper
+argument_list|(
 operator|new
 name|StandardFacetsAccumulator
 argument_list|(
@@ -152,12 +153,6 @@ name|indexReader
 argument_list|,
 name|taxoReader
 argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|SamplingWrapper
-argument_list|(
-name|fa
 argument_list|,
 name|sampler
 argument_list|)

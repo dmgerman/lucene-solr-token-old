@@ -2191,9 +2191,9 @@ init|=
 operator|new
 name|FacetSearchParams
 argument_list|(
-name|requests
-argument_list|,
 name|fip
+argument_list|,
+name|requests
 argument_list|)
 decl_stmt|;
 name|FacetsCollector
