@@ -116,6 +116,8 @@ specifier|public
 name|void
 name|testDummy
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|Directory
 name|dir

@@ -212,7 +212,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|SortedBytesDocValuesField
+name|SortedDocValuesField
 import|;
 end_import
 begin_import
@@ -1009,7 +1009,7 @@ block|{
 name|titleDV
 operator|=
 operator|new
-name|SortedBytesDocValuesField
+name|SortedDocValuesField
 argument_list|(
 literal|"titleDV"
 argument_list|,

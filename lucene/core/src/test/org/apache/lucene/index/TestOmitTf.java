@@ -1837,6 +1837,10 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
+literal|"got score="
+operator|+
+name|score
+argument_list|,
 name|score
 operator|==
 literal|1.0f

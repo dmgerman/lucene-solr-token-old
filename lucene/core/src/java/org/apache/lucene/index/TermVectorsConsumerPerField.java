@@ -900,7 +900,6 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|// commit the termVectors once successful - FI will otherwise reset them
 name|fieldInfo
 operator|.
 name|setStoreTermVectors

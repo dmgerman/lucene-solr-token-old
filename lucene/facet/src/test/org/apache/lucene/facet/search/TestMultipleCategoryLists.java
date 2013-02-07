@@ -1309,7 +1309,7 @@ if|if
 condition|(
 name|r
 operator|.
-name|docValues
+name|getBinaryDocValues
 argument_list|(
 name|field
 argument_list|)
