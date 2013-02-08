@@ -30,7 +30,7 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|facet
 operator|.
 name|collections
 operator|.

@@ -141,8 +141,6 @@ name|facet
 operator|.
 name|search
 operator|.
-name|results
-operator|.
 name|FacetResult
 import|;
 end_import

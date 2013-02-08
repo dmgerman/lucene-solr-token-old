@@ -79,8 +79,6 @@ name|facet
 operator|.
 name|search
 operator|.
-name|results
-operator|.
 name|FacetResultNode
 import|;
 end_import
