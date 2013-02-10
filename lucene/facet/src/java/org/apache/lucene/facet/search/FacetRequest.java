@@ -94,20 +94,6 @@ name|FLOAT
 block|,
 name|BOTH
 block|}
-comment|/** Sort options for facet results. */
-DECL|enum|SortBy
-specifier|public
-enum|enum
-name|SortBy
-block|{
-comment|/** sort by category ordinal with the taxonomy */
-DECL|enum constant|ORDINAL
-name|ORDINAL
-block|,
-comment|/** sort by computed category value */
-DECL|enum constant|VALUE
-name|VALUE
-block|}
 comment|/** Requested sort order for the results. */
 DECL|enum|SortOrder
 DECL|enum constant|ASCENDING
@@ -129,18 +115,6 @@ name|int
 name|DEFAULT_DEPTH
 init|=
 literal|1
-decl_stmt|;
-comment|/**    * Default sort mode.    * @see #getSortBy()    */
-DECL|field|DEFAULT_SORT_BY
-specifier|public
-specifier|static
-specifier|final
-name|SortBy
-name|DEFAULT_SORT_BY
-init|=
-name|SortBy
-operator|.
-name|VALUE
 decl_stmt|;
 comment|/**    * Default result mode    * @see #getResultMode()    */
 DECL|field|DEFAULT_RESULT_MODE
@@ -180,11 +154,6 @@ DECL|field|sortOrder
 specifier|private
 name|SortOrder
 name|sortOrder
-decl_stmt|;
-DECL|field|sortBy
-specifier|private
-name|SortBy
-name|sortBy
 decl_stmt|;
 comment|/**    * Computed at construction, this hashCode is based on two final members    * {@link CategoryPath} and<code>numResults</code>    */
 DECL|field|hashCode
@@ -261,10 +230,6 @@ expr_stmt|;
 name|depth
 operator|=
 name|DEFAULT_DEPTH
-expr_stmt|;
-name|sortBy
-operator|=
-name|DEFAULT_SORT_BY
 expr_stmt|;
 name|sortOrder
 operator|=
@@ -431,18 +396,6 @@ return|return
 name|resultMode
 return|;
 block|}
-comment|/** Specify how should results be sorted. */
-DECL|method|getSortBy
-specifier|public
-specifier|final
-name|SortBy
-name|getSortBy
-parameter_list|()
-block|{
-return|return
-name|sortBy
-return|;
-block|}
 comment|/** Return the requested order of results. */
 DECL|method|getSortOrder
 specifier|public
@@ -531,22 +484,6 @@ operator|.
 name|resultMode
 operator|=
 name|resultMode
-expr_stmt|;
-block|}
-DECL|method|setSortBy
-specifier|public
-name|void
-name|setSortBy
-parameter_list|(
-name|SortBy
-name|sortBy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|sortBy
-operator|=
-name|sortBy
 expr_stmt|;
 block|}
 DECL|method|setSortOrder
