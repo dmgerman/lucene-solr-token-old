@@ -1132,7 +1132,15 @@ argument_list|()
 expr_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Test Setup Failure: shard1 should have just been set up to be inconsistent - but it's still consistent"
+literal|"Test Setup Failure: shard1 should have just been set up to be inconsistent - but it's still consistent. Leader:"
+operator|+
+name|leaderJetty
+operator|.
+name|url
+operator|+
+literal|"skip list:"
+operator|+
+name|skipServers
 argument_list|,
 name|shardFailMessage
 argument_list|)
@@ -1244,7 +1252,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|3000
 argument_list|)
 expr_stmt|;
 name|ZkStateReader
