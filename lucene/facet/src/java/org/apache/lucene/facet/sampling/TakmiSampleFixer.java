@@ -127,7 +127,7 @@ name|facet
 operator|.
 name|search
 operator|.
-name|DrillDown
+name|DrillDownQuery
 import|;
 end_import
 begin_import
@@ -412,11 +412,13 @@ decl_stmt|;
 name|Term
 name|drillDownTerm
 init|=
-name|DrillDown
+name|DrillDownQuery
 operator|.
 name|term
 argument_list|(
 name|searchParams
+operator|.
+name|indexingParams
 argument_list|,
 name|catPath
 argument_list|)
