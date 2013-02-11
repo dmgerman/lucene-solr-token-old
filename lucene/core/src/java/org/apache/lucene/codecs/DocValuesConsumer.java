@@ -2378,6 +2378,7 @@ return|;
 block|}
 else|else
 block|{
+comment|// nocommit: nulling is a hack to prevent calling next() after NO_MORE was already returned...
 name|iterator
 operator|=
 literal|null
