@@ -2315,6 +2315,8 @@ name|iterator
 operator|.
 name|reset
 argument_list|(
+name|docToOrds
+argument_list|,
 name|docID
 argument_list|)
 expr_stmt|;
@@ -2533,7 +2535,6 @@ extends|extends
 name|OrdIterator
 block|{
 DECL|field|data
-specifier|final
 name|BinaryDocValues
 name|data
 decl_stmt|;
@@ -2611,10 +2612,19 @@ DECL|method|reset
 name|void
 name|reset
 parameter_list|(
+name|BinaryDocValues
+name|data
+parameter_list|,
 name|int
 name|docid
 parameter_list|)
 block|{
+name|this
+operator|.
+name|data
+operator|=
+name|data
+expr_stmt|;
 name|data
 operator|.
 name|get

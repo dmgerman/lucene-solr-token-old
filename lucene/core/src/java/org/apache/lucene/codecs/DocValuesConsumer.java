@@ -2378,6 +2378,10 @@ return|;
 block|}
 else|else
 block|{
+name|iterator
+operator|=
+literal|null
+expr_stmt|;
 name|docIDUpto
 operator|++
 expr_stmt|;
