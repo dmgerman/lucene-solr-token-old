@@ -2099,6 +2099,22 @@ operator|.
 name|number
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|entry
+operator|.
+name|numOrds
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|SortedSetDocValues
+operator|.
+name|EMPTY
+return|;
+comment|// empty FST!
+block|}
 name|FST
 argument_list|<
 name|Long
