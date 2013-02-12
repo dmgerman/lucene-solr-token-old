@@ -73,7 +73,7 @@ name|FacetRequest
 argument_list|>
 name|facetRequests
 decl_stmt|;
-comment|/**    * Initializes with the given {@link FacetRequest requests} and default    * {@link FacetIndexingParams#ALL_PARENTS}. If you used a different    * {@link FacetIndexingParams}, you should use    * {@link #FacetSearchParams(FacetIndexingParams, List)}.    */
+comment|/**    * Initializes with the given {@link FacetRequest requests} and default    * {@link FacetIndexingParams#DEFAULT}. If you used a different    * {@link FacetIndexingParams}, you should use    * {@link #FacetSearchParams(FacetIndexingParams, List)}.    */
 DECL|method|FacetSearchParams
 specifier|public
 name|FacetSearchParams
@@ -87,7 +87,7 @@ name|this
 argument_list|(
 name|FacetIndexingParams
 operator|.
-name|ALL_PARENTS
+name|DEFAULT
 argument_list|,
 name|Arrays
 operator|.
@@ -98,7 +98,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Initializes with the given {@link FacetRequest requests} and default    * {@link FacetIndexingParams#ALL_PARENTS}. If you used a different    * {@link FacetIndexingParams}, you should use    * {@link #FacetSearchParams(FacetIndexingParams, List)}.    */
+comment|/**    * Initializes with the given {@link FacetRequest requests} and default    * {@link FacetIndexingParams#DEFAULT}. If you used a different    * {@link FacetIndexingParams}, you should use    * {@link #FacetSearchParams(FacetIndexingParams, List)}.    */
 DECL|method|FacetSearchParams
 specifier|public
 name|FacetSearchParams
@@ -114,7 +114,7 @@ name|this
 argument_list|(
 name|FacetIndexingParams
 operator|.
-name|ALL_PARENTS
+name|DEFAULT
 argument_list|,
 name|facetRequests
 argument_list|)
