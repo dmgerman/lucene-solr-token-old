@@ -49,6 +49,11 @@ specifier|private
 name|int
 name|docID
 decl_stmt|;
+DECL|field|set
+specifier|private
+name|boolean
+name|set
+decl_stmt|;
 comment|/** Creates a multi-valued view over the provided SortedDocValues */
 DECL|method|SingletonSortedSetDocValues
 specifier|public
@@ -80,6 +85,21 @@ name|long
 name|nextOrd
 parameter_list|()
 block|{
+if|if
+condition|(
+name|set
+condition|)
+block|{
+return|return
+name|NO_MORE_ORDS
+return|;
+block|}
+else|else
+block|{
+name|set
+operator|=
+literal|true
+expr_stmt|;
 return|return
 name|in
 operator|.
@@ -88,6 +108,7 @@ argument_list|(
 name|docID
 argument_list|)
 return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -105,6 +126,10 @@ operator|.
 name|docID
 operator|=
 name|docID
+expr_stmt|;
+name|set
+operator|=
+literal|false
 expr_stmt|;
 block|}
 annotation|@
