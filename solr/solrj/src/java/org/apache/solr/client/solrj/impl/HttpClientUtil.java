@@ -240,6 +240,21 @@ name|impl
 operator|.
 name|client
 operator|.
+name|SystemDefaultHttpClient
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|impl
+operator|.
+name|client
+operator|.
 name|DefaultHttpRequestRetryHandler
 import|;
 end_import
@@ -258,6 +273,24 @@ operator|.
 name|tsccm
 operator|.
 name|ThreadSafeClientConnManager
+import|;
+end_import
+begin_comment
+comment|// jdoc
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|http
+operator|.
+name|impl
+operator|.
+name|conn
+operator|.
+name|PoolingClientConnectionManager
 import|;
 end_import
 begin_import
@@ -498,7 +531,7 @@ operator|=
 name|newConfigurer
 expr_stmt|;
 block|}
-comment|/**    * Creates new http client by using the provided configuration.    *     * @param params    *          http client configuration, if null a client with default    *          configuration (no additional configuration) is created that uses    *          ThreadSafeClientConnManager.    */
+comment|/**    * Creates new http client by using the provided configuration.    *     * @param params    *          http client configuration, if null a client with default    *          configuration (no additional configuration) is created.     */
 DECL|method|createClient
 specifier|public
 specifier|static
@@ -530,22 +563,12 @@ name|config
 argument_list|)
 expr_stmt|;
 specifier|final
-name|ThreadSafeClientConnManager
-name|mgr
-init|=
-operator|new
-name|ThreadSafeClientConnManager
-argument_list|()
-decl_stmt|;
-specifier|final
 name|DefaultHttpClient
 name|httpClient
 init|=
 operator|new
-name|DefaultHttpClient
-argument_list|(
-name|mgr
-argument_list|)
+name|SystemDefaultHttpClient
+argument_list|()
 decl_stmt|;
 name|configureClient
 argument_list|(
@@ -701,7 +724,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Set max connections allowed per host. This call will only work when    * {@link ThreadSafeClientConnManager} is used.    */
+comment|/**    * Set max connections allowed per host. This call will only work when    * {@link ThreadSafeClientConnManager} or    * {@link PoolingClientConnectionManager} is used.    */
 DECL|method|setMaxConnectionsPerHost
 specifier|public
 specifier|static
@@ -715,6 +738,7 @@ name|int
 name|max
 parameter_list|)
 block|{
+comment|// would have been nice if there was a common interface
 if|if
 condition|(
 name|httpClient
@@ -744,8 +768,38 @@ name|max
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|httpClient
+operator|.
+name|getConnectionManager
+argument_list|()
+operator|instanceof
+name|PoolingClientConnectionManager
+condition|)
+block|{
+name|PoolingClientConnectionManager
+name|mgr
+init|=
+operator|(
+name|PoolingClientConnectionManager
+operator|)
+name|httpClient
+operator|.
+name|getConnectionManager
+argument_list|()
+decl_stmt|;
+name|mgr
+operator|.
+name|setDefaultMaxPerRoute
+argument_list|(
+name|max
+argument_list|)
+expr_stmt|;
 block|}
-comment|/**    * Set max total connections allowed. This call will only work when    * {@link ThreadSafeClientConnManager} is used.    */
+block|}
+comment|/**    * Set max total connections allowed. This call will only work when    * {@link ThreadSafeClientConnManager} or    * {@link PoolingClientConnectionManager} is used.    */
 DECL|method|setMaxConnections
 specifier|public
 specifier|static
@@ -760,6 +814,7 @@ name|int
 name|max
 parameter_list|)
 block|{
+comment|// would have been nice if there was a common interface
 if|if
 condition|(
 name|httpClient
@@ -775,6 +830,36 @@ name|mgr
 init|=
 operator|(
 name|ThreadSafeClientConnManager
+operator|)
+name|httpClient
+operator|.
+name|getConnectionManager
+argument_list|()
+decl_stmt|;
+name|mgr
+operator|.
+name|setMaxTotal
+argument_list|(
+name|max
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|httpClient
+operator|.
+name|getConnectionManager
+argument_list|()
+operator|instanceof
+name|PoolingClientConnectionManager
+condition|)
+block|{
+name|PoolingClientConnectionManager
+name|mgr
+init|=
+operator|(
+name|PoolingClientConnectionManager
 operator|)
 name|httpClient
 operator|.

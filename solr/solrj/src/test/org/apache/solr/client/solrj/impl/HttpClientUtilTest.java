@@ -93,9 +93,9 @@ name|http
 operator|.
 name|impl
 operator|.
-name|client
+name|conn
 operator|.
-name|DefaultHttpClient
+name|PoolingClientConnectionManager
 import|;
 end_import
 begin_import
@@ -108,11 +108,9 @@ name|http
 operator|.
 name|impl
 operator|.
-name|conn
+name|client
 operator|.
-name|tsccm
-operator|.
-name|ThreadSafeClientConnManager
+name|DefaultHttpClient
 import|;
 end_import
 begin_import
@@ -344,7 +342,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|ThreadSafeClientConnManager
+name|PoolingClientConnectionManager
 operator|.
 name|class
 argument_list|,
@@ -363,7 +361,7 @@ literal|22345
 argument_list|,
 operator|(
 operator|(
-name|ThreadSafeClientConnManager
+name|PoolingClientConnectionManager
 operator|)
 name|client
 operator|.
@@ -381,7 +379,7 @@ literal|32345
 argument_list|,
 operator|(
 operator|(
-name|ThreadSafeClientConnManager
+name|PoolingClientConnectionManager
 operator|)
 name|client
 operator|.
