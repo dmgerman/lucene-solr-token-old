@@ -2472,7 +2472,7 @@ specifier|final
 name|double
 name|newSegmentSize
 init|=
-name|segmentInfo
+name|segmentInfoPerCommit
 operator|.
 name|sizeInBytes
 argument_list|()
@@ -2652,8 +2652,6 @@ name|getDocCount
 argument_list|()
 argument_list|,
 name|newSegment
-operator|.
-name|info
 operator|.
 name|sizeInBytes
 argument_list|()
