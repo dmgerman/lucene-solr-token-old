@@ -1276,8 +1276,6 @@ name|mergingBytes
 operator|+=
 name|info
 operator|.
-name|info
-operator|.
 name|sizeInBytes
 argument_list|()
 expr_stmt|;
@@ -1848,8 +1846,6 @@ argument_list|)
 expr_stmt|;
 name|totBeforeMergeBytes
 operator|+=
-name|info
-operator|.
 name|info
 operator|.
 name|sizeInBytes
@@ -2909,8 +2905,6 @@ specifier|final
 name|long
 name|byteSize
 init|=
-name|info
-operator|.
 name|info
 operator|.
 name|sizeInBytes
