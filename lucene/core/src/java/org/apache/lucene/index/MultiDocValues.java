@@ -1430,6 +1430,7 @@ block|}
 block|}
 comment|/** maps per-segment ordinals to/from global ordinal space */
 comment|// TODO: use more efficient packed ints structures?
+comment|// TODO: pull this out? its pretty generic (maps between N ord()-enabled TermsEnums)
 DECL|class|OrdinalMap
 specifier|public
 specifier|static
@@ -1461,6 +1462,7 @@ name|AppendingLongBuffer
 name|ordDeltas
 index|[]
 decl_stmt|;
+comment|/**       * Creates an ordinal map that allows mapping ords to/from a merged      * space from<code>subs</code>.      * @param owner a cache key      * @param subs TermsEnums that support {@link TermsEnum#ord()}. They need      *             not be dense (e.g. can be FilteredTermsEnums}.      * @throws IOException if an I/O error occurred.      */
 DECL|method|OrdinalMap
 specifier|public
 name|OrdinalMap
@@ -1762,6 +1764,7 @@ operator|++
 expr_stmt|;
 block|}
 block|}
+comment|/**       * Given a segment number and segment ordinal, returns      * the corresponding global ordinal.      */
 DECL|method|getGlobalOrd
 specifier|public
 name|long
@@ -1788,6 +1791,7 @@ name|segmentOrd
 argument_list|)
 return|;
 block|}
+comment|/**      * Given a segment number and global ordinal, returns      * the corresponding segment ordinal.      */
 DECL|method|getSegmentOrd
 specifier|public
 name|long
@@ -1811,6 +1815,7 @@ name|globalOrd
 argument_list|)
 return|;
 block|}
+comment|/**       * Given a global ordinal, returns the index of the first      * sub that contains this term.      */
 DECL|method|getSegmentNumber
 specifier|public
 name|int
@@ -1832,6 +1837,7 @@ name|globalOrd
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the total number of unique terms in global ord space.      */
 DECL|method|getValueCount
 specifier|public
 name|long
