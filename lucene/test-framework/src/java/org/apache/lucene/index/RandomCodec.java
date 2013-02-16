@@ -1118,6 +1118,16 @@ name|random
 argument_list|)
 expr_stmt|;
 comment|// Avoid too many open files:
+if|if
+condition|(
+name|formats
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|4
+condition|)
+block|{
 name|formats
 operator|=
 name|formats
@@ -1129,6 +1139,17 @@ argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|dvFormats
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|4
+condition|)
+block|{
 name|dvFormats
 operator|=
 name|dvFormats
@@ -1140,6 +1161,7 @@ argument_list|,
 literal|4
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|RandomCodec
 specifier|public

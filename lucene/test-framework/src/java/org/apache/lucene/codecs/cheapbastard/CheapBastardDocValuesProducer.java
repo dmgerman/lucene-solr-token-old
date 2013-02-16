@@ -781,7 +781,7 @@ name|count
 operator|=
 name|meta
 operator|.
-name|readVInt
+name|readVLong
 argument_list|()
 expr_stmt|;
 name|entry
@@ -839,7 +839,7 @@ name|count
 operator|=
 name|meta
 operator|.
-name|readVInt
+name|readVLong
 argument_list|()
 expr_stmt|;
 name|entry
@@ -1422,6 +1422,9 @@ specifier|final
 name|int
 name|valueCount
 init|=
+operator|(
+name|int
+operator|)
 name|binaries
 operator|.
 name|get
@@ -1574,7 +1577,7 @@ name|int
 name|packedIntsVersion
 decl_stmt|;
 DECL|field|count
-name|int
+name|long
 name|count
 decl_stmt|;
 DECL|field|blockSize
@@ -1592,7 +1595,7 @@ name|long
 name|offset
 decl_stmt|;
 DECL|field|count
-name|int
+name|long
 name|count
 decl_stmt|;
 DECL|field|minLength
