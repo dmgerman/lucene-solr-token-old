@@ -90,6 +90,21 @@ operator|.
 name|AppendingLongBuffer
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|packed
+operator|.
+name|MonotonicAppendingLongBuffer
+import|;
+end_import
 begin_comment
 comment|/**  * A wrapper for CompositeIndexReader providing access to DocValues.  *   *<p><b>NOTE</b>: for multi readers, you'll get better  * performance by gathering the sub readers using  * {@link IndexReader#getContext()} to get the  * atomic leaves and then operate per-AtomicReader,  * instead of using this class.  *   *<p><b>NOTE</b>: This is very costly.  *  * @lucene.experimental  * @lucene.internal  */
 end_comment
@@ -1446,7 +1461,7 @@ decl_stmt|;
 comment|// globalOrd -> (globalOrd - segmentOrd)
 DECL|field|globalOrdDeltas
 specifier|final
-name|AppendingLongBuffer
+name|MonotonicAppendingLongBuffer
 name|globalOrdDeltas
 decl_stmt|;
 comment|// globalOrd -> sub index
@@ -1458,7 +1473,7 @@ decl_stmt|;
 comment|// segmentOrd -> (globalOrd - segmentOrd)
 DECL|field|ordDeltas
 specifier|final
-name|AppendingLongBuffer
+name|MonotonicAppendingLongBuffer
 name|ordDeltas
 index|[]
 decl_stmt|;
@@ -1488,7 +1503,7 @@ expr_stmt|;
 name|globalOrdDeltas
 operator|=
 operator|new
-name|AppendingLongBuffer
+name|MonotonicAppendingLongBuffer
 argument_list|()
 expr_stmt|;
 name|subIndexes
@@ -1500,7 +1515,7 @@ expr_stmt|;
 name|ordDeltas
 operator|=
 operator|new
-name|AppendingLongBuffer
+name|MonotonicAppendingLongBuffer
 index|[
 name|subs
 operator|.
@@ -1530,7 +1545,7 @@ name|i
 index|]
 operator|=
 operator|new
-name|AppendingLongBuffer
+name|MonotonicAppendingLongBuffer
 argument_list|()
 expr_stmt|;
 block|}
