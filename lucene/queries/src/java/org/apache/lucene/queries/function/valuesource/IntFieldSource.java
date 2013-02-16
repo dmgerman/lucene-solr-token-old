@@ -405,7 +405,7 @@ name|doc
 parameter_list|)
 block|{
 return|return
-name|Float
+name|Integer
 operator|.
 name|toString
 argument_list|(

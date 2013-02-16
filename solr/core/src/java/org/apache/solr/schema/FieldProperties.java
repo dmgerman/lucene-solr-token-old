@@ -180,6 +180,15 @@ name|STORE_OFFSETS
 init|=
 literal|0x00004000
 decl_stmt|;
+DECL|field|DOC_VALUES
+specifier|protected
+specifier|final
+specifier|static
+name|int
+name|DOC_VALUES
+init|=
+literal|0x00008000
+decl_stmt|;
 DECL|field|propertyNames
 specifier|static
 specifier|final
@@ -217,6 +226,8 @@ block|,
 literal|"omitPositions"
 block|,
 literal|"storeOffsetsWithPositions"
+block|,
+literal|"docValues"
 block|}
 decl_stmt|;
 DECL|field|propertyMap

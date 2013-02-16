@@ -37,19 +37,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexableField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|StorableField
 import|;
 end_import
@@ -90,6 +77,15 @@ operator|.
 name|response
 operator|.
 name|TextResponseWriter
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 begin_import
@@ -322,6 +318,22 @@ operator|(
 name|properties
 operator|&
 name|STORED
+operator|)
+operator|!=
+literal|0
+return|;
+block|}
+DECL|method|hasDocValues
+specifier|public
+name|boolean
+name|hasDocValues
+parameter_list|()
+block|{
+return|return
+operator|(
+name|properties
+operator|&
+name|DOC_VALUES
 operator|)
 operator|!=
 literal|0
@@ -569,8 +581,10 @@ return|;
 block|}
 DECL|method|createFields
 specifier|public
+name|List
+argument_list|<
 name|StorableField
-index|[]
+argument_list|>
 name|createFields
 parameter_list|(
 name|Object
@@ -722,8 +736,13 @@ block|{
 if|if
 condition|(
 operator|!
+operator|(
 name|indexed
 argument_list|()
+operator|||
+name|hasDocValues
+argument_list|()
+operator|)
 condition|)
 block|{
 throw|throw
@@ -736,7 +755,7 @@ name|ErrorCode
 operator|.
 name|BAD_REQUEST
 argument_list|,
-literal|"can not sort on unindexed field: "
+literal|"can not sort on a field which is neither indexed nor has doc values: "
 operator|+
 name|getName
 argument_list|()
@@ -782,8 +801,13 @@ block|{
 if|if
 condition|(
 operator|!
+operator|(
 name|indexed
 argument_list|()
+operator|||
+name|hasDocValues
+argument_list|()
+operator|)
 condition|)
 block|{
 throw|throw
@@ -796,7 +820,7 @@ name|ErrorCode
 operator|.
 name|BAD_REQUEST
 argument_list|,
-literal|"can not use FieldCache on unindexed field: "
+literal|"can not use FieldCache on a field which is neither indexed nor has doc values: "
 operator|+
 name|getName
 argument_list|()
