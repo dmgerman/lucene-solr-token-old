@@ -6640,13 +6640,6 @@ argument_list|(
 literal|"dir"
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|dataDir
-operator|==
-literal|null
-condition|)
-block|{
 name|String
 name|ulogDir
 init|=
@@ -6691,7 +6684,6 @@ operator|.
 name|getDataDir
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 return|return
 operator|new
