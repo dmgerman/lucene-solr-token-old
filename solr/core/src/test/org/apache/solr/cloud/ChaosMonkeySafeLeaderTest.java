@@ -594,6 +594,8 @@ argument_list|)
 index|]
 expr_stmt|;
 block|}
+try|try
+block|{
 name|Thread
 operator|.
 name|sleep
@@ -601,11 +603,15 @@ argument_list|(
 name|runLength
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|chaosMonkey
 operator|.
 name|stopTheMonkey
 argument_list|()
 expr_stmt|;
+block|}
 for|for
 control|(
 name|StopableIndexingThread
