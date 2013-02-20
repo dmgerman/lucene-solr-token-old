@@ -67,7 +67,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * The MultiTrie is a Trie of Tries. It stores words and their associated patch  * commands. The MultiTrie handles patch commmands individually (each command by  * itself).  */
+comment|/**  * The MultiTrie is a Trie of Tries. It stores words and their associated patch  * commands. The MultiTrie handles patch commands individually (each command by  * itself).  */
 end_comment
 begin_class
 DECL|class|MultiTrie

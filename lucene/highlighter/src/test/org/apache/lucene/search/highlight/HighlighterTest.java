@@ -8034,7 +8034,7 @@ operator|.
 name|this
 argument_list|)
 decl_stmt|;
-comment|// Get 3 best fragments and seperate with a "..."
+comment|// Get 3 best fragments and separate with a "..."
 name|TokenStream
 name|tokenStream
 init|=

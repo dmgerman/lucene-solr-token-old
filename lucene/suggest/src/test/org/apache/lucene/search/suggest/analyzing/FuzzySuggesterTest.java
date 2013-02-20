@@ -3391,7 +3391,7 @@ block|}
 block|}
 block|}
 block|}
-comment|// Holds surface form seperately:
+comment|// Holds surface form separately:
 DECL|class|TermFreq2
 specifier|private
 specifier|static
