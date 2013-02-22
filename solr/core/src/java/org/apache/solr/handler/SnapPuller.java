@@ -4370,40 +4370,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// update our commit point to the right dir
-name|CommitUpdateCommand
-name|cuc
-init|=
-operator|new
-name|CommitUpdateCommand
-argument_list|(
-name|req
-argument_list|,
-literal|false
-argument_list|)
-decl_stmt|;
-name|cuc
-operator|.
-name|waitSearcher
-operator|=
-literal|false
-expr_stmt|;
-name|cuc
-operator|.
-name|openSearcher
-operator|=
-literal|false
-expr_stmt|;
-name|solrCore
-operator|.
-name|getUpdateHandler
-argument_list|()
-operator|.
-name|commit
-argument_list|(
-name|cuc
-argument_list|)
-expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -4875,6 +4841,8 @@ name|get
 argument_list|(
 name|NAME
 argument_list|)
+operator|+
+literal|" because it already exists"
 argument_list|)
 expr_stmt|;
 block|}
@@ -5012,6 +4980,15 @@ name|fname
 argument_list|)
 condition|)
 block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Skipping move file - it already exists:"
+operator|+
+name|fname
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;

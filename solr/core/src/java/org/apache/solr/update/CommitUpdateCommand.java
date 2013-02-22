@@ -156,6 +156,10 @@ literal|",softCommit="
 operator|+
 name|softCommit
 operator|+
+literal|",prepareCommit="
+operator|+
+name|prepareCommit
+operator|+
 literal|'}'
 return|;
 block|}
