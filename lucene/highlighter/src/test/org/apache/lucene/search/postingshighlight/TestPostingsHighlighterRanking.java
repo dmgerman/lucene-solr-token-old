@@ -1238,6 +1238,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// we use a very simple analyzer. so we can assert the matches are correct
+name|int
+name|lastMatchStart
+init|=
+operator|-
+literal|1
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1312,6 +1318,18 @@ name|matchEnd
 operator|>=
 literal|0
 argument_list|)
+expr_stmt|;
+comment|// always moving forward
+name|assertTrue
+argument_list|(
+name|matchStart
+operator|>=
+name|lastMatchStart
+argument_list|)
+expr_stmt|;
+name|lastMatchStart
+operator|=
+name|matchStart
 expr_stmt|;
 comment|// single character terms
 name|assertEquals
