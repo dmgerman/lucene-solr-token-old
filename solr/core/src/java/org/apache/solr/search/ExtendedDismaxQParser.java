@@ -3087,6 +3087,7 @@ name|pos
 expr_stmt|;
 if|if
 condition|(
+operator|(
 name|ch
 operator|==
 literal|'+'
@@ -3094,6 +3095,15 @@ operator|||
 name|ch
 operator|==
 literal|'-'
+operator|)
+operator|&&
+operator|(
+name|pos
+operator|+
+literal|1
+operator|)
+operator|<
+name|end
 condition|)
 block|{
 name|clause
