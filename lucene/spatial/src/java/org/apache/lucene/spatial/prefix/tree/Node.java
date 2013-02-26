@@ -1,7 +1,4 @@
 begin_unit
-begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
-end_comment
 begin_package
 DECL|package|org.apache.lucene.spatial.prefix.tree
 package|package
@@ -18,6 +15,9 @@ operator|.
 name|tree
 package|;
 end_package
+begin_comment
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
 begin_import
 import|import
 name|com
@@ -94,7 +94,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * Represents a grid cell. These are not necessarily thread-safe, although new Cell("") (world cell) must be.  *  * @lucene.experimental  */
+comment|/**  * Represents a grid cell. These are not necessarily thread-safe, although new  * Cell("") (world cell) must be.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|Node
@@ -141,11 +141,17 @@ name|String
 name|token
 decl_stmt|;
 comment|//this is the only part of equality
-comment|/** When set via getSubCells(filter), it is the relationship between this    * cell and the given shape filter.  If set via setLeaf() (to WITHIN), it is    * meant to indicate no further sub-cells are going to be provided because    * maxLevels or a detailLevel is hit. It's always null for points.    */
+comment|/**    * When set via getSubCells(filter), it is the relationship between this cell    * and the given shape filter.    */
 DECL|field|shapeRel
 specifier|protected
 name|SpatialRelation
 name|shapeRel
+decl_stmt|;
+comment|/**    * Always false for points. Otherwise, indicate no further sub-cells are going    * to be provided because shapeRel is WITHIN or maxLevels or a detailLevel is    * hit.    */
+DECL|field|leaf
+specifier|protected
+name|boolean
+name|leaf
 decl_stmt|;
 DECL|method|Node
 specifier|protected
@@ -358,13 +364,10 @@ name|isLeaf
 parameter_list|()
 block|{
 return|return
-name|shapeRel
-operator|==
-name|SpatialRelation
-operator|.
-name|WITHIN
+name|leaf
 return|;
 block|}
+comment|/** Note: not supported at level 0. */
 DECL|method|setLeaf
 specifier|public
 name|void
@@ -377,11 +380,9 @@ argument_list|()
 operator|!=
 literal|0
 assert|;
-name|shapeRel
+name|leaf
 operator|=
-name|SpatialRelation
-operator|.
-name|WITHIN
+literal|true
 expr_stmt|;
 block|}
 comment|/**    * Note: doesn't contain a trailing leaf byte.    */
@@ -505,7 +506,7 @@ return|;
 block|}
 comment|//TODO add getParent() and update some algorithms to use this?
 comment|//public Cell getParent();
-comment|/**    * Like {@link #getSubCells()} but with the results filtered by a shape. If    * that shape is a {@link com.spatial4j.core.shape.Point} then it    * must call {@link #getSubCell(com.spatial4j.core.shape.Point)}.    * The returned cells should have their {@link Node#shapeRel} set to their    * relation with {@code shapeFilter} for non-point. As such,    * {@link org.apache.lucene.spatial.prefix.tree.Node#isLeaf()} should be    * accurate.    *<p/>    * Precondition: Never called when getLevel() == maxLevel.    *    * @param shapeFilter an optional filter for the returned cells.    * @return A set of cells (no dups), sorted. Not Modifiable.    */
+comment|/**    * Like {@link #getSubCells()} but with the results filtered by a shape. If    * that shape is a {@link com.spatial4j.core.shape.Point} then it must call    * {@link #getSubCell(com.spatial4j.core.shape.Point)}. The returned cells    * should have {@link Node#getShapeRel()} set to their relation with {@code    * shapeFilter}. In addition, {@link org.apache.lucene.spatial.prefix.tree.Node#isLeaf()}    * must be true when that relation is WITHIN.    *<p/>    * Precondition: Never called when getLevel() == maxLevel.    *    * @param shapeFilter an optional filter for the returned cells.    * @return A set of cells (no dups), sorted. Not Modifiable.    */
 DECL|method|getSubCells
 specifier|public
 name|Collection
@@ -526,11 +527,9 @@ operator|instanceof
 name|Point
 condition|)
 block|{
-return|return
-name|Collections
-operator|.
-name|singleton
-argument_list|(
+name|Node
+name|subCell
+init|=
 name|getSubCell
 argument_list|(
 operator|(
@@ -538,6 +537,21 @@ name|Point
 operator|)
 name|shapeFilter
 argument_list|)
+decl_stmt|;
+name|subCell
+operator|.
+name|shapeRel
+operator|=
+name|SpatialRelation
+operator|.
+name|CONTAINS
+expr_stmt|;
+return|return
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+name|subCell
 argument_list|)
 return|;
 block|}
@@ -561,6 +575,7 @@ return|return
 name|cells
 return|;
 block|}
+comment|//TODO change API to return a filtering iterator
 name|List
 argument_list|<
 name|Node
@@ -579,7 +594,6 @@ name|size
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//copy since cells contractually isn't modifiable
 for|for
 control|(
 name|Node
@@ -616,6 +630,19 @@ name|shapeRel
 operator|=
 name|rel
 expr_stmt|;
+if|if
+condition|(
+name|rel
+operator|==
+name|SpatialRelation
+operator|.
+name|WITHIN
+condition|)
+name|cell
+operator|.
+name|setLeaf
+argument_list|()
+expr_stmt|;
 name|copy
 operator|.
 name|add
@@ -624,15 +651,11 @@ name|cell
 argument_list|)
 expr_stmt|;
 block|}
-name|cells
-operator|=
-name|copy
-expr_stmt|;
 return|return
-name|cells
+name|copy
 return|;
 block|}
-comment|/**    * Performant implementations are expected to implement this efficiently by considering the current    * cell's boundary.    * Precondition: Never called when getLevel() == maxLevel.    * Precondition: this.getShape().relate(p) != DISJOINT.    */
+comment|/**    * Performant implementations are expected to implement this efficiently by    * considering the current cell's boundary. Precondition: Never called when    * getLevel() == maxLevel.    *<p/>    * Precondition: this.getShape().relate(p) != DISJOINT.    */
 DECL|method|getSubCell
 specifier|public
 specifier|abstract
@@ -644,7 +667,7 @@ name|p
 parameter_list|)
 function_decl|;
 comment|//TODO Cell getSubCell(byte b)
-comment|/**    * Gets the cells at the next grid cell level that cover this cell.    * Precondition: Never called when getLevel() == maxLevel.    *    * @return A set of cells (no dups), sorted. Not Modifiable.    */
+comment|/**    * Gets the cells at the next grid cell level that cover this cell.    * Precondition: Never called when getLevel() == maxLevel.    *    * @return A set of cells (no dups), sorted, modifiable, not empty, not null.    */
 DECL|method|getSubCells
 specifier|protected
 specifier|abstract
