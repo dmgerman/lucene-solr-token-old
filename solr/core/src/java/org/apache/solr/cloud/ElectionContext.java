@@ -594,6 +594,11 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+assert|assert
+name|shardId
+operator|!=
+literal|null
+assert|;
 name|ZkNodeProps
 name|m
 init|=
@@ -1778,7 +1783,7 @@ name|cc
 argument_list|,
 name|core
 operator|.
-name|getName
+name|getCoreDescriptor
 argument_list|()
 argument_list|)
 expr_stmt|;
