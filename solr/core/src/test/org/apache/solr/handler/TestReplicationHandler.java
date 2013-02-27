@@ -2961,6 +2961,18 @@ argument_list|(
 literal|"*:*"
 argument_list|)
 expr_stmt|;
+name|slaveClient
+operator|.
+name|deleteByQuery
+argument_list|(
+literal|"*:*"
+argument_list|)
+expr_stmt|;
+name|slaveClient
+operator|.
+name|commit
+argument_list|()
+expr_stmt|;
 name|nDocs
 operator|--
 expr_stmt|;
@@ -3218,11 +3230,11 @@ argument_list|()
 expr_stmt|;
 name|rQuery
 argument_list|(
-literal|3
+name|nDocs
 argument_list|,
 literal|"*:*"
 argument_list|,
-name|slaveClient
+name|masterClient
 argument_list|)
 expr_stmt|;
 comment|//get docs from slave and check if number is equal to master
@@ -3406,7 +3418,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|3
+literal|4
 condition|;
 name|i
 operator|++
@@ -3433,6 +3445,21 @@ argument_list|()
 expr_stmt|;
 name|pullFromSlaveToMaster
 argument_list|()
+expr_stmt|;
+name|rQuery
+argument_list|(
+operator|(
+name|int
+operator|)
+name|slaveQueryResult
+operator|.
+name|getNumFound
+argument_list|()
+argument_list|,
+literal|"*:*"
+argument_list|,
+name|masterClient
+argument_list|)
 expr_stmt|;
 comment|//get docs from slave and check if number is equal to master
 name|slaveQueryRsp
