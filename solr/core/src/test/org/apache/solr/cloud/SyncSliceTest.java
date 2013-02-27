@@ -358,16 +358,7 @@ name|beforeSuperClass
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-comment|// TODO: we use an fs based dir because something
-comment|// like a ram dir will not recovery correctly right now
-comment|// due to tran log persisting across restarts
-name|useFactory
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
+block|{   }
 annotation|@
 name|AfterClass
 DECL|method|afterSuperClass
@@ -1417,7 +1408,7 @@ name|pollConsistency
 argument_list|(
 name|shardFailMessage
 argument_list|,
-literal|8000
+literal|15000
 argument_list|)
 expr_stmt|;
 return|return
