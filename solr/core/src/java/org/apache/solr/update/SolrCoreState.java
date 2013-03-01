@@ -235,6 +235,11 @@ name|IndexWriterCloser
 name|closer
 parameter_list|)
 block|{
+name|boolean
+name|close
+init|=
+literal|false
+decl_stmt|;
 synchronized|synchronized
 init|(
 name|this
@@ -248,6 +253,17 @@ condition|(
 name|solrCoreStateRefCnt
 operator|==
 literal|0
+condition|)
+block|{
+name|close
+operator|=
+literal|true
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|close
 condition|)
 block|{
 try|try
@@ -280,7 +296,6 @@ argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
