@@ -558,6 +558,7 @@ name|int
 name|falseProperties
 decl_stmt|;
 DECL|field|properties
+specifier|protected
 name|int
 name|properties
 decl_stmt|;
@@ -658,6 +659,7 @@ parameter_list|)
 block|{    }
 comment|// Handle additional arguments...
 DECL|method|setArgs
+specifier|protected
 name|void
 name|setArgs
 parameter_list|(
