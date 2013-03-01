@@ -857,7 +857,6 @@ literal|"00:00:10"
 argument_list|)
 decl_stmt|;
 DECL|field|indexCommitPoint
-specifier|private
 specifier|volatile
 name|IndexCommit
 name|indexCommitPoint
