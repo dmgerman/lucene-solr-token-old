@@ -2912,9 +2912,7 @@ name|CategoryPath
 argument_list|(
 name|value
 argument_list|,
-name|Consts
-operator|.
-name|DEFAULT_DELIMITER
+name|delimiter
 argument_list|)
 decl_stmt|;
 specifier|final

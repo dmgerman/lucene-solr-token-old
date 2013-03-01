@@ -105,7 +105,7 @@ specifier|final
 name|char
 name|DEFAULT_FACET_DELIM_CHAR
 init|=
-literal|'\uF749'
+literal|'\u001F'
 decl_stmt|;
 DECL|field|partitionSize
 specifier|private
