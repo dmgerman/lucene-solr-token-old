@@ -1908,6 +1908,8 @@ range|:
 name|analysisClasses
 control|)
 block|{
+comment|// TODO: Fix below code to use c.isAnnotationPresent(). It was changed
+comment|// to the null check to work around a bug in JDK 8 b78 (see LUCENE-4808).
 specifier|final
 name|int
 name|modifiers
@@ -1957,12 +1959,14 @@ argument_list|()
 operator|||
 name|c
 operator|.
-name|isAnnotationPresent
+name|getAnnotation
 argument_list|(
 name|Deprecated
 operator|.
 name|class
 argument_list|)
+operator|!=
+literal|null
 operator|||
 operator|!
 operator|(
@@ -2022,12 +2026,14 @@ argument_list|()
 operator|||
 name|ctor
 operator|.
-name|isAnnotationPresent
+name|getAnnotation
 argument_list|(
 name|Deprecated
 operator|.
 name|class
 argument_list|)
+operator|!=
+literal|null
 operator|||
 name|brokenConstructors
 operator|.
