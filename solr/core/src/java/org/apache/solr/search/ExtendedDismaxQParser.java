@@ -4924,6 +4924,11 @@ name|equals
 argument_list|(
 literal|"*"
 argument_list|)
+operator|||
+name|getExplicitField
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 return|return
