@@ -2163,7 +2163,7 @@ name|CoreDescriptor
 operator|.
 name|CORE_NAME
 argument_list|,
-name|file
+name|childFile
 operator|.
 name|getName
 argument_list|()
