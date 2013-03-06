@@ -677,7 +677,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Closing directory when closing factory:"
+literal|"Closing directory when closing factory: "
 operator|+
 name|val
 operator|.
@@ -772,9 +772,9 @@ throw|;
 block|}
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Releasing directory:"
+literal|"Releasing directory: "
 operator|+
 name|cacheValue
 operator|.
@@ -799,17 +799,6 @@ operator|.
 name|doneWithDir
 condition|)
 block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Closing directory:"
-operator|+
-name|cacheValue
-operator|.
-name|path
-argument_list|)
-expr_stmt|;
 name|closeDirectory
 argument_list|(
 name|cacheValue
@@ -907,7 +896,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Closing directory:"
+literal|"Closing directory: "
 operator|+
 name|cacheValue
 operator|.
@@ -1295,7 +1284,7 @@ literal|"return new directory for "
 operator|+
 name|fullPath
 operator|+
-literal|" forceNew:"
+literal|" forceNew: "
 operator|+
 name|forceNew
 argument_list|)
