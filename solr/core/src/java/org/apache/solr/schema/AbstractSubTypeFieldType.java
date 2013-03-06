@@ -412,7 +412,7 @@ argument_list|)
 decl_stmt|;
 name|schema
 operator|.
-name|registerDynamicField
+name|registerDynamicFields
 argument_list|(
 name|proto
 argument_list|)
