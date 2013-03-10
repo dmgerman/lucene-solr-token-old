@@ -29,6 +29,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -264,7 +273,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Returns true if a Directory exists for a given path.    *     */
+comment|/**    * Returns true if a Directory exists for a given path.    * @throws IOException If there is a low-level I/O error.    *     */
 DECL|method|exists
 specifier|public
 specifier|abstract
@@ -274,6 +283,8 @@ parameter_list|(
 name|String
 name|path
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**    * Removes the Directory's persistent storage.    * For example: A file system impl may remove the    * on disk directory.    * @throws IOException If there is a low-level I/O error.    *     */
 DECL|method|remove
@@ -430,6 +441,28 @@ name|IOException
 block|{
 return|return
 name|path
+return|;
+block|}
+comment|/**    * @param path the path to check    * @return true if absolute, as in not relative    */
+DECL|method|isAbsolute
+specifier|public
+name|boolean
+name|isAbsolute
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+comment|// back compat
+return|return
+operator|new
+name|File
+argument_list|(
+name|path
+argument_list|)
+operator|.
+name|isAbsolute
+argument_list|()
 return|;
 block|}
 DECL|method|sizeOfDirectory
