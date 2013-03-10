@@ -2253,6 +2253,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|zkStateReader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|server
 operator|.
 name|shutdown
