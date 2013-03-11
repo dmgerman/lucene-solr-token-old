@@ -63,6 +63,7 @@ comment|/** Implements a {@link TermsEnum} wrapping a provided  * {@link SortedD
 end_comment
 begin_class
 DECL|class|SortedDocValuesTermsEnum
+specifier|public
 class|class
 name|SortedDocValuesTermsEnum
 extends|extends
