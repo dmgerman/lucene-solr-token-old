@@ -255,6 +255,15 @@ name|dir
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|val
+operator|.
+name|path
+operator|!=
+literal|null
+condition|)
+block|{
 name|File
 name|dirFile
 init|=
@@ -273,6 +282,7 @@ argument_list|(
 name|dirFile
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

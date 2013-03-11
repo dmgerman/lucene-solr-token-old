@@ -811,6 +811,15 @@ argument_list|(
 name|directory
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cacheValue
+operator|.
+name|path
+operator|!=
+literal|null
+condition|)
+block|{
 name|byPathCache
 operator|.
 name|remove
@@ -820,6 +829,7 @@ operator|.
 name|path
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1201,6 +1211,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// kill the path, it will be owned by the new dir
+comment|// we count on it being released by directory
+name|cacheValue
+operator|.
+name|path
+operator|=
+literal|null
+expr_stmt|;
 block|}
 block|}
 if|if
