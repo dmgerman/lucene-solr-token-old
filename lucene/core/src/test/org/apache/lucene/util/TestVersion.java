@@ -14,17 +14,6 @@ operator|.
 name|util
 package|;
 end_package
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|annotation
-operator|.
-name|Annotation
-import|;
-end_import
 begin_class
 DECL|class|TestVersion
 specifier|public
@@ -210,7 +199,7 @@ expr_stmt|;
 block|}
 comment|// TODO: Use isAnnotationPresent once bug in Java 8 is fixed (LUCENE-4808)
 specifier|final
-name|Annotation
+name|Deprecated
 name|ann
 init|=
 name|Version
