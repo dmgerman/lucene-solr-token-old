@@ -1850,6 +1850,8 @@ operator|=
 operator|new
 name|TestHarness
 argument_list|(
+name|coreName
+argument_list|,
 name|dataDir
 operator|.
 name|getAbsolutePath
