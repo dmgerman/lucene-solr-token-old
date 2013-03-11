@@ -4066,6 +4066,11 @@ name|analyzedKey
 operator|=
 literal|""
 expr_stmt|;
+name|boolean
+name|lastRemoved
+init|=
+literal|false
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -4192,12 +4197,20 @@ operator|+=
 literal|'\u0000'
 expr_stmt|;
 block|}
+name|lastRemoved
+operator|=
+literal|true
+expr_stmt|;
 block|}
 else|else
 block|{
 name|analyzedKey
 operator|+=
 name|s
+expr_stmt|;
+name|lastRemoved
+operator|=
+literal|false
 expr_stmt|;
 block|}
 break|break;
@@ -4215,6 +4228,18 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|preserveSep
+operator|&&
+name|lastRemoved
+condition|)
+block|{
+name|analyzedKey
+operator|+=
+literal|" "
+expr_stmt|;
+block|}
 comment|// Don't add same surface form more than once:
 if|if
 condition|(
@@ -4530,6 +4555,11 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+name|boolean
+name|lastRemoved
+init|=
+literal|false
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -4623,6 +4653,10 @@ literal|"\u0000"
 argument_list|)
 expr_stmt|;
 block|}
+name|lastRemoved
+operator|=
+literal|true
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -4632,6 +4666,10 @@ name|append
 argument_list|(
 name|token
 argument_list|)
+expr_stmt|;
+name|lastRemoved
+operator|=
+literal|false
 expr_stmt|;
 block|}
 block|}
@@ -4704,6 +4742,27 @@ block|{
 comment|// Currently suggester can't suggest from the empty
 comment|// string!  You get no results, not all results...
 continue|continue;
+block|}
+if|if
+condition|(
+name|preserveSep
+operator|&&
+operator|(
+name|prefix
+operator|.
+name|endsWith
+argument_list|(
+literal|" "
+argument_list|)
+operator|||
+name|lastRemoved
+operator|)
+condition|)
+block|{
+name|analyzedKey
+operator|+=
+literal|" "
+expr_stmt|;
 block|}
 if|if
 condition|(

@@ -3555,11 +3555,6 @@ argument_list|)
 decl_stmt|;
 name|ts
 operator|.
-name|end
-argument_list|()
-expr_stmt|;
-name|ts
-operator|.
 name|close
 argument_list|()
 expr_stmt|;
@@ -3639,11 +3634,6 @@ argument_list|(
 name|ts
 argument_list|)
 decl_stmt|;
-name|ts
-operator|.
-name|end
-argument_list|()
-expr_stmt|;
 name|ts
 operator|.
 name|close
