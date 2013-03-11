@@ -80,7 +80,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|KeywordMarkerFilter
+name|SetKeywordMarkerFilter
 import|;
 end_import
 begin_import
@@ -114,7 +114,7 @@ name|KeywordAttribute
 import|;
 end_import
 begin_comment
-comment|/**  * Replaces term text with the {@link BaseFormAttribute}.  *<p>  * This acts as a lemmatizer for verbs and adjectives.  *<p>  * To prevent terms from being stemmed use an instance of  * {@link KeywordMarkerFilter} or a custom {@link TokenFilter} that sets  * the {@link KeywordAttribute} before this {@link TokenStream}.  *</p>  */
+comment|/**  * Replaces term text with the {@link BaseFormAttribute}.  *<p>  * This acts as a lemmatizer for verbs and adjectives.  *<p>  * To prevent terms from being stemmed use an instance of  * {@link SetKeywordMarkerFilter} or a custom {@link TokenFilter} that sets  * the {@link KeywordAttribute} before this {@link TokenStream}.  *</p>  */
 end_comment
 begin_class
 DECL|class|JapaneseBaseFormFilter

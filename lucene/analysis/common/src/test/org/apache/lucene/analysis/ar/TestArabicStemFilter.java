@@ -122,7 +122,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|KeywordMarkerFilter
+name|SetKeywordMarkerFilter
 import|;
 end_import
 begin_import
@@ -541,7 +541,7 @@ operator|new
 name|ArabicStemFilter
 argument_list|(
 operator|new
-name|KeywordMarkerFilter
+name|SetKeywordMarkerFilter
 argument_list|(
 name|tokenStream
 argument_list|,

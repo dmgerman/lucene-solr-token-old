@@ -156,7 +156,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|KeywordMarkerFilter
+name|SetKeywordMarkerFilter
 import|;
 end_import
 begin_import
@@ -434,7 +434,7 @@ name|TokenStream
 name|sink
 init|=
 operator|new
-name|KeywordMarkerFilter
+name|SetKeywordMarkerFilter
 argument_list|(
 name|source
 argument_list|,

@@ -37,7 +37,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|KeywordMarkerFilter
+name|SetKeywordMarkerFilter
 import|;
 end_import
 begin_comment
@@ -100,7 +100,7 @@ name|CharTermAttribute
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link TokenFilter} that applies {@link ArabicStemmer} to stem Arabic words..  *<p>  * To prevent terms from being stemmed use an instance of  * {@link KeywordMarkerFilter} or a custom {@link TokenFilter} that sets  * the {@link KeywordAttribute} before this {@link TokenStream}.  *</p>  * @see KeywordMarkerFilter */
+comment|/**  * A {@link TokenFilter} that applies {@link ArabicStemmer} to stem Arabic words..  *<p>  * To prevent terms from being stemmed use an instance of  * {@link SetKeywordMarkerFilter} or a custom {@link TokenFilter} that sets  * the {@link KeywordAttribute} before this {@link TokenStream}.  *</p>  * @see SetKeywordMarkerFilter */
 end_comment
 begin_class
 DECL|class|ArabicStemFilter

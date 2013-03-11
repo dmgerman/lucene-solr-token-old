@@ -89,7 +89,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|KeywordMarkerFilter
+name|SetKeywordMarkerFilter
 import|;
 end_import
 begin_import
@@ -312,7 +312,7 @@ name|EMPTY_SET
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Builds an analyzer with the given stop word. If a none-empty stem exclusion set is    * provided this analyzer will add a {@link KeywordMarkerFilter} before    * {@link ArabicStemFilter}.    *     * @param matchVersion    *          lucene compatibility version    * @param stopwords    *          a stopword set    * @param stemExclusionSet    *          a set of terms not to be stemmed    */
+comment|/**    * Builds an analyzer with the given stop word. If a none-empty stem exclusion set is    * provided this analyzer will add a {@link SetKeywordMarkerFilter} before    * {@link ArabicStemFilter}.    *     * @param matchVersion    *          lucene compatibility version    * @param stopwords    *          a stopword set    * @param stemExclusionSet    *          a set of terms not to be stemmed    */
 DECL|method|ArabicAnalyzer
 specifier|public
 name|ArabicAnalyzer
@@ -353,7 +353,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates    * {@link org.apache.lucene.analysis.Analyzer.TokenStreamComponents}    * used to tokenize all the text in the provided {@link Reader}.    *     * @return {@link org.apache.lucene.analysis.Analyzer.TokenStreamComponents}    *         built from an {@link StandardTokenizer} filtered with    *         {@link LowerCaseFilter}, {@link StopFilter},    *         {@link ArabicNormalizationFilter}, {@link KeywordMarkerFilter}    *         if a stem exclusion set is provided and {@link ArabicStemFilter}.    */
+comment|/**    * Creates    * {@link org.apache.lucene.analysis.Analyzer.TokenStreamComponents}    * used to tokenize all the text in the provided {@link Reader}.    *     * @return {@link org.apache.lucene.analysis.Analyzer.TokenStreamComponents}    *         built from an {@link StandardTokenizer} filtered with    *         {@link LowerCaseFilter}, {@link StopFilter},    *         {@link ArabicNormalizationFilter}, {@link SetKeywordMarkerFilter}    *         if a stem exclusion set is provided and {@link ArabicStemFilter}.    */
 annotation|@
 name|Override
 DECL|method|createComponents
@@ -425,7 +425,7 @@ block|{
 name|result
 operator|=
 operator|new
-name|KeywordMarkerFilter
+name|SetKeywordMarkerFilter
 argument_list|(
 name|result
 argument_list|,
