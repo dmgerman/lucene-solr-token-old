@@ -589,6 +589,12 @@ expr_stmt|;
 name|resetFactory
 argument_list|()
 expr_stmt|;
+name|coreName
+operator|=
+name|CoreContainer
+operator|.
+name|DEFAULT_DEFAULT_CORE_NAME
+expr_stmt|;
 name|System
 operator|.
 name|clearProperty
