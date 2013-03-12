@@ -206,7 +206,7 @@ annotation|@
 name|Override
 DECL|method|create
 specifier|public
-name|Tokenizer
+name|PatternTokenizer
 name|create
 parameter_list|(
 specifier|final

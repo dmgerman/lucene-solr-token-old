@@ -726,7 +726,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|Tokenizer
+name|MockTokenizer
 name|create
 parameter_list|(
 name|Reader
