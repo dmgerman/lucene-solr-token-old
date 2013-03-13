@@ -432,6 +432,17 @@ operator|.
 name|Map
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
+import|;
+end_import
 begin_comment
 comment|/**  *<code>IndexSchema</code> contains information about the valid fields in an index  * and the types of those fields.  *  *  */
 end_comment
@@ -1989,7 +2000,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|isValidDynamicFieldName
+name|isValidFieldGlob
 argument_list|(
 name|name
 argument_list|)
@@ -2917,10 +2928,11 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/** Returns true if the given name has exactly one asterisk either at the start or end of the name */
-DECL|method|isValidDynamicFieldName
+DECL|method|isValidFieldGlob
 specifier|private
+specifier|static
 name|boolean
-name|isValidDynamicFieldName
+name|isValidFieldGlob
 parameter_list|(
 name|String
 name|name
@@ -3347,15 +3359,87 @@ name|sourceIsDynamicFieldReference
 init|=
 literal|false
 decl_stmt|;
+name|boolean
+name|sourceIsExplicitFieldGlob
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+literal|null
+operator|==
+name|sourceSchemaField
+operator|&&
+name|isValidFieldGlob
+argument_list|(
+name|source
+argument_list|)
+condition|)
+block|{
+name|Pattern
+name|pattern
+init|=
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+name|source
+operator|.
+name|replace
+argument_list|(
+literal|"*"
+argument_list|,
+literal|".*"
+argument_list|)
+argument_list|)
+decl_stmt|;
+comment|// glob->regex
+for|for
+control|(
+name|String
+name|field
+range|:
+name|fields
+operator|.
+name|keySet
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|pattern
+operator|.
+name|matcher
+argument_list|(
+name|field
+argument_list|)
+operator|.
+name|matches
+argument_list|()
+condition|)
+block|{
+name|sourceIsExplicitFieldGlob
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
+block|}
+block|}
 if|if
 condition|(
 literal|null
 operator|==
 name|destSchemaField
 operator|||
+operator|(
 literal|null
 operator|==
 name|sourceSchemaField
+operator|&&
+operator|!
+name|sourceIsExplicitFieldGlob
+operator|)
 condition|)
 block|{
 comment|// Go through dynamicFields array only once, collecting info for both source and dest fields, if needed
@@ -3375,6 +3459,9 @@ name|sourceSchemaField
 operator|&&
 operator|!
 name|sourceIsDynamicFieldReference
+operator|&&
+operator|!
+name|sourceIsExplicitFieldGlob
 condition|)
 block|{
 if|if
@@ -3489,9 +3576,13 @@ operator|!=
 name|sourceSchemaField
 operator|||
 name|sourceIsDynamicFieldReference
+operator|||
+name|sourceIsExplicitFieldGlob
 operator|)
 condition|)
+block|{
 break|break;
+block|}
 block|}
 block|}
 if|if
@@ -3502,6 +3593,9 @@ name|sourceSchemaField
 operator|&&
 operator|!
 name|sourceIsDynamicFieldReference
+operator|&&
+operator|!
+name|sourceIsExplicitFieldGlob
 condition|)
 block|{
 name|String
@@ -3511,7 +3605,7 @@ literal|"copyField source :'"
 operator|+
 name|source
 operator|+
-literal|"' is not an explicit field and doesn't match a dynamicField."
+literal|"' doesn't match any explicit field or dynamicField."
 decl_stmt|;
 throw|throw
 operator|new
@@ -3556,6 +3650,8 @@ block|}
 if|if
 condition|(
 name|sourceIsDynamicFieldReference
+operator|||
+name|sourceIsExplicitFieldGlob
 condition|)
 block|{
 if|if
@@ -3565,7 +3661,7 @@ operator|!=
 name|destDynamicField
 condition|)
 block|{
-comment|// source& dest: dynamic field references
+comment|// source: dynamic field ref or explicit field glob; dest: dynamic field ref
 name|registerDynamicCopyField
 argument_list|(
 operator|new
@@ -3678,7 +3774,7 @@ name|msg
 init|=
 literal|"copyField only supports a dynamic destination with an asterisk "
 operator|+
-literal|"if the source is also dynamic with an asterisk"
+literal|"if the source also has an asterisk"
 decl_stmt|;
 throw|throw
 operator|new
