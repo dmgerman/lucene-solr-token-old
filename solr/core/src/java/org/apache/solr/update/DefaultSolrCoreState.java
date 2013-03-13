@@ -109,6 +109,21 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
+name|SolrException
+operator|.
+name|ErrorCode
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|core
 operator|.
 name|CoreContainer
@@ -424,8 +439,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|SolrException
 argument_list|(
+name|ErrorCode
+operator|.
+name|SERVICE_UNAVAILABLE
+argument_list|,
 literal|"SolrCoreState already closed"
 argument_list|)
 throw|;
@@ -487,8 +506,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|SolrException
 argument_list|(
+name|ErrorCode
+operator|.
+name|SERVICE_UNAVAILABLE
+argument_list|,
 literal|"Already closed"
 argument_list|)
 throw|;
@@ -684,8 +707,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|SolrException
 argument_list|(
+name|ErrorCode
+operator|.
+name|SERVICE_UNAVAILABLE
+argument_list|,
 literal|"SolrCoreState already closed"
 argument_list|)
 throw|;
