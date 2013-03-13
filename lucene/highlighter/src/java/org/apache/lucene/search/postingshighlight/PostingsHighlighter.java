@@ -467,7 +467,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates a new highlighter with custom parameters.    * @param maxLength maximum content size to process.    * @param breakIterator used for finding passage boundaries.    * @param scorer used for ranking passages.    * @param formatter used for formatting passages into highlighted snippets.    * @throws IllegalArgumentException if<code>maxLength</code> is negative or<code>Integer.MAX_VALUE</code>    */
+comment|/**    * Creates a new highlighter with custom parameters.    * @param maxLength maximum content size to process.    * @param breakIterator used for finding passage    *        boundaries; pass null to highlight the entire    *        content as a single Passage.    * @param scorer used for ranking passages.    * @param formatter used for formatting passages into highlighted snippets.    * @throws IllegalArgumentException if<code>maxLength</code> is negative or<code>Integer.MAX_VALUE</code>    */
 DECL|method|PostingsHighlighter
 specifier|public
 name|PostingsHighlighter
@@ -513,7 +513,17 @@ condition|(
 name|breakIterator
 operator|==
 literal|null
-operator|||
+condition|)
+block|{
+name|breakIterator
+operator|=
+operator|new
+name|WholeBreakIterator
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|scorer
 operator|==
 literal|null
