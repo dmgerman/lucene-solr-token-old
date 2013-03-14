@@ -941,6 +941,24 @@ return|return
 literal|null
 return|;
 block|}
+comment|// what is the runtime...seems ok?
+specifier|final
+name|long
+name|cost
+init|=
+name|context
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|maxDoc
+argument_list|()
+operator|*
+name|terms
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 name|segmentTermsEnum
 operator|=
 name|terms
@@ -977,6 +995,8 @@ argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
+argument_list|,
+name|cost
 argument_list|)
 return|;
 block|}
@@ -999,6 +1019,8 @@ argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
+argument_list|,
+name|cost
 argument_list|)
 return|;
 block|}
@@ -1026,6 +1048,8 @@ argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
+argument_list|,
+name|cost
 argument_list|)
 return|;
 block|}
@@ -1040,6 +1064,8 @@ argument_list|,
 name|acceptDocs
 argument_list|,
 name|segmentTermsEnum
+argument_list|,
+name|cost
 argument_list|)
 return|;
 block|}
@@ -1073,6 +1099,11 @@ specifier|final
 name|TermsEnum
 name|termsEnum
 decl_stmt|;
+DECL|field|cost
+specifier|final
+name|long
+name|cost
+decl_stmt|;
 DECL|field|upto
 name|int
 name|upto
@@ -1100,6 +1131,9 @@ name|acceptDocs
 parameter_list|,
 name|TermsEnum
 name|termsEnum
+parameter_list|,
+name|long
+name|cost
 parameter_list|)
 block|{
 name|super
@@ -1118,6 +1152,12 @@ operator|.
 name|termsEnum
 operator|=
 name|termsEnum
+expr_stmt|;
+name|this
+operator|.
+name|cost
+operator|=
+name|cost
 expr_stmt|;
 block|}
 annotation|@
@@ -1430,6 +1470,18 @@ return|return
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|cost
+specifier|public
+name|long
+name|cost
+parameter_list|()
+block|{
+return|return
+name|cost
+return|;
+block|}
 block|}
 comment|// This impl that tracks whether a docid has already been emitted. This check makes sure that docs aren't emitted
 comment|// twice for different join values. This means that the first encountered join value determines the score of a document
@@ -1459,6 +1511,9 @@ name|termsEnum
 parameter_list|,
 name|int
 name|maxDoc
+parameter_list|,
+name|long
+name|cost
 parameter_list|)
 block|{
 name|super
@@ -1468,6 +1523,8 @@ argument_list|,
 name|acceptDocs
 argument_list|,
 name|termsEnum
+argument_list|,
+name|cost
 argument_list|)
 expr_stmt|;
 name|alreadyEmittedDocs
@@ -1716,6 +1773,11 @@ name|float
 index|[]
 name|scores
 decl_stmt|;
+DECL|field|cost
+specifier|final
+name|long
+name|cost
+decl_stmt|;
 DECL|field|currentDoc
 name|int
 name|currentDoc
@@ -1737,6 +1799,9 @@ name|termsEnum
 parameter_list|,
 name|int
 name|maxDoc
+parameter_list|,
+name|long
+name|cost
 parameter_list|)
 throws|throws
 name|IOException
@@ -1782,6 +1847,12 @@ name|matchingDocs
 operator|.
 name|iterator
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|cost
+operator|=
+name|cost
 expr_stmt|;
 block|}
 DECL|method|fillDocsAndScores
@@ -2013,6 +2084,18 @@ name|target
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|cost
+specifier|public
+name|long
+name|cost
+parameter_list|()
+block|{
+return|return
+name|cost
+return|;
+block|}
 block|}
 comment|// This scorer deals with the fact that a document can have more than one score from multiple related documents.
 DECL|class|MVInOrderScorer
@@ -2035,6 +2118,9 @@ name|termsEnum
 parameter_list|,
 name|int
 name|maxDoc
+parameter_list|,
+name|long
+name|cost
 parameter_list|)
 throws|throws
 name|IOException
@@ -2048,6 +2134,8 @@ argument_list|,
 name|termsEnum
 argument_list|,
 name|maxDoc
+argument_list|,
+name|cost
 argument_list|)
 expr_stmt|;
 block|}
