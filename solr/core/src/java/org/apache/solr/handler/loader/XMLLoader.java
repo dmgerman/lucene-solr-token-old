@@ -2780,6 +2780,10 @@ name|update
 operator|=
 literal|null
 expr_stmt|;
+name|isNull
+operator|=
+literal|false
+expr_stmt|;
 name|String
 name|attrVal
 init|=
