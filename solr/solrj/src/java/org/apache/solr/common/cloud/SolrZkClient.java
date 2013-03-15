@@ -87,17 +87,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|TimeoutException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|atomic
 operator|.
 name|AtomicLong
@@ -259,6 +248,19 @@ name|apache
 operator|.
 name|zookeeper
 operator|.
+name|KeeperException
+operator|.
+name|NodeExistsException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|zookeeper
+operator|.
 name|Watcher
 import|;
 end_import
@@ -282,19 +284,6 @@ operator|.
 name|zookeeper
 operator|.
 name|ZooKeeper
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|zookeeper
-operator|.
-name|KeeperException
-operator|.
-name|NodeExistsException
 import|;
 end_import
 begin_import
@@ -2195,7 +2184,7 @@ block|}
 comment|/**    * Write data to ZooKeeper.    */
 DECL|method|setData
 specifier|public
-name|void
+name|Stat
 name|setData
 parameter_list|(
 name|String
@@ -2213,6 +2202,7 @@ name|KeeperException
 throws|,
 name|InterruptedException
 block|{
+return|return
 name|setData
 argument_list|(
 name|path
@@ -2224,12 +2214,12 @@ literal|1
 argument_list|,
 name|retryOnConnLoss
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 comment|/**    * Write file to ZooKeeper - default system encoding used.    *     * @param path path to upload file to e.g. /solr/conf/solrconfig.xml    * @param file path to file to be uploaded    */
 DECL|method|setData
 specifier|public
-name|void
+name|Stat
 name|setData
 parameter_list|(
 name|String
@@ -2283,6 +2273,7 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
+return|return
 name|setData
 argument_list|(
 name|path
@@ -2296,7 +2287,7 @@ argument_list|)
 argument_list|,
 name|retryOnConnLoss
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 comment|/**    * Returns the baseURL corrisponding to a given node's nodeName --     * NOTE: does not (currently) imply that the nodeName (or resulting     * baseURL) exists in the cluster.    * @lucene.experimental    */
 DECL|method|getBaseUrlForNodeName
