@@ -1199,14 +1199,6 @@ decl_stmt|;
 name|DrillSidewaysResult
 name|r
 init|=
-operator|new
-name|DrillSideways
-argument_list|(
-name|searcher
-argument_list|,
-name|taxoReader
-argument_list|)
-operator|.
 name|search
 argument_list|(
 name|query
@@ -1296,14 +1288,6 @@ decl_stmt|;
 name|DrillSidewaysResult
 name|r
 init|=
-operator|new
-name|DrillSideways
-argument_list|(
-name|searcher
-argument_list|,
-name|taxoReader
-argument_list|)
-operator|.
 name|search
 argument_list|(
 name|query
@@ -1335,6 +1319,8 @@ parameter_list|(
 name|FacetSearchParams
 name|fsp
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|FacetsAccumulator
@@ -1364,6 +1350,8 @@ parameter_list|,
 name|FacetSearchParams
 name|fsp
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|FacetsAccumulator
