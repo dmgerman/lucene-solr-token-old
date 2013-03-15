@@ -255,15 +255,15 @@ literal|"UTF-8"
 argument_list|)
 decl_stmt|;
 name|Package
-package|package =
+name|pack
+init|=
 name|SolrCore
 operator|.
 name|class
 operator|.
 name|getPackage
-package|(
-block|)
-empty_stmt|;
+argument_list|()
+decl_stmt|;
 name|String
 index|[]
 name|search
@@ -310,7 +310,8 @@ block|,
 name|StringEscapeUtils
 operator|.
 name|escapeJavaScript
-argument_list|(package
+argument_list|(
+name|pack
 operator|.
 name|getSpecificationVersion
 argument_list|()
@@ -361,6 +362,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 end_class
-unit|}
 end_unit
