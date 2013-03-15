@@ -658,6 +658,10 @@ condition|(
 name|part
 operator|==
 literal|null
+operator|||
+name|analyzerIn
+operator|==
+literal|null
 condition|)
 return|return
 literal|null

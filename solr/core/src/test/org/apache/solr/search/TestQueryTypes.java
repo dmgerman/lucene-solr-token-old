@@ -279,6 +279,20 @@ literal|"internal\"quote"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertU
+argument_list|(
+name|adoc
+argument_list|(
+literal|"id"
+argument_list|,
+literal|"10"
+argument_list|,
+literal|"text_no_analyzer"
+argument_list|,
+literal|"should just work"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|Object
 index|[]
 name|arr
@@ -1614,6 +1628,20 @@ literal|"hel"
 argument_list|)
 argument_list|,
 literal|"//result[@numFound='2']"
+argument_list|)
+expr_stmt|;
+name|assertQ
+argument_list|(
+literal|"Test text field with no analysis doesn't NPE with wildcards (SOLR-4318)"
+argument_list|,
+name|req
+argument_list|(
+literal|"q"
+argument_list|,
+literal|"text_no_analyzer:should*"
+argument_list|)
+argument_list|,
+literal|"//result[@numFound='1']"
 argument_list|)
 expr_stmt|;
 block|}
