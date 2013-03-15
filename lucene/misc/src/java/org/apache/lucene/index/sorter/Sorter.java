@@ -299,6 +299,8 @@ operator|new
 name|DocMap
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|oldToNew
@@ -315,6 +317,8 @@ operator|-
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|int
 name|newToOld
