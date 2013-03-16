@@ -1640,6 +1640,7 @@ name|retry
 condition|)
 block|{
 comment|// we couldn't find a core to work with, try reloading aliases
+comment|// TODO: it would be nice if admin ui elements skipped this...
 name|ZkStateReader
 name|reader
 init|=
@@ -1667,6 +1668,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 block|}
 block|}
