@@ -20,6 +20,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -48,6 +57,8 @@ operator|.
 name|util
 operator|.
 name|Map
+operator|.
+name|Entry
 import|;
 end_import
 begin_import
@@ -57,8 +68,6 @@ operator|.
 name|util
 operator|.
 name|Map
-operator|.
-name|Entry
 import|;
 end_import
 begin_import
@@ -164,6 +173,8 @@ class|class
 name|PersistentSnapshotDeletionPolicy
 extends|extends
 name|SnapshotDeletionPolicy
+implements|implements
+name|Closeable
 block|{
 comment|// Used to validate that the given directory includes just one document w/ the
 comment|// given ID field. Otherwise, it's not a valid Directory for snapshotting.
