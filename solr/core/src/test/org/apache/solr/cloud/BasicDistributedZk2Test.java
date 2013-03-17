@@ -1531,7 +1531,7 @@ name|DEFAULT_COLLECTION
 argument_list|,
 name|SHARD1
 argument_list|,
-literal|45000
+literal|60000
 argument_list|)
 expr_stmt|;
 name|index_specific
