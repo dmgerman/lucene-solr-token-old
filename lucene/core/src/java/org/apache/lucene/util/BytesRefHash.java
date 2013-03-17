@@ -106,7 +106,7 @@ name|DirectAllocator
 import|;
 end_import
 begin_comment
-comment|/**  * {@link BytesRefHash} is a special purpose hash-map like data-structure  * optimized for {@link BytesRef} instances. BytesRefHash maintains mappings of  * byte arrays to ordinal (Map&lt;BytesRef,int&gt;) storing the hashed bytes  * efficiently in continuous storage. The mapping to the ordinal is  * encapsulated inside {@link BytesRefHash} and is guaranteed to be increased  * for each added {@link BytesRef}.  *   *<p>  * Note: The maximum capacity {@link BytesRef} instance passed to  * {@link #add(BytesRef)} must not be longer than {@link ByteBlockPool#BYTE_BLOCK_SIZE}-2.   * The internal storage is limited to 2GB total byte storage.  *</p>  *   * @lucene.internal  */
+comment|/**  * {@link BytesRefHash} is a special purpose hash-map like data-structure  * optimized for {@link BytesRef} instances. BytesRefHash maintains mappings of  * byte arrays to ids (Map&lt;BytesRef,int&gt;) storing the hashed bytes  * efficiently in continuous storage. The mapping to the id is  * encapsulated inside {@link BytesRefHash} and is guaranteed to be increased  * for each added {@link BytesRef}.  *   *<p>  * Note: The maximum capacity {@link BytesRef} instance passed to  * {@link #add(BytesRef)} must not be longer than {@link ByteBlockPool#BYTE_BLOCK_SIZE}-2.   * The internal storage is limited to 2GB total byte storage.  *</p>  *   * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|BytesRefHash
@@ -174,11 +174,11 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|field|ords
+DECL|field|ids
 specifier|private
 name|int
 index|[]
-name|ords
+name|ids
 decl_stmt|;
 DECL|field|bytesStartArray
 specifier|private
@@ -269,7 +269,7 @@ name|pool
 operator|=
 name|pool
 expr_stmt|;
-name|ords
+name|ids
 operator|=
 operator|new
 name|int
@@ -281,7 +281,7 @@ name|Arrays
 operator|.
 name|fill
 argument_list|(
-name|ords
+name|ids
 argument_list|,
 operator|-
 literal|1
@@ -342,14 +342,14 @@ return|return
 name|count
 return|;
 block|}
-comment|/**    * Populates and returns a {@link BytesRef} with the bytes for the given ord.    *<p>    * Note: the given ord must be a positive integer less that the current size (    * {@link #size()})    *</p>    *    * @param ord the ord    * @param ref the {@link BytesRef} to populate    *     * @return the given BytesRef instance populated with the bytes for the given ord    */
+comment|/**    * Populates and returns a {@link BytesRef} with the bytes for the given    * bytesID.    *<p>    * Note: the given bytesID must be a positive integer less than the current    * size ({@link #size()})    *     * @param bytesID    *          the id    * @param ref    *          the {@link BytesRef} to populate    *     * @return the given BytesRef instance populated with the bytes for the given    *         bytesID    */
 DECL|method|get
 specifier|public
 name|BytesRef
 name|get
 parameter_list|(
 name|int
-name|ord
+name|bytesID
 parameter_list|,
 name|BytesRef
 name|ref
@@ -363,13 +363,13 @@ operator|:
 literal|"bytesStart is null - not initialized"
 assert|;
 assert|assert
-name|ord
+name|bytesID
 operator|<
 name|bytesStart
 operator|.
 name|length
 operator|:
-literal|"ord exceeds byteStart len: "
+literal|"bytesID exceeds byteStart len: "
 operator|+
 name|bytesStart
 operator|.
@@ -383,7 +383,7 @@ name|ref
 argument_list|,
 name|bytesStart
 index|[
-name|ord
+name|bytesID
 index|]
 argument_list|)
 expr_stmt|;
@@ -391,7 +391,7 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**    * Returns the ords array in arbitrary order. Valid ords start at offset of 0    * and end at a limit of {@link #size()} - 1    *<p>    * Note: This is a destructive operation. {@link #clear()} must be called in    * order to reuse this {@link BytesRefHash} instance.    *</p>    */
+comment|/**    * Returns the ids array in arbitrary order. Valid ids start at offset of 0    * and end at a limit of {@link #size()} - 1    *<p>    * Note: This is a destructive operation. {@link #clear()} must be called in    * order to reuse this {@link BytesRefHash} instance.    *</p>    */
 DECL|method|compact
 name|int
 index|[]
@@ -403,7 +403,7 @@ name|bytesStart
 operator|!=
 literal|null
 operator|:
-literal|"Bytesstart is null - not initialized"
+literal|"bytesStart is null - not initialized"
 assert|;
 name|int
 name|upto
@@ -427,7 +427,7 @@ control|)
 block|{
 if|if
 condition|(
-name|ords
+name|ids
 index|[
 name|i
 index|]
@@ -443,17 +443,17 @@ operator|<
 name|i
 condition|)
 block|{
-name|ords
+name|ids
 index|[
 name|upto
 index|]
 operator|=
-name|ords
+name|ids
 index|[
 name|i
 index|]
 expr_stmt|;
-name|ords
+name|ids
 index|[
 name|i
 index|]
@@ -477,7 +477,7 @@ operator|=
 name|count
 expr_stmt|;
 return|return
-name|ords
+name|ids
 return|;
 block|}
 comment|/**    * Returns the values array sorted by the referenced byte values.    *<p>    * Note: This is a destructive operation. {@link #clear()} must be called in    * order to reuse this {@link BytesRefHash} instance.    *</p>    *     * @param comp    *          the {@link Comparator} used for sorting    */
@@ -562,14 +562,14 @@ parameter_list|)
 block|{
 specifier|final
 name|int
-name|ord1
+name|id1
 init|=
 name|compact
 index|[
 name|i
 index|]
 decl_stmt|,
-name|ord2
+name|id2
 init|=
 name|compact
 index|[
@@ -581,13 +581,13 @@ name|bytesStart
 operator|.
 name|length
 operator|>
-name|ord1
+name|id1
 operator|&&
 name|bytesStart
 operator|.
 name|length
 operator|>
-name|ord2
+name|id2
 assert|;
 name|pool
 operator|.
@@ -597,7 +597,7 @@ name|scratch1
 argument_list|,
 name|bytesStart
 index|[
-name|ord1
+name|id1
 index|]
 argument_list|)
 expr_stmt|;
@@ -609,7 +609,7 @@ name|scratch2
 argument_list|,
 name|bytesStart
 index|[
-name|ord2
+name|id2
 index|]
 argument_list|)
 expr_stmt|;
@@ -636,7 +636,7 @@ parameter_list|)
 block|{
 specifier|final
 name|int
-name|ord
+name|id
 init|=
 name|compact
 index|[
@@ -648,7 +648,7 @@ name|bytesStart
 operator|.
 name|length
 operator|>
-name|ord
+name|id
 assert|;
 name|pool
 operator|.
@@ -658,7 +658,7 @@ name|pivot
 argument_list|,
 name|bytesStart
 index|[
-name|ord
+name|id
 index|]
 argument_list|)
 expr_stmt|;
@@ -675,7 +675,7 @@ parameter_list|)
 block|{
 specifier|final
 name|int
-name|ord
+name|id
 init|=
 name|compact
 index|[
@@ -687,7 +687,7 @@ name|bytesStart
 operator|.
 name|length
 operator|>
-name|ord
+name|id
 assert|;
 name|pool
 operator|.
@@ -697,7 +697,7 @@ name|scratch2
 argument_list|,
 name|bytesStart
 index|[
-name|ord
+name|id
 index|]
 argument_list|)
 expr_stmt|;
@@ -754,7 +754,7 @@ name|boolean
 name|equals
 parameter_list|(
 name|int
-name|ord
+name|id
 parameter_list|,
 name|BytesRef
 name|b
@@ -768,7 +768,7 @@ name|scratch1
 argument_list|,
 name|bytesStart
 index|[
-name|ord
+name|id
 index|]
 argument_list|)
 expr_stmt|;
@@ -842,7 +842,7 @@ name|hashSize
 operator|=
 name|newSize
 expr_stmt|;
-name|ords
+name|ids
 operator|=
 operator|new
 name|int
@@ -854,7 +854,7 @@ name|Arrays
 operator|.
 name|fill
 argument_list|(
-name|ords
+name|ids
 argument_list|,
 operator|-
 literal|1
@@ -944,7 +944,7 @@ name|Arrays
 operator|.
 name|fill
 argument_list|(
-name|ords
+name|ids
 argument_list|,
 operator|-
 literal|1
@@ -975,7 +975,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|ords
+name|ids
 operator|=
 literal|null
 expr_stmt|;
@@ -992,7 +992,7 @@ name|hashSize
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Adds a new {@link BytesRef}    *     * @param bytes    *          the bytes to hash    * @return the ord the given bytes are hashed if there was no mapping for the    *         given bytes, otherwise<code>(-(ord)-1)</code>. This guarantees    *         that the return value will always be&gt;= 0 if the given bytes    *         haven't been hashed before.    *     * @throws MaxBytesLengthExceededException    *           if the given bytes are> 2 +    *           {@link ByteBlockPool#BYTE_BLOCK_SIZE}    */
+comment|/**    * Adds a new {@link BytesRef}    *     * @param bytes    *          the bytes to hash    * @return the id the given bytes are hashed if there was no mapping for the    *         given bytes, otherwise<code>(-(id)-1)</code>. This guarantees    *         that the return value will always be&gt;= 0 if the given bytes    *         haven't been hashed before.    *     * @throws MaxBytesLengthExceededException    *           if the given bytes are> 2 +    *           {@link ByteBlockPool#BYTE_BLOCK_SIZE}    */
 DECL|method|add
 specifier|public
 name|int
@@ -1014,7 +1014,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**    * Adds a new {@link BytesRef} with a pre-calculated hash code.    *     * @param bytes    *          the bytes to hash    * @param code    *          the bytes hash code    *     *<p>    *          Hashcode is defined as:    *     *<pre class="prettyprint">    * int hash = 0;    * for (int i = offset; i&lt; offset + length; i++) {    *   hash = 31 * hash + bytes[i];    * }    *</pre>    *     * @return the ord the given bytes are hashed if there was no mapping for the    *         given bytes, otherwise<code>(-(ord)-1)</code>. This guarantees    *         that the return value will always be&gt;= 0 if the given bytes    *         haven't been hashed before.    *     * @throws MaxBytesLengthExceededException    *           if the given bytes are>    *           {@link ByteBlockPool#BYTE_BLOCK_SIZE} - 2    */
+comment|/**    * Adds a new {@link BytesRef} with a pre-calculated hash code.    *     * @param bytes    *          the bytes to hash    * @param code    *          the bytes hash code    *     *<p>    *          Hashcode is defined as:    *     *<pre class="prettyprint">    * int hash = 0;    * for (int i = offset; i&lt; offset + length; i++) {    *   hash = 31 * hash + bytes[i];    * }    *</pre>    *     * @return the id the given bytes are hashed if there was no mapping for the    *         given bytes, otherwise<code>(-(id)-1)</code>. This guarantees    *         that the return value will always be&gt;= 0 if the given bytes    *         haven't been hashed before.    *     * @throws MaxBytesLengthExceededException    *           if the given bytes are>    *           {@link ByteBlockPool#BYTE_BLOCK_SIZE} - 2    */
 DECL|method|add
 specifier|public
 name|int
@@ -1043,92 +1043,25 @@ operator|.
 name|length
 decl_stmt|;
 comment|// final position
-name|int
-name|hashPos
-init|=
-name|code
-operator|&
-name|hashMask
-decl_stmt|;
-name|int
-name|e
-init|=
-name|ords
-index|[
-name|hashPos
-index|]
-decl_stmt|;
-if|if
-condition|(
-name|e
-operator|!=
-operator|-
-literal|1
-operator|&&
-operator|!
-name|equals
-argument_list|(
-name|e
-argument_list|,
-name|bytes
-argument_list|)
-condition|)
-block|{
-comment|// Conflict: keep searching different locations in
-comment|// the hash table.
 specifier|final
 name|int
-name|inc
-init|=
-operator|(
-operator|(
-name|code
-operator|>>
-literal|8
-operator|)
-operator|+
-name|code
-operator|)
-operator||
-literal|1
-decl_stmt|;
-do|do
-block|{
-name|code
-operator|+=
-name|inc
-expr_stmt|;
 name|hashPos
-operator|=
+init|=
+name|findHash
+argument_list|(
+name|bytes
+argument_list|,
 name|code
-operator|&
-name|hashMask
-expr_stmt|;
+argument_list|)
+decl_stmt|;
+name|int
 name|e
-operator|=
-name|ords
+init|=
+name|ids
 index|[
 name|hashPos
 index|]
-expr_stmt|;
-block|}
-do|while
-condition|(
-name|e
-operator|!=
-operator|-
-literal|1
-operator|&&
-operator|!
-name|equals
-argument_list|(
-name|e
-argument_list|,
-name|bytes
-argument_list|)
-condition|)
-do|;
-block|}
+decl_stmt|;
 if|if
 condition|(
 name|e
@@ -1394,7 +1327,7 @@ argument_list|)
 expr_stmt|;
 block|}
 assert|assert
-name|ords
+name|ids
 index|[
 name|hashPos
 index|]
@@ -1402,7 +1335,7 @@ operator|==
 operator|-
 literal|1
 assert|;
-name|ords
+name|ids
 index|[
 name|hashPos
 index|]
@@ -1439,6 +1372,164 @@ literal|1
 operator|)
 return|;
 block|}
+comment|/**    * Returns the id of the given {@link BytesRef}.    *     * @see #find(BytesRef, int)    */
+DECL|method|find
+specifier|public
+name|int
+name|find
+parameter_list|(
+name|BytesRef
+name|bytes
+parameter_list|)
+block|{
+return|return
+name|find
+argument_list|(
+name|bytes
+argument_list|,
+name|bytes
+operator|.
+name|hashCode
+argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**    * Returns the id of the given {@link BytesRef} with a pre-calculated hash code.    *     * @param bytes    *          the bytes to look for    * @param code    *          the bytes hash code    *     * @return the id of the given bytes, or {@code -1} if there is no mapping for the    *         given bytes.    */
+DECL|method|find
+specifier|public
+name|int
+name|find
+parameter_list|(
+name|BytesRef
+name|bytes
+parameter_list|,
+name|int
+name|code
+parameter_list|)
+block|{
+return|return
+name|ids
+index|[
+name|findHash
+argument_list|(
+name|bytes
+argument_list|,
+name|code
+argument_list|)
+index|]
+return|;
+block|}
+DECL|method|findHash
+specifier|private
+specifier|final
+name|int
+name|findHash
+parameter_list|(
+name|BytesRef
+name|bytes
+parameter_list|,
+name|int
+name|code
+parameter_list|)
+block|{
+assert|assert
+name|bytesStart
+operator|!=
+literal|null
+operator|:
+literal|"bytesStart is null - not initialized"
+assert|;
+comment|// final position
+name|int
+name|hashPos
+init|=
+name|code
+operator|&
+name|hashMask
+decl_stmt|;
+name|int
+name|e
+init|=
+name|ids
+index|[
+name|hashPos
+index|]
+decl_stmt|;
+if|if
+condition|(
+name|e
+operator|!=
+operator|-
+literal|1
+operator|&&
+operator|!
+name|equals
+argument_list|(
+name|e
+argument_list|,
+name|bytes
+argument_list|)
+condition|)
+block|{
+comment|// Conflict: keep searching different locations in
+comment|// the hash table.
+specifier|final
+name|int
+name|inc
+init|=
+operator|(
+operator|(
+name|code
+operator|>>
+literal|8
+operator|)
+operator|+
+name|code
+operator|)
+operator||
+literal|1
+decl_stmt|;
+do|do
+block|{
+name|code
+operator|+=
+name|inc
+expr_stmt|;
+name|hashPos
+operator|=
+name|code
+operator|&
+name|hashMask
+expr_stmt|;
+name|e
+operator|=
+name|ids
+index|[
+name|hashPos
+index|]
+expr_stmt|;
+block|}
+do|while
+condition|(
+name|e
+operator|!=
+operator|-
+literal|1
+operator|&&
+operator|!
+name|equals
+argument_list|(
+name|e
+argument_list|,
+name|bytes
+argument_list|)
+condition|)
+do|;
+block|}
+return|return
+name|hashPos
+return|;
+block|}
 DECL|method|addByPoolOffset
 specifier|public
 name|int
@@ -1471,7 +1562,7 @@ decl_stmt|;
 name|int
 name|e
 init|=
-name|ords
+name|ids
 index|[
 name|hashPos
 index|]
@@ -1523,7 +1614,7 @@ name|hashMask
 expr_stmt|;
 name|e
 operator|=
-name|ords
+name|ids
 index|[
 name|hashPos
 index|]
@@ -1603,7 +1694,7 @@ operator|=
 name|offset
 expr_stmt|;
 assert|assert
-name|ords
+name|ids
 index|[
 name|hashPos
 index|]
@@ -1611,7 +1702,7 @@ operator|==
 operator|-
 literal|1
 assert|;
-name|ords
+name|ids
 index|[
 name|hashPos
 index|]
@@ -1723,7 +1814,7 @@ specifier|final
 name|int
 name|e0
 init|=
-name|ords
+name|ids
 index|[
 name|i
 index|]
@@ -1976,13 +2067,13 @@ name|NUM_BYTES_INT
 operator|*
 operator|(
 operator|-
-name|ords
+name|ids
 operator|.
 name|length
 operator|)
 argument_list|)
 expr_stmt|;
-name|ords
+name|ids
 operator|=
 name|newHash
 expr_stmt|;
@@ -2021,12 +2112,12 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ords
+name|ids
 operator|==
 literal|null
 condition|)
 block|{
-name|ords
+name|ids
 operator|=
 operator|new
 name|int
@@ -2047,14 +2138,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Returns the bytesStart offset into the internally used    * {@link ByteBlockPool} for the given ord    *     * @param ord    *          the ord to look up    * @return the bytesStart offset into the internally used    *         {@link ByteBlockPool} for the given ord    */
+comment|/**    * Returns the bytesStart offset into the internally used    * {@link ByteBlockPool} for the given bytesID    *     * @param bytesID    *          the id to look up    * @return the bytesStart offset into the internally used    *         {@link ByteBlockPool} for the given id    */
 DECL|method|byteStart
 specifier|public
 name|int
 name|byteStart
 parameter_list|(
 name|int
-name|ord
+name|bytesID
 parameter_list|)
 block|{
 assert|assert
@@ -2062,23 +2153,23 @@ name|bytesStart
 operator|!=
 literal|null
 operator|:
-literal|"Bytesstart is null - not initialized"
+literal|"bytesStart is null - not initialized"
 assert|;
 assert|assert
-name|ord
+name|bytesID
 operator|>=
 literal|0
 operator|&&
-name|ord
+name|bytesID
 operator|<
 name|count
 operator|:
-name|ord
+name|bytesID
 assert|;
 return|return
 name|bytesStart
 index|[
-name|ord
+name|bytesID
 index|]
 return|;
 block|}
