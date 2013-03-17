@@ -1150,9 +1150,6 @@ argument_list|(
 name|createCmd
 argument_list|)
 expr_stmt|;
-name|printLayout
-argument_list|()
-expr_stmt|;
 name|ModifiableSolrParams
 name|params
 init|=
@@ -1217,18 +1214,12 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|Thread
-operator|.
-name|sleep
+name|checkForMissingCollection
 argument_list|(
-literal|5000
+name|collectionName
 argument_list|)
 expr_stmt|;
-name|printLayout
-argument_list|()
-expr_stmt|;
 comment|// now creating that collection should work
-comment|// try a bad action
 name|params
 operator|=
 operator|new
