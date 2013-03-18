@@ -87,7 +87,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|TaxonomyReader
+name|ParallelTaxonomyArrays
 import|;
 end_import
 begin_import
@@ -102,9 +102,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|directory
-operator|.
-name|ParallelTaxonomyArrays
+name|TaxonomyReader
 import|;
 end_import
 begin_import

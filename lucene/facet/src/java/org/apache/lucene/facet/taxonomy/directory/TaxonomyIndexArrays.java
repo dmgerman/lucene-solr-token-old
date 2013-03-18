@@ -36,6 +36,21 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
+name|ParallelTaxonomyArrays
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|facet
+operator|.
+name|taxonomy
+operator|.
 name|TaxonomyReader
 import|;
 end_import
@@ -121,12 +136,13 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * Returns 3 arrays for traversing the taxonomy:  *<ul>  *<li>{@code parents}: {@code parents[i]} denotes the parent of category  * ordinal {@code i}.</li>  *<li>{@code children}: {@code children[i]} denotes the youngest child of  * category ordinal {@code i}. The youngest child is defined as the category  * that was added last to the taxonomy as an immediate child of {@code i}.</li>  *<li>{@code siblings}: {@code siblings[i]} denotes the sibling of category  * ordinal {@code i}. The sibling is defined as the previous youngest child of  * {@code parents[i]}.</li>  *</ul>  *   * To traverse the taxonomy tree, you typically start with {@code children[0]}  * (ordinal 0 is reserved for ROOT), and then depends if you want to do DFS or  * BFS, you call {@code children[children[0]]} or {@code siblings[children[0]]}  * and so forth, respectively.  *   *<p>  *<b>NOTE:</b> you are not expected to modify the values of the arrays, since  * the arrays are shared with other threads.  *   * @lucene.experimental  */
+comment|/**  * A {@link ParallelTaxonomyArrays} that are initialized from the taxonomy  * index.  *   * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|ParallelTaxonomyArrays
-specifier|public
+DECL|class|TaxonomyIndexArrays
 class|class
+name|TaxonomyIndexArrays
+extends|extends
 name|ParallelTaxonomyArrays
 block|{
 DECL|field|parents
@@ -158,9 +174,9 @@ decl_stmt|,
 name|siblings
 decl_stmt|;
 comment|/** Used by {@link #add(int, int)} after the array grew. */
-DECL|method|ParallelTaxonomyArrays
+DECL|method|TaxonomyIndexArrays
 specifier|private
-name|ParallelTaxonomyArrays
+name|TaxonomyIndexArrays
 parameter_list|(
 name|int
 index|[]
@@ -174,9 +190,9 @@ operator|=
 name|parents
 expr_stmt|;
 block|}
-DECL|method|ParallelTaxonomyArrays
+DECL|method|TaxonomyIndexArrays
 specifier|public
-name|ParallelTaxonomyArrays
+name|TaxonomyIndexArrays
 parameter_list|(
 name|IndexReader
 name|reader
@@ -229,14 +245,14 @@ name|INVALID_ORDINAL
 expr_stmt|;
 block|}
 block|}
-DECL|method|ParallelTaxonomyArrays
+DECL|method|TaxonomyIndexArrays
 specifier|public
-name|ParallelTaxonomyArrays
+name|TaxonomyIndexArrays
 parameter_list|(
 name|IndexReader
 name|reader
 parameter_list|,
-name|ParallelTaxonomyArrays
+name|TaxonomyIndexArrays
 name|copyFrom
 parameter_list|)
 throws|throws
@@ -320,7 +336,7 @@ specifier|synchronized
 name|void
 name|initChildrenSiblings
 parameter_list|(
-name|ParallelTaxonomyArrays
+name|TaxonomyIndexArrays
 name|copyFrom
 parameter_list|)
 block|{
@@ -730,7 +746,7 @@ block|}
 block|}
 comment|/**    * Adds the given ordinal/parent info and returns either a new instance if the    * underlying array had to grow, or this instance otherwise.    *<p>    *<b>NOTE:</b> you should call this method from a thread-safe code.    */
 DECL|method|add
-name|ParallelTaxonomyArrays
+name|TaxonomyIndexArrays
 name|add
 parameter_list|(
 name|int
@@ -773,7 +789,7 @@ name|parentOrdinal
 expr_stmt|;
 return|return
 operator|new
-name|ParallelTaxonomyArrays
+name|TaxonomyIndexArrays
 argument_list|(
 name|newarray
 argument_list|)
@@ -791,6 +807,8 @@ name|this
 return|;
 block|}
 comment|/**    * Returns the parents array, where {@code parents[i]} denotes the parent of    * category ordinal {@code i}.    */
+annotation|@
+name|Override
 DECL|method|parents
 specifier|public
 name|int
@@ -803,6 +821,8 @@ name|parents
 return|;
 block|}
 comment|/**    * Returns the children array, where {@code children[i]} denotes the youngest    * child of category ordinal {@code i}. The youngest child is defined as the    * category that was added last to the taxonomy as an immediate child of    * {@code i}.    */
+annotation|@
+name|Override
 DECL|method|children
 specifier|public
 name|int
@@ -828,6 +848,8 @@ name|children
 return|;
 block|}
 comment|/**    * Returns the siblings array, where {@code siblings[i]} denotes the sibling    * of category ordinal {@code i}. The sibling is defined as the previous    * youngest child of {@code parents[i]}.    */
+annotation|@
+name|Override
 DECL|method|siblings
 specifier|public
 name|int

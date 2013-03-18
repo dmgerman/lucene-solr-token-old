@@ -97,6 +97,21 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
+name|ParallelTaxonomyArrays
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|facet
+operator|.
+name|taxonomy
+operator|.
 name|TaxonomyReader
 import|;
 end_import
@@ -315,7 +330,7 @@ decl_stmt|;
 DECL|field|taxoArrays
 specifier|private
 specifier|volatile
-name|ParallelTaxonomyArrays
+name|TaxonomyIndexArrays
 name|taxoArrays
 decl_stmt|;
 DECL|field|delimiter
@@ -353,7 +368,7 @@ name|CategoryPath
 argument_list|>
 name|categoryCache
 parameter_list|,
-name|ParallelTaxonomyArrays
+name|TaxonomyIndexArrays
 name|taxoArrays
 parameter_list|)
 throws|throws
@@ -439,7 +454,7 @@ operator|!=
 literal|null
 condition|?
 operator|new
-name|ParallelTaxonomyArrays
+name|TaxonomyIndexArrays
 argument_list|(
 name|indexReader
 argument_list|,
@@ -587,11 +602,11 @@ block|{
 comment|// according to Java Concurrency in Practice, this might perform better on
 comment|// some JVMs, because the array initialization doesn't happen on the
 comment|// volatile member.
-name|ParallelTaxonomyArrays
+name|TaxonomyIndexArrays
 name|tmpArrays
 init|=
 operator|new
-name|ParallelTaxonomyArrays
+name|TaxonomyIndexArrays
 argument_list|(
 name|indexReader
 argument_list|)
