@@ -221,12 +221,12 @@ block|{
 return|return
 name|Long
 operator|.
-name|signum
+name|compare
 argument_list|(
 name|o1
 operator|.
 name|cost
-operator|-
+argument_list|,
 name|o2
 operator|.
 name|cost
