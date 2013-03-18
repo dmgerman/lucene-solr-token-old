@@ -74,6 +74,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|IdentityHashMap
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -481,7 +490,7 @@ argument_list|>
 name|byDirectoryCache
 init|=
 operator|new
-name|HashMap
+name|IdentityHashMap
 argument_list|<
 name|Directory
 argument_list|,
