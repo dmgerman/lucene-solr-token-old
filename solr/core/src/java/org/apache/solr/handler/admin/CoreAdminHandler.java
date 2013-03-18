@@ -3210,6 +3210,8 @@ name|core
 operator|.
 name|getDataDir
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
