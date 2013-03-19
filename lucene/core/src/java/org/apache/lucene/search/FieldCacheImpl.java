@@ -7299,12 +7299,7 @@ name|dto
 operator|.
 name|iterator
 argument_list|(
-name|dto
-operator|.
-name|getOrdTermsEnum
-argument_list|(
 name|reader
-argument_list|)
 argument_list|)
 return|;
 block|}
