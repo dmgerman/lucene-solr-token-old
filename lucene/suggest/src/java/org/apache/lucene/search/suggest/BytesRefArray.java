@@ -258,7 +258,7 @@ argument_list|)
 expr_stmt|;
 comment|// no need to 0 fill the buffers we control the allocator
 block|}
-comment|/**    * Appends a copy of the given {@link BytesRef} to this {@link BytesRefArray}.    * @param bytes the bytes to append    * @return the ordinal of the appended bytes    */
+comment|/**    * Appends a copy of the given {@link BytesRef} to this {@link BytesRefArray}.    * @param bytes the bytes to append    * @return the index of the appended bytes    */
 DECL|method|append
 specifier|public
 name|int
@@ -340,6 +340,8 @@ name|length
 expr_stmt|;
 return|return
 name|lastElement
+operator|-
+literal|1
 return|;
 block|}
 comment|/**    * Returns the current size of this {@link BytesRefArray}    * @return the current size of this {@link BytesRefArray}    */
@@ -353,7 +355,7 @@ return|return
 name|lastElement
 return|;
 block|}
-comment|/**    * Returns the<i>n'th</i> element of this {@link BytesRefArray}    * @param spare a spare {@link BytesRef} instance    * @param ord the elements ordinal to retrieve     * @return the<i>n'th</i> element of this {@link BytesRefArray}    */
+comment|/**    * Returns the<i>n'th</i> element of this {@link BytesRefArray}    * @param spare a spare {@link BytesRef} instance    * @param index the elements index to retrieve     * @return the<i>n'th</i> element of this {@link BytesRefArray}    */
 DECL|method|get
 specifier|public
 name|BytesRef
@@ -363,14 +365,14 @@ name|BytesRef
 name|spare
 parameter_list|,
 name|int
-name|ord
+name|index
 parameter_list|)
 block|{
 if|if
 condition|(
 name|lastElement
 operator|>
-name|ord
+name|index
 condition|)
 block|{
 name|int
@@ -378,13 +380,13 @@ name|offset
 init|=
 name|offsets
 index|[
-name|ord
+name|index
 index|]
 decl_stmt|;
 name|int
 name|length
 init|=
-name|ord
+name|index
 operator|==
 name|lastElement
 operator|-
@@ -396,7 +398,7 @@ name|offset
 else|:
 name|offsets
 index|[
-name|ord
+name|index
 operator|+
 literal|1
 index|]
@@ -452,7 +454,7 @@ name|IndexOutOfBoundsException
 argument_list|(
 literal|"index "
 operator|+
-name|ord
+name|index
 operator|+
 literal|" must be less than the size: "
 operator|+
@@ -570,14 +572,14 @@ parameter_list|)
 block|{
 specifier|final
 name|int
-name|ord1
+name|idx1
 init|=
 name|orderedEntries
 index|[
 name|i
 index|]
 decl_stmt|,
-name|ord2
+name|idx2
 init|=
 name|orderedEntries
 index|[
@@ -593,14 +595,14 @@ name|get
 argument_list|(
 name|scratch1
 argument_list|,
-name|ord1
+name|idx1
 argument_list|)
 argument_list|,
 name|get
 argument_list|(
 name|scratch2
 argument_list|,
-name|ord2
+name|idx2
 argument_list|)
 argument_list|)
 return|;
@@ -617,7 +619,7 @@ parameter_list|)
 block|{
 specifier|final
 name|int
-name|ord
+name|index
 init|=
 name|orderedEntries
 index|[
@@ -628,7 +630,7 @@ name|get
 argument_list|(
 name|pivot
 argument_list|,
-name|ord
+name|index
 argument_list|)
 expr_stmt|;
 block|}
@@ -644,7 +646,7 @@ parameter_list|)
 block|{
 specifier|final
 name|int
-name|ord
+name|index
 init|=
 name|orderedEntries
 index|[
@@ -662,7 +664,7 @@ name|get
 argument_list|(
 name|scratch2
 argument_list|,
-name|ord
+name|index
 argument_list|)
 argument_list|)
 return|;
@@ -750,7 +752,7 @@ decl_stmt|;
 specifier|final
 name|int
 index|[]
-name|ords
+name|indices
 init|=
 name|comp
 operator|==
@@ -792,14 +794,14 @@ name|get
 argument_list|(
 name|spare
 argument_list|,
-name|ords
+name|indices
 operator|==
 literal|null
 condition|?
 name|pos
 operator|++
 else|:
-name|ords
+name|indices
 index|[
 name|pos
 operator|++
