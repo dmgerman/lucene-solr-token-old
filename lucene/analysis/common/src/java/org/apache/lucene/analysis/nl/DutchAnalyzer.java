@@ -714,8 +714,6 @@ operator|=
 operator|new
 name|StemmerOverrideFilter
 argument_list|(
-name|matchVersion
-argument_list|,
 name|result
 argument_list|,
 name|stemdict
