@@ -364,7 +364,7 @@ name|reader
 operator|=
 name|SortingAtomicReader
 operator|.
-name|sort
+name|wrap
 argument_list|(
 name|reader
 argument_list|,
