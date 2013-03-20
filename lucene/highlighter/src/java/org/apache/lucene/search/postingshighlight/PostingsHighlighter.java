@@ -834,7 +834,7 @@ name|searcher
 parameter_list|,
 name|int
 index|[]
-name|docids
+name|docidsIn
 parameter_list|,
 name|int
 name|maxPassages
@@ -908,6 +908,36 @@ operator|.
 name|clone
 argument_list|()
 decl_stmt|;
+comment|// Make our own copy because we sort in-place:
+name|int
+index|[]
+name|docids
+init|=
+operator|new
+name|int
+index|[
+name|docidsIn
+operator|.
+name|length
+index|]
+decl_stmt|;
+name|System
+operator|.
+name|arraycopy
+argument_list|(
+name|docidsIn
+argument_list|,
+literal|0
+argument_list|,
+name|docids
+argument_list|,
+literal|0
+argument_list|,
+name|docidsIn
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
 comment|// sort for sequential io
 name|Arrays
 operator|.
@@ -1091,7 +1121,7 @@ literal|0
 init|;
 name|j
 operator|<
-name|docids
+name|docidsIn
 operator|.
 name|length
 condition|;
@@ -1108,7 +1138,7 @@ name|fieldHighlights
 operator|.
 name|get
 argument_list|(
-name|docids
+name|docidsIn
 index|[
 name|j
 index|]
