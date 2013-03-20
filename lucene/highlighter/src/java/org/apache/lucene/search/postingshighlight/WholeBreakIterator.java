@@ -126,6 +126,12 @@ operator|==
 name|len
 condition|)
 block|{
+comment|// this conflicts with the javadocs, but matches actual behavior (Oracle has a bug in something)
+comment|// http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=9000909
+name|current
+operator|=
+name|len
+expr_stmt|;
 return|return
 name|DONE
 return|;
@@ -297,6 +303,12 @@ operator|==
 literal|0
 condition|)
 block|{
+comment|// this conflicts with the javadocs, but matches actual behavior (Oracle has a bug in something)
+comment|// http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=9000909
+name|current
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|DONE
 return|;
