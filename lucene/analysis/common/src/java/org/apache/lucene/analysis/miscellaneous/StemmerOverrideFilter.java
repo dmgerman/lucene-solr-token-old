@@ -96,19 +96,6 @@ operator|.
 name|CharArrayMap
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
 begin_comment
 comment|/**  * Provides the ability to override any {@link KeywordAttribute} aware stemmer  * with custom dictionary-based stemming.  */
 end_comment
@@ -161,9 +148,6 @@ DECL|method|StemmerOverrideFilter
 specifier|public
 name|StemmerOverrideFilter
 parameter_list|(
-name|Version
-name|matchVersion
-parameter_list|,
 name|TokenStream
 name|input
 parameter_list|,
@@ -183,14 +167,7 @@ name|this
 operator|.
 name|dictionary
 operator|=
-name|CharArrayMap
-operator|.
-name|copy
-argument_list|(
-name|matchVersion
-argument_list|,
 name|dictionary
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
