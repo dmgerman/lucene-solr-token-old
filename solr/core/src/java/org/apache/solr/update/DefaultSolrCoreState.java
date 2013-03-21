@@ -531,8 +531,6 @@ argument_list|(
 name|core
 argument_list|,
 literal|"DirectUpdateHandler2"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -819,8 +817,6 @@ argument_list|(
 name|core
 argument_list|,
 literal|"DirectUpdateHandler2"
-argument_list|,
-name|forceNewDir
 argument_list|)
 expr_stmt|;
 name|log
@@ -884,9 +880,6 @@ name|core
 parameter_list|,
 name|String
 name|name
-parameter_list|,
-name|boolean
-name|forceNewDirectory
 parameter_list|)
 throws|throws
 name|IOException
@@ -931,8 +924,6 @@ name|core
 operator|.
 name|getCodec
 argument_list|()
-argument_list|,
-name|forceNewDirectory
 argument_list|)
 return|;
 block|}

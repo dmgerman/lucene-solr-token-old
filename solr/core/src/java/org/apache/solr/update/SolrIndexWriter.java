@@ -323,9 +323,6 @@ name|delPolicy
 parameter_list|,
 name|Codec
 name|codec
-parameter_list|,
-name|boolean
-name|forceNewDirectory
 parameter_list|)
 throws|throws
 name|IOException
@@ -352,8 +349,6 @@ argument_list|,
 name|config
 operator|.
 name|lockType
-argument_list|,
-name|forceNewDirectory
 argument_list|)
 decl_stmt|;
 try|try

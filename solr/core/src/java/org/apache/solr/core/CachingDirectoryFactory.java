@@ -329,16 +329,6 @@ name|refCnt
 init|=
 literal|1
 decl_stmt|;
-comment|// if we are latestForPath, I'm currently using my path
-comment|// otherwise a new Directory instance is using my path
-comment|// and I must be manipulated by Directory
-DECL|field|latestForPath
-specifier|public
-name|boolean
-name|latestForPath
-init|=
-literal|false
-decl_stmt|;
 comment|// has close(Directory) been called on this?
 DECL|field|closeDirectoryCalled
 specifier|public
@@ -1091,16 +1081,6 @@ argument_list|(
 name|directory
 argument_list|)
 expr_stmt|;
-comment|// if it's been closed, it's path is now
-comment|// owned by another Directory instance
-if|if
-condition|(
-operator|!
-name|cacheValue
-operator|.
-name|latestForPath
-condition|)
-block|{
 name|byPathCache
 operator|.
 name|remove
@@ -1110,13 +1090,6 @@ operator|.
 name|path
 argument_list|)
 expr_stmt|;
-name|cacheValue
-operator|.
-name|latestForPath
-operator|=
-literal|true
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -1538,40 +1511,6 @@ operator|>
 literal|0
 return|;
 block|}
-comment|/*    * (non-Javadoc)    *     * @see org.apache.solr.core.DirectoryFactory#get(java.lang.String,    * java.lang.String)    */
-annotation|@
-name|Override
-DECL|method|get
-specifier|public
-specifier|final
-name|Directory
-name|get
-parameter_list|(
-name|String
-name|path
-parameter_list|,
-name|DirContext
-name|dirContext
-parameter_list|,
-name|String
-name|rawLockType
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|get
-argument_list|(
-name|path
-argument_list|,
-name|dirContext
-argument_list|,
-name|rawLockType
-argument_list|,
-literal|false
-argument_list|)
-return|;
-block|}
 comment|/*    * (non-Javadoc)    *     * @see org.apache.solr.core.DirectoryFactory#get(java.lang.String,    * java.lang.String, boolean)    */
 annotation|@
 name|Override
@@ -1589,9 +1528,6 @@ name|dirContext
 parameter_list|,
 name|String
 name|rawLockType
-parameter_list|,
-name|boolean
-name|forceNew
 parameter_list|)
 throws|throws
 name|IOException
@@ -1651,52 +1587,12 @@ name|cacheValue
 operator|.
 name|directory
 expr_stmt|;
-if|if
-condition|(
-name|forceNew
-condition|)
-block|{
-name|cacheValue
-operator|.
-name|doneWithDir
-operator|=
-literal|true
-expr_stmt|;
-comment|// we make a quick close attempt,
-comment|// otherwise this should be closed
-comment|// when whatever is using it, releases it
-if|if
-condition|(
-name|cacheValue
-operator|.
-name|refCnt
-operator|==
-literal|0
-condition|)
-block|{
-name|closeDirectory
-argument_list|(
-name|cacheValue
-argument_list|)
-expr_stmt|;
-block|}
-comment|// close the entry, it will be owned by the new dir
-comment|// we count on it being released by directory
-name|cacheValue
-operator|.
-name|latestForPath
-operator|=
-literal|true
-expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
 name|directory
 operator|==
 literal|null
-operator|||
-name|forceNew
 condition|)
 block|{
 name|directory
@@ -1760,10 +1656,6 @@ argument_list|(
 literal|"return new directory for "
 operator|+
 name|fullPath
-operator|+
-literal|" forceNew: "
-operator|+
-name|forceNew
 argument_list|)
 expr_stmt|;
 block|}
