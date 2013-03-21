@@ -168,19 +168,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|Document
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|AtomicReaderContext
@@ -2180,6 +2167,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|scorer
 operator|.
 name|score
@@ -2187,6 +2176,16 @@ argument_list|(
 name|collector
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CollectionTerminatedException
+name|e
+parameter_list|)
+block|{
+comment|// collection was terminated prematurely
+comment|// continue with the following leaf
+block|}
 block|}
 block|}
 block|}
