@@ -398,6 +398,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+name|indexWriter
+operator|=
+literal|null
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -454,30 +458,6 @@ init|(
 name|writerPauseLock
 init|)
 block|{
-if|if
-condition|(
-name|core
-operator|==
-literal|null
-condition|)
-block|{
-comment|// core == null is a signal to just return the current writer, or null
-comment|// if none.
-if|if
-condition|(
-name|refCntWriter
-operator|!=
-literal|null
-condition|)
-name|refCntWriter
-operator|.
-name|incref
-argument_list|()
-expr_stmt|;
-return|return
-name|refCntWriter
-return|;
-block|}
 while|while
 condition|(
 name|pauseWriter
@@ -516,6 +496,30 @@ literal|"Already closed"
 argument_list|)
 throw|;
 block|}
+block|}
+if|if
+condition|(
+name|core
+operator|==
+literal|null
+condition|)
+block|{
+comment|// core == null is a signal to just return the current writer, or null
+comment|// if none.
+if|if
+condition|(
+name|refCntWriter
+operator|!=
+literal|null
+condition|)
+name|refCntWriter
+operator|.
+name|incref
+argument_list|()
+expr_stmt|;
+return|return
+name|refCntWriter
+return|;
 block|}
 if|if
 condition|(
@@ -620,9 +624,6 @@ name|core
 parameter_list|,
 name|boolean
 name|rollback
-parameter_list|,
-name|boolean
-name|forceNewDir
 parameter_list|)
 throws|throws
 name|IOException
@@ -865,8 +866,6 @@ argument_list|(
 name|core
 argument_list|,
 literal|true
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

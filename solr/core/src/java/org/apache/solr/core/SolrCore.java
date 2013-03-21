@@ -2530,8 +2530,6 @@ argument_list|(
 name|core
 argument_list|,
 literal|false
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|core
