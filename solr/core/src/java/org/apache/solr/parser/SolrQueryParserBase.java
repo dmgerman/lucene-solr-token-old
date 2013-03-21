@@ -2555,6 +2555,15 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+comment|// only set slop of the phrase query was a result of this parser
+comment|// and not a sub-parser.
+if|if
+condition|(
+name|subQParser
+operator|==
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|query
@@ -2594,6 +2603,7 @@ argument_list|(
 name|slop
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|query
@@ -3378,6 +3388,11 @@ name|q
 operator|.
 name|setBoost
 argument_list|(
+name|q
+operator|.
+name|getBoost
+argument_list|()
+operator|*
 name|boostVal
 argument_list|)
 expr_stmt|;
@@ -4118,7 +4133,13 @@ return|return
 name|out
 return|;
 block|}
-comment|// called from parser
+DECL|field|subQParser
+specifier|private
+name|QParser
+name|subQParser
+init|=
+literal|null
+decl_stmt|;
 DECL|method|getFieldQuery
 specifier|protected
 name|Query
@@ -4176,9 +4197,8 @@ operator|!=
 name|magic
 condition|)
 block|{
-name|QParser
-name|nested
-init|=
+name|subQParser
+operator|=
 name|parser
 operator|.
 name|subQuery
@@ -4189,9 +4209,9 @@ name|magic
 operator|.
 name|subParser
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 return|return
-name|nested
+name|subQParser
 operator|.
 name|getQuery
 argument_list|()
