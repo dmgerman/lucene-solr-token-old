@@ -35,7 +35,7 @@ name|CharacterIterator
 import|;
 end_import
 begin_comment
-comment|/** Just produces one single fragment for the entire  *  string. */
+comment|/** Just produces one single fragment for the entire text */
 end_comment
 begin_class
 DECL|class|WholeBreakIterator
@@ -50,10 +50,15 @@ specifier|private
 name|CharacterIterator
 name|text
 decl_stmt|;
-DECL|field|len
+DECL|field|start
 specifier|private
 name|int
-name|len
+name|start
+decl_stmt|;
+DECL|field|end
+specifier|private
+name|int
+name|end
 decl_stmt|;
 DECL|field|current
 specifier|private
@@ -84,7 +89,7 @@ return|return
 operator|(
 name|current
 operator|=
-literal|0
+name|start
 operator|)
 return|;
 block|}
@@ -103,11 +108,11 @@ if|if
 condition|(
 name|pos
 argument_list|<
-literal|0
+name|start
 operator|||
 name|pos
 argument_list|>
-name|len
+name|end
 condition|)
 block|{
 throw|throw
@@ -123,14 +128,14 @@ if|if
 condition|(
 name|pos
 operator|==
-name|len
+name|end
 condition|)
 block|{
 comment|// this conflicts with the javadocs, but matches actual behavior (Oracle has a bug in something)
 comment|// http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=9000909
 name|current
 operator|=
-name|len
+name|end
 expr_stmt|;
 return|return
 name|DONE
@@ -168,7 +173,7 @@ return|return
 operator|(
 name|current
 operator|=
-name|len
+name|end
 operator|)
 return|;
 block|}
@@ -184,7 +189,7 @@ if|if
 condition|(
 name|current
 operator|==
-name|len
+name|end
 condition|)
 block|{
 return|return
@@ -280,11 +285,11 @@ if|if
 condition|(
 name|pos
 argument_list|<
-literal|0
+name|start
 operator|||
 name|pos
 argument_list|>
-name|len
+name|end
 condition|)
 block|{
 throw|throw
@@ -300,14 +305,14 @@ if|if
 condition|(
 name|pos
 operator|==
-literal|0
+name|start
 condition|)
 block|{
 comment|// this conflicts with the javadocs, but matches actual behavior (Oracle has a bug in something)
 comment|// http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=9000909
 name|current
 operator|=
-literal|0
+name|start
 expr_stmt|;
 return|return
 name|DONE
@@ -333,7 +338,7 @@ if|if
 condition|(
 name|current
 operator|==
-literal|0
+name|start
 condition|)
 block|{
 return|return
@@ -359,23 +364,14 @@ name|CharacterIterator
 name|newText
 parameter_list|)
 block|{
-if|if
-condition|(
+name|start
+operator|=
 name|newText
 operator|.
 name|getBeginIndex
 argument_list|()
-operator|!=
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-block|}
-name|len
+expr_stmt|;
+name|end
 operator|=
 name|newText
 operator|.
@@ -388,7 +384,10 @@ name|newText
 expr_stmt|;
 name|current
 operator|=
-literal|0
+name|newText
+operator|.
+name|getIndex
+argument_list|()
 expr_stmt|;
 block|}
 block|}
