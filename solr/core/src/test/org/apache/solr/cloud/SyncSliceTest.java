@@ -348,6 +348,13 @@ name|SyncSliceTest
 extends|extends
 name|AbstractFullDistribZkTestBase
 block|{
+DECL|field|success
+specifier|private
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
 annotation|@
 name|BeforeClass
 DECL|method|beforeSuperClass
@@ -419,6 +426,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+block|{
+name|printLayoutOnTearDown
+operator|=
+literal|true
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|tearDown
@@ -1045,8 +1063,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// skip list should be
-comment|//System.out.println("leader:" + leaderJetty.url);
-comment|//System.out.println("skip list:" + skipServers);
+comment|//    System.out.println("leader:" + leaderJetty.url);
+comment|//    System.out.println("dead:" + deadJetty.url);
+comment|//    System.out.println("skip list:" + skipServers);
 comment|// we are skipping  2 nodes
 name|assertEquals
 argument_list|(
@@ -1217,6 +1236,10 @@ literal|true
 argument_list|,
 literal|true
 argument_list|)
+expr_stmt|;
+name|success
+operator|=
+literal|true
 expr_stmt|;
 block|}
 DECL|method|waitTillRecovered

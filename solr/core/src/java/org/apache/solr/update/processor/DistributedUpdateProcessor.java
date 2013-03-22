@@ -1673,9 +1673,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-operator|!
+name|boolean
+name|skip
+init|=
 name|skipListSet
 operator|.
 name|contains
@@ -1685,6 +1685,31 @@ operator|.
 name|getCoreUrl
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"check url:"
+operator|+
+name|props
+operator|.
+name|getCoreUrl
+argument_list|()
+operator|+
+literal|" against:"
+operator|+
+name|skipListSet
+operator|+
+literal|" result:"
+operator|+
+name|skip
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|skip
 condition|)
 block|{
 name|nodes
