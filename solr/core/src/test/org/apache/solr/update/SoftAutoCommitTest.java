@@ -1089,7 +1089,7 @@ name|Math
 operator|.
 name|max
 argument_list|(
-literal|100
+literal|150
 argument_list|,
 literal|3
 operator|*
