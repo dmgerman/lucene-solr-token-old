@@ -24,9 +24,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|util
 operator|.
-name|Term
+name|ArrayUtil
 import|;
 end_import
 begin_import
@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|ArrayUtil
+name|BytesRef
 import|;
 end_import
 begin_import
@@ -121,12 +121,12 @@ literal|8
 index|]
 decl_stmt|;
 DECL|field|matchTerms
-name|Term
+name|BytesRef
 name|matchTerms
 index|[]
 init|=
 operator|new
-name|Term
+name|BytesRef
 index|[
 literal|8
 index|]
@@ -147,7 +147,7 @@ parameter_list|,
 name|int
 name|endOffset
 parameter_list|,
-name|Term
+name|BytesRef
 name|term
 parameter_list|)
 block|{
@@ -199,12 +199,12 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|Term
+name|BytesRef
 name|newMatchTerms
 index|[]
 init|=
 operator|new
-name|Term
+name|BytesRef
 index|[
 name|ArrayUtil
 operator|.
@@ -285,7 +285,7 @@ init|=
 name|matchEnds
 decl_stmt|;
 specifier|final
-name|Term
+name|BytesRef
 name|terms
 index|[]
 init|=
@@ -357,7 +357,7 @@ index|]
 operator|=
 name|temp
 expr_stmt|;
-name|Term
+name|BytesRef
 name|tempTerm
 init|=
 name|terms
@@ -559,10 +559,10 @@ return|return
 name|matchEnds
 return|;
 block|}
-comment|/**    * Term of the matches, corresponding with {@link #getMatchStarts()}.    *<p>    * Only {@link #getNumMatches()} are valid.    */
+comment|/**    * BytesRef (term text) of the matches, corresponding with {@link #getMatchStarts()}.    *<p>    * Only {@link #getNumMatches()} are valid.    */
 DECL|method|getMatchTerms
 specifier|public
-name|Term
+name|BytesRef
 index|[]
 name|getMatchTerms
 parameter_list|()
