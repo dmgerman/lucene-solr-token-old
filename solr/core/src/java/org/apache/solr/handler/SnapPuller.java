@@ -4477,7 +4477,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Could not restart core "
+literal|"Could not reload core "
 argument_list|,
 name|e
 argument_list|)
