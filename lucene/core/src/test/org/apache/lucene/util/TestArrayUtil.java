@@ -850,7 +850,7 @@ name|a1
 init|=
 name|createRandomArray
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 decl_stmt|,
 name|a2
@@ -885,7 +885,7 @@ name|a1
 operator|=
 name|createRandomArray
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|a2
@@ -1128,7 +1128,7 @@ name|a1
 init|=
 name|createRandomArray
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 decl_stmt|,
 name|a2
@@ -1163,7 +1163,7 @@ name|a1
 operator|=
 name|createRandomArray
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|a2
@@ -1263,7 +1263,7 @@ name|a1
 init|=
 name|createRandomArray
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 decl_stmt|,
 name|a2
@@ -1298,7 +1298,7 @@ name|a1
 operator|=
 name|createRandomArray
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|a2

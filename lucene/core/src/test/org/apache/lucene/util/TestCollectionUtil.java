@@ -195,7 +195,7 @@ name|list1
 init|=
 name|createRandomList
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 decl_stmt|,
 name|list2
@@ -234,7 +234,7 @@ name|list1
 operator|=
 name|createRandomList
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|list2
@@ -339,7 +339,7 @@ name|list1
 init|=
 name|createRandomList
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 decl_stmt|,
 name|list2
@@ -378,7 +378,7 @@ name|list1
 operator|=
 name|createRandomList
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|list2
@@ -483,7 +483,7 @@ name|list1
 init|=
 name|createRandomList
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 decl_stmt|,
 name|list2
@@ -522,7 +522,7 @@ name|list1
 operator|=
 name|createRandomList
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|list2
