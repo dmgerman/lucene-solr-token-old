@@ -68,19 +68,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|AlreadyClosedException
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|solr
 operator|.
 name|cloud
@@ -635,9 +622,13 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|AlreadyClosedException
+name|SolrException
 argument_list|(
-literal|"SolrCoreState already closed"
+name|ErrorCode
+operator|.
+name|SERVICE_UNAVAILABLE
+argument_list|,
+literal|"Already closed"
 argument_list|)
 throw|;
 block|}
