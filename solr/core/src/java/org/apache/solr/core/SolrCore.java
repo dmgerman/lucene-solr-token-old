@@ -6795,6 +6795,11 @@ name|newIndexDir
 argument_list|,
 name|schema
 argument_list|,
+name|getSolrConfig
+argument_list|()
+operator|.
+name|indexConfig
+argument_list|,
 operator|(
 name|realtime
 condition|?
@@ -6847,6 +6852,11 @@ argument_list|,
 name|newIndexDir
 argument_list|,
 name|schema
+argument_list|,
+name|getSolrConfig
+argument_list|()
+operator|.
+name|indexConfig
 argument_list|,
 operator|(
 name|realtime
