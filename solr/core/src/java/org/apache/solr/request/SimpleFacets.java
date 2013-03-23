@@ -2101,7 +2101,7 @@ decl_stmt|;
 name|Filter
 name|mainQueryFilter
 init|=
-name|docsOrig
+name|docs
 operator|.
 name|getTopFilter
 argument_list|()
