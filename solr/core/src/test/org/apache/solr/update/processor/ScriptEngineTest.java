@@ -300,11 +300,11 @@ argument_list|(
 literal|"function add(a,b) { return a + b }"
 argument_list|)
 expr_stmt|;
-name|Double
+name|Number
 name|result
 init|=
 call|(
-name|Double
+name|Number
 call|)
 argument_list|(
 operator|(
@@ -379,11 +379,11 @@ argument_list|(
 name|reader
 argument_list|)
 expr_stmt|;
-name|Double
+name|Number
 name|result
 init|=
 call|(
-name|Double
+name|Number
 call|)
 argument_list|(
 operator|(
@@ -467,11 +467,11 @@ argument_list|(
 literal|"function add() { return a + b }"
 argument_list|)
 expr_stmt|;
-name|Double
+name|Number
 name|result
 init|=
 call|(
-name|Double
+name|Number
 call|)
 argument_list|(
 operator|(
@@ -545,11 +545,11 @@ argument_list|(
 literal|"def add(a,b); a + b; end"
 argument_list|)
 expr_stmt|;
-name|Long
+name|Number
 name|result
 init|=
 call|(
-name|Long
+name|Number
 call|)
 argument_list|(
 operator|(
