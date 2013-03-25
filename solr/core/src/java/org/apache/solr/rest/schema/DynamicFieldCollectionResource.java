@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.solr.rest
+DECL|package|org.apache.solr.rest.schema
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|solr
 operator|.
 name|rest
+operator|.
+name|schema
 package|;
 end_package
 begin_comment
@@ -80,9 +82,9 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|schema
+name|rest
 operator|.
-name|FieldType
+name|GETable
 import|;
 end_import
 begin_import
@@ -216,19 +218,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|INTERNAL_POLY_FIELD_PREFIX
-specifier|private
-specifier|final
-specifier|static
-name|String
-name|INTERNAL_POLY_FIELD_PREFIX
-init|=
-literal|"*"
-operator|+
-name|FieldType
-operator|.
-name|POLY_FIELD_SEPARATOR
-decl_stmt|;
 DECL|method|DynamicFieldCollectionResource
 specifier|public
 name|DynamicFieldCollectionResource
@@ -315,6 +304,8 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
+name|IndexSchema
+operator|.
 name|INTERNAL_POLY_FIELD_PREFIX
 argument_list|)
 condition|)
@@ -479,7 +470,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-name|SchemaRestApi
+name|IndexSchema
 operator|.
 name|DYNAMIC_FIELDS
 argument_list|,
