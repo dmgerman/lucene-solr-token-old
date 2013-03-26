@@ -827,6 +827,14 @@ argument_list|(
 name|ordinal
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|parent
+operator|>
+literal|0
+condition|)
+block|{
+comment|// only do this if the category is not a dimension itself, otherwise, it was just discarded by the 'if' below
 while|while
 condition|(
 name|parent
@@ -871,6 +879,7 @@ operator|.
 name|length
 operator|--
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
