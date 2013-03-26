@@ -1197,6 +1197,11 @@ nl|'\n'
 string|"'Specification-Version: %s'"
 op|'%'
 name|'version'
+op|','
+nl|'\n'
+comment|'# Make sure the release was compiled with 1.7:'
+nl|'\n'
+string|"'Created-By: 1.7'"
 op|')'
 op|':'
 newline|'\n'
