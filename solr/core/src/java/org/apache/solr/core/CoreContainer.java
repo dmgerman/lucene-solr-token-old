@@ -586,6 +586,21 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|Log4jWatcher
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|schema
 operator|.
 name|IndexSchema
@@ -2271,12 +2286,9 @@ operator|>
 literal|0
 condition|)
 block|{
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"Log watching is not yet implemented for log4j"
-argument_list|)
+name|fname
+operator|=
+literal|"Log4j"
 expr_stmt|;
 block|}
 elseif|else
@@ -2341,9 +2353,26 @@ argument_list|(
 name|slf4jImpl
 argument_list|)
 expr_stmt|;
-comment|//      else if( "Log4j".equals(fname) ) {
-comment|//        logging = new Log4jWatcher(slf4jImpl);
-comment|//      }
+block|}
+elseif|else
+if|if
+condition|(
+literal|"Log4j"
+operator|.
+name|equals
+argument_list|(
+name|fname
+argument_list|)
+condition|)
+block|{
+name|logging
+operator|=
+operator|new
+name|Log4jWatcher
+argument_list|(
+name|slf4jImpl
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
