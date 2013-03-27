@@ -285,7 +285,7 @@ name|DirectoryReader
 name|indexReader
 decl_stmt|;
 DECL|field|indexWriter
-specifier|private
+specifier|protected
 name|RandomIndexWriter
 name|indexWriter
 decl_stmt|;

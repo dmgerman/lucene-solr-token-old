@@ -160,7 +160,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|FixedBitSet
 import|;
 end_import
 begin_import
@@ -173,7 +173,7 @@ name|IOException
 import|;
 end_import
 begin_comment
-comment|/**  * Base class for Lucene Filters on SpatialPrefixTree fields.  *  * @lucene.internal  */
+comment|/**  * Base class for Lucene Filters on SpatialPrefixTree fields.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|AbstractPrefixTreeFilter
@@ -490,7 +490,7 @@ specifier|protected
 name|void
 name|collectDocs
 parameter_list|(
-name|OpenBitSet
+name|FixedBitSet
 name|bitSet
 parameter_list|)
 throws|throws
@@ -538,7 +538,7 @@ condition|)
 block|{
 name|bitSet
 operator|.
-name|fastSet
+name|set
 argument_list|(
 name|docid
 argument_list|)
