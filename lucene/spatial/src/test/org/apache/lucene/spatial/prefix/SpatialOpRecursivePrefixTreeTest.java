@@ -149,7 +149,7 @@ name|prefix
 operator|.
 name|tree
 operator|.
-name|Node
+name|Cell
 import|;
 end_import
 begin_import
@@ -1176,13 +1176,13 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 name|cells
 init|=
 name|grid
 operator|.
-name|getNodes
+name|getCells
 argument_list|(
 name|snapMe
 argument_list|,
@@ -1222,7 +1222,7 @@ name|NEGATIVE_INFINITY
 decl_stmt|;
 for|for
 control|(
-name|Node
+name|Cell
 name|cell
 range|:
 name|cells

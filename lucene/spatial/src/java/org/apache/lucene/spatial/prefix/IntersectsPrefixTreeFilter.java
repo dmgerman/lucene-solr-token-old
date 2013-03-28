@@ -82,7 +82,7 @@ name|prefix
 operator|.
 name|tree
 operator|.
-name|Node
+name|Cell
 import|;
 end_import
 begin_import
@@ -292,7 +292,7 @@ specifier|protected
 name|boolean
 name|visit
 parameter_list|(
-name|Node
+name|Cell
 name|cell
 parameter_list|)
 throws|throws
@@ -336,7 +336,7 @@ specifier|protected
 name|void
 name|visitLeaf
 parameter_list|(
-name|Node
+name|Cell
 name|cell
 parameter_list|)
 throws|throws
@@ -354,7 +354,7 @@ specifier|protected
 name|void
 name|visitScanned
 parameter_list|(
-name|Node
+name|Cell
 name|cell
 parameter_list|)
 throws|throws

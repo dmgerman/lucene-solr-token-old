@@ -239,7 +239,7 @@ name|double
 name|dist
 parameter_list|)
 function_decl|;
-comment|/**    * Given a node having the specified level, returns the distance from opposite    * corners. Since this might very depending on where the node is, this method    * may over-estimate.    *    * @param level [1 to maxLevels]    * @return> 0    */
+comment|/**    * Given a cell having the specified level, returns the distance from opposite    * corners. Since this might very depending on where the cell is, this method    * may over-estimate.    *    * @param level [1 to maxLevels]    * @return> 0    */
 DECL|method|getDistanceForLevel
 specifier|public
 name|double
@@ -268,10 +268,10 @@ literal|"Level must be in 1 to maxLevels range"
 argument_list|)
 throw|;
 comment|//TODO cache for each level
-name|Node
-name|node
+name|Cell
+name|cell
 init|=
-name|getNode
+name|getCell
 argument_list|(
 name|ctx
 operator|.
@@ -287,7 +287,7 @@ decl_stmt|;
 name|Rectangle
 name|bbox
 init|=
-name|node
+name|cell
 operator|.
 name|getShape
 argument_list|()
@@ -328,55 +328,55 @@ name|height
 argument_list|)
 return|;
 block|}
-DECL|field|worldNode
+DECL|field|worldCell
 specifier|private
 specifier|transient
-name|Node
-name|worldNode
+name|Cell
+name|worldCell
 decl_stmt|;
 comment|//cached
-comment|/**    * Returns the level 0 cell which encompasses all spatial data. Equivalent to {@link #getNode(String)} with "".    * This cell is threadsafe, just like a spatial prefix grid is, although cells aren't    * generally threadsafe.    * TODO rename to getTopCell or is this fine?    */
-DECL|method|getWorldNode
+comment|/**    * Returns the level 0 cell which encompasses all spatial data. Equivalent to {@link #getCell(String)} with "".    * This cell is threadsafe, just like a spatial prefix grid is, although cells aren't    * generally threadsafe.    * TODO rename to getTopCell or is this fine?    */
+DECL|method|getWorldCell
 specifier|public
-name|Node
-name|getWorldNode
+name|Cell
+name|getWorldCell
 parameter_list|()
 block|{
 if|if
 condition|(
-name|worldNode
+name|worldCell
 operator|==
 literal|null
 condition|)
 block|{
-name|worldNode
+name|worldCell
 operator|=
-name|getNode
+name|getCell
 argument_list|(
 literal|""
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|worldNode
+name|worldCell
 return|;
 block|}
-comment|/**    * The cell for the specified token. The empty string should be equal to {@link #getWorldNode()}.    * Precondition: Never called when token length> maxLevel.    */
-DECL|method|getNode
+comment|/**    * The cell for the specified token. The empty string should be equal to {@link #getWorldCell()}.    * Precondition: Never called when token length> maxLevel.    */
+DECL|method|getCell
 specifier|public
 specifier|abstract
-name|Node
-name|getNode
+name|Cell
+name|getCell
 parameter_list|(
 name|String
 name|token
 parameter_list|)
 function_decl|;
-DECL|method|getNode
+DECL|method|getCell
 specifier|public
 specifier|abstract
-name|Node
-name|getNode
+name|Cell
+name|getCell
 parameter_list|(
 name|byte
 index|[]
@@ -389,11 +389,11 @@ name|int
 name|len
 parameter_list|)
 function_decl|;
-DECL|method|getNode
+DECL|method|getCell
 specifier|public
 specifier|final
-name|Node
-name|getNode
+name|Cell
+name|getCell
 parameter_list|(
 name|byte
 index|[]
@@ -405,7 +405,7 @@ parameter_list|,
 name|int
 name|len
 parameter_list|,
-name|Node
+name|Cell
 name|target
 parameter_list|)
 block|{
@@ -417,7 +417,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|getNode
+name|getCell
 argument_list|(
 name|bytes
 argument_list|,
@@ -443,10 +443,10 @@ name|target
 return|;
 block|}
 comment|/**    * Returns the cell containing point {@code p} at the specified {@code level}.    */
-DECL|method|getNode
+DECL|method|getCell
 specifier|protected
-name|Node
-name|getNode
+name|Cell
+name|getCell
 parameter_list|(
 name|Point
 name|p
@@ -456,7 +456,7 @@ name|level
 parameter_list|)
 block|{
 return|return
-name|getNodes
+name|getCells
 argument_list|(
 name|p
 argument_list|,
@@ -471,14 +471,14 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**    * Gets the intersecting cells for the specified shape, without exceeding    * detail level. If a cell is within the query shape then it's marked as a    * leaf and none of its children are added.    *<p/>    * This implementation checks if shape is a Point and if so returns {@link    * #getNodes(com.spatial4j.core.shape.Point, int, boolean)}.    *    * @param shape       the shape; non-null    * @param detailLevel the maximum detail level to get cells for    * @param inclParents if true then all parent cells of leaves are returned    *                    too. The top world cell is never returned.    * @param simplify    for non-point shapes, this will simply/aggregate sets of    *                    complete leaves in a cell to its parent, resulting in    *                    ~20-25% fewer cells.    * @return a set of cells (no dups), sorted, immutable, non-null    */
-DECL|method|getNodes
+comment|/**    * Gets the intersecting cells for the specified shape, without exceeding    * detail level. If a cell is within the query shape then it's marked as a    * leaf and none of its children are added.    *<p/>    * This implementation checks if shape is a Point and if so returns {@link    * #getCells(com.spatial4j.core.shape.Point, int, boolean)}.    *    * @param shape       the shape; non-null    * @param detailLevel the maximum detail level to get cells for    * @param inclParents if true then all parent cells of leaves are returned    *                    too. The top world cell is never returned.    * @param simplify    for non-point shapes, this will simply/aggregate sets of    *                    complete leaves in a cell to its parent, resulting in    *                    ~20-25% fewer cells.    * @return a set of cells (no dups), sorted, immutable, non-null    */
+DECL|method|getCells
 specifier|public
 name|List
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
-name|getNodes
+name|getCells
 parameter_list|(
 name|Shape
 name|shape
@@ -517,7 +517,7 @@ name|Point
 condition|)
 block|{
 return|return
-name|getNodes
+name|getCells
 argument_list|(
 operator|(
 name|Point
@@ -532,14 +532,14 @@ return|;
 block|}
 name|List
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 name|cells
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 argument_list|(
 name|inclParents
@@ -549,9 +549,9 @@ else|:
 literal|2048
 argument_list|)
 decl_stmt|;
-name|recursiveGetNodes
+name|recursiveGetCells
 argument_list|(
-name|getWorldNode
+name|getWorldCell
 argument_list|()
 argument_list|,
 name|shape
@@ -569,14 +569,14 @@ return|return
 name|cells
 return|;
 block|}
-comment|/**    * Returns true if node was added as a leaf. If it wasn't it recursively    * descends.    */
-DECL|method|recursiveGetNodes
+comment|/**    * Returns true if cell was added as a leaf. If it wasn't it recursively    * descends.    */
+DECL|method|recursiveGetCells
 specifier|private
 name|boolean
-name|recursiveGetNodes
+name|recursiveGetCells
 parameter_list|(
-name|Node
-name|node
+name|Cell
+name|cell
 parameter_list|,
 name|Shape
 name|shape
@@ -592,14 +592,14 @@ name|simplify
 parameter_list|,
 name|List
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 name|result
 parameter_list|)
 block|{
 if|if
 condition|(
-name|node
+name|cell
 operator|.
 name|getLevel
 argument_list|()
@@ -607,7 +607,7 @@ operator|==
 name|detailLevel
 condition|)
 block|{
-name|node
+name|cell
 operator|.
 name|setLeaf
 argument_list|()
@@ -616,7 +616,7 @@ comment|//FYI might already be a leaf
 block|}
 if|if
 condition|(
-name|node
+name|cell
 operator|.
 name|isLeaf
 argument_list|()
@@ -626,7 +626,7 @@ name|result
 operator|.
 name|add
 argument_list|(
-name|node
+name|cell
 argument_list|)
 expr_stmt|;
 return|return
@@ -637,7 +637,7 @@ if|if
 condition|(
 name|inclParents
 operator|&&
-name|node
+name|cell
 operator|.
 name|getLevel
 argument_list|()
@@ -648,16 +648,16 @@ name|result
 operator|.
 name|add
 argument_list|(
-name|node
+name|cell
 argument_list|)
 expr_stmt|;
 name|Collection
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 name|subCells
 init|=
-name|node
+name|cell
 operator|.
 name|getSubCells
 argument_list|(
@@ -671,7 +671,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|Node
+name|Cell
 name|subCell
 range|:
 name|subCells
@@ -679,7 +679,7 @@ control|)
 block|{
 if|if
 condition|(
-name|recursiveGetNodes
+name|recursiveGetCells
 argument_list|(
 name|subCell
 argument_list|,
@@ -705,12 +705,12 @@ name|simplify
 operator|&&
 name|leaves
 operator|==
-name|node
+name|cell
 operator|.
 name|getSubCellsSize
 argument_list|()
 operator|&&
-name|node
+name|cell
 operator|.
 name|getLevel
 argument_list|()
@@ -745,8 +745,8 @@ operator|>
 literal|0
 condition|)
 do|;
-comment|//add node as the leaf
-name|node
+comment|//add cell as the leaf
+name|cell
 operator|.
 name|setLeaf
 argument_list|()
@@ -761,7 +761,7 @@ name|result
 operator|.
 name|add
 argument_list|(
-name|node
+name|cell
 argument_list|)
 expr_stmt|;
 return|return
@@ -772,14 +772,14 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**    * A Point-optimized implementation of    * {@link #getNodes(com.spatial4j.core.shape.Shape, int, boolean, boolean)}. That    * method in facts calls this for points.    *<p/>    * This implementation depends on {@link #getNode(String)} being fast, as its    * called repeatedly when incPlarents is true.    */
-DECL|method|getNodes
+comment|/**    * A Point-optimized implementation of    * {@link #getCells(com.spatial4j.core.shape.Shape, int, boolean, boolean)}. That    * method in facts calls this for points.    *<p/>    * This implementation depends on {@link #getCell(String)} being fast, as its    * called repeatedly when incPlarents is true.    */
+DECL|method|getCells
 specifier|public
 name|List
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
-name|getNodes
+name|getCells
 parameter_list|(
 name|Point
 name|p
@@ -791,10 +791,10 @@ name|boolean
 name|inclParents
 parameter_list|)
 block|{
-name|Node
+name|Cell
 name|cell
 init|=
-name|getNode
+name|getCell
 argument_list|(
 name|p
 argument_list|,
@@ -834,14 +834,14 @@ name|detailLevel
 assert|;
 name|List
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 name|cells
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 argument_list|(
 name|detailLevel
@@ -866,7 +866,7 @@ name|cells
 operator|.
 name|add
 argument_list|(
-name|getNode
+name|getCell
 argument_list|(
 name|endToken
 operator|.
@@ -892,20 +892,20 @@ name|cells
 return|;
 block|}
 comment|/**    * Will add the trailing leaf byte for leaves. This isn't particularly efficient.    */
-DECL|method|nodesToTokenStrings
+DECL|method|cellsToTokenStrings
 specifier|public
 specifier|static
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|nodesToTokenStrings
+name|cellsToTokenStrings
 parameter_list|(
 name|Collection
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
-name|nodes
+name|cells
 parameter_list|)
 block|{
 name|List
@@ -921,7 +921,7 @@ name|String
 argument_list|>
 argument_list|(
 operator|(
-name|nodes
+name|cells
 operator|.
 name|size
 argument_list|()
@@ -930,24 +930,24 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|Node
-name|node
+name|Cell
+name|cell
 range|:
-name|nodes
+name|cells
 control|)
 block|{
 specifier|final
 name|String
 name|token
 init|=
-name|node
+name|cell
 operator|.
 name|getTokenString
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|node
+name|cell
 operator|.
 name|isLeaf
 argument_list|()
@@ -962,7 +962,7 @@ operator|+
 operator|(
 name|char
 operator|)
-name|Node
+name|Cell
 operator|.
 name|LEAF_BYTE
 argument_list|)

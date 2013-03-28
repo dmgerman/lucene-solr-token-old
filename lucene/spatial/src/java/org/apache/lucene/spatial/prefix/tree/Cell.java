@@ -97,15 +97,15 @@ begin_comment
 comment|/**  * Represents a grid cell. These are not necessarily thread-safe, although new  * Cell("") (world cell) must be.  *  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|Node
+DECL|class|Cell
 specifier|public
 specifier|abstract
 class|class
-name|Node
+name|Cell
 implements|implements
 name|Comparable
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 block|{
 DECL|field|LEAF_BYTE
@@ -153,9 +153,9 @@ specifier|protected
 name|boolean
 name|leaf
 decl_stmt|;
-DECL|method|Node
+DECL|method|Cell
 specifier|protected
-name|Node
+name|Cell
 parameter_list|(
 name|String
 name|token
@@ -228,9 +228,9 @@ argument_list|()
 expr_stmt|;
 comment|//ensure any lazy instantiation completes to make this threadsafe
 block|}
-DECL|method|Node
+DECL|method|Cell
 specifier|protected
-name|Node
+name|Cell
 parameter_list|(
 name|byte
 index|[]
@@ -506,12 +506,12 @@ return|;
 block|}
 comment|//TODO add getParent() and update some algorithms to use this?
 comment|//public Cell getParent();
-comment|/**    * Like {@link #getSubCells()} but with the results filtered by a shape. If    * that shape is a {@link com.spatial4j.core.shape.Point} then it must call    * {@link #getSubCell(com.spatial4j.core.shape.Point)}. The returned cells    * should have {@link Node#getShapeRel()} set to their relation with {@code    * shapeFilter}. In addition, {@link org.apache.lucene.spatial.prefix.tree.Node#isLeaf()}    * must be true when that relation is WITHIN.    *<p/>    * Precondition: Never called when getLevel() == maxLevel.    *    * @param shapeFilter an optional filter for the returned cells.    * @return A set of cells (no dups), sorted. Not Modifiable.    */
+comment|/**    * Like {@link #getSubCells()} but with the results filtered by a shape. If    * that shape is a {@link com.spatial4j.core.shape.Point} then it must call    * {@link #getSubCell(com.spatial4j.core.shape.Point)}. The returned cells    * should have {@link Cell#getShapeRel()} set to their relation with {@code    * shapeFilter}. In addition, {@link Cell#isLeaf()}    * must be true when that relation is WITHIN.    *<p/>    * Precondition: Never called when getLevel() == maxLevel.    *    * @param shapeFilter an optional filter for the returned cells.    * @return A set of cells (no dups), sorted. Not Modifiable.    */
 DECL|method|getSubCells
 specifier|public
 name|Collection
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 name|getSubCells
 parameter_list|(
@@ -527,7 +527,7 @@ operator|instanceof
 name|Point
 condition|)
 block|{
-name|Node
+name|Cell
 name|subCell
 init|=
 name|getSubCell
@@ -557,7 +557,7 @@ return|;
 block|}
 name|Collection
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 name|cells
 init|=
@@ -578,14 +578,14 @@ block|}
 comment|//TODO change API to return a filtering iterator
 name|List
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 name|copy
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 argument_list|(
 name|cells
@@ -596,7 +596,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|Node
+name|Cell
 name|cell
 range|:
 name|cells
@@ -659,7 +659,7 @@ comment|/**    * Performant implementations are expected to implement this effic
 DECL|method|getSubCell
 specifier|public
 specifier|abstract
-name|Node
+name|Cell
 name|getSubCell
 parameter_list|(
 name|Point
@@ -673,7 +673,7 @@ specifier|protected
 specifier|abstract
 name|Collection
 argument_list|<
-name|Node
+name|Cell
 argument_list|>
 name|getSubCells
 parameter_list|()
@@ -714,7 +714,7 @@ specifier|public
 name|int
 name|compareTo
 parameter_list|(
-name|Node
+name|Cell
 name|o
 parameter_list|)
 block|{
@@ -753,7 +753,7 @@ operator|!
 operator|(
 name|obj
 operator|instanceof
-name|Node
+name|Cell
 operator|)
 operator|)
 operator|&&
@@ -764,7 +764,7 @@ name|equals
 argument_list|(
 operator|(
 operator|(
-name|Node
+name|Cell
 operator|)
 name|obj
 operator|)
