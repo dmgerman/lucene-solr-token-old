@@ -32,7 +32,7 @@ specifier|public
 specifier|final
 class|class
 name|NoDeletionPolicy
-implements|implements
+extends|extends
 name|IndexDeletionPolicy
 block|{
 comment|/** The single instance of this class. */
@@ -86,6 +86,18 @@ argument_list|>
 name|commits
 parameter_list|)
 block|{}
+annotation|@
+name|Override
+DECL|method|clone
+specifier|public
+name|IndexDeletionPolicy
+name|clone
+parameter_list|()
+block|{
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 end_unit

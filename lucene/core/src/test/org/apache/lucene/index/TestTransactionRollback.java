@@ -772,7 +772,7 @@ comment|// Rolls back to previous commit point
 DECL|class|RollbackDeletionPolicy
 class|class
 name|RollbackDeletionPolicy
-implements|implements
+extends|extends
 name|IndexDeletionPolicy
 block|{
 DECL|field|rollbackPoint
@@ -924,7 +924,7 @@ block|}
 DECL|class|DeleteLastCommitPolicy
 class|class
 name|DeleteLastCommitPolicy
-implements|implements
+extends|extends
 name|IndexDeletionPolicy
 block|{
 annotation|@
@@ -1064,7 +1064,7 @@ comment|// Keeps all commit points (used to build index)
 DECL|class|KeepAllDeletionPolicy
 class|class
 name|KeepAllDeletionPolicy
-implements|implements
+extends|extends
 name|IndexDeletionPolicy
 block|{
 annotation|@
