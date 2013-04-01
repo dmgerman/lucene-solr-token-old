@@ -120,7 +120,7 @@ name|args
 argument_list|,
 literal|"minGramSize"
 argument_list|,
-name|EdgeNGramTokenFilter
+name|EdgeNGramTokenizer
 operator|.
 name|DEFAULT_MIN_GRAM_SIZE
 argument_list|)
@@ -133,7 +133,7 @@ name|args
 argument_list|,
 literal|"maxGramSize"
 argument_list|,
-name|EdgeNGramTokenFilter
+name|EdgeNGramTokenizer
 operator|.
 name|DEFAULT_MAX_GRAM_SIZE
 argument_list|)
