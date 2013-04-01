@@ -1691,7 +1691,6 @@ operator|.
 name|getParams
 argument_list|()
 decl_stmt|;
-comment|// Turn on spellcheck only only when retrieving fields
 if|if
 condition|(
 operator|!
@@ -1705,6 +1704,22 @@ literal|false
 argument_list|)
 condition|)
 return|return;
+name|int
+name|purpose
+init|=
+name|rb
+operator|.
+name|grouping
+argument_list|()
+condition|?
+name|ShardRequest
+operator|.
+name|PURPOSE_GET_TOP_GROUPS
+else|:
+name|ShardRequest
+operator|.
+name|PURPOSE_GET_TOP_IDS
+decl_stmt|;
 if|if
 condition|(
 operator|(
@@ -1712,9 +1727,7 @@ name|sreq
 operator|.
 name|purpose
 operator|&
-name|ShardRequest
-operator|.
-name|PURPOSE_GET_TOP_IDS
+name|purpose
 operator|)
 operator|!=
 literal|0
@@ -1984,6 +1997,15 @@ block|}
 name|long
 name|hits
 init|=
+name|rb
+operator|.
+name|grouping
+argument_list|()
+condition|?
+name|rb
+operator|.
+name|totalHitCount
+else|:
 name|rb
 operator|.
 name|getNumberDocumentsFound
