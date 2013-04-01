@@ -249,6 +249,24 @@ name|DELETE_INSTANCE_DIR
 init|=
 literal|"deleteInstanceDir"
 decl_stmt|;
+DECL|field|LOAD_ON_STARTUP
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|LOAD_ON_STARTUP
+init|=
+literal|"loadOnStartup"
+decl_stmt|;
+DECL|field|TRANSIENT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TRANSIENT
+init|=
+literal|"transient"
+decl_stmt|;
 DECL|enum|CoreAdminAction
 specifier|public
 enum|enum
@@ -298,6 +316,12 @@ name|CREATEALIAS
 block|,
 DECL|enum constant|DELETEALIAS
 name|DELETEALIAS
+block|,
+DECL|enum constant|LOAD_ON_STARTUP
+name|LOAD_ON_STARTUP
+block|,
+DECL|enum constant|TRANSIENT
+name|TRANSIENT
 block|;
 DECL|method|get
 specifier|public

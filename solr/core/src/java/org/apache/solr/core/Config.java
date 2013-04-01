@@ -507,7 +507,7 @@ name|loader
 argument_list|,
 literal|null
 argument_list|,
-name|ConfigSolrXmlBackCompat
+name|ConfigSolrXml
 operator|.
 name|copyDoc
 argument_list|(
