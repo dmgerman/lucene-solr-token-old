@@ -39,6 +39,7 @@ comment|/** Just produces one single fragment for the entire text */
 end_comment
 begin_class
 DECL|class|WholeBreakIterator
+specifier|public
 specifier|final
 class|class
 name|WholeBreakIterator
