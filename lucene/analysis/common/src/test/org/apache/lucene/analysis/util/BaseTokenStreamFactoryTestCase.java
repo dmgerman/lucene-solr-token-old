@@ -72,7 +72,7 @@ name|Version
 import|;
 end_import
 begin_comment
-comment|/** Base class for testing tokenstream factories */
+comment|/**   * Base class for testing tokenstream factories.   *<p>  * Example usage:  *<code><pre>  *   Reader reader = new StringReader("Some Text to Analyze");  *   reader = charFilterFactory("htmlstrip").create(reader);  *   TokenStream stream = tokenizerFactory("standard").create(reader);  *   stream = tokenFilterFactory("lowercase").create(stream);  *   stream = tokenFilterFactory("asciifolding").create(stream);  *   assertTokenStreamContents(stream, new String[] { "some", "text", "to", "analyze" });  *</pre></code>  */
 end_comment
 begin_comment
 comment|// TODO: this has to be here, since the abstract factories are not in lucene-core,
@@ -320,6 +320,7 @@ return|return
 name|factory
 return|;
 block|}
+comment|/**     * Returns a fully initialized TokenizerFactory with the specified name and key-value arguments.    * {@link ClasspathResourceLoader} is used for loading resources, so any required ones should    * be on the test classpath.    */
 DECL|method|tokenizerFactory
 specifier|protected
 name|TokenizerFactory
@@ -353,6 +354,7 @@ name|keysAndValues
 argument_list|)
 return|;
 block|}
+comment|/**     * Returns a fully initialized TokenizerFactory with the specified name, version, resource loader,     * and key-value arguments.    */
 DECL|method|tokenizerFactory
 specifier|protected
 name|TokenizerFactory
@@ -395,6 +397,7 @@ name|keysAndValues
 argument_list|)
 return|;
 block|}
+comment|/**     * Returns a fully initialized TokenFilterFactory with the specified name and key-value arguments.    * {@link ClasspathResourceLoader} is used for loading resources, so any required ones should    * be on the test classpath.    */
 DECL|method|tokenFilterFactory
 specifier|protected
 name|TokenFilterFactory
@@ -428,6 +431,7 @@ name|keysAndValues
 argument_list|)
 return|;
 block|}
+comment|/**     * Returns a fully initialized TokenFilterFactory with the specified name, version, resource loader,     * and key-value arguments.    */
 DECL|method|tokenFilterFactory
 specifier|protected
 name|TokenFilterFactory
@@ -470,6 +474,7 @@ name|keysAndValues
 argument_list|)
 return|;
 block|}
+comment|/**     * Returns a fully initialized CharFilterFactory with the specified name and key-value arguments.    * {@link ClasspathResourceLoader} is used for loading resources, so any required ones should    * be on the test classpath.    */
 DECL|method|charFilterFactory
 specifier|protected
 name|CharFilterFactory
@@ -503,6 +508,7 @@ name|keysAndValues
 argument_list|)
 return|;
 block|}
+comment|/**     * Returns a fully initialized CharFilterFactory with the specified name, version, resource loader,     * and key-value arguments.    */
 DECL|method|charFilterFactory
 specifier|protected
 name|CharFilterFactory
