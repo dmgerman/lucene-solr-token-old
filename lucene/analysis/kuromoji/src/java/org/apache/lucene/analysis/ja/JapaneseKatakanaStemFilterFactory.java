@@ -90,15 +90,14 @@ literal|"minimumLength"
 decl_stmt|;
 DECL|field|minimumLength
 specifier|private
+specifier|final
 name|int
 name|minimumLength
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|init
+comment|/** Creates a new JapaneseKatakanaStemFilterFactory */
+DECL|method|JapaneseKatakanaStemFilterFactory
 specifier|public
-name|void
-name|init
+name|JapaneseKatakanaStemFilterFactory
 parameter_list|(
 name|Map
 argument_list|<
@@ -110,8 +109,6 @@ name|args
 parameter_list|)
 block|{
 name|super
-operator|.
-name|init
 argument_list|(
 name|args
 argument_list|)
@@ -120,6 +117,8 @@ name|minimumLength
 operator|=
 name|getInt
 argument_list|(
+name|args
+argument_list|,
 name|MINIMUM_LENGTH_PARAM
 argument_list|,
 name|JapaneseKatakanaStemFilter
@@ -147,6 +146,25 @@ operator|+
 name|minimumLength
 operator|+
 literal|" (must be 2 or greater)"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+operator|!
+name|args
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unknown parameters: "
+operator|+
+name|args
 argument_list|)
 throw|;
 block|}

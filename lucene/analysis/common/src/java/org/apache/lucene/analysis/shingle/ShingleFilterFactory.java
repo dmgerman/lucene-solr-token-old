@@ -69,7 +69,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**   * Factory for {@link ShingleFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_shingle" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.ShingleFilterFactory" minShingleSize="2" maxShingleSize="2"  *             outputUnigrams="true" outputUnigramsIfNoShingles="false" tokenSeparator=" "/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  *  */
+comment|/**   * Factory for {@link ShingleFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_shingle" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.ShingleFilterFactory" minShingleSize="2" maxShingleSize="2"  *             outputUnigrams="true" outputUnigramsIfNoShingles="false" tokenSeparator=" "/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  */
 end_comment
 begin_class
 DECL|class|ShingleFilterFactory
@@ -81,35 +81,38 @@ name|TokenFilterFactory
 block|{
 DECL|field|minShingleSize
 specifier|private
+specifier|final
 name|int
 name|minShingleSize
 decl_stmt|;
 DECL|field|maxShingleSize
 specifier|private
+specifier|final
 name|int
 name|maxShingleSize
 decl_stmt|;
 DECL|field|outputUnigrams
 specifier|private
+specifier|final
 name|boolean
 name|outputUnigrams
 decl_stmt|;
 DECL|field|outputUnigramsIfNoShingles
 specifier|private
+specifier|final
 name|boolean
 name|outputUnigramsIfNoShingles
 decl_stmt|;
 DECL|field|tokenSeparator
 specifier|private
+specifier|final
 name|String
 name|tokenSeparator
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|init
+comment|/** Creates a new ShingleFilterFactory */
+DECL|method|ShingleFilterFactory
 specifier|public
-name|void
-name|init
+name|ShingleFilterFactory
 parameter_list|(
 name|Map
 argument_list|<
@@ -121,8 +124,6 @@ name|args
 parameter_list|)
 block|{
 name|super
-operator|.
-name|init
 argument_list|(
 name|args
 argument_list|)
@@ -131,6 +132,8 @@ name|maxShingleSize
 operator|=
 name|getInt
 argument_list|(
+name|args
+argument_list|,
 literal|"maxShingleSize"
 argument_list|,
 name|ShingleFilter
@@ -161,6 +164,8 @@ name|minShingleSize
 operator|=
 name|getInt
 argument_list|(
+name|args
+argument_list|,
 literal|"minShingleSize"
 argument_list|,
 name|ShingleFilter
@@ -214,6 +219,8 @@ name|outputUnigrams
 operator|=
 name|getBoolean
 argument_list|(
+name|args
+argument_list|,
 literal|"outputUnigrams"
 argument_list|,
 literal|true
@@ -223,6 +230,8 @@ name|outputUnigramsIfNoShingles
 operator|=
 name|getBoolean
 argument_list|(
+name|args
+argument_list|,
 literal|"outputUnigramsIfNoShingles"
 argument_list|,
 literal|false
@@ -239,7 +248,7 @@ argument_list|)
 condition|?
 name|args
 operator|.
-name|get
+name|remove
 argument_list|(
 literal|"tokenSeparator"
 argument_list|)
@@ -248,6 +257,25 @@ name|ShingleFilter
 operator|.
 name|TOKEN_SEPARATOR
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|args
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unknown parameters: "
+operator|+
+name|args
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override

@@ -69,7 +69,7 @@ name|TokenFilterFactory
 import|;
 end_import
 begin_comment
-comment|/**   * Factory for {@link IndonesianStemFilter}.   *<pre class="prettyprint">  *&lt;fieldType name="text_idstem" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.StandardTokenizerFactory"/&gt;  *&lt;filter class="solr.LowerCaseFilterFactory"/&gt;  *&lt;filter class="solr.IndonesianStemFilterFactory" stemDerivational="true"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  *  */
+comment|/**   * Factory for {@link IndonesianStemFilter}.   *<pre class="prettyprint">  *&lt;fieldType name="text_idstem" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.StandardTokenizerFactory"/&gt;  *&lt;filter class="solr.LowerCaseFilterFactory"/&gt;  *&lt;filter class="solr.IndonesianStemFilterFactory" stemDerivational="true"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  */
 end_comment
 begin_class
 DECL|class|IndonesianStemFilterFactory
@@ -81,17 +81,14 @@ name|TokenFilterFactory
 block|{
 DECL|field|stemDerivational
 specifier|private
+specifier|final
 name|boolean
 name|stemDerivational
-init|=
-literal|true
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|init
+comment|/** Creates a new IndonesianStemFilterFactory */
+DECL|method|IndonesianStemFilterFactory
 specifier|public
-name|void
-name|init
+name|IndonesianStemFilterFactory
 parameter_list|(
 name|Map
 argument_list|<
@@ -103,8 +100,6 @@ name|args
 parameter_list|)
 block|{
 name|super
-operator|.
-name|init
 argument_list|(
 name|args
 argument_list|)
@@ -113,11 +108,32 @@ name|stemDerivational
 operator|=
 name|getBoolean
 argument_list|(
+name|args
+argument_list|,
 literal|"stemDerivational"
 argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|args
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unknown parameters: "
+operator|+
+name|args
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override

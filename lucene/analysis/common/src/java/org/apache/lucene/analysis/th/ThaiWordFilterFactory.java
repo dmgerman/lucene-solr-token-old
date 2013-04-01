@@ -18,6 +18,15 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -60,7 +69,7 @@ name|TokenFilterFactory
 import|;
 end_import
 begin_comment
-comment|/**   * Factory for {@link ThaiWordFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_thai" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.StandardTokenizerFactory"/&gt;  *&lt;filter class="solr.ThaiWordFilterFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  *  */
+comment|/**   * Factory for {@link ThaiWordFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_thai" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.StandardTokenizerFactory"/&gt;  *&lt;filter class="solr.ThaiWordFilterFactory"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  */
 end_comment
 begin_class
 DECL|class|ThaiWordFilterFactory
@@ -70,6 +79,48 @@ name|ThaiWordFilterFactory
 extends|extends
 name|TokenFilterFactory
 block|{
+comment|/** Creates a new ThaiWordFilterFactory */
+DECL|method|ThaiWordFilterFactory
+specifier|public
+name|ThaiWordFilterFactory
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|args
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|args
+argument_list|)
+expr_stmt|;
+name|assureMatchVersion
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|args
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unknown parameters: "
+operator|+
+name|args
+argument_list|)
+throw|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|create
@@ -81,9 +132,6 @@ name|TokenStream
 name|input
 parameter_list|)
 block|{
-name|assureMatchVersion
-argument_list|()
-expr_stmt|;
 return|return
 operator|new
 name|ThaiWordFilter

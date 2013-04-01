@@ -69,7 +69,7 @@ name|TokenFilterFactory
 import|;
 end_import
 begin_comment
-comment|/**  * Factory for {@link LimitTokenCountFilter}.   *<pre class="prettyprint">  *&lt;fieldType name="text_lngthcnt" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.LimitTokenCountFilterFactory" maxTokenCount="10" consumeAllTokens="false" /&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>   *<p>  * The {@code consumeAllTokens} property is optional and defaults to {@code false}.  See {@link LimitTokenCountFilter} for an explanation of it's use.  */
+comment|/**  * Factory for {@link LimitTokenCountFilter}.   *<pre class="prettyprint">  *&lt;fieldType name="text_lngthcnt" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.LimitTokenCountFilterFactory" maxTokenCount="10" consumeAllTokens="false" /&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  *<p>  * The {@code consumeAllTokens} property is optional and defaults to {@code false}.    * See {@link LimitTokenCountFilter} for an explanation of it's use.  */
 end_comment
 begin_class
 DECL|class|LimitTokenCountFilterFactory
@@ -98,19 +98,19 @@ init|=
 literal|"consumeAllTokens"
 decl_stmt|;
 DECL|field|maxTokenCount
+specifier|final
 name|int
 name|maxTokenCount
 decl_stmt|;
 DECL|field|consumeAllTokens
+specifier|final
 name|boolean
 name|consumeAllTokens
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|init
+comment|/** Creates a new LimitTokenCountFilterFactory */
+DECL|method|LimitTokenCountFilterFactory
 specifier|public
-name|void
-name|init
+name|LimitTokenCountFilterFactory
 parameter_list|(
 name|Map
 argument_list|<
@@ -122,8 +122,6 @@ name|args
 parameter_list|)
 block|{
 name|super
-operator|.
-name|init
 argument_list|(
 name|args
 argument_list|)
@@ -132,6 +130,8 @@ name|maxTokenCount
 operator|=
 name|getInt
 argument_list|(
+name|args
+argument_list|,
 name|MAX_TOKEN_COUNT_KEY
 argument_list|)
 expr_stmt|;
@@ -139,11 +139,32 @@ name|consumeAllTokens
 operator|=
 name|getBoolean
 argument_list|(
+name|args
+argument_list|,
 name|CONSUME_ALL_TOKENS_KEY
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|args
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Unknown parameters: "
+operator|+
+name|args
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
