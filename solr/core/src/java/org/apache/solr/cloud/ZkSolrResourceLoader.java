@@ -535,6 +535,16 @@ return|return
 name|collectionZkPath
 return|;
 block|}
+DECL|method|getZkController
+specifier|public
+name|ZkController
+name|getZkController
+parameter_list|()
+block|{
+return|return
+name|zkController
+return|;
+block|}
 block|}
 end_class
 end_unit
