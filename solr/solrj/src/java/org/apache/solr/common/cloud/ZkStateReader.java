@@ -1901,6 +1901,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+name|updateAliases
+argument_list|()
+expr_stmt|;
 block|}
 comment|// load and publish a new CollectionInfo
 DECL|method|updateClusterState
