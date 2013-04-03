@@ -6378,6 +6378,8 @@ name|s1
 operator|.
 name|doc
 argument_list|()
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -6392,6 +6394,8 @@ name|s2
 operator|.
 name|doc
 argument_list|()
+operator|+
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
