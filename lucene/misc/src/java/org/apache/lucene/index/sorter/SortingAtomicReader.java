@@ -2899,6 +2899,13 @@ parameter_list|()
 block|{
 return|return
 name|docIt
+operator|<
+literal|0
+condition|?
+operator|-
+literal|1
+else|:
+name|docIt
 operator|>=
 name|upto
 condition|?
