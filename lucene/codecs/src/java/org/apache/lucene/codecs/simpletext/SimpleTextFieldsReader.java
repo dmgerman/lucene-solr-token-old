@@ -2115,16 +2115,11 @@ throws|throws
 name|IOException
 block|{
 comment|// Naive -- better to index skip data
-while|while
-condition|(
-name|nextDoc
-argument_list|()
-operator|<
-name|target
-condition|)
-empty_stmt|;
 return|return
-name|docID
+name|slowAdvance
+argument_list|(
+name|target
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -2771,16 +2766,11 @@ throws|throws
 name|IOException
 block|{
 comment|// Naive -- better to index skip data
-while|while
-condition|(
-name|nextDoc
-argument_list|()
-operator|<
-name|target
-condition|)
-empty_stmt|;
 return|return
-name|docID
+name|slowAdvance
+argument_list|(
+name|target
+argument_list|)
 return|;
 block|}
 annotation|@
