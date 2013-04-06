@@ -232,6 +232,17 @@ name|HIGHLIGHT
 operator|+
 literal|".bs.country"
 decl_stmt|;
+DECL|field|BS_VARIANT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|BS_VARIANT
+init|=
+name|HIGHLIGHT
+operator|+
+literal|".bs.variant"
+decl_stmt|;
 DECL|field|FIELD_MATCH
 specifier|public
 specifier|static
