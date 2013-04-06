@@ -1799,7 +1799,7 @@ control|)
 block|{
 name|params
 operator|.
-name|set
+name|add
 argument_list|(
 name|CoreAdminParams
 operator|.
@@ -1827,7 +1827,7 @@ control|)
 block|{
 name|params
 operator|.
-name|set
+name|add
 argument_list|(
 name|CoreAdminParams
 operator|.
