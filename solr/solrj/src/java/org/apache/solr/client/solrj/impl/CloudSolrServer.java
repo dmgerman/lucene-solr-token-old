@@ -1298,7 +1298,7 @@ name|colSlices
 init|=
 name|clusterState
 operator|.
-name|getSlices
+name|getActiveSlices
 argument_list|(
 name|collectionName
 argument_list|)

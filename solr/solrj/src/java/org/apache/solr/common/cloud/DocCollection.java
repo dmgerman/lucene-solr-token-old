@@ -134,7 +134,7 @@ name|Slice
 argument_list|>
 name|slices
 decl_stmt|;
-DECL|field|allSlices
+DECL|field|activeSlices
 specifier|private
 specifier|final
 name|Map
@@ -143,7 +143,7 @@ name|String
 argument_list|,
 name|Slice
 argument_list|>
-name|allSlices
+name|activeSlices
 decl_stmt|;
 DECL|field|router
 specifier|private
@@ -206,13 +206,13 @@ name|name
 expr_stmt|;
 name|this
 operator|.
-name|allSlices
+name|slices
 operator|=
 name|slices
 expr_stmt|;
 name|this
 operator|.
-name|slices
+name|activeSlices
 operator|=
 operator|new
 name|HashMap
@@ -286,7 +286,7 @@ argument_list|)
 condition|)
 name|this
 operator|.
-name|slices
+name|activeSlices
 operator|.
 name|put
 argument_list|(
@@ -339,7 +339,7 @@ name|sliceName
 parameter_list|)
 block|{
 return|return
-name|allSlices
+name|slices
 operator|.
 name|get
 argument_list|(
@@ -347,7 +347,7 @@ name|sliceName
 argument_list|)
 return|;
 block|}
-comment|/**    * Gets the list of active slices for this collection.    */
+comment|/**    * Gets the list of all slices for this collection.    */
 DECL|method|getSlices
 specifier|public
 name|Collection
@@ -364,24 +364,24 @@ name|values
 argument_list|()
 return|;
 block|}
-comment|/**    * Return the list of all slices for this collection.    */
-DECL|method|getAllSlices
+comment|/**    * Return the list of active slices for this collection.    */
+DECL|method|getActiveSlices
 specifier|public
 name|Collection
 argument_list|<
 name|Slice
 argument_list|>
-name|getAllSlices
+name|getActiveSlices
 parameter_list|()
 block|{
 return|return
-name|allSlices
+name|activeSlices
 operator|.
 name|values
 argument_list|()
 return|;
 block|}
-comment|/**    * Get the map of active slices (sliceName->Slice) for this collection.    */
+comment|/**    * Get the map of all slices (sliceName->Slice) for this collection.    */
 DECL|method|getSlicesMap
 specifier|public
 name|Map
@@ -397,8 +397,8 @@ return|return
 name|slices
 return|;
 block|}
-comment|/**    * Get the map of all slices (sliceName->Slice) for this collection.    */
-DECL|method|getAllSlicesMap
+comment|/**    * Get the map of active slices (sliceName->Slice) for this collection.    */
+DECL|method|getActiveSlicesMap
 specifier|public
 name|Map
 argument_list|<
@@ -406,11 +406,11 @@ name|String
 argument_list|,
 name|Slice
 argument_list|>
-name|getAllSlicesMap
+name|getActiveSlicesMap
 parameter_list|()
 block|{
 return|return
-name|allSlices
+name|activeSlices
 return|;
 block|}
 DECL|method|getRouter
@@ -473,7 +473,7 @@ argument_list|,
 name|Object
 argument_list|>
 argument_list|(
-name|allSlices
+name|slices
 operator|.
 name|size
 argument_list|()
@@ -494,7 +494,7 @@ name|put
 argument_list|(
 name|SHARDS
 argument_list|,
-name|allSlices
+name|slices
 argument_list|)
 expr_stmt|;
 name|jsonWriter
