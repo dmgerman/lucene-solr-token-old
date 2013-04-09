@@ -1179,6 +1179,9 @@ name|'verify'
 name|'in'
 op|'('
 nl|'\n'
+string|"'Specification-Vendor: The Apache Software Foundation'"
+op|','
+nl|'\n'
 string|"'Implementation-Vendor: The Apache Software Foundation'"
 op|','
 nl|'\n'
@@ -1187,12 +1190,22 @@ nl|'\n'
 string|"'X-Compile-Source-JDK: 1.7'"
 op|','
 nl|'\n'
+comment|'# Make sure 1.8 ant was used to build release bits: (this will match 1.8+)'
+nl|'\n'
+string|"'Ant-Version: Apache Ant 1.8'"
+op|','
+nl|'\n'
 comment|'# Make sure .class files are 1.7 format:'
 nl|'\n'
 string|"'X-Compile-Target-JDK: 1.7'"
 op|','
 nl|'\n'
 comment|'# Make sure this matches the version we think we are releasing:'
+nl|'\n'
+string|"'Implementation-Version: %s'"
+op|'%'
+name|'version'
+op|','
 nl|'\n'
 string|"'Specification-Version: %s'"
 op|'%'
