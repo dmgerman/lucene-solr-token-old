@@ -274,7 +274,7 @@ name|docID2
 parameter_list|)
 function_decl|;
 block|}
-comment|/** Sorts documents in reverse order.    *<b>NOTE</b>: This {@link Sorter} is not idempotent. Sorting an    *  {@link AtomicReader} once or twice will return two different    *  {@link AtomicReader} views. This {@link Sorter} should not be used with    *  {@link SortingMergePolicy}. */
+comment|/**    * Sorts documents in reverse order.<b>NOTE</b>: This {@link Sorter} is not    * idempotent. Sorting an {@link AtomicReader} once or twice will return two    * different {@link AtomicReader} views. This {@link Sorter} should not be    * used with {@link SortingMergePolicy}.    */
 DECL|field|REVERSE_DOCS
 specifier|public
 specifier|static
@@ -869,6 +869,19 @@ name|String
 name|getID
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|getID
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 end_unit
