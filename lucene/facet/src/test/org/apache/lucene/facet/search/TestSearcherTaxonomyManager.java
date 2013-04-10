@@ -375,6 +375,8 @@ name|void
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
 name|Set
 argument_list|<
 name|String
@@ -625,6 +627,12 @@ operator|>=
 name|ordLimit
 condition|)
 block|{
+break|break;
+block|}
+block|}
+block|}
+finally|finally
+block|{
 name|stop
 operator|.
 name|set
@@ -632,8 +640,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-break|break;
-block|}
 block|}
 block|}
 block|}
