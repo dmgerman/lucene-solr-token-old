@@ -2542,8 +2542,7 @@ expr_stmt|;
 name|IndexSearcher
 name|s
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|r
 argument_list|)
@@ -3258,8 +3257,7 @@ expr_stmt|;
 name|IndexSearcher
 name|s
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|r
 argument_list|)

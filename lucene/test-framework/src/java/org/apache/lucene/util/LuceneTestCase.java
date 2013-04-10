@@ -5740,8 +5740,6 @@ parameter_list|(
 name|IndexReader
 name|r
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|newSearcher
@@ -5765,8 +5763,6 @@ parameter_list|,
 name|boolean
 name|maybeWrap
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|Random
 name|random
@@ -5785,6 +5781,8 @@ condition|(
 name|maybeWrap
 condition|)
 block|{
+try|try
+block|{
 name|r
 operator|=
 name|maybeWrapReader
@@ -5792,6 +5790,21 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 comment|// TODO: this whole check is a coverage hack, we should move it to tests for various filterreaders.
 comment|// ultimately whatever you do will be checkIndex'd at the end anyway.
@@ -5813,6 +5826,8 @@ condition|)
 block|{
 comment|// TODO: not useful to check DirectoryReader (redundant with checkindex)
 comment|// but maybe sometimes run this on the other crazy readers maybeWrapReader creates?
+try|try
+block|{
 name|_TestUtil
 operator|.
 name|checkReader
@@ -5820,6 +5835,21 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 name|IndexSearcher
 name|ret

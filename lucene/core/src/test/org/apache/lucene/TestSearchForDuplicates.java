@@ -493,8 +493,7 @@ decl_stmt|;
 name|IndexSearcher
 name|searcher
 init|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)
@@ -609,8 +608,7 @@ expr_stmt|;
 comment|// try a new search with OR
 name|searcher
 operator|=
-operator|new
-name|IndexSearcher
+name|newSearcher
 argument_list|(
 name|reader
 argument_list|)

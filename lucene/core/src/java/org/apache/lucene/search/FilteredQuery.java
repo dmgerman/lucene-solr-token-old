@@ -968,6 +968,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// the normalization trick already applies the boost of this query,
+comment|// so we can use the wrapped scorer directly:
+name|collector
+operator|.
+name|setScorer
+argument_list|(
+name|scorer
+argument_list|)
+expr_stmt|;
 name|int
 name|primDoc
 init|=
@@ -984,15 +993,6 @@ argument_list|(
 name|primDoc
 argument_list|)
 decl_stmt|;
-comment|// the normalization trick already applies the boost of this query,
-comment|// so we can use the wrapped scorer directly:
-name|collector
-operator|.
-name|setScorer
-argument_list|(
-name|scorer
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 init|;
