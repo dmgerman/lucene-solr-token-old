@@ -9480,7 +9480,7 @@ control|)
 block|{
 if|if
 condition|(
-literal|"indexExists"
+literal|"read"
 operator|.
 name|equals
 argument_list|(
@@ -9605,7 +9605,7 @@ parameter_list|(
 name|UnsupportedOperationException
 name|expected
 parameter_list|)
-block|{            }
+block|{     }
 name|uoe
 operator|.
 name|doFail

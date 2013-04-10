@@ -2004,6 +2004,11 @@ operator|new
 name|SegmentInfos
 argument_list|()
 expr_stmt|;
+name|boolean
+name|initialIndexExists
+init|=
+literal|true
+decl_stmt|;
 if|if
 condition|(
 name|create
@@ -2035,6 +2040,10 @@ name|e
 parameter_list|)
 block|{
 comment|// Likely this means it's a fresh directory
+name|initialIndexExists
+operator|=
+literal|false
+expr_stmt|;
 block|}
 comment|// Record that we have a change (zero out all
 comment|// segments) pending:
@@ -2210,6 +2219,8 @@ argument_list|,
 name|infoStream
 argument_list|,
 name|this
+argument_list|,
+name|initialIndexExists
 argument_list|)
 expr_stmt|;
 block|}
