@@ -174,7 +174,13 @@ block|{
 return|return
 operator|new
 name|FacetResultNode
-argument_list|()
+argument_list|(
+name|TaxonomyReader
+operator|.
+name|INVALID_ORDINAL
+argument_list|,
+literal|0
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -321,7 +327,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Add the siblings of {@code ordinal} to the given {@link PriorityQueue}. The    * given {@link PriorityQueue} is already filled with sentinel objects, so    * implementations are encouraged to use {@link PriorityQueue#top()} and    * {@link PriorityQueue#updateTop()} for best performance.    */
+comment|/**    * Add the siblings of {@code ordinal} to the given {@link PriorityQueue}. The    * given {@link PriorityQueue} is already filled with sentinel objects, so    * implementations are encouraged to use {@link PriorityQueue#top()} and    * {@link PriorityQueue#updateTop()} for best performance.  Returns the total    * number of siblings.    */
 DECL|method|addSiblings
 specifier|protected
 specifier|abstract
@@ -398,14 +404,15 @@ name|root
 init|=
 operator|new
 name|FacetResultNode
-argument_list|()
-decl_stmt|;
-name|root
-operator|.
-name|ordinal
-operator|=
+argument_list|(
 name|rootOrd
-expr_stmt|;
+argument_list|,
+name|valueOf
+argument_list|(
+name|rootOrd
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|root
 operator|.
 name|label
@@ -413,15 +420,6 @@ operator|=
 name|facetRequest
 operator|.
 name|categoryPath
-expr_stmt|;
-name|root
-operator|.
-name|value
-operator|=
-name|valueOf
-argument_list|(
-name|rootOrd
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -572,7 +570,7 @@ literal|true
 argument_list|)
 decl_stmt|;
 name|int
-name|numResults
+name|numSiblings
 init|=
 name|addSiblings
 argument_list|(
@@ -598,11 +596,11 @@ decl_stmt|;
 name|int
 name|size
 init|=
-name|numResults
+name|numSiblings
 operator|<
 name|pqsize
 condition|?
-name|numResults
+name|numSiblings
 else|:
 name|pqsize
 decl_stmt|;
@@ -705,7 +703,7 @@ name|facetRequest
 argument_list|,
 name|root
 argument_list|,
-name|size
+name|numSiblings
 argument_list|)
 return|;
 block|}
