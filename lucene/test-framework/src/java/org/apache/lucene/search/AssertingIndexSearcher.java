@@ -772,6 +772,7 @@ name|NO
 block|,
 name|UNKNOWN
 block|;   }
+comment|/** Wraps a Scorer with additional checks */
 DECL|class|AssertingScorer
 specifier|public
 specifier|static

@@ -1079,6 +1079,7 @@ block|,
 name|FINISHED
 block|}
 empty_stmt|;
+comment|/** Wraps a docsenum with additional checks */
 DECL|class|AssertingDocsEnum
 specifier|public
 specifier|static
