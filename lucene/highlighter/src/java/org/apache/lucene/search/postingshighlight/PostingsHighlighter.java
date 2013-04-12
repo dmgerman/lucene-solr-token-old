@@ -174,8 +174,6 @@ operator|.
 name|index
 operator|.
 name|FieldInfo
-operator|.
-name|IndexOptions
 import|;
 end_import
 begin_import
@@ -189,6 +187,8 @@ operator|.
 name|index
 operator|.
 name|FieldInfo
+operator|.
+name|IndexOptions
 import|;
 end_import
 begin_import
@@ -530,7 +530,7 @@ block|{
 name|defaultFormatter
 operator|=
 operator|new
-name|PassageFormatter
+name|DefaultPassageFormatter
 argument_list|()
 expr_stmt|;
 block|}
@@ -1241,7 +1241,6 @@ index|[]
 argument_list|>
 argument_list|()
 decl_stmt|;
-empty_stmt|;
 for|for
 control|(
 name|int
