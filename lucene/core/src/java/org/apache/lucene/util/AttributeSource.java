@@ -188,10 +188,11 @@ init|=
 name|WeakIdentityMap
 operator|.
 name|newConcurrentHashMap
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 DECL|method|DefaultAttributeFactory
-specifier|private
 name|DefaultAttributeFactory
 parameter_list|()
 block|{}
@@ -847,7 +848,9 @@ init|=
 name|WeakIdentityMap
 operator|.
 name|newConcurrentHashMap
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 DECL|method|getAttributeInterfaces
 specifier|static

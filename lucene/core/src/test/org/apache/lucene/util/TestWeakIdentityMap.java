@@ -29,15 +29,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|NoSuchElementException
 import|;
 end_import
@@ -122,7 +113,13 @@ init|=
 name|WeakIdentityMap
 operator|.
 name|newHashMap
+argument_list|(
+name|random
 argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// we keep strong references to the keys,
 comment|// so WeakIdentityMap will not forget about them:
@@ -1075,7 +1072,13 @@ init|=
 name|WeakIdentityMap
 operator|.
 name|newConcurrentHashMap
+argument_list|(
+name|random
 argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// we keep strong references to the keys,
 comment|// so WeakIdentityMap will not forget about them:
