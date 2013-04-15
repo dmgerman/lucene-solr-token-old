@@ -393,12 +393,6 @@ begin_comment
 comment|// TODO test when you reuse after skipping a term or two, eg the block reuse case
 end_comment
 begin_comment
-comment|// TODO hmm contract says .doc() can return NO_MORE_DOCS
-end_comment
-begin_comment
-comment|// before nextDoc too...?
-end_comment
-begin_comment
 comment|/* TODO   - threads   - assert doc=-1 before any nextDoc   - if a PF passes this test but fails other tests then this     test has a bug!!   - test tricky reuse cases, eg across fields   - verify you get null if you pass needFreq/needOffset but     they weren't indexed */
 end_comment
 begin_class
@@ -3785,22 +3779,16 @@ operator|.
 name|docID
 argument_list|()
 decl_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
-literal|"inital docID should be -1 or NO_MORE_DOCS: "
+literal|"inital docID should be -1"
 operator|+
 name|docsEnum
 argument_list|,
-name|initialDocID
-operator|==
 operator|-
 literal|1
-operator|||
+argument_list|,
 name|initialDocID
-operator|==
-name|DocsEnum
-operator|.
-name|NO_MORE_DOCS
 argument_list|)
 expr_stmt|;
 if|if
