@@ -182,9 +182,7 @@ name|segmentResults
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SegmentResult
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -643,9 +641,7 @@ name|facetEntries
 operator|=
 operator|new
 name|TreeSet
-argument_list|<
-name|FacetEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|orderByCount
 condition|?
@@ -789,9 +785,7 @@ name|entries
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|FacetEntry
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int

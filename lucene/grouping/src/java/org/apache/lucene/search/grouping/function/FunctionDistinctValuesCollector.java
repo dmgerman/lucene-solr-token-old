@@ -248,11 +248,7 @@ name|groupMap
 operator|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|MutableValue
-argument_list|,
-name|GroupCount
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -299,9 +295,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|GroupCount
-argument_list|>
+argument_list|<>
 argument_list|(
 name|groupMap
 operator|.
