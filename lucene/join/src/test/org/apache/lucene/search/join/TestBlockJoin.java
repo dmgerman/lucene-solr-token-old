@@ -1160,9 +1160,7 @@ name|docs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Document
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|docs
@@ -1220,9 +1218,7 @@ name|docs2
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Document
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|docs2
@@ -2221,9 +2217,7 @@ name|docs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Document
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|docs
@@ -2824,9 +2818,7 @@ name|sortFields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SortField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// TODO: sometimes sort by score; problem is scores are
@@ -3078,9 +3070,7 @@ name|toDelete
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// TODO: parallel star join, nested join cases too!
@@ -3323,9 +3313,7 @@ name|joinDocs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Document
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -4735,9 +4723,7 @@ name|sortFields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SortField
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -7074,9 +7060,7 @@ name|docs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Document
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|docs
@@ -8280,9 +8264,7 @@ name|docs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Document
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|docs
