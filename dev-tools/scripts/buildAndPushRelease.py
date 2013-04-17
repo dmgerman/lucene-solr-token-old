@@ -660,11 +660,6 @@ op|'.'
 name|'read'
 op|'('
 op|')'
-op|'.'
-name|'decode'
-op|'('
-string|"'UTF-8'"
-op|')'
 newline|'\n'
 name|'if'
 string|"'no such file or directory'"
