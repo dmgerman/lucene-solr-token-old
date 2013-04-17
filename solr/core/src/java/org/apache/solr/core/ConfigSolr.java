@@ -257,9 +257,6 @@ specifier|public
 name|Properties
 name|getSolrProperties
 parameter_list|(
-name|ConfigSolr
-name|cfg
-parameter_list|,
 name|String
 name|context
 parameter_list|)
@@ -400,10 +397,10 @@ parameter_list|)
 function_decl|;
 comment|// If the core is not to be loaded (say two cores defined with the same name or with the same data dir), return
 comment|// the reason. If it's OK to load the core, return null.
-DECL|method|getBadCoreMessage
+DECL|method|getBadConfigCoreMessage
 specifier|public
 name|String
-name|getBadCoreMessage
+name|getBadConfigCoreMessage
 parameter_list|(
 name|String
 name|name

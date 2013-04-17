@@ -2583,8 +2583,15 @@ name|CfgProp
 operator|.
 name|SOLR_ADMINPATH
 argument_list|,
-literal|null
+literal|"/admin/cores"
 argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|adminPath
+operator|=
+literal|"/admin/cores"
 expr_stmt|;
 block|}
 name|zkHost
@@ -2903,9 +2910,7 @@ name|cfg
 operator|.
 name|getSolrProperties
 argument_list|(
-name|cfg
-argument_list|,
-name|DEFAULT_HOST_CONTEXT
+literal|"solr"
 argument_list|)
 expr_stmt|;
 comment|// setup executor to load cores in parallel
@@ -3789,7 +3794,6 @@ init|=
 literal|false
 decl_stmt|;
 DECL|field|cfg
-specifier|private
 specifier|volatile
 name|ConfigSolr
 name|cfg
@@ -3944,8 +3948,30 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-empty_stmt|;
-comment|// Don't much care if this gets interrupted
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"backgroundCloser thread was interrupted before finishing"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|// Now clear all the cores that are being operated upon.
@@ -5010,13 +5036,20 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Failed to load file {}/{}"
+literal|"Failed to load file {}"
 argument_list|,
+operator|new
+name|File
+argument_list|(
 name|instanceDir
 argument_list|,
 name|dcore
 operator|.
 name|getConfigName
+argument_list|()
+argument_list|)
+operator|.
+name|getAbsolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5294,6 +5327,23 @@ name|CoreDescriptor
 name|dcore
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isShutDown
+condition|)
+block|{
+throw|throw
+operator|new
+name|SolrException
+argument_list|(
+name|ErrorCode
+operator|.
+name|SERVICE_UNAVAILABLE
+argument_list|,
+literal|"Solr has shutdown."
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|String
 name|name
@@ -5570,7 +5620,7 @@ name|badMsg
 init|=
 name|cfg
 operator|.
-name|getBadCoreMessage
+name|getBadConfigCoreMessage
 argument_list|(
 name|name
 argument_list|)
@@ -6187,7 +6237,7 @@ name|badMsg
 init|=
 name|cfg
 operator|.
-name|getBadCoreMessage
+name|getBadConfigCoreMessage
 argument_list|(
 name|name
 argument_list|)
@@ -6539,22 +6589,6 @@ block|{
 return|return
 name|zkClientTimeout
 return|;
-block|}
-DECL|method|setAdminPath
-specifier|public
-name|void
-name|setAdminPath
-parameter_list|(
-name|String
-name|adminPath
-parameter_list|)
-block|{
-name|this
-operator|.
-name|adminPath
-operator|=
-name|adminPath
-expr_stmt|;
 block|}
 DECL|method|getManagementPath
 specifier|public
@@ -7391,7 +7425,7 @@ block|{
 return|return
 name|cfg
 operator|.
-name|getBadCoreMessage
+name|getBadConfigCoreMessage
 argument_list|(
 name|name
 argument_list|)
@@ -10313,13 +10347,6 @@ argument_list|(
 name|origCoreName
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|coreAttribs
-operator|!=
-literal|null
-condition|)
-block|{
 name|coreAttribs
 operator|.
 name|put
@@ -10375,7 +10402,6 @@ operator|.
 name|CORE_INSTDIR
 argument_list|)
 expr_stmt|;
-block|}
 name|addIfNotNull
 argument_list|(
 name|coreAttribs
