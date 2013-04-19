@@ -1291,8 +1291,51 @@ operator|+
 name|path
 decl_stmt|;
 name|boolean
+name|hasNullStreamName
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|streams
+operator|!=
+literal|null
+condition|)
+block|{
+for|for
+control|(
+name|ContentStream
+name|cs
+range|:
+name|streams
+control|)
+block|{
+if|if
+condition|(
+name|cs
+operator|.
+name|getName
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|hasNullStreamName
+operator|=
+literal|true
+expr_stmt|;
+break|break;
+block|}
+block|}
+block|}
+name|boolean
 name|isMultipart
 init|=
+operator|(
+name|this
+operator|.
+name|useMultiPartPost
+operator|||
 operator|(
 name|streams
 operator|!=
@@ -1305,6 +1348,10 @@ argument_list|()
 operator|>
 literal|1
 operator|)
+operator|)
+operator|&&
+operator|!
+name|hasNullStreamName
 decl_stmt|;
 name|LinkedList
 argument_list|<
@@ -1348,11 +1395,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|this
-operator|.
-name|useMultiPartPost
-operator|&&
 operator|!
 name|isMultipart
 condition|)
@@ -1435,10 +1477,6 @@ control|)
 block|{
 if|if
 condition|(
-name|this
-operator|.
-name|useMultiPartPost
-operator|||
 name|isMultipart
 condition|)
 block|{
@@ -1489,6 +1527,10 @@ block|}
 if|if
 condition|(
 name|isMultipart
+operator|&&
+name|streams
+operator|!=
+literal|null
 condition|)
 block|{
 for|for
@@ -1520,6 +1562,26 @@ literal|"application/octet-stream"
 expr_stmt|;
 comment|// default
 block|}
+name|String
+name|name
+init|=
+name|content
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|name
+operator|==
+literal|null
+condition|)
+block|{
+name|name
+operator|=
+literal|""
+expr_stmt|;
+block|}
 name|parts
 operator|.
 name|add
@@ -1527,10 +1589,7 @@ argument_list|(
 operator|new
 name|FormBodyPart
 argument_list|(
-name|content
-operator|.
-name|getName
-argument_list|()
+name|name
 argument_list|,
 operator|new
 name|InputStreamBody
@@ -2075,6 +2134,13 @@ return|return
 name|rsp
 return|;
 block|}
+comment|//      if(true) {
+comment|//        ByteArrayOutputStream copy = new ByteArrayOutputStream();
+comment|//        IOUtils.copy(respBody, copy);
+comment|//        String val = new String(copy.toByteArray());
+comment|//        System.out.println(">RESPONSE>"+val+"<"+val.length());
+comment|//        respBody = new ByteArrayInputStream(copy.toByteArray());
+comment|//      }
 name|String
 name|charset
 init|=
