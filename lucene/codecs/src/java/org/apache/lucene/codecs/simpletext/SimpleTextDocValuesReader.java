@@ -1219,7 +1219,11 @@ init|=
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"failed to parse BigDecimal value"
+literal|"failed to parse BigDecimal value (resource="
+operator|+
+name|in
+operator|+
+literal|")"
 argument_list|)
 decl_stmt|;
 name|e
@@ -1491,7 +1495,11 @@ init|=
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"failed to parse int length"
+literal|"failed to parse int length (resource="
+operator|+
+name|in
+operator|+
+literal|")"
 argument_list|)
 decl_stmt|;
 name|e
@@ -1774,7 +1782,11 @@ init|=
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"failed to parse ord"
+literal|"failed to parse ord (resource="
+operator|+
+name|in
+operator|+
+literal|")"
 argument_list|)
 decl_stmt|;
 name|e
@@ -1962,7 +1974,11 @@ init|=
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"failed to parse int length"
+literal|"failed to parse int length (resource="
+operator|+
+name|in
+operator|+
+literal|")"
 argument_list|)
 decl_stmt|;
 name|e
@@ -2481,7 +2497,11 @@ init|=
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"failed to parse int length"
+literal|"failed to parse int length (resource="
+operator|+
+name|in
+operator|+
+literal|")"
 argument_list|)
 decl_stmt|;
 name|e

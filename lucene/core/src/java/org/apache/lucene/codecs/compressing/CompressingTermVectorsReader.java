@@ -1203,6 +1203,12 @@ operator|+
 literal|",doc="
 operator|+
 name|doc
+operator|+
+literal|" (resource="
+operator|+
+name|vectorsStream
+operator|+
+literal|")"
 argument_list|)
 throw|;
 block|}
