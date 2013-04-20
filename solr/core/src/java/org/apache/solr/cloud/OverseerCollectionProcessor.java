@@ -1453,8 +1453,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
-name|ex
+name|Throwable
+name|t
 parameter_list|)
 block|{
 name|SolrException
@@ -1473,7 +1473,7 @@ name|operation
 operator|+
 literal|" failed"
 argument_list|,
-name|ex
+name|t
 argument_list|)
 expr_stmt|;
 name|results
@@ -1486,7 +1486,7 @@ name|operation
 operator|+
 literal|" caused exception:"
 argument_list|,
-name|ex
+name|t
 argument_list|)
 expr_stmt|;
 name|SimpleOrderedMap
@@ -1502,7 +1502,7 @@ name|add
 argument_list|(
 literal|"msg"
 argument_list|,
-name|ex
+name|t
 operator|.
 name|getMessage
 argument_list|()
@@ -1514,7 +1514,7 @@ name|add
 argument_list|(
 literal|"rspCode"
 argument_list|,
-name|ex
+name|t
 operator|instanceof
 name|SolrException
 condition|?
@@ -1522,7 +1522,7 @@ operator|(
 operator|(
 name|SolrException
 operator|)
-name|ex
+name|t
 operator|)
 operator|.
 name|code
@@ -1542,8 +1542,6 @@ name|nl
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
 return|return
 operator|new
 name|OverseerSolrResponse
@@ -1551,7 +1549,6 @@ argument_list|(
 name|results
 argument_list|)
 return|;
-block|}
 block|}
 DECL|method|createAlias
 specifier|private
