@@ -615,6 +615,8 @@ argument_list|(
 name|field
 argument_list|,
 name|i
+argument_list|,
+name|schema
 argument_list|)
 decl_stmt|;
 name|f
@@ -664,6 +666,8 @@ argument_list|(
 name|field
 argument_list|,
 name|i
+argument_list|,
+name|schema
 argument_list|)
 decl_stmt|;
 name|f
@@ -868,6 +872,14 @@ argument_list|(
 name|field
 argument_list|,
 name|i
+argument_list|,
+name|parser
+operator|.
+name|getReq
+argument_list|()
+operator|.
+name|getSchema
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// points must currently be ordered... should we support specifying any two opposite corner points?
@@ -1013,6 +1025,14 @@ argument_list|(
 name|field
 argument_list|,
 name|i
+argument_list|,
+name|parser
+operator|.
+name|getReq
+argument_list|()
+operator|.
+name|getSchema
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Query
@@ -1243,6 +1263,17 @@ operator|=
 literal|180
 expr_stmt|;
 block|}
+name|IndexSchema
+name|schema
+init|=
+name|parser
+operator|.
+name|getReq
+argument_list|()
+operator|.
+name|getSchema
+argument_list|()
+decl_stmt|;
 comment|// Now that we've figured out the ranges, build them!
 name|SchemaField
 name|latField
@@ -1254,6 +1285,8 @@ operator|.
 name|field
 argument_list|,
 name|LAT
+argument_list|,
+name|schema
 argument_list|)
 decl_stmt|;
 name|SchemaField
@@ -1266,6 +1299,8 @@ operator|.
 name|field
 argument_list|,
 name|LON
+argument_list|,
+name|schema
 argument_list|)
 decl_stmt|;
 name|SpatialDistanceQuery
@@ -1669,6 +1704,14 @@ argument_list|(
 name|field
 argument_list|,
 name|i
+argument_list|,
+name|parser
+operator|.
+name|getReq
+argument_list|()
+operator|.
+name|getSchema
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|vs

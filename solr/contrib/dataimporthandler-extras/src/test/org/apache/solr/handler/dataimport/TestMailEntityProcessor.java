@@ -278,6 +278,8 @@ init|=
 operator|new
 name|RequestInfo
 argument_list|(
+literal|null
+argument_list|,
 name|createMap
 argument_list|(
 literal|"command"
@@ -398,6 +400,8 @@ init|=
 operator|new
 name|RequestInfo
 argument_list|(
+literal|null
+argument_list|,
 name|createMap
 argument_list|(
 literal|"command"
@@ -527,6 +531,8 @@ init|=
 operator|new
 name|RequestInfo
 argument_list|(
+literal|null
+argument_list|,
 name|createMap
 argument_list|(
 literal|"command"
@@ -656,6 +662,8 @@ init|=
 operator|new
 name|RequestInfo
 argument_list|(
+literal|null
+argument_list|,
 name|createMap
 argument_list|(
 literal|"command"
@@ -794,6 +802,8 @@ init|=
 operator|new
 name|RequestInfo
 argument_list|(
+literal|null
+argument_list|,
 name|createMap
 argument_list|(
 literal|"command"
@@ -925,6 +935,8 @@ init|=
 operator|new
 name|RequestInfo
 argument_list|(
+literal|null
+argument_list|,
 name|createMap
 argument_list|(
 literal|"command"

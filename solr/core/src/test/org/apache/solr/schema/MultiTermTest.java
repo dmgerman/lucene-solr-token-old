@@ -153,7 +153,7 @@ name|solr
 operator|.
 name|analysis
 operator|.
-name|*
+name|TokenizerChain
 import|;
 end_import
 begin_import
@@ -227,7 +227,7 @@ operator|.
 name|getCore
 argument_list|()
 operator|.
-name|getSchema
+name|getLatestSchema
 argument_list|()
 operator|.
 name|getField
@@ -403,7 +403,7 @@ operator|.
 name|getCore
 argument_list|()
 operator|.
-name|getSchema
+name|getLatestSchema
 argument_list|()
 operator|.
 name|getField
@@ -518,7 +518,7 @@ operator|.
 name|getCore
 argument_list|()
 operator|.
-name|getSchema
+name|getLatestSchema
 argument_list|()
 operator|.
 name|getField

@@ -24,7 +24,34 @@ name|java
 operator|.
 name|io
 operator|.
-name|*
+name|ByteArrayInputStream
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
 import|;
 end_import
 begin_import
@@ -1585,17 +1612,14 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Pass the schema to SolrStopwordsCarrot2LexicalDataFactory.
+comment|// Pass the schema (via the core) to SolrStopwordsCarrot2LexicalDataFactory.
 name|initAttributes
 operator|.
 name|put
 argument_list|(
-literal|"solrIndexSchema"
+literal|"solrCore"
 argument_list|,
 name|core
-operator|.
-name|getSchema
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Customize Carrot2's resource lookup to first look for resources
@@ -1696,7 +1720,7 @@ name|uniqueField
 init|=
 name|core
 operator|.
-name|getSchema
+name|getLatestSchema
 argument_list|()
 operator|.
 name|getUniqueKeyField

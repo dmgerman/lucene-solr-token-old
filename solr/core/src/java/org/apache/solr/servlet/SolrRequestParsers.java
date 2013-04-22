@@ -283,6 +283,21 @@ name|solr
 operator|.
 name|common
 operator|.
+name|SolrException
+operator|.
+name|ErrorCode
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
 name|params
 operator|.
 name|CommonParams
@@ -900,8 +915,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -987,8 +1000,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -1287,8 +1298,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -1342,8 +1351,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -1534,8 +1541,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -1690,8 +1695,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -1768,8 +1771,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -1835,8 +1836,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -1908,8 +1907,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -2320,8 +2317,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -2535,8 +2530,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -2631,8 +2624,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -2748,8 +2739,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -2805,8 +2794,6 @@ return|return
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|SERVER_ERROR
@@ -3007,6 +2994,25 @@ name|equals
 argument_list|(
 name|method
 argument_list|)
+operator|||
+operator|(
+literal|"PUT"
+operator|.
+name|equals
+argument_list|(
+name|method
+argument_list|)
+operator|&&
+name|req
+operator|.
+name|getRequestURI
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"/schema"
+argument_list|)
+operator|)
 condition|)
 block|{
 return|return
@@ -3088,8 +3094,6 @@ throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|BAD_REQUEST
@@ -3097,6 +3101,10 @@ argument_list|,
 literal|"Unsupported method: "
 operator|+
 name|method
+operator|+
+literal|" for request "
+operator|+
+name|req
 argument_list|)
 throw|;
 block|}

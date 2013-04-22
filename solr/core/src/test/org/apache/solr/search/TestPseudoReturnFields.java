@@ -330,7 +330,7 @@ operator|.
 name|getCore
 argument_list|()
 operator|.
-name|getSchema
+name|getLatestSchema
 argument_list|()
 operator|.
 name|getFieldOrNull

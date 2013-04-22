@@ -363,12 +363,6 @@ argument_list|(
 name|DIMENSION
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|schema
-operator|=
-name|schema
-expr_stmt|;
 name|super
 operator|.
 name|init
@@ -521,6 +515,8 @@ argument_list|(
 name|field
 argument_list|,
 name|i
+argument_list|,
+name|schema
 argument_list|)
 decl_stmt|;
 name|f
@@ -659,6 +655,8 @@ argument_list|(
 name|field
 argument_list|,
 name|i
+argument_list|,
+name|schema
 argument_list|)
 decl_stmt|;
 name|vs
@@ -905,6 +903,8 @@ argument_list|(
 name|field
 argument_list|,
 name|i
+argument_list|,
+name|schema
 argument_list|)
 decl_stmt|;
 comment|// points must currently be ordered... should we support specifying any two opposite corner points?
@@ -1046,6 +1046,8 @@ argument_list|(
 name|field
 argument_list|,
 name|i
+argument_list|,
+name|schema
 argument_list|)
 decl_stmt|;
 name|Query
@@ -1154,6 +1156,17 @@ name|e
 argument_list|)
 throw|;
 block|}
+name|IndexSchema
+name|schema
+init|=
+name|parser
+operator|.
+name|getReq
+argument_list|()
+operator|.
+name|getSchema
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|dimension
@@ -1206,6 +1219,8 @@ operator|.
 name|field
 argument_list|,
 literal|0
+argument_list|,
+name|schema
 argument_list|)
 decl_stmt|;
 comment|// points must currently be ordered... should we support specifying any two opposite corner points?
@@ -1307,6 +1322,8 @@ operator|.
 name|field
 argument_list|,
 name|i
+argument_list|,
+name|schema
 argument_list|)
 decl_stmt|;
 name|Query

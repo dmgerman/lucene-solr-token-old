@@ -398,6 +398,11 @@ name|req
 operator|.
 name|getCore
 argument_list|()
+argument_list|,
+name|req
+operator|.
+name|getSchema
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -480,6 +485,9 @@ name|getCoreInfo
 parameter_list|(
 name|SolrCore
 name|core
+parameter_list|,
+name|IndexSchema
+name|schema
 parameter_list|)
 block|{
 name|SimpleOrderedMap
@@ -493,14 +501,6 @@ name|SimpleOrderedMap
 argument_list|<
 name|Object
 argument_list|>
-argument_list|()
-decl_stmt|;
-name|IndexSchema
-name|schema
-init|=
-name|core
-operator|.
-name|getSchema
 argument_list|()
 decl_stmt|;
 name|info
