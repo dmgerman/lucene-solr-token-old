@@ -8076,9 +8076,6 @@ control|)
 block|{
 try|try
 block|{
-comment|// nocommit: wtf is this?
-comment|// coreMaps.addPersistOneCore(cfg, container.loader, removeMe.getCoreDescriptor(),
-comment|//     container.getCoreToOrigName(removeMe), null);
 name|removeMe
 operator|.
 name|close
