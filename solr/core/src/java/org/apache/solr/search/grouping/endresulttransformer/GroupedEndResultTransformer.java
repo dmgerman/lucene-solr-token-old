@@ -279,7 +279,7 @@ argument_list|>
 name|commands
 init|=
 operator|new
-name|NamedList
+name|SimpleOrderedMap
 argument_list|<
 name|Object
 argument_list|>
