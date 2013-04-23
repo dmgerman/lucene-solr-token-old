@@ -4020,9 +4020,9 @@ name|ErrorCode
 operator|.
 name|BAD_REQUEST
 argument_list|,
-literal|"collection already exists: "
+name|NUM_SLICES
 operator|+
-name|collectionName
+literal|" is a required param"
 argument_list|)
 throw|;
 block|}
@@ -4090,9 +4090,9 @@ name|ErrorCode
 operator|.
 name|BAD_REQUEST
 argument_list|,
-name|NUM_SLICES
+name|REPLICATION_FACTOR
 operator|+
-literal|" is a required paramater"
+literal|" must be greater than or equal to 0"
 argument_list|)
 throw|;
 block|}
@@ -5248,7 +5248,7 @@ block|}
 block|}
 DECL|method|msgStrToInt
 specifier|private
-name|int
+name|Integer
 name|msgStrToInt
 parameter_list|(
 name|ZkNodeProps
