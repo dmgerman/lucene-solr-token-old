@@ -37,6 +37,21 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|codecs
+operator|.
+name|cheapbastard
+operator|.
+name|CheapBastardDocValuesFormat
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|BaseCompressingDocValuesFormatTestCase
@@ -56,13 +71,13 @@ name|_TestUtil
 import|;
 end_import
 begin_comment
-comment|/**  * Tests DiskDocValuesFormat  */
+comment|/**  * Tests CheapBastardDocValuesFormat  */
 end_comment
 begin_class
-DECL|class|TestDiskDocValuesFormat
+DECL|class|TestCheapBastardDocValuesFormat
 specifier|public
 class|class
-name|TestDiskDocValuesFormat
+name|TestCheapBastardDocValuesFormat
 extends|extends
 name|BaseCompressingDocValuesFormatTestCase
 block|{
@@ -77,7 +92,7 @@ operator|.
 name|alwaysDocValuesFormat
 argument_list|(
 operator|new
-name|DiskDocValuesFormat
+name|CheapBastardDocValuesFormat
 argument_list|()
 argument_list|)
 decl_stmt|;

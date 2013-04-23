@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|BaseDocValuesFormatTestCase
+name|BaseCompressingDocValuesFormatTestCase
 import|;
 end_import
 begin_comment
@@ -51,7 +51,7 @@ specifier|public
 class|class
 name|TestLucene42DocValuesFormat
 extends|extends
-name|BaseDocValuesFormatTestCase
+name|BaseCompressingDocValuesFormatTestCase
 block|{
 DECL|field|codec
 specifier|private
