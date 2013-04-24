@@ -944,7 +944,7 @@ name|Object
 name|getCoreCacheKey
 parameter_list|()
 block|{
-comment|// Don't can ensureOpen since FC calls this (to evict)
+comment|// Don't call ensureOpen since FC calls this (to evict)
 comment|// on close
 return|return
 name|this
@@ -957,7 +957,7 @@ name|Object
 name|getCombinedCoreAndDeletesKey
 parameter_list|()
 block|{
-comment|// Don't can ensureOpen since FC calls this (to evict)
+comment|// Don't call ensureOpen since FC calls this (to evict)
 comment|// on close
 return|return
 name|this
