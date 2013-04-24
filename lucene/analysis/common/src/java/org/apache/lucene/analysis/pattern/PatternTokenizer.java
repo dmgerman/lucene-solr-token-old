@@ -152,12 +152,6 @@ specifier|private
 name|int
 name|index
 decl_stmt|;
-DECL|field|pattern
-specifier|private
-specifier|final
-name|Pattern
-name|pattern
-decl_stmt|;
 DECL|field|group
 specifier|private
 specifier|final
@@ -223,12 +217,6 @@ name|factory
 argument_list|,
 name|input
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|pattern
-operator|=
-name|pattern
 expr_stmt|;
 name|this
 operator|.

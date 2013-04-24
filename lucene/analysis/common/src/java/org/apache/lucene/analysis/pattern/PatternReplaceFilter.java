@@ -100,12 +100,6 @@ name|PatternReplaceFilter
 extends|extends
 name|TokenFilter
 block|{
-DECL|field|p
-specifier|private
-specifier|final
-name|Pattern
-name|p
-decl_stmt|;
 DECL|field|replacement
 specifier|private
 specifier|final
@@ -159,12 +153,6 @@ name|super
 argument_list|(
 name|in
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|p
-operator|=
-name|p
 expr_stmt|;
 name|this
 operator|.
