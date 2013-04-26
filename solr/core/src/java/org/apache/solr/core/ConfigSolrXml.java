@@ -243,9 +243,7 @@ name|config
 argument_list|)
 expr_stmt|;
 name|checkForIllegalConfig
-argument_list|(
-name|container
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|fillPropMap
 argument_list|()
@@ -264,7 +262,13 @@ name|container
 operator|==
 literal|null
 condition|?
-literal|null
+name|config
+operator|.
+name|getResourceLoader
+argument_list|()
+operator|.
+name|getInstanceDir
+argument_list|()
 else|:
 name|container
 operator|.
@@ -293,10 +297,7 @@ DECL|method|checkForIllegalConfig
 specifier|private
 name|void
 name|checkForIllegalConfig
-parameter_list|(
-name|CoreContainer
-name|container
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 block|{

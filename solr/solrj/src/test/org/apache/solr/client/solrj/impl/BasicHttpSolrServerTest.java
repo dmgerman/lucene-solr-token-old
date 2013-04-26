@@ -433,7 +433,7 @@ name|resp
 operator|.
 name|sendRedirect
 argument_list|(
-literal|"/solr/select?"
+literal|"/solr/collection1/select?"
 operator|+
 name|req
 operator|.
@@ -3618,6 +3618,8 @@ operator|.
 name|toString
 argument_list|()
 operator|+
+literal|"/collection1"
+operator|+
 literal|"/select?q=foo&wt=xml"
 argument_list|)
 decl_stmt|;
@@ -3723,6 +3725,8 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
+operator|+
+literal|"/collection1"
 argument_list|)
 expr_stmt|;
 name|server
@@ -3887,6 +3891,8 @@ argument_list|()
 operator|.
 name|toString
 argument_list|()
+operator|+
+literal|"/collection1"
 argument_list|,
 name|client
 argument_list|,
