@@ -459,12 +459,6 @@ return|return
 name|set
 operator|==
 literal|null
-operator|||
-name|set
-operator|==
-name|DocIdSet
-operator|.
-name|EMPTY_DOCIDSET
 return|;
 block|}
 DECL|method|toFixedBitSet

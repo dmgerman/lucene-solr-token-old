@@ -1364,13 +1364,9 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|assertSame
+name|assertNull
 argument_list|(
-literal|"A inverse range should return the EMPTY_DOCIDSET instance"
-argument_list|,
-name|DocIdSet
-operator|.
-name|EMPTY_DOCIDSET
+literal|"A inverse range should return the null instance"
 argument_list|,
 name|f
 operator|.
@@ -1409,13 +1405,9 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertSame
+name|assertNull
 argument_list|(
-literal|"A exclusive range starting with Integer.MAX_VALUE should return the EMPTY_DOCIDSET instance"
-argument_list|,
-name|DocIdSet
-operator|.
-name|EMPTY_DOCIDSET
+literal|"A exclusive range starting with Integer.MAX_VALUE should return the null instance"
 argument_list|,
 name|f
 operator|.
@@ -1454,13 +1446,9 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|assertSame
+name|assertNull
 argument_list|(
-literal|"A exclusive range ending with Integer.MIN_VALUE should return the EMPTY_DOCIDSET instance"
-argument_list|,
-name|DocIdSet
-operator|.
-name|EMPTY_DOCIDSET
+literal|"A exclusive range ending with Integer.MIN_VALUE should return the null instance"
 argument_list|,
 name|f
 operator|.

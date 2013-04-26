@@ -84,22 +84,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|DirectoryReader
-import|;
-end_import
-begin_comment
-comment|// javadocs
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|FixedBitSet
@@ -179,7 +163,7 @@ operator|=
 name|filter
 expr_stmt|;
 block|}
-comment|/** Provide the DocIdSet to be cached, using the DocIdSet provided    *  by the wrapped Filter.    *<p>This implementation returns the given {@link DocIdSet}, if {@link DocIdSet#isCacheable}    *  returns<code>true</code>, else it copies the {@link DocIdSetIterator} into    *  a {@link FixedBitSet}.    */
+comment|/**     *  Provide the DocIdSet to be cached, using the DocIdSet provided    *  by the wrapped Filter.<p>This implementation returns the given {@link DocIdSet},    *  if {@link DocIdSet#isCacheable} returns<code>true</code>, else it copies the     *  {@link DocIdSetIterator} into a {@link FixedBitSet}.    *<p>Note: This method returns {@linkplain #EMPTY_DOCIDSET} if the given docIdSet    *  is<code>null</code> or if {@link DocIdSet#iterator()} return<code>null</code>. The empty    *  instance is use as a placeholder in the cache instead of the<code>null</code> value.    */
 DECL|method|docIdSetToCache
 specifier|protected
 name|DocIdSet
@@ -203,8 +187,6 @@ condition|)
 block|{
 comment|// this is better than returning null, as the nonnull result can be cached
 return|return
-name|DocIdSet
-operator|.
 name|EMPTY_DOCIDSET
 return|;
 block|}
@@ -233,7 +215,7 @@ name|iterator
 argument_list|()
 decl_stmt|;
 comment|// null is allowed to be returned by iterator(),
-comment|// in this case we wrap with the empty set,
+comment|// in this case we wrap with the sentinel set,
 comment|// which is cacheable.
 if|if
 condition|(
@@ -243,8 +225,6 @@ literal|null
 condition|)
 block|{
 return|return
-name|DocIdSet
-operator|.
 name|EMPTY_DOCIDSET
 return|;
 block|}
@@ -372,6 +352,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|docIdSet
+operator|==
+name|EMPTY_DOCIDSET
+condition|?
+literal|null
+else|:
 name|BitsFilteredDocIdSet
 operator|.
 name|wrap
@@ -462,6 +448,57 @@ literal|0x1117BF25
 operator|)
 return|;
 block|}
+comment|/** An empty {@code DocIdSet} instance */
+DECL|field|EMPTY_DOCIDSET
+specifier|protected
+specifier|static
+specifier|final
+name|DocIdSet
+name|EMPTY_DOCIDSET
+init|=
+operator|new
+name|DocIdSet
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|DocIdSetIterator
+name|iterator
+parameter_list|()
+block|{
+return|return
+name|DocIdSetIterator
+operator|.
+name|empty
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isCacheable
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// we explicitly provide no random access, as this filter is 100% sparse and iterator exits faster
+annotation|@
+name|Override
+specifier|public
+name|Bits
+name|bits
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
+decl_stmt|;
 block|}
 end_class
 end_unit
