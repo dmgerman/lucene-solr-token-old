@@ -156,6 +156,8 @@ return|return
 operator|new
 name|NGramTokenFilter
 argument_list|(
+name|luceneMatchVersion
+argument_list|,
 name|input
 argument_list|,
 name|minGramSize
