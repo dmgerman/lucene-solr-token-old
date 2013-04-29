@@ -246,11 +246,6 @@ index|[]
 index|[]
 name|drillDownTerms
 decl_stmt|;
-DECL|field|scoreSubDocsAtOnce
-specifier|final
-name|boolean
-name|scoreSubDocsAtOnce
-decl_stmt|;
 DECL|method|DrillSidewaysQuery
 name|DrillSidewaysQuery
 parameter_list|(
@@ -268,9 +263,6 @@ name|Term
 index|[]
 index|[]
 name|drillDownTerms
-parameter_list|,
-name|boolean
-name|scoreSubDocsAtOnce
 parameter_list|)
 block|{
 name|this
@@ -296,12 +288,6 @@ operator|.
 name|drillDownTerms
 operator|=
 name|drillDownTerms
-expr_stmt|;
-name|this
-operator|.
-name|scoreSubDocsAtOnce
-operator|=
-name|scoreSubDocsAtOnce
 expr_stmt|;
 block|}
 annotation|@
@@ -390,8 +376,6 @@ argument_list|,
 name|drillSidewaysCollectors
 argument_list|,
 name|drillDownTerms
-argument_list|,
-name|scoreSubDocsAtOnce
 argument_list|)
 return|;
 block|}
@@ -884,8 +868,6 @@ argument_list|,
 name|drillDownCollector
 argument_list|,
 name|dims
-argument_list|,
-name|scoreSubDocsAtOnce
 argument_list|)
 return|;
 block|}
