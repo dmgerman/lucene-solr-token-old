@@ -790,10 +790,7 @@ condition|(
 name|scorer
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|scorer
 operator|.
 name|advance
@@ -814,7 +811,6 @@ operator|.
 name|docBase
 argument_list|)
 return|;
-block|}
 block|}
 return|return
 operator|new
@@ -1034,6 +1030,15 @@ return|return
 name|childDocUpto
 return|;
 block|}
+DECL|method|getParentDoc
+name|int
+name|getParentDoc
+parameter_list|()
+block|{
+return|return
+name|parentDoc
+return|;
+block|}
 DECL|method|swapChildDocs
 name|int
 index|[]
@@ -1181,6 +1186,32 @@ argument_list|(
 name|nextChildDoc
 argument_list|)
 expr_stmt|;
+comment|// Parent& child docs are supposed to be
+comment|// orthogonal:
+if|if
+condition|(
+name|nextChildDoc
+operator|==
+name|parentDoc
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"child query must only match non-parent docs, but parent docID="
+operator|+
+name|nextChildDoc
+operator|+
+literal|" matched childScorer="
+operator|+
+name|childScorer
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+throw|;
+block|}
 comment|//System.out.println("  parentDoc=" + parentDoc);
 assert|assert
 name|parentDoc
@@ -1223,6 +1254,32 @@ operator|<
 name|parentDoc
 condition|)
 do|;
+comment|// Parent& child docs are supposed to be
+comment|// orthogonal:
+if|if
+condition|(
+name|nextChildDoc
+operator|==
+name|parentDoc
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"child query must only match non-parent docs, but parent docID="
+operator|+
+name|nextChildDoc
+operator|+
+literal|" matched childScorer="
+operator|+
+name|childScorer
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+throw|;
+block|}
 continue|continue;
 block|}
 name|float
@@ -1372,12 +1429,32 @@ operator|<
 name|parentDoc
 condition|)
 do|;
-comment|// Parent& child docs are supposed to be orthogonal:
-assert|assert
+comment|// Parent& child docs are supposed to be
+comment|// orthogonal:
+if|if
+condition|(
 name|nextChildDoc
-operator|!=
+operator|==
 name|parentDoc
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"child query must only match non-parent docs, but parent docID="
+operator|+
+name|nextChildDoc
+operator|+
+literal|" matched childScorer="
+operator|+
+name|childScorer
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+throw|;
+block|}
 switch|switch
 condition|(
 name|scoreMode
@@ -1414,7 +1491,7 @@ name|None
 case|:
 break|break;
 block|}
-comment|//System.out.println("  return parentDoc=" + parentDoc);
+comment|//System.out.println("  return parentDoc=" + parentDoc + " childDocUpto=" + childDocUpto);
 return|return
 name|parentDoc
 return|;
@@ -1541,11 +1618,30 @@ comment|//} else {
 comment|//System.out.println("  skip childScorer advance");
 block|}
 comment|// Parent& child docs are supposed to be orthogonal:
-assert|assert
+if|if
+condition|(
 name|nextChildDoc
-operator|!=
+operator|==
 name|prevParentDoc
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"child query must only match non-parent docs, but parent docID="
+operator|+
+name|nextChildDoc
+operator|+
+literal|" matched childScorer="
+operator|+
+name|childScorer
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|int
 name|nd
