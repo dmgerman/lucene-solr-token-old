@@ -796,9 +796,6 @@ if|if
 condition|(
 name|accumulator
 operator|.
-name|getAggregator
-argument_list|()
-operator|.
 name|requiresDocScores
 argument_list|()
 condition|)
