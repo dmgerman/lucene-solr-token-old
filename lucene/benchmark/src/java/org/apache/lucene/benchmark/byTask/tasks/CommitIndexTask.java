@@ -177,6 +177,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|commitUserData
+operator|!=
+literal|null
+condition|)
+block|{
 name|iw
 operator|.
 name|setCommitData
@@ -184,6 +191,7 @@ argument_list|(
 name|commitUserData
 argument_list|)
 expr_stmt|;
+block|}
 name|iw
 operator|.
 name|commit
