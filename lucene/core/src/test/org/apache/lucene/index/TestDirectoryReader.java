@@ -6411,9 +6411,7 @@ expr_stmt|;
 name|sdp
 operator|.
 name|snapshot
-argument_list|(
-literal|"c1"
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|writer
 operator|.
@@ -6432,9 +6430,7 @@ expr_stmt|;
 name|sdp
 operator|.
 name|snapshot
-argument_list|(
-literal|"c2"
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|writer
 operator|.
@@ -6453,9 +6449,7 @@ expr_stmt|;
 name|sdp
 operator|.
 name|snapshot
-argument_list|(
-literal|"c3"
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|writer
 operator|.
