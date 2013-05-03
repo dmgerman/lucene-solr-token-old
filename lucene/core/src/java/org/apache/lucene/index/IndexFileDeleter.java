@@ -942,13 +942,6 @@ block|}
 block|}
 comment|// Finally, give policy a chance to remove things on
 comment|// startup:
-if|if
-condition|(
-name|currentSegmentsFile
-operator|!=
-literal|null
-condition|)
-block|{
 name|policy
 operator|.
 name|onInit
@@ -956,7 +949,6 @@ argument_list|(
 name|commits
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Always protect the incoming segmentInfos since
 comment|// sometime it may not be the most recent commit
 name|checkpoint

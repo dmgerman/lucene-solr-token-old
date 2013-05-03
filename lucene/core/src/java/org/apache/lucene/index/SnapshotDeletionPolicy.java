@@ -144,6 +144,12 @@ specifier|protected
 name|IndexCommit
 name|lastCommit
 decl_stmt|;
+comment|/** Used to detect misuse */
+DECL|field|initCalled
+specifier|private
+name|boolean
+name|initCalled
+decl_stmt|;
 comment|/** Sole constructor, taking the incoming {@link    *  IndexDeletionPolicy} to wrap. */
 DECL|method|SnapshotDeletionPolicy
 specifier|public
@@ -223,6 +229,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|initCalled
+operator|=
+literal|true
+expr_stmt|;
 name|primary
 operator|.
 name|onInit
@@ -268,6 +278,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|commits
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|lastCommit
 operator|=
 name|commits
@@ -282,6 +301,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**    * Release a snapshotted commit.    *     * @param commit    *          the commit previously returned by {@link #snapshot}    */
 DECL|method|release
@@ -322,6 +342,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+operator|!
+name|initCalled
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"this instance is not being used by IndexWriter; be sure to use the instance returned from writer.getConfig().getIndexDeletionPolicy()"
+argument_list|)
+throw|;
+block|}
 name|Integer
 name|refCount
 init|=
@@ -402,36 +436,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Snapshots the last commit and returns it. Once a commit is 'snapshotted,' it is protected    * from deletion (as long as this {@link IndexDeletionPolicy} is used). The    * snapshot can be removed by calling {@link #release(IndexCommit)} followed    * by a call to {@link IndexWriter#deleteUnusedFiles()}.    *    *<p>    *<b>NOTE:</b> while the snapshot is held, the files it references will not    * be deleted, which will consume additional disk space in your index. If you    * take a snapshot at a particularly bad time (say just before you call    * forceMerge) then in the worst case this could consume an extra 1X of your    * total index size, until you release the snapshot.    *     * @throws IllegalStateException    *           if this index does not have any commits yet    * @return the {@link IndexCommit} that was snapshotted.    */
-DECL|method|snapshot
-specifier|public
+comment|/** Increments the refCount for this {@link IndexCommit}. */
+DECL|method|incRef
+specifier|protected
 specifier|synchronized
+name|void
+name|incRef
+parameter_list|(
 name|IndexCommit
-name|snapshot
-parameter_list|()
-throws|throws
-name|IOException
+name|ic
+parameter_list|)
 block|{
-if|if
-condition|(
-name|lastCommit
-operator|==
-literal|null
-condition|)
-block|{
-comment|// No commit yet, eg this is a new IndexWriter:
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"No index commit to snapshot"
-argument_list|)
-throw|;
-block|}
 name|long
 name|gen
 init|=
-name|lastCommit
+name|ic
 operator|.
 name|getGeneration
 argument_list|()
@@ -491,8 +510,79 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**    * Snapshots the last commit and returns it. Once a commit is 'snapshotted,' it is protected    * from deletion (as long as this {@link IndexDeletionPolicy} is used). The    * snapshot can be removed by calling {@link #release(IndexCommit)} followed    * by a call to {@link IndexWriter#deleteUnusedFiles()}.    *    *<p>    *<b>NOTE:</b> while the snapshot is held, the files it references will not    * be deleted, which will consume additional disk space in your index. If you    * take a snapshot at a particularly bad time (say just before you call    * forceMerge) then in the worst case this could consume an extra 1X of your    * total index size, until you release the snapshot.    *     * @throws IllegalStateException    *           if this index does not have any commits yet    * @return the {@link IndexCommit} that was snapshotted.    */
+DECL|method|snapshot
+specifier|public
+specifier|synchronized
+name|IndexCommit
+name|snapshot
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+operator|!
+name|initCalled
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"this instance is not being used by IndexWriter; be sure to use the instance returned from writer.getConfig().getIndexDeletionPolicy()"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|lastCommit
+operator|==
+literal|null
+condition|)
+block|{
+comment|// No commit yet, eg this is a new IndexWriter:
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"No index commit to snapshot"
+argument_list|)
+throw|;
+block|}
+name|incRef
+argument_list|(
+name|lastCommit
+argument_list|)
+expr_stmt|;
 return|return
 name|lastCommit
+return|;
+block|}
+comment|/** Returns all IndexCommits held by at least one snapshot. */
+DECL|method|getSnapshots
+specifier|public
+specifier|synchronized
+name|List
+argument_list|<
+name|IndexCommit
+argument_list|>
+name|getSnapshots
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ArrayList
+argument_list|<
+name|IndexCommit
+argument_list|>
+argument_list|(
+name|indexCommits
+operator|.
+name|values
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/** Returns the total number of snapshots currently held. */

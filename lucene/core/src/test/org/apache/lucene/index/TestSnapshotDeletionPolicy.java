@@ -587,6 +587,12 @@ argument_list|()
 operator|+
 literal|1000
 decl_stmt|;
+name|SnapshotDeletionPolicy
+name|dp
+init|=
+name|getDeletionPolicy
+argument_list|()
+decl_stmt|;
 specifier|final
 name|IndexWriter
 name|writer
@@ -609,8 +615,7 @@ argument_list|)
 operator|.
 name|setIndexDeletionPolicy
 argument_list|(
-name|getDeletionPolicy
-argument_list|()
+name|dp
 argument_list|)
 operator|.
 name|setMaxBufferedDocs
@@ -619,9 +624,30 @@ literal|2
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|SnapshotDeletionPolicy
+comment|// Verify we catch misuse:
+try|try
+block|{
 name|dp
-init|=
+operator|.
+name|snapshot
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"did not hit exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|ise
+parameter_list|)
+block|{
+comment|// expected
+block|}
+name|dp
+operator|=
 operator|(
 name|SnapshotDeletionPolicy
 operator|)
@@ -632,7 +658,7 @@ argument_list|()
 operator|.
 name|getIndexDeletionPolicy
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|writer
 operator|.
 name|commit
@@ -1241,6 +1267,29 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|assertEquals
+argument_list|(
+name|numSnapshots
+argument_list|,
+name|sdp
+operator|.
+name|getSnapshots
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|numSnapshots
+argument_list|,
+name|sdp
+operator|.
+name|getSnapshotCount
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertSnapshotExists
 argument_list|(
 name|dir
@@ -1699,6 +1748,7 @@ operator|.
 name|deleteUnusedFiles
 argument_list|()
 expr_stmt|;
+comment|//sdp = (SnapshotDeletionPolicy) writer.getConfig().getIndexDeletionPolicy();
 name|assertSnapshotExists
 argument_list|(
 name|dir
