@@ -57,7 +57,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BytesRef
+name|ByteBlockPool
 import|;
 end_import
 begin_import
@@ -70,7 +70,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|ByteBlockPool
+name|BytesRef
 import|;
 end_import
 begin_import
@@ -109,7 +109,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|RamUsageEstimator
+name|IntroSorter
 import|;
 end_import
 begin_import
@@ -122,7 +122,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|SorterTemplate
+name|RamUsageEstimator
 import|;
 end_import
 begin_comment
@@ -514,7 +514,7 @@ name|i
 expr_stmt|;
 block|}
 operator|new
-name|SorterTemplate
+name|IntroSorter
 argument_list|()
 block|{
 annotation|@
@@ -692,14 +692,12 @@ argument_list|()
 decl_stmt|;
 block|}
 operator|.
-name|quickSort
+name|sort
 argument_list|(
 literal|0
 argument_list|,
 name|size
 argument_list|()
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 return|return

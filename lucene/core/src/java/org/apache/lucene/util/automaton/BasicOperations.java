@@ -3100,7 +3100,7 @@ name|void
 name|sort
 parameter_list|()
 block|{
-comment|// mergesort seems to perform better on already sorted arrays:
+comment|// Tim sort performs well on already sorted arrays:
 if|if
 condition|(
 name|count
@@ -3109,7 +3109,7 @@ literal|1
 condition|)
 name|ArrayUtil
 operator|.
-name|mergeSort
+name|timSort
 argument_list|(
 name|points
 argument_list|,

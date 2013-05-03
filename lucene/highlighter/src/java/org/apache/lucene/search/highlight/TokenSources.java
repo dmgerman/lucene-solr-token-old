@@ -961,7 +961,7 @@ argument_list|)
 expr_stmt|;
 name|ArrayUtil
 operator|.
-name|mergeSort
+name|timSort
 argument_list|(
 name|tokensInOriginalOrder
 argument_list|,

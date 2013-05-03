@@ -504,7 +504,7 @@ name|compact
 argument_list|()
 decl_stmt|;
 operator|new
-name|SorterTemplate
+name|IntroSorter
 argument_list|()
 block|{
 annotation|@
@@ -735,13 +735,11 @@ argument_list|()
 decl_stmt|;
 block|}
 operator|.
-name|quickSort
+name|sort
 argument_list|(
 literal|0
 argument_list|,
 name|count
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 return|return
