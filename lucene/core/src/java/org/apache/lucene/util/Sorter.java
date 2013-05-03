@@ -997,6 +997,16 @@ operator|+
 literal|2
 argument_list|)
 expr_stmt|;
+name|swap
+argument_list|(
+name|l
+argument_list|,
+name|l
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+break|break;
 case|case
 literal|1
 case|:
@@ -1009,6 +1019,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+break|break;
 case|case
 literal|0
 case|:
