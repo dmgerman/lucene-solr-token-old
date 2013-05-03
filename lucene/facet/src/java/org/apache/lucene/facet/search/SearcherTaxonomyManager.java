@@ -213,7 +213,9 @@ specifier|final
 name|DirectoryTaxonomyReader
 name|taxonomyReader
 decl_stmt|;
+comment|/** Create a SearcherAndTaxonomy */
 DECL|method|SearcherAndTaxonomy
+specifier|public
 name|SearcherAndTaxonomy
 parameter_list|(
 name|IndexSearcher
