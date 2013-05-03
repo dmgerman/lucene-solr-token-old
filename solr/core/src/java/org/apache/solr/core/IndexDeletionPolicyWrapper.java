@@ -915,6 +915,15 @@ name|solrVersionVsCommits
 operator|=
 name|map
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|list
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|latestCommit
 operator|=
 operator|(
@@ -935,6 +944,7 @@ operator|.
 name|delegate
 operator|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getCommitTimestamp
 specifier|public
