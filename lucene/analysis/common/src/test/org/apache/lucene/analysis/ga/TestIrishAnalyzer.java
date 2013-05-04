@@ -269,7 +269,7 @@ operator|new
 name|int
 index|[]
 block|{
-literal|1
+literal|2
 block|}
 argument_list|)
 expr_stmt|;

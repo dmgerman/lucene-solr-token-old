@@ -1773,13 +1773,6 @@ operator|.
 name|STOP_WORDS_SET
 argument_list|)
 decl_stmt|;
-name|filter
-operator|.
-name|setEnablePositionIncrements
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|TokenStreamComponents

@@ -585,7 +585,9 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
+name|Version
+operator|.
+name|LUCENE_43
 argument_list|,
 operator|new
 name|MockTokenizer
@@ -1276,7 +1278,9 @@ init|=
 operator|new
 name|StopFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
+name|Version
+operator|.
+name|LUCENE_43
 argument_list|,
 name|filter
 argument_list|,

@@ -497,7 +497,7 @@ operator|=
 operator|new
 name|JapanesePartOfSpeechStopFilter
 argument_list|(
-literal|true
+name|matchVersion
 argument_list|,
 name|stream
 argument_list|,

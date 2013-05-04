@@ -3619,8 +3619,6 @@ argument_list|,
 literal|true
 argument_list|,
 name|stopSet
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|PrecedenceQueryParser
@@ -3757,8 +3755,6 @@ argument_list|,
 name|MockTokenFilter
 operator|.
 name|ENGLISH_STOPSET
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 operator|.

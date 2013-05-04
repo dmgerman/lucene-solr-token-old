@@ -249,7 +249,7 @@ literal|"stoptypes-1.txt, stoptypes-2.txt"
 argument_list|,
 literal|"enablePositionIncrements"
 argument_list|,
-literal|"false"
+literal|"true"
 argument_list|)
 decl_stmt|;
 name|NumericTokenStream
@@ -295,7 +295,7 @@ literal|"stoptypes-1.txt, stoptypes-2.txt"
 argument_list|,
 literal|"enablePositionIncrements"
 argument_list|,
-literal|"false"
+literal|"true"
 argument_list|,
 literal|"useWhitelist"
 argument_list|,

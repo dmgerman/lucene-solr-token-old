@@ -2030,8 +2030,6 @@ argument_list|,
 name|MockTokenFilter
 operator|.
 name|ENGLISH_STOPSET
-argument_list|,
-literal|true
 argument_list|)
 return|;
 case|case

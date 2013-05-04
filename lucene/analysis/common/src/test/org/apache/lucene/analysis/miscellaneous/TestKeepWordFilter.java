@@ -132,6 +132,19 @@ operator|.
 name|CharArraySet
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
 begin_comment
 comment|/** Test {@link KeepWordFilter} */
 end_comment
@@ -208,7 +221,7 @@ operator|=
 operator|new
 name|KeepWordFilter
 argument_list|(
-literal|true
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|stream
 argument_list|,
@@ -270,7 +283,7 @@ operator|=
 operator|new
 name|KeepWordFilter
 argument_list|(
-literal|true
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|stream
 argument_list|,
@@ -328,6 +341,10 @@ operator|=
 operator|new
 name|KeepWordFilter
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_43
+argument_list|,
 literal|false
 argument_list|,
 name|stream
@@ -390,6 +407,10 @@ operator|=
 operator|new
 name|KeepWordFilter
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_43
+argument_list|,
 literal|false
 argument_list|,
 name|stream
@@ -503,7 +524,7 @@ init|=
 operator|new
 name|KeepWordFilter
 argument_list|(
-literal|true
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|tokenizer
 argument_list|,
