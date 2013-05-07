@@ -54,7 +54,7 @@ name|TokenFilterFactory
 import|;
 end_import
 begin_comment
-comment|/**  * Creates new instances of {@link EdgeNGramTokenFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_edgngrm" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.EdgeNGramFilterFactory" side="front" minGramSize="1" maxGramSize="1"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  */
+comment|/**  * Creates new instances of {@link EdgeNGramTokenFilter}.  *<pre class="prettyprint">  *&lt;fieldType name="text_edgngrm" class="solr.TextField" positionIncrementGap="100"&gt;  *&lt;analyzer&gt;  *&lt;tokenizer class="solr.WhitespaceTokenizerFactory"/&gt;  *&lt;filter class="solr.EdgeNGramFilterFactory" minGramSize="1" maxGramSize="1"/&gt;  *&lt;/analyzer&gt;  *&lt;/fieldType&gt;</pre>  */
 end_comment
 begin_class
 DECL|class|EdgeNGramFilterFactory
@@ -75,12 +75,6 @@ specifier|private
 specifier|final
 name|int
 name|minGramSize
-decl_stmt|;
-DECL|field|side
-specifier|private
-specifier|final
-name|String
-name|side
 decl_stmt|;
 comment|/** Creates a new EdgeNGramFilterFactory */
 DECL|method|EdgeNGramFilterFactory
@@ -127,24 +121,6 @@ operator|.
 name|DEFAULT_MAX_GRAM_SIZE
 argument_list|)
 expr_stmt|;
-name|side
-operator|=
-name|get
-argument_list|(
-name|args
-argument_list|,
-literal|"side"
-argument_list|,
-name|EdgeNGramTokenFilter
-operator|.
-name|Side
-operator|.
-name|FRONT
-operator|.
-name|getLabel
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -183,8 +159,6 @@ argument_list|(
 name|luceneMatchVersion
 argument_list|,
 name|input
-argument_list|,
-name|side
 argument_list|,
 name|minGramSize
 argument_list|,
