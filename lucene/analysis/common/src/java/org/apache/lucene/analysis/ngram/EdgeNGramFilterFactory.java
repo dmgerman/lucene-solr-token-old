@@ -180,6 +180,8 @@ return|return
 operator|new
 name|EdgeNGramTokenFilter
 argument_list|(
+name|luceneMatchVersion
+argument_list|,
 name|input
 argument_list|,
 name|side
