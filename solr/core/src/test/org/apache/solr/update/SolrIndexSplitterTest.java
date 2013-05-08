@@ -594,6 +594,10 @@ argument_list|,
 literal|null
 argument_list|,
 name|ranges
+argument_list|,
+operator|new
+name|PlainIdRouter
+argument_list|()
 argument_list|)
 decl_stmt|;
 operator|new
@@ -1109,6 +1113,10 @@ name|core2
 argument_list|)
 argument_list|,
 name|ranges
+argument_list|,
+operator|new
+name|PlainIdRouter
+argument_list|()
 argument_list|)
 decl_stmt|;
 operator|new
@@ -1452,6 +1460,10 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+operator|new
+name|PlainIdRouter
+argument_list|()
 argument_list|)
 decl_stmt|;
 operator|new
