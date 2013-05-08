@@ -5596,9 +5596,7 @@ operator|.
 name|getHostPort
 argument_list|()
 argument_list|,
-name|ZkContainer
-operator|.
-name|DEFAULT_HOST_PORT
+literal|null
 argument_list|)
 expr_stmt|;
 name|addCoresAttrib
@@ -5645,9 +5643,7 @@ operator|.
 name|getHostContext
 argument_list|()
 argument_list|,
-name|ZkContainer
-operator|.
-name|DEFAULT_HOST_CONTEXT
+literal|null
 argument_list|)
 expr_stmt|;
 name|addCoresAttrib
