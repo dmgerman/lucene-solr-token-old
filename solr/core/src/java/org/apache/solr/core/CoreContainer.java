@@ -1610,6 +1610,10 @@ name|adminPath
 operator|=
 literal|"/admin/cores"
 expr_stmt|;
+name|defaultCoreName
+operator|=
+name|DEFAULT_DEFAULT_CORE_NAME
+expr_stmt|;
 block|}
 name|zkHost
 operator|=
