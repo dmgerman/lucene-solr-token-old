@@ -486,6 +486,10 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+comment|// NOTE: important that we use infos not
+comment|// segmentInfos here, so that we are passing the
+comment|// actual instance of SegmentInfoPerCommit in
+comment|// IndexWriter's segmentInfos:
 specifier|final
 name|SegmentInfoPerCommit
 name|info
@@ -663,7 +667,7 @@ name|applyAllDeletes
 argument_list|)
 return|;
 block|}
-comment|/** This constructor is only used for {@link #doOpenIfChanged(SegmentInfos, IndexWriter)} */
+comment|/** This constructor is only used for {@link #doOpenIfChanged(SegmentInfos)} */
 DECL|method|open
 specifier|private
 specifier|static
@@ -672,9 +676,6 @@ name|open
 parameter_list|(
 name|Directory
 name|directory
-parameter_list|,
-name|IndexWriter
-name|writer
 parameter_list|,
 name|SegmentInfos
 name|infos
@@ -1254,7 +1255,7 @@ name|directory
 argument_list|,
 name|newReaders
 argument_list|,
-name|writer
+literal|null
 argument_list|,
 name|infos
 argument_list|,
@@ -1402,6 +1403,9 @@ block|{
 return|return
 name|doOpenIfChanged
 argument_list|(
+operator|(
+name|IndexCommit
+operator|)
 literal|null
 argument_list|)
 return|;
@@ -1715,8 +1719,6 @@ return|return
 name|doOpenIfChanged
 argument_list|(
 name|infos
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
@@ -1734,9 +1736,6 @@ name|doOpenIfChanged
 parameter_list|(
 name|SegmentInfos
 name|infos
-parameter_list|,
-name|IndexWriter
-name|writer
 parameter_list|)
 throws|throws
 name|IOException
@@ -1747,8 +1746,6 @@ operator|.
 name|open
 argument_list|(
 name|directory
-argument_list|,
-name|writer
 argument_list|,
 name|infos
 argument_list|,
