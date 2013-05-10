@@ -1392,7 +1392,8 @@ expr_stmt|;
 block|}
 comment|//individual CJK chars as terms, like StandardAnalyzer
 DECL|class|SimpleCJKTokenizer
-specifier|private
+specifier|protected
+specifier|static
 class|class
 name|SimpleCJKTokenizer
 extends|extends
@@ -1428,6 +1429,7 @@ annotation|@
 name|Override
 DECL|method|incrementToken
 specifier|public
+specifier|final
 name|boolean
 name|incrementToken
 parameter_list|()
@@ -6853,7 +6855,8 @@ expr_stmt|;
 block|}
 comment|/**    * adds synonym of "dog" for "dogs".    */
 DECL|class|MockSynonymFilter
-specifier|private
+specifier|protected
+specifier|static
 class|class
 name|MockSynonymFilter
 extends|extends
