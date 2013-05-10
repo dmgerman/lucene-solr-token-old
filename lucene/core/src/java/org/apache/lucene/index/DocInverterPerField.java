@@ -503,7 +503,14 @@ literal|"position increment must be>=0 (got "
 operator|+
 name|posIncr
 operator|+
-literal|")"
+literal|") for field '"
+operator|+
+name|field
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|"'"
 argument_list|)
 throw|;
 block|}
@@ -524,7 +531,14 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"first position increment must be> 0 (got 0)"
+literal|"first position increment must be> 0 (got 0) for field '"
+operator|+
+name|field
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|"'"
 argument_list|)
 throw|;
 block|}
@@ -645,6 +659,15 @@ operator|+
 literal|",endOffset="
 operator|+
 name|endOffset
+operator|+
+literal|" for field '"
+operator|+
+name|field
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|"'"
 argument_list|)
 throw|;
 block|}
@@ -666,6 +689,15 @@ operator|+
 literal|" is< lastStartOffset="
 operator|+
 name|lastStartOffset
+operator|+
+literal|" for field '"
+operator|+
+name|field
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|"'"
 argument_list|)
 throw|;
 block|}
