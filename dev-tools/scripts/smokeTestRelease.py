@@ -4751,6 +4751,8 @@ string|"'queries'"
 op|','
 string|"'queryparser'"
 op|','
+string|"'replicator'"
+op|','
 string|"'sandbox'"
 op|','
 string|"'spatial'"
