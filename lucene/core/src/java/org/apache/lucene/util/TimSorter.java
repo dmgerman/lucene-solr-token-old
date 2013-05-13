@@ -877,9 +877,9 @@ assert|;
 block|}
 annotation|@
 name|Override
-DECL|method|rotate
+DECL|method|doRotate
 name|void
-name|rotate
+name|doRotate
 parameter_list|(
 name|int
 name|lo
@@ -891,6 +891,7 @@ name|int
 name|hi
 parameter_list|)
 block|{
+specifier|final
 name|int
 name|len1
 init|=
@@ -898,6 +899,7 @@ name|mid
 operator|-
 name|lo
 decl_stmt|;
+specifier|final
 name|int
 name|len2
 init|=
