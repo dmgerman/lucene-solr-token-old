@@ -1701,7 +1701,7 @@ literal|null
 condition|?
 literal|""
 else|:
-literal|"("
+literal|" ("
 operator|+
 name|message
 operator|+
@@ -1781,7 +1781,11 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"a random IOException"
+literal|"a random IOException ("
+operator|+
+name|name
+operator|+
+literal|")"
 argument_list|)
 throw|;
 block|}
@@ -1791,7 +1795,11 @@ throw|throw
 operator|new
 name|FileNotFoundException
 argument_list|(
-literal|"a random IOException"
+literal|"a random IOException ("
+operator|+
+name|name
+operator|+
+literal|")"
 argument_list|)
 throw|;
 block|}
@@ -2505,7 +2513,11 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"MockDirectoryWrapper: throttling indexOutput"
+literal|"MockDirectoryWrapper: throttling indexOutput ("
+operator|+
+name|name
+operator|+
+literal|")"
 argument_list|)
 expr_stmt|;
 block|}
