@@ -983,10 +983,7 @@ init|=
 operator|new
 name|ContentStreamBase
 operator|.
-name|StringStream
-argument_list|(
-operator|new
-name|String
+name|ByteArrayStream
 argument_list|(
 name|zkClient
 operator|.
@@ -1001,8 +998,7 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|,
-literal|"UTF-8"
-argument_list|)
+name|adminFile
 argument_list|)
 decl_stmt|;
 name|content

@@ -6623,7 +6623,7 @@ argument_list|)
 expr_stmt|;
 name|FileUtils
 operator|.
-name|writeStringToFile
+name|writeByteArrayToFile
 argument_list|(
 operator|new
 name|File
@@ -6633,15 +6633,7 @@ argument_list|,
 name|file
 argument_list|)
 argument_list|,
-operator|new
-name|String
-argument_list|(
 name|data
-argument_list|,
-literal|"UTF-8"
-argument_list|)
-argument_list|,
-literal|"UTF-8"
 argument_list|)
 expr_stmt|;
 block|}
