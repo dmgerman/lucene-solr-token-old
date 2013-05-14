@@ -245,7 +245,7 @@ argument_list|()
 decl_stmt|;
 comment|// access to aliveServers should be synchronized on itself
 DECL|field|zombieServers
-specifier|private
+specifier|protected
 specifier|final
 name|Map
 argument_list|<
@@ -338,7 +338,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|ServerWrapper
-specifier|private
+specifier|protected
 specifier|static
 class|class
 name|ServerWrapper
@@ -1358,7 +1358,7 @@ throw|;
 block|}
 block|}
 DECL|method|addZombie
-specifier|private
+specifier|protected
 name|Exception
 name|addZombie
 parameter_list|(
