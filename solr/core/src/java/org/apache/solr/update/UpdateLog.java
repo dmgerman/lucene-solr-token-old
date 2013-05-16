@@ -4825,6 +4825,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/** The RecentUpdates object returned must be closed after use */
 DECL|method|getRecentUpdates
 specifier|public
 name|RecentUpdates
@@ -4910,13 +4911,24 @@ block|}
 block|}
 comment|// TODO: what if I hand out a list of updates, then do an update, then hand out another list (and
 comment|// one of the updates I originally handed out fell off the list).  Over-request?
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
 name|RecentUpdates
 name|recentUpdates
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|recentUpdates
+operator|=
 operator|new
 name|RecentUpdates
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|recentUpdates
 operator|.
 name|logList
@@ -4928,6 +4940,32 @@ operator|.
 name|update
 argument_list|()
 expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// defensive: if some unknown exception is thrown,
+comment|// make sure we close so that the tlogs are decref'd
+if|if
+condition|(
+operator|!
+name|success
+operator|&&
+name|recentUpdates
+operator|!=
+literal|null
+condition|)
+block|{
+name|recentUpdates
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 return|return
 name|recentUpdates
 return|;
@@ -5352,7 +5390,7 @@ name|log
 decl_stmt|;
 comment|// set to something different?
 DECL|field|translogs
-name|List
+name|Deque
 argument_list|<
 name|TransactionLog
 argument_list|>
@@ -5402,7 +5440,21 @@ name|this
 operator|.
 name|translogs
 operator|=
+operator|new
+name|LinkedList
+argument_list|<
+name|TransactionLog
+argument_list|>
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
 name|translogs
+operator|.
+name|addAll
+argument_list|(
+name|translogs
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -5495,12 +5547,25 @@ try|try
 block|{
 for|for
 control|(
-name|TransactionLog
-name|translog
-range|:
-name|translogs
+init|;
+condition|;
 control|)
 block|{
+name|TransactionLog
+name|translog
+init|=
+name|translogs
+operator|.
+name|pollFirst
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|translog
+operator|==
+literal|null
+condition|)
+break|break;
 name|doReplay
 argument_list|(
 name|translog
@@ -5600,6 +5665,31 @@ block|{
 name|versionInfo
 operator|.
 name|unblockUpdates
+argument_list|()
+expr_stmt|;
+block|}
+comment|// clean up in case we hit some unexpected exception and didn't get
+comment|// to more transaction logs
+for|for
+control|(
+name|TransactionLog
+name|translog
+range|:
+name|translogs
+control|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"ERROR: didn't get to recover from tlog "
+operator|+
+name|translog
+argument_list|)
+expr_stmt|;
+name|translog
+operator|.
+name|decref
 argument_list|()
 expr_stmt|;
 block|}
