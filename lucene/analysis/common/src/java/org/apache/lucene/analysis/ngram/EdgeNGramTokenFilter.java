@@ -203,13 +203,6 @@ specifier|private
 name|int
 name|savePosLen
 decl_stmt|;
-DECL|field|isFirstToken
-specifier|private
-name|boolean
-name|isFirstToken
-init|=
-literal|true
-decl_stmt|;
 DECL|field|termAtt
 specifier|private
 specifier|final
@@ -512,10 +505,6 @@ expr_stmt|;
 name|curGramSize
 operator|++
 expr_stmt|;
-name|isFirstToken
-operator|=
-literal|false
-expr_stmt|;
 return|return
 literal|true
 return|;
@@ -545,10 +534,6 @@ expr_stmt|;
 name|curTermBuffer
 operator|=
 literal|null
-expr_stmt|;
-name|isFirstToken
-operator|=
-literal|true
 expr_stmt|;
 name|savePosIncr
 operator|=
