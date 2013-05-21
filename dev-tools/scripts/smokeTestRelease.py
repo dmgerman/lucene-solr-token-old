@@ -2542,7 +2542,7 @@ name|'keysFile'
 op|')'
 op|','
 nl|'\n'
-string|"'%s/%s.gpg.import.log 2>&1'"
+string|"'%s/%s.gpg.import.log'"
 op|'%'
 op|'('
 name|'tmpDir'
@@ -2789,7 +2789,7 @@ name|'keysFile'
 op|')'
 op|','
 nl|'\n'
-string|"'%s/%s.gpg.trust.import.log 2>&1'"
+string|"'%s/%s.gpg.trust.import.log'"
 op|'%'
 op|'('
 name|'tmpDir'
