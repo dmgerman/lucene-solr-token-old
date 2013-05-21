@@ -1007,6 +1007,21 @@ name|void
 name|waitForFlush
 parameter_list|()
 block|{
+assert|assert
+operator|!
+name|Thread
+operator|.
+name|holdsLock
+argument_list|(
+name|this
+operator|.
+name|documentsWriter
+operator|.
+name|indexWriter
+argument_list|)
+operator|:
+literal|"IW lock should never be hold when waiting on flush"
+assert|;
 while|while
 condition|(
 name|flushingWriters
@@ -2594,11 +2609,6 @@ operator|.
 name|abort
 argument_list|()
 expr_stmt|;
-name|doAfterFlush
-argument_list|(
-name|dwpt
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -2607,6 +2617,14 @@ name|ex
 parameter_list|)
 block|{
 comment|// ignore - keep on aborting the flush queue
+block|}
+finally|finally
+block|{
+name|doAfterFlush
+argument_list|(
+name|dwpt
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 for|for
@@ -2644,13 +2662,6 @@ operator|.
 name|abort
 argument_list|()
 expr_stmt|;
-name|doAfterFlush
-argument_list|(
-name|blockedFlush
-operator|.
-name|dwpt
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -2659,6 +2670,16 @@ name|ex
 parameter_list|)
 block|{
 comment|// ignore - keep on aborting the blocked queue
+block|}
+finally|finally
+block|{
+name|doAfterFlush
+argument_list|(
+name|blockedFlush
+operator|.
+name|dwpt
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
