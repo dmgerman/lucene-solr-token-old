@@ -684,11 +684,11 @@ name|log
 operator|.
 name|warn
 argument_list|(
+literal|"skip the text processing due to {}"
+argument_list|,
 operator|new
 name|StringBuilder
-argument_list|(
-literal|"skip the text processing due to "
-argument_list|)
+argument_list|()
 operator|.
 name|append
 argument_list|(
@@ -707,9 +707,6 @@ name|append
 argument_list|(
 name|debugString
 argument_list|)
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -923,20 +920,22 @@ name|ResourceInitializationException
 throws|,
 name|AnalysisEngineProcessException
 block|{
+if|if
+condition|(
 name|log
 operator|.
-name|info
-argument_list|(
-operator|new
-name|StringBuilder
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
 argument_list|(
 literal|"Analyzing text"
 argument_list|)
-operator|.
-name|toString
-argument_list|()
-argument_list|)
 expr_stmt|;
+block|}
 comment|/* get the UIMA analysis engine */
 name|AnalysisEngine
 name|ae
@@ -970,13 +969,22 @@ argument_list|(
 name|jcas
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|log
 operator|.
-name|info
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
 argument_list|(
 literal|"Text processing completed"
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|jcas
 return|;
