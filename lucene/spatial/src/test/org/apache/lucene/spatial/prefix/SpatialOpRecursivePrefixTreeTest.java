@@ -470,6 +470,15 @@ name|SpatialOpRecursivePrefixTreeTest
 extends|extends
 name|StrategyTestCase
 block|{
+DECL|field|ITERATIONS
+specifier|static
+specifier|final
+name|int
+name|ITERATIONS
+init|=
+literal|10
+decl_stmt|;
+comment|//Test Iterations
 DECL|field|grid
 specifier|private
 name|SpatialPrefixTree
@@ -602,7 +611,7 @@ name|Repeat
 argument_list|(
 name|iterations
 operator|=
-literal|10
+name|ITERATIONS
 argument_list|)
 DECL|method|testIntersects
 specifier|public
@@ -633,7 +642,7 @@ name|Repeat
 argument_list|(
 name|iterations
 operator|=
-literal|10
+name|ITERATIONS
 argument_list|)
 DECL|method|testWithin
 specifier|public
@@ -664,7 +673,7 @@ name|Repeat
 argument_list|(
 name|iterations
 operator|=
-literal|10
+name|ITERATIONS
 argument_list|)
 DECL|method|testContains
 specifier|public
@@ -695,7 +704,7 @@ name|Repeat
 argument_list|(
 name|iterations
 operator|=
-literal|10
+name|ITERATIONS
 argument_list|)
 DECL|method|testDisjoint
 specifier|public
@@ -2270,11 +2279,21 @@ condition|(
 name|r
 operator|!=
 name|INTERSECTS
+operator|&&
+operator|!
+operator|(
+name|r
+operator|==
+name|WITHIN
+operator|&&
+name|biasContainsThenWithin
+operator|)
 condition|)
 return|return
 name|r
 return|;
-comment|//See if the correct answer is actually Contains
+comment|//See if the correct answer is actually Contains, when the indexed shapes are adjacent,
+comment|// creating a larger shape that contains the input shape.
 name|Rectangle
 name|oRect
 init|=
