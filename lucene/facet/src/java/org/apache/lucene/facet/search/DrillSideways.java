@@ -2227,17 +2227,19 @@ argument_list|,
 name|fsp
 argument_list|)
 decl_stmt|;
+return|return
+operator|new
+name|DrillSidewaysResult
+argument_list|(
 name|r
 operator|.
-name|hits
-operator|=
+name|facetResults
+argument_list|,
 name|hitCollector
 operator|.
 name|topDocs
 argument_list|()
-expr_stmt|;
-return|return
-name|r
+argument_list|)
 return|;
 block|}
 else|else
@@ -2316,17 +2318,19 @@ argument_list|,
 name|fsp
 argument_list|)
 decl_stmt|;
+return|return
+operator|new
+name|DrillSidewaysResult
+argument_list|(
 name|r
 operator|.
-name|hits
-operator|=
+name|facetResults
+argument_list|,
 name|hitCollector
 operator|.
 name|topDocs
 argument_list|()
-expr_stmt|;
-return|return
-name|r
+argument_list|)
 return|;
 block|}
 comment|/** Override this to use a custom drill-down {@link    *  FacetsAccumulator}. */
@@ -2399,7 +2403,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/** Represents the returned result from a drill sideways    *  search. */
+comment|/**    * Represents the returned result from a drill sideways search. Note that if    * you called    * {@link DrillSideways#search(DrillDownQuery, Collector, FacetSearchParams)},    * then {@link #hits} will be {@code null}.    */
 DECL|class|DrillSidewaysResult
 specifier|public
 specifier|static
@@ -2419,10 +2423,12 @@ decl_stmt|;
 comment|/** Hits. */
 DECL|field|hits
 specifier|public
+specifier|final
 name|TopDocs
 name|hits
 decl_stmt|;
 DECL|method|DrillSidewaysResult
+specifier|public
 name|DrillSidewaysResult
 parameter_list|(
 name|List
