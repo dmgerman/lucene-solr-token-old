@@ -365,7 +365,7 @@ name|List
 argument_list|<
 name|FacetResult
 argument_list|>
-name|fixedRes
+name|results
 init|=
 operator|new
 name|ArrayList
@@ -441,6 +441,44 @@ expr_stmt|;
 block|}
 block|}
 comment|// final labeling if allowed (because labeling is a costly operation)
+if|if
+condition|(
+name|fres
+operator|.
+name|getFacetResultNode
+argument_list|()
+operator|.
+name|ordinal
+operator|==
+name|TaxonomyReader
+operator|.
+name|INVALID_ORDINAL
+condition|)
+block|{
+comment|// category does not exist, add an empty result
+name|results
+operator|.
+name|add
+argument_list|(
+name|emptyResult
+argument_list|(
+name|fres
+operator|.
+name|getFacetResultNode
+argument_list|()
+operator|.
+name|ordinal
+argument_list|,
+name|fres
+operator|.
+name|getFacetRequest
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|frh
 operator|.
 name|labelResult
@@ -448,14 +486,14 @@ argument_list|(
 name|fres
 argument_list|)
 expr_stmt|;
-name|fixedRes
+name|results
 operator|.
 name|add
 argument_list|(
 name|fres
 argument_list|)
 expr_stmt|;
-comment|// add to final results
+block|}
 block|}
 name|searchParams
 operator|=
@@ -463,7 +501,7 @@ name|original
 expr_stmt|;
 comment|// Back to original params
 return|return
-name|fixedRes
+name|results
 return|;
 block|}
 annotation|@
