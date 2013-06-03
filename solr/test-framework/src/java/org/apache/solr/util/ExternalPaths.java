@@ -32,6 +32,7 @@ specifier|public
 class|class
 name|ExternalPaths
 block|{
+comment|/**    *<p>    * The main directory path for the solr source being built if it can be determined.  If it     * can not be determined -- possily because the current context is a client code base     * using hte test frameowrk -- then this variable will be null.    *</p>    *<p>    * Note that all other static paths available in this class are derived from the source     * home, and if it is null, those paths will just be relative to 'null' and may not be     * meaningful.    */
 DECL|field|SOURCE_HOME
 specifier|public
 specifier|static
@@ -42,6 +43,7 @@ init|=
 name|determineSourceHome
 argument_list|()
 decl_stmt|;
+comment|/* @see #SOURCE_HOME */
 DECL|field|WEBAPP_HOME
 specifier|public
 specifier|static
@@ -59,6 +61,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 decl_stmt|;
+comment|/* @see #SOURCE_HOME */
 DECL|field|EXAMPLE_HOME
 specifier|public
 specifier|static
@@ -76,6 +79,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 decl_stmt|;
+comment|/* @see #SOURCE_HOME */
 DECL|field|EXAMPLE_MULTICORE_HOME
 specifier|public
 specifier|static
@@ -93,6 +97,7 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 decl_stmt|;
+comment|/* @see #SOURCE_HOME */
 DECL|field|EXAMPLE_SCHEMA
 specifier|public
 specifier|static
@@ -103,6 +108,7 @@ name|EXAMPLE_HOME
 operator|+
 literal|"/collection1/conf/schema.xml"
 decl_stmt|;
+comment|/* @see #SOURCE_HOME */
 DECL|field|EXAMPLE_CONFIG
 specifier|public
 specifier|static
@@ -113,14 +119,15 @@ name|EXAMPLE_HOME
 operator|+
 literal|"/collection1/conf/solrconfig.xml"
 decl_stmt|;
+comment|/**    * Ugly, ugly hack to determine the example home without depending on the CWD    * this is needed for example/multicore tests which reside outside the classpath.    * if the source home can't be determined, this method returns null.    */
 DECL|method|determineSourceHome
 specifier|static
 name|String
 name|determineSourceHome
 parameter_list|()
 block|{
-comment|// ugly, ugly hack to determine the example home without depending on the CWD
-comment|// this is needed for example/multicore tests which reside outside the classpath
+try|try
+block|{
 name|File
 name|file
 decl_stmt|;
@@ -194,6 +201,7 @@ decl_stmt|;
 while|while
 condition|(
 operator|!
+operator|(
 operator|new
 name|File
 argument_list|(
@@ -204,6 +212,11 @@ argument_list|)
 operator|.
 name|exists
 argument_list|()
+operator|)
+operator|&&
+literal|null
+operator|!=
+name|base
 condition|)
 block|{
 name|base
@@ -215,6 +228,14 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
+operator|(
+literal|null
+operator|==
+name|base
+operator|)
+condition|?
+literal|null
+else|:
 operator|new
 name|File
 argument_list|(
@@ -226,6 +247,18 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|RuntimeException
+name|e
+parameter_list|)
+block|{
+comment|// all bets are off
+return|return
+literal|null
+return|;
+block|}
 block|}
 block|}
 end_class
