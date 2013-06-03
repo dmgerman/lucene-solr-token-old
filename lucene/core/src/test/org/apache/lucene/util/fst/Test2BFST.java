@@ -205,7 +205,7 @@ begin_class
 annotation|@
 name|Ignore
 argument_list|(
-literal|"Requires tons of heap to run (10G works)"
+literal|"Requires tons of heap to run (420G works)"
 argument_list|)
 annotation|@
 name|TimeoutSuite
@@ -317,7 +317,7 @@ name|doPackIter
 operator|==
 literal|1
 decl_stmt|;
-comment|// Build FST w/ NoOutputs and stop when nodeCount> 3B
+comment|// Build FST w/ NoOutputs and stop when nodeCount> 2.2B
 if|if
 condition|(
 operator|!
@@ -375,9 +375,9 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-literal|false
+literal|true
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|Integer
 operator|.
@@ -527,7 +527,15 @@ operator|.
 name|getTotStateCount
 argument_list|()
 operator|>
-name|LIMIT
+name|Integer
+operator|.
+name|MAX_VALUE
+operator|+
+literal|100L
+operator|*
+literal|1024
+operator|*
+literal|1024
 condition|)
 block|{
 break|break;
