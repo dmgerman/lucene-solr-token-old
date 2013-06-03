@@ -5105,6 +5105,8 @@ decl_stmt|;
 name|DocCollection
 name|coll
 init|=
+name|zkEnabled
+condition|?
 name|zkController
 operator|.
 name|getClusterState
@@ -5114,6 +5116,8 @@ name|getCollection
 argument_list|(
 name|collection
 argument_list|)
+else|:
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -5668,6 +5672,14 @@ name|unblockUpdates
 argument_list|()
 expr_stmt|;
 block|}
+comment|// forward to all replicas
+if|if
+condition|(
+name|leaderLogic
+operator|&&
+name|zkEnabled
+condition|)
+block|{
 name|List
 argument_list|<
 name|Node
@@ -5688,12 +5700,6 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-comment|// forward to all replicas
-if|if
-condition|(
-name|leaderLogic
-condition|)
-block|{
 name|ModifiableSolrParams
 name|params
 init|=
