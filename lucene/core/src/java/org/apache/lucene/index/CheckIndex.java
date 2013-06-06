@@ -1494,6 +1494,7 @@ name|infoStream
 operator|!=
 literal|null
 condition|)
+block|{
 name|infoStream
 operator|.
 name|print
@@ -1509,12 +1510,6 @@ range|:
 name|onlySegments
 control|)
 block|{
-if|if
-condition|(
-name|infoStream
-operator|!=
-literal|null
-condition|)
 name|infoStream
 operator|.
 name|print
@@ -1524,6 +1519,7 @@ operator|+
 name|s
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|result
 operator|.
