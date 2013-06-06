@@ -1498,6 +1498,11 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|offsets
+condition|)
+block|{
 for|for
 control|(
 name|int
@@ -1512,11 +1517,6 @@ condition|;
 name|i
 operator|++
 control|)
-block|{
-if|if
-condition|(
-name|offsets
-condition|)
 block|{
 name|tvf
 operator|.
