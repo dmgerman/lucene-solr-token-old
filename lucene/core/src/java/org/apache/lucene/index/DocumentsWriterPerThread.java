@@ -522,8 +522,6 @@ block|{
 return|return
 name|docWriter
 operator|.
-name|writer
-operator|.
 name|testPoint
 argument_list|(
 name|name
@@ -1092,6 +1090,39 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+DECL|method|testPoint
+specifier|final
+name|boolean
+name|testPoint
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+if|if
+condition|(
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+literal|"TP"
+argument_list|)
+condition|)
+block|{
+name|infoStream
+operator|.
+name|message
+argument_list|(
+literal|"TP"
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+literal|true
+return|;
+block|}
 DECL|method|checkAndResetHasAborted
 name|boolean
 name|checkAndResetHasAborted
@@ -1129,8 +1160,6 @@ throws|throws
 name|IOException
 block|{
 assert|assert
-name|writer
-operator|.
 name|testPoint
 argument_list|(
 literal|"DocumentsWriterPerThread addDocument start"
@@ -1417,8 +1446,6 @@ throws|throws
 name|IOException
 block|{
 assert|assert
-name|writer
-operator|.
 name|testPoint
 argument_list|(
 literal|"DocumentsWriterPerThread addDocuments start"

@@ -446,8 +446,6 @@ block|{
 assert|assert
 name|docWriter
 operator|.
-name|writer
-operator|.
 name|testPoint
 argument_list|(
 literal|"TermVectorsTermsWriter.finishDocument start"
@@ -538,8 +536,6 @@ argument_list|()
 expr_stmt|;
 assert|assert
 name|docWriter
-operator|.
-name|writer
 operator|.
 name|testPoint
 argument_list|(
