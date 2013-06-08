@@ -523,7 +523,7 @@ name|weight
 parameter_list|,
 name|Similarity
 operator|.
-name|SloppySimScorer
+name|SimScorer
 name|docScorer
 parameter_list|)
 throws|throws

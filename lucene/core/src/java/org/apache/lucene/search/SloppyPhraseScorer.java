@@ -145,7 +145,7 @@ specifier|private
 specifier|final
 name|Similarity
 operator|.
-name|SloppySimScorer
+name|SimScorer
 name|docScorer
 decl_stmt|;
 DECL|field|slop
@@ -234,7 +234,7 @@ name|slop
 parameter_list|,
 name|Similarity
 operator|.
-name|SloppySimScorer
+name|SimScorer
 name|docScorer
 parameter_list|)
 block|{
