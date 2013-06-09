@@ -18,15 +18,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|SocketException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Random
@@ -694,7 +685,7 @@ return|return
 name|server
 return|;
 block|}
-comment|/**    * Returns a {@link Server}'s port. This method assumes that no    * {@link Connector}s were added to the Server besides the default one.    */
+comment|/** Returns a {@link Server}'s port. */
 DECL|method|serverPort
 specifier|public
 specifier|static
@@ -702,11 +693,11 @@ name|int
 name|serverPort
 parameter_list|(
 name|Server
-name|httpServer
+name|server
 parameter_list|)
 block|{
 return|return
-name|httpServer
+name|server
 operator|.
 name|getConnectors
 argument_list|()
@@ -715,6 +706,30 @@ literal|0
 index|]
 operator|.
 name|getLocalPort
+argument_list|()
+return|;
+block|}
+comment|/** Returns a {@link Server}'s host. */
+DECL|method|serverHost
+specifier|public
+specifier|static
+name|String
+name|serverHost
+parameter_list|(
+name|Server
+name|server
+parameter_list|)
+block|{
+return|return
+name|server
+operator|.
+name|getConnectors
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|getHost
 argument_list|()
 return|;
 block|}

@@ -333,6 +333,11 @@ specifier|private
 name|int
 name|port
 decl_stmt|;
+DECL|field|host
+specifier|private
+name|String
+name|host
+decl_stmt|;
 DECL|field|serverIndexDir
 DECL|field|handlerIndexDir
 specifier|private
@@ -408,6 +413,13 @@ expr_stmt|;
 name|port
 operator|=
 name|serverPort
+argument_list|(
+name|server
+argument_list|)
+expr_stmt|;
+name|host
+operator|=
+name|serverHost
 argument_list|(
 name|server
 argument_list|)
@@ -667,7 +679,7 @@ init|=
 operator|new
 name|HttpReplicator
 argument_list|(
-literal|"127.0.0.1"
+name|host
 argument_list|,
 name|port
 argument_list|,
