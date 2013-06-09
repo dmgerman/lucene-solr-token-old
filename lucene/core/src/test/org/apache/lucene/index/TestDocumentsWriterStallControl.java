@@ -1891,6 +1891,7 @@ name|done
 operator|=
 literal|false
 expr_stmt|;
+break|break;
 block|}
 block|}
 if|if

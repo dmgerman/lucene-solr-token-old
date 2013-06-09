@@ -3055,6 +3055,7 @@ if|if
 condition|(
 name|VERBOSE
 condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -3079,10 +3080,6 @@ range|:
 name|payloads
 control|)
 block|{
-if|if
-condition|(
-name|VERBOSE
-condition|)
 name|System
 operator|.
 name|out
@@ -3098,6 +3095,7 @@ literal|"UTF-8"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|reader
 operator|.
@@ -3534,6 +3532,7 @@ if|if
 condition|(
 name|VERBOSE
 condition|)
+block|{
 name|System
 operator|.
 name|out
@@ -3558,10 +3557,6 @@ range|:
 name|payload
 control|)
 block|{
-if|if
-condition|(
-name|VERBOSE
-condition|)
 name|System
 operator|.
 name|out
@@ -3600,6 +3595,7 @@ literal|"UTF-8"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|assertEquals
 argument_list|(

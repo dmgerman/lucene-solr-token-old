@@ -6152,6 +6152,7 @@ name|getScores
 operator|=
 literal|true
 expr_stmt|;
+break|break;
 block|}
 block|}
 for|for
@@ -6183,6 +6184,7 @@ name|getScores
 operator|=
 literal|true
 expr_stmt|;
+break|break;
 block|}
 block|}
 specifier|final
