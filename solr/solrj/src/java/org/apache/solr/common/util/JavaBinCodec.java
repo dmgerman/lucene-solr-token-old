@@ -492,7 +492,7 @@ name|Object
 argument_list|>
 name|readOrderedMap
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|dis
 parameter_list|)
 throws|throws
@@ -575,7 +575,7 @@ name|Object
 argument_list|>
 name|readNamedList
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|dis
 parameter_list|)
 throws|throws
@@ -834,7 +834,7 @@ specifier|public
 name|Object
 name|readVal
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|dis
 parameter_list|)
 throws|throws
@@ -1507,7 +1507,7 @@ name|byte
 index|[]
 name|readByteArray
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|dis
 parameter_list|)
 throws|throws
@@ -1611,7 +1611,7 @@ specifier|public
 name|SolrDocument
 name|readSolrDocument
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|dis
 parameter_list|)
 throws|throws
@@ -1692,7 +1692,7 @@ specifier|public
 name|SolrDocumentList
 name|readSolrDocumentList
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|dis
 parameter_list|)
 throws|throws
@@ -1871,7 +1871,7 @@ specifier|public
 name|SolrInputDocument
 name|readSolrInputDocument
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|dis
 parameter_list|)
 throws|throws
@@ -2087,7 +2087,7 @@ name|Object
 argument_list|>
 name|readMap
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|dis
 parameter_list|)
 throws|throws
@@ -2210,7 +2210,7 @@ name|Object
 argument_list|>
 name|readIterator
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|fis
 parameter_list|)
 throws|throws
@@ -2409,7 +2409,7 @@ name|Object
 argument_list|>
 name|readArray
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|dis
 parameter_list|)
 throws|throws
@@ -2584,7 +2584,7 @@ specifier|public
 name|String
 name|readStr
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|dis
 parameter_list|)
 throws|throws
@@ -2745,7 +2745,7 @@ specifier|public
 name|int
 name|readSmallInt
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|dis
 parameter_list|)
 throws|throws
@@ -2883,7 +2883,7 @@ specifier|public
 name|long
 name|readSmallLong
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|dis
 parameter_list|)
 throws|throws
@@ -3443,7 +3443,7 @@ specifier|public
 name|int
 name|readSize
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|in
 parameter_list|)
 throws|throws
@@ -3542,7 +3542,7 @@ specifier|static
 name|int
 name|readVInt
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|in
 parameter_list|)
 throws|throws
@@ -3672,7 +3672,7 @@ specifier|static
 name|long
 name|readVLong
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|in
 parameter_list|)
 throws|throws
@@ -3867,7 +3867,7 @@ specifier|public
 name|String
 name|readExternString
 parameter_list|(
-name|FastInputStream
+name|DataInputInputStream
 name|fis
 parameter_list|)
 throws|throws
