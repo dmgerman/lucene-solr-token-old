@@ -45,6 +45,17 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|NoSuchFileException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -3212,7 +3223,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/* ??? public void testOpenEmptyDirectory() throws IOException{     String dirName = "test.empty";     File fileDirName = new File(dirName);     if (!fileDirName.exists()) {       fileDirName.mkdir();     }     try {       DirectoryReader.open(fileDirName);       fail("opening DirectoryReader on empty directory failed to produce FileNotFoundException");     } catch (FileNotFoundException e) {       // GOOD     }     rmDir(fileDirName);   }*/
+comment|/* ??? public void testOpenEmptyDirectory() throws IOException{     String dirName = "test.empty";     File fileDirName = new File(dirName);     if (!fileDirName.exists()) {       fileDirName.mkdir();     }     try {       DirectoryReader.open(fileDirName);       fail("opening DirectoryReader on empty directory failed to produce FileNotFoundException/NoSuchFileException");     } catch (FileNotFoundException | NoSuchFileException e) {       // GOOD     }     rmDir(fileDirName);   }*/
 DECL|method|testFilesOpenClose
 specifier|public
 name|void
@@ -3413,13 +3424,15 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"expected FileNotFoundException"
+literal|"expected FileNotFoundException/NoSuchFileException"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 name|FileNotFoundException
+decl||
+name|NoSuchFileException
 name|e
 parameter_list|)
 block|{
@@ -3442,13 +3455,15 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"expected FileNotFoundException"
+literal|"expected FileNotFoundException/NoSuchFileException"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 name|FileNotFoundException
+decl||
+name|NoSuchFileException
 name|e
 parameter_list|)
 block|{
