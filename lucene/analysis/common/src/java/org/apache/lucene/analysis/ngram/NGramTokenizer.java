@@ -1086,6 +1086,11 @@ name|exhausted
 operator|=
 literal|false
 expr_stmt|;
+name|charBuffer
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
