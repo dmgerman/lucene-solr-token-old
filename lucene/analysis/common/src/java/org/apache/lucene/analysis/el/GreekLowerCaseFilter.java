@@ -217,6 +217,8 @@ argument_list|(
 name|chArray
 argument_list|,
 name|i
+argument_list|,
+name|chLen
 argument_list|)
 argument_list|)
 argument_list|,

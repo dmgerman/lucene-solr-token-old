@@ -3859,6 +3859,8 @@ argument_list|(
 name|s
 argument_list|,
 name|charIdx
+argument_list|,
+name|charLimit
 argument_list|)
 decl_stmt|;
 name|scratch
