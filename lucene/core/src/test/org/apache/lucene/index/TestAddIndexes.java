@@ -3686,9 +3686,9 @@ argument_list|()
 decl_stmt|;
 name|lmp
 operator|.
-name|setUseCompoundFile
+name|setNoCFSRatio
 argument_list|(
-literal|false
+literal|0.0
 argument_list|)
 expr_stmt|;
 name|lmp
@@ -3927,9 +3927,9 @@ argument_list|)
 expr_stmt|;
 name|lmp
 operator|.
-name|setUseCompoundFile
+name|setNoCFSRatio
 argument_list|(
-literal|false
+literal|0.0
 argument_list|)
 expr_stmt|;
 name|lmp
@@ -6587,12 +6587,9 @@ literal|true
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|LogMergePolicy
+name|MergePolicy
 name|lmp
 init|=
-operator|(
-name|LogMergePolicy
-operator|)
 name|conf
 operator|.
 name|getMergePolicy

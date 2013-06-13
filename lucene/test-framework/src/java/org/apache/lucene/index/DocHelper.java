@@ -1824,7 +1824,7 @@ name|similarity
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//writer.setUseCompoundFile(false);
+comment|//writer.setNoCFSRatio(0.0);
 name|writer
 operator|.
 name|addDocument

@@ -229,7 +229,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|LogMergePolicy
+name|MergePolicy
 name|policy
 init|=
 operator|new

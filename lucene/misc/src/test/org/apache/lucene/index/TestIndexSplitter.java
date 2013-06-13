@@ -208,7 +208,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-name|LogMergePolicy
+name|MergePolicy
 name|mergePolicy
 init|=
 operator|new

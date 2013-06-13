@@ -297,6 +297,13 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|iwConf
+operator|.
+name|setUseCompoundFile
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|RandomIndexWriter
 name|iw
 init|=

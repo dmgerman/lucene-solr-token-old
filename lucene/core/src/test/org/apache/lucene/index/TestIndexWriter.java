@@ -5043,7 +5043,7 @@ argument_list|)
 decl_stmt|;
 comment|//LogMergePolicy lmp = (LogMergePolicy) writer.getConfig().getMergePolicy();
 comment|//lmp.setMergeFactor(2);
-comment|//lmp.setUseCompoundFile(false);
+comment|//lmp.setNoCFSRatio(0.0);
 name|Document
 name|doc
 init|=
@@ -5239,7 +5239,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//LogMergePolicy lmp2 = (LogMergePolicy) writer.getConfig().getMergePolicy();
-comment|//lmp2.setUseCompoundFile(false);
+comment|//lmp2.setNoCFSRatio(0.0);
 name|writer
 operator|.
 name|forceMerge
@@ -9386,7 +9386,7 @@ name|newMockDirectory
 argument_list|()
 decl_stmt|;
 comment|// relies on windows semantics
-name|LogMergePolicy
+name|MergePolicy
 name|mergePolicy
 init|=
 name|newLogMergePolicy
@@ -9434,6 +9434,11 @@ operator|.
 name|setMergePolicy
 argument_list|(
 name|mergePolicy
+argument_list|)
+operator|.
+name|setUseCompoundFile
+argument_list|(
+literal|true
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -10078,6 +10083,11 @@ argument_list|(
 name|newLogMergePolicy
 argument_list|()
 argument_list|)
+operator|.
+name|setUseCompoundFile
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|String
@@ -10588,10 +10598,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-operator|(
-operator|(
-name|LogMergePolicy
-operator|)
 name|indexWriter
 operator|.
 name|getConfig
@@ -10599,11 +10605,10 @@ argument_list|()
 operator|.
 name|getMergePolicy
 argument_list|()
-operator|)
 operator|.
-name|setUseCompoundFile
+name|setNoCFSRatio
 argument_list|(
-literal|false
+literal|0.0
 argument_list|)
 expr_stmt|;
 name|String
