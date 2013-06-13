@@ -5275,7 +5275,7 @@ name|def
 else|:
 name|Integer
 operator|.
-name|parseInt
+name|valueOf
 argument_list|(
 name|str
 argument_list|)
