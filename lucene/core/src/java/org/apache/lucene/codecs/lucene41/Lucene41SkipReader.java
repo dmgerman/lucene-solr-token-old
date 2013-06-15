@@ -65,6 +65,7 @@ comment|/**  * Implements the skip list reader for block postings format  * that
 end_comment
 begin_class
 DECL|class|Lucene41SkipReader
+specifier|public
 specifier|final
 class|class
 name|Lucene41SkipReader
