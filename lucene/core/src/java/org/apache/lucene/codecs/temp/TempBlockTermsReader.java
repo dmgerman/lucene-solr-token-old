@@ -950,6 +950,15 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
+specifier|final
+name|int
+name|longsSize
+init|=
+name|in
+operator|.
+name|readVInt
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|docCount
@@ -1092,6 +1101,8 @@ argument_list|,
 name|docCount
 argument_list|,
 name|indexStartFP
+argument_list|,
+name|longsSize
 argument_list|,
 name|indexIn
 argument_list|)
@@ -2524,6 +2535,11 @@ specifier|final
 name|BytesRef
 name|rootCode
 decl_stmt|;
+DECL|field|longsSize
+specifier|final
+name|int
+name|longsSize
+decl_stmt|;
 DECL|field|index
 specifier|private
 specifier|final
@@ -2557,6 +2573,9 @@ name|docCount
 parameter_list|,
 name|long
 name|indexStartFP
+parameter_list|,
+name|int
+name|longsSize
 parameter_list|,
 name|IndexInput
 name|indexIn
@@ -2611,6 +2630,12 @@ operator|.
 name|rootCode
 operator|=
 name|rootCode
+expr_stmt|;
+name|this
+operator|.
+name|longsSize
+operator|=
+name|longsSize
 expr_stmt|;
 comment|// if (DEBUG) {
 comment|//   System.out.println("BTTR: seg=" + segment + " field=" + fieldInfo.name + " rootBlockCode=" + rootCode + " divisor=" + indexDivisor);
@@ -3222,12 +3247,7 @@ operator|=
 operator|new
 name|long
 index|[
-name|postingsReader
-operator|.
 name|longsSize
-argument_list|(
-name|fieldInfo
-argument_list|)
 index|]
 expr_stmt|;
 block|}
@@ -4172,7 +4192,7 @@ expr_stmt|;
 block|}
 name|postingsReader
 operator|.
-name|nextTerm
+name|decodeTerm
 argument_list|(
 name|longs
 argument_list|,
@@ -10975,12 +10995,7 @@ operator|=
 operator|new
 name|long
 index|[
-name|postingsReader
-operator|.
 name|longsSize
-argument_list|(
-name|fieldInfo
-argument_list|)
 index|]
 expr_stmt|;
 block|}
@@ -12103,7 +12118,7 @@ expr_stmt|;
 block|}
 name|postingsReader
 operator|.
-name|nextTerm
+name|decodeTerm
 argument_list|(
 name|longs
 argument_list|,
