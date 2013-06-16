@@ -49,6 +49,22 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|codecs
+operator|.
+name|TempPostingsReaderBase
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|TermState
@@ -68,7 +84,7 @@ name|ByteArrayDataInput
 import|;
 end_import
 begin_comment
-comment|/**  * Holds all state required for {@link PostingsReaderBase}  * to produce a {@link DocsEnum} without re-seeking the  * terms dict.  */
+comment|/**  * Holds all state required for {@link TempPostingsReaderBase}  * to produce a {@link DocsEnum} without re-seeking the  * terms dict.  */
 end_comment
 begin_class
 DECL|class|TempTermState
