@@ -1015,6 +1015,7 @@ name|BLOCK_SIZE
 argument_list|)
 expr_stmt|;
 block|}
+comment|// nocommit better name?
 annotation|@
 name|Override
 DECL|method|setField
@@ -1705,6 +1706,7 @@ return|;
 comment|// docFP
 block|}
 block|}
+comment|// nocommit explain about the "don't care" values
 comment|/** Called when we are done adding docs to this term */
 annotation|@
 name|Override
