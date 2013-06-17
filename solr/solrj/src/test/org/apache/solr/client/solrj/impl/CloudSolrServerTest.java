@@ -405,7 +405,6 @@ argument_list|,
 literal|"to come to the aid of their country."
 argument_list|)
 expr_stmt|;
-comment|// compare leaders list
 name|CloudJettyRunner
 name|shard1Leader
 init|=
@@ -426,6 +425,15 @@ argument_list|(
 literal|"shard2"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|cloudClient
+operator|.
+name|isUpdatesToLeaders
+argument_list|()
+condition|)
+block|{
+comment|// compare leaders list
 name|assertEquals
 argument_list|(
 literal|2
@@ -668,6 +676,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|stripTrailingSlash
