@@ -371,9 +371,12 @@ specifier|final
 name|String
 name|myID
 init|=
-literal|""
-operator|+
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|id
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
