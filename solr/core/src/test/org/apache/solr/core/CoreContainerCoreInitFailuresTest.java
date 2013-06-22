@@ -728,7 +728,7 @@ name|copyFile
 argument_list|(
 name|getFile
 argument_list|(
-literal|"solr/collection1/conf/solrconfig-basic.xml"
+literal|"solr/collection1/conf/solrconfig-defaults.xml"
 argument_list|)
 argument_list|,
 name|FileUtils
@@ -1029,7 +1029,7 @@ name|copyFile
 argument_list|(
 name|getFile
 argument_list|(
-literal|"solr/collection1/conf/solrconfig-basic.xml"
+literal|"solr/collection1/conf/solrconfig-defaults.xml"
 argument_list|)
 argument_list|,
 name|FileUtils
@@ -1825,7 +1825,7 @@ name|copyFile
 argument_list|(
 name|getFile
 argument_list|(
-literal|"solr/collection1/conf/solrconfig-basic.xml"
+literal|"solr/collection1/conf/solrconfig-defaults.xml"
 argument_list|)
 argument_list|,
 name|FileUtils
