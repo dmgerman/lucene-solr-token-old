@@ -2132,7 +2132,13 @@ index|[
 literal|1
 index|]
 operator|=
-literal|"/solr/cores/core[@name='new_two' and @instanceDir='new_two/']"
+literal|"/solr/cores/core[@name='new_two' and @instanceDir='new_two"
+operator|+
+name|File
+operator|.
+name|separator
+operator|+
+literal|"']"
 expr_stmt|;
 name|assertXmlFile
 argument_list|(
