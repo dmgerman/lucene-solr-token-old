@@ -606,7 +606,7 @@ comment|/*       if (req.getParams().getBool("facet", false)) {         // add a
 name|String
 name|results
 init|=
-name|TestHarness
+name|restTestHarness
 operator|.
 name|validateXPath
 argument_list|(
