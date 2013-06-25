@@ -4399,6 +4399,8 @@ operator|.
 name|getCoreFromAnyList
 argument_list|(
 name|name
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -4989,6 +4991,8 @@ operator|.
 name|getCoreFromAnyList
 argument_list|(
 name|name
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -4998,11 +5002,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|core
-operator|.
-name|open
-argument_list|()
-expr_stmt|;
 return|return
 name|core
 return|;
