@@ -538,6 +538,7 @@ decl_stmt|;
 comment|// increments every time a change is completed
 DECL|field|lastCommitChangeCount
 specifier|private
+specifier|volatile
 name|long
 name|lastCommitChangeCount
 decl_stmt|;
@@ -8334,6 +8335,20 @@ name|commitInternal
 argument_list|()
 expr_stmt|;
 block|}
+comment|/** Returns true if there are changes that have not been committed */
+DECL|method|hasUncommittedChanges
+specifier|public
+specifier|final
+name|boolean
+name|hasUncommittedChanges
+parameter_list|()
+block|{
+return|return
+name|changeCount
+operator|!=
+name|lastCommitChangeCount
+return|;
+block|}
 DECL|method|commitInternal
 specifier|private
 specifier|final
@@ -8525,16 +8540,16 @@ literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
-name|lastCommitChangeCount
-operator|=
-name|pendingCommitChangeCount
-expr_stmt|;
 name|segmentInfos
 operator|.
 name|updateGeneration
 argument_list|(
 name|pendingCommit
 argument_list|)
+expr_stmt|;
+name|lastCommitChangeCount
+operator|=
+name|pendingCommitChangeCount
 expr_stmt|;
 name|rollbackSegments
 operator|=
