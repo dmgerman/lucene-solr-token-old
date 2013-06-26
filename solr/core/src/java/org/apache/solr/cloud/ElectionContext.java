@@ -314,7 +314,7 @@ name|ElectionContext
 parameter_list|(
 specifier|final
 name|String
-name|shardZkNodeName
+name|coreNodeName
 parameter_list|,
 specifier|final
 name|String
@@ -337,7 +337,7 @@ name|this
 operator|.
 name|id
 operator|=
-name|shardZkNodeName
+name|coreNodeName
 expr_stmt|;
 name|this
 operator|.
@@ -488,7 +488,7 @@ name|collection
 parameter_list|,
 specifier|final
 name|String
-name|shardZkNodeName
+name|coreNodeName
 parameter_list|,
 name|ZkNodeProps
 name|props
@@ -499,7 +499,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|shardZkNodeName
+name|coreNodeName
 argument_list|,
 name|ZkStateReader
 operator|.
@@ -610,7 +610,9 @@ name|Overseer
 operator|.
 name|QUEUE_OPERATION
 argument_list|,
-literal|"leader"
+name|ZkStateReader
+operator|.
+name|LEADER_PROP
 argument_list|,
 name|ZkStateReader
 operator|.
@@ -755,7 +757,7 @@ name|collection
 parameter_list|,
 specifier|final
 name|String
-name|shardZkNodeName
+name|coreNodeName
 parameter_list|,
 name|ZkNodeProps
 name|props
@@ -775,7 +777,7 @@ name|shardId
 argument_list|,
 name|collection
 argument_list|,
-name|shardZkNodeName
+name|coreNodeName
 argument_list|,
 name|props
 argument_list|,
@@ -839,7 +841,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Running the leader process."
+literal|"Running the leader process for shard "
+operator|+
+name|shardId
 argument_list|)
 expr_stmt|;
 name|String
@@ -865,7 +869,9 @@ name|Overseer
 operator|.
 name|QUEUE_OPERATION
 argument_list|,
-literal|"leader"
+name|ZkStateReader
+operator|.
+name|LEADER_PROP
 argument_list|,
 name|ZkStateReader
 operator|.
@@ -1226,6 +1232,10 @@ name|getCoreUrl
 argument_list|(
 name|leaderProps
 argument_list|)
+operator|+
+literal|" "
+operator|+
+name|shardId
 argument_list|)
 expr_stmt|;
 name|core
@@ -1236,9 +1246,10 @@ operator|.
 name|getCloudDescriptor
 argument_list|()
 operator|.
-name|isLeader
-operator|=
+name|setLeader
+argument_list|(
 literal|true
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally
@@ -1273,6 +1284,20 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|SolrException
+operator|.
+name|log
+argument_list|(
+name|log
+argument_list|,
+literal|"There was a problem trying to register as the leader"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+name|cancelElection
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|core
@@ -1291,9 +1316,6 @@ operator|==
 literal|null
 condition|)
 block|{
-name|cancelElection
-argument_list|()
-expr_stmt|;
 throw|throw
 operator|new
 name|SolrException
@@ -1323,9 +1345,10 @@ operator|.
 name|getCloudDescriptor
 argument_list|()
 operator|.
-name|isLeader
-operator|=
+name|setLeader
+argument_list|(
 literal|false
+argument_list|)
 expr_stmt|;
 comment|// we could not publish ourselves as leader - rejoin election
 name|rejoinLeaderElection
@@ -1710,7 +1733,11 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Waiting until we see more replicas up: total="
+literal|"Waiting until we see more replicas up for shard "
+operator|+
+name|shardId
+operator|+
+literal|": total="
 operator|+
 name|slices
 operator|.

@@ -2759,6 +2759,11 @@ name|String
 name|mustNotMatchStateFilter
 parameter_list|)
 block|{
+assert|assert
+name|thisCoreNodeName
+operator|!=
+literal|null
+assert|;
 name|ClusterState
 name|clusterState
 init|=
@@ -2998,7 +3003,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// no replicas - go local
+comment|// no replicas
 return|return
 literal|null
 return|;

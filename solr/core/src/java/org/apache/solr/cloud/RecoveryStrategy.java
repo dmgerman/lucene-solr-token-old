@@ -719,12 +719,13 @@ argument_list|()
 expr_stmt|;
 name|coreZkNodeName
 operator|=
-name|zkController
+name|cd
+operator|.
+name|getCloudDescriptor
+argument_list|()
 operator|.
 name|getCoreNodeName
-argument_list|(
-name|cd
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|setRecoveringAfterStartup
@@ -1914,6 +1915,7 @@ operator|!
 name|cloudDesc
 operator|.
 name|isLeader
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -1933,6 +1935,7 @@ condition|(
 name|cloudDesc
 operator|.
 name|isLeader
+argument_list|()
 condition|)
 block|{
 comment|// we are now the leader - no one else must have been suitable
