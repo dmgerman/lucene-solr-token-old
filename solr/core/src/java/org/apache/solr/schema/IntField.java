@@ -204,6 +204,8 @@ class|class
 name|IntField
 extends|extends
 name|PrimitiveFieldType
+implements|implements
+name|IntValueFieldType
 block|{
 DECL|field|PARSER
 specifier|private

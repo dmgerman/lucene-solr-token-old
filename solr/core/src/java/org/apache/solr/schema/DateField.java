@@ -352,6 +352,8 @@ class|class
 name|DateField
 extends|extends
 name|PrimitiveFieldType
+implements|implements
+name|DateValueFieldType
 block|{
 DECL|field|UTC
 specifier|public

@@ -204,6 +204,8 @@ class|class
 name|FloatField
 extends|extends
 name|PrimitiveFieldType
+implements|implements
+name|FloatValueFieldType
 block|{
 DECL|field|PARSER
 specifier|private
