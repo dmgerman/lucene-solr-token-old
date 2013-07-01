@@ -487,11 +487,9 @@ decl_stmt|;
 DECL|field|client
 specifier|private
 specifier|final
-specifier|static
 name|HttpClient
 name|client
 decl_stmt|;
-static|static
 block|{
 name|ModifiableSolrParams
 name|params
@@ -745,20 +743,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|// if no one that is up is active, we are willing to wait...
-comment|// we don't want a recovering node to become leader and then
-comment|// a better candidate pops up a second later.
-comment|//    int tries = 20;
-comment|//    while (!areAnyReplicasActive(zkController, collection, shardId)) {
-comment|//      if (tries-- == 0) {
-comment|//        break;
-comment|//      }
-comment|//      try {
-comment|//        Thread.sleep(500);
-comment|//      } catch (InterruptedException e) {
-comment|//        Thread.currentThread().interrupt();
-comment|//      }
-comment|//    }
 comment|// first sync ourselves - we are the potential leader after all
 try|try
 block|{
@@ -1590,6 +1574,33 @@ literal|true
 expr_stmt|;
 try|try
 block|{
+name|client
+operator|.
+name|getConnectionManager
+argument_list|()
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|SolrException
+operator|.
+name|log
+argument_list|(
+name|log
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
 name|ExecutorUtil
 operator|.
 name|shutdownNowAndAwaitTermination
@@ -1688,6 +1699,8 @@ operator|new
 name|HttpSolrServer
 argument_list|(
 name|baseUrl
+argument_list|,
+name|client
 argument_list|)
 decl_stmt|;
 name|server
