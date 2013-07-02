@@ -33,11 +33,9 @@ name|org
 operator|.
 name|apache
 operator|.
-name|lucene
+name|solr
 operator|.
-name|util
-operator|.
-name|PrintStreamInfoStream
+name|SolrTestCaseJ4
 import|;
 end_import
 begin_import
@@ -48,7 +46,9 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|SolrTestCaseJ4
+name|update
+operator|.
+name|LoggingInfoStream
 import|;
 end_import
 begin_import
@@ -130,7 +130,7 @@ operator|.
 name|getInfoStream
 argument_list|()
 operator|instanceof
-name|PrintStreamInfoStream
+name|LoggingInfoStream
 argument_list|)
 expr_stmt|;
 block|}
