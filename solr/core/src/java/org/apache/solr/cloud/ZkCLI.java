@@ -1128,6 +1128,8 @@ name|ConfigSolr
 operator|.
 name|fromSolrHome
 argument_list|(
+name|loader
+argument_list|,
 name|solrHome
 argument_list|)
 decl_stmt|;
