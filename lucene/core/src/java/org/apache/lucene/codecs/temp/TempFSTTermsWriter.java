@@ -323,6 +323,9 @@ end_import
 begin_comment
 comment|/** FST based term dict, all the metadata held  *  as output of FST */
 end_comment
+begin_comment
+comment|// nocommit: where is 'TermStats' ???
+end_comment
 begin_class
 DECL|class|TempFSTTermsWriter
 specifier|public
@@ -860,6 +863,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|TermsWriter
+specifier|final
 class|class
 name|TermsWriter
 extends|extends
@@ -909,6 +913,16 @@ operator|new
 name|IntsRef
 argument_list|()
 decl_stmt|;
+DECL|field|statsWriter
+specifier|private
+specifier|final
+name|RAMOutputStream
+name|statsWriter
+init|=
+operator|new
+name|RAMOutputStream
+argument_list|()
+decl_stmt|;
 DECL|field|metaWriter
 specifier|private
 specifier|final
@@ -956,6 +970,8 @@ operator|=
 operator|new
 name|TempTermOutputs
 argument_list|(
+name|fieldInfo
+argument_list|,
 name|longsSize
 argument_list|)
 expr_stmt|;
@@ -1037,6 +1053,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// write term meta data into fst
 specifier|final
 name|TempTermOutputs
 operator|.
@@ -1065,6 +1082,22 @@ name|bytes
 operator|=
 literal|null
 expr_stmt|;
+name|meta
+operator|.
+name|docFreq
+operator|=
+name|stats
+operator|.
+name|docFreq
+expr_stmt|;
+name|meta
+operator|.
+name|totalTermFreq
+operator|=
+name|stats
+operator|.
+name|totalTermFreq
+expr_stmt|;
 name|postingsWriter
 operator|.
 name|finishTerm
@@ -1078,7 +1111,7 @@ argument_list|,
 name|stats
 argument_list|)
 expr_stmt|;
-comment|/*       meta.bytes = new byte[(int)metaWriter.getFilePointer()];       metaWriter.writeTo(meta.bytes, 0);       metaWriter.reset();       */
+specifier|final
 name|int
 name|bytesSize
 init|=
@@ -1186,6 +1219,7 @@ operator|.
 name|finish
 argument_list|()
 decl_stmt|;
+comment|//fst.dump();
 name|fields
 operator|.
 name|add
