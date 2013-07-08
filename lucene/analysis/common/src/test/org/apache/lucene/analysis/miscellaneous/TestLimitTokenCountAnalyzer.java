@@ -27,15 +27,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -71,36 +62,6 @@ operator|.
 name|analysis
 operator|.
 name|MockAnalyzer
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|core
-operator|.
-name|WhitespaceAnalyzer
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
-name|standard
-operator|.
-name|StandardAnalyzer
 import|;
 end_import
 begin_import
@@ -292,11 +253,7 @@ name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"1  2     3  4  5"
-argument_list|)
 argument_list|)
 argument_list|,
 operator|new
@@ -341,11 +298,7 @@ name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"1 2 3 4 5"
-argument_list|)
 argument_list|)
 argument_list|,
 operator|new
@@ -391,11 +344,7 @@ name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"1  "
-argument_list|)
 argument_list|)
 argument_list|,
 operator|new
@@ -435,11 +384,7 @@ name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"1  2  "
-argument_list|)
 argument_list|)
 argument_list|,
 operator|new

@@ -429,15 +429,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|*
@@ -3790,11 +3781,7 @@ name|tokenStream
 argument_list|(
 name|fieldName
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|docText
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|ts

@@ -461,11 +461,7 @@ operator|.
 name|getFieldName
 argument_list|()
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|value
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -813,11 +809,7 @@ name|tokenStream
 argument_list|(
 literal|""
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|query
-argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final

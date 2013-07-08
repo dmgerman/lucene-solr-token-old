@@ -704,15 +704,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|MalformedURLException
@@ -2549,11 +2540,7 @@ name|tokenStream
 argument_list|(
 literal|""
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|query
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|tokens

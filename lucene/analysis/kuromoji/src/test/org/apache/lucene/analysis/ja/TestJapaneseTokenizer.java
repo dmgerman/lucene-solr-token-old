@@ -65,15 +65,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Random
@@ -1157,11 +1148,7 @@ name|tokenStream
 argument_list|(
 literal|"bogus"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"ãããããããããããããããããããããããããããããããããããããããã"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|ts
@@ -1198,7 +1185,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|/*     //TokenStream ts = a.tokenStream("foo", new StringReader("å¦¹ã®å²å­ã§ããä¿ºã¨å¹´å­ã§ãä»åé¨çã§ãã"));     TokenStream ts = analyzer.tokenStream("foo", new StringReader("&#x250cdf66<!--\"<!--#<!--;?><!--#<!--#><!---->?>-->;"));     ts.reset();     CharTermAttribute termAtt = ts.addAttribute(CharTermAttribute.class);     while(ts.incrementToken()) {       System.out.println("  " + termAtt.toString());     }     System.out.println("DONE PARSE\n\n");     */
+comment|/*     //TokenStream ts = a.tokenStream("foo", "å¦¹ã®å²å­ã§ããä¿ºã¨å¹´å­ã§ãä»åé¨çã§ãã");     TokenStream ts = analyzer.tokenStream("foo", "&#x250cdf66<!--\"<!--#<!--;?><!--#<!--#><!---->?>-->;");     ts.reset();     CharTermAttribute termAtt = ts.addAttribute(CharTermAttribute.class);     while(ts.incrementToken()) {       System.out.println("  " + termAtt.toString());     }     System.out.println("DONE PARSE\n\n");     */
 name|assertAnalyzesTo
 argument_list|(
 name|analyzerNoPunct
@@ -1489,11 +1476,7 @@ name|tokenStream
 argument_list|(
 literal|"foo"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|s
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|ts
@@ -1616,11 +1599,7 @@ name|tokenStream
 argument_list|(
 literal|"foo"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|s
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|CharTermAttribute
@@ -1678,11 +1657,7 @@ name|tokenStream
 argument_list|(
 literal|"foo"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"ãããã"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|ts
@@ -1721,11 +1696,7 @@ name|tokenStream
 argument_list|(
 literal|"foo"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"......"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|ts
@@ -1765,11 +1736,7 @@ name|tokenStream
 argument_list|(
 literal|"foo"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"ããã¯æ¬ã§ã¯ãªã"
-argument_list|)
 argument_list|)
 argument_list|,
 operator|new
@@ -1838,11 +1805,7 @@ name|tokenStream
 argument_list|(
 literal|"foo"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"ããã¯æ¬ã§ã¯ãªã    "
-argument_list|)
 argument_list|)
 argument_list|,
 operator|new
@@ -1926,11 +1889,7 @@ name|tokenStream
 argument_list|(
 literal|"foo"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"é¢è¥¿å½éç©ºæ¸¯ã«è¡ã£ã"
-argument_list|)
 argument_list|)
 argument_list|,
 operator|new
@@ -2009,11 +1968,7 @@ name|tokenStream
 argument_list|(
 literal|"foo"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"æéé¾"
-argument_list|)
 argument_list|)
 argument_list|,
 operator|new
@@ -2062,11 +2017,7 @@ name|tokenStream
 argument_list|(
 literal|"foo"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"abcd"
-argument_list|)
 argument_list|)
 argument_list|,
 operator|new
@@ -2114,7 +2065,7 @@ comment|// HMM: fails (segments as a/b/cd/efghij)... because the
 comment|// two paths have exactly equal paths (1 KNOWN + 1
 comment|// UNKNOWN) and we don't seem to favor longer KNOWN /
 comment|// shorter UNKNOWN matches:
-comment|/*   public void testUserDict4() throws Exception {     // Test entry that has another entry as prefix     assertTokenStreamContents(analyzer.tokenStream("foo", new StringReader("abcdefghij")),                               new String[] { "ab", "cd", "efg", "hij"  },                               new int[] { 0, 2, 4, 7 },                               new int[] { 2, 4, 7, 10 },                               new Integer(10)     );   }   */
+comment|/*   public void testUserDict4() throws Exception {     // Test entry that has another entry as prefix     assertTokenStreamContents(analyzer.tokenStream("foo", "abcdefghij"),                               new String[] { "ab", "cd", "efg", "hij"  },                               new int[] { 0, 2, 4, 7 },                               new int[] { 2, 4, 7, 10 },                               new Integer(10)     );   }   */
 DECL|method|testSegmentation
 specifier|public
 name|void
@@ -2323,11 +2274,7 @@ name|tokenStream
 argument_list|(
 literal|"ignored"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|input
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|ReadingAttribute
@@ -2412,11 +2359,7 @@ name|tokenStream
 argument_list|(
 literal|"ignored"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|input
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|ReadingAttribute
@@ -2501,11 +2444,7 @@ name|tokenStream
 argument_list|(
 literal|"ignored"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|input
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|BaseFormAttribute
@@ -2590,11 +2529,7 @@ name|tokenStream
 argument_list|(
 literal|"ignored"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|input
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|InflectionAttribute
@@ -2679,11 +2614,7 @@ name|tokenStream
 argument_list|(
 literal|"ignored"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|input
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|InflectionAttribute
@@ -2768,11 +2699,7 @@ name|tokenStream
 argument_list|(
 literal|"ignored"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|input
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|PartOfSpeechAttribute
@@ -3219,7 +3146,7 @@ literal|"Test for Bocchan without pre-splitting sentences"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*     if (numIterations> 1) {       // warmup       for (int i = 0; i< numIterations; i++) {         final TokenStream ts = analyzer.tokenStream("ignored", new StringReader(line));         ts.reset();         while(ts.incrementToken());       }     }     */
+comment|/*     if (numIterations> 1) {       // warmup       for (int i = 0; i< numIterations; i++) {         final TokenStream ts = analyzer.tokenStream("ignored", line);         ts.reset();         while(ts.incrementToken());       }     }     */
 name|long
 name|totalStart
 init|=
@@ -3253,11 +3180,7 @@ name|tokenStream
 argument_list|(
 literal|"ignored"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|line
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|ts
@@ -3364,11 +3287,7 @@ name|tokenStream
 argument_list|(
 literal|"ignored"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|sentence
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|ts

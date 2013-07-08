@@ -728,11 +728,7 @@ name|tokenStream
 argument_list|(
 literal|"foo"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|s
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|ts
@@ -983,11 +979,7 @@ name|tokenStream
 argument_list|(
 literal|"foo"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|s
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|ts

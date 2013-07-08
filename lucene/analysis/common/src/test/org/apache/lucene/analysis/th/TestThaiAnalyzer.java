@@ -38,15 +38,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Random
@@ -162,19 +153,6 @@ operator|.
 name|util
 operator|.
 name|CharArraySet
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
 import|;
 end_import
 begin_comment
@@ -820,11 +798,7 @@ name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"à¸ à¸²à¸©à¸²à¹à¸à¸¢"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertTokenStreamContents
@@ -850,11 +824,7 @@ name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"à¸ à¸²à¸©à¸²à¹à¸à¸¢"
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|ts
