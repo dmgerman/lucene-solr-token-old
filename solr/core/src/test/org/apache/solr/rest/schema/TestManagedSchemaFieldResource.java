@@ -313,7 +313,10 @@ name|assertJPut
 argument_list|(
 literal|"/schema/fields/newfield"
 argument_list|,
-literal|"{\"type\":\"not_in_there_at_all\",\"stored\":\"false\"}"
+name|json
+argument_list|(
+literal|"{'type':'not_in_there_at_all','stored':'false'}"
+argument_list|)
 argument_list|,
 literal|"/error/msg==\"Field \\'newfield\\': Field type \\'not_in_there_at_all\\' not found.\""
 argument_list|)
@@ -333,7 +336,10 @@ name|assertJPut
 argument_list|(
 literal|"/schema/fields/newfield"
 argument_list|,
-literal|"{\"name\":\"something_else\",\"type\":\"text\",\"stored\":\"false\"}"
+name|json
+argument_list|(
+literal|"{'name':'something_else','type':'text','stored':'false'}"
+argument_list|)
 argument_list|,
 literal|"/error/msg==\"Field name in the request body \\'something_else\\'"
 operator|+
@@ -355,7 +361,10 @@ name|assertJPut
 argument_list|(
 literal|"/schema/fields/newfield"
 argument_list|,
-literal|"{\"type\":\"text\",\"no_property_with_this_name\":\"false\"}"
+name|json
+argument_list|(
+literal|"{'type':'text','no_property_with_this_name':'false'}"
+argument_list|)
 argument_list|,
 literal|"/error/msg==\"java.lang.IllegalArgumentException: Invalid field property: no_property_with_this_name\""
 argument_list|)
@@ -386,7 +395,10 @@ name|assertJPut
 argument_list|(
 literal|"/schema/fields/newfield"
 argument_list|,
-literal|"{\"type\":\"text\",\"stored\":\"false\"}"
+name|json
+argument_list|(
+literal|"{'type':'text','stored':'false'}"
+argument_list|)
 argument_list|,
 literal|"/responseHeader/status==0"
 argument_list|)
@@ -646,11 +658,14 @@ name|assertJPost
 argument_list|(
 literal|"/schema/fields"
 argument_list|,
-literal|"[{\"name\":\"fieldA\",\"type\":\"text\",\"stored\":\"false\"},"
+name|json
+argument_list|(
+literal|"[{'name':'fieldA','type':'text','stored':'false'},"
 operator|+
-literal|"{\"name\":\"fieldB\",\"type\":\"text\",\"stored\":\"false\"},"
+literal|" {'name':'fieldB','type':'text','stored':'false'},"
 operator|+
-literal|" {\"name\":\"fieldC\",\"type\":\"text\",\"stored\":\"false\", \"copyFields\":[\"fieldB\"]}]"
+literal|" {'name':'fieldC','type':'text','stored':'false', 'copyFields':['fieldB']}]"
+argument_list|)
 argument_list|,
 literal|"/responseHeader/status==0"
 argument_list|)
