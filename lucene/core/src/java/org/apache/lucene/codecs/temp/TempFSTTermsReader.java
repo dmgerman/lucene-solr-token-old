@@ -29,6 +29,24 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|PrintWriter
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -367,6 +385,21 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|util
+operator|.
+name|fst
+operator|.
+name|Util
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|codecs
 operator|.
 name|FieldsProducer
@@ -406,16 +439,6 @@ name|TempFSTTermsReader
 extends|extends
 name|FieldsProducer
 block|{
-DECL|field|postingsReader
-specifier|final
-name|TempPostingsReaderBase
-name|postingsReader
-decl_stmt|;
-DECL|field|in
-specifier|final
-name|IndexInput
-name|in
-decl_stmt|;
 DECL|field|fields
 specifier|final
 name|TreeMap
@@ -435,12 +458,23 @@ name|TermsReader
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|postingsReader
+specifier|final
+name|TempPostingsReaderBase
+name|postingsReader
+decl_stmt|;
+DECL|field|in
+specifier|final
+name|IndexInput
+name|in
+decl_stmt|;
 DECL|field|DEBUG
 name|boolean
 name|DEBUG
 init|=
 literal|false
 decl_stmt|;
+comment|//String tmpname;
 DECL|method|TempFSTTermsReader
 specifier|public
 name|TempFSTTermsReader
@@ -477,6 +511,7 @@ operator|.
 name|TERMS_EXTENSION
 argument_list|)
 decl_stmt|;
+comment|//tmpname = termsFileName;
 name|this
 operator|.
 name|postingsReader
@@ -1157,6 +1192,9 @@ name|longsSize
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//PrintWriter pw = new PrintWriter(new File("../graphs/ohohoh."+tmpname+".xxx.txt"));
+comment|//Util.toDot(dict, pw, false, false);
+comment|//pw.close();
 block|}
 comment|// nocommit: implement intersect
 comment|// nocommit: why do we need this comparator overridden again and again?
