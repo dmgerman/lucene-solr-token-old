@@ -105,7 +105,7 @@ name|numEncoded
 expr_stmt|;
 comment|// numEncoded is not final in EliasFanoEncoder
 block|}
-comment|/** @return The Elias-Fano encoder that is decoded. */
+comment|/** Return the Elias-Fano encoder that is decoded. */
 DECL|method|getEliasFanoEncoder
 specifier|public
 name|EliasFanoEncoder
@@ -116,7 +116,7 @@ return|return
 name|efEncoder
 return|;
 block|}
-comment|/** @return The index of the last decoded value.    * The first value encoded by {@link EliasFanoEncoder#encodeNext} has index 0.    * Only valid directly after    * {@link #nextValue}, {@link #advanceToValue},    * {@link #previousValue}, or {@link #backToValue}    * returned another value than {@link #NO_MORE_VALUES}.    */
+comment|/** Return the index of the last decoded value.    * The first value encoded by {@link EliasFanoEncoder#encodeNext} has index 0.    * Only valid directly after    * {@link #nextValue}, {@link #advanceToValue},    * {@link #previousValue}, or {@link #backToValue}    * returned another value than {@link #NO_MORE_VALUES}.    */
 DECL|method|index
 specifier|public
 name|long
@@ -157,7 +157,7 @@ return|return
 name|efIndex
 return|;
 block|}
-comment|/**  @return The high value for the current decoding index. */
+comment|/** Return the high value for the current decoding index. */
 DECL|method|currentHighValue
 specifier|private
 name|long
@@ -171,7 +171,7 @@ name|efIndex
 return|;
 comment|// sequence of unary gaps
 block|}
-comment|/**  @return The low value for the current decoding index. */
+comment|/**  Return the low value for the current decoding index. */
 DECL|method|currentLowValue
 specifier|private
 name|long
@@ -299,7 +299,7 @@ return|return
 name|lowValue
 return|;
 block|}
-comment|/**  @return The given highValue shifted left by the number of low bits from by the EliasFanoSequence,    *           logically OR-ed with the given lowValue.    */
+comment|/**  Return the given highValue shifted left by the number of low bits from by the EliasFanoSequence,    *           logically OR-ed with the given lowValue.    */
 DECL|method|combineHighLowValues
 specifier|private
 name|long
@@ -349,7 +349,7 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
-comment|/** @return the number of bits in a long after (setBitForIndex modulo Long.SIZE) */
+comment|/** Return the number of bits in a long after (setBitForIndex modulo Long.SIZE) */
 DECL|method|getCurrentRightShift
 specifier|private
 name|int
@@ -902,7 +902,7 @@ operator|+
 name|numEncoded
 expr_stmt|;
 block|}
-comment|/** @return the number of bits in a long before (setBitForIndex modulo Long.SIZE) */
+comment|/** Return the number of bits in a long before (setBitForIndex modulo Long.SIZE) */
 DECL|method|getCurrentLeftShift
 specifier|private
 name|int
