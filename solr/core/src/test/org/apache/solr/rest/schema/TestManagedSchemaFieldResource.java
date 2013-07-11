@@ -483,6 +483,15 @@ argument_list|,
 literal|"/responseHeader/status==0"
 argument_list|)
 expr_stmt|;
+name|assertJPut
+argument_list|(
+literal|"/schema/fields/fieldC"
+argument_list|,
+literal|"{\"type\":\"text\",\"stored\":\"false\", \"copyFields\":\"fieldA\"}"
+argument_list|,
+literal|"/responseHeader/status==0"
+argument_list|)
+expr_stmt|;
 name|assertQ
 argument_list|(
 literal|"/schema/fields/fieldB?indent=on&wt=xml"
@@ -495,6 +504,13 @@ expr_stmt|;
 name|assertQ
 argument_list|(
 literal|"/schema/copyfields/?indent=on&wt=xml&source.fl=fieldB"
+argument_list|,
+literal|"count(/response/arr[@name='copyFields']/lst) = 1"
+argument_list|)
+expr_stmt|;
+name|assertQ
+argument_list|(
+literal|"/schema/copyfields/?indent=on&wt=xml&source.fl=fieldC"
 argument_list|,
 literal|"count(/response/arr[@name='copyFields']/lst) = 1"
 argument_list|)
@@ -512,7 +528,7 @@ expr_stmt|;
 comment|//some bad usages
 name|assertJPut
 argument_list|(
-literal|"/schema/fields/fieldC"
+literal|"/schema/fields/fieldF"
 argument_list|,
 literal|"{\"type\":\"text\",\"stored\":\"false\", \"copyFields\":[\"some_nonexistent_field_ignore_exception\"]}"
 argument_list|,
@@ -683,7 +699,12 @@ literal|"[{\"name\":\"fieldD\",\"type\":\"text\",\"stored\":\"false\"},"
 operator|+
 literal|"{\"name\":\"fieldE\",\"type\":\"text\",\"stored\":\"false\"},"
 operator|+
-literal|" {\"name\":\"fieldF\",\"type\":\"text\",\"stored\":\"false\", \"copyFields\":[\"fieldD\",\"fieldE\"]}]"
+literal|" {\"name\":\"fieldF\",\"type\":\"text\",\"stored\":\"false\", \"copyFields\":[\"fieldD\",\"fieldE\"]},"
+operator|+
+literal|" {\"name\":\"fieldG\",\"type\":\"text\",\"stored\":\"false\", \"copyFields\":\"fieldD\"}"
+comment|//single
+operator|+
+literal|"]"
 argument_list|,
 literal|"/responseHeader/status==0"
 argument_list|)
@@ -755,7 +776,7 @@ name|assertJPost
 argument_list|(
 literal|"/schema/copyfields"
 argument_list|,
-literal|"[{\"source\":\"fieldA\", \"dest\":[\"fieldB\"]},{\"source\":\"fieldD\", \"dest\":[\"fieldC\", \"fieldE\"]}]"
+literal|"[{\"source\":\"fieldA\", \"dest\":\"fieldB\"},{\"source\":\"fieldD\", \"dest\":[\"fieldC\", \"fieldE\"]}]"
 argument_list|,
 literal|"/responseHeader/status==0"
 argument_list|)
