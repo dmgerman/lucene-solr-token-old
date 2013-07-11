@@ -1023,8 +1023,6 @@ name|getZkClient
 argument_list|()
 argument_list|,
 name|cc
-operator|.
-name|cfg
 argument_list|,
 name|solrHome
 argument_list|)
@@ -1284,14 +1282,10 @@ operator|.
 name|getClassLoader
 argument_list|()
 argument_list|,
-name|ConfigSolrXml
+name|dcore
 operator|.
 name|getCoreProperties
-argument_list|(
-name|instanceDir
-argument_list|,
-name|dcore
-argument_list|)
+argument_list|()
 argument_list|,
 name|zkController
 argument_list|)
