@@ -72,10 +72,10 @@ DECL|method|EliasFanoDocIdSet
 specifier|public
 name|EliasFanoDocIdSet
 parameter_list|(
-name|long
+name|int
 name|numValues
 parameter_list|,
-name|long
+name|int
 name|upperBound
 parameter_list|)
 block|{
