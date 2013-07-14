@@ -1355,6 +1355,9 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|commit
+argument_list|()
+expr_stmt|;
 comment|// can't use checkShardConsistency because it insists on jettys and clients for each shard
 name|checkSubShardConsistency
 argument_list|(
@@ -1365,9 +1368,6 @@ name|checkSubShardConsistency
 argument_list|(
 name|SHARD1_1
 argument_list|)
-expr_stmt|;
-name|commit
-argument_list|()
 expr_stmt|;
 name|SolrQuery
 name|query
@@ -1514,7 +1514,18 @@ argument_list|,
 name|shard10Count
 argument_list|)
 expr_stmt|;
-comment|//assertEquals("Wrong doc count on shard1_1", docCounts[1], shard11Count);
+name|assertEquals
+argument_list|(
+literal|"Wrong doc count on shard1_1"
+argument_list|,
+name|docCounts
+index|[
+literal|1
+index|]
+argument_list|,
+name|shard11Count
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|checkSubShardConsistency
 specifier|protected
