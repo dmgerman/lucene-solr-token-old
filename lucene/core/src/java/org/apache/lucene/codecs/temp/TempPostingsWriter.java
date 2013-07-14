@@ -1097,6 +1097,13 @@ condition|(
 name|fieldHasPositions
 condition|)
 block|{
+if|if
+condition|(
+name|fieldHasPayloads
+operator|||
+name|fieldHasOffsets
+condition|)
+block|{
 return|return
 literal|3
 return|;
@@ -1105,9 +1112,17 @@ block|}
 else|else
 block|{
 return|return
+literal|2
+return|;
+comment|// doc + pos FP
+block|}
+block|}
+else|else
+block|{
+return|return
 literal|1
 return|;
-comment|// docFP
+comment|// doc FP
 block|}
 block|}
 annotation|@
@@ -2237,6 +2252,13 @@ index|]
 operator|=
 name|posTermStartFP
 expr_stmt|;
+if|if
+condition|(
+name|fieldHasPayloads
+operator|||
+name|fieldHasOffsets
+condition|)
+block|{
 name|longs
 index|[
 literal|2
@@ -2244,6 +2266,7 @@ index|]
 operator|=
 name|payTermStartFP
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
