@@ -190,6 +190,11 @@ specifier|final
 name|int
 name|valueCount
 decl_stmt|;
+DECL|field|origReader
+specifier|final
+name|IndexReader
+name|origReader
+decl_stmt|;
 DECL|field|separator
 specifier|final
 name|char
@@ -351,6 +356,12 @@ argument_list|(
 name|separator
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|origReader
+operator|=
+name|reader
 expr_stmt|;
 comment|// We need this to create thread-safe MultiSortedSetDV
 comment|// per collector:
