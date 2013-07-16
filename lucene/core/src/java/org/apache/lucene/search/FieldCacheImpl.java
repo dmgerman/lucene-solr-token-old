@@ -5605,6 +5605,11 @@ operator|++
 expr_stmt|;
 block|}
 block|}
+name|termOrdToBytesOffset
+operator|.
+name|freeze
+argument_list|()
+expr_stmt|;
 comment|// maybe an int-only impl?
 return|return
 operator|new
