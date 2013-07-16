@@ -18,15 +18,6 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -573,11 +564,7 @@ name|tokenStream
 argument_list|(
 literal|"content"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"this sentence"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|int
@@ -715,11 +702,7 @@ name|tokenStream
 argument_list|(
 literal|"content"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"test sentence"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|CharTermAttribute

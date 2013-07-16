@@ -805,6 +805,11 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+name|newToOld
+operator|.
+name|freeze
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -871,6 +876,11 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+name|oldToNew
+operator|.
+name|freeze
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|Sorter

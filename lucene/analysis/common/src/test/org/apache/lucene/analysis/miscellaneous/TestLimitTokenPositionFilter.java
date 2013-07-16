@@ -242,11 +242,7 @@ name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"1  2     3  4  5"
-argument_list|)
 argument_list|)
 argument_list|,
 operator|new
@@ -341,11 +337,7 @@ name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"1  "
-argument_list|)
 argument_list|)
 argument_list|,
 operator|new
@@ -385,11 +377,7 @@ name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"1  2  "
-argument_list|)
 argument_list|)
 argument_list|,
 operator|new

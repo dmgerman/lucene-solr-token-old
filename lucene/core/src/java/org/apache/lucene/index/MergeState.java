@@ -282,6 +282,11 @@ name|del
 expr_stmt|;
 block|}
 block|}
+name|docMap
+operator|.
+name|freeze
+argument_list|()
+expr_stmt|;
 specifier|final
 name|int
 name|numDeletedDocs

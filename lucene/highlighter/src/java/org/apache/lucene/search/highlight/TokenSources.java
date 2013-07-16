@@ -220,15 +220,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1245,11 +1236,7 @@ name|tokenStream
 argument_list|(
 name|field
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|contents
-argument_list|)
 argument_list|)
 return|;
 block|}

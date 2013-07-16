@@ -370,6 +370,8 @@ name|wrap
 parameter_list|(
 name|List
 argument_list|<
+name|?
+extends|extends
 name|IndexCommit
 argument_list|>
 name|list
@@ -515,6 +517,11 @@ name|void
 name|onInit
 parameter_list|(
 name|List
+argument_list|<
+name|?
+extends|extends
+name|IndexCommit
+argument_list|>
 name|list
 parameter_list|)
 throws|throws
@@ -556,6 +563,11 @@ name|void
 name|onCommit
 parameter_list|(
 name|List
+argument_list|<
+name|?
+extends|extends
+name|IndexCommit
+argument_list|>
 name|list
 parameter_list|)
 throws|throws

@@ -623,11 +623,7 @@ name|tokenStream
 argument_list|(
 literal|"dummy"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|testString
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|stream

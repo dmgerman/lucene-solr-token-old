@@ -561,6 +561,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|deletes
+operator|.
+name|freeze
+argument_list|()
+expr_stmt|;
 return|return
 name|deletes
 return|;

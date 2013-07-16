@@ -24,6 +24,8 @@ class|class
 name|TrieIntField
 extends|extends
 name|TrieField
+implements|implements
+name|IntValueFieldType
 block|{
 block|{
 name|type

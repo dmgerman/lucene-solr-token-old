@@ -24,6 +24,8 @@ class|class
 name|TrieFloatField
 extends|extends
 name|TrieField
+implements|implements
+name|FloatValueFieldType
 block|{
 block|{
 name|type

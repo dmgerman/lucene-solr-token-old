@@ -24,6 +24,8 @@ class|class
 name|TrieDoubleField
 extends|extends
 name|TrieField
+implements|implements
+name|DoubleValueFieldType
 block|{
 block|{
 name|type

@@ -487,7 +487,10 @@ name|createCmd
 operator|.
 name|setDataDir
 argument_list|(
+name|getDataDir
+argument_list|(
 name|coreDataDir
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|createCmd
@@ -593,7 +596,10 @@ name|createCmd
 operator|.
 name|setDataDir
 argument_list|(
+name|getDataDir
+argument_list|(
 name|coreDataDir
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|server
@@ -949,7 +955,10 @@ name|createCmd
 operator|.
 name|setDataDir
 argument_list|(
+name|getDataDir
+argument_list|(
 name|core1DataDir
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|server
@@ -1074,7 +1083,10 @@ name|createCmd
 operator|.
 name|setDataDir
 argument_list|(
+name|getDataDir
+argument_list|(
 name|core2dataDir
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|server
@@ -1335,7 +1347,10 @@ name|createCmd
 operator|.
 name|setDataDir
 argument_list|(
+name|getDataDir
+argument_list|(
 name|core3dataDir
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|server
@@ -1717,7 +1732,10 @@ name|createCmd
 operator|.
 name|setDataDir
 argument_list|(
+name|getDataDir
+argument_list|(
 name|core4dataDir
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|server
@@ -1925,7 +1943,10 @@ name|createCmd
 operator|.
 name|setDataDir
 argument_list|(
+name|getDataDir
+argument_list|(
 name|core1DataDir
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|server

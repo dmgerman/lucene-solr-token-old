@@ -672,6 +672,13 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|termsEnum
+operator|=
+literal|null
+expr_stmt|;
+block|}
 name|lastField
 operator|=
 name|field
@@ -758,6 +765,8 @@ argument_list|(
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 if|if

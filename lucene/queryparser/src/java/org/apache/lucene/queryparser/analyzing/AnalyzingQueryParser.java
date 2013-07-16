@@ -29,15 +29,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|regex
@@ -547,11 +538,7 @@ name|tokenStream
 argument_list|(
 name|field
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 name|chunk
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|stream

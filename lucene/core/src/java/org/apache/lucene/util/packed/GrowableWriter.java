@@ -52,7 +52,7 @@ name|RamUsageEstimator
 import|;
 end_import
 begin_comment
-comment|/**       * Implements {@link PackedInts.Mutable}, but grows the  * bit count of the underlying packed ints on-demand.  *  *<p>@lucene.internal</p>  */
+comment|/**       * Implements {@link PackedInts.Mutable}, but grows the  * bit count of the underlying packed ints on-demand.  *<p>Beware that this class will accept to set negative values but in order  * to do this, it will grow the number of bits per value to 64.  *  *<p>@lucene.internal</p>  */
 end_comment
 begin_class
 DECL|class|GrowableWriter
@@ -64,10 +64,10 @@ name|PackedInts
 operator|.
 name|Mutable
 block|{
-DECL|field|currentMaxValue
+DECL|field|currentMask
 specifier|private
 name|long
-name|currentMaxValue
+name|currentMask
 decl_stmt|;
 DECL|field|current
 specifier|private
@@ -82,6 +82,7 @@ specifier|final
 name|float
 name|acceptableOverheadRatio
 decl_stmt|;
+comment|/**    * @param startBitsPerValue       the initial number of bits per value, may grow depending on the data    * @param valueCount              the number of values    * @param acceptableOverheadRatio an acceptable overhead ratio    */
 DECL|method|GrowableWriter
 specifier|public
 name|GrowableWriter
@@ -117,11 +118,9 @@ operator|.
 name|acceptableOverheadRatio
 argument_list|)
 expr_stmt|;
-name|currentMaxValue
+name|currentMask
 operator|=
-name|PackedInts
-operator|.
-name|maxValue
+name|mask
 argument_list|(
 name|current
 operator|.
@@ -129,6 +128,32 @@ name|getBitsPerValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|mask
+specifier|private
+specifier|static
+name|long
+name|mask
+parameter_list|(
+name|int
+name|bitsPerValue
+parameter_list|)
+block|{
+return|return
+name|bitsPerValue
+operator|==
+literal|64
+condition|?
+operator|~
+literal|0L
+else|:
+name|PackedInts
+operator|.
+name|maxValue
+argument_list|(
+name|bitsPerValue
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override
@@ -231,16 +256,15 @@ name|long
 name|value
 parameter_list|)
 block|{
-assert|assert
-name|value
-operator|>=
-literal|0
-assert|;
 if|if
 condition|(
+operator|(
 name|value
-operator|<=
-name|currentMaxValue
+operator|&
+name|currentMask
+operator|)
+operator|==
+name|value
 condition|)
 block|{
 return|return;
@@ -249,6 +273,12 @@ specifier|final
 name|int
 name|bitsRequired
 init|=
+name|value
+operator|<
+literal|0
+condition|?
+literal|64
+else|:
 name|PackedInts
 operator|.
 name|bitsRequired
@@ -256,6 +286,14 @@ argument_list|(
 name|value
 argument_list|)
 decl_stmt|;
+assert|assert
+name|bitsRequired
+operator|>
+name|current
+operator|.
+name|getBitsPerValue
+argument_list|()
+assert|;
 specifier|final
 name|int
 name|valueCount
@@ -302,11 +340,9 @@ name|current
 operator|=
 name|next
 expr_stmt|;
-name|currentMaxValue
+name|currentMask
 operator|=
-name|PackedInts
-operator|.
-name|maxValue
+name|mask
 argument_list|(
 name|current
 operator|.
@@ -501,6 +537,10 @@ operator|++
 name|i
 control|)
 block|{
+comment|// bitwise or is nice because either all values are positive and the
+comment|// or-ed result will require as many bits per value as the max of the
+comment|// values, or one of them is negative and the result will be negative,
+comment|// forcing GrowableWriter to use 64 bits per value
 name|max
 operator||=
 name|arr

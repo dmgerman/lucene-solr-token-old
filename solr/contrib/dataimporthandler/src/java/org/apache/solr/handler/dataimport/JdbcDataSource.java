@@ -1983,7 +1983,7 @@ name|colName
 argument_list|,
 name|resultSet
 operator|.
-name|getDate
+name|getTimestamp
 argument_list|(
 name|colName
 argument_list|)

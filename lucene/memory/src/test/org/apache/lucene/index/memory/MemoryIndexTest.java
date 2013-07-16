@@ -65,15 +65,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashSet
@@ -2865,11 +2856,7 @@ name|tokenStream
 argument_list|(
 literal|"field"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"hello there"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2971,11 +2958,7 @@ name|tokenStream
 argument_list|(
 literal|"field"
 argument_list|,
-operator|new
-name|StringReader
-argument_list|(
 literal|"hello there"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

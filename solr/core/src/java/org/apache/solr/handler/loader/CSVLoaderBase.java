@@ -415,6 +415,24 @@ name|LITERALS_PREFIX
 init|=
 literal|"literal."
 decl_stmt|;
+DECL|field|ROW_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ROW_ID
+init|=
+literal|"rowid"
+decl_stmt|;
+DECL|field|ROW_ID_OFFSET
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ROW_ID_OFFSET
+init|=
+literal|"rowidOffset"
+decl_stmt|;
 DECL|field|colonSplit
 specifier|private
 specifier|static
@@ -503,6 +521,20 @@ name|FieldAdder
 index|[]
 name|adders
 decl_stmt|;
+DECL|field|rowId
+name|String
+name|rowId
+init|=
+literal|null
+decl_stmt|;
+comment|// if not null, add a special field by the name given with the line number/row id as the value
+DECL|field|rowIdOffset
+name|int
+name|rowIdOffset
+init|=
+literal|0
+decl_stmt|;
+comment|//add to line/rowid before creating the field
 DECL|field|skipLines
 name|int
 name|skipLines
@@ -1215,6 +1247,26 @@ literal|"'"
 argument_list|)
 throw|;
 block|}
+name|rowId
+operator|=
+name|params
+operator|.
+name|get
+argument_list|(
+name|ROW_ID
+argument_list|)
+expr_stmt|;
+name|rowIdOffset
+operator|=
+name|params
+operator|.
+name|getInt
+argument_list|(
+name|ROW_ID_OFFSET
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 comment|// if only encapsulator or escape is set, disable the other escaping mechanism
 if|if
 condition|(
@@ -1947,6 +1999,7 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|//TODO: need to look at this in light of schemaless
 name|SchemaField
 name|sf
 init|=
@@ -2538,7 +2591,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// the line number is passed simply for error reporting in MT mode.
+comment|// the line number is passed for error reporting in MT mode as well as for optional rowId.
 comment|// first, create the lucene document
 for|for
 control|(
@@ -2630,6 +2683,25 @@ argument_list|(
 name|fn
 argument_list|,
 name|val
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|rowId
+operator|!=
+literal|null
+condition|)
+block|{
+name|doc
+operator|.
+name|addField
+argument_list|(
+name|rowId
+argument_list|,
+name|line
+operator|+
+name|rowIdOffset
 argument_list|)
 expr_stmt|;
 block|}
