@@ -1569,8 +1569,6 @@ operator|.
 name|seekExact
 argument_list|(
 name|catTerm
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{

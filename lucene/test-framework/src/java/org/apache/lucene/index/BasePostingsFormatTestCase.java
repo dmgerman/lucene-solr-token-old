@@ -5727,8 +5727,6 @@ argument_list|(
 name|fieldAndTerm
 operator|.
 name|term
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

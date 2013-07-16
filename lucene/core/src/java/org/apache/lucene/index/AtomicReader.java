@@ -190,8 +190,6 @@ name|term
 operator|.
 name|bytes
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{
@@ -288,8 +286,6 @@ name|term
 operator|.
 name|bytes
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{
@@ -555,8 +551,6 @@ name|term
 operator|.
 name|bytes
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{
@@ -663,8 +657,6 @@ name|term
 operator|.
 name|bytes
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{

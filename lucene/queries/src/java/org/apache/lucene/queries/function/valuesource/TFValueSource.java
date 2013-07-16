@@ -326,8 +326,6 @@ operator|.
 name|seekExact
 argument_list|(
 name|indexedBytes
-argument_list|,
-literal|false
 argument_list|)
 condition|)
 block|{

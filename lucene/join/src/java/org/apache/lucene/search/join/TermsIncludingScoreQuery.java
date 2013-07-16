@@ -1379,8 +1379,6 @@ index|]
 argument_list|,
 name|spare
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{
@@ -1835,8 +1833,6 @@ index|]
 argument_list|,
 name|spare
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{
@@ -2121,8 +2117,6 @@ index|]
 argument_list|,
 name|spare
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{

@@ -4264,8 +4264,6 @@ operator|.
 name|seekExact
 argument_list|(
 name|termBytes
-argument_list|,
-literal|false
 argument_list|)
 condition|)
 block|{
@@ -4424,8 +4422,6 @@ operator|.
 name|seekExact
 argument_list|(
 name|idBytes
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{

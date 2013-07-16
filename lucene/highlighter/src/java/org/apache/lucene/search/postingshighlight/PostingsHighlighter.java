@@ -2053,8 +2053,6 @@ name|terms
 index|[
 name|i
 index|]
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{

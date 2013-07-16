@@ -1876,9 +1876,6 @@ name|seekCeil
 parameter_list|(
 name|BytesRef
 name|text
-parameter_list|,
-name|boolean
-name|useCache
 parameter_list|)
 throws|throws
 name|IOException

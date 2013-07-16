@@ -7078,11 +7078,6 @@ operator|.
 name|seekExact
 argument_list|(
 name|term
-argument_list|,
-name|random
-operator|.
-name|nextBoolean
-argument_list|()
 argument_list|)
 condition|)
 block|{
