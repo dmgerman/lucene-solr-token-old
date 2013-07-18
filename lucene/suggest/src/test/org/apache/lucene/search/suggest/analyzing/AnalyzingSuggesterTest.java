@@ -1015,6 +1015,21 @@ name|keys
 argument_list|)
 argument_list|)
 expr_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+literal|2
+condition|;
+name|i
+operator|++
+control|)
+block|{
 comment|// top N of 2, but only foo is available
 name|List
 argument_list|<
@@ -1505,6 +1520,7 @@ operator|.
 name|payload
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// TODO: more tests
 comment|/**    * basic "standardanalyzer" test with stopword removal    */
