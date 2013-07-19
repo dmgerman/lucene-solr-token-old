@@ -123,6 +123,11 @@ name|Range
 index|[]
 name|ranges
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|RangeFacetRequest
 specifier|public
 name|RangeFacetRequest
