@@ -1557,7 +1557,7 @@ operator|.
 name|totalTermFreq
 return|;
 block|}
-comment|// Let PBF decodes metadata from long[] and byte[]
+comment|// Let PBF decode metadata from long[] and byte[]
 DECL|method|decodeMetaData
 specifier|private
 name|void
