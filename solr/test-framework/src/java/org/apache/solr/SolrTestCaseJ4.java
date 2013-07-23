@@ -255,6 +255,19 @@ name|solr
 operator|.
 name|core
 operator|.
+name|ConfigSolrXmlOld
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|core
+operator|.
 name|CoreContainer
 import|;
 end_import
@@ -773,7 +786,7 @@ specifier|static
 name|String
 name|coreName
 init|=
-name|CoreContainer
+name|ConfigSolrXmlOld
 operator|.
 name|DEFAULT_DEFAULT_CORE_NAME
 decl_stmt|;
@@ -947,7 +960,7 @@ argument_list|()
 expr_stmt|;
 name|coreName
 operator|=
-name|CoreContainer
+name|ConfigSolrXmlOld
 operator|.
 name|DEFAULT_DEFAULT_CORE_NAME
 expr_stmt|;

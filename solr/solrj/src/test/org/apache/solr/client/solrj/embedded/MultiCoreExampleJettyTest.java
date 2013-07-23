@@ -286,13 +286,6 @@ operator|.
 name|getLocalPort
 argument_list|()
 expr_stmt|;
-name|cores
-operator|.
-name|setPersistent
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|tearDown
 annotation|@

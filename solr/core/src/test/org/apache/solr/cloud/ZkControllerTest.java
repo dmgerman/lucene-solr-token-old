@@ -908,7 +908,7 @@ literal|"8983"
 argument_list|,
 literal|"solr"
 argument_list|,
-literal|"0"
+literal|0
 argument_list|,
 literal|true
 argument_list|,
@@ -1081,7 +1081,7 @@ literal|"8983"
 argument_list|,
 literal|"solr"
 argument_list|,
-literal|"0"
+literal|0
 argument_list|,
 literal|true
 argument_list|,

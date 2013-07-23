@@ -509,6 +509,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|isPersistent
 specifier|public
 name|boolean
@@ -523,6 +525,25 @@ argument_list|(
 literal|"solr/@persistent"
 argument_list|,
 literal|false
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDefaultCoreName
+specifier|public
+name|String
+name|getDefaultCoreName
+parameter_list|()
+block|{
+return|return
+name|get
+argument_list|(
+name|CfgProp
+operator|.
+name|SOLR_CORES_DEFAULT_CORE_NAME
+argument_list|,
+name|DEFAULT_DEFAULT_CORE_NAME
 argument_list|)
 return|;
 block|}
@@ -1572,6 +1593,15 @@ name|Properties
 argument_list|()
 return|;
 block|}
+DECL|field|DEFAULT_DEFAULT_CORE_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_DEFAULT_CORE_NAME
+init|=
+literal|"collection1"
+decl_stmt|;
 DECL|field|DEF_SOLR_XML
 specifier|public
 specifier|static
@@ -1585,8 +1615,6 @@ literal|"<solr persistent=\"false\">\n"
 operator|+
 literal|"<cores adminPath=\"/admin/cores\" defaultCoreName=\""
 operator|+
-name|CoreContainer
-operator|.
 name|DEFAULT_DEFAULT_CORE_NAME
 operator|+
 literal|"\""
@@ -1597,8 +1625,6 @@ literal|">\n"
 operator|+
 literal|"<core name=\""
 operator|+
-name|CoreContainer
-operator|.
 name|DEFAULT_DEFAULT_CORE_NAME
 operator|+
 literal|"\" shard=\"${shard:}\" collection=\"${collection:collection1}\" instanceDir=\"collection1\" />\n"
