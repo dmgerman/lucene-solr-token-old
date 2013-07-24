@@ -612,6 +612,9 @@ name|makeDistanceValueSource
 parameter_list|(
 name|Point
 name|queryPoint
+parameter_list|,
+name|double
+name|multiplier
 parameter_list|)
 block|{
 return|return
@@ -621,6 +624,8 @@ argument_list|(
 name|this
 argument_list|,
 name|queryPoint
+argument_list|,
+name|multiplier
 argument_list|)
 return|;
 block|}
