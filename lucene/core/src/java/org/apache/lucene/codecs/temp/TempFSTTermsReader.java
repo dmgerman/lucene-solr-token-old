@@ -1679,6 +1679,8 @@ comment|// nocommit: do we need this? for SegmentTermsEnum, we can maintain
 comment|// a stack to record how current term is constructed on FST, (and ord on each alphabet)
 comment|// so that during seek we don't have to start from the first arc.
 comment|// however, we'll be implementing a new fstEnum instead of wrapping current one.
+comment|//
+comment|// nocommit: this can also be achieved by making use of Util.getByOutput()
 annotation|@
 name|Override
 DECL|method|seekExact
@@ -2171,11 +2173,6 @@ specifier|final
 name|ByteRunAutomaton
 name|fsa
 decl_stmt|;
-DECL|field|fsaCommonSuffix
-specifier|final
-name|BytesRef
-name|fsaCommonSuffix
-decl_stmt|;
 DECL|class|Frame
 specifier|private
 specifier|final
@@ -2193,10 +2190,6 @@ operator|.
 name|TempMetaData
 argument_list|>
 name|fstArc
-decl_stmt|;
-DECL|field|fstPos
-name|long
-name|fstPos
 decl_stmt|;
 comment|/* automaton stats */
 DECL|field|fsaState
@@ -2293,14 +2286,6 @@ operator|=
 name|compiled
 operator|.
 name|runAutomaton
-expr_stmt|;
-name|this
-operator|.
-name|fsaCommonSuffix
-operator|=
-name|compiled
-operator|.
-name|commonSuffixRef
 expr_stmt|;
 comment|/*         PrintWriter pw1 = new PrintWriter(new File("../temp/fst.txt"));         Util.toDot(dict,pw1, false, false);         pw1.close();         PrintWriter pw2 = new PrintWriter(new File("../temp/fsa.txt"));         pw2.write(compiled.toDot());         pw2.close();         */
 name|this
@@ -2541,7 +2526,6 @@ name|NOT_FOUND
 return|;
 block|}
 block|}
-comment|// nocommit: make use of extra info, like commonSuffixRef
 annotation|@
 name|Override
 DECL|method|next
@@ -2700,7 +2684,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//while (next() != null&& term.compareTo(target)< 0) {} if (true) return term;
 comment|//if (DEBUG) System.out.println("Enum doSeekCeil()");
 name|Frame
 name|frame
@@ -2935,13 +2918,6 @@ argument_list|()
 expr_stmt|;
 name|frame
 operator|.
-name|fstPos
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-name|frame
-operator|.
 name|fsaState
 operator|=
 operator|-
@@ -2974,15 +2950,6 @@ name|frame
 operator|.
 name|fstArc
 argument_list|)
-expr_stmt|;
-name|frame
-operator|.
-name|fstPos
-operator|=
-name|fstReader
-operator|.
-name|getPosition
-argument_list|()
 expr_stmt|;
 name|frame
 operator|.
@@ -3085,20 +3052,11 @@ name|frame
 argument_list|)
 return|;
 block|}
-name|frame
-operator|.
-name|fstPos
-operator|=
-name|fstReader
-operator|.
-name|getPosition
-argument_list|()
-expr_stmt|;
 return|return
 name|frame
 return|;
 block|}
-comment|// nocommit: actually, here we're looking for an valid state for fsa,
+comment|// nocommit: actually, here we're looking for a valid state for fsa,
 comment|//           so if numArcs is large in fst, we should try a reverse lookup?
 comment|//           but we don have methods like advance(label) in fst, even
 comment|//           binary search hurts.
@@ -3129,15 +3087,6 @@ return|return
 literal|null
 return|;
 block|}
-name|fstReader
-operator|.
-name|setPosition
-argument_list|(
-name|frame
-operator|.
-name|fstPos
-argument_list|)
-expr_stmt|;
 while|while
 condition|(
 operator|!
@@ -3211,15 +3160,6 @@ return|return
 literal|null
 return|;
 block|}
-name|frame
-operator|.
-name|fstPos
-operator|=
-name|fstReader
-operator|.
-name|getPosition
-argument_list|()
-expr_stmt|;
 return|return
 name|frame
 return|;
@@ -3322,15 +3262,6 @@ name|frame
 argument_list|)
 return|;
 block|}
-name|frame
-operator|.
-name|fstPos
-operator|=
-name|fstReader
-operator|.
-name|getPosition
-argument_list|()
-expr_stmt|;
 return|return
 name|frame
 return|;
@@ -3372,6 +3303,7 @@ parameter_list|)
 block|{
 comment|// reach a prefix both fst&fsa won't reject
 return|return
+comment|/*frame != null&&*/
 name|frame
 operator|.
 name|fsaState
@@ -3379,7 +3311,6 @@ operator|!=
 operator|-
 literal|1
 return|;
-comment|//&& frame != null;
 block|}
 DECL|method|canGrow
 name|boolean
