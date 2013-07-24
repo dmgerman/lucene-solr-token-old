@@ -1153,7 +1153,6 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
-comment|//System.out.println("add term:<"+text.utf8ToString()+", "+meta+">");
 name|builder
 operator|.
 name|add
@@ -1215,7 +1214,6 @@ operator|.
 name|finish
 argument_list|()
 decl_stmt|;
-comment|//fst.dump();
 name|fields
 operator|.
 name|add
