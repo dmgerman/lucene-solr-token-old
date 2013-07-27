@@ -291,6 +291,9 @@ argument_list|,
 name|dir
 argument_list|,
 name|iwc
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|iw
@@ -343,6 +346,9 @@ argument_list|(
 name|dir
 argument_list|,
 name|iwc
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|iw
