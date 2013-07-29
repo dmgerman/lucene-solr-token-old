@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.facet.associations
+DECL|package|org.apache.lucene.facet.search
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|associations
+name|search
 package|;
 end_package
 begin_import
@@ -157,10 +157,10 @@ begin_comment
 comment|/**  * A {@link FacetsAggregator} which chains multiple aggregators for aggregating  * the association values of categories that belong to the same category list.  * While nothing prevents you from chaining general purpose aggregators, it is  * only useful for aggregating association values, as each association type is  * written in its own list.  *   * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|MultiAssociationsFacetsAggregator
+DECL|class|MultiFacetsAggregator
 specifier|public
 class|class
-name|MultiAssociationsFacetsAggregator
+name|MultiFacetsAggregator
 implements|implements
 name|FacetsAggregator
 block|{
@@ -184,10 +184,10 @@ name|FacetsAggregator
 argument_list|>
 name|aggregators
 decl_stmt|;
-comment|/**    * Creates a new {@link MultiAssociationsFacetsAggregator} over the given    * aggregators. The mapping is used by    * {@link #rollupValues(FacetRequest, int, int[], int[], FacetArrays)} to    * rollup the values of the specific category by the corresponding    * {@link FacetsAggregator}. However, since each {@link FacetsAggregator}    * handles the associations of a specific type, which could cover multiple    * categories, the aggregation is done on the unique set of aggregators, which    * are identified by their class.    */
-DECL|method|MultiAssociationsFacetsAggregator
+comment|/**    * Constructor.    *<p>    * The mapping is used to rollup the values of the specific category by the    * corresponding {@link FacetsAggregator}. It is ok to pass differnet    * {@link FacetsAggregator} instances for each {@link CategoryPath} - the    * constructor ensures that each aggregator<u>type</u> (determined by its    * class) is invoked only once.    */
+DECL|method|MultiFacetsAggregator
 specifier|public
-name|MultiAssociationsFacetsAggregator
+name|MultiFacetsAggregator
 parameter_list|(
 name|Map
 argument_list|<

@@ -777,6 +777,8 @@ argument_list|,
 name|indexReader
 argument_list|,
 name|taxoReader
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 return|;

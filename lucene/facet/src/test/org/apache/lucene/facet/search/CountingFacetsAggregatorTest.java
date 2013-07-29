@@ -2044,7 +2044,7 @@ expr_stmt|;
 block|}
 DECL|method|randomAccumulator
 specifier|private
-name|FacetsAccumulator
+name|TaxonomyFacetsAccumulator
 name|randomAccumulator
 parameter_list|(
 name|FacetSearchParams
@@ -2111,7 +2111,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|FacetsAccumulator
+name|TaxonomyFacetsAccumulator
 argument_list|(
 name|fsp
 argument_list|,

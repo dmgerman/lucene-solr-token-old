@@ -1034,7 +1034,12 @@ name|put
 argument_list|(
 name|dim
 argument_list|,
+operator|(
+operator|(
+name|TaxonomyFacetsAccumulator
+operator|)
 name|fa
+operator|)
 operator|.
 name|facetArrays
 argument_list|)
