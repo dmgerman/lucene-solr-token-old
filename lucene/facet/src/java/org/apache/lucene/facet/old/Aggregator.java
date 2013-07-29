@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.facet.search
+DECL|package|org.apache.lucene.facet.old
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|search
+name|old
 package|;
 end_package
 begin_import

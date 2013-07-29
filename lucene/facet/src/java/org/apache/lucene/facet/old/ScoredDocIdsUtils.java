@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.facet.util
+DECL|package|org.apache.lucene.facet.old
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|util
+name|old
 package|;
 end_package
 begin_import
@@ -41,7 +41,7 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|search
+name|old
 operator|.
 name|ScoredDocIDs
 import|;
@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|search
+name|old
 operator|.
 name|ScoredDocIDsIterator
 import|;
