@@ -105,18 +105,6 @@ operator|instanceof
 name|StandardIndexReaderFactory
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"termInfoIndexDivisor not set to 12"
-argument_list|,
-name|readerFactory
-operator|.
-name|getTermInfosIndexDivisor
-argument_list|()
-operator|==
-literal|12
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

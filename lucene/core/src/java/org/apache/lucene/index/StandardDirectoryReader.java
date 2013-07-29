@@ -136,12 +136,6 @@ specifier|final
 name|SegmentInfos
 name|segmentInfos
 decl_stmt|;
-DECL|field|termInfosIndexDivisor
-specifier|private
-specifier|final
-name|int
-name|termInfosIndexDivisor
-decl_stmt|;
 DECL|field|applyAllDeletes
 specifier|private
 specifier|final
@@ -164,9 +158,6 @@ name|writer
 parameter_list|,
 name|SegmentInfos
 name|sis
-parameter_list|,
-name|int
-name|termInfosIndexDivisor
 parameter_list|,
 name|boolean
 name|applyAllDeletes
@@ -193,12 +184,6 @@ name|sis
 expr_stmt|;
 name|this
 operator|.
-name|termInfosIndexDivisor
-operator|=
-name|termInfosIndexDivisor
-expr_stmt|;
-name|this
-operator|.
 name|applyAllDeletes
 operator|=
 name|applyAllDeletes
@@ -217,10 +202,6 @@ parameter_list|,
 specifier|final
 name|IndexCommit
 name|commit
-parameter_list|,
-specifier|final
-name|int
-name|termInfosIndexDivisor
 parameter_list|)
 throws|throws
 name|IOException
@@ -326,8 +307,6 @@ argument_list|(
 name|i
 argument_list|)
 argument_list|,
-name|termInfosIndexDivisor
-argument_list|,
 name|IOContext
 operator|.
 name|READ
@@ -378,8 +357,6 @@ argument_list|,
 literal|null
 argument_list|,
 name|sis
-argument_list|,
-name|termInfosIndexDivisor
 argument_list|,
 literal|false
 argument_list|)
@@ -655,14 +632,6 @@ name|writer
 argument_list|,
 name|segmentInfos
 argument_list|,
-name|writer
-operator|.
-name|getConfig
-argument_list|()
-operator|.
-name|getReaderTermsIndexDivisor
-argument_list|()
-argument_list|,
 name|applyAllDeletes
 argument_list|)
 return|;
@@ -687,9 +656,6 @@ extends|extends
 name|AtomicReader
 argument_list|>
 name|oldReaders
-parameter_list|,
-name|int
-name|termInfosIndexDivisor
 parameter_list|)
 throws|throws
 name|IOException
@@ -945,8 +911,6 @@ name|info
 argument_list|(
 name|i
 argument_list|)
-argument_list|,
-name|termInfosIndexDivisor
 argument_list|,
 name|IOContext
 operator|.
@@ -1258,8 +1222,6 @@ argument_list|,
 literal|null
 argument_list|,
 name|infos
-argument_list|,
-name|termInfosIndexDivisor
 argument_list|,
 literal|false
 argument_list|)
@@ -1751,8 +1713,6 @@ name|infos
 argument_list|,
 name|getSequentialSubReaders
 argument_list|()
-argument_list|,
-name|termInfosIndexDivisor
 argument_list|)
 return|;
 block|}

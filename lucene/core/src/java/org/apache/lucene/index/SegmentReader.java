@@ -151,9 +151,6 @@ parameter_list|(
 name|SegmentInfoPerCommit
 name|si
 parameter_list|,
-name|int
-name|termInfosIndexDivisor
-parameter_list|,
 name|IOContext
 name|context
 parameter_list|)
@@ -182,8 +179,6 @@ argument_list|,
 name|si
 argument_list|,
 name|context
-argument_list|,
-name|termInfosIndexDivisor
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -755,19 +750,6 @@ parameter_list|()
 block|{
 return|return
 name|this
-return|;
-block|}
-comment|/** Returns term infos index divisor originally passed to    *  {@link #SegmentReader(SegmentInfoPerCommit, int, IOContext)}. */
-DECL|method|getTermInfosIndexDivisor
-specifier|public
-name|int
-name|getTermInfosIndexDivisor
-parameter_list|()
-block|{
-return|return
-name|core
-operator|.
-name|termsIndexDivisor
 return|;
 block|}
 annotation|@

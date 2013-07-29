@@ -2058,14 +2058,6 @@ operator|.
 name|finish
 argument_list|()
 argument_list|,
-name|writer
-operator|.
-name|getConfig
-argument_list|()
-operator|.
-name|getTermIndexInterval
-argument_list|()
-argument_list|,
 name|pendingDeletes
 argument_list|,
 operator|new

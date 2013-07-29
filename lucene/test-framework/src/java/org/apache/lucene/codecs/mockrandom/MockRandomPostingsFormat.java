@@ -1484,10 +1484,9 @@ name|nextBoolean
 argument_list|()
 condition|)
 block|{
-name|state
-operator|.
+name|int
 name|termIndexInterval
-operator|=
+init|=
 name|_TestUtil
 operator|.
 name|nextInt
@@ -1498,7 +1497,7 @@ literal|1
 argument_list|,
 literal|100
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|LuceneTestCase
@@ -1514,8 +1513,6 @@ name|println
 argument_list|(
 literal|"MockRandomCodec: fixed-gap terms index (tii="
 operator|+
-name|state
-operator|.
 name|termIndexInterval
 operator|+
 literal|")"
@@ -1528,6 +1525,8 @@ operator|new
 name|FixedGapTermsIndexWriter
 argument_list|(
 name|state
+argument_list|,
+name|termIndexInterval
 argument_list|)
 expr_stmt|;
 block|}
@@ -2206,10 +2205,6 @@ argument_list|,
 name|state
 operator|.
 name|segmentSuffix
-argument_list|,
-name|state
-operator|.
-name|termsIndexDivisor
 argument_list|)
 expr_stmt|;
 name|success
@@ -2275,37 +2270,9 @@ decl_stmt|;
 comment|// randomness diverges from writer, here:
 if|if
 condition|(
-name|state
-operator|.
-name|termsIndexDivisor
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-name|state
-operator|.
-name|termsIndexDivisor
-operator|=
-name|_TestUtil
-operator|.
-name|nextInt
-argument_list|(
-name|random
-argument_list|,
-literal|1
-argument_list|,
-literal|10
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|doFixedGap
 condition|)
 block|{
-comment|// if termsIndexDivisor is set to -1, we should not touch it. It means a
-comment|// test explicitly instructed not to load the terms index.
 if|if
 condition|(
 name|LuceneTestCase
@@ -2319,13 +2286,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"MockRandomCodec: fixed-gap terms index (divisor="
-operator|+
-name|state
-operator|.
-name|termsIndexDivisor
-operator|+
-literal|")"
+literal|"MockRandomCodec: fixed-gap terms index"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2347,10 +2308,6 @@ operator|.
 name|segmentInfo
 operator|.
 name|name
-argument_list|,
-name|state
-operator|.
-name|termsIndexDivisor
 argument_list|,
 name|BytesRef
 operator|.
@@ -2420,13 +2377,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"MockRandomCodec: variable-gap terms index (divisor="
-operator|+
-name|state
-operator|.
-name|termsIndexDivisor
-operator|+
-literal|")"
+literal|"MockRandomCodec: variable-gap terms index"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2448,10 +2399,6 @@ operator|.
 name|segmentInfo
 operator|.
 name|name
-argument_list|,
-name|state
-operator|.
-name|termsIndexDivisor
 argument_list|,
 name|state
 operator|.

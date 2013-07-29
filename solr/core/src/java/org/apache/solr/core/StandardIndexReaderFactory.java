@@ -82,8 +82,6 @@ operator|.
 name|open
 argument_list|(
 name|indexDir
-argument_list|,
-name|termInfosIndexDivisor
 argument_list|)
 return|;
 block|}
