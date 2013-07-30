@@ -87,7 +87,7 @@ name|util
 operator|.
 name|packed
 operator|.
-name|AppendingLongBuffer
+name|AppendingPackedLongBuffer
 import|;
 end_import
 begin_import
@@ -103,6 +103,21 @@ operator|.
 name|packed
 operator|.
 name|MonotonicAppendingLongBuffer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|packed
+operator|.
+name|PackedInts
 import|;
 end_import
 begin_comment
@@ -1465,7 +1480,7 @@ decl_stmt|;
 comment|// globalOrd -> sub index
 DECL|field|subIndexes
 specifier|final
-name|AppendingLongBuffer
+name|AppendingPackedLongBuffer
 name|subIndexes
 decl_stmt|;
 comment|// segmentOrd -> (globalOrd - segmentOrd)
@@ -1502,13 +1517,21 @@ name|globalOrdDeltas
 operator|=
 operator|new
 name|MonotonicAppendingLongBuffer
-argument_list|()
+argument_list|(
+name|PackedInts
+operator|.
+name|COMPACT
+argument_list|)
 expr_stmt|;
 name|subIndexes
 operator|=
 operator|new
-name|AppendingLongBuffer
-argument_list|()
+name|AppendingPackedLongBuffer
+argument_list|(
+name|PackedInts
+operator|.
+name|COMPACT
+argument_list|)
 expr_stmt|;
 name|ordDeltas
 operator|=
