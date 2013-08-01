@@ -563,6 +563,20 @@ name|solrConfig
 argument_list|)
 expr_stmt|;
 block|}
+comment|// sanity check: this will throw an error for us if there is more then one
+comment|// config section
+name|Object
+name|unused
+init|=
+name|solrConfig
+operator|.
+name|getNode
+argument_list|(
+name|prefix
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 name|luceneVersion
 operator|=
 name|solrConfig
@@ -580,13 +594,13 @@ operator|(
 operator|(
 name|solrConfig
 operator|.
-name|get
+name|getNode
 argument_list|(
 name|prefix
 operator|+
-literal|"/mergeScheduler/text()"
+literal|"/mergeScheduler"
 argument_list|,
-literal|null
+literal|false
 argument_list|)
 operator|!=
 literal|null
@@ -620,13 +634,13 @@ operator|(
 operator|(
 name|solrConfig
 operator|.
-name|get
+name|getNode
 argument_list|(
 name|prefix
 operator|+
-literal|"/mergePolicy/text()"
+literal|"/mergePolicy"
 argument_list|,
-literal|null
+literal|false
 argument_list|)
 operator|!=
 literal|null
