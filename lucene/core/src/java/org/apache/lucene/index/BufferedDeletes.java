@@ -106,13 +106,13 @@ begin_comment
 comment|/* Holds buffered deletes, by docID, term or query for a  * single segment. This is used to hold buffered pending  * deletes against the to-be-flushed segment.  Once the  * deletes are pushed (on flush in DocumentsWriter), these  * deletes are converted to a FrozenDeletes instance. */
 end_comment
 begin_comment
-comment|// NOTE: we are sync'd by BufferedDeletes, ie, all access to
+comment|// NOTE: instances of this class are accessed either via a private
 end_comment
 begin_comment
-comment|// instances of this class is via sync'd methods on
+comment|// instance on DocumentWriterPerThread, or via sync'd code by
 end_comment
 begin_comment
-comment|// BufferedDeletes
+comment|// DocumentsWriterDeleteQueue
 end_comment
 begin_class
 DECL|class|BufferedDeletes
@@ -592,6 +592,9 @@ name|docIDUpto
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// note that if current != null then it means there's already a buffered
+comment|// delete on that term, therefore we seem to over-count. this over-counting
+comment|// is done to respect IndexWriterConfig.setMaxBufferedDeleteTerms.
 name|numTermDeletes
 operator|.
 name|incrementAndGet
