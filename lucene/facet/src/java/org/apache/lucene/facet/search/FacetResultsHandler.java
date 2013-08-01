@@ -62,6 +62,12 @@ specifier|final
 name|FacetRequest
 name|facetRequest
 decl_stmt|;
+DECL|field|resolver
+specifier|protected
+specifier|final
+name|OrdinalValueResolver
+name|resolver
+decl_stmt|;
 DECL|field|facetArrays
 specifier|protected
 specifier|final
@@ -77,6 +83,9 @@ name|taxonomyReader
 parameter_list|,
 name|FacetRequest
 name|facetRequest
+parameter_list|,
+name|OrdinalValueResolver
+name|resolver
 parameter_list|,
 name|FacetArrays
 name|facetArrays
@@ -99,6 +108,12 @@ operator|.
 name|facetArrays
 operator|=
 name|facetArrays
+expr_stmt|;
+name|this
+operator|.
+name|resolver
+operator|=
+name|resolver
 expr_stmt|;
 block|}
 comment|/** Computes the {@link FacetResult} for the given {@link FacetArrays}. */

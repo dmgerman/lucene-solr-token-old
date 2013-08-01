@@ -184,6 +184,9 @@ parameter_list|,
 name|FacetRequest
 name|facetRequest
 parameter_list|,
+name|OrdinalValueResolver
+name|resolver
+parameter_list|,
 name|FacetArrays
 name|facetArrays
 parameter_list|)
@@ -193,6 +196,8 @@ argument_list|(
 name|taxonomyReader
 argument_list|,
 name|facetRequest
+argument_list|,
+name|resolver
 argument_list|,
 name|facetArrays
 argument_list|)
@@ -273,6 +278,7 @@ name|AACO
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// all partitions, except, possibly, the last, have the same length. Hence modulo is OK.
 name|int
 name|partitionSize
 init|=
@@ -280,8 +286,6 @@ name|facetArrays
 operator|.
 name|arrayLength
 decl_stmt|;
-comment|// all partitions, except, possibly, the last,
-comment|// have the same length. Hence modulo is OK.
 name|int
 name|depth
 init|=
@@ -331,14 +335,10 @@ name|tempFRWH
 operator|.
 name|rootNodeValue
 operator|=
-name|this
+name|resolver
 operator|.
-name|facetRequest
-operator|.
-name|getValueOf
+name|valueOf
 argument_list|(
-name|facetArrays
-argument_list|,
 name|rootNode
 operator|%
 name|partitionSize
@@ -751,12 +751,10 @@ comment|// that TaxonomyReader.INVALID_ORDINAL == -1< offset
 name|double
 name|value
 init|=
-name|facetRequest
+name|resolver
 operator|.
-name|getValueOf
+name|valueOf
 argument_list|(
-name|facetArrays
-argument_list|,
 name|tosOrdinal
 operator|%
 name|partitionSize
@@ -1108,14 +1106,10 @@ name|tempFRWH
 operator|.
 name|rootNodeValue
 operator|=
-name|this
+name|resolver
 operator|.
-name|facetRequest
-operator|.
-name|getValueOf
+name|valueOf
 argument_list|(
-name|facetArrays
-argument_list|,
 name|rootNode
 operator|%
 name|partitionSize
@@ -1182,12 +1176,10 @@ if|if
 condition|(
 literal|0
 operator|!=
-name|facetRequest
+name|resolver
 operator|.
-name|getValueOf
+name|valueOf
 argument_list|(
-name|facetArrays
-argument_list|,
 name|ordinal
 operator|%
 name|partitionSize
