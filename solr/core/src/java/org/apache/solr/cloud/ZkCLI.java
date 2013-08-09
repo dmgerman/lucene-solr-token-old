@@ -837,7 +837,7 @@ literal|"zkcli.sh -zkhost localhost:9983 -cmd "
 operator|+
 name|MAKEPATH
 operator|+
-literal|" /apache/solr/data.txt 'config data'"
+literal|" /apache/solr"
 argument_list|)
 expr_stmt|;
 name|System
