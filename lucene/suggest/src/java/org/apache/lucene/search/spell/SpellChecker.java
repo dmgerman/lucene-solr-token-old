@@ -1986,8 +1986,6 @@ operator|.
 name|seekExact
 argument_list|(
 name|currentTerm
-argument_list|,
-literal|false
 argument_list|)
 condition|)
 block|{

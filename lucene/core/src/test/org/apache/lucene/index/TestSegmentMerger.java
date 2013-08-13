@@ -308,10 +308,6 @@ name|SegmentReader
 argument_list|(
 name|info1
 argument_list|,
-name|DirectoryReader
-operator|.
-name|DEFAULT_TERMS_INDEX_DIVISOR
-argument_list|,
 name|newIOContext
 argument_list|(
 name|random
@@ -325,10 +321,6 @@ operator|new
 name|SegmentReader
 argument_list|(
 name|info2
-argument_list|,
-name|DirectoryReader
-operator|.
-name|DEFAULT_TERMS_INDEX_DIVISOR
 argument_list|,
 name|newIOContext
 argument_list|(
@@ -492,10 +484,6 @@ argument_list|()
 argument_list|,
 name|mergedDir
 argument_list|,
-name|IndexWriterConfig
-operator|.
-name|DEFAULT_TERM_INDEX_INTERVAL
-argument_list|,
 name|MergeState
 operator|.
 name|CheckAbort
@@ -577,10 +565,6 @@ argument_list|,
 operator|-
 literal|1L
 argument_list|)
-argument_list|,
-name|DirectoryReader
-operator|.
-name|DEFAULT_TERMS_INDEX_DIVISOR
 argument_list|,
 name|newIOContext
 argument_list|(

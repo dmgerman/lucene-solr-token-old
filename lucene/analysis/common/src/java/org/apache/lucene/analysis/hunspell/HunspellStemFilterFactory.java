@@ -190,6 +190,15 @@ name|PARAM_STRICT_AFFIX_PARSING
 init|=
 literal|"strictAffixParsing"
 decl_stmt|;
+DECL|field|PARAM_RECURSION_CAP
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|PARAM_RECURSION_CAP
+init|=
+literal|"recursionCap"
+decl_stmt|;
 DECL|field|dictionaryArg
 specifier|private
 specifier|final
@@ -218,6 +227,11 @@ DECL|field|dictionary
 specifier|private
 name|HunspellDictionary
 name|dictionary
+decl_stmt|;
+DECL|field|recursionCap
+specifier|private
+name|int
+name|recursionCap
 decl_stmt|;
 comment|/** Creates a new HunspellStemFilterFactory */
 DECL|method|HunspellStemFilterFactory
@@ -279,6 +293,17 @@ argument_list|,
 name|PARAM_STRICT_AFFIX_PARSING
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+name|recursionCap
+operator|=
+name|getInt
+argument_list|(
+name|args
+argument_list|,
+name|PARAM_RECURSION_CAP
+argument_list|,
+literal|2
 argument_list|)
 expr_stmt|;
 if|if
@@ -465,6 +490,8 @@ argument_list|(
 name|tokenStream
 argument_list|,
 name|dictionary
+argument_list|,
+name|recursionCap
 argument_list|)
 return|;
 block|}

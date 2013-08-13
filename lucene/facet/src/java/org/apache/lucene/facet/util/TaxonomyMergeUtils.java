@@ -227,9 +227,6 @@ operator|.
 name|open
 argument_list|(
 name|srcIndexDir
-argument_list|,
-operator|-
-literal|1
 argument_list|)
 decl_stmt|;
 name|List

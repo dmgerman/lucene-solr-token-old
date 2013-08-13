@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.facet.search
+DECL|package|org.apache.lucene.facet.old
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|search
+name|old
 package|;
 end_package
 begin_import
@@ -101,6 +101,51 @@ name|lucene
 operator|.
 name|facet
 operator|.
+name|search
+operator|.
+name|FacetArrays
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|facet
+operator|.
+name|search
+operator|.
+name|FacetResult
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|facet
+operator|.
+name|search
+operator|.
+name|FacetsAccumulator
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|facet
+operator|.
 name|taxonomy
 operator|.
 name|TaxonomyReader
@@ -132,7 +177,7 @@ specifier|final
 class|class
 name|AdaptiveFacetsAccumulator
 extends|extends
-name|StandardFacetsAccumulator
+name|OldFacetsAccumulator
 block|{
 DECL|field|sampler
 specifier|private
@@ -143,7 +188,7 @@ operator|new
 name|RandomSampler
 argument_list|()
 decl_stmt|;
-comment|/**    * Create an {@link AdaptiveFacetsAccumulator}     * @see StandardFacetsAccumulator#StandardFacetsAccumulator(FacetSearchParams, IndexReader, TaxonomyReader)    */
+comment|/**    * Create an {@link AdaptiveFacetsAccumulator}     * @see OldFacetsAccumulator#OldFacetsAccumulator(FacetSearchParams, IndexReader, TaxonomyReader)    */
 DECL|method|AdaptiveFacetsAccumulator
 specifier|public
 name|AdaptiveFacetsAccumulator
@@ -168,7 +213,7 @@ name|taxonomyReader
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Create an {@link AdaptiveFacetsAccumulator}    *     * @see StandardFacetsAccumulator#StandardFacetsAccumulator(FacetSearchParams,    *      IndexReader, TaxonomyReader, FacetArrays)    */
+comment|/**    * Create an {@link AdaptiveFacetsAccumulator}    *     * @see OldFacetsAccumulator#OldFacetsAccumulator(FacetSearchParams,    *      IndexReader, TaxonomyReader, FacetArrays)    */
 DECL|method|AdaptiveFacetsAccumulator
 specifier|public
 name|AdaptiveFacetsAccumulator
@@ -231,7 +276,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|StandardFacetsAccumulator
+name|OldFacetsAccumulator
 name|delegee
 init|=
 name|appropriateFacetCountingAccumulator
@@ -267,7 +312,7 @@ block|}
 comment|/**    * Compute the appropriate facet accumulator to use.    * If no special/clever adaptation is possible/needed return this (self).    */
 DECL|method|appropriateFacetCountingAccumulator
 specifier|private
-name|StandardFacetsAccumulator
+name|OldFacetsAccumulator
 name|appropriateFacetCountingAccumulator
 parameter_list|(
 name|ScoredDocIDs

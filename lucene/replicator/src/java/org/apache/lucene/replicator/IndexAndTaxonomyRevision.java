@@ -317,10 +317,8 @@ argument_list|(
 name|openMode
 argument_list|)
 decl_stmt|;
-name|conf
-operator|.
-name|setIndexDeletionPolicy
-argument_list|(
+name|sdp
+operator|=
 operator|new
 name|SnapshotDeletionPolicy
 argument_list|(
@@ -329,6 +327,12 @@ operator|.
 name|getIndexDeletionPolicy
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|conf
+operator|.
+name|setIndexDeletionPolicy
+argument_list|(
+name|sdp
 argument_list|)
 expr_stmt|;
 return|return
@@ -361,20 +365,6 @@ name|directory
 argument_list|,
 name|config
 argument_list|)
-expr_stmt|;
-comment|// must set it here because IndexWriter clones the config
-name|sdp
-operator|=
-operator|(
-name|SnapshotDeletionPolicy
-operator|)
-name|writer
-operator|.
-name|getConfig
-argument_list|()
-operator|.
-name|getIndexDeletionPolicy
-argument_list|()
 expr_stmt|;
 return|return
 name|writer

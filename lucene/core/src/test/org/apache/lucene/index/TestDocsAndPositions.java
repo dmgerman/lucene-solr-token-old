@@ -642,8 +642,6 @@ operator|.
 name|seekExact
 argument_list|(
 name|bytes
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{
@@ -2419,8 +2417,6 @@ name|BytesRef
 argument_list|(
 literal|"bar"
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2632,8 +2628,6 @@ name|BytesRef
 argument_list|(
 literal|"bar"
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

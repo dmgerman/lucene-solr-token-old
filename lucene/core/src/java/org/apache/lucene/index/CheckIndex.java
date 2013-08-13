@@ -143,9 +143,6 @@ operator|.
 name|PostingsFormat
 import|;
 end_import
-begin_comment
-comment|// javadocs
-end_comment
 begin_import
 import|import
 name|org
@@ -154,14 +151,15 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
+name|index
 operator|.
-name|FieldType
+name|CheckIndex
+operator|.
+name|Status
+operator|.
+name|DocValuesStatus
 import|;
 end_import
-begin_comment
-comment|// for javadocs
-end_comment
 begin_import
 import|import
 name|org
@@ -523,27 +521,6 @@ specifier|public
 name|double
 name|sizeMB
 decl_stmt|;
-comment|/** Doc store offset, if this segment shares the doc        *  store files (stored fields and term vectors) with        *  other segments.  This is -1 if it does not share. */
-DECL|field|docStoreOffset
-specifier|public
-name|int
-name|docStoreOffset
-init|=
-operator|-
-literal|1
-decl_stmt|;
-comment|/** String of the shared doc store segment, or null if        *  this segment does not share the doc store files. */
-DECL|field|docStoreSegment
-specifier|public
-name|String
-name|docStoreSegment
-decl_stmt|;
-comment|/** True if the shared doc store files are compound file        *  format. */
-DECL|field|docStoreCompoundFile
-specifier|public
-name|boolean
-name|docStoreCompoundFile
-decl_stmt|;
 comment|/** True if this segment has pending deletions. */
 DECL|field|hasDeletions
 specifier|public
@@ -799,17 +776,35 @@ DECL|method|DocValuesStatus
 name|DocValuesStatus
 parameter_list|()
 block|{       }
-comment|/** Number of documents tested. */
-DECL|field|docCount
-specifier|public
-name|int
-name|docCount
-decl_stmt|;
 comment|/** Total number of docValues tested. */
 DECL|field|totalValueFields
 specifier|public
 name|long
 name|totalValueFields
+decl_stmt|;
+comment|/** Total number of numeric fields */
+DECL|field|totalNumericFields
+specifier|public
+name|long
+name|totalNumericFields
+decl_stmt|;
+comment|/** Total number of binary fields */
+DECL|field|totalBinaryFields
+specifier|public
+name|long
+name|totalBinaryFields
+decl_stmt|;
+comment|/** Total number of sorted fields */
+DECL|field|totalSortedFields
+specifier|public
+name|long
+name|totalSortedFields
+decl_stmt|;
+comment|/** Total number of sortedset fields */
+DECL|field|totalSortedSetFields
+specifier|public
+name|long
+name|totalSortedSetFields
 decl_stmt|;
 comment|/** Exception thrown during doc values test (null on success) */
 DECL|field|error
@@ -2023,10 +2018,6 @@ operator|new
 name|SegmentReader
 argument_list|(
 name|info
-argument_list|,
-name|DirectoryReader
-operator|.
-name|DEFAULT_TERMS_INDEX_DIVISOR
 argument_list|,
 name|IOContext
 operator|.
@@ -5615,8 +5606,6 @@ name|seekTerms
 index|[
 name|i
 index|]
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{
@@ -6451,6 +6440,8 @@ argument_list|,
 name|reader
 argument_list|,
 name|infoStream
+argument_list|,
+name|status
 argument_list|)
 expr_stmt|;
 block|}
@@ -6527,15 +6518,33 @@ literal|"OK ["
 operator|+
 name|status
 operator|.
-name|docCount
+name|totalValueFields
 operator|+
-literal|" total doc count; "
+literal|" docvalues fields; "
 operator|+
 name|status
 operator|.
-name|totalValueFields
+name|totalBinaryFields
 operator|+
-literal|" docvalues fields]"
+literal|" BINARY; "
+operator|+
+name|status
+operator|.
+name|totalNumericFields
+operator|+
+literal|" NUMERIC; "
+operator|+
+name|status
+operator|.
+name|totalSortedFields
+operator|+
+literal|" SORTED; "
+operator|+
+name|status
+operator|.
+name|totalSortedSetFields
+operator|+
+literal|" SORTED_SET]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -7298,6 +7307,9 @@ name|reader
 parameter_list|,
 name|PrintStream
 name|infoStream
+parameter_list|,
+name|DocValuesStatus
+name|status
 parameter_list|)
 throws|throws
 name|Exception
@@ -7313,6 +7325,11 @@ block|{
 case|case
 name|SORTED
 case|:
+name|status
+operator|.
+name|totalSortedFields
+operator|++
+expr_stmt|;
 name|checkSortedDocValues
 argument_list|(
 name|fi
@@ -7383,6 +7400,11 @@ break|break;
 case|case
 name|SORTED_SET
 case|:
+name|status
+operator|.
+name|totalSortedSetFields
+operator|++
+expr_stmt|;
 name|checkSortedSetDocValues
 argument_list|(
 name|fi
@@ -7453,6 +7475,11 @@ break|break;
 case|case
 name|BINARY
 case|:
+name|status
+operator|.
+name|totalBinaryFields
+operator|++
+expr_stmt|;
 name|checkBinaryDocValues
 argument_list|(
 name|fi
@@ -7523,6 +7550,11 @@ break|break;
 case|case
 name|NUMERIC
 case|:
+name|status
+operator|.
+name|totalNumericFields
+operator|++
+expr_stmt|;
 name|checkNumericDocValues
 argument_list|(
 name|fi
@@ -8213,8 +8245,6 @@ operator|.
 name|seekExact
 argument_list|(
 name|term
-argument_list|,
-literal|true
 argument_list|)
 condition|)
 block|{
@@ -8934,9 +8964,6 @@ name|fixIndex
 parameter_list|(
 name|Status
 name|result
-parameter_list|,
-name|Codec
-name|codec
 parameter_list|)
 throws|throws
 name|IOException
@@ -9035,15 +9062,6 @@ name|doCrossCheckTermVectors
 init|=
 literal|false
 decl_stmt|;
-name|Codec
-name|codec
-init|=
-name|Codec
-operator|.
-name|getDefault
-argument_list|()
-decl_stmt|;
-comment|// only used when fixing
 name|boolean
 name|verbose
 init|=
@@ -9123,61 +9141,6 @@ block|{
 name|doCrossCheckTermVectors
 operator|=
 literal|true
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"-codec"
-operator|.
-name|equals
-argument_list|(
-name|arg
-argument_list|)
-condition|)
-block|{
-if|if
-condition|(
-name|i
-operator|==
-name|args
-operator|.
-name|length
-operator|-
-literal|1
-condition|)
-block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"ERROR: missing name for -codec option"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|exit
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-name|i
-operator|++
-expr_stmt|;
-name|codec
-operator|=
-name|Codec
-operator|.
-name|forName
-argument_list|(
-name|args
-index|[
-name|i
-index|]
-argument_list|)
 expr_stmt|;
 block|}
 elseif|else
@@ -9761,8 +9724,6 @@ operator|.
 name|fixIndex
 argument_list|(
 name|result
-argument_list|,
-name|codec
 argument_list|)
 expr_stmt|;
 name|System

@@ -394,10 +394,6 @@ name|SegmentReader
 argument_list|(
 name|info
 argument_list|,
-name|DirectoryReader
-operator|.
-name|DEFAULT_TERMS_INDEX_DIVISOR
-argument_list|,
 name|newIOContext
 argument_list|(
 name|random
@@ -868,10 +864,6 @@ name|SegmentReader
 argument_list|(
 name|info
 argument_list|,
-name|DirectoryReader
-operator|.
-name|DEFAULT_TERMS_INDEX_DIVISOR
-argument_list|,
 name|newIOContext
 argument_list|(
 name|random
@@ -1296,10 +1288,6 @@ name|SegmentReader
 argument_list|(
 name|info
 argument_list|,
-name|DirectoryReader
-operator|.
-name|DEFAULT_TERMS_INDEX_DIVISOR
-argument_list|,
 name|newIOContext
 argument_list|(
 name|random
@@ -1581,10 +1569,6 @@ operator|new
 name|SegmentReader
 argument_list|(
 name|info
-argument_list|,
-name|DirectoryReader
-operator|.
-name|DEFAULT_TERMS_INDEX_DIVISOR
 argument_list|,
 name|newIOContext
 argument_list|(

@@ -60,7 +60,7 @@ name|Codec
 name|codec
 init|=
 operator|new
-name|Lucene40Codec
+name|Lucene40RWCodec
 argument_list|()
 decl_stmt|;
 annotation|@

@@ -1951,8 +1951,6 @@ init|=
 name|seekCeil
 argument_list|(
 name|term
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 assert|assert
@@ -1985,9 +1983,6 @@ name|seekExact
 parameter_list|(
 name|BytesRef
 name|target
-parameter_list|,
-name|boolean
-name|useCache
 parameter_list|)
 throws|throws
 name|IOException
@@ -2017,9 +2012,6 @@ name|seekCeil
 parameter_list|(
 name|BytesRef
 name|target
-parameter_list|,
-name|boolean
-name|useCache
 parameter_list|)
 throws|throws
 name|IOException
@@ -2641,9 +2633,6 @@ name|seekCeil
 parameter_list|(
 name|BytesRef
 name|target
-parameter_list|,
-name|boolean
-name|useCache
 parameter_list|)
 throws|throws
 name|IOException

@@ -91,7 +91,7 @@ name|SegmentWriteState
 import|;
 end_import
 begin_comment
-comment|/**  * DocValues format that keeps most things on disk.  *<p>  * Things like ordinals and disk offsets are loaded into ram,  * for single-seek access to all the types.  *<p>  * @lucene.experimental  */
+comment|/**  * DocValues format that keeps most things on disk.  *<p>  * Only things like disk offsets are loaded into ram.  *<p>  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|DiskDocValuesFormat
@@ -216,6 +216,15 @@ name|VERSION_START
 init|=
 literal|0
 decl_stmt|;
+DECL|field|VERSION_COMPRESSED_TERMS
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|VERSION_COMPRESSED_TERMS
+init|=
+literal|1
+decl_stmt|;
 DECL|field|VERSION_CURRENT
 specifier|public
 specifier|static
@@ -223,7 +232,7 @@ specifier|final
 name|int
 name|VERSION_CURRENT
 init|=
-name|VERSION_START
+name|VERSION_COMPRESSED_TERMS
 decl_stmt|;
 DECL|field|NUMERIC
 specifier|public

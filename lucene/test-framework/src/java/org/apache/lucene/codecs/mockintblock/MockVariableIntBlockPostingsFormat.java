@@ -1065,10 +1065,6 @@ name|segmentInfo
 operator|.
 name|name
 argument_list|,
-name|state
-operator|.
-name|termsIndexDivisor
-argument_list|,
 name|BytesRef
 operator|.
 name|getUTF8SortedAsUnicodeComparator
@@ -1134,8 +1130,6 @@ argument_list|,
 name|state
 operator|.
 name|context
-argument_list|,
-literal|1024
 argument_list|,
 name|state
 operator|.

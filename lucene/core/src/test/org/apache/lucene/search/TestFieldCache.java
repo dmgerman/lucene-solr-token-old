@@ -5639,6 +5639,8 @@ name|random
 argument_list|()
 argument_list|,
 name|dir
+argument_list|,
+name|cfg
 argument_list|)
 decl_stmt|;
 name|Document

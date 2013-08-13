@@ -2245,8 +2245,6 @@ operator|.
 name|seekCeil
 argument_list|(
 name|prefixRef
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -3176,8 +3174,6 @@ name|BytesRef
 argument_list|(
 literal|"beer"
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3215,8 +3211,6 @@ name|BytesRef
 argument_list|(
 literal|"hello"
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3254,8 +3248,6 @@ name|BytesRef
 argument_list|(
 literal|"world"
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3293,8 +3285,6 @@ name|BytesRef
 argument_list|(
 literal|"bogus"
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -3507,6 +3507,9 @@ argument_list|(
 name|dir
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Document
@@ -3549,6 +3552,9 @@ argument_list|(
 name|dir
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|doc
@@ -3646,6 +3652,9 @@ argument_list|(
 name|dir
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Document
@@ -3688,6 +3697,9 @@ argument_list|(
 name|dir
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|writer
@@ -4005,6 +4017,9 @@ argument_list|(
 name|dir
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Document
@@ -4058,6 +4073,9 @@ argument_list|(
 name|dir
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|doc
@@ -4139,6 +4157,9 @@ argument_list|(
 name|dir
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Document
@@ -4187,6 +4208,9 @@ argument_list|(
 name|dir2
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|doc
@@ -4296,6 +4320,9 @@ argument_list|(
 name|dir
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Document
@@ -4344,6 +4371,9 @@ argument_list|(
 name|dir2
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|doc
@@ -4477,6 +4507,9 @@ argument_list|(
 name|dir
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Document
@@ -4525,6 +4558,9 @@ argument_list|(
 name|dir2
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|writer
@@ -4634,6 +4670,9 @@ argument_list|(
 name|dir
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Document
@@ -4682,6 +4721,9 @@ argument_list|(
 name|dir2
 argument_list|,
 name|conf
+operator|.
+name|clone
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|IndexReader
