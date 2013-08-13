@@ -51,6 +51,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|TieredMergePolicy
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|DirectoryReader
 import|;
 end_import
@@ -238,6 +251,20 @@ literal|"false"
 argument_list|)
 expr_stmt|;
 comment|// schema12 doesn't support _version_
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"solr.tests.mergePolicy"
+argument_list|,
+name|TieredMergePolicy
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|initCore
 argument_list|(
 literal|"solrconfig.xml"
@@ -1426,6 +1453,7 @@ literal|"2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// dup, triggers delete
 name|assertU
 argument_list|(
 name|adoc
@@ -1465,6 +1493,8 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
+literal|"maxDoc !> numDocs ... expected some deletions"
+argument_list|,
 name|r
 operator|.
 name|maxDoc
@@ -1476,7 +1506,6 @@ name|numDocs
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// should have deletions
 name|sr
 operator|.
 name|close
