@@ -712,32 +712,11 @@ name|ReuseStrategy
 name|GLOBAL_REUSE_STRATEGY
 init|=
 operator|new
-name|GlobalReuseStrategy
-argument_list|()
-decl_stmt|;
-comment|/**    * Implementation of {@link ReuseStrategy} that reuses the same components for    * every field.    * @deprecated This implementation class will be hidden in Lucene 5.0.    *   Use {@link Analyzer#GLOBAL_REUSE_STRATEGY} instead!    */
-annotation|@
-name|Deprecated
-DECL|class|GlobalReuseStrategy
-specifier|public
-specifier|final
-specifier|static
-class|class
-name|GlobalReuseStrategy
-extends|extends
 name|ReuseStrategy
+argument_list|()
 block|{
-comment|/** Sole constructor. (For invocation by subclass constructors, typically implicit.)      * @deprecated Don't create instances of this class, use {@link Analyzer#GLOBAL_REUSE_STRATEGY} */
-annotation|@
-name|Deprecated
-DECL|method|GlobalReuseStrategy
-specifier|public
-name|GlobalReuseStrategy
-parameter_list|()
-block|{}
 annotation|@
 name|Override
-DECL|method|getReusableComponents
 specifier|public
 name|TokenStreamComponents
 name|getReusableComponents
@@ -761,7 +740,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setReusableComponents
 specifier|public
 name|void
 name|setReusableComponents
@@ -785,6 +763,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+decl_stmt|;
 comment|/**    * A predefined {@link ReuseStrategy} that reuses components per-field by    * maintaining a Map of TokenStreamComponent per field name.    */
 DECL|field|PER_FIELD_REUSE_STRATEGY
 specifier|public
@@ -794,28 +773,9 @@ name|ReuseStrategy
 name|PER_FIELD_REUSE_STRATEGY
 init|=
 operator|new
-name|PerFieldReuseStrategy
-argument_list|()
-decl_stmt|;
-comment|/**    * Implementation of {@link ReuseStrategy} that reuses components per-field by    * maintaining a Map of TokenStreamComponent per field name.    * @deprecated This implementation class will be hidden in Lucene 5.0.    *   Use {@link Analyzer#PER_FIELD_REUSE_STRATEGY} instead!    */
-annotation|@
-name|Deprecated
-DECL|class|PerFieldReuseStrategy
-specifier|public
-specifier|static
-class|class
-name|PerFieldReuseStrategy
-extends|extends
 name|ReuseStrategy
+argument_list|()
 block|{
-comment|/** Sole constructor. (For invocation by subclass constructors, typically implicit.)      * @deprecated Don't create instances of this class, use {@link Analyzer#PER_FIELD_REUSE_STRATEGY} */
-annotation|@
-name|Deprecated
-DECL|method|PerFieldReuseStrategy
-specifier|public
-name|PerFieldReuseStrategy
-parameter_list|()
-block|{}
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -823,7 +783,6 @@ literal|"unchecked"
 argument_list|)
 annotation|@
 name|Override
-DECL|method|getReusableComponents
 specifier|public
 name|TokenStreamComponents
 name|getReusableComponents
@@ -878,7 +837,6 @@ literal|"unchecked"
 argument_list|)
 annotation|@
 name|Override
-DECL|method|setReusableComponents
 specifier|public
 name|void
 name|setReusableComponents
@@ -951,6 +909,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+decl_stmt|;
 block|}
 end_class
 end_unit
