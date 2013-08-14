@@ -1615,7 +1615,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|TestPointInfoStream
-specifier|private
 specifier|static
 specifier|final
 class|class
