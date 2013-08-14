@@ -103,6 +103,21 @@ specifier|final
 name|ReuseStrategy
 name|reuseStrategy
 decl_stmt|;
+comment|// non final as it gets nulled if closed; pkg private for access by ReuseStrategy's final helper methods:
+DECL|field|storedValue
+name|CloseableThreadLocal
+argument_list|<
+name|Object
+argument_list|>
+name|storedValue
+init|=
+operator|new
+name|CloseableThreadLocal
+argument_list|<
+name|Object
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|/**    * Create a new Analyzer, reusing the same set of components per-thread    * across calls to {@link #tokenStream(String, Reader)}.     */
 DECL|method|Analyzer
 specifier|public
@@ -111,9 +126,7 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
-operator|new
-name|GlobalReuseStrategy
-argument_list|()
+name|GLOBAL_REUSE_STRATEGY
 argument_list|)
 expr_stmt|;
 block|}
@@ -172,6 +185,8 @@ name|reuseStrategy
 operator|.
 name|getReusableComponents
 argument_list|(
+name|this
+argument_list|,
 name|fieldName
 argument_list|)
 decl_stmt|;
@@ -206,6 +221,8 @@ name|reuseStrategy
 operator|.
 name|setReusableComponents
 argument_list|(
+name|this
+argument_list|,
 name|fieldName
 argument_list|,
 name|components
@@ -254,6 +271,8 @@ name|reuseStrategy
 operator|.
 name|getReusableComponents
 argument_list|(
+name|this
+argument_list|,
 name|fieldName
 argument_list|)
 decl_stmt|;
@@ -324,6 +343,8 @@ name|reuseStrategy
 operator|.
 name|setReusableComponents
 argument_list|(
+name|this
+argument_list|,
 name|fieldName
 argument_list|,
 name|components
@@ -398,6 +419,18 @@ return|return
 literal|1
 return|;
 block|}
+comment|/**    * Returns the used {@link ReuseStrategy}.    */
+DECL|method|getReuseStrategy
+specifier|public
+specifier|final
+name|ReuseStrategy
+name|getReuseStrategy
+parameter_list|()
+block|{
+return|return
+name|reuseStrategy
+return|;
+block|}
 comment|/** Frees persistent resources used by this Analyzer */
 annotation|@
 name|Override
@@ -407,11 +440,23 @@ name|void
 name|close
 parameter_list|()
 block|{
-name|reuseStrategy
+if|if
+condition|(
+name|storedValue
+operator|!=
+literal|null
+condition|)
+block|{
+name|storedValue
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|storedValue
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 comment|/**    * This class encapsulates the outer components of a token stream. It provides    * access to the source ({@link Tokenizer}) and the outer end (sink), an    * instance of {@link TokenFilter} which also serves as the    * {@link TokenStream} returned by    * {@link Analyzer#tokenStream(String, Reader)}.    */
 DECL|class|TokenStreamComponents
@@ -541,48 +586,37 @@ specifier|static
 specifier|abstract
 class|class
 name|ReuseStrategy
-implements|implements
-name|Closeable
 block|{
-DECL|field|storedValue
-specifier|private
-name|CloseableThreadLocal
-argument_list|<
-name|Object
-argument_list|>
-name|storedValue
-init|=
-operator|new
-name|CloseableThreadLocal
-argument_list|<
-name|Object
-argument_list|>
-argument_list|()
-decl_stmt|;
 comment|/** Sole constructor. (For invocation by subclass constructors, typically implicit.) */
 DECL|method|ReuseStrategy
 specifier|public
 name|ReuseStrategy
 parameter_list|()
 block|{}
-comment|/**      * Gets the reusable TokenStreamComponents for the field with the given name      *      * @param fieldName Name of the field whose reusable TokenStreamComponents      *        are to be retrieved      * @return Reusable TokenStreamComponents for the field, or {@code null}      *         if there was no previous components for the field      */
+comment|/**      * Gets the reusable TokenStreamComponents for the field with the given name.      *      * @param analyzer Analyzer from which to get the reused components. Use      *        {@link #getStoredValue(Analyzer)} and {@link #setStoredValue(Analyzer, Object)}      *        to access the data on the Analyzer.      * @param fieldName Name of the field whose reusable TokenStreamComponents      *        are to be retrieved      * @return Reusable TokenStreamComponents for the field, or {@code null}      *         if there was no previous components for the field      */
 DECL|method|getReusableComponents
 specifier|public
 specifier|abstract
 name|TokenStreamComponents
 name|getReusableComponents
 parameter_list|(
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|String
 name|fieldName
 parameter_list|)
 function_decl|;
-comment|/**      * Stores the given TokenStreamComponents as the reusable components for the      * field with the give name      *      * @param fieldName Name of the field whose TokenStreamComponents are being set      * @param components TokenStreamComponents which are to be reused for the field      */
+comment|/**      * Stores the given TokenStreamComponents as the reusable components for the      * field with the give name.      *      * @param fieldName Name of the field whose TokenStreamComponents are being set      * @param components TokenStreamComponents which are to be reused for the field      */
 DECL|method|setReusableComponents
 specifier|public
 specifier|abstract
 name|void
 name|setReusableComponents
 parameter_list|(
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|String
 name|fieldName
 parameter_list|,
@@ -590,31 +624,21 @@ name|TokenStreamComponents
 name|components
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the currently stored value      *      * @return Currently stored value or {@code null} if no value is stored      * @throws AlreadyClosedException if the ReuseStrategy is closed.      */
+comment|/**      * Returns the currently stored value.      *      * @return Currently stored value or {@code null} if no value is stored      * @throws AlreadyClosedException if the Analyzer is closed.      */
 DECL|method|getStoredValue
 specifier|protected
 specifier|final
 name|Object
 name|getStoredValue
-parameter_list|()
-block|{
-try|try
-block|{
-return|return
-name|storedValue
-operator|.
-name|get
-argument_list|()
-return|;
-block|}
-catch|catch
 parameter_list|(
-name|NullPointerException
-name|npe
+name|Analyzer
+name|analyzer
 parameter_list|)
 block|{
 if|if
 condition|(
+name|analyzer
+operator|.
 name|storedValue
 operator|==
 literal|null
@@ -628,28 +652,47 @@ literal|"this Analyzer is closed"
 argument_list|)
 throw|;
 block|}
-else|else
-block|{
-throw|throw
-name|npe
-throw|;
+return|return
+name|analyzer
+operator|.
+name|storedValue
+operator|.
+name|get
+argument_list|()
+return|;
 block|}
-block|}
-block|}
-comment|/**      * Sets the stored value      *      * @param storedValue Value to store      * @throws AlreadyClosedException if the ReuseStrategy is closed.      */
+comment|/**      * Sets the stored value.      *      * @param storedValue Value to store      * @throws AlreadyClosedException if the Analyzer is closed.      */
 DECL|method|setStoredValue
 specifier|protected
 specifier|final
 name|void
 name|setStoredValue
 parameter_list|(
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|Object
 name|storedValue
 parameter_list|)
 block|{
-try|try
+if|if
+condition|(
+name|analyzer
+operator|.
+name|storedValue
+operator|==
+literal|null
+condition|)
 block|{
-name|this
+throw|throw
+operator|new
+name|AlreadyClosedException
+argument_list|(
+literal|"this Analyzer is closed"
+argument_list|)
+throw|;
+block|}
+name|analyzer
 operator|.
 name|storedValue
 operator|.
@@ -659,64 +702,22 @@ name|storedValue
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|NullPointerException
-name|npe
-parameter_list|)
-block|{
-if|if
-condition|(
-name|storedValue
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|AlreadyClosedException
-argument_list|(
-literal|"this Analyzer is closed"
-argument_list|)
-throw|;
 block|}
-else|else
-block|{
-throw|throw
-name|npe
-throw|;
-block|}
-block|}
-block|}
-comment|/**      * Closes the ReuseStrategy, freeing any resources      */
-annotation|@
-name|Override
-DECL|method|close
+comment|/**    * A predefined {@link ReuseStrategy}  that reuses the same components for    * every field.    */
+DECL|field|GLOBAL_REUSE_STRATEGY
 specifier|public
-name|void
-name|close
-parameter_list|()
-block|{
-if|if
-condition|(
-name|storedValue
-operator|!=
-literal|null
-condition|)
-block|{
-name|storedValue
-operator|.
-name|close
+specifier|static
+specifier|final
+name|ReuseStrategy
+name|GLOBAL_REUSE_STRATEGY
+init|=
+operator|new
+name|GlobalReuseStrategy
 argument_list|()
-expr_stmt|;
-name|storedValue
-operator|=
-literal|null
-expr_stmt|;
-block|}
-block|}
-block|}
-comment|/**    * Implementation of {@link ReuseStrategy} that reuses the same components for    * every field.    */
+decl_stmt|;
+comment|/**    * Implementation of {@link ReuseStrategy} that reuses the same components for    * every field.    * @deprecated This implementation class will be hidden in Lucene 5.0.    *   Use {@link Analyzer#GLOBAL_REUSE_STRATEGY} instead!    */
+annotation|@
+name|Deprecated
 DECL|class|GlobalReuseStrategy
 specifier|public
 specifier|final
@@ -726,7 +727,9 @@ name|GlobalReuseStrategy
 extends|extends
 name|ReuseStrategy
 block|{
-comment|/** Creates a new instance, with empty per-thread values */
+comment|/** Sole constructor. (For invocation by subclass constructors, typically implicit.)      * @deprecated Don't create instances of this class, use {@link Analyzer#GLOBAL_REUSE_STRATEGY} */
+annotation|@
+name|Deprecated
 DECL|method|GlobalReuseStrategy
 specifier|public
 name|GlobalReuseStrategy
@@ -739,6 +742,9 @@ specifier|public
 name|TokenStreamComponents
 name|getReusableComponents
 parameter_list|(
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|String
 name|fieldName
 parameter_list|)
@@ -748,7 +754,9 @@ operator|(
 name|TokenStreamComponents
 operator|)
 name|getStoredValue
-argument_list|()
+argument_list|(
+name|analyzer
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -758,6 +766,9 @@ specifier|public
 name|void
 name|setReusableComponents
 parameter_list|(
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|String
 name|fieldName
 parameter_list|,
@@ -767,12 +778,28 @@ parameter_list|)
 block|{
 name|setStoredValue
 argument_list|(
+name|analyzer
+argument_list|,
 name|components
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Implementation of {@link ReuseStrategy} that reuses components per-field by    * maintaining a Map of TokenStreamComponent per field name.    */
+comment|/**    * A predefined {@link ReuseStrategy} that reuses components per-field by    * maintaining a Map of TokenStreamComponent per field name.    */
+DECL|field|PER_FIELD_REUSE_STRATEGY
+specifier|public
+specifier|static
+specifier|final
+name|ReuseStrategy
+name|PER_FIELD_REUSE_STRATEGY
+init|=
+operator|new
+name|PerFieldReuseStrategy
+argument_list|()
+decl_stmt|;
+comment|/**    * Implementation of {@link ReuseStrategy} that reuses components per-field by    * maintaining a Map of TokenStreamComponent per field name.    * @deprecated This implementation class will be hidden in Lucene 5.0.    *   Use {@link Analyzer#PER_FIELD_REUSE_STRATEGY} instead!    */
+annotation|@
+name|Deprecated
 DECL|class|PerFieldReuseStrategy
 specifier|public
 specifier|static
@@ -781,7 +808,9 @@ name|PerFieldReuseStrategy
 extends|extends
 name|ReuseStrategy
 block|{
-comment|/** Creates a new instance, with empty per-thread-per-field values */
+comment|/** Sole constructor. (For invocation by subclass constructors, typically implicit.)      * @deprecated Don't create instances of this class, use {@link Analyzer#PER_FIELD_REUSE_STRATEGY} */
+annotation|@
+name|Deprecated
 DECL|method|PerFieldReuseStrategy
 specifier|public
 name|PerFieldReuseStrategy
@@ -799,6 +828,9 @@ specifier|public
 name|TokenStreamComponents
 name|getReusableComponents
 parameter_list|(
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|String
 name|fieldName
 parameter_list|)
@@ -820,7 +852,9 @@ name|TokenStreamComponents
 argument_list|>
 operator|)
 name|getStoredValue
-argument_list|()
+argument_list|(
+name|analyzer
+argument_list|)
 decl_stmt|;
 return|return
 name|componentsPerField
@@ -849,6 +883,9 @@ specifier|public
 name|void
 name|setReusableComponents
 parameter_list|(
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|String
 name|fieldName
 parameter_list|,
@@ -873,7 +910,9 @@ name|TokenStreamComponents
 argument_list|>
 operator|)
 name|getStoredValue
-argument_list|()
+argument_list|(
+name|analyzer
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -895,6 +934,8 @@ argument_list|()
 expr_stmt|;
 name|setStoredValue
 argument_list|(
+name|analyzer
+argument_list|,
 name|componentsPerField
 argument_list|)
 expr_stmt|;

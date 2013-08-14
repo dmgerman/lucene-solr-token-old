@@ -1768,6 +1768,11 @@ DECL|method|SolrIndexAnalyzer
 name|SolrIndexAnalyzer
 parameter_list|()
 block|{
+name|super
+argument_list|(
+name|PER_FIELD_REUSE_STRATEGY
+argument_list|)
+expr_stmt|;
 name|analyzers
 operator|=
 name|analyzerCache
@@ -1887,6 +1892,10 @@ name|SolrQueryAnalyzer
 extends|extends
 name|SolrIndexAnalyzer
 block|{
+DECL|method|SolrQueryAnalyzer
+name|SolrQueryAnalyzer
+parameter_list|()
+block|{}
 annotation|@
 name|Override
 DECL|method|analyzerCache
