@@ -5140,6 +5140,13 @@ operator|==
 literal|null
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"no updateRequestProcessorChain defined as default, creating implicit default"
+argument_list|)
+expr_stmt|;
 comment|// construct the default chain
 name|UpdateRequestProcessorFactory
 index|[]
