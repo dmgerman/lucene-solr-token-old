@@ -2685,6 +2685,10 @@ operator|>=
 name|current
 operator|.
 name|endOffset
+operator|||
+name|end
+operator|>
+name|contentLength
 condition|)
 block|{
 name|pq
