@@ -67,6 +67,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|OrdTermState
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|TermState
 import|;
 end_import
@@ -92,7 +105,7 @@ specifier|public
 class|class
 name|TempTermState
 extends|extends
-name|TermState
+name|OrdTermState
 block|{
 comment|/** how many docs have this term */
 DECL|field|docFreq
@@ -111,6 +124,12 @@ DECL|field|termBlockOrd
 specifier|public
 name|int
 name|termBlockOrd
+decl_stmt|;
+comment|/** fp into the terms dict primary file (_X.tim) that holds this term */
+DECL|field|blockFilePointer
+specifier|public
+name|long
+name|blockFilePointer
 decl_stmt|;
 comment|/** Sole constructor. (For invocation by subclass     *  constructors, typically implicit.) */
 DECL|method|TempTermState
@@ -152,6 +171,13 @@ name|TempTermState
 operator|)
 name|_other
 decl_stmt|;
+name|super
+operator|.
+name|copyFrom
+argument_list|(
+name|_other
+argument_list|)
+expr_stmt|;
 name|docFreq
 operator|=
 name|other
@@ -169,6 +195,12 @@ operator|=
 name|other
 operator|.
 name|termBlockOrd
+expr_stmt|;
+name|blockFilePointer
+operator|=
+name|other
+operator|.
+name|blockFilePointer
 expr_stmt|;
 block|}
 annotation|@
@@ -191,6 +223,10 @@ operator|+
 literal|" termBlockOrd="
 operator|+
 name|termBlockOrd
+operator|+
+literal|" blockFP="
+operator|+
+name|blockFilePointer
 return|;
 block|}
 block|}

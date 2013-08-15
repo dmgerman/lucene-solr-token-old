@@ -542,13 +542,13 @@ begin_comment
 comment|// javadoc
 end_comment
 begin_comment
-comment|/** A block-based terms index and dictionary that assigns  *  terms to variable length blocks according to how they  *  share prefixes.  The terms index is a prefix trie  *  whose leaves are term blocks.  The advantage of this  *  approach is that seekExact is often able to  *  determine a term cannot exist without doing any IO, and  *  intersection with Automata is very fast.  Note that this  *  terms dictionary has it's own fixed terms index (ie, it  *  does not support a pluggable terms index  *  implementation).  *  *<p><b>NOTE</b>: this terms dictionary does not support  *  index divisor when opening an IndexReader.  Instead, you  *  can change the min/maxItemsPerBlock during indexing.</p>  *  *<p>The data structure used by this implementation is very  *  similar to a burst trie  *  (http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.18.3499),  *  but with added logic to break up too-large blocks of all  *  terms sharing a given prefix into smaller ones.</p>  *  *<p>Use {@link org.apache.lucene.index.CheckIndex} with the<code>-verbose</code>  *  option to see summary statistics on the blocks in the  *  dictionary.  *  *  See {@link TempBlockTermsWriter}.  *  * @lucene.experimental  */
+comment|/** A block-based terms index and dictionary that assigns  *  terms to variable length blocks according to how they  *  share prefixes.  The terms index is a prefix trie  *  whose leaves are term blocks.  The advantage of this  *  approach is that seekExact is often able to  *  determine a term cannot exist without doing any IO, and  *  intersection with Automata is very fast.  Note that this  *  terms dictionary has it's own fixed terms index (ie, it  *  does not support a pluggable terms index  *  implementation).  *  *<p><b>NOTE</b>: this terms dictionary supports  *  min/maxItemsPerBlock during indexing to control how  *  much memory the terms index uses.</p>  *  *<p>The data structure used by this implementation is very  *  similar to a burst trie  *  (http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.18.3499),  *  but with added logic to break up too-large blocks of all  *  terms sharing a given prefix into smaller ones.</p>  *  *<p>Use {@link org.apache.lucene.index.CheckIndex} with the<code>-verbose</code>  *  option to see summary statistics on the blocks in the  *  dictionary.  *  *  See {@link TempBlockTreeTermsWriter}.  *  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|TempBlockTermsReader
+DECL|class|TempBlockTreeTermsReader
 specifier|public
 class|class
-name|TempBlockTermsReader
+name|TempBlockTreeTermsReader
 extends|extends
 name|FieldsProducer
 block|{
@@ -559,7 +559,7 @@ specifier|final
 name|IndexInput
 name|in
 decl_stmt|;
-comment|//private static final boolean DEBUG = TempBlockTermsWriter.DEBUG;
+comment|//private static final boolean DEBUG = TempBlockTreeTermsWriter.DEBUG;
 comment|// Reads the terms dict entries, to gather state to
 comment|// produce DocsEnum on demand
 DECL|field|postingsReader
@@ -612,9 +612,9 @@ name|int
 name|version
 decl_stmt|;
 comment|/** Sole constructor. */
-DECL|method|TempBlockTermsReader
+DECL|method|TempBlockTreeTermsReader
 specifier|public
-name|TempBlockTermsReader
+name|TempBlockTreeTermsReader
 parameter_list|(
 name|Directory
 name|dir
@@ -665,7 +665,7 @@ name|segment
 argument_list|,
 name|segmentSuffix
 argument_list|,
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|TERMS_EXTENSION
 argument_list|)
@@ -706,7 +706,7 @@ name|segment
 argument_list|,
 name|segmentSuffix
 argument_list|,
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|TERMS_INDEX_EXTENSION
 argument_list|)
@@ -1174,15 +1174,15 @@ name|checkHeader
 argument_list|(
 name|input
 argument_list|,
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|TERMS_CODEC_NAME
 argument_list|,
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|TERMS_VERSION_START
 argument_list|,
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|TERMS_VERSION_CURRENT
 argument_list|)
@@ -1191,7 +1191,7 @@ if|if
 condition|(
 name|version
 operator|<
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|TERMS_VERSION_APPEND_ONLY
 condition|)
@@ -1229,15 +1229,15 @@ name|checkHeader
 argument_list|(
 name|input
 argument_list|,
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|TERMS_INDEX_CODEC_NAME
 argument_list|,
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|TERMS_INDEX_VERSION_START
 argument_list|,
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|TERMS_INDEX_VERSION_CURRENT
 argument_list|)
@@ -1246,7 +1246,7 @@ if|if
 condition|(
 name|version
 operator|<
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|TERMS_INDEX_VERSION_APPEND_ONLY
 condition|)
@@ -1282,7 +1282,7 @@ if|if
 condition|(
 name|version
 operator|>=
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|TERMS_INDEX_VERSION_APPEND_ONLY
 condition|)
@@ -2573,7 +2573,7 @@ name|fieldInfo
 operator|=
 name|fieldInfo
 expr_stmt|;
-comment|//DEBUG = TempBlockTermsReader.DEBUG&& fieldInfo.name.equals("id");
+comment|//DEBUG = TempBlockTreeTermsReader.DEBUG&& fieldInfo.name.equals("id");
 name|this
 operator|.
 name|numTerms
@@ -2642,7 +2642,7 @@ operator|.
 name|readVLong
 argument_list|()
 operator|>>>
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAGS_NUM_BITS
 expr_stmt|;
@@ -3474,7 +3474,7 @@ condition|(
 operator|(
 name|code
 operator|&
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAG_IS_FLOOR
 operator|)
@@ -4229,7 +4229,7 @@ name|compiled
 expr_stmt|;
 name|in
 operator|=
-name|TempBlockTermsReader
+name|TempBlockTreeTermsReader
 operator|.
 name|this
 operator|.
@@ -6589,7 +6589,7 @@ name|this
 operator|.
 name|in
 operator|=
-name|TempBlockTermsReader
+name|TempBlockTreeTermsReader
 operator|.
 name|this
 operator|.
@@ -7305,7 +7305,7 @@ name|fpSeek
 init|=
 name|code
 operator|>>>
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAGS_NUM_BITS
 decl_stmt|;
@@ -7329,7 +7329,7 @@ operator|=
 operator|(
 name|code
 operator|&
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAG_HAS_TERMS
 operator|)
@@ -7351,7 +7351,7 @@ operator|=
 operator|(
 name|code
 operator|&
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAG_IS_FLOOR
 operator|)
@@ -9585,7 +9585,7 @@ name|f
 operator|.
 name|fp
 operator|<<
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAGS_NUM_BITS
 operator|)
@@ -9595,7 +9595,7 @@ name|f
 operator|.
 name|hasTerms
 condition|?
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAG_HAS_TERMS
 else|:
@@ -9607,7 +9607,7 @@ name|f
 operator|.
 name|isFloor
 condition|?
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAG_IS_FLOOR
 else|:
@@ -9737,7 +9737,7 @@ name|f
 operator|.
 name|fp
 operator|<<
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAGS_NUM_BITS
 operator|)
@@ -9747,7 +9747,7 @@ name|f
 operator|.
 name|hasTerms
 condition|?
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAG_HAS_TERMS
 else|:
@@ -9759,7 +9759,7 @@ name|f
 operator|.
 name|isFloor
 condition|?
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAG_IS_FLOOR
 else|:
@@ -9980,7 +9980,7 @@ name|f
 operator|.
 name|fp
 operator|<<
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAGS_NUM_BITS
 operator|)
@@ -9990,7 +9990,7 @@ name|f
 operator|.
 name|hasTerms
 condition|?
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAG_HAS_TERMS
 else|:
@@ -10002,7 +10002,7 @@ name|f
 operator|.
 name|isFloor
 condition|?
-name|TempBlockTermsWriter
+name|TempBlockTreeTermsWriter
 operator|.
 name|OUTPUT_FLAG_IS_FLOOR
 else|:
