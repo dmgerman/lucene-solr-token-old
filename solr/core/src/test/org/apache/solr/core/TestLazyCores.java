@@ -473,8 +473,6 @@ name|SolrXMLCoresLocator
 operator|.
 name|NonPersistingLocator
 argument_list|(
-name|solrXml
-argument_list|,
 name|LOTS_SOLR_XML
 argument_list|,
 name|config
