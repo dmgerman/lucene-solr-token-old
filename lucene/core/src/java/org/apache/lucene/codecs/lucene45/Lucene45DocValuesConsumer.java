@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.diskdv
+DECL|package|org.apache.lucene.codecs.lucene45
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|diskdv
+name|lucene45
 package|;
 end_package
 begin_comment
@@ -245,13 +245,13 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|/** writer for {@link DiskDocValuesFormat} */
+comment|/** writer for {@link Lucene45DocValuesFormat} */
 end_comment
 begin_class
-DECL|class|DiskDocValuesConsumer
+DECL|class|Lucene45DocValuesConsumer
 specifier|public
 class|class
-name|DiskDocValuesConsumer
+name|Lucene45DocValuesConsumer
 extends|extends
 name|DocValuesConsumer
 block|{
@@ -344,9 +344,9 @@ specifier|final
 name|int
 name|maxDoc
 decl_stmt|;
-DECL|method|DiskDocValuesConsumer
+DECL|method|Lucene45DocValuesConsumer
 specifier|public
-name|DiskDocValuesConsumer
+name|Lucene45DocValuesConsumer
 parameter_list|(
 name|SegmentWriteState
 name|state
@@ -416,7 +416,7 @@ name|data
 argument_list|,
 name|dataCodec
 argument_list|,
-name|DiskDocValuesFormat
+name|Lucene45DocValuesFormat
 operator|.
 name|VERSION_CURRENT
 argument_list|)
@@ -464,7 +464,7 @@ name|meta
 argument_list|,
 name|metaCodec
 argument_list|,
-name|DiskDocValuesFormat
+name|Lucene45DocValuesFormat
 operator|.
 name|VERSION_CURRENT
 argument_list|)
@@ -849,7 +849,7 @@ name|meta
 operator|.
 name|writeByte
 argument_list|(
-name|DiskDocValuesFormat
+name|Lucene45DocValuesFormat
 operator|.
 name|NUMERIC
 argument_list|)
@@ -1228,7 +1228,7 @@ name|meta
 operator|.
 name|writeByte
 argument_list|(
-name|DiskDocValuesFormat
+name|Lucene45DocValuesFormat
 operator|.
 name|BINARY
 argument_list|)
@@ -1564,7 +1564,7 @@ name|meta
 operator|.
 name|writeByte
 argument_list|(
-name|DiskDocValuesFormat
+name|Lucene45DocValuesFormat
 operator|.
 name|BINARY
 argument_list|)
@@ -1950,7 +1950,7 @@ name|meta
 operator|.
 name|writeByte
 argument_list|(
-name|DiskDocValuesFormat
+name|Lucene45DocValuesFormat
 operator|.
 name|SORTED
 argument_list|)
@@ -2016,7 +2016,7 @@ name|meta
 operator|.
 name|writeByte
 argument_list|(
-name|DiskDocValuesFormat
+name|Lucene45DocValuesFormat
 operator|.
 name|SORTED_SET
 argument_list|)
@@ -2054,7 +2054,7 @@ name|meta
 operator|.
 name|writeByte
 argument_list|(
-name|DiskDocValuesFormat
+name|Lucene45DocValuesFormat
 operator|.
 name|NUMERIC
 argument_list|)

@@ -54,6 +54,9 @@ operator|.
 name|Lucene42DocValuesFormat
 import|;
 end_import
+begin_comment
+comment|// nocommit
+end_comment
 begin_import
 import|import
 name|org
@@ -69,6 +72,9 @@ operator|.
 name|Lucene42NormsFormat
 import|;
 end_import
+begin_comment
+comment|// nocommit
+end_comment
 begin_import
 import|import
 name|org
