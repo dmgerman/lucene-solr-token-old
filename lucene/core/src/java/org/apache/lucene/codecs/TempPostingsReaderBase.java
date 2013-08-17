@@ -110,21 +110,6 @@ operator|.
 name|Bits
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|temp
-operator|.
-name|TempTermState
-import|;
-end_import
 begin_comment
 comment|/** The core terms dictionaries (BlockTermsReader,  *  BlockTreeTermsReader) interact with a single instance  *  of this class to manage creation of {@link DocsEnum} and  *  {@link DocsAndPositionsEnum} instances.  It provides an  *  IndexInput (termsIn) where this class may read any  *  previously stored data that it had written in its  *  corresponding {@link PostingsWriterBase} at indexing  *  time.   *  @lucene.experimental */
 end_comment
@@ -169,7 +154,7 @@ comment|/** Return a newly created empty TermState */
 DECL|method|newTermState
 specifier|public
 specifier|abstract
-name|TempTermState
+name|BlockTermState
 name|newTermState
 parameter_list|()
 throws|throws
@@ -192,7 +177,7 @@ parameter_list|,
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|TempTermState
+name|BlockTermState
 name|state
 parameter_list|)
 throws|throws
@@ -208,7 +193,7 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|TempTermState
+name|BlockTermState
 name|state
 parameter_list|,
 name|Bits
@@ -233,7 +218,7 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|TempTermState
+name|BlockTermState
 name|state
 parameter_list|,
 name|Bits
