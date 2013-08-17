@@ -3009,6 +3009,8 @@ name|path
 operator|.
 name|split
 argument_list|(
+literal|"\\"
+operator|+
 name|File
 operator|.
 name|separator
