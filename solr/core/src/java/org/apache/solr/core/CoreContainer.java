@@ -2333,7 +2333,7 @@ argument_list|()
 argument_list|,
 name|dcore
 operator|.
-name|getCoreProperties
+name|getSubstitutableProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3032,7 +3032,7 @@ argument_list|()
 argument_list|,
 name|cd
 operator|.
-name|getCoreProperties
+name|getSubstitutableProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3129,7 +3129,7 @@ argument_list|()
 argument_list|,
 name|cd
 operator|.
-name|getCoreProperties
+name|getSubstitutableProperties
 argument_list|()
 argument_list|,
 name|zkSys
