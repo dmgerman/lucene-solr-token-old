@@ -3881,10 +3881,11 @@ decl_stmt|;
 name|assertTrue
 argument_list|(
 name|bits
-operator|instanceof
-name|Bits
 operator|.
-name|MatchAllBits
+name|get
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Sorted type: can be retrieved via getTerms(), getTermsIndex(), getDocTermOrds()
@@ -4091,10 +4092,11 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|bits
-operator|instanceof
-name|Bits
 operator|.
-name|MatchAllBits
+name|get
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Numeric type: can be retrieved via getInts() and so on
@@ -4233,10 +4235,11 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 name|bits
-operator|instanceof
-name|Bits
 operator|.
-name|MatchAllBits
+name|get
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// SortedSet type: can be retrieved via getDocTermOrds()

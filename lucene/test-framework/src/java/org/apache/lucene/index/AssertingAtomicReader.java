@@ -2239,7 +2239,7 @@ expr_stmt|;
 assert|assert
 name|valueCount
 operator|>=
-literal|1
+literal|0
 operator|&&
 name|valueCount
 operator|<=
@@ -2279,7 +2279,8 @@ decl_stmt|;
 assert|assert
 name|ord
 operator|>=
-literal|0
+operator|-
+literal|1
 operator|&&
 name|ord
 operator|<
