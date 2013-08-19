@@ -124,6 +124,18 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -448,6 +460,9 @@ operator|.
 name|PackedInts
 import|;
 end_import
+begin_comment
+comment|/** reader for {@link Lucene45DocValuesFormat} */
+end_comment
 begin_class
 DECL|class|Lucene45DocValuesProducer
 specifier|public
@@ -455,6 +470,8 @@ class|class
 name|Lucene45DocValuesProducer
 extends|extends
 name|DocValuesProducer
+implements|implements
+name|Closeable
 block|{
 DECL|field|numerics
 specifier|private
@@ -553,6 +570,7 @@ name|MonotonicBlockPackedReader
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/** expert: instantiates a new reader */
 DECL|method|Lucene45DocValuesProducer
 specifier|protected
 name|Lucene45DocValuesProducer
@@ -2222,6 +2240,7 @@ block|}
 block|}
 return|;
 block|}
+comment|/** returns an address instance for variable-length binary values.    *  @lucene.internal */
 DECL|method|getAddressInstance
 specifier|protected
 name|MonotonicBlockPackedReader
@@ -2498,6 +2517,7 @@ block|}
 block|}
 return|;
 block|}
+comment|/** returns an address instance for prefix-compressed binary values.     * @lucene.internal */
 DECL|method|getIntervalInstance
 specifier|protected
 name|MonotonicBlockPackedReader
@@ -2930,6 +2950,7 @@ block|}
 block|}
 return|;
 block|}
+comment|/** returns an address instance for sortedset ordinal lists    * @lucene.internal */
 DECL|method|getOrdIndexInstance
 specifier|protected
 name|MonotonicBlockPackedReader
@@ -3321,7 +3342,7 @@ block|}
 return|;
 block|}
 DECL|method|getMissingBits
-specifier|public
+specifier|private
 name|Bits
 name|getMissingBits
 parameter_list|(
@@ -3563,36 +3584,46 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|/** metadata entry for a numeric docvalues field */
 DECL|class|NumericEntry
 specifier|protected
 specifier|static
 class|class
 name|NumericEntry
 block|{
+DECL|method|NumericEntry
+specifier|private
+name|NumericEntry
+parameter_list|()
+block|{}
+comment|/** offset to the bitset representing docsWithField, or -1 if no documents have missing values */
 DECL|field|missingOffset
 name|long
 name|missingOffset
 decl_stmt|;
+comment|/** offset to the actual numeric values */
 DECL|field|offset
 specifier|public
 name|long
 name|offset
 decl_stmt|;
 DECL|field|format
-specifier|public
 name|int
 name|format
 decl_stmt|;
+comment|/** packed ints version used to encode these numerics */
 DECL|field|packedIntsVersion
 specifier|public
 name|int
 name|packedIntsVersion
 decl_stmt|;
+comment|/** count of values written */
 DECL|field|count
 specifier|public
 name|long
 name|count
 decl_stmt|;
+comment|/** packed ints blocksize */
 DECL|field|blockSize
 specifier|public
 name|int
@@ -3612,16 +3643,24 @@ name|table
 index|[]
 decl_stmt|;
 block|}
+comment|/** metadata entry for a binary docvalues field */
 DECL|class|BinaryEntry
 specifier|protected
 specifier|static
 class|class
 name|BinaryEntry
 block|{
+DECL|method|BinaryEntry
+specifier|private
+name|BinaryEntry
+parameter_list|()
+block|{}
+comment|/** offset to the bitset representing docsWithField, or -1 if no documents have missing values */
 DECL|field|missingOffset
 name|long
 name|missingOffset
 decl_stmt|;
+comment|/** offset to the actual binary values */
 DECL|field|offset
 name|long
 name|offset
@@ -3630,6 +3669,7 @@ DECL|field|format
 name|int
 name|format
 decl_stmt|;
+comment|/** count of values written */
 DECL|field|count
 specifier|public
 name|long
@@ -3643,21 +3683,25 @@ DECL|field|maxLength
 name|int
 name|maxLength
 decl_stmt|;
+comment|/** offset to the addressing data that maps a value to its slice of the byte[] */
 DECL|field|addressesOffset
 specifier|public
 name|long
 name|addressesOffset
 decl_stmt|;
+comment|/** interval of shared prefix chunks (when using prefix-compressed binary) */
 DECL|field|addressInterval
 specifier|public
 name|long
 name|addressInterval
 decl_stmt|;
+comment|/** packed ints version used to encode addressing information */
 DECL|field|packedIntsVersion
 specifier|public
 name|int
 name|packedIntsVersion
 decl_stmt|;
+comment|/** packed ints blocksize */
 DECL|field|blockSize
 specifier|public
 name|int
