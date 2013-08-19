@@ -3593,6 +3593,13 @@ name|state
 operator|.
 name|termBlockOrd
 decl_stmt|;
+name|boolean
+name|absolute
+init|=
+name|metaDataUpto
+operator|==
+literal|0
+decl_stmt|;
 comment|// We must set/incr state.termCount because
 comment|// postings impl can look at this
 name|state
@@ -3601,23 +3608,6 @@ name|termBlockOrd
 operator|=
 name|metaDataUpto
 expr_stmt|;
-if|if
-condition|(
-name|metaDataUpto
-operator|==
-literal|0
-condition|)
-block|{
-name|Arrays
-operator|.
-name|fill
-argument_list|(
-name|longs
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
 comment|// TODO: better API would be "jump straight to term=N"???
 while|while
 condition|(
@@ -3694,7 +3684,7 @@ name|longs
 index|[
 name|i
 index|]
-operator|+=
+operator|=
 name|bytesReader
 operator|.
 name|readVLong
@@ -3712,6 +3702,8 @@ argument_list|,
 name|fieldInfo
 argument_list|,
 name|state
+argument_list|,
+name|absolute
 argument_list|)
 expr_stmt|;
 name|metaDataUpto
@@ -3721,6 +3713,10 @@ name|state
 operator|.
 name|termBlockOrd
 operator|++
+expr_stmt|;
+name|absolute
+operator|=
+literal|false
 expr_stmt|;
 block|}
 block|}

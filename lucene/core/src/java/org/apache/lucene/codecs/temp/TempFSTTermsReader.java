@@ -1863,6 +1863,8 @@ argument_list|,
 name|fieldInfo
 argument_list|,
 name|state
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|decoded
@@ -2509,6 +2511,8 @@ argument_list|,
 name|fieldInfo
 argument_list|,
 name|state
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|decoded
