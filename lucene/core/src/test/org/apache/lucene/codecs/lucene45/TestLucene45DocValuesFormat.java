@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.diskdv
+DECL|package|org.apache.lucene.codecs.lucene45
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|diskdv
+name|lucene45
 package|;
 end_package
 begin_comment
@@ -27,21 +27,6 @@ operator|.
 name|codecs
 operator|.
 name|Codec
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|cheapbastard
-operator|.
-name|CheapBastardDocValuesFormat
 import|;
 end_import
 begin_import
@@ -71,13 +56,13 @@ name|_TestUtil
 import|;
 end_import
 begin_comment
-comment|/**  * Tests CheapBastardDocValuesFormat  */
+comment|/**  * Tests Lucene45DocValuesFormat  */
 end_comment
 begin_class
-DECL|class|TestCheapBastardDocValuesFormat
+DECL|class|TestLucene45DocValuesFormat
 specifier|public
 class|class
-name|TestCheapBastardDocValuesFormat
+name|TestLucene45DocValuesFormat
 extends|extends
 name|BaseCompressingDocValuesFormatTestCase
 block|{
@@ -92,7 +77,7 @@ operator|.
 name|alwaysDocValuesFormat
 argument_list|(
 operator|new
-name|CheapBastardDocValuesFormat
+name|Lucene45DocValuesFormat
 argument_list|()
 argument_list|)
 decl_stmt|;
