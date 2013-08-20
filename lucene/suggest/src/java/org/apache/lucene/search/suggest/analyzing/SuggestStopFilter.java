@@ -233,11 +233,6 @@ specifier|private
 name|State
 name|endState
 decl_stmt|;
-DECL|field|ended
-specifier|private
-name|boolean
-name|ended
-decl_stmt|;
 comment|/** Sole constructor. */
 DECL|method|SuggestStopFilter
 specifier|public
@@ -277,10 +272,6 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-name|ended
-operator|=
-literal|false
-expr_stmt|;
 name|endState
 operator|=
 literal|null
@@ -298,8 +289,9 @@ name|IOException
 block|{
 if|if
 condition|(
-operator|!
-name|ended
+name|endState
+operator|==
+literal|null
 condition|)
 block|{
 name|super
@@ -313,19 +305,11 @@ block|{
 comment|// NOTE: we already called .end() from our .next() when
 comment|// the stream was complete, so we do not call
 comment|// super.end() here
-if|if
-condition|(
-name|endState
-operator|!=
-literal|null
-condition|)
-block|{
 name|restoreState
 argument_list|(
 name|endState
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 annotation|@
@@ -340,7 +324,9 @@ name|IOException
 block|{
 if|if
 condition|(
-name|ended
+name|endState
+operator|!=
+literal|null
 condition|)
 block|{
 return|return
@@ -429,14 +415,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|clearAttributes
+argument_list|()
+expr_stmt|;
 name|input
 operator|.
 name|end
 argument_list|()
 expr_stmt|;
-name|ended
+name|endState
 operator|=
-literal|true
+name|captureState
+argument_list|()
 expr_stmt|;
 name|int
 name|finalEndOffset
@@ -468,11 +458,6 @@ else|else
 block|{
 comment|// No token separator after final token that
 comment|// looked like a stop-word; don't filter it:
-name|endState
-operator|=
-name|captureState
-argument_list|()
-expr_stmt|;
 name|restoreState
 argument_list|(
 name|sav
