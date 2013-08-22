@@ -593,9 +593,11 @@ literal|"MockSep"
 block|,
 literal|"MockRandom"
 block|,
-literal|"Lucene40"
+literal|"TempSep"
 block|,
-literal|"Lucene41"
+literal|"TempFixedIntBlock"
+block|,
+literal|"TempVariableIntBlock"
 block|}
 argument_list|)
 DECL|class|TestBackwardsCompatibility
