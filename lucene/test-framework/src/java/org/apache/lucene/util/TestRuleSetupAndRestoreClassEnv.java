@@ -1107,7 +1107,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"TempRandom"
+literal|"MockRandom"
 operator|.
 name|equals
 argument_list|(

@@ -1325,6 +1325,8 @@ operator|=
 operator|new
 name|PulsingPostingsWriter
 argument_list|(
+name|state
+argument_list|,
 name|totTFCutoff
 argument_list|,
 name|postingsWriter
@@ -1335,12 +1337,23 @@ specifier|final
 name|FieldsConsumer
 name|fields
 decl_stmt|;
-if|if
-condition|(
+specifier|final
+name|int
+name|t1
+init|=
 name|random
 operator|.
-name|nextBoolean
-argument_list|()
+name|nextInt
+argument_list|(
+literal|2
+argument_list|)
+decl_stmt|;
+comment|/*     final int t1 = random.nextInt(4);     if (t1 == 0) {       boolean success = false;       try {         fields = new TempFSTTermsWriter(state, postingsWriter);         success = true;       } finally {         if (!success) {           postingsWriter.close();         }       }     } else if (t1 == 1) {       boolean success = false;       try {         fields = new TempFSTOrdTermsWriter(state, postingsWriter);         success = true;       } finally {         if (!success) {           postingsWriter.close();         }       }     } else if (t1 == 2) {     */
+if|if
+condition|(
+name|t1
+operator|==
+literal|0
 condition|)
 block|{
 comment|// Use BlockTree terms dict
@@ -2138,6 +2151,8 @@ operator|=
 operator|new
 name|PulsingPostingsReader
 argument_list|(
+name|state
+argument_list|,
 name|postingsReader
 argument_list|)
 expr_stmt|;
@@ -2146,12 +2161,23 @@ specifier|final
 name|FieldsProducer
 name|fields
 decl_stmt|;
-if|if
-condition|(
+specifier|final
+name|int
+name|t1
+init|=
 name|random
 operator|.
-name|nextBoolean
-argument_list|()
+name|nextInt
+argument_list|(
+literal|2
+argument_list|)
+decl_stmt|;
+comment|/*     final int t1 = random.nextInt(4);     if (t1 == 0) {       boolean success = false;       try {         fields = new TempFSTTermsReader(state, postingsReader);         success = true;       } finally {         if (!success) {           postingsReader.close();         }       }     } else if (t1 == 1) {       boolean success = false;       try {         fields = new TempFSTOrdTermsReader(state, postingsReader);         success = true;       } finally {         if (!success) {           postingsReader.close();         }       }     } else if (t1 == 2) {     */
+if|if
+condition|(
+name|t1
+operator|==
+literal|0
 condition|)
 block|{
 comment|// Use BlockTree terms dict
