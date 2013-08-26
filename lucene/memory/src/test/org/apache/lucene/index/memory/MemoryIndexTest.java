@@ -1388,8 +1388,9 @@ block|{
 name|AtomicReader
 name|competitor
 init|=
-operator|new
 name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|other
 argument_list|)

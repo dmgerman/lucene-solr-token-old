@@ -2860,11 +2860,12 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|SlowCompositeReaderWrapper
+name|AtomicReader
 name|slow
 init|=
-operator|new
 name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|ir
 argument_list|)

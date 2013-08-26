@@ -448,8 +448,9 @@ expr_stmt|;
 name|IndexReader
 name|reader
 init|=
-operator|new
 name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|w
 operator|.
