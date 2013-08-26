@@ -1389,7 +1389,7 @@ name|sendError
 argument_list|(
 literal|503
 argument_list|,
-literal|"Server is shutting down"
+literal|"Server is shutting down or failed to initialize"
 argument_list|)
 expr_stmt|;
 return|return;
