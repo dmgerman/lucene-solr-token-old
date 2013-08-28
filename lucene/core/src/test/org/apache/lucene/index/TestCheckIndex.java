@@ -813,7 +813,6 @@ throws|throws
 name|IOException
 block|{
 comment|// common-build.xml sets lucene.version
-specifier|final
 name|String
 name|version
 init|=
@@ -829,6 +828,18 @@ argument_list|(
 literal|"null version"
 argument_list|,
 name|version
+argument_list|)
+expr_stmt|;
+comment|// remove anything after a "-" from the version string:
+name|version
+operator|=
+name|version
+operator|.
+name|replaceAll
+argument_list|(
+literal|"-.*$"
+argument_list|,
+literal|""
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -900,15 +911,6 @@ literal|"Invalid version: "
 operator|+
 name|version
 argument_list|,
-name|version
-operator|.
-name|equals
-argument_list|(
-name|constantVersion
-operator|+
-literal|"-SNAPSHOT"
-argument_list|)
-operator|||
 name|version
 operator|.
 name|equals
