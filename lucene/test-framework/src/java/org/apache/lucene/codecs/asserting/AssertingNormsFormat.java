@@ -78,7 +78,7 @@ name|asserting
 operator|.
 name|AssertingDocValuesFormat
 operator|.
-name|AssertingDocValuesConsumer
+name|AssertingNormsConsumer
 import|;
 end_import
 begin_import
@@ -190,7 +190,7 @@ literal|null
 assert|;
 return|return
 operator|new
-name|AssertingDocValuesConsumer
+name|AssertingNormsConsumer
 argument_list|(
 name|consumer
 argument_list|,

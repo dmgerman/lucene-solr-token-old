@@ -486,8 +486,9 @@ comment|// TODO: generalize
 name|AtomicReader
 name|slow
 init|=
-operator|new
 name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|reader
 argument_list|)

@@ -202,9 +202,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene42
+name|lucene45
 operator|.
-name|Lucene42Codec
+name|Lucene45Codec
 import|;
 end_import
 begin_import
@@ -761,13 +761,11 @@ name|Analyzer
 name|queryAnalyzer
 decl_stmt|;
 DECL|field|indexAnalyzer
-specifier|private
 specifier|final
 name|Analyzer
 name|indexAnalyzer
 decl_stmt|;
 DECL|field|matchVersion
-specifier|private
 specifier|final
 name|Version
 name|matchVersion
@@ -779,7 +777,6 @@ name|File
 name|indexPath
 decl_stmt|;
 DECL|field|minPrefixChars
-specifier|private
 specifier|final
 name|int
 name|minPrefixChars
@@ -1033,7 +1030,7 @@ operator|.
 name|setCodec
 argument_list|(
 operator|new
-name|Lucene42Codec
+name|Lucene45Codec
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1175,7 +1172,11 @@ name|gramAnalyzer
 init|=
 operator|new
 name|AnalyzerWrapper
-argument_list|()
+argument_list|(
+name|Analyzer
+operator|.
+name|PER_FIELD_REUSE_STRATEGY
+argument_list|)
 block|{
 annotation|@
 name|Override
@@ -1504,8 +1505,9 @@ block|}
 comment|//System.out.println("initial indexing time: " + ((System.nanoTime()-t0)/1000000) + " msec");
 name|r
 operator|=
-operator|new
 name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|DirectoryReader
 operator|.

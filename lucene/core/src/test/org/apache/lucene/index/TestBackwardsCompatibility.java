@@ -597,6 +597,8 @@ literal|"Lucene40"
 block|,
 literal|"Lucene41"
 block|,
+literal|"Lucene42"
+block|,
 literal|"TempSep"
 block|,
 literal|"TempFixedIntBlock"

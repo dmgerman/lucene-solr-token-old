@@ -986,7 +986,14 @@ specifier|final
 name|void
 name|end
 parameter_list|()
+throws|throws
+name|IOException
 block|{
+name|super
+operator|.
+name|end
+argument_list|()
+expr_stmt|;
 assert|assert
 name|bufferStart
 operator|<=
@@ -1032,6 +1039,7 @@ argument_list|(
 name|endOffset
 argument_list|)
 expr_stmt|;
+comment|// set final offset
 name|offsetAtt
 operator|.
 name|setOffset

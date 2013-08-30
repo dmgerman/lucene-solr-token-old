@@ -1667,8 +1667,9 @@ name|DEFAULT
 operator|.
 name|getTermsIndex
 argument_list|(
-operator|new
 name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
 argument_list|(
 name|r
 argument_list|)

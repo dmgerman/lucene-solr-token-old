@@ -248,7 +248,7 @@ name|separator
 operator|+
 literal|"collection1"
 argument_list|,
-literal|"solrconfig-mergepolicy.xml"
+literal|"solrconfig-tieredmergepolicy.xml"
 argument_list|,
 literal|null
 argument_list|)

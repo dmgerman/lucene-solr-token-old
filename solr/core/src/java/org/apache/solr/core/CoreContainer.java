@@ -192,21 +192,6 @@ name|apache
 operator|.
 name|solr
 operator|.
-name|logging
-operator|.
-name|jul
-operator|.
-name|JulWatcher
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
 name|schema
 operator|.
 name|IndexSchema
@@ -993,7 +978,7 @@ argument_list|)
 expr_stmt|;
 name|logging
 operator|=
-name|JulWatcher
+name|LogWatcher
 operator|.
 name|newRegisteredLogWatcher
 argument_list|(
@@ -2333,7 +2318,7 @@ argument_list|()
 argument_list|,
 name|dcore
 operator|.
-name|getCoreProperties
+name|getSubstitutableProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3032,7 +3017,7 @@ argument_list|()
 argument_list|,
 name|cd
 operator|.
-name|getCoreProperties
+name|getSubstitutableProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3129,7 +3114,7 @@ argument_list|()
 argument_list|,
 name|cd
 operator|.
-name|getCoreProperties
+name|getSubstitutableProperties
 argument_list|()
 argument_list|,
 name|zkSys
