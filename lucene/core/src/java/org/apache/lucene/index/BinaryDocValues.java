@@ -57,22 +57,7 @@ name|BytesRef
 name|result
 parameter_list|)
 function_decl|;
-comment|/**    * Indicates the value was missing for the document.    */
-DECL|field|MISSING
-specifier|public
-specifier|static
-specifier|final
-name|byte
-index|[]
-name|MISSING
-init|=
-operator|new
-name|byte
-index|[
-literal|0
-index|]
-decl_stmt|;
-comment|/** An empty BinaryDocValues which returns {@link #MISSING} for every document */
+comment|/** An empty BinaryDocValues which returns {@link BytesRef#EMPTY_BYTES} for every document */
 DECL|field|EMPTY
 specifier|public
 specifier|static
@@ -101,7 +86,9 @@ name|result
 operator|.
 name|bytes
 operator|=
-name|MISSING
+name|BytesRef
+operator|.
+name|EMPTY_BYTES
 expr_stmt|;
 name|result
 operator|.
