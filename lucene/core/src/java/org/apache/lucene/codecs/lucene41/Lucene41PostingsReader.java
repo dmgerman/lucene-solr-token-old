@@ -1104,7 +1104,6 @@ operator|.
 name|hasPayloads
 argument_list|()
 decl_stmt|;
-comment|// nocommit: use old version
 if|if
 condition|(
 name|absolute
