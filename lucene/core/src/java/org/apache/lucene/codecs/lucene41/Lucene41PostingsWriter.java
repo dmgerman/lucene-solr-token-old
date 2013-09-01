@@ -1096,7 +1096,6 @@ name|BLOCK_SIZE
 argument_list|)
 expr_stmt|;
 block|}
-comment|// nocommit better name?
 annotation|@
 name|Override
 DECL|method|setField
@@ -2402,7 +2401,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|// nocommit explain about the "don't care" values
 annotation|@
 name|Override
 DECL|method|encodeTerm
@@ -2448,8 +2446,6 @@ name|newTermState
 argument_list|()
 expr_stmt|;
 block|}
-comment|//System.out.println("PW: state=" + state);
-comment|//System.out.println("     last=" + lastState);
 if|if
 condition|(
 name|VERSION_CURRENT

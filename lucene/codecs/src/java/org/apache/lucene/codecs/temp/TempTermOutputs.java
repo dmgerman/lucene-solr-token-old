@@ -72,32 +72,6 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|IndexInput
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|IndexOutput
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
 name|DataInput
 import|;
 end_import
@@ -689,11 +663,13 @@ annotation|@
 name|Override
 comment|//
 comment|// The return value will be the smaller one, when these two are
-comment|// 'comparable', i.e. every value in long[] fits the same ordering.
+comment|// 'comparable', i.e.
+comment|// 1. every value in t1 is not larger than in t2, or
+comment|// 2. every value in t1 is not smaller than t2.
 comment|//
 comment|// NOTE:
 comment|// Only long[] part is 'shared' and pushed towards root.
-comment|// byte[] and term stats will be on deeper arcs.
+comment|// byte[] and term stats will be kept on deeper arcs.
 comment|//
 DECL|method|common
 specifier|public
@@ -707,27 +683,7 @@ name|TempMetaData
 name|t2
 parameter_list|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-name|System
-operator|.
-name|out
-operator|.
-name|print
-argument_list|(
-literal|"common("
-operator|+
-name|t1
-operator|+
-literal|", "
-operator|+
-name|t2
-operator|+
-literal|") = "
-argument_list|)
-expr_stmt|;
+comment|//if (DEBUG) System.out.print("common("+t1+", "+t2+") = ");
 if|if
 condition|(
 name|t1
@@ -739,21 +695,7 @@ operator|==
 name|NO_OUTPUT
 condition|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"ret:"
-operator|+
-name|NO_OUTPUT
-argument_list|)
-expr_stmt|;
+comment|//if (DEBUG) System.out.println("ret:"+NO_OUTPUT);
 return|return
 name|NO_OUTPUT
 return|;
@@ -965,21 +907,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|DEBUG
-condition|)
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"ret:"
-operator|+
-name|ret
-argument_list|)
-expr_stmt|;
+comment|//if (DEBUG) System.out.println("ret:"+ret);
 return|return
 name|ret
 return|;
@@ -998,27 +926,7 @@ name|TempMetaData
 name|t2
 parameter_list|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-name|System
-operator|.
-name|out
-operator|.
-name|print
-argument_list|(
-literal|"subtract("
-operator|+
-name|t1
-operator|+
-literal|", "
-operator|+
-name|t2
-operator|+
-literal|") = "
-argument_list|)
-expr_stmt|;
+comment|//if (DEBUG) System.out.print("subtract("+t1+", "+t2+") = ");
 if|if
 condition|(
 name|t2
@@ -1026,21 +934,7 @@ operator|==
 name|NO_OUTPUT
 condition|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"ret:"
-operator|+
-name|t1
-argument_list|)
-expr_stmt|;
+comment|//if (DEBUG) System.out.println("ret:"+t1);
 return|return
 name|t1
 return|;
@@ -1167,27 +1061,14 @@ name|totalTermFreq
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|DEBUG
-condition|)
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"ret:"
-operator|+
-name|ret
-argument_list|)
-expr_stmt|;
+comment|//if (DEBUG) System.out.println("ret:"+ret);
 return|return
 name|ret
 return|;
 block|}
-comment|// nocommit: we might refactor out an 'addSelf' later,
-comment|// which improves 5~7% for fuzzy queries
+comment|// TODO: if we refactor a 'addSelf(TempMetaDat other)',
+comment|// we can gain about 5~7% for fuzzy queries, however on the other hand
+comment|// we seem to put much stress on FST Outputs decoding?
 annotation|@
 name|Override
 DECL|method|add
@@ -1202,27 +1083,7 @@ name|TempMetaData
 name|t2
 parameter_list|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-name|System
-operator|.
-name|out
-operator|.
-name|print
-argument_list|(
-literal|"add("
-operator|+
-name|t1
-operator|+
-literal|", "
-operator|+
-name|t2
-operator|+
-literal|") = "
-argument_list|)
-expr_stmt|;
+comment|//if (DEBUG) System.out.print("add("+t1+", "+t2+") = ");
 if|if
 condition|(
 name|t1
@@ -1230,21 +1091,7 @@ operator|==
 name|NO_OUTPUT
 condition|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"ret:"
-operator|+
-name|t2
-argument_list|)
-expr_stmt|;
+comment|//if (DEBUG) System.out.println("ret:"+t2);
 return|return
 name|t2
 return|;
@@ -1257,21 +1104,7 @@ operator|==
 name|NO_OUTPUT
 condition|)
 block|{
-if|if
-condition|(
-name|DEBUG
-condition|)
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"ret:"
-operator|+
-name|t1
-argument_list|)
-expr_stmt|;
+comment|//if (DEBUG) System.out.println("ret:"+t1);
 return|return
 name|t1
 return|;
@@ -1396,21 +1229,7 @@ name|totalTermFreq
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|DEBUG
-condition|)
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"ret:"
-operator|+
-name|ret
-argument_list|)
-expr_stmt|;
+comment|//if (DEBUG) System.out.println("ret:"+ret);
 return|return
 name|ret
 return|;

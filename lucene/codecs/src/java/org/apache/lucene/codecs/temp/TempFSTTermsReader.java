@@ -555,7 +555,7 @@ specifier|final
 name|IndexInput
 name|in
 decl_stmt|;
-comment|//static boolean DEBUG = false;
+comment|//static boolean TEST = false;
 DECL|method|TempFSTTermsReader
 specifier|public
 name|TempFSTTermsReader
@@ -1694,12 +1694,6 @@ name|flags
 argument_list|)
 return|;
 block|}
-comment|// nocommit: do we need this? for SegmentTermsEnum, we can maintain
-comment|// a stack to record how current term is constructed on FST, (and ord on each alphabet)
-comment|// so that during seek we don't have to start from the first arc.
-comment|// however, we'll be implementing a new fstEnum instead of wrapping current one.
-comment|//
-comment|// nocommit: this can also be achieved by making use of Util.getByOutput()
 annotation|@
 name|Override
 DECL|method|seekExact
@@ -2274,7 +2268,7 @@ block|{
 name|super
 argument_list|()
 expr_stmt|;
-comment|//if (DEBUG) System.out.println("Enum init, startTerm=" + startTerm);
+comment|//if (TEST) System.out.println("Enum init, startTerm=" + startTerm);
 name|this
 operator|.
 name|fst
@@ -2306,7 +2300,6 @@ name|compiled
 operator|.
 name|runAutomaton
 expr_stmt|;
-comment|/*         PrintWriter pw1 = new PrintWriter(new File("../temp/fst.txt"));         Util.toDot(dict,pw1, false, false);         pw1.close();         PrintWriter pw2 = new PrintWriter(new File("../temp/fsa.txt"));         pw2.write(compiled.toDot());         pw2.close();         */
 name|this
 operator|.
 name|level
@@ -2713,7 +2706,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//if (DEBUG) System.out.println("Enum next()");
+comment|//if (TEST) System.out.println("Enum next()");
 if|if
 condition|(
 name|pending
@@ -2859,7 +2852,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//if (DEBUG) System.out.println("Enum doSeekCeil()");
+comment|//if (TEST) System.out.println("Enum doSeekCeil()");
 name|Frame
 name|frame
 init|=
@@ -3051,11 +3044,6 @@ return|return
 literal|null
 return|;
 block|}
-comment|// nocommit: might be great if we can set flag BIT_LAST_ARC
-comment|// nocommit: actually we can use first arc as candidate...
-comment|// it always has NO_OUTPUT as output, and BIT_LAST_ARC set.
-comment|// but we'll have problem if later FST supports output sharing
-comment|// on first arc!
 comment|/** Virtual frame, never pop */
 DECL|method|loadVirtualFrame
 name|Frame
@@ -3137,7 +3125,6 @@ return|return
 name|frame
 return|;
 block|}
-comment|// nocommit: expected to use readFirstTargetArc here?
 comment|/** Load frame for target arc(node) on fst */
 DECL|method|loadExpandFrame
 name|Frame
@@ -3205,7 +3192,7 @@ operator|.
 name|label
 argument_list|)
 expr_stmt|;
-comment|//if (DEBUG) System.out.println(" loadExpand frame="+frame);
+comment|//if (TEST) System.out.println(" loadExpand frame="+frame);
 if|if
 condition|(
 name|frame
@@ -3229,10 +3216,6 @@ return|return
 name|frame
 return|;
 block|}
-comment|// nocommit: actually, here we're looking for a valid state for fsa,
-comment|//           so if numArcs is large in fst, we should try a reverse lookup?
-comment|//           but we don have methods like advance(label) in fst, even
-comment|//           binary search hurts.
 comment|/** Load frame for sibling arc(node) on fst */
 DECL|method|loadNextFrame
 name|Frame
@@ -3318,7 +3301,7 @@ block|{
 break|break;
 block|}
 block|}
-comment|//if (DEBUG) System.out.println(" loadNext frame="+frame);
+comment|//if (TEST) System.out.println(" loadNext frame="+frame);
 if|if
 condition|(
 name|frame
@@ -3415,7 +3398,7 @@ operator|.
 name|label
 argument_list|)
 expr_stmt|;
-comment|//if (DEBUG) System.out.println(" loadCeil frame="+frame);
+comment|//if (TEST) System.out.println(" loadCeil frame="+frame);
 if|if
 condition|(
 name|frame
@@ -3553,7 +3536,7 @@ expr_stmt|;
 name|level
 operator|++
 expr_stmt|;
-comment|//if (DEBUG) System.out.println("  term=" + term + " level=" + level);
+comment|//if (TEST) System.out.println("  term=" + term + " level=" + level);
 block|}
 DECL|method|popFrame
 name|Frame
@@ -3578,7 +3561,7 @@ name|level
 else|:
 name|metaUpto
 expr_stmt|;
-comment|//if (DEBUG) System.out.println("  term=" + term + " level=" + level);
+comment|//if (TEST) System.out.println("  term=" + term + " level=" + level);
 return|return
 name|stack
 index|[
