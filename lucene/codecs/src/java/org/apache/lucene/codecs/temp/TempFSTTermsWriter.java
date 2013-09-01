@@ -334,7 +334,7 @@ name|CodecUtil
 import|;
 end_import
 begin_comment
-comment|/** FST based term dict, all the metadata held  *  as output of FST */
+comment|/**   * FST based term dict, the FST maps each term and its metadata.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|TempFSTTermsWriter
