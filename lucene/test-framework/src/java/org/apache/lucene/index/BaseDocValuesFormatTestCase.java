@@ -5681,9 +5681,7 @@ decl_stmt|;
 if|if
 condition|(
 name|defaultCodecSupportsDocsWithField
-argument_list|(
-literal|"field"
-argument_list|)
+argument_list|()
 condition|)
 block|{
 name|assertEquals
@@ -6126,9 +6124,7 @@ expr_stmt|;
 if|if
 condition|(
 name|defaultCodecSupportsDocsWithField
-argument_list|(
-literal|"dv"
-argument_list|)
+argument_list|()
 condition|)
 block|{
 name|assertEquals
@@ -8933,19 +8929,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-specifier|final
-name|boolean
-name|defaultCodecSupportsDocsWithField
-init|=
-name|defaultCodecSupportsDocsWithField
-argument_list|(
-literal|"field"
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 operator|!
 name|defaultCodecSupportsDocsWithField
+argument_list|()
 condition|)
 block|{
 comment|// if the codec doesnt support missing, we expect missing to be mapped to byte[]
@@ -9197,6 +9185,7 @@ if|if
 condition|(
 operator|!
 name|defaultCodecSupportsDocsWithField
+argument_list|()
 condition|)
 block|{
 name|BytesRef
@@ -9231,6 +9220,7 @@ if|if
 condition|(
 operator|!
 name|defaultCodecSupportsDocsWithField
+argument_list|()
 condition|)
 block|{
 comment|// if the codec doesnt support missing, we expect missing to be mapped to byte[]
@@ -10114,11 +10104,7 @@ argument_list|(
 literal|"Codec does not support getDocsWithField"
 argument_list|,
 name|defaultCodecSupportsDocsWithField
-argument_list|(
-literal|"indexed"
-argument_list|,
-literal|"dv"
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Directory
@@ -17823,9 +17809,7 @@ argument_list|(
 literal|"Codec does not support getDocsWithField"
 argument_list|,
 name|defaultCodecSupportsDocsWithField
-argument_list|(
-literal|"dv1"
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Directory
@@ -18083,9 +18067,7 @@ argument_list|(
 literal|"Codec does not support getDocsWithField"
 argument_list|,
 name|defaultCodecSupportsDocsWithField
-argument_list|(
-literal|"dv1"
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Directory
@@ -18348,9 +18330,7 @@ argument_list|(
 literal|"Codec does not support getDocsWithField"
 argument_list|,
 name|defaultCodecSupportsDocsWithField
-argument_list|(
-literal|"dv1"
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Directory
@@ -18680,9 +18660,7 @@ argument_list|(
 literal|"Codec does not support getDocsWithField"
 argument_list|,
 name|defaultCodecSupportsDocsWithField
-argument_list|(
-literal|"dv1"
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Directory
@@ -18961,9 +18939,7 @@ argument_list|(
 literal|"Codec does not support getDocsWithField"
 argument_list|,
 name|defaultCodecSupportsDocsWithField
-argument_list|(
-literal|"dv1"
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Directory
@@ -19247,9 +19223,7 @@ argument_list|(
 literal|"Codec does not support getDocsWithField"
 argument_list|,
 name|defaultCodecSupportsDocsWithField
-argument_list|(
-literal|"dv1"
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Directory
@@ -21358,15 +21332,7 @@ argument_list|(
 literal|"Codec does not support getDocsWithField"
 argument_list|,
 name|defaultCodecSupportsDocsWithField
-argument_list|(
-literal|"dvBin"
-argument_list|,
-literal|"dvSorted"
-argument_list|,
-literal|"dvNum"
-argument_list|,
-literal|"dvSortedSet"
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assumeTrue
