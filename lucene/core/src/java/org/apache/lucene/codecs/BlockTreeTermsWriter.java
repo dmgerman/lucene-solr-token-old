@@ -436,7 +436,7 @@ specifier|final
 name|int
 name|TERMS_VERSION_CURRENT
 init|=
-name|TERMS_VERSION_APPEND_ONLY
+name|TERMS_VERSION_META_ARRAY
 decl_stmt|;
 comment|/** Extension of terms index file */
 DECL|field|TERMS_INDEX_EXTENSION
@@ -493,7 +493,7 @@ specifier|final
 name|int
 name|TERMS_INDEX_VERSION_CURRENT
 init|=
-name|TERMS_INDEX_VERSION_APPEND_ONLY
+name|TERMS_INDEX_VERSION_META_ARRAY
 decl_stmt|;
 DECL|field|out
 specifier|private
