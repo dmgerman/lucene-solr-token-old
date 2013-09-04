@@ -1190,7 +1190,7 @@ name|FST
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 name|dict
 decl_stmt|;
@@ -1263,7 +1263,7 @@ name|FST
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 argument_list|(
 name|in
@@ -1479,7 +1479,7 @@ comment|/* Current term stats + undecoded metadata (long[]& byte[]) */
 DECL|field|meta
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 name|meta
 decl_stmt|;
 DECL|field|bytesReader
@@ -1746,7 +1746,7 @@ name|BytesRefFSTEnum
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 name|fstEnum
 decl_stmt|;
@@ -1778,7 +1778,7 @@ name|BytesRefFSTEnum
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 argument_list|(
 name|dict
@@ -1882,7 +1882,7 @@ name|InputOutput
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 name|pair
 parameter_list|)
@@ -2162,7 +2162,7 @@ name|FST
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 name|fst
 decl_stmt|;
@@ -2179,7 +2179,7 @@ name|Outputs
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 name|fstOutputs
 decl_stmt|;
@@ -2203,7 +2203,7 @@ name|Arc
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 name|fstArc
 decl_stmt|;
@@ -2227,7 +2227,7 @@ name|Arc
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 argument_list|()
 expr_stmt|;
@@ -2533,7 +2533,7 @@ name|Arc
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 name|last
 decl_stmt|,
@@ -3346,7 +3346,7 @@ name|Arc
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 name|arc
 init|=

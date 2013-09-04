@@ -792,7 +792,7 @@ name|FST
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 name|dict
 decl_stmt|;
@@ -822,7 +822,7 @@ name|FST
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 name|fst
 parameter_list|)
@@ -885,7 +885,7 @@ name|Builder
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 name|builder
 decl_stmt|;
@@ -993,7 +993,7 @@ name|Builder
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 argument_list|(
 name|FST
@@ -1075,13 +1075,13 @@ decl_stmt|;
 specifier|final
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 name|meta
 init|=
 operator|new
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|()
 decl_stmt|;
 name|meta
@@ -1246,7 +1246,7 @@ name|FST
 argument_list|<
 name|TempTermOutputs
 operator|.
-name|TempMetaData
+name|TempTermData
 argument_list|>
 name|fst
 init|=
