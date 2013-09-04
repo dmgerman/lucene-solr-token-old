@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.temp
+DECL|package|org.apache.lucene.codecs.memory
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|temp
+name|memory
 package|;
 end_package
 begin_comment
@@ -546,10 +546,10 @@ begin_comment
 comment|/**   * FST-based terms dictionary reader.  *  * The FST index maps each term and its ord, and during seek   * the ord is used fetch metadata from a single block.  * The term dictionary is fully memeory resident.  *  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|TempFSTOrdTermsReader
+DECL|class|FSTOrdTermsReader
 specifier|public
 class|class
-name|TempFSTOrdTermsReader
+name|FSTOrdTermsReader
 extends|extends
 name|FieldsProducer
 block|{
@@ -559,7 +559,7 @@ specifier|final
 name|int
 name|INTERVAL
 init|=
-name|TempFSTOrdTermsWriter
+name|FSTOrdTermsWriter
 operator|.
 name|SKIP_INTERVAL
 decl_stmt|;
@@ -600,9 +600,9 @@ init|=
 literal|null
 decl_stmt|;
 comment|//static final boolean TEST = false;
-DECL|method|TempFSTOrdTermsReader
+DECL|method|FSTOrdTermsReader
 specifier|public
-name|TempFSTOrdTermsReader
+name|FSTOrdTermsReader
 parameter_list|(
 name|SegmentReadState
 name|state
@@ -631,7 +631,7 @@ name|state
 operator|.
 name|segmentSuffix
 argument_list|,
-name|TempFSTOrdTermsWriter
+name|FSTOrdTermsWriter
 operator|.
 name|TERMS_INDEX_EXTENSION
 argument_list|)
@@ -654,7 +654,7 @@ name|state
 operator|.
 name|segmentSuffix
 argument_list|,
-name|TempFSTOrdTermsWriter
+name|FSTOrdTermsWriter
 operator|.
 name|TERMS_BLOCK_EXTENSION
 argument_list|)
@@ -926,15 +926,15 @@ name|checkHeader
 argument_list|(
 name|in
 argument_list|,
-name|TempFSTOrdTermsWriter
+name|FSTOrdTermsWriter
 operator|.
 name|TERMS_CODEC_NAME
 argument_list|,
-name|TempFSTOrdTermsWriter
+name|FSTOrdTermsWriter
 operator|.
 name|TERMS_VERSION_START
 argument_list|,
-name|TempFSTOrdTermsWriter
+name|FSTOrdTermsWriter
 operator|.
 name|TERMS_VERSION_CURRENT
 argument_list|)

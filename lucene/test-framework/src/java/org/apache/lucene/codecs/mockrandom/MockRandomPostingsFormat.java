@@ -466,9 +466,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|temp
+name|memory
 operator|.
-name|TempFSTTermsWriter
+name|FSTTermsWriter
 import|;
 end_import
 begin_import
@@ -481,9 +481,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|temp
+name|memory
 operator|.
-name|TempFSTTermsReader
+name|FSTTermsReader
 import|;
 end_import
 begin_import
@@ -496,9 +496,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|temp
+name|memory
 operator|.
-name|TempFSTOrdTermsWriter
+name|FSTOrdTermsWriter
 import|;
 end_import
 begin_import
@@ -511,9 +511,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|temp
+name|memory
 operator|.
-name|TempFSTOrdTermsReader
+name|FSTOrdTermsReader
 import|;
 end_import
 begin_import
@@ -1425,7 +1425,7 @@ block|{
 name|fields
 operator|=
 operator|new
-name|TempFSTTermsWriter
+name|FSTTermsWriter
 argument_list|(
 name|state
 argument_list|,
@@ -1471,7 +1471,7 @@ block|{
 name|fields
 operator|=
 operator|new
-name|TempFSTOrdTermsWriter
+name|FSTOrdTermsWriter
 argument_list|(
 name|state
 argument_list|,
@@ -2340,7 +2340,7 @@ block|{
 name|fields
 operator|=
 operator|new
-name|TempFSTTermsReader
+name|FSTTermsReader
 argument_list|(
 name|state
 argument_list|,
@@ -2386,7 +2386,7 @@ block|{
 name|fields
 operator|=
 operator|new
-name|TempFSTOrdTermsReader
+name|FSTOrdTermsReader
 argument_list|(
 name|state
 argument_list|,
