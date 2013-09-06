@@ -674,7 +674,7 @@ name|Filter
 name|parentsFilter
 init|=
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -1132,7 +1132,7 @@ name|Filter
 name|parentsFilter
 init|=
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -1899,7 +1899,7 @@ name|Filter
 name|parentsFilter
 init|=
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -2098,7 +2098,7 @@ argument_list|(
 name|childJoinQuery
 argument_list|,
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -2934,7 +2934,7 @@ literal|true
 argument_list|)
 argument_list|,
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -4501,7 +4501,7 @@ name|Filter
 name|parentsFilter
 init|=
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -6612,7 +6612,7 @@ name|nextBoolean
 argument_list|()
 condition|?
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 name|f
 argument_list|)
@@ -6750,7 +6750,7 @@ name|nextBoolean
 argument_list|()
 condition|?
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 name|f
 argument_list|)
@@ -7724,7 +7724,7 @@ name|Filter
 name|parentsFilter
 init|=
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -8389,7 +8389,7 @@ name|Filter
 name|parentFilter
 init|=
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -8713,7 +8713,7 @@ name|Filter
 name|parentFilter
 init|=
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -8961,7 +8961,7 @@ name|Filter
 name|parentsFilter
 init|=
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -9801,7 +9801,7 @@ name|Filter
 name|parentsFilter
 init|=
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -10322,7 +10322,7 @@ name|Filter
 name|parentsFilter
 init|=
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
@@ -10843,7 +10843,7 @@ name|Filter
 name|parentsFilter
 init|=
 operator|new
-name|CachingWrapperFilter
+name|FixedBitSetCachingWrapperFilter
 argument_list|(
 operator|new
 name|QueryWrapperFilter
