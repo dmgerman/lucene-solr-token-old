@@ -3094,7 +3094,7 @@ specifier|final
 name|BlockTermState
 name|termState
 decl_stmt|;
-comment|// metadata buffer, holding monotonical values
+comment|// metadata buffer, holding monotonic values
 DECL|field|longs
 specifier|public
 name|long
@@ -10831,7 +10831,7 @@ specifier|final
 name|BlockTermState
 name|state
 decl_stmt|;
-comment|// metadata buffer, holding monotonical values
+comment|// metadata buffer, holding monotonic values
 DECL|field|longs
 specifier|public
 name|long
