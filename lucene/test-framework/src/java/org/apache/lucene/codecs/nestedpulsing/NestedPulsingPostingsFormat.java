@@ -296,6 +296,8 @@ operator|=
 operator|new
 name|PulsingPostingsWriter
 argument_list|(
+name|state
+argument_list|,
 literal|2
 argument_list|,
 name|docsWriter
@@ -306,6 +308,8 @@ operator|=
 operator|new
 name|PulsingPostingsWriter
 argument_list|(
+name|state
+argument_list|,
 literal|1
 argument_list|,
 name|pulsingWriterInner
@@ -426,6 +430,8 @@ operator|=
 operator|new
 name|PulsingPostingsReader
 argument_list|(
+name|state
+argument_list|,
 name|docsReader
 argument_list|)
 expr_stmt|;
@@ -434,6 +440,8 @@ operator|=
 operator|new
 name|PulsingPostingsReader
 argument_list|(
+name|state
+argument_list|,
 name|pulsingReaderInner
 argument_list|)
 expr_stmt|;
