@@ -50,6 +50,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|AtomicReaderContext
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|DirectoryReader
 import|;
 end_import
@@ -4540,6 +4553,12 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+specifier|final
+name|SolrCore
+name|core
+init|=
+name|this
+decl_stmt|;
 name|newReaderCreator
 operator|=
 operator|new
@@ -4549,6 +4568,7 @@ name|DirectoryReader
 argument_list|>
 argument_list|()
 block|{
+comment|// this is used during a core reload
 annotation|@
 name|Override
 specifier|public
@@ -4558,16 +4578,43 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-return|return
-name|DirectoryReader
+if|if
+condition|(
+name|getSolrConfig
+argument_list|()
 operator|.
-name|open
+name|nrtMode
+condition|)
+block|{
+comment|// if in NRT mode, need to open from the previous writer
+return|return
+name|indexReaderFactory
+operator|.
+name|newReader
 argument_list|(
 name|iw
 argument_list|,
-literal|true
+name|core
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+comment|// if not NRT, need to create a new reader from the directory
+return|return
+name|indexReaderFactory
+operator|.
+name|newReader
+argument_list|(
+name|iw
+operator|.
+name|getDirectory
+argument_list|()
+argument_list|,
+name|core
+argument_list|)
+return|;
+block|}
 block|}
 block|}
 expr_stmt|;
@@ -6783,7 +6830,7 @@ name|nrt
 init|=
 name|solrConfig
 operator|.
-name|reopenReaders
+name|nrtMode
 operator|&&
 name|updateHandlerReopens
 decl_stmt|;
@@ -6869,10 +6916,6 @@ name|newestSearcher
 operator|!=
 literal|null
 operator|&&
-name|solrConfig
-operator|.
-name|reopenReaders
-operator|&&
 operator|(
 name|nrt
 operator|||
@@ -6924,8 +6967,13 @@ condition|(
 name|writer
 operator|!=
 literal|null
+operator|&&
+name|solrConfig
+operator|.
+name|nrtMode
 condition|)
 block|{
+comment|// if in NRT mode, open from the writer
 name|newReader
 operator|=
 name|DirectoryReader
@@ -6946,6 +6994,7 @@ block|}
 else|else
 block|{
 comment|// verbose("start reopen without writer, reader=", currentReader);
+comment|// if not in NRT mode, just re-open the reader
 name|newReader
 operator|=
 name|DirectoryReader
@@ -7109,7 +7158,7 @@ if|if
 condition|(
 name|solrConfig
 operator|.
-name|reopenReaders
+name|nrtMode
 condition|)
 block|{
 name|RefCounted

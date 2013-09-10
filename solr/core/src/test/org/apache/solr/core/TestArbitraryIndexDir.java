@@ -334,7 +334,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-literal|"solr.tests.reopenReaders"
+literal|"solr.tests.nrtMode"
 argument_list|,
 literal|"false"
 argument_list|)
@@ -381,7 +381,7 @@ name|System
 operator|.
 name|clearProperty
 argument_list|(
-literal|"solr.tests.reopenReaders"
+literal|"solr.tests.nrtMode"
 argument_list|)
 expr_stmt|;
 if|if
