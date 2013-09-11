@@ -2059,6 +2059,8 @@ argument_list|,
 name|SHARD_ID_PROP
 argument_list|,
 name|REPLICATION_FACTOR
+argument_list|,
+name|CREATE_NODE_SET
 argument_list|)
 expr_stmt|;
 name|ZkNodeProps
