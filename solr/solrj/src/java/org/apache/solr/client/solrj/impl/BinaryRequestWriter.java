@@ -191,7 +191,7 @@ name|isNull
 argument_list|(
 name|updateRequest
 operator|.
-name|getDeleteById
+name|getDeleteByIdMap
 argument_list|()
 argument_list|)
 operator|&&
