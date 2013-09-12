@@ -1710,7 +1710,7 @@ specifier|static
 class|class
 name|MockFSDirectory
 extends|extends
-name|Directory
+name|BaseDirectory
 block|{
 DECL|field|allIndexInputs
 name|List

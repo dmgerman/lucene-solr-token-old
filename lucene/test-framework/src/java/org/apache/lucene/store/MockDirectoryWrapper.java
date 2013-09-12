@@ -411,6 +411,11 @@ name|Throttling
 operator|.
 name|SOMETIMES
 decl_stmt|;
+DECL|field|lockFactory
+specifier|protected
+name|LockFactory
+name|lockFactory
+decl_stmt|;
 DECL|field|inputCloneCount
 specifier|final
 name|AtomicInteger
@@ -621,18 +626,6 @@ name|init
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getDelegate
-specifier|public
-name|Directory
-name|getDelegate
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|delegate
-return|;
-block|}
 DECL|method|getInputCloneCount
 specifier|public
 name|int
@@ -710,7 +703,7 @@ operator|=
 name|throttling
 expr_stmt|;
 block|}
-comment|/**    * Returns true if {@link #getDelegate() delegate} must sync its files.    * Currently, only {@link NRTCachingDirectory} requires sync'ing its files    * because otherwise they are cached in an internal {@link RAMDirectory}. If    * other directories require that too, they should be added to this method.    */
+comment|/**    * Returns true if {@link #in} must sync its files.    * Currently, only {@link NRTCachingDirectory} requires sync'ing its files    * because otherwise they are cached in an internal {@link RAMDirectory}. If    * other directories require that too, they should be added to this method.    */
 DECL|method|mustSync
 specifier|private
 name|boolean
@@ -720,27 +713,20 @@ block|{
 name|Directory
 name|delegate
 init|=
-name|this
-operator|.
-name|delegate
+name|in
 decl_stmt|;
 while|while
 condition|(
-literal|true
-condition|)
-block|{
-if|if
-condition|(
 name|delegate
 operator|instanceof
-name|RateLimitedDirectoryWrapper
+name|FilterDirectory
 condition|)
 block|{
 name|delegate
 operator|=
 operator|(
 operator|(
-name|RateLimitedDirectoryWrapper
+name|FilterDirectory
 operator|)
 name|delegate
 operator|)
@@ -748,32 +734,6 @@ operator|.
 name|getDelegate
 argument_list|()
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|delegate
-operator|instanceof
-name|TrackingDirectoryWrapper
-condition|)
-block|{
-name|delegate
-operator|=
-operator|(
-operator|(
-name|TrackingDirectoryWrapper
-operator|)
-name|delegate
-operator|)
-operator|.
-name|getDelegate
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-break|break;
-block|}
 block|}
 return|return
 name|delegate
@@ -845,7 +805,7 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-name|delegate
+name|in
 operator|.
 name|sync
 argument_list|(
@@ -877,26 +837,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|toString
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-comment|// NOTE: do not maybeYield here, since it consumes
-comment|// randomness and can thus (unexpectedly during
-comment|// debugging) change the behavior of a seed
-comment|// maybeYield();
-return|return
-literal|"MockDirWrapper("
-operator|+
-name|delegate
-operator|+
-literal|")"
-return|;
-block|}
 DECL|method|sizeInBytes
 specifier|public
 specifier|synchronized
@@ -909,7 +849,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|delegate
+name|in
 operator|instanceof
 name|RAMDirectory
 condition|)
@@ -918,7 +858,7 @@ operator|(
 operator|(
 name|RAMDirectory
 operator|)
-name|delegate
+name|in
 operator|)
 operator|.
 name|sizeInBytes
@@ -937,14 +877,14 @@ control|(
 name|String
 name|file
 range|:
-name|delegate
+name|in
 operator|.
 name|listAll
 argument_list|()
 control|)
 name|size
 operator|+=
-name|delegate
+name|in
 operator|.
 name|fileLength
 argument_list|(
@@ -1155,7 +1095,7 @@ decl_stmt|;
 name|IndexOutput
 name|out
 init|=
-name|delegate
+name|in
 operator|.
 name|createOutput
 argument_list|(
@@ -1253,7 +1193,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|delegate
+name|in
 operator|.
 name|fileExists
 argument_list|(
@@ -1268,7 +1208,7 @@ specifier|final
 name|IndexOutput
 name|tempOut
 init|=
-name|delegate
+name|in
 operator|.
 name|createOutput
 argument_list|(
@@ -1285,7 +1225,7 @@ decl_stmt|;
 name|IndexInput
 name|ii
 init|=
-name|delegate
+name|in
 operator|.
 name|openInput
 argument_list|(
@@ -1335,7 +1275,7 @@ specifier|final
 name|IndexOutput
 name|out
 init|=
-name|delegate
+name|in
 operator|.
 name|createOutput
 argument_list|(
@@ -1351,7 +1291,7 @@ argument_list|)
 decl_stmt|;
 name|ii
 operator|=
-name|delegate
+name|in
 operator|.
 name|openInput
 argument_list|(
@@ -1426,7 +1366,7 @@ expr_stmt|;
 name|IndexOutput
 name|out
 init|=
-name|delegate
+name|in
 operator|.
 name|createOutput
 argument_list|(
@@ -2108,7 +2048,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|delegate
+name|in
 operator|.
 name|deleteFile
 argument_list|(
@@ -2302,7 +2242,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|delegate
+name|in
 operator|instanceof
 name|RAMDirectory
 condition|)
@@ -2313,7 +2253,7 @@ init|=
 operator|(
 name|RAMDirectory
 operator|)
-name|delegate
+name|in
 decl_stmt|;
 name|RAMFile
 name|file
@@ -2411,7 +2351,7 @@ comment|//System.out.println(Thread.currentThread().getName() + ": MDW: create "
 name|IndexOutput
 name|delegateOutput
 init|=
-name|delegate
+name|in
 operator|.
 name|createOutput
 argument_list|(
@@ -2520,7 +2460,7 @@ operator|)
 operator|&&
 operator|!
 operator|(
-name|delegate
+name|in
 operator|instanceof
 name|RateLimitedDirectoryWrapper
 operator|)
@@ -2735,7 +2675,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|delegate
+name|in
 operator|.
 name|fileExists
 argument_list|(
@@ -2756,7 +2696,7 @@ name|name
 operator|+
 literal|" in dir="
 operator|+
-name|delegate
+name|in
 argument_list|)
 else|:
 operator|new
@@ -2766,7 +2706,7 @@ name|name
 operator|+
 literal|" in dir="
 operator|+
-name|delegate
+name|in
 argument_list|)
 throw|;
 block|}
@@ -2812,7 +2752,7 @@ block|}
 name|IndexInput
 name|delegateInput
 init|=
-name|delegate
+name|in
 operator|.
 name|openInput
 argument_list|(
@@ -2966,7 +2906,7 @@ if|if
 condition|(
 operator|!
 operator|(
-name|delegate
+name|in
 operator|instanceof
 name|RAMDirectory
 operator|)
@@ -2990,7 +2930,7 @@ operator|(
 operator|(
 name|RAMDirectory
 operator|)
-name|delegate
+name|in
 operator|)
 operator|.
 name|fileMap
@@ -3026,7 +2966,7 @@ if|if
 condition|(
 operator|!
 operator|(
-name|delegate
+name|in
 operator|instanceof
 name|RAMDirectory
 operator|)
@@ -3050,7 +2990,7 @@ operator|(
 operator|(
 name|RAMDirectory
 operator|)
-name|delegate
+name|in
 operator|)
 operator|.
 name|fileMap
@@ -3398,7 +3338,7 @@ expr_stmt|;
 operator|new
 name|IndexWriter
 argument_list|(
-name|delegate
+name|in
 argument_list|,
 name|iwc
 argument_list|)
@@ -3410,7 +3350,7 @@ name|String
 index|[]
 name|endFiles
 init|=
-name|delegate
+name|in
 operator|.
 name|listAll
 argument_list|()
@@ -3576,7 +3516,7 @@ name|sis
 operator|.
 name|read
 argument_list|(
-name|delegate
+name|in
 argument_list|,
 name|file
 argument_list|)
@@ -3608,7 +3548,7 @@ name|sis
 operator|.
 name|files
 argument_list|(
-name|delegate
+name|in
 argument_list|,
 literal|false
 argument_list|)
@@ -3999,7 +3939,7 @@ assert|;
 block|}
 block|}
 block|}
-name|delegate
+name|in
 operator|.
 name|close
 argument_list|()
@@ -4303,7 +4243,7 @@ name|maybeYield
 argument_list|()
 expr_stmt|;
 return|return
-name|delegate
+name|in
 operator|.
 name|listAll
 argument_list|()
@@ -4327,7 +4267,7 @@ name|maybeYield
 argument_list|()
 expr_stmt|;
 return|return
-name|delegate
+name|in
 operator|.
 name|fileExists
 argument_list|(
@@ -4353,7 +4293,7 @@ name|maybeYield
 argument_list|()
 expr_stmt|;
 return|return
-name|delegate
+name|in
 operator|.
 name|fileLength
 argument_list|(
@@ -4431,7 +4371,7 @@ argument_list|()
 expr_stmt|;
 comment|// sneaky: we must pass the original this way to the dir, because
 comment|// some impls (e.g. FSDir) do instanceof here.
-name|delegate
+name|in
 operator|.
 name|setLockFactory
 argument_list|(
@@ -4476,7 +4416,7 @@ block|}
 else|else
 block|{
 return|return
-name|delegate
+name|in
 operator|.
 name|getLockFactory
 argument_list|()
@@ -4496,7 +4436,7 @@ name|maybeYield
 argument_list|()
 expr_stmt|;
 return|return
-name|delegate
+name|in
 operator|.
 name|getLockID
 argument_list|()
@@ -4529,7 +4469,7 @@ name|maybeYield
 argument_list|()
 expr_stmt|;
 comment|// randomize the IOContext here?
-name|delegate
+name|in
 operator|.
 name|copy
 argument_list|(
@@ -4566,7 +4506,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|delegate
+name|in
 operator|.
 name|fileExists
 argument_list|(
@@ -4636,7 +4576,7 @@ specifier|final
 name|IndexInputSlicer
 name|delegateHandle
 init|=
-name|delegate
+name|in
 operator|.
 name|createSlicer
 argument_list|(

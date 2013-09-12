@@ -98,20 +98,6 @@ name|Directory
 implements|implements
 name|Closeable
 block|{
-DECL|field|isOpen
-specifier|volatile
-specifier|protected
-name|boolean
-name|isOpen
-init|=
-literal|true
-decl_stmt|;
-comment|/** Holds the LockFactory instance (implements locking for    * this Directory instance). */
-DECL|field|lockFactory
-specifier|protected
-name|LockFactory
-name|lockFactory
-decl_stmt|;
 comment|/**    * Returns an array of strings, one for each file in the directory.    *     * @throws NoSuchDirectoryException if the directory is not prepared for any    *         write operations (such as {@link #createOutput(String, IOContext)}).    * @throws IOException in case of other IO errors    */
 DECL|method|listAll
 specifier|public
@@ -213,25 +199,18 @@ function_decl|;
 comment|/** Construct a {@link Lock}.    * @param name the name of the lock file    */
 DECL|method|makeLock
 specifier|public
+specifier|abstract
 name|Lock
 name|makeLock
 parameter_list|(
 name|String
 name|name
 parameter_list|)
-block|{
-return|return
-name|lockFactory
-operator|.
-name|makeLock
-argument_list|(
-name|name
-argument_list|)
-return|;
-block|}
+function_decl|;
 comment|/**    * Attempt to clear (forcefully unlock and remove) the    * specified lock.  Only call this at a time when you are    * certain this lock is no longer in use.    * @param name name of the lock to be cleared.    */
 DECL|method|clearLock
 specifier|public
+specifier|abstract
 name|void
 name|clearLock
 parameter_list|(
@@ -240,23 +219,7 @@ name|name
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-if|if
-condition|(
-name|lockFactory
-operator|!=
-literal|null
-condition|)
-block|{
-name|lockFactory
-operator|.
-name|clearLock
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+function_decl|;
 comment|/** Closes the store. */
 annotation|@
 name|Override
@@ -272,6 +235,7 @@ function_decl|;
 comment|/**    * Set the LockFactory that this Directory instance should    * use for its locking implementation.  Each * instance of    * LockFactory should only be used for one directory (ie,    * do not share a single instance across multiple    * Directories).    *    * @param lockFactory instance of {@link LockFactory}.    */
 DECL|method|setLockFactory
 specifier|public
+specifier|abstract
 name|void
 name|setLockFactory
 parameter_list|(
@@ -280,42 +244,15 @@ name|lockFactory
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-assert|assert
-name|lockFactory
-operator|!=
-literal|null
-assert|;
-name|this
-operator|.
-name|lockFactory
-operator|=
-name|lockFactory
-expr_stmt|;
-name|lockFactory
-operator|.
-name|setLockPrefix
-argument_list|(
-name|this
-operator|.
-name|getLockID
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+function_decl|;
 comment|/**    * Get the LockFactory that this Directory instance is    * using for its locking implementation.  Note that this    * may be null for Directory implementations that provide    * their own locking implementation.    */
 DECL|method|getLockFactory
 specifier|public
+specifier|abstract
 name|LockFactory
 name|getLockFactory
 parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|lockFactory
-return|;
-block|}
+function_decl|;
 comment|/**    * Return a string identifier that uniquely differentiates    * this Directory instance from other Directory instances.    * This ID should be the same if two Directory instances    * (even in different JVMs and/or on different machines)    * are considered "the same index".  This is how locking    * "scopes" to the right index.    */
 DECL|method|getLockID
 specifier|public
@@ -585,26 +522,12 @@ block|}
 comment|/**    * @throws AlreadyClosedException if this Directory is closed    */
 DECL|method|ensureOpen
 specifier|protected
-specifier|final
 name|void
 name|ensureOpen
 parameter_list|()
 throws|throws
 name|AlreadyClosedException
-block|{
-if|if
-condition|(
-operator|!
-name|isOpen
-condition|)
-throw|throw
-operator|new
-name|AlreadyClosedException
-argument_list|(
-literal|"this Directory is closed"
-argument_list|)
-throw|;
-block|}
+block|{}
 comment|/**    * Allows to create one or more sliced {@link IndexInput} instances from a single     * file handle. Some {@link Directory} implementations may be able to efficiently map slices of a file    * into memory when only certain parts of a file are required.       * @lucene.internal    * @lucene.experimental    */
 DECL|class|IndexInputSlicer
 specifier|public
