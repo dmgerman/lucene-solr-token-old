@@ -183,7 +183,7 @@ name|Logger
 import|;
 end_import
 begin_comment
-comment|/**  * An implementation of Carrot2's {@link ITokenizerFactory} based on Lucene's  * Smart Chinese tokenizer. If Smart Chinese tokenizer is not available in  * classpath at runtime, the default Carrot2's tokenizer is used. Should the  * Lucene APIs need to change, the changes can be made in this class.  */
+comment|/**  * An implementation of Carrot2's {@link ITokenizerFactory} based on Lucene's  * Smart Chinese tokenizer. If Smart Chinese tokenizer is not available in  * classpath at runtime, the default Carrot2's tokenizer is used. Should the  * Lucene APIs need to change, the changes can be made in this class.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|LuceneCarrot2TokenizerFactory

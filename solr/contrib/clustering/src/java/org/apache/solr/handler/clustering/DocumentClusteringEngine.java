@@ -60,7 +60,7 @@ name|DocSet
 import|;
 end_import
 begin_comment
-comment|/**  * Experimental.  Subject to change before the next release.  *  **/
+comment|/**  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|DocumentClusteringEngine

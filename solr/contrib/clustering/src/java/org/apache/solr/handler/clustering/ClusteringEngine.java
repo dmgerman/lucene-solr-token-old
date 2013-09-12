@@ -45,7 +45,7 @@ name|SolrCore
 import|;
 end_import
 begin_comment
-comment|/**  *  *  **/
+comment|/**  * A base class for {@link SearchClusteringEngine} and {@link DocumentClusteringEngine}.  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|ClusteringEngine
@@ -53,11 +53,6 @@ specifier|public
 class|class
 name|ClusteringEngine
 block|{
-DECL|field|name
-specifier|private
-name|String
-name|name
-decl_stmt|;
 DECL|field|ENGINE_NAME
 specifier|public
 specifier|static
@@ -75,6 +70,11 @@ name|String
 name|DEFAULT_ENGINE_NAME
 init|=
 literal|"default"
+decl_stmt|;
+DECL|field|name
+specifier|private
+name|String
+name|name
 decl_stmt|;
 DECL|method|init
 specifier|public
