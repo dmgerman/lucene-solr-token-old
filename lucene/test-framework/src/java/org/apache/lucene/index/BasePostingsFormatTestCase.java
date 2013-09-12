@@ -3072,7 +3072,7 @@ name|newFieldInfos
 argument_list|,
 name|IOContext
 operator|.
-name|DEFAULT
+name|READ
 argument_list|)
 decl_stmt|;
 return|return

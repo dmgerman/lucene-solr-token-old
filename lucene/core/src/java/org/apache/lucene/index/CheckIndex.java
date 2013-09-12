@@ -1208,7 +1208,7 @@ name|segmentsFileName
 argument_list|,
 name|IOContext
 operator|.
-name|DEFAULT
+name|READONCE
 argument_list|)
 expr_stmt|;
 block|}
