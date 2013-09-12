@@ -160,15 +160,6 @@ name|SolrInputField
 argument_list|>
 argument_list|()
 expr_stmt|;
-name|_childDocuments
-operator|=
-operator|new
-name|ArrayList
-argument_list|<
-name|SolrInputDocument
-argument_list|>
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|SolrInputDocument
 specifier|public
@@ -186,15 +177,6 @@ block|{
 name|_fields
 operator|=
 name|fields
-expr_stmt|;
-name|_childDocuments
-operator|=
-operator|new
-name|ArrayList
-argument_list|<
-name|SolrInputDocument
-argument_list|>
-argument_list|()
 expr_stmt|;
 block|}
 comment|/**    * Remove all fields and boosts from the document    */
@@ -219,19 +201,10 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
 name|_childDocuments
-operator|!=
+operator|=
 literal|null
-condition|)
-block|{
-name|_childDocuments
-operator|.
-name|clear
-argument_list|()
 expr_stmt|;
-block|}
 block|}
 comment|///////////////////////////////////////////////////////////////////
 comment|// Add / Set fields
@@ -584,9 +557,19 @@ operator|.
 name|values
 argument_list|()
 operator|+
-literal|", childs: "
+operator|(
+name|_childDocuments
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+operator|(
+literal|", children: "
 operator|+
 name|_childDocuments
+operator|)
+operator|)
 operator|+
 literal|")"
 return|;
@@ -662,6 +645,13 @@ name|_documentBoost
 operator|=
 name|_documentBoost
 expr_stmt|;
+if|if
+condition|(
+name|_childDocuments
+operator|!=
+literal|null
+condition|)
+block|{
 name|clone
 operator|.
 name|_childDocuments
@@ -698,6 +688,7 @@ name|deepCopy
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|clone
@@ -937,6 +928,23 @@ name|SolrInputDocument
 name|child
 parameter_list|)
 block|{
+if|if
+condition|(
+name|_childDocuments
+operator|==
+literal|null
+condition|)
+block|{
+name|_childDocuments
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|SolrInputDocument
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
 name|_childDocuments
 operator|.
 name|add
@@ -972,6 +980,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/** Returns the list of child documents, or null if none. */
 DECL|method|getChildDocuments
 specifier|public
 name|List

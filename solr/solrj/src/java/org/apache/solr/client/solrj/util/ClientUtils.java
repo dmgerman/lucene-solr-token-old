@@ -684,6 +684,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|doc
+operator|.
+name|hasChildDocuments
+argument_list|()
+condition|)
+block|{
 for|for
 control|(
 name|SolrInputDocument
@@ -702,6 +710,7 @@ argument_list|,
 name|writer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|writer
 operator|.
