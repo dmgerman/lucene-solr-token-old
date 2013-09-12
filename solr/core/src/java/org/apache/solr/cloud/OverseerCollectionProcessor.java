@@ -5569,6 +5569,12 @@ operator|.
 name|COLLECTION_PROP
 argument_list|,
 name|collection
+argument_list|,
+name|ZkStateReader
+operator|.
+name|SHARD_ID_PROP
+argument_list|,
+name|sliceId
 argument_list|)
 decl_stmt|;
 name|Overseer
@@ -5640,12 +5646,7 @@ name|getSlice
 argument_list|(
 name|collection
 argument_list|,
-name|message
-operator|.
-name|getStr
-argument_list|(
-literal|"name"
-argument_list|)
+name|sliceId
 argument_list|)
 operator|==
 literal|null
@@ -5686,12 +5687,7 @@ name|collection
 operator|+
 literal|" shard: "
 operator|+
-name|message
-operator|.
-name|getStr
-argument_list|(
-literal|"name"
-argument_list|)
+name|sliceId
 argument_list|)
 throw|;
 block|}
@@ -5699,18 +5695,13 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Successfully deleted collection "
+literal|"Successfully deleted collection: "
 operator|+
 name|collection
 operator|+
 literal|", shard: "
 operator|+
-name|message
-operator|.
-name|getStr
-argument_list|(
-literal|"name"
-argument_list|)
+name|sliceId
 argument_list|)
 expr_stmt|;
 block|}
@@ -5744,12 +5735,7 @@ name|collection
 operator|+
 literal|" shard: "
 operator|+
-name|message
-operator|.
-name|getStr
-argument_list|(
-literal|"name"
-argument_list|)
+name|sliceId
 argument_list|,
 name|e
 argument_list|)
