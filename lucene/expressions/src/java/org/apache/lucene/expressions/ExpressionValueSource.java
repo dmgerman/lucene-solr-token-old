@@ -230,7 +230,7 @@ name|FunctionValues
 index|[
 name|expression
 operator|.
-name|externals
+name|variables
 operator|.
 name|length
 index|]
@@ -246,7 +246,7 @@ name|i
 operator|<
 name|expression
 operator|.
-name|externals
+name|variables
 operator|.
 name|length
 condition|;
@@ -259,7 +259,7 @@ name|externalName
 init|=
 name|expression
 operator|.
-name|externals
+name|variables
 index|[
 name|i
 index|]
@@ -365,7 +365,7 @@ name|ExpressionSortField
 argument_list|(
 name|expression
 operator|.
-name|expression
+name|sourceText
 argument_list|,
 name|this
 argument_list|,
@@ -386,7 +386,7 @@ literal|"ExpressionValueSource("
 operator|+
 name|expression
 operator|.
-name|expression
+name|sourceText
 operator|+
 literal|")"
 return|;

@@ -254,7 +254,7 @@ name|external
 range|:
 name|expr
 operator|.
-name|externals
+name|variables
 control|)
 block|{
 if|if
