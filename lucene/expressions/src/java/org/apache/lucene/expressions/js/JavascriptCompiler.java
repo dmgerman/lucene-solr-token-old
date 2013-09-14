@@ -1917,11 +1917,6 @@ condition|(
 name|arguments
 operator|!=
 name|arity
-operator|&&
-name|arity
-operator|!=
-operator|-
-literal|1
 condition|)
 block|{
 throw|throw
