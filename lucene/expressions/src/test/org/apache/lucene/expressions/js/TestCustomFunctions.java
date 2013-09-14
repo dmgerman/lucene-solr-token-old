@@ -130,6 +130,12 @@ argument_list|(
 literal|"sqrt(20)"
 argument_list|,
 name|functions
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|fail
@@ -188,6 +194,12 @@ argument_list|(
 literal|"sqrt(20)"
 argument_list|,
 name|functions
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -274,6 +286,12 @@ argument_list|(
 literal|"foo()"
 argument_list|,
 name|functions
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -364,6 +382,12 @@ argument_list|(
 literal|"foo(3)"
 argument_list|,
 name|functions
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -470,6 +494,12 @@ argument_list|(
 literal|"foo(3, 4, 5)"
 argument_list|,
 name|functions
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -559,6 +589,12 @@ argument_list|(
 literal|"foo() + bar(3)"
 argument_list|,
 name|functions
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
