@@ -518,7 +518,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|Error
+name|IllegalArgumentException
 argument_list|(
 name|method
 operator|+
@@ -540,7 +540,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|Error
+name|IllegalArgumentException
 argument_list|(
 name|method
 operator|+
