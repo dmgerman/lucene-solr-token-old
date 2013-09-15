@@ -307,6 +307,7 @@ name|JavascriptCompiler
 block|{
 DECL|class|Loader
 specifier|static
+specifier|final
 class|class
 name|Loader
 extends|extends

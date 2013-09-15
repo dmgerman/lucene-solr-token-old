@@ -1145,6 +1145,7 @@ block|}
 comment|/** Classloader that can be used to create a fake static class that has one method returning a static var */
 DECL|class|Loader
 specifier|static
+specifier|final
 class|class
 name|Loader
 extends|extends
@@ -1651,7 +1652,7 @@ name|compile
 argument_list|(
 literal|"bar()"
 argument_list|,
-name|functions
+name|mixedFunctions
 argument_list|,
 name|thisLoader
 argument_list|)
