@@ -131,7 +131,6 @@ comment|/**       * Indexes documents, frequencies, positions and offsets.      
 DECL|enum constant|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
 name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
 block|,   }
-empty_stmt|;
 comment|/**    * DocValues types.    * Note that DocValues is strongly typed, so a field cannot have different types    * across different documents.    */
 DECL|enum|DocValuesType
 specifier|public
@@ -155,7 +154,6 @@ comment|/**       * A pre-sorted Set&lt;byte[]&gt;. Fields with this type only s
 DECL|enum constant|SORTED_SET
 name|SORTED_SET
 block|}
-empty_stmt|;
 comment|/**    * Sole Constructor.    *    * @lucene.experimental    */
 DECL|method|FieldInfo
 specifier|public

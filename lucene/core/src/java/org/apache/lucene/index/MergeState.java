@@ -373,6 +373,7 @@ block|}
 DECL|class|NoDelDocMap
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|NoDelDocMap
 extends|extends
@@ -385,7 +386,6 @@ name|int
 name|maxDoc
 decl_stmt|;
 DECL|method|NoDelDocMap
-specifier|private
 name|NoDelDocMap
 parameter_list|(
 name|int

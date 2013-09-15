@@ -835,6 +835,11 @@ name|infoPerCommit
 operator|.
 name|getDelGen
 argument_list|()
+argument_list|,
+name|infoPerCommit
+operator|.
+name|getDocValuesGen
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
