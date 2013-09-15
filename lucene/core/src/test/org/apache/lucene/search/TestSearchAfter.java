@@ -1356,8 +1356,17 @@ throws|throws
 name|Exception
 block|{
 name|int
-name|maxDoc
+name|size
 init|=
+name|_TestUtil
+operator|.
+name|nextInt
+argument_list|(
+name|random
+argument_list|()
+argument_list|,
+literal|1
+argument_list|,
 name|searcher
 operator|.
 name|getIndexReader
@@ -1365,6 +1374,7 @@ argument_list|()
 operator|.
 name|maxDoc
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|TopDocs
 name|all
@@ -1381,7 +1391,7 @@ argument_list|()
 argument_list|,
 literal|1
 argument_list|,
-name|maxDoc
+name|size
 operator|*
 literal|2
 argument_list|)
@@ -1442,7 +1452,7 @@ name|query
 argument_list|,
 name|filter
 argument_list|,
-name|maxDoc
+name|size
 argument_list|)
 expr_stmt|;
 block|}
@@ -1466,7 +1476,7 @@ name|query
 argument_list|,
 name|filter
 argument_list|,
-name|maxDoc
+name|size
 argument_list|,
 name|sort
 argument_list|,
@@ -1488,7 +1498,7 @@ name|query
 argument_list|,
 name|filter
 argument_list|,
-name|maxDoc
+name|size
 argument_list|,
 name|sort
 argument_list|)
