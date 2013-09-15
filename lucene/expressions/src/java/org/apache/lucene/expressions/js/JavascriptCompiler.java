@@ -435,8 +435,6 @@ name|bytecode
 parameter_list|)
 block|{
 return|return
-name|super
-operator|.
 name|defineClass
 argument_list|(
 name|className
