@@ -4780,6 +4780,8 @@ string|"'demo'"
 op|','
 string|"'docs'"
 op|','
+string|"'expressions'"
+op|','
 string|"'facet'"
 op|','
 string|"'grouping'"
