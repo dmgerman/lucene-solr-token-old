@@ -17,97 +17,6 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_import
-import|import static
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|Opcodes
-operator|.
-name|ACC_FINAL
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|Opcodes
-operator|.
-name|ACC_PUBLIC
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|Opcodes
-operator|.
-name|ACC_SUPER
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|Opcodes
-operator|.
-name|ACC_SYNTHETIC
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|Opcodes
-operator|.
-name|IFEQ
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|Opcodes
-operator|.
-name|IFNE
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|objectweb
-operator|.
-name|asm
-operator|.
-name|Opcodes
-operator|.
-name|V1_7
-import|;
-end_import
-begin_import
 import|import
 name|java
 operator|.
@@ -464,6 +373,8 @@ specifier|final
 name|int
 name|CLASSFILE_VERSION
 init|=
+name|Opcodes
+operator|.
 name|V1_7
 decl_stmt|;
 comment|// We use the same class name for all generated classes as they all have their own class loader.
@@ -1027,12 +938,20 @@ name|visit
 argument_list|(
 name|CLASSFILE_VERSION
 argument_list|,
+name|Opcodes
+operator|.
 name|ACC_PUBLIC
 operator||
+name|Opcodes
+operator|.
 name|ACC_SUPER
 operator||
+name|Opcodes
+operator|.
 name|ACC_FINAL
 operator||
+name|Opcodes
+operator|.
 name|ACC_SYNTHETIC
 argument_list|,
 name|COMPILED_EXPRESSION_INTERNAL
@@ -1091,8 +1010,12 @@ init|=
 operator|new
 name|GeneratorAdapter
 argument_list|(
+name|Opcodes
+operator|.
 name|ACC_PUBLIC
 operator||
+name|Opcodes
+operator|.
 name|ACC_SYNTHETIC
 argument_list|,
 name|EXPRESSION_CTOR
@@ -1138,8 +1061,12 @@ operator|=
 operator|new
 name|GeneratorAdapter
 argument_list|(
+name|Opcodes
+operator|.
 name|ACC_PUBLIC
 operator||
+name|Opcodes
+operator|.
 name|ACC_SYNTHETIC
 argument_list|,
 name|EVALUATE_METHOD
@@ -1945,6 +1872,8 @@ name|gen
 operator|.
 name|visitJumpInsn
 argument_list|(
+name|Opcodes
+operator|.
 name|IFEQ
 argument_list|,
 name|labelNotTrue
@@ -2023,6 +1952,8 @@ name|gen
 operator|.
 name|visitJumpInsn
 argument_list|(
+name|Opcodes
+operator|.
 name|IFEQ
 argument_list|,
 name|andFalse
@@ -2046,6 +1977,8 @@ name|gen
 operator|.
 name|visitJumpInsn
 argument_list|(
+name|Opcodes
+operator|.
 name|IFEQ
 argument_list|,
 name|andFalse
@@ -2124,6 +2057,8 @@ name|gen
 operator|.
 name|visitJumpInsn
 argument_list|(
+name|Opcodes
+operator|.
 name|IFNE
 argument_list|,
 name|orTrue
@@ -2147,6 +2082,8 @@ name|gen
 operator|.
 name|visitJumpInsn
 argument_list|(
+name|Opcodes
+operator|.
 name|IFNE
 argument_list|,
 name|orTrue
@@ -2225,6 +2162,8 @@ name|gen
 operator|.
 name|visitJumpInsn
 argument_list|(
+name|Opcodes
+operator|.
 name|IFEQ
 argument_list|,
 name|condFalse
