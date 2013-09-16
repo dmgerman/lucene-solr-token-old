@@ -682,7 +682,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|HdfsNormalIndexInput
+name|HdfsIndexInput
 argument_list|(
 name|name
 argument_list|,
@@ -959,10 +959,10 @@ return|return
 name|configuration
 return|;
 block|}
-DECL|class|HdfsNormalIndexInput
+DECL|class|HdfsIndexInput
 specifier|static
 class|class
-name|HdfsNormalIndexInput
+name|HdfsIndexInput
 extends|extends
 name|CustomBufferedIndexInput
 block|{
@@ -976,7 +976,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|HdfsNormalIndexInput
+name|HdfsIndexInput
 operator|.
 name|class
 argument_list|)
@@ -1006,9 +1006,9 @@ name|clone
 init|=
 literal|false
 decl_stmt|;
-DECL|method|HdfsNormalIndexInput
+DECL|method|HdfsIndexInput
 specifier|public
-name|HdfsNormalIndexInput
+name|HdfsIndexInput
 parameter_list|(
 name|String
 name|name
@@ -1096,7 +1096,7 @@ name|IOException
 block|{
 name|inputStream
 operator|.
-name|read
+name|readFully
 argument_list|(
 name|getFilePointer
 argument_list|()
@@ -1121,15 +1121,7 @@ name|pos
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-name|inputStream
-operator|.
-name|seek
-argument_list|(
-name|pos
-argument_list|)
-expr_stmt|;
-block|}
+block|{      }
 annotation|@
 name|Override
 DECL|method|closeInternal
@@ -1182,11 +1174,11 @@ name|IndexInput
 name|clone
 parameter_list|()
 block|{
-name|HdfsNormalIndexInput
+name|HdfsIndexInput
 name|clone
 init|=
 operator|(
-name|HdfsNormalIndexInput
+name|HdfsIndexInput
 operator|)
 name|super
 operator|.
