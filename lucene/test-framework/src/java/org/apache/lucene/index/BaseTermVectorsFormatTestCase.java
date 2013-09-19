@@ -2719,11 +2719,6 @@ operator|.
 name|sort
 argument_list|(
 name|sortedTerms
-argument_list|,
-name|terms
-operator|.
-name|getComparator
-argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final

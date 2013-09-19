@@ -486,11 +486,9 @@ name|terms
 operator|.
 name|sort
 argument_list|(
-name|col
+name|BytesRef
 operator|.
-name|termsEnum
-operator|.
-name|getComparator
+name|getUTF8SortedAsUnicodeComparator
 argument_list|()
 argument_list|)
 decl_stmt|;

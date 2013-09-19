@@ -7773,17 +7773,6 @@ argument_list|(
 name|tempDir
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"dir="
-operator|+
-name|dir
-argument_list|)
-expr_stmt|;
 name|assertFalse
 argument_list|(
 name|DirectoryReader
