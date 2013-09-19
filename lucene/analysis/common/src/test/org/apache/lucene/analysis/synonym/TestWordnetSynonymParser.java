@@ -107,10 +107,6 @@ name|TestWordnetSynonymParser
 extends|extends
 name|BaseTokenStreamTestCase
 block|{
-DECL|field|analyzer
-name|Analyzer
-name|analyzer
-decl_stmt|;
 DECL|field|synonymsFile
 name|String
 name|synonymsFile
@@ -161,7 +157,7 @@ argument_list|)
 decl_stmt|;
 name|parser
 operator|.
-name|add
+name|parse
 argument_list|(
 operator|new
 name|StringReader
