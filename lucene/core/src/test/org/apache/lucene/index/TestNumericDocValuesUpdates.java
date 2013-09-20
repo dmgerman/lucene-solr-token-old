@@ -5112,10 +5112,10 @@ name|numDocs
 init|=
 name|atLeast
 argument_list|(
-literal|2
+literal|5
 argument_list|)
 decl_stmt|;
-comment|//      System.out.println("round=" + i + ", numDocs=" + numDocs);
+comment|//      System.out.println("[" + Thread.currentThread().getName() + "]: round=" + i + ", numDocs=" + numDocs);
 for|for
 control|(
 name|int
@@ -5263,7 +5263,7 @@ name|fieldIdx
 index|]
 argument_list|)
 expr_stmt|;
-comment|//      System.out.println("+++ updated field '" + updateField + "' to value " + fieldValues[fieldIdx]);
+comment|//      System.out.println("[" + Thread.currentThread().getName() + "]: updated field '" + updateField + "' to value " + fieldValues[fieldIdx]);
 if|if
 condition|(
 name|random
@@ -5300,7 +5300,7 @@ name|deleteDoc
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//        System.out.println("--- deleted document: doc-" + deleteDoc);
+comment|//        System.out.println("[" + Thread.currentThread().getName() + "]: deleted document: doc-" + deleteDoc);
 block|}
 comment|// verify reader
 if|if
@@ -5315,6 +5315,7 @@ name|commit
 argument_list|()
 expr_stmt|;
 block|}
+comment|//      System.out.println("[" + Thread.currentThread().getName() + "]: reopen reader: " + reader);
 name|DirectoryReader
 name|newReader
 init|=
@@ -5339,6 +5340,7 @@ name|reader
 operator|=
 name|newReader
 expr_stmt|;
+comment|//      System.out.println("[" + Thread.currentThread().getName() + "]: reopened reader: " + reader);
 name|assertTrue
 argument_list|(
 name|reader
@@ -5459,17 +5461,15 @@ name|assertEquals
 argument_list|(
 literal|"invalid value for doc="
 operator|+
-operator|(
 name|doc
-operator|+
-name|context
-operator|.
-name|docBase
-operator|)
 operator|+
 literal|", field="
 operator|+
 name|f
+operator|+
+literal|", reader="
+operator|+
+name|r
 argument_list|,
 name|fieldValues
 index|[
