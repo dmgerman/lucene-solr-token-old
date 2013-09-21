@@ -131,8 +131,10 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|NullPointerException
-argument_list|()
+name|IllegalStateException
+argument_list|(
+literal|"Expressions referencing the score can only be used for sorting"
+argument_list|)
 throw|;
 block|}
 return|return
