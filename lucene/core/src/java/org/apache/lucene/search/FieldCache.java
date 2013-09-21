@@ -45,9 +45,6 @@ operator|.
 name|NumericTokenStream
 import|;
 end_import
-begin_comment
-comment|// for javadocs
-end_comment
 begin_import
 import|import
 name|org
@@ -61,9 +58,6 @@ operator|.
 name|DoubleField
 import|;
 end_import
-begin_comment
-comment|// for javadocs
-end_comment
 begin_import
 import|import
 name|org
@@ -77,9 +71,6 @@ operator|.
 name|FloatField
 import|;
 end_import
-begin_comment
-comment|// for javadocs
-end_comment
 begin_import
 import|import
 name|org
@@ -93,9 +84,6 @@ operator|.
 name|IntField
 import|;
 end_import
-begin_comment
-comment|// for javadocs
-end_comment
 begin_import
 import|import
 name|org
@@ -109,9 +97,19 @@ operator|.
 name|LongField
 import|;
 end_import
-begin_comment
-comment|// for javadocs
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|NumericDocValuesField
+import|;
+end_import
 begin_import
 import|import
 name|org
@@ -908,7 +906,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Checks the internal cache for an appropriate entry, and if none is    * found, reads the terms in<code>field</code> as integers and returns an array    * of size<code>reader.maxDoc()</code> of the value each document    * has in the given field.    * @param reader  Used to get field values.    * @param field   Which field contains the integers.    * @param setDocsWithField  If true then {@link #getDocsWithField} will    *        also be computed and stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException  If any error occurs.    */
+comment|/**    * Returns an {@link Ints} over the values found in documents in the given    * field.    *    * @see #getInts(AtomicReader, String, IntParser, boolean)    */
 DECL|method|getInts
 specifier|public
 name|Ints
@@ -926,7 +924,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Checks the internal cache for an appropriate entry, and if none is found,    * reads the terms in<code>field</code> as integers and returns an array of    * size<code>reader.maxDoc()</code> of the value each document has in the    * given field.    * @param reader  Used to get field values.    * @param field   Which field contains the integers.    * @param parser  Computes integer for string values.    * @param setDocsWithField  If true then {@link #getDocsWithField} will    *        also be computed and stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException  If any error occurs.    */
+comment|/**    * Returns an {@link Ints} over the values found in documents in the given    * field. If the field was indexed as {@link NumericDocValuesField}, it simply    * uses {@link AtomicReader#getNumericDocValues(String)} to read the values.    * Otherwise, it checks the internal cache for an appropriate entry, and if    * none is found, reads the terms in<code>field</code> as ints and returns    * an array of size<code>reader.maxDoc()</code> of the value each document    * has in the given field.    *     * @param reader    *          Used to get field values.    * @param field    *          Which field contains the longs.    * @param parser    *          Computes int for string values. May be {@code null} if the    *          requested field was indexed as {@link NumericDocValuesField} or    *          {@link IntField}.    * @param setDocsWithField    *          If true then {@link #getDocsWithField} will also be computed and    *          stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException    *           If any error occurs.    */
 DECL|method|getInts
 specifier|public
 name|Ints
@@ -947,7 +945,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Checks the internal cache for an appropriate entry, and if    * none is found, reads the terms in<code>field</code> as floats and returns an array    * of size<code>reader.maxDoc()</code> of the value each document    * has in the given field.    * @param reader  Used to get field values.    * @param field   Which field contains the floats.    * @param setDocsWithField  If true then {@link #getDocsWithField} will    *        also be computed and stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException  If any error occurs.    */
+comment|/**    * Returns a {@link Floats} over the values found in documents in the given    * field.    *    * @see #getFloats(AtomicReader, String, FloatParser, boolean)    */
 DECL|method|getFloats
 specifier|public
 name|Floats
@@ -965,7 +963,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/** Checks the internal cache for an appropriate entry, and if    * none is found, reads the terms in<code>field</code> as floats and returns an array    * of size<code>reader.maxDoc()</code> of the value each document    * has in the given field.    * @param reader  Used to get field values.    * @param field   Which field contains the floats.    * @param parser  Computes float for string values.    * @param setDocsWithField  If true then {@link #getDocsWithField} will    *        also be computed and stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException  If any error occurs.    */
+comment|/**    * Returns a {@link Floats} over the values found in documents in the given    * field. If the field was indexed as {@link NumericDocValuesField}, it simply    * uses {@link AtomicReader#getNumericDocValues(String)} to read the values.    * Otherwise, it checks the internal cache for an appropriate entry, and if    * none is found, reads the terms in<code>field</code> as floats and returns    * an array of size<code>reader.maxDoc()</code> of the value each document    * has in the given field.    *     * @param reader    *          Used to get field values.    * @param field    *          Which field contains the floats.    * @param parser    *          Computes float for string values. May be {@code null} if the    *          requested field was indexed as {@link NumericDocValuesField} or    *          {@link FloatField}.    * @param setDocsWithField    *          If true then {@link #getDocsWithField} will also be computed and    *          stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException    *           If any error occurs.    */
 DECL|method|getFloats
 specifier|public
 name|Floats
@@ -986,7 +984,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Checks the internal cache for an appropriate entry, and if none is    * found, reads the terms in<code>field</code> as longs and returns an array    * of size<code>reader.maxDoc()</code> of the value each document    * has in the given field.    *    * @param reader Used to get field values.    * @param field  Which field contains the longs.    * @param setDocsWithField  If true then {@link #getDocsWithField} will    *        also be computed and stored in the FieldCache.    * @return The values in the given field for each document.    * @throws java.io.IOException If any error occurs.    */
+comment|/**    * Returns a {@link Longs} over the values found in documents in the given    * field.    *    * @see #getLongs(AtomicReader, String, LongParser, boolean)    */
 DECL|method|getLongs
 specifier|public
 name|Longs
@@ -1004,7 +1002,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Checks the internal cache for an appropriate entry, and if none is found,    * reads the terms in<code>field</code> as longs and returns an array of    * size<code>reader.maxDoc()</code> of the value each document has in the    * given field.    *    * @param reader Used to get field values.    * @param field  Which field contains the longs.    * @param parser Computes integer for string values.    * @param setDocsWithField  If true then {@link #getDocsWithField} will    *        also be computed and stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException If any error occurs.    */
+comment|/**    * Returns a {@link Longs} over the values found in documents in the given    * field. If the field was indexed as {@link NumericDocValuesField}, it simply    * uses {@link AtomicReader#getNumericDocValues(String)} to read the values.    * Otherwise, it checks the internal cache for an appropriate entry, and if    * none is found, reads the terms in<code>field</code> as longs and returns    * an array of size<code>reader.maxDoc()</code> of the value each document    * has in the given field.    *     * @param reader    *          Used to get field values.    * @param field    *          Which field contains the longs.    * @param parser    *          Computes long for string values. May be {@code null} if the    *          requested field was indexed as {@link NumericDocValuesField} or    *          {@link LongField}.    * @param setDocsWithField    *          If true then {@link #getDocsWithField} will also be computed and    *          stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException    *           If any error occurs.    */
 DECL|method|getLongs
 specifier|public
 name|Longs
@@ -1025,7 +1023,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Checks the internal cache for an appropriate entry, and if none is    * found, reads the terms in<code>field</code> as integers and returns an array    * of size<code>reader.maxDoc()</code> of the value each document    * has in the given field.    *    * @param reader Used to get field values.    * @param field  Which field contains the doubles.    * @param setDocsWithField  If true then {@link #getDocsWithField} will    *        also be computed and stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException If any error occurs.    */
+comment|/**    * Returns a {@link Doubles} over the values found in documents in the given    * field.    *    * @see #getDoubles(AtomicReader, String, DoubleParser, boolean)    */
 DECL|method|getDoubles
 specifier|public
 name|Doubles
@@ -1043,7 +1041,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Checks the internal cache for an appropriate entry, and if none is found,    * reads the terms in<code>field</code> as doubles and returns an array of    * size<code>reader.maxDoc()</code> of the value each document has in the    * given field.    *    * @param reader Used to get field values.    * @param field  Which field contains the doubles.    * @param parser Computes integer for string values.    * @param setDocsWithField  If true then {@link #getDocsWithField} will    *        also be computed and stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException If any error occurs.    */
+comment|/**    * Returns a {@link Doubles} over the values found in documents in the given    * field. If the field was indexed as {@link NumericDocValuesField}, it simply    * uses {@link AtomicReader#getNumericDocValues(String)} to read the values.    * Otherwise, it checks the internal cache for an appropriate entry, and if    * none is found, reads the terms in<code>field</code> as doubles and returns    * an array of size<code>reader.maxDoc()</code> of the value each document    * has in the given field.    *     * @param reader    *          Used to get field values.    * @param field    *          Which field contains the longs.    * @param parser    *          Computes double for string values. May be {@code null} if the    *          requested field was indexed as {@link NumericDocValuesField} or    *          {@link DoubleField}.    * @param setDocsWithField    *          If true then {@link #getDocsWithField} will also be computed and    *          stored in the FieldCache.    * @return The values in the given field for each document.    * @throws IOException    *           If any error occurs.    */
 DECL|method|getDoubles
 specifier|public
 name|Doubles

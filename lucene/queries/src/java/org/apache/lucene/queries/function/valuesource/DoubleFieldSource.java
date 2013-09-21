@@ -166,7 +166,7 @@ name|MutableValueDouble
 import|;
 end_import
 begin_comment
-comment|/**  * Obtains float field values from the {@link org.apache.lucene.search.FieldCache}  * using<code>getFloats()</code>  * and makes those values available as other numeric types, casting as needed.  *  *  */
+comment|/**  * Obtains double field values from {@link FieldCache#getDoubles} and makes  * those values available as other numeric types, casting as needed.  */
 end_comment
 begin_class
 DECL|class|DoubleFieldSource

@@ -2065,7 +2065,8 @@ name|bits
 argument_list|)
 expr_stmt|;
 block|}
-comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getInts
 specifier|public
 name|Ints
@@ -2096,7 +2097,8 @@ name|setDocsWithField
 argument_list|)
 return|;
 block|}
-comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getInts
 specifier|public
 name|Ints
@@ -3215,7 +3217,8 @@ name|res
 return|;
 block|}
 block|}
-comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getFloats
 specifier|public
 name|Floats
@@ -3246,7 +3249,8 @@ name|setDocsWithField
 argument_list|)
 return|;
 block|}
-comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getFloats
 specifier|public
 name|Floats
@@ -3745,7 +3749,8 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getLongs
 specifier|public
 name|Longs
@@ -3776,7 +3781,8 @@ name|setDocsWithField
 argument_list|)
 return|;
 block|}
-comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getLongs
 specifier|public
 name|Longs
@@ -4396,7 +4402,8 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getDoubles
 specifier|public
 name|Doubles
@@ -4427,7 +4434,8 @@ name|setDocsWithField
 argument_list|)
 return|;
 block|}
-comment|// inherit javadocs
+annotation|@
+name|Override
 DECL|method|getDoubles
 specifier|public
 name|Doubles
