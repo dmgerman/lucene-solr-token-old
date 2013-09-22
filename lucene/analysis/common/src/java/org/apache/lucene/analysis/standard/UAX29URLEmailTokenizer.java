@@ -450,7 +450,6 @@ expr_stmt|;
 block|}
 DECL|method|getScannerFor
 specifier|private
-specifier|static
 name|StandardTokenizerInterface
 name|getScannerFor
 parameter_list|(
@@ -462,10 +461,9 @@ return|return
 operator|new
 name|UAX29URLEmailTokenizerImpl
 argument_list|(
-literal|null
+name|input
 argument_list|)
 return|;
-comment|// best effort NPE if you dont call reset
 block|}
 comment|// this tokenizer generates three attributes:
 comment|// term offset, positionIncrement and type
@@ -700,6 +698,29 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|close
+specifier|public
+name|void
+name|close
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|super
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|scanner
+operator|.
+name|yyreset
+argument_list|(
+name|input
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void
@@ -708,6 +729,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|scanner
 operator|.
 name|yyreset

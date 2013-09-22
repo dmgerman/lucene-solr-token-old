@@ -355,7 +355,7 @@ name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 comment|// stopwords
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|fa
 argument_list|,
@@ -374,7 +374,7 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// some nouns and adjectives
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|fa
 argument_list|,
@@ -442,7 +442,7 @@ argument_list|,
 name|set
 argument_list|)
 decl_stmt|;
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|fa
 argument_list|,
@@ -598,7 +598,7 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,
@@ -607,7 +607,7 @@ argument_list|,
 literal|"securitair"
 argument_list|)
 expr_stmt|;
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,

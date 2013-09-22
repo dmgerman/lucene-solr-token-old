@@ -107,7 +107,7 @@ name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 comment|// stemming
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,
@@ -116,7 +116,7 @@ argument_list|,
 literal|"havnedistrikt"
 argument_list|)
 expr_stmt|;
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,
@@ -180,7 +180,7 @@ argument_list|,
 name|exclusionSet
 argument_list|)
 decl_stmt|;
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,
@@ -189,7 +189,7 @@ argument_list|,
 literal|"havnedistriktene"
 argument_list|)
 expr_stmt|;
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,

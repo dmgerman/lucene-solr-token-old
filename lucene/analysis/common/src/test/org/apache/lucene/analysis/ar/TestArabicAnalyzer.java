@@ -265,7 +265,7 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|a
 argument_list|,
@@ -279,7 +279,7 @@ literal|"ÙØ¨ÙØ±"
 block|}
 argument_list|)
 expr_stmt|;
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|a
 argument_list|,
@@ -443,7 +443,7 @@ literal|"Ø³Ø§ÙØ¯ÙØ§Øª"
 block|}
 argument_list|)
 expr_stmt|;
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|a
 argument_list|,
@@ -499,7 +499,7 @@ literal|"Ø³Ø§ÙØ¯"
 block|}
 argument_list|)
 expr_stmt|;
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|a
 argument_list|,

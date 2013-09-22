@@ -136,7 +136,7 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|analyzer
 argument_list|,
@@ -152,7 +152,7 @@ literal|"voln"
 block|}
 argument_list|)
 expr_stmt|;
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|analyzer
 argument_list|,

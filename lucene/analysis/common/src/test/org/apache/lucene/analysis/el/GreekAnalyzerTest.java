@@ -163,7 +163,7 @@ argument_list|)
 decl_stmt|;
 comment|// Verify the correct analysis of capitals and small accented letters, and
 comment|// stemming
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|a
 argument_list|,
@@ -193,7 +193,7 @@ argument_list|)
 expr_stmt|;
 comment|// Verify the correct analysis of small letters with diaeresis and the elimination
 comment|// of punctuation marks
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|a
 argument_list|,
@@ -213,7 +213,7 @@ argument_list|)
 expr_stmt|;
 comment|// Verify the correct analysis of capital accented letters and capital letters with diaeresis,
 comment|// as well as the elimination of stop words
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|a
 argument_list|,

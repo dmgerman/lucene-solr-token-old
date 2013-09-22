@@ -1120,7 +1120,7 @@ argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|a
 argument_list|,
@@ -1134,7 +1134,7 @@ literal|"Ø®ÙØ±Ø¯Ù"
 block|}
 argument_list|)
 expr_stmt|;
-name|assertAnalyzesToReuse
+name|assertAnalyzesTo
 argument_list|(
 name|a
 argument_list|,

@@ -527,7 +527,14 @@ specifier|public
 name|void
 name|reset
 parameter_list|()
+throws|throws
+name|IOException
 block|{
+name|super
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|int
@@ -889,6 +896,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|super
+operator|.
+name|end
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|hasValue

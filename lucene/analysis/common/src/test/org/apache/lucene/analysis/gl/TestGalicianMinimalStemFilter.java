@@ -451,7 +451,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,

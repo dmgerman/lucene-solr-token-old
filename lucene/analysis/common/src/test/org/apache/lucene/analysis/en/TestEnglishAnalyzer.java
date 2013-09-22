@@ -107,7 +107,7 @@ name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 comment|// stemming
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,
@@ -116,7 +116,7 @@ argument_list|,
 literal|"book"
 argument_list|)
 expr_stmt|;
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,
@@ -139,7 +139,7 @@ block|{}
 argument_list|)
 expr_stmt|;
 comment|// possessive removal
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,
@@ -148,7 +148,7 @@ argument_list|,
 literal|"steven"
 argument_list|)
 expr_stmt|;
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,
@@ -157,7 +157,7 @@ argument_list|,
 literal|"steven"
 argument_list|)
 expr_stmt|;
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,
@@ -208,7 +208,7 @@ argument_list|,
 name|exclusionSet
 argument_list|)
 decl_stmt|;
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,
@@ -217,7 +217,7 @@ argument_list|,
 literal|"books"
 argument_list|)
 expr_stmt|;
-name|checkOneTermReuse
+name|checkOneTerm
 argument_list|(
 name|a
 argument_list|,
