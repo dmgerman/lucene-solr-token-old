@@ -247,7 +247,7 @@ name|errPrefix
 init|=
 name|VERSION_FIELD
 operator|+
-literal|"field must exist in schema, using indexed=\"true\" stored=\"true\" and multiValued=\"false\""
+literal|" field must exist in schema, using indexed=\"true\" stored=\"true\" and multiValued=\"false\""
 decl_stmt|;
 name|SchemaField
 name|sf
