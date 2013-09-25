@@ -65,7 +65,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * A merge indexes command encapsulated in an object.  *  * @since solr 1.4  *  */
+comment|/**  * A split index command encapsulated in an object.  *  * @since solr 1.4  *  */
 end_comment
 begin_class
 DECL|class|SplitIndexCommand
@@ -108,6 +108,11 @@ specifier|public
 name|DocRouter
 name|router
 decl_stmt|;
+DECL|field|routeFieldName
+specifier|public
+name|String
+name|routeFieldName
+decl_stmt|;
 DECL|method|SplitIndexCommand
 specifier|public
 name|SplitIndexCommand
@@ -137,6 +142,9 @@ name|ranges
 parameter_list|,
 name|DocRouter
 name|router
+parameter_list|,
+name|String
+name|routeFieldName
 parameter_list|)
 block|{
 name|super
@@ -167,6 +175,12 @@ operator|.
 name|router
 operator|=
 name|router
+expr_stmt|;
+name|this
+operator|.
+name|routeFieldName
+operator|=
+name|routeFieldName
 expr_stmt|;
 block|}
 annotation|@
