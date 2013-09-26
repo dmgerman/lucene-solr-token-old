@@ -435,19 +435,6 @@ name|query
 argument_list|)
 return|;
 block|}
-elseif|else
-if|if
-condition|(
-name|size
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-name|getTopLevelQuery
-argument_list|()
-return|;
-block|}
 else|else
 block|{
 specifier|final
@@ -457,6 +444,13 @@ init|=
 name|getTopLevelQuery
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|size
+operator|>
+literal|0
+condition|)
+block|{
 specifier|final
 name|BytesRefHash
 name|pendingTerms
@@ -543,6 +537,7 @@ name|pos
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// Strip scores
 specifier|final
