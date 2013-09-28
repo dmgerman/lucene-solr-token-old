@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.lucene45
+DECL|package|org.apache.lucene.codecs.lucene46
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene45
+name|lucene46
 package|;
 end_package
 begin_comment
@@ -203,21 +203,6 @@ name|codecs
 operator|.
 name|lucene42
 operator|.
-name|Lucene42FieldInfosFormat
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene42
-operator|.
 name|Lucene42NormsFormat
 import|;
 end_import
@@ -267,7 +252,7 @@ name|PerFieldPostingsFormat
 import|;
 end_import
 begin_comment
-comment|/**  * Implements the Lucene 4.5 index format, with configurable per-field postings  * and docvalues formats.  *<p>  * If you want to reuse functionality of this codec in another codec, extend  * {@link FilterCodec}.  *  * @see org.apache.lucene.codecs.lucene45 package documentation for file format details.  * @lucene.experimental  * @deprecated Only for reading old 4.3-4.5 segments  */
+comment|/**  * Implements the Lucene 4.6 index format, with configurable per-field postings  * and docvalues formats.  *<p>  * If you want to reuse functionality of this codec in another codec, extend  * {@link FilterCodec}.  *  * @see org.apache.lucene.codecs.lucene46 package documentation for file format details.  * @lucene.experimental  */
 end_comment
 begin_comment
 comment|// NOTE: if we make largish changes in a minor release, easier to just make Lucene46Codec or whatever
@@ -279,12 +264,10 @@ begin_comment
 comment|// (it writes a minor version, etc).
 end_comment
 begin_class
-annotation|@
-name|Deprecated
-DECL|class|Lucene45Codec
+DECL|class|Lucene46Codec
 specifier|public
 class|class
-name|Lucene45Codec
+name|Lucene46Codec
 extends|extends
 name|Codec
 block|{
@@ -315,7 +298,7 @@ name|FieldInfosFormat
 name|fieldInfosFormat
 init|=
 operator|new
-name|Lucene42FieldInfosFormat
+name|Lucene46FieldInfosFormat
 argument_list|()
 decl_stmt|;
 DECL|field|infosFormat
@@ -359,7 +342,7 @@ name|field
 parameter_list|)
 block|{
 return|return
-name|Lucene45Codec
+name|Lucene46Codec
 operator|.
 name|this
 operator|.
@@ -392,7 +375,7 @@ name|field
 parameter_list|)
 block|{
 return|return
-name|Lucene45Codec
+name|Lucene46Codec
 operator|.
 name|this
 operator|.
@@ -405,14 +388,14 @@ block|}
 block|}
 decl_stmt|;
 comment|/** Sole constructor. */
-DECL|method|Lucene45Codec
+DECL|method|Lucene46Codec
 specifier|public
-name|Lucene45Codec
+name|Lucene46Codec
 parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|"Lucene45"
+literal|"Lucene46"
 argument_list|)
 expr_stmt|;
 block|}
@@ -459,6 +442,7 @@ annotation|@
 name|Override
 DECL|method|fieldInfosFormat
 specifier|public
+specifier|final
 name|FieldInfosFormat
 name|fieldInfosFormat
 parameter_list|()

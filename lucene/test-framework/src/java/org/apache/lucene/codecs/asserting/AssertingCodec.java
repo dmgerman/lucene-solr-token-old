@@ -104,13 +104,13 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene45
+name|lucene46
 operator|.
-name|Lucene45Codec
+name|Lucene46Codec
 import|;
 end_import
 begin_comment
-comment|/**  * Acts like {@link Lucene45Codec} but with additional asserts.  */
+comment|/**  * Acts like {@link Lucene46Codec} but with additional asserts.  */
 end_comment
 begin_class
 DECL|class|AssertingCodec
@@ -181,7 +181,7 @@ argument_list|(
 literal|"Asserting"
 argument_list|,
 operator|new
-name|Lucene45Codec
+name|Lucene46Codec
 argument_list|()
 argument_list|)
 expr_stmt|;

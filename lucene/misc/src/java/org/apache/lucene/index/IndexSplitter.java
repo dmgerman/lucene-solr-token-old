@@ -838,7 +838,7 @@ argument_list|()
 argument_list|,
 name|infoPerCommit
 operator|.
-name|getDocValuesGen
+name|getFieldInfosGen
 argument_list|()
 argument_list|)
 argument_list|)

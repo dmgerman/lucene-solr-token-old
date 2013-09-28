@@ -143,11 +143,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|document
 operator|.
-name|FieldInfo
-operator|.
-name|DocValuesType
+name|NumericDocValuesField
 import|;
 end_import
 begin_import
@@ -720,21 +718,6 @@ name|reader
 operator|=
 name|newReader
 expr_stmt|;
-if|if
-condition|(
-name|liveDocs
-operator|==
-literal|null
-condition|)
-block|{
-name|liveDocs
-operator|=
-name|reader
-operator|.
-name|getLiveDocs
-argument_list|()
-expr_stmt|;
-block|}
 name|reopened
 operator|=
 literal|true
@@ -1515,9 +1498,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|mergingUpdates
-operator|.
-name|clear
+name|dropMergingUpdates
 argument_list|()
 expr_stmt|;
 block|}
@@ -1568,14 +1549,11 @@ literal|false
 return|;
 block|}
 comment|// We have new deletes or updates
-if|if
-condition|(
-name|pendingDeleteCount
-operator|>
-literal|0
-condition|)
-block|{
 assert|assert
+name|pendingDeleteCount
+operator|==
+literal|0
+operator|||
 name|liveDocs
 operator|.
 name|length
@@ -1588,7 +1566,6 @@ operator|.
 name|getDocCount
 argument_list|()
 assert|;
-block|}
 comment|// Do this so we can delete any created files on
 comment|// exception; this saves all codecs from having to do
 comment|// it:
@@ -1687,9 +1664,8 @@ name|reader
 decl_stmt|;
 try|try
 block|{
-comment|// clone FieldInfos so that we can update their numericUpdatesGen
-comment|// separately from the reader's infos and write them to a new
-comment|// fieldInfos_gen file
+comment|// clone FieldInfos so that we can update their dvGen separately from
+comment|// the reader's infos and write them to a new fieldInfos_gen file
 name|FieldInfos
 operator|.
 name|Builder
@@ -1705,7 +1681,8 @@ operator|.
 name|globalFieldNumberMap
 argument_list|)
 decl_stmt|;
-comment|// cannot use builder.add(reader.getFieldInfos()) because it does not clone FI.attributes
+comment|// cannot use builder.add(reader.getFieldInfos()) because it does not
+comment|// clone FI.attributes as well FI.dvGen
 for|for
 control|(
 name|FieldInfo
@@ -1774,11 +1751,41 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|clone
+operator|.
+name|setDocValuesGen
+argument_list|(
+name|fi
+operator|.
+name|getDocValuesGen
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|// create new fields or update existing ones to have NumericDV type
-comment|//          for (String f : numericUpdates.keySet()) {
-comment|//            builder.addOrUpdate(f, NumericDocValuesField.TYPE);
-comment|//          }
+for|for
+control|(
+name|String
+name|f
+range|:
+name|numericUpdates
+operator|.
+name|keySet
+argument_list|()
+control|)
+block|{
+name|builder
+operator|.
+name|addOrUpdate
+argument_list|(
+name|f
+argument_list|,
+name|NumericDocValuesField
+operator|.
+name|TYPE
+argument_list|)
+expr_stmt|;
+block|}
 specifier|final
 name|FieldInfos
 name|fieldInfos
@@ -1790,11 +1797,11 @@ argument_list|()
 decl_stmt|;
 specifier|final
 name|long
-name|nextDocValuesGen
+name|nextFieldInfosGen
 init|=
 name|info
 operator|.
-name|getNextDocValuesGen
+name|getNextFieldInfosGen
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1805,7 +1812,7 @@ name|Long
 operator|.
 name|toString
 argument_list|(
-name|nextDocValuesGen
+name|nextFieldInfosGen
 argument_list|,
 name|Character
 operator|.
@@ -1836,8 +1843,6 @@ operator|.
 name|DEFAULT
 argument_list|,
 name|segmentSuffix
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -1923,46 +1928,16 @@ argument_list|(
 name|field
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+assert|assert
 name|fieldInfo
-operator|==
-literal|null
-operator|||
-name|fieldInfo
-operator|.
-name|getDocValuesType
-argument_list|()
 operator|!=
-name|DocValuesType
-operator|.
-name|NUMERIC
-condition|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"cannot update docvalues in a segment with no docvalues field: segment="
-operator|+
-name|info
-operator|+
-literal|", field="
-operator|+
-name|field
-argument_list|)
-throw|;
-block|}
-comment|//              assert fieldInfo != null;
-name|info
+literal|null
+assert|;
+name|fieldInfo
 operator|.
 name|setDocValuesGen
 argument_list|(
-name|fieldInfo
-operator|.
-name|number
-argument_list|,
-name|nextDocValuesGen
+name|nextFieldInfosGen
 argument_list|)
 expr_stmt|;
 comment|// write the numeric updates to a new gen'd docvalues file
@@ -2144,6 +2119,33 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+name|codec
+operator|.
+name|fieldInfosFormat
+argument_list|()
+operator|.
+name|getFieldInfosWriter
+argument_list|()
+operator|.
+name|write
+argument_list|(
+name|trackingDir
+argument_list|,
+name|info
+operator|.
+name|info
+operator|.
+name|name
+argument_list|,
+name|segmentSuffix
+argument_list|,
+name|fieldInfos
+argument_list|,
+name|IOContext
+operator|.
+name|DEFAULT
+argument_list|)
+expr_stmt|;
 name|fieldsConsumerSuccess
 operator|=
 literal|true
@@ -2231,7 +2233,7 @@ condition|)
 block|{
 name|info
 operator|.
-name|advanceNextWriteDocValuesGen
+name|advanceNextWriteFieldInfosGen
 argument_list|()
 expr_stmt|;
 block|}
@@ -2307,7 +2309,7 @@ condition|)
 block|{
 name|info
 operator|.
-name|advanceDocValuesGen
+name|advanceFieldInfosGen
 argument_list|()
 expr_stmt|;
 comment|// copy all the updates to mergingUpdates, so they can later be applied to the merged segment

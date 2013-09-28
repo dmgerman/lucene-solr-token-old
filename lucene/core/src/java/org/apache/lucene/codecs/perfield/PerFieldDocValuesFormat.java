@@ -625,15 +625,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
 name|DocValuesFormat
 name|format
+init|=
+literal|null
 decl_stmt|;
 if|if
 condition|(
-name|segmentWriteState
+name|field
 operator|.
-name|isFieldUpdate
+name|getDocValuesGen
+argument_list|()
+operator|!=
+operator|-
+literal|1
 condition|)
 block|{
 specifier|final
@@ -647,19 +652,14 @@ argument_list|(
 name|PER_FIELD_FORMAT_KEY
 argument_list|)
 decl_stmt|;
-assert|assert
+comment|// this means the field never existed in that segment, yet is applied updates
+if|if
+condition|(
 name|formatName
 operator|!=
 literal|null
-operator|:
-literal|"invalid null FORMAT_KEY for field=\""
-operator|+
-name|field
-operator|.
-name|name
-operator|+
-literal|"\" (field updates)"
-assert|;
+condition|)
+block|{
 name|format
 operator|=
 name|DocValuesFormat
@@ -670,7 +670,13 @@ name|formatName
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+block|}
+if|if
+condition|(
+name|format
+operator|==
+literal|null
+condition|)
 block|{
 name|format
 operator|=
@@ -725,9 +731,13 @@ name|formatName
 argument_list|)
 decl_stmt|;
 assert|assert
-name|segmentWriteState
+name|field
 operator|.
-name|isFieldUpdate
+name|getDocValuesGen
+argument_list|()
+operator|!=
+operator|-
+literal|1
 operator|||
 name|previousValue
 operator|==
@@ -743,6 +753,8 @@ name|previousValue
 assert|;
 name|Integer
 name|suffix
+init|=
+literal|null
 decl_stmt|;
 name|ConsumerAndSuffix
 name|consumer
@@ -764,9 +776,13 @@ block|{
 comment|// First time we are seeing this format; create a new instance
 if|if
 condition|(
-name|segmentWriteState
+name|field
 operator|.
-name|isFieldUpdate
+name|getDocValuesGen
+argument_list|()
+operator|!=
+operator|-
+literal|1
 condition|)
 block|{
 specifier|final
@@ -780,19 +796,16 @@ argument_list|(
 name|PER_FIELD_SUFFIX_KEY
 argument_list|)
 decl_stmt|;
-assert|assert
+comment|// even when dvGen is != -1, it can still be a new field, that never
+comment|// existed in the segment, and therefore doesn't have the recorded
+comment|// attributes yet.
+if|if
+condition|(
 name|suffixAtt
 operator|!=
 literal|null
-operator|:
-literal|"invalid numm SUFFIX_KEY for field=\""
-operator|+
-name|field
-operator|.
-name|name
-operator|+
-literal|"\" (field updates)"
-assert|;
+condition|)
+block|{
 name|suffix
 operator|=
 name|Integer
@@ -803,7 +816,13 @@ name|suffixAtt
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+block|}
+if|if
+condition|(
+name|suffix
+operator|==
+literal|null
+condition|)
 block|{
 comment|// bump the suffix
 name|suffix
@@ -943,9 +962,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 assert|assert
-name|segmentWriteState
+name|field
 operator|.
-name|isFieldUpdate
+name|getDocValuesGen
+argument_list|()
+operator|!=
+operator|-
+literal|1
 operator|||
 name|previousValue
 operator|==

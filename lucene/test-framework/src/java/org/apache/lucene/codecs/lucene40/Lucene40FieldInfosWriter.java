@@ -193,6 +193,8 @@ begin_comment
 comment|/**  * Lucene 4.0 FieldInfos writer.  *   * @see Lucene40FieldInfosFormat  * @lucene.experimental  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|Lucene40FieldInfosWriter
 specifier|public
 class|class
@@ -218,6 +220,9 @@ name|directory
 parameter_list|,
 name|String
 name|segmentName
+parameter_list|,
+name|String
+name|segmentSuffix
 parameter_list|,
 name|FieldInfos
 name|infos

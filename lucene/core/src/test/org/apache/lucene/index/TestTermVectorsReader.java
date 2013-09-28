@@ -836,13 +836,11 @@ argument_list|()
 expr_stmt|;
 name|fieldInfos
 operator|=
-name|_TestUtil
+name|SegmentReader
 operator|.
-name|getFieldInfos
+name|readFieldInfos
 argument_list|(
 name|seg
-operator|.
-name|info
 argument_list|)
 expr_stmt|;
 block|}
