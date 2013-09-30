@@ -2295,6 +2295,7 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+throw|throw
 operator|new
 name|RemoteSolrException
 argument_list|(
@@ -2306,7 +2307,7 @@ name|encoding
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 name|RemoteSolrException
 name|e
