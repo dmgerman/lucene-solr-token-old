@@ -59,6 +59,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Scorer
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -76,7 +89,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link ValueSource} which uses the {@link ScoreFunctionValues} passed through  * the context map by {@link ExpressionComparator}.  */
+comment|/**  * A {@link ValueSource} which uses the {@link Scorer} passed through  * the context map by {@link ExpressionComparator}.  */
 end_comment
 begin_class
 annotation|@
@@ -92,7 +105,7 @@ name|ScoreValueSource
 extends|extends
 name|ValueSource
 block|{
-comment|/**    *<code>context</code> must contain a key "scorer" which is a {@link FunctionValues}.    */
+comment|/**    *<code>context</code> must contain a key "scorer" which is a {@link Scorer}.    */
 annotation|@
 name|Override
 DECL|method|getValues
@@ -109,11 +122,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|FunctionValues
+name|Scorer
 name|v
 init|=
 operator|(
-name|FunctionValues
+name|Scorer
 operator|)
 name|context
 operator|.
@@ -138,7 +151,13 @@ argument_list|)
 throw|;
 block|}
 return|return
+operator|new
+name|ScoreFunctionValues
+argument_list|(
+name|this
+argument_list|,
 name|v
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -184,7 +203,7 @@ name|description
 parameter_list|()
 block|{
 return|return
-literal|"ValueSource to expose scorer passed by ExpressionComparator"
+literal|"score()"
 return|;
 block|}
 block|}
