@@ -554,7 +554,7 @@ if|if
 condition|(
 name|flushControl
 operator|.
-name|doApplyAllDeletes
+name|getAndResetApplyAllDeletes
 argument_list|()
 condition|)
 block|{
