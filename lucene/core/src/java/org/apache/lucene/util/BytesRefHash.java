@@ -1419,7 +1419,6 @@ return|;
 block|}
 DECL|method|findHash
 specifier|private
-specifier|final
 name|int
 name|findHash
 parameter_list|(
@@ -2244,7 +2243,7 @@ name|bytesUsed
 parameter_list|()
 function_decl|;
 block|}
-comment|/** A simple {@link BytesStartArray} that tracks    *  memory allocation using a private {@link AtomicLong}    *  instance.  */
+comment|/** A simple {@link BytesStartArray} that tracks    *  memory allocation using a private {@link Counter}    *  instance.  */
 DECL|class|DirectBytesStartArray
 specifier|public
 specifier|static
