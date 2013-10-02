@@ -2708,7 +2708,9 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"create shard invoked"
+literal|"Create shard invoked: {}"
+argument_list|,
+name|message
 argument_list|)
 expr_stmt|;
 name|String
@@ -2792,13 +2794,12 @@ name|collection
 operator|.
 name|getInt
 argument_list|(
-name|MAX_SHARDS_PER_NODE
+name|REPLICATION_FACTOR
 argument_list|,
 literal|1
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//    int minReplicas = message.getInt("minReplicas",repFactor);
 name|String
 name|createNodeSetStr
 init|=
@@ -2850,7 +2851,7 @@ name|message
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// wait for a while until we don't see the collection
+comment|// wait for a while until we see the shard
 name|long
 name|waitUntil
 init|=
