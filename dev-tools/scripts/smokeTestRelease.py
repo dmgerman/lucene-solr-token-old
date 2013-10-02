@@ -4827,6 +4827,8 @@ string|"'module-build.xml'"
 op|','
 string|"'ivy-settings.xml'"
 op|','
+string|"'ivy-versions.properties'"
+op|','
 string|"'backwards'"
 op|','
 string|"'tools'"
