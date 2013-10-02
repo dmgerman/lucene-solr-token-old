@@ -466,10 +466,10 @@ name|String
 argument_list|>
 name|trueValuesParam
 init|=
-name|oneOrMany
-argument_list|(
 name|args
-argument_list|,
+operator|.
+name|removeConfigArgs
+argument_list|(
 name|TRUE_VALUES_PARAM
 argument_list|)
 decl_stmt|;
@@ -521,10 +521,10 @@ name|String
 argument_list|>
 name|falseValuesParam
 init|=
-name|oneOrMany
-argument_list|(
 name|args
-argument_list|,
+operator|.
+name|removeConfigArgs
+argument_list|(
 name|FALSE_VALUES_PARAM
 argument_list|)
 decl_stmt|;
