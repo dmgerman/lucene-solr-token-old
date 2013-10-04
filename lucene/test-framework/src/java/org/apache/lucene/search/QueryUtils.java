@@ -744,7 +744,7 @@ name|FieldCache
 operator|.
 name|DEFAULT
 operator|.
-name|purge
+name|purgeByCacheKey
 argument_list|(
 name|SlowCompositeReaderWrapper
 operator|.
@@ -752,6 +752,9 @@ name|wrap
 argument_list|(
 name|r
 argument_list|)
+operator|.
+name|getCoreCacheKey
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
