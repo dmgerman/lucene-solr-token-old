@@ -277,6 +277,11 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|cgf
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|wt
 operator|.
 name|setReader
@@ -415,6 +420,11 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|nsf
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 name|wt
 operator|.
