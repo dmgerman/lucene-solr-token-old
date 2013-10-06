@@ -7331,6 +7331,14 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+DECL|class|FakeIOException
+specifier|private
+specifier|static
+class|class
+name|FakeIOException
+extends|extends
+name|IOException
+block|{   }
 comment|// Make sure if we hit disk full, and then later disk
 comment|// frees up, and we successfully close IW or open an NRT
 comment|// reader, we don't lose any deletes:
@@ -7386,9 +7394,6 @@ operator|.
 name|Failure
 argument_list|()
 block|{
-name|boolean
-name|failedAlready
-decl_stmt|;
 annotation|@
 name|Override
 specifier|public
@@ -7504,10 +7509,8 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|IOException
-argument_list|(
-literal|"now fail on purpose"
-argument_list|)
+name|FakeIOException
+argument_list|()
 throw|;
 block|}
 else|else
@@ -7752,7 +7755,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|FakeIOException
 name|ioe
 parameter_list|)
 block|{
