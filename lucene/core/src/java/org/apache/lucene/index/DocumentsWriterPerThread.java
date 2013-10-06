@@ -2766,9 +2766,7 @@ name|message
 argument_list|(
 literal|"DWPT"
 argument_list|,
-literal|"hit exception "
-operator|+
-literal|"reating compound file for newly flushed segment "
+literal|"hit exception creating compound file for newly flushed segment "
 operator|+
 name|newSegment
 operator|.
