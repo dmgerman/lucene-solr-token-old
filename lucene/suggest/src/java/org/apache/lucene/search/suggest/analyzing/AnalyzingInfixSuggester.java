@@ -1999,8 +1999,7 @@ name|SHOULD
 expr_stmt|;
 block|}
 try|try
-block|{
-comment|//long t0 = System.currentTimeMillis();
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -2019,7 +2018,9 @@ name|toString
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
+comment|//long t0 = System.currentTimeMillis();
 name|ts
 operator|.
 name|reset
@@ -2543,6 +2544,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -2558,7 +2561,8 @@ argument_list|(
 name|text
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|CharTermAttribute
 name|termAtt
 init|=
@@ -2772,17 +2776,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|ts
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 return|return
 name|sb
 operator|.
 name|toString
 argument_list|()
 return|;
+block|}
 block|}
 comment|/** Called while highlighting a single result, to append a    *  non-matching chunk of text from the suggestion to the    *  provided fragments list.    *  @param sb The {@code StringBuilder} to append to    *  @param text The text chunk to add    */
 DECL|method|addNonMatch

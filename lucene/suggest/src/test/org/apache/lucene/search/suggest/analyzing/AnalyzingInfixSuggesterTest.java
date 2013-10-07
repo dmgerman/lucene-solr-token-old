@@ -1251,6 +1251,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -1266,7 +1268,8 @@ argument_list|(
 name|text
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|CharTermAttribute
 name|termAtt
 init|=
@@ -1553,14 +1556,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|ts
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 return|return
 name|fragments
 return|;
+block|}
 block|}
 block|}
 decl_stmt|;

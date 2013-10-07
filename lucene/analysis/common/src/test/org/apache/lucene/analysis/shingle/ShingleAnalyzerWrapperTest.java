@@ -555,6 +555,8 @@ operator|new
 name|PhraseQuery
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -566,7 +568,8 @@ literal|"content"
 argument_list|,
 literal|"this sentence"
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|int
 name|j
 init|=
@@ -641,6 +644,12 @@ name|j
 argument_list|)
 expr_stmt|;
 block|}
+name|ts
+operator|.
+name|end
+argument_list|()
+expr_stmt|;
+block|}
 name|ScoreDoc
 index|[]
 name|hits
@@ -693,6 +702,8 @@ operator|new
 name|BooleanQuery
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -704,7 +715,8 @@ literal|"content"
 argument_list|,
 literal|"test sentence"
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|CharTermAttribute
 name|termAtt
 init|=
@@ -760,6 +772,12 @@ name|Occur
 operator|.
 name|SHOULD
 argument_list|)
+expr_stmt|;
+block|}
+name|ts
+operator|.
+name|end
+argument_list|()
 expr_stmt|;
 block|}
 name|ScoreDoc

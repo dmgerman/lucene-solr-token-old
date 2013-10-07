@@ -309,6 +309,8 @@ argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -320,7 +322,8 @@ literal|"foo"
 argument_list|,
 name|s
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|CharTermAttribute
 name|termAtt
 init|=
@@ -362,11 +365,7 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
-name|ts
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 comment|/** blast some random strings through the analyzer */

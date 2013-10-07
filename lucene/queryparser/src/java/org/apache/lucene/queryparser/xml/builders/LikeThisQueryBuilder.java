@@ -401,7 +401,7 @@ name|fields
 control|)
 block|{
 try|try
-block|{
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -413,7 +413,8 @@ name|field
 argument_list|,
 name|stopWords
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|CharTermAttribute
 name|termAtt
 init|=

@@ -650,6 +650,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
 name|TokenStream
 name|stream
 init|=
@@ -667,7 +669,8 @@ argument_list|(
 literal|"abcd"
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|OffsetAttribute
 name|offsetAtt
 init|=
@@ -713,6 +716,20 @@ name|endOffset
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertFalse
+argument_list|(
+name|stream
+operator|.
+name|incrementToken
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|stream
+operator|.
+name|end
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/** blast some random strings through the analyzer */
 DECL|method|testRandomStrings

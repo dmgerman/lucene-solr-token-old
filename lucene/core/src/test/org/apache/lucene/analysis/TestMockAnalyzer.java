@@ -632,6 +632,8 @@ name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|stream
 init|=
@@ -643,7 +645,8 @@ literal|"dummy"
 argument_list|,
 name|testString
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|stream
 operator|.
 name|reset
@@ -664,11 +667,7 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
-name|stream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|assertAnalyzesTo
 argument_list|(
 name|analyzer
@@ -786,6 +785,8 @@ name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -797,7 +798,8 @@ literal|"bogus"
 argument_list|,
 name|charfilter
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|ts
 operator|.
 name|reset
@@ -818,11 +820,7 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
-name|ts
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|testWrapReader

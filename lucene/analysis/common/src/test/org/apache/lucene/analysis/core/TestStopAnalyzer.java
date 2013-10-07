@@ -233,6 +233,8 @@ operator|!=
 literal|null
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|TokenStream
 name|stream
 init|=
@@ -244,7 +246,8 @@ literal|"test"
 argument_list|,
 literal|"This is a test of the english stop analyzer"
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertTrue
 argument_list|(
 name|stream
@@ -291,6 +294,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|stream
+operator|.
+name|end
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|testStopList
 specifier|public
@@ -333,6 +342,8 @@ argument_list|,
 name|stopWordsSet
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|stream
 init|=
@@ -344,7 +355,8 @@ literal|"test"
 argument_list|,
 literal|"This is a good test of the english stop analyzer"
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertNotNull
 argument_list|(
 name|stream
@@ -392,6 +404,12 @@ argument_list|(
 name|text
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+name|stream
+operator|.
+name|end
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -463,6 +481,8 @@ block|,
 literal|1
 block|}
 decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|stream
 init|=
@@ -474,7 +494,8 @@ literal|"test"
 argument_list|,
 name|s
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|assertNotNull
 argument_list|(
 name|stream
@@ -553,6 +574,12 @@ operator|.
 name|getPositionIncrement
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+name|stream
+operator|.
+name|end
+argument_list|()
 expr_stmt|;
 block|}
 block|}

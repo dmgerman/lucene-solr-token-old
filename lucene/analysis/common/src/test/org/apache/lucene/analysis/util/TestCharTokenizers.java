@@ -719,6 +719,8 @@ name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -730,7 +732,8 @@ literal|"foo"
 argument_list|,
 name|s
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|ts
 operator|.
 name|reset
@@ -837,11 +840,7 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
-name|ts
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|// just for fun
 name|checkRandomData
@@ -970,6 +969,8 @@ name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -981,7 +982,8 @@ literal|"foo"
 argument_list|,
 name|s
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|ts
 operator|.
 name|reset
@@ -1088,11 +1090,7 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
-name|ts
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|// just for fun
 name|checkRandomData

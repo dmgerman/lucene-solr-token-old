@@ -209,8 +209,6 @@ name|String
 name|origQuery
 parameter_list|)
 block|{
-try|try
-block|{
 name|Collection
 argument_list|<
 name|Token
@@ -235,6 +233,8 @@ operator|.
 name|LUCENE_40
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -246,7 +246,8 @@ literal|""
 argument_list|,
 name|origQuery
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|// TODO: support custom attributes
 name|CharTermAttribute
 name|termAtt
@@ -423,11 +424,6 @@ block|}
 name|ts
 operator|.
 name|end
-argument_list|()
-expr_stmt|;
-name|ts
-operator|.
-name|close
 argument_list|()
 expr_stmt|;
 return|return

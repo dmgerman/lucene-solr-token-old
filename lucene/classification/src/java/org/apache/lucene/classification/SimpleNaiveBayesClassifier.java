@@ -461,6 +461,8 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|tokenStream
 init|=
@@ -472,7 +474,8 @@ name|textFieldName
 argument_list|,
 name|doc
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|CharTermAttribute
 name|charTermAttribute
 init|=
@@ -514,11 +517,7 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
-name|tokenStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 return|return
 name|result
 operator|.

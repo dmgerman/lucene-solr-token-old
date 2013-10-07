@@ -2348,6 +2348,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -2362,7 +2364,8 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|TermToBytesRefAttribute
 name|termBytesAtt
 init|=
@@ -2595,11 +2598,6 @@ name|endPosInc
 operator|>
 literal|0
 decl_stmt|;
-name|ts
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 comment|//System.out.println("maxEndOffset=" + maxEndOffset + " vs " + offsetAtt.endOffset());
 if|if
 condition|(
@@ -3623,6 +3621,7 @@ block|}
 return|return
 name|results
 return|;
+block|}
 block|}
 comment|/** weight -> cost */
 DECL|method|encodeWeight

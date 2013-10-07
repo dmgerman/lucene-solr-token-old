@@ -2026,6 +2026,8 @@ literal|"term vectors, you must provide an Analyzer"
 argument_list|)
 throw|;
 block|}
+try|try
+init|(
 name|TokenStream
 name|ts
 init|=
@@ -2037,7 +2039,8 @@ name|fieldName
 argument_list|,
 name|r
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|int
 name|tokenCount
 init|=
@@ -2143,11 +2146,7 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
-name|ts
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 comment|/**    * determines if the passed term is likely to be of interest in "more like" comparisons    *    * @param term The word being considered    * @return true if should be ignored, false if should be used in further analysis    */
 DECL|method|isNoiseWord
