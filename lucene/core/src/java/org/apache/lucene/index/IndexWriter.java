@@ -1309,6 +1309,29 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|release
+argument_list|(
+name|rld
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|release
+specifier|public
+specifier|synchronized
+name|void
+name|release
+parameter_list|(
+name|ReadersAndLiveDocs
+name|rld
+parameter_list|,
+name|boolean
+name|assertInfoLive
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 comment|// Matches incRef in get:
 name|rld
 operator|.
@@ -1352,6 +1375,10 @@ condition|)
 block|{
 comment|// Make sure we only write del docs and field updates for a live segment:
 assert|assert
+name|assertInfoLive
+operator|==
+literal|false
+operator|||
 name|infoIsLive
 argument_list|(
 name|rld
@@ -1359,18 +1386,18 @@ operator|.
 name|info
 argument_list|)
 assert|;
-comment|// Must checkpoint w/ deleter, because we just
-comment|// created new _X_N.del and field updates files.
-name|deleter
-operator|.
-name|checkpoint
-argument_list|(
-name|segmentInfos
-argument_list|,
-literal|false
-argument_list|)
+comment|// Must checkpoint because we just
+comment|// created new _X_N.del and field updates files;
+comment|// don't call IW.checkpoint because that also
+comment|// increments SIS.version, which we do not want to
+comment|// do here: it was done previously (after we
+comment|// invoked BDS.applyDeletes), whereas here all we
+comment|// did was move the state to disk:
+name|checkpointNoSIS
+argument_list|()
 expr_stmt|;
 block|}
+comment|//System.out.println("IW: done writeLiveDocs for info=" + rld.info);
 comment|//        System.out.println("[" + Thread.currentThread().getName() + "] ReaderPool.release: drop readers " + rld.info);
 name|rld
 operator|.
@@ -1470,16 +1497,15 @@ operator|.
 name|info
 argument_list|)
 assert|;
-comment|// Must checkpoint w/ deleter, because we just
-comment|// created created new _X_N.del and field updates files.
-name|deleter
-operator|.
-name|checkpoint
-argument_list|(
-name|segmentInfos
-argument_list|,
-literal|false
-argument_list|)
+comment|// Must checkpoint because we just
+comment|// created new _X_N.del and field updates files;
+comment|// don't call IW.checkpoint because that also
+comment|// increments SIS.version, which we do not want to
+comment|// do here: it was done previously (after we
+comment|// invoked BDS.applyDeletes), whereas here all we
+comment|// did was move the state to disk:
+name|checkpointNoSIS
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -1491,8 +1517,22 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|doSave
+condition|)
+block|{
+name|IOUtils
+operator|.
+name|reThrow
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 name|priorE
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
@@ -1531,8 +1571,22 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|doSave
+condition|)
+block|{
+name|IOUtils
+operator|.
+name|reThrow
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 name|priorE
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
@@ -1551,21 +1605,13 @@ argument_list|()
 operator|==
 literal|0
 assert|;
-if|if
-condition|(
-name|priorE
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
+name|IOUtils
+operator|.
+name|reThrow
 argument_list|(
 name|priorE
 argument_list|)
-throw|;
-block|}
+expr_stmt|;
 block|}
 comment|/**      * Commit live docs changes for the segment readers for      * the provided infos.      *      * @throws IOException If there is a low-level I/O error      */
 DECL|method|commit
@@ -1639,8 +1685,13 @@ argument_list|(
 name|info
 argument_list|)
 assert|;
-comment|// Must checkpoint w/ deleter, because we just
-comment|// created new _X_N.del and field updates files.
+comment|// Must checkpoint because we just
+comment|// created new _X_N.del and field updates files;
+comment|// don't call IW.checkpoint because that also
+comment|// increments SIS.version, which we do not want to
+comment|// do here: it was done previously (after we
+comment|// invoked BDS.applyDeletes), whereas here all we
+comment|// did was move the state to disk:
 name|deleter
 operator|.
 name|checkpoint
@@ -1649,6 +1700,9 @@ name|segmentInfos
 argument_list|,
 literal|false
 argument_list|)
+expr_stmt|;
+name|checkpointNoSIS
+argument_list|()
 expr_stmt|;
 comment|// we wrote field updates, reopen the reader
 if|if
@@ -2993,6 +3047,22 @@ literal|"now call final commit()"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Must do this before commitInternal, in case any of
+comment|// the dropped readers in the pool wrote a new live
+comment|// docs:
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+name|readerPool
+operator|.
+name|dropAll
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|doFlush
@@ -3000,6 +3070,34 @@ condition|)
 block|{
 name|commitInternal
 argument_list|()
+expr_stmt|;
+block|}
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+name|deleter
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+comment|// used by assert below
+specifier|final
+name|DocumentsWriter
+name|oldWriter
+init|=
+name|docWriter
+decl_stmt|;
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+name|docWriter
+operator|=
+literal|null
 expr_stmt|;
 block|}
 if|if
@@ -3023,35 +3121,6 @@ operator|+
 name|segString
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-comment|// used by assert below
-specifier|final
-name|DocumentsWriter
-name|oldWriter
-init|=
-name|docWriter
-decl_stmt|;
-synchronized|synchronized
-init|(
-name|this
-init|)
-block|{
-name|readerPool
-operator|.
-name|dropAll
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|docWriter
-operator|=
-literal|null
-expr_stmt|;
-name|deleter
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -6368,6 +6437,28 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Checkpoints with IndexFileDeleter, so it's aware of    *  new files, and increments changeCount, so on    *  close/commit we will write a new segments file, but    *  does NOT bump segmentInfos.version. */
+DECL|method|checkpointNoSIS
+specifier|synchronized
+name|void
+name|checkpointNoSIS
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|changeCount
+operator|++
+expr_stmt|;
+name|deleter
+operator|.
+name|checkpoint
+argument_list|(
+name|segmentInfos
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 comment|/** Called internally if any index state has changed. */
 DECL|method|changed
 specifier|synchronized
@@ -8650,6 +8741,8 @@ operator|.
 name|createBackupSegmentInfos
 argument_list|()
 expr_stmt|;
+comment|// NOTE: don't use this.checkpoint() here, because
+comment|// we do not want to increment changeCount:
 name|deleter
 operator|.
 name|checkpoint
@@ -10783,15 +10876,6 @@ name|keepFullyDeletedSegments
 operator|||
 name|dropSegment
 assert|;
-name|segmentInfos
-operator|.
-name|applyMergeChanges
-argument_list|(
-name|merge
-argument_list|,
-name|dropSegment
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|mergedDeletes
@@ -10804,21 +10888,38 @@ condition|(
 name|dropSegment
 condition|)
 block|{
-comment|//        System.out.println("[" + Thread.currentThread().getName() + "] IW.commitMerge: dropChanges " + merge.info);
 name|mergedDeletes
 operator|.
 name|dropChanges
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Pass false for assertInfoLive because the merged
+comment|// segment is not yet live (only below do we commit it
+comment|// to the segmentInfos):
 name|readerPool
 operator|.
 name|release
 argument_list|(
 name|mergedDeletes
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Must do this after readerPool.release, in case an
+comment|// exception is hit e.g. writing the live docs for the
+comment|// merge segment, in which case we need to abort the
+comment|// merge:
+name|segmentInfos
+operator|.
+name|applyMergeChanges
+argument_list|(
+name|merge
+argument_list|,
+name|dropSegment
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|dropSegment
@@ -11069,6 +11170,7 @@ name|merge
 operator|.
 name|isExternal
 condition|)
+block|{
 throw|throw
 operator|(
 name|MergePolicy
@@ -11078,54 +11180,17 @@ operator|)
 name|t
 throw|;
 block|}
-elseif|else
-if|if
-condition|(
-name|t
-operator|instanceof
-name|IOException
-condition|)
-throw|throw
-operator|(
-name|IOException
-operator|)
-name|t
-throw|;
-elseif|else
-if|if
-condition|(
-name|t
-operator|instanceof
-name|RuntimeException
-condition|)
-throw|throw
-operator|(
-name|RuntimeException
-operator|)
-name|t
-throw|;
-elseif|else
-if|if
-condition|(
-name|t
-operator|instanceof
-name|Error
-condition|)
-throw|throw
-operator|(
-name|Error
-operator|)
-name|t
-throw|;
+block|}
 else|else
-comment|// Should not get here
-throw|throw
-operator|new
-name|RuntimeException
+block|{
+name|IOUtils
+operator|.
+name|reThrow
 argument_list|(
 name|t
 argument_list|)
-throw|;
+expr_stmt|;
+block|}
 block|}
 comment|/**    * Merges the indicated segments, replacing them in the stack with a    * single segment.    *     * @lucene.experimental    */
 DECL|method|merge
@@ -12802,55 +12867,15 @@ if|if
 condition|(
 operator|!
 name|suppressExceptions
-operator|&&
-name|th
-operator|!=
-literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|th
-operator|instanceof
-name|IOException
-condition|)
-throw|throw
-operator|(
-name|IOException
-operator|)
-name|th
-throw|;
-if|if
-condition|(
-name|th
-operator|instanceof
-name|RuntimeException
-condition|)
-throw|throw
-operator|(
-name|RuntimeException
-operator|)
-name|th
-throw|;
-if|if
-condition|(
-name|th
-operator|instanceof
-name|Error
-condition|)
-throw|throw
-operator|(
-name|Error
-operator|)
-name|th
-throw|;
-throw|throw
-operator|new
-name|RuntimeException
+name|IOUtils
+operator|.
+name|reThrow
 argument_list|(
 name|th
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 comment|/** Does the actual (time-consuming) work of the merge,    *  but without holding synchronized lock on IndexWriter    *  instance */
