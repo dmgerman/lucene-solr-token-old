@@ -5083,6 +5083,9 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
+operator|new
+name|File
+argument_list|(
 name|SolrResourceLoader
 operator|.
 name|normalizeDir
@@ -5101,7 +5104,14 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
+argument_list|)
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|,
+operator|new
+name|File
+argument_list|(
 name|SolrResourceLoader
 operator|.
 name|normalizeDir
@@ -5119,6 +5129,10 @@ argument_list|(
 literal|"instanceDir"
 argument_list|)
 argument_list|)
+argument_list|)
+operator|.
+name|getAbsolutePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
