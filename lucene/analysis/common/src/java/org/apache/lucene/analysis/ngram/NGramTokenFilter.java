@@ -63,7 +63,7 @@ name|analysis
 operator|.
 name|miscellaneous
 operator|.
-name|LengthFilter
+name|CodepointCountFilter
 import|;
 end_import
 begin_import
@@ -314,7 +314,7 @@ block|{
 name|super
 argument_list|(
 operator|new
-name|LengthFilter
+name|CodepointCountFilter
 argument_list|(
 name|version
 argument_list|,
