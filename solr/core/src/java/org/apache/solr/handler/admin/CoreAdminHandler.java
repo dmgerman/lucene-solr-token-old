@@ -459,6 +459,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|core
+operator|.
+name|SolrXMLCoresLocator
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|handler
 operator|.
 name|RequestHandlerBase
@@ -3001,6 +3014,7 @@ name|dcore
 argument_list|)
 expr_stmt|;
 block|}
+comment|// make sure we can write out the descriptor first
 name|coreContainer
 operator|.
 name|getCoresLocator
@@ -3037,6 +3051,29 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|coreContainer
+operator|.
+name|getCoresLocator
+argument_list|()
+operator|instanceof
+name|SolrXMLCoresLocator
+condition|)
+block|{
+comment|// hack - in this case we persist once more because a core create race might
+comment|// have dropped entries.
+name|coreContainer
+operator|.
+name|getCoresLocator
+argument_list|()
+operator|.
+name|create
+argument_list|(
+name|coreContainer
+argument_list|)
+expr_stmt|;
+block|}
 name|rsp
 operator|.
 name|add
