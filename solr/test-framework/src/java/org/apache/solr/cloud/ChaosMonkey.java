@@ -762,7 +762,8 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|causeConnectionLoss
-specifier|private
+specifier|public
+specifier|static
 name|void
 name|causeConnectionLoss
 parameter_list|(
@@ -785,7 +786,8 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|causeConnectionLoss
-specifier|private
+specifier|public
+specifier|static
 name|void
 name|causeConnectionLoss
 parameter_list|(
