@@ -3215,6 +3215,8 @@ name|ex
 operator|.
 name|getMessage
 argument_list|()
+operator|+
+name|rootMsg
 argument_list|,
 name|ex
 argument_list|)
