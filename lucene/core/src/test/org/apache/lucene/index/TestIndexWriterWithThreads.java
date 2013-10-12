@@ -1017,6 +1017,23 @@ name|iter
 operator|++
 control|)
 block|{
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"\nTEST: iter="
+operator|+
+name|iter
+argument_list|)
+expr_stmt|;
+block|}
 name|Directory
 name|dir
 init|=
@@ -1209,6 +1226,21 @@ literal|"thread failed before indexing a single document"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"\nTEST: now close"
+argument_list|)
+expr_stmt|;
 block|}
 name|writer
 operator|.
