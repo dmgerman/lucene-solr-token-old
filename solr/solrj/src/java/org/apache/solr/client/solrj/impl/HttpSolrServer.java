@@ -1989,6 +1989,11 @@ name|shouldClose
 init|=
 literal|true
 decl_stmt|;
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 comment|// Execute the method.
@@ -2189,6 +2194,10 @@ comment|// Only case where stream should not be closed
 name|shouldClose
 operator|=
 literal|false
+expr_stmt|;
+name|success
+operator|=
+literal|true
 expr_stmt|;
 return|return
 name|rsp
@@ -2524,6 +2533,10 @@ literal|null
 argument_list|)
 throw|;
 block|}
+name|success
+operator|=
+literal|true
+expr_stmt|;
 return|return
 name|rsp
 return|;
@@ -2611,6 +2624,18 @@ name|t
 parameter_list|)
 block|{}
 comment|// ignore
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+block|{
+name|method
+operator|.
+name|abort
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
