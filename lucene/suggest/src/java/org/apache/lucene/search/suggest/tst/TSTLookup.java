@@ -93,21 +93,6 @@ name|search
 operator|.
 name|spell
 operator|.
-name|TermFreqIterator
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|spell
-operator|.
 name|TermFreqPayloadIterator
 import|;
 end_import
@@ -138,7 +123,7 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SortedTermFreqIteratorWrapper
+name|SortedTermFreqPayloadIteratorWrapper
 import|;
 end_import
 begin_import
@@ -220,7 +205,7 @@ operator|new
 name|TSTAutocomplete
 argument_list|()
 decl_stmt|;
-comment|/**     * Creates a new TSTLookup with an empty Ternary Search Tree.    * @see #build(TermFreqIterator)    */
+comment|/**     * Creates a new TSTLookup with an empty Ternary Search Tree.    * @see #build(TermFreqPayloadIterator)    */
 DECL|method|TSTLookup
 specifier|public
 name|TSTLookup
@@ -233,7 +218,7 @@ specifier|public
 name|void
 name|build
 parameter_list|(
-name|TermFreqIterator
+name|TermFreqPayloadIterator
 name|tfit
 parameter_list|)
 throws|throws
@@ -242,8 +227,9 @@ block|{
 if|if
 condition|(
 name|tfit
-operator|instanceof
-name|TermFreqPayloadIterator
+operator|.
+name|hasPayloads
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -264,7 +250,7 @@ comment|// make sure it's sorted and the comparator uses UTF16 sort order
 name|tfit
 operator|=
 operator|new
-name|SortedTermFreqIteratorWrapper
+name|SortedTermFreqPayloadIteratorWrapper
 argument_list|(
 name|tfit
 argument_list|,

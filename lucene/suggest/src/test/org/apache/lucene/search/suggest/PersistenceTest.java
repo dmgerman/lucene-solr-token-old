@@ -302,12 +302,12 @@ operator|.
 name|newInstance
 argument_list|()
 decl_stmt|;
-name|TermFreq
+name|TermFreqPayload
 index|[]
 name|keys
 init|=
 operator|new
-name|TermFreq
+name|TermFreqPayload
 index|[
 name|this
 operator|.
@@ -338,7 +338,7 @@ name|i
 index|]
 operator|=
 operator|new
-name|TermFreq
+name|TermFreqPayload
 argument_list|(
 name|this
 operator|.
@@ -355,7 +355,7 @@ operator|.
 name|build
 argument_list|(
 operator|new
-name|TermFreqArrayIterator
+name|TermFreqPayloadArrayIterator
 argument_list|(
 name|keys
 argument_list|)
@@ -425,7 +425,7 @@ name|MIN_VALUE
 decl_stmt|;
 for|for
 control|(
-name|TermFreq
+name|TermFreqPayload
 name|k
 range|:
 name|keys

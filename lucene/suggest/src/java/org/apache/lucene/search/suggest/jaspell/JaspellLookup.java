@@ -93,21 +93,6 @@ name|search
 operator|.
 name|spell
 operator|.
-name|TermFreqIterator
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|spell
-operator|.
 name|TermFreqPayloadIterator
 import|;
 end_import
@@ -230,7 +215,7 @@ name|editDistance
 init|=
 literal|2
 decl_stmt|;
-comment|/**     * Creates a new empty trie     * @see #build(TermFreqIterator)    * */
+comment|/**     * Creates a new empty trie     * @see #build(TermFreqPayloadIterator)    * */
 DECL|method|JaspellLookup
 specifier|public
 name|JaspellLookup
@@ -243,7 +228,7 @@ specifier|public
 name|void
 name|build
 parameter_list|(
-name|TermFreqIterator
+name|TermFreqPayloadIterator
 name|tfit
 parameter_list|)
 throws|throws
@@ -252,8 +237,9 @@ block|{
 if|if
 condition|(
 name|tfit
-operator|instanceof
-name|TermFreqPayloadIterator
+operator|.
+name|hasPayloads
+argument_list|()
 condition|)
 block|{
 throw|throw

@@ -456,7 +456,7 @@ comment|/**    * Input term/weight pairs.    */
 DECL|field|dictionaryInput
 specifier|private
 specifier|static
-name|TermFreq
+name|TermFreqPayload
 index|[]
 name|dictionaryInput
 decl_stmt|;
@@ -466,7 +466,7 @@ specifier|private
 specifier|static
 name|List
 argument_list|<
-name|TermFreq
+name|TermFreqPayload
 argument_list|>
 name|benchmarkInput
 decl_stmt|;
@@ -489,7 +489,7 @@ literal|"disable assertions before running benchmarks!"
 assert|;
 name|List
 argument_list|<
-name|TermFreq
+name|TermFreqPayload
 argument_list|>
 name|input
 init|=
@@ -514,7 +514,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|TermFreq
+name|TermFreqPayload
 index|[
 name|input
 operator|.
@@ -558,7 +558,7 @@ specifier|public
 specifier|static
 name|List
 argument_list|<
-name|TermFreq
+name|TermFreqPayload
 argument_list|>
 name|readTop50KWiki
 parameter_list|()
@@ -567,14 +567,14 @@ name|Exception
 block|{
 name|List
 argument_list|<
-name|TermFreq
+name|TermFreqPayload
 argument_list|>
 name|input
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|TermFreq
+name|TermFreqPayload
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -689,7 +689,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|TermFreq
+name|TermFreqPayload
 argument_list|(
 name|key
 argument_list|,
@@ -940,7 +940,7 @@ name|Lookup
 argument_list|>
 name|cls
 parameter_list|,
-name|TermFreq
+name|TermFreqPayload
 index|[]
 name|input
 parameter_list|)
@@ -1045,7 +1045,7 @@ operator|.
 name|build
 argument_list|(
 operator|new
-name|TermFreqArrayIterator
+name|TermFreqPayloadArrayIterator
 argument_list|(
 name|input
 argument_list|)
@@ -1250,7 +1250,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|TermFreq
+name|TermFreqPayload
 name|tf
 range|:
 name|benchmarkInput

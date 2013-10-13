@@ -84,21 +84,6 @@ name|search
 operator|.
 name|spell
 operator|.
-name|TermFreqIterator
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|spell
-operator|.
 name|TermFreqPayloadIterator
 import|;
 end_import
@@ -281,7 +266,7 @@ name|NoOutputs
 import|;
 end_import
 begin_comment
-comment|/**  * An adapter from {@link Lookup} API to {@link FSTCompletion}.  *   *<p>This adapter differs from {@link FSTCompletion} in that it attempts  * to discretize any "weights" as passed from in {@link TermFreqIterator#weight()}  * to match the number of buckets. For the rationale for bucketing, see  * {@link FSTCompletion}.  *   *<p><b>Note:</b>Discretization requires an additional sorting pass.  *   *<p>The range of weights for bucketing/ discretization is determined   * by sorting the input by weight and then dividing into  * equal ranges. Then, scores within each range are assigned to that bucket.   *   *<p>Note that this means that even large differences in weights may be lost   * during automaton construction, but the overall distinction between "classes"  * of weights will be preserved regardless of the distribution of weights.   *   *<p>For fine-grained control over which weights are assigned to which buckets,  * use {@link FSTCompletion} directly or {@link TSTLookup}, for example.  *   * @see FSTCompletion  * @lucene.experimental  */
+comment|/**  * An adapter from {@link Lookup} API to {@link FSTCompletion}.  *   *<p>This adapter differs from {@link FSTCompletion} in that it attempts  * to discretize any "weights" as passed from in {@link TermFreqPayloadIterator#weight()}  * to match the number of buckets. For the rationale for bucketing, see  * {@link FSTCompletion}.  *   *<p><b>Note:</b>Discretization requires an additional sorting pass.  *   *<p>The range of weights for bucketing/ discretization is determined   * by sorting the input by weight and then dividing into  * equal ranges. Then, scores within each range are assigned to that bucket.   *   *<p>Note that this means that even large differences in weights may be lost   * during automaton construction, but the overall distinction between "classes"  * of weights will be preserved regardless of the distribution of weights.   *   *<p>For fine-grained control over which weights are assigned to which buckets,  * use {@link FSTCompletion} directly or {@link TSTLookup}, for example.  *   * @see FSTCompletion  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|FSTCompletionLookup
@@ -333,7 +318,7 @@ specifier|private
 name|FSTCompletion
 name|normalCompletion
 decl_stmt|;
-comment|/**    * This constructor prepares for creating a suggested FST using the    * {@link #build(TermFreqIterator)} method. The number of weight    * discretization buckets is set to {@link FSTCompletion#DEFAULT_BUCKETS} and    * exact matches are promoted to the top of the suggestions list.    */
+comment|/**    * This constructor prepares for creating a suggested FST using the    * {@link #build(TermFreqPayloadIterator)} method. The number of weight    * discretization buckets is set to {@link FSTCompletion#DEFAULT_BUCKETS} and    * exact matches are promoted to the top of the suggestions list.    */
 DECL|method|FSTCompletionLookup
 specifier|public
 name|FSTCompletionLookup
@@ -349,7 +334,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * This constructor prepares for creating a suggested FST using the    * {@link #build(TermFreqIterator)} method.    *     * @param buckets    *          The number of weight discretization buckets (see    *          {@link FSTCompletion} for details).    *     * @param exactMatchFirst    *          If<code>true</code> exact matches are promoted to the top of the    *          suggestions list. Otherwise they appear in the order of    *          discretized weight and alphabetical within the bucket.    */
+comment|/**    * This constructor prepares for creating a suggested FST using the    * {@link #build(TermFreqPayloadIterator)} method.    *     * @param buckets    *          The number of weight discretization buckets (see    *          {@link FSTCompletion} for details).    *     * @param exactMatchFirst    *          If<code>true</code> exact matches are promoted to the top of the    *          suggestions list. Otherwise they appear in the order of    *          discretized weight and alphabetical within the bucket.    */
 DECL|method|FSTCompletionLookup
 specifier|public
 name|FSTCompletionLookup
@@ -435,7 +420,7 @@ specifier|public
 name|void
 name|build
 parameter_list|(
-name|TermFreqIterator
+name|TermFreqPayloadIterator
 name|tfit
 parameter_list|)
 throws|throws
@@ -444,8 +429,9 @@ block|{
 if|if
 condition|(
 name|tfit
-operator|instanceof
-name|TermFreqPayloadIterator
+operator|.
+name|hasPayloads
+argument_list|()
 condition|)
 block|{
 throw|throw
