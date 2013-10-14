@@ -91,9 +91,9 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|spell
+name|suggest
 operator|.
-name|TermFreqPayloadIterator
+name|InputIterator
 import|;
 end_import
 begin_import
@@ -215,7 +215,7 @@ name|editDistance
 init|=
 literal|2
 decl_stmt|;
-comment|/**     * Creates a new empty trie     * @see #build(TermFreqPayloadIterator)    * */
+comment|/**     * Creates a new empty trie     * @see #build(InputIterator)    * */
 DECL|method|JaspellLookup
 specifier|public
 name|JaspellLookup
@@ -228,7 +228,7 @@ specifier|public
 name|void
 name|build
 parameter_list|(
-name|TermFreqPayloadIterator
+name|InputIterator
 name|tfit
 parameter_list|)
 throws|throws

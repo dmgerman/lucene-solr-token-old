@@ -29,12 +29,15 @@ operator|.
 name|BytesRef
 import|;
 end_import
+begin_comment
+comment|/** corresponds to {@link InputIterator}'s entries */
+end_comment
 begin_class
-DECL|class|TermFreqPayload
+DECL|class|Input
 specifier|public
 specifier|final
 class|class
-name|TermFreqPayload
+name|Input
 block|{
 DECL|field|term
 specifier|public
@@ -60,9 +63,9 @@ specifier|final
 name|boolean
 name|hasPayloads
 decl_stmt|;
-DECL|method|TermFreqPayload
+DECL|method|Input
 specifier|public
-name|TermFreqPayload
+name|Input
 parameter_list|(
 name|BytesRef
 name|term
@@ -86,9 +89,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|TermFreqPayload
+DECL|method|Input
 specifier|public
-name|TermFreqPayload
+name|Input
 parameter_list|(
 name|String
 name|term
@@ -116,9 +119,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|TermFreqPayload
+DECL|method|Input
 specifier|public
-name|TermFreqPayload
+name|Input
 parameter_list|(
 name|BytesRef
 name|term
@@ -139,9 +142,9 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|TermFreqPayload
+DECL|method|Input
 specifier|public
-name|TermFreqPayload
+name|Input
 parameter_list|(
 name|String
 name|term
@@ -166,9 +169,9 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|TermFreqPayload
+DECL|method|Input
 specifier|public
-name|TermFreqPayload
+name|Input
 parameter_list|(
 name|BytesRef
 name|term

@@ -267,21 +267,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|spell
-operator|.
-name|TermFreqPayloadIterator
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|suggest
 operator|.
 name|Lookup
@@ -301,7 +286,7 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|TermFreqPayload
+name|Input
 import|;
 end_import
 begin_import
@@ -316,7 +301,22 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|TermFreqPayloadArrayIterator
+name|InputArrayIterator
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|InputIterator
 import|;
 end_import
 begin_import
@@ -398,14 +398,14 @@ name|Exception
 block|{
 name|Iterable
 argument_list|<
-name|TermFreqPayload
+name|Input
 argument_list|>
 name|keys
 init|=
 name|shuffle
 argument_list|(
 operator|new
-name|TermFreqPayload
+name|Input
 argument_list|(
 literal|"foo bar baz blah"
 argument_list|,
@@ -413,7 +413,7 @@ literal|50
 argument_list|)
 argument_list|,
 operator|new
-name|TermFreqPayload
+name|Input
 argument_list|(
 literal|"boo foo bar foo bee"
 argument_list|,
@@ -454,7 +454,7 @@ operator|.
 name|build
 argument_list|(
 operator|new
-name|TermFreqPayloadArrayIterator
+name|InputArrayIterator
 argument_list|(
 name|keys
 argument_list|)
@@ -647,14 +647,14 @@ comment|// Default separator is INFORMATION SEPARATOR TWO
 comment|// (0x1e), so no input token is allowed to contain it
 name|Iterable
 argument_list|<
-name|TermFreqPayload
+name|Input
 argument_list|>
 name|keys
 init|=
 name|shuffle
 argument_list|(
 operator|new
-name|TermFreqPayload
+name|Input
 argument_list|(
 literal|"foo\u001ebar baz"
 argument_list|,
@@ -683,7 +683,7 @@ operator|.
 name|build
 argument_list|(
 operator|new
-name|TermFreqPayloadArrayIterator
+name|InputArrayIterator
 argument_list|(
 name|keys
 argument_list|)
@@ -716,14 +716,14 @@ comment|// Default separator is INFORMATION SEPARATOR TWO
 comment|// (0x1e), so no input token is allowed to contain it
 name|Iterable
 argument_list|<
-name|TermFreqPayload
+name|Input
 argument_list|>
 name|keys
 init|=
 name|shuffle
 argument_list|(
 operator|new
-name|TermFreqPayload
+name|Input
 argument_list|(
 literal|"foo bar baz"
 argument_list|,
@@ -750,7 +750,7 @@ operator|.
 name|build
 argument_list|(
 operator|new
-name|TermFreqPayloadArrayIterator
+name|InputArrayIterator
 argument_list|(
 name|keys
 argument_list|)
@@ -831,7 +831,7 @@ operator|.
 name|build
 argument_list|(
 operator|new
-name|TermFreqPayloadIterator
+name|InputIterator
 argument_list|()
 block|{
 specifier|private
@@ -1020,14 +1020,14 @@ name|Exception
 block|{
 name|Iterable
 argument_list|<
-name|TermFreqPayload
+name|Input
 argument_list|>
 name|keys
 init|=
 name|shuffle
 argument_list|(
 operator|new
-name|TermFreqPayload
+name|Input
 argument_list|(
 literal|"foo bar baz blah boo foo bar foo bee"
 argument_list|,
@@ -1068,7 +1068,7 @@ operator|.
 name|build
 argument_list|(
 operator|new
-name|TermFreqPayloadArrayIterator
+name|InputArrayIterator
 argument_list|(
 name|keys
 argument_list|)
@@ -1104,14 +1104,14 @@ name|Exception
 block|{
 name|Iterable
 argument_list|<
-name|TermFreqPayload
+name|Input
 argument_list|>
 name|keys
 init|=
 name|shuffle
 argument_list|(
 operator|new
-name|TermFreqPayload
+name|Input
 argument_list|(
 literal|"foo bar bar bar bar"
 argument_list|,
@@ -1152,7 +1152,7 @@ operator|.
 name|build
 argument_list|(
 operator|new
-name|TermFreqPayloadArrayIterator
+name|InputArrayIterator
 argument_list|(
 name|keys
 argument_list|)
@@ -1187,14 +1187,14 @@ name|Exception
 block|{
 name|Iterable
 argument_list|<
-name|TermFreqPayload
+name|Input
 argument_list|>
 name|keys
 init|=
 name|shuffle
 argument_list|(
 operator|new
-name|TermFreqPayload
+name|Input
 argument_list|(
 literal|"foo bar bar bar bar"
 argument_list|,
@@ -1235,7 +1235,7 @@ operator|.
 name|build
 argument_list|(
 operator|new
-name|TermFreqPayloadArrayIterator
+name|InputArrayIterator
 argument_list|(
 name|keys
 argument_list|)
@@ -1341,14 +1341,14 @@ block|}
 decl_stmt|;
 name|Iterable
 argument_list|<
-name|TermFreqPayload
+name|Input
 argument_list|>
 name|keys
 init|=
 name|shuffle
 argument_list|(
 operator|new
-name|TermFreqPayload
+name|Input
 argument_list|(
 literal|"wizard of oz"
 argument_list|,
@@ -1379,7 +1379,7 @@ operator|.
 name|build
 argument_list|(
 operator|new
-name|TermFreqPayloadArrayIterator
+name|InputArrayIterator
 argument_list|(
 name|keys
 argument_list|)
@@ -1497,14 +1497,14 @@ block|}
 decl_stmt|;
 name|Iterable
 argument_list|<
-name|TermFreqPayload
+name|Input
 argument_list|>
 name|keys
 init|=
 name|shuffle
 argument_list|(
 operator|new
-name|TermFreqPayload
+name|Input
 argument_list|(
 literal|"wizard of of oz"
 argument_list|,
@@ -1535,7 +1535,7 @@ operator|.
 name|build
 argument_list|(
 operator|new
-name|TermFreqPayloadArrayIterator
+name|InputArrayIterator
 argument_list|(
 name|keys
 argument_list|)
@@ -1977,7 +1977,7 @@ operator|.
 name|build
 argument_list|(
 operator|new
-name|TermFreqPayloadIterator
+name|InputIterator
 argument_list|()
 block|{
 name|int

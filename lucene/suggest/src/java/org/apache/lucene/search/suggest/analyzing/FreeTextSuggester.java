@@ -424,9 +424,9 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|spell
+name|suggest
 operator|.
-name|TermFreqPayloadIterator
+name|InputIterator
 import|;
 end_import
 begin_import
@@ -1427,7 +1427,7 @@ specifier|public
 name|void
 name|build
 parameter_list|(
-name|TermFreqPayloadIterator
+name|InputIterator
 name|iterator
 parameter_list|)
 throws|throws
@@ -1449,7 +1449,7 @@ specifier|public
 name|void
 name|build
 parameter_list|(
-name|TermFreqPayloadIterator
+name|InputIterator
 name|iterator
 parameter_list|,
 name|double
