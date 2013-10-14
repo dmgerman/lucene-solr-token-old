@@ -17,81 +17,12 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene41
-operator|.
-name|Lucene41PostingsFormat
-operator|.
-name|BLOCK_SIZE
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene41
-operator|.
-name|ForUtil
-operator|.
-name|MAX_DATA_SIZE
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene41
-operator|.
-name|ForUtil
-operator|.
-name|MAX_ENCODED_SIZE
-import|;
-end_import
-begin_import
 import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 begin_import
@@ -130,7 +61,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|PostingsWriterBase
+name|PushPostingsWriterBase
 import|;
 end_import
 begin_import
@@ -157,21 +88,6 @@ operator|.
 name|index
 operator|.
 name|FieldInfo
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|FieldInfo
-operator|.
-name|IndexOptions
 import|;
 end_import
 begin_import
@@ -247,19 +163,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|store
-operator|.
-name|RAMOutputStream
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|ArrayUtil
@@ -306,6 +209,57 @@ operator|.
 name|PackedInts
 import|;
 end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|lucene41
+operator|.
+name|ForUtil
+operator|.
+name|MAX_DATA_SIZE
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|lucene41
+operator|.
+name|ForUtil
+operator|.
+name|MAX_ENCODED_SIZE
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|lucene41
+operator|.
+name|Lucene41PostingsFormat
+operator|.
+name|BLOCK_SIZE
+import|;
+end_import
 begin_comment
 comment|/**  * Concrete class that writes docId(maybe frq,pos,offset,payloads) list  * with postings format.  *  * Postings list for each term will be stored separately.   *  * @see Lucene41SkipWriter for details about skipping setting and postings layout.  * @lucene.experimental  */
 end_comment
@@ -316,7 +270,7 @@ specifier|final
 class|class
 name|Lucene41PostingsWriter
 extends|extends
-name|PostingsWriterBase
+name|PushPostingsWriterBase
 block|{
 comment|/**     * Expert: The maximum number of skip levels. Smaller values result in     * slightly smaller indexes, but slower skipping in big posting lists.    */
 DECL|field|maxSkipLevels
@@ -412,27 +366,6 @@ decl_stmt|;
 DECL|field|lastState
 name|IntBlockTermState
 name|lastState
-decl_stmt|;
-comment|// How current field indexes postings:
-DECL|field|fieldHasFreqs
-specifier|private
-name|boolean
-name|fieldHasFreqs
-decl_stmt|;
-DECL|field|fieldHasPositions
-specifier|private
-name|boolean
-name|fieldHasPositions
-decl_stmt|;
-DECL|field|fieldHasOffsets
-specifier|private
-name|boolean
-name|fieldHasOffsets
-decl_stmt|;
-DECL|field|fieldHasPayloads
-specifier|private
-name|boolean
-name|fieldHasPayloads
 decl_stmt|;
 comment|// Holds starting file pointers for current term:
 DECL|field|docStartFP
@@ -1219,69 +1152,22 @@ name|FieldInfo
 name|fieldInfo
 parameter_list|)
 block|{
-name|IndexOptions
-name|indexOptions
-init|=
+name|super
+operator|.
+name|setField
+argument_list|(
 name|fieldInfo
-operator|.
-name|getIndexOptions
-argument_list|()
-decl_stmt|;
-name|fieldHasFreqs
-operator|=
-name|indexOptions
-operator|.
-name|compareTo
-argument_list|(
-name|IndexOptions
-operator|.
-name|DOCS_AND_FREQS
 argument_list|)
-operator|>=
-literal|0
-expr_stmt|;
-name|fieldHasPositions
-operator|=
-name|indexOptions
-operator|.
-name|compareTo
-argument_list|(
-name|IndexOptions
-operator|.
-name|DOCS_AND_FREQS_AND_POSITIONS
-argument_list|)
-operator|>=
-literal|0
-expr_stmt|;
-name|fieldHasOffsets
-operator|=
-name|indexOptions
-operator|.
-name|compareTo
-argument_list|(
-name|IndexOptions
-operator|.
-name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
-argument_list|)
-operator|>=
-literal|0
-expr_stmt|;
-name|fieldHasPayloads
-operator|=
-name|fieldInfo
-operator|.
-name|hasPayloads
-argument_list|()
 expr_stmt|;
 name|skipWriter
 operator|.
 name|setField
 argument_list|(
-name|fieldHasPositions
+name|writePositions
 argument_list|,
-name|fieldHasOffsets
+name|writeOffsets
 argument_list|,
-name|fieldHasPayloads
+name|writePayloads
 argument_list|)
 expr_stmt|;
 name|lastState
@@ -1290,14 +1176,14 @@ name|emptyState
 expr_stmt|;
 if|if
 condition|(
-name|fieldHasPositions
+name|writePositions
 condition|)
 block|{
 if|if
 condition|(
-name|fieldHasPayloads
+name|writePayloads
 operator|||
-name|fieldHasOffsets
+name|writeOffsets
 condition|)
 block|{
 return|return
@@ -1338,7 +1224,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|fieldHasPositions
+name|writePositions
 condition|)
 block|{
 name|posStartFP
@@ -1350,9 +1236,9 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|fieldHasPayloads
+name|writePayloads
 operator|||
-name|fieldHasOffsets
+name|writeOffsets
 condition|)
 block|{
 name|payStartFP
@@ -1494,7 +1380,7 @@ comment|//   System.out.println("  docDeltaBuffer[" + docBufferUpto + "]=" + doc
 comment|// }
 if|if
 condition|(
-name|fieldHasFreqs
+name|writeFreqs
 condition|)
 block|{
 name|freqBuffer
@@ -1534,7 +1420,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|fieldHasFreqs
+name|writeFreqs
 condition|)
 block|{
 comment|// if (DEBUG) {
@@ -1569,7 +1455,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/** Add a new position& payload */
 annotation|@
 name|Override
 DECL|method|addPosition
@@ -1593,7 +1478,7 @@ throws|throws
 name|IOException
 block|{
 comment|// if (DEBUG) {
-comment|//   System.out.println("FPW.addPosition pos=" + position + " posBufferUpto=" + posBufferUpto + (fieldHasPayloads ? " payloadByteUpto=" + payloadByteUpto: ""));
+comment|//   System.out.println("FPW.addPosition pos=" + position + " posBufferUpto=" + posBufferUpto + (writePayloads ? " payloadByteUpto=" + payloadByteUpto: ""));
 comment|// }
 name|posDeltaBuffer
 index|[
@@ -1606,7 +1491,7 @@ name|lastPosition
 expr_stmt|;
 if|if
 condition|(
-name|fieldHasPayloads
+name|writePayloads
 condition|)
 block|{
 if|if
@@ -1702,7 +1587,7 @@ block|}
 block|}
 if|if
 condition|(
-name|fieldHasOffsets
+name|writeOffsets
 condition|)
 block|{
 assert|assert
@@ -1768,7 +1653,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|fieldHasPayloads
+name|writePayloads
 condition|)
 block|{
 name|forUtil
@@ -1807,7 +1692,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|fieldHasOffsets
+name|writeOffsets
 condition|)
 block|{
 name|forUtil
@@ -2031,7 +1916,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|fieldHasFreqs
+name|writeFreqs
 condition|)
 block|{
 name|docOut
@@ -2094,12 +1979,12 @@ name|lastPosBlockOffset
 decl_stmt|;
 if|if
 condition|(
-name|fieldHasPositions
+name|writePositions
 condition|)
 block|{
 comment|// if (DEBUG) {
 comment|//   if (posBufferUpto> 0) {
-comment|//     System.out.println("  write pos vInt block (count=" + posBufferUpto + ") at fp=" + posOut.getFilePointer() + " posStartFP=" + posStartFP + " hasPayloads=" + fieldHasPayloads + " hasOffsets=" + fieldHasOffsets);
+comment|//     System.out.println("  write pos vInt block (count=" + posBufferUpto + ") at fp=" + posOut.getFilePointer() + " posStartFP=" + posStartFP + " hasPayloads=" + writePayloads + " hasOffsets=" + writeOffsets);
 comment|//   }
 comment|// }
 comment|// totalTermFreq is just total number of positions(or payloads, or offsets)
@@ -2197,7 +2082,7 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-name|fieldHasPayloads
+name|writePayloads
 condition|)
 block|{
 specifier|final
@@ -2295,7 +2180,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|fieldHasOffsets
+name|writeOffsets
 condition|)
 block|{
 comment|// if (DEBUG) {
@@ -2363,7 +2248,7 @@ block|}
 block|}
 if|if
 condition|(
-name|fieldHasPayloads
+name|writePayloads
 condition|)
 block|{
 assert|assert
@@ -2540,7 +2425,7 @@ name|docStartFP
 expr_stmt|;
 if|if
 condition|(
-name|fieldHasPositions
+name|writePositions
 condition|)
 block|{
 name|longs
@@ -2558,9 +2443,9 @@ name|posStartFP
 expr_stmt|;
 if|if
 condition|(
-name|fieldHasPayloads
+name|writePayloads
 operator|||
-name|fieldHasOffsets
+name|writeOffsets
 condition|)
 block|{
 name|longs
@@ -2600,7 +2485,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|fieldHasPositions
+name|writePositions
 condition|)
 block|{
 if|if

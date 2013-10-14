@@ -220,7 +220,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SegmentWriteState
+name|SegmentReadState
 import|;
 end_import
 begin_import
@@ -233,7 +233,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SegmentReadState
+name|SegmentWriteState
 import|;
 end_import
 begin_import
