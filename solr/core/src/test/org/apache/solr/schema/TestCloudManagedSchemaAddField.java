@@ -556,7 +556,7 @@ decl_stmt|;
 name|long
 name|retryPauseMillis
 init|=
-literal|10
+literal|20
 decl_stmt|;
 for|for
 control|(
