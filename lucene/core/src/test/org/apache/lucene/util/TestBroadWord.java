@@ -33,7 +33,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"rank9("
+literal|"rank("
 operator|+
 name|x
 operator|+
@@ -48,7 +48,7 @@ argument_list|)
 argument_list|,
 name|BroadWord
 operator|.
-name|rank9
+name|bitCount
 argument_list|(
 name|x
 argument_list|)
@@ -133,7 +133,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"select9("
+literal|"select("
 operator|+
 name|x
 operator|+
@@ -147,7 +147,7 @@ name|exp
 argument_list|,
 name|BroadWord
 operator|.
-name|select9
+name|select
 argument_list|(
 name|x
 argument_list|,
@@ -485,7 +485,7 @@ name|i
 argument_list|,
 name|BroadWord
 operator|.
-name|select9
+name|select
 argument_list|(
 literal|0xFFFFFFFFFFFFFFFFL
 argument_list|,
