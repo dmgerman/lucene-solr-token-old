@@ -2324,6 +2324,8 @@ operator|.
 name|fastSet
 argument_list|(
 name|bit
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -2333,6 +2335,8 @@ operator|.
 name|fastGet
 argument_list|(
 name|bit
+operator|-
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2350,8 +2354,6 @@ operator|.
 name|fastSet
 argument_list|(
 name|bit
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -2361,8 +2363,6 @@ operator|.
 name|fastGet
 argument_list|(
 name|bit
-operator|+
-literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
