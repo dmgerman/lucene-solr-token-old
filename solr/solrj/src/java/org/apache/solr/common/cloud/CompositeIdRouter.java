@@ -138,7 +138,7 @@ init|=
 literal|"compositeId"
 decl_stmt|;
 DECL|field|separator
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|int
@@ -148,7 +148,7 @@ literal|'!'
 decl_stmt|;
 comment|// separator used to optionally specify number of bits to allocate toward first part.
 DECL|field|bitsSeparator
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|int

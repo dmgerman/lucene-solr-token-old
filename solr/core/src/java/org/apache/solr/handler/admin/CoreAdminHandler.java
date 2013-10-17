@@ -1399,6 +1399,16 @@ block|}
 block|}
 block|}
 name|String
+name|splitKey
+init|=
+name|params
+operator|.
+name|get
+argument_list|(
+literal|"split.key"
+argument_list|)
+decl_stmt|;
+name|String
 index|[]
 name|newCoreNames
 init|=
@@ -1798,6 +1808,8 @@ argument_list|,
 name|router
 argument_list|,
 name|routeFieldName
+argument_list|,
+name|splitKey
 argument_list|)
 decl_stmt|;
 name|core
