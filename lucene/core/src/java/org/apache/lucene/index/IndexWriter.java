@@ -8467,6 +8467,16 @@ return|return
 name|changeCount
 operator|!=
 name|lastCommitChangeCount
+operator|||
+name|docWriter
+operator|.
+name|anyChanges
+argument_list|()
+operator|||
+name|bufferedDeletesStream
+operator|.
+name|any
+argument_list|()
 return|;
 block|}
 DECL|method|commitInternal
