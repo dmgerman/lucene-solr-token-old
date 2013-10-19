@@ -2519,6 +2519,16 @@ operator|=
 name|requestWriter
 expr_stmt|;
 block|}
+DECL|method|getRequestWriter
+specifier|public
+name|RequestWriter
+name|getRequestWriter
+parameter_list|()
+block|{
+return|return
+name|requestWriter
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|finalize
