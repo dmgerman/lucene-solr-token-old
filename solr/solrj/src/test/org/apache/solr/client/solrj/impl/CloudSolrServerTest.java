@@ -1194,6 +1194,8 @@ argument_list|(
 literal|"[ff01::114]:33332"
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|server
 operator|.
 name|setZkConnectTimeout
@@ -1201,8 +1203,6 @@ argument_list|(
 literal|100
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|server
 operator|.
 name|connect
@@ -1231,11 +1231,14 @@ name|TimeoutException
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
 name|server
 operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

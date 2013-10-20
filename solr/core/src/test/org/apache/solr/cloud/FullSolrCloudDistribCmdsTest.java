@@ -1703,6 +1703,8 @@ argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|suss
 operator|.
 name|setConnectionTimeout
@@ -1753,6 +1755,15 @@ expr_stmt|;
 name|checkShardConsistency
 argument_list|()
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|suss
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|testOptimisticUpdate
 specifier|private

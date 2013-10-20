@@ -1719,6 +1719,8 @@ argument_list|,
 name|client
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|server
 operator|.
 name|setConnectionTimeout
@@ -1733,8 +1735,6 @@ argument_list|(
 literal|60000
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|server
 operator|.
 name|request
@@ -1766,6 +1766,14 @@ literal|": Could not tell a replica to recover"
 argument_list|,
 name|t
 argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|server
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 block|}
 block|}

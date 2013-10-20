@@ -3704,6 +3704,8 @@ argument_list|(
 name|recoveryUrl
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|server
 operator|.
 name|setSoTimeout
@@ -3776,6 +3778,15 @@ literal|": Could not tell a replica to recover"
 argument_list|,
 name|t
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|server
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 block|}
 block|}

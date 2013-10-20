@@ -473,6 +473,7 @@ literal|"SolrEntityProcessor: parameter 'url' is required"
 argument_list|)
 throw|;
 block|}
+comment|// TODO: we should close this client!
 name|HttpClient
 name|client
 init|=
@@ -506,6 +507,7 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
+comment|// TODO: it doesn't matter for this impl when passing a client currently, but we should shutdown this!
 name|solrServer
 operator|=
 operator|new
@@ -533,6 +535,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// TODO: it doesn't matter for this impl when passing a client currently, but we should shutdown this!
 name|solrServer
 operator|=
 operator|new
