@@ -485,6 +485,11 @@ block|}
 block|}
 expr_stmt|;
 block|}
+name|OrdinalsCache
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|long
 name|ramBytesUsed
 init|=
