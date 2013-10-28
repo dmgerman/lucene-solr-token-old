@@ -1147,6 +1147,8 @@ expr_stmt|;
 block|}
 return|return;
 block|}
+try|try
+block|{
 name|SolrServer
 name|solrServer
 init|=
@@ -1157,8 +1159,6 @@ argument_list|(
 name|req
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|NamedList
 argument_list|<
 name|Object
