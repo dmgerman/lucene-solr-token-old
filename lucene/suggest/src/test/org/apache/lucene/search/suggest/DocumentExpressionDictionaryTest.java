@@ -228,19 +228,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SlowCompositeReaderWrapper
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|Term
 import|;
 end_import
@@ -607,7 +594,10 @@ name|docs
 init|=
 name|generateIndexDocuments
 argument_list|(
+name|atLeast
+argument_list|(
 literal|10
+argument_list|)
 argument_list|)
 decl_stmt|;
 for|for
@@ -639,22 +629,14 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// TODO: once we fix DocumentExpressionDictionary to
-comment|// accept readers with more than one segment, we can
-comment|// remove this wrapping:
 name|IndexReader
 name|ir
 init|=
-name|SlowCompositeReaderWrapper
-operator|.
-name|wrap
-argument_list|(
 name|DirectoryReader
 operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|Set
@@ -966,7 +948,10 @@ name|docs
 init|=
 name|generateIndexDocuments
 argument_list|(
+name|atLeast
+argument_list|(
 literal|10
+argument_list|)
 argument_list|)
 decl_stmt|;
 for|for
@@ -998,22 +983,14 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// TODO: once we fix DocumentExpressionDictionary to
-comment|// accept readers with more than one segment, we can
-comment|// remove this wrapping:
 name|IndexReader
 name|ir
 init|=
-name|SlowCompositeReaderWrapper
-operator|.
-name|wrap
-argument_list|(
 name|DirectoryReader
 operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|Set
@@ -1325,7 +1302,10 @@ name|docs
 init|=
 name|generateIndexDocuments
 argument_list|(
+name|atLeast
+argument_list|(
 literal|10
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Random
@@ -1487,22 +1467,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: once we fix DocumentExpressionDictionary to
-comment|// accept readers with more than one segment, we can
-comment|// remove this wrapping:
 name|IndexReader
 name|ir
 init|=
-name|SlowCompositeReaderWrapper
-operator|.
-name|wrap
-argument_list|(
 name|DirectoryReader
 operator|.
 name|open
 argument_list|(
 name|dir
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertEquals
