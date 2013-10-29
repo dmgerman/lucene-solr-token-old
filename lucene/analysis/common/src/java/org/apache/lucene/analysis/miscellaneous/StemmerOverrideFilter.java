@@ -18,24 +18,6 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -217,6 +199,24 @@ operator|.
 name|FST
 operator|.
 name|BytesReader
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
 import|;
 end_import
 begin_comment
@@ -515,6 +515,7 @@ name|ignoreCase
 decl_stmt|;
 comment|/**      * Creates a new {@link StemmerOverrideMap}       * @param fst the fst to lookup the overrides      * @param ignoreCase if the keys case should be ingored      */
 DECL|method|StemmerOverrideMap
+specifier|public
 name|StemmerOverrideMap
 parameter_list|(
 name|FST
@@ -540,8 +541,9 @@ operator|=
 name|ignoreCase
 expr_stmt|;
 block|}
-comment|/**      * Returns a {@link BytesReader} to pass to the {@link #get(char[], int, Arc, BytesReader)} method.      */
+comment|/**      * Returns a {@link BytesReader} to pass to the {@link #get(char[], int, FST.Arc, FST.BytesReader)} method.      */
 DECL|method|getBytesReader
+specifier|public
 name|BytesReader
 name|getBytesReader
 parameter_list|()
@@ -569,6 +571,7 @@ block|}
 block|}
 comment|/**      * Returns the value mapped to the given key or<code>null</code> if the key is not in the FST dictionary.      */
 DECL|method|get
+specifier|public
 name|BytesRef
 name|get
 parameter_list|(
