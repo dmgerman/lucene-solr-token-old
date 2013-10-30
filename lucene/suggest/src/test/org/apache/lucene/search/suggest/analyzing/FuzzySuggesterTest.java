@@ -546,7 +546,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|FuzzySuggester
 operator|.
@@ -811,7 +811,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|FuzzySuggester
 operator|.
@@ -2145,7 +2145,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 literal|1
 argument_list|,
@@ -3212,7 +3212,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 literal|1
 argument_list|,
@@ -3493,7 +3493,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 literal|1
 argument_list|,
@@ -4822,7 +4822,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 literal|1
 argument_list|,
@@ -5724,7 +5724,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 literal|1
 argument_list|,
@@ -5919,7 +5919,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 literal|2
 argument_list|,
@@ -6797,7 +6797,7 @@ argument_list|,
 operator|-
 literal|1
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|maxEdits
 argument_list|,
