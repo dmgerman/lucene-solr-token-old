@@ -573,7 +573,8 @@ argument_list|(
 literal|"(lucene|solr)/build/(?:contrib/)?(.*)/classes/(?:java|test)"
 argument_list|)
 decl_stmt|;
-comment|// lucene/build/analysis/common/lucene-analyzers-common-5.0-SNAPSHOT.jar
+comment|// Local:   lucene/build/analysis/common/lucene-analyzers-common-5.0-SNAPSHOT.jar
+comment|// Jenkins: lucene/build/analysis/common/lucene-analyzers-common-5.0-2013-10-31_18-52-24.jar
 DECL|field|INTERNAL_JAR_PATTERN
 specifier|private
 specifier|static
@@ -585,7 +586,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|".*(lucene|solr)([^/]*?)-(?:\\d\\.)+\\d(?:-SNAPSHOT)?\\.jar"
+literal|".*(lucene|solr)([^/]*?)-\\d[-._\\d]*(?:-SNAPSHOT)?\\.jar"
 argument_list|)
 decl_stmt|;
 DECL|field|PROPERTY_REFERENCE_PATTERN
