@@ -171,7 +171,7 @@ name|DocValuesProducer
 argument_list|>
 name|newDocValuesProducer
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 parameter_list|,
 name|IOContext
@@ -341,7 +341,7 @@ parameter_list|(
 name|long
 name|gen
 parameter_list|,
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 parameter_list|,
 name|IOContext

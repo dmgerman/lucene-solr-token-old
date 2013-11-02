@@ -143,12 +143,12 @@ specifier|public
 name|int
 name|delCountOnFlush
 decl_stmt|;
-comment|/** Deletes to apply while we are flushing the segment.  A    *  Term is enrolled in here if it was deleted at one    *  point, and it's mapped to the docIDUpto, meaning any    *  docID&lt; docIDUpto containing this term should be    *  deleted. */
-DECL|field|segDeletes
+comment|/**    * Deletes and updates to apply while we are flushing the segment. A Term is    * enrolled in here if it was deleted/updated at one point, and it's mapped to    * the docIDUpto, meaning any docID&lt; docIDUpto containing this term should    * be deleted/updated.    */
+DECL|field|segUpdates
 specifier|public
 specifier|final
-name|BufferedDeletes
-name|segDeletes
+name|BufferedUpdates
+name|segUpdates
 decl_stmt|;
 comment|/** {@link MutableBits} recording live documents; this is    *  only set if there is one or more deleted documents. */
 DECL|field|liveDocs
@@ -187,8 +187,8 @@ parameter_list|,
 name|FieldInfos
 name|fieldInfos
 parameter_list|,
-name|BufferedDeletes
-name|segDeletes
+name|BufferedUpdates
+name|segUpdates
 parameter_list|,
 name|IOContext
 name|context
@@ -204,7 +204,7 @@ name|segmentInfo
 argument_list|,
 name|fieldInfos
 argument_list|,
-name|segDeletes
+name|segUpdates
 argument_list|,
 name|context
 argument_list|,
@@ -212,7 +212,7 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Constructor which takes segment suffix.    *     * @see #SegmentWriteState(InfoStream, Directory, SegmentInfo, FieldInfos,    *      BufferedDeletes, IOContext)    */
+comment|/**    * Constructor which takes segment suffix.    *     * @see #SegmentWriteState(InfoStream, Directory, SegmentInfo, FieldInfos,    *      BufferedUpdates, IOContext)    */
 DECL|method|SegmentWriteState
 specifier|public
 name|SegmentWriteState
@@ -229,8 +229,8 @@ parameter_list|,
 name|FieldInfos
 name|fieldInfos
 parameter_list|,
-name|BufferedDeletes
-name|segDeletes
+name|BufferedUpdates
+name|segUpdates
 parameter_list|,
 name|IOContext
 name|context
@@ -247,9 +247,9 @@ name|infoStream
 expr_stmt|;
 name|this
 operator|.
-name|segDeletes
+name|segUpdates
 operator|=
-name|segDeletes
+name|segUpdates
 expr_stmt|;
 name|this
 operator|.
@@ -330,11 +330,11 @@ name|segmentSuffix
 operator|=
 name|segmentSuffix
 expr_stmt|;
-name|segDeletes
+name|segUpdates
 operator|=
 name|state
 operator|.
-name|segDeletes
+name|segUpdates
 expr_stmt|;
 name|delCountOnFlush
 operator|=

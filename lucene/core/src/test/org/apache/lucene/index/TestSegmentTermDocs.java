@@ -151,7 +151,7 @@ name|dir
 decl_stmt|;
 DECL|field|info
 specifier|private
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 decl_stmt|;
 annotation|@

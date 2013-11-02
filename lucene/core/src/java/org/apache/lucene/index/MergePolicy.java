@@ -280,7 +280,7 @@ class|class
 name|OneMerge
 block|{
 DECL|field|info
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 decl_stmt|;
 comment|// used by IndexWriter
@@ -335,7 +335,7 @@ specifier|public
 specifier|final
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|segments
 decl_stmt|;
@@ -358,14 +358,14 @@ DECL|field|paused
 name|boolean
 name|paused
 decl_stmt|;
-comment|/** Sole constructor.      * @param segments List of {@link SegmentInfoPerCommit}s      *        to be merged. */
+comment|/** Sole constructor.      * @param segments List of {@link SegmentCommitInfo}s      *        to be merged. */
 DECL|method|OneMerge
 specifier|public
 name|OneMerge
 parameter_list|(
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|segments
 parameter_list|)
@@ -394,7 +394,7 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 argument_list|(
 name|segments
@@ -407,7 +407,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 range|:
 name|segments
@@ -514,13 +514,13 @@ name|readers
 argument_list|)
 return|;
 block|}
-comment|/**      * Expert: Sets the {@link SegmentInfoPerCommit} of this {@link OneMerge}.      * Allows sub-classes to e.g. set diagnostics properties.      */
+comment|/**      * Expert: Sets the {@link SegmentCommitInfo} of this {@link OneMerge}.      * Allows sub-classes to e.g. set diagnostics properties.      */
 DECL|method|setInfo
 specifier|public
 name|void
 name|setInfo
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|)
 block|{
@@ -903,7 +903,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 range|:
 name|segments
@@ -1393,7 +1393,7 @@ name|maxSegmentCount
 parameter_list|,
 name|Map
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|,
 name|Boolean
 argument_list|>
@@ -1434,7 +1434,7 @@ parameter_list|(
 name|SegmentInfos
 name|infos
 parameter_list|,
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|mergedInfo
 parameter_list|)
 throws|throws
@@ -1490,7 +1490,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 range|:
 name|infos
@@ -1513,13 +1513,13 @@ operator|*
 name|totalSize
 return|;
 block|}
-comment|/** Return the byte size of the provided {@link    *  SegmentInfoPerCommit}, pro-rated by percentage of    *  non-deleted documents is set. */
+comment|/** Return the byte size of the provided {@link    *  SegmentCommitInfo}, pro-rated by percentage of    *  non-deleted documents is set. */
 DECL|method|size
 specifier|protected
 name|long
 name|size
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|)
 throws|throws
@@ -1619,7 +1619,7 @@ specifier|final
 name|boolean
 name|isMerged
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|)
 block|{

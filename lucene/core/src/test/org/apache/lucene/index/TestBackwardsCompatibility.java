@@ -6036,7 +6036,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 range|:
 name|infos

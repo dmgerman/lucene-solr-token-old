@@ -388,7 +388,7 @@ name|config
 argument_list|,
 name|writer
 operator|.
-name|bufferedDeletesStream
+name|bufferedUpdatesStream
 argument_list|)
 expr_stmt|;
 block|}
@@ -1331,7 +1331,7 @@ block|{
 return|return
 name|deleteQueue
 operator|.
-name|getBufferedDeleteTermsSize
+name|getBufferedUpdatesTermsSize
 argument_list|()
 return|;
 block|}

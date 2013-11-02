@@ -4366,7 +4366,7 @@ control|)
 block|{
 if|if
 condition|(
-literal|"applyDeletes"
+literal|"applyDeletesAndUpdates"
 operator|.
 name|equals
 argument_list|(
@@ -4469,7 +4469,7 @@ control|)
 block|{
 if|if
 condition|(
-literal|"applyDeletes"
+literal|"applyDeletesAndUpdates"
 operator|.
 name|equals
 argument_list|(

@@ -465,7 +465,7 @@ comment|// segmentInfos here, so that we are passing the
 comment|// actual instance of SegmentInfoPerCommit in
 comment|// IndexWriter's segmentInfos:
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 init|=
 name|infos
@@ -485,7 +485,7 @@ operator|==
 name|dir
 assert|;
 specifier|final
-name|ReadersAndLiveDocs
+name|ReadersAndUpdates
 name|rld
 init|=
 name|writer

@@ -79,7 +79,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 import|;
 end_import
 begin_import
@@ -366,7 +366,7 @@ parameter_list|(
 name|Directory
 name|dir
 parameter_list|,
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|,
 name|IOContext
@@ -651,7 +651,7 @@ parameter_list|,
 name|Directory
 name|dir
 parameter_list|,
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|,
 name|int
@@ -882,7 +882,7 @@ specifier|public
 name|void
 name|files
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|,
 name|Collection

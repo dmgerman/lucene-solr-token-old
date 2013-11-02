@@ -243,7 +243,7 @@ block|{
 DECL|field|si
 specifier|private
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 decl_stmt|;
 DECL|field|liveDocs
@@ -417,7 +417,7 @@ DECL|method|SegmentReader
 specifier|public
 name|SegmentReader
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 parameter_list|,
 name|IOContext
@@ -587,7 +587,7 @@ comment|/** Create new SegmentReader sharing core from a previous    *  SegmentR
 DECL|method|SegmentReader
 name|SegmentReader
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 parameter_list|,
 name|SegmentReader
@@ -645,7 +645,7 @@ comment|/** Create new SegmentReader sharing core from a previous    *  SegmentR
 DECL|method|SegmentReader
 name|SegmentReader
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 parameter_list|,
 name|SegmentReader
@@ -935,7 +935,7 @@ specifier|static
 name|FieldInfos
 name|readFieldInfos
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|)
 throws|throws
@@ -1550,7 +1550,7 @@ block|}
 comment|/**    * Return the SegmentInfoPerCommit of the segment this reader is reading.    */
 DECL|method|getSegmentInfo
 specifier|public
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|getSegmentInfo
 parameter_list|()
 block|{

@@ -341,13 +341,13 @@ name|void
 name|close
 parameter_list|()
 block|{}
-comment|/** Return the number of documents in the provided {@link    *  SegmentInfoPerCommit}, pro-rated by percentage of    *  non-deleted documents if {@link    *  #setCalibrateSizeByDeletes} is set. */
+comment|/** Return the number of documents in the provided {@link    *  SegmentCommitInfo}, pro-rated by percentage of    *  non-deleted documents if {@link    *  #setCalibrateSizeByDeletes} is set. */
 DECL|method|sizeDocs
 specifier|protected
 name|long
 name|sizeDocs
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|)
 throws|throws
@@ -409,13 +409,13 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/** Return the byte size of the provided {@link    *  SegmentInfoPerCommit}, pro-rated by percentage of    *  non-deleted documents if {@link    *  #setCalibrateSizeByDeletes} is set. */
+comment|/** Return the byte size of the provided {@link    *  SegmentCommitInfo}, pro-rated by percentage of    *  non-deleted documents if {@link    *  #setCalibrateSizeByDeletes} is set. */
 DECL|method|sizeBytes
 specifier|protected
 name|long
 name|sizeBytes
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|)
 throws|throws
@@ -456,7 +456,7 @@ name|maxNumSegments
 parameter_list|,
 name|Map
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|,
 name|Boolean
 argument_list|>
@@ -479,7 +479,7 @@ name|numToMerge
 init|=
 literal|0
 decl_stmt|;
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|mergeInfo
 init|=
 literal|null
@@ -509,7 +509,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 init|=
 name|infos
@@ -598,7 +598,7 @@ decl_stmt|;
 specifier|final
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|segments
 init|=
@@ -621,7 +621,7 @@ operator|>=
 literal|0
 condition|)
 block|{
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 init|=
 name|infos
@@ -863,7 +863,7 @@ decl_stmt|;
 specifier|final
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|segments
 init|=
@@ -1154,7 +1154,7 @@ name|maxNumSegments
 parameter_list|,
 name|Map
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|,
 name|Boolean
 argument_list|>
@@ -1235,7 +1235,7 @@ literal|0
 condition|)
 block|{
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 init|=
 name|infos
@@ -1346,7 +1346,7 @@ name|i
 operator|++
 control|)
 block|{
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 init|=
 name|infos
@@ -1427,7 +1427,7 @@ block|{
 specifier|final
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|segments
 init|=
@@ -1503,7 +1503,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 init|=
 name|segmentInfos
@@ -1749,7 +1749,7 @@ name|SegmentInfoAndLevel
 argument_list|>
 block|{
 DECL|field|info
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 decl_stmt|;
 DECL|field|level
@@ -1764,7 +1764,7 @@ DECL|method|SegmentInfoAndLevel
 specifier|public
 name|SegmentInfoAndLevel
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|,
 name|float
@@ -1894,7 +1894,7 @@ decl_stmt|;
 specifier|final
 name|Collection
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|mergingSegments
 init|=
@@ -1922,7 +1922,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 init|=
 name|infos
@@ -2349,7 +2349,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 init|=
 name|levels
@@ -2425,14 +2425,14 @@ expr_stmt|;
 specifier|final
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|mergeInfos
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 argument_list|()
 decl_stmt|;

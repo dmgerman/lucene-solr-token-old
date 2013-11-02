@@ -2271,7 +2271,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 range|:
 name|sis

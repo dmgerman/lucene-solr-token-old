@@ -120,13 +120,13 @@ if|if
 condition|(
 name|state
 operator|.
-name|segDeletes
+name|segUpdates
 operator|!=
 literal|null
 operator|&&
 name|state
 operator|.
-name|segDeletes
+name|segUpdates
 operator|.
 name|terms
 operator|.
@@ -146,7 +146,7 @@ name|segDeletes
 init|=
 name|state
 operator|.
-name|segDeletes
+name|segUpdates
 operator|.
 name|terms
 decl_stmt|;

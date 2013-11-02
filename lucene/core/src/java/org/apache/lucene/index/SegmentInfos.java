@@ -316,7 +316,7 @@ name|Cloneable
 implements|,
 name|Iterable
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 block|{
 comment|/** The file format version for the segments_N codec header, up to 4.5. */
@@ -401,14 +401,14 @@ DECL|field|segments
 specifier|private
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|segments
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -421,16 +421,16 @@ name|infoStream
 init|=
 literal|null
 decl_stmt|;
-comment|/** Sole constructor. Typically you call this and then    *  use {@link #read(Directory) or    *  #read(Directory,String)} to populate each {@link    *  SegmentInfoPerCommit}.  Alternatively, you can add/remove your    *  own {@link SegmentInfoPerCommit}s. */
+comment|/** Sole constructor. Typically you call this and then    *  use {@link #read(Directory) or    *  #read(Directory,String)} to populate each {@link    *  SegmentCommitInfo}.  Alternatively, you can add/remove your    *  own {@link SegmentCommitInfo}s. */
 DECL|method|SegmentInfos
 specifier|public
 name|SegmentInfos
 parameter_list|()
 block|{   }
-comment|/** Returns {@link SegmentInfoPerCommit} at the provided    *  index. */
+comment|/** Returns {@link SegmentCommitInfo} at the provided    *  index. */
 DECL|method|info
 specifier|public
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|(
 name|int
@@ -1179,11 +1179,11 @@ name|readLong
 argument_list|()
 expr_stmt|;
 block|}
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|siPerCommit
 init|=
 operator|new
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|(
 name|info
 argument_list|,
@@ -1382,7 +1382,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/** Find the latest commit ({@code segments_N file}) and    *  load all {@link SegmentInfoPerCommit}s. */
+comment|/** Find the latest commit ({@code segments_N file}) and    *  load all {@link SegmentCommitInfo}s. */
 DECL|method|read
 specifier|public
 specifier|final
@@ -1546,7 +1546,7 @@ expr_stmt|;
 comment|// write infos
 for|for
 control|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|siPerCommit
 range|:
 name|this
@@ -1784,7 +1784,7 @@ operator|=
 operator|new
 name|ArrayList
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 argument_list|(
 name|size
@@ -1794,7 +1794,7 @@ expr_stmt|;
 for|for
 control|(
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 range|:
 name|this
@@ -2954,7 +2954,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 init|=
 name|info
@@ -3279,7 +3279,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 init|=
 name|info
@@ -3404,7 +3404,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 range|:
 name|this
@@ -3452,14 +3452,14 @@ block|{
 specifier|final
 name|Set
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|mergedAway
 init|=
 operator|new
 name|HashSet
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 argument_list|(
 name|merge
@@ -3505,7 +3505,7 @@ operator|>=
 name|newSegIdx
 assert|;
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 init|=
 name|segments
@@ -3616,7 +3616,7 @@ block|}
 DECL|method|createBackupSegmentInfos
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|createBackupSegmentInfos
 parameter_list|()
@@ -3624,14 +3624,14 @@ block|{
 specifier|final
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|list
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 argument_list|(
 name|size
@@ -3641,7 +3641,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 range|:
 name|this
@@ -3678,7 +3678,7 @@ name|rollbackSegmentInfos
 parameter_list|(
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|infos
 parameter_list|)
@@ -3704,7 +3704,7 @@ DECL|method|iterator
 specifier|public
 name|Iterator
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|iterator
 parameter_list|()
@@ -3722,7 +3722,7 @@ DECL|method|asList
 specifier|public
 name|List
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|asList
 parameter_list|()
@@ -3736,7 +3736,7 @@ name|segments
 argument_list|)
 return|;
 block|}
-comment|/** Returns number of {@link SegmentInfoPerCommit}s. */
+comment|/** Returns number of {@link SegmentCommitInfo}s. */
 DECL|method|size
 specifier|public
 name|int
@@ -3750,13 +3750,13 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/** Appends the provided {@link SegmentInfoPerCommit}. */
+comment|/** Appends the provided {@link SegmentCommitInfo}. */
 DECL|method|add
 specifier|public
 name|void
 name|add
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 parameter_list|)
 block|{
@@ -3768,7 +3768,7 @@ name|si
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Appends the provided {@link SegmentInfoPerCommit}s. */
+comment|/** Appends the provided {@link SegmentCommitInfo}s. */
 DECL|method|addAll
 specifier|public
 name|void
@@ -3776,7 +3776,7 @@ name|addAll
 parameter_list|(
 name|Iterable
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|>
 name|sis
 parameter_list|)
@@ -3784,7 +3784,7 @@ block|{
 for|for
 control|(
 specifier|final
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 range|:
 name|sis
@@ -3799,7 +3799,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/** Clear all {@link SegmentInfoPerCommit}s. */
+comment|/** Clear all {@link SegmentCommitInfo}s. */
 DECL|method|clear
 specifier|public
 name|void
@@ -3812,13 +3812,13 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** Remove the provided {@link SegmentInfoPerCommit}.    *    *<p><b>WARNING</b>: O(N) cost */
+comment|/** Remove the provided {@link SegmentCommitInfo}.    *    *<p><b>WARNING</b>: O(N) cost */
 DECL|method|remove
 specifier|public
 name|void
 name|remove
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 parameter_list|)
 block|{
@@ -3830,7 +3830,7 @@ name|si
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Remove the {@link SegmentInfoPerCommit} at the    * provided index.    *    *<p><b>WARNING</b>: O(N) cost */
+comment|/** Remove the {@link SegmentCommitInfo} at the    * provided index.    *    *<p><b>WARNING</b>: O(N) cost */
 DECL|method|remove
 name|void
 name|remove
@@ -3847,12 +3847,12 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Return true if the provided {@link    *  SegmentInfoPerCommit} is contained.    *    *<p><b>WARNING</b>: O(N) cost */
+comment|/** Return true if the provided {@link    *  SegmentCommitInfo} is contained.    *    *<p><b>WARNING</b>: O(N) cost */
 DECL|method|contains
 name|boolean
 name|contains
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 parameter_list|)
 block|{
@@ -3865,12 +3865,12 @@ name|si
 argument_list|)
 return|;
 block|}
-comment|/** Returns index of the provided {@link    *  SegmentInfoPerCommit}.    *    *<p><b>WARNING</b>: O(N) cost */
+comment|/** Returns index of the provided {@link    *  SegmentCommitInfo}.    *    *<p><b>WARNING</b>: O(N) cost */
 DECL|method|indexOf
 name|int
 name|indexOf
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 parameter_list|)
 block|{

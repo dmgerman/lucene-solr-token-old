@@ -146,7 +146,7 @@ name|maxSegmentCount
 parameter_list|,
 name|Map
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|,
 name|Boolean
 argument_list|>
@@ -182,7 +182,7 @@ parameter_list|(
 name|SegmentInfos
 name|segments
 parameter_list|,
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|newSegment
 parameter_list|)
 block|{
@@ -208,7 +208,7 @@ specifier|protected
 name|long
 name|size
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|)
 throws|throws

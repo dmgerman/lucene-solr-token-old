@@ -484,7 +484,7 @@ name|assertTrue
 argument_list|(
 name|writer
 operator|.
-name|bufferedDeletesStream
+name|bufferedUpdatesStream
 operator|.
 name|any
 argument_list|()
@@ -504,7 +504,7 @@ name|assertFalse
 argument_list|(
 name|writer
 operator|.
-name|bufferedDeletesStream
+name|bufferedUpdatesStream
 operator|.
 name|any
 argument_list|()
@@ -796,7 +796,7 @@ DECL|method|segThere
 name|boolean
 name|segThere
 parameter_list|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|info
 parameter_list|,
 name|SegmentInfos
@@ -805,7 +805,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|si
 range|:
 name|infos
@@ -1186,7 +1186,7 @@ name|maxSegmentCount
 parameter_list|,
 name|Map
 argument_list|<
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 argument_list|,
 name|Boolean
 argument_list|>
@@ -1226,7 +1226,7 @@ parameter_list|(
 name|SegmentInfos
 name|segments
 parameter_list|,
-name|SegmentInfoPerCommit
+name|SegmentCommitInfo
 name|newSegment
 parameter_list|)
 block|{
