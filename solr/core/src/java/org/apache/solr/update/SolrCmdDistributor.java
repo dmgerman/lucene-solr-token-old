@@ -407,13 +407,6 @@ name|getErrors
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|allErrors
-operator|.
-name|addAll
-argument_list|(
-name|errors
-argument_list|)
-expr_stmt|;
 name|boolean
 name|blockUntilFinishedAgain
 init|=
@@ -426,8 +419,6 @@ name|err
 range|:
 name|errors
 control|)
-block|{
-try|try
 block|{
 name|String
 name|oldNodeUrl
@@ -561,11 +552,8 @@ literal|true
 expr_stmt|;
 block|}
 block|}
-block|}
 if|if
 condition|(
-name|isRetry
-operator|&&
 name|err
 operator|.
 name|req
@@ -596,7 +584,13 @@ literal|"forwarding update to "
 operator|+
 name|oldNodeUrl
 operator|+
-literal|" failed - retrying ... "
+literal|" failed - retrying ... retries: "
+operator|+
+name|err
+operator|.
+name|req
+operator|.
+name|retries
 argument_list|)
 expr_stmt|;
 try|try
@@ -645,22 +639,24 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
+else|else
 block|{
-name|SolrException
+name|allErrors
 operator|.
-name|log
+name|add
 argument_list|(
-name|log
-argument_list|,
-literal|"Retry attempt failed"
-argument_list|,
-name|e
+name|err
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|allErrors
+operator|.
+name|add
+argument_list|(
+name|err
 argument_list|)
 expr_stmt|;
 block|}
