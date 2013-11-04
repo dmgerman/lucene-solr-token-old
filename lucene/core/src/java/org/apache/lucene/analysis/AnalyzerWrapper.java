@@ -147,7 +147,6 @@ annotation|@
 name|Override
 DECL|method|getPositionIncrementGap
 specifier|public
-specifier|final
 name|int
 name|getPositionIncrementGap
 parameter_list|(
@@ -171,7 +170,6 @@ annotation|@
 name|Override
 DECL|method|getOffsetGap
 specifier|public
-specifier|final
 name|int
 name|getOffsetGap
 parameter_list|(
