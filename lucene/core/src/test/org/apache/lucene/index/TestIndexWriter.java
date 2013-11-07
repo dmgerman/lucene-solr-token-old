@@ -9371,6 +9371,12 @@ name|String
 argument_list|>
 name|files
 init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|(
 name|Arrays
 operator|.
 name|asList
@@ -9379,6 +9385,7 @@ name|dir
 operator|.
 name|listAll
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -9458,6 +9465,14 @@ block|}
 else|else
 block|{
 comment|// this is an NRT reopen - no segments files yet
+comment|// RAMDir won't have a write.lock, but fs dirs will:
+name|files
+operator|.
+name|remove
+argument_list|(
+literal|"write.lock"
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|files
