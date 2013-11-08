@@ -180,6 +180,8 @@ literal|"HEXDIGIT"
 block|,
 literal|"ID"
 block|,
+literal|"NAMESPACE_ID"
+block|,
 literal|"OCTAL"
 block|,
 literal|"OCTALDIGIT"
@@ -521,6 +523,15 @@ name|ID
 init|=
 literal|39
 decl_stmt|;
+DECL|field|NAMESPACE_ID
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|NAMESPACE_ID
+init|=
+literal|40
+decl_stmt|;
 DECL|field|OCTAL
 specifier|public
 specifier|static
@@ -528,7 +539,7 @@ specifier|final
 name|int
 name|OCTAL
 init|=
-literal|40
+literal|41
 decl_stmt|;
 DECL|field|OCTALDIGIT
 specifier|public
@@ -537,7 +548,7 @@ specifier|final
 name|int
 name|OCTALDIGIT
 init|=
-literal|41
+literal|42
 decl_stmt|;
 DECL|field|WS
 specifier|public
@@ -546,7 +557,7 @@ specifier|final
 name|int
 name|WS
 init|=
-literal|42
+literal|43
 decl_stmt|;
 comment|// delegates
 DECL|method|getDelegates
@@ -5656,7 +5667,7 @@ case|case
 name|HEX
 case|:
 case|case
-name|ID
+name|NAMESPACE_ID
 case|:
 case|case
 name|OCTAL
@@ -6511,7 +6522,7 @@ block|}
 block|}
 empty_stmt|;
 comment|// $ANTLR start "postfix"
-comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:310:1: postfix : ( primary | ID arguments -> ^( AT_CALL ID ( arguments )? ) );
+comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:310:1: postfix : ( primary | NAMESPACE_ID arguments -> ^( AT_CALL NAMESPACE_ID ( arguments )? ) );
 DECL|method|postfix
 specifier|public
 specifier|final
@@ -6551,7 +6562,7 @@ init|=
 literal|null
 decl_stmt|;
 name|Token
-name|ID47
+name|NAMESPACE_ID47
 init|=
 literal|null
 decl_stmt|;
@@ -6566,19 +6577,19 @@ init|=
 literal|null
 decl_stmt|;
 name|CommonTree
-name|ID47_tree
+name|NAMESPACE_ID47_tree
 init|=
 literal|null
 decl_stmt|;
 name|RewriteRuleTokenStream
-name|stream_ID
+name|stream_NAMESPACE_ID
 init|=
 operator|new
 name|RewriteRuleTokenStream
 argument_list|(
 name|adaptor
 argument_list|,
-literal|"token ID"
+literal|"token NAMESPACE_ID"
 argument_list|)
 decl_stmt|;
 name|RewriteRuleSubtreeStream
@@ -6594,7 +6605,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:311:5: ( primary | ID arguments -> ^( AT_CALL ID ( arguments )? ) )
+comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:311:5: ( primary | NAMESPACE_ID arguments -> ^( AT_CALL NAMESPACE_ID ( arguments )? ) )
 name|int
 name|alt14
 init|=
@@ -6615,7 +6626,7 @@ condition|(
 operator|(
 name|LA14_0
 operator|==
-name|ID
+name|NAMESPACE_ID
 operator|)
 condition|)
 block|{
@@ -6860,9 +6871,9 @@ break|break;
 case|case
 literal|2
 case|:
-comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:312:7: ID arguments
+comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:312:7: NAMESPACE_ID arguments
 block|{
-name|ID47
+name|NAMESPACE_ID47
 operator|=
 operator|(
 name|Token
@@ -6871,16 +6882,16 @@ name|match
 argument_list|(
 name|input
 argument_list|,
-name|ID
+name|NAMESPACE_ID
 argument_list|,
-name|FOLLOW_ID_in_postfix1168
+name|FOLLOW_NAMESPACE_ID_in_postfix1168
 argument_list|)
 expr_stmt|;
-name|stream_ID
+name|stream_NAMESPACE_ID
 operator|.
 name|add
 argument_list|(
-name|ID47
+name|NAMESPACE_ID47
 argument_list|)
 expr_stmt|;
 name|pushFollow
@@ -6909,7 +6920,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// AST REWRITE
-comment|// elements: arguments, ID
+comment|// elements: NAMESPACE_ID, arguments
 comment|// token labels:
 comment|// rule labels: retval
 comment|// token list labels:
@@ -6953,9 +6964,9 @@ operator|.
 name|nil
 argument_list|()
 expr_stmt|;
-comment|// 312:20: -> ^( AT_CALL ID ( arguments )? )
+comment|// 312:30: -> ^( AT_CALL NAMESPACE_ID ( arguments )? )
 block|{
-comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:312:23: ^( AT_CALL ID ( arguments )? )
+comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:312:33: ^( AT_CALL NAMESPACE_ID ( arguments )? )
 block|{
 name|CommonTree
 name|root_1
@@ -6998,13 +7009,13 @@ name|addChild
 argument_list|(
 name|root_1
 argument_list|,
-name|stream_ID
+name|stream_NAMESPACE_ID
 operator|.
 name|nextNode
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:312:36: ( arguments )?
+comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:312:56: ( arguments )?
 if|if
 condition|(
 name|stream_arguments
@@ -7178,7 +7189,7 @@ block|}
 block|}
 empty_stmt|;
 comment|// $ANTLR start "primary"
-comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:315:1: primary : ( ID | numeric | AT_LPAREN ! conditional AT_RPAREN !);
+comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:315:1: primary : ( NAMESPACE_ID | numeric | AT_LPAREN ! conditional AT_RPAREN !);
 DECL|method|primary
 specifier|public
 specifier|final
@@ -7218,7 +7229,7 @@ init|=
 literal|null
 decl_stmt|;
 name|Token
-name|ID49
+name|NAMESPACE_ID49
 init|=
 literal|null
 decl_stmt|;
@@ -7243,7 +7254,7 @@ init|=
 literal|null
 decl_stmt|;
 name|CommonTree
-name|ID49_tree
+name|NAMESPACE_ID49_tree
 init|=
 literal|null
 decl_stmt|;
@@ -7259,7 +7270,7 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:316:5: ( ID | numeric | AT_LPAREN ! conditional AT_RPAREN !)
+comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:316:5: ( NAMESPACE_ID | numeric | AT_LPAREN ! conditional AT_RPAREN !)
 name|int
 name|alt15
 init|=
@@ -7276,7 +7287,7 @@ argument_list|)
 condition|)
 block|{
 case|case
-name|ID
+name|NAMESPACE_ID
 case|:
 block|{
 name|alt15
@@ -7339,7 +7350,7 @@ block|{
 case|case
 literal|1
 case|:
-comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:316:7: ID
+comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:316:7: NAMESPACE_ID
 block|{
 name|root_0
 operator|=
@@ -7351,7 +7362,7 @@ operator|.
 name|nil
 argument_list|()
 expr_stmt|;
-name|ID49
+name|NAMESPACE_ID49
 operator|=
 operator|(
 name|Token
@@ -7360,12 +7371,12 @@ name|match
 argument_list|(
 name|input
 argument_list|,
-name|ID
+name|NAMESPACE_ID
 argument_list|,
-name|FOLLOW_ID_in_primary1198
+name|FOLLOW_NAMESPACE_ID_in_primary1198
 argument_list|)
 expr_stmt|;
-name|ID49_tree
+name|NAMESPACE_ID49_tree
 operator|=
 operator|(
 name|CommonTree
@@ -7374,7 +7385,7 @@ name|adaptor
 operator|.
 name|create
 argument_list|(
-name|ID49
+name|NAMESPACE_ID49
 argument_list|)
 expr_stmt|;
 name|adaptor
@@ -7383,7 +7394,7 @@ name|addChild
 argument_list|(
 name|root_0
 argument_list|,
-name|ID49_tree
+name|NAMESPACE_ID49_tree
 argument_list|)
 expr_stmt|;
 block|}
@@ -7792,7 +7803,7 @@ operator|||
 operator|(
 name|LA17_0
 operator|>=
-name|ID
+name|NAMESPACE_ID
 operator|&&
 name|LA17_0
 operator|<=
@@ -8403,7 +8414,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -8439,7 +8450,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -8493,7 +8504,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -8547,7 +8558,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -8601,7 +8612,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -8655,7 +8666,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -8709,7 +8720,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -8763,7 +8774,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -8817,7 +8828,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -8871,7 +8882,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -8925,7 +8936,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -8979,7 +8990,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -9033,7 +9044,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -9069,7 +9080,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -9163,12 +9174,12 @@ literal|0x0000000000000002L
 block|}
 argument_list|)
 decl_stmt|;
-DECL|field|FOLLOW_ID_in_postfix1168
+DECL|field|FOLLOW_NAMESPACE_ID_in_postfix1168
 specifier|public
 specifier|static
 specifier|final
 name|BitSet
-name|FOLLOW_ID_in_postfix1168
+name|FOLLOW_NAMESPACE_ID_in_postfix1168
 init|=
 operator|new
 name|BitSet
@@ -9199,12 +9210,12 @@ literal|0x0000000000000002L
 block|}
 argument_list|)
 decl_stmt|;
-DECL|field|FOLLOW_ID_in_primary1198
+DECL|field|FOLLOW_NAMESPACE_ID_in_primary1198
 specifier|public
 specifier|static
 specifier|final
 name|BitSet
-name|FOLLOW_ID_in_primary1198
+name|FOLLOW_NAMESPACE_ID_in_primary1198
 init|=
 operator|new
 name|BitSet
@@ -9249,7 +9260,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -9303,7 +9314,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A388002050L
+literal|0x0000032388002050L
 block|}
 argument_list|)
 decl_stmt|;
@@ -9339,7 +9350,7 @@ operator|new
 name|long
 index|[]
 block|{
-literal|0x000001A308002050L
+literal|0x0000032308002050L
 block|}
 argument_list|)
 decl_stmt|;
