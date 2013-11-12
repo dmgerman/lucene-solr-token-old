@@ -1713,6 +1713,11 @@ specifier|public
 name|float
 name|score
 decl_stmt|;
+DECL|field|docId
+specifier|public
+name|int
+name|docId
+decl_stmt|;
 DECL|method|DummyScorer
 specifier|public
 name|DummyScorer
@@ -1775,7 +1780,7 @@ name|docID
 parameter_list|()
 block|{
 return|return
-literal|0
+name|docId
 return|;
 block|}
 DECL|method|cost
@@ -2572,6 +2577,12 @@ name|docId
 operator|-
 name|currentDocBase
 decl_stmt|;
+name|dummy
+operator|.
+name|docId
+operator|=
+name|contextDoc
+expr_stmt|;
 name|delegate
 operator|.
 name|collect
@@ -3268,6 +3279,12 @@ name|docId
 operator|-
 name|currentDocBase
 decl_stmt|;
+name|dummy
+operator|.
+name|docId
+operator|=
+name|contextDoc
+expr_stmt|;
 name|delegate
 operator|.
 name|collect
