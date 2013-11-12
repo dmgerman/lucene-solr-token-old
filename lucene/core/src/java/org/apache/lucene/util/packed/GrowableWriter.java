@@ -59,7 +59,7 @@ DECL|class|GrowableWriter
 specifier|public
 class|class
 name|GrowableWriter
-implements|implements
+extends|extends
 name|PackedInts
 operator|.
 name|Mutable
