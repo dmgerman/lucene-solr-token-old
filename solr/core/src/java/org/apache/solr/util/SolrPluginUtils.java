@@ -1613,6 +1613,13 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|results
+operator|!=
+literal|null
+condition|)
+block|{
 name|NamedList
 argument_list|<
 name|Explanation
@@ -1649,6 +1656,7 @@ name|explain
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|String
 name|otherQueryS
 init|=
