@@ -790,11 +790,11 @@ literal|"Publish Date (5)\n  2010 (2)\n  2012 (2)\n  1999 (1)\n"
 argument_list|,
 name|facets
 operator|.
-name|getDim
+name|getTopChildren
 argument_list|(
-literal|"Publish Date"
-argument_list|,
 literal|10
+argument_list|,
+literal|"Publish Date"
 argument_list|)
 operator|.
 name|toString
@@ -807,11 +807,11 @@ literal|"Author (5)\n  Lisa (2)\n  Bob (1)\n  Susan (1)\n  Frank (1)\n"
 argument_list|,
 name|facets
 operator|.
-name|getDim
+name|getTopChildren
 argument_list|(
-literal|"Author"
-argument_list|,
 literal|10
+argument_list|,
+literal|"Author"
 argument_list|)
 operator|.
 name|toString
@@ -876,11 +876,11 @@ literal|"Author (2)\n  Bob (1)\n  Lisa (1)\n"
 argument_list|,
 name|facets
 operator|.
-name|getDim
+name|getTopChildren
 argument_list|(
-literal|"Author"
-argument_list|,
 literal|10
+argument_list|,
+literal|"Author"
 argument_list|)
 operator|.
 name|toString
@@ -893,15 +893,11 @@ literal|1
 argument_list|,
 name|facets
 operator|.
-name|getSpecificCount
-argument_list|(
-operator|new
-name|CategoryPath
+name|getSpecificValue
 argument_list|(
 literal|"Author"
 argument_list|,
 literal|"Lisa"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
