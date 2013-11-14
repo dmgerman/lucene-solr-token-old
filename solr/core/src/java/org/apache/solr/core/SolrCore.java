@@ -1560,6 +1560,12 @@ specifier|final
 name|Codec
 name|codec
 decl_stmt|;
+DECL|field|ruleExpiryLock
+specifier|private
+specifier|final
+name|ReentrantLock
+name|ruleExpiryLock
+decl_stmt|;
 DECL|method|getStartTime
 specifier|public
 name|long
@@ -3934,6 +3940,12 @@ name|codec
 operator|=
 literal|null
 expr_stmt|;
+name|this
+operator|.
+name|ruleExpiryLock
+operator|=
+literal|null
+expr_stmt|;
 name|solrCoreState
 operator|=
 literal|null
@@ -4888,6 +4900,12 @@ block|}
 comment|// For debugging
 comment|//    numOpens.incrementAndGet();
 comment|//    openHandles.put(this, new RuntimeException("unclosed core - name:" + getName() + " refs: " + refCount.get()));
+name|ruleExpiryLock
+operator|=
+operator|new
+name|ReentrantLock
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|initCodec
 specifier|private
@@ -10869,6 +10887,16 @@ parameter_list|()
 block|{
 return|return
 name|solrDelPolicy
+return|;
+block|}
+DECL|method|getRuleExpiryLock
+specifier|public
+name|ReentrantLock
+name|getRuleExpiryLock
+parameter_list|()
+block|{
+return|return
+name|ruleExpiryLock
 return|;
 block|}
 comment|/////////////////////////////////////////////////////////////////////
