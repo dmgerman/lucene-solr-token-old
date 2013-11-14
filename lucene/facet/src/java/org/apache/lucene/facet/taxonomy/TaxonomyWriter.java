@@ -75,7 +75,7 @@ specifier|public
 name|int
 name|addCategory
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|categoryPath
 parameter_list|)
 throws|throws

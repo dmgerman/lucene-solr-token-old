@@ -116,7 +116,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -156,13 +156,13 @@ DECL|field|CATEGORIES
 specifier|private
 specifier|static
 specifier|final
-name|CategoryPath
+name|FacetLabel
 index|[]
 name|CATEGORIES
 init|=
 block|{
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -170,17 +170,7 @@ literal|"b"
 argument_list|)
 block|,
 operator|new
-name|CategoryPath
-argument_list|(
-literal|"a"
-argument_list|,
-literal|"b"
-argument_list|,
-literal|"1"
-argument_list|)
-block|,
-operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -190,7 +180,17 @@ literal|"1"
 argument_list|)
 block|,
 operator|new
-name|CategoryPath
+name|FacetLabel
+argument_list|(
+literal|"a"
+argument_list|,
+literal|"b"
+argument_list|,
+literal|"1"
+argument_list|)
+block|,
+operator|new
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -200,7 +200,7 @@ literal|"2"
 argument_list|)
 block|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -210,7 +210,7 @@ literal|"2"
 argument_list|)
 block|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -220,7 +220,7 @@ literal|"3"
 argument_list|)
 block|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -230,7 +230,7 @@ literal|"4"
 argument_list|)
 block|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -238,7 +238,7 @@ literal|"c"
 argument_list|)
 block|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -246,7 +246,7 @@ literal|"c"
 argument_list|)
 block|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -254,7 +254,7 @@ literal|"c"
 argument_list|)
 block|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -262,7 +262,7 @@ literal|"c"
 argument_list|)
 block|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -270,7 +270,7 @@ literal|"c"
 argument_list|)
 block|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -315,7 +315,7 @@ DECL|method|getCategories
 specifier|protected
 name|List
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|getCategories
 parameter_list|(
@@ -403,7 +403,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -419,7 +419,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -459,7 +459,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -478,7 +478,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -499,7 +499,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -1046,11 +1046,11 @@ name|fip
 argument_list|)
 expr_stmt|;
 comment|// do different facet counts and compare to control
-name|CategoryPath
+name|FacetLabel
 name|path
 init|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -1306,11 +1306,11 @@ argument_list|(
 name|fip
 argument_list|)
 expr_stmt|;
-name|CategoryPath
+name|FacetLabel
 name|path
 init|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Miau Hattulla"
 argument_list|)

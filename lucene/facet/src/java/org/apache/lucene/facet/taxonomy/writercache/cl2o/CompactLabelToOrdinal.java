@@ -113,7 +113,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_comment
@@ -344,7 +344,7 @@ name|CategoryPathUtils
 operator|.
 name|serialize
 argument_list|(
-name|CategoryPath
+name|FacetLabel
 operator|.
 name|EMPTY
 argument_list|,
@@ -403,7 +403,7 @@ specifier|public
 name|void
 name|addLabel
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|label
 parameter_list|,
 name|int
@@ -523,7 +523,7 @@ specifier|public
 name|int
 name|getOrdinal
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|label
 parameter_list|)
 block|{
@@ -1033,7 +1033,7 @@ parameter_list|(
 name|HashArray
 name|a
 parameter_list|,
-name|CategoryPath
+name|FacetLabel
 name|label
 parameter_list|,
 name|int
@@ -1289,7 +1289,7 @@ parameter_list|(
 name|HashArray
 name|a
 parameter_list|,
-name|CategoryPath
+name|FacetLabel
 name|label
 parameter_list|,
 name|int
@@ -1414,7 +1414,7 @@ specifier|static
 name|int
 name|stringHashCode
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|label
 parameter_list|)
 block|{

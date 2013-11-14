@@ -29,7 +29,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_comment
@@ -65,7 +65,7 @@ DECL|method|key
 name|Object
 name|key
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|name
 parameter_list|)
 block|{
@@ -86,7 +86,7 @@ DECL|method|key
 name|Object
 name|key
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|name
 parameter_list|,
 name|int

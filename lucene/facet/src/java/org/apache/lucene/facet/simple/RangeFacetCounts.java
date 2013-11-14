@@ -31,24 +31,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -101,19 +83,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|AtomicReaderContext
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|queries
 operator|.
 name|function
@@ -154,7 +123,7 @@ name|LongFieldSource
 import|;
 end_import
 begin_comment
-comment|/**  * Uses {@link RangeFacetRequest#getValues(AtomicReaderContext)} and accumulates  * counts for provided ranges.  */
+comment|/**  * accumulates counts for provided ranges.  */
 end_comment
 begin_class
 DECL|class|RangeFacetCounts

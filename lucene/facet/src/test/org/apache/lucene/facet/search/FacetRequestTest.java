@@ -53,7 +53,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -99,7 +99,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -155,7 +155,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -170,7 +170,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)

@@ -37,7 +37,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_class
@@ -51,7 +51,7 @@ comment|/** Path whose children we counted. */
 DECL|field|path
 specifier|public
 specifier|final
-name|CategoryPath
+name|FacetLabel
 name|path
 decl_stmt|;
 comment|/** Total value for this path (sum of all child counts, or    *  sum of all child values), even those not included in    *  the topN. */
@@ -72,7 +72,7 @@ DECL|method|SimpleFacetResult
 specifier|public
 name|SimpleFacetResult
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|path
 parameter_list|,
 name|Number

@@ -170,7 +170,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -378,14 +378,14 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|paths
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -402,7 +402,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|categoryPath
 argument_list|,
@@ -599,7 +599,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Publish Date"
 argument_list|)
@@ -611,7 +611,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|)
@@ -730,7 +730,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|)
@@ -757,7 +757,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Publish Date/2010"
 argument_list|,

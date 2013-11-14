@@ -188,7 +188,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -678,7 +678,7 @@ argument_list|()
 decl_stmt|;
 name|Map
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|,
 name|FacetsAggregator
 argument_list|>
@@ -687,7 +687,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|,
 name|FacetsAggregator
 argument_list|>

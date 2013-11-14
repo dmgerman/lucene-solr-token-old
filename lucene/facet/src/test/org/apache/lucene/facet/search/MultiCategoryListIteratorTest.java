@@ -168,7 +168,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -413,7 +413,7 @@ block|}
 comment|// build the PerDimensionIndexingParams
 name|HashMap
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|,
 name|CategoryListParams
 argument_list|>
@@ -422,7 +422,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|,
 name|CategoryListParams
 argument_list|>
@@ -436,11 +436,11 @@ range|:
 name|dimensions
 control|)
 block|{
-name|CategoryPath
+name|FacetLabel
 name|cp
 init|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|dim
 argument_list|)
@@ -574,14 +574,14 @@ literal|1
 decl_stmt|;
 name|ArrayList
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|categories
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -620,7 +620,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|dimension
 argument_list|,
@@ -715,7 +715,7 @@ operator|.
 name|getCategoryListParams
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|dimensions
 index|[
@@ -858,7 +858,7 @@ name|j
 operator|++
 control|)
 block|{
-name|CategoryPath
+name|FacetLabel
 name|cp
 init|=
 name|taxoReader

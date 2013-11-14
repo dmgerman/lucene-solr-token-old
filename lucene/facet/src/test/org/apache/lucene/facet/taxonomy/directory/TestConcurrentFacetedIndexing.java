@@ -128,7 +128,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -279,7 +279,7 @@ specifier|public
 name|int
 name|get
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|categoryPath
 parameter_list|)
 block|{
@@ -294,7 +294,7 @@ specifier|public
 name|boolean
 name|put
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|categoryPath
 parameter_list|,
 name|int
@@ -327,7 +327,7 @@ block|}
 decl_stmt|;
 DECL|method|newCategory
 specifier|static
-name|CategoryPath
+name|FacetLabel
 name|newCategory
 parameter_list|()
 block|{
@@ -378,7 +378,7 @@ decl_stmt|;
 comment|// l3.0-l3.99 (100 categories)
 return|return
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|l1
 argument_list|,
@@ -647,14 +647,14 @@ decl_stmt|;
 comment|// 1-3
 name|List
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|cats
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|(
 name|numCats
@@ -668,7 +668,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|CategoryPath
+name|FacetLabel
 name|cp
 init|=
 name|newCategory
@@ -835,11 +835,11 @@ name|keySet
 argument_list|()
 control|)
 block|{
-name|CategoryPath
+name|FacetLabel
 name|cp
 init|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|cat
 argument_list|,
@@ -875,10 +875,10 @@ init|=
 literal|0
 decl_stmt|;
 comment|// for root, parent is always virtual ROOT (ord=0)
-name|CategoryPath
+name|FacetLabel
 name|path
 init|=
-name|CategoryPath
+name|FacetLabel
 operator|.
 name|EMPTY
 decl_stmt|;

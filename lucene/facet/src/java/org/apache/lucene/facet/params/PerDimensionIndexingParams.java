@@ -72,14 +72,14 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * A {@link FacetIndexingParams} that utilizes different category lists, defined  * by the dimension specified by a {@link CategoryPath category} (see  * {@link #PerDimensionIndexingParams(Map, CategoryListParams)}.  *<p>  * A 'dimension' is defined as the first or "zero-th" component in a  * {@link CategoryPath}. For example, if a category is defined as  * "Author/American/Mark Twain", then the dimension would be "Author".  *   * @lucene.experimental  */
+comment|/**  * A {@link FacetIndexingParams} that utilizes different category lists, defined  * by the dimension specified by a {@link FacetLabel category} (see  * {@link #PerDimensionIndexingParams(Map, CategoryListParams)}.  *<p>  * A 'dimension' is defined as the first or "zero-th" component in a  * {@link FacetLabel}. For example, if a category is defined as  * "Author/American/Mark Twain", then the dimension would be "Author".  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|PerDimensionIndexingParams
@@ -100,14 +100,14 @@ name|CategoryListParams
 argument_list|>
 name|clParamsMap
 decl_stmt|;
-comment|/**    * Initializes a new instance with the given dimension-to-params mapping. The    * dimension is considered as what's returned by    * {@link CategoryPath#components cp.components[0]}.    *     *<p>    *<b>NOTE:</b> for any dimension whose {@link CategoryListParams} is not    * defined in the mapping, a default {@link CategoryListParams} will be used.    *     * @see #PerDimensionIndexingParams(Map, CategoryListParams)    */
+comment|/**    * Initializes a new instance with the given dimension-to-params mapping. The    * dimension is considered as what's returned by    * {@link FacetLabel#components cp.components[0]}.    *     *<p>    *<b>NOTE:</b> for any dimension whose {@link CategoryListParams} is not    * defined in the mapping, a default {@link CategoryListParams} will be used.    *     * @see #PerDimensionIndexingParams(Map, CategoryListParams)    */
 DECL|method|PerDimensionIndexingParams
 specifier|public
 name|PerDimensionIndexingParams
 parameter_list|(
 name|Map
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|,
 name|CategoryListParams
 argument_list|>
@@ -129,7 +129,7 @@ name|PerDimensionIndexingParams
 parameter_list|(
 name|Map
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|,
 name|CategoryListParams
 argument_list|>
@@ -159,7 +159,7 @@ for|for
 control|(
 name|Entry
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|,
 name|CategoryListParams
 argument_list|>
@@ -242,7 +242,7 @@ specifier|public
 name|CategoryListParams
 name|getCategoryListParams
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|category
 parameter_list|)
 block|{

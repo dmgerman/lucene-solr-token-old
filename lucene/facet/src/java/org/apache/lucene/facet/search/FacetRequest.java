@@ -72,7 +72,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_comment
@@ -118,7 +118,7 @@ comment|/** The category being aggregated in this facet request. */
 DECL|field|categoryPath
 specifier|public
 specifier|final
-name|CategoryPath
+name|FacetLabel
 name|categoryPath
 decl_stmt|;
 comment|/** The number of child categories to return for {@link #categoryPath}. */
@@ -170,7 +170,7 @@ DECL|method|FacetRequest
 specifier|public
 name|FacetRequest
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|path
 parameter_list|,
 name|int

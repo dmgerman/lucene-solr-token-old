@@ -95,7 +95,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_comment
@@ -114,14 +114,14 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|facets
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|()
 decl_stmt|;

@@ -108,7 +108,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -912,7 +912,7 @@ operator|.
 name|getOrdinal
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|dim
 argument_list|)
@@ -1025,7 +1025,7 @@ name|taxoReader
 operator|.
 name|getOrdinal
 argument_list|(
-name|CategoryPath
+name|FacetLabel
 operator|.
 name|create
 argument_list|(
@@ -1074,10 +1074,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|CategoryPath
+name|FacetLabel
 name|cp
 init|=
-name|CategoryPath
+name|FacetLabel
 operator|.
 name|create
 argument_list|(
@@ -1124,7 +1124,7 @@ specifier|private
 name|SimpleFacetResult
 name|getTopChildren
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|path
 parameter_list|,
 name|int
@@ -1365,7 +1365,7 @@ operator|.
 name|pop
 argument_list|()
 decl_stmt|;
-name|CategoryPath
+name|FacetLabel
 name|child
 init|=
 name|taxoReader

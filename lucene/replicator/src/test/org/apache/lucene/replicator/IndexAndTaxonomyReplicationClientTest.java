@@ -198,7 +198,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -775,11 +775,11 @@ argument_list|,
 literal|16
 argument_list|)
 decl_stmt|;
-name|CategoryPath
+name|FacetLabel
 name|cp
 init|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"A"
 argument_list|,
@@ -1225,7 +1225,7 @@ operator|.
 name|singleton
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"A"
 argument_list|,

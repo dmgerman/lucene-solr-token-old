@@ -112,7 +112,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -315,7 +315,7 @@ operator|.
 name|asList
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"A"
 argument_list|,
@@ -348,7 +348,7 @@ operator|.
 name|asList
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"A"
 argument_list|,
@@ -458,7 +458,7 @@ operator|.
 name|getCategoryListParams
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"A"
 argument_list|)

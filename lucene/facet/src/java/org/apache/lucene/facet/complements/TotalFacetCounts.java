@@ -284,7 +284,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -863,7 +863,7 @@ init|=
 operator|new
 name|CountFacetRequest
 argument_list|(
-name|CategoryPath
+name|FacetLabel
 operator|.
 name|EMPTY
 argument_list|,

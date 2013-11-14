@@ -478,7 +478,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -1347,14 +1347,14 @@ literal|1
 decl_stmt|;
 name|ArrayList
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|categories
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|(
 name|numCategories
@@ -1409,7 +1409,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|dim
 argument_list|,
@@ -1596,7 +1596,7 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"dummy"
 argument_list|)
@@ -2126,7 +2126,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|dim
 argument_list|)
@@ -2295,11 +2295,11 @@ name|keySet
 argument_list|()
 control|)
 block|{
-name|CategoryPath
+name|FacetLabel
 name|drillDownCP
 init|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|dim
 argument_list|)
@@ -2593,7 +2593,7 @@ operator|.
 name|getOrdinal
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"dummy"
 argument_list|)
@@ -2669,7 +2669,7 @@ operator|.
 name|getCategoryListParams
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|dim
 argument_list|)
@@ -2927,7 +2927,7 @@ decl_stmt|;
 comment|// set custom CLP fields for two dimensions and use the default ($facets) for the other two
 name|HashMap
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|,
 name|CategoryListParams
 argument_list|>
@@ -2936,7 +2936,7 @@ init|=
 operator|new
 name|HashMap
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|,
 name|CategoryListParams
 argument_list|>
@@ -2947,7 +2947,7 @@ operator|.
 name|put
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|DIMENSIONS
 index|[
@@ -2988,7 +2988,7 @@ operator|.
 name|put
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|DIMENSIONS
 index|[

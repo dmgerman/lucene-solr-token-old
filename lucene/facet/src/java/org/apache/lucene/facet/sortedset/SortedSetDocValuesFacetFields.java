@@ -156,7 +156,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -183,7 +183,7 @@ name|SortedSetDocValuesFacetFields
 extends|extends
 name|FacetFields
 block|{
-comment|/** Create a {@code SortedSetDocValuesFacetField} with the    *  provided {@link CategoryPath}. */
+comment|/** Create a {@code SortedSetDocValuesFacetField} with the    *  provided {@link FacetLabel}. */
 DECL|method|SortedSetDocValuesFacetFields
 specifier|public
 name|SortedSetDocValuesFacetFields
@@ -197,7 +197,7 @@ name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Create a {@code SortedSetDocValuesFacetField} with the    *  provided {@link CategoryPath}, and custom {@link    *  FacetIndexingParams}. */
+comment|/** Create a {@code SortedSetDocValuesFacetField} with the    *  provided {@link FacetLabel}, and custom {@link    *  FacetIndexingParams}. */
 DECL|method|SortedSetDocValuesFacetFields
 specifier|public
 name|SortedSetDocValuesFacetFields
@@ -246,7 +246,7 @@ name|doc
 parameter_list|,
 name|Iterable
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|categories
 parameter_list|)
@@ -275,7 +275,7 @@ name|CategoryListParams
 argument_list|,
 name|Iterable
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|>
 name|categoryLists
@@ -293,7 +293,7 @@ name|CategoryListParams
 argument_list|,
 name|Iterable
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|>
 name|e
@@ -326,7 +326,7 @@ decl_stmt|;
 comment|// Add sorted-set DV fields, one per value:
 for|for
 control|(
-name|CategoryPath
+name|FacetLabel
 name|cp
 range|:
 name|e

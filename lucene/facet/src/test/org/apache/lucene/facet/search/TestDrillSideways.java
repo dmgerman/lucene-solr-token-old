@@ -279,7 +279,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -724,14 +724,14 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|paths
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -748,7 +748,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|categoryPath
 argument_list|,
@@ -911,7 +911,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Publish Date"
 argument_list|)
@@ -923,7 +923,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|)
@@ -966,7 +966,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -1071,7 +1071,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -1211,7 +1211,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -1219,7 +1219,7 @@ literal|"Lisa"
 argument_list|)
 argument_list|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -1324,7 +1324,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -1337,7 +1337,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Publish Date"
 argument_list|,
@@ -1443,7 +1443,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -1451,7 +1451,7 @@ literal|"Lisa"
 argument_list|)
 argument_list|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -1464,7 +1464,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Publish Date"
 argument_list|,
@@ -1568,7 +1568,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Foobar"
 argument_list|,
@@ -1585,7 +1585,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Publish Date"
 argument_list|)
@@ -1597,7 +1597,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Foobar"
 argument_list|)
@@ -1698,7 +1698,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -1706,7 +1706,7 @@ literal|"Lisa"
 argument_list|)
 argument_list|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -1723,7 +1723,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Publish Date"
 argument_list|)
@@ -1735,7 +1735,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|)
@@ -1842,7 +1842,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -1850,7 +1850,7 @@ literal|"Lisa"
 argument_list|)
 argument_list|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -1867,7 +1867,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Publish Date"
 argument_list|)
@@ -1943,7 +1943,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Publish Date"
 argument_list|)
@@ -1955,7 +1955,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|)
@@ -1991,7 +1991,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -2224,7 +2224,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Publish Date"
 argument_list|)
@@ -2236,7 +2236,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|)
@@ -2265,7 +2265,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,
@@ -2676,7 +2676,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"dim"
 argument_list|)
@@ -2688,7 +2688,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -2719,7 +2719,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -3542,14 +3542,14 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|paths
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -3611,11 +3611,11 @@ operator|-
 literal|1
 condition|)
 block|{
-name|CategoryPath
+name|FacetLabel
 name|cp
 init|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"dim"
 operator|+
@@ -3714,11 +3714,11 @@ operator|-
 literal|1
 condition|)
 block|{
-name|CategoryPath
+name|FacetLabel
 name|cp
 init|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"dim"
 operator|+
@@ -4260,7 +4260,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"dim"
 operator|+
@@ -4712,12 +4712,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|CategoryPath
+name|FacetLabel
 index|[]
 name|paths
 init|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 index|[
 name|drillDowns
 index|[
@@ -4750,7 +4750,7 @@ operator|++
 index|]
 operator|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"dim"
 operator|+
@@ -7927,7 +7927,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|)
@@ -7967,7 +7967,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"Author"
 argument_list|,

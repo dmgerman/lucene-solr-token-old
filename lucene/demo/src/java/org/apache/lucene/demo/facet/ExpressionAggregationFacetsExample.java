@@ -246,7 +246,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -511,7 +511,7 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|category
 argument_list|,
@@ -726,7 +726,7 @@ operator|new
 name|SumValueSourceFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"A"
 argument_list|)

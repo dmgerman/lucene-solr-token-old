@@ -151,7 +151,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -214,7 +214,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * A utility class for adding facet fields to a document. Usually one field will  * be added for all facets, however per the  * {@link FacetIndexingParams#getCategoryListParams(CategoryPath)}, one field  * may be added for every group of facets.  *   * @lucene.experimental  */
+comment|/**  * A utility class for adding facet fields to a document. Usually one field will  * be added for all facets, however per the  * {@link FacetIndexingParams#getCategoryListParams(FacetLabel)}, one field  * may be added for every group of facets.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|AssociationsFacetFields
@@ -304,14 +304,14 @@ name|CategoryListParams
 argument_list|,
 name|Iterable
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|>
 name|createCategoryListMapping
 parameter_list|(
 name|Iterable
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|categories
 parameter_list|)
@@ -330,7 +330,7 @@ name|CategoryListParams
 argument_list|,
 name|Iterable
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|>
 name|categoryLists
@@ -342,14 +342,14 @@ name|CategoryListParams
 argument_list|,
 name|Iterable
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|CategoryPath
+name|FacetLabel
 name|cp
 range|:
 name|categories
@@ -441,7 +441,7 @@ name|ordinals
 parameter_list|,
 name|Iterable
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|categories
 parameter_list|)
@@ -480,7 +480,7 @@ name|getDrillDownStream
 parameter_list|(
 name|Iterable
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|categories
 parameter_list|)
@@ -522,7 +522,7 @@ name|doc
 parameter_list|,
 name|Iterable
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|categories
 parameter_list|)

@@ -138,7 +138,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -1052,7 +1052,7 @@ DECL|method|SumValueSourceFacetRequest
 specifier|public
 name|SumValueSourceFacetRequest
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|path
 parameter_list|,
 name|int

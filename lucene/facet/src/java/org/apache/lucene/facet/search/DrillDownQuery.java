@@ -94,7 +94,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -243,7 +243,7 @@ name|TermQuery
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link Query} for drill-down over {@link CategoryPath categories}. You  * should call {@link #add(CategoryPath...)} for every group of categories you  * want to drill-down over. Each category in the group is {@code OR'ed} with  * the others, and groups are {@code AND'ed}.  *<p>  *<b>NOTE:</b> if you choose to create your own {@link Query} by calling  * {@link #term}, it is recommended to wrap it with {@link ConstantScoreQuery}  * and set the {@link ConstantScoreQuery#setBoost(float) boost} to {@code 0.0f},  * so that it does not affect the scores of the documents.  *   * @lucene.experimental  */
+comment|/**  * A {@link Query} for drill-down over {@link FacetLabel categories}. You  * should call {@link #add(FacetLabel...)} for every group of categories you  * want to drill-down over. Each category in the group is {@code OR'ed} with  * the others, and groups are {@code AND'ed}.  *<p>  *<b>NOTE:</b> if you choose to create your own {@link Query} by calling  * {@link #term}, it is recommended to wrap it with {@link ConstantScoreQuery}  * and set the {@link ConstantScoreQuery#setBoost(float) boost} to {@code 0.0f},  * so that it does not affect the scores of the documents.  *   * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|DrillDownQuery
@@ -264,7 +264,7 @@ parameter_list|(
 name|FacetIndexingParams
 name|iParams
 parameter_list|,
-name|CategoryPath
+name|FacetLabel
 name|path
 parameter_list|)
 block|{
@@ -710,7 +710,7 @@ specifier|public
 name|void
 name|add
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 modifier|...
 name|paths
 parameter_list|)
@@ -813,7 +813,7 @@ decl_stmt|;
 comment|// disable coord
 for|for
 control|(
-name|CategoryPath
+name|FacetLabel
 name|cp
 range|:
 name|paths

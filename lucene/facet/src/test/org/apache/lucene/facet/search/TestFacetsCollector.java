@@ -415,7 +415,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -757,7 +757,7 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -811,7 +811,7 @@ operator|new
 name|SumScoreFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -1024,7 +1024,7 @@ operator|.
 name|singletonMap
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -1092,14 +1092,14 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|cats
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1108,7 +1108,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -1119,7 +1119,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -1183,7 +1183,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -1195,7 +1195,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -1343,7 +1343,7 @@ operator|.
 name|singletonMap
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -1411,14 +1411,14 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 name|cats
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|CategoryPath
+name|FacetLabel
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -1427,7 +1427,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -1438,7 +1438,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -1502,7 +1502,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -1514,7 +1514,7 @@ operator|new
 name|SumScoreFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -1771,13 +1771,13 @@ operator|.
 name|asList
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
 argument_list|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -1830,7 +1830,7 @@ argument_list|(
 operator|new
 name|CountFacetRequest
 argument_list|(
-name|CategoryPath
+name|FacetLabel
 operator|.
 name|EMPTY
 argument_list|,
@@ -2028,7 +2028,7 @@ operator|.
 name|asList
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a/1"
 argument_list|,
@@ -2036,7 +2036,7 @@ literal|'/'
 argument_list|)
 argument_list|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b/1"
 argument_list|,
@@ -2091,7 +2091,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -2103,7 +2103,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -2291,7 +2291,7 @@ operator|.
 name|asList
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a/1"
 argument_list|,
@@ -2299,7 +2299,7 @@ literal|'/'
 argument_list|)
 argument_list|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b/1"
 argument_list|,
@@ -2354,7 +2354,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -2366,7 +2366,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -2623,7 +2623,7 @@ operator|.
 name|asList
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a/1"
 argument_list|,
@@ -2679,7 +2679,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -2780,7 +2780,7 @@ operator|new
 name|SumScoreFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -2987,7 +2987,7 @@ operator|.
 name|asList
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|,
@@ -3045,7 +3045,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -3251,7 +3251,7 @@ operator|.
 name|asList
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"A/1"
 argument_list|,
@@ -3315,7 +3315,7 @@ operator|new
 name|CountFacetRequest
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"B"
 argument_list|)
@@ -3646,7 +3646,7 @@ argument_list|(
 literal|"incorrect label returned for RangeAccumulator"
 argument_list|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"f"
 argument_list|)

@@ -180,7 +180,7 @@ name|facet
 operator|.
 name|taxonomy
 operator|.
-name|CategoryPath
+name|FacetLabel
 import|;
 end_import
 begin_import
@@ -462,7 +462,7 @@ specifier|public
 name|int
 name|get
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|categoryPath
 parameter_list|)
 block|{
@@ -477,7 +477,7 @@ specifier|public
 name|boolean
 name|put
 parameter_list|(
-name|CategoryPath
+name|FacetLabel
 name|categoryPath
 parameter_list|,
 name|int
@@ -562,7 +562,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -643,7 +643,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -654,7 +654,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -798,7 +798,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"c"
 argument_list|)
@@ -941,7 +941,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -959,7 +959,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -1088,7 +1088,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -1122,7 +1122,7 @@ parameter_list|(
 name|DirectoryTaxonomyWriter
 name|taxoWriter
 parameter_list|,
-name|CategoryPath
+name|FacetLabel
 name|cp
 parameter_list|)
 throws|throws
@@ -1205,7 +1205,7 @@ argument_list|(
 name|taxoWriter
 argument_list|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -1225,7 +1225,7 @@ argument_list|(
 name|taxoWriter
 argument_list|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -1297,7 +1297,7 @@ argument_list|(
 name|taxoWriter
 argument_list|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"c"
 argument_list|)
@@ -1327,7 +1327,7 @@ argument_list|(
 name|taxoWriter
 argument_list|,
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"d"
 argument_list|)
@@ -1715,11 +1715,11 @@ argument_list|(
 name|range
 argument_list|)
 decl_stmt|;
-name|CategoryPath
+name|FacetLabel
 name|cp
 init|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|Integer
 operator|.
@@ -1982,11 +1982,11 @@ name|keySet
 argument_list|()
 control|)
 block|{
-name|CategoryPath
+name|FacetLabel
 name|cp
 init|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 name|cat
 argument_list|,
@@ -2022,10 +2022,10 @@ init|=
 literal|0
 decl_stmt|;
 comment|// for root, parent is always virtual ROOT (ord=0)
-name|CategoryPath
+name|FacetLabel
 name|path
 init|=
-name|CategoryPath
+name|FacetLabel
 operator|.
 name|EMPTY
 decl_stmt|;
@@ -2174,7 +2174,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -2207,7 +2207,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -2218,7 +2218,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"c"
 argument_list|)
@@ -2281,7 +2281,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -2297,7 +2297,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"b"
 argument_list|)
@@ -2396,7 +2396,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -2410,7 +2410,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -2467,7 +2467,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -2554,7 +2554,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -2641,7 +2641,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"a"
 argument_list|)
@@ -2793,7 +2793,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-name|CategoryPath
+name|FacetLabel
 name|cp
 init|=
 literal|null
@@ -2806,7 +2806,7 @@ block|{
 name|int
 name|len
 init|=
-name|CategoryPath
+name|FacetLabel
 operator|.
 name|MAX_CATEGORY_PATH_LENGTH
 operator|-
@@ -2830,7 +2830,7 @@ expr_stmt|;
 name|cp
 operator|=
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -2912,7 +2912,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -2938,7 +2938,7 @@ operator|.
 name|singletonList
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"dim"
 argument_list|,
@@ -3097,7 +3097,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"A/1/1/1/1/1/1"
 argument_list|,
@@ -3126,7 +3126,7 @@ operator|.
 name|addCategory
 argument_list|(
 operator|new
-name|CategoryPath
+name|FacetLabel
 argument_list|(
 literal|"B/1"
 argument_list|,
