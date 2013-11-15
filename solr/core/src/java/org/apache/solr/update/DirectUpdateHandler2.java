@@ -4292,6 +4292,15 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|this
+operator|.
+name|ulog
+operator|!=
+literal|null
+condition|)
+block|{
 name|lst
 operator|.
 name|add
@@ -4316,6 +4325,7 @@ name|getTotalLogsNumber
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|lst
 return|;
