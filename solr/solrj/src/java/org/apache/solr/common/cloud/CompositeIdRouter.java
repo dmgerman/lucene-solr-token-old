@@ -290,7 +290,7 @@ name|getHash
 argument_list|()
 return|;
 block|}
-comment|/**    * Get Range for a given CompositeId based route key    * @param routeKey    * @return    */
+comment|/**    * Get Range for a given CompositeId based route key    * @param routeKey to return Range for    * @return Range for given routeKey    */
 DECL|method|keyHashRange
 specifier|public
 name|Range
@@ -1379,7 +1379,7 @@ return|return
 name|r
 return|;
 block|}
-comment|/**      * Get bit masks for routing based on routing level      * @return      */
+comment|/**      * Get bit masks for routing based on routing level      */
 DECL|method|getMasks
 specifier|private
 name|int
