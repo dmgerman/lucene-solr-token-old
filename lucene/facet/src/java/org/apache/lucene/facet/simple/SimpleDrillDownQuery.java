@@ -615,7 +615,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**    * Adds one dimension of drill downs; if you pass multiple values they are    * OR'd, and then the entire dimension is AND'd against the base query.    */
-comment|// nocommit can we remove CatPath here?
+comment|// nocommit can we remove FacetLabel here?
 DECL|method|add
 specifier|public
 name|void
@@ -640,7 +640,7 @@ name|paths
 argument_list|)
 expr_stmt|;
 block|}
-comment|// nocommit can we remove CatPath here?
+comment|// nocommit can we remove FacetLabel here?
 DECL|method|add
 specifier|public
 name|void
@@ -666,7 +666,7 @@ name|paths
 argument_list|)
 expr_stmt|;
 block|}
-comment|// nocommit can we remove CatPath here?
+comment|// nocommit can we remove FacetLabel here?
 DECL|method|add
 specifier|public
 name|void

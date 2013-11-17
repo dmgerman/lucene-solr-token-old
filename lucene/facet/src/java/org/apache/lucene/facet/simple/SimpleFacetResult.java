@@ -68,6 +68,7 @@ name|LabelAndValue
 index|[]
 name|labelValues
 decl_stmt|;
+comment|// nocommit also return number of children?
 DECL|method|SimpleFacetResult
 specifier|public
 name|SimpleFacetResult
