@@ -941,6 +941,42 @@ name|DistributedUpdateProcessor
 extends|extends
 name|UpdateRequestProcessor
 block|{
+DECL|field|DISTRIB_FROM_SHARD
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DISTRIB_FROM_SHARD
+init|=
+literal|"distrib.from.shard"
+decl_stmt|;
+DECL|field|DISTRIB_FROM_COLLECTION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DISTRIB_FROM_COLLECTION
+init|=
+literal|"distrib.from.collection"
+decl_stmt|;
+DECL|field|DISTRIB_FROM_PARENT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DISTRIB_FROM_PARENT
+init|=
+literal|"distrib.from.parent"
+decl_stmt|;
+DECL|field|DISTRIB_FROM
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DISTRIB_FROM
+init|=
+literal|"distrib.from"
+decl_stmt|;
 DECL|field|TEST_DISTRIB_SKIP_SERVERS
 specifier|private
 specifier|static
@@ -1806,7 +1842,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"distrib.from.collection"
+name|DISTRIB_FROM_COLLECTION
 argument_list|)
 decl_stmt|;
 if|if
@@ -3270,7 +3306,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"distrib.from"
+name|DISTRIB_FROM
 argument_list|)
 decl_stmt|;
 name|ClusterState
@@ -3344,7 +3380,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"distrib.from.parent"
+name|DISTRIB_FROM_PARENT
 argument_list|)
 decl_stmt|;
 if|if
@@ -3478,7 +3514,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"distrib.from.collection"
+name|DISTRIB_FROM_COLLECTION
 argument_list|)
 decl_stmt|;
 comment|// is it because of a routing rule?
@@ -3925,7 +3961,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from"
+name|DISTRIB_FROM
 argument_list|,
 name|ZkCoreNodeProps
 operator|.
@@ -3950,7 +3986,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from.parent"
+name|DISTRIB_FROM_PARENT
 argument_list|,
 name|req
 operator|.
@@ -4067,7 +4103,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from"
+name|DISTRIB_FROM
 argument_list|,
 name|ZkCoreNodeProps
 operator|.
@@ -4092,7 +4128,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from.collection"
+name|DISTRIB_FROM_COLLECTION
 argument_list|,
 name|req
 operator|.
@@ -4113,7 +4149,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from.shard"
+name|DISTRIB_FROM_SHARD
 argument_list|,
 name|req
 operator|.
@@ -4223,7 +4259,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from"
+name|DISTRIB_FROM
 argument_list|,
 name|ZkCoreNodeProps
 operator|.
@@ -4918,7 +4954,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"distrib.from.collection"
+name|DISTRIB_FROM_COLLECTION
 argument_list|)
 operator|!=
 literal|null
@@ -6228,7 +6264,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from"
+name|DISTRIB_FROM
 argument_list|,
 name|ZkCoreNodeProps
 operator|.
@@ -6253,7 +6289,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from.parent"
+name|DISTRIB_FROM_PARENT
 argument_list|,
 name|cloudDesc
 operator|.
@@ -6344,7 +6380,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from"
+name|DISTRIB_FROM
 argument_list|,
 name|ZkCoreNodeProps
 operator|.
@@ -6369,7 +6405,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from.collection"
+name|DISTRIB_FROM_COLLECTION
 argument_list|,
 name|req
 operator|.
@@ -6390,7 +6426,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from.shard"
+name|DISTRIB_FROM_SHARD
 argument_list|,
 name|req
 operator|.
@@ -6500,7 +6536,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from"
+name|DISTRIB_FROM
 argument_list|,
 name|ZkCoreNodeProps
 operator|.
@@ -7429,7 +7465,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"update.from"
+name|DISTRIB_FROM
 argument_list|,
 name|ZkCoreNodeProps
 operator|.
@@ -7746,7 +7782,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from"
+name|DISTRIB_FROM
 argument_list|,
 name|ZkCoreNodeProps
 operator|.
@@ -7771,7 +7807,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from.collection"
+name|DISTRIB_FROM_COLLECTION
 argument_list|,
 name|req
 operator|.
@@ -7792,7 +7828,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-literal|"distrib.from.shard"
+name|DISTRIB_FROM_SHARD
 argument_list|,
 name|req
 operator|.
@@ -8289,7 +8325,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"distrib.from.collection"
+name|DISTRIB_FROM_COLLECTION
 argument_list|)
 operator|!=
 literal|null
