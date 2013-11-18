@@ -289,7 +289,7 @@ name|reader
 argument_list|,
 name|FacetsConfig
 operator|.
-name|DEFAULT_INDEXED_FIELD_NAME
+name|DEFAULT_INDEX_FIELD_NAME
 argument_list|)
 expr_stmt|;
 block|}

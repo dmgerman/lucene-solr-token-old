@@ -771,7 +771,7 @@ argument_list|(
 name|dim
 argument_list|)
 operator|.
-name|indexedFieldName
+name|indexFieldName
 decl_stmt|;
 name|BooleanQuery
 name|bq
@@ -851,7 +851,7 @@ argument_list|(
 name|dim
 argument_list|)
 operator|.
-name|indexedFieldName
+name|indexFieldName
 decl_stmt|;
 name|BooleanQuery
 name|bq
