@@ -31,6 +31,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -462,6 +471,15 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 literal|"this class can only handle 2 level hierarchy (dim/value); got: "
+operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|components
+argument_list|)
+operator|+
+literal|" "
 operator|+
 name|spare
 operator|.
