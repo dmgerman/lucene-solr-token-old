@@ -172,16 +172,13 @@ name|FixedBitSet
 import|;
 end_import
 begin_comment
-comment|// nocommit rename to TaxonomySumFloatAssociationFacets
-end_comment
-begin_comment
 comment|// nocommit jdoc that this assumes/requires the default encoding
 end_comment
 begin_class
-DECL|class|SumFloatAssociationFacets
+DECL|class|TaxonomyFacetSumFloatAssociations
 specifier|public
 class|class
-name|SumFloatAssociationFacets
+name|TaxonomyFacetSumFloatAssociations
 extends|extends
 name|TaxonomyFacets
 block|{
@@ -192,9 +189,9 @@ name|float
 index|[]
 name|values
 decl_stmt|;
-DECL|method|SumFloatAssociationFacets
+DECL|method|TaxonomyFacetSumFloatAssociations
 specifier|public
-name|SumFloatAssociationFacets
+name|TaxonomyFacetSumFloatAssociations
 parameter_list|(
 name|TaxonomyReader
 name|taxoReader
@@ -222,9 +219,9 @@ name|fc
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SumFloatAssociationFacets
+DECL|method|TaxonomyFacetSumFloatAssociations
 specifier|public
-name|SumFloatAssociationFacets
+name|TaxonomyFacetSumFloatAssociations
 parameter_list|(
 name|String
 name|indexFieldName
