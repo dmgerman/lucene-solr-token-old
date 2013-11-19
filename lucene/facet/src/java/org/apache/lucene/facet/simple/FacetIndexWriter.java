@@ -1673,6 +1673,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// nocommit open this up
 comment|/** We can open this up if/when we really need    *  pluggability on the encoding. */
 DECL|method|dedupAndEncode
 specifier|private
