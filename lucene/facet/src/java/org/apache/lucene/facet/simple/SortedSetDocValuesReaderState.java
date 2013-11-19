@@ -447,7 +447,7 @@ name|String
 index|[]
 name|components
 init|=
-name|FacetDocument
+name|DocumentBuilder
 operator|.
 name|stringToPath
 argument_list|(

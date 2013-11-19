@@ -282,11 +282,11 @@ argument_list|,
 name|dir
 argument_list|)
 decl_stmt|;
-name|FacetDocument
-name|facetDoc
+name|DocumentBuilder
+name|builder
 init|=
 operator|new
-name|FacetDocument
+name|DocumentBuilder
 argument_list|(
 literal|null
 argument_list|,
@@ -356,7 +356,7 @@ name|writer
 operator|.
 name|addDocument
 argument_list|(
-name|facetDoc
+name|builder
 operator|.
 name|build
 argument_list|(
@@ -402,7 +402,7 @@ name|writer
 operator|.
 name|addDocument
 argument_list|(
-name|facetDoc
+name|builder
 operator|.
 name|build
 argument_list|(

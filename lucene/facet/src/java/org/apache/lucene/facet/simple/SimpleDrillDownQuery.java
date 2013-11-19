@@ -271,7 +271,7 @@ name|Term
 argument_list|(
 name|field
 argument_list|,
-name|FacetDocument
+name|DocumentBuilder
 operator|.
 name|pathToString
 argument_list|(
