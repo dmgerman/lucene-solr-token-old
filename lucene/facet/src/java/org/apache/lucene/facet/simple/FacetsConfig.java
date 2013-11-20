@@ -37,7 +37,7 @@ name|ConcurrentHashMap
 import|;
 end_import
 begin_comment
-comment|/** By default a dimension is flat and single valued; use  *  the setters in this class to change that for any dims */
+comment|/** By default a dimension is flat, single valued and does  *  not require count for the dimension; use  *  the setters in this class to change these settings for  *  any dims.  *  *<p><b>NOTE</b>: this configuration is not saved into the  *  index, but it's vital, and up to the application to  *  ensure, that at search time the provided FacetsConfig  *  matches what was used during indexing.  *  *  @lucene.experimental */
 end_comment
 begin_class
 DECL|class|FacetsConfig
@@ -54,7 +54,6 @@ name|DEFAULT_INDEX_FIELD_NAME
 init|=
 literal|"$facets"
 decl_stmt|;
-comment|// nocommit pull DimType into here (shai?)
 DECL|field|fieldTypes
 specifier|private
 specifier|final
@@ -84,13 +83,20 @@ specifier|final
 class|class
 name|DimConfig
 block|{
+comment|/** True if this dimension is hierarchical. */
 DECL|field|hierarchical
 name|boolean
 name|hierarchical
 decl_stmt|;
+comment|/** True if this dimension is multi-valued. */
 DECL|field|multiValued
 name|boolean
 name|multiValued
+decl_stmt|;
+comment|/** True if the count/aggregate for the entire dimension      *  is required, which is unusual (default is false). */
+DECL|field|requireDimCount
+name|boolean
+name|requireDimCount
 decl_stmt|;
 comment|/** Actual field where this dimension's facet labels      *  should be indexed */
 DECL|field|indexFieldName
@@ -155,6 +161,9 @@ name|setHierarchical
 parameter_list|(
 name|String
 name|dimName
+parameter_list|,
+name|boolean
+name|v
 parameter_list|)
 block|{
 name|DimConfig
@@ -194,7 +203,7 @@ name|ft
 operator|.
 name|hierarchical
 operator|=
-literal|true
+name|v
 expr_stmt|;
 block|}
 DECL|method|setMultiValued
@@ -205,6 +214,9 @@ name|setMultiValued
 parameter_list|(
 name|String
 name|dimName
+parameter_list|,
+name|boolean
+name|v
 parameter_list|)
 block|{
 name|DimConfig
@@ -244,7 +256,60 @@ name|ft
 operator|.
 name|multiValued
 operator|=
-literal|true
+name|v
+expr_stmt|;
+block|}
+DECL|method|setRequireDimCount
+specifier|public
+specifier|synchronized
+name|void
+name|setRequireDimCount
+parameter_list|(
+name|String
+name|dimName
+parameter_list|,
+name|boolean
+name|v
+parameter_list|)
+block|{
+name|DimConfig
+name|ft
+init|=
+name|fieldTypes
+operator|.
+name|get
+argument_list|(
+name|dimName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|ft
+operator|==
+literal|null
+condition|)
+block|{
+name|ft
+operator|=
+operator|new
+name|DimConfig
+argument_list|()
+expr_stmt|;
+name|fieldTypes
+operator|.
+name|put
+argument_list|(
+name|dimName
+argument_list|,
+name|ft
+argument_list|)
+expr_stmt|;
+block|}
+name|ft
+operator|.
+name|requireDimCount
+operator|=
+name|v
 expr_stmt|;
 block|}
 DECL|method|setIndexFieldName
