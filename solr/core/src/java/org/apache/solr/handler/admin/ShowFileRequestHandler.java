@@ -2210,6 +2210,8 @@ literal|"solr.xml"
 argument_list|)
 argument_list|,
 literal|"<solr></solr>"
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 expr_stmt|;
 comment|// Use auto-discovery
@@ -2381,6 +2383,8 @@ literal|"core.properties"
 argument_list|)
 argument_list|,
 literal|"name=SOLR_5459"
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 expr_stmt|;
 name|FileUtils

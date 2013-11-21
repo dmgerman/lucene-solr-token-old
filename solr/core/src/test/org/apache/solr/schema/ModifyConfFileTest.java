@@ -708,6 +708,13 @@ argument_list|()
 argument_list|,
 literal|"conf/schema.xml"
 argument_list|)
+argument_list|,
+name|Charsets
+operator|.
+name|UTF_8
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -854,6 +861,13 @@ argument_list|()
 argument_list|,
 literal|"conf/velocity/test.vm"
 argument_list|)
+argument_list|,
+name|Charsets
+operator|.
+name|UTF_8
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
