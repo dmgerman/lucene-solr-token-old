@@ -376,6 +376,11 @@ name|InterruptedException
 throws|,
 name|IOException
 block|{
+name|context
+operator|.
+name|checkIfIamLeaderFired
+argument_list|()
+expr_stmt|;
 comment|// get all other numbers...
 specifier|final
 name|String
@@ -945,6 +950,11 @@ name|InterruptedException
 throws|,
 name|IOException
 block|{
+name|context
+operator|.
+name|joinedElectionFired
+argument_list|()
+expr_stmt|;
 specifier|final
 name|String
 name|shardsElectZkPath
