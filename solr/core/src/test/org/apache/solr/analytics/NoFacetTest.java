@@ -1461,20 +1461,6 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-name|Math
-operator|.
-name|abs
-argument_list|(
-name|floatResult
-operator|-
-name|floatTest
-argument_list|)
-operator|<
-literal|.00000000001
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
 literal|"Oops: (double raws) "
 operator|+
 name|Double
