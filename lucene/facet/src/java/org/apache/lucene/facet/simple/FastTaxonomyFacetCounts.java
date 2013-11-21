@@ -427,6 +427,7 @@ name|counts
 operator|.
 name|length
 assert|;
+comment|//System.out.println("    ord=" + ord);
 operator|++
 name|counts
 index|[
@@ -698,6 +699,25 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|topN
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"topN must be> 0 (got: "
+operator|+
+name|topN
+operator|+
+literal|")"
+argument_list|)
+throw|;
+block|}
 name|FacetsConfig
 operator|.
 name|DimConfig
@@ -708,6 +728,7 @@ argument_list|(
 name|dim
 argument_list|)
 decl_stmt|;
+comment|//System.out.println("ftfc.getTopChildren topN=" + topN);
 name|FacetLabel
 name|cp
 init|=
@@ -738,7 +759,7 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|//System.out.println("no ord for path=" + path);
+comment|//System.out.println("no ord for dim=" + dim + " path=" + path);
 return|return
 literal|null
 return|;
@@ -796,6 +817,7 @@ operator|.
 name|INVALID_ORDINAL
 condition|)
 block|{
+comment|//System.out.println("  check ord=" + ord + " label=" + taxoReader.getPath(ord) + " topN=" + topN);
 if|if
 condition|(
 name|counts
@@ -900,6 +922,7 @@ operator|==
 literal|0
 condition|)
 block|{
+comment|//System.out.println("  no matches");
 return|return
 literal|null
 return|;
