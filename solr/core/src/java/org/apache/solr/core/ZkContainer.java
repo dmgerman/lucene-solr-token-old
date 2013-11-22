@@ -1234,6 +1234,9 @@ name|zkConfigName
 operator|=
 name|zkController
 operator|.
+name|getZkStateReader
+argument_list|()
+operator|.
 name|readConfigName
 argument_list|(
 name|collection

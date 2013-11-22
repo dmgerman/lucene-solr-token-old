@@ -1607,6 +1607,9 @@ name|configFileExists
 argument_list|(
 name|zkController
 operator|.
+name|getZkStateReader
+argument_list|()
+operator|.
 name|readConfigName
 argument_list|(
 name|core
