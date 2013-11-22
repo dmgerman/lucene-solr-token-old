@@ -705,6 +705,16 @@ name|resolver
 init|=
 literal|null
 decl_stmt|;
+name|String
+name|epoch
+init|=
+name|propWriter
+operator|.
+name|convertDateToString
+argument_list|(
+name|EPOCH
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|dataImporter
@@ -822,7 +832,7 @@ name|put
 argument_list|(
 name|LAST_INDEX_TIME
 argument_list|,
-name|EPOCH
+name|epoch
 argument_list|)
 expr_stmt|;
 block|}
@@ -943,7 +953,7 @@ name|SolrWriter
 operator|.
 name|LAST_INDEX_KEY
 argument_list|,
-name|EPOCH
+name|epoch
 argument_list|)
 expr_stmt|;
 block|}

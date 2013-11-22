@@ -57,7 +57,7 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_comment
-comment|/**  * Test with various combinations of parameters, child entites, transformers.  */
+comment|/**  * Test with various combinations of parameters, child entities, transformers.  */
 end_comment
 begin_class
 DECL|class|TestSqlEntityProcessorDelta
@@ -165,6 +165,44 @@ expr_stmt|;
 name|singleEntity
 argument_list|(
 name|c
+argument_list|)
+expr_stmt|;
+name|validateChanges
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testDeltaImportWithoutInitialFullImport
+specifier|public
+name|void
+name|testDeltaImportWithoutInitialFullImport
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"testDeltaImportWithoutInitialFullImport delta-import..."
+argument_list|)
+expr_stmt|;
+name|countryEntity
+operator|=
+literal|false
+expr_stmt|;
+name|delta
+operator|=
+literal|true
+expr_stmt|;
+comment|/*      * We need to add 2 in total:       * +1 for deltaQuery i.e identifying id of items to update,       * +1 for deletedPkQuery i.e delete query      */
+name|singleEntity
+argument_list|(
+name|totalPeople
+argument_list|()
+operator|+
+literal|2
 argument_list|)
 expr_stmt|;
 name|validateChanges
