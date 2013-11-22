@@ -1216,7 +1216,7 @@ expr_stmt|;
 name|Facets
 name|facets
 init|=
-name|getFacetCounts
+name|getTaxonomyFacetCounts
 argument_list|(
 name|taxoReader
 argument_list|,
@@ -2005,7 +2005,7 @@ expr_stmt|;
 name|Facets
 name|facets
 init|=
-name|getFacetCounts
+name|getTaxonomyFacetCounts
 argument_list|(
 name|taxoReader
 argument_list|,
@@ -2255,7 +2255,7 @@ expr_stmt|;
 name|Facets
 name|facets
 init|=
-name|getFacetCounts
+name|getTaxonomyFacetCounts
 argument_list|(
 name|taxoReader
 argument_list|,
@@ -2603,7 +2603,7 @@ expr_stmt|;
 name|Facets
 name|facets
 init|=
-name|getFacetCounts
+name|getTaxonomyFacetCounts
 argument_list|(
 name|taxoReader
 argument_list|,
@@ -2919,7 +2919,7 @@ expr_stmt|;
 name|Facets
 name|facets
 init|=
-name|getFacetCounts
+name|getTaxonomyFacetCounts
 argument_list|(
 name|taxoReader
 argument_list|,
