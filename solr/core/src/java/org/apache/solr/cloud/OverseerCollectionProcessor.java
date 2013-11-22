@@ -9501,13 +9501,10 @@ if|if
 condition|(
 name|key
 operator|.
-name|indexOf
+name|startsWith
 argument_list|(
 name|COLL_PROP_PREFIX
 argument_list|)
-operator|!=
-operator|-
-literal|1
 condition|)
 block|{
 name|params
