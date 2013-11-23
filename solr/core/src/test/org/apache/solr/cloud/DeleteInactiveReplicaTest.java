@@ -305,15 +305,22 @@ throws|throws
 name|Exception
 block|{
 name|String
-name|COLL_NAME
+name|collectionName
 init|=
 literal|"delDeadColl"
 decl_stmt|;
-name|createColl
+name|createCollection
 argument_list|(
-name|COLL_NAME
+name|collectionName
 argument_list|,
 name|client
+argument_list|)
+expr_stmt|;
+name|waitForRecoveriesToFinish
+argument_list|(
+name|collectionName
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -357,7 +364,7 @@ argument_list|()
 operator|.
 name|getCollection
 argument_list|(
-name|COLL_NAME
+name|collectionName
 argument_list|)
 decl_stmt|;
 for|for
@@ -481,7 +488,7 @@ break|break;
 block|}
 block|}
 block|}
-comment|/*final Slice shard1 = testcoll.getSlices().iterator().next();     if(!shard1.getState().equals(Slice.ACTIVE)) fail("shard is not active");     Replica replica1 = shard1.getReplicas().iterator().next();     JettySolrRunner stoppedJetty = null;     StringBuilder sb = new StringBuilder();     for (JettySolrRunner jetty : jettys) {       sb.append(jetty.getBaseUrl()).append(",");       if( jetty.getBaseUrl().toString().startsWith(replica1.getStr(ZkStateReader.BASE_URL_PROP)) ) {         stoppedJetty = jetty;         ChaosMonkey.stop(jetty);         stopped = true;         break;       }     }*/
+comment|/*      * final Slice shard1 = testcoll.getSlices().iterator().next();      * if(!shard1.getState().equals(Slice.ACTIVE)) fail("shard is not active");      * Replica replica1 = shard1.getReplicas().iterator().next();      * JettySolrRunner stoppedJetty = null; StringBuilder sb = new      * StringBuilder(); for (JettySolrRunner jetty : jettys) {      * sb.append(jetty.getBaseUrl()).append(","); if(      * jetty.getBaseUrl().toString      * ().startsWith(replica1.getStr(ZkStateReader.BASE_URL_PROP)) ) {      * stoppedJetty = jetty; ChaosMonkey.stop(jetty); stopped = true; break; } }      */
 if|if
 condition|(
 operator|!
@@ -538,7 +545,7 @@ argument_list|()
 operator|.
 name|getCollection
 argument_list|(
-name|COLL_NAME
+name|collectionName
 argument_list|)
 expr_stmt|;
 if|if
@@ -612,7 +619,7 @@ argument_list|)
 expr_stmt|;
 name|removeAndWaitForReplicaGone
 argument_list|(
-name|COLL_NAME
+name|collectionName
 argument_list|,
 name|client
 argument_list|,
