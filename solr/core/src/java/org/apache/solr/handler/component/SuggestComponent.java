@@ -1406,7 +1406,9 @@ name|suggesterResults
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|SuggesterResult
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|NamedList
@@ -1574,7 +1576,9 @@ name|allTokens
 init|=
 operator|new
 name|HashSet
-argument_list|<>
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// collect all tokens
@@ -1674,7 +1678,9 @@ name|sortedSuggests
 init|=
 operator|new
 name|LinkedList
-argument_list|<>
+argument_list|<
+name|LookupResult
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|Collections
@@ -2170,7 +2176,9 @@ name|lookupResults
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|LookupResult
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|NamedList
@@ -2255,11 +2263,11 @@ operator|.
 name|SUGGESTION_TERM
 argument_list|)
 decl_stmt|;
-name|long
+name|Long
 name|weight
 init|=
 operator|(
-name|long
+name|Long
 operator|)
 name|suggestionEntry
 operator|.
