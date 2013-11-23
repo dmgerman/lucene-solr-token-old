@@ -933,17 +933,8 @@ name|config
 init|=
 operator|new
 name|FacetsConfig
-argument_list|()
-decl_stmt|;
-name|DocumentBuilder
-name|builder
-init|=
-operator|new
-name|DocumentBuilder
 argument_list|(
 name|tw
-argument_list|,
-name|config
 argument_list|)
 decl_stmt|;
 for|for
@@ -1047,7 +1038,7 @@ name|w
 operator|.
 name|addDocument
 argument_list|(
-name|builder
+name|config
 operator|.
 name|build
 argument_list|(

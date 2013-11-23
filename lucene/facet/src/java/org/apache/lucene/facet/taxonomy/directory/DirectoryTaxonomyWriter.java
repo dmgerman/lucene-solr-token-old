@@ -247,7 +247,7 @@ name|facet
 operator|.
 name|simple
 operator|.
-name|DocumentBuilder
+name|FacetsConfig
 import|;
 end_import
 begin_import
@@ -1908,7 +1908,7 @@ name|fullPathField
 operator|.
 name|setStringValue
 argument_list|(
-name|DocumentBuilder
+name|FacetsConfig
 operator|.
 name|pathToString
 argument_list|(

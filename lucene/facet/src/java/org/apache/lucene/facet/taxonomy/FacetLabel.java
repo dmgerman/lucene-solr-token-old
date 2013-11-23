@@ -48,7 +48,7 @@ name|facet
 operator|.
 name|simple
 operator|.
-name|DocumentBuilder
+name|FacetsConfig
 import|;
 end_import
 begin_import
@@ -455,7 +455,7 @@ condition|)
 block|{
 name|comps
 operator|=
-name|DocumentBuilder
+name|FacetsConfig
 operator|.
 name|stringToPath
 argument_list|(
@@ -1275,7 +1275,7 @@ literal|'\u001F'
 condition|)
 block|{
 return|return
-name|DocumentBuilder
+name|FacetsConfig
 operator|.
 name|pathToString
 argument_list|(

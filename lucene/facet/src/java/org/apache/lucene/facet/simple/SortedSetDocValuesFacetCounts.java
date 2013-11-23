@@ -474,6 +474,11 @@ name|dimCount
 init|=
 literal|0
 decl_stmt|;
+name|int
+name|childCount
+init|=
+literal|0
+decl_stmt|;
 name|TopOrdAndIntQueue
 operator|.
 name|OrdAndValue
@@ -518,6 +523,9 @@ name|counts
 index|[
 name|ord
 index|]
+expr_stmt|;
+name|childCount
+operator|++
 expr_stmt|;
 if|if
 condition|(
@@ -685,7 +693,7 @@ name|String
 index|[]
 name|parts
 init|=
-name|DocumentBuilder
+name|FacetsConfig
 operator|.
 name|stringToPath
 argument_list|(
@@ -727,6 +735,8 @@ argument_list|,
 name|dimCount
 argument_list|,
 name|labelValues
+argument_list|,
+name|childCount
 argument_list|)
 return|;
 block|}
@@ -1293,7 +1303,7 @@ argument_list|(
 operator|new
 name|BytesRef
 argument_list|(
-name|DocumentBuilder
+name|FacetsConfig
 operator|.
 name|pathToString
 argument_list|(
