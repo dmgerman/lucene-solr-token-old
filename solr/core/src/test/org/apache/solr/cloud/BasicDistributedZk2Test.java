@@ -212,6 +212,25 @@ name|client
 operator|.
 name|solrj
 operator|.
+name|impl
+operator|.
+name|HttpSolrServer
+operator|.
+name|RemoteSolrException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|client
+operator|.
+name|solrj
+operator|.
 name|request
 operator|.
 name|CoreAdminRequest
@@ -1010,9 +1029,7 @@ name|int
 name|docs
 parameter_list|)
 throws|throws
-name|SolrServerException
-throws|,
-name|IOException
+name|Exception
 block|{
 name|HttpSolrServer
 name|qclient
@@ -1027,6 +1044,12 @@ operator|+
 literal|"core"
 argument_list|)
 decl_stmt|;
+comment|// it might take a moment for the proxy node to see us in their cloud state
+name|waitForNon403or404or503
+argument_list|(
+name|qclient
+argument_list|)
+expr_stmt|;
 comment|// add a doc
 name|SolrInputDocument
 name|doc
