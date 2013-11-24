@@ -2769,6 +2769,9 @@ operator|.
 name|remove
 argument_list|(
 name|queryFacet
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 condition|)
 block|{
