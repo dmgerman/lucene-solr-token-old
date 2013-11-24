@@ -1446,7 +1446,7 @@ operator|.
 name|getCoreContainer
 argument_list|()
 operator|.
-name|getUpdateExecutor
+name|getUpdateShardHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4644,6 +4644,9 @@ name|getCoreDescriptor
 argument_list|()
 operator|.
 name|getCoreContainer
+argument_list|()
+operator|.
+name|getUpdateShardHandler
 argument_list|()
 operator|.
 name|getUpdateExecutor
