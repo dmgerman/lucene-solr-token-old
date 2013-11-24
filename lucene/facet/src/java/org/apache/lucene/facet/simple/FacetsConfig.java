@@ -1784,7 +1784,7 @@ control|(
 name|int
 name|i
 init|=
-literal|2
+literal|1
 init|;
 name|i
 operator|<=
@@ -1976,6 +1976,27 @@ argument_list|(
 name|indexFieldName
 argument_list|,
 name|fullPath
+argument_list|,
+name|Field
+operator|.
+name|Store
+operator|.
+name|NO
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|addedIndexedFields
+operator|.
+name|add
+argument_list|(
+operator|new
+name|StringField
+argument_list|(
+name|indexFieldName
+argument_list|,
+name|facetField
+operator|.
+name|dim
 argument_list|,
 name|Field
 operator|.
@@ -2935,6 +2956,10 @@ name|int
 name|length
 parameter_list|)
 block|{
+comment|// nocommit .... too anal?  shouldn't we allow drill
+comment|// down on just dim, to get all docs that have that
+comment|// dim...?
+comment|/*     if (path.length< 2) {       throw new IllegalArgumentException("path length must be> 0 (dim=" + path[0] + ")");     }     */
 if|if
 condition|(
 name|length
