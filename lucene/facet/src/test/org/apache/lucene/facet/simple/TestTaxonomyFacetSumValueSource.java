@@ -1059,7 +1059,7 @@ decl_stmt|;
 comment|// Retrieve& verify results:
 name|assertEquals
 argument_list|(
-literal|"Author (145.0)\n  Lisa (50.0)\n  Frank (45.0)\n  Susan (40.0)\n  Bob (10.0)\n"
+literal|"value=145.0 childCount=4\n  Lisa (50.0)\n  Frank (45.0)\n  Susan (40.0)\n  Bob (10.0)\n"
 argument_list|,
 name|facets
 operator|.
@@ -1474,7 +1474,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a (60.0)\n  foo3 (30.0)\n  foo2 (20.0)\n  foo1 (10.0)\n"
+literal|"value=60.0 childCount=3\n  foo3 (30.0)\n  foo2 (20.0)\n  foo1 (10.0)\n"
 argument_list|,
 name|results
 operator|.
@@ -1489,7 +1489,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"b (50.0)\n  bar2 (30.0)\n  bar1 (20.0)\n"
+literal|"value=50.0 childCount=2\n  bar2 (30.0)\n  bar1 (20.0)\n"
 argument_list|,
 name|results
 operator|.
@@ -1504,7 +1504,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"c (30.0)\n  baz1 (30.0)\n"
+literal|"value=30.0 childCount=1\n  baz1 (30.0)\n"
 argument_list|,
 name|results
 operator|.
@@ -2300,7 +2300,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a (10.0)\n  1 (6.0)\n  0 (4.0)\n"
+literal|"value=10.0 childCount=2\n  1 (6.0)\n  0 (4.0)\n"
 argument_list|,
 name|facets
 operator|.
@@ -2691,7 +2691,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a (10.0)\n  1 (6.0)\n  0 (4.0)\n"
+literal|"value=10.0 childCount=2\n  1 (6.0)\n  0 (4.0)\n"
 argument_list|,
 name|facets
 operator|.
@@ -2935,7 +2935,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"a (10.0)\n  1 (6.0)\n  0 (4.0)\n"
+literal|"value=10.0 childCount=2\n  1 (6.0)\n  0 (4.0)\n"
 argument_list|,
 name|facets
 operator|.
