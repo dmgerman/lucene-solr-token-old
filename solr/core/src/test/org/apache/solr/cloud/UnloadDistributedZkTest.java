@@ -1311,13 +1311,6 @@ name|addClient
 operator|.
 name|setConnectionTimeout
 argument_list|(
-literal|15000
-argument_list|)
-expr_stmt|;
-name|addClient
-operator|.
-name|setSoTimeout
-argument_list|(
 literal|30000
 argument_list|)
 expr_stmt|;
