@@ -2845,7 +2845,7 @@ name|solrConfigOverride
 argument_list|,
 literal|null
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 name|getExtraServlets
 argument_list|()
