@@ -796,6 +796,8 @@ name|startTheMonkey
 argument_list|(
 literal|true
 argument_list|,
+literal|true
+argument_list|,
 literal|10000
 argument_list|)
 expr_stmt|;
@@ -896,6 +898,7 @@ name|safeStop
 argument_list|()
 expr_stmt|;
 block|}
+comment|// start any downed jetties to be sure we still will end up with a leader per shard...
 comment|// wait for stop...
 for|for
 control|(
@@ -910,46 +913,6 @@ operator|.
 name|join
 argument_list|()
 expr_stmt|;
-block|}
-comment|// we expect full throttle fails, but cloud client should not easily fail
-for|for
-control|(
-name|StopableThread
-name|indexThread
-range|:
-name|threads
-control|)
-block|{
-if|if
-condition|(
-name|indexThread
-operator|instanceof
-name|StopableIndexingThread
-operator|&&
-operator|!
-operator|(
-name|indexThread
-operator|instanceof
-name|FullThrottleStopableIndexingThread
-operator|)
-condition|)
-block|{
-name|assertEquals
-argument_list|(
-literal|0
-argument_list|,
-operator|(
-operator|(
-name|StopableIndexingThread
-operator|)
-name|indexThread
-operator|)
-operator|.
-name|getFails
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|// try and wait for any replications and what not to finish...
 name|Thread
@@ -1025,6 +988,48 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// we expect full throttle fails, but cloud client should not easily fail
+for|for
+control|(
+name|StopableThread
+name|indexThread
+range|:
+name|threads
+control|)
+block|{
+if|if
+condition|(
+name|indexThread
+operator|instanceof
+name|StopableIndexingThread
+operator|&&
+operator|!
+operator|(
+name|indexThread
+operator|instanceof
+name|FullThrottleStopableIndexingThread
+operator|)
+condition|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"There were expected update fails"
+argument_list|,
+literal|0
+argument_list|,
+operator|(
+operator|(
+name|StopableIndexingThread
+operator|)
+name|indexThread
+operator|)
+operator|.
+name|getFails
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// full throttle thread can
 comment|// have request fails
 name|checkShardConsistency
