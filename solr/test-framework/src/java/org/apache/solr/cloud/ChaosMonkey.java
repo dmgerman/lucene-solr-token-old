@@ -65,15 +65,6 @@ import|;
 end_import
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -2619,7 +2610,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|TestCase
+name|LuceneTestCase
 operator|.
 name|fail
 argument_list|(
