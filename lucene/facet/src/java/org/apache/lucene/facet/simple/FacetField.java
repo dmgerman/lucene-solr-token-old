@@ -88,11 +88,13 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|field|dim
+specifier|public
 specifier|final
 name|String
 name|dim
 decl_stmt|;
 DECL|field|path
+specifier|public
 specifier|final
 name|String
 index|[]
