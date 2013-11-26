@@ -2639,7 +2639,7 @@ name|collection
 argument_list|,
 name|shard
 argument_list|,
-literal|1000
+literal|2000
 argument_list|)
 return|;
 block|}
