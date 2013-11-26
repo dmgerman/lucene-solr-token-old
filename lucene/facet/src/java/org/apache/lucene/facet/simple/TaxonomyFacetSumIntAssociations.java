@@ -872,7 +872,7 @@ name|child
 operator|.
 name|components
 index|[
-name|path
+name|cp
 operator|.
 name|length
 index|]
