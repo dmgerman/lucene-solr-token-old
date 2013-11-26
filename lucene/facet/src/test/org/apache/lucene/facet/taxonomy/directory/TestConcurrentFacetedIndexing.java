@@ -173,8 +173,6 @@ name|taxonomy
 operator|.
 name|writercache
 operator|.
-name|cl2o
-operator|.
 name|Cl2oTaxonomyWriterCache
 import|;
 end_import
@@ -191,8 +189,6 @@ operator|.
 name|taxonomy
 operator|.
 name|writercache
-operator|.
-name|lru
 operator|.
 name|LruTaxonomyWriterCache
 import|;

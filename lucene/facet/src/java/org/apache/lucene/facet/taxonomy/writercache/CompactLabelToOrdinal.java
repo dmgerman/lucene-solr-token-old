@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.facet.taxonomy.writercache.cl2o
+DECL|package|org.apache.lucene.facet.taxonomy.writercache
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|taxonomy
 operator|.
 name|writercache
-operator|.
-name|cl2o
 package|;
 end_package
 begin_comment
