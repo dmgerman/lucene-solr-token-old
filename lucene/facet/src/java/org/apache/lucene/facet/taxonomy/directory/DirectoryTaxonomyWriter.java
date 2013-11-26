@@ -245,8 +245,6 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|simple
-operator|.
 name|FacetsConfig
 import|;
 end_import

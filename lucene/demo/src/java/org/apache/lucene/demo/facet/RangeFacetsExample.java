@@ -120,8 +120,6 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|simple
-operator|.
 name|Facets
 import|;
 end_import
@@ -134,8 +132,6 @@ operator|.
 name|lucene
 operator|.
 name|facet
-operator|.
-name|simple
 operator|.
 name|FacetsConfig
 import|;
@@ -150,8 +146,6 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|simple
-operator|.
 name|LongRange
 import|;
 end_import
@@ -164,8 +158,6 @@ operator|.
 name|lucene
 operator|.
 name|facet
-operator|.
-name|simple
 operator|.
 name|RangeFacetCounts
 import|;
@@ -180,9 +172,7 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|simple
-operator|.
-name|SimpleDrillDownQuery
+name|DrillDownQuery
 import|;
 end_import
 begin_import
@@ -195,9 +185,7 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|simple
-operator|.
-name|SimpleFacetResult
+name|FacetResult
 import|;
 end_import
 begin_import
@@ -210,9 +198,7 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|simple
-operator|.
-name|SimpleFacetsCollector
+name|FacetsCollector
 import|;
 end_import
 begin_import
@@ -588,18 +574,18 @@ block|}
 comment|/** User runs a query and counts facets. */
 DECL|method|search
 specifier|public
-name|SimpleFacetResult
+name|FacetResult
 name|search
 parameter_list|()
 throws|throws
 name|IOException
 block|{
 comment|// Aggregates the facet counts
-name|SimpleFacetsCollector
+name|FacetsCollector
 name|sfc
 init|=
 operator|new
-name|SimpleFacetsCollector
+name|FacetsCollector
 argument_list|()
 decl_stmt|;
 comment|// MatchAllDocsQuery is for "browsing" (counts facets
@@ -659,11 +645,11 @@ name|IOException
 block|{
 comment|// Passing no baseQuery means we drill down on all
 comment|// documents ("browse only"):
-name|SimpleDrillDownQuery
+name|DrillDownQuery
 name|q
 init|=
 operator|new
-name|SimpleDrillDownQuery
+name|DrillDownQuery
 argument_list|(
 name|getConfig
 argument_list|()
