@@ -118,7 +118,6 @@ argument_list|()
 index|]
 expr_stmt|;
 block|}
-comment|// nocommit we could do this lazily instead:
 DECL|method|rollup
 specifier|protected
 name|void
