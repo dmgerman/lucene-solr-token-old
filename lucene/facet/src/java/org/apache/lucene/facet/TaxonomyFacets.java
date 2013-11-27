@@ -94,6 +94,7 @@ comment|/** Base class for all taxonomy-based facets impls. */
 end_comment
 begin_class
 DECL|class|TaxonomyFacets
+specifier|public
 specifier|abstract
 class|class
 name|TaxonomyFacets
@@ -125,13 +126,6 @@ name|int
 index|[]
 name|children
 decl_stmt|;
-DECL|field|parents
-specifier|protected
-specifier|final
-name|int
-index|[]
-name|parents
-decl_stmt|;
 DECL|field|siblings
 specifier|protected
 specifier|final
@@ -139,7 +133,6 @@ name|int
 index|[]
 name|siblings
 decl_stmt|;
-comment|/** Sole parameter is the field name that holds the facet    *  counts. */
 DECL|method|TaxonomyFacets
 specifier|protected
 name|TaxonomyFacets
@@ -187,13 +180,6 @@ operator|=
 name|pta
 operator|.
 name|children
-argument_list|()
-expr_stmt|;
-name|parents
-operator|=
-name|pta
-operator|.
-name|parents
 argument_list|()
 expr_stmt|;
 name|siblings

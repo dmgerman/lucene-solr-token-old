@@ -195,7 +195,7 @@ name|IntsRef
 import|;
 end_import
 begin_comment
-comment|/** Aggregates sum of values from a {@link ValueSource}, for  *  each facet label. */
+comment|/** Aggregates sum of values from a {@link ValueSource}, for  *  each facet label.  *  *  @lucene.experimental */
 end_comment
 begin_class
 DECL|class|TaxonomyFacetSumValueSource
@@ -914,6 +914,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO: can we factor this out?
 if|if
 condition|(
 name|topN

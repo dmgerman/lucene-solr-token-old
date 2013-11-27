@@ -126,7 +126,7 @@ name|FixedBitSet
 import|;
 end_import
 begin_comment
-comment|// nocommit jdoc that this assumes/requires the default encoding
+comment|/** Computes facets counts, assuming the default encoding  *  into DocValues was used.  *  * @lucene.experimental */
 end_comment
 begin_class
 DECL|class|FastTaxonomyFacetCounts
@@ -143,6 +143,7 @@ name|int
 index|[]
 name|counts
 decl_stmt|;
+comment|/** Create {@code FastTaxonomyFacetCounts}, which also    *  counts all facet labels. */
 DECL|method|FastTaxonomyFacetCounts
 specifier|public
 name|FastTaxonomyFacetCounts
@@ -173,6 +174,7 @@ name|fc
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Create {@code FastTaxonomyFacetCounts}, using the    *  specified {@code indexFieldName} for ordinals.  Use    *  this if you had set {@link    *  FacetsConfig#setIndexFieldName} to change the index    *  field name for certain dimensions. */
 DECL|method|FastTaxonomyFacetCounts
 specifier|public
 name|FastTaxonomyFacetCounts
@@ -616,7 +618,6 @@ return|return
 name|sum
 return|;
 block|}
-comment|/** Return the count for a specific path.  Returns -1 if    *  this path doesn't exist, else the count. */
 annotation|@
 name|Override
 DECL|method|getSpecificValue
@@ -695,6 +696,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO: can we factor this out?
 if|if
 condition|(
 name|topN

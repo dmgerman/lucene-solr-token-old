@@ -241,6 +241,7 @@ name|OrdRange
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/** Creates this, pulling doc values from the default {@link    *  FacetsConfig#DEFAULT_INDEX_FIELD_NAME}. */
 DECL|method|SortedSetDocValuesReaderState
 specifier|public
 name|SortedSetDocValuesReaderState
@@ -261,7 +262,7 @@ name|DEFAULT_INDEX_FIELD_NAME
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Create an instance, scanning the {@link    *  SortedSetDocValues} from the provided reader, with    *  default {@link FacetIndexingParams}. */
+comment|/** Creates this, pulling doc values from the specified    *  field. */
 DECL|method|SortedSetDocValuesReaderState
 specifier|public
 name|SortedSetDocValuesReaderState
