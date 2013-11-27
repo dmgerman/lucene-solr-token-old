@@ -34,6 +34,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|SocketException
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -135,11 +144,14 @@ argument_list|)
 decl_stmt|;
 DECL|enum|Exp
 DECL|enum constant|CONNECT_EXCEPTION
+DECL|enum constant|SOCKET_EXCEPTION
 specifier|public
 enum|enum
 name|Exp
 block|{
 name|CONNECT_EXCEPTION
+block|,
+name|SOCKET_EXCEPTION
 block|}
 empty_stmt|;
 DECL|field|exp
@@ -230,6 +242,14 @@ case|:
 return|return
 operator|new
 name|ConnectException
+argument_list|()
+return|;
+case|case
+name|SOCKET_EXCEPTION
+case|:
+return|return
+operator|new
+name|SocketException
 argument_list|()
 return|;
 default|default:
