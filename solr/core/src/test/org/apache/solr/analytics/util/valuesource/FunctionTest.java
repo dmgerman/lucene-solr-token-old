@@ -684,16 +684,22 @@ operator|.
 name|DOUBLE
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+name|getRawResponse
+argument_list|()
+argument_list|,
 name|result
-operator|==
+argument_list|,
 name|calculated
+argument_list|,
+literal|0.0
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"add sum"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -743,7 +749,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"add mean"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -799,7 +806,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"multiply sum"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -842,7 +850,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"multiply mean"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -898,7 +907,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"power sum"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -941,7 +951,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"power mean"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -995,16 +1006,22 @@ operator|.
 name|DOUBLE
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+name|getRawResponse
+argument_list|()
+argument_list|,
 name|result
-operator|==
+argument_list|,
 name|calculated
+argument_list|,
+literal|0.0
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"power sum"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1045,16 +1062,22 @@ operator|.
 name|DOUBLE
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+name|getRawResponse
+argument_list|()
+argument_list|,
 name|result
-operator|==
+argument_list|,
 name|calculated
+argument_list|,
+literal|0.0
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"power mean"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1110,7 +1133,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"negate sum"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1153,7 +1177,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"negate mean"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1207,32 +1232,10 @@ operator|.
 name|DOUBLE
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|Double
-operator|.
-name|doubleToRawLongBits
-argument_list|(
-name|result
-argument_list|)
-operator|+
-literal|" "
-operator|+
-name|Double
-operator|.
-name|doubleToRawLongBits
-argument_list|(
-name|calculated
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"absolute values sum"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1275,7 +1278,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"absolute values mean"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1329,16 +1333,22 @@ operator|.
 name|DOUBLE
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+name|getRawResponse
+argument_list|()
+argument_list|,
 name|result
-operator|==
+argument_list|,
 name|calculated
+argument_list|,
+literal|0.0
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"constant sum"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1379,16 +1389,22 @@ operator|.
 name|DOUBLE
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+name|getRawResponse
+argument_list|()
+argument_list|,
 name|result
-operator|==
+argument_list|,
 name|calculated
+argument_list|,
+literal|0.0
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"constant mean"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1444,7 +1460,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"date math median"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1485,7 +1502,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"date math mean"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1537,19 +1555,20 @@ operator|.
 name|STRING
 argument_list|)
 decl_stmt|;
-name|assertTrue
+name|assertEquals
 argument_list|(
+name|getRawResponse
+argument_list|()
+argument_list|,
 name|result
-operator|.
-name|equals
-argument_list|(
+argument_list|,
 name|calculated
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"constant date median"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1590,7 +1609,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"constant date mean"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1644,7 +1664,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"constant min"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1685,7 +1706,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"constant max"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1739,7 +1761,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"concat min"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1780,7 +1803,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"concat max"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1834,7 +1858,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"reverse min"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1875,7 +1900,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"reverse max"
+name|getRawResponse
+argument_list|()
 argument_list|,
 name|result
 argument_list|,
@@ -1929,7 +1955,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"missingTest 1"
+name|getRawResponse
+argument_list|()
 argument_list|,
 literal|48.0d
 argument_list|,
@@ -1940,7 +1967,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"missingTest 2"
+name|getRawResponse
+argument_list|()
 argument_list|,
 literal|1.0d
 argument_list|,
