@@ -2127,6 +2127,8 @@ argument_list|,
 literal|"collection1"
 argument_list|,
 literal|"shard1"
+argument_list|,
+literal|"locahost"
 argument_list|)
 block|{
 annotation|@
@@ -2379,6 +2381,8 @@ argument_list|,
 literal|"collection1"
 argument_list|,
 literal|"shard1"
+argument_list|,
+literal|"locahost"
 argument_list|)
 block|{
 annotation|@
@@ -2690,6 +2694,8 @@ argument_list|,
 literal|"collection1"
 argument_list|,
 literal|"shard1"
+argument_list|,
+literal|"locahost"
 argument_list|)
 block|{
 annotation|@
@@ -2950,6 +2956,8 @@ argument_list|,
 literal|"collection1"
 argument_list|,
 literal|"shard1"
+argument_list|,
+literal|"locahost"
 argument_list|)
 block|{
 annotation|@
