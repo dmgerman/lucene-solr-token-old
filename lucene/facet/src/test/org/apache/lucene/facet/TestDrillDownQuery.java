@@ -471,9 +471,7 @@ name|config
 operator|=
 operator|new
 name|FacetsConfig
-argument_list|(
-name|taxoWriter
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// Randomize the per-dim config:
 name|config
@@ -747,6 +745,8 @@ name|config
 operator|.
 name|build
 argument_list|(
+name|taxoWriter
+argument_list|,
 name|doc
 argument_list|)
 argument_list|)

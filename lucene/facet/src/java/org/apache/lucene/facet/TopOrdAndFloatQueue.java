@@ -28,9 +28,6 @@ name|PriorityQueue
 import|;
 end_import
 begin_comment
-comment|// nocommit make value a double and merge with TopOrdCountValueQueue?
-end_comment
-begin_comment
 comment|/** Keeps highest results, first by largest float value,  *  then tie break by smallest ord. */
 end_comment
 begin_class

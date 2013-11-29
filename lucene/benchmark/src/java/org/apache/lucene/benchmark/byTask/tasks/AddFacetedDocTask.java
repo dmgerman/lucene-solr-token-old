@@ -278,13 +278,7 @@ name|config
 operator|=
 operator|new
 name|FacetsConfig
-argument_list|(
-name|getRunData
 argument_list|()
-operator|.
-name|getTaxonomyWriter
-argument_list|()
-argument_list|)
 expr_stmt|;
 name|facetsSource
 operator|.
@@ -389,6 +383,12 @@ name|config
 operator|.
 name|build
 argument_list|(
+name|getRunData
+argument_list|()
+operator|.
+name|getTaxonomyWriter
+argument_list|()
+argument_list|,
 name|doc2
 argument_list|)
 decl_stmt|;

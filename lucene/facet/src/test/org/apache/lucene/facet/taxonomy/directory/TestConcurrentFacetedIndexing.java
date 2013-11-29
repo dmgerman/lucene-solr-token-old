@@ -558,9 +558,7 @@ name|config
 init|=
 operator|new
 name|FacetsConfig
-argument_list|(
-name|tw
-argument_list|)
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -695,9 +693,8 @@ expr_stmt|;
 name|FacetLabel
 name|label
 init|=
+operator|new
 name|FacetLabel
-operator|.
-name|create
 argument_list|(
 name|ff
 operator|.
@@ -759,6 +756,8 @@ name|config
 operator|.
 name|build
 argument_list|(
+name|tw
+argument_list|,
 name|doc
 argument_list|)
 argument_list|)

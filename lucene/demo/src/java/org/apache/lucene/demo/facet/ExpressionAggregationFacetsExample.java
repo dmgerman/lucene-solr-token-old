@@ -437,6 +437,16 @@ operator|new
 name|RAMDirectory
 argument_list|()
 decl_stmt|;
+DECL|field|config
+specifier|private
+specifier|final
+name|FacetsConfig
+name|config
+init|=
+operator|new
+name|FacetsConfig
+argument_list|()
+decl_stmt|;
 comment|/** Empty constructor */
 DECL|method|ExpressionAggregationFacetsExample
 specifier|public
@@ -485,16 +495,6 @@ operator|new
 name|DirectoryTaxonomyWriter
 argument_list|(
 name|taxoDir
-argument_list|)
-decl_stmt|;
-comment|// Reused across documents, to add the necessary facet fields
-name|FacetsConfig
-name|config
-init|=
-operator|new
-name|FacetsConfig
-argument_list|(
-name|taxoWriter
 argument_list|)
 decl_stmt|;
 name|Document
@@ -555,6 +555,8 @@ name|config
 operator|.
 name|build
 argument_list|(
+name|taxoWriter
+argument_list|,
 name|doc
 argument_list|)
 argument_list|)
@@ -616,6 +618,8 @@ name|config
 operator|.
 name|build
 argument_list|(
+name|taxoWriter
+argument_list|,
 name|doc
 argument_list|)
 argument_list|)
@@ -669,13 +673,6 @@ name|DirectoryTaxonomyReader
 argument_list|(
 name|taxoDir
 argument_list|)
-decl_stmt|;
-name|FacetsConfig
-name|config
-init|=
-operator|new
-name|FacetsConfig
-argument_list|()
 decl_stmt|;
 comment|// Aggregate categories by an expression that combines the document's score
 comment|// and its popularity field
@@ -745,7 +742,7 @@ decl_stmt|;
 comment|// MatchAllDocsQuery is for "browsing" (counts facets
 comment|// for all non-deleted docs in the index); normally
 comment|// you'd use a "normal" query:
-name|Facets
+name|FacetsCollector
 operator|.
 name|search
 argument_list|(

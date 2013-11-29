@@ -330,14 +330,7 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|taxoWriter
-specifier|private
-specifier|final
-name|TaxonomyWriter
-name|taxoWriter
-decl_stmt|;
 comment|/** Holds the configuration for one dimension    *    * @lucene.experimental */
-comment|// nocommit expose this to the user, vs the setters?
 DECL|class|DimConfig
 specifier|public
 specifier|static
@@ -347,21 +340,25 @@ name|DimConfig
 block|{
 comment|/** True if this dimension is hierarchical. */
 DECL|field|hierarchical
+specifier|public
 name|boolean
 name|hierarchical
 decl_stmt|;
 comment|/** True if this dimension is multi-valued. */
 DECL|field|multiValued
+specifier|public
 name|boolean
 name|multiValued
 decl_stmt|;
 comment|/** True if the count/aggregate for the entire dimension      *  is required, which is unusual (default is false). */
 DECL|field|requireDimCount
+specifier|public
 name|boolean
 name|requireDimCount
 decl_stmt|;
 comment|/** Actual field where this dimension's facet labels      *  should be indexed */
 DECL|field|indexFieldName
+specifier|public
 name|String
 name|indexFieldName
 init|=
@@ -385,32 +382,11 @@ DECL|method|FacetsConfig
 specifier|public
 name|FacetsConfig
 parameter_list|()
-block|{
-name|this
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-comment|/** Use this constructor at index time, with the provided    *  {@link TaxonomyWriter}, and then use the {@link    *  #build} method to index documents. */
-DECL|method|FacetsConfig
-specifier|public
-name|FacetsConfig
-parameter_list|(
-name|TaxonomyWriter
-name|taxoWriter
-parameter_list|)
-block|{
-name|this
-operator|.
-name|taxoWriter
-operator|=
-name|taxoWriter
-expr_stmt|;
-block|}
+block|{   }
 comment|/** Get the current configuration for a dimension. */
 DECL|method|getDimConfig
 specifier|public
+specifier|synchronized
 name|DimConfig
 name|getDimConfig
 parameter_list|(
@@ -661,6 +637,7 @@ name|indexFieldName
 expr_stmt|;
 block|}
 DECL|method|getDimConfigs
+specifier|public
 name|Map
 argument_list|<
 name|String
@@ -720,12 +697,36 @@ name|dim
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Translates any added {@link FacetField}s into normal    *  fields for indexing; only use this version if you    *  did not add any taxonomy-based fields ({@link    *  FacetField} or {@link AssociationFacetField}) */
+DECL|method|build
+specifier|public
+name|IndexDocument
+name|build
+parameter_list|(
+name|IndexDocument
+name|doc
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|build
+argument_list|(
+literal|null
+argument_list|,
+name|doc
+argument_list|)
+return|;
+block|}
 comment|/** Translates any added {@link FacetField}s into normal    *  fields for indexing. */
 DECL|method|build
 specifier|public
 name|IndexDocument
 name|build
 parameter_list|(
+name|TaxonomyWriter
+name|taxoWriter
+parameter_list|,
 name|IndexDocument
 name|doc
 parameter_list|)
@@ -1311,6 +1312,8 @@ argument_list|()
 decl_stmt|;
 name|processFacetFields
 argument_list|(
+name|taxoWriter
+argument_list|,
 name|byField
 argument_list|,
 name|addedIndexedFields
@@ -1329,6 +1332,8 @@ argument_list|)
 expr_stmt|;
 name|processAssocFacetFields
 argument_list|(
+name|taxoWriter
+argument_list|,
 name|assocByField
 argument_list|,
 name|addedIndexedFields
@@ -1490,6 +1495,9 @@ specifier|private
 name|void
 name|processFacetFields
 parameter_list|(
+name|TaxonomyWriter
+name|taxoWriter
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -1620,9 +1628,8 @@ block|}
 name|FacetLabel
 name|cp
 init|=
+operator|new
 name|FacetLabel
-operator|.
-name|create
 argument_list|(
 name|facetField
 operator|.
@@ -1634,7 +1641,9 @@ name|path
 argument_list|)
 decl_stmt|;
 name|checkTaxoWriter
-argument_list|()
+argument_list|(
+name|taxoWriter
+argument_list|)
 expr_stmt|;
 name|int
 name|ordinal
@@ -2019,6 +2028,9 @@ specifier|private
 name|void
 name|processAssocFacetFields
 parameter_list|(
+name|TaxonomyWriter
+name|taxoWriter
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -2105,7 +2117,9 @@ comment|// nocommit is that right?  maybe we are supposed to
 comment|// add to taxo writer, and just not index the parent
 comment|// ords?
 name|checkTaxoWriter
-argument_list|()
+argument_list|(
+name|taxoWriter
+argument_list|)
 expr_stmt|;
 name|int
 name|ordinal
@@ -2114,9 +2128,8 @@ name|taxoWriter
 operator|.
 name|addCategory
 argument_list|(
+operator|new
 name|FacetLabel
-operator|.
-name|create
 argument_list|(
 name|field
 operator|.
@@ -2823,7 +2836,10 @@ DECL|method|checkTaxoWriter
 specifier|private
 name|void
 name|checkTaxoWriter
-parameter_list|()
+parameter_list|(
+name|TaxonomyWriter
+name|taxoWriter
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -2836,7 +2852,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"a valid TaxonomyWriter must be provided to the constructor (got null), when using FacetField or AssociationFacetField"
+literal|"a non-null TaxonomyWriter must be provided when indexing FacetField or AssociationFacetField"
 argument_list|)
 throw|;
 block|}
@@ -2963,10 +2979,6 @@ name|int
 name|length
 parameter_list|)
 block|{
-comment|// nocommit .... too anal?  shouldn't we allow drill
-comment|// down on just dim, to get all docs that have that
-comment|// dim...?
-comment|/*     if (path.length< 2) {       throw new IllegalArgumentException("path length must be> 0 (dim=" + path[0] + ")");     }     */
 if|if
 condition|(
 name|length
