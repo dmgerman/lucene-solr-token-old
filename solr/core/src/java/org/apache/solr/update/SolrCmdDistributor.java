@@ -669,6 +669,17 @@ name|req
 operator|.
 name|cmdString
 operator|+
+literal|" params:"
+operator|+
+name|err
+operator|.
+name|req
+operator|.
+name|uReq
+operator|.
+name|getParams
+argument_list|()
+operator|+
 literal|" rsp:"
 operator|+
 name|rspCode
@@ -1296,6 +1307,50 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return;
+block|}
+if|if
+condition|(
+name|log
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"sending update to "
+operator|+
+name|req
+operator|.
+name|node
+operator|.
+name|getUrl
+argument_list|()
+operator|+
+literal|" retry:"
+operator|+
+name|req
+operator|.
+name|retries
+operator|+
+literal|" "
+operator|+
+name|req
+operator|.
+name|cmdString
+operator|+
+literal|" params:"
+operator|+
+name|req
+operator|.
+name|uReq
+operator|.
+name|getParams
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
