@@ -494,8 +494,6 @@ name|startTheMonkey
 argument_list|(
 literal|false
 argument_list|,
-literal|false
-argument_list|,
 literal|500
 argument_list|)
 expr_stmt|;
