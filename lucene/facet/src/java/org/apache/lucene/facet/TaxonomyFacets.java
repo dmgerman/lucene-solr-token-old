@@ -439,7 +439,16 @@ block|}
 else|else
 block|{
 return|return
-literal|0
+name|a
+operator|.
+name|dim
+operator|.
+name|compareTo
+argument_list|(
+name|b
+operator|.
+name|dim
+argument_list|)
 return|;
 block|}
 block|}

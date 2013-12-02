@@ -518,9 +518,9 @@ condition|)
 block|{
 name|label
 operator|=
+operator|new
 name|FacetLabel
-operator|.
-name|EMPTY
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -640,9 +640,9 @@ condition|)
 block|{
 name|label
 operator|=
+operator|new
 name|FacetLabel
-operator|.
-name|EMPTY
+argument_list|()
 expr_stmt|;
 block|}
 else|else

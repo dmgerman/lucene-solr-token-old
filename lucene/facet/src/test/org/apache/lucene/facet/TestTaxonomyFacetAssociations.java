@@ -560,7 +560,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"value=-1 childCount=2\n  a (200)\n  b (150)\n"
+literal|"dim=int path=[] value=-1 childCount=2\n  a (200)\n  b (150)\n"
 argument_list|,
 name|facets
 operator|.
@@ -665,7 +665,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"value=-1.0 childCount=2\n  a (50.0)\n  b (9.999995)\n"
+literal|"dim=float path=[] value=-1.0 childCount=2\n  a (50.0)\n  b (9.999995)\n"
 argument_list|,
 name|facets
 operator|.
