@@ -549,15 +549,6 @@ name|SKIP
 init|=
 literal|"skip"
 decl_stmt|;
-DECL|field|SKIP_DOC
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SKIP_DOC
-init|=
-literal|"$skipDoc"
-decl_stmt|;
 block|}
 end_class
 end_unit
