@@ -164,6 +164,21 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|SolrException
+operator|.
+name|ErrorCode
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|AfterClass
@@ -572,7 +587,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/** Do a select query with the stream.url. Solr should NOT access that URL, and so the data should be there. */
+comment|/** Do a select query with the stream.url. Solr should fail */
 annotation|@
 name|Test
 DECL|method|testNoUrlAccess
@@ -608,6 +623,8 @@ name|makeDeleteAllUrl
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|getSolrServer
 argument_list|()
 operator|.
@@ -616,13 +633,34 @@ argument_list|(
 name|query
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|fail
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SolrException
+name|se
+parameter_list|)
+block|{
+name|assertSame
 argument_list|(
-name|searchFindsIt
+name|ErrorCode
+operator|.
+name|BAD_REQUEST
+argument_list|,
+name|ErrorCode
+operator|.
+name|getErrorCode
+argument_list|(
+name|se
+operator|.
+name|code
 argument_list|()
 argument_list|)
+argument_list|)
 expr_stmt|;
-comment|//still there
+block|}
 block|}
 comment|/** SOLR-3161    * Technically stream.body isn't remote streaming, but there wasn't a better place for this test method. */
 annotation|@
