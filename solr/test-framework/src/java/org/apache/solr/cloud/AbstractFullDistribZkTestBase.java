@@ -2750,10 +2750,7 @@ operator|.
 name|getClusterState
 argument_list|()
 operator|.
-name|getCollectionStates
-argument_list|()
-operator|.
-name|get
+name|getCollectionOrNull
 argument_list|(
 name|collection
 argument_list|)
@@ -10376,24 +10373,13 @@ name|expectedSlices
 operator|*
 name|expectedShardsPerSlice
 decl_stmt|;
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|DocCollection
-argument_list|>
-name|collections
-init|=
-name|clusterState
-operator|.
-name|getCollectionStates
-argument_list|()
-decl_stmt|;
+comment|//      Map<String,DocCollection> collections = clusterState
+comment|//          .getCollectionStates();
 if|if
 condition|(
-name|collections
+name|clusterState
 operator|.
-name|containsKey
+name|hasCollection
 argument_list|(
 name|collectionName
 argument_list|)
@@ -10407,9 +10393,9 @@ name|Slice
 argument_list|>
 name|slices
 init|=
-name|collections
+name|clusterState
 operator|.
-name|get
+name|getCollection
 argument_list|(
 name|collectionName
 argument_list|)
@@ -10793,10 +10779,7 @@ name|slices
 init|=
 name|clusterState
 operator|.
-name|getCollectionStates
-argument_list|()
-operator|.
-name|get
+name|getCollection
 argument_list|(
 name|collection
 argument_list|)
