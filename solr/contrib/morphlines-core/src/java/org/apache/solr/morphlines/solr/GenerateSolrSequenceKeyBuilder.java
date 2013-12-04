@@ -268,6 +268,8 @@ return|return
 operator|new
 name|GenerateSolrSequenceKey
 argument_list|(
+name|this
+argument_list|,
 name|config
 argument_list|,
 name|parent
@@ -333,6 +335,9 @@ DECL|method|GenerateSolrSequenceKey
 specifier|public
 name|GenerateSolrSequenceKey
 parameter_list|(
+name|CommandBuilder
+name|builder
+parameter_list|,
 name|Config
 name|config
 parameter_list|,
@@ -348,6 +353,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|builder
+argument_list|,
 name|config
 argument_list|,
 name|parent
