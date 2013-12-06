@@ -234,6 +234,15 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -521,6 +530,11 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"This test cannot currently work because it uses a local filesystem output path for the indexes and Solr requires hdfs output paths"
+argument_list|)
 DECL|method|testReducer
 specifier|public
 name|void
