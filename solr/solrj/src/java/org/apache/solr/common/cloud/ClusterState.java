@@ -260,7 +260,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * @deprecated    */
+comment|/**    * @deprecated prefer another constructor    */
 DECL|method|ClusterState
 specifier|public
 name|ClusterState
@@ -2007,7 +2007,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**Internal API used only by ZkStateReader    * @param liveNodes    */
+comment|/**    * Internal API used only by ZkStateReader    */
 DECL|method|setLiveNodes
 name|void
 name|setLiveNodes
