@@ -345,6 +345,17 @@ operator|.
 name|LoggerFactory
 import|;
 end_import
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singletonMap
+import|;
+end_import
 begin_comment
 comment|/**  * Cluster leader. Responsible node assignments, cluster state file?  */
 end_comment
@@ -4336,23 +4347,7 @@ name|fullRange
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|DocCollection
-argument_list|>
-name|newCollections
-init|=
-operator|new
-name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|DocCollection
-argument_list|>
-argument_list|()
-decl_stmt|;
+comment|//        Map<String, DocCollection> newCollections = new LinkedHashMap<String,DocCollection>();
 name|Map
 argument_list|<
 name|String
@@ -4370,16 +4365,7 @@ name|Slice
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|newCollections
-operator|.
-name|putAll
-argument_list|(
-name|state
-operator|.
-name|getCollectionStates
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//        newCollections.putAll(state.getCollectionStates());
 for|for
 control|(
 name|int
@@ -4604,32 +4590,25 @@ argument_list|,
 name|router
 argument_list|)
 decl_stmt|;
-name|newCollections
+comment|//        newCollections.put(collectionName, newCollection);
+return|return
+name|state
 operator|.
-name|put
+name|copyWith
 argument_list|(
-name|collectionName
+name|singletonMap
+argument_list|(
+name|newCollection
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|newCollection
 argument_list|)
-expr_stmt|;
-name|ClusterState
-name|newClusterState
-init|=
-operator|new
-name|ClusterState
-argument_list|(
-name|state
-operator|.
-name|getLiveNodes
-argument_list|()
-argument_list|,
-name|newCollections
 argument_list|)
-decl_stmt|;
-return|return
-name|newClusterState
 return|;
+comment|//        ClusterState newClusterState = new ClusterState(state.getLiveNodes(), newCollections);
+comment|//        return newClusterState;
 block|}
 comment|/*        * Return an already assigned id or null if not assigned        */
 DECL|method|getAssignedId
@@ -5511,6 +5490,32 @@ name|newCollections
 argument_list|)
 return|;
 block|}
+DECL|method|newState
+specifier|private
+name|ClusterState
+name|newState
+parameter_list|(
+name|ClusterState
+name|state
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|DocCollection
+argument_list|>
+name|colls
+parameter_list|)
+block|{
+return|return
+name|state
+operator|.
+name|copyWith
+argument_list|(
+name|colls
+argument_list|)
+return|;
+block|}
 comment|/*        * Remove collection from cloudstate        */
 DECL|method|removeCollection
 specifier|private
@@ -5536,53 +5541,24 @@ argument_list|(
 literal|"name"
 argument_list|)
 decl_stmt|;
-specifier|final
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|DocCollection
-argument_list|>
-name|newCollections
-init|=
-operator|new
-name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|DocCollection
-argument_list|>
-argument_list|(
+comment|//        final Map<String, DocCollection> newCollections = new LinkedHashMap<String,DocCollection>(clusterState.getCollectionStates()); // shallow copy
+comment|//        newCollections.remove(collection);
+comment|//        ClusterState newState = new ClusterState(clusterState.getLiveNodes(), newCollections);
+return|return
 name|clusterState
 operator|.
-name|getCollectionStates
-argument_list|()
-argument_list|)
-decl_stmt|;
-comment|// shallow copy
-name|newCollections
-operator|.
-name|remove
+name|copyWith
+argument_list|(
+name|singletonMap
 argument_list|(
 name|collection
-argument_list|)
-expr_stmt|;
-name|ClusterState
-name|newState
-init|=
-operator|new
-name|ClusterState
-argument_list|(
-name|clusterState
-operator|.
-name|getLiveNodes
-argument_list|()
 argument_list|,
-name|newCollections
+operator|(
+name|DocCollection
+operator|)
+literal|null
 argument_list|)
-decl_stmt|;
-return|return
-name|newState
+argument_list|)
 return|;
 block|}
 comment|/*      * Remove collection slice from cloudstate      */
@@ -5640,36 +5616,13 @@ operator|+
 literal|" from clusterstate"
 argument_list|)
 expr_stmt|;
-specifier|final
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|DocCollection
-argument_list|>
-name|newCollections
-init|=
-operator|new
-name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|DocCollection
-argument_list|>
-argument_list|(
-name|clusterState
-operator|.
-name|getCollectionStates
-argument_list|()
-argument_list|)
-decl_stmt|;
-comment|// shallow copy
+comment|//      final Map<String, DocCollection> newCollections = new LinkedHashMap<String,DocCollection>(clusterState.getCollectionStates()); // shallow copy
 name|DocCollection
 name|coll
 init|=
-name|newCollections
+name|clusterState
 operator|.
-name|get
+name|getCollection
 argument_list|(
 name|collection
 argument_list|)
@@ -5727,30 +5680,21 @@ name|getRouter
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|newCollections
-operator|.
-name|put
-argument_list|(
-name|newCollection
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|newCollection
-argument_list|)
-expr_stmt|;
+comment|//      newCollections.put(newCollection.getName(), newCollection);
 return|return
-operator|new
-name|ClusterState
+name|newState
 argument_list|(
 name|clusterState
-operator|.
-name|getLiveNodes
-argument_list|()
 argument_list|,
-name|newCollections
+name|singletonMap
+argument_list|(
+name|collection
+argument_list|,
+name|newCollection
+argument_list|)
 argument_list|)
 return|;
+comment|//     return new ClusterState(clusterState.getLiveNodes(), newCollections);
 block|}
 comment|/*        * Remove core from cloudstate        */
 DECL|method|removeCore
@@ -5791,36 +5735,14 @@ operator|.
 name|COLLECTION_PROP
 argument_list|)
 decl_stmt|;
-specifier|final
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|DocCollection
-argument_list|>
-name|newCollections
-init|=
-operator|new
-name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|DocCollection
-argument_list|>
-argument_list|(
-name|clusterState
-operator|.
-name|getCollectionStates
-argument_list|()
-argument_list|)
-decl_stmt|;
-comment|// shallow copy
+comment|//        final Map<String, DocCollection> newCollections = new LinkedHashMap<String,DocCollection>(clusterState.getCollectionStates()); // shallow copy
+comment|//        DocCollection coll = newCollections.get(collection);
 name|DocCollection
 name|coll
 init|=
-name|newCollections
+name|clusterState
 operator|.
-name|get
+name|getCollectionOrNull
 argument_list|(
 name|collection
 argument_list|)
@@ -6087,16 +6009,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|newCollections
-operator|.
-name|remove
-argument_list|(
-name|coll
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//          newCollections.remove(coll.getName());
 comment|// TODO: it might be better logically to have this in ZkController
 comment|// but for tests (it's easier) it seems better for the moment to leave CoreContainer and/or
 comment|// ZkController out of the Overseer.
@@ -6160,6 +6073,22 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|newState
+argument_list|(
+name|clusterState
+argument_list|,
+name|singletonMap
+argument_list|(
+name|collection
+argument_list|,
+operator|(
+name|DocCollection
+operator|)
+literal|null
+argument_list|)
+argument_list|)
+return|;
 block|}
 else|else
 block|{
@@ -6187,36 +6116,23 @@ name|getRouter
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|newCollections
-operator|.
-name|put
-argument_list|(
-name|newCollection
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|newCollection
-argument_list|)
-expr_stmt|;
-block|}
-name|ClusterState
-name|newState
-init|=
-operator|new
-name|ClusterState
-argument_list|(
-name|clusterState
-operator|.
-name|getLiveNodes
-argument_list|()
-argument_list|,
-name|newCollections
-argument_list|)
-decl_stmt|;
 return|return
 name|newState
+argument_list|(
+name|clusterState
+argument_list|,
+name|singletonMap
+argument_list|(
+name|collection
+argument_list|,
+name|newCollection
+argument_list|)
+argument_list|)
 return|;
+comment|//          newCollections.put(newCollection.getName(), newCollection);
+block|}
+comment|//        ClusterState newState = new ClusterState(clusterState.getLiveNodes(), newCollections);
+comment|//        return newState;
 block|}
 annotation|@
 name|Override

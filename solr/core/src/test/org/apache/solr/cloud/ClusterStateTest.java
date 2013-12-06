@@ -447,6 +447,8 @@ argument_list|,
 name|bytes
 argument_list|,
 name|liveNodes
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -562,6 +564,8 @@ literal|0
 index|]
 argument_list|,
 name|liveNodes
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -609,6 +613,8 @@ operator|)
 literal|null
 argument_list|,
 name|liveNodes
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertEquals
