@@ -1562,7 +1562,7 @@ name|IndexWriterConfig
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_CURRENT
 argument_list|,
 name|indexAnalyzer
 argument_list|)

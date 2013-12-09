@@ -155,7 +155,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Version
+name|LuceneTestCase
 import|;
 end_import
 begin_import
@@ -228,9 +228,9 @@ init|=
 operator|new
 name|WhitespaceAnalyzer
 argument_list|(
-name|Version
+name|LuceneTestCase
 operator|.
-name|LUCENE_40
+name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 try|try

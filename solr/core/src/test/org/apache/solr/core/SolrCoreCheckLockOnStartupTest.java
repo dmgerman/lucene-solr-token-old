@@ -196,9 +196,7 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_40
+name|TEST_VERSION_CURRENT
 argument_list|,
 literal|null
 argument_list|)
@@ -284,9 +282,7 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_40
+name|TEST_VERSION_CURRENT
 argument_list|,
 literal|null
 argument_list|)
@@ -425,9 +421,7 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_40
+name|TEST_VERSION_CURRENT
 argument_list|,
 literal|null
 argument_list|)
