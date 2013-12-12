@@ -2837,6 +2837,11 @@ literal|false
 argument_list|,
 name|getExtraServlets
 argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+name|getExtraRequestFilters
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|jetty
@@ -2928,6 +2933,11 @@ argument_list|,
 literal|false
 argument_list|,
 name|getExtraServlets
+argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+name|getExtraRequestFilters
 argument_list|()
 argument_list|)
 decl_stmt|;
