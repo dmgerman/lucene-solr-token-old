@@ -706,8 +706,6 @@ name|String
 modifier|...
 name|solrServerUrl
 parameter_list|)
-throws|throws
-name|MalformedURLException
 block|{
 name|this
 argument_list|(
@@ -736,8 +734,6 @@ name|String
 modifier|...
 name|solrServerUrl
 parameter_list|)
-throws|throws
-name|MalformedURLException
 block|{
 name|clientIsInternal
 operator|=
@@ -916,8 +912,6 @@ parameter_list|(
 name|String
 name|server
 parameter_list|)
-throws|throws
-name|MalformedURLException
 block|{
 name|HttpSolrServer
 name|s
