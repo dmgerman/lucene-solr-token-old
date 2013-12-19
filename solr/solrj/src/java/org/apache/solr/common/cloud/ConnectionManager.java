@@ -180,6 +180,12 @@ specifier|final
 name|OnReconnect
 name|onReconnect
 decl_stmt|;
+DECL|field|beforeReconnect
+specifier|private
+specifier|final
+name|BeforeReconnect
+name|beforeReconnect
+decl_stmt|;
 DECL|field|isClosed
 specifier|private
 specifier|volatile
@@ -209,6 +215,9 @@ name|strat
 parameter_list|,
 name|OnReconnect
 name|onConnect
+parameter_list|,
+name|BeforeReconnect
+name|beforeReconnect
 parameter_list|)
 block|{
 name|this
@@ -246,6 +255,12 @@ operator|.
 name|onReconnect
 operator|=
 name|onConnect
+expr_stmt|;
+name|this
+operator|.
+name|beforeReconnect
+operator|=
+name|beforeReconnect
 expr_stmt|;
 name|reset
 argument_list|()
@@ -395,6 +410,19 @@ argument_list|(
 literal|"Our previous ZooKeeper session was expired. Attempting to reconnect to recover relationship with ZooKeeper..."
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|beforeReconnect
+operator|!=
+literal|null
+condition|)
+block|{
+name|beforeReconnect
+operator|.
+name|command
+argument_list|()
+expr_stmt|;
+block|}
 try|try
 block|{
 name|connectionStrategy

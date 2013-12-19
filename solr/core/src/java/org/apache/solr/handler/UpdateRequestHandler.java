@@ -510,7 +510,7 @@ name|SolrException
 argument_list|(
 name|ErrorCode
 operator|.
-name|BAD_REQUEST
+name|UNSUPPORTED_MEDIA_TYPE
 argument_list|,
 literal|"Missing ContentType"
 argument_list|)
@@ -568,7 +568,7 @@ name|SolrException
 argument_list|(
 name|ErrorCode
 operator|.
-name|BAD_REQUEST
+name|UNSUPPORTED_MEDIA_TYPE
 argument_list|,
 literal|"Unsupported ContentType: "
 operator|+

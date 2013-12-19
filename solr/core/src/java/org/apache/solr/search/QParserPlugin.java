@@ -323,6 +323,14 @@ block|,
 name|CollapsingQParserPlugin
 operator|.
 name|class
+block|,
+name|SimpleQParserPlugin
+operator|.
+name|NAME
+block|,
+name|SimpleQParserPlugin
+operator|.
+name|class
 block|}
 decl_stmt|;
 comment|/** return a {@link QParser} */

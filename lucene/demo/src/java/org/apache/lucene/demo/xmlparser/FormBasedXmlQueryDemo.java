@@ -829,7 +829,7 @@ name|IndexWriterConfig
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_40
+name|LUCENE_CURRENT
 argument_list|,
 name|analyzer
 argument_list|)

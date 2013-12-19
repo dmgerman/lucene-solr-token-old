@@ -59,6 +59,23 @@ operator|.
 name|SolrCore
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|spelling
+operator|.
+name|suggest
+operator|.
+name|jaspell
+operator|.
+name|JaspellLookupFactory
+import|;
+end_import
 begin_comment
 comment|/**  * Suggester factory for creating {@link Lookup} instances.  */
 end_comment
@@ -69,6 +86,21 @@ specifier|abstract
 class|class
 name|LookupFactory
 block|{
+comment|/** Default lookup implementation to use for SolrSuggester */
+DECL|field|DEFAULT_FILE_BASED_DICT
+specifier|public
+specifier|static
+name|String
+name|DEFAULT_FILE_BASED_DICT
+init|=
+name|JaspellLookupFactory
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+comment|/**    * Create a Lookup using config options in<code>params</code> and     * current<code>core</code>    */
 DECL|method|create
 specifier|public
 specifier|abstract
@@ -82,6 +114,7 @@ name|SolrCore
 name|core
 parameter_list|)
 function_decl|;
+comment|/**     *<p>Returns the filename in which the in-memory data structure is stored</p>    *<b>NOTE:</b> not all {@link Lookup} implementations store in-memory data structures    * */
 DECL|method|storeFileName
 specifier|public
 specifier|abstract

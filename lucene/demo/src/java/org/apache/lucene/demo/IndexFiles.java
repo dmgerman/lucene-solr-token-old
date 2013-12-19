@@ -516,6 +516,7 @@ name|indexPath
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// :Post-Release-Update-Version.LUCENE_XY:
 name|Analyzer
 name|analyzer
 init|=
@@ -524,7 +525,7 @@ name|StandardAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_40
+name|LUCENE_50
 argument_list|)
 decl_stmt|;
 name|IndexWriterConfig
@@ -535,7 +536,7 @@ name|IndexWriterConfig
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_40
+name|LUCENE_50
 argument_list|,
 name|analyzer
 argument_list|)

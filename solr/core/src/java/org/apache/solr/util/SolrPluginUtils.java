@@ -2244,7 +2244,7 @@ name|sort
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 name|commands
 operator|.
@@ -2255,6 +2255,9 @@ argument_list|)
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 block|}
 name|DocList
@@ -3966,12 +3969,15 @@ name|ss
 operator|=
 name|QueryParsing
 operator|.
-name|parseSort
+name|parseSortSpec
 argument_list|(
 name|sort
 argument_list|,
 name|req
 argument_list|)
+operator|.
+name|getSort
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch

@@ -261,15 +261,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -307,8 +298,6 @@ name|linger
 operator|=
 literal|60000
 argument_list|)
-annotation|@
-name|Ignore
 DECL|class|ChaosMonkeyNothingIsSafeTest
 specifier|public
 class|class
@@ -361,6 +350,11 @@ name|void
 name|beforeSuperClass
 parameter_list|()
 block|{
+name|schemaString
+operator|=
+literal|"schema15.xml"
+expr_stmt|;
+comment|// we need a string id
 name|SolrCmdDistributor
 operator|.
 name|testing_errorHook
@@ -445,6 +439,72 @@ name|testing_errorHook
 operator|=
 literal|null
 expr_stmt|;
+block|}
+DECL|field|fieldNames
+specifier|public
+specifier|static
+name|String
+index|[]
+name|fieldNames
+init|=
+operator|new
+name|String
+index|[]
+block|{
+literal|"f_i"
+block|,
+literal|"f_f"
+block|,
+literal|"f_d"
+block|,
+literal|"f_l"
+block|,
+literal|"f_dt"
+block|}
+decl_stmt|;
+DECL|field|randVals
+specifier|public
+specifier|static
+name|RandVal
+index|[]
+name|randVals
+init|=
+operator|new
+name|RandVal
+index|[]
+block|{
+name|rint
+block|,
+name|rfloat
+block|,
+name|rdouble
+block|,
+name|rlong
+block|,
+name|rdate
+block|}
+decl_stmt|;
+DECL|method|getFieldNames
+specifier|protected
+name|String
+index|[]
+name|getFieldNames
+parameter_list|()
+block|{
+return|return
+name|fieldNames
+return|;
+block|}
+DECL|method|getRandValues
+specifier|protected
+name|RandVal
+index|[]
+name|getRandValues
+parameter_list|()
+block|{
+return|return
+name|randVals
+return|;
 block|}
 annotation|@
 name|Before
@@ -688,13 +748,12 @@ init|=
 operator|new
 name|StopableIndexingThread
 argument_list|(
-operator|(
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|i
-operator|+
-literal|1
-operator|)
-operator|*
-literal|50000
+argument_list|)
 argument_list|,
 literal|true
 argument_list|)
@@ -777,13 +836,7 @@ name|FullThrottleStopableIndexingThread
 argument_list|(
 name|clients
 argument_list|,
-operator|(
-name|i
-operator|+
-literal|1
-operator|)
-operator|*
-literal|50000
+literal|"ft1"
 argument_list|,
 literal|true
 argument_list|)
@@ -844,7 +897,7 @@ literal|10000
 block|,
 literal|15000
 block|,
-literal|15000
+literal|25000
 block|,
 literal|30000
 block|,
@@ -907,6 +960,7 @@ name|safeStop
 argument_list|()
 expr_stmt|;
 block|}
+comment|// start any downed jetties to be sure we still will end up with a leader per shard...
 comment|// wait for stop...
 for|for
 control|(
@@ -922,13 +976,6 @@ name|join
 argument_list|()
 expr_stmt|;
 block|}
-comment|// we expect full throttle fails, but cloud client should not easily fail
-comment|// but it's allowed to fail and sometimes does, so commented out for now
-comment|//       for (StopableThread indexThread : threads) {
-comment|//         if (indexThread instanceof StopableIndexingThread&& !(indexThread instanceof FullThrottleStopableIndexingThread)) {
-comment|//           assertEquals(0, ((StopableIndexingThread) indexThread).getFails());
-comment|//         }
-comment|//       }
 comment|// try and wait for any replications and what not to finish...
 name|Thread
 operator|.
@@ -1003,6 +1050,48 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// we expect full throttle fails, but cloud client should not easily fail
+for|for
+control|(
+name|StopableThread
+name|indexThread
+range|:
+name|threads
+control|)
+block|{
+if|if
+condition|(
+name|indexThread
+operator|instanceof
+name|StopableIndexingThread
+operator|&&
+operator|!
+operator|(
+name|indexThread
+operator|instanceof
+name|FullThrottleStopableIndexingThread
+operator|)
+condition|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"There were expected update fails"
+argument_list|,
+literal|0
+argument_list|,
+operator|(
+operator|(
+name|StopableIndexingThread
+operator|)
+name|indexThread
+operator|)
+operator|.
+name|getFails
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// full throttle thread can
 comment|// have request fails
 name|checkShardConsistency
@@ -1287,8 +1376,8 @@ name|SolrServer
 argument_list|>
 name|clients
 parameter_list|,
-name|int
-name|startI
+name|String
+name|id
 parameter_list|,
 name|boolean
 name|doDeletes
@@ -1296,7 +1385,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|startI
+name|id
 argument_list|,
 name|doDeletes
 argument_list|)
@@ -1396,7 +1485,7 @@ block|{
 name|int
 name|i
 init|=
-name|startI
+literal|0
 decl_stmt|;
 name|int
 name|numDeletes
@@ -1416,6 +1505,17 @@ operator|!
 name|stop
 condition|)
 block|{
+name|String
+name|id
+init|=
+name|this
+operator|.
+name|id
+operator|+
+literal|"-"
+operator|+
+name|i
+decl_stmt|;
 operator|++
 name|i
 expr_stmt|;
@@ -1437,7 +1537,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|Integer
+name|String
 name|delete
 init|=
 name|deletes
@@ -1456,12 +1556,7 @@ name|suss
 operator|.
 name|deleteById
 argument_list|(
-name|Integer
-operator|.
-name|toString
-argument_list|(
 name|delete
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1502,15 +1597,11 @@ name|doc
 init|=
 name|getDoc
 argument_list|(
+literal|"id"
+argument_list|,
 name|id
 argument_list|,
-name|i
-argument_list|,
 name|i1
-argument_list|,
-literal|50
-argument_list|,
-name|tlong
 argument_list|,
 literal|50
 argument_list|,
@@ -1561,7 +1652,7 @@ name|deletes
 operator|.
 name|add
 argument_list|(
-name|i
+name|id
 argument_list|)
 expr_stmt|;
 block|}

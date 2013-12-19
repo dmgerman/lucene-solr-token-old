@@ -259,7 +259,7 @@ specifier|final
 name|String
 name|ICU_RELEASE_TAG
 init|=
-literal|"release-49-1-2"
+literal|"release-52-1"
 decl_stmt|;
 DECL|field|ICU_DATA_NORM2_PATH
 specifier|private

@@ -481,6 +481,7 @@ name|IndexCommit
 name|commit
 parameter_list|)
 block|{
+comment|// :Post-Release-Update-Version.LUCENE_XY:
 name|Version
 name|version
 init|=
@@ -496,7 +497,7 @@ literal|"writer.version"
 argument_list|,
 name|Version
 operator|.
-name|LUCENE_40
+name|LUCENE_50
 operator|.
 name|toString
 argument_list|()

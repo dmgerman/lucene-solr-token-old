@@ -164,6 +164,11 @@ name|phraseInfo
 operator|.
 name|getSeqnum
 argument_list|()
+argument_list|,
+name|phraseInfo
+operator|.
+name|getBoost
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -617,6 +617,7 @@ argument_list|(
 name|reader
 argument_list|)
 decl_stmt|;
+comment|// :Post-Release-Update-Version.LUCENE_XY:
 name|Analyzer
 name|analyzer
 init|=
@@ -625,7 +626,7 @@ name|StandardAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_40
+name|LUCENE_50
 argument_list|)
 decl_stmt|;
 name|BufferedReader
@@ -678,6 +679,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// :Post-Release-Update-Version.LUCENE_XY:
 name|QueryParser
 name|parser
 init|=
@@ -686,7 +688,7 @@ name|QueryParser
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_40
+name|LUCENE_50
 argument_list|,
 name|field
 argument_list|,

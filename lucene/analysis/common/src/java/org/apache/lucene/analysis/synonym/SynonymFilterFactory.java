@@ -665,7 +665,7 @@ name|WhitespaceTokenizer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_50
+name|LUCENE_CURRENT
 argument_list|,
 name|reader
 argument_list|)
@@ -687,7 +687,7 @@ name|LowerCaseFilter
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_50
+name|LUCENE_CURRENT
 argument_list|,
 name|tokenizer
 argument_list|)
@@ -1151,7 +1151,7 @@ name|newInstance
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_50
+name|LUCENE_CURRENT
 argument_list|)
 decl_stmt|;
 if|if
