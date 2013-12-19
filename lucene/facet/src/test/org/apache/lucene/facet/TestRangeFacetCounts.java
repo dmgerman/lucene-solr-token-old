@@ -1555,9 +1555,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// nocommit this is awkward... can we improve?
-comment|// nocommit is drillDowns allowed to be null?
-comment|// should it?
 name|FacetsCollector
 name|dimFC
 init|=
