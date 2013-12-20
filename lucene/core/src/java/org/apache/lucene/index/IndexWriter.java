@@ -3062,6 +3062,13 @@ name|commitInternal
 argument_list|()
 expr_stmt|;
 block|}
+name|processEvents
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 synchronized|synchronized
 init|(
 name|this
@@ -3236,13 +3243,6 @@ argument_list|()
 operator|.
 name|interrupt
 argument_list|()
-expr_stmt|;
-name|processEvents
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
 expr_stmt|;
 block|}
 block|}
