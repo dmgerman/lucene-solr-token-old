@@ -631,7 +631,7 @@ name|this
 argument_list|(
 name|solrServerUrl
 argument_list|,
-literal|null
+name|client
 argument_list|,
 name|queueSize
 argument_list|,
