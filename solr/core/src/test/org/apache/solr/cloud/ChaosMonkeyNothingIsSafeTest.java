@@ -863,6 +863,8 @@ argument_list|,
 literal|10000
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|long
 name|runLength
 decl_stmt|;
@@ -928,8 +930,6 @@ argument_list|)
 index|]
 expr_stmt|;
 block|}
-try|try
-block|{
 name|Thread
 operator|.
 name|sleep
