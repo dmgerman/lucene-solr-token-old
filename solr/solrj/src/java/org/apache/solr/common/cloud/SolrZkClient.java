@@ -628,8 +628,6 @@ name|this
 argument_list|,
 name|zkServerAddress
 argument_list|,
-name|zkClientTimeout
-argument_list|,
 name|strat
 argument_list|,
 name|onReconnect
@@ -811,6 +809,16 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|getConnectionManager
+specifier|public
+name|ConnectionManager
+name|getConnectionManager
+parameter_list|()
+block|{
+return|return
+name|connManager
+return|;
 block|}
 DECL|method|getZkClientConnectionStrategy
 specifier|public
