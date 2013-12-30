@@ -1734,8 +1734,21 @@ operator|.
 name|getRootCause
 argument_list|()
 decl_stmt|;
+name|boolean
+name|connectTimeoutExceptionInChain
+init|=
+name|connectTimeoutExceptionInChain
+argument_list|(
+name|srsp
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
+name|connectTimeoutExceptionInChain
+operator|||
 name|solrException
 operator|instanceof
 name|ConnectException
@@ -1885,6 +1898,8 @@ return|return
 literal|true
 return|;
 block|}
+comment|// TODO: we should return the above information so that when we can request a recovery through zookeeper, we do
+comment|// that for these nodes
 comment|// TODO: at least log???
 comment|// srsp.getException().printStackTrace(System.out);
 name|log
@@ -1937,6 +1952,66 @@ argument_list|(
 name|srsp
 argument_list|)
 return|;
+block|}
+block|}
+comment|// sometimes the root exception is a SocketTimeoutException, but ConnectTimeoutException
+comment|// is in the chain
+DECL|method|connectTimeoutExceptionInChain
+specifier|private
+name|boolean
+name|connectTimeoutExceptionInChain
+parameter_list|(
+name|Throwable
+name|exception
+parameter_list|)
+block|{
+name|Throwable
+name|t
+init|=
+name|exception
+decl_stmt|;
+while|while
+condition|(
+literal|true
+condition|)
+block|{
+if|if
+condition|(
+name|t
+operator|instanceof
+name|ConnectTimeoutException
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+name|Throwable
+name|cause
+init|=
+name|t
+operator|.
+name|getCause
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cause
+operator|!=
+literal|null
+condition|)
+block|{
+name|t
+operator|=
+name|cause
+expr_stmt|;
+block|}
+else|else
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 block|}
 DECL|method|handleVersions
