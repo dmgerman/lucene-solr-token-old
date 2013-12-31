@@ -85,8 +85,6 @@ block|{
 name|this
 argument_list|(
 name|dimToFacets
-operator|=
-name|dimToFacets
 argument_list|,
 literal|null
 argument_list|)
@@ -121,6 +119,8 @@ operator|=
 name|defaultFacets
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTopChildren
 specifier|public
 name|FacetResult
@@ -193,6 +193,8 @@ name|path
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSpecificValue
 specifier|public
 name|Number
@@ -260,6 +262,8 @@ name|path
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAllDims
 specifier|public
 name|List

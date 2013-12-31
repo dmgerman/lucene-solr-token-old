@@ -29,15 +29,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|LinkedHashMap
 import|;
 end_import
@@ -57,21 +48,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|facet
-operator|.
-name|taxonomy
-operator|.
-name|FacetLabel
 import|;
 end_import
 begin_import
@@ -111,8 +87,6 @@ operator|.
 name|search
 operator|.
 name|BooleanClause
-operator|.
-name|Occur
 import|;
 end_import
 begin_import
@@ -126,6 +100,8 @@ operator|.
 name|search
 operator|.
 name|BooleanClause
+operator|.
+name|Occur
 import|;
 end_import
 begin_import
@@ -206,9 +182,6 @@ operator|.
 name|NumericRangeQuery
 import|;
 end_import
-begin_comment
-comment|// javadocs
-end_comment
 begin_import
 import|import
 name|org
