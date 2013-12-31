@@ -146,6 +146,8 @@ name|lucene
 operator|.
 name|facet
 operator|.
+name|sortedset
+operator|.
 name|SortedSetDocValuesFacetCounts
 import|;
 end_import
@@ -159,6 +161,8 @@ name|lucene
 operator|.
 name|facet
 operator|.
+name|sortedset
+operator|.
 name|SortedSetDocValuesFacetField
 import|;
 end_import
@@ -171,6 +175,8 @@ operator|.
 name|lucene
 operator|.
 name|facet
+operator|.
+name|sortedset
 operator|.
 name|SortedSetDocValuesReaderState
 import|;

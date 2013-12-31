@@ -32,6 +32,7 @@ comment|/** Keeps highest results, first by largest float value,  *  then tie br
 end_comment
 begin_class
 DECL|class|TopOrdAndFloatQueue
+specifier|public
 class|class
 name|TopOrdAndFloatQueue
 extends|extends
@@ -50,10 +51,12 @@ class|class
 name|OrdAndValue
 block|{
 DECL|field|ord
+specifier|public
 name|int
 name|ord
 decl_stmt|;
 DECL|field|value
+specifier|public
 name|float
 name|value
 decl_stmt|;

@@ -184,6 +184,8 @@ name|lucene
 operator|.
 name|facet
 operator|.
+name|taxonomy
+operator|.
 name|FastTaxonomyFacetCounts
 import|;
 end_import
