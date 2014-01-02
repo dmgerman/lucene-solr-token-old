@@ -118,6 +118,7 @@ specifier|volatile
 name|CompactLabelToOrdinal
 name|cache
 decl_stmt|;
+comment|/** Sole constructor. */
 DECL|method|Cl2oTaxonomyWriterCache
 specifier|public
 name|Cl2oTaxonomyWriterCache

@@ -156,6 +156,7 @@ name|CachedOrds
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/** Sole constructor. */
 DECL|method|CachedOrdinalsReader
 specifier|public
 name|CachedOrdinalsReader
@@ -349,6 +350,7 @@ specifier|final
 class|class
 name|CachedOrds
 block|{
+comment|/** Index into {@link #ordinals} for each document. */
 DECL|field|offsets
 specifier|public
 specifier|final
@@ -356,6 +358,7 @@ name|int
 index|[]
 name|offsets
 decl_stmt|;
+comment|/** Holds ords for all docs. */
 DECL|field|ordinals
 specifier|public
 specifier|final

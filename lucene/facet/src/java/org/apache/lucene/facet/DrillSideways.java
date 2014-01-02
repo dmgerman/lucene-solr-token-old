@@ -372,24 +372,28 @@ specifier|public
 class|class
 name|DrillSideways
 block|{
+comment|/** {@link IndexSearcher} passed to constructor. */
 DECL|field|searcher
 specifier|protected
 specifier|final
 name|IndexSearcher
 name|searcher
 decl_stmt|;
+comment|/** {@link TaxonomyReader} passed to constructor. */
 DECL|field|taxoReader
 specifier|protected
 specifier|final
 name|TaxonomyReader
 name|taxoReader
 decl_stmt|;
+comment|/** {@link SortedSetDocValuesReaderState} passed to    *  constructor; can be null. */
 DECL|field|state
 specifier|protected
 specifier|final
 name|SortedSetDocValuesReaderState
 name|state
 decl_stmt|;
+comment|/** {@link FacetsConfig} passed to constructor. */
 DECL|field|config
 specifier|protected
 specifier|final
@@ -1845,6 +1849,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|/** Result of a drill sideways search, including the    *  {@link Facets} and {@link TopDocs}. */
 DECL|class|DrillSidewaysResult
 specifier|public
 specifier|static
@@ -1865,6 +1870,7 @@ specifier|final
 name|TopDocs
 name|hits
 decl_stmt|;
+comment|/** Sole constructor. */
 DECL|method|DrillSidewaysResult
 specifier|public
 name|DrillSidewaysResult

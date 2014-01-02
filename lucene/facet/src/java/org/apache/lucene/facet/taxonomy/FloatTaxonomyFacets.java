@@ -113,6 +113,7 @@ name|FloatTaxonomyFacets
 extends|extends
 name|TaxonomyFacets
 block|{
+comment|/** Per-ordinal value. */
 DECL|field|values
 specifier|protected
 specifier|final
@@ -120,6 +121,7 @@ name|float
 index|[]
 name|values
 decl_stmt|;
+comment|/** Sole constructor. */
 DECL|method|FloatTaxonomyFacets
 specifier|protected
 name|FloatTaxonomyFacets
@@ -157,6 +159,7 @@ argument_list|()
 index|]
 expr_stmt|;
 block|}
+comment|/** Rolls up any single-valued hierarchical dimensions. */
 DECL|method|rollup
 specifier|protected
 name|void

@@ -129,6 +129,9 @@ operator|.
 name|NumericRangeFilter
 import|;
 end_import
+begin_comment
+comment|// javadocs
+end_comment
 begin_import
 import|import
 name|org
@@ -164,24 +167,28 @@ specifier|final
 name|long
 name|maxIncl
 decl_stmt|;
+comment|/** Minimum. */
 DECL|field|min
 specifier|public
 specifier|final
 name|long
 name|min
 decl_stmt|;
+comment|/** Maximum. */
 DECL|field|max
 specifier|public
 specifier|final
 name|long
 name|max
 decl_stmt|;
+comment|/** True if the minimum value is inclusive. */
 DECL|field|minInclusive
 specifier|public
 specifier|final
 name|boolean
 name|minInclusive
 decl_stmt|;
+comment|/** True if the maximum value is inclusive. */
 DECL|field|maxInclusive
 specifier|public
 specifier|final
@@ -316,6 +323,7 @@ operator|=
 name|maxIn
 expr_stmt|;
 block|}
+comment|/** True if this range accepts the provided value. */
 DECL|method|accept
 specifier|public
 name|boolean

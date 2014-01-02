@@ -98,6 +98,24 @@ operator|.
 name|facet
 operator|.
 name|FacetsConfig
+operator|.
+name|DimConfig
+import|;
+end_import
+begin_comment
+comment|// javadocs
+end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|facet
+operator|.
+name|FacetsConfig
 import|;
 end_import
 begin_comment
@@ -204,24 +222,28 @@ block|}
 block|}
 block|}
 decl_stmt|;
+comment|/** Index field name provided to the constructor. */
 DECL|field|indexFieldName
 specifier|protected
 specifier|final
 name|String
 name|indexFieldName
 decl_stmt|;
+comment|/** {@code TaxonomyReader} provided to the constructor. */
 DECL|field|taxoReader
 specifier|protected
 specifier|final
 name|TaxonomyReader
 name|taxoReader
 decl_stmt|;
+comment|/** {@code FacetsConfig} provided to the constructor. */
 DECL|field|config
 specifier|protected
 specifier|final
 name|FacetsConfig
 name|config
 decl_stmt|;
+comment|/** Maps parent ordinal to its child, or -1 if the parent    *  is childless. */
 DECL|field|children
 specifier|protected
 specifier|final
@@ -229,6 +251,7 @@ name|int
 index|[]
 name|children
 decl_stmt|;
+comment|/** Maps an ordinal to its sibling, or -1 if there is no    *  sibling. */
 DECL|field|siblings
 specifier|protected
 specifier|final
@@ -236,6 +259,7 @@ name|int
 index|[]
 name|siblings
 decl_stmt|;
+comment|/** Sole constructor. */
 DECL|method|TaxonomyFacets
 specifier|protected
 name|TaxonomyFacets
@@ -293,6 +317,7 @@ name|siblings
 argument_list|()
 expr_stmt|;
 block|}
+comment|/** Throws {@code IllegalArgumentException} if the    *  dimension is not recognized.  Otherwise, returns the    *  {@link DimConfig} for this dimension. */
 DECL|method|verifyDim
 specifier|protected
 name|FacetsConfig

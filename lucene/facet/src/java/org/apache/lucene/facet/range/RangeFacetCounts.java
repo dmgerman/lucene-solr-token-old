@@ -110,6 +110,7 @@ name|RangeFacetCounts
 extends|extends
 name|Facets
 block|{
+comment|/** Ranges passed to constructor. */
 DECL|field|ranges
 specifier|protected
 specifier|final
@@ -117,6 +118,7 @@ name|Range
 index|[]
 name|ranges
 decl_stmt|;
+comment|/** Counts, initialized in by subclass. */
 DECL|field|counts
 specifier|protected
 specifier|final
@@ -124,12 +126,14 @@ name|int
 index|[]
 name|counts
 decl_stmt|;
+comment|/** Our field name. */
 DECL|field|field
 specifier|protected
 specifier|final
 name|String
 name|field
 decl_stmt|;
+comment|/** Total number of hits. */
 DECL|field|totCount
 specifier|protected
 name|int

@@ -262,6 +262,7 @@ name|loadFactor
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** How many mappings. */
 DECL|method|size
 specifier|public
 name|int
@@ -274,6 +275,7 @@ operator|.
 name|size
 return|;
 block|}
+comment|/** How many slots are allocated. */
 DECL|method|capacity
 specifier|public
 name|int
@@ -444,6 +446,7 @@ name|loadFactor
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Return the mapping, or {@link    *  LabelToOrdinal#INVALID_ORDINAL} if the label isn't    *  recognized. */
 DECL|method|get
 specifier|public
 name|int
@@ -533,6 +536,7 @@ operator|.
 name|cid
 return|;
 block|}
+comment|/** Add another mapping. */
 DECL|method|addLabel
 specifier|public
 name|int

@@ -122,6 +122,7 @@ name|maxCacheSize
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Maximum number of cache entries before eviction. */
 DECL|method|getMaxSize
 specifier|public
 name|int
@@ -132,6 +133,7 @@ return|return
 name|maxCacheSize
 return|;
 block|}
+comment|/** Number of entries currently in the cache. */
 DECL|method|getSize
 specifier|public
 name|int

@@ -702,6 +702,12 @@ name|ScoreValueSource
 extends|extends
 name|ValueSource
 block|{
+comment|/** Sole constructor. */
+DECL|method|ScoreValueSource
+specifier|public
+name|ScoreValueSource
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|getValues

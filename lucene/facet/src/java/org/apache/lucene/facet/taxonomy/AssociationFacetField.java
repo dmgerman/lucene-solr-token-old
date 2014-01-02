@@ -131,12 +131,14 @@ name|freeze
 argument_list|()
 expr_stmt|;
 block|}
+comment|/** Dimension for this field. */
 DECL|field|dim
 specifier|public
 specifier|final
 name|String
 name|dim
 decl_stmt|;
+comment|/** Facet path for this field. */
 DECL|field|path
 specifier|public
 specifier|final
@@ -144,6 +146,7 @@ name|String
 index|[]
 name|path
 decl_stmt|;
+comment|/** Associated value. */
 DECL|field|assoc
 specifier|public
 specifier|final

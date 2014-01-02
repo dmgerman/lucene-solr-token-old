@@ -343,18 +343,21 @@ specifier|static
 class|class
 name|MatchingDocs
 block|{
+comment|/** Context for this segment. */
 DECL|field|context
 specifier|public
 specifier|final
 name|AtomicReaderContext
 name|context
 decl_stmt|;
+comment|/** Which documents were seen. */
 DECL|field|bits
 specifier|public
 specifier|final
 name|FixedBitSet
 name|bits
 decl_stmt|;
+comment|/** Non-sparse scores array. */
 DECL|field|scores
 specifier|public
 specifier|final
@@ -362,12 +365,14 @@ name|float
 index|[]
 name|scores
 decl_stmt|;
+comment|/** Total number of hits */
 DECL|field|totalHits
 specifier|public
 specifier|final
 name|int
 name|totalHits
 decl_stmt|;
+comment|/** Sole constructor. */
 DECL|method|MatchingDocs
 specifier|public
 name|MatchingDocs
@@ -412,6 +417,7 @@ name|totalHits
 expr_stmt|;
 block|}
 block|}
+comment|/** Default constructor */
 DECL|method|FacetsCollector
 specifier|public
 name|FacetsCollector
@@ -423,6 +429,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|/** Create this; if {@code keepScores} is true then a    *  float[] is allocated to hold score of all hits. */
 DECL|method|FacetsCollector
 specifier|public
 name|FacetsCollector
@@ -438,6 +445,7 @@ operator|=
 name|keepScores
 expr_stmt|;
 block|}
+comment|/** True if scores were saved. */
 DECL|method|getKeepScores
 specifier|public
 name|boolean
