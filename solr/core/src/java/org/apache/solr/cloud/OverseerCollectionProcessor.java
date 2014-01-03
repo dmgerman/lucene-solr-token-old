@@ -8540,9 +8540,9 @@ decl_stmt|;
 name|Replica
 name|tempSourceLeader
 init|=
-name|clusterState
+name|zkStateReader
 operator|.
-name|getLeader
+name|getLeaderRetry
 argument_list|(
 name|tempSourceCollectionName
 argument_list|,
@@ -8550,6 +8550,8 @@ name|tempSourceSlice
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+literal|60000
 argument_list|)
 decl_stmt|;
 name|String
