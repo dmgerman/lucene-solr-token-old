@@ -4566,6 +4566,8 @@ name|nextInt
 argument_list|(
 name|maxDocs
 argument_list|)
+operator|+
+literal|1
 decl_stmt|;
 for|for
 control|(
