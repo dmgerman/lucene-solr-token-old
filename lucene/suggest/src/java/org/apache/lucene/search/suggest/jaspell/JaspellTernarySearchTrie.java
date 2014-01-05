@@ -1399,11 +1399,11 @@ name|TSTNode
 name|node
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|getKeyBuffer
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|getKeyBuffer

@@ -96,11 +96,11 @@ name|String
 name|str
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|retval
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|char
@@ -480,6 +480,6 @@ block|}
 block|}
 end_class
 begin_comment
-comment|/* JavaCC - OriginalChecksum=8c69a370d9a9893140562c8bb911678c (do not edit this line) */
+comment|/* JavaCC - OriginalChecksum=dcdd5ccde13b91bcd8f76a86ca618852 (do not edit this line) */
 end_comment
 end_unit

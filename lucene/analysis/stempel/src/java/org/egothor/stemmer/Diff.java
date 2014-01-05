@@ -785,11 +785,11 @@ expr_stmt|;
 block|}
 block|}
 comment|// read the patch string
-name|StringBuffer
+name|StringBuilder
 name|result
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 specifier|final

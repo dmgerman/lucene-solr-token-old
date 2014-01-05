@@ -219,11 +219,11 @@ argument_list|(
 name|field
 argument_list|)
 expr_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|sb
@@ -377,11 +377,11 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|//        expected.setFixedWidth(false);
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|sb

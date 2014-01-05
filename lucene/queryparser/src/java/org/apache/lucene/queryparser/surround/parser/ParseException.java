@@ -163,11 +163,11 @@ argument_list|,
 literal|"\n"
 argument_list|)
 decl_stmt|;
-name|StringBuffer
+name|StringBuilder
 name|expected
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|int
@@ -476,11 +476,11 @@ name|String
 name|str
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|retval
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 name|char
@@ -689,6 +689,6 @@ block|}
 block|}
 end_class
 begin_comment
-comment|/* JavaCC - OriginalChecksum=bd8163f41bf2fd1bb00f025fce3dcaaf (do not edit this line) */
+comment|/* JavaCC - OriginalChecksum=be6f55e3bf157e8c96b4c06cca5ec81b (do not edit this line) */
 end_comment
 end_unit

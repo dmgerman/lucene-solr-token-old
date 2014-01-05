@@ -432,7 +432,7 @@ specifier|protected
 name|String
 name|readToken
 parameter_list|(
-name|StringBuffer
+name|StringBuilder
 name|chars
 parameter_list|)
 block|{
@@ -1655,11 +1655,11 @@ name|int
 name|length
 parameter_list|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|chars
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 name|length
 argument_list|)
