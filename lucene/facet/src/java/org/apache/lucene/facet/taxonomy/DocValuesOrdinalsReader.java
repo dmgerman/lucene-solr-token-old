@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.facet
+DECL|package|org.apache.lucene.facet.taxonomy
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|lucene
 operator|.
 name|facet
+operator|.
+name|taxonomy
 package|;
 end_package
 begin_comment
@@ -21,6 +23,19 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|facet
+operator|.
+name|FacetsConfig
 import|;
 end_import
 begin_import
