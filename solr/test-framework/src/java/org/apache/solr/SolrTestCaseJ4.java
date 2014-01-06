@@ -3656,11 +3656,11 @@ return|return
 name|response
 return|;
 block|}
-comment|/**    * Validates a query matches some JSON test expressions using the default double delta tolerance.    * @see JSONTestUtil#DEFAULT_DELTA    * @see #assertJQ(SolrQueryRequest,double,String...)    */
+comment|/**    * Validates a query matches some JSON test expressions using the default double delta tolerance.    * @see JSONTestUtil#DEFAULT_DELTA    * @see #assertJQ(SolrQueryRequest,double,String...)    * @return The request response as a JSON String if all test patterns pass    */
 DECL|method|assertJQ
 specifier|public
 specifier|static
-name|void
+name|String
 name|assertJQ
 parameter_list|(
 name|SolrQueryRequest
@@ -3673,6 +3673,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+return|return
 name|assertJQ
 argument_list|(
 name|req
@@ -3683,13 +3684,13 @@ name|DEFAULT_DELTA
 argument_list|,
 name|tests
 argument_list|)
-expr_stmt|;
+return|;
 block|}
-comment|/**    * Validates a query matches some JSON test expressions and closes the    * query. The text expression is of the form path:JSON.  To facilitate    * easy embedding in Java strings, the JSON tests can have double quotes    * replaced with single quotes.    *<p>    * Please use this with care: this makes it easy to match complete    * structures, but doing so can result in fragile tests if you are    * matching more than what you want to test.    *</p>    * @param req Solr request to execute    * @param delta tolerance allowed in comparing float/double values    * @param tests JSON path expression + '==' + expected value    */
+comment|/**    * Validates a query matches some JSON test expressions and closes the    * query. The text expression is of the form path:JSON.  To facilitate    * easy embedding in Java strings, the JSON tests can have double quotes    * replaced with single quotes.    *<p>    * Please use this with care: this makes it easy to match complete    * structures, but doing so can result in fragile tests if you are    * matching more than what you want to test.    *</p>    * @param req Solr request to execute    * @param delta tolerance allowed in comparing float/double values    * @param tests JSON path expression + '==' + expected value    * @return The request response as a JSON String if all test patterns pass    */
 DECL|method|assertJQ
 specifier|public
 specifier|static
-name|void
+name|String
 name|assertJQ
 parameter_list|(
 name|SolrQueryRequest
@@ -3963,6 +3964,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+return|return
+name|response
+return|;
 block|}
 finally|finally
 block|{
