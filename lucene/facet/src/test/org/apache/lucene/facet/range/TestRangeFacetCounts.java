@@ -302,66 +302,6 @@ name|lucene
 operator|.
 name|facet
 operator|.
-name|range
-operator|.
-name|DoubleRange
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|facet
-operator|.
-name|range
-operator|.
-name|DoubleRangeFacetCounts
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|facet
-operator|.
-name|range
-operator|.
-name|LongRange
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|facet
-operator|.
-name|range
-operator|.
-name|LongRangeFacetCounts
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|facet
-operator|.
 name|taxonomy
 operator|.
 name|TaxonomyReader
@@ -3718,6 +3658,25 @@ index|[
 name|numRange
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST: "
+operator|+
+name|numRange
+operator|+
+literal|" ranges"
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|int
@@ -3898,6 +3857,29 @@ operator|=
 name|x
 expr_stmt|;
 block|}
+comment|// Must truncate to float precision so that the
+comment|// drill-down counts (which use NRQ.newFloatRange)
+comment|// are correct:
+name|min
+operator|=
+call|(
+name|double
+call|)
+argument_list|(
+name|float
+argument_list|)
+name|min
+expr_stmt|;
+name|max
+operator|=
+call|(
+name|double
+call|)
+argument_list|(
+name|float
+argument_list|)
+name|max
+expr_stmt|;
 name|boolean
 name|minIncl
 decl_stmt|;
@@ -3960,6 +3942,30 @@ argument_list|,
 name|maxIncl
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST:   range "
+operator|+
+name|rangeID
+operator|+
+literal|": "
+operator|+
+name|ranges
+index|[
+name|rangeID
+index|]
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Do "slow but hopefully correct" computation of
 comment|// expected count:
 for|for
@@ -4034,6 +4040,34 @@ name|i
 index|]
 operator|<
 name|max
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"TEST:   check doc="
+operator|+
+name|i
+operator|+
+literal|" val="
+operator|+
+name|values
+index|[
+name|i
+index|]
+operator|+
+literal|" accept="
+operator|+
+name|accept
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -4136,7 +4170,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"  range "
+literal|"TEST: verify range "
 operator|+
 name|rangeID
 operator|+
