@@ -91,27 +91,22 @@ name|WhitespaceTokenizer
 extends|extends
 name|CharTokenizer
 block|{
-comment|/**    * Construct a new WhitespaceTokenizer. * @param matchVersion Lucene version    * to match See {@link<a href="#version">above</a>}    *     * @param in    *          the input to split up into tokens    */
+comment|/**    * Construct a new WhitespaceTokenizer. * @param matchVersion Lucene version    * to match See {@link<a href="#version">above</a>}    *    */
 DECL|method|WhitespaceTokenizer
 specifier|public
 name|WhitespaceTokenizer
 parameter_list|(
 name|Version
 name|matchVersion
-parameter_list|,
-name|Reader
-name|in
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|matchVersion
-argument_list|,
-name|in
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Construct a new WhitespaceTokenizer using a given    * {@link org.apache.lucene.util.AttributeSource.AttributeFactory}.    *    * @param    *          matchVersion Lucene version to match See    *          {@link<a href="#version">above</a>}    * @param factory    *          the attribute factory to use for this {@link Tokenizer}    * @param in    *          the input to split up into tokens    */
+comment|/**    * Construct a new WhitespaceTokenizer using a given    * {@link org.apache.lucene.util.AttributeSource.AttributeFactory}.    *    * @param    *          matchVersion Lucene version to match See    *          {@link<a href="#version">above</a>}    * @param factory    *          the attribute factory to use for this {@link Tokenizer}    */
 DECL|method|WhitespaceTokenizer
 specifier|public
 name|WhitespaceTokenizer
@@ -121,9 +116,6 @@ name|matchVersion
 parameter_list|,
 name|AttributeFactory
 name|factory
-parameter_list|,
-name|Reader
-name|in
 parameter_list|)
 block|{
 name|super
@@ -131,8 +123,6 @@ argument_list|(
 name|matchVersion
 argument_list|,
 name|factory
-argument_list|,
-name|in
 argument_list|)
 expr_stmt|;
 block|}

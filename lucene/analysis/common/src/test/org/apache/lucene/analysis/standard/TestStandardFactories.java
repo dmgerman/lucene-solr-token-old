@@ -117,7 +117,7 @@ argument_list|(
 literal|"Wha\u0301t's this thing do?"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -126,10 +126,15 @@ literal|"Standard"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -227,10 +232,15 @@ literal|"1000"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -274,7 +284,7 @@ argument_list|(
 literal|"What's this thing do?"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -283,10 +293,15 @@ literal|"Classic"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -384,10 +399,15 @@ literal|"1000"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -431,8 +451,8 @@ argument_list|(
 literal|"What's this thing do?"
 argument_list|)
 decl_stmt|;
-name|TokenStream
-name|stream
+name|Tokenizer
+name|tokenizer
 init|=
 name|tokenizerFactory
 argument_list|(
@@ -440,12 +460,18 @@ literal|"Classic"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|tokenizer
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+name|TokenStream
 name|stream
-operator|=
+init|=
 name|tokenFilterFactory
 argument_list|(
 literal|"Classic"
@@ -453,9 +479,9 @@ argument_list|)
 operator|.
 name|create
 argument_list|(
-name|stream
+name|tokenizer
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -493,7 +519,7 @@ argument_list|(
 literal|"What's this thing do?"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -502,10 +528,15 @@ literal|"Keyword"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -537,7 +568,7 @@ argument_list|(
 literal|"What's this thing do?"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -546,10 +577,15 @@ literal|"Whitespace"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -587,7 +623,7 @@ argument_list|(
 literal|"What's this thing do?"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -596,10 +632,15 @@ literal|"Letter"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -639,7 +680,7 @@ argument_list|(
 literal|"What's this thing do?"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -648,10 +689,15 @@ literal|"LowerCase"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -694,16 +740,9 @@ decl_stmt|;
 name|TokenStream
 name|stream
 init|=
-operator|new
-name|MockTokenizer
+name|whitespaceMockTokenizer
 argument_list|(
 name|reader
-argument_list|,
-name|MockTokenizer
-operator|.
-name|WHITESPACE
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|stream

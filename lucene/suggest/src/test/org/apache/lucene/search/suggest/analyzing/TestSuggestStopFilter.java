@@ -76,6 +76,19 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|Tokenizer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|core
 operator|.
 name|StopFilter
@@ -124,11 +137,16 @@ argument_list|,
 literal|"to"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 operator|new
 name|MockTokenizer
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 operator|new
 name|StringReader
@@ -136,7 +154,7 @@ argument_list|(
 literal|"go to"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|TokenStream
 name|filter
 init|=
@@ -227,11 +245,16 @@ argument_list|,
 literal|"to"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 operator|new
 name|MockTokenizer
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 operator|new
 name|StringReader
@@ -239,7 +262,7 @@ argument_list|(
 literal|"go to "
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|TokenStream
 name|filter
 init|=
@@ -330,11 +353,16 @@ argument_list|,
 literal|"to"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 operator|new
 name|MockTokenizer
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 operator|new
 name|StringReader
@@ -342,7 +370,7 @@ argument_list|(
 literal|"go to school"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|TokenStream
 name|filter
 init|=
@@ -447,11 +475,16 @@ argument_list|,
 literal|"a"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 operator|new
 name|MockTokenizer
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 operator|new
 name|StringReader
@@ -459,7 +492,7 @@ argument_list|(
 literal|"go to a the school"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|TokenStream
 name|filter
 init|=
@@ -564,11 +597,16 @@ argument_list|,
 literal|"a"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 operator|new
 name|MockTokenizer
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 operator|new
 name|StringReader
@@ -576,7 +614,7 @@ argument_list|(
 literal|"go to a the"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|TokenStream
 name|filter
 init|=
@@ -681,11 +719,16 @@ argument_list|,
 literal|"a"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 operator|new
 name|MockTokenizer
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 operator|new
 name|StringReader
@@ -693,7 +736,7 @@ argument_list|(
 literal|"go to a the "
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|TokenStream
 name|filter
 init|=

@@ -169,9 +169,6 @@ DECL|method|PatternTokenizer
 specifier|public
 name|PatternTokenizer
 parameter_list|(
-name|Reader
-name|input
-parameter_list|,
 name|Pattern
 name|pattern
 parameter_list|,
@@ -184,8 +181,6 @@ argument_list|(
 name|AttributeFactory
 operator|.
 name|DEFAULT_ATTRIBUTE_FACTORY
-argument_list|,
-name|input
 argument_list|,
 name|pattern
 argument_list|,
@@ -201,9 +196,6 @@ parameter_list|(
 name|AttributeFactory
 name|factory
 parameter_list|,
-name|Reader
-name|input
-parameter_list|,
 name|Pattern
 name|pattern
 parameter_list|,
@@ -214,8 +206,6 @@ block|{
 name|super
 argument_list|(
 name|factory
-argument_list|,
-name|input
 argument_list|)
 expr_stmt|;
 name|this

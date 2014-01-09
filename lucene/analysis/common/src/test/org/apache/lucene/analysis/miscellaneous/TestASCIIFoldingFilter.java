@@ -124,24 +124,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -185,24 +167,13 @@ block|{
 name|TokenStream
 name|stream
 init|=
-operator|new
-name|MockTokenizer
-argument_list|(
-operator|new
-name|StringReader
+name|whitespaceMockTokenizer
 argument_list|(
 literal|"Des mot clÃ©s Ã LA CHAÃNE Ã Ã Ã Ã Ã Ã Ã Ã Ã Ã Ã Ã Ã Ã Ã Ã Ä² Ã Ã"
 operator|+
 literal|" Ã Ã Ã Ã Ã Ã Å Ã Ã Ã Ã Ã Ã Å¸ Ã  Ã¡ Ã¢ Ã£ Ã¤ Ã¥ Ã¦ Ã§ Ã¨ Ã© Ãª Ã« Ã¬ Ã­ Ã® Ã¯ Ä³"
 operator|+
 literal|" Ã° Ã± Ã² Ã³ Ã´ Ãµ Ã¶ Ã¸ Å Ã Ã¾ Ã¹ Ãº Ã» Ã¼ Ã½ Ã¿ ï¬ ï¬"
-argument_list|)
-argument_list|,
-name|MockTokenizer
-operator|.
-name|WHITESPACE
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|ASCIIFoldingFilter
@@ -5522,23 +5493,12 @@ block|}
 name|TokenStream
 name|stream
 init|=
-operator|new
-name|MockTokenizer
-argument_list|(
-operator|new
-name|StringReader
+name|whitespaceMockTokenizer
 argument_list|(
 name|inputText
 operator|.
 name|toString
 argument_list|()
-argument_list|)
-argument_list|,
-name|MockTokenizer
-operator|.
-name|WHITESPACE
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|ASCIIFoldingFilter
@@ -5667,9 +5627,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -5678,8 +5635,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -5739,9 +5694,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -5749,9 +5701,7 @@ name|tokenizer
 init|=
 operator|new
 name|KeywordTokenizer
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 decl_stmt|;
 return|return
 operator|new

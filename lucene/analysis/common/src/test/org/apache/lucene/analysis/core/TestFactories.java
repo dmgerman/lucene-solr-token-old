@@ -877,9 +877,6 @@ name|create
 parameter_list|(
 name|AttributeFactory
 name|factory
-parameter_list|,
-name|Reader
-name|input
 parameter_list|)
 block|{
 return|return
@@ -887,8 +884,6 @@ operator|new
 name|MockTokenizer
 argument_list|(
 name|factory
-argument_list|,
-name|input
 argument_list|)
 return|;
 block|}
@@ -963,9 +958,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -974,9 +966,7 @@ init|=
 name|tokenizer
 operator|.
 name|create
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

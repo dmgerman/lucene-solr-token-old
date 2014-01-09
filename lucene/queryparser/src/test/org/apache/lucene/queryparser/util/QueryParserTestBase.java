@@ -669,9 +669,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -680,8 +677,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|SIMPLE
@@ -1458,15 +1453,10 @@ decl_stmt|;
 DECL|method|SimpleCJKTokenizer
 specifier|public
 name|SimpleCJKTokenizer
-parameter_list|(
-name|Reader
-name|input
-parameter_list|)
+parameter_list|()
 block|{
 name|super
-argument_list|(
-name|input
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -1534,9 +1524,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 return|return
@@ -1545,9 +1532,7 @@ name|TokenStreamComponents
 argument_list|(
 operator|new
 name|SimpleCJKTokenizer
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -2350,9 +2335,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 return|return
@@ -2362,8 +2344,6 @@ argument_list|(
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -7051,9 +7031,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -7062,8 +7039,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -7112,9 +7087,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 return|return
@@ -7124,8 +7096,6 @@ argument_list|(
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -7249,9 +7219,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -7260,8 +7227,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE

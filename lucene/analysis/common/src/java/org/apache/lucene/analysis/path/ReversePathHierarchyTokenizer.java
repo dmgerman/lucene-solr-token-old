@@ -124,15 +124,10 @@ block|{
 DECL|method|ReversePathHierarchyTokenizer
 specifier|public
 name|ReversePathHierarchyTokenizer
-parameter_list|(
-name|Reader
-name|input
-parameter_list|)
+parameter_list|()
 block|{
 name|this
 argument_list|(
-name|input
-argument_list|,
 name|DEFAULT_BUFFER_SIZE
 argument_list|,
 name|DEFAULT_DELIMITER
@@ -147,17 +142,12 @@ DECL|method|ReversePathHierarchyTokenizer
 specifier|public
 name|ReversePathHierarchyTokenizer
 parameter_list|(
-name|Reader
-name|input
-parameter_list|,
 name|int
 name|skip
 parameter_list|)
 block|{
 name|this
 argument_list|(
-name|input
-argument_list|,
 name|DEFAULT_BUFFER_SIZE
 argument_list|,
 name|DEFAULT_DELIMITER
@@ -172,9 +162,6 @@ DECL|method|ReversePathHierarchyTokenizer
 specifier|public
 name|ReversePathHierarchyTokenizer
 parameter_list|(
-name|Reader
-name|input
-parameter_list|,
 name|int
 name|bufferSize
 parameter_list|,
@@ -184,8 +171,6 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|input
-argument_list|,
 name|bufferSize
 argument_list|,
 name|delimiter
@@ -200,9 +185,6 @@ DECL|method|ReversePathHierarchyTokenizer
 specifier|public
 name|ReversePathHierarchyTokenizer
 parameter_list|(
-name|Reader
-name|input
-parameter_list|,
 name|char
 name|delimiter
 parameter_list|,
@@ -212,8 +194,6 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|input
-argument_list|,
 name|DEFAULT_BUFFER_SIZE
 argument_list|,
 name|delimiter
@@ -228,9 +208,6 @@ DECL|method|ReversePathHierarchyTokenizer
 specifier|public
 name|ReversePathHierarchyTokenizer
 parameter_list|(
-name|Reader
-name|input
-parameter_list|,
 name|int
 name|bufferSize
 parameter_list|,
@@ -243,8 +220,6 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|input
-argument_list|,
 name|bufferSize
 argument_list|,
 name|delimiter
@@ -259,9 +234,6 @@ DECL|method|ReversePathHierarchyTokenizer
 specifier|public
 name|ReversePathHierarchyTokenizer
 parameter_list|(
-name|Reader
-name|input
-parameter_list|,
 name|char
 name|delimiter
 parameter_list|,
@@ -271,8 +243,6 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|input
-argument_list|,
 name|DEFAULT_BUFFER_SIZE
 argument_list|,
 name|delimiter
@@ -287,9 +257,6 @@ DECL|method|ReversePathHierarchyTokenizer
 specifier|public
 name|ReversePathHierarchyTokenizer
 parameter_list|(
-name|Reader
-name|input
-parameter_list|,
 name|char
 name|delimiter
 parameter_list|,
@@ -302,8 +269,6 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|input
-argument_list|,
 name|DEFAULT_BUFFER_SIZE
 argument_list|,
 name|delimiter
@@ -321,9 +286,6 @@ parameter_list|(
 name|AttributeFactory
 name|factory
 parameter_list|,
-name|Reader
-name|input
-parameter_list|,
 name|char
 name|delimiter
 parameter_list|,
@@ -337,8 +299,6 @@ block|{
 name|this
 argument_list|(
 name|factory
-argument_list|,
-name|input
 argument_list|,
 name|DEFAULT_BUFFER_SIZE
 argument_list|,
@@ -354,9 +314,6 @@ DECL|method|ReversePathHierarchyTokenizer
 specifier|public
 name|ReversePathHierarchyTokenizer
 parameter_list|(
-name|Reader
-name|input
-parameter_list|,
 name|int
 name|bufferSize
 parameter_list|,
@@ -376,8 +333,6 @@ name|AttributeFactory
 operator|.
 name|DEFAULT_ATTRIBUTE_FACTORY
 argument_list|,
-name|input
-argument_list|,
 name|bufferSize
 argument_list|,
 name|delimiter
@@ -395,9 +350,6 @@ parameter_list|(
 name|AttributeFactory
 name|factory
 parameter_list|,
-name|Reader
-name|input
-parameter_list|,
 name|int
 name|bufferSize
 parameter_list|,
@@ -414,8 +366,6 @@ block|{
 name|super
 argument_list|(
 name|factory
-argument_list|,
-name|input
 argument_list|)
 expr_stmt|;
 if|if

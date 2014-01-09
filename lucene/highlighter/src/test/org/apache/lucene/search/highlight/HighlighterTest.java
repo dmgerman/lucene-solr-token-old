@@ -12548,9 +12548,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|arg0
-parameter_list|,
-name|Reader
-name|arg1
 parameter_list|)
 block|{
 name|Tokenizer
@@ -12559,8 +12556,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|arg1
-argument_list|,
 name|MockTokenizer
 operator|.
 name|SIMPLE

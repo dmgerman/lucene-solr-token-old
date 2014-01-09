@@ -71,12 +71,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-operator|new
-name|StringReader
-argument_list|(
-literal|"short toolong evenmuchlongertext a ab toolong foo"
-argument_list|)
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -84,6 +78,17 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+name|stream
+operator|.
+name|setReader
+argument_list|(
+operator|new
+name|StringReader
+argument_list|(
+literal|"short toolong evenmuchlongertext a ab toolong foo"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|stream
 operator|.
 name|setEnableChecks
@@ -121,17 +126,22 @@ operator|=
 operator|new
 name|MockTokenizer
 argument_list|(
-operator|new
-name|StringReader
-argument_list|(
-literal|"short toolong evenmuchlongertext a ab toolong foo"
-argument_list|)
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
 argument_list|,
 literal|false
+argument_list|)
+expr_stmt|;
+name|stream
+operator|.
+name|setReader
+argument_list|(
+operator|new
+name|StringReader
+argument_list|(
+literal|"short toolong evenmuchlongertext a ab toolong foo"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|stream
@@ -170,17 +180,22 @@ operator|=
 operator|new
 name|MockTokenizer
 argument_list|(
-operator|new
-name|StringReader
-argument_list|(
-literal|"short toolong evenmuchlongertext a ab toolong foo"
-argument_list|)
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
 argument_list|,
 literal|false
+argument_list|)
+expr_stmt|;
+name|stream
+operator|.
+name|setReader
+argument_list|(
+operator|new
+name|StringReader
+argument_list|(
+literal|"short toolong evenmuchlongertext a ab toolong foo"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|stream
@@ -230,9 +245,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|MockTokenizer
@@ -241,8 +253,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE

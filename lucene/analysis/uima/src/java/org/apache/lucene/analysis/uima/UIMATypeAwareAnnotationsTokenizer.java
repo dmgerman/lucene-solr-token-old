@@ -255,9 +255,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|configurationParameters
-parameter_list|,
-name|Reader
-name|input
 parameter_list|)
 block|{
 name|this
@@ -273,8 +270,6 @@ argument_list|,
 name|AttributeFactory
 operator|.
 name|DEFAULT_ATTRIBUTE_FACTORY
-argument_list|,
-name|input
 argument_list|)
 expr_stmt|;
 block|}
@@ -301,16 +296,11 @@ name|configurationParameters
 parameter_list|,
 name|AttributeFactory
 name|factory
-parameter_list|,
-name|Reader
-name|input
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|factory
-argument_list|,
-name|input
 argument_list|,
 name|descriptorPath
 argument_list|,

@@ -3048,9 +3048,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|MockTokenizer
@@ -3058,9 +3055,7 @@ name|tokens
 init|=
 operator|new
 name|MockTokenizer
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 decl_stmt|;
 return|return
 operator|new
@@ -3097,9 +3092,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|MockTokenizer
@@ -3107,9 +3099,7 @@ name|tokens
 init|=
 operator|new
 name|MockTokenizer
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 decl_stmt|;
 return|return
 operator|new

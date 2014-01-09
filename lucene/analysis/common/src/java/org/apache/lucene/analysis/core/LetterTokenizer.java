@@ -18,15 +18,6 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -63,19 +54,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|AttributeSource
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|Version
 import|;
 end_import
@@ -90,27 +68,22 @@ name|LetterTokenizer
 extends|extends
 name|CharTokenizer
 block|{
-comment|/**    * Construct a new LetterTokenizer.    *     * @param matchVersion    *          Lucene version to match See {@link<a href="#version">above</a>}    * @param in    *          the input to split up into tokens    */
+comment|/**    * Construct a new LetterTokenizer.    *     * @param matchVersion    *          Lucene version to match See {@link<a href="#version">above</a>}    */
 DECL|method|LetterTokenizer
 specifier|public
 name|LetterTokenizer
 parameter_list|(
 name|Version
 name|matchVersion
-parameter_list|,
-name|Reader
-name|in
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|matchVersion
-argument_list|,
-name|in
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Construct a new LetterTokenizer using a given    * {@link org.apache.lucene.util.AttributeSource.AttributeFactory}.    *     * @param matchVersion    *          Lucene version to match See {@link<a href="#version">above</a>}    * @param factory    *          the attribute factory to use for this {@link Tokenizer}    * @param in    *          the input to split up into tokens    */
+comment|/**    * Construct a new LetterTokenizer using a given    * {@link org.apache.lucene.util.AttributeSource.AttributeFactory}.    *     * @param matchVersion    *          Lucene version to match See {@link<a href="#version">above</a>}    * @param factory    *          the attribute factory to use for this {@link Tokenizer}    */
 DECL|method|LetterTokenizer
 specifier|public
 name|LetterTokenizer
@@ -120,9 +93,6 @@ name|matchVersion
 parameter_list|,
 name|AttributeFactory
 name|factory
-parameter_list|,
-name|Reader
-name|in
 parameter_list|)
 block|{
 name|super
@@ -130,8 +100,6 @@ argument_list|(
 name|matchVersion
 argument_list|,
 name|factory
-argument_list|,
-name|in
 argument_list|)
 expr_stmt|;
 block|}

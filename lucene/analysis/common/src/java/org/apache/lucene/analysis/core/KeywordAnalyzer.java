@@ -65,10 +65,6 @@ parameter_list|(
 specifier|final
 name|String
 name|fieldName
-parameter_list|,
-specifier|final
-name|Reader
-name|reader
 parameter_list|)
 block|{
 return|return
@@ -77,9 +73,7 @@ name|TokenStreamComponents
 argument_list|(
 operator|new
 name|KeywordTokenizer
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 argument_list|)
 return|;
 block|}

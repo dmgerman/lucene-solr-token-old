@@ -270,9 +270,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|aReader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -281,9 +278,7 @@ init|=
 name|tokenizer
 operator|.
 name|create
-argument_list|(
-name|aReader
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|TokenStream
 name|ts

@@ -230,9 +230,6 @@ DECL|method|RepeatingTokenizer
 specifier|public
 name|RepeatingTokenizer
 parameter_list|(
-name|Reader
-name|reader
-parameter_list|,
 name|String
 name|val
 parameter_list|,
@@ -247,9 +244,7 @@ name|maxTF
 parameter_list|)
 block|{
 name|super
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -428,9 +423,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 return|return
@@ -440,8 +432,6 @@ argument_list|(
 operator|new
 name|RepeatingTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|val
 argument_list|,
 name|random

@@ -44,7 +44,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|TokenStream
+name|Tokenizer
 import|;
 end_import
 begin_import
@@ -90,7 +90,7 @@ argument_list|(
 literal|"Wha\u0301t's this thing do?"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -99,10 +99,15 @@ literal|"UAX29URLEmail"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -139,7 +144,7 @@ argument_list|(
 literal|"Ø§ÙÙÙÙÙ Ø§ÙÙØ«Ø§Ø¦ÙÙ Ø§ÙØ£ÙÙ Ø¹Ù ÙÙÙÙØ¨ÙØ¯ÙØ§ ÙØ³ÙÙ \"Ø§ÙØ­ÙÙÙØ© Ø¨Ø§ÙØ£Ø±ÙØ§Ù: ÙØµØ© ÙÙÙÙØ¨ÙØ¯ÙØ§\" (Ø¨Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ©: Truth in Numbers: The Wikipedia Story)Ø Ø³ÙØªÙ Ø¥Ø·ÙØ§ÙÙ ÙÙ 2008."
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -148,10 +153,15 @@ literal|"UAX29URLEmail"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -222,7 +232,7 @@ argument_list|(
 literal|"ææ¯ä¸­å½äººã ï¼ï¼ï¼ï¼ ï¼´ï½ï½ï½ï½ "
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -231,10 +241,15 @@ literal|"UAX29URLEmail"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -277,7 +292,7 @@ argument_list|(
 literal|"ìëíì¸ì íê¸ìëë¤"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -286,10 +301,15 @@ literal|"UAX29URLEmail"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -322,7 +342,7 @@ argument_list|(
 literal|"some-dashed-phrase"
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -331,10 +351,15 @@ literal|"UAX29URLEmail"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -398,7 +423,7 @@ argument_list|(
 name|textWithURLs
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -407,10 +432,15 @@ literal|"UAX29URLEmail"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -516,7 +546,7 @@ argument_list|(
 name|textWithEmails
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -525,10 +555,15 @@ literal|"UAX29URLEmail"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream
@@ -653,7 +688,7 @@ argument_list|(
 name|content
 argument_list|)
 decl_stmt|;
-name|TokenStream
+name|Tokenizer
 name|stream
 init|=
 name|tokenizerFactory
@@ -666,10 +701,15 @@ literal|"1000"
 argument_list|)
 operator|.
 name|create
+argument_list|()
+decl_stmt|;
+name|stream
+operator|.
+name|setReader
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertTokenStreamContents
 argument_list|(
 name|stream

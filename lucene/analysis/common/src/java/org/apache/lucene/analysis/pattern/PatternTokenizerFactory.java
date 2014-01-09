@@ -20,15 +20,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Map
@@ -187,10 +178,6 @@ parameter_list|(
 specifier|final
 name|AttributeFactory
 name|factory
-parameter_list|,
-specifier|final
-name|Reader
-name|in
 parameter_list|)
 block|{
 return|return
@@ -198,8 +185,6 @@ operator|new
 name|PatternTokenizer
 argument_list|(
 name|factory
-argument_list|,
-name|in
 argument_list|,
 name|pattern
 argument_list|,

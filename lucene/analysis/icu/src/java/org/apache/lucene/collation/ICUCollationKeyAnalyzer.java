@@ -143,9 +143,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|KeywordTokenizer
@@ -155,8 +152,6 @@ operator|new
 name|KeywordTokenizer
 argument_list|(
 name|factory
-argument_list|,
-name|reader
 argument_list|,
 name|KeywordTokenizer
 operator|.

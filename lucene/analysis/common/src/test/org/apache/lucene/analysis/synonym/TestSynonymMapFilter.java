@@ -1018,9 +1018,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -1029,8 +1026,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|SIMPLE
@@ -1179,9 +1174,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -1190,8 +1182,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|SIMPLE
@@ -1421,17 +1411,22 @@ operator|=
 operator|new
 name|MockTokenizer
 argument_list|(
-operator|new
-name|StringReader
-argument_list|(
-literal|"a"
-argument_list|)
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+name|tokensIn
+operator|.
+name|setReader
+argument_list|(
+operator|new
+name|StringReader
+argument_list|(
+literal|"a"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|tokensIn
@@ -2883,17 +2878,22 @@ operator|=
 operator|new
 name|MockTokenizer
 argument_list|(
-operator|new
-name|StringReader
-argument_list|(
-literal|"a"
-argument_list|)
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+name|tokensIn
+operator|.
+name|setReader
+argument_list|(
+operator|new
+name|StringReader
+argument_list|(
+literal|"a"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|tokensIn
@@ -3313,9 +3313,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -3324,8 +3321,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|SIMPLE
@@ -3368,7 +3363,7 @@ block|}
 comment|// NOTE: this is an invalid test... SynFilter today can't
 comment|// properly consume a graph... we can re-enable this once
 comment|// we fix that...
-comment|/*   // Adds MockGraphTokenFilter before SynFilter:   public void testRandom2GraphBefore() throws Exception {     final int numIters = atLeast(10);     Random random = random();     for (int i = 0; i< numIters; i++) {       b = new SynonymMap.Builder(random.nextBoolean());       final int numEntries = atLeast(10);       for (int j = 0; j< numEntries; j++) {         add(randomNonEmptyString(), randomNonEmptyString(), random.nextBoolean());       }       final SynonymMap map = b.build();       final boolean ignoreCase = random.nextBoolean();              final Analyzer analyzer = new Analyzer() {         @Override         protected TokenStreamComponents createComponents(String fieldName, Reader reader) {           Tokenizer tokenizer = new MockTokenizer(reader, MockTokenizer.SIMPLE, true);           TokenStream graph = new MockGraphTokenFilter(random(), tokenizer);           return new TokenStreamComponents(tokenizer, new SynonymFilter(graph, map, ignoreCase));         }       };        checkRandomData(random, analyzer, 1000*RANDOM_MULTIPLIER);     }   }   */
+comment|/*   // Adds MockGraphTokenFilter before SynFilter:   public void testRandom2GraphBefore() throws Exception {     final int numIters = atLeast(10);     Random random = random();     for (int i = 0; i< numIters; i++) {       b = new SynonymMap.Builder(random.nextBoolean());       final int numEntries = atLeast(10);       for (int j = 0; j< numEntries; j++) {         add(randomNonEmptyString(), randomNonEmptyString(), random.nextBoolean());       }       final SynonymMap map = b.build();       final boolean ignoreCase = random.nextBoolean();              final Analyzer analyzer = new Analyzer() {         @Override         protected TokenStreamComponents createComponents(String fieldName) {           Tokenizer tokenizer = new MockTokenizer(reader, MockTokenizer.SIMPLE, true);           TokenStream graph = new MockGraphTokenFilter(random(), tokenizer);           return new TokenStreamComponents(tokenizer, new SynonymFilter(graph, map, ignoreCase));         }       };        checkRandomData(random, analyzer, 1000*RANDOM_MULTIPLIER);     }   }   */
 comment|// Adds MockGraphTokenFilter after SynFilter:
 DECL|method|testRandom2GraphAfter
 specifier|public
@@ -3494,9 +3489,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -3505,8 +3497,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|SIMPLE
@@ -3686,9 +3676,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -3696,9 +3683,7 @@ name|tokenizer
 init|=
 operator|new
 name|KeywordTokenizer
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 decl_stmt|;
 return|return
 operator|new
@@ -3882,9 +3867,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -3893,8 +3875,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|SIMPLE
@@ -4004,9 +3984,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -4015,8 +3992,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -4145,17 +4120,22 @@ operator|=
 operator|new
 name|MockTokenizer
 argument_list|(
-operator|new
-name|StringReader
-argument_list|(
-literal|"a"
-argument_list|)
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+name|tokensIn
+operator|.
+name|setReader
+argument_list|(
+operator|new
+name|StringReader
+argument_list|(
+literal|"a"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|tokensIn
@@ -4388,9 +4368,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -4399,8 +4376,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -4656,9 +4631,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -4667,8 +4639,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -4793,9 +4763,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -4804,8 +4771,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -4920,9 +4885,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -4931,8 +4893,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -5060,9 +5020,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -5071,8 +5028,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -5198,17 +5153,22 @@ operator|=
 operator|new
 name|MockTokenizer
 argument_list|(
-operator|new
-name|StringReader
-argument_list|(
-literal|"a"
-argument_list|)
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+name|tokensIn
+operator|.
+name|setReader
+argument_list|(
+operator|new
+name|StringReader
+argument_list|(
+literal|"a"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|tokensIn
@@ -5412,9 +5372,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -5423,8 +5380,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -5804,9 +5759,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -5815,8 +5767,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -5948,9 +5898,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -5959,8 +5906,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -6091,9 +6036,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -6102,8 +6044,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE

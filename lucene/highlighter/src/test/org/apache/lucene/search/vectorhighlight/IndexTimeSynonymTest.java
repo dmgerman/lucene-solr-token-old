@@ -2375,9 +2375,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -2389,8 +2386,6 @@ argument_list|(
 name|Token
 operator|.
 name|TOKEN_ATTRIBUTE_FACTORY
-argument_list|,
-name|reader
 argument_list|)
 block|{
 specifier|final

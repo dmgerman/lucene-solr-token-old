@@ -106,16 +106,9 @@ decl_stmt|;
 name|TokenStream
 name|stream
 init|=
-operator|new
-name|MockTokenizer
+name|keywordMockTokenizer
 argument_list|(
 name|reader
-argument_list|,
-name|MockTokenizer
-operator|.
-name|KEYWORD
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|stream

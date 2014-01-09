@@ -382,9 +382,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -393,8 +390,6 @@ init|=
 operator|new
 name|JapaneseTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|readDict
 argument_list|()
 argument_list|,
@@ -434,9 +429,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -445,8 +437,6 @@ init|=
 operator|new
 name|JapaneseTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|readDict
 argument_list|()
 argument_list|,
@@ -486,9 +476,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -497,8 +484,6 @@ init|=
 operator|new
 name|JapaneseTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|readDict
 argument_list|()
 argument_list|,
@@ -538,9 +523,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -549,8 +531,6 @@ init|=
 operator|new
 name|JapaneseTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|readDict
 argument_list|()
 argument_list|,
@@ -1375,9 +1355,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -1386,8 +1363,6 @@ init|=
 operator|new
 name|JapaneseTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|readDict
 argument_list|()
 argument_list|,
@@ -2180,9 +2155,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|JapaneseTokenizer
@@ -2191,8 +2163,6 @@ init|=
 operator|new
 name|JapaneseTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|readDict
 argument_list|()
 argument_list|,

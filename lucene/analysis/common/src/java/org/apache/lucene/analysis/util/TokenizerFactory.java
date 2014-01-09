@@ -222,10 +222,7 @@ specifier|public
 specifier|final
 name|Tokenizer
 name|create
-parameter_list|(
-name|Reader
-name|input
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 name|create
@@ -233,8 +230,6 @@ argument_list|(
 name|AttributeFactory
 operator|.
 name|DEFAULT_ATTRIBUTE_FACTORY
-argument_list|,
-name|input
 argument_list|)
 return|;
 block|}
@@ -247,9 +242,6 @@ name|create
 parameter_list|(
 name|AttributeFactory
 name|factory
-parameter_list|,
-name|Reader
-name|input
 parameter_list|)
 function_decl|;
 block|}

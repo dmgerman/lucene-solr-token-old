@@ -27,15 +27,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -129,9 +120,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -140,8 +128,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -305,9 +291,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -315,9 +298,7 @@ name|tokenizer
 init|=
 operator|new
 name|KeywordTokenizer
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 decl_stmt|;
 return|return
 operator|new

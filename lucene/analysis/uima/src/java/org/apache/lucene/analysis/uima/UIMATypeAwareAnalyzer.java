@@ -33,15 +33,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Map
@@ -144,9 +135,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 return|return
@@ -163,8 +151,6 @@ argument_list|,
 name|featurePath
 argument_list|,
 name|configurationParameters
-argument_list|,
-name|reader
 argument_list|)
 argument_list|)
 return|;

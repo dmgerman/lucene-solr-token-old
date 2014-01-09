@@ -1293,9 +1293,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|field
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -1303,9 +1300,7 @@ name|tokenizer
 init|=
 operator|new
 name|MockTokenizer
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|CharArraySet
 name|stopSet
@@ -1449,9 +1444,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|field
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -1459,9 +1451,7 @@ name|tokenizer
 init|=
 operator|new
 name|MockTokenizer
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|CharArraySet
 name|stopSet

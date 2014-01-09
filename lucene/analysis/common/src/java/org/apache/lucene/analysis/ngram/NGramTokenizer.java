@@ -294,9 +294,6 @@ parameter_list|(
 name|Version
 name|version
 parameter_list|,
-name|Reader
-name|input
-parameter_list|,
 name|int
 name|minGram
 parameter_list|,
@@ -307,11 +304,6 @@ name|boolean
 name|edgesOnly
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|input
-argument_list|)
-expr_stmt|;
 name|init
 argument_list|(
 name|version
@@ -324,16 +316,13 @@ name|edgesOnly
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates NGramTokenizer with given min and max n-grams.    * @param version the lucene compatibility<a href="#version">version</a>    * @param input {@link Reader} holding the input to be tokenized    * @param minGram the smallest n-gram to generate    * @param maxGram the largest n-gram to generate    */
+comment|/**    * Creates NGramTokenizer with given min and max n-grams.    * @param version the lucene compatibility<a href="#version">version</a>    * @param minGram the smallest n-gram to generate    * @param maxGram the largest n-gram to generate    */
 DECL|method|NGramTokenizer
 specifier|public
 name|NGramTokenizer
 parameter_list|(
 name|Version
 name|version
-parameter_list|,
-name|Reader
-name|input
 parameter_list|,
 name|int
 name|minGram
@@ -345,8 +334,6 @@ block|{
 name|this
 argument_list|(
 name|version
-argument_list|,
-name|input
 argument_list|,
 name|minGram
 argument_list|,
@@ -365,9 +352,6 @@ parameter_list|,
 name|AttributeFactory
 name|factory
 parameter_list|,
-name|Reader
-name|input
-parameter_list|,
 name|int
 name|minGram
 parameter_list|,
@@ -381,8 +365,6 @@ block|{
 name|super
 argument_list|(
 name|factory
-argument_list|,
-name|input
 argument_list|)
 expr_stmt|;
 name|init
@@ -397,7 +379,7 @@ name|edgesOnly
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates NGramTokenizer with given min and max n-grams.    * @param version the lucene compatibility<a href="#version">version</a>    * @param factory {@link org.apache.lucene.util.AttributeSource.AttributeFactory} to use    * @param input {@link Reader} holding the input to be tokenized    * @param minGram the smallest n-gram to generate    * @param maxGram the largest n-gram to generate    */
+comment|/**    * Creates NGramTokenizer with given min and max n-grams.    * @param version the lucene compatibility<a href="#version">version</a>    * @param factory {@link org.apache.lucene.util.AttributeSource.AttributeFactory} to use    * @param minGram the smallest n-gram to generate    * @param maxGram the largest n-gram to generate    */
 DECL|method|NGramTokenizer
 specifier|public
 name|NGramTokenizer
@@ -408,9 +390,6 @@ parameter_list|,
 name|AttributeFactory
 name|factory
 parameter_list|,
-name|Reader
-name|input
-parameter_list|,
 name|int
 name|minGram
 parameter_list|,
@@ -424,8 +403,6 @@ name|version
 argument_list|,
 name|factory
 argument_list|,
-name|input
-argument_list|,
 name|minGram
 argument_list|,
 name|maxGram
@@ -434,23 +411,18 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates NGramTokenizer with default min and max n-grams.    * @param version the lucene compatibility<a href="#version">version</a>    * @param input {@link Reader} holding the input to be tokenized    */
+comment|/**    * Creates NGramTokenizer with default min and max n-grams.    * @param version the lucene compatibility<a href="#version">version</a>    */
 DECL|method|NGramTokenizer
 specifier|public
 name|NGramTokenizer
 parameter_list|(
 name|Version
 name|version
-parameter_list|,
-name|Reader
-name|input
 parameter_list|)
 block|{
 name|this
 argument_list|(
 name|version
-argument_list|,
-name|input
 argument_list|,
 name|DEFAULT_MIN_NGRAM_SIZE
 argument_list|,

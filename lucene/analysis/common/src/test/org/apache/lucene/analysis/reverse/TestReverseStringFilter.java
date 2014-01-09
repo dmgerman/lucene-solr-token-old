@@ -158,12 +158,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-operator|new
-name|StringReader
-argument_list|(
-literal|"Do have a nice day"
-argument_list|)
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -172,6 +166,22 @@ literal|false
 argument_list|)
 decl_stmt|;
 comment|// 1-4 length string
+operator|(
+operator|(
+name|Tokenizer
+operator|)
+name|stream
+operator|)
+operator|.
+name|setReader
+argument_list|(
+operator|new
+name|StringReader
+argument_list|(
+literal|"Do have a nice day"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|ReverseStringFilter
 name|filter
 init|=
@@ -218,12 +228,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-operator|new
-name|StringReader
-argument_list|(
-literal|"Do have a nice day"
-argument_list|)
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -232,6 +236,22 @@ literal|false
 argument_list|)
 decl_stmt|;
 comment|// 1-4 length string
+operator|(
+operator|(
+name|Tokenizer
+operator|)
+name|stream
+operator|)
+operator|.
+name|setReader
+argument_list|(
+operator|new
+name|StringReader
+argument_list|(
+literal|"Do have a nice day"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|ReverseStringFilter
 name|filter
 init|=
@@ -647,9 +667,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -658,8 +675,6 @@ init|=
 operator|new
 name|MockTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|MockTokenizer
 operator|.
 name|WHITESPACE
@@ -721,9 +736,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|Tokenizer
@@ -731,9 +743,7 @@ name|tokenizer
 init|=
 operator|new
 name|KeywordTokenizer
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 decl_stmt|;
 return|return
 operator|new
