@@ -915,6 +915,9 @@ name|res
 operator|.
 name|add
 argument_list|(
+name|getName
+argument_list|()
+argument_list|,
 name|options
 operator|.
 name|token
