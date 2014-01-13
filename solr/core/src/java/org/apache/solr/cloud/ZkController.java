@@ -1481,8 +1481,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|SolrException
@@ -1493,7 +1493,7 @@ name|log
 argument_list|,
 literal|"Error registering SolrCore"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -2115,6 +2115,8 @@ name|isClosed
 operator|=
 literal|true
 expr_stmt|;
+try|try
+block|{
 for|for
 control|(
 name|ElectionContext
@@ -2136,8 +2138,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|log
@@ -2146,11 +2148,16 @@ name|error
 argument_list|(
 literal|"Error closing overseer"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+finally|finally
+block|{
+try|try
+block|{
 try|try
 block|{
 name|overseer
@@ -2161,8 +2168,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|log
@@ -2171,10 +2178,15 @@ name|error
 argument_list|(
 literal|"Error closing overseer"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
+try|try
+block|{
 try|try
 block|{
 name|zkStateReader
@@ -2185,8 +2197,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|log
@@ -2195,10 +2207,13 @@ name|error
 argument_list|(
 literal|"Error closing zkStateReader"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
 try|try
 block|{
 name|zkClient
@@ -2206,12 +2221,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-empty_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|log
@@ -2220,9 +2234,12 @@ name|error
 argument_list|(
 literal|"Error closing zkClient"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+block|}
 block|}
 block|}
 comment|/**    * Returns true if config file exists    */
@@ -2516,7 +2533,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Exception
 name|e
 parameter_list|)
 block|{

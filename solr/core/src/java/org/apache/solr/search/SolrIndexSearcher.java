@@ -1512,8 +1512,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|directoryFactory
@@ -1533,7 +1533,7 @@ name|SERVER_ERROR
 argument_list|,
 literal|"Error opening Reader"
 argument_list|,
-name|t
+name|e
 argument_list|)
 throw|;
 block|}
@@ -2480,8 +2480,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|SolrException
@@ -2492,7 +2492,7 @@ name|log
 argument_list|,
 literal|"Problem dec ref'ing reader"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

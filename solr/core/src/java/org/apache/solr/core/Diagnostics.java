@@ -118,8 +118,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|th
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|log
@@ -128,7 +128,7 @@ name|error
 argument_list|(
 literal|"TEST HOOK EXCEPTION"
 argument_list|,
-name|th
+name|e
 argument_list|)
 expr_stmt|;
 block|}

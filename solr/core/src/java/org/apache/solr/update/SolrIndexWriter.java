@@ -601,6 +601,20 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+if|if
+condition|(
+name|t
+operator|instanceof
+name|OutOfMemoryError
+condition|)
+block|{
+throw|throw
+operator|(
+name|OutOfMemoryError
+operator|)
+name|t
+throw|;
+block|}
 name|log
 operator|.
 name|error
@@ -638,8 +652,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|log
@@ -648,7 +662,7 @@ name|error
 argument_list|(
 literal|"Coud not unlock directory after seemingly failed IndexWriter#close()"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

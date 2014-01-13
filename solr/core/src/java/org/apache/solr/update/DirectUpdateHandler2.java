@@ -3801,6 +3801,20 @@ argument_list|,
 name|th
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|th
+operator|instanceof
+name|OutOfMemoryError
+condition|)
+block|{
+throw|throw
+operator|(
+name|OutOfMemoryError
+operator|)
+name|th
+throw|;
+block|}
 block|}
 comment|// we went through the normal process to commit, so we don't have to artificially
 comment|// cap any ulog files.
@@ -3835,6 +3849,20 @@ argument_list|,
 name|th
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|th
+operator|instanceof
+name|OutOfMemoryError
+condition|)
+block|{
+throw|throw
+operator|(
+name|OutOfMemoryError
+operator|)
+name|th
+throw|;
+block|}
 block|}
 if|if
 condition|(

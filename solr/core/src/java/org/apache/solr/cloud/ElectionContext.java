@@ -1234,8 +1234,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|SolrException
@@ -1246,7 +1246,7 @@ name|log
 argument_list|,
 literal|"Exception while trying to sync"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 name|success
@@ -1503,6 +1503,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|super
@@ -1512,11 +1517,15 @@ argument_list|(
 name|weAreReplacement
 argument_list|)
 expr_stmt|;
+name|success
+operator|=
+literal|true
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|SolrException
@@ -1527,11 +1536,8 @@ name|log
 argument_list|,
 literal|"There was a problem trying to register as the leader"
 argument_list|,
-name|t
+name|e
 argument_list|)
-expr_stmt|;
-name|cancelElection
-argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -1596,6 +1602,21 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+try|try
+block|{
+if|if
+condition|(
+operator|!
+name|success
+condition|)
+block|{
+name|cancelElection
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
 if|if
 condition|(
 name|core
@@ -1608,6 +1629,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -2100,8 +2122,6 @@ expr_stmt|;
 name|cancelElection
 argument_list|()
 expr_stmt|;
-try|try
-block|{
 name|core
 operator|.
 name|getUpdateHandler
@@ -2120,25 +2140,6 @@ name|getCoreDescriptor
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-name|SolrException
-operator|.
-name|log
-argument_list|(
-name|log
-argument_list|,
-literal|"Error trying to start recovery"
-argument_list|,
-name|t
-argument_list|)
-expr_stmt|;
-block|}
 name|leaderElector
 operator|.
 name|joinElection

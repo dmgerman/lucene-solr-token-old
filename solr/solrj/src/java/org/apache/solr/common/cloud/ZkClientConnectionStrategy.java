@@ -226,8 +226,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|SolrException
@@ -238,7 +238,7 @@ name|log
 argument_list|,
 literal|""
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -269,8 +269,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|SolrException
@@ -281,7 +281,7 @@ name|log
 argument_list|,
 literal|""
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}

@@ -2819,11 +2819,22 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|IOException
+name|e
 parameter_list|)
-block|{}
-comment|// ignore
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|""
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
 if|if
 condition|(
 operator|!
@@ -2835,6 +2846,7 @@ operator|.
 name|abort
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

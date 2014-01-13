@@ -1336,11 +1336,10 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
-comment|/*    if (isZooKeeperAware()) {                     try {                       zkSys.zkController.unregister(name, cd);                     } catch (InterruptedException e) {                       Thread.currentThread().interrupt();                       SolrException.log(log, null, e);                     } catch (KeeperException e) {                       SolrException.log(log, null, e);                     }                   }*/
 name|SolrException
 operator|.
 name|log
@@ -1349,9 +1348,15 @@ name|log
 argument_list|,
 literal|null
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+comment|/*    if (isZooKeeperAware()) {                     try {                       zkSys.zkController.unregister(name, cd);                     } catch (InterruptedException e2) {                       Thread.currentThread().interrupt();                       SolrException.log(log, null, e2);                     } catch (KeeperException e3) {                       SolrException.log(log, null, e3);                     }                   }*/
+block|}
+finally|finally
+block|{
 if|if
 condition|(
 name|c
@@ -1364,6 +1369,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
@@ -1388,8 +1394,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|ex
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|SolrException
@@ -1400,7 +1406,7 @@ name|log
 argument_list|,
 literal|null
 argument_list|,
-name|ex
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1987,8 +1993,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|SolrException
@@ -1999,7 +2005,7 @@ name|log
 argument_list|,
 literal|"Error canceling recovery for core"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
 block|}
