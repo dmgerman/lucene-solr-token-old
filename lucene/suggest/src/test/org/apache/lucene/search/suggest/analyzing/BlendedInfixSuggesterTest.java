@@ -792,7 +792,7 @@ name|Input
 argument_list|(
 literal|"top of the lake"
 argument_list|,
-literal|15
+literal|18
 argument_list|,
 name|lake
 argument_list|)
@@ -899,6 +899,28 @@ name|keys
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we don't find it for in the 2 first
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|suggester
+operator|.
+name|lookup
+argument_list|(
+literal|"the"
+argument_list|,
+literal|2
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|)
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|long
 name|w0
 init|=
@@ -917,7 +939,29 @@ name|assertTrue
 argument_list|(
 name|w0
 operator|<
-literal|1
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// but it's there if we search for 3 elements
+name|assertEquals
+argument_list|(
+literal|3
+argument_list|,
+name|suggester
+operator|.
+name|lookup
+argument_list|(
+literal|"the"
+argument_list|,
+literal|3
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|)
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|long
@@ -938,7 +982,7 @@ name|assertTrue
 argument_list|(
 name|w1
 operator|>
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|suggester
@@ -1003,6 +1047,7 @@ name|keys
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we have it
 name|long
 name|w2
 init|=
@@ -1021,9 +1066,10 @@ name|assertTrue
 argument_list|(
 name|w2
 operator|>
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
+comment|// but we don't have the other
 name|long
 name|w3
 init|=
@@ -1042,7 +1088,7 @@ name|assertTrue
 argument_list|(
 name|w3
 operator|<
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|suggester
