@@ -3280,6 +3280,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+comment|//System.out.println("  setNextReader topOrd=" + topOrd + " topSameReader=" + topSameReader);
 if|if
 condition|(
 name|bottomSlot
@@ -3456,6 +3457,7 @@ name|topValue
 operator|=
 name|value
 expr_stmt|;
+comment|//System.out.println("setTopValue " + topValue);
 block|}
 annotation|@
 name|Override
@@ -3498,10 +3500,25 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|ord
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|ord
+operator|=
+name|missingOrd
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|topSameReader
 condition|)
 block|{
-comment|// ord is precisely comparable, even in the equal case
+comment|// ord is precisely comparable, even in the equal
+comment|// case
+comment|//System.out.println("compareTop doc=" + doc + " ord=" + ord + " ret=" + (topOrd-ord));
 return|return
 name|topOrd
 operator|-
@@ -4123,6 +4140,12 @@ operator|==
 literal|0
 condition|)
 block|{
+name|br
+operator|.
+name|offset
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|docsWithField

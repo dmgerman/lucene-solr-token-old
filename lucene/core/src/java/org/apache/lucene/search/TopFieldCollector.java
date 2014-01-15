@@ -3921,6 +3921,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//System.out.println("  collect doc=" + doc);
 name|totalHits
 operator|++
 expr_stmt|;
@@ -4046,7 +4047,6 @@ break|break;
 block|}
 block|}
 block|}
-comment|//System.out.println("  collect doc=" + doc);
 comment|// Check if this hit was already collected on a
 comment|// previous page:
 name|boolean
@@ -4120,7 +4120,7 @@ name|sameValues
 operator|=
 literal|false
 expr_stmt|;
-comment|//System.out.println("    keep: after");
+comment|//System.out.println("    keep: after; reverseMul=" + reverseMul[compIDX]);
 break|break;
 block|}
 block|}
