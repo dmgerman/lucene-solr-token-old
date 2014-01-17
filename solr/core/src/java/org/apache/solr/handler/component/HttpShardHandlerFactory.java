@@ -403,7 +403,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|defaultClient
-specifier|private
+specifier|protected
 name|HttpClient
 name|defaultClient
 decl_stmt|;
