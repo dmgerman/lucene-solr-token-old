@@ -2636,7 +2636,7 @@ literal|"halfdeletedcollection2"
 argument_list|,
 literal|3
 argument_list|,
-literal|2
+literal|3
 argument_list|,
 literal|6
 argument_list|,
@@ -2663,7 +2663,7 @@ literal|"halfdeletedcollection2"
 argument_list|,
 literal|3
 argument_list|,
-literal|2
+literal|3
 argument_list|,
 literal|6
 argument_list|,
@@ -2738,6 +2738,8 @@ argument_list|,
 literal|"shard"
 operator|+
 name|i
+argument_list|,
+literal|15000
 argument_list|)
 expr_stmt|;
 block|}
