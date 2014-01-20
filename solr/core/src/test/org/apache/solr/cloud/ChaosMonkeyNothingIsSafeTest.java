@@ -1073,11 +1073,9 @@ name|FullThrottleStopableIndexingThread
 operator|)
 condition|)
 block|{
-name|assertEquals
+name|assertFalse
 argument_list|(
-literal|"There were expected update fails"
-argument_list|,
-literal|0
+literal|"There were too many update fails - we expect it can happen, but shouldn't easily"
 argument_list|,
 operator|(
 operator|(
@@ -1088,6 +1086,8 @@ operator|)
 operator|.
 name|getFails
 argument_list|()
+operator|>
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
