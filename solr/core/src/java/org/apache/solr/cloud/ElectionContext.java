@@ -1229,6 +1229,8 @@ argument_list|,
 name|core
 argument_list|,
 name|leaderProps
+argument_list|,
+name|weAreReplacement
 argument_list|)
 expr_stmt|;
 block|}
