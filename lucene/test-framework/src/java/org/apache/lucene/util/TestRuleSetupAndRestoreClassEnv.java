@@ -1044,6 +1044,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// set back to default
+name|LuceneTestCase
+operator|.
+name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
+operator|=
+literal|false
+expr_stmt|;
 name|savedCodec
 operator|=
 name|Codec
@@ -1112,6 +1119,12 @@ name|forName
 argument_list|(
 literal|"Lucene40"
 argument_list|)
+expr_stmt|;
+name|LuceneTestCase
+operator|.
+name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
+operator|=
+literal|true
 expr_stmt|;
 assert|assert
 name|codec
@@ -1188,6 +1201,12 @@ argument_list|(
 literal|"Lucene41"
 argument_list|)
 expr_stmt|;
+name|LuceneTestCase
+operator|.
+name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
+operator|=
+literal|true
+expr_stmt|;
 assert|assert
 name|codec
 operator|instanceof
@@ -1249,6 +1268,12 @@ argument_list|(
 literal|"Lucene42"
 argument_list|)
 expr_stmt|;
+name|LuceneTestCase
+operator|.
+name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
+operator|=
+literal|true
+expr_stmt|;
 assert|assert
 name|codec
 operator|instanceof
@@ -1309,6 +1334,12 @@ name|forName
 argument_list|(
 literal|"Lucene45"
 argument_list|)
+expr_stmt|;
+name|LuceneTestCase
+operator|.
+name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
+operator|=
+literal|true
 expr_stmt|;
 assert|assert
 name|codec
