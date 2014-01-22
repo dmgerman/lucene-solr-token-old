@@ -29,15 +29,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|text
 operator|.
 name|DateFormat
@@ -6644,6 +6635,11 @@ name|MatchAllDocsQuery
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
 DECL|method|assertHits
 specifier|private
 name|void
