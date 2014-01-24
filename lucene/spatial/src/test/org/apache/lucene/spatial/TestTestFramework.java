@@ -216,6 +216,7 @@ argument_list|,
 name|in
 argument_list|)
 decl_stmt|;
+comment|//closes the InputStream
 name|List
 argument_list|<
 name|SpatialTestQuery
@@ -343,7 +344,7 @@ name|void
 name|spatialExample
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 comment|//kind of a hack so that SpatialExample is tested despite
 comment|// it not starting or ending with "Test".

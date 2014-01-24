@@ -66,6 +66,60 @@ import|;
 end_import
 begin_import
 import|import
+name|com
+operator|.
+name|spatial4j
+operator|.
+name|core
+operator|.
+name|shape
+operator|.
+name|Point
+import|;
+end_import
+begin_import
+import|import
+name|com
+operator|.
+name|spatial4j
+operator|.
+name|core
+operator|.
+name|shape
+operator|.
+name|Rectangle
+import|;
+end_import
+begin_import
+import|import
+name|com
+operator|.
+name|spatial4j
+operator|.
+name|core
+operator|.
+name|shape
+operator|.
+name|impl
+operator|.
+name|RectangleImpl
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|SpatialStrategy
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -86,6 +140,71 @@ operator|.
 name|common
 operator|.
 name|SolrException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|core
+operator|.
+name|SolrCore
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|schema
+operator|.
+name|AbstractSpatialFieldType
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|schema
+operator|.
+name|FieldType
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|schema
+operator|.
+name|IndexSchema
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|util
+operator|.
+name|SpatialUtils
 import|;
 end_import
 begin_import
@@ -113,6 +232,15 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|text
+operator|.
+name|ParseException
 import|;
 end_import
 begin_import
@@ -972,11 +1100,15 @@ literal|"1000"
 argument_list|,
 literal|"fq"
 argument_list|,
-literal|"{!field f="
+literal|"{!geofilt sfield="
 operator|+
 name|fieldName
 operator|+
-literal|"}Intersects(Circle(89.9,-130 d=9))"
+literal|" pt="
+operator|+
+name|IN
+operator|+
+literal|" d=9}"
 argument_list|)
 argument_list|,
 literal|"//result/doc/*[@name='"
@@ -998,6 +1130,8 @@ specifier|public
 name|void
 name|checkQueryEmptyIndex
 parameter_list|()
+throws|throws
+name|ParseException
 block|{
 name|checkHits
 argument_list|(
@@ -1033,6 +1167,8 @@ name|int
 modifier|...
 name|docIds
 parameter_list|)
+throws|throws
+name|ParseException
 block|{
 name|checkHits
 argument_list|(
@@ -1074,6 +1210,8 @@ name|int
 modifier|...
 name|docIds
 parameter_list|)
+throws|throws
+name|ParseException
 block|{
 name|String
 index|[]
@@ -1156,7 +1294,7 @@ name|count
 operator|+
 literal|"]"
 expr_stmt|;
-comment|//Test using the Solr 4 syntax
+comment|//Test using the Lucene spatial syntax
 block|{
 comment|//never actually need the score but lets test
 name|String
@@ -1198,21 +1336,38 @@ operator|.
 name|EARTH_MEAN_RADIUS_KM
 argument_list|)
 decl_stmt|;
+name|Point
+name|point
+init|=
+name|SpatialUtils
+operator|.
+name|parsePoint
+argument_list|(
+name|ptStr
+argument_list|,
+name|SpatialContext
+operator|.
+name|GEO
+argument_list|)
+decl_stmt|;
 name|String
 name|circleStr
 init|=
-literal|"Circle("
+literal|"BUFFER(POINT("
 operator|+
-name|ptStr
+name|point
 operator|.
-name|replaceAll
-argument_list|(
-literal|" "
-argument_list|,
-literal|""
-argument_list|)
+name|getX
+argument_list|()
 operator|+
-literal|" d="
+literal|" "
+operator|+
+name|point
+operator|.
+name|getY
+argument_list|()
+operator|+
+literal|"),"
 operator|+
 name|distDEG
 operator|+
@@ -1242,22 +1397,50 @@ name|SpatialContext
 operator|.
 name|GEO
 decl_stmt|;
-name|shapeStr
-operator|=
+name|Rectangle
+name|bbox
+init|=
 name|ctx
 operator|.
-name|toString
-argument_list|(
-name|ctx
-operator|.
-name|readShape
+name|readShapeFromWkt
 argument_list|(
 name|circleStr
 argument_list|)
 operator|.
 name|getBoundingBox
 argument_list|()
-argument_list|)
+decl_stmt|;
+name|shapeStr
+operator|=
+literal|"ENVELOPE("
+operator|+
+name|bbox
+operator|.
+name|getMinX
+argument_list|()
+operator|+
+literal|", "
+operator|+
+name|bbox
+operator|.
+name|getMaxX
+argument_list|()
+operator|+
+literal|", "
+operator|+
+name|bbox
+operator|.
+name|getMaxY
+argument_list|()
+operator|+
+literal|", "
+operator|+
+name|bbox
+operator|.
+name|getMinY
+argument_list|()
+operator|+
+literal|")"
 expr_stmt|;
 block|}
 comment|//FYI default distErrPct=0.025 works with the tests in this file
@@ -1306,7 +1489,7 @@ name|tests
 argument_list|)
 expr_stmt|;
 block|}
-comment|//Test using the Solr 3 syntax
+comment|//Test using geofilt
 block|{
 name|assertQ
 argument_list|(
@@ -1408,6 +1591,7 @@ literal|"rows"
 argument_list|,
 literal|"1000"
 argument_list|,
+comment|// testing quotes in range too
 literal|"fq"
 argument_list|,
 literal|"{! score="
@@ -1418,7 +1602,7 @@ literal|" df="
 operator|+
 name|fieldName
 operator|+
-literal|"}[32,-80 TO 33,-79]"
+literal|"}[32,-80 TO \"33 , -79\"]"
 argument_list|)
 argument_list|,
 comment|//lower-left to upper-right
@@ -1502,9 +1686,18 @@ name|req
 argument_list|(
 literal|"q"
 argument_list|,
-name|fieldName
-operator|+
-literal|":\"Intersects(Circle(3,4 d=9))\""
+name|radiusQuery
+argument_list|(
+literal|3
+argument_list|,
+literal|4
+argument_list|,
+literal|9
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
 argument_list|,
 literal|"fl"
 argument_list|,
@@ -1525,11 +1718,18 @@ name|req
 argument_list|(
 literal|"q"
 argument_list|,
-literal|"{! score=distance}"
-operator|+
-name|fieldName
-operator|+
-literal|":\"Intersects(Circle(3,4 d=9))\""
+name|radiusQuery
+argument_list|(
+literal|3
+argument_list|,
+literal|4
+argument_list|,
+literal|9
+argument_list|,
+literal|"distance"
+argument_list|,
+literal|null
+argument_list|)
 argument_list|,
 literal|"fl"
 argument_list|,
@@ -1559,11 +1759,18 @@ name|req
 argument_list|(
 literal|"q"
 argument_list|,
-literal|"{! score=recipDistance}"
-operator|+
-name|fieldName
-operator|+
-literal|":\"Intersects(Circle(3,4 d=9))\""
+name|radiusQuery
+argument_list|(
+literal|3
+argument_list|,
+literal|4
+argument_list|,
+literal|9
+argument_list|,
+literal|"recipDistance"
+argument_list|,
+literal|null
+argument_list|)
 argument_list|,
 literal|"fl"
 argument_list|,
@@ -1594,11 +1801,18 @@ argument_list|(
 comment|//circle radius is small and shouldn't match either, but we disable filtering
 literal|"q"
 argument_list|,
-literal|"{! score=distance filter=false}"
-operator|+
-name|fieldName
-operator|+
-literal|":\"Intersects(Circle(3,4 d=0.000001))\""
+name|radiusQuery
+argument_list|(
+literal|3
+argument_list|,
+literal|4
+argument_list|,
+literal|0.000001
+argument_list|,
+literal|"distance"
+argument_list|,
+literal|"false"
+argument_list|)
 argument_list|,
 literal|"fl"
 argument_list|,
@@ -1628,11 +1842,18 @@ name|req
 argument_list|(
 literal|"q"
 argument_list|,
-literal|"{! score=distance}"
-operator|+
-name|fieldName
-operator|+
-literal|":\"Intersects(Circle(4,0 d=9))\""
+name|radiusQuery
+argument_list|(
+literal|4
+argument_list|,
+literal|0
+argument_list|,
+literal|9
+argument_list|,
+literal|"distance"
+argument_list|,
+literal|null
+argument_list|)
 argument_list|,
 literal|"fl"
 argument_list|,
@@ -1672,11 +1893,18 @@ argument_list|,
 comment|//want ascending due to increasing distance
 literal|"sortQuery"
 argument_list|,
-literal|"{! score=distance}"
-operator|+
-name|fieldName
-operator|+
-literal|":\"Intersects(Circle(3,4 d=9))\""
+name|radiusQuery
+argument_list|(
+literal|3
+argument_list|,
+literal|4
+argument_list|,
+literal|9
+argument_list|,
+literal|"distance"
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 argument_list|,
 literal|1e-4
@@ -1707,11 +1935,18 @@ argument_list|,
 comment|//want ascending due to increasing distance
 literal|"sortQuery"
 argument_list|,
-literal|"{! score=distance}"
-operator|+
-name|fieldName
-operator|+
-literal|":\"Intersects(Circle(4,0 d=9))\""
+name|radiusQuery
+argument_list|(
+literal|4
+argument_list|,
+literal|0
+argument_list|,
+literal|9
+argument_list|,
+literal|"distance"
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 argument_list|,
 literal|1e-4
@@ -1721,6 +1956,148 @@ argument_list|,
 literal|"/response/docs/[1]/id=='100'"
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|radiusQuery
+specifier|private
+name|String
+name|radiusQuery
+parameter_list|(
+name|double
+name|lat
+parameter_list|,
+name|double
+name|lon
+parameter_list|,
+name|double
+name|dDEG
+parameter_list|,
+name|String
+name|score
+parameter_list|,
+name|String
+name|filter
+parameter_list|)
+block|{
+comment|//Choose between the Solr/Geofilt syntax, and the Lucene spatial module syntax
+if|if
+condition|(
+name|random
+argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+condition|)
+block|{
+return|return
+literal|"{!geofilt "
+operator|+
+literal|"sfield="
+operator|+
+name|fieldName
+operator|+
+literal|" "
+operator|+
+operator|(
+name|score
+operator|!=
+literal|null
+condition|?
+literal|"score="
+operator|+
+name|score
+else|:
+literal|""
+operator|)
+operator|+
+literal|" "
+operator|+
+operator|(
+name|filter
+operator|!=
+literal|null
+condition|?
+literal|"filter="
+operator|+
+name|filter
+else|:
+literal|""
+operator|)
+operator|+
+literal|" "
+operator|+
+literal|"pt="
+operator|+
+name|lat
+operator|+
+literal|","
+operator|+
+name|lon
+operator|+
+literal|" d="
+operator|+
+operator|(
+name|dDEG
+operator|*
+name|DistanceUtils
+operator|.
+name|DEG_TO_KM
+operator|)
+operator|+
+literal|"}"
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|"{! "
+operator|+
+operator|(
+name|score
+operator|!=
+literal|null
+condition|?
+literal|"score="
+operator|+
+name|score
+else|:
+literal|""
+operator|)
+operator|+
+literal|" "
+operator|+
+operator|(
+name|filter
+operator|!=
+literal|null
+condition|?
+literal|"filter="
+operator|+
+name|filter
+else|:
+literal|""
+operator|)
+operator|+
+literal|" "
+operator|+
+literal|"}"
+operator|+
+name|fieldName
+operator|+
+literal|":\"Intersects(BUFFER(POINT("
+operator|+
+name|lon
+operator|+
+literal|" "
+operator|+
+name|lat
+operator|+
+literal|"),"
+operator|+
+name|dDEG
+operator|+
+literal|"))\""
+return|;
+block|}
 block|}
 annotation|@
 name|Test
@@ -1792,11 +2169,18 @@ name|req
 argument_list|(
 literal|"q"
 argument_list|,
-literal|"{! score=distance}"
-operator|+
-name|fieldName
-operator|+
-literal|":\"Intersects(Circle(3,4 d=9))\""
+name|radiusQuery
+argument_list|(
+literal|3
+argument_list|,
+literal|4
+argument_list|,
+literal|9
+argument_list|,
+literal|"distance"
+argument_list|,
+literal|null
+argument_list|)
 argument_list|,
 literal|"fl"
 argument_list|,
@@ -1814,6 +2198,176 @@ literal|"/response/docs/[0]/id=='101'"
 argument_list|,
 literal|"/response/docs/[0]/score==0.99862987"
 comment|//dist to 3,5
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|solr4OldShapeSyntax
+specifier|public
+name|void
+name|solr4OldShapeSyntax
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assumeFalse
+argument_list|(
+literal|"Mostly just valid for prefix-tree"
+argument_list|,
+name|fieldName
+operator|.
+name|equals
+argument_list|(
+literal|"pointvector"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|//we also test that the old syntax is parsed in worldBounds in the schema
+block|{
+name|IndexSchema
+name|schema
+init|=
+name|h
+operator|.
+name|getCore
+argument_list|()
+operator|.
+name|getLatestSchema
+argument_list|()
+decl_stmt|;
+name|AbstractSpatialFieldType
+name|type
+init|=
+operator|(
+name|AbstractSpatialFieldType
+operator|)
+name|schema
+operator|.
+name|getFieldTypeByName
+argument_list|(
+literal|"stqpt_u_oldworldbounds"
+argument_list|)
+decl_stmt|;
+name|SpatialContext
+name|ctx
+init|=
+name|type
+operator|.
+name|getStrategy
+argument_list|(
+literal|"foo"
+argument_list|)
+operator|.
+name|getSpatialContext
+argument_list|()
+decl_stmt|;
+name|assertEquals
+argument_list|(
+operator|new
+name|RectangleImpl
+argument_list|(
+literal|0
+argument_list|,
+literal|1000
+argument_list|,
+literal|0
+argument_list|,
+literal|1000
+argument_list|,
+name|ctx
+argument_list|)
+argument_list|,
+name|ctx
+operator|.
+name|getWorldBounds
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|//syntax supported in Solr 4 but not beyond
+comment|//   See Spatial4j LegacyShapeReadWriterFormat
+name|String
+name|rect
+init|=
+literal|"-74.093 41.042 -69.347 44.558"
+decl_stmt|;
+comment|//minX minY maxX maxY
+name|String
+name|circ
+init|=
+literal|"Circle(4.56,1.23 d=0.0710)"
+decl_stmt|;
+comment|//show we can index this (without an error)
+name|assertU
+argument_list|(
+name|adoc
+argument_list|(
+literal|"id"
+argument_list|,
+literal|"rect"
+argument_list|,
+name|fieldName
+argument_list|,
+name|rect
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertU
+argument_list|(
+name|adoc
+argument_list|(
+literal|"id"
+argument_list|,
+literal|"circ"
+argument_list|,
+name|fieldName
+argument_list|,
+name|circ
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertU
+argument_list|(
+name|commit
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|//only testing no error
+name|assertJQ
+argument_list|(
+name|req
+argument_list|(
+literal|"q"
+argument_list|,
+literal|"{!field f="
+operator|+
+name|fieldName
+operator|+
+literal|"}Intersects("
+operator|+
+name|rect
+operator|+
+literal|")"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertJQ
+argument_list|(
+name|req
+argument_list|(
+literal|"q"
+argument_list|,
+literal|"{!field f="
+operator|+
+name|fieldName
+operator|+
+literal|"}Intersects("
+operator|+
+name|circ
+operator|+
+literal|")"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

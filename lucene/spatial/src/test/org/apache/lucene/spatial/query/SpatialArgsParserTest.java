@@ -107,7 +107,7 @@ name|SpatialOperation
 operator|.
 name|IsWithin
 operator|+
-literal|"(-10 -20 10 20)"
+literal|"(Envelope(-10, 10, 20, -20))"
 decl_stmt|;
 name|SpatialArgs
 name|out
@@ -176,7 +176,7 @@ name|SpatialOperation
 operator|.
 name|IsDisjointTo
 operator|+
-literal|" (-10 10 -20 20)"
+literal|" (Envelope(-10,-20,20,10))"
 expr_stmt|;
 name|out
 operator|=
@@ -236,7 +236,7 @@ name|parser
 operator|.
 name|parse
 argument_list|(
-literal|"XXXX(-10 10 -20 20)"
+literal|"XXXX(Envelope(-10, 10, 20, -20))"
 argument_list|,
 name|ctx
 argument_list|)
