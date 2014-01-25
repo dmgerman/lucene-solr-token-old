@@ -203,7 +203,7 @@ argument_list|(
 name|lockName
 argument_list|)
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 if|if
@@ -638,11 +638,11 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|release
+DECL|method|close
 specifier|public
 specifier|synchronized
 name|void
-name|release
+name|close
 parameter_list|()
 throws|throws
 name|IOException
@@ -766,7 +766,7 @@ condition|(
 name|obtained
 condition|)
 block|{
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -817,7 +817,7 @@ if|if
 condition|(
 name|obtained
 condition|)
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 return|return

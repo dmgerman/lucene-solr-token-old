@@ -414,7 +414,7 @@ argument_list|)
 expr_stmt|;
 name|l
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}

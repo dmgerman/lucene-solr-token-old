@@ -1011,7 +1011,7 @@ argument_list|)
 expr_stmt|;
 name|l
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|assertTrue
@@ -1026,7 +1026,7 @@ argument_list|)
 expr_stmt|;
 name|l2
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// Make sure we can obtain first one again, test isLocked():
@@ -1058,7 +1058,7 @@ argument_list|)
 expr_stmt|;
 name|l
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|assertFalse
@@ -1129,7 +1129,7 @@ argument_list|)
 expr_stmt|;
 name|l
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|assertFalse
@@ -1223,7 +1223,7 @@ argument_list|)
 expr_stmt|;
 name|l2
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|fail
@@ -1244,7 +1244,7 @@ finally|finally
 block|{
 name|l
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -2170,10 +2170,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|release
+DECL|method|close
 specifier|public
 name|void
-name|release
+name|close
 parameter_list|()
 block|{
 comment|// do nothing

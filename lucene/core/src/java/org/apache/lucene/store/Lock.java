@@ -16,15 +16,11 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|ThreadInterruptedException
+name|Closeable
 import|;
 end_import
 begin_import
@@ -36,8 +32,21 @@ operator|.
 name|IOException
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|ThreadInterruptedException
+import|;
+end_import
 begin_comment
-comment|/** An interprocess mutex lock.  *<p>Typical use might look like:<pre class="prettyprint">  * new Lock.With(directory.makeLock("my.lock")) {  *     public Object doBody() {  *<i>... code to execute while locked ...</i>  *     }  *   }.run();  *</pre>  *  * @see Directory#makeLock(String)  */
+comment|/** An interprocess mutex lock.  *<p>Typical use might look like:<pre class="prettyprint">  * new Lock.With(directory.makeLock("my.lock")) {  *     public Object doBody() {  *<i>... code to execute while locked ...</i>  *     }  *   }.run();  *</pre>  *  * @see Directory#makeLock(String)  *  * @lucene.internal  */
 end_comment
 begin_class
 DECL|class|Lock
@@ -45,6 +54,8 @@ specifier|public
 specifier|abstract
 class|class
 name|Lock
+implements|implements
+name|Closeable
 block|{
 comment|/** How long {@link #obtain(long)} waits, in milliseconds,    *  in between attempts to acquire the lock. */
 DECL|field|LOCK_POLL_INTERVAL
@@ -66,7 +77,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/** Attempts to obtain exclusive access and immediately return    *  upon success or failure.    * @return true iff exclusive access is obtained    */
+comment|/** Attempts to obtain exclusive access and immediately return    *  upon success or failure.  Use {@link #close} to    *  release the lock.    * @return true iff exclusive access is obtained    */
 DECL|method|obtain
 specifier|public
 specifier|abstract
@@ -242,11 +253,11 @@ name|locked
 return|;
 block|}
 comment|/** Releases exclusive access. */
-DECL|method|release
+DECL|method|close
 specifier|public
 specifier|abstract
 name|void
-name|release
+name|close
 parameter_list|()
 throws|throws
 name|IOException
@@ -350,11 +361,13 @@ if|if
 condition|(
 name|locked
 condition|)
+block|{
 name|lock
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

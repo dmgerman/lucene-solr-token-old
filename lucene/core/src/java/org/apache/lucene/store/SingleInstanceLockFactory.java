@@ -195,10 +195,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|release
+DECL|method|close
 specifier|public
 name|void
-name|release
+name|close
 parameter_list|()
 block|{
 synchronized|synchronized
