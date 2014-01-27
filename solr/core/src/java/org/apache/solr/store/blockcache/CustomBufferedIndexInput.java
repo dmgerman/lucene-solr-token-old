@@ -115,6 +115,11 @@ init|=
 literal|0
 decl_stmt|;
 comment|// next byte to read
+DECL|field|store
+specifier|private
+name|Store
+name|store
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|readByte
@@ -184,6 +189,17 @@ operator|.
 name|bufferSize
 operator|=
 name|bufferSize
+expr_stmt|;
+name|this
+operator|.
+name|store
+operator|=
+name|BufferStore
+operator|.
+name|instance
+argument_list|(
+name|bufferSize
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|checkBufferSize
@@ -973,7 +989,7 @@ condition|)
 block|{
 name|buffer
 operator|=
-name|BufferStore
+name|store
 operator|.
 name|takeBuffer
 argument_list|(
@@ -1022,7 +1038,7 @@ block|{
 name|closeInternal
 argument_list|()
 expr_stmt|;
-name|BufferStore
+name|store
 operator|.
 name|putBuffer
 argument_list|(
