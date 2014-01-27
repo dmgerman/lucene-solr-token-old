@@ -247,7 +247,7 @@ name|errPrefix
 init|=
 name|VERSION_FIELD
 operator|+
-literal|" field must exist in schema, using indexed=\"true\" stored=\"true\" and multiValued=\"false\""
+literal|" field must exist in schema, using indexed=\"true\" or docValues=\"true\", stored=\"true\" and multiValued=\"false\""
 decl_stmt|;
 name|SchemaField
 name|sf
@@ -293,6 +293,12 @@ name|sf
 operator|.
 name|indexed
 argument_list|()
+operator|&&
+operator|!
+name|sf
+operator|.
+name|hasDocValues
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -311,7 +317,7 @@ literal|" ("
 operator|+
 name|VERSION_FIELD
 operator|+
-literal|" is not indexed"
+literal|" must be either indexed or have docValues"
 argument_list|)
 throw|;
 block|}
