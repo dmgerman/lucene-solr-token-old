@@ -230,6 +230,7 @@ name|maxClauseCount
 operator|<
 literal|1
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -237,6 +238,7 @@ argument_list|(
 literal|"maxClauseCount must be>= 1"
 argument_list|)
 throw|;
+block|}
 name|BooleanQuery
 operator|.
 name|maxClauseCount
@@ -384,11 +386,13 @@ argument_list|()
 operator|>=
 name|maxClauseCount
 condition|)
+block|{
 throw|throw
 operator|new
 name|TooManyClauses
 argument_list|()
 throw|;
+block|}
 name|clauses
 operator|.
 name|add
@@ -588,9 +592,11 @@ operator|.
 name|isProhibited
 argument_list|()
 condition|)
+block|{
 name|maxCoord
 operator|++
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
@@ -668,11 +674,13 @@ operator|.
 name|isProhibited
 argument_list|()
 condition|)
+block|{
 comment|// only add to sum for non-prohibited clauses
 name|sum
 operator|+=
 name|s
 expr_stmt|;
+block|}
 block|}
 name|sum
 operator|*=
@@ -1035,9 +1043,11 @@ name|Occur
 operator|.
 name|SHOULD
 condition|)
+block|{
 name|shouldMatchCount
 operator|++
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -1984,10 +1994,12 @@ return|;
 comment|// some clauses rewrote
 block|}
 else|else
+block|{
 return|return
 name|this
 return|;
 comment|// no clauses rewrote
+block|}
 block|}
 comment|// inherit javadoc
 annotation|@
@@ -2104,19 +2116,15 @@ decl_stmt|;
 name|boolean
 name|needParens
 init|=
-operator|(
 name|getBoost
 argument_list|()
 operator|!=
 literal|1.0
-operator|)
 operator|||
-operator|(
 name|getMinimumNumberShouldMatch
 argument_list|()
 operator|>
 literal|0
-operator|)
 decl_stmt|;
 if|if
 condition|(
@@ -2166,6 +2174,7 @@ operator|.
 name|isProhibited
 argument_list|()
 condition|)
+block|{
 name|buffer
 operator|.
 name|append
@@ -2173,6 +2182,7 @@ argument_list|(
 literal|"-"
 argument_list|)
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -2181,6 +2191,7 @@ operator|.
 name|isRequired
 argument_list|()
 condition|)
+block|{
 name|buffer
 operator|.
 name|append
@@ -2188,6 +2199,7 @@ argument_list|(
 literal|"+"
 argument_list|)
 expr_stmt|;
+block|}
 name|Query
 name|subQuery
 init|=
@@ -2275,6 +2287,7 @@ argument_list|()
 operator|-
 literal|1
 condition|)
+block|{
 name|buffer
 operator|.
 name|append
@@ -2282,6 +2295,7 @@ argument_list|(
 literal|" "
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -2370,9 +2384,11 @@ operator|instanceof
 name|BooleanQuery
 operator|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 name|BooleanQuery
 name|other
 init|=
@@ -2382,7 +2398,6 @@ operator|)
 name|o
 decl_stmt|;
 return|return
-operator|(
 name|this
 operator|.
 name|getBoost
@@ -2392,7 +2407,6 @@ name|other
 operator|.
 name|getBoost
 argument_list|()
-operator|)
 operator|&&
 name|this
 operator|.

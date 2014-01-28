@@ -1817,7 +1817,7 @@ init|=
 operator|new
 name|ToParentBlockJoinQuery
 argument_list|(
-name|childQuery
+name|origChildQuery
 argument_list|,
 name|childRewrite
 argument_list|,
