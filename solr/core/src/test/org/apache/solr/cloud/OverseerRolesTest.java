@@ -16,6 +16,30 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|protobuf
+operator|.
+name|TextFormat
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -366,10 +390,9 @@ import|;
 end_import
 begin_class
 annotation|@
-name|Ignore
-argument_list|(
-literal|"needs to restart the OverSeer"
-argument_list|)
+name|LuceneTestCase
+operator|.
+name|Slow
 DECL|class|OverseerRolesTest
 specifier|public
 class|class
@@ -699,20 +722,15 @@ literal|100
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-name|leaderchanged
-condition|)
-block|{
-name|log
-operator|.
-name|warn
+comment|/*if(!leaderchanged){        log.warn("expected {}, current order {}",           overseerDesignate,           getSortedNodeNames(client.getZkStateReader().getZkClient())+ " ldr :"+ OverseerCollectionProcessor.getLeaderNode(client.getZkStateReader().getZkClient()) );     }*/
+name|assertTrue
 argument_list|(
-literal|"expected {}, current order {}"
-argument_list|,
+literal|"could not set the new overseer . expected "
+operator|+
 name|overseerDesignate
-argument_list|,
+operator|+
+literal|" current order : "
+operator|+
 name|getSortedNodeNames
 argument_list|(
 name|client
@@ -738,12 +756,6 @@ operator|.
 name|getZkClient
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-name|assertTrue
-argument_list|(
-literal|"could not set the new overseer"
 argument_list|,
 name|leaderchanged
 argument_list|)
