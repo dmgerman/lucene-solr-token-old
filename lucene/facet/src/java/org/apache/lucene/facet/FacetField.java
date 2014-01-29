@@ -36,9 +36,6 @@ operator|.
 name|Document
 import|;
 end_import
-begin_comment
-comment|// javadoc
-end_comment
 begin_import
 import|import
 name|org
@@ -66,7 +63,7 @@ name|FieldType
 import|;
 end_import
 begin_comment
-comment|/** Add an instance of this to your {@link Document} for  *  every facet label. */
+comment|/**  * Add an instance of this to your {@link Document} for every facet label.  *   *<p>  *<b>NOTE:</b> you must call {@link FacetsConfig#build(Document)} before  * you add the document to IndexWriter.  */
 end_comment
 begin_class
 DECL|class|FacetField
