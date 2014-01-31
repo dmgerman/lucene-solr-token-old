@@ -337,9 +337,6 @@ name|similarity
 operator|.
 name|decodeNormValue
 argument_list|(
-operator|(
-name|byte
-operator|)
 name|norms
 operator|.
 name|get
@@ -375,9 +372,11 @@ operator|.
 name|getClass
 argument_list|()
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 return|return
 name|this
 operator|.
