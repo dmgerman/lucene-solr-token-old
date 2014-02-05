@@ -196,15 +196,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|xml
 operator|.
 name|sax
@@ -2641,11 +2632,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Please fix me!"
-argument_list|)
 DECL|method|testAddBigIntegerValueToTrieField
 specifier|public
 name|void
