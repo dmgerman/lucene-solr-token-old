@@ -515,6 +515,8 @@ parameter_list|(
 name|String
 name|responseString
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|ResponseParser
 name|xmlResponseParser
@@ -535,6 +537,8 @@ operator|.
 name|toInputStream
 argument_list|(
 name|responseString
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 argument_list|,
 literal|"UTF-8"
