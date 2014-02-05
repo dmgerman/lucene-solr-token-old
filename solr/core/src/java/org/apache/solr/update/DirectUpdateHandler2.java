@@ -485,6 +485,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -1040,6 +1049,16 @@ return|;
 block|}
 catch|catch
 parameter_list|(
+name|SolrException
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|e
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|RuntimeException
 name|t
 parameter_list|)
@@ -1058,6 +1077,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"Exception writing document id %s to the index; possible analysis error."
 argument_list|,
 name|cmd
