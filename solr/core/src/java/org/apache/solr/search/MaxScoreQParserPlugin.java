@@ -56,6 +56,7 @@ block|{
 DECL|field|NAME
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|NAME
 init|=
