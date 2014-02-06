@@ -1525,7 +1525,7 @@ name|println
 argument_list|(
 literal|"-"
 operator|+
-name|CONFDIR
+name|COLLECTION
 operator|+
 literal|" and -"
 operator|+
