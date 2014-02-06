@@ -1716,6 +1716,15 @@ name|hashCode
 argument_list|()
 argument_list|)
 operator|+
+literal|"["
+operator|+
+name|core
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"]"
+operator|+
 operator|(
 name|name
 operator|!=
