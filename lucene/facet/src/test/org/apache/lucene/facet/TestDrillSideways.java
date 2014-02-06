@@ -4526,7 +4526,6 @@ argument_list|)
 operator|)
 operator|&&
 operator|(
-operator|(
 name|Integer
 operator|.
 name|parseInt
@@ -4551,7 +4550,6 @@ literal|1
 operator|)
 operator|==
 literal|0
-operator|)
 condition|)
 block|{
 name|bits
@@ -4671,7 +4669,7 @@ name|anyMultiValuedDrillDowns
 condition|)
 block|{
 comment|// Can only do this test when there are no OR'd
-comment|// drill-down values, beacuse in that case it's
+comment|// drill-down values, because in that case it's
 comment|// easily possible for one of the DD terms to be on
 comment|// a future docID:
 operator|new
