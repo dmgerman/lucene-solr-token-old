@@ -227,6 +227,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|servlet
+operator|.
+name|SolrRequestParsers
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|update
 operator|.
 name|SolrIndexConfig
@@ -533,6 +546,12 @@ DECL|field|addHttpRequestToContext
 specifier|private
 name|boolean
 name|addHttpRequestToContext
+decl_stmt|;
+DECL|field|solrRequestParsers
+specifier|private
+specifier|final
+name|SolrRequestParsers
+name|solrRequestParsers
 decl_stmt|;
 comment|/** Creates a default instance from the solrconfig.xml. */
 DECL|method|SolrConfig
@@ -1519,6 +1538,14 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|solrRequestParsers
+operator|=
+operator|new
+name|SolrRequestParsers
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|Config
 operator|.
 name|log
@@ -1840,6 +1867,16 @@ expr_stmt|;
 block|}
 return|return
 name|result
+return|;
+block|}
+DECL|method|getRequestParsers
+specifier|public
+name|SolrRequestParsers
+name|getRequestParsers
+parameter_list|()
+block|{
+return|return
+name|solrRequestParsers
 return|;
 block|}
 comment|/* The set of materialized parameters: */
