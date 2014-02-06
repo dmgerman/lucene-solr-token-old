@@ -324,6 +324,12 @@ name|noDeleteOpenFile
 init|=
 literal|true
 decl_stmt|;
+DECL|field|assertNoDeleteOpenFile
+name|boolean
+name|assertNoDeleteOpenFile
+init|=
+literal|false
+decl_stmt|;
 DECL|field|preventDoubleWrite
 name|boolean
 name|preventDoubleWrite
@@ -1519,6 +1525,33 @@ return|return
 name|noDeleteOpenFile
 return|;
 block|}
+comment|/**    * Trip a test assert if there is an attempt    * to delete an open file.   */
+DECL|method|setAssertNoDeleteOpenFile
+specifier|public
+name|void
+name|setAssertNoDeleteOpenFile
+parameter_list|(
+name|boolean
+name|value
+parameter_list|)
+block|{
+name|this
+operator|.
+name|assertNoDeleteOpenFile
+operator|=
+name|value
+expr_stmt|;
+block|}
+DECL|method|getAssertNoDeleteOpenFile
+specifier|public
+name|boolean
+name|getAssertNoDeleteOpenFile
+parameter_list|()
+block|{
+return|return
+name|assertNoDeleteOpenFile
+return|;
+block|}
 comment|/**    * If 0.0, no exceptions will be thrown.  Else this should    * be a double 0.0 - 1.0.  We will randomly throw an    * IOException on the first write to an OutputStream based    * on this probability.    */
 DECL|method|setRandomIOExceptionRate
 specifier|public
@@ -1801,11 +1834,11 @@ comment|// trace when the offending file name was opened
 DECL|method|fillOpenTrace
 specifier|private
 specifier|synchronized
-name|IOException
+name|Throwable
 name|fillOpenTrace
 parameter_list|(
-name|IOException
-name|ioe
+name|Throwable
+name|t
 parameter_list|,
 name|String
 name|name
@@ -1861,7 +1894,7 @@ name|name
 argument_list|)
 condition|)
 block|{
-name|ioe
+name|t
 operator|.
 name|initCause
 argument_list|(
@@ -1904,7 +1937,7 @@ name|name
 argument_list|)
 condition|)
 block|{
-name|ioe
+name|t
 operator|.
 name|initCause
 argument_list|(
@@ -1918,7 +1951,7 @@ break|break;
 block|}
 block|}
 return|return
-name|ioe
+name|t
 return|;
 block|}
 DECL|method|maybeYield
@@ -1998,7 +2031,11 @@ condition|(
 operator|!
 name|forced
 operator|&&
+operator|(
 name|noDeleteOpenFile
+operator|||
+name|assertNoDeleteOpenFile
+operator|)
 condition|)
 block|{
 if|if
@@ -2018,7 +2055,16 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|assertNoDeleteOpenFile
+condition|)
+block|{
 throw|throw
+operator|(
+name|IOException
+operator|)
 name|fillOpenTrace
 argument_list|(
 operator|new
@@ -2036,6 +2082,31 @@ argument_list|,
 literal|true
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+throw|throw
+operator|(
+name|AssertionError
+operator|)
+name|fillOpenTrace
+argument_list|(
+operator|new
+name|AssertionError
+argument_list|(
+literal|"MockDirectoryWrapper: file \""
+operator|+
+name|name
+operator|+
+literal|"\" is still open: cannot delete"
+argument_list|)
+argument_list|,
+name|name
+argument_list|,
+literal|true
+argument_list|)
+throw|;
+block|}
 block|}
 else|else
 block|{
@@ -2191,7 +2262,11 @@ block|}
 block|}
 if|if
 condition|(
+operator|(
 name|noDeleteOpenFile
+operator|||
+name|assertNoDeleteOpenFile
+operator|)
 operator|&&
 name|openFiles
 operator|.
@@ -2199,6 +2274,12 @@ name|containsKey
 argument_list|(
 name|name
 argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|assertNoDeleteOpenFile
 condition|)
 block|{
 throw|throw
@@ -2212,6 +2293,21 @@ operator|+
 literal|"\" is still open: cannot overwrite"
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|AssertionError
+argument_list|(
+literal|"MockDirectoryWrapper: file \""
+operator|+
+name|name
+operator|+
+literal|"\" is still open: cannot overwrite"
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -2731,6 +2827,9 @@ argument_list|)
 condition|)
 block|{
 throw|throw
+operator|(
+name|IOException
+operator|)
 name|fillOpenTrace
 argument_list|(
 operator|new
@@ -3107,8 +3206,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|noDeleteOpenFile
-operator|&&
 name|openFiles
 operator|.
 name|size
@@ -3167,8 +3264,6 @@ throw|;
 block|}
 if|if
 condition|(
-name|noDeleteOpenFile
-operator|&&
 name|openLocks
 operator|.
 name|size
@@ -4554,6 +4649,9 @@ argument_list|)
 condition|)
 block|{
 throw|throw
+operator|(
+name|IOException
+operator|)
 name|fillOpenTrace
 argument_list|(
 operator|new

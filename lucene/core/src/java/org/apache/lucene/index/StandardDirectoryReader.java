@@ -570,6 +570,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|writer
+operator|.
+name|incRefDeleter
+argument_list|(
+name|segmentInfos
+argument_list|)
+expr_stmt|;
 name|StandardDirectoryReader
 name|result
 init|=
@@ -1921,6 +1928,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|writer
+operator|.
+name|decRefDeleter
+argument_list|(
+name|segmentInfos
+argument_list|)
+expr_stmt|;
 comment|// Since we just closed, writer may now be able to
 comment|// delete unused files:
 name|writer
