@@ -591,7 +591,7 @@ name|inputIter
 init|=
 name|dictionary
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 decl_stmt|;
 name|assertFalse
@@ -793,7 +793,7 @@ name|inputIter
 init|=
 name|dictionary
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 decl_stmt|;
 name|assertFalse
@@ -1016,7 +1016,7 @@ name|inputIter
 init|=
 name|dictionary
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 decl_stmt|;
 name|assertTrue
@@ -1261,7 +1261,7 @@ name|inputIter
 init|=
 name|dictionary
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 decl_stmt|;
 name|assertTrue
@@ -1509,7 +1509,7 @@ name|inputIter
 init|=
 name|dictionary
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 decl_stmt|;
 name|assertTrue

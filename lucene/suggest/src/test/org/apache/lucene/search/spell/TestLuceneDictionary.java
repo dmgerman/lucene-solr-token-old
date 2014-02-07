@@ -493,7 +493,7 @@ name|it
 operator|=
 name|ld
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 expr_stmt|;
 name|assertNull
@@ -559,7 +559,7 @@ name|it
 operator|=
 name|ld
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 expr_stmt|;
 name|assertNotNull
@@ -650,7 +650,7 @@ name|it
 operator|=
 name|ld
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 expr_stmt|;
 name|assertNotNull
@@ -731,7 +731,7 @@ name|it
 operator|=
 name|ld
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 expr_stmt|;
 name|int
@@ -813,7 +813,7 @@ name|it
 operator|=
 name|ld
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 expr_stmt|;
 comment|// just iterate through words
@@ -908,7 +908,7 @@ name|it
 operator|=
 name|ld
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 expr_stmt|;
 name|assertNotNull

@@ -667,7 +667,7 @@ name|InputIterator
 operator|)
 name|dictionary
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 decl_stmt|;
 name|assertNull
@@ -869,7 +869,7 @@ name|InputIterator
 operator|)
 name|dictionary
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 decl_stmt|;
 name|BytesRef
@@ -1186,7 +1186,7 @@ name|InputIterator
 operator|)
 name|dictionary
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 decl_stmt|;
 name|BytesRef
@@ -1660,7 +1660,7 @@ name|InputIterator
 operator|)
 name|dictionary
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 decl_stmt|;
 name|BytesRef
@@ -1932,7 +1932,7 @@ name|InputIterator
 operator|)
 name|dictionary
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 decl_stmt|;
 name|BytesRef

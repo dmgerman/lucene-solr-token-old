@@ -33,13 +33,15 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|search
 operator|.
-name|BytesRefIterator
+name|suggest
+operator|.
+name|InputIterator
 import|;
 end_import
 begin_comment
-comment|/**  * A simple interface representing a Dictionary. A Dictionary  * here is just a list of words.  *   *  */
+comment|/**  * A simple interface representing a Dictionary. A Dictionary  * here is a list of entries, where every entry consists of  * term, weight and payload.  *   */
 end_comment
 begin_interface
 DECL|interface|Dictionary
@@ -47,10 +49,10 @@ specifier|public
 interface|interface
 name|Dictionary
 block|{
-comment|/**    * Return all words present in the dictionary    * @return Iterator    */
-DECL|method|getWordsIterator
-name|BytesRefIterator
-name|getWordsIterator
+comment|/**    * Returns an iterator over all the entries    * @return Iterator    */
+DECL|method|getEntryIterator
+name|InputIterator
+name|getEntryIterator
 parameter_list|()
 throws|throws
 name|IOException

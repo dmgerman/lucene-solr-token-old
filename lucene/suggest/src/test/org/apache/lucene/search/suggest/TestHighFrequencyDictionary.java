@@ -218,7 +218,7 @@ name|tf
 init|=
 name|dictionary
 operator|.
-name|getWordsIterator
+name|getEntryIterator
 argument_list|()
 decl_stmt|;
 name|assertNull
