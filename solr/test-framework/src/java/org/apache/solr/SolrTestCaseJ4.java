@@ -1104,7 +1104,7 @@ specifier|static
 name|int
 name|DEFAULT_CONNECTION_TIMEOUT
 init|=
-literal|30000
+literal|45000
 decl_stmt|;
 comment|// default socket connection timeout in ms
 DECL|field|sslConfig
