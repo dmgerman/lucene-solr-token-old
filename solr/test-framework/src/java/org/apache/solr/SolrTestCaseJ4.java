@@ -1243,6 +1243,11 @@ name|sslConfig
 operator|=
 literal|null
 expr_stmt|;
+comment|// reset SSL
+name|ALLOW_SSL
+operator|=
+literal|true
+expr_stmt|;
 name|IpTables
 operator|.
 name|unblockAllPorts
