@@ -2571,6 +2571,16 @@ name|fbs
 operator|!=
 literal|null
 operator|&&
+operator|(
+name|sfc
+operator|.
+name|termNum
+operator|>=
+name|fbs
+operator|.
+name|length
+argument_list|()
+operator|||
 operator|!
 name|fbs
 operator|.
@@ -2580,6 +2590,7 @@ name|sfc
 operator|.
 name|termNum
 argument_list|)
+operator|)
 condition|)
 block|{
 comment|// fbs can be null if a shard request failed
@@ -2652,6 +2663,16 @@ name|fbs
 operator|!=
 literal|null
 operator|&&
+operator|(
+name|sfc
+operator|.
+name|termNum
+operator|>=
+name|fbs
+operator|.
+name|length
+argument_list|()
+operator|||
 operator|!
 name|fbs
 operator|.
@@ -2661,6 +2682,7 @@ name|sfc
 operator|.
 name|termNum
 argument_list|)
+operator|)
 operator|&&
 name|dff
 operator|.
