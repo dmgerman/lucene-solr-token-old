@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|OpenBitSet
+name|LongBitSet
 import|;
 end_import
 begin_class
@@ -69,7 +69,7 @@ block|{
 name|int
 name|length
 init|=
-name|OpenBitSet
+name|LongBitSet
 operator|.
 name|bits2words
 argument_list|(
