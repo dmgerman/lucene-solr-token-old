@@ -54,7 +54,7 @@ comment|'# Usage: python3.2 -u buildAndPushRelease.py [-sign gpgKey(eg: 6E68DA61
 nl|'\n'
 comment|'#'
 nl|'\n'
-comment|'# EG: python3.2 -u buildAndPushRelease.py -prepare -push -sign 6E68DA61 mikemccand /lucene/34x 3.4.0 0'
+comment|'# EG: python3.2 -u buildAndPushRelease.py -prepare -push mikemccand -sign 6E68DA61 /path/to/lucene_solr_4_7 4.7.0 0'
 nl|'\n'
 nl|'\n'
 comment|'# NOTE: if you specify -sign, you have to type in your gpg password at'
