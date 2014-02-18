@@ -247,7 +247,7 @@ argument_list|()
 expr_stmt|;
 name|clientConnectionManager
 operator|.
-name|setDefaultMaxPerRoute
+name|setMaxTotal
 argument_list|(
 name|cfg
 operator|.
