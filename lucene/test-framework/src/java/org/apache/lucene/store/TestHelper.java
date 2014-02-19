@@ -42,11 +42,19 @@ begin_comment
 comment|/** This class provides access to package-level features defined in the  *  store package. It is used for testing only.  */
 end_comment
 begin_class
-DECL|class|_TestHelper
+DECL|class|TestHelper
 specifier|public
+specifier|final
 class|class
-name|_TestHelper
+name|TestHelper
 block|{
+DECL|method|TestHelper
+specifier|private
+name|TestHelper
+parameter_list|()
+block|{
+comment|//
+block|}
 comment|/** Returns true if the instance of the provided input stream is actually      *  an SimpleFSIndexInput.      */
 DECL|method|isSimpleFSIndexInput
 specifier|public
