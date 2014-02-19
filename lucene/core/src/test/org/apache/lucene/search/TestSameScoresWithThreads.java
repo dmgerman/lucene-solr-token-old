@@ -223,7 +223,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|RamUsageEstimator
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -236,7 +236,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -528,7 +528,7 @@ decl_stmt|;
 name|int
 name|numThreads
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

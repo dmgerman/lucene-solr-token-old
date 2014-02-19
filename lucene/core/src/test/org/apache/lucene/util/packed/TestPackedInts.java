@@ -256,7 +256,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -683,7 +683,7 @@ specifier|final
 name|int
 name|valueCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -705,7 +705,7 @@ operator|.
 name|nextBoolean
 argument_list|()
 condition|?
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -717,7 +717,7 @@ argument_list|,
 literal|48
 argument_list|)
 else|:
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -819,7 +819,7 @@ argument_list|()
 condition|?
 name|valueCount
 else|:
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -883,7 +883,7 @@ index|[
 name|i
 index|]
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -1347,7 +1347,7 @@ specifier|final
 name|int
 name|count
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2094,7 +2094,7 @@ decl_stmt|;
 name|int
 name|bits1
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2109,7 +2109,7 @@ decl_stmt|;
 name|int
 name|bits2
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2235,7 +2235,7 @@ specifier|final
 name|long
 name|val
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -2309,7 +2309,7 @@ decl_stmt|;
 name|int
 name|len
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2533,7 +2533,7 @@ specifier|final
 name|int
 name|valueCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2952,7 +2952,7 @@ block|{
 name|long
 name|value
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -3881,7 +3881,7 @@ specifier|final
 name|long
 name|val
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -4058,7 +4058,7 @@ comment|// must be> 10 for the bulk reads below
 name|int
 name|size
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4089,7 +4089,7 @@ name|packedInts
 operator|.
 name|get
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4271,7 +4271,7 @@ specifier|final
 name|int
 name|len
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4579,7 +4579,7 @@ specifier|final
 name|int
 name|len
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4855,7 +4855,7 @@ specifier|final
 name|int
 name|valueCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -5454,7 +5454,7 @@ init|=
 literal|1
 operator|<<
 operator|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -5478,7 +5478,7 @@ literal|0
 argument_list|,
 name|pageSize
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -5550,7 +5550,7 @@ name|buf
 operator|.
 name|add
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -5578,7 +5578,7 @@ argument_list|(
 name|rarely
 argument_list|()
 condition|?
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -5590,7 +5590,7 @@ argument_list|,
 literal|63
 argument_list|)
 else|:
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -5614,7 +5614,7 @@ name|size
 argument_list|,
 name|pageSize
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -5734,7 +5734,7 @@ name|writer
 operator|.
 name|resize
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -5829,7 +5829,7 @@ name|writer
 operator|.
 name|grow
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -5927,7 +5927,7 @@ specifier|final
 name|int
 name|bitsPerValue
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -5956,7 +5956,7 @@ init|=
 literal|1
 operator|<<
 operator|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -6049,7 +6049,7 @@ operator|.
 name|nextLong
 argument_list|()
 else|:
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -6189,7 +6189,7 @@ name|writer
 operator|.
 name|resize
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -6284,7 +6284,7 @@ name|writer
 operator|.
 name|grow
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -6385,7 +6385,7 @@ specifier|final
 name|long
 name|size
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -6418,7 +6418,7 @@ init|=
 literal|1
 operator|<<
 operator|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -6455,7 +6455,7 @@ specifier|final
 name|long
 name|index
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -6514,7 +6514,7 @@ specifier|final
 name|long
 name|idx
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -6575,7 +6575,7 @@ specifier|final
 name|int
 name|valueCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -7836,7 +7836,7 @@ name|pageSize
 init|=
 literal|1
 operator|<<
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -7852,7 +7852,7 @@ specifier|final
 name|int
 name|initialPageCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -7869,7 +7869,7 @@ name|acceptableOverheadRatio
 init|=
 name|ratioOptions
 index|[
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -7955,7 +7955,7 @@ argument_list|)
 expr_stmt|;
 name|inc
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -8073,7 +8073,7 @@ specifier|final
 name|long
 name|minValue
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -8354,7 +8354,7 @@ name|length
 condition|;
 name|i
 operator|+=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -8634,7 +8634,7 @@ argument_list|()
 condition|?
 name|bpv
 else|:
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -8672,7 +8672,7 @@ index|[
 name|i
 index|]
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -8992,7 +8992,7 @@ name|blockSize
 init|=
 literal|1
 operator|<<
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -9143,7 +9143,7 @@ index|]
 operator|=
 name|minValue
 operator|+
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -9414,7 +9414,7 @@ name|it
 operator|.
 name|next
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -9609,7 +9609,7 @@ specifier|final
 name|int
 name|skip
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -9853,7 +9853,7 @@ name|blockSize
 init|=
 literal|1
 operator|<<
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -9992,7 +9992,7 @@ operator|-
 literal|1
 index|]
 operator|+
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -10227,7 +10227,7 @@ specifier|final
 name|long
 name|valueCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -10256,7 +10256,7 @@ name|blockSize
 init|=
 literal|1
 operator|<<
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -10316,7 +10316,7 @@ decl_stmt|;
 name|long
 name|valueOffset
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -10551,7 +10551,7 @@ specifier|final
 name|long
 name|offset
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(

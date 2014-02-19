@@ -123,7 +123,7 @@ name|dir
 init|=
 name|newFSDirectory
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -220,7 +220,7 @@ block|{
 name|int
 name|numBytes
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -357,7 +357,7 @@ block|{
 name|int
 name|numBytes
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

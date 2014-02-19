@@ -170,14 +170,14 @@ name|IOException
 block|{
 name|tempDir
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
 literal|"mergesort"
 argument_list|)
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|rmDir
 argument_list|(
@@ -206,7 +206,7 @@ name|tempDir
 operator|!=
 literal|null
 condition|)
-name|_TestUtil
+name|TestUtil
 operator|.
 name|rmDir
 argument_list|(

@@ -206,7 +206,20 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -359,7 +372,7 @@ init|=
 operator|new
 name|BytesRef
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -393,7 +406,7 @@ operator|=
 operator|new
 name|BytesRef
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -491,7 +504,7 @@ decl_stmt|;
 name|int
 name|numThreads
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1076,7 +1089,7 @@ condition|)
 block|{
 name|s
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -1088,7 +1101,7 @@ else|else
 block|{
 name|s
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -1278,7 +1291,7 @@ specifier|final
 name|int
 name|NUM_THREADS
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

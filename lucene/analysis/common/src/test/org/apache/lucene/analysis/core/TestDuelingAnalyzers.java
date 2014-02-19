@@ -176,7 +176,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -465,7 +465,7 @@ block|{
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -609,7 +609,7 @@ block|{
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -732,7 +732,7 @@ block|{
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomHtmlishString
 argument_list|(
@@ -877,7 +877,7 @@ block|{
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomHtmlishString
 argument_list|(
@@ -1001,7 +1001,7 @@ block|{
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -1144,7 +1144,7 @@ block|{
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(

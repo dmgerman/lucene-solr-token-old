@@ -118,7 +118,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -432,7 +432,7 @@ name|dir
 operator|=
 name|target
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(

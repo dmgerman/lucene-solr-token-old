@@ -335,7 +335,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -1810,7 +1810,7 @@ name|random
 argument_list|()
 argument_list|)
 condition|?
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1823,7 +1823,7 @@ literal|20
 argument_list|)
 comment|// crazy value
 else|:
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

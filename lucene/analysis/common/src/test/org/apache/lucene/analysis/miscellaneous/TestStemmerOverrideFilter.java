@@ -201,7 +201,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_comment
@@ -501,7 +501,7 @@ block|{
 name|String
 name|randomRealisticUnicodeString
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -598,7 +598,7 @@ block|{
 name|String
 name|value
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -876,7 +876,7 @@ block|{
 name|String
 name|randomRealisticUnicodeString
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -897,7 +897,7 @@ block|{
 name|String
 name|value
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(

@@ -59,7 +59,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -355,7 +355,7 @@ comment|// directory up front, or otherwise new IndexWriter will fail.
 name|File
 name|dirPath
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(

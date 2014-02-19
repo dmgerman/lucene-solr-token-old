@@ -160,19 +160,6 @@ operator|.
 name|BeforeClass
 import|;
 end_import
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Seed
-import|;
-end_import
 begin_comment
 comment|/**  * Tests {@link PhraseQuery}.  *  * @see TestPositionIncrement  */
 end_comment
@@ -4147,7 +4134,7 @@ comment|// must be> 4096 so it spans multiple chunks
 name|int
 name|termCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4219,7 +4206,7 @@ condition|)
 block|{
 name|term
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -4341,7 +4328,7 @@ decl_stmt|;
 name|int
 name|len
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4516,7 +4503,7 @@ specifier|final
 name|int
 name|numTerm
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

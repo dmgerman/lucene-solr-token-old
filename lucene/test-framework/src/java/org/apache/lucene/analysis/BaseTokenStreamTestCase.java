@@ -291,7 +291,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_comment
@@ -3460,7 +3460,7 @@ specifier|final
 name|String
 name|postingsFormat
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getPostingsFormat
 argument_list|(
@@ -3507,7 +3507,7 @@ name|dir
 operator|=
 name|newFSDirectory
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -3567,7 +3567,7 @@ comment|// so this should only really fail from another thread if its an actual 
 name|int
 name|numThreads
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -3937,7 +3937,7 @@ block|}
 name|String
 name|pf
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getPostingsFormat
 argument_list|(
@@ -4214,7 +4214,7 @@ block|{
 comment|// synthetic
 name|text
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomAnalysisString
 argument_list|(

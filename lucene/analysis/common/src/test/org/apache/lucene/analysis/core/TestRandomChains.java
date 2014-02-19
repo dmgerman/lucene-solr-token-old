@@ -863,7 +863,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Version
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -876,7 +876,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|Version
 import|;
 end_import
 begin_import
@@ -2407,7 +2407,7 @@ name|Integer
 operator|.
 name|valueOf
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2866,7 +2866,7 @@ name|col
 operator|.
 name|add
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -2951,7 +2951,7 @@ name|set
 operator|.
 name|add
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -3382,7 +3382,7 @@ block|}
 else|else
 block|{
 return|return
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -3468,7 +3468,7 @@ block|{
 name|String
 name|key
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -3496,7 +3496,7 @@ block|{
 name|String
 name|value
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -3678,14 +3678,14 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
 name|random
 argument_list|)
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -3771,7 +3771,7 @@ do|do
 block|{
 name|input
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -3792,7 +3792,7 @@ name|out
 init|=
 literal|""
 decl_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -3803,7 +3803,7 @@ do|do
 block|{
 name|out
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -4039,7 +4039,7 @@ specifier|final
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(

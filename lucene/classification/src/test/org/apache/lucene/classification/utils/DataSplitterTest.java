@@ -195,7 +195,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -437,7 +437,7 @@ name|Field
 argument_list|(
 name|textFieldName
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -459,7 +459,7 @@ name|Field
 argument_list|(
 name|classFieldName
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(

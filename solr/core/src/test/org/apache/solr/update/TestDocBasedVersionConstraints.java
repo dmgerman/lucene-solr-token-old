@@ -24,7 +24,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -2562,7 +2562,7 @@ specifier|final
 name|int
 name|numAdds
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2578,7 +2578,7 @@ specifier|final
 name|int
 name|winner
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2608,7 +2608,7 @@ init|=
 operator|(
 literal|0
 operator|==
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2676,7 +2676,7 @@ name|iShouldWin
 condition|?
 name|winnerVersion
 else|:
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2705,7 +2705,7 @@ name|iShouldWin
 operator|&&
 literal|0
 operator|==
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

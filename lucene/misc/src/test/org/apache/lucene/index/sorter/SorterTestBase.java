@@ -674,7 +674,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -1258,7 +1258,7 @@ name|doesntSupportOffsets
 operator|.
 name|contains
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getPostingsFormat
 argument_list|(
@@ -2011,7 +2011,7 @@ name|doesntSupportOffsets
 operator|.
 name|contains
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getPostingsFormat
 argument_list|(
@@ -2132,7 +2132,7 @@ name|advance
 argument_list|(
 name|doc
 operator|+
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2216,7 +2216,7 @@ name|doesntSupportOffsets
 operator|.
 name|contains
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getPostingsFormat
 argument_list|(
@@ -2335,7 +2335,7 @@ specifier|final
 name|int
 name|bitsSet
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

@@ -3533,7 +3533,7 @@ init|=
 operator|new
 name|String
 index|[
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -3584,7 +3584,7 @@ else|else
 block|{
 name|valueCount
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -3633,7 +3633,7 @@ index|[
 name|i
 index|]
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -3921,7 +3921,7 @@ specifier|final
 name|int
 name|numParentDocs
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4325,7 +4325,7 @@ specifier|final
 name|int
 name|numChildDocs
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4356,7 +4356,7 @@ comment|// Denormalize: copy all parent fields into child doc:
 name|Document
 name|childDoc
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|cloneDocument
 argument_list|(
@@ -5004,7 +5004,7 @@ specifier|final
 name|int
 name|numClauses
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -5109,7 +5109,7 @@ specifier|final
 name|int
 name|childFieldID
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -5210,7 +5210,7 @@ specifier|final
 name|int
 name|childFieldID
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -5979,7 +5979,7 @@ specifier|final
 name|int
 name|hitsPerGroup
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -6545,7 +6545,7 @@ specifier|final
 name|int
 name|numClauses
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -6650,7 +6650,7 @@ specifier|final
 name|int
 name|fieldID
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -6751,7 +6751,7 @@ specifier|final
 name|int
 name|fieldID
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

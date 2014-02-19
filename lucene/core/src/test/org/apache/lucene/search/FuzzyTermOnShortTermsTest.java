@@ -25,15 +25,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -185,7 +176,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -697,7 +688,7 @@ argument_list|)
 operator|.
 name|setMaxBufferedDocs
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

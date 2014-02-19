@@ -29,15 +29,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Iterator
 import|;
 end_import
@@ -104,7 +95,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -273,7 +264,7 @@ init|=
 operator|new
 name|Term
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -283,7 +274,7 @@ argument_list|,
 literal|2
 argument_list|)
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -549,7 +540,7 @@ init|=
 operator|new
 name|PrefixCodedTerms
 index|[
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -608,7 +599,7 @@ decl_stmt|;
 name|int
 name|nterms
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -641,7 +632,7 @@ init|=
 operator|new
 name|Term
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -651,7 +642,7 @@ argument_list|,
 literal|2
 argument_list|)
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(

@@ -91,7 +91,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -1801,7 +1801,7 @@ argument_list|,
 literal|8
 argument_list|)
 decl_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|assertAttributeReflection
 argument_list|(

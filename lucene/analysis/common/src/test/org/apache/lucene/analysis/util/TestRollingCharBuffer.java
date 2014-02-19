@@ -57,7 +57,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -156,7 +156,7 @@ else|else
 block|{
 name|s
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -307,7 +307,7 @@ comment|// Read previous char
 name|int
 name|pos
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -379,7 +379,7 @@ else|else
 block|{
 name|length
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

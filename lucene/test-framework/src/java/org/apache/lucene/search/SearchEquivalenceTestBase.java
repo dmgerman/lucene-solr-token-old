@@ -185,19 +185,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Bits
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|LuceneTestCase
 import|;
 end_import
@@ -211,7 +198,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -721,7 +708,7 @@ return|return
 operator|(
 name|char
 operator|)
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -893,7 +880,7 @@ name|q1
 argument_list|,
 name|filter
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomFilterStrategy
 argument_list|(
@@ -911,7 +898,7 @@ name|q2
 argument_list|,
 name|filter
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomFilterStrategy
 argument_list|(

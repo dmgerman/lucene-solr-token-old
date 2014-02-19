@@ -235,7 +235,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -454,7 +454,7 @@ expr_stmt|;
 comment|// sets stderr logging to DEBUG level
 name|clientWorkDir
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(

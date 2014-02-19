@@ -159,7 +159,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -4123,7 +4123,7 @@ decl_stmt|;
 name|String
 name|text
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomHtmlishString
 argument_list|(
@@ -4189,7 +4189,7 @@ decl_stmt|;
 name|int
 name|numWords
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4203,7 +4203,7 @@ argument_list|)
 decl_stmt|;
 switch|switch
 condition|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4239,7 +4239,7 @@ name|text
 operator|.
 name|append
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -4283,7 +4283,7 @@ name|text
 operator|.
 name|append
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -4328,7 +4328,7 @@ name|text
 operator|.
 name|append
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(

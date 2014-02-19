@@ -2436,7 +2436,7 @@ argument_list|)
 expr_stmt|;
 name|bit
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

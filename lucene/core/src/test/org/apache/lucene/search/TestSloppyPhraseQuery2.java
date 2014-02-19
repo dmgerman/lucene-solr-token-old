@@ -46,7 +46,20 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TestUtil
 import|;
 end_import
 begin_comment
@@ -1103,7 +1116,7 @@ decl_stmt|;
 name|int
 name|length
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1144,7 +1157,7 @@ block|{
 name|int
 name|depth
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1195,7 +1208,7 @@ operator|+
 operator|(
 name|char
 operator|)
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1219,7 +1232,7 @@ argument_list|)
 expr_stmt|;
 name|position
 operator|+=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

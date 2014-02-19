@@ -29,15 +29,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Random
@@ -137,7 +128,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|UnicodeUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -150,7 +141,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|UnicodeUtil
 import|;
 end_import
 begin_import
@@ -294,7 +285,7 @@ block|{
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(

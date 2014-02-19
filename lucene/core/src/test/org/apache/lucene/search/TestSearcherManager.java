@@ -314,7 +314,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -364,7 +364,7 @@ name|PruneByAge
 argument_list|(
 name|TEST_NIGHTLY
 condition|?
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -671,7 +671,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -693,7 +693,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

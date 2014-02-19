@@ -46,7 +46,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -182,7 +182,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -199,7 +199,7 @@ specifier|final
 name|int
 name|size
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -385,7 +385,7 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -506,7 +506,7 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -608,7 +608,7 @@ block|{
 name|int
 name|datalen
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

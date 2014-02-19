@@ -159,7 +159,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -315,7 +315,7 @@ name|tokenizer
 argument_list|,
 name|DICTIONARY
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -400,7 +400,7 @@ argument_list|)
 argument_list|,
 name|DICTIONARY
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -493,7 +493,7 @@ name|tokenizer
 argument_list|,
 name|DICTIONARY
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -568,7 +568,7 @@ name|tokenizer
 argument_list|,
 name|DICTIONARY
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

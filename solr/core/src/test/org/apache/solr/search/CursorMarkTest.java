@@ -24,7 +24,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -1328,7 +1328,7 @@ if|if
 condition|(
 literal|0
 operator|==
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1393,7 +1393,7 @@ argument_list|()
 operator|.
 name|unmarshalSortValue
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -1423,7 +1423,7 @@ argument_list|()
 operator|.
 name|unmarshalSortValue
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -1451,7 +1451,7 @@ init|=
 operator|new
 name|byte
 index|[
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

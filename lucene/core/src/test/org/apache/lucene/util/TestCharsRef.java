@@ -84,7 +84,7 @@ block|{
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -217,7 +217,7 @@ name|char
 index|[]
 name|charArray
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -331,7 +331,7 @@ name|char
 index|[]
 name|charArray
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(

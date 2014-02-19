@@ -207,7 +207,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -217,15 +217,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
 import|;
 end_import
 begin_import
@@ -797,7 +788,7 @@ specifier|final
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(

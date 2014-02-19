@@ -229,7 +229,20 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -485,7 +498,7 @@ specifier|final
 name|int
 name|numTokens
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -578,7 +591,7 @@ name|newStringField
 argument_list|(
 literal|"string"
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -1225,7 +1238,7 @@ init|=
 operator|new
 name|SortField
 index|[
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1290,7 +1303,7 @@ specifier|final
 name|int
 name|numHits
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1794,7 +1807,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|_TestUtil
+name|TestUtil
 operator|.
 name|assertEquals
 argument_list|(

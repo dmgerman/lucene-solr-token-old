@@ -129,7 +129,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_comment
@@ -158,7 +158,7 @@ specifier|final
 name|File
 name|tmpDir
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -238,7 +238,7 @@ argument_list|()
 operator|.
 name|setMaxBufferedDocs
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -610,7 +610,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|rmDir
 argument_list|(

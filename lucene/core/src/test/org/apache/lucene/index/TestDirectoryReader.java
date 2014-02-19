@@ -127,21 +127,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|codecs
-operator|.
-name|lucene41
-operator|.
-name|Lucene41PostingsFormat
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|document
 operator|.
 name|Document
@@ -341,7 +326,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -775,7 +760,7 @@ expr_stmt|;
 name|DocsEnum
 name|td
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -833,7 +818,7 @@ argument_list|)
 expr_stmt|;
 name|td
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -2653,7 +2638,7 @@ block|{
 name|DocsEnum
 name|tdocs
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -3249,7 +3234,7 @@ comment|// Create initial data set
 name|File
 name|dirFile
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -3303,7 +3288,7 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// Try to erase the data - this ensures that the writer closed all files
-name|_TestUtil
+name|TestUtil
 operator|.
 name|rmDir
 argument_list|(
@@ -3392,7 +3377,7 @@ argument_list|()
 expr_stmt|;
 comment|// The following will fail if reader did not close
 comment|// all files
-name|_TestUtil
+name|TestUtil
 operator|.
 name|rmDir
 argument_list|(
@@ -3411,7 +3396,7 @@ block|{
 name|File
 name|dirFile
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -5213,14 +5198,14 @@ block|{
 name|File
 name|tempDir
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
 literal|"doesnotexist"
 argument_list|)
 decl_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|rmDir
 argument_list|(
@@ -7753,7 +7738,7 @@ block|{
 name|File
 name|tempDir
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(

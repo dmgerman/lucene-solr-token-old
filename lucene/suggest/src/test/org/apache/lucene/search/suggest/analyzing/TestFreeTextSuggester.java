@@ -76,15 +76,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -368,7 +359,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -561,7 +552,7 @@ comment|// Try again after save/load:
 name|File
 name|tmpDir
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -1672,7 +1663,7 @@ init|=
 operator|new
 name|String
 index|[
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1713,7 +1704,7 @@ block|{
 name|String
 name|token
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -1922,7 +1913,7 @@ block|}
 name|int
 name|grams
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2371,7 +2362,7 @@ init|=
 operator|new
 name|String
 index|[
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2441,7 +2432,7 @@ block|}
 name|int
 name|trimAt
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2491,7 +2482,7 @@ expr_stmt|;
 name|int
 name|num
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

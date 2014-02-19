@@ -421,7 +421,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -1094,7 +1094,7 @@ condition|)
 block|{
 name|text2
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -1202,7 +1202,7 @@ control|)
 block|{
 name|docID
 operator|+=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1274,7 +1274,7 @@ control|)
 block|{
 name|position
 operator|+=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1746,7 +1746,7 @@ control|)
 block|{
 name|docsEnum
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -2247,7 +2247,7 @@ name|config
 operator|.
 name|setCodec
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|alwaysPostingsFormat
 argument_list|(
@@ -3151,7 +3151,7 @@ name|term
 operator|.
 name|positions
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -3321,7 +3321,7 @@ name|term
 operator|.
 name|positions
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -3406,7 +3406,7 @@ specifier|final
 name|String
 name|text2
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -3770,7 +3770,7 @@ else|else
 block|{
 name|docs
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -3798,7 +3798,7 @@ literal|null
 expr_stmt|;
 name|docs
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(

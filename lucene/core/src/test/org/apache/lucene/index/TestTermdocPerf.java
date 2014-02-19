@@ -27,15 +27,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Random
@@ -185,7 +176,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -711,7 +702,7 @@ argument_list|)
 expr_stmt|;
 name|tdocs
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(

@@ -62,7 +62,7 @@ operator|>
 name|naturalComparator
 argument_list|()
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

@@ -835,7 +835,7 @@ argument_list|(
 operator|new
 name|Input
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -885,7 +885,7 @@ name|lookup
 operator|.
 name|get
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|bytesToCharSequence
 argument_list|(
@@ -996,7 +996,7 @@ name|lookup
 operator|.
 name|get
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|bytesToCharSequence
 argument_list|(
@@ -1023,7 +1023,7 @@ name|lookup
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|bytesToCharSequence
 argument_list|(
@@ -1364,7 +1364,7 @@ name|prefix
 parameter_list|)
 block|{
 return|return
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(

@@ -277,19 +277,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|store
-operator|.
-name|MockDirectoryWrapper
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|Bits
@@ -383,7 +370,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_comment
@@ -871,7 +858,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -903,7 +890,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1183,7 +1170,7 @@ name|docsList
 operator|.
 name|add
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|cloneDocument
 argument_list|(
@@ -1207,7 +1194,7 @@ specifier|final
 name|int
 name|maxDocCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1249,7 +1236,7 @@ name|docsList
 operator|.
 name|add
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|cloneDocument
 argument_list|(
@@ -2070,7 +2057,7 @@ specifier|final
 name|int
 name|numThreads
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2758,7 +2745,7 @@ specifier|final
 name|File
 name|tempDir
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -3170,7 +3157,7 @@ argument_list|,
 name|conf
 argument_list|)
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|reduceOpenFiles
 argument_list|(
@@ -3209,7 +3196,7 @@ specifier|final
 name|int
 name|NUM_INDEX_THREADS
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4174,7 +4161,7 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(
@@ -4186,7 +4173,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|rmDir
 argument_list|(

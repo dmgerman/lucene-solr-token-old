@@ -416,7 +416,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|ThreadInterruptedException
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -429,7 +429,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|ThreadInterruptedException
 import|;
 end_import
 begin_import
@@ -695,7 +695,7 @@ name|lastIndexGeneration
 operator|=
 name|newGeneration
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(
@@ -730,7 +730,7 @@ operator|=
 name|newTaxoReader
 expr_stmt|;
 block|}
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(
@@ -1252,7 +1252,7 @@ argument_list|()
 expr_stmt|;
 name|clientWorkDir
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -2305,7 +2305,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// verify index is fully consistent
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(
@@ -2317,7 +2317,7 @@ argument_list|)
 expr_stmt|;
 comment|// verify taxonomy index is fully consistent (since we only add one
 comment|// category to all documents, there's nothing much more to validate
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(

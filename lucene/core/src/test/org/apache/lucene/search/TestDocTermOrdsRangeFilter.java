@@ -203,7 +203,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|UnicodeUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -216,7 +216,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|UnicodeUtil
 import|;
 end_import
 begin_comment
@@ -319,7 +319,7 @@ argument_list|)
 operator|.
 name|setMaxBufferedDocs
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -428,7 +428,7 @@ block|{
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -687,7 +687,7 @@ init|=
 operator|new
 name|BytesRef
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -702,7 +702,7 @@ init|=
 operator|new
 name|BytesRef
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(

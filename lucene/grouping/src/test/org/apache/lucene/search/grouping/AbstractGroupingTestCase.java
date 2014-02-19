@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_comment
@@ -73,7 +73,7 @@ comment|// For that reason we don't generate empty string
 comment|// groups.
 name|randomValue
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(

@@ -137,7 +137,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -1607,7 +1607,7 @@ comment|// add a mix of f1's and f2's
 name|int
 name|numExtraDocs
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

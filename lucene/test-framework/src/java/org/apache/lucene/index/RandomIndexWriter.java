@@ -97,22 +97,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|IndexWriter
-import|;
-end_import
-begin_comment
-comment|// javadoc
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|Query
@@ -180,7 +164,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Version
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -193,7 +177,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|Version
 import|;
 end_import
 begin_comment
@@ -523,7 +507,7 @@ argument_list|)
 expr_stmt|;
 name|flushAt
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -819,7 +803,7 @@ argument_list|()
 expr_stmt|;
 name|flushAt
 operator|+=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1377,7 +1361,7 @@ specifier|final
 name|int
 name|limit
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

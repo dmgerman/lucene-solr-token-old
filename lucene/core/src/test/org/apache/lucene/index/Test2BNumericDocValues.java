@@ -102,7 +102,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|TimeUnits
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -115,7 +115,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TimeUnits
 import|;
 end_import
 begin_import
@@ -178,7 +178,7 @@ name|dir
 init|=
 name|newFSDirectory
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(

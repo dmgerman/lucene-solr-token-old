@@ -253,19 +253,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|store
-operator|.
-name|MockDirectoryWrapper
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|LuceneTestCase
@@ -281,7 +268,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_comment
@@ -311,7 +298,7 @@ comment|// we always run this test with pulsing codec.
 name|Codec
 name|cp
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|alwaysPostingsFormat
 argument_list|(
@@ -325,7 +312,7 @@ decl_stmt|;
 name|File
 name|f
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -397,7 +384,7 @@ argument_list|)
 decl_stmt|;
 switch|switch
 condition|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -594,7 +581,7 @@ argument_list|)
 expr_stmt|;
 name|de
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -642,7 +629,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(
@@ -668,7 +655,7 @@ comment|// we always run this test with pulsing codec.
 name|int
 name|freqCutoff
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -683,7 +670,7 @@ decl_stmt|;
 name|Codec
 name|cp
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|alwaysPostingsFormat
 argument_list|(
@@ -697,7 +684,7 @@ decl_stmt|;
 name|File
 name|f
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -769,7 +756,7 @@ argument_list|)
 decl_stmt|;
 switch|switch
 condition|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1015,7 +1002,7 @@ argument_list|)
 expr_stmt|;
 name|de
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -1063,7 +1050,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(

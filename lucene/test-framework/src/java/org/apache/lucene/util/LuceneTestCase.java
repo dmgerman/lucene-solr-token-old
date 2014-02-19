@@ -2298,7 +2298,7 @@ literal|2
 operator|)
 decl_stmt|;
 return|return
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2802,7 +2802,7 @@ block|{
 name|int
 name|maxThreadCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2817,7 +2817,7 @@ decl_stmt|;
 name|int
 name|maxMergeCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2876,7 +2876,7 @@ name|c
 operator|.
 name|setMaxBufferedDocs
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2896,7 +2896,7 @@ name|c
 operator|.
 name|setMaxBufferedDocs
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2926,7 +2926,7 @@ argument_list|(
 name|r
 argument_list|)
 condition|?
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2938,7 +2938,7 @@ literal|20
 argument_list|)
 comment|// crazy value
 else|:
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -3396,7 +3396,7 @@ name|logmp
 operator|.
 name|setMergeFactor
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -3415,7 +3415,7 @@ name|logmp
 operator|.
 name|setMergeFactor
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -3555,7 +3555,7 @@ name|tmp
 operator|.
 name|setMaxMergeAtOnce
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -3571,7 +3571,7 @@ name|tmp
 operator|.
 name|setMaxMergeAtOnceExplicit
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -3590,7 +3590,7 @@ name|tmp
 operator|.
 name|setMaxMergeAtOnce
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -3606,7 +3606,7 @@ name|tmp
 operator|.
 name|setMaxMergeAtOnceExplicit
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -3697,7 +3697,7 @@ name|tmp
 operator|.
 name|setSegmentsPerTier
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -3716,7 +3716,7 @@ name|tmp
 operator|.
 name|setSegmentsPerTier
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -5203,7 +5203,7 @@ specifier|final
 name|File
 name|dir
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -5767,7 +5767,7 @@ operator|.
 name|nextBoolean
 argument_list|()
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -5980,7 +5980,7 @@ comment|// TODO: not useful to check DirectoryReader (redundant with checkindex)
 comment|// but maybe sometimes run this on the other crazy readers maybeWrapReader creates?
 try|try
 block|{
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkReader
 argument_list|(
@@ -6071,7 +6071,7 @@ else|else
 block|{
 name|threads
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -6158,7 +6158,7 @@ name|IndexReader
 name|reader
 parameter_list|)
 block|{
-name|_TestUtil
+name|TestUtil
 operator|.
 name|shutdownExecutorService
 argument_list|(
@@ -9005,7 +9005,7 @@ argument_list|(
 operator|new
 name|BytesRef
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(

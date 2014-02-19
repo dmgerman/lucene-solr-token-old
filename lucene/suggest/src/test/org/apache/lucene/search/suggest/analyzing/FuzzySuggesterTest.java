@@ -364,7 +364,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -473,7 +473,7 @@ name|Input
 argument_list|(
 literal|"boo"
 operator|+
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -623,7 +623,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -738,7 +738,7 @@ name|Input
 argument_list|(
 literal|"Ð±ÑÑ"
 operator|+
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -884,7 +884,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -1037,7 +1037,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -1101,7 +1101,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -1165,7 +1165,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -1229,7 +1229,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -1326,7 +1326,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -1424,7 +1424,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -1490,7 +1490,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -1555,7 +1555,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -1653,7 +1653,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -1891,7 +1891,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -1956,7 +1956,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -2021,7 +2021,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -2183,7 +2183,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -4376,7 +4376,7 @@ block|{
 name|int
 name|numTokens
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4439,7 +4439,7 @@ comment|// TODO: would be nice to fix this slowCompletor/comparator to
 comment|// use full range, but we might lose some coverage too...
 name|s
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -4855,7 +4855,7 @@ specifier|final
 name|int
 name|topN
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4877,7 +4877,7 @@ name|suggester
 operator|.
 name|lookup
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|stringToCharSequence
 argument_list|(
@@ -6446,7 +6446,7 @@ specifier|final
 name|int
 name|len
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

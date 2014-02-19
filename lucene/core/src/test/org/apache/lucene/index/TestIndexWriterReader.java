@@ -314,7 +314,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|ThreadInterruptedException
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -327,7 +327,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|ThreadInterruptedException
 import|;
 end_import
 begin_import
@@ -382,7 +382,7 @@ decl_stmt|;
 name|DocsEnum
 name|td
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -2531,7 +2531,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|reduceOpenFiles
 argument_list|(
@@ -2599,7 +2599,7 @@ operator|==
 literal|0
 argument_list|)
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(
@@ -2788,7 +2788,7 @@ literal|2
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|reduceOpenFiles
 argument_list|(
@@ -4098,7 +4098,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(
@@ -4110,7 +4110,7 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(
@@ -4290,7 +4290,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(

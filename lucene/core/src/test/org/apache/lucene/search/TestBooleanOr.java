@@ -124,19 +124,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SerialMergeScheduler
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|Term
 import|;
 end_import
@@ -189,7 +176,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -1351,7 +1338,7 @@ specifier|final
 name|int
 name|inc
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

@@ -262,7 +262,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_comment
@@ -718,7 +718,7 @@ name|dir
 init|=
 name|newFSDirectory
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(

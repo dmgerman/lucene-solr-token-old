@@ -179,7 +179,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Version
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -192,7 +192,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|Version
 import|;
 end_import
 begin_import
@@ -202,15 +202,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
 import|;
 end_import
 begin_import
@@ -1361,7 +1352,7 @@ specifier|final
 name|int
 name|min
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1377,7 +1368,7 @@ specifier|final
 name|int
 name|max
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1659,7 +1650,7 @@ specifier|final
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -1689,7 +1680,7 @@ specifier|final
 name|int
 name|minGram
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1705,7 +1696,7 @@ specifier|final
 name|int
 name|maxGram
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

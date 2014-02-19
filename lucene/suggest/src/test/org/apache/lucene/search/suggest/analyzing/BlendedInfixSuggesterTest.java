@@ -155,7 +155,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -233,7 +233,7 @@ decl_stmt|;
 name|File
 name|tempDir
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -463,7 +463,7 @@ decl_stmt|;
 name|File
 name|tempDir
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -821,7 +821,7 @@ decl_stmt|;
 name|File
 name|tempDir
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -1175,7 +1175,7 @@ decl_stmt|;
 name|File
 name|tempDir
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(

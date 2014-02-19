@@ -124,7 +124,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -296,7 +296,7 @@ expr_stmt|;
 name|DocsEnum
 name|termDocs
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -401,7 +401,7 @@ expr_stmt|;
 name|DocsEnum
 name|termDocs
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -466,7 +466,7 @@ expr_stmt|;
 name|DocsEnum
 name|termDocs
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -668,7 +668,7 @@ decl_stmt|;
 name|DocsEnum
 name|tdocs
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -860,7 +860,7 @@ expr_stmt|;
 comment|// without next
 name|tdocs
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -985,7 +985,7 @@ comment|// exactly skipInterval documents and therefore with optimization
 comment|// with next
 name|tdocs
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -1199,7 +1199,7 @@ expr_stmt|;
 comment|// without next
 name|tdocs
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -1350,7 +1350,7 @@ comment|// much more than skipInterval documents and therefore with optimization
 comment|// with next
 name|tdocs
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -1588,7 +1588,7 @@ expr_stmt|;
 comment|//without next
 name|tdocs
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(

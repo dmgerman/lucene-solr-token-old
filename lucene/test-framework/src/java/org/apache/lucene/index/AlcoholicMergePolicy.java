@@ -78,7 +78,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_comment
@@ -133,7 +133,7 @@ name|calendar
 operator|.
 name|setTimeInMillis
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(
@@ -155,7 +155,7 @@ name|random
 expr_stmt|;
 name|maxMergeSize
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

@@ -412,7 +412,7 @@ specifier|final
 name|int
 name|numBits
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -576,7 +576,7 @@ literal|1000
 condition|;
 name|inc
 operator|+=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

@@ -66,7 +66,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -287,15 +287,6 @@ operator|.
 name|junit
 operator|.
 name|BeforeClass
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 begin_import
@@ -3305,7 +3296,7 @@ specifier|final
 name|int
 name|val
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

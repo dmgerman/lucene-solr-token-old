@@ -744,7 +744,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -1160,7 +1160,7 @@ argument_list|)
 operator|.
 name|setCodec
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|alwaysPostingsFormat
 argument_list|(
@@ -2283,7 +2283,7 @@ else|else
 block|{
 comment|// return a random unicode term
 return|return
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -2364,7 +2364,7 @@ decl_stmt|;
 name|DocsEnum
 name|disi
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(

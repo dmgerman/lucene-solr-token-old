@@ -181,24 +181,6 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|Lookup
-import|;
-end_import
-begin_comment
-comment|// javadocs
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|suggest
-operator|.
 name|analyzing
 operator|.
 name|AnalyzingInfixSuggester
@@ -969,7 +951,7 @@ name|AnalyzingInfixSuggester
 argument_list|(
 name|TEST_VERSION_CURRENT
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(

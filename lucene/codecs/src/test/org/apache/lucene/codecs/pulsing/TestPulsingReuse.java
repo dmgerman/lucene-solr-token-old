@@ -137,19 +137,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|CheckIndex
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|DirectoryReader
 import|;
 end_import
@@ -254,7 +241,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_comment
@@ -281,7 +268,7 @@ comment|// we always run this test with pulsing codec.
 name|Codec
 name|cp
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|alwaysPostingsFormat
 argument_list|(
@@ -552,7 +539,7 @@ comment|// we always run this test with pulsing codec.
 name|Codec
 name|cp
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|alwaysPostingsFormat
 argument_list|(

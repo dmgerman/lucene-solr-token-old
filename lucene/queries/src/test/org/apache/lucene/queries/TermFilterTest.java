@@ -245,7 +245,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -685,7 +685,7 @@ decl_stmt|;
 name|String
 name|string
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -967,7 +967,7 @@ decl_stmt|;
 name|String
 name|value1
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(

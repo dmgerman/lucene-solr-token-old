@@ -86,7 +86,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -1626,7 +1626,7 @@ name|MAX_CATEGORY_PATH_LENGTH
 decl_stmt|;
 name|bigComp
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(

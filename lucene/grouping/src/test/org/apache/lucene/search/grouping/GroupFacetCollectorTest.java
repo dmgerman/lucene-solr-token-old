@@ -238,7 +238,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -3055,7 +3055,7 @@ decl_stmt|;
 name|int
 name|numberOfRuns
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4009,7 +4009,7 @@ specifier|final
 name|int
 name|numDocs
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4026,7 +4026,7 @@ specifier|final
 name|int
 name|numGroups
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4043,7 +4043,7 @@ specifier|final
 name|int
 name|numFacets
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4157,7 +4157,7 @@ init|=
 operator|new
 name|String
 index|[
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

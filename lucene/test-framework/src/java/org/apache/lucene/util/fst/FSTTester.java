@@ -234,7 +234,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|UnicodeUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -247,7 +247,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|UnicodeUtil
 import|;
 end_import
 begin_import
@@ -650,7 +650,7 @@ condition|)
 block|{
 name|term
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -741,7 +741,7 @@ operator|=
 operator|(
 name|char
 operator|)
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1155,7 +1155,7 @@ block|{
 comment|// simple pruning
 name|doTest
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1181,7 +1181,7 @@ name|doTest
 argument_list|(
 literal|0
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1799,7 +1799,7 @@ literal|true
 argument_list|,
 name|allowRandomSuffixSharing
 condition|?
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2805,7 +2805,7 @@ block|{
 name|Long
 name|v
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextLong
 argument_list|(

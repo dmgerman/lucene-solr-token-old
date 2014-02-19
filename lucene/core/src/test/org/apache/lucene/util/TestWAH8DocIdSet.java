@@ -81,7 +81,7 @@ specifier|final
 name|int
 name|indexInterval
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -210,7 +210,7 @@ specifier|final
 name|int
 name|numBits
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -228,7 +228,7 @@ specifier|final
 name|int
 name|numDocIdSets
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -416,7 +416,7 @@ specifier|final
 name|int
 name|numBits
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -434,7 +434,7 @@ specifier|final
 name|int
 name|numDocIdSets
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

@@ -294,7 +294,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -4365,7 +4365,7 @@ block|{
 name|int
 name|numShards
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -4382,7 +4382,7 @@ decl_stmt|;
 name|int
 name|replicationFactor
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -6025,7 +6025,7 @@ decl_stmt|;
 name|int
 name|numShards
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -6044,7 +6044,7 @@ decl_stmt|;
 name|int
 name|replicationFactor
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

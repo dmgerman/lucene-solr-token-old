@@ -146,7 +146,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -492,7 +492,7 @@ expr_stmt|;
 name|DocsEnum
 name|td
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(

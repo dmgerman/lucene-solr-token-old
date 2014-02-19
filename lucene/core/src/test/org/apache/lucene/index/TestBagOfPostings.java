@@ -184,7 +184,20 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TestUtil
 import|;
 end_import
 begin_comment
@@ -241,7 +254,7 @@ specifier|final
 name|int
 name|maxTermsPerDoc
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -260,7 +273,7 @@ literal|"SimpleText"
 operator|.
 name|equals
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getPostingsFormat
 argument_list|(
@@ -422,7 +435,7 @@ name|dir
 init|=
 name|newFSDirectory
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -448,7 +461,7 @@ decl_stmt|;
 name|int
 name|threadCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

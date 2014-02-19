@@ -29,15 +29,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|StringReader
 import|;
 end_import
@@ -679,7 +670,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|ThreadInterruptedException
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -692,7 +683,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|ThreadInterruptedException
 import|;
 end_import
 begin_import
@@ -2434,7 +2425,7 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|syncConcurrentMerges
 argument_list|(
@@ -2889,7 +2880,7 @@ name|j
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|syncConcurrentMerges
 argument_list|(
@@ -4158,7 +4149,7 @@ expr_stmt|;
 name|DocsEnum
 name|td
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -7997,7 +7988,7 @@ block|}
 block|}
 try|try
 block|{
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(
@@ -8996,7 +8987,7 @@ expr_stmt|;
 comment|// test that the terms were indexed.
 name|assertTrue
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -9032,7 +9023,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -9068,7 +9059,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -9104,7 +9095,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -9140,7 +9131,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -9176,7 +9167,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -10001,7 +9992,7 @@ name|dir
 init|=
 name|newFSDirectory
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -10828,7 +10819,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(
@@ -11974,7 +11965,7 @@ name|d
 init|=
 name|newFSDirectory
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -13501,7 +13492,7 @@ name|dir
 init|=
 name|newFSDirectory
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|getTempDir
 argument_list|(
@@ -14305,7 +14296,7 @@ name|newField
 argument_list|(
 literal|"foo"
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(

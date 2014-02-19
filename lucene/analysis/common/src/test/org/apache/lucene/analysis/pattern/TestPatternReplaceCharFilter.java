@@ -162,7 +162,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -1737,7 +1737,7 @@ specifier|final
 name|Pattern
 name|p
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomPattern
 argument_list|(
@@ -1749,7 +1749,7 @@ specifier|final
 name|String
 name|replacement
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(

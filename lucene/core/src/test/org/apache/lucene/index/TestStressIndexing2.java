@@ -1183,7 +1183,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(
@@ -1520,7 +1520,7 @@ expr_stmt|;
 block|}
 block|}
 comment|//System.out.println("TEST: checkindex");
-name|_TestUtil
+name|TestUtil
 operator|.
 name|checkIndex
 argument_list|(
@@ -2230,7 +2230,7 @@ condition|)
 block|{
 name|docs
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -2324,7 +2324,7 @@ break|break;
 block|}
 name|termDocs1
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -2354,7 +2354,7 @@ condition|)
 block|{
 name|termDocs2
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -2816,7 +2816,7 @@ else|else
 block|{
 name|dEnum
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -3096,7 +3096,7 @@ else|else
 block|{
 name|dEnum
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -3377,7 +3377,7 @@ block|}
 comment|//System.out.println("TEST: term1=" + term1);
 name|docs1
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -3545,7 +3545,7 @@ block|}
 comment|//System.out.println("TEST: term1=" + term1);
 name|docs2
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -4426,7 +4426,7 @@ else|else
 block|{
 name|dEnum1
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(
@@ -4446,7 +4446,7 @@ argument_list|)
 expr_stmt|;
 name|dEnum2
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|docs
 argument_list|(

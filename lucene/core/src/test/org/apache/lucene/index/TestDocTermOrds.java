@@ -262,7 +262,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_comment
@@ -656,7 +656,7 @@ specifier|final
 name|String
 name|s
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -756,7 +756,7 @@ comment|// Make sure terms index has ords:
 name|Codec
 name|codec
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|alwaysPostingsFormat
 argument_list|(
@@ -863,7 +863,7 @@ specifier|final
 name|int
 name|termCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1202,7 +1202,7 @@ specifier|final
 name|int
 name|numPrefix
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -1247,7 +1247,7 @@ name|prefixes
 operator|.
 name|add
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -1327,7 +1327,7 @@ name|length
 argument_list|)
 index|]
 operator|+
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -1426,7 +1426,7 @@ block|{
 name|Codec
 name|codec
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|alwaysPostingsFormat
 argument_list|(
@@ -1533,7 +1533,7 @@ specifier|final
 name|int
 name|termCount
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
@@ -2041,7 +2041,7 @@ name|Integer
 operator|.
 name|MAX_VALUE
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|nextInt
 argument_list|(

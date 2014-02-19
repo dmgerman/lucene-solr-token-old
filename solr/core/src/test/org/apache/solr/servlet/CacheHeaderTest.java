@@ -130,7 +130,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 begin_import
@@ -1499,7 +1499,7 @@ block|{
 name|File
 name|f
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|createTempFile
 argument_list|(
