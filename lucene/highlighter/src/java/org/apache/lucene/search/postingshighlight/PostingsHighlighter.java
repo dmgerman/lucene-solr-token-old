@@ -1855,24 +1855,6 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// reuse in the real sense... for docs in same segment we just advance our old enum
-name|DocsAndPositionsEnum
-name|postings
-index|[]
-init|=
-literal|null
-decl_stmt|;
-name|TermsEnum
-name|termsEnum
-init|=
-literal|null
-decl_stmt|;
-name|int
-name|lastLeaf
-init|=
-operator|-
-literal|1
-decl_stmt|;
 name|PassageFormatter
 name|fieldFormatter
 init|=
@@ -1896,7 +1878,7 @@ literal|"PassageFormatter cannot be null"
 argument_list|)
 throw|;
 block|}
-comment|// check if we should do any multitermprocessing
+comment|// check if we should do any multiterm processing
 name|Analyzer
 name|analyzer
 init|=
@@ -1934,11 +1916,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-specifier|final
-name|BytesRef
-name|allTerms
-index|[]
-decl_stmt|;
+comment|// resize 'terms', where the last term is the multiterm matcher
 if|if
 condition|(
 name|automata
@@ -1948,8 +1926,10 @@ operator|>
 literal|0
 condition|)
 block|{
-name|allTerms
-operator|=
+name|BytesRef
+name|newTerms
+index|[]
+init|=
 operator|new
 name|BytesRef
 index|[
@@ -1959,7 +1939,7 @@ name|length
 operator|+
 literal|1
 index|]
-expr_stmt|;
+decl_stmt|;
 name|System
 operator|.
 name|arraycopy
@@ -1968,7 +1948,7 @@ name|terms
 argument_list|,
 literal|0
 argument_list|,
-name|allTerms
+name|newTerms
 argument_list|,
 literal|0
 argument_list|,
@@ -1977,14 +1957,30 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|allTerms
-operator|=
 name|terms
+operator|=
+name|newTerms
 expr_stmt|;
 block|}
+comment|// we are processing in increasing docid order, so we only need to reinitialize stuff on segment changes
+comment|// otherwise, we will just advance() existing enums to the new document in the same segment.
+name|DocsAndPositionsEnum
+name|postings
+index|[]
+init|=
+literal|null
+decl_stmt|;
+name|TermsEnum
+name|termsEnum
+init|=
+literal|null
+decl_stmt|;
+name|int
+name|lastLeaf
+init|=
+operator|-
+literal|1
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -2068,6 +2064,20 @@ operator|.
 name|reader
 argument_list|()
 decl_stmt|;
+assert|assert
+name|leaf
+operator|>=
+name|lastLeaf
+assert|;
+comment|// increasing order
+comment|// if the segment has changed, we must initialize new enums.
+if|if
+condition|(
+name|leaf
+operator|!=
+name|lastLeaf
+condition|)
+block|{
 name|Terms
 name|t
 init|=
@@ -2081,18 +2091,8 @@ decl_stmt|;
 if|if
 condition|(
 name|t
-operator|==
-literal|null
-condition|)
-block|{
-continue|continue;
-comment|// nothing to do
-block|}
-if|if
-condition|(
-name|leaf
 operator|!=
-name|lastLeaf
+literal|null
 condition|)
 block|{
 name|termsEnum
@@ -2109,12 +2109,24 @@ operator|=
 operator|new
 name|DocsAndPositionsEnum
 index|[
-name|allTerms
+name|terms
 operator|.
 name|length
 index|]
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|termsEnum
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+comment|// no terms for this field, nothing to do
+block|}
+comment|// if there are multi-term matches, we have to initialize the "fake" enum for each document
 if|if
 condition|(
 name|automata
@@ -2159,10 +2171,13 @@ index|[
 name|terms
 operator|.
 name|length
+operator|-
+literal|1
 index|]
 operator|=
 name|dp
 expr_stmt|;
+comment|// last term is the multiterm matcher
 block|}
 name|Passage
 name|passages
@@ -2172,7 +2187,7 @@ name|highlightDoc
 argument_list|(
 name|field
 argument_list|,
-name|allTerms
+name|terms
 argument_list|,
 name|content
 operator|.
@@ -2203,6 +2218,7 @@ operator|==
 literal|0
 condition|)
 block|{
+comment|// no passages were returned, so ask for a default summary
 name|passages
 operator|=
 name|getEmptyHighlight
@@ -2224,8 +2240,6 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|// otherwise a null snippet (eg if field is missing
-comment|// entirely from the doc)
 name|highlights
 operator|.
 name|put
