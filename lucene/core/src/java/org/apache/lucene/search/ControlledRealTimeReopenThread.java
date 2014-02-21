@@ -305,9 +305,7 @@ name|didRefresh
 parameter_list|)
 block|{
 name|refreshDone
-argument_list|(
-name|didRefresh
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -316,10 +314,7 @@ specifier|private
 specifier|synchronized
 name|void
 name|refreshDone
-parameter_list|(
-name|boolean
-name|didRefresh
-parameter_list|)
+parameter_list|()
 block|{
 name|searchingGen
 operator|=
@@ -472,6 +467,16 @@ operator|>
 name|searchingGen
 condition|)
 block|{
+comment|// Notify the reopen thread that the waitingGen has
+comment|// changed, so it may wake up and realize it should
+comment|// not sleep for much or any longer before reopening:
+name|reopenLock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+comment|// Need to find waitingGen inside lock as its used to determine
+comment|// stale time
 name|waitingGen
 operator|=
 name|Math
@@ -482,14 +487,6 @@ name|waitingGen
 argument_list|,
 name|targetGen
 argument_list|)
-expr_stmt|;
-comment|// Notify the reopen thread that the waitingGen has
-comment|// changed, so it may wake up and realize it should
-comment|// not sleep for much or any longer before reopening:
-name|reopenLock
-operator|.
-name|lock
-argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -541,7 +538,6 @@ name|long
 name|msLeft
 init|=
 operator|(
-operator|(
 name|startMS
 operator|+
 name|maxMS
@@ -555,7 +551,6 @@ argument_list|()
 operator|)
 operator|/
 literal|1000000
-operator|)
 decl_stmt|;
 if|if
 condition|(
@@ -618,6 +613,14 @@ operator|!
 name|finish
 condition|)
 block|{
+comment|// Need lock before finding out if has waiting
+name|reopenLock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+try|try
+block|{
 comment|// True if we have someone waiting for reopened searcher:
 name|boolean
 name|hasWaiting
@@ -658,13 +661,6 @@ operator|>
 literal|0
 condition|)
 block|{
-name|reopenLock
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
-try|try
-block|{
 name|reopenCond
 operator|.
 name|awaitNanos
@@ -672,6 +668,11 @@ argument_list|(
 name|sleepNS
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+break|break;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -696,11 +697,6 @@ operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-break|break;
 block|}
 block|}
 if|if
