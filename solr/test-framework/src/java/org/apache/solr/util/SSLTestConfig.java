@@ -249,7 +249,7 @@ name|TEST_KEYSTORE
 init|=
 name|ExternalPaths
 operator|.
-name|SOURCE_HOME
+name|EXAMPLE_HOME
 operator|==
 literal|null
 condition|?
@@ -260,9 +260,9 @@ name|File
 argument_list|(
 name|ExternalPaths
 operator|.
-name|SOURCE_HOME
+name|EXAMPLE_HOME
 argument_list|,
-literal|"example/etc/solrtest.keystore"
+literal|"../etc/solrtest.keystore"
 argument_list|)
 decl_stmt|;
 DECL|field|TEST_KEYSTORE_PATH

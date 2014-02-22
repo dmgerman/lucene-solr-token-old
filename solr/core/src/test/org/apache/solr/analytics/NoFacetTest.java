@@ -95,7 +95,7 @@ specifier|static
 name|String
 name|fileName
 init|=
-literal|"core/src/test-files/analytics/requestFiles/noFacets.txt"
+literal|"/analytics/requestFiles/noFacets.txt"
 decl_stmt|;
 DECL|field|INT
 specifier|static
@@ -828,6 +828,10 @@ name|request
 argument_list|(
 name|fileToStringArr
 argument_list|(
+name|NoFacetTest
+operator|.
+name|class
+argument_list|,
 name|fileName
 argument_list|)
 argument_list|)
