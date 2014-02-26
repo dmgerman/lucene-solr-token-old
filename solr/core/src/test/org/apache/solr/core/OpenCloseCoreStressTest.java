@@ -144,6 +144,21 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|BadApple
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|SolrTestCaseJ4
@@ -302,6 +317,8 @@ begin_comment
 comment|/**  * Incorporate the open/close stress tests into unit tests.  */
 end_comment
 begin_class
+annotation|@
+name|BadApple
 DECL|class|OpenCloseCoreStressTest
 specifier|public
 class|class
