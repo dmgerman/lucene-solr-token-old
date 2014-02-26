@@ -5488,8 +5488,6 @@ string|"'solr'"
 op|')'
 newline|'\n'
 nl|'\n'
-comment|'# DISABLED until solr tests consistently pass'
-nl|'\n'
 name|'print'
 op|'('
 string|'"    run tests w/ Java 7 and testArgs=\'%s\'..."'
