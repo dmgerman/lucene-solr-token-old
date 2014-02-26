@@ -24,6 +24,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|SolrTestCaseJ4
+operator|.
+name|SuppressSSL
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|client
 operator|.
 name|solrj
@@ -123,6 +136,8 @@ begin_comment
 comment|/**  * A subclass of SolrExampleTests that explicitly uses the binary   * codec for communication.   */
 end_comment
 begin_class
+annotation|@
+name|SuppressSSL
 DECL|class|SolrExampleBinaryTest
 specifier|public
 class|class
