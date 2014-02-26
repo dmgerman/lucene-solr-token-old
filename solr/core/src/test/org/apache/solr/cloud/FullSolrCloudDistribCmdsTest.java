@@ -387,8 +387,6 @@ name|Slow
 annotation|@
 name|SuppressSSL
 comment|// No SSL for now - it can be too slow
-annotation|@
-name|BadApple
 DECL|class|FullSolrCloudDistribCmdsTest
 specifier|public
 class|class
