@@ -102,7 +102,7 @@ name|stream
 operator|=
 name|tokenFilterFactory
 argument_list|(
-literal|"Hunspell2Stem"
+literal|"HunspellStem"
 argument_list|,
 literal|"dictionary"
 argument_list|,
@@ -144,7 +144,7 @@ try|try
 block|{
 name|tokenFilterFactory
 argument_list|(
-literal|"Hunspell2Stem"
+literal|"HunspellStem"
 argument_list|,
 literal|"dictionary"
 argument_list|,
