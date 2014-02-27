@@ -517,8 +517,6 @@ operator|.
 name|numberOfLeadingZeros
 argument_list|(
 name|maxIndexEntry
-operator|-
-literal|1
 argument_list|)
 operator|)
 expr_stmt|;
