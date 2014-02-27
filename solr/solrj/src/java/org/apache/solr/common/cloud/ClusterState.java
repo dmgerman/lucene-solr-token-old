@@ -972,7 +972,7 @@ name|String
 name|getShardId
 parameter_list|(
 name|String
-name|baseUrl
+name|nodeName
 parameter_list|,
 name|String
 name|coreName
@@ -1014,7 +1014,7 @@ control|)
 block|{
 comment|// TODO: for really large clusters, we could 'index' on this
 name|String
-name|rbaseUrl
+name|rnodeName
 init|=
 name|replica
 operator|.
@@ -1022,7 +1022,7 @@ name|getStr
 argument_list|(
 name|ZkStateReader
 operator|.
-name|BASE_URL_PROP
+name|NODE_NAME_PROP
 argument_list|)
 decl_stmt|;
 name|String
@@ -1039,11 +1039,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|baseUrl
+name|nodeName
 operator|.
 name|equals
 argument_list|(
-name|rbaseUrl
+name|rnodeName
 argument_list|)
 operator|&&
 name|coreName
