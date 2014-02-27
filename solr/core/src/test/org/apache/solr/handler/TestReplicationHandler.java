@@ -731,7 +731,7 @@ annotation|@
 name|Slow
 annotation|@
 name|SuppressSSL
-comment|// does not work yet with SSL
+comment|// Currently unknown why SSL does not work with this test
 DECL|class|TestReplicationHandler
 specifier|public
 class|class
