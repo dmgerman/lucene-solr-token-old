@@ -662,9 +662,6 @@ decl_stmt|;
 name|InputIterator
 name|inputIterator
 init|=
-operator|(
-name|InputIterator
-operator|)
 name|dictionary
 operator|.
 name|getEntryIterator
@@ -864,9 +861,6 @@ decl_stmt|;
 name|InputIterator
 name|inputIterator
 init|=
-operator|(
-name|InputIterator
-operator|)
 name|dictionary
 operator|.
 name|getEntryIterator
@@ -1181,9 +1175,6 @@ decl_stmt|;
 name|InputIterator
 name|inputIterator
 init|=
-operator|(
-name|InputIterator
-operator|)
 name|dictionary
 operator|.
 name|getEntryIterator
@@ -1655,9 +1646,6 @@ decl_stmt|;
 name|InputIterator
 name|inputIterator
 init|=
-operator|(
-name|InputIterator
-operator|)
 name|dictionary
 operator|.
 name|getEntryIterator
@@ -1927,9 +1915,6 @@ decl_stmt|;
 name|InputIterator
 name|inputIterator
 init|=
-operator|(
-name|InputIterator
-operator|)
 name|dictionary
 operator|.
 name|getEntryIterator

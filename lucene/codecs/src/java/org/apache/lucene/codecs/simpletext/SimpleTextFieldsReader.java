@@ -3871,9 +3871,6 @@ block|}
 block|}
 name|docCount
 operator|=
-operator|(
-name|int
-operator|)
 name|visitedDocs
 operator|.
 name|cardinality

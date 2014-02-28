@@ -1320,6 +1320,8 @@ parameter_list|,
 name|int
 name|num
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|List
 argument_list|<
