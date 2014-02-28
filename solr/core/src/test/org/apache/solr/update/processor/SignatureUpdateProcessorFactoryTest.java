@@ -49,6 +49,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|SolrTestCaseJ4
@@ -331,20 +344,15 @@ parameter_list|()
 block|{
 name|assumeFalse
 argument_list|(
-literal|"FIXME: SOLR-5793: This test fails under J9"
+literal|"FIXME: SOLR-5793: This test fails under IBM J9"
 argument_list|,
-name|System
+name|Constants
 operator|.
-name|getProperty
-argument_list|(
-literal|"java.vm.info"
-argument_list|,
-literal|"<?>"
-argument_list|)
+name|JAVA_VENDOR
 operator|.
-name|contains
+name|startsWith
 argument_list|(
-literal|"IBM J9"
+literal|"IBM"
 argument_list|)
 argument_list|)
 expr_stmt|;
