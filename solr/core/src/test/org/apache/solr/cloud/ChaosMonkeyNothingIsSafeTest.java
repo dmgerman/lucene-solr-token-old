@@ -327,6 +327,15 @@ name|ChaosMonkeyNothingIsSafeTest
 extends|extends
 name|AbstractFullDistribZkTestBase
 block|{
+DECL|field|FAIL_TOLERANCE
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FAIL_TOLERANCE
+init|=
+literal|20
+decl_stmt|;
 DECL|field|log
 specifier|public
 specifier|static
@@ -1134,7 +1143,7 @@ operator|.
 name|getFailCount
 argument_list|()
 operator|>
-literal|10
+name|FAIL_TOLERANCE
 argument_list|)
 expr_stmt|;
 block|}
