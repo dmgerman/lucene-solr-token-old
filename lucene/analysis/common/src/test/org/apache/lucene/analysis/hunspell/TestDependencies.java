@@ -83,7 +83,13 @@ argument_list|,
 literal|"drink"
 argument_list|)
 expr_stmt|;
-comment|// TODO: BUG! assertStemsTo("drinkables", "drink");
+name|assertStemsTo
+argument_list|(
+literal|"drinkables"
+argument_list|,
+literal|"drink"
+argument_list|)
+expr_stmt|;
 name|assertStemsTo
 argument_list|(
 literal|"undrinkable"
@@ -91,13 +97,23 @@ argument_list|,
 literal|"drink"
 argument_list|)
 expr_stmt|;
-comment|// TODO: BUG! assertStemsTo("undrinkables", "drink");
+name|assertStemsTo
+argument_list|(
+literal|"undrinkables"
+argument_list|,
+literal|"drink"
+argument_list|)
+expr_stmt|;
 name|assertStemsTo
 argument_list|(
 literal|"undrink"
 argument_list|)
 expr_stmt|;
-comment|// TODO: BUG! assertStemsTo("undrinks");
+name|assertStemsTo
+argument_list|(
+literal|"undrinks"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
