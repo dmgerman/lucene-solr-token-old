@@ -45,7 +45,7 @@ name|void
 name|execute
 parameter_list|()
 throws|throws
-name|InterruptedException
+name|Throwable
 function_decl|;
 block|}
 DECL|method|retryOnThrowable
@@ -67,7 +67,7 @@ name|RetryCmd
 name|cmd
 parameter_list|)
 throws|throws
-name|InterruptedException
+name|Throwable
 block|{
 name|long
 name|timeout

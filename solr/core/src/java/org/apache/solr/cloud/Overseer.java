@@ -7422,6 +7422,16 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+DECL|method|getZkStateReader
+specifier|public
+name|ZkStateReader
+name|getZkStateReader
+parameter_list|()
+block|{
+return|return
+name|reader
+return|;
+block|}
 block|}
 end_class
 end_unit
