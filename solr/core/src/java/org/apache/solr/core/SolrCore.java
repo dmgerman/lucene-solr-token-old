@@ -7285,12 +7285,13 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// if this is a request for a realtime searcher, just return the same searcher if there haven't been any changes.
+comment|// the underlying index has not changed at all
 if|if
 condition|(
 name|realtime
 condition|)
 block|{
+comment|// if this is a request for a realtime searcher, just return the same searcher
 name|newestSearcher
 operator|.
 name|incref
@@ -7300,6 +7301,48 @@ return|return
 name|newestSearcher
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|newestSearcher
+operator|.
+name|get
+argument_list|()
+operator|.
+name|getSchema
+argument_list|()
+operator|==
+name|getLatestSchema
+argument_list|()
+condition|)
+block|{
+comment|// absolutely nothing has changed, can use the same searcher
+comment|// but log a message about it to minimize confusion
+name|newestSearcher
+operator|.
+name|incref
+argument_list|()
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"SolrIndexSearcher has not changed - not re-opening: "
+operator|+
+name|newestSearcher
+operator|.
+name|get
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|newestSearcher
+return|;
+block|}
+comment|// ELSE: open a new searcher against the old reader...
 name|currentReader
 operator|.
 name|incRef
@@ -7310,7 +7353,25 @@ operator|=
 name|currentReader
 expr_stmt|;
 block|}
-comment|// for now, turn off caches if this is for a realtime reader (caches take a little while to instantiate)
+comment|// for now, turn off caches if this is for a realtime reader
+comment|// (caches take a little while to instantiate)
+specifier|final
+name|boolean
+name|useCaches
+init|=
+operator|!
+name|realtime
+decl_stmt|;
+specifier|final
+name|String
+name|newName
+init|=
+name|realtime
+condition|?
+literal|"realtime"
+else|:
+literal|"main"
+decl_stmt|;
 name|tmp
 operator|=
 operator|new
@@ -7328,20 +7389,13 @@ argument_list|()
 operator|.
 name|indexConfig
 argument_list|,
-operator|(
-name|realtime
-condition|?
-literal|"realtime"
-else|:
-literal|"main"
-operator|)
+name|newName
 argument_list|,
 name|newReader
 argument_list|,
 literal|true
 argument_list|,
-operator|!
-name|realtime
+name|useCaches
 argument_list|,
 literal|true
 argument_list|,
@@ -8044,6 +8098,14 @@ name|future
 init|=
 literal|null
 decl_stmt|;
+comment|// if the underlying seracher has not changed, no warming is needed
+if|if
+condition|(
+name|newSearcher
+operator|!=
+name|currSearcher
+condition|)
+block|{
 comment|// warm the new searcher based on the current searcher.
 comment|// should this go before the other event handlers or after?
 if|if
@@ -8307,6 +8369,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// WARNING: this code assumes a single threaded executor (that all tasks
 comment|// queued will finish first).
