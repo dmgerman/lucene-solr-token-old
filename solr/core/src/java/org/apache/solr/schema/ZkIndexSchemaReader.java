@@ -156,6 +156,17 @@ operator|.
 name|ByteArrayInputStream
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
 begin_comment
 comment|/** Keeps a ManagedIndexSchema up-to-date when changes are made to the serialized managed schema in ZooKeeper */
 end_comment
@@ -573,7 +584,7 @@ name|start
 init|=
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 decl_stmt|;
 name|InputSource
@@ -616,7 +627,7 @@ name|stop
 init|=
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 decl_stmt|;
 name|log
@@ -625,11 +636,20 @@ name|info
 argument_list|(
 literal|"Finished refreshing schema in "
 operator|+
-operator|(
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+operator|.
+name|convert
+argument_list|(
 name|stop
 operator|-
 name|start
-operator|)
+argument_list|,
+name|TimeUnit
+operator|.
+name|NANOSECONDS
+argument_list|)
 operator|+
 literal|" ms"
 argument_list|)
