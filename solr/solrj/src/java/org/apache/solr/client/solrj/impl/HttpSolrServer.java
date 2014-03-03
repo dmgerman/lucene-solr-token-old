@@ -776,6 +776,7 @@ decl_stmt|;
 comment|/**    * The URL of the Solr server.    */
 DECL|field|baseUrl
 specifier|protected
+specifier|volatile
 name|String
 name|baseUrl
 decl_stmt|;
@@ -811,6 +812,7 @@ name|httpClient
 decl_stmt|;
 DECL|field|followRedirects
 specifier|private
+specifier|volatile
 name|boolean
 name|followRedirects
 init|=
@@ -818,6 +820,7 @@ literal|false
 decl_stmt|;
 DECL|field|maxRetries
 specifier|private
+specifier|volatile
 name|int
 name|maxRetries
 init|=
@@ -825,6 +828,7 @@ literal|0
 decl_stmt|;
 DECL|field|useMultiPartPost
 specifier|private
+specifier|volatile
 name|boolean
 name|useMultiPartPost
 decl_stmt|;
@@ -836,6 +840,7 @@ name|internalClient
 decl_stmt|;
 DECL|field|queryParams
 specifier|private
+specifier|volatile
 name|Set
 argument_list|<
 name|String
