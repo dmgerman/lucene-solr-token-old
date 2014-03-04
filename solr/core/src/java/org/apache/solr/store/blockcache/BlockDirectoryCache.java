@@ -49,6 +49,9 @@ operator|.
 name|AtomicInteger
 import|;
 end_import
+begin_comment
+comment|/**  * @lucene.experimental  */
+end_comment
 begin_class
 DECL|class|BlockDirectoryCache
 specifier|public
@@ -59,6 +62,7 @@ name|Cache
 block|{
 DECL|field|blockCache
 specifier|private
+specifier|final
 name|BlockCache
 name|blockCache
 decl_stmt|;
@@ -90,6 +94,11 @@ name|Integer
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|path
+specifier|private
+name|String
+name|path
+decl_stmt|;
 DECL|field|metrics
 specifier|private
 name|Metrics
@@ -101,6 +110,9 @@ name|BlockDirectoryCache
 parameter_list|(
 name|BlockCache
 name|blockCache
+parameter_list|,
+name|String
+name|path
 parameter_list|,
 name|Metrics
 name|metrics
@@ -114,10 +126,27 @@ name|blockCache
 expr_stmt|;
 name|this
 operator|.
+name|path
+operator|=
+name|path
+expr_stmt|;
+name|this
+operator|.
 name|metrics
 operator|=
 name|metrics
 expr_stmt|;
+block|}
+comment|/**    * Expert: mostly for tests    *     * @lucene.experimental    */
+DECL|method|getBlockCache
+specifier|public
+name|BlockCache
+name|getBlockCache
+parameter_list|()
+block|{
+return|return
+name|blockCache
+return|;
 block|}
 annotation|@
 name|Override
@@ -208,6 +237,13 @@ argument_list|()
 decl_stmt|;
 name|blockCacheKey
 operator|.
+name|setPath
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
+name|blockCacheKey
+operator|.
 name|setBlock
 argument_list|(
 name|blockId
@@ -291,6 +327,13 @@ operator|new
 name|BlockCacheKey
 argument_list|()
 decl_stmt|;
+name|blockCacheKey
+operator|.
+name|setPath
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
 name|blockCacheKey
 operator|.
 name|setBlock

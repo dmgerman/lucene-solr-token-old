@@ -333,6 +333,10 @@ operator|=
 operator|new
 name|StopableIndexingThread
 argument_list|(
+name|controlClient
+argument_list|,
+name|cloudClient
+argument_list|,
 literal|"1"
 argument_list|,
 literal|true
@@ -350,6 +354,10 @@ operator|=
 operator|new
 name|StopableIndexingThread
 argument_list|(
+name|controlClient
+argument_list|,
+name|cloudClient
+argument_list|,
 literal|"2"
 argument_list|,
 literal|true
@@ -486,7 +494,7 @@ argument_list|)
 expr_stmt|;
 name|waitForThingsToLevelOut
 argument_list|(
-literal|45
+literal|90
 argument_list|)
 expr_stmt|;
 name|Thread
