@@ -1146,23 +1146,12 @@ parameter_list|(
 name|AtomicReaderContext
 name|context
 parameter_list|,
-name|boolean
-name|scoreDocsInOrder
-parameter_list|,
-name|boolean
-name|topScorer
-parameter_list|,
 name|Bits
 name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// Pass true for "scoresDocsInOrder", because we
-comment|// require in-order scoring, even if caller does not,
-comment|// since we call advance on the valSrcScorers.  Pass
-comment|// false for "topScorer" because we will not invoke
-comment|// score(Collector) on these scorers:
 name|Scorer
 name|subQueryScorer
 init|=
@@ -1171,10 +1160,6 @@ operator|.
 name|scorer
 argument_list|(
 name|context
-argument_list|,
-literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|acceptDocs
 argument_list|)
@@ -1232,10 +1217,6 @@ operator|.
 name|scorer
 argument_list|(
 name|context
-argument_list|,
-literal|true
-argument_list|,
-name|topScorer
 argument_list|,
 name|acceptDocs
 argument_list|)

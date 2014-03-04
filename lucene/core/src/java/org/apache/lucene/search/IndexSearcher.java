@@ -2238,12 +2238,12 @@ comment|// there is no doc of interest in this reader context
 comment|// continue with the following leaf
 continue|continue;
 block|}
-name|Scorer
+name|TopScorer
 name|scorer
 init|=
 name|weight
 operator|.
-name|scorer
+name|topScorer
 argument_list|(
 name|ctx
 argument_list|,
@@ -2252,8 +2252,6 @@ name|collector
 operator|.
 name|acceptsDocsOutOfOrder
 argument_list|()
-argument_list|,
-literal|true
 argument_list|,
 name|ctx
 operator|.

@@ -658,10 +658,6 @@ name|scorer
 argument_list|(
 name|readerContext
 argument_list|,
-literal|true
-argument_list|,
-literal|false
-argument_list|,
 name|acceptDocs
 argument_list|)
 expr_stmt|;
@@ -785,10 +781,6 @@ operator|.
 name|scorer
 argument_list|(
 name|readerContext
-argument_list|,
-literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|acceptDocs
 argument_list|)
@@ -1002,10 +994,6 @@ operator|.
 name|scorer
 argument_list|(
 name|readerContext
-argument_list|,
-literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|acceptDocs
 argument_list|)

@@ -1203,12 +1203,12 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Scorer
+name|TopScorer
 name|scorer
 init|=
 name|w
 operator|.
-name|scorer
+name|topScorer
 argument_list|(
 name|s
 operator|.
@@ -1224,8 +1224,6 @@ literal|0
 argument_list|)
 argument_list|,
 literal|false
-argument_list|,
-literal|true
 argument_list|,
 literal|null
 argument_list|)
@@ -1367,9 +1365,6 @@ name|end
 operator|.
 name|intValue
 argument_list|()
-argument_list|,
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 block|}
