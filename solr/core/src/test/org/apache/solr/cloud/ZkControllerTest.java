@@ -1073,6 +1073,8 @@ literal|"solr"
 argument_list|,
 literal|0
 argument_list|,
+literal|60000
+argument_list|,
 literal|true
 argument_list|,
 operator|new
@@ -1244,6 +1246,8 @@ argument_list|,
 literal|"solr"
 argument_list|,
 literal|0
+argument_list|,
+literal|60000
 argument_list|,
 literal|true
 argument_list|,
@@ -1482,6 +1486,8 @@ argument_list|,
 literal|"solr"
 argument_list|,
 literal|0
+argument_list|,
+literal|60000
 argument_list|,
 literal|true
 argument_list|,
