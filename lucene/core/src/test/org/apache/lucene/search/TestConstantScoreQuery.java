@@ -790,7 +790,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"$BucketScorer"
+literal|"$FakeScorer"
 decl_stmt|;
 name|checkHits
 argument_list|(
