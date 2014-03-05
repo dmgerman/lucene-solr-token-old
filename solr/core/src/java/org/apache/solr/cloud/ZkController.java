@@ -146,6 +146,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -4431,6 +4440,10 @@ name|String
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"Still seeing conflicting information about the leader "
 operator|+
 literal|"of shard %s for collection %s after %d seconds; our state says %s, but ZooKeeper says %s"
