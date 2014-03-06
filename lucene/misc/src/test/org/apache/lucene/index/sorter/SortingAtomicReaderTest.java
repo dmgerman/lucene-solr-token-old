@@ -145,7 +145,7 @@ name|DocMap
 name|docMap
 init|=
 operator|new
-name|SortSorter
+name|Sorter
 argument_list|(
 name|sort
 argument_list|)

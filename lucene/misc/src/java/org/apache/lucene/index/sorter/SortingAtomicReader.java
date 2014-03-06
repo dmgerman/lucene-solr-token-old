@@ -3766,7 +3766,7 @@ argument_list|(
 name|reader
 argument_list|,
 operator|new
-name|SortSorter
+name|Sorter
 argument_list|(
 name|sort
 argument_list|)

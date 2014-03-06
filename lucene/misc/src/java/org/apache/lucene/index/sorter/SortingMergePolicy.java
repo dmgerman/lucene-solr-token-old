@@ -937,7 +937,7 @@ operator|.
 name|sorter
 operator|=
 operator|new
-name|SortSorter
+name|Sorter
 argument_list|(
 name|sort
 argument_list|)
