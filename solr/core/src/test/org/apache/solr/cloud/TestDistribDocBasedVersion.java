@@ -332,6 +332,10 @@ expr_stmt|;
 name|doTestHardFail
 argument_list|()
 expr_stmt|;
+name|commit
+argument_list|()
+expr_stmt|;
+comment|// work arround SOLR-5628
 name|testFinished
 operator|=
 literal|true

@@ -11856,7 +11856,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"going to create cores replicas shardNames {} , repFactor : {}"
+literal|"Creating SolrCores for new collection, shardNames {} , replicationFactor : {}"
 argument_list|,
 name|shardNames
 argument_list|,
@@ -12214,6 +12214,7 @@ if|if
 condition|(
 name|isLegacyCloud
 condition|)
+block|{
 name|shardHandler
 operator|.
 name|submit
@@ -12232,7 +12233,9 @@ operator|.
 name|params
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|coresToCreate
 operator|.
 name|put
@@ -12244,13 +12247,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 if|if
 condition|(
 operator|!
 name|isLegacyCloud
 condition|)
 block|{
-comment|//wait for all replica entries to be created
+comment|// wait for all replica entries to be created
 name|Map
 argument_list|<
 name|String
@@ -12259,7 +12263,7 @@ name|Replica
 argument_list|>
 name|replicas
 init|=
-name|lookupReplicas
+name|waitToSeeReplicasInState
 argument_list|(
 name|collectionName
 argument_list|,
@@ -12415,7 +12419,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|lookupReplicas
+DECL|method|waitToSeeReplicasInState
 specifier|private
 name|Map
 argument_list|<
@@ -12423,7 +12427,7 @@ name|String
 argument_list|,
 name|Replica
 argument_list|>
-name|lookupReplicas
+name|waitToSeeReplicasInState
 parameter_list|(
 name|String
 name|collectionName
@@ -12468,18 +12472,17 @@ name|NANOSECONDS
 operator|.
 name|convert
 argument_list|(
-literal|3
+literal|30
 argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|)
 decl_stmt|;
-for|for
-control|(
-init|;
-condition|;
-control|)
+while|while
+condition|(
+literal|true
+condition|)
 block|{
 name|DocCollection
 name|coll
@@ -12592,7 +12595,6 @@ operator|>
 name|endTime
 condition|)
 block|{
-comment|//time up . throw exception and go out
 throw|throw
 operator|new
 name|SolrException
@@ -12601,7 +12603,7 @@ name|ErrorCode
 operator|.
 name|SERVER_ERROR
 argument_list|,
-literal|"Unable to create replica entries in ZK"
+literal|"Timed out waiting to see all replicas in cluster state."
 argument_list|)
 throw|;
 block|}
@@ -13039,7 +13041,7 @@ name|CoreAdminParams
 operator|.
 name|CORE_NODE_NAME
 argument_list|,
-name|lookupReplicas
+name|waitToSeeReplicasInState
 argument_list|(
 name|collection
 argument_list|,
