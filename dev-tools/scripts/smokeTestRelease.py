@@ -5497,7 +5497,7 @@ op|')'
 newline|'\n'
 name|'run'
 op|'('
-string|"'%s; ant clean test %s'"
+string|"'%s; ant clean test -Dtests.slow=false %s'"
 op|'%'
 op|'('
 name|'javaExe'
