@@ -93,7 +93,6 @@ comment|/**  * Sorts documents of a given index by returning a permutation on th
 end_comment
 begin_class
 DECL|class|Sorter
-specifier|public
 specifier|abstract
 class|class
 name|Sorter

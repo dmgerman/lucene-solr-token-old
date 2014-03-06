@@ -382,10 +382,10 @@ name|dir1
 decl_stmt|,
 name|dir2
 decl_stmt|;
-DECL|field|sorter
+DECL|field|sort
 specifier|private
-name|Sorter
-name|sorter
+name|Sort
+name|sort
 decl_stmt|;
 DECL|field|reader
 specifier|private
@@ -412,11 +412,8 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|sorter
+name|sort
 operator|=
-operator|new
-name|SortSorter
-argument_list|(
 operator|new
 name|Sort
 argument_list|(
@@ -430,7 +427,6 @@ operator|.
 name|Type
 operator|.
 name|LONG
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -503,8 +499,8 @@ specifier|static
 name|MergePolicy
 name|newSortingMergePolicy
 parameter_list|(
-name|Sorter
-name|sorter
+name|Sort
+name|sort
 parameter_list|)
 block|{
 comment|// create a MP with a low merge factor so that many merges happen
@@ -614,7 +610,7 @@ name|SortingMergePolicy
 argument_list|(
 name|mp
 argument_list|,
-name|sorter
+name|sort
 argument_list|)
 return|;
 block|}
@@ -765,7 +761,7 @@ name|setMergePolicy
 argument_list|(
 name|newSortingMergePolicy
 argument_list|(
-name|sorter
+name|sort
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1234,7 +1230,7 @@ argument_list|(
 name|reader
 argument_list|)
 argument_list|,
-name|sorter
+name|sort
 argument_list|)
 decl_stmt|;
 specifier|final

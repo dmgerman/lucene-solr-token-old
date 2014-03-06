@@ -95,7 +95,6 @@ comment|// nocommit: temporary class to engage the cutover!
 end_comment
 begin_class
 DECL|class|SortSorter
-specifier|public
 class|class
 name|SortSorter
 extends|extends

@@ -358,10 +358,10 @@ specifier|private
 name|Directory
 name|dir
 decl_stmt|;
-DECL|field|sorter
+DECL|field|sort
 specifier|private
-name|Sorter
-name|sorter
+name|Sort
+name|sort
 decl_stmt|;
 DECL|field|iw
 specifier|private
@@ -388,11 +388,8 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|sorter
+name|sort
 operator|=
-operator|new
-name|SortSorter
-argument_list|(
 operator|new
 name|Sort
 argument_list|(
@@ -406,7 +403,6 @@ operator|.
 name|Type
 operator|.
 name|LONG
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -618,7 +614,7 @@ name|TestSortingMergePolicy
 operator|.
 name|newSortingMergePolicy
 argument_list|(
-name|sorter
+name|sort
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -993,7 +989,7 @@ name|EarlyTerminatingSortingCollector
 argument_list|(
 name|collector2
 argument_list|,
-name|sorter
+name|sort
 argument_list|,
 name|numHits
 argument_list|)
@@ -1234,12 +1230,9 @@ argument_list|,
 name|collector1
 argument_list|)
 expr_stmt|;
-name|Sorter
+name|Sort
 name|different
 init|=
-operator|new
-name|SortSorter
-argument_list|(
 operator|new
 name|Sort
 argument_list|(
@@ -1253,7 +1246,6 @@ operator|.
 name|Type
 operator|.
 name|LONG
-argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
