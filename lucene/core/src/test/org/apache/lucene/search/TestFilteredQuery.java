@@ -3059,7 +3059,7 @@ name|firstFilterDoc
 parameter_list|)
 block|{
 return|return
-name|useRandomAccess
+literal|true
 return|;
 block|}
 block|}
