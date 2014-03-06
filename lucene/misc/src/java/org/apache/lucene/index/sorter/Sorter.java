@@ -171,7 +171,6 @@ expr_stmt|;
 block|}
 comment|/**    * A permutation of doc IDs. For every document ID between<tt>0</tt> and    * {@link IndexReader#maxDoc()},<code>oldToNew(newToOld(docID))</code> must    * return<code>docID</code>.    */
 DECL|class|DocMap
-specifier|public
 specifier|static
 specifier|abstract
 class|class
@@ -179,7 +178,6 @@ name|DocMap
 block|{
 comment|/** Given a doc ID from the original index, return its ordinal in the      *  sorted index. */
 DECL|method|oldToNew
-specifier|public
 specifier|abstract
 name|int
 name|oldToNew
@@ -190,7 +188,6 @@ parameter_list|)
 function_decl|;
 comment|/** Given the ordinal of a doc ID, return its doc ID in the original index. */
 DECL|method|newToOld
-specifier|public
 specifier|abstract
 name|int
 name|newToOld
@@ -201,7 +198,6 @@ parameter_list|)
 function_decl|;
 comment|/** Return the number of documents in this map. This must be equal to the      *  {@link AtomicReader#maxDoc() number of documents} of the      *  {@link AtomicReader} which is sorted. */
 DECL|method|size
-specifier|public
 specifier|abstract
 name|int
 name|size
@@ -324,7 +320,6 @@ return|;
 block|}
 comment|/** A comparator of doc IDs. */
 DECL|class|DocComparator
-specifier|public
 specifier|static
 specifier|abstract
 class|class
@@ -377,7 +372,6 @@ index|[]
 name|tmp
 decl_stmt|;
 DECL|method|DocValueSorter
-specifier|public
 name|DocValueSorter
 parameter_list|(
 name|int
@@ -609,7 +603,7 @@ block|}
 block|}
 comment|/** Computes the old-to-new permutation over the given comparator. */
 DECL|method|sort
-specifier|protected
+specifier|private
 specifier|static
 name|Sorter
 operator|.
@@ -917,7 +911,6 @@ return|;
 block|}
 comment|/**    * Returns a mapping from the old document ID to its new location in the    * sorted index. Implementations can use the auxiliary    * {@link #sort(int, DocComparator)} to compute the old-to-new permutation    * given a list of documents and their corresponding values.    *<p>    * A return value of<tt>null</tt> is allowed and means that    *<code>reader</code> is already sorted.    *<p>    *<b>NOTE:</b> deleted documents are expected to appear in the mapping as    * well, they will however be marked as deleted in the sorted view.    */
 DECL|method|sort
-specifier|public
 name|DocMap
 name|sort
 parameter_list|(
@@ -1176,7 +1169,7 @@ name|comparator
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns the identifier of this {@link Sorter}.    *<p>This identifier is similar to {@link Object#hashCode()} and should be    * chosen so that two instances of this class that sort documents likewise    * will have the same identifier. On the contrary, this identifier should be    * different on different {@link Sorter sorters}.    */
+comment|/**    * Returns the identifier of this {@link Sorter}.    *<p>This identifier is similar to {@link Object#hashCode()} and should be    * chosen so that two instances of this class that sort documents likewise    * will have the same identifier. On the contrary, this identifier should be    * different on different {@link Sort sorts}.    */
 DECL|method|getID
 specifier|public
 name|String
