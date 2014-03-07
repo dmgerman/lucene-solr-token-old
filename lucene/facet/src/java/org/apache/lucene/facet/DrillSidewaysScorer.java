@@ -116,7 +116,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TopScorer
+name|BulkScorer
 import|;
 end_import
 begin_import
@@ -163,7 +163,7 @@ DECL|class|DrillSidewaysScorer
 class|class
 name|DrillSidewaysScorer
 extends|extends
-name|TopScorer
+name|BulkScorer
 block|{
 comment|//private static boolean DEBUG = false;
 DECL|field|drillDownCollector

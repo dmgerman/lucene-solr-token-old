@@ -530,8 +530,8 @@ comment|// return a filtering top scorer
 annotation|@
 name|Override
 specifier|public
-name|TopScorer
-name|topScorer
+name|BulkScorer
+name|bulkScorer
 parameter_list|(
 name|AtomicReaderContext
 name|context
@@ -577,7 +577,7 @@ block|}
 return|return
 name|strategy
 operator|.
-name|filteredTopScorer
+name|filteredBulkScorer
 argument_list|(
 name|context
 argument_list|,
@@ -848,13 +848,13 @@ argument_list|()
 return|;
 block|}
 block|}
-DECL|class|QueryFirstTopScorer
+DECL|class|QueryFirstBulkScorer
 specifier|private
 specifier|static
 class|class
-name|QueryFirstTopScorer
+name|QueryFirstBulkScorer
 extends|extends
-name|TopScorer
+name|BulkScorer
 block|{
 DECL|field|scorer
 specifier|private
@@ -868,9 +868,9 @@ specifier|final
 name|Bits
 name|filterBits
 decl_stmt|;
-DECL|method|QueryFirstTopScorer
+DECL|method|QueryFirstBulkScorer
 specifier|public
-name|QueryFirstTopScorer
+name|QueryFirstBulkScorer
 parameter_list|(
 name|Scorer
 name|scorer
@@ -1312,14 +1312,14 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|class|LeapFrogTopScorer
+DECL|class|LeapFrogBulkScorer
 specifier|private
 specifier|static
 specifier|final
 class|class
-name|LeapFrogTopScorer
+name|LeapFrogBulkScorer
 extends|extends
-name|TopScorer
+name|BulkScorer
 block|{
 DECL|field|primary
 specifier|private
@@ -1339,9 +1339,9 @@ specifier|final
 name|Scorer
 name|scorer
 decl_stmt|;
-DECL|method|LeapFrogTopScorer
+DECL|method|LeapFrogBulkScorer
 specifier|public
-name|LeapFrogTopScorer
+name|LeapFrogBulkScorer
 parameter_list|(
 name|DocIdSetIterator
 name|primary
@@ -2042,11 +2042,11 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns a filtered {@link TopScorer} based on this      * strategy.  This is an optional method: the default      * implementation just calls {@link #filteredScorer} and      * wraps that into a TopScorer.      *      * @param context      *          the {@link AtomicReaderContext} for which to return the {@link Scorer}.      * @param weight the {@link FilteredQuery} {@link Weight} to create the filtered scorer.      * @param docIdSet the filter {@link DocIdSet} to apply      * @return a filtered top scorer      */
-DECL|method|filteredTopScorer
+comment|/**      * Returns a filtered {@link BulkScorer} based on this      * strategy.  This is an optional method: the default      * implementation just calls {@link #filteredScorer} and      * wraps that into a BulkScorer.      *      * @param context      *          the {@link AtomicReaderContext} for which to return the {@link Scorer}.      * @param weight the {@link FilteredQuery} {@link Weight} to create the filtered scorer.      * @param docIdSet the filter {@link DocIdSet} to apply      * @return a filtered top scorer      */
+DECL|method|filteredBulkScorer
 specifier|public
-name|TopScorer
-name|filteredTopScorer
+name|BulkScorer
+name|filteredBulkScorer
 parameter_list|(
 name|AtomicReaderContext
 name|context
@@ -2092,7 +2092,7 @@ return|return
 operator|new
 name|Weight
 operator|.
-name|DefaultTopScorer
+name|DefaultBulkScorer
 argument_list|(
 name|scorer
 argument_list|)
@@ -2413,10 +2413,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|filteredTopScorer
+DECL|method|filteredBulkScorer
 specifier|public
-name|TopScorer
-name|filteredTopScorer
+name|BulkScorer
+name|filteredBulkScorer
 parameter_list|(
 name|AtomicReaderContext
 name|context
@@ -2486,7 +2486,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|LeapFrogTopScorer
+name|LeapFrogBulkScorer
 argument_list|(
 name|scorer
 argument_list|,
@@ -2500,7 +2500,7 @@ else|else
 block|{
 return|return
 operator|new
-name|LeapFrogTopScorer
+name|LeapFrogBulkScorer
 argument_list|(
 name|filterIter
 argument_list|,
@@ -2605,10 +2605,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|filteredTopScorer
+DECL|method|filteredBulkScorer
 specifier|public
-name|TopScorer
-name|filteredTopScorer
+name|BulkScorer
+name|filteredBulkScorer
 parameter_list|(
 specifier|final
 name|AtomicReaderContext
@@ -2647,7 +2647,7 @@ comment|// must fallback to leapfrog:
 return|return
 name|LEAP_FROG_QUERY_FIRST_STRATEGY
 operator|.
-name|filteredTopScorer
+name|filteredBulkScorer
 argument_list|(
 name|context
 argument_list|,
@@ -2680,7 +2680,7 @@ condition|?
 literal|null
 else|:
 operator|new
-name|QueryFirstTopScorer
+name|QueryFirstBulkScorer
 argument_list|(
 name|scorer
 argument_list|,

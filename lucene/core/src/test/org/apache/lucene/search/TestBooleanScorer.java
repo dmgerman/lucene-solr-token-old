@@ -544,16 +544,16 @@ argument_list|(
 name|searcher
 argument_list|)
 decl_stmt|;
-name|TopScorer
+name|BulkScorer
 index|[]
 name|scorers
 init|=
 operator|new
-name|TopScorer
+name|BulkScorer
 index|[]
 block|{
 operator|new
-name|TopScorer
+name|BulkScorer
 argument_list|()
 block|{
 specifier|private
@@ -696,7 +696,7 @@ argument_list|,
 name|Collections
 operator|.
 expr|<
-name|TopScorer
+name|BulkScorer
 operator|>
 name|emptyList
 argument_list|()
@@ -1223,8 +1223,8 @@ throw|;
 block|}
 function|}
 comment|/** Throws UOE if Weight.scorer is called */
-function|private static class CrazyMustUseTopScorerQuery extends Query
-DECL|class|CrazyMustUseTopScorerQuery
+function|private static class CrazyMustUseBulkScorerQuery extends Query
+DECL|class|CrazyMustUseBulkScorerQuery
 block|{
 annotation|@
 name|Override
@@ -1238,7 +1238,7 @@ name|field
 parameter_list|)
 block|{
 return|return
-literal|"MustUseTopScorerQuery"
+literal|"MustUseBulkScorerQuery"
 return|;
 block|}
 function|@Override     public Weight createWeight
@@ -1278,7 +1278,7 @@ function|@Override         public Query getQuery
 parameter_list|()
 block|{
 return|return
-name|CrazyMustUseTopScorerQuery
+name|CrazyMustUseBulkScorerQuery
 operator|.
 name|this
 return|;
@@ -1315,7 +1315,7 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-function|@Override         public TopScorer topScorer
+function|@Override         public BulkScorer bulkScorer
 parameter_list|(
 name|AtomicReaderContext
 name|context
@@ -1329,7 +1329,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|TopScorer
+name|BulkScorer
 argument_list|()
 block|{
 annotation|@
@@ -1529,7 +1529,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|CrazyMustUseTopScorerQuery
+name|CrazyMustUseBulkScorerQuery
 argument_list|()
 argument_list|,
 name|BooleanClause
