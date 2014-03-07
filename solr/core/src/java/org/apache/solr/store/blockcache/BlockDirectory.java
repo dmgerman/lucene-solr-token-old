@@ -185,6 +185,9 @@ operator|.
 name|LoggerFactory
 import|;
 end_import
+begin_comment
+comment|/**  * @lucene.experimental  */
+end_comment
 begin_class
 DECL|class|BlockDirectory
 specifier|public
@@ -412,6 +415,7 @@ name|dirName
 decl_stmt|;
 DECL|field|cache
 specifier|private
+specifier|final
 name|Cache
 name|cache
 decl_stmt|;
@@ -1432,6 +1436,17 @@ operator|+
 name|name
 return|;
 block|}
+comment|/**    * Expert: mostly for tests    *     * @lucene.experimental    */
+DECL|method|getCache
+specifier|public
+name|Cache
+name|getCache
+parameter_list|()
+block|{
+return|return
+name|cache
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|copy
@@ -1850,6 +1865,26 @@ parameter_list|()
 block|{
 return|return
 name|directory
+return|;
+block|}
+DECL|method|isBlockCacheReadEnabled
+specifier|public
+name|boolean
+name|isBlockCacheReadEnabled
+parameter_list|()
+block|{
+return|return
+name|blockCacheReadEnabled
+return|;
+block|}
+DECL|method|isBlockCacheWriteEnabled
+specifier|public
+name|boolean
+name|isBlockCacheWriteEnabled
+parameter_list|()
+block|{
+return|return
+name|blockCacheWriteEnabled
 return|;
 block|}
 block|}

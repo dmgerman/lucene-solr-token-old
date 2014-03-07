@@ -779,6 +779,10 @@ init|=
 operator|new
 name|StopableIndexingThread
 argument_list|(
+name|controlClient
+argument_list|,
+name|cloudClient
+argument_list|,
 name|Integer
 operator|.
 name|toString
@@ -1450,6 +1454,10 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|controlClient
+argument_list|,
+name|cloudClient
+argument_list|,
 name|id
 argument_list|,
 name|doDeletes
