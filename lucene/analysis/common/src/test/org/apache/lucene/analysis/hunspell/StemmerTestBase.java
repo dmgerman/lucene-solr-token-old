@@ -305,7 +305,7 @@ argument_list|(
 name|dictStreams
 argument_list|)
 argument_list|,
-literal|true
+name|ignoreCase
 argument_list|)
 decl_stmt|;
 name|stemmer
