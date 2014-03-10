@@ -2794,7 +2794,6 @@ argument_list|(
 name|dis
 argument_list|)
 decl_stmt|;
-comment|//return new AbstractMap.SimpleImmutableEntry(key, value);
 return|return
 operator|new
 name|Map
