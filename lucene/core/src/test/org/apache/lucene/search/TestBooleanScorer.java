@@ -1221,6 +1221,16 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+function|@Override     public Weight getWeight
+DECL|method|getWeight
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
 function|}
 comment|/** Throws UOE if Weight.scorer is called */
 function|private static class CrazyMustUseBulkScorerQuery extends Query
