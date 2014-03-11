@@ -16,51 +16,6 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -109,8 +64,6 @@ operator|.
 name|util
 operator|.
 name|SetOnce
-operator|.
-name|AlreadySetException
 import|;
 end_import
 begin_import
@@ -124,6 +77,53 @@ operator|.
 name|util
 operator|.
 name|SetOnce
+operator|.
+name|AlreadySetException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 begin_comment
@@ -1808,29 +1808,6 @@ operator|)
 name|v
 expr_stmt|;
 block|}
-comment|/**    * MergeTrigger is passed to    * {@link MergePolicy#findMerges(MergeTrigger, SegmentInfos)} to indicate the    * event that triggered the merge.    */
-DECL|enum|MergeTrigger
-specifier|public
-specifier|static
-enum|enum
-name|MergeTrigger
-block|{
-comment|/**      * Merge was triggered by a segment flush.      */
-DECL|enum constant|SEGMENT_FLUSH
-name|SEGMENT_FLUSH
-block|,
-comment|/**      * Merge was triggered by a full flush. Full flushes      * can be caused by a commit, NRT reader reopen or a close call on the index writer.      */
-DECL|enum constant|FULL_FLUSH
-name|FULL_FLUSH
-block|,
-comment|/**      * Merge has been triggered explicitly by the user.      */
-DECL|enum constant|EXPLICIT
-name|EXPLICIT
-block|,
-comment|/**      * Merge was triggered by a successfully finished merge.      */
-DECL|enum constant|MERGE_FINISHED
-name|MERGE_FINISHED
-block|,   }
 block|}
 end_class
 end_unit

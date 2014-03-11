@@ -62,6 +62,12 @@ name|merge
 parameter_list|(
 name|IndexWriter
 name|writer
+parameter_list|,
+name|MergeTrigger
+name|trigger
+parameter_list|,
+name|boolean
+name|newMergesFound
 parameter_list|)
 block|{}
 annotation|@
