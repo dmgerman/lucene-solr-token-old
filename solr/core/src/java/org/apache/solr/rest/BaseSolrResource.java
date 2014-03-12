@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.solr.rest.schema
+DECL|package|org.apache.solr.rest
 package|package
 name|org
 operator|.
@@ -9,8 +9,6 @@ operator|.
 name|solr
 operator|.
 name|rest
-operator|.
-name|schema
 package|;
 end_package
 begin_comment
@@ -349,18 +347,19 @@ name|Charset
 import|;
 end_import
 begin_comment
-comment|/**  * Base class of all Solr Schema Restlet resource classes.  */
+comment|/**  * Base class of all Solr Restlet server resource classes.  */
 end_comment
 begin_class
-DECL|class|BaseSchemaResource
+DECL|class|BaseSolrResource
+specifier|public
 specifier|abstract
 class|class
-name|BaseSchemaResource
+name|BaseSolrResource
 extends|extends
 name|ServerResource
 block|{
 DECL|field|UTF8
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|Charset
@@ -412,13 +411,8 @@ specifier|private
 name|String
 name|contentType
 decl_stmt|;
-DECL|field|doIndent
-specifier|private
-name|boolean
-name|doIndent
-decl_stmt|;
 DECL|method|getSolrCore
-specifier|protected
+specifier|public
 name|SolrCore
 name|getSolrCore
 parameter_list|()
@@ -428,7 +422,7 @@ name|solrCore
 return|;
 block|}
 DECL|method|getSchema
-specifier|protected
+specifier|public
 name|IndexSchema
 name|getSchema
 parameter_list|()
@@ -438,7 +432,7 @@ name|schema
 return|;
 block|}
 DECL|method|getSolrRequest
-specifier|protected
+specifier|public
 name|SolrQueryRequest
 name|getSolrRequest
 parameter_list|()
@@ -448,7 +442,7 @@ name|solrRequest
 return|;
 block|}
 DECL|method|getSolrResponse
-specifier|protected
+specifier|public
 name|SolrQueryResponse
 name|getSolrResponse
 parameter_list|()
@@ -458,7 +452,7 @@ name|solrResponse
 return|;
 block|}
 DECL|method|getContentType
-specifier|protected
+specifier|public
 name|String
 name|getContentType
 parameter_list|()
@@ -467,19 +461,14 @@ return|return
 name|contentType
 return|;
 block|}
-DECL|method|BaseSchemaResource
+DECL|method|BaseSolrResource
 specifier|protected
-name|BaseSchemaResource
+name|BaseSolrResource
 parameter_list|()
 block|{
 name|super
 argument_list|()
 expr_stmt|;
-name|doIndent
-operator|=
-literal|true
-expr_stmt|;
-comment|// default to indenting
 block|}
 comment|/**    * Pulls the SolrQueryRequest constructed in SolrDispatchFilter    * from the SolrRequestInfo thread local, then gets the SolrCore    * and IndexSchema and sets up the response.    * writer.    *<p/>    * If an error occurs during initialization, setExisting(false) is    * called and an error status code and message is set; in this case,    * Restlet will not continue servicing the request (by calling the    * method annotated to associate it with GET, etc., but rather will    * send an error response.    */
 annotation|@
@@ -669,18 +658,19 @@ decl_stmt|;
 if|if
 condition|(
 literal|null
-operator|!=
+operator|==
 name|indent
-operator|&&
+operator|||
+operator|!
 operator|(
-literal|""
+literal|"off"
 operator|.
 name|equals
 argument_list|(
 name|indent
 argument_list|)
 operator|||
-literal|"off"
+literal|"false"
 operator|.
 name|equals
 argument_list|(
@@ -688,13 +678,6 @@ name|indent
 argument_list|)
 operator|)
 condition|)
-block|{
-name|doIndent
-operator|=
-literal|false
-expr_stmt|;
-block|}
-else|else
 block|{
 comment|// indent by default
 name|ModifiableSolrParams
@@ -769,7 +752,19 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-literal|"/schema"
+name|RestManager
+operator|.
+name|SCHEMA_BASE_PATH
+operator|.
+name|equals
+argument_list|(
+name|path
+argument_list|)
+operator|&&
+operator|!
+name|RestManager
+operator|.
+name|CONFIG_BASE_PATH
 operator|.
 name|equals
 argument_list|(
@@ -881,6 +876,7 @@ extends|extends
 name|OutputRepresentation
 block|{
 DECL|method|SolrOutputRepresentation
+specifier|public
 name|SolrOutputRepresentation
 parameter_list|()
 block|{

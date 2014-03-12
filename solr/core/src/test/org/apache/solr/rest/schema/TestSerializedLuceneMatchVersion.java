@@ -131,7 +131,7 @@ init|=
 operator|new
 name|ServletHolder
 argument_list|(
-literal|"SolrRestApi"
+literal|"SolrSchemaRestApi"
 argument_list|,
 name|ServerServlet
 operator|.
@@ -144,7 +144,7 @@ name|setInitParameter
 argument_list|(
 literal|"org.restlet.application"
 argument_list|,
-literal|"org.apache.solr.rest.SolrRestApi"
+literal|"org.apache.solr.rest.SolrSchemaRestApi"
 argument_list|)
 expr_stmt|;
 name|extraServlets
