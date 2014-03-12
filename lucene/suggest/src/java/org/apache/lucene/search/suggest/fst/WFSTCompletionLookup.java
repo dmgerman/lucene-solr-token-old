@@ -495,9 +495,7 @@ name|builder
 init|=
 operator|new
 name|Builder
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|FST
 operator|.
@@ -664,9 +662,7 @@ name|fst
 operator|=
 operator|new
 name|FST
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|input
 argument_list|,
@@ -756,9 +752,7 @@ name|arc
 init|=
 operator|new
 name|Arc
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// match the prefix portion exactly
@@ -803,9 +797,6 @@ block|{
 return|return
 name|Collections
 operator|.
-expr|<
-name|LookupResult
-operator|>
 name|emptyList
 argument_list|()
 return|;
@@ -818,9 +809,7 @@ name|results
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LookupResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|num
 argument_list|)
@@ -1189,9 +1178,7 @@ name|arc
 init|=
 operator|new
 name|Arc
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Long

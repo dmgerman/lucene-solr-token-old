@@ -302,9 +302,7 @@ name|fields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FSTFieldWriter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|fieldInfos
@@ -974,9 +972,7 @@ name|fstBuilder
 operator|=
 operator|new
 name|Builder
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|FST
 operator|.

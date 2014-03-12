@@ -1093,9 +1093,7 @@ name|results
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LookupResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|completions
 operator|.
@@ -1283,9 +1281,7 @@ name|FSTCompletion
 argument_list|(
 operator|new
 name|FST
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|input
 argument_list|,

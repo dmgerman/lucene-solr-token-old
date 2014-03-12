@@ -1060,9 +1060,7 @@ name|initials
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|State
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|a
@@ -1099,9 +1097,7 @@ name|pairs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|StatePair
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

@@ -208,9 +208,7 @@ block|{
 return|return
 operator|new
 name|SPIClassIterator
-argument_list|<
-name|S
-argument_list|>
+argument_list|<>
 argument_list|(
 name|clazz
 argument_list|,
@@ -249,9 +247,7 @@ block|{
 return|return
 operator|new
 name|SPIClassIterator
-argument_list|<
-name|S
-argument_list|>
+argument_list|<>
 argument_list|(
 name|clazz
 argument_list|,
@@ -459,9 +455,7 @@ name|lines
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

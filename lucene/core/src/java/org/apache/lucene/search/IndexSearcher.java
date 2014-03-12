@@ -1488,9 +1488,7 @@ name|runner
 init|=
 operator|new
 name|ExecutionHelper
-argument_list|<
-name|TopDocs
-argument_list|>
+argument_list|<>
 argument_list|(
 name|executor
 argument_list|)
@@ -1928,9 +1926,7 @@ name|runner
 init|=
 operator|new
 name|ExecutionHelper
-argument_list|<
-name|TopFieldDocs
-argument_list|>
+argument_list|<>
 argument_list|(
 name|executor
 argument_list|)
@@ -3157,9 +3153,7 @@ name|service
 operator|=
 operator|new
 name|ExecutorCompletionService
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|executor
 argument_list|)

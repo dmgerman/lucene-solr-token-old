@@ -1072,9 +1072,7 @@ name|b
 init|=
 operator|new
 name|Builder
-argument_list|<
-name|IntsRef
-argument_list|>
+argument_list|<>
 argument_list|(
 name|FST
 operator|.
@@ -3039,9 +3037,7 @@ name|list
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Character
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|affixes

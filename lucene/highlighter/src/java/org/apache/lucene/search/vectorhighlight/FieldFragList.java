@@ -90,9 +90,7 @@ name|fragInfos
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|WeightedFragInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**    * a constructor.    *     * @param fragCharSize the length (number of chars) of a fragment    */

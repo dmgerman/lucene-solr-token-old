@@ -202,11 +202,7 @@ name|refCounts
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|RefCount
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/* Holds all commits (segments_N) currently in the index.    * This will have just 1 commit if you are using the    * default delete policy (KeepOnlyLastCommitDeletionPolicy).    * Other policies may leave commit points live for longer    * in which case this list would be longer than 1: */
@@ -220,9 +216,7 @@ name|commits
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CommitPoint
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/* Holds files we had incref'd from the previous    * non-commit checkpoint: */
@@ -237,9 +231,7 @@ name|lastFiles
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/* Commits that the IndexDeletionPolicy have decided to delete: */
@@ -253,9 +245,7 @@ name|commitsToDelete
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CommitPoint
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|infoStream
@@ -2431,9 +2421,7 @@ name|deletable
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

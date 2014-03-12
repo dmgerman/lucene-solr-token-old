@@ -447,11 +447,7 @@ name|monitoredMap
 operator|=
 operator|new
 name|JmxMonitoredMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrInfoMBean
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|""
 argument_list|,

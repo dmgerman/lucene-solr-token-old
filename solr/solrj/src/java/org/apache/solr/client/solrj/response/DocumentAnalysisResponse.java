@@ -107,11 +107,7 @@ name|documentAnalysisByKey
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|DocumentAnalysis
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**    * {@inheritDoc}    */
@@ -545,11 +541,7 @@ name|fieldAnalysisByFieldName
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|FieldAnalysis
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|DocumentAnalysis
@@ -698,14 +690,7 @@ name|indexPhasesByFieldValue
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|AnalysisPhase
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|FieldAnalysis

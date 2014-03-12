@@ -4383,11 +4383,7 @@ name|fieldAnalyzers
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|Analyzer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|fieldAnalyzers
@@ -4716,9 +4712,7 @@ name|matchedFields
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|matchedFields

@@ -318,9 +318,7 @@ name|cachedFilters
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Filter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|cachedFilters
@@ -655,9 +653,7 @@ name|terms
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

@@ -520,11 +520,7 @@ name|bigTerms
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|TopTerm
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|deState
@@ -1216,9 +1212,7 @@ name|res
 init|=
 operator|new
 name|NamedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// order is important

@@ -118,13 +118,7 @@ name|origVsSuggestion
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|SpellCheckResponse
-operator|.
-name|Suggestion
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// original token string -> summed up frequency
@@ -140,11 +134,7 @@ name|origVsFreq
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// original token string -> # of shards reporting it as misspelled
@@ -160,11 +150,7 @@ name|origVsShards
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// original token string -> set of alternatives
@@ -184,14 +170,7 @@ name|origVsSuggested
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|HashSet
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// alternative string -> corresponding SuggestWord object
@@ -207,11 +186,7 @@ name|suggestedVsWord
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|SuggestWord
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|collations
@@ -226,11 +201,7 @@ name|collations
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|SpellCheckCollation
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|totalNumberShardResponses

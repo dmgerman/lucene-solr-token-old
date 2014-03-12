@@ -631,9 +631,7 @@ name|docs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrInputDocument
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -875,9 +873,7 @@ name|names
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|QueryResponse

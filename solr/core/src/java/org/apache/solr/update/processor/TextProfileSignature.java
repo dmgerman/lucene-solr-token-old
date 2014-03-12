@@ -168,11 +168,7 @@ name|tokens
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Token
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|StringBuilder
@@ -435,9 +431,7 @@ name|profile
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Token
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// calculate the QUANT value

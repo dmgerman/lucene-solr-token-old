@@ -488,9 +488,7 @@ name|map
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|map
@@ -552,11 +550,7 @@ name|realMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|realMap
@@ -590,9 +584,7 @@ name|map
 operator|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|map
@@ -616,9 +608,7 @@ name|map
 operator|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|map
@@ -749,9 +739,7 @@ name|map
 operator|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|map

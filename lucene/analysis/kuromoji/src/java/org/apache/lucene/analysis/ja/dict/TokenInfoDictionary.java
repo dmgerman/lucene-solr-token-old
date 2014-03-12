@@ -177,9 +177,7 @@ name|fst
 operator|=
 operator|new
 name|FST
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|InputStreamDataInput

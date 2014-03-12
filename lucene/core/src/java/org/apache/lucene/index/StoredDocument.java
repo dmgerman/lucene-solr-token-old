@@ -147,9 +147,7 @@ name|fields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|StorableField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Sole constructor. */
@@ -196,9 +194,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|StorableField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -344,9 +340,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -504,9 +498,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

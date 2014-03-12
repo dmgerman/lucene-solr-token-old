@@ -1371,9 +1371,7 @@ name|unseenTypes
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|ParsePathType
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.

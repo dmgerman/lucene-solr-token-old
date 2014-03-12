@@ -750,9 +750,7 @@ name|fields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FieldMetaData
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// private final String segment;
@@ -1757,9 +1755,7 @@ name|indexBuilder
 init|=
 operator|new
 name|Builder
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|(
 name|FST
 operator|.
@@ -1989,9 +1985,7 @@ name|subIndexEnum
 init|=
 operator|new
 name|BytesRefFSTEnum
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|(
 name|subIndex
 argument_list|)
@@ -2120,9 +2114,7 @@ name|pending
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PendingEntry
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Index into pending of most recently written block
@@ -2409,9 +2401,7 @@ operator|new
 name|Builder
 operator|.
 name|UnCompiledNode
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|blockBuilder
 argument_list|,
@@ -2972,9 +2962,7 @@ name|floorBlocks
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PendingBlock
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|PendingBlock
@@ -3833,12 +3821,7 @@ name|subIndices
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FST
-argument_list|<
-name|BytesRef
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|termCount
@@ -4328,9 +4311,7 @@ name|blockBuilder
 operator|=
 operator|new
 name|Builder
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|FST
 operator|.

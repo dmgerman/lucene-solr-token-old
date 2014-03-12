@@ -557,11 +557,7 @@ name|previousMappings
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Similarity
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|perFieldSeed
@@ -615,9 +611,7 @@ name|knownSims
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Similarity
-argument_list|>
+argument_list|<>
 argument_list|(
 name|allSims
 argument_list|)
@@ -932,9 +926,7 @@ name|allSims
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Similarity
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|allSims

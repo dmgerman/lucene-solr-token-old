@@ -1481,9 +1481,7 @@ name|theCores
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrCore
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -4314,9 +4312,7 @@ operator|new
 name|NamedList
 operator|.
 name|NamedListEntry
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|q
 index|[
@@ -4340,9 +4336,7 @@ name|core
 argument_list|,
 operator|new
 name|NamedList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|entries
 argument_list|)

@@ -262,9 +262,7 @@ name|fields
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|theFields
 argument_list|)
@@ -945,11 +943,7 @@ name|fieldInfo
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|FieldInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -1046,11 +1040,7 @@ name|fieldTypeInfo
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|FieldTypeInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for

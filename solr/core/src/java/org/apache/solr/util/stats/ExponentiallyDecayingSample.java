@@ -256,11 +256,7 @@ name|values
 operator|=
 operator|new
 name|ConcurrentSkipListMap
-argument_list|<
-name|Double
-argument_list|,
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|this
@@ -677,9 +673,7 @@ name|keys
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Double
-argument_list|>
+argument_list|<>
 argument_list|(
 name|values
 operator|.

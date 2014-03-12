@@ -1343,9 +1343,7 @@ name|results
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FacetResult
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

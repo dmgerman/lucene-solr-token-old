@@ -134,11 +134,7 @@ name|childFieldsToFlush
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|InvertedDocConsumerPerField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map
@@ -151,11 +147,7 @@ name|endChildFieldsToFlush
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|InvertedDocEndConsumerPerField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

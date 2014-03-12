@@ -159,9 +159,7 @@ name|threadLocal
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|SolrRequestInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|req
@@ -595,9 +593,7 @@ name|closeHooks
 operator|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Closeable
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

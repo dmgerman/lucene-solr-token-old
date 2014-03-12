@@ -393,9 +393,7 @@ name|copy
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|s
 argument_list|)

@@ -653,9 +653,7 @@ name|temp
 init|=
 operator|new
 name|NamedList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Iterator
@@ -1106,11 +1104,7 @@ name|tempResults
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|Object
-argument_list|,
-name|SolrDocumentList
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -1427,9 +1421,7 @@ name|result
 init|=
 operator|new
 name|NamedList
-argument_list|<
-name|SolrDocumentList
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|TreeMap
@@ -1442,11 +1434,7 @@ name|sortingMap
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|Integer
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1575,9 +1563,7 @@ name|l
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrDocument
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// De-dup records sets. Shouldn't happen if indexed correctly.
@@ -1591,11 +1577,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrDocument
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1669,9 +1651,7 @@ name|l
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrDocument
-argument_list|>
+argument_list|<>
 argument_list|(
 name|map
 operator|.
@@ -2250,9 +2230,7 @@ name|mlt
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|DocList
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|DocIterator
@@ -2283,9 +2261,7 @@ name|dbg
 operator|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2380,9 +2356,7 @@ name|docDbg
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|docDbg
@@ -2438,9 +2412,7 @@ name|explains
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|DocIterator

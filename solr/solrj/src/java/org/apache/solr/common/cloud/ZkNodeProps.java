@@ -209,11 +209,7 @@ name|propMap
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|keyVals
 operator|.
@@ -313,11 +309,7 @@ block|{
 return|return
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|propMap
 argument_list|)

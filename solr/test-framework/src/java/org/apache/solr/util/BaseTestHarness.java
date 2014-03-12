@@ -185,9 +185,7 @@ name|builderTL
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|DocumentBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|xpathTL
@@ -202,9 +200,7 @@ name|xpathTL
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|XPath
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|getXmlDocumentBuilder

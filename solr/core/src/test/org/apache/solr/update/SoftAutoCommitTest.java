@@ -1536,9 +1536,7 @@ name|soft
 init|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1000
 argument_list|)
@@ -1554,9 +1552,7 @@ name|hard
 init|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1000
 argument_list|)
@@ -1572,9 +1568,7 @@ name|searcher
 init|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1000
 argument_list|)

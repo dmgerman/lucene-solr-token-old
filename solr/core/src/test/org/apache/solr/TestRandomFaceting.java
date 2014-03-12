@@ -266,9 +266,7 @@ name|types
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FldType
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|types
@@ -883,9 +881,7 @@ name|ids
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|model
 operator|.
@@ -1726,9 +1722,7 @@ name|responses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|methods
 operator|.

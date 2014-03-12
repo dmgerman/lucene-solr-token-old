@@ -1867,9 +1867,7 @@ name|levels
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SegmentInfoAndLevel
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -2426,9 +2424,7 @@ name|mergeInfos
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SegmentCommitInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

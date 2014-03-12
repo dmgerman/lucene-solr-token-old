@@ -172,9 +172,7 @@ name|fields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Field
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Constructs a new document with no fields. */
@@ -455,9 +453,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -677,9 +673,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Field
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -782,9 +776,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

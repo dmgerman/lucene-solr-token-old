@@ -1250,9 +1250,7 @@ name|fragments
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LookupHighlightFragment
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -4073,9 +4071,7 @@ name|usedWeights
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -4086,9 +4082,7 @@ name|usedKeys
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -4099,9 +4093,7 @@ name|inputs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Input
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -4112,9 +4104,7 @@ name|pendingUpdates
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Update
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -4729,9 +4719,7 @@ name|expected
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Input
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

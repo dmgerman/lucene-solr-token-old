@@ -127,9 +127,7 @@ name|phraseList
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|WeightedPhraseInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**    * create a FieldPhraseList that has no limit on the number of phrases to analyze    *     * @param fieldTermStack FieldTermStack object    * @param fieldQuery FieldQuery object    */
@@ -202,9 +200,7 @@ name|phraseCandidate
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|TermInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|QueryPhraseMap
@@ -519,9 +515,7 @@ name|itr
 init|=
 operator|new
 name|MergedIterator
-argument_list|<
-name|WeightedPhraseInfo
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|false
 argument_list|,
@@ -533,9 +527,7 @@ name|phraseList
 operator|=
 operator|new
 name|LinkedList
-argument_list|<
-name|WeightedPhraseInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 if|if
@@ -557,9 +549,7 @@ name|work
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|WeightedPhraseInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|WeightedPhraseInfo
@@ -978,9 +968,7 @@ name|termsInfos
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TermInfo
-argument_list|>
+argument_list|<>
 argument_list|(
 name|terms
 argument_list|)
@@ -989,9 +977,7 @@ name|termsOffsets
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Toffs
-argument_list|>
+argument_list|<>
 argument_list|(
 name|terms
 operator|.
@@ -1224,9 +1210,7 @@ name|termsInfos
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TermInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|seqnum
@@ -1312,9 +1296,7 @@ name|itr
 init|=
 operator|new
 name|MergedIterator
-argument_list|<
-name|Toffs
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|false
 argument_list|,
@@ -1325,9 +1307,7 @@ name|termsOffsets
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Toffs
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 if|if

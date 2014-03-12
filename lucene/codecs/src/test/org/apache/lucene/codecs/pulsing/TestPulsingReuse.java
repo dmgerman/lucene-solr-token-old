@@ -383,11 +383,7 @@ name|allEnums
 init|=
 operator|new
 name|IdentityHashMap
-argument_list|<
-name|DocsEnum
-argument_list|,
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|TermsEnum
@@ -655,11 +651,7 @@ name|allEnums
 init|=
 operator|new
 name|IdentityHashMap
-argument_list|<
-name|DocsEnum
-argument_list|,
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|TermsEnum

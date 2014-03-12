@@ -1552,9 +1552,7 @@ name|postParams
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|NameValuePair
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -1617,9 +1615,7 @@ name|parts
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|FormBodyPart
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Iterator
@@ -2383,9 +2379,7 @@ name|rsp
 init|=
 operator|new
 name|NamedList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|rsp

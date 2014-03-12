@@ -311,9 +311,7 @@ name|tasks
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PerfTask
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|logByTimeMsec
@@ -862,9 +860,7 @@ name|bgTasks
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RunBackgroundTask
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2536,9 +2532,7 @@ name|tasks
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PerfTask
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for

@@ -343,9 +343,7 @@ name|commands
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Command
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|searcher
@@ -722,9 +720,7 @@ name|collectors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Collector
-argument_list|>
+argument_list|<>
 argument_list|(
 name|nrOfCommands
 argument_list|)

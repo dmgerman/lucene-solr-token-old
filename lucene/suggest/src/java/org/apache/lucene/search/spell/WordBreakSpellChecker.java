@@ -297,9 +297,7 @@ name|suggestions
 init|=
 operator|new
 name|PriorityQueue
-argument_list|<
-name|SuggestWordArrayWrapper
-argument_list|>
+argument_list|<>
 argument_list|(
 name|queueInitialCapacity
 argument_list|,
@@ -568,9 +566,7 @@ name|suggestions
 init|=
 operator|new
 name|PriorityQueue
-argument_list|<
-name|CombineSuggestionWrapper
-argument_list|>
+argument_list|<>
 argument_list|(
 name|queueInitialCapacity
 argument_list|,

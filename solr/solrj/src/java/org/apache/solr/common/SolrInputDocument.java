@@ -153,11 +153,7 @@ name|_fields
 operator|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrInputField
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -658,9 +654,7 @@ name|_childDocuments
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrInputDocument
-argument_list|>
+argument_list|<>
 argument_list|(
 name|_childDocuments
 operator|.
@@ -1114,9 +1108,7 @@ name|_childDocuments
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrInputDocument
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

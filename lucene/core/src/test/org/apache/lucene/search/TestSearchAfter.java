@@ -355,9 +355,7 @@ name|allSortFields
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SortField
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -1100,9 +1098,7 @@ name|fields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Field
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|fields

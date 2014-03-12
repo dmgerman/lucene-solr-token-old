@@ -993,9 +993,7 @@ name|filters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TokenFilterFactory
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)
@@ -1056,9 +1054,7 @@ name|filters
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TokenFilterFactory
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)
@@ -1110,9 +1106,7 @@ name|charFilters
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CharFilterFactory
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)
@@ -1563,9 +1557,7 @@ name|charFilters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CharFilterFactory
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|AbstractPluginLoader
@@ -1781,9 +1773,7 @@ name|tokenizers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TokenizerFactory
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)
@@ -2039,9 +2029,7 @@ name|filters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TokenFilterFactory
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|AbstractPluginLoader

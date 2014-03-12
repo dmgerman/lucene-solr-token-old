@@ -2634,9 +2634,7 @@ name|upJettys
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|JettySolrRunner
-argument_list|>
+argument_list|<>
 argument_list|(
 name|jettys
 argument_list|)
@@ -2649,9 +2647,7 @@ name|upClients
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrServer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|clients
 argument_list|)
@@ -2664,9 +2660,7 @@ name|downJettys
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|JettySolrRunner
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -2677,9 +2671,7 @@ name|upShards
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.

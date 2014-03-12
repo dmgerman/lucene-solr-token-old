@@ -1168,11 +1168,7 @@ name|encode
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Long
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|data
@@ -1958,9 +1954,7 @@ name|builder
 init|=
 operator|new
 name|Builder
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|INPUT_TYPE
 operator|.

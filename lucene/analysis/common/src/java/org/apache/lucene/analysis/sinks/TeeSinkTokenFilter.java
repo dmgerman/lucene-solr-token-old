@@ -141,12 +141,7 @@ name|sinks
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|WeakReference
-argument_list|<
-name|SinkTokenStream
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**    * Instantiates a new TeeSinkTokenFilter.    */
@@ -210,9 +205,7 @@ name|add
 argument_list|(
 operator|new
 name|WeakReference
-argument_list|<
-name|SinkTokenStream
-argument_list|>
+argument_list|<>
 argument_list|(
 name|sink
 argument_list|)
@@ -302,9 +295,7 @@ name|add
 argument_list|(
 operator|new
 name|WeakReference
-argument_list|<
-name|SinkTokenStream
-argument_list|>
+argument_list|<>
 argument_list|(
 name|sink
 argument_list|)
@@ -538,11 +529,7 @@ name|cachedStates
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|AttributeSource
-operator|.
-name|State
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|finalState

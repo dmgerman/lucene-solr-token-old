@@ -1296,9 +1296,7 @@ name|blocks
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Document
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -1876,9 +1874,7 @@ name|docs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrInputDocument
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|SolrInputDocument
@@ -1918,9 +1914,7 @@ name|ch1
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrInputDocument
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -2205,9 +2199,7 @@ name|docs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrInputDocument
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String
@@ -3429,12 +3421,7 @@ name|rez
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Callable
-argument_list|<
-name|Void
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

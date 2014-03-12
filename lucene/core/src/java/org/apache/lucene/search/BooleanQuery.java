@@ -256,9 +256,7 @@ name|clauses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BooleanClause
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|disableCoord
@@ -526,9 +524,7 @@ name|weights
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Weight
-argument_list|>
+argument_list|<>
 argument_list|(
 name|clauses
 operator|.
@@ -1496,9 +1492,7 @@ name|required
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Scorer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -1509,9 +1503,7 @@ name|prohibited
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Scorer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -1522,9 +1514,7 @@ name|optional
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Scorer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Iterator

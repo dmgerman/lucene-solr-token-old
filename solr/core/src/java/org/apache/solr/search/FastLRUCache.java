@@ -477,11 +477,7 @@ name|cache
 operator|=
 operator|new
 name|ConcurrentLRUCache
-argument_list|<
-name|K
-argument_list|,
-name|V
-argument_list|>
+argument_list|<>
 argument_list|(
 name|limit
 argument_list|,
@@ -531,11 +527,7 @@ name|statsList
 operator|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|ConcurrentLRUCache
-operator|.
-name|Stats
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// the first entry will be for cumulative stats of caches that have been closed.
@@ -1057,9 +1049,7 @@ name|lst
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Serializable
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

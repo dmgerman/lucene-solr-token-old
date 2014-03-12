@@ -81,9 +81,7 @@ name|ctl
 init|=
 operator|new
 name|CloseableThreadLocal
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|ctl
@@ -120,9 +118,7 @@ name|ctl
 init|=
 operator|new
 name|CloseableThreadLocal
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|assertNull

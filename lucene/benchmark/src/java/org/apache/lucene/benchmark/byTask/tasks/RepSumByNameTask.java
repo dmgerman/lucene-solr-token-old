@@ -224,11 +224,7 @@ name|p2
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|TaskStats
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

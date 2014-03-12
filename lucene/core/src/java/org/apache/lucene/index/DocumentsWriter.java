@@ -372,9 +372,7 @@ name|events
 operator|=
 operator|new
 name|ConcurrentLinkedQueue
-argument_list|<
-name|Event
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|flushControl
@@ -705,9 +703,7 @@ name|newFilesSet
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try
@@ -917,9 +913,7 @@ name|newFilesSet
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

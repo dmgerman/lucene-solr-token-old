@@ -94,9 +94,7 @@ name|dd
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|DocData
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|ConsumeContentSourceTask

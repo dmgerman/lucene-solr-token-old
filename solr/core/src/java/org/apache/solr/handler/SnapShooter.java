@@ -514,9 +514,7 @@ name|details
 init|=
 operator|new
 name|NamedList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|details
@@ -877,9 +875,7 @@ name|dirs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|OldBackupDirectory
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

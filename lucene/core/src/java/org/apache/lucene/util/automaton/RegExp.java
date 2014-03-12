@@ -615,9 +615,7 @@ name|list
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Automaton
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|findLeaves
@@ -674,9 +672,7 @@ name|list
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Automaton
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|findLeaves
@@ -1702,9 +1698,7 @@ name|set
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|getIdentifiers

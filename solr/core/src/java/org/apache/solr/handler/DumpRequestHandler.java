@@ -187,12 +187,7 @@ name|streams
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|NamedList
-argument_list|<
-name|Object
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Cycle through each stream
@@ -215,9 +210,7 @@ name|stream
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|stream

@@ -211,9 +211,7 @@ operator|new
 name|FST
 operator|.
 name|Arc
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|fst
@@ -235,9 +233,7 @@ operator|new
 name|FST
 operator|.
 name|Arc
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final

@@ -367,9 +367,7 @@ name|dictionaries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InputStream
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try
@@ -378,9 +376,7 @@ name|dictionaries
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InputStream
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for

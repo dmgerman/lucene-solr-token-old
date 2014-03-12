@@ -1011,9 +1011,7 @@ name|clauses
 operator|=
 operator|new
 name|Vector
-argument_list|<
-name|QueryNode
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|clauses
@@ -1167,9 +1165,7 @@ name|clauses
 operator|=
 operator|new
 name|Vector
-argument_list|<
-name|QueryNode
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|clauses
@@ -1323,9 +1319,7 @@ name|clauses
 operator|=
 operator|new
 name|Vector
-argument_list|<
-name|QueryNode
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|clauses
@@ -5313,10 +5307,7 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-argument_list|<
-name|int
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|jj_expentry

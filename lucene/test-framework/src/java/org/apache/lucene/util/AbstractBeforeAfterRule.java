@@ -150,9 +150,7 @@ name|errors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Throwable
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try

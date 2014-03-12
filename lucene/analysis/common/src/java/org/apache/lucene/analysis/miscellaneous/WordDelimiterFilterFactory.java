@@ -542,9 +542,7 @@ name|wlist
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -659,11 +657,7 @@ name|typeMap
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|Character
-argument_list|,
-name|Byte
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

@@ -300,9 +300,7 @@ name|qParsersTested
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** @see #testParserCoverage */
@@ -318,9 +316,7 @@ name|valParsersTested
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|testDateMathParsingEquality

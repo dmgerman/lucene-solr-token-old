@@ -92,9 +92,7 @@ name|result
 init|=
 operator|new
 name|InputOutput
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|target

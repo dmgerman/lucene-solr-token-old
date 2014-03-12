@@ -232,11 +232,7 @@ name|termContexts
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|Term
-argument_list|,
-name|TermContext
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|TreeSet
@@ -247,9 +243,7 @@ name|terms
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|query

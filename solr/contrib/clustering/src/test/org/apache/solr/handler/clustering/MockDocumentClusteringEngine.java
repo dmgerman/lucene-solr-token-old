@@ -90,9 +90,7 @@ block|{
 return|return
 operator|new
 name|NamedList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 block|}
@@ -113,9 +111,7 @@ block|{
 return|return
 operator|new
 name|NamedList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 block|}

@@ -187,9 +187,7 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -242,9 +240,7 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -299,9 +295,7 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -354,9 +348,7 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -411,9 +403,7 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
-argument_list|<
-name|Double
-argument_list|>
+argument_list|<>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -466,9 +456,7 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
-argument_list|<
-name|Double
-argument_list|>
+argument_list|<>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -523,9 +511,7 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
-argument_list|<
-name|Float
-argument_list|>
+argument_list|<>
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -578,9 +564,7 @@ block|{
 return|return
 operator|new
 name|NumericRangeFilter
-argument_list|<
-name|Float
-argument_list|>
+argument_list|<>
 argument_list|(
 name|NumericRangeQuery
 operator|.

@@ -390,9 +390,7 @@ name|stems
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CharsRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|IntsRef
@@ -769,9 +767,7 @@ name|stems
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CharsRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -1854,9 +1850,7 @@ name|stems
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CharsRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|IntsRef

@@ -376,9 +376,7 @@ name|info
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PluginInitInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|T
@@ -772,9 +770,7 @@ name|info
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PluginInitInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|T

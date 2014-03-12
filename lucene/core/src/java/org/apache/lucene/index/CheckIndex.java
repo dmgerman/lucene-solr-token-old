@@ -395,9 +395,7 @@ name|segmentsChecked
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** True if the index was created with a newer version of Lucene than the CheckIndex tool. */
@@ -417,9 +415,7 @@ name|segmentInfos
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SegmentInfoStatus
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Directory index is in. */
@@ -5280,13 +5276,7 @@ name|blockTreeStats
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|BlockTreeTermsReader
-operator|.
-name|Stats
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -9836,9 +9826,7 @@ name|onlySegments
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String

@@ -329,9 +329,7 @@ name|fields
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|suffix
@@ -464,11 +462,7 @@ name|formatToGroups
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|PostingsFormat
-argument_list|,
-name|FieldsGroup
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Holds last suffix of each PostingFormat name
@@ -482,11 +476,7 @@ name|suffixes
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// First pass: assign field -> PostingsFormat
@@ -830,11 +820,7 @@ name|fields
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|FieldsProducer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|formats
@@ -850,11 +836,7 @@ name|formats
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|FieldsProducer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|FieldsReader

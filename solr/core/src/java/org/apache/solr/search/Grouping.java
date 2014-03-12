@@ -753,9 +753,7 @@ name|commands
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Command
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|main
@@ -871,9 +869,7 @@ name|idSet
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// used for tracking unique docs when we need a doclist
@@ -2027,9 +2023,7 @@ name|collectors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Collector
-argument_list|>
+argument_list|<>
 argument_list|(
 name|commands
 operator|.
@@ -3327,9 +3321,7 @@ name|ids
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -3340,9 +3332,7 @@ name|scores
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Float
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -4404,9 +4394,7 @@ name|groupDocs
 init|=
 operator|new
 name|GroupDocs
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Float
 operator|.

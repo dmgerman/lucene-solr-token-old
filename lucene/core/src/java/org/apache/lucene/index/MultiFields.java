@@ -166,11 +166,7 @@ name|terms
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Terms
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Returns a single {@link Fields} instance for this    *  reader, merging fields/terms/docs/positions on the    *  fly.  This method will return null if the reader     *  has no postings.    *    *<p><b>NOTE</b>: this is a slow way to access postings.    *  It's better to get the sub-readers and iterate through them    *  yourself. */
@@ -241,9 +237,7 @@ name|fields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Fields
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -255,9 +249,7 @@ name|slices
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ReaderSlice
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -971,9 +963,7 @@ block|}
 return|return
 operator|new
 name|MergedIterator
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|subIterators
 argument_list|)
@@ -1022,9 +1012,7 @@ name|subs2
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Terms
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1036,9 +1024,7 @@ name|slices2
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ReaderSlice
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Gather all sub-readers that share this field
@@ -1248,9 +1234,7 @@ name|fields
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

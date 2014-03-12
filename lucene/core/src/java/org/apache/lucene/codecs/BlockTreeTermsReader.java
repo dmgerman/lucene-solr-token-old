@@ -506,11 +506,7 @@ name|fields
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|FieldReader
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** File offset where the directory starts in the terms file. */
@@ -2607,9 +2603,7 @@ name|index
 operator|=
 operator|new
 name|FST
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|(
 name|clone
 argument_list|,
@@ -4254,9 +4248,7 @@ operator|new
 name|FST
 operator|.
 name|Arc
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -4667,9 +4659,7 @@ operator|new
 name|FST
 operator|.
 name|Arc
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -6435,9 +6425,7 @@ operator|new
 name|FST
 operator|.
 name|Arc
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -7150,9 +7138,7 @@ operator|new
 name|FST
 operator|.
 name|Arc
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

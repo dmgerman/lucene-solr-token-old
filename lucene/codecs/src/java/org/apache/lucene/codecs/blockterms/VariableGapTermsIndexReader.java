@@ -297,11 +297,7 @@ name|fields
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|FieldInfo
-argument_list|,
-name|FieldIndexData
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// start of the field info data
@@ -651,9 +647,7 @@ name|fstEnum
 operator|=
 operator|new
 name|BytesRefFSTEnum
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|fst
 argument_list|)
@@ -851,9 +845,7 @@ name|fst
 operator|=
 operator|new
 name|FST
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|clone
 argument_list|,

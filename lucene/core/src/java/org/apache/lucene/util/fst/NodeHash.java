@@ -106,9 +106,7 @@ operator|new
 name|FST
 operator|.
 name|Arc
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|in

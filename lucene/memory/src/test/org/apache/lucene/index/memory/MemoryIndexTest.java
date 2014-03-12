@@ -779,9 +779,7 @@ name|queries
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|ITERATIONS
@@ -854,9 +852,7 @@ name|queries
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|InputStream
@@ -2814,9 +2810,7 @@ name|wrappedquery
 init|=
 operator|new
 name|SpanMultiTermQueryWrapper
-argument_list|<
-name|RegexpQuery
-argument_list|>
+argument_list|<>
 argument_list|(
 name|regex
 argument_list|)
@@ -2915,9 +2909,7 @@ name|SpanOrQuery
 argument_list|(
 operator|new
 name|SpanMultiTermQueryWrapper
-argument_list|<
-name|RegexpQuery
-argument_list|>
+argument_list|<>
 argument_list|(
 name|regex
 argument_list|)

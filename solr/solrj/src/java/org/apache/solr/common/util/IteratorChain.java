@@ -74,12 +74,7 @@ name|iterators
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Iterator
-argument_list|<
-name|E
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|itit

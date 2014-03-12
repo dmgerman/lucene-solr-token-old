@@ -422,9 +422,7 @@ name|exclusions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SelectorParams
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|selector
@@ -776,9 +774,7 @@ name|typeMappings
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TypeMapping
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -1234,12 +1230,7 @@ name|valueClasses
 operator|=
 operator|new
 name|HashSet
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -1404,9 +1395,7 @@ name|newFields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SchemaField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

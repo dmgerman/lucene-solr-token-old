@@ -261,11 +261,7 @@ name|handlers
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrRequestHandler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**    * Trim the trailing '/' if its there, and convert null to empty string.    *     * we want:    *  /update/csv   and    *  /update/csv/    * to map to the same handler     *     */
@@ -393,11 +389,7 @@ name|result
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|7
 argument_list|)
@@ -578,11 +570,7 @@ name|handlers
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|PluginInfo
-argument_list|,
-name|SolrRequestHandler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1345,9 +1333,7 @@ name|lst
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|lst

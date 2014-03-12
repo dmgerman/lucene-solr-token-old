@@ -501,11 +501,7 @@ name|formatters
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrFormatter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Thread safe registry
@@ -522,11 +518,7 @@ name|encoders
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrEncoder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Thread safe registry
@@ -543,11 +535,7 @@ name|fragmenters
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrFragmenter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Thread safe registry
@@ -564,11 +552,7 @@ name|fragListBuilders
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrFragListBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Thread safe registry
@@ -585,11 +569,7 @@ name|fragmentsBuilders
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrFragmentsBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Thread safe registry
@@ -606,11 +586,7 @@ name|boundaryScanners
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrBoundaryScanner
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -2093,9 +2069,7 @@ name|fset
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 block|{
@@ -2636,9 +2610,7 @@ name|frags
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TextFragment
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|TermOffsetsTokenStream
@@ -3167,9 +3139,7 @@ name|fragTexts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -3562,9 +3532,7 @@ name|listFields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -3660,9 +3628,7 @@ name|altList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -3853,9 +3819,7 @@ name|queue
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|OrderedToken
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|done

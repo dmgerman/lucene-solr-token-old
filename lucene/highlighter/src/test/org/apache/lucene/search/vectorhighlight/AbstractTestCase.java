@@ -996,9 +996,7 @@ name|bytesRefs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try

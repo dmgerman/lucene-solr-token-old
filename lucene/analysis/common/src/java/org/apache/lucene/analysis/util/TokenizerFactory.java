@@ -95,9 +95,7 @@ name|loader
 init|=
 operator|new
 name|AnalysisSPILoader
-argument_list|<
-name|TokenizerFactory
-argument_list|>
+argument_list|<>
 argument_list|(
 name|TokenizerFactory
 operator|.

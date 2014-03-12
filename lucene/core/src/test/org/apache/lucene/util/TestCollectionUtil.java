@@ -202,9 +202,7 @@ name|list2
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|list1
 argument_list|)
@@ -241,9 +239,7 @@ name|list2
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|list1
 argument_list|)
@@ -346,9 +342,7 @@ name|list2
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|list1
 argument_list|)
@@ -385,9 +379,7 @@ name|list2
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|list1
 argument_list|)
@@ -515,9 +507,7 @@ name|list
 operator|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|CollectionUtil
@@ -574,9 +564,7 @@ name|list
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|list

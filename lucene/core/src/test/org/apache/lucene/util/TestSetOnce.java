@@ -191,9 +191,7 @@ name|set
 init|=
 operator|new
 name|SetOnce
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|assertNull
@@ -230,9 +228,7 @@ name|set
 init|=
 operator|new
 name|SetOnce
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|Integer
@@ -291,9 +287,7 @@ name|set
 init|=
 operator|new
 name|SetOnce
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|set
@@ -351,9 +345,7 @@ name|set
 init|=
 operator|new
 name|SetOnce
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|SetOnceThread

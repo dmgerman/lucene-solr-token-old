@@ -131,9 +131,7 @@ name|disconnectedListeners
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DisconnectedListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|connectedListeners
@@ -146,9 +144,7 @@ name|connectedListeners
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ConnectedListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|connect

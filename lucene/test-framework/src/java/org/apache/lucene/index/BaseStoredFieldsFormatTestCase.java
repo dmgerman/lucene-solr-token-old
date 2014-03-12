@@ -719,9 +719,7 @@ name|fieldIDs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|FieldType
@@ -788,11 +786,7 @@ name|docs
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Document
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -3395,9 +3389,7 @@ name|readThreads
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Thread
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -3409,9 +3401,7 @@ name|ex
 init|=
 operator|new
 name|AtomicReference
-argument_list|<
-name|Exception
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

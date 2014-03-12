@@ -1449,11 +1449,7 @@ name|excludeSet
 init|=
 operator|new
 name|IdentityHashMap
-argument_list|<
-name|Query
-argument_list|,
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1551,9 +1547,7 @@ name|qlist
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Query
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// add the base query
@@ -1860,9 +1854,7 @@ name|facetResponse
 operator|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 try|try
@@ -1970,9 +1962,7 @@ name|res
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/* Ignore CommonParams.DF - could have init param facet.query assuming      * the schema default with query param DF intented to only affect Q.      * If user doesn't want schema default for facet.query, they should be      * explicit.      */
@@ -2298,9 +2288,7 @@ condition|)
 return|return
 operator|new
 name|NamedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 name|Integer
@@ -3261,9 +3249,7 @@ name|facetCounts
 init|=
 operator|new
 name|NamedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -3443,9 +3429,7 @@ name|res
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String
@@ -3534,12 +3518,7 @@ name|futures
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Future
-argument_list|<
-name|NamedList
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|facetFs
 operator|.
@@ -3637,9 +3616,7 @@ name|result
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -3738,9 +3715,7 @@ name|runnableFuture
 init|=
 operator|new
 name|FutureTask
-argument_list|<
-name|NamedList
-argument_list|>
+argument_list|<>
 argument_list|(
 name|callable
 argument_list|)
@@ -3961,9 +3936,7 @@ name|res
 init|=
 operator|new
 name|NamedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -4161,9 +4134,7 @@ name|res
 init|=
 operator|new
 name|NamedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|SortedDocValues
@@ -5121,9 +5092,7 @@ name|res
 init|=
 operator|new
 name|NamedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -5641,11 +5610,7 @@ name|add
 argument_list|(
 operator|new
 name|CountPair
-argument_list|<
-name|BytesRef
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|termCopy
 argument_list|,
@@ -5840,9 +5805,7 @@ name|resOuter
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -5948,9 +5911,7 @@ name|resInner
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|resOuter
@@ -6896,9 +6857,7 @@ name|resOuter
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -7274,9 +7233,7 @@ name|res
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -7288,9 +7245,7 @@ name|counts
 init|=
 operator|new
 name|NamedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|res

@@ -317,9 +317,7 @@ name|charFilterFactories
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CharFilterFactory
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|tokenizerFactory
@@ -339,9 +337,7 @@ name|tokenFilterFactories
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TokenFilterFactory
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|AnalyzerFactoryTask
@@ -1385,11 +1381,7 @@ name|argMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|boolean

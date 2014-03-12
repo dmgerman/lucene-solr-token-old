@@ -71,9 +71,7 @@ name|loader
 init|=
 operator|new
 name|AnalysisSPILoader
-argument_list|<
-name|TokenFilterFactory
-argument_list|>
+argument_list|<>
 argument_list|(
 name|TokenFilterFactory
 operator|.

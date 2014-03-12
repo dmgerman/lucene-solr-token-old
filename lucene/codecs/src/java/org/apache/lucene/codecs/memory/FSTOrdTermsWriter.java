@@ -439,9 +439,7 @@ name|fields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FieldMetaData
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|blockOut
@@ -1333,9 +1331,7 @@ name|builder
 operator|=
 operator|new
 name|Builder
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|FST
 operator|.

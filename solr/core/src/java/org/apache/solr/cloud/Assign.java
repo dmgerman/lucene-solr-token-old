@@ -498,9 +498,7 @@ name|shardIdNames
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|sliceMap
 operator|.
@@ -544,11 +542,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -782,9 +776,7 @@ name|nodeList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|nodes
 operator|.
@@ -822,11 +814,7 @@ name|nodeNameVsShardCount
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Node
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

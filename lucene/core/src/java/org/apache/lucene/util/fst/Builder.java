@@ -396,9 +396,7 @@ name|fst
 operator|=
 operator|new
 name|FST
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|inputType
 argument_list|,
@@ -422,9 +420,7 @@ name|dedupHash
 operator|=
 operator|new
 name|NodeHash
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|fst
 argument_list|,
@@ -511,9 +507,7 @@ index|]
 operator|=
 operator|new
 name|UnCompiledNode
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,
@@ -1124,9 +1118,7 @@ index|]
 operator|=
 operator|new
 name|UnCompiledNode
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,
@@ -1417,9 +1409,7 @@ index|]
 operator|=
 operator|new
 name|UnCompiledNode
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,
@@ -2309,9 +2299,7 @@ index|]
 operator|=
 operator|new
 name|Arc
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|output
@@ -2539,9 +2527,7 @@ index|]
 operator|=
 operator|new
 name|Arc
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

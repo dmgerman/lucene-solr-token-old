@@ -287,11 +287,7 @@ name|childFields
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|DocFieldConsumerPerField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Collection
@@ -573,9 +569,7 @@ name|fields
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|DocFieldConsumerPerField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

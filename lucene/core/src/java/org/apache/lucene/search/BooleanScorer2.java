@@ -970,9 +970,7 @@ name|allReq
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Scorer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|requiredScorers
 argument_list|)
@@ -1298,9 +1296,7 @@ name|children
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ChildScorer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

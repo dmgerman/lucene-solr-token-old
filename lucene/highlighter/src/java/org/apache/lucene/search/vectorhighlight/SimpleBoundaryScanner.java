@@ -170,9 +170,7 @@ name|boundaryChars
 operator|=
 operator|new
 name|HashSet
-argument_list|<
-name|Character
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|this

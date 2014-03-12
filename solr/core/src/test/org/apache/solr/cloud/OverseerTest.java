@@ -454,9 +454,7 @@ name|overseers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Overseer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|readers
@@ -469,9 +467,7 @@ name|readers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ZkStateReader
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|collection
@@ -2856,11 +2852,7 @@ name|counters
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|AtomicInteger
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

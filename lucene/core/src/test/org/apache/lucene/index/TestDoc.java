@@ -420,9 +420,7 @@ name|files
 operator|=
 operator|new
 name|LinkedList
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|files
@@ -1308,9 +1306,7 @@ name|setFiles
 argument_list|(
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|trackingDir
 operator|.

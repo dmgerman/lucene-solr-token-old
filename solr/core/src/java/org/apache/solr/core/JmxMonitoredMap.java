@@ -840,11 +840,7 @@ name|map
 init|=
 operator|new
 name|Hashtable
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|map
@@ -959,9 +955,7 @@ name|staticStats
 operator|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// For which getters are already available in SolrInfoMBean
@@ -1023,9 +1017,7 @@ name|attrInfoList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MBeanAttributeInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

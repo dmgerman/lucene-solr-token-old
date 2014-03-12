@@ -1233,11 +1233,7 @@ name|localParams
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -1371,9 +1367,7 @@ name|sorts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SortField
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|4
 argument_list|)
@@ -1386,9 +1380,7 @@ name|fields
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SchemaField
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|4
 argument_list|)
@@ -4878,9 +4870,7 @@ name|out
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|queries
 operator|.

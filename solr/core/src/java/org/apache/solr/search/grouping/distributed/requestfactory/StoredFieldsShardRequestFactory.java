@@ -290,14 +290,7 @@ name|shardMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Set
-argument_list|<
-name|ShardDoc
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -586,9 +579,7 @@ name|ids
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shardDocs
 operator|.
@@ -721,9 +712,7 @@ name|shardDocs
 operator|=
 operator|new
 name|HashSet
-argument_list|<
-name|ShardDoc
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -84,9 +84,7 @@ name|rows
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Row
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|cmds
@@ -98,9 +96,7 @@ name|cmds
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CharSequence
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|root

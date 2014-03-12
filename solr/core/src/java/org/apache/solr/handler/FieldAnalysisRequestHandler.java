@@ -589,9 +589,7 @@ name|analysisResults
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|NamedList
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|NamedList
@@ -602,9 +600,7 @@ name|fieldTypeAnalysisResults
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|NamedList
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -667,9 +663,7 @@ name|fieldNameAnalysisResults
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|NamedList
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -809,9 +803,7 @@ name|analyzeResults
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|NamedList
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

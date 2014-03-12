@@ -479,9 +479,7 @@ name|lastGens
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|warmCalled
@@ -1528,9 +1526,7 @@ name|nrtDeletesThread
 operator|=
 operator|new
 name|ControlledRealTimeReopenThread
-argument_list|<
-name|IndexSearcher
-argument_list|>
+argument_list|<>
 argument_list|(
 name|genWriter
 argument_list|,
@@ -1588,9 +1584,7 @@ name|nrtNoDeletesThread
 operator|=
 operator|new
 name|ControlledRealTimeReopenThread
-argument_list|<
-name|IndexSearcher
-argument_list|>
+argument_list|<>
 argument_list|(
 name|genWriter
 argument_list|,
@@ -2152,9 +2146,7 @@ name|thread
 init|=
 operator|new
 name|ControlledRealTimeReopenThread
-argument_list|<
-name|IndexSearcher
-argument_list|>
+argument_list|<>
 argument_list|(
 name|writer
 argument_list|,
@@ -2906,9 +2898,7 @@ name|controlledRealTimeReopenThread
 init|=
 operator|new
 name|ControlledRealTimeReopenThread
-argument_list|<
-name|IndexSearcher
-argument_list|>
+argument_list|<>
 argument_list|(
 name|tiw
 argument_list|,
@@ -2939,9 +2929,7 @@ name|commitThreads
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Thread
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

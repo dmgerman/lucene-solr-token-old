@@ -637,11 +637,7 @@ name|repeats
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|4
 argument_list|)
@@ -1478,9 +1474,7 @@ name|fields
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexableField
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|4
 argument_list|)

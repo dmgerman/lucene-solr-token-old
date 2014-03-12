@@ -349,11 +349,7 @@ name|fieldTypes
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|DimConfig
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Used only for best-effort detection of app mixing
@@ -371,11 +367,7 @@ name|assocDimTypes
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Holds the configuration for one dimension    *    * @lucene.experimental */
@@ -814,14 +806,7 @@ name|byField
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|FacetField
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// ... and also all SortedSetDocValuesFacetFields:
@@ -838,14 +823,7 @@ name|dvByField
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|SortedSetDocValuesFacetField
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// ... and also all AssociationFacetFields
@@ -862,14 +840,7 @@ name|assocByField
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|AssociationFacetField
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -880,9 +851,7 @@ name|seenDims
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -978,9 +947,7 @@ name|fields
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FacetField
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|byField
@@ -1083,9 +1050,7 @@ name|fields
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SortedSetDocValuesFacetField
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|dvByField
@@ -1230,9 +1195,7 @@ name|fields
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AssociationFacetField
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|assocByField
@@ -3067,9 +3030,7 @@ name|parts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int

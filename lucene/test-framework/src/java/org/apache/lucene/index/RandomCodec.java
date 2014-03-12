@@ -544,9 +544,7 @@ name|formats
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PostingsFormat
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Shuffled list of docvalues formats to use for new mappings */
@@ -560,9 +558,7 @@ name|dvFormats
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DocValuesFormat
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** unique set of format names this codec knows about */
@@ -576,9 +572,7 @@ name|formatNames
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** unique set of docvalues format names this codec knows about */
@@ -592,9 +586,7 @@ name|dvFormatNames
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** memorized field->postingsformat mappings */

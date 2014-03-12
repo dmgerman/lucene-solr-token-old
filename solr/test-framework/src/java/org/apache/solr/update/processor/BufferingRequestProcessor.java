@@ -113,9 +113,7 @@ name|addCommands
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AddUpdateCommand
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|deleteCommands
@@ -128,9 +126,7 @@ name|deleteCommands
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DeleteUpdateCommand
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|commitCommands
@@ -143,9 +139,7 @@ name|commitCommands
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CommitUpdateCommand
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|rollbackCommands
@@ -158,9 +152,7 @@ name|rollbackCommands
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RollbackUpdateCommand
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|BufferingRequestProcessor

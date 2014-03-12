@@ -83,11 +83,7 @@ name|analysisByFieldTypeName
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Analysis
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|analysisByFieldName
@@ -102,11 +98,7 @@ name|analysisByFieldName
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Analysis
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**    * {@inheritDoc}    */

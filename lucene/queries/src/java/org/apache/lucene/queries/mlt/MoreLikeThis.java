@@ -1698,11 +1698,7 @@ name|termFreqMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Int
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2238,11 +2234,7 @@ name|words
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Int
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|addTermFrequencies
@@ -2282,9 +2274,7 @@ name|al
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|maxQueryTerms
 argument_list|)
@@ -2400,9 +2390,7 @@ name|al
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|maxQueryTerms
 argument_list|)

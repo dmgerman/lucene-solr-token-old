@@ -467,10 +467,7 @@ name|matchPayload
 operator|=
 operator|new
 name|LinkedList
-argument_list|<
-name|byte
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|subSpansByDoc
@@ -1370,10 +1367,7 @@ name|possibleMatchPayloads
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|byte
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -1486,10 +1480,7 @@ name|possiblePayload
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|byte
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 name|payload
 operator|.
@@ -1640,10 +1631,7 @@ name|possiblePayload
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|byte
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 name|payload
 operator|.

@@ -1087,9 +1087,7 @@ name|threadDocs
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|DocState
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Note: Document instance is re-used per-thread */

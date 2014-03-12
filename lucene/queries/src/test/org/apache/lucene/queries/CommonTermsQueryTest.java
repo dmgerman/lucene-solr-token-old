@@ -4348,9 +4348,7 @@ name|hits
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -4489,11 +4487,7 @@ name|terms
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CommonTermsQueryTest
-operator|.
-name|TermAndFreq
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while

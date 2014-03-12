@@ -158,9 +158,7 @@ name|fieldNames
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|fieldNames
@@ -236,9 +234,7 @@ name|queries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SrndQuery
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Iterator

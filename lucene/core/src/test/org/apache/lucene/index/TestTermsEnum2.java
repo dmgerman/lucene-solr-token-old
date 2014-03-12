@@ -393,9 +393,7 @@ name|terms
 operator|=
 operator|new
 name|TreeSet
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|int
@@ -573,9 +571,7 @@ name|matchedTerms
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -764,9 +760,7 @@ name|unsortedTerms
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|(
 name|terms
 argument_list|)
@@ -1093,9 +1087,7 @@ name|found
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while

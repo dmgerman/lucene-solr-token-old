@@ -281,11 +281,7 @@ name|extraServlets
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|ServletHolder
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -335,9 +331,7 @@ name|restTestHarnesses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RestTestHarness
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|setupHarnesses

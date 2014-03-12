@@ -274,9 +274,7 @@ name|uniqueValues
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -517,9 +515,7 @@ name|frozenSet
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1198,9 +1194,7 @@ name|uniqueValues
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1459,9 +1453,7 @@ name|frozenSet
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

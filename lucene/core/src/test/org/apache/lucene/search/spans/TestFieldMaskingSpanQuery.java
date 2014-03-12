@@ -856,9 +856,7 @@ name|terms
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|qr
@@ -981,9 +979,7 @@ name|terms
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|qr
@@ -1095,9 +1091,7 @@ name|set
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|qr

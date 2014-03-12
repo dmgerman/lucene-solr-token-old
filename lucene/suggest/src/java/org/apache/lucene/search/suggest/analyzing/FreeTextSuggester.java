@@ -1749,9 +1749,7 @@ name|builder
 init|=
 operator|new
 name|Builder
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|FST
 operator|.
@@ -2161,9 +2159,7 @@ name|fst
 operator|=
 operator|new
 name|FST
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|input
 argument_list|,
@@ -2663,9 +2659,7 @@ name|arc
 init|=
 operator|new
 name|Arc
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|BytesReader
@@ -2691,9 +2685,7 @@ name|results
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LookupResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|num
 argument_list|)
@@ -2710,9 +2702,7 @@ name|seen
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

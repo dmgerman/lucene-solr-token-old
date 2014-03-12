@@ -342,11 +342,7 @@ name|methodCalls
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|MethodCall
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|tableCount

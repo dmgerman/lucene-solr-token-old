@@ -293,9 +293,7 @@ name|addedList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|outputList
 operator|.
@@ -532,9 +530,7 @@ name|outputList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|count
 argument_list|)
@@ -738,9 +734,7 @@ name|outputList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -869,9 +863,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)

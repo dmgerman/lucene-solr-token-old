@@ -1197,9 +1197,7 @@ operator|new
 name|NamedList
 operator|.
 name|NamedListEntry
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|id
 argument_list|,

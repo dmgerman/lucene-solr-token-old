@@ -310,9 +310,7 @@ name|terms
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|WeightedTerm
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|getTerms
@@ -442,9 +440,7 @@ name|nonWeightedTerms
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|query

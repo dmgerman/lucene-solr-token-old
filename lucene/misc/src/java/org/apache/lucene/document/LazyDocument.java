@@ -232,14 +232,7 @@ name|fields
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|List
-argument_list|<
-name|LazyField
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|fieldNames
@@ -252,9 +245,7 @@ name|fieldNames
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|LazyDocument
@@ -326,9 +317,7 @@ name|values
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LazyField
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|fields

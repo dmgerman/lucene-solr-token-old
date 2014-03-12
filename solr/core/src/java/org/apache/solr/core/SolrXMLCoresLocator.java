@@ -822,9 +822,7 @@ name|cds
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CoreDescriptor
-argument_list|>
+argument_list|<>
 argument_list|(
 name|cc
 operator|.

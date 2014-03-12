@@ -976,11 +976,7 @@ name|slowCompletor
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -992,9 +988,7 @@ name|allPrefixes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Input
@@ -1229,9 +1223,7 @@ name|matches
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LookupResult
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// TODO: could be faster... but its slowCompletor for a reason

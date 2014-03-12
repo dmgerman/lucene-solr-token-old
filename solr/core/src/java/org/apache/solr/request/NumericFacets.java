@@ -1602,9 +1602,7 @@ name|result
 init|=
 operator|new
 name|NamedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// This stuff is complicated because if facet.mincount=0, the counts needs
@@ -1643,9 +1641,7 @@ name|counts
 init|=
 operator|new
 name|ArrayDeque
-argument_list|<
-name|Entry
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while
@@ -1801,9 +1797,7 @@ name|alreadySeen
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while
@@ -2230,11 +2224,7 @@ name|counts
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while

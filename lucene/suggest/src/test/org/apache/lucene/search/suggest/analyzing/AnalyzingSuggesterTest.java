@@ -4460,9 +4460,7 @@ name|slowCompletor
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TermFreq2
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -4474,9 +4472,7 @@ name|allPrefixes
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -4488,9 +4484,7 @@ name|seen
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -5008,9 +5002,7 @@ name|sorted
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TermFreq2
-argument_list|>
+argument_list|<>
 argument_list|(
 name|slowCompletor
 argument_list|)
@@ -5206,9 +5198,7 @@ name|matches
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TermFreq2
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// "Analyze" the key:
@@ -8064,9 +8054,7 @@ name|asList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|values
 operator|.

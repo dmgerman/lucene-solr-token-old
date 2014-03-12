@@ -775,9 +775,7 @@ name|toDeleteIDs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -789,9 +787,7 @@ name|toDeleteSubDocs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SubDocs
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while
@@ -1121,9 +1117,7 @@ name|docIDs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1147,9 +1141,7 @@ name|docsList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Document
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|allSubDocs

@@ -501,9 +501,7 @@ name|termsResult
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|rb
@@ -773,9 +771,7 @@ name|fieldTerms
 init|=
 operator|new
 name|NamedList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|termsResult
@@ -1230,11 +1226,7 @@ name|add
 argument_list|(
 operator|new
 name|CountPair
-argument_list|<
-name|BytesRef
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|BytesRef
 operator|.
@@ -1870,18 +1862,7 @@ name|fieldmap
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|TermsResponse
-operator|.
-name|Term
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|5
 argument_list|)
@@ -2133,9 +2114,7 @@ name|response
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// determine if we are going index or count sort
@@ -2309,9 +2288,7 @@ name|fieldterms
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Number
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|TermsResponse

@@ -225,9 +225,7 @@ name|commitCallbacks
 init|=
 operator|new
 name|Vector
-argument_list|<
-name|SolrEventListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|softCommitCallbacks
@@ -240,9 +238,7 @@ name|softCommitCallbacks
 init|=
 operator|new
 name|Vector
-argument_list|<
-name|SolrEventListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|optimizeCallbacks
@@ -255,9 +251,7 @@ name|optimizeCallbacks
 init|=
 operator|new
 name|Vector
-argument_list|<
-name|SolrEventListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|ulog

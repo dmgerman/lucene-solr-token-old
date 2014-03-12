@@ -2103,9 +2103,7 @@ name|ns
 operator|=
 operator|new
 name|Stack
-argument_list|<
-name|Item
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|ks

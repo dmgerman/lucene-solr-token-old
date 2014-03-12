@@ -291,11 +291,7 @@ name|etagCoreCache
 init|=
 operator|new
 name|WeakHashMap
-argument_list|<
-name|SolrCore
-argument_list|,
-name|EtagCacheVal
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** @see #etagCoreCache */

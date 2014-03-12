@@ -175,11 +175,7 @@ name|dirs
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Tracker
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|stop
@@ -240,9 +236,7 @@ name|threads
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Thread
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -617,9 +611,7 @@ name|dirsList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Tracker
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|dirsList

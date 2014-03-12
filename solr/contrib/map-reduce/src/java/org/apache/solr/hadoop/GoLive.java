@@ -369,9 +369,7 @@ name|completionService
 init|=
 operator|new
 name|ExecutorCompletionService
-argument_list|<
-name|Request
-argument_list|>
+argument_list|<>
 argument_list|(
 name|executor
 argument_list|)
@@ -387,12 +385,7 @@ name|pending
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Future
-argument_list|<
-name|Request
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int

@@ -77,9 +77,7 @@ block|{
 return|return
 operator|new
 name|ArrayInPlaceMergeSorter
-argument_list|<
-name|Entry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|arr
 argument_list|,

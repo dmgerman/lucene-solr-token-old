@@ -884,9 +884,7 @@ name|versions
 init|=
 operator|new
 name|ArrayDeque
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|versions
@@ -4416,9 +4414,7 @@ name|versions
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|addDocs

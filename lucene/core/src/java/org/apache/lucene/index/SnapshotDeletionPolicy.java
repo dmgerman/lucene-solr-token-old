@@ -105,11 +105,7 @@ name|refCounts
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Long
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Used to map gen to IndexCommit. */
@@ -125,11 +121,7 @@ name|indexCommits
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Long
-argument_list|,
-name|IndexCommit
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Wrapped {@link IndexDeletionPolicy} */
@@ -574,9 +566,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexCommit
-argument_list|>
+argument_list|<>
 argument_list|(
 name|indexCommits
 operator|.
@@ -684,11 +674,7 @@ name|refCounts
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|Long
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|refCounts
 argument_list|)
@@ -699,11 +685,7 @@ name|indexCommits
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|Long
-argument_list|,
-name|IndexCommit
-argument_list|>
+argument_list|<>
 argument_list|(
 name|indexCommits
 argument_list|)
@@ -738,9 +720,7 @@ name|wrappedCommits
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexCommit
-argument_list|>
+argument_list|<>
 argument_list|(
 name|commits
 operator|.

@@ -396,9 +396,7 @@ name|foobar
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|foobar
@@ -478,9 +476,7 @@ name|docs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrInputDocument
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|JavaBinUpdateRequestCodec
@@ -712,9 +708,7 @@ name|values
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|values
@@ -855,9 +849,7 @@ name|docs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrInputDocument
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|JavaBinUpdateRequestCodec
@@ -1208,9 +1200,7 @@ name|foobar
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|foobar

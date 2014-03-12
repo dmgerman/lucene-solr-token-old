@@ -902,11 +902,7 @@ name|stats
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Term
-argument_list|,
-name|TermStatistics
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1068,11 +1064,7 @@ name|collectionStatsCache
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|FieldAndShardVersion
-argument_list|,
-name|CollectionStatistics
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|termStatsCache
@@ -1088,11 +1080,7 @@ name|termStatsCache
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|TermAndShardVersion
-argument_list|,
-name|TermStatistics
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Matches docs in the local shard but scores based on      *  aggregated stats ("mock distributed scoring") from all      *  nodes. */
@@ -1202,9 +1190,7 @@ name|terms
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|rewritten
@@ -1251,9 +1237,7 @@ name|missing
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

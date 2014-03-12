@@ -113,9 +113,7 @@ name|newList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|nvPairs
 operator|.
@@ -133,9 +131,7 @@ expr_stmt|;
 return|return
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|newList
 argument_list|)

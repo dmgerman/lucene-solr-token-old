@@ -591,9 +591,7 @@ name|components
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SearchComponent
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)
@@ -859,9 +857,7 @@ name|components
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SearchComponent
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)

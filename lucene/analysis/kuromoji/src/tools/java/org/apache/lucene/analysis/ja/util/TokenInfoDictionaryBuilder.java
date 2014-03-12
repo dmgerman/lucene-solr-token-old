@@ -406,9 +406,7 @@ name|csvFiles
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -496,10 +494,7 @@ name|lines
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|400000
 argument_list|)
@@ -804,9 +799,7 @@ name|fstBuilder
 init|=
 operator|new
 name|Builder
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|FST
 operator|.

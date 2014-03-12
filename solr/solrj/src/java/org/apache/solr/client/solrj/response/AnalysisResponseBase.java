@@ -101,9 +101,7 @@ name|phases
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AnalysisPhase
-argument_list|>
+argument_list|<>
 argument_list|(
 name|phaseNL
 operator|.
@@ -353,9 +351,7 @@ name|tokens
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TokenInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|AnalysisPhase

@@ -184,11 +184,7 @@ name|argsWrap
 init|=
 operator|new
 name|MapListener
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|args
 argument_list|)

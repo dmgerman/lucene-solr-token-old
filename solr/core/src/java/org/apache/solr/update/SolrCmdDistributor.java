@@ -309,9 +309,7 @@ name|allErrors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Error
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|errors
@@ -324,9 +322,7 @@ name|errors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Error
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|interface|AbortCheck
@@ -433,9 +429,7 @@ name|errors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Error
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 operator|.
@@ -460,9 +454,7 @@ name|resubmitList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Error
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1525,9 +1517,7 @@ name|errors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Error
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 block|}

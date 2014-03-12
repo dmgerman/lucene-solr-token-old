@@ -639,9 +639,7 @@ name|streams
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ContentStream
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)

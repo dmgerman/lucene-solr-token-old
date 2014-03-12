@@ -565,9 +565,7 @@ name|indexes
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexReader
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String

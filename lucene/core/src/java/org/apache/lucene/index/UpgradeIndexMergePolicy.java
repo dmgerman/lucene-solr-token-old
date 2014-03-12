@@ -222,11 +222,7 @@ name|oldSegments
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|SegmentCommitInfo
-argument_list|,
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -387,9 +383,7 @@ name|newInfos
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SegmentCommitInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

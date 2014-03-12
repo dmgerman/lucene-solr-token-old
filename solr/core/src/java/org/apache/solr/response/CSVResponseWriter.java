@@ -729,9 +729,7 @@ name|values
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexableField
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|1
 argument_list|)
@@ -757,11 +755,7 @@ name|csvFields
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|CSVField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|cal
@@ -1415,9 +1409,7 @@ name|fields
 operator|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

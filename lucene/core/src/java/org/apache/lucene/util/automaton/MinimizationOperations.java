@@ -349,9 +349,7 @@ name|pending
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|IntPair
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -414,9 +412,7 @@ index|]
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|State
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|partition
@@ -426,9 +422,7 @@ index|]
 operator|=
 operator|new
 name|HashSet
-argument_list|<
-name|State
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -568,9 +562,7 @@ index|]
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|State
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|r

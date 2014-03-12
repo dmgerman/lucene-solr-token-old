@@ -386,12 +386,7 @@ name|solrUrls
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|List
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|slices
 operator|.
@@ -446,9 +441,7 @@ name|urls
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|replicas
 operator|.

@@ -170,11 +170,7 @@ name|cores
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrCore
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// For "permanent" cores
@@ -191,11 +187,7 @@ name|transientCores
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrCore
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// For "lazily loaded" cores
@@ -212,11 +204,7 @@ name|dynamicDescriptors
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|CoreDescriptor
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|createdCores
@@ -232,11 +220,7 @@ name|createdCores
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|SolrCore
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|coreToOrigName
@@ -251,11 +235,7 @@ name|coreToOrigName
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|SolrCore
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|container
@@ -294,9 +274,7 @@ name|pendingCoreOps
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Due to the fact that closes happen potentially whenever anything is _added_ to the transient core list, we need
@@ -313,9 +291,7 @@ name|pendingCloses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrCore
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|SolrCores
@@ -506,9 +482,7 @@ name|coreList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrCore
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// It might be possible for one of the cores to move from one list to another while we're closing them. So
@@ -732,9 +706,7 @@ name|lst
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SolrCore
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 synchronized|synchronized
@@ -773,9 +745,7 @@ name|set
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 synchronized|synchronized
@@ -827,9 +797,7 @@ name|lst
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 synchronized|synchronized
@@ -940,9 +908,7 @@ name|set
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 synchronized|synchronized

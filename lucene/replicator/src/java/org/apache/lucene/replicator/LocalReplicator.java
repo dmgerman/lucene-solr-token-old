@@ -396,11 +396,7 @@ name|sessions
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|ReplicationSession
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|checkExpiredSessions
@@ -421,9 +417,7 @@ name|toExpire
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ReplicationSession
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

@@ -2052,11 +2052,7 @@ name|classNameCache
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Using this pattern, legacy analysis components from previous Solr versions are identified and delegated to SPI loader:
@@ -3818,12 +3814,7 @@ name|awareCompatibility
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|Class
-argument_list|,
-name|Class
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|awareCompatibility

@@ -288,16 +288,7 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|MapField
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|NamedList
@@ -370,11 +361,7 @@ name|subMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|MapField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/* iterate over mapping definitions */
@@ -554,11 +541,7 @@ name|runtimeParameters
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|NamedList

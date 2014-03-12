@@ -210,11 +210,7 @@ name|cache
 init|=
 operator|new
 name|WeakHashMap
-argument_list|<
-name|DateFormatCacheKey
-argument_list|,
-name|SimpleDateFormat
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|availableLocales
@@ -228,11 +224,7 @@ name|availableLocales
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Locale
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|availableTimezones
@@ -244,9 +236,7 @@ name|availableTimezones
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|class|DateFormatCacheKey

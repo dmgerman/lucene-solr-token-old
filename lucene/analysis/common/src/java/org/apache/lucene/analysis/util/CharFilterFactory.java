@@ -80,9 +80,7 @@ name|loader
 init|=
 operator|new
 name|AnalysisSPILoader
-argument_list|<
-name|CharFilterFactory
-argument_list|>
+argument_list|<>
 argument_list|(
 name|CharFilterFactory
 operator|.

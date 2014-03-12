@@ -119,11 +119,7 @@ name|pathType2parser
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|ParsePathType
-argument_list|,
-name|TrecDocParser
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 static|static
@@ -207,11 +203,7 @@ name|pathName2Type
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|ParsePathType
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 static|static

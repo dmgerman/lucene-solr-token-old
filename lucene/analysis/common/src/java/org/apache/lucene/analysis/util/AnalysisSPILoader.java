@@ -329,16 +329,7 @@ name|services
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|String
-argument_list|,
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|S
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 operator|.

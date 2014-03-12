@@ -34,9 +34,7 @@ name|publicTestMethod
 init|=
 operator|new
 name|VirtualMethod
-argument_list|<
-name|TestVirtualMethod
-argument_list|>
+argument_list|<>
 argument_list|(
 name|TestVirtualMethod
 operator|.
@@ -61,9 +59,7 @@ name|protectedTestMethod
 init|=
 operator|new
 name|VirtualMethod
-argument_list|<
-name|TestVirtualMethod
-argument_list|>
+argument_list|<>
 argument_list|(
 name|TestVirtualMethod
 operator|.
@@ -430,9 +426,7 @@ try|try
 block|{
 operator|new
 name|VirtualMethod
-argument_list|<
-name|TestVirtualMethod
-argument_list|>
+argument_list|<>
 argument_list|(
 name|TestVirtualMethod
 operator|.
@@ -459,9 +453,7 @@ try|try
 block|{
 operator|new
 name|VirtualMethod
-argument_list|<
-name|TestClass2
-argument_list|>
+argument_list|<>
 argument_list|(
 name|TestClass2
 operator|.
@@ -493,9 +485,7 @@ block|{
 comment|// try to create a second instance of the same baseClass / method combination
 operator|new
 name|VirtualMethod
-argument_list|<
-name|TestVirtualMethod
-argument_list|>
+argument_list|<>
 argument_list|(
 name|TestVirtualMethod
 operator|.

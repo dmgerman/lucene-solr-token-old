@@ -280,11 +280,7 @@ name|NO_OUTPUT
 operator|=
 operator|new
 name|Pair
-argument_list|<
-name|A
-argument_list|,
-name|B
-argument_list|>
+argument_list|<>
 argument_list|(
 name|outputs1
 operator|.
@@ -392,11 +388,7 @@ name|p
 init|=
 operator|new
 name|Pair
-argument_list|<
-name|A
-argument_list|,
-name|B
-argument_list|>
+argument_list|<>
 argument_list|(
 name|a
 argument_list|,

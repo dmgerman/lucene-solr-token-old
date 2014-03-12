@@ -424,11 +424,7 @@ name|wildcardEscapeHits
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|wildcardEscapeMisses
@@ -443,11 +439,7 @@ name|wildcardEscapeMisses
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@

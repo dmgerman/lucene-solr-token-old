@@ -255,9 +255,7 @@ name|lst
 init|=
 operator|new
 name|SimpleOrderedMap
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|lst

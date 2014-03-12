@@ -737,9 +737,7 @@ name|builder
 operator|=
 operator|new
 name|Builder
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|(
 name|FST
 operator|.
@@ -3744,9 +3742,7 @@ name|fstEnum
 operator|=
 operator|new
 name|BytesRefFSTEnum
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|(
 name|fst
 argument_list|)
@@ -4503,9 +4499,7 @@ name|fst
 operator|=
 operator|new
 name|FST
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|(
 name|in
 argument_list|,
@@ -4755,11 +4749,7 @@ name|fields
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|String
-argument_list|,
-name|TermsReader
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try

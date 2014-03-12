@@ -413,9 +413,7 @@ name|suggest
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TernaryTreeNode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while
@@ -581,9 +579,7 @@ name|st
 init|=
 operator|new
 name|Stack
-argument_list|<
-name|TernaryTreeNode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|st

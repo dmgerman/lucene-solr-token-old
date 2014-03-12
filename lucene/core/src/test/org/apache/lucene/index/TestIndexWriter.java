@@ -9430,9 +9430,7 @@ name|files
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -12200,9 +12198,7 @@ name|docs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Document
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|docs
@@ -14138,9 +14134,7 @@ name|liveIds
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -14166,9 +14160,7 @@ name|docs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Document
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|FieldType
@@ -15232,9 +15224,7 @@ name|iwRef
 init|=
 operator|new
 name|SetOnce
-argument_list|<
-name|IndexWriter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|iwc

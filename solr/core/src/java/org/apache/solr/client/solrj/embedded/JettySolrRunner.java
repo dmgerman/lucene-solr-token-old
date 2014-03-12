@@ -543,11 +543,7 @@ name|extraServlets
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|ServletHolder
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|extraRequestFilters
@@ -621,9 +617,7 @@ name|requests
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|HttpServletRequest
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -991,11 +985,7 @@ name|extraRequestFilters
 operator|=
 operator|new
 name|TreeMap
-argument_list|<
-name|Class
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|extraRequestFilters
 operator|.
@@ -1682,9 +1672,7 @@ name|extraFilters
 operator|=
 operator|new
 name|LinkedList
-argument_list|<
-name|FilterHolder
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for

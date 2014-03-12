@@ -199,9 +199,7 @@ name|fstEnum
 init|=
 operator|new
 name|IntsRefFSTEnum
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|fst
 argument_list|)
