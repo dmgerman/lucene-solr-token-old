@@ -6102,6 +6102,9 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|CollectionAdminResponse
+name|res
+init|=
 name|createCollection
 argument_list|(
 name|collectionInfos
@@ -6132,6 +6135,14 @@ literal|','
 argument_list|)
 argument_list|,
 literal|"conf1"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|res
+operator|.
+name|isSuccess
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
