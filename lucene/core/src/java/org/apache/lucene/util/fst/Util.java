@@ -2322,6 +2322,7 @@ name|add
 argument_list|(
 operator|new
 name|Result
+argument_list|<>
 argument_list|(
 name|path
 operator|.
@@ -2410,6 +2411,7 @@ block|}
 return|return
 operator|new
 name|TopResults
+argument_list|<>
 argument_list|(
 name|rejectCount
 operator|+
