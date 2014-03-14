@@ -696,7 +696,7 @@ name|ruleRemoved
 return|;
 block|}
 DECL|method|invokeMigrateApi
-specifier|private
+specifier|protected
 name|void
 name|invokeMigrateApi
 parameter_list|(
@@ -780,7 +780,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|invoke
-specifier|private
+specifier|protected
 name|void
 name|invoke
 parameter_list|(
@@ -1015,7 +1015,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|multipleShardMigrateTest
-specifier|private
+specifier|protected
 name|void
 name|multipleShardMigrateTest
 parameter_list|()
