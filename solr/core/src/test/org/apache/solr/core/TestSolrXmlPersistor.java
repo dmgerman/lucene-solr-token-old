@@ -143,14 +143,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+literal|"<solr><cores adminHandler=\"/admin\"></cores></solr>"
+argument_list|,
 name|persistor
 operator|.
 name|buildSolrXML
 argument_list|(
 name|EMPTY_CD_LIST
 argument_list|)
-argument_list|,
-literal|"<solr><cores adminHandler=\"/admin\"></cores></solr>"
 argument_list|)
 expr_stmt|;
 block|}
@@ -181,14 +181,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+literal|"<solr><cores adminHandler=\"/admin\"></cores></solr>"
+argument_list|,
 name|persistor
 operator|.
 name|buildSolrXML
 argument_list|(
 name|EMPTY_CD_LIST
 argument_list|)
-argument_list|,
-literal|"<solr><cores adminHandler=\"/admin\"></cores></solr>"
 argument_list|)
 expr_stmt|;
 block|}
@@ -219,14 +219,14 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+literal|"<solr><cores></cores></solr>"
+argument_list|,
 name|persistor
 operator|.
 name|buildSolrXML
 argument_list|(
 name|EMPTY_CD_LIST
 argument_list|)
-argument_list|,
-literal|"<solr><cores></cores></solr>"
 argument_list|)
 expr_stmt|;
 block|}

@@ -236,6 +236,8 @@ name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
 argument_list|,
+literal|"testAdminHandler"
+argument_list|,
 name|cfg
 operator|.
 name|get
@@ -248,13 +250,13 @@ name|SOLR_ADMINHANDLER
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"testAdminHandler"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|"testCollectionsHandler"
 argument_list|,
 name|cfg
 operator|.
@@ -268,13 +270,13 @@ name|SOLR_COLLECTIONSHANDLER
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"testCollectionsHandler"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|"testInfoHandler"
 argument_list|,
 name|cfg
 operator|.
@@ -288,13 +290,13 @@ name|SOLR_INFOHANDLER
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"testInfoHandler"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|11
 argument_list|,
 name|cfg
 operator|.
@@ -308,13 +310,13 @@ name|SOLR_CORELOADTHREADS
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-literal|11
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|"testCoreRootDirectory"
 argument_list|,
 name|cfg
 operator|.
@@ -328,13 +330,13 @@ name|SOLR_COREROOTDIRECTORY
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"testCoreRootDirectory"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|22
 argument_list|,
 name|cfg
 operator|.
@@ -348,13 +350,13 @@ name|SOLR_DISTRIBUPDATECONNTIMEOUT
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-literal|22
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|33
 argument_list|,
 name|cfg
 operator|.
@@ -368,13 +370,13 @@ name|SOLR_DISTRIBUPDATESOTIMEOUT
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-literal|33
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|3
 argument_list|,
 name|cfg
 operator|.
@@ -388,13 +390,13 @@ name|SOLR_MAXUPDATECONNECTIONS
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-literal|3
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|37
 argument_list|,
 name|cfg
 operator|.
@@ -408,13 +410,13 @@ name|SOLR_MAXUPDATECONNECTIONSPERHOST
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-literal|37
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|"testHost"
 argument_list|,
 name|cfg
 operator|.
@@ -428,13 +430,13 @@ name|SOLR_HOST
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"testHost"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|"testHostContext"
 argument_list|,
 name|cfg
 operator|.
@@ -448,13 +450,13 @@ name|SOLR_HOSTCONTEXT
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"testHostContext"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|44
 argument_list|,
 name|cfg
 operator|.
@@ -468,13 +470,13 @@ name|SOLR_HOSTPORT
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-literal|44
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|55
 argument_list|,
 name|cfg
 operator|.
@@ -488,13 +490,13 @@ name|SOLR_LEADERVOTEWAIT
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-literal|55
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|"testLoggingClass"
 argument_list|,
 name|cfg
 operator|.
@@ -508,13 +510,13 @@ name|SOLR_LOGGING_CLASS
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"testLoggingClass"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|"testLoggingEnabled"
 argument_list|,
 name|cfg
 operator|.
@@ -528,13 +530,13 @@ name|SOLR_LOGGING_ENABLED
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"testLoggingEnabled"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|88
 argument_list|,
 name|cfg
 operator|.
@@ -548,13 +550,13 @@ name|SOLR_LOGGING_WATCHER_SIZE
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-literal|88
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|99
 argument_list|,
 name|cfg
 operator|.
@@ -568,13 +570,13 @@ name|SOLR_LOGGING_WATCHER_THRESHOLD
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-literal|99
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|"testManagementPath"
 argument_list|,
 name|cfg
 operator|.
@@ -588,13 +590,13 @@ name|SOLR_MANAGEMENTPATH
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"testManagementPath"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|"testSharedLib"
 argument_list|,
 name|cfg
 operator|.
@@ -608,13 +610,13 @@ name|SOLR_SHAREDLIB
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"testSharedLib"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|"testShareSchema"
 argument_list|,
 name|cfg
 operator|.
@@ -628,13 +630,13 @@ name|SOLR_SHARESCHEMA
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"testShareSchema"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|66
 argument_list|,
 name|cfg
 operator|.
@@ -648,13 +650,13 @@ name|SOLR_TRANSIENTCACHESIZE
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-literal|66
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|77
 argument_list|,
 name|cfg
 operator|.
@@ -668,13 +670,13 @@ name|SOLR_ZKCLIENTTIMEOUT
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-literal|77
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|"testZkHost"
 argument_list|,
 name|cfg
 operator|.
@@ -688,8 +690,6 @@ name|SOLR_ZKHOST
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"testZkHost"
 argument_list|)
 expr_stmt|;
 name|assertNull
@@ -880,6 +880,8 @@ name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
 argument_list|,
+literal|"myCoreRoot"
+argument_list|,
 name|cfg
 operator|.
 name|get
@@ -892,13 +894,13 @@ name|SOLR_COREROOTDIRECTORY
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"myCoreRoot"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|8888
 argument_list|,
 name|cfg
 operator|.
@@ -912,13 +914,13 @@ name|SOLR_HOSTPORT
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-literal|8888
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Did not find expected value"
+argument_list|,
+literal|"newShareSchema"
 argument_list|,
 name|cfg
 operator|.
@@ -932,8 +934,6 @@ name|SOLR_SHARESCHEMA
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-literal|"newShareSchema"
 argument_list|)
 expr_stmt|;
 block|}
