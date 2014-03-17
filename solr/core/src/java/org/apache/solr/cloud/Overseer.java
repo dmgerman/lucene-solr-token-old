@@ -5461,7 +5461,7 @@ argument_list|()
 control|)
 block|{
 name|String
-name|baseUrl
+name|nodeName
 init|=
 name|replica
 operator|.
@@ -5469,7 +5469,7 @@ name|getStr
 argument_list|(
 name|ZkStateReader
 operator|.
-name|BASE_URL_PROP
+name|NODE_NAME_PROP
 argument_list|)
 decl_stmt|;
 name|String
@@ -5485,7 +5485,7 @@ name|CORE_NAME_PROP
 argument_list|)
 decl_stmt|;
 name|String
-name|msgBaseUrl
+name|msgNodeName
 init|=
 name|message
 operator|.
@@ -5493,7 +5493,7 @@ name|getStr
 argument_list|(
 name|ZkStateReader
 operator|.
-name|BASE_URL_PROP
+name|NODE_NAME_PROP
 argument_list|)
 decl_stmt|;
 name|String
@@ -5510,11 +5510,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|baseUrl
+name|nodeName
 operator|.
 name|equals
 argument_list|(
-name|msgBaseUrl
+name|msgNodeName
 argument_list|)
 operator|&&
 name|core
