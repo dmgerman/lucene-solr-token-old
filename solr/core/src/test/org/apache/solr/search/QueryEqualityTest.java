@@ -1337,6 +1337,33 @@ literal|"apache AND solr"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testQueryComplexPhrase
+specifier|public
+name|void
+name|testQueryComplexPhrase
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertQueryEquals
+argument_list|(
+literal|"complexphrase"
+argument_list|,
+literal|"{!complexphrase df=text}\"jo* smith\""
+argument_list|,
+literal|"text:\"jo* smith\""
+argument_list|)
+expr_stmt|;
+name|assertQueryEquals
+argument_list|(
+literal|"complexphrase"
+argument_list|,
+literal|"{!complexphrase df=title}\"jo* smith\""
+argument_list|,
+literal|"title:\"jo* smith\""
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testFuncTestfunc
 specifier|public
 name|void
