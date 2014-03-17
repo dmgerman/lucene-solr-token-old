@@ -62,6 +62,7 @@ specifier|public
 class|class
 name|GreekStemmer
 block|{
+comment|/**    * Stems a word contained in a leading portion of a char[] array.    * The word is passed through a number of rules that modify it's length.    *     * @param s A char[] array that contains the word to be stemmed.    * @param len The length of the char[] array.    * @return The new length of the stemmed word.    */
 DECL|method|stem
 specifier|public
 name|int
@@ -5820,6 +5821,7 @@ return|return
 name|len
 return|;
 block|}
+comment|/**    * Checks if the word contained in the leading portion of char[] array ,     * ends with the suffix given as parameter.    *     * @param s A char[] array that represents a word.    * @param len The length of the char[] array.    * @param suffix A {@link String} object to check if the word given ends with these characters.    * @return True if the word ends with the suffix given , false otherwise.    */
 DECL|method|endsWith
 specifier|private
 name|boolean
@@ -5897,6 +5899,7 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**    * Checks if the word contained in the leading portion of char[] array ,     * ends with a Greek vowel.    *     * @param s A char[] array that represents a word.    * @param len The length of the char[] array.    * @return True if the word contained in the leading portion of char[] array ,     * ends with a vowel , false otherwise.    */
 DECL|method|endsWithVowel
 specifier|private
 name|boolean
@@ -5959,6 +5962,7 @@ literal|false
 return|;
 block|}
 block|}
+comment|/**    * Checks if the word contained in the leading portion of char[] array ,     * ends with a Greek vowel.    *     * @param s A char[] array that represents a word.    * @param len The length of the char[] array.    * @return True if the word contained in the leading portion of char[] array ,     * ends with a vowel , false otherwise.    */
 DECL|method|endsWithVowelNoY
 specifier|private
 name|boolean
