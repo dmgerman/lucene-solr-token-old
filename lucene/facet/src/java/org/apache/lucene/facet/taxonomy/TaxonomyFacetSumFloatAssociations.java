@@ -461,9 +461,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|rollup
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class
