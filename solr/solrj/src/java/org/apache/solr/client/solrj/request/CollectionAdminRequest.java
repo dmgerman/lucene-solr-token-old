@@ -1780,6 +1780,9 @@ name|Integer
 name|maxShards
 parameter_list|,
 name|String
+name|nodeSet
+parameter_list|,
+name|String
 name|conf
 parameter_list|,
 name|String
@@ -1804,9 +1807,13 @@ name|repl
 argument_list|,
 name|maxShards
 argument_list|,
+name|nodeSet
+argument_list|,
 name|conf
 argument_list|,
 name|routerField
+argument_list|,
+name|server
 argument_list|,
 literal|null
 argument_list|)
