@@ -1817,9 +1817,11 @@ name|queryShape
 operator|=
 name|randomShapePairRect
 argument_list|(
+operator|!
 name|biasContains
 argument_list|)
 expr_stmt|;
+comment|//invert biasContains for query side
 break|break;
 block|}
 default|default:
