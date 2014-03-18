@@ -975,24 +975,6 @@ name|CollectionsAPIDistributedZkTest
 extends|extends
 name|AbstractFullDistribZkTestBase
 block|{
-DECL|field|COLLECTION_CONFIG_NAME
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|COLLECTION_CONFIG_NAME
-init|=
-literal|"collection.configName"
-decl_stmt|;
-DECL|field|NODES_USED_COLLECTION
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|NODES_USED_COLLECTION
-init|=
-literal|"nodes_used_collection"
-decl_stmt|;
 DECL|field|DEFAULT_COLLECTION
 specifier|private
 specifier|static
@@ -1377,7 +1359,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-name|NUM_SLICES
+literal|"numShards"
 argument_list|,
 name|Integer
 operator|.
@@ -1425,26 +1407,9 @@ name|sliceCount
 operator|=
 literal|2
 expr_stmt|;
-name|int
-name|regularShardCount
-init|=
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
-condition|?
-literal|3
-else|:
-literal|2
-decl_stmt|;
 name|shardCount
 operator|=
-name|TEST_NIGHTLY
-condition|?
-literal|5
-else|:
-name|regularShardCount
+literal|4
 expr_stmt|;
 name|completionService
 operator|=
@@ -1861,7 +1826,7 @@ literal|2
 argument_list|,
 literal|2
 argument_list|,
-literal|1000
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -2678,7 +2643,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|NUM_SLICES
+literal|"numShards"
 argument_list|,
 literal|2
 argument_list|)
@@ -2707,7 +2672,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|COLLECTION_CONFIG_NAME
+literal|"collection.configName"
 argument_list|,
 literal|"conf1"
 argument_list|)
@@ -3088,7 +3053,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|NUM_SLICES
+literal|"numShards"
 argument_list|,
 literal|2
 argument_list|)
@@ -3180,7 +3145,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|NUM_SLICES
+literal|"numShards"
 argument_list|,
 literal|2
 argument_list|)
@@ -3200,7 +3165,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|COLLECTION_CONFIG_NAME
+literal|"collection.configName"
 argument_list|,
 literal|"conf1"
 argument_list|)
@@ -3300,7 +3265,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|NUM_SLICES
+literal|"numShards"
 argument_list|,
 literal|2
 argument_list|)
@@ -3314,7 +3279,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|COLLECTION_CONFIG_NAME
+literal|"collection.configName"
 argument_list|,
 literal|"conf1"
 argument_list|)
@@ -3437,7 +3402,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|COLLECTION_CONFIG_NAME
+literal|"collection.configName"
 argument_list|,
 literal|"conf1"
 argument_list|)
@@ -3546,7 +3511,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|NUM_SLICES
+literal|"numShards"
 argument_list|,
 literal|0
 argument_list|)
@@ -3560,7 +3525,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|COLLECTION_CONFIG_NAME
+literal|"collection.configName"
 argument_list|,
 literal|"conf1"
 argument_list|)
@@ -3837,7 +3802,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|NUM_SLICES
+literal|"numShards"
 argument_list|,
 literal|2
 argument_list|)
@@ -3860,7 +3825,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|COLLECTION_CONFIG_NAME
+literal|"collection.configName"
 argument_list|,
 literal|"conf1"
 argument_list|)
@@ -4342,7 +4307,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|NUM_SLICES
+literal|"numShards"
 argument_list|,
 literal|2
 argument_list|)
@@ -4356,19 +4321,10 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-name|params
-operator|.
-name|set
-argument_list|(
-name|MAX_SHARDS_PER_NODE
-argument_list|,
-literal|1000
-argument_list|)
-expr_stmt|;
 name|String
 name|collectionName
 init|=
-name|NODES_USED_COLLECTION
+literal|"nodes_used_collection"
 decl_stmt|;
 name|params
 operator|.
@@ -4388,7 +4344,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|COLLECTION_CONFIG_NAME
+literal|"collection.configName"
 argument_list|,
 literal|"conf1"
 argument_list|)
@@ -4449,7 +4405,7 @@ argument_list|)
 expr_stmt|;
 name|checkForCollection
 argument_list|(
-name|NODES_USED_COLLECTION
+literal|"nodes_used_collection"
 argument_list|,
 name|numShardsNumReplicaList
 argument_list|,
@@ -4513,7 +4469,7 @@ argument_list|()
 operator|.
 name|getCollection
 argument_list|(
-name|NODES_USED_COLLECTION
+literal|"nodes_used_collection"
 argument_list|)
 decl_stmt|;
 name|Collection
@@ -4566,10 +4522,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|printLayout
-argument_list|()
-expr_stmt|;
-comment|// 2x2 collection + control means we should be on shardCount + 1 - 4
 name|assertEquals
 argument_list|(
 name|createNodeList
@@ -4577,18 +4529,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|Math
-operator|.
-name|max
-argument_list|(
-literal|0
-argument_list|,
-name|shardCount
-operator|+
 literal|1
-operator|-
-literal|4
-argument_list|)
 argument_list|,
 name|createNodeList
 operator|.
@@ -5762,7 +5703,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|NUM_SLICES
+literal|"numShards"
 argument_list|,
 literal|1
 argument_list|)
@@ -5798,7 +5739,7 @@ name|params
 operator|.
 name|set
 argument_list|(
-name|COLLECTION_CONFIG_NAME
+literal|"collection.configName"
 argument_list|,
 literal|"conf1"
 argument_list|)
@@ -6334,7 +6275,7 @@ name|TEST_NIGHTLY
 condition|?
 literal|13
 else|:
-literal|2
+literal|3
 argument_list|)
 operator|+
 literal|1
@@ -6856,8 +6797,6 @@ throws|throws
 name|SolrServerException
 throws|,
 name|IOException
-throws|,
-name|InterruptedException
 block|{
 name|long
 name|timeoutAt
@@ -6990,13 +6929,6 @@ literal|true
 expr_stmt|;
 break|break;
 block|}
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 name|allTimesAreCorrect
@@ -7035,6 +6967,7 @@ operator|.
 name|getClusterState
 argument_list|()
 decl_stmt|;
+comment|//    Map<String,DocCollection> collections = clusterState.getCollectionStates();
 if|if
 condition|(
 name|clusterState
@@ -7441,6 +7374,7 @@ name|collection
 argument_list|)
 throw|;
 block|}
+comment|/*  private void waitForNon403or404or503(HttpSolrServer collectionClient)       throws Exception {     SolrException exp = null;     long timeoutAt = System.currentTimeMillis() + 30000;          while (System.currentTimeMillis()< timeoutAt) {       boolean missing = false;        try {         collectionClient.query(new SolrQuery("*:*"));       } catch (SolrException e) {         if (!(e.code() == 403 || e.code() == 503 || e.code() == 404)) {           throw e;         }         exp = e;         missing = true;       }       if (!missing) {         return;       }       Thread.sleep(50);     }      fail("Could not find the new collection - " + exp.code() + " : " + collectionClient.getBaseURL());   }*/
 DECL|method|checkForMissingCollection
 specifier|private
 name|void
@@ -7501,6 +7435,8 @@ operator|.
 name|getClusterState
 argument_list|()
 decl_stmt|;
+comment|//      Map<String,DocCollection> collections = clusterState
+comment|//          .getCollectionStates();
 if|if
 condition|(
 operator|!
@@ -8037,15 +7973,17 @@ name|newReplica
 init|=
 literal|null
 decl_stmt|;
-while|while
-condition|(
+for|for
+control|(
+init|;
 name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
 operator|<
 name|timeout
-condition|)
+condition|;
+control|)
 block|{
 name|Slice
 name|slice
@@ -8463,7 +8401,7 @@ name|System
 operator|.
 name|clearProperty
 argument_list|(
-name|NUM_SLICES
+literal|"numShards"
 argument_list|)
 expr_stmt|;
 name|System
