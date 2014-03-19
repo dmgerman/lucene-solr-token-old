@@ -351,6 +351,15 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -376,6 +385,8 @@ begin_comment
 comment|/**  * Test of the MiniSolrCloudCluster functionality.  This doesn't derive from  * LuceneTestCase, as the MiniSolrCloudCluster is designed to be used outside of the  * lucene test hierarchy.  */
 end_comment
 begin_class
+annotation|@
+name|Ignore
 DECL|class|TestMiniSolrCloudCluster
 specifier|public
 class|class
