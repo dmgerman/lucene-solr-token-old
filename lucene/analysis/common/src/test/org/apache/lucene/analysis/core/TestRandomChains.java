@@ -4981,7 +4981,7 @@ name|params
 init|=
 name|Arrays
 operator|.
-name|toString
+name|deepToString
 argument_list|(
 name|args
 argument_list|)
