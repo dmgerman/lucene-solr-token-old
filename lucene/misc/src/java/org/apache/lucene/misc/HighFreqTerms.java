@@ -171,6 +171,15 @@ operator|.
 name|Comparator
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
 begin_comment
 comment|/**  *<code>HighFreqTerms</code> class extracts the top n most frequent terms  * (by document frequency) from an existing Lucene index and reports their  * document frequency.  *<p>  * If the -t flag is given, both document frequency and total tf (total  * number of occurrences) are reported, ordered by descending total tf.  *  */
 end_comment
@@ -384,6 +393,10 @@ name|out
 operator|.
 name|printf
 argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
 literal|"%s:%s \t totalTF = %,d \t docFreq = %,d \n"
 argument_list|,
 name|terms

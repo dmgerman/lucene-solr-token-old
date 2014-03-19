@@ -1453,6 +1453,10 @@ name|err
 operator|.
 name|format
 argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|,
 literal|"Exit value of 'ls -lR' is %s%n"
 argument_list|,
 name|exitValue
