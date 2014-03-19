@@ -838,6 +838,11 @@ operator|=
 literal|null
 expr_stmt|;
 name|solrServer
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|solrServer
 operator|=
 literal|null
 expr_stmt|;

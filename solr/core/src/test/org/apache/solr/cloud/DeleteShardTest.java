@@ -802,6 +802,11 @@ argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
+name|baseServer
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|setSliceAsInactive
 specifier|protected

@@ -4913,6 +4913,11 @@ argument_list|(
 name|collectionClient
 argument_list|)
 expr_stmt|;
+name|collectionClient
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 block|}
 comment|// sometimes we restart one of the jetty nodes
 if|if
@@ -5023,6 +5028,11 @@ name|waitForNon403or404or503
 argument_list|(
 name|collectionClient
 argument_list|)
+expr_stmt|;
+name|collectionClient
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -5389,6 +5399,15 @@ operator|.
 name|getNumFound
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|collectionClient
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|collectionClient
+operator|=
+literal|null
 expr_stmt|;
 comment|// lets try a collection reload
 comment|// get core open times
@@ -5828,6 +5847,15 @@ name|waitForNon403or404or503
 argument_list|(
 name|collectionClient
 argument_list|)
+expr_stmt|;
+name|collectionClient
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|collectionClient
+operator|=
+literal|null
 expr_stmt|;
 for|for
 control|(

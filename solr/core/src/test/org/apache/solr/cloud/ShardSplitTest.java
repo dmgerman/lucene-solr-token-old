@@ -2232,6 +2232,11 @@ name|getNumFound
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|collectionClient
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|splitByRouteKeyTest
 specifier|private
@@ -2999,6 +3004,11 @@ operator|.
 name|getNumFound
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|collectionClient
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|checkDocCountsAndShardStates
@@ -3931,6 +3941,11 @@ name|request
 argument_list|(
 name|request
 argument_list|)
+expr_stmt|;
+name|baseServer
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|indexAndUpdateCount

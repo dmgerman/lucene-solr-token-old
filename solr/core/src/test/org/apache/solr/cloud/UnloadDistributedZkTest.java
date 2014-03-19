@@ -732,6 +732,15 @@ argument_list|(
 name|unloadCmd
 argument_list|)
 expr_stmt|;
+name|server
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|server
+operator|=
+literal|null
+expr_stmt|;
 comment|//printLayout();
 comment|// the collection should be gone
 name|timeoutAt
@@ -905,6 +914,15 @@ argument_list|(
 name|createCmd
 argument_list|)
 expr_stmt|;
+name|server
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|server
+operator|=
+literal|null
+expr_stmt|;
 name|ZkStateReader
 name|zkStateReader
 init|=
@@ -1029,6 +1047,15 @@ name|request
 argument_list|(
 name|createCmd
 argument_list|)
+expr_stmt|;
+name|server
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|server
+operator|=
+literal|null
 expr_stmt|;
 name|zkStateReader
 operator|.
@@ -1206,6 +1233,15 @@ operator|.
 name|commit
 argument_list|()
 expr_stmt|;
+name|collectionClient
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|collectionClient
+operator|=
+literal|null
+expr_stmt|;
 block|}
 comment|// create another replica for our collection
 name|client
@@ -1291,6 +1327,15 @@ argument_list|(
 name|createCmd
 argument_list|)
 expr_stmt|;
+name|server
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|server
+operator|=
+literal|null
+expr_stmt|;
 name|waitForRecoveriesToFinish
 argument_list|(
 literal|"unloadcollection"
@@ -1372,6 +1417,15 @@ name|doc1
 argument_list|)
 expr_stmt|;
 block|}
+name|addClient
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|addClient
+operator|=
+literal|null
+expr_stmt|;
 comment|// don't commit so they remain in the tran log
 comment|//collectionClient.commit();
 comment|// unload the leader
@@ -1436,6 +1490,15 @@ name|request
 argument_list|(
 name|unloadCmd
 argument_list|)
+expr_stmt|;
+name|collectionClient
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|collectionClient
+operator|=
+literal|null
 expr_stmt|;
 comment|//    Thread.currentThread().sleep(500);
 comment|//    printLayout();
@@ -1571,6 +1634,15 @@ name|doc1
 argument_list|)
 expr_stmt|;
 block|}
+name|addClient
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|addClient
+operator|=
+literal|null
+expr_stmt|;
 comment|// create another replica for our collection
 name|client
 operator|=
@@ -1669,6 +1741,15 @@ argument_list|(
 name|createCmd
 argument_list|)
 expr_stmt|;
+name|server
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|server
+operator|=
+literal|null
+expr_stmt|;
 name|waitForRecoveriesToFinish
 argument_list|(
 literal|"unloadcollection"
@@ -1747,6 +1828,15 @@ name|request
 argument_list|(
 name|unloadCmd
 argument_list|)
+expr_stmt|;
+name|collectionClient
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|collectionClient
+operator|=
+literal|null
 expr_stmt|;
 name|tries
 operator|=
@@ -1880,6 +1970,15 @@ argument_list|(
 name|createCmd
 argument_list|)
 expr_stmt|;
+name|server
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|server
+operator|=
+literal|null
+expr_stmt|;
 name|waitForRecoveriesToFinish
 argument_list|(
 literal|"unloadcollection"
@@ -1953,6 +2052,11 @@ name|getNumFound
 argument_list|()
 decl_stmt|;
 name|server
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+name|server
 operator|=
 operator|new
 name|HttpSolrServer
@@ -2014,6 +2118,11 @@ operator|.
 name|getNumFound
 argument_list|()
 decl_stmt|;
+name|server
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 name|server
 operator|=
 operator|new
@@ -2090,6 +2199,11 @@ name|found3
 argument_list|,
 name|found4
 argument_list|)
+expr_stmt|;
+name|server
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|testUnloadLotsOfCores
@@ -2368,6 +2482,11 @@ name|TimeUnit
 operator|.
 name|SECONDS
 argument_list|)
+expr_stmt|;
+name|server
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
