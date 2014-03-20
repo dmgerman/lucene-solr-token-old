@@ -480,9 +480,7 @@ name|sampledDocsList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MatchingDocs
-argument_list|>
+argument_list|<>
 argument_list|(
 name|matchingDocsList
 operator|.
