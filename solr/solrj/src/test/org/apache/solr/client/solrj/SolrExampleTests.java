@@ -133,6 +133,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|SolrTestCaseJ4
+operator|.
+name|SuppressSSL
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|client
 operator|.
 name|solrj
@@ -534,15 +547,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -568,6 +572,8 @@ begin_comment
 comment|/**  * This should include tests against the example solr config  *   * This lets us try various SolrServer implementations with the same tests.  *   *  * @since solr 1.3  */
 end_comment
 begin_class
+annotation|@
+name|SuppressSSL
 DECL|class|SolrExampleTests
 specifier|abstract
 specifier|public
