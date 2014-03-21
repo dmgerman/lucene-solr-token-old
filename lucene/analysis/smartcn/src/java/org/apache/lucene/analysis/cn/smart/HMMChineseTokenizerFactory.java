@@ -1,4 +1,7 @@
 begin_unit
+begin_comment
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
 begin_package
 DECL|package|org.apache.lucene.analysis.cn.smart
 package|package
@@ -15,18 +18,6 @@ operator|.
 name|smart
 package|;
 end_package
-begin_comment
-comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
-end_comment
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
 begin_import
 import|import
 name|java
@@ -34,6 +25,19 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|Tokenizer
 import|;
 end_import
 begin_import
@@ -67,22 +71,21 @@ name|AttributeFactory
 import|;
 end_import
 begin_comment
-comment|/**  * Factory for the SmartChineseAnalyzer {@link SentenceTokenizer}  * @lucene.experimental  * @deprecated Use {@link HMMChineseTokenizerFactory} instead  */
+comment|/**  * Factory for {@link HMMChineseTokenizer}  *<p>  * Note: this class will currently emit tokens for punctuation. So you should either add  * a WordDelimiterFilter after to remove these (with concatenate off), or use the   * SmartChinese stoplist with a StopFilterFactory via:  *<code>words="org/apache/lucene/analysis/cn/smart/stopwords.txt"</code>  * @lucene.experimental  */
 end_comment
 begin_class
-annotation|@
-name|Deprecated
-DECL|class|SmartChineseSentenceTokenizerFactory
+DECL|class|HMMChineseTokenizerFactory
 specifier|public
+specifier|final
 class|class
-name|SmartChineseSentenceTokenizerFactory
+name|HMMChineseTokenizerFactory
 extends|extends
 name|TokenizerFactory
 block|{
-comment|/** Creates a new SmartChineseSentenceTokenizerFactory */
-DECL|method|SmartChineseSentenceTokenizerFactory
+comment|/** Creates a new HMMChineseTokenizerFactory */
+DECL|method|HMMChineseTokenizerFactory
 specifier|public
-name|SmartChineseSentenceTokenizerFactory
+name|HMMChineseTokenizerFactory
 parameter_list|(
 name|Map
 argument_list|<
@@ -122,7 +125,7 @@ annotation|@
 name|Override
 DECL|method|create
 specifier|public
-name|SentenceTokenizer
+name|Tokenizer
 name|create
 parameter_list|(
 name|AttributeFactory
@@ -131,7 +134,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SentenceTokenizer
+name|HMMChineseTokenizer
 argument_list|(
 name|factory
 argument_list|)
