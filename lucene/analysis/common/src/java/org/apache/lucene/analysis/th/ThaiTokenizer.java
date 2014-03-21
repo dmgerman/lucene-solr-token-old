@@ -244,6 +244,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|factory
+argument_list|,
 operator|(
 name|BreakIterator
 operator|)
