@@ -1706,6 +1706,16 @@ return|return
 name|leaderVoteWait
 return|;
 block|}
+DECL|method|getLeaderConflictResolveWait
+specifier|public
+name|int
+name|getLeaderConflictResolveWait
+parameter_list|()
+block|{
+return|return
+name|leaderConflictResolveWait
+return|;
+block|}
 DECL|method|forceOverSeer
 specifier|public
 name|void
