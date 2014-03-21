@@ -1643,6 +1643,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|zkSys
+operator|.
+name|getZkController
+argument_list|()
+operator|.
+name|checkOverseerDesignate
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 DECL|method|checkForDuplicateCoreNames
