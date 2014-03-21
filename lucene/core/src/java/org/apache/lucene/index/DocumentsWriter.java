@@ -20,6 +20,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -259,6 +268,8 @@ DECL|class|DocumentsWriter
 specifier|final
 class|class
 name|DocumentsWriter
+implements|implements
+name|Closeable
 block|{
 DECL|field|directory
 specifier|private
@@ -1451,7 +1462,10 @@ name|anyChanges
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
+specifier|public
 name|void
 name|close
 parameter_list|()
