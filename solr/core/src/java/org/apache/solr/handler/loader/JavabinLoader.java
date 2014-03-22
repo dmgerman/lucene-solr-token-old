@@ -597,6 +597,8 @@ argument_list|,
 literal|"ERROR adding document "
 operator|+
 name|document
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
