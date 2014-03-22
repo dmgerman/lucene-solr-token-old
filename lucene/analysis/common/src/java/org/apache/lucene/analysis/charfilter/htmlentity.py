@@ -285,7 +285,7 @@ name|'print'
 string|"'  private static final Map<String,String> upperCaseVariantsAccepted'"
 newline|'\n'
 name|'print'
-string|"'      = new HashMap<String,String>();'"
+string|"'      = new HashMap<>();'"
 newline|'\n'
 name|'print'
 string|"'  static {'"
@@ -315,7 +315,7 @@ name|'print'
 string|"'  private static final CharArrayMap<Character> entityValues'"
 newline|'\n'
 name|'print'
-string|"'      = new CharArrayMap<Character>(Version.LUCENE_CURRENT, %i, false);'"
+string|"'      = new CharArrayMap<>(Version.LUCENE_CURRENT, %i, false);'"
 op|'%'
 name|'len'
 op|'('
