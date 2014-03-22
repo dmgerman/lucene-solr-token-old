@@ -1989,6 +1989,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
@@ -5560,17 +5562,14 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|status
 condition|)
-block|{         }
-else|else
 block|{
 throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|SERVER_ERROR
@@ -5643,17 +5642,14 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|status
 condition|)
-block|{           }
-else|else
 block|{
 throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|SERVER_ERROR
@@ -5715,17 +5711,14 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|status
 condition|)
-block|{       }
-else|else
 block|{
 throw|throw
 operator|new
 name|SolrException
 argument_list|(
-name|SolrException
-operator|.
 name|ErrorCode
 operator|.
 name|SERVER_ERROR
