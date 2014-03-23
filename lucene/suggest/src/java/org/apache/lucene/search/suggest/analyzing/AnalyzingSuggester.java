@@ -1600,6 +1600,22 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|iterator
+operator|.
+name|hasContexts
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"this suggester doesn't support contexts"
+argument_list|)
+throw|;
+block|}
 name|String
 name|prefix
 init|=
@@ -3216,6 +3232,12 @@ specifier|final
 name|CharSequence
 name|key
 parameter_list|,
+name|Set
+argument_list|<
+name|BytesRef
+argument_list|>
+name|contexts
+parameter_list|,
 name|boolean
 name|onlyMorePopular
 parameter_list|,
@@ -3238,6 +3260,21 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 literal|"this suggester only works with onlyMorePopular=false"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|contexts
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"this suggester doesn't support contexts"
 argument_list|)
 throw|;
 block|}
