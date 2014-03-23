@@ -2247,9 +2247,35 @@ argument_list|,
 name|schemaAware
 argument_list|)
 decl_stmt|;
-comment|//               /schema/types/fieldtype | /schema/types/fieldType
+comment|//               /schema/fieldtype | /schema/fieldType | /schema/types/fieldtype | /schema/types/fieldType
 name|expression
 operator|=
+name|stepsToPath
+argument_list|(
+name|SCHEMA
+argument_list|,
+name|FIELD_TYPE
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+argument_list|)
+comment|// backcompat(?)
+operator|+
+name|XPATH_OR
+operator|+
+name|stepsToPath
+argument_list|(
+name|SCHEMA
+argument_list|,
+name|FIELD_TYPE
+argument_list|)
+operator|+
+name|XPATH_OR
+operator|+
 name|stepsToPath
 argument_list|(
 name|SCHEMA
@@ -2265,7 +2291,6 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|)
-comment|// backcompat(?)
 operator|+
 name|XPATH_OR
 operator|+
@@ -3366,10 +3391,28 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|//                  /schema/fields/field | /schema/fields/dynamicField
+comment|//                  /schema/field | /schema/dynamicField | /schema/fields/field | /schema/fields/dynamicField
 name|String
 name|expression
 init|=
+name|stepsToPath
+argument_list|(
+name|SCHEMA
+argument_list|,
+name|FIELD
+argument_list|)
+operator|+
+name|XPATH_OR
+operator|+
+name|stepsToPath
+argument_list|(
+name|SCHEMA
+argument_list|,
+name|DYNAMIC_FIELD
+argument_list|)
+operator|+
+name|XPATH_OR
+operator|+
 name|stepsToPath
 argument_list|(
 name|SCHEMA
