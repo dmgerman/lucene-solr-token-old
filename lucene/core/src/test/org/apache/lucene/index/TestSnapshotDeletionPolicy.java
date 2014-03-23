@@ -274,10 +274,10 @@ literal|"segments file not found in directory: "
 operator|+
 name|segFileName
 argument_list|,
-name|dir
-operator|.
-name|fileExists
+name|slowFileExists
 argument_list|(
+name|dir
+argument_list|,
 name|segFileName
 argument_list|)
 argument_list|)
@@ -1775,10 +1775,10 @@ literal|"snapshot files should exist in the directory: "
 operator|+
 name|segFileName
 argument_list|,
-name|dir
-operator|.
-name|fileExists
+name|slowFileExists
 argument_list|(
+name|dir
+argument_list|,
 name|segFileName
 argument_list|)
 argument_list|)
@@ -1904,10 +1904,10 @@ literal|"segments file should not be found in dirctory: "
 operator|+
 name|segFileName
 argument_list|,
-name|dir
-operator|.
-name|fileExists
+name|slowFileExists
 argument_list|(
+name|dir
+argument_list|,
 name|segFileName
 argument_list|)
 argument_list|)
@@ -2160,10 +2160,10 @@ name|assertFalse
 argument_list|(
 literal|"snapshotted commit should not exist"
 argument_list|,
-name|dir
-operator|.
-name|fileExists
+name|slowFileExists
 argument_list|(
+name|dir
+argument_list|,
 name|s1
 operator|.
 name|getSegmentsFileName

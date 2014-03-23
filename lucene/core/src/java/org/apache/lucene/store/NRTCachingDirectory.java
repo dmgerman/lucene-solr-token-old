@@ -460,36 +460,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fileExists
-specifier|public
-specifier|synchronized
-name|boolean
-name|fileExists
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|cache
-operator|.
-name|fileExists
-argument_list|(
-name|name
-argument_list|)
-operator|||
-name|delegate
-operator|.
-name|fileExists
-argument_list|(
-name|name
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|deleteFile
 specifier|public
 specifier|synchronized
@@ -523,25 +493,12 @@ if|if
 condition|(
 name|cache
 operator|.
-name|fileExists
+name|fileNameExists
 argument_list|(
 name|name
 argument_list|)
 condition|)
 block|{
-assert|assert
-operator|!
-name|delegate
-operator|.
-name|fileExists
-argument_list|(
-name|name
-argument_list|)
-operator|:
-literal|"name="
-operator|+
-name|name
-assert|;
 name|cache
 operator|.
 name|deleteFile
@@ -579,7 +536,7 @@ if|if
 condition|(
 name|cache
 operator|.
-name|fileExists
+name|fileNameExists
 argument_list|(
 name|name
 argument_list|)
@@ -832,7 +789,7 @@ if|if
 condition|(
 name|cache
 operator|.
-name|fileExists
+name|fileNameExists
 argument_list|(
 name|name
 argument_list|)
@@ -921,7 +878,7 @@ if|if
 condition|(
 name|cache
 operator|.
-name|fileExists
+name|fileNameExists
 argument_list|(
 name|name
 argument_list|)
@@ -1146,7 +1103,7 @@ condition|(
 operator|!
 name|cache
 operator|.
-name|fileExists
+name|fileNameExists
 argument_list|(
 name|fileName
 argument_list|)
@@ -1154,28 +1111,6 @@ condition|)
 block|{
 comment|// Another thread beat us...
 return|return;
-block|}
-if|if
-condition|(
-name|delegate
-operator|.
-name|fileExists
-argument_list|(
-name|fileName
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"cannot uncache file=\""
-operator|+
-name|fileName
-operator|+
-literal|"\": it was separately also created in the delegate directory"
-argument_list|)
-throw|;
 block|}
 specifier|final
 name|IOContext
@@ -1248,7 +1183,7 @@ name|this
 init|)
 block|{
 comment|// Must sync here because other sync methods have
-comment|// if (cache.fileExists(name)) { ... } else { ... }:
+comment|// if (cache.fileNameExists(name)) { ... } else { ... }:
 name|cache
 operator|.
 name|deleteFile
