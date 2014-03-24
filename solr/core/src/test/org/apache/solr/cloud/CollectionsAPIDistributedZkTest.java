@@ -4624,7 +4624,7 @@ name|TEST_NIGHTLY
 condition|?
 literal|6
 else|:
-literal|3
+literal|1
 argument_list|)
 operator|+
 literal|1
@@ -6303,7 +6303,7 @@ name|TEST_NIGHTLY
 condition|?
 literal|13
 else|:
-literal|3
+literal|1
 argument_list|)
 operator|+
 literal|1
