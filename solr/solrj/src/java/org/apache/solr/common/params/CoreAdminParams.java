@@ -75,7 +75,7 @@ name|NAME
 init|=
 literal|"name"
 decl_stmt|;
-comment|/** If you rename something, what is the new name **/
+comment|/** Core data directory **/
 DECL|field|DATA_DIR
 specifier|public
 specifier|final
@@ -85,6 +85,7 @@ name|DATA_DIR
 init|=
 literal|"dataDir"
 decl_stmt|;
+comment|/** Core updatelog directory **/
 DECL|field|ULOG_DIR
 specifier|public
 specifier|final
@@ -123,6 +124,16 @@ name|String
 name|SCHEMA
 init|=
 literal|"schema"
+decl_stmt|;
+comment|/** If you specify a configset, what is its name **/
+DECL|field|CONFIGSET
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|CONFIGSET
+init|=
+literal|"configSet"
 decl_stmt|;
 comment|/** If you specify a config, what is its name **/
 DECL|field|CONFIG
