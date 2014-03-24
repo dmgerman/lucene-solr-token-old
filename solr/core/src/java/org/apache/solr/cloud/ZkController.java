@@ -8919,6 +8919,14 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|NoNodeException
+name|nne
+parameter_list|)
+block|{
+return|return;
+block|}
+catch|catch
+parameter_list|(
 name|Exception
 name|e
 parameter_list|)
