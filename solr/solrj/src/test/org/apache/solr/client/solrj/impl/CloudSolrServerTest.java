@@ -655,7 +655,7 @@ literal|2
 expr_stmt|;
 name|shardCount
 operator|=
-literal|4
+literal|3
 expr_stmt|;
 block|}
 annotation|@
@@ -1526,6 +1526,42 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Calculate a number of shard keys that route to the same shard.
+name|int
+name|n
+decl_stmt|;
+if|if
+condition|(
+name|TEST_NIGHTLY
+condition|)
+block|{
+name|n
+operator|=
+name|random
+argument_list|()
+operator|.
+name|nextInt
+argument_list|(
+literal|999
+argument_list|)
+operator|+
+literal|1
+expr_stmt|;
+block|}
+else|else
+block|{
+name|n
+operator|=
+name|random
+argument_list|()
+operator|.
+name|nextInt
+argument_list|(
+literal|9
+argument_list|)
+operator|+
+literal|1
+expr_stmt|;
+block|}
 name|List
 argument_list|<
 name|String
@@ -1553,7 +1589,7 @@ literal|1
 init|;
 name|i
 operator|<
-literal|1000
+name|n
 condition|;
 name|i
 operator|++
@@ -1615,7 +1651,7 @@ operator|>
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// Do 1000 queries with _route_ parameter to the same shard
+comment|// Do N queries with _route_ parameter to the same shard
 for|for
 control|(
 name|int
@@ -1625,7 +1661,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1000
+name|n
 condition|;
 name|i
 operator|++
@@ -1810,7 +1846,7 @@ name|assertEquals
 argument_list|(
 literal|"Unexpected number of requests to expected URLs"
 argument_list|,
-literal|1000
+name|n
 argument_list|,
 name|increaseFromExpectedUrls
 argument_list|)
@@ -2032,13 +2068,6 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|BadApple
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://issues.apache.org/jira/browse/SOLR-5880"
-argument_list|)
 DECL|method|testShutdown
 specifier|public
 name|void
