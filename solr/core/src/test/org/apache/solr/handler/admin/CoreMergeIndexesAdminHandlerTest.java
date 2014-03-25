@@ -200,15 +200,6 @@ operator|.
 name|IOException
 import|;
 end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
 begin_class
 DECL|class|CoreMergeIndexesAdminHandlerTest
 specifier|public
@@ -419,6 +410,8 @@ argument_list|(
 name|cores
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|SolrCore
 name|core
 init|=
@@ -428,8 +421,7 @@ name|getCore
 argument_list|(
 literal|"collection1"
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|FailingDirectoryFactory
 name|dirFactory
@@ -529,14 +521,6 @@ operator|.
 name|fail
 operator|=
 literal|false
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|core
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 comment|// cleanup
