@@ -1653,11 +1653,6 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-name|recurseDelete
-argument_list|(
-name|solrHomeDirectory
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 annotation|@
