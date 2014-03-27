@@ -628,7 +628,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|TEMP_DIR
+name|dataDir
 argument_list|,
 name|MorphlineBasicMiniMRTest
 operator|.
@@ -832,7 +832,7 @@ argument_list|)
 expr_stmt|;
 name|tempDir
 operator|=
-name|TEMP_DIR
+name|dataDir
 operator|+
 literal|"/test-morphlines-"
 operator|+
@@ -917,9 +917,6 @@ comment|//    sb.append("127.0.0.1,localhost");
 comment|//    for (InetAddress i : InetAddress.getAllByName(InetAddress.getLocalHost().getHostName())) {
 comment|//      sb.append(",").append(i.getCanonicalHostName());
 comment|//    }
-name|createTempDir
-argument_list|()
-expr_stmt|;
 operator|new
 name|File
 argument_list|(

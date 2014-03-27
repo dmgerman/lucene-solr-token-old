@@ -264,19 +264,7 @@ name|beforeClass2
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-if|if
-condition|(
-name|dataDir
-operator|==
-literal|null
-condition|)
-block|{
-name|createTempDir
-argument_list|()
-expr_stmt|;
-block|}
-block|}
+block|{    }
 DECL|method|setupCoreContainer
 specifier|protected
 name|void
@@ -352,7 +340,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|TEMP_DIR
+name|dataDir
 argument_list|,
 name|getClass
 argument_list|()

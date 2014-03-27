@@ -394,9 +394,6 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|createTempDir
-argument_list|()
-expr_stmt|;
 name|ignoreException
 argument_list|(
 literal|"No UpdateLog found - cannot sync"
