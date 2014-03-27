@@ -48,6 +48,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TestUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|SolrTestCaseJ4
@@ -261,13 +274,10 @@ expr_stmt|;
 comment|// I require FS-based indexes for this test.
 name|solrHomeDirectory
 operator|=
-operator|new
-name|File
+name|TestUtil
+operator|.
+name|createTempDir
 argument_list|(
-name|TEMP_DIR
-argument_list|,
-literal|"solrHome/"
-operator|+
 name|CoreAdminCreateDiscoverTest
 operator|.
 name|getClassName

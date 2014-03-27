@@ -184,7 +184,7 @@ name|tempDir
 operator|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"jrecrash"
 argument_list|)

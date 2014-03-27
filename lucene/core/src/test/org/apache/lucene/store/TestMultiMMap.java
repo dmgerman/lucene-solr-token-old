@@ -194,7 +194,7 @@ name|workDir
 operator|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"TestMultiMMap"
 argument_list|)
@@ -221,7 +221,7 @@ name|MMapDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testCloneSafety"
 argument_list|)
@@ -392,7 +392,7 @@ name|MMapDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testCloneClose"
 argument_list|)
@@ -535,7 +535,7 @@ name|MMapDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testCloneSliceSafety"
 argument_list|)
@@ -775,7 +775,7 @@ name|MMapDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testCloneSliceClose"
 argument_list|)
@@ -972,7 +972,7 @@ name|MMapDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testSeekZero"
 argument_list|)
@@ -1071,7 +1071,7 @@ name|MMapDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testSeekSliceZero"
 argument_list|)
@@ -1189,7 +1189,7 @@ name|MMapDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testSeekEnd"
 argument_list|)
@@ -1361,7 +1361,7 @@ name|MMapDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testSeekSliceEnd"
 argument_list|)
@@ -1554,7 +1554,7 @@ name|MMapDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testSeeking"
 argument_list|)
@@ -1816,7 +1816,7 @@ name|MMapDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testSlicedSeeking"
 argument_list|)

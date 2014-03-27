@@ -160,7 +160,7 @@ name|tmpDir
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"TestNeverDelete"
 argument_list|)

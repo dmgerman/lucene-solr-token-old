@@ -263,7 +263,7 @@ name|indexDir
 operator|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"RAMDirIndex"
 argument_list|)

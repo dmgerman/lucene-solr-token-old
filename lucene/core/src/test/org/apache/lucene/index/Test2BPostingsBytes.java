@@ -288,7 +288,7 @@ name|newFSDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"2BPostingsBytes1"
 argument_list|)
@@ -587,7 +587,7 @@ name|newFSDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"2BPostingsBytes2"
 argument_list|)
@@ -700,7 +700,7 @@ name|newFSDirectory
 argument_list|(
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"2BPostingsBytes3"
 argument_list|)

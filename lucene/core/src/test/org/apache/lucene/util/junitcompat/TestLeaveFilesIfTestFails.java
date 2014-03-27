@@ -122,7 +122,7 @@ name|file
 operator|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"leftover"
 argument_list|)

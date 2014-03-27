@@ -588,7 +588,7 @@ name|primDir
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -598,7 +598,7 @@ name|secondDir
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"bar"
 argument_list|)
@@ -692,7 +692,7 @@ name|primDir
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -702,7 +702,7 @@ name|secondDir
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"bar"
 argument_list|)

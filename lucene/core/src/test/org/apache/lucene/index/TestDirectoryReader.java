@@ -3228,7 +3228,7 @@ name|dirFile
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"TestIndexReader.testFilesOpenClose"
 argument_list|)
@@ -3390,7 +3390,7 @@ name|dirFile
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"deletetest"
 argument_list|)
@@ -5192,7 +5192,7 @@ name|tempDir
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"doesnotexist"
 argument_list|)
@@ -7728,7 +7728,7 @@ name|tempDir
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testIndexExistsOnNonExistentDirectory"
 argument_list|)

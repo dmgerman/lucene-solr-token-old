@@ -488,8 +488,6 @@ argument_list|(
 literal|"taxoMap"
 argument_list|,
 literal|""
-argument_list|,
-name|TEMP_DIR
 argument_list|)
 argument_list|)
 return|;

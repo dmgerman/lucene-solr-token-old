@@ -6241,7 +6241,7 @@ name|tmpDir
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"AnalyzingSuggesterTest"
 argument_list|)
@@ -6667,7 +6667,7 @@ name|tmpDir
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"AnalyzingSuggesterTest"
 argument_list|)
@@ -7102,7 +7102,7 @@ name|tmpDir
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"AnalyzingSuggesterTest"
 argument_list|)

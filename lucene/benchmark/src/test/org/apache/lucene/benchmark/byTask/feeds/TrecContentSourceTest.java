@@ -1221,7 +1221,7 @@ name|dataDir
 init|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"trecFeedAllTypes"
 argument_list|)

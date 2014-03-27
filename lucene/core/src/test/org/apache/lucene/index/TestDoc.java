@@ -379,7 +379,7 @@ name|workDir
 operator|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"TestDoc"
 argument_list|)
@@ -393,7 +393,7 @@ name|indexDir
 operator|=
 name|TestUtil
 operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testIndex"
 argument_list|)
