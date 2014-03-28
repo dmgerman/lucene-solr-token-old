@@ -1283,6 +1283,8 @@ operator|+
 name|cname
 argument_list|,
 name|rootTmpDir
+argument_list|,
+name|ensureClosed
 argument_list|)
 expr_stmt|;
 name|System
@@ -3074,6 +3076,13 @@ name|tag
 operator|)
 argument_list|,
 name|rootTmpDir
+argument_list|,
+operator|!
+operator|(
+name|LEAVE_TEST_TMP_DIR
+operator|||
+name|LEAVE_TEST_TMP_DIR_ANNOTATION
+operator|)
 argument_list|)
 return|;
 block|}
