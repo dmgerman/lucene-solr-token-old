@@ -273,7 +273,8 @@ name|setProperty
 argument_list|(
 literal|"solr.data.dir"
 argument_list|,
-name|dataDir
+name|createTempDir
+argument_list|()
 operator|.
 name|getCanonicalPath
 argument_list|()

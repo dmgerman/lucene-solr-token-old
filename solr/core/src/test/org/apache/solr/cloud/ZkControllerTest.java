@@ -298,11 +298,7 @@ name|beforeClass
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-name|createTempDir
-argument_list|()
-expr_stmt|;
-block|}
+block|{    }
 annotation|@
 name|AfterClass
 DECL|method|afterClass
@@ -457,7 +453,8 @@ comment|// setup a SolrZkClient to do some getBaseUrlForNodeName testing
 name|String
 name|zkDir
 init|=
-name|dataDir
+name|createTempDir
+argument_list|()
 operator|.
 name|getAbsolutePath
 argument_list|()
@@ -859,7 +856,8 @@ block|{
 name|String
 name|zkDir
 init|=
-name|dataDir
+name|createTempDir
+argument_list|()
 operator|.
 name|getAbsolutePath
 argument_list|()
@@ -1141,7 +1139,8 @@ block|{
 name|String
 name|zkDir
 init|=
-name|dataDir
+name|createTempDir
+argument_list|()
 operator|.
 name|getAbsolutePath
 argument_list|()
@@ -1374,7 +1373,8 @@ block|{
 name|String
 name|zkDir
 init|=
-name|dataDir
+name|createTempDir
+argument_list|()
 operator|.
 name|getAbsolutePath
 argument_list|()

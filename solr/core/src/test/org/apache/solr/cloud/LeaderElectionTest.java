@@ -334,11 +334,7 @@ specifier|static
 name|void
 name|beforeClass
 parameter_list|()
-block|{
-name|createTempDir
-argument_list|()
-expr_stmt|;
-block|}
+block|{    }
 annotation|@
 name|AfterClass
 DECL|method|afterClass
@@ -366,7 +362,8 @@ expr_stmt|;
 name|String
 name|zkDir
 init|=
-name|dataDir
+name|createTempDir
+argument_list|()
 operator|.
 name|getAbsolutePath
 argument_list|()

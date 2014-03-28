@@ -157,14 +157,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createTempDir
-argument_list|()
-expr_stmt|;
 comment|// setup a SolrZkClient to do some getBaseUrlForNodeName testing
 name|String
 name|zkDir
 init|=
-name|dataDir
+name|createTempDir
+argument_list|()
 operator|.
 name|getAbsolutePath
 argument_list|()
@@ -332,14 +330,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|createTempDir
-argument_list|()
-expr_stmt|;
 comment|// setup a SolrZkClient to do some getBaseUrlForNodeName testing
 name|String
 name|zkDir
 init|=
-name|dataDir
+name|createTempDir
+argument_list|()
 operator|.
 name|getAbsolutePath
 argument_list|()

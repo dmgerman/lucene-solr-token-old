@@ -315,6 +315,9 @@ DECL|field|solrHomeDirectory
 specifier|private
 name|File
 name|solrHomeDirectory
+init|=
+name|createTempDir
+argument_list|()
 decl_stmt|;
 annotation|@
 name|Rule
