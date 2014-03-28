@@ -1294,6 +1294,15 @@ name|getZkHost
 argument_list|()
 operator|!=
 literal|null
+operator|||
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"zkRun"
+argument_list|)
+operator|!=
+literal|null
 condition|)
 return|return
 operator|new
