@@ -330,11 +330,7 @@ name|field
 operator|.
 name|name
 argument_list|,
-name|SortField
-operator|.
-name|Type
-operator|.
-name|FLOAT
+name|PARSER
 argument_list|,
 name|reverse
 argument_list|)
