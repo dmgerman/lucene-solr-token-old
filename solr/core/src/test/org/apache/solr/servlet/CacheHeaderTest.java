@@ -218,14 +218,8 @@ name|Exception
 block|{
 name|solrHomeDirectory
 operator|=
-operator|new
-name|File
-argument_list|(
 name|createTempDir
 argument_list|()
-argument_list|,
-literal|"CacheHeaderTest"
-argument_list|)
 expr_stmt|;
 name|setupJettyTestHome
 argument_list|(
@@ -257,13 +251,7 @@ name|afterTest
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-name|cleanUpJettyHome
-argument_list|(
-name|solrHomeDirectory
-argument_list|)
-expr_stmt|;
-block|}
+block|{    }
 DECL|field|CONTENTS
 specifier|protected
 specifier|static
