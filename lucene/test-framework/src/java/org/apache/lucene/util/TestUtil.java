@@ -1491,7 +1491,9 @@ name|bos
 argument_list|,
 literal|false
 argument_list|,
-literal|"UTF-8"
+name|IOUtils
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|,
 literal|false
@@ -1541,7 +1543,9 @@ name|bos
 operator|.
 name|toString
 argument_list|(
-literal|"UTF-8"
+name|IOUtils
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1572,7 +1576,9 @@ name|bos
 operator|.
 name|toString
 argument_list|(
-literal|"UTF-8"
+name|IOUtils
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1652,7 +1658,9 @@ name|bos
 argument_list|,
 literal|false
 argument_list|,
-literal|"UTF-8"
+name|IOUtils
+operator|.
+name|UTF_8
 argument_list|)
 decl_stmt|;
 name|FieldNormStatus
@@ -1771,7 +1779,9 @@ name|bos
 operator|.
 name|toString
 argument_list|(
-literal|"UTF-8"
+name|IOUtils
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1802,7 +1812,9 @@ name|bos
 operator|.
 name|toString
 argument_list|(
-literal|"UTF-8"
+name|IOUtils
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 expr_stmt|;

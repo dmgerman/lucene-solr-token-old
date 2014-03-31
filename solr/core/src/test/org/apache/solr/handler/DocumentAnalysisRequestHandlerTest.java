@@ -237,6 +237,17 @@ operator|.
 name|Reader
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
 begin_comment
 comment|/**  * A test for {@link DocumentAnalysisRequestHandler}.  *  *  * @since solr 1.4  */
 end_comment
@@ -690,7 +701,9 @@ operator|)
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|StandardCharsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 comment|// we declare a content stream without charset:
@@ -847,7 +860,9 @@ operator|)
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|StandardCharsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 comment|// we declare a content stream with charset:
