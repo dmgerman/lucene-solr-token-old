@@ -151,6 +151,17 @@ operator|.
 name|*
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
 begin_comment
 comment|/**  *<p> Writes documents to SOLR.</p>  *<p/>  *<b>This API is experimental and may change in the future.</b>  *  * @since solr 1.3  */
 end_comment
@@ -731,7 +742,9 @@ operator|.
 name|toByteArray
 argument_list|()
 argument_list|,
-literal|"UTF-8"
+name|StandardCharsets
+operator|.
+name|UTF_8
 argument_list|)
 return|;
 block|}
