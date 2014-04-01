@@ -383,7 +383,7 @@ name|lucene42
 operator|.
 name|Lucene42DocValuesProducer
 operator|.
-name|VERSION_CURRENT
+name|VERSION_GCD_COMPRESSION
 import|;
 end_import
 begin_import
@@ -631,6 +631,7 @@ operator|.
 name|context
 argument_list|)
 expr_stmt|;
+comment|// this writer writes the format 4.2 did!
 name|CodecUtil
 operator|.
 name|writeHeader
@@ -639,7 +640,7 @@ name|data
 argument_list|,
 name|dataCodec
 argument_list|,
-name|VERSION_CURRENT
+name|VERSION_GCD_COMPRESSION
 argument_list|)
 expr_stmt|;
 name|String
@@ -685,7 +686,7 @@ name|meta
 argument_list|,
 name|metaCodec
 argument_list|,
-name|VERSION_CURRENT
+name|VERSION_GCD_COMPRESSION
 argument_list|)
 expr_stmt|;
 name|success

@@ -1663,6 +1663,11 @@ operator|.
 name|UTF_8
 argument_list|)
 decl_stmt|;
+name|reader
+operator|.
+name|checkIntegrity
+argument_list|()
+expr_stmt|;
 name|FieldNormStatus
 name|fieldNormStatus
 init|=

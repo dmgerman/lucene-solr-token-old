@@ -557,6 +557,11 @@ name|loadedPostings
 decl_stmt|;
 try|try
 block|{
+name|postings
+operator|.
+name|checkIntegrity
+argument_list|()
+expr_stmt|;
 name|loadedPostings
 operator|=
 operator|new
@@ -802,6 +807,19 @@ block|}
 return|return
 name|sizeInBytes
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|checkIntegrity
+specifier|public
+name|void
+name|checkIntegrity
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// if we read entirely into ram, we already validated.
+comment|// otherwise returned the raw postings reader
 block|}
 block|}
 DECL|class|DirectField
