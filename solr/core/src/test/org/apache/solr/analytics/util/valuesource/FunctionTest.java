@@ -703,6 +703,7 @@ argument_list|,
 literal|0.0
 argument_list|)
 expr_stmt|;
+comment|// TODO checfk why asserted 2times
 name|assertEquals
 argument_list|(
 name|getRawResponse
@@ -1445,7 +1446,7 @@ literal|"median"
 argument_list|,
 name|VAL_TYPE
 operator|.
-name|STRING
+name|DATE
 argument_list|)
 decl_stmt|;
 name|String
@@ -1462,7 +1463,7 @@ literal|"medianc"
 argument_list|,
 name|VAL_TYPE
 operator|.
-name|STRING
+name|DATE
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1488,7 +1489,7 @@ literal|"max"
 argument_list|,
 name|VAL_TYPE
 operator|.
-name|STRING
+name|DATE
 argument_list|)
 expr_stmt|;
 name|calculated
@@ -1504,7 +1505,7 @@ literal|"maxc"
 argument_list|,
 name|VAL_TYPE
 operator|.
-name|STRING
+name|DATE
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1542,7 +1543,7 @@ literal|"median"
 argument_list|,
 name|VAL_TYPE
 operator|.
-name|STRING
+name|DATE
 argument_list|)
 decl_stmt|;
 name|String
@@ -1559,7 +1560,7 @@ literal|"medianc"
 argument_list|,
 name|VAL_TYPE
 operator|.
-name|STRING
+name|DATE
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -1595,7 +1596,7 @@ literal|"max"
 argument_list|,
 name|VAL_TYPE
 operator|.
-name|STRING
+name|DATE
 argument_list|)
 expr_stmt|;
 name|calculated
@@ -1611,7 +1612,7 @@ literal|"maxc"
 argument_list|,
 name|VAL_TYPE
 operator|.
-name|STRING
+name|DATE
 argument_list|)
 expr_stmt|;
 name|assertEquals
