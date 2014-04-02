@@ -628,14 +628,6 @@ annotation|@
 name|SuppressCodecs
 argument_list|(
 block|{
-literal|"MockFixedIntBlock"
-block|,
-literal|"MockVariableIntBlock"
-block|,
-literal|"MockSep"
-block|,
-literal|"MockRandom"
-block|,
 literal|"Lucene40"
 block|,
 literal|"Lucene41"

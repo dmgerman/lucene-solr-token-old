@@ -81,19 +81,6 @@ begin_comment
 comment|/** simple tests for PostingsSolrHighlighter */
 end_comment
 begin_class
-annotation|@
-name|SuppressCodecs
-argument_list|(
-block|{
-literal|"MockFixedIntBlock"
-block|,
-literal|"MockVariableIntBlock"
-block|,
-literal|"MockSep"
-block|,
-literal|"MockRandom"
-block|}
-argument_list|)
 DECL|class|TestPostingsSolrHighlighter
 specifier|public
 class|class
