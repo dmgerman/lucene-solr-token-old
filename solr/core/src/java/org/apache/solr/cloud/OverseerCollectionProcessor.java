@@ -2152,7 +2152,14 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"prioritizing overseer nodes"
+literal|"prioritizing overseer nodes at {}"
+argument_list|,
+name|LeaderElector
+operator|.
+name|getNodeName
+argument_list|(
+name|myId
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|SolrZkClient
@@ -2281,6 +2288,21 @@ operator|<
 literal|2
 condition|)
 return|return;
+name|boolean
+name|designateIsInFront
+init|=
+name|overseerDesignates
+operator|.
+name|contains
+argument_list|(
+name|nodeNames
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+decl_stmt|;
 comment|//
 name|ArrayList
 argument_list|<
@@ -2426,6 +2448,7 @@ operator|>
 literal|1
 condition|)
 break|break;
+comment|//we don't need to line up more than 2 designates
 block|}
 if|if
 condition|(
@@ -2616,7 +2639,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+operator|!
+name|designateIsInFront
+condition|)
 block|{
 name|log
 operator|.
@@ -2658,15 +2686,49 @@ name|contains
 argument_list|(
 name|leaderNode
 argument_list|)
-operator|&&
-operator|!
-name|availableDesignates
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 block|{
-comment|//this means there are designated Overseer nodes and I am not one of them , kill myself
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|sortedNodes
+init|=
+name|getSortedOverseerNodeNames
+argument_list|(
+name|zk
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|leaderNode
+operator|.
+name|equals
+argument_list|(
+name|sortedNodes
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+operator|||
+comment|// I am leader and I am in front of the queue
+name|overseerDesignates
+operator|.
+name|contains
+argument_list|(
+name|sortedNodes
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+condition|)
+block|{
+comment|// I am leader but somebody else is in the front , Screwed up leader election
+comment|//this means there are I am not a designate and the next guy is lined up to become the leader, kill myself
 name|log
 operator|.
 name|info
@@ -2706,6 +2768,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getSortedOverseerNodeNames
