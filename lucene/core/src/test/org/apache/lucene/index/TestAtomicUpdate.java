@@ -924,7 +924,7 @@ argument_list|()
 expr_stmt|;
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|dirPath
 argument_list|)

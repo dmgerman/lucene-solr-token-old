@@ -1182,7 +1182,7 @@ expr_stmt|;
 block|}
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|path
 argument_list|)
@@ -1260,7 +1260,7 @@ finally|finally
 block|{
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|path
 argument_list|)
@@ -1455,7 +1455,7 @@ finally|finally
 block|{
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|path
 argument_list|)
@@ -1565,7 +1565,7 @@ argument_list|()
 expr_stmt|;
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|path
 argument_list|)

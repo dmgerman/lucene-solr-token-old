@@ -3282,7 +3282,7 @@ expr_stmt|;
 comment|// Try to erase the data - this ensures that the writer closed all files
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|dirFile
 argument_list|)
@@ -3371,7 +3371,7 @@ comment|// The following will fail if reader did not close
 comment|// all files
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|dirFile
 argument_list|)
@@ -5199,7 +5199,7 @@ argument_list|)
 decl_stmt|;
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|tempDir
 argument_list|)

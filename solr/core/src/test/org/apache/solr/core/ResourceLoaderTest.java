@@ -525,7 +525,7 @@ finally|finally
 block|{
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|temp
 argument_list|)

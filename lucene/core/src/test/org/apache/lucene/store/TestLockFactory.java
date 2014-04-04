@@ -950,7 +950,7 @@ expr_stmt|;
 comment|// Cleanup
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|indexDir
 argument_list|)
@@ -1406,14 +1406,14 @@ argument_list|()
 expr_stmt|;
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|fdir1
 argument_list|)
 expr_stmt|;
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|fdir2
 argument_list|)
@@ -1521,7 +1521,7 @@ argument_list|()
 expr_stmt|;
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|dirName
 argument_list|)
