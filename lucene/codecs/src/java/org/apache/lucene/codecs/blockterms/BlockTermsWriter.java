@@ -372,6 +372,15 @@ name|VERSION_META_ARRAY
 init|=
 literal|2
 decl_stmt|;
+DECL|field|VERSION_CHECKSUM
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|VERSION_CHECKSUM
+init|=
+literal|3
+decl_stmt|;
 DECL|field|VERSION_CURRENT
 specifier|public
 specifier|static
@@ -379,7 +388,7 @@ specifier|final
 name|int
 name|VERSION_CURRENT
 init|=
-name|VERSION_META_ARRAY
+name|VERSION_CHECKSUM
 decl_stmt|;
 comment|/** Extension of terms file */
 DECL|field|TERMS_EXTENSION
@@ -392,7 +401,6 @@ literal|"tib"
 decl_stmt|;
 DECL|field|out
 specifier|protected
-specifier|final
 name|IndexOutput
 name|out
 decl_stmt|;
@@ -922,6 +930,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|out
+operator|!=
+literal|null
+condition|)
+block|{
 try|try
 block|{
 specifier|final
@@ -1045,6 +1060,13 @@ argument_list|(
 name|dirStart
 argument_list|)
 expr_stmt|;
+name|CodecUtil
+operator|.
+name|writeFooter
+argument_list|(
+name|out
+argument_list|)
+expr_stmt|;
 block|}
 finally|finally
 block|{
@@ -1059,6 +1081,11 @@ argument_list|,
 name|termsIndexWriter
 argument_list|)
 expr_stmt|;
+name|out
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|writeTrailer

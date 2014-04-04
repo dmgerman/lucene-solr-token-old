@@ -43,6 +43,17 @@ operator|.
 name|InputStream
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
 begin_comment
 comment|/** Fake resource loader for tests: works if you want to fake reading a single file */
 end_comment
@@ -217,7 +228,9 @@ name|text
 operator|.
 name|getBytes
 argument_list|(
-literal|"UTF-8"
+name|StandardCharsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 return|;

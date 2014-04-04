@@ -92,6 +92,17 @@ operator|.
 name|Test
 import|;
 end_import
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
 begin_comment
 comment|/**  *<p>  * Test for DocBuilder using the test harness  *</p>  *  *  * @since solr 1.3  */
 end_comment
@@ -1538,7 +1549,9 @@ literal|"a.xml"
 operator|.
 name|getBytes
 argument_list|(
-literal|"UTF-8"
+name|StandardCharsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|,
 literal|true
@@ -1554,7 +1567,9 @@ literal|"b.xml"
 operator|.
 name|getBytes
 argument_list|(
-literal|"UTF-8"
+name|StandardCharsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|,
 literal|true
@@ -1570,7 +1585,9 @@ literal|"c.props"
 operator|.
 name|getBytes
 argument_list|(
-literal|"UTF-8"
+name|StandardCharsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|,
 literal|true
@@ -1604,7 +1621,9 @@ literal|"t.xml"
 operator|.
 name|getBytes
 argument_list|(
-literal|"UTF-8"
+name|StandardCharsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|,
 literal|false

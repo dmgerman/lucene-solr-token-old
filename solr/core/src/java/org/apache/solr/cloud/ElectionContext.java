@@ -491,6 +491,15 @@ name|KeeperException
 block|{
 try|try
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"canceling election {}"
+argument_list|,
+name|leaderSeqPath
+argument_list|)
+expr_stmt|;
 name|zkClient
 operator|.
 name|delete
@@ -516,6 +525,8 @@ operator|.
 name|warn
 argument_list|(
 literal|"cancelElection did not find election node to remove"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

@@ -49,17 +49,6 @@ name|servlet
 operator|.
 name|http
 operator|.
-name|HttpServlet
-import|;
-end_import
-begin_import
-import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|http
-operator|.
 name|HttpServletRequest
 import|;
 end_import
@@ -83,7 +72,7 @@ specifier|public
 class|class
 name|RedirectServlet
 extends|extends
-name|HttpServlet
+name|BaseSolrServlet
 block|{
 DECL|field|CONTEXT_KEY
 specifier|static

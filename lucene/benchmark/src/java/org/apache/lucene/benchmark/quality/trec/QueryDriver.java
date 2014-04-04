@@ -183,6 +183,17 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashSet
@@ -343,7 +354,10 @@ index|[
 literal|2
 index|]
 argument_list|,
-literal|"UTF-8"
+name|IOUtils
+operator|.
+name|UTF_8
+comment|/* huh, no nio.Charset ctor? */
 argument_list|)
 argument_list|,
 literal|"lucene"
@@ -459,9 +473,9 @@ name|getDecodingReader
 argument_list|(
 name|topicsFile
 argument_list|,
-name|IOUtils
+name|StandardCharsets
 operator|.
-name|CHARSET_UTF_8
+name|UTF_8
 argument_list|)
 argument_list|)
 argument_list|)
@@ -482,9 +496,9 @@ name|getDecodingReader
 argument_list|(
 name|qrelsFile
 argument_list|,
-name|IOUtils
+name|StandardCharsets
 operator|.
-name|CHARSET_UTF_8
+name|UTF_8
 argument_list|)
 argument_list|)
 argument_list|)
