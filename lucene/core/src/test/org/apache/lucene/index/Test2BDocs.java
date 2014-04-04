@@ -121,8 +121,6 @@ name|dir
 operator|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"2Bdocs"
@@ -286,8 +284,6 @@ name|dir2
 init|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"2BDocs2"

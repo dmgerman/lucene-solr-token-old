@@ -350,8 +350,6 @@ comment|// Store the suggester.
 name|File
 name|storeDir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 name|LuceneTestCase

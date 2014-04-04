@@ -10027,8 +10027,6 @@ name|dir
 init|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"emptyFSDirNoLock"
@@ -11954,8 +11952,6 @@ name|d
 init|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"TestIndexWriter.testWhetherDeleteAllDeletesWriteLock"
@@ -13479,8 +13475,6 @@ name|dir
 init|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"TestIndexWriter.testChangingFields"

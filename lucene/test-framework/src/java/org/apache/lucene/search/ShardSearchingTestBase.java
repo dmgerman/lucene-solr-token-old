@@ -2402,8 +2402,6 @@ name|dir
 operator|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"ShardSearchingTestBase"

@@ -240,8 +240,6 @@ name|Exception
 block|{
 name|testDir
 operator|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"addIndexesTask"

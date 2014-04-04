@@ -176,8 +176,6 @@ block|{
 name|File
 name|dir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"testCompile"
@@ -302,8 +300,6 @@ block|{
 name|File
 name|dir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"testCompile"
@@ -428,8 +424,6 @@ block|{
 name|File
 name|dir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"testCompile"

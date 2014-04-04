@@ -287,8 +287,6 @@ init|=
 operator|new
 name|MMapDirectory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"2BFST"

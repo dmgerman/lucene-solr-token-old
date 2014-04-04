@@ -123,8 +123,6 @@ name|dir
 init|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"test2BPagedBytes"

@@ -526,8 +526,6 @@ expr_stmt|;
 name|File
 name|tempDir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"growingchararray"

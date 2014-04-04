@@ -182,8 +182,6 @@ argument_list|()
 expr_stmt|;
 name|tempDir
 operator|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"jrecrash"

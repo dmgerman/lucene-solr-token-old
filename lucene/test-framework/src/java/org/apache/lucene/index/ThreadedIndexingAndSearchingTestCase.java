@@ -2737,8 +2737,6 @@ specifier|final
 name|File
 name|tempDir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 name|testName

@@ -586,8 +586,6 @@ block|{
 name|File
 name|primDir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"foo"
@@ -596,8 +594,6 @@ decl_stmt|;
 name|File
 name|secondDir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"bar"
@@ -690,8 +686,6 @@ block|{
 name|File
 name|primDir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"foo"
@@ -700,8 +694,6 @@ decl_stmt|;
 name|File
 name|secondDir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"bar"

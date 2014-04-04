@@ -121,8 +121,6 @@ block|{
 name|File
 name|tempDir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 name|LuceneTestCase
@@ -593,8 +591,6 @@ specifier|final
 name|File
 name|path
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"testDirectInstantiation"
@@ -1203,8 +1199,6 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 name|LuceneTestCase
@@ -1297,8 +1291,6 @@ name|checkDirectoryFilter
 argument_list|(
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"test"
@@ -1392,8 +1384,6 @@ block|{
 name|File
 name|path
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"testsubdir"
@@ -1474,8 +1464,6 @@ block|{
 name|File
 name|path
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"testnotdir"

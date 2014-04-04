@@ -135,8 +135,6 @@ block|{
 name|File
 name|dir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 name|LuceneTestCase
@@ -151,8 +149,6 @@ decl_stmt|;
 name|File
 name|destDir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 name|LuceneTestCase
@@ -490,8 +486,6 @@ comment|// now test cmdline
 name|File
 name|destDir2
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 name|LuceneTestCase

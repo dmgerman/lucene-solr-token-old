@@ -6609,8 +6609,6 @@ block|{
 name|File
 name|path
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"testPostingsFormat.testExact"
@@ -6899,8 +6897,6 @@ block|{
 name|File
 name|path
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"testPostingsFormat"

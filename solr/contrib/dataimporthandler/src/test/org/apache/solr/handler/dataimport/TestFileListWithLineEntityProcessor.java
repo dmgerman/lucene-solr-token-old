@@ -122,8 +122,6 @@ block|{
 name|File
 name|tmpdir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 name|LuceneTestCase

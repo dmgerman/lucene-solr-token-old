@@ -286,8 +286,6 @@ name|dir
 init|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"2BPostingsBytes1"
@@ -585,8 +583,6 @@ name|dir2
 init|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"2BPostingsBytes2"
@@ -698,8 +694,6 @@ name|dir3
 init|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"2BPostingsBytes3"

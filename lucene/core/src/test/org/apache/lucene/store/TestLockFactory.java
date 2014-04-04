@@ -760,8 +760,6 @@ name|_testStressLocks
 argument_list|(
 literal|null
 argument_list|,
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"index.TestLockFactory6"
@@ -786,8 +784,6 @@ block|{
 name|File
 name|dir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"index.TestLockFactory7"
@@ -971,8 +967,6 @@ init|=
 operator|new
 name|NativeFSLockFactory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 name|LuceneTestCase
@@ -1114,8 +1108,6 @@ block|{
 name|File
 name|tempDir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 name|LuceneTestCase
@@ -1211,8 +1203,6 @@ init|=
 operator|new
 name|NativeFSLockFactory
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 name|LuceneTestCase
@@ -1312,8 +1302,6 @@ block|{
 name|File
 name|fdir1
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"TestLockFactory.8"
@@ -1322,8 +1310,6 @@ decl_stmt|;
 name|File
 name|fdir2
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"TestLockFactory.8.Lockdir"
@@ -1433,8 +1419,6 @@ comment|// Make sure we get null prefix, which wont happen if setLockFactory is 
 name|File
 name|dirName
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"TestLockFactory.10"

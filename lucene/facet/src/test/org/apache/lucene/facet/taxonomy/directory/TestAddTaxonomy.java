@@ -481,8 +481,6 @@ return|return
 operator|new
 name|DiskOrdinalMap
 argument_list|(
-name|TestUtil
-operator|.
 name|createTempFile
 argument_list|(
 literal|"taxoMap"

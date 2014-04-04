@@ -388,8 +388,6 @@ expr_stmt|;
 block|}
 name|workDir
 operator|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"TestDoc"
@@ -402,8 +400,6 @@ argument_list|()
 expr_stmt|;
 name|indexDir
 operator|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"testIndex"

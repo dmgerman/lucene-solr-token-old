@@ -1156,8 +1156,6 @@ block|{
 name|File
 name|indexDir
 init|=
-name|TestUtil
-operator|.
 name|createTempDir
 argument_list|(
 literal|"testfieldswriterexceptions"
