@@ -927,7 +927,7 @@ name|n
 argument_list|)
 return|;
 block|}
-comment|/** Lower-level search API.    *    *<p>{@link Collector#collect(int)} is called for every matching    * document.    *    * @param query to match documents    * @param filter if non-null, used to permit documents to be collected.    * @param results to receive hits    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
+comment|/** Lower-level search API.    *    *<p>{@link LeafCollector#collect(int)} is called for every matching    * document.    *    * @param query to match documents    * @param filter if non-null, used to permit documents to be collected.    * @param results to receive hits    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|public
 name|void
@@ -963,7 +963,7 @@ name|results
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Lower-level search API.    *    *<p>{@link Collector#collect(int)} is called for every matching document.    *    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
+comment|/** Lower-level search API.    *    *<p>{@link LeafCollector#collect(int)} is called for every matching document.    *    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|public
 name|void
@@ -2181,7 +2181,7 @@ name|topDocs
 argument_list|()
 return|;
 block|}
-comment|/**    * Lower-level search API.    *     *<p>    * {@link Collector#collect(int)} is called for every document.<br>    *     *<p>    * NOTE: this method executes the searches on all given leaves exclusively.    * To search across all the searchers leaves use {@link #leafContexts}.    *     * @param leaves     *          the searchers leaves to execute the searches on    * @param weight    *          to match documents    * @param collector    *          to receive hits    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
+comment|/**    * Lower-level search API.    *     *<p>    * {@link LeafCollector#collect(int)} is called for every document.<br>    *     *<p>    * NOTE: this method executes the searches on all given leaves exclusively.    * To search across all the searchers leaves use {@link #leafContexts}.    *     * @param leaves     *          the searchers leaves to execute the searches on    * @param weight    *          to match documents    * @param collector    *          to receive hits    * @throws BooleanQuery.TooManyClauses If a query would exceed     *         {@link BooleanQuery#getMaxClauseCount()} clauses.    */
 DECL|method|search
 specifier|protected
 name|void
@@ -2214,11 +2214,17 @@ name|leaves
 control|)
 block|{
 comment|// search each subreader
+specifier|final
+name|LeafCollector
+name|leafCollector
+decl_stmt|;
 try|try
 block|{
+name|leafCollector
+operator|=
 name|collector
 operator|.
-name|setNextReader
+name|getLeafCollector
 argument_list|(
 name|ctx
 argument_list|)
@@ -2244,7 +2250,7 @@ argument_list|(
 name|ctx
 argument_list|,
 operator|!
-name|collector
+name|leafCollector
 operator|.
 name|acceptsDocsOutOfOrder
 argument_list|()
@@ -2271,7 +2277,7 @@ name|scorer
 operator|.
 name|score
 argument_list|(
-name|collector
+name|leafCollector
 argument_list|)
 expr_stmt|;
 block|}
@@ -3011,14 +3017,18 @@ name|ctx
 operator|.
 name|docBase
 decl_stmt|;
+specifier|final
+name|LeafCollector
+name|collector
+init|=
 name|hq
 operator|.
-name|setNextReader
+name|getLeafCollector
 argument_list|(
 name|ctx
 argument_list|)
-expr_stmt|;
-name|hq
+decl_stmt|;
+name|collector
 operator|.
 name|setScorer
 argument_list|(
@@ -3053,7 +3063,7 @@ name|scoreDoc
 operator|.
 name|score
 expr_stmt|;
-name|hq
+name|collector
 operator|.
 name|collect
 argument_list|(

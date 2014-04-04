@@ -42,7 +42,7 @@ extends|extends
 name|ScoreDoc
 parameter_list|>
 extends|extends
-name|Collector
+name|SimpleCollector
 block|{
 comment|/** This is used in case topDocs() is called with illegal parameters, or there    *  simply aren't (enough) results. */
 DECL|field|EMPTY_TOPDOCS

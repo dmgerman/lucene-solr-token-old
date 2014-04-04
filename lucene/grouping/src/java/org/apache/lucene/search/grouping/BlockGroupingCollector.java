@@ -111,7 +111,7 @@ specifier|public
 class|class
 name|BlockGroupingCollector
 extends|extends
-name|Collector
+name|SimpleCollector
 block|{
 DECL|field|pendingSubDocs
 specifier|private
@@ -1253,7 +1253,7 @@ argument_list|)
 expr_stmt|;
 name|collector
 operator|.
-name|setNextReader
+name|getLeafCollector
 argument_list|(
 name|og
 operator|.
@@ -1936,10 +1936,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setNextReader
-specifier|public
+DECL|method|doSetNextReader
+specifier|protected
 name|void
-name|setNextReader
+name|doSetNextReader
 parameter_list|(
 name|AtomicReaderContext
 name|readerContext

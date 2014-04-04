@@ -314,7 +314,7 @@ argument_list|)
 argument_list|)
 argument_list|,
 operator|new
-name|Collector
+name|SimpleCollector
 argument_list|()
 block|{
 specifier|private
@@ -372,13 +372,15 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|void
-name|setNextReader
+name|doSetNextReader
 parameter_list|(
 name|AtomicReaderContext
 name|context
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|base
 operator|=

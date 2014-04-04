@@ -1246,23 +1246,13 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
-name|Collector
+name|LeafCollector
 name|c
 init|=
 operator|new
-name|Collector
+name|SimpleCollector
 argument_list|()
 block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|setNextReader
-parameter_list|(
-name|AtomicReaderContext
-name|sub
-parameter_list|)
-block|{         }
 annotation|@
 name|Override
 specifier|public
@@ -1299,16 +1289,6 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|void
-name|setScorer
-parameter_list|(
-name|Scorer
-name|scorer
-parameter_list|)
-block|{         }
 annotation|@
 name|Override
 specifier|public
