@@ -16057,8 +16057,8 @@ name|revisitPolicy
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Called by DirectoryReader.doClose
 DECL|method|deletePendingFiles
+specifier|private
 specifier|synchronized
 name|void
 name|deletePendingFiles
@@ -16503,6 +16503,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|deleter
 operator|.
 name|incRef
@@ -16524,6 +16527,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
 name|deleter
 operator|.
 name|decRef
