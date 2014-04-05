@@ -1390,7 +1390,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|Collector
+name|SimpleCollector
 argument_list|()
 block|{
 specifier|private
@@ -1804,9 +1804,9 @@ block|}
 block|}
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|void
-name|setNextReader
+name|doSetNextReader
 parameter_list|(
 name|AtomicReaderContext
 name|context
@@ -2219,7 +2219,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|Collector
+name|SimpleCollector
 argument_list|()
 block|{
 specifier|private
@@ -2490,9 +2490,9 @@ block|}
 block|}
 annotation|@
 name|Override
-specifier|public
+specifier|protected
 name|void
-name|setNextReader
+name|doSetNextReader
 parameter_list|(
 name|AtomicReaderContext
 name|context

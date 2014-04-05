@@ -39,7 +39,7 @@ specifier|public
 name|void
 name|score
 parameter_list|(
-name|Collector
+name|LeafCollector
 name|collector
 parameter_list|)
 throws|throws
@@ -62,7 +62,7 @@ specifier|abstract
 name|boolean
 name|score
 parameter_list|(
-name|Collector
+name|LeafCollector
 name|collector
 parameter_list|,
 name|int

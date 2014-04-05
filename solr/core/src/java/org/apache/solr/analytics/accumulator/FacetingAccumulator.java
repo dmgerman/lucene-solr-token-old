@@ -1237,10 +1237,10 @@ block|}
 comment|/**    * Update the readers for the {@link BasicAccumulator}, field facets and field facet {@link StatsCollector}s.    * @param context The context to read documents from.    * @throws IOException if there is an error setting the next reader    */
 annotation|@
 name|Override
-DECL|method|setNextReader
-specifier|public
+DECL|method|doSetNextReader
+specifier|protected
 name|void
-name|setNextReader
+name|doSetNextReader
 parameter_list|(
 name|AtomicReaderContext
 name|context
@@ -1250,7 +1250,7 @@ name|IOException
 block|{
 name|super
 operator|.
-name|setNextReader
+name|doSetNextReader
 argument_list|(
 name|context
 argument_list|)
@@ -1312,7 +1312,7 @@ control|)
 block|{
 name|fa
 operator|.
-name|setNextReader
+name|getLeafCollector
 argument_list|(
 name|context
 argument_list|)
@@ -1333,7 +1333,7 @@ name|IOException
 block|{
 name|super
 operator|.
-name|setNextReader
+name|getLeafCollector
 argument_list|(
 name|context
 argument_list|)
@@ -1400,7 +1400,7 @@ name|IOException
 block|{
 name|super
 operator|.
-name|setNextReader
+name|getLeafCollector
 argument_list|(
 name|context
 argument_list|)

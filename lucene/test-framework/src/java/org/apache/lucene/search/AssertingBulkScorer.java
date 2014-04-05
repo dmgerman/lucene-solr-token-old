@@ -138,7 +138,7 @@ name|class
 argument_list|,
 literal|"score"
 argument_list|,
-name|Collector
+name|LeafCollector
 operator|.
 name|class
 argument_list|)
@@ -165,7 +165,7 @@ name|class
 argument_list|,
 literal|"score"
 argument_list|,
-name|Collector
+name|LeafCollector
 operator|.
 name|class
 argument_list|,
@@ -295,7 +295,7 @@ specifier|public
 name|void
 name|score
 parameter_list|(
-name|Collector
+name|LeafCollector
 name|collector
 parameter_list|)
 throws|throws
@@ -364,7 +364,7 @@ specifier|public
 name|boolean
 name|score
 parameter_list|(
-name|Collector
+name|LeafCollector
 name|collector
 parameter_list|,
 name|int

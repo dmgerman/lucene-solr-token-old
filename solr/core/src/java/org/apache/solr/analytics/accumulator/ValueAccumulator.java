@@ -48,7 +48,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Collector
+name|LeafCollector
 import|;
 end_import
 begin_import
@@ -61,7 +61,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Scorer
+name|SimpleCollector
 import|;
 end_import
 begin_import
@@ -89,21 +89,8 @@ specifier|abstract
 class|class
 name|ValueAccumulator
 extends|extends
-name|Collector
+name|SimpleCollector
 block|{
-comment|/**    * @param context The context to read documents from.    * @throws IOException if setting next reader fails    */
-DECL|method|setNextReader
-specifier|public
-specifier|abstract
-name|void
-name|setNextReader
-parameter_list|(
-name|AtomicReaderContext
-name|context
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 comment|/**    * Finalizes the statistics within each StatsCollector.    * Must be called before<code>export()</code>.    */
 DECL|method|compute
 specifier|public
@@ -143,21 +130,6 @@ block|{
 return|return
 literal|true
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|setScorer
-specifier|public
-name|void
-name|setScorer
-parameter_list|(
-name|Scorer
-name|scorer
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-comment|// NOP
 block|}
 block|}
 end_class

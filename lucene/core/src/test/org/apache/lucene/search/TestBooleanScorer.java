@@ -569,7 +569,7 @@ specifier|public
 name|boolean
 name|score
 parameter_list|(
-name|Collector
+name|LeafCollector
 name|c
 parameter_list|,
 name|int
@@ -675,7 +675,7 @@ operator|.
 name|score
 argument_list|(
 operator|new
-name|Collector
+name|SimpleCollector
 argument_list|()
 block|{
 name|int
@@ -708,11 +708,13 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-function|@Override       public void setNextReader
+function|@Override       protected void doSetNextReader
 parameter_list|(
 name|AtomicReaderContext
 name|context
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|docBase
 operator|=
@@ -878,6 +880,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+comment|// we don't wrap with AssertingIndexSearcher in order to have the original scorer in setScorer.
 specifier|final
 name|IndexSearcher
 name|s
@@ -885,6 +888,10 @@ init|=
 name|newSearcher
 argument_list|(
 name|r
+argument_list|,
+literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -985,7 +992,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|Collector
+name|SimpleCollector
 argument_list|()
 block|{
 annotation|@
@@ -1006,23 +1013,6 @@ name|?
 argument_list|>
 name|clazz
 init|=
-name|scorer
-operator|instanceof
-name|AssertingScorer
-condition|?
-operator|(
-operator|(
-name|AssertingScorer
-operator|)
-name|scorer
-operator|)
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getClass
-argument_list|()
-else|:
 name|scorer
 operator|.
 name|getClass
@@ -1058,13 +1048,6 @@ literal|0
 index|]
 operator|++
 expr_stmt|;
-block|}
-function|@Override       public void setNextReader
-parameter_list|(
-name|AtomicReaderContext
-name|context
-parameter_list|)
-block|{
 block|}
 function|@Override       public boolean acceptsDocsOutOfOrder
 parameter_list|()
@@ -1213,7 +1196,7 @@ specifier|public
 name|boolean
 name|score
 parameter_list|(
-name|Collector
+name|LeafCollector
 name|collector
 parameter_list|,
 name|int
