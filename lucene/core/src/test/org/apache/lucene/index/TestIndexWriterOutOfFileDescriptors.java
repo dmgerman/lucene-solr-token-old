@@ -166,9 +166,7 @@ name|dir
 init|=
 name|newMockFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"TestIndexWriterOutOfFileDescriptors"
 argument_list|)
@@ -721,9 +719,7 @@ name|dirCopy
 operator|=
 name|newMockFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"TestIndexWriterOutOfFileDescriptors.copy"
 argument_list|)

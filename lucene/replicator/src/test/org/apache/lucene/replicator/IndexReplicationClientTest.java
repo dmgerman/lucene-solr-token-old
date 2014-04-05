@@ -760,9 +760,7 @@ operator|=
 operator|new
 name|PerSessionDirectoryFactory
 argument_list|(
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"replicationClientTest"
 argument_list|)

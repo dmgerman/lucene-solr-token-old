@@ -236,9 +236,7 @@ expr_stmt|;
 name|File
 name|file
 init|=
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testIndex"
 argument_list|)
@@ -4677,9 +4675,7 @@ name|d
 init|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"CFSManySubFiles"
 argument_list|)

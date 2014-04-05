@@ -217,9 +217,7 @@ name|dir
 init|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"2BFixedBinary"
 argument_list|)
@@ -653,9 +651,7 @@ name|dir
 init|=
 name|newFSDirectory
 argument_list|(
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"2BVariableBinary"
 argument_list|)

@@ -2701,9 +2701,7 @@ specifier|final
 name|File
 name|tempDir
 init|=
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"fstlines"
 argument_list|)

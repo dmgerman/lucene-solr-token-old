@@ -2737,9 +2737,7 @@ specifier|final
 name|File
 name|tempDir
 init|=
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 name|testName
 argument_list|)
@@ -4191,7 +4189,7 @@ argument_list|()
 expr_stmt|;
 name|TestUtil
 operator|.
-name|rmDir
+name|rm
 argument_list|(
 name|tempDir
 argument_list|)

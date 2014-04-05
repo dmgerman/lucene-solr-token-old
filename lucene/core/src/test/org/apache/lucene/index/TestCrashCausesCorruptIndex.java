@@ -224,9 +224,7 @@ name|Exception
 block|{
 name|path
 operator|=
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"testCrashCorruptsIndexing"
 argument_list|)

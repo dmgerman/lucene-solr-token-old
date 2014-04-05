@@ -815,9 +815,7 @@ decl_stmt|;
 name|File
 name|tempDir
 init|=
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"AnalyzingInfixSuggesterTest"
 argument_list|)
@@ -1702,9 +1700,7 @@ decl_stmt|;
 name|File
 name|tempDir
 init|=
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"AnalyzingInfixSuggesterTest"
 argument_list|)
@@ -3922,9 +3918,7 @@ specifier|final
 name|File
 name|tempDir
 init|=
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"AnalyzingInfixSuggesterTest"
 argument_list|)
@@ -6353,9 +6347,7 @@ decl_stmt|;
 name|File
 name|tempDir
 init|=
-name|TestUtil
-operator|.
-name|getTempDir
+name|createTempDir
 argument_list|(
 literal|"analyzingInfixContext"
 argument_list|)
