@@ -406,12 +406,15 @@ argument_list|,
 name|files2
 argument_list|)
 expr_stmt|;
+name|writer
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 name|IOUtils
 operator|.
 name|close
 argument_list|(
-name|writer
-argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;

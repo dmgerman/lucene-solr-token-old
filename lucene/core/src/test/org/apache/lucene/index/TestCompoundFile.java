@@ -5089,7 +5089,7 @@ block|}
 block|}
 name|riw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|checkFiles

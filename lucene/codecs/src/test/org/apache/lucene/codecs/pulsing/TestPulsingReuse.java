@@ -357,7 +357,7 @@ argument_list|()
 decl_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|AtomicReader
@@ -625,7 +625,7 @@ argument_list|()
 decl_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|AtomicReader

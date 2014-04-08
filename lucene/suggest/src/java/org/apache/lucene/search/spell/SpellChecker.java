@@ -660,7 +660,7 @@ argument_list|)
 decl_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
@@ -1708,7 +1708,7 @@ argument_list|)
 decl_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|swapSearcher
@@ -2045,7 +2045,7 @@ block|}
 comment|// close writer
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// TODO: this isn't that great, maybe in the future SpellChecker should take

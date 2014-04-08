@@ -409,12 +409,15 @@ argument_list|(
 name|taxoWriter
 argument_list|)
 decl_stmt|;
+name|writer
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 name|IOUtils
 operator|.
 name|close
 argument_list|(
-name|writer
-argument_list|,
 name|taxoWriter
 argument_list|)
 expr_stmt|;

@@ -666,7 +666,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -951,7 +951,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -1254,7 +1254,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -1599,7 +1599,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -1963,7 +1963,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -2337,7 +2337,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -2762,7 +2762,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -3186,7 +3186,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -3424,7 +3424,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -3684,7 +3684,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -3889,7 +3889,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -4083,7 +4083,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -4461,7 +4461,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -4723,7 +4723,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -5069,7 +5069,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -5338,7 +5338,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -5650,7 +5650,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -6030,7 +6030,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedDocValues
@@ -6226,7 +6226,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -6410,7 +6410,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -6704,7 +6704,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedDocValues
@@ -7271,7 +7271,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -7510,7 +7510,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -7725,7 +7725,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -7922,7 +7922,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -8096,7 +8096,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -8290,7 +8290,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -8514,7 +8514,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -8754,7 +8754,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:
@@ -9009,10 +9009,8 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
-argument_list|(
-literal|true
-argument_list|)
+name|shutdown
+argument_list|()
 expr_stmt|;
 name|DirectoryReader
 name|reader
@@ -9945,7 +9943,7 @@ argument_list|()
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -10300,7 +10298,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// compare
@@ -10762,7 +10760,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// compare
@@ -11546,7 +11544,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// compare
@@ -12065,7 +12063,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// compare
@@ -12490,7 +12488,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// compare
@@ -12836,7 +12834,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -13009,7 +13007,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -13296,7 +13294,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -13526,7 +13524,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -13729,7 +13727,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -14021,7 +14019,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -14324,7 +14322,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -14545,7 +14543,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -14761,7 +14759,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -14982,7 +14980,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -15254,7 +15252,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -15430,7 +15428,7 @@ argument_list|()
 decl_stmt|;
 name|iwriter
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -16229,7 +16227,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// compare
@@ -17964,7 +17962,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -18417,7 +18415,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|IndexReader
@@ -18680,7 +18678,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|IndexReader
@@ -18988,7 +18986,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|IndexReader
@@ -19270,7 +19268,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|IndexReader
@@ -19554,7 +19552,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|IndexReader
@@ -19887,7 +19885,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|IndexReader
@@ -20504,7 +20502,7 @@ block|}
 block|}
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|AtomicReader
@@ -20972,7 +20970,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|AtomicReader
@@ -21479,7 +21477,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// compare
@@ -22301,7 +22299,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// compare
@@ -23129,7 +23127,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|AtomicReader

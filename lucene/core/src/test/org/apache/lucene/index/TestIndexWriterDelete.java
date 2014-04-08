@@ -680,7 +680,7 @@ argument_list|)
 expr_stmt|;
 name|modifier
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -881,7 +881,7 @@ argument_list|()
 expr_stmt|;
 name|modifier
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -996,7 +996,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -1315,7 +1315,7 @@ argument_list|()
 expr_stmt|;
 name|modifier
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -1519,7 +1519,7 @@ argument_list|)
 expr_stmt|;
 name|modifier
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|reader
@@ -1807,7 +1807,7 @@ argument_list|()
 expr_stmt|;
 name|modifier
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -2027,7 +2027,7 @@ argument_list|()
 expr_stmt|;
 name|modifier
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -2404,7 +2404,7 @@ expr_stmt|;
 block|}
 name|modifier
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|DirectoryReader
@@ -2596,11 +2596,6 @@ comment|// Roll it back
 name|modifier
 operator|.
 name|rollback
-argument_list|()
-expr_stmt|;
-name|modifier
-operator|.
-name|close
 argument_list|()
 expr_stmt|;
 comment|// Validate that the docs are still there
@@ -2802,11 +2797,6 @@ comment|// Roll it back
 name|modifier
 operator|.
 name|rollback
-argument_list|()
-expr_stmt|;
-name|modifier
-operator|.
-name|close
 argument_list|()
 expr_stmt|;
 comment|// Validate that the docs are still there
@@ -3323,7 +3313,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|long
@@ -3818,12 +3808,12 @@ operator|+=
 literal|12
 expr_stmt|;
 block|}
-block|}
 name|modifier
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
+block|}
 name|success
 operator|=
 literal|true
@@ -4237,11 +4227,6 @@ break|break;
 block|}
 block|}
 name|dir
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|modifier
 operator|.
 name|close
 argument_list|()
@@ -5009,7 +4994,7 @@ argument_list|)
 expr_stmt|;
 name|modifier
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -5346,7 +5331,7 @@ block|}
 block|}
 name|modifier
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|TestIndexWriter
@@ -5467,7 +5452,7 @@ argument_list|)
 expr_stmt|;
 name|modifier
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -5727,7 +5712,7 @@ expr_stmt|;
 block|}
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -6060,7 +6045,7 @@ expr_stmt|;
 block|}
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -6281,7 +6266,7 @@ block|}
 block|}
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -6499,7 +6484,7 @@ block|}
 block|}
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -6844,7 +6829,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -7009,7 +6994,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|ByteArrayOutputStream
@@ -7113,7 +7098,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|bos
@@ -7257,7 +7242,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|iwc
@@ -7350,7 +7335,7 @@ argument_list|()
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|r

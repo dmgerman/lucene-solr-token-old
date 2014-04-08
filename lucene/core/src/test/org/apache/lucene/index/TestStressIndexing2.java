@@ -419,7 +419,7 @@ name|dw
 operator|.
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -1137,7 +1137,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// w.forceMerge(1);
-comment|//w.close();
+comment|//w.shutdown();
 for|for
 control|(
 name|int
@@ -1467,7 +1467,7 @@ block|}
 comment|//w.forceMerge(1);
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 for|for
@@ -1687,7 +1687,7 @@ comment|// System.out.println("indexing "+d1);
 block|}
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 block|}

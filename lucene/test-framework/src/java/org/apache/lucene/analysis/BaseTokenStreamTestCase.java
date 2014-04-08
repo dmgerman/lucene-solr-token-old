@@ -3784,6 +3784,19 @@ argument_list|)
 throw|;
 block|}
 block|}
+if|if
+condition|(
+name|iw
+operator|!=
+literal|null
+condition|)
+block|{
+name|iw
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
+block|}
 name|success
 operator|=
 literal|true
@@ -3800,8 +3813,6 @@ name|IOUtils
 operator|.
 name|close
 argument_list|(
-name|iw
-argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
@@ -3812,8 +3823,6 @@ name|IOUtils
 operator|.
 name|closeWhileHandlingException
 argument_list|(
-name|iw
-argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;

@@ -1002,12 +1002,10 @@ condition|(
 name|success
 condition|)
 block|{
-name|IOUtils
-operator|.
-name|close
-argument_list|(
 name|iw
-argument_list|)
+operator|.
+name|shutdown
+argument_list|()
 expr_stmt|;
 block|}
 else|else

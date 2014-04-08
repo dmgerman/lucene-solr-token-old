@@ -178,6 +178,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|AlreadyClosedException
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|Directory
 import|;
 end_import
@@ -554,7 +567,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
@@ -595,11 +608,22 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|AlreadyClosedException
+name|ace
+parameter_list|)
+block|{
+comment|// OK
+block|}
 block|}
 block|}
 comment|//_TestUtil.syncConcurrentMerges(ms);
@@ -679,7 +703,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -873,7 +897,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|String
@@ -976,7 +1000,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Make sure starting index seems to be working properly:
@@ -2227,7 +2251,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Wait for all BG threads to finish else
@@ -2659,7 +2683,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -2815,7 +2839,7 @@ try|try
 block|{
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|(
 literal|false
 argument_list|)
@@ -2844,9 +2868,7 @@ expr_stmt|;
 name|writer
 operator|.
 name|close
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|dir
 operator|.

@@ -738,7 +738,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -1137,7 +1137,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -1607,7 +1607,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -2007,10 +2007,8 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
-argument_list|(
-literal|true
-argument_list|)
+name|shutdown
+argument_list|()
 expr_stmt|;
 name|dir
 operator|.

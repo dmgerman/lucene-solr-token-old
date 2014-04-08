@@ -469,7 +469,7 @@ argument_list|,
 name|dir2
 argument_list|)
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir2
@@ -573,7 +573,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|IndexReader
@@ -626,7 +626,7 @@ argument_list|,
 name|dir2
 argument_list|)
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir2
@@ -676,7 +676,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|writer
@@ -757,7 +757,7 @@ argument_list|,
 name|dir2
 argument_list|)
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir2
@@ -798,7 +798,7 @@ argument_list|()
 decl_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -870,7 +870,7 @@ argument_list|()
 decl_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|(
 literal|false
 argument_list|)

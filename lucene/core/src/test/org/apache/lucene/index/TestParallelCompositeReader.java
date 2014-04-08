@@ -1414,7 +1414,7 @@ argument_list|)
 expr_stmt|;
 name|w2
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|DirectoryReader
@@ -3170,7 +3170,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 specifier|final
@@ -3663,7 +3663,7 @@ argument_list|)
 expr_stmt|;
 name|w1
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 return|return
@@ -3927,7 +3927,7 @@ argument_list|)
 expr_stmt|;
 name|w2
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 return|return
@@ -4191,7 +4191,7 @@ argument_list|)
 expr_stmt|;
 name|w2
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 return|return

@@ -725,12 +725,12 @@ expr_stmt|;
 block|}
 name|writer1
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|writer2
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
@@ -1192,7 +1192,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 block|}

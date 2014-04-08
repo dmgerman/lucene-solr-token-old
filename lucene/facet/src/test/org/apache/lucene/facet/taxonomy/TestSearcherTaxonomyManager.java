@@ -1163,6 +1163,11 @@ literal|"TEST: now stop"
 argument_list|)
 expr_stmt|;
 block|}
+name|w
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 name|IOUtils
 operator|.
 name|close
@@ -1170,8 +1175,6 @@ argument_list|(
 name|mgr
 argument_list|,
 name|tw
-argument_list|,
-name|w
 argument_list|,
 name|taxoDir
 argument_list|,
@@ -1460,6 +1463,11 @@ literal|"TEST: now stop"
 argument_list|)
 expr_stmt|;
 block|}
+name|w
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 name|IOUtils
 operator|.
 name|close
@@ -1467,8 +1475,6 @@ argument_list|(
 name|mgr
 argument_list|,
 name|tw
-argument_list|,
-name|w
 argument_list|,
 name|taxoDir
 argument_list|,
@@ -1603,6 +1609,11 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
+name|w
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 name|IOUtils
 operator|.
 name|close
@@ -1610,8 +1621,6 @@ argument_list|(
 name|mgr
 argument_list|,
 name|tw
-argument_list|,
-name|w
 argument_list|,
 name|taxoDir
 argument_list|,
@@ -1826,6 +1835,11 @@ name|pair
 argument_list|)
 expr_stmt|;
 block|}
+name|w
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 name|IOUtils
 operator|.
 name|close
@@ -1833,8 +1847,6 @@ argument_list|(
 name|mgr
 argument_list|,
 name|tw
-argument_list|,
-name|w
 argument_list|,
 name|taxoDir
 argument_list|,

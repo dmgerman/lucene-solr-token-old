@@ -1038,7 +1038,7 @@ argument_list|,
 name|conf
 argument_list|)
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// this should fail
@@ -1130,7 +1130,7 @@ name|clone
 argument_list|()
 argument_list|)
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 operator|new
@@ -1147,7 +1147,7 @@ name|clone
 argument_list|()
 argument_list|)
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -2553,7 +2553,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir

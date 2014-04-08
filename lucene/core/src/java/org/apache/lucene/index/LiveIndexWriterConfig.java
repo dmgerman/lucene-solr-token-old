@@ -1555,6 +1555,17 @@ name|toString
 argument_list|()
 return|;
 block|}
+comment|/** Returns the {@code matchVersion} that was provided to    *  the constructor. */
+DECL|method|getMatchVersion
+specifier|public
+name|Version
+name|getMatchVersion
+parameter_list|()
+block|{
+return|return
+name|matchVersion
+return|;
+block|}
 block|}
 end_class
 end_unit

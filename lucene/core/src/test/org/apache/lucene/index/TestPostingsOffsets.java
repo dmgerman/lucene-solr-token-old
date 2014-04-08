@@ -570,7 +570,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|DocsAndPositionsEnum
@@ -1141,7 +1141,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|String
@@ -2162,7 +2162,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 specifier|final
@@ -2865,7 +2865,7 @@ argument_list|()
 expr_stmt|;
 name|riw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -2987,7 +2987,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -3379,7 +3379,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -3503,6 +3503,11 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+name|riw
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 name|success
 operator|=
 literal|true
@@ -3519,8 +3524,6 @@ name|IOUtils
 operator|.
 name|close
 argument_list|(
-name|riw
-argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;

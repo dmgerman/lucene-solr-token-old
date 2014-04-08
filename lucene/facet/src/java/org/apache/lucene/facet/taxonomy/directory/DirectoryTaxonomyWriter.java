@@ -1307,6 +1307,11 @@ block|{
 name|commit
 argument_list|()
 expr_stmt|;
+name|indexWriter
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 name|doClose
 argument_list|()
 expr_stmt|;
@@ -1320,11 +1325,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|indexWriter
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|isClosed
 operator|=
 literal|true

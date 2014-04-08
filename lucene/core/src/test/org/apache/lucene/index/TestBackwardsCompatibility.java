@@ -666,7 +666,7 @@ comment|// Then move those 2 zip files to your trunk checkout and add them
 comment|// to the oldNames array.
 comment|/*   public void testCreateCFS() throws IOException {     createIndex("index.cfs", true, false);   }    public void testCreateNoCFS() throws IOException {     createIndex("index.nocfs", false, false);   }   */
 comment|/*   // These are only needed for the special upgrade test to verify   // that also single-segment indexes are correctly upgraded by IndexUpgrader.   // You don't need them to be build for non-4.0 (the test is happy with just one   // "old" segment format, version is unimportant:      public void testCreateSingleSegmentCFS() throws IOException {     createIndex("index.singlesegment.cfs", true, true);   }    public void testCreateSingleSegmentNoCFS() throws IOException {     createIndex("index.singlesegment.nocfs", false, true);   }  */
-comment|/*   public void testCreateMoreTermsIndex() throws Exception {     // we use a real directory name that is not cleaned up,     // because this method is only used to create backwards     // indexes:     File indexDir = new File("moreterms");     _TestUtil.rmDir(indexDir);     Directory dir = newFSDirectory(indexDir);      LogByteSizeMergePolicy mp = new LogByteSizeMergePolicy();     mp.setUseCompoundFile(false);     mp.setNoCFSRatio(1.0);     mp.setMaxCFSSegmentSizeMB(Double.POSITIVE_INFINITY);     MockAnalyzer analyzer = new MockAnalyzer(random());     analyzer.setMaxTokenLength(TestUtil.nextInt(random(), 1, IndexWriter.MAX_TERM_LENGTH));      // TODO: remove randomness     IndexWriterConfig conf = new IndexWriterConfig(TEST_VERSION_CURRENT, analyzer)       .setMergePolicy(mp);     conf.setCodec(Codec.forName("Lucene40"));     IndexWriter writer = new IndexWriter(dir, conf);     LineFileDocs docs = new LineFileDocs(null, true);     for(int i=0;i<50;i++) {       writer.addDocument(docs.nextDoc());     }     writer.close();     dir.close();      // Gives you time to copy the index out!: (there is also     // a test option to not remove temp dir...):     Thread.sleep(100000);   }   */
+comment|/*   public void testCreateMoreTermsIndex() throws Exception {     // we use a real directory name that is not cleaned up,     // because this method is only used to create backwards     // indexes:     File indexDir = new File("moreterms");     _TestUtil.rmDir(indexDir);     Directory dir = newFSDirectory(indexDir);      LogByteSizeMergePolicy mp = new LogByteSizeMergePolicy();     mp.setUseCompoundFile(false);     mp.setNoCFSRatio(1.0);     mp.setMaxCFSSegmentSizeMB(Double.POSITIVE_INFINITY);     MockAnalyzer analyzer = new MockAnalyzer(random());     analyzer.setMaxTokenLength(TestUtil.nextInt(random(), 1, IndexWriter.MAX_TERM_LENGTH));      // TODO: remove randomness     IndexWriterConfig conf = new IndexWriterConfig(TEST_VERSION_CURRENT, analyzer)       .setMergePolicy(mp);     conf.setCodec(Codec.forName("Lucene40"));     IndexWriter writer = new IndexWriter(dir, conf);     LineFileDocs docs = new LineFileDocs(null, true);     for(int i=0;i<50;i++) {       writer.addDocument(docs.nextDoc());     }     writer.shutdown();     dir.close();      // Gives you time to copy the index out!: (there is also     // a test option to not remove temp dir...):     Thread.sleep(100000);   }   */
 DECL|field|oldNames
 specifier|final
 specifier|static
@@ -1299,7 +1299,7 @@ condition|)
 block|{
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|(
 literal|false
 argument_list|)
@@ -1475,7 +1475,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|dir
@@ -1574,7 +1574,7 @@ expr_stmt|;
 block|}
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|targetDir
@@ -1651,7 +1651,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|reader
@@ -3181,7 +3181,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// make sure searching sees right # hits
@@ -3321,7 +3321,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|reader
@@ -3564,7 +3564,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|reader
@@ -3796,7 +3796,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 if|if
@@ -3866,7 +3866,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|writer
@@ -3912,7 +3912,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 block|}
@@ -4070,7 +4070,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Delete one doc so we get a .del file:
@@ -4126,7 +4126,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|// Now verify file names... TODO: fix this test better, we could populate from
@@ -5380,7 +5380,7 @@ argument_list|)
 expr_stmt|;
 name|riw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|DirectoryReader
@@ -6637,7 +6637,7 @@ expr_stmt|;
 block|}
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|(
 literal|false
 argument_list|)
@@ -6696,7 +6696,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|(
 literal|false
 argument_list|)

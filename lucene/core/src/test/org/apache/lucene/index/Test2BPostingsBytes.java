@@ -537,7 +537,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|DirectoryReader
@@ -646,7 +646,7 @@ argument_list|)
 expr_stmt|;
 name|w2
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|oneThousand
@@ -757,7 +757,7 @@ argument_list|)
 expr_stmt|;
 name|w3
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|oneMillion

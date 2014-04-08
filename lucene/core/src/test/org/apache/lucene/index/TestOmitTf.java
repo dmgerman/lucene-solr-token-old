@@ -734,7 +734,7 @@ expr_stmt|;
 comment|// flush
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SegmentReader
@@ -1007,7 +1007,7 @@ expr_stmt|;
 comment|// flush
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SegmentReader
@@ -1236,7 +1236,7 @@ expr_stmt|;
 comment|// flush
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SegmentReader
@@ -1574,7 +1574,7 @@ expr_stmt|;
 comment|// flush
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|assertNoPrx
@@ -1786,7 +1786,7 @@ expr_stmt|;
 comment|// flush
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 comment|/*      * Verify the index      */
@@ -2609,7 +2609,7 @@ argument_list|()
 decl_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|assertEquals

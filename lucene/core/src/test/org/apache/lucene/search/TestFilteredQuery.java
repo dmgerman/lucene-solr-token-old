@@ -568,7 +568,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|searcher
@@ -3208,7 +3208,7 @@ argument_list|()
 decl_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|IndexSearcher
@@ -3493,8 +3493,6 @@ name|close
 argument_list|(
 name|reader
 argument_list|,
-name|writer
-argument_list|,
 name|directory
 argument_list|)
 expr_stmt|;
@@ -3633,7 +3631,7 @@ argument_list|()
 decl_stmt|;
 name|writer
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 specifier|final
@@ -3933,8 +3931,6 @@ operator|.
 name|close
 argument_list|(
 name|reader
-argument_list|,
-name|writer
 argument_list|,
 name|directory
 argument_list|)

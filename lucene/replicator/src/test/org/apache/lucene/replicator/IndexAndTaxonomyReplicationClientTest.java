@@ -1375,6 +1375,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|publishIndexWriter
+operator|.
+name|shutdown
+argument_list|()
+expr_stmt|;
 name|IOUtils
 operator|.
 name|close
@@ -1382,8 +1387,6 @@ argument_list|(
 name|client
 argument_list|,
 name|callback
-argument_list|,
-name|publishIndexWriter
 argument_list|,
 name|publishTaxoWriter
 argument_list|,

@@ -358,7 +358,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|NumericDocValues
@@ -609,7 +609,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|BinaryDocValues
@@ -908,7 +908,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedDocValues
@@ -1216,7 +1216,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedDocValues
@@ -1541,7 +1541,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -1989,7 +1989,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -2432,7 +2432,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|close
+name|shutdown
 argument_list|()
 expr_stmt|;
 name|Bits
