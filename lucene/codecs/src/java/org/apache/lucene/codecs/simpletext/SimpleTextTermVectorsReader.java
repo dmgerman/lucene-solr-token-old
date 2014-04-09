@@ -596,8 +596,6 @@ operator|.
 name|checkFooter
 argument_list|(
 name|input
-argument_list|,
-name|CHECKSUM
 argument_list|)
 expr_stmt|;
 assert|assert

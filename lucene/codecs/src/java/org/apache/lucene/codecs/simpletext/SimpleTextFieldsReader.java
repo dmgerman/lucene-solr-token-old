@@ -460,23 +460,6 @@ name|simpletext
 operator|.
 name|SimpleTextFieldsWriter
 operator|.
-name|CHECKSUM
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|simpletext
-operator|.
-name|SimpleTextFieldsWriter
-operator|.
 name|END
 import|;
 end_import
@@ -823,8 +806,6 @@ operator|.
 name|checkFooter
 argument_list|(
 name|input
-argument_list|,
-name|CHECKSUM
 argument_list|)
 expr_stmt|;
 return|return
