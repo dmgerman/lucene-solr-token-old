@@ -204,7 +204,7 @@ name|doTest
 argument_list|(
 literal|"bad-schema-external-filefield.xml"
 argument_list|,
-literal|"Only float and pfloat"
+literal|"Only float (TrieFloatField) is currently supported as external field type."
 argument_list|)
 expr_stmt|;
 block|}
