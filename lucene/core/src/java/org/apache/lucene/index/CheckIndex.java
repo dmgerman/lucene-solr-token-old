@@ -2035,6 +2035,13 @@ operator|.
 name|DEFAULT
 argument_list|)
 expr_stmt|;
+name|msg
+argument_list|(
+name|infoStream
+argument_list|,
+literal|"OK"
+argument_list|)
+expr_stmt|;
 name|segInfoStat
 operator|.
 name|openReaderPassed
@@ -2051,13 +2058,33 @@ name|infoStream
 operator|.
 name|print
 argument_list|(
-literal|"    test: check integrity........."
+literal|"    test: check integrity....."
 argument_list|)
 expr_stmt|;
 name|reader
 operator|.
 name|checkIntegrity
 argument_list|()
+expr_stmt|;
+name|msg
+argument_list|(
+name|infoStream
+argument_list|,
+literal|"OK"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|infoStream
+operator|!=
+literal|null
+condition|)
+name|infoStream
+operator|.
+name|print
+argument_list|(
+literal|"    test: check live docs....."
+argument_list|)
 expr_stmt|;
 specifier|final
 name|int
