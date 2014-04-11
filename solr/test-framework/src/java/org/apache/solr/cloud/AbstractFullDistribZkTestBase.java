@@ -7965,11 +7965,6 @@ parameter_list|)
 throws|throws
 name|SolrServerException
 block|{
-name|boolean
-name|shouldFail
-init|=
-literal|false
-decl_stmt|;
 name|SolrParams
 name|q
 decl_stmt|;
@@ -8256,7 +8251,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|shouldFail
+literal|true
 return|;
 block|}
 DECL|method|getClient
@@ -10107,11 +10102,6 @@ argument_list|(
 name|request
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|server
-operator|.
-name|shutdown
-argument_list|()
 expr_stmt|;
 block|}
 finally|finally
