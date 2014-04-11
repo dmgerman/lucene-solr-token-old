@@ -1297,13 +1297,6 @@ name|IOContext
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|fsOutput
-operator|.
-name|setLength
-argument_list|(
-name|fileLength
-argument_list|)
-expr_stmt|;
 name|IndexOutput
 name|hdfsOutput
 init|=
@@ -1318,13 +1311,6 @@ name|IOContext
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|hdfsOutput
-operator|.
-name|setLength
-argument_list|(
-name|fileLength
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
