@@ -2346,9 +2346,9 @@ argument_list|(
 name|random
 argument_list|,
 operator|-
-literal|100
+literal|50
 argument_list|,
-literal|100
+literal|50
 argument_list|)
 argument_list|)
 return|;
@@ -6233,7 +6233,7 @@ literal|50
 operator|*
 name|RANDOM_MULTIPLIER
 argument_list|,
-literal|128
+literal|80
 argument_list|,
 literal|false
 argument_list|,
