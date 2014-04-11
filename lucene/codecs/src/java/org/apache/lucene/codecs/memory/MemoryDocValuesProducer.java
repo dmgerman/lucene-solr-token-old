@@ -118,6 +118,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DocValues
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|DocsAndPositionsEnum
 import|;
 end_import
@@ -2270,9 +2283,9 @@ literal|0
 condition|)
 block|{
 return|return
-name|SortedDocValues
+name|DocValues
 operator|.
-name|EMPTY
+name|EMPTY_SORTED
 return|;
 block|}
 name|FST
@@ -2711,9 +2724,9 @@ literal|0
 condition|)
 block|{
 return|return
-name|SortedSetDocValues
+name|DocValues
 operator|.
-name|EMPTY
+name|EMPTY_SORTED_SET
 return|;
 comment|// empty FST!
 block|}
@@ -3363,8 +3376,9 @@ case|case
 name|SORTED_SET
 case|:
 return|return
-operator|new
-name|SortedSetDocsWithField
+name|DocValues
+operator|.
+name|docsWithValue
 argument_list|(
 name|getSortedSet
 argument_list|(
@@ -3378,8 +3392,9 @@ case|case
 name|SORTED
 case|:
 return|return
-operator|new
-name|SortedDocsWithField
+name|DocValues
+operator|.
+name|docsWithValue
 argument_list|(
 name|getSorted
 argument_list|(
