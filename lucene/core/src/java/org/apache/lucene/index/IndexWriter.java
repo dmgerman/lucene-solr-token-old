@@ -5569,13 +5569,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|processEvents
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 name|docWriter
 operator|.
 name|close
