@@ -1165,7 +1165,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**    * Looks up HunspellAffix prefixes that have an append that matches the String created from the given char array, offset and length    *    * @param word Char array to generate the String from    * @param offset Offset in the char array that the String starts at    * @param length Length from the offset that the String is    * @return List of HunspellAffix prefixes with an append that matches the String, or {@code null} if none are found    */
+comment|// only for testing
 DECL|method|lookupPrefix
 name|IntsRef
 name|lookupPrefix
@@ -1194,7 +1194,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**    * Looks up HunspellAffix suffixes that have an append that matches the String created from the given char array, offset and length    *    * @param word Char array to generate the String from    * @param offset Offset in the char array that the String starts at    * @param length Length from the offset that the String is    * @return List of HunspellAffix suffixes with an append that matches the String, or {@code null} if none are found    */
+comment|// only for testing
 DECL|method|lookupSuffix
 name|IntsRef
 name|lookupSuffix
@@ -1223,8 +1223,6 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|// TODO: this is pretty stupid, considering how the stemming algorithm works
-comment|// we can speed it up to be significantly faster!
 DECL|method|lookup
 name|IntsRef
 name|lookup
@@ -2362,6 +2360,13 @@ argument_list|(
 literal|"Y"
 argument_list|)
 decl_stmt|;
+name|boolean
+name|isSuffix
+init|=
+name|conditionPattern
+operator|==
+name|SUFFIX_CONDITION_REGEX_PATTERN
+decl_stmt|;
 name|int
 name|numLines
 init|=
@@ -3019,6 +3024,26 @@ decl_stmt|;
 name|affixArg
 operator|=
 name|cleaned
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|isSuffix
+condition|)
+block|{
+name|affixArg
+operator|=
+operator|new
+name|StringBuilder
+argument_list|(
+name|affixArg
+argument_list|)
+operator|.
+name|reverse
+argument_list|()
 operator|.
 name|toString
 argument_list|()
