@@ -81,7 +81,7 @@ annotation|@
 name|Override
 DECL|method|fillBytesRef
 specifier|public
-name|int
+name|void
 name|fillBytesRef
 parameter_list|()
 block|{
@@ -123,12 +123,6 @@ name|utf16
 operator|.
 name|length
 expr_stmt|;
-return|return
-name|bytes
-operator|.
-name|hashCode
-argument_list|()
-return|;
 block|}
 block|}
 end_class
