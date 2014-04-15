@@ -1363,12 +1363,6 @@ argument_list|)
 index|]
 return|;
 block|}
-DECL|field|totConflict
-specifier|public
-specifier|static
-name|int
-name|totConflict
-decl_stmt|;
 DECL|method|findHash
 specifier|private
 name|int
@@ -1439,9 +1433,6 @@ comment|// Conflict; use linear probe to find an open slot
 comment|// (see LUCENE-5604):
 do|do
 block|{
-name|totConflict
-operator|++
-expr_stmt|;
 name|code
 operator|++
 expr_stmt|;
