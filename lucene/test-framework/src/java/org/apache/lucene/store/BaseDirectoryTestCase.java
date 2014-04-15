@@ -202,10 +202,6 @@ block|{
 comment|// expected
 block|}
 block|}
-comment|// test is occasionally very slow, i dont know why
-comment|// try this seed: 7D7E036AD12927F5:93333EF9E6DE44DE
-annotation|@
-name|Nightly
 DECL|method|testThreadSafety
 specifier|public
 name|void
@@ -216,7 +212,7 @@ name|Exception
 block|{
 specifier|final
 name|Directory
-name|raw
+name|dir
 init|=
 name|getDirectory
 argument_list|(
@@ -226,16 +222,19 @@ literal|"testThreadSafety"
 argument_list|)
 argument_list|)
 decl_stmt|;
-specifier|final
+if|if
+condition|(
+name|dir
+operator|instanceof
 name|BaseDirectoryWrapper
+condition|)
+block|{
+operator|(
+operator|(
+name|BaseDirectoryWrapper
+operator|)
 name|dir
-init|=
-name|newDirectory
-argument_list|(
-name|raw
-argument_list|)
-decl_stmt|;
-name|dir
+operator|)
 operator|.
 name|setCheckIndexOnClose
 argument_list|(
@@ -243,6 +242,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// we arent making an index
+block|}
 if|if
 condition|(
 name|dir
@@ -399,6 +399,11 @@ specifier|private
 name|String
 name|name
 decl_stmt|;
+specifier|private
+specifier|volatile
+name|boolean
+name|stop
+decl_stmt|;
 specifier|public
 name|TheThread2
 parameter_list|(
@@ -420,20 +425,12 @@ name|void
 name|run
 parameter_list|()
 block|{
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-literal|10000
-condition|;
-name|i
-operator|++
-control|)
+while|while
+condition|(
+name|stop
+operator|==
+literal|false
+condition|)
 block|{
 try|try
 block|{
@@ -497,6 +494,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|!=
+literal|null
+operator|&&
 name|e
 operator|.
 name|getMessage
@@ -585,17 +589,20 @@ operator|.
 name|join
 argument_list|()
 expr_stmt|;
+comment|// after first thread is done, no sense in waiting on thread 2
+comment|// to listFiles() and loop over and over
+name|theThread2
+operator|.
+name|stop
+operator|=
+literal|true
+expr_stmt|;
 name|theThread2
 operator|.
 name|join
 argument_list|()
 expr_stmt|;
 name|dir
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|raw
 operator|.
 name|close
 argument_list|()

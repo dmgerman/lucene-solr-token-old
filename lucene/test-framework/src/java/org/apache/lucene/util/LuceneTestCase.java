@@ -5379,6 +5379,9 @@ name|rarely
 argument_list|(
 name|random
 argument_list|)
+operator|&&
+operator|!
+name|bare
 condition|)
 block|{
 name|directory
@@ -5406,6 +5409,9 @@ name|rarely
 argument_list|(
 name|random
 argument_list|)
+operator|&&
+operator|!
+name|bare
 condition|)
 block|{
 specifier|final
