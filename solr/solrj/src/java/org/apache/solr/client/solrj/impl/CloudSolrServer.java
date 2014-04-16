@@ -1781,7 +1781,9 @@ name|nonRoutableParams
 operator|.
 name|get
 argument_list|(
-literal|"collection"
+name|UpdateParams
+operator|.
+name|COLLECTION
 argument_list|,
 name|defaultCollection
 argument_list|)
@@ -4130,7 +4132,9 @@ name|reqParams
 operator|.
 name|get
 argument_list|(
-literal|"collection"
+name|UpdateParams
+operator|.
+name|COLLECTION
 argument_list|,
 name|defaultCollection
 argument_list|)
@@ -4458,7 +4462,9 @@ name|reqParams
 operator|.
 name|get
 argument_list|(
-literal|"collection"
+name|UpdateParams
+operator|.
+name|COLLECTION
 argument_list|)
 operator|==
 literal|null
@@ -4516,7 +4522,9 @@ name|reqParams
 operator|.
 name|get
 argument_list|(
-literal|"collection"
+name|UpdateParams
+operator|.
+name|COLLECTION
 argument_list|)
 operator|==
 literal|null
