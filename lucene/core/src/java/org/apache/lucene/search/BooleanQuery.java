@@ -1449,7 +1449,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Check if we can and should return a BooleanScorer
 return|return
 operator|new
 name|BooleanScorer
