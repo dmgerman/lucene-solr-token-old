@@ -39,6 +39,21 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
+name|Monster
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
 name|SuppressCodecs
 import|;
 end_import
@@ -191,7 +206,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|//   ant test -Dtest.slow=true -Dtests.heapsize=8g
+comment|//   ant test -Dtests.monster=true -Dtests.heapsize=8g
 end_comment
 begin_comment
 comment|//
@@ -213,6 +228,11 @@ literal|"Memory"
 block|,
 literal|"Direct"
 block|}
+argument_list|)
+annotation|@
+name|Monster
+argument_list|(
+literal|"very slow, use 8g heap"
 argument_list|)
 DECL|class|Test2BTerms
 specifier|public
@@ -678,11 +698,6 @@ return|;
 block|}
 block|}
 block|}
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Very slow. Enable manually by removing @Ignore."
-argument_list|)
 DECL|method|test2BTerms
 specifier|public
 name|void
