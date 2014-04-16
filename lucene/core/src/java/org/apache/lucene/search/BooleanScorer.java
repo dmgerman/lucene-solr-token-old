@@ -104,7 +104,7 @@ name|BulkScorer
 block|{
 DECL|class|BooleanScorerCollector
 specifier|private
-comment|/*static*/
+specifier|static
 specifier|final
 class|class
 name|BooleanScorerCollector
@@ -191,22 +191,6 @@ index|[
 name|i
 index|]
 decl_stmt|;
-specifier|final
-name|int
-name|coord
-init|=
-operator|(
-name|mask
-operator|&
-name|REQUIRED_MASK
-operator|)
-operator|==
-name|REQUIRED_MASK
-condition|?
-name|requiredNrMatchers
-else|:
-literal|1
-decl_stmt|;
 if|if
 condition|(
 name|bucket
@@ -245,8 +229,7 @@ name|bucket
 operator|.
 name|coord
 operator|=
-comment|/*1*/
-name|coord
+literal|1
 expr_stmt|;
 comment|// initialize coord
 name|bucket
@@ -288,9 +271,7 @@ comment|// add bits in mask
 name|bucket
 operator|.
 name|coord
-comment|/*++*/
-operator|+=
-name|coord
+operator|++
 expr_stmt|;
 comment|// increment coord
 block|}
@@ -366,7 +347,7 @@ comment|// next valid bucket
 block|}
 comment|/** A simple hash table of document scores within a range. */
 DECL|class|BucketTable
-comment|/*static*/
+specifier|static
 specifier|final
 class|class
 name|BucketTable
@@ -486,13 +467,8 @@ specifier|public
 name|BulkScorer
 name|scorer
 decl_stmt|;
-DECL|field|required
-specifier|public
-name|boolean
-name|required
-init|=
-literal|false
-decl_stmt|;
+comment|// TODO: re-enable this if BQ ever sends us required clauses
+comment|//public boolean required = false;
 DECL|field|prohibited
 specifier|public
 name|boolean
@@ -533,6 +509,19 @@ name|SubScorer
 name|next
 parameter_list|)
 block|{
+if|if
+condition|(
+name|required
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"this scorer cannot handle required=true"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|scorer
@@ -545,12 +534,8 @@ name|more
 operator|=
 literal|true
 expr_stmt|;
-name|this
-operator|.
-name|required
-operator|=
-name|required
-expr_stmt|;
+comment|// TODO: re-enable this if BQ ever sends us required clauses
+comment|//this.required = required;
 name|this
 operator|.
 name|prohibited
@@ -594,6 +579,8 @@ name|float
 index|[]
 name|coordFactors
 decl_stmt|;
+comment|// TODO: re-enable this if BQ ever sends us required clauses
+comment|//private int requiredMask = 0;
 DECL|field|minNrShouldMatch
 specifier|private
 specifier|final
@@ -620,22 +607,6 @@ name|PROHIBITED_MASK
 init|=
 literal|1
 decl_stmt|;
-comment|// Any time a prohibited clause matches we set bit 1:
-DECL|field|REQUIRED_MASK
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|REQUIRED_MASK
-init|=
-literal|2
-decl_stmt|;
-DECL|field|requiredNrMatchers
-specifier|private
-specifier|final
-name|int
-name|requiredNrMatchers
-decl_stmt|;
 DECL|field|weight
 specifier|private
 specifier|final
@@ -653,12 +624,6 @@ name|disableCoord
 parameter_list|,
 name|int
 name|minNrShouldMatch
-parameter_list|,
-name|List
-argument_list|<
-name|Scorer
-argument_list|>
-name|requiredScorers
 parameter_list|,
 name|List
 argument_list|<
@@ -690,77 +655,6 @@ name|weight
 operator|=
 name|weight
 expr_stmt|;
-name|this
-operator|.
-name|requiredNrMatchers
-operator|=
-name|requiredScorers
-operator|.
-name|size
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|this
-operator|.
-name|requiredNrMatchers
-operator|>
-literal|0
-condition|)
-block|{
-name|BulkScorer
-name|requiredScorer
-init|=
-operator|new
-name|Weight
-operator|.
-name|DefaultBulkScorer
-argument_list|(
-operator|new
-name|ConjunctionScorer
-argument_list|(
-name|this
-operator|.
-name|weight
-argument_list|,
-name|requiredScorers
-operator|.
-name|toArray
-argument_list|(
-operator|new
-name|Scorer
-index|[
-name|requiredScorers
-operator|.
-name|size
-argument_list|()
-index|]
-argument_list|)
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|scorers
-operator|=
-operator|new
-name|SubScorer
-argument_list|(
-name|requiredScorer
-argument_list|,
-literal|true
-argument_list|,
-literal|false
-argument_list|,
-name|bucketTable
-operator|.
-name|newCollector
-argument_list|(
-name|REQUIRED_MASK
-argument_list|)
-argument_list|,
-name|scorers
-argument_list|)
-expr_stmt|;
-block|}
 for|for
 control|(
 name|BulkScorer
@@ -821,17 +715,11 @@ name|scorers
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: required add requriredScorer.size().
 name|coordFactors
 operator|=
 operator|new
 name|float
 index|[
-name|requiredScorers
-operator|.
-name|size
-argument_list|()
-operator|+
 name|optionalScorers
 operator|.
 name|size
@@ -942,24 +830,11 @@ name|PROHIBITED_MASK
 operator|)
 operator|==
 literal|0
-operator|&&
-operator|(
-name|requiredNrMatchers
-operator|==
-literal|0
-operator|||
-operator|(
-name|current
-operator|.
-name|bits
-operator|&
-name|REQUIRED_MASK
-operator|)
-operator|==
-name|REQUIRED_MASK
-operator|)
 condition|)
 block|{
+comment|// TODO: re-enable this if BQ ever sends us required
+comment|// clauses
+comment|//&& (current.bits& requiredMask) == requiredMask) {
 comment|// NOTE: Lucene always passes max =
 comment|// Integer.MAX_VALUE today, because we never embed
 comment|// a BooleanScorer inside another (even though
@@ -1008,8 +883,6 @@ operator|.
 name|coord
 operator|>=
 name|minNrShouldMatch
-operator|+
-name|requiredNrMatchers
 condition|)
 block|{
 name|fs

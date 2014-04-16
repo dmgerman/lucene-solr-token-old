@@ -638,14 +638,6 @@ literal|false
 argument_list|,
 literal|1
 argument_list|,
-name|Collections
-operator|.
-expr|<
-name|Scorer
-operator|>
-name|emptyList
-argument_list|()
-argument_list|,
 name|Arrays
 operator|.
 name|asList
