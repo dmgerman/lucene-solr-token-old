@@ -1006,7 +1006,7 @@ specifier|final
 name|int
 name|res
 init|=
-name|super
+name|in
 operator|.
 name|read
 argument_list|(
@@ -1045,7 +1045,7 @@ specifier|final
 name|int
 name|res
 init|=
-name|super
+name|in
 operator|.
 name|read
 argument_list|(
