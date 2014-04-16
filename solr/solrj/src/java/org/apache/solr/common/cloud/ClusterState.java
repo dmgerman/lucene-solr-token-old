@@ -1511,7 +1511,7 @@ name|stateReader
 argument_list|)
 return|;
 block|}
-comment|/**    * @deprecated    */
+comment|/**    * @deprecated use {@link #load(Integer, byte[], Set, ZkStateReader)}    */
 annotation|@
 name|Deprecated
 DECL|method|load
