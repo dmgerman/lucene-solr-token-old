@@ -1586,12 +1586,9 @@ specifier|final
 name|boolean
 name|trySsl
 init|=
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
+literal|true
 decl_stmt|;
+comment|//random().nextBoolean();
 name|boolean
 name|trySslClientAuth
 init|=

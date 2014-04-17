@@ -319,6 +319,7 @@ annotation|@
 name|Slow
 annotation|@
 name|SuppressSSL
+comment|// tests starts with SSL off
 DECL|class|SSLMigrationTest
 specifier|public
 class|class
