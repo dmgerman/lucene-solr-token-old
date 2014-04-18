@@ -258,6 +258,33 @@ range|:
 name|infos
 control|)
 block|{
+if|if
+condition|(
+name|info
+operator|.
+name|number
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"illegal field number: "
+operator|+
+name|info
+operator|.
+name|number
+operator|+
+literal|" for field "
+operator|+
+name|info
+operator|.
+name|name
+argument_list|)
+throw|;
+block|}
 name|FieldInfo
 name|previous
 init|=
@@ -632,9 +659,7 @@ name|fieldName
 argument_list|)
 return|;
 block|}
-comment|/**    * Return the fieldinfo object referenced by the fieldNumber.    * @param fieldNumber field's number. if this is negative, this method    *        always returns null.    * @return the FieldInfo object or null when the given fieldNumber    * doesn't exist.    */
-comment|// TODO: fix this negative behavior, this was something related to Lucene3x?
-comment|// if the field name is empty, i think it writes the fieldNumber as -1
+comment|/**    * Return the fieldinfo object referenced by the fieldNumber.    * @param fieldNumber field's number.    * @return the FieldInfo object or null when the given fieldNumber    * doesn't exist.    * @throws IllegalArgumentException if fieldNumber is negative    */
 DECL|method|fieldInfo
 specifier|public
 name|FieldInfo
@@ -644,21 +669,30 @@ name|int
 name|fieldNumber
 parameter_list|)
 block|{
-return|return
-operator|(
+if|if
+condition|(
 name|fieldNumber
-operator|>=
+operator|<
 literal|0
-operator|)
-condition|?
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Illegal field number: "
+operator|+
+name|fieldNumber
+argument_list|)
+throw|;
+block|}
+return|return
 name|byNumber
 operator|.
 name|get
 argument_list|(
 name|fieldNumber
 argument_list|)
-else|:
-literal|null
 return|;
 block|}
 DECL|class|FieldNumbers
