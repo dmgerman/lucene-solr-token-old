@@ -2009,11 +2009,6 @@ condition|(
 name|hasPayloads
 condition|)
 block|{
-name|ros
-operator|.
-name|flush
-argument_list|()
-expr_stmt|;
 name|payloads
 operator|=
 operator|new
