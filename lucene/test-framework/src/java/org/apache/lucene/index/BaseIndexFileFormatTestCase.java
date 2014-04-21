@@ -29,6 +29,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -48,6 +57,15 @@ operator|.
 name|util
 operator|.
 name|HashMap
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
 import|;
 end_import
 begin_import
@@ -324,15 +342,30 @@ argument_list|>
 name|excludedExtensionsFromByteCounts
 parameter_list|()
 block|{
+return|return
+operator|new
+name|HashSet
+argument_list|<
+name|String
+argument_list|>
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+operator|new
+name|String
+index|[]
+block|{
 comment|// segment infos store various pieces of information that don't solely depend
 comment|// on the content of the index in the diagnostics (such as a timestamp) so we
 comment|// exclude this file from the bytes counts
-return|return
-name|Collections
-operator|.
-name|singleton
-argument_list|(
 literal|"si"
+block|,
+comment|// lock files are 0 bytes (one directory in the test could be RAMDir, the other FSDir)
+literal|"lock"
+block|}
+argument_list|)
 argument_list|)
 return|;
 block|}
