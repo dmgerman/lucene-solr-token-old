@@ -417,7 +417,7 @@ literal|0
 condition|)
 block|{
 name|String
-name|delete
+name|deleteId
 init|=
 name|deletes
 operator|.
@@ -449,7 +449,7 @@ name|req
 operator|.
 name|deleteById
 argument_list|(
-name|delete
+name|deleteId
 argument_list|)
 expr_stmt|;
 name|req
@@ -473,7 +473,7 @@ name|cloudClient
 operator|.
 name|deleteById
 argument_list|(
-name|delete
+name|deleteId
 argument_list|)
 expr_stmt|;
 block|}
@@ -489,7 +489,9 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"REQUEST FAILED:"
+literal|"REQUEST FAILED for id="
+operator|+
+name|deleteId
 argument_list|)
 expr_stmt|;
 name|e
@@ -510,7 +512,9 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"ROOT CAUSE:"
+literal|"ROOT CAUSE for id="
+operator|+
+name|deleteId
 argument_list|)
 expr_stmt|;
 operator|(
@@ -573,7 +577,9 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"REQUEST FAILED:"
+literal|"REQUEST FAILED for id="
+operator|+
+name|id
 argument_list|)
 expr_stmt|;
 name|e
@@ -594,7 +600,9 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"ROOT CAUSE:"
+literal|"ROOT CAUSE for id="
+operator|+
+name|id
 argument_list|)
 expr_stmt|;
 operator|(
