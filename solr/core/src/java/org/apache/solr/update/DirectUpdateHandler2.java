@@ -3738,6 +3738,13 @@ condition|(
 name|tryToCommit
 condition|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Committing on IndexWriter close."
+argument_list|)
+expr_stmt|;
 name|CommitUpdateCommand
 name|cmd
 init|=
@@ -3935,7 +3942,7 @@ literal|null
 condition|)
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
