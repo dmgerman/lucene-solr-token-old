@@ -792,6 +792,16 @@ argument_list|(
 name|c
 argument_list|)
 operator|||
+name|c
+operator|.
+name|isAnnotationPresent
+argument_list|(
+name|Deprecated
+operator|.
+name|class
+argument_list|)
+comment|// deprecated ones are typically back compat hacks
+operator|||
 operator|!
 operator|(
 name|Tokenizer
@@ -972,6 +982,16 @@ name|contains
 argument_list|(
 literal|"SPI"
 argument_list|)
+operator|||
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"does not exist"
+argument_list|)
 condition|)
 block|{
 throw|throw
@@ -1140,6 +1160,16 @@ name|contains
 argument_list|(
 literal|"SPI"
 argument_list|)
+operator|||
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"does not exist"
+argument_list|)
 condition|)
 block|{
 throw|throw
@@ -1298,6 +1328,16 @@ operator|.
 name|contains
 argument_list|(
 literal|"SPI"
+argument_list|)
+operator|||
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"does not exist"
 argument_list|)
 condition|)
 block|{
