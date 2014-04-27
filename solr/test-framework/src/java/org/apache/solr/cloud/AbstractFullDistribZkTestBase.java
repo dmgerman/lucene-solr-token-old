@@ -4130,7 +4130,7 @@ comment|// which = which + ((shardCount / sliceCount) *
 comment|// random.nextInt(sliceCount-1));
 comment|// }
 comment|//
-comment|// CommonsHttpSolrServer client = (CommonsHttpSolrServer)
+comment|// HttpSolrServer client = (HttpSolrServer)
 comment|// clients.get(which);
 name|UpdateRequest
 name|ureq
