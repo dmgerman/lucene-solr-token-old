@@ -843,6 +843,8 @@ specifier|public
 name|void
 name|testConstructorExceptions
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|FieldType
 name|ft
@@ -910,6 +912,24 @@ parameter_list|)
 block|{
 comment|// expected exception
 block|}
+name|Directory
+name|dir
+init|=
+name|newDirectory
+argument_list|()
+decl_stmt|;
+name|RandomIndexWriter
+name|w
+init|=
+operator|new
+name|RandomIndexWriter
+argument_list|(
+name|random
+argument_list|()
+argument_list|,
+name|dir
+argument_list|)
+decl_stmt|;
 operator|new
 name|Field
 argument_list|(
@@ -921,8 +941,13 @@ name|ft
 argument_list|)
 expr_stmt|;
 comment|// okay
-try|try
-block|{
+name|Document
+name|doc
+init|=
+operator|new
+name|Document
+argument_list|()
+decl_stmt|;
 name|FieldType
 name|ft2
 init|=
@@ -944,6 +969,10 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|doc
+operator|.
+name|add
+argument_list|(
 operator|new
 name|Field
 argument_list|(
@@ -952,6 +981,16 @@ argument_list|,
 literal|"value"
 argument_list|,
 name|ft2
+argument_list|)
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|w
+operator|.
+name|addDocument
+argument_list|(
+name|doc
 argument_list|)
 expr_stmt|;
 name|fail
@@ -966,6 +1005,16 @@ parameter_list|)
 block|{
 comment|// expected exception
 block|}
+name|w
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|dir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|testClearDocument
 specifier|public
