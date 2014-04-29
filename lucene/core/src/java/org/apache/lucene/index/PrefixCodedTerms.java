@@ -409,6 +409,8 @@ operator|new
 name|RAMOutputStream
 argument_list|(
 name|buffer
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 DECL|field|lastTerm
