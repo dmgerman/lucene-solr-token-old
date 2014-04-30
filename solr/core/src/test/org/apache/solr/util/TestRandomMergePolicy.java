@@ -42,6 +42,21 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|SuppressSysoutChecks
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|lang
@@ -77,6 +92,13 @@ begin_comment
 comment|/**   * A "test the test" sanity check using reflection to ensure that   * {@linke RandomMergePolicy} is working as expected  */
 end_comment
 begin_class
+annotation|@
+name|SuppressSysoutChecks
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Logs to JUL"
+argument_list|)
 DECL|class|TestRandomMergePolicy
 specifier|public
 class|class
