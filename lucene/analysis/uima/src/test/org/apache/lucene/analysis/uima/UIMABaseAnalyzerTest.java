@@ -262,13 +262,6 @@ begin_comment
 comment|/**  * Testcase for {@link UIMABaseAnalyzer}  */
 end_comment
 begin_class
-annotation|@
-name|SuppressSysoutChecks
-argument_list|(
-name|bugUrl
-operator|=
-literal|"UIMA logs via ju.logging"
-argument_list|)
 DECL|class|UIMABaseAnalyzerTest
 specifier|public
 class|class

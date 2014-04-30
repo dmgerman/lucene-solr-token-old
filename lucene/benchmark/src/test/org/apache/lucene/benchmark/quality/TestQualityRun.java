@@ -244,13 +244,6 @@ begin_comment
 comment|/**  * Test that quality run does its job.  *<p>  * NOTE: if the default scoring or StandardAnalyzer is changed, then  * this test will not work correctly, as it does not dynamically  * generate its test trec topics/qrels!  */
 end_comment
 begin_class
-annotation|@
-name|SuppressSysoutChecks
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Output expected."
-argument_list|)
 DECL|class|TestQualityRun
 specifier|public
 class|class
