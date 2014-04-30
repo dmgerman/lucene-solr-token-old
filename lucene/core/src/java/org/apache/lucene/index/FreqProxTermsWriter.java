@@ -69,19 +69,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BytesRef
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|CollectionUtil
 import|;
 end_import
@@ -91,15 +78,29 @@ specifier|final
 class|class
 name|FreqProxTermsWriter
 extends|extends
-name|TermsHashConsumer
+name|TermsHash
 block|{
-annotation|@
-name|Override
-DECL|method|abort
-name|void
-name|abort
-parameter_list|()
-block|{}
+DECL|method|FreqProxTermsWriter
+specifier|public
+name|FreqProxTermsWriter
+parameter_list|(
+name|DocumentsWriterPerThread
+name|docWriter
+parameter_list|,
+name|TermsHash
+name|termVectors
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|docWriter
+argument_list|,
+literal|true
+argument_list|,
+name|termVectors
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|applyDeletes
 specifier|private
 name|void
@@ -395,10 +396,6 @@ block|}
 block|}
 block|}
 block|}
-comment|// TODO: would be nice to factor out more of this, eg the
-comment|// FreqProxFieldMergeState, and code to visit all Fields
-comment|// under the same FieldInfo together, up into TermsHash*.
-comment|// Other writers would presumably share alot of this...
 annotation|@
 name|Override
 DECL|method|flush
@@ -410,7 +407,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|TermsHashConsumerPerField
+name|TermsHashPerField
 argument_list|>
 name|fieldsToFlush
 parameter_list|,
@@ -421,8 +418,16 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// Gather all FieldData's that have postings, across all
-comment|// ThreadStates
+name|super
+operator|.
+name|flush
+argument_list|(
+name|fieldsToFlush
+argument_list|,
+name|state
+argument_list|)
+expr_stmt|;
+comment|// Gather all fields that saw any postings:
 name|List
 argument_list|<
 name|FreqProxTermsWriterPerField
@@ -436,7 +441,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|TermsHashConsumerPerField
+name|TermsHashPerField
 name|f
 range|:
 name|fieldsToFlush
@@ -457,8 +462,6 @@ decl_stmt|;
 if|if
 condition|(
 name|perField
-operator|.
-name|termsHashPerField
 operator|.
 name|bytesHash
 operator|.
@@ -535,19 +538,15 @@ name|fields
 argument_list|)
 expr_stmt|;
 block|}
-DECL|field|payload
-name|BytesRef
-name|payload
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|addField
 specifier|public
-name|TermsHashConsumerPerField
+name|TermsHashPerField
 name|addField
 parameter_list|(
-name|TermsHashPerField
-name|termsHashPerField
+name|FieldInvertState
+name|invertState
 parameter_list|,
 name|FieldInfo
 name|fieldInfo
@@ -557,31 +556,23 @@ return|return
 operator|new
 name|FreqProxTermsWriterPerField
 argument_list|(
-name|termsHashPerField
+name|invertState
 argument_list|,
 name|this
 argument_list|,
 name|fieldInfo
+argument_list|,
+name|nextTermsHash
+operator|.
+name|addField
+argument_list|(
+name|invertState
+argument_list|,
+name|fieldInfo
+argument_list|)
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|finishDocument
-name|void
-name|finishDocument
-parameter_list|(
-name|TermsHash
-name|termsHash
-parameter_list|)
-block|{   }
-annotation|@
-name|Override
-DECL|method|startDocument
-name|void
-name|startDocument
-parameter_list|()
-block|{   }
 block|}
 end_class
 end_unit

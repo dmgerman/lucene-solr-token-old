@@ -507,7 +507,7 @@ block|{
 return|return
 name|terms
 operator|.
-name|hasPayloads
+name|sawPayloads
 return|;
 block|}
 block|}
@@ -573,8 +573,6 @@ name|numTerms
 operator|=
 name|terms
 operator|.
-name|termsHashPerField
-operator|.
 name|bytesHash
 operator|.
 name|size
@@ -597,8 +595,6 @@ operator|(
 name|FreqProxPostingsArray
 operator|)
 name|terms
-operator|.
-name|termsHashPerField
 operator|.
 name|postingsArray
 expr_stmt|;
@@ -671,8 +667,6 @@ index|]
 index|]
 decl_stmt|;
 name|terms
-operator|.
-name|termsHashPerField
 operator|.
 name|bytePool
 operator|.
@@ -800,8 +794,6 @@ index|]
 decl_stmt|;
 name|terms
 operator|.
-name|termsHashPerField
-operator|.
 name|bytePool
 operator|.
 name|setBytesRef
@@ -850,8 +842,6 @@ index|]
 index|]
 decl_stmt|;
 name|terms
-operator|.
-name|termsHashPerField
 operator|.
 name|bytePool
 operator|.
@@ -1324,8 +1314,6 @@ name|termID
 expr_stmt|;
 name|terms
 operator|.
-name|termsHashPerField
-operator|.
 name|initReader
 argument_list|(
 name|reader
@@ -1693,8 +1681,6 @@ name|termID
 expr_stmt|;
 name|terms
 operator|.
-name|termsHashPerField
-operator|.
 name|initReader
 argument_list|(
 name|reader
@@ -1705,8 +1691,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 name|terms
-operator|.
-name|termsHashPerField
 operator|.
 name|initReader
 argument_list|(

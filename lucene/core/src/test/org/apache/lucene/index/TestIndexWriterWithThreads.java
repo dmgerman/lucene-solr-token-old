@@ -2341,7 +2341,12 @@ name|getMethodName
 argument_list|()
 argument_list|)
 operator|&&
-literal|"org.apache.lucene.index.DocFieldProcessor"
+name|DefaultIndexingChain
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 operator|.
 name|equals
 argument_list|(

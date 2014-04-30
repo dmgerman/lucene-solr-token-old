@@ -15,32 +15,6 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
-name|systemPropertyAsBoolean
-import|;
-end_import
-begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
-name|systemPropertyAsInt
-import|;
-end_import
-begin_import
 import|import
 name|java
 operator|.
@@ -246,6 +220,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -282,6 +265,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Random
 import|;
 end_import
@@ -310,6 +302,17 @@ operator|.
 name|util
 operator|.
 name|TreeSet
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentHashMap
 import|;
 end_import
 begin_import
@@ -406,6 +409,8 @@ operator|.
 name|document
 operator|.
 name|Field
+operator|.
+name|Store
 import|;
 end_import
 begin_import
@@ -419,8 +424,6 @@ operator|.
 name|document
 operator|.
 name|Field
-operator|.
-name|Store
 import|;
 end_import
 begin_import
@@ -668,6 +671,8 @@ operator|.
 name|index
 operator|.
 name|IndexReader
+operator|.
+name|ReaderClosedListener
 import|;
 end_import
 begin_import
@@ -681,8 +686,6 @@ operator|.
 name|index
 operator|.
 name|IndexReader
-operator|.
-name|ReaderClosedListener
 import|;
 end_import
 begin_import
@@ -956,6 +959,8 @@ operator|.
 name|index
 operator|.
 name|TermsEnum
+operator|.
+name|SeekStatus
 import|;
 end_import
 begin_import
@@ -969,8 +974,6 @@ operator|.
 name|index
 operator|.
 name|TermsEnum
-operator|.
-name|SeekStatus
 import|;
 end_import
 begin_import
@@ -1023,6 +1026,8 @@ operator|.
 name|search
 operator|.
 name|FieldCache
+operator|.
+name|CacheEntry
 import|;
 end_import
 begin_import
@@ -1036,8 +1041,6 @@ operator|.
 name|search
 operator|.
 name|FieldCache
-operator|.
-name|CacheEntry
 import|;
 end_import
 begin_import
@@ -1131,6 +1134,8 @@ operator|.
 name|store
 operator|.
 name|IOContext
+operator|.
+name|Context
 import|;
 end_import
 begin_import
@@ -1144,8 +1149,6 @@ operator|.
 name|store
 operator|.
 name|IOContext
-operator|.
-name|Context
 import|;
 end_import
 begin_import
@@ -1185,6 +1188,8 @@ operator|.
 name|store
 operator|.
 name|MockDirectoryWrapper
+operator|.
+name|Throttling
 import|;
 end_import
 begin_import
@@ -1198,8 +1203,6 @@ operator|.
 name|store
 operator|.
 name|MockDirectoryWrapper
-operator|.
-name|Throttling
 import|;
 end_import
 begin_import
@@ -1522,19 +1525,6 @@ operator|.
 name|annotations
 operator|.
 name|ThreadLeakAction
-import|;
-end_import
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|ThreadLeakAction
 operator|.
 name|Action
 import|;
@@ -1549,7 +1539,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|ThreadLeakFilters
+name|ThreadLeakAction
 import|;
 end_import
 begin_import
@@ -1562,7 +1552,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|ThreadLeakGroup
+name|ThreadLeakFilters
 import|;
 end_import
 begin_import
@@ -1590,7 +1580,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|ThreadLeakLingering
+name|ThreadLeakGroup
 import|;
 end_import
 begin_import
@@ -1603,7 +1593,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|ThreadLeakScope
+name|ThreadLeakLingering
 import|;
 end_import
 begin_import
@@ -1631,7 +1621,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|ThreadLeakZombies
+name|ThreadLeakScope
 import|;
 end_import
 begin_import
@@ -1647,6 +1637,19 @@ operator|.
 name|ThreadLeakZombies
 operator|.
 name|Consequence
+import|;
+end_import
+begin_import
+import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|ThreadLeakZombies
 import|;
 end_import
 begin_import
@@ -1738,6 +1741,32 @@ operator|.
 name|rules
 operator|.
 name|TestRuleAdapter
+import|;
+end_import
+begin_import
+import|import static
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedTest
+operator|.
+name|systemPropertyAsBoolean
+import|;
+end_import
+begin_import
+import|import static
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedTest
+operator|.
+name|systemPropertyAsInt
 import|;
 end_import
 begin_comment
@@ -1940,7 +1969,7 @@ name|SYSPROP_FAILFAST
 init|=
 literal|"tests.failfast"
 decl_stmt|;
-comment|/**    * If true, enables assertions on writing to system streams.    *     * @see TestRuleDisallowSysouts    */
+comment|/**    * If true, enables assertions on writing to system streams.    *     * @see TestRuleLimitSysouts    */
 DECL|field|SYSPROP_SYSOUTS
 specifier|public
 specifier|static
@@ -2205,7 +2234,7 @@ default|default
 literal|"None"
 function_decl|;
 block|}
-comment|/**    * Marks any suite which is known to print to {@link System#out} or {@link System#err},    * even when {@link #VERBOSE} is disabled.    *     * @see TestRuleDisallowSysouts    */
+comment|/**    * Marks any suite which is known to print to {@link System#out} or {@link System#err},    * even when {@link #VERBOSE} is disabled.    *     * @see TestRuleLimitSysouts    */
 annotation|@
 name|Documented
 annotation|@
@@ -2254,7 +2283,7 @@ name|Version
 operator|.
 name|LUCENE_50
 decl_stmt|;
-comment|/**    * True if and only if tests are run in verbose mode. If this flag is false    * tests are not expected to print any messages. Enforced with {@link TestRuleDisallowSysouts}.    */
+comment|/**    * True if and only if tests are run in verbose mode. If this flag is false    * tests are not expected to print any messages. Enforced with {@link TestRuleLimitSysouts}.    */
 DECL|field|VERBOSE
 specifier|public
 specifier|static
@@ -2758,7 +2787,7 @@ block|}
 comment|/**    * Try to capture streams early so that other classes don't have a chance to steal references    * to them (as is the case with ju.logging handlers).    */
 static|static
 block|{
-name|TestRuleDisallowSysouts
+name|TestRuleLimitSysouts
 operator|.
 name|checkCaptureStreams
 argument_list|()
@@ -2885,7 +2914,7 @@ operator|.
 name|around
 argument_list|(
 operator|new
-name|TestRuleDisallowSysouts
+name|TestRuleLimitSysouts
 argument_list|(
 name|suiteFailureMarker
 argument_list|)
@@ -3143,6 +3172,27 @@ argument_list|(
 name|parentChainCallRule
 argument_list|)
 decl_stmt|;
+DECL|field|fieldToType
+specifier|private
+specifier|static
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|FieldType
+argument_list|>
+name|fieldToType
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|FieldType
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|// -----------------------------------------------------------------
 comment|// Suite and test case setup/ cleanup.
 comment|// -----------------------------------------------------------------
@@ -3180,6 +3230,11 @@ operator|.
 name|teardownCalled
 operator|=
 literal|true
+expr_stmt|;
+name|fieldToType
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 comment|// -----------------------------------------------------------------
@@ -5911,8 +5966,108 @@ name|type
 argument_list|)
 return|;
 block|}
+comment|/** Returns a FieldType derived from newType but whose    *  term vector options match the old type */
+DECL|method|mergeTermVectorOptions
+specifier|private
+specifier|static
+name|FieldType
+name|mergeTermVectorOptions
+parameter_list|(
+name|FieldType
+name|newType
+parameter_list|,
+name|FieldType
+name|oldType
+parameter_list|)
+block|{
+if|if
+condition|(
+name|newType
+operator|.
+name|indexed
+argument_list|()
+operator|&&
+name|oldType
+operator|.
+name|storeTermVectors
+argument_list|()
+operator|==
+literal|true
+operator|&&
+name|newType
+operator|.
+name|storeTermVectors
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+name|newType
+operator|=
+operator|new
+name|FieldType
+argument_list|(
+name|newType
+argument_list|)
+expr_stmt|;
+name|newType
+operator|.
+name|setStoreTermVectors
+argument_list|(
+name|oldType
+operator|.
+name|storeTermVectors
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|newType
+operator|.
+name|setStoreTermVectorPositions
+argument_list|(
+name|oldType
+operator|.
+name|storeTermVectorPositions
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|newType
+operator|.
+name|setStoreTermVectorOffsets
+argument_list|(
+name|oldType
+operator|.
+name|storeTermVectorOffsets
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|newType
+operator|.
+name|setStoreTermVectorPayloads
+argument_list|(
+name|oldType
+operator|.
+name|storeTermVectorPayloads
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|newType
+operator|.
+name|freeze
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|newType
+return|;
+block|}
+comment|// TODO: if we can pull out the "make term vector options
+comment|// consistent across all instances of the same field name"
+comment|// write-once schema sort of helper class then we can
+comment|// remove the sync here.  We can also fold the random
+comment|// "enable norms" (now commented out, below) into that:
 DECL|method|newField
 specifier|public
+specifier|synchronized
 specifier|static
 name|Field
 name|newField
@@ -5930,6 +6085,8 @@ name|FieldType
 name|type
 parameter_list|)
 block|{
+comment|// Defeat any consumers that illegally rely on intern'd
+comment|// strings (we removed this from Lucene a while back):
 name|name
 operator|=
 operator|new
@@ -5938,6 +6095,16 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+name|FieldType
+name|prevType
+init|=
+name|fieldToType
+operator|.
+name|get
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|usually
@@ -5950,9 +6117,46 @@ name|type
 operator|.
 name|indexed
 argument_list|()
+operator|||
+name|prevType
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// most of the time, don't modify the params
+if|if
+condition|(
+name|prevType
+operator|==
+literal|null
+condition|)
+block|{
+name|fieldToType
+operator|.
+name|put
+argument_list|(
+name|name
+argument_list|,
+operator|new
+name|FieldType
+argument_list|(
+name|type
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|type
+operator|=
+name|mergeTermVectorOptions
+argument_list|(
+name|type
+argument_list|,
+name|prevType
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|Field
@@ -6000,6 +6204,8 @@ argument_list|)
 expr_stmt|;
 comment|// randomly store it
 block|}
+comment|// Randomly turn on term vector options, but always do
+comment|// so consistently for the same field name:
 if|if
 condition|(
 operator|!
@@ -6026,26 +6232,6 @@ condition|(
 operator|!
 name|newType
 operator|.
-name|storeTermVectorOffsets
-argument_list|()
-condition|)
-block|{
-name|newType
-operator|.
-name|setStoreTermVectorOffsets
-argument_list|(
-name|random
-operator|.
-name|nextBoolean
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|newType
-operator|.
 name|storeTermVectorPositions
 argument_list|()
 condition|)
@@ -6066,7 +6252,10 @@ name|newType
 operator|.
 name|storeTermVectorPositions
 argument_list|()
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 name|newType
 operator|.
@@ -6085,8 +6274,64 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|newType
+operator|.
+name|storeTermVectorOffsets
+argument_list|()
+condition|)
+block|{
+name|newType
+operator|.
+name|setStoreTermVectorOffsets
+argument_list|(
+name|random
+operator|.
+name|nextBoolean
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
+block|}
+if|if
+condition|(
+name|VERBOSE
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"NOTE: LuceneTestCase: upgrade name="
+operator|+
+name|name
+operator|+
+literal|" type="
+operator|+
+name|newType
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|newType
+operator|.
+name|freeze
+argument_list|()
+expr_stmt|;
+name|fieldToType
+operator|.
+name|put
+argument_list|(
+name|name
+argument_list|,
+name|newType
+argument_list|)
+expr_stmt|;
 comment|// TODO: we need to do this, but smarter, ie, most of
 comment|// the time we set the same value for a given field but
 comment|// sometimes (rarely) we change it up:

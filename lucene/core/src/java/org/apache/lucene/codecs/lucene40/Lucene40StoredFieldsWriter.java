@@ -263,6 +263,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|store
+operator|.
+name|RAMOutputStream
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|Bits
@@ -480,6 +493,16 @@ specifier|private
 name|IndexOutput
 name|indexStream
 decl_stmt|;
+DECL|field|fieldsBuffer
+specifier|private
+specifier|final
+name|RAMOutputStream
+name|fieldsBuffer
+init|=
+operator|new
+name|RAMOutputStream
+argument_list|()
+decl_stmt|;
 comment|/** Sole constructor. */
 DECL|method|Lucene40StoredFieldsWriter
 specifier|public
@@ -618,6 +641,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|field|numStoredFields
+name|int
+name|numStoredFields
+decl_stmt|;
 comment|// Writes the contents of buffer into the fields stream
 comment|// and adds a new entry for this document into the index
 comment|// stream.  This assumes the buffer was already written
@@ -628,10 +655,7 @@ DECL|method|startDocument
 specifier|public
 name|void
 name|startDocument
-parameter_list|(
-name|int
-name|numStoredFields
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -645,12 +669,39 @@ name|getFilePointer
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|finishDocument
+specifier|public
+name|void
+name|finishDocument
+parameter_list|()
+throws|throws
+name|IOException
+block|{
 name|fieldsStream
 operator|.
 name|writeVInt
 argument_list|(
 name|numStoredFields
 argument_list|)
+expr_stmt|;
+name|fieldsBuffer
+operator|.
+name|writeTo
+argument_list|(
+name|fieldsStream
+argument_list|)
+expr_stmt|;
+name|fieldsBuffer
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|numStoredFields
+operator|=
+literal|0
 expr_stmt|;
 block|}
 annotation|@
@@ -751,7 +802,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|fieldsStream
+name|numStoredFields
+operator|++
+expr_stmt|;
+name|fieldsBuffer
 operator|.
 name|writeVInt
 argument_list|(
@@ -933,7 +987,7 @@ throw|;
 block|}
 block|}
 block|}
-name|fieldsStream
+name|fieldsBuffer
 operator|.
 name|writeByte
 argument_list|(
@@ -950,7 +1004,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|fieldsStream
+name|fieldsBuffer
 operator|.
 name|writeVInt
 argument_list|(
@@ -959,7 +1013,7 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-name|fieldsStream
+name|fieldsBuffer
 operator|.
 name|writeBytes
 argument_list|(
@@ -985,7 +1039,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|fieldsStream
+name|fieldsBuffer
 operator|.
 name|writeString
 argument_list|(
@@ -1013,7 +1067,7 @@ operator|instanceof
 name|Integer
 condition|)
 block|{
-name|fieldsStream
+name|fieldsBuffer
 operator|.
 name|writeInt
 argument_list|(
@@ -1032,7 +1086,7 @@ operator|instanceof
 name|Long
 condition|)
 block|{
-name|fieldsStream
+name|fieldsBuffer
 operator|.
 name|writeLong
 argument_list|(
@@ -1051,7 +1105,7 @@ operator|instanceof
 name|Float
 condition|)
 block|{
-name|fieldsStream
+name|fieldsBuffer
 operator|.
 name|writeInt
 argument_list|(
@@ -1075,7 +1129,7 @@ operator|instanceof
 name|Double
 condition|)
 block|{
-name|fieldsStream
+name|fieldsBuffer
 operator|.
 name|writeLong
 argument_list|(
