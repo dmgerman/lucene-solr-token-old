@@ -16018,7 +16018,7 @@ name|newIndexWriterConfig
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_48
+name|LUCENE_4_8
 argument_list|,
 operator|new
 name|MockAnalyzer
@@ -16158,7 +16158,7 @@ name|newIndexWriterConfig
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_48
+name|LUCENE_4_8
 argument_list|,
 operator|new
 name|MockAnalyzer

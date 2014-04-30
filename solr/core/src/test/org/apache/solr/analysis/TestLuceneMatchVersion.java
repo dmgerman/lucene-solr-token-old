@@ -283,7 +283,7 @@ name|assertEquals
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_40
+name|LUCENE_4_0
 argument_list|,
 operator|(
 name|ana
@@ -300,7 +300,7 @@ name|assertEquals
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_50
+name|LUCENE_5_0
 argument_list|,
 operator|(
 name|ana
@@ -403,7 +403,7 @@ name|assertEquals
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_40
+name|LUCENE_4_0
 argument_list|,
 name|matchVersionField
 operator|.

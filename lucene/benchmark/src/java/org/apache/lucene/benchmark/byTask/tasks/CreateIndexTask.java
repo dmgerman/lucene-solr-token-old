@@ -468,13 +468,17 @@ name|IndexCommit
 name|commit
 parameter_list|)
 block|{
-comment|// :Post-Release-Update-Version.LUCENE_XY:
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 name|Version
 name|version
 init|=
 name|Version
 operator|.
-name|valueOf
+name|parseLeniently
 argument_list|(
 name|config
 operator|.
@@ -484,7 +488,7 @@ literal|"writer.version"
 argument_list|,
 name|Version
 operator|.
-name|LUCENE_50
+name|LUCENE_CURRENT
 operator|.
 name|toString
 argument_list|()
