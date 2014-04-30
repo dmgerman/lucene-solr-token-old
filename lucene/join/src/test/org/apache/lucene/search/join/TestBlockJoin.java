@@ -452,7 +452,7 @@ name|setMergePolicy
 argument_list|(
 name|NoMergePolicy
 operator|.
-name|NO_COMPOUND_FILES
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 comment|// we don't want to merge - since we rely on certain segment setup
@@ -3104,7 +3104,7 @@ name|setMergePolicy
 argument_list|(
 name|NoMergePolicy
 operator|.
-name|COMPOUND_FILES
+name|INSTANCE
 argument_list|)
 argument_list|)
 decl_stmt|;

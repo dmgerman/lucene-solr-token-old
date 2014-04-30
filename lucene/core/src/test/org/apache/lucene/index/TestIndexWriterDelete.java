@@ -45,17 +45,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -6108,7 +6097,7 @@ name|setMergePolicy
 argument_list|(
 name|NoMergePolicy
 operator|.
-name|NO_COMPOUND_FILES
+name|INSTANCE
 argument_list|)
 operator|.
 name|setReaderPooling
@@ -6344,7 +6333,7 @@ name|setMergePolicy
 argument_list|(
 name|NoMergePolicy
 operator|.
-name|NO_COMPOUND_FILES
+name|INSTANCE
 argument_list|)
 operator|.
 name|setReaderPooling
@@ -6572,7 +6561,7 @@ name|setMergePolicy
 argument_list|(
 name|NoMergePolicy
 operator|.
-name|NO_COMPOUND_FILES
+name|INSTANCE
 argument_list|)
 operator|.
 name|setReaderPooling

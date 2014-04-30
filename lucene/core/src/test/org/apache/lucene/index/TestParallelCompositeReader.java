@@ -3447,7 +3447,7 @@ name|setMergePolicy
 argument_list|(
 name|NoMergePolicy
 operator|.
-name|NO_COMPOUND_FILES
+name|INSTANCE
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3711,7 +3711,7 @@ name|setMergePolicy
 argument_list|(
 name|NoMergePolicy
 operator|.
-name|NO_COMPOUND_FILES
+name|INSTANCE
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3975,7 +3975,7 @@ name|setMergePolicy
 argument_list|(
 name|NoMergePolicy
 operator|.
-name|NO_COMPOUND_FILES
+name|INSTANCE
 argument_list|)
 argument_list|)
 decl_stmt|;
