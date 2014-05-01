@@ -586,7 +586,6 @@ name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO: sometimes update dv
 try|try
 block|{
 name|iw
@@ -596,9 +595,10 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-comment|// we made it, sometimes delete our doc
-if|if
-condition|(
+comment|// we made it, sometimes delete our doc, or update a dv
+name|int
+name|thingToDo
+init|=
 name|random
 argument_list|()
 operator|.
@@ -606,6 +606,10 @@ name|nextInt
 argument_list|(
 literal|4
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|thingToDo
 operator|==
 literal|0
 condition|)
@@ -626,6 +630,42 @@ argument_list|(
 name|i
 argument_list|)
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|thingToDo
+operator|==
+literal|1
+operator|&&
+name|defaultCodecSupportsFieldUpdates
+argument_list|()
+condition|)
+block|{
+name|iw
+operator|.
+name|updateNumericDocValue
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+literal|"id"
+argument_list|,
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
+argument_list|,
+literal|"dv"
+argument_list|,
+name|i
+operator|+
+literal|1L
 argument_list|)
 expr_stmt|;
 block|}
