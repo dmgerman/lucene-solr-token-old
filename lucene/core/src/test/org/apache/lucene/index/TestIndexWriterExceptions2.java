@@ -582,6 +582,11 @@ operator|.
 name|println
 argument_list|(
 literal|"\nTEST: got expected fake exc:"
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|e
@@ -676,6 +681,11 @@ operator|.
 name|println
 argument_list|(
 literal|"\nTEST: got expected fake exc:"
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|e
