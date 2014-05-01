@@ -260,6 +260,9 @@ end_import
 begin_comment
 comment|/**  *   * Tests DocValues integration into IndexWriter  *   */
 end_comment
+begin_comment
+comment|// TODO: fix all tests in here to ensure dv exceptions are non-aborting
+end_comment
 begin_class
 DECL|class|TestDocValuesIndexing
 specifier|public
@@ -591,8 +594,6 @@ argument_list|,
 literal|17
 argument_list|)
 decl_stmt|;
-comment|// Index doc values are single-valued so we should not
-comment|// be able to add same field more than once:
 name|doc
 operator|.
 name|add
@@ -600,6 +601,16 @@ argument_list|(
 name|f
 argument_list|)
 expr_stmt|;
+comment|// add the doc
+name|w
+operator|.
+name|addDocument
+argument_list|(
+name|doc
+argument_list|)
+expr_stmt|;
+comment|// Index doc values are single-valued so we should not
+comment|// be able to add same field more than once:
 name|doc
 operator|.
 name|add
@@ -630,33 +641,6 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
-name|doc
-operator|=
-operator|new
-name|Document
-argument_list|()
-expr_stmt|;
-name|doc
-operator|.
-name|add
-argument_list|(
-name|f
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|addDocument
-argument_list|(
-name|doc
-argument_list|)
-expr_stmt|;
-name|w
-operator|.
-name|forceMerge
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|DirectoryReader
 name|r
 init|=
