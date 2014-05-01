@@ -305,6 +305,13 @@ literal|"Fake IOException from FieldsConsumer.write()"
 argument_list|)
 throw|;
 block|}
+name|delegate
+operator|.
+name|write
+argument_list|(
+name|fields
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
