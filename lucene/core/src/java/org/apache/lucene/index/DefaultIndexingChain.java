@@ -1507,7 +1507,6 @@ expr_stmt|;
 block|}
 block|}
 comment|// Add stored fields:
-comment|// TODO: if these hit exc today ->>> corrumption!
 name|fillStoredFields
 argument_list|(
 name|docState
@@ -1518,8 +1517,14 @@ expr_stmt|;
 name|startStoredFields
 argument_list|()
 expr_stmt|;
-comment|// TODO: clean up this loop, it's complicated because dv exceptions are non-aborting,
-comment|// but storedfields are. Its also bogus that docvalues are treated as stored fields...
+comment|// TODO: clean up this loop, it's bogus that docvalues are treated as stored fields...
+name|boolean
+name|abort
+init|=
+literal|false
+decl_stmt|;
+try|try
+block|{
 for|for
 control|(
 name|StorableField
@@ -1533,7 +1538,6 @@ name|storableFields
 argument_list|()
 control|)
 block|{
-specifier|final
 name|String
 name|fieldName
 init|=
@@ -1550,18 +1554,6 @@ operator|.
 name|fieldType
 argument_list|()
 decl_stmt|;
-name|PerField
-name|fp
-init|=
-literal|null
-decl_stmt|;
-name|success
-operator|=
-literal|false
-expr_stmt|;
-try|try
-block|{
-comment|// TODO: make this non-aborting and change the test to confirm that!!!
 name|verifyFieldType
 argument_list|(
 name|fieldName
@@ -1569,8 +1561,9 @@ argument_list|,
 name|fieldType
 argument_list|)
 expr_stmt|;
+name|PerField
 name|fp
-operator|=
+init|=
 name|getOrAddField
 argument_list|(
 name|fieldName
@@ -1579,7 +1572,7 @@ name|fieldType
 argument_list|,
 literal|false
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|fieldType
@@ -1588,6 +1581,10 @@ name|stored
 argument_list|()
 condition|)
 block|{
+name|abort
+operator|=
+literal|true
+expr_stmt|;
 name|storedFieldsWriter
 operator|.
 name|writeField
@@ -1599,33 +1596,11 @@ argument_list|,
 name|field
 argument_list|)
 expr_stmt|;
-block|}
-name|success
-operator|=
-literal|true
-expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-operator|!
-name|success
-condition|)
-block|{
-name|docWriter
-operator|.
-name|setAborting
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-name|success
+name|abort
 operator|=
 literal|false
 expr_stmt|;
-try|try
-block|{
+block|}
 name|DocValuesType
 name|dvType
 init|=
@@ -1651,29 +1626,28 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-name|success
-operator|=
-literal|true
-expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
 if|if
 condition|(
-operator|!
-name|success
+name|abort
 condition|)
 block|{
-comment|// dv failed: so just try to bail on the current doc by calling finishDocument()...
+name|docWriter
+operator|.
+name|setAborting
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 name|finishStoredFields
 argument_list|()
 expr_stmt|;
 block|}
 block|}
-block|}
-name|finishStoredFields
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|verifyFieldType
 specifier|private
