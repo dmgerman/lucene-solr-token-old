@@ -38,6 +38,7 @@ end_comment
 begin_class
 DECL|class|CrankyTokenFilter
 specifier|public
+specifier|final
 class|class
 name|CrankyTokenFilter
 extends|extends
