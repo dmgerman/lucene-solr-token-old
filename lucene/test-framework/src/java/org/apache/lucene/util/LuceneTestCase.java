@@ -6275,6 +6275,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
 if|if
 condition|(
 operator|!
@@ -6294,8 +6296,6 @@ name|nextBoolean
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 if|if
 condition|(
