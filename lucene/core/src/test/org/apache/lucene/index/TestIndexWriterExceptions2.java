@@ -196,21 +196,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|TestUtil
 import|;
 end_import
@@ -243,13 +228,6 @@ begin_comment
 comment|//
 end_comment
 begin_class
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://issues.apache.org/jira/browse/LUCENE-5635"
-argument_list|)
 DECL|class|TestIndexWriterExceptions2
 specifier|public
 class|class
@@ -258,10 +236,10 @@ extends|extends
 name|LuceneTestCase
 block|{
 comment|// just one thread, serial merge policy, hopefully debuggable
-DECL|method|testSimple
+DECL|method|testBasics
 specifier|public
 name|void
-name|testSimple
+name|testBasics
 parameter_list|()
 throws|throws
 name|Exception
@@ -293,6 +271,7 @@ argument_list|,
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
+comment|//PrintStream exceptionStream = System.out;
 comment|// create lots of non-aborting exceptions with a broken analyzer
 specifier|final
 name|long
@@ -564,9 +543,7 @@ literal|"Fake IOException"
 argument_list|)
 condition|)
 block|{
-name|System
-operator|.
-name|out
+name|exceptionStream
 operator|.
 name|println
 argument_list|(
@@ -663,9 +640,7 @@ literal|"Fake IOException"
 argument_list|)
 condition|)
 block|{
-name|System
-operator|.
-name|out
+name|exceptionStream
 operator|.
 name|println
 argument_list|(

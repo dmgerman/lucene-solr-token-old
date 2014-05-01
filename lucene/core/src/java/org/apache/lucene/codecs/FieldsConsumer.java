@@ -20,6 +20,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -77,6 +86,8 @@ specifier|public
 specifier|abstract
 class|class
 name|FieldsConsumer
+implements|implements
+name|Closeable
 block|{
 comment|/** Sole constructor. (For invocation by subclass     *  constructors, typically implicit.) */
 DECL|method|FieldsConsumer
@@ -98,6 +109,18 @@ parameter_list|(
 name|Fields
 name|fields
 parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|// NOTE: strange but necessary so javadocs linting is happy:
+annotation|@
+name|Override
+DECL|method|close
+specifier|public
+specifier|abstract
+name|void
+name|close
+parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
