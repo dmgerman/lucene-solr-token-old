@@ -981,7 +981,7 @@ block|{
 return|return
 name|schema
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 return|;
 block|}

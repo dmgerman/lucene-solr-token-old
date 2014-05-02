@@ -224,7 +224,7 @@ name|TokenizerChain
 operator|)
 name|type
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -276,7 +276,7 @@ name|TokenizerChain
 operator|)
 name|type
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -354,7 +354,7 @@ name|ana1
 init|=
 name|type
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 decl_stmt|;
 name|assertTrue
@@ -389,7 +389,7 @@ name|ana1
 operator|=
 name|type
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 expr_stmt|;
 name|assertTrue

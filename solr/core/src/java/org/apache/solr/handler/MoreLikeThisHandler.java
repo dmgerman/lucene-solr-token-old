@@ -1853,7 +1853,7 @@ operator|.
 name|getSchema
 argument_list|()
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 argument_list|)
 expr_stmt|;

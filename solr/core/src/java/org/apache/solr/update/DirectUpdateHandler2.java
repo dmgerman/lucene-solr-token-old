@@ -1412,7 +1412,7 @@ name|cmd
 argument_list|,
 name|schema
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1438,7 +1438,7 @@ name|luceneDocument
 argument_list|,
 name|schema
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1544,7 +1544,7 @@ name|cmd
 argument_list|,
 name|schema
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1562,7 +1562,7 @@ argument_list|()
 argument_list|,
 name|schema
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2386,7 +2386,7 @@ operator|.
 name|getSchema
 argument_list|()
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 argument_list|)
 expr_stmt|;

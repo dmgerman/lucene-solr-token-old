@@ -509,7 +509,7 @@ name|analyzer
 operator|=
 name|fieldType
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 expr_stmt|;
 name|Preconditions

@@ -5791,7 +5791,7 @@ name|ia
 init|=
 name|ft
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 decl_stmt|;
 if|if

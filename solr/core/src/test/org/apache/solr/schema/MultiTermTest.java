@@ -315,7 +315,7 @@ operator|.
 name|getType
 argument_list|()
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 expr_stmt|;
 name|assertTrue

@@ -431,7 +431,7 @@ argument_list|(
 name|fieldName
 argument_list|)
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 decl_stmt|;
 if|if

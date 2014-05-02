@@ -828,7 +828,7 @@ name|fieldType
 argument_list|,
 name|fieldType
 operator|.
-name|getAnalyzer
+name|getIndexAnalyzer
 argument_list|()
 argument_list|,
 name|termsToMatch
