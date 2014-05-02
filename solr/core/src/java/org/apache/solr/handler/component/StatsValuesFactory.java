@@ -1791,8 +1791,7 @@ specifier|private
 name|long
 name|sum
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 DECL|field|sumOfSquares
 name|double
@@ -1979,6 +1978,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
+literal|null
+operator|!=
+name|min
+operator|&&
+operator|(
 name|this
 operator|.
 name|min
@@ -1993,6 +1997,7 @@ name|after
 argument_list|(
 name|min
 argument_list|)
+operator|)
 condition|)
 block|{
 name|this
@@ -2004,6 +2009,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+literal|null
+operator|!=
+name|max
+operator|&&
+operator|(
 name|this
 operator|.
 name|max
@@ -2016,8 +2026,9 @@ name|max
 operator|.
 name|before
 argument_list|(
-name|min
+name|max
 argument_list|)
+operator|)
 condition|)
 block|{
 name|this
