@@ -2396,6 +2396,11 @@ DECL|field|norms
 name|NumericDocValuesWriter
 name|norms
 decl_stmt|;
+comment|// reused
+DECL|field|tokenStream
+name|TokenStream
+name|tokenStream
+decl_stmt|;
 DECL|method|PerField
 specifier|public
 name|PerField
@@ -2678,6 +2683,8 @@ init|(
 name|TokenStream
 name|stream
 init|=
+name|tokenStream
+operator|=
 name|field
 operator|.
 name|tokenStream
@@ -2685,6 +2692,8 @@ argument_list|(
 name|docState
 operator|.
 name|analyzer
+argument_list|,
+name|tokenStream
 argument_list|)
 init|)
 block|{
