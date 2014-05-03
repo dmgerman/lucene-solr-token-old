@@ -459,6 +459,9 @@ name|value
 init|=
 name|solrParams
 operator|.
+name|required
+argument_list|()
+operator|.
 name|get
 argument_list|(
 name|AnalysisParams
