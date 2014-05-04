@@ -27,15 +27,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|StringReader
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -122,21 +113,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|analysis
-operator|.
-name|core
-operator|.
-name|WhitespaceTokenizer
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|TestUtil
@@ -150,41 +126,6 @@ name|DoubleMetaphoneFilterTest
 extends|extends
 name|BaseTokenStreamTestCase
 block|{
-DECL|method|whitespaceTokenizer
-specifier|private
-name|TokenStream
-name|whitespaceTokenizer
-parameter_list|(
-name|String
-name|data
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|WhitespaceTokenizer
-name|whitespaceTokenizer
-init|=
-operator|new
-name|WhitespaceTokenizer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
-decl_stmt|;
-name|whitespaceTokenizer
-operator|.
-name|setReader
-argument_list|(
-operator|new
-name|StringReader
-argument_list|(
-name|data
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return
-name|whitespaceTokenizer
-return|;
-block|}
 DECL|method|testSize4FalseInject
 specifier|public
 name|void
@@ -196,7 +137,7 @@ block|{
 name|TokenStream
 name|stream
 init|=
-name|whitespaceTokenizer
+name|whitespaceMockTokenizer
 argument_list|(
 literal|"international"
 argument_list|)
@@ -238,7 +179,7 @@ block|{
 name|TokenStream
 name|stream
 init|=
-name|whitespaceTokenizer
+name|whitespaceMockTokenizer
 argument_list|(
 literal|"international"
 argument_list|)
@@ -282,7 +223,7 @@ block|{
 name|TokenStream
 name|stream
 init|=
-name|whitespaceTokenizer
+name|whitespaceMockTokenizer
 argument_list|(
 literal|"Kuczewski"
 argument_list|)
@@ -326,7 +267,7 @@ block|{
 name|TokenStream
 name|stream
 init|=
-name|whitespaceTokenizer
+name|whitespaceMockTokenizer
 argument_list|(
 literal|"international"
 argument_list|)
@@ -368,7 +309,7 @@ block|{
 name|TokenStream
 name|stream
 init|=
-name|whitespaceTokenizer
+name|whitespaceMockTokenizer
 argument_list|(
 literal|"12345 #$%@#^%&"
 argument_list|)
@@ -412,7 +353,7 @@ block|{
 name|TokenStream
 name|stream
 init|=
-name|whitespaceTokenizer
+name|whitespaceMockTokenizer
 argument_list|(
 literal|"12345 #$%@#^%&"
 argument_list|)
@@ -447,7 +388,7 @@ expr_stmt|;
 comment|// should have something after the stream
 name|stream
 operator|=
-name|whitespaceTokenizer
+name|whitespaceMockTokenizer
 argument_list|(
 literal|"12345 #$%@#^%& hello"
 argument_list|)

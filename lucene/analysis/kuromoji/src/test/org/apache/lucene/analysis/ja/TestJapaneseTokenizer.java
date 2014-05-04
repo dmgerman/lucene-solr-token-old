@@ -388,6 +388,9 @@ init|=
 operator|new
 name|JapaneseTokenizer
 argument_list|(
+name|newAttributeFactory
+argument_list|()
+argument_list|,
 name|readDict
 argument_list|()
 argument_list|,
@@ -435,6 +438,9 @@ init|=
 operator|new
 name|JapaneseTokenizer
 argument_list|(
+name|newAttributeFactory
+argument_list|()
+argument_list|,
 name|readDict
 argument_list|()
 argument_list|,
@@ -482,6 +488,9 @@ init|=
 operator|new
 name|JapaneseTokenizer
 argument_list|(
+name|newAttributeFactory
+argument_list|()
+argument_list|,
 name|readDict
 argument_list|()
 argument_list|,
@@ -529,6 +538,9 @@ init|=
 operator|new
 name|JapaneseTokenizer
 argument_list|(
+name|newAttributeFactory
+argument_list|()
+argument_list|,
 name|readDict
 argument_list|()
 argument_list|,
@@ -1361,6 +1373,9 @@ init|=
 operator|new
 name|JapaneseTokenizer
 argument_list|(
+name|newAttributeFactory
+argument_list|()
+argument_list|,
 name|readDict
 argument_list|()
 argument_list|,
@@ -2161,6 +2176,9 @@ init|=
 operator|new
 name|JapaneseTokenizer
 argument_list|(
+name|newAttributeFactory
+argument_list|()
+argument_list|,
 name|readDict
 argument_list|()
 argument_list|,

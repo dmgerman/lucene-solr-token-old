@@ -2245,6 +2245,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|// TODO: properly support positionLengthAttribute
 name|checkRandomData
 argument_list|(
 name|random
@@ -2255,6 +2256,12 @@ argument_list|,
 literal|1000
 operator|*
 name|RANDOM_MULTIPLIER
+argument_list|,
+literal|20
+argument_list|,
+literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -2402,6 +2409,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|// TODO: properly support positionLengthAttribute
 name|checkRandomData
 argument_list|(
 name|random
@@ -2414,6 +2422,10 @@ operator|*
 name|RANDOM_MULTIPLIER
 argument_list|,
 literal|8192
+argument_list|,
+literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

@@ -255,6 +255,9 @@ operator|new
 name|LowerCaseTokenizer
 argument_list|(
 name|TEST_VERSION_CURRENT
+argument_list|,
+name|newAttributeFactory
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|tokenizer
@@ -364,6 +367,9 @@ operator|new
 name|LowerCaseTokenizer
 argument_list|(
 name|TEST_VERSION_CURRENT
+argument_list|,
+name|newAttributeFactory
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|tokenizer
@@ -450,6 +456,9 @@ operator|new
 name|LowerCaseTokenizer
 argument_list|(
 name|TEST_VERSION_CURRENT
+argument_list|,
+name|newAttributeFactory
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|tokenizer
@@ -559,6 +568,9 @@ operator|new
 name|LowerCaseTokenizer
 argument_list|(
 name|TEST_VERSION_CURRENT
+argument_list|,
+name|newAttributeFactory
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|tokenizer
@@ -648,6 +660,9 @@ operator|new
 name|LetterTokenizer
 argument_list|(
 name|TEST_VERSION_CURRENT
+argument_list|,
+name|newAttributeFactory
+argument_list|()
 argument_list|)
 block|{
 annotation|@
@@ -893,6 +908,9 @@ operator|new
 name|LetterTokenizer
 argument_list|(
 name|TEST_VERSION_CURRENT
+argument_list|,
+name|newAttributeFactory
+argument_list|()
 argument_list|)
 block|{
 annotation|@

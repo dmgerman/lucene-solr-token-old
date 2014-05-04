@@ -126,7 +126,10 @@ literal|"Standard"
 argument_list|)
 operator|.
 name|create
+argument_list|(
+name|newAttributeFactory
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|stream
 operator|.
@@ -232,7 +235,10 @@ literal|"1000"
 argument_list|)
 operator|.
 name|create
+argument_list|(
+name|newAttributeFactory
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|stream
 operator|.
@@ -293,7 +299,10 @@ literal|"Classic"
 argument_list|)
 operator|.
 name|create
+argument_list|(
+name|newAttributeFactory
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|stream
 operator|.
@@ -399,7 +408,10 @@ literal|"1000"
 argument_list|)
 operator|.
 name|create
+argument_list|(
+name|newAttributeFactory
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|stream
 operator|.
@@ -460,7 +472,10 @@ literal|"Classic"
 argument_list|)
 operator|.
 name|create
+argument_list|(
+name|newAttributeFactory
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|tokenizer
 operator|.
@@ -577,7 +592,10 @@ literal|"Whitespace"
 argument_list|)
 operator|.
 name|create
+argument_list|(
+name|newAttributeFactory
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|stream
 operator|.
@@ -632,7 +650,10 @@ literal|"Letter"
 argument_list|)
 operator|.
 name|create
+argument_list|(
+name|newAttributeFactory
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|stream
 operator|.
@@ -689,7 +710,10 @@ literal|"LowerCase"
 argument_list|)
 operator|.
 name|create
+argument_list|(
+name|newAttributeFactory
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|stream
 operator|.

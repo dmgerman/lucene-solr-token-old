@@ -185,6 +185,9 @@ init|=
 operator|new
 name|ICUTokenizer
 argument_list|(
+name|newAttributeFactory
+argument_list|()
+argument_list|,
 operator|new
 name|DefaultICUTokenizerConfig
 argument_list|(
@@ -249,6 +252,9 @@ init|=
 operator|new
 name|ICUTokenizer
 argument_list|(
+name|newAttributeFactory
+argument_list|()
+argument_list|,
 operator|new
 name|DefaultICUTokenizerConfig
 argument_list|(

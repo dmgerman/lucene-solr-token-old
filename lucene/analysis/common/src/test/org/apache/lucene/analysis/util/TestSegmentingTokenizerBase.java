@@ -803,6 +803,9 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
+name|newAttributeFactory
+argument_list|()
+argument_list|,
 name|BreakIterator
 operator|.
 name|getSentenceInstance
@@ -982,6 +985,9 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
+name|newAttributeFactory
+argument_list|()
+argument_list|,
 name|BreakIterator
 operator|.
 name|getSentenceInstance

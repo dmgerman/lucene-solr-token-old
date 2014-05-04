@@ -303,6 +303,9 @@ argument_list|(
 operator|new
 name|Token
 argument_list|(
+operator|new
+name|String
+argument_list|(
 name|a
 argument_list|,
 literal|0
@@ -310,6 +313,7 @@ argument_list|,
 name|a
 operator|.
 name|length
+argument_list|)
 argument_list|,
 literal|1
 argument_list|,
@@ -319,6 +323,9 @@ argument_list|,
 operator|new
 name|Token
 argument_list|(
+operator|new
+name|String
+argument_list|(
 name|b
 argument_list|,
 literal|0
@@ -326,6 +333,7 @@ argument_list|,
 name|b
 operator|.
 name|length
+argument_list|)
 argument_list|,
 literal|6
 argument_list|,
@@ -335,6 +343,9 @@ argument_list|,
 operator|new
 name|Token
 argument_list|(
+operator|new
+name|String
+argument_list|(
 name|ccc
 argument_list|,
 literal|0
@@ -342,6 +353,7 @@ argument_list|,
 name|ccc
 operator|.
 name|length
+argument_list|)
 argument_list|,
 literal|11
 argument_list|,
@@ -351,6 +363,9 @@ argument_list|,
 operator|new
 name|Token
 argument_list|(
+operator|new
+name|String
+argument_list|(
 name|whitespace
 argument_list|,
 literal|0
@@ -358,6 +373,7 @@ argument_list|,
 name|whitespace
 operator|.
 name|length
+argument_list|)
 argument_list|,
 literal|16
 argument_list|,
@@ -367,6 +383,9 @@ argument_list|,
 operator|new
 name|Token
 argument_list|(
+operator|new
+name|String
+argument_list|(
 name|empty
 argument_list|,
 literal|0
@@ -374,6 +393,7 @@ argument_list|,
 name|empty
 operator|.
 name|length
+argument_list|)
 argument_list|,
 literal|21
 argument_list|,

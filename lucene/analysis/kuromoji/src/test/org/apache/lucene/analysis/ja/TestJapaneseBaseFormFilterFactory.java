@@ -134,7 +134,10 @@ init|=
 name|tokenizerFactory
 operator|.
 name|create
+argument_list|(
+name|newAttributeFactory
 argument_list|()
+argument_list|)
 decl_stmt|;
 operator|(
 operator|(
