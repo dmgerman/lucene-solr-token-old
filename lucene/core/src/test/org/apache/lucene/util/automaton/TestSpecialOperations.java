@@ -576,7 +576,7 @@ name|numStrings
 init|=
 name|atLeast
 argument_list|(
-literal|500
+literal|100
 argument_list|)
 decl_stmt|;
 if|if
