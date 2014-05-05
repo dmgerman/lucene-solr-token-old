@@ -175,6 +175,15 @@ argument_list|)
 expr_stmt|;
 name|TYPE_NOT_STORED
 operator|.
+name|setNumericPrecisionStep
+argument_list|(
+name|NumericUtils
+operator|.
+name|PRECISION_STEP_DEFAULT_32
+argument_list|)
+expr_stmt|;
+name|TYPE_NOT_STORED
+operator|.
 name|freeze
 argument_list|()
 expr_stmt|;
@@ -236,6 +245,15 @@ argument_list|)
 expr_stmt|;
 name|TYPE_STORED
 operator|.
+name|setNumericPrecisionStep
+argument_list|(
+name|NumericUtils
+operator|.
+name|PRECISION_STEP_DEFAULT_32
+argument_list|)
+expr_stmt|;
+name|TYPE_STORED
+operator|.
 name|setStored
 argument_list|(
 literal|true
@@ -247,7 +265,7 @@ name|freeze
 argument_list|()
 expr_stmt|;
 block|}
-comment|/** Creates a stored or un-stored IntField with the provided value    *  and default<code>precisionStep</code> {@link    *  NumericUtils#PRECISION_STEP_DEFAULT} (4).     *  @param name field name    *  @param value 32-bit integer value    *  @param stored Store.YES if the content should also be stored    *  @throws IllegalArgumentException if the field name is null.    */
+comment|/** Creates a stored or un-stored IntField with the provided value    *  and default<code>precisionStep</code> {@link    *  NumericUtils#PRECISION_STEP_DEFAULT_32} (8).     *  @param name field name    *  @param value 32-bit integer value    *  @param stored Store.YES if the content should also be stored    *  @throws IllegalArgumentException if the field name is null.    */
 DECL|method|IntField
 specifier|public
 name|IntField
