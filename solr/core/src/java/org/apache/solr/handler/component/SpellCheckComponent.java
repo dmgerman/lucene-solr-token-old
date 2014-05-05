@@ -1172,7 +1172,7 @@ operator|.
 name|MIN_VALUE
 argument_list|)
 decl_stmt|;
-name|Integer
+name|int
 name|alternativeTermCount
 init|=
 name|params
@@ -1182,6 +1182,8 @@ argument_list|(
 name|SpellingParams
 operator|.
 name|SPELLCHECK_ALTERNATIVE_TERM_COUNT
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 name|Integer
@@ -1314,8 +1316,8 @@ elseif|else
 if|if
 condition|(
 name|alternativeTermCount
-operator|!=
-literal|null
+operator|>
+literal|0
 condition|)
 block|{
 name|suggestMode

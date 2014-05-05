@@ -1057,7 +1057,7 @@ name|options
 operator|.
 name|alternativeTermCount
 operator|==
-literal|null
+literal|0
 operator|||
 name|docFreq
 operator|==
@@ -1111,7 +1111,7 @@ name|options
 operator|.
 name|alternativeTermCount
 operator|==
-literal|null
+literal|0
 condition|)
 block|{
 comment|// These are spelled the same, continue on
@@ -1124,8 +1124,8 @@ condition|(
 name|options
 operator|.
 name|alternativeTermCount
-operator|!=
-literal|null
+operator|>
+literal|0
 operator|&&
 name|docFreq
 operator|>

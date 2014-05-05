@@ -113,10 +113,10 @@ literal|1
 decl_stmt|;
 DECL|field|alternativeTermCount
 specifier|public
-name|Integer
+name|int
 name|alternativeTermCount
 init|=
-literal|null
+literal|0
 decl_stmt|;
 DECL|field|suggestMode
 specifier|public
@@ -333,7 +333,7 @@ parameter_list|,
 name|int
 name|count
 parameter_list|,
-name|Integer
+name|int
 name|alternativeTermCount
 parameter_list|,
 name|SuggestMode
