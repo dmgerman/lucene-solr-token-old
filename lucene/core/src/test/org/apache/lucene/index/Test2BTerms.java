@@ -257,7 +257,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|AttributeImpl
+name|AttributeFactory
 import|;
 end_import
 begin_import
@@ -270,9 +270,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|AttributeSource
-operator|.
-name|AttributeFactory
+name|AttributeImpl
 import|;
 end_import
 begin_import
@@ -355,15 +353,6 @@ operator|.
 name|util
 operator|.
 name|TimeUnits
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 begin_import
