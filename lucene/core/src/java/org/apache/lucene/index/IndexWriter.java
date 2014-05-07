@@ -15918,10 +15918,10 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|IOException
-name|prior
+name|boolean
+name|success
 init|=
-literal|null
+literal|false
 decl_stmt|;
 try|try
 block|{
@@ -15959,36 +15959,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ex
-parameter_list|)
-block|{
-name|prior
-operator|=
-name|ex
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|boolean
-name|success
-init|=
-literal|false
-decl_stmt|;
-try|try
-block|{
-name|IOUtils
-operator|.
-name|closeWhileHandlingException
-argument_list|(
-name|prior
-argument_list|,
-name|cfsDir
-argument_list|)
-expr_stmt|;
 name|success
 operator|=
 literal|true
@@ -15998,10 +15968,26 @@ finally|finally
 block|{
 if|if
 condition|(
-operator|!
 name|success
 condition|)
 block|{
+name|IOUtils
+operator|.
+name|close
+argument_list|(
+name|cfsDir
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|IOUtils
+operator|.
+name|closeWhileHandlingException
+argument_list|(
+name|cfsDir
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|directory
@@ -16017,7 +16003,7 @@ parameter_list|(
 name|Throwable
 name|t
 parameter_list|)
-block|{           }
+block|{         }
 try|try
 block|{
 name|directory
@@ -16046,8 +16032,7 @@ parameter_list|(
 name|Throwable
 name|t
 parameter_list|)
-block|{           }
-block|}
+block|{         }
 block|}
 block|}
 comment|// Replace all previous files with the CFS/CFE files:

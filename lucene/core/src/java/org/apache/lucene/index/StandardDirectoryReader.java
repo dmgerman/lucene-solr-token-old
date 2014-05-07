@@ -330,17 +330,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ex
-parameter_list|)
-block|{
-name|prior
-operator|=
-name|ex
-expr_stmt|;
-block|}
 finally|finally
 block|{
 if|if
@@ -353,8 +342,6 @@ name|IOUtils
 operator|.
 name|closeWhileHandlingException
 argument_list|(
-name|prior
-argument_list|,
 name|readers
 argument_list|)
 expr_stmt|;
