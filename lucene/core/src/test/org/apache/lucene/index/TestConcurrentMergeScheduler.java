@@ -2005,15 +2005,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|RandomIndexWriter
+name|IndexWriter
 name|w
 init|=
 operator|new
-name|RandomIndexWriter
+name|IndexWriter
 argument_list|(
-name|random
-argument_list|()
-argument_list|,
 name|d
 argument_list|,
 name|iwc
@@ -2109,8 +2106,6 @@ operator|(
 operator|(
 name|TrackingCMS
 operator|)
-name|w
-operator|.
 name|w
 operator|.
 name|getConfig
