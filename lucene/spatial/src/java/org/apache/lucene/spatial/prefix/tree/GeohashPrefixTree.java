@@ -577,7 +577,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|readCell
-specifier|public
+specifier|protected
 name|void
 name|readCell
 parameter_list|(

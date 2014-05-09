@@ -116,6 +116,7 @@ specifier|private
 name|Cell
 name|scanCell
 decl_stmt|;
+comment|//re-used in readShape to save GC
 DECL|method|PointPrefixTreeFieldCacheProvider
 specifier|public
 name|PointPrefixTreeFieldCacheProvider
@@ -143,16 +144,6 @@ name|grid
 operator|=
 name|grid
 expr_stmt|;
-name|this
-operator|.
-name|scanCell
-operator|=
-name|grid
-operator|.
-name|getWorldCell
-argument_list|()
-expr_stmt|;
-comment|//re-used in readShape to save GC
 block|}
 annotation|@
 name|Override
@@ -166,12 +157,17 @@ name|term
 parameter_list|)
 block|{
 name|scanCell
+operator|=
+name|grid
 operator|.
 name|readCell
 argument_list|(
 name|term
+argument_list|,
+name|scanCell
 argument_list|)
 expr_stmt|;
+empty_stmt|;
 if|if
 condition|(
 name|scanCell

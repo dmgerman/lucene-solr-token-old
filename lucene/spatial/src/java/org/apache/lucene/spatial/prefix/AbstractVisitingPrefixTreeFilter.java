@@ -343,11 +343,6 @@ DECL|field|scanCell
 specifier|private
 name|Cell
 name|scanCell
-init|=
-name|grid
-operator|.
-name|getWorldCell
-argument_list|()
 decl_stmt|;
 DECL|field|thisTerm
 specifier|private
@@ -771,10 +766,14 @@ block|{
 comment|//If the next indexed term just adds a leaf marker ('+') to cell,
 comment|// then add all of those docs
 name|scanCell
+operator|=
+name|grid
 operator|.
 name|readCell
 argument_list|(
 name|thisTerm
+argument_list|,
+name|scanCell
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -945,10 +944,14 @@ argument_list|()
 control|)
 block|{
 name|scanCell
+operator|=
+name|grid
 operator|.
 name|readCell
 argument_list|(
 name|thisTerm
+argument_list|,
+name|scanCell
 argument_list|)
 expr_stmt|;
 if|if
