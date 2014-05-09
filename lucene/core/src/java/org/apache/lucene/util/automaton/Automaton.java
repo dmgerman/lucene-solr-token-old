@@ -2208,7 +2208,13 @@ name|b
 operator|.
 name|append
 argument_list|(
-literal|" [shape=doublecircle,label=\"\"];\n"
+literal|" [shape=doublecircle,label=\""
+operator|+
+name|s
+operator|.
+name|number
+operator|+
+literal|"\"];\n"
 argument_list|)
 expr_stmt|;
 else|else
@@ -2216,7 +2222,13 @@ name|b
 operator|.
 name|append
 argument_list|(
-literal|" [shape=circle,label=\"\"];\n"
+literal|" [shape=circle,label=\" "
+operator|+
+name|s
+operator|.
+name|number
+operator|+
+literal|"\"];\n"
 argument_list|)
 expr_stmt|;
 if|if
