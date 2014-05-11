@@ -172,19 +172,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|FieldCache
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|Constants
@@ -1344,14 +1331,8 @@ block|{
 name|destroyServers
 argument_list|()
 expr_stmt|;
-name|FieldCache
-operator|.
-name|DEFAULT
-operator|.
-name|purgeAllCaches
-argument_list|()
-expr_stmt|;
-comment|// avoid FC insanity
+comment|// nocommit: split test if needed
+comment|// FieldCache.DEFAULT.purgeAllCaches();   // hide FC insanity
 name|super
 operator|.
 name|tearDown
