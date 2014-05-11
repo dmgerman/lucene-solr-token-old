@@ -4880,7 +4880,7 @@ name|random
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//randomValue = _TestUtil.randomSimpleString(random());
+comment|//randomValue = TestUtil.randomSimpleString(random());
 block|}
 do|while
 condition|(
@@ -5899,6 +5899,11 @@ argument_list|,
 literal|"id"
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|docIDToIDBlocks
+argument_list|)
+expr_stmt|;
 specifier|final
 name|IndexSearcher
 name|sBlocks
@@ -6854,19 +6859,6 @@ block|}
 block|}
 block|}
 comment|// Get 1st pass top groups using shards
-name|ValueHolder
-argument_list|<
-name|Boolean
-argument_list|>
-name|idvBasedImplsUsedSharded
-init|=
-operator|new
-name|ValueHolder
-argument_list|<>
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
 specifier|final
 name|TopGroups
 argument_list|<
@@ -6903,8 +6895,6 @@ argument_list|,
 literal|true
 argument_list|,
 literal|false
-argument_list|,
-name|idvBasedImplsUsedSharded
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -7627,9 +7617,7 @@ name|fillFields
 argument_list|,
 name|getScores
 argument_list|,
-name|idvBasedImplsUsedSharded
-operator|.
-name|value
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -8020,13 +8008,6 @@ argument_list|,
 literal|false
 argument_list|,
 literal|false
-argument_list|,
-operator|new
-name|ValueHolder
-argument_list|<>
-argument_list|(
-literal|true
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -8550,12 +8531,6 @@ name|canUseIDV
 parameter_list|,
 name|boolean
 name|preFlex
-parameter_list|,
-name|ValueHolder
-argument_list|<
-name|Boolean
-argument_list|>
-name|usedIdvBasedImpl
 parameter_list|)
 throws|throws
 name|Exception
