@@ -18,35 +18,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|FieldCache
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|FieldCacheSanityChecker
-import|;
-end_import
-begin_comment
-comment|// javadocs
-end_comment
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|rules
@@ -79,7 +50,7 @@ name|Statement
 import|;
 end_import
 begin_comment
-comment|/**  * This rule will fail the test if it has insane field caches.  *<p>  * calling assertSaneFieldCaches here isn't as useful as having test  * classes call it directly from the scope where the index readers  * are used, because they could be gc'ed just before this tearDown  * method is called.  *<p>  * But it's better then nothing.  *<p>  * If you are testing functionality that you know for a fact  * "violates" FieldCache sanity, then you should either explicitly  * call purgeFieldCache at the end of your test method, or refactor  * your Test class so that the inconsistent FieldCache usages are  * isolated in distinct test methods  *   * @see FieldCacheSanityChecker  */
+comment|/**  * This rule will fail the test if it has insane field caches.  *<p>  * calling assertSaneFieldCaches here isn't as useful as having test  * classes call it directly from the scope where the index readers  * are used, because they could be gc'ed just before this tearDown  * method is called.  *<p>  * But it's better then nothing.  *<p>  * If you are testing functionality that you know for a fact  * "violates" FieldCache sanity, then you should either explicitly  * call purgeFieldCache at the end of your test method, or refactor  * your Test class so that the inconsistent FieldCache usages are  * isolated in distinct test methods  */
 end_comment
 begin_class
 DECL|class|TestRuleFieldCacheSanity
@@ -89,6 +60,7 @@ name|TestRuleFieldCacheSanity
 implements|implements
 name|TestRule
 block|{
+comment|// nocommit: move to solr?
 annotation|@
 name|Override
 DECL|method|apply
@@ -153,13 +125,7 @@ operator|=
 name|t
 expr_stmt|;
 block|}
-name|FieldCache
-operator|.
-name|DEFAULT
-operator|.
-name|purgeAllCaches
-argument_list|()
-expr_stmt|;
+comment|//FieldCache.DEFAULT.purgeAllCaches();
 if|if
 condition|(
 name|problem

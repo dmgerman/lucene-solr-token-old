@@ -270,6 +270,14 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+name|assumeTrue
+argument_list|(
+literal|"requires codec support for SORTED_SET"
+argument_list|,
+name|defaultCodecSupportsSortedSet
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|dir
 operator|=
 name|newDirectory
@@ -452,13 +460,6 @@ name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// if the default codec doesn't support sortedset, we will uninvert at search time
-if|if
-condition|(
-name|defaultCodecSupportsSortedSet
-argument_list|()
-condition|)
-block|{
 name|doc
 operator|.
 name|add
@@ -476,7 +477,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|terms
 operator|.
 name|add
