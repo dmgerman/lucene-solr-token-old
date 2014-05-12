@@ -2314,6 +2314,8 @@ argument_list|(
 name|reader
 argument_list|,
 literal|"theRandomUnicodeMultiValuedField"
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|int
@@ -2336,6 +2338,8 @@ argument_list|(
 name|reader
 argument_list|,
 literal|"theRandomUnicodeMultiValuedField"
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2479,6 +2483,8 @@ argument_list|(
 name|reader
 argument_list|,
 literal|"bogusfield"
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -3697,6 +3703,8 @@ argument_list|(
 name|ar
 argument_list|,
 literal|"binary"
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|fail
@@ -3908,6 +3916,8 @@ argument_list|(
 name|ar
 argument_list|,
 literal|"sorted"
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|sortedSet
@@ -4064,6 +4074,8 @@ argument_list|(
 name|ar
 argument_list|,
 literal|"numeric"
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|fail
@@ -4238,6 +4250,8 @@ argument_list|(
 name|ar
 argument_list|,
 literal|"sortedset"
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|sortedSet
@@ -4622,6 +4636,8 @@ argument_list|(
 name|ar
 argument_list|,
 literal|"bogusmultivalued"
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|sortedSet
@@ -5117,6 +5133,8 @@ argument_list|(
 name|ar
 argument_list|,
 literal|"bogusmultivalued"
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|sortedSet
