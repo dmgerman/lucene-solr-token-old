@@ -1477,7 +1477,9 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100000
+literal|15000
+operator|*
+name|RANDOM_MULTIPLIER
 condition|;
 name|i
 operator|++

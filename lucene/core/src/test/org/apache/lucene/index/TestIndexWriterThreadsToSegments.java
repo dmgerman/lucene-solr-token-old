@@ -1557,11 +1557,8 @@ block|{
 name|Directory
 name|dir
 init|=
-name|newFSDirectory
-argument_list|(
-name|createTempDir
+name|newDirectory
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|IndexWriterConfig
 name|iwc
