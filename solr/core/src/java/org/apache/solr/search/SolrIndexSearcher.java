@@ -1498,7 +1498,6 @@ name|reserveDirectory
 decl_stmt|;
 DECL|field|createdDirectory
 specifier|private
-specifier|final
 name|boolean
 name|createdDirectory
 decl_stmt|;
@@ -1710,6 +1709,12 @@ argument_list|,
 name|directoryFactory
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|createdDirectory
+operator|=
+literal|true
+expr_stmt|;
 block|}
 DECL|method|SolrIndexSearcher
 specifier|public
@@ -1901,14 +1906,6 @@ operator|.
 name|reserveDirectory
 operator|=
 name|reserveDirectory
-expr_stmt|;
-name|this
-operator|.
-name|createdDirectory
-operator|=
-name|r
-operator|==
-literal|null
 expr_stmt|;
 if|if
 condition|(
