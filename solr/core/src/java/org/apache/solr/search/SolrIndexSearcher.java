@@ -2608,7 +2608,7 @@ if|if
 condition|(
 name|closeReader
 condition|)
-name|reader
+name|rawReader
 operator|.
 name|decRef
 argument_list|()
