@@ -474,7 +474,6 @@ operator|.
 name|multiValuedFieldCache
 argument_list|()
 decl_stmt|;
-specifier|final
 name|SortedSetDocValues
 name|si
 decl_stmt|;
@@ -579,9 +578,12 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return
-name|res
-return|;
+name|si
+operator|=
+name|DocValues
+operator|.
+name|EMPTY_SORTED_SET
+expr_stmt|;
 block|}
 if|if
 condition|(
