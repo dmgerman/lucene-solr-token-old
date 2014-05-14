@@ -137,7 +137,7 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * A basic unit test for FieldCacheTermsFilter  *  * @see org.apache.lucene.search.FieldCacheTermsFilter  */
+comment|/**  * A basic unit test for FieldCacheTermsFilter  *  * @see org.apache.lucene.search.DocValuesTermsFilter  */
 end_comment
 begin_class
 DECL|class|TestFieldCacheTermsFilter
@@ -330,7 +330,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|FieldCacheTermsFilter
+name|DocValuesTermsFilter
 argument_list|(
 name|fieldName
 argument_list|,
@@ -385,7 +385,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|FieldCacheTermsFilter
+name|DocValuesTermsFilter
 argument_list|(
 name|fieldName
 argument_list|,
@@ -447,7 +447,7 @@ argument_list|(
 name|q
 argument_list|,
 operator|new
-name|FieldCacheTermsFilter
+name|DocValuesTermsFilter
 argument_list|(
 name|fieldName
 argument_list|,

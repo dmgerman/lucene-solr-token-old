@@ -1378,8 +1378,6 @@ argument_list|,
 literal|12
 argument_list|)
 expr_stmt|;
-comment|// nocommit: split test if needed
-comment|// FieldCache.DEFAULT.purgeAllCaches();   // hide FC insanity
 block|}
 annotation|@
 name|Test
@@ -1934,8 +1932,6 @@ argument_list|)
 expr_stmt|;
 comment|// System.out.println("Done test "+i);
 block|}
-comment|// nocommit: split test if needed
-comment|// FieldCache.DEFAULT.purgeAllCaches();   // hide FC insanity
 block|}
 annotation|@
 name|Test
@@ -4849,8 +4845,6 @@ operator|.
 name|onlyForTesting
 argument_list|)
 expr_stmt|;
-comment|// nocommit: split test if needed
-comment|// FieldCache.DEFAULT.purgeAllCaches();   // hide FC insanity
 block|}
 comment|/**    * some platforms don't allow quote characters in filenames, so     * in addition to testExternalFieldValueSourceParser above, test a field     * name with quotes in it that does NOT use ExternalFileField    * @see #testExternalFieldValueSourceParser    */
 annotation|@
@@ -4980,8 +4974,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// nocommit: split test if needed
-comment|// FieldCache.DEFAULT.purgeAllCaches();   // hide FC insanity
 block|}
 annotation|@
 name|Test

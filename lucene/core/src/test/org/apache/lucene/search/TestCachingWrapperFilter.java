@@ -1722,7 +1722,7 @@ name|assertDocIdSetCacheable
 argument_list|(
 name|reader
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(

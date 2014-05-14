@@ -2647,8 +2647,6 @@ operator|=
 name|i
 expr_stmt|;
 block|}
-try|try
-block|{
 specifier|final
 name|IndexSearcher
 name|s
@@ -3211,17 +3209,6 @@ argument_list|(
 name|expectedGroupHeads
 argument_list|,
 name|actualGroupHeads
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-finally|finally
-block|{
-name|QueryUtils
-operator|.
-name|purgeFieldCache
-argument_list|(
-name|r
 argument_list|)
 expr_stmt|;
 block|}

@@ -3028,8 +3028,6 @@ comment|// TODO: This test currently fails because debug info is obtained only
 comment|// on shards with matches.
 comment|// query("q","matchesnothing","fl","*,score", "debugQuery", "true");
 comment|// Thread.sleep(10000000000L);
-comment|// nocommit: split test if needed
-comment|// FieldCache.DEFAULT.purgeAllCaches();   // hide FC insanity
 name|del
 argument_list|(
 literal|"*:*"

@@ -233,7 +233,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 import|;
 end_import
 begin_import
@@ -246,7 +246,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FieldCacheRewriteMethod
+name|DocValuesRewriteMethod
 import|;
 end_import
 begin_import
@@ -2769,7 +2769,7 @@ return|return
 operator|new
 name|ConstantScoreQuery
 argument_list|(
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -2988,7 +2988,7 @@ name|DocTermOrdsRewriteMethod
 argument_list|()
 else|:
 operator|new
-name|FieldCacheRewriteMethod
+name|DocValuesRewriteMethod
 argument_list|()
 return|;
 block|}
