@@ -70,6 +70,7 @@ name|CellIterator
 index|[]
 name|iterStack
 decl_stmt|;
+comment|//starts at level 1
 DECL|field|stackIdx
 specifier|private
 name|int
@@ -117,22 +118,17 @@ index|[
 name|detailLevel
 index|]
 expr_stmt|;
-name|CellIterator
-name|nextLevelCells
-init|=
+name|iterStack
+index|[
+literal|0
+index|]
+operator|=
 name|parentCell
 operator|.
 name|getNextLevelCells
 argument_list|(
 name|shapeFilter
 argument_list|)
-decl_stmt|;
-name|iterStack
-index|[
-literal|0
-index|]
-operator|=
-name|nextLevelCells
 expr_stmt|;
 name|stackIdx
 operator|=
