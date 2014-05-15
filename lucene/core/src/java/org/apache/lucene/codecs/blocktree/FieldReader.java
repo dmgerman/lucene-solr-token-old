@@ -719,7 +719,7 @@ throw|;
 block|}
 return|return
 operator|new
-name|IntersectEnum
+name|IntersectTermsEnum
 argument_list|(
 name|this
 argument_list|,

@@ -260,10 +260,10 @@ begin_comment
 comment|// NOTE: cannot seek!
 end_comment
 begin_class
-DECL|class|IntersectEnum
+DECL|class|IntersectTermsEnum
 specifier|final
 class|class
-name|IntersectEnum
+name|IntersectTermsEnum
 extends|extends
 name|TermsEnum
 block|{
@@ -1561,9 +1561,9 @@ name|savedStartTerm
 decl_stmt|;
 comment|// TODO: in some cases we can filter by length?  eg
 comment|// regexp foo*bar must be at least length 6 bytes
-DECL|method|IntersectEnum
+DECL|method|IntersectTermsEnum
 specifier|public
-name|IntersectEnum
+name|IntersectTermsEnum
 parameter_list|(
 name|FieldReader
 name|fr
