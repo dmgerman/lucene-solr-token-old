@@ -272,7 +272,7 @@ name|FieldsConsumer
 name|ret
 init|=
 operator|new
-name|BlockTreeTermsWriter
+name|VersionBlockTreeTermsWriter
 argument_list|(
 name|state
 argument_list|,
@@ -340,7 +340,7 @@ name|FieldsProducer
 name|ret
 init|=
 operator|new
-name|BlockTreeTermsReader
+name|VersionBlockTreeTermsReader
 argument_list|(
 name|state
 operator|.

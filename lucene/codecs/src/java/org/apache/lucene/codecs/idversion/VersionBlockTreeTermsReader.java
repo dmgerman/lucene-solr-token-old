@@ -802,19 +802,6 @@ literal|")"
 argument_list|)
 throw|;
 block|}
-name|PairOutputs
-argument_list|<
-name|BytesRef
-argument_list|,
-name|Long
-argument_list|>
-name|fstOutputs
-init|=
-name|VersionBlockTreeTermsWriter
-operator|.
-name|getFSTOutputs
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -904,6 +891,21 @@ operator|.
 name|readVLong
 argument_list|()
 decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"  read code="
+operator|+
+name|code
+operator|+
+literal|" version="
+operator|+
+name|version
+argument_list|)
+expr_stmt|;
 specifier|final
 name|Pair
 argument_list|<
@@ -913,7 +915,9 @@ name|Long
 argument_list|>
 name|rootCode
 init|=
-name|fstOutputs
+name|VersionBlockTreeTermsWriter
+operator|.
+name|FST_OUTPUTS
 operator|.
 name|newPair
 argument_list|(
