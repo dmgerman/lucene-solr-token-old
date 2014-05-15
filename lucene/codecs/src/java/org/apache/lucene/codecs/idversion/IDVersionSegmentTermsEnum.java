@@ -289,6 +289,7 @@ comment|/** Iterates through terms in this field */
 end_comment
 begin_class
 DECL|class|IDVersionSegmentTermsEnum
+specifier|public
 specifier|final
 class|class
 name|IDVersionSegmentTermsEnum
