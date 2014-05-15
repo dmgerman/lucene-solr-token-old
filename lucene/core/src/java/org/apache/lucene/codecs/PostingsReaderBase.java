@@ -114,6 +114,9 @@ begin_comment
 comment|/** The core terms dictionaries (BlockTermsReader,  *  BlockTreeTermsReader) interact with a single instance  *  of this class to manage creation of {@link DocsEnum} and  *  {@link DocsAndPositionsEnum} instances.  It provides an  *  IndexInput (termsIn) where this class may read any  *  previously stored data that it had written in its  *  corresponding {@link PostingsWriterBase} at indexing  *  time.   *  @lucene.experimental */
 end_comment
 begin_comment
+comment|// nocommit mv under blocktree?  but ... it's used by others (e.g. block terms)
+end_comment
+begin_comment
 comment|// TODO: find a better name; this defines the API that the
 end_comment
 begin_comment
