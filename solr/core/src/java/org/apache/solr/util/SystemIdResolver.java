@@ -682,10 +682,6 @@ parameter_list|)
 block|{
 comment|// unfortunately XInclude fallback only works with IOException, but openResource() never throws that one
 throw|throw
-call|(
-name|IOException
-call|)
-argument_list|(
 operator|new
 name|IOException
 argument_list|(
@@ -693,12 +689,8 @@ name|re
 operator|.
 name|getMessage
 argument_list|()
-argument_list|)
-operator|.
-name|initCause
-argument_list|(
+argument_list|,
 name|re
-argument_list|)
 argument_list|)
 throw|;
 block|}
