@@ -387,7 +387,7 @@ name|TestUtil
 import|;
 end_import
 begin_comment
-comment|// Need SSDV
+comment|// Need SSDV, ord=-1 for missing:
 end_comment
 begin_class
 annotation|@
@@ -397,6 +397,8 @@ block|{
 literal|"Lucene40"
 block|,
 literal|"Lucene41"
+block|,
+literal|"Lucene42"
 block|}
 argument_list|)
 DECL|class|GroupFacetCollectorTest
