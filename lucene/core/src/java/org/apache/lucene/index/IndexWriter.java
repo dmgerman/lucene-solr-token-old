@@ -4983,6 +4983,21 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+name|Throwable
+name|t
+init|=
+name|merge
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|t
+operator|!=
+literal|null
+condition|)
+block|{
 throw|throw
 operator|new
 name|IOException
@@ -5002,6 +5017,7 @@ name|getException
 argument_list|()
 argument_list|)
 throw|;
+block|}
 block|}
 comment|// If any of our merges are still running, wait:
 if|if
