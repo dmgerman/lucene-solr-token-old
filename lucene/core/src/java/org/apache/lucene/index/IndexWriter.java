@@ -5011,10 +5011,7 @@ argument_list|(
 name|directory
 argument_list|)
 argument_list|,
-name|merge
-operator|.
-name|getException
-argument_list|()
+name|t
 argument_list|)
 throw|;
 block|}
