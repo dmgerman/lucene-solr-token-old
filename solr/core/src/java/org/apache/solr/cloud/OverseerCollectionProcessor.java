@@ -2144,20 +2144,6 @@ name|KeeperException
 throws|,
 name|InterruptedException
 block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"prioritizing overseer nodes at {}"
-argument_list|,
-name|LeaderElector
-operator|.
-name|getNodeName
-argument_list|(
-name|myId
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|SolrZkClient
 name|zk
 init|=
@@ -2254,6 +2240,20 @@ argument_list|)
 argument_list|)
 condition|)
 return|return;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"prioritizing overseer nodes at {}"
+argument_list|,
+name|LeaderElector
+operator|.
+name|getNodeName
+argument_list|(
+name|myId
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|log
 operator|.
 name|info

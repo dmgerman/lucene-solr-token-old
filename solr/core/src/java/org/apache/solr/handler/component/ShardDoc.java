@@ -182,6 +182,7 @@ name|shardAddress
 decl_stmt|;
 comment|// TODO
 DECL|field|orderInShard
+specifier|public
 name|int
 name|orderInShard
 decl_stmt|;

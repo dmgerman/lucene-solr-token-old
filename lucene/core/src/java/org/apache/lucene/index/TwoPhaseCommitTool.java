@@ -65,10 +65,7 @@ argument_list|(
 literal|"prepareCommit() failed on "
 operator|+
 name|obj
-argument_list|)
-expr_stmt|;
-name|initCause
-argument_list|(
+argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
@@ -100,10 +97,7 @@ argument_list|(
 literal|"commit() failed on "
 operator|+
 name|obj
-argument_list|)
-expr_stmt|;
-name|initCause
-argument_list|(
+argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
