@@ -633,7 +633,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|getIndexReader
+name|getRawReader
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -726,7 +726,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|getIndexReader
+name|getRawReader
 argument_list|()
 decl_stmt|;
 for|for

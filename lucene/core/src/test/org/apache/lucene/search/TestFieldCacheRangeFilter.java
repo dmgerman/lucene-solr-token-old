@@ -83,6 +83,19 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|NumericDocValuesField
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|DirectoryReader
@@ -295,7 +308,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -334,7 +347,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -375,7 +388,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -416,7 +429,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -457,7 +470,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -500,7 +513,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -544,7 +557,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -583,7 +596,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -622,7 +635,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -661,7 +674,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -702,7 +715,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -743,7 +756,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -784,7 +797,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -826,7 +839,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -865,7 +878,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -904,7 +917,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -943,7 +956,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -982,7 +995,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1021,7 +1034,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1060,7 +1073,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1099,7 +1112,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1223,7 +1236,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1262,7 +1275,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1303,7 +1316,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1344,7 +1357,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1386,7 +1399,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1425,7 +1438,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1464,7 +1477,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1505,7 +1518,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1547,7 +1560,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1586,7 +1599,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1625,7 +1638,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1664,7 +1677,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1703,7 +1716,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1742,7 +1755,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newStringRange
 argument_list|(
@@ -1889,7 +1902,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -1928,7 +1941,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -1969,7 +1982,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2010,7 +2023,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2051,7 +2064,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2094,7 +2107,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2138,7 +2151,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2177,7 +2190,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2216,7 +2229,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2255,7 +2268,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2296,7 +2309,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2337,7 +2350,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2378,7 +2391,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2420,7 +2433,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2459,7 +2472,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2498,7 +2511,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2537,7 +2550,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2576,7 +2589,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2615,7 +2628,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2654,7 +2667,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2693,7 +2706,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2733,7 +2746,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2779,7 +2792,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2825,7 +2838,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -2972,7 +2985,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3011,7 +3024,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3052,7 +3065,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3093,7 +3106,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3134,7 +3147,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3177,7 +3190,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3221,7 +3234,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3260,7 +3273,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3299,7 +3312,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3338,7 +3351,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3379,7 +3392,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3420,7 +3433,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3461,7 +3474,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3503,7 +3516,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3542,7 +3555,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3581,7 +3594,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3620,7 +3633,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3659,7 +3672,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3698,7 +3711,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3737,7 +3750,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3776,7 +3789,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3816,7 +3829,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3862,7 +3875,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -3908,7 +3921,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newLongRange
 argument_list|(
@@ -4034,7 +4047,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newFloatRange
 argument_list|(
@@ -4080,7 +4093,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newFloatRange
 argument_list|(
@@ -4114,7 +4127,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newFloatRange
 argument_list|(
@@ -4157,7 +4170,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newFloatRange
 argument_list|(
@@ -4196,7 +4209,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newFloatRange
 argument_list|(
@@ -4242,7 +4255,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newFloatRange
 argument_list|(
@@ -4374,7 +4387,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -4420,7 +4433,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -4454,7 +4467,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -4497,7 +4510,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -4536,7 +4549,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -4582,7 +4595,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newDoubleRange
 argument_list|(
@@ -4698,6 +4711,19 @@ operator|.
 name|Store
 operator|.
 name|NO
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|doc
+operator|.
+name|add
+argument_list|(
+operator|new
+name|NumericDocValuesField
+argument_list|(
+literal|"id_int"
+argument_list|,
+name|d
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4823,7 +4849,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -4863,7 +4889,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -4902,7 +4928,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -4942,7 +4968,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(
@@ -4981,7 +5007,7 @@ name|search
 argument_list|(
 name|q
 argument_list|,
-name|FieldCacheRangeFilter
+name|DocValuesRangeFilter
 operator|.
 name|newIntRange
 argument_list|(

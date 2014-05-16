@@ -100,7 +100,7 @@ operator|.
 name|setRewriteMethod
 argument_list|(
 operator|new
-name|FieldCacheRewriteMethod
+name|DocValuesRewriteMethod
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -259,7 +259,7 @@ operator|.
 name|setRewriteMethod
 argument_list|(
 operator|new
-name|FieldCacheRewriteMethod
+name|DocValuesRewriteMethod
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -268,7 +268,7 @@ operator|.
 name|setRewriteMethod
 argument_list|(
 operator|new
-name|FieldCacheRewriteMethod
+name|DocValuesRewriteMethod
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -277,7 +277,7 @@ operator|.
 name|setRewriteMethod
 argument_list|(
 operator|new
-name|FieldCacheRewriteMethod
+name|DocValuesRewriteMethod
 argument_list|()
 argument_list|)
 expr_stmt|;
