@@ -1550,7 +1550,6 @@ operator|.
 name|getSegmentCount
 argument_list|()
 decl_stmt|;
-comment|// nocommit put random force merge deletes here
 if|if
 condition|(
 name|r
