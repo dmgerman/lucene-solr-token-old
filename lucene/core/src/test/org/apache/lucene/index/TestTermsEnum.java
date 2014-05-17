@@ -6612,8 +6612,9 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|// nocommit mark slow/nigthly: O(N^2)!!
 comment|// Stresses out many-terms-in-root-block case:
+annotation|@
+name|Nightly
 DECL|method|testVaryingTermsPerSegment
 specifier|public
 name|void
@@ -6644,7 +6645,10 @@ decl_stmt|;
 name|int
 name|MAX_TERMS
 init|=
-literal|10000
+name|atLeast
+argument_list|(
+literal|1000
+argument_list|)
 decl_stmt|;
 while|while
 condition|(
@@ -6669,6 +6673,10 @@ name|randomSimpleString
 argument_list|(
 name|random
 argument_list|()
+argument_list|,
+literal|1
+argument_list|,
+literal|40
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6718,6 +6726,18 @@ argument_list|(
 literal|"\nTEST: termCount="
 operator|+
 name|termCount
+operator|+
+literal|" add term="
+operator|+
+name|termsList
+operator|.
+name|get
+argument_list|(
+name|termCount
+argument_list|)
+operator|.
+name|utf8ToString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|sb

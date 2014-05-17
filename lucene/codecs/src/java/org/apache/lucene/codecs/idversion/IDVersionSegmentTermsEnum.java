@@ -1197,7 +1197,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|// nocommit we need a seekExact(BytesRef target, long minVersion) API?
 annotation|@
 name|Override
 DECL|method|seekExact
@@ -1266,7 +1265,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/** Returns false if the term deos not exist, or it exists but its version is< minIDVersion. */
+comment|/** Returns false if the term deos not exist, or it exists but its version is too old (< minIDVersion). */
 DECL|method|seekExact
 specifier|public
 name|boolean
@@ -1436,6 +1435,11 @@ name|currentFrame
 operator|.
 name|ord
 expr_stmt|;
+name|boolean
+name|rewind
+init|=
+literal|false
+decl_stmt|;
 comment|// nocommit we could stop earlier w/ the version check, every time we traverse an index arc we can check?
 if|if
 condition|(
@@ -1992,6 +1996,10 @@ comment|// (so we scan from the start)
 name|targetBeforeCurrentLength
 operator|=
 literal|0
+expr_stmt|;
+name|rewind
+operator|=
+literal|true
 expr_stmt|;
 if|if
 condition|(
@@ -2556,6 +2564,8 @@ operator|.
 name|fp
 operator|!=
 name|startFrameFP
+operator|||
+name|rewind
 condition|)
 block|{
 comment|//if (targetUpto+1> term.length) {
@@ -2646,6 +2656,16 @@ operator|+
 literal|" validIndexPrefix="
 operator|+
 name|validIndexPrefix
+operator|+
+literal|" startFrameFP="
+operator|+
+name|startFrameFP
+operator|+
+literal|" vs "
+operator|+
+name|currentFrame
+operator|.
+name|fp
 argument_list|)
 expr_stmt|;
 block|}
