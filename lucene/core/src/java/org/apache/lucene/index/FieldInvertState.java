@@ -250,7 +250,8 @@ parameter_list|()
 block|{
 name|position
 operator|=
-literal|0
+operator|-
+literal|1
 expr_stmt|;
 name|length
 operator|=
