@@ -1159,7 +1159,7 @@ operator|.
 name|get
 argument_list|()
 operator|.
-name|getIndexReader
+name|getRawReader
 argument_list|()
 argument_list|,
 name|compound

@@ -133,6 +133,13 @@ begin_comment
 comment|/** Base class for all Benchmark unit tests. */
 end_comment
 begin_class
+annotation|@
+name|SuppressSysoutChecks
+argument_list|(
+name|bugUrl
+operator|=
+literal|"very noisy"
+argument_list|)
 DECL|class|BenchmarkTestCase
 specifier|public
 specifier|abstract

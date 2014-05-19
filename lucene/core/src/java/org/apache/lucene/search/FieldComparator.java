@@ -33,6 +33,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|AtomicReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|AtomicReaderContext
 import|;
 end_import
@@ -59,67 +72,33 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DocValues
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|NumericDocValues
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|SortedDocValues
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|FieldCache
-operator|.
-name|DoubleParser
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|FieldCache
-operator|.
-name|FloatParser
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|FieldCache
-operator|.
-name|IntParser
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|FieldCache
-operator|.
-name|LongParser
 import|;
 end_import
 begin_import
@@ -149,7 +128,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|/**  * Expert: a FieldComparator compares hits so as to determine their  * sort order when collecting the top results with {@link  * TopFieldCollector}.  The concrete public FieldComparator  * classes here correspond to the SortField types.  *  *<p>This API is designed to achieve high performance  * sorting, by exposing a tight interaction with {@link  * FieldValueHitQueue} as it visits hits.  Whenever a hit is  * competitive, it's enrolled into a virtual slot, which is  * an int ranging from 0 to numHits-1.  The {@link  * FieldComparator} is made aware of segment transitions  * during searching in case any internal state it's tracking  * needs to be recomputed during these transitions.</p>  *  *<p>A comparator must define these functions:</p>  *  *<ul>  *  *<li> {@link #compare} Compare a hit at 'slot a'  *       with hit 'slot b'.  *  *<li> {@link #setBottom} This method is called by  *       {@link FieldValueHitQueue} to notify the  *       FieldComparator of the current weakest ("bottom")  *       slot.  Note that this slot may not hold the weakest  *       value according to your comparator, in cases where  *       your comparator is not the primary one (ie, is only  *       used to break ties from the comparators before it).  *  *<li> {@link #compareBottom} Compare a new hit (docID)  *       against the "weakest" (bottom) entry in the queue.  *  *<li> {@link #setTopValue} This method is called by  *       {@link TopFieldCollector} to notify the  *       FieldComparator of the top most value, which is  *       used by future calls to {@link #compareTop}.  *  *<li> {@link #compareBottom} Compare a new hit (docID)  *       against the "weakest" (bottom) entry in the queue.  *  *<li> {@link #compareTop} Compare a new hit (docID)  *       against the top value previously set by a call to  *       {@link #setTopValue}.  *  *<li> {@link #copy} Installs a new hit into the  *       priority queue.  The {@link FieldValueHitQueue}  *       calls this method when a new hit is competitive.  *  *<li> {@link #setNextReader(AtomicReaderContext)} Invoked  *       when the search is switching to the next segment.  *       You may need to update internal state of the  *       comparator, for example retrieving new values from  *       the {@link FieldCache}.  *  *<li> {@link #value} Return the sort value stored in  *       the specified slot.  This is only called at the end  *       of the search, in order to populate {@link  *       FieldDoc#fields} when returning the top results.  *</ul>  *  * @lucene.experimental  */
+comment|/**  * Expert: a FieldComparator compares hits so as to determine their  * sort order when collecting the top results with {@link  * TopFieldCollector}.  The concrete public FieldComparator  * classes here correspond to the SortField types.  *  *<p>This API is designed to achieve high performance  * sorting, by exposing a tight interaction with {@link  * FieldValueHitQueue} as it visits hits.  Whenever a hit is  * competitive, it's enrolled into a virtual slot, which is  * an int ranging from 0 to numHits-1.  The {@link  * FieldComparator} is made aware of segment transitions  * during searching in case any internal state it's tracking  * needs to be recomputed during these transitions.</p>  *  *<p>A comparator must define these functions:</p>  *  *<ul>  *  *<li> {@link #compare} Compare a hit at 'slot a'  *       with hit 'slot b'.  *  *<li> {@link #setBottom} This method is called by  *       {@link FieldValueHitQueue} to notify the  *       FieldComparator of the current weakest ("bottom")  *       slot.  Note that this slot may not hold the weakest  *       value according to your comparator, in cases where  *       your comparator is not the primary one (ie, is only  *       used to break ties from the comparators before it).  *  *<li> {@link #compareBottom} Compare a new hit (docID)  *       against the "weakest" (bottom) entry in the queue.  *  *<li> {@link #setTopValue} This method is called by  *       {@link TopFieldCollector} to notify the  *       FieldComparator of the top most value, which is  *       used by future calls to {@link #compareTop}.  *  *<li> {@link #compareBottom} Compare a new hit (docID)  *       against the "weakest" (bottom) entry in the queue.  *  *<li> {@link #compareTop} Compare a new hit (docID)  *       against the top value previously set by a call to  *       {@link #setTopValue}.  *  *<li> {@link #copy} Installs a new hit into the  *       priority queue.  The {@link FieldValueHitQueue}  *       calls this method when a new hit is competitive.  *  *<li> {@link #setNextReader(AtomicReaderContext)} Invoked  *       when the search is switching to the next segment.  *       You may need to update internal state of the  *       comparator, for example retrieving new values from  *       DocValues.  *  *<li> {@link #value} Return the sort value stored in  *       the specified slot.  This is only called at the end  *       of the search, in order to populate {@link  *       FieldDoc#fields} when returning the top results.  *</ul>  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|FieldComparator
@@ -440,9 +419,7 @@ condition|)
 block|{
 name|docsWithField
 operator|=
-name|FieldCache
-operator|.
-name|DEFAULT
+name|DocValues
 operator|.
 name|getDocsWithField
 argument_list|(
@@ -482,7 +459,7 @@ name|this
 return|;
 block|}
 block|}
-comment|/** Parses field's values as double (using {@link    *  FieldCache#getDoubles} and sorts by ascending value */
+comment|/** Parses field's values as double (using {@link    *  AtomicReader#getNumericDocValues} and sorts by ascending value */
 DECL|class|DoubleComparator
 specifier|public
 specifier|static
@@ -502,17 +479,9 @@ name|double
 index|[]
 name|values
 decl_stmt|;
-DECL|field|parser
-specifier|private
-specifier|final
-name|DoubleParser
-name|parser
-decl_stmt|;
 DECL|field|currentReaderValues
 specifier|private
-name|FieldCache
-operator|.
-name|Doubles
+name|NumericDocValues
 name|currentReaderValues
 decl_stmt|;
 DECL|field|bottom
@@ -534,11 +503,6 @@ parameter_list|,
 name|String
 name|field
 parameter_list|,
-name|FieldCache
-operator|.
-name|Parser
-name|parser
-parameter_list|,
 name|Double
 name|missingValue
 parameter_list|)
@@ -557,15 +521,6 @@ name|double
 index|[
 name|numHits
 index|]
-expr_stmt|;
-name|this
-operator|.
-name|parser
-operator|=
-operator|(
-name|DoubleParser
-operator|)
-name|parser
 expr_stmt|;
 block|}
 annotation|@
@@ -613,11 +568,16 @@ block|{
 name|double
 name|v2
 init|=
+name|Double
+operator|.
+name|longBitsToDouble
+argument_list|(
 name|currentReaderValues
 operator|.
 name|get
 argument_list|(
 name|doc
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Test for v2 == 0 to save Bits.get method call for
@@ -674,11 +634,16 @@ block|{
 name|double
 name|v2
 init|=
+name|Double
+operator|.
+name|longBitsToDouble
+argument_list|(
 name|currentReaderValues
 operator|.
 name|get
 argument_list|(
 name|doc
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Test for v2 == 0 to save Bits.get method call for
@@ -731,15 +696,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// NOTE: must do this before calling super otherwise
-comment|// we compute the docsWithField Bits twice!
 name|currentReaderValues
 operator|=
-name|FieldCache
+name|DocValues
 operator|.
-name|DEFAULT
-operator|.
-name|getDoubles
+name|getNumeric
 argument_list|(
 name|context
 operator|.
@@ -747,12 +708,6 @@ name|reader
 argument_list|()
 argument_list|,
 name|field
-argument_list|,
-name|parser
-argument_list|,
-name|missingValue
-operator|!=
-literal|null
 argument_list|)
 expr_stmt|;
 return|return
@@ -839,11 +794,16 @@ block|{
 name|double
 name|docValue
 init|=
+name|Double
+operator|.
+name|longBitsToDouble
+argument_list|(
 name|currentReaderValues
 operator|.
 name|get
 argument_list|(
 name|doc
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Test for docValue == 0 to save Bits.get method call for
@@ -884,7 +844,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Parses field's values as float (using {@link    *  FieldCache#getFloats} and sorts by ascending value */
+comment|/** Parses field's values as float (using {@link    *  AtomicReader#getNumericDocValues(String)} and sorts by ascending value */
 DECL|class|FloatComparator
 specifier|public
 specifier|static
@@ -904,17 +864,9 @@ name|float
 index|[]
 name|values
 decl_stmt|;
-DECL|field|parser
-specifier|private
-specifier|final
-name|FloatParser
-name|parser
-decl_stmt|;
 DECL|field|currentReaderValues
 specifier|private
-name|FieldCache
-operator|.
-name|Floats
+name|NumericDocValues
 name|currentReaderValues
 decl_stmt|;
 DECL|field|bottom
@@ -936,11 +888,6 @@ parameter_list|,
 name|String
 name|field
 parameter_list|,
-name|FieldCache
-operator|.
-name|Parser
-name|parser
-parameter_list|,
 name|Float
 name|missingValue
 parameter_list|)
@@ -959,15 +906,6 @@ name|float
 index|[
 name|numHits
 index|]
-expr_stmt|;
-name|this
-operator|.
-name|parser
-operator|=
-operator|(
-name|FloatParser
-operator|)
-name|parser
 expr_stmt|;
 block|}
 annotation|@
@@ -1016,11 +954,19 @@ comment|// TODO: are there sneaky non-branch ways to compute sign of float?
 name|float
 name|v2
 init|=
+name|Float
+operator|.
+name|intBitsToFloat
+argument_list|(
+operator|(
+name|int
+operator|)
 name|currentReaderValues
 operator|.
 name|get
 argument_list|(
 name|doc
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Test for v2 == 0 to save Bits.get method call for
@@ -1077,11 +1023,19 @@ block|{
 name|float
 name|v2
 init|=
+name|Float
+operator|.
+name|intBitsToFloat
+argument_list|(
+operator|(
+name|int
+operator|)
 name|currentReaderValues
 operator|.
 name|get
 argument_list|(
 name|doc
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Test for v2 == 0 to save Bits.get method call for
@@ -1134,15 +1088,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// NOTE: must do this before calling super otherwise
-comment|// we compute the docsWithField Bits twice!
 name|currentReaderValues
 operator|=
-name|FieldCache
+name|DocValues
 operator|.
-name|DEFAULT
-operator|.
-name|getFloats
+name|getNumeric
 argument_list|(
 name|context
 operator|.
@@ -1150,12 +1100,6 @@ name|reader
 argument_list|()
 argument_list|,
 name|field
-argument_list|,
-name|parser
-argument_list|,
-name|missingValue
-operator|!=
-literal|null
 argument_list|)
 expr_stmt|;
 return|return
@@ -1242,11 +1186,19 @@ block|{
 name|float
 name|docValue
 init|=
+name|Float
+operator|.
+name|intBitsToFloat
+argument_list|(
+operator|(
+name|int
+operator|)
 name|currentReaderValues
 operator|.
 name|get
 argument_list|(
 name|doc
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Test for docValue == 0 to save Bits.get method call for
@@ -1287,7 +1239,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Parses field's values as int (using {@link    *  FieldCache#getInts} and sorts by ascending value */
+comment|/** Parses field's values as int (using {@link    *  AtomicReader#getNumericDocValues(String)} and sorts by ascending value */
 DECL|class|IntComparator
 specifier|public
 specifier|static
@@ -1307,17 +1259,9 @@ name|int
 index|[]
 name|values
 decl_stmt|;
-DECL|field|parser
-specifier|private
-specifier|final
-name|IntParser
-name|parser
-decl_stmt|;
 DECL|field|currentReaderValues
 specifier|private
-name|FieldCache
-operator|.
-name|Ints
+name|NumericDocValues
 name|currentReaderValues
 decl_stmt|;
 DECL|field|bottom
@@ -1340,11 +1284,6 @@ parameter_list|,
 name|String
 name|field
 parameter_list|,
-name|FieldCache
-operator|.
-name|Parser
-name|parser
-parameter_list|,
 name|Integer
 name|missingValue
 parameter_list|)
@@ -1363,15 +1302,6 @@ name|int
 index|[
 name|numHits
 index|]
-expr_stmt|;
-name|this
-operator|.
-name|parser
-operator|=
-operator|(
-name|IntParser
-operator|)
-name|parser
 expr_stmt|;
 block|}
 annotation|@
@@ -1419,6 +1349,9 @@ block|{
 name|int
 name|v2
 init|=
+operator|(
+name|int
+operator|)
 name|currentReaderValues
 operator|.
 name|get
@@ -1480,6 +1413,9 @@ block|{
 name|int
 name|v2
 init|=
+operator|(
+name|int
+operator|)
 name|currentReaderValues
 operator|.
 name|get
@@ -1537,15 +1473,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// NOTE: must do this before calling super otherwise
-comment|// we compute the docsWithField Bits twice!
 name|currentReaderValues
 operator|=
-name|FieldCache
+name|DocValues
 operator|.
-name|DEFAULT
-operator|.
-name|getInts
+name|getNumeric
 argument_list|(
 name|context
 operator|.
@@ -1553,12 +1485,6 @@ name|reader
 argument_list|()
 argument_list|,
 name|field
-argument_list|,
-name|parser
-argument_list|,
-name|missingValue
-operator|!=
-literal|null
 argument_list|)
 expr_stmt|;
 return|return
@@ -1645,6 +1571,9 @@ block|{
 name|int
 name|docValue
 init|=
+operator|(
+name|int
+operator|)
 name|currentReaderValues
 operator|.
 name|get
@@ -1690,7 +1619,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Parses field's values as long (using {@link    *  FieldCache#getLongs} and sorts by ascending value */
+comment|/** Parses field's values as long (using {@link    *  AtomicReader#getNumericDocValues(String)} and sorts by ascending value */
 DECL|class|LongComparator
 specifier|public
 specifier|static
@@ -1710,17 +1639,9 @@ name|long
 index|[]
 name|values
 decl_stmt|;
-DECL|field|parser
-specifier|private
-specifier|final
-name|LongParser
-name|parser
-decl_stmt|;
 DECL|field|currentReaderValues
 specifier|private
-name|FieldCache
-operator|.
-name|Longs
+name|NumericDocValues
 name|currentReaderValues
 decl_stmt|;
 DECL|field|bottom
@@ -1742,11 +1663,6 @@ parameter_list|,
 name|String
 name|field
 parameter_list|,
-name|FieldCache
-operator|.
-name|Parser
-name|parser
-parameter_list|,
 name|Long
 name|missingValue
 parameter_list|)
@@ -1765,15 +1681,6 @@ name|long
 index|[
 name|numHits
 index|]
-expr_stmt|;
-name|this
-operator|.
-name|parser
-operator|=
-operator|(
-name|LongParser
-operator|)
-name|parser
 expr_stmt|;
 block|}
 annotation|@
@@ -1941,15 +1848,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// NOTE: must do this before calling super otherwise
-comment|// we compute the docsWithField Bits twice!
 name|currentReaderValues
 operator|=
-name|FieldCache
+name|DocValues
 operator|.
-name|DEFAULT
-operator|.
-name|getLongs
+name|getNumeric
 argument_list|(
 name|context
 operator|.
@@ -1957,12 +1860,6 @@ name|reader
 argument_list|()
 argument_list|,
 name|field
-argument_list|,
-name|parser
-argument_list|,
-name|missingValue
-operator|!=
-literal|null
 argument_list|)
 expr_stmt|;
 return|return
@@ -2692,7 +2589,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Sorts by field's natural Term sort order, using    *  ordinals.  This is functionally equivalent to {@link    *  org.apache.lucene.search.FieldComparator.TermValComparator}, but it first resolves the string    *  to their relative ordinal positions (using the index    *  returned by {@link FieldCache#getTermsIndex}), and    *  does most comparisons using the ordinals.  For medium    *  to large results, this comparator will be much faster    *  than {@link org.apache.lucene.search.FieldComparator.TermValComparator}.  For very small    *  result sets it may be slower. */
+comment|/** Sorts by field's natural Term sort order, using    *  ordinals.  This is functionally equivalent to {@link    *  org.apache.lucene.search.FieldComparator.TermValComparator}, but it first resolves the string    *  to their relative ordinal positions (using the index    *  returned by {@link AtomicReader#getSortedDocValues(String)}), and    *  does most comparisons using the ordinals.  For medium    *  to large results, this comparator will be much faster    *  than {@link org.apache.lucene.search.FieldComparator.TermValComparator}.  For very small    *  result sets it may be slower. */
 DECL|class|TermOrdValComparator
 specifier|public
 specifier|static
@@ -3189,11 +3086,9 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|FieldCache
+name|DocValues
 operator|.
-name|DEFAULT
-operator|.
-name|getTermsIndex
+name|getSorted
 argument_list|(
 name|context
 operator|.
@@ -3923,11 +3818,9 @@ name|IOException
 block|{
 name|docTerms
 operator|=
-name|FieldCache
+name|DocValues
 operator|.
-name|DEFAULT
-operator|.
-name|getTerms
+name|getBinary
 argument_list|(
 name|context
 operator|.
@@ -3935,15 +3828,11 @@ name|reader
 argument_list|()
 argument_list|,
 name|field
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|docsWithField
 operator|=
-name|FieldCache
-operator|.
-name|DEFAULT
+name|DocValues
 operator|.
 name|getDocsWithField
 argument_list|(

@@ -46,6 +46,19 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DocValues
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|IndexReader
 import|;
 end_import
@@ -115,14 +128,14 @@ name|LongBitSet
 import|;
 end_import
 begin_comment
-comment|/**  * Rewrites MultiTermQueries into a filter, using the FieldCache for term enumeration.  *<p>  * This can be used to perform these queries against an unindexed docvalues field.  * @lucene.experimental  */
+comment|/**  * Rewrites MultiTermQueries into a filter, using DocValues for term enumeration.  *<p>  * This can be used to perform these queries against an unindexed docvalues field.  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|FieldCacheRewriteMethod
+DECL|class|DocValuesRewriteMethod
 specifier|public
 specifier|final
 class|class
-name|FieldCacheRewriteMethod
+name|DocValuesRewriteMethod
 extends|extends
 name|MultiTermQuery
 operator|.
@@ -149,7 +162,7 @@ operator|new
 name|ConstantScoreQuery
 argument_list|(
 operator|new
-name|MultiTermQueryFieldCacheWrapperFilter
+name|MultiTermQueryDocValuesWrapperFilter
 argument_list|(
 name|query
 argument_list|)
@@ -169,10 +182,10 @@ return|return
 name|result
 return|;
 block|}
-DECL|class|MultiTermQueryFieldCacheWrapperFilter
+DECL|class|MultiTermQueryDocValuesWrapperFilter
 specifier|static
 class|class
-name|MultiTermQueryFieldCacheWrapperFilter
+name|MultiTermQueryDocValuesWrapperFilter
 extends|extends
 name|Filter
 block|{
@@ -183,9 +196,9 @@ name|MultiTermQuery
 name|query
 decl_stmt|;
 comment|/**      * Wrap a {@link MultiTermQuery} as a Filter.      */
-DECL|method|MultiTermQueryFieldCacheWrapperFilter
+DECL|method|MultiTermQueryDocValuesWrapperFilter
 specifier|protected
-name|MultiTermQueryFieldCacheWrapperFilter
+name|MultiTermQueryDocValuesWrapperFilter
 parameter_list|(
 name|MultiTermQuery
 name|query
@@ -270,7 +283,7 @@ name|equals
 argument_list|(
 operator|(
 operator|(
-name|MultiTermQueryFieldCacheWrapperFilter
+name|MultiTermQueryDocValuesWrapperFilter
 operator|)
 name|o
 operator|)
@@ -336,11 +349,9 @@ specifier|final
 name|SortedDocValues
 name|fcsi
 init|=
-name|FieldCache
+name|DocValues
 operator|.
-name|DEFAULT
-operator|.
-name|getTermsIndex
+name|getSorted
 argument_list|(
 name|context
 operator|.
@@ -550,7 +561,7 @@ return|;
 block|}
 return|return
 operator|new
-name|FieldCacheDocIdSet
+name|DocValuesDocIdSet
 argument_list|(
 name|context
 operator|.

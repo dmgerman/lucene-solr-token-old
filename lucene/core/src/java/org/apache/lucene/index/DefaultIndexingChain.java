@@ -1413,6 +1413,37 @@ operator|.
 name|fieldType
 argument_list|()
 decl_stmt|;
+comment|// if the field omits norms, the boost cannot be indexed.
+if|if
+condition|(
+name|fieldType
+operator|.
+name|omitNorms
+argument_list|()
+operator|&&
+name|field
+operator|.
+name|boost
+argument_list|()
+operator|!=
+literal|1.0f
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"You cannot set an index-time boost: norms are omitted for field '"
+operator|+
+name|field
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|"'"
+argument_list|)
+throw|;
+block|}
 name|PerField
 name|fp
 init|=
@@ -2601,37 +2632,6 @@ operator|.
 name|fieldType
 argument_list|()
 decl_stmt|;
-comment|// if the field omits norms, the boost cannot be indexed.
-if|if
-condition|(
-name|fieldType
-operator|.
-name|omitNorms
-argument_list|()
-operator|&&
-name|field
-operator|.
-name|boost
-argument_list|()
-operator|!=
-literal|1.0f
-condition|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"You cannot set an index-time boost: norms are omitted for field '"
-operator|+
-name|field
-operator|.
-name|name
-argument_list|()
-operator|+
-literal|"'"
-argument_list|)
-throw|;
-block|}
 specifier|final
 name|boolean
 name|analyzed
@@ -2664,6 +2664,11 @@ name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
 decl_stmt|;
 name|int
 name|lastStartOffset
+init|=
+literal|0
+decl_stmt|;
+name|int
+name|lastPosition
 init|=
 literal|0
 decl_stmt|;
@@ -2733,7 +2738,6 @@ comment|// chokes on a given document), then it's
 comment|// non-aborting and (above) this one document
 comment|// will be marked as deleted, but still
 comment|// consume a docID
-specifier|final
 name|int
 name|posIncr
 init|=
@@ -2744,40 +2748,23 @@ operator|.
 name|getPositionIncrement
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|posIncr
-operator|<
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"position increment must be>=0 (got "
-operator|+
-name|posIncr
-operator|+
-literal|") for field '"
-operator|+
-name|field
+name|invertState
 operator|.
-name|name
-argument_list|()
-operator|+
-literal|"'"
-argument_list|)
-throw|;
-block|}
+name|position
+operator|+=
+name|posIncr
+expr_stmt|;
 if|if
 condition|(
 name|invertState
 operator|.
 name|position
-operator|==
-literal|0
-operator|&&
+operator|<
+name|lastPosition
+condition|)
+block|{
+if|if
+condition|(
 name|posIncr
 operator|==
 literal|0
@@ -2798,41 +2785,15 @@ literal|"'"
 argument_list|)
 throw|;
 block|}
-name|int
-name|position
-init|=
-name|invertState
-operator|.
-name|position
-operator|+
-name|posIncr
-decl_stmt|;
-if|if
-condition|(
-name|position
-operator|>
-literal|0
-condition|)
-block|{
-comment|// NOTE: confusing: this "mirrors" the
-comment|// position++ we do below
-name|position
-operator|--
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|position
-operator|<
-literal|0
-condition|)
-block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"position overflow for field '"
+literal|"position increments (and gaps) must be>= 0 (got "
+operator|+
+name|posIncr
+operator|+
+literal|") for field '"
 operator|+
 name|field
 operator|.
@@ -2843,12 +2804,10 @@ literal|"'"
 argument_list|)
 throw|;
 block|}
-comment|// position is legal, we can safely place it in invertState now.
-comment|// not sure if anything will use invertState after non-aborting exc...
+name|lastPosition
+operator|=
 name|invertState
 operator|.
-name|position
-operator|=
 name|position
 expr_stmt|;
 if|if
@@ -2901,7 +2860,7 @@ if|if
 condition|(
 name|startOffset
 operator|<
-literal|0
+name|lastStartOffset
 operator|||
 name|endOffset
 operator|<
@@ -2912,7 +2871,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"startOffset must be non-negative, and endOffset must be>= startOffset, "
+literal|"startOffset must be non-negative, and endOffset must be>= startOffset, and offsets must not go backwards "
 operator|+
 literal|"startOffset="
 operator|+
@@ -2922,33 +2881,7 @@ literal|",endOffset="
 operator|+
 name|endOffset
 operator|+
-literal|" for field '"
-operator|+
-name|field
-operator|.
-name|name
-argument_list|()
-operator|+
-literal|"'"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|startOffset
-operator|<
-name|lastStartOffset
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"offsets must not go backwards startOffset="
-operator|+
-name|startOffset
-operator|+
-literal|" is< lastStartOffset="
+literal|",lastStartOffset="
 operator|+
 name|lastStartOffset
 operator|+
@@ -2991,11 +2924,6 @@ expr_stmt|;
 name|invertState
 operator|.
 name|length
-operator|++
-expr_stmt|;
-name|invertState
-operator|.
-name|position
 operator|++
 expr_stmt|;
 block|}
