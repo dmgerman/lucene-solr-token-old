@@ -126,6 +126,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Bits
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|BytesRef
 import|;
 end_import
@@ -317,7 +330,6 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|// nocommit need test
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -333,7 +345,6 @@ operator|!=
 literal|1
 condition|)
 block|{
-comment|// nocommit need test
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -382,7 +393,6 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|// nocommit need test
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -402,7 +412,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// nocommit need test
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -420,7 +429,6 @@ operator|!=
 literal|8
 condition|)
 block|{
-comment|// nocommit need test
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -486,7 +494,6 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|// nocommit need test
 throw|throw
 operator|new
 name|IllegalArgumentException

@@ -9015,6 +9015,16 @@ decl_stmt|;
 if|if
 condition|(
 name|doStats
+operator|==
+literal|false
+condition|)
+block|{
+comment|// nocommit is it OK to stop verifying deleted docs?
+continue|continue;
+block|}
+if|if
+condition|(
+name|doStats
 condition|)
 block|{
 name|status

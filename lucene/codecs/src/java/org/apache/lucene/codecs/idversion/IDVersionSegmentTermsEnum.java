@@ -333,8 +333,6 @@ specifier|final
 name|VersionFieldReader
 name|fr
 decl_stmt|;
-comment|// nocommit make this public "for casting" and add a getVersion method?
-comment|// nocommit unused?
 DECL|field|targetBeforeCurrentLength
 specifier|private
 name|int
@@ -1265,6 +1263,26 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|/** Only valid if we are positioned. */
+DECL|method|getVersion
+specifier|public
+name|long
+name|getVersion
+parameter_list|()
+block|{
+return|return
+operator|(
+operator|(
+name|IDVersionTermState
+operator|)
+name|currentFrame
+operator|.
+name|state
+operator|)
+operator|.
+name|idVersion
+return|;
+block|}
 comment|/** Returns false if the term deos not exist, or it exists but its version is too old (< minIDVersion). */
 DECL|method|seekExact
 specifier|public
@@ -2033,10 +2051,6 @@ operator|.
 name|rewind
 argument_list|()
 expr_stmt|;
-comment|// nocommit put this back to BT also?
-comment|//term.length = targetUpto;
-comment|// nocommit put this back???
-comment|//termExists = false;
 block|}
 else|else
 block|{
@@ -3156,7 +3170,6 @@ name|minIDVersion
 condition|)
 block|{
 comment|// The max version for all terms in this block is lower than the minVersion
-comment|// nocommit need same logic here as above?
 name|termExists
 operator|=
 literal|false
