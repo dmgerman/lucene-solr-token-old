@@ -780,20 +780,6 @@ name|size
 argument_list|()
 index|]
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"CYCLE infos="
-operator|+
-name|infos
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -872,24 +858,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  i="
-operator|+
-name|i
-operator|+
-literal|" newReaders[i]="
-operator|+
-name|newReaders
-index|[
-name|i
-index|]
-argument_list|)
-expr_stmt|;
 name|boolean
 name|success
 init|=
@@ -975,15 +943,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"    now in else"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|newReaders
@@ -1050,15 +1009,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"    has changes"
-argument_list|)
-expr_stmt|;
 comment|// there are changes to the reader, either liveDocs or DV updates
 name|readerShared
 index|[
@@ -1201,15 +1151,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"    done open"
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 name|success
@@ -1262,17 +1203,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  decRef i="
-operator|+
-name|i
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 if|if
