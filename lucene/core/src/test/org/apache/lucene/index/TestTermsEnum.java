@@ -6100,13 +6100,13 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|//String prefix = TestUtil.randomSimpleString(random(), 1, 20);
+comment|// nocommit
 name|String
 name|prefix
 init|=
 name|TestUtil
 operator|.
-name|randomRealisticUnicodeString
+name|randomSimpleString
 argument_list|(
 name|random
 argument_list|()
@@ -6116,6 +6116,7 @@ argument_list|,
 literal|20
 argument_list|)
 decl_stmt|;
+comment|//String prefix = TestUtil.randomRealisticUnicodeString(random(), 1, 20);
 name|int
 name|numTerms
 init|=
@@ -6614,7 +6615,7 @@ expr_stmt|;
 block|}
 comment|// Stresses out many-terms-in-root-block case:
 annotation|@
-name|Nightly
+name|Slow
 DECL|method|testVaryingTermsPerSegment
 specifier|public
 name|void
@@ -6711,11 +6712,16 @@ literal|0
 init|;
 name|termCount
 operator|<
-literal|10000
+name|MAX_TERMS
 condition|;
 name|termCount
 operator|++
 control|)
+block|{
+if|if
+condition|(
+name|VERBOSE
+condition|)
 block|{
 name|System
 operator|.
@@ -6740,6 +6746,7 @@ name|utf8ToString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
@@ -6887,17 +6894,6 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"te="
-operator|+
-name|te
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int
@@ -6913,7 +6909,6 @@ name|i
 operator|++
 control|)
 block|{
-comment|//System.out.println("TEST: lookup (should exist) " + termsList.get(i));
 name|assertTrue
 argument_list|(
 literal|"term '"
@@ -6964,7 +6959,6 @@ name|i
 operator|++
 control|)
 block|{
-comment|//System.out.println("TEST: lookup (should not exist) " + termsList.get(i));
 name|assertFalse
 argument_list|(
 literal|"term '"
