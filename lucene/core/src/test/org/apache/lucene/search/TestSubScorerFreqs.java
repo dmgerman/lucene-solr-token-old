@@ -1182,12 +1182,9 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+comment|// Y doesnt exist in the index, so its not in the scorer tree
 name|assertEquals
 argument_list|(
-name|includeOptional
-condition|?
-literal|5
-else|:
 literal|4
 argument_list|,
 name|doc0
@@ -1262,12 +1259,9 @@ operator|++
 name|i
 argument_list|)
 decl_stmt|;
+comment|// Y doesnt exist in the index, so its not in the scorer tree
 name|assertEquals
 argument_list|(
-name|includeOptional
-condition|?
-literal|5
-else|:
 literal|4
 argument_list|,
 name|doc1
