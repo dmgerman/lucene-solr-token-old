@@ -1385,11 +1385,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-while|while
-condition|(
-literal|true
-condition|)
-block|{
 if|if
 condition|(
 name|reader
@@ -1509,7 +1504,6 @@ block|}
 return|return
 name|docID
 return|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -1756,11 +1750,6 @@ name|IOException
 block|{
 while|while
 condition|(
-literal|true
-condition|)
-block|{
-while|while
-condition|(
 name|posLeft
 operator|!=
 literal|0
@@ -1881,7 +1870,6 @@ expr_stmt|;
 return|return
 name|docID
 return|;
-block|}
 block|}
 annotation|@
 name|Override
