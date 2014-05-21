@@ -136,7 +136,7 @@ name|BytesRef
 import|;
 end_import
 begin_comment
-comment|// nocommit can we take a BytesRef token instead?
+comment|// TODO: can we take a BytesRef token instead?
 end_comment
 begin_comment
 comment|/** Produces a single String token from the provided value, with the provided payload. */

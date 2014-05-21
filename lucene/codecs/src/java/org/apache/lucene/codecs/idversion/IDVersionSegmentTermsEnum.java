@@ -1283,7 +1283,7 @@ operator|.
 name|idVersion
 return|;
 block|}
-comment|/** Returns false if the term deos not exist, or it exists but its version is too old (< minIDVersion). */
+comment|/** Returns false if the term does not exist, or it exists but its version is too old (< minIDVersion). */
 DECL|method|seekExact
 specifier|public
 name|boolean
@@ -1316,7 +1316,6 @@ literal|"terms index was not loaded"
 argument_list|)
 throw|;
 block|}
-comment|// nocommit would be nice if somehow on doing deletes we didn't have to double-lookup again...
 if|if
 condition|(
 name|term
@@ -1458,7 +1457,7 @@ name|changed
 init|=
 literal|false
 decl_stmt|;
-comment|// nocommit we could stop earlier w/ the version check, every time we traverse an index arc we can check?
+comment|// TODO: we could stop earlier w/ the version check, every time we traverse an index arc we can check?
 if|if
 condition|(
 name|currentFrame
@@ -2166,38 +2165,7 @@ return|return
 literal|false
 return|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"  term version="
-operator|+
-operator|(
-operator|(
-name|IDVersionTermState
-operator|)
-name|currentFrame
-operator|.
-name|state
-operator|)
-operator|.
-name|idVersion
-operator|+
-literal|" frame version="
-operator|+
-name|currentFrame
-operator|.
-name|maxIDVersion
-operator|+
-literal|" frame ord="
-operator|+
-name|currentFrame
-operator|.
-name|ord
-argument_list|)
-expr_stmt|;
+comment|// System.out.println("  term version=" + ((IDVersionTermState) currentFrame.state).idVersion + " frame version=" + currentFrame.maxIDVersion + " frame ord=" + currentFrame.ord);
 if|if
 condition|(
 name|DEBUG
