@@ -1907,7 +1907,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|ReqOptSumScorer
+name|BooleanTopLevelScorers
 operator|.
 name|ReqSingleOptScorer
 argument_list|(
@@ -1933,7 +1933,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|ConjunctionScorer
+name|BooleanTopLevelScorers
 operator|.
 name|CoordinatingConjunctionScorer
 argument_list|(
@@ -1957,7 +1957,7 @@ else|else
 block|{
 return|return
 operator|new
-name|ReqOptSumScorer
+name|BooleanTopLevelScorers
 operator|.
 name|ReqMultiOptScorer
 argument_list|(
@@ -1977,7 +1977,6 @@ return|;
 block|}
 block|}
 block|}
-comment|// nocommit: double-check all this
 annotation|@
 name|Override
 DECL|method|scoresDocsOutOfOrder
@@ -2103,6 +2102,8 @@ condition|)
 block|{
 return|return
 operator|new
+name|BooleanTopLevelScorers
+operator|.
 name|BoostedScorer
 argument_list|(
 name|req
@@ -2327,6 +2328,8 @@ condition|)
 block|{
 return|return
 operator|new
+name|BooleanTopLevelScorers
+operator|.
 name|BoostedScorer
 argument_list|(
 name|opt
