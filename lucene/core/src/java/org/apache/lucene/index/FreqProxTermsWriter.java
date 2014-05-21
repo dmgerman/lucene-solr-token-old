@@ -336,17 +336,6 @@ decl_stmt|;
 if|if
 condition|(
 name|doc
-operator|==
-name|DocsEnum
-operator|.
-name|NO_MORE_DOCS
-condition|)
-block|{
-break|break;
-block|}
-if|if
-condition|(
-name|doc
 operator|<
 name|delDocLimit
 condition|)

@@ -128,9 +128,7 @@ name|SCORE_COLLECTOR
 init|=
 operator|new
 name|VirtualMethod
-argument_list|<
-name|BulkScorer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|BulkScorer
 operator|.
@@ -155,9 +153,7 @@ name|SCORE_COLLECTOR_RANGE
 init|=
 operator|new
 name|VirtualMethod
-argument_list|<
-name|BulkScorer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|BulkScorer
 operator|.

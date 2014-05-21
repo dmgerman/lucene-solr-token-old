@@ -144,7 +144,6 @@ import|;
 end_import
 begin_class
 DECL|class|IDVersionPostingsReader
-specifier|public
 specifier|final
 class|class
 name|IDVersionPostingsReader
