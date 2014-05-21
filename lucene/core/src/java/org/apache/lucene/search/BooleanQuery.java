@@ -1640,6 +1640,34 @@ block|}
 comment|// scorer simplifications:
 if|if
 condition|(
+name|optional
+operator|.
+name|size
+argument_list|()
+operator|==
+name|minShouldMatch
+condition|)
+block|{
+comment|// any optional clauses are in fact required
+name|required
+operator|.
+name|addAll
+argument_list|(
+name|optional
+argument_list|)
+expr_stmt|;
+name|optional
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|minShouldMatch
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|required
 operator|.
 name|isEmpty
@@ -1674,36 +1702,7 @@ return|return
 literal|null
 return|;
 block|}
-elseif|else
-if|if
-condition|(
-name|optional
-operator|.
-name|size
-argument_list|()
-operator|==
-name|minShouldMatch
-condition|)
-block|{
-comment|// either we have no optional clauses, or they are all required
-comment|// nocommit: what if required is empty too?
-name|required
-operator|.
-name|addAll
-argument_list|(
-name|optional
-argument_list|)
-expr_stmt|;
-name|optional
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|minShouldMatch
-operator|=
-literal|0
-expr_stmt|;
-block|}
+comment|// three cases: conjunction, disjunction, or mix
 comment|// pure conjunction
 if|if
 condition|(
@@ -1752,7 +1751,11 @@ name|prohibited
 argument_list|)
 return|;
 block|}
-comment|// conjunction-disjunction mix
+comment|// conjunction-disjunction mix:
+comment|// we create the required and optional pieces with coord disabled, and then
+comment|// combine the two: if minNrShouldMatch> 0, then its a conjunction: because the
+comment|// optional side must match. otherwise its required + optional, factoring the
+comment|// number of optional terms into the coord calculation
 name|Scorer
 name|req
 init|=
@@ -2036,8 +2039,6 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-comment|// nocommit: maybe dont do this optionalCount stuff and just check minNR>= 1 instead?
-comment|// we do fancy things in BS2 here anyway
 if|if
 condition|(
 name|optionalCount
@@ -2048,7 +2049,7 @@ block|{
 return|return
 literal|false
 return|;
-comment|// BS2 (in-order) will be used, as this means we have mandatory clauses
+comment|// BS2 (in-order) will be used, as this means conjunction
 block|}
 comment|// scorer() will return an out-of-order scorer if requested.
 return|return
@@ -2070,9 +2071,6 @@ name|boolean
 name|disableCoord
 parameter_list|)
 block|{
-name|Scorer
-name|req
-decl_stmt|;
 if|if
 condition|(
 name|required
@@ -2083,15 +2081,16 @@ operator|==
 literal|1
 condition|)
 block|{
+name|Scorer
 name|req
-operator|=
+init|=
 name|required
 operator|.
 name|get
 argument_list|(
 literal|0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -2102,8 +2101,7 @@ operator|>
 literal|1
 condition|)
 block|{
-name|req
-operator|=
+return|return
 operator|new
 name|BoostedScorer
 argument_list|(
@@ -2111,21 +2109,23 @@ name|req
 argument_list|,
 name|coord
 argument_list|(
-name|required
-operator|.
-name|size
-argument_list|()
+literal|1
 argument_list|,
 name|maxCoord
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
+block|}
+else|else
+block|{
+return|return
+name|req
+return|;
 block|}
 block|}
 else|else
 block|{
-name|req
-operator|=
+return|return
 operator|new
 name|ConjunctionScorer
 argument_list|(
@@ -2159,11 +2159,8 @@ argument_list|,
 name|maxCoord
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|req
 return|;
+block|}
 block|}
 DECL|method|excl
 specifier|private
@@ -2222,7 +2219,6 @@ return|;
 block|}
 else|else
 block|{
-comment|// TODO: this scores the required clauses (which is stupid). but we always did this.
 name|float
 name|coords
 index|[]
@@ -2247,6 +2243,7 @@ argument_list|,
 literal|1F
 argument_list|)
 expr_stmt|;
+comment|// TODO: don't score here.
 return|return
 operator|new
 name|ReqExclScorer
@@ -2298,9 +2295,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Scorer
-name|opt
-decl_stmt|;
 if|if
 condition|(
 name|optional
@@ -2311,15 +2305,16 @@ operator|==
 literal|1
 condition|)
 block|{
+name|Scorer
 name|opt
-operator|=
+init|=
 name|optional
 operator|.
 name|get
 argument_list|(
 literal|0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -2330,8 +2325,7 @@ operator|>
 literal|1
 condition|)
 block|{
-name|opt
-operator|=
+return|return
 operator|new
 name|BoostedScorer
 argument_list|(
@@ -2339,15 +2333,18 @@ name|opt
 argument_list|,
 name|coord
 argument_list|(
-name|optional
-operator|.
-name|size
-argument_list|()
+literal|1
 argument_list|,
 name|maxCoord
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
+block|}
+else|else
+block|{
+return|return
+name|opt
+return|;
 block|}
 block|}
 else|else
@@ -2413,8 +2410,9 @@ name|coords
 argument_list|)
 return|;
 block|}
-name|opt
-operator|=
+else|else
+block|{
+return|return
 operator|new
 name|DisjunctionSumScorer
 argument_list|(
@@ -2436,11 +2434,9 @@ argument_list|)
 argument_list|,
 name|coords
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|opt
 return|;
+block|}
+block|}
 block|}
 DECL|method|coords
 specifier|private
