@@ -1715,6 +1715,9 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
+operator|-
+literal|1
+argument_list|,
 literal|null
 argument_list|)
 argument_list|)
