@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs
+DECL|package|org.apache.lucene.codecs.idversion
 package|package
 name|org
 operator|.
@@ -9,6 +9,8 @@ operator|.
 name|lucene
 operator|.
 name|codecs
+operator|.
+name|idversion
 package|;
 end_package
 begin_comment
@@ -39,6 +41,73 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|BlockTermState
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|CodecUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|FieldsConsumer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|PostingsWriterBase
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|blocktree
+operator|.
+name|BlockTreeTermsWriter
 import|;
 end_import
 begin_import
@@ -145,19 +214,6 @@ operator|.
 name|index
 operator|.
 name|TermsEnum
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|DataOutput
 import|;
 end_import
 begin_import
@@ -338,6 +394,53 @@ name|util
 operator|.
 name|fst
 operator|.
+name|PairOutputs
+operator|.
+name|Pair
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|fst
+operator|.
+name|PairOutputs
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|fst
+operator|.
+name|PositiveIntOutputs
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|fst
+operator|.
 name|Util
 import|;
 end_import
@@ -360,17 +463,60 @@ begin_comment
 comment|/*   TODO:        - Currently there is a one-to-one mapping of indexed       term to term block, but we could decouple the two, ie,       put more terms into the index than there are blocks.       The index would take up more RAM but then it'd be able       to avoid seeking more often and could make PK/FuzzyQ       faster if the additional indexed terms could store       the offset into the terms block.      - The blocks are not written in true depth-first       order, meaning if you just next() the file pointer will       sometimes jump backwards.  For example, block foo* will       be written before block f* because it finished before.       This could possibly hurt performance if the terms dict is       not hot, since OSs anticipate sequential file access.  We       could fix the writer to re-order the blocks as a 2nd       pass.      - Each block encodes the term suffixes packed       sequentially using a separate vInt per term, which is       1) wasteful and 2) slow (must linear scan to find a       particular suffix).  We should instead 1) make       random-access array so we can directly access the Nth       suffix, and 2) bulk-encode this array using bulk int[]       codecs; then at search time we can binary search when       we seek a particular term. */
 end_comment
 begin_comment
-comment|/**  * Block-based terms index and dictionary writer.  *<p>  * Writes terms dict and index, block-encoding (column  * stride) each term's metadata for each set of terms  * between two index terms.  *<p>  * Files:  *<ul>  *<li><tt>.tim</tt>:<a href="#Termdictionary">Term Dictionary</a></li>  *<li><tt>.tip</tt>:<a href="#Termindex">Term Index</a></li>  *</ul>  *<p>  *<a name="Termdictionary" id="Termdictionary"></a>  *<h3>Term Dictionary</h3>  *  *<p>The .tim file contains the list of terms in each  * field along with per-term statistics (such as docfreq)  * and per-term metadata (typically pointers to the postings list  * for that term in the inverted index).  *</p>  *  *<p>The .tim is arranged in blocks: with blocks containing  * a variable number of entries (by default 25-48), where  * each entry is either a term or a reference to a  * sub-block.</p>  *  *<p>NOTE: The term dictionary can plug into different postings implementations:  * the postings writer/reader are actually responsible for encoding   * and decoding the Postings Metadata and Term Metadata sections.</p>  *  *<ul>  *<li>TermsDict (.tim) --&gt; Header,<i>PostingsHeader</i>, NodeBlock<sup>NumBlocks</sup>,  *                               FieldSummary, DirOffset, Footer</li>  *<li>NodeBlock --&gt; (OuterNode | InnerNode)</li>  *<li>OuterNode --&gt; EntryCount, SuffixLength, Byte<sup>SuffixLength</sup>, StatsLength,&lt; TermStats&gt;<sup>EntryCount</sup>, MetaLength,&lt;<i>TermMetadata</i>&gt;<sup>EntryCount</sup></li>  *<li>InnerNode --&gt; EntryCount, SuffixLength[,Sub?], Byte<sup>SuffixLength</sup>, StatsLength,&lt; TermStats ?&gt;<sup>EntryCount</sup>, MetaLength,&lt;<i>TermMetadata ?</i>&gt;<sup>EntryCount</sup></li>  *<li>TermStats --&gt; DocFreq, TotalTermFreq</li>  *<li>FieldSummary --&gt; NumFields,&lt;FieldNumber, NumTerms, RootCodeLength, Byte<sup>RootCodeLength</sup>,  *                            SumTotalTermFreq?, SumDocFreq, DocCount, LongsSize, MinTerm, MaxTerm&gt;<sup>NumFields</sup></li>  *<li>Header --&gt; {@link CodecUtil#writeHeader CodecHeader}</li>  *<li>DirOffset --&gt; {@link DataOutput#writeLong Uint64}</li>  *<li>MinTerm,MaxTerm --&gt; {@link DataOutput#writeVInt VInt} length followed by the byte[]</li>  *<li>EntryCount,SuffixLength,StatsLength,DocFreq,MetaLength,NumFields,  *        FieldNumber,RootCodeLength,DocCount,LongsSize --&gt; {@link DataOutput#writeVInt VInt}</li>  *<li>TotalTermFreq,NumTerms,SumTotalTermFreq,SumDocFreq --&gt;   *        {@link DataOutput#writeVLong VLong}</li>  *<li>Footer --&gt; {@link CodecUtil#writeFooter CodecFooter}</li>  *</ul>  *<p>Notes:</p>  *<ul>  *<li>Header is a {@link CodecUtil#writeHeader CodecHeader} storing the version information  *        for the BlockTree implementation.</li>  *<li>DirOffset is a pointer to the FieldSummary section.</li>  *<li>DocFreq is the count of documents which contain the term.</li>  *<li>TotalTermFreq is the total number of occurrences of the term. This is encoded  *        as the difference between the total number of occurrences and the DocFreq.</li>  *<li>FieldNumber is the fields number from {@link FieldInfos}. (.fnm)</li>  *<li>NumTerms is the number of unique terms for the field.</li>  *<li>RootCode points to the root block for the field.</li>  *<li>SumDocFreq is the total number of postings, the number of term-document pairs across  *        the entire field.</li>  *<li>DocCount is the number of documents that have at least one posting for this field.</li>  *<li>LongsSize records how many long values the postings writer/reader record per term  *        (e.g., to hold freq/prox/doc file offsets).  *<li>MinTerm, MaxTerm are the lowest and highest term in this field.</li>  *<li>PostingsHeader and TermMetadata are plugged into by the specific postings implementation:  *        these contain arbitrary per-file data (such as parameters or versioning information)   *        and per-term data (such as pointers to inverted files).</li>  *<li>For inner nodes of the tree, every entry will steal one bit to mark whether it points  *        to child nodes(sub-block). If so, the corresponding TermStats and TermMetaData are omitted</li>  *</ul>  *<a name="Termindex" id="Termindex"></a>  *<h3>Term Index</h3>  *<p>The .tip file contains an index into the term dictionary, so that it can be   * accessed randomly.  The index is also used to determine  * when a given term cannot exist on disk (in the .tim file), saving a disk seek.</p>  *<ul>  *<li>TermsIndex (.tip) --&gt; Header, FSTIndex<sup>NumFields</sup>  *&lt;IndexStartFP&gt;<sup>NumFields</sup>, DirOffset, Footer</li>  *<li>Header --&gt; {@link CodecUtil#writeHeader CodecHeader}</li>  *<li>DirOffset --&gt; {@link DataOutput#writeLong Uint64}</li>  *<li>IndexStartFP --&gt; {@link DataOutput#writeVLong VLong}</li>  *<!-- TODO: better describe FST output here -->  *<li>FSTIndex --&gt; {@link FST FST&lt;byte[]&gt;}</li>  *<li>Footer --&gt; {@link CodecUtil#writeFooter CodecFooter}</li>  *</ul>  *<p>Notes:</p>  *<ul>  *<li>The .tip file contains a separate FST for each  *       field.  The FST maps a term prefix to the on-disk  *       block that holds all terms starting with that  *       prefix.  Each field's IndexStartFP points to its  *       FST.</li>  *<li>DirOffset is a pointer to the start of the IndexStartFPs  *       for all fields</li>  *<li>It's possible that an on-disk block would contain  *       too many terms (more than the allowed maximum  *       (default: 48)).  When this happens, the block is  *       sub-divided into new blocks (called "floor  *       blocks"), and then the output in the FST for the  *       block's prefix encodes the leading byte of each  *       sub-block, and its file pointer.  *</ul>  *  * @see BlockTreeTermsReader  * @lucene.experimental  */
+comment|/**  * This is just like {@link BlockTreeTermsWriter}, except it also stores a version per term, and adds a method to its TermsEnum  * implementation to seekExact only if the version is>= the specified version.  The version is added to the terms index to avoid seeking if  * no term in the block has a high enough version.  The term blocks file is .tiv and the terms index extension is .tipv.  *  * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|BlockTreeTermsWriter
-specifier|public
+DECL|class|VersionBlockTreeTermsWriter
+specifier|final
 class|class
-name|BlockTreeTermsWriter
+name|VersionBlockTreeTermsWriter
 extends|extends
 name|FieldsConsumer
 block|{
-comment|/** Suggested default value for the {@code    *  minItemsInBlock} parameter to {@link    *  #BlockTreeTermsWriter(SegmentWriteState,PostingsWriterBase,int,int)}. */
+comment|// private static boolean DEBUG = IDVersionSegmentTermsEnum.DEBUG;
+DECL|field|FST_OUTPUTS
+specifier|static
+specifier|final
+name|PairOutputs
+argument_list|<
+name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
+name|FST_OUTPUTS
+init|=
+operator|new
+name|PairOutputs
+argument_list|<>
+argument_list|(
+name|ByteSequenceOutputs
+operator|.
+name|getSingleton
+argument_list|()
+argument_list|,
+name|PositiveIntOutputs
+operator|.
+name|getSingleton
+argument_list|()
+argument_list|)
+decl_stmt|;
+DECL|field|NO_OUTPUT
+specifier|static
+specifier|final
+name|Pair
+argument_list|<
+name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
+name|NO_OUTPUT
+init|=
+name|FST_OUTPUTS
+operator|.
+name|getNoOutput
+argument_list|()
+decl_stmt|;
+comment|/** Suggested default value for the {@code    *  minItemsInBlock} parameter to {@link    *  #VersionBlockTreeTermsWriter(SegmentWriteState,PostingsWriterBase,int,int)}. */
 DECL|field|DEFAULT_MIN_BLOCK_SIZE
 specifier|public
 specifier|final
@@ -380,7 +526,7 @@ name|DEFAULT_MIN_BLOCK_SIZE
 init|=
 literal|25
 decl_stmt|;
-comment|/** Suggested default value for the {@code    *  maxItemsInBlock} parameter to {@link    *  #BlockTreeTermsWriter(SegmentWriteState,PostingsWriterBase,int,int)}. */
+comment|/** Suggested default value for the {@code    *  maxItemsInBlock} parameter to {@link    *  #VersionBlockTreeTermsWriter(SegmentWriteState,PostingsWriterBase,int,int)}. */
 DECL|field|DEFAULT_MAX_BLOCK_SIZE
 specifier|public
 specifier|final
@@ -431,7 +577,7 @@ specifier|final
 name|String
 name|TERMS_EXTENSION
 init|=
-literal|"tim"
+literal|"tiv"
 decl_stmt|;
 DECL|field|TERMS_CODEC_NAME
 specifier|final
@@ -439,7 +585,7 @@ specifier|static
 name|String
 name|TERMS_CODEC_NAME
 init|=
-literal|"BLOCK_TREE_TERMS_DICT"
+literal|"VERSION_BLOCK_TREE_TERMS_DICT"
 decl_stmt|;
 comment|/** Initial terms format. */
 DECL|field|VERSION_START
@@ -451,46 +597,6 @@ name|VERSION_START
 init|=
 literal|0
 decl_stmt|;
-comment|/** Append-only */
-DECL|field|VERSION_APPEND_ONLY
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|VERSION_APPEND_ONLY
-init|=
-literal|1
-decl_stmt|;
-comment|/** Meta data as array */
-DECL|field|VERSION_META_ARRAY
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|VERSION_META_ARRAY
-init|=
-literal|2
-decl_stmt|;
-comment|/** checksums */
-DECL|field|VERSION_CHECKSUM
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|VERSION_CHECKSUM
-init|=
-literal|3
-decl_stmt|;
-comment|/** min/max term */
-DECL|field|VERSION_MIN_MAX_TERMS
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|VERSION_MIN_MAX_TERMS
-init|=
-literal|4
-decl_stmt|;
 comment|/** Current terms format. */
 DECL|field|VERSION_CURRENT
 specifier|public
@@ -499,7 +605,7 @@ specifier|final
 name|int
 name|VERSION_CURRENT
 init|=
-name|VERSION_MIN_MAX_TERMS
+name|VERSION_START
 decl_stmt|;
 comment|/** Extension of terms index file */
 DECL|field|TERMS_INDEX_EXTENSION
@@ -508,7 +614,7 @@ specifier|final
 name|String
 name|TERMS_INDEX_EXTENSION
 init|=
-literal|"tip"
+literal|"tipv"
 decl_stmt|;
 DECL|field|TERMS_INDEX_CODEC_NAME
 specifier|final
@@ -516,7 +622,7 @@ specifier|static
 name|String
 name|TERMS_INDEX_CODEC_NAME
 init|=
-literal|"BLOCK_TREE_TERMS_INDEX"
+literal|"VERSION_BLOCK_TREE_TERMS_INDEX"
 decl_stmt|;
 DECL|field|out
 specifier|private
@@ -570,7 +676,12 @@ decl_stmt|;
 DECL|field|rootCode
 specifier|public
 specifier|final
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 name|rootCode
 decl_stmt|;
 DECL|field|numTerms
@@ -584,24 +695,6 @@ specifier|public
 specifier|final
 name|long
 name|indexStartFP
-decl_stmt|;
-DECL|field|sumTotalTermFreq
-specifier|public
-specifier|final
-name|long
-name|sumTotalTermFreq
-decl_stmt|;
-DECL|field|sumDocFreq
-specifier|public
-specifier|final
-name|long
-name|sumDocFreq
-decl_stmt|;
-DECL|field|docCount
-specifier|public
-specifier|final
-name|int
-name|docCount
 decl_stmt|;
 DECL|field|longsSize
 specifier|private
@@ -628,7 +721,12 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 name|rootCode
 parameter_list|,
 name|long
@@ -636,15 +734,6 @@ name|numTerms
 parameter_list|,
 name|long
 name|indexStartFP
-parameter_list|,
-name|long
-name|sumTotalTermFreq
-parameter_list|,
-name|long
-name|sumDocFreq
-parameter_list|,
-name|int
-name|docCount
 parameter_list|,
 name|int
 name|longsSize
@@ -702,24 +791,6 @@ name|numTerms
 expr_stmt|;
 name|this
 operator|.
-name|sumTotalTermFreq
-operator|=
-name|sumTotalTermFreq
-expr_stmt|;
-name|this
-operator|.
-name|sumDocFreq
-operator|=
-name|sumDocFreq
-expr_stmt|;
-name|this
-operator|.
-name|docCount
-operator|=
-name|docCount
-expr_stmt|;
-name|this
-operator|.
 name|longsSize
 operator|=
 name|longsSize
@@ -754,9 +825,9 @@ argument_list|()
 decl_stmt|;
 comment|// private final String segment;
 comment|/** Create a new writer.  The number of items (terms or    *  sub-blocks) per block will aim to be between    *  minItemsPerBlock and maxItemsPerBlock, though in some    *  cases the blocks may be smaller than the min. */
-DECL|method|BlockTreeTermsWriter
+DECL|method|VersionBlockTreeTermsWriter
 specifier|public
-name|BlockTreeTermsWriter
+name|VersionBlockTreeTermsWriter
 parameter_list|(
 name|SegmentWriteState
 name|state
@@ -930,9 +1001,15 @@ name|maxItemsInBlock
 operator|=
 name|maxItemsInBlock
 expr_stmt|;
+name|CodecUtil
+operator|.
 name|writeHeader
 argument_list|(
 name|out
+argument_list|,
+name|TERMS_CODEC_NAME
+argument_list|,
+name|VERSION_CURRENT
 argument_list|)
 expr_stmt|;
 comment|//DEBUG = state.segmentName.equals("_4a");
@@ -972,9 +1049,15 @@ operator|.
 name|context
 argument_list|)
 expr_stmt|;
-name|writeIndexHeader
+name|CodecUtil
+operator|.
+name|writeHeader
 argument_list|(
 name|indexOut
+argument_list|,
+name|TERMS_INDEX_CODEC_NAME
+argument_list|,
+name|VERSION_CURRENT
 argument_list|)
 expr_stmt|;
 name|this
@@ -983,7 +1066,7 @@ name|postingsWriter
 operator|=
 name|postingsWriter
 expr_stmt|;
-comment|// segment = state.segmentName;
+comment|// segment = state.segmentInfo.name;
 comment|// System.out.println("BTW.init seg=" + state.segmentName);
 name|postingsWriter
 operator|.
@@ -1022,54 +1105,6 @@ operator|.
 name|indexOut
 operator|=
 name|indexOut
-expr_stmt|;
-block|}
-comment|/** Writes the terms file header. */
-DECL|method|writeHeader
-specifier|private
-name|void
-name|writeHeader
-parameter_list|(
-name|IndexOutput
-name|out
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|CodecUtil
-operator|.
-name|writeHeader
-argument_list|(
-name|out
-argument_list|,
-name|TERMS_CODEC_NAME
-argument_list|,
-name|VERSION_CURRENT
-argument_list|)
-expr_stmt|;
-block|}
-comment|/** Writes the index file header. */
-DECL|method|writeIndexHeader
-specifier|private
-name|void
-name|writeIndexHeader
-parameter_list|(
-name|IndexOutput
-name|out
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|CodecUtil
-operator|.
-name|writeHeader
-argument_list|(
-name|out
-argument_list|,
-name|TERMS_INDEX_CODEC_NAME
-argument_list|,
-name|VERSION_CURRENT
-argument_list|)
 expr_stmt|;
 block|}
 comment|/** Writes the terms file trailer. */
@@ -1458,7 +1493,12 @@ DECL|field|index
 specifier|public
 name|FST
 argument_list|<
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 argument_list|>
 name|index
 decl_stmt|;
@@ -1468,7 +1508,12 @@ name|List
 argument_list|<
 name|FST
 argument_list|<
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 argument_list|>
 argument_list|>
 name|subIndices
@@ -1501,12 +1546,22 @@ operator|new
 name|IntsRef
 argument_list|()
 decl_stmt|;
+comment|/** Max version for all terms in this block. */
+DECL|field|maxVersion
+specifier|private
+specifier|final
+name|long
+name|maxVersion
+decl_stmt|;
 DECL|method|PendingBlock
 specifier|public
 name|PendingBlock
 parameter_list|(
 name|BytesRef
 name|prefix
+parameter_list|,
+name|long
+name|maxVersion
 parameter_list|,
 name|long
 name|fp
@@ -1524,7 +1579,12 @@ name|List
 argument_list|<
 name|FST
 argument_list|<
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 argument_list|>
 argument_list|>
 name|subIndices
@@ -1540,6 +1600,12 @@ operator|.
 name|prefix
 operator|=
 name|prefix
+expr_stmt|;
+name|this
+operator|.
+name|maxVersion
+operator|=
+name|maxVersion
 expr_stmt|;
 name|this
 operator|.
@@ -1647,6 +1713,11 @@ argument_list|()
 operator|==
 literal|0
 assert|;
+name|long
+name|maxVersionIndex
+init|=
+name|maxVersion
+decl_stmt|;
 comment|// TODO: try writing the leading vLong in MSB order
 comment|// (opposite of what Lucene does today), for better
 comment|// outputs sharing in the FST
@@ -1695,6 +1766,19 @@ operator|!=
 operator|-
 literal|1
 assert|;
+name|maxVersionIndex
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|maxVersionIndex
+argument_list|,
+name|sub
+operator|.
+name|maxVersion
+argument_list|)
+expr_stmt|;
 comment|//if (DEBUG) {
 comment|//  System.out.println("    write floorLeadByte=" + Integer.toHexString(sub.floorLeadByte&0xff));
 comment|//}
@@ -1745,18 +1829,14 @@ expr_stmt|;
 block|}
 block|}
 specifier|final
-name|ByteSequenceOutputs
-name|outputs
-init|=
-name|ByteSequenceOutputs
-operator|.
-name|getSingleton
-argument_list|()
-decl_stmt|;
-specifier|final
 name|Builder
 argument_list|<
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 argument_list|>
 name|indexBuilder
 init|=
@@ -1782,7 +1862,7 @@ name|Integer
 operator|.
 name|MAX_VALUE
 argument_list|,
-name|outputs
+name|FST_OUTPUTS
 argument_list|,
 literal|null
 argument_list|,
@@ -1847,6 +1927,10 @@ argument_list|,
 name|scratchIntsRef
 argument_list|)
 argument_list|,
+name|FST_OUTPUTS
+operator|.
+name|newPair
+argument_list|(
 operator|new
 name|BytesRef
 argument_list|(
@@ -1857,6 +1941,13 @@ argument_list|,
 name|bytes
 operator|.
 name|length
+argument_list|)
+argument_list|,
+name|Long
+operator|.
+name|MAX_VALUE
+operator|-
+name|maxVersionIndex
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1877,7 +1968,12 @@ for|for
 control|(
 name|FST
 argument_list|<
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 argument_list|>
 name|subIndex
 range|:
@@ -1921,7 +2017,12 @@ for|for
 control|(
 name|FST
 argument_list|<
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 argument_list|>
 name|subIndex
 range|:
@@ -1970,13 +2071,23 @@ name|append
 parameter_list|(
 name|Builder
 argument_list|<
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 argument_list|>
 name|builder
 parameter_list|,
 name|FST
 argument_list|<
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 argument_list|>
 name|subIndex
 parameter_list|)
@@ -1986,7 +2097,12 @@ block|{
 specifier|final
 name|BytesRefFSTEnum
 argument_list|<
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 argument_list|>
 name|subIndexEnum
 init|=
@@ -2001,7 +2117,12 @@ name|BytesRefFSTEnum
 operator|.
 name|InputOutput
 argument_list|<
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 argument_list|>
 name|indexEnt
 decl_stmt|;
@@ -2079,14 +2200,6 @@ DECL|field|docsSeen
 specifier|final
 name|FixedBitSet
 name|docsSeen
-decl_stmt|;
-DECL|field|sumTotalTermFreq
-name|long
-name|sumTotalTermFreq
-decl_stmt|;
-DECL|field|sumDocFreq
-name|long
-name|sumDocFreq
 decl_stmt|;
 DECL|field|indexStartFP
 name|long
@@ -2442,10 +2555,6 @@ name|IOException
 block|{
 if|if
 condition|(
-name|prefixLength
-operator|==
-literal|0
-operator|||
 name|count
 operator|<=
 name|maxItemsInBlock
@@ -2507,15 +2616,7 @@ comment|// block and following floor blocks using the first
 comment|// label in the suffix to assign to floor blocks.
 comment|// TODO: we could store min& max suffix start byte
 comment|// in each block, to make floor blocks authoritative
-comment|//if (DEBUG) {
-comment|//  final BytesRef prefix = new BytesRef(prefixLength);
-comment|//  for(int m=0;m<prefixLength;m++) {
-comment|//    prefix.bytes[m] = (byte) prevTerm.ints[m];
-comment|//  }
-comment|//  prefix.length = prefixLength;
-comment|//  //System.out.println("\nWBS count=" + count + " prefix=" + prefix.utf8ToString() + " " + prefix);
-comment|//  System.out.println("writeBlocks: prefix=" + prefix + " " + prefix + " count=" + count + " pending.size()=" + pending.size());
-comment|//}
+comment|/*         if (DEBUG) {           final BytesRef prefix = new BytesRef(prefixLength);           for(int m=0;m<prefixLength;m++) {             prefix.bytes[m] = (byte) prevTerm.ints[m];           }           prefix.length = prefixLength;           //System.out.println("\nWBS count=" + count + " prefix=" + prefix.utf8ToString() + " " + prefix);           System.out.println("writeBlocks: prefix=" + toString(prefix) + " " + prefix + " count=" + count + " pending.size()=" + pending.size());         }         */
 comment|//System.out.println("\nwbs count=" + count);
 specifier|final
 name|int
@@ -3516,7 +3617,7 @@ operator|)
 argument_list|)
 expr_stmt|;
 comment|// if (DEBUG) {
-comment|//   System.out.println("  writeBlock " + (isFloor ? "(floor) " : "") + "seg=" + segment + " pending.size()=" + pending.size() + " prefixLength=" + prefixLength + " indexPrefix=" + toString(prefix) + " entCount=" + length + " startFP=" + startFP + " futureTermCount=" + futureTermCount + (isFloor ? (" floorLeadByte=" + Integer.toHexString(floorLeadByte&0xff)) : "") + " isLastInFloor=" + isLastInFloor);
+comment|//  System.out.println("  writeBlock " + (isFloor ? "(floor) " : "") + "seg=" + segment + " pending.size()=" + pending.size() + " prefixLength=" + prefixLength + " indexPrefix=" + toString(prefix) + " entCount=" + length + " startFP=" + startFP + " futureTermCount=" + futureTermCount + (isFloor ? (" floorLeadByte=" + Integer.toHexString(floorLeadByte&0xff)) : "") + " isLastInFloor=" + isLastInFloor);
 comment|// }
 comment|// 1st pass: pack term suffix bytes into byte[] blob
 comment|// TODO: cutover to bulk int codec... simple64?
@@ -3594,7 +3695,12 @@ name|List
 argument_list|<
 name|FST
 argument_list|<
+name|Pair
+argument_list|<
 name|BytesRef
+argument_list|,
+name|Long
+argument_list|>
 argument_list|>
 argument_list|>
 name|subIndices
@@ -3617,6 +3723,13 @@ name|absolute
 init|=
 literal|true
 decl_stmt|;
+name|long
+name|maxVersionInBlock
+init|=
+operator|-
+literal|1
+decl_stmt|;
+comment|// int countx = 0;
 if|if
 condition|(
 name|isLeafBlock
@@ -3654,6 +3767,24 @@ name|term
 operator|.
 name|state
 decl_stmt|;
+name|maxVersionInBlock
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|maxVersionInBlock
+argument_list|,
+operator|(
+operator|(
+name|IDVersionTermState
+operator|)
+name|state
+operator|)
+operator|.
+name|idVersion
+argument_list|)
+expr_stmt|;
 specifier|final
 name|int
 name|suffix
@@ -3667,10 +3798,10 @@ operator|-
 name|prefixLength
 decl_stmt|;
 comment|// if (DEBUG) {
-comment|//   BytesRef suffixBytes = new BytesRef(suffix);
-comment|//   System.arraycopy(term.term.bytes, prefixLength, suffixBytes.bytes, 0, suffix);
-comment|//   suffixBytes.length = suffix;
-comment|//   System.out.println("    write term suffix=" + suffixBytes);
+comment|//    BytesRef suffixBytes = new BytesRef(suffix);
+comment|//    System.arraycopy(term.term.bytes, prefixLength, suffixBytes.bytes, 0, suffix);
+comment|//    suffixBytes.length = suffix;
+comment|//    System.out.println("    " + (countx++) + ": write term suffix=" + toString(suffixBytes));
 comment|// }
 comment|// For leaf block we write suffix straight
 name|suffixWriter
@@ -3695,61 +3826,6 @@ argument_list|,
 name|suffix
 argument_list|)
 expr_stmt|;
-comment|// Write term stats, to separate byte[] blob:
-name|statsWriter
-operator|.
-name|writeVInt
-argument_list|(
-name|state
-operator|.
-name|docFreq
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|fieldInfo
-operator|.
-name|getIndexOptions
-argument_list|()
-operator|!=
-name|IndexOptions
-operator|.
-name|DOCS_ONLY
-condition|)
-block|{
-assert|assert
-name|state
-operator|.
-name|totalTermFreq
-operator|>=
-name|state
-operator|.
-name|docFreq
-operator|:
-name|state
-operator|.
-name|totalTermFreq
-operator|+
-literal|" vs "
-operator|+
-name|state
-operator|.
-name|docFreq
-assert|;
-name|statsWriter
-operator|.
-name|writeVLong
-argument_list|(
-name|state
-operator|.
-name|totalTermFreq
-operator|-
-name|state
-operator|.
-name|docFreq
-argument_list|)
-expr_stmt|;
-block|}
 comment|// Write term meta data
 name|postingsWriter
 operator|.
@@ -3865,6 +3941,24 @@ name|term
 operator|.
 name|state
 decl_stmt|;
+name|maxVersionInBlock
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|maxVersionInBlock
+argument_list|,
+operator|(
+operator|(
+name|IDVersionTermState
+operator|)
+name|state
+operator|)
+operator|.
+name|idVersion
+argument_list|)
+expr_stmt|;
 specifier|final
 name|int
 name|suffix
@@ -3878,10 +3972,10 @@ operator|-
 name|prefixLength
 decl_stmt|;
 comment|// if (DEBUG) {
-comment|//   BytesRef suffixBytes = new BytesRef(suffix);
-comment|//   System.arraycopy(term.term.bytes, prefixLength, suffixBytes.bytes, 0, suffix);
-comment|//   suffixBytes.length = suffix;
-comment|//   System.out.println("    write term suffix=" + suffixBytes);
+comment|//    BytesRef suffixBytes = new BytesRef(suffix);
+comment|//    System.arraycopy(term.term.bytes, prefixLength, suffixBytes.bytes, 0, suffix);
+comment|//    suffixBytes.length = suffix;
+comment|//    System.out.println("    " + (countx++) + ": write term suffix=" + toString(suffixBytes));
 comment|// }
 comment|// For non-leaf block we borrow 1 bit to record
 comment|// if entry is term or sub-block
@@ -3909,51 +4003,6 @@ argument_list|,
 name|suffix
 argument_list|)
 expr_stmt|;
-comment|// Write term stats, to separate byte[] blob:
-name|statsWriter
-operator|.
-name|writeVInt
-argument_list|(
-name|state
-operator|.
-name|docFreq
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|fieldInfo
-operator|.
-name|getIndexOptions
-argument_list|()
-operator|!=
-name|IndexOptions
-operator|.
-name|DOCS_ONLY
-condition|)
-block|{
-assert|assert
-name|state
-operator|.
-name|totalTermFreq
-operator|>=
-name|state
-operator|.
-name|docFreq
-assert|;
-name|statsWriter
-operator|.
-name|writeVLong
-argument_list|(
-name|state
-operator|.
-name|totalTermFreq
-operator|-
-name|state
-operator|.
-name|docFreq
-argument_list|)
-expr_stmt|;
-block|}
 comment|// TODO: now that terms dict "sees" these longs,
 comment|// we can explore better column-stride encodings
 comment|// to encode all long[0]s for this block at
@@ -4041,6 +4090,19 @@ name|PendingBlock
 operator|)
 name|ent
 decl_stmt|;
+name|maxVersionInBlock
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|maxVersionInBlock
+argument_list|,
+name|block
+operator|.
+name|maxVersion
+argument_list|)
+expr_stmt|;
 specifier|final
 name|int
 name|suffix
@@ -4096,10 +4158,10 @@ operator|<
 name|startFP
 assert|;
 comment|// if (DEBUG) {
-comment|//   BytesRef suffixBytes = new BytesRef(suffix);
-comment|//   System.arraycopy(block.prefix.bytes, prefixLength, suffixBytes.bytes, 0, suffix);
-comment|//   suffixBytes.length = suffix;
-comment|//   System.out.println("    write sub-block suffix=" + toString(suffixBytes) + " subFP=" + block.fp + " subCode=" + (startFP-block.fp) + " floor=" + block.isFloor);
+comment|//    BytesRef suffixBytes = new BytesRef(suffix);
+comment|//    System.arraycopy(block.prefix.bytes, prefixLength, suffixBytes.bytes, 0, suffix);
+comment|//    suffixBytes.length = suffix;
+comment|//    System.out.println("    " + (countx++) + ": write sub-block suffix=" + toString(suffixBytes) + " subFP=" + block.fp + " subCode=" + (startFP-block.fp) + " floor=" + block.isFloor);
 comment|// }
 name|suffixWriter
 operator|.
@@ -4173,32 +4235,6 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-comment|// Write term stats byte[] blob
-name|out
-operator|.
-name|writeVInt
-argument_list|(
-operator|(
-name|int
-operator|)
-name|statsWriter
-operator|.
-name|getFilePointer
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|statsWriter
-operator|.
-name|writeTo
-argument_list|(
-name|out
-argument_list|)
-expr_stmt|;
-name|statsWriter
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 comment|// Write term meta data byte[] blob
 name|out
 operator|.
@@ -4268,6 +4304,8 @@ operator|new
 name|PendingBlock
 argument_list|(
 name|prefix
+argument_list|,
+name|maxVersionInBlock
 argument_list|,
 name|startFP
 argument_list|,
@@ -4406,11 +4444,24 @@ argument_list|,
 name|docsSeen
 argument_list|)
 decl_stmt|;
+comment|// TODO: LUCENE-5693: we don't need this check if we fix IW to not send deleted docs to us on flush:
 if|if
 condition|(
 name|state
 operator|!=
 literal|null
+operator|&&
+operator|(
+operator|(
+name|IDVersionPostingsWriter
+operator|)
+name|postingsWriter
+operator|)
+operator|.
+name|lastDocID
+operator|!=
+operator|-
+literal|1
 condition|)
 block|{
 assert|assert
@@ -4442,18 +4493,6 @@ literal|"postingsWriter="
 operator|+
 name|postingsWriter
 assert|;
-name|sumDocFreq
-operator|+=
-name|state
-operator|.
-name|docFreq
-expr_stmt|;
-name|sumTotalTermFreq
-operator|+=
-name|state
-operator|.
-name|totalTermFreq
-expr_stmt|;
 name|blockBuilder
 operator|.
 name|add
@@ -4646,15 +4685,6 @@ name|numTerms
 argument_list|,
 name|indexStartFP
 argument_list|,
-name|sumTotalTermFreq
-argument_list|,
-name|sumDocFreq
-argument_list|,
-name|docsSeen
-operator|.
-name|cardinality
-argument_list|()
-argument_list|,
 name|longsSize
 argument_list|,
 name|minTerm
@@ -4666,38 +4696,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-assert|assert
-name|sumTotalTermFreq
-operator|==
-literal|0
-operator|||
-name|fieldInfo
-operator|.
-name|getIndexOptions
-argument_list|()
-operator|==
-name|IndexOptions
-operator|.
-name|DOCS_ONLY
-operator|&&
-name|sumTotalTermFreq
-operator|==
-operator|-
-literal|1
-assert|;
-assert|assert
-name|sumDocFreq
-operator|==
-literal|0
-assert|;
-assert|assert
-name|docsSeen
-operator|.
-name|cardinality
-argument_list|()
-operator|==
-literal|0
-assert|;
+comment|// cannot assert this: we skip deleted docIDs in the postings:
+comment|// assert docsSeen.cardinality() == 0;
 block|}
 block|}
 DECL|field|suffixWriter
@@ -4705,16 +4705,6 @@ specifier|private
 specifier|final
 name|RAMOutputStream
 name|suffixWriter
-init|=
-operator|new
-name|RAMOutputStream
-argument_list|()
-decl_stmt|;
-DECL|field|statsWriter
-specifier|private
-specifier|final
-name|RAMOutputStream
-name|statsWriter
 init|=
 operator|new
 name|RAMOutputStream
@@ -4830,6 +4820,8 @@ name|field
 operator|.
 name|rootCode
 operator|.
+name|output1
+operator|.
 name|length
 argument_list|)
 expr_stmt|;
@@ -4841,11 +4833,15 @@ name|field
 operator|.
 name|rootCode
 operator|.
+name|output1
+operator|.
 name|bytes
 argument_list|,
 name|field
 operator|.
 name|rootCode
+operator|.
+name|output1
 operator|.
 name|offset
 argument_list|,
@@ -4853,49 +4849,20 @@ name|field
 operator|.
 name|rootCode
 operator|.
+name|output1
+operator|.
 name|length
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|field
-operator|.
-name|fieldInfo
-operator|.
-name|getIndexOptions
-argument_list|()
-operator|!=
-name|IndexOptions
-operator|.
-name|DOCS_ONLY
-condition|)
-block|{
 name|out
 operator|.
 name|writeVLong
 argument_list|(
 name|field
 operator|.
-name|sumTotalTermFreq
-argument_list|)
-expr_stmt|;
-block|}
-name|out
+name|rootCode
 operator|.
-name|writeVLong
-argument_list|(
-name|field
-operator|.
-name|sumDocFreq
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|writeVInt
-argument_list|(
-name|field
-operator|.
-name|docCount
+name|output2
 argument_list|)
 expr_stmt|;
 name|out
