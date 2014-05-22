@@ -393,12 +393,6 @@ name|float
 name|coords
 index|[]
 decl_stmt|;
-DECL|field|disjunction
-specifier|private
-specifier|final
-name|Scorer
-name|disjunction
-decl_stmt|;
 DECL|method|ReqMultiOptScorer
 specifier|public
 name|ReqMultiOptScorer
@@ -435,12 +429,6 @@ operator|.
 name|coords
 operator|=
 name|coords
-expr_stmt|;
-name|this
-operator|.
-name|disjunction
-operator|=
-name|optScorer
 expr_stmt|;
 block|}
 annotation|@
@@ -544,7 +532,7 @@ name|coords
 index|[
 name|requiredCount
 operator|+
-name|disjunction
+name|optScorer
 operator|.
 name|freq
 argument_list|()
