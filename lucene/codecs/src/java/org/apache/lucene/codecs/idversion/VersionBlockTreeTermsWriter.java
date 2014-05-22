@@ -226,19 +226,6 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|DataOutput
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
 name|IndexOutput
 import|;
 end_import
@@ -393,21 +380,6 @@ operator|.
 name|fst
 operator|.
 name|NoOutputs
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|fst
-operator|.
-name|Outputs
 import|;
 end_import
 begin_import
@@ -851,12 +823,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|segment
-specifier|private
-specifier|final
-name|String
-name|segment
-decl_stmt|;
+comment|// private final String segment;
 comment|/** Create a new writer.  The number of items (terms or    *  sub-blocks) per block will aim to be between    *  minItemsPerBlock and maxItemsPerBlock, though in some    *  cases the blocks may be smaller than the min. */
 DECL|method|VersionBlockTreeTermsWriter
 specifier|public
@@ -1099,14 +1066,7 @@ name|postingsWriter
 operator|=
 name|postingsWriter
 expr_stmt|;
-name|segment
-operator|=
-name|state
-operator|.
-name|segmentInfo
-operator|.
-name|name
-expr_stmt|;
+comment|// segment = state.segmentInfo.name;
 comment|// System.out.println("BTW.init seg=" + state.segmentName);
 name|postingsWriter
 operator|.
@@ -3769,11 +3729,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-name|int
-name|countx
-init|=
-literal|0
-decl_stmt|;
+comment|// int countx = 0;
 if|if
 condition|(
 name|isLeafBlock
@@ -4740,14 +4696,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-assert|assert
-name|docsSeen
-operator|.
-name|cardinality
-argument_list|()
-operator|==
-literal|0
-assert|;
+comment|// cannot assert this: we skip deleted docIDs in the postings:
+comment|// assert docsSeen.cardinality() == 0;
 block|}
 block|}
 DECL|field|suffixWriter
@@ -4755,16 +4705,6 @@ specifier|private
 specifier|final
 name|RAMOutputStream
 name|suffixWriter
-init|=
-operator|new
-name|RAMOutputStream
-argument_list|()
-decl_stmt|;
-DECL|field|statsWriter
-specifier|private
-specifier|final
-name|RAMOutputStream
-name|statsWriter
 init|=
 operator|new
 name|RAMOutputStream
