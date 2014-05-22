@@ -4159,7 +4159,7 @@ condition|)
 block|{
 name|outputs
 operator|.
-name|read
+name|skipOutput
 argument_list|(
 name|in
 argument_list|)
@@ -4177,7 +4177,7 @@ condition|)
 block|{
 name|outputs
 operator|.
-name|readFinalOutput
+name|skipFinalOutput
 argument_list|(
 name|in
 argument_list|)
@@ -5839,7 +5839,7 @@ condition|)
 block|{
 name|outputs
 operator|.
-name|read
+name|skipOutput
 argument_list|(
 name|in
 argument_list|)
@@ -5857,7 +5857,7 @@ condition|)
 block|{
 name|outputs
 operator|.
-name|readFinalOutput
+name|skipFinalOutput
 argument_list|(
 name|in
 argument_list|)
@@ -6061,17 +6061,6 @@ specifier|abstract
 name|boolean
 name|reversed
 parameter_list|()
-function_decl|;
-comment|/** Skips bytes. */
-DECL|method|skipBytes
-specifier|public
-specifier|abstract
-name|void
-name|skipBytes
-parameter_list|(
-name|int
-name|count
-parameter_list|)
 function_decl|;
 block|}
 DECL|class|ArcAndState

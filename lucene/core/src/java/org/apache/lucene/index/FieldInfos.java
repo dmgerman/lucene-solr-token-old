@@ -1356,6 +1356,9 @@ name|docValues
 argument_list|,
 name|normType
 argument_list|,
+operator|-
+literal|1
+argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;

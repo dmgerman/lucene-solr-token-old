@@ -1983,6 +1983,9 @@ literal|1L
 argument_list|,
 operator|-
 literal|1L
+argument_list|,
+operator|-
+literal|1L
 argument_list|)
 decl_stmt|;
 if|if
@@ -2012,18 +2015,9 @@ literal|null
 condition|?
 literal|0
 else|:
-operator|(
-name|flushState
-operator|.
-name|segmentInfo
-operator|.
-name|getDocCount
-argument_list|()
-operator|-
 name|flushState
 operator|.
 name|delCountOnFlush
-operator|)
 operator|)
 operator|+
 literal|" deleted docs"

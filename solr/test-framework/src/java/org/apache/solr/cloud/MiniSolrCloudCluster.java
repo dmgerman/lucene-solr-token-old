@@ -227,7 +227,7 @@ specifier|private
 name|File
 name|testDir
 decl_stmt|;
-comment|/**    * "Mini" SolrCloud cluster to be used for testing    * @param numServers number of Solr servers to start    * @param hostContext context path of Solr servers used by Jetty    * @param solrXml solr.xml file to be uploaded to ZooKeeper    * @param extraServlets Extra servlets to be started by Jetty    * @param extraRequestFilters extra filters to be started by Jetty    */
+comment|/**    * "Mini" SolrCloud cluster to be used for testing    * @param numServers number of Solr servers to start    * @param hostContext context path of Solr servers used by Jetty    * @param baseDir base directory that the mini cluster should be run from    * @param solrXml solr.xml file to be uploaded to ZooKeeper    * @param extraServlets Extra servlets to be started by Jetty    * @param extraRequestFilters extra filters to be started by Jetty    */
 DECL|method|MiniSolrCloudCluster
 specifier|public
 name|MiniSolrCloudCluster
@@ -237,6 +237,9 @@ name|numServers
 parameter_list|,
 name|String
 name|hostContext
+parameter_list|,
+name|File
+name|baseDir
 parameter_list|,
 name|File
 name|solrXml
@@ -262,10 +265,7 @@ name|Exception
 block|{
 name|testDir
 operator|=
-name|Files
-operator|.
-name|createTempDir
-argument_list|()
+name|baseDir
 expr_stmt|;
 name|String
 name|zkDir

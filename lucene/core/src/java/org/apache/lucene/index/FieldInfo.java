@@ -108,11 +108,7 @@ DECL|field|dvGen
 specifier|private
 name|long
 name|dvGen
-init|=
-operator|-
-literal|1
 decl_stmt|;
-comment|// the DocValues generation of this field
 comment|/**    * Controls how much information is stored in the postings lists.    * @lucene.experimental    */
 DECL|enum|IndexOptions
 specifier|public
@@ -194,6 +190,9 @@ name|docValues
 parameter_list|,
 name|DocValuesType
 name|normsType
+parameter_list|,
+name|long
+name|dvGen
 parameter_list|,
 name|Map
 argument_list|<
@@ -305,6 +304,12 @@ expr_stmt|;
 block|}
 name|this
 operator|.
+name|dvGen
+operator|=
+name|dvGen
+expr_stmt|;
+name|this
+operator|.
 name|attributes
 operator|=
 name|attributes
@@ -384,6 +389,20 @@ operator|!
 name|this
 operator|.
 name|storePayloads
+assert|;
+block|}
+if|if
+condition|(
+name|dvGen
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+assert|assert
+name|docValueType
+operator|!=
+literal|null
 assert|;
 block|}
 return|return
@@ -658,7 +677,6 @@ return|;
 block|}
 comment|/** Sets the docValues generation of this field. */
 DECL|method|setDocValuesGen
-specifier|public
 name|void
 name|setDocValuesGen
 parameter_list|(
@@ -672,6 +690,10 @@ name|dvGen
 operator|=
 name|dvGen
 expr_stmt|;
+assert|assert
+name|checkConsistency
+argument_list|()
+assert|;
 block|}
 comment|/**    * Returns the docValues generation of this field, or -1 if no docValues    * updates exist for it.    */
 DECL|method|getDocValuesGen

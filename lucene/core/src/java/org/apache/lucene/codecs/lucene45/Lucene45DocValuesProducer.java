@@ -545,6 +545,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Version
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|packed
 operator|.
 name|BlockPackedReader
@@ -672,6 +685,19 @@ specifier|final
 name|int
 name|version
 decl_stmt|;
+comment|// We need this for pre-4.9 indexes which recorded multiple fields' DocValues
+comment|// updates under the same generation, and therefore the passed FieldInfos may
+comment|// not include all the fields that are encoded in this generation. In that
+comment|// case, we are more lenient about the fields we read and the passed-in
+comment|// FieldInfos.
+annotation|@
+name|Deprecated
+DECL|field|lenientFieldInfoCheck
+specifier|private
+specifier|final
+name|boolean
+name|lenientFieldInfoCheck
+decl_stmt|;
 comment|// memory-resident structures
 DECL|field|addressInstances
 specifier|private
@@ -706,6 +732,11 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** expert: instantiates a new reader */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"deprecation"
+argument_list|)
 DECL|method|Lucene45DocValuesProducer
 specifier|protected
 name|Lucene45DocValuesProducer
@@ -728,6 +759,53 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|Version
+name|ver
+decl_stmt|;
+try|try
+block|{
+name|ver
+operator|=
+name|Version
+operator|.
+name|parseLeniently
+argument_list|(
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|ver
+operator|=
+literal|null
+expr_stmt|;
+block|}
+name|lenientFieldInfoCheck
+operator|=
+name|ver
+operator|==
+literal|null
+operator|||
+operator|!
+name|ver
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|LUCENE_4_9
+argument_list|)
+expr_stmt|;
 name|String
 name|metaName
 init|=
@@ -1443,13 +1521,29 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|// check should be: infos.fieldInfo(fieldNumber) != null, which incorporates negative check
-comment|// but docvalues updates are currently buggy here (loading extra stuff, etc): LUCENE-5616
 if|if
 condition|(
+operator|(
+name|lenientFieldInfoCheck
+operator|&&
 name|fieldNumber
 operator|<
 literal|0
+operator|)
+operator|||
+operator|(
+operator|!
+name|lenientFieldInfoCheck
+operator|&&
+name|infos
+operator|.
+name|fieldInfo
+argument_list|(
+name|fieldNumber
+argument_list|)
+operator|==
+literal|null
+operator|)
 condition|)
 block|{
 comment|// trickier to validate more: because we re-use for norms, because we use multiple entries
