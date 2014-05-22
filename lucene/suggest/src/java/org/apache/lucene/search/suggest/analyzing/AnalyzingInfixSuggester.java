@@ -1362,6 +1362,10 @@ condition|(
 name|success
 operator|==
 literal|false
+operator|&&
+name|writer
+operator|!=
+literal|null
 condition|)
 block|{
 name|writer
