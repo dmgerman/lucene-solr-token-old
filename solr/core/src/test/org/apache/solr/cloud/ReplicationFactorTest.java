@@ -1327,6 +1327,14 @@ operator|.
 name|reopen
 argument_list|()
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
+comment|// give time for the healed partition to get propagated
 name|ensureAllReplicasAreActive
 argument_list|(
 name|testCollectionName
@@ -1789,6 +1797,26 @@ operator|.
 name|reopen
 argument_list|()
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
+name|ensureAllReplicasAreActive
+argument_list|(
+name|testCollectionName
+argument_list|,
+name|shardId
+argument_list|,
+name|numShards
+argument_list|,
+name|replicationFactor
+argument_list|,
+literal|30
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getProxyForReplica
 specifier|protected
@@ -2053,6 +2081,14 @@ operator|.
 name|getZkStateReader
 argument_list|()
 decl_stmt|;
+name|zkr
+operator|.
+name|updateClusterState
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// force the state to be fresh
 name|ClusterState
 name|cs
 init|=
@@ -2185,6 +2221,33 @@ expr_stmt|;
 name|assertNotNull
 argument_list|(
 name|leader
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Found "
+operator|+
+name|replicas
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" replicas and leader on "
+operator|+
+name|leader
+operator|.
+name|getNodeName
+argument_list|()
+operator|+
+literal|" for "
+operator|+
+name|shardId
+operator|+
+literal|" in "
+operator|+
+name|testCollectionName
 argument_list|)
 expr_stmt|;
 comment|// ensure all replicas are "active" and identify the non-leader replica
