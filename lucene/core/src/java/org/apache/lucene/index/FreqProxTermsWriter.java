@@ -320,6 +320,13 @@ argument_list|(
 name|deleteTerm
 argument_list|)
 decl_stmt|;
+assert|assert
+name|delDocLimit
+operator|<
+name|DocsEnum
+operator|.
+name|NO_MORE_DOCS
+assert|;
 while|while
 condition|(
 literal|true
@@ -516,7 +523,7 @@ argument_list|(
 name|allFields
 argument_list|)
 expr_stmt|;
-name|FreqProxFields
+name|Fields
 name|fields
 init|=
 operator|new
