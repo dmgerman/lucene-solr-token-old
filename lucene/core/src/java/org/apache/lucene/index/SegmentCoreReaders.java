@@ -102,7 +102,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SegmentReader
+name|AtomicReader
 operator|.
 name|CoreClosedListener
 import|;
