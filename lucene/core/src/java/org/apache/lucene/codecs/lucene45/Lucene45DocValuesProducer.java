@@ -982,12 +982,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|success
-operator|=
-literal|false
-expr_stmt|;
-try|try
-block|{
 name|String
 name|dataName
 init|=
@@ -1008,6 +1002,8 @@ argument_list|,
 name|dataExtension
 argument_list|)
 decl_stmt|;
+name|this
+operator|.
 name|data
 operator|=
 name|state
@@ -1023,6 +1019,12 @@ operator|.
 name|context
 argument_list|)
 expr_stmt|;
+name|success
+operator|=
+literal|false
+expr_stmt|;
+try|try
+block|{
 specifier|final
 name|int
 name|version2
