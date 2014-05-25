@@ -149,6 +149,15 @@ name|TestRequestStatusCollectionAPI
 extends|extends
 name|BasicDistributedZkTest
 block|{
+DECL|field|MAX_WAIT_TIMEOUT_SECONDS
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|MAX_WAIT_TIMEOUT_SECONDS
+init|=
+literal|90
+decl_stmt|;
 DECL|method|TestRequestStatusCollectionAPI
 specifier|public
 name|TestRequestStatusCollectionAPI
@@ -296,11 +305,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Check for the request to be completed.
-name|int
-name|maxCounter
-init|=
-literal|10
-decl_stmt|;
 name|NamedList
 name|r
 init|=
@@ -357,7 +361,7 @@ name|sendStatusRequestWithRetry
 argument_list|(
 name|params
 argument_list|,
-literal|10
+name|MAX_WAIT_TIMEOUT_SECONDS
 argument_list|)
 expr_stmt|;
 block|}
@@ -622,7 +626,7 @@ name|sendStatusRequestWithRetry
 argument_list|(
 name|params
 argument_list|,
-name|maxCounter
+name|MAX_WAIT_TIMEOUT_SECONDS
 argument_list|)
 expr_stmt|;
 block|}
@@ -810,7 +814,7 @@ name|sendStatusRequestWithRetry
 argument_list|(
 name|params
 argument_list|,
-literal|10
+name|MAX_WAIT_TIMEOUT_SECONDS
 argument_list|)
 expr_stmt|;
 block|}
