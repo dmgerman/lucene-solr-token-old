@@ -540,7 +540,7 @@ parameter_list|,
 name|String
 name|field
 parameter_list|,
-name|Long
+name|long
 name|value
 parameter_list|)
 throws|throws
@@ -565,7 +565,12 @@ name|term
 argument_list|,
 name|field
 argument_list|,
+name|Long
+operator|.
+name|valueOf
+argument_list|(
 name|value
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
