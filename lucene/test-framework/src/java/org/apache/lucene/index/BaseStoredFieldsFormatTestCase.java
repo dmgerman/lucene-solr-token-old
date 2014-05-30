@@ -3853,9 +3853,6 @@ argument_list|,
 name|dir
 argument_list|,
 name|iwConf
-operator|.
-name|clone
-argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -4171,6 +4168,21 @@ operator|.
 name|shutdown
 argument_list|()
 expr_stmt|;
+name|IndexWriterConfig
+name|iwConfNew
+init|=
+name|newIndexWriterConfig
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
+operator|new
+name|MockAnalyzer
+argument_list|(
+name|random
+argument_list|()
+argument_list|)
+argument_list|)
+decl_stmt|;
 comment|// test merging against a non-compressing codec
 if|if
 condition|(
@@ -4182,7 +4194,7 @@ operator|==
 name|otherCodec
 condition|)
 block|{
-name|iwConf
+name|iwConfNew
 operator|.
 name|setCodec
 argument_list|(
@@ -4195,7 +4207,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|iwConf
+name|iwConfNew
 operator|.
 name|setCodec
 argument_list|(
@@ -4203,6 +4215,10 @@ name|otherCodec
 argument_list|)
 expr_stmt|;
 block|}
+name|iwConf
+operator|=
+name|iwConfNew
+expr_stmt|;
 name|iw
 operator|=
 operator|new
@@ -4214,9 +4230,6 @@ argument_list|,
 name|dir
 argument_list|,
 name|iwConf
-operator|.
-name|clone
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

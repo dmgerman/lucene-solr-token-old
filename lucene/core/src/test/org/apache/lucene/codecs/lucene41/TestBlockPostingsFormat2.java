@@ -221,10 +221,6 @@ DECL|field|iw
 name|RandomIndexWriter
 name|iw
 decl_stmt|;
-DECL|field|iwc
-name|IndexWriterConfig
-name|iwc
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp
@@ -250,8 +246,9 @@ literal|"testDFBlockSize"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|IndexWriterConfig
 name|iwc
-operator|=
+init|=
 name|newIndexWriterConfig
 argument_list|(
 name|TEST_VERSION_CURRENT
@@ -263,7 +260,7 @@ name|random
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|iwc
 operator|.
 name|setCodec
@@ -289,9 +286,6 @@ argument_list|,
 name|dir
 argument_list|,
 name|iwc
-operator|.
-name|clone
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|iw
@@ -326,6 +320,21 @@ name|dir
 argument_list|)
 expr_stmt|;
 comment|// for some extra coverage, checkIndex before we forceMerge
+name|IndexWriterConfig
+name|iwc
+init|=
+name|newIndexWriterConfig
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
+operator|new
+name|MockAnalyzer
+argument_list|(
+name|random
+argument_list|()
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|iwc
 operator|.
 name|setOpenMode
@@ -344,9 +353,6 @@ argument_list|(
 name|dir
 argument_list|,
 name|iwc
-operator|.
-name|clone
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|iw
