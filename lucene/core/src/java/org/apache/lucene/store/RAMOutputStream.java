@@ -45,6 +45,19 @@ operator|.
 name|Checksum
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Accountable
+import|;
+end_import
 begin_comment
 comment|/**  * A memory-resident {@link IndexOutput} implementation.  *  * @lucene.internal  */
 end_comment
@@ -55,6 +68,8 @@ class|class
 name|RAMOutputStream
 extends|extends
 name|IndexOutput
+implements|implements
+name|Accountable
 block|{
 DECL|field|BUFFER_SIZE
 specifier|static
@@ -727,10 +742,12 @@ name|bufferPosition
 return|;
 block|}
 comment|/** Returns byte usage of all buffers. */
-DECL|method|sizeInBytes
+annotation|@
+name|Override
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|sizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 return|return

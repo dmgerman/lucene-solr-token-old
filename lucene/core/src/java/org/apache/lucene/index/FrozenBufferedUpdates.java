@@ -581,7 +581,7 @@ name|int
 operator|)
 name|terms
 operator|.
-name|getSizeInBytes
+name|ramBytesUsed
 argument_list|()
 operator|+
 name|queries

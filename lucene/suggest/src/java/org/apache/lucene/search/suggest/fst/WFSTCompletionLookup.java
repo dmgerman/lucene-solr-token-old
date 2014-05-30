@@ -1624,10 +1624,10 @@ decl_stmt|;
 comment|/** Returns byte size of the underlying FST. */
 annotation|@
 name|Override
-DECL|method|sizeInBytes
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|sizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 return|return
@@ -1641,7 +1641,7 @@ literal|0
 else|:
 name|fst
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 return|;
 block|}

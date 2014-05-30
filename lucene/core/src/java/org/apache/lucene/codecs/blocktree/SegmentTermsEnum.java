@@ -625,7 +625,7 @@ name|fr
 operator|.
 name|index
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 block|}

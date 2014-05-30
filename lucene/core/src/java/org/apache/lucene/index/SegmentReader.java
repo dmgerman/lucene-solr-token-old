@@ -241,6 +241,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Accountable
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|Bits
 import|;
 end_import
@@ -294,6 +307,8 @@ class|class
 name|SegmentReader
 extends|extends
 name|AtomicReader
+implements|implements
+name|Accountable
 block|{
 DECL|field|si
 specifier|private
@@ -2754,7 +2769,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Returns approximate RAM Bytes used */
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long

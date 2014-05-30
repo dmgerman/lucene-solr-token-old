@@ -95,6 +95,8 @@ specifier|public
 specifier|final
 class|class
 name|PagedBytes
+implements|implements
+name|Accountable
 block|{
 DECL|field|blocks
 specifier|private
@@ -192,6 +194,8 @@ specifier|final
 specifier|static
 class|class
 name|Reader
+implements|implements
+name|Accountable
 block|{
 DECL|field|blocks
 specifier|private
@@ -650,7 +654,8 @@ literal|0
 assert|;
 block|}
 block|}
-comment|/** Returns approximate RAM bytes used */
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long
@@ -1155,7 +1160,8 @@ name|upto
 return|;
 block|}
 block|}
-comment|/** Return approx RAM usage in bytes. */
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long

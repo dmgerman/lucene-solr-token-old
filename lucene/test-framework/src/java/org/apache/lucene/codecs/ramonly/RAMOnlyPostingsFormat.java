@@ -343,6 +343,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Accountable
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|Bits
 import|;
 end_import
@@ -566,6 +579,8 @@ class|class
 name|RAMField
 extends|extends
 name|Terms
+implements|implements
+name|Accountable
 block|{
 DECL|field|field
 specifier|final
@@ -627,7 +642,8 @@ operator|=
 name|info
 expr_stmt|;
 block|}
-comment|/** Returns approximate RAM bytes used */
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long
@@ -832,6 +848,8 @@ DECL|class|RAMTerm
 specifier|static
 class|class
 name|RAMTerm
+implements|implements
+name|Accountable
 block|{
 DECL|field|term
 specifier|final
@@ -870,7 +888,8 @@ operator|=
 name|term
 expr_stmt|;
 block|}
-comment|/** Returns approximate RAM bytes used */
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long
@@ -907,6 +926,8 @@ DECL|class|RAMDoc
 specifier|static
 class|class
 name|RAMDoc
+implements|implements
+name|Accountable
 block|{
 DECL|field|docID
 specifier|final
@@ -951,7 +972,8 @@ name|freq
 index|]
 expr_stmt|;
 block|}
-comment|/** Returns approximate RAM bytes used */
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long

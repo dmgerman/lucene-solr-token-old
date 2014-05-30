@@ -61,6 +61,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Accountable
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|BytesRef
 import|;
 end_import
@@ -98,6 +111,8 @@ DECL|class|FuzzySet
 specifier|public
 class|class
 name|FuzzySet
+implements|implements
+name|Accountable
 block|{
 DECL|field|VERSION_SPI
 specifier|public
@@ -1158,6 +1173,8 @@ operator|)
 name|bloomSize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long

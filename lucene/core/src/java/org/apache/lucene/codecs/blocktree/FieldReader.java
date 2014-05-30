@@ -36,8 +36,6 @@ operator|.
 name|index
 operator|.
 name|FieldInfo
-operator|.
-name|IndexOptions
 import|;
 end_import
 begin_import
@@ -51,6 +49,8 @@ operator|.
 name|index
 operator|.
 name|FieldInfo
+operator|.
+name|IndexOptions
 import|;
 end_import
 begin_import
@@ -103,6 +103,19 @@ operator|.
 name|store
 operator|.
 name|IndexInput
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Accountable
 import|;
 end_import
 begin_import
@@ -177,6 +190,8 @@ class|class
 name|FieldReader
 extends|extends
 name|Terms
+implements|implements
+name|Accountable
 block|{
 DECL|field|numTerms
 specifier|final
@@ -729,7 +744,8 @@ name|startTerm
 argument_list|)
 return|;
 block|}
-comment|/** Returns approximate RAM bytes used */
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long
@@ -746,7 +762,7 @@ operator|)
 condition|?
 name|index
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 else|:
 literal|0

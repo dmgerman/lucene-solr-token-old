@@ -172,8 +172,6 @@ operator|.
 name|index
 operator|.
 name|FieldInfo
-operator|.
-name|IndexOptions
 import|;
 end_import
 begin_import
@@ -187,6 +185,8 @@ operator|.
 name|index
 operator|.
 name|FieldInfo
+operator|.
+name|IndexOptions
 import|;
 end_import
 begin_import
@@ -356,6 +356,19 @@ operator|.
 name|store
 operator|.
 name|RAMOutputStream
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Accountable
 import|;
 end_import
 begin_import
@@ -4414,6 +4427,8 @@ class|class
 name|TermsReader
 extends|extends
 name|Terms
+implements|implements
+name|Accountable
 block|{
 DECL|field|sumTotalTermFreq
 specifier|private
@@ -4714,6 +4729,8 @@ name|hasPayloads
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long
@@ -4730,7 +4747,7 @@ operator|)
 condition|?
 name|fst
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 else|:
 literal|0

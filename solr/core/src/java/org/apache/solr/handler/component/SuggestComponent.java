@@ -168,6 +168,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Accountable
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|BytesRef
 import|;
 end_import
@@ -420,6 +433,8 @@ implements|implements
 name|SolrCoreAware
 implements|,
 name|SuggesterParams
+implements|,
+name|Accountable
 block|{
 DECL|field|LOG
 specifier|private
@@ -1984,7 +1999,7 @@ name|String
 operator|.
 name|valueOf
 argument_list|(
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2035,11 +2050,12 @@ return|return
 name|stats
 return|;
 block|}
-comment|/** Returns the total size of all the suggester */
-DECL|method|sizeInBytes
+annotation|@
+name|Override
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|sizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 name|long
@@ -2062,7 +2078,7 @@ name|sizeInBytes
 operator|+=
 name|suggester
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 block|}

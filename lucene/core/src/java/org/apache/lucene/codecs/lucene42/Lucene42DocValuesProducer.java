@@ -2240,7 +2240,7 @@ name|addAndGet
 argument_list|(
 name|instance
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2682,7 +2682,7 @@ name|addAndGet
 argument_list|(
 name|instance
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;

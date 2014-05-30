@@ -448,16 +448,16 @@ argument_list|)
 return|;
 block|}
 comment|/** Returns how many bytes are being used by the    *  RAMDirectory cache */
-DECL|method|sizeInBytes
+DECL|method|cacheRamBytesUsed
 specifier|public
 name|long
-name|sizeInBytes
+name|cacheRamBytesUsed
 parameter_list|()
 block|{
 return|return
 name|cache
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 return|;
 block|}
@@ -960,7 +960,7 @@ name|bytes
 operator|+
 name|cache
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 operator|)
 operator|<=

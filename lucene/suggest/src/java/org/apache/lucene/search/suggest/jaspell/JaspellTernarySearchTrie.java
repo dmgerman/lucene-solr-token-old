@@ -113,6 +113,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Accountable
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|IOUtils
 import|;
 end_import
@@ -137,6 +150,8 @@ DECL|class|JaspellTernarySearchTrie
 specifier|public
 class|class
 name|JaspellTernarySearchTrie
+implements|implements
+name|Accountable
 block|{
 comment|/**    * An inner class of Ternary Search Trie that represents a node in the trie.    */
 DECL|class|TSTNode
@@ -144,6 +159,8 @@ specifier|protected
 specifier|final
 class|class
 name|TSTNode
+implements|implements
+name|Accountable
 block|{
 comment|/** Index values for accessing relatives array. */
 DECL|field|PARENT
@@ -222,11 +239,12 @@ operator|=
 name|parent
 expr_stmt|;
 block|}
-comment|/** Return an approximate memory usage for this node and its sub-nodes. */
-DECL|method|sizeInBytes
+annotation|@
+name|Override
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|sizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 name|long
@@ -265,7 +283,7 @@ name|mem
 operator|+=
 name|node
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 block|}
@@ -2967,11 +2985,12 @@ name|sortKeysResult
 argument_list|)
 return|;
 block|}
-comment|/** Return an approximate memory usage for this trie. */
-DECL|method|sizeInBytes
+annotation|@
+name|Override
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|sizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 name|long
@@ -3002,7 +3021,7 @@ name|mem
 operator|+=
 name|root
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 block|}

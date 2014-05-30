@@ -997,7 +997,7 @@ name|println
 argument_list|(
 name|sug
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 operator|+
 literal|" bytes"

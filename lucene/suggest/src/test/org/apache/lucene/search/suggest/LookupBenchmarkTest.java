@@ -864,7 +864,7 @@ name|sizeInBytes
 init|=
 name|lookup
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 decl_stmt|;
 name|System

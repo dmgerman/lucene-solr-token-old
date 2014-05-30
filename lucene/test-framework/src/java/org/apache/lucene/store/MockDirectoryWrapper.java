@@ -922,7 +922,7 @@ operator|)
 name|in
 operator|)
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 return|;
 else|else
@@ -3056,7 +3056,7 @@ name|size
 operator|+=
 name|file
 operator|.
-name|getSizeInBytes
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 block|}

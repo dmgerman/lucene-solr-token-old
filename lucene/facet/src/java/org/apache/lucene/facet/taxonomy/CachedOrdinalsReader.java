@@ -92,6 +92,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Accountable
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|ArrayUtil
 import|;
 end_import
@@ -131,6 +144,8 @@ class|class
 name|CachedOrdinalsReader
 extends|extends
 name|OrdinalsReader
+implements|implements
+name|Accountable
 block|{
 DECL|field|source
 specifier|private
@@ -347,6 +362,8 @@ specifier|static
 specifier|final
 class|class
 name|CachedOrds
+implements|implements
+name|Accountable
 block|{
 comment|/** Index into {@link #ordinals} for each document. */
 DECL|field|offsets
@@ -599,7 +616,8 @@ name|ords
 expr_stmt|;
 block|}
 block|}
-comment|/** Returns number of bytes used by this cache entry */
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long
@@ -645,7 +663,8 @@ name|mem
 return|;
 block|}
 block|}
-comment|/** How many bytes is this cache using? */
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 specifier|synchronized

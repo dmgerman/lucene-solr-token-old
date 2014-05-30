@@ -23,6 +23,19 @@ operator|.
 name|ArrayList
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Accountable
+import|;
+end_import
 begin_comment
 comment|/**   * Represents a file in RAM as a list of byte[] buffers.  * @lucene.internal */
 end_comment
@@ -31,6 +44,8 @@ DECL|class|RAMFile
 specifier|public
 class|class
 name|RAMFile
+implements|implements
+name|Accountable
 block|{
 DECL|field|buffers
 specifier|protected
@@ -221,11 +236,13 @@ name|size
 index|]
 return|;
 block|}
-DECL|method|getSizeInBytes
+annotation|@
+name|Override
+DECL|method|ramBytesUsed
 specifier|public
 specifier|synchronized
 name|long
-name|getSizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 return|return

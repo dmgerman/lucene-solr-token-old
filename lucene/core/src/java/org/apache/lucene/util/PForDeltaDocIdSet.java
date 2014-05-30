@@ -99,6 +99,8 @@ class|class
 name|PForDeltaDocIdSet
 extends|extends
 name|DocIdSet
+implements|implements
+name|Accountable
 block|{
 DECL|field|BLOCK_SIZE
 specifier|static
@@ -3011,7 +3013,8 @@ return|return
 name|cardinality
 return|;
 block|}
-comment|/** Return the memory usage of this instance. */
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long
