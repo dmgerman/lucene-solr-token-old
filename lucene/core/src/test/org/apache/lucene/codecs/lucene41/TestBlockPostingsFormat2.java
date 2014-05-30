@@ -92,6 +92,8 @@ operator|.
 name|index
 operator|.
 name|FieldInfo
+operator|.
+name|IndexOptions
 import|;
 end_import
 begin_import
@@ -105,8 +107,6 @@ operator|.
 name|index
 operator|.
 name|FieldInfo
-operator|.
-name|IndexOptions
 import|;
 end_import
 begin_import
@@ -133,6 +133,8 @@ operator|.
 name|index
 operator|.
 name|IndexWriterConfig
+operator|.
+name|OpenMode
 import|;
 end_import
 begin_import
@@ -146,8 +148,6 @@ operator|.
 name|index
 operator|.
 name|IndexWriterConfig
-operator|.
-name|OpenMode
 import|;
 end_import
 begin_import
@@ -335,6 +335,20 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|iwc
+operator|.
+name|setCodec
+argument_list|(
+name|TestUtil
+operator|.
+name|alwaysPostingsFormat
+argument_list|(
+operator|new
+name|Lucene41PostingsFormat
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|iwc
 operator|.
 name|setOpenMode
