@@ -7762,6 +7762,16 @@ argument_list|)
 expr_stmt|;
 name|conf
 operator|.
+name|setMergePolicy
+argument_list|(
+name|NoMergePolicy
+operator|.
+name|INSTANCE
+argument_list|)
+expr_stmt|;
+comment|// disable merges to simplify test assertions.
+name|conf
+operator|.
 name|setCodec
 argument_list|(
 operator|new
@@ -9958,6 +9968,35 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// we want a single large enough segment so that a doc-values update writes a large file
+name|conf
+operator|.
+name|setMergePolicy
+argument_list|(
+name|NoMergePolicy
+operator|.
+name|INSTANCE
+argument_list|)
+expr_stmt|;
+name|conf
+operator|.
+name|setMaxBufferedDocs
+argument_list|(
+name|Integer
+operator|.
+name|MAX_VALUE
+argument_list|)
+expr_stmt|;
+comment|// manually flush
+name|conf
+operator|.
+name|setRAMBufferSizeMB
+argument_list|(
+name|IndexWriterConfig
+operator|.
+name|DISABLE_AUTO_FLUSH
 argument_list|)
 expr_stmt|;
 name|writer
