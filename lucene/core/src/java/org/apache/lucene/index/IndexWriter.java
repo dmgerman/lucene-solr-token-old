@@ -2156,13 +2156,6 @@ operator|.
 name|getMergePolicy
 argument_list|()
 expr_stmt|;
-name|mergePolicy
-operator|.
-name|setIndexWriter
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 name|mergeScheduler
 operator|=
 name|config
@@ -5008,6 +5001,8 @@ operator|.
 name|findForcedDeletesMerges
 argument_list|(
 name|segmentInfos
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|newMergesFound
@@ -5408,6 +5403,8 @@ name|unmodifiableMap
 argument_list|(
 name|segmentsToMerge
 argument_list|)
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 name|newMergesFound
@@ -5482,6 +5479,8 @@ argument_list|(
 name|trigger
 argument_list|,
 name|segmentInfos
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -7770,6 +7769,8 @@ argument_list|(
 name|segmentInfos
 argument_list|,
 name|infoPerCommit
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -14293,6 +14294,8 @@ argument_list|,
 name|merge
 operator|.
 name|info
+argument_list|,
+name|this
 argument_list|)
 expr_stmt|;
 block|}
