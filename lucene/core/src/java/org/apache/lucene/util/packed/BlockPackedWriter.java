@@ -65,7 +65,12 @@ name|BlockPackedWriter
 extends|extends
 name|AbstractBlockPackedWriter
 block|{
-comment|/**    * Sole constructor.    * @param blockSize the number of values of a single block, must be a power of 2    */
+DECL|field|acceptableOverheadRatio
+specifier|final
+name|float
+name|acceptableOverheadRatio
+decl_stmt|;
+comment|/**    * Sole constructor.    * @param blockSize the number of values of a single block, must be a power of 2    * @param acceptableOverheadRatio an acceptable overhead ratio per value    */
 DECL|method|BlockPackedWriter
 specifier|public
 name|BlockPackedWriter
@@ -75,6 +80,9 @@ name|out
 parameter_list|,
 name|int
 name|blockSize
+parameter_list|,
+name|float
+name|acceptableOverheadRatio
 parameter_list|)
 block|{
 name|super
@@ -83,6 +91,12 @@ name|out
 argument_list|,
 name|blockSize
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|acceptableOverheadRatio
+operator|=
+name|acceptableOverheadRatio
 expr_stmt|;
 block|}
 DECL|method|flush
@@ -163,7 +177,6 @@ name|max
 operator|-
 name|min
 decl_stmt|;
-specifier|final
 name|int
 name|bitsRequired
 init|=
@@ -186,6 +199,17 @@ argument_list|(
 name|delta
 argument_list|)
 decl_stmt|;
+name|bitsRequired
+operator|=
+name|PackedInts
+operator|.
+name|fastestDirectBits
+argument_list|(
+name|bitsRequired
+argument_list|,
+name|acceptableOverheadRatio
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|bitsRequired
