@@ -5206,6 +5206,8 @@ string|"'ivy-settings.xml'"
 op|','
 string|"'ivy-versions.properties'"
 op|','
+string|"'ivy-ignore-conflicts.properties'"
+op|','
 string|"'backwards'"
 op|','
 string|"'tools'"
