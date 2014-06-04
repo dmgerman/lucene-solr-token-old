@@ -1036,10 +1036,6 @@ argument_list|(
 name|data
 argument_list|,
 name|BLOCK_SIZE
-argument_list|,
-name|PackedInts
-operator|.
-name|DEFAULT
 argument_list|)
 decl_stmt|;
 for|for
@@ -1120,10 +1116,6 @@ argument_list|(
 name|data
 argument_list|,
 name|BLOCK_SIZE
-argument_list|,
-name|PackedInts
-operator|.
-name|DEFAULT
 argument_list|)
 decl_stmt|;
 for|for

@@ -648,6 +648,8 @@ block|,
 literal|"Lucene42"
 block|,
 literal|"Lucene45"
+block|,
+literal|"Lucene46"
 block|}
 argument_list|)
 DECL|class|TestBackwardsCompatibility

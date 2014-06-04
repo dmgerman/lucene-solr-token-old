@@ -74,9 +74,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene45
+name|lucene49
 operator|.
-name|Lucene45DocValuesConsumer
+name|Lucene49DocValuesConsumer
 import|;
 end_import
 begin_import
@@ -132,7 +132,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|Lucene45DocValuesConsumer
+name|Lucene49DocValuesConsumer
 argument_list|(
 name|state
 argument_list|,

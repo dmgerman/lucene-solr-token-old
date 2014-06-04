@@ -48,9 +48,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene46
+name|lucene49
 operator|.
-name|Lucene46Codec
+name|Lucene49Codec
 import|;
 end_import
 begin_import
@@ -201,7 +201,7 @@ specifier|final
 class|class
 name|CustomPerFieldCodec
 extends|extends
-name|Lucene46Codec
+name|Lucene49Codec
 block|{
 DECL|field|ramFormat
 specifier|private

@@ -305,7 +305,7 @@ name|Codec
 operator|.
 name|forName
 argument_list|(
-literal|"Lucene46"
+literal|"Lucene49"
 argument_list|)
 decl_stmt|;
 comment|/** expert: returns the default codec used for newly created    *  {@link IndexWriterConfig}s.    */

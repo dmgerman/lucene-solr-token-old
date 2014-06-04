@@ -251,9 +251,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene45
+name|lucene49
 operator|.
-name|Lucene45DocValuesFormat
+name|Lucene49Codec
 import|;
 end_import
 begin_import
@@ -266,9 +266,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene46
+name|lucene49
 operator|.
-name|Lucene46Codec
+name|Lucene49DocValuesFormat
 import|;
 end_import
 begin_import
@@ -486,7 +486,7 @@ specifier|public
 class|class
 name|RandomCodec
 extends|extends
-name|Lucene46Codec
+name|Lucene49Codec
 block|{
 comment|/** Shuffled list of postings formats to use for new mappings */
 DECL|field|formats
@@ -1168,7 +1168,7 @@ argument_list|(
 name|avoidCodecs
 argument_list|,
 operator|new
-name|Lucene45DocValuesFormat
+name|Lucene49DocValuesFormat
 argument_list|()
 argument_list|,
 operator|new

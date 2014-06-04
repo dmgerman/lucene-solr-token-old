@@ -300,9 +300,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene46
+name|lucene49
 operator|.
-name|Lucene46Codec
+name|Lucene49Codec
 import|;
 end_import
 begin_import
@@ -5595,7 +5595,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|Lucene46Codec
+name|Lucene49Codec
 argument_list|()
 block|{
 annotation|@
@@ -5651,7 +5651,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|Lucene46Codec
+name|Lucene49Codec
 argument_list|()
 block|{
 annotation|@

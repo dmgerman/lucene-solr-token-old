@@ -179,9 +179,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene46
+name|lucene49
 operator|.
-name|Lucene46Codec
+name|Lucene49Codec
 import|;
 end_import
 begin_comment
@@ -268,7 +268,7 @@ argument_list|(
 literal|"CheapBastard"
 argument_list|,
 operator|new
-name|Lucene46Codec
+name|Lucene49Codec
 argument_list|()
 argument_list|)
 expr_stmt|;
