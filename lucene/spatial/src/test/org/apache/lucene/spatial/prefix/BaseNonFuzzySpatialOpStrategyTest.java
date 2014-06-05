@@ -87,6 +87,15 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -160,6 +169,11 @@ begin_comment
 comment|/** Base test harness, ideally for SpatialStrategy impls that have exact results  * (not grid approximated), hence "not fuzzy".  */
 end_comment
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"not actually a test: can this be renamed to *TestCase????"
+argument_list|)
 DECL|class|BaseNonFuzzySpatialOpStrategyTest
 specifier|public
 specifier|abstract
