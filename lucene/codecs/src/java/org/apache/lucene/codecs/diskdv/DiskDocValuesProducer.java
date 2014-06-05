@@ -165,8 +165,9 @@ name|addressesOffset
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
 name|MonotonicBlockPackedReader
+operator|.
+name|of
 argument_list|(
 name|data
 operator|.
@@ -243,8 +244,9 @@ name|offset
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
 name|MonotonicBlockPackedReader
+operator|.
+name|of
 argument_list|(
 name|data
 operator|.

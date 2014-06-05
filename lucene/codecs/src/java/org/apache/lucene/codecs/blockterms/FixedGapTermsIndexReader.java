@@ -1410,8 +1410,9 @@ expr_stmt|;
 comment|// records offsets into main terms dict file
 name|termsDictOffsets
 operator|=
-operator|new
 name|MonotonicBlockPackedReader
+operator|.
+name|of
 argument_list|(
 name|clone
 argument_list|,
@@ -1427,8 +1428,9 @@ expr_stmt|;
 comment|// records offsets into byte[] term data
 name|termOffsets
 operator|=
-operator|new
 name|MonotonicBlockPackedReader
+operator|.
+name|of
 argument_list|(
 name|clone
 argument_list|,
