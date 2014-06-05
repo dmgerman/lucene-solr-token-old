@@ -804,13 +804,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// we delete at most one document per round
-name|BytesRef
-name|scratch
-init|=
-operator|new
-name|BytesRef
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|AtomicReaderContext
@@ -1035,8 +1028,6 @@ argument_list|(
 name|bdv
 argument_list|,
 name|doc
-argument_list|,
-name|scratch
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1956,8 +1947,6 @@ argument_list|(
 name|bdv
 argument_list|,
 name|j
-argument_list|,
-name|scratch
 argument_list|)
 operator|*
 literal|2
@@ -2143,13 +2132,6 @@ argument_list|(
 literal|5
 argument_list|)
 decl_stmt|;
-name|BytesRef
-name|scratch
-init|=
-operator|new
-name|BytesRef
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -2313,8 +2295,6 @@ argument_list|(
 name|fbdv
 argument_list|,
 name|j
-argument_list|,
-name|scratch
 argument_list|)
 operator|*
 literal|2
@@ -2756,13 +2736,6 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|BytesRef
-name|scratch
-init|=
-operator|new
-name|BytesRef
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|AtomicReaderContext
@@ -2867,8 +2840,6 @@ argument_list|(
 name|f
 argument_list|,
 name|j
-argument_list|,
-name|scratch
 argument_list|)
 operator|*
 literal|2

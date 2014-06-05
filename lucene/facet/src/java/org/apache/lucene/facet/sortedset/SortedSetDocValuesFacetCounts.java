@@ -657,13 +657,6 @@ return|return
 literal|null
 return|;
 block|}
-name|BytesRef
-name|scratch
-init|=
-operator|new
-name|BytesRef
-argument_list|()
-decl_stmt|;
 name|LabelAndValue
 index|[]
 name|labelValues
@@ -706,6 +699,10 @@ operator|.
 name|pop
 argument_list|()
 decl_stmt|;
+specifier|final
+name|BytesRef
+name|term
+init|=
 name|dv
 operator|.
 name|lookupOrd
@@ -713,10 +710,8 @@ argument_list|(
 name|ordAndValue
 operator|.
 name|ord
-argument_list|,
-name|scratch
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|String
 index|[]
 name|parts
@@ -725,7 +720,7 @@ name|FacetsConfig
 operator|.
 name|stringToPath
 argument_list|(
-name|scratch
+name|term
 operator|.
 name|utf8ToString
 argument_list|()

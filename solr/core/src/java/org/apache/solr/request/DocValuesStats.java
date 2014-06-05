@@ -582,7 +582,8 @@ name|si
 operator|=
 name|DocValues
 operator|.
-name|EMPTY_SORTED_SET
+name|emptySortedSet
+argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -789,7 +790,8 @@ name|sub
 operator|=
 name|DocValues
 operator|.
-name|EMPTY_SORTED_SET
+name|emptySortedSet
+argument_list|()
 expr_stmt|;
 block|}
 specifier|final
@@ -876,7 +878,8 @@ name|sub
 operator|=
 name|DocValues
 operator|.
-name|EMPTY_SORTED
+name|emptySorted
+argument_list|()
 expr_stmt|;
 block|}
 name|accumSingle
@@ -900,13 +903,6 @@ block|}
 block|}
 block|}
 comment|// add results in index order
-name|BytesRef
-name|value
-init|=
-operator|new
-name|BytesRef
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -939,15 +935,17 @@ operator|>
 literal|0
 condition|)
 block|{
+specifier|final
+name|BytesRef
+name|value
+init|=
 name|si
 operator|.
 name|lookupOrd
 argument_list|(
 name|ord
-argument_list|,
-name|value
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|res
 operator|.
 name|accumulate
