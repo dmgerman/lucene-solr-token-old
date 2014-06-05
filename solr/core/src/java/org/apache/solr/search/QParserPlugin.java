@@ -340,6 +340,14 @@ block|,
 name|ComplexPhraseQParserPlugin
 operator|.
 name|class
+block|,
+name|ReRankQParserPlugin
+operator|.
+name|NAME
+block|,
+name|ReRankQParserPlugin
+operator|.
+name|class
 block|}
 decl_stmt|;
 comment|/** return a {@link QParser} */

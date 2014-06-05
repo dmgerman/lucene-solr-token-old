@@ -1950,7 +1950,6 @@ name|cmd
 return|;
 block|}
 DECL|method|wrap
-specifier|private
 name|Query
 name|wrap
 parameter_list|(
