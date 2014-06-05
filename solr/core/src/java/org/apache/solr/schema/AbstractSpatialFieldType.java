@@ -1541,6 +1541,8 @@ name|field
 argument_list|,
 name|parseSpatialArgs
 argument_list|(
+name|parser
+argument_list|,
 name|externalVal
 argument_list|)
 argument_list|)
@@ -1551,6 +1553,9 @@ specifier|protected
 name|SpatialArgs
 name|parseSpatialArgs
 parameter_list|(
+name|QParser
+name|parser
+parameter_list|,
 name|String
 name|externalVal
 parameter_list|)
@@ -1600,7 +1605,7 @@ throw|;
 block|}
 block|}
 DECL|method|getQueryFromSpatialArgs
-specifier|private
+specifier|protected
 name|Query
 name|getQueryFromSpatialArgs
 parameter_list|(
