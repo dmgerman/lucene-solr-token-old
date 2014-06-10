@@ -566,7 +566,7 @@ name|NormsFormat
 name|normsFormat
 init|=
 operator|new
-name|Lucene42NormsFormat
+name|Lucene49NormsFormat
 argument_list|()
 decl_stmt|;
 annotation|@
