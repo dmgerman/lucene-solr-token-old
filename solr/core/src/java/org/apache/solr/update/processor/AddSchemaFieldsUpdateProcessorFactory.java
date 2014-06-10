@@ -1420,6 +1420,7 @@ name|fieldName
 argument_list|)
 condition|)
 block|{
+comment|// returns false if the field already exists in the latest schema
 name|String
 name|fieldTypeName
 init|=
@@ -1638,6 +1639,23 @@ literal|"At least one field to be added already exists in the schema - retrying.
 argument_list|)
 expr_stmt|;
 comment|// No action: at least one field to be added already exists in the schema, so retry
+comment|// We should never get here, since selector.shouldMutate(field) will exclude already existing fields
+block|}
+catch|catch
+parameter_list|(
+name|ManagedIndexSchema
+operator|.
+name|SchemaChangedInZkException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Schema changed while processing request - retrying."
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 name|super
