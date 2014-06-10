@@ -185,6 +185,8 @@ argument_list|,
 name|bytes
 operator|.
 name|count
+operator|+
+literal|1
 argument_list|,
 literal|true
 argument_list|)
@@ -264,6 +266,8 @@ argument_list|,
 name|entry
 operator|.
 name|count
+operator|+
+literal|1
 argument_list|,
 literal|true
 argument_list|)
