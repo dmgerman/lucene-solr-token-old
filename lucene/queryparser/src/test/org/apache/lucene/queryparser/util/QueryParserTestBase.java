@@ -6208,7 +6208,7 @@ argument_list|(
 literal|"the|foo"
 argument_list|)
 operator|.
-name|toAutomaton
+name|toLightAutomaton
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -7752,7 +7752,7 @@ argument_list|(
 literal|"[sS][tT][oO][pP]"
 argument_list|)
 operator|.
-name|toAutomaton
+name|toLightAutomaton
 argument_list|()
 argument_list|)
 decl_stmt|;

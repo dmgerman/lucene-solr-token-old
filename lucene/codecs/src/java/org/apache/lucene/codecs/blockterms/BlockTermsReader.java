@@ -541,7 +541,12 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|// private String segment;
+comment|// nocommit
+DECL|field|segment
+specifier|private
+name|String
+name|segment
+decl_stmt|;
 DECL|method|BlockTermsReader
 specifier|public
 name|BlockTermsReader
@@ -576,7 +581,12 @@ name|postingsReader
 operator|=
 name|postingsReader
 expr_stmt|;
-comment|// this.segment = segment;
+name|this
+operator|.
+name|segment
+operator|=
+name|segment
+expr_stmt|;
 name|in
 operator|=
 name|dir
@@ -1784,7 +1794,7 @@ literal|"terms index was not loaded"
 argument_list|)
 throw|;
 block|}
-comment|//System.out.println("BTR.seek seg=" + segment + " target=" + fieldInfo.name + ":" + target.utf8ToString() + " " + target + " current=" + term().utf8ToString() + " " + term() + " indexIsCurrent=" + indexIsCurrent + " didIndexNext=" + didIndexNext + " seekPending=" + seekPending + " divisor=" + indexReader.getDivisor() + " this="  + this);
+comment|//System.out.println("BTR.seek seg=" + segment + " target=" + fieldInfo.name + ":" + target.utf8ToString() + " " + target + " current=" + term().utf8ToString() + " " + term() + " indexIsCurrent=" + indexIsCurrent + " didIndexNext=" + didIndexNext + " seekPending=" + seekPending + " this="  + this);
 if|if
 condition|(
 name|didIndexNext
@@ -2042,6 +2052,7 @@ condition|(
 literal|true
 condition|)
 block|{
+comment|//System.out.println("cycle common=" + common + " termBlockPrefix=" + termBlockPrefix + " term=" + term + " target=" + target);
 comment|// First, see if target term matches common prefix
 comment|// in this block:
 if|if

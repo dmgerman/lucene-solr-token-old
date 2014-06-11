@@ -260,6 +260,21 @@ name|util
 operator|.
 name|automaton
 operator|.
+name|LightAutomaton
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|automaton
+operator|.
 name|RegExp
 import|;
 end_import
@@ -4798,7 +4813,7 @@ argument_list|(
 literal|"field"
 argument_list|)
 decl_stmt|;
-name|Automaton
+name|LightAutomaton
 name|automaton
 init|=
 operator|new
@@ -4811,7 +4826,7 @@ operator|.
 name|NONE
 argument_list|)
 operator|.
-name|toAutomaton
+name|toLightAutomaton
 argument_list|()
 decl_stmt|;
 name|CompiledAutomaton
@@ -5360,7 +5375,7 @@ argument_list|(
 literal|"field"
 argument_list|)
 decl_stmt|;
-name|Automaton
+name|LightAutomaton
 name|automaton
 init|=
 operator|new
@@ -5373,7 +5388,7 @@ operator|.
 name|NONE
 argument_list|)
 operator|.
-name|toAutomaton
+name|toLightAutomaton
 argument_list|()
 decl_stmt|;
 name|CompiledAutomaton
@@ -5829,7 +5844,7 @@ argument_list|(
 literal|"field"
 argument_list|)
 decl_stmt|;
-name|Automaton
+name|LightAutomaton
 name|automaton
 init|=
 operator|new
@@ -5842,7 +5857,7 @@ operator|.
 name|NONE
 argument_list|)
 operator|.
-name|toAutomaton
+name|toLightAutomaton
 argument_list|()
 decl_stmt|;
 comment|// accept ALL
