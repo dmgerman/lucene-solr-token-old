@@ -131,7 +131,7 @@ begin_comment
 comment|//   - could encode dest w/ delta from to?
 end_comment
 begin_comment
-comment|// nocommit should we keep determinized bit?
+comment|// nocommit should we keep determinized bit?  it could be entirely privately computed now?
 end_comment
 begin_comment
 comment|/** Uses only int[]s to represent the automaton, but requires that all  *  transitions for each state are added at once.  If this is too restrictive,  *  use {@link #Builder} instead.  State 0 is always the  *  initial state.  *  * @lucene.experimental */

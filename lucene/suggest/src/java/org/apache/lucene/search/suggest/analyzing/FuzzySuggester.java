@@ -220,6 +220,21 @@ name|util
 operator|.
 name|automaton
 operator|.
+name|LightAutomaton
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|automaton
+operator|.
 name|SpecialOperations
 import|;
 end_import
@@ -236,6 +251,21 @@ operator|.
 name|automaton
 operator|.
 name|UTF32ToUTF8
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|automaton
+operator|.
+name|UTF32ToUTF8Light
 import|;
 end_import
 begin_import
@@ -604,7 +634,7 @@ argument_list|>
 argument_list|>
 name|prefixPaths
 parameter_list|,
-name|Automaton
+name|LightAutomaton
 name|lookupAutomaton
 parameter_list|,
 name|FST
@@ -630,7 +660,7 @@ comment|// factor is appropriate (eg, say a fuzzy match must be at
 comment|// least 2X better weight than the non-fuzzy match to
 comment|// "compete") ... in which case I think the wFST needs
 comment|// to be log weights or something ...
-name|Automaton
+name|LightAutomaton
 name|levA
 init|=
 name|convertAutomaton
@@ -657,10 +687,10 @@ annotation|@
 name|Override
 DECL|method|convertAutomaton
 specifier|protected
-name|Automaton
+name|LightAutomaton
 name|convertAutomaton
 parameter_list|(
-name|Automaton
+name|LightAutomaton
 name|a
 parameter_list|)
 block|{
@@ -669,11 +699,11 @@ condition|(
 name|unicodeAware
 condition|)
 block|{
-name|Automaton
+name|LightAutomaton
 name|utf8automaton
 init|=
 operator|new
-name|UTF32ToUTF8
+name|UTF32ToUTF8Light
 argument_list|()
 operator|.
 name|convert
@@ -681,6 +711,8 @@ argument_list|(
 name|a
 argument_list|)
 decl_stmt|;
+name|utf8automaton
+operator|=
 name|BasicOperations
 operator|.
 name|determinize
@@ -727,10 +759,10 @@ name|tsta
 return|;
 block|}
 DECL|method|toLevenshteinAutomata
-name|Automaton
+name|LightAutomaton
 name|toLevenshteinAutomata
 parameter_list|(
-name|Automaton
+name|LightAutomaton
 name|automaton
 parameter_list|)
 block|{
@@ -751,12 +783,12 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-name|Automaton
+name|LightAutomaton
 name|subs
 index|[]
 init|=
 operator|new
-name|Automaton
+name|LightAutomaton
 index|[
 name|ref
 operator|.
@@ -799,7 +831,7 @@ index|]
 operator|=
 name|BasicAutomata
 operator|.
-name|makeString
+name|makeStringLight
 argument_list|(
 name|path
 operator|.
@@ -820,12 +852,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Automaton
+name|LightAutomaton
 name|prefix
 init|=
 name|BasicAutomata
 operator|.
-name|makeString
+name|makeStringLight
 argument_list|(
 name|path
 operator|.
@@ -899,41 +931,28 @@ argument_list|,
 name|transpositions
 argument_list|)
 decl_stmt|;
-name|Automaton
+name|LightAutomaton
 name|levAutomaton
 init|=
 name|lev
 operator|.
-name|toAutomaton
+name|toLightAutomaton
 argument_list|(
 name|maxEdits
 argument_list|)
 decl_stmt|;
-name|Automaton
+name|LightAutomaton
 name|combined
 init|=
 name|BasicOperations
 operator|.
-name|concatenate
-argument_list|(
-name|Arrays
-operator|.
-name|asList
+name|concatenateLight
 argument_list|(
 name|prefix
 argument_list|,
 name|levAutomaton
 argument_list|)
-argument_list|)
 decl_stmt|;
-name|combined
-operator|.
-name|setDeterministic
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-comment|// its like the special case in concatenate itself, except we cloneExpanded already
 name|subs
 index|[
 name|upto
@@ -959,7 +978,7 @@ comment|// automaton is empty, there is no accepted paths through it
 return|return
 name|BasicAutomata
 operator|.
-name|makeEmpty
+name|makeEmptyLight
 argument_list|()
 return|;
 comment|// matches nothing
@@ -986,12 +1005,12 @@ else|else
 block|{
 comment|// multiple paths: this is really scary! is it slow?
 comment|// maybe we should not do this and throw UOE?
-name|Automaton
+name|LightAutomaton
 name|a
 init|=
 name|BasicOperations
 operator|.
-name|union
+name|unionLight
 argument_list|(
 name|Arrays
 operator|.
@@ -1003,15 +1022,13 @@ argument_list|)
 decl_stmt|;
 comment|// TODO: we could call toLevenshteinAutomata() before det?
 comment|// this only happens if you have multiple paths anyway (e.g. synonyms)
+return|return
 name|BasicOperations
 operator|.
 name|determinize
 argument_list|(
 name|a
 argument_list|)
-expr_stmt|;
-return|return
-name|a
 return|;
 block|}
 block|}
