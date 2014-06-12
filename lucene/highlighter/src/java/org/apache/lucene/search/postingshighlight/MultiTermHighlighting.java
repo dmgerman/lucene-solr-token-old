@@ -954,11 +954,11 @@ name|CharacterRunAutomaton
 argument_list|(
 name|BasicOperations
 operator|.
-name|concatenate
+name|concatenateLight
 argument_list|(
 name|BasicAutomata
 operator|.
-name|makeString
+name|makeStringLight
 argument_list|(
 name|prefix
 operator|.
@@ -968,7 +968,7 @@ argument_list|)
 argument_list|,
 name|BasicAutomata
 operator|.
-name|makeAnyString
+name|makeAnyStringLight
 argument_list|()
 argument_list|)
 argument_list|)

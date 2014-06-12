@@ -8826,7 +8826,7 @@ name|CharacterRunAutomaton
 argument_list|(
 name|BasicAutomata
 operator|.
-name|makeString
+name|makeStringLight
 argument_list|(
 literal|"stoppedtoken"
 argument_list|)
