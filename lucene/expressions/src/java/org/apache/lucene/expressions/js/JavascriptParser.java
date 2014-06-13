@@ -6920,7 +6920,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// AST REWRITE
-comment|// elements: NAMESPACE_ID, arguments
+comment|// elements: arguments, NAMESPACE_ID
 comment|// token labels:
 comment|// rule labels: retval
 comment|// token list labels:
