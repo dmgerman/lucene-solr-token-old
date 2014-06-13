@@ -1752,14 +1752,10 @@ index|]
 operator|=
 name|utf8State
 expr_stmt|;
-name|LightAutomaton
-operator|.
 name|Transition
 name|scratch
 init|=
 operator|new
-name|LightAutomaton
-operator|.
 name|Transition
 argument_list|()
 decl_stmt|;

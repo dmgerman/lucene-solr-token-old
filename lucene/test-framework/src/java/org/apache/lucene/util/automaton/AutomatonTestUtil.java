@@ -889,8 +889,6 @@ specifier|private
 specifier|final
 name|Map
 argument_list|<
-name|LightAutomaton
-operator|.
 name|Transition
 argument_list|,
 name|Boolean
@@ -906,8 +904,6 @@ decl_stmt|;
 DECL|field|transitions
 specifier|private
 specifier|final
-name|LightAutomaton
-operator|.
 name|Transition
 index|[]
 index|[]
@@ -926,8 +922,6 @@ name|from
 decl_stmt|;
 DECL|field|t
 specifier|final
-name|LightAutomaton
-operator|.
 name|Transition
 name|t
 decl_stmt|;
@@ -938,8 +932,6 @@ parameter_list|(
 name|int
 name|from
 parameter_list|,
-name|LightAutomaton
-operator|.
 name|Transition
 name|t
 parameter_list|)
@@ -1074,8 +1066,6 @@ control|)
 block|{
 for|for
 control|(
-name|LightAutomaton
-operator|.
 name|Transition
 name|t
 range|:
@@ -1366,8 +1356,6 @@ name|nextBoolean
 argument_list|()
 decl_stmt|;
 specifier|final
-name|LightAutomaton
-operator|.
 name|Transition
 name|t
 decl_stmt|;
@@ -1380,8 +1368,6 @@ comment|// pick a transition that we know is the fastest
 comment|// path to an accept state
 name|List
 argument_list|<
-name|LightAutomaton
-operator|.
 name|Transition
 argument_list|>
 name|toAccept
@@ -1393,8 +1379,6 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|LightAutomaton
-operator|.
 name|Transition
 name|t0
 range|:
@@ -1909,14 +1893,10 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|LightAutomaton
-operator|.
 name|Transition
 name|t
 init|=
 operator|new
-name|LightAutomaton
-operator|.
 name|Transition
 argument_list|()
 decl_stmt|;
@@ -2305,14 +2285,10 @@ argument_list|(
 name|s
 argument_list|)
 expr_stmt|;
-name|LightAutomaton
-operator|.
 name|Transition
 name|t
 init|=
 operator|new
-name|LightAutomaton
-operator|.
 name|Transition
 argument_list|()
 decl_stmt|;
@@ -2554,14 +2530,10 @@ argument_list|(
 name|s
 argument_list|)
 expr_stmt|;
-name|LightAutomaton
-operator|.
 name|Transition
 name|t
 init|=
 operator|new
-name|LightAutomaton
-operator|.
 name|Transition
 argument_list|()
 decl_stmt|;

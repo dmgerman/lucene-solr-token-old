@@ -366,6 +366,21 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|automaton
+operator|.
+name|Transition
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|fst
 operator|.
 name|Builder
@@ -970,14 +985,10 @@ expr_stmt|;
 name|upto
 operator|++
 expr_stmt|;
-name|LightAutomaton
-operator|.
 name|Transition
 name|t
 init|=
 operator|new
-name|LightAutomaton
-operator|.
 name|Transition
 argument_list|()
 decl_stmt|;
@@ -1145,14 +1156,10 @@ expr_stmt|;
 block|}
 comment|// Go in reverse topo sort so we know we only have to
 comment|// make one pass:
-name|LightAutomaton
-operator|.
 name|Transition
 name|t
 init|=
 operator|new
-name|LightAutomaton
-operator|.
 name|Transition
 argument_list|()
 decl_stmt|;
