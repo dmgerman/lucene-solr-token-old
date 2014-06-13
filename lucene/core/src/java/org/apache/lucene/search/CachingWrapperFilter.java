@@ -15,6 +15,21 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|DocIdSet
+operator|.
+name|EMPTY
+import|;
+end_import
+begin_import
 import|import
 name|java
 operator|.
@@ -130,19 +145,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|RamUsageEstimator
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|WAH8DocIdSet
 import|;
 end_import
@@ -217,7 +219,7 @@ return|return
 name|filter
 return|;
 block|}
-comment|/**     *  Provide the DocIdSet to be cached, using the DocIdSet provided    *  by the wrapped Filter.<p>This implementation returns the given {@link DocIdSet},    *  if {@link DocIdSet#isCacheable} returns<code>true</code>, else it calls    *  {@link #cacheImpl(DocIdSetIterator,AtomicReader)}    *<p>Note: This method returns {@linkplain #EMPTY_DOCIDSET} if the given docIdSet    *  is<code>null</code> or if {@link DocIdSet#iterator()} return<code>null</code>. The empty    *  instance is use as a placeholder in the cache instead of the<code>null</code> value.    */
+comment|/**     *  Provide the DocIdSet to be cached, using the DocIdSet provided    *  by the wrapped Filter.<p>This implementation returns the given {@link DocIdSet},    *  if {@link DocIdSet#isCacheable} returns<code>true</code>, else it calls    *  {@link #cacheImpl(DocIdSetIterator,AtomicReader)}    *<p>Note: This method returns {@linkplain DocIdSet#EMPTY} if the given docIdSet    *  is<code>null</code> or if {@link DocIdSet#iterator()} return<code>null</code>. The empty    *  instance is use as a placeholder in the cache instead of the<code>null</code> value.    */
 DECL|method|docIdSetToCache
 specifier|protected
 name|DocIdSet
@@ -241,7 +243,7 @@ condition|)
 block|{
 comment|// this is better than returning null, as the nonnull result can be cached
 return|return
-name|EMPTY_DOCIDSET
+name|EMPTY
 return|;
 block|}
 elseif|else
@@ -279,7 +281,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|EMPTY_DOCIDSET
+name|EMPTY
 return|;
 block|}
 else|else
@@ -439,7 +441,7 @@ block|}
 return|return
 name|docIdSet
 operator|==
-name|EMPTY_DOCIDSET
+name|EMPTY
 condition|?
 literal|null
 else|:
@@ -552,57 +554,6 @@ argument_list|()
 operator|)
 return|;
 block|}
-comment|/** An empty {@code DocIdSet} instance */
-DECL|field|EMPTY_DOCIDSET
-specifier|protected
-specifier|static
-specifier|final
-name|DocIdSet
-name|EMPTY_DOCIDSET
-init|=
-operator|new
-name|DocIdSet
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|DocIdSetIterator
-name|iterator
-parameter_list|()
-block|{
-return|return
-name|DocIdSetIterator
-operator|.
-name|empty
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|isCacheable
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-comment|// we explicitly provide no random access, as this filter is 100% sparse and iterator exits faster
-annotation|@
-name|Override
-specifier|public
-name|Bits
-name|bits
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-block|}
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|ramBytesUsed
@@ -651,12 +602,10 @@ control|)
 block|{
 name|total
 operator|+=
-name|RamUsageEstimator
-operator|.
-name|sizeOf
-argument_list|(
 name|dis
-argument_list|)
+operator|.
+name|ramBytesUsed
+argument_list|()
 expr_stmt|;
 block|}
 return|return
