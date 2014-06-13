@@ -83,7 +83,7 @@ argument_list|>
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|RamUsageEstimator
+name|RamUsageTester
 operator|.
 name|IdentityHashSet
 argument_list|<
@@ -92,7 +92,7 @@ argument_list|>
 name|us
 init|=
 operator|new
-name|RamUsageEstimator
+name|RamUsageTester
 operator|.
 name|IdentityHashSet
 argument_list|<>

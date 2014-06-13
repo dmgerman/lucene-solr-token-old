@@ -816,7 +816,7 @@ name|sz
 init|=
 name|super
 operator|.
-name|ramUsedInBytes
+name|ramBytesUsed
 argument_list|()
 decl_stmt|;
 name|sz
