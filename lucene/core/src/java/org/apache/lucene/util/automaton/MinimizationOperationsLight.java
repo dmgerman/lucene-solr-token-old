@@ -1501,7 +1501,7 @@ comment|//System.out.println(result.getNumStates() + " states");
 return|return
 name|BasicOperations
 operator|.
-name|removeDeadTransitions
+name|removeDeadStates
 argument_list|(
 name|result
 argument_list|)

@@ -815,7 +815,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"TEST: a.removeDeadTransitions"
+literal|"TEST: a.removeDeadStates"
 argument_list|)
 expr_stmt|;
 block|}
@@ -823,7 +823,7 @@ name|a
 operator|=
 name|BasicOperations
 operator|.
-name|removeDeadTransitions
+name|removeDeadStates
 argument_list|(
 name|a
 argument_list|)
