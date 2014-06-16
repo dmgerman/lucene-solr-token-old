@@ -294,7 +294,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicAutomata
+name|Automata
 import|;
 end_import
 begin_import
@@ -309,7 +309,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicOperations
+name|Operations
 import|;
 end_import
 begin_import
@@ -324,22 +324,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|LightAutomaton
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|automaton
-operator|.
-name|SpecialOperations
+name|Automaton
 import|;
 end_import
 begin_import
@@ -3521,7 +3506,7 @@ name|termStr
 argument_list|)
 decl_stmt|;
 comment|// fsa representing the query
-name|LightAutomaton
+name|Automaton
 name|automaton
 init|=
 name|WildcardQuery
@@ -3544,15 +3529,15 @@ condition|)
 block|{
 name|automaton
 operator|=
-name|BasicOperations
+name|Operations
 operator|.
-name|concatenateLight
+name|concatenate
 argument_list|(
 name|automaton
 argument_list|,
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeCharLight
+name|makeChar
 argument_list|(
 name|factory
 operator|.
@@ -3563,7 +3548,7 @@ argument_list|)
 expr_stmt|;
 name|automaton
 operator|=
-name|SpecialOperations
+name|Operations
 operator|.
 name|reverse
 argument_list|(
@@ -3575,16 +3560,16 @@ else|else
 block|{
 comment|// reverse wildcardfilter is active: remove false positives
 comment|// fsa representing false positives (markerChar*)
-name|LightAutomaton
+name|Automaton
 name|falsePositives
 init|=
-name|BasicOperations
+name|Operations
 operator|.
-name|concatenateLight
+name|concatenate
 argument_list|(
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeCharLight
+name|makeChar
 argument_list|(
 name|factory
 operator|.
@@ -3592,18 +3577,18 @@ name|getMarkerChar
 argument_list|()
 argument_list|)
 argument_list|,
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeAnyStringLight
+name|makeAnyString
 argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// subtract these away
 name|automaton
 operator|=
-name|BasicOperations
+name|Operations
 operator|.
-name|minusLight
+name|minus
 argument_list|(
 name|automaton
 argument_list|,

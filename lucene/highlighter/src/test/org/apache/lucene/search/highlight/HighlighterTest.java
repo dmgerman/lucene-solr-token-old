@@ -470,7 +470,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicAutomata
+name|Automata
 import|;
 end_import
 begin_import
@@ -8824,9 +8824,9 @@ init|=
 operator|new
 name|CharacterRunAutomaton
 argument_list|(
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeStringLight
+name|makeString
 argument_list|(
 literal|"stoppedtoken"
 argument_list|)
@@ -9087,7 +9087,7 @@ argument_list|(
 literal|"i[nt]"
 argument_list|)
 operator|.
-name|toLightAutomaton
+name|toAutomaton
 argument_list|()
 argument_list|)
 decl_stmt|;

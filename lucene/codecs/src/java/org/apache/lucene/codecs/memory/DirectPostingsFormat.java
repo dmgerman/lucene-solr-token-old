@@ -381,7 +381,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|LightAutomaton
+name|Automaton
 import|;
 end_import
 begin_import
@@ -4905,7 +4905,7 @@ name|transitionCount
 operator|=
 name|compiledAutomaton
 operator|.
-name|lightAutomaton
+name|automaton
 operator|.
 name|getNumTransitions
 argument_list|(
@@ -4919,7 +4919,7 @@ argument_list|)
 expr_stmt|;
 name|compiledAutomaton
 operator|.
-name|lightAutomaton
+name|automaton
 operator|.
 name|initTransition
 argument_list|(
@@ -5080,7 +5080,7 @@ name|transitionCount
 assert|;
 name|compiledAutomaton
 operator|.
-name|lightAutomaton
+name|automaton
 operator|.
 name|getNextTransition
 argument_list|(
@@ -5389,7 +5389,7 @@ name|transitionCount
 operator|=
 name|compiledAutomaton
 operator|.
-name|lightAutomaton
+name|automaton
 operator|.
 name|getNumTransitions
 argument_list|(
@@ -5398,7 +5398,7 @@ argument_list|)
 expr_stmt|;
 name|compiledAutomaton
 operator|.
-name|lightAutomaton
+name|automaton
 operator|.
 name|initTransition
 argument_list|(
@@ -5990,7 +5990,7 @@ continue|;
 block|}
 name|compiledAutomaton
 operator|.
-name|lightAutomaton
+name|automaton
 operator|.
 name|getNextTransition
 argument_list|(
@@ -6368,7 +6368,7 @@ name|transitionCount
 operator|=
 name|compiledAutomaton
 operator|.
-name|lightAutomaton
+name|automaton
 operator|.
 name|getNumTransitions
 argument_list|(
@@ -6377,7 +6377,7 @@ argument_list|)
 expr_stmt|;
 name|compiledAutomaton
 operator|.
-name|lightAutomaton
+name|automaton
 operator|.
 name|initTransition
 argument_list|(

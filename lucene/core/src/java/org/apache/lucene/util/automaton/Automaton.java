@@ -89,9 +89,6 @@ name|Sorter
 import|;
 end_import
 begin_comment
-comment|// nocommit make tests that do the same ops w/ old and new and assertSameLang
-end_comment
-begin_comment
 comment|// TODO
 end_comment
 begin_comment
@@ -103,14 +100,11 @@ end_comment
 begin_comment
 comment|/** Uses only int[]s to represent the automaton, but requires that all  *  transitions for each state are added at once.  If this is too restrictive,  *  use {@link #Builder} instead.  State 0 is always the  *  initial state.  *  * @lucene.experimental */
 end_comment
-begin_comment
-comment|// nocommit rename to Automaton once everything is cutover
-end_comment
 begin_class
-DECL|class|LightAutomaton
+DECL|class|Automaton
 specifier|public
 class|class
-name|LightAutomaton
+name|Automaton
 block|{
 DECL|field|nextState
 specifier|private
@@ -732,7 +726,7 @@ specifier|public
 name|void
 name|copy
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 name|other
 parameter_list|)
 block|{
@@ -1427,9 +1421,8 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
-comment|// nocommit downsize the arrays?
-comment|//assert getNumStates()> 0;
 block|}
+comment|// TODO: add finish() to shrink wrap the arrays?
 DECL|method|getNumStates
 specifier|public
 name|int
@@ -2558,17 +2551,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// nocommit move to Operations
 DECL|method|totalize
 specifier|public
-name|LightAutomaton
+name|Automaton
 name|totalize
 parameter_list|()
 block|{
-name|LightAutomaton
+name|Automaton
 name|result
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 argument_list|()
 decl_stmt|;
 name|int
@@ -3352,7 +3346,7 @@ operator|-
 literal|1
 return|;
 block|}
-comment|/** Records new states and transitions and then {@link    *  #finish} creates the {@link LightAutomaton}.  Use this    *  when it's too restrictive to have to add all transitions    *  leaving each state at once. */
+comment|/** Records new states and transitions and then {@link    *  #finish} creates the {@link Automaton}.  Use this    *  when it's too restrictive to have to add all transitions    *  leaving each state at once. */
 DECL|class|Builder
 specifier|public
 specifier|static
@@ -3379,11 +3373,11 @@ decl_stmt|;
 DECL|field|a
 specifier|private
 specifier|final
-name|LightAutomaton
+name|Automaton
 name|a
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 argument_list|()
 decl_stmt|;
 DECL|method|addTransition
@@ -3817,7 +3811,7 @@ block|}
 decl_stmt|;
 DECL|method|finish
 specifier|public
-name|LightAutomaton
+name|Automaton
 name|finish
 parameter_list|()
 block|{
@@ -3966,7 +3960,7 @@ specifier|public
 name|void
 name|copy
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 name|other
 parameter_list|)
 block|{

@@ -37,7 +37,7 @@ name|RunAutomaton
 block|{
 DECL|field|automaton
 specifier|final
-name|LightAutomaton
+name|Automaton
 name|automaton
 decl_stmt|;
 DECL|field|maxInterval
@@ -247,7 +247,7 @@ argument_list|(
 literal|" "
 argument_list|)
 expr_stmt|;
-name|LightAutomaton
+name|Automaton
 operator|.
 name|appendCharString
 argument_list|(
@@ -270,7 +270,7 @@ argument_list|(
 literal|"-"
 argument_list|)
 expr_stmt|;
-name|LightAutomaton
+name|Automaton
 operator|.
 name|appendCharString
 argument_list|(
@@ -376,7 +376,7 @@ name|c
 parameter_list|)
 block|{
 return|return
-name|SpecialOperations
+name|Operations
 operator|.
 name|findIndex
 argument_list|(
@@ -391,7 +391,7 @@ DECL|method|RunAutomaton
 specifier|public
 name|RunAutomaton
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 name|a
 parameter_list|,
 name|int
@@ -410,7 +410,7 @@ expr_stmt|;
 comment|//System.out.println("before det a=" + a.getNumStates());
 name|a
 operator|=
-name|BasicOperations
+name|Operations
 operator|.
 name|determinize
 argument_list|(

@@ -20,10 +20,10 @@ begin_comment
 comment|/**  * Pair of states.  *   * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|LightStatePair
+DECL|class|StatePair
 specifier|public
 class|class
-name|LightStatePair
+name|StatePair
 block|{
 DECL|field|s
 name|int
@@ -37,8 +37,8 @@ DECL|field|s2
 name|int
 name|s2
 decl_stmt|;
-DECL|method|LightStatePair
-name|LightStatePair
+DECL|method|StatePair
+name|StatePair
 parameter_list|(
 name|int
 name|s
@@ -70,9 +70,9 @@ name|s2
 expr_stmt|;
 block|}
 comment|/**    * Constructs a new state pair.    *     * @param s1 first state    * @param s2 second state    */
-DECL|method|LightStatePair
+DECL|method|StatePair
 specifier|public
-name|LightStatePair
+name|StatePair
 parameter_list|(
 name|int
 name|s1
@@ -117,14 +117,14 @@ if|if
 condition|(
 name|obj
 operator|instanceof
-name|LightStatePair
+name|StatePair
 condition|)
 block|{
-name|LightStatePair
+name|StatePair
 name|p
 init|=
 operator|(
-name|LightStatePair
+name|StatePair
 operator|)
 name|obj
 decl_stmt|;
@@ -171,7 +171,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"LightStatePair(s1="
+literal|"StatePair(s1="
 operator|+
 name|s1
 operator|+

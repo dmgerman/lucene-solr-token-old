@@ -215,7 +215,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicAutomata
+name|Automata
 import|;
 end_import
 begin_import
@@ -245,7 +245,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|LightAutomaton
+name|Automaton
 import|;
 end_import
 begin_import
@@ -1643,7 +1643,7 @@ operator|.
 name|nextDouble
 argument_list|()
 decl_stmt|;
-name|LightAutomaton
+name|Automaton
 name|a
 decl_stmt|;
 if|if
@@ -1670,9 +1670,9 @@ expr_stmt|;
 block|}
 name|a
 operator|=
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeEmptyLight
+name|makeEmpty
 argument_list|()
 expr_stmt|;
 block|}
@@ -1752,9 +1752,9 @@ expr_stmt|;
 block|}
 name|a
 operator|=
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeStringUnionLight
+name|makeStringUnion
 argument_list|(
 name|sortedAcceptTerms
 argument_list|)
@@ -4768,7 +4768,7 @@ argument_list|(
 literal|"field"
 argument_list|)
 decl_stmt|;
-name|LightAutomaton
+name|Automaton
 name|automaton
 init|=
 operator|new
@@ -4781,7 +4781,7 @@ operator|.
 name|NONE
 argument_list|)
 operator|.
-name|toLightAutomaton
+name|toAutomaton
 argument_list|()
 decl_stmt|;
 name|CompiledAutomaton
@@ -5330,7 +5330,7 @@ argument_list|(
 literal|"field"
 argument_list|)
 decl_stmt|;
-name|LightAutomaton
+name|Automaton
 name|automaton
 init|=
 operator|new
@@ -5343,7 +5343,7 @@ operator|.
 name|NONE
 argument_list|)
 operator|.
-name|toLightAutomaton
+name|toAutomaton
 argument_list|()
 decl_stmt|;
 name|CompiledAutomaton
@@ -5799,7 +5799,7 @@ argument_list|(
 literal|"field"
 argument_list|)
 decl_stmt|;
-name|LightAutomaton
+name|Automaton
 name|automaton
 init|=
 operator|new
@@ -5812,7 +5812,7 @@ operator|.
 name|NONE
 argument_list|)
 operator|.
-name|toLightAutomaton
+name|toAutomaton
 argument_list|()
 decl_stmt|;
 comment|// accept ALL

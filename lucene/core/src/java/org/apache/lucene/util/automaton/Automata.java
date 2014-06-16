@@ -42,30 +42,30 @@ begin_comment
 comment|/**  * Construction of basic automata.  *   * @lucene.experimental  */
 end_comment
 begin_class
-DECL|class|BasicAutomata
+DECL|class|Automata
 specifier|final
 specifier|public
 class|class
-name|BasicAutomata
+name|Automata
 block|{
-DECL|method|BasicAutomata
+DECL|method|Automata
 specifier|private
-name|BasicAutomata
+name|Automata
 parameter_list|()
 block|{}
 comment|/**    * Returns a new (deterministic) automaton with the empty language.    */
-DECL|method|makeEmptyLight
+DECL|method|makeEmpty
 specifier|public
 specifier|static
-name|LightAutomaton
-name|makeEmptyLight
+name|Automaton
+name|makeEmpty
 parameter_list|()
 block|{
-name|LightAutomaton
+name|Automaton
 name|a
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 argument_list|()
 decl_stmt|;
 name|a
@@ -78,18 +78,18 @@ name|a
 return|;
 block|}
 comment|/**    * Returns a new (deterministic) automaton that accepts only the empty string.    */
-DECL|method|makeEmptyStringLight
+DECL|method|makeEmptyString
 specifier|public
 specifier|static
-name|LightAutomaton
-name|makeEmptyStringLight
+name|Automaton
+name|makeEmptyString
 parameter_list|()
 block|{
-name|LightAutomaton
+name|Automaton
 name|a
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 argument_list|()
 decl_stmt|;
 name|a
@@ -111,18 +111,18 @@ name|a
 return|;
 block|}
 comment|/**    * Returns a new (deterministic) automaton that accepts all strings.    */
-DECL|method|makeAnyStringLight
+DECL|method|makeAnyString
 specifier|public
 specifier|static
-name|LightAutomaton
-name|makeAnyStringLight
+name|Automaton
+name|makeAnyString
 parameter_list|()
 block|{
-name|LightAutomaton
+name|Automaton
 name|a
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 argument_list|()
 decl_stmt|;
 name|int
@@ -169,15 +169,15 @@ name|a
 return|;
 block|}
 comment|/**    * Returns a new (deterministic) automaton that accepts any single codepoint.    */
-DECL|method|makeAnyCharLight
+DECL|method|makeAnyChar
 specifier|public
 specifier|static
-name|LightAutomaton
-name|makeAnyCharLight
+name|Automaton
+name|makeAnyChar
 parameter_list|()
 block|{
 return|return
-name|makeCharRangeLight
+name|makeCharRange
 argument_list|(
 name|Character
 operator|.
@@ -195,7 +195,7 @@ specifier|static
 name|int
 name|appendAnyChar
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 name|a
 parameter_list|,
 name|int
@@ -232,18 +232,18 @@ name|newState
 return|;
 block|}
 comment|/**    * Returns a new (deterministic) automaton that accepts a single codepoint of    * the given value.    */
-DECL|method|makeCharLight
+DECL|method|makeChar
 specifier|public
 specifier|static
-name|LightAutomaton
-name|makeCharLight
+name|Automaton
+name|makeChar
 parameter_list|(
 name|int
 name|c
 parameter_list|)
 block|{
 return|return
-name|makeCharRangeLight
+name|makeCharRange
 argument_list|(
 name|c
 argument_list|,
@@ -257,7 +257,7 @@ specifier|static
 name|int
 name|appendChar
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 name|a
 parameter_list|,
 name|int
@@ -293,11 +293,11 @@ name|newState
 return|;
 block|}
 comment|/**    * Returns a new (deterministic) automaton that accepts a single codepoint whose    * value is in the given interval (including both end points).    */
-DECL|method|makeCharRangeLight
+DECL|method|makeCharRange
 specifier|public
 specifier|static
-name|LightAutomaton
-name|makeCharRangeLight
+name|Automaton
+name|makeCharRange
 parameter_list|(
 name|int
 name|min
@@ -314,15 +314,15 @@ name|max
 condition|)
 block|{
 return|return
-name|makeEmptyLight
+name|makeEmpty
 argument_list|()
 return|;
 block|}
-name|LightAutomaton
+name|Automaton
 name|a
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 argument_list|()
 decl_stmt|;
 name|int
@@ -373,13 +373,13 @@ name|a
 return|;
 block|}
 comment|/**    * Constructs sub-automaton corresponding to decimal numbers of length    * x.substring(n).length().    */
-DECL|method|anyOfRightLengthLight
+DECL|method|anyOfRightLength
 specifier|private
 specifier|static
 name|int
-name|anyOfRightLengthLight
+name|anyOfRightLength
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 operator|.
 name|Builder
 name|builder
@@ -427,7 +427,7 @@ name|addTransition
 argument_list|(
 name|s
 argument_list|,
-name|anyOfRightLengthLight
+name|anyOfRightLength
 argument_list|(
 name|builder
 argument_list|,
@@ -449,13 +449,13 @@ name|s
 return|;
 block|}
 comment|/**    * Constructs sub-automaton corresponding to decimal numbers of value at least    * x.substring(n) and length x.substring(n).length().    */
-DECL|method|atLeastLight
+DECL|method|atLeast
 specifier|private
 specifier|static
 name|int
-name|atLeastLight
+name|atLeast
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 operator|.
 name|Builder
 name|builder
@@ -535,7 +535,7 @@ name|addTransition
 argument_list|(
 name|s
 argument_list|,
-name|atLeastLight
+name|atLeast
 argument_list|(
 name|builder
 argument_list|,
@@ -570,7 +570,7 @@ name|addTransition
 argument_list|(
 name|s
 argument_list|,
-name|anyOfRightLengthLight
+name|anyOfRightLength
 argument_list|(
 name|builder
 argument_list|,
@@ -600,13 +600,13 @@ name|s
 return|;
 block|}
 comment|/**    * Constructs sub-automaton corresponding to decimal numbers of value at most    * x.substring(n) and length x.substring(n).length().    */
-DECL|method|atMostLight
+DECL|method|atMost
 specifier|private
 specifier|static
 name|int
-name|atMostLight
+name|atMost
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 operator|.
 name|Builder
 name|builder
@@ -664,7 +664,7 @@ name|addTransition
 argument_list|(
 name|s
 argument_list|,
-name|atMostLight
+name|atMost
 argument_list|(
 name|builder
 argument_list|,
@@ -694,7 +694,7 @@ name|addTransition
 argument_list|(
 name|s
 argument_list|,
-name|anyOfRightLengthLight
+name|anyOfRightLength
 argument_list|(
 name|builder
 argument_list|,
@@ -724,13 +724,13 @@ name|s
 return|;
 block|}
 comment|/**    * Constructs sub-automaton corresponding to decimal numbers of value between    * x.substring(n) and y.substring(n) and of length x.substring(n).length()    * (which must be equal to y.substring(n).length()).    */
-DECL|method|betweenLight
+DECL|method|between
 specifier|private
 specifier|static
 name|int
-name|betweenLight
+name|between
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 operator|.
 name|Builder
 name|builder
@@ -830,7 +830,7 @@ name|addTransition
 argument_list|(
 name|s
 argument_list|,
-name|betweenLight
+name|between
 argument_list|(
 name|builder
 argument_list|,
@@ -864,7 +864,7 @@ name|addTransition
 argument_list|(
 name|s
 argument_list|,
-name|atLeastLight
+name|atLeast
 argument_list|(
 name|builder
 argument_list|,
@@ -892,7 +892,7 @@ name|addTransition
 argument_list|(
 name|s
 argument_list|,
-name|atMostLight
+name|atMost
 argument_list|(
 name|builder
 argument_list|,
@@ -921,7 +921,7 @@ name|addTransition
 argument_list|(
 name|s
 argument_list|,
-name|anyOfRightLengthLight
+name|anyOfRightLength
 argument_list|(
 name|builder
 argument_list|,
@@ -959,11 +959,11 @@ name|s
 return|;
 block|}
 comment|/**    * Returns a new automaton that accepts strings representing decimal    * non-negative integers in the given interval.    *     * @param min minimal value of interval    * @param max maximal value of interval (both end points are included in the    *          interval)    * @param digits if>0, use fixed number of digits (strings must be prefixed    *          by 0's to obtain the right length) - otherwise, the number of    *          digits is not fixed    * @exception IllegalArgumentException if min>max or if numbers in the    *              interval cannot be expressed with the given fixed number of    *              digits    */
-DECL|method|makeIntervalLight
+DECL|method|makeInterval
 specifier|public
 specifier|static
-name|LightAutomaton
-name|makeIntervalLight
+name|Automaton
+name|makeInterval
 parameter_list|(
 name|int
 name|min
@@ -1138,13 +1138,13 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
-name|LightAutomaton
+name|Automaton
 operator|.
 name|Builder
 name|builder
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 operator|.
 name|Builder
 argument_list|()
@@ -1174,7 +1174,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|betweenLight
+name|between
 argument_list|(
 name|builder
 argument_list|,
@@ -1191,7 +1191,7 @@ operator|<=
 literal|0
 argument_list|)
 expr_stmt|;
-name|LightAutomaton
+name|Automaton
 name|a1
 init|=
 name|builder
@@ -1246,21 +1246,21 @@ name|a1
 return|;
 block|}
 comment|/**    * Returns a new (deterministic) automaton that accepts the single given    * string.    */
-DECL|method|makeStringLight
+DECL|method|makeString
 specifier|public
 specifier|static
-name|LightAutomaton
-name|makeStringLight
+name|Automaton
+name|makeString
 parameter_list|(
 name|String
 name|s
 parameter_list|)
 block|{
-name|LightAutomaton
+name|Automaton
 name|a
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 argument_list|()
 decl_stmt|;
 name|int
@@ -1355,7 +1355,7 @@ name|isDeterministic
 argument_list|()
 assert|;
 assert|assert
-name|BasicOperations
+name|Operations
 operator|.
 name|hasDeadStates
 argument_list|(
@@ -1369,11 +1369,11 @@ name|a
 return|;
 block|}
 comment|/**    * Returns a new (deterministic) automaton that accepts the single given    * string from the specified unicode code points.    */
-DECL|method|makeStringLight
+DECL|method|makeString
 specifier|public
 specifier|static
-name|LightAutomaton
-name|makeStringLight
+name|Automaton
+name|makeString
 parameter_list|(
 name|int
 index|[]
@@ -1386,11 +1386,11 @@ name|int
 name|length
 parameter_list|)
 block|{
-name|LightAutomaton
+name|Automaton
 name|a
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 argument_list|()
 decl_stmt|;
 name|a
@@ -1466,11 +1466,11 @@ name|a
 return|;
 block|}
 comment|/**    * Returns a new (deterministic and minimal) automaton that accepts the union    * of the given collection of {@link BytesRef}s representing UTF-8 encoded    * strings.    *     * @param utf8Strings    *          The input strings, UTF-8 encoded. The collection must be in sorted    *          order.    *     * @return An {@link Automaton} accepting all input strings. The resulting    *         automaton is codepoint based (full unicode codepoints on    *         transitions).    */
-DECL|method|makeStringUnionLight
+DECL|method|makeStringUnion
 specifier|public
 specifier|static
-name|LightAutomaton
-name|makeStringUnionLight
+name|Automaton
+name|makeStringUnion
 parameter_list|(
 name|Collection
 argument_list|<
@@ -1488,14 +1488,14 @@ argument_list|()
 condition|)
 block|{
 return|return
-name|makeEmptyLight
+name|makeEmpty
 argument_list|()
 return|;
 block|}
 else|else
 block|{
 return|return
-name|DaciukMihovAutomatonBuilderLight
+name|DaciukMihovAutomatonBuilder
 operator|.
 name|build
 argument_list|(

@@ -276,7 +276,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|LightAutomaton
+name|Automaton
 import|;
 end_import
 begin_comment
@@ -946,7 +946,7 @@ name|i
 operator|++
 control|)
 block|{
-name|LightAutomaton
+name|Automaton
 name|a
 init|=
 name|builder

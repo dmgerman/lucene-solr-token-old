@@ -70,7 +70,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicAutomata
+name|Automata
 import|;
 end_import
 begin_import
@@ -85,7 +85,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicOperations
+name|Operations
 import|;
 end_import
 begin_import
@@ -100,7 +100,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|LightAutomaton
+name|Automaton
 import|;
 end_import
 begin_comment
@@ -173,7 +173,7 @@ argument_list|)
 DECL|method|toAutomaton
 specifier|public
 specifier|static
-name|LightAutomaton
+name|Automaton
 name|toAutomaton
 parameter_list|(
 name|Term
@@ -182,7 +182,7 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
-name|LightAutomaton
+name|Automaton
 argument_list|>
 name|automata
 init|=
@@ -248,9 +248,9 @@ name|automata
 operator|.
 name|add
 argument_list|(
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeAnyStringLight
+name|makeAnyString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -262,9 +262,9 @@ name|automata
 operator|.
 name|add
 argument_list|(
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeAnyCharLight
+name|makeAnyChar
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -311,9 +311,9 @@ name|automata
 operator|.
 name|add
 argument_list|(
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeCharLight
+name|makeChar
 argument_list|(
 name|nextChar
 argument_list|)
@@ -327,9 +327,9 @@ name|automata
 operator|.
 name|add
 argument_list|(
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeCharLight
+name|makeChar
 argument_list|(
 name|c
 argument_list|)
@@ -342,9 +342,9 @@ name|length
 expr_stmt|;
 block|}
 return|return
-name|BasicOperations
+name|Operations
 operator|.
-name|concatenateLight
+name|concatenate
 argument_list|(
 name|automata
 argument_list|)

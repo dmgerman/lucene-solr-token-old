@@ -165,11 +165,11 @@ name|ByteRunAutomaton
 name|runAutomaton
 decl_stmt|;
 comment|/**    * Two dimensional array of transitions, indexed by state    * number for traversal. The state numbering is consistent with    * {@link #runAutomaton}.     * Only valid for {@link AUTOMATON_TYPE#NORMAL}.    */
-DECL|field|lightAutomaton
+DECL|field|automaton
 specifier|public
 specifier|final
-name|LightAutomaton
-name|lightAutomaton
+name|Automaton
+name|automaton
 decl_stmt|;
 comment|/**    * Shared common suffix accepted by the automaton. Only valid    * for {@link AUTOMATON_TYPE#NORMAL}, and only when the    * automaton accepts an infinite language.    */
 DECL|field|commonSuffixRef
@@ -189,7 +189,7 @@ DECL|method|CompiledAutomaton
 specifier|public
 name|CompiledAutomaton
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 name|automaton
 parameter_list|)
 block|{
@@ -207,7 +207,7 @@ DECL|method|CompiledAutomaton
 specifier|public
 name|CompiledAutomaton
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 name|automaton
 parameter_list|,
 name|Boolean
@@ -227,7 +227,7 @@ comment|// if so, don't create a runAutomaton.  Note that on a
 comment|// large automaton these tests could be costly:
 if|if
 condition|(
-name|BasicOperations
+name|Operations
 operator|.
 name|isEmpty
 argument_list|(
@@ -254,7 +254,9 @@ name|runAutomaton
 operator|=
 literal|null
 expr_stmt|;
-name|lightAutomaton
+name|this
+operator|.
+name|automaton
 operator|=
 literal|null
 expr_stmt|;
@@ -270,7 +272,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|BasicOperations
+name|Operations
 operator|.
 name|isTotal
 argument_list|(
@@ -297,7 +299,9 @@ name|runAutomaton
 operator|=
 literal|null
 expr_stmt|;
-name|lightAutomaton
+name|this
+operator|.
+name|automaton
 operator|=
 literal|null
 expr_stmt|;
@@ -313,7 +317,7 @@ else|else
 block|{
 name|automaton
 operator|=
-name|BasicOperations
+name|Operations
 operator|.
 name|determinize
 argument_list|(
@@ -324,7 +328,7 @@ specifier|final
 name|String
 name|commonPrefix
 init|=
-name|SpecialOperations
+name|Operations
 operator|.
 name|getCommonPrefix
 argument_list|(
@@ -344,15 +348,15 @@ argument_list|()
 operator|>
 literal|0
 operator|&&
-name|BasicOperations
+name|Operations
 operator|.
 name|sameLanguage
 argument_list|(
 name|automaton
 argument_list|,
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeStringLight
+name|makeString
 argument_list|(
 name|commonPrefix
 argument_list|)
@@ -401,7 +405,9 @@ name|runAutomaton
 operator|=
 literal|null
 expr_stmt|;
-name|lightAutomaton
+name|this
+operator|.
+name|automaton
 operator|=
 literal|null
 expr_stmt|;
@@ -424,29 +430,29 @@ operator|>
 literal|0
 condition|)
 block|{
-name|LightAutomaton
+name|Automaton
 name|other
 init|=
-name|BasicOperations
+name|Operations
 operator|.
-name|concatenateLight
+name|concatenate
 argument_list|(
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeStringLight
+name|makeString
 argument_list|(
 name|commonPrefix
 argument_list|)
 argument_list|,
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeAnyStringLight
+name|makeAnyString
 argument_list|()
 argument_list|)
 decl_stmt|;
 name|other
 operator|=
-name|BasicOperations
+name|Operations
 operator|.
 name|determinize
 argument_list|(
@@ -454,7 +460,7 @@ name|other
 argument_list|)
 expr_stmt|;
 assert|assert
-name|BasicOperations
+name|Operations
 operator|.
 name|hasDeadStates
 argument_list|(
@@ -465,7 +471,7 @@ literal|false
 assert|;
 if|if
 condition|(
-name|BasicOperations
+name|Operations
 operator|.
 name|sameLanguage
 argument_list|(
@@ -498,7 +504,9 @@ name|runAutomaton
 operator|=
 literal|null
 expr_stmt|;
-name|lightAutomaton
+name|this
+operator|.
+name|automaton
 operator|=
 literal|null
 expr_stmt|;
@@ -534,7 +542,7 @@ name|this
 operator|.
 name|finite
 operator|=
-name|SpecialOperations
+name|Operations
 operator|.
 name|isFinite
 argument_list|(
@@ -551,11 +559,11 @@ operator|=
 name|finite
 expr_stmt|;
 block|}
-name|LightAutomaton
+name|Automaton
 name|utf8
 init|=
 operator|new
-name|UTF32ToUTF8Light
+name|UTF32ToUTF8
 argument_list|()
 operator|.
 name|convert
@@ -579,7 +587,7 @@ else|else
 block|{
 name|commonSuffixRef
 operator|=
-name|SpecialOperations
+name|Operations
 operator|.
 name|getCommonSuffixBytesRef
 argument_list|(
@@ -597,7 +605,9 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|lightAutomaton
+name|this
+operator|.
+name|automaton
 operator|=
 name|runAutomaton
 operator|.
@@ -633,7 +643,7 @@ name|leadLabel
 parameter_list|)
 block|{
 comment|//System.out.println("addTail state=" + state + " term=" + term.utf8ToString() + " idx=" + idx + " leadLabel=" + (char) leadLabel);
-comment|//System.out.println(lightAutomaton.toDot());
+comment|//System.out.println(automaton.toDot());
 comment|// Find biggest transition that's< label
 comment|// TODO: use binary search here
 name|int
@@ -645,7 +655,7 @@ decl_stmt|;
 name|int
 name|numTransitions
 init|=
-name|lightAutomaton
+name|automaton
 operator|.
 name|initTransition
 argument_list|(
@@ -669,7 +679,7 @@ name|i
 operator|++
 control|)
 block|{
-name|lightAutomaton
+name|automaton
 operator|.
 name|getNextTransition
 argument_list|(
@@ -703,7 +713,7 @@ operator|!=
 operator|-
 literal|1
 assert|;
-name|lightAutomaton
+name|automaton
 operator|.
 name|getTransition
 argument_list|(
@@ -799,7 +809,7 @@ condition|)
 block|{
 name|numTransitions
 operator|=
-name|lightAutomaton
+name|automaton
 operator|.
 name|getNumTransitions
 argument_list|(
@@ -838,7 +848,7 @@ block|{
 comment|// We are pushing "top" -- so get last label of
 comment|// last transition:
 comment|//System.out.println("get state=" + state + " numTrans=" + numTransitions);
-name|lightAutomaton
+name|automaton
 operator|.
 name|getTransition
 argument_list|(
@@ -1214,7 +1224,7 @@ block|{
 name|int
 name|numTransitions
 init|=
-name|lightAutomaton
+name|automaton
 operator|.
 name|getNumTransitions
 argument_list|(
@@ -1249,7 +1259,7 @@ return|;
 block|}
 else|else
 block|{
-name|lightAutomaton
+name|automaton
 operator|.
 name|getTransition
 argument_list|(
@@ -1454,7 +1464,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|lightAutomaton
+name|automaton
 operator|.
 name|getNumStates
 argument_list|()
@@ -1477,7 +1487,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|lightAutomaton
+name|automaton
 operator|.
 name|isAccept
 argument_list|(
@@ -1534,7 +1544,7 @@ block|}
 name|int
 name|numTransitions
 init|=
-name|lightAutomaton
+name|automaton
 operator|.
 name|initTransition
 argument_list|(
@@ -1623,7 +1633,7 @@ name|max
 argument_list|)
 expr_stmt|;
 block|}
-name|lightAutomaton
+name|automaton
 operator|.
 name|getNextTransition
 argument_list|(

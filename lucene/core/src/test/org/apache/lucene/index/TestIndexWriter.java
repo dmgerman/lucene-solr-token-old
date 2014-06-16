@@ -840,7 +840,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicAutomata
+name|Automata
 import|;
 end_import
 begin_import
@@ -870,7 +870,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|LightAutomaton
+name|Automaton
 import|;
 end_import
 begin_import
@@ -13344,12 +13344,12 @@ name|newDirectory
 argument_list|()
 decl_stmt|;
 specifier|final
-name|LightAutomaton
+name|Automaton
 name|secondSet
 init|=
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeStringLight
+name|makeString
 argument_list|(
 literal|"foobar"
 argument_list|)

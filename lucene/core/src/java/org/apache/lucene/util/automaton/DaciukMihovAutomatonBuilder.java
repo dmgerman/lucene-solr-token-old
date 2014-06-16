@@ -68,10 +68,10 @@ begin_comment
 comment|/**  * Builds a minimal, deterministic {@link Automaton} that accepts a set of   * strings. The algorithm requires sorted input data, but is very fast   * (nearly linear with the input size).  *   * @see #build(Collection)  * @see BasicAutomata#makeStringUnion(Collection)  */
 end_comment
 begin_class
-DECL|class|DaciukMihovAutomatonBuilderLight
+DECL|class|DaciukMihovAutomatonBuilder
 specifier|final
 class|class
-name|DaciukMihovAutomatonBuilderLight
+name|DaciukMihovAutomatonBuilder
 block|{
 comment|/**    * DFSA state with<code>char</code> labels on transitions.    */
 DECL|class|State
@@ -804,7 +804,7 @@ specifier|static
 name|int
 name|convert
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 operator|.
 name|Builder
 name|a
@@ -884,7 +884,7 @@ name|labels
 decl_stmt|;
 for|for
 control|(
-name|DaciukMihovAutomatonBuilderLight
+name|DaciukMihovAutomatonBuilder
 operator|.
 name|State
 name|target
@@ -925,7 +925,7 @@ comment|/**    * Build a minimal, deterministic automaton from a sorted list of 
 DECL|method|build
 specifier|public
 specifier|static
-name|LightAutomaton
+name|Automaton
 name|build
 parameter_list|(
 name|Collection
@@ -936,11 +936,11 @@ name|input
 parameter_list|)
 block|{
 specifier|final
-name|DaciukMihovAutomatonBuilderLight
+name|DaciukMihovAutomatonBuilder
 name|builder
 init|=
 operator|new
-name|DaciukMihovAutomatonBuilderLight
+name|DaciukMihovAutomatonBuilder
 argument_list|()
 decl_stmt|;
 name|CharsRef
@@ -975,13 +975,13 @@ name|scratch
 argument_list|)
 expr_stmt|;
 block|}
-name|LightAutomaton
+name|Automaton
 operator|.
 name|Builder
 name|a
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 operator|.
 name|Builder
 argument_list|()

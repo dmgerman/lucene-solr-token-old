@@ -121,7 +121,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|LightAutomaton
+name|Automaton
 import|;
 end_import
 begin_comment
@@ -302,7 +302,7 @@ decl_stmt|;
 comment|/** Pulls the graph (including {@link    *  PositionLengthAttribute}) from the provided {@link    *  TokenStream}, and creates the corresponding    *  automaton where arcs are bytes (or Unicode code points     *  if unicodeArcs = true) from each term. */
 DECL|method|toAutomaton
 specifier|public
-name|LightAutomaton
+name|Automaton
 name|toAutomaton
 parameter_list|(
 name|TokenStream
@@ -312,13 +312,13 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|LightAutomaton
+name|Automaton
 operator|.
 name|Builder
 name|builder
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 operator|.
 name|Builder
 argument_list|()
@@ -988,7 +988,7 @@ specifier|static
 name|void
 name|addHoles
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 operator|.
 name|Builder
 name|builder

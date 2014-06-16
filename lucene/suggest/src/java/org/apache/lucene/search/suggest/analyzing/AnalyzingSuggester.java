@@ -323,7 +323,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicOperations
+name|Operations
 import|;
 end_import
 begin_import
@@ -338,22 +338,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|LightAutomaton
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|automaton
-operator|.
-name|SpecialOperations
+name|Automaton
 import|;
 end_import
 begin_import
@@ -915,7 +900,7 @@ name|int
 index|[]
 name|topoSortStates
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 name|a
 parameter_list|)
 block|{
@@ -1096,18 +1081,18 @@ comment|// Replaces SEP with epsilon or remaps them if
 comment|// we were asked to preserve them:
 DECL|method|replaceSep
 specifier|private
-name|LightAutomaton
+name|Automaton
 name|replaceSep
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 name|a
 parameter_list|)
 block|{
-name|LightAutomaton
+name|Automaton
 name|result
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 argument_list|()
 decl_stmt|;
 comment|// Copy all states over
@@ -1368,10 +1353,10 @@ block|}
 comment|/** Used by subclass to change the lookup automaton, if    *  necessary. */
 DECL|method|convertAutomaton
 specifier|protected
-name|LightAutomaton
+name|Automaton
 name|convertAutomaton
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 name|a
 parameter_list|)
 block|{
@@ -3547,7 +3532,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-name|LightAutomaton
+name|Automaton
 name|lookupAutomaton
 init|=
 name|toLookupAutomaton
@@ -4257,7 +4242,7 @@ argument_list|>
 argument_list|>
 name|prefixPaths
 parameter_list|,
-name|LightAutomaton
+name|Automaton
 name|lookupAutomaton
 parameter_list|,
 name|FST
@@ -4298,7 +4283,7 @@ throws|throws
 name|IOException
 block|{
 comment|// Analyze surface form:
-name|LightAutomaton
+name|Automaton
 name|automaton
 init|=
 literal|null
@@ -4357,7 +4342,7 @@ comment|// TODO: we could walk& add simultaneously, so we
 comment|// don't have to alloc [possibly biggish]
 comment|// intermediate HashSet in RAM:
 return|return
-name|SpecialOperations
+name|Operations
 operator|.
 name|getFiniteStrings
 argument_list|(
@@ -4369,7 +4354,7 @@ return|;
 block|}
 DECL|method|toLookupAutomaton
 specifier|final
-name|LightAutomaton
+name|Automaton
 name|toLookupAutomaton
 parameter_list|(
 specifier|final
@@ -4381,7 +4366,7 @@ name|IOException
 block|{
 comment|// TODO: is there a Reader from a CharSequence?
 comment|// Turn tokenstream into automaton:
-name|LightAutomaton
+name|Automaton
 name|automaton
 init|=
 literal|null
@@ -4426,7 +4411,7 @@ comment|// TODO: we can optimize this somewhat by determinizing
 comment|// while we convert
 name|automaton
 operator|=
-name|BasicOperations
+name|Operations
 operator|.
 name|determinize
 argument_list|(

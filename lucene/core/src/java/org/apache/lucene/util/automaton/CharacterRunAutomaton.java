@@ -32,7 +32,7 @@ DECL|method|CharacterRunAutomaton
 specifier|public
 name|CharacterRunAutomaton
 parameter_list|(
-name|LightAutomaton
+name|Automaton
 name|a
 parameter_list|)
 block|{

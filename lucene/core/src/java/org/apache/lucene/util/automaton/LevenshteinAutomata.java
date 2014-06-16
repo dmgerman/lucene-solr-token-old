@@ -542,7 +542,7 @@ block|}
 comment|/**    * Compute a DFA that accepts all strings within an edit distance of<code>n</code>.    *<p>    * All automata have the following properties:    *<ul>    *<li>They are deterministic (DFA).    *<li>There are no transitions to dead states.    *<li>They are not minimal (some transitions could be combined).    *</ul>    *</p>    */
 DECL|method|toAutomaton
 specifier|public
-name|LightAutomaton
+name|Automaton
 name|toAutomaton
 parameter_list|(
 name|int
@@ -560,7 +560,7 @@ return|;
 block|}
 DECL|method|toAutomaton
 specifier|public
-name|LightAutomaton
+name|Automaton
 name|toAutomaton
 parameter_list|(
 name|int
@@ -583,9 +583,9 @@ literal|0
 condition|)
 block|{
 return|return
-name|BasicAutomata
+name|Automata
 operator|.
-name|makeStringLight
+name|makeString
 argument_list|(
 name|prefix
 operator|+
@@ -642,11 +642,11 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|LightAutomaton
+name|Automaton
 name|a
 init|=
 operator|new
-name|LightAutomaton
+name|Automaton
 argument_list|()
 decl_stmt|;
 name|int

@@ -9267,7 +9267,7 @@ operator|.
 name|NONE
 argument_list|)
 operator|.
-name|toLightAutomaton
+name|toAutomaton
 argument_list|()
 argument_list|)
 decl_stmt|;
