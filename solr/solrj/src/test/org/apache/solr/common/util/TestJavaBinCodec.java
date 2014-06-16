@@ -156,19 +156,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCase
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|TestUtil
 import|;
 end_import
@@ -1183,7 +1170,9 @@ operator|instanceof
 name|SolrDocument
 condition|)
 block|{
-name|assertSolrDocumentEquals
+name|assertTrue
+argument_list|(
+name|compareSolrDocument
 argument_list|(
 name|unmarshaledObj
 operator|.
@@ -1197,6 +1186,7 @@ operator|.
 name|get
 argument_list|(
 name|i
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1223,7 +1213,9 @@ operator|instanceof
 name|SolrDocumentList
 condition|)
 block|{
-name|assertSolrDocumentEquals
+name|assertTrue
+argument_list|(
+name|compareSolrDocumentList
 argument_list|(
 name|unmarshaledObj
 operator|.
@@ -1237,6 +1229,7 @@ operator|.
 name|get
 argument_list|(
 name|i
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1263,7 +1256,9 @@ operator|instanceof
 name|SolrInputDocument
 condition|)
 block|{
-name|assertSolrInputDocumentEquals
+name|assertTrue
+argument_list|(
+name|compareSolrInputDocument
 argument_list|(
 name|unmarshaledObj
 operator|.
@@ -1277,6 +1272,7 @@ operator|.
 name|get
 argument_list|(
 name|i
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1303,6 +1299,8 @@ operator|instanceof
 name|SolrInputField
 condition|)
 block|{
+name|assertTrue
+argument_list|(
 name|assertSolrInputFieldEquals
 argument_list|(
 name|unmarshaledObj
@@ -1317,6 +1315,7 @@ operator|.
 name|get
 argument_list|(
 name|i
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1431,7 +1430,7 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
-name|assertSolrDocumentEquals
+name|compareSolrDocument
 argument_list|(
 name|sdoc
 argument_list|,

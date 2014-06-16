@@ -206,6 +206,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Accountable
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|Bits
 import|;
 end_import
@@ -259,6 +272,8 @@ DECL|class|DocTermOrds
 specifier|public
 class|class
 name|DocTermOrds
+implements|implements
+name|Accountable
 block|{
 comment|// Term ords are shifted by this, internally, to reserve
 comment|// values 0 (end term) and 1 (index is a pointer into byte array)
@@ -394,10 +409,10 @@ name|DocsEnum
 name|docsEnum
 decl_stmt|;
 comment|/** Returns total bytes used. */
-DECL|method|ramUsedInBytes
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|ramUsedInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 comment|// can cache the mem size since it shouldn't change

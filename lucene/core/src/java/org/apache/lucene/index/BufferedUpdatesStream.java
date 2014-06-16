@@ -182,6 +182,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Accountable
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|BytesRef
 import|;
 end_import
@@ -205,6 +218,8 @@ begin_class
 DECL|class|BufferedUpdatesStream
 class|class
 name|BufferedUpdatesStream
+implements|implements
+name|Accountable
 block|{
 comment|// TODO: maybe linked list?
 DECL|field|updates
@@ -483,10 +498,12 @@ name|get
 argument_list|()
 return|;
 block|}
-DECL|method|bytesUsed
+annotation|@
+name|Override
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|bytesUsed
+name|ramBytesUsed
 parameter_list|()
 block|{
 return|return

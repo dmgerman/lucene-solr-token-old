@@ -125,7 +125,7 @@ name|NormsFormat
 name|norms
 init|=
 operator|new
-name|Lucene42NormsFormat
+name|Lucene42RWNormsFormat
 argument_list|()
 decl_stmt|;
 DECL|field|fieldInfosFormat

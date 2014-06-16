@@ -2049,11 +2049,20 @@ name|RecognitionException
 block|{
 try|try
 block|{
-comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:340:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:340:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:340:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '$' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '$' )* )
+comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:340:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '$' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '$' )*
 block|{
 if|if
 condition|(
+name|input
+operator|.
+name|LA
+argument_list|(
+literal|1
+argument_list|)
+operator|==
+literal|'$'
+operator|||
 operator|(
 name|input
 operator|.
@@ -2132,7 +2141,7 @@ throw|throw
 name|mse
 throw|;
 block|}
-comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:340:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:340:35: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' | '$' )*
 name|loop2
 label|:
 while|while
@@ -2158,6 +2167,10 @@ decl_stmt|;
 if|if
 condition|(
 operator|(
+name|LA2_0
+operator|==
+literal|'$'
+operator|||
 operator|(
 name|LA2_0
 operator|>=
@@ -2211,6 +2224,15 @@ comment|// src/java/org/apache/lucene/expressions/js/Javascript.g:
 block|{
 if|if
 condition|(
+name|input
+operator|.
+name|LA
+argument_list|(
+literal|1
+argument_list|)
+operator|==
+literal|'$'
+operator|||
 operator|(
 name|input
 operator|.
@@ -4860,6 +4882,9 @@ literal|27
 expr_stmt|;
 block|}
 break|break;
+case|case
+literal|'$'
+case|:
 case|case
 literal|'A'
 case|:

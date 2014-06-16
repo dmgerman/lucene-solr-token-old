@@ -1299,13 +1299,9 @@ operator|++
 index|]
 decl_stmt|;
 assert|assert
-name|bitsPerValue
-operator|==
-literal|64
-operator|||
 name|PackedInts
 operator|.
-name|bitsRequired
+name|unsignedBitsRequired
 argument_list|(
 name|v
 argument_list|)

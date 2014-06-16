@@ -92,19 +92,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|IOUtils
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|LuceneTestCase
 import|;
 end_import
@@ -118,7 +105,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|RamUsageEstimator
+name|RamUsageTester
 import|;
 end_import
 begin_import
@@ -962,7 +949,7 @@ index|]
 operator|+
 literal|"\t"
 operator|+
-name|RamUsageEstimator
+name|RamUsageTester
 operator|.
 name|humanSizeOf
 argument_list|(
@@ -973,7 +960,7 @@ literal|"\t("
 operator|+
 literal|"words="
 operator|+
-name|RamUsageEstimator
+name|RamUsageTester
 operator|.
 name|humanSizeOf
 argument_list|(
@@ -986,7 +973,7 @@ literal|", "
 operator|+
 literal|"flags="
 operator|+
-name|RamUsageEstimator
+name|RamUsageTester
 operator|.
 name|humanSizeOf
 argument_list|(
@@ -999,7 +986,7 @@ literal|", "
 operator|+
 literal|"strips="
 operator|+
-name|RamUsageEstimator
+name|RamUsageTester
 operator|.
 name|humanSizeOf
 argument_list|(
@@ -1012,7 +999,7 @@ literal|", "
 operator|+
 literal|"conditions="
 operator|+
-name|RamUsageEstimator
+name|RamUsageTester
 operator|.
 name|humanSizeOf
 argument_list|(
@@ -1025,7 +1012,7 @@ literal|", "
 operator|+
 literal|"affixData="
 operator|+
-name|RamUsageEstimator
+name|RamUsageTester
 operator|.
 name|humanSizeOf
 argument_list|(
@@ -1038,7 +1025,7 @@ literal|", "
 operator|+
 literal|"prefixes="
 operator|+
-name|RamUsageEstimator
+name|RamUsageTester
 operator|.
 name|humanSizeOf
 argument_list|(
@@ -1051,7 +1038,7 @@ literal|", "
 operator|+
 literal|"suffixes="
 operator|+
-name|RamUsageEstimator
+name|RamUsageTester
 operator|.
 name|humanSizeOf
 argument_list|(
