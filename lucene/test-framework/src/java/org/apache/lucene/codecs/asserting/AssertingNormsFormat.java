@@ -108,9 +108,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene42
+name|lucene49
 operator|.
-name|Lucene42NormsFormat
+name|Lucene49NormsFormat
 import|;
 end_import
 begin_import
@@ -140,7 +140,7 @@ name|SegmentWriteState
 import|;
 end_import
 begin_comment
-comment|/**  * Just like {@link Lucene42NormsFormat} but with additional asserts.  */
+comment|/**  * Just like {@link Lucene49NormsFormat} but with additional asserts.  */
 end_comment
 begin_class
 DECL|class|AssertingNormsFormat
@@ -157,7 +157,7 @@ name|NormsFormat
 name|in
 init|=
 operator|new
-name|Lucene42NormsFormat
+name|Lucene49NormsFormat
 argument_list|()
 decl_stmt|;
 annotation|@
