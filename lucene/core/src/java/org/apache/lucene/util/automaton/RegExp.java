@@ -211,14 +211,6 @@ name|NONE
 init|=
 literal|0x0000
 decl_stmt|;
-DECL|field|allow_mutation
-specifier|private
-specifier|static
-name|boolean
-name|allow_mutation
-init|=
-literal|false
-decl_stmt|;
 DECL|field|kind
 name|Kind
 name|kind
@@ -571,6 +563,8 @@ argument_list|(
 name|list
 argument_list|)
 expr_stmt|;
+name|a
+operator|=
 name|MinimizationOperationsLight
 operator|.
 name|minimize
@@ -628,6 +622,8 @@ argument_list|(
 name|list
 argument_list|)
 expr_stmt|;
+name|a
+operator|=
 name|MinimizationOperationsLight
 operator|.
 name|minimize

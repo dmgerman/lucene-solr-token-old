@@ -741,7 +741,6 @@ name|createState
 argument_list|()
 expr_stmt|;
 block|}
-comment|// nocommit why are so many dead states created here?
 name|int
 name|stateOffset
 init|=
@@ -800,6 +799,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: this creates bogus states/transitions (states are final, have self loops, and can't be reached from an init state)
 comment|// create transitions from state to state
 for|for
 control|(
@@ -914,14 +914,6 @@ operator|>=
 literal|0
 condition|)
 block|{
-comment|// nocommit why do we create cycles in dead states?
-if|if
-condition|(
-name|k
-operator|!=
-name|dest
-condition|)
-block|{
 name|a
 operator|.
 name|addTransition
@@ -937,7 +929,6 @@ argument_list|,
 name|ch
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// add transitions for all other chars in unicode
@@ -980,14 +971,6 @@ name|r
 operator|++
 control|)
 block|{
-comment|// nocommit why do we create cycles in dead states?
-if|if
-condition|(
-name|k
-operator|!=
-name|dest
-condition|)
-block|{
 name|a
 operator|.
 name|addTransition
@@ -1014,10 +997,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 name|a
 operator|.
-name|finish
+name|finishState
 argument_list|()
 expr_stmt|;
 assert|assert
