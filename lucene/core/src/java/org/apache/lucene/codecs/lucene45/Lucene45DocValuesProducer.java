@@ -611,7 +611,6 @@ comment|/** reader for {@link Lucene45DocValuesFormat} */
 end_comment
 begin_class
 DECL|class|Lucene45DocValuesProducer
-specifier|public
 class|class
 name|Lucene45DocValuesProducer
 extends|extends

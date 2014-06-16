@@ -257,7 +257,6 @@ comment|/** writer for {@link Lucene49DocValuesFormat} */
 end_comment
 begin_class
 DECL|class|Lucene49DocValuesConsumer
-specifier|public
 class|class
 name|Lucene49DocValuesConsumer
 extends|extends
@@ -1834,7 +1833,7 @@ block|}
 block|}
 comment|/** expert: writes a value dictionary for a sorted/sortedset field */
 DECL|method|addTermsDict
-specifier|protected
+specifier|private
 name|void
 name|addTermsDict
 parameter_list|(
