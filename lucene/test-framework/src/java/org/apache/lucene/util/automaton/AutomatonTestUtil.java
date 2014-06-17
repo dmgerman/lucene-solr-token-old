@@ -2664,7 +2664,6 @@ operator|+
 literal|" detached states"
 assert|;
 block|}
-comment|// nocommit where to assert this...
 comment|/** Returns true if the automaton is deterministic. */
 DECL|method|isDeterministicSlow
 specifier|public
