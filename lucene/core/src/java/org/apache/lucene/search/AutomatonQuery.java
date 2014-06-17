@@ -100,7 +100,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|CompiledAutomaton
+name|Automaton
 import|;
 end_import
 begin_import
@@ -115,7 +115,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|Automaton
+name|CompiledAutomaton
 import|;
 end_import
 begin_comment
@@ -496,7 +496,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/** Returns the light automaton used to create this query */
+comment|/** Returns the automaton used to create this query */
 DECL|method|getAutomaton
 specifier|public
 name|Automaton
