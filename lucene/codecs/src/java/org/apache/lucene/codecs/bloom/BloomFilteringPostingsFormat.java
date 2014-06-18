@@ -583,7 +583,7 @@ argument_list|)
 return|;
 block|}
 DECL|class|BloomFilteredFieldsProducer
-specifier|public
+specifier|static
 class|class
 name|BloomFilteredFieldsProducer
 extends|extends

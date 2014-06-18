@@ -4809,7 +4809,10 @@ block|{
 name|long
 name|ramBytesUsed
 init|=
-literal|0
+name|postingsReader
+operator|.
+name|ramBytesUsed
+argument_list|()
 decl_stmt|;
 for|for
 control|(

@@ -1364,7 +1364,13 @@ name|TextField
 argument_list|(
 literal|"foobar"
 argument_list|,
-literal|"boo"
+name|TestUtil
+operator|.
+name|randomSimpleString
+argument_list|(
+name|random
+argument_list|()
+argument_list|)
 argument_list|,
 name|Field
 operator|.
