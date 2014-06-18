@@ -1401,6 +1401,8 @@ name|expectedBytes
 operator|+
 literal|", "
 operator|+
+literal|100
+operator|*
 name|relativeError
 operator|+
 literal|"% error"
