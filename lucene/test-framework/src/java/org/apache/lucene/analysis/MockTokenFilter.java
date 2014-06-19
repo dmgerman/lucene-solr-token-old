@@ -26,7 +26,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicAutomata
+name|Automata
 operator|.
 name|makeEmpty
 import|;
@@ -43,7 +43,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicAutomata
+name|Automata
 operator|.
 name|makeString
 import|;
@@ -108,7 +108,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicOperations
+name|Operations
 import|;
 end_import
 begin_import
@@ -164,7 +164,7 @@ init|=
 operator|new
 name|CharacterRunAutomaton
 argument_list|(
-name|BasicOperations
+name|Operations
 operator|.
 name|union
 argument_list|(

@@ -127,7 +127,7 @@ name|boolean
 name|useTreeMap
 decl_stmt|;
 DECL|field|state
-name|State
+name|int
 name|state
 decl_stmt|;
 DECL|method|SortedIntSet
@@ -735,7 +735,7 @@ specifier|public
 name|FrozenIntSet
 name|freeze
 parameter_list|(
-name|State
+name|int
 name|state
 parameter_list|)
 block|{
@@ -1008,7 +1008,7 @@ name|hashCode
 decl_stmt|;
 DECL|field|state
 specifier|final
-name|State
+name|int
 name|state
 decl_stmt|;
 DECL|method|FrozenIntSet
@@ -1022,7 +1022,7 @@ parameter_list|,
 name|int
 name|hashCode
 parameter_list|,
-name|State
+name|int
 name|state
 parameter_list|)
 block|{
@@ -1052,7 +1052,7 @@ parameter_list|(
 name|int
 name|num
 parameter_list|,
-name|State
+name|int
 name|state
 parameter_list|)
 block|{

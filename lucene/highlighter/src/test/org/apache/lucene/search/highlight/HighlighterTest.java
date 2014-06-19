@@ -470,7 +470,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicAutomata
+name|Automata
 import|;
 end_import
 begin_import
@@ -8824,7 +8824,7 @@ init|=
 operator|new
 name|CharacterRunAutomaton
 argument_list|(
-name|BasicAutomata
+name|Automata
 operator|.
 name|makeString
 argument_list|(
