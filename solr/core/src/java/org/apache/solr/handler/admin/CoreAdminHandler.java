@@ -3609,13 +3609,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|coreContainer
-operator|.
-name|preRegisterInZk
-argument_list|(
-name|dcore
-argument_list|)
-expr_stmt|;
 block|}
 comment|// make sure we can write out the descriptor first
 name|coreContainer
@@ -3640,15 +3633,6 @@ argument_list|(
 name|dcore
 argument_list|)
 decl_stmt|;
-name|coreContainer
-operator|.
-name|register
-argument_list|(
-name|core
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|coreContainer

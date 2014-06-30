@@ -16,44 +16,6 @@ package|;
 end_package
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -120,6 +82,44 @@ operator|.
 name|sax
 operator|.
 name|SAXParseException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Pattern
 import|;
 end_import
 begin_class
@@ -995,18 +995,9 @@ argument_list|)
 decl_stmt|;
 name|cc
 operator|.
-name|register
-argument_list|(
-literal|"col_bad"
-argument_list|,
-name|cc
-operator|.
 name|create
 argument_list|(
 name|fixed
-argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// check that we have the cores we expect
@@ -1370,114 +1361,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// -----
-comment|// register bogus as an alias for col_ok and confirm failure goes away
-name|cc
-operator|.
-name|register
-argument_list|(
-literal|"bogus"
-argument_list|,
-name|cc
-operator|.
-name|getCore
-argument_list|(
-literal|"col_ok"
-argument_list|)
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
-comment|// check that we have the cores we expect
-name|cores
-operator|=
-name|cc
-operator|.
-name|getCoreNames
-argument_list|()
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"core names is null"
-argument_list|,
-name|cores
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"wrong number of cores"
-argument_list|,
-literal|3
-argument_list|,
-name|cores
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"col_ok not found"
-argument_list|,
-name|cores
-operator|.
-name|contains
-argument_list|(
-literal|"col_ok"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"col_bad not found"
-argument_list|,
-name|cores
-operator|.
-name|contains
-argument_list|(
-literal|"col_bad"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"bogus not found"
-argument_list|,
-name|cores
-operator|.
-name|contains
-argument_list|(
-literal|"bogus"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// check that we have the failures we expect
-name|failures
-operator|=
-name|cc
-operator|.
-name|getCoreInitFailures
-argument_list|()
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"core failures is a null map"
-argument_list|,
-name|failures
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"wrong number of core failures"
-argument_list|,
-literal|0
-argument_list|,
-name|failures
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// -----
 comment|// break col_bad's config and try to RELOAD to add failure
 specifier|final
 name|long
@@ -1626,7 +1509,7 @@ name|assertEquals
 argument_list|(
 literal|"wrong number of cores"
 argument_list|,
-literal|3
+literal|2
 argument_list|,
 name|cores
 operator|.
@@ -1658,18 +1541,6 @@ literal|"col_bad"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"bogus not found"
-argument_list|,
-name|cores
-operator|.
-name|contains
-argument_list|(
-literal|"bogus"
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// check that we have the failures we expect
 name|failures
 operator|=
@@ -1689,7 +1560,7 @@ name|assertEquals
 argument_list|(
 literal|"wrong number of core failures"
 argument_list|,
-literal|1
+literal|2
 argument_list|,
 name|failures
 operator|.
@@ -1819,7 +1690,7 @@ name|assertEquals
 argument_list|(
 literal|"wrong number of cores"
 argument_list|,
-literal|3
+literal|2
 argument_list|,
 name|cores
 operator|.
@@ -1851,18 +1722,6 @@ literal|"col_bad"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"bogus not found"
-argument_list|,
-name|cores
-operator|.
-name|contains
-argument_list|(
-literal|"bogus"
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// check that we have the failures we expect
 name|failures
 operator|=
@@ -1882,7 +1741,7 @@ name|assertEquals
 argument_list|(
 literal|"wrong number of core failures"
 argument_list|,
-literal|0
+literal|1
 argument_list|,
 name|failures
 operator|.
