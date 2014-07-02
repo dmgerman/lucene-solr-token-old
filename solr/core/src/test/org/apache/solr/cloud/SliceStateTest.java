@@ -350,6 +350,8 @@ argument_list|,
 name|liveNodes
 argument_list|,
 name|collectionStates
+argument_list|,
+name|mockZkStateReader
 argument_list|)
 decl_stmt|;
 name|byte
@@ -376,6 +378,10 @@ argument_list|,
 name|bytes
 argument_list|,
 name|liveNodes
+argument_list|,
+name|mockZkStateReader
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertEquals
