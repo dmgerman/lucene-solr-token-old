@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.facet.taxonomy.utils
+DECL|package|org.apache.lucene.facet.taxonomy
 package|package
 name|org
 operator|.
@@ -11,8 +11,6 @@ operator|.
 name|facet
 operator|.
 name|taxonomy
-operator|.
-name|utils
 package|;
 end_package
 begin_import
