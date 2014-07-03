@@ -1216,9 +1216,6 @@ name|replica
 init|=
 name|zkController
 operator|.
-name|getZkStateReader
-argument_list|()
-operator|.
 name|getClusterState
 argument_list|()
 operator|.
@@ -1235,8 +1232,6 @@ operator|.
 name|getCoreDescriptor
 argument_list|()
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 if|if
