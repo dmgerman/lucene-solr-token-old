@@ -154,9 +154,15 @@ end_comment
 begin_class
 DECL|class|TaxonomyMergeUtils
 specifier|public
+specifier|abstract
 class|class
 name|TaxonomyMergeUtils
 block|{
+DECL|method|TaxonomyMergeUtils
+specifier|private
+name|TaxonomyMergeUtils
+parameter_list|()
+block|{}
 comment|/**    * Merges the given taxonomy and index directories and commits the changes to    * the given writers.    */
 DECL|method|merge
 specifier|public
@@ -168,7 +174,7 @@ name|Directory
 name|srcIndexDir
 parameter_list|,
 name|Directory
-name|srcTaxDir
+name|srcTaxoDir
 parameter_list|,
 name|OrdinalMap
 name|map
@@ -177,17 +183,17 @@ name|IndexWriter
 name|destIndexWriter
 parameter_list|,
 name|DirectoryTaxonomyWriter
-name|destTaxWriter
+name|destTaxoWriter
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 comment|// merge the taxonomies
-name|destTaxWriter
+name|destTaxoWriter
 operator|.
 name|addTaxonomy
 argument_list|(
-name|srcTaxDir
+name|srcTaxoDir
 argument_list|,
 name|map
 argument_list|)
@@ -211,6 +217,8 @@ argument_list|(
 name|srcIndexDir
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|List
 argument_list|<
 name|AtomicReaderContext
@@ -277,8 +285,6 @@ name|ordinalMap
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
 name|destIndexWriter
 operator|.
 name|addIndexes
@@ -291,7 +297,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// commit changes to taxonomy and index respectively.
-name|destTaxWriter
+name|destTaxoWriter
 operator|.
 name|commit
 argument_list|()
