@@ -1191,6 +1191,20 @@ operator|.
 name|responses
 control|)
 block|{
+if|if
+condition|(
+name|srsp
+operator|.
+name|getException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// can't expect the highlight content if there was an exception for this request
+comment|// this should only happen when using shards.tolerant=true
+continue|continue;
+block|}
 name|NamedList
 name|hl
 init|=
@@ -1294,11 +1308,14 @@ name|SolrPluginUtils
 operator|.
 name|removeNulls
 argument_list|(
+name|arr
+argument_list|,
 operator|new
 name|SimpleOrderedMap
-argument_list|(
-name|arr
-argument_list|)
+argument_list|<
+name|Object
+argument_list|>
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
