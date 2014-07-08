@@ -110,7 +110,7 @@ name|Map
 import|;
 end_import
 begin_comment
-comment|/**  * A clause that compares a stored geometry to a supplied geometry. For more  * explanation of each operation, consider looking at the source implementation  * of {@link #evaluate(com.spatial4j.core.shape.Shape, com.spatial4j.core.shape.Shape)}.  *  * @see<a href="http://edndoc.esri.com/arcsde/9.1/general_topics/understand_spatial_relations.htm">  *   ESRIs docs on spatial relations</a>  *  * @lucene.experimental  */
+comment|/**  * A predicate that compares a stored geometry to a supplied geometry. It's enum-like. For more  * explanation of each predicate, consider looking at the source implementation  * of {@link #evaluate(com.spatial4j.core.shape.Shape, com.spatial4j.core.shape.Shape)}. It's important  * to be aware that Lucene-spatial makes no distinction of shape boundaries, unlike many standardized  * definitions. Nor does it make dimensional distinctions (e.g. line vs polygon).  * You can lookup a predicate by "Covers" or "Contains", for example, and you will get the  * same underlying predicate implementation.  *  * @see<a href="http://en.wikipedia.org/wiki/DE-9IM">DE-9IM at Wikipedia, based on OGC specs</a>  * @see<a href="http://edndoc.esri.com/arcsde/9.1/general_topics/understand_spatial_relations.htm">  *   ESRIs docs on spatial relations</a>  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|SpatialOperation
@@ -121,6 +121,7 @@ name|SpatialOperation
 implements|implements
 name|Serializable
 block|{
+comment|//TODO rename to SpatialPredicate. Use enum?  LUCENE-5771
 comment|// Private registry
 DECL|field|registry
 specifier|private
@@ -139,6 +140,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|//has aliases
 DECL|field|list
 specifier|private
 specifier|static
@@ -155,7 +157,7 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Geometry Operations
-comment|/** Bounding box of the *indexed* shape. */
+comment|/** Bounding box of the *indexed* shape, then {@link #Intersects}. */
 DECL|field|BBoxIntersects
 specifier|public
 specifier|static
@@ -167,12 +169,6 @@ operator|new
 name|SpatialOperation
 argument_list|(
 literal|"BBoxIntersects"
-argument_list|,
-literal|true
-argument_list|,
-literal|false
-argument_list|,
-literal|false
 argument_list|)
 block|{
 annotation|@
@@ -205,7 +201,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|/** Bounding box of the *indexed* shape. */
+comment|/** Bounding box of the *indexed* shape, then {@link #IsWithin}. */
 DECL|field|BBoxWithin
 specifier|public
 specifier|static
@@ -217,14 +213,16 @@ operator|new
 name|SpatialOperation
 argument_list|(
 literal|"BBoxWithin"
-argument_list|,
-literal|true
-argument_list|,
-literal|false
-argument_list|,
-literal|false
 argument_list|)
 block|{
+block|{
+name|register
+argument_list|(
+literal|"BBoxCoveredBy"
+argument_list|)
+expr_stmt|;
+comment|//alias -- the better name
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -268,6 +266,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|/** Meets the "Covers" OGC definition (boundary-neutral). */
 DECL|field|Contains
 specifier|public
 specifier|static
@@ -279,14 +278,16 @@ operator|new
 name|SpatialOperation
 argument_list|(
 literal|"Contains"
-argument_list|,
-literal|true
-argument_list|,
-literal|true
-argument_list|,
-literal|false
 argument_list|)
 block|{
+block|{
+name|register
+argument_list|(
+literal|"Covers"
+argument_list|)
+expr_stmt|;
+comment|//alias -- the better name
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -301,11 +302,6 @@ name|queryShape
 parameter_list|)
 block|{
 return|return
-name|indexedShape
-operator|.
-name|hasArea
-argument_list|()
-operator|&&
 name|indexedShape
 operator|.
 name|relate
@@ -327,6 +323,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|/** Meets the "Intersects" OGC definition. */
 DECL|field|Intersects
 specifier|public
 specifier|static
@@ -338,12 +335,6 @@ operator|new
 name|SpatialOperation
 argument_list|(
 literal|"Intersects"
-argument_list|,
-literal|true
-argument_list|,
-literal|false
-argument_list|,
-literal|false
 argument_list|)
 block|{
 annotation|@
@@ -373,6 +364,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|/** Meets the "Equals" OGC definition. */
 DECL|field|IsEqualTo
 specifier|public
 specifier|static
@@ -383,15 +375,17 @@ init|=
 operator|new
 name|SpatialOperation
 argument_list|(
-literal|"IsEqualTo"
-argument_list|,
-literal|false
-argument_list|,
-literal|false
-argument_list|,
-literal|false
+literal|"Equals"
 argument_list|)
 block|{
+block|{
+name|register
+argument_list|(
+literal|"IsEqualTo"
+argument_list|)
+expr_stmt|;
+comment|//alias (deprecated)
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -416,6 +410,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|/** Meets the "Disjoint" OGC definition. */
 DECL|field|IsDisjointTo
 specifier|public
 specifier|static
@@ -426,15 +421,17 @@ init|=
 operator|new
 name|SpatialOperation
 argument_list|(
-literal|"IsDisjointTo"
-argument_list|,
-literal|false
-argument_list|,
-literal|false
-argument_list|,
-literal|false
+literal|"Disjoint"
 argument_list|)
 block|{
+block|{
+name|register
+argument_list|(
+literal|"IsDisjointTo"
+argument_list|)
+expr_stmt|;
+comment|//alias (deprecated)
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -463,6 +460,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|/** Meets the "CoveredBy" OGC definition (boundary-neutral). */
 DECL|field|IsWithin
 specifier|public
 specifier|static
@@ -473,15 +471,23 @@ init|=
 operator|new
 name|SpatialOperation
 argument_list|(
-literal|"IsWithin"
-argument_list|,
-literal|true
-argument_list|,
-literal|false
-argument_list|,
-literal|true
+literal|"Within"
 argument_list|)
 block|{
+block|{
+name|register
+argument_list|(
+literal|"IsWithin"
+argument_list|)
+expr_stmt|;
+comment|//alias (deprecated)
+name|register
+argument_list|(
+literal|"CoveredBy"
+argument_list|)
+expr_stmt|;
+comment|//alias -- the more appropriate name.
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -496,12 +502,6 @@ name|queryShape
 parameter_list|)
 block|{
 return|return
-name|queryShape
-operator|.
-name|hasArea
-argument_list|()
-operator|&&
-operator|(
 name|indexedShape
 operator|.
 name|relate
@@ -519,11 +519,11 @@ name|equals
 argument_list|(
 name|queryShape
 argument_list|)
-operator|)
 return|;
 block|}
 block|}
 decl_stmt|;
+comment|/** Almost meets the "Overlaps" OGC definition, but boundary-neutral (boundary==interior). */
 DECL|field|Overlaps
 specifier|public
 specifier|static
@@ -535,12 +535,6 @@ operator|new
 name|SpatialOperation
 argument_list|(
 literal|"Overlaps"
-argument_list|,
-literal|true
-argument_list|,
-literal|false
-argument_list|,
-literal|true
 argument_list|)
 block|{
 annotation|@
@@ -557,42 +551,20 @@ name|queryShape
 parameter_list|)
 block|{
 return|return
-name|queryShape
-operator|.
-name|hasArea
-argument_list|()
-operator|&&
 name|indexedShape
 operator|.
 name|relate
 argument_list|(
 name|queryShape
 argument_list|)
+operator|==
+name|SpatialRelation
 operator|.
-name|intersects
-argument_list|()
+name|INTERSECTS
 return|;
+comment|//not Contains or Within or Disjoint
 block|}
 block|}
-decl_stmt|;
-comment|// Member variables
-DECL|field|scoreIsMeaningful
-specifier|private
-specifier|final
-name|boolean
-name|scoreIsMeaningful
-decl_stmt|;
-DECL|field|sourceNeedsArea
-specifier|private
-specifier|final
-name|boolean
-name|sourceNeedsArea
-decl_stmt|;
-DECL|field|targetNeedsArea
-specifier|private
-specifier|final
-name|boolean
-name|targetNeedsArea
 decl_stmt|;
 DECL|field|name
 specifier|private
@@ -606,15 +578,6 @@ name|SpatialOperation
 parameter_list|(
 name|String
 name|name
-parameter_list|,
-name|boolean
-name|scoreIsMeaningful
-parameter_list|,
-name|boolean
-name|sourceNeedsArea
-parameter_list|,
-name|boolean
-name|targetNeedsArea
 parameter_list|)
 block|{
 name|this
@@ -623,24 +586,28 @@ name|name
 operator|=
 name|name
 expr_stmt|;
-name|this
-operator|.
-name|scoreIsMeaningful
-operator|=
-name|scoreIsMeaningful
+name|register
+argument_list|(
+name|name
+argument_list|)
 expr_stmt|;
-name|this
+name|list
 operator|.
-name|sourceNeedsArea
-operator|=
-name|sourceNeedsArea
-expr_stmt|;
+name|add
+argument_list|(
 name|this
-operator|.
-name|targetNeedsArea
-operator|=
-name|targetNeedsArea
+argument_list|)
 expr_stmt|;
+block|}
+DECL|method|register
+specifier|protected
+name|void
+name|register
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
 name|registry
 operator|.
 name|put
@@ -663,13 +630,6 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-name|list
-operator|.
-name|add
-argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
@@ -805,37 +765,6 @@ name|Shape
 name|queryShape
 parameter_list|)
 function_decl|;
-comment|// ================================================= Getters / Setters =============================================
-DECL|method|isScoreIsMeaningful
-specifier|public
-name|boolean
-name|isScoreIsMeaningful
-parameter_list|()
-block|{
-return|return
-name|scoreIsMeaningful
-return|;
-block|}
-DECL|method|isSourceNeedsArea
-specifier|public
-name|boolean
-name|isSourceNeedsArea
-parameter_list|()
-block|{
-return|return
-name|sourceNeedsArea
-return|;
-block|}
-DECL|method|isTargetNeedsArea
-specifier|public
-name|boolean
-name|isTargetNeedsArea
-parameter_list|()
-block|{
-return|return
-name|targetNeedsArea
-return|;
-block|}
 DECL|method|getName
 specifier|public
 name|String
