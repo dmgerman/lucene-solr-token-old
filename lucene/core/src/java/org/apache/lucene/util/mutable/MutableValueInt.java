@@ -17,7 +17,7 @@ name|mutable
 package|;
 end_package
 begin_comment
-comment|/**  * {@link MutableValue} implementation of type   *<code>int</code>.  */
+comment|/**  * {@link MutableValue} implementation of type<code>int</code>.  * When mutating instances of this object, the caller is responsible for ensuring   * that any instance where<code>exists</code> is set to<code>false</code> must also   *<code>value</code> set to<code>0</code> for proper operation.  */
 end_comment
 begin_class
 DECL|class|MutableValueInt
@@ -40,6 +40,13 @@ name|Object
 name|toObject
 parameter_list|()
 block|{
+assert|assert
+name|exists
+operator|||
+literal|0
+operator|==
+name|value
+assert|;
 return|return
 name|exists
 condition|?
@@ -126,6 +133,13 @@ name|Object
 name|other
 parameter_list|)
 block|{
+assert|assert
+name|exists
+operator|||
+literal|0
+operator|==
+name|value
+assert|;
 name|MutableValueInt
 name|b
 init|=
@@ -159,6 +173,13 @@ name|Object
 name|other
 parameter_list|)
 block|{
+assert|assert
+name|exists
+operator|||
+literal|0
+operator|==
+name|value
+assert|;
 name|MutableValueInt
 name|b
 init|=
@@ -227,6 +248,13 @@ name|int
 name|hashCode
 parameter_list|()
 block|{
+assert|assert
+name|exists
+operator|||
+literal|0
+operator|==
+name|value
+assert|;
 comment|// TODO: if used in HashMap, it already mixes the value... maybe use a straight value?
 return|return
 operator|(

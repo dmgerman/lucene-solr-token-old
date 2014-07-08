@@ -17,7 +17,7 @@ name|mutable
 package|;
 end_package
 begin_comment
-comment|/**  * {@link MutableValue} implementation of type   *<code>boolean</code>.  */
+comment|/**  * {@link MutableValue} implementation of type<code>boolean</code>.  * When mutating instances of this object, the caller is responsible for ensuring   * that any instance where<code>exists</code> is set to<code>false</code> must also   *<code>value</code> set to<code>false</code> for proper operation.  */
 end_comment
 begin_class
 DECL|class|MutableValueBool
@@ -40,6 +40,15 @@ name|Object
 name|toObject
 parameter_list|()
 block|{
+assert|assert
+name|exists
+operator|||
+operator|(
+literal|false
+operator|==
+name|value
+operator|)
+assert|;
 return|return
 name|exists
 condition|?
@@ -126,6 +135,15 @@ name|Object
 name|other
 parameter_list|)
 block|{
+assert|assert
+name|exists
+operator|||
+operator|(
+literal|false
+operator|==
+name|value
+operator|)
+assert|;
 name|MutableValueBool
 name|b
 init|=
@@ -159,6 +177,15 @@ name|Object
 name|other
 parameter_list|)
 block|{
+assert|assert
+name|exists
+operator|||
+operator|(
+literal|false
+operator|==
+name|value
+operator|)
+assert|;
 name|MutableValueBool
 name|b
 init|=
@@ -180,7 +207,8 @@ name|value
 condition|?
 literal|1
 else|:
-literal|0
+operator|-
+literal|1
 return|;
 if|if
 condition|(
@@ -210,6 +238,15 @@ name|int
 name|hashCode
 parameter_list|()
 block|{
+assert|assert
+name|exists
+operator|||
+operator|(
+literal|false
+operator|==
+name|value
+operator|)
+assert|;
 return|return
 name|value
 condition|?

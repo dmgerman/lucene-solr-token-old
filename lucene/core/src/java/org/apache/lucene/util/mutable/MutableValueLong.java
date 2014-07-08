@@ -17,7 +17,7 @@ name|mutable
 package|;
 end_package
 begin_comment
-comment|/**  * {@link MutableValue} implementation of type   *<code>long</code>.  */
+comment|/**  * {@link MutableValue} implementation of type<code>long</code>.  * When mutating instances of this object, the caller is responsible for ensuring   * that any instance where<code>exists</code> is set to<code>false</code> must also   *<code>value</code> set to<code>0L</code> for proper operation.  */
 end_comment
 begin_class
 DECL|class|MutableValueLong
@@ -40,6 +40,13 @@ name|Object
 name|toObject
 parameter_list|()
 block|{
+assert|assert
+name|exists
+operator|||
+literal|0L
+operator|==
+name|value
+assert|;
 return|return
 name|exists
 condition|?
@@ -126,6 +133,13 @@ name|Object
 name|other
 parameter_list|)
 block|{
+assert|assert
+name|exists
+operator|||
+literal|0L
+operator|==
+name|value
+assert|;
 name|MutableValueLong
 name|b
 init|=
@@ -159,6 +173,13 @@ name|Object
 name|other
 parameter_list|)
 block|{
+assert|assert
+name|exists
+operator|||
+literal|0L
+operator|==
+name|value
+assert|;
 name|MutableValueLong
 name|b
 init|=
@@ -221,6 +242,13 @@ name|int
 name|hashCode
 parameter_list|()
 block|{
+assert|assert
+name|exists
+operator|||
+literal|0L
+operator|==
+name|value
+assert|;
 return|return
 operator|(
 name|int

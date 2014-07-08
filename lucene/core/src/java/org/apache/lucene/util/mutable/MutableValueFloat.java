@@ -17,7 +17,7 @@ name|mutable
 package|;
 end_package
 begin_comment
-comment|/**  * {@link MutableValue} implementation of type   *<code>float</code>.  */
+comment|/**  * {@link MutableValue} implementation of type<code>float</code>.  * When mutating instances of this object, the caller is responsible for ensuring   * that any instance where<code>exists</code> is set to<code>false</code> must also   *<code>value</code> set to<code>0.0F</code> for proper operation.  */
 end_comment
 begin_class
 DECL|class|MutableValueFloat
@@ -40,6 +40,13 @@ name|Object
 name|toObject
 parameter_list|()
 block|{
+assert|assert
+name|exists
+operator|||
+literal|0.0F
+operator|==
+name|value
+assert|;
 return|return
 name|exists
 condition|?
@@ -126,6 +133,13 @@ name|Object
 name|other
 parameter_list|)
 block|{
+assert|assert
+name|exists
+operator|||
+literal|0.0F
+operator|==
+name|value
+assert|;
 name|MutableValueFloat
 name|b
 init|=
@@ -159,6 +173,13 @@ name|Object
 name|other
 parameter_list|)
 block|{
+assert|assert
+name|exists
+operator|||
+literal|0.0F
+operator|==
+name|value
+assert|;
 name|MutableValueFloat
 name|b
 init|=
@@ -218,6 +239,13 @@ name|int
 name|hashCode
 parameter_list|()
 block|{
+assert|assert
+name|exists
+operator|||
+literal|0.0F
+operator|==
+name|value
+assert|;
 return|return
 name|Float
 operator|.

@@ -26,7 +26,7 @@ name|Date
 import|;
 end_import
 begin_comment
-comment|/**  * {@link MutableValue} implementation of type   * {@link Date}.  */
+comment|/**  * {@link MutableValue} implementation of type {@link Date}.  * @see MutableValueLong  */
 end_comment
 begin_class
 DECL|class|MutableValueDate
