@@ -1036,6 +1036,14 @@ argument_list|,
 name|map
 argument_list|)
 decl_stmt|;
+synchronized|synchronized
+init|(
+name|oldSchema
+operator|.
+name|getSchemaUpdateLock
+argument_list|()
+init|)
+block|{
 name|IndexSchema
 name|newSchema
 init|=
@@ -1081,6 +1089,7 @@ argument_list|,
 literal|"Failed to add field."
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 catch|catch
