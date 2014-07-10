@@ -3159,12 +3159,29 @@ name|docUpto
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
+name|docFreq
+operator|>
+name|BLOCK_SIZE
+condition|)
+block|{
 name|nextSkipDoc
 operator|=
 name|BLOCK_SIZE
 operator|-
 literal|1
 expr_stmt|;
+comment|// we won't skip if target is found in first block
+block|}
+else|else
+block|{
+name|nextSkipDoc
+operator|=
+name|NO_MORE_DOCS
+expr_stmt|;
+comment|// not enough docs for skipping
+block|}
 name|docBufferUpto
 operator|=
 name|BLOCK_SIZE
@@ -3612,10 +3629,6 @@ comment|//   System.out.println("  FPR.advance target=" + target);
 comment|// }
 if|if
 condition|(
-name|docFreq
-operator|>
-name|BLOCK_SIZE
-operator|&&
 name|target
 operator|>
 name|nextSkipDoc
@@ -4832,12 +4845,29 @@ name|docUpto
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
+name|docFreq
+operator|>
+name|BLOCK_SIZE
+condition|)
+block|{
 name|nextSkipDoc
 operator|=
 name|BLOCK_SIZE
 operator|-
 literal|1
 expr_stmt|;
+comment|// we won't skip if target is found in first block
+block|}
+else|else
+block|{
+name|nextSkipDoc
+operator|=
+name|NO_MORE_DOCS
+expr_stmt|;
+comment|// not enough docs for skipping
+block|}
 name|docBufferUpto
 operator|=
 name|BLOCK_SIZE
@@ -5532,10 +5562,6 @@ comment|//   System.out.println("  FPR.advance target=" + target);
 comment|// }
 if|if
 condition|(
-name|docFreq
-operator|>
-name|BLOCK_SIZE
-operator|&&
 name|target
 operator|>
 name|nextSkipDoc

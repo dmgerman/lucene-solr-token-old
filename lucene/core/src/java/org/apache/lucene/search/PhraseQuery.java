@@ -1637,9 +1637,7 @@ literal|0
 condition|)
 block|{
 comment|// optimize exact case
-name|ExactPhraseScorer
-name|s
-init|=
+return|return
 operator|new
 name|ExactPhraseScorer
 argument_list|(
@@ -1656,24 +1654,7 @@ argument_list|,
 name|context
 argument_list|)
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|s
-operator|.
-name|noDocs
-condition|)
-block|{
-return|return
-literal|null
 return|;
-block|}
-else|else
-block|{
-return|return
-name|s
-return|;
-block|}
 block|}
 else|else
 block|{
