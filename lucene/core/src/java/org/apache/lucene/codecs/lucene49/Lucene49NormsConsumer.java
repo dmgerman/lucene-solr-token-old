@@ -1279,6 +1279,7 @@ name|NormMap
 block|{
 comment|// we use short: at most we will add 257 values to this map before its rejected as too big above.
 DECL|field|singleByteRange
+specifier|final
 name|short
 index|[]
 name|singleByteRange
@@ -1290,6 +1291,7 @@ literal|256
 index|]
 decl_stmt|;
 DECL|field|other
+specifier|final
 name|Map
 argument_list|<
 name|Long
