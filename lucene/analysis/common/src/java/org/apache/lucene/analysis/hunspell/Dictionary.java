@@ -2726,6 +2726,18 @@ name|ruleArgs
 index|[
 literal|3
 index|]
+operator|.
+name|equals
+argument_list|(
+literal|"0"
+argument_list|)
+condition|?
+literal|""
+else|:
+name|ruleArgs
+index|[
+literal|3
+index|]
 decl_stmt|;
 name|char
 name|appendFlags
@@ -2815,7 +2827,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|// TODO: add test and fix zero-affix handling!
 name|String
 name|condition
 init|=
