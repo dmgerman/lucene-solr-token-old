@@ -1030,12 +1030,6 @@ argument_list|,
 name|shardId
 argument_list|,
 name|leaderCoreNodeName
-argument_list|,
-name|coreNeedingRecovery
-argument_list|,
-literal|null
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 if|if
