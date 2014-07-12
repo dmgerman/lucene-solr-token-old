@@ -5086,7 +5086,16 @@ name|collection
 argument_list|,
 name|shardId
 argument_list|,
-name|coreName
+name|core
+operator|.
+name|getCoreDescriptor
+argument_list|()
+operator|.
+name|getCloudDescriptor
+argument_list|()
+operator|.
+name|getCoreNodeName
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -5410,10 +5419,7 @@ name|collection
 argument_list|,
 name|shardId
 argument_list|,
-name|cd
-operator|.
-name|getName
-argument_list|()
+name|coreNodeName
 argument_list|)
 decl_stmt|;
 if|if
@@ -5452,10 +5458,7 @@ name|collection
 argument_list|,
 name|shardId
 argument_list|,
-name|cd
-operator|.
-name|getName
-argument_list|()
+name|coreNodeName
 argument_list|,
 name|ZkStateReader
 operator|.
@@ -5528,10 +5531,7 @@ name|collection
 argument_list|,
 name|shardId
 argument_list|,
-name|cd
-operator|.
-name|getName
-argument_list|()
+name|coreNodeName
 argument_list|,
 name|ZkStateReader
 operator|.
@@ -8120,6 +8120,14 @@ name|getCoreName
 argument_list|()
 decl_stmt|;
 name|String
+name|myCoreNodeName
+init|=
+name|cloudDesc
+operator|.
+name|getCoreNodeName
+argument_list|()
+decl_stmt|;
+name|String
 name|myCoreName
 init|=
 name|descriptor
@@ -8179,7 +8187,7 @@ name|collection
 argument_list|,
 name|shard
 argument_list|,
-name|myCoreName
+name|myCoreNodeName
 argument_list|)
 expr_stmt|;
 block|}
@@ -8195,7 +8203,7 @@ name|error
 argument_list|(
 literal|"Failed to determine if replica "
 operator|+
-name|myCoreName
+name|myCoreNodeName
 operator|+
 literal|" is in leader-initiated recovery due to: "
 operator|+
@@ -8218,7 +8226,7 @@ name|info
 argument_list|(
 literal|"Replica "
 operator|+
-name|myCoreName
+name|myCoreNodeName
 operator|+
 literal|" is already in leader-initiated recovery, so not waiting for leader to see down state."
 argument_list|)
@@ -8232,7 +8240,7 @@ name|info
 argument_list|(
 literal|"Replica "
 operator|+
-name|myCoreName
+name|myCoreNodeName
 operator|+
 literal|" NOT in leader-initiated recovery, need to wait for leader to see down state."
 argument_list|)
@@ -9524,6 +9532,39 @@ name|publishDownState
 init|=
 literal|false
 decl_stmt|;
+name|String
+name|replicaNodeName
+init|=
+name|replicaCoreProps
+operator|.
+name|getNodeName
+argument_list|()
+decl_stmt|;
+name|String
+name|replicaCoreNodeName
+init|=
+operator|(
+operator|(
+name|Replica
+operator|)
+name|replicaCoreProps
+operator|.
+name|getNodeProps
+argument_list|()
+operator|)
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+assert|assert
+name|replicaCoreNodeName
+operator|!=
+literal|null
+operator|:
+literal|"No core name for replica "
+operator|+
+name|replicaNodeName
+assert|;
 synchronized|synchronized
 init|(
 name|replicasInLeaderInitiatedRecovery
@@ -9561,31 +9602,6 @@ comment|// already in this recovery process
 block|}
 block|}
 comment|// if the replica's state is not DOWN right now, make it so ...
-name|String
-name|replicaNodeName
-init|=
-name|replicaCoreProps
-operator|.
-name|getNodeName
-argument_list|()
-decl_stmt|;
-name|String
-name|replicaCoreName
-init|=
-name|replicaCoreProps
-operator|.
-name|getCoreName
-argument_list|()
-decl_stmt|;
-assert|assert
-name|replicaCoreName
-operator|!=
-literal|null
-operator|:
-literal|"No core name for replica "
-operator|+
-name|replicaNodeName
-assert|;
 comment|// we only really need to try to send the recovery command if the node itself is "live"
 if|if
 condition|(
@@ -9613,7 +9629,7 @@ name|collection
 argument_list|,
 name|shardId
 argument_list|,
-name|replicaCoreName
+name|replicaCoreNodeName
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9624,7 +9640,7 @@ name|collection
 argument_list|,
 name|shardId
 argument_list|,
-name|replicaCoreName
+name|replicaCoreNodeName
 argument_list|,
 name|ZkStateReader
 operator|.
@@ -9635,15 +9651,18 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Put replica "
-operator|+
-name|replicaCoreName
-operator|+
-literal|" on "
+literal|"Put replica core={} coreNodeName={} on "
 operator|+
 name|replicaNodeName
 operator|+
 literal|" into leader-initiated recovery."
+argument_list|,
+name|replicaCoreProps
+operator|.
+name|getCoreName
+argument_list|()
+argument_list|,
+name|replicaCoreNodeName
 argument_list|)
 expr_stmt|;
 name|publishDownState
@@ -9666,9 +9685,14 @@ literal|"Node "
 operator|+
 name|replicaNodeName
 operator|+
-literal|" is not live, so skipping leader-initiated recovery for replica: "
-operator|+
-name|replicaCoreName
+literal|" is not live, so skipping leader-initiated recovery for replica: core={} coreNodeName={}"
+argument_list|,
+name|replicaCoreProps
+operator|.
+name|getCoreName
+argument_list|()
+argument_list|,
+name|replicaCoreNodeName
 argument_list|)
 expr_stmt|;
 comment|// publishDownState will be false to avoid publishing the "down" state too many times
@@ -9754,11 +9778,13 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Leader is publishing core={} state={} on behalf of un-reachable replica {}; forcePublishState? "
+literal|"Leader is publishing core={} coreNodeName ={} state={} on behalf of un-reachable replica {}; forcePublishState? "
 operator|+
 name|forcePublishState
 argument_list|,
 name|replicaCoreName
+argument_list|,
+name|replicaCoreNodeName
 argument_list|,
 name|ZkStateReader
 operator|.
@@ -9852,7 +9878,7 @@ name|String
 name|shardId
 parameter_list|,
 name|String
-name|coreName
+name|coreNodeName
 parameter_list|)
 block|{
 if|if
@@ -9865,7 +9891,7 @@ name|shardId
 operator|==
 literal|null
 operator|||
-name|coreName
+name|coreNodeName
 operator|==
 literal|null
 condition|)
@@ -9882,7 +9908,7 @@ name|collection
 argument_list|,
 name|shardId
 argument_list|,
-name|coreName
+name|coreNodeName
 argument_list|)
 decl_stmt|;
 name|String
@@ -10070,7 +10096,7 @@ name|String
 name|shardId
 parameter_list|,
 name|String
-name|coreName
+name|coreNodeName
 parameter_list|,
 name|String
 name|state
@@ -10086,7 +10112,7 @@ name|shardId
 operator|==
 literal|null
 operator|||
-name|coreName
+name|coreNodeName
 operator|==
 literal|null
 condition|)
@@ -10107,9 +10133,9 @@ literal|"; shardId="
 operator|+
 name|shardId
 operator|+
-literal|"; coreName="
+literal|"; coreNodeName="
 operator|+
-name|coreName
+name|coreNodeName
 argument_list|)
 expr_stmt|;
 return|return;
@@ -10124,7 +10150,7 @@ name|collection
 argument_list|,
 name|shardId
 argument_list|,
-name|coreName
+name|coreNodeName
 argument_list|)
 decl_stmt|;
 if|if
@@ -10349,7 +10375,7 @@ name|String
 name|shardId
 parameter_list|,
 name|String
-name|coreName
+name|coreNodeName
 parameter_list|)
 block|{
 return|return
@@ -10362,7 +10388,7 @@ argument_list|)
 operator|+
 literal|"/"
 operator|+
-name|coreName
+name|coreNodeName
 return|;
 block|}
 block|}
