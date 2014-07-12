@@ -4284,14 +4284,6 @@ name|leaderReplica
 operator|.
 name|getName
 argument_list|()
-argument_list|,
-name|req
-operator|.
-name|getCore
-argument_list|()
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
