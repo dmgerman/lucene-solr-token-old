@@ -1967,7 +1967,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"After core={} coreNodeName={} was elected leader, it was found in state: "
+literal|"After core={} coreNodeName={} was elected leader, a replica coreNodeName={} was found in state: "
 operator|+
 name|lirState
 operator|+
@@ -1976,6 +1976,8 @@ argument_list|,
 name|coreName
 argument_list|,
 name|coreNodeName
+argument_list|,
+name|replicaCoreNodeName
 argument_list|)
 expr_stmt|;
 name|List
