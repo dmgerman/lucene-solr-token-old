@@ -783,6 +783,17 @@ operator|instanceof
 name|FilterDirectory
 condition|)
 block|{
+if|if
+condition|(
+name|delegate
+operator|instanceof
+name|NRTCachingDirectory
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
 name|delegate
 operator|=
 operator|(
