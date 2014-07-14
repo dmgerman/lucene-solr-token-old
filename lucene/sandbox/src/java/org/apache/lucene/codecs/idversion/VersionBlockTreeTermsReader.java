@@ -256,6 +256,7 @@ comment|/**  * See {@link VersionBlockTreeTermsWriter}.  *  * @lucene.experiment
 end_comment
 begin_class
 DECL|class|VersionBlockTreeTermsReader
+specifier|public
 specifier|final
 class|class
 name|VersionBlockTreeTermsReader

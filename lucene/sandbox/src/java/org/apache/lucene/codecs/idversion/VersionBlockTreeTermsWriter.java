@@ -467,6 +467,7 @@ comment|/**  * This is just like {@link BlockTreeTermsWriter}, except it also st
 end_comment
 begin_class
 DECL|class|VersionBlockTreeTermsWriter
+specifier|public
 specifier|final
 class|class
 name|VersionBlockTreeTermsWriter
