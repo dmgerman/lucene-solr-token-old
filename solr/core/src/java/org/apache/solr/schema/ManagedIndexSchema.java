@@ -1900,7 +1900,10 @@ name|newSchema
 operator|.
 name|dynamicCopyFields
 operator|=
-literal|null
+operator|new
+name|DynamicCopy
+index|[]
+block|{}
 expr_stmt|;
 name|newSchema
 operator|.
