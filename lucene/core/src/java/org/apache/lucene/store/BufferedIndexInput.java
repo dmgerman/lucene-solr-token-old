@@ -2249,15 +2249,7 @@ block|{
 return|return
 name|wrap
 argument_list|(
-literal|"SlicedIndexInput("
-operator|+
 name|sliceDescription
-operator|+
-literal|" in "
-operator|+
-name|this
-operator|+
-literal|")"
 argument_list|,
 name|this
 argument_list|,
@@ -2362,7 +2354,7 @@ name|BUFFER_SIZE
 return|;
 block|}
 block|}
-comment|/**     * Wraps a portion of a file with buffering.     */
+comment|/**     * Wraps a portion of another IndexInput with buffering.    *<p><b>Please note:</b> This is in most cases ineffective, because it may double buffer!    */
 DECL|method|wrap
 specifier|public
 specifier|static
@@ -2370,7 +2362,7 @@ name|BufferedIndexInput
 name|wrap
 parameter_list|(
 name|String
-name|description
+name|sliceDescription
 parameter_list|,
 name|IndexInput
 name|other
@@ -2386,7 +2378,7 @@ return|return
 operator|new
 name|SlicedIndexInput
 argument_list|(
-name|description
+name|sliceDescription
 argument_list|,
 name|other
 argument_list|,
@@ -2436,27 +2428,29 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"SlicedIndexInput("
+operator|(
+name|sliceDescription
+operator|==
+literal|null
+operator|)
+condition|?
+name|base
+operator|.
+name|toString
+argument_list|()
+else|:
+operator|(
+name|base
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|" [slice="
 operator|+
 name|sliceDescription
 operator|+
-literal|" in "
-operator|+
-name|base
-operator|+
-literal|" slice="
-operator|+
-name|offset
-operator|+
-literal|":"
-operator|+
-operator|(
-name|offset
-operator|+
-name|length
+literal|"]"
 operator|)
-operator|+
-literal|")"
 argument_list|,
 name|BufferedIndexInput
 operator|.
@@ -2470,26 +2464,33 @@ operator|<
 literal|0
 operator|||
 name|length
-operator|<
+argument_list|<
 literal|0
+operator|||
+name|offset
+operator|+
+name|length
+argument_list|>
+name|base
+operator|.
+name|length
+argument_list|()
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
-argument_list|()
+argument_list|(
+literal|"slice() "
+operator|+
+name|sliceDescription
+operator|+
+literal|" out of bounds: "
+operator|+
+name|base
+argument_list|)
 throw|;
 block|}
-assert|assert
-name|offset
-operator|+
-name|length
-operator|<=
-name|base
-operator|.
-name|length
-argument_list|()
-assert|;
 name|this
 operator|.
 name|base

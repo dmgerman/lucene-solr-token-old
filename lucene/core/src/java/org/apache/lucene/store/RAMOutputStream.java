@@ -81,6 +81,7 @@ literal|1024
 decl_stmt|;
 DECL|field|file
 specifier|private
+specifier|final
 name|RAMFile
 name|file
 decl_stmt|;
