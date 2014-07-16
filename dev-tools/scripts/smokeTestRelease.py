@@ -1758,7 +1758,7 @@ name|'normRoot'
 op|'.'
 name|'endswith'
 op|'('
-string|"'/contrib/dataimporthandler/lib'"
+string|"'/contrib/dataimporthandler-extras/lib'"
 op|')'
 name|'and'
 op|'('
