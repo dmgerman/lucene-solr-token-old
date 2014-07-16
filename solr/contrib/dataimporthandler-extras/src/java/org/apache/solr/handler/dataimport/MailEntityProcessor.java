@@ -236,6 +236,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyy-MM-dd HH:mm:ss"
+argument_list|,
+name|Locale
+operator|.
+name|ROOT
 argument_list|)
 decl_stmt|;
 DECL|field|afterFmt
@@ -249,6 +253,10 @@ operator|new
 name|SimpleDateFormat
 argument_list|(
 literal|"yyyy/MM/dd"
+argument_list|,
+name|Locale
+operator|.
+name|ROOT
 argument_list|)
 decl_stmt|;
 DECL|interface|CustomFilter
@@ -1308,7 +1316,11 @@ name|getContentType
 argument_list|()
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 decl_stmt|;
 name|ContentType
 name|ctype
