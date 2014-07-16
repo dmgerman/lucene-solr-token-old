@@ -1703,7 +1703,9 @@ condition|)
 block|{
 for|for
 control|(
-name|Exception
+name|CoreContainer
+operator|.
+name|CoreLoadFailure
 name|ex
 range|:
 name|cc
@@ -1723,6 +1725,8 @@ literal|"Error when attempting to reload core: "
 operator|+
 name|ex
 operator|.
+name|exception
+operator|.
 name|getMessage
 argument_list|()
 argument_list|)
@@ -1741,6 +1745,8 @@ argument_list|,
 literal|"Error when attempting to reload core after writing config"
 operator|+
 name|ex
+operator|.
+name|exception
 operator|.
 name|getMessage
 argument_list|()

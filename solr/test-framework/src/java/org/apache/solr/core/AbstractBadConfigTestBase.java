@@ -169,7 +169,9 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|Exception
+name|CoreContainer
+operator|.
+name|CoreLoadFailure
 argument_list|>
 name|entry
 range|:
@@ -190,6 +192,8 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+operator|.
+name|exception
 argument_list|,
 name|errString
 argument_list|)
