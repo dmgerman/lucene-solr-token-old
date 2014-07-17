@@ -22,6 +22,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|SolrTestCaseJ4
+operator|.
+name|SuppressSSL
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|client
 operator|.
 name|solrj
@@ -259,6 +272,8 @@ begin_comment
 comment|/**  * Tests a schemaless collection configuration with SolrCloud  */
 end_comment
 begin_class
+annotation|@
+name|SuppressSSL
 DECL|class|TestCloudSchemaless
 specifier|public
 class|class
