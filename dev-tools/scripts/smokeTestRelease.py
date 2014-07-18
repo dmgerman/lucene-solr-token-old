@@ -1766,7 +1766,7 @@ name|'file'
 op|'.'
 name|'startswith'
 op|'('
-string|"'mail-'"
+string|"'javax.mail-'"
 op|')'
 name|'or'
 name|'file'
