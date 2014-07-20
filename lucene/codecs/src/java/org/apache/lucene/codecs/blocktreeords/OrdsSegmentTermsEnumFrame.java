@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.blocktree
+DECL|package|org.apache.lucene.codecs.blocktreeords
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|blocktree
+name|blocktreeords
 package|;
 end_package
 begin_comment
@@ -36,6 +36,23 @@ operator|.
 name|codecs
 operator|.
 name|BlockTermState
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|blocktreeords
+operator|.
+name|FSTOrdsOutputs
+operator|.
+name|Output
 import|;
 end_import
 begin_import
@@ -123,10 +140,10 @@ name|FST
 import|;
 end_import
 begin_class
-DECL|class|SegmentTermsEnumFrame
+DECL|class|OrdsSegmentTermsEnumFrame
 specifier|final
 class|class
-name|SegmentTermsEnumFrame
+name|OrdsSegmentTermsEnumFrame
 block|{
 comment|// Our index in stack[]:
 DECL|field|ord
@@ -134,6 +151,7 @@ specifier|final
 name|int
 name|ord
 decl_stmt|;
+comment|// final boolean DEBUG = true;
 DECL|field|hasTerms
 name|boolean
 name|hasTerms
@@ -146,12 +164,13 @@ DECL|field|isFloor
 name|boolean
 name|isFloor
 decl_stmt|;
+comment|// static boolean DEBUG = OrdsSegmentTermsEnum.DEBUG;
 DECL|field|arc
 name|FST
 operator|.
 name|Arc
 argument_list|<
-name|BytesRef
+name|Output
 argument_list|>
 name|arc
 decl_stmt|;
@@ -244,6 +263,16 @@ DECL|field|nextEnt
 name|int
 name|nextEnt
 decl_stmt|;
+comment|// Starting termOrd for this frame, used to reset termOrd in rewind()
+DECL|field|termOrdOrig
+name|long
+name|termOrdOrig
+decl_stmt|;
+comment|// 1 + ordinal of the current term
+DECL|field|termOrd
+name|long
+name|termOrd
+decl_stmt|;
 comment|// True if this block is either not a floor block,
 comment|// or, it's the last sub-block of a floor block
 DECL|field|isLastInFloor
@@ -259,9 +288,15 @@ DECL|field|lastSubFP
 name|long
 name|lastSubFP
 decl_stmt|;
+comment|// Starting byte of next floor block:
 DECL|field|nextFloorLabel
 name|int
 name|nextFloorLabel
+decl_stmt|;
+comment|// Starting termOrd of next floor block:
+DECL|field|nextFloorTermOrd
+name|long
+name|nextFloorTermOrd
 decl_stmt|;
 DECL|field|numFollowFloorBlocks
 name|int
@@ -302,14 +337,14 @@ decl_stmt|;
 DECL|field|ste
 specifier|private
 specifier|final
-name|SegmentTermsEnum
+name|OrdsSegmentTermsEnum
 name|ste
 decl_stmt|;
-DECL|method|SegmentTermsEnumFrame
+DECL|method|OrdsSegmentTermsEnumFrame
 specifier|public
-name|SegmentTermsEnumFrame
+name|OrdsSegmentTermsEnumFrame
 parameter_list|(
-name|SegmentTermsEnum
+name|OrdsSegmentTermsEnum
 name|ste
 parameter_list|,
 name|int
@@ -400,6 +435,11 @@ operator|.
 name|offset
 operator|)
 decl_stmt|;
+assert|assert
+name|numBytes
+operator|>
+literal|0
+assert|;
 if|if
 condition|(
 name|numBytes
@@ -476,6 +516,16 @@ argument_list|()
 operator|&
 literal|0xff
 expr_stmt|;
+name|nextFloorTermOrd
+operator|=
+name|termOrdOrig
+operator|+
+name|floorDataReader
+operator|.
+name|readVLong
+argument_list|()
+expr_stmt|;
+comment|// System.out.println("  setFloorData ord=" + ord + " nextFloorTermOrd=" + nextFloorTermOrd + " shift=" + (nextFloorTermOrd-termOrdOrig));
 comment|//if (DEBUG) {
 comment|//System.out.println("    setFloorData fpOrig=" + fpOrig + " bytes=" + new BytesRef(source.bytes, source.offset + in.getPosition(), numBytes) + " numFollowFloorBlocks=" + numFollowFloorBlocks + " nextFloorLabel=" + toHex(nextFloorLabel));
 comment|//}
@@ -521,6 +571,7 @@ literal|" isFloor="
 operator|+
 name|isFloor
 assert|;
+comment|// NOTE: we don't need to touch termOrd here, because we fully scanned this current frame
 name|fp
 operator|=
 name|fpEnd
@@ -561,7 +612,7 @@ block|{
 comment|// Already loaded
 return|return;
 block|}
-comment|//System.out.println("blc=" + blockLoadCount);
+comment|// System.out.println("loadBlock ord=" + ord + " termOrdOrig=" + termOrdOrig + " termOrd=" + termOrd + " fp=" + fp);
 name|ste
 operator|.
 name|in
@@ -729,6 +780,7 @@ argument_list|)
 index|]
 expr_stmt|;
 block|}
+comment|// System.out.println("READ stats numBytes=" + numBytes + " fp=" + ste.in.getFilePointer());
 name|ste
 operator|.
 name|in
@@ -888,6 +940,10 @@ name|fp
 operator|=
 name|fpOrig
 expr_stmt|;
+name|termOrd
+operator|=
+name|termOrdOrig
+expr_stmt|;
 name|nextEnt
 operator|=
 operator|-
@@ -928,6 +984,16 @@ argument_list|()
 operator|&
 literal|0xff
 expr_stmt|;
+name|nextFloorTermOrd
+operator|=
+name|termOrdOrig
+operator|+
+name|floorDataReader
+operator|.
+name|readVLong
+argument_list|()
+expr_stmt|;
+comment|//System.out.println("  frame.rewind nextFloorTermOrd=" + nextFloorTermOrd);
 block|}
 comment|/*     //System.out.println("rewind");     // Keeps the block loaded, but rewinds its state:     if (nextEnt> 0 || fp != fpOrig) {     if (DEBUG) {     System.out.println("      rewind frame ord=" + ord + " fpOrig=" + fpOrig + " fp=" + fp + " hasTerms?=" + hasTerms + " isFloor?=" + isFloor + " nextEnt=" + nextEnt + " prefixLen=" + prefix);     }     if (fp != fpOrig) {     fp = fpOrig;     nextEnt = -1;     } else {     nextEnt = 0;     }     hasTerms = hasTermsOrig;     if (isFloor) {     floorDataReader.rewind();     numFollowFloorBlocks = floorDataReader.readVInt();     nextFloorLabel = floorDataReader.readByte()& 0xff;     }     assert suffixBytes != null;     suffixesReader.rewind();     assert statBytes != null;     statsReader.rewind();     metaDataUpto = 0;     state.termBlockOrd = 0;     // TODO: skip this if !hasTerms?  Then postings     // impl wouldn't have to write useless 0 byte     postingsReader.resetTermsBlock(fieldInfo, state);     lastSubFP = -1;     } else if (DEBUG) {     System.out.println("      skip rewind fp=" + fp + " fpOrig=" + fpOrig + " nextEnt=" + nextEnt + " ord=" + ord);     }     */
 block|}
@@ -976,8 +1042,15 @@ operator|+
 literal|" fp="
 operator|+
 name|fp
+operator|+
+literal|" termOrd="
+operator|+
+name|termOrd
 assert|;
 name|nextEnt
+operator|++
+expr_stmt|;
+name|termOrd
 operator|++
 expr_stmt|;
 name|suffix
@@ -1067,7 +1140,7 @@ name|boolean
 name|nextNonLeaf
 parameter_list|()
 block|{
-comment|//if (DEBUG) System.out.println("  frame.next ord=" + ord + " nextEnt=" + nextEnt + " entCount=" + entCount);
+comment|// if (DEBUG) System.out.println("  frame.next ord=" + ord + " nextEnt=" + nextEnt + " entCount=" + entCount);
 assert|assert
 name|nextEnt
 operator|!=
@@ -1198,6 +1271,9 @@ operator|.
 name|termBlockOrd
 operator|++
 expr_stmt|;
+name|termOrd
+operator|++
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -1218,15 +1294,22 @@ operator|.
 name|readVLong
 argument_list|()
 expr_stmt|;
+name|termOrd
+operator|+=
+name|suffixesReader
+operator|.
+name|readVLong
+argument_list|()
+expr_stmt|;
 name|lastSubFP
 operator|=
 name|fp
 operator|-
 name|subCode
 expr_stmt|;
-comment|//if (DEBUG) {
-comment|//System.out.println("    lastSubFP=" + lastSubFP);
-comment|//}
+comment|// if (DEBUG) {
+comment|//   System.out.println("    lastSubFP=" + lastSubFP);
+comment|// }
 return|return
 literal|true
 return|;
@@ -1257,8 +1340,8 @@ name|prefix
 condition|)
 block|{
 comment|// if (DEBUG) {
-comment|//   System.out.println("    scanToFloorFrame skip: isFloor=" + isFloor + " target.length=" + target.length + " vs prefix=" + prefix);
-comment|// }
+comment|//    System.out.println("    scanToFloorFrame skip: isFloor=" + isFloor + " target.length=" + target.length + " vs prefix=" + prefix);
+comment|//  }
 return|return;
 block|}
 specifier|final
@@ -1279,8 +1362,8 @@ operator|&
 literal|0xFF
 decl_stmt|;
 comment|// if (DEBUG) {
-comment|//   System.out.println("    scanToFloorFrame fpOrig=" + fpOrig + " targetLabel=" + toHex(targetLabel) + " vs nextFloorLabel=" + toHex(nextFloorLabel) + " numFollowFloorBlocks=" + numFollowFloorBlocks);
-comment|// }
+comment|//    System.out.println("    scanToFloorFrame fpOrig=" + fpOrig + " targetLabel=" + ((char) targetLabel) + " vs nextFloorLabel=" + ((char) nextFloorLabel) + " numFollowFloorBlocks=" + numFollowFloorBlocks);
+comment|//  }
 if|if
 condition|(
 name|targetLabel
@@ -1289,8 +1372,8 @@ name|nextFloorLabel
 condition|)
 block|{
 comment|// if (DEBUG) {
-comment|//   System.out.println("      already on correct block");
-comment|// }
+comment|//    System.out.println("      already on correct block");
+comment|//  }
 return|return;
 block|}
 assert|assert
@@ -1298,6 +1381,186 @@ name|numFollowFloorBlocks
 operator|!=
 literal|0
 assert|;
+name|long
+name|newFP
+init|=
+name|fpOrig
+decl_stmt|;
+name|long
+name|lastFloorTermOrd
+init|=
+name|nextFloorTermOrd
+decl_stmt|;
+while|while
+condition|(
+literal|true
+condition|)
+block|{
+specifier|final
+name|long
+name|code
+init|=
+name|floorDataReader
+operator|.
+name|readVLong
+argument_list|()
+decl_stmt|;
+name|newFP
+operator|=
+name|fpOrig
+operator|+
+operator|(
+name|code
+operator|>>>
+literal|1
+operator|)
+expr_stmt|;
+name|hasTerms
+operator|=
+operator|(
+name|code
+operator|&
+literal|1
+operator|)
+operator|!=
+literal|0
+expr_stmt|;
+comment|// if (DEBUG) {
+comment|//    System.out.println("      label=" + ((char) nextFloorLabel) + " fp=" + newFP + " hasTerms?=" + hasTerms + " numFollowFloor=" + numFollowFloorBlocks);
+comment|//  }
+name|isLastInFloor
+operator|=
+name|numFollowFloorBlocks
+operator|==
+literal|1
+expr_stmt|;
+name|numFollowFloorBlocks
+operator|--
+expr_stmt|;
+name|lastFloorTermOrd
+operator|=
+name|nextFloorTermOrd
+expr_stmt|;
+if|if
+condition|(
+name|isLastInFloor
+condition|)
+block|{
+name|nextFloorLabel
+operator|=
+literal|256
+expr_stmt|;
+name|nextFloorTermOrd
+operator|=
+name|Long
+operator|.
+name|MAX_VALUE
+expr_stmt|;
+comment|// if (DEBUG) {
+comment|//    System.out.println("        stop!  last block nextFloorLabel=" + ((char) nextFloorLabel));
+comment|//  }
+break|break;
+block|}
+else|else
+block|{
+name|nextFloorLabel
+operator|=
+name|floorDataReader
+operator|.
+name|readByte
+argument_list|()
+operator|&
+literal|0xff
+expr_stmt|;
+name|nextFloorTermOrd
+operator|+=
+name|floorDataReader
+operator|.
+name|readVLong
+argument_list|()
+expr_stmt|;
+comment|//System.out.println("  scanToFloorFrame: nextFloorTermOrd=" + nextFloorTermOrd);
+if|if
+condition|(
+name|targetLabel
+operator|<
+name|nextFloorLabel
+condition|)
+block|{
+comment|// if (DEBUG) {
+comment|//    System.out.println("        stop!  nextFloorLabel=" + ((char) nextFloorLabel));
+comment|//  }
+break|break;
+block|}
+block|}
+block|}
+if|if
+condition|(
+name|newFP
+operator|!=
+name|fp
+condition|)
+block|{
+comment|// Force re-load of the block:
+comment|// if (DEBUG) {
+comment|//    System.out.println("      force switch to fp=" + newFP + " oldFP=" + fp);
+comment|//  }
+name|nextEnt
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+name|termOrd
+operator|=
+name|lastFloorTermOrd
+expr_stmt|;
+name|fp
+operator|=
+name|newFP
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// if (DEBUG) {
+comment|//    System.out.println("      stay on same fp=" + newFP);
+comment|//  }
+block|}
+block|}
+comment|// TODO: make this array'd so we can do bin search?
+comment|// likely not worth it?  need to measure how many
+comment|// floor blocks we "typically" get
+DECL|method|scanToFloorFrame
+specifier|public
+name|void
+name|scanToFloorFrame
+parameter_list|(
+name|long
+name|targetOrd
+parameter_list|)
+block|{
+comment|// System.out.println("  scanToFloorFrame targetOrd=" + targetOrd + " vs nextFloorTermOrd=" + nextFloorTermOrd + " numFollowFloorBlocks=" + numFollowFloorBlocks + " termOrdOrig=" + termOrdOrig);
+if|if
+condition|(
+operator|!
+name|isFloor
+operator|||
+name|targetOrd
+operator|<
+name|nextFloorTermOrd
+condition|)
+block|{
+return|return;
+block|}
+assert|assert
+name|numFollowFloorBlocks
+operator|!=
+literal|0
+assert|;
+name|long
+name|lastFloorTermOrd
+init|=
+name|nextFloorTermOrd
+decl_stmt|;
 name|long
 name|newFP
 init|=
@@ -1338,8 +1601,8 @@ operator|!=
 literal|0
 expr_stmt|;
 comment|// if (DEBUG) {
-comment|//   System.out.println("      label=" + toHex(nextFloorLabel) + " fp=" + newFP + " hasTerms?=" + hasTerms + " numFollowFloor=" + numFollowFloorBlocks);
-comment|// }
+comment|//    System.out.println("      label=" + ((char) nextFloorLabel) + " fp=" + newFP + " hasTerms?=" + hasTerms + " numFollowFloor=" + numFollowFloorBlocks);
+comment|//  }
 name|isLastInFloor
 operator|=
 name|numFollowFloorBlocks
@@ -1348,6 +1611,10 @@ literal|1
 expr_stmt|;
 name|numFollowFloorBlocks
 operator|--
+expr_stmt|;
+name|lastFloorTermOrd
+operator|=
+name|nextFloorTermOrd
 expr_stmt|;
 if|if
 condition|(
@@ -1358,9 +1625,15 @@ name|nextFloorLabel
 operator|=
 literal|256
 expr_stmt|;
+name|nextFloorTermOrd
+operator|=
+name|Long
+operator|.
+name|MAX_VALUE
+expr_stmt|;
 comment|// if (DEBUG) {
-comment|//   System.out.println("        stop!  last block nextFloorLabel=" + toHex(nextFloorLabel));
-comment|// }
+comment|//    System.out.println("        stop!  last block nextFloorLabel=" + ((char) nextFloorLabel));
+comment|//  }
 break|break;
 block|}
 else|else
@@ -1374,20 +1647,28 @@ argument_list|()
 operator|&
 literal|0xff
 expr_stmt|;
+name|nextFloorTermOrd
+operator|+=
+name|floorDataReader
+operator|.
+name|readVLong
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
-name|targetLabel
+name|targetOrd
 operator|<
-name|nextFloorLabel
+name|nextFloorTermOrd
 condition|)
 block|{
 comment|// if (DEBUG) {
-comment|//   System.out.println("        stop!  nextFloorLabel=" + toHex(nextFloorLabel));
-comment|// }
+comment|//    System.out.println("        stop!  nextFloorLabel=" + ((char) nextFloorLabel));
+comment|//  }
 break|break;
 block|}
 block|}
 block|}
+comment|// System.out.println("  after: lastFloorTermOrd=" + lastFloorTermOrd + " newFP=" + newFP + " vs fp=" + fp + " lastFloorTermOrd=" + lastFloorTermOrd);
 if|if
 condition|(
 name|newFP
@@ -1397,12 +1678,16 @@ condition|)
 block|{
 comment|// Force re-load of the block:
 comment|// if (DEBUG) {
-comment|//   System.out.println("      force switch to fp=" + newFP + " oldFP=" + fp);
-comment|// }
+comment|//    System.out.println("      force switch to fp=" + newFP + " oldFP=" + fp);
+comment|//  }
 name|nextEnt
 operator|=
 operator|-
 literal|1
+expr_stmt|;
+name|termOrd
+operator|=
+name|lastFloorTermOrd
 expr_stmt|;
 name|fp
 operator|=
@@ -1412,8 +1697,8 @@ block|}
 else|else
 block|{
 comment|// if (DEBUG) {
-comment|//   System.out.println("      stay on same fp=" + newFP);
-comment|// }
+comment|//    System.out.println("      stay on same fp=" + newFP);
+comment|//  }
 block|}
 block|}
 DECL|method|decodeMetaData
@@ -1424,7 +1709,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|//if (DEBUG) System.out.println("\nBTTR.decodeMetadata seg=" + segment + " mdUpto=" + metaDataUpto + " vs termBlockOrd=" + state.termBlockOrd);
+assert|assert
+name|nextEnt
+operator|>=
+literal|0
+assert|;
 comment|// lazily catch up on metadata decode:
 specifier|final
 name|int
@@ -1444,7 +1733,20 @@ assert|assert
 name|limit
 operator|>
 literal|0
+operator|:
+literal|"limit="
+operator|+
+name|limit
+operator|+
+literal|" isLeafBlock="
+operator|+
+name|isLeafBlock
+operator|+
+literal|" nextEnt="
+operator|+
+name|nextEnt
 assert|;
+comment|// if (DEBUG) System.out.println("\nBTTR.decodeMetadata seg=" + ste.fr.parent.segment + " mdUpto=" + metaDataUpto + " vs termBlockOrd=" + state.termBlockOrd + " limit=" + limit);
 comment|// TODO: better API would be "jump straight to term=N"???
 while|while
 condition|(
@@ -1502,6 +1804,7 @@ argument_list|()
 expr_stmt|;
 comment|//if (DEBUG) System.out.println("    totTF=" + state.totalTermFreq);
 block|}
+comment|//if (DEBUG) System.out.println("    longsSize=" + ste.fr.longsSize);
 comment|// metadata
 for|for
 control|(
@@ -1736,6 +2039,13 @@ operator|.
 name|readVLong
 argument_list|()
 decl_stmt|;
+name|termOrd
+operator|+=
+name|suffixesReader
+operator|.
+name|readVLong
+argument_list|()
+expr_stmt|;
 comment|//if (DEBUG) System.out.println("      subCode=" + subCode);
 if|if
 condition|(
@@ -1757,6 +2067,9 @@ block|{
 name|state
 operator|.
 name|termBlockOrd
+operator|++
+expr_stmt|;
+name|termOrd
 operator|++
 expr_stmt|;
 block|}
@@ -1826,7 +2139,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// if (DEBUG) System.out.println("    scanToTermLeaf: block fp=" + fp + " prefix=" + prefix + " nextEnt=" + nextEnt + " (of " + entCount + ") target=" + brToString(target) + " term=" + brToString(term));
+comment|// if (DEBUG) System.out.println("    scanToTermLeaf: block fp=" + fp + " prefix=" + prefix + " nextEnt=" + nextEnt + " (of " + entCount + ") target=" + OrdsSegmentTermsEnum.brToString(target) + " term=" + OrdsSegmentTermsEnum.brToString(ste.term));
 assert|assert
 name|nextEnt
 operator|!=
@@ -1883,6 +2196,9 @@ block|{
 name|nextEnt
 operator|++
 expr_stmt|;
+name|termOrd
+operator|++
+expr_stmt|;
 name|suffix
 operator|=
 name|suffixesReader
@@ -1891,11 +2207,11 @@ name|readVInt
 argument_list|()
 expr_stmt|;
 comment|// if (DEBUG) {
-comment|//   BytesRef suffixBytesRef = new BytesRef();
-comment|//   suffixBytesRef.bytes = suffixBytes;
-comment|//   suffixBytesRef.offset = suffixesReader.getPosition();
-comment|//   suffixBytesRef.length = suffix;
-comment|//   System.out.println("      cycle: term " + (nextEnt-1) + " (of " + entCount + ") suffix=" + brToString(suffixBytesRef));
+comment|//    BytesRef suffixBytesRef = new BytesRef();
+comment|//    suffixBytesRef.bytes = suffixBytes;
+comment|//    suffixBytesRef.offset = suffixesReader.getPosition();
+comment|//    suffixBytesRef.length = suffix;
+comment|//    System.out.println("      cycle: term " + (nextEnt-1) + " (of " + entCount + ") suffix=" + OrdsSegmentTermsEnum.brToString(suffixBytesRef));
 comment|// }
 specifier|final
 name|int
@@ -2108,6 +2424,12 @@ operator|.
 name|lastSubFP
 argument_list|,
 name|termLen
+argument_list|,
+name|ste
+operator|.
+name|currentFrame
+operator|.
+name|termOrd
 argument_list|)
 expr_stmt|;
 name|ste
@@ -2148,6 +2470,12 @@ operator|.
 name|term
 operator|.
 name|length
+argument_list|,
+name|ste
+operator|.
+name|currentFrame
+operator|.
+name|termOrd
 argument_list|)
 expr_stmt|;
 name|ste
@@ -2237,7 +2565,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//if (DEBUG) System.out.println("    scanToTermNonLeaf: block fp=" + fp + " prefix=" + prefix + " nextEnt=" + nextEnt + " (of " + entCount + ") target=" + brToString(target) + " term=" + brToString(term));
+comment|// if (DEBUG) System.out.println("    scanToTermNonLeaf: block fp=" + fp + " prefix=" + prefix + " nextEnt=" + nextEnt + " (of " + entCount + ") target=" + OrdsSegmentTermsEnum.brToString(target) + " term=" + OrdsSegmentTermsEnum.brToString(ste.term));
 assert|assert
 name|nextEnt
 operator|!=
@@ -2360,6 +2688,9 @@ operator|.
 name|termBlockOrd
 operator|++
 expr_stmt|;
+name|termOrd
+operator|++
+expr_stmt|;
 name|subCode
 operator|=
 literal|0
@@ -2369,6 +2700,13 @@ else|else
 block|{
 name|subCode
 operator|=
+name|suffixesReader
+operator|.
+name|readVLong
+argument_list|()
+expr_stmt|;
+name|termOrd
+operator|+=
 name|suffixesReader
 operator|.
 name|readVLong
@@ -2571,6 +2909,12 @@ operator|.
 name|lastSubFP
 argument_list|,
 name|termLen
+argument_list|,
+name|ste
+operator|.
+name|currentFrame
+operator|.
+name|termOrd
 argument_list|)
 expr_stmt|;
 name|ste
@@ -2611,6 +2955,12 @@ operator|.
 name|term
 operator|.
 name|length
+argument_list|,
+name|ste
+operator|.
+name|currentFrame
+operator|.
+name|termOrd
 argument_list|)
 expr_stmt|;
 name|ste
