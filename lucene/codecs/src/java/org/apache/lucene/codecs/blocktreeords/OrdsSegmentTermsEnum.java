@@ -1052,6 +1052,13 @@ name|f
 operator|.
 name|prefix
 assert|;
+assert|assert
+name|termOrd
+operator|==
+name|f
+operator|.
+name|termOrdOrig
+assert|;
 block|}
 else|else
 block|{

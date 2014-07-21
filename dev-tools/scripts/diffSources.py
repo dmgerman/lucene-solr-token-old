@@ -357,6 +357,8 @@ op|','
 string|"'.g'"
 op|','
 string|"'.properties'"
+op|','
+string|"'.java'"
 op|')'
 newline|'\n'
 nl|'\n'
