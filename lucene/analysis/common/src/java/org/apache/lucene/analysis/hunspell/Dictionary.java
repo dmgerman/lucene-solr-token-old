@@ -3056,18 +3056,6 @@ name|ruleArgs
 index|[
 literal|3
 index|]
-operator|.
-name|equals
-argument_list|(
-literal|"0"
-argument_list|)
-condition|?
-literal|""
-else|:
-name|ruleArgs
-index|[
-literal|3
-index|]
 decl_stmt|;
 name|char
 name|appendFlags
@@ -3075,6 +3063,7 @@ index|[]
 init|=
 literal|null
 decl_stmt|;
+comment|// first: parse continuation classes out of affix
 name|int
 name|flagSep
 init|=
@@ -3155,6 +3144,22 @@ expr_stmt|;
 name|twoStageAffix
 operator|=
 literal|true
+expr_stmt|;
+block|}
+comment|// zero affix -> empty string
+if|if
+condition|(
+literal|"0"
+operator|.
+name|equals
+argument_list|(
+name|affixArg
+argument_list|)
+condition|)
+block|{
+name|affixArg
+operator|=
+literal|""
 expr_stmt|;
 block|}
 name|String
