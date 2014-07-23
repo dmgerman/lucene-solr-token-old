@@ -505,19 +505,6 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|DataOutput
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
 name|Directory
 import|;
 end_import
@@ -1190,6 +1177,25 @@ operator|new
 name|BytesRef
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|version
+operator|>=
+name|VERSION_CHECKSUM
+condition|)
+block|{
+comment|// NOTE: data file is too costly to verify checksum against all the bytes on open,
+comment|// but for now we at least verify proper structure of the checksum footer: which looks
+comment|// for FOOTER_MAGIC + algorithmID. This is cheap and can detect some forms of corruption
+comment|// such as file truncation.
+name|CodecUtil
+operator|.
+name|retrieveChecksum
+argument_list|(
+name|fieldsStream
+argument_list|)
+expr_stmt|;
+block|}
 name|success
 operator|=
 literal|true
