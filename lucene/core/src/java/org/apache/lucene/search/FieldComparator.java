@@ -3399,7 +3399,6 @@ comment|/** Sorts by field's natural Term sort order.  All    *  comparisons are
 DECL|class|TermValComparator
 specifier|public
 specifier|static
-specifier|final
 class|class
 name|TermValComparator
 extends|extends
@@ -3454,7 +3453,6 @@ specifier|final
 name|int
 name|missingSortCmp
 decl_stmt|;
-comment|// TODO: add missing first/last support here?
 comment|/** Sole constructor. */
 DECL|method|TermValComparator
 specifier|public
