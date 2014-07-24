@@ -821,8 +821,6 @@ name|MAX_VALUE
 argument_list|,
 name|fstOutput
 argument_list|,
-literal|null
-argument_list|,
 literal|true
 argument_list|,
 name|PackedInts

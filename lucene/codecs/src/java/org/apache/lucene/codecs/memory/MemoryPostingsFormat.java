@@ -789,8 +789,6 @@ name|MAX_VALUE
 argument_list|,
 name|outputs
 argument_list|,
-literal|null
-argument_list|,
 name|doPackFST
 argument_list|,
 name|acceptableOverheadRatio

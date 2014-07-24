@@ -148,19 +148,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|TestUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|TimeUnits
 import|;
 end_import
@@ -380,8 +367,6 @@ operator|.
 name|MAX_VALUE
 argument_list|,
 name|outputs
-argument_list|,
-literal|null
 argument_list|,
 name|doPack
 argument_list|,
@@ -985,8 +970,6 @@ name|MAX_VALUE
 argument_list|,
 name|outputs
 argument_list|,
-literal|null
-argument_list|,
 name|doPack
 argument_list|,
 name|PackedInts
@@ -1512,8 +1495,6 @@ operator|.
 name|MAX_VALUE
 argument_list|,
 name|outputs
-argument_list|,
-literal|null
 argument_list|,
 name|doPack
 argument_list|,
