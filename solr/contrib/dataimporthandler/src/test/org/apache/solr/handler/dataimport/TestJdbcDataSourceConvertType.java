@@ -286,7 +286,7 @@ name|put
 argument_list|(
 literal|"url"
 argument_list|,
-literal|"jdbc:derby:memory:tempDB;create=true"
+literal|"jdbc:derby:memory:tempDB;create=true;territory=en_US"
 argument_list|)
 expr_stmt|;
 name|p
