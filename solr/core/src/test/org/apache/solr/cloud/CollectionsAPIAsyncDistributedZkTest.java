@@ -169,6 +169,15 @@ name|CollectionsAPIAsyncDistributedZkTest
 extends|extends
 name|AbstractFullDistribZkTestBase
 block|{
+DECL|field|MAX_TIMEOUT_SECONDS
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|MAX_TIMEOUT_SECONDS
+init|=
+literal|60
+decl_stmt|;
 DECL|field|DEBUG
 specifier|private
 specifier|static
@@ -234,11 +243,11 @@ literal|true
 expr_stmt|;
 name|sliceCount
 operator|=
-literal|2
+literal|1
 expr_stmt|;
 name|shardCount
 operator|=
-literal|4
+literal|1
 expr_stmt|;
 block|}
 annotation|@
@@ -301,7 +310,7 @@ name|createCollection
 argument_list|(
 literal|"testasynccollectioncreation"
 argument_list|,
-literal|2
+literal|1
 argument_list|,
 literal|"conf1"
 argument_list|,
@@ -321,7 +330,7 @@ name|getRequestStateAfterCompletion
 argument_list|(
 literal|"1001"
 argument_list|,
-literal|10
+name|MAX_TIMEOUT_SECONDS
 argument_list|,
 name|server
 argument_list|)
@@ -341,7 +350,7 @@ name|createCollection
 argument_list|(
 literal|"testasynccollectioncreation"
 argument_list|,
-literal|2
+literal|1
 argument_list|,
 literal|"conf1"
 argument_list|,
@@ -356,7 +365,7 @@ name|getRequestStateAfterCompletion
 argument_list|(
 literal|"1002"
 argument_list|,
-literal|3
+name|MAX_TIMEOUT_SECONDS
 argument_list|,
 name|server
 argument_list|)
@@ -415,7 +424,7 @@ name|getRequestStateAfterCompletion
 argument_list|(
 literal|"1003"
 argument_list|,
-literal|60
+name|MAX_TIMEOUT_SECONDS
 argument_list|,
 name|server
 argument_list|)
@@ -448,7 +457,9 @@ name|getRequestStateAfterCompletion
 argument_list|(
 literal|"1004"
 argument_list|,
-literal|60
+name|MAX_TIMEOUT_SECONDS
+operator|*
+literal|2
 argument_list|,
 name|server
 argument_list|)
