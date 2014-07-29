@@ -2058,15 +2058,10 @@ operator|==
 name|entCount
 condition|)
 block|{
-if|if
-condition|(
-name|exactOnly
-condition|)
-block|{
-name|fillTerm
-argument_list|()
-expr_stmt|;
-block|}
+comment|// nocommit?
+comment|//if (exactOnly) {
+comment|//fillTerm();
+comment|//}
 comment|// We are done scanning this block
 break|break
 name|nextTerm
@@ -2437,16 +2432,11 @@ operator|==
 name|entCount
 condition|)
 block|{
-if|if
-condition|(
-name|exactOnly
-condition|)
-block|{
-name|fillTerm
-argument_list|()
-expr_stmt|;
+comment|// nocommit?
+comment|//if (exactOnly) {
+comment|//fillTerm();
 comment|//termExists = true;
-block|}
+comment|//}
 comment|// We are done scanning this block
 break|break
 name|nextTerm
