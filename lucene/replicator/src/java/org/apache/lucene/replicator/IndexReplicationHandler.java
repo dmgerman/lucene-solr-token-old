@@ -512,6 +512,9 @@ name|dir
 parameter_list|,
 name|String
 name|segmentsFile
+parameter_list|,
+name|InfoStream
+name|infoStream
 parameter_list|)
 block|{
 try|try
@@ -657,9 +660,34 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-comment|// ignore any errors that happens during this state and only log it. this
+comment|// ignore any errors that happen during this state and only log it. this
 comment|// cleanup will have a chance to succeed the next time we get a new
 comment|// revision.
+if|if
+condition|(
+name|infoStream
+operator|.
+name|isEnabled
+argument_list|(
+name|INFO_STREAM_COMPONENT
+argument_list|)
+condition|)
+block|{
+name|infoStream
+operator|.
+name|message
+argument_list|(
+name|INFO_STREAM_COMPONENT
+argument_list|,
+literal|"cleanupOldIndexFiles(): failed on error "
+operator|+
+name|t
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**    * Copies the files from the source directory to the target one, if they are    * not the same.    */
@@ -1199,6 +1227,8 @@ argument_list|(
 name|indexDir
 argument_list|,
 name|segmentsFile
+argument_list|,
+name|infoStream
 argument_list|)
 expr_stmt|;
 comment|// successfully updated the index, notify the callback that the index is
