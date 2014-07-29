@@ -15,36 +15,6 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License. You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|ByteBlockPool
-operator|.
-name|BYTE_BLOCK_MASK
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|ByteBlockPool
-operator|.
-name|BYTE_BLOCK_SIZE
-import|;
-end_import
-begin_import
 import|import
 name|java
 operator|.
@@ -87,6 +57,19 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
 import|;
 end_import
 begin_import
@@ -303,6 +286,36 @@ operator|.
 name|util
 operator|.
 name|RamUsageEstimator
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|ByteBlockPool
+operator|.
+name|BYTE_BLOCK_MASK
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|ByteBlockPool
+operator|.
+name|BYTE_BLOCK_SIZE
 import|;
 end_import
 begin_class
@@ -775,6 +788,12 @@ operator|.
 name|Allocator
 name|intBlockAllocator
 decl_stmt|;
+DECL|field|pendingNumDocs
+specifier|private
+specifier|final
+name|AtomicLong
+name|pendingNumDocs
+decl_stmt|;
 DECL|field|indexWriterConfig
 specifier|private
 specifier|final
@@ -804,6 +823,9 @@ name|FieldInfos
 operator|.
 name|Builder
 name|fieldInfos
+parameter_list|,
+name|AtomicLong
+name|pendingNumDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -873,6 +895,12 @@ name|indexWriterConfig
 operator|.
 name|getSimilarity
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|pendingNumDocs
+operator|=
+name|pendingNumDocs
 expr_stmt|;
 name|bytesUsed
 operator|=
@@ -1083,6 +1111,46 @@ return|return
 literal|true
 return|;
 block|}
+comment|/** Anything that will add N docs to the index should reserve first to    *  make sure it's allowed. */
+DECL|method|reserveDoc
+specifier|private
+name|void
+name|reserveDoc
+parameter_list|()
+block|{
+if|if
+condition|(
+name|pendingNumDocs
+operator|.
+name|incrementAndGet
+argument_list|()
+operator|>
+name|IndexWriter
+operator|.
+name|getActualMaxDocs
+argument_list|()
+condition|)
+block|{
+comment|// Reserve failed
+name|pendingNumDocs
+operator|.
+name|decrementAndGet
+argument_list|()
+expr_stmt|;
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"number of documents in the index cannot exceed "
+operator|+
+name|IndexWriter
+operator|.
+name|getActualMaxDocs
+argument_list|()
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|method|updateDocument
 specifier|public
 name|void
@@ -1173,6 +1241,15 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Even on exception, the document is still added (but marked
+comment|// deleted), so we don't need to un-reserve at that point.
+comment|// Aborting exceptions will actually "lose" more than one
+comment|// document, so the counter will be "wrong" in that case, but
+comment|// it's very hard to fix (we can't easily distinguish aborting
+comment|// vs non-aborting exceptions):
+name|reserveDoc
+argument_list|()
+expr_stmt|;
 name|boolean
 name|success
 init|=
@@ -1346,6 +1423,15 @@ range|:
 name|docs
 control|)
 block|{
+comment|// Even on exception, the document is still added (but marked
+comment|// deleted), so we don't need to un-reserve at that point.
+comment|// Aborting exceptions will actually "lose" more than one
+comment|// document, so the counter will be "wrong" in that case, but
+comment|// it's very hard to fix (we can't easily distinguish aborting
+comment|// vs non-aborting exceptions):
+name|reserveDoc
+argument_list|()
+expr_stmt|;
 name|docState
 operator|.
 name|doc
