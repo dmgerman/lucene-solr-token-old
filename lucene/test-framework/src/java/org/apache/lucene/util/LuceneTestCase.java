@@ -4022,9 +4022,6 @@ specifier|static
 name|IndexWriterConfig
 name|newIndexWriterConfig
 parameter_list|(
-name|Version
-name|v
-parameter_list|,
 name|Analyzer
 name|a
 parameter_list|)
@@ -4035,7 +4032,7 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-name|v
+name|TEST_VERSION_CURRENT
 argument_list|,
 name|a
 argument_list|)
