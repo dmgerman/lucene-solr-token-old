@@ -104,8 +104,6 @@ name|StringReader
 argument_list|(
 name|s
 argument_list|)
-argument_list|,
-name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|checkSet
@@ -129,8 +127,6 @@ argument_list|(
 name|s
 argument_list|)
 argument_list|)
-argument_list|,
-name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|checkSet
@@ -166,8 +162,6 @@ name|s
 argument_list|)
 argument_list|,
 literal|"#"
-argument_list|,
-name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|checkSet
@@ -309,8 +303,6 @@ name|StringReader
 argument_list|(
 name|s
 argument_list|)
-argument_list|,
-name|TEST_VERSION_CURRENT
 argument_list|)
 decl_stmt|;
 name|assertEquals

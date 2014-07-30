@@ -114,9 +114,7 @@ parameter_list|()
 block|{
 operator|new
 name|ItalianAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 comment|/** test stopwords and stemming */
@@ -133,9 +131,7 @@ name|a
 init|=
 operator|new
 name|ItalianAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// stemming
 name|checkOneTerm
@@ -185,8 +181,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|asSet
 argument_list|(
 literal|"abbandonata"
@@ -201,8 +195,6 @@ init|=
 operator|new
 name|ItalianAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|ItalianAnalyzer
 operator|.
 name|getDefaultStopSet
@@ -246,9 +238,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|ItalianAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 argument_list|,
 literal|1000
 operator|*
@@ -270,9 +260,7 @@ name|a
 init|=
 operator|new
 name|ItalianAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(

@@ -301,8 +301,6 @@ init|=
 operator|new
 name|UAX29URLEmailTokenizer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|newAttributeFactory
 argument_list|()
 argument_list|)
@@ -360,8 +358,6 @@ init|=
 operator|new
 name|UAX29URLEmailTokenizer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|newAttributeFactory
 argument_list|()
 argument_list|)
@@ -585,8 +581,6 @@ init|=
 operator|new
 name|UAX29URLEmailTokenizer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|newAttributeFactory
 argument_list|()
 argument_list|)
@@ -647,8 +641,6 @@ init|=
 operator|new
 name|UAX29URLEmailTokenizer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|newAttributeFactory
 argument_list|()
 argument_list|)

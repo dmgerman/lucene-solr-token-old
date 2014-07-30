@@ -1250,8 +1250,6 @@ init|=
 operator|new
 name|LowerCaseFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|source1
 argument_list|)
 decl_stmt|;
@@ -1324,9 +1322,7 @@ name|tokenizer
 init|=
 operator|new
 name|StandardTokenizer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|tokenizer
 operator|.
@@ -1490,8 +1486,6 @@ argument_list|(
 operator|new
 name|StandardFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|standardTokenizer
 argument_list|(
 name|buffer
@@ -1527,8 +1521,6 @@ argument_list|(
 operator|new
 name|StandardFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|standardTokenizer
 argument_list|(
 name|buffer
@@ -1660,8 +1652,6 @@ operator|=
 operator|new
 name|StandardFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|standardTokenizer
 argument_list|(
 name|buffer
@@ -1704,8 +1694,6 @@ argument_list|(
 operator|new
 name|StandardFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|standardTokenizer
 argument_list|(
 name|buffer
@@ -1814,8 +1802,6 @@ argument_list|(
 operator|new
 name|StandardFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|standardTokenizer
 argument_list|(
 name|buffer

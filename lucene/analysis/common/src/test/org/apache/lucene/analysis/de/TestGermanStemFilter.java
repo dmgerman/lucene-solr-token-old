@@ -228,8 +228,6 @@ argument_list|(
 operator|new
 name|LowerCaseFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|t
 argument_list|)
 argument_list|)
@@ -285,8 +283,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|asSet
 argument_list|(
 literal|"sÃ¤ngerinnen"

@@ -81,21 +81,8 @@ operator|.
 name|CharacterUtils
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
 begin_comment
-comment|/**  * Normalizes token text to lower case, removes some Greek diacritics,  * and standardizes final sigma to sigma.   *<a name="version"/>  *<p>You must specify the required {@link Version}  * compatibility when creating GreekLowerCaseFilter:  *<ul>  *<li> As of 3.1, supplementary characters are properly lowercased.  *</ul>  */
+comment|/**  * Normalizes token text to lower case, removes some Greek diacritics,  * and standardizes final sigma to sigma.   */
 end_comment
 begin_class
 DECL|class|GreekLowerCaseFilter
@@ -124,15 +111,17 @@ specifier|private
 specifier|final
 name|CharacterUtils
 name|charUtils
+init|=
+name|CharacterUtils
+operator|.
+name|getInstance
+argument_list|()
 decl_stmt|;
-comment|/**    * Create a GreekLowerCaseFilter that normalizes Greek token text.    *     * @param matchVersion Lucene compatibility version,     *   See<a href="#version">above</a>    * @param in TokenStream to filter    */
+comment|/**    * Create a GreekLowerCaseFilter that normalizes Greek token text.    *     * @param in TokenStream to filter    */
 DECL|method|GreekLowerCaseFilter
 specifier|public
 name|GreekLowerCaseFilter
 parameter_list|(
-name|Version
-name|matchVersion
-parameter_list|,
 name|TokenStream
 name|in
 parameter_list|)
@@ -140,17 +129,6 @@ block|{
 name|super
 argument_list|(
 name|in
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|charUtils
-operator|=
-name|CharacterUtils
-operator|.
-name|getInstance
-argument_list|(
-name|matchVersion
 argument_list|)
 expr_stmt|;
 block|}

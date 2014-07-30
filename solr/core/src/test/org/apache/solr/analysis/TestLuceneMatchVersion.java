@@ -98,9 +98,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|standard
+name|tr
 operator|.
-name|StandardAnalyzer
+name|TurkishAnalyzer
 import|;
 end_import
 begin_import
@@ -316,17 +316,14 @@ name|getLuceneMatchVersion
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// this is a hack to get the private matchVersion field in StandardAnalyzer's superclass, may break in later lucene versions - we have no getter :(
+comment|// this is a hack to get the private matchVersion field in TurkishAnalyzer's class, may break in later lucene versions - we have no getter :(
 specifier|final
 name|Field
 name|matchVersionField
 init|=
-name|StandardAnalyzer
+name|TurkishAnalyzer
 operator|.
 name|class
-operator|.
-name|getSuperclass
-argument_list|()
 operator|.
 name|getDeclaredField
 argument_list|(
@@ -346,7 +343,7 @@ name|schema
 operator|.
 name|getFieldType
 argument_list|(
-literal|"textStandardAnalyzerDefault"
+literal|"textTurkishAnalyzerDefault"
 argument_list|)
 expr_stmt|;
 name|Analyzer
@@ -361,7 +358,7 @@ name|assertTrue
 argument_list|(
 name|ana1
 operator|instanceof
-name|StandardAnalyzer
+name|TurkishAnalyzer
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -382,7 +379,7 @@ name|schema
 operator|.
 name|getFieldType
 argument_list|(
-literal|"textStandardAnalyzer40"
+literal|"textTurkishAnalyzer40"
 argument_list|)
 expr_stmt|;
 name|ana1
@@ -396,7 +393,7 @@ name|assertTrue
 argument_list|(
 name|ana1
 operator|instanceof
-name|StandardAnalyzer
+name|TurkishAnalyzer
 argument_list|)
 expr_stmt|;
 name|assertEquals

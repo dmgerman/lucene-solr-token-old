@@ -178,9 +178,7 @@ name|a
 init|=
 operator|new
 name|BulgarianAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// -Ð¸ pattern
 name|assertAnalyzesTo
@@ -781,9 +779,7 @@ name|a
 init|=
 operator|new
 name|BulgarianAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(
@@ -856,9 +852,7 @@ name|a
 init|=
 operator|new
 name|BulgarianAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// -Ð° pattern
 name|assertAnalyzesTo
@@ -1075,9 +1069,7 @@ name|a
 init|=
 operator|new
 name|BulgarianAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(
@@ -1220,9 +1212,7 @@ name|a
 init|=
 operator|new
 name|BulgarianAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// ÑÐ¸ -> Ðº
 name|assertAnalyzesTo
@@ -1712,8 +1702,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|1
 argument_list|,
 literal|true

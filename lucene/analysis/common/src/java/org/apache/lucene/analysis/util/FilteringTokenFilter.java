@@ -91,12 +91,6 @@ name|FilteringTokenFilter
 extends|extends
 name|TokenFilter
 block|{
-DECL|field|version
-specifier|protected
-specifier|final
-name|Version
-name|version
-decl_stmt|;
 DECL|field|posIncrAtt
 specifier|private
 specifier|final
@@ -115,14 +109,11 @@ specifier|private
 name|int
 name|skippedPositions
 decl_stmt|;
-comment|/**    * Create a new {@link FilteringTokenFilter}.    * @param version the Lucene match version    * @param in      the {@link TokenStream} to consume    */
+comment|/**    * Create a new {@link FilteringTokenFilter}.    * @param in      the {@link TokenStream} to consume    */
 DECL|method|FilteringTokenFilter
 specifier|public
 name|FilteringTokenFilter
 parameter_list|(
-name|Version
-name|version
-parameter_list|,
 name|TokenStream
 name|in
 parameter_list|)
@@ -131,12 +122,6 @@ name|super
 argument_list|(
 name|in
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|version
-operator|=
-name|version
 expr_stmt|;
 block|}
 comment|/** Override this method and return if the current input token should be returned by {@link #incrementToken}. */

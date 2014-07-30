@@ -29,15 +29,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -213,8 +204,6 @@ argument_list|,
 operator|new
 name|StopFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|result
 argument_list|,
 name|CharArraySet
@@ -290,8 +279,6 @@ argument_list|,
 operator|new
 name|StopFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|result
 argument_list|,
 name|CharArraySet
