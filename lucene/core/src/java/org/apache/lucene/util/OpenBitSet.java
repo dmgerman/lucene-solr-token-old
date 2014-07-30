@@ -369,20 +369,12 @@ condition|)
 return|return
 literal|false
 return|;
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 return|return
 operator|(
@@ -426,20 +418,12 @@ decl_stmt|;
 comment|// div 64
 comment|// signed shift will keep a negative index and force an
 comment|// array-index-out-of-bounds-exception, removing the need for an explicit check.
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 return|return
 operator|(
@@ -488,23 +472,12 @@ condition|)
 return|return
 literal|false
 return|;
-name|int
-name|bit
-init|=
-operator|(
-name|int
-operator|)
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 return|return
 operator|(
@@ -551,23 +524,12 @@ literal|6
 argument_list|)
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-operator|(
-name|int
-operator|)
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 return|return
 operator|(
@@ -610,14 +572,6 @@ operator|>>
 literal|6
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 return|return
 operator|(
 call|(
@@ -629,7 +583,7 @@ index|[
 name|i
 index|]
 operator|>>>
-name|bit
+name|index
 argument_list|)
 operator|)
 operator|&
@@ -655,22 +609,12 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
-name|int
-name|bit
-init|=
-operator|(
-name|int
-operator|)
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[
@@ -707,20 +651,12 @@ operator|>>
 literal|6
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[
@@ -761,22 +697,12 @@ operator|>>
 literal|6
 argument_list|)
 decl_stmt|;
-name|int
-name|bit
-init|=
-operator|(
-name|int
-operator|)
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[
@@ -965,19 +891,12 @@ name|index
 operator|>>
 literal|6
 decl_stmt|;
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x03f
-decl_stmt|;
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[
@@ -1027,23 +946,12 @@ literal|6
 argument_list|)
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-operator|(
-name|int
-operator|)
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[
@@ -1084,23 +992,12 @@ operator|>=
 name|wlen
 condition|)
 return|return;
-name|int
-name|bit
-init|=
-operator|(
-name|int
-operator|)
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[
@@ -1444,20 +1341,12 @@ operator|>>
 literal|6
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|boolean
 name|val
@@ -1516,23 +1405,12 @@ literal|6
 argument_list|)
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-operator|(
-name|int
-operator|)
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|boolean
 name|val
@@ -1586,20 +1464,12 @@ operator|>>
 literal|6
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[
@@ -1641,23 +1511,12 @@ literal|6
 argument_list|)
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-operator|(
-name|int
-operator|)
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[
@@ -1685,23 +1544,12 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
-name|int
-name|bit
-init|=
-operator|(
-name|int
-operator|)
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[
@@ -1738,20 +1586,12 @@ operator|>>
 literal|6
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[
@@ -1805,23 +1645,12 @@ literal|6
 argument_list|)
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-operator|(
-name|int
-operator|)
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[

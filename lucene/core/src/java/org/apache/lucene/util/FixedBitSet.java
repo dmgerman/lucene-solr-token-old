@@ -212,15 +212,6 @@ name|doc
 operator|>>
 literal|6
 decl_stmt|;
-specifier|final
-name|int
-name|subIndex
-init|=
-name|doc
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// index within the word
 name|long
 name|word
 init|=
@@ -229,7 +220,7 @@ index|[
 name|i
 index|]
 operator|>>
-name|subIndex
+name|doc
 decl_stmt|;
 comment|// skip all the bits to the right of index
 if|if
@@ -357,15 +348,6 @@ name|target
 operator|>>
 literal|6
 decl_stmt|;
-specifier|final
-name|int
-name|subIndex
-init|=
-name|target
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// index within the word
 name|long
 name|word
 init|=
@@ -374,7 +356,7 @@ index|[
 name|i
 index|]
 operator|>>
-name|subIndex
+name|target
 decl_stmt|;
 comment|// skip all the bits to the right of index
 if|if
@@ -1068,20 +1050,12 @@ decl_stmt|;
 comment|// div 64
 comment|// signed shift will keep a negative index and force an
 comment|// array-index-out-of-bounds-exception, removing the need for an explicit check.
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 return|return
 operator|(
@@ -1130,20 +1104,12 @@ operator|>>
 literal|6
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[
@@ -1179,20 +1145,12 @@ operator|>>
 literal|6
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|boolean
 name|val
@@ -1244,19 +1202,12 @@ name|index
 operator|>>
 literal|6
 decl_stmt|;
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x03f
-decl_stmt|;
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|bits
 index|[
@@ -1293,20 +1244,12 @@ operator|>>
 literal|6
 decl_stmt|;
 comment|// div 64
-name|int
-name|bit
-init|=
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// mod 64
 name|long
 name|bitmask
 init|=
 literal|1L
 operator|<<
-name|bit
+name|index
 decl_stmt|;
 name|boolean
 name|val
@@ -1368,15 +1311,6 @@ name|index
 operator|>>
 literal|6
 decl_stmt|;
-specifier|final
-name|int
-name|subIndex
-init|=
-name|index
-operator|&
-literal|0x3f
-decl_stmt|;
-comment|// index within the word
 name|long
 name|word
 init|=
@@ -1385,7 +1319,7 @@ index|[
 name|i
 index|]
 operator|>>
-name|subIndex
+name|index
 decl_stmt|;
 comment|// skip all the bits to the right of index
 if|if
