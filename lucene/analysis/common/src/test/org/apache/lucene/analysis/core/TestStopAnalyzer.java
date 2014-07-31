@@ -151,7 +151,9 @@ name|stop
 init|=
 operator|new
 name|StopAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 DECL|field|inValidTokens
 specifier|private
@@ -311,6 +313,8 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|asSet
 argument_list|(
 literal|"good"
@@ -329,6 +333,8 @@ init|=
 operator|new
 name|StopAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|stopWordsSet
 argument_list|)
 decl_stmt|;
@@ -417,6 +423,8 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|asSet
 argument_list|(
 literal|"good"
@@ -435,6 +443,8 @@ init|=
 operator|new
 name|StopAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|stopWordsSet
 argument_list|)
 decl_stmt|;

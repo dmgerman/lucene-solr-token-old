@@ -805,7 +805,9 @@ name|a
 init|=
 operator|new
 name|BrazilianAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|checkReuse
 argument_list|(
@@ -859,6 +861,8 @@ init|=
 operator|new
 name|BrazilianAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
@@ -866,6 +870,8 @@ argument_list|,
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|asSet
 argument_list|(
 literal|"quintessÃªncia"
@@ -900,6 +906,8 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|1
 argument_list|,
 literal|true
@@ -917,7 +925,9 @@ name|tokenizer
 init|=
 operator|new
 name|LowerCaseTokenizer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|tokenizer
 operator|.
@@ -980,7 +990,9 @@ name|checkOneTerm
 argument_list|(
 operator|new
 name|BrazilianAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 name|input
 argument_list|,
@@ -1031,7 +1043,9 @@ argument_list|()
 argument_list|,
 operator|new
 name|BrazilianAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|1000
 operator|*

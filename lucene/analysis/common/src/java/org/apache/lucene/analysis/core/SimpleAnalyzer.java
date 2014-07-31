@@ -18,6 +18,15 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -37,13 +46,28 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|analysis
+operator|.
+name|util
+operator|.
+name|CharTokenizer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|Version
 import|;
 end_import
 begin_comment
-comment|/** An {@link Analyzer} that filters {@link LetterTokenizer}   *  with {@link LowerCaseFilter}   **/
+comment|/** An {@link Analyzer} that filters {@link LetterTokenizer}   *  with {@link LowerCaseFilter}   *<p>  *<a name="version">You must specify the required {@link Version} compatibility  * when creating {@link CharTokenizer}:  *<ul>  *<li>As of 3.1, {@link LowerCaseTokenizer} uses an int based API to normalize and  * detect token codepoints. See {@link CharTokenizer#isTokenChar(int)} and  * {@link CharTokenizer#normalize(int)} for details.</li>  *</ul>  *<p>  **/
 end_comment
 begin_class
 DECL|class|SimpleAnalyzer
@@ -54,12 +78,28 @@ name|SimpleAnalyzer
 extends|extends
 name|Analyzer
 block|{
-comment|/**    * Creates a new {@link SimpleAnalyzer}    */
+DECL|field|matchVersion
+specifier|private
+specifier|final
+name|Version
+name|matchVersion
+decl_stmt|;
+comment|/**    * Creates a new {@link SimpleAnalyzer}    * @param matchVersion Lucene version to match See {@link<a href="#version">above</a>}    */
 DECL|method|SimpleAnalyzer
 specifier|public
 name|SimpleAnalyzer
-parameter_list|()
-block|{   }
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|matchVersion
+operator|=
+name|matchVersion
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createComponents
@@ -78,7 +118,9 @@ name|TokenStreamComponents
 argument_list|(
 operator|new
 name|LowerCaseTokenizer
-argument_list|()
+argument_list|(
+name|matchVersion
+argument_list|)
 argument_list|)
 return|;
 block|}

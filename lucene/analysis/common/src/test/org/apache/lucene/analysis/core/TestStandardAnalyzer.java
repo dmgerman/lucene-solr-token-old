@@ -238,7 +238,9 @@ name|tokenizer
 init|=
 operator|new
 name|StandardTokenizer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|tokenizer
 operator|.
@@ -293,6 +295,8 @@ init|=
 operator|new
 name|StandardTokenizer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|newAttributeFactory
 argument_list|()
 argument_list|)
@@ -2181,7 +2185,9 @@ argument_list|()
 argument_list|,
 operator|new
 name|StandardAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|1000
 operator|*
@@ -2210,7 +2216,9 @@ name|random
 argument_list|,
 operator|new
 name|StandardAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|100
 operator|*
@@ -2259,6 +2267,8 @@ init|=
 operator|new
 name|StandardTokenizer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|newAttributeFactory
 argument_list|()
 argument_list|)

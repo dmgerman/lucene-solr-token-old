@@ -1100,6 +1100,8 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 operator|new
 name|HashSet
 argument_list|<>
@@ -1623,6 +1625,8 @@ init|=
 operator|new
 name|StopFilter
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|tokenizer
 argument_list|,
 name|StandardAnalyzer
@@ -2160,6 +2164,8 @@ operator|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 operator|new
 name|HashSet
 argument_list|<>
@@ -2322,6 +2328,8 @@ operator|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 operator|new
 name|HashSet
 argument_list|<>
@@ -2474,6 +2482,8 @@ operator|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 operator|new
 name|HashSet
 argument_list|<>

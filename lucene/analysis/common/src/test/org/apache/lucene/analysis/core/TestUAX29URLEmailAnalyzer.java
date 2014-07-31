@@ -103,7 +103,9 @@ name|a
 init|=
 operator|new
 name|UAX29URLEmailAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 DECL|method|testHugeDoc
 specifier|public
@@ -2327,7 +2329,9 @@ argument_list|()
 argument_list|,
 operator|new
 name|UAX29URLEmailAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|1000
 operator|*

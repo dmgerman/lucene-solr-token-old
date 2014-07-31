@@ -281,6 +281,8 @@ operator|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|luceneMatchVersion
+argument_list|,
 name|managedWords
 operator|.
 name|size
@@ -328,6 +330,8 @@ return|return
 operator|new
 name|StopFilter
 argument_list|(
+name|luceneMatchVersion
+argument_list|,
 name|input
 argument_list|,
 name|stopWords

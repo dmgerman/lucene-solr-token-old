@@ -77,7 +77,9 @@ parameter_list|()
 block|{
 operator|new
 name|HindiAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testBasics
@@ -93,7 +95,9 @@ name|a
 init|=
 operator|new
 name|HindiAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 comment|// two ways to write 'hindi' itself.
 name|checkOneTerm
@@ -129,6 +133,8 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|asSet
 argument_list|(
 literal|"à¤¹à¤¿à¤à¤¦à¥"
@@ -143,6 +149,8 @@ init|=
 operator|new
 name|HindiAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|HindiAnalyzer
 operator|.
 name|getDefaultStopSet
@@ -177,7 +185,9 @@ argument_list|()
 argument_list|,
 operator|new
 name|HindiAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|1000
 operator|*

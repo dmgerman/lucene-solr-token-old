@@ -103,7 +103,9 @@ name|fa
 init|=
 operator|new
 name|FrenchAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(
@@ -348,7 +350,9 @@ name|fa
 init|=
 operator|new
 name|FrenchAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 comment|// stopwords
 name|assertAnalyzesTo
@@ -409,6 +413,8 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|1
 argument_list|,
 literal|true
@@ -427,6 +433,8 @@ init|=
 operator|new
 name|FrenchAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
@@ -455,6 +463,8 @@ operator|=
 operator|new
 name|FrenchAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
@@ -492,7 +502,9 @@ name|fa
 init|=
 operator|new
 name|FrenchAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(
@@ -525,7 +537,9 @@ name|a
 init|=
 operator|new
 name|FrenchAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(
@@ -556,7 +570,9 @@ argument_list|()
 argument_list|,
 operator|new
 name|FrenchAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|1000
 operator|*
@@ -578,7 +594,9 @@ name|a
 init|=
 operator|new
 name|FrenchAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|checkOneTerm
 argument_list|(

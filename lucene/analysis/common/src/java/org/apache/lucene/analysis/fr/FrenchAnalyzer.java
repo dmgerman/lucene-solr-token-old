@@ -324,6 +324,10 @@ argument_list|(
 operator|new
 name|CharArraySet
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -416,6 +420,10 @@ name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
+argument_list|,
+name|Version
+operator|.
+name|LUCENE_CURRENT
 argument_list|)
 expr_stmt|;
 block|}
@@ -441,27 +449,37 @@ comment|/**    * Builds an analyzer with the default stop words ({@link #getDefa
 DECL|method|FrenchAnalyzer
 specifier|public
 name|FrenchAnalyzer
-parameter_list|()
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|)
 block|{
 name|this
 argument_list|(
+name|matchVersion
+argument_list|,
 name|DefaultSetHolder
 operator|.
 name|DEFAULT_STOP_SET
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Builds an analyzer with the given stop words    *     * @param stopwords    *          a stopword set    */
+comment|/**    * Builds an analyzer with the given stop words    *     * @param matchVersion    *          lucene compatibility version    * @param stopwords    *          a stopword set    */
 DECL|method|FrenchAnalyzer
 specifier|public
 name|FrenchAnalyzer
 parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
 name|CharArraySet
 name|stopwords
 parameter_list|)
 block|{
 name|this
 argument_list|(
+name|matchVersion
+argument_list|,
 name|stopwords
 argument_list|,
 name|CharArraySet
@@ -470,11 +488,14 @@ name|EMPTY_SET
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Builds an analyzer with the given stop words    *     * @param stopwords    *          a stopword set    * @param stemExclutionSet    *          a stemming exclusion set    */
+comment|/**    * Builds an analyzer with the given stop words    *     * @param matchVersion    *          lucene compatibility version    * @param stopwords    *          a stopword set    * @param stemExclutionSet    *          a stemming exclusion set    */
 DECL|method|FrenchAnalyzer
 specifier|public
 name|FrenchAnalyzer
 parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
 name|CharArraySet
 name|stopwords
 parameter_list|,
@@ -484,6 +505,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|matchVersion
+argument_list|,
 name|stopwords
 argument_list|)
 expr_stmt|;
@@ -499,6 +522,8 @@ name|CharArraySet
 operator|.
 name|copy
 argument_list|(
+name|matchVersion
+argument_list|,
 name|stemExclutionSet
 argument_list|)
 argument_list|)
@@ -522,7 +547,9 @@ name|source
 init|=
 operator|new
 name|StandardTokenizer
-argument_list|()
+argument_list|(
+name|matchVersion
+argument_list|)
 decl_stmt|;
 name|TokenStream
 name|result
@@ -530,6 +557,8 @@ init|=
 operator|new
 name|StandardFilter
 argument_list|(
+name|matchVersion
+argument_list|,
 name|source
 argument_list|)
 decl_stmt|;
@@ -548,6 +577,8 @@ operator|=
 operator|new
 name|LowerCaseFilter
 argument_list|(
+name|matchVersion
+argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
@@ -556,6 +587,8 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
+name|matchVersion
+argument_list|,
 name|result
 argument_list|,
 name|stopwords

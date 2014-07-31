@@ -85,8 +85,21 @@ operator|.
 name|CharacterUtils
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
 begin_comment
-comment|/**  * A simple class that stores key Strings as char[]'s in a  * hash table. Note that this is not a general purpose  * class.  For example, it cannot remove items from the  * map, nor does it resize its hash table to be smaller,  * etc.  It is designed to be quick to retrieve items  * by char[] keys without the necessity of converting  * to a String first.  */
+comment|/**  * A simple class that stores key Strings as char[]'s in a  * hash table. Note that this is not a general purpose  * class.  For example, it cannot remove items from the  * map, nor does it resize its hash table to be smaller,  * etc.  It is designed to be quick to retrieve items  * by char[] keys without the necessity of converting  * to a String first.  *  *<a name="version"></a>  *<p>You must specify the required {@link Version}  * compatibility when creating {@link CharArrayMap}:  *<ul>  *<li> As of 3.1, supplementary characters are  *       properly lowercased.</li>  *</ul>  * Before 3.1 supplementary characters could not be  * lowercased correctly due to the lack of Unicode 4  * support in JDK 1.4. To use instances of  * {@link CharArrayMap} with the behavior before Lucene  * 3.1 pass a {@link Version}&lt; 3.1 to the constructors.  */
 end_comment
 begin_class
 DECL|class|CharArrayMap
@@ -145,6 +158,12 @@ specifier|private
 name|int
 name|count
 decl_stmt|;
+DECL|field|matchVersion
+specifier|final
+name|Version
+name|matchVersion
+decl_stmt|;
+comment|// package private because used in CharArraySet
 DECL|field|keys
 name|char
 index|[]
@@ -158,7 +177,7 @@ index|[]
 name|values
 decl_stmt|;
 comment|// package private because used in CharArraySet's non Set-conform CharArraySetIterator
-comment|/**    * Create map with enough capacity to hold startSize terms    *    * @param startSize    *          the initial capacity    * @param ignoreCase    *<code>false</code> if and only if the set should be case sensitive    *          otherwise<code>true</code>.    */
+comment|/**    * Create map with enough capacity to hold startSize terms    *     * @param matchVersion    *          compatibility match version see<a href="#version">Version    *          note</a> above for details.    * @param startSize    *          the initial capacity    * @param ignoreCase    *<code>false</code> if and only if the set should be case sensitive    *          otherwise<code>true</code>.    */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -168,6 +187,9 @@ DECL|method|CharArrayMap
 specifier|public
 name|CharArrayMap
 parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
 name|int
 name|startSize
 parameter_list|,
@@ -230,14 +252,25 @@ operator|=
 name|CharacterUtils
 operator|.
 name|getInstance
-argument_list|()
+argument_list|(
+name|matchVersion
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|matchVersion
+operator|=
+name|matchVersion
 expr_stmt|;
 block|}
-comment|/**    * Creates a map from the mappings in another map.     *    * @param c    *          a map whose mappings to be copied    * @param ignoreCase    *<code>false</code> if and only if the set should be case sensitive    *          otherwise<code>true</code>.    */
+comment|/**    * Creates a map from the mappings in another map.     *     * @param matchVersion    *          compatibility match version see<a href="#version">Version    *          note</a> above for details.    * @param c    *          a map whose mappings to be copied    * @param ignoreCase    *<code>false</code> if and only if the set should be case sensitive    *          otherwise<code>true</code>.    */
 DECL|method|CharArrayMap
 specifier|public
 name|CharArrayMap
 parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
 name|Map
 argument_list|<
 name|?
@@ -254,6 +287,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|matchVersion
+argument_list|,
 name|c
 operator|.
 name|size
@@ -319,6 +354,14 @@ operator|=
 name|toCopy
 operator|.
 name|charUtils
+expr_stmt|;
+name|this
+operator|.
+name|matchVersion
+operator|=
+name|toCopy
+operator|.
+name|matchVersion
 expr_stmt|;
 block|}
 comment|/** Clears all entries in this map. This method is supported for reusing, but not {@link Map#remove}. */
@@ -2678,7 +2721,7 @@ name|map
 argument_list|)
 return|;
 block|}
-comment|/**    * Returns a copy of the given map as a {@link CharArrayMap}. If the given map    * is a {@link CharArrayMap} the ignoreCase property will be preserved.    *     * @param map    *          a map to copy    * @return a copy of the given map as a {@link CharArrayMap}. If the given map    *         is a {@link CharArrayMap} the ignoreCase property as well as the    *         matchVersion will be of the given map will be preserved.    */
+comment|/**    * Returns a copy of the given map as a {@link CharArrayMap}. If the given map    * is a {@link CharArrayMap} the ignoreCase property will be preserved.    *<p>    *<b>Note:</b> If you intend to create a copy of another {@link CharArrayMap} where    * the {@link Version} of the source map differs from its copy    * {@link #CharArrayMap(Version, Map, boolean)} should be used instead.    * The {@link #copy(Version, Map)} will preserve the {@link Version} of the    * source map it is an instance of {@link CharArrayMap}.    *</p>    *     * @param matchVersion    *          compatibility match version see<a href="#version">Version    *          note</a> above for details. This argument will be ignored if the    *          given map is a {@link CharArrayMap}.    * @param map    *          a map to copy    * @return a copy of the given map as a {@link CharArrayMap}. If the given map    *         is a {@link CharArrayMap} the ignoreCase property as well as the    *         matchVersion will be of the given map will be preserved.    */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -2696,6 +2739,10 @@ name|V
 argument_list|>
 name|copy
 parameter_list|(
+specifier|final
+name|Version
+name|matchVersion
+parameter_list|,
 specifier|final
 name|Map
 argument_list|<
@@ -2845,6 +2892,8 @@ operator|new
 name|CharArrayMap
 argument_list|<>
 argument_list|(
+name|matchVersion
+argument_list|,
 name|map
 argument_list|,
 literal|false
@@ -3066,6 +3115,10 @@ argument_list|<
 name|V
 argument_list|>
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 literal|0
 argument_list|,
 literal|false

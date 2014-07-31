@@ -73,7 +73,9 @@ parameter_list|()
 block|{
 operator|new
 name|ArabicAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * Some simple tests showing some features of the analyzer, how some regular forms will conflate    */
@@ -90,7 +92,9 @@ name|a
 init|=
 operator|new
 name|ArabicAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(
@@ -257,7 +261,9 @@ name|a
 init|=
 operator|new
 name|ArabicAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(
@@ -302,7 +308,9 @@ name|assertAnalyzesTo
 argument_list|(
 operator|new
 name|ArabicAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|"English text."
 argument_list|,
@@ -332,6 +340,8 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|asSet
 argument_list|(
 literal|"the"
@@ -350,6 +360,8 @@ init|=
 operator|new
 name|ArabicAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|set
 argument_list|)
 decl_stmt|;
@@ -386,6 +398,8 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|asSet
 argument_list|(
 literal|"Ø³Ø§ÙØ¯ÙØ§Øª"
@@ -400,6 +414,8 @@ init|=
 operator|new
 name|ArabicAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
@@ -452,6 +468,8 @@ operator|=
 operator|new
 name|ArabicAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
@@ -518,7 +536,9 @@ argument_list|()
 argument_list|,
 operator|new
 name|ArabicAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|1000
 operator|*

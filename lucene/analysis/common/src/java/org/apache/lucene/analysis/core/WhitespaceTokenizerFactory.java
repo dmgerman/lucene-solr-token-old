@@ -48,6 +48,15 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Reader
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -82,6 +91,9 @@ name|super
 argument_list|(
 name|args
 argument_list|)
+expr_stmt|;
+name|assureMatchVersion
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -118,6 +130,8 @@ return|return
 operator|new
 name|WhitespaceTokenizer
 argument_list|(
+name|luceneMatchVersion
+argument_list|,
 name|factory
 argument_list|)
 return|;

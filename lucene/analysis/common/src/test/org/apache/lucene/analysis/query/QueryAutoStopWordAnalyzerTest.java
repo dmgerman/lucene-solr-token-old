@@ -415,6 +415,8 @@ operator|=
 operator|new
 name|QueryAutoStopWordAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|appAnalyzer
 argument_list|,
 name|reader
@@ -491,6 +493,8 @@ operator|=
 operator|new
 name|QueryAutoStopWordAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|appAnalyzer
 argument_list|,
 name|reader
@@ -534,6 +538,8 @@ operator|=
 operator|new
 name|QueryAutoStopWordAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|appAnalyzer
 argument_list|,
 name|reader
@@ -596,6 +602,8 @@ operator|=
 operator|new
 name|QueryAutoStopWordAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|appAnalyzer
 argument_list|,
 name|reader
@@ -642,6 +650,8 @@ operator|=
 operator|new
 name|QueryAutoStopWordAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|appAnalyzer
 argument_list|,
 name|reader
@@ -688,6 +698,8 @@ operator|=
 operator|new
 name|QueryAutoStopWordAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|appAnalyzer
 argument_list|,
 name|reader
@@ -743,6 +755,8 @@ operator|=
 operator|new
 name|QueryAutoStopWordAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|appAnalyzer
 argument_list|,
 name|reader
@@ -783,6 +797,8 @@ operator|=
 operator|new
 name|QueryAutoStopWordAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|appAnalyzer
 argument_list|,
 name|reader
@@ -843,6 +859,8 @@ operator|=
 operator|new
 name|QueryAutoStopWordAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|appAnalyzer
 argument_list|,
 name|reader
@@ -920,6 +938,8 @@ init|=
 operator|new
 name|QueryAutoStopWordAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(

@@ -301,6 +301,8 @@ init|=
 operator|new
 name|JapanesePartOfSpeechStopFilter
 argument_list|(
+name|luceneMatchVersion
+argument_list|,
 name|stream
 argument_list|,
 name|stopTags

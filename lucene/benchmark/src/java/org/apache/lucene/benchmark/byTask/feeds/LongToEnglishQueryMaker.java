@@ -307,6 +307,10 @@ operator|=
 operator|new
 name|QueryParser
 argument_list|(
+name|Version
+operator|.
+name|LUCENE_CURRENT
+argument_list|,
 name|DocMaker
 operator|.
 name|BODY_FIELD

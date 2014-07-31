@@ -1355,6 +1355,8 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"of"
 argument_list|)
 decl_stmt|;
@@ -1367,6 +1369,8 @@ argument_list|,
 operator|new
 name|StopFilter
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|tokenizer
 argument_list|,
 name|stopSet
@@ -1504,6 +1508,8 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"of"
 argument_list|)
 decl_stmt|;
@@ -1516,6 +1522,8 @@ argument_list|,
 operator|new
 name|StopFilter
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|tokenizer
 argument_list|,
 name|stopSet

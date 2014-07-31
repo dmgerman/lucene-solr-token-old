@@ -198,6 +198,9 @@ argument_list|(
 name|args
 argument_list|)
 expr_stmt|;
+name|assureMatchVersion
+argument_list|()
+expr_stmt|;
 name|stopWordFiles
 operator|=
 name|get
@@ -359,6 +362,8 @@ operator|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|luceneMatchVersion
+argument_list|,
 name|StopAnalyzer
 operator|.
 name|ENGLISH_STOP_WORDS_SET
@@ -405,6 +410,8 @@ init|=
 operator|new
 name|StopFilter
 argument_list|(
+name|luceneMatchVersion
+argument_list|,
 name|input
 argument_list|,
 name|stopWords

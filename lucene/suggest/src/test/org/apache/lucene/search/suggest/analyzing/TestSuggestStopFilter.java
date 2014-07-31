@@ -132,6 +132,8 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"to"
 argument_list|)
 decl_stmt|;
@@ -238,6 +240,8 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"to"
 argument_list|)
 decl_stmt|;
@@ -344,6 +348,8 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"to"
 argument_list|)
 decl_stmt|;
@@ -460,6 +466,8 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"to"
 argument_list|,
 literal|"the"
@@ -580,6 +588,8 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"to"
 argument_list|,
 literal|"the"
@@ -700,6 +710,8 @@ name|StopFilter
 operator|.
 name|makeStopSet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"to"
 argument_list|,
 literal|"the"

@@ -120,7 +120,9 @@ name|a
 init|=
 operator|new
 name|SoraniAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 DECL|method|testIndefiniteSingular
 specifier|public

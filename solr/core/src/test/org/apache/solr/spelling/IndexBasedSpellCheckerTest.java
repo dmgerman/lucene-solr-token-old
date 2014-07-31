@@ -2182,7 +2182,9 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|WhitespaceAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;

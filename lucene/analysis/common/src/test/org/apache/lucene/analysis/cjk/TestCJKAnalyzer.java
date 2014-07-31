@@ -244,7 +244,9 @@ name|analyzer
 init|=
 operator|new
 name|CJKAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 DECL|method|testJa1
 specifier|public
@@ -1853,7 +1855,9 @@ name|tokenizer
 init|=
 operator|new
 name|StandardTokenizer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 return|return
 operator|new
@@ -2069,6 +2073,8 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|filter
 argument_list|,
 name|CharArraySet
@@ -2155,7 +2161,9 @@ argument_list|()
 argument_list|,
 operator|new
 name|CJKAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|1000
 operator|*
@@ -2184,7 +2192,9 @@ name|random
 argument_list|,
 operator|new
 name|CJKAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|100
 operator|*

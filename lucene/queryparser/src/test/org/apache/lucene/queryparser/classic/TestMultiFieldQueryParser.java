@@ -401,6 +401,8 @@ init|=
 operator|new
 name|MultiFieldQueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|fields
 argument_list|,
 name|a
@@ -432,6 +434,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|qtxt
 argument_list|,
 name|fields
@@ -476,6 +480,8 @@ init|=
 operator|new
 name|MultiFieldQueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|fields
 argument_list|,
 operator|new
@@ -888,6 +894,8 @@ init|=
 operator|new
 name|MultiFieldQueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|fields
 argument_list|,
 operator|new
@@ -1036,6 +1044,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|queries
 argument_list|,
 name|fields
@@ -1074,6 +1084,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|queries2
 argument_list|,
 name|fields
@@ -1112,6 +1124,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|queries3
 argument_list|,
 name|fields
@@ -1150,6 +1164,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|queries4
 argument_list|,
 name|fields
@@ -1188,6 +1204,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|queries5
 argument_list|,
 name|fields
@@ -1240,6 +1258,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|queries6
 argument_list|,
 name|fields
@@ -1273,6 +1293,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|queries7
 argument_list|,
 name|fields
@@ -1336,6 +1358,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"one"
 argument_list|,
 name|fields
@@ -1366,6 +1390,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"one two"
 argument_list|,
 name|fields
@@ -1412,6 +1438,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"blah"
 argument_list|,
 name|fields
@@ -1485,6 +1513,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"one"
 argument_list|,
 name|fields
@@ -1516,6 +1546,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"one two"
 argument_list|,
 name|fields
@@ -1562,6 +1594,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"blah"
 argument_list|,
 name|fields
@@ -1654,6 +1688,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|queries
 argument_list|,
 name|fields
@@ -1700,6 +1736,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|queries
 argument_list|,
 name|fields
@@ -1782,6 +1820,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|queries
 argument_list|,
 name|fields
@@ -1828,6 +1868,8 @@ name|MultiFieldQueryParser
 operator|.
 name|parse
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|queries
 argument_list|,
 name|fields
@@ -1884,6 +1926,8 @@ init|=
 operator|new
 name|MultiFieldQueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|fields
 argument_list|,
 operator|new
@@ -2051,6 +2095,8 @@ init|=
 operator|new
 name|MultiFieldQueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 operator|new
 name|String
 index|[]
@@ -2271,6 +2317,8 @@ init|=
 operator|new
 name|MultiFieldQueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|fields
 argument_list|,
 operator|new

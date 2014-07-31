@@ -222,12 +222,6 @@ specifier|final
 name|CharArraySet
 name|stemExclusionSet
 decl_stmt|;
-DECL|field|matchVersion
-specifier|private
-specifier|final
-name|Version
-name|matchVersion
-decl_stmt|;
 comment|/** File containing default Turkish stopwords. */
 DECL|field|DEFAULT_STOPWORD_FILE
 specifier|public
@@ -373,14 +367,10 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|matchVersion
+argument_list|,
 name|stopwords
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|matchVersion
-operator|=
-name|matchVersion
 expr_stmt|;
 name|this
 operator|.
@@ -394,6 +384,8 @@ name|CharArraySet
 operator|.
 name|copy
 argument_list|(
+name|matchVersion
+argument_list|,
 name|stemExclusionSet
 argument_list|)
 argument_list|)
@@ -417,7 +409,9 @@ name|source
 init|=
 operator|new
 name|StandardTokenizer
-argument_list|()
+argument_list|(
+name|matchVersion
+argument_list|)
 decl_stmt|;
 name|TokenStream
 name|result
@@ -425,6 +419,8 @@ init|=
 operator|new
 name|StandardFilter
 argument_list|(
+name|matchVersion
+argument_list|,
 name|source
 argument_list|)
 decl_stmt|;
@@ -460,6 +456,8 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
+name|matchVersion
+argument_list|,
 name|result
 argument_list|,
 name|stopwords

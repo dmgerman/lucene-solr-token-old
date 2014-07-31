@@ -136,7 +136,7 @@ name|Reader
 import|;
 end_import
 begin_comment
-comment|/**  * Filters {@link org.apache.lucene.analysis.standard.UAX29URLEmailTokenizer}  * with {@link org.apache.lucene.analysis.standard.StandardFilter},  * {@link org.apache.lucene.analysis.core.LowerCaseFilter} and  * {@link org.apache.lucene.analysis.core.StopFilter}, using a list of  * English stop words.  */
+comment|/**  * Filters {@link org.apache.lucene.analysis.standard.UAX29URLEmailTokenizer}  * with {@link org.apache.lucene.analysis.standard.StandardFilter},  * {@link org.apache.lucene.analysis.core.LowerCaseFilter} and  * {@link org.apache.lucene.analysis.core.StopFilter}, using a list of  * English stop words.  *  *<a name="version"/>  *<p>  *   You must specify the required {@link org.apache.lucene.util.Version}  *   compatibility when creating UAX29URLEmailAnalyzer  *</p>  */
 end_comment
 begin_class
 DECL|class|UAX29URLEmailAnalyzer
@@ -178,38 +178,51 @@ name|StopAnalyzer
 operator|.
 name|ENGLISH_STOP_WORDS_SET
 decl_stmt|;
-comment|/** Builds an analyzer with the given stop words.    * @param stopWords stop words */
+comment|/** Builds an analyzer with the given stop words.    * @param matchVersion Lucene version to match See {@link    *<a href="#version">above</a>}    * @param stopWords stop words */
 DECL|method|UAX29URLEmailAnalyzer
 specifier|public
 name|UAX29URLEmailAnalyzer
 parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
 name|CharArraySet
 name|stopWords
 parameter_list|)
 block|{
 name|super
 argument_list|(
+name|matchVersion
+argument_list|,
 name|stopWords
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Builds an analyzer with the default stop words ({@link    * #STOP_WORDS_SET}).    */
-DECL|method|UAX29URLEmailAnalyzer
-specifier|public
-name|UAX29URLEmailAnalyzer
-parameter_list|()
-block|{
-name|this
-argument_list|(
-name|STOP_WORDS_SET
-argument_list|)
-expr_stmt|;
-block|}
-comment|/** Builds an analyzer with the stop words from the given reader.    * @see org.apache.lucene.analysis.util.WordlistLoader#getWordSet(java.io.Reader)    * @param stopwords Reader to read stop words from */
+comment|/** Builds an analyzer with the default stop words ({@link    * #STOP_WORDS_SET}).    * @param matchVersion Lucene version to match See {@link    *<a href="#version">above</a>}    */
 DECL|method|UAX29URLEmailAnalyzer
 specifier|public
 name|UAX29URLEmailAnalyzer
 parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|matchVersion
+argument_list|,
+name|STOP_WORDS_SET
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** Builds an analyzer with the stop words from the given reader.    * @see org.apache.lucene.analysis.util.WordlistLoader#getWordSet(java.io.Reader, org.apache.lucene.util.Version)    * @param matchVersion Lucene version to match See {@link    *<a href="#version">above</a>}    * @param stopwords Reader to read stop words from */
+DECL|method|UAX29URLEmailAnalyzer
+specifier|public
+name|UAX29URLEmailAnalyzer
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
 name|Reader
 name|stopwords
 parameter_list|)
@@ -218,9 +231,13 @@ name|IOException
 block|{
 name|this
 argument_list|(
+name|matchVersion
+argument_list|,
 name|loadStopwordSet
 argument_list|(
 name|stopwords
+argument_list|,
+name|matchVersion
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -269,7 +286,9 @@ name|src
 init|=
 operator|new
 name|UAX29URLEmailTokenizer
-argument_list|()
+argument_list|(
+name|matchVersion
+argument_list|)
 decl_stmt|;
 name|src
 operator|.
@@ -284,6 +303,8 @@ init|=
 operator|new
 name|StandardFilter
 argument_list|(
+name|matchVersion
+argument_list|,
 name|src
 argument_list|)
 decl_stmt|;
@@ -292,6 +313,8 @@ operator|=
 operator|new
 name|LowerCaseFilter
 argument_list|(
+name|matchVersion
+argument_list|,
 name|tok
 argument_list|)
 expr_stmt|;
@@ -300,6 +323,8 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
+name|matchVersion
+argument_list|,
 name|tok
 argument_list|,
 name|stopwords

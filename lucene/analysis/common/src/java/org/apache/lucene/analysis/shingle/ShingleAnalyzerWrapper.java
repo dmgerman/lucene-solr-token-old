@@ -57,6 +57,19 @@ operator|.
 name|StandardAnalyzer
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
 begin_comment
 comment|/**  * A ShingleAnalyzerWrapper wraps a {@link ShingleFilter} around another {@link Analyzer}.  *<p>  * A shingle is another name for a token based n-gram.  *</p>  */
 end_comment
@@ -323,10 +336,15 @@ comment|/**    * Wraps {@link StandardAnalyzer}.     */
 DECL|method|ShingleAnalyzerWrapper
 specifier|public
 name|ShingleAnalyzerWrapper
-parameter_list|()
+parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|)
 block|{
 name|this
 argument_list|(
+name|matchVersion
+argument_list|,
 name|ShingleFilter
 operator|.
 name|DEFAULT_MIN_SHINGLE_SIZE
@@ -342,6 +360,9 @@ DECL|method|ShingleAnalyzerWrapper
 specifier|public
 name|ShingleAnalyzerWrapper
 parameter_list|(
+name|Version
+name|matchVersion
+parameter_list|,
 name|int
 name|minShingleSize
 parameter_list|,
@@ -353,7 +374,9 @@ name|this
 argument_list|(
 operator|new
 name|StandardAnalyzer
-argument_list|()
+argument_list|(
+name|matchVersion
+argument_list|)
 argument_list|,
 name|minShingleSize
 argument_list|,

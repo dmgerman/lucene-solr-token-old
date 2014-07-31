@@ -86,7 +86,9 @@ parameter_list|()
 block|{
 operator|new
 name|SoraniAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|testStopwords
@@ -102,7 +104,9 @@ name|a
 init|=
 operator|new
 name|SoraniAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(
@@ -133,6 +137,8 @@ init|=
 operator|new
 name|SoraniAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
@@ -168,7 +174,9 @@ name|a
 init|=
 operator|new
 name|SoraniAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(
@@ -213,6 +221,8 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|1
 argument_list|,
 literal|true
@@ -231,6 +241,8 @@ init|=
 operator|new
 name|SoraniAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
@@ -269,7 +281,9 @@ argument_list|()
 argument_list|,
 operator|new
 name|SoraniAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|1000
 operator|*

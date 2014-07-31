@@ -114,7 +114,9 @@ parameter_list|()
 block|{
 operator|new
 name|JapaneseAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**    * An example sentence, test removal of particles, etc by POS,    * lemmatization with the basic form, and that position increments    * and offsets are correct.    */
@@ -130,7 +132,9 @@ name|assertAnalyzesTo
 argument_list|(
 operator|new
 name|JapaneseAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|"å¤ãã®å­¦çãè©¦é¨ã«è½ã¡ãã"
 argument_list|,
@@ -204,6 +208,8 @@ init|=
 operator|new
 name|JapaneseAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|null
 argument_list|,
 name|Mode
@@ -461,7 +467,9 @@ name|assertAnalyzesToPositions
 argument_list|(
 operator|new
 name|JapaneseAnalyzer
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 argument_list|,
 literal|"äº¬é½å¤§å­¦ç¡¬å¼éçé¨"
 argument_list|,
@@ -535,6 +543,8 @@ init|=
 operator|new
 name|JapaneseAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|null
 argument_list|,
 name|Mode
@@ -587,6 +597,8 @@ init|=
 operator|new
 name|JapaneseAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|null
 argument_list|,
 name|Mode
@@ -636,6 +648,8 @@ init|=
 operator|new
 name|JapaneseAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|TestJapaneseTokenizer
 operator|.
 name|readDict
@@ -737,6 +751,8 @@ init|=
 operator|new
 name|JapaneseAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|null
 argument_list|,
 name|Mode
@@ -798,6 +814,8 @@ init|=
 operator|new
 name|JapaneseAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|null
 argument_list|,
 name|Mode
@@ -859,6 +877,8 @@ init|=
 operator|new
 name|JapaneseAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|null
 argument_list|,
 name|Mode
@@ -912,6 +932,8 @@ init|=
 operator|new
 name|JapaneseAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|null
 argument_list|,
 name|Mode
@@ -968,6 +990,8 @@ init|=
 operator|new
 name|JapaneseAnalyzer
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|null
 argument_list|,
 name|Mode

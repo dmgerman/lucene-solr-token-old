@@ -27,6 +27,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -235,6 +244,8 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|asSet
 argument_list|(
 literal|"ãã"

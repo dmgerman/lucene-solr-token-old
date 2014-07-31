@@ -27,6 +27,15 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -307,6 +316,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|f
 argument_list|,
 name|a
@@ -403,6 +414,8 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 name|getDefaultField
 argument_list|()
 argument_list|,
@@ -900,6 +913,8 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"a"
 argument_list|,
 operator|new
@@ -1090,6 +1105,8 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"field"
 argument_list|,
 operator|new
@@ -1650,6 +1667,8 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"field"
 argument_list|,
 operator|new
@@ -1725,6 +1744,8 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"field"
 argument_list|,
 operator|new
@@ -1972,6 +1993,8 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"field"
 argument_list|,
 operator|new
@@ -2129,6 +2152,8 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"field"
 argument_list|,
 operator|new
@@ -2446,6 +2471,8 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"field"
 argument_list|,
 operator|new
@@ -2619,6 +2646,8 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"field"
 argument_list|,
 operator|new
@@ -2839,6 +2868,8 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"field"
 argument_list|,
 operator|new
@@ -2991,6 +3022,8 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"field"
 argument_list|,
 operator|new
@@ -3220,6 +3253,8 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"field"
 argument_list|,
 operator|new
@@ -3329,6 +3364,8 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|,
 literal|"field"
 argument_list|,
 operator|new

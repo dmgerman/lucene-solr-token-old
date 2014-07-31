@@ -221,7 +221,9 @@ init|=
 name|CharacterUtils
 operator|.
 name|getInstance
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -399,7 +401,9 @@ init|=
 name|CharacterUtils
 operator|.
 name|getInstance
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -485,7 +489,9 @@ init|=
 name|CharacterUtils
 operator|.
 name|getInstance
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 specifier|final
 name|String
@@ -561,7 +567,9 @@ init|=
 name|CharacterUtils
 operator|.
 name|getInstance
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -807,7 +815,9 @@ init|=
 name|CharacterUtils
 operator|.
 name|getInstance
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|testConversions
 argument_list|(
@@ -1149,7 +1159,9 @@ block|{
 name|CharacterUtils
 operator|.
 name|getInstance
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 block|,
 name|CharacterUtils
 operator|.
@@ -1321,7 +1333,9 @@ init|=
 name|CharacterUtils
 operator|.
 name|getInstance
-argument_list|()
+argument_list|(
+name|TEST_VERSION_CURRENT
+argument_list|)
 decl_stmt|;
 name|Reader
 name|reader
