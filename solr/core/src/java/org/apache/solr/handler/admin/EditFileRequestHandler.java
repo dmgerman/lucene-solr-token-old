@@ -1792,18 +1792,6 @@ return|return
 literal|"Admin Config File -- update config files directly"
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|getSource
-specifier|public
-name|String
-name|getSource
-parameter_list|()
-block|{
-return|return
-literal|"$URL: https://svn.apache.org/repos/asf/lucene/dev/trunk/solr/core/src/java/org/apache/solr/handler/admin/ShowFileRequestHandler.java $"
-return|;
-block|}
 block|}
 end_class
 end_unit
