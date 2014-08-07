@@ -237,6 +237,14 @@ name|TermQParserPlugin
 operator|.
 name|class
 block|,
+name|TermsQParserPlugin
+operator|.
+name|NAME
+block|,
+name|TermsQParserPlugin
+operator|.
+name|class
+block|,
 name|NestedQParserPlugin
 operator|.
 name|NAME
