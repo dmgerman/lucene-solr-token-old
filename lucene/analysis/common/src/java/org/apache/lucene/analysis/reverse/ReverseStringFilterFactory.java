@@ -98,9 +98,6 @@ argument_list|(
 name|args
 argument_list|)
 expr_stmt|;
-name|assureMatchVersion
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -136,8 +133,6 @@ return|return
 operator|new
 name|ReverseStringFilter
 argument_list|(
-name|luceneMatchVersion
-argument_list|,
 name|in
 argument_list|)
 return|;

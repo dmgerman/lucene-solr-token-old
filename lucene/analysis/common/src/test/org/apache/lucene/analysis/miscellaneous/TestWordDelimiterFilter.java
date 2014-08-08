@@ -225,8 +225,6 @@ init|=
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|SingleTokenTokenStream
 argument_list|(
@@ -291,8 +289,6 @@ operator|=
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|SingleTokenTokenStream
 argument_list|(
@@ -384,8 +380,6 @@ init|=
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|SingleTokenTokenStream
 argument_list|(
@@ -465,8 +459,6 @@ init|=
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|SingleTokenTokenStream
 argument_list|(
@@ -546,8 +538,6 @@ init|=
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|SingleTokenTokenStream
 argument_list|(
@@ -627,8 +617,6 @@ init|=
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|SingleTokenTokenStream
 argument_list|(
@@ -724,8 +712,6 @@ init|=
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|keywordMockTokenizer
 argument_list|(
 name|input
@@ -909,8 +895,6 @@ init|=
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|keywordMockTokenizer
 argument_list|(
 name|input
@@ -1100,8 +1084,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|HashSet
 argument_list|<>
@@ -1157,8 +1139,6 @@ argument_list|,
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|flags
@@ -1365,8 +1345,6 @@ argument_list|,
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|LargePosIncTokenFilter
 argument_list|(
@@ -1625,8 +1603,6 @@ init|=
 operator|new
 name|StopFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|StandardAnalyzer
@@ -1643,8 +1619,6 @@ argument_list|,
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|filter
 argument_list|,
 name|flags
@@ -1829,8 +1803,6 @@ argument_list|,
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|flags
@@ -1997,8 +1969,6 @@ argument_list|,
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|flags
@@ -2164,8 +2134,6 @@ operator|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|HashSet
 argument_list|<>
@@ -2232,8 +2200,6 @@ argument_list|,
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|flags
@@ -2328,8 +2294,6 @@ operator|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|HashSet
 argument_list|<>
@@ -2396,8 +2360,6 @@ argument_list|,
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|flags
@@ -2482,8 +2444,6 @@ operator|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|HashSet
 argument_list|<>
@@ -2544,8 +2504,6 @@ argument_list|,
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|flags

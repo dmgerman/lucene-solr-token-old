@@ -642,8 +642,6 @@ return|return
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|luceneMatchVersion
-argument_list|,
 name|input
 argument_list|,
 name|typeTable

@@ -51,19 +51,6 @@ operator|.
 name|TokenStream
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
 begin_comment
 comment|/**  * Normalizes tokens extracted with {@link StandardTokenizer}.  */
 end_comment
@@ -79,9 +66,6 @@ DECL|method|StandardFilter
 specifier|public
 name|StandardFilter
 parameter_list|(
-name|Version
-name|matchVersion
-parameter_list|,
 name|TokenStream
 name|in
 parameter_list|)

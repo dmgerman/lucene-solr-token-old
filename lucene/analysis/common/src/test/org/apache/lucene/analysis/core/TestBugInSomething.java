@@ -365,8 +365,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|3
 argument_list|,
 literal|false
@@ -480,8 +478,6 @@ init|=
 operator|new
 name|CommonGramsFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|t
 argument_list|,
 name|cas
@@ -1322,8 +1318,6 @@ init|=
 operator|new
 name|EdgeNGramTokenizer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|2
 argument_list|,
 literal|94
@@ -1347,8 +1341,6 @@ operator|=
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|stream
 argument_list|,
 literal|55
@@ -1395,8 +1387,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|HashSet
 argument_list|<>
@@ -1732,8 +1722,6 @@ operator|=
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|stream
 argument_list|,
 name|table

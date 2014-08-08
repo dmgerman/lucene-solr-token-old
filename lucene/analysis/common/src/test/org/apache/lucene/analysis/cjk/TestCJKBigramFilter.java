@@ -119,9 +119,7 @@ name|t
 init|=
 operator|new
 name|StandardTokenizer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 return|return
 operator|new
@@ -162,9 +160,7 @@ name|t
 init|=
 operator|new
 name|StandardTokenizer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 return|return
 operator|new
@@ -519,9 +515,7 @@ name|t
 init|=
 operator|new
 name|StandardTokenizer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 return|return
 operator|new
@@ -733,9 +727,7 @@ name|t
 init|=
 operator|new
 name|StandardTokenizer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 return|return
 operator|new
@@ -1144,9 +1136,7 @@ name|t
 init|=
 operator|new
 name|StandardTokenizer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 return|return
 operator|new

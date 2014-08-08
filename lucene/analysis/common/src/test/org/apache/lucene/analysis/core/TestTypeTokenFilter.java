@@ -194,8 +194,6 @@ init|=
 operator|new
 name|StandardTokenizer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|newAttributeFactory
 argument_list|()
 argument_list|)
@@ -213,8 +211,6 @@ init|=
 operator|new
 name|TypeTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|input
 argument_list|,
 name|stopTypes
@@ -372,9 +368,7 @@ name|input
 init|=
 operator|new
 name|StandardTokenizer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|input
 operator|.
@@ -389,8 +383,6 @@ init|=
 operator|new
 name|TypeTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|input
 argument_list|,
 name|stopSet
@@ -547,8 +539,6 @@ init|=
 operator|new
 name|StandardTokenizer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|newAttributeFactory
 argument_list|()
 argument_list|)
@@ -566,8 +556,6 @@ init|=
 operator|new
 name|TypeTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|input
 argument_list|,
 name|stopTypes

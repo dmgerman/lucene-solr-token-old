@@ -66,19 +66,6 @@ operator|.
 name|CharArraySet
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
 begin_comment
 comment|/**  * Test case for RussianAnalyzer.  */
 end_comment
@@ -104,9 +91,7 @@ name|ra
 init|=
 operator|new
 name|RussianAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(
@@ -138,9 +123,7 @@ name|a
 init|=
 operator|new
 name|RussianAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(
@@ -201,8 +184,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|1
 argument_list|,
 literal|true
@@ -221,8 +202,6 @@ init|=
 operator|new
 name|RussianAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|RussianAnalyzer
 operator|.
 name|getDefaultStopSet
@@ -272,9 +251,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|RussianAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 argument_list|,
 literal|1000
 operator|*

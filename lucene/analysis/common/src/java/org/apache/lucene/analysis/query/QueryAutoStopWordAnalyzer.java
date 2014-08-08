@@ -194,19 +194,6 @@ operator|.
 name|UnicodeUtil
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
 begin_comment
 comment|/**  * An {@link Analyzer} used primarily at query time to wrap another analyzer and provide a layer of protection  * which prevents very common words from being passed into queries.   *<p>  * For very large indexes the cost  * of reading TermDocs for a very common word can be  high. This analyzer was created after experience with  * a 38 million doc index which had a term in around 50% of docs and was causing TermQueries for   * this term to take 2 seconds.  *</p>  */
 end_comment
@@ -255,20 +242,11 @@ name|defaultMaxDocFreqPercent
 init|=
 literal|0.4f
 decl_stmt|;
-DECL|field|matchVersion
-specifier|private
-specifier|final
-name|Version
-name|matchVersion
-decl_stmt|;
-comment|/**    * Creates a new QueryAutoStopWordAnalyzer with stopwords calculated for all    * indexed fields from terms with a document frequency percentage greater than    * {@link #defaultMaxDocFreqPercent}    *    * @param matchVersion Version to be used in {@link StopFilter}    * @param delegate Analyzer whose TokenStream will be filtered    * @param indexReader IndexReader to identify the stopwords from    * @throws IOException Can be thrown while reading from the IndexReader    */
+comment|/**    * Creates a new QueryAutoStopWordAnalyzer with stopwords calculated for all    * indexed fields from terms with a document frequency percentage greater than    * {@link #defaultMaxDocFreqPercent}    *    * @param delegate Analyzer whose TokenStream will be filtered    * @param indexReader IndexReader to identify the stopwords from    * @throws IOException Can be thrown while reading from the IndexReader    */
 DECL|method|QueryAutoStopWordAnalyzer
 specifier|public
 name|QueryAutoStopWordAnalyzer
 parameter_list|(
-name|Version
-name|matchVersion
-parameter_list|,
 name|Analyzer
 name|delegate
 parameter_list|,
@@ -280,8 +258,6 @@ name|IOException
 block|{
 name|this
 argument_list|(
-name|matchVersion
-argument_list|,
 name|delegate
 argument_list|,
 name|indexReader
@@ -290,14 +266,11 @@ name|defaultMaxDocFreqPercent
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates a new QueryAutoStopWordAnalyzer with stopwords calculated for all    * indexed fields from terms with a document frequency greater than the given    * maxDocFreq    *    * @param matchVersion Version to be used in {@link StopFilter}    * @param delegate Analyzer whose TokenStream will be filtered    * @param indexReader IndexReader to identify the stopwords from    * @param maxDocFreq Document frequency terms should be above in order to be stopwords    * @throws IOException Can be thrown while reading from the IndexReader    */
+comment|/**    * Creates a new QueryAutoStopWordAnalyzer with stopwords calculated for all    * indexed fields from terms with a document frequency greater than the given    * maxDocFreq    *    * @param delegate Analyzer whose TokenStream will be filtered    * @param indexReader IndexReader to identify the stopwords from    * @param maxDocFreq Document frequency terms should be above in order to be stopwords    * @throws IOException Can be thrown while reading from the IndexReader    */
 DECL|method|QueryAutoStopWordAnalyzer
 specifier|public
 name|QueryAutoStopWordAnalyzer
 parameter_list|(
-name|Version
-name|matchVersion
-parameter_list|,
 name|Analyzer
 name|delegate
 parameter_list|,
@@ -312,8 +285,6 @@ name|IOException
 block|{
 name|this
 argument_list|(
-name|matchVersion
-argument_list|,
 name|delegate
 argument_list|,
 name|indexReader
@@ -329,14 +300,11 @@ name|maxDocFreq
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates a new QueryAutoStopWordAnalyzer with stopwords calculated for all    * indexed fields from terms with a document frequency percentage greater than    * the given maxPercentDocs    *    * @param matchVersion Version to be used in {@link StopFilter}    * @param delegate Analyzer whose TokenStream will be filtered    * @param indexReader IndexReader to identify the stopwords from    * @param maxPercentDocs The maximum percentage (between 0.0 and 1.0) of index documents which    *                      contain a term, after which the word is considered to be a stop word    * @throws IOException Can be thrown while reading from the IndexReader    */
+comment|/**    * Creates a new QueryAutoStopWordAnalyzer with stopwords calculated for all    * indexed fields from terms with a document frequency percentage greater than    * the given maxPercentDocs    *    * @param delegate Analyzer whose TokenStream will be filtered    * @param indexReader IndexReader to identify the stopwords from    * @param maxPercentDocs The maximum percentage (between 0.0 and 1.0) of index documents which    *                      contain a term, after which the word is considered to be a stop word    * @throws IOException Can be thrown while reading from the IndexReader    */
 DECL|method|QueryAutoStopWordAnalyzer
 specifier|public
 name|QueryAutoStopWordAnalyzer
 parameter_list|(
-name|Version
-name|matchVersion
-parameter_list|,
 name|Analyzer
 name|delegate
 parameter_list|,
@@ -351,8 +319,6 @@ name|IOException
 block|{
 name|this
 argument_list|(
-name|matchVersion
-argument_list|,
 name|delegate
 argument_list|,
 name|indexReader
@@ -368,14 +334,11 @@ name|maxPercentDocs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates a new QueryAutoStopWordAnalyzer with stopwords calculated for the    * given selection of fields from terms with a document frequency percentage    * greater than the given maxPercentDocs    *    * @param matchVersion Version to be used in {@link StopFilter}    * @param delegate Analyzer whose TokenStream will be filtered    * @param indexReader IndexReader to identify the stopwords from    * @param fields Selection of fields to calculate stopwords for    * @param maxPercentDocs The maximum percentage (between 0.0 and 1.0) of index documents which    *                      contain a term, after which the word is considered to be a stop word    * @throws IOException Can be thrown while reading from the IndexReader    */
+comment|/**    * Creates a new QueryAutoStopWordAnalyzer with stopwords calculated for the    * given selection of fields from terms with a document frequency percentage    * greater than the given maxPercentDocs    *    * @param delegate Analyzer whose TokenStream will be filtered    * @param indexReader IndexReader to identify the stopwords from    * @param fields Selection of fields to calculate stopwords for    * @param maxPercentDocs The maximum percentage (between 0.0 and 1.0) of index documents which    *                      contain a term, after which the word is considered to be a stop word    * @throws IOException Can be thrown while reading from the IndexReader    */
 DECL|method|QueryAutoStopWordAnalyzer
 specifier|public
 name|QueryAutoStopWordAnalyzer
 parameter_list|(
-name|Version
-name|matchVersion
-parameter_list|,
 name|Analyzer
 name|delegate
 parameter_list|,
@@ -396,8 +359,6 @@ name|IOException
 block|{
 name|this
 argument_list|(
-name|matchVersion
-argument_list|,
 name|delegate
 argument_list|,
 name|indexReader
@@ -418,14 +379,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates a new QueryAutoStopWordAnalyzer with stopwords calculated for the    * given selection of fields from terms with a document frequency greater than    * the given maxDocFreq    *    * @param matchVersion Version to be used in {@link StopFilter}    * @param delegate Analyzer whose TokenStream will be filtered    * @param indexReader IndexReader to identify the stopwords from    * @param fields Selection of fields to calculate stopwords for    * @param maxDocFreq Document frequency terms should be above in order to be stopwords    * @throws IOException Can be thrown while reading from the IndexReader    */
+comment|/**    * Creates a new QueryAutoStopWordAnalyzer with stopwords calculated for the    * given selection of fields from terms with a document frequency greater than    * the given maxDocFreq    *    * @param delegate Analyzer whose TokenStream will be filtered    * @param indexReader IndexReader to identify the stopwords from    * @param fields Selection of fields to calculate stopwords for    * @param maxDocFreq Document frequency terms should be above in order to be stopwords    * @throws IOException Can be thrown while reading from the IndexReader    */
 DECL|method|QueryAutoStopWordAnalyzer
 specifier|public
 name|QueryAutoStopWordAnalyzer
 parameter_list|(
-name|Version
-name|matchVersion
-parameter_list|,
 name|Analyzer
 name|delegate
 parameter_list|,
@@ -451,12 +409,6 @@ operator|.
 name|getReuseStrategy
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|matchVersion
-operator|=
-name|matchVersion
 expr_stmt|;
 name|this
 operator|.
@@ -638,8 +590,6 @@ init|=
 operator|new
 name|StopFilter
 argument_list|(
-name|matchVersion
-argument_list|,
 name|components
 operator|.
 name|getTokenStream
@@ -648,8 +598,6 @@ argument_list|,
 operator|new
 name|CharArraySet
 argument_list|(
-name|matchVersion
-argument_list|,
 name|stopWords
 argument_list|,
 literal|false

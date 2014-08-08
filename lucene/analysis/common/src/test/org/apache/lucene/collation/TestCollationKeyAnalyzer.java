@@ -131,8 +131,6 @@ init|=
 operator|new
 name|CollationKeyAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|collator
 argument_list|)
 decl_stmt|;
@@ -326,8 +324,6 @@ argument_list|(
 operator|new
 name|CollationKeyAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|collator
 argument_list|)
 argument_list|)

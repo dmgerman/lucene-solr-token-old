@@ -38,19 +38,6 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
 begin_class
 DECL|class|TestCharArraySet
 specifier|public
@@ -148,8 +135,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|0
 argument_list|,
 literal|true
@@ -262,8 +247,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|10
 argument_list|,
 literal|true
@@ -368,8 +351,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|10
 argument_list|,
 literal|true
@@ -515,8 +496,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|10
 argument_list|,
 literal|true
@@ -662,8 +641,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|10
 argument_list|,
 literal|true
@@ -983,8 +960,6 @@ argument_list|(
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -1031,8 +1006,6 @@ argument_list|(
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -1154,8 +1127,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|10
 argument_list|,
 literal|true
@@ -1352,8 +1323,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -1461,8 +1430,6 @@ operator|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -1622,8 +1589,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -1731,8 +1696,6 @@ operator|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -1853,8 +1816,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|10
 argument_list|,
 literal|true
@@ -1866,8 +1827,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|10
 argument_list|,
 literal|false
@@ -1975,8 +1934,6 @@ name|CharArraySet
 operator|.
 name|copy
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|setIngoreCase
 argument_list|)
 decl_stmt|;
@@ -1987,8 +1944,6 @@ name|CharArraySet
 operator|.
 name|copy
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|setCaseSensitive
 argument_list|)
 decl_stmt|;
@@ -2178,8 +2133,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|10
 argument_list|,
 literal|true
@@ -2191,8 +2144,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|10
 argument_list|,
 literal|false
@@ -2300,8 +2251,6 @@ name|CharArraySet
 operator|.
 name|copy
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|setIngoreCase
 argument_list|)
 decl_stmt|;
@@ -2312,8 +2261,6 @@ name|CharArraySet
 operator|.
 name|copy
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|setCaseSensitive
 argument_list|)
 decl_stmt|;
@@ -2574,8 +2521,6 @@ name|CharArraySet
 operator|.
 name|copy
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|set
 argument_list|)
 decl_stmt|;
@@ -2711,7 +2656,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**    * Tests a special case of {@link CharArraySet#copy(Version, Set)} where the    * set to copy is the {@link CharArraySet#EMPTY_SET}    */
+comment|/**    * Tests a special case of {@link CharArraySet#copy(Set)} where the    * set to copy is the {@link CharArraySet#EMPTY_SET}    */
 DECL|method|testCopyEmptySet
 specifier|public
 name|void
@@ -2728,8 +2673,6 @@ name|CharArraySet
 operator|.
 name|copy
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
@@ -2862,8 +2805,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|1
 argument_list|,
 literal|true
@@ -2960,8 +2901,6 @@ name|CharArraySet
 operator|.
 name|copy
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Collections
 operator|.
 name|singleton

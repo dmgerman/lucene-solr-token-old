@@ -1411,9 +1411,7 @@ name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|SimpleAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 argument_list|)
 operator|.
 name|setOpenMode

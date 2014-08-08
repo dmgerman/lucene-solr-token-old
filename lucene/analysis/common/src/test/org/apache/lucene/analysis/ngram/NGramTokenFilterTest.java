@@ -279,8 +279,6 @@ block|{
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|input
 argument_list|,
 literal|2
@@ -324,8 +322,6 @@ block|{
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|input
 argument_list|,
 literal|0
@@ -365,8 +361,6 @@ init|=
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|input
 argument_list|,
 literal|1
@@ -454,8 +448,6 @@ init|=
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|input
 argument_list|,
 literal|2
@@ -535,8 +527,6 @@ init|=
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|input
 argument_list|,
 literal|1
@@ -688,8 +678,6 @@ init|=
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|input
 argument_list|,
 literal|1
@@ -841,8 +829,6 @@ init|=
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|input
 argument_list|,
 literal|6
@@ -895,8 +881,6 @@ init|=
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|input
 argument_list|,
 literal|3
@@ -959,9 +943,7 @@ name|tokenizer
 init|=
 operator|new
 name|WhitespaceTokenizer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|tokenizer
 operator|.
@@ -980,8 +962,6 @@ init|=
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 literal|1
@@ -1187,8 +1167,6 @@ operator|=
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|filters
 argument_list|,
 literal|2
@@ -1419,8 +1397,6 @@ argument_list|,
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|min
@@ -1495,8 +1471,6 @@ argument_list|,
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 literal|2
@@ -1531,16 +1505,12 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|NGramTokenFilter
+name|TokenFilter
 name|filter
 init|=
 operator|new
-name|NGramTokenFilter
+name|Lucene43NGramTokenFilter
 argument_list|(
-name|Version
-operator|.
-name|LUCENE_4_3
-argument_list|,
 name|input
 argument_list|,
 literal|2
@@ -1736,8 +1706,6 @@ operator|=
 operator|new
 name|NGramTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tk
 argument_list|,
 name|minGram

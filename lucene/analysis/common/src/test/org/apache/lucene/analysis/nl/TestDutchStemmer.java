@@ -81,19 +81,6 @@ operator|.
 name|CharArraySet
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
 begin_comment
 comment|/**  * Test the Dutch Stem Filter, which only modifies the term text.  *   * The code states that it uses the snowball algorithm, but tests reveal some differences.  *   */
 end_comment
@@ -666,9 +653,7 @@ name|a
 init|=
 operator|new
 name|DutchAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|checkOneTerm
 argument_list|(
@@ -711,9 +696,7 @@ name|a
 init|=
 operator|new
 name|DutchAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|checkOneTerm
 argument_list|(
@@ -766,8 +749,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|1
 argument_list|,
 literal|true
@@ -786,8 +767,6 @@ init|=
 operator|new
 name|DutchAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
@@ -816,8 +795,6 @@ operator|=
 operator|new
 name|DutchAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
@@ -857,8 +834,6 @@ init|=
 operator|new
 name|DutchAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
@@ -888,8 +863,6 @@ init|=
 operator|new
 name|DutchAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
@@ -931,9 +904,7 @@ name|a
 init|=
 operator|new
 name|DutchAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertAnalyzesTo
 argument_list|(
@@ -968,9 +939,7 @@ name|checkOneTerm
 argument_list|(
 operator|new
 name|DutchAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 argument_list|,
 name|input
 argument_list|,
@@ -994,9 +963,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|DutchAnalyzer
-argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|)
+argument_list|()
 argument_list|,
 literal|1000
 operator|*

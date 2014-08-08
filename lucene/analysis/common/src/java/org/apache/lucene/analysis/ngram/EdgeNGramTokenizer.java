@@ -18,15 +18,6 @@ comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more
 end_comment
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -93,14 +84,11 @@ name|DEFAULT_MIN_GRAM_SIZE
 init|=
 literal|1
 decl_stmt|;
-comment|/**    * Creates EdgeNGramTokenizer that can generate n-grams in the sizes of the given range    *    * @param version the Lucene match version    * @param minGram the smallest n-gram to generate    * @param maxGram the largest n-gram to generate    */
+comment|/**    * Creates EdgeNGramTokenizer that can generate n-grams in the sizes of the given range    *    * @param minGram the smallest n-gram to generate    * @param maxGram the largest n-gram to generate    */
 DECL|method|EdgeNGramTokenizer
 specifier|public
 name|EdgeNGramTokenizer
 parameter_list|(
-name|Version
-name|version
-parameter_list|,
 name|int
 name|minGram
 parameter_list|,
@@ -110,8 +98,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|version
-argument_list|,
 name|minGram
 argument_list|,
 name|maxGram
@@ -120,14 +106,11 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Creates EdgeNGramTokenizer that can generate n-grams in the sizes of the given range    *    * @param version the Lucene match version    * @param factory {@link org.apache.lucene.util.AttributeFactory} to use    * @param minGram the smallest n-gram to generate    * @param maxGram the largest n-gram to generate    */
+comment|/**    * Creates EdgeNGramTokenizer that can generate n-grams in the sizes of the given range    *    * @param factory {@link org.apache.lucene.util.AttributeFactory} to use    * @param minGram the smallest n-gram to generate    * @param maxGram the largest n-gram to generate    */
 DECL|method|EdgeNGramTokenizer
 specifier|public
 name|EdgeNGramTokenizer
 parameter_list|(
-name|Version
-name|version
-parameter_list|,
 name|AttributeFactory
 name|factory
 parameter_list|,
@@ -140,8 +123,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|version
-argument_list|,
 name|factory
 argument_list|,
 name|minGram

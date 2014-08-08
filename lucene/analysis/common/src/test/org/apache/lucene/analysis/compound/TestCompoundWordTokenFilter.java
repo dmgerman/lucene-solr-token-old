@@ -202,21 +202,6 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|core
-operator|.
-name|WhitespaceTokenizer
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|analysis
-operator|.
 name|util
 operator|.
 name|CharArraySet
@@ -297,8 +282,6 @@ return|return
 operator|new
 name|CharArraySet
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -362,8 +345,6 @@ init|=
 operator|new
 name|HyphenationCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|whitespaceMockTokenizer
 argument_list|(
 literal|"min veninde som er lidt af en lÃ¦sehest"
@@ -501,8 +482,6 @@ init|=
 operator|new
 name|HyphenationCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|whitespaceMockTokenizer
 argument_list|(
 literal|"basketballkurv"
@@ -600,8 +579,6 @@ init|=
 operator|new
 name|HyphenationCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|whitespaceMockTokenizer
 argument_list|(
 literal|"basketballkurv"
@@ -646,8 +623,6 @@ operator|=
 operator|new
 name|HyphenationCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|whitespaceMockTokenizer
 argument_list|(
 literal|"basketballkurv"
@@ -692,8 +667,6 @@ operator|=
 operator|new
 name|HyphenationCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|whitespaceMockTokenizer
 argument_list|(
 literal|"basketballkurv"
@@ -804,8 +777,6 @@ init|=
 operator|new
 name|DictionaryCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|whitespaceMockTokenizer
 argument_list|(
 literal|"BildÃ¶rr Bilmotor Biltak Slagborr Hammarborr Pelarborr GlasÃ¶gonfodral Basfiolsfodral BasfiolsfodralmakaregesÃ¤ll Skomakare Vindrutetorkare Vindrutetorkarblad abba"
@@ -1254,8 +1225,6 @@ init|=
 operator|new
 name|DictionaryCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|whitespaceMockTokenizer
 argument_list|(
 literal|"BasfiolsfodralmakaregesÃ¤ll"
@@ -1402,8 +1371,6 @@ init|=
 operator|new
 name|DictionaryCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|dict
@@ -1531,8 +1498,6 @@ init|=
 operator|new
 name|DictionaryCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|dict
@@ -1669,8 +1634,6 @@ init|=
 operator|new
 name|DictionaryCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|wsTokenizer
 argument_list|,
 name|dict
@@ -1846,8 +1809,6 @@ operator|=
 operator|new
 name|DictionaryCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|stream
 argument_list|,
 name|dict
@@ -2171,8 +2132,6 @@ init|=
 operator|new
 name|DictionaryCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|dict
@@ -2319,8 +2278,6 @@ argument_list|,
 operator|new
 name|DictionaryCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|dict
@@ -2407,8 +2364,6 @@ init|=
 operator|new
 name|HyphenationCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|hyphenator
@@ -2503,8 +2458,6 @@ argument_list|,
 operator|new
 name|DictionaryCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|dict
@@ -2582,8 +2535,6 @@ init|=
 operator|new
 name|HyphenationCompoundWordTokenFilter
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|tokenizer
 argument_list|,
 name|hyphenator

@@ -274,8 +274,6 @@ condition|?
 operator|new
 name|ExtendableQueryParser
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|getDefaultField
 argument_list|()
 argument_list|,
@@ -285,8 +283,6 @@ else|:
 operator|new
 name|ExtendableQueryParser
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|getDefaultField
 argument_list|()
 argument_list|,

@@ -3998,8 +3998,6 @@ init|=
 operator|new
 name|CollationKeyAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Collator
 operator|.
 name|getInstance
@@ -4045,8 +4043,6 @@ operator|=
 operator|new
 name|CollationKeyAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Collator
 operator|.
 name|getInstance
@@ -4092,8 +4088,6 @@ operator|=
 operator|new
 name|CollationKeyAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Collator
 operator|.
 name|getInstance
@@ -4141,8 +4135,6 @@ operator|=
 operator|new
 name|CollationKeyAnalyzer
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Collator
 operator|.
 name|getInstance
