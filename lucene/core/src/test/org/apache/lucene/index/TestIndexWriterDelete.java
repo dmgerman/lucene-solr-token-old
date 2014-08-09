@@ -667,7 +667,7 @@ argument_list|)
 expr_stmt|;
 name|modifier
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -866,7 +866,7 @@ argument_list|()
 expr_stmt|;
 name|modifier
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -979,7 +979,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -1296,7 +1296,7 @@ argument_list|()
 expr_stmt|;
 name|modifier
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -1498,7 +1498,7 @@ argument_list|)
 expr_stmt|;
 name|modifier
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|reader
@@ -1784,7 +1784,7 @@ argument_list|()
 expr_stmt|;
 name|modifier
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -2002,7 +2002,7 @@ argument_list|()
 expr_stmt|;
 name|modifier
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -2379,7 +2379,7 @@ expr_stmt|;
 block|}
 name|modifier
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|DirectoryReader
@@ -3282,7 +3282,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|long
@@ -3777,7 +3777,7 @@ expr_stmt|;
 block|}
 name|modifier
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -4959,7 +4959,7 @@ argument_list|)
 expr_stmt|;
 name|modifier
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -5294,7 +5294,7 @@ block|}
 block|}
 name|modifier
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|TestIndexWriter
@@ -5337,8 +5337,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -5415,7 +5413,7 @@ argument_list|)
 expr_stmt|;
 name|modifier
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -5675,7 +5673,7 @@ expr_stmt|;
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -6006,7 +6004,7 @@ expr_stmt|;
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -6225,7 +6223,7 @@ block|}
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -6441,7 +6439,7 @@ block|}
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -6784,7 +6782,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -6814,8 +6812,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -6946,7 +6942,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|ByteArrayOutputStream
@@ -7033,8 +7029,6 @@ operator|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -7062,7 +7056,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|bos
@@ -7155,8 +7149,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -7206,7 +7198,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|iwc
@@ -7214,8 +7206,6 @@ operator|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -7299,7 +7289,7 @@ argument_list|()
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|r

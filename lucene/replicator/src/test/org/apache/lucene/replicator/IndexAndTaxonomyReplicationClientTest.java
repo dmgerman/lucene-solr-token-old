@@ -1375,7 +1375,7 @@ name|Exception
 block|{
 name|publishIndexWriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils

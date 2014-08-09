@@ -57,19 +57,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
-operator|.
-name|TestUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|analysis
 operator|.
 name|MockAnalyzer
@@ -400,8 +387,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|analyzer
 argument_list|)
 operator|.
@@ -505,7 +490,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|rmDir

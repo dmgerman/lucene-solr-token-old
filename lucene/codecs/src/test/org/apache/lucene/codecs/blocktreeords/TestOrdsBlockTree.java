@@ -1819,8 +1819,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -2113,8 +2111,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -2471,8 +2467,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(

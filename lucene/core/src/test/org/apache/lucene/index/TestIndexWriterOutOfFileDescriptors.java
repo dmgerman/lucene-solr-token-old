@@ -496,7 +496,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|w
@@ -795,7 +795,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dirCopy

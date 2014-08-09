@@ -29,15 +29,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1877,8 +1868,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|analyzer
 argument_list|)
 operator|.
@@ -1962,7 +1951,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 if|if
@@ -2010,8 +1999,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|analyzerK
 argument_list|)
 operator|.
@@ -2096,7 +2083,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 if|if

@@ -802,7 +802,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|FacetsCollector
@@ -1186,7 +1186,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|FacetsCollector
@@ -1474,7 +1474,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|FacetsCollector
@@ -2310,7 +2310,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils
@@ -2546,7 +2546,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils
@@ -2782,7 +2782,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils
@@ -3818,7 +3818,7 @@ block|}
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils
@@ -4913,7 +4913,7 @@ block|}
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils
@@ -5908,7 +5908,7 @@ block|}
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils
@@ -6168,7 +6168,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils
@@ -6798,7 +6798,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils

@@ -521,7 +521,7 @@ expr_stmt|;
 comment|// flush
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|SegmentReader
@@ -761,7 +761,7 @@ expr_stmt|;
 comment|// flush
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|reader
@@ -1172,7 +1172,7 @@ expr_stmt|;
 comment|// flush
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|/*          * Verify the index          * first we test if all payloads are stored correctly          */
@@ -1822,7 +1822,7 @@ expr_stmt|;
 comment|// flush
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|reader
@@ -3052,7 +3052,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IndexReader
@@ -3563,7 +3563,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|writer
@@ -3638,7 +3638,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -3926,7 +3926,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|reader
@@ -4233,7 +4233,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|reader

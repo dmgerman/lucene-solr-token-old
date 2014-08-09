@@ -288,7 +288,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertNull
@@ -860,7 +860,7 @@ expr_stmt|;
 comment|// flush
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|SegmentReader
@@ -1339,7 +1339,7 @@ expr_stmt|;
 comment|// flush
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertNoPrx
@@ -1586,7 +1586,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|ir

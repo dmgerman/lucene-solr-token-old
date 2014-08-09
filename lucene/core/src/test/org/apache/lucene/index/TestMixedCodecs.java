@@ -253,7 +253,7 @@ condition|)
 block|{
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -465,7 +465,7 @@ block|}
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir

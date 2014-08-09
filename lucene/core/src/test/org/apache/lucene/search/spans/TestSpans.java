@@ -466,7 +466,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|searcher
@@ -3204,8 +3204,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -3237,7 +3235,7 @@ expr_stmt|;
 comment|// Commit
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// Get searcher

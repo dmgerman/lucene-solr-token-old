@@ -2444,8 +2444,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|analyzer
 argument_list|)
 decl_stmt|;
@@ -2890,7 +2888,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir

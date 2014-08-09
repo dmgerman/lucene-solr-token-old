@@ -275,7 +275,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:

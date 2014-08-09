@@ -187,19 +187,6 @@ operator|.
 name|TestUtil
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|TestUtil
-import|;
-end_import
 begin_comment
 comment|/**  * Simple test that adds numeric terms, where each term has the   * docFreq of its integer value, and checks that the docFreq is correct.   */
 end_comment
@@ -286,8 +273,6 @@ name|newIndexWriterConfig
 argument_list|(
 name|random
 argument_list|()
-argument_list|,
-name|TEST_VERSION_CURRENT
 argument_list|,
 operator|new
 name|MockAnalyzer
@@ -881,7 +866,7 @@ argument_list|()
 expr_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir

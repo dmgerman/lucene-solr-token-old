@@ -415,7 +415,7 @@ block|}
 block|}
 name|riw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|checkHeaders

@@ -1107,7 +1107,7 @@ name|getLocalPort
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// get a clean shutdown so that no dirs are left open...
+comment|// get a clean close so that no dirs are left open...
 name|FilterHolder
 name|fh
 init|=
@@ -2360,7 +2360,7 @@ condition|)
 block|{
 name|monkeyLog
 argument_list|(
-literal|"Jetty will not commit on shutdown"
+literal|"Jetty will not commit on close"
 argument_list|)
 expr_stmt|;
 name|DirectUpdateHandler2

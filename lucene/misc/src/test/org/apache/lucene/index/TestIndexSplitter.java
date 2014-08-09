@@ -103,19 +103,6 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|TestUtil
-import|;
-end_import
 begin_class
 DECL|class|TestIndexSplitter
 specifier|public
@@ -224,8 +211,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -401,7 +386,7 @@ argument_list|()
 expr_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// we should have 2 segments now

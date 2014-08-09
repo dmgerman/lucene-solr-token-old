@@ -1248,7 +1248,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|long
@@ -1410,7 +1410,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|Thread
@@ -1805,7 +1805,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 specifier|final
@@ -1935,7 +1935,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -2147,7 +2147,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|int
@@ -2286,7 +2286,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|Collection
@@ -2402,7 +2402,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -2545,7 +2545,7 @@ expr_stmt|;
 comment|// Commits the rollback:
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// Now 8 because we made another commit
@@ -2636,7 +2636,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|r
@@ -2752,7 +2752,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// Now reader sees not-fully-merged index:
@@ -2939,7 +2939,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|conf
@@ -3012,7 +3012,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -3235,7 +3235,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -3523,7 +3523,7 @@ argument_list|()
 decl_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|Term
@@ -3667,7 +3667,7 @@ block|}
 comment|// this is a commit
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|conf
@@ -3675,8 +3675,6 @@ operator|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -3748,7 +3746,7 @@ expr_stmt|;
 comment|// this is a commit
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IndexReader
@@ -3847,7 +3845,7 @@ comment|// This will not commit: there are no changes
 comment|// pending because we opened for "create":
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}

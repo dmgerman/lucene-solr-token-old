@@ -312,7 +312,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -507,7 +507,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// shutdown executor: in case of wrap-wrap-wrapping
+comment|// close executor: in case of wrap-wrap-wrapping
 name|searcher
 operator|.
 name|getIndexReader

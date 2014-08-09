@@ -327,7 +327,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|fail
@@ -609,7 +609,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -815,7 +815,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IndexReader
@@ -859,8 +859,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -914,7 +912,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|ir
@@ -1002,7 +1000,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|ir
@@ -1254,7 +1252,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IndexReader
@@ -1298,8 +1296,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -1359,7 +1355,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|ir
@@ -1429,7 +1425,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|ir
@@ -1682,7 +1678,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IndexReader
@@ -1726,8 +1722,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -1787,7 +1781,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|ir
@@ -1849,7 +1843,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|ir
@@ -2145,7 +2139,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -2294,6 +2288,11 @@ name|setMergePolicy
 argument_list|(
 name|newLogMergePolicy
 argument_list|()
+argument_list|)
+operator|.
+name|setCommitOnClose
+argument_list|(
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
@@ -2691,12 +2690,17 @@ argument_list|(
 name|newLogMergePolicy
 argument_list|()
 argument_list|)
+operator|.
+name|setCommitOnClose
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}

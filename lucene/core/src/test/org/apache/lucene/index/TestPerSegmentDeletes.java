@@ -233,8 +233,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -619,7 +617,7 @@ comment|// System.out.println("segdels2:"+writer.docWriter.segmentDeletes.toStri
 comment|//System.out.println("close");
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir

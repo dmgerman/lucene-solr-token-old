@@ -471,19 +471,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|TestUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|automaton
 operator|.
 name|AutomatonTestUtil
@@ -1107,7 +1094,7 @@ expr_stmt|;
 block|}
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|verify
@@ -1173,7 +1160,7 @@ argument_list|)
 expr_stmt|;
 name|iw2
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|verify

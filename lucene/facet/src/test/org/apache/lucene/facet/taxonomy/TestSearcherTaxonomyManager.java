@@ -1163,7 +1163,7 @@ expr_stmt|;
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils
@@ -1461,7 +1461,7 @@ expr_stmt|;
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils
@@ -1605,7 +1605,7 @@ comment|// expected
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils
@@ -1829,7 +1829,7 @@ expr_stmt|;
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils

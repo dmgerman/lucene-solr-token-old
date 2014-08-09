@@ -565,7 +565,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -610,7 +610,7 @@ try|try
 block|{
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -701,7 +701,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -893,7 +893,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|String
@@ -994,7 +994,7 @@ expr_stmt|;
 block|}
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// Make sure starting index seems to be working properly:
@@ -2243,7 +2243,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// Wait for all BG threads to finish else
@@ -2673,7 +2673,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -2727,6 +2727,11 @@ argument_list|(
 operator|new
 name|ConcurrentMergeScheduler
 argument_list|()
+argument_list|)
+operator|.
+name|setCommitOnClose
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -2827,10 +2832,8 @@ try|try
 block|{
 name|writer
 operator|.
-name|shutdown
-argument_list|(
-literal|false
-argument_list|)
+name|commit
+argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
@@ -2844,6 +2847,14 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{     }
+finally|finally
+block|{
+name|writer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 comment|// Make sure once disk space is avail again, we can
 comment|// cleanly close:
 name|dir

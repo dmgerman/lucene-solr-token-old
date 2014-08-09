@@ -31,15 +31,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|text
 operator|.
 name|DateFormat
@@ -8027,7 +8018,7 @@ argument_list|()
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir

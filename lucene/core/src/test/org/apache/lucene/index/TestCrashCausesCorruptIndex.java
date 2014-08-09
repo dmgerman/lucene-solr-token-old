@@ -188,19 +188,6 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|TestUtil
-import|;
-end_import
 begin_class
 DECL|class|TestCrashCausesCorruptIndex
 specifier|public
@@ -349,7 +336,7 @@ block|}
 comment|// writes segments_3
 name|indexWriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertFalse
@@ -419,7 +406,7 @@ argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertFalse

@@ -729,19 +729,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|RamUsageEstimator
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|RecyclingByteBlockAllocator
 import|;
 end_import
@@ -1162,8 +1149,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|analyzer
 argument_list|)
 operator|.
@@ -1248,7 +1233,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|memory
@@ -3396,8 +3381,6 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|mockAnalyzer
 argument_list|)
 argument_list|)
@@ -3479,7 +3462,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 for|for
@@ -3798,8 +3781,6 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|mockAnalyzer
 argument_list|)
 argument_list|)
@@ -3826,7 +3807,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|DirectoryReader

@@ -180,19 +180,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|TestUtil
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|TimeUnits
 import|;
 end_import
@@ -331,8 +318,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -541,7 +526,7 @@ argument_list|)
 expr_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|DirectoryReader
@@ -628,8 +613,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -650,7 +633,7 @@ argument_list|)
 expr_stmt|;
 name|w2
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|oneThousand
@@ -739,8 +722,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|null
 argument_list|)
 argument_list|)
@@ -761,7 +742,7 @@ argument_list|)
 expr_stmt|;
 name|w3
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|oneMillion

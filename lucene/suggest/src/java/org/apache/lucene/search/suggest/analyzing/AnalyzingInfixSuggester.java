@@ -816,19 +816,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|IOUtils
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|RamUsageEstimator
 import|;
 end_import
@@ -1108,8 +1095,6 @@ name|dir
 argument_list|,
 name|getIndexWriterConfig
 argument_list|(
-name|matchVersion
-argument_list|,
 name|getGramAnalyzer
 argument_list|()
 argument_list|,
@@ -1141,9 +1126,6 @@ specifier|protected
 name|IndexWriterConfig
 name|getIndexWriterConfig
 parameter_list|(
-name|Version
-name|matchVersion
-parameter_list|,
 name|Analyzer
 name|indexAnalyzer
 parameter_list|,
@@ -1159,8 +1141,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|matchVersion
-argument_list|,
 name|indexAnalyzer
 argument_list|)
 decl_stmt|;
@@ -1263,7 +1243,7 @@ condition|)
 block|{
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|writer
@@ -1289,8 +1269,6 @@ name|dir
 argument_list|,
 name|getIndexWriterConfig
 argument_list|(
-name|matchVersion
-argument_list|,
 name|getGramAnalyzer
 argument_list|()
 argument_list|,
@@ -3420,7 +3398,7 @@ condition|)
 block|{
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir

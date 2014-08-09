@@ -179,19 +179,6 @@ operator|.
 name|TestUtil
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|TestUtil
-import|;
-end_import
 begin_comment
 comment|/** Tests MultiDocValues versus ordinary segment merging */
 end_comment
@@ -249,8 +236,6 @@ name|newIndexWriterConfig
 argument_list|(
 name|random
 argument_list|()
-argument_list|,
-name|TEST_VERSION_CURRENT
 argument_list|,
 literal|null
 argument_list|)
@@ -371,7 +356,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|NumericDocValues
@@ -499,8 +484,6 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -622,7 +605,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|BinaryDocValues
@@ -766,8 +749,6 @@ name|newIndexWriterConfig
 argument_list|(
 name|random
 argument_list|()
-argument_list|,
-name|TEST_VERSION_CURRENT
 argument_list|,
 literal|null
 argument_list|)
@@ -916,7 +897,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|SortedDocValues
@@ -1094,8 +1075,6 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -1219,7 +1198,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|SortedDocValues
@@ -1371,8 +1350,6 @@ name|newIndexWriterConfig
 argument_list|(
 name|random
 argument_list|()
-argument_list|,
-name|TEST_VERSION_CURRENT
 argument_list|,
 literal|null
 argument_list|)
@@ -1539,7 +1516,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -1813,8 +1790,6 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -1982,7 +1957,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|SortedSetDocValues
@@ -2255,8 +2230,6 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -2426,7 +2399,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|SortedNumericDocValues
@@ -2638,8 +2611,6 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-name|TEST_VERSION_CURRENT
-argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -2803,7 +2774,7 @@ argument_list|)
 decl_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|Bits

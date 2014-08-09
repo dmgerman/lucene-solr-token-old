@@ -394,19 +394,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|LeafCollector
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|BooleanClause
 import|;
 end_import
@@ -421,19 +408,6 @@ operator|.
 name|search
 operator|.
 name|BooleanQuery
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Collector
 import|;
 end_import
 begin_import
@@ -1371,7 +1345,7 @@ argument_list|)
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// Search for product
@@ -1926,7 +1900,7 @@ argument_list|)
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// Search for product
@@ -2517,7 +2491,7 @@ argument_list|)
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// Search for product
@@ -3349,7 +3323,7 @@ argument_list|)
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// Search for movie via subtitle
@@ -3945,7 +3919,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 for|for

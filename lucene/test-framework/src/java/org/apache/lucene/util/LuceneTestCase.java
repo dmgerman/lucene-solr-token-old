@@ -4032,8 +4032,6 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|a
 argument_list|)
 return|;
@@ -4048,9 +4046,6 @@ parameter_list|(
 name|Random
 name|r
 parameter_list|,
-name|Version
-name|v
-parameter_list|,
 name|Analyzer
 name|a
 parameter_list|)
@@ -4061,8 +4056,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|v
-argument_list|,
 name|a
 argument_list|)
 decl_stmt|;

@@ -458,7 +458,7 @@ argument_list|)
 expr_stmt|;
 name|leftWriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|rightReader
@@ -473,7 +473,7 @@ argument_list|)
 expr_stmt|;
 name|rightWriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// check that our readers are valid

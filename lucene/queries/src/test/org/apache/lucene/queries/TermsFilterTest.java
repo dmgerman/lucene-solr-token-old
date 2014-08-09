@@ -719,7 +719,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|List
@@ -1029,7 +1029,7 @@ argument_list|()
 decl_stmt|;
 name|w1
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|fieldName
@@ -1095,7 +1095,7 @@ argument_list|()
 decl_stmt|;
 name|w2
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|TermsFilter
@@ -1377,7 +1377,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -1674,7 +1674,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -1921,7 +1921,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IndexSearcher

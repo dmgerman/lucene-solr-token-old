@@ -949,7 +949,7 @@ comment|// Make sure we don't have any leftover files in the
 comment|// directory:
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|TestIndexWriter
@@ -1258,7 +1258,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -1340,7 +1340,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -1628,7 +1628,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -1692,7 +1692,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// now open the writer on "snapshot0" - make sure it succeeds
@@ -1748,7 +1748,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// but 'snapshot1' files will still exist (need to release snapshot before they can be deleted).
@@ -1891,7 +1891,7 @@ argument_list|()
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertFalse
@@ -2037,7 +2037,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -2130,7 +2130,7 @@ argument_list|)
 expr_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// open a new writer w/ KeepOnlyLastCommit policy, so it will delete "s1"
@@ -2149,7 +2149,7 @@ literal|null
 argument_list|)
 argument_list|)
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertFalse

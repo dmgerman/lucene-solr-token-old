@@ -1068,7 +1068,7 @@ argument_list|)
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|Comparator
@@ -4130,7 +4130,7 @@ block|}
 block|}
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 return|return

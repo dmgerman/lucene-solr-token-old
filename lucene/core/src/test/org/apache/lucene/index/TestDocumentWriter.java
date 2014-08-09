@@ -130,19 +130,6 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|StringField
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
 name|TextField
 import|;
 end_import
@@ -371,7 +358,7 @@ argument_list|()
 decl_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|//After adding the document, we should be able to read it back in
@@ -835,7 +822,7 @@ argument_list|()
 decl_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|SegmentReader
@@ -1252,7 +1239,7 @@ argument_list|()
 decl_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|SegmentReader
@@ -1532,7 +1519,7 @@ argument_list|()
 decl_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|SegmentReader
@@ -1875,7 +1862,7 @@ expr_stmt|;
 comment|// be sure to have a single segment
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|TestUtil

@@ -158,21 +158,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|analysis
-operator|.
-name|Analyzer
-operator|.
-name|TokenStreamComponents
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|document
 operator|.
 name|Document
@@ -596,7 +581,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|DocsAndPositionsEnum
@@ -1165,7 +1150,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|String
@@ -2199,7 +2184,7 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 specifier|final
@@ -2905,7 +2890,7 @@ argument_list|()
 expr_stmt|;
 name|riw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -3027,7 +3012,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -3313,8 +3298,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|analyzer
 argument_list|)
 argument_list|)
@@ -3407,7 +3390,7 @@ parameter_list|)
 block|{}
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// make sure we see our good doc
@@ -3621,7 +3604,7 @@ argument_list|)
 expr_stmt|;
 name|iw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -3747,7 +3730,7 @@ argument_list|)
 expr_stmt|;
 name|riw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|success

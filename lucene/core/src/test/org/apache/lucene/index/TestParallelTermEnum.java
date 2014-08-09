@@ -270,7 +270,7 @@ argument_list|)
 expr_stmt|;
 name|iw1
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|rd2
@@ -348,7 +348,7 @@ argument_list|)
 expr_stmt|;
 name|iw2
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|this

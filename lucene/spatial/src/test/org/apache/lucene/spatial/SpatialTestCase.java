@@ -564,10 +564,6 @@ name|newIndexWriterConfig
 argument_list|(
 name|random
 argument_list|,
-name|LuceneTestCase
-operator|.
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|MockAnalyzer
 argument_list|(
@@ -624,7 +620,7 @@ name|Exception
 block|{
 name|indexWriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|IOUtils

@@ -199,7 +199,7 @@ argument_list|)
 expr_stmt|;
 name|riw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir
@@ -282,7 +282,7 @@ expr_stmt|;
 block|}
 name|riw
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|dir

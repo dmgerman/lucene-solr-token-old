@@ -7089,7 +7089,7 @@ name|err
 operator|.
 name|println
 argument_list|(
-literal|"Could not properly shutdown executor service."
+literal|"Could not properly close executor service."
 argument_list|)
 expr_stmt|;
 name|e

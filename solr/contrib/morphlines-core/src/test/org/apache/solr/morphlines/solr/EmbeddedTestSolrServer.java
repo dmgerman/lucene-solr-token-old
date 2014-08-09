@@ -88,7 +88,7 @@ name|CoreContainer
 import|;
 end_import
 begin_comment
-comment|/**  * An EmbeddedSolrServer that supresses shutdown and rollback requests as  * necessary for testing  */
+comment|/**  * An EmbeddedSolrServer that supresses close and rollback requests as  * necessary for testing  */
 end_comment
 begin_class
 DECL|class|EmbeddedTestSolrServer

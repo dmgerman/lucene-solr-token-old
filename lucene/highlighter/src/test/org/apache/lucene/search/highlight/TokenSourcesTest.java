@@ -751,7 +751,7 @@ finally|finally
 block|{
 name|indexWriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1035,7 +1035,7 @@ finally|finally
 block|{
 name|indexWriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1312,7 +1312,7 @@ finally|finally
 block|{
 name|indexWriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1586,7 +1586,7 @@ finally|finally
 block|{
 name|indexWriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1861,7 +1861,7 @@ finally|finally
 block|{
 name|indexWriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -2124,7 +2124,7 @@ argument_list|()
 decl_stmt|;
 name|writer
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|assertEquals

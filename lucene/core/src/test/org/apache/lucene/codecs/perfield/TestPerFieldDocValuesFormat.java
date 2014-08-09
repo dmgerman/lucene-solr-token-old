@@ -383,19 +383,6 @@ operator|.
 name|TestUtil
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|TestUtil
-import|;
-end_import
 begin_comment
 comment|/**  * Basic tests of PerFieldDocValuesFormat  */
 end_comment
@@ -671,7 +658,7 @@ argument_list|)
 expr_stmt|;
 name|iwriter
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 comment|// Now search the index:

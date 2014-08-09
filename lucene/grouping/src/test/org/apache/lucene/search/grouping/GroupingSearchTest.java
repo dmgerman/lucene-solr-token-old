@@ -927,7 +927,7 @@ argument_list|)
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|Sort
@@ -1806,7 +1806,7 @@ argument_list|)
 decl_stmt|;
 name|w
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|GroupingSearch
