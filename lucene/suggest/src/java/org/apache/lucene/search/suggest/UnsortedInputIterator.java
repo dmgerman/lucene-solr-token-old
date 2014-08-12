@@ -56,6 +56,19 @@ operator|.
 name|BytesRef
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRefBuilder
+import|;
+end_import
 begin_comment
 comment|/**  * This wrapper buffers the incoming elements and makes sure they are in  * random order.  * @lucene.experimental  */
 end_comment
@@ -86,21 +99,21 @@ decl_stmt|;
 DECL|field|spare
 specifier|private
 specifier|final
-name|BytesRef
+name|BytesRefBuilder
 name|spare
 init|=
 operator|new
-name|BytesRef
+name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
 DECL|field|payloadSpare
 specifier|private
 specifier|final
-name|BytesRef
+name|BytesRefBuilder
 name|payloadSpare
 init|=
 operator|new
-name|BytesRef
+name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
 comment|/**     * Creates a new iterator, wrapping the specified iterator and    * returning elements in a random order.    */

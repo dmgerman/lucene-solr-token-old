@@ -49,6 +49,19 @@ operator|.
 name|BytesRef
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRefBuilder
+import|;
+end_import
 begin_comment
 comment|/** Implements a {@link TermsEnum} wrapping a provided  * {@link SortedSetDocValues}. */
 end_comment
@@ -81,7 +94,7 @@ decl_stmt|;
 DECL|field|scratch
 specifier|private
 specifier|final
-name|BytesRef
+name|BytesRefBuilder
 name|scratch
 decl_stmt|;
 comment|/** Creates a new TermsEnum over the provided values */
@@ -102,7 +115,7 @@ expr_stmt|;
 name|scratch
 operator|=
 operator|new
-name|BytesRef
+name|BytesRefBuilder
 argument_list|()
 expr_stmt|;
 block|}
@@ -150,6 +163,9 @@ expr_stmt|;
 name|term
 operator|=
 name|scratch
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 return|return
 name|SeekStatus
@@ -246,6 +262,9 @@ expr_stmt|;
 name|term
 operator|=
 name|scratch
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 return|return
 literal|true

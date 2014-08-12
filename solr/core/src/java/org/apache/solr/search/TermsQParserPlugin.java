@@ -180,6 +180,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRefBuilder
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|automaton
 operator|.
 name|Automata
@@ -728,6 +741,13 @@ operator|.
 name|length
 index|]
 decl_stmt|;
+name|BytesRefBuilder
+name|term
+init|=
+operator|new
+name|BytesRefBuilder
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -754,13 +774,6 @@ name|i
 index|]
 decl_stmt|;
 comment|//logic same as TermQParserPlugin
-name|BytesRef
-name|term
-init|=
-operator|new
-name|BytesRef
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|ft
@@ -794,6 +807,9 @@ name|i
 index|]
 operator|=
 name|term
+operator|.
+name|toBytesRef
+argument_list|()
 expr_stmt|;
 block|}
 return|return

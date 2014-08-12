@@ -134,6 +134,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|IntsRefBuilder
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|LuceneTestCase
 import|;
 end_import
@@ -1320,11 +1333,11 @@ argument_list|,
 name|outputs
 argument_list|)
 decl_stmt|;
-name|IntsRef
+name|IntsRefBuilder
 name|scratchInts
 init|=
 operator|new
-name|IntsRef
+name|IntsRefBuilder
 argument_list|()
 decl_stmt|;
 comment|// a -> b
@@ -1342,6 +1355,9 @@ operator|.
 name|add
 argument_list|(
 name|scratchInts
+operator|.
+name|get
+argument_list|()
 argument_list|,
 operator|new
 name|CharsRef
@@ -1365,6 +1381,9 @@ operator|.
 name|add
 argument_list|(
 name|scratchInts
+operator|.
+name|get
+argument_list|()
 argument_list|,
 operator|new
 name|CharsRef
@@ -1388,6 +1407,9 @@ operator|.
 name|add
 argument_list|(
 name|scratchInts
+operator|.
+name|get
+argument_list|()
 argument_list|,
 operator|new
 name|CharsRef
@@ -1411,6 +1433,9 @@ operator|.
 name|add
 argument_list|(
 name|scratchInts
+operator|.
+name|get
+argument_list|()
 argument_list|,
 operator|new
 name|CharsRef

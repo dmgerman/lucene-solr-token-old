@@ -63,7 +63,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BytesRef
+name|BytesRefBuilder
 import|;
 end_import
 begin_import
@@ -230,11 +230,11 @@ operator|.
 name|V
 argument_list|)
 decl_stmt|;
-name|BytesRef
+name|BytesRefBuilder
 name|term
 init|=
 operator|new
-name|BytesRef
+name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
 if|if
@@ -274,6 +274,9 @@ argument_list|(
 name|fname
 argument_list|,
 name|term
+operator|.
+name|get
+argument_list|()
 argument_list|)
 argument_list|)
 return|;

@@ -61,6 +61,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|IntsRefBuilder
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|RamUsageEstimator
 import|;
 end_import
@@ -174,11 +187,11 @@ decl_stmt|;
 DECL|field|lastInput
 specifier|private
 specifier|final
-name|IntsRef
+name|IntsRefBuilder
 name|lastInput
 init|=
 operator|new
-name|IntsRef
+name|IntsRefBuilder
 argument_list|()
 decl_stmt|;
 comment|// for packing
@@ -651,6 +664,7 @@ init|=
 name|lastInput
 operator|.
 name|length
+argument_list|()
 init|;
 name|idx
 operator|>=
@@ -892,16 +906,12 @@ name|deleteLast
 argument_list|(
 name|lastInput
 operator|.
-name|ints
-index|[
-name|lastInput
-operator|.
-name|offset
-operator|+
+name|intAt
+argument_list|(
 name|idx
 operator|-
 literal|1
-index|]
+argument_list|)
 argument_list|,
 name|node
 argument_list|)
@@ -923,6 +933,7 @@ argument_list|,
 name|lastInput
 operator|.
 name|length
+argument_list|()
 operator|-
 name|idx
 argument_list|)
@@ -969,16 +980,12 @@ name|replaceLast
 argument_list|(
 name|lastInput
 operator|.
-name|ints
-index|[
-name|lastInput
-operator|.
-name|offset
-operator|+
+name|intAt
+argument_list|(
 name|idx
 operator|-
 literal|1
-index|]
+argument_list|)
 argument_list|,
 name|compileNode
 argument_list|(
@@ -989,6 +996,7 @@ operator|+
 name|lastInput
 operator|.
 name|length
+argument_list|()
 operator|-
 name|idx
 argument_list|)
@@ -1009,16 +1017,12 @@ name|replaceLast
 argument_list|(
 name|lastInput
 operator|.
-name|ints
-index|[
-name|lastInput
-operator|.
-name|offset
-operator|+
+name|intAt
+argument_list|(
 name|idx
 operator|-
 literal|1
-index|]
+argument_list|)
 argument_list|,
 name|node
 argument_list|,
@@ -1087,6 +1091,7 @@ assert|assert
 name|lastInput
 operator|.
 name|length
+argument_list|()
 operator|==
 literal|0
 operator|||
@@ -1095,6 +1100,9 @@ operator|.
 name|compareTo
 argument_list|(
 name|lastInput
+operator|.
+name|get
+argument_list|()
 argument_list|)
 operator|>=
 literal|0
@@ -1102,6 +1110,9 @@ operator|:
 literal|"inputs are added out of order lastInput="
 operator|+
 name|lastInput
+operator|.
+name|get
+argument_list|()
 operator|+
 literal|" vs input="
 operator|+
@@ -1178,6 +1189,7 @@ argument_list|(
 name|lastInput
 operator|.
 name|length
+argument_list|()
 argument_list|,
 name|input
 operator|.
@@ -1206,10 +1218,10 @@ name|pos1Stop
 operator|||
 name|lastInput
 operator|.
-name|ints
-index|[
+name|intAt
+argument_list|(
 name|pos1
-index|]
+argument_list|)
 operator|!=
 name|input
 operator|.
@@ -1422,6 +1434,7 @@ condition|(
 name|lastInput
 operator|.
 name|length
+argument_list|()
 operator|!=
 name|input
 operator|.
@@ -1635,6 +1648,7 @@ condition|(
 name|lastInput
 operator|.
 name|length
+argument_list|()
 operator|==
 name|input
 operator|.
@@ -1830,6 +1844,7 @@ argument_list|,
 name|lastInput
 operator|.
 name|length
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1846,6 +1861,7 @@ argument_list|,
 name|lastInput
 operator|.
 name|length
+argument_list|()
 argument_list|)
 operator|.
 name|node

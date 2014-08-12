@@ -52,7 +52,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BytesRef
+name|BytesRefBuilder
 import|;
 end_import
 begin_import
@@ -246,7 +246,7 @@ parameter_list|(
 name|int
 name|doc
 parameter_list|,
-name|BytesRef
+name|BytesRefBuilder
 name|target
 parameter_list|)
 block|{
@@ -267,9 +267,8 @@ condition|)
 block|{
 name|target
 operator|.
-name|length
-operator|=
-literal|0
+name|clear
+argument_list|()
 expr_stmt|;
 return|return
 literal|false

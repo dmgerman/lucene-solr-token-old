@@ -178,6 +178,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRefBuilder
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|IOUtils
 import|;
 end_import
@@ -1962,11 +1975,16 @@ argument_list|,
 name|BLOCK_SIZE
 argument_list|)
 decl_stmt|;
-name|BytesRef
+name|BytesRefBuilder
 name|lastTerm
 init|=
 operator|new
-name|BytesRef
+name|BytesRefBuilder
+argument_list|()
+decl_stmt|;
+name|lastTerm
+operator|.
+name|grow
 argument_list|(
 name|Math
 operator|.
@@ -1977,7 +1995,7 @@ argument_list|,
 name|maxLength
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|long
 name|count
 init|=
@@ -2015,9 +2033,8 @@ expr_stmt|;
 comment|// force the first term in a block to be abs-encoded
 name|lastTerm
 operator|.
-name|length
-operator|=
-literal|0
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 comment|// prefix-code
@@ -2029,6 +2046,9 @@ operator|.
 name|bytesDifference
 argument_list|(
 name|lastTerm
+operator|.
+name|get
+argument_list|()
 argument_list|,
 name|v
 argument_list|)

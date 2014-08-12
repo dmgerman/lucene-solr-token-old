@@ -128,6 +128,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|IntsRefBuilder
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|LuceneTestCase
 import|;
 end_import
@@ -1170,11 +1183,11 @@ name|outputs
 argument_list|)
 decl_stmt|;
 specifier|final
-name|IntsRef
+name|IntsRefBuilder
 name|scratch
 init|=
 operator|new
-name|IntsRef
+name|IntsRefBuilder
 argument_list|()
 decl_stmt|;
 comment|// Add the same input more than once and the outputs
@@ -1465,11 +1478,11 @@ name|outputs
 argument_list|)
 decl_stmt|;
 specifier|final
-name|IntsRef
+name|IntsRefBuilder
 name|scratch
 init|=
 operator|new
-name|IntsRef
+name|IntsRefBuilder
 argument_list|()
 decl_stmt|;
 name|builder
@@ -1477,6 +1490,9 @@ operator|.
 name|add
 argument_list|(
 name|scratch
+operator|.
+name|get
+argument_list|()
 argument_list|,
 literal|0L
 argument_list|)
@@ -1486,6 +1502,9 @@ operator|.
 name|add
 argument_list|(
 name|scratch
+operator|.
+name|get
+argument_list|()
 argument_list|,
 literal|1L
 argument_list|)
@@ -1495,6 +1514,9 @@ operator|.
 name|add
 argument_list|(
 name|scratch
+operator|.
+name|get
+argument_list|()
 argument_list|,
 literal|17L
 argument_list|)
@@ -1504,6 +1526,9 @@ operator|.
 name|add
 argument_list|(
 name|scratch
+operator|.
+name|get
+argument_list|()
 argument_list|,
 literal|1L
 argument_list|)

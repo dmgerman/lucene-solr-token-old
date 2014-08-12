@@ -179,6 +179,19 @@ import|;
 end_import
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRefBuilder
+import|;
+end_import
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -314,16 +327,12 @@ operator|=
 literal|4096
 expr_stmt|;
 comment|//should this be a method on SpatialPrefixTree?
-name|BytesRef
+name|BytesRefBuilder
 name|masterBytes
 init|=
 operator|new
-name|BytesRef
-argument_list|(
-name|GUESS_NUM_TERMS
-operator|*
-name|detailLevel
-argument_list|)
+name|BytesRefBuilder
+argument_list|()
 decl_stmt|;
 comment|//shared byte array for all terms
 name|List
@@ -396,6 +405,7 @@ argument_list|(
 name|masterBytes
 operator|.
 name|length
+argument_list|()
 operator|+
 name|term
 operator|.
@@ -423,6 +433,7 @@ operator|=
 name|masterBytes
 operator|.
 name|length
+argument_list|()
 operator|-
 name|term
 operator|.
@@ -452,6 +463,7 @@ operator|=
 name|masterBytes
 operator|.
 name|bytes
+argument_list|()
 expr_stmt|;
 block|}
 comment|//unfortunately TermsFilter will needlessly sort& dedupe

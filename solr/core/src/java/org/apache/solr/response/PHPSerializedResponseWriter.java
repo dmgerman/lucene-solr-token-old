@@ -78,6 +78,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|ArrayUtil
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|BytesRef
 import|;
 end_import
@@ -317,8 +330,8 @@ extends|extends
 name|JSONWriter
 block|{
 DECL|field|utf8
-specifier|final
-name|BytesRef
+name|byte
+index|[]
 name|utf8
 decl_stmt|;
 DECL|method|PHPSerializedWriter
@@ -348,9 +361,9 @@ name|this
 operator|.
 name|utf8
 operator|=
-operator|new
 name|BytesRef
-argument_list|()
+operator|.
+name|EMPTY_BYTES
 expr_stmt|;
 comment|// never indent serialized PHP data
 name|doIndent
@@ -1318,6 +1331,28 @@ name|IOException
 block|{
 comment|// serialized PHP strings don't need to be escaped at all, however the
 comment|// string size reported needs be the number of bytes rather than chars.
+name|utf8
+operator|=
+name|ArrayUtil
+operator|.
+name|grow
+argument_list|(
+name|utf8
+argument_list|,
+name|val
+operator|.
+name|length
+argument_list|()
+operator|*
+name|UnicodeUtil
+operator|.
+name|MAX_UTF8_BYTES_PER_CHAR
+argument_list|)
+expr_stmt|;
+specifier|final
+name|int
+name|nBytes
+init|=
 name|UnicodeUtil
 operator|.
 name|UTF16toUTF8
@@ -1333,13 +1368,6 @@ argument_list|()
 argument_list|,
 name|utf8
 argument_list|)
-expr_stmt|;
-name|int
-name|nBytes
-init|=
-name|utf8
-operator|.
-name|length
 decl_stmt|;
 name|writer
 operator|.
