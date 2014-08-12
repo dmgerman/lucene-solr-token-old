@@ -240,10 +240,7 @@ DECL|field|_spellInfo
 specifier|private
 name|NamedList
 argument_list|<
-name|NamedList
-argument_list|<
 name|Object
-argument_list|>
 argument_list|>
 name|_spellInfo
 init|=
@@ -814,10 +811,7 @@ operator|=
 operator|(
 name|NamedList
 argument_list|<
-name|NamedList
-argument_list|<
 name|Object
-argument_list|>
 argument_list|>
 operator|)
 name|res
@@ -946,10 +940,7 @@ name|extractSpellCheckInfo
 parameter_list|(
 name|NamedList
 argument_list|<
-name|NamedList
-argument_list|<
 name|Object
-argument_list|>
 argument_list|>
 name|spellInfo
 parameter_list|)
