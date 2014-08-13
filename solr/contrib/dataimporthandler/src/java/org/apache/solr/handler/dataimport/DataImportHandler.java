@@ -1348,13 +1348,6 @@ name|getStatusMessages
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|RequestHandlerUtils
-operator|.
-name|addExperimentalFormatWarning
-argument_list|(
-name|rsp
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getParamsMap
 specifier|private

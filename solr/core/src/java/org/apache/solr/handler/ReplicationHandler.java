@@ -1740,13 +1740,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|RequestHandlerUtils
-operator|.
-name|addExperimentalFormatWarning
-argument_list|(
-name|rsp
-argument_list|)
-expr_stmt|;
 block|}
 elseif|else
 if|if
