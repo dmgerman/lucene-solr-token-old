@@ -148,11 +148,6 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|mp
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
