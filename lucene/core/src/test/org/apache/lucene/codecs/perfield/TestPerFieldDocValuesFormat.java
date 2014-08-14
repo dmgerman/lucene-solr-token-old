@@ -105,9 +105,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene49
+name|lucene410
 operator|.
-name|Lucene49Codec
+name|Lucene410Codec
 import|;
 end_import
 begin_import
@@ -515,7 +515,7 @@ name|DocValuesFormat
 operator|.
 name|forName
 argument_list|(
-literal|"Lucene49"
+literal|"Lucene410"
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -534,7 +534,7 @@ operator|.
 name|setCodec
 argument_list|(
 operator|new
-name|Lucene49Codec
+name|Lucene410Codec
 argument_list|()
 block|{
 annotation|@

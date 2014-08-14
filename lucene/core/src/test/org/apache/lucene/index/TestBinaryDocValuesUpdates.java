@@ -208,9 +208,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene49
+name|lucene410
 operator|.
-name|Lucene49Codec
+name|Lucene410Codec
 import|;
 end_import
 begin_import
@@ -223,9 +223,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene49
+name|lucene410
 operator|.
-name|Lucene49DocValuesFormat
+name|Lucene410DocValuesFormat
 import|;
 end_import
 begin_import
@@ -3710,7 +3710,7 @@ operator|.
 name|setCodec
 argument_list|(
 operator|new
-name|Lucene49Codec
+name|Lucene410Codec
 argument_list|()
 block|{
 annotation|@
@@ -3725,7 +3725,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|Lucene49DocValuesFormat
+name|Lucene410DocValuesFormat
 argument_list|()
 return|;
 block|}
@@ -7867,7 +7867,7 @@ operator|.
 name|setCodec
 argument_list|(
 operator|new
-name|Lucene49Codec
+name|Lucene410Codec
 argument_list|()
 block|{
 annotation|@
@@ -7882,7 +7882,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|Lucene49DocValuesFormat
+name|Lucene410DocValuesFormat
 argument_list|()
 return|;
 block|}
@@ -7996,7 +7996,7 @@ operator|.
 name|setCodec
 argument_list|(
 operator|new
-name|Lucene49Codec
+name|Lucene410Codec
 argument_list|()
 block|{
 annotation|@

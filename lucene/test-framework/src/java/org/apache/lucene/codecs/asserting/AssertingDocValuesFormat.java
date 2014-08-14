@@ -92,9 +92,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene49
+name|lucene410
 operator|.
-name|Lucene49DocValuesFormat
+name|Lucene410DocValuesFormat
 import|;
 end_import
 begin_import
@@ -267,7 +267,7 @@ name|LongBitSet
 import|;
 end_import
 begin_comment
-comment|/**  * Just like {@link Lucene49DocValuesFormat} but with additional asserts.  */
+comment|/**  * Just like {@link Lucene410DocValuesFormat} but with additional asserts.  */
 end_comment
 begin_class
 DECL|class|AssertingDocValuesFormat
@@ -284,7 +284,7 @@ name|DocValuesFormat
 name|in
 init|=
 operator|new
-name|Lucene49DocValuesFormat
+name|Lucene410DocValuesFormat
 argument_list|()
 decl_stmt|;
 DECL|method|AssertingDocValuesFormat

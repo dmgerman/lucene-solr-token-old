@@ -91,9 +91,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene49
+name|lucene410
 operator|.
-name|Lucene49Codec
+name|Lucene410Codec
 import|;
 end_import
 begin_import
@@ -110,7 +110,7 @@ name|RandomInts
 import|;
 end_import
 begin_comment
-comment|/**  * A codec that uses {@link CompressingStoredFieldsFormat} for its stored  * fields and delegates to {@link Lucene49Codec} for everything else.  */
+comment|/**  * A codec that uses {@link CompressingStoredFieldsFormat} for its stored  * fields and delegates to {@link Lucene410Codec} for everything else.  */
 end_comment
 begin_class
 DECL|class|CompressingCodec
@@ -304,7 +304,7 @@ argument_list|(
 name|name
 argument_list|,
 operator|new
-name|Lucene49Codec
+name|Lucene410Codec
 argument_list|()
 argument_list|)
 expr_stmt|;

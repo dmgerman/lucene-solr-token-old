@@ -342,7 +342,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Lucene49"
+literal|"Lucene410"
 argument_list|,
 name|format
 operator|.
@@ -396,7 +396,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Lucene49"
+literal|"Lucene410"
 argument_list|,
 name|format
 operator|.
@@ -562,7 +562,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Lucene49"
+literal|"Lucene410"
 argument_list|,
 name|format
 operator|.
@@ -577,7 +577,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Lucene49"
+literal|"Lucene410"
 argument_list|,
 name|format
 operator|.
