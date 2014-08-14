@@ -180,6 +180,15 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -217,15 +226,6 @@ operator|.
 name|util
 operator|.
 name|Arrays
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 begin_import
@@ -292,17 +292,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ConcurrentHashMap
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|Executors
 import|;
 end_import
@@ -355,6 +344,8 @@ DECL|class|ZkStateReader
 specifier|public
 class|class
 name|ZkStateReader
+implements|implements
+name|Closeable
 block|{
 DECL|field|log
 specifier|private
@@ -542,6 +533,33 @@ name|CLUSTER_PROPS
 init|=
 literal|"/clusterprops.json"
 decl_stmt|;
+DECL|field|REPLICATION_FACTOR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REPLICATION_FACTOR
+init|=
+literal|"replicationFactor"
+decl_stmt|;
+DECL|field|MAX_SHARDS_PER_NODE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MAX_SHARDS_PER_NODE
+init|=
+literal|"maxShardsPerNode"
+decl_stmt|;
+DECL|field|AUTO_ADD_REPLICAS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|AUTO_ADD_REPLICAS
+init|=
+literal|"autoAddReplicas"
+decl_stmt|;
 DECL|field|ROLES
 specifier|public
 specifier|static
@@ -633,7 +651,7 @@ init|=
 literal|"urlScheme"
 decl_stmt|;
 DECL|field|clusterState
-specifier|private
+specifier|protected
 specifier|volatile
 name|ClusterState
 name|clusterState
@@ -2286,7 +2304,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Updating cloud state from ZooKeeper... "
 argument_list|)
@@ -2309,7 +2327,7 @@ else|else
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Updating live nodes from ZooKeeper... ({})"
 argument_list|,
@@ -2350,7 +2368,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Cloud state update for ZooKeeper already scheduled"
 argument_list|)
@@ -2359,7 +2377,7 @@ return|return;
 block|}
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Scheduling cloud state update from ZooKeeper..."
 argument_list|)
@@ -2385,7 +2403,7 @@ parameter_list|()
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Updating cluster state from ZooKeeper..."
 argument_list|)
@@ -2448,7 +2466,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Updating cloud state from ZooKeeper... "
 argument_list|)
@@ -2473,7 +2491,7 @@ else|else
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Updating live nodes from ZooKeeper... "
 argument_list|)

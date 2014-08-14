@@ -97,6 +97,21 @@ name|solr
 operator|.
 name|common
 operator|.
+name|cloud
+operator|.
+name|ZkStateReader
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|StrUtils
@@ -241,21 +256,6 @@ name|cloud
 operator|.
 name|OverseerCollectionProcessor
 operator|.
-name|MAX_SHARDS_PER_NODE
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|cloud
-operator|.
-name|OverseerCollectionProcessor
-operator|.
 name|NUM_SLICES
 import|;
 end_import
@@ -267,11 +267,13 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
 name|cloud
 operator|.
-name|OverseerCollectionProcessor
+name|ZkStateReader
 operator|.
-name|REPLICATION_FACTOR
+name|MAX_SHARDS_PER_NODE
 import|;
 end_import
 begin_class
@@ -1014,6 +1016,8 @@ name|warn
 argument_list|(
 literal|"Specified "
 operator|+
+name|ZkStateReader
+operator|.
 name|REPLICATION_FACTOR
 operator|+
 literal|" of "
@@ -1111,6 +1115,8 @@ name|numSlices
 operator|+
 literal|" and value of "
 operator|+
+name|ZkStateReader
+operator|.
 name|REPLICATION_FACTOR
 operator|+
 literal|" is "

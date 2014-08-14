@@ -22,9 +22,11 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
 name|cloud
 operator|.
-name|OverseerCollectionProcessor
+name|ZkStateReader
 operator|.
 name|MAX_SHARDS_PER_NODE
 import|;
@@ -52,9 +54,11 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|common
+operator|.
 name|cloud
 operator|.
-name|OverseerCollectionProcessor
+name|ZkStateReader
 operator|.
 name|REPLICATION_FACTOR
 import|;

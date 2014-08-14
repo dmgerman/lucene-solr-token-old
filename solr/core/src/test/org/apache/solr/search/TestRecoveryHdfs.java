@@ -626,8 +626,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|//hdfsDataDir = hdfsUri + "/solr/shard1";
-comment|// System.setProperty("solr.data.dir", hdfsUri + "/solr/shard1");
 name|System
 operator|.
 name|setProperty
@@ -663,13 +661,6 @@ operator|.
 name|clearProperty
 argument_list|(
 literal|"solr.ulog.dir"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|clearProperty
-argument_list|(
-literal|"solr.data.dir"
 argument_list|)
 expr_stmt|;
 name|System

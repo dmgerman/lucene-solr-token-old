@@ -1454,6 +1454,13 @@ argument_list|(
 literal|"solrcloud.update.delay"
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"solr.data.dir"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|printLayout
 specifier|static

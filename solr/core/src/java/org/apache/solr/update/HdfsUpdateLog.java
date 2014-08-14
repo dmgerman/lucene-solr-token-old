@@ -1567,6 +1567,10 @@ block|{
 if|if
 condition|(
 name|fs
+operator|!=
+literal|null
+operator|&&
+name|fs
 operator|.
 name|exists
 argument_list|(
