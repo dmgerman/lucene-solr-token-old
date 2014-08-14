@@ -1849,11 +1849,12 @@ name|IOException
 block|{
 if|if
 condition|(
-operator|!
 name|w
 operator|.
 name|isClosed
 argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 name|LuceneTestCase
@@ -1885,6 +1886,13 @@ literal|8
 argument_list|)
 operator|==
 literal|2
+operator|&&
+name|w
+operator|.
+name|isClosed
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 name|doRandomForceMerge
