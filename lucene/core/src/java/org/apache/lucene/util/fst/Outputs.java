@@ -64,19 +64,6 @@ operator|.
 name|Accountable
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|RamUsageEstimator
-import|;
-end_import
 begin_comment
 comment|/**  * Represents the outputs for an FST, providing the basic  * algebra required for building and traversing the FST.  *  *<p>Note that any operation that returns NO_OUTPUT must  * return the same singleton object from {@link  * #getNoOutput}.</p>  *  * @lucene.experimental  */
 end_comment
@@ -283,22 +270,14 @@ block|}
 comment|/** Return memory usage for the provided output.    *  @see Accountable */
 DECL|method|ramBytesUsed
 specifier|public
+specifier|abstract
 name|long
 name|ramBytesUsed
 parameter_list|(
 name|T
 name|output
 parameter_list|)
-block|{
-return|return
-name|RamUsageEstimator
-operator|.
-name|shallowSizeOf
-argument_list|(
-name|output
-argument_list|)
-return|;
-block|}
+function_decl|;
 block|}
 end_class
 end_unit
