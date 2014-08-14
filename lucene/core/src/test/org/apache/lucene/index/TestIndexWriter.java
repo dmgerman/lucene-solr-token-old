@@ -17992,11 +17992,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"didn't hit exception"
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -18004,7 +17999,7 @@ name|IllegalStateException
 name|ise
 parameter_list|)
 block|{
-comment|// expected
+comment|// OK, but not required (depends on thread scheduling)
 block|}
 name|finishCommit
 operator|.
