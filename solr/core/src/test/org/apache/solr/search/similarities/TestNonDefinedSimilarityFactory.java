@@ -39,21 +39,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|similarities
-operator|.
-name|Similarity
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|Version
@@ -101,7 +86,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// no sys prop set, rely on LUCENE_CURRENT
+comment|// no sys prop set, rely on LATEST
 name|initCore
 argument_list|(
 literal|"solrconfig-basic.xml"
@@ -148,7 +133,7 @@ literal|"tests.luceneMatchVersion"
 argument_list|,
 name|Version
 operator|.
-name|LUCENE_4_7
+name|LUCENE_4_7_0
 operator|.
 name|toString
 argument_list|()
@@ -200,7 +185,7 @@ literal|"tests.luceneMatchVersion"
 argument_list|,
 name|Version
 operator|.
-name|LUCENE_4_6
+name|LUCENE_4_6_0
 operator|.
 name|toString
 argument_list|()

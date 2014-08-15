@@ -63,19 +63,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Constants
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|InfoStream
 import|;
 end_import
@@ -90,6 +77,19 @@ operator|.
 name|util
 operator|.
 name|PrintStreamInfoStream
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
 import|;
 end_import
 begin_import
@@ -770,9 +770,9 @@ literal|"IndexUpgrader"
 argument_list|,
 literal|"Upgrading all pre-"
 operator|+
-name|Constants
+name|Version
 operator|.
-name|LUCENE_MAIN_VERSION
+name|LATEST
 operator|+
 literal|" segments of index directory '"
 operator|+
@@ -780,9 +780,9 @@ name|dir
 operator|+
 literal|"' to version "
 operator|+
-name|Constants
+name|Version
 operator|.
-name|LUCENE_MAIN_VERSION
+name|LATEST
 operator|+
 literal|"..."
 argument_list|)
@@ -813,9 +813,9 @@ literal|"IndexUpgrader"
 argument_list|,
 literal|"All segments upgraded to version "
 operator|+
-name|Constants
+name|Version
 operator|.
-name|LUCENE_MAIN_VERSION
+name|LATEST
 argument_list|)
 expr_stmt|;
 block|}

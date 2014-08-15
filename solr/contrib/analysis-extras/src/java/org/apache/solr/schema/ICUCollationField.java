@@ -1018,7 +1018,7 @@ name|ICUCollationKeyAnalyzer
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_CURRENT
+name|LATEST
 argument_list|,
 name|collator
 argument_list|)
