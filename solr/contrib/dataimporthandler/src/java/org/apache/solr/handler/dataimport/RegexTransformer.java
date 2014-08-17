@@ -709,7 +709,7 @@ argument_list|(
 name|replaceWith
 argument_list|)
 else|:
-literal|null
+name|value
 return|;
 block|}
 else|else
