@@ -1307,6 +1307,11 @@ literal|"facet"
 argument_list|,
 literal|"true"
 argument_list|,
+literal|"facet.limit"
+argument_list|,
+literal|1
+argument_list|,
+comment|// TODO: limit shouldn't be needed: SOLR-6386
 literal|"facet.field"
 argument_list|,
 name|tdate_a
@@ -1341,6 +1346,11 @@ literal|"facet"
 argument_list|,
 literal|"true"
 argument_list|,
+literal|"facet.limit"
+argument_list|,
+literal|1
+argument_list|,
+comment|// TODO: limit shouldn't be needed: SOLR-6386
 literal|"facet.field"
 argument_list|,
 name|tdate_b
