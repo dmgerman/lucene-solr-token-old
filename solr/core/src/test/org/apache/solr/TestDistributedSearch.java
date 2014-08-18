@@ -1195,6 +1195,10 @@ argument_list|,
 literal|"facet.field"
 argument_list|,
 name|t1
+argument_list|,
+literal|"facet.field"
+argument_list|,
+name|t1
 argument_list|)
 expr_stmt|;
 name|query
@@ -1233,6 +1237,10 @@ argument_list|,
 literal|"facet"
 argument_list|,
 literal|"true"
+argument_list|,
+literal|"facet.query"
+argument_list|,
+literal|"quick"
 argument_list|,
 literal|"facet.query"
 argument_list|,
@@ -1392,6 +1400,10 @@ literal|"facet.date"
 argument_list|,
 name|tdate_a
 argument_list|,
+literal|"facet.date"
+argument_list|,
+name|tdate_a
+argument_list|,
 literal|"facet.date.other"
 argument_list|,
 literal|"all"
@@ -1431,6 +1443,10 @@ argument_list|,
 literal|"facet.date"
 argument_list|,
 name|tdate_b
+argument_list|,
+literal|"facet.date"
+argument_list|,
+name|tdate_a
 argument_list|,
 literal|"facet.date.other"
 argument_list|,
@@ -1479,6 +1495,10 @@ argument_list|,
 literal|"facet"
 argument_list|,
 literal|"true"
+argument_list|,
+literal|"facet.range"
+argument_list|,
+name|tlong
 argument_list|,
 literal|"facet.range"
 argument_list|,
@@ -2918,6 +2938,10 @@ literal|"facet.field"
 argument_list|,
 name|t1
 argument_list|,
+literal|"facet.field"
+argument_list|,
+name|t1
+argument_list|,
 literal|"facet.limit"
 argument_list|,
 literal|5
@@ -2948,6 +2972,12 @@ argument_list|,
 literal|"facet"
 argument_list|,
 literal|"true"
+argument_list|,
+literal|"facet.query"
+argument_list|,
+name|i1
+operator|+
+literal|":[1 TO 50]"
 argument_list|,
 literal|"facet.query"
 argument_list|,
