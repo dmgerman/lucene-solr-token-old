@@ -639,6 +639,10 @@ name|getCoreRootDirectory
 parameter_list|()
 block|{
 return|return
+name|SolrResourceLoader
+operator|.
+name|normalizeDir
+argument_list|(
 name|get
 argument_list|(
 name|CfgProp
@@ -652,6 +656,7 @@ argument_list|()
 operator|.
 name|getInstanceDir
 argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}

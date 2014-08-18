@@ -396,6 +396,10 @@ argument_list|(
 literal|"core root dir"
 argument_list|,
 literal|"testCoreRootDirectory"
+operator|+
+name|File
+operator|.
+name|separator
 argument_list|,
 name|cfg
 operator|.
@@ -674,6 +678,10 @@ argument_list|(
 literal|"coreRootDirectory"
 argument_list|,
 literal|"myCoreRoot"
+operator|+
+name|File
+operator|.
+name|separator
 argument_list|)
 expr_stmt|;
 name|System
@@ -765,6 +773,10 @@ argument_list|(
 literal|"core root dir"
 argument_list|,
 literal|"myCoreRoot"
+operator|+
+name|File
+operator|.
+name|separator
 argument_list|,
 name|cfg
 operator|.
