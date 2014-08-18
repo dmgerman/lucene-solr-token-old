@@ -177,7 +177,7 @@ annotation|@
 name|Override
 DECL|method|append
 specifier|public
-name|Appendable
+name|CharsRefBuilder
 name|append
 parameter_list|(
 name|CharSequence
@@ -216,7 +216,7 @@ annotation|@
 name|Override
 DECL|method|append
 specifier|public
-name|Appendable
+name|CharsRefBuilder
 name|append
 parameter_list|(
 name|CharSequence
@@ -293,7 +293,7 @@ annotation|@
 name|Override
 DECL|method|append
 specifier|public
-name|Appendable
+name|CharsRefBuilder
 name|append
 parameter_list|(
 name|char
