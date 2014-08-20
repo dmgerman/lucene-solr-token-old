@@ -4129,8 +4129,7 @@ name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
-name|random
-argument_list|()
+name|r
 argument_list|,
 literal|1
 argument_list|,
@@ -4144,8 +4143,7 @@ name|TestUtil
 operator|.
 name|nextInt
 argument_list|(
-name|random
-argument_list|()
+name|r
 argument_list|,
 name|maxThreadCount
 argument_list|,
@@ -4662,7 +4660,9 @@ block|}
 if|if
 condition|(
 name|rarely
-argument_list|()
+argument_list|(
+name|r
+argument_list|)
 condition|)
 block|{
 name|mergePolicy
@@ -5082,8 +5082,7 @@ name|EITHER
 case|:
 name|flushByRAM
 operator|=
-name|random
-argument_list|()
+name|r
 operator|.
 name|nextBoolean
 argument_list|()
