@@ -315,7 +315,7 @@ name|'print'
 string|"'  private static final CharArrayMap<Character> entityValues'"
 newline|'\n'
 name|'print'
-string|"'      = new CharArrayMap<>(Version.LUCENE_CURRENT, %i, false);'"
+string|"'      = new CharArrayMap<>(%i, false);'"
 op|'%'
 name|'len'
 op|'('
