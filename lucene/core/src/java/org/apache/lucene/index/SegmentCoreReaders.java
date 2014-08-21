@@ -130,6 +130,19 @@ name|lucene
 operator|.
 name|codecs
 operator|.
+name|NormsProducer
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
 name|PostingsFormat
 import|;
 end_import
@@ -330,7 +343,7 @@ name|fields
 decl_stmt|;
 DECL|field|normsProducer
 specifier|final
-name|DocValuesProducer
+name|NormsProducer
 name|normsProducer
 decl_stmt|;
 DECL|field|fieldsReaderOrig
@@ -902,7 +915,7 @@ name|norms
 operator|=
 name|normsProducer
 operator|.
-name|getNumeric
+name|getNorms
 argument_list|(
 name|fi
 argument_list|)

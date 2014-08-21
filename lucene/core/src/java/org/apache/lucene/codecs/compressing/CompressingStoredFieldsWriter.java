@@ -17,40 +17,6 @@ begin_comment
 comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *     http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene40
-operator|.
-name|Lucene40StoredFieldsWriter
-operator|.
-name|FIELDS_EXTENSION
-import|;
-end_import
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene40
-operator|.
-name|Lucene40StoredFieldsWriter
-operator|.
-name|FIELDS_INDEX_EXTENSION
-import|;
-end_import
-begin_import
 import|import
 name|java
 operator|.
@@ -398,6 +364,26 @@ name|CompressingStoredFieldsWriter
 extends|extends
 name|StoredFieldsWriter
 block|{
+comment|/** Extension of stored fields file */
+DECL|field|FIELDS_EXTENSION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FIELDS_EXTENSION
+init|=
+literal|"fdt"
+decl_stmt|;
+comment|/** Extension of stored fields index file */
+DECL|field|FIELDS_INDEX_EXTENSION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FIELDS_INDEX_EXTENSION
+init|=
+literal|"fdx"
+decl_stmt|;
 comment|// hard limit on the maximum number of documents per chunk
 DECL|field|MAX_DOCUMENTS_PER_CHUNK
 specifier|static
@@ -2040,6 +2026,15 @@ name|idx
 init|=
 literal|0
 decl_stmt|;
+name|MatchingReaders
+name|matching
+init|=
+operator|new
+name|MatchingReaders
+argument_list|(
+name|mergeState
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|AtomicReader
@@ -2054,7 +2049,7 @@ specifier|final
 name|SegmentReader
 name|matchingSegmentReader
 init|=
-name|mergeState
+name|matching
 operator|.
 name|matchingSegmentReaders
 index|[

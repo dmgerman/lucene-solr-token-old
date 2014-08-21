@@ -137,7 +137,7 @@ name|Bits
 import|;
 end_import
 begin_comment
-comment|/** Abstract API that produces numeric, binary and  * sorted docvalues.  *  * @lucene.experimental  */
+comment|/** Abstract API that produces numeric, binary, sorted, sortedset,  *  and sortednumeric docvalues.  *  * @lucene.experimental  */
 end_comment
 begin_class
 DECL|class|DocValuesProducer
