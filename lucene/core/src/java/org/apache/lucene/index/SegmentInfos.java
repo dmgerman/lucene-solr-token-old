@@ -359,13 +359,13 @@ name|VERSION_49
 init|=
 literal|3
 decl_stmt|;
-comment|/** The file format version for the segments_N codec header, since 4.10+ */
-DECL|field|VERSION_410
+comment|/** The file format version for the segments_N codec header, since 4.11+ */
+DECL|field|VERSION_411
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|VERSION_410
+name|VERSION_411
 init|=
 literal|4
 decl_stmt|;
@@ -1071,7 +1071,7 @@ literal|"segments"
 argument_list|,
 name|VERSION_40
 argument_list|,
-name|VERSION_410
+name|VERSION_411
 argument_list|)
 decl_stmt|;
 name|version
@@ -1527,7 +1527,7 @@ if|if
 condition|(
 name|format
 operator|>=
-name|VERSION_410
+name|VERSION_411
 condition|)
 block|{
 name|id
@@ -1769,7 +1769,7 @@ name|segnOutput
 argument_list|,
 literal|"segments"
 argument_list|,
-name|VERSION_410
+name|VERSION_411
 argument_list|)
 expr_stmt|;
 name|segnOutput
