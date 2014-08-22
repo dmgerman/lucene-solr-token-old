@@ -484,13 +484,6 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-if|if
-condition|(
-name|attemptCount
-operator|>
-literal|0
-condition|)
-block|{
 name|Thread
 operator|.
 name|sleep
@@ -504,7 +497,6 @@ operator|*
 name|retryDelay
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class
