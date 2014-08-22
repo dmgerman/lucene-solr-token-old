@@ -481,6 +481,8 @@ argument_list|,
 name|blenderType
 argument_list|,
 name|numFactor
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}

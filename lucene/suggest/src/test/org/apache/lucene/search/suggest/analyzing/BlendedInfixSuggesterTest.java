@@ -253,6 +253,8 @@ argument_list|,
 name|BlendedInfixSuggester
 operator|.
 name|DEFAULT_NUM_FACTOR
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|suggester
@@ -568,6 +570,8 @@ operator|.
 name|POSITION_RECIPROCAL
 argument_list|,
 literal|1
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|suggester
@@ -784,6 +788,8 @@ operator|.
 name|POSITION_RECIPROCAL
 argument_list|,
 literal|1
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|suggester
@@ -920,6 +926,8 @@ operator|.
 name|POSITION_RECIPROCAL
 argument_list|,
 literal|2
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|suggester
@@ -1108,6 +1116,8 @@ argument_list|,
 name|BlendedInfixSuggester
 operator|.
 name|DEFAULT_NUM_FACTOR
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|suggester
