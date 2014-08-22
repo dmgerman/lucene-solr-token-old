@@ -2320,17 +2320,6 @@ operator|.
 name|Code
 operator|.
 name|SESSIONEXPIRED
-operator|||
-name|e
-operator|.
-name|code
-argument_list|()
-operator|==
-name|KeeperException
-operator|.
-name|Code
-operator|.
-name|CONNECTIONLOSS
 condition|)
 block|{
 name|log
