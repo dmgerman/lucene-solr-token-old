@@ -1412,6 +1412,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/** Commits all pending changes made to this suggester to disk.    *    *  @see IndexWriter#commit */
 DECL|method|commit
 specifier|public
 name|void
