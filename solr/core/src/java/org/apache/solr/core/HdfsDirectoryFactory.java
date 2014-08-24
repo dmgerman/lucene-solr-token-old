@@ -747,7 +747,7 @@ name|getBool
 argument_list|(
 name|BLOCKCACHE_WRITE_ENABLED
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
