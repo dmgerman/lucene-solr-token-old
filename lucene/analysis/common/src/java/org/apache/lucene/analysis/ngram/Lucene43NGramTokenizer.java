@@ -27,15 +27,6 @@ import|;
 end_import
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -98,6 +89,7 @@ annotation|@
 name|Deprecated
 DECL|class|Lucene43NGramTokenizer
 specifier|public
+specifier|final
 class|class
 name|Lucene43NGramTokenizer
 extends|extends
