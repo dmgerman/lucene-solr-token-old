@@ -337,7 +337,9 @@ name|tokenizerFactory
 argument_list|(
 name|name
 argument_list|,
-name|TEST_VERSION_CURRENT
+name|Version
+operator|.
+name|LATEST
 argument_list|,
 name|keysAndValues
 argument_list|)
@@ -481,7 +483,9 @@ name|tokenFilterFactory
 argument_list|(
 name|name
 argument_list|,
-name|TEST_VERSION_CURRENT
+name|Version
+operator|.
+name|LATEST
 argument_list|,
 name|keysAndValues
 argument_list|)
@@ -551,7 +555,9 @@ name|charFilterFactory
 argument_list|(
 name|name
 argument_list|,
-name|TEST_VERSION_CURRENT
+name|Version
+operator|.
+name|LATEST
 argument_list|,
 operator|new
 name|ClasspathResourceLoader

@@ -2495,7 +2495,7 @@ init|=
 name|newMockDirectory
 argument_list|()
 decl_stmt|;
-comment|//IndexWriter w = new IndexWriter(dir, newIndexWriterConfig(TEST_VERSION_CURRENT, new MockAnalyzer(random)).setReaderPooling(true));
+comment|//IndexWriter w = new IndexWriter(dir, newIndexWriterConfig(new MockAnalyzer(random)).setReaderPooling(true));
 name|IndexWriter
 name|w
 init|=

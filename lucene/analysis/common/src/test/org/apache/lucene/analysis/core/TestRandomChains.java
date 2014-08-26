@@ -2655,7 +2655,9 @@ parameter_list|)
 block|{
 comment|// we expect bugs in emulating old versions
 return|return
-name|TEST_VERSION_CURRENT
+name|Version
+operator|.
+name|LATEST
 return|;
 block|}
 block|}
