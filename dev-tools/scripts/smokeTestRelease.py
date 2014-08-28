@@ -5214,6 +5214,8 @@ string|"'ivy-versions.properties'"
 op|','
 string|"'ivy-ignore-conflicts.properties'"
 op|','
+string|"'version.properties'"
+op|','
 string|"'backwards'"
 op|','
 string|"'tools'"
