@@ -59,6 +59,19 @@ name|lucene
 operator|.
 name|store
 operator|.
+name|BaseDirectoryWrapper
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
 name|Directory
 import|;
 end_import
@@ -104,12 +117,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Directory
+name|BaseDirectoryWrapper
 name|d
 init|=
 name|newDirectory
 argument_list|()
 decl_stmt|;
+name|d
+operator|.
+name|setCheckIndexOnClose
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// we nuke files, but verify the reader still works
 name|RandomIndexWriter
 name|w
 init|=
@@ -186,6 +207,11 @@ argument_list|()
 decl_stmt|;
 name|w
 operator|.
+name|commit
+argument_list|()
+expr_stmt|;
+name|w
+operator|.
 name|close
 argument_list|()
 expr_stmt|;
@@ -209,6 +235,7 @@ argument_list|(
 name|fileName
 argument_list|)
 expr_stmt|;
+comment|// may succeed, e.g. if the file is completely read into RAM.
 block|}
 catch|catch
 parameter_list|(
