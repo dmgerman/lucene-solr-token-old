@@ -133,8 +133,7 @@ block|{
 name|SolrZooKeeper
 name|zk
 init|=
-operator|new
-name|SolrZooKeeper
+name|createSolrZooKeeper
 argument_list|(
 name|serverAddress
 argument_list|,
@@ -214,8 +213,7 @@ expr_stmt|;
 name|SolrZooKeeper
 name|zk
 init|=
-operator|new
-name|SolrZooKeeper
+name|createSolrZooKeeper
 argument_list|(
 name|serverAddress
 argument_list|,
