@@ -3664,12 +3664,7 @@ name|MockDirectoryWrapper
 condition|)
 block|{
 comment|// ensure we produce enough of our exceptions
-operator|(
-operator|(
-name|MockDirectoryWrapper
-operator|)
 name|dir
-operator|)
 operator|.
 name|setEnableVirusScanner
 argument_list|(
