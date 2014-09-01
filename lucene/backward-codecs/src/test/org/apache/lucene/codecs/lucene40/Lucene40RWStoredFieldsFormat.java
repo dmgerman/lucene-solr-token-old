@@ -77,19 +77,6 @@ operator|.
 name|IOContext
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
 begin_comment
 comment|/**   * Simulates writing Lucene 4.0 Stored Fields Format.  */
 end_comment
@@ -120,24 +107,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-operator|!
-name|LuceneTestCase
-operator|.
-name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
-condition|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"this codec can only be used for reading"
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
 return|return
 operator|new
 name|Lucene40StoredFieldsWriter
@@ -151,7 +120,6 @@ argument_list|,
 name|context
 argument_list|)
 return|;
-block|}
 block|}
 block|}
 end_class

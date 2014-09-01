@@ -423,11 +423,6 @@ init|=
 name|newDirectory
 argument_list|()
 decl_stmt|;
-name|boolean
-name|oldValue
-init|=
-name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
-decl_stmt|;
 comment|// create a segment with an old Codec
 name|IndexWriterConfig
 name|conf
@@ -459,10 +454,6 @@ name|length
 argument_list|)
 index|]
 argument_list|)
-expr_stmt|;
-name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
-operator|=
-literal|true
 expr_stmt|;
 name|IndexWriter
 name|writer
@@ -569,10 +560,6 @@ literal|4L
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
-operator|=
-literal|false
-expr_stmt|;
 try|try
 block|{
 name|writer
@@ -596,13 +583,6 @@ name|writer
 operator|.
 name|rollback
 argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
-operator|=
-name|oldValue
 expr_stmt|;
 block|}
 name|dir
@@ -650,11 +630,6 @@ init|=
 name|newDirectory
 argument_list|()
 decl_stmt|;
-name|boolean
-name|oldValue
-init|=
-name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
-decl_stmt|;
 comment|// create a segment with an old Codec
 name|IndexWriterConfig
 name|conf
@@ -686,10 +661,6 @@ name|length
 argument_list|)
 index|]
 argument_list|)
-expr_stmt|;
-name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
-operator|=
-literal|true
 expr_stmt|;
 name|IndexWriter
 name|writer
@@ -790,10 +761,6 @@ argument_list|,
 literal|4L
 argument_list|)
 expr_stmt|;
-name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
-operator|=
-literal|false
-expr_stmt|;
 try|try
 block|{
 name|writer
@@ -817,13 +784,6 @@ name|writer
 operator|.
 name|rollback
 argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
-operator|=
-name|oldValue
 expr_stmt|;
 block|}
 name|dir

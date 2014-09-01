@@ -342,6 +342,25 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|field
+operator|.
+name|getDocValuesGen
+argument_list|()
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"4.0 does not support dv updates"
+argument_list|)
+throw|;
+block|}
 comment|// examine the values to determine best type to use
 name|long
 name|minValue
@@ -1085,6 +1104,25 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|field
+operator|.
+name|getDocValuesGen
+argument_list|()
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"4.0 does not support dv updates"
+argument_list|)
+throw|;
+block|}
 comment|// examine the values to determine best type to use
 name|HashSet
 argument_list|<
@@ -2659,6 +2697,25 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|field
+operator|.
+name|getDocValuesGen
+argument_list|()
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"4.0 does not support dv updates"
+argument_list|)
+throw|;
+block|}
 comment|// examine the values to determine best type to use
 name|int
 name|minLength

@@ -42,15 +42,6 @@ operator|.
 name|BaseDocValuesFormatTestCase
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|BeforeClass
-import|;
-end_import
 begin_comment
 comment|/**  * Tests Lucene40DocValuesFormat  */
 end_comment
@@ -72,21 +63,6 @@ operator|new
 name|Lucene40RWCodec
 argument_list|()
 decl_stmt|;
-annotation|@
-name|BeforeClass
-DECL|method|beforeClass
-specifier|public
-specifier|static
-name|void
-name|beforeClass
-parameter_list|()
-block|{
-name|OLD_FORMAT_IMPERSONATION_IS_ACTIVE
-operator|=
-literal|true
-expr_stmt|;
-comment|// explicitly instantiates ancient codec
-block|}
 annotation|@
 name|Override
 DECL|method|getCodec
