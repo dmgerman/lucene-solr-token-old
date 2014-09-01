@@ -175,16 +175,6 @@ name|SuppressCodecs
 import|;
 end_import
 begin_class
-annotation|@
-name|SuppressCodecs
-argument_list|(
-block|{
-literal|"Lucene40"
-block|,
-literal|"Lucene41"
-block|}
-argument_list|)
-comment|// avoid codecs that don't support sortedset
 DECL|class|TestSortedSetFieldSource
 specifier|public
 class|class

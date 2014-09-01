@@ -360,15 +360,6 @@ begin_comment
 comment|/** tests BooleanScorer2's minShouldMatch */
 end_comment
 begin_class
-annotation|@
-name|SuppressCodecs
-argument_list|(
-block|{
-literal|"Lucene40"
-block|,
-literal|"Lucene41"
-block|}
-argument_list|)
 DECL|class|TestMinShouldMatch2
 specifier|public
 class|class

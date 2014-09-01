@@ -89,11 +89,6 @@ name|Test
 import|;
 end_import
 begin_class
-annotation|@
-name|SuppressCodecs
-argument_list|(
-literal|"Lucene3x"
-argument_list|)
 DECL|class|TestRangeFacetsExample
 specifier|public
 class|class

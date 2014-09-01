@@ -94,15 +94,6 @@ begin_comment
 comment|// We require sorted set DVs:
 end_comment
 begin_class
-annotation|@
-name|SuppressCodecs
-argument_list|(
-block|{
-literal|"Lucene40"
-block|,
-literal|"Lucene41"
-block|}
-argument_list|)
 DECL|class|TestSimpleSortedSetFacetsExample
 specifier|public
 class|class

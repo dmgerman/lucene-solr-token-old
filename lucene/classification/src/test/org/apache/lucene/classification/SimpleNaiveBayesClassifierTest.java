@@ -175,13 +175,6 @@ begin_comment
 comment|// TODO : eventually remove this if / when fallback methods exist for all un-supportable codec methods (see LUCENE-4872)
 end_comment
 begin_class
-annotation|@
-name|LuceneTestCase
-operator|.
-name|SuppressCodecs
-argument_list|(
-literal|"Lucene3x"
-argument_list|)
 DECL|class|SimpleNaiveBayesClassifierTest
 specifier|public
 class|class
