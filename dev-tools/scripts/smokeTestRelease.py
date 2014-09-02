@@ -5052,8 +5052,6 @@ string|"'ivy-ignore-conflicts.properties'"
 op|','
 string|"'version.properties'"
 op|','
-string|"'backwards'"
-op|','
 string|"'tools'"
 op|','
 string|"'site'"
