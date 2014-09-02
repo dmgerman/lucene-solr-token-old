@@ -3456,12 +3456,6 @@ literal|42
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|defaultCodecSupportsSortedSet
-argument_list|()
-condition|)
-block|{
 name|doc
 operator|.
 name|add
@@ -3496,7 +3490,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|iw
 operator|.
 name|addDocument
@@ -4058,12 +4051,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// SortedSet type: can be retrieved via getDocTermOrds()
-if|if
-condition|(
-name|defaultCodecSupportsSortedSet
-argument_list|()
-condition|)
-block|{
 try|try
 block|{
 name|FieldCache
@@ -4250,7 +4237,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|ir
 operator|.
 name|close

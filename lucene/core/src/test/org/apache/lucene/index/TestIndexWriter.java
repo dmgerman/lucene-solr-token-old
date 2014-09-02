@@ -7289,12 +7289,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|defaultCodecSupportsSortedSet
-argument_list|()
-condition|)
-block|{
 name|doc
 operator|.
 name|add
@@ -7329,13 +7323,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|defaultCodecSupportsSortedNumeric
-argument_list|()
-condition|)
-block|{
 name|doc
 operator|.
 name|add
@@ -7362,7 +7349,6 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|w
 operator|.
 name|addDocument
@@ -7459,12 +7445,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|defaultCodecSupportsSortedSet
-argument_list|()
-condition|)
-block|{
 name|doc
 operator|.
 name|add
@@ -7499,13 +7479,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|defaultCodecSupportsSortedNumeric
-argument_list|()
-condition|)
-block|{
 name|doc
 operator|.
 name|add
@@ -7532,7 +7505,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|w
 operator|.
 name|addDocument
@@ -7791,12 +7763,6 @@ argument_list|(
 name|sortedDVField
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|defaultCodecSupportsSortedSet
-argument_list|()
-condition|)
-block|{
 name|doc
 operator|.
 name|add
@@ -7804,7 +7770,6 @@ argument_list|(
 name|sortedSetDVField
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|int
@@ -18505,26 +18470,11 @@ operator|.
 name|getId
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|defaultCodecSupportsSegmentIds
-argument_list|()
-condition|)
-block|{
 name|assertNotNull
 argument_list|(
 name|id2
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|assertNull
-argument_list|(
-name|id2
-argument_list|)
-expr_stmt|;
-block|}
 comment|// Make sure CheckIndex includes id output:
 name|ByteArrayOutputStream
 name|bos
@@ -18629,13 +18579,6 @@ name|id1
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Per-segment id may or may not be stored depending on the codec:
-if|if
-condition|(
-name|defaultCodecSupportsSegmentIds
-argument_list|()
-condition|)
-block|{
 name|assertTrue
 argument_list|(
 literal|"missing id="
@@ -18656,24 +18599,6 @@ name|id2
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|assertTrue
-argument_list|(
-literal|"missing id=null in:\n"
-operator|+
-name|s
-argument_list|,
-name|s
-operator|.
-name|contains
-argument_list|(
-literal|"id=null"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 name|d
 operator|.
 name|close

@@ -327,21 +327,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|SuppressCodecs
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|AfterClass
@@ -360,15 +345,6 @@ begin_comment
 comment|/** tests BooleanScorer2's minShouldMatch */
 end_comment
 begin_class
-annotation|@
-name|SuppressCodecs
-argument_list|(
-block|{
-literal|"Lucene40"
-block|,
-literal|"Lucene41"
-block|}
-argument_list|)
 DECL|class|TestMinShouldMatch2
 specifier|public
 class|class

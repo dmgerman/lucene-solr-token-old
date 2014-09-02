@@ -4985,6 +4985,8 @@ op|'='
 op|'('
 string|"'analysis'"
 op|','
+string|"'backward-codecs'"
+op|','
 string|"'benchmark'"
 op|','
 string|"'classification'"

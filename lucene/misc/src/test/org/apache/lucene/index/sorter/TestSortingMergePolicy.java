@@ -980,12 +980,6 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|defaultCodecSupportsFieldUpdates
-argument_list|()
-condition|)
-block|{
 comment|// update NDV of docs belonging to one term (covers many documents)
 specifier|final
 name|long
@@ -1049,7 +1043,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-block|}
 name|iw1
 operator|.
 name|forceMerge
