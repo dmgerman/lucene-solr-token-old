@@ -229,17 +229,17 @@ argument_list|(
 literal|"Lucene41"
 argument_list|)
 decl_stmt|;
-DECL|field|pulsingFormat
+DECL|field|memoryFormat
 specifier|private
 specifier|final
 name|PostingsFormat
-name|pulsingFormat
+name|memoryFormat
 init|=
 name|PostingsFormat
 operator|.
 name|forName
 argument_list|(
-literal|"Pulsing41"
+literal|"Memory"
 argument_list|)
 decl_stmt|;
 annotation|@
@@ -271,7 +271,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|pulsingFormat
+name|memoryFormat
 return|;
 block|}
 elseif|else
@@ -408,7 +408,7 @@ name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// uses pulsing codec:
+comment|// uses memory codec:
 name|Field
 name|field2
 init|=
@@ -416,7 +416,7 @@ name|newTextField
 argument_list|(
 literal|"field2"
 argument_list|,
-literal|"this field uses the pulsing codec as the test"
+literal|"this field uses the memory codec as the test"
 argument_list|,
 name|Field
 operator|.
@@ -612,7 +612,7 @@ name|Term
 argument_list|(
 literal|"field2"
 argument_list|,
-literal|"pulsing"
+literal|"memory"
 argument_list|)
 argument_list|)
 argument_list|,
@@ -780,7 +780,7 @@ name|Term
 argument_list|(
 literal|"field2"
 argument_list|,
-literal|"pulsing"
+literal|"memory"
 argument_list|)
 argument_list|)
 argument_list|,

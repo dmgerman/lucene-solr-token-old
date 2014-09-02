@@ -4346,7 +4346,7 @@ name|int
 name|flags
 parameter_list|)
 block|{
-comment|// TODO: implement reuse, something like Pulsing:
+comment|// TODO: implement reuse
 comment|// it's hairy!
 if|if
 condition|(
@@ -4707,7 +4707,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|// TODO: implement reuse, something like Pulsing:
+comment|// TODO: implement reuse
 comment|// it's hairy!
 if|if
 condition|(
@@ -6954,7 +6954,7 @@ name|int
 name|flags
 parameter_list|)
 block|{
-comment|// TODO: implement reuse, something like Pulsing:
+comment|// TODO: implement reuse
 comment|// it's hairy!
 if|if
 condition|(
@@ -7131,7 +7131,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|// TODO: implement reuse, something like Pulsing:
+comment|// TODO: implement reuse
 comment|// it's hairy!
 if|if
 condition|(
