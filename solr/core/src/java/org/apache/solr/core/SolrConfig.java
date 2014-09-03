@@ -1796,6 +1796,8 @@ argument_list|,
 name|ParamSet
 operator|.
 name|TYPE
+argument_list|,
+name|MULTI_OK
 argument_list|)
 expr_stmt|;
 name|List
