@@ -647,6 +647,12 @@ condition|(
 name|appends
 condition|)
 block|{
+if|if
+condition|(
+name|second
+operator|!=
+literal|null
+condition|)
 name|nl
 operator|.
 name|addAll
