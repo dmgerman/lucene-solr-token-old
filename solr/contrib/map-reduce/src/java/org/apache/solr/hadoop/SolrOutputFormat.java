@@ -83,6 +83,17 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -1109,10 +1120,15 @@ comment|// Store the files in the existing, allowed
 comment|// directory configDir, in the list of files
 comment|// to store in the zip file
 block|}
+name|Files
+operator|.
+name|deleteIfExists
+argument_list|(
 name|out
 operator|.
-name|delete
+name|toPath
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|int
 name|subst

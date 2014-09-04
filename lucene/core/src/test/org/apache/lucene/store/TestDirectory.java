@@ -80,6 +80,19 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|IOUtils
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|TestUtil
 import|;
 end_import
@@ -776,7 +789,7 @@ name|isOpen
 argument_list|)
 expr_stmt|;
 block|}
-name|TestUtil
+name|IOUtils
 operator|.
 name|rm
 argument_list|(
@@ -855,7 +868,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|TestUtil
+name|IOUtils
 operator|.
 name|rm
 argument_list|(
@@ -963,7 +976,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|TestUtil
+name|IOUtils
 operator|.
 name|rm
 argument_list|(

@@ -424,7 +424,7 @@ condition|)
 block|{
 try|try
 block|{
-name|TestUtil
+name|IOUtils
 operator|.
 name|rm
 argument_list|(

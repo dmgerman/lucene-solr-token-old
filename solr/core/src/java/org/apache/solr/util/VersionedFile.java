@@ -56,7 +56,27 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
 import|;
 end_import
 begin_import
@@ -432,11 +452,28 @@ control|)
 block|{
 try|try
 block|{
+try|try
+block|{
+name|Files
+operator|.
+name|deleteIfExists
+argument_list|(
 name|df
 operator|.
-name|delete
+name|toPath
 argument_list|()
+argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|cause
+parameter_list|)
+block|{
+comment|// TODO: should this class care if a file couldnt be deleted?
+comment|// this just emulates previous behavior, where only SecurityException would be handled.
+block|}
 comment|// deleteList.remove(df);
 name|deleted
 operator|.

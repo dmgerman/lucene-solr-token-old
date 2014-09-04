@@ -49,6 +49,17 @@ name|nio
 operator|.
 name|file
 operator|.
+name|Files
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
 name|NoSuchFileException
 import|;
 end_import
@@ -275,6 +286,19 @@ operator|.
 name|util
 operator|.
 name|BytesRef
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IOUtils
 import|;
 end_import
 begin_import
@@ -3230,7 +3254,7 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// Try to erase the data - this ensures that the writer closed all files
-name|TestUtil
+name|IOUtils
 operator|.
 name|rm
 argument_list|(
@@ -3317,7 +3341,7 @@ argument_list|()
 expr_stmt|;
 comment|// The following will fail if reader did not close
 comment|// all files
-name|TestUtil
+name|IOUtils
 operator|.
 name|rm
 argument_list|(
@@ -3374,10 +3398,15 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
-name|dirFile
+name|Files
 operator|.
 name|delete
+argument_list|(
+name|dirFile
+operator|.
+name|toPath
 argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// Make sure we still get a CorruptIndexException (not NPE):
 try|try
@@ -5135,7 +5164,7 @@ argument_list|(
 literal|"doesnotexist"
 argument_list|)
 decl_stmt|;
-name|TestUtil
+name|IOUtils
 operator|.
 name|rm
 argument_list|(
@@ -7419,10 +7448,15 @@ argument_list|(
 literal|"testIndexExistsOnNonExistentDirectory"
 argument_list|)
 decl_stmt|;
-name|tempDir
+name|Files
 operator|.
 name|delete
+argument_list|(
+name|tempDir
+operator|.
+name|toPath
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|Directory
 name|dir

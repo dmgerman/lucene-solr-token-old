@@ -98,6 +98,17 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -691,23 +702,16 @@ argument_list|,
 name|name
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|file
+name|Files
 operator|.
 name|delete
-argument_list|()
-condition|)
-throw|throw
-operator|new
-name|IOException
 argument_list|(
-literal|"Cannot delete "
-operator|+
 name|file
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
-throw|;
+expr_stmt|;
 name|staleFiles
 operator|.
 name|remove
@@ -796,29 +800,17 @@ argument_list|,
 name|name
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|file
+name|Files
 operator|.
-name|exists
-argument_list|()
-operator|&&
-operator|!
-name|file
-operator|.
-name|delete
-argument_list|()
-condition|)
-comment|// delete existing, if any
-throw|throw
-operator|new
-name|IOException
+name|deleteIfExists
 argument_list|(
-literal|"Cannot overwrite: "
-operator|+
 name|file
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
-throw|;
+expr_stmt|;
+comment|// delete existing, if any
 block|}
 comment|/**    * Sub classes should call this method on closing an open {@link IndexOutput}, reporting the name of the file    * that was closed. {@code FSDirectory} needs this information to take care of syncing stale files.    */
 DECL|method|onIndexOutputClosed

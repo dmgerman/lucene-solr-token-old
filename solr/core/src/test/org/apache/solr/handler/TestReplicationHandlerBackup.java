@@ -1237,7 +1237,15 @@ operator|!
 name|namedBackup
 condition|)
 block|{
-name|TestUtil
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IOUtils
 operator|.
 name|rm
 argument_list|(
