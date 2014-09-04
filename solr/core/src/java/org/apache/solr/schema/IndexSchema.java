@@ -3169,7 +3169,7 @@ literal|". Schema file is "
 operator|+
 name|loader
 operator|.
-name|getInstanceDir
+name|getConfigDir
 argument_list|()
 operator|+
 name|resourceName
@@ -3204,7 +3204,7 @@ literal|". Schema file is "
 operator|+
 name|loader
 operator|.
-name|getInstanceDir
+name|getConfigDir
 argument_list|()
 operator|+
 name|resourceName
