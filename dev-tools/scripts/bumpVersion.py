@@ -1688,7 +1688,7 @@ name|'majorminor'
 newline|'\n'
 name|'backcompat_dir'
 op|'='
-string|"'lucene/backwards-codecs'"
+string|"'lucene/backward-codecs'"
 name|'if'
 name|'on_trunk'
 name|'else'
@@ -2023,7 +2023,7 @@ op|')'
 newline|'\n'
 name|'basedir'
 op|'='
-string|"'lucene/backwards-codecs'"
+string|"'lucene/backward-codecs'"
 name|'if'
 name|'on_trunk'
 name|'else'
@@ -2432,7 +2432,7 @@ op|')'
 newline|'\n'
 name|'basedir'
 op|'='
-string|"'lucene/backwards-codecs'"
+string|"'lucene/backward-codecs'"
 name|'if'
 name|'on_trunk'
 name|'else'
@@ -2630,7 +2630,7 @@ name|'print'
 op|'('
 string|"'\\nMerging downstream change %d...'"
 op|'%'
-name|'changid'
+name|'changeid'
 op|','
 name|'end'
 op|'='
