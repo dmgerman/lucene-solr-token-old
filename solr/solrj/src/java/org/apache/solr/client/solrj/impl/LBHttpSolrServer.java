@@ -1992,7 +1992,9 @@ operator|.
 name|incrementAndGet
 argument_list|()
 operator|&
-literal|0x7FFFFFF
+name|Integer
+operator|.
+name|MAX_VALUE
 decl_stmt|;
 name|ServerWrapper
 name|wrapper
