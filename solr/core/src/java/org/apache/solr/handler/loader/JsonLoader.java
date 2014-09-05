@@ -1149,7 +1149,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"/*"
+literal|"/**"
 block|}
 expr_stmt|;
 specifier|final
