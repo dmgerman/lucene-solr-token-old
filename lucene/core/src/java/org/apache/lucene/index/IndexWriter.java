@@ -5960,11 +5960,6 @@ name|changeCount
 expr_stmt|;
 name|deleter
 operator|.
-name|refresh
-argument_list|()
-expr_stmt|;
-name|deleter
-operator|.
 name|close
 argument_list|()
 expr_stmt|;
