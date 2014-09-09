@@ -1845,7 +1845,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|docs
+name|base
 argument_list|,
 name|calcDistinct
 argument_list|,
