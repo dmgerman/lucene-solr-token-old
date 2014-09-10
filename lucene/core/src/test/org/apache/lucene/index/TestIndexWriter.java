@@ -7634,6 +7634,13 @@ argument_list|(
 literal|2
 argument_list|)
 decl_stmt|;
+name|conf
+operator|.
+name|setInfoStream
+argument_list|(
+name|log
+argument_list|)
+expr_stmt|;
 name|w
 operator|=
 operator|new
@@ -7785,6 +7792,15 @@ name|i
 operator|++
 control|)
 block|{
+name|log
+operator|.
+name|println
+argument_list|(
+literal|"\nTEST: i="
+operator|+
+name|i
+argument_list|)
+expr_stmt|;
 name|idField
 operator|.
 name|setStringValue
