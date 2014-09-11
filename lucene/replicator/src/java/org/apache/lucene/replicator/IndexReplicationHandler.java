@@ -163,19 +163,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|SegmentInfos
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|replicator
 operator|.
 name|ReplicationClient
@@ -447,7 +434,7 @@ name|equals
 argument_list|(
 name|IndexFileNames
 operator|.
-name|SEGMENTS_GEN
+name|OLD_SEGMENTS_GEN
 argument_list|)
 condition|)
 block|{
@@ -571,15 +558,6 @@ name|commit
 operator|.
 name|getFileNames
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|commitFiles
-operator|.
-name|add
-argument_list|(
-name|IndexFileNames
-operator|.
-name|SEGMENTS_GEN
 argument_list|)
 expr_stmt|;
 name|Matcher
@@ -744,57 +722,6 @@ name|READONCE
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-comment|/**    * Writes {@link IndexFileNames#SEGMENTS_GEN} file to the directory, reading    * the generation from the given {@code segmentsFile}. If it is {@code null},    * this method deletes segments.gen from the directory.    */
-DECL|method|writeSegmentsGen
-specifier|public
-specifier|static
-name|void
-name|writeSegmentsGen
-parameter_list|(
-name|String
-name|segmentsFile
-parameter_list|,
-name|Directory
-name|dir
-parameter_list|)
-block|{
-if|if
-condition|(
-name|segmentsFile
-operator|!=
-literal|null
-condition|)
-block|{
-name|SegmentInfos
-operator|.
-name|writeSegmentsGen
-argument_list|(
-name|dir
-argument_list|,
-name|SegmentInfos
-operator|.
-name|generationFromSegmentsFileName
-argument_list|(
-name|segmentsFile
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|IOUtils
-operator|.
-name|deleteFilesIgnoringExceptions
-argument_list|(
-name|dir
-argument_list|,
-name|IndexFileNames
-operator|.
-name|SEGMENTS_GEN
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 comment|/**    * Constructor with the given index directory and callback to notify when the    * indexes were updated.    */
@@ -1079,6 +1006,13 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+name|String
+name|pendingSegmentsFile
+init|=
+literal|"pending_"
+operator|+
+name|segmentsFile
+decl_stmt|;
 name|boolean
 name|success
 init|=
@@ -1104,7 +1038,7 @@ argument_list|(
 name|files
 argument_list|)
 expr_stmt|;
-comment|// now copy and fsync segmentsFile
+comment|// now copy and fsync segmentsFile as pending, then rename (simulating lucene commit)
 name|clientDir
 operator|.
 name|copy
@@ -1113,7 +1047,7 @@ name|indexDir
 argument_list|,
 name|segmentsFile
 argument_list|,
-name|segmentsFile
+name|pendingSegmentsFile
 argument_list|,
 name|IOContext
 operator|.
@@ -1128,8 +1062,17 @@ name|Collections
 operator|.
 name|singletonList
 argument_list|(
-name|segmentsFile
+name|pendingSegmentsFile
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|indexDir
+operator|.
+name|renameFile
+argument_list|(
+name|pendingSegmentsFile
+argument_list|,
+name|segmentsFile
 argument_list|)
 expr_stmt|;
 name|success
@@ -1153,6 +1096,13 @@ name|segmentsFile
 argument_list|)
 expr_stmt|;
 comment|// add it back so it gets deleted too
+name|files
+operator|.
+name|add
+argument_list|(
+name|pendingSegmentsFile
+argument_list|)
+expr_stmt|;
 name|cleanupFilesOnFailure
 argument_list|(
 name|indexDir
@@ -1197,14 +1147,6 @@ name|currentRevisionFiles
 argument_list|)
 expr_stmt|;
 block|}
-comment|// update the segments.gen file
-name|writeSegmentsGen
-argument_list|(
-name|segmentsFile
-argument_list|,
-name|indexDir
-argument_list|)
-expr_stmt|;
 comment|// Cleanup the index directory from old and unused index files.
 comment|// NOTE: we don't use IndexWriter.deleteUnusedFiles here since it may have
 comment|// side-effects, e.g. if it hits sudden IO errors while opening the index

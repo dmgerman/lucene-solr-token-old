@@ -512,16 +512,6 @@ argument_list|(
 literal|"write.lock"
 argument_list|)
 operator|&&
-operator|!
-name|fileName
-operator|.
-name|equals
-argument_list|(
-name|IndexFileNames
-operator|.
-name|SEGMENTS_GEN
-argument_list|)
-operator|&&
 operator|(
 name|m
 operator|.
@@ -535,6 +525,15 @@ argument_list|(
 name|IndexFileNames
 operator|.
 name|SEGMENTS
+argument_list|)
+operator|||
+name|fileName
+operator|.
+name|startsWith
+argument_list|(
+name|IndexFileNames
+operator|.
+name|PENDING_SEGMENTS
 argument_list|)
 operator|)
 condition|)
@@ -554,6 +553,16 @@ argument_list|(
 name|IndexFileNames
 operator|.
 name|SEGMENTS
+argument_list|)
+operator|&&
+operator|!
+name|fileName
+operator|.
+name|equals
+argument_list|(
+name|IndexFileNames
+operator|.
+name|OLD_SEGMENTS_GEN
 argument_list|)
 condition|)
 block|{
@@ -886,7 +895,7 @@ argument_list|(
 name|commits
 argument_list|)
 expr_stmt|;
-comment|// refCounts only includes "normal" filenames (does not include segments.gen, write.lock)
+comment|// refCounts only includes "normal" filenames (does not include write.lock)
 name|inflateGens
 argument_list|(
 name|segmentInfos
@@ -1079,7 +1088,7 @@ name|equals
 argument_list|(
 name|IndexFileNames
 operator|.
-name|SEGMENTS_GEN
+name|OLD_SEGMENTS_GEN
 argument_list|)
 operator|||
 name|fileName
@@ -1133,6 +1142,52 @@ name|ignore
 parameter_list|)
 block|{
 comment|// trash file: we have to handle this since we allow anything starting with 'segments' here
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|fileName
+operator|.
+name|startsWith
+argument_list|(
+name|IndexFileNames
+operator|.
+name|PENDING_SEGMENTS
+argument_list|)
+condition|)
+block|{
+try|try
+block|{
+name|maxSegmentGen
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|SegmentInfos
+operator|.
+name|generationFromSegmentsFileName
+argument_list|(
+name|fileName
+operator|.
+name|substring
+argument_list|(
+literal|8
+argument_list|)
+argument_list|)
+argument_list|,
+name|maxSegmentGen
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|ignore
+parameter_list|)
+block|{
+comment|// trash file: we have to handle this since we allow anything starting with 'pending_segments' here
 block|}
 block|}
 else|else
@@ -1804,7 +1859,6 @@ block|}
 block|}
 comment|/**    * Writer calls this when it has hit an error and had to    * roll back, to tell us that there may now be    * unreferenced files in the filesystem.  So we re-list    * the filesystem and delete such files.  If segmentName    * is non-null, we will only delete files corresponding to    * that segment.    */
 DECL|method|refresh
-specifier|public
 name|void
 name|refresh
 parameter_list|(
@@ -1946,16 +2000,6 @@ argument_list|(
 name|fileName
 argument_list|)
 operator|&&
-operator|!
-name|fileName
-operator|.
-name|equals
-argument_list|(
-name|IndexFileNames
-operator|.
-name|SEGMENTS_GEN
-argument_list|)
-operator|&&
 operator|(
 name|m
 operator|.
@@ -1970,6 +2014,24 @@ name|IndexFileNames
 operator|.
 name|SEGMENTS
 argument_list|)
+comment|// we only try to clear out pending_segments_N during rollback(), because we don't ref-count it
+comment|// TODO: this is sneaky, should we do this, or change TestIWExceptions? rollback closes anyway, and
+comment|// any leftover file will be deleted/retried on next IW bootup anyway...
+operator|||
+operator|(
+name|segmentName
+operator|==
+literal|null
+operator|&&
+name|fileName
+operator|.
+name|startsWith
+argument_list|(
+name|IndexFileNames
+operator|.
+name|PENDING_SEGMENTS
+argument_list|)
+operator|)
 operator|)
 condition|)
 block|{
@@ -2011,7 +2073,6 @@ block|}
 block|}
 block|}
 DECL|method|refresh
-specifier|public
 name|void
 name|refresh
 parameter_list|()

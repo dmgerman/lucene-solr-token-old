@@ -440,7 +440,7 @@ name|equals
 argument_list|(
 name|IndexFileNames
 operator|.
-name|SEGMENTS_GEN
+name|OLD_SEGMENTS_GEN
 argument_list|)
 operator|&&
 name|SegmentInfos
@@ -613,15 +613,6 @@ operator|.
 name|startsWith
 argument_list|(
 name|prefix
-argument_list|)
-operator|||
-name|file
-operator|.
-name|equals
-argument_list|(
-name|IndexFileNames
-operator|.
-name|SEGMENTS_GEN
 argument_list|)
 condition|)
 block|{
