@@ -2867,7 +2867,7 @@ name|add
 argument_list|(
 literal|"rq"
 argument_list|,
-literal|"{!rerank reRankQuery=$rqq reRankDocs=6 reRankWeight=2}"
+literal|"{!rerank reRankQuery=$rqq reRankDocs=11 reRankWeight=2}"
 argument_list|)
 expr_stmt|;
 name|params
