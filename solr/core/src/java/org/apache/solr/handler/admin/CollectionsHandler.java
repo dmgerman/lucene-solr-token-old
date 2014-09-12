@@ -133,6 +133,21 @@ name|cloud
 operator|.
 name|OverseerCollectionProcessor
 operator|.
+name|REPLICATION_FACTOR
+import|;
+end_import
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|cloud
+operator|.
+name|OverseerCollectionProcessor
+operator|.
 name|REQUESTID
 import|;
 end_import
@@ -592,6 +607,21 @@ operator|.
 name|cloud
 operator|.
 name|ClusterState
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|common
+operator|.
+name|cloud
+operator|.
+name|DocCollection
 import|;
 end_import
 begin_import
@@ -3245,8 +3275,6 @@ name|props
 argument_list|,
 literal|"name"
 argument_list|,
-name|ZkStateReader
-operator|.
 name|REPLICATION_FACTOR
 argument_list|,
 name|COLL_CONF
@@ -3260,6 +3288,10 @@ argument_list|,
 name|SHARDS_PROP
 argument_list|,
 name|ASYNC
+argument_list|,
+name|DocCollection
+operator|.
+name|STATE_FORMAT
 argument_list|,
 name|AUTO_ADD_REPLICAS
 argument_list|,
@@ -4738,6 +4770,18 @@ parameter_list|()
 block|{
 return|return
 literal|"Manage SolrCloud Collections"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getSource
+specifier|public
+name|String
+name|getSource
+parameter_list|()
+block|{
+return|return
+literal|"$URL: https://svn.apache.org/repos/asf/lucene/dev/trunk/solr/core/src/java/org/apache/solr/handler/admin/CollectionHandler.java $"
 return|;
 block|}
 block|}
