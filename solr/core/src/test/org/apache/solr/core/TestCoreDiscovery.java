@@ -189,6 +189,9 @@ name|solrHomeDirectory
 init|=
 name|createTempDir
 argument_list|()
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 DECL|method|setMeUp
 specifier|private
@@ -1133,6 +1136,9 @@ name|alt
 init|=
 name|createTempDir
 argument_list|()
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|setMeUp
 argument_list|(
@@ -1265,6 +1271,9 @@ name|File
 name|noCoreDir
 init|=
 name|createTempDir
+argument_list|()
+operator|.
+name|toFile
 argument_list|()
 decl_stmt|;
 name|setMeUp

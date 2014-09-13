@@ -36,6 +36,17 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -7350,7 +7361,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|File
+name|Path
 name|path
 init|=
 name|createTempDir
@@ -7638,7 +7649,7 @@ name|iter
 operator|++
 control|)
 block|{
-name|File
+name|Path
 name|path
 init|=
 name|createTempDir

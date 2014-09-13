@@ -18,9 +18,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 begin_import
@@ -339,7 +341,7 @@ block|{
 comment|// sometimes the directory is not cleaned by rmDir, because on Windows it
 comment|// may take some time until the files are finally dereferenced. So clean the
 comment|// directory up front, or otherwise new IndexWriter will fail.
-name|File
+name|Path
 name|dirPath
 init|=
 name|createTempDir

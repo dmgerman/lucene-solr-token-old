@@ -67,6 +67,17 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collection
@@ -246,7 +257,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|Directory
+name|BaseDirectoryWrapper
 import|;
 end_import
 begin_import
@@ -259,7 +270,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|NoSuchDirectoryException
+name|Directory
 import|;
 end_import
 begin_import
@@ -3201,7 +3212,7 @@ throws|throws
 name|IOException
 block|{
 comment|// Create initial data set
-name|File
+name|Path
 name|dirFile
 init|=
 name|createTempDir
@@ -3357,7 +3368,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|File
+name|Path
 name|dirFile
 init|=
 name|createTempDir
@@ -3373,6 +3384,27 @@ argument_list|(
 name|dirFile
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|dir
+operator|instanceof
+name|BaseDirectoryWrapper
+condition|)
+block|{
+operator|(
+operator|(
+name|BaseDirectoryWrapper
+operator|)
+name|dir
+operator|)
+operator|.
+name|setCheckIndexOnClose
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// we will hit NoSuchFileException in MDW since we nuked it!
+block|}
 try|try
 block|{
 name|DirectoryReader
@@ -3403,9 +3435,6 @@ operator|.
 name|delete
 argument_list|(
 name|dirFile
-operator|.
-name|toPath
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Make sure we still get a CorruptIndexException (not NPE):
@@ -5156,7 +5185,7 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
-name|File
+name|Path
 name|tempDir
 init|=
 name|createTempDir
@@ -5196,7 +5225,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|NoSuchDirectoryException
+name|IndexNotFoundException
 name|nsde
 parameter_list|)
 block|{
@@ -7440,7 +7469,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|File
+name|Path
 name|tempDir
 init|=
 name|createTempDir
@@ -7453,9 +7482,6 @@ operator|.
 name|delete
 argument_list|(
 name|tempDir
-operator|.
-name|toPath
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|Directory

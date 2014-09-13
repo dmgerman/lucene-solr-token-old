@@ -224,6 +224,9 @@ name|solrHomeDirectory
 init|=
 name|createTempDir
 argument_list|()
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 DECL|field|schemaFile
 specifier|private

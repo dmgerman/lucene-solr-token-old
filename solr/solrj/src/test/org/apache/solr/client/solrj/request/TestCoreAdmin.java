@@ -487,6 +487,9 @@ operator|.
 name|getSimpleName
 argument_list|()
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|File
 name|newCoreInstanceDir
@@ -614,6 +617,9 @@ name|createTempDir
 argument_list|(
 literal|"data"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|File
 name|newCoreInstanceDir
@@ -622,6 +628,9 @@ name|createTempDir
 argument_list|(
 literal|"instance"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|File
 name|instanceDir

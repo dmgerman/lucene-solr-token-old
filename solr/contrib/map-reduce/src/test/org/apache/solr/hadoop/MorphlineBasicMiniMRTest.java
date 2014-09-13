@@ -731,6 +731,9 @@ name|solrHomeDirectory
 operator|=
 name|createTempDir
 argument_list|()
+operator|.
+name|toFile
+argument_list|()
 expr_stmt|;
 name|assumeTrue
 argument_list|(
@@ -826,6 +829,9 @@ name|File
 name|dataDir
 init|=
 name|createTempDir
+argument_list|()
+operator|.
+name|toFile
 argument_list|()
 decl_stmt|;
 name|tempDir

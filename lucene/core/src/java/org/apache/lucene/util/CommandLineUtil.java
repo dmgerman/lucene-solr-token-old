@@ -18,15 +18,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|lang
 operator|.
 name|reflect
@@ -43,6 +34,17 @@ operator|.
 name|reflect
 operator|.
 name|InvocationTargetException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
 import|;
 end_import
 begin_import
@@ -86,7 +88,7 @@ specifier|private
 name|CommandLineUtil
 parameter_list|()
 block|{        }
-comment|/**    * Creates a specific FSDirectory instance starting from its class name    * @param clazzName The name of the FSDirectory class to load    * @param file The file to be used as parameter constructor    * @return the new FSDirectory instance    */
+comment|/**    * Creates a specific FSDirectory instance starting from its class name    * @param clazzName The name of the FSDirectory class to load    * @param path The path to be used as parameter constructor    * @return the new FSDirectory instance    */
 DECL|method|newFSDirectory
 specifier|public
 specifier|static
@@ -96,8 +98,8 @@ parameter_list|(
 name|String
 name|clazzName
 parameter_list|,
-name|File
-name|file
+name|Path
+name|path
 parameter_list|)
 block|{
 try|try
@@ -121,7 +123,7 @@ name|newFSDirectory
 argument_list|(
 name|clazz
 argument_list|,
-name|file
+name|path
 argument_list|)
 return|;
 block|}
@@ -191,7 +193,7 @@ name|clazzName
 operator|+
 literal|" constructor with "
 operator|+
-name|File
+name|Path
 operator|.
 name|class
 operator|.
@@ -378,7 +380,7 @@ return|return
 name|clazzName
 return|;
 block|}
-comment|/**    * Creates a new specific FSDirectory instance    * @param clazz The class of the object to be created    * @param file The file to be used as parameter constructor    * @return The new FSDirectory instance    * @throws NoSuchMethodException If the Directory does not have a constructor that takes<code>File</code>.    * @throws InstantiationException If the class is abstract or an interface.    * @throws IllegalAccessException If the constructor does not have public visibility.    * @throws InvocationTargetException If the constructor throws an exception    */
+comment|/**    * Creates a new specific FSDirectory instance    * @param clazz The class of the object to be created    * @param path The file to be used as parameter constructor    * @return The new FSDirectory instance    * @throws NoSuchMethodException If the Directory does not have a constructor that takes<code>Path</code>.    * @throws InstantiationException If the class is abstract or an interface.    * @throws IllegalAccessException If the constructor does not have public visibility.    * @throws InvocationTargetException If the constructor throws an exception    */
 DECL|method|newFSDirectory
 specifier|public
 specifier|static
@@ -393,8 +395,8 @@ name|FSDirectory
 argument_list|>
 name|clazz
 parameter_list|,
-name|File
-name|file
+name|Path
+name|path
 parameter_list|)
 throws|throws
 name|NoSuchMethodException
@@ -405,7 +407,7 @@ name|IllegalAccessException
 throws|,
 name|InvocationTargetException
 block|{
-comment|// Assuming every FSDirectory has a ctor(File):
+comment|// Assuming every FSDirectory has a ctor(Path):
 name|Constructor
 argument_list|<
 name|?
@@ -418,7 +420,7 @@ name|clazz
 operator|.
 name|getConstructor
 argument_list|(
-name|File
+name|Path
 operator|.
 name|class
 argument_list|)
@@ -428,7 +430,7 @@ name|ctor
 operator|.
 name|newInstance
 argument_list|(
-name|file
+name|path
 argument_list|)
 return|;
 block|}

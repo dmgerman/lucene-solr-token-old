@@ -168,6 +168,9 @@ argument_list|(
 literal|"zkData"
 argument_list|)
 operator|.
+name|toFile
+argument_list|()
+operator|.
 name|getAbsolutePath
 argument_list|()
 decl_stmt|;
@@ -178,6 +181,9 @@ name|createTempDir
 argument_list|(
 literal|"testLeaderElectionWithZkExpiry-solr"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 operator|.
 name|getAbsolutePath
 argument_list|()

@@ -179,6 +179,9 @@ name|solrHome
 operator|=
 name|createTempDir
 argument_list|()
+operator|.
+name|toFile
+argument_list|()
 expr_stmt|;
 name|solrHome
 operator|=

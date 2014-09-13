@@ -371,6 +371,9 @@ name|createTempDir
 argument_list|(
 literal|"_testSplit1"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 expr_stmt|;
 name|indexDir2
 operator|=
@@ -378,6 +381,9 @@ name|createTempDir
 argument_list|(
 literal|"_testSplit2"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 expr_stmt|;
 name|indexDir3
 operator|=
@@ -385,6 +391,9 @@ name|createTempDir
 argument_list|(
 literal|"_testSplit3"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -1994,6 +2003,9 @@ name|File
 name|indexDir
 init|=
 name|createTempDir
+argument_list|()
+operator|.
+name|toFile
 argument_list|()
 decl_stmt|;
 name|CompositeIdRouter

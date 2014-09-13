@@ -162,6 +162,9 @@ name|File
 argument_list|(
 name|path
 argument_list|)
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -365,6 +368,9 @@ operator|)
 operator|.
 name|getDirectory
 argument_list|()
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|File
 name|dir2
@@ -377,6 +383,9 @@ name|baseToDir
 operator|)
 operator|.
 name|getDirectory
+argument_list|()
+operator|.
+name|toFile
 argument_list|()
 decl_stmt|;
 name|File

@@ -309,6 +309,9 @@ name|createTempDir
 argument_list|(
 literal|"core-home"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|FileUtils
 operator|.
@@ -359,6 +362,9 @@ name|createTempDir
 argument_list|(
 literal|"dih-properties"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|System
 operator|.
@@ -539,6 +545,9 @@ name|File
 name|tempFile
 init|=
 name|createTempFile
+argument_list|()
+operator|.
+name|toFile
 argument_list|()
 decl_stmt|;
 name|di

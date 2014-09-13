@@ -442,6 +442,9 @@ operator|.
 name|getSimpleName
 argument_list|()
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|spellchecker
 operator|.
@@ -798,6 +801,9 @@ name|File
 name|indexDir
 init|=
 name|createTempDir
+argument_list|()
+operator|.
+name|toFile
 argument_list|()
 decl_stmt|;
 name|indexDir

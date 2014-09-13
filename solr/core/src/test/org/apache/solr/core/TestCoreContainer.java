@@ -412,6 +412,9 @@ name|createTempDir
 argument_list|(
 name|dirName
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 expr_stmt|;
 name|FileUtils
 operator|.
@@ -770,6 +773,9 @@ name|File
 name|solrHomeDirectory
 init|=
 name|createTempDir
+argument_list|()
+operator|.
+name|toFile
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -1137,6 +1143,9 @@ name|createTempDir
 argument_list|(
 literal|"_deleteBadCores"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 expr_stmt|;
 name|SolrResourceLoader
 name|resourceLoader
@@ -1469,6 +1478,9 @@ name|createTempDir
 argument_list|(
 literal|"testSharedLib"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|File
 name|lib
@@ -1932,6 +1944,9 @@ name|createTempDir
 argument_list|(
 literal|"_customHandlers"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 expr_stmt|;
 name|SolrResourceLoader
 name|loader

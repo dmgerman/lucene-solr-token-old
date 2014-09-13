@@ -284,6 +284,9 @@ name|File
 argument_list|(
 name|sourceLocation
 argument_list|)
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|this

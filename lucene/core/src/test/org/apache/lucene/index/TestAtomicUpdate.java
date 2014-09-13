@@ -25,6 +25,17 @@ import|;
 end_import
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -893,7 +904,7 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// Second in an FSDirectory:
-name|File
+name|Path
 name|dirPath
 init|=
 name|createTempDir

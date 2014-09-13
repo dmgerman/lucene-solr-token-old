@@ -292,6 +292,9 @@ name|solrHomeDirectory
 init|=
 name|createTempDir
 argument_list|()
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 annotation|@
 name|Rule
@@ -338,6 +341,9 @@ expr_stmt|;
 name|solrHomeDirectory
 operator|=
 name|createTempDir
+argument_list|()
+operator|.
+name|toFile
 argument_list|()
 expr_stmt|;
 name|copySolrHomeToTemp

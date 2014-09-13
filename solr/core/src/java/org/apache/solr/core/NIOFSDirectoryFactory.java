@@ -94,6 +94,9 @@ name|File
 argument_list|(
 name|path
 argument_list|)
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 return|;
 block|}

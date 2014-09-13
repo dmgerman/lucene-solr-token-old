@@ -432,6 +432,9 @@ name|createTempDir
 argument_list|(
 literal|"testEscapeInstanceDir"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 try|try
 block|{
@@ -539,6 +542,9 @@ operator|.
 name|rm
 argument_list|(
 name|temp
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1042,6 +1048,9 @@ name|createTempDir
 argument_list|(
 literal|"testClassLoaderLibs"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|File
 name|lib

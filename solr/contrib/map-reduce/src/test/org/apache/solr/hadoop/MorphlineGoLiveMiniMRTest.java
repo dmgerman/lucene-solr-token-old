@@ -1139,6 +1139,9 @@ name|solrHomeDirectory
 operator|=
 name|createTempDir
 argument_list|()
+operator|.
+name|toFile
+argument_list|()
 expr_stmt|;
 name|assumeTrue
 argument_list|(
@@ -1235,6 +1238,9 @@ expr_stmt|;
 name|tempDir
 operator|=
 name|createTempDir
+argument_list|()
+operator|.
+name|toFile
 argument_list|()
 operator|.
 name|getAbsolutePath

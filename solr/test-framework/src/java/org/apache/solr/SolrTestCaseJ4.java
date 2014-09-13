@@ -907,6 +907,17 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1230,6 +1241,9 @@ name|createTempDir
 argument_list|(
 literal|"init-core-data"
 argument_list|)
+operator|.
+name|toFile
+argument_list|()
 expr_stmt|;
 name|System
 operator|.
@@ -5398,7 +5412,7 @@ name|xml
 return|;
 block|}
 block|}
-comment|/**    * @see IOUtils#rm(File...)    */
+comment|/**    * @see IOUtils#rm(Path...)    */
 annotation|@
 name|Deprecated
 argument_list|()
@@ -5419,6 +5433,9 @@ operator|.
 name|rm
 argument_list|(
 name|f
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

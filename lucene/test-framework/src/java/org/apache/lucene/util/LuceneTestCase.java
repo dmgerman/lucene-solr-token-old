@@ -29,15 +29,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|FileNotFoundException
 import|;
 end_import
@@ -167,6 +158,28 @@ operator|.
 name|file
 operator|.
 name|NoSuchFileException
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 begin_import
@@ -5872,7 +5885,7 @@ specifier|static
 name|MockDirectoryWrapper
 name|newMockFSDirectory
 parameter_list|(
-name|File
+name|Path
 name|f
 parameter_list|)
 block|{
@@ -5920,7 +5933,7 @@ specifier|static
 name|BaseDirectoryWrapper
 name|newFSDirectory
 parameter_list|(
-name|File
+name|Path
 name|f
 parameter_list|)
 block|{
@@ -5940,7 +5953,7 @@ specifier|static
 name|BaseDirectoryWrapper
 name|newFSDirectory
 parameter_list|(
-name|File
+name|Path
 name|f
 parameter_list|,
 name|LockFactory
@@ -5965,7 +5978,7 @@ specifier|static
 name|BaseDirectoryWrapper
 name|newFSDirectory
 parameter_list|(
-name|File
+name|Path
 name|f
 parameter_list|,
 name|LockFactory
@@ -7194,8 +7207,8 @@ name|FSDirectory
 argument_list|>
 name|clazz
 parameter_list|,
-name|File
-name|file
+name|Path
+name|path
 parameter_list|)
 throws|throws
 name|IOException
@@ -7215,7 +7228,7 @@ name|newFSDirectory
 argument_list|(
 name|clazz
 argument_list|,
-name|file
+name|path
 argument_list|)
 expr_stmt|;
 block|}
@@ -7311,7 +7324,7 @@ argument_list|(
 name|clazzName
 argument_list|)
 decl_stmt|;
-comment|// If it is a FSDirectory type, try its ctor(File)
+comment|// If it is a FSDirectory type, try its ctor(Path)
 if|if
 condition|(
 name|FSDirectory
@@ -7325,7 +7338,7 @@ argument_list|)
 condition|)
 block|{
 specifier|final
-name|File
+name|Path
 name|dir
 init|=
 name|createTempDir
@@ -7351,7 +7364,7 @@ name|dir
 argument_list|)
 return|;
 block|}
-comment|// See if it has a File ctor even though it's not an
+comment|// See if it has a Path ctor even though it's not an
 comment|// FSDir subclass:
 name|Constructor
 argument_list|<
@@ -7359,19 +7372,19 @@ name|?
 extends|extends
 name|Directory
 argument_list|>
-name|fileCtor
+name|pathCtor
 init|=
 literal|null
 decl_stmt|;
 try|try
 block|{
-name|fileCtor
+name|pathCtor
 operator|=
 name|clazz
 operator|.
 name|getConstructor
 argument_list|(
-name|File
+name|Path
 operator|.
 name|class
 argument_list|)
@@ -7387,13 +7400,13 @@ comment|// Ignore
 block|}
 if|if
 condition|(
-name|fileCtor
+name|pathCtor
 operator|!=
 literal|null
 condition|)
 block|{
 specifier|final
-name|File
+name|Path
 name|dir
 init|=
 name|createTempDir
@@ -7402,7 +7415,7 @@ literal|"index"
 argument_list|)
 decl_stmt|;
 return|return
-name|fileCtor
+name|pathCtor
 operator|.
 name|newInstance
 argument_list|(
@@ -8492,11 +8505,11 @@ name|ret
 return|;
 block|}
 block|}
-comment|/**    * Gets a resource from the classpath as {@link File}. This method should only    * be used, if a real file is needed. To get a stream, code should prefer    * {@link Class#getResourceAsStream} using {@code this.getClass()}.    */
-DECL|method|getDataFile
+comment|/**    * Gets a resource from the classpath as {@link Path}. This method should only    * be used, if a real file is needed. To get a stream, code should prefer    * {@link Class#getResourceAsStream} using {@code this.getClass()}.    */
+DECL|method|getDataPath
 specifier|protected
-name|File
-name|getDataFile
+name|Path
+name|getDataPath
 parameter_list|(
 name|String
 name|name
@@ -8507,8 +8520,9 @@ block|{
 try|try
 block|{
 return|return
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|this
 operator|.
@@ -13183,7 +13197,7 @@ name|Deprecated
 DECL|method|getBaseTempDirForTestClass
 specifier|public
 specifier|static
-name|File
+name|Path
 name|getBaseTempDirForTestClass
 parameter_list|()
 block|{
@@ -13198,7 +13212,7 @@ comment|/**    * Creates an empty, temporary folder (when the name of the folder
 DECL|method|createTempDir
 specifier|public
 specifier|static
-name|File
+name|Path
 name|createTempDir
 parameter_list|()
 block|{
@@ -13213,7 +13227,7 @@ comment|/**    * Creates an empty, temporary folder with the given name prefix u
 DECL|method|createTempDir
 specifier|public
 specifier|static
-name|File
+name|Path
 name|createTempDir
 parameter_list|(
 name|String
@@ -13233,7 +13247,7 @@ comment|/**    * Creates an empty file with the given prefix and suffix under th
 DECL|method|createTempFile
 specifier|public
 specifier|static
-name|File
+name|Path
 name|createTempFile
 parameter_list|(
 name|String
@@ -13260,7 +13274,7 @@ comment|/**    * Creates an empty temporary file.    *     * @see #createTempFil
 DECL|method|createTempFile
 specifier|public
 specifier|static
-name|File
+name|Path
 name|createTempFile
 parameter_list|()
 throws|throws

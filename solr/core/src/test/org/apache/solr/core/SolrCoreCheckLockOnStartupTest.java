@@ -234,6 +234,9 @@ name|initCoreDataDir
 argument_list|,
 literal|"index"
 argument_list|)
+operator|.
+name|toPath
+argument_list|()
 argument_list|,
 operator|new
 name|SimpleFSLockFactory
@@ -371,6 +374,9 @@ init|=
 name|newFSDirectory
 argument_list|(
 name|indexDir
+operator|.
+name|toPath
+argument_list|()
 argument_list|,
 operator|new
 name|NativeFSLockFactory

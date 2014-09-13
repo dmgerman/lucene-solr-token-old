@@ -450,6 +450,9 @@ init|=
 name|createTempDir
 argument_list|()
 operator|.
+name|toFile
+argument_list|()
+operator|.
 name|getAbsolutePath
 argument_list|()
 decl_stmt|;
@@ -545,6 +548,9 @@ expr_stmt|;
 name|coreDataDir
 operator|=
 name|createTempDir
+argument_list|()
+operator|.
+name|toFile
 argument_list|()
 operator|.
 name|getAbsolutePath
@@ -786,6 +792,9 @@ name|File
 name|tmpDir
 init|=
 name|createTempDir
+argument_list|()
+operator|.
+name|toFile
 argument_list|()
 decl_stmt|;
 comment|// create a new collection collection

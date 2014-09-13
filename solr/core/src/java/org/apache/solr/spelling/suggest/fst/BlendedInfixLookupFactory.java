@@ -470,6 +470,9 @@ name|File
 argument_list|(
 name|indexPath
 argument_list|)
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 argument_list|,
 name|indexAnalyzer

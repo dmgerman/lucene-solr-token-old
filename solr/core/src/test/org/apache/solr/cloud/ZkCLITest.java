@@ -431,6 +431,9 @@ name|tmpDir
 init|=
 name|createTempDir
 argument_list|()
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1239,6 +1242,9 @@ name|tmpDir
 init|=
 name|createTempDir
 argument_list|()
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 comment|// test upconfig
 name|String
@@ -1796,6 +1802,9 @@ name|tmpDir
 init|=
 name|createTempDir
 argument_list|()
+operator|.
+name|toFile
+argument_list|()
 decl_stmt|;
 name|String
 name|getNode
@@ -1929,6 +1938,9 @@ name|File
 name|tmpDir
 init|=
 name|createTempDir
+argument_list|()
+operator|.
+name|toFile
 argument_list|()
 decl_stmt|;
 name|String

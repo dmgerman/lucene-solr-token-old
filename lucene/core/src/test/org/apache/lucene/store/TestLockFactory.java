@@ -20,15 +20,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -41,6 +32,17 @@ operator|.
 name|file
 operator|.
 name|Files
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
 import|;
 end_import
 begin_import
@@ -252,19 +254,6 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|TestUtil
 import|;
 end_import
 begin_class
@@ -728,22 +717,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|testSimpleFSLockFactory
-specifier|public
-name|void
-name|testSimpleFSLockFactory
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-comment|// test string file instantiation
-operator|new
-name|SimpleFSLockFactory
-argument_list|(
-literal|"test"
-argument_list|)
-expr_stmt|;
-block|}
 comment|// Verify: do stress test, by opening IndexReaders and
 comment|// IndexWriters over& over in 2 threads and making sure
 comment|// no unexpected exceptions are raised:
@@ -782,7 +755,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|File
+name|Path
 name|dir
 init|=
 name|createTempDir
@@ -810,7 +783,7 @@ parameter_list|(
 name|LockFactory
 name|lockFactory
 parameter_list|,
-name|File
+name|Path
 name|indexDir
 parameter_list|)
 throws|throws
@@ -1104,7 +1077,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|File
+name|Path
 name|tempDir
 init|=
 name|createTempDir
@@ -1118,21 +1091,22 @@ name|getSimpleName
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|File
+name|Path
 name|lockFile
 init|=
-operator|new
-name|File
-argument_list|(
 name|tempDir
-argument_list|,
+operator|.
+name|resolve
+argument_list|(
 literal|"test.lock"
 argument_list|)
 decl_stmt|;
-name|lockFile
+name|Files
 operator|.
-name|createNewFile
-argument_list|()
+name|createFile
+argument_list|(
+name|lockFile
+argument_list|)
 expr_stmt|;
 name|Lock
 name|l
@@ -1178,9 +1152,6 @@ operator|.
 name|deleteIfExists
 argument_list|(
 name|lockFile
-operator|.
-name|toPath
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1193,7 +1164,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|File
+name|Path
 name|fdir1
 init|=
 name|createTempDir
@@ -1201,7 +1172,7 @@ argument_list|(
 literal|"TestLockFactory.8"
 argument_list|)
 decl_stmt|;
-name|File
+name|Path
 name|fdir2
 init|=
 name|createTempDir
@@ -1305,7 +1276,7 @@ throws|throws
 name|IOException
 block|{
 comment|// Make sure we get null prefix, which wont happen if setLockFactory is ever called.
-name|File
+name|Path
 name|dirName
 init|=
 name|createTempDir

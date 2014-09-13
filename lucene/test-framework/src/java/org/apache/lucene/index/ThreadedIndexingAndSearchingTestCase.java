@@ -36,6 +36,17 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|*
@@ -2747,7 +2758,7 @@ literal|true
 argument_list|)
 decl_stmt|;
 specifier|final
-name|File
+name|Path
 name|tempDir
 init|=
 name|createTempDir
