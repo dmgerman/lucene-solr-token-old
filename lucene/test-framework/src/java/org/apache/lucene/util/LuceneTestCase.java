@@ -8514,7 +8514,7 @@ name|ret
 return|;
 block|}
 block|}
-comment|/**    * Gets a resource from the classpath as {@link Path}. This method should only    * be used, if a real file is needed. To get a stream, code should prefer    * {@link Class#getResourceAsStream} using {@code this.getClass()}.    */
+comment|/**    * Gets a resource from the test's classpath as {@link Path}. This method should only    * be used, if a real file is needed. To get a stream, code should prefer    * {@link #getDataInputStream(String)}.    */
 DECL|method|getDataPath
 specifier|protected
 name|Path
@@ -8565,6 +8565,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**    * Gets a resource from the test's classpath as {@link InputStream}.    */
 DECL|method|getDataInputStream
 specifier|protected
 name|InputStream
@@ -8576,9 +8577,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-try|try
-block|{
-return|return
+name|InputStream
+name|in
+init|=
 name|this
 operator|.
 name|getClass
@@ -8588,13 +8589,13 @@ name|getResourceAsStream
 argument_list|(
 name|name
 argument_list|)
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
+decl_stmt|;
+if|if
+condition|(
+name|in
+operator|==
+literal|null
+condition|)
 block|{
 throw|throw
 operator|new
@@ -8606,6 +8607,9 @@ name|name
 argument_list|)
 throw|;
 block|}
+return|return
+name|in
+return|;
 block|}
 DECL|method|assertReaderEquals
 specifier|public
