@@ -823,6 +823,8 @@ throw|;
 block|}
 else|else
 block|{
+try|try
+init|(
 name|BaseDirectoryWrapper
 name|dir
 init|=
@@ -830,7 +832,8 @@ name|newFSDirectory
 argument_list|(
 name|dirPath
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|dir
 operator|.
 name|setCheckIndexOnClose
@@ -890,11 +893,6 @@ name|dir
 argument_list|)
 expr_stmt|;
 block|}
-name|dir
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|found
 operator|.
 name|set
@@ -902,6 +900,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|FileVisitResult
