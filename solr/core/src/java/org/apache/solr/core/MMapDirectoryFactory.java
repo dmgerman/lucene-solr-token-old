@@ -62,6 +62,19 @@ name|org
 operator|.
 name|apache
 operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|NoLockFactory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|solr
 operator|.
 name|common
@@ -268,6 +281,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// we pass NoLockFactory, because the real lock factory is set later by injectLockFactory:
 name|MMapDirectory
 name|mapDirectory
 init|=
@@ -283,7 +297,10 @@ operator|.
 name|toPath
 argument_list|()
 argument_list|,
-literal|null
+name|NoLockFactory
+operator|.
+name|getNoLockFactory
+argument_list|()
 argument_list|,
 name|maxChunk
 argument_list|)
