@@ -1093,12 +1093,12 @@ literal|"(bitsPerValue="
 operator|+
 name|bitsPerValue
 operator|+
-literal|", size="
+literal|",size="
 operator|+
 name|size
 argument_list|()
 operator|+
-literal|", elements.length="
+literal|",blocks="
 operator|+
 name|blocks
 operator|.

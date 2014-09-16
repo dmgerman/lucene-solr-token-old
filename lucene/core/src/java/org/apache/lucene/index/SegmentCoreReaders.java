@@ -1107,6 +1107,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: remove this, it can just be on SR
 annotation|@
 name|Override
 DECL|method|ramBytesUsed
@@ -1177,6 +1178,26 @@ argument_list|()
 else|:
 literal|0
 operator|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getChildResources
+specifier|public
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|Accountable
+argument_list|>
+name|getChildResources
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
 block|}
 block|}
