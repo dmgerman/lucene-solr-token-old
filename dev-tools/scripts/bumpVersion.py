@@ -3225,7 +3225,7 @@ newline|'\n'
 indent|'    '
 name|'print'
 op|'('
-string|"'\\nRecieved Ctrl-C, exiting early'"
+string|"'\\nReceived Ctrl-C, exiting early'"
 op|')'
 newline|'\n'
 dedent|''
