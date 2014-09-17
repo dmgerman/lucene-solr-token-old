@@ -112,6 +112,15 @@ name|java
 operator|.
 name|util
 operator|.
+name|Objects
+import|;
+end_import
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|regex
 operator|.
 name|Matcher
@@ -296,7 +305,6 @@ name|VERBOSE_REF_COUNTS
 init|=
 literal|false
 decl_stmt|;
-comment|// Used only for assert
 DECL|field|writer
 specifier|private
 specifier|final
@@ -349,6 +357,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|writer
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|infoStream
@@ -1564,23 +1579,6 @@ parameter_list|()
 throws|throws
 name|AlreadyClosedException
 block|{
-if|if
-condition|(
-name|writer
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|AlreadyClosedException
-argument_list|(
-literal|"this IndexWriter is closed"
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
 name|writer
 operator|.
 name|ensureOpen
@@ -1588,6 +1586,27 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// since we allow 'closing' state, we must still check this, we could be closing because we hit e.g. OOM
+if|if
+condition|(
+name|writer
+operator|.
+name|tragedy
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|AlreadyClosedException
+argument_list|(
+literal|"refusing to delete any files: this IndexWriter hit an unrecoverable exception"
+argument_list|,
+name|writer
+operator|.
+name|tragedy
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|method|getLastSegmentInfos
