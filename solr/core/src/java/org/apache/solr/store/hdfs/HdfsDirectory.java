@@ -214,7 +214,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|NoLockFactory
+name|LockFactory
 import|;
 end_import
 begin_import
@@ -320,6 +320,9 @@ parameter_list|(
 name|Path
 name|hdfsDirPath
 parameter_list|,
+name|LockFactory
+name|lockFactory
+parameter_list|,
 name|Configuration
 name|configuration
 parameter_list|)
@@ -328,10 +331,7 @@ name|IOException
 block|{
 name|setLockFactory
 argument_list|(
-name|NoLockFactory
-operator|.
-name|getNoLockFactory
-argument_list|()
+name|lockFactory
 argument_list|)
 expr_stmt|;
 name|this
