@@ -3735,7 +3735,12 @@ name|QUEUE_OPERATION
 argument_list|,
 name|Overseer
 operator|.
-name|REMOVE_ROUTING_RULE
+name|OverseerAction
+operator|.
+name|REMOVEROUTINGRULE
+operator|.
+name|toLower
+argument_list|()
 argument_list|,
 name|ZkStateReader
 operator|.

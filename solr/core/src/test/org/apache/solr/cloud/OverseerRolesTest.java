@@ -664,7 +664,12 @@ name|QUEUE_OPERATION
 argument_list|,
 name|Overseer
 operator|.
+name|OverseerAction
+operator|.
 name|QUIT
+operator|.
+name|toLower
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
