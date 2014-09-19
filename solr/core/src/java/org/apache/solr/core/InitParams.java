@@ -90,7 +90,7 @@ name|Set
 import|;
 end_import
 begin_comment
-comment|/**  * An Object which represents a&lt;initParams&gt; tag  */
+comment|/**  * An Object which represents a {@code<initParams>} tag  */
 end_comment
 begin_class
 DECL|class|InitParams
