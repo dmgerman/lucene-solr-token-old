@@ -630,12 +630,8 @@ argument_list|(
 literal|"invalid norm type: "
 operator|+
 name|oldNormsType
-operator|+
-literal|" (resource="
-operator|+
+argument_list|,
 name|input
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}

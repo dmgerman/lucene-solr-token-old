@@ -630,6 +630,11 @@ argument_list|(
 literal|"Missing parent data for category "
 operator|+
 name|first
+argument_list|,
+name|reader
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -684,6 +689,11 @@ argument_list|(
 literal|"Missing parent data for category "
 operator|+
 name|i
+argument_list|,
+name|reader
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -729,6 +739,11 @@ name|i
 operator|+
 literal|1
 operator|)
+argument_list|,
+name|reader
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -745,6 +760,11 @@ argument_list|(
 literal|"Missing parent data for category "
 operator|+
 name|i
+argument_list|,
+name|reader
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 throw|;
 block|}

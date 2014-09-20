@@ -1198,7 +1198,15 @@ throw|throw
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"Format versions mismatch"
+literal|"Format versions mismatch: meta="
+operator|+
+name|version
+operator|+
+literal|", data="
+operator|+
+name|version2
+argument_list|,
+name|data
 argument_list|)
 throw|;
 block|}
@@ -1342,9 +1350,7 @@ operator|+
 name|entry
 operator|.
 name|format
-operator|+
-literal|", input="
-operator|+
+argument_list|,
 name|meta
 argument_list|)
 throw|;
@@ -1599,12 +1605,8 @@ argument_list|(
 literal|"invalid field number: "
 operator|+
 name|fieldNumber
-operator|+
-literal|" (resource="
-operator|+
+argument_list|,
 name|meta
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -1867,9 +1869,7 @@ operator|+
 name|info
 operator|.
 name|name
-operator|+
-literal|", input="
-operator|+
+argument_list|,
 name|meta
 argument_list|)
 throw|;
@@ -2166,8 +2166,10 @@ throw|throw
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"TABLE_COMPRESSED cannot have more than 256 distinct values, input="
+literal|"TABLE_COMPRESSED cannot have more than 256 distinct values, got="
 operator|+
+name|size
+argument_list|,
 name|data
 argument_list|)
 throw|;

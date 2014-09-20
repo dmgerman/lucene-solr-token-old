@@ -161,19 +161,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|IOUtils
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|MutableBits
 import|;
 end_import
@@ -997,6 +984,8 @@ operator|instanceof
 name|CompoundFileDirectory
 operator|)
 assert|;
+try|try
+init|(
 name|IndexOutput
 name|output
 init|=
@@ -1008,8 +997,7 @@ name|name
 argument_list|,
 name|context
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|output
 operator|.
@@ -1062,16 +1050,6 @@ assert|assert
 name|verifyCount
 argument_list|()
 assert|;
-block|}
-finally|finally
-block|{
-name|IOUtils
-operator|.
-name|close
-argument_list|(
-name|output
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 comment|/** Invert all bits */
@@ -1603,6 +1581,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|ChecksumIndexInput
 name|input
 init|=
@@ -1614,8 +1594,7 @@ name|name
 argument_list|,
 name|context
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 specifier|final
 name|int
@@ -1757,14 +1736,6 @@ assert|assert
 name|verifyCount
 argument_list|()
 assert|;
-block|}
-finally|finally
-block|{
-name|input
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|// asserts only

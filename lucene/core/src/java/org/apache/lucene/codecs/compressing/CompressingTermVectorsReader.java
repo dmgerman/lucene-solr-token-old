@@ -1058,6 +1058,8 @@ operator|+
 literal|" != "
 operator|+
 name|version2
+argument_list|,
+name|vectorsStream
 argument_list|)
 throw|;
 block|}
@@ -1384,12 +1386,8 @@ operator|+
 literal|",doc="
 operator|+
 name|doc
-operator|+
-literal|" (resource="
-operator|+
+argument_list|,
 name|vectorsStream
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}

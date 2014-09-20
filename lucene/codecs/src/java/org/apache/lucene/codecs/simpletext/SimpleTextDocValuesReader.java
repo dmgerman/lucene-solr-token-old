@@ -1381,11 +1381,9 @@ throw|throw
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"failed to parse BigDecimal value (resource="
-operator|+
+literal|"failed to parse BigDecimal value"
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|,
 name|pe
 argument_list|)
@@ -1812,11 +1810,9 @@ throw|throw
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"failed to parse int length (resource="
-operator|+
+literal|"failed to parse int length"
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|,
 name|pe
 argument_list|)
@@ -2055,11 +2051,9 @@ throw|throw
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"failed to parse int length (resource="
-operator|+
+literal|"failed to parse int length"
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|,
 name|pe
 argument_list|)
@@ -2379,11 +2373,9 @@ throw|throw
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"failed to parse ord (resource="
-operator|+
+literal|"failed to parse ord"
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|,
 name|pe
 argument_list|)
@@ -2564,11 +2556,9 @@ throw|throw
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"failed to parse int length (resource="
-operator|+
+literal|"failed to parse int length"
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|,
 name|pe
 argument_list|)
@@ -3254,11 +3244,9 @@ throw|throw
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"failed to parse int length (resource="
-operator|+
+literal|"failed to parse int length"
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|,
 name|pe
 argument_list|)

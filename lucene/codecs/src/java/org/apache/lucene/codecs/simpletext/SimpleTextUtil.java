@@ -563,12 +563,8 @@ argument_list|()
 operator|.
 name|utf8ToString
 argument_list|()
-operator|+
-literal|" (resource="
-operator|+
+argument_list|,
 name|input
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -622,12 +618,8 @@ operator|+
 literal|" != "
 operator|+
 name|expectedChecksum
-operator|+
-literal|" (resource="
-operator|+
+argument_list|,
 name|input
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -648,11 +640,9 @@ throw|throw
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"Unexpected stuff at the end of file, please be careful with your text editor! (resource="
-operator|+
+literal|"Unexpected stuff at the end of file, please be careful with your text editor!"
+argument_list|,
 name|input
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}

@@ -340,12 +340,8 @@ operator|+
 literal|" vs expected header="
 operator|+
 name|CODEC_MAGIC
-operator|+
-literal|" (resource: "
-operator|+
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -415,12 +411,8 @@ operator|+
 literal|" vs expected codec="
 operator|+
 name|codec
-operator|+
-literal|" (resource: "
-operator|+
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -591,12 +583,8 @@ name|toHexString
 argument_list|(
 name|actualChecksum
 argument_list|)
-operator|+
-literal|" (resource="
-operator|+
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -630,12 +618,8 @@ name|in
 operator|.
 name|length
 argument_list|()
-operator|+
-literal|" (resource: "
-operator|+
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -720,12 +704,8 @@ operator|+
 literal|" vs expected footer="
 operator|+
 name|FOOTER_MAGIC
-operator|+
-literal|" (resource: "
-operator|+
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -752,6 +732,8 @@ argument_list|(
 literal|"codec footer mismatch: unknown algorithmID: "
 operator|+
 name|algorithmID
+argument_list|,
+name|in
 argument_list|)
 throw|;
 block|}
@@ -801,12 +783,8 @@ name|in
 operator|.
 name|length
 argument_list|()
-operator|+
-literal|" (resource: "
-operator|+
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}

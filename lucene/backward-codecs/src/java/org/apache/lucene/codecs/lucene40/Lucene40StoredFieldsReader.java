@@ -736,6 +736,8 @@ name|si
 operator|.
 name|getDocCount
 argument_list|()
+argument_list|,
+name|indexStream
 argument_list|)
 throw|;
 block|}
@@ -1140,6 +1142,8 @@ name|toHexString
 argument_list|(
 name|numeric
 argument_list|)
+argument_list|,
+name|fieldsStream
 argument_list|)
 throw|;
 block|}
@@ -1293,6 +1297,8 @@ name|toHexString
 argument_list|(
 name|numeric
 argument_list|)
+argument_list|,
+name|fieldsStream
 argument_list|)
 throw|;
 block|}

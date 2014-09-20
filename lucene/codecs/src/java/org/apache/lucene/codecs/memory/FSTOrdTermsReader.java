@@ -1155,15 +1155,13 @@ operator|.
 name|getDocCount
 argument_list|()
 operator|+
-literal|" (resource="
-operator|+
-name|indexIn
-operator|+
-literal|", "
+literal|" (blockIn="
 operator|+
 name|blockIn
 operator|+
 literal|")"
+argument_list|,
+name|indexIn
 argument_list|)
 throw|;
 block|}
@@ -1195,15 +1193,13 @@ name|field
 operator|.
 name|docCount
 operator|+
-literal|" (resource="
-operator|+
-name|indexIn
-operator|+
-literal|", "
+literal|" (blockIn="
 operator|+
 name|blockIn
 operator|+
 literal|")"
+argument_list|,
+name|indexIn
 argument_list|)
 throw|;
 block|}
@@ -1242,15 +1238,13 @@ name|field
 operator|.
 name|sumDocFreq
 operator|+
-literal|" (resource="
-operator|+
-name|indexIn
-operator|+
-literal|", "
+literal|" (blockIn="
 operator|+
 name|blockIn
 operator|+
 literal|")"
+argument_list|,
+name|indexIn
 argument_list|)
 throw|;
 block|}
@@ -1273,15 +1267,13 @@ name|fieldInfo
 operator|.
 name|name
 operator|+
-literal|" (resource="
-operator|+
-name|indexIn
-operator|+
-literal|", "
+literal|" (blockIn="
 operator|+
 name|blockIn
 operator|+
 literal|")"
+argument_list|,
+name|indexIn
 argument_list|)
 throw|;
 block|}

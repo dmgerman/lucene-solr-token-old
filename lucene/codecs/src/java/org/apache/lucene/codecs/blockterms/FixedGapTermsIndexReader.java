@@ -459,12 +459,8 @@ argument_list|(
 literal|"invalid indexInterval: "
 operator|+
 name|indexInterval
-operator|+
-literal|" (resource="
-operator|+
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -513,12 +509,8 @@ argument_list|(
 literal|"invalid numFields: "
 operator|+
 name|numFields
-operator|+
-literal|" (resource="
-operator|+
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -571,12 +563,8 @@ argument_list|(
 literal|"invalid numIndexTerms: "
 operator|+
 name|numIndexTerms
-operator|+
-literal|" (resource="
-operator|+
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -638,12 +626,8 @@ operator|+
 literal|"numIndexTerms: "
 operator|+
 name|numIndexTerms
-operator|+
-literal|" (resource="
-operator|+
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -704,12 +688,8 @@ operator|+
 name|fieldInfo
 operator|.
 name|name
-operator|+
-literal|" (resource="
-operator|+
+argument_list|,
 name|in
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}

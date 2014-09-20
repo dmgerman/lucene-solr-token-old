@@ -36,17 +36,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|NoSuchFileException
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|ArrayList
@@ -925,12 +914,8 @@ argument_list|(
 literal|"invalid segment count: "
 operator|+
 name|numSegments
-operator|+
-literal|" (resource: "
-operator|+
+argument_list|,
 name|input
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -1044,12 +1029,8 @@ name|info
 operator|.
 name|getDocCount
 argument_list|()
-operator|+
-literal|" (resource: "
-operator|+
+argument_list|,
 name|input
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -1399,11 +1380,25 @@ throw|throw
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"checksum mismatch in segments file (resource: "
+literal|"checksum failed (hardware problem?) : expected="
 operator|+
+name|Long
+operator|.
+name|toHexString
+argument_list|(
+name|checksumThen
+argument_list|)
+operator|+
+literal|" actual="
+operator|+
+name|Long
+operator|.
+name|toHexString
+argument_list|(
+name|checksumNow
+argument_list|)
+argument_list|,
 name|input
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}

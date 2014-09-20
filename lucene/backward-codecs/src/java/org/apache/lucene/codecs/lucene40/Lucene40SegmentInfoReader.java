@@ -304,12 +304,8 @@ argument_list|(
 literal|"invalid docCount: "
 operator|+
 name|docCount
-operator|+
-literal|" (resource="
-operator|+
+argument_list|,
 name|input
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
