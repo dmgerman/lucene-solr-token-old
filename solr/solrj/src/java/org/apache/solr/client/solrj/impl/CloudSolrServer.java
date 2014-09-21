@@ -3945,6 +3945,10 @@ operator|&&
 operator|!
 name|stateWasStale
 operator|&&
+name|requestedCollections
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|requestedCollections
 operator|.
