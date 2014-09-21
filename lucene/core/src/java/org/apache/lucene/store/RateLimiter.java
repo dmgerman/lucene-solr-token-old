@@ -127,6 +127,13 @@ argument_list|(
 name|mbPerSec
 argument_list|)
 expr_stmt|;
+name|lastNS
+operator|=
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+expr_stmt|;
 block|}
 comment|/**      * Sets an updated mb per second rate limit.      */
 annotation|@
