@@ -37,11 +37,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|codecs
+name|index
 operator|.
-name|lucene410
-operator|.
-name|Lucene410Codec
+name|BaseStoredFieldsFormatTestCase
 import|;
 end_import
 begin_import
@@ -52,9 +50,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|util
 operator|.
-name|BaseStoredFieldsFormatTestCase
+name|TestUtil
 import|;
 end_import
 begin_class
@@ -74,8 +72,9 @@ name|getCodec
 parameter_list|()
 block|{
 return|return
-operator|new
-name|Lucene410Codec
+name|TestUtil
+operator|.
+name|getDefaultCodec
 argument_list|()
 return|;
 block|}
