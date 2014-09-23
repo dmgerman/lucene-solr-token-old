@@ -72,21 +72,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|codecs
-operator|.
-name|lucene42
-operator|.
-name|Lucene42TermVectorsFormat
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|index
 operator|.
 name|AssertingAtomicReader
@@ -210,7 +195,7 @@ name|TestUtil
 import|;
 end_import
 begin_comment
-comment|/**  * Just like {@link Lucene42TermVectorsFormat} but with additional asserts.  */
+comment|/**  * Just like the default vectors format but with additional asserts.  */
 end_comment
 begin_class
 DECL|class|AssertingTermVectorsFormat
@@ -226,8 +211,12 @@ specifier|final
 name|TermVectorsFormat
 name|in
 init|=
-operator|new
-name|Lucene42TermVectorsFormat
+name|TestUtil
+operator|.
+name|getDefaultCodec
+argument_list|()
+operator|.
+name|termVectorsFormat
 argument_list|()
 decl_stmt|;
 annotation|@

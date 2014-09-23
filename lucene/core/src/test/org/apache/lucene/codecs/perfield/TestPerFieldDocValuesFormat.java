@@ -105,9 +105,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene410
+name|asserting
 operator|.
-name|Lucene410Codec
+name|AssertingCodec
 import|;
 end_import
 begin_import
@@ -511,12 +511,10 @@ specifier|final
 name|DocValuesFormat
 name|fast
 init|=
-name|DocValuesFormat
+name|TestUtil
 operator|.
-name|forName
-argument_list|(
-literal|"Lucene410"
-argument_list|)
+name|getDefaultDocValuesFormat
+argument_list|()
 decl_stmt|;
 specifier|final
 name|DocValuesFormat
@@ -534,7 +532,7 @@ operator|.
 name|setCodec
 argument_list|(
 operator|new
-name|Lucene410Codec
+name|AssertingCodec
 argument_list|()
 block|{
 annotation|@

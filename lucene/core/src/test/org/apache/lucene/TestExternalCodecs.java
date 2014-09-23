@@ -48,9 +48,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene410
+name|asserting
 operator|.
-name|Lucene410Codec
+name|AssertingCodec
 import|;
 end_import
 begin_import
@@ -183,6 +183,19 @@ operator|.
 name|LuceneTestCase
 import|;
 end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TestUtil
+import|;
+end_import
 begin_comment
 comment|/* Intentionally outside of oal.index to verify fully    external codecs work fine */
 end_comment
@@ -201,7 +214,7 @@ specifier|final
 class|class
 name|CustomPerFieldCodec
 extends|extends
-name|Lucene410Codec
+name|AssertingCodec
 block|{
 DECL|field|ramFormat
 specifier|private
@@ -222,12 +235,10 @@ specifier|final
 name|PostingsFormat
 name|defaultFormat
 init|=
-name|PostingsFormat
+name|TestUtil
 operator|.
-name|forName
-argument_list|(
-literal|"Lucene41"
-argument_list|)
+name|getDefaultPostingsFormat
+argument_list|()
 decl_stmt|;
 DECL|field|memoryFormat
 specifier|private
