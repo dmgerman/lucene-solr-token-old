@@ -1008,7 +1008,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|reader
@@ -1300,7 +1300,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -1309,7 +1309,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -1852,7 +1852,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|AtomicReader
+name|LeafReader
 name|slow
 init|=
 name|SlowCompositeReaderWrapper
@@ -2163,7 +2163,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|reader
@@ -2384,7 +2384,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|reader
@@ -2680,7 +2680,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|reader
@@ -3075,7 +3075,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|reader
@@ -3317,7 +3317,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|reader
@@ -3762,7 +3762,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|SlowCompositeReaderWrapper
@@ -4013,7 +4013,7 @@ name|dir
 argument_list|)
 decl_stmt|;
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|SlowCompositeReaderWrapper
@@ -4504,7 +4504,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|reader
@@ -4767,7 +4767,7 @@ name|dir
 argument_list|)
 decl_stmt|;
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|SlowCompositeReaderWrapper
@@ -5271,7 +5271,7 @@ expr_stmt|;
 comment|// we delete at most one document per round
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -5280,7 +5280,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -5704,7 +5704,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -5713,7 +5713,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -6020,7 +6020,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -6029,7 +6029,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -6988,7 +6988,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -6997,7 +6997,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -7410,7 +7410,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -7419,7 +7419,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -7804,7 +7804,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|SlowCompositeReaderWrapper
@@ -8248,7 +8248,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -8257,7 +8257,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -8982,7 +8982,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -9006,7 +9006,7 @@ name|i
 operator|++
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context

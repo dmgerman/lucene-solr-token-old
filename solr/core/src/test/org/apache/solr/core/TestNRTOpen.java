@@ -38,15 +38,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|IdentityHashMap
 import|;
 end_import
@@ -69,7 +60,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -731,7 +722,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir

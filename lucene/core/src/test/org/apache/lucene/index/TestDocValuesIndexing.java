@@ -490,7 +490,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|sr
 init|=
 name|getOnlySegmentReader
@@ -1291,7 +1291,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|slow
 init|=
 name|SlowCompositeReaderWrapper
@@ -5018,7 +5018,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|subR
 init|=
 name|r

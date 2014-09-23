@@ -2474,7 +2474,7 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws

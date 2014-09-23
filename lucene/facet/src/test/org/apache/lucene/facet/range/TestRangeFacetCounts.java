@@ -364,7 +364,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -377,7 +377,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -6257,7 +6257,7 @@ parameter_list|(
 name|Map
 name|ignored
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ignored2
 parameter_list|)
 block|{
@@ -6511,7 +6511,7 @@ parameter_list|(
 name|DocIdSetIterator
 name|iterator
 parameter_list|,
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 throws|throws

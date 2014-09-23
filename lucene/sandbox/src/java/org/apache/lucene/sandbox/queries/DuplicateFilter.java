@@ -230,7 +230,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -280,7 +280,7 @@ specifier|private
 name|FixedBitSet
 name|correctBits
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|,
 name|Bits
@@ -469,7 +469,7 @@ specifier|private
 name|FixedBitSet
 name|fastBits
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|,
 name|Bits

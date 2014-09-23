@@ -986,7 +986,7 @@ specifier|static
 name|void
 name|checkNorms
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 throws|throws

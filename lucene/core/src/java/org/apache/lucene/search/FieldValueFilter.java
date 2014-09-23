@@ -33,20 +33,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -106,7 +93,7 @@ name|MatchNoBits
 import|;
 end_import
 begin_comment
-comment|/**  * A {@link Filter} that accepts all documents that have one or more values in a  * given field. This {@link Filter} request {@link Bits} from  * {@link AtomicReader#getDocsWithField}  */
+comment|/**  * A {@link Filter} that accepts all documents that have one or more values in a  * given field. This {@link Filter} request {@link Bits} from  * {@link org.apache.lucene.index.LeafReader#getDocsWithField}  */
 end_comment
 begin_class
 DECL|class|FieldValueFilter
@@ -199,7 +186,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits

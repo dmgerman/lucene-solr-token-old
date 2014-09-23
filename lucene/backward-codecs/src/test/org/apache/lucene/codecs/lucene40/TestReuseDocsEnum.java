@@ -88,7 +88,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -101,7 +101,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -288,15 +288,6 @@ operator|.
 name|TestUtil
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|BeforeClass
-import|;
-end_import
 begin_comment
 comment|// TODO: really this should be in BaseTestPF or somewhere else? useful test!
 end_comment
@@ -396,7 +387,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 range|:
 name|open
@@ -405,7 +396,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|indexReader
 init|=
 name|ctx
@@ -645,7 +636,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 range|:
 name|open
@@ -1067,7 +1058,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
@@ -1078,7 +1069,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves2
 init|=
@@ -1089,7 +1080,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 range|:
 name|leaves
@@ -1355,7 +1346,7 @@ name|term
 parameter_list|,
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|readers
 parameter_list|,
@@ -1382,7 +1373,7 @@ return|return
 literal|null
 return|;
 block|}
-name|AtomicReader
+name|LeafReader
 name|indexReader
 init|=
 name|readers

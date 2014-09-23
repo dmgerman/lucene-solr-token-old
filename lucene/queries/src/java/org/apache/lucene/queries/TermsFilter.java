@@ -807,7 +807,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -817,7 +817,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|context

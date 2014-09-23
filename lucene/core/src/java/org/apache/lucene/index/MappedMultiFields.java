@@ -46,7 +46,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FilterAtomicReader
+name|FilterLeafReader
 operator|.
 name|FilterFields
 import|;
@@ -61,7 +61,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FilterAtomicReader
+name|FilterLeafReader
 operator|.
 name|FilterTerms
 import|;
@@ -76,7 +76,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FilterAtomicReader
+name|FilterLeafReader
 operator|.
 name|FilterTermsEnum
 import|;

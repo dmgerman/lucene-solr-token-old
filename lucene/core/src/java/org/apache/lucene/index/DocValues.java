@@ -588,7 +588,7 @@ specifier|static
 name|NumericDocValues
 name|getNumeric
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|in
 parameter_list|,
 name|String
@@ -633,7 +633,7 @@ specifier|static
 name|BinaryDocValues
 name|getBinary
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|in
 parameter_list|,
 name|String
@@ -692,7 +692,7 @@ specifier|static
 name|SortedDocValues
 name|getSorted
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|in
 parameter_list|,
 name|String
@@ -737,7 +737,7 @@ specifier|static
 name|SortedNumericDocValues
 name|getSortedNumeric
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|in
 parameter_list|,
 name|String
@@ -820,7 +820,7 @@ specifier|static
 name|SortedSetDocValues
 name|getSortedSet
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|in
 parameter_list|,
 name|String
@@ -886,7 +886,7 @@ specifier|static
 name|Bits
 name|getDocsWithField
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|in
 parameter_list|,
 name|String

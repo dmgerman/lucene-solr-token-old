@@ -225,7 +225,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -238,7 +238,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -4206,7 +4206,7 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -5739,7 +5739,7 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -5921,7 +5921,7 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -6012,7 +6012,7 @@ condition|(
 name|scoreDocsInOrder
 condition|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|slowCompositeReader
 init|=
 name|SlowCompositeReaderWrapper
@@ -6313,7 +6313,7 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -6446,7 +6446,7 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws

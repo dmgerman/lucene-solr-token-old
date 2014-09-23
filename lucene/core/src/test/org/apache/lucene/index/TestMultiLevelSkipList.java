@@ -445,7 +445,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|getOnlySegmentReader

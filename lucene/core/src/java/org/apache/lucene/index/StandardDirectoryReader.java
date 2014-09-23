@@ -162,7 +162,7 @@ parameter_list|(
 name|Directory
 name|directory
 parameter_list|,
-name|AtomicReader
+name|LeafReader
 index|[]
 name|readers
 parameter_list|,
@@ -661,7 +661,7 @@ name|List
 argument_list|<
 name|?
 extends|extends
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|oldReaders
 parameter_list|)
@@ -1279,7 +1279,7 @@ block|}
 for|for
 control|(
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|r
 range|:
 name|getSequentialSubReaders
@@ -1784,7 +1784,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|r
 range|:
 name|getSequentialSubReaders

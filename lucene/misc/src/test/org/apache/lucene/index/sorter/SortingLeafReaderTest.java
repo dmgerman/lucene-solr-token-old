@@ -100,10 +100,10 @@ name|BeforeClass
 import|;
 end_import
 begin_class
-DECL|class|SortingAtomicReaderTest
+DECL|class|SortingLeafReaderTest
 specifier|public
 class|class
-name|SortingAtomicReaderTest
+name|SortingLeafReaderTest
 extends|extends
 name|SorterTestBase
 block|{
@@ -252,7 +252,7 @@ block|}
 comment|// sort the index by id (as integer, in NUMERIC_DV_FIELD)
 name|reader
 operator|=
-name|SortingAtomicReader
+name|SortingLeafReader
 operator|.
 name|wrap
 argument_list|(
@@ -351,7 +351,7 @@ name|Exception
 block|{
 try|try
 block|{
-name|SortingAtomicReader
+name|SortingLeafReader
 operator|.
 name|wrap
 argument_list|(

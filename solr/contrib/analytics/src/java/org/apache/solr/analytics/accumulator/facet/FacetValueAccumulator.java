@@ -37,7 +37,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_comment
@@ -101,7 +101,7 @@ DECL|method|setQueryStatsCollectorReaders
 name|void
 name|setQueryStatsCollectorReaders
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -111,7 +111,7 @@ DECL|method|setRangeStatsCollectorReaders
 name|void
 name|setRangeStatsCollectorReaders
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws

@@ -383,8 +383,8 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
-name|atomicReaderContext
+name|LeafReaderContext
+name|leafReaderContext
 range|:
 name|topReaderContext
 operator|.
@@ -397,7 +397,7 @@ name|docsAndPosEnum
 init|=
 name|getDocsAndPositions
 argument_list|(
-name|atomicReaderContext
+name|leafReaderContext
 operator|.
 name|reader
 argument_list|()
@@ -414,7 +414,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|atomicReaderContext
+name|leafReaderContext
 operator|.
 name|reader
 argument_list|()
@@ -440,7 +440,7 @@ argument_list|()
 operator|.
 name|nextInt
 argument_list|(
-name|atomicReaderContext
+name|leafReaderContext
 operator|.
 name|reader
 argument_list|()
@@ -594,7 +594,7 @@ specifier|public
 name|DocsAndPositionsEnum
 name|getDocsAndPositions
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|,
 name|BytesRef
@@ -986,8 +986,8 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
-name|atomicReaderContext
+name|LeafReaderContext
+name|leafReaderContext
 range|:
 name|topReaderContext
 operator|.
@@ -1000,7 +1000,7 @@ name|docsAndPosEnum
 init|=
 name|getDocsAndPositions
 argument_list|(
-name|atomicReaderContext
+name|leafReaderContext
 operator|.
 name|reader
 argument_list|()
@@ -1023,7 +1023,7 @@ decl_stmt|;
 name|int
 name|maxDoc
 init|=
-name|atomicReaderContext
+name|leafReaderContext
 operator|.
 name|reader
 argument_list|()
@@ -1095,7 +1095,7 @@ name|pos
 init|=
 name|positionsInDoc
 index|[
-name|atomicReaderContext
+name|leafReaderContext
 operator|.
 name|docBase
 operator|+
@@ -1179,7 +1179,7 @@ name|docID
 operator|+
 literal|" base: "
 operator|+
-name|atomicReaderContext
+name|leafReaderContext
 operator|.
 name|docBase
 operator|+
@@ -1537,7 +1537,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|topReaderContext
@@ -2089,8 +2089,8 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
-name|atomicReaderContext
+name|LeafReaderContext
+name|leafReaderContext
 range|:
 name|topReaderContext
 operator|.
@@ -2103,7 +2103,7 @@ name|docsAndPosEnum
 init|=
 name|getDocsAndPositions
 argument_list|(
-name|atomicReaderContext
+name|leafReaderContext
 operator|.
 name|reader
 argument_list|()
@@ -2126,7 +2126,7 @@ decl_stmt|;
 name|int
 name|maxDoc
 init|=
-name|atomicReaderContext
+name|leafReaderContext
 operator|.
 name|reader
 argument_list|()
@@ -2315,7 +2315,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|getOnlySegmentReader
@@ -2539,7 +2539,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|getOnlySegmentReader

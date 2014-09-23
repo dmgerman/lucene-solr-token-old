@@ -33,7 +33,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -265,7 +265,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|topReaderContext
@@ -404,7 +404,7 @@ name|TermCollector
 block|{
 DECL|field|readerContext
 specifier|protected
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 decl_stmt|;
 DECL|field|topReaderContext
@@ -420,7 +420,7 @@ parameter_list|(
 name|IndexReaderContext
 name|topReaderContext
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 parameter_list|)
 block|{

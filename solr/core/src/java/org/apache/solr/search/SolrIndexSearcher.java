@@ -304,7 +304,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -317,7 +317,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -1472,11 +1472,11 @@ specifier|private
 name|DirectoryFactory
 name|directoryFactory
 decl_stmt|;
-DECL|field|atomicReader
+DECL|field|leafReader
 specifier|private
 specifier|final
-name|AtomicReader
-name|atomicReader
+name|LeafReader
+name|leafReader
 decl_stmt|;
 comment|// only for addIndexes etc (no fieldcache)
 DECL|field|rawReader
@@ -1957,7 +1957,7 @@ name|r
 expr_stmt|;
 name|this
 operator|.
-name|atomicReader
+name|leafReader
 operator|=
 name|SlowCompositeReaderWrapper
 operator|.
@@ -2412,7 +2412,7 @@ argument_list|()
 expr_stmt|;
 name|fieldInfos
 operator|=
-name|atomicReader
+name|leafReader
 operator|.
 name|getFieldInfos
 argument_list|()
@@ -2525,15 +2525,15 @@ name|term
 argument_list|)
 return|;
 block|}
-DECL|method|getAtomicReader
+DECL|method|getLeafReader
 specifier|public
 specifier|final
-name|AtomicReader
-name|getAtomicReader
+name|LeafReader
+name|getLeafReader
 parameter_list|()
 block|{
 return|return
-name|atomicReader
+name|leafReader
 return|;
 block|}
 comment|/** Raw reader (no fieldcaches etc). Useful for operations like addIndexes */
@@ -4516,7 +4516,7 @@ block|{
 name|Fields
 name|fields
 init|=
-name|atomicReader
+name|leafReader
 operator|.
 name|fields
 argument_list|()
@@ -4596,7 +4596,7 @@ name|termsEnum
 operator|.
 name|docs
 argument_list|(
-name|atomicReader
+name|leafReader
 operator|.
 name|getLiveDocs
 argument_list|()
@@ -4685,7 +4685,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|leaf
 init|=
 name|leafContexts
@@ -4696,7 +4696,7 @@ name|i
 argument_list|)
 decl_stmt|;
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|leaf
@@ -5445,14 +5445,14 @@ block|}
 for|for
 control|(
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|leaf
 range|:
 name|leafContexts
 control|)
 block|{
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|leaf
@@ -10489,7 +10489,7 @@ operator|>=
 name|end
 condition|)
 block|{
-name|AtomicReaderContext
+name|LeafReaderContext
 name|leaf
 init|=
 name|leafContexts
@@ -12428,7 +12428,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -12489,7 +12489,7 @@ name|DocIdSet
 name|docIdSet
 decl_stmt|;
 DECL|field|context
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 decl_stmt|;
 DECL|method|FilterSet
@@ -12499,7 +12499,7 @@ parameter_list|(
 name|DocIdSet
 name|docIdSet
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 block|{

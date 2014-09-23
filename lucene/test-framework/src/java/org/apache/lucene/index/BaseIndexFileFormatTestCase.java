@@ -1310,7 +1310,7 @@ argument_list|(
 literal|10000
 argument_list|)
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|reader1
 init|=
 literal|null
@@ -1399,7 +1399,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|reader2
 init|=
 name|getOnlySegmentReader
@@ -1414,7 +1414,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|Arrays

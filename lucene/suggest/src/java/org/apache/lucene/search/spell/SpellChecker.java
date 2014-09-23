@@ -129,7 +129,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -1811,7 +1811,7 @@ block|{
 for|for
 control|(
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 range|:
 name|reader

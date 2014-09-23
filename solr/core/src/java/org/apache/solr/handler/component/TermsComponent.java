@@ -65,19 +65,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CharsRef
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|CharsRefBuilder
 import|;
 end_import
@@ -760,7 +747,7 @@ literal|false
 argument_list|)
 decl_stmt|;
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|indexReader
 init|=
 name|rb
@@ -770,7 +757,7 @@ operator|.
 name|getSearcher
 argument_list|()
 operator|.
-name|getAtomicReader
+name|getLeafReader
 argument_list|()
 decl_stmt|;
 name|Fields

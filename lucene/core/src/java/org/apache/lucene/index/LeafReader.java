@@ -55,30 +55,30 @@ begin_comment
 comment|/** {@code AtomicReader} is an abstract class, providing an interface for accessing an  index.  Search of an index is done entirely through this abstract interface,  so that any subclass which implements it is searchable. IndexReaders implemented  by this subclass do not consist of several sub-readers,  they are atomic. They support retrieval of stored fields, doc values, terms,  and postings.<p>For efficiency, in this API documents are often referred to via<i>document numbers</i>, non-negative integers which each name a unique  document in the index.  These document numbers are ephemeral -- they may change  as documents are added to and deleted from an index.  Clients should thus not  rely on a given document having the same number between sessions.<p><a name="thread-safety"></a><p><b>NOTE</b>: {@link  IndexReader} instances are completely thread  safe, meaning multiple threads can call any of its methods,  concurrently.  If your application requires external  synchronization, you should<b>not</b> synchronize on the<code>IndexReader</code> instance; use your own  (non-Lucene) objects instead. */
 end_comment
 begin_class
-DECL|class|AtomicReader
+DECL|class|LeafReader
 specifier|public
 specifier|abstract
 class|class
-name|AtomicReader
+name|LeafReader
 extends|extends
 name|IndexReader
 block|{
 DECL|field|readerContext
 specifier|private
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 init|=
 operator|new
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
 comment|/** Sole constructor. (For invocation by subclass    *  constructors, typically implicit.) */
-DECL|method|AtomicReader
+DECL|method|LeafReader
 specifier|protected
-name|AtomicReader
+name|LeafReader
 parameter_list|()
 block|{
 name|super
@@ -90,7 +90,7 @@ name|Override
 DECL|method|getContext
 specifier|public
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|getContext
 parameter_list|()
 block|{
@@ -101,7 +101,7 @@ return|return
 name|readerContext
 return|;
 block|}
-comment|/**    * Called when the shared core for this {@link AtomicReader}    * is closed.    *<p>    * If this {@link AtomicReader} impl has the ability to share    * resources across instances that might only vary through    * deleted documents and doc values updates, then this listener    * will only be called when the shared core is closed.    * Otherwise, this listener will be called when this reader is    * closed.</p>    *<p>    * This is typically useful to manage per-segment caches: when    * the listener is called, it is safe to evict this reader from    * any caches keyed on {@link #getCoreCacheKey}.</p>    *    * @lucene.experimental    */
+comment|/**    * Called when the shared core for this {@link LeafReader}    * is closed.    *<p>    * If this {@link LeafReader} impl has the ability to share    * resources across instances that might only vary through    * deleted documents and doc values updates, then this listener    * will only be called when the shared core is closed.    * Otherwise, this listener will be called when this reader is    * closed.</p>    *<p>    * This is typically useful to manage per-segment caches: when    * the listener is called, it is safe to evict this reader from    * any caches keyed on {@link #getCoreCacheKey}.</p>    *    * @lucene.experimental    */
 DECL|interface|CoreClosedListener
 specifier|public
 specifier|static
@@ -226,7 +226,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/** Add a {@link CoreClosedListener} as a {@link ReaderClosedListener}. This    * method is typically useful for {@link AtomicReader} implementations that    * don't have the concept of a core that is shared across several    * {@link AtomicReader} instances in which case the {@link CoreClosedListener}    * is called when closing the reader. */
+comment|/** Add a {@link CoreClosedListener} as a {@link ReaderClosedListener}. This    * method is typically useful for {@link LeafReader} implementations that    * don't have the concept of a core that is shared across several    * {@link LeafReader} instances in which case the {@link CoreClosedListener}    * is called when closing the reader. */
 DECL|method|addCoreClosedListenerAsReaderClosedListener
 specifier|protected
 specifier|static

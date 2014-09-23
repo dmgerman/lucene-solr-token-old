@@ -89,7 +89,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AssertingAtomicReader
+name|AssertingLeafReader
 import|;
 end_import
 begin_comment
@@ -291,7 +291,7 @@ name|in
 decl_stmt|;
 DECL|field|docsEnumIn
 specifier|final
-name|AssertingAtomicReader
+name|AssertingLeafReader
 operator|.
 name|AssertingDocsEnum
 name|docsEnumIn
@@ -331,7 +331,7 @@ operator|.
 name|docsEnumIn
 operator|=
 operator|new
-name|AssertingAtomicReader
+name|AssertingLeafReader
 operator|.
 name|AssertingDocsEnum
 argument_list|(

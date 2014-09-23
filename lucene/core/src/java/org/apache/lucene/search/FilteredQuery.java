@@ -24,7 +24,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -328,7 +328,7 @@ specifier|public
 name|Explanation
 name|explain
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ir
 parameter_list|,
 name|int
@@ -475,7 +475,7 @@ specifier|public
 name|Scorer
 name|scorer
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -533,7 +533,7 @@ specifier|public
 name|BulkScorer
 name|bulkScorer
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|boolean
@@ -1802,14 +1802,14 @@ specifier|abstract
 class|class
 name|FilterStrategy
 block|{
-comment|/**      * Returns a filtered {@link Scorer} based on this strategy.      *       * @param context      *          the {@link AtomicReaderContext} for which to return the {@link Scorer}.      * @param weight the {@link FilteredQuery} {@link Weight} to create the filtered scorer.      * @param docIdSet the filter {@link DocIdSet} to apply      * @return a filtered scorer      *       * @throws IOException if an {@link IOException} occurs      */
+comment|/**      * Returns a filtered {@link Scorer} based on this strategy.      *       * @param context      *          the {@link org.apache.lucene.index.LeafReaderContext} for which to return the {@link Scorer}.      * @param weight the {@link FilteredQuery} {@link Weight} to create the filtered scorer.      * @param docIdSet the filter {@link DocIdSet} to apply      * @return a filtered scorer      *       * @throws IOException if an {@link IOException} occurs      */
 DECL|method|filteredScorer
 specifier|public
 specifier|abstract
 name|Scorer
 name|filteredScorer
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Weight
@@ -1821,13 +1821,13 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns a filtered {@link BulkScorer} based on this      * strategy.  This is an optional method: the default      * implementation just calls {@link #filteredScorer} and      * wraps that into a BulkScorer.      *      * @param context      *          the {@link AtomicReaderContext} for which to return the {@link Scorer}.      * @param weight the {@link FilteredQuery} {@link Weight} to create the filtered scorer.      * @param docIdSet the filter {@link DocIdSet} to apply      * @return a filtered top scorer      */
+comment|/**      * Returns a filtered {@link BulkScorer} based on this      * strategy.  This is an optional method: the default      * implementation just calls {@link #filteredScorer} and      * wraps that into a BulkScorer.      *      * @param context      *          the {@link org.apache.lucene.index.LeafReaderContext} for which to return the {@link Scorer}.      * @param weight the {@link FilteredQuery} {@link Weight} to create the filtered scorer.      * @param docIdSet the filter {@link DocIdSet} to apply      * @return a filtered top scorer      */
 DECL|method|filteredBulkScorer
 specifier|public
 name|BulkScorer
 name|filteredBulkScorer
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Weight
@@ -1894,7 +1894,7 @@ specifier|public
 name|Scorer
 name|filteredScorer
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Weight
@@ -2096,7 +2096,7 @@ specifier|public
 name|Scorer
 name|filteredScorer
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Weight
@@ -2209,7 +2209,7 @@ name|Scorer
 name|filteredScorer
 parameter_list|(
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Weight
@@ -2290,7 +2290,7 @@ name|BulkScorer
 name|filteredBulkScorer
 parameter_list|(
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Weight

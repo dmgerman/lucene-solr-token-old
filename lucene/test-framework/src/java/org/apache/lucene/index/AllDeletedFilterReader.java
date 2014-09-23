@@ -36,7 +36,7 @@ specifier|public
 class|class
 name|AllDeletedFilterReader
 extends|extends
-name|FilterAtomicReader
+name|FilterLeafReader
 block|{
 DECL|field|liveDocs
 specifier|final
@@ -47,7 +47,7 @@ DECL|method|AllDeletedFilterReader
 specifier|public
 name|AllDeletedFilterReader
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|in
 parameter_list|)
 block|{

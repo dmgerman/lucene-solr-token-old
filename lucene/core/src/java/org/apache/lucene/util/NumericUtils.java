@@ -110,7 +110,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FilterAtomicReader
+name|FilterLeafReader
 import|;
 end_import
 begin_import
@@ -1891,7 +1891,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|FilterAtomicReader
+name|FilterLeafReader
 operator|.
 name|FilterTerms
 argument_list|(
@@ -1937,7 +1937,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|FilterAtomicReader
+name|FilterLeafReader
 operator|.
 name|FilterTerms
 argument_list|(

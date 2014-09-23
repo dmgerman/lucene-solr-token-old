@@ -53,7 +53,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -66,7 +66,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -277,7 +277,7 @@ name|SolrIndexSearcher
 import|;
 end_import
 begin_comment
-comment|/**  * Obtains the ordinal of the field value from {@link AtomicReader#getSortedDocValues}.  *<br>  * The native lucene index order is used to assign an ordinal value for each field value.  *<br>Field values (terms) are lexicographically ordered by unicode value, and numbered starting at 1.  *<br>  * Example:<br>  *  If there were only three field values: "apple","banana","pear"  *<br>then ord("apple")=1, ord("banana")=2, ord("pear")=3  *<p>  * WARNING: ord() depends on the position in an index and can thus change when other documents are inserted or deleted,  *  or if a MultiSearcher is used.  *<br>WARNING: as of Solr 1.4, ord() and rord() can cause excess memory use since they must use a FieldCache entry  * at the top level reader, while sorting and function queries now use entries at the segment level.  Hence sorting  * or using a different function query, in addition to ord()/rord() will double memory use.  *  */
+comment|/**  * Obtains the ordinal of the field value from {@link org.apache.lucene.index.LeafReader#getSortedDocValues}.  *<br>  * The native lucene index order is used to assign an ordinal value for each field value.  *<br>Field values (terms) are lexicographically ordered by unicode value, and numbered starting at 1.  *<br>  * Example:<br>  *  If there were only three field values: "apple","banana","pear"  *<br>then ord("apple")=1, ord("banana")=2, ord("pear")=3  *<p>  * WARNING: ord() depends on the position in an index and can thus change when other documents are inserted or deleted,  *  or if a MultiSearcher is used.  *<br>WARNING: as of Solr 1.4, ord() and rord() can cause excess memory use since they must use a FieldCache entry  * at the top level reader, while sorting and function queries now use entries at the segment level.  Hence sorting  * or using a different function query, in addition to ord()/rord() will double memory use.  *  */
 end_comment
 begin_class
 DECL|class|OrdFieldSource
@@ -334,7 +334,7 @@ parameter_list|(
 name|Map
 name|context
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 parameter_list|)
 throws|throws
@@ -349,7 +349,7 @@ operator|.
 name|docBase
 decl_stmt|;
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|r
 decl_stmt|;
 name|Object
@@ -424,7 +424,7 @@ block|{
 comment|// its a single-valued numeric field: we must currently create insanity :(
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
@@ -436,12 +436,12 @@ operator|.
 name|leaves
 argument_list|()
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|insaneLeaves
 index|[]
 init|=
 operator|new
-name|AtomicReader
+name|LeafReader
 index|[
 name|leaves
 operator|.
@@ -456,7 +456,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|raw
 range|:
 name|leaves
@@ -507,7 +507,7 @@ operator|)
 name|o
 operator|)
 operator|.
-name|getAtomicReader
+name|getLeafReader
 argument_list|()
 expr_stmt|;
 block|}

@@ -33,7 +33,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -92,7 +92,7 @@ block|{
 DECL|field|context
 specifier|protected
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 decl_stmt|;
 comment|/**    * Creates a new instance of the provider class for the given {@link IndexReader}.    */
@@ -100,7 +100,7 @@ DECL|method|CustomScoreProvider
 specifier|public
 name|CustomScoreProvider
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 block|{

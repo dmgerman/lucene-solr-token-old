@@ -206,7 +206,7 @@ name|n
 parameter_list|,
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 parameter_list|)

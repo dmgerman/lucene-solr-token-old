@@ -130,7 +130,7 @@ name|LuceneTestCase
 import|;
 end_import
 begin_comment
-comment|/**  * Some tests for {@link ParallelAtomicReader}s with empty indexes  */
+comment|/**  * Some tests for {@link ParallelLeafReader}s with empty indexes  */
 end_comment
 begin_class
 DECL|class|TestParallelReaderEmptyIndex
@@ -213,11 +213,11 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|ParallelAtomicReader
+name|ParallelLeafReader
 name|apr
 init|=
 operator|new
-name|ParallelAtomicReader
+name|ParallelLeafReader
 argument_list|(
 name|SlowCompositeReaderWrapper
 operator|.
@@ -265,7 +265,7 @@ operator|.
 name|addIndexes
 argument_list|(
 operator|new
-name|ParallelAtomicReader
+name|ParallelLeafReader
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -724,11 +724,11 @@ name|reader1
 decl_stmt|,
 name|reader2
 decl_stmt|;
-name|ParallelAtomicReader
+name|ParallelLeafReader
 name|pr
 init|=
 operator|new
-name|ParallelAtomicReader
+name|ParallelLeafReader
 argument_list|(
 name|SlowCompositeReaderWrapper
 operator|.

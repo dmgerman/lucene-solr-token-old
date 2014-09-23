@@ -2244,7 +2244,7 @@ decl_stmt|;
 comment|// Test each sub-segment
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 range|:
 name|r

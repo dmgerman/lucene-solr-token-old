@@ -62,7 +62,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -430,7 +430,7 @@ name|search
 parameter_list|(
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 parameter_list|,

@@ -183,7 +183,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -196,7 +196,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -1265,7 +1265,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|SlowCompositeReaderWrapper
@@ -1738,7 +1738,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|SlowCompositeReaderWrapper
@@ -2184,7 +2184,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -2193,7 +2193,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -2627,7 +2627,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -2636,7 +2636,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -2703,7 +2703,7 @@ operator|.
 name|getReader
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|getOnlySegmentReader
@@ -3081,7 +3081,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -3090,7 +3090,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context

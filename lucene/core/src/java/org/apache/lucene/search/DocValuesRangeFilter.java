@@ -97,23 +97,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
-import|;
-end_import
-begin_comment
-comment|// for javadocs
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -195,7 +179,7 @@ name|NumericUtils
 import|;
 end_import
 begin_comment
-comment|/**  * A range filter built on top of numeric doc values field   * (from {@link AtomicReader#getNumericDocValues(String)}).  *   *<p>{@code DocValuesRangeFilter} builds a single cache for the field the first time it is used.  * Each subsequent {@code DocValuesRangeFilter} on the same field then reuses this cache,  * even if the range itself changes.   *   *<p>This means that {@code DocValuesRangeFilter} is much faster (sometimes more than 100x as fast)   * as building a {@link TermRangeFilter}, if using a {@link #newStringRange}.  * However, if the range never changes it is slower (around 2x as slow) than building  * a CachingWrapperFilter on top of a single {@link TermRangeFilter}.  *  * For numeric data types, this filter may be significantly faster than {@link NumericRangeFilter}.  * Furthermore, it does not need the numeric values encoded  * by {@link IntField}, {@link FloatField}, {@link  * LongField} or {@link DoubleField}. But  * it has the problem that it only works with exact one value/document (see below).  *  *<p>As with all {@link AtomicReader#getNumericDocValues} based functionality,   * {@code DocValuesRangeFilter} is only valid for   * fields which exact one term for each document (except for {@link #newStringRange}  * where 0 terms are also allowed). Due to historical reasons, for numeric ranges  * all terms that do not have a numeric value, 0 is assumed.  *  *<p>Thus it works on dates, prices and other single value fields but will not work on  * regular text fields. It is preferable to use a<code>NOT_ANALYZED</code> field to ensure that  * there is only a single term.   *  *<p>This class does not have an constructor, use one of the static factory methods available,  * that create a correct instance for different data types.  */
+comment|/**  * A range filter built on top of numeric doc values field   * (from {@link org.apache.lucene.index.LeafReader#getNumericDocValues(String)}).  *   *<p>{@code DocValuesRangeFilter} builds a single cache for the field the first time it is used.  * Each subsequent {@code DocValuesRangeFilter} on the same field then reuses this cache,  * even if the range itself changes.   *   *<p>This means that {@code DocValuesRangeFilter} is much faster (sometimes more than 100x as fast)   * as building a {@link TermRangeFilter}, if using a {@link #newStringRange}.  * However, if the range never changes it is slower (around 2x as slow) than building  * a CachingWrapperFilter on top of a single {@link TermRangeFilter}.  *  * For numeric data types, this filter may be significantly faster than {@link NumericRangeFilter}.  * Furthermore, it does not need the numeric values encoded  * by {@link IntField}, {@link FloatField}, {@link  * LongField} or {@link DoubleField}. But  * it has the problem that it only works with exact one value/document (see below).  *  *<p>As with all {@link org.apache.lucene.index.LeafReader#getNumericDocValues} based functionality,   * {@code DocValuesRangeFilter} is only valid for   * fields which exact one term for each document (except for {@link #newStringRange}  * where 0 terms are also allowed). Due to historical reasons, for numeric ranges  * all terms that do not have a numeric value, 0 is assumed.  *  *<p>Thus it works on dates, prices and other single value fields but will not work on  * regular text fields. It is preferable to use a<code>NOT_ANALYZED</code> field to ensure that  * there is only a single term.   *  *<p>This class does not have an constructor, use one of the static factory methods available,  * that create a correct instance for different data types.  */
 end_comment
 begin_comment
 comment|// TODO: use docsWithField to handle empty properly
@@ -297,7 +281,7 @@ specifier|abstract
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -306,7 +290,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**    * Creates a string range filter using {@link AtomicReader#getSortedDocValues(String)}. This works with all    * fields containing zero or one term in the field. The range can be half-open by setting one    * of the values to<code>null</code>.    */
+comment|/**    * Creates a string range filter using {@link org.apache.lucene.index.LeafReader#getSortedDocValues(String)}. This works with all    * fields containing zero or one term in the field. The range can be half-open by setting one    * of the values to<code>null</code>.    */
 DECL|method|newStringRange
 specifier|public
 specifier|static
@@ -356,7 +340,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -635,7 +619,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**    * Creates a BytesRef range filter using {@link AtomicReader#getSortedDocValues(String)}. This works with all    * fields containing zero or one term in the field. The range can be half-open by setting one    * of the values to<code>null</code>.    */
+comment|/**    * Creates a BytesRef range filter using {@link org.apache.lucene.index.LeafReader#getSortedDocValues(String)}. This works with all    * fields containing zero or one term in the field. The range can be half-open by setting one    * of the values to<code>null</code>.    */
 comment|// TODO: bogus that newStringRange doesnt share this code... generics hell
 DECL|method|newBytesRefRange
 specifier|public
@@ -686,7 +670,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -957,7 +941,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**    * Creates a numeric range filter using {@link AtomicReader#getSortedDocValues(String)}. This works with all    * int fields containing exactly one numeric term in the field. The range can be half-open by setting one    * of the values to<code>null</code>.    */
+comment|/**    * Creates a numeric range filter using {@link org.apache.lucene.index.LeafReader#getSortedDocValues(String)}. This works with all    * int fields containing exactly one numeric term in the field. The range can be half-open by setting one    * of the values to<code>null</code>.    */
 DECL|method|newIntRange
 specifier|public
 specifier|static
@@ -1007,7 +991,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -1204,7 +1188,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**    * Creates a numeric range filter using {@link AtomicReader#getNumericDocValues(String)}. This works with all    * long fields containing exactly one numeric term in the field. The range can be half-open by setting one    * of the values to<code>null</code>.    */
+comment|/**    * Creates a numeric range filter using {@link org.apache.lucene.index.LeafReader#getNumericDocValues(String)}. This works with all    * long fields containing exactly one numeric term in the field. The range can be half-open by setting one    * of the values to<code>null</code>.    */
 DECL|method|newLongRange
 specifier|public
 specifier|static
@@ -1254,7 +1238,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -1448,7 +1432,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**    * Creates a numeric range filter using {@link AtomicReader#getNumericDocValues(String)}. This works with all    * float fields containing exactly one numeric term in the field. The range can be half-open by setting one    * of the values to<code>null</code>.    */
+comment|/**    * Creates a numeric range filter using {@link org.apache.lucene.index.LeafReader#getNumericDocValues(String)}. This works with all    * float fields containing exactly one numeric term in the field. The range can be half-open by setting one    * of the values to<code>null</code>.    */
 DECL|method|newFloatRange
 specifier|public
 specifier|static
@@ -1498,7 +1482,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -1742,7 +1726,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**    * Creates a numeric range filter using {@link AtomicReader#getNumericDocValues(String)}. This works with all    * double fields containing exactly one numeric term in the field. The range can be half-open by setting one    * of the values to<code>null</code>.    */
+comment|/**    * Creates a numeric range filter using {@link org.apache.lucene.index.LeafReader#getNumericDocValues(String)}. This works with all    * double fields containing exactly one numeric term in the field. The range can be half-open by setting one    * of the values to<code>null</code>.    */
 DECL|method|newDoubleRange
 specifier|public
 specifier|static
@@ -1792,7 +1776,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits

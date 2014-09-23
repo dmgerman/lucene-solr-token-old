@@ -37,7 +37,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -244,7 +244,7 @@ parameter_list|(
 name|ValueSource
 name|vs
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|String
@@ -812,7 +812,7 @@ specifier|static
 name|SortedDocValues
 name|open
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|String

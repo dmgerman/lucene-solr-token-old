@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -239,7 +239,7 @@ index|]
 decl_stmt|;
 DECL|field|currentReaderContext
 specifier|private
-name|AtomicReaderContext
+name|LeafReaderContext
 name|currentReaderContext
 decl_stmt|;
 DECL|field|scorer
@@ -496,7 +496,7 @@ index|]
 expr_stmt|;
 block|}
 DECL|field|readerContext
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 decl_stmt|;
 DECL|field|docs
@@ -1205,7 +1205,7 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws

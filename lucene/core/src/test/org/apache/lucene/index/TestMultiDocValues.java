@@ -346,7 +346,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|merged
 init|=
 name|getOnlySegmentReader
@@ -599,7 +599,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|merged
 init|=
 name|getOnlySegmentReader
@@ -892,7 +892,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|merged
 init|=
 name|getOnlySegmentReader
@@ -1197,7 +1197,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|merged
 init|=
 name|getOnlySegmentReader
@@ -1507,7 +1507,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|merged
 init|=
 name|getOnlySegmentReader
@@ -1940,7 +1940,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|merged
 init|=
 name|getOnlySegmentReader
@@ -2374,7 +2374,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|merged
 init|=
 name|getOnlySegmentReader
@@ -2741,7 +2741,7 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|merged
 init|=
 name|getOnlySegmentReader

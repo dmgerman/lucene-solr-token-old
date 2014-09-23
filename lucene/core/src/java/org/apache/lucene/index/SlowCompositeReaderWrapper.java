@@ -64,22 +64,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DirectoryReader
-import|;
-end_import
-begin_comment
-comment|// javadoc
-end_comment
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|FieldInfo
 operator|.
 name|DocValuesType
@@ -130,22 +114,6 @@ operator|.
 name|OrdinalMap
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|MultiReader
-import|;
-end_import
-begin_comment
-comment|// javadoc
-end_comment
 begin_comment
 comment|/**  * This class forces a composite reader (eg a {@link  * MultiReader} or {@link DirectoryReader}) to emulate an  * atomic reader.  This requires implementing the postings  * APIs on-the-fly, using the static methods in {@link  * MultiFields}, {@link MultiDocValues}, by stepping through  * the sub-readers to merge fields/terms, appending docs, etc.  *  *<p><b>NOTE</b>: this class almost always results in a  * performance hit.  If this is important to your use case,  * you'll get better performance by gathering the sub readers using  * {@link IndexReader#getContext()} to get the  * atomic leaves and then operate per-AtomicReader,  * instead of using this class.  */
 end_comment
@@ -156,7 +124,7 @@ specifier|final
 class|class
 name|SlowCompositeReaderWrapper
 extends|extends
-name|AtomicReader
+name|LeafReader
 block|{
 DECL|field|in
 specifier|private
@@ -176,11 +144,11 @@ specifier|final
 name|Bits
 name|liveDocs
 decl_stmt|;
-comment|/** This method is sugar for getting an {@link AtomicReader} from    * an {@link IndexReader} of any kind. If the reader is already atomic,    * it is returned unchanged, otherwise wrapped by this class.    */
+comment|/** This method is sugar for getting an {@link LeafReader} from    * an {@link IndexReader} of any kind. If the reader is already atomic,    * it is returned unchanged, otherwise wrapped by this class.    */
 DECL|method|wrap
 specifier|public
 specifier|static
-name|AtomicReader
+name|LeafReader
 name|wrap
 parameter_list|(
 name|IndexReader
@@ -212,11 +180,11 @@ block|{
 assert|assert
 name|reader
 operator|instanceof
-name|AtomicReader
+name|LeafReader
 assert|;
 return|return
 operator|(
-name|AtomicReader
+name|LeafReader
 operator|)
 name|reader
 return|;
@@ -614,7 +582,7 @@ name|i
 operator|++
 control|)
 block|{
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 init|=
 name|in
@@ -869,7 +837,7 @@ name|i
 operator|++
 control|)
 block|{
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 init|=
 name|in
@@ -1175,7 +1143,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 range|:
 name|in

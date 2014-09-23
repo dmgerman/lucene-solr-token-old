@@ -177,7 +177,7 @@ specifier|static
 name|DocMap
 name|build
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 block|{
@@ -484,7 +484,7 @@ specifier|public
 specifier|final
 name|List
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|readers
 decl_stmt|;
@@ -528,7 +528,7 @@ name|MergeState
 parameter_list|(
 name|List
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|readers
 parameter_list|,

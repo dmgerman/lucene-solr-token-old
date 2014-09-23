@@ -395,7 +395,7 @@ DECL|method|getMergeReaders
 specifier|public
 name|List
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|getMergeReaders
 parameter_list|()
@@ -420,7 +420,7 @@ block|}
 specifier|final
 name|List
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|readers
 init|=
@@ -438,7 +438,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|this

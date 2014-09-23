@@ -51,7 +51,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -152,7 +152,7 @@ name|scores
 decl_stmt|;
 DECL|field|readerContext
 specifier|private
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 decl_stmt|;
 DECL|method|ExpressionComparator
@@ -399,7 +399,7 @@ name|Double
 argument_list|>
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws

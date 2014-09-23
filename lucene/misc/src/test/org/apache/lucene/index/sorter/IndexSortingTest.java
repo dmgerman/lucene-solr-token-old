@@ -450,7 +450,7 @@ argument_list|)
 decl_stmt|;
 name|reader
 operator|=
-name|SortingAtomicReader
+name|SortingLeafReader
 operator|.
 name|wrap
 argument_list|(

@@ -293,7 +293,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FilterAtomicReader
+name|FilterLeafReader
 operator|.
 name|FilterFields
 import|;

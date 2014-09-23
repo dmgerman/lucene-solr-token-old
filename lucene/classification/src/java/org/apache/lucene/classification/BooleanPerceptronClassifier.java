@@ -65,7 +65,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -260,19 +260,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|IntsRef
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|IntsRefBuilder
 import|;
 end_import
@@ -454,7 +441,7 @@ operator|=
 name|batchSize
 expr_stmt|;
 block|}
-comment|/**    * Default constructor, no batch updates of FST, perceptron threshold is    * calculated via underlying index metrics during    * {@link #train(org.apache.lucene.index.AtomicReader, String, String, org.apache.lucene.analysis.Analyzer)    * training}    */
+comment|/**    * Default constructor, no batch updates of FST, perceptron threshold is    * calculated via underlying index metrics during    * {@link #train(org.apache.lucene.index.LeafReader, String, String, org.apache.lucene.analysis.Analyzer)    * training}    */
 DECL|method|BooleanPerceptronClassifier
 specifier|public
 name|BooleanPerceptronClassifier
@@ -609,8 +596,8 @@ specifier|public
 name|void
 name|train
 parameter_list|(
-name|AtomicReader
-name|atomicReader
+name|LeafReader
+name|leafReader
 parameter_list|,
 name|String
 name|textFieldName
@@ -626,7 +613,7 @@ name|IOException
 block|{
 name|train
 argument_list|(
-name|atomicReader
+name|leafReader
 argument_list|,
 name|textFieldName
 argument_list|,
@@ -646,8 +633,8 @@ specifier|public
 name|void
 name|train
 parameter_list|(
-name|AtomicReader
-name|atomicReader
+name|LeafReader
+name|leafReader
 parameter_list|,
 name|String
 name|textFieldName
@@ -672,7 +659,7 @@ name|MultiFields
 operator|.
 name|getTerms
 argument_list|(
-name|atomicReader
+name|leafReader
 argument_list|,
 name|textFieldName
 argument_list|)
@@ -721,7 +708,7 @@ comment|// automatic assign a threshold
 name|long
 name|sumDocFreq
 init|=
-name|atomicReader
+name|leafReader
 operator|.
 name|getSumDocFreq
 argument_list|(
@@ -834,7 +821,7 @@ init|=
 operator|new
 name|IndexSearcher
 argument_list|(
-name|atomicReader
+name|leafReader
 argument_list|)
 decl_stmt|;
 name|int
@@ -1006,7 +993,7 @@ name|reuse
 operator|=
 name|updateWeights
 argument_list|(
-name|atomicReader
+name|leafReader
 argument_list|,
 name|reuse
 argument_list|,
@@ -1046,8 +1033,8 @@ specifier|public
 name|void
 name|train
 parameter_list|(
-name|AtomicReader
-name|atomicReader
+name|LeafReader
+name|leafReader
 parameter_list|,
 name|String
 index|[]
@@ -1078,8 +1065,8 @@ specifier|private
 name|TermsEnum
 name|updateWeights
 parameter_list|(
-name|AtomicReader
-name|atomicReader
+name|LeafReader
+name|leafReader
 parameter_list|,
 name|TermsEnum
 name|reuse
@@ -1121,7 +1108,7 @@ comment|// get the doc term vectors
 name|Terms
 name|terms
 init|=
-name|atomicReader
+name|leafReader
 operator|.
 name|getTermVector
 argument_list|(

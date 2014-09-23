@@ -108,7 +108,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -710,7 +710,7 @@ expr_stmt|;
 block|}
 function|@Override       protected void doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -1119,7 +1119,7 @@ specifier|public
 name|Explanation
 name|explain
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|int
@@ -1160,7 +1160,7 @@ block|{
 block|}
 function|@Override         public Scorer scorer
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -1175,7 +1175,7 @@ throw|;
 block|}
 function|@Override         public BulkScorer bulkScorer
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|boolean

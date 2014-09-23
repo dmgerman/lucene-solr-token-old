@@ -39,7 +39,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -52,7 +52,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -390,7 +390,7 @@ block|{
 DECL|field|context
 specifier|protected
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 decl_stmt|;
 DECL|field|acceptDocs
@@ -419,7 +419,7 @@ DECL|method|BaseTermsEnumTraverser
 specifier|public
 name|BaseTermsEnumTraverser
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -434,7 +434,7 @@ name|context
 operator|=
 name|context
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|context

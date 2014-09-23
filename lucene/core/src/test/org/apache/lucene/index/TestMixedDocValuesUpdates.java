@@ -776,7 +776,7 @@ expr_stmt|;
 comment|// we delete at most one document per round
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -785,7 +785,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -1755,7 +1755,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -1764,7 +1764,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -2190,7 +2190,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -2199,7 +2199,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -2702,7 +2702,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -2726,7 +2726,7 @@ name|i
 operator|++
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context

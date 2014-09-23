@@ -44,7 +44,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -190,7 +190,7 @@ name|queueFull
 decl_stmt|;
 DECL|field|currentReaderContext
 specifier|private
-name|AtomicReaderContext
+name|LeafReaderContext
 name|currentReaderContext
 decl_stmt|;
 DECL|field|topGroupDoc
@@ -389,7 +389,7 @@ class|class
 name|OneGroup
 block|{
 DECL|field|readerContext
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 decl_stmt|;
 comment|//int groupOrd;
@@ -1941,7 +1941,7 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 parameter_list|)
 throws|throws

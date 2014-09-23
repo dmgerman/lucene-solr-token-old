@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -379,7 +379,7 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|SlowCompositeReaderWrapper

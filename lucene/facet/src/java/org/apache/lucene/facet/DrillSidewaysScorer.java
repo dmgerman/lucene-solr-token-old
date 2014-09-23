@@ -51,7 +51,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -207,7 +207,7 @@ decl_stmt|;
 DECL|field|context
 specifier|private
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 decl_stmt|;
 DECL|field|scoreSubDocsAtOnce
@@ -251,7 +251,7 @@ decl_stmt|;
 DECL|method|DrillSidewaysScorer
 name|DrillSidewaysScorer
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Scorer

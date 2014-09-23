@@ -88,7 +88,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -308,7 +308,7 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ir
 init|=
 name|getOnlySegmentReader

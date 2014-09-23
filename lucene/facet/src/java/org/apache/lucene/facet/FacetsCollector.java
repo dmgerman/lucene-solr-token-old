@@ -51,7 +51,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -314,7 +314,7 @@ name|SimpleCollector
 block|{
 DECL|field|context
 specifier|private
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 decl_stmt|;
 DECL|field|scorer
@@ -394,7 +394,7 @@ name|getDocIdSet
 parameter_list|()
 function_decl|;
 block|}
-comment|/**    * Holds the documents that were matched in the {@link AtomicReaderContext}.    * If scores were required, then {@code scores} is not null.    */
+comment|/**    * Holds the documents that were matched in the {@link org.apache.lucene.index.LeafReaderContext}.    * If scores were required, then {@code scores} is not null.    */
 DECL|class|MatchingDocs
 specifier|public
 specifier|final
@@ -406,7 +406,7 @@ comment|/** Context for this segment. */
 DECL|field|context
 specifier|public
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 decl_stmt|;
 comment|/** Which documents were seen. */
@@ -436,7 +436,7 @@ DECL|method|MatchingDocs
 specifier|public
 name|MatchingDocs
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|DocIdSet
@@ -768,7 +768,7 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws

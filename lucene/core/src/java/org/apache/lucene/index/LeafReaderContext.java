@@ -33,14 +33,14 @@ name|List
 import|;
 end_import
 begin_comment
-comment|/**  * {@link IndexReaderContext} for {@link AtomicReader} instances.  */
+comment|/**  * {@link IndexReaderContext} for {@link LeafReader} instances.  */
 end_comment
 begin_class
-DECL|class|AtomicReaderContext
+DECL|class|LeafReaderContext
 specifier|public
 specifier|final
 class|class
-name|AtomicReaderContext
+name|LeafReaderContext
 extends|extends
 name|IndexReaderContext
 block|{
@@ -61,7 +61,7 @@ decl_stmt|;
 DECL|field|reader
 specifier|private
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|reader
 decl_stmt|;
 DECL|field|leaves
@@ -69,18 +69,18 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 decl_stmt|;
-comment|/**    * Creates a new {@link AtomicReaderContext}     */
-DECL|method|AtomicReaderContext
-name|AtomicReaderContext
+comment|/**    * Creates a new {@link LeafReaderContext}     */
+DECL|method|LeafReaderContext
+name|LeafReaderContext
 parameter_list|(
 name|CompositeReaderContext
 name|parent
 parameter_list|,
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|,
 name|int
@@ -139,18 +139,18 @@ else|:
 literal|null
 expr_stmt|;
 block|}
-DECL|method|AtomicReaderContext
-name|AtomicReaderContext
+DECL|method|LeafReaderContext
+name|LeafReaderContext
 parameter_list|(
-name|AtomicReader
-name|atomicReader
+name|LeafReader
+name|leafReader
 parameter_list|)
 block|{
 name|this
 argument_list|(
 literal|null
 argument_list|,
-name|atomicReader
+name|leafReader
 argument_list|,
 literal|0
 argument_list|,
@@ -168,7 +168,7 @@ DECL|method|leaves
 specifier|public
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 parameter_list|()
@@ -215,7 +215,7 @@ annotation|@
 name|Override
 DECL|method|reader
 specifier|public
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|()
 block|{

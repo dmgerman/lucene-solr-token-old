@@ -104,7 +104,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -269,7 +269,7 @@ name|LuceneTestCase
 block|{
 DECL|field|originalIndex
 specifier|private
-name|AtomicReader
+name|LeafReader
 name|originalIndex
 decl_stmt|;
 DECL|field|indexWriter
@@ -583,7 +583,7 @@ specifier|static
 name|void
 name|assertSplit
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|originalIndex
 parameter_list|,
 name|double

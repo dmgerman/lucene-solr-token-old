@@ -24,7 +24,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -247,7 +247,7 @@ decl_stmt|;
 DECL|field|contexts
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|contexts
 decl_stmt|;
@@ -337,7 +337,7 @@ specifier|public
 name|LeafCollector
 name|getLeafCollector
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -610,7 +610,7 @@ name|i
 control|)
 block|{
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 init|=
 name|contexts

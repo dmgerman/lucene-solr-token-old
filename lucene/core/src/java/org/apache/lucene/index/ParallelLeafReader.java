@@ -100,15 +100,15 @@ name|Bits
 import|;
 end_import
 begin_comment
-comment|/** An {@link AtomicReader} which reads multiple, parallel indexes.  Each index  * added must have the same number of documents, but typically each contains  * different fields. Deletions are taken from the first reader.  * Each document contains the union of the fields of all documents  * with the same document number.  When searching, matches for a  * query term are from the first index added that has the field.  *  *<p>This is useful, e.g., with collections that have large fields which  * change rarely and small fields that change more frequently.  The smaller  * fields may be re-indexed in a new index and both indexes may be searched  * together.  *   *<p><strong>Warning:</strong> It is up to you to make sure all indexes  * are created and modified the same way. For example, if you add  * documents to one index, you need to add the same documents in the  * same order to the other indexes.<em>Failure to do so will result in  * undefined behavior</em>.  */
+comment|/** An {@link LeafReader} which reads multiple, parallel indexes.  Each index  * added must have the same number of documents, but typically each contains  * different fields. Deletions are taken from the first reader.  * Each document contains the union of the fields of all documents  * with the same document number.  When searching, matches for a  * query term are from the first index added that has the field.  *  *<p>This is useful, e.g., with collections that have large fields which  * change rarely and small fields that change more frequently.  The smaller  * fields may be re-indexed in a new index and both indexes may be searched  * together.  *   *<p><strong>Warning:</strong> It is up to you to make sure all indexes  * are created and modified the same way. For example, if you add  * documents to one index, you need to add the same documents in the  * same order to the other indexes.<em>Failure to do so will result in  * undefined behavior</em>.  */
 end_comment
 begin_class
-DECL|class|ParallelAtomicReader
+DECL|class|ParallelLeafReader
 specifier|public
 class|class
-name|ParallelAtomicReader
+name|ParallelLeafReader
 extends|extends
-name|AtomicReader
+name|LeafReader
 block|{
 DECL|field|fieldInfos
 specifier|private
@@ -130,7 +130,7 @@ DECL|field|parallelReaders
 DECL|field|storedFieldsReaders
 specifier|private
 specifier|final
-name|AtomicReader
+name|LeafReader
 index|[]
 name|parallelReaders
 decl_stmt|,
@@ -141,7 +141,7 @@ specifier|private
 specifier|final
 name|Set
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|completeReaderSet
 init|=
@@ -152,7 +152,7 @@ argument_list|(
 operator|new
 name|IdentityHashMap
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|,
 name|Boolean
 argument_list|>
@@ -187,7 +187,7 @@ name|SortedMap
 argument_list|<
 name|String
 argument_list|,
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|fieldToReader
 init|=
@@ -203,7 +203,7 @@ name|SortedMap
 argument_list|<
 name|String
 argument_list|,
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|tvFieldToReader
 init|=
@@ -213,11 +213,11 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Create a ParallelAtomicReader based on the provided    *  readers; auto-closes the given readers on {@link #close()}. */
-DECL|method|ParallelAtomicReader
+DECL|method|ParallelLeafReader
 specifier|public
-name|ParallelAtomicReader
+name|ParallelLeafReader
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 modifier|...
 name|readers
 parameter_list|)
@@ -233,14 +233,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Create a ParallelAtomicReader based on the provided    *  readers. */
-DECL|method|ParallelAtomicReader
+DECL|method|ParallelLeafReader
 specifier|public
-name|ParallelAtomicReader
+name|ParallelLeafReader
 parameter_list|(
 name|boolean
 name|closeSubReaders
 parameter_list|,
-name|AtomicReader
+name|LeafReader
 modifier|...
 name|readers
 parameter_list|)
@@ -258,18 +258,18 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Expert: create a ParallelAtomicReader based on the provided    *  readers and storedFieldReaders; when a document is    *  loaded, only storedFieldsReaders will be used. */
-DECL|method|ParallelAtomicReader
+DECL|method|ParallelLeafReader
 specifier|public
-name|ParallelAtomicReader
+name|ParallelLeafReader
 parameter_list|(
 name|boolean
 name|closeSubReaders
 parameter_list|,
-name|AtomicReader
+name|LeafReader
 index|[]
 name|readers
 parameter_list|,
-name|AtomicReader
+name|LeafReader
 index|[]
 name|storedFieldsReaders
 parameter_list|)
@@ -331,7 +331,7 @@ literal|0
 condition|)
 block|{
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|first
 init|=
 name|parallelReaders
@@ -411,7 +411,7 @@ expr_stmt|;
 comment|// check compatibility:
 for|for
 control|(
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|completeReaderSet
@@ -461,7 +461,7 @@ comment|// build FieldInfos and fieldToReader map:
 for|for
 control|(
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|this
@@ -552,7 +552,7 @@ comment|// build Fields instance
 for|for
 control|(
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|this
@@ -620,7 +620,7 @@ block|}
 comment|// do this finally so any Exceptions occurred before don't affect refcounts:
 for|for
 control|(
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|completeReaderSet
@@ -670,7 +670,7 @@ control|(
 specifier|final
 name|Iterator
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|iter
 init|=
@@ -973,7 +973,7 @@ expr_stmt|;
 for|for
 control|(
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|storedFieldsReaders
@@ -1019,7 +1019,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|ent
 range|:
@@ -1106,7 +1106,7 @@ literal|null
 decl_stmt|;
 for|for
 control|(
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|completeReaderSet
@@ -1179,7 +1179,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|fieldToReader
@@ -1220,7 +1220,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|fieldToReader
@@ -1261,7 +1261,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|fieldToReader
@@ -1302,7 +1302,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|fieldToReader
@@ -1343,7 +1343,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|fieldToReader
@@ -1384,7 +1384,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|fieldToReader
@@ -1425,7 +1425,7 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|fieldToReader
@@ -1470,7 +1470,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|completeReaderSet

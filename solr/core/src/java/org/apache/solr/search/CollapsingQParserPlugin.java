@@ -60,7 +60,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -1237,7 +1237,7 @@ name|getSorted
 argument_list|(
 name|searcher
 operator|.
-name|getAtomicReader
+name|getLeafReader
 argument_list|()
 argument_list|,
 name|this
@@ -1964,7 +1964,7 @@ name|DelegatingCollector
 block|{
 DECL|field|contexts
 specifier|private
-name|AtomicReaderContext
+name|LeafReaderContext
 index|[]
 name|contexts
 decl_stmt|;
@@ -2062,7 +2062,7 @@ operator|.
 name|contexts
 operator|=
 operator|new
-name|AtomicReaderContext
+name|LeafReaderContext
 index|[
 name|segments
 index|]
@@ -2290,7 +2290,7 @@ specifier|protected
 name|void
 name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -2887,7 +2887,7 @@ name|DelegatingCollector
 block|{
 DECL|field|contexts
 specifier|private
-name|AtomicReaderContext
+name|LeafReaderContext
 index|[]
 name|contexts
 decl_stmt|;
@@ -2972,7 +2972,7 @@ operator|.
 name|contexts
 operator|=
 operator|new
-name|AtomicReaderContext
+name|LeafReaderContext
 index|[
 name|segments
 index|]
@@ -3216,7 +3216,7 @@ specifier|public
 name|void
 name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -3734,7 +3734,7 @@ specifier|abstract
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -4269,7 +4269,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -4677,7 +4677,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -5083,7 +5083,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -5587,7 +5587,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws

@@ -80,7 +80,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -93,7 +93,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -252,11 +252,11 @@ name|facetStatsTerms
 decl_stmt|;
 DECL|field|topLevelReader
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|topLevelReader
 decl_stmt|;
 DECL|field|leave
-name|AtomicReaderContext
+name|LeafReaderContext
 name|leave
 decl_stmt|;
 DECL|field|valueSource
@@ -265,7 +265,7 @@ name|ValueSource
 name|valueSource
 decl_stmt|;
 DECL|field|context
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 decl_stmt|;
 DECL|field|values
@@ -317,7 +317,7 @@ name|topLevelReader
 operator|=
 name|searcher
 operator|.
-name|getAtomicReader
+name|getLeafReader
 argument_list|()
 expr_stmt|;
 name|valueSource
@@ -806,7 +806,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 parameter_list|)
 throws|throws

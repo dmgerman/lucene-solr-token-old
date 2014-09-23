@@ -120,7 +120,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -371,7 +371,7 @@ parameter_list|(
 name|DocIdSetIterator
 name|iterator
 parameter_list|,
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 throws|throws
@@ -644,7 +644,7 @@ name|close
 argument_list|()
 expr_stmt|;
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|getOnlySegmentReader

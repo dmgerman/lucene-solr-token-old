@@ -170,7 +170,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -409,7 +409,7 @@ specifier|protected
 specifier|final
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leafContexts
 decl_stmt|;
@@ -583,7 +583,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Expert: Creates an array of leaf slices each holding a subset of the given leaves.    * Each {@link LeafSlice} is executed in a single thread. By default there    * will be one {@link LeafSlice} per leaf ({@link AtomicReaderContext}).    */
+comment|/**    * Expert: Creates an array of leaf slices each holding a subset of the given leaves.    * Each {@link LeafSlice} is executed in a single thread. By default there    * will be one {@link LeafSlice} per leaf ({@link org.apache.lucene.index.LeafReaderContext}).    */
 DECL|method|slices
 specifier|protected
 name|LeafSlice
@@ -592,7 +592,7 @@ name|slices
 parameter_list|(
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 parameter_list|)
@@ -1655,7 +1655,7 @@ name|search
 parameter_list|(
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 parameter_list|,
@@ -2076,7 +2076,7 @@ name|search
 parameter_list|(
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 parameter_list|,
@@ -2189,7 +2189,7 @@ name|search
 parameter_list|(
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 parameter_list|,
@@ -2207,7 +2207,7 @@ comment|// threaded...?  the Collector could be sync'd?
 comment|// always use single thread:
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 range|:
 name|leaves
@@ -2400,7 +2400,7 @@ name|leafContexts
 argument_list|)
 decl_stmt|;
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 init|=
 name|leafContexts
@@ -2999,7 +2999,7 @@ expr_stmt|;
 try|try
 block|{
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 init|=
 name|slice
@@ -3318,7 +3318,7 @@ name|LeafSlice
 block|{
 DECL|field|leaves
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 index|[]
 name|leaves
 decl_stmt|;
@@ -3326,7 +3326,7 @@ DECL|method|LeafSlice
 specifier|public
 name|LeafSlice
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 modifier|...
 name|leaves
 parameter_list|)

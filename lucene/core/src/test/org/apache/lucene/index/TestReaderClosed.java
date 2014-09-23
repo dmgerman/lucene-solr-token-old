@@ -427,10 +427,10 @@ decl_stmt|;
 name|wrappedReader
 operator|=
 operator|new
-name|ParallelAtomicReader
+name|ParallelLeafReader
 argument_list|(
 operator|(
-name|AtomicReader
+name|LeafReader
 operator|)
 name|wrappedReader
 argument_list|)

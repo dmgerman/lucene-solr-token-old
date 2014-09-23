@@ -44,7 +44,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -227,7 +227,7 @@ name|int
 name|docID
 parameter_list|)
 function_decl|;
-comment|/** Return the number of documents in this map. This must be equal to the      *  {@link AtomicReader#maxDoc() number of documents} of the      *  {@link AtomicReader} which is sorted. */
+comment|/** Return the number of documents in this map. This must be equal to the      *  {@link org.apache.lucene.index.LeafReader#maxDoc() number of documents} of the      *  {@link org.apache.lucene.index.LeafReader} which is sorted. */
 DECL|method|size
 specifier|abstract
 name|int
@@ -967,7 +967,7 @@ DECL|method|sort
 name|DocMap
 name|sort
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 throws|throws

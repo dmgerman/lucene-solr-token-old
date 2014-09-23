@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -192,19 +192,6 @@ operator|.
 name|util
 operator|.
 name|BytesRefBuilder
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|CharsRef
 import|;
 end_import
 begin_import
@@ -461,7 +448,7 @@ name|si
 operator|=
 name|searcher
 operator|.
-name|getAtomicReader
+name|getLeafReader
 argument_list|()
 operator|.
 name|getSortedSetDocValues
@@ -496,7 +483,7 @@ name|single
 init|=
 name|searcher
 operator|.
-name|getAtomicReader
+name|getLeafReader
 argument_list|()
 operator|.
 name|getSortedDocValues
@@ -796,7 +783,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
@@ -826,7 +813,7 @@ name|subIndex
 operator|++
 control|)
 block|{
-name|AtomicReaderContext
+name|LeafReaderContext
 name|leaf
 init|=
 name|leaves

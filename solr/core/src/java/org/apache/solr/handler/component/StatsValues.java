@@ -44,22 +44,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|queries
-operator|.
-name|function
-operator|.
-name|FunctionValues
+name|LeafReaderContext
 import|;
 end_import
 begin_import
@@ -90,19 +75,6 @@ operator|.
 name|NamedList
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|schema
-operator|.
-name|FieldType
-import|;
-end_import
 begin_comment
 comment|/**  * StatsValue defines the interface for the collection of statistical values about fields and facets.  */
 end_comment
@@ -124,7 +96,7 @@ name|NamedList
 name|stv
 parameter_list|)
 function_decl|;
-comment|/** Accumulate the value associated with<code>docID</code>.    *  @see #setNextReader(AtomicReaderContext) */
+comment|/** Accumulate the value associated with<code>docID</code>.    *  @see #setNextReader(org.apache.lucene.index.LeafReaderContext) */
 DECL|method|accumulate
 name|void
 name|accumulate
@@ -191,7 +163,7 @@ DECL|method|setNextReader
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 parameter_list|)
 throws|throws

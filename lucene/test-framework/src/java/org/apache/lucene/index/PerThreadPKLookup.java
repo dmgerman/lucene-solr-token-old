@@ -149,7 +149,7 @@ name|IOException
 block|{
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
@@ -173,7 +173,7 @@ argument_list|,
 operator|new
 name|Comparator
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 argument_list|()
 block|{
@@ -183,10 +183,10 @@ specifier|public
 name|int
 name|compare
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|c1
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|c2
 parameter_list|)
 block|{

@@ -78,7 +78,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -541,7 +541,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|mergeState
@@ -662,7 +662,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|mergeState
@@ -772,7 +772,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|mergeState
@@ -848,7 +848,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|mergeState
@@ -924,7 +924,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|mergeState
@@ -1072,7 +1072,7 @@ decl_stmt|;
 name|boolean
 name|nextHasValue
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|currentReader
 decl_stmt|;
 name|NumericDocValues
@@ -1392,7 +1392,7 @@ name|BytesRef
 name|nextPointer
 decl_stmt|;
 comment|// points to null if missing, or nextValue
-name|AtomicReader
+name|LeafReader
 name|currentReader
 decl_stmt|;
 name|BinaryDocValues
@@ -1650,7 +1650,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|readers
 index|[]
 init|=
@@ -1661,7 +1661,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|AtomicReader
+name|LeafReader
 index|[
 name|toMerge
 operator|.
@@ -1732,7 +1732,7 @@ decl_stmt|;
 name|int
 name|nextValue
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|currentReader
 decl_stmt|;
 name|Bits
@@ -1964,7 +1964,7 @@ decl_stmt|;
 name|long
 name|nextValue
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|currentReader
 decl_stmt|;
 name|Bits
@@ -2225,7 +2225,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|readers
 index|[]
 init|=
@@ -2236,7 +2236,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|AtomicReader
+name|LeafReader
 index|[
 name|toMerge
 operator|.
@@ -2306,7 +2306,7 @@ name|sub
 operator|++
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|readers
@@ -2645,7 +2645,7 @@ decl_stmt|;
 name|int
 name|nextValue
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|currentReader
 decl_stmt|;
 name|Bits
@@ -2888,7 +2888,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|readers
 index|[]
 init|=
@@ -2899,7 +2899,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|AtomicReader
+name|LeafReader
 index|[
 name|toMerge
 operator|.
@@ -2969,7 +2969,7 @@ name|sub
 operator|++
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|readers
@@ -3314,7 +3314,7 @@ decl_stmt|;
 name|int
 name|nextValue
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|currentReader
 decl_stmt|;
 name|Bits
@@ -3560,7 +3560,7 @@ decl_stmt|;
 name|long
 name|nextValue
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|currentReader
 decl_stmt|;
 name|Bits

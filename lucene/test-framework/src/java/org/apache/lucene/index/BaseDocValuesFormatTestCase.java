@@ -9394,7 +9394,7 @@ name|ord
 argument_list|)
 expr_stmt|;
 block|}
-name|AtomicReader
+name|LeafReader
 name|slowR
 init|=
 name|SlowCompositeReaderWrapper
@@ -9867,7 +9867,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -9876,7 +9876,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -10290,7 +10290,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -10299,7 +10299,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -10963,7 +10963,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -10972,7 +10972,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -11064,7 +11064,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -11073,7 +11073,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -11573,7 +11573,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -11582,7 +11582,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -11674,7 +11674,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -11683,7 +11683,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -15272,7 +15272,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -15281,7 +15281,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -15443,7 +15443,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -15452,7 +15452,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -16503,7 +16503,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|ir
@@ -16764,7 +16764,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|ir
@@ -17070,7 +17070,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|ir
@@ -17350,7 +17350,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|ir
@@ -17626,7 +17626,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|ir
@@ -17951,7 +17951,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|ir
@@ -18554,7 +18554,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -18563,7 +18563,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -19482,7 +19482,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|ir
@@ -19491,7 +19491,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
@@ -20638,7 +20638,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|leaf
 range|:
 name|r
@@ -20933,7 +20933,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|SlowCompositeReaderWrapper

@@ -154,7 +154,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 begin_import
@@ -559,7 +559,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|r
@@ -1314,7 +1314,7 @@ name|close
 argument_list|()
 expr_stmt|;
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|sr
 init|=
 name|getOnlySegmentReader

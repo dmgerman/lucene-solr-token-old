@@ -6279,7 +6279,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|r
@@ -6363,7 +6363,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|r
@@ -7828,7 +7828,7 @@ specifier|private
 name|void
 name|assertNumericDocValues
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|r
 parameter_list|,
 name|String
@@ -7904,7 +7904,7 @@ specifier|private
 name|void
 name|assertBinaryDocValues
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|r
 parameter_list|,
 name|String
@@ -8002,7 +8002,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 range|:
 name|reader
@@ -8011,7 +8011,7 @@ name|leaves
 argument_list|()
 control|)
 block|{
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|context
