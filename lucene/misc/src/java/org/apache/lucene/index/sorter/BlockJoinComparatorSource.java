@@ -753,7 +753,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"AtomicReader "
+literal|"LeafReader "
 operator|+
 name|context
 operator|.

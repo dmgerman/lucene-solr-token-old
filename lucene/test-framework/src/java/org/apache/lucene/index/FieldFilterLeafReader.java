@@ -762,7 +762,7 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"FieldFilterAtomicReader(reader="
+literal|"FieldFilterLeafReader(reader="
 argument_list|)
 decl_stmt|;
 name|sb

@@ -163,10 +163,10 @@ name|LuceneTestCase
 import|;
 end_import
 begin_class
-DECL|class|TestFilterAtomicReader
+DECL|class|TestFilterLeafReader
 specifier|public
 class|class
-name|TestFilterAtomicReader
+name|TestFilterLeafReader
 extends|extends
 name|LuceneTestCase
 block|{
