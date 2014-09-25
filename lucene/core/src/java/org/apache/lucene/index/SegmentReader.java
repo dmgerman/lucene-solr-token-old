@@ -1111,8 +1111,6 @@ argument_list|,
 name|info
 operator|.
 name|info
-operator|.
-name|name
 argument_list|,
 name|segmentSuffix
 argument_list|,
