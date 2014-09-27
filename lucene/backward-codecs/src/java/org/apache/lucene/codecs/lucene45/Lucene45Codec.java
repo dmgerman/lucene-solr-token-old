@@ -455,7 +455,6 @@ annotation|@
 name|Override
 DECL|method|storedFieldsFormat
 specifier|public
-specifier|final
 name|StoredFieldsFormat
 name|storedFieldsFormat
 parameter_list|()
@@ -468,7 +467,6 @@ annotation|@
 name|Override
 DECL|method|termVectorsFormat
 specifier|public
-specifier|final
 name|TermVectorsFormat
 name|termVectorsFormat
 parameter_list|()
