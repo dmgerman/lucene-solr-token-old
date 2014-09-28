@@ -174,7 +174,7 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|/**  * Random-access reader for {@code Lucene41CompressingStoredFieldsIndexWriter}.  * @deprecated only for reading old segments  */
+comment|/**  * Reader for 4.x stored fields/term vectors index  * @deprecated only for reading old segments  */
 end_comment
 begin_class
 annotation|@

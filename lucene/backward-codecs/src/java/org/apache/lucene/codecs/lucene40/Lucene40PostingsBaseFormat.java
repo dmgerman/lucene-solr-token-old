@@ -91,16 +91,12 @@ name|SegmentWriteState
 import|;
 end_import
 begin_comment
-comment|/**   * Provides a {@link PostingsReaderBase} and {@link  * PostingsWriterBase}.  *  * @deprecated Only for reading old 4.0 segments */
-end_comment
-begin_comment
-comment|// TODO: should these also be named / looked up via SPI?
+comment|/**   * PostingsReaderBase for 4.0 segments  * @deprecated Only for reading old 4.0 segments */
 end_comment
 begin_class
 annotation|@
 name|Deprecated
 DECL|class|Lucene40PostingsBaseFormat
-specifier|public
 specifier|final
 class|class
 name|Lucene40PostingsBaseFormat
@@ -109,7 +105,6 @@ name|PostingsBaseFormat
 block|{
 comment|/** Sole constructor. */
 DECL|method|Lucene40PostingsBaseFormat
-specifier|public
 name|Lucene40PostingsBaseFormat
 parameter_list|()
 block|{

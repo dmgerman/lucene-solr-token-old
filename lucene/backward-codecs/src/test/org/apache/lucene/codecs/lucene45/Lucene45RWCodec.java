@@ -217,6 +217,7 @@ literal|"deprecation"
 argument_list|)
 DECL|class|Lucene45RWCodec
 specifier|public
+specifier|final
 class|class
 name|Lucene45RWCodec
 extends|extends

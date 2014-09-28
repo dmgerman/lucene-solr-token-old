@@ -645,11 +645,13 @@ name|MonotonicBlockPackedReader
 import|;
 end_import
 begin_comment
-comment|/** reader for {@link Lucene49DocValuesFormat} */
+comment|/**   * reader for 4.9 docvalues format  * @deprecated only for 4.x segments   */
 end_comment
 begin_class
-DECL|class|Lucene49DocValuesProducer
+annotation|@
+name|Deprecated
 class|class
+DECL|class|Lucene49DocValuesProducer
 name|Lucene49DocValuesProducer
 extends|extends
 name|DocValuesProducer

@@ -203,13 +203,14 @@ name|IOUtils
 import|;
 end_import
 begin_comment
-comment|/**  * Lucene 4.0 FieldInfos writer.  *   * @see Lucene40FieldInfosFormat  * @lucene.experimental  */
+comment|/**  * Writer for 4.0 fieldinfos format  * @deprecated for test purposes only  */
 end_comment
 begin_class
 annotation|@
 name|Deprecated
 DECL|class|Lucene40FieldInfosWriter
 specifier|public
+specifier|final
 class|class
 name|Lucene40FieldInfosWriter
 extends|extends

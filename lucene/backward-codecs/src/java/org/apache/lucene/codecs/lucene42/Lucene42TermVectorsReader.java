@@ -462,7 +462,7 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|/**  * {@link TermVectorsReader} for {@code Lucene42TermVectorsFormat}.  * @deprecated only for reading old segments  */
+comment|/**  * 4.2 term vectors reader  * @deprecated only for reading old segments  */
 end_comment
 begin_class
 annotation|@

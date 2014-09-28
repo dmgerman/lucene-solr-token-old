@@ -29,15 +29,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collections
 import|;
 end_import
@@ -228,6 +219,7 @@ specifier|public
 name|FieldInfos
 name|mergeFieldInfos
 decl_stmt|;
+comment|/** Stored field producers being merged */
 DECL|field|storedFieldsReaders
 specifier|public
 specifier|final
@@ -235,6 +227,7 @@ name|StoredFieldsReader
 index|[]
 name|storedFieldsReaders
 decl_stmt|;
+comment|/** Term vector producers being merged */
 DECL|field|termVectorsReaders
 specifier|public
 specifier|final
@@ -242,6 +235,7 @@ name|TermVectorsReader
 index|[]
 name|termVectorsReaders
 decl_stmt|;
+comment|/** Norms producers being merged */
 DECL|field|normsProducers
 specifier|public
 specifier|final
@@ -249,6 +243,7 @@ name|NormsProducer
 index|[]
 name|normsProducers
 decl_stmt|;
+comment|/** DocValues producers being merged */
 DECL|field|docValuesProducers
 specifier|public
 specifier|final
@@ -256,6 +251,7 @@ name|DocValuesProducer
 index|[]
 name|docValuesProducers
 decl_stmt|;
+comment|/** FieldInfos being merged */
 DECL|field|fieldInfos
 specifier|public
 specifier|final

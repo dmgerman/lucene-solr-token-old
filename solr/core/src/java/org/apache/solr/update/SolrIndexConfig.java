@@ -1261,13 +1261,6 @@ name|warmer
 argument_list|)
 expr_stmt|;
 block|}
-name|iwc
-operator|.
-name|setCheckIntegrityAtMerge
-argument_list|(
-name|checkIntegrityAtMerge
-argument_list|)
-expr_stmt|;
 return|return
 name|iwc
 return|;

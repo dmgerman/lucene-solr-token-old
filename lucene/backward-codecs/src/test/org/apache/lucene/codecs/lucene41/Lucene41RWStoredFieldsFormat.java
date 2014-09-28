@@ -78,11 +78,14 @@ name|IOContext
 import|;
 end_import
 begin_comment
-comment|/** read-write version of Lucene41StoredsFieldsFormat for testing */
+comment|/**  * Read-write version of 4.1 stored fields format for testing  * @deprecated for test purposes only  */
 end_comment
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|Lucene41RWStoredFieldsFormat
 specifier|public
+specifier|final
 class|class
 name|Lucene41RWStoredFieldsFormat
 extends|extends

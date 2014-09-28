@@ -217,13 +217,14 @@ name|IOUtils
 import|;
 end_import
 begin_comment
-comment|/**  * Lucene 4.0 FieldInfos reader.  *   * @lucene.experimental  * @see Lucene40FieldInfosFormat  * @deprecated Only for reading old 4.0 and 4.1 segments  */
+comment|/**  * Lucene 4.0 FieldInfos reader.  * @deprecated Only for reading old 4.0 and 4.1 segments  */
 end_comment
 begin_class
 annotation|@
 name|Deprecated
-class|class
 DECL|class|Lucene40FieldInfosReader
+specifier|final
+class|class
 name|Lucene40FieldInfosReader
 extends|extends
 name|FieldInfosReader

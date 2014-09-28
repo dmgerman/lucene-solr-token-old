@@ -281,11 +281,13 @@ name|PackedInts
 import|;
 end_import
 begin_comment
-comment|/** writer for {@link Lucene49DocValuesFormat} */
+comment|/**   * writer for 4.9 docvalues format  * @deprecated only for old 4.x segments  */
 end_comment
 begin_class
-DECL|class|Lucene49DocValuesConsumer
+annotation|@
+name|Deprecated
 class|class
+DECL|class|Lucene49DocValuesConsumer
 name|Lucene49DocValuesConsumer
 extends|extends
 name|DocValuesConsumer
