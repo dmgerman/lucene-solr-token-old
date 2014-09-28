@@ -78,19 +78,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReader
-import|;
-end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|BinaryDocValues
 import|;
 end_import
@@ -642,7 +629,6 @@ operator|.
 name|NUMERIC
 condition|)
 block|{
-comment|// TODO: use dedicated merge API, so impl can do merge-specific checksumming, and won't cache values in RAM
 name|values
 operator|=
 name|docValuesProducer
@@ -831,7 +817,6 @@ operator|.
 name|BINARY
 condition|)
 block|{
-comment|// TODO: use dedicated merge API, so impl can do merge-specific checksumming, and won't cache values in RAM
 name|values
 operator|=
 name|docValuesProducer
@@ -1004,7 +989,6 @@ operator|.
 name|SORTED
 condition|)
 block|{
-comment|// TODO: use dedicated merge API, so impl can do merge-specific checksumming, and won't cache values in RAM
 name|values
 operator|=
 name|docValuesProducer
@@ -1144,7 +1128,6 @@ operator|.
 name|SORTED_SET
 condition|)
 block|{
-comment|// TODO: use dedicated merge API, so impl can do merge-specific checksumming, and won't cache values in RAM
 name|values
 operator|=
 name|docValuesProducer
@@ -1284,7 +1267,6 @@ operator|.
 name|SORTED_NUMERIC
 condition|)
 block|{
-comment|// TODO: use dedicated merge API, so impl can do merge-specific checksumming, and won't cache values in RAM
 name|values
 operator|=
 name|docValuesProducer
