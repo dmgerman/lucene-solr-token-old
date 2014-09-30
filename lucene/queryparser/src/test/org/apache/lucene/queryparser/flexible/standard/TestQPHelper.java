@@ -2005,7 +2005,7 @@ name|assertEquals
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_AUTO_REWRITE_DEFAULT
+name|CONSTANT_SCORE_FILTER_REWRITE
 argument_list|,
 operator|(
 operator|(
@@ -2040,7 +2040,7 @@ name|assertEquals
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_AUTO_REWRITE_DEFAULT
+name|CONSTANT_SCORE_FILTER_REWRITE
 argument_list|,
 operator|(
 operator|(
@@ -2075,7 +2075,7 @@ name|assertEquals
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_AUTO_REWRITE_DEFAULT
+name|CONSTANT_SCORE_FILTER_REWRITE
 argument_list|,
 operator|(
 operator|(
@@ -4119,7 +4119,7 @@ name|assertEquals
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_AUTO_REWRITE_DEFAULT
+name|CONSTANT_SCORE_FILTER_REWRITE
 argument_list|,
 operator|(
 operator|(
@@ -6669,7 +6669,7 @@ name|setMultiTermRewriteMethod
 argument_list|(
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_AUTO_REWRITE_DEFAULT
+name|CONSTANT_SCORE_FILTER_REWRITE
 argument_list|)
 expr_stmt|;
 name|Query
