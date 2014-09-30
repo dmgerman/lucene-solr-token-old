@@ -203,7 +203,6 @@ name|IOContext
 name|context
 decl_stmt|;
 DECL|field|mergeState
-specifier|private
 specifier|final
 name|MergeState
 name|mergeState

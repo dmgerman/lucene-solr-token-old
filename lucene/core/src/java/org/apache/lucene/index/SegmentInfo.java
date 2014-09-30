@@ -510,7 +510,6 @@ name|int
 name|docCount
 parameter_list|)
 block|{
-comment|// nocommit what to do... this only happens when docCount == 0 ... see IW comment "          // would result in a 0 document segment: nothing to merge!"
 if|if
 condition|(
 name|this
@@ -519,12 +518,6 @@ name|docCount
 operator|!=
 operator|-
 literal|1
-operator|&&
-name|this
-operator|.
-name|docCount
-operator|!=
-name|docCount
 condition|)
 block|{
 throw|throw
