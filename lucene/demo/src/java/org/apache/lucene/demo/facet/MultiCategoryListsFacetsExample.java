@@ -247,6 +247,21 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|IndexWriterConfig
+operator|.
+name|OpenMode
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|IndexSearcher
@@ -330,7 +345,7 @@ operator|new
 name|FacetsConfig
 argument_list|()
 decl_stmt|;
-comment|/** Creates a new instance and populates the catetory list params mapping. */
+comment|/** Creates a new instance and populates the category list params mapping. */
 DECL|method|MultiCategoryListsFacetsExample
 specifier|public
 name|MultiCategoryListsFacetsExample
@@ -387,6 +402,13 @@ argument_list|(
 operator|new
 name|WhitespaceAnalyzer
 argument_list|()
+argument_list|)
+operator|.
+name|setOpenMode
+argument_list|(
+name|OpenMode
+operator|.
+name|CREATE
 argument_list|)
 argument_list|)
 decl_stmt|;
