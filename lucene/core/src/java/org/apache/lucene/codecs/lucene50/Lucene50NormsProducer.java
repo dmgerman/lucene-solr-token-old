@@ -695,6 +695,10 @@ name|segmentInfo
 operator|.
 name|getId
 argument_list|()
+argument_list|,
+name|state
+operator|.
+name|segmentSuffix
 argument_list|)
 expr_stmt|;
 name|readFields
@@ -797,6 +801,10 @@ name|segmentInfo
 operator|.
 name|getId
 argument_list|()
+argument_list|,
+name|state
+operator|.
+name|segmentSuffix
 argument_list|)
 decl_stmt|;
 if|if

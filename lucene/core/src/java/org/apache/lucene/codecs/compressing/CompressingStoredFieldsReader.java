@@ -945,6 +945,8 @@ name|si
 operator|.
 name|getId
 argument_list|()
+argument_list|,
+name|segmentSuffix
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -953,6 +955,8 @@ operator|.
 name|segmentHeaderLength
 argument_list|(
 name|codecNameIdx
+argument_list|,
+name|segmentSuffix
 argument_list|)
 operator|==
 name|indexStream
@@ -1111,6 +1115,8 @@ name|si
 operator|.
 name|getId
 argument_list|()
+argument_list|,
+name|segmentSuffix
 argument_list|)
 decl_stmt|;
 if|if
@@ -1142,6 +1148,8 @@ operator|.
 name|segmentHeaderLength
 argument_list|(
 name|codecNameDat
+argument_list|,
+name|segmentSuffix
 argument_list|)
 operator|==
 name|fieldsStream
