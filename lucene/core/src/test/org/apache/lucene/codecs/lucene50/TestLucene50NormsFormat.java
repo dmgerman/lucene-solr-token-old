@@ -1,6 +1,6 @@
 begin_unit
 begin_package
-DECL|package|org.apache.lucene.codecs.lucene49
+DECL|package|org.apache.lucene.codecs.lucene50
 package|package
 name|org
 operator|.
@@ -10,7 +10,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene49
+name|lucene50
 package|;
 end_package
 begin_comment
@@ -59,10 +59,10 @@ begin_comment
 comment|/**  * Tests Lucene49NormsFormat  */
 end_comment
 begin_class
-DECL|class|TestLucene49NormsFormat
+DECL|class|TestLucene50NormsFormat
 specifier|public
 class|class
-name|TestLucene49NormsFormat
+name|TestLucene50NormsFormat
 extends|extends
 name|BaseNormsFormatTestCase
 block|{
