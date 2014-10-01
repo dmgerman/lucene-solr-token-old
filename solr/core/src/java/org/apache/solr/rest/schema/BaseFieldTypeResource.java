@@ -327,6 +327,8 @@ operator|.
 name|addFieldTypes
 argument_list|(
 name|newFieldTypes
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|getSolrCore
