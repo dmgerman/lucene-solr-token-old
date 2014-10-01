@@ -364,7 +364,7 @@ specifier|static
 name|String
 name|CODEC_NAME
 init|=
-literal|"BLOCK_TERMS_DICT"
+literal|"BlockTermsWriter"
 decl_stmt|;
 comment|// Initial format
 DECL|field|VERSION_START
@@ -1485,24 +1485,6 @@ name|writeVInt
 argument_list|(
 literal|0
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|sumTotalTermFreq
-operator|=
-name|sumTotalTermFreq
-expr_stmt|;
-name|this
-operator|.
-name|sumDocFreq
-operator|=
-name|sumDocFreq
-expr_stmt|;
-name|this
-operator|.
-name|docCount
-operator|=
-name|docCount
 expr_stmt|;
 name|fieldIndexWriter
 operator|.
