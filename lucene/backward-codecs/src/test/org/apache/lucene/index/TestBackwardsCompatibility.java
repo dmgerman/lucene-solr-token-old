@@ -3081,6 +3081,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|checker
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|dir
 operator|.
 name|close

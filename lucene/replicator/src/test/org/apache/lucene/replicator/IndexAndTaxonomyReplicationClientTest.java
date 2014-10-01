@@ -2393,6 +2393,15 @@ literal|1024
 argument_list|)
 decl_stmt|;
 name|CheckIndex
+operator|.
+name|Status
+name|indexStatus
+init|=
+literal|null
+decl_stmt|;
+try|try
+init|(
+name|CheckIndex
 name|checker
 init|=
 operator|new
@@ -2403,7 +2412,8 @@ operator|.
 name|getDelegate
 argument_list|()
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|checker
 operator|.
 name|setFailFast
@@ -2430,13 +2440,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|CheckIndex
-operator|.
-name|Status
-name|indexStatus
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
 name|indexStatus
@@ -2464,6 +2467,7 @@ name|re
 parameter_list|)
 block|{
 comment|// ok: we fallback below
+block|}
 block|}
 if|if
 condition|(

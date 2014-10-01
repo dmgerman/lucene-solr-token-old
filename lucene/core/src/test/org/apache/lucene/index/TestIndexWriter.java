@@ -17696,6 +17696,11 @@ operator|.
 name|UTF_8
 argument_list|)
 decl_stmt|;
+name|checker
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 comment|// Make sure CheckIndex didn't fail
 name|assertTrue
 argument_list|(

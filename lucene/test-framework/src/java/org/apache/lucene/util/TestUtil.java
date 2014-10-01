@@ -831,6 +831,19 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|NoLockFactory
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -1381,6 +1394,10 @@ argument_list|(
 literal|1024
 argument_list|)
 decl_stmt|;
+comment|// TODO: actually use the dir's lock factory, unless test uses a special method?
+comment|// some tests e.g. exception tests become much more complicated if they have to close the writer
+try|try
+init|(
 name|CheckIndex
 name|checker
 init|=
@@ -1388,8 +1405,19 @@ operator|new
 name|CheckIndex
 argument_list|(
 name|dir
+argument_list|,
+name|NoLockFactory
+operator|.
+name|getNoLockFactory
+argument_list|()
+operator|.
+name|makeLock
+argument_list|(
+literal|"bogus"
 argument_list|)
-decl_stmt|;
+argument_list|)
+init|)
+block|{
 name|checker
 operator|.
 name|setCrossCheckTermVectors
@@ -1510,6 +1538,7 @@ block|}
 return|return
 name|indexStatus
 return|;
+block|}
 block|}
 block|}
 comment|/** This runs the CheckIndex tool on the Reader.  If any    *  issues are hit, a RuntimeException is thrown */
