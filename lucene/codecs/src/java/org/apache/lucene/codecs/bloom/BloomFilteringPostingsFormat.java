@@ -436,16 +436,7 @@ specifier|final
 name|int
 name|VERSION_START
 init|=
-literal|1
-decl_stmt|;
-DECL|field|VERSION_CHECKSUM
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|VERSION_CHECKSUM
-init|=
-literal|2
+literal|3
 decl_stmt|;
 DECL|field|VERSION_CURRENT
 specifier|public
@@ -454,7 +445,7 @@ specifier|final
 name|int
 name|VERSION_CURRENT
 init|=
-name|VERSION_CHECKSUM
+name|VERSION_START
 decl_stmt|;
 comment|/** Extension of Bloom Filters file */
 DECL|field|BLOOM_EXTENSION
@@ -700,12 +691,9 @@ operator|.
 name|context
 argument_list|)
 expr_stmt|;
-name|int
-name|version
-init|=
 name|CodecUtil
 operator|.
-name|checkHeader
+name|checkSegmentHeader
 argument_list|(
 name|bloomIn
 argument_list|,
@@ -714,8 +702,19 @@ argument_list|,
 name|VERSION_START
 argument_list|,
 name|VERSION_CURRENT
+argument_list|,
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|segmentSuffix
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// // Load the hash function used in the BloomFilter
 comment|// hashFunction = HashFunction.forName(bloomIn.readString());
 comment|// Load the delegate postings format
@@ -808,13 +807,6 @@ name|bloom
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|version
-operator|>=
-name|VERSION_CHECKSUM
-condition|)
-block|{
 name|CodecUtil
 operator|.
 name|checkFooter
@@ -822,17 +814,6 @@ argument_list|(
 name|bloomIn
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|CodecUtil
-operator|.
-name|checkEOF
-argument_list|(
-name|bloomIn
-argument_list|)
-expr_stmt|;
-block|}
 name|IOUtils
 operator|.
 name|close
@@ -2228,13 +2209,24 @@ argument_list|)
 expr_stmt|;
 name|CodecUtil
 operator|.
-name|writeHeader
+name|writeSegmentHeader
 argument_list|(
 name|bloomOutput
 argument_list|,
 name|BLOOM_CODEC_NAME
 argument_list|,
 name|VERSION_CURRENT
+argument_list|,
+name|state
+operator|.
+name|segmentInfo
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|state
+operator|.
+name|segmentSuffix
 argument_list|)
 expr_stmt|;
 comment|// remember the name of the postings format we will delegate to
