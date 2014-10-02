@@ -72,7 +72,7 @@ specifier|static
 name|int
 name|NUM_DOCS_PER_TYPE
 init|=
-literal|2000
+literal|100
 decl_stmt|;
 DECL|field|assertionString
 specifier|static
@@ -113,7 +113,7 @@ expr_stmt|;
 comment|// schema12 doesn't support _version_
 name|initCore
 argument_list|(
-literal|"solrconfig-nocache.xml"
+literal|"solrconfig-nocache-with-delaying-searchcomponent.xml"
 argument_list|,
 literal|"schema12.xml"
 argument_list|)
@@ -298,7 +298,7 @@ literal|"true"
 argument_list|,
 literal|"timeAllowed"
 argument_list|,
-literal|"1000"
+literal|"10000"
 argument_list|)
 argument_list|,
 name|assertionString
@@ -344,7 +344,7 @@ literal|"true"
 argument_list|,
 literal|"timeAllowed"
 argument_list|,
-literal|"1000"
+literal|"10000"
 argument_list|)
 argument_list|,
 name|assertionString
@@ -433,7 +433,7 @@ literal|"true"
 argument_list|,
 literal|"timeAllowed"
 argument_list|,
-literal|"1000"
+literal|"10000"
 argument_list|)
 argument_list|,
 name|assertionString
@@ -455,7 +455,7 @@ literal|"true"
 argument_list|,
 literal|"timeAllowed"
 argument_list|,
-literal|"1000"
+literal|"10000"
 argument_list|)
 argument_list|,
 name|assertionString
