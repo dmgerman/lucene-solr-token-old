@@ -546,6 +546,13 @@ operator|=
 operator|new
 name|CompoundFileDirectory
 argument_list|(
+name|si
+operator|.
+name|info
+operator|.
+name|getId
+argument_list|()
+argument_list|,
 name|dir
 argument_list|,
 name|IndexFileNames

@@ -1003,6 +1003,13 @@ name|info
 operator|.
 name|info
 operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|info
+operator|.
+name|info
+operator|.
 name|dir
 argument_list|,
 name|IndexFileNames
