@@ -22,6 +22,19 @@ name|apache
 operator|.
 name|solr
 operator|.
+name|core
+operator|.
+name|SolrInfoMBean
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
 name|handler
 operator|.
 name|component
@@ -130,7 +143,7 @@ name|getDescription
 parameter_list|()
 block|{
 return|return
-literal|null
+literal|"SearchComponent used to add delay to each request"
 return|;
 block|}
 block|}
