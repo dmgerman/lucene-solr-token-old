@@ -403,6 +403,14 @@ specifier|final
 name|String
 name|dataFileName
 decl_stmt|;
+comment|// preserve the IOContext we were originally passed
+comment|// previously this was not also passed to the .CFE
+DECL|field|context
+specifier|private
+specifier|final
+name|IOContext
+name|context
+decl_stmt|;
 comment|/**    * Create the compound stream in the specified file. The file name is the    * entire name (no extensions are added).    *     * @throws NullPointerException    *           if<code>dir</code> or<code>name</code> is null    */
 DECL|method|Lucene40CompoundWriter
 name|Lucene40CompoundWriter
@@ -412,6 +420,9 @@ name|dir
 parameter_list|,
 name|String
 name|name
+parameter_list|,
+name|IOContext
+name|context
 parameter_list|)
 block|{
 if|if
@@ -468,6 +479,12 @@ name|dataFileName
 operator|=
 name|name
 expr_stmt|;
+name|this
+operator|.
+name|context
+operator|=
+name|context
+expr_stmt|;
 block|}
 DECL|method|getOutput
 specifier|private
@@ -503,6 +520,8 @@ name|createOutput
 argument_list|(
 name|dataFileName
 argument_list|,
+name|this
+operator|.
 name|context
 argument_list|)
 expr_stmt|;
@@ -622,14 +641,11 @@ name|closed
 operator|=
 literal|true
 expr_stmt|;
-comment|// open the compound stream; we can safely use IOContext.DEFAULT
-comment|// here because this will only open the output if no file was
-comment|// added to the CFS
 name|getOutput
 argument_list|(
-name|IOContext
+name|this
 operator|.
-name|DEFAULT
+name|context
 argument_list|)
 expr_stmt|;
 assert|assert
@@ -689,9 +705,9 @@ name|createOutput
 argument_list|(
 name|entryTableName
 argument_list|,
-name|IOContext
+name|this
 operator|.
-name|DEFAULT
+name|context
 argument_list|)
 expr_stmt|;
 name|writeEntryTable
@@ -1147,6 +1163,8 @@ name|DirectCFSIndexOutput
 argument_list|(
 name|getOutput
 argument_list|(
+name|this
+operator|.
 name|context
 argument_list|)
 argument_list|,
@@ -1177,6 +1195,8 @@ name|createOutput
 argument_list|(
 name|name
 argument_list|,
+name|this
+operator|.
 name|context
 argument_list|)
 argument_list|,
@@ -1289,19 +1309,9 @@ name|copyFileEntry
 argument_list|(
 name|getOutput
 argument_list|(
-operator|new
-name|IOContext
-argument_list|(
-operator|new
-name|FlushInfo
-argument_list|(
-literal|0
-argument_list|,
-name|entry
+name|this
 operator|.
-name|length
-argument_list|)
-argument_list|)
+name|context
 argument_list|)
 argument_list|,
 name|entry
