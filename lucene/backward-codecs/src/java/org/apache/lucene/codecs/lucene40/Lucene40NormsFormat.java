@@ -171,7 +171,7 @@ name|name
 argument_list|,
 literal|"nrm"
 argument_list|,
-name|IndexFileNames
+name|Lucene40CompoundFormat
 operator|.
 name|COMPOUND_FILE_EXTENSION
 argument_list|)
