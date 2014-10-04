@@ -351,9 +351,9 @@ literal|0
 init|;
 name|i
 operator|<
-name|Integer
+name|IndexWriter
 operator|.
-name|MAX_VALUE
+name|MAX_DOCS
 condition|;
 name|i
 operator|++
@@ -722,9 +722,9 @@ literal|0
 init|;
 name|i
 operator|<
-name|Integer
+name|IndexWriter
 operator|.
-name|MAX_VALUE
+name|MAX_DOCS
 condition|;
 name|i
 operator|++
