@@ -146,21 +146,6 @@ operator|.
 name|TermVectorsFormat
 import|;
 end_import
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
-name|lucene50
-operator|.
-name|Lucene50CompoundFormat
-import|;
-end_import
 begin_comment
 comment|/**  * plain text index format.  *<p>  *<b><font color="red">FOR RECREATIONAL USE ONLY</font></B>  * @lucene.experimental  */
 end_comment
@@ -253,7 +238,6 @@ operator|new
 name|SimpleTextDocValuesFormat
 argument_list|()
 decl_stmt|;
-comment|// nocommit
 DECL|field|compoundFormat
 specifier|private
 specifier|final
@@ -261,7 +245,7 @@ name|CompoundFormat
 name|compoundFormat
 init|=
 operator|new
-name|Lucene50CompoundFormat
+name|SimpleTextCompoundFormat
 argument_list|()
 decl_stmt|;
 DECL|method|SimpleTextCodec
