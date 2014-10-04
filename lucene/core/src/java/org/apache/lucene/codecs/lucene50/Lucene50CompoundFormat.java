@@ -178,6 +178,12 @@ name|Lucene50CompoundFormat
 extends|extends
 name|CompoundFormat
 block|{
+comment|/** Sole constructor. */
+DECL|method|Lucene50CompoundFormat
+specifier|public
+name|Lucene50CompoundFormat
+parameter_list|()
+block|{   }
 annotation|@
 name|Override
 DECL|method|getCompoundReader
