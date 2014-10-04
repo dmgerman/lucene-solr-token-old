@@ -745,10 +745,10 @@ begin_comment
 comment|/**  * Verifies that Lucene MemoryIndex and RAMDirectory have the same behaviour,  * returning the same results for queries on some randomish indexes.  */
 end_comment
 begin_class
-DECL|class|MemoryIndexTest
+DECL|class|TestMemoryIndexAgainstRAMDir
 specifier|public
 class|class
-name|MemoryIndexTest
+name|TestMemoryIndexAgainstRAMDir
 extends|extends
 name|BaseTokenStreamTestCase
 block|{

@@ -24,6 +24,21 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|TestUtil
 import|;
 end_import
@@ -124,6 +139,8 @@ begin_comment
 comment|/** * Distributed test for {@link org.apache.lucene.index.ExitableDirectoryReader}  */
 end_comment
 begin_class
+annotation|@
+name|Slow
 DECL|class|CloudExitableDirectoryReaderTest
 specifier|public
 class|class
@@ -153,7 +170,7 @@ specifier|final
 name|int
 name|NUM_DOCS_PER_TYPE
 init|=
-literal|2000
+literal|20
 decl_stmt|;
 DECL|method|CloudExitableDirectoryReaderTest
 specifier|public
@@ -162,7 +179,7 @@ parameter_list|()
 block|{
 name|configString
 operator|=
-literal|"solrconfig-tlog.xml"
+literal|"solrconfig-tlog-with-delayingcomponent.xml"
 expr_stmt|;
 name|schemaString
 operator|=
@@ -365,12 +382,12 @@ literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|/*     query rewriting for NUM_DOCS_PER_TYPE terms should take less      time than this. Keeping it at 5 because the delaying search component delays all requests      by at 1 second.      */
 name|long
-name|oneSecond
+name|fiveSeconds
 init|=
-literal|1000L
+literal|5000L
 decl_stmt|;
-comment|// query rewriting for NUM_DOCS_PER_TYPE terms should take less time than this
 name|Long
 name|timeAllowed
 init|=
@@ -381,7 +398,7 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-name|oneSecond
+name|fiveSeconds
 argument_list|,
 name|Long
 operator|.
@@ -428,7 +445,7 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-name|oneSecond
+name|fiveSeconds
 argument_list|,
 name|Long
 operator|.

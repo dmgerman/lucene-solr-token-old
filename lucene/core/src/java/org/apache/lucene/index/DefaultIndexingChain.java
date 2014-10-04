@@ -2624,6 +2624,15 @@ name|bytesUsed
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|invertState
+operator|.
+name|length
+operator|!=
+literal|0
+condition|)
+block|{
 name|norms
 operator|.
 name|addValue
@@ -2640,6 +2649,7 @@ name|invertState
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|termsHashPerField
 operator|.
@@ -2712,16 +2722,6 @@ operator|==
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
-decl_stmt|;
-name|int
-name|lastStartOffset
-init|=
-literal|0
-decl_stmt|;
-name|int
-name|lastPosition
-init|=
-literal|0
 decl_stmt|;
 comment|/*        * To assist people in tracking down problems in analysis components, we wish to write the field name to the infostream        * when we fail. We expect some caller to eventually deal with the real exception, so we don't want any 'catch' clauses,        * but rather a finally that takes note of the problem.        */
 name|boolean
@@ -2811,6 +2811,8 @@ name|invertState
 operator|.
 name|position
 operator|<
+name|invertState
+operator|.
 name|lastPosition
 condition|)
 block|{
@@ -2855,6 +2857,8 @@ literal|"'"
 argument_list|)
 throw|;
 block|}
+name|invertState
+operator|.
 name|lastPosition
 operator|=
 name|invertState
@@ -2911,6 +2915,8 @@ if|if
 condition|(
 name|startOffset
 operator|<
+name|invertState
+operator|.
 name|lastStartOffset
 operator|||
 name|endOffset
@@ -2934,6 +2940,8 @@ name|endOffset
 operator|+
 literal|",lastStartOffset="
 operator|+
+name|invertState
+operator|.
 name|lastStartOffset
 operator|+
 literal|" for field '"
@@ -2947,6 +2955,8 @@ literal|"'"
 argument_list|)
 throw|;
 block|}
+name|invertState
+operator|.
 name|lastStartOffset
 operator|=
 name|startOffset

@@ -428,7 +428,7 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-comment|/**    * Match settings and bugs in Lucene's 4.10 release.    * @deprecated (5.0) Use latest    */
+comment|/**    * Match settings and bugs in Lucene's 4.10.0 release.    * @deprecated (5.0) Use latest    */
 annotation|@
 name|Deprecated
 DECL|field|LUCENE_4_10_0
@@ -446,6 +446,26 @@ argument_list|,
 literal|10
 argument_list|,
 literal|0
+argument_list|)
+decl_stmt|;
+comment|/**    * Match settings and bugs in Lucene's 4.10.1 release.    * @deprecated (5.0) Use latest    */
+annotation|@
+name|Deprecated
+DECL|field|LUCENE_4_10_1
+specifier|public
+specifier|static
+specifier|final
+name|Version
+name|LUCENE_4_10_1
+init|=
+operator|new
+name|Version
+argument_list|(
+literal|4
+argument_list|,
+literal|10
+argument_list|,
+literal|1
 argument_list|)
 decl_stmt|;
 comment|/**    * Match settings and bugs in Lucene's 5.0 release.    * @deprecated (5.0) Use latest    */
